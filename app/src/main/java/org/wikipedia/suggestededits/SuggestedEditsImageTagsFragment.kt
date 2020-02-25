@@ -1,14 +1,11 @@
 package org.wikipedia.suggestededits
 
-import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.graphics.Typeface
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
-import android.os.VibrationEffect
-import android.os.Vibrator
+import android.view.HapticFeedbackConstants
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.*
@@ -388,25 +385,23 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
     }
 
     private fun playSuccessVibration() {
-        val v = requireActivity().getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
-        val pattern = longArrayOf(0, 100)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            v.vibrate(VibrationEffect.createWaveform(pattern, -1))
-        } else {
-            v.vibrate(pattern, -1)
-        }
+        imageView.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS)
     }
 
     private fun updateLicenseTextShown() {
-        if (publishSuccess) {
-            tagsLicenseText.visibility = GONE
-            tagsHintText.visibility = GONE
-        } else if (atLeastOneTagChecked()) {
-            tagsLicenseText.visibility = VISIBLE
-            tagsHintText.visibility = GONE
-        } else {
-            tagsLicenseText.visibility = GONE
-            tagsHintText.visibility = VISIBLE
+        when {
+            publishSuccess -> {
+                tagsLicenseText.visibility = GONE
+                tagsHintText.visibility = GONE
+            }
+            atLeastOneTagChecked() -> {
+                tagsLicenseText.visibility = VISIBLE
+                tagsHintText.visibility = GONE
+            }
+            else -> {
+                tagsLicenseText.visibility = GONE
+                tagsHintText.visibility = VISIBLE
+            }
         }
     }
 
