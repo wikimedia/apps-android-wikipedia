@@ -130,8 +130,11 @@ public abstract class OkHttpWebViewClient extends WebViewClient {
     private Request.Builder addHeaders(@NonNull Request.Builder builder) {
         // TODO: Find a common way to set this header between here and RetrofitFactory.
         builder.header("Accept-Language", WikipediaApp.getInstance().getAcceptLanguage(getModel().getTitle().getWikiSite()));
-        builder.header(OfflineCacheInterceptor.SAVE_HEADER, getModel().shouldSaveOffline()
-                ? OfflineCacheInterceptor.SAVE_HEADER_SAVE : OfflineCacheInterceptor.SAVE_HEADER_NONE);
+        if (getModel().shouldSaveOffline()) {
+            builder.header(OfflineCacheInterceptor.SAVE_HEADER, OfflineCacheInterceptor.SAVE_HEADER_SAVE);
+        }
+        builder.header(OfflineCacheInterceptor.LANG_HEADER, getModel().getTitle().getWikiSite().languageCode());
+        builder.header(OfflineCacheInterceptor.TITLE_HEADER, getModel().getTitle().getPrefixedText());
         if (getModel().getCurEntry() != null && !TextUtils.isEmpty(getModel().getCurEntry().getReferrer())) {
             builder.header("Referer", getModel().getCurEntry().getReferrer());
         }

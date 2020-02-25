@@ -56,7 +56,7 @@ public class PageViewModel {
     }
 
     public boolean shouldSaveOffline() {
-        return readingListPage != null && readingListPage.offline();
+        return readingListPage != null;
     }
 
     @Nullable public ReadingListPage getReadingListPage() {

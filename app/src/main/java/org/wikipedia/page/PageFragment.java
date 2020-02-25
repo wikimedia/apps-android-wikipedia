@@ -477,8 +477,10 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         bridge.execute(JavaScriptActionHandler.setFooter(model));
 
         bridge.evaluate(JavaScriptActionHandler.getRevision(), revision -> {
-            if (!revision.equals("null")) {
+            try {
                 this.revision = Long.parseLong(revision.replace("\"", ""));
+            } catch (NumberFormatException e) {
+                L.e(e);
             }
         });
 
@@ -879,6 +881,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         }
         updateProgressBar(false, true, 0);
         refreshView.setRefreshing(false);
+        pageFragmentLoadState.onPageFinished();
 
         if (pageRefreshed) {
             pageRefreshed = false;
@@ -1356,7 +1359,9 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     }
 
     public Observable<References> getReferences() {
-        return references == null ? ServiceFactory.getRest(getTitle().getWikiSite()).getReferences(getTitle().getPrefixedText(), getRevision()) : Observable.just(references);
+        return references == null ? ServiceFactory.getRest(getTitle().getWikiSite()).getReferences(getTitle().getPrefixedText(), getRevision(),
+                getTitle().getWikiSite().languageCode(), getTitle().getPrefixedText())
+                : Observable.just(references);
     }
 
     public LinkHandler getLinkHandler() {

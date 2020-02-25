@@ -54,7 +54,7 @@ final class PageCacher {
     @NonNull
     private static Observable<Response<PageSummary>> summaryReq(@NonNull PageTitle title) {
         return ServiceFactory.getRest(title.getWikiSite())
-                .getSummaryResponse(null, null, null, title.getPrefixedText());
+                .getSummaryResponse(title.getPrefixedText(), null, null, null, null, null);
     }
 
     private PageCacher() { }

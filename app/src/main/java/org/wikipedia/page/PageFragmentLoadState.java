@@ -210,8 +210,9 @@ public class PageFragmentLoadState {
         app.getSessionFunnel().leadSectionFetchStart();
 
         disposables.add(ServiceFactory.getRest(model.getTitle().getWikiSite())
-                .getSummaryResponse(model.shouldForceNetwork() ? CacheControl.FORCE_NETWORK.toString() : null,
-                        model.shouldSaveOffline() ? OfflineCacheInterceptor.SAVE_HEADER_SAVE : null, null, model.getTitle().getPrefixedText())
+                .getSummaryResponse(model.getTitle().getPrefixedText(), null, model.shouldForceNetwork() ? CacheControl.FORCE_NETWORK.toString() : null,
+                        model.shouldSaveOffline() ? OfflineCacheInterceptor.SAVE_HEADER_SAVE : null,
+                        model.getTitle().getWikiSite().languageCode(), model.getTitle().getPrefixedText())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(pageSummaryResponse -> {
