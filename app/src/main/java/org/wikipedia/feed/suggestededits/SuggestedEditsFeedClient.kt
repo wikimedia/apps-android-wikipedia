@@ -95,6 +95,10 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
     }
 
     private fun getArticleToTranslateDescription(cb: FeedClient.Callback?, callback: Callback?) {
+        if (langToCode.isEmpty()) {
+            if (cb != null) { FeedCoordinator.postCardsToCallback(cb, emptyList<Card>()) }
+            return
+        }
         disposables.add(MissingDescriptionProvider
                 .getNextArticleWithMissingDescription(WikiSite.forLanguageCode(langFromCode), langToCode, true)
                 .subscribeOn(Schedulers.io())
@@ -177,8 +181,11 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
     }
 
     private fun getImageToTranslateCaption(cb: FeedClient.Callback?, callback: Callback?) {
+        if (langToCode.isEmpty()) {
+            if (cb != null) { FeedCoordinator.postCardsToCallback(cb, emptyList<Card>()) }
+            return
+        }
         var fileCaption: String? = null
-
         disposables.add(MissingDescriptionProvider.getNextImageWithMissingCaption(langFromCode, langToCode)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
