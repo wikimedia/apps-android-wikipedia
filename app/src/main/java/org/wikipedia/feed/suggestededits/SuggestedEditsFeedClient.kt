@@ -87,16 +87,18 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
 
                     val card: SuggestedEditsCard = toSuggestedEditsCard(WikiSite.forLanguageCode(langFromCode))
 
-                    if (callback == null) {
-                        FeedCoordinator.postCardsToCallback(cb!!, if (sourceSummary == null) emptyList<Card>() else listOf(card))
-                    } else {
-                        callback.updateCardContent(card)
+                    callback?.updateCardContent(card)
+                    if (cb != null) {
+                        FeedCoordinator.postCardsToCallback(cb, if (sourceSummary == null) emptyList<Card>() else listOf(card))
                     }
-
-                }, { if (callback == null) cb!!.success(emptyList()) }))
+                }, { cb?.error(it) }))
     }
 
     private fun getArticleToTranslateDescription(cb: FeedClient.Callback?, callback: Callback?) {
+        if (langToCode.isEmpty()) {
+            if (cb != null) { FeedCoordinator.postCardsToCallback(cb, emptyList<Card>()) }
+            return
+        }
         disposables.add(MissingDescriptionProvider
                 .getNextArticleWithMissingDescription(WikiSite.forLanguageCode(langFromCode), langToCode, true)
                 .subscribeOn(Schedulers.io())
@@ -129,13 +131,11 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
 
                     val card: SuggestedEditsCard = toSuggestedEditsCard(WikiSite.forLanguageCode(langFromCode))
 
-                    if (callback == null) {
-                        FeedCoordinator.postCardsToCallback(cb!!, if (pair == null) emptyList<Card>() else listOf(card))
-                    } else {
-                        callback.updateCardContent(card)
+                    callback?.updateCardContent(card)
+                    if (cb != null) {
+                        FeedCoordinator.postCardsToCallback(cb, if (pair == null) emptyList<Card>() else listOf(card))
                     }
-
-                }, { if (callback != null) cb!!.success(emptyList()) }))
+                }, { cb?.error(it) }))
     }
 
     private fun getImageToAddCaption(cb: FeedClient.Callback?, callback: Callback?) {
@@ -172,18 +172,20 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
                                 imageInfo.metadata
                         )
                         val card: SuggestedEditsCard = toSuggestedEditsCard(WikiSite.forLanguageCode(langFromCode))
-                        if (callback == null) {
-                            FeedCoordinator.postCardsToCallback(cb!!, if (sourceSummary == null) emptyList<Card>() else listOf(card))
-                        } else {
-                            callback.updateCardContent(card)
+                        callback?.updateCardContent(card)
+                        if (cb != null) {
+                            FeedCoordinator.postCardsToCallback(cb, if (sourceSummary == null) emptyList<Card>() else listOf(card))
                         }
                     }
-                }, { if (callback != null) cb!!.success(emptyList()) }))
+                }, { cb?.error(it) }))
     }
 
     private fun getImageToTranslateCaption(cb: FeedClient.Callback?, callback: Callback?) {
+        if (langToCode.isEmpty()) {
+            if (cb != null) { FeedCoordinator.postCardsToCallback(cb, emptyList<Card>()) }
+            return
+        }
         var fileCaption: String? = null
-
         disposables.add(MissingDescriptionProvider.getNextImageWithMissingCaption(langFromCode, langToCode)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -231,13 +233,12 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
                         )
 
                         val card: SuggestedEditsCard = toSuggestedEditsCard(WikiSite.forLanguageCode(langToCode))
-                        if (callback == null) {
-                            FeedCoordinator.postCardsToCallback(cb!!, if (targetSummary == null) emptyList<Card>() else listOf(card))
-                        } else {
-                            callback.updateCardContent(card)
+                        callback?.updateCardContent(card)
+                        if (cb != null) {
+                            FeedCoordinator.postCardsToCallback(cb, if (targetSummary == null) emptyList<Card>() else listOf(card))
                         }
                     }
-                }, { if (callback == null) cb!!.success(emptyList()) }))
+                }, { cb?.error(it) }))
     }
 
 }
