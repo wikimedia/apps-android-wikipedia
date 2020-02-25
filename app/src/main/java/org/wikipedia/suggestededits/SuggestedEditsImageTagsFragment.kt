@@ -328,8 +328,6 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
     }
 
     private fun onSuccess() {
-        publishProgressText.setText(R.string.suggested_edits_image_tags_published)
-
         Prefs.setSuggestedEditsImageTagsNew(false)
 
         val duration = 500L
@@ -342,13 +340,16 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         publishProgressBarComplete.visibility = VISIBLE
         publishProgressBarComplete.animate()
                 .alpha(1f)
+                .withEndAction {
+                    publishProgressText.setText(R.string.suggested_edits_image_tags_published)
+                    playSuccessVibration()
+                }
                 .duration = duration / 2
 
         publishProgressCheck.alpha = 0f
         publishProgressCheck.visibility = VISIBLE
         publishProgressCheck.animate()
                 .alpha(1f)
-                .withEndAction { playSuccessVibration() }
                 .duration = duration
 
         publishProgressBar.postDelayed({
