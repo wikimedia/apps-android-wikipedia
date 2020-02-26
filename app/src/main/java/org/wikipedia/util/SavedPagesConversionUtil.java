@@ -98,6 +98,13 @@ public final class SavedPagesConversionUtil {
             storeConvertedHtml(html);
             postNextPage();
         }
+
+        @JavascriptInterface
+        public synchronized void onError(String err) {
+            L.d(err);
+            // Conversion of the current page was unsuccessful, but continue to the next page anyway.
+            postNextPage();
+        }
     }
 
     private static void postNextPage() {
