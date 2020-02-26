@@ -1,14 +1,10 @@
 package org.wikipedia.dataclient.page;
 
-import android.location.Location;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 
-import org.wikipedia.page.GeoTypeAdapter;
 import org.wikipedia.page.Namespace;
 import org.wikipedia.page.Section;
 import org.wikipedia.util.UriUtil;
@@ -67,11 +63,6 @@ public class PageLead {
         return titlePronunciation == null
                 ? null
                 : UriUtil.resolveProtocolRelativeUrl(titlePronunciation.getUrl());
-    }
-
-    @Nullable
-    public Location getGeo() {
-        return geo;
     }
 
     @Nullable

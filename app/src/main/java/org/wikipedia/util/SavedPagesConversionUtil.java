@@ -155,7 +155,7 @@ public final class SavedPagesConversionUtil {
     }
 
     private static void onConversionComplete() {
-        L.d("Conversion complete!" );
+        L.d("Conversion complete!");
         Prefs.setOfflinePcsToMobileHtmlConversionComplete(true);
 
         if (WEBVIEW != null) {
@@ -167,7 +167,7 @@ public final class SavedPagesConversionUtil {
             WEBVIEW = null;
         }
 
-        L.d("Deleting old offline cache directory..." );
+        L.d("Deleting old offline cache directory...");
         FileUtil.deleteRecursively(new File(WikipediaApp.getInstance().getFilesDir(), CACHE_DIR_NAME));
     }
 
