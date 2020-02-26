@@ -20,6 +20,7 @@ import org.wikipedia.page.tabs.Tab;
 import org.wikipedia.pageimages.PageImage;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.util.DateUtil;
+import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.ObservableWebView;
 
@@ -210,7 +211,7 @@ public class PageFragmentLoadState {
         disposables.add(ServiceFactory.getRest(model.getTitle().getWikiSite())
                 .getSummaryResponse(model.getTitle().getPrefixedText(), null, model.shouldForceNetwork() ? CacheControl.FORCE_NETWORK.toString() : null,
                         model.shouldSaveOffline() ? OfflineCacheInterceptor.SAVE_HEADER_SAVE : null,
-                        model.getTitle().getWikiSite().languageCode(), model.getTitle().getPrefixedText())
+                        model.getTitle().getWikiSite().languageCode(), UriUtil.encodeURL(model.getTitle().getPrefixedText()))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(pageSummaryResponse -> {

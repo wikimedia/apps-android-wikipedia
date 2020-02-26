@@ -4,11 +4,13 @@ import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
 
+import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.offline.OfflineObject;
 import org.wikipedia.offline.OfflineObjectDbHelper;
 import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.util.StringUtil;
+import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
 
 import java.io.BufferedReader;
@@ -45,7 +47,7 @@ public class OfflineCacheInterceptor implements Interceptor {
         IOException networkException;
 
         String lang = request.header(LANG_HEADER);
-        String title = request.header(TITLE_HEADER);
+        String title = UriUtil.decodeURL(StringUtils.defaultString(request.header(TITLE_HEADER)));
 
         // attempt to read from the network.
         try {

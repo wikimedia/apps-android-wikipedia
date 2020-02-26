@@ -285,28 +285,29 @@ public class SavedPageSyncService extends JobIntentService {
     @NonNull
     private Observable<retrofit2.Response<PageSummary>> reqPageSummary(@NonNull PageTitle pageTitle) {
         return ServiceFactory.getRest(pageTitle.getWikiSite()).getSummaryResponse(pageTitle.getPrefixedText(), null, CacheControl.FORCE_NETWORK.toString(),
-                OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle.getWikiSite().languageCode(), pageTitle.getPrefixedText());
+                OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle.getWikiSite().languageCode(), UriUtil.encodeURL(pageTitle.getPrefixedText()));
     }
 
     @NonNull
     private Observable<retrofit2.Response<MediaList>> reqMediaList(@NonNull PageTitle pageTitle, long revision) {
         return ServiceFactory.getRest(pageTitle.getWikiSite()).getMediaListResponse(pageTitle.getPrefixedText(), revision, CacheControl.FORCE_NETWORK.toString(),
-                OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle.getWikiSite().languageCode(), pageTitle.getPrefixedText());
+                OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle.getWikiSite().languageCode(), UriUtil.encodeURL(pageTitle.getPrefixedText()));
     }
 
     @NonNull
     private Observable<retrofit2.Response<References>> reqPageReferences(@NonNull PageTitle pageTitle, long revision) {
         return ServiceFactory.getRest(pageTitle.getWikiSite()).getReferencesResponse(pageTitle.getPrefixedText(), revision, CacheControl.FORCE_NETWORK.toString(),
-                OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle.getWikiSite().languageCode(), pageTitle.getPrefixedText());
+                OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle.getWikiSite().languageCode(), UriUtil.encodeURL(pageTitle.getPrefixedText()));
     }
 
     private Observable<okhttp3.Response> reqMobileHTML(@NonNull PageTitle pageTitle) {
         Request request = makeUrlRequest(CacheControl.FORCE_NETWORK, pageTitle.getWikiSite(),
-                pageTitle.getWikiSite().url() + RestService.REST_API_PREFIX + RestService.PAGE_HTML_ENDPOINT + UriUtil.encodeURL(pageTitle.getPrefixedText()))
+                UriUtil.encodeOkHttpUrl(pageTitle.getWikiSite().url() + RestService.REST_API_PREFIX + RestService.PAGE_HTML_ENDPOINT,
+                        pageTitle.getPrefixedText()))
                 .addHeader("Accept-Language", WikipediaApp.getInstance().getAcceptLanguage(pageTitle.getWikiSite()))
                 .addHeader(OfflineCacheInterceptor.SAVE_HEADER, OfflineCacheInterceptor.SAVE_HEADER_SAVE)
                 .addHeader(OfflineCacheInterceptor.LANG_HEADER, pageTitle.getWikiSite().languageCode())
-                .addHeader(OfflineCacheInterceptor.TITLE_HEADER, pageTitle.getPrefixedText())
+                .addHeader(OfflineCacheInterceptor.TITLE_HEADER, UriUtil.encodeURL(pageTitle.getPrefixedText()))
                 .build();
 
         return Observable.create(emitter -> {
@@ -345,7 +346,7 @@ public class SavedPageSyncService extends JobIntentService {
         Request request = makeUrlRequest(CacheControl.FORCE_NETWORK, wiki, url)
                 .addHeader(OfflineCacheInterceptor.SAVE_HEADER, OfflineCacheInterceptor.SAVE_HEADER_SAVE)
                 .addHeader(OfflineCacheInterceptor.LANG_HEADER, pageTitle.getWikiSite().languageCode())
-                .addHeader(OfflineCacheInterceptor.TITLE_HEADER, pageTitle.getPrefixedText())
+                .addHeader(OfflineCacheInterceptor.TITLE_HEADER, UriUtil.encodeURL(pageTitle.getPrefixedText()))
                 .build();
 
         Response rsp = OkHttpConnectionFactory.getClient().newCall(request).execute();

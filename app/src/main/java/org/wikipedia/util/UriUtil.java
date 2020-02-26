@@ -20,6 +20,8 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
 
+import okhttp3.HttpUrl;
+
 public final class UriUtil {
     public static final String LOCAL_URL_SETTINGS = "#settings";
     public static final String LOCAL_URL_LOGIN = "#login";
@@ -51,6 +53,10 @@ public final class UriUtil {
         } catch (UnsupportedEncodingException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @NonNull public static String encodeOkHttpUrl(@NonNull String basePath, @NonNull String title) {
+        return HttpUrl.parse(basePath).newBuilder().addPathSegment(title).build().toString();
     }
 
     /**

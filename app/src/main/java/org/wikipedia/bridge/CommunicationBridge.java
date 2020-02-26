@@ -72,10 +72,9 @@ public class CommunicationBridge {
         isDOMReady = false;
         pendingJSMessages.clear();
         pendingEvals.clear();
-        communicationBridgeListener.getWebView().loadUrl(wikiUrl
-                + RestService.REST_API_PREFIX
-                + RestService.PAGE_HTML_ENDPOINT
-                + UriUtil.encodeURL(pageTitle.getPrefixedText()));
+        communicationBridgeListener.getWebView().loadUrl(UriUtil
+                .encodeOkHttpUrl(wikiUrl + RestService.REST_API_PREFIX + RestService.PAGE_HTML_ENDPOINT,
+                        pageTitle.getPrefixedText()));
     }
 
     public void cleanup() {

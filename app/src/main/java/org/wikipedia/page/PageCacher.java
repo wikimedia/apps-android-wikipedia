@@ -40,7 +40,8 @@ final class PageCacher {
 
     private static Observable<okhttp3.Response> mobileHtmlReq(@NonNull PageTitle pageTitle) {
         Request request = new Request.Builder().url(UriUtil.resolveProtocolRelativeUrl(pageTitle.getWikiSite(),
-                pageTitle.getWikiSite().url() + RestService.REST_API_PREFIX + RestService.PAGE_HTML_ENDPOINT + UriUtil.encodeURL(pageTitle.getPrefixedText())))
+                UriUtil.encodeOkHttpUrl(pageTitle.getWikiSite().url() + RestService.REST_API_PREFIX + RestService.PAGE_HTML_ENDPOINT,
+                        pageTitle.getPrefixedText())))
                 .addHeader("Accept-Language", WikipediaApp.getInstance().getAcceptLanguage(pageTitle.getWikiSite()))
                 .build();
 

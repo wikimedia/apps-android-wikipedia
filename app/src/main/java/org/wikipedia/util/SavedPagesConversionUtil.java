@@ -124,8 +124,8 @@ public final class SavedPagesConversionUtil {
         String baseUrl = CURRENT_PAGE.wiki().url();
         String title = CURRENT_PAGE.apiTitle();
 
-        String leadSectionUrl = baseUrl + REST_API_PREFIX + LEAD_SECTION_ENDPOINT + title;
-        String remainingSectionsUrl = baseUrl + REST_API_PREFIX + REMAINING_SECTIONS_ENDPOINT + title;
+        String leadSectionUrl = UriUtil.encodeOkHttpUrl(baseUrl + REST_API_PREFIX + LEAD_SECTION_ENDPOINT, title);
+        String remainingSectionsUrl = UriUtil.encodeOkHttpUrl(baseUrl + REST_API_PREFIX + REMAINING_SECTIONS_ENDPOINT, title);
 
         // Do the cache files exist for this page?
         File offlineCacheDir = new File(WikipediaApp.getInstance().getFilesDir(), CACHE_DIR_NAME);
@@ -175,7 +175,7 @@ public final class SavedPagesConversionUtil {
         }
 
         L.d("Deleting old offline cache directory...");
-        FileUtil.deleteRecursively(new File(WikipediaApp.getInstance().getFilesDir(), CACHE_DIR_NAME));
+        //FileUtil.deleteRecursively(new File(WikipediaApp.getInstance().getFilesDir(), CACHE_DIR_NAME));
     }
 
     private static void storeConvertedSummary(String pageLeadJson) {
@@ -201,7 +201,8 @@ public final class SavedPagesConversionUtil {
 
             String baseUrl = CURRENT_PAGE.wiki().url();
             String title = CURRENT_PAGE.apiTitle();
-            String summaryUrl = baseUrl + REST_API_PREFIX + "/page/summary/" + UriUtil.encodeURL(title);
+
+            String summaryUrl = UriUtil.encodeOkHttpUrl(baseUrl + REST_API_PREFIX + "/page/summary/", title);
             String date = DateUtil.getHttpLastModifiedDate(new Date());
             try {
                 date = DateUtil.getHttpLastModifiedDate(DateUtil.iso8601DateParse(pageLead.getLastModified()));
@@ -218,7 +219,7 @@ public final class SavedPagesConversionUtil {
     private static void storeConvertedHtml(String html) {
         String baseUrl = CURRENT_PAGE.wiki().url();
         String title = CURRENT_PAGE.apiTitle();
-        String mobileHtmlUrl = baseUrl + REST_API_PREFIX + RestService.PAGE_HTML_ENDPOINT + UriUtil.encodeURL(title);
+        String mobileHtmlUrl = UriUtil.encodeOkHttpUrl(baseUrl + REST_API_PREFIX + RestService.PAGE_HTML_ENDPOINT, title);
 
         OfflineCacheInterceptor.createCacheItemFor(CURRENT_PAGE, mobileHtmlUrl, html, "text/html", DateUtil.getHttpLastModifiedDate(new Date()));
     }

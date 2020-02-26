@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.PageViewModel;
+import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
 
 import java.io.IOException;
@@ -137,7 +138,7 @@ public abstract class OkHttpWebViewClient extends WebViewClient {
             builder.header(OfflineCacheInterceptor.SAVE_HEADER, OfflineCacheInterceptor.SAVE_HEADER_SAVE);
         }
         builder.header(OfflineCacheInterceptor.LANG_HEADER, getModel().getTitle().getWikiSite().languageCode());
-        builder.header(OfflineCacheInterceptor.TITLE_HEADER, getModel().getTitle().getPrefixedText());
+        builder.header(OfflineCacheInterceptor.TITLE_HEADER, UriUtil.encodeURL(getModel().getTitle().getPrefixedText()));
         if (getModel().getCurEntry() != null && !TextUtils.isEmpty(getModel().getCurEntry().getReferrer())) {
             builder.header("Referer", getModel().getCurEntry().getReferrer());
         }
