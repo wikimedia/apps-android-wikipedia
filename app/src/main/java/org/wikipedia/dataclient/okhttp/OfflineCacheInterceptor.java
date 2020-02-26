@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.offline.OfflineObject;
 import org.wikipedia.offline.OfflineObjectDbHelper;
+import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 
@@ -135,7 +136,7 @@ public class OfflineCacheInterceptor implements Interceptor {
         return "GET".equals(request.method()) && SAVE_HEADER_SAVE.equals(request.header(SAVE_HEADER));
     }
 
-    private String getObjectFileName(@NonNull String url, @NonNull String lang, @NonNull String mimeType) {
+    private static String getObjectFileName(@NonNull String url, @NonNull String lang, @NonNull String mimeType) {
         // If the object is an image, then make the hash independent of language.
         // Otherwise, encode the language into the hash.
         return mimeType.startsWith("image") ? StringUtil.md5string(url) : StringUtil.md5string(lang + ":" + url);
@@ -303,4 +304,45 @@ public class OfflineCacheInterceptor implements Interceptor {
             }
         }
     }
+
+    // TODO: Remove after 2 releases
+    public static void createCacheItemFor(ReadingListPage page, String url, String contents, String mimeType) {
+        String cachePath = WikipediaApp.getInstance().getFilesDir().getAbsolutePath()
+                + File.separator + OfflineObjectDbHelper.OFFLINE_PATH;
+        new File(cachePath).mkdirs();
+
+        String filePath = cachePath + File.separator + getObjectFileName(url, page.lang(), mimeType);
+
+        File metadataFile = new File(filePath + ".0");
+        File contentsFile = new File(filePath + ".1");
+
+        if (metadataFile.exists()) {
+            return;
+        }
+
+        try (OutputStreamWriter writer = new OutputStreamWriter(new FileOutputStream(metadataFile))) {
+            writer.write(url + "\n");
+            writer.write("GET\n");
+            writer.write("H2\n");
+            writer.write("200\n");
+            writer.write("OK\n");
+            writer.write("content-type: " + mimeType + "\n");
+            writer.write("content-length: " + contents.length() + "\n");
+            writer.flush();
+        } catch (IOException e) {
+            L.e(e);
+            return;
+        }
+
+        try (OutputStreamWriter writer = new OutputStreamWriter(new FileOutputStream(contentsFile))) {
+            writer.write(contents);
+            writer.flush();
+        } catch (IOException e) {
+            L.e(e);
+            return;
+        }
+
+        OfflineObjectDbHelper.instance().addObject(url, page.lang(), filePath, page.apiTitle());
+    }
+
 }

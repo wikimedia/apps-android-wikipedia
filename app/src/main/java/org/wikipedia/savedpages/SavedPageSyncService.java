@@ -302,7 +302,7 @@ public class SavedPageSyncService extends JobIntentService {
 
     private Observable<okhttp3.Response> reqMobileHTML(@NonNull PageTitle pageTitle) {
         Request request = makeUrlRequest(CacheControl.FORCE_NETWORK, pageTitle.getWikiSite(),
-                pageTitle.getWikiSite().url() + RestService.REST_API_PREFIX + RestService.PAGE_HTML_ENDPOINT + pageTitle.getPrefixedText())
+                pageTitle.getWikiSite().url() + RestService.REST_API_PREFIX + RestService.PAGE_HTML_ENDPOINT + UriUtil.encodeURL(pageTitle.getPrefixedText()))
                 .addHeader("Accept-Language", WikipediaApp.getInstance().getAcceptLanguage(pageTitle.getWikiSite()))
                 .addHeader(OfflineCacheInterceptor.SAVE_HEADER, OfflineCacheInterceptor.SAVE_HEADER_SAVE)
                 .addHeader(OfflineCacheInterceptor.LANG_HEADER, pageTitle.getWikiSite().languageCode())

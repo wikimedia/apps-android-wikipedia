@@ -72,13 +72,14 @@ public abstract class OkHttpWebViewClient extends WebViewClient {
                             getInputStream(rsp));
             }
         } catch (Exception e) {
-            // The following responses are when we have failed to fetch the required css or javascript for our page (probably due to
-            // being offline), so replacing them with our pre-packaged fallback.
+
+            //------------------
+            // TODO: remove after two releases.
             if (request.getUrl().toString().contains(PCS_CSS)) {
                 final int statusCode = 200;
                 try {
                     return new WebResourceResponse("text/css", "utf-8", statusCode, "OK",
-                            Collections.emptyMap(), WikipediaApp.getInstance().getAssets().open("pcs.css"));
+                            Collections.emptyMap(), WikipediaApp.getInstance().getAssets().open("offline_convert/pcs.css"));
                 } catch (IOException ex) {
                     // ignore silently
                 }
@@ -86,19 +87,21 @@ public abstract class OkHttpWebViewClient extends WebViewClient {
                 final int statusCode = 200;
                 try {
                     return new WebResourceResponse("text/css", "utf-8", statusCode, "OK",
-                            Collections.emptyMap(), WikipediaApp.getInstance().getAssets().open("base.css"));
+                            Collections.emptyMap(), WikipediaApp.getInstance().getAssets().open("offline_convert/base.css"));
                 } catch (IOException ex) {
                     // ignore silently
                 }
             } else if (request.getUrl().toString().contains(PCS_JS)) {
                 final int statusCode = 200;
                 try {
-                    return new WebResourceResponse("text/css", "utf-8", statusCode, "OK",
-                            Collections.emptyMap(), WikipediaApp.getInstance().getAssets().open("javascript_file.js"));
+                    return new WebResourceResponse("text/javascript", "utf-8", statusCode, "OK",
+                            Collections.emptyMap(), WikipediaApp.getInstance().getAssets().open("offline_convert/pcs.js"));
                 } catch (IOException ex) {
                     // ignore silently
                 }
             }
+            //------------------
+
             // TODO: we can send actual error message by handling the exception message.
             response = new WebResourceResponse(null, null, 404, "Unknown error", null, null);
             L.e(e);

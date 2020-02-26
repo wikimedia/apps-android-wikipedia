@@ -9,7 +9,7 @@ import org.wikipedia.settings.Prefs
 import java.io.File
 
 object OkHttpConnectionFactory {
-    public const val CACHE_DIR_NAME = "okhttp-cache"
+    const val CACHE_DIR_NAME = "okhttp-cache"
     private const val NET_CACHE_SIZE = (64 * 1024 * 1024).toLong()
     private val NET_CACHE = Cache(File(WikipediaApp.getInstance().cacheDir, CACHE_DIR_NAME), NET_CACHE_SIZE)
     @JvmStatic val client = createClient()
