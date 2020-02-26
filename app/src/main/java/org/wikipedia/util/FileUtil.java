@@ -2,7 +2,6 @@ package org.wikipedia.util;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.util.Log;
 
 import androidx.annotation.NonNull;
 
@@ -94,31 +93,6 @@ public final class FileUtil {
         }
         return context.getString(R.string.size_mb, bytesToMB(bytes));
     }
-
-    static void writeToFileInDirectory(String data, String directory, String filename) {
-        File file = new File(directory, filename);
-
-        FileOutputStream outputStream = null;
-        try {
-            file.createNewFile();
-            outputStream = new FileOutputStream(file);
-            outputStream.write(data.getBytes());
-            outputStream.flush();
-            outputStream.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                if (outputStream != null) {
-                    outputStream.flush();
-                    outputStream.close();
-                }
-            } catch (IOException e) {
-                Log.e("Exception", "File write failed: " + e.toString());
-            }
-        }
-    }
-
 
     private FileUtil() { }
 }

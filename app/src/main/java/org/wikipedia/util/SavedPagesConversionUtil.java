@@ -93,9 +93,7 @@ public final class SavedPagesConversionUtil {
         @JavascriptInterface
         public synchronized void onReceiveHtml(String html) {
             storeConvertedHtml(html);
-
-            //postNextPage();
-
+            postNextPage();
         }
     }
 
