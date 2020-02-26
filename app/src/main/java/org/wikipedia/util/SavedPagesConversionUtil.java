@@ -93,7 +93,9 @@ public final class SavedPagesConversionUtil {
         @JavascriptInterface
         public synchronized void onReceiveHtml(String html) {
             storeConvertedFile(html);
-            postNextPage();
+
+            //postNextPage();
+
         }
     }
 
@@ -136,7 +138,7 @@ public final class SavedPagesConversionUtil {
             WEBVIEW.evaluateJavascript("PCSHTMLConverter.convertMobileSectionsJSONToMobileHTML("
                             + leadJSON + ","
                             + remainingSectionsJSON + ","
-                            + "\"" + baseUrl + "\"" + ","
+                            + "\"" + CURRENT_PAGE.wiki().authority() + "\"" + ","
                             + "\"" + restPrefix + "\""
                             + ")",
                     value -> {
@@ -154,13 +156,12 @@ public final class SavedPagesConversionUtil {
         FileUtil.deleteRecursively(new File(WikipediaApp.getInstance().getFilesDir(), CACHE_DIR_NAME));
     }
 
-    @SuppressLint("CheckResult")
     private static void storeConvertedFile(String html) {
         String baseUrl = CURRENT_PAGE.wiki().url();
         String title = CURRENT_PAGE.apiTitle();
         String mobileHtmlUrl = baseUrl + REST_API_PREFIX + MOBILE_HTML_ENDPOINT + title;
 
-        OfflineCacheInterceptor.createCacheItemFor(CURRENT_PAGE, mobileHtmlUrl, html);
+        OfflineCacheInterceptor.createCacheItemFor(CURRENT_PAGE, mobileHtmlUrl, html, "text/html");
     }
 
     private SavedPagesConversionUtil() {
