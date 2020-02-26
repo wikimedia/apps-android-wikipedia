@@ -306,7 +306,7 @@ public class OfflineCacheInterceptor implements Interceptor {
     }
 
     // TODO: Remove after 2 releases
-    public static void createCacheItemFor(ReadingListPage page, String url, String contents, String mimeType) {
+    public static void createCacheItemFor(ReadingListPage page, String url, String contents, String mimeType, String dateModified) {
         String cachePath = WikipediaApp.getInstance().getFilesDir().getAbsolutePath()
                 + File.separator + OfflineObjectDbHelper.OFFLINE_PATH;
         new File(cachePath).mkdirs();
@@ -328,6 +328,7 @@ public class OfflineCacheInterceptor implements Interceptor {
             writer.write("OK\n");
             writer.write("content-type: " + mimeType + "\n");
             writer.write("content-length: " + contents.length() + "\n");
+            writer.write("date: " + dateModified + "\n");
             writer.flush();
         } catch (IOException e) {
             L.e(e);

@@ -3,6 +3,7 @@ package org.wikipedia.page;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import org.wikipedia.Constants;
 import org.wikipedia.R;
@@ -21,9 +22,6 @@ import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.ObservableWebView;
-
-import java.text.ParseException;
-import java.util.Objects;
 
 import io.reactivex.Completable;
 import io.reactivex.Observable;
@@ -223,7 +221,7 @@ public class PageFragmentLoadState {
                             }
                             if ((pageSummaryResponse.raw().cacheResponse() != null && pageSummaryResponse.raw().networkResponse() == null)
                                     || OfflineCacheInterceptor.SAVE_HEADER_SAVE.equals(pageSummaryResponse.headers().get(OfflineCacheInterceptor.SAVE_HEADER))) {
-                                showPageOfflineMessage(Objects.requireNonNull(pageSummaryResponse.raw().header("date", "")));
+                                showPageOfflineMessage(pageSummaryResponse.raw().header("date", ""));
                             }
                             fragment.onPageMetadataLoaded();
                         },
@@ -236,7 +234,7 @@ public class PageFragmentLoadState {
         bridge.resetHtml(model.getTitle().getWikiSite().url(), model.getTitle());
     }
 
-    private void showPageOfflineMessage(@NonNull String dateHeader) {
+    private void showPageOfflineMessage(@Nullable String dateHeader) {
         if (!fragment.isAdded()) {
             return;
         }
@@ -246,7 +244,7 @@ public class PageFragmentLoadState {
             Toast.makeText(fragment.requireContext().getApplicationContext(),
                     fragment.getString(R.string.page_offline_notice_last_date, dateStr),
                     Toast.LENGTH_LONG).show();
-        } catch (ParseException e) {
+        } catch (Exception e) {
             // ignore
         }
     }

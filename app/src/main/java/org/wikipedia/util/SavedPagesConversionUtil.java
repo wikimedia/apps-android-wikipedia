@@ -22,6 +22,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import okio.ByteString;
@@ -189,8 +190,14 @@ public final class SavedPagesConversionUtil {
             String baseUrl = CURRENT_PAGE.wiki().url();
             String title = CURRENT_PAGE.apiTitle();
             String summaryUrl = baseUrl + REST_API_PREFIX + "/page/summary/" + UriUtil.encodeURL(title);
+            String date = DateUtil.getHttpLastModifiedDate(new Date());
+            try {
+                date = DateUtil.getHttpLastModifiedDate(DateUtil.iso8601DateParse(pageLead.getLastModified()));
+            } catch (Exception e) {
+                //
+            }
 
-            OfflineCacheInterceptor.createCacheItemFor(CURRENT_PAGE, summaryUrl, json, "application/json");
+            OfflineCacheInterceptor.createCacheItemFor(CURRENT_PAGE, summaryUrl, json, "application/json", date);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -201,7 +208,7 @@ public final class SavedPagesConversionUtil {
         String title = CURRENT_PAGE.apiTitle();
         String mobileHtmlUrl = baseUrl + REST_API_PREFIX + RestService.PAGE_HTML_ENDPOINT + UriUtil.encodeURL(title);
 
-        OfflineCacheInterceptor.createCacheItemFor(CURRENT_PAGE, mobileHtmlUrl, html, "text/html");
+        OfflineCacheInterceptor.createCacheItemFor(CURRENT_PAGE, mobileHtmlUrl, html, "text/html", DateUtil.getHttpLastModifiedDate(new Date()));
     }
 
     private SavedPagesConversionUtil() {
