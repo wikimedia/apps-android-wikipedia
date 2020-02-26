@@ -326,7 +326,6 @@ public class OfflineCacheInterceptor implements Interceptor {
             writer.write("H2\n");
             writer.write("200\n");
             writer.write("OK\n");
-            writer.write("date: Mon, 24 Feb 2020 20:54:49 GMT\n");
             writer.write("content-type: " + mimeType + "\n");
             writer.write("content-length: " + contents.length() + "\n");
             writer.flush();

@@ -7,6 +7,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.dataclient.RestService;
 import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor;
 import org.wikipedia.offline.OfflineObjectDbHelper;
 import org.wikipedia.readinglist.database.ReadingList;
@@ -28,7 +29,6 @@ import static org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory.CACHE_DIR_
 public final class SavedPagesConversionUtil {
     private static final String LEAD_SECTION_ENDPOINT = "/page/mobile-sections-lead/";
     private static final String REMAINING_SECTIONS_ENDPOINT = "/page/mobile-sections-remaining/";
-    private static final String MOBILE_HTML_ENDPOINT = "/page/mobile-html/";
 
     @SuppressLint("StaticFieldLeak")
     private static WebView WEBVIEW;
@@ -159,7 +159,7 @@ public final class SavedPagesConversionUtil {
     private static void storeConvertedFile(String html) {
         String baseUrl = CURRENT_PAGE.wiki().url();
         String title = CURRENT_PAGE.apiTitle();
-        String mobileHtmlUrl = baseUrl + REST_API_PREFIX + MOBILE_HTML_ENDPOINT + title;
+        String mobileHtmlUrl = baseUrl + REST_API_PREFIX + RestService.PAGE_HTML_ENDPOINT + UriUtil.encodeURL(title);
 
         OfflineCacheInterceptor.createCacheItemFor(CURRENT_PAGE, mobileHtmlUrl, html, "text/html");
     }
