@@ -858,6 +858,14 @@ public final class Prefs {
         return getInt(R.string.preference_key_suggested_edits_override_reverts, 0);
     }
 
+    public static boolean isOfflinePcsToMobileHtmlConversionComplete() {
+        return getBoolean(R.string.preference_key_pcs_to_mobilehtml_conversion_complete, false);
+    }
+
+    public static void setOfflinePcsToMobileHtmlConversionComplete(boolean conversionComplete) {
+        setBoolean(R.string.preference_key_pcs_to_mobilehtml_conversion_complete, conversionComplete);
+    }
+
     public static boolean shouldShowImageTagsOnboarding() {
         return getBoolean(R.string.preference_key_image_tags_onboarding_shown, true);
     }

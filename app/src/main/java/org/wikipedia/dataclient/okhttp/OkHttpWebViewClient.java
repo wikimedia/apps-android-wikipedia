@@ -18,6 +18,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -38,6 +39,9 @@ public abstract class OkHttpWebViewClient extends WebViewClient {
     private static final List<String> SUPPORTED_SCHEMES = Arrays.asList("http", "https");
     private static final String HEADER_CONTENT_TYPE = "content-type";
     private static final String CONTENT_TYPE_OGG = "application/ogg";
+    private static final String PCS_CSS = "/data/css/mobile/pcs";
+    private static final String BASE_CSS = "/data/css/mobile/base";
+    private static final String PCS_JS = "/data/javascript/mobile/pcs";
 
     @NonNull public abstract PageViewModel getModel();
 
@@ -68,6 +72,33 @@ public abstract class OkHttpWebViewClient extends WebViewClient {
                             getInputStream(rsp));
             }
         } catch (Exception e) {
+            // The following responses are when we have failed to fetch the required css or javascript for our page (probably due to
+            // being offline), so replacing them with our pre-packaged fallback.
+            if (request.getUrl().toString().contains(PCS_CSS)) {
+                final int statusCode = 200;
+                try {
+                    return new WebResourceResponse("text/css", "utf-8", statusCode, "OK",
+                            Collections.emptyMap(), WikipediaApp.getInstance().getAssets().open("pcs.css"));
+                } catch (IOException ex) {
+                    // ignore silently
+                }
+            } else if (request.getUrl().toString().contains(BASE_CSS)) {
+                final int statusCode = 200;
+                try {
+                    return new WebResourceResponse("text/css", "utf-8", statusCode, "OK",
+                            Collections.emptyMap(), WikipediaApp.getInstance().getAssets().open("base.css"));
+                } catch (IOException ex) {
+                    // ignore silently
+                }
+            } else if (request.getUrl().toString().contains(PCS_JS)) {
+                final int statusCode = 200;
+                try {
+                    return new WebResourceResponse("text/css", "utf-8", statusCode, "OK",
+                            Collections.emptyMap(), WikipediaApp.getInstance().getAssets().open("javascript_file.js"));
+                } catch (IOException ex) {
+                    // ignore silently
+                }
+            }
             // TODO: we can send actual error message by handling the exception message.
             response = new WebResourceResponse(null, null, 404, "Unknown error", null, null);
             L.e(e);
