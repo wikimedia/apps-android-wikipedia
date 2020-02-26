@@ -9,7 +9,6 @@ import android.webkit.WebViewClient;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.RestService;
 import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor;
-import org.wikipedia.offline.OfflineObjectDbHelper;
 import org.wikipedia.readinglist.database.ReadingList;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.readinglist.database.ReadingListPage;
@@ -26,6 +25,7 @@ import okio.ByteString;
 import static org.wikipedia.dataclient.RestService.REST_API_PREFIX;
 import static org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory.CACHE_DIR_NAME;
 
+// TODO: remove after two releases.
 public final class SavedPagesConversionUtil {
     private static final String LEAD_SECTION_ENDPOINT = "/page/mobile-sections-lead/";
     private static final String REMAINING_SECTIONS_ENDPOINT = "/page/mobile-sections-remaining/";
@@ -77,10 +77,6 @@ public final class SavedPagesConversionUtil {
             WEBVIEW.setWebViewClient(new WebViewClient() {
                 @Override
                 public void onPageFinished(WebView view, String url) {
-                    File file = new File(WikipediaApp.getInstance().getFilesDir(), OfflineObjectDbHelper.OFFLINE_PATH);
-                    if (!file.exists()) {
-                        file.mkdirs();
-                    }
                     postNextPage();
                 }
             });
@@ -152,6 +148,15 @@ public final class SavedPagesConversionUtil {
 
     private static void onConversionComplete() {
         Prefs.setOfflinePcsToMobileHtmlConversionComplete(true);
+
+        if (WEBVIEW != null) {
+            try {
+                WEBVIEW.destroy();
+            } catch (Exception e) {
+                // ignore
+            }
+            WEBVIEW = null;
+        }
 
         FileUtil.deleteRecursively(new File(WikipediaApp.getInstance().getFilesDir(), CACHE_DIR_NAME));
     }

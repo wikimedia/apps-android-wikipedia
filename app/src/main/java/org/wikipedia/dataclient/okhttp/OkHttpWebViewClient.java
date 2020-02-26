@@ -74,7 +74,7 @@ public abstract class OkHttpWebViewClient extends WebViewClient {
         } catch (Exception e) {
 
             //------------------
-            // TODO: remove this block after two releases (when conversion logic is no longer necessary)
+            // TODO: remove after two releases.
             if (request.getUrl().toString().contains(PCS_CSS)) {
                 final int statusCode = 200;
                 try {
