@@ -17,6 +17,7 @@ import org.wikipedia.readinglist.database.ReadingList;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.settings.Prefs;
+import org.wikipedia.util.log.L;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -47,6 +48,7 @@ public final class SavedPagesConversionUtil {
             Prefs.setOfflinePcsToMobileHtmlConversionComplete(true);
             return;
         }
+        L.d("Preparing for conversion of old offline data...");
 
         for (ReadingList readingList : allReadingLists) {
             for (ReadingListPage page : readingList.pages()) {
@@ -110,6 +112,7 @@ public final class SavedPagesConversionUtil {
         }
 
         CURRENT_PAGE = PAGES_TO_CONVERT.remove(0);
+        L.d("Converting: " + CURRENT_PAGE.title());
 
         String baseUrl = CURRENT_PAGE.wiki().url();
         String title = CURRENT_PAGE.apiTitle();
@@ -152,6 +155,7 @@ public final class SavedPagesConversionUtil {
     }
 
     private static void onConversionComplete() {
+        L.d("Conversion complete!" );
         Prefs.setOfflinePcsToMobileHtmlConversionComplete(true);
 
         if (WEBVIEW != null) {
@@ -163,6 +167,7 @@ public final class SavedPagesConversionUtil {
             WEBVIEW = null;
         }
 
+        L.d("Deleting old offline cache directory..." );
         FileUtil.deleteRecursively(new File(WikipediaApp.getInstance().getFilesDir(), CACHE_DIR_NAME));
     }
 
