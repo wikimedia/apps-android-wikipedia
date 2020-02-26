@@ -28,7 +28,6 @@ public class PageLead {
     @SuppressWarnings("unused") @Nullable private String normalizedtitle;
     @SuppressWarnings("unused") @Nullable @SerializedName("wikibase_item") private String wikiBaseItem;
     @SuppressWarnings("unused") @Nullable @SerializedName("pronunciation") private TitlePronunciation titlePronunciation;
-    @SuppressWarnings("unused") @Nullable @JsonAdapter(GeoTypeAdapter.class) private Location geo;
     @SuppressWarnings("unused") private int languagecount;
     @SuppressWarnings("unused") private boolean editable;
     @SuppressWarnings("unused") private boolean mainpage;
