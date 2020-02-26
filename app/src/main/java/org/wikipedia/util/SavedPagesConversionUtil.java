@@ -26,6 +26,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import io.reactivex.Completable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 import okio.ByteString;
 
 import static org.wikipedia.dataclient.RestService.REST_API_PREFIX;
@@ -43,29 +46,35 @@ public final class SavedPagesConversionUtil {
 
     @SuppressLint({"SetJavaScriptEnabled", "CheckResult"})
     public static void runOneTimeSavedPagesConversion() {
-        List<ReadingList> allReadingLists = ReadingListDbHelper.instance().getAllLists();
-        if (allReadingLists.isEmpty()) {
-            Prefs.setOfflinePcsToMobileHtmlConversionComplete(true);
-            return;
-        }
-        L.d("Preparing for conversion of old offline data...");
-
-        for (ReadingList readingList : allReadingLists) {
-            for (ReadingListPage page : readingList.pages()) {
-                if (!page.offline()) {
-                    continue;
-                }
-                PAGES_TO_CONVERT.add(page);
+        Completable.fromAction(() -> {
+            List<ReadingList> allReadingLists = ReadingListDbHelper.instance().getAllLists();
+            if (allReadingLists.isEmpty()) {
+                Prefs.setOfflinePcsToMobileHtmlConversionComplete(true);
+                return;
             }
-        }
+            L.d("Preparing for conversion of old offline data...");
 
-        if (PAGES_TO_CONVERT.isEmpty()) {
-            Prefs.setOfflinePcsToMobileHtmlConversionComplete(true);
-            return;
-        }
+            for (ReadingList readingList : allReadingLists) {
+                for (ReadingListPage page : readingList.pages()) {
+                    if (!page.offline()) {
+                        continue;
+                    }
+                    PAGES_TO_CONVERT.add(page);
+                }
+            }
 
-        new Handler(WikipediaApp.getInstance().getMainLooper())
-                .post(SavedPagesConversionUtil::setUpWebViewForConversion);
+        }).subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(() -> {
+                    if (PAGES_TO_CONVERT.isEmpty()) {
+                        Prefs.setOfflinePcsToMobileHtmlConversionComplete(true);
+                    } else {
+                        new Handler(WikipediaApp.getInstance().getMainLooper())
+                                .post(SavedPagesConversionUtil::setUpWebViewForConversion);
+                    }
+                }, throwable -> {
+                    Prefs.setOfflinePcsToMobileHtmlConversionComplete(true);
+                });
     }
 
     @SuppressLint("SetJavaScriptEnabled")
@@ -175,7 +184,7 @@ public final class SavedPagesConversionUtil {
         }
 
         L.d("Deleting old offline cache directory...");
-        //FileUtil.deleteRecursively(new File(WikipediaApp.getInstance().getFilesDir(), CACHE_DIR_NAME));
+        FileUtil.deleteRecursively(new File(WikipediaApp.getInstance().getFilesDir(), CACHE_DIR_NAME));
     }
 
     private static void storeConvertedSummary(String pageLeadJson) {
