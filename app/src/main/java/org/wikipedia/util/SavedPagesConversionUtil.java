@@ -7,35 +7,33 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor;
+import org.wikipedia.offline.OfflineObjectDbHelper;
 import org.wikipedia.readinglist.database.ReadingList;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.settings.Prefs;
-import org.wikipedia.util.log.L;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
 
-import io.reactivex.Completable;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.schedulers.Schedulers;
 import okio.ByteString;
 
 import static org.wikipedia.dataclient.RestService.REST_API_PREFIX;
 import static org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory.CACHE_DIR_NAME;
-import static org.wikipedia.util.StringUtil.hasSpecialCharacters;
 
 public final class SavedPagesConversionUtil {
     private static final String LEAD_SECTION_ENDPOINT = "/page/mobile-sections-lead/";
     private static final String REMAINING_SECTIONS_ENDPOINT = "/page/mobile-sections-remaining/";
-    public static final String CONVERTED_FILES_DIRECTORY_NAME = "converted-files";
+    private static final String MOBILE_HTML_ENDPOINT = "/page/mobile-html/";
 
-    private static List<SavedReadingListPage> PAGES_TO_CONVERT = new ArrayList<>();
-    private static AtomicInteger FILE_COUNT = new AtomicInteger();
+    @SuppressLint("StaticFieldLeak")
+    private static WebView WEBVIEW;
+    private static List<ReadingListPage> PAGES_TO_CONVERT = new ArrayList<>();
+    private static ReadingListPage CURRENT_PAGE;
 
     @SuppressLint({"SetJavaScriptEnabled", "CheckResult"})
     public static void runOneTimeSavedPagesConversion() {
@@ -47,13 +45,10 @@ public final class SavedPagesConversionUtil {
 
         for (ReadingList readingList : allReadingLists) {
             for (ReadingListPage page : readingList.pages()) {
-                if (page.offline()) {
-                    String baseUrl = page.wiki().url();
-                    String title = hasSpecialCharacters(page.apiTitle()) ? UriUtil.encodeURL(page.apiTitle()) : page.apiTitle();
-                    String leadSectionUrl = baseUrl + REST_API_PREFIX + LEAD_SECTION_ENDPOINT + title;
-                    String remainingSectionsUrl = baseUrl + REST_API_PREFIX + REMAINING_SECTIONS_ENDPOINT + title;
-                    PAGES_TO_CONVERT.add(new SavedReadingListPage(StringUtil.fromHtml(page.apiTitle()).toString(), baseUrl, leadSectionUrl, remainingSectionsUrl));
+                if (!page.offline()) {
+                    continue;
                 }
+                PAGES_TO_CONVERT.add(page);
             }
         }
 
@@ -62,52 +57,31 @@ public final class SavedPagesConversionUtil {
             return;
         }
 
-        Completable.fromAction(() -> recordJSONFileNames(PAGES_TO_CONVERT)).subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(SavedPagesConversionUtil::setUpWebViewForConversion, L::e);
-
-    }
-
-    private static void recordJSONFileNames(List<SavedReadingListPage> savedReadingListPages) {
-        File offlineCacheDirectory = new File(WikipediaApp.getInstance().getFilesDir(), CACHE_DIR_NAME);
-        String leadJSON;
-        String remainingSectionsJSON;
-
-        for (SavedReadingListPage savedReadingListPage : savedReadingListPages) {
-            File leadJSONFile = new File(offlineCacheDirectory, ByteString.encodeUtf8(savedReadingListPage.getLeadSectionUrl()).md5().hex() + ".1");
-            File remJSONFile = new File(offlineCacheDirectory, ByteString.encodeUtf8(savedReadingListPage.getRemainingSectionsUrl()).md5().hex() + ".1");
-            try {
-                leadJSON = FileUtil.readFile(new FileInputStream(leadJSONFile));
-                remainingSectionsJSON = FileUtil.readFile(new FileInputStream(remJSONFile));
-                savedReadingListPage.setLeadSectionJSON(leadJSON);
-                savedReadingListPage.setRemainingSectionsJSON(remainingSectionsJSON);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-        }
+        new Handler(WikipediaApp.getInstance().getMainLooper())
+                .post(SavedPagesConversionUtil::setUpWebViewForConversion);
     }
 
     @SuppressLint("SetJavaScriptEnabled")
     private static void setUpWebViewForConversion() {
-        WebView dummyWebviewForConversion = new WebView(WikipediaApp.getInstance().getApplicationContext());
-        dummyWebviewForConversion.getSettings().setJavaScriptEnabled(true);
-        dummyWebviewForConversion.getSettings().setAllowUniversalAccessFromFileURLs(true);
-        dummyWebviewForConversion.addJavascriptInterface(new ConversionJavascriptInterface(dummyWebviewForConversion), "conversionClient");
-
+        if (WEBVIEW == null) {
+            WEBVIEW = new WebView(WikipediaApp.getInstance().getApplicationContext());
+            WEBVIEW.getSettings().setJavaScriptEnabled(true);
+            WEBVIEW.getSettings().setAllowUniversalAccessFromFileURLs(true);
+            WEBVIEW.addJavascriptInterface(new ConversionJavascriptInterface(), "conversionClient");
+        }
         try {
             String html = FileUtil.readFile(WikipediaApp.getInstance().getAssets().open("offline_convert/index.html"));
 
-            dummyWebviewForConversion.loadDataWithBaseURL("", html, "text/html", "utf-8", "");
+            WEBVIEW.loadDataWithBaseURL("", html, "text/html", "utf-8", "");
 
-            dummyWebviewForConversion.setWebViewClient(new WebViewClient() {
+            WEBVIEW.setWebViewClient(new WebViewClient() {
                 @Override
                 public void onPageFinished(WebView view, String url) {
-                    File file = new File(WikipediaApp.getInstance().getFilesDir(), CONVERTED_FILES_DIRECTORY_NAME);
+                    File file = new File(WikipediaApp.getInstance().getFilesDir(), OfflineObjectDbHelper.OFFLINE_PATH);
                     if (!file.exists()) {
                         file.mkdirs();
                     }
-                    convertToMobileHtml(dummyWebviewForConversion);
+                    postNextPage();
                 }
             });
         } catch (IOException e) {
@@ -116,120 +90,77 @@ public final class SavedPagesConversionUtil {
     }
 
     private static class ConversionJavascriptInterface {
-        private WebView webView;
-
-        ConversionJavascriptInterface(WebView webView) {
-            this.webView = webView;
-        }
-
         @JavascriptInterface
         public synchronized void onReceiveHtml(String html) {
-            storeConvertedFile(html, PAGES_TO_CONVERT.get(FILE_COUNT.get()).title);
-            if (FILE_COUNT.incrementAndGet() == PAGES_TO_CONVERT.size()) {
-                crossCheckAndComplete();
-            } else {
-                Handler mainHandler = new Handler(WikipediaApp.getInstance().getMainLooper());
-                Runnable myRunnable = () -> {
-                    convertToMobileHtml(webView);
-                };
-                mainHandler.post(myRunnable);
-            }
+            storeConvertedFile(html);
+            postNextPage();
         }
     }
 
-    private static void convertToMobileHtml(WebView dummyWebviewForConversion) {
-        SavedReadingListPage savedReadingListPage = PAGES_TO_CONVERT.get(FILE_COUNT.get());
-        String restPrefix = savedReadingListPage.baseUrl + "/api/rest_v1/";
+    private static void postNextPage() {
+        new Handler(WikipediaApp.getInstance().getMainLooper())
+                .post(SavedPagesConversionUtil::convertNextPage);
+    }
 
-        dummyWebviewForConversion.evaluateJavascript("PCSHTMLConverter.convertMobileSectionsJSONToMobileHTML(" + savedReadingListPage.getLeadSectionJSON() + "," + savedReadingListPage.getRemainingSectionsJSON() + "," + "\"" + StringUtil.removeNamespace(savedReadingListPage.getBaseUrl()).replace("//", "") + "\"" + "," + "\"" + restPrefix + "\"" + ")",
-                value -> {
-                });
+    private static void convertNextPage() {
+        if (PAGES_TO_CONVERT.isEmpty()) {
+            onConversionComplete();
+            return;
+        }
+
+        CURRENT_PAGE = PAGES_TO_CONVERT.remove(0);
+
+        String baseUrl = CURRENT_PAGE.wiki().url();
+        String title = CURRENT_PAGE.apiTitle();
+
+        String leadSectionUrl = baseUrl + REST_API_PREFIX + LEAD_SECTION_ENDPOINT + title;
+        String remainingSectionsUrl = baseUrl + REST_API_PREFIX + REMAINING_SECTIONS_ENDPOINT + title;
+
+        // Do the cache files exist for this page?
+        File offlineCacheDir = new File(WikipediaApp.getInstance().getFilesDir(), CACHE_DIR_NAME);
+
+        File leadJSONFile = new File(offlineCacheDir, ByteString.encodeUtf8(leadSectionUrl).md5().hex() + ".1");
+        File remJSONFile = new File(offlineCacheDir, ByteString.encodeUtf8(remainingSectionsUrl).md5().hex() + ".1");
+
+        if (!leadJSONFile.exists() || !remJSONFile.exists()) {
+            postNextPage();
+            return;
+        }
+
+        try {
+            String leadJSON = FileUtil.readFile(new FileInputStream(leadJSONFile));
+            String remainingSectionsJSON = FileUtil.readFile(new FileInputStream(remJSONFile));
+
+            String restPrefix = CURRENT_PAGE.wiki().url() + "/api/rest_v1/";
+
+            WEBVIEW.evaluateJavascript("PCSHTMLConverter.convertMobileSectionsJSONToMobileHTML("
+                            + leadJSON + ","
+                            + remainingSectionsJSON + ","
+                            + "\"" + baseUrl + "\"" + ","
+                            + "\"" + restPrefix + "\""
+                            + ")",
+                    value -> {
+                    });
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            postNextPage();
+        }
+    }
+
+    private static void onConversionComplete() {
+        Prefs.setOfflinePcsToMobileHtmlConversionComplete(true);
+
+        FileUtil.deleteRecursively(new File(WikipediaApp.getInstance().getFilesDir(), CACHE_DIR_NAME));
     }
 
     @SuppressLint("CheckResult")
-    private static void storeConvertedFile(String convertedString, String fileName) {
-        Completable.fromAction(() -> FileUtil.writeToFileInDirectory(convertedString, WikipediaApp.getInstance().getFilesDir() + "/" + CONVERTED_FILES_DIRECTORY_NAME, fileName))
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(() -> {
-                }, L::e);
-    }
+    private static void storeConvertedFile(String html) {
+        String baseUrl = CURRENT_PAGE.wiki().url();
+        String title = CURRENT_PAGE.apiTitle();
+        String mobileHtmlUrl = baseUrl + REST_API_PREFIX + MOBILE_HTML_ENDPOINT + title;
 
-    private static void crossCheckAndComplete() {
-        List<String> fileNames = new ArrayList<>();
-        boolean conversionComplete = true;
-        File convertedCacheDirectory = new File(WikipediaApp.getInstance().getFilesDir(), CONVERTED_FILES_DIRECTORY_NAME);
-        if (convertedCacheDirectory.exists()) {
-            File[] files = convertedCacheDirectory.listFiles();
-            if (files != null) {
-                for (File file : files) {
-                    fileNames.add(file.getName());
-                }
-            }
-        }
-        for (SavedReadingListPage savedReadingListPage : PAGES_TO_CONVERT) {
-            if (!fileNames.contains(savedReadingListPage.title)) {
-                conversionComplete = false;
-            }
-        }
-        Prefs.setOfflinePcsToMobileHtmlConversionComplete(conversionComplete);
-        deleteOldCacheFilesForSavedPages(conversionComplete);
-    }
-
-    private static void deleteOldCacheFilesForSavedPages(boolean conversionComplete) {
-        if (!conversionComplete) {
-            return;
-        }
-        for (SavedReadingListPage savedReadingListPage : PAGES_TO_CONVERT) {
-            FileUtil.deleteRecursively(new File(WikipediaApp.getInstance().getFilesDir() + "/" + CACHE_DIR_NAME, savedReadingListPage.getLeadSectionJSON()));
-            FileUtil.deleteRecursively(new File(WikipediaApp.getInstance().getFilesDir() + "/" + CACHE_DIR_NAME, savedReadingListPage.getLeadSectionJSON().substring(0, savedReadingListPage.getLeadSectionJSON().length() - 1) + "0"));
-            FileUtil.deleteRecursively(new File(WikipediaApp.getInstance().getFilesDir() + "/" + CACHE_DIR_NAME, savedReadingListPage.getRemainingSectionsJSON()));
-            FileUtil.deleteRecursively(new File(WikipediaApp.getInstance().getFilesDir() + "/" + CACHE_DIR_NAME, savedReadingListPage.getRemainingSectionsJSON().substring(0, savedReadingListPage.getRemainingSectionsJSON().length() - 1) + "0"));
-        }
-    }
-
-    private static class SavedReadingListPage {
-        String title;
-        String baseUrl;
-        String leadSectionUrl;
-        String remainingSectionsUrl;
-        String leadSectionJSON;
-        String remainingSectionsJSON;
-
-        SavedReadingListPage(String title, String baseUrl, String leadSectionUrl, String remainingSectionsUrl) {
-            this.title = title;
-            this.baseUrl = baseUrl;
-            this.leadSectionUrl = leadSectionUrl;
-            this.remainingSectionsUrl = remainingSectionsUrl;
-        }
-
-        String getLeadSectionJSON() {
-            return leadSectionJSON;
-        }
-
-        void setLeadSectionJSON(String leadSectionJSON) {
-            this.leadSectionJSON = leadSectionJSON;
-        }
-
-        String getRemainingSectionsJSON() {
-            return remainingSectionsJSON;
-        }
-
-        void setRemainingSectionsJSON(String remainingSectionsJSON) {
-            this.remainingSectionsJSON = remainingSectionsJSON;
-        }
-
-        String getLeadSectionUrl() {
-            return leadSectionUrl;
-        }
-
-        String getRemainingSectionsUrl() {
-            return remainingSectionsUrl;
-        }
-
-        String getBaseUrl() {
-            return baseUrl;
-        }
+        OfflineCacheInterceptor.createCacheItemFor(CURRENT_PAGE, mobileHtmlUrl, html);
     }
 
     private SavedPagesConversionUtil() {

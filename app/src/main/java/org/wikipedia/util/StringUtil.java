@@ -27,8 +27,6 @@ import java.text.Normalizer;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public final class StringUtil {
     private static final String CSV_DELIMITER = ",";
@@ -260,15 +258,6 @@ public final class StringUtil {
             number /= base;
         }
         return str;
-    }
-
-    public static boolean hasSpecialCharacters(String s) {
-        if (s == null || s.trim().isEmpty()) {
-            return false;
-        }
-        Pattern p = Pattern.compile("[^A-Za-z0-9()_,]");
-        Matcher m = p.matcher(s);
-        return m.find();
     }
 
     @NonNull

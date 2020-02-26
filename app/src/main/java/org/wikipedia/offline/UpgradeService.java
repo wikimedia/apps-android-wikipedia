@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.core.app.JobIntentService;
 
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.log.L;
 
 public class UpgradeService extends JobIntentService {
@@ -32,6 +33,10 @@ public class UpgradeService extends JobIntentService {
         //}
         L.d("Starting offline content upgrade...");
 
+
+        if (!Prefs.isOfflinePcsToMobileHtmlConversionComplete()) {
+            //runOneTimeSavedPagesConversion();
+        }
     }
 
 }

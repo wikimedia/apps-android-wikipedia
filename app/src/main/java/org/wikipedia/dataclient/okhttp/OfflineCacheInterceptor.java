@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.offline.OfflineObject;
 import org.wikipedia.offline.OfflineObjectDbHelper;
+import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 
@@ -129,6 +130,10 @@ public class OfflineCacheInterceptor implements Interceptor {
         builder.body(new CachedResponseBody(contentsFile, contentType));
         response = builder.build();
         return response;
+    }
+
+    public static void createCacheItemFor(ReadingListPage page, String url, String contents) {
+
     }
 
     public static boolean shouldSave(@NonNull Request request) {

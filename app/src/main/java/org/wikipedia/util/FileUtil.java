@@ -43,16 +43,13 @@ public final class FileUtil {
      * @throws IOException
      */
     public static String readFile(final InputStream inputStream) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
-        try {
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
             StringBuilder stringBuilder = new StringBuilder();
             String readStr;
             while ((readStr = reader.readLine()) != null) {
                 stringBuilder.append(readStr).append('\n');
             }
             return stringBuilder.toString();
-        } finally {
-            reader.close();
         }
     }
 
