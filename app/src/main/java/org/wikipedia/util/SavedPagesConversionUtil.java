@@ -6,9 +6,13 @@ import android.webkit.JavascriptInterface;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import org.apache.commons.lang3.StringUtils;
+import org.wikipedia.Constants;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.RestService;
 import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor;
+import org.wikipedia.dataclient.page.PageLead;
+import org.wikipedia.json.GsonUnmarshaller;
 import org.wikipedia.readinglist.database.ReadingList;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.readinglist.database.ReadingListPage;
@@ -88,7 +92,7 @@ public final class SavedPagesConversionUtil {
     private static class ConversionJavascriptInterface {
         @JavascriptInterface
         public synchronized void onReceiveHtml(String html) {
-            storeConvertedFile(html);
+            storeConvertedHtml(html);
 
             //postNextPage();
 
@@ -127,6 +131,8 @@ public final class SavedPagesConversionUtil {
 
         try {
             String leadJSON = FileUtil.readFile(new FileInputStream(leadJSONFile));
+            storeConvertedSummary(leadJSON);
+
             String remainingSectionsJSON = FileUtil.readFile(new FileInputStream(remJSONFile));
 
             String restPrefix = CURRENT_PAGE.wiki().url() + "/api/rest_v1/";
@@ -161,7 +167,38 @@ public final class SavedPagesConversionUtil {
         FileUtil.deleteRecursively(new File(WikipediaApp.getInstance().getFilesDir(), CACHE_DIR_NAME));
     }
 
-    private static void storeConvertedFile(String html) {
+    private static void storeConvertedSummary(String pageLeadJson) {
+        try {
+            PageLead pageLead = GsonUnmarshaller.unmarshal(PageLead.class, pageLeadJson);
+            if (pageLead == null) {
+                return;
+            }
+
+            String json = FileUtil.readFile(WikipediaApp.getInstance().getAssets().open("offline_convert/page_summary.json"))
+                    .replace("@@NS_ID@@", Integer.toString(pageLead.getNamespace().code()))
+                    .replace("@@WIKIBASE_ITEM@@", StringUtils.defaultString(pageLead.getWikiBaseItem()))
+                    .replaceAll("@@CANONICAL_TITLE@@", CURRENT_PAGE.apiTitle())
+                    .replaceAll("@@DISPLAY_TITLE@@", StringUtils.defaultString(pageLead.getDisplayTitle(), CURRENT_PAGE.title()))
+                    .replace("@@THUMB_URL@@", StringUtils.defaultString(pageLead.getThumbUrl()))
+                    .replace("@@LEAD_IMAGE_URL@@", StringUtils.defaultString(pageLead.getLeadImageUrl(Constants.PREFERRED_CARD_THUMBNAIL_SIZE)))
+                    .replace("@@PAGE_ID@@", Integer.toString(pageLead.getId()))
+                    .replace("@@REVISION@@", Long.toString(pageLead.getRevision()))
+                    .replace("@@LANG@@", CURRENT_PAGE.lang())
+                    .replaceAll("@@TIMESTAMP@@", StringUtils.defaultString(pageLead.getLastModified()))
+                    .replace("@@DESCRIPTION@@", StringUtils.defaultString(pageLead.getDescription()))
+                    .replace("@@DESCRIPTION_SOURCE@@", StringUtils.defaultString(pageLead.getDescriptionSource()));
+
+            String baseUrl = CURRENT_PAGE.wiki().url();
+            String title = CURRENT_PAGE.apiTitle();
+            String summaryUrl = baseUrl + REST_API_PREFIX + "/page/summary/" + UriUtil.encodeURL(title);
+
+            OfflineCacheInterceptor.createCacheItemFor(CURRENT_PAGE, summaryUrl, json, "application/json");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void storeConvertedHtml(String html) {
         String baseUrl = CURRENT_PAGE.wiki().url();
         String title = CURRENT_PAGE.apiTitle();
         String mobileHtmlUrl = baseUrl + REST_API_PREFIX + RestService.PAGE_HTML_ENDPOINT + UriUtil.encodeURL(title);
