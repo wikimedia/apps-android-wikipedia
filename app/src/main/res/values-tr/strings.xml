@@ -738,6 +738,7 @@
   <string name="suggested_edits_image_tags_choose">Eşleşen etiketleri seçin</string>
   <string name="suggested_edits_image_tags_select_title">Bu resim için herhangi bir etiket seçmediniz</string>
   <string name="suggested_edits_image_tags_select_text">Yalnızca seçtiğiniz etiketler görüntülere eklenir. Seçilmeyen etiketler reddedildi olarak işaretlenir. Tüm etiketleri reddedildi olarak işaretlemek istediğinizden emin misiniz?</string>
+  <string name="suggested_edits_image_zoom_tooltip">Bu resmi yakınlaştırmak için sıkıştırın.</string>
   <string name="suggested_edits_encouragement_message">%s, düzenlemeleriniz için teşekkürler. Aşağıda Vikipedi\'ye katkıda bulunmak için daha fazla yol bulabilirsiniz.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Merhaba %s&lt;/b&gt;, Herkesin Vikipedi\'yi düzenleyebileceğini biliyor muydun? Aşağıda Vikipedi\'yi iyileştirmeye yardımcı olacak eğlenceli yollar bulabilirsiniz. Mutlu düzenlemeler!</string>
   <string name="suggested_edits_image_captions_task_detail">Resim yazıları, okuyucuların anlamını ve içeriğini anlamalarına yardımcı olmak için bir resim tarif eder.</string>

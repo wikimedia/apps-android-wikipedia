@@ -735,6 +735,7 @@
   <string name="suggested_edits_image_tags_choose">Escolha as marcações correspondentes</string>
   <string name="suggested_edits_image_tags_select_title">Você não selecionou nenhuma marcação para esta imagem</string>
   <string name="suggested_edits_image_tags_select_text">Somente as marcações que você escolher serão adicionadas às imagens. Tags que não estão selecionadas serão marcadas como rejeitadas. Tem certeza de que deseja marcar todas as tags como rejeitadas?</string>
+  <string name="suggested_edits_image_zoom_tooltip">Aperte para ampliar esta imagem.</string>
   <string name="suggested_edits_encouragement_message">%s, obrigado por suas edições. Abaixo, você encontra mais maneiras de contribuir com a Wikipédia.</string>
   <string name="suggested_edits_onboarding_message">&lt;/b&gt;Olá %s&lt;/b&gt;, você sabia que todos podem editar a Wikipédia? Abaixo, você encontrará maneiras divertidas de ajudar a melhorar a Wikipedia. Edição feliz!</string>
   <string name="suggested_edits_image_captions_task_detail">As legendas das imagens descrevem uma imagem para ajudar os leitores a entender seu significado e contexto.</string>
