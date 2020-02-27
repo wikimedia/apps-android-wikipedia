@@ -37,6 +37,7 @@
 * 沈澄心
 * 神樂坂秀吉
 * 科劳
+* 铁桶
 -->
 <resources>
   <string name="app_name_prod">维基百科</string>
@@ -313,7 +314,7 @@
   <string name="gallery_fair_use_license">合理使用</string>
   <string name="gallery_uploader_unknown">上传者未知</string>
   <string name="gallery_not_available_offline_snackbar">不能离线浏览相册</string>
-  <string name="gallery_not_available_offline_snackbar_dismiss">解除</string>
+  <string name="gallery_not_available_offline_snackbar_dismiss">关闭</string>
   <string name="menu_new_tab">新建标签页</string>
   <string name="menu_close_all_tabs">关闭所有标签</string>
   <string name="close_all_tabs_confirm">您确定您要关闭所有标签么？</string>
@@ -510,6 +511,7 @@
   <string name="notification_syncing_resume_button">恢复</string>
   <string name="notification_syncing_cancel_button">取消</string>
   <string name="notification_syncing_reading_list_channel_description">同步阅读列表进度</string>
+  <string name="notification_many_unread">您有%d个未读通知</string>
   <plurals name="notification_channel_name">
     <item quantity="one">下载条目中</item>
     <item quantity="other">下载条目中</item>
@@ -722,7 +724,10 @@
   <string name="suggested_edits_snackbar_survey_action_text">参加调查</string>
   <string name="suggested_edits_task_action_text_add">添加</string>
   <string name="suggested_edits_task_action_text_translate">翻译</string>
-  <string name="suggested_edits_image_captions" fuzzy="true">图片说明</string>
+  <string name="suggested_edits_image_captions">图片说明</string>
+  <string name="suggested_edits_image_tags">图片标签</string>
+  <string name="suggested_edits_image_tags_publishing">正在发布...</string>
+  <string name="suggested_edits_image_tags_published">已发布</string>
   <string name="suggested_edits_add_descriptions_task_detail">标题描述可对条目作出总结，以帮助读者快速了解主题。</string>
   <string name="suggested_edits_ip_blocked_message">看样子您目前所使用的IP地址（或地址段）被禁止编辑维基百科。访问以下链接以便了解更多关于封禁的信息。</string>
   <string name="suggested_edits_editing_tips_link_text">编辑提示与技巧</string>
@@ -742,6 +747,7 @@
     <item quantity="other">贡献</item>
   </plurals>
   <string name="suggested_edits_last_edited_never">从不</string>
+  <string name="suggested_edits_task_new">新</string>
   <string name="description_edit_revert_subtitle">感谢编辑维基百科！</string>
   <string name="description_edit_revert_intro">我们知道您做出了最大的努力，但有位复核者还是回退了您的编辑。您的编辑被回退的原因可能包括：</string>
   <string name="description_edit_revert_reason1">您的贡献没有遵循&lt;a href=\"%1$s\"&gt;指引&lt;/a&gt;之一。</string>

@@ -11,7 +11,6 @@ import android.text.format.DateUtils;
 import android.widget.EditText;
 
 import androidx.annotation.Nullable;
-import androidx.annotation.VisibleForTesting;
 
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.util.log.L;
@@ -27,7 +26,6 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
 
 public class SyntaxHighlighter {
-    @VisibleForTesting
     public interface OnSyntaxHighlightListener {
         void syntaxHighlightResults(List<SpanExtents> spanExtents);
         void findTextMatches(List<SpanExtents> spanExtents);
@@ -101,9 +99,7 @@ public class SyntaxHighlighter {
         this(context, textBox, null);
     }
 
-    public SyntaxHighlighter(Context parentContext,
-                             EditText textBox,
-                             @Nullable OnSyntaxHighlightListener listener) {
+    public SyntaxHighlighter(Context parentContext, EditText textBox, @Nullable OnSyntaxHighlightListener listener) {
         this.context = parentContext;
         this.textBox = textBox;
         this.syntaxHighlightListener = listener;

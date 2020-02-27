@@ -206,6 +206,7 @@
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/sk</string>
+  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Použité knižnice</string>
   <string name="about_contributors_heading">Prispievatelia</string>
   <string name="about_translators_heading">Prekladatelia</string>
@@ -489,6 +490,7 @@
   <string name="notification_syncing_resume_button">Pokračovať</string>
   <string name="notification_syncing_cancel_button">Zrušiť</string>
   <string name="notification_syncing_reading_list_channel_description">Pokrok v synchronizácii zoznamov na prečítanie</string>
+  <string name="notification_many_unread">Máte %d neprečítaných upozornení</string>
   <plurals name="notification_channel_name">
     <item quantity="one">Preberanie článku</item>
     <item quantity="other">Preberanie článkov</item>
@@ -672,6 +674,7 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text">Zamknuté, kým neupravíte %d overených popisov článkov</string>
   <string name="suggested_edits_task_multilingual_negative">Nie je pre mňa</string>
   <string name="suggested_edits_task_multilingual_positive">Pridať jazyky</string>
+  <string name="suggested_edits_image_caption_summary_title_file">Súbor</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Umelec</string>
   <string name="suggested_edits_image_caption_summary_title_author">Autor</string>
   <string name="suggested_edits_image_caption_summary_title_source">Zdroj</string>
@@ -711,7 +714,7 @@
   <string name="suggested_edits_image_tags_onboarding_text">Potvrdením navhrovaných značiek môžete pomôcť, aby boli obrázky ľahšie nájditeľné.\n\nZnačky sú navrhované počítačom, no musia byť overené človekom na zabezpečenie presnosti.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Iba značky, ktoré vyberiete, budú pridané k obrázkom.</string>
   <string name="suggested_edits_image_tags_snackbar">Pridajte značky obrázkom, aby ich mohli ostatní ľahšie nájsť</string>
-  <string name="suggested_edits_image_tags_task_detail">Označte obrázky, aby ich mohli ostatní ľahšie nájsť. Značky sú navrhované automaticky, no musia byť overené vami.</string>
+  <string name="suggested_edits_image_tags_task_detail">Označte obrázky, aby ich ostatní mohli ľahšie nájsť. Značky sú navrhované počítačom, no musia byť skontrolované.</string>
   <string name="suggested_edits_image_tags_choose">Vyberte zhodujúce sa značky</string>
   <string name="suggested_edits_image_tags_select_title">Pre tento obrázok ste nevybrali žiadne značky</string>
   <string name="suggested_edits_image_tags_select_text">Len značky, ktoré vyberiete, budú pridané k obrázkom. Značky, ktoré nie sú vybrané, budú označené ako odmietnuté. Ste si istí, že chcete označiť všetky značky ako odmietnuté?</string>

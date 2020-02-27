@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/suggestions_background_color">
+    android:background="?attr/paper_color">
 
     <LinearLayout
         android:id="@+id/wikiLanguageDropdownContainer"
@@ -69,7 +69,7 @@
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@id/bottomButtonContainer"
         app:layout_constraintTop_toBottomOf="@id/wikiLanguageDropdownContainer">
-        <androidx.viewpager.widget.ViewPagerWithVelocity
+        <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/cardsViewPager"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />

@@ -197,7 +197,9 @@
   <string name="description_edit_tutorial_button_label_start_editing">Սկսել խմբագրել</string>
   <string name="suggested_edits_add_descriptions">Ավելացնել հոդվածի նկարագրություններ</string>
   <string name="suggested_edits_my_contributions">Իմ ներդրումներ</string>
+  <string name="suggested_edits_image_caption_summary_title_file">Նիշք</string>
   <string name="suggested_edits_last_edited_never">Երբեք</string>
+  <string name="suggested_edits_task_new">նոր</string>
   <string name="onboarding_skip">Բաց թողնել</string>
   <string name="onboarding_continue">Շարունակել</string>
   <string name="app_shortcuts_continue_reading">Շարունակել կարդալ</string>

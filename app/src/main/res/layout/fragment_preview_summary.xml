@@ -11,21 +11,16 @@
     android:visibility="gone"
     tools:visibility="visible">
 
-    <com.google.android.material.textfield.TextInputLayout
+    <AutoCompleteTextView
+        android:id="@+id/edit_summary_edit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/edit_summary_tag_other_hint">
-
-        <AutoCompleteTextView
-            android:id="@+id/edit_summary_edit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:imeOptions="actionDone|flagNoExtractUi"
-            android:maxLength="255"
-            android:maxLines="3"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:textColor="?attr/primary_text_color" />
-    </com.google.android.material.textfield.TextInputLayout>
+        android:hint="@string/edit_summary_tag_other_hint"
+        android:imeOptions="actionDone|flagNoExtractUi"
+        android:maxLength="255"
+        android:maxLines="3"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:textColor="?attr/primary_text_color" />
 
 </LinearLayout>

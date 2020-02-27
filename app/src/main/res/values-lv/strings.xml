@@ -60,6 +60,7 @@
   <string name="edit_history_link_text">Skatīt labojumu vēsturi</string>
   <string name="map_view_link_text">Skatīt uz kartes</string>
   <string name="other_languages_indication_text">Lasīt citā valodā</string>
+  <string name="language_count_link_text">Pieejams %d citās valodās</string>
   <string name="preference_title_language">Vikipēdijas valodas</string>
   <string name="langlinks_filter_hint">Meklēt</string>
   <string name="langlinks_empty">Šī lapa nav pieejama citās valodās</string>
@@ -186,6 +187,7 @@
   <string name="error_unknown">Nezināma kļūda.</string>
   <string name="format_error_server_message">Ziņojums: \"%s\"</string>
   <string name="address_copied">Adrese iekopēta starpliktuvē.</string>
+  <string name="text_copied">Teksts iekopēts starpliktuvē.</string>
   <string name="button_continue_to_article">Lasīt rakstu</string>
   <string name="button_continue_to_disambiguation">Skatīt līdzīgas lapas</string>
   <string name="button_add_to_reading_list">Pievienot lasīšanas sarakstam</string>
@@ -197,9 +199,13 @@
   <string name="location_permissions_enable_action">Ieslēgt</string>
   <string name="error_message_generic">Notika kļūda</string>
   <string name="error_page_does_not_exist">Šī lapa nepastāv</string>
+  <string name="reference_title">Atsauce %s</string>
+  <string name="reference_list_title">Atsauces</string>
+  <string name="empty_tab_title">Jauna cilne</string>
   <string name="crash_report_activity_title">Lietotnes kļūda</string>
   <string name="crash_report_relaunch">Sākt no jauna</string>
   <string name="crash_report_quit">Iziet</string>
+  <string name="article_menu_bar_share">Dalīties ar raksta saiti</string>
   <string name="article_header_edit_hint">Labot...</string>
   <string name="article_header_edit_description">Labot raksta aprakstu</string>
   <string name="article_header_edit_lead_section">Labot ievadu</string>
@@ -215,6 +221,8 @@
   <string name="reading_list_create_new">Izveidot jaunu</string>
   <string name="reading_list_added_to_named">Pievienots %s.</string>
   <string name="reading_list_added_view_button">Skatīt sarakstu</string>
+  <string name="format_reading_list_statistical_summary_singular">1 raksts, %1$.2f MB</string>
+  <string name="format_reading_list_statistical_summary_plural">%1$d raksti, %2$.2f MB</string>
   <string name="reading_list_sort">Kārtot</string>
   <string name="reading_list_sort_ellipsis">Kārtot pēc...</string>
   <string name="reading_list_sort_by_name">Kārtot pēc nosaukuma</string>
@@ -228,6 +236,7 @@
   <string name="reading_list_item_deleted">%s izņemts no saraksta</string>
   <string name="reading_list_item_delete_undo">Atsaukt</string>
   <string name="reading_list_deleted">%s izdzēsts</string>
+  <string name="reading_lists_onboarding_for_example">Piemēram</string>
   <string name="reading_lists_onboarding_example2">Mīļākie dzīvnieki</string>
   <string name="reading_lists_onboarding_example3">Kosmosa izpēte</string>
   <string name="reading_lists_onboarding_got_it">Sapratu</string>
@@ -314,6 +323,7 @@
   <string name="suggested_edits_my_contributions">Mans devums</string>
   <string name="suggested_edits_task_add_description_title" fuzzy="true">Pievienot aprakstus</string>
   <string name="suggested_edits_task_multilingual_positive">Pievienot valodas</string>
+  <string name="suggested_edits_image_caption_summary_title_file">Fails</string>
   <string name="suggested_edits_image_caption_summary_title_author">Autors</string>
   <string name="suggested_edits_image_caption_summary_title_source">Avots</string>
   <string name="suggested_edits_image_caption_summary_title_license">Licence</string>

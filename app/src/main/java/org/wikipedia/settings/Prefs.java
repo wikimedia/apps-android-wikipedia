@@ -866,6 +866,21 @@ public final class Prefs {
         setBoolean(R.string.preference_key_image_tags_onboarding_shown, showOnboarding);
     }
 
+    public static boolean shouldShowImageZoomTooltip() {
+        return getBoolean(R.string.preference_key_image_zoom_tooltip_shown, true);
+    }
+
+    public static void setShouldShowImageZoomTooltip(boolean show) {
+        setBoolean(R.string.preference_key_image_zoom_tooltip_shown, show);
+    }
+
+    public static boolean isSuggestedEditsImageTagsNew() {
+        return getBoolean(R.string.preference_key_suggested_edits_image_tags_new, true);
+    }
+
+    public static void setSuggestedEditsImageTagsNew(boolean enabled) {
+        setBoolean(R.string.preference_key_suggested_edits_image_tags_new, enabled);
+    }
 
     private Prefs() { }
 }

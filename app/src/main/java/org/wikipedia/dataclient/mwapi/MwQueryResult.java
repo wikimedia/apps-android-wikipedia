@@ -7,8 +7,6 @@ import com.google.gson.annotations.SerializedName;
 
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.gallery.ImageInfo;
-import org.wikipedia.gallery.VideoInfo;
 import org.wikipedia.json.PostProcessingTypeAdapter;
 import org.wikipedia.model.BaseModel;
 import org.wikipedia.notifications.Notification;
@@ -20,7 +18,6 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -105,30 +102,6 @@ public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapte
         return null;
     }
 
-    @NonNull public Map<String, ImageInfo> images() {
-        Map<String, ImageInfo> result = new HashMap<>();
-        if (pages != null) {
-            for (MwQueryPage page : pages) {
-                if (page.imageInfo() != null) {
-                    result.put(page.title(), page.imageInfo());
-                }
-            }
-        }
-        return result;
-    }
-
-    @NonNull public Map<String, VideoInfo> videos() {
-        Map<String, VideoInfo> result = new HashMap<>();
-        if (pages != null) {
-            for (MwQueryPage page : pages) {
-                if (page.videoInfo() != null) {
-                    result.put(page.title(), page.videoInfo());
-                }
-            }
-        }
-        return result;
-    }
-
     @NonNull public List<PageTitle> langLinks() {
         List<PageTitle> result = new ArrayList<>();
         if (pages == null || pages.isEmpty() || pages.get(0).langLinks() == null) {
@@ -186,9 +159,7 @@ public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapte
         if (converted == null || pages == null) {
             return;
         }
-        // noinspection ConstantConditions
         for (MwQueryResult.ConvertedTitle convertedTitle : converted) {
-            // noinspection ConstantConditions
             for (MwQueryPage page : pages) {
                 if (page.title().equals(convertedTitle.to())) {
                     page.convertedFrom(convertedTitle.from());

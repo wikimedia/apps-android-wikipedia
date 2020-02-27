@@ -13,7 +13,7 @@
         android:layout_height="0dp"
         android:layout_weight="1">
 
-        <org.wikipedia.readinglist.NoSwipeViewPager
+        <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/fragment_main_view_pager"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
@@ -28,16 +28,11 @@
         android:background="?attr/nav_tab_background_color"
         android:elevation="6dp">
 
-        <org.wikipedia.navtab.NavTabOverlayLayout
-            android:id="@+id/fragment_main_nav_tab_overlay_layout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
         <org.wikipedia.navtab.NavTabLayout
             android:id="@+id/fragment_main_nav_tab_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@android:color/transparent"
+            android:background="?attr/nav_tab_background_color"
             app:itemIconTint="?attr/nav_tab_item_color_state"
             app:itemTextColor="?attr/nav_tab_item_color_state"
             app:itemTextAppearanceInactive="@style/BottomNavigationTextAppearanceInactive"
@@ -45,6 +40,13 @@
             app:tabGravity="fill"
             app:labelVisibilityMode="labeled"
             app:tabIndicatorColor="@android:color/transparent" />
+
+        <org.wikipedia.navtab.NavTabOverlayLayout
+            android:id="@+id/fragment_main_nav_tab_overlay_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:elevation="8dp"/>
+
     </FrameLayout>
 
 </LinearLayout>

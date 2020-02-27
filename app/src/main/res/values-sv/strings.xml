@@ -6,6 +6,7 @@
 * Ainali
 * Bengtsson96
 * Dbrant
+* Haxpett
 * Jon Harald Søby
 * Jopparn
 * Josve05a
@@ -20,7 +21,7 @@
 <resources>
   <string name="app_name_prod">Wikipedia</string>
   <string name="app_name_beta">Wikipedia Beta</string>
-  <string name="app_name_alpha">Wikipedia-alfa</string>
+  <string name="app_name_alpha">Wikipedia Alfa</string>
   <string name="wikimedia">Wikimedia</string>
   <string name="nav_item_back">Tillbaka</string>
   <string name="page_tabs_back">Tillbaka</string>
@@ -67,7 +68,7 @@
   <string name="menu_long_press_open_page">Öppna</string>
   <string name="menu_long_press_open_in_new_tab">Öppna i ny flik</string>
   <string name="menu_long_press_copy_page">Kopiera länkadress</string>
-  <string name="menu_text_select_copy">\nKopiera</string>
+  <string name="menu_text_select_copy">Kopiera</string>
   <string name="menu_text_select_define">\nDefinera</string>
   <string name="menu_text_select_share">\nDela</string>
   <string name="share">\nDela</string>
@@ -102,7 +103,7 @@
   <string name="search_reading_list_no_results">Inga resultat hittades i \"%s\"</string>
   <string name="search_reading_lists_no_results">Inga resultat hittades i läslistor</string>
   <string name="search_history_no_results">Inga resultat hittades i historik</string>
-  <string name="edit_section_captcha_message">För att skydda mot automatiserad reklambrev, var god skriv in orden som visas nedan</string>
+  <string name="edit_section_captcha_message">För att skydda mot automatiserad reklam, var god skriv in orden som visas nedan</string>
   <string name="edit_section_captcha_request_an_account_message">Kan du inte se bilden? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Begär ett konto&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Upprepa orden ovan</string>
   <string name="title_captcha">Ange captcha</string>
@@ -206,6 +207,7 @@
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.sv</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.sv</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/sv</string>
+  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Bibliotek som har använts</string>
   <string name="about_contributors_heading">Bidragsgivare</string>
   <string name="about_translators_heading">Översättare</string>
@@ -489,6 +491,7 @@
   <string name="notification_syncing_resume_button">Återuppta</string>
   <string name="notification_syncing_cancel_button">Avbryt</string>
   <string name="notification_syncing_reading_list_channel_description">Förlopp för synkronisering av läslistor</string>
+  <string name="notification_many_unread">Du har %d olästa aviseringar</string>
   <plurals name="notification_channel_name">
     <item quantity="one">Laddar ned artikel</item>
     <item quantity="other">Laddar ned artiklar</item>
@@ -674,6 +677,7 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text">Låst tills du har redigerat %d artikelbeskrivningar (verifierade)</string>
   <string name="suggested_edits_task_multilingual_negative">Ingenting för mig</string>
   <string name="suggested_edits_task_multilingual_positive">Lägg till språk</string>
+  <string name="suggested_edits_image_caption_summary_title_file">Fil</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Konstnär</string>
   <string name="suggested_edits_image_caption_summary_title_author">Författare</string>
   <string name="suggested_edits_image_caption_summary_title_source">Källa</string>
@@ -713,7 +717,7 @@
   <string name="suggested_edits_image_tags_onboarding_text">Genom att bekräfta föreslagna taggar hjälper du till att göra det lättare att söka efter dem.\n\nTaggförslagen skapas av en dator men behöver bekräftas av människor för att säkerställa noggrannheten.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Endast taggar som du väljer kommer att läggas till i bilder.</string>
   <string name="suggested_edits_image_tags_snackbar">Lägg till bildtaggar för att göra det lättare för andra att hitta bilderna.</string>
-  <string name="suggested_edits_image_tags_task_detail">Tagga bilder för att göra det lättare för andra att hitta dem. Taggarna föreslås automatiskt, men måste bekräftas av dig.</string>
+  <string name="suggested_edits_image_tags_task_detail">Tagga bilder för att göra det lättare för andra att hitta dem. Taggarna föreslås automatiskt, men behöver bekräftas.</string>
   <string name="suggested_edits_image_tags_choose">Välj lämpliga taggar</string>
   <string name="suggested_edits_image_tags_select_title">Du har inte valt några taggar för denna bild</string>
   <string name="suggested_edits_image_tags_select_text">Endast taggar som du väljer kommer att läggas till i bilderna. Taggar som inte väljs kommer att markeras som avvisade. Är du säker på att du vill markera alla taggar som avvisade?</string>

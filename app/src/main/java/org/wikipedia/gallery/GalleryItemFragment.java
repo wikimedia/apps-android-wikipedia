@@ -36,6 +36,7 @@ import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.page.Namespace;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.DeviceUtil;
@@ -51,6 +52,7 @@ import org.wikipedia.views.ZoomableDraweeViewWithBackground;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
@@ -79,7 +81,6 @@ public class GalleryItemFragment extends Fragment {
 
     private MediaController mediaController;
 
-    @NonNull private WikipediaApp app = WikipediaApp.getInstance();
     @Nullable private PageTitle pageTitle;
     @Nullable private MediaListItem mediaListItem;
 
@@ -159,14 +160,19 @@ public class GalleryItemFragment extends Fragment {
         super.onDestroyView();
     }
 
-    private void updateProgressBar(boolean visible) {
-        progressBar.setVisibility(visible ? View.VISIBLE : View.GONE);
+    @Override
+    public void onPause() {
+        super.onPause();
+        if (mediaController != null) {
+            if (videoView.isPlaying()) {
+                videoView.pause();
+            }
+            mediaController.hide();
+        }
     }
 
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        app.getRefWatcher().watch(this);
+    private void updateProgressBar(boolean visible) {
+        progressBar.setVisibility(visible ? View.VISIBLE : View.GONE);
     }
 
     @Override
@@ -202,34 +208,6 @@ public class GalleryItemFragment extends Fragment {
         return super.onOptionsItemSelected(item);
     }
 
-    /**
-     * Notifies this fragment that the current position of its containing ViewPager has changed.
-     *
-     * @param fragmentPosition This fragment's position in the ViewPager.
-     * @param pagerPosition    The pager's current position that is displayed to the user.
-     */
-    void onUpdatePosition(int fragmentPosition, int pagerPosition) {
-        if (!isAdded()) {
-            return;
-        }
-        if (fragmentPosition != pagerPosition) {
-            // update stuff if our position is not "current" within the ViewPager...
-            if (mediaController != null) {
-                if (videoView.isPlaying()) {
-                    videoView.pause();
-                }
-                mediaController.hide();
-            }
-        } else {
-            // update stuff if our position is "current"
-            if (mediaController != null) {
-                if (!videoView.isPlaying()) {
-                    videoView.start();
-                }
-            }
-        }
-    }
-
     private void handleImageSaveRequest() {
         if (!(hasWriteExternalStoragePermission(requireActivity()))) {
             requestWriteExternalStoragePermission();
@@ -251,7 +229,7 @@ public class GalleryItemFragment extends Fragment {
             return;
         }
         updateProgressBar(true);
-        disposables.add(ServiceFactory.get(pageTitle.getWikiSite()).getMediaInfo(mediaListItem.getTitle())
+        disposables.add(getMediaInfoDisposable(mediaListItem.getTitle(), WikipediaApp.getInstance().getAppOrSystemLanguageCode())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doAfterTerminate(() -> {
@@ -260,7 +238,7 @@ public class GalleryItemFragment extends Fragment {
                     ((GalleryActivity) requireActivity()).layOutGalleryDescription();
                 })
                 .subscribe(response -> {
-                    mediaInfo = response.query().firstPage().videoInfo();
+                    mediaInfo = response.query().firstPage().imageInfo();
                     if (FileUtil.isVideo(mediaListItem.getType())) {
                         loadVideo();
                     } else {
@@ -270,6 +248,14 @@ public class GalleryItemFragment extends Fragment {
                     FeedbackUtil.showMessage(getActivity(), R.string.gallery_error_draw_failed);
                     L.d(throwable);
                 }));
+    }
+
+    private Observable<MwQueryResponse> getMediaInfoDisposable(String title, String lang) {
+        if (FileUtil.isVideo(mediaListItem.getType())) {
+            return ServiceFactory.get(pageTitle.getWikiSite()).getVideoInfo(title, lang);
+        } else {
+            return ServiceFactory.get(pageTitle.getWikiSite()).getImageInfo(title, lang);
+        }
     }
 
     private View.OnClickListener videoThumbnailClickListener = new View.OnClickListener() {
