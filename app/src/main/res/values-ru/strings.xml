@@ -32,6 +32,7 @@
 * Ochilov
 * Okras
 * Ole Yves
+* Pacha Tchernof
 * Patrick Star
 * Ping08
 * Pplex.vhs
@@ -371,6 +372,7 @@
   <string name="view_wiki_error_message_offline">Не удаётся подключиться к интернету</string>
   <string name="view_wiki_error_message_timeout">Не удается подключиться к Википедии. Проверьте подключение к сети или повторите попытку позже</string>
   <string name="reference_title">Примечание %s</string>
+  <string name="reference_list_title">Примечания</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Затемнение изображений</string>
   <string name="preference_title_prefer_offline_content">Приоритет офлайн-данным</string>
   <string name="preference_summary_prefer_offline_content">Экономит трафик, показывая офлайн-версию статьи, вместо того, чтобы каждый раз загружать самую свежую версию</string>
@@ -704,6 +706,7 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text">Этот функционал будет открыт тогда, когда вы отредактируете %d описаний статей и они будут проверены</string>
   <string name="suggested_edits_task_multilingual_negative">Не для меня</string>
   <string name="suggested_edits_task_multilingual_positive">Добавить языки</string>
+  <string name="suggested_edits_image_caption_summary_title_file">Файл</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Автор</string>
   <string name="suggested_edits_image_caption_summary_title_author">Автор</string>
   <string name="suggested_edits_image_caption_summary_title_source">Источник</string>
@@ -737,7 +740,9 @@
   <string name="suggested_edits_snackbar_survey_action_text">Пройти опрос</string>
   <string name="suggested_edits_task_action_text_add">Добавить</string>
   <string name="suggested_edits_task_action_text_translate">Перевести</string>
-  <string name="suggested_edits_image_captions" fuzzy="true">Описания изображений</string>
+  <string name="suggested_edits_image_captions">Описания изображений</string>
+  <string name="suggested_edits_image_tags_publishing">Публикация</string>
+  <string name="suggested_edits_image_tags_published">Опубликовано</string>
   <string name="suggested_edits_pageviews_label_text">Просмотры страниц</string>
   <string name="suggested_edits_quality_bad_text">Плохо</string>
   <plurals name="suggested_edits_edit_streak_detail_text">

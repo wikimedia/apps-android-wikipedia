@@ -27,9 +27,9 @@ import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwException;
-import org.wikipedia.dataclient.mwapi.MwPostResponse;
 import org.wikipedia.dataclient.mwapi.MwServiceError;
 import org.wikipedia.dataclient.retrofit.RetrofitException;
+import org.wikipedia.dataclient.wikidata.EntityPostResponse;
 import org.wikipedia.descriptions.DescriptionEditActivity.Action;
 import org.wikipedia.json.GsonMarshaller;
 import org.wikipedia.json.GsonUnmarshaller;
@@ -324,7 +324,7 @@ public class DescriptionEditFragment extends Fragment {
                         if (response.getSuccessVal() > 0) {
                             new Handler().postDelayed(successRunnable, TimeUnit.SECONDS.toMillis(4));
                             if (funnel != null) {
-                                funnel.logSaved();
+                                funnel.logSaved(response.getEntity() != null ? response.getEntity().getLastRevId() : 0);
                             }
                         } else {
                             editFailed(RetrofitException.unexpectedError(new RuntimeException(
@@ -354,7 +354,7 @@ public class DescriptionEditFragment extends Fragment {
                     }));
         }
 
-        private Observable<MwPostResponse> getPostObservable(@NonNull String editToken, @Nullable String languageCode) {
+        private Observable<EntityPostResponse> getPostObservable(@NonNull String editToken, @Nullable String languageCode) {
             if (action == ADD_CAPTION || action == TRANSLATE_CAPTION) {
                 return ServiceFactory.get(wikiCommons).postLabelEdit(pageTitle.getWikiSite().languageCode(),
                         pageTitle.getWikiSite().languageCode(), commonsDbName,

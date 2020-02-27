@@ -11,11 +11,12 @@ import org.wikipedia.dataclient.mwapi.MwParseResponse;
 import org.wikipedia.dataclient.mwapi.MwPostResponse;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.mwapi.SiteMatrix;
+import org.wikipedia.dataclient.wikidata.Entities;
+import org.wikipedia.dataclient.wikidata.EntityPostResponse;
 import org.wikipedia.edit.Edit;
 import org.wikipedia.edit.preview.EditPreview;
 import org.wikipedia.login.LoginClient;
 import org.wikipedia.search.PrefixSearchResponse;
-import org.wikipedia.wikidata.Entities;
 
 import io.reactivex.Observable;
 import retrofit2.Call;
@@ -81,11 +82,13 @@ public interface Service {
     @GET(MW_API_PREFIX + "action=query&prop=description")
     @NonNull Observable<MwQueryResponse> getDescription(@NonNull @Query("titles") String titles);
 
-    @GET(MW_API_PREFIX + "action=query&prop=imageinfo&iiprop=timestamp|user|url|extmetadata&iiurlwidth=" + PREFERRED_THUMB_SIZE)
-    @NonNull Observable<MwQueryResponse> getImageExtMetadata(@NonNull @Query("titles") String titles);
+    @GET(MW_API_PREFIX + "action=query&prop=imageinfo|imagelabels&iiprop=timestamp|user|url|mime|extmetadata&iiurlwidth=" + PREFERRED_THUMB_SIZE)
+    @NonNull Observable<MwQueryResponse> getImageInfo(@NonNull @Query("titles") String titles,
+                                                      @NonNull @Query("iiextmetadatalanguage") String lang);
 
-    @GET(MW_API_PREFIX + "action=query&prop=videoinfo&viprop=timestamp|user|url|mime|extmetadata|derivatives&viurlwidth=" + PREFERRED_THUMB_SIZE)
-    @NonNull Observable<MwQueryResponse> getMediaInfo(@NonNull @Query("titles") String titles);
+    @GET(MW_API_PREFIX + "action=query&prop=videoinfo|imagelabels&viprop=timestamp|user|url|mime|extmetadata|derivatives&viurlwidth=" + PREFERRED_THUMB_SIZE)
+    @NonNull Observable<MwQueryResponse> getVideoInfo(@NonNull @Query("titles") String titles,
+                                                      @NonNull @Query("viextmetadatalanguage") String lang);
 
     @GET(MW_API_PREFIX + "action=sitematrix&smtype=language&smlangprop=code|name|localname&maxage=" + SITE_INFO_MAXAGE + "&smaxage=" + SITE_INFO_MAXAGE)
     @NonNull Observable<SiteMatrix> getSiteMatrix();
@@ -104,6 +107,10 @@ public interface Service {
     @GET(MW_API_PREFIX + "action=query&generator=random&redirects=1&grnnamespace=6&grnlimit=50"
             + "&prop=description|imageinfo&iiprop=timestamp|user|url|mime&iiurlwidth=" + PREFERRED_THUMB_SIZE)
     @NonNull Observable<MwQueryResponse> getRandomWithImageInfo();
+
+    @Headers("Cache-Control: no-cache")
+    @GET(MW_API_PREFIX + "action=query&generator=random&redirects=1&grnnamespace=6&grnlimit=100&prop=imagelabels")
+    @NonNull Observable<MwQueryResponse> getRandomWithImageLabels();
 
     @GET(MW_API_PREFIX + "action=query&prop=categories&clprop=hidden&cllimit=500")
     @NonNull Observable<MwQueryResponse> getCategories(@NonNull @Query("titles") String titles);
@@ -189,7 +196,7 @@ public interface Service {
     @NonNull Observable<MwQueryResponse> markRead(@Field("token") @NonNull String token, @Field("list") @Nullable String readList, @Field("unreadlist") @Nullable String unreadList);
 
     @Headers("Cache-Control: no-cache")
-    @GET(MW_API_PREFIX + "action=query&meta=notifications&notprop=list&notfilter=!read&notlimit=1")
+    @GET(MW_API_PREFIX + "action=query&meta=notifications&notwikis=*&notprop=list&notfilter=!read&notlimit=1")
     @NonNull Observable<MwQueryResponse> getLastUnreadNotification();
 
     @Headers("Cache-Control: no-cache")
@@ -251,10 +258,18 @@ public interface Service {
     @NonNull Observable<Entities> getWikidataLabelsAndDescriptions(@Query("ids") @NonNull String idList);
 
     @Headers("Cache-Control: no-cache")
+    @POST(MW_API_PREFIX + "action=wbsetclaim&errorlang=uselang")
+    @FormUrlEncoded
+    Observable<EntityPostResponse> postSetClaim(@NonNull @Field("claim") String claim,
+                                                @NonNull @Field("token") String token,
+                                                @Nullable @Field("summary") String summary,
+                                                @Nullable @Field("tags") String tags);
+
+    @Headers("Cache-Control: no-cache")
     @POST(MW_API_PREFIX + "action=wbsetdescription&errorlang=uselang")
     @FormUrlEncoded
     @SuppressWarnings("checkstyle:parameternumber")
-    Observable<MwPostResponse> postDescriptionEdit(@NonNull @Field("language") String language,
+    Observable<EntityPostResponse> postDescriptionEdit(@NonNull @Field("language") String language,
                                                    @NonNull @Field("uselang") String useLang,
                                                    @NonNull @Field("site") String site,
                                                    @NonNull @Field("title") String title,
@@ -267,7 +282,7 @@ public interface Service {
     @POST(MW_API_PREFIX + "action=wbsetlabel&errorlang=uselang")
     @FormUrlEncoded
     @SuppressWarnings("checkstyle:parameternumber")
-    Observable<MwPostResponse> postLabelEdit(@NonNull @Field("language") String language,
+    Observable<EntityPostResponse> postLabelEdit(@NonNull @Field("language") String language,
                                              @NonNull @Field("uselang") String useLang,
                                              @NonNull @Field("site") String site,
                                              @NonNull @Field("title") String title,

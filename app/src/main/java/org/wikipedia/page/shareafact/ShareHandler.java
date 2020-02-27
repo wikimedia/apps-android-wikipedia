@@ -98,7 +98,7 @@ public class ShareHandler {
                 ? fragment.getPage().getPageProperties().getLeadImageName() : "";
         final PageTitle imageTitle = new PageTitle(Namespace.FILE.toLegacyString(), leadImageNameText, title.getWikiSite());
 
-        disposables.add(ServiceFactory.get(title.getWikiSite()).getImageExtMetadata(imageTitle.getPrefixedText())
+        disposables.add(ServiceFactory.get(title.getWikiSite()).getImageInfo(imageTitle.getPrefixedText(), title.getWikiSite().languageCode())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .map(response -> {

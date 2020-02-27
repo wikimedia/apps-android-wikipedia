@@ -9,6 +9,7 @@
 * पर्वत सुबेदी
 * राम प्रसाद जोशी
 * सरोज कुमार ढकाल
+* हिमाल सुबेदी
 -->
 <resources>
   <string name="app_name_prod">विकिपिडिया</string>
@@ -210,6 +211,7 @@
   <string name="edit_done">प्रकाशन गर्नुहोस्</string>
   <string name="edit_preview">पूर्वावलोकन</string>
   <string name="edit_undo">अन्डू गर्नुहोस्</string>
+  <string name="edit_redo">पुन: कायम गर्नुहाेस्</string>
   <string name="edit_summary_tag_typo">टाइपो सुधार गरियो</string>
   <string name="edit_summary_tag_grammar">व्याकरण सुधार गरियो</string>
   <string name="edit_summary_tag_links">लिङ्क थप गरियो</string>
@@ -222,7 +224,7 @@
   <string name="find_last_occurence">यो अन्तिम घटना हो</string>
   <string name="abusefilter_title_warn">यो रचनात्मक सम्पादन नहुन सक्छ। तपाईँ प्रकाशन गर्न निश्चित हुनुहुन्छ?</string>
   <string name="abusefilter_title_disallow">यस सम्पादनलाई प्रकाशन गर्न सक्नुहुन्न। कृपया पछाडि जानुहोस् र यसलाई परिवर्तन गर्नुहोस्।</string>
-  <string name="text_size_select">अक्षरको आकार</string>
+  <string name="text_size_select">लिपि आकार</string>
   <string name="page_similar_titles">मिल्दोजुल्दो पृष्ठहरू</string>
   <string name="search_did_you_mean">के तपाईंले \"%s\" भन्न खोज्नुभएको हो?</string>
   <string name="search_recent_header">भर्खरैका खोजहरू:</string>
@@ -242,6 +244,8 @@
   <string name="alpha_update_notification_text">डाउनलोड गर्न ट्याप गर्नुहोस्</string>
   <string name="dialog_close_description">बन्द गर्नुहोस्</string>
   <string name="preference_title_show_images">चित्रहरू देखाउनुहोस्</string>
+  <string name="preference_title_download_only_over_wifi">वाइफाईबाट मात्रै डाउनलाेड गर्नुहाेस्</string>
+  <string name="dialog_title_download_only_over_wifi">माेबाइल डाटाबाट डाउनलाेड गर्नेमा निश्चित गर्नुहाेस्</string>
   <string name="dialog_title_download_only_over_wifi_allow">अनुमति दिनुहोस्</string>
   <string name="read_more_section">थप पढ्नुहोस्</string>
   <string name="about_article_section">यस लेखको बारेमा।</string>
@@ -280,6 +284,7 @@
   <string name="address_copied">ठेगानालाई क्लिपबोर्डमा प्रतिलिपि गरियो।</string>
   <string name="text_copied">पाठलाई क्लिपबोर्डमा प्रतिलिपि गरियो।</string>
   <string name="button_continue_to_article">लेख पढ्नुहोस्</string>
+  <string name="button_continue_to_disambiguation">मिल्दाेजुल्दाे पृष्ठहरू हेर्नुहाेस्</string>
   <string name="button_add_to_reading_list">अध्ययन सूचीमा थप गर्नुहोस्</string>
   <string name="button_get_directions">दिशानिर्देशन प्राप्त गर्नुहोस्</string>
   <string name="error_no_maps_app">दिशानिर्देशन प्रदान गर्ने कुनै पनि अनुप्रयोग फेला पार्न सकिएन।</string>
@@ -296,7 +301,10 @@
   <string name="error_page_does_not_exist">यो पृष्ठ अवस्थित छैन</string>
   <string name="view_wiki_error_message_offline">इन्टरनेटमा जडान हुन सकेन</string>
   <string name="reference_title">सन्दर्भ %s</string>
+  <string name="reference_list_title">सन्दर्भहरू</string>
+  <string name="empty_tab_title">नयाँ ट्याब</string>
   <string name="crash_report_activity_title">अनुप्रयोगसम्बन्धी त्रुटि</string>
+  <string name="crash_report_relaunch_or_quit">के तपाई पुन: सुरु गर्न वा बन्द गर्न चाहानुहुन्छ?</string>
   <string name="crash_report_relaunch">फेरि सुरु गर्नुहोस्</string>
   <string name="crash_report_quit">बाहिरिनुहोस्</string>
   <string name="article_menu_bar_bookmark">यो लेखलार्इ कुनै अध्ययन सूचीमा थप्नुहोस्</string>
@@ -350,6 +358,7 @@
   <string name="reading_list_add_to_other_list">अर्को अध्ययन सूचीमा थप गर्नुहोस्</string>
   <string name="reading_list_remove_from_list">%s बाट हटाउनुहोस्</string>
   <string name="reading_list_remove_from_lists">अध्ययन सूचीहरूबाट हटाउनुहोस्</string>
+  <string name="reading_list_select_item">चयन गर्नुहोस्</string>
   <string name="reading_list_confirm_remove_article_from_offline">अफलाइनबाट हटाउनुहोस्</string>
   <string name="reading_lists_sync_reminder_action">समक्रमण सक्षम पार्नुहोस्</string>
   <string name="reading_list_login_reminder_title">पाठ्य सूचीहरू समक्रमण गर्नुहोस्</string>
@@ -360,10 +369,16 @@
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">प्रवेश गर्नुहोस्</string>
   <string name="reading_list_turned_sync_off_dialog_ok">हुन्छ</string>
   <string name="reading_list_turned_sync_off_dialog_settings">सेटिङ्हरू</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">मलाई यो फेरि नदेखाउनुहोस्</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">समक्रमण सक्षम पार्नुहोस्</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">पर्दैन धन्यवाद</string>
   <string name="default_reading_list_name">सङ्ग्रह गरिएको</string>
   <string name="reading_lists_menu_create_list">नयाँ सुची बनाउनुहोस्</string>
+  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">प्रवेश गर्नुहाेस् / खाता खाेल्नुहाेस्</string>
+  <plurals name="reading_list_article_offline_message">
+    <item quantity="one">यो लेख हाल अफलाइनमा उपलब्ध हुनेछ</item>
+    <item quantity="other">यी लेखहरू हाल अफलाइनमा उपलब्ध हुनेछन्</item>
+  </plurals>
   <string name="reading_list_remove_list_dialog_ok_button_text">हुन्छ</string>
   <string name="reading_list_delete_dialog_ok_button_text">हुन्छ</string>
   <string name="reading_list_remove_from_list_dialog_cancel_button_text">रद्द गर्नुहोस्</string>
@@ -378,6 +393,7 @@
   <string name="notification_syncing_cancel_button">रद्द गर्नुहोस्</string>
   <string name="notification_echo_channel_description">विकिपिडियाका जानकारीहरू</string>
   <string name="notifications_activity_title">जानकारीहरू</string>
+  <string name="notifications_search">जानकारीहरू खाेज्नुहाेस्</string>
   <string name="notifications_prefs">जानकारी अभिरुचीहरू</string>
   <string name="notifications_poll_enable_title">जानकारी सक्षम पार्नुहोस्</string>
   <string name="notifications_poll_enable_positive">सक्षम पार्नुहोस्</string>
@@ -386,11 +402,20 @@
   <string name="notifications_view_archived_button_text">अभिलेख गरिएका जानकारीहरू हेर्नुहोस्</string>
   <string name="notification_preferences_title">जानकारी अभिरुचीहरू</string>
   <string name="preference_title_notification_poll">पोल जानकारीहरू</string>
+  <string name="preference_title_notification_system">प्रणाली</string>
+  <string name="preference_title_notification_milestone">कोसेढुङ्गा</string>
   <string name="preference_title_notification_thanks">धन्यवाद</string>
   <string name="preference_summary_notification_thanks">कसैले तपाईलाई सम्पादन गरेकोमा धन्यवाद दिएका छन्</string>
+  <string name="preference_title_notification_revert">पूर्ववत्</string>
+  <string name="preference_title_notification_login_fail">प्रवेश</string>
+  <string name="preference_title_notification_mention">उल्लेख</string>
+  <string name="preference_summary_notification_mention">कसैले तपाईलाई पृष्ठमा उल्लेख गरेकाे छ</string>
+  <string name="preference_title_notification_user_talk">वार्तालाप पृष्ठ</string>
+  <string name="preference_summary_notification_user_talk">वार्तालाप पृष्ठका सन्देशहरू</string>
   <string name="view_because_you_read_card_title">तपाईंले यो लेख पढ्नुभएको हुनाले</string>
   <string name="view_random_card_title">क्रमरहित ढङ्गले चुनिएको लेख</string>
   <string name="view_random_card_subtitle">विकिपिडियाबाट क्रमरहित ढङ्गले चुनिएका कुनै लेखहरू पढ्नुहोस्</string>
+  <string name="view_next_random_article">अर्को अनियमित लेख खाेल्नुहाेस्</string>
   <string name="view_main_page_card_title">विकिपिडियामा आज</string>
   <string name="view_main_page_card_subtitle">%s को मुख्य पृष्ठ</string>
   <string name="view_main_page_card_action">मुख्य पृष्ठ हेर्नुहोस्</string>
@@ -412,17 +437,28 @@
   <string name="view_continue_reading_card_subtitle_read_date">%s पढ्नुहोस्</string>
   <string name="view_announcement_card_negative_action">पर्दैन धन्यवाद</string>
   <string name="onboarding_negative_action">पर्दैन धन्यवाद</string>
+  <string name="view_offline_card_text">अफलाइन हुँदा सामग्री खुल्न सक्दैन।</string>
   <string name="view_featured_article_card_title">विशेष लेख</string>
   <string name="view_featured_article_footer_save_button_label">संग्रह गर्नुहोस्</string>
   <string name="view_static_card_save_button_label">संग्रह गर्नुहोस्</string>
   <string name="view_featured_article_footer_saved_button_label">सुरक्षित गरिएको</string>
+  <string name="feed_configure_menu_reset">पुनर्निर्धारित दृश्य कायम गर्नुहाेस्</string>
   <string name="feed_configure_menu_select_all">सबै देखाउने</string>
   <string name="feed_configure_menu_deselect_all">सबै लुकाउने</string>
+  <string name="feed_configure_onboarding_action">अनुकुलित बनाउनुहोस्</string>
   <string name="customize_lang_selection_dialog_ok_button_text">हुन्छ</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">रद्द गर्नुहोस्</string>
   <string name="feed_lang_selection_dialog_ok_button_text">हुन्छ</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">रद्द गर्नुहोस्</string>
-  <string name="description_edit_text_hint" fuzzy="true">शीर्षकको विवरण</string>
+  <string name="feed_accessibility_card_load_more_button">अझै धेरै देखाउनुहोस्</string>
+  <string name="description_edit_text_hint">शीर्षकको विवरण</string>
+  <string name="description_edit_article_description_label">लेख</string>
+  <string name="description_edit_translate_article_description_label_per_language">लेख विवरणहरू %s</string>
+  <string name="description_edit_translate_article_description_hint_per_language">लेख विवरणहरू %s</string>
+  <string name="description_edit_add_caption_label">तस्वीर विवरण</string>
+  <string name="description_edit_add_caption_hint">तस्वीर व्याख्याहरू</string>
+  <string name="description_edit_translate_caption_label_per_language">तस्वीर व्याख्याहरू (%s)</string>
+  <string name="description_edit_translate_caption_hint_per_language">तस्वीर व्याख्याहरू (%s)</string>
   <string name="description_edit_save">प्रकाशन गर्नुहोस्</string>
   <string name="description_edit_read">पढ्नुहोस्</string>
   <string name="description_edit_add_description">लेख वर्णन थप्नुहोस्</string>
@@ -432,22 +468,65 @@
   <string name="description_edit_edit_image_caption">तस्विर शीर्षक सम्पादन गर्नुहोस्</string>
   <string name="description_edit_translate_image_caption">तस्विर शीर्षक अनुवाद गर्नुहोस्</string>
   <string name="description_edit_cancel_hint">रद्द गर्नुहोस्</string>
+  <string name="description_edit_help_title">जानकारी: लेख विवरणहरू</string>
   <string name="description_edit_help_about_wikidata">विकिडेटाको बारेमा</string>
   <string name="description_edit_success_saved" fuzzy="true">विवरण प्रकाशित भयो!</string>
+  <string name="description_edit_success_encouragement">तपाईले विकिपिडियालाई सबैको लागि अझ राम्रो बनाउनु भएकाे छ</string>
   <string name="description_edit_success_done">सम्पन्न भयो</string>
   <string name="description_edit_success_did_you_know">के तपाईँलाई थाह छ?</string>
+  <string name="description_edit_tutorial_title_descriptions">लेख विवरणहरू</string>
   <string name="description_edit_tutorial_keep_it_short">यसलाई छोटो राख्नुहोस्</string>
   <string name="description_edit_tutorial_button_label_start_editing">सम्पादन सुरु गर्नुहोस्</string>
-  <string name="suggested_edits_add_descriptions" fuzzy="true">शिर्षकमा विवरण थप्नुहोस्</string>
+  <string name="suggested_edits_add_descriptions">लेखमा विवरण थप्नुहोस्</string>
+  <string name="suggested_edits_translate_descriptions">लेखकाे विवरण अनुवाद गर्नुहोस्</string>
   <string name="suggested_edits_add_description_button">विवरण थप्नुहोस्</string>
+  <string name="suggested_edits_edit_description_button">विवरण सम्पादन गर्नुहोस्</string>
+  <string name="suggested_edits_add_translation_button">अनुवाद थप्नुहोस्</string>
+  <string name="suggested_edits_edit_translation_button">अनुवाद सम्पादन गर्नुहाेस्</string>
+  <string name="suggested_edits_my_contributions">मेरा योगदानहरू</string>
+  <string name="suggested_edits_menu_info">जानकारी</string>
   <string name="suggested_edits_tasks_activity_title">सुझाइएका सम्पादनहरू</string>
+  <string name="suggested_edits_task_add_description_title">शीर्षकमा विवरण थप्नुहोस्</string>
   <string name="suggested_edits_task_multilingual_positive">भाषाहरू थप गर्नुहोस्</string>
+  <string name="suggested_edits_image_caption_summary_title_file">फाइल</string>
+  <string name="suggested_edits_image_caption_summary_title_artist">कलाकार</string>
+  <string name="suggested_edits_image_caption_summary_title_author">लेखक</string>
+  <string name="suggested_edits_image_caption_summary_title_source">स्रोत</string>
   <string name="suggested_edits_image_caption_summary_title_license">इजाजतपत्र</string>
+  <string name="suggested_edits_image_caption_summary_title_date">मिति</string>
+  <plurals name="suggested_edits_contribution_count">
+    <item quantity="one">1 याेगदान</item>
+    <item quantity="other">%d याेगदानहरू</item>
+  </plurals>
   <string name="suggested_edits_feed_card_title">सुझाइएका सम्पादनहरू</string>
   <string name="suggested_edits_feed_card_add_description_button">लेख वर्णन थप्नुहोस्</string>
+  <string name="suggested_edits_feed_card_add_translation_in_language_button">लेखमा विवरण थप्नुहोस् %s</string>
   <string name="suggested_edits_tasks_onboarding_get_started">सुरु गर्नुहोस्</string>
+  <string name="suggested_edits_image_preview_dialog_artist">कलाकार</string>
+  <string name="suggested_edits_image_preview_dialog_date">मिति</string>
+  <string name="suggested_edits_image_preview_dialog_more_info">थप जानकारी</string>
   <string name="suggested_edits_article_cta_image_caption">तस्विर शीर्षक थप्नुहोस्</string>
+  <string name="suggested_edits_article_cta_snackbar_action">अवलोकन</string>
   <string name="suggested_edits_feed_card_add_image_caption">तस्विर शीर्षक थप्नुहोस्</string>
+  <string name="suggested_edits_snackbar_survey_action_text">सर्वेक्षण गर्नुहोस्</string>
+  <string name="suggested_edits_task_action_text_add">थप्नुहोस्</string>
+  <string name="suggested_edits_task_action_text_translate">अनुवाद गर्नुहोस्</string>
+  <string name="suggested_edits_image_captions">तस्वीर व्याख्याहरू</string>
+  <string name="suggested_edits_image_tags_publishing">प्रकाशन गर्दै...</string>
+  <string name="suggested_edits_image_tags_published">प्रकाशित</string>
+  <string name="suggested_edits_quality_good_text">राम्रो</string>
+  <string name="suggested_edits_quality_okay_text">ठीक</string>
+  <string name="suggested_edits_quality_sufficient_text">पर्याप्त</string>
+  <plurals name="suggested_edits_contribution">
+    <item quantity="one">1 याेगदान</item>
+    <item quantity="other">याेगदानहरू</item>
+  </plurals>
+  <plurals name="suggested_edits_edit_streak_detail_text">
+    <item quantity="one">%d दिन</item>
+    <item quantity="other">%d दिनहरू</item>
+  </plurals>
+  <string name="suggested_edits_last_edited">अन्तिम पटक सम्पादन</string>
+  <string name="suggested_edits_last_edited_never">कहिल्यै</string>
   <string name="suggested_edits_task_new">नयाँ</string>
   <string name="description_edit_revert_subtitle">विकिपिडिया सम्पादन गर्नुभएकोमा धन्यवाद!</string>
   <string name="description_edit_login_cancel_button_text">रद्द गर्नुहोस्</string>
@@ -479,6 +558,10 @@
   <string name="wikipedia_languages_add_language_text">भाषा थप्नुहोस्</string>
   <string name="wikipedia_languages_remove_text">भाषा हटाउनुहोस्</string>
   <string name="wikipedia_languages_remove_action_mode_title">भाषा हटाउनुहोस्</string>
+  <plurals name="wikipedia_languages_remove_dialog_title">
+    <item quantity="one">छनाेट गरिएका भाषा हटाउनुहाेस्?</item>
+    <item quantity="other">छनाेट गरिएका भाषाहरू हटाउनुहाेस्?</item>
+  </plurals>
   <string name="wikipedia_languages_remove_warning_dialog_title">सबै भाषा हटाउन सकिएन</string>
   <string name="more_language_options">थप</string>
   <string name="add_wikipedia_languages_text">विकिपिडिया भाषाहरू थप्नुहोस्</string>
@@ -492,6 +575,7 @@
   <string name="edit_conflict_dialog_ok_button_text">हुन्छ</string>
   <string name="reverted_edit_dialog_ok_button_text">हुन्छ</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">रद्द गर्नुहोस्</string>
+  <string name="wikitext_link">सूत्र</string>
   <string name="main_drawer_open">खुल्ला</string>
   <string name="main_drawer_close">बन्द</string>
   <string name="main_drawer_content_description">मुख्य नेभिगेसन ड्रयर खोल्नुहोस्</string>

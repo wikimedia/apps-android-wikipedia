@@ -38,7 +38,7 @@ class ReferenceListDialog : ExtendedBottomSheetDialogFragment() {
 
     override fun onStart() {
         super.onStart()
-        BottomSheetBehavior.from(view!!.parent as View).peekHeight = DimenUtil
+        BottomSheetBehavior.from(requireView().parent as View).peekHeight = DimenUtil
                 .roundedDpToPx(DimenUtil.getDimension(R.dimen.readingListSheetPeekHeight))
     }
 
