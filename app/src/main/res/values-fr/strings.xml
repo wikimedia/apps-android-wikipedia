@@ -742,6 +742,7 @@
   <string name="suggested_edits_image_tags_choose">Choisir les balises qui correspondent</string>
   <string name="suggested_edits_image_tags_select_title">Vous n’avez pas sélectionné de balise pour cette image</string>
   <string name="suggested_edits_image_tags_select_text">Seules les balises que vous choisirez seront ajoutées aux images. Les balises qui ne sont pas sélectionnées seront marquées comme rejetées. Êtes-vous sûr de vouloir marquer toutes les balises comme rejetées ?</string>
+  <string name="suggested_edits_image_zoom_tooltip">Pincer pour zoomer sur cette image.</string>
   <string name="suggested_edits_encouragement_message">%s, merci pour vos modifications. Ci-dessous, vous pourrez trouver d’autres moyens de contribuer à Wikipédia.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Bonjour %s&lt;/b&gt;, saviez-vous que tout le monde peut modifier Wikipédia ? Ci-dessous, vous trouverez des manières amusantes pour aider à améliorer Wikipédia. Bonne modification !</string>
   <string name="suggested_edits_image_captions_task_detail">Les légendes d’image décrivent une image pour aider les lecteurs à comprendre leur signification et leur contexte.</string>

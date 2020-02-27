@@ -201,7 +201,7 @@
   <string name="preferences_heading_syncing">Sincronización</string>
   <string name="preferences_heading_data_usage">Uso de datos</string>
   <string name="preferences_heading_experimental">Experimental</string>
-  <string name="preference_title_sync_reading_lists_from_account">Sincronización de listas de lectura</string>
+  <string name="preference_title_sync_reading_lists_from_account">Sincronizando las listas de lectura</string>
   <string name="preference_title_download_reading_list_articles">Descargar artículos de la lista de lectura</string>
   <string name="preference_summary_sync_reading_lists">Guardar las listas de lectura en mi cuenta de Wikipedia y sincronizarlas en varios dispositivos</string>
   <string name="preference_summary_sync_reading_lists_from_account">Guarda tus listas de lectura en tu cuenta de Wikipedia «%s» y sincronízalas en varios dispositivos</string>
@@ -224,7 +224,7 @@
   <string name="settings_item_preferences">Configuración</string>
   <string name="settings_activity_title">Configuración</string>
   <string name="about_description">Acerca de la aplicación de Wikipedia</string>
-  <string name="privacy_policy_description">Normativa de privacidad</string>
+  <string name="privacy_policy_description">Política de privacidad</string>
   <string name="terms_of_use_description">Términos de uso</string>
   <string name="about_wikipedia_url">https://es.m.wikipedia.org/wiki/Wikipedia:Acerca_de</string>
   <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/wiki/Privacy_policy/es</string>
@@ -263,7 +263,7 @@
   <string name="edit_summary_tag_other">Otro</string>
   <string name="edit_summary_tag_other_hint">Otras formas en las que has mejorado la página</string>
   <string name="edit_conflict_title">Conflicto de edición</string>
-  <string name="edit_conflict_message">Otro usuario ya ha modificado la página y ello interfiere con tu edición. Copia tus cambios, vuelve atrás y actualiza la página y, a continuación, intenta editar de nuevo.</string>
+  <string name="edit_conflict_message">Otro usuario ya ha modificado la página y ello interfiere con tu edición. Copia tus cambios, vuelve atrás y actualiza la página. A continuación, intenta editar de nuevo.</string>
   <string name="find_next">Buscar siguiente</string>
   <string name="find_previous">Buscar anterior</string>
   <string name="find_first_occurence">Esta es la primera ocurrencia</string>
@@ -353,7 +353,7 @@
   <string name="preference_title_show_link_previews">Mostrar vistas previas de enlaces</string>
   <string name="preference_summary_show_link_previews">Mostrar una vista previa rápida de los artículos al pulsar en los enlaces.</string>
   <string name="preference_title_collapse_tables">Minimizar tablas</string>
-  <string name="preference_summary_collapse_tables">Automáticamente minimizar tablas en artículos, como por ejemplo cajas de información, referencias y notas.</string>
+  <string name="preference_summary_collapse_tables">Minimizar automáticamente tablas en los artículos, como por ejemplo cajas de información, referencias y notas.</string>
   <string name="nav_item_donate">Apoya a Wikipedia</string>
   <string name="error_voice_search_not_available">El reconocimiento de voz no está disponible.</string>
   <string name="location_service_disabled">Los servicios de ubicación están desactivados.</string>
@@ -748,6 +748,7 @@
   <string name="suggested_edits_image_tags_choose">Elige las etiquetas correspondientes a la imagen.</string>
   <string name="suggested_edits_image_tags_select_title">No has seleccionado ninguna etiqueta para esta imagen.</string>
   <string name="suggested_edits_image_tags_select_text">Solo las etiquetas que elijas se añadirán a las imágenes. Las etiquetas no seleccionadas se marcarán como rechazadas. ¿Estás seguro de que quieres marcar todas las etiquetas como rechazadas?</string>
+  <string name="suggested_edits_image_zoom_tooltip">Para ampliar esta imagen, utiliza dos dedos.</string>
   <string name="suggested_edits_encouragement_message">%s, gracias por tus ediciones. Más abajo puedes encontrar otras formas de contribuir con la Wikipedia.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Hola, %s&lt;/b&gt;. ¿Sabías que todo el mundo puede editar Wikipedia? Más abajo puedes encontrar formas divertidas de ayudar a mejorar la Wikipedia. ¡Feliz edición!</string>
   <string name="suggested_edits_image_captions_task_detail">Los pies de foto describen una imagen para ayudar al lector a comprender su significado y contexto.</string>
@@ -783,6 +784,7 @@
   <string name="suggested_edits_last_edited">Última edición</string>
   <string name="suggested_edits_last_edited_never">Nunca</string>
   <string name="suggested_edits_task_new">nuevo</string>
+  <string name="suggested_edits_cc0_notice">Al publicar, aceptas los &lt;a href=\"%1$s\"&gt;Términos de uso&lt;/a&gt; y a liberar irrevocablemente tus contribuciones bajo los términos de la &lt;a href=\"%2$s\"&gt;licencia&lt;/a&gt;</string>
   <string name="description_edit_revert_subtitle">¡Gracias por editar Wikipedia!</string>
   <string name="description_edit_revert_intro">Sabemos intentaste hacer lo mejor, pero uno de los revisores tuvo una preocupación. Posibles razones por las que tu edición se revirtió incluyen:</string>
   <string name="description_edit_revert_reason1">tu contribución no siguió algunas de las &lt;a href=\"%1$s\"&gt;directrices&lt;/a&gt;.</string>
