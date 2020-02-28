@@ -437,6 +437,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                 pageFragmentLoadState.onPageFinished();
                 updateProgressBar(false, true, 0);
                 webView.setVisibility(View.VISIBLE);
+                app.getSessionFunnel().leadSectionFetchEnd();
             }
 
             @Override
