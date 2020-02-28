@@ -38,6 +38,7 @@ import static org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory.CACHE_DIR_
 public final class SavedPagesConversionUtil {
     private static final String LEAD_SECTION_ENDPOINT = "/page/mobile-sections-lead/";
     private static final String REMAINING_SECTIONS_ENDPOINT = "/page/mobile-sections-remaining/";
+    private static final int MAX_ATTEMPTS = 3;
 
     @SuppressLint("StaticFieldLeak")
     private static WebView WEBVIEW;
@@ -45,7 +46,13 @@ public final class SavedPagesConversionUtil {
     private static ReadingListPage CURRENT_PAGE;
 
     @SuppressLint({"SetJavaScriptEnabled", "CheckResult"})
-    public static void runOneTimeSavedPagesConversion() {
+    public static void maybeRunOneTimeSavedPagesConversion() {
+        if (Prefs.isOfflinePcsToMobileHtmlConversionComplete()
+                || Prefs.getOfflinePcsToMobileHtmlConversionAttempts() > MAX_ATTEMPTS) {
+            return;
+        }
+        Prefs.setOfflinePcsToMobileHtmlConversionAttempts(Prefs.getOfflinePcsToMobileHtmlConversionAttempts() + 1);
+
         Completable.fromAction(() -> {
             List<ReadingList> allReadingLists = ReadingListDbHelper.instance().getAllLists();
             if (allReadingLists.isEmpty()) {
