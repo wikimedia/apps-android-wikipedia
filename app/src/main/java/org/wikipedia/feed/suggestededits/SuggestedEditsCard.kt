@@ -9,6 +9,7 @@ import org.wikipedia.descriptions.DescriptionEditActivity.Action
 import org.wikipedia.feed.model.CardType
 import org.wikipedia.feed.model.WikiSiteCard
 import org.wikipedia.suggestededits.SuggestedEditsSummary
+import org.wikipedia.util.DateUtil
 
 class SuggestedEditsCard(
         wiki: WikiSite,
@@ -24,6 +25,10 @@ class SuggestedEditsCard(
 
     override fun title(): String {
         return WikipediaApp.getInstance().getString(R.string.suggested_edits_feed_card_title)
+    }
+
+    override fun subtitle(): String {
+        return DateUtil.getFeedCardDateString(age)
     }
 
     fun logImpression() {
