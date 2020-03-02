@@ -11,6 +11,7 @@ import android.view.View
 import android.view.View.*
 import android.view.ViewGroup
 import android.widget.CompoundButton
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.google.android.material.chip.Chip
 import io.reactivex.Observable
@@ -82,7 +83,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         imageView.setOnClickListener {
             if (Prefs.shouldShowImageZoomTooltip()) {
                 Prefs.setShouldShowImageZoomTooltip(false)
-                FeedbackUtil.showMessage(requireActivity(), R.string.suggested_edits_image_zoom_tooltip)
+                FeedbackUtil.showToastOverView(imageView, getString(R.string.suggested_edits_image_zoom_tooltip), Toast.LENGTH_LONG)
             }
         }
 

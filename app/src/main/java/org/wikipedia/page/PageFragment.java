@@ -437,6 +437,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                 pageFragmentLoadState.onPageFinished();
                 updateProgressBar(false, true, 0);
                 webView.setVisibility(View.VISIBLE);
+                app.getSessionFunnel().leadSectionFetchEnd();
             }
 
             @Override
@@ -476,7 +477,13 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
 
         bridge.execute(JavaScriptActionHandler.setFooter(model));
 
-        bridge.evaluate(JavaScriptActionHandler.getRevision(), revision -> this.revision = Long.parseLong(revision.replace("\"", "")));
+        bridge.evaluate(JavaScriptActionHandler.getRevision(), revision -> {
+            try {
+                this.revision = Long.parseLong(revision.replace("\"", ""));
+            } catch (NumberFormatException e) {
+                L.e(e);
+            }
+        });
 
         bridge.evaluate(JavaScriptActionHandler.getSections(), value -> {
             Section[] secArray = GsonUtil.getDefaultGson().fromJson(value, Section[].class);
@@ -875,6 +882,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         }
         updateProgressBar(false, true, 0);
         refreshView.setRefreshing(false);
+        pageFragmentLoadState.onPageFinished();
 
         if (pageRefreshed) {
             pageRefreshed = false;
@@ -1352,7 +1360,9 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     }
 
     public Observable<References> getReferences() {
-        return references == null ? ServiceFactory.getRest(getTitle().getWikiSite()).getReferences(getTitle().getPrefixedText(), getRevision()) : Observable.just(references);
+        return references == null ? ServiceFactory.getRest(getTitle().getWikiSite()).getReferences(getTitle().getPrefixedText(), getRevision(),
+                getTitle().getWikiSite().languageCode(), UriUtil.encodeURL(getTitle().getPrefixedText()))
+                : Observable.just(references);
     }
 
     public LinkHandler getLinkHandler() {

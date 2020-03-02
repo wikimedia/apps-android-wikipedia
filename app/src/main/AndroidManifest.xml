@@ -343,5 +343,9 @@
 
         <receiver android:name=".savedpages.SavedPageSyncNotification" />
 
+        <service
+            android:name=".offline.UpgradeService"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+
     </application>
 </manifest>

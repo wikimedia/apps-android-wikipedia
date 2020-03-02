@@ -12,12 +12,14 @@ import androidx.annotation.NonNull;
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.PageViewModel;
+import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -38,6 +40,9 @@ public abstract class OkHttpWebViewClient extends WebViewClient {
     private static final List<String> SUPPORTED_SCHEMES = Arrays.asList("http", "https");
     private static final String HEADER_CONTENT_TYPE = "content-type";
     private static final String CONTENT_TYPE_OGG = "application/ogg";
+    private static final String PCS_CSS = "/data/css/mobile/pcs";
+    private static final String BASE_CSS = "/data/css/mobile/base";
+    private static final String PCS_JS = "/data/javascript/mobile/pcs";
 
     @NonNull public abstract PageViewModel getModel();
 
@@ -68,6 +73,36 @@ public abstract class OkHttpWebViewClient extends WebViewClient {
                             getInputStream(rsp));
             }
         } catch (Exception e) {
+
+            //------------------
+            // TODO: remove after two releases.
+            if (request.getUrl().toString().contains(PCS_CSS)) {
+                final int statusCode = 200;
+                try {
+                    return new WebResourceResponse("text/css", "utf-8", statusCode, "OK",
+                            Collections.emptyMap(), WikipediaApp.getInstance().getAssets().open("offline_convert/pcs.css"));
+                } catch (IOException ex) {
+                    // ignore silently
+                }
+            } else if (request.getUrl().toString().contains(BASE_CSS)) {
+                final int statusCode = 200;
+                try {
+                    return new WebResourceResponse("text/css", "utf-8", statusCode, "OK",
+                            Collections.emptyMap(), WikipediaApp.getInstance().getAssets().open("offline_convert/base.css"));
+                } catch (IOException ex) {
+                    // ignore silently
+                }
+            } else if (request.getUrl().toString().contains(PCS_JS)) {
+                final int statusCode = 200;
+                try {
+                    return new WebResourceResponse("text/javascript", "utf-8", statusCode, "OK",
+                            Collections.emptyMap(), WikipediaApp.getInstance().getAssets().open("offline_convert/pcs.js"));
+                } catch (IOException ex) {
+                    // ignore silently
+                }
+            }
+            //------------------
+
             // TODO: we can send actual error message by handling the exception message.
             response = new WebResourceResponse(null, null, 404, "Unknown error", null, null);
             L.e(e);
@@ -99,8 +134,11 @@ public abstract class OkHttpWebViewClient extends WebViewClient {
     private Request.Builder addHeaders(@NonNull Request.Builder builder) {
         // TODO: Find a common way to set this header between here and RetrofitFactory.
         builder.header("Accept-Language", WikipediaApp.getInstance().getAcceptLanguage(getModel().getTitle().getWikiSite()));
-        builder.header(OfflineCacheInterceptor.SAVE_HEADER, getModel().shouldSaveOffline()
-                ? OfflineCacheInterceptor.SAVE_HEADER_SAVE : OfflineCacheInterceptor.SAVE_HEADER_NONE);
+        if (getModel().shouldSaveOffline()) {
+            builder.header(OfflineCacheInterceptor.SAVE_HEADER, OfflineCacheInterceptor.SAVE_HEADER_SAVE);
+        }
+        builder.header(OfflineCacheInterceptor.LANG_HEADER, getModel().getTitle().getWikiSite().languageCode());
+        builder.header(OfflineCacheInterceptor.TITLE_HEADER, UriUtil.encodeURL(getModel().getTitle().getPrefixedText()));
         if (getModel().getCurEntry() != null && !TextUtils.isEmpty(getModel().getCurEntry().getReferrer())) {
             builder.header("Referer", getModel().getCurEntry().getReferrer());
         }

@@ -152,7 +152,7 @@ dependencies {
     // use http://gradleplease.appspot.com/ or http://search.maven.org/.
     // Debug with ./gradlew -q app:dependencies --configuration compile
 
-    String okHttpVersion = '3.14.0'
+    String okHttpVersion = '4.3.1'
     String retrofitVersion = '2.6.0'
     String butterknifeVersion = '10.2.0'
     String espressoVersion = '3.1.1'

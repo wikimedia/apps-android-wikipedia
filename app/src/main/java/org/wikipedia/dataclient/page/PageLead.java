@@ -1,19 +1,11 @@
 package org.wikipedia.dataclient.page;
 
-import android.location.Location;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 
-import org.wikipedia.auth.AccountUtil;
-import org.wikipedia.page.GeoTypeAdapter;
 import org.wikipedia.page.Namespace;
-import org.wikipedia.page.Page;
-import org.wikipedia.page.PageProperties;
-import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.Section;
 import org.wikipedia.util.UriUtil;
 
@@ -22,7 +14,7 @@ import java.util.List;
 
 import static org.wikipedia.dataclient.Service.PREFERRED_THUMB_SIZE;
 
-public class PageLead implements PageLeadProperties {
+public class PageLead {
     @SuppressWarnings("unused") private int ns;
     @SuppressWarnings("unused") private int id;
     @SuppressWarnings("unused") private long revision;
@@ -32,7 +24,6 @@ public class PageLead implements PageLeadProperties {
     @SuppressWarnings("unused") @Nullable private String normalizedtitle;
     @SuppressWarnings("unused") @Nullable @SerializedName("wikibase_item") private String wikiBaseItem;
     @SuppressWarnings("unused") @Nullable @SerializedName("pronunciation") private TitlePronunciation titlePronunciation;
-    @SuppressWarnings("unused") @Nullable @JsonAdapter(GeoTypeAdapter.class) private Location geo;
     @SuppressWarnings("unused") private int languagecount;
     @SuppressWarnings("unused") private boolean editable;
     @SuppressWarnings("unused") private boolean mainpage;
@@ -40,26 +31,7 @@ public class PageLead implements PageLeadProperties {
     @SuppressWarnings("unused") @Nullable private String description;
     @SuppressWarnings("unused") @Nullable @SerializedName("description_source") private String descriptionSource;
     @SuppressWarnings("unused") @Nullable private Image image;
-    @SuppressWarnings("unused") @Nullable private Protection protection;
     @SuppressWarnings("unused") @Nullable private List<Section> sections;
-
-    public Page toPage(PageTitle title) {
-        return new Page(adjustPageTitle(title),
-                getSections(),
-                toPageProperties());
-    }
-
-    private PageTitle adjustPageTitle(PageTitle title) {
-        if (redirected != null) {
-            // Handle redirects properly.
-            title = new PageTitle(redirected, title.getWikiSite(), title.getThumbUrl());
-        } else if (normalizedtitle != null) {
-            // We care about the normalized title only if we were not redirected
-            title = new PageTitle(normalizedtitle, title.getWikiSite(), title.getThumbUrl());
-        }
-        title.setDescription(description);
-        return title;
-    }
 
     public String getLeadSectionContent() {
         if (sections != null) {
@@ -69,32 +41,23 @@ public class PageLead implements PageLeadProperties {
         }
     }
 
-    /** Converter */
-    private PageProperties toPageProperties() {
-        return new PageProperties(this);
-    }
-
-    @Override
     public int getId() {
         return id;
     }
 
-    @NonNull @Override public Namespace getNamespace() {
+    @NonNull public Namespace getNamespace() {
         return Namespace.of(ns);
     }
 
-    @Override
     public long getRevision() {
         return revision;
     }
 
-    @Override
     @Nullable
     public String getLastModified() {
         return lastmodified;
     }
 
-    @Override
     @Nullable
     public String getTitlePronunciationUrl() {
         return titlePronunciation == null
@@ -102,31 +65,21 @@ public class PageLead implements PageLeadProperties {
                 : UriUtil.resolveProtocolRelativeUrl(titlePronunciation.getUrl());
     }
 
-    @Override
-    @Nullable
-    public Location getGeo() {
-        return geo;
-    }
-
-    @Override
     @Nullable
     public String getDisplayTitle() {
         return displaytitle;
     }
 
-    @Override
     @Nullable
     public String getRedirected() {
         return redirected;
     }
 
-    @Override
     @Nullable
     public String getNormalizedTitle() {
         return normalizedtitle;
     }
 
-    @Override
     @Nullable
     public String getWikiBaseItem() {
         return wikiBaseItem;
@@ -137,56 +90,35 @@ public class PageLead implements PageLeadProperties {
         return description;
     }
 
-    @Override
     @Nullable
     public String getDescriptionSource() {
         return descriptionSource;
     }
 
-    @Override
     @Nullable
     public String getLeadImageUrl(int leadImageWidth) {
         return image != null ? image.getUrl(leadImageWidth) : null;
     }
 
-    @Override
     @Nullable
     public String getThumbUrl() {
         return image != null ? image.getUrl(PREFERRED_THUMB_SIZE) : null;
     }
 
-    @Override
     @Nullable
     public String getLeadImageFileName() {
         return image != null ? image.getFileName() : null;
     }
 
-    @Override
-    @Nullable
-    public String getFirstAllowedEditorRole() {
-        return protection != null ? protection.getFirstAllowedEditorRole() : null;
-    }
-
-    @Override
-    public boolean isEditable() {
-        return editable || isLoggedInUserAllowedToEdit();
-    }
-
-    private boolean isLoggedInUserAllowedToEdit() {
-        return protection != null && AccountUtil.isMemberOf(protection.getEditRoles());
-    }
-
-    @Override
     public boolean isMainPage() {
         return mainpage;
     }
 
-    @Override
     public boolean isDisambiguation() {
         return disambiguation;
     }
 
-    @Override @NonNull public List<Section> getSections() {
+    @NonNull public List<Section> getSections() {
         return sections == null ? Collections.emptyList() : sections;
     }
 
