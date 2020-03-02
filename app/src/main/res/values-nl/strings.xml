@@ -3,6 +3,7 @@
 * Abijeet Patro
 * Dbrant
 * Elroy
+* Encycloon
 * Envlh
 * Festina90
 * Goefie
@@ -311,6 +312,7 @@
   <string name="close_all_tabs_confirm_yes">Ja</string>
   <string name="close_all_tabs_confirm_no">Nee</string>
   <string name="button_close_tab">Tabblad sluiten</string>
+  <string name="unnamed_tab_closed">Tabblad gesloten.</string>
   <string name="tab_item_closed">%s gesloten.</string>
   <string name="all_tab_items_closed">Alle tabbladen gesloten.</string>
   <string name="tool_tip_bookmark_icon_title">Aan leeslijst toevoegen</string>
@@ -715,6 +717,7 @@
   <string name="suggested_edits_image_captions">Afbeeldingsbijschriften</string>
   <string name="suggested_edits_image_tags_onboarding_title">Voeg aan afbeeldingen tags toe om ze gemakkelijker vindbaar te maken voor anderen</string>
   <string name="suggested_edits_image_tags_onboarding_text">Door voorgestelde tags te bevestigen, kunt u helpen om eenvoudiger te zoeken naar afbeeldingen.\n\nTags worden door de computer voorgesteld, maar moeten door mensen worden gevalideerd om nauwkeurigheid te garanderen.</string>
+  <string name="suggested_edits_ip_blocked_message">Het lijkt erop dat uw IP-adres (of bereik van IP-adressen) momenteel geblokkeerd is van het bewerken van Wikipedia. U kunt meer te weten komen over wat dit betekent door de link hieronder te volgen.</string>
   <string name="suggested_edits_quality_perfect_text">Perfect</string>
   <string name="suggested_edits_quality_excellent_text">Uitstekend</string>
   <string name="suggested_edits_quality_very_good_text">Erg goed</string>

@@ -319,6 +319,7 @@
   <string name="close_all_tabs_confirm_yes">Sì</string>
   <string name="close_all_tabs_confirm_no">No</string>
   <string name="button_close_tab">Chiudi scheda</string>
+  <string name="unnamed_tab_closed">Scheda chiusa.</string>
   <string name="tab_item_closed">%s chiuso.</string>
   <string name="all_tab_items_closed">Tutte le schede chiuse</string>
   <string name="tool_tip_bookmark_icon_title">Aggiungi all\'elenco di lettura</string>

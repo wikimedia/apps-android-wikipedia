@@ -315,6 +315,7 @@
   <string name="close_all_tabs_confirm_yes">Sim</string>
   <string name="close_all_tabs_confirm_no">Não</string>
   <string name="button_close_tab">Fechar guia</string>
+  <string name="unnamed_tab_closed">Guia fechada.</string>
   <string name="tab_item_closed">%s fechado.</string>
   <string name="all_tab_items_closed">Todas as guias fechadas.</string>
   <string name="tool_tip_bookmark_icon_title">Adicionar à lista de leitura</string>
