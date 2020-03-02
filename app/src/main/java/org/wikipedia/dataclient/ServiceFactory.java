@@ -30,9 +30,7 @@ public final class ServiceFactory {
         if (SERVICE_CACHE.get(hashCode) != null) {
             return SERVICE_CACHE.get(hashCode);
         }
-
-        Retrofit r = createRetrofit(wiki, TextUtils.isEmpty(Prefs.getMediaWikiBaseUrl()) ? wiki.url() + "/" : Prefs.getMediaWikiBaseUrl());
-
+        Retrofit r = createRetrofit(wiki, getBasePath(wiki));
         Service s = r.create(Service.class);
         SERVICE_CACHE.put(hashCode, s);
         return s;
@@ -44,9 +42,7 @@ public final class ServiceFactory {
             return REST_SERVICE_CACHE.get(hashCode);
         }
 
-        Retrofit r = createRetrofit(wiki, TextUtils.isEmpty(Prefs.getRestbaseUriFormat())
-                        ? wiki.url() + "/" + RestService.REST_API_PREFIX
-                        : String.format(Prefs.getRestbaseUriFormat(), "https", wiki.authority()));
+        Retrofit r = createRetrofit(wiki, getRestBasePath(wiki));
 
         RestService s = r.create(RestService.class);
         REST_SERVICE_CACHE.put(hashCode, s);
@@ -56,6 +52,16 @@ public final class ServiceFactory {
     public static <T> T get(@NonNull WikiSite wiki, @Nullable String baseUrl, Class<T> service) {
         Retrofit r = createRetrofit(wiki, TextUtils.isEmpty(baseUrl) ? wiki.url() + "/" : baseUrl);
         return r.create(service);
+    }
+
+    public static String getBasePath(@NonNull WikiSite wiki) {
+        return TextUtils.isEmpty(Prefs.getMediaWikiBaseUrl()) ? wiki.url() + "/" : Prefs.getMediaWikiBaseUrl();
+    }
+
+    public static String getRestBasePath(@NonNull WikiSite wiki) {
+        return TextUtils.isEmpty(Prefs.getRestbaseUriFormat())
+                ? wiki.url() + "/" + RestService.REST_API_PREFIX
+                : String.format(Prefs.getRestbaseUriFormat(), "https", wiki.authority());
     }
 
     private static Retrofit createRetrofit(@NonNull WikiSite wiki, @NonNull String baseUrl) {
