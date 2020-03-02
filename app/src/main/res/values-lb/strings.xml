@@ -260,6 +260,7 @@
   <string name="close_all_tabs_confirm_yes">Jo</string>
   <string name="close_all_tabs_confirm_no">Neen</string>
   <string name="button_close_tab">Tab zoumaachen</string>
+  <string name="unnamed_tab_closed">Tab zougemaach.</string>
   <string name="page_view_in_browser">Säit am Browser weisen</string>
   <string name="error_response_malformed">D\'Äntwert vum Server war net richteg formatéiert.</string>
   <string name="error_unknown">En onbekannte Feeler ass geschitt.</string>

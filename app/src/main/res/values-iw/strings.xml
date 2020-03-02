@@ -300,6 +300,7 @@
   <string name="close_all_tabs_confirm_yes">כן</string>
   <string name="close_all_tabs_confirm_no">לא</string>
   <string name="button_close_tab">סגירת לשונית</string>
+  <string name="unnamed_tab_closed">הלשונית נסגרה.</string>
   <string name="tab_item_closed">הלשונית %s נסגרה.</string>
   <string name="all_tab_items_closed">כל הלשוניות סגורות.</string>
   <string name="tool_tip_bookmark_icon_title">הוספה לרשימת הקריאה</string>
@@ -720,6 +721,7 @@
   <string name="suggested_edits_image_tags_choose">נא לבחור תגים תואמים</string>
   <string name="suggested_edits_image_tags_select_title">לא בחרת שום תגים לתמונה הזאת</string>
   <string name="suggested_edits_image_tags_select_text">רק תגים שתבחרו יוספו לתמונות. תגים שלא בחרת יסומנו בתור תגים שנדחו. האם ברצונך באמת לסמן את כל התגים האלה בתור תגים שנדחו?</string>
+  <string name="suggested_edits_image_zoom_tooltip">אפשר לקרב את התמונה הזאת בשתי אצבעות.</string>
   <string name="suggested_edits_encouragement_message">%s, תודה על תרומתך. בהמשך הדף ניתן למצוא דרכים נוספות לתרום לוויקיפדיה.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;היי %s&lt;/b&gt;, ידעת שלכל אחד יש אפשרות לערוך את ויקיפדיה? להלן שיטות מהנות לסייע בשיפור ויקיפדיה. עריכה מהנה!</string>
   <string name="suggested_edits_image_captions_task_detail">כותרות התמונות מתארות תמונה כדי לסייע לקוראים להבין את המשמעות וההקשר.</string>
