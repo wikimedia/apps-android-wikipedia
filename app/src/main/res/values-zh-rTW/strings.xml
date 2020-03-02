@@ -305,6 +305,7 @@
   <string name="close_all_tabs_confirm_yes">是</string>
   <string name="close_all_tabs_confirm_no">否</string>
   <string name="button_close_tab">關閉分頁</string>
+  <string name="unnamed_tab_closed">分頁已關閉。</string>
   <string name="tab_item_closed">已關閉%s。</string>
   <string name="all_tab_items_closed">所有分頁已關閉</string>
   <string name="tool_tip_bookmark_icon_title">新增至閱讀清單</string>

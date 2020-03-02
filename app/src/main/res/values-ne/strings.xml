@@ -576,6 +576,7 @@
   <string name="reverted_edit_dialog_ok_button_text">हुन्छ</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">रद्द गर्नुहोस्</string>
   <string name="wikitext_link">सूत्र</string>
+  <string name="wikitext_reference">सन्दर्भ</string>
   <string name="main_drawer_open">खुल्ला</string>
   <string name="main_drawer_close">बन्द</string>
   <string name="main_drawer_content_description">मुख्य नेभिगेसन ड्रयर खोल्नुहोस्</string>

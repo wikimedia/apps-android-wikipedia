@@ -304,6 +304,7 @@
   <string name="close_all_tabs_confirm_yes">Ano</string>
   <string name="close_all_tabs_confirm_no">Ne</string>
   <string name="button_close_tab">Zavřít záložku</string>
+  <string name="unnamed_tab_closed">Karta zavřena.</string>
   <string name="tab_item_closed">%s zavřena.</string>
   <string name="all_tab_items_closed">Všechny záložky zavřeny.</string>
   <string name="tool_tip_bookmark_icon_title">Přidat do seznamu k přečtení</string>

@@ -201,7 +201,7 @@
   <string name="preferences_heading_syncing">Sincronización</string>
   <string name="preferences_heading_data_usage">Uso de datos</string>
   <string name="preferences_heading_experimental">Experimental</string>
-  <string name="preference_title_sync_reading_lists_from_account">Sincronizando las listas de lectura</string>
+  <string name="preference_title_sync_reading_lists_from_account">Sincronización de listas de lectura</string>
   <string name="preference_title_download_reading_list_articles">Descargar artículos de la lista de lectura</string>
   <string name="preference_summary_sync_reading_lists">Guardar las listas de lectura en mi cuenta de Wikipedia y sincronizarlas en varios dispositivos</string>
   <string name="preference_summary_sync_reading_lists_from_account">Guarda tus listas de lectura en tu cuenta de Wikipedia «%s» y sincronízalas en varios dispositivos</string>
@@ -224,7 +224,7 @@
   <string name="settings_item_preferences">Configuración</string>
   <string name="settings_activity_title">Configuración</string>
   <string name="about_description">Acerca de la aplicación de Wikipedia</string>
-  <string name="privacy_policy_description">Política de privacidad</string>
+  <string name="privacy_policy_description">Normativa de privacidad</string>
   <string name="terms_of_use_description">Términos de uso</string>
   <string name="about_wikipedia_url">https://es.m.wikipedia.org/wiki/Wikipedia:Acerca_de</string>
   <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/wiki/Privacy_policy/es</string>
@@ -328,6 +328,7 @@
   <string name="close_all_tabs_confirm_yes">Sí</string>
   <string name="close_all_tabs_confirm_no">No</string>
   <string name="button_close_tab">Cerrar pestaña</string>
+  <string name="unnamed_tab_closed">Pestaña cerrada.</string>
   <string name="tab_item_closed">%s cerradas.</string>
   <string name="all_tab_items_closed">Se cerraron todas las pestañas.</string>
   <string name="tool_tip_bookmark_icon_title">Añadir a una lista de lectura</string>
