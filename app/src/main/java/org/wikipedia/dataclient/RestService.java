@@ -39,8 +39,8 @@ public interface RestService {
     String ACCEPT_HEADER_SUMMARY = ACCEPT_HEADER_PREFIX + "Summary/1.2.0\"";
     String ACCEPT_HEADER_DEFINITION = ACCEPT_HEADER_PREFIX + "definition/0.7.2\"";
 
-    String PAGE_HTML_ENDPOINT = "/page/mobile-html/";
-    String PAGE_HTML_PREVIEW_ENDPOINT = REST_API_PREFIX + "/transform/wikitext/to/mobile-html/";
+    String PAGE_HTML_ENDPOINT = "page/mobile-html/";
+    String PAGE_HTML_PREVIEW_ENDPOINT = "transform/wikitext/to/mobile-html/";
 
     /**
      * Gets a page summary for a given title -- for link previews
