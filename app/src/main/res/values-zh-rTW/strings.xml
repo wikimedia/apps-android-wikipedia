@@ -451,15 +451,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">不要再顯示出來</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">啟用同步</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">不用了，謝謝</string>
-  <string name="reading_list_login_option_reminder_dialog_title">已找出閱讀清單條目</string>
-  <string name="reading_list_login_option_reminder_dialog_text">當您登出時，條目已儲存至閱讀清單。您想要添加它們至您帳號裡的閱讀清單裡嗎？</string>
-  <string name="reading_list_login_option_reminder_dialog_yes">是的，添加它們至我的閱讀清單</string>
-  <string name="reading_list_login_option_reminder_dialog_no">不，刪除條目</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">保留在應用程式上的已儲存條目？</string>
-  <string name="reading_list_logout_option_reminder_dialog_text">這些條目目前儲存在閱讀清單，您想要在登出後保留它們嗎？</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">是的，保留條目在清單上</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">不，從清單上刪除條目</string>
-  <string name="default_reading_list_name">已儲存</string>
+    <string name="default_reading_list_name">已儲存</string>
   <string name="default_reading_list_description">您的已儲存條目之預設清單</string>
   <string name="no_user_lists_title">組織條目至清單</string>
   <string name="no_user_lists_msg">建立前往旅行的地點、喜愛的主題，以及更多其它事物的清單</string>

@@ -468,15 +468,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Ne plus m’afficher cela</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Activer la synchronisation</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Non merci</string>
-  <string name="reading_list_login_option_reminder_dialog_title">Articles de liste de lecture trouvés</string>
-  <string name="reading_list_login_option_reminder_dialog_text">Des articles ont été enregistrés dans la liste de lecture pendant que vous étiez déconnecté. Voulez-vous les ajouter aux listes de lecture dans votre compte ?</string>
-  <string name="reading_list_login_option_reminder_dialog_yes">Oui, les ajouter à mes listes de lecture</string>
-  <string name="reading_list_login_option_reminder_dialog_no">Non, supprimer les articles</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">Conserver les articles enregistrés dans l’application ?</string>
-  <string name="reading_list_logout_option_reminder_dialog_text">Des articles sont actuellement enregistrés dans vos listes de lecture. Voulez-vous les conserver là après déconnexion ?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">Oui, conserver les articles dans mes listes</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">Non, supprimer les articles de mes listes</string>
-  <string name="default_reading_list_name">Enregistré</string>
+    <string name="default_reading_list_name">Enregistré</string>
   <string name="default_reading_list_description">Liste par défaut pour vos articles enregistrés</string>
   <string name="no_user_lists_title">Organiser des articles dans des listes</string>
   <string name="no_user_lists_msg">Créer des listes d’endroits à visiter, des sujets favoris et beaucoup plus</string>

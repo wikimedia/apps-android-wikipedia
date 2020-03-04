@@ -35,7 +35,6 @@ import org.wikipedia.crash.CrashReportActivity;
 import org.wikipedia.events.LoggedOutInBackgroundEvent;
 import org.wikipedia.events.NetworkConnectEvent;
 import org.wikipedia.events.ReadingListsEnableDialogEvent;
-import org.wikipedia.events.ReadingListsMergeLocalDialogEvent;
 import org.wikipedia.events.ReadingListsNoLongerSyncedEvent;
 import org.wikipedia.events.SplitLargeListsEvent;
 import org.wikipedia.events.ThemeChangeEvent;
@@ -307,8 +306,6 @@ public abstract class BaseActivity extends AppCompatActivity {
                         .show();
             } else if (event instanceof ReadingListsNoLongerSyncedEvent) {
                 ReadingListSyncBehaviorDialogs.detectedRemoteTornDownDialog(BaseActivity.this);
-            } else if (event instanceof ReadingListsMergeLocalDialogEvent) {
-                ReadingListSyncBehaviorDialogs.mergeExistingListsOnLoginDialog(BaseActivity.this);
             } else if (event instanceof ReadingListsEnableDialogEvent) {
                 ReadingListSyncBehaviorDialogs.promptEnableSyncDialog(BaseActivity.this);
             } else if (event instanceof LoggedOutInBackgroundEvent) {

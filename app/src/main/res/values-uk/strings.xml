@@ -448,15 +448,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Не показувати цього знову</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Увімкнути синхронізацію</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Ні, дякую</string>
-  <string name="reading_list_login_option_reminder_dialog_title">Знайдено списки статей</string>
-  <string name="reading_list_login_option_reminder_dialog_text">Статті було збережено у списки читання, коли ви були поза системою. Чи хочете додати їх до списків читання у вашому обліковому записі?</string>
-  <string name="reading_list_login_option_reminder_dialog_yes">Так, додати їх до моїх списків читання</string>
-  <string name="reading_list_login_option_reminder_dialog_no">Нi, видалити статті</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">Зберігати збережені статті у додатку?</string>
-  <string name="reading_list_logout_option_reminder_dialog_text">Наявні статті, збережені у списках читання. Чи ви хотіли б зберегти їх тут і після того, як вийдете з облікового запису?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">Так, зберегти статті у списках</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">Ні, вилучити статті зі списків</string>
-  <string name="default_reading_list_name">Збережене</string>
+    <string name="default_reading_list_name">Збережене</string>
   <string name="default_reading_list_description">Стандартний список для ваших збережених статей</string>
   <string name="no_user_lists_title">Упорядкувати статті у списки</string>
   <string name="no_user_lists_msg">Створюйте списки зі статей про місця подорожей, улюблені теми, тощо</string>

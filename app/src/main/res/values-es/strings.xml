@@ -474,15 +474,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">No mostrar de nuevo</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Activar sincronización</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">No, gracias</string>
-  <string name="reading_list_login_option_reminder_dialog_title">Se encontraron artículos en las listas de lectura</string>
-  <string name="reading_list_login_option_reminder_dialog_text">Los artículos fueron guardados en la lista de lectura mientras estabas desconectado. ¿Desearías añadirlos a la lista de lectura de tu cuenta?</string>
-  <string name="reading_list_login_option_reminder_dialog_yes">Sí, añadirlos a mis listas de lectura</string>
-  <string name="reading_list_login_option_reminder_dialog_no">No, eliminar los artículos</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">¿Mantener los artículos guardados en la aplicación?</string>
-  <string name="reading_list_logout_option_reminder_dialog_text">Hay artículos guardados en listas de lectura. ¿Quieres conservarlos ahí tras salir de tu cuenta?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">Si, mantener los artículos en listas</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">No, eliminar artículos de las listas</string>
-  <string name="default_reading_list_name">Guardados</string>
+    <string name="default_reading_list_name">Guardados</string>
   <string name="default_reading_list_description">Lista predeterminada de artículos guardados</string>
   <string name="no_user_lists_title">Organiza artículos en listas</string>
   <string name="no_user_lists_msg">Crea listas de sitios para viajar, temas favoritos y mucho más</string>

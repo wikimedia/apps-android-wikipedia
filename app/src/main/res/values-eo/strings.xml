@@ -431,15 +431,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Ne plu montri ĉi tion</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Ŝalti sinkronigadon</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Ne, dankon</string>
-  <string name="reading_list_login_option_reminder_dialog_title">Trovis legolistajn artikolojn</string>
-  <string name="reading_list_login_option_reminder_dialog_text">Artikoloj konserviĝis en la legoliston dum vi estis elŝutita. Ĉu vi volas aldoni ilin al la legolistoj de via konto?</string>
-  <string name="reading_list_login_option_reminder_dialog_yes">Jes, aldonu ilin al miaj legolistoj</string>
-  <string name="reading_list_login_option_reminder_dialog_no">Ne, forigu la artikolojn</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">Ĉu konservi konservitajn artikolojn en la aplikaĵo?</string>
-  <string name="reading_list_logout_option_reminder_dialog_text">Estas artikoloj nuntempe konservitaj en legolistoj. Ĉu vi volas gardi ilin tie post kiam vi elsalutos?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">Jes, gardi artikolojn en listoj</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">Ne, forigi artikolojn de listoj</string>
-  <string name="default_reading_list_name">Konservitaj</string>
+    <string name="default_reading_list_name">Konservitaj</string>
   <string name="default_reading_list_description">Defaŭlta listo por viaj konservitaj artikoloj</string>
   <string name="no_user_lists_title">Organizi artikolojn en listoj</string>
   <string name="no_user_lists_msg">Krei listojn por lokoj vizitindaj, ŝatataj temoj kaj multe pli</string>
