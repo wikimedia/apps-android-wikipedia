@@ -177,7 +177,7 @@ public final class ShareUtil {
             return null;
         }
 
-        Intent bestIntent = Intent.createChooser(intents.remove(0), chooserTitle);
+        Intent bestIntent = Intent.createChooser(targetIntent, chooserTitle);
         bestIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, intents.toArray(new Parcelable[intents.size()]));
         return bestIntent;
     }
