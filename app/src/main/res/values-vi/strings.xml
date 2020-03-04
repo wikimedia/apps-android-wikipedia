@@ -382,15 +382,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Đừng hiện tôi thông báo này nữa</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Bật đồng bộ hóa</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Không, cảm ơn</string>
-  <string name="reading_list_login_option_reminder_dialog_title">Đã tìm thấy các bài viết của danh sách đọc</string>
-  <string name="reading_list_login_option_reminder_dialog_text">Có bài viết đã được lưu vào danh sách đọc khi bạn chưa đăng nhập. Bạn muốn thêm chúng vào danh sách đọc trong tài khoản của bạn chứ?</string>
-  <string name="reading_list_login_option_reminder_dialog_yes">Có, thêm chúng vào các danh sách đọc của tôi</string>
-  <string name="reading_list_login_option_reminder_dialog_no">Không, hãy xóa các bài viết</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">Giữ các bài viết đã lưu trong ứng dụng?</string>
-  <string name="reading_list_logout_option_reminder_dialog_text">Có bài viết hiện đã được lưu vào danh sách đọc. Bạn vẫn muốn giữ chúng lại sau khi đã đăng xuất chứ?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">Có, giữ các bài viết trong danh sách</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">Không, xóa các bài khỏi thiết bị</string>
-  <string name="default_reading_list_name">Đã lưu</string>
+    <string name="default_reading_list_name">Đã lưu</string>
   <string name="default_reading_list_description">Danh sách mặc định cho các bài bạn lưu</string>
   <string name="no_user_lists_title">Sắp xếp bài viết vào các danh sách</string>
   <string name="no_user_lists_msg">Tạo danh sách về những nơi bạn muốn du lịch, về những chủ đề bạn yêu thích và nhiều hơn nữa</string>

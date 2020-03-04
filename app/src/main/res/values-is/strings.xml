@@ -425,15 +425,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Ekki sýna þessi skilaboð aftur</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Virkja samstillingu</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Nei, takk</string>
-  <string name="reading_list_login_option_reminder_dialog_title">Greinar á leslista fundust</string>
-  <string name="reading_list_login_option_reminder_dialog_text">Greinar voru vistaðar á leslistann á meðan þú varst ekki skráð/ur inn. Myndirðu vilja bæta þeim við leslista á notandaaðgangnum þínum?</string>
-  <string name="reading_list_login_option_reminder_dialog_yes">Já, bæta þeim á leslistana mína</string>
-  <string name="reading_list_login_option_reminder_dialog_no">Nei, eyða greinum</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">Halda vistuðum greinum í forritinu?</string>
-  <string name="reading_list_logout_option_reminder_dialog_text">Það eru greinar sem vistaðar hafa verið á leslista. Myndirðu vilja halda þeim eftir að þú skráir þig út?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">Já, halda greinum í listum</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">Nei, eyða greinum af listum</string>
-  <string name="default_reading_list_name">Vistað</string>
+    <string name="default_reading_list_name">Vistað</string>
   <string name="default_reading_list_description">Sjálfgefinn listi fyrir vistuðu greinarnar þínar</string>
   <string name="no_user_lists_title">Skipuleggja greinar í lista</string>
   <string name="no_user_lists_msg">Útbúðu lista yfir staði til að heimsækja, eftirlætisumræðuefni og margt fleira</string>
