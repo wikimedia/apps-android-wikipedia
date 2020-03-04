@@ -40,7 +40,6 @@ import org.wikipedia.events.ReadingListsNoLongerSyncedEvent;
 import org.wikipedia.events.SplitLargeListsEvent;
 import org.wikipedia.events.ThemeChangeEvent;
 import org.wikipedia.login.LoginActivity;
-import org.wikipedia.offline.UpgradeService;
 import org.wikipedia.readinglist.ReadingListSyncBehaviorDialogs;
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter;
 import org.wikipedia.recurring.RecurringTasksExecutor;
@@ -106,9 +105,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         setNavigationBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color));
 
         maybeShowLoggedOutInBackgroundDialog();
-
-        // TODO: remove in June 2020
-        UpgradeService.enqueue();
     }
 
     @Override protected void onDestroy() {
