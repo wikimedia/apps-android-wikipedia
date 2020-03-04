@@ -171,7 +171,6 @@
                             android:gravity="start"
                             android:textAlignment="viewStart"
                             android:hint="@string/description_edit_text_hint"
-                            app:boxBackgroundColor="?attr/main_toolbar_color"
                             app:counterEnabled="true"
                             app:counterMaxLength="@integer/description_max_chars"
                             app:counterOverflowTextAppearance="@style/CounterOverflowTextAppearance">
