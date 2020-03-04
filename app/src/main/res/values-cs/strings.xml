@@ -450,15 +450,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Neukazovat znovu</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Povolit synchronizaci</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Ne, děkuji</string>
-  <string name="reading_list_login_option_reminder_dialog_title">Nalezeny články v seznamu k přečtení</string>
-  <string name="reading_list_login_option_reminder_dialog_text">Články byly uloženy v seznamu k přečtení, když jste nebyli přihlášeni. Chcete je přidat do seznamů k přečtení do vašeho účtu?</string>
-  <string name="reading_list_login_option_reminder_dialog_yes">Ano, přidat články do tohoto seznamu k přečtení</string>
-  <string name="reading_list_login_option_reminder_dialog_no">Ne, odstranit články</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">Ponechat uložené články v aplikaci?</string>
-  <string name="reading_list_logout_option_reminder_dialog_text">Zde jsou články uložené v seznamech k přečtení. Chcete je v nich po odhlášení ponechat?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">Ano, ponechat články v seznamech</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">Ne, odstranit články ze seznamů</string>
-  <string name="default_reading_list_name">Uloženo</string>
+    <string name="default_reading_list_name">Uloženo</string>
   <string name="default_reading_list_description">Výchozí seznam pro vaše uložené články</string>
   <string name="no_user_lists_title">Uspořádejte články do seznamů</string>
   <string name="no_user_lists_msg">Vytvořte seznamy míst pro cestování, oblíbená témata a mnoho dalšího</string>

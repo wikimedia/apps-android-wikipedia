@@ -447,15 +447,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">No m\'ho tornis a mostrar</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Habilita la sincronització</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">No, gràcies</string>
-  <string name="reading_list_login_option_reminder_dialog_title">S\'han trobat articles de llistes de lectura</string>
-  <string name="reading_list_login_option_reminder_dialog_text">S\'han desat articles a la llista de lectura mentre no havíeu iniciat la sessió. Voleu afegir-los a les llistes de lectura del vostre compte?</string>
-  <string name="reading_list_login_option_reminder_dialog_yes">Sí, afegeix-les a les meves llistes de lectura</string>
-  <string name="reading_list_login_option_reminder_dialog_no">No, elimina els articles</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">Voleu conservar els articles desats a l\'aplicació?</string>
-  <string name="reading_list_logout_option_reminder_dialog_text">Hi ha articles ja desats en les llistes de lectura. Voleu conservar-los després de finalitzar la sessió?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">Sí, conserva els articles en les llistes</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">No, elimina els articles de les llistes</string>
-  <string name="default_reading_list_name">Desats</string>
+    <string name="default_reading_list_name">Desats</string>
   <string name="default_reading_list_description">Llista per defecte d’articles desats</string>
   <string name="no_user_lists_title">Organitzar articles en llistes</string>
   <string name="no_user_lists_msg">Crear llistes per llocs on viatjar, temes favorits, i molt més</string>

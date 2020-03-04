@@ -457,15 +457,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Niet opnieuw weergeven</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Synchronisatie inschakelen</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Nee, bedankt</string>
-  <string name="reading_list_login_option_reminder_dialog_title">Leeslijstartikelen gevonden</string>
-  <string name="reading_list_login_option_reminder_dialog_text">De artikelen werden opgeslagen naar de leeslijst terwijl u uitgelogd was. Wilt u deze toevoegen aan de leeslijst in uw account?</string>
-  <string name="reading_list_login_option_reminder_dialog_yes">Ja, voeg deze toe aan mijn leeslijsten</string>
-  <string name="reading_list_login_option_reminder_dialog_no">Nee, artikelen verwijderen</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">Opgeslagen artikelen in de app bewaren?</string>
-  <string name="reading_list_logout_option_reminder_dialog_text">Er zijn momenteel artikelen opgeslagen in leeslijsten. Wilt u ze daar houden na het uitloggen?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">Ja, bewaar de artikelen in lijsten</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">Nee, verwijder de artikelen van lijsten</string>
-  <string name="default_reading_list_name">Opgeslagen</string>
+    <string name="default_reading_list_name">Opgeslagen</string>
   <string name="default_reading_list_description">Standaardlijst voor uw opgeslagen pagina\'s</string>
   <string name="no_user_lists_title">Pagina\'s in lijsten organiseren</string>
   <string name="no_user_lists_msg">Maak lijsten met te bezoeken plaatsen, favoriete onderwerpen en zoveel meer</string>

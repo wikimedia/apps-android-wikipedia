@@ -2,7 +2,6 @@ package org.wikipedia.suggestededits.provider
 
 import io.reactivex.Observable
 import io.reactivex.functions.BiFunction
-import org.apache.commons.lang3.StringUtils
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -11,7 +10,6 @@ import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.page.PageTitle
 import java.util.*
 import java.util.concurrent.Semaphore
-import kotlin.collections.ArrayList
 
 object MissingDescriptionProvider {
     private val mutex : Semaphore = Semaphore(1)
@@ -204,26 +202,7 @@ object MissingDescriptionProvider {
             if (cachedItem != null) {
                 Observable.just(cachedItem)
             } else {
-                ServiceFactory.get(WikiSite(Service.COMMONS_URL)).randomWithImageLabels
-                        .flatMap { response ->
-                            val candidates = ArrayList<String>()
-                            for (page in response.query()!!.pages()!!) {
-                                var hasUnreviewed = false
-                                for (label in page.imageLabels) {
-                                    if (label.state == "unreviewed") {
-                                        hasUnreviewed = true
-                                        break
-                                    }
-                                }
-                                if (hasUnreviewed) {
-                                    candidates.add(page.title())
-                                }
-                            }
-                            if (candidates.isEmpty()) {
-                                throw ListEmptyException()
-                            }
-                            ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo(StringUtils.join(candidates, '|'), WikiSite.normalizeLanguageCode(lang))
-                        }
+                ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImagesWithUnreviewedLabels(WikiSite.normalizeLanguageCode(lang))
                         .map { response ->
                             for (page in response.query()!!.pages()!!) {
                                 // make sure there's at least one unreviewed tag

@@ -405,15 +405,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Ez erakutsi hau berriro</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Sinkronizazioa ahalbidetu</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Ez, eskerrik asko</string>
-  <string name="reading_list_login_option_reminder_dialog_title">Irakurketa zerrendako artikuluak aurkitu dira</string>
-  <string name="reading_list_login_option_reminder_dialog_text">Artikuluak zure irakurketa zerrendetan gorde dira saiotik kanpo egon zarenean. Zure kontuko irakurketen zerrendetan gorde eta gehitu nahi dituzu?</string>
-  <string name="reading_list_login_option_reminder_dialog_yes">Bai, gehitu itzazu nire irakurketa zerrendetara</string>
-  <string name="reading_list_login_option_reminder_dialog_no">Ez, ezaba itzazu artikuluak</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">Gordetako artikuluak aplikazioan mantendu nahi dituzu?</string>
-  <string name="reading_list_logout_option_reminder_dialog_text">Zure Wikipedia kontuan sinkronizatutako artikuluak daude. Saioa itxi eta gero, gailuan mantendu nahiko zenituzke?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">Bai, mantendu itzazu artikuluak zerrendetan.</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">Ez, ezaba itzazu artikuluak zerrendetatik</string>
-  <string name="default_reading_list_name">Gordeta</string>
+    <string name="default_reading_list_name">Gordeta</string>
   <string name="default_reading_list_description">Zerrenda lehenetsia gordetako artikuluentzat</string>
   <string name="no_user_lists_title">Artikuluak zerrendetan antolatu</string>
   <string name="no_user_lists_msg">Sortu zerrendak bidaiatzeko lekuetarako, gai gogokoentzat, eta askoz gehiagorako</string>

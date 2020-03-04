@@ -446,15 +446,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">אל תראו לי את זה שוב</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">הפעלת סנכרון</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">לא, תודה</string>
-  <string name="reading_list_login_option_reminder_dialog_title">נמצאו ערכים מרשימת הקריאה</string>
-  <string name="reading_list_login_option_reminder_dialog_text">נשמרו ערכים לרשימת הקריאה שלך בזמן שהיית מחוץ לחשבון. האם ברצונך להוסיף אותם לרשימת הקריאה בחשבון שלך?</string>
-  <string name="reading_list_login_option_reminder_dialog_yes">כן, להוסיף אותם לרשימות הקריאה שלי</string>
-  <string name="reading_list_login_option_reminder_dialog_no">לא, למחוק את הערכים</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">לאחסן את הערכים השמורים ביישום?</string>
-  <string name="reading_list_logout_option_reminder_dialog_text">יש ערכים ששמורים עכשיו ברשימות הקריאה שלך. האם לשמור אותם אחרי יציאתך מהחשבון?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">כן, לשמור ערכים ברשימות</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">לא, למחוק ערכים מהרשימות</string>
-  <string name="default_reading_list_name">שמורים</string>
+    <string name="default_reading_list_name">שמורים</string>
   <string name="default_reading_list_description">ברירת מחדל לערכים השמורים שלך</string>
   <string name="no_user_lists_title">ארגנו ערכים לרשימות</string>
   <string name="no_user_lists_msg">צרו רשימות למקומות שביקרתם בהם, נושאים שאתם אוהבים, ועוד</string>

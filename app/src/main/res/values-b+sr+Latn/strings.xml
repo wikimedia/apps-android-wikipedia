@@ -426,14 +426,6 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Ne prikazuj ponovo</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Omogući sinhronizaciju</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Ne, hvala</string>
-  <string name="reading_list_login_option_reminder_dialog_title">Pronađeni članci na listi za čitanje</string>
-  <string name="reading_list_login_option_reminder_dialog_text">Članci su sačuvani na listu za čitanje dok ste bili odjavljeni. Želite li da ih dodate na liste za čitanje na svom nalogu?</string>
-  <string name="reading_list_login_option_reminder_dialog_yes">Da, dodaj ih na liste</string>
-  <string name="reading_list_login_option_reminder_dialog_no">Ne, izbriši članke</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">Zadržati sačuvane članke u aplikaciji?</string>
-  <string name="reading_list_logout_option_reminder_dialog_text">Postoje članci koji su sačuvani na liste za čitanje. Želite li da ih zadržite tamo nakon odjave?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">Da, zadrži članke na listama</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">Ne, izbriši članke sa lista</string>
   <string name="default_reading_list_name">Sačuvano</string>
   <string name="default_reading_list_description">Podrazumevana lista za sačuvane članke</string>
   <string name="no_user_lists_title">Organizujte članke na listama</string>
