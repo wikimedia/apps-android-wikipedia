@@ -176,7 +176,7 @@ class SuggestedEditsCardsFragment : Fragment() {
             } else {
                 addContributionText?.text = getString(R.string.description_edit_save)
                 if (child != null) {
-                    addContributionText?.setTextColor(if (child?.publishOutlined()) ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent) else Color.WHITE)
+                    addContributionText?.setTextColor(if (child.publishOutlined()) ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent) else Color.WHITE)
                 } else {
                     addContributionText?.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent))
                 }

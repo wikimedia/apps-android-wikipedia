@@ -56,7 +56,7 @@ public class PageImageUrlParserTest {
     }
 
     @Test public void testParseSectionsEmpty() {
-        assertThat(subject.parse(Collections.<Section>emptyList()), empty());
+        assertThat(subject.parse(Collections.emptyList()), empty());
     }
 
     @Test public void testParseHtml() {
