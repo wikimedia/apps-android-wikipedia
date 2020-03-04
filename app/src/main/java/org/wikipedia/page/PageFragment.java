@@ -966,7 +966,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         linkHandler = new LinkHandler(requireActivity()) {
             @Override public void onPageLinkClicked(@NonNull String anchor, @NonNull String linkText) {
                 dismissBottomSheet();
-                if (anchor.startsWith("cite")) {
+                if (anchor.startsWith("cite_note")) {
                     // It's a link to another reference within the page.
                     disposables.add(getReferences()
                             .subscribeOn(Schedulers.io())
@@ -1029,6 +1029,12 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                             showBottomSheet(new ReferenceDialog(requireActivity(), selectedIndex, adjacentReferencesList, linkHandler));
                         }
                     }, L::d));
+        });
+        bridge.addListener("back_link", (String messageType, JsonObject payload) -> {
+            JsonArray backLinks = payload.getAsJsonArray("backLinks");
+            if (backLinks.size() > 0) {
+                linkHandler.onPageLinkClicked(backLinks.get(0).getAsJsonObject().get("id").getAsString(), "");
+            }
         });
         bridge.addListener("image", (String messageType, JsonObject messagePayload) -> {
             String href = decodeURL(messagePayload.get("href").getAsString());
