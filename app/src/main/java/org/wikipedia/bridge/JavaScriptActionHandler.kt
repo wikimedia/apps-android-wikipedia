@@ -5,7 +5,7 @@ import org.wikipedia.BuildConfig
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
-import org.wikipedia.dataclient.RestService
+import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
 import org.wikipedia.page.PageViewModel
@@ -140,7 +140,7 @@ object JavaScriptActionHandler {
                 "       }," +
                 "   readMore: { " +
                 "       itemCount: 3," +
-                "       baseURL: '${model.title?.wikiSite?.url() + RestService.REST_API_PREFIX}'" +
+                "       baseURL: '${ServiceFactory.getRestBasePath(model.title?.wikiSite!!)}'" +
                 "   }" +
                 "})"
     }
