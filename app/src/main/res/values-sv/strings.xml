@@ -446,15 +446,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Visa inte detta igen</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Aktivera synkronisering</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Nej tack</string>
-  <string name="reading_list_login_option_reminder_dialog_title">Artiklar i läslistor hittades</string>
-  <string name="reading_list_login_option_reminder_dialog_text">Artiklar sparades till läslistorna när du loggade ut. Vill du lägga till dem i läslistorna på ditt konto?</string>
-  <string name="reading_list_login_option_reminder_dialog_yes">Ja, lägg till dem i mina läslistor</string>
-  <string name="reading_list_login_option_reminder_dialog_no">Nej, radera artiklar</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">Behåll sparade artiklar i appen?</string>
-  <string name="reading_list_logout_option_reminder_dialog_text">Det finns sparade artiklar i läslistorna. Vill du behålla dem där när du loggar ut?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">Ja, behåll artiklar i listor</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">Nej, radera artiklar från listor</string>
-  <string name="default_reading_list_name">Sparade</string>
+    <string name="default_reading_list_name">Sparade</string>
   <string name="default_reading_list_description">Standardlista för dina sparade artiklar</string>
   <string name="no_user_lists_title">Organisera artiklar till listor</string>
   <string name="no_user_lists_msg">Skapa listor för platser att åka till, favoritämnen och mycket mer</string>

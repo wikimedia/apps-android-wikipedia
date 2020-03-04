@@ -436,15 +436,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Не прикажувај повеќе</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Овозможи усогласување</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Не, благодарам</string>
-  <string name="reading_list_login_option_reminder_dialog_title">Пронајдени статии во списоци за читање</string>
-  <string name="reading_list_login_option_reminder_dialog_text">Зачувани се статии во списокот за читање додека бевте одјавени. Дали сакате да ги ставите во списоците за читање на вашата сметка?</string>
-  <string name="reading_list_login_option_reminder_dialog_yes">Да, додај ги во списоците за читање</string>
-  <string name="reading_list_login_option_reminder_dialog_no">Не, избриши ги статиите</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">Да ги задржам зачуваните статии во прилогот?</string>
-  <string name="reading_list_logout_option_reminder_dialog_text">Има статии тековно зачувани во списоци за читање. Дали сакате да ги задржите таму откако ќе се најавите?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">Да, задржи ги статиите во списоците</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">Не, избриши ги статиите од списоците</string>
-  <string name="default_reading_list_name">Зачувано</string>
+    <string name="default_reading_list_name">Зачувано</string>
   <string name="default_reading_list_description">Стандарден список за вашите зачувани статии</string>
   <string name="no_user_lists_title">Организирајте статии во списоци</string>
   <string name="no_user_lists_msg">Направете списоци за места што сакате да ги посетите, ваши омилени теми и многу друго</string>

@@ -333,8 +333,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_title">Da uključim sinhronizaciju spiskova za čitanje?</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Uključi sinhronizaciju</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Ne, hvala</string>
-  <string name="reading_list_login_option_reminder_dialog_no">Ne, izbriši članke</string>
-  <string name="default_reading_list_name">Sačuvano</string>
+    <string name="default_reading_list_name">Sačuvano</string>
   <string name="default_reading_list_description">Standardni spisak za Vaše sačuvane članke</string>
   <string name="no_user_lists_title">Organizirajte članke sa spiskovima</string>
   <string name="no_user_lists_msg">Napravite spiskove za mjesta koja želite posjetiti, Vaše omiljene teme i još mnogo toga</string>
