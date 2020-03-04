@@ -12,8 +12,7 @@
         android:id="@+id/view_description_edit_toolbar_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/main_toolbar_color"
-        android:elevation="6dp">
+        android:background="?attr/paper_color">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -126,7 +125,8 @@
                         android:paddingTop="15dp"
                         android:paddingEnd="@dimen/list_item_horizontal_padding"
                         android:visibility="gone"
-                        app:layout_constraintTop_toTopOf="parent">
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:visibility="visible">
 
                         <TextView
                             android:id="@+id/view_description_edit_page_summary_label"
@@ -142,6 +142,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
+                            android:layout_marginBottom="8dp"
                             android:ellipsize="end"
                             android:gravity="start"
                             android:lineSpacingExtra="6sp"
@@ -150,13 +151,6 @@
                             android:textSize="16sp"
                             tools:text="Lorem ipsum" />
 
-                        <View
-                            android:layout_width="@dimen/divider_width_for_article"
-                            android:layout_height="1dp"
-                            android:layout_marginTop="19dp"
-                            android:layout_marginBottom="2dp"
-                            android:background="?attr/material_theme_border_color" />
-
                     </LinearLayout>
 
                     <FrameLayout
@@ -164,6 +158,7 @@
                         android:layout_height="wrap_content"
                         android:paddingTop="7dp"
                         android:paddingBottom="7dp">
+
                         <!-- todo: this class has a lot of ViewGroups. TextInputLayout (a subclass of LinearLayout)
                                    adds another. try to collapse this group into others. the same change should
                                    probably be attempted for other TextInputLayout usages -->
@@ -176,6 +171,10 @@
                             android:layout_marginEnd="12dp"
                             android:gravity="start"
                             android:textAlignment="viewStart"
+                            android:hint="@string/description_edit_text_hint"
+
+                            app:boxBackgroundColor="?attr/main_toolbar_color"
+
                             app:counterEnabled="true"
                             app:counterMaxLength="@integer/description_max_chars"
                             app:counterOverflowTextAppearance="@style/CounterOverflowTextAppearance">
@@ -184,8 +183,7 @@
                                 android:id="@+id/view_description_edit_text"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:hint="@string/description_edit_text_hint"
-                                android:imeOptions="actionDone"
+                                android:imeOptions="flagNoExtractUi|actionDone"
                                 android:inputType="textMultiLine"
                                 android:drawableEnd="@drawable/ic_spacer_24dp"
                                 android:textSize="16sp">
