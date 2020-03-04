@@ -736,7 +736,6 @@ public class ReadingListsFragment extends Fragment implements
     private class SyncReminderOnboardingCallback implements OnboardingView.Callback {
         @Override
         public void onPositiveAction() {
-            Prefs.shouldShowReadingListSyncMergePrompt(true);
             ReadingListSyncAdapter.setSyncEnabledWithSetup();
             maybeShowOnboarding();
         }

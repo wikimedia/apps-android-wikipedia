@@ -464,15 +464,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Bana bunu bir daha gösterme</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Senkronizasyonu etkinleştir</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Hayır teşekkürler</string>
-  <string name="reading_list_login_option_reminder_dialog_title">Okunan liste maddeleri bulundu</string>
-  <string name="reading_list_login_option_reminder_dialog_text">Giriş yapılırken makaleler okuma listesine otomatik olarak kaydedildi. Bunları hesabınızdaki okuma listelerine eklemek ister misiniz?</string>
-  <string name="reading_list_login_option_reminder_dialog_yes">Evet, bunları okuma listeme ekle</string>
-  <string name="reading_list_login_option_reminder_dialog_no">Hayır, maddeleri sil</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">Kaydedilen makaleleri uygulamada saklasın mı?</string>
-  <string name="reading_list_logout_option_reminder_dialog_text">Okuma listelerinde şu anda kayıtlı makaleler var. Çıkış yaptıktan sonra da listenin durması için, onları korumak ister misiniz?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">Evet, maddeleri listelerde sakla</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">Hayır, listelerden makaleleri sil</string>
-  <string name="default_reading_list_name">Kaydedildi</string>
+    <string name="default_reading_list_name">Kaydedildi</string>
   <string name="default_reading_list_description">Kaydedilen maddeleriniz için varsayılan liste</string>
   <string name="no_user_lists_title">Maddeleri listelere göre düzenleyin</string>
   <string name="no_user_lists_msg">Seyahat edilecek yerler, favori konular ve daha pek çok şey için listeler oluşturun</string>

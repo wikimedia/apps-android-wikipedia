@@ -445,15 +445,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Nabudúce už nezobrazovať</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Povoliť synchronizáciu</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Nie, vďaka</string>
-  <string name="reading_list_login_option_reminder_dialog_title">Boli nájdené zoznamy na prečítanie</string>
-  <string name="reading_list_login_option_reminder_dialog_text">Počas toho, ako ste boli odhlásení, boli do zoznamu na prečítanie pridané články. Chceli by ste si ich pridať do zoznamov na prečítanie vo vašom účte?</string>
-  <string name="reading_list_login_option_reminder_dialog_yes">Áno, chcem ich pridať do svojich zoznamov</string>
-  <string name="reading_list_login_option_reminder_dialog_no">Nie, odstrániť články</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">Chcete ponechať uložené články v aplikácii?</string>
-  <string name="reading_list_logout_option_reminder_dialog_text">Vo vašich zoznamoch na prečítanie sú uložené články. Chcete ich tam ponechať aj po vašom odhlásení?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">Áno, ponechať články v zoznamoch</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">Nie, odstrániť články zo zoznamov</string>
-  <string name="default_reading_list_name">Uložené</string>
+    <string name="default_reading_list_name">Uložené</string>
   <string name="default_reading_list_description">Predvolený zoznam pre vaše uložené články</string>
   <string name="no_user_lists_title">Usporiadajte si články do zoznamov</string>
   <string name="no_user_lists_msg">Vytvorte si zoznamy miest, kam sa chcete vydať, zoznamy obľúbených tém a ďalšie</string>

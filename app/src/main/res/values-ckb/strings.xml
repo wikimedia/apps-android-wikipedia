@@ -413,13 +413,7 @@
   <string name="reading_list_turned_sync_off_dialog_settings">ڕێکخستنەکان</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">جارێکی تر ئەمە پێشانم مەدەرەوە</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">نا سپاس</string>
-  <string name="reading_list_login_option_reminder_dialog_title">پێڕستی خوێندنەوەی وتارەکان دۆزرایەوە</string>
-  <string name="reading_list_login_option_reminder_dialog_yes">بەڵێ، ئەوانە زیادبکە بۆ پێڕستی خوێندنەوەکانم</string>
-  <string name="reading_list_login_option_reminder_dialog_no">نا، سڕینەوەی وتارەکان</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">پاشەکەوتی وتارەکان بپارێزە لەم نەرمەواڵەیە؟</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">بەڵێ، وتارەکان لە پێڕستەکان بپارێزە</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">نا، سڕینەوەی وتارەکان لە پێڕستەکان</string>
-  <string name="default_reading_list_name">پاشەکەوت کرا</string>
+    <string name="default_reading_list_name">پاشەکەوت کرا</string>
   <string name="default_reading_list_description">پێڕستی دانراو بۆ وتارە پاشەکەوتکراوەکانت</string>
   <string name="no_user_lists_title">وتارەکان ڕێکبخە بۆناو پێڕستەکان</string>
   <string name="reading_list_saved_list_rename">%1$s (بەکارھێنەر دروستکرا)</string>

@@ -372,11 +372,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Mir dëst net méi weisen</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Synchronisatioun aktivéieren</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Nee, merci</string>
-  <string name="reading_list_login_option_reminder_dialog_no">Neen, Artikele läschen</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">Gespäichert Artikelen an der App halen?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">Jo, Artikelen op de Lëschten halen</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">Neen, Artikele vun de Lëschte läschen</string>
-  <string name="default_reading_list_name">Gespäichert</string>
+    <string name="default_reading_list_name">Gespäichert</string>
   <string name="default_reading_list_description">Standard-Lëscht fir Är gespäichert Artikelen</string>
   <string name="no_user_lists_title">Artikelen a Lëschten organiséieren</string>
   <string name="reading_list_saved_list_rename">%1$s_(vum Benotzer gemaach)</string>

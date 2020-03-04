@@ -404,8 +404,7 @@
   <string name="reading_list_turned_sync_off_dialog_ok">ঠিক আছে</string>
   <string name="reading_list_turned_sync_off_dialog_settings">সেটিং</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">না ধন্যবাদ</string>
-  <string name="reading_list_login_option_reminder_dialog_no">না, নিবন্ধগুলি মুছুন</string>
-  <string name="default_reading_list_name">সংরক্ষিত</string>
+    <string name="default_reading_list_name">সংরক্ষিত</string>
   <string name="reading_list_saved_list_rename">%1$s (ব্যবহারকারী তৈরি করেছেন)</string>
   <string name="reading_lists_menu_create_list">নতুন তালিকা তৈরি করুন</string>
   <string name="reading_lists_menu_sort_by">সাজান</string>
