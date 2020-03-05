@@ -453,14 +453,6 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">더 이상 표시하지 않음</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">동기화 사용</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">괜찮습니다</string>
-  <string name="reading_list_login_option_reminder_dialog_title">읽기 문서 목록을 찾았습니다</string>
-  <string name="reading_list_login_option_reminder_dialog_text">로그아웃하는 동안 읽기 목록에 문서들을 저장했습니다. 계정의 읽기 목록에 해당 문서들을 추가하시겠습니까?</string>
-  <string name="reading_list_login_option_reminder_dialog_yes">예, 내 읽기 목록에 추가합니다</string>
-  <string name="reading_list_login_option_reminder_dialog_no">아니요, 문서를 삭제합니다</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">저장된 문서를 앱에 보관할까요?</string>
-  <string name="reading_list_logout_option_reminder_dialog_text">현재 읽기 목록에 저장된 문서가 있습니다. 로그아웃한 뒤에 이 문서들을 보관하시겠습니까?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">예, 목록에 문서를 보관합니다</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">아니요, 목록에서 문서를 삭제합니다</string>
   <string name="default_reading_list_name">저장됨</string>
   <string name="default_reading_list_description">저장된 문서를 위한 기본 목록</string>
   <string name="no_user_lists_title">문서를 목록으로 정리하세요</string>
@@ -714,7 +706,7 @@
   <string name="suggested_edits_image_tags">이미지 태그</string>
   <string name="suggested_edits_image_tags_publishing">게시 중</string>
   <string name="suggested_edits_image_tags_published">게시됨</string>
-  <string name="suggested_edits_image_tags_onboarding_title">다른 사람이 더 쉽게 찾을 수 있도록 이미지를 태그합니다</string>
+  <string name="suggested_edits_image_tags_onboarding_title" fuzzy="true">다른 사람이 더 쉽게 찾을 수 있도록 이미지를 태그합니다</string>
   <string name="suggested_edits_image_tags_onboarding_note">선택한 태그만 이미지에 추가됩니다.</string>
   <string name="suggested_edits_image_tags_snackbar">다른 사람이 더 쉽게 찾을 수 있도록 이미지 태그를 추가합니다.</string>
   <string name="suggested_edits_image_tags_task_detail">다른 사람이 더 쉽게 찾을 수 있도록 이미지를 태그합니다. 컴퓨터가 제안하지만 확인이 필요합니다.</string>

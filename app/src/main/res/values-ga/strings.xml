@@ -405,14 +405,6 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Ná taispeáin sé seo dom arís</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Cumasaigh sioncronú</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Ní dhéanfaidh mé é</string>
-  <string name="reading_list_login_option_reminder_dialog_title">Aimsíodh ailt ar liostaí léitheoireachta</string>
-  <string name="reading_list_login_option_reminder_dialog_text">Sábháladh ailt ar an liosta léitheoireachta agus tú a bheith logáilte amach. Ar mhaith leat iad a chur ar na liostaí léitheoireachta i do chuntas féin?</string>
-  <string name="reading_list_login_option_reminder_dialog_yes">Ba mhaith, cuir ar mo liostaí léitheoireachta iad</string>
-  <string name="reading_list_login_option_reminder_dialog_no">Níor mhaith, scrios ailt</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">Coinnigh ailt sábháilte san aip?</string>
-  <string name="reading_list_logout_option_reminder_dialog_text">Tá ailt sábháilte agat faoi láthair ar liostaí léitheoireachta. Ar mhaith leat iad a choinniú ar na liostaí sin tar éis duit logáil amach?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">Ba mhaith, coinnigh ailt ar liostaí</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">Níor mhaith, scrios ailt ó liostaí</string>
   <string name="default_reading_list_name">Sábháilte</string>
   <string name="default_reading_list_description">Liosta réamhshocraithe do na hailt atá sábháilte agat</string>
   <string name="no_user_lists_title">Eagraigh ailt ar liostaí</string>

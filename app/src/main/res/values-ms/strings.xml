@@ -414,14 +414,6 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Jangan tunjukkan saya lagi ini</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Dayakan penyegerakan</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Tak apalah</string>
-  <string name="reading_list_login_option_reminder_dialog_title">Rencana senarai bacaan yang dijumpai</string>
-  <string name="reading_list_login_option_reminder_dialog_text">Rencana disimpan dalam senarai bacaan semasa anda log keluar. Adakah anda ingin menambahkannya ke senarai bacaan dalam akaun anda?</string>
-  <string name="reading_list_login_option_reminder_dialog_yes">Ya, tambahkan ke senarai bacaan saya</string>
-  <string name="reading_list_login_option_reminder_dialog_no">Tidak, padamkan rencana</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">Simpan rencana yang disimpan dalam aplikasinya?</string>
-  <string name="reading_list_logout_option_reminder_dialog_text">Terdapat rencana yang kini disimpan dalam senarai bacaan. Adakah anda ingin menyimpannya di sana selepas log keluar?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">Ya, simpan rencana dalam senarai</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">Tidak, padamkan rencana dari senarai</string>
   <string name="default_reading_list_name">Disimpan</string>
   <string name="default_reading_list_description">Senarai lalai untuk rencana anda yang disimpan</string>
   <string name="no_user_lists_title">Atur rencana ke dalam senarai</string>

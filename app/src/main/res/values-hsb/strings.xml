@@ -408,14 +408,6 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Njepokaž tutu zdźělenku znowa</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Synchronizowanje zmóžnić</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Ně, dźakuju</string>
-  <string name="reading_list_login_option_reminder_dialog_title">Nastawki za čitanske lisćiny namakane</string>
-  <string name="reading_list_login_option_reminder_dialog_text">Nastawki buchu składowane na čitanskej lisćinje, mjeztym so sy był(a) wotzjewjeny/a. Chceš je čitanskim lisćinam w twojim wužiwarskim konće přidać?</string>
-  <string name="reading_list_login_option_reminder_dialog_yes">Haj, k mojim čitanskim lisćinam přidać</string>
-  <string name="reading_list_login_option_reminder_dialog_no">Ně, zapiski wotstronić</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">Składowane zapiski w app zdźeržeć?</string>
-  <string name="reading_list_logout_option_reminder_dialog_text">Tuchwilu su zapiski w čitanskich lisćinach składowane. Chceš je po wotzjewjenju zdźeržeć?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">Haj, zapiski w lisćinach zdźeržeć</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">Ně, zapiski z lisćinow wotstronić</string>
   <string name="default_reading_list_name">Składowane</string>
   <string name="default_reading_list_description">Standardna lisćina za twoje składowane zapiski</string>
   <string name="no_user_lists_title">Organizuj zapiski do lisćinow</string>

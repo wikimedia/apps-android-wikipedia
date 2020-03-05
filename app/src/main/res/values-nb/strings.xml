@@ -428,14 +428,6 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Ikke vis meg dette igjen</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Aktiver synkronisering</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Nei takk</string>
-  <string name="reading_list_login_option_reminder_dialog_title">Leselister funnet</string>
-  <string name="reading_list_login_option_reminder_dialog_text">Du har leselister med artikler som ble lagret mens du ikke var innlogget. Ønsker du å legge til disse i leselistene på kontoen din?</string>
-  <string name="reading_list_login_option_reminder_dialog_yes">Ja, knytt dem til kontoen min</string>
-  <string name="reading_list_login_option_reminder_dialog_no">Nei, slett listene</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">Behold lagrede artikler i appen?</string>
-  <string name="reading_list_logout_option_reminder_dialog_text">Du har artikler lagret i leselister. Ønsker du å beholde disse etter at du har logget ut?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">Ja, behold leselistene</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">Nei, fjern leselistene</string>
   <string name="default_reading_list_name">Lagret</string>
   <string name="default_reading_list_description">Standardliste for dine lagrede artikler</string>
   <string name="no_user_lists_title">Organiser artikler i lister</string>

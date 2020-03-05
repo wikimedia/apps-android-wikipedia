@@ -431,14 +431,6 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Vis ikke dette igen</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Aktiver synkronisering</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Nej tak</string>
-  <string name="reading_list_login_option_reminder_dialog_title">Fundne læselisteartikler</string>
-  <string name="reading_list_login_option_reminder_dialog_text">Artikler blev gemt til læselisten mens du ikke var logget ind. Ønsker du at tilføje dem til læselisterne i din konto?</string>
-  <string name="reading_list_login_option_reminder_dialog_yes">Ja, tilføj dem til mine læselister</string>
-  <string name="reading_list_login_option_reminder_dialog_no">Nej, slet artikler</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">Bevar gemte artikler i programmet?</string>
-  <string name="reading_list_logout_option_reminder_dialog_text">Der er artikler gemt i læselister. Ønsker du at bevare dem der efter, at du er logget ud?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">Ja, bevar artiklerne i listerne</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">Nej, slet artiklerne fra listerne</string>
   <string name="default_reading_list_name">Gemt</string>
   <string name="default_reading_list_description">Standardliste for dine gemte artikler</string>
   <string name="no_user_lists_title">Organiser artikler i lister</string>

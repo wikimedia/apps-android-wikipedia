@@ -424,14 +424,6 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">အရာဏအ် လ္ပထ္ၜး ကဵုအဲ ပၠန်ရ၊၊</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">ကချဳဓရာင် သၟဟ်အစောံ</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">ဟအှ်ေ တင်ဂုန်ရ၊၊</string>
-  <string name="reading_list_login_option_reminder_dialog_title">လိက်ပရေင် စရင် လိက်ဗွဟ် ဂွံဆဵု</string>
-  <string name="reading_list_login_option_reminder_dialog_text">လိက်ပရေင်ဂှ် ဂိုင်သိပ်လဝ် ပ္ဍဲ စရင် လိက်ဗွဟ် ပ္ဍဲအခိင် မၞးမကၟာတ်လဝ်၊၊ မၞး မိက်ဂွံ စုတ် လိက်တအ် ပ္ဍဲ စရင် လိက်ဗွဟ် ပ္ဍဲအကံက် မၞး ဟာ？</string>
-  <string name="reading_list_login_option_reminder_dialog_yes">ယွံ၊ စုတ် လိက်တအ် ပ္ဍဲ စရင် လိက်ဗွဟ် အဲညိ၊၊</string>
-  <string name="reading_list_login_option_reminder_dialog_no">ဟအှ်ေ၊ ဇိုတ်ထောအ် လိက်ပရေင်တအ်ညိ</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">ဂိုင်စွံ လိက်ပရေင်တအ် ပ္ဍဲ ကဵု app?</string>
-  <string name="reading_list_logout_option_reminder_dialog_text">လိက်ပရေင် ဂိုင်သိပ်လဝ် ပ္ဍဲ စရင်လိက်သွက်ဂွံဗှ်၊၊ မၞး မိက်ဂွံ စွံလဝ် ပ္ဍဲဒၞာဲဂှ် ကြဴနူ မၞးမတိတ်ဟာ？</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">ယွံ၊ စွံ လိက်ပရေင်တအ် ပ္ဍဲ စရင်</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">ဟအှ်ေ၊ ဇိုတ်ထောအ် လိက်ပရေင်တအ် နူကဵု စရင်</string>
   <string name="default_reading_list_name">ဂိုင်သိပ်တုဲ</string>
   <string name="default_reading_list_description">စရင် ဂိုင်သိပ် ဟွံဂွံဂမၠိုင်</string>
   <string name="no_user_lists_title">ပကောံ လိက်ပရေင် အပ္ဍဲ စရင်</string>

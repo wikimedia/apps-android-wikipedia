@@ -356,7 +356,6 @@
   <string name="reading_list_turned_sync_off_dialog_settings">ترتیبات</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">یہ مجھے دوبارہ نہ دکھائیں</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">نہیں شکریہ</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">محفوظ کردہ مضامین کو ایپ میں برقرار رکھیں؟</string>
   <string name="reading_lists_menu_create_list">نئی فہرست بنائیں</string>
   <string name="reading_lists_menu_sort_by">ترتیب بمطابق</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">دخول / اندراج</string>

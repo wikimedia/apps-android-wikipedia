@@ -395,14 +395,6 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">ߣߌ߲߬ ߞߊ߫ ߦߌ߬ߘߊ߬ ߒ ߠߴߏ߬ ߞߐ߫</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">ߕߎ߬ߡߊ߬ߢߐ߲߰ߦߊ ߓߌ߬ߟߵߊ߬ ߟߊ߫</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">ߒ߬ߒ߫ ߌ ߞߎߟߎ߲ߖߋ߫</string>
-  <string name="reading_list_login_option_reminder_dialog_title">ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߦߌߟߡߊ ߦߌߟߡߊ ߓߘߊ߫ ߛߐ߬ߘߐ߲߬</string>
-  <string name="reading_list_login_option_reminder_dialog_text">ߦߌߟߡߊ ߟߎ߬ ߟߊߞߎ߲߬ߘߎ߬ ߘߊ߫ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߘߐ߫ ߌ ߜߊ߲߬ߞߎ߲߬ߣߍ߲ ߓߐ߫ ߕߎߡߊ ߟߊ߫. ߌ ߦߴߊ߬ ߝߍ߬ ߓߊ߬ ߞߵߊ߬ߟߎ߬ ߟߊߘߏ߲߬ ߌ ߟߊ߫ ߖߊ߬ߕߋ߬ߘߊ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߘߐ߫؟</string>
-  <string name="reading_list_login_option_reminder_dialog_yes">ߐ߲߬ߐ߲߬ߐ߲߫߸ ߊ߬ߟߎ߬ ߟߊߘߏ߲߬ ߒ ߠߊ߫ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߘߐ߫.</string>
-  <string name="reading_list_login_option_reminder_dialog_no">ߍ߲߬ߍ߲߫߸ ߦߌߟߡߊ ߖߏ߰ߛߌ߬</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">ߞߊ߬ ߦߌߟߡߊ߫ ߟߊߞߎ߲߬ߘߎ߬ߣߍ߲ ߟߊߡߊ߲߬ߘߌ߫ ߟߥߊ߬ߟߌ߬ߟߊ߲ ߞߣߐ߫؟</string>
-  <string name="reading_list_logout_option_reminder_dialog_text">ߦߌߟߡߊ ߘߏ߫ ߟߎ߫ ߦߴߌ ߟߊ߫ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߘߐ߫ ߕߊ߲߬. ߌ ߦߴߊ߬ ߝߍ߬ ߞߵߊ߬ߟߎ߬ ߟߊߡߙߊ߬ ߦߋ߲߬ ߌ ߜߊ߲߬ߞߎ߲߬ߣߍ ߓߐ߫ ߣߍ߲ ߞߐ߫ ߓߊ߬؟</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">ߞߏߛߓߍ߫߸ ߦߌߟߡߊ ߟߊߡߊ߲߬ߘߌ߬ ߛߙߍߘߍ ߘߐ߫</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">ߍ߲߬ߍ߲߫߸ ߦߌߟߡߊ ߖߏ߰ߛߌ߬ ߛߙߍߘߍ ߘߐ߫</string>
   <string name="default_reading_list_name">ߊ߬ ߓߘߊ߫ ߟߊߞߎ߲߬ߘߎ߬</string>
   <string name="default_reading_list_description">ߘߊ߲ߛߎ߲ ߛߙߍߘߍ ߌ ߟߊ߫ ߦߌߟߡߊ߫ ߟߊߞߎ߲߬ߘߎ߬ߣߍ߲ ߠߎ߬ ߦߋ߫</string>
   <string name="no_user_lists_title">ߦߌߟߡߊ ߛߌ߲߬ߝߏ߲߬ߧߊ߫ ߛߙߍߘߍ ߘߐ߫</string>

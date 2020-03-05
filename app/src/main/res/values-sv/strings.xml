@@ -301,6 +301,7 @@
   <string name="close_all_tabs_confirm_yes">Ja</string>
   <string name="close_all_tabs_confirm_no">Nej</string>
   <string name="button_close_tab">Stäng flik</string>
+  <string name="unnamed_tab_closed">Flik stängdes.</string>
   <string name="tab_item_closed">%s stängdes.</string>
   <string name="all_tab_items_closed">Alla flikar stängdes.</string>
   <string name="tool_tip_bookmark_icon_title">Lägg till i läslista</string>
@@ -446,14 +447,6 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Visa inte detta igen</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Aktivera synkronisering</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Nej tack</string>
-  <string name="reading_list_login_option_reminder_dialog_title">Artiklar i läslistor hittades</string>
-  <string name="reading_list_login_option_reminder_dialog_text">Artiklar sparades till läslistorna när du loggade ut. Vill du lägga till dem i läslistorna på ditt konto?</string>
-  <string name="reading_list_login_option_reminder_dialog_yes">Ja, lägg till dem i mina läslistor</string>
-  <string name="reading_list_login_option_reminder_dialog_no">Nej, radera artiklar</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">Behåll sparade artiklar i appen?</string>
-  <string name="reading_list_logout_option_reminder_dialog_text">Det finns sparade artiklar i läslistorna. Vill du behålla dem där när du loggar ut?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">Ja, behåll artiklar i listor</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">Nej, radera artiklar från listor</string>
   <string name="default_reading_list_name">Sparade</string>
   <string name="default_reading_list_description">Standardlista för dina sparade artiklar</string>
   <string name="no_user_lists_title">Organisera artiklar till listor</string>
@@ -713,8 +706,8 @@
   <string name="suggested_edits_image_tags">Bildtaggar</string>
   <string name="suggested_edits_image_tags_publishing">Publicerar</string>
   <string name="suggested_edits_image_tags_published">Publicerades</string>
-  <string name="suggested_edits_image_tags_onboarding_title">Tagga bilder för att göra det lättare för andra att hitta dem</string>
-  <string name="suggested_edits_image_tags_onboarding_text">Genom att bekräfta föreslagna taggar hjälper du till att göra det lättare att söka efter dem.\n\nTaggförslagen skapas av en dator men behöver bekräftas av människor för att säkerställa noggrannheten.</string>
+  <string name="suggested_edits_image_tags_onboarding_title" fuzzy="true">Tagga bilder för att göra det lättare för andra att hitta dem</string>
+  <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">Genom att bekräfta föreslagna taggar hjälper du till att göra det lättare att söka efter dem.\n\nTaggförslagen skapas av en dator men behöver bekräftas av människor för att säkerställa noggrannheten.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Endast taggar som du väljer kommer att läggas till i bilder.</string>
   <string name="suggested_edits_image_tags_snackbar">Lägg till bildtaggar för att göra det lättare för andra att hitta bilderna.</string>
   <string name="suggested_edits_image_tags_task_detail">Tagga bilder för att göra det lättare för andra att hitta dem. Taggarna föreslås automatiskt, men behöver bekräftas.</string>

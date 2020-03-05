@@ -445,14 +445,6 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Älä näytä tätä uudelleen</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Ota synkronointi käyttöön</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Ei kiitos</string>
-  <string name="reading_list_login_option_reminder_dialog_title">lukulista-artikkelia löytyi</string>
-  <string name="reading_list_login_option_reminder_dialog_text">Artikkelit tallennettiin lukulistoihin, kun olit kirjautunut ulos. Haluatko lisätä ne tunnuksesi lukulistoihin?</string>
-  <string name="reading_list_login_option_reminder_dialog_yes">Kyllä, lisää ne lukulistoihini</string>
-  <string name="reading_list_login_option_reminder_dialog_no">Ei, poista artikkelit</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">Säilytä tallennetut artikkelit sovelluksessa?</string>
-  <string name="reading_list_logout_option_reminder_dialog_text">Nämä ovat artikkeleita, jotka ovat tällä hetkellä tallennettu lukulistoihin. Haluaisitko säilyttää ne täällä uloskirjautumisen jälkeen?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">Kyllä, säilytä artikkelit listassa</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">Ei, poista artikkelit listasta</string>
   <string name="default_reading_list_name">Tallennettu</string>
   <string name="default_reading_list_description">Oletuslista tallennetuille artikkeleillesi</string>
   <string name="no_user_lists_title">Järjestä artikkelit listoihin</string>

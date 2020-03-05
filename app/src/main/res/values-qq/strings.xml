@@ -456,14 +456,6 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">An option shows on dialog that does not allow to receive the message again.</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Affirmative answer to confirm and redirect to the settings page.</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Negative answer to dismiss the dialog.\n{{Identical|No thanks}}</string>
-  <string name="reading_list_login_option_reminder_dialog_title">Title of warning message shown to a user to merge or delete the local reading lists articles with the synced reading lists after the user logs in</string>
-  <string name="reading_list_login_option_reminder_dialog_text">Warning message shown to a user to merge or delete the local reading lists articles with the synced reading list after the user logs in</string>
-  <string name="reading_list_login_option_reminder_dialog_yes">&gt;Affirmative answer to add the local reading lists articles with the other synced reading lists</string>
-  <string name="reading_list_login_option_reminder_dialog_no">Negative answer to confirm that removes reading lists from device</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">Title of warning message shown to a user to keep articles after the user logs out</string>
-  <string name="reading_list_logout_option_reminder_dialog_text">Warning message shown to a user to keep articles after the user logs out</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">&gt;Affirmative answer to confirm that keeps articles from device</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">Negative answer to confirm that removes articles from device</string>
   <string name="default_reading_list_name">Title for default list</string>
   <string name="default_reading_list_description">Short description of the default reading list where articles are saved.</string>
   <string name="no_user_lists_title">Suggestion string for users to Organize articles into lists</string>

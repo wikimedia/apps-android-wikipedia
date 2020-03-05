@@ -451,14 +451,6 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Jangan tunjukkan ini lagi</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Aktifkan sinkronisasi</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Tidak, terima kasih</string>
-  <string name="reading_list_login_option_reminder_dialog_title">Artikel daftar bacaan ditemukan</string>
-  <string name="reading_list_login_option_reminder_dialog_text">Artikel disimpan ke daftar bacaan saat Anda keluar log. Apakah Anda ingin menambahkannya ke daftar bacaan di akun Anda?</string>
-  <string name="reading_list_login_option_reminder_dialog_yes">Ya, tambahkan ke daftar bacaan saya</string>
-  <string name="reading_list_login_option_reminder_dialog_no">Tidak, hapus artikel</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">Simpan artikel tersimpan di aplikasi?</string>
-  <string name="reading_list_logout_option_reminder_dialog_text">Ada artikel yang saat ini tersimpan dalam daftar bacaan. Apakah Anda ingin menyimpannya di sana setelah keluar log?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">Ya, simpan artikel dalam daftar</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">Tidak, hapus artikel dari daftar</string>
   <string name="default_reading_list_name">Tersimpan</string>
   <string name="default_reading_list_description">Daftar baku untuk artikel tersimpan Anda</string>
   <string name="no_user_lists_title">Atur artikel ke dalam daftar</string>
@@ -717,8 +709,8 @@
   <string name="suggested_edits_image_tags">Tag gambar</string>
   <string name="suggested_edits_image_tags_publishing">Menerbitkan</string>
   <string name="suggested_edits_image_tags_published">Diterbitkan</string>
-  <string name="suggested_edits_image_tags_onboarding_title">Beri tag pada gambar untuk membuatnya lebih mudah ditemukan orang lain</string>
-  <string name="suggested_edits_image_tags_onboarding_text">Dengan mengonfirmasi tag yang disarankan, Anda dapat membantu membuat gambar lebih mudah untuk dicari.\n\nTag adalah komputer yang disarankan tetapi perlu divalidasi oleh manusia untuk memastikan akurasi.</string>
+  <string name="suggested_edits_image_tags_onboarding_title" fuzzy="true">Beri tag pada gambar untuk membuatnya lebih mudah ditemukan orang lain</string>
+  <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">Dengan mengonfirmasi tag yang disarankan, Anda dapat membantu membuat gambar lebih mudah untuk dicari.\n\nTag adalah komputer yang disarankan tetapi perlu divalidasi oleh manusia untuk memastikan akurasi.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Hanya tag yang Anda pilih yang akan ditambahkan ke gambar.</string>
   <string name="suggested_edits_image_tags_snackbar">Tambahkan tag gambar untuk membuatnya lebih mudah ditemukan orang lain.</string>
   <string name="suggested_edits_image_tags_task_detail" fuzzy="true">Beri tag pada gambar untuk membuatnya lebih mudah ditemukan orang lain. Tag disarankan secara otomatis, tetapi perlu diverifikasi oleh Anda.</string>

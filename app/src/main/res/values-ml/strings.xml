@@ -336,12 +336,6 @@
   <string name="reading_list_turned_sync_off_dialog_settings">സജ്ജീകരണങ്ങൾ</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">ഏകോപനം പ്രവർത്തന സജ്ജമാക്കുക</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">വേണ്ട, നന്ദി</string>
-  <string name="reading_list_login_option_reminder_dialog_title">വായനാ പട്ടികയിലെ ലേഖനങ്ങൾ കണ്ടെത്തി</string>
-  <string name="reading_list_login_option_reminder_dialog_yes">വേണം, എന്റെ വായനാ പട്ടികകളിലേക്ക് അവ ചേർക്കുക</string>
-  <string name="reading_list_login_option_reminder_dialog_no">വേണ്ട, ലേഖനങ്ങൾ ഒഴിവാക്കുക</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">ശേഖരിച്ച ലേഖനങ്ങൾ ആപ്പിൽ വെക്കണോ?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">വേണം, ലേഖനങ്ങൾ പട്ടികകളിൽ വെക്കുക</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">വേണ്ട, പട്ടികകളിൽ നിന്നും ലേഖനങ്ങൾ ഒഴിവാക്കുക</string>
   <string name="default_reading_list_name">സേവ് ചെയ്തിരിക്കുന്നു</string>
   <string name="reading_lists_menu_create_list">പുതിയ പട്ടിക സൃഷ്ടിക്കുക</string>
   <string name="reading_lists_menu_sort_by">ഇങ്ങനെ ക്രമപ്പെടുത്തുക:</string>
