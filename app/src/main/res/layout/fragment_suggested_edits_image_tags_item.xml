@@ -57,6 +57,7 @@
             android:ellipsize="end"
             android:textColor="?attr/color_group_59"
             android:textColorLink="?attr/color_group_59"
+            android:textIsSelectable="true"
             tools:text="Lorem ipsum"/>
 
         <LinearLayout
