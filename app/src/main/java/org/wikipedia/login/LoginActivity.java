@@ -176,7 +176,6 @@ public class LoginActivity extends BaseActivity {
         // so that the sync adapter can run at least once and check whether syncing is enabled
         // on the server side.
         Prefs.setReadingListSyncEnabled(true);
-        Prefs.shouldShowReadingListSyncMergePrompt(true);
         Prefs.setReadingListPagesDeletedIds(Collections.emptySet());
         Prefs.setReadingListsDeletedIds(Collections.emptySet());
         ReadingListSyncAdapter.manualSyncWithForce();

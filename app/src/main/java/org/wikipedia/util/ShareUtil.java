@@ -167,33 +167,30 @@ public final class ShareUtil {
         return fileName;
     }
 
-    @Nullable
-    public static Intent createChooserIntent(@NonNull Intent targetIntent,
-                                             @Nullable CharSequence chooserTitle,
-                                             @NonNull Context context) {
-        List<Intent> intents = queryIntents(context, targetIntent, APP_PACKAGE_REGEX);
-
+    @NonNull
+    static Intent createChooserIntent(@NonNull Intent targetIntent, @NonNull Context context) {
+        Intent chooser = Intent.createChooser(targetIntent, null);
+        List<Intent> intents = queryIntents(context, targetIntent, false);
         if (intents.isEmpty()) {
-            return null;
+            // This implies that the Wikipedia app itself has been chosen as the default handler
+            // for our links, so we need to explicitly build a chooser that contains other activities.
+            intents = queryIntents(context, targetIntent, true);
+            if (!intents.isEmpty()) {
+                chooser.putExtra(Intent.EXTRA_INITIAL_INTENTS, intents.toArray(new Parcelable[intents.size()]));
+            }
         }
-
-        Intent bestIntent = Intent.createChooser(intents.remove(0), chooserTitle);
-        bestIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, intents.toArray(new Parcelable[intents.size()]));
-        return bestIntent;
+        return chooser;
     }
 
-    private static List<Intent> queryIntents(@NonNull Context context,
-                                            @NonNull Intent targetIntent,
-                                            String packageNameBlacklistRegex) {
+    private static List<Intent> queryIntents(@NonNull Context context, @NonNull Intent targetIntent, boolean replaceUri) {
         List<Intent> intents = new ArrayList<>();
-        Intent queryIntent = new Intent(targetIntent);
-        if (targetIntent.getAction().equals(Intent.ACTION_VIEW)) {
-            // To avoid using the Wikipedia app externally opens the wikipedia.org links,
-            // we can put a non-wikipedia link for intent choose to fetch browser apps list, and use the list for our "true" external links
+        Intent queryIntent = targetIntent;
+        if (replaceUri) {
+            queryIntent = new Intent(targetIntent);
             queryIntent.setData(Uri.parse("https://example.com/"));
         }
         for (ResolveInfo intentActivity : context.getPackageManager().queryIntentActivities(queryIntent, 0)) {
-            if (!isIntentActivityBlacklisted(intentActivity, packageNameBlacklistRegex)) {
+            if (!isIntentActivityBlacklisted(intentActivity, APP_PACKAGE_REGEX)) {
                 intents.add(buildLabeledIntent(targetIntent, intentActivity));
             }
         }

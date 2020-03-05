@@ -445,15 +445,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Diese Nachricht nicht erneut anzeigen</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Synchronisierung aktivieren</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Nein danke</string>
-  <string name="reading_list_login_option_reminder_dialog_title">Artikel für Leselisten gefunden</string>
-  <string name="reading_list_login_option_reminder_dialog_text">Artikel waren in der Leseliste gespeichert, während du abgemeldet warst. Möchtest du sie zu den Leselisten in deinem Benutzerkonto hinzufügen?</string>
-  <string name="reading_list_login_option_reminder_dialog_yes">Ja, zu meinen Leselisten hinzufügen</string>
-  <string name="reading_list_login_option_reminder_dialog_no">Nein, Artikel löschen</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">Gespeicherte Artikel in der App behalten?</string>
-  <string name="reading_list_logout_option_reminder_dialog_text">Es sind derzeit in Leselisten gespeicherte Artikel vorhanden. Möchtest du sie nach der Abmeldung behalten?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">Ja, Artikel in den Listen behalten</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">Nein, Artikel aus den Listen löschen</string>
-  <string name="default_reading_list_name">Gespeichert</string>
+    <string name="default_reading_list_name">Gespeichert</string>
   <string name="default_reading_list_description">Standardliste für deine gespeicherten Artikel</string>
   <string name="no_user_lists_title">Artikel in Listen organisieren</string>
   <string name="no_user_lists_msg">Erstelle Listen für Reiseziele, Lieblingsthemen und vieles mehr</string>

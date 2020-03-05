@@ -434,14 +434,6 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Nun volver a amosame esto</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Activar sincronización</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Non, gracies</string>
-  <string name="reading_list_login_option_reminder_dialog_title">Alcontráronse artículos de llistes de llectura</string>
-  <string name="reading_list_login_option_reminder_dialog_text">Guardáronse artículos na llista de llectura al zarrase la to sesión. ¿Quies amestalos a les llistes de llectura de la to cuenta?</string>
-  <string name="reading_list_login_option_reminder_dialog_yes">Si, amestalos a les mios llistes de llectura</string>
-  <string name="reading_list_login_option_reminder_dialog_no">Non, desaniciar los artículos</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">¿Caltener los artículos guardaos na app?</string>
-  <string name="reading_list_logout_option_reminder_dialog_text">Hai artículos guardaos actualmente nes llistes de llectura. ¿Quies caltenelos ehí cuando zarres la sesión?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">Si, caltener los artículos nes llistes</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">Non, desaniciar los artículos de les llistes</string>
   <string name="default_reading_list_name">Guardaos</string>
   <string name="default_reading_list_description">Llista predeterminada pa los artículos guardaos</string>
   <string name="no_user_lists_title">Organizar artículos en llistes</string>

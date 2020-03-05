@@ -17,6 +17,7 @@ import com.google.gson.JsonObject;
 
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.dataclient.RestService;
+import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.json.GsonUtil;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.UriUtil;
@@ -68,12 +69,12 @@ public class CommunicationBridge {
         flushMessages();
     }
 
-    public void resetHtml(@NonNull String wikiUrl, @NonNull PageTitle pageTitle) {
+    public void resetHtml(@NonNull PageTitle pageTitle) {
         isDOMReady = false;
         pendingJSMessages.clear();
         pendingEvals.clear();
         communicationBridgeListener.getWebView().loadUrl(UriUtil
-                .encodeOkHttpUrl(wikiUrl + RestService.REST_API_PREFIX + RestService.PAGE_HTML_ENDPOINT,
+                .encodeOkHttpUrl(ServiceFactory.getRestBasePath(pageTitle.getWikiSite()) + RestService.PAGE_HTML_ENDPOINT,
                         pageTitle.getPrefixedText()));
     }
 

@@ -627,14 +627,6 @@ public final class Prefs {
         setBoolean(R.string.preference_key_show_reading_lists_sync_prompt, enabled);
     }
 
-    public static boolean shouldShowReadingListSyncMergePrompt() {
-        return getBoolean(R.string.preference_key_show_reading_lists_merge_prompt, true);
-    }
-
-    public static void shouldShowReadingListSyncMergePrompt(boolean enabled) {
-        setBoolean(R.string.preference_key_show_reading_lists_merge_prompt, enabled);
-    }
-
     public static boolean isReadingListsFirstTimeSync() {
         return getBoolean(R.string.preference_key_reading_lists_first_time_sync, true);
     }

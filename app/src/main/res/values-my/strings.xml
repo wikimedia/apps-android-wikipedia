@@ -432,15 +432,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">ဤအရာကို ထပ်မံ မပြပါနှင့်</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Sync လုပ်ခြင်းကို ခွင့်ပြုရန်</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">မလိုပါ၊ ကျေးဇူးတင်ပါသည်။</string>
-  <string name="reading_list_login_option_reminder_dialog_title">ဖတ်ရှုစာရင်း ဆောင်းပါးများ တွေ့ခဲ့သည်</string>
-  <string name="reading_list_login_option_reminder_dialog_text">အကောင့်မှ ထွက်သွားချိန်၌ ဆောင်းပါးများကို စာဖတ်စာရင်းသို့ သိမ်းဆည်းခဲ့သည်။ ယင်းတို့ကို သင်၏အကောင့်ထဲမှ စာဖတ်စာရင်းများသို့ ပေါင်းထည့်လိုပါသလား။</string>
-  <string name="reading_list_login_option_reminder_dialog_yes">ဟုတ်ကဲ့၊ စာဖတ်စာရင်းထဲ ထည့်သွင်းပေးပါ</string>
-  <string name="reading_list_login_option_reminder_dialog_no">ဟင်းအင်း၊ ဆောင်းပါးများကို ဖျက်ပါ။</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">သိမ်းထားသော ဆောင်းပါးများကို app ထဲတွင် ဆက်ထားရန်</string>
-  <string name="reading_list_logout_option_reminder_dialog_text">ဤဆောင်းပါးများကို လတ်တလောတွင် စာဖတ်စာရင်းများသို့ သိမ်းဆည်းပြီးဖြစ်သည်။ ယင်းတို့ကို အကောင့်မှထွက်သွားချိန်တွင် ဆက်လက်ထားရှိစေချင်ပါသလား။</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">ဟုတ်ကဲ့၊ ဆောင်ပါးများကို စာရင်းထဲ မှတ်ထားပါ။</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">ဟင်းအင်း၊ ဆောင်ပါးများကို စာရင်းထဲမှ ဖျက်လိုက်ပါ။</string>
-  <string name="default_reading_list_name">သိမ်းဆည်းပြီး</string>
+    <string name="default_reading_list_name">သိမ်းဆည်းပြီး</string>
   <string name="default_reading_list_description">သင် သိမ်းထားသော ဆောင်းပါးများအတွက် နဂိုစာရင်း</string>
   <string name="no_user_lists_title">ဆောင်းပါးများကို စာရင်းများအဖြစ် ဖွဲ့စည်းရန်</string>
   <string name="no_user_lists_msg">သွားလည်စရာနေရာများ၊ နှစ်သက်သည့် အကြောင်းအရာများနှင့် အခြားသောအရာများအတွက် စာရင်းတစ်ခု ဖန်တီးရန်</string>

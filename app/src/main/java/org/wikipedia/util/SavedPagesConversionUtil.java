@@ -10,6 +10,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.Constants;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.RestService;
+import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor;
 import org.wikipedia.dataclient.page.PageLead;
 import org.wikipedia.json.GsonUnmarshaller;
@@ -31,13 +32,12 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 import okio.ByteString;
 
-import static org.wikipedia.dataclient.RestService.REST_API_PREFIX;
 import static org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory.CACHE_DIR_NAME;
 
 // TODO: remove after two releases.
 public final class SavedPagesConversionUtil {
-    private static final String LEAD_SECTION_ENDPOINT = "/page/mobile-sections-lead/";
-    private static final String REMAINING_SECTIONS_ENDPOINT = "/page/mobile-sections-remaining/";
+    private static final String LEAD_SECTION_ENDPOINT = "page/mobile-sections-lead/";
+    private static final String REMAINING_SECTIONS_ENDPOINT = "page/mobile-sections-remaining/";
     private static final int MAX_ATTEMPTS = 3;
 
     @SuppressLint("StaticFieldLeak")
@@ -140,8 +140,8 @@ public final class SavedPagesConversionUtil {
         String baseUrl = CURRENT_PAGE.wiki().url();
         String title = CURRENT_PAGE.apiTitle();
 
-        String leadSectionUrl = UriUtil.encodeOkHttpUrl(baseUrl + REST_API_PREFIX + LEAD_SECTION_ENDPOINT, title);
-        String remainingSectionsUrl = UriUtil.encodeOkHttpUrl(baseUrl + REST_API_PREFIX + REMAINING_SECTIONS_ENDPOINT, title);
+        String leadSectionUrl = UriUtil.encodeOkHttpUrl(ServiceFactory.getRestBasePath(CURRENT_PAGE.wiki()) + LEAD_SECTION_ENDPOINT, title);
+        String remainingSectionsUrl = UriUtil.encodeOkHttpUrl(ServiceFactory.getRestBasePath(CURRENT_PAGE.wiki()) + REMAINING_SECTIONS_ENDPOINT, title);
 
         // Do the cache files exist for this page?
         File offlineCacheDir = new File(WikipediaApp.getInstance().getFilesDir(), CACHE_DIR_NAME);
@@ -215,10 +215,9 @@ public final class SavedPagesConversionUtil {
                     .replace("@@DESCRIPTION@@", StringUtils.defaultString(pageLead.getDescription()))
                     .replace("@@DESCRIPTION_SOURCE@@", StringUtils.defaultString(pageLead.getDescriptionSource()));
 
-            String baseUrl = CURRENT_PAGE.wiki().url();
             String title = CURRENT_PAGE.apiTitle();
 
-            String summaryUrl = UriUtil.encodeOkHttpUrl(baseUrl + REST_API_PREFIX + "/page/summary/", title);
+            String summaryUrl = UriUtil.encodeOkHttpUrl(ServiceFactory.getRestBasePath(CURRENT_PAGE.wiki()) + "page/summary/", title);
             String date = DateUtil.getHttpLastModifiedDate(new Date());
             try {
                 date = DateUtil.getHttpLastModifiedDate(DateUtil.iso8601DateParse(pageLead.getLastModified()));
@@ -233,9 +232,7 @@ public final class SavedPagesConversionUtil {
     }
 
     private static void storeConvertedHtml(String html) {
-        String baseUrl = CURRENT_PAGE.wiki().url();
-        String title = CURRENT_PAGE.apiTitle();
-        String mobileHtmlUrl = UriUtil.encodeOkHttpUrl(baseUrl + REST_API_PREFIX + RestService.PAGE_HTML_ENDPOINT, title);
+        String mobileHtmlUrl = UriUtil.encodeOkHttpUrl(ServiceFactory.getRestBasePath(CURRENT_PAGE.wiki()) + RestService.PAGE_HTML_ENDPOINT, CURRENT_PAGE.apiTitle());
 
         OfflineCacheInterceptor.createCacheItemFor(CURRENT_PAGE, mobileHtmlUrl, html, "text/html", DateUtil.getHttpLastModifiedDate(new Date()));
     }

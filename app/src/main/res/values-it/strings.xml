@@ -465,15 +465,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Non mostrarmelo di nuovo</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Attiva sincronizzazione</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">No, grazie</string>
-  <string name="reading_list_login_option_reminder_dialog_title">Voci degli elenchi di lettura trovate</string>
-  <string name="reading_list_login_option_reminder_dialog_text">Le voci sono state salvate negli elenchi di lettura quando sei uscito. Vorresti aggiungerle agli elenchi di lettura della tua utenza?</string>
-  <string name="reading_list_login_option_reminder_dialog_yes">Sì, aggiungile ai miei elenchi di lettura</string>
-  <string name="reading_list_login_option_reminder_dialog_no">No, cancella le voci</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">Mantieni le voci salvate nell\'applicazione?</string>
-  <string name="reading_list_logout_option_reminder_dialog_text">Ci sono voci attualmente salvate negli elenchi di lettura. Vorresti conservarle anche dopo l\'uscita?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">Sì, tieni le voci nell\'elenco</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">No, cancella le voci dagli elenchi</string>
-  <string name="default_reading_list_name">Salvato</string>
+    <string name="default_reading_list_name">Salvato</string>
   <string name="default_reading_list_description">Elenco predefinito per le tue voci salvate</string>
   <string name="no_user_lists_title">Organizza voci in elenchi</string>
   <string name="no_user_lists_msg">Crea elenchi per luoghi in cui viaggiare, argomenti preferiti e molto altro ancora</string>

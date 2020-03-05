@@ -432,15 +432,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Не показвай повече</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Включване на синхронизиране</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Не, благодаря</string>
-  <string name="reading_list_login_option_reminder_dialog_title">Открити статии в списъци за четене</string>
-  <string name="reading_list_login_option_reminder_dialog_text">Има запазени статии в списъка за четене, докато не сте били влезли в сметката си. Желаете ли да ги добавите към списъците за четене в сметката си?</string>
-  <string name="reading_list_login_option_reminder_dialog_yes">Да, добавяне към списъците ми за четене</string>
-  <string name="reading_list_login_option_reminder_dialog_no">Не, изтриване на статиите</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">Задържане на съхранените статии в приложението?</string>
-  <string name="reading_list_logout_option_reminder_dialog_text">Тези статии вече са запазени в списъци за четене. Желаете ли да останат запазени, след като излезете?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">Да, задържане на статиите в списъците</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">Не, изтриване на статиите от списъците</string>
-  <string name="default_reading_list_name">Съхранено</string>
+    <string name="default_reading_list_name">Съхранено</string>
   <string name="default_reading_list_description">Списък по подразбиране за Вашите запазени статии</string>
   <string name="no_user_lists_title">Организирайте статии в списъци</string>
   <string name="no_user_lists_msg">Създавайте списъци с места за пътуване, любими теми и много други</string>

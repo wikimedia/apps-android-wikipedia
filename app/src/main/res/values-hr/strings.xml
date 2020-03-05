@@ -415,13 +415,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Ne prikazuj ovo ponovno</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Omogući sinkronizaciju</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Ne, hvala</string>
-  <string name="reading_list_login_option_reminder_dialog_title">Pronađeni članci na popisima za čitanje</string>
-  <string name="reading_list_login_option_reminder_dialog_yes">Da, dodaj ih mojim popisima</string>
-  <string name="reading_list_login_option_reminder_dialog_no">Ne, izbriši članke</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">Zadržati spremljene članke u aplikaciji?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">Da, zadrži članke na popisima</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">Ne, izbriši članke s popisa</string>
-  <string name="default_reading_list_name">Spremljeno</string>
+    <string name="default_reading_list_name">Spremljeno</string>
   <string name="default_reading_list_description">Zadani popis za Vaše spremljene članke</string>
   <string name="no_user_lists_title">Organizirajte članke u popise</string>
   <string name="no_user_lists_msg">Stvorite popise za mjesta koja želite posjetiti, omiljene teme i više toga</string>
