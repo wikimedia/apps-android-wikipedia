@@ -51,9 +51,12 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
         imageTagsRecycler.addItemDecoration(DrawableItemDecoration(requireContext(), R.attr.list_separator_drawable, drawStart = false, drawEnd = false))
         imageTagsRecycler.adapter = adapter
         imageTagsSearchText.addTextChangedListener(textWatcher)
+    }
 
+    override fun onStart() {
+        super.onStart()
         imageTagsSearchText.requestFocus()
-        //DeviceUtil.showSoftKeyboard(imageTagsSearchText)
+        DeviceUtil.showSoftKeyboard(imageTagsSearchText)
     }
 
     override fun onDestroyView() {

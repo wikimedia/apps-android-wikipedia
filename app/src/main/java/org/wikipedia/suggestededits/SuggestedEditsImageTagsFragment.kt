@@ -107,7 +107,13 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                 .subscribe({ page ->
                     this.page = page
                     tagList.clear()
-                    tagList.addAll(page.imageLabels)
+                    val maxTags = 3
+                    for (label in page.imageLabels) {
+                        tagList.add(label)
+                        if (tagList.size >= maxTags) {
+                            break
+                        }
+                    }
                     updateContents()
                 }, { this.setErrorState(it) })!!)
     }
@@ -140,15 +146,11 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         // add an artificial chip for adding a custom tag
         addChip(null, typeface)
 
-        val maxTags = 50
         for (label in tagList) {
             if (label.state.isNotEmpty() && label.state != "unreviewed") {
                 continue
             }
             addChip(label, typeface)
-            if (tagsChipGroup.childCount >= maxTags) {
-                break
-            }
         }
 
         disposables.add(MediaHelper.getImageCaptions(page!!.title())
@@ -180,7 +182,9 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         chip.chipStrokeWidth = DimenUtil.dpToPx(1f)
         chip.setChipStrokeColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.chip_background_color))
         chip.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_primary_color))
-        chip.typeface = typeface
+        if (label == null) {
+            chip.typeface = typeface
+        }
         chip.isCheckable = true
         chip.setChipIconResource(R.drawable.ic_chip_add_24px)
         chip.chipIconSize = DimenUtil.dpToPx(24f)
