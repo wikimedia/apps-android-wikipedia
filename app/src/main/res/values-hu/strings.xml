@@ -444,7 +444,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Ne mutasd ezt többet</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Szinkronizálás engedélyezése</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Köszönöm, nem</string>
-    <string name="default_reading_list_name">Elmentve</string>
+  <string name="default_reading_list_name">Elmentve</string>
   <string name="default_reading_list_description">Alapértelmezett lista a mentett szócikkeidnek</string>
   <string name="no_user_lists_title">Rendezd listákba a szócikkeket</string>
   <string name="no_user_lists_msg">Készíts listát a felkeresendő helyeknek, kedvenc témáidnak és sok minden másnak</string>

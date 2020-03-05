@@ -449,7 +449,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Não mostrar novamente</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Ativar sincronização</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Não, obrigado</string>
-    <string name="default_reading_list_name">Guardados</string>
+  <string name="default_reading_list_name">Guardados</string>
   <string name="default_reading_list_description">Lista padrão para os seus artigos guardados</string>
   <string name="no_user_lists_title">Organizar artigos na forma de listas</string>
   <string name="no_user_lists_msg">Criar listas de locais para viajar, tópicos favoritos, e muito mais</string>
@@ -708,8 +708,8 @@
   <string name="suggested_edits_image_tags">Etiquetas de imagens</string>
   <string name="suggested_edits_image_tags_publishing">A publicar</string>
   <string name="suggested_edits_image_tags_published">Publicadas</string>
-  <string name="suggested_edits_image_tags_onboarding_title">Etiquete imagens para que outros as encontrem facilmente</string>
-  <string name="suggested_edits_image_tags_onboarding_text">Ao confirmar as etiquetas sugeridas, pode ajudar a tornar mais fácil encontrar imagens.\n\nAs etiquetas são sugeridas de forma automática e precisam de ser validadas por pessoas para confirmar a sua precisão.</string>
+  <string name="suggested_edits_image_tags_onboarding_title" fuzzy="true">Etiquete imagens para que outros as encontrem facilmente</string>
+  <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">Ao confirmar as etiquetas sugeridas, pode ajudar a tornar mais fácil encontrar imagens.\n\nAs etiquetas são sugeridas de forma automática e precisam de ser validadas por pessoas para confirmar a sua precisão.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Só as etiquetas que escolher serão adicionadas às imagens.</string>
   <string name="suggested_edits_image_tags_snackbar">Adicione etiquetas de imagens para que outros as encontrem facilmente.</string>
   <string name="suggested_edits_image_tags_task_detail">Etiquete imagens para que outros as encontrem facilmente. As etiquetas são sugeridas de forma automática e precisam de ser validadas.</string>

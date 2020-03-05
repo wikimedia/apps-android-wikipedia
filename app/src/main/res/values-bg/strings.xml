@@ -432,7 +432,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Не показвай повече</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Включване на синхронизиране</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Не, благодаря</string>
-    <string name="default_reading_list_name">Съхранено</string>
+  <string name="default_reading_list_name">Съхранено</string>
   <string name="default_reading_list_description">Списък по подразбиране за Вашите запазени статии</string>
   <string name="no_user_lists_title">Организирайте статии в списъци</string>
   <string name="no_user_lists_msg">Създавайте списъци с места за пътуване, любими теми и много други</string>

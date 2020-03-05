@@ -408,7 +408,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Njepokaž tutu zdźělenku znowa</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Synchronizowanje zmóžnić</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Ně, dźakuju</string>
-    <string name="default_reading_list_name">Składowane</string>
+  <string name="default_reading_list_name">Składowane</string>
   <string name="default_reading_list_description">Standardna lisćina za twoje składowane zapiski</string>
   <string name="no_user_lists_title">Organizuj zapiski do lisćinow</string>
   <string name="no_user_lists_msg">Wutwor lisćiny za jězbne cile, twoje najlubše temy a wjele wjace</string>

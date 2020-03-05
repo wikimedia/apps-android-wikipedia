@@ -431,7 +431,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Ne plu montri ĉi tion</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Ŝalti sinkronigadon</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Ne, dankon</string>
-    <string name="default_reading_list_name">Konservitaj</string>
+  <string name="default_reading_list_name">Konservitaj</string>
   <string name="default_reading_list_description">Defaŭlta listo por viaj konservitaj artikoloj</string>
   <string name="no_user_lists_title">Organizi artikolojn en listoj</string>
   <string name="no_user_lists_msg">Krei listojn por lokoj vizitindaj, ŝatataj temoj kaj multe pli</string>

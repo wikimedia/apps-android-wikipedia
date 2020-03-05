@@ -300,6 +300,7 @@
   <string name="close_all_tabs_confirm_yes">Áno</string>
   <string name="close_all_tabs_confirm_no">Nie</string>
   <string name="button_close_tab">Zavrieť kartu</string>
+  <string name="unnamed_tab_closed">Karta zatvorená.</string>
   <string name="tab_item_closed">%s zatvorená.</string>
   <string name="all_tab_items_closed">Všetky záložky sú zatvorené.</string>
   <string name="tool_tip_bookmark_icon_title">Pridať do zoznamu na prečítanie</string>
@@ -445,7 +446,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Nabudúce už nezobrazovať</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Povoliť synchronizáciu</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Nie, vďaka</string>
-    <string name="default_reading_list_name">Uložené</string>
+  <string name="default_reading_list_name">Uložené</string>
   <string name="default_reading_list_description">Predvolený zoznam pre vaše uložené články</string>
   <string name="no_user_lists_title">Usporiadajte si články do zoznamov</string>
   <string name="no_user_lists_msg">Vytvorte si zoznamy miest, kam sa chcete vydať, zoznamy obľúbených tém a ďalšie</string>
@@ -702,14 +703,15 @@
   <string name="suggested_edits_image_tags">Značky obrázkov</string>
   <string name="suggested_edits_image_tags_publishing">Publikuje sa</string>
   <string name="suggested_edits_image_tags_published">Publikované</string>
-  <string name="suggested_edits_image_tags_onboarding_title">Označte obrázky, aby ich mohli ostatní ľahšie nájsť</string>
-  <string name="suggested_edits_image_tags_onboarding_text">Potvrdením navhrovaných značiek môžete pomôcť, aby boli obrázky ľahšie nájditeľné.\n\nZnačky sú navrhované počítačom, no musia byť overené človekom na zabezpečenie presnosti.</string>
+  <string name="suggested_edits_image_tags_onboarding_title" fuzzy="true">Označte obrázky, aby ich mohli ostatní ľahšie nájsť</string>
+  <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">Potvrdením navhrovaných značiek môžete pomôcť, aby boli obrázky ľahšie nájditeľné.\n\nZnačky sú navrhované počítačom, no musia byť overené človekom na zabezpečenie presnosti.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Iba značky, ktoré vyberiete, budú pridané k obrázkom.</string>
   <string name="suggested_edits_image_tags_snackbar">Pridajte značky obrázkom, aby ich mohli ostatní ľahšie nájsť</string>
   <string name="suggested_edits_image_tags_task_detail">Označte obrázky, aby ich ostatní mohli ľahšie nájsť. Značky sú navrhované počítačom, no musia byť skontrolované.</string>
   <string name="suggested_edits_image_tags_choose">Vyberte zhodujúce sa značky</string>
   <string name="suggested_edits_image_tags_select_title">Pre tento obrázok ste nevybrali žiadne značky</string>
   <string name="suggested_edits_image_tags_select_text">Len značky, ktoré vyberiete, budú pridané k obrázkom. Značky, ktoré nie sú vybrané, budú označené ako odmietnuté. Ste si istí, že chcete označiť všetky značky ako odmietnuté?</string>
+  <string name="suggested_edits_image_zoom_tooltip">Roztiahnutím dvoch prstov zväčšíte obrázok.</string>
   <string name="suggested_edits_encouragement_message">%s, ďakujeme za vaše úpravy. Nižšie nájdete ďalšie spôsoby, ako prispievať na Wikipédiu.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Dobrý deň %s&lt;/b&gt;, vedeli ste, že každý môže upravovať Wikipédiu? Nižšie nájdete zábavné spôsoby, ako pomôcť zlepšiť Wikipédiu. Prajeme šťastné upravovanie!</string>
   <string name="suggested_edits_image_captions_task_detail">Titulky obrázkov popisujú obrázok, aby čitateľom pomohli pochopiť jeho význam a kontext.</string>

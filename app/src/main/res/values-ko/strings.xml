@@ -453,7 +453,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">더 이상 표시하지 않음</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">동기화 사용</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">괜찮습니다</string>
-    <string name="default_reading_list_name">저장됨</string>
+  <string name="default_reading_list_name">저장됨</string>
   <string name="default_reading_list_description">저장된 문서를 위한 기본 목록</string>
   <string name="no_user_lists_title">문서를 목록으로 정리하세요</string>
   <string name="no_user_lists_msg">여행 갈 장소, 좋아하는 주제들, 그외의 원하는 용도의 목록을 만드세요</string>
@@ -706,7 +706,7 @@
   <string name="suggested_edits_image_tags">이미지 태그</string>
   <string name="suggested_edits_image_tags_publishing">게시 중</string>
   <string name="suggested_edits_image_tags_published">게시됨</string>
-  <string name="suggested_edits_image_tags_onboarding_title">다른 사람이 더 쉽게 찾을 수 있도록 이미지를 태그합니다</string>
+  <string name="suggested_edits_image_tags_onboarding_title" fuzzy="true">다른 사람이 더 쉽게 찾을 수 있도록 이미지를 태그합니다</string>
   <string name="suggested_edits_image_tags_onboarding_note">선택한 태그만 이미지에 추가됩니다.</string>
   <string name="suggested_edits_image_tags_snackbar">다른 사람이 더 쉽게 찾을 수 있도록 이미지 태그를 추가합니다.</string>
   <string name="suggested_edits_image_tags_task_detail">다른 사람이 더 쉽게 찾을 수 있도록 이미지를 태그합니다. 컴퓨터가 제안하지만 확인이 필요합니다.</string>

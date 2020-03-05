@@ -356,7 +356,7 @@
   <string name="suggested_edits_image_captions">Deskripto-texti por imaji</string>
   <string name="suggested_edits_image_tags">Deskripto dil imaji</string>
   <string name="suggested_edits_image_tags_published">Publikigita</string>
-  <string name="suggested_edits_image_tags_onboarding_title">Pozez etiketi en l\'imaji, pro ke altri povos trovar li facile</string>
+  <string name="suggested_edits_image_tags_onboarding_title" fuzzy="true">Pozez etiketi en l\'imaji, pro ke altri povos trovar li facile</string>
   <string name="suggested_edits_task_new">nova</string>
   <string name="onboarding_continue">Durar</string>
   <string name="onboarding_welcome_title_v2">La libera Enciklopedio\n…en plua kam 300 lingui</string>
