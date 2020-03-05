@@ -66,20 +66,15 @@ public final class UriUtil {
      * @param context Context of the calling app
      * @param uri URI to open in an external browser
      */
-    public static void visitInExternalBrowser(final Context context, Uri uri) {
-        Intent targetIntent = new Intent(Intent.ACTION_VIEW, uri);
-        Intent chooserIntent = ShareUtil.createChooserIntent(targetIntent, null, context);
-        if (chooserIntent == null) {
-            try {
-                context.startActivity(targetIntent);
-            } catch (ActivityNotFoundException e) {
-                // This means that there was no way to handle this link.
-                // We will just show a toast now. FIXME: Make this more visible?
-                ShareUtil.showUnresolvableIntentMessage(context);
-            }
-        } else {
+    public static void visitInExternalBrowser(@NonNull final Context context, @NonNull Uri uri) {
+        Intent chooserIntent = ShareUtil.createChooserIntent(new Intent(Intent.ACTION_VIEW, uri), context);
+        try {
             chooserIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             context.startActivity(chooserIntent);
+        } catch (ActivityNotFoundException e) {
+            // This means that there was no way to handle this link.
+            // We will just show a toast now. FIXME: Make this more visible?
+            ShareUtil.showUnresolvableIntentMessage(context);
         }
     }
 
