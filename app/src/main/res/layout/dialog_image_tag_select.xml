@@ -22,7 +22,9 @@
                 android:layout_height="wrap_content"
                 android:imeOptions="flagNoExtractUi"
                 android:inputType="textNoSuggestions"
-                android:maxLines="1" />
+                android:maxLines="1">
+                <requestFocus />
+            </org.wikipedia.views.PlainPasteEditText>
         </com.google.android.material.textfield.TextInputLayout>
 
     </LinearLayout>
@@ -31,6 +33,18 @@
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
         android:background="?attr/material_theme_border_color" />
+
+    <TextView
+        android:id="@+id/noResultsText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        android:textAlignment="center"
+        android:textStyle="italic"
+        android:textColor="?attr/material_theme_de_emphasised_color"
+        android:text="No results"
+        android:visibility="gone"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/imageTagsRecycler"

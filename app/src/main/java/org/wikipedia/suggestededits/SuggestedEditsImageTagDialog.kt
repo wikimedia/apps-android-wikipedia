@@ -6,6 +6,7 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import android.widget.TextView
 import androidx.fragment.app.DialogFragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -51,12 +52,12 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
         imageTagsRecycler.addItemDecoration(DrawableItemDecoration(requireContext(), R.attr.list_separator_drawable, drawStart = false, drawEnd = false))
         imageTagsRecycler.adapter = adapter
         imageTagsSearchText.addTextChangedListener(textWatcher)
+        applyResults(Collections.emptyList())
     }
 
     override fun onStart() {
         super.onStart()
-        imageTagsSearchText.requestFocus()
-        DeviceUtil.showSoftKeyboard(imageTagsSearchText)
+        dialog?.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE)
     }
 
     override fun onDestroyView() {
@@ -79,8 +80,7 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
 
     private fun requestResults(searchTerm: String) {
         if (searchTerm.isEmpty()) {
-            adapter.setResults(Collections.emptyList())
-            adapter.notifyDataSetChanged()
+            applyResults(Collections.emptyList())
             return
         }
         disposables.add(ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).searchEntities(searchTerm, WikipediaApp.getInstance().appOrSystemLanguageCode, WikipediaApp.getInstance().appOrSystemLanguageCode)
@@ -92,9 +92,22 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
                         val label = MwQueryPage.ImageLabel(result.id, result.label, result.description)
                         labelList.add(label)
                     }
-                    adapter.setResults(labelList)
-                    adapter.notifyDataSetChanged()
-                }) { t: Throwable? -> L.d(t) })
+                    applyResults(labelList)
+                }) { t: Throwable? ->
+                    L.d(t)
+                })
+    }
+
+    private fun applyResults(results: List<MwQueryPage.ImageLabel>) {
+        adapter.setResults(results)
+        adapter.notifyDataSetChanged()
+        if (results.isEmpty()) {
+            noResultsText.visibility = View.VISIBLE
+            imageTagsRecycler.visibility = View.GONE
+        } else {
+            noResultsText.visibility = View.GONE
+            imageTagsRecycler.visibility = View.VISIBLE
+        }
     }
 
     private inner class ResultItemHolder internal constructor(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
