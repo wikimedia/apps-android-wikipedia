@@ -2,6 +2,7 @@ package org.wikipedia.descriptions;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.text.TextUtils;
@@ -17,6 +18,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.widget.ImageViewCompat;
 
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -330,9 +332,15 @@ public class DescriptionEditView extends LinearLayout {
     }
 
     private void enableSaveButton(boolean enabled) {
-        final float disabledAlpha = 0.5f;
-        saveButton.setEnabled(enabled);
-        saveButton.setAlpha(enabled ? 1f : disabledAlpha);
+        if (enabled) {
+            saveButton.setImageResource(R.drawable.ic_check_circle_black_24dp);
+            ImageViewCompat.setImageTintList(saveButton, ColorStateList.valueOf(ResourceUtil.getThemedColor(getContext(), R.attr.themed_icon_color)));
+            saveButton.setEnabled(true);
+        } else {
+            saveButton.setImageResource(R.drawable.ic_check_black_24dp);
+            ImageViewCompat.setImageTintList(saveButton, ColorStateList.valueOf(ResourceUtil.getThemedColor(getContext(), R.attr.material_theme_de_emphasised_color)));
+            saveButton.setEnabled(false);
+        }
     }
 
     public void showProgressBar(boolean show) {
