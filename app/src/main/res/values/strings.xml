@@ -451,14 +451,6 @@
     <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Don’t show me this again</string>
     <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Enable syncing</string>
     <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">No thanks</string>
-    <string name="reading_list_login_option_reminder_dialog_title">Reading list articles found</string>
-    <string name="reading_list_login_option_reminder_dialog_text">Articles were saved to the reading list while you were logged out. Would you like to add them to the reading lists in your account?</string>
-    <string name="reading_list_login_option_reminder_dialog_yes">Yes, add them to my reading lists</string>
-    <string name="reading_list_login_option_reminder_dialog_no">No, delete articles</string>
-    <string name="reading_list_logout_option_reminder_dialog_title">Keep saved articles in the app?</string>
-    <string name="reading_list_logout_option_reminder_dialog_text">There are articles currently saved in reading lists. Would you like to keep them there after logging out?</string>
-    <string name="reading_list_logout_option_reminder_dialog_yes">Yes, keep articles in lists</string>
-    <string name="reading_list_logout_option_reminder_dialog_no">No, delete articles from lists</string>
     <string name="default_reading_list_name">Saved</string>
     <string name="default_reading_list_description">Default list for your saved articles</string>
     <string name="no_user_lists_title">Organize articles into lists</string>
@@ -741,8 +733,8 @@
     <string name="suggested_edits_image_tags">Image tags</string>
     <string name="suggested_edits_image_tags_publishing">Publishing</string>
     <string name="suggested_edits_image_tags_published">Published</string>
-    <string name="suggested_edits_image_tags_onboarding_title">Tag images to make them easier for others to find</string>
-    <string name="suggested_edits_image_tags_onboarding_text">By confirming suggested tags, you can help make images easier to search for.\n\nTags are computer suggested but need to be validated by humans to ensure accuracy.</string>
+    <string name="suggested_edits_image_tags_onboarding_title">Tagging images makes them easier to find.</string>
+    <string name="suggested_edits_image_tags_onboarding_text">The following images have tags suggested by a computer, and need to be validated by a human to ensure accuracy.\n\nBy confirming tags, you will help make images easier to search for on Commons, the free license image repository that Wikipedia uses for images in its articles.</string>
     <string name="suggested_edits_image_tags_onboarding_note">Only tags that you choose will be added to images.</string>
     <string name="suggested_edits_image_tags_snackbar">Add image tags to make them easier for others to find.</string>
     <string name="suggested_edits_image_tags_task_detail">Tag images to make them easier for others to find. They are computer suggested, but need to be validated.</string>

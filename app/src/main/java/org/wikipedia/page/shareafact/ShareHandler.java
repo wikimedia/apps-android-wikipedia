@@ -111,7 +111,7 @@ public class ShareHandler {
                 .subscribe(imageLicense -> {
                     final Bitmap snippetBitmap = SnippetImage.getSnippetImage(fragment.requireContext(),
                             fragment.getLeadImageBitmap(),
-                            title.getDisplayText(),
+                            StringUtil.fromHtml(title.getDisplayText()),
                             fragment.getPage().isMainPage() ? "" : title.getDescription(),
                             selectedText,
                             imageLicense);
@@ -250,10 +250,10 @@ public class ShareHandler {
             rootView.findViewById(R.id.share_as_image_button)
                     .setOnClickListener((v) -> {
                         String introText = context.getString(R.string.snippet_share_intro,
-                                title.getDisplayText(),
+                                StringUtil.fromHtml(title.getDisplayText()),
                                 UriUtil.getUrlWithProvenance(context, title, R.string.prov_share_image));
-                        ShareUtil.shareImage(context, resultBitmap, title.getDisplayText(),
-                                title.getDisplayText(), introText);
+                        ShareUtil.shareImage(context, resultBitmap, title.getText(),
+                                StringUtil.removeHTMLTags(title.getDisplayText()), introText);
                         funnel.logShareIntent(selectedText, ShareMode.image);
                         completed = true;
                     });
@@ -274,9 +274,9 @@ public class ShareHandler {
         static void shareAsText(@NonNull Context context, @NonNull PageTitle title,
                                 @NonNull String selectedText, @Nullable ShareAFactFunnel funnel) {
             String introText = context.getString(R.string.snippet_share_intro,
-                    title.getDisplayText(),
+                    StringUtil.fromHtml(title.getDisplayText()),
                     UriUtil.getUrlWithProvenance(context, title, R.string.prov_share_text));
-            ShareUtil.shareText(context, title.getDisplayText(),
+            ShareUtil.shareText(context, StringUtil.removeHTMLTags(title.getDisplayText()),
                     constructShareText(selectedText, introText));
             if (funnel != null) {
                 funnel.logShareIntent(selectedText, ShareMode.text);

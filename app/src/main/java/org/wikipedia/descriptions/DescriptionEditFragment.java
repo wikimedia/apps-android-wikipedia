@@ -406,7 +406,8 @@ public class DescriptionEditFragment extends Fragment {
 
         @Override
         public void onVoiceInputClick() {
-            Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+            Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH)
+                    .putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
             try {
                 startActivityForResult(intent, Constants.ACTIVITY_REQUEST_VOICE_SEARCH);
             } catch (ActivityNotFoundException a) {

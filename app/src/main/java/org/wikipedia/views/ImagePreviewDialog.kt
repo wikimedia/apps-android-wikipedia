@@ -138,7 +138,7 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
                 view.externalLinkView.visibility = VISIBLE
                 view.detailsContainer.setOnClickListener {
                     dismiss()
-                    UriUtil.visitInExternalBrowser(context, Uri.parse(externalLink))
+                    UriUtil.visitInExternalBrowser(requireContext(), Uri.parse(externalLink))
                 }
             } else {
                 view.detailTextView.movementMethod = movementMethod

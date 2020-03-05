@@ -170,7 +170,7 @@ public class TranslationTestsOld {
                                      CharSequence[] expectedAny, @NonNull T... input) {
         String subject = String.format(new Locale(lang), entry.getValue(), input);
         String msg = lang + ":" + entry.getKey() + " = \"" + subject + "\"";
-        if (StringUtils.indexOfAny(subject, (CharSequence[]) expectedAny) < 0) {
+        if (StringUtils.indexOfAny(subject, expectedAny) < 0) {
             msg += " is missing any of \"" + Arrays.toString(expectedAny) + "\"";
             L.e(msg);
             mismatches.append(msg).append("\n");
