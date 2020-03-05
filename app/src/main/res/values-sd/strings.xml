@@ -401,7 +401,7 @@
   <string name="reading_list_turned_sync_off_dialog_settings">ترتيبون</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">مون کي ھي ٻيھر نہ ڏيکاريو</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">نہ مھرباني</string>
-    <string name="default_reading_list_name">سانڍيل</string>
+  <string name="default_reading_list_name">سانڍيل</string>
   <string name="default_reading_list_description">توھان جي سانڍيل مضمونن لاءَ  پاڻڏنل فھرست</string>
   <string name="no_user_lists_title">مضمونن کي فھرستن ۾ منظم ڪريو</string>
   <string name="no_user_lists_msg">گھمڻ جي جڳھن، پسنديده عنوان، ۽ وغيره لاءِ فھرست ٺاھيو</string>

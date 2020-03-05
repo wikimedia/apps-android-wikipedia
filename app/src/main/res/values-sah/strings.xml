@@ -433,7 +433,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Хос көрдөрүмэ</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Мэнэйдээһини холбоо</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Суох, махтанабын</string>
-    <string name="default_reading_list_name">Бигэргэннэ</string>
+  <string name="default_reading_list_name">Бигэргэннэ</string>
   <string name="default_reading_list_description">Талбыт ыстатыйаларыҥ испииһэгэ</string>
   <string name="no_user_lists_title">Испииһэккэ ыстатыйалары наардаа</string>
   <string name="no_user_lists_msg">Сылдьыбыт сирдэргин, сэргиир тиэмэҕэр сыһыаннааҕы уо.д.а. эгэлгэ элбэҕи ыстатыйаҥ испииһэгэр киллэриэххин сөп</string>

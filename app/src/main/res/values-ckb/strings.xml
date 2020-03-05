@@ -413,7 +413,7 @@
   <string name="reading_list_turned_sync_off_dialog_settings">ڕێکخستنەکان</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">جارێکی تر ئەمە پێشانم مەدەرەوە</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">نا سپاس</string>
-    <string name="default_reading_list_name">پاشەکەوت کرا</string>
+  <string name="default_reading_list_name">پاشەکەوت کرا</string>
   <string name="default_reading_list_description">پێڕستی دانراو بۆ وتارە پاشەکەوتکراوەکانت</string>
   <string name="no_user_lists_title">وتارەکان ڕێکبخە بۆناو پێڕستەکان</string>
   <string name="reading_list_saved_list_rename">%1$s (بەکارھێنەر دروستکرا)</string>
@@ -504,9 +504,12 @@
   <string name="feed_configure_menu_deselect_all">ھەمووی بشارەوە</string>
   <string name="feed_item_type_news">وتارەکان دەربارەی ڕووداوەکانی ئێستا</string>
   <string name="feed_item_type_on_this_day">بۆنەکانی مێژوو لەم ڕۆژەدا</string>
+  <string name="feed_item_type_because_you_read">پێشنیارەکان بەپێی نوێترین خوێندنەوەی وتارەکان لە مێژووکەت</string>
+  <string name="feed_item_type_featured_article">وتاری ھەڵبژێردراوی ڕۆژانە لە ویکیپیدیا</string>
   <string name="feed_item_type_trending">ڕۆژانە زۆرترین بینینی وتارەکان</string>
   <string name="feed_item_type_featured_image">ڕۆژانە وێنەی ھەڵبژێردراو لە ویکیمیدیا کۆمنز</string>
   <string name="feed_item_type_main_page">پەڕەی سەرەکی ویکیپیدیا لەگەڵ ناوەڕۆکی ھەڵبژێردراوی ڕۆژانە</string>
+  <string name="feed_item_type_randomizer">دروستکردنی وتارێک بە ھەڵکەوت بۆ خوێندنەوە</string>
   <string name="feed_item_type_suggested_edits">پێشنیارەکان بۆ زیادکردنی ناوەڕۆک لە ویکیپیدیا</string>
   <string name="customize_lang_selection_dialog_ok_button_text">باشە</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">ھەڵوەشاندنەوە</string>

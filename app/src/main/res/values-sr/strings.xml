@@ -439,7 +439,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Не приказуј поново</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Омогући синхронизацију</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Не, хвала</string>
-    <string name="default_reading_list_name">Сачувано</string>
+  <string name="default_reading_list_name">Сачувано</string>
   <string name="default_reading_list_description">Подразумевана листа за сачуване чланке</string>
   <string name="no_user_lists_title">Организујте чланке на листама</string>
   <string name="no_user_lists_msg">Правите листе о местима која желите да посетите, омиљеним темама и друго</string>

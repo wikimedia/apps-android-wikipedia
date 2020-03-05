@@ -446,7 +446,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">אל תראו לי את זה שוב</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">הפעלת סנכרון</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">לא, תודה</string>
-    <string name="default_reading_list_name">שמורים</string>
+  <string name="default_reading_list_name">שמורים</string>
   <string name="default_reading_list_description">ברירת מחדל לערכים השמורים שלך</string>
   <string name="no_user_lists_title">ארגנו ערכים לרשימות</string>
   <string name="no_user_lists_msg">צרו רשימות למקומות שביקרתם בהם, נושאים שאתם אוהבים, ועוד</string>
@@ -705,8 +705,8 @@
   <string name="suggested_edits_image_tags">תגי תמונה</string>
   <string name="suggested_edits_image_tags_publishing">מתפרסם</string>
   <string name="suggested_edits_image_tags_published">פורסם</string>
-  <string name="suggested_edits_image_tags_onboarding_title">תייגו תמונות כדי שלאחרים יהיה קל יותר למצוא אותן</string>
-  <string name="suggested_edits_image_tags_onboarding_text">אישור התגים המוצעים הופך את התמונות לקלות יותר לחיפוש.\n\nהתגים מחוללים באמצעות מחשב, אבל צריכים להיות מאומתים על־ידי בני־אדם כדי לוודא את דיוקם.</string>
+  <string name="suggested_edits_image_tags_onboarding_title">תיוג תמונות עוזר לאחרים למצוא אותן.</string>
+  <string name="suggested_edits_image_tags_onboarding_text">בתמונות האלה יש תגים שמחשב הציע, ושאדם צריך לבדוק את התקינות שלהם כדי לוודא את הדיוק.\n\nאימות התגים יעזור לאחרים למצוא אותן בוויקישיתוף, מאגר התמונות החופשיות שוויקיפדיה משתמשת בו לתמונות בערכים שלה.</string>
   <string name="suggested_edits_image_tags_onboarding_note">רק תגים שאישרת יוּספו לתמונות.</string>
   <string name="suggested_edits_image_tags_snackbar">תייגו תמונות כדי שלאחרים יהיה קל יותר למצוא אותן</string>
   <string name="suggested_edits_image_tags_task_detail">תייגו תמונות כדי שלאחרים יהיה קל יותר למצוא אותן. מחשב מציע אותם, אבל צריך לוודא שהם נכונים.</string>

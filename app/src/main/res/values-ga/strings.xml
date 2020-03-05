@@ -405,7 +405,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Ná taispeáin sé seo dom arís</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Cumasaigh sioncronú</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Ní dhéanfaidh mé é</string>
-    <string name="default_reading_list_name">Sábháilte</string>
+  <string name="default_reading_list_name">Sábháilte</string>
   <string name="default_reading_list_description">Liosta réamhshocraithe do na hailt atá sábháilte agat</string>
   <string name="no_user_lists_title">Eagraigh ailt ar liostaí</string>
   <string name="no_user_lists_msg">Cruthaigh liostaí d\'áiteanna ar mhaith leat taisteal chucu, de na hábhair is fearr leat, agus d\'iliomad rudaí eile</string>

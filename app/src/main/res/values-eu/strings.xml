@@ -405,7 +405,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Ez erakutsi hau berriro</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Sinkronizazioa ahalbidetu</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Ez, eskerrik asko</string>
-    <string name="default_reading_list_name">Gordeta</string>
+  <string name="default_reading_list_name">Gordeta</string>
   <string name="default_reading_list_description">Zerrenda lehenetsia gordetako artikuluentzat</string>
   <string name="no_user_lists_title">Artikuluak zerrendetan antolatu</string>
   <string name="no_user_lists_msg">Sortu zerrendak bidaiatzeko lekuetarako, gai gogokoentzat, eta askoz gehiagorako</string>

@@ -458,7 +458,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Nie pokazuj mi tego ponownie</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Włącz synchronizację</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Nie, dziękuję</string>
-    <string name="default_reading_list_name">Zapisane</string>
+  <string name="default_reading_list_name">Zapisane</string>
   <string name="default_reading_list_description">Domyślna lista dla zapisanych artykułów</string>
   <string name="no_user_lists_title">Uporządkuj artykuły w listy</string>
   <string name="no_user_lists_msg">Twórz listy miejsc, do których chciałbyś podróżować, ulubionych tematów i wielu innych.</string>

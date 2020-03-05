@@ -457,7 +457,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">次からは表示しない</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">同期を有効にする</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">やめます</string>
-    <string name="default_reading_list_name">保存済み</string>
+  <string name="default_reading_list_name">保存済み</string>
   <string name="default_reading_list_description">保存したページの既定の一覧</string>
   <string name="no_user_lists_title">記事をリストにまとめる</string>
   <string name="no_user_lists_msg">行ってみたい場所や好きな話題その他いろいろなリストを作ってみる</string>
