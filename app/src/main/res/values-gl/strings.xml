@@ -439,7 +439,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Non amosar de novo</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Activar a sincronización</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Non, grazas</string>
-    <string name="default_reading_list_name">Gardado</string>
+  <string name="default_reading_list_name">Gardado</string>
   <string name="default_reading_list_description">Lista por defecto dos seus artigos gardados</string>
   <string name="no_user_lists_title">Organizar os artigos no formato de listas</string>
   <string name="no_user_lists_msg">Crear as listas dos locais para viaxar, temas favoritos, e moito máis</string>

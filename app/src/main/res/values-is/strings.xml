@@ -425,7 +425,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Ekki sýna þessi skilaboð aftur</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Virkja samstillingu</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Nei, takk</string>
-    <string name="default_reading_list_name">Vistað</string>
+  <string name="default_reading_list_name">Vistað</string>
   <string name="default_reading_list_description">Sjálfgefinn listi fyrir vistuðu greinarnar þínar</string>
   <string name="no_user_lists_title">Skipuleggja greinar í lista</string>
   <string name="no_user_lists_msg">Útbúðu lista yfir staði til að heimsækja, eftirlætisumræðuefni og margt fleira</string>

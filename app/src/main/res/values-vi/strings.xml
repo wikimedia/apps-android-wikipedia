@@ -382,7 +382,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Đừng hiện tôi thông báo này nữa</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Bật đồng bộ hóa</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Không, cảm ơn</string>
-    <string name="default_reading_list_name">Đã lưu</string>
+  <string name="default_reading_list_name">Đã lưu</string>
   <string name="default_reading_list_description">Danh sách mặc định cho các bài bạn lưu</string>
   <string name="no_user_lists_title">Sắp xếp bài viết vào các danh sách</string>
   <string name="no_user_lists_msg">Tạo danh sách về những nơi bạn muốn du lịch, về những chủ đề bạn yêu thích và nhiều hơn nữa</string>

@@ -456,7 +456,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">An option shows on dialog that does not allow to receive the message again.</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Affirmative answer to confirm and redirect to the settings page.</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Negative answer to dismiss the dialog.\n{{Identical|No thanks}}</string>
-    <string name="default_reading_list_name">Title for default list</string>
+  <string name="default_reading_list_name">Title for default list</string>
   <string name="default_reading_list_description">Short description of the default reading list where articles are saved.</string>
   <string name="no_user_lists_title">Suggestion string for users to Organize articles into lists</string>
   <string name="no_user_lists_msg">Text explaining the advantages of creating reading lists, to users</string>

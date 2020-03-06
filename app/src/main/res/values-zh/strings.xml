@@ -466,7 +466,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">不要向我再次显示</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">启用同步</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">不用了，谢谢</string>
-    <string name="default_reading_list_name">已保存</string>
+  <string name="default_reading_list_name">已保存</string>
   <string name="default_reading_list_description">用于您的已保存条目的默认列表</string>
   <string name="no_user_lists_title">组织条目至列表中</string>
   <string name="no_user_lists_msg">创建想前往旅行的地点、感兴趣的话题及更多事物的列表</string>

@@ -392,7 +392,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Ur iyi-d-skan ara aya daɣen</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Rmed amtawi</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Ala, tanemmirt</string>
-    <string name="default_reading_list_name">Yettwasekles</string>
+  <string name="default_reading_list_name">Yettwasekles</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Amagrad-agi yella s war tuqqna.</item>
     <item quantity="other">Imagraden-agi llan s war tuqqna.</item>

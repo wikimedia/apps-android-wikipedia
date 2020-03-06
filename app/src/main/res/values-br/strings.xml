@@ -410,7 +410,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Chom hep diskwel an dra-se c\'hoazh.</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Gweredekaat an sinkroneladur</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Nann, trugarez</string>
-    <string name="default_reading_list_name">Enrollet</string>
+  <string name="default_reading_list_name">Enrollet</string>
   <string name="default_reading_list_description">Roll dre ziouer evit ho pennadoù enrollet</string>
   <string name="no_user_lists_title">Renkañ pennadoù er rolloù</string>
   <string name="no_user_lists_msg">Krouiñ rolloù lec\'hioù da weladenniñ, rolloù danvezioù muiañ-karet ha kalz muioc\'h</string>

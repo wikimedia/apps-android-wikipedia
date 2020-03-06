@@ -414,7 +414,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Jangan tunjukkan saya lagi ini</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Dayakan penyegerakan</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Tak apalah</string>
-    <string name="default_reading_list_name">Disimpan</string>
+  <string name="default_reading_list_name">Disimpan</string>
   <string name="default_reading_list_description">Senarai lalai untuk rencana anda yang disimpan</string>
   <string name="no_user_lists_title">Atur rencana ke dalam senarai</string>
   <string name="no_user_lists_msg">Buat senarai tempat untuk pergi ke, topik kegemaran, dan banyak lagi</string>

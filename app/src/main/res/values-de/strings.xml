@@ -445,7 +445,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Diese Nachricht nicht erneut anzeigen</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Synchronisierung aktivieren</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Nein danke</string>
-    <string name="default_reading_list_name">Gespeichert</string>
+  <string name="default_reading_list_name">Gespeichert</string>
   <string name="default_reading_list_description">Standardliste für deine gespeicherten Artikel</string>
   <string name="no_user_lists_title">Artikel in Listen organisieren</string>
   <string name="no_user_lists_msg">Erstelle Listen für Reiseziele, Lieblingsthemen und vieles mehr</string>
@@ -703,8 +703,8 @@
   <string name="suggested_edits_image_tags">Bild-Tags</string>
   <string name="suggested_edits_image_tags_publishing">Veröffentlichung</string>
   <string name="suggested_edits_image_tags_published">Veröffentlicht</string>
-  <string name="suggested_edits_image_tags_onboarding_title">Taggen Sie Bilder, um sie für andere leichter auffindbar zu machen</string>
-  <string name="suggested_edits_image_tags_onboarding_text">Durch Bestätigen von vorgeschlagenen Tags können Sie die Suche nach Bildern vereinfachen.\n\nTags werden vom Computer vorgeschlagen, müssen jedoch von Menschen validiert werden, um die Genauigkeit sicherzustellen.</string>
+  <string name="suggested_edits_image_tags_onboarding_title" fuzzy="true">Taggen Sie Bilder, um sie für andere leichter auffindbar zu machen</string>
+  <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">Durch Bestätigen von vorgeschlagenen Tags können Sie die Suche nach Bildern vereinfachen.\n\nTags werden vom Computer vorgeschlagen, müssen jedoch von Menschen validiert werden, um die Genauigkeit sicherzustellen.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Nur die von Ihnen ausgewählten Tags werden zu den Bildern hinzugefügt.</string>
   <string name="suggested_edits_image_tags_snackbar">Taggen Sie Bilder, um sie für andere leichter auffindbar zu machen</string>
   <string name="suggested_edits_image_tags_task_detail">Taggen Sie Bilder, um sie für andere leichter auffindbar zu machen. Um die Genauigkeit sicherzustellen, müssen Menschen die vom Computer vorgeschlagenen Tags validieren.</string>
