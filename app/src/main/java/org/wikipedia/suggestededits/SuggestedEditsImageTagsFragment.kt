@@ -46,6 +46,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
     private var csrfClient: CsrfTokenClient = CsrfTokenClient(WikiSite(Service.COMMONS_URL))
     private var page: MwQueryPage? = null
     private val tagList: MutableList<MwQueryPage.ImageLabel> = ArrayList()
+    private var wasCaptionLongClicked: Boolean = false
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -86,6 +87,11 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                 Prefs.setShouldShowImageZoomTooltip(false)
                 FeedbackUtil.showToastOverView(imageView, getString(R.string.suggested_edits_image_zoom_tooltip), Toast.LENGTH_LONG)
             }
+        }
+
+        imageCaption.setOnLongClickListener {
+            wasCaptionLongClicked = true
+            false
         }
 
         getNextItem()
@@ -220,7 +226,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
             // they clicked the chip to add a new tag, so cancel out the check changing...
             chip.isChecked = !chip.isChecked
             // and launch the selection dialog for the custom tag.
-            SuggestedEditsImageTagDialog.newInstance().show(childFragmentManager, null)
+            SuggestedEditsImageTagDialog.newInstance(wasCaptionLongClicked).show(childFragmentManager, null)
         }
     }
 

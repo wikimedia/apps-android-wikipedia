@@ -1,5 +1,7 @@
 package org.wikipedia.suggestededits
 
+import android.content.ClipboardManager
+import android.content.Context
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -54,6 +56,20 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
 
     override fun onStart() {
         super.onStart()
+        try {
+            if (requireArguments().getBoolean("useClipboardText")) {
+                val clipboard = requireContext().getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+                if (clipboard.hasPrimaryClip() && clipboard.primaryClip != null) {
+                    val primaryClip = clipboard.primaryClip!!
+                    val clipText = primaryClip.getItemAt(primaryClip.itemCount - 1).coerceToText(requireContext()).toString()
+                    if (clipText.isNotEmpty()) {
+                        imageTagsSearchText.setText(clipText)
+                        imageTagsSearchText.selectAll()
+                    }
+                }
+            }
+        } catch (ignore: Exception) {
+        }
         dialog?.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE)
     }
 
@@ -155,8 +171,12 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
     }
 
     companion object {
-        fun newInstance(): SuggestedEditsImageTagDialog {
-            return SuggestedEditsImageTagDialog()
+        fun newInstance(useClipboardText: Boolean): SuggestedEditsImageTagDialog {
+            val dialog = SuggestedEditsImageTagDialog()
+            val args = Bundle()
+            args.putBoolean("useClipboardText", useClipboardText)
+            dialog.arguments = args
+            return dialog
         }
     }
 }
