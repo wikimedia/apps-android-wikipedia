@@ -415,12 +415,6 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Ne prikazuj ovo ponovno</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Omogući sinkronizaciju</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Ne, hvala</string>
-  <string name="reading_list_login_option_reminder_dialog_title">Pronađeni članci na popisima za čitanje</string>
-  <string name="reading_list_login_option_reminder_dialog_yes">Da, dodaj ih mojim popisima</string>
-  <string name="reading_list_login_option_reminder_dialog_no">Ne, izbriši članke</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">Zadržati spremljene članke u aplikaciji?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">Da, zadrži članke na popisima</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">Ne, izbriši članke s popisa</string>
   <string name="default_reading_list_name">Spremljeno</string>
   <string name="default_reading_list_description">Zadani popis za Vaše spremljene članke</string>
   <string name="no_user_lists_title">Organizirajte članke u popise</string>
@@ -633,8 +627,8 @@
   <string name="suggested_edits_image_tags">Oznake za slike</string>
   <string name="suggested_edits_image_tags_publishing">Objavljivanje</string>
   <string name="suggested_edits_image_tags_published">Objavljeno</string>
-  <string name="suggested_edits_image_tags_onboarding_title">Slikama dodajte oznake kako bi ih ostali lakše mogli naći.</string>
-  <string name="suggested_edits_image_tags_onboarding_text">Potvrdite li predložene oznake, pomoći ćete ostalim osobama u traženju slika.\n\nOznake predlaže računalo, ali radi preciznosti trebaju ih potvrditi ljudi.</string>
+  <string name="suggested_edits_image_tags_onboarding_title" fuzzy="true">Slikama dodajte oznake kako bi ih ostali lakše mogli naći.</string>
+  <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">Potvrdite li predložene oznake, pomoći ćete ostalim osobama u traženju slika.\n\nOznake predlaže računalo, ali radi preciznosti trebaju ih potvrditi ljudi.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Slikama će biti dodane samo one oznake koje izaberete.</string>
   <string name="suggested_edits_image_tags_snackbar">Slikama dodajte oznake kako bi ih ostali lakše mogli naći.</string>
   <string name="suggested_edits_image_tags_task_detail">Slikama dodajte oznake kako bi ih ostali lakše mogli naći. Oznake predlaže računalo, no treba ih potvrditi.</string>

@@ -1,7 +1,6 @@
 package org.wikipedia.espresso.main.overflow;
 
 import android.Manifest;
-import android.view.View;
 
 import androidx.test.espresso.ViewInteraction;
 import androidx.test.espresso.contrib.RecyclerViewActions;
@@ -120,7 +119,7 @@ public class CustomizeFeedTest {
                         childAtPosition(
                                 allOf(withId(R.id.view_on_this_day_card_header),
                                         childAtPosition(
-                                                IsInstanceOf.<View>instanceOf(android.widget.LinearLayout.class),
+                                                IsInstanceOf.instanceOf(android.widget.LinearLayout.class),
                                                 0)),
                                 1),
                         isDisplayed()));
@@ -147,7 +146,7 @@ public class CustomizeFeedTest {
                         childAtPosition(
                                 allOf(withId(R.id.view_list_card_header),
                                         childAtPosition(
-                                                IsInstanceOf.<View>instanceOf(android.view.ViewGroup.class),
+                                                IsInstanceOf.instanceOf(android.view.ViewGroup.class),
                                                 0)),
                                 1),
                         isDisplayed()));

@@ -401,12 +401,6 @@
   <string name="reading_list_turned_sync_off_dialog_settings">ترتيبون</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">مون کي ھي ٻيھر نہ ڏيکاريو</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">نہ مھرباني</string>
-  <string name="reading_list_login_option_reminder_dialog_title">پڙھڻ جي فھرست جا مضمون لڌا</string>
-  <string name="reading_list_login_option_reminder_dialog_yes">ھا، انھن کي منھنجي پڙھڻ جي فھرستن ۾ وجھو</string>
-  <string name="reading_list_login_option_reminder_dialog_no">نہ، مضمونن کي ڊاھيو</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">سانڍيل مضمونن کي ايپ ۾ رکو؟</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">ھا، مضمونن کي فھرستن ۾ رکو</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">نہ، مضمونن کي فھرستن مان ڊاھيو</string>
   <string name="default_reading_list_name">سانڍيل</string>
   <string name="default_reading_list_description">توھان جي سانڍيل مضمونن لاءَ  پاڻڏنل فھرست</string>
   <string name="no_user_lists_title">مضمونن کي فھرستن ۾ منظم ڪريو</string>

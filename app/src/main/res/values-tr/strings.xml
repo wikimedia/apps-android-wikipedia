@@ -181,7 +181,7 @@
   <string name="create_account_button">Hesap oluştur</string>
   <string name="create_account_name_unavailable">\"%s\" kullanıcı adı mevcut değil. Lütfen farklı bir kullanıcı adı seçin.</string>
   <string name="create_account_ip_block_message">Maalesef, IP adresinizin şu anda yeni hesap oluşturması engellendi.</string>
-  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
+  <string name="create_account_ip_block_help_url">https://tr.wikipedia.org/wiki/Yardım:Engellendim</string>
   <string name="create_account_ip_block_details">Ayrıntılar</string>
   <string name="preferences_general_heading">Genel</string>
   <string name="wikipedia_app_faq">Vikipedi Uygulaması SSS</string>
@@ -216,14 +216,14 @@
   <string name="privacy_policy_description">Gizlilik politikası</string>
   <string name="terms_of_use_description">Kullanım koşulları</string>
   <string name="about_wikipedia_url">https://tr.m.wikipedia.org/wiki/Vikipedi:Hakkında</string>
-  <string name="privacy_policy_url">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
+  <string name="privacy_policy_url">https://meta.wikimedia.org/wiki/Privacy_policy/tr</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/tr#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/tr</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
-  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
+  <string name="android_app_request_an_account_url">https://tr.wikipedia.org/wiki/Vikipedi:Hesap_isteyin</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.tr</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.tr</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/tr</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Kullanılan kütüphaneler</string>
   <string name="about_contributors_heading">Katkıda bulunanlar</string>
@@ -318,6 +318,7 @@
   <string name="close_all_tabs_confirm_yes">Evet</string>
   <string name="close_all_tabs_confirm_no">Hayır</string>
   <string name="button_close_tab">Sekmeyi kapat</string>
+  <string name="unnamed_tab_closed">Sekme kapatıldı.</string>
   <string name="tab_item_closed">%s kapatıldı.</string>
   <string name="all_tab_items_closed">Tüm sekmeler kapatıldı.</string>
   <string name="tool_tip_bookmark_icon_title">Okuma listesine ekle</string>
@@ -463,14 +464,6 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Bana bunu bir daha gösterme</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Senkronizasyonu etkinleştir</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Hayır teşekkürler</string>
-  <string name="reading_list_login_option_reminder_dialog_title">Okunan liste maddeleri bulundu</string>
-  <string name="reading_list_login_option_reminder_dialog_text">Giriş yapılırken makaleler okuma listesine otomatik olarak kaydedildi. Bunları hesabınızdaki okuma listelerine eklemek ister misiniz?</string>
-  <string name="reading_list_login_option_reminder_dialog_yes">Evet, bunları okuma listeme ekle</string>
-  <string name="reading_list_login_option_reminder_dialog_no">Hayır, maddeleri sil</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">Kaydedilen makaleleri uygulamada saklasın mı?</string>
-  <string name="reading_list_logout_option_reminder_dialog_text">Okuma listelerinde şu anda kayıtlı makaleler var. Çıkış yaptıktan sonra da listenin durması için, onları korumak ister misiniz?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">Evet, maddeleri listelerde sakla</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">Hayır, listelerden makaleleri sil</string>
   <string name="default_reading_list_name">Kaydedildi</string>
   <string name="default_reading_list_description">Kaydedilen maddeleriniz için varsayılan liste</string>
   <string name="no_user_lists_title">Maddeleri listelere göre düzenleyin</string>
@@ -625,7 +618,7 @@
   <string name="feed_accessibility_card_text">Yayının altına ulaştınız.</string>
   <string name="feed_accessibility_card_load_more_button">Daha fazla yükle</string>
   <string name="description_edit_text_hint">Madde tanımı</string>
-  <string name="description_edit_article_description_label">Makale</string>
+  <string name="description_edit_article_description_label">Madde</string>
   <string name="description_edit_translate_article_description_label_per_language">Makale açıklaması (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Madde açıklaması (%s)</string>
   <string name="description_edit_add_caption_label">Resim açıklaması</string>
@@ -730,8 +723,8 @@
   <string name="suggested_edits_image_tags">Resim etiketleri</string>
   <string name="suggested_edits_image_tags_publishing">Yayımlanıyor</string>
   <string name="suggested_edits_image_tags_published">Yayınlandı</string>
-  <string name="suggested_edits_image_tags_onboarding_title">Görüntüleri başkalarının bulmasını kolaylaştırmak için etiketleyin</string>
-  <string name="suggested_edits_image_tags_onboarding_text">Önerilen etiketleri onaylayarak, görüntülerin aranmasını kolaylaştırabilirsiniz.\n\nEtiketler bilgisayar tarafından önerilir, ancak doğruluk için insanlar tarafından onaylanması gerekir.</string>
+  <string name="suggested_edits_image_tags_onboarding_title">Görüntüleri etiketlemek onları bulmayı kolaylaştırır.</string>
+  <string name="suggested_edits_image_tags_onboarding_text">Aşağıdaki resimlerde bilgisayar tarafından önerilen etiketler bulunur ve doğruluk için bir kişi tarafından onaylanması gerekir.\n\nEtiketleri onaylayarak, Vikipedi\'nin makalelerindeki resimler için kullandığı ücretsiz lisans resim deposu Commons\'ta resimlerin aranmasını kolaylaştırmaya yardımcı olacaksınız.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Yalnızca seçtiğiniz etiketler görüntülere eklenir.</string>
   <string name="suggested_edits_image_tags_snackbar">Başkalarının bulmasını kolaylaştırmak için resim etiketleri ekleyin.</string>
   <string name="suggested_edits_image_tags_task_detail">Başkalarının bulmasını kolaylaştırmak için görüntüleri etiketleyin. Bunlar bilgisayar tarafından önerilir, ancak doğrulanması gerekir.</string>

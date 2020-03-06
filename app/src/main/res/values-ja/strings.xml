@@ -457,14 +457,6 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">次からは表示しない</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">同期を有効にする</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">やめます</string>
-  <string name="reading_list_login_option_reminder_dialog_title">あとで読むリストに記事が見つかりました</string>
-  <string name="reading_list_login_option_reminder_dialog_text">ログアウトしている間に、あとで読むリストに記事が追加されました。あなたのアカウントのあとで読むリストに、その記事を追加しますか？</string>
-  <string name="reading_list_login_option_reminder_dialog_yes">はい、記事をあとで読むリストに追加します</string>
-  <string name="reading_list_login_option_reminder_dialog_no">いいえ、記事を削除します</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">アプリ内の保存した記事をそのままにしますか？</string>
-  <string name="reading_list_logout_option_reminder_dialog_text">あとで読むリストに保存された記事があります。ログアウトした後でも保存したままにしますか？</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">はい、リスト内の記事をそのままにします。</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">いいえ、リストから記事を削除します。</string>
   <string name="default_reading_list_name">保存済み</string>
   <string name="default_reading_list_description">保存したページの既定の一覧</string>
   <string name="no_user_lists_title">記事をリストにまとめる</string>

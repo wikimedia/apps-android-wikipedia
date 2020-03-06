@@ -433,14 +433,6 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Хос көрдөрүмэ</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Мэнэйдээһини холбоо</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Суох, махтанабын</string>
-  <string name="reading_list_login_option_reminder_dialog_title">Ыстатыйалар испииһэктэрэ булулунна</string>
-  <string name="reading_list_login_option_reminder_dialog_text">Ыстатыйалар ааҕар испииһэктэрин киирбэккэ эрэ оҥорбуккун. Бэлиэ-ааккар сыһыараҕын дуо?</string>
-  <string name="reading_list_login_option_reminder_dialog_yes">Оннук, мин ааҕар испииһэкпэр эп</string>
-  <string name="reading_list_login_option_reminder_dialog_no">Суох, сотон кэбис</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">Бэлиэтээбит сирэйдэргин дьибилгэккэ харайан иһэбит дуо?</string>
-  <string name="reading_list_logout_option_reminder_dialog_text">Ааҕарга анаммыт ыстатыйалардааххын. Бу тэрилгэ тахсыаххар диэри хааллараҕын дуо?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">Оннук, испииһэккэ харай</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">Суох, ыстатыйалары испииһэктэн сот</string>
   <string name="default_reading_list_name">Бигэргэннэ</string>
   <string name="default_reading_list_description">Талбыт ыстатыйаларыҥ испииһэгэ</string>
   <string name="no_user_lists_title">Испииһэккэ ыстатыйалары наардаа</string>

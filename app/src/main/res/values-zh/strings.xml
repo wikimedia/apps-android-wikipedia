@@ -466,14 +466,6 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">不要向我再次显示</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">启用同步</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">不用了，谢谢</string>
-  <string name="reading_list_login_option_reminder_dialog_title">找到的阅读列表条目</string>
-  <string name="reading_list_login_option_reminder_dialog_text">当您退出时，条目已保存到阅读列表。您是否要添加它们到您账户的阅读列表？</string>
-  <string name="reading_list_login_option_reminder_dialog_yes">是，将他们添加到我的阅读列表</string>
-  <string name="reading_list_login_option_reminder_dialog_no">否，删除条目</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">在应用中保留已保存的条目么？</string>
-  <string name="reading_list_logout_option_reminder_dialog_text">这些是当前保存到阅读列表中的条目。您是否希望在退出后，在此保留它们？</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">是，将条目保留到列表中</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">否，从列表中删除条目</string>
   <string name="default_reading_list_name">已保存</string>
   <string name="default_reading_list_description">用于您的已保存条目的默认列表</string>
   <string name="no_user_lists_title">组织条目至列表中</string>

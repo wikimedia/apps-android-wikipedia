@@ -410,14 +410,6 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Chom hep diskwel an dra-se c\'hoazh.</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Gweredekaat an sinkroneladur</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Nann, trugarez</string>
-  <string name="reading_list_login_option_reminder_dialog_title">Pennadoù eus ar roll lennet kavet</string>
-  <string name="reading_list_login_option_reminder_dialog_text">Pennadoù zo bet enrollet er roll lenn pa oac\'h digevreet. Ha c\'hoant ho peus da ouzhpennañ anezho da rolloù lenn ho kont ?</string>
-  <string name="reading_list_login_option_reminder_dialog_yes">Ya, ouzhpennit anezho da\'m rolloù lenn</string>
-  <string name="reading_list_login_option_reminder_dialog_no">Ne\'m eus ket, lemel ar pennadoù</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">Mirout ar pennadoù enrollet en arload ?</string>
-  <string name="reading_list_logout_option_reminder_dialog_text">Pennadoù zo enrollet er mare-mañ er rolloù lenn. Ha c\'hoant ho peus da virout anezho aze goude ma vo digevreet ?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">Ya, mirout ar pennadoù er rolloù</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">Ne\'m eus ket, lemel ar pennadoù eus ar rolloù</string>
   <string name="default_reading_list_name">Enrollet</string>
   <string name="default_reading_list_description">Roll dre ziouer evit ho pennadoù enrollet</string>
   <string name="no_user_lists_title">Renkañ pennadoù er rolloù</string>

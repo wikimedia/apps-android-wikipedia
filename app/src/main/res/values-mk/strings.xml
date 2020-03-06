@@ -290,6 +290,7 @@
   <string name="close_all_tabs_confirm_yes">Да</string>
   <string name="close_all_tabs_confirm_no">Не</string>
   <string name="button_close_tab">Затвори јазиче</string>
+  <string name="unnamed_tab_closed">Јазичето е затворено.</string>
   <string name="tab_item_closed">%s е затворено.</string>
   <string name="all_tab_items_closed">Сите јазичиња се затворени.</string>
   <string name="tool_tip_bookmark_icon_title">Додај во список за читање</string>
@@ -435,14 +436,6 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Не прикажувај повеќе</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Овозможи усогласување</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Не, благодарам</string>
-  <string name="reading_list_login_option_reminder_dialog_title">Пронајдени статии во списоци за читање</string>
-  <string name="reading_list_login_option_reminder_dialog_text">Зачувани се статии во списокот за читање додека бевте одјавени. Дали сакате да ги ставите во списоците за читање на вашата сметка?</string>
-  <string name="reading_list_login_option_reminder_dialog_yes">Да, додај ги во списоците за читање</string>
-  <string name="reading_list_login_option_reminder_dialog_no">Не, избриши ги статиите</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">Да ги задржам зачуваните статии во прилогот?</string>
-  <string name="reading_list_logout_option_reminder_dialog_text">Има статии тековно зачувани во списоци за читање. Дали сакате да ги задржите таму откако ќе се најавите?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">Да, задржи ги статиите во списоците</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">Не, избриши ги статиите од списоците</string>
   <string name="default_reading_list_name">Зачувано</string>
   <string name="default_reading_list_description">Стандарден список за вашите зачувани статии</string>
   <string name="no_user_lists_title">Организирајте статии во списоци</string>
@@ -702,8 +695,8 @@
   <string name="suggested_edits_image_tags">Ознаки на слики</string>
   <string name="suggested_edits_image_tags_publishing">Објавувам</string>
   <string name="suggested_edits_image_tags_published">Објавено</string>
-  <string name="suggested_edits_image_tags_onboarding_title">Означете ги сликите за да можете полесно да ги најдете</string>
-  <string name="suggested_edits_image_tags_onboarding_text">Потврдувајќи ги предложените ознаки, им помагате на другите полесно да ги најдат сликите во пребарување.\n\nОзнаките ги предлага сметачот, но им треба човечка проверка за да бидат исправни.</string>
+  <string name="suggested_edits_image_tags_onboarding_title" fuzzy="true">Означете ги сликите за да можете полесно да ги најдете</string>
+  <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">Потврдувајќи ги предложените ознаки, им помагате на другите полесно да ги најдат сликите во пребарување.\n\nОзнаките ги предлага сметачот, но им треба човечка проверка за да бидат исправни.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Кон сликите ќе се додадат само ознаки кои сте ги избрале вие.</string>
   <string name="suggested_edits_image_tags_snackbar">Означете ги сликите за да можат полесно да се пронаоѓаат.</string>
   <string name="suggested_edits_image_tags_task_detail">Означете ги сликите за да можат полесно да се пронаоѓаат. Тие ги предлага самиот сметач, но ќе треба вие да проверите.</string>

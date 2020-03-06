@@ -456,14 +456,6 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">لا تُرني هذا مجددا</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">تمكين المزامنة</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">لا شكرًا</string>
-  <string name="reading_list_login_option_reminder_dialog_title">العثور على مقالات قائمة القراءة</string>
-  <string name="reading_list_login_option_reminder_dialog_text">تم حفظ المقالات في قائمة القراءة أثناء تسجيل خروجك، هل ترغب في إضافتها إلى قوائم القراءة في حسابك؟</string>
-  <string name="reading_list_login_option_reminder_dialog_yes">نعم ، أضفهم إلى قوائم القراءة الخاصة بي</string>
-  <string name="reading_list_login_option_reminder_dialog_no">لا، احذف المقالات</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">إبقاء المقالات المحفوظة في التطبيق؟</string>
-  <string name="reading_list_logout_option_reminder_dialog_text">هناك مقالات محفوظة حاليا في قوائم القراءة، هل ترغب في الاحتفاظ بها هناك بعد تسجيل الخروج؟</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">نعم ، احتفظ بالمقالات في القوائم</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">لا، احذف المقالات من القوائم</string>
   <string name="default_reading_list_name">تم الحفظ</string>
   <string name="default_reading_list_description">قائمة افتراضية لمقالاتك المحفوظة</string>
   <string name="no_user_lists_title">نظم المقالات في قوائم</string>

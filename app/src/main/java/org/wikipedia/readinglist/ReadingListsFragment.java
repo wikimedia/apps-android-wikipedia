@@ -231,7 +231,7 @@ public class ReadingListsFragment extends Fragment implements
                     existingTitles.add(((ReadingList) list).title());
                 }
             }
-            ReadingListTitleDialog.readingListTitleDialog(requireContext(), title, "",
+            ReadingListTitleDialog.readingListTitleDialog(requireActivity(), title, "",
                     existingTitles, (text, description) -> {
                         ReadingListDbHelper.instance().createList(text, description);
                         updateLists();
@@ -511,25 +511,8 @@ public class ReadingListsFragment extends Fragment implements
                 L.w("Attempted to rename default list.");
                 return;
             }
-            List<String> existingTitles = new ArrayList<>();
-            for (Object list : displayedLists) {
-                if (list instanceof ReadingList) {
-                    existingTitles.add(((ReadingList) list).title());
-                }
-            }
-            existingTitles.remove(readingList.title());
-            ReadingListTitleDialog.readingListTitleDialog(requireContext(), readingList.title(),
-                    readingList.description(), existingTitles, (text, description) -> {
-                        readingList.title(text);
-                        readingList.description(description);
-                        readingList.dirty(true);
-                        ReadingListDbHelper.instance().updateList(readingList, true);
-                        ReadingListSyncAdapter.manualSync();
-
-                        updateLists();
-                        funnel.logModifyList(readingList, displayedLists.size());
-                    }).show();
             ReadingListBehaviorsUtil.INSTANCE.renameReadingList(requireActivity(), readingList, () -> {
+                ReadingListSyncAdapter.manualSync();
                 updateLists(currentSearchQuery, true);
                 funnel.logModifyList(readingList, displayedLists.size());
             });
@@ -736,7 +719,6 @@ public class ReadingListsFragment extends Fragment implements
     private class SyncReminderOnboardingCallback implements OnboardingView.Callback {
         @Override
         public void onPositiveAction() {
-            Prefs.shouldShowReadingListSyncMergePrompt(true);
             ReadingListSyncAdapter.setSyncEnabledWithSetup();
             maybeShowOnboarding();
         }

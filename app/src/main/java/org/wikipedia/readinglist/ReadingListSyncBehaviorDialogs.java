@@ -15,9 +15,7 @@ import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.events.ReadingListsEnableSyncStatusEvent;
 import org.wikipedia.login.LoginActivity;
 import org.wikipedia.page.LinkMovementMethodExt;
-import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter;
-import org.wikipedia.savedpages.SavedPageSyncService;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.util.FeedbackUtil;
@@ -55,10 +53,7 @@ public final class ReadingListSyncBehaviorDialogs {
                 .setTitle(R.string.reading_list_prompt_turned_sync_on_dialog_title)
                 .setView(view)
                 .setPositiveButton(R.string.reading_list_prompt_turned_sync_on_dialog_enable_syncing,
-                        (dialogInterface, i) -> {
-                            Prefs.shouldShowReadingListSyncMergePrompt(true);
-                            ReadingListSyncAdapter.setSyncEnabledWithSetup();
-                        })
+                        (dialogInterface, i) -> ReadingListSyncAdapter.setSyncEnabledWithSetup())
                 .setNegativeButton(R.string.reading_list_prompt_turned_sync_on_dialog_no_thanks, null)
                 .setOnDismissListener((dialog) -> {
                     Prefs.shouldShowReadingListSyncEnablePrompt(!checkbox.isChecked());
@@ -95,36 +90,6 @@ public final class ReadingListSyncBehaviorDialogs {
                 })
                 .show();
         PROMPT_LOGIN_TO_SYNC_DIALOG_SHOWING = true;
-    }
-
-    public static void removeExistingListsOnLogoutDialog(@NonNull Activity activity) {
-        new AlertDialog.Builder(activity)
-                .setCancelable(false)
-                .setTitle(R.string.reading_list_logout_option_reminder_dialog_title)
-                .setMessage(R.string.reading_list_logout_option_reminder_dialog_text)
-                .setPositiveButton(R.string.reading_list_logout_option_reminder_dialog_yes, null)
-                .setNegativeButton(R.string.reading_list_logout_option_reminder_dialog_no,
-                        (dialogInterface, i) -> {
-                            ReadingListDbHelper.instance().resetToDefaults();
-                            SavedPageSyncService.sendSyncEvent();
-                        })
-                .show();
-    }
-
-    public static void mergeExistingListsOnLoginDialog(@NonNull Activity activity) {
-        new AlertDialog.Builder(activity)
-                .setCancelable(false)
-                .setTitle(R.string.reading_list_login_option_reminder_dialog_title)
-                .setMessage(R.string.reading_list_login_option_reminder_dialog_text)
-                .setPositiveButton(R.string.reading_list_login_option_reminder_dialog_yes, null)
-                .setNegativeButton(R.string.reading_list_login_option_reminder_dialog_no,
-                        (dialogInterface, i) -> {
-                            ReadingListDbHelper.instance().resetToDefaults();
-                            SavedPageSyncService.sendSyncEvent();
-                            Prefs.setReadingListsLastSyncTime(null);
-                        })
-                .setOnDismissListener(dialog -> ReadingListSyncAdapter.manualSyncWithForce())
-                .show();
     }
 
     private ReadingListSyncBehaviorDialogs() {

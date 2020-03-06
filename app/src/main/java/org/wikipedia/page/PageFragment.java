@@ -437,6 +437,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                 pageFragmentLoadState.onPageFinished();
                 updateProgressBar(false, true, 0);
                 webView.setVisibility(View.VISIBLE);
+                app.getSessionFunnel().leadSectionFetchEnd();
             }
 
             @Override
@@ -476,7 +477,13 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
 
         bridge.execute(JavaScriptActionHandler.setFooter(model));
 
-        bridge.evaluate(JavaScriptActionHandler.getRevision(), revision -> this.revision = Long.parseLong(revision.replace("\"", "")));
+        bridge.evaluate(JavaScriptActionHandler.getRevision(), revision -> {
+            try {
+                this.revision = Long.parseLong(revision.replace("\"", ""));
+            } catch (NumberFormatException e) {
+                L.e(e);
+            }
+        });
 
         bridge.evaluate(JavaScriptActionHandler.getSections(), value -> {
             Section[] secArray = GsonUtil.getDefaultGson().fromJson(value, Section[].class);
@@ -875,6 +882,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         }
         updateProgressBar(false, true, 0);
         refreshView.setRefreshing(false);
+        pageFragmentLoadState.onPageFinished();
 
         if (pageRefreshed) {
             pageRefreshed = false;
@@ -958,7 +966,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         linkHandler = new LinkHandler(requireActivity()) {
             @Override public void onPageLinkClicked(@NonNull String anchor, @NonNull String linkText) {
                 dismissBottomSheet();
-                if (anchor.startsWith("cite")) {
+                if (anchor.startsWith("cite_note")) {
                     // It's a link to another reference within the page.
                     disposables.add(getReferences()
                             .subscribeOn(Schedulers.io())
@@ -1021,6 +1029,12 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                             showBottomSheet(new ReferenceDialog(requireActivity(), selectedIndex, adjacentReferencesList, linkHandler));
                         }
                     }, L::d));
+        });
+        bridge.addListener("back_link", (String messageType, JsonObject payload) -> {
+            JsonArray backLinks = payload.getAsJsonArray("backLinks");
+            if (backLinks.size() > 0) {
+                linkHandler.onPageLinkClicked(backLinks.get(0).getAsJsonObject().get("id").getAsString(), "");
+            }
         });
         bridge.addListener("image", (String messageType, JsonObject messagePayload) -> {
             String href = decodeURL(messagePayload.get("href").getAsString());
@@ -1352,7 +1366,9 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     }
 
     public Observable<References> getReferences() {
-        return references == null ? ServiceFactory.getRest(getTitle().getWikiSite()).getReferences(getTitle().getPrefixedText(), getRevision()) : Observable.just(references);
+        return references == null ? ServiceFactory.getRest(getTitle().getWikiSite()).getReferences(getTitle().getPrefixedText(), getRevision(),
+                getTitle().getWikiSite().languageCode(), UriUtil.encodeURL(getTitle().getPrefixedText()))
+                : Observable.just(references);
     }
 
     public LinkHandler getLinkHandler() {

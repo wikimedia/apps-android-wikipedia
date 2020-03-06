@@ -458,14 +458,6 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Nie pokazuj mi tego ponownie</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Włącz synchronizację</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Nie, dziękuję</string>
-  <string name="reading_list_login_option_reminder_dialog_title">Znaleziono listy artykułów</string>
-  <string name="reading_list_login_option_reminder_dialog_text">Artykuły zostały zapisane na liście, gdy byłeś wylogowany. Czy chciałbyś dodać je do list na swoim koncie?</string>
-  <string name="reading_list_login_option_reminder_dialog_yes">Tak, dodaj je do mojej listy</string>
-  <string name="reading_list_login_option_reminder_dialog_no">Nie, usuń artykuły</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">Zachować w aplikacji zapisane artykuły?</string>
-  <string name="reading_list_logout_option_reminder_dialog_text">Artykuły są obecnie zapisywane na listach. Chcesz je tam zatrzymać po wylogowaniu?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">Tak, zachowaj artykuły na listach</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">Nie, usuń artykuły z list</string>
   <string name="default_reading_list_name">Zapisane</string>
   <string name="default_reading_list_description">Domyślna lista dla zapisanych artykułów</string>
   <string name="no_user_lists_title">Uporządkuj artykuły w listy</string>

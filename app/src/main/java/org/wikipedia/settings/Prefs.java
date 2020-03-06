@@ -627,14 +627,6 @@ public final class Prefs {
         setBoolean(R.string.preference_key_show_reading_lists_sync_prompt, enabled);
     }
 
-    public static boolean shouldShowReadingListSyncMergePrompt() {
-        return getBoolean(R.string.preference_key_show_reading_lists_merge_prompt, true);
-    }
-
-    public static void shouldShowReadingListSyncMergePrompt(boolean enabled) {
-        setBoolean(R.string.preference_key_show_reading_lists_merge_prompt, enabled);
-    }
-
     public static boolean isReadingListsFirstTimeSync() {
         return getBoolean(R.string.preference_key_reading_lists_first_time_sync, true);
     }
@@ -856,6 +848,22 @@ public final class Prefs {
 
     public static int getOverrideSuggestedRevertCount() {
         return getInt(R.string.preference_key_suggested_edits_override_reverts, 0);
+    }
+
+    public static boolean isOfflinePcsToMobileHtmlConversionComplete() {
+        return getBoolean(R.string.preference_key_pcs_to_mobilehtml_conversion_complete, false);
+    }
+
+    public static void setOfflinePcsToMobileHtmlConversionComplete(boolean conversionComplete) {
+        setBoolean(R.string.preference_key_pcs_to_mobilehtml_conversion_complete, conversionComplete);
+    }
+
+    public static int getOfflinePcsToMobileHtmlConversionAttempts() {
+        return getInt(R.string.preference_key_pcs_to_mobilehtml_conversion_attempts, 0);
+    }
+
+    public static void setOfflinePcsToMobileHtmlConversionAttempts(int attempts) {
+        setInt(R.string.preference_key_pcs_to_mobilehtml_conversion_attempts, attempts);
     }
 
     public static boolean shouldShowImageTagsOnboarding() {

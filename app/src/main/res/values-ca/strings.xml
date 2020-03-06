@@ -301,6 +301,7 @@
   <string name="close_all_tabs_confirm_yes">Sí</string>
   <string name="close_all_tabs_confirm_no">No</string>
   <string name="button_close_tab">Tanca la pestanya</string>
+  <string name="unnamed_tab_closed">Pestanya tancada.</string>
   <string name="tab_item_closed">S\'ha tancat %s.</string>
   <string name="all_tab_items_closed">S\'han tancat totes les pestanyes.</string>
   <string name="tool_tip_bookmark_icon_title">Afegeix a la llista de lectura</string>
@@ -446,14 +447,6 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">No m\'ho tornis a mostrar</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Habilita la sincronització</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">No, gràcies</string>
-  <string name="reading_list_login_option_reminder_dialog_title">S\'han trobat articles de llistes de lectura</string>
-  <string name="reading_list_login_option_reminder_dialog_text">S\'han desat articles a la llista de lectura mentre no havíeu iniciat la sessió. Voleu afegir-los a les llistes de lectura del vostre compte?</string>
-  <string name="reading_list_login_option_reminder_dialog_yes">Sí, afegeix-les a les meves llistes de lectura</string>
-  <string name="reading_list_login_option_reminder_dialog_no">No, elimina els articles</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">Voleu conservar els articles desats a l\'aplicació?</string>
-  <string name="reading_list_logout_option_reminder_dialog_text">Hi ha articles ja desats en les llistes de lectura. Voleu conservar-los després de finalitzar la sessió?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">Sí, conserva els articles en les llistes</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">No, elimina els articles de les llistes</string>
   <string name="default_reading_list_name">Desats</string>
   <string name="default_reading_list_description">Llista per defecte d’articles desats</string>
   <string name="no_user_lists_title">Organitzar articles en llistes</string>
@@ -713,14 +706,15 @@
   <string name="suggested_edits_image_tags">Etiquetes d\'imatge</string>
   <string name="suggested_edits_image_tags_publishing">Publicació</string>
   <string name="suggested_edits_image_tags_published">Publicat</string>
-  <string name="suggested_edits_image_tags_onboarding_title">Etiqueta les imatges per facilitar que altres les trobin</string>
-  <string name="suggested_edits_image_tags_onboarding_text">En confirmar les etiquetes suggerides, podeu ajudar a facilitar la cerca de les imatges.\n\nLes etiquetes són suggerides, però cal que humans les validin per a assegurar-ne la precisió.</string>
+  <string name="suggested_edits_image_tags_onboarding_title" fuzzy="true">Etiqueta les imatges per facilitar que altres les trobin</string>
+  <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">En confirmar les etiquetes suggerides, podeu ajudar a facilitar la cerca de les imatges.\n\nLes etiquetes són suggerides, però cal que humans les validin per a assegurar-ne la precisió.</string>
   <string name="suggested_edits_image_tags_onboarding_note">S\'afegiran a les imatges només les etiquetes que trieu.</string>
   <string name="suggested_edits_image_tags_snackbar">Afegeix etiquetes d\'imatge per a facilitar que altres les trobin.</string>
   <string name="suggested_edits_image_tags_task_detail">Etiqueta les imatges per a facilitar que altres les trobin. Se suggereixen automàticament, però cal validar-les.</string>
   <string name="suggested_edits_image_tags_choose">Trieu les etiquetes que coincideixen</string>
   <string name="suggested_edits_image_tags_select_title">No heu seleccionat cap etiqueta per a aquesta imatge</string>
   <string name="suggested_edits_image_tags_select_text">S\'afegiran a les imatges només les etiquetes que trieu. Les etiquetes no seleccionades es marcaran com a rebutjades. Esteu segur que voleu marcar totes les etiquetes com a rebutjades?</string>
+  <string name="suggested_edits_image_zoom_tooltip">Utilitza els dits per a fer zoom de la imatge.</string>
   <string name="suggested_edits_encouragement_message">%s, gràcies per les vostres edicions. A continuació podeu trobar més formes de contribuir a la Viquipèdia.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Hola %s&lt;/b&gt;, sabíeu que tothom pot contribuir a la Viquipèdia? A continuació podeu trobar formes divertides per a ajudar a millorar-la. Gaudiu-ne editant-hi!</string>
   <string name="suggested_edits_image_captions_task_detail">Les llegendes d\'imatge descriuen una imatge per tal d\'ajudar els lectors a entendre el seu significat i context.</string>

@@ -305,6 +305,7 @@
   <string name="close_all_tabs_confirm_yes">是</string>
   <string name="close_all_tabs_confirm_no">否</string>
   <string name="button_close_tab">關閉分頁</string>
+  <string name="unnamed_tab_closed">分頁已關閉。</string>
   <string name="tab_item_closed">已關閉%s。</string>
   <string name="all_tab_items_closed">所有分頁已關閉</string>
   <string name="tool_tip_bookmark_icon_title">新增至閱讀清單</string>
@@ -450,14 +451,6 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">不要再顯示出來</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">啟用同步</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">不用了，謝謝</string>
-  <string name="reading_list_login_option_reminder_dialog_title">已找出閱讀清單條目</string>
-  <string name="reading_list_login_option_reminder_dialog_text">當您登出時，條目已儲存至閱讀清單。您想要添加它們至您帳號裡的閱讀清單裡嗎？</string>
-  <string name="reading_list_login_option_reminder_dialog_yes">是的，添加它們至我的閱讀清單</string>
-  <string name="reading_list_login_option_reminder_dialog_no">不，刪除條目</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">保留在應用程式上的已儲存條目？</string>
-  <string name="reading_list_logout_option_reminder_dialog_text">這些條目目前儲存在閱讀清單，您想要在登出後保留它們嗎？</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">是的，保留條目在清單上</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">不，從清單上刪除條目</string>
   <string name="default_reading_list_name">已儲存</string>
   <string name="default_reading_list_description">您的已儲存條目之預設清單</string>
   <string name="no_user_lists_title">組織條目至清單</string>
@@ -717,8 +710,8 @@
   <string name="suggested_edits_image_tags">圖片標籤</string>
   <string name="suggested_edits_image_tags_publishing">發布中</string>
   <string name="suggested_edits_image_tags_published">已發布</string>
-  <string name="suggested_edits_image_tags_onboarding_title">標記圖片來讓它們能更容易被找到</string>
-  <string name="suggested_edits_image_tags_onboarding_text">透過確認建議標籤，您可以協助讓圖片能更容易被搜尋到。\n\n標籤是由電腦做出的建議，需要經過人工驗證來確保準確度。</string>
+  <string name="suggested_edits_image_tags_onboarding_title">標記圖片來讓它們能更容易被找到。</string>
+  <string name="suggested_edits_image_tags_onboarding_text">以下圖片已由電腦做出建議的標籤，並需要經過人工驗證來確保準確度。\n\n透過確認標籤，您可以協助圖片在維基共享資源上能更容易被搜尋到，維基共享資源是讓維基百科能使用圖片在條目裡的自由許可圖片儲存庫。</string>
   <string name="suggested_edits_image_tags_onboarding_note">僅添加您挑選的標籤到圖片上。</string>
   <string name="suggested_edits_image_tags_snackbar">添加圖片標記來讓它們能更容易被其他人找到</string>
   <string name="suggested_edits_image_tags_task_detail">標記圖片來讓它們能更容易被其他人找到。它們會被電腦給自動建議，但需要做出驗證。</string>

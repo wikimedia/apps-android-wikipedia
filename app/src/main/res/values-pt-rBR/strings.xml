@@ -315,6 +315,7 @@
   <string name="close_all_tabs_confirm_yes">Sim</string>
   <string name="close_all_tabs_confirm_no">Não</string>
   <string name="button_close_tab">Fechar guia</string>
+  <string name="unnamed_tab_closed">Guia fechada.</string>
   <string name="tab_item_closed">%s fechado.</string>
   <string name="all_tab_items_closed">Todas as guias fechadas.</string>
   <string name="tool_tip_bookmark_icon_title">Adicionar à lista de leitura</string>
@@ -460,14 +461,6 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Não mostrar novamente</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Ativar sincronização</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Não, obrigado</string>
-  <string name="reading_list_login_option_reminder_dialog_title">Foram encontrados os artigos da lista de leitura</string>
-  <string name="reading_list_login_option_reminder_dialog_text">Os artigos foram salvos na lista de leitura enquanto você estava desconectado. Gostaria de adicioná-los às listas de leitura da sua conta?</string>
-  <string name="reading_list_login_option_reminder_dialog_yes">Sim, desejo adicioná-los às minhas listas de leitura</string>
-  <string name="reading_list_login_option_reminder_dialog_no">Não, eliminar os artigos</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">Mantenha artigos salvados no aplicativo?</string>
-  <string name="reading_list_logout_option_reminder_dialog_text">Existem artigos atualmente salvados nas listas de leitura. Gostaria de mantê-los lá depois de sair?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">Sim, manter os artigos nas listas</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">Não, eliminar os artigos das listas</string>
   <string name="default_reading_list_name">Salvo</string>
   <string name="default_reading_list_description">Lista padrão para seus artigos salvos</string>
   <string name="no_user_lists_title">Organize artigos em listas</string>
@@ -727,8 +720,8 @@
   <string name="suggested_edits_image_tags">Marcação de imagens</string>
   <string name="suggested_edits_image_tags_publishing">Publicando</string>
   <string name="suggested_edits_image_tags_published">Publicados</string>
-  <string name="suggested_edits_image_tags_onboarding_title">Marque imagens para facilitar a localização de outras pessoas</string>
-  <string name="suggested_edits_image_tags_onboarding_text">Ao confirmar as marcações sugeridas, você pode ajudar a facilitar a pesquisa de imagens.\n\nAs marcações são sugeridas por computador, mas precisam ser validadas por humanos para garantir a precisão.</string>
+  <string name="suggested_edits_image_tags_onboarding_title">A marcação de imagens facilita a localização.</string>
+  <string name="suggested_edits_image_tags_onboarding_text">As imagens a seguir têm marcações sugeridas por um computador e precisam ser validadas por um ser humano para garantir a precisão.\n\nAo confirmar as marcações, você ajudará a facilitar a pesquisa de imagens no Commons, o repositório gratuito de imagens de licença que a Wikipédia usa para imagens em seus artigos.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Somente as marcações que você escolher serão adicionadas às imagens.</string>
   <string name="suggested_edits_image_tags_snackbar">Adicione marcação de imagem para facilitar a localização de outras pessoas.</string>
   <string name="suggested_edits_image_tags_task_detail">Marque as imagens para facilitar a localização de outras pessoas. Eles são sugeridos por computador, mas precisam ser validados.</string>

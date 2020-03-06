@@ -392,12 +392,6 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Ur iyi-d-skan ara aya daɣen</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Rmed amtawi</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Ala, tanemmirt</string>
-  <string name="reading_list_login_option_reminder_dialog_title">Umuɣen n tɣuri n yimagraden ttwafen-d</string>
-  <string name="reading_list_login_option_reminder_dialog_yes">Ih, rnu-ten ɣer wumuɣen-iw n tɣuri.</string>
-  <string name="reading_list_login_option_reminder_dialog_no">Uhu, kkes imagraden.</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">Imagraden ad qqimen ttwaskelsen deg usnas?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">Ih, eǧǧ imagraden deg wumuɣen.</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">Uhu, kkes imagraden seg wumuɣen</string>
   <string name="default_reading_list_name">Yettwasekles</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Amagrad-agi yella s war tuqqna.</item>

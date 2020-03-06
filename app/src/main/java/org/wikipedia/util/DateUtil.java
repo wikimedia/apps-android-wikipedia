@@ -121,6 +121,10 @@ public final class DateUtil {
         return getCachedDateFormat("EEE, dd MMM yyyy HH:mm:ss zzz", Locale.ENGLISH, true).parse(dateStr);
     }
 
+    public static synchronized String getHttpLastModifiedDate(@NonNull Date date) {
+        return getCachedDateFormat("EEE, dd MMM yyyy HH:mm:ss zzz", Locale.ENGLISH, true).format(date);
+    }
+
     public static String getReadingListsLastSyncDateString(@NonNull String dateStr) throws ParseException {
         return getDateStringWithSkeletonPattern(iso8601DateParse(dateStr), "d MMM yyyy HH:mm");
     }

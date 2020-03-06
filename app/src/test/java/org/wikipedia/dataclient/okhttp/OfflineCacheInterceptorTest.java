@@ -14,11 +14,11 @@ public class OfflineCacheInterceptorTest {
                 .url(Service.WIKIPEDIA_URL)
                 .addHeader(OfflineCacheInterceptor.SAVE_HEADER, OfflineCacheInterceptor.SAVE_HEADER_SAVE)
                 .build();
-        assertThat(OfflineCacheInterceptor.isCacheableForOffline(req), is(true));
+        assertThat(OfflineCacheInterceptor.shouldSave(req), is(true));
     }
 
     @Test public void testIsCacheableFalse() {
         Request req = new Request.Builder().url(Service.WIKIPEDIA_URL).build();
-        assertThat(OfflineCacheInterceptor.isCacheableForOffline(req), is(false));
+        assertThat(OfflineCacheInterceptor.shouldSave(req), is(false));
     }
 }

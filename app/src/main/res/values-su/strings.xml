@@ -388,12 +388,6 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Ulah midangkeun ieu deui</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Hurungkeun singkronan</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Teu nuhun</string>
-  <string name="reading_list_login_option_reminder_dialog_title">Daptar bacaan artikel kapanggih</string>
-  <string name="reading_list_login_option_reminder_dialog_yes">Nya, tambahkeun kabéh ka daptar bacaan kuring</string>
-  <string name="reading_list_login_option_reminder_dialog_no">Teu, pupus artikel</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">Engkeun artikel kasimpen di app?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">Nya, engkeun artikel dina daptar</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">Teu, pupus artikel tina daptar</string>
   <string name="default_reading_list_name">Disimpen</string>
   <string name="no_user_lists_title">Atur artikel kana daptar</string>
   <string name="reading_lists_menu_create_list">Jieun daptar anyar</string>

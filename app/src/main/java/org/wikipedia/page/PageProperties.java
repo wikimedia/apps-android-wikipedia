@@ -10,7 +10,6 @@ import androidx.annotation.Nullable;
 
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.auth.AccountUtil;
-import org.wikipedia.dataclient.page.PageLeadProperties;
 import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.dataclient.page.Protection;
 import org.wikipedia.util.DimenUtil;
@@ -80,36 +79,6 @@ public class PageProperties implements Parcelable {
         descriptionSource = pageSummary.getDescriptionSource();
     }
 
-
-    public PageProperties(PageLeadProperties core) {
-        pageId = core.getId();
-        namespace = core.getNamespace();
-        revisionId = core.getRevision();
-        displayTitleText = defaultString(core.getDisplayTitle());
-        geo = core.getGeo();
-        editProtectionStatus = core.getFirstAllowedEditorRole();
-
-        // todo: don't hardcode this here
-        leadImageUrl = core.getLeadImageUrl(DimenUtil.calculateLeadImageWidth());
-
-        leadImageName = core.getLeadImageFileName();
-        lastModified = new Date();
-        String lastModifiedText = core.getLastModified();
-        if (lastModifiedText != null) {
-            try {
-                lastModified.setTime(iso8601DateParse(lastModifiedText).getTime());
-            } catch (ParseException e) {
-                L.d("Failed to parse date: " + lastModifiedText);
-            }
-        }
-        // assume formatversion=2 is used so we get real booleans from the API
-        canEdit = core.isEditable();
-
-        isMainPage = core.isMainPage();
-        isDisambiguationPage = core.isDisambiguation();
-        wikiBaseItem = core.getWikiBaseItem();
-        descriptionSource = core.getDescriptionSource();
-    }
     /**
      * Constructor to be used when building a Page from a compilation. Initializes the title and
      * namespace fields, and explicitly disables editing. All other fields initialized to defaults.

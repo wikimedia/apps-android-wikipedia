@@ -182,10 +182,6 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
         toolbar.setNavigationOnClickListener((v) -> requireActivity().finish());
 
         initSearchView();
-
-        if (!TextUtils.isEmpty(query)) {
-            showPanel(PANEL_SEARCH_RESULTS);
-        }
         return view;
     }
 
@@ -195,6 +191,10 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
         setUpLanguageScroll(0);
         startSearch(query, false);
         searchView.setCloseButtonVisibility(query);
+
+        if (!TextUtils.isEmpty(query)) {
+            showPanel(PANEL_SEARCH_RESULTS);
+        }
     }
 
     @Override

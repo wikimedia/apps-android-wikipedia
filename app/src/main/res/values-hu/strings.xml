@@ -444,14 +444,6 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Ne mutasd ezt többet</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Szinkronizálás engedélyezése</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Köszönöm, nem</string>
-  <string name="reading_list_login_option_reminder_dialog_title">Olvasólistás szócikk találat</string>
-  <string name="reading_list_login_option_reminder_dialog_text">Szócikket mentettél az olvasólistádba, mialatt nem voltál bejelentkezve. Hozzá akarod adni ezeket a fiókodhoz tartozó olvasólistákhoz?</string>
-  <string name="reading_list_login_option_reminder_dialog_yes">Igen, vedd fel az olvasólistáimhoz</string>
-  <string name="reading_list_login_option_reminder_dialog_no">Nem, töröld a szócikkeket</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">Megtartod a mentett szócikkeket az alkalmazásban?</string>
-  <string name="reading_list_logout_option_reminder_dialog_text">Frissen mentett szócikkek vannak az olvasólistáidban. Meg akarod tartani őket a kijelentkezés után?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">Igen, szócikkek megtartása az olvasólistákon</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">Nem, szócikkek törlése az olvasólistákról</string>
   <string name="default_reading_list_name">Elmentve</string>
   <string name="default_reading_list_description">Alapértelmezett lista a mentett szócikkeidnek</string>
   <string name="no_user_lists_title">Rendezd listákba a szócikkeket</string>
