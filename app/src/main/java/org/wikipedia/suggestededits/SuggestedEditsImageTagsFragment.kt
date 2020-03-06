@@ -87,7 +87,9 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                 FeedbackUtil.showToastOverView(imageView, getString(R.string.suggested_edits_image_zoom_tooltip), Toast.LENGTH_LONG)
             }
         }
-
+        if (invokedFromFeed()) {
+            page = (activity as SuggestedEditsFeedCardImageTagActivity).page
+        }
         getNextItem()
         updateContents()
     }

@@ -650,6 +650,7 @@
     <string name="description_edit_success_saved_in_lang_snackbar">Article description published! (%s)</string>
     <string name="description_edit_success_saved_image_caption_snackbar">Image caption published!</string>
     <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Image caption published! (%s)</string>
+    <string name="description_edit_success_saved_image_tags_snackbar">Image tag(s) published!</string>
     <string name="description_edit_success_encouragement">You just made Wikipedia better for everyone</string>
     <string name="description_edit_success_done">Done</string>
     <string name="description_edit_success_did_you_know">Did you know?</string>

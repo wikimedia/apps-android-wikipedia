@@ -249,7 +249,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
                     if (suggestedEditsCardView.getCard() != null && !Prefs.shouldShowSuggestedEditsSurvey()) {
                         FeedbackUtil.showMessage(this, isTranslation && app.language().getAppLanguageCodes().size() > 1
                                 ? getString(suggestedEditsCardView.getCard().getAction() == TRANSLATE_DESCRIPTION ? R.string.description_edit_success_saved_in_lang_snackbar : R.string.description_edit_success_saved_image_caption_in_lang_snackbar, app.language().getAppLanguageLocalizedName(app.language().getAppLanguageCodes().get(1)))
-                                : getString(suggestedEditsCardView.getCard().getAction() == ADD_DESCRIPTION ? R.string.description_edit_success_saved_snackbar : R.string.description_edit_success_saved_image_caption_snackbar));
+                                : getString(suggestedEditsCardView.getCard().getAction() == ADD_DESCRIPTION ? R.string.description_edit_success_saved_snackbar : (suggestedEditsCardView.getCard().getAction() == ADD_IMAGE_TAGS) ? R.string.description_edit_success_saved_image_tags_snackbar : R.string.description_edit_success_saved_image_caption_snackbar));
                     }
                 }
             }
@@ -264,7 +264,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         }
         DescriptionEditActivity.Action action = suggestedEditsCardView.getCard().getAction();
         if (action == ADD_IMAGE_TAGS) {
-            startActivityForResult(SuggestedEditsFeedCardImageTagActivity.Companion.newIntent(requireActivity(), ADD_IMAGE_TAGS), ACTIVITY_REQUEST_DESCRIPTION_EDIT);
+            startActivityForResult(SuggestedEditsFeedCardImageTagActivity.Companion.newIntent(requireActivity(), suggestedEditsCardView.getCard().getPage()), ACTIVITY_REQUEST_DESCRIPTION_EDIT);
             return;
         }
         PageTitle pageTitle = (action == TRANSLATE_DESCRIPTION || action == TRANSLATE_CAPTION)
