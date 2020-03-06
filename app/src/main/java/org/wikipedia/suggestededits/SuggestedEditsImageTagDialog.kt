@@ -31,7 +31,7 @@ import kotlin.collections.ArrayList
 
 class SuggestedEditsImageTagDialog : DialogFragment() {
     interface Callback {
-        fun onSelect(item: MwQueryPage.ImageLabel)
+        fun onSelect(item: MwQueryPage.ImageLabel, searchTerm: String)
     }
 
     private var currentSearchTerm: String = ""
@@ -67,6 +67,9 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
                         imageTagsSearchText.selectAll()
                     }
                 }
+            } else if (requireArguments().getString("lastText")!!.isNotEmpty()) {
+                imageTagsSearchText.setText(requireArguments().getString("lastText")!!)
+                imageTagsSearchText.selectAll()
             }
         } catch (ignore: Exception) {
         }
@@ -140,7 +143,7 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
 
         override fun onClick(v: View?) {
             val item = v!!.tag as MwQueryPage.ImageLabel
-            callback()!!.onSelect(item)
+            callback()!!.onSelect(item, currentSearchTerm)
             dismiss()
         }
     }
@@ -171,10 +174,11 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
     }
 
     companion object {
-        fun newInstance(useClipboardText: Boolean): SuggestedEditsImageTagDialog {
+        fun newInstance(useClipboardText: Boolean, lastText: String): SuggestedEditsImageTagDialog {
             val dialog = SuggestedEditsImageTagDialog()
             val args = Bundle()
             args.putBoolean("useClipboardText", useClipboardText)
+            args.putString("lastText", lastText)
             dialog.arguments = args
             return dialog
         }
