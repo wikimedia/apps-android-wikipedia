@@ -80,7 +80,7 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
                     this.page = page
                     val card: SuggestedEditsCard = toSuggestedEditsCard(WikiSite.forLanguageCode(langFromCode))
 
-                    //callback?.updateCardContent(card)
+                    callback?.updateCardContent(card)
                     if (cb != null) {
                         FeedCoordinator.postCardsToCallback(cb, if (page == null) emptyList<Card>() else listOf(card))
                     }

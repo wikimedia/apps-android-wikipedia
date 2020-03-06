@@ -264,7 +264,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         }
         DescriptionEditActivity.Action action = suggestedEditsCardView.getCard().getAction();
         if (action == ADD_IMAGE_TAGS) {
-            startActivity(SuggestedEditsFeedCardImageTagActivity.Companion.newIntent(requireActivity(), ADD_IMAGE_TAGS));
+            startActivityForResult(SuggestedEditsFeedCardImageTagActivity.Companion.newIntent(requireActivity(), ADD_IMAGE_TAGS), ACTIVITY_REQUEST_DESCRIPTION_EDIT);
             return;
         }
         PageTitle pageTitle = (action == TRANSLATE_DESCRIPTION || action == TRANSLATE_CAPTION)
