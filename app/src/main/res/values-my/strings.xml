@@ -432,7 +432,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">ဤအရာကို ထပ်မံ မပြပါနှင့်</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Sync လုပ်ခြင်းကို ခွင့်ပြုရန်</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">မလိုပါ၊ ကျေးဇူးတင်ပါသည်။</string>
-    <string name="default_reading_list_name">သိမ်းဆည်းပြီး</string>
+  <string name="default_reading_list_name">သိမ်းဆည်းပြီး</string>
   <string name="default_reading_list_description">သင် သိမ်းထားသော ဆောင်းပါးများအတွက် နဂိုစာရင်း</string>
   <string name="no_user_lists_title">ဆောင်းပါးများကို စာရင်းများအဖြစ် ဖွဲ့စည်းရန်</string>
   <string name="no_user_lists_msg">သွားလည်စရာနေရာများ၊ နှစ်သက်သည့် အကြောင်းအရာများနှင့် အခြားသောအရာများအတွက် စာရင်းတစ်ခု ဖန်တီးရန်</string>

@@ -181,6 +181,7 @@
   <string name="close_all_tabs_confirm_yes">Jā</string>
   <string name="close_all_tabs_confirm_no">Nē</string>
   <string name="button_close_tab">Aizvērt cilni</string>
+  <string name="unnamed_tab_closed">Cilne aizvērta.</string>
   <string name="all_tab_items_closed">Visas cilnes aizvērtas.</string>
   <string name="tool_tip_bookmark_icon_title">Pievienot lasīšanas sarakstam</string>
   <string name="page_view_in_browser">Skatīt lapu pārlūkā</string>
@@ -250,7 +251,7 @@
   <string name="reading_list_turned_sync_off_dialog_ok">Labi</string>
   <string name="reading_list_turned_sync_off_dialog_settings">Iestatījumi</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Nē, paldies</string>
-    <string name="default_reading_list_name">Saglabāts</string>
+  <string name="default_reading_list_name">Saglabāts</string>
   <string name="reading_lists_menu_create_list">Izveidot jaunu sarakstu</string>
   <string name="reading_lists_menu_sort_by">Kārtot pēc</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">Labi</string>

@@ -367,7 +367,7 @@
   <string name="reading_list_turned_sync_off_dialog_ok">ठीक है</string>
   <string name="reading_list_turned_sync_off_dialog_settings">सेटिंग्स</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_title">पठन सूची को सिंक करना चालू करें?</string>
-    <plurals name="reading_list_article_offline_message">
+  <plurals name="reading_list_article_offline_message">
     <item quantity="one">यह लेख अब ऑफलाइन उपलब्ध होगा।</item>
     <item quantity="other">These articles will now be available offline.</item>
   </plurals>

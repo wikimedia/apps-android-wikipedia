@@ -428,7 +428,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Ikke vis meg dette igjen</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Aktiver synkronisering</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Nei takk</string>
-    <string name="default_reading_list_name">Lagret</string>
+  <string name="default_reading_list_name">Lagret</string>
   <string name="default_reading_list_description">Standardliste for dine lagrede artikler</string>
   <string name="no_user_lists_title">Organiser artikler i lister</string>
   <string name="no_user_lists_msg">Opprett lister for steder du vil reise til, favorittemner og mye mer</string>
