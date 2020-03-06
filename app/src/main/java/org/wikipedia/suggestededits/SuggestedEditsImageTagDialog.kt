@@ -23,9 +23,7 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.wikidata.Search
-import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.log.L
-import org.wikipedia.views.DrawableItemDecoration
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -49,7 +47,6 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         imageTagsRecycler.layoutManager = LinearLayoutManager(activity)
-        imageTagsRecycler.addItemDecoration(DrawableItemDecoration(requireContext(), R.attr.list_separator_drawable, drawStart = false, drawEnd = false))
         imageTagsRecycler.adapter = adapter
         imageTagsSearchText.addTextChangedListener(textWatcher)
         applyResults(Collections.emptyList())
@@ -101,12 +98,19 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
     private fun applyResults(results: List<MwQueryPage.ImageLabel>) {
         adapter.setResults(results)
         adapter.notifyDataSetChanged()
-        if (results.isEmpty()) {
-            noResultsText.visibility = View.VISIBLE
-            imageTagsRecycler.visibility = View.GONE
-        } else {
+        if (currentSearchTerm.isEmpty()) {
             noResultsText.visibility = View.GONE
-            imageTagsRecycler.visibility = View.VISIBLE
+            imageTagsRecycler.visibility = View.GONE
+            imageTagsDivider.visibility = View.INVISIBLE
+        } else {
+            imageTagsDivider.visibility = View.VISIBLE
+            if (results.isEmpty()) {
+                noResultsText.visibility = View.VISIBLE
+                imageTagsRecycler.visibility = View.GONE
+            } else {
+                noResultsText.visibility = View.GONE
+                imageTagsRecycler.visibility = View.VISIBLE
+            }
         }
     }
 

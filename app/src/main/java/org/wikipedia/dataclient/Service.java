@@ -251,7 +251,7 @@ public interface Service {
     @NonNull Observable<Entities> getEntitiesByTitle(@Query("titles") @NonNull String titles,
                                                      @Query("sites") @NonNull String sites);
 
-    @GET(MW_API_PREFIX + "action=wbsearchentities&type=item")
+    @GET(MW_API_PREFIX + "action=wbsearchentities&type=item&limit=20")
     @NonNull Observable<Search> searchEntities(@Query("search") @NonNull String searchTerm,
                                                @Query("language") @NonNull String searchLang,
                                                @Query("uselang") @NonNull String resultLang);
