@@ -116,6 +116,9 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                     tagList.clear()
                     val maxTags = 3
                     for (label in page.imageLabels) {
+                        if (label.label.isEmpty()){
+                            continue
+                        }
                         tagList.add(label)
                         if (tagList.size >= maxTags) {
                             break
