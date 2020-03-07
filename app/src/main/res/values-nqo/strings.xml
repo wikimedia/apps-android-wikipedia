@@ -395,7 +395,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">ߣߌ߲߬ ߞߊ߫ ߦߌ߬ߘߊ߬ ߒ ߠߴߏ߬ ߞߐ߫</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">ߕߎ߬ߡߊ߬ߢߐ߲߰ߦߊ ߓߌ߬ߟߵߊ߬ ߟߊ߫</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">ߒ߬ߒ߫ ߌ ߞߎߟߎ߲ߖߋ߫</string>
-    <string name="default_reading_list_name">ߊ߬ ߓߘߊ߫ ߟߊߞߎ߲߬ߘߎ߬</string>
+  <string name="default_reading_list_name">ߊ߬ ߓߘߊ߫ ߟߊߞߎ߲߬ߘߎ߬</string>
   <string name="default_reading_list_description">ߘߊ߲ߛߎ߲ ߛߙߍߘߍ ߌ ߟߊ߫ ߦߌߟߡߊ߫ ߟߊߞߎ߲߬ߘߎ߬ߣߍ߲ ߠߎ߬ ߦߋ߫</string>
   <string name="no_user_lists_title">ߦߌߟߡߊ ߛߌ߲߬ߝߏ߲߬ߧߊ߫ ߛߙߍߘߍ ߘߐ߫</string>
   <string name="reading_list_saved_list_rename">(ߟߊ߬ߓߊ߰ߙߊ߬ߟߊ ߛߌ߲ߘߟߌ߫ ߣߐ) %1$s</string>

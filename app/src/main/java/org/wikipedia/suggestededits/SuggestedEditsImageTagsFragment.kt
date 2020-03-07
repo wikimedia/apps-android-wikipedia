@@ -116,6 +116,9 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                     tagList.clear()
                     val maxTags = 3
                     for (label in page.imageLabels) {
+                        if (label.label.isEmpty()){
+                            continue
+                        }
                         tagList.add(label)
                         if (tagList.size >= maxTags) {
                             break
@@ -189,14 +192,14 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         chip.chipStrokeWidth = DimenUtil.dpToPx(1f)
         chip.setChipStrokeColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.chip_background_color))
         chip.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_primary_color))
-        if (label == null) {
-            chip.typeface = typeface
-        }
+        chip.typeface = typeface
         chip.isCheckable = true
-        chip.setChipIconResource(R.drawable.ic_chip_add_24px)
+        if (label == null) {
+            chip.setChipIconResource(R.drawable.ic_chip_add_24px)
+            chip.iconEndPadding = 0f
+            chip.textStartPadding = DimenUtil.dpToPx(2f)
+        }
         chip.chipIconSize = DimenUtil.dpToPx(24f)
-        chip.iconEndPadding = 0f
-        chip.textStartPadding = DimenUtil.dpToPx(2f)
         chip.chipIconTint = ColorStateList.valueOf(ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_de_emphasised_color))
         chip.setCheckedIconResource(R.drawable.ic_chip_check_24px)
         chip.setOnCheckedChangeListener(this)

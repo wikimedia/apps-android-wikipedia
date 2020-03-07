@@ -445,7 +445,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Älä näytä tätä uudelleen</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Ota synkronointi käyttöön</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Ei kiitos</string>
-    <string name="default_reading_list_name">Tallennettu</string>
+  <string name="default_reading_list_name">Tallennettu</string>
   <string name="default_reading_list_description">Oletuslista tallennetuille artikkeleillesi</string>
   <string name="no_user_lists_title">Järjestä artikkelit listoihin</string>
   <string name="no_user_lists_msg">Luo listoja matkakohteista, suosikkiaiheista ja paljon muuta</string>

@@ -424,7 +424,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">အရာဏအ် လ္ပထ္ၜး ကဵုအဲ ပၠန်ရ၊၊</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">ကချဳဓရာင် သၟဟ်အစောံ</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">ဟအှ်ေ တင်ဂုန်ရ၊၊</string>
-    <string name="default_reading_list_name">ဂိုင်သိပ်တုဲ</string>
+  <string name="default_reading_list_name">ဂိုင်သိပ်တုဲ</string>
   <string name="default_reading_list_description">စရင် ဂိုင်သိပ် ဟွံဂွံဂမၠိုင်</string>
   <string name="no_user_lists_title">ပကောံ လိက်ပရေင် အပ္ဍဲ စရင်</string>
   <string name="no_user_lists_msg">ခၞံဗဒှ် စရင် သွက် ဒၞာဲ သွက်ဂွံအာဝေင်၊ ပရူ မဒးဂၞပ်စိုတ်၊ ကေုာံ တၞဟ်ဟ်</string>

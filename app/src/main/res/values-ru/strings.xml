@@ -475,7 +475,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Не показывать больше это сообщение</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Включить синхронизацию</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Нет, спасибо</string>
-    <string name="default_reading_list_name">Сохранённое</string>
+  <string name="default_reading_list_name">Сохранённое</string>
   <string name="default_reading_list_description">Список по умолчанию для сохранённых вами статей</string>
   <string name="no_user_lists_title">Сохраняйте подборки статей</string>
   <string name="no_user_lists_msg">Создавайте списки статей, например, о местах, где побываете, об интересующих вас темах и о многом другом</string>

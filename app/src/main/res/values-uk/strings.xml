@@ -448,7 +448,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Не показувати цього знову</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Увімкнути синхронізацію</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Ні, дякую</string>
-    <string name="default_reading_list_name">Збережене</string>
+  <string name="default_reading_list_name">Збережене</string>
   <string name="default_reading_list_description">Стандартний список для ваших збережених статей</string>
   <string name="no_user_lists_title">Упорядкувати статті у списки</string>
   <string name="no_user_lists_msg">Створюйте списки зі статей про місця подорожей, улюблені теми, тощо</string>
@@ -709,8 +709,8 @@
   <string name="suggested_edits_image_tags">Теги до зображень</string>
   <string name="suggested_edits_image_tags_publishing">Публікація</string>
   <string name="suggested_edits_image_tags_published">Опубліковано</string>
-  <string name="suggested_edits_image_tags_onboarding_title">Додавайте теги до зображень, щоб полегшити їх пошук для інших користувачів</string>
-  <string name="suggested_edits_image_tags_onboarding_text">Підтверджуючи пропоновані теги, Ви можете допомогти полегшити пошук таких зображень. \n\nТеги генеруються комп\'ютером, але їх мають затверджувати люди, аби запевнити точність таких тегів.</string>
+  <string name="suggested_edits_image_tags_onboarding_title">Додавання тегів до зображень полегшує їх пошук.</string>
+  <string name="suggested_edits_image_tags_onboarding_text">Вказані зображення мають теги, запропоновані комп\'ютером, і ці теги має перевірити людина, щоб переконатися в їх точності.\n\nПідтверджуючи теги, ви допоможете полегшити пошук таких зображень на Вікісховищі — сховищі зображень під вільними ліцензіями, яке Вікіпедія використовує для додавання зображень до своїх статей.</string>
   <string name="suggested_edits_image_tags_onboarding_note">До зображень буде додано лише ті теги, які ви затвердите.</string>
   <string name="suggested_edits_image_tags_snackbar">Додавайте теги до зображень, щоб полегшити їх пошук для інших користувачів.</string>
   <string name="suggested_edits_image_tags_task_detail">Додавайте теги до зображень, щоб полегшити їх пошук для інших користувачів. Їх пропонує комп\'ютер, але має затверджувати людина.</string>

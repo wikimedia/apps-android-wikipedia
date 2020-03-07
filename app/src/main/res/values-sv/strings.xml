@@ -301,6 +301,7 @@
   <string name="close_all_tabs_confirm_yes">Ja</string>
   <string name="close_all_tabs_confirm_no">Nej</string>
   <string name="button_close_tab">Stäng flik</string>
+  <string name="unnamed_tab_closed">Flik stängdes.</string>
   <string name="tab_item_closed">%s stängdes.</string>
   <string name="all_tab_items_closed">Alla flikar stängdes.</string>
   <string name="tool_tip_bookmark_icon_title">Lägg till i läslista</string>
@@ -446,7 +447,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Visa inte detta igen</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Aktivera synkronisering</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Nej tack</string>
-    <string name="default_reading_list_name">Sparade</string>
+  <string name="default_reading_list_name">Sparade</string>
   <string name="default_reading_list_description">Standardlista för dina sparade artiklar</string>
   <string name="no_user_lists_title">Organisera artiklar till listor</string>
   <string name="no_user_lists_msg">Skapa listor för platser att åka till, favoritämnen och mycket mer</string>
@@ -705,8 +706,8 @@
   <string name="suggested_edits_image_tags">Bildtaggar</string>
   <string name="suggested_edits_image_tags_publishing">Publicerar</string>
   <string name="suggested_edits_image_tags_published">Publicerades</string>
-  <string name="suggested_edits_image_tags_onboarding_title">Tagga bilder för att göra det lättare för andra att hitta dem</string>
-  <string name="suggested_edits_image_tags_onboarding_text">Genom att bekräfta föreslagna taggar hjälper du till att göra det lättare att söka efter dem.\n\nTaggförslagen skapas av en dator men behöver bekräftas av människor för att säkerställa noggrannheten.</string>
+  <string name="suggested_edits_image_tags_onboarding_title" fuzzy="true">Tagga bilder för att göra det lättare för andra att hitta dem</string>
+  <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">Genom att bekräfta föreslagna taggar hjälper du till att göra det lättare att söka efter dem.\n\nTaggförslagen skapas av en dator men behöver bekräftas av människor för att säkerställa noggrannheten.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Endast taggar som du väljer kommer att läggas till i bilder.</string>
   <string name="suggested_edits_image_tags_snackbar">Lägg till bildtaggar för att göra det lättare för andra att hitta bilderna.</string>
   <string name="suggested_edits_image_tags_task_detail">Tagga bilder för att göra det lättare för andra att hitta dem. Taggarna föreslås automatiskt, men behöver bekräftas.</string>
