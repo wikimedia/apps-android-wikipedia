@@ -180,6 +180,7 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
             args.putBoolean("useClipboardText", useClipboardText)
             args.putString("lastText", lastText)
             dialog.arguments = args
+            dialog.isCancelable = true
             return dialog
         }
     }
