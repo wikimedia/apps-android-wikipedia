@@ -693,8 +693,8 @@
   <string name="suggested_edits_image_tags">Etiquetes d\'imáxenes</string>
   <string name="suggested_edits_image_tags_publishing">Espublizando</string>
   <string name="suggested_edits_image_tags_published">Espublizaes</string>
-  <string name="suggested_edits_image_tags_onboarding_title">Etiqueta imáxenes pa qu\'otros puedan atopales más fácilmente.</string>
-  <string name="suggested_edits_image_tags_onboarding_text">Al confirmar les etiquetes suxeríes ayudes a que sía más fácil buscales.\n\nLes etiquetes suxérense por ordenador, pero precísase que sían validaes por humanos pa garantizar la so exactitú.</string>
+  <string name="suggested_edits_image_tags_onboarding_title">Etiquetar les imáxenes failes más fáciles d\'alcontrar.</string>
+  <string name="suggested_edits_image_tags_onboarding_text">Les imáxenes siguientes tienen etiquetes suxeríes por un ordenador, y precísase que les valide un humanu pa garantizar la so exactitú.\n\nAl confirmar les etiquetes, ayudes a que sía más fácil buscales en Commons, el depósitu d\'imáxenes de llicencia llibre que Wikipedia usa pa les imáxenes de los artículos.</string>
   <string name="description_edit_revert_subtitle">¡Gracies por editar Wikipedia!</string>
   <string name="description_edit_revert_intro">Sabemos que tentasti faelo lo meyor posible, pero unu de los revisores tuvo una esmolición. Les posibles razones poles que se revertió la edición incluyen:</string>
   <string name="description_edit_revert_reason1">la to contribución nun siguió dalgunes de les &lt;a href=\"%1$s\"&gt;directrices&lt;/a&gt;.</string>

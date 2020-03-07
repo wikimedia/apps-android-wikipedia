@@ -456,7 +456,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">لا تُرني هذا مجددا</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">تمكين المزامنة</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">لا شكرًا</string>
-    <string name="default_reading_list_name">تم الحفظ</string>
+  <string name="default_reading_list_name">تم الحفظ</string>
   <string name="default_reading_list_description">قائمة افتراضية لمقالاتك المحفوظة</string>
   <string name="no_user_lists_title">نظم المقالات في قوائم</string>
   <string name="no_user_lists_msg">أنشئ قوائم للأماكن التي تريد السفر إليها، والمواضيع المفضلة، وغير ذلك الكثير</string>

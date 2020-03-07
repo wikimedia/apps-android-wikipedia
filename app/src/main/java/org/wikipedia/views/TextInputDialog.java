@@ -1,11 +1,13 @@
 package org.wikipedia.views;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.EditText;
 
 import androidx.annotation.LayoutRes;
@@ -17,7 +19,6 @@ import androidx.appcompat.app.AlertDialog;
 import com.google.android.material.textfield.TextInputLayout;
 
 import org.wikipedia.R;
-import org.wikipedia.util.DeviceUtil;
 
 public final class TextInputDialog extends AlertDialog {
 
@@ -35,11 +36,11 @@ public final class TextInputDialog extends AlertDialog {
     private TextInputLayout secondaryTextContainer;
     private TextInputWatcher watcher = new TextInputWatcher();
 
-    public static TextInputDialog newInstance(@NonNull Context context,
+    public static TextInputDialog newInstance(@NonNull Activity activity,
                                               boolean showSecondaryText,
                                               @Nullable final Callback callback) {
-        return new TextInputDialog(context)
-                .setView(R.layout.dialog_text_input)
+        return new TextInputDialog(activity)
+                .setView(activity.getLayoutInflater(), R.layout.dialog_text_input)
                 .showSecondaryText(showSecondaryText)
                 .setCallback(callback);
     }
@@ -49,8 +50,8 @@ public final class TextInputDialog extends AlertDialog {
         return this;
     }
 
-    public TextInputDialog setView(@LayoutRes int id) {
-        View rootView = LayoutInflater.from(getContext()).inflate(id, null);
+    public TextInputDialog setView(@NonNull LayoutInflater inflater, @LayoutRes int id) {
+        View rootView = inflater.inflate(id, null);
         editText = rootView.findViewById(R.id.text_input);
         editTextContainer = rootView.findViewById(R.id.text_input_container);
         secondaryText = rootView.findViewById(R.id.secondary_text_input);
@@ -95,10 +96,12 @@ public final class TextInputDialog extends AlertDialog {
     }
 
     @Override public void onAttachedToWindow() {
+        super.onAttachedToWindow();
         editText.addTextChangedListener(watcher);
     }
 
     @Override public void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
         editText.removeTextChangedListener(watcher);
     }
 
@@ -125,7 +128,6 @@ public final class TextInputDialog extends AlertDialog {
 
         setButton(BUTTON_POSITIVE, getContext().getString(R.string.text_input_dialog_ok_button_text),
                 (dialog,  which) -> {
-                    //DeviceUtil.hideSoftKeyboard(editText);
                     if (callback != null) {
                         callback.onSuccess(editText.getText(), secondaryText.getText());
                     }
@@ -133,22 +135,18 @@ public final class TextInputDialog extends AlertDialog {
 
         setButton(BUTTON_NEGATIVE, getContext().getString(R.string.text_input_dialog_cancel_button_text),
                 (dialog,  which) -> {
-                    //DeviceUtil.hideSoftKeyboard(editText);
                     if (callback != null) {
                         callback.onCancel();
                     }
                 });
 
         setOnShowListener((dialog) -> {
-            editText.requestFocus();
-            DeviceUtil.showSoftKeyboard(editText);
+            if (getWindow() != null) {
+                getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+            }
             if (callback != null) {
                 callback.onShow(TextInputDialog.this);
             }
-        });
-
-        setOnDismissListener((dialog) -> {
-                //DeviceUtil.hideSoftKeyboard(editText);
         });
     }
 

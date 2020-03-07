@@ -388,7 +388,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Ulah midangkeun ieu deui</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Hurungkeun singkronan</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Teu nuhun</string>
-    <string name="default_reading_list_name">Disimpen</string>
+  <string name="default_reading_list_name">Disimpen</string>
   <string name="no_user_lists_title">Atur artikel kana daptar</string>
   <string name="reading_lists_menu_create_list">Jieun daptar anyar</string>
   <string name="reading_lists_menu_sort_by">Runtuykeun dumasar</string>

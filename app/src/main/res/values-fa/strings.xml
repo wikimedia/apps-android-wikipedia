@@ -450,7 +450,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">این را دوباره به من نشان نده</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">فعال‌کردن همسان‌سازی</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">نه ممنون</string>
-    <string name="default_reading_list_name">ذخیره</string>
+  <string name="default_reading_list_name">ذخیره</string>
   <string name="default_reading_list_description">لیست پیش فرض برای ذخیره مقاله ها</string>
   <string name="no_user_lists_title">سامان‌دادن مقالات در فهرست‌ها</string>
   <string name="no_user_lists_msg">ایجاد فهرستی از جاه‌هایی که قصد سفر یا علاقه دارید.</string>

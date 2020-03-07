@@ -451,7 +451,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Jangan tunjukkan ini lagi</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Aktifkan sinkronisasi</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Tidak, terima kasih</string>
-    <string name="default_reading_list_name">Tersimpan</string>
+  <string name="default_reading_list_name">Tersimpan</string>
   <string name="default_reading_list_description">Daftar baku untuk artikel tersimpan Anda</string>
   <string name="no_user_lists_title">Atur artikel ke dalam daftar</string>
   <string name="no_user_lists_msg">Buat daftar untuk tempat yang ingin dikunjungi, topik favorit, dan banyak lagi</string>
@@ -709,8 +709,8 @@
   <string name="suggested_edits_image_tags">Tag gambar</string>
   <string name="suggested_edits_image_tags_publishing">Menerbitkan</string>
   <string name="suggested_edits_image_tags_published">Diterbitkan</string>
-  <string name="suggested_edits_image_tags_onboarding_title">Beri tag pada gambar untuk membuatnya lebih mudah ditemukan orang lain</string>
-  <string name="suggested_edits_image_tags_onboarding_text">Dengan mengonfirmasi tag yang disarankan, Anda dapat membantu membuat gambar lebih mudah untuk dicari.\n\nTag adalah komputer yang disarankan tetapi perlu divalidasi oleh manusia untuk memastikan akurasi.</string>
+  <string name="suggested_edits_image_tags_onboarding_title" fuzzy="true">Beri tag pada gambar untuk membuatnya lebih mudah ditemukan orang lain</string>
+  <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">Dengan mengonfirmasi tag yang disarankan, Anda dapat membantu membuat gambar lebih mudah untuk dicari.\n\nTag adalah komputer yang disarankan tetapi perlu divalidasi oleh manusia untuk memastikan akurasi.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Hanya tag yang Anda pilih yang akan ditambahkan ke gambar.</string>
   <string name="suggested_edits_image_tags_snackbar">Tambahkan tag gambar untuk membuatnya lebih mudah ditemukan orang lain.</string>
   <string name="suggested_edits_image_tags_task_detail" fuzzy="true">Beri tag pada gambar untuk membuatnya lebih mudah ditemukan orang lain. Tag disarankan secara otomatis, tetapi perlu diverifikasi oleh Anda.</string>

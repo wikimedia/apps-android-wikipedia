@@ -13,6 +13,7 @@ import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.mwapi.SiteMatrix;
 import org.wikipedia.dataclient.wikidata.Entities;
 import org.wikipedia.dataclient.wikidata.EntityPostResponse;
+import org.wikipedia.dataclient.wikidata.Search;
 import org.wikipedia.edit.Edit;
 import org.wikipedia.edit.preview.EditPreview;
 import org.wikipedia.login.LoginClient;
@@ -249,6 +250,11 @@ public interface Service {
     @GET(MW_API_PREFIX + "action=wbgetentities")
     @NonNull Observable<Entities> getEntitiesByTitle(@Query("titles") @NonNull String titles,
                                                      @Query("sites") @NonNull String sites);
+
+    @GET(MW_API_PREFIX + "action=wbsearchentities&type=item&limit=20")
+    @NonNull Observable<Search> searchEntities(@Query("search") @NonNull String searchTerm,
+                                               @Query("language") @NonNull String searchLang,
+                                               @Query("uselang") @NonNull String resultLang);
 
     @GET(MW_API_PREFIX + "action=wbgetentities&props=labels&languagefallback=1")
     @NonNull Call<Entities> getWikidataLabels(@Query("ids") @NonNull String idList,

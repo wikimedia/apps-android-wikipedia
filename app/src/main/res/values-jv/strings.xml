@@ -406,7 +406,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Aja tuduhi aku iki manèh</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Urubaké sinkronisasi</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Ora, suwun</string>
-    <string name="default_reading_list_name">Kasimpen</string>
+  <string name="default_reading_list_name">Kasimpen</string>
   <string name="default_reading_list_description">Pratélan baku tumrap artikel-artikelé panjenengan sing kasimpen</string>
   <string name="no_user_lists_title">Tata artikel dadi pratélan</string>
   <string name="no_user_lists_msg">Gawé pratélan bab papan-papan sing arep kajajahi, rembug-rembung sing kasenengi, lan liya-liyané.</string>

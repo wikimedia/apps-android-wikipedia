@@ -398,7 +398,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Μην μου το ξαναεμφανίσεις πάλι</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Ενεργοποίηση συγχρονισμού</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Όχι, ευχαριστώ</string>
-    <string name="default_reading_list_name">Αποθηκεύθηκε</string>
+  <string name="default_reading_list_name">Αποθηκεύθηκε</string>
   <string name="default_reading_list_description">Προεπιλεγμένη λίστα για τα αποθηκευμένα λήμματά σας</string>
   <string name="no_user_lists_title">Οργάνωση λημμάτων σε λίστες</string>
   <string name="no_user_lists_msg">Δημιουργήστε λίστες για σημεία για ταξίδια, αγαπημένα θέματα και πολλά περισσότερα</string>

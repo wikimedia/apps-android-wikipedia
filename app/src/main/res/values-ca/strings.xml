@@ -447,7 +447,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">No m\'ho tornis a mostrar</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Habilita la sincronització</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">No, gràcies</string>
-    <string name="default_reading_list_name">Desats</string>
+  <string name="default_reading_list_name">Desats</string>
   <string name="default_reading_list_description">Llista per defecte d’articles desats</string>
   <string name="no_user_lists_title">Organitzar articles en llistes</string>
   <string name="no_user_lists_msg">Crear llistes per llocs on viatjar, temes favorits, i molt més</string>
@@ -706,8 +706,8 @@
   <string name="suggested_edits_image_tags">Etiquetes d\'imatge</string>
   <string name="suggested_edits_image_tags_publishing">Publicació</string>
   <string name="suggested_edits_image_tags_published">Publicat</string>
-  <string name="suggested_edits_image_tags_onboarding_title">Etiqueta les imatges per facilitar que altres les trobin</string>
-  <string name="suggested_edits_image_tags_onboarding_text">En confirmar les etiquetes suggerides, podeu ajudar a facilitar la cerca de les imatges.\n\nLes etiquetes són suggerides, però cal que humans les validin per a assegurar-ne la precisió.</string>
+  <string name="suggested_edits_image_tags_onboarding_title" fuzzy="true">Etiqueta les imatges per facilitar que altres les trobin</string>
+  <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">En confirmar les etiquetes suggerides, podeu ajudar a facilitar la cerca de les imatges.\n\nLes etiquetes són suggerides, però cal que humans les validin per a assegurar-ne la precisió.</string>
   <string name="suggested_edits_image_tags_onboarding_note">S\'afegiran a les imatges només les etiquetes que trieu.</string>
   <string name="suggested_edits_image_tags_snackbar">Afegeix etiquetes d\'imatge per a facilitar que altres les trobin.</string>
   <string name="suggested_edits_image_tags_task_detail">Etiqueta les imatges per a facilitar que altres les trobin. Se suggereixen automàticament, però cal validar-les.</string>
