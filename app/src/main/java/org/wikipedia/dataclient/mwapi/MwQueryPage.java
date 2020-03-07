@@ -230,6 +230,17 @@ public class MwQueryPage extends BaseModel {
         @SerializedName("wikidata_id") @Nullable private String wikidataId;
         @Nullable private String state;
         @Nullable private String label;
+        @Nullable private String description;
+        private boolean selected;
+
+        public ImageLabel() {
+        }
+
+        public ImageLabel(@NonNull String wikidataId, @NonNull String label, @Nullable String description) {
+            this.wikidataId = wikidataId;
+            this.label = label;
+            this.description = description;
+        }
 
         @NonNull public String getWikidataId() {
             return StringUtils.defaultString(wikidataId);
@@ -241,6 +252,18 @@ public class MwQueryPage extends BaseModel {
 
         @NonNull public String getLabel() {
             return StringUtils.defaultString(label);
+        }
+
+        @NonNull public String getDescription() {
+            return StringUtils.defaultString(description);
+        }
+
+        public boolean isSelected() {
+            return selected;
+        }
+
+        public void setSelected(boolean selected) {
+            this.selected = selected;
         }
     }
 }
