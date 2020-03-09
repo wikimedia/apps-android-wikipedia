@@ -721,12 +721,14 @@
   <string name="suggested_edits_image_tags_publishing">Pubblicazione</string>
   <string name="suggested_edits_image_tags_published">Pubblicato</string>
   <string name="suggested_edits_image_tags_onboarding_title">Etichettare le immagini facilita la ricerca da parte di altri utenti.</string>
-  <string name="suggested_edits_image_tags_onboarding_text">Le seguenti immagini sono suggerite dal computer, e devono essere convalidate dagli umani per garantire l\'accuratezza.\n\nConfermando le etichette suggerite, puoi semplificare la ricerca delle immagini su Commons, il database multimediale che Wikipedia utilizza per le immagini nelle sue voci.</string>
+  <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">Le seguenti immagini sono suggerite dal computer, e devono essere convalidate dagli umani per garantire l\'accuratezza.\n\nConfermando le etichette suggerite, puoi semplificare la ricerca delle immagini su Commons, il database multimediale che Wikipedia utilizza per le immagini nelle sue voci.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Solo le etichette scelte verranno aggiunte alle immagini.</string>
   <string name="suggested_edits_image_tags_snackbar">Aggiungi delle etichette all\'immagine per facilitarne la ricerca da parte di altri utenti.</string>
-  <string name="suggested_edits_image_tags_task_detail">Etichetta le immagini per facilitarne la ricerca da parte di altri utenti. Sono suggerite dal computer, ma devono essere convalidate.</string>
-  <string name="suggested_edits_image_tags_choose">Scegli le etichette corrispondenti</string>
+  <string name="suggested_edits_image_tags_task_detail" fuzzy="true">Etichetta le immagini per facilitarne la ricerca da parte di altri utenti. Sono suggerite dal computer, ma devono essere convalidate.</string>
+  <string name="suggested_edits_image_tags_choose" fuzzy="true">Scegli le etichette corrispondenti</string>
   <string name="suggested_edits_image_tags_select_title">Non hai selezionato alcuna etichetta per questa immagine</string>
+  <string name="suggested_edits_image_tags_select_text">Solo le etichette scelte verranno aggiunte alle immagini. Le etichette non selezionate verranno contrassegnate come rifiutate. Sei sicuro di voler contrassegnare tutte le etichette come rifiutate?</string>
+  <string name="suggested_edits_image_zoom_tooltip">Pizzica per ingrandire l\'immagine.</string>
   <string name="suggested_edits_encouragement_message">%s, grazie per le tue modifiche. Di seguito puoi trovare altri modi per contribuire a Wikipedia.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Ciao %s&lt;/b&gt;, sapevi che tutti possono modificare Wikipedia? Di seguito puoi trovare modi divertenti per migliorare Wikipedia. Buona modifica!</string>
   <string name="suggested_edits_image_captions_task_detail">Le didascalie delle immagini descrivono un\'immagine per aiutare i lettori a comprenderne il significato e il contesto.</string>
@@ -735,6 +737,7 @@
   <string name="suggested_edits_edit_streak_stat_tooltip">Quanti giorni senza interruzione hai contribuito tramite le modifiche suggerite. Se non hai contribuito per un po\', mostrerà la data del tuo ultimo contributo.</string>
   <string name="suggested_edits_page_views_stat_tooltip">Totale pagine visualizzate delle voci a cui hai contribuito negli ultimi 30 giorni con modifiche suggerite.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">In base a quante volte uno dei tuoi contributi è stato ripristinato (annullato da un altro editore). Modifiche ripristinate: %d.</string>
+  <string name="suggested_edits_paused_message">&lt;b&gt;Le modifiche suggerite vengono sospese fino al %1$s.&lt;/b&gt; Siamo spiacenti %2$s, alcuni dei tuoi contributi recenti sono stati ripristinati.\n\nScopri come migliorare le tue abilità di modifica su Wikipedia con il collegamento qui sotto.</string>
   <string name="suggested_edits_disabled_message">&lt;b&gt;Le modifiche suggerite sono disabilitate.&lt;/b&gt; Siamo spiacenti %s, troppi dei tuoi contributi recenti sono stati ripristinati.\n\nScopri cosa significa con il collegamento qui sotto.</string>
   <string name="suggested_edits_ip_blocked_message">Sembra che il tuo indirizzo IP (o intervallo di indirizzi IP) sia attualmente bloccato dalla modifica di Wikipedia. Trovi altre informazioni su cosa significa visitando il collegamento qui sotto.</string>
   <string name="suggested_edits_editing_tips_link_text">Suggerimenti e trucchi per la modifica</string>
@@ -778,6 +781,7 @@
   <string name="onboarding_explore_title">Nuovi modi per esplorare</string>
   <string name="onboarding_explore_text">Immergiti nella tana del coniglio di Wikipedia con un feed Esplora in costante aggiornamento. &lt;br/&gt; &lt;b&gt;Personalizza&lt;/b&gt; il feed per i tuoi interessi, sia che si tratti di conoscere eventi storici &lt;b&gt;In questo giorno&lt;/b&gt;, sia di lanciare i dadi con &lt;b&gt;Una pagina a caso&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Elenchi di lettura con sincronizzazione</string>
+  <string name="onboarding_reading_list_sync_text_v2">Puoi creare elenchi di lettura delle voci che desideri leggere in un secondo momento, anche quando sei offline. &lt;br/&gt; Accedi al tuo account Wikipedia per sincronizzare i tuoi elenchi di lettura. &lt;a href=\"#login\"&gt;Iscriviti a Wikipedia&lt;/a&gt;</string>
   <string name="onboarding_analytics_title">Invia dati anonimi</string>
   <string name="onboarding_analytics_offline_text">Contribuisci a migliorare l\'applicazione facendoci sapere come la usi. I dati raccolti sono anonimi. &lt;a href=\"#privacy\"&gt;Ulteriori informazioni&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Invia dati di utilizzo</string>
