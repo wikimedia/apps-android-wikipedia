@@ -735,11 +735,12 @@
     <string name="suggested_edits_image_tags_publishing">Publishing</string>
     <string name="suggested_edits_image_tags_published">Published</string>
     <string name="suggested_edits_image_tags_onboarding_title">Tagging images makes them easier to find.</string>
-    <string name="suggested_edits_image_tags_onboarding_text">The following images have tags suggested by a computer, and need to be validated by a human to ensure accuracy.\n\nBy confirming tags, you will help make images easier to search for on Commons, the free license image repository that Wikipedia uses for images in its articles.</string>
+    <string name="suggested_edits_image_tags_onboarding_text">By adding image tags, you will help make images easier to search for on Commons, the free license image repository that Wikipedia uses for images in its articles.\n\nWe\'ve automatically suggested some tags, and you can also add your own.</string>
     <string name="suggested_edits_image_tags_onboarding_note">Only tags that you choose will be added to images.</string>
     <string name="suggested_edits_image_tags_snackbar">Add image tags to make them easier for others to find.</string>
-    <string name="suggested_edits_image_tags_task_detail">Tag images to make them easier for others to find. They are computer suggested, but need to be validated.</string>
-    <string name="suggested_edits_image_tags_choose">Choose matching tags</string>
+    <string name="suggested_edits_image_tags_task_detail">Tag images to make them easier to find. Select from the suggested tags or add your own.</string>
+    <string name="suggested_edits_image_tags_choose">Add or choose matching tags</string>
+    <string name="suggested_edits_image_tags_search">Search tags</string>
     <string name="suggested_edits_image_tags_select_title">You haven\'t selected any tags for this image</string>
     <string name="suggested_edits_image_tags_select_text">Only tags that you choose will be added to images. Tags that are not selected will be marked as rejected. Are you sure you want to mark all tags as rejected?</string>
     <string name="suggested_edits_image_zoom_tooltip">Pinch to zoom this image.</string>

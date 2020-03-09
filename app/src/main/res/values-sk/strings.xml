@@ -703,12 +703,12 @@
   <string name="suggested_edits_image_tags">Značky obrázkov</string>
   <string name="suggested_edits_image_tags_publishing">Publikuje sa</string>
   <string name="suggested_edits_image_tags_published">Publikované</string>
-  <string name="suggested_edits_image_tags_onboarding_title" fuzzy="true">Označte obrázky, aby ich mohli ostatní ľahšie nájsť</string>
-  <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">Potvrdením navhrovaných značiek môžete pomôcť, aby boli obrázky ľahšie nájditeľné.\n\nZnačky sú navrhované počítačom, no musia byť overené človekom na zabezpečenie presnosti.</string>
+  <string name="suggested_edits_image_tags_onboarding_title">Označenie obrázkov uľahčuje ich nájsť.</string>
+  <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">Nasledujúce obrázky majú značky navrhnuté počítačom a musia byť skontrolované človekom na zabezpečenie správnosti.\n\nPotvrdením navhrovaných značiek pomôžete tomu, aby boli obrázky ľahšie nájditeľné na Commons, úložisku obrázkov so slobodnou licenciou, ktoré Wikipédia používa pre obrázky vo svojich článkoch.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Iba značky, ktoré vyberiete, budú pridané k obrázkom.</string>
   <string name="suggested_edits_image_tags_snackbar">Pridajte značky obrázkom, aby ich mohli ostatní ľahšie nájsť</string>
-  <string name="suggested_edits_image_tags_task_detail">Označte obrázky, aby ich ostatní mohli ľahšie nájsť. Značky sú navrhované počítačom, no musia byť skontrolované.</string>
-  <string name="suggested_edits_image_tags_choose">Vyberte zhodujúce sa značky</string>
+  <string name="suggested_edits_image_tags_task_detail" fuzzy="true">Označte obrázky, aby ich ostatní mohli ľahšie nájsť. Značky sú navrhované počítačom, no musia byť skontrolované.</string>
+  <string name="suggested_edits_image_tags_choose" fuzzy="true">Vyberte zhodujúce sa značky</string>
   <string name="suggested_edits_image_tags_select_title">Pre tento obrázok ste nevybrali žiadne značky</string>
   <string name="suggested_edits_image_tags_select_text">Len značky, ktoré vyberiete, budú pridané k obrázkom. Značky, ktoré nie sú vybrané, budú označené ako odmietnuté. Ste si istí, že chcete označiť všetky značky ako odmietnuté?</string>
   <string name="suggested_edits_image_zoom_tooltip">Roztiahnutím dvoch prstov zväčšíte obrázok.</string>
