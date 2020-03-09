@@ -422,7 +422,6 @@
   <string name="description_edit_text_hint">Şınasiya meqaley</string>
   <string name="description_edit_article_description_label">Meqale</string>
   <string name="description_edit_add_caption_label">Şınastiya resımi</string>
-  <string name="description_edit_add_caption_hint" fuzzy="true">Bınnuştey resimi (%s)</string>
   <string name="description_edit_translate_caption_label_per_language">Bınnuştey resimi (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">Bınnuştey resimi (%s)</string>
   <string name="description_edit_save">Bıweşane</string>
