@@ -712,8 +712,8 @@
   <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">Ao confirmar as etiquetas sugeridas, pode ajudar a tornar mais fácil encontrar imagens.\n\nAs etiquetas são sugeridas de forma automática e precisam de ser validadas por pessoas para confirmar a sua precisão.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Só as etiquetas que escolher serão adicionadas às imagens.</string>
   <string name="suggested_edits_image_tags_snackbar">Adicione etiquetas de imagens para que outros as encontrem facilmente.</string>
-  <string name="suggested_edits_image_tags_task_detail">Etiquete imagens para que outros as encontrem facilmente. As etiquetas são sugeridas de forma automática e precisam de ser validadas.</string>
-  <string name="suggested_edits_image_tags_choose">Escolha etiquetas que descrevem a imagem</string>
+  <string name="suggested_edits_image_tags_task_detail" fuzzy="true">Etiquete imagens para que outros as encontrem facilmente. As etiquetas são sugeridas de forma automática e precisam de ser validadas.</string>
+  <string name="suggested_edits_image_tags_choose" fuzzy="true">Escolha etiquetas que descrevem a imagem</string>
   <string name="suggested_edits_image_tags_select_title">Não selecionou nenhuma etiqueta para esta imagem</string>
   <string name="suggested_edits_image_tags_select_text">Só as etiquetas que escolher serão adicionadas às imagens. As etiquetas que não selecionar serão marcadas como tendo sido rejeitadas. Tem a certeza de que quer marcar todas as etiquetas como rejeitadas?</string>
   <string name="suggested_edits_image_zoom_tooltip">Junte/separe dois dedos para ampliar/afastar esta imagem.</string>

@@ -141,7 +141,7 @@
   <string name="title_captcha">Введите CAPTCHA</string>
   <string name="edit_section_captcha_reload">Коснитесь CAPTCHA для её обновления</string>
   <string name="nav_item_login">Войти в Википедию</string>
-  <string name="login_username_hint">Имя пользователя</string>
+  <string name="login_username_hint">Имя участника</string>
   <string name="login_password_hint">Пароль</string>
   <string name="account_creation_password_hint">Пароль</string>
   <string name="login_2fa_hint">Код двухфакторной аутентификации</string>
@@ -194,7 +194,7 @@
   <string name="email_recommendation_dialog_create_without_email_action">Продолжить без эл. почты</string>
   <string name="email_recommendation_dialog_create_with_email_action">Добавить адрес эл. почты</string>
   <string name="create_account_button">Создать учётную запись</string>
-  <string name="create_account_name_unavailable">Имя пользователя \"%s\" недоступно. Пожалуйста, укажите иное имя.</string>
+  <string name="create_account_name_unavailable">Имя участника \"%s\" недоступно. Пожалуйста, укажите иное имя.</string>
   <string name="create_account_ip_block_message">Извините, ваш IP-адрес заблокирован от создания новых учётных записей.</string>
   <string name="create_account_ip_block_help_url">https://ru.wikipedia.org/wiki/Википедия:Блокировки</string>
   <string name="create_account_ip_block_details">Подробности</string>
@@ -239,6 +239,7 @@
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.ru</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ru</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Используемые библиотеки</string>
   <string name="about_contributors_heading">Авторы</string>
   <string name="about_translators_heading">Переводчики</string>
@@ -332,6 +333,7 @@
   <string name="close_all_tabs_confirm_yes">Да</string>
   <string name="close_all_tabs_confirm_no">Нет</string>
   <string name="button_close_tab">Закрыть вкладку</string>
+  <string name="unnamed_tab_closed">Вкладка закрыта.</string>
   <string name="tab_item_closed">Закрыто: %s</string>
   <string name="all_tab_items_closed">Все вкладки закрыты.</string>
   <string name="tool_tip_bookmark_icon_title">Добавить в список для чтения</string>
@@ -376,6 +378,8 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Затемнение изображений</string>
   <string name="preference_title_prefer_offline_content">Приоритет офлайн-данным</string>
   <string name="preference_summary_prefer_offline_content">Экономит трафик, показывая офлайн-версию статьи, вместо того, чтобы каждый раз загружать самую свежую версию</string>
+  <string name="theme_chooser_dialog_match_system_theme_switch_label">Соответствует системной теме оформления</string>
+  <string name="page_footer_license_text">Если не указано иное, содержание доступно в соответствии с $1.</string>
   <string name="empty_tab_title">Новая вкладка</string>
   <string name="crash_report_activity_title">Ошибка приложения</string>
   <string name="crash_report_relaunch_or_quit">Сожалеем, но в приложении Википедии случилась ошибка, в результате чего оно было закрыто.\n\nВы хотите перезапустить его или выйти?</string>
@@ -672,6 +676,7 @@
   <string name="suggested_edits_translate_descriptions">Перевод описаний статей</string>
   <string name="suggested_edits_add_image_captions">Добавить описания изображений</string>
   <string name="suggested_edits_translate_image_captions">Перевести описания изображений</string>
+  <string name="suggested_edits_tag_images">Тегирование изображений</string>
   <string name="suggested_edits_review_description">Предпросмотр описания</string>
   <string name="suggested_edits_add_description_button">Добавить описание</string>
   <string name="suggested_edits_edit_description_button">Править описание</string>
@@ -733,8 +738,15 @@
   <string name="suggested_edits_task_action_text_add">Добавить</string>
   <string name="suggested_edits_task_action_text_translate">Перевести</string>
   <string name="suggested_edits_image_captions">Описания изображений</string>
+  <string name="suggested_edits_image_tags">Теги изображений</string>
   <string name="suggested_edits_image_tags_publishing">Публикация</string>
   <string name="suggested_edits_image_tags_published">Опубликовано</string>
+  <string name="suggested_edits_image_tags_onboarding_title">Тегирование изображений позволяет их легче найти.</string>
+  <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">Следующие изображения имеют теги предложенные компьютером и эти теги должен проверить человек, чтобы убедиться в их корректности.\n\nПодтверждая теги вы помогаете сделать изображения более доступными для поиска на Викискладе — репозитории изображений под свободной лицензией, которые используются в Википедии для иллюстрирования статей.</string>
+  <string name="suggested_edits_image_tags_snackbar">Добавьте теги изображений, чтобы улучшить поиск таких изображений.</string>
+  <string name="suggested_edits_image_tags_choose" fuzzy="true">Выберите соответствующие теги</string>
+  <string name="suggested_edits_image_tags_select_title">Вы не выбрали ни одного тега этому изображению</string>
+  <string name="suggested_edits_image_tags_select_text">Только выбранные вами теги будут добавлены изображениям. Те, которые вы не выбрали - будут отклонены. Вы уверены что хотите отклонить все теги?</string>
   <string name="suggested_edits_pageviews_label_text">Просмотры страниц</string>
   <string name="suggested_edits_quality_bad_text">Плохо</string>
   <plurals name="suggested_edits_edit_streak_detail_text">

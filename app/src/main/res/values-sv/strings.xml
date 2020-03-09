@@ -710,8 +710,8 @@
   <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">Genom att bekräfta föreslagna taggar hjälper du till att göra det lättare att söka efter dem.\n\nTaggförslagen skapas av en dator men behöver bekräftas av människor för att säkerställa noggrannheten.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Endast taggar som du väljer kommer att läggas till i bilder.</string>
   <string name="suggested_edits_image_tags_snackbar">Lägg till bildtaggar för att göra det lättare för andra att hitta bilderna.</string>
-  <string name="suggested_edits_image_tags_task_detail">Tagga bilder för att göra det lättare för andra att hitta dem. Taggarna föreslås automatiskt, men behöver bekräftas.</string>
-  <string name="suggested_edits_image_tags_choose">Välj lämpliga taggar</string>
+  <string name="suggested_edits_image_tags_task_detail" fuzzy="true">Tagga bilder för att göra det lättare för andra att hitta dem. Taggarna föreslås automatiskt, men behöver bekräftas.</string>
+  <string name="suggested_edits_image_tags_choose" fuzzy="true">Välj lämpliga taggar</string>
   <string name="suggested_edits_image_tags_select_title">Du har inte valt några taggar för denna bild</string>
   <string name="suggested_edits_image_tags_select_text">Endast taggar som du väljer kommer att läggas till i bilderna. Taggar som inte väljs kommer att markeras som avvisade. Är du säker på att du vill markera alla taggar som avvisade?</string>
   <string name="suggested_edits_image_zoom_tooltip">Nyp för att zooma denna bild.</string>

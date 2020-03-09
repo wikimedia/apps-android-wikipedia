@@ -701,7 +701,7 @@
   <string name="suggested_edits_image_captions" fuzzy="true">Képaláírások</string>
   <string name="suggested_edits_image_tags_publishing">Közzététel…</string>
   <string name="suggested_edits_image_tags_published">Közzétéve</string>
-  <string name="suggested_edits_image_tags_choose">Válassz passzoló címkéket</string>
+  <string name="suggested_edits_image_tags_choose" fuzzy="true">Válassz passzoló címkéket</string>
   <string name="suggested_edits_encouragement_message">%s, köszönet a szerkesztéseidért! Lentebb további módokat találsz, miképp közreműködhetsz még a Wikipédiához.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Szia %s!&lt;/b&gt; Tudtad, hogy bárki szerkesztheti a Wikipédiát? Lentebb további módokat találsz, miképp közreműködhetsz még a Wikipédiához. Jó szerkesztést!</string>
   <string name="suggested_edits_image_captions_task_detail">A képfeliratok segítenek az olvasóknak megérteni a képek jelentését és tartalmát.</string>
@@ -736,6 +736,7 @@
   </plurals>
   <string name="suggested_edits_last_edited">Utoljára szerkesztve</string>
   <string name="suggested_edits_last_edited_never">Soha</string>
+  <string name="suggested_edits_task_new">új</string>
   <string name="description_edit_revert_subtitle">Köszönjük, hogy szerkesztetted a Wikipédiát!</string>
   <string name="description_edit_revert_intro">Tudjuk, hogy megtetted a tőled telhetőt, de egy másik szerkesztőnek aggályai voltak a szerkesztéseddel kapcsolatban. Többek között az alábbiak miatt vonhatták vissza a szerkesztésedet:</string>
   <string name="description_edit_revert_reason1">nem követted az &lt;a href=\"%1$s\"&gt;irányelveket&lt;/a&gt;</string>

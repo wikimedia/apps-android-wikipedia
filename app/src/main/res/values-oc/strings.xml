@@ -6,6 +6,7 @@
 * Guilhelma
 * Nicolas Eynaud
 * Patriccck
+* Quentí
 * Unuaiga
 -->
 <resources>
@@ -178,6 +179,7 @@
   <string name="close_all_tabs_confirm_yes">Òc</string>
   <string name="close_all_tabs_confirm_no">Non</string>
   <string name="button_close_tab">Tampar l’onglet</string>
+  <string name="unnamed_tab_closed">Onglet tampat</string>
   <string name="page_view_in_browser">Afichar la pagina dins lo navigador</string>
   <string name="error_unknown">Una error desconeguda s\'es produita.</string>
   <string name="format_error_server_message">Messatge : \"%s\"</string>

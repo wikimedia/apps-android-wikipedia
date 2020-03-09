@@ -724,11 +724,11 @@
   <string name="suggested_edits_image_tags_publishing">Yayımlanıyor</string>
   <string name="suggested_edits_image_tags_published">Yayınlandı</string>
   <string name="suggested_edits_image_tags_onboarding_title">Görüntüleri etiketlemek onları bulmayı kolaylaştırır.</string>
-  <string name="suggested_edits_image_tags_onboarding_text">Aşağıdaki resimlerde bilgisayar tarafından önerilen etiketler bulunur ve doğruluk için bir kişi tarafından onaylanması gerekir.\n\nEtiketleri onaylayarak, Vikipedi\'nin makalelerindeki resimler için kullandığı ücretsiz lisans resim deposu Commons\'ta resimlerin aranmasını kolaylaştırmaya yardımcı olacaksınız.</string>
+  <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">Aşağıdaki resimlerde bilgisayar tarafından önerilen etiketler bulunur ve doğruluk için bir kişi tarafından onaylanması gerekir.\n\nEtiketleri onaylayarak, Vikipedi\'nin makalelerindeki resimler için kullandığı ücretsiz lisans resim deposu Commons\'ta resimlerin aranmasını kolaylaştırmaya yardımcı olacaksınız.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Yalnızca seçtiğiniz etiketler görüntülere eklenir.</string>
   <string name="suggested_edits_image_tags_snackbar">Başkalarının bulmasını kolaylaştırmak için resim etiketleri ekleyin.</string>
-  <string name="suggested_edits_image_tags_task_detail">Başkalarının bulmasını kolaylaştırmak için görüntüleri etiketleyin. Bunlar bilgisayar tarafından önerilir, ancak doğrulanması gerekir.</string>
-  <string name="suggested_edits_image_tags_choose">Eşleşen etiketleri seçin</string>
+  <string name="suggested_edits_image_tags_task_detail" fuzzy="true">Başkalarının bulmasını kolaylaştırmak için görüntüleri etiketleyin. Bunlar bilgisayar tarafından önerilir, ancak doğrulanması gerekir.</string>
+  <string name="suggested_edits_image_tags_choose" fuzzy="true">Eşleşen etiketleri seçin</string>
   <string name="suggested_edits_image_tags_select_title">Bu resim için herhangi bir etiket seçmediniz</string>
   <string name="suggested_edits_image_tags_select_text">Yalnızca seçtiğiniz etiketler görüntülere eklenir. Seçilmeyen etiketler reddedildi olarak işaretlenir. Tüm etiketleri reddedildi olarak işaretlemek istediğinizden emin misiniz?</string>
   <string name="suggested_edits_image_zoom_tooltip">Bu resmi yakınlaştırmak için sıkıştırın.</string>
