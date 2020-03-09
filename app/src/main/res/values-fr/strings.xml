@@ -729,11 +729,11 @@
   <string name="suggested_edits_image_tags_publishing">Publication</string>
   <string name="suggested_edits_image_tags_published">Publié</string>
   <string name="suggested_edits_image_tags_onboarding_title">Marquer les images permet de les retrouver plus facilement.</string>
-  <string name="suggested_edits_image_tags_onboarding_text">Les images suivantes ont des balises suggérées par un ordinateur qui doivent être validées par un humain pour garantir leur pertinence.\n\nEn confirmant ces balises, vous facilitez la recherche d’images sur Commons, le répertoire d’images sous licence libre utilisé par Wikipédia pour illustrer ses articles.</string>
+  <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">Les images suivantes ont des balises suggérées par un ordinateur qui doivent être validées par un humain pour garantir leur pertinence.\n\nEn confirmant ces balises, vous facilitez la recherche d’images sur Commons, le répertoire d’images sous licence libre utilisé par Wikipédia pour illustrer ses articles.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Seules les balises que vous choisissez seront ajoutées aux images.</string>
   <string name="suggested_edits_image_tags_snackbar">Ajouter des balises à l’image pour les rendre plus faciles à trouver par les autres.</string>
-  <string name="suggested_edits_image_tags_task_detail">Marquer les images pour les rendre plus faciles à trouver par les autres. Les balises sont suggérées par la machine, mais elles doivent être validées.</string>
-  <string name="suggested_edits_image_tags_choose">Choisir les balises qui correspondent</string>
+  <string name="suggested_edits_image_tags_task_detail" fuzzy="true">Marquer les images pour les rendre plus faciles à trouver par les autres. Les balises sont suggérées par la machine, mais elles doivent être validées.</string>
+  <string name="suggested_edits_image_tags_choose" fuzzy="true">Choisir les balises qui correspondent</string>
   <string name="suggested_edits_image_tags_select_title">Vous n’avez pas sélectionné de balise pour cette image</string>
   <string name="suggested_edits_image_tags_select_text">Seules les balises que vous choisirez seront ajoutées aux images. Les balises qui ne sont pas sélectionnées seront marquées comme rejetées. Êtes-vous sûr de vouloir marquer toutes les balises comme rejetées ?</string>
   <string name="suggested_edits_image_zoom_tooltip">Pincer pour zoomer sur cette image.</string>

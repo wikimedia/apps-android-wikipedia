@@ -711,11 +711,11 @@
   <string name="suggested_edits_image_tags_publishing">發布中</string>
   <string name="suggested_edits_image_tags_published">已發布</string>
   <string name="suggested_edits_image_tags_onboarding_title">標記圖片來讓它們能更容易被找到。</string>
-  <string name="suggested_edits_image_tags_onboarding_text">以下圖片已由電腦做出建議的標籤，並需要經過人工驗證來確保準確度。\n\n透過確認標籤，您可以協助圖片在維基共享資源上能更容易被搜尋到，維基共享資源是讓維基百科能使用圖片在條目裡的自由許可圖片儲存庫。</string>
+  <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">以下圖片已由電腦做出建議的標籤，並需要經過人工驗證來確保準確度。\n\n透過確認標籤，您可以協助圖片在維基共享資源上能更容易被搜尋到，維基共享資源是讓維基百科能使用圖片在條目裡的自由許可圖片儲存庫。</string>
   <string name="suggested_edits_image_tags_onboarding_note">僅添加您挑選的標籤到圖片上。</string>
   <string name="suggested_edits_image_tags_snackbar">添加圖片標記來讓它們能更容易被其他人找到</string>
-  <string name="suggested_edits_image_tags_task_detail">標記圖片來讓它們能更容易被其他人找到。它們會被電腦給自動建議，但需要做出驗證。</string>
-  <string name="suggested_edits_image_tags_choose">挑選符合的標記</string>
+  <string name="suggested_edits_image_tags_task_detail" fuzzy="true">標記圖片來讓它們能更容易被其他人找到。它們會被電腦給自動建議，但需要做出驗證。</string>
+  <string name="suggested_edits_image_tags_choose" fuzzy="true">挑選符合的標記</string>
   <string name="suggested_edits_image_tags_select_title">您尚未對此圖片選擇任何標記</string>
   <string name="suggested_edits_image_tags_select_text">僅添加您挑選的標籤到圖片上。未被選擇到的標籤將會被標記為拒絕，您確定要將所有標籤標記為拒絕？</string>
   <string name="suggested_edits_image_zoom_tooltip">做出夾捏的動作來縮放此圖片。</string>

@@ -706,11 +706,11 @@
   <string name="suggested_edits_image_tags_publishing">מתפרסם</string>
   <string name="suggested_edits_image_tags_published">פורסם</string>
   <string name="suggested_edits_image_tags_onboarding_title">תיוג תמונות עוזר לאחרים למצוא אותן.</string>
-  <string name="suggested_edits_image_tags_onboarding_text">בתמונות האלה יש תגים שמחשב הציע, ושאדם צריך לבדוק את התקינות שלהם כדי לוודא את הדיוק.\n\nאימות התגים יעזור לאחרים למצוא אותן בוויקישיתוף, מאגר התמונות החופשיות שוויקיפדיה משתמשת בו לתמונות בערכים שלה.</string>
+  <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">בתמונות האלה יש תגים שמחשב הציע, ושאדם צריך לבדוק את התקינות שלהם כדי לוודא את הדיוק.\n\nאימות התגים יעזור לאחרים למצוא אותן בוויקישיתוף, מאגר התמונות החופשיות שוויקיפדיה משתמשת בו לתמונות בערכים שלה.</string>
   <string name="suggested_edits_image_tags_onboarding_note">רק תגים שאישרת יוּספו לתמונות.</string>
   <string name="suggested_edits_image_tags_snackbar">תייגו תמונות כדי שלאחרים יהיה קל יותר למצוא אותן</string>
-  <string name="suggested_edits_image_tags_task_detail">תייגו תמונות כדי שלאחרים יהיה קל יותר למצוא אותן. מחשב מציע אותם, אבל צריך לוודא שהם נכונים.</string>
-  <string name="suggested_edits_image_tags_choose">נא לבחור תגים תואמים</string>
+  <string name="suggested_edits_image_tags_task_detail" fuzzy="true">תייגו תמונות כדי שלאחרים יהיה קל יותר למצוא אותן. מחשב מציע אותם, אבל צריך לוודא שהם נכונים.</string>
+  <string name="suggested_edits_image_tags_choose" fuzzy="true">נא לבחור תגים תואמים</string>
   <string name="suggested_edits_image_tags_select_title">לא בחרת שום תגים לתמונה הזאת</string>
   <string name="suggested_edits_image_tags_select_text">רק תגים שתבחרו יוספו לתמונות. תגים שלא בחרת יסומנו בתור תגים שנדחו. האם ברצונך באמת לסמן את כל התגים האלה בתור תגים שנדחו?</string>
   <string name="suggested_edits_image_zoom_tooltip">אפשר לקרב את התמונה הזאת בשתי אצבעות.</string>
