@@ -586,6 +586,7 @@
   <string name="suggested_edits_article_cta_snackbar_action">ߦߌ߬ߘߊ߬ߟߌ</string>
   <string name="suggested_edits_feed_card_add_image_caption" fuzzy="true">ߝߍ߬ߛߓߍߟߌ ߟߊߘߏ߲߬</string>
   <string name="suggested_edits_feed_card_translate_image_caption" fuzzy="true">ߝߍ߬ߛߓߍߟߌ ߟߊߘߏ߲߬ (%s)</string>
+  <string name="suggested_edits_image_captions">ߖߌ߬ߦߊ߬ߓߍ ߝߍ߬ߛߓߍߟߌ</string>
   <string name="description_edit_revert_subtitle">ߌ ߞߎߟߎ߲ߖߋ߫ ߥߞߌߔߋߘߌߦߊ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߠߊ߫߹</string>
   <string name="description_edit_revert_reason1">ߌ ߟߊ߫ ߓߟߏߓߌߟߊߢߐ߲߮ߞߊ߲ ߟߎ߬ ߡߊ߫ &lt;a href=\"%1$s\"&gt;guidelines&lt;/a&gt; ߘߏ߫ ߘߐ߫ ߞߋߟߋ߲߫ ߠߊߓߊ߬ߕߏ߬.</string>
   <string name="description_edit_revert_reason2">ߌ ߟߊ߫ ߓߟߏߡߊߜߍ߲ ߞߍ߫ ߣߍ߲߫ ߦߏ߫ ߘߊ߲߬ߕߍ߰ߟߌ߫ ߥߟߊ߫ ߞߏߘߐߕߌߢߍ߫.</string>

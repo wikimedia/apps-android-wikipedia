@@ -721,11 +721,11 @@
   <string name="suggested_edits_image_tags_publishing">Publicando</string>
   <string name="suggested_edits_image_tags_published">Publicados</string>
   <string name="suggested_edits_image_tags_onboarding_title">A marcação de imagens facilita a localização.</string>
-  <string name="suggested_edits_image_tags_onboarding_text">As imagens a seguir têm marcações sugeridas por um computador e precisam ser validadas por um ser humano para garantir a precisão.\n\nAo confirmar as marcações, você ajudará a facilitar a pesquisa de imagens no Commons, o repositório gratuito de imagens de licença que a Wikipédia usa para imagens em seus artigos.</string>
+  <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">As imagens a seguir têm marcações sugeridas por um computador e precisam ser validadas por um ser humano para garantir a precisão.\n\nAo confirmar as marcações, você ajudará a facilitar a pesquisa de imagens no Commons, o repositório gratuito de imagens de licença que a Wikipédia usa para imagens em seus artigos.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Somente as marcações que você escolher serão adicionadas às imagens.</string>
   <string name="suggested_edits_image_tags_snackbar">Adicione marcação de imagem para facilitar a localização de outras pessoas.</string>
-  <string name="suggested_edits_image_tags_task_detail">Marque as imagens para facilitar a localização de outras pessoas. Eles são sugeridos por computador, mas precisam ser validados.</string>
-  <string name="suggested_edits_image_tags_choose">Escolha as marcações correspondentes</string>
+  <string name="suggested_edits_image_tags_task_detail" fuzzy="true">Marque as imagens para facilitar a localização de outras pessoas. Eles são sugeridos por computador, mas precisam ser validados.</string>
+  <string name="suggested_edits_image_tags_choose" fuzzy="true">Escolha as marcações correspondentes</string>
   <string name="suggested_edits_image_tags_select_title">Você não selecionou nenhuma marcação para esta imagem</string>
   <string name="suggested_edits_image_tags_select_text">Somente as marcações que você escolher serão adicionadas às imagens. Tags que não estão selecionadas serão marcadas como rejeitadas. Tem certeza de que deseja marcar todas as tags como rejeitadas?</string>
   <string name="suggested_edits_image_zoom_tooltip">Aperte para ampliar esta imagem.</string>

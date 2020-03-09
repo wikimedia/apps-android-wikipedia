@@ -124,7 +124,7 @@
   <string name="login_in_progress_dialog_message">Входимо до системи…</string>
   <string name="login_success_toast">Ви успішно ввійшли!</string>
   <string name="reset_password_title">Встановіть пароль</string>
-  <string name="reset_password_description">Ви увійшли в систему за допомогою тимчасового паролю. Щоб завершити вхід, встановіть новий пароль тут.</string>
+  <string name="reset_password_description">Ви увійшли в систему за допомогою тимчасового пароля. Щоб завершити вхід, встановіть новий пароль тут.</string>
   <string name="reset_password_hint">Новий пароль</string>
   <string name="reset_password_button">Зберегти і увійти</string>
   <string name="preference_title_logout">Вийти із системи</string>
@@ -158,7 +158,7 @@
   <string name="create_account_generic_error">Неможливо створити обліковий запис</string>
   <string name="create_account_next">Далі</string>
   <string name="email_recommendation_dialog_title">Створити обліковий запис без електронної адреси?</string>
-  <string name="email_recommendation_dialog_message">Хоча вказівка адреси електронної пошти не є обов\'язковою, дуже рекомендуємо її вказати, оскільки вона буде використана для відновлення паролю в разі його втрати.</string>
+  <string name="email_recommendation_dialog_message">Хоча вказування адреси електронної пошти не є обов\'язковим, дуже рекомендуємо її вказати, оскільки вона необхідна для відновлення пароля в разі його втрати.</string>
   <string name="email_recommendation_message">Рекомендовано, оскільки електронна пошта обов\'язкова для відновлення облікового запису.</string>
   <string name="email_recommendation_dialog_create_without_email_action">Продовжити без електронної пошти</string>
   <string name="email_recommendation_dialog_create_with_email_action">Додати електронну пошту</string>
@@ -710,11 +710,11 @@
   <string name="suggested_edits_image_tags_publishing">Публікація</string>
   <string name="suggested_edits_image_tags_published">Опубліковано</string>
   <string name="suggested_edits_image_tags_onboarding_title">Додавання тегів до зображень полегшує їх пошук.</string>
-  <string name="suggested_edits_image_tags_onboarding_text">Вказані зображення мають теги, запропоновані комп\'ютером, і ці теги має перевірити людина, щоб переконатися в їх точності.\n\nПідтверджуючи теги, ви допоможете полегшити пошук таких зображень на Вікісховищі — сховищі зображень під вільними ліцензіями, яке Вікіпедія використовує для додавання зображень до своїх статей.</string>
+  <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">Вказані зображення мають теги, запропоновані комп\'ютером, і ці теги має перевірити людина, щоб переконатися в їх точності.\n\nПідтверджуючи теги, ви допоможете полегшити пошук таких зображень на Вікісховищі — сховищі зображень під вільними ліцензіями, яке Вікіпедія використовує для додавання зображень до своїх статей.</string>
   <string name="suggested_edits_image_tags_onboarding_note">До зображень буде додано лише ті теги, які ви затвердите.</string>
   <string name="suggested_edits_image_tags_snackbar">Додавайте теги до зображень, щоб полегшити їх пошук для інших користувачів.</string>
-  <string name="suggested_edits_image_tags_task_detail">Додавайте теги до зображень, щоб полегшити їх пошук для інших користувачів. Їх пропонує комп\'ютер, але має затверджувати людина.</string>
-  <string name="suggested_edits_image_tags_choose">Виберіть відповідні теги</string>
+  <string name="suggested_edits_image_tags_task_detail" fuzzy="true">Додавайте теги до зображень, щоб полегшити їх пошук для інших користувачів. Їх пропонує комп\'ютер, але має затверджувати людина.</string>
+  <string name="suggested_edits_image_tags_choose" fuzzy="true">Виберіть відповідні теги</string>
   <string name="suggested_edits_image_tags_select_title">Ви не вибрали жодного тегу для цього зображення</string>
   <string name="suggested_edits_image_tags_select_text">До зображень буде додано лише ті теги, які ви виберете. Теги, які ви не виберете, буде позначено як відхилені. Ви впевнені, що хочете позначити всі теги як відхилені?</string>
   <string name="suggested_edits_image_zoom_tooltip">Розтягніть, щоб збільшити зображення.</string>
