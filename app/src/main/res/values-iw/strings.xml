@@ -682,7 +682,6 @@
   <string name="suggested_edits_feed_card_title">עריכות מוצעות</string>
   <string name="suggested_edits_feed_card_add_description_button">הוספת תיאור ערך</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">הוספת תיאור ערך (%s)</string>
-  <string name="suggested_edits_tutorial_message">ברוך בואך לבית החדש לעריכה מהירה מתוך יישומון ויקיפדיה. אנו מאוד מעריכים את התרומות שלך. בהצלחה בעריכה!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">מדריך למתחילים</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">כיתוב התמונה (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">תיאור התמונה (%s)</string>

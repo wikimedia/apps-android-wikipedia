@@ -687,7 +687,6 @@
   <string name="suggested_edits_feed_card_title">建議編輯</string>
   <string name="suggested_edits_feed_card_add_description_button">新增條目描述</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">新增條目描述（%s）</string>
-  <string name="suggested_edits_tutorial_message">歡迎來到在維基百科應用程式裡用於快速編輯的新主頁。對於您的貢獻我們在此感激，祝編安！</string>
   <string name="suggested_edits_tasks_onboarding_get_started">入門</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">圖片說明（%s）</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">圖片描述（%s）</string>

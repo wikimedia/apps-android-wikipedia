@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_suggested_edits_onboarding.*
 import org.wikipedia.R
+import org.wikipedia.auth.AccountUtil
 import org.wikipedia.settings.Prefs
 
 class SuggestedEditsOnboardingFragment : Fragment() {
@@ -19,6 +20,7 @@ class SuggestedEditsOnboardingFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         Prefs.setShowEditTasksOnboarding(false)
+        onboardingPageView.setSecondaryText(getString(R.string.suggested_edits_onboarding_text,AccountUtil.getUserName()))
         getStartedButton.setOnClickListener {
             requireActivity().setResult(Activity.RESULT_OK)
             requireActivity().finish()

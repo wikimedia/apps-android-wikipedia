@@ -691,7 +691,6 @@
   <string name="suggested_edits_feed_card_title">Sugerowane edycje</string>
   <string name="suggested_edits_feed_card_add_description_button">Dodaj opis artykułu</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Dodaj opisy artykułów (%s)</string>
-  <string name="suggested_edits_tutorial_message">Witamy w nowym domu do szybkiej edycji w aplikacji Wikipedia. Twój wkład jest bardzo mile widziany. Miłej edycji!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Rozpocznij</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Podpis obrazka (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Podpis obrazka (%s)</string>

@@ -671,7 +671,6 @@
   <string name="suggested_edits_feed_card_title">ویرایش‌های پیشنهادی</string>
   <string name="suggested_edits_feed_card_add_description_button">افزودن توضیح مقاله</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">افزودن توضیحات مقاله (%s)</string>
-  <string name="suggested_edits_tutorial_message">خوش آمدید به بخش جدیدی که برای ویرایش سریع در اپلیکیشن ویکی‌پدیا ایجاد کرده‌ایم. قدر مشارکت شما را می‌دانیم. ویرایشتان مبارک!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">شروع شد</string>
   <string name="suggested_edits_image_preview_dialog_artist">نام هنرمند</string>
   <string name="suggested_edits_image_preview_dialog_date">تاریخ</string>

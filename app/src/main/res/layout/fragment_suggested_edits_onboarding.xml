@@ -8,13 +8,14 @@
     tools:context="org.wikipedia.onboarding.SuggestedEditsOnboardingFragment">
 
     <org.wikipedia.onboarding.OnboardingPageView
+        android:id="@+id/onboardingPageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="visible"
         app:centeredImage="@drawable/ic_editor_onboarding"
         app:imageSize="207dp"
         app:primaryText="@string/suggested_edits_tasks_activity_title"
-        app:secondaryText="@string/suggested_edits_tutorial_message"
+        app:secondaryText="@string/suggested_edits_onboarding_text"
         app:tertiaryText="@string/description_edit_tutorial_promise" />
 
     <View

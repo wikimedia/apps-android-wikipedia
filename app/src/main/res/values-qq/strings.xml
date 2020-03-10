@@ -692,7 +692,6 @@
   <string name="suggested_edits_feed_card_title">Title text for suggested edits card in the explore feed.\n\n{{Identical|Suggested edits}}</string>
   <string name="suggested_edits_feed_card_add_description_button">Suggested edits feed card call-to-action text for adding article descriptions.</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Button label to add article description in certain language. The %s is replaced by the language that the description is used.</string>
-  <string name="suggested_edits_tutorial_message">Concise on-boarding message to the editor task list.</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Text on button to start tasks from edit action feed.\n{{Identical|Get started}}</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Label for image caption detail on image details screen. The %s is replaced by the language that the caption is used.</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Label for image description detail on image details screen. The %s is replaced by the language that the description is used.</string>
@@ -858,4 +857,5 @@
   <string name="suggested_edits_feed_card_add_image_tags">Suggested edits feed card call-to-action text for adding image depicts.</string>
   <string name="description_edit_success_saved_image_tags_snackbar">Message shown on a snackbar that the image tags the user just added were saved.</string>
   <string name="suggested_edits_image_tags_add_tag">Label text suggesting that user can add custom tags.</string>
+  <string name="suggested_edits_onboarding_text">Message text shown to users who havent yet used the suggested edits features from feed cards, to encourage them to start editing.%s represents the user\'s name</string>
 </resources>

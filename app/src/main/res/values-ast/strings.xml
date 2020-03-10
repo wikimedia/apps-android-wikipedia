@@ -670,7 +670,6 @@
   <string name="suggested_edits_feed_card_title">Ediciones suxeríes</string>
   <string name="suggested_edits_feed_card_add_description_button">Amestar descripción del artículu</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Amestar descripción del artículu (%s)</string>
-  <string name="suggested_edits_tutorial_message">Dámoste la bienvenida a la nueva páxina d\'entamu d\'edición rápida na app de Wikipedia. Apreciamos enforma les tos contribuciones. ¡Feliz edición!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Primeros pasos</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Pie d\'imaxe (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Descripción de la imaxe (%s)</string>

@@ -647,7 +647,6 @@
   <string name="suggested_edits_feed_card_title">Sugestataj redaktoj</string>
   <string name="suggested_edits_feed_card_add_description_button">Aldoni priskribon de artikolo</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Aldoni priskribon al artikolo (je %s)</string>
-  <string name="suggested_edits_tutorial_message">Bonvenon al la nova hejmo por rapida redaktado en la Vikipedia aplikaĵo. Ni valoras viajn kontribuojn. Feliĉan redaktadon!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Komenci</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Titolo de bildo (je %s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Priskribo de bildo (je %s)</string>

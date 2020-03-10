@@ -671,7 +671,6 @@
   <string name="suggested_edits_feed_card_title">Ehdotetut muokkaukset</string>
   <string name="suggested_edits_feed_card_add_description_button">Lisää artikkelin kuvaus</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Lisää artikkelin kuvaus (%s)</string>
-  <string name="suggested_edits_tutorial_message">Tervetuloa pikamuokkauksen uuteen kotiin Wikipedia-sovelluksessa. Muokkauksesi ovat hyvin arvostettuja. Iloista muokkaamista!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Aloittaminen</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Kuvateksti (%s)</string>
   <string name="suggested_edits_image_preview_dialog_artist">Taiteilija</string>

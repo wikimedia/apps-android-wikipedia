@@ -683,7 +683,6 @@
   <string name="suggested_edits_feed_card_title">편집 제안</string>
   <string name="suggested_edits_feed_card_add_description_button">문서 설명 추가</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">문서 설명 추가 (%s)</string>
-  <string name="suggested_edits_tutorial_message">위키백과 앱의 빠른 편집의 새 터전에 오신 것을 환영합니다. 기여에 대단히 감사드립니다. 즐거운 편집 되십시오!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">시작하기</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">이미지 캡션 (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">이미지 설명 (%s)</string>

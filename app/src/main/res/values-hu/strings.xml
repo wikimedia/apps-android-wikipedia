@@ -679,7 +679,6 @@
   <string name="suggested_edits_feed_card_title">Javasolt szerkesztések</string>
   <string name="suggested_edits_feed_card_add_description_button">Szócikkleírások hozzáadása</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Szócikkleírások hozzáadása (%s)</string>
-  <string name="suggested_edits_tutorial_message">Légy üdvözölve a Wikipédia app gyors szerkesztőjében. Hozzájárulásodat nagyon köszönjük. Kellemes szerkesztést!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Kezdés</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Képaláírás (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Kép leírása (%s)</string>

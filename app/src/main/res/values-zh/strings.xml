@@ -697,7 +697,6 @@
   <string name="suggested_edits_feed_card_title">建议编辑</string>
   <string name="suggested_edits_feed_card_add_description_button">添加条目描述</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">添加条目描述（%s）</string>
-  <string name="suggested_edits_tutorial_message">欢迎来到维基百科的新版应用内编辑界面。在这里，我们会提供你感兴趣的内容供你编辑。向你的贡献致敬！祝编辑愉快~</string>
   <string name="suggested_edits_tasks_onboarding_get_started">入门</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">图片说明（%s）</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">图片描述（%s）</string>

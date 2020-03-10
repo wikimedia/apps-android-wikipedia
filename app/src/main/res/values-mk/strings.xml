@@ -672,7 +672,6 @@
   <string name="suggested_edits_feed_card_title">Предложени уредувања</string>
   <string name="suggested_edits_feed_card_add_description_button">Додај опис на статијата</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Додај опис на статијата (%s)</string>
-  <string name="suggested_edits_tutorial_message">Добре дојдовте во новиот дом за брзо уредување од прилогот на Википедија. Вашите придонеси се мошне ценети. Среќно уредување!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Започни</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Опис на сликата (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Опис на сликата (%s)</string>

@@ -681,7 +681,6 @@
   <string name="suggested_edits_feed_card_title">Vorgeschlagene Bearbeitungen</string>
   <string name="suggested_edits_feed_card_add_description_button">Artikelbeschreibung hinzufügen</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Artikelbeschreibungen hinzufügen (%s)</string>
-  <string name="suggested_edits_tutorial_message">Willkommen bei der neuen Startseite zum schnellen Bearbeiten in der Wikipedia-App. Deine Beiträge werden hoch geschätzt. Fröhliches Bearbeiten!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Anfangen</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Bildunterschrift (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Bildbeschreibung (%s)</string>

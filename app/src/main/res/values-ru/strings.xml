@@ -718,7 +718,6 @@
   <string name="suggested_edits_feed_card_title">Предложения отредактировать</string>
   <string name="suggested_edits_feed_card_add_description_button">Добавление описания статей</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Добавление описания статей (%s)</string>
-  <string name="suggested_edits_tutorial_message">Добро пожаловать в новое приложение для быстрого редактирования Википедии. Ваш вклад весьма ценен. Приятного редактирования!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Начать</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Описание изображения (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Описание изображения (%s)</string>

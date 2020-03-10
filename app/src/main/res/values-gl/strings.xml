@@ -673,7 +673,6 @@
   <string name="suggested_edits_feed_card_title">Edicións suxeridas</string>
   <string name="suggested_edits_feed_card_add_description_button">Engadir descrición de artigo</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Engadir descrición de imaxe (%s)</string>
-  <string name="suggested_edits_tutorial_message">Benvido á nova páxina inicial de edición rápida da aplicación da Wikipedia. As súas contribucións son moi apreciadas. Boas ediciónsǃ</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Comezar</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Lenda de imaxe (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Descrición da imaxe (%s)</string>

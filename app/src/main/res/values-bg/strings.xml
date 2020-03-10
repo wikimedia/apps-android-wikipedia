@@ -661,7 +661,6 @@
   <string name="suggested_edits_feed_card_title">Предложения за редактиране</string>
   <string name="suggested_edits_feed_card_add_description_button">Добавяне на описание на статията</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Добавяне на описание на статията (%s)</string>
-  <string name="suggested_edits_tutorial_message">Добре дошли в новия дом за редактиране от приложение на Уикипедия. Тук ще ви предложим възможности за добавяне на съдържание, което може да ви заинтересува. Вашите приноси са високо ценени. Успех!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Започване</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Описание на изображението (%s)</string>
   <string name="suggested_edits_image_preview_dialog_date">Дата</string>

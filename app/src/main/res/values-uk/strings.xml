@@ -686,7 +686,6 @@
   <string name="suggested_edits_feed_card_title">Пропоновані редагування</string>
   <string name="suggested_edits_feed_card_add_description_button">Додати опис статті</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Додати опис статті (%s)</string>
-  <string name="suggested_edits_tutorial_message">Ласкаво просимо до нової домівки швидкого редагування у додатку Вікіпедії. Ваш внесок дуже цінний. Приємного редагування!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Розпочати</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Підпис зображення (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Опис зображення (%s)</string>

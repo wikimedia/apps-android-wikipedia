@@ -680,7 +680,6 @@
   <string name="suggested_edits_feed_card_title">Navrhované úpravy</string>
   <string name="suggested_edits_feed_card_add_description_button">Pridať popis článku</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Pridať popis článku v jazyku %s</string>
-  <string name="suggested_edits_tutorial_message">Vitajte v novom domove pre rýchle upravovanie v aplikácii Wikipédia. Vaše príspevky sú veľmi oceňované. Veľa šťastia pri úpravách!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Začíname</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Titulok obrázku v jazyku %s</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Popis obrázku v jazyku %s</string>

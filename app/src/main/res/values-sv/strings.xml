@@ -683,7 +683,6 @@
   <string name="suggested_edits_feed_card_title">Redigeringsförslag</string>
   <string name="suggested_edits_feed_card_add_description_button">Lägg till artikelbeskrivning</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Lägg till beskrivningar %s</string>
-  <string name="suggested_edits_tutorial_message">Välkommen till den nya startsidan för att snabbredigera i Wikipedia-appen. Dina bidrag uppskattas. Ha det så roligt!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Kom igång</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Bildtexter (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Bildbeskrivning (%s)</string>

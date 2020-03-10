@@ -148,6 +148,10 @@ public class OnboardingPageView extends LinearLayout {
         }
     }
 
+    public void setSecondaryText(String secondaryText) {
+        secondaryTextView.setText(StringUtil.fromHtml(secondaryText));
+    }
+
     private void setUpListContainer(boolean showListView, @Nullable String dataType) {
         if (!showListView) {
             return;

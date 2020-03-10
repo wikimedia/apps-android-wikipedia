@@ -605,7 +605,6 @@
   </plurals>
   <string name="suggested_edits_feed_card_title">Predložene izmjene</string>
   <string name="suggested_edits_feed_card_add_description_button">Dodaj opis članka</string>
-  <string name="suggested_edits_tutorial_message">Dobro došli na novu početnu stranicu za brzo uređivanje u Wikipedijinoj aplikaciji. Veselimo se Vašim doprinosima. Ugodno uređivanje!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Krenimo</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Natpis slike (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Opis slike (%s)</string>

@@ -655,7 +655,6 @@
   <string name="suggested_edits_feed_card_title">Уларытар туһунан этиилэр</string>
   <string name="suggested_edits_feed_card_add_description_button">Ыстатыйаҕа быһаарыы эбии</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Кылгас быһаарыыны эбии (%s)</string>
-  <string name="suggested_edits_tutorial_message">Бикипиэдьийэни уларытар саҥа дьибилгэккэ киирдиҥ. Манна саҥаны эбэр кыахтаныаҥ, онтон астыныаҥ дии саныыбыт. Эн суруйууҥ наһаа туһалаах! Үөрэ-көтө суруй.</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Саҕалыырга</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Ойуу туһунан (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Ойуу туһунан (%s)</string>
