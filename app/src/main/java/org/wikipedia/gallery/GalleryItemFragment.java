@@ -47,6 +47,7 @@ import org.wikipedia.util.ImageUrlUtil;
 import org.wikipedia.util.PermissionUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
+import org.wikipedia.views.ImageZoomHelper;
 import org.wikipedia.views.ZoomableDraweeViewWithBackground;
 
 import butterknife.BindView;
@@ -334,6 +335,7 @@ public class GalleryItemFragment extends Fragment {
 
         updateProgressBar(true);
         imageView.setDrawBackground(false);
+        ImageZoomHelper.setViewZoomable(imageView);
         imageView.setController(Fresco.newDraweeControllerBuilder()
                 .setUri(url)
                 .setAutoPlayAnimations(true)

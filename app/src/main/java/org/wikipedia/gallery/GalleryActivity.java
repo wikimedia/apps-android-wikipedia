@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.Menu;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -57,6 +58,7 @@ import org.wikipedia.util.ImageUrlUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
+import org.wikipedia.views.ImageZoomHelper;
 import org.wikipedia.views.PositionAwareFragmentStateAdapter;
 import org.wikipedia.views.ViewAnimations;
 import org.wikipedia.views.WikiErrorView;
@@ -131,6 +133,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
 
     private boolean controlsShowing = true;
     private GalleryPageChangeListener pageChangeListener = new GalleryPageChangeListener();
+    private ImageZoomHelper imageZoomHelper;
 
     @Nullable private GalleryFunnel funnel;
 
@@ -189,6 +192,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         infoGradient.setBackground(GradientUtil.getPowerGradient(R.color.black38, Gravity.BOTTOM));
         descriptionText.setMovementMethod(linkMovementMethod);
         creditText.setMovementMethod(linkMovementMethod);
+        imageZoomHelper = new ImageZoomHelper(this);
 
         ((ImageView) errorView.findViewById(R.id.view_wiki_error_icon))
                 .setColorFilter(ContextCompat.getColor(this, R.color.base70));
@@ -240,6 +244,15 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         }
         toolbarContainer.post(() -> setControlsShowing(controlsShowing));
         loadGalleryContent();
+    }
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent event) {
+        try {
+            return imageZoomHelper.onDispatchTouchEvent(event) || super.dispatchTouchEvent(event);
+        } catch (Exception ignored) {
+        }
+        return false;
     }
 
     @Override public void onDestroy() {
