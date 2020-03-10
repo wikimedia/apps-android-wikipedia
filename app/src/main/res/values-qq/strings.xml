@@ -857,4 +857,5 @@
   <string name="custom_date_picker_dialog_cancel_button_text">Negative action button text in date picker pop-up dialog.\n{{Identical|Cancel}}</string>
   <string name="suggested_edits_feed_card_add_image_tags">Suggested edits feed card call-to-action text for adding image depicts.</string>
   <string name="description_edit_success_saved_image_tags_snackbar">Message shown on a snackbar that the image tags the user just added were saved.</string>
+  <string name="suggested_edits_image_tags_add_tag">Label text suggesting that user can add custom tags.</string>
 </resources>
