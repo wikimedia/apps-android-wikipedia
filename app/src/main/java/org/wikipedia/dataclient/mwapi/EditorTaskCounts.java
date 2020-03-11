@@ -15,6 +15,7 @@ import java.text.ParseException;
 import java.util.Collections;
 import java.util.Date;
 import java.util.Map;
+import java.util.Objects;
 
 @SuppressWarnings("unused")
 public class EditorTaskCounts {
@@ -40,6 +41,15 @@ public class EditorTaskCounts {
         return editsPerLanguage == null ? Collections.emptyMap() : editsPerLanguage;
     }
 
+    @NonNull
+    public Integer getTotalDepictsEdits() {
+        Map<String, Integer> editsPerLanguage = null;
+        if (counts != null && !(counts instanceof JsonArray)) {
+            editsPerLanguage = GsonUtil.getDefaultGson().fromJson(counts, Counts.class).appDepictsEdits;
+        }
+        return editsPerLanguage == null ? 0 : editsPerLanguage.get("*") == null ? 0 : Objects.requireNonNull(editsPerLanguage.get("*"));
+    }
+
     public int getTotalEdits() {
         int totalEdits = 0;
         for (int count : getDescriptionEditsPerLanguage().values()) {
@@ -48,6 +58,7 @@ public class EditorTaskCounts {
         for (int count : getCaptionEditsPerLanguage().values()) {
             totalEdits += count;
         }
+        totalEdits += getTotalDepictsEdits();
         if (Prefs.shouldOverrideSuggestedEditCounts()) {
             totalEdits = Prefs.getOverrideSuggestedEditCount();
         }
@@ -72,6 +83,15 @@ public class EditorTaskCounts {
         return revertsPerLanguage == null ? Collections.emptyMap() : revertsPerLanguage;
     }
 
+    @NonNull
+    public Integer getTotalDepictsReverts() {
+        Map<String, Integer> revertsPerLanguage = null;
+        if (revertCounts != null && !(revertCounts instanceof JsonArray)) {
+            revertsPerLanguage = GsonUtil.getDefaultGson().fromJson(revertCounts, Counts.class).appDepictsEdits;
+        }
+        return revertsPerLanguage == null ? 0 : revertsPerLanguage.get("*") == null ? 0 : Objects.requireNonNull(revertsPerLanguage.get("*"));
+    }
+
     public int getTotalReverts() {
         int totalReverts = 0;
         for (int count : getDescriptionRevertsPerLanguage().values()) {
@@ -80,6 +100,7 @@ public class EditorTaskCounts {
         for (int count : getCaptionRevertsPerLanguage().values()) {
             totalReverts += count;
         }
+        totalReverts += getTotalDepictsReverts();
         if (Prefs.shouldOverrideSuggestedEditCounts()) {
             totalReverts = Prefs.getOverrideSuggestedRevertCount();
         }
@@ -112,6 +133,7 @@ public class EditorTaskCounts {
     public class Counts {
         @Nullable @SerializedName("app_description_edits") private Map<String, Integer> appDescriptionEdits;
         @Nullable @SerializedName("app_caption_edits") private Map<String, Integer> appCaptionEdits;
+        @Nullable @SerializedName("app_depicts_edits") private Map<String, Integer> appDepictsEdits;
     }
 
     private class EditStreak {
