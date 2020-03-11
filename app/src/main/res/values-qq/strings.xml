@@ -857,5 +857,4 @@
   <string name="suggested_edits_feed_card_add_image_tags">Suggested edits feed card call-to-action text for adding image depicts.</string>
   <string name="description_edit_success_saved_image_tags_snackbar">Message shown on a snackbar that the image tags the user just added were saved.</string>
   <string name="suggested_edits_image_tags_add_tag">Label text suggesting that user can add custom tags.</string>
-  <string name="suggested_edits_onboarding_text">Message text shown to users who havent yet used the suggested edits features from feed cards, to encourage them to start editing.%s represents the user\'s name</string>
 </resources>
