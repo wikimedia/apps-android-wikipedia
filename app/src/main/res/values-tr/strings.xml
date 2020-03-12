@@ -181,7 +181,7 @@
   <string name="create_account_button">Hesap oluştur</string>
   <string name="create_account_name_unavailable">\"%s\" kullanıcı adı mevcut değil. Lütfen farklı bir kullanıcı adı seçin.</string>
   <string name="create_account_ip_block_message">Maalesef, IP adresinizin şu anda yeni hesap oluşturması engellendi.</string>
-  <string name="create_account_ip_block_help_url">https://tr.wikipedia.org/wiki/Yardım:Engellendim</string>
+  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Ayrıntılar</string>
   <string name="preferences_general_heading">Genel</string>
   <string name="wikipedia_app_faq">Vikipedi Uygulaması SSS</string>
@@ -220,7 +220,7 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/tr#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/tr</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
-  <string name="android_app_request_an_account_url">https://tr.wikipedia.org/wiki/Vikipedi:Hesap_isteyin</string>
+  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.tr</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.tr</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/tr</string>
@@ -724,13 +724,15 @@
   <string name="suggested_edits_image_tags_publishing">Yayımlanıyor</string>
   <string name="suggested_edits_image_tags_published">Yayınlandı</string>
   <string name="suggested_edits_image_tags_onboarding_title">Görüntüleri etiketlemek onları bulmayı kolaylaştırır.</string>
-  <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">Aşağıdaki resimlerde bilgisayar tarafından önerilen etiketler bulunur ve doğruluk için bir kişi tarafından onaylanması gerekir.\n\nEtiketleri onaylayarak, Vikipedi\'nin makalelerindeki resimler için kullandığı ücretsiz lisans resim deposu Commons\'ta resimlerin aranmasını kolaylaştırmaya yardımcı olacaksınız.</string>
+  <string name="suggested_edits_image_tags_onboarding_text">Resim etiketleri ekleyerek, Vikipedi\'nin maddelerde ki resimler için kullandığı ücretsiz lisans resim deposu Commons\'ta resimlerin aranmasını kolaylaştırmaya yardımcı olacaksınız.\n\nOtomatik olarak bazı etiketler önerdik ve kendi etiketlerinizi de ekleyebilirsiniz.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Yalnızca seçtiğiniz etiketler görüntülere eklenir.</string>
   <string name="suggested_edits_image_tags_snackbar">Başkalarının bulmasını kolaylaştırmak için resim etiketleri ekleyin.</string>
-  <string name="suggested_edits_image_tags_task_detail" fuzzy="true">Başkalarının bulmasını kolaylaştırmak için görüntüleri etiketleyin. Bunlar bilgisayar tarafından önerilir, ancak doğrulanması gerekir.</string>
-  <string name="suggested_edits_image_tags_choose" fuzzy="true">Eşleşen etiketleri seçin</string>
+  <string name="suggested_edits_image_tags_task_detail">Bulmalarını kolaylaştırmak için görüntüleri etiketleyin. Önerilen etiketler arasından seçim yapın veya kendi etiketinizi ekleyin.</string>
+  <string name="suggested_edits_image_tags_choose">Eşleşen etiketler ekleyin veya seçin</string>
+  <string name="suggested_edits_image_tags_search">Etiketleri ara</string>
   <string name="suggested_edits_image_tags_select_title">Bu resim için herhangi bir etiket seçmediniz</string>
   <string name="suggested_edits_image_tags_select_text">Yalnızca seçtiğiniz etiketler görüntülere eklenir. Seçilmeyen etiketler reddedildi olarak işaretlenir. Tüm etiketleri reddedildi olarak işaretlemek istediğinizden emin misiniz?</string>
+  <string name="suggested_edits_image_tags_add_tag">Etiket ekle...</string>
   <string name="suggested_edits_image_zoom_tooltip">Bu resmi yakınlaştırmak için sıkıştırın.</string>
   <string name="suggested_edits_encouragement_message">%s, düzenlemeleriniz için teşekkürler. Aşağıda Vikipedi\'ye katkıda bulunmak için daha fazla yol bulabilirsiniz.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Merhaba %s&lt;/b&gt;, Herkesin Vikipedi\'yi düzenleyebileceğini biliyor muydun? Aşağıda Vikipedi\'yi iyileştirmeye yardımcı olacak eğlenceli yollar bulabilirsiniz. Mutlu düzenlemeler!</string>
