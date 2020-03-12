@@ -11,7 +11,7 @@
         android:layout_height="@dimen/view_card_header_height"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
+    <FrameLayout
         android:id="@+id/viewArticleImagePlaceholder"
         android:layout_width="match_parent"
         android:layout_height="192dp"
@@ -23,7 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:actualImageScaleType="focusCrop" />
-    </LinearLayout>
+    </FrameLayout>
 
     <View
         android:id="@+id/view_featured_article_card_divider"
