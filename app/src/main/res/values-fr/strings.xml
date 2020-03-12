@@ -729,13 +729,15 @@
   <string name="suggested_edits_image_tags_publishing">Publication</string>
   <string name="suggested_edits_image_tags_published">Publié</string>
   <string name="suggested_edits_image_tags_onboarding_title">Marquer les images permet de les retrouver plus facilement.</string>
-  <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">Les images suivantes ont des balises suggérées par un ordinateur qui doivent être validées par un humain pour garantir leur pertinence.\n\nEn confirmant ces balises, vous facilitez la recherche d’images sur Commons, le répertoire d’images sous licence libre utilisé par Wikipédia pour illustrer ses articles.</string>
+  <string name="suggested_edits_image_tags_onboarding_text">En ajoutant des balises d’image, vous facilitez la recherche d’images sur Commons, le répertoire d’images sous licence libre utilisé par Wikipédia pour illustrer ses articles.\n\nNous vous avons suggéré quelques balises de manière automatique et vous pouvez également ajouter les vôtres.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Seules les balises que vous choisissez seront ajoutées aux images.</string>
   <string name="suggested_edits_image_tags_snackbar">Ajouter des balises à l’image pour les rendre plus faciles à trouver par les autres.</string>
-  <string name="suggested_edits_image_tags_task_detail" fuzzy="true">Marquer les images pour les rendre plus faciles à trouver par les autres. Les balises sont suggérées par la machine, mais elles doivent être validées.</string>
-  <string name="suggested_edits_image_tags_choose" fuzzy="true">Choisir les balises qui correspondent</string>
+  <string name="suggested_edits_image_tags_task_detail">Marquez les images pour les rendre plus faciles à trouver. Choisissez parmi les balises suggérées ou ajoutez les vôtres.</string>
+  <string name="suggested_edits_image_tags_choose">Ajouter ou choisir les balises qui correspondent</string>
+  <string name="suggested_edits_image_tags_search">Rechercher des balises</string>
   <string name="suggested_edits_image_tags_select_title">Vous n’avez pas sélectionné de balise pour cette image</string>
   <string name="suggested_edits_image_tags_select_text">Seules les balises que vous choisirez seront ajoutées aux images. Les balises qui ne sont pas sélectionnées seront marquées comme rejetées. Êtes-vous sûr de vouloir marquer toutes les balises comme rejetées ?</string>
+  <string name="suggested_edits_image_tags_add_tag">Ajouter une balise…</string>
   <string name="suggested_edits_image_zoom_tooltip">Pincer pour zoomer sur cette image.</string>
   <string name="suggested_edits_encouragement_message">%s, merci pour vos modifications. Ci-dessous, vous pourrez trouver d’autres moyens de contribuer à Wikipédia.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Bonjour %s&lt;/b&gt;, saviez-vous que tout le monde peut modifier Wikipédia ? Ci-dessous, vous trouverez des manières amusantes pour aider à améliorer Wikipédia. Bonne modification !</string>
