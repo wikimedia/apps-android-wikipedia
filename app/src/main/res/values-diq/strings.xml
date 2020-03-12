@@ -8,6 +8,7 @@
 * Marmase
 * Mirzali
 * Orbot707
+* SHaran (WMF)
 -->
 <resources>
   <string name="app_name_prod">Wikipedia</string>
@@ -211,14 +212,14 @@
   <string name="clear_recent_searches_confirm_no">Nê</string>
   <string name="table_infobox">Zanayışê pratiki</string>
   <string name="table_other">Tayêna melumat</string>
-  <string name="table_close">Kip ke</string>
+  <string name="table_close">Bıqefelne</string>
   <string name="widget_name_featured_page">Perê bestıyayeyê Wikipedia</string>
   <string name="widget_title_featured_page">Ewro ra zerreko weçiniyaye</string>
   <string name="widget_name_search">Wikipedia Cıgeyrış</string>
   <string name="wiktionary_no_definitions_found">Herhangi yew zanayış nêvineya</string>
   <string name="alpha_update_notification_title">Alfa rovane kerdışa newi est a</string>
   <string name="alpha_update_notification_text">Qandé ronayışi dest pan</string>
-  <string name="dialog_close_description">Kip ke</string>
+  <string name="dialog_close_description">Bıqefelne</string>
   <string name="preference_title_show_images">Resıman bımocne</string>
   <string name="dialog_title_download_only_over_wifi_allow">Mısade bıdê</string>
   <string name="read_more_section">Tayêna bıwane</string>
@@ -422,7 +423,7 @@
   <string name="description_edit_text_hint">Şınasiya meqaley</string>
   <string name="description_edit_article_description_label">Meqale</string>
   <string name="description_edit_add_caption_label">Şınastiya resımi</string>
-  <string name="description_edit_add_caption_hint" fuzzy="true">Bınnuştey resimi</string>
+  <string name="description_edit_add_caption_hint">Bınnuştey resimi</string>
   <string name="description_edit_translate_caption_label_per_language">Bınnuştey resimi (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">Bınnuştey resimi (%s)</string>
   <string name="description_edit_save">Bıweşane</string>
