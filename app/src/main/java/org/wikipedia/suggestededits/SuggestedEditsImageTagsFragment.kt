@@ -186,7 +186,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
 
     private fun addChip(label: MwQueryPage.ImageLabel?, typeface: Typeface) {
         val chip = Chip(requireContext())
-        chip.text = label?.label ?: "Add tag..."
+        chip.text = label?.label ?: getString(R.string.suggested_edits_image_tags_add_tag)
         chip.textAlignment = TEXT_ALIGNMENT_CENTER
         chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.chip_background_color))
         chip.chipStrokeWidth = DimenUtil.dpToPx(1f)
