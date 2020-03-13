@@ -71,7 +71,7 @@ object JavaScriptActionHandler {
                 R.string.table_infobox, R.string.table_other, R.string.table_close))
 
         return String.format("{" +
-                "   \"platform\": \"pcs.c1.Platforms.ANDROID\"," +
+                "   \"platform\": \"android\"," +
                 "   \"clientVersion\": \"${BuildConfig.VERSION_NAME}\"," +
                 "   \"l10n\": {" +
                 "       \"addTitleDescription\": \"${res[R.string.description_edit_add_description]}\"," +
@@ -101,46 +101,31 @@ object JavaScriptActionHandler {
             return ""
         }
         val showEditHistoryLink = !(model.page!!.isMainPage || model.page!!.isFilePage)
-        val lastModifiedDate = formatDateRelative(model.page!!.pageProperties.lastModified)
         val showTalkLink = !(model.page!!.title.namespace() === Namespace.TALK)
         val showMapLink = model.page!!.pageProperties.geo != null
-        val res = L10nUtil.getStringsForArticleLanguage(model.title, intArrayOf(R.string.read_more_section,
-                R.string.page_similar_titles, R.string.about_article_section,
-                R.string.edit_history_link_text, R.string.last_updated_text, R.string.page_footer_license_text,
-                R.string.talk_page_link_text, R.string.page_view_in_browser, R.string.content_license_cc_by_sa,
-                R.string.map_view_link_text, R.string.reference_list_title))
 
         // TODO: page-library also supports showing disambiguation ("similar pages") links and
         // "page issues". We should be mindful that they exist, even if we don't want them for now.
         val baseURL = ServiceFactory.getRestBasePath(model.title?.wikiSite!!).trimEnd('/')
         return "pcs.c1.Footer.add({" +
-                "   platform: pcs.c1.Platforms.ANDROID," +
-                "   clientVersion: '${BuildConfig.VERSION_NAME}'," +
-                "   title: '${model.title!!.prefixedText}'," +
+                "   platform: \"android\"," +
+                "   clientVersion: \"${BuildConfig.VERSION_NAME}\"," +
+                "   title: \"${model.title!!.prefixedText}\"," +
                 "   menu: {" +
                 "       items: [" +
                                 (if (showEditHistoryLink) "pcs.c1.Footer.MenuItemType.lastEdited, " else "") +
                                 (if (showTalkLink) "pcs.c1.Footer.MenuItemType.talkPage, " else "") +
                                 (if (showMapLink) "pcs.c1.Footer.MenuItemType.coordinate, " else "") +
                 "               pcs.c1.Footer.MenuItemType.referenceList " +
-                "              ]" +
+                "              ]," +
+                "       fragment: \"pcs-menu\"," +
+                "       editedDaysAgo: ${3}," +
+                "       languageCount: ${12}" +
                 "   }," +
-                "   l10n: {" +
-                "           'readMoreHeading': '${res[R.string.read_more_section]}'," +
-                "           'menuDisambiguationTitle': '${res[R.string.page_similar_titles]}'," +
-                "           'menuHeading': '${res[R.string.about_article_section]}'," +
-                "           'menuLastEditedSubtitle': '${res[R.string.edit_history_link_text]}'," +
-                "           'menuLastEditedTitle': '${String.format(res[R.string.last_updated_text], lastModifiedDate)}'," +
-                "           'licenseString': '${res[R.string.page_footer_license_text]}'," +
-                "           'menuTalkPageTitle': '${res[R.string.talk_page_link_text]}'," +
-                "           'viewInBrowserString': '${res[R.string.page_view_in_browser]}'," +
-                "           'licenseSubstitutionString': '${res[R.string.content_license_cc_by_sa]}'," +
-                "           'menuCoordinateTitle': '${res[R.string.map_view_link_text]}'," +
-                "           'menuReferenceListTitle': '${res[R.string.reference_list_title]}'" +
-                "       }," +
                 "   readMore: { " +
                 "       itemCount: 3," +
-                "       baseURL: '${baseURL}'" +
+                "       baseURL: \"${baseURL}\"," +
+                "       fragment: \"pcs-read-more\"" +
                 "   }" +
                 "})"
     }
