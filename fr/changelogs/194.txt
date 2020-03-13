@@ -1,6 +1,6 @@
-- Nombreuses améliorations des écrans listes de lecture
-- Plusieurs listes de lectures peuvent être sélectionnées simultanément
-- Une liste de lecture peut être individuellement basculée en ligne ou hors ligne
-- Les images sont mises en cache pour être disponible en hors ligne
-- Hors ligne, vous pouvez écouter aléatoirement des articles parmi les listes de lecture
-- Et bien d'autres corrections de bugs et améliorations de l'interface utilisateur
+– Améliorations substantielles à l’IU des listes de lecture
+– Les articles de plusieurs listes de lecture peuvent être sélectionnés immédiatement
+– Les articles de listes individuelles peuvent être basculés en ligne ou hors ligne
+– Les images sont mises en cache pour être disponible hors ligne
+– Hors ligne, la carte de flux aléatoire tire un article au hasard parmi les listes de lecture de l’utilisateur
+– De nombreux autres correctifs de bogues et mises à jour de l’IU

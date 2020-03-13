@@ -1,6 +1,6 @@
 Application officielle Wikipédia pour Android. Wikipédia est l’encyclopédie libre contenant plus de 32 millions d’articles en 280 langues et est la référence la plus complète et la plus largement utilisée que les hommes aient jamais compilée. L’application a été réécrite de zéro et est meilleure que jamais.
 
-Fonctionnalités :
+Fonctions :
 
 Explorez les flux - Le nouveau flux "Explorer" propose des recommandations et une mise à jour constante du contenu Wikipédia directement sur l'écran d'accueil, y compris des articles sur les tendances, des actualités, des suggestions de lecture et plus encore.
 
@@ -26,9 +26,9 @@ Envoyez-nous des retours à propos de l'application ! Dans le menu, appuyez sur 
 
 Le code est 100 % open-source. Si vous avez de l'expérience avec Java et le SDK Android, alors nous attendons avec impatience vos contributions ! https://github.com/wikimedia/apps-android-wikipedia
 
-En utilisant cette application vous acceptez la transmission automatique de rapports d'incident à un fournisseur de service tiers. Si vous voulez désactiver cette fonctionnalité, veuillez appuyer sur "Paramètres", puis désactiver "Envoyer des rapports d'incident" en-dessous de la section Général. Explications des permissions nécessaires par l'application : https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
+En utilisant cette appli, vous acceptez la transmission automatique de relevés de plantage à un fournisseur de service tiers. Si vous souhaitez désactiver cette fonction, veuillez appuyer sur « Paramètres », puis désactiver « Envoyer des relevés de plantage » en dessous de la section Confidentialité. Explications des autorisations nécessaires à l’appli : https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Security_and_Permissions
 
-Politique sur la vie privée : https://m.wikimediafoundation.org/wiki/Privacy_policy
+Politique de confidentialité : https://m.wikimediafoundation.org/wiki/Privacy_policy
 
 Politique sur la vie privée du fournisseur de services tiers pour les rapports d'incident : https://www.microsoft.com/en-us/privacystatement/OnlineServices/Default.aspx
 
