@@ -110,27 +110,35 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
     }
 
     private fun getNextItem() {
+        if (invokedFromFeed()) {
+            addTagsAndUpdateContent()
+            return
+        }
         if (page != null) {
             return
         }
-        disposables.add(MissingDescriptionProvider.getNextImageWithMissingTags(if(invokedFromFeed())(activity as SuggestedEditsFeedCardImageTagActivity).langFromCode else parent().langFromCode)
+        disposables.add(MissingDescriptionProvider.getNextImageWithMissingTags(if (invokedFromFeed()) (activity as SuggestedEditsFeedCardImageTagActivity).langFromCode else parent().langFromCode)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ page ->
                     this.page = page
-                    tagList.clear()
-                    val maxTags = 3
-                    for (label in page.imageLabels) {
-                        if (label.label.isEmpty()){
-                            continue
-                        }
-                        tagList.add(label)
-                        if (tagList.size >= maxTags) {
-                            break
-                        }
-                    }
-                    updateContents()
+                    addTagsAndUpdateContent()
                 }, { this.setErrorState(it) })!!)
+    }
+
+    private fun addTagsAndUpdateContent() {
+        val maxTags = 3
+        tagList.clear()
+        for (label in page!!.imageLabels) {
+            if (label.label.isEmpty()) {
+                continue
+            }
+            tagList.add(label)
+            if (tagList.size >= maxTags) {
+                break
+            }
+        }
+        updateContents()
     }
 
     private fun setErrorState(t: Throwable) {
