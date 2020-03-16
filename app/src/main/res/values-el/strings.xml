@@ -187,11 +187,11 @@
   <string name="about_description">Σχετικά με την εφαρμογή της Βικιπαίδειας</string>
   <string name="privacy_policy_description">Πολιτική ιδιωτικότητας</string>
   <string name="terms_of_use_description">Όροι χρήσης</string>
-  <string name="about_wikipedia_url">https://el.m.wikipedia.org/wiki/Βικιπαίδεια:Σχετικά</string>
-  <string name="privacy_policy_url">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
+  <string name="about_wikipedia_url" fuzzy="true">https://el.m.wikipedia.org/wiki/Βικιπαίδεια:Σχετικά</string>
+  <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
-  <string name="terms_of_use_url">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
+  <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.el</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/3.0/</string>
