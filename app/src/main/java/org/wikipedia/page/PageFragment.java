@@ -72,7 +72,6 @@ import org.wikipedia.page.action.PageActionTab;
 import org.wikipedia.page.leadimages.LeadImagesHandler;
 import org.wikipedia.page.leadimages.PageHeaderView;
 import org.wikipedia.page.references.ReferenceDialog;
-import org.wikipedia.page.references.ReferenceListDialog;
 import org.wikipedia.page.references.References;
 import org.wikipedia.page.shareafact.ShareHandler;
 import org.wikipedia.page.tabs.Tab;
@@ -965,25 +964,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     private void setupMessageHandlers() {
         linkHandler = new LinkHandler(requireActivity()) {
             @Override public void onPageLinkClicked(@NonNull String anchor, @NonNull String linkText) {
-                dismissBottomSheet();
-                if (anchor.startsWith("cite_note")) {
-                    // It's a link to another reference within the page.
-                    disposables.add(getReferences()
-                            .subscribeOn(Schedulers.io())
-                            .observeOn(AndroidSchedulers.mainThread())
-                            .subscribe(references -> {
-                                PageFragment.this.references = references;
-                                List<References.Reference> adjacentReferencesList = new ArrayList<>();
-                                References.Reference ref = references.getReferencesMap().get(anchor);
-                                if (ref != null) {
-                                    ref.setText(linkText);
-                                    adjacentReferencesList.add(ref);
-                                    showBottomSheet(new ReferenceDialog(requireActivity(), 0, adjacentReferencesList, linkHandler));
-                                }
-                            }, L::d));
-                } else {
-                    bridge.execute(JavaScriptActionHandler.scrollToAnchor(anchor));
-                }
             }
 
             @Override public void onInternalLinkClicked(@NonNull PageTitle title) {
@@ -1033,8 +1013,11 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         bridge.addListener("back_link", (String messageType, JsonObject payload) -> {
             JsonArray backLinks = payload.getAsJsonArray("backLinks");
             if (backLinks.size() > 0) {
-                linkHandler.onPageLinkClicked(backLinks.get(0).getAsJsonObject().get("id").getAsString(), "");
+                bridge.execute(JavaScriptActionHandler.prepareToScrollTo(backLinks.get(0).getAsJsonObject().get("id").getAsString(), "{ highlight: true }"));
             }
+        });
+        bridge.addListener("scroll_to_anchor", (String messageType, JsonObject payload) -> {
+            bridge.execute(JavaScriptActionHandler.scrollToAnchor(payload.get("anchor").getAsString()));
         });
         bridge.addListener("image", (String messageType, JsonObject messagePayload) -> {
             String href = decodeURL(messagePayload.get("href").getAsString());
@@ -1078,8 +1061,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             } else if ("disambiguation".equals(itemType)) {
                 // TODO
                 // messagePayload contains an array of URLs called "payload".
-            } else if ("referenceList".equals(itemType)) {
-                showBottomSheet(ReferenceListDialog.Companion.newInstance());
             }
         });
         bridge.addListener("read_more_titles_retrieved", (String messageType, JsonObject messagePayload) -> {
