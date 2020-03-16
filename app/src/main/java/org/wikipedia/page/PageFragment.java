@@ -521,7 +521,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         // If this is a Talk page also show in external browser since we don't handle those pages
         // in the app very well at this time.
         if (title.isSpecial() || title.isTalkPage()) {
-            visitInExternalBrowser(requireActivity(), Uri.parse(title.getMobileUri()));
+            visitInExternalBrowser(requireActivity(), Uri.parse(title.getDesktopUri()));
             return;
         }
         dismissBottomSheet();
@@ -1068,7 +1068,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             String itemType = messagePayload.get("itemType").getAsString();
             if ("talkPage".equals(itemType) && model.getTitle() != null) {
                 PageTitle talkPageTitle = new PageTitle("Talk", model.getTitle().getPrefixedText(), model.getTitle().getWikiSite());
-                visitInExternalBrowser(requireContext(), Uri.parse(talkPageTitle.getMobileUri()));
+                visitInExternalBrowser(requireContext(), Uri.parse(talkPageTitle.getDesktopUri()));
             } else if ("languages".equals(itemType)) {
                 startLangLinksActivity();
             } else if ("lastEdited".equals(itemType) && model.getTitle() != null) {
@@ -1091,7 +1091,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         });
         bridge.addListener("view_in_browser", (String messageType, JsonObject messagePayload) -> {
             if (model.getTitle() != null) {
-                visitInExternalBrowser(requireContext(), Uri.parse(model.getTitle().getMobileUri()));
+                visitInExternalBrowser(requireContext(), Uri.parse(model.getTitle().getDesktopUri()));
             }
         });
     }

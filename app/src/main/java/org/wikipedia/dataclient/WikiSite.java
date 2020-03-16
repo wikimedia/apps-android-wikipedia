@@ -124,26 +124,6 @@ public class WikiSite implements Parcelable {
     }
 
     /**
-     * Like {@link #authority()} but with a "m." between the language subdomain and the rest of the host.
-     * Examples:
-     *
-     * <ul>
-     *     <li>English Wikipedia: en.m.wikipedia.org</li>
-     *     <li>Chinese Wikipedia: zh.m.wikipedia.org</li>
-     *     <li>Meta-Wiki: meta.m.wikimedia.org</li>
-     *     <li>Test Wikipedia: test.m.wikipedia.org</li>
-     *     <li>Võro Wikipedia: fiu-vro.m.wikipedia.org</li>
-     *     <li>Simple English Wikipedia: simple.m.wikipedia.org</li>
-     *     <li>Simple English Wikipedia (beta cluster mirror): simple.m.wikipedia.beta.wmflabs.org</li>
-     *     <li>Development: m.192.168.1.11</li>
-     * </ul>
-     */
-    @NonNull
-    public String mobileAuthority() {
-        return authorityToMobile(authority());
-    }
-
-    /**
      * @return The canonical "desktop" form of the authority. For example, if the authority
      * is in a "mobile" form, e.g. en.m.wikipedia.org, this will become en.wikipedia.org.
      */
@@ -322,13 +302,5 @@ public class WikiSite implements Parcelable {
             return uri.buildUpon().scheme(DEFAULT_SCHEME).build();
         }
         return uri;
-    }
-
-    /** @param authority Host and optional port. */
-    @NonNull private String authorityToMobile(@NonNull String authority) {
-        if (authority.startsWith("m.") || authority.contains(".m.")) {
-            return authority;
-        }
-        return authority.replaceFirst("^" + subdomain() + "\\.?", "$0m.");
     }
 }
