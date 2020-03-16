@@ -113,7 +113,7 @@
   <string name="about_description">Tungkol sa Wikipedia app</string>
   <string name="privacy_policy_description">Patakaran sa paglilihim</string>
   <string name="terms_of_use_description">Mga tuntunin sa paggamit</string>
-  <string name="about_wikipedia_url">https://tl.m.wikipedia.org/wiki/Wikipedia:Patungkol</string>
+  <string name="about_wikipedia_url" fuzzy="true">https://tl.m.wikipedia.org/wiki/Wikipedia:Patungkol</string>
   <string name="about_libraries_heading" fuzzy="true">mga aklatang ginamit</string>
   <string name="about_contributors_heading" fuzzy="true">Mga tagapag-ambag</string>
   <string name="about_translators_heading">Mga tagapagsalinwika</string>
