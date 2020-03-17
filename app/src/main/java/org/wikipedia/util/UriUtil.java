@@ -125,7 +125,7 @@ public final class UriUtil {
 
     public static String getUrlWithProvenance(Context context, PageTitle title,
                                               @StringRes int provId) {
-        return title.getCanonicalUri() + "?wprov=" + context.getString(provId);
+        return title.getUri() + "?wprov=" + context.getString(provId);
     }
 
     /**

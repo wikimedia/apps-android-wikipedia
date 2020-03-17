@@ -310,7 +310,7 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
 
     @Override
     public void onSearchResultCopyLink(@NonNull PageTitle title) {
-        ClipboardUtil.setPlainText(requireContext(), null, title.getCanonicalUri());
+        ClipboardUtil.setPlainText(requireContext(), null, title.getUri());
         FeedbackUtil.showMessage(this, R.string.address_copied);
     }
 
