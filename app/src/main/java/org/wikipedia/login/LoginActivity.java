@@ -125,7 +125,7 @@ public class LoginActivity extends BaseActivity {
 
     @OnClick(R.id.forgot_password_link) void onForgotPasswordClick() {
         PageTitle title = new PageTitle("Special:PasswordReset", WikipediaApp.getInstance().getWikiSite());
-        visitInExternalBrowser(this, Uri.parse(title.getDesktopUri()));
+        visitInExternalBrowser(this, Uri.parse(title.getUri()));
     }
 
     @NonNull private CharSequence getText(@NonNull TextInputLayout input) {
