@@ -152,6 +152,7 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
     }
 
     void scrollToSection(@NonNull String sectionAnchor) {
+        bridge.execute(JavaScriptActionHandler.prepareToScrollTo(sectionAnchor, "{ highlight: false }"));
         for (Section section : adapter.sections) {
             if (section.getAnchor().equals(sectionAnchor)) {
                 scrollToSection(section);
@@ -164,6 +165,8 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
         if (section == null) {
             return;
         }
+        bridge.execute(JavaScriptActionHandler.prepareToScrollTo(section.getAnchor(), "{ highlight: false }"));
+
         if (section.getId() == ABOUT_SECTION_ID) {
             bridge.execute(JavaScriptActionHandler.scrollToFooter(webView.getContext()));
         } else {
@@ -447,6 +450,7 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
             adapter.setHighlightedSection(itemToSelect);
             currentItemSelected = itemToSelect;
         }
+        JavaScriptActionHandler.prepareToScrollTo(adapter.getItem(currentItemSelected).getAnchor(), "{ highlight: false }");
         tocList.smoothScrollToPositionFromTop(currentItemSelected,
                 scrollerViewParams.topMargin - DimenUtil.roundedDpToPx(TOC_SECTION_TOP_OFFSET_ADJUST), 0);
     }
