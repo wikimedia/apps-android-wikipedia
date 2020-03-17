@@ -420,7 +420,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         app.putCrashReportProperty("title", title.toString());
 
         if (title.isSpecial()) {
-            visitInExternalBrowser(this, Uri.parse(title.getMobileUri()));
+            visitInExternalBrowser(this, Uri.parse(title.getUri()));
             return;
         }
 
@@ -579,7 +579,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     @Override
     public void onLinkPreviewCopyLink(@NonNull PageTitle title) {
-        copyLink(title.getCanonicalUri());
+        copyLink(title.getUri());
         showCopySuccessMessage();
     }
 

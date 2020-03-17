@@ -659,7 +659,6 @@
   <string name="suggested_edits_feed_card_title">Predložene izmene</string>
   <string name="suggested_edits_feed_card_add_description_button">Dodaj opis članka</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Dodaj opis članka (%s)</string>
-  <string name="suggested_edits_tutorial_message">Dobrodošli na novu početnu stranicu za brzo uređivanje u aplikaciji Vikipedija. Vaši doprinosi su mnogo cenjeni! Srećno uređivanje!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Počnimo</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Natpis slike (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Opis slike (%s)</string>

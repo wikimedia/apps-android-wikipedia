@@ -5,6 +5,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.SuggestedEditsFunnel
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.descriptions.DescriptionEditActivity.Action
 import org.wikipedia.feed.model.CardType
 import org.wikipedia.feed.model.WikiSiteCard
@@ -16,6 +17,7 @@ class SuggestedEditsCard(
         val action: Action,
         val sourceSummary: SuggestedEditsSummary?,
         val targetSummary: SuggestedEditsSummary?,
+        val page: MwQueryPage?,
         val age: Int
 ) : WikiSiteCard(wiki) {
 
