@@ -199,11 +199,11 @@
   <string name="about_description">Про додаток Вікіпедії</string>
   <string name="privacy_policy_description">Політика конфіденційності</string>
   <string name="terms_of_use_description">Умови використання</string>
-  <string name="about_wikipedia_url">https://uk.m.wikipedia.org/wiki/Вікіпедія:Про</string>
-  <string name="privacy_policy_url">https://foundation.m.wikimedia.org/wiki/Privacy_policy/uk</string>
+  <string name="about_wikipedia_url">https://uk.wikipedia.org/wiki/Вікіпедія:Про</string>
+  <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy/uk</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/uk</string>
-  <string name="terms_of_use_url">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
+  <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.uk</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.uk</string>
@@ -709,13 +709,15 @@
   <string name="suggested_edits_image_tags_publishing">Публікація</string>
   <string name="suggested_edits_image_tags_published">Опубліковано</string>
   <string name="suggested_edits_image_tags_onboarding_title">Додавання тегів до зображень полегшує їх пошук.</string>
-  <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">Вказані зображення мають теги, запропоновані комп\'ютером, і ці теги має перевірити людина, щоб переконатися в їх точності.\n\nПідтверджуючи теги, ви допоможете полегшити пошук таких зображень на Вікісховищі — сховищі зображень під вільними ліцензіями, яке Вікіпедія використовує для додавання зображень до своїх статей.</string>
+  <string name="suggested_edits_image_tags_onboarding_text">Додаючи теги до зображень, ви допоможете полегшити пошук таких зображень на Вікісховищі — сховищі зображень під вільними ліцензіями, яке Вікіпедія використовує для додавання зображень до своїх статей.\n\nМи автоматично запропонували деякі теги, а також ви можете додати свої власні.</string>
   <string name="suggested_edits_image_tags_onboarding_note">До зображень буде додано лише ті теги, які ви затвердите.</string>
   <string name="suggested_edits_image_tags_snackbar">Додавайте теги до зображень, щоб полегшити їх пошук для інших користувачів.</string>
-  <string name="suggested_edits_image_tags_task_detail" fuzzy="true">Додавайте теги до зображень, щоб полегшити їх пошук для інших користувачів. Їх пропонує комп\'ютер, але має затверджувати людина.</string>
-  <string name="suggested_edits_image_tags_choose" fuzzy="true">Виберіть відповідні теги</string>
+  <string name="suggested_edits_image_tags_task_detail">Додавайте теги до зображень, щоб полегшити їх пошук для інших користувачів. Виберіть із-поміж запропонованих тегів, або додайте власні.</string>
+  <string name="suggested_edits_image_tags_choose">Додайте чи виберіть відповідні теги</string>
+  <string name="suggested_edits_image_tags_search">Пошук тегів</string>
   <string name="suggested_edits_image_tags_select_title">Ви не вибрали жодного тегу для цього зображення</string>
   <string name="suggested_edits_image_tags_select_text">До зображень буде додано лише ті теги, які ви виберете. Теги, які ви не виберете, буде позначено як відхилені. Ви впевнені, що хочете позначити всі теги як відхилені?</string>
+  <string name="suggested_edits_image_tags_add_tag">Додати тег...</string>
   <string name="suggested_edits_image_zoom_tooltip">Розтягніть, щоб збільшити зображення.</string>
   <string name="suggested_edits_encouragement_message">%s, дякуємо за ваші правки! Нижче ви можете знайти більше шляхів зробити внесок у Вікіпедію.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Вітаємо %s&lt;/b&gt;! Чи знаєте ви, що будь-хто може редагувати Вікіпедію? Нижче ви знайдете цікаві способи її покращення. Приємного редагування!</string>

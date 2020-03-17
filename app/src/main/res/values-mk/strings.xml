@@ -188,10 +188,10 @@
   <string name="privacy_policy_description">Заштита на личните податоци</string>
   <string name="terms_of_use_description">Услови на употреба</string>
   <string name="about_wikipedia_url">https://mk.wikipedia.org/wiki/Википедија:За_Википедија</string>
-  <string name="privacy_policy_url">https://foundation.m.wikimedia.org/wiki/Privacy_policy/mk?uselang=mk</string>
+  <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy/mk?uselang=mk</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
-  <string name="terms_of_use_url">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/mk?uselang=mk</string>
+  <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/mk?uselang=mk</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.mk</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.mk</string>
@@ -695,13 +695,15 @@
   <string name="suggested_edits_image_tags_publishing">Објавувам</string>
   <string name="suggested_edits_image_tags_published">Објавено</string>
   <string name="suggested_edits_image_tags_onboarding_title">Означувањето на сликите ги прави полесни за наоѓање.</string>
-  <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">Следниве слики имаат ознаки предложени од сметач, и треба да се проверат од човек за да се осигура нивната точност.\n\n\nПотврдувајќи ги предложените ознаки, им помагате на другите полесно да ги најдат сликите во пребарување на Ризницата, складот на слободно лиценцирани слики кој го користи Википедија за нејзините сликовни содржини.</string>
+  <string name="suggested_edits_image_tags_onboarding_text">Потврдувајќи ги предложените ознаки, им помагате на другите полесно да ги најдат сликите во пребарување на Ризницата, складот на слободно лиценцирани слики кој го користи Википедија за нејзините сликовни содржини.\n\nАвтоматски предложивме некои ознаки, а можете да додадете и ваши.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Кон сликите ќе се додадат само ознаки кои сте ги избрале вие.</string>
   <string name="suggested_edits_image_tags_snackbar">Означете ги сликите за да можат полесно да се пронаоѓаат.</string>
-  <string name="suggested_edits_image_tags_task_detail" fuzzy="true">Означете ги сликите за да можат полесно да се пронаоѓаат. Тие ги предлага самиот сметач, но ќе треба вие да проверите.</string>
-  <string name="suggested_edits_image_tags_choose" fuzzy="true">Изберете соодветни ознаки</string>
+  <string name="suggested_edits_image_tags_task_detail">Означете ги сликите за да можат полесно да се пронаоѓаат. Изберете од предложените ознаки или додадете ваши.</string>
+  <string name="suggested_edits_image_tags_choose">Додајте или изберете соодветни ознаки</string>
+  <string name="suggested_edits_image_tags_search">Пребарај ознаки</string>
   <string name="suggested_edits_image_tags_select_title">Немате избрано ниедна ознака за сликава</string>
   <string name="suggested_edits_image_tags_select_text">Во сликите ќе се додаваат само ознаки кои сте ги избрале вие. Неизбраните ознаки ќе се сметаат за одбиени. Дали сигурно сакате да ги означите сите како одбиени?</string>
+  <string name="suggested_edits_image_tags_add_tag">Додај ознака...</string>
   <string name="suggested_edits_image_zoom_tooltip">Штипнете за да ја приближите сликата.</string>
   <string name="suggested_edits_encouragement_message">%s, ви благодариме за уредувањата. Подолу ќе најдете други начини да учествувате на Википедија.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Здраво %s&lt;/b&gt;. Дали сте знаеле дека секој може да ја уредува Википедија? Подолу ќе најдете интересни начини да помогнете во нејзиното подобрување. Пријатно уредување!</string>

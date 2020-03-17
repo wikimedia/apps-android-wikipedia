@@ -203,7 +203,7 @@
   <string name="privacy_policy_description">隱私政策</string>
   <string name="terms_of_use_description">使用條款</string>
   <string name="about_wikipedia_url">https://zh.m.wikipedia.org/wiki/Wikipedia:關於</string>
-  <string name="privacy_policy_url">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
+  <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/zh</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
@@ -710,13 +710,15 @@
   <string name="suggested_edits_image_tags_publishing">發布中</string>
   <string name="suggested_edits_image_tags_published">已發布</string>
   <string name="suggested_edits_image_tags_onboarding_title">標記圖片來讓它們能更容易被找到。</string>
-  <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">以下圖片已由電腦做出建議的標籤，並需要經過人工驗證來確保準確度。\n\n透過確認標籤，您可以協助圖片在維基共享資源上能更容易被搜尋到，維基共享資源是讓維基百科能使用圖片在條目裡的自由許可圖片儲存庫。</string>
+  <string name="suggested_edits_image_tags_onboarding_text">透過確認標籤，您可以協助圖片在維基共享資源上能更容易被搜尋到，維基共享資源是讓維基百科能使用圖片在條目裡的自由許可圖片儲存庫。\n\n我們已自動建議出一些標籤，另外您也可以新增您自己的標籤。</string>
   <string name="suggested_edits_image_tags_onboarding_note">僅添加您挑選的標籤到圖片上。</string>
-  <string name="suggested_edits_image_tags_snackbar">添加圖片標記來讓它們能更容易被其他人找到</string>
-  <string name="suggested_edits_image_tags_task_detail" fuzzy="true">標記圖片來讓它們能更容易被其他人找到。它們會被電腦給自動建議，但需要做出驗證。</string>
-  <string name="suggested_edits_image_tags_choose" fuzzy="true">挑選符合的標記</string>
-  <string name="suggested_edits_image_tags_select_title">您尚未對此圖片選擇任何標記</string>
+  <string name="suggested_edits_image_tags_snackbar">添加圖片標籤來讓它們能更容易被其他人找到</string>
+  <string name="suggested_edits_image_tags_task_detail">標記圖片來讓它們能更容易被找到。請從建議的標籤裡選擇，或是新增您自己的標籤。</string>
+  <string name="suggested_edits_image_tags_choose">新增或挑選符合的標記</string>
+  <string name="suggested_edits_image_tags_search">搜尋標籤</string>
+  <string name="suggested_edits_image_tags_select_title">您尚未對此圖片選擇任何標籤</string>
   <string name="suggested_edits_image_tags_select_text">僅添加您挑選的標籤到圖片上。未被選擇到的標籤將會被標記為拒絕，您確定要將所有標籤標記為拒絕？</string>
+  <string name="suggested_edits_image_tags_add_tag">新增標籤…</string>
   <string name="suggested_edits_image_zoom_tooltip">做出夾捏的動作來縮放此圖片。</string>
   <string name="suggested_edits_encouragement_message">%s，感謝您所做的編輯。在下方您可以找出更多貢獻維基百科的方式。</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;嗨，%s&lt;/b&gt;：您知道維基百科是每個人都可編輯的嗎？您可以在下方找到協助改善維基百科的有趣方式，來快樂地編輯吧！</string>

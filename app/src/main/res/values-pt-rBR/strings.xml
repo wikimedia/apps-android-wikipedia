@@ -213,10 +213,10 @@
   <string name="privacy_policy_description">Política de privacidade</string>
   <string name="terms_of_use_description">Termos de uso</string>
   <string name="about_wikipedia_url">https://pt.m.wikipedia.org/wiki/Wikipédia:Sobre_a_Wikipédia</string>
-  <string name="privacy_policy_url">https://meta.wikimedia.org/wiki/Privacy_policy/pt-br</string>
+  <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/wiki/Privacy_policy/pt-br</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/pt-br</string>
-  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use/pt-br</string>
+  <string name="terms_of_use_url" fuzzy="true">https://foundation.wikimedia.org/wiki/Terms_of_Use/pt-br</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.pt</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.pt</string>
@@ -720,13 +720,15 @@
   <string name="suggested_edits_image_tags_publishing">Publicando</string>
   <string name="suggested_edits_image_tags_published">Publicados</string>
   <string name="suggested_edits_image_tags_onboarding_title">A marcação de imagens facilita a localização.</string>
-  <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">As imagens a seguir têm marcações sugeridas por um computador e precisam ser validadas por um ser humano para garantir a precisão.\n\nAo confirmar as marcações, você ajudará a facilitar a pesquisa de imagens no Commons, o repositório gratuito de imagens de licença que a Wikipédia usa para imagens em seus artigos.</string>
+  <string name="suggested_edits_image_tags_onboarding_text">Ao adicionar marcações de imagem, você ajudará a facilitar a pesquisa de imagens no Commons, o repositório gratuito de imagens de licença que a Wikipedia usa para imagens em seus artigos.\n\nSugerimos automaticamente algumas marcações e você também pode adicionar as suas.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Somente as marcações que você escolher serão adicionadas às imagens.</string>
   <string name="suggested_edits_image_tags_snackbar">Adicione marcação de imagem para facilitar a localização de outras pessoas.</string>
-  <string name="suggested_edits_image_tags_task_detail" fuzzy="true">Marque as imagens para facilitar a localização de outras pessoas. Eles são sugeridos por computador, mas precisam ser validados.</string>
-  <string name="suggested_edits_image_tags_choose" fuzzy="true">Escolha as marcações correspondentes</string>
+  <string name="suggested_edits_image_tags_task_detail">Marque as imagens para facilitar a localização. Selecione entre as marcações sugeridas ou adicione as suas.</string>
+  <string name="suggested_edits_image_tags_choose">Adicionar ou escolher marcações correspondentes</string>
+  <string name="suggested_edits_image_tags_search">Pesquisar marcações</string>
   <string name="suggested_edits_image_tags_select_title">Você não selecionou nenhuma marcação para esta imagem</string>
   <string name="suggested_edits_image_tags_select_text">Somente as marcações que você escolher serão adicionadas às imagens. Tags que não estão selecionadas serão marcadas como rejeitadas. Tem certeza de que deseja marcar todas as tags como rejeitadas?</string>
+  <string name="suggested_edits_image_tags_add_tag">Adicionar marcação...</string>
   <string name="suggested_edits_image_zoom_tooltip">Aperte para ampliar esta imagem.</string>
   <string name="suggested_edits_encouragement_message">%s, obrigado por suas edições. Abaixo, você encontra mais maneiras de contribuir com a Wikipédia.</string>
   <string name="suggested_edits_onboarding_message">&lt;/b&gt;Olá %s&lt;/b&gt;, você sabia que todos podem editar a Wikipédia? Abaixo, você encontrará maneiras divertidas de ajudar a melhorar a Wikipedia. Edição feliz!</string>

@@ -202,10 +202,10 @@
   <string name="privacy_policy_description">Ochrana osobních údajů</string>
   <string name="terms_of_use_description">Podmínky užití</string>
   <string name="about_wikipedia_url">https://cs.m.wikipedia.org/wiki/Nápověda:Úvod</string>
-  <string name="privacy_policy_url">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
+  <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/cs#Offline_čtení_a_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/cs</string>
-  <string name="terms_of_use_url">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/cs</string>
+  <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/cs</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.cs</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.cs</string>
@@ -712,12 +712,12 @@
   <string name="suggested_edits_image_tags">Značky obrázků</string>
   <string name="suggested_edits_image_tags_publishing">Zveřejňuje se</string>
   <string name="suggested_edits_image_tags_published">Zveřejněno</string>
-  <string name="suggested_edits_image_tags_onboarding_title" fuzzy="true">Označte obrázky, aby je ostatní mohli snáze najít</string>
+  <string name="suggested_edits_image_tags_onboarding_title">Označte obrázky, aby je ostatní mohli snáze najít.</string>
   <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">Potvrzením navrhovaných značek můžete pomoci, aby byly obrázky snáze vyhledatelné.\n\nZnačky jsou navrhované počítačem, ale musí být ověřeny člověkem pro zajištění přesnosti.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Pouze značky, které vyberete, budou přidány k obrázkům.</string>
   <string name="suggested_edits_image_tags_snackbar">Přidejte značky obrázkům, aby je ostatní mohli snáze najít.</string>
   <string name="suggested_edits_image_tags_task_detail" fuzzy="true">Označte obrázky, aby je ostatní mohli snáze najít. Značky jsou navrhované počítačem, ale musí být zkontrolovány.</string>
-  <string name="suggested_edits_image_tags_choose" fuzzy="true">Vyberte shodující se značky</string>
+  <string name="suggested_edits_image_tags_choose">Vyberte nebo přidejte shodující se značky</string>
   <string name="suggested_edits_image_tags_select_title">Pro tento obrázek jste nevybrali žádné značky</string>
   <string name="suggested_edits_image_tags_select_text">Jen značky, které vyberete, budou přidány k obrázkům. Značky, které nejsou vybrané, budou označeny jako odmítnuté. Jste si jisti, že chcete všechny značky označit jako odmítnuté?</string>
   <string name="suggested_edits_image_zoom_tooltip">Roztáhnutím dvou prstů zvětšíte obrázek.</string>

@@ -131,7 +131,7 @@
   <string name="logout_prompt">Detta kommer att logga ut dig från alla enheter du är inloggad på. Vill du fortsätta?</string>
   <string name="logout_dialog_cancel_button_text">Avbryt</string>
   <string name="logged_out_in_background_title">Utloggad</string>
-  <string name="logged_out_in_background_dialog">Du har loggat ut från Wikipedia. Vill du logga in igen?</string>
+  <string name="logged_out_in_background_dialog">Du har loggats ut från Wikipedia. Vill du logga in igen?</string>
   <string name="logged_out_in_background_login">Logga in</string>
   <string name="logged_out_in_background_cancel">Avbryt</string>
   <string name="history_empty_title">Inga nyligen lästa artiklar</string>
@@ -198,11 +198,11 @@
   <string name="about_description">Om Wikipedia-appen</string>
   <string name="privacy_policy_description">Integritetspolicy</string>
   <string name="terms_of_use_description">Användarvillkor</string>
-  <string name="about_wikipedia_url">https://sv.m.wikipedia.org/wiki/Wikipedia:Om</string>
-  <string name="privacy_policy_url">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
+  <string name="about_wikipedia_url">https://sv.wikipedia.org/wiki/Wikipedia:Om</string>
+  <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/sv#Läsa_offline_och_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/sv</string>
-  <string name="terms_of_use_url">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
+  <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.m.wikipedia.org/w/index.php?title=Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.sv</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.sv</string>
@@ -705,14 +705,16 @@
   <string name="suggested_edits_image_tags">Bildtaggar</string>
   <string name="suggested_edits_image_tags_publishing">Publicerar</string>
   <string name="suggested_edits_image_tags_published">Publicerades</string>
-  <string name="suggested_edits_image_tags_onboarding_title" fuzzy="true">Tagga bilder för att göra det lättare för andra att hitta dem</string>
-  <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">Genom att bekräfta föreslagna taggar hjälper du till att göra det lättare att söka efter dem.\n\nTaggförslagen skapas av en dator men behöver bekräftas av människor för att säkerställa noggrannheten.</string>
+  <string name="suggested_edits_image_tags_onboarding_title">Bildtaggar gör dem lättare att hitta.</string>
+  <string name="suggested_edits_image_tags_onboarding_text">Genom att lägga till bildtaggar hjälper du till att göra det lättare att söka efter bilder på Commons, den frilicenserade bildarkivet som Wikipedia använder för bilder i sina artiklar.\n\nVi har automatiskt skapat förslag på några taggar och du kan också lägga till egna.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Endast taggar som du väljer kommer att läggas till i bilder.</string>
   <string name="suggested_edits_image_tags_snackbar">Lägg till bildtaggar för att göra det lättare för andra att hitta bilderna.</string>
-  <string name="suggested_edits_image_tags_task_detail" fuzzy="true">Tagga bilder för att göra det lättare för andra att hitta dem. Taggarna föreslås automatiskt, men behöver bekräftas.</string>
-  <string name="suggested_edits_image_tags_choose" fuzzy="true">Välj lämpliga taggar</string>
+  <string name="suggested_edits_image_tags_task_detail">Tagga bilder för att göra dem enklare att hitta. Välj bland de föreslagna taggarna eller lägg till egna.</string>
+  <string name="suggested_edits_image_tags_choose">Lägg till eller välj lämpliga taggar</string>
+  <string name="suggested_edits_image_tags_search">Sök taggar</string>
   <string name="suggested_edits_image_tags_select_title">Du har inte valt några taggar för denna bild</string>
   <string name="suggested_edits_image_tags_select_text">Endast taggar som du väljer kommer att läggas till i bilderna. Taggar som inte väljs kommer att markeras som avvisade. Är du säker på att du vill markera alla taggar som avvisade?</string>
+  <string name="suggested_edits_image_tags_add_tag">Lägg till tagg…</string>
   <string name="suggested_edits_image_zoom_tooltip">Nyp för att zooma denna bild.</string>
   <string name="suggested_edits_encouragement_message">Tack för dina redigeringar, %s. Nedan kan du hitta fler sätt att bidra på Wikipedia.</string>
   <string name="suggested_edits_onboarding_message">Hej %s, visste du att alla kan redigera på Wikipedia? Nedan kan du hitta roliga sätt att hjälpa till att förbättra Wikipedia. Lycka till med redigeringen!</string>

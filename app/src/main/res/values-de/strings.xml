@@ -198,11 +198,11 @@
   <string name="about_description">Über die Wikipedia-App</string>
   <string name="privacy_policy_description">Datenschutzrichtlinie</string>
   <string name="terms_of_use_description">Nutzungsbedingungen</string>
-  <string name="about_wikipedia_url">https://de.m.wikipedia.org/wiki/Wikipedia:Über_Wikipedia</string>
-  <string name="privacy_policy_url">https://foundation.m.wikimedia.org/wiki/Privacy_policy/de</string>
+  <string name="about_wikipedia_url" fuzzy="true">https://de.m.wikipedia.org/wiki/Wikipedia:Über_Wikipedia</string>
+  <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy/de</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/de</string>
-  <string name="terms_of_use_url">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/de</string>
+  <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/de</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.de</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.de</string>
@@ -708,8 +708,10 @@
   <string name="suggested_edits_image_tags_snackbar">Taggen Sie Bilder, um sie für andere leichter auffindbar zu machen</string>
   <string name="suggested_edits_image_tags_task_detail" fuzzy="true">Taggen Sie Bilder, um sie für andere leichter auffindbar zu machen. Um die Genauigkeit sicherzustellen, müssen Menschen die vom Computer vorgeschlagenen Tags validieren.</string>
   <string name="suggested_edits_image_tags_choose" fuzzy="true">Wählen Sie übereinstimmende Tags aus</string>
+  <string name="suggested_edits_image_tags_search">Tags durchsuchen</string>
   <string name="suggested_edits_image_tags_select_title">Sie haben keine Tags für dieses Bild ausgewählt</string>
   <string name="suggested_edits_image_tags_select_text">Nur die von Ihnen ausgewählten Tags werden zu Bildern hinzugefügt. Nicht ausgewählte Tags werden als abgelehnt markiert. Möchten Sie wirklich alle Tags als abgelehnt markieren?</string>
+  <string name="suggested_edits_image_tags_add_tag">Tag hinzufügen...</string>
   <string name="suggested_edits_encouragement_message" fuzzy="true">%s, danke für Ihre Edits. Unten finden Sie weitere Möglichkeiten, um zu Wikipedia beizutragen.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Hallo %s&lt;/b&gt;, haben Sie gewusst das jeder Wikipedia editieren kann? Unten finden Sie spannende Möglichkeiten um Wikipedia zu verbessern. Viel Spass beim Editieren!</string>
   <string name="suggested_edits_image_captions_task_detail">Bildunterschriften beschreiben ein Bild, sodass Leser die Bedeutung und Kontext des Bildes besser verstehen können.</string>
