@@ -240,6 +240,7 @@
         <activity android:name=".onboarding.SuggestedEditsOnboardingActivity" />
 
         <activity android:name=".suggestededits.SuggestedEditsImageTagsOnboardingActivity" />
+
         <activity
             android:name=".suggestededits.SuggestedEditsFeedCardImageTagActivity"
             android:theme="@style/AppTheme.ActionBar.SuggestedEdits" />
