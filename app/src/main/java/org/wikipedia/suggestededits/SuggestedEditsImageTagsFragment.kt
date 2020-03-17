@@ -23,6 +23,7 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil
+import org.wikipedia.analytics.SuggestedEditsFunnel
 import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
@@ -354,7 +355,8 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                             "\"id\":\"M${page!!.pageId()}\$${UUID.randomUUID()}\"," +
                             "\"rank\":\"normal\"}"
 
-                    claimObservables.add(ServiceFactory.get(commonsSite).postSetClaim(claimTemplate, token, null, null))
+                    claimObservables.add(ServiceFactory.get(commonsSite).postSetClaim(claimTemplate, token,
+                            SuggestedEditsFunnel.SUGGESTED_EDITS_ADD_COMMENT, null))
                 }
 
                 disposables.add(ServiceFactory.get(commonsSite).postReviewImageLabels(page!!.title(), token, batchBuilder.toString())
