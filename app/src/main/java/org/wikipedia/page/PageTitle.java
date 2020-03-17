@@ -232,12 +232,8 @@ public class PageTitle implements Parcelable {
         return mainPageTitle.equals(getDisplayText());
     }
 
-    public String getCanonicalUri() {
+    public String getUri() {
         return getUriForDomain(getWikiSite().authority());
-    }
-
-    public String getDesktopUri() {
-        return getUriForDomain(getWikiSite().desktopAuthority());
     }
 
     public String getUriForAction(String action) {
