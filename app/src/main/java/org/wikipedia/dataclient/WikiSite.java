@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 
 import com.google.gson.annotations.SerializedName;
 
+import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.language.AppLanguageLookUpTable;
 import org.wikipedia.language.LanguageUtil;
 import org.wikipedia.page.PageTitle;
@@ -75,12 +76,16 @@ public class WikiSite implements Parcelable {
 
     public WikiSite(@NonNull Uri uri) {
         Uri tempUri = ensureScheme(uri);
-        String authority = tempUri.getAuthority();
+        String authority = StringUtils.defaultString(tempUri.getAuthority());
         if (("wikipedia.org".equals(authority) || "www.wikipedia.org".equals(authority))
                 && tempUri.getPath() != null && tempUri.getPath().startsWith("/wiki")) {
             // Special case for Wikipedia only: assume English subdomain when none given.
             authority = "en.wikipedia.org";
         }
+
+        // Unconditionally transform any mobile authority to canonical.
+        authority = authority.replace(".m.", ".");
+
         String langVariant = UriUtil.getLanguageVariantFromUri(tempUri);
         if (!TextUtils.isEmpty(langVariant)) {
             languageCode = langVariant;
@@ -120,16 +125,7 @@ public class WikiSite implements Parcelable {
      */
     @NonNull
     public String authority() {
-        return uri.getAuthority();
-    }
-
-    /**
-     * @return The canonical "desktop" form of the authority. For example, if the authority
-     * is in a "mobile" form, e.g. en.m.wikipedia.org, this will become en.wikipedia.org.
-     */
-    @NonNull
-    public String desktopAuthority() {
-        return authority().replace(".m.", ".");
+        return StringUtils.defaultString(uri.getAuthority());
     }
 
     @NonNull
@@ -234,6 +230,7 @@ public class WikiSite implements Parcelable {
 
     // Auto-generated
     @Override
+    @NonNull
     public String toString() {
         return "WikiSite{"
                 + "uri=" + uri
