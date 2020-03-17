@@ -37,8 +37,8 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
         super.setCard(card)
         this.card = card
 
-        if (card.action != ADD_IMAGE_TAGS) {
-            setLayoutDirectionByWikiSite(WikiSite.forLanguageCode(card.sourceSummary!!.lang), this)
+        if (card.sourceSummary != null) {
+            setLayoutDirectionByWikiSite(WikiSite.forLanguageCode(card.sourceSummary.lang), this)
         }
 
         cardView.setOnClickListener {

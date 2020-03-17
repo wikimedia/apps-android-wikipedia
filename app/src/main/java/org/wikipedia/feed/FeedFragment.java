@@ -243,14 +243,12 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
             SuggestedEditsFunnel.reset();
             if (resultCode == RESULT_OK) {
                 boolean isTranslation;
-                if (suggestedEditsCardView != null) {
+                if (suggestedEditsCardView != null && suggestedEditsCardView.getCard() != null) {
                     suggestedEditsCardView.refreshCardContent();
                     isTranslation = suggestedEditsCardView.isTranslation();
-                    if (suggestedEditsCardView.getCard() != null && !Prefs.shouldShowSuggestedEditsSurvey()) {
-                        FeedbackUtil.showMessage(this, isTranslation && app.language().getAppLanguageCodes().size() > 1
-                                ? getString(suggestedEditsCardView.getCard().getAction() == TRANSLATE_DESCRIPTION ? R.string.description_edit_success_saved_in_lang_snackbar : R.string.description_edit_success_saved_image_caption_in_lang_snackbar, app.language().getAppLanguageLocalizedName(app.language().getAppLanguageCodes().get(1)))
-                                : getString(suggestedEditsCardView.getCard().getAction() == ADD_DESCRIPTION ? R.string.description_edit_success_saved_snackbar : (suggestedEditsCardView.getCard().getAction() == ADD_IMAGE_TAGS) ? R.string.description_edit_success_saved_image_tags_snackbar : R.string.description_edit_success_saved_image_caption_snackbar));
-                    }
+                    FeedbackUtil.showMessage(this, isTranslation && app.language().getAppLanguageCodes().size() > 1
+                            ? getString(suggestedEditsCardView.getCard().getAction() == TRANSLATE_DESCRIPTION ? R.string.description_edit_success_saved_in_lang_snackbar : R.string.description_edit_success_saved_image_caption_in_lang_snackbar, app.language().getAppLanguageLocalizedName(app.language().getAppLanguageCodes().get(1)))
+                            : getString(suggestedEditsCardView.getCard().getAction() == ADD_DESCRIPTION ? R.string.description_edit_success_saved_snackbar : (suggestedEditsCardView.getCard().getAction() == ADD_IMAGE_TAGS) ? R.string.description_edit_success_saved_image_tags_snackbar : R.string.description_edit_success_saved_image_caption_snackbar));
                 }
             }
         } else if (requestCode == ACTIVITY_REQUEST_SUGGESTED_EDITS_ONBOARDING && resultCode == RESULT_OK) {
