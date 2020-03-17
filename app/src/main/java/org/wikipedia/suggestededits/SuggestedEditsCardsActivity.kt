@@ -52,6 +52,9 @@ class SuggestedEditsCardsActivity : SingleFragmentActivity<SuggestedEditsCardsFr
             ADD_IMAGE_TAGS -> {
                 R.string.suggested_edits_tag_images
             }
+            VANDALISM_PATROL -> {
+                R.string.suggested_edits_vandalism_patrol
+            }
             else -> R.string.suggested_edits_add_descriptions
         }
     }

@@ -41,6 +41,7 @@ class SuggestedEditsTasksFragment : Fragment() {
     private lateinit var addDescriptionsTask: SuggestedEditsTask
     private lateinit var addImageCaptionsTask: SuggestedEditsTask
     private lateinit var addImageTagsTask: SuggestedEditsTask
+    private lateinit var vandalismPatrolTask: SuggestedEditsTask
 
     private val displayedTasks = ArrayList<SuggestedEditsTask>()
     private val callback = TaskViewCallback()
@@ -387,26 +388,37 @@ class SuggestedEditsTasksFragment : Fragment() {
     private fun setUpTasks() {
         displayedTasks.clear()
 
+        vandalismPatrolTask = SuggestedEditsTask()
+        vandalismPatrolTask.title = getString(R.string.suggested_edits_vandalism_patrol)
+        vandalismPatrolTask.description = "Review recent edits on Wikipedia and determine if they are helpful or unhelpful."
+        vandalismPatrolTask.primaryActionText = "Review"
+        vandalismPatrolTask.imageDrawable = R.drawable.ic_report_black_24dp
+        vandalismPatrolTask.translatable = false
+
         addImageTagsTask = SuggestedEditsTask()
         addImageTagsTask.title = getString(R.string.suggested_edits_image_tags)
         addImageTagsTask.description = getString(R.string.suggested_edits_image_tags_task_detail)
+        addImageTagsTask.primaryActionText = getString(R.string.suggested_edits_task_action_text_add)
         addImageTagsTask.imageDrawable = R.drawable.ic_image_tag
         addImageTagsTask.translatable = false
 
         // TODO: remove condition when ready
         if (ReleaseUtil.isPreBetaRelease()) {
+            displayedTasks.add(vandalismPatrolTask)
             displayedTasks.add(addImageTagsTask)
         }
 
         addImageCaptionsTask = SuggestedEditsTask()
         addImageCaptionsTask.title = getString(R.string.suggested_edits_image_captions)
         addImageCaptionsTask.description = getString(R.string.suggested_edits_image_captions_task_detail)
+        addImageTagsTask.primaryActionText = getString(R.string.suggested_edits_task_action_text_add)
         addImageCaptionsTask.imageDrawable = R.drawable.ic_image_caption
         displayedTasks.add(addImageCaptionsTask)
 
         addDescriptionsTask = SuggestedEditsTask()
         addDescriptionsTask.title = getString(R.string.description_edit_tutorial_title_descriptions)
         addDescriptionsTask.description = getString(R.string.suggested_edits_add_descriptions_task_detail)
+        addImageTagsTask.primaryActionText = getString(R.string.suggested_edits_task_action_text_add)
         addDescriptionsTask.imageDrawable = R.drawable.ic_article_description
         displayedTasks.add(addDescriptionsTask)
     }
@@ -428,6 +440,8 @@ class SuggestedEditsTasksFragment : Fragment() {
                 } else {
                     startActivity(SuggestedEditsCardsActivity.newIntent(requireActivity(), ADD_IMAGE_TAGS))
                 }
+            } else if (task == vandalismPatrolTask) {
+                startActivity(SuggestedEditsCardsActivity.newIntent(requireActivity(), VANDALISM_PATROL))
             }
         }
     }

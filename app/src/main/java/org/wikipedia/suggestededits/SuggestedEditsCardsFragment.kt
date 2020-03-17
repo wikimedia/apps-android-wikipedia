@@ -168,7 +168,16 @@ class SuggestedEditsCardsFragment : Fragment() {
             addContributionButton.setBackgroundResource(R.drawable.button_shape_border_light)
         }
 
-        if (action == ADD_IMAGE_TAGS) {
+        if (action == VANDALISM_PATROL) {
+            if (addContributionText == null) {
+                // implying landscape mode, where addContributionText doesn't exist.
+                addContributionImage.visibility = VISIBLE
+                addContributionImage.setImageResource(R.drawable.ic_check_black_24dp)
+            } else {
+                addContributionText?.text = getString(R.string.suggested_edits_vandalism_patrol_skip)
+                addContributionImage.visibility = GONE
+            }
+        } else if (action == ADD_IMAGE_TAGS) {
             if (addContributionText == null) {
                 // implying landscape mode, where addContributionText doesn't exist.
                 addContributionImage.visibility = VISIBLE
@@ -242,7 +251,7 @@ class SuggestedEditsCardsFragment : Fragment() {
     }
 
     fun onSelectPage() {
-        if (action == ADD_IMAGE_TAGS && topBaseChild() != null) {
+        if ((action == ADD_IMAGE_TAGS || action == VANDALISM_PATROL) && topBaseChild() != null) {
             topBaseChild()!!.publish()
         } else if (topTitle != null) {
             startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), topTitle!!, null, topChild()!!.sourceSummary, topChild()!!.targetSummary,
@@ -358,6 +367,8 @@ class SuggestedEditsCardsFragment : Fragment() {
         override fun createFragment(position: Int): Fragment {
             return if (action == ADD_IMAGE_TAGS)
                 SuggestedEditsImageTagsFragment.newInstance()
+            else if (action == VANDALISM_PATROL)
+                SuggestedEditsVandalismPatrolFragment.newInstance()
             else
                 SuggestedEditsCardsItemFragment.newInstance()
         }

@@ -27,6 +27,7 @@ object MissingDescriptionProvider {
     private var imagesWithTranslatableCaptionCacheToLang : String = ""
 
     private val imagesWithMissingTagsCache : Stack<MwQueryPage> = Stack()
+    private val revertCandidateCache : Stack<RevertCandidateProvider.RevertCandidate> = Stack()
 
     // TODO: add a maximum-retry limit -- it's currently infinite, or until disposed.
 
@@ -220,6 +221,42 @@ object MissingDescriptionProvider {
                             var item: MwQueryPage? = null
                             if (!imagesWithMissingTagsCache.empty()) {
                                 item = imagesWithMissingTagsCache.pop()
+                            }
+                            if (item == null) {
+                                throw ListEmptyException()
+                            }
+                            item
+                        }
+                        .retry { t: Throwable -> t is ListEmptyException }
+            }
+        }.doFinally { mutex.release() }
+    }
+
+    fun getNextRevertCandidate(lang: String): Observable<RevertCandidateProvider.RevertCandidate> {
+
+        val timestamp = (Date().time / 1000) - 60
+
+        return Observable.fromCallable { mutex.acquire() }.flatMap {
+            var cachedItem: RevertCandidateProvider.RevertCandidate? = null
+            if (!revertCandidateCache.empty()) {
+                cachedItem = revertCandidateCache.pop()
+            }
+
+            if (cachedItem != null) {
+                Observable.just(cachedItem)
+            } else {
+                RevertCandidateProvider.getWikiLoopService()
+                        .getRevertCandidates(WikiSite.forLanguageCode(lang).dbName(), 0, "older", 5)
+                        .map { response ->
+                            for (candidate in response) {
+                                if (candidate.ores == null) {
+                                    continue
+                                }
+                                revertCandidateCache.push(candidate)
+                            }
+                            var item: RevertCandidateProvider.RevertCandidate? = null
+                            if (!revertCandidateCache.empty()) {
+                                item = revertCandidateCache.pop()
                             }
                             if (item == null) {
                                 throw ListEmptyException()

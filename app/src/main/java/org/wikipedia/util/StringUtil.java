@@ -273,6 +273,31 @@ public final class StringUtil {
         return new Gson().toJson(list);
     }
 
+    public static int[] utf8Indices(String s) {
+        int[] indices = new int[s.getBytes(StandardCharsets.UTF_8).length];
+        int ptr = 0;
+        int count = 0;
+        for (int i = 0; i < s.length(); i++) {
+            int c = s.codePointAt(i);
+            if (Character.charCount(c) == 2) {
+                // TODO: anything to handle here?
+            }
+            if (c <= 0x7F) {
+                count = 1;
+            } else if (c <= 0x7FF) {
+                count = 2;
+            } else if (c <= 0xFFFF) {
+                count = 3;
+            } else if (c <= 0x1FFFFF) {
+                count = 4;
+            }
+            for (int j = 0; j < count; j++) {
+                indices[ptr++] = i;
+            }
+        }
+        return indices;
+    }
+
     private StringUtil() {
     }
 }
