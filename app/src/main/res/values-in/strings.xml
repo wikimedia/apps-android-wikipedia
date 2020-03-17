@@ -686,7 +686,6 @@
   <string name="suggested_edits_feed_card_title">Penyuntingan yang disarankan</string>
   <string name="suggested_edits_feed_card_add_description_button">Tambahkan deskripsi artikel</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Tambahkan deskripsi artikel (%s)</string>
-  <string name="suggested_edits_tutorial_message">Selamat datang di rumah baru untuk penyuntingan cepat di aplikasi Wikipedia. Kontribusi Anda sangat kami hargai. Selamat menyunting!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Memulai</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Takarir gambar (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Deskripsi gambar (%s)</string>

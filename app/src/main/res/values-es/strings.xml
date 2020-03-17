@@ -710,7 +710,6 @@
   <string name="suggested_edits_feed_card_title">Ediciones sugeridas</string>
   <string name="suggested_edits_feed_card_add_description_button">Añadir descripción de artículo</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Añadir descripción de imagen (%s)</string>
-  <string name="suggested_edits_tutorial_message">\nBienvenido a la página de inicio de edición en la app de Wikipedia. Aquí te mostraremos sugerencias para añadir contenido que te pueda ser de interés. Apreciamos mucho tus contribuciones. ¡Que lo pases bien!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">\nEmpezar</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Leyenda de imagen (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Descripción de imagen (%s)</string>

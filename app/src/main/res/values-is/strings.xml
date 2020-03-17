@@ -653,7 +653,6 @@
   <string name="suggested_edits_feed_card_title">Tillögur að breytingum</string>
   <string name="suggested_edits_feed_card_add_description_button">Bæta við lýsingu á grein</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Bæta við lýsingu á grein (%s)</string>
-  <string name="suggested_edits_tutorial_message">Velkomin í nýju miðstöðina fyrir flýtibreytingar í Wikipedia-forritinu. Við kunnum vel að meta öll þín framlög. Skemmtu þér vel!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Komast í gang</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Myndatexti (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Lýsing á mynd (%s)</string>
