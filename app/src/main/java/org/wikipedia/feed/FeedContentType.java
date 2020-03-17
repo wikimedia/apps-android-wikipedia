@@ -26,6 +26,7 @@ import java.util.Map;
 
 import static org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_CAPTION;
 import static org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_DESCRIPTION;
+import static org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_IMAGE_TAGS;
 import static org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_CAPTION;
 import static org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION;
 
@@ -109,6 +110,7 @@ public enum FeedContentType implements EnumCode {
         unlockedTypes.add(TRANSLATE_DESCRIPTION);
         unlockedTypes.add(ADD_CAPTION);
         unlockedTypes.add(TRANSLATE_CAPTION);
+        unlockedTypes.add(ADD_IMAGE_TAGS);
         return unlockedTypes;
     }
 

@@ -1,5 +1,6 @@
 package org.wikipedia.suggestededits
 
+import android.app.Activity
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.graphics.Typeface
@@ -56,7 +57,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setConditionalLayoutDirection(contentContainer, parent().langFromCode)
+        setConditionalLayoutDirection(contentContainer, if(invokedFromFeed())(activity as SuggestedEditsFeedCardImageTagActivity).langFromCode else parent().langFromCode)
         imageView.setLegacyVisibilityHandlingEnabled(true)
         cardItemErrorView.setBackClickListener { requireActivity().finish() }
         cardItemErrorView.setRetryClickListener {
@@ -90,6 +91,10 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
             }
         }
 
+        if (invokedFromFeed()) {
+            page = (activity as SuggestedEditsFeedCardImageTagActivity).page
+        }
+
         imageCaption.setOnLongClickListener {
             wasCaptionLongClicked = true
             false
@@ -101,31 +106,39 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
 
     override fun onStart() {
         super.onStart()
-        parent().updateActionButton()
+        if(invokedFromFeed())(activity as SuggestedEditsFeedCardImageTagActivity).updateActionButton() else parent().updateActionButton()
     }
 
     private fun getNextItem() {
+        if (invokedFromFeed()) {
+            addTagsAndUpdateContent()
+            return
+        }
         if (page != null) {
             return
         }
-        disposables.add(MissingDescriptionProvider.getNextImageWithMissingTags(parent().langFromCode)
+        disposables.add(MissingDescriptionProvider.getNextImageWithMissingTags(if (invokedFromFeed()) (activity as SuggestedEditsFeedCardImageTagActivity).langFromCode else parent().langFromCode)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ page ->
                     this.page = page
-                    tagList.clear()
-                    val maxTags = 3
-                    for (label in page.imageLabels) {
-                        if (label.label.isEmpty()){
-                            continue
-                        }
-                        tagList.add(label)
-                        if (tagList.size >= maxTags) {
-                            break
-                        }
-                    }
-                    updateContents()
+                    addTagsAndUpdateContent()
                 }, { this.setErrorState(it) })!!)
+    }
+
+    private fun addTagsAndUpdateContent() {
+        val maxTags = 3
+        tagList.clear()
+        for (label in page!!.imageLabels) {
+            if (label.label.isEmpty()) {
+                continue
+            }
+            tagList.add(label)
+            if (tagList.size >= maxTags) {
+                break
+            }
+        }
+        updateContents()
     }
 
     private fun setErrorState(t: Throwable) {
@@ -167,8 +180,8 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe { captions ->
-                    if (captions.containsKey(parent().langFromCode)) {
-                        imageCaption.text = captions[parent().langFromCode]
+                    if (captions.containsKey(if (invokedFromFeed()) (activity as SuggestedEditsFeedCardImageTagActivity).langFromCode else parent().langFromCode)) {
+                        imageCaption.text = captions[if (invokedFromFeed()) (activity as SuggestedEditsFeedCardImageTagActivity).langFromCode else parent().langFromCode]
                         imageCaption.visibility = VISIBLE
                     } else {
                         if (page!!.imageInfo() != null && page!!.imageInfo()!!.metadata != null) {
@@ -181,7 +194,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                 })
 
         updateLicenseTextShown()
-        parent().updateActionButton()
+        if (invokedFromFeed()) (activity as SuggestedEditsFeedCardImageTagActivity).updateActionButton() else parent().updateActionButton()
     }
 
     private fun addChip(label: MwQueryPage.ImageLabel?, typeface: Typeface) {
@@ -250,7 +263,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         }
 
         updateLicenseTextShown()
-        parent().updateActionButton()
+        if(invokedFromFeed())(activity as SuggestedEditsFeedCardImageTagActivity).updateActionButton() else parent().updateActionButton()
     }
 
     override fun onSelect(item: MwQueryPage.ImageLabel, searchTerm: String) {
@@ -409,7 +422,12 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                 updateLicenseTextShown()
 
                 publishOverlayContainer.visibility = GONE
-                parent().nextPage()
+                if (invokedFromFeed()) {
+                    (activity as SuggestedEditsFeedCardImageTagActivity).setResult(Activity.RESULT_OK)
+                    (activity as SuggestedEditsFeedCardImageTagActivity).finish()
+                } else {
+                    parent().nextPage()
+                }
                 setPublishedState()
             }
         }, duration * 3)
@@ -476,5 +494,9 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
             return false
         }
         return !atLeastOneTagChecked()
+    }
+
+    fun invokedFromFeed():Boolean{
+        return (activity is SuggestedEditsFeedCardImageTagActivity)
     }
 }
