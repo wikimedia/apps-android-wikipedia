@@ -77,12 +77,12 @@ import static org.hamcrest.Matchers.not;
         assertThat(subject.languageCode(), is(""));
     }
 
-    @Test public void testCtorMobileAuthorityLanguage() {
+    @Test public void testCtordesktopAuthorityLanguage() {
         WikiSite subject = new WikiSite("test.m.wikipedia.org");
         assertThat(subject.languageCode(), is("test"));
     }
 
-    @Test public void testCtorMobileAuthorityNoLanguage() {
+    @Test public void testCtordesktopAuthorityNoLanguage() {
         WikiSite subject = new WikiSite("m.wikipedia.org");
         assertThat(subject.languageCode(), is(""));
     }
@@ -90,7 +90,7 @@ import static org.hamcrest.Matchers.not;
     @Test public void testCtorUriLangVariant() {
         WikiSite subject = new WikiSite("zh.wikipedia.org/zh-hant/Foo");
         assertThat(subject.authority(), is("zh.wikipedia.org"));
-        assertThat(subject.mobileAuthority(), is("zh.m.wikipedia.org"));
+        assertThat(subject.desktopAuthority(), is("zh.wikipedia.org"));
         assertThat(subject.subdomain(), is("zh"));
         assertThat(subject.languageCode(), is("zh-hant"));
         assertThat(subject.scheme(), is("https"));
@@ -101,7 +101,7 @@ import static org.hamcrest.Matchers.not;
     @Test public void testCtorMobileUriLangVariant() {
         WikiSite subject = new WikiSite("zh.m.wikipedia.org/zh-hant/Foo");
         assertThat(subject.authority(), is("zh.m.wikipedia.org"));
-        assertThat(subject.mobileAuthority(), is("zh.m.wikipedia.org"));
+        assertThat(subject.desktopAuthority(), is("zh.wikipedia.org"));
         assertThat(subject.subdomain(), is("zh"));
         assertThat(subject.languageCode(), is("zh-hant"));
         assertThat(subject.scheme(), is("https"));
@@ -111,7 +111,7 @@ import static org.hamcrest.Matchers.not;
     @Test public void testCtorUriNoLangVariant() {
         WikiSite subject = new WikiSite("http://zh.wikipedia.org/wiki/Foo");
         assertThat(subject.authority(), is("zh.wikipedia.org"));
-        assertThat(subject.mobileAuthority(), is("zh.m.wikipedia.org"));
+        assertThat(subject.desktopAuthority(), is("zh.wikipedia.org"));
         assertThat(subject.subdomain(), is("zh"));
         assertThat(subject.languageCode(), is("zh-hant"));
         assertThat(subject.scheme(), is("http"));
@@ -121,7 +121,7 @@ import static org.hamcrest.Matchers.not;
     @Test public void testCtorUriGeneralLangVariant() {
         WikiSite subject = new WikiSite("http://zh.wikipedia.org/wiki/Foo");
         assertThat(subject.authority(), is("zh.wikipedia.org"));
-        assertThat(subject.mobileAuthority(), is("zh.m.wikipedia.org"));
+        assertThat(subject.desktopAuthority(), is("zh.wikipedia.org"));
         assertThat(subject.subdomain(), is("zh"));
         assertThat(subject.languageCode(), is("zh-hant"));
         assertThat(subject.scheme(), is("http"));
@@ -138,29 +138,24 @@ import static org.hamcrest.Matchers.not;
         assertThat(subject.authority(), is("test.wikipedia.org"));
     }
 
-    @Test public void testMobileAuthorityLanguage() {
+    @Test public void testDesktopAuthorityLanguage() {
         WikiSite subject = WikiSite.forLanguageCode("fiu-vro");
-        assertThat(subject.mobileAuthority(), is("fiu-vro.m.wikipedia.org"));
+        assertThat(subject.desktopAuthority(), is("fiu-vro.wikipedia.org"));
     }
 
-    @Test public void testMobileAuthorityNoLanguage() {
+    @Test public void testDesktopAuthorityNoLanguage() {
         WikiSite subject = new WikiSite("wikipedia.org");
-        assertThat(subject.mobileAuthority(), is("m.wikipedia.org"));
+        assertThat(subject.desktopAuthority(), is("wikipedia.org"));
     }
 
-    @Test public void testMobileAuthorityLanguageAuthority() {
+    @Test public void testDesktopAuthorityLanguageAuthority() {
         WikiSite subject = new WikiSite("no.wikipedia.org", "nb");
-        assertThat(subject.mobileAuthority(), is("no.m.wikipedia.org"));
+        assertThat(subject.desktopAuthority(), is("no.wikipedia.org"));
     }
 
-    @Test public void testMobileAuthorityMobileAuthority() {
-        WikiSite subject = new WikiSite("ru.m.wikipedia.org");
-        assertThat(subject.mobileAuthority(), is("ru.m.wikipedia.org"));
-    }
-
-    @Test public void testMobileAuthorityMobileAuthorityNoLanguage() {
-        WikiSite subject = new WikiSite("m.wikipedia.org");
-        assertThat(subject.mobileAuthority(), is("m.wikipedia.org"));
+    @Test public void testDesktopAuthoritydesktopAuthority() {
+        WikiSite subject = new WikiSite("ru.wikipedia.org");
+        assertThat(subject.desktopAuthority(), is("ru.wikipedia.org"));
     }
 
     @Test public void testDbNameLanguage() {
