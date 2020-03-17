@@ -701,14 +701,6 @@ public final class Prefs {
         setInt(R.string.preference_key_overflow_reading_lists_option_click_count, count);
     }
 
-    public static boolean showEditTaskOnboarding() {
-        return getBoolean(R.string.preference_key_show_edit_tasks_onboarding, true);
-    }
-
-    public static void setShowEditTasksOnboarding(boolean showOnboarding) {
-        setBoolean(R.string.preference_key_show_edit_tasks_onboarding, showOnboarding);
-    }
-
     public static boolean shouldShowHistoryOfflineArticlesToast() {
         return getBoolean(R.string.preference_key_history_offline_articles_toast, true);
     }

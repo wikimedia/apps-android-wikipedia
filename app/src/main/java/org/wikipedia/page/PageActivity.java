@@ -420,7 +420,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         app.putCrashReportProperty("title", title.toString());
 
         if (title.isSpecial()) {
-            visitInExternalBrowser(this, Uri.parse(title.getMobileUri()));
+            visitInExternalBrowser(this, Uri.parse(title.getDesktopUri()));
             return;
         }
 
