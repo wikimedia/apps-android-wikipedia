@@ -48,7 +48,6 @@ import org.wikipedia.feed.view.FeedView;
 import org.wikipedia.feed.view.HorizontalScrollingListCardItemView;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.language.LanguageSettingsInvokeSource;
-import org.wikipedia.onboarding.SuggestedEditsOnboardingActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.random.RandomActivity;
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter;
@@ -56,6 +55,7 @@ import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity;
 import org.wikipedia.suggestededits.SuggestedEditsFeedCardImageTagActivity;
+import org.wikipedia.suggestededits.SuggestedEditsImageTagsOnboardingActivity;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.ThrowableUtil;
@@ -551,8 +551,9 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         public void onSuggestedEditsCardClick(@NonNull SuggestedEditsCardView view) {
             funnel.cardClicked(view.getCard().type(), getCardLanguageCode(view.getCard()));
             suggestedEditsCardView = view;
-            if (Prefs.showEditTaskOnboarding()) {
-                startActivityForResult(SuggestedEditsOnboardingActivity.Companion.newIntent(requireContext()),
+            if (view.getCard().getAction() == ADD_IMAGE_TAGS && Prefs.shouldShowImageTagsOnboarding()) {
+                Prefs.setShowImageTagsOnboarding(false);
+                startActivityForResult(SuggestedEditsImageTagsOnboardingActivity.Companion.newIntent(requireContext()),
                         ACTIVITY_REQUEST_SUGGESTED_EDITS_ONBOARDING);
             } else {
                 startDescriptionEditScreen();
