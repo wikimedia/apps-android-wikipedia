@@ -46,14 +46,6 @@ public class Page {
         return pageProperties;
     }
 
-    public boolean couldHaveReadMoreSection() {
-        return getTitle().namespace() == Namespace.MAIN;
-    }
-
-    public boolean isFilePage() {
-        return title.isFilePage();
-    }
-
     public boolean isMainPage() {
         return pageProperties.isMainPage();
     }
