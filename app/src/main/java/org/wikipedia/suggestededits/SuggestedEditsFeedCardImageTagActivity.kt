@@ -21,12 +21,10 @@ import org.wikipedia.json.GsonMarshaller
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.views.ImageZoomHelper
 
-
-class SuggestedEditsFeedCardImageTagActivity : BaseActivity() {
+class SuggestedEditsFeedCardImageTagActivity : BaseActivity(), SuggestedEditsImageTagsFragment.Callback {
 
     private lateinit var imageZoomHelper: ImageZoomHelper
     private var suggestedEditsImageTagsFragment: SuggestedEditsImageTagsFragment? = null
-    var langFromCode: String = WikipediaApp.getInstance().language().appLanguageCode
     var action: DescriptionEditActivity.Action = DescriptionEditActivity.Action.ADD_IMAGE_TAGS
     var page: MwQueryPage? = null
 
@@ -39,12 +37,20 @@ class SuggestedEditsFeedCardImageTagActivity : BaseActivity() {
         setStatusBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color))
         setNavigationBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color))
         setContentView(R.layout.activity_suggested_edits_feed_card_image_tags)
-        suggestedEditsImageTagsFragment = getSupportFragmentManager().findFragmentById(R.id.imageTagFragment) as SuggestedEditsImageTagsFragment?
+        suggestedEditsImageTagsFragment = supportFragmentManager.findFragmentById(R.id.imageTagFragment) as SuggestedEditsImageTagsFragment?
         addContributionButton.setOnClickListener { suggestedEditsImageTagsFragment!!.publish() }
         addContributionLandscapeImage.setOnClickListener { suggestedEditsImageTagsFragment!!.publish() }
     }
 
-    fun updateActionButton() {
+    override fun getLangCode(): String {
+        return WikipediaApp.getInstance().language().appLanguageCode
+    }
+
+    override fun getSinglePage(): MwQueryPage? {
+        return page
+    }
+
+    override fun updateActionButton() {
         if (suggestedEditsImageTagsFragment != null) {
             addContributionLandscapeImage.setBackgroundColor(if (!suggestedEditsImageTagsFragment!!.publishOutlined()) ResourceUtil.getThemedColor(this, R.attr.colorAccent) else Color.WHITE)
             if(suggestedEditsImageTagsFragment!!.publishOutlined()) addContributionLandscapeImage.setBackgroundResource(R.drawable.button_shape_border_light)
@@ -73,6 +79,11 @@ class SuggestedEditsFeedCardImageTagActivity : BaseActivity() {
             }
             addContributionImage.visibility = GONE
         }
+    }
+
+    override fun nextPage() {
+        setResult(RESULT_OK)
+        finish()
     }
 
     override fun dispatchTouchEvent(event: MotionEvent?): Boolean {

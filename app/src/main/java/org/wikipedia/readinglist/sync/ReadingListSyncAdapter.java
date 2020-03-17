@@ -635,6 +635,6 @@ public class ReadingListSyncAdapter extends AbstractThreadedSyncAdapter {
 
     private RemoteReadingListEntry remoteEntryFromLocalPage(@NonNull ReadingListPage localPage) {
         PageTitle title = ReadingListPage.toPageTitle(localPage);
-        return new RemoteReadingListEntry(title.getWikiSite().scheme() + "://" + title.getWikiSite().desktopAuthority(), title.getPrefixedText());
+        return new RemoteReadingListEntry(title.getWikiSite().scheme() + "://" + title.getWikiSite().authority(), title.getPrefixedText());
     }
 }
