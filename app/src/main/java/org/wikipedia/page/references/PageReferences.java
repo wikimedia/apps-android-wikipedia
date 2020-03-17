@@ -13,16 +13,16 @@ import java.util.List;
 
 @SuppressWarnings("unused,NullableProblems")
 public class PageReferences {
-    @Nullable @SerializedName("selectedIndex") private int selectedIndex;
+    @Nullable private int selectedIndex;
 
     @Nullable private String tid;
-    @Nullable @SerializedName("referencesGroup") private Reference[] referencesGroup;
+    @Nullable private Reference[] referencesGroup;
 
     public int getSelectedIndex() {
         return selectedIndex;
     }
 
-    @Nullable public List<Reference> getReferencesGroup() {
+    @NonNull public List<Reference> getReferencesGroup() {
         return referencesGroup == null ? Collections.emptyList() : Arrays.asList(referencesGroup);
     }
 
@@ -32,22 +32,15 @@ public class PageReferences {
         @Nullable @SerializedName("href") private String href;
         private String text;
 
-        @NonNull
-        public String getContent() {
+        @NonNull public String getContent() {
             return StringUtils.defaultString(content);
         }
 
-        public void setText(@NonNull String text) {
-            this.text = text;
+        @NonNull public String getText() {
+            return StringUtils.defaultString(text);
         }
 
-        @NonNull
-        public String getText() {
-            return text;
-        }
-
-        @Nullable
-        public String getHref() {
+        @NonNull public String getHref() {
             return StringUtils.defaultString(href);
         }
     }
