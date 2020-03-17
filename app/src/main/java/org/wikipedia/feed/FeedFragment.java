@@ -48,13 +48,14 @@ import org.wikipedia.feed.view.FeedView;
 import org.wikipedia.feed.view.HorizontalScrollingListCardItemView;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.language.LanguageSettingsInvokeSource;
-import org.wikipedia.onboarding.SuggestedEditsOnboardingActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.random.RandomActivity;
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity;
+import org.wikipedia.suggestededits.SuggestedEditsFeedCardImageTagActivity;
+import org.wikipedia.suggestededits.SuggestedEditsImageTagsOnboardingActivity;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.ThrowableUtil;
@@ -76,6 +77,7 @@ import static org.wikipedia.Constants.ACTIVITY_REQUEST_SETTINGS;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_SUGGESTED_EDITS_ONBOARDING;
 import static org.wikipedia.Constants.InvokeSource.FEED;
 import static org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_DESCRIPTION;
+import static org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_IMAGE_TAGS;
 import static org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_CAPTION;
 import static org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION;
 import static org.wikipedia.language.AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE;
@@ -241,14 +243,12 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
             SuggestedEditsFunnel.reset();
             if (resultCode == RESULT_OK) {
                 boolean isTranslation;
-                if (suggestedEditsCardView != null) {
+                if (suggestedEditsCardView != null && suggestedEditsCardView.getCard() != null) {
                     suggestedEditsCardView.refreshCardContent();
                     isTranslation = suggestedEditsCardView.isTranslation();
-                    if (suggestedEditsCardView.getCard() != null && !Prefs.shouldShowSuggestedEditsSurvey()) {
-                        FeedbackUtil.showMessage(this, isTranslation && app.language().getAppLanguageCodes().size() > 1
-                                ? getString(suggestedEditsCardView.getCard().getAction() == TRANSLATE_DESCRIPTION ? R.string.description_edit_success_saved_in_lang_snackbar : R.string.description_edit_success_saved_image_caption_in_lang_snackbar, app.language().getAppLanguageLocalizedName(app.language().getAppLanguageCodes().get(1)))
-                                : getString(suggestedEditsCardView.getCard().getAction() == ADD_DESCRIPTION ? R.string.description_edit_success_saved_snackbar : R.string.description_edit_success_saved_image_caption_snackbar));
-                    }
+                    FeedbackUtil.showMessage(this, isTranslation && app.language().getAppLanguageCodes().size() > 1
+                            ? getString(suggestedEditsCardView.getCard().getAction() == TRANSLATE_DESCRIPTION ? R.string.description_edit_success_saved_in_lang_snackbar : R.string.description_edit_success_saved_image_caption_in_lang_snackbar, app.language().getAppLanguageLocalizedName(app.language().getAppLanguageCodes().get(1)))
+                            : getString(suggestedEditsCardView.getCard().getAction() == ADD_DESCRIPTION ? R.string.description_edit_success_saved_snackbar : (suggestedEditsCardView.getCard().getAction() == ADD_IMAGE_TAGS) ? R.string.description_edit_success_saved_image_tags_snackbar : R.string.description_edit_success_saved_image_caption_snackbar));
                 }
             }
         } else if (requestCode == ACTIVITY_REQUEST_SUGGESTED_EDITS_ONBOARDING && resultCode == RESULT_OK) {
@@ -261,6 +261,10 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
             return;
         }
         DescriptionEditActivity.Action action = suggestedEditsCardView.getCard().getAction();
+        if (action == ADD_IMAGE_TAGS) {
+            startActivityForResult(SuggestedEditsFeedCardImageTagActivity.Companion.newIntent(requireActivity(), suggestedEditsCardView.getCard().getPage()), ACTIVITY_REQUEST_DESCRIPTION_EDIT);
+            return;
+        }
         PageTitle pageTitle = (action == TRANSLATE_DESCRIPTION || action == TRANSLATE_CAPTION)
                 ? suggestedEditsCardView.getCard().getTargetSummary().getPageTitle()
                 : suggestedEditsCardView.getCard().getSourceSummary().getPageTitle();
@@ -545,8 +549,9 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         public void onSuggestedEditsCardClick(@NonNull SuggestedEditsCardView view) {
             funnel.cardClicked(view.getCard().type(), getCardLanguageCode(view.getCard()));
             suggestedEditsCardView = view;
-            if (Prefs.showEditTaskOnboarding()) {
-                startActivityForResult(SuggestedEditsOnboardingActivity.Companion.newIntent(requireContext()),
+            if (view.getCard().getAction() == ADD_IMAGE_TAGS && Prefs.shouldShowImageTagsOnboarding()) {
+                Prefs.setShowImageTagsOnboarding(false);
+                startActivityForResult(SuggestedEditsImageTagsOnboardingActivity.Companion.newIntent(requireContext()),
                         ACTIVITY_REQUEST_SUGGESTED_EDITS_ONBOARDING);
             } else {
                 startDescriptionEditScreen();

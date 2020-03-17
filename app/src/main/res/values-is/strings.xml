@@ -183,8 +183,8 @@
   <string name="about_description">Um Wikipedia-appið</string>
   <string name="privacy_policy_description">Meðferð persónuupplýsinga</string>
   <string name="terms_of_use_description">Notkunarskilmálar</string>
-  <string name="about_wikipedia_url">https://en.m.wikipedia.org/wiki/Wikipedia:About</string>
-  <string name="privacy_policy_url">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
+  <string name="about_wikipedia_url" fuzzy="true">https://en.m.wikipedia.org/wiki/Wikipedia:About</string>
+  <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
@@ -653,7 +653,6 @@
   <string name="suggested_edits_feed_card_title">Tillögur að breytingum</string>
   <string name="suggested_edits_feed_card_add_description_button">Bæta við lýsingu á grein</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Bæta við lýsingu á grein (%s)</string>
-  <string name="suggested_edits_tutorial_message">Velkomin í nýju miðstöðina fyrir flýtibreytingar í Wikipedia-forritinu. Við kunnum vel að meta öll þín framlög. Skemmtu þér vel!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Komast í gang</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Myndatexti (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Lýsing á mynd (%s)</string>

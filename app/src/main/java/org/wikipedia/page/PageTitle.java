@@ -240,12 +240,8 @@ public class PageTitle implements Parcelable {
         return properties != null && properties.isDisambiguationPage();
     }
 
-    public String getCanonicalUri() {
+    public String getUri() {
         return getUriForDomain(getWikiSite().authority());
-    }
-
-    public String getMobileUri() {
-        return getUriForDomain(getWikiSite().mobileAuthority());
     }
 
     public String getUriForAction(String action) {

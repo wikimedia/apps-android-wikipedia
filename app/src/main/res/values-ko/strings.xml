@@ -206,7 +206,7 @@
   <string name="about_description">위키백과 앱 정보</string>
   <string name="privacy_policy_description">개인정보 정책</string>
   <string name="terms_of_use_description">이용 약관</string>
-  <string name="about_wikipedia_url">https://ko.m.wikipedia.org/wiki/위키백과:소개</string>
+  <string name="about_wikipedia_url" fuzzy="true">https://ko.m.wikipedia.org/wiki/위키백과:소개</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ko#오프라인 읽기 및 데이터</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ko</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
@@ -683,7 +683,6 @@
   <string name="suggested_edits_feed_card_title">편집 제안</string>
   <string name="suggested_edits_feed_card_add_description_button">문서 설명 추가</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">문서 설명 추가 (%s)</string>
-  <string name="suggested_edits_tutorial_message">위키백과 앱의 빠른 편집의 새 터전에 오신 것을 환영합니다. 기여에 대단히 감사드립니다. 즐거운 편집 되십시오!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">시작하기</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">이미지 캡션 (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">이미지 설명 (%s)</string>

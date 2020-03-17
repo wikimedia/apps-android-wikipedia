@@ -217,11 +217,11 @@
   <string name="about_description">Informazioni sull\'app di Wikipedia</string>
   <string name="privacy_policy_description">Informativa sulla privacy</string>
   <string name="terms_of_use_description">Condizioni d\'uso</string>
-  <string name="about_wikipedia_url">https://it.m.wikipedia.org/wiki/Wikipedia:Sala_stampa/Wikipedia</string>
-  <string name="privacy_policy_url">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
+  <string name="about_wikipedia_url">https://it.wikipedia.org/wiki/Wikipedia:Sala_stampa/Wikipedia</string>
+  <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/it</string>
-  <string name="terms_of_use_url">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/it</string>
+  <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/it</string>
   <string name="android_app_request_an_account_url">https://it.wikipedia.org/wiki/Aiuto:Come_registrarsi</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.it</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.it</string>
@@ -697,7 +697,6 @@
   <string name="suggested_edits_feed_card_title">Modifiche suggerite</string>
   <string name="suggested_edits_feed_card_add_description_button">Aggiungi una descrizione della voce</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Aggiungi descrizione della voce (%s)</string>
-  <string name="suggested_edits_tutorial_message">Benvenuto nella nuova pagina principale per la modifica rapida nell\'applicazione Wikipedia. I tuoi contributi sono molto apprezzati. Buona modifica!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Inizia</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Didascalia immagine (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Descrizione immagine (%s)</string>
@@ -721,13 +720,14 @@
   <string name="suggested_edits_image_tags_publishing">Pubblicazione</string>
   <string name="suggested_edits_image_tags_published">Pubblicato</string>
   <string name="suggested_edits_image_tags_onboarding_title">Etichettare le immagini facilita la ricerca da parte di altri utenti.</string>
-  <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">Le seguenti immagini sono suggerite dal computer, e devono essere convalidate dagli umani per garantire l\'accuratezza.\n\nConfermando le etichette suggerite, puoi semplificare la ricerca delle immagini su Commons, il database multimediale che Wikipedia utilizza per le immagini nelle sue voci.</string>
+  <string name="suggested_edits_image_tags_onboarding_text">Aggiungendo le etichette alle immagini, puoi semplificare la ricerca delle immagini su Commons, il database multimediale che Wikipedia utilizza per le immagini nelle sue voci.\n\nSuggeriamo automaticamente alcune etichette, ma puoi anche aggiungerne altre che ritieni corrette.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Solo le etichette scelte verranno aggiunte alle immagini.</string>
   <string name="suggested_edits_image_tags_snackbar">Aggiungi delle etichette all\'immagine per facilitarne la ricerca da parte di altri utenti.</string>
-  <string name="suggested_edits_image_tags_task_detail" fuzzy="true">Etichetta le immagini per facilitarne la ricerca da parte di altri utenti. Sono suggerite dal computer, ma devono essere convalidate.</string>
-  <string name="suggested_edits_image_tags_choose" fuzzy="true">Scegli le etichette corrispondenti</string>
+  <string name="suggested_edits_image_tags_task_detail">Etichetta le immagini per facilitarne la ricerca. Selezionale fra quelle suggerite o aggiungine di tue.</string>
+  <string name="suggested_edits_image_tags_choose">Aggiungi o scegli le etichette corrispondenti</string>
   <string name="suggested_edits_image_tags_select_title">Non hai selezionato alcuna etichetta per questa immagine</string>
   <string name="suggested_edits_image_tags_select_text">Solo le etichette scelte verranno aggiunte alle immagini. Le etichette non selezionate verranno contrassegnate come rifiutate. Sei sicuro di voler contrassegnare tutte le etichette come rifiutate?</string>
+  <string name="suggested_edits_image_tags_add_tag">Aggiungi etichetta…</string>
   <string name="suggested_edits_image_zoom_tooltip">Pizzica per ingrandire l\'immagine.</string>
   <string name="suggested_edits_encouragement_message">%s, grazie per le tue modifiche. Di seguito puoi trovare altri modi per contribuire a Wikipedia.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Ciao %s&lt;/b&gt;, sapevi che tutti possono modificare Wikipedia? Di seguito puoi trovare modi divertenti per migliorare Wikipedia. Buona modifica!</string>

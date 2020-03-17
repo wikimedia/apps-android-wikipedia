@@ -210,7 +210,7 @@
   <string name="about_description">ウィキペディアアプリについて</string>
   <string name="privacy_policy_description">プライバシーポリシー</string>
   <string name="terms_of_use_description">利用規約</string>
-  <string name="about_wikipedia_url">https://ja.m.wikipedia.org/wiki/Wikipedia:ウィキペディアについて</string>
+  <string name="about_wikipedia_url" fuzzy="true">https://ja.m.wikipedia.org/wiki/Wikipedia:ウィキペディアについて</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ja#オフラインでの閲覧とデータ</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ja</string>
@@ -691,7 +691,6 @@
   <string name="suggested_edits_feed_card_title">編集提案</string>
   <string name="suggested_edits_feed_card_add_description_button">記事の説明を追加</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">記事の説明を追加 (%s)</string>
-  <string name="suggested_edits_tutorial_message">ようこそ、ここはウィキペディアアプリ内で、編集を手早く実行するための新しいホーム画面です。皆さんの編集は大歓迎です。ではお楽しみください！</string>
   <string name="suggested_edits_tasks_onboarding_get_started">始める</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">画像キャプション (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">画像の説明 (%s)</string>

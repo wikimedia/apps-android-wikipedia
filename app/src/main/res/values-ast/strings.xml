@@ -186,7 +186,7 @@
   <string name="about_description">Tocante a la app de Wikipedia</string>
   <string name="privacy_policy_description">Política d\'intimidá</string>
   <string name="terms_of_use_description">Condiciones d\'usu</string>
-  <string name="about_wikipedia_url">https://ast.m.wikipedia.org/wiki/Wikipedia:Tocante_a</string>
+  <string name="about_wikipedia_url" fuzzy="true">https://ast.m.wikipedia.org/wiki/Wikipedia:Tocante_a</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
@@ -670,7 +670,6 @@
   <string name="suggested_edits_feed_card_title">Ediciones suxeríes</string>
   <string name="suggested_edits_feed_card_add_description_button">Amestar descripción del artículu</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Amestar descripción del artículu (%s)</string>
-  <string name="suggested_edits_tutorial_message">Dámoste la bienvenida a la nueva páxina d\'entamu d\'edición rápida na app de Wikipedia. Apreciamos enforma les tos contribuciones. ¡Feliz edición!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Primeros pasos</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Pie d\'imaxe (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Descripción de la imaxe (%s)</string>

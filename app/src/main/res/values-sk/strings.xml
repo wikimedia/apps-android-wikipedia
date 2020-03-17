@@ -197,11 +197,11 @@
   <string name="about_description">O aplikácii</string>
   <string name="privacy_policy_description">Zásady ochrany súkromia</string>
   <string name="terms_of_use_description">Podmienky používania</string>
-  <string name="about_wikipedia_url">https://sk.m.wikipedia.org/wiki/Wikipédia:O_Wikipédii</string>
-  <string name="privacy_policy_url">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
+  <string name="about_wikipedia_url">https://sk.wikipedia.org/wiki/Wikipédia:O_Wikipédii</string>
+  <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
-  <string name="terms_of_use_url">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/sk</string>
+  <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/sk</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
@@ -680,7 +680,6 @@
   <string name="suggested_edits_feed_card_title">Navrhované úpravy</string>
   <string name="suggested_edits_feed_card_add_description_button">Pridať popis článku</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Pridať popis článku v jazyku %s</string>
-  <string name="suggested_edits_tutorial_message">Vitajte v novom domove pre rýchle upravovanie v aplikácii Wikipédia. Vaše príspevky sú veľmi oceňované. Veľa šťastia pri úpravách!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Začíname</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Titulok obrázku v jazyku %s</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Popis obrázku v jazyku %s</string>
@@ -704,13 +703,15 @@
   <string name="suggested_edits_image_tags_publishing">Publikuje sa</string>
   <string name="suggested_edits_image_tags_published">Publikované</string>
   <string name="suggested_edits_image_tags_onboarding_title">Označenie obrázkov uľahčuje ich nájsť.</string>
-  <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">Nasledujúce obrázky majú značky navrhnuté počítačom a musia byť skontrolované človekom na zabezpečenie správnosti.\n\nPotvrdením navhrovaných značiek pomôžete tomu, aby boli obrázky ľahšie nájditeľné na Commons, úložisku obrázkov so slobodnou licenciou, ktoré Wikipédia používa pre obrázky vo svojich článkoch.</string>
+  <string name="suggested_edits_image_tags_onboarding_text">Pridaním značiek obrázkov pomôžete, aby boli obrázky ľahšie nájditeľné na Commons, úložisku obrázkov so slobodnou licenciou, ktoré Wikipédia používa pre obrázky vo svojich článkoch.\n\nAutomaticky sme navrhli zopár značiek, tiež však môžete pridať svoje vlastné.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Iba značky, ktoré vyberiete, budú pridané k obrázkom.</string>
   <string name="suggested_edits_image_tags_snackbar">Pridajte značky obrázkom, aby ich mohli ostatní ľahšie nájsť</string>
-  <string name="suggested_edits_image_tags_task_detail" fuzzy="true">Označte obrázky, aby ich ostatní mohli ľahšie nájsť. Značky sú navrhované počítačom, no musia byť skontrolované.</string>
-  <string name="suggested_edits_image_tags_choose" fuzzy="true">Vyberte zhodujúce sa značky</string>
+  <string name="suggested_edits_image_tags_task_detail">Označte obrázky, aby boli ľahšie nájditeľné. Vyberte z navrhnutých značiek alebo pridajte vlastné.</string>
+  <string name="suggested_edits_image_tags_choose">Pridajte alebo vyberte vhodné značky</string>
+  <string name="suggested_edits_image_tags_search">Hľadať značky</string>
   <string name="suggested_edits_image_tags_select_title">Pre tento obrázok ste nevybrali žiadne značky</string>
   <string name="suggested_edits_image_tags_select_text">Len značky, ktoré vyberiete, budú pridané k obrázkom. Značky, ktoré nie sú vybrané, budú označené ako odmietnuté. Ste si istí, že chcete označiť všetky značky ako odmietnuté?</string>
+  <string name="suggested_edits_image_tags_add_tag">Pridať značku...</string>
   <string name="suggested_edits_image_zoom_tooltip">Roztiahnutím dvoch prstov zväčšíte obrázok.</string>
   <string name="suggested_edits_encouragement_message">%s, ďakujeme za vaše úpravy. Nižšie nájdete ďalšie spôsoby, ako prispievať na Wikipédiu.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Dobrý deň %s&lt;/b&gt;, vedeli ste, že každý môže upravovať Wikipédiu? Nižšie nájdete zábavné spôsoby, ako pomôcť zlepšiť Wikipédiu. Prajeme šťastné upravovanie!</string>

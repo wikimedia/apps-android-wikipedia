@@ -230,7 +230,7 @@
   <string name="about_description">О приложении «Википедия»</string>
   <string name="privacy_policy_description">Политика конфиденциальности</string>
   <string name="terms_of_use_description">Условия использования</string>
-  <string name="about_wikipedia_url">https://ru.m.wikipedia.org/wiki/Википедия:Описание</string>
+  <string name="about_wikipedia_url" fuzzy="true">https://ru.m.wikipedia.org/wiki/Википедия:Описание</string>
   <string name="privacy_policy_url" fuzzy="true">https://meta.m.wikimedia.org/w/index.php?title=Privacy_policy/ru</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ru#Чтение_в_офлайне_и_данные</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ru</string>
@@ -718,7 +718,6 @@
   <string name="suggested_edits_feed_card_title">Предложения отредактировать</string>
   <string name="suggested_edits_feed_card_add_description_button">Добавление описания статей</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Добавление описания статей (%s)</string>
-  <string name="suggested_edits_tutorial_message">Добро пожаловать в новое приложение для быстрого редактирования Википедии. Ваш вклад весьма ценен. Приятного редактирования!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Начать</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Описание изображения (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Описание изображения (%s)</string>

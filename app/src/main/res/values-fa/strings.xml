@@ -210,7 +210,7 @@
   <string name="about_description">دربارهٔ نرم‌افزار ویکی‌پدیا</string>
   <string name="privacy_policy_description">سیاست حفظ حریم خصوصی</string>
   <string name="terms_of_use_description">شرایط استفاده</string>
-  <string name="about_wikipedia_url">https://fa.m.wikipedia.org/wiki/ویکی‌پدیا:آشنایی_با_دانشنامه</string>
+  <string name="about_wikipedia_url" fuzzy="true">https://fa.m.wikipedia.org/wiki/ویکی‌پدیا:آشنایی_با_دانشنامه</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/fa</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
@@ -671,7 +671,6 @@
   <string name="suggested_edits_feed_card_title">ویرایش‌های پیشنهادی</string>
   <string name="suggested_edits_feed_card_add_description_button">افزودن توضیح مقاله</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">افزودن توضیحات مقاله (%s)</string>
-  <string name="suggested_edits_tutorial_message">خوش آمدید به بخش جدیدی که برای ویرایش سریع در اپلیکیشن ویکی‌پدیا ایجاد کرده‌ایم. قدر مشارکت شما را می‌دانیم. ویرایشتان مبارک!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">شروع شد</string>
   <string name="suggested_edits_image_preview_dialog_artist">نام هنرمند</string>
   <string name="suggested_edits_image_preview_dialog_date">تاریخ</string>

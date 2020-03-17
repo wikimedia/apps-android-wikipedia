@@ -200,7 +200,7 @@
   <string name="about_description">Quant a l’aplicació de la Viquipèdia</string>
   <string name="privacy_policy_description">Política de privadesa</string>
   <string name="terms_of_use_description">Condicions d’ús</string>
-  <string name="about_wikipedia_url">https://ca.m.wikipedia.org/wiki/Viquipèdia:Quant_a_la_Viquipèdia</string>
+  <string name="about_wikipedia_url">https://ca.wikipedia.org/wiki/Viquipèdia:Quant_a_la_Viquipèdia</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ca</string>
@@ -683,7 +683,6 @@
   <string name="suggested_edits_feed_card_title">Edicions suggerides</string>
   <string name="suggested_edits_feed_card_add_description_button">Afegeix una descripció a l\'article</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Afegeix una descripció de l\'article (%s)</string>
-  <string name="suggested_edits_tutorial_message">Us donem la benvinguda a la nova pàgina inicial d\'edició ràpida de l\'aplicació de la Viquipèdia. Les vostres contribucions són molt benvingudes. Editeu-hi de gust!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Primers passos</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Llegenda de la imatge (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Descripció de la imatge (%s)</string>
@@ -706,14 +705,16 @@
   <string name="suggested_edits_image_tags">Etiquetes d\'imatge</string>
   <string name="suggested_edits_image_tags_publishing">Publicació</string>
   <string name="suggested_edits_image_tags_published">Publicat</string>
-  <string name="suggested_edits_image_tags_onboarding_title" fuzzy="true">Etiqueta les imatges per facilitar que altres les trobin</string>
-  <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">En confirmar les etiquetes suggerides, podeu ajudar a facilitar la cerca de les imatges.\n\nLes etiquetes són suggerides, però cal que humans les validin per a assegurar-ne la precisió.</string>
+  <string name="suggested_edits_image_tags_onboarding_title">Etiquetar les imatges facilita que es puguin trobar.</string>
+  <string name="suggested_edits_image_tags_onboarding_text">En afegir etiquetes d\'imatge ajudareu a facilitar la cerca d\'imatges a Commons (el repositori d\'imatges lliures que la Viquipèdia utilitza per a les imatges de llurs articles).\n\nHem suggerit automàticament algunes etiquetes i també podeu afegir-hi les vostres pròpies.</string>
   <string name="suggested_edits_image_tags_onboarding_note">S\'afegiran a les imatges només les etiquetes que trieu.</string>
   <string name="suggested_edits_image_tags_snackbar">Afegeix etiquetes d\'imatge per a facilitar que altres les trobin.</string>
-  <string name="suggested_edits_image_tags_task_detail" fuzzy="true">Etiqueta les imatges per a facilitar que altres les trobin. Se suggereixen automàticament, però cal validar-les.</string>
-  <string name="suggested_edits_image_tags_choose" fuzzy="true">Trieu les etiquetes que coincideixen</string>
+  <string name="suggested_edits_image_tags_task_detail">Etiqueteu les imatges per a facilitar que es trobin. Seleccioneu-ne de les etiquetes suggerides o afegiu les vostres pròpies.</string>
+  <string name="suggested_edits_image_tags_choose">Afegeix o tria les etiquetes que coincideixen</string>
+  <string name="suggested_edits_image_tags_search">Cerca etiquetes</string>
   <string name="suggested_edits_image_tags_select_title">No heu seleccionat cap etiqueta per a aquesta imatge</string>
   <string name="suggested_edits_image_tags_select_text">S\'afegiran a les imatges només les etiquetes que trieu. Les etiquetes no seleccionades es marcaran com a rebutjades. Esteu segur que voleu marcar totes les etiquetes com a rebutjades?</string>
+  <string name="suggested_edits_image_tags_add_tag">Afegeix una etiqueta…</string>
   <string name="suggested_edits_image_zoom_tooltip">Utilitza els dits per a fer zoom de la imatge.</string>
   <string name="suggested_edits_encouragement_message">%s, gràcies per les vostres edicions. A continuació podeu trobar més formes de contribuir a la Viquipèdia.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Hola %s&lt;/b&gt;, sabíeu que tothom pot contribuir a la Viquipèdia? A continuació podeu trobar formes divertides per a ajudar a millorar-la. Gaudiu-ne editant-hi!</string>
