@@ -72,7 +72,6 @@ import org.wikipedia.page.leadimages.LeadImagesHandler;
 import org.wikipedia.page.leadimages.PageHeaderView;
 import org.wikipedia.page.references.PageReferences;
 import org.wikipedia.page.references.ReferenceDialog;
-import org.wikipedia.page.references.References;
 import org.wikipedia.page.shareafact.ShareHandler;
 import org.wikipedia.page.tabs.Tab;
 import org.wikipedia.readinglist.ReadingListBookmarkMenu;
