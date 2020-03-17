@@ -632,7 +632,6 @@
   </plurals>
   <string name="suggested_edits_feed_card_title">လွင်ႈမႄးထတ်း ဢၼ်ၶႆႈၸႂ်ဝႆႉ</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">ထႅမ်သႂ်ႇ ၶေႃႈသပ်းလႅင်း ပွင်ႈၵႂၢမ်း (%s)</string>
-  <string name="suggested_edits_tutorial_message">ႁူမ်ၸူမ်းႁပ်ႉတွၼ်ႈ ၸူးၼႃႈႁူဝ်ႁႅၵ်ႇမႂ်ႇ တွၼ်ႈတႃႇ မႄးထတ်းလႆႈဝႆးဝႆး ၵႃႈတီႈၼႂ်း ဢႅပ်ႉဝီႇၶီႇၽီးတီးယႃး။ လွင်ႈၶဝ်ႈႁူမ်ႈၸဝ်ႈၵဝ်ႇၼႆႉ ထုၵ်ႇႁၼ်ထိုင်ၸွမ်းတႄႉတႄႉ။ ႁႂ်ႈမူၼ်ႈသိူဝ်းၸွမ်း လွင်ႈမႄးထတ်းသေၵမ်း!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">တႄႇၸႂ်ႉ</string>
   <string name="suggested_edits_image_preview_dialog_artist">ၸဝ်ႈပၢႆးမွၼ်း</string>
   <string name="suggested_edits_image_preview_dialog_date">ဝၼ်းထီႉ</string>
