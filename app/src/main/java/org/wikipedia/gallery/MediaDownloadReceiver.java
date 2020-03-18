@@ -58,6 +58,21 @@ public class MediaDownloadReceiver extends BroadcastReceiver {
         performDownloadRequest(context, Uri.parse(fileUrl), targetDirectoryType, saveFilename, mediaInfo.getMimeType(), DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
     }
 
+    /**
+     * @param context
+     * @param uri
+     * @param targetDirectoryType
+     * @param targetFileName
+     * @param mimeType
+     * @param notificationVisibility must be one of these:
+     *                                  [VISIBILITY_HIDDEN]
+     *                                  [VISIBILITY_VISIBLE]
+     *                                  [VISIBILITY_VISIBLE_NOTIFY_COMPLETED]
+     *                                  [VISIBILITY_VISIBLE_NOTIFY_ONLY_COMPLETION]
+     *
+     * Example:
+     * performDownloadRequest(ctx, Uri, dir, name, type, DownloadManager.Request.VISIBILITY_VISIBLE);
+     */
     private void performDownloadRequest(@NonNull Context context, @NonNull Uri uri,
                                         @NonNull String targetDirectoryType,
                                         @NonNull String targetFileName, @Nullable String mimeType,
