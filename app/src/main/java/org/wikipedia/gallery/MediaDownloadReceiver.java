@@ -60,7 +60,8 @@ public class MediaDownloadReceiver extends BroadcastReceiver {
 
     private void performDownloadRequest(@NonNull Context context, @NonNull Uri uri,
                                         @NonNull String targetDirectoryType,
-                                        @NonNull String targetFileName, @Nullable String mimeType) {
+                                        @NonNull String targetFileName, @Nullable String mimeType,
+                                        int notificationVisibility) {
         final String targetSubfolderName = WikipediaApp.getInstance().getString(R.string.app_name);
         final File categoryFolder = Environment.getExternalStoragePublicDirectory(targetDirectoryType);
         final File targetFolder = new File(categoryFolder, targetSubfolderName);
@@ -72,7 +73,7 @@ public class MediaDownloadReceiver extends BroadcastReceiver {
         DownloadManager downloadManager = (DownloadManager) context.getSystemService(Context.DOWNLOAD_SERVICE);
         DownloadManager.Request request = new DownloadManager.Request(uri);
         request.setDestinationUri(Uri.fromFile(targetFile));
-        request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+        request.setNotificationVisibility(notificationVisibility);
         if (mimeType != null) {
             request.setMimeType(mimeType);
         }
