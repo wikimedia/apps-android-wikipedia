@@ -38,7 +38,7 @@ public class MediaDownloadReceiver extends BroadcastReceiver {
     public void download(@NonNull Context context, @NonNull FeaturedImage featuredImage) {
         String filename = FileUtil.sanitizeFileName(featuredImage.title());
         String targetDirectory = Environment.DIRECTORY_PICTURES;
-        performDownloadRequest(context, Uri.parse(featuredImage.getOriginal().getSource()), targetDirectory, filename, null);
+        performDownloadRequest(context, Uri.parse(featuredImage.getOriginal().getSource()), targetDirectory, filename, null, DownloadManager.Request.VISIBILITY_VISIBLE);
     }
 
     public void download(@NonNull Context context, @NonNull PageTitle imageTitle, @NonNull ImageInfo mediaInfo) {
@@ -55,7 +55,7 @@ public class MediaDownloadReceiver extends BroadcastReceiver {
         } else {
             targetDirectoryType = Environment.DIRECTORY_DOWNLOADS;
         }
-        performDownloadRequest(context, Uri.parse(fileUrl), targetDirectoryType, saveFilename, mediaInfo.getMimeType());
+        performDownloadRequest(context, Uri.parse(fileUrl), targetDirectoryType, saveFilename, mediaInfo.getMimeType(), DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
     }
 
     private void performDownloadRequest(@NonNull Context context, @NonNull Uri uri,
