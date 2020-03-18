@@ -4,6 +4,7 @@ import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.functions.BiFunction
 import io.reactivex.schedulers.Schedulers
+import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -21,19 +22,21 @@ object SuggestedEditsUserStats {
     var totalReverts: Int = 0
 
     fun getEditCountsObservable(): Observable<MwQueryResponse> {
-        return Observable.zip(ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).editorTaskCounts, ServiceFactory.get(WikiSite(Service.COMMONS_URL)).editorTaskCounts,
-                BiFunction<MwQueryResponse, MwQueryResponse, MwQueryResponse> { wikidataResponse, commonsResponse ->
-                    // If the user is blocked on Commons, then boil up the Commons response, otherwise
+        return Observable.zip(ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).editorTaskCounts, ServiceFactory.get(WikipediaApp.getInstance().wikiSite).editorTaskCounts,
+                BiFunction<MwQueryResponse, MwQueryResponse, MwQueryResponse> { wikidataResponse, homeWikiResponse ->
+                    // If the user is blocked on their home wiki, then boil up that response, otherwise
                     // pass back the Wikidata response, which will be checked for blocking anyway.
-                    if (commonsResponse.query()!!.userInfo()!!.isBlocked) commonsResponse else wikidataResponse
+                    if (homeWikiResponse.query()!!.userInfo()!!.isBlocked) homeWikiResponse else wikidataResponse
                 })
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnNext {
-                    val editorTaskCounts = it.query()!!.editorTaskCounts()!!
-                    totalEdits = editorTaskCounts.totalEdits
-                    totalReverts = editorTaskCounts.totalReverts
-                    maybePauseAndGetEndDate()
+                    if (!it.query()!!.userInfo()!!.isBlocked) {
+                        val editorTaskCounts = it.query()!!.editorTaskCounts()!!
+                        totalEdits = editorTaskCounts.totalEdits
+                        totalReverts = editorTaskCounts.totalReverts
+                        maybePauseAndGetEndDate()
+                    }
                 }
     }
 
