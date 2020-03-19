@@ -468,10 +468,10 @@
   <string name="notification_syncing_resume_button">Daŭrigi</string>
   <string name="notification_syncing_cancel_button">Nuligi</string>
   <string name="notification_syncing_reading_list_channel_description">Progreso de sinkronigado de Legolistoj</string>
-  <plurals name="notification_channel_name">
+  <plurals name="notification_channel_name" fuzzy="true">
     <item quantity="other">unu=Elŝutanta artikolon</item>
   </plurals>
-  <plurals name="notification_syncing_title">
+  <plurals name="notification_syncing_title" fuzzy="true">
     <item quantity="other">unu=Elŝutanta %1$d artikolon…</item>
   </plurals>
   <plurals name="notification_syncing_description">
@@ -699,7 +699,7 @@
   <string name="events_count_text">%1$s eventoj dum %2$s–%3$d</string>
   <string name="this_year">Ĉi-jare</string>
   <string name="back_to_top">Reen al la supro</string>
-  <string name="diff_years">{{PLURALA|unu=Pasintjare|Antaŭ %d jaroj}}</string>
+  <string name="diff_years" fuzzy="true">{{PLURALA|unu=Pasintjare|Antaŭ %d jaroj}}</string>
   <string name="languages_list_activity_title">Aldoni lingvon</string>
   <string name="languages_list_suggested_text">Proponataj</string>
   <string name="languages_list_all_text">Ĉiuj lingvoj</string>
