@@ -419,8 +419,8 @@
   <string name="reading_lists_menu_sort_by">Rummañ dre</string>
   <string name="reading_lists_refresh_sync_option">Freskaat ar sinkroneladur</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Kevreañ/enskrivañ</string>
-  <string name="reading_list_article_offline_message">{[PLURAL|one=Gallout a reot gwelet ar pennad-mañ ezlinenn hiviziken|Gallout a reot gwelet ar pennadoù-mañ ezlinenn hiviziken.</string>
-  <plurals name="reading_list_article_not_offline_message">
+  <string name="reading_list_article_offline_message" fuzzy="true">{[PLURAL|one=Gallout a reot gwelet ar pennad-mañ ezlinenn hiviziken|Gallout a reot gwelet ar pennadoù-mañ ezlinenn hiviziken.</string>
+  <plurals name="reading_list_article_not_offline_message" fuzzy="true">
     <item quantity="one">Ne c\'hallor ket gwelet ar pennadoù-mañ ezlinenn pelloc\'h</item>
     <item quantity="other">e c\'hallor ket gwelet ar pennad-mañ ezlinenn pelloc\'h.</item>
   </plurals>
@@ -432,16 +432,16 @@
   <string name="notification_syncing_pause_button">Ehan</string>
   <string name="notification_syncing_cancel_button">Nullañ</string>
   <string name="notification_syncing_reading_list_channel_description">Emeur o sinkronelaat ar rolloù lenn</string>
-  <plurals name="notification_channel_name">
+  <plurals name="notification_channel_name" fuzzy="true">
     <item quantity="one">Pellgargañ pennad</item>
     <item quantity="other">Pellgargañ Pennadoù</item>
   </plurals>
-  <string name="notification_syncing_title">Pellgargañ %1$d pennad…</string>
-  <plurals name="notification_syncing_description">
+  <string name="notification_syncing_title" fuzzy="true">Pellgargañ %1$d pennad…</string>
+  <plurals name="notification_syncing_description" fuzzy="true">
     <item quantity="other">%1$d pennad a chom</item>
   </plurals>
-  <string name="notification_syncing_reading_list_channel_name">Sinkronelaat {PLURAL|one= ar roll|s ar rolloù}} lenn</string>
-  <plurals name="notification_syncing_reading_list_title">
+  <string name="notification_syncing_reading_list_channel_name" fuzzy="true">Sinkronelaat {PLURAL|one= ar roll|s ar rolloù}} lenn</string>
+  <plurals name="notification_syncing_reading_list_title" fuzzy="true">
     <item quantity="one">Sinkronelaat ar %1$d roll…</item>
     <item quantity="other">Sinkronelaat ar %1$d rolloù…</item>
   </plurals>
@@ -456,7 +456,7 @@
   <string name="notifications_view_unread">Diskwel ar re anlennet</string>
   <string name="notifications_view_archived">Diskwel ar re diellouet</string>
   <string name="notifications_archive">Merkañ evel anlennet ha diellaouiñ</string>
-  <plurals name="notification_archive_message">
+  <plurals name="notification_archive_message" fuzzy="true">
     <item quantity="one">Kemenn diellaouet</item>
     <item quantity="other">%d kemenn diellaouet</item>
   </plurals>
@@ -490,7 +490,7 @@
   <string name="most_read_list_card_title">Gizioù ar mare</string>
   <string name="view_static_card_icon_content_description">Arlun ar gartenn</string>
   <string name="view_card_news_title">Er C\'heleier</string>
-  <plurals name="view_continue_reading_card_subtitle">
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
     <item quantity="one">dec\'h</item>
     <item quantity="other">%d devezh zo</item>
   </plurals>
@@ -571,7 +571,7 @@
   <string name="app_shortcuts_search">Klask</string>
   <string name="this_year">Er bloaz-mañ</string>
   <string name="back_to_top">Distreiñ d\'an deroù</string>
-  <plurals name="diff_years">
+  <plurals name="diff_years" fuzzy="true">
     <item quantity="one">dec\'h</item>
     <item quantity="other">%d devezh zo</item>
   </plurals>
@@ -582,7 +582,7 @@
   <string name="wikipedia_languages_add_language_text">Ouzhpennañ ur yezh</string>
   <string name="wikipedia_languages_remove_text">Lemel ur yezh</string>
   <string name="wikipedia_languages_remove_action_mode_title">Lemel ur yezh</string>
-  <plurals name="wikipedia_languages_remove_dialog_title">
+  <plurals name="wikipedia_languages_remove_dialog_title" fuzzy="true">
     <item quantity="one">Lemel ar yezh dibabet ?</item>
     <item quantity="other">Lemel ar yezhoù dibabet ?</item>
   </plurals>

@@ -420,11 +420,11 @@
   <string name="reading_lists_menu_sort_by">Sortěrować po</string>
   <string name="reading_lists_refresh_sync_option">Znowa synchronizować</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Přizjewić / konto wutworić</string>
-  <plurals name="reading_list_article_offline_message">
+  <plurals name="reading_list_article_offline_message" fuzzy="true">
     <item quantity="one">Tutón nastawk je nětko offline přistupny.</item>
     <item quantity="other">Tutej nastawkaj stej nětko offline přistupnej.</item>
   </plurals>
-  <plurals name="reading_list_article_not_offline_message">
+  <plurals name="reading_list_article_not_offline_message" fuzzy="true">
     <item quantity="one">Tutón nastawk njeje hižo offline přistupny.</item>
     <item quantity="other">Tutej nastawkaj njejstej hižo offline přistupnej.</item>
   </plurals>
@@ -444,7 +444,7 @@
   <string name="notification_syncing_resume_button">Pokročować</string>
   <string name="notification_syncing_cancel_button">Přetorhnyć</string>
   <string name="notification_syncing_reading_list_channel_description">Postup synchronizacije lisćinow</string>
-  <plurals name="notification_channel_name">
+  <plurals name="notification_channel_name" fuzzy="true">
     <item quantity="one">Sćehnjenje nastawka</item>
     <item quantity="other">Sćehnjenje nastawkow</item>
   </plurals>

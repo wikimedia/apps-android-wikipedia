@@ -440,15 +440,15 @@
   <string name="notification_syncing_resume_button">Nastavi</string>
   <string name="notification_syncing_cancel_button">Odustani</string>
   <string name="notification_syncing_reading_list_channel_description">Napredak sinkronizacije popisa za čitanje</string>
-  <plurals name="notification_channel_name">
+  <plurals name="notification_channel_name" fuzzy="true">
     <item quantity="one">Preuzimam članak</item>
     <item quantity="other">Preuzimam članke</item>
   </plurals>
-  <plurals name="notification_syncing_title">
+  <plurals name="notification_syncing_title" fuzzy="true">
     <item quantity="one">Preuzimanje %1$d članka…</item>
     <item quantity="other">Preuzimanje %1$d članka…</item>
   </plurals>
-  <plurals name="notification_syncing_description">
+  <plurals name="notification_syncing_description" fuzzy="true">
     <item quantity="one">Preostao je %1$d članak</item>
     <item quantity="other">Preostala su %1$d članka</item>
   </plurals>
@@ -502,7 +502,7 @@
   <string name="most_read_list_card_title">U trendu</string>
   <string name="view_static_card_icon_content_description">Ikona kartice</string>
   <string name="view_card_news_title">U novostima</string>
-  <plurals name="view_continue_reading_card_subtitle">
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
     <item quantity="one">jučer</item>
     <item quantity="other">prije %d dana</item>
   </plurals>
@@ -600,7 +600,7 @@
   <string name="suggested_edits_image_caption_summary_title_source">Izvor</string>
   <string name="suggested_edits_image_caption_summary_title_license">Licencija</string>
   <string name="suggested_edits_image_caption_summary_title_date">Datum</string>
-  <plurals name="suggested_edits_contribution_count">
+  <plurals name="suggested_edits_contribution_count" fuzzy="true">
     <item quantity="one">jedan doprinos</item>
     <item quantity="other">%d doprinos</item>
   </plurals>
@@ -648,11 +648,11 @@
   <string name="suggested_edits_quality_sufficient_text">Dovoljno</string>
   <string name="suggested_edits_quality_poor_text">Slabo</string>
   <string name="suggested_edits_quality_bad_text">Loše</string>
-  <plurals name="suggested_edits_contribution">
+  <plurals name="suggested_edits_contribution" fuzzy="true">
     <item quantity="one">Doprinos</item>
     <item quantity="other">Doprinosi</item>
   </plurals>
-  <plurals name="suggested_edits_edit_streak_detail_text">
+  <plurals name="suggested_edits_edit_streak_detail_text" fuzzy="true">
     <item quantity="one">%d dan</item>
     <item quantity="other">%d day</item>
   </plurals>
@@ -692,7 +692,7 @@
   <string name="on_this_day_dialog_next_month">Sljedeći mjesec</string>
   <string name="on_this_day_dialog_previous_month">Prošli mjesec</string>
   <string name="on_this_day_open_date_picker">Otvori birač datuma</string>
-  <plurals name="diff_years">
+  <plurals name="diff_years" fuzzy="true">
     <item quantity="one">Prošle godine</item>
     <item quantity="other">Prije %d godine</item>
   </plurals>

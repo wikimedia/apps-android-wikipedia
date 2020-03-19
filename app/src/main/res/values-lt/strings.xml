@@ -328,11 +328,11 @@
   <string name="reading_list_turned_sync_off_dialog_settings">Nustatymai</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Ne, ačiū</string>
   <string name="default_reading_list_name">Išsaugota</string>
-  <plurals name="reading_list_article_offline_message">
+  <plurals name="reading_list_article_offline_message" fuzzy="true">
     <item quantity="one">Šis straipsnis bus prieinamas neprisijungus.</item>
     <item quantity="other">Šie straipsniai bus prieinami neprisijungus.</item>
   </plurals>
-  <plurals name="reading_list_article_not_offline_message">
+  <plurals name="reading_list_article_not_offline_message" fuzzy="true">
     <item quantity="one">Šis straipsnis nebebus prieinamas neprisijungus.</item>
     <item quantity="other">Šie straipsniai nebebus prieinami neprisijungus.</item>
   </plurals>
@@ -355,7 +355,7 @@
   <string name="most_read_list_card_title">Populiaru</string>
   <string name="view_static_card_icon_content_description">Kortelės piktograma</string>
   <string name="view_card_news_title">Naujienose</string>
-  <plurals name="view_continue_reading_card_subtitle">
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
     <item quantity="one">vakar</item>
     <item quantity="other">prieš %d dienas</item>
   </plurals>
