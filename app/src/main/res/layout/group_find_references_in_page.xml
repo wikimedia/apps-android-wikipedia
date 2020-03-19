@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/find_in_page_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="top">
+
+    <TextView
+        android:id="@+id/find_in_page_input"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        android:maxLines="1"
+        android:text="REFERENCE"
+        app:closeIcon="@null"
+        app:iconifiedByDefault="false"
+        app:searchIcon="@null" />
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="?attr/material_theme_border_color" />
+
+    <ImageView
+        android:id="@+id/find_in_page_prev"
+        style="@style/Widget.AppCompat.ImageButton"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/find_previous"
+        app:srcCompat="@drawable/ic_expand_less_themed_24dp" />
+
+    <ImageView
+        android:id="@+id/find_in_page_next"
+        style="@style/Widget.AppCompat.ImageButton"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/find_next"
+        app:srcCompat="@drawable/ic_expand_more_themed_24dp" />
+
+    <ImageView
+        android:id="@+id/close_button"
+        style="@style/Widget.AppCompat.ImageButton"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/dialog_close_description"
+        app:srcCompat="@drawable/ic_close_themed_24dp" />
+</LinearLayout>

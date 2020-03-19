@@ -89,6 +89,7 @@ import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.ThrowableUtil;
 import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
+import org.wikipedia.views.FindReferencesInPageProvider;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.SwipeRefreshLayoutWithScroll;
 import org.wikipedia.views.WikiErrorView;
@@ -171,7 +172,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     private CommunicationBridge bridge;
     private LinkHandler linkHandler;
     private EditHandler editHandler;
-    private ActionMode findInPageActionMode;
+    private ActionMode findInPageActionMode, findReferenceInPageActionMode;
     private ShareHandler shareHandler;
     private CompositeDisposable disposables = new CompositeDisposable();
     private ActiveTimer activeTimer = new ActiveTimer();
@@ -807,6 +808,69 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         return pageHeaderView;
     }
 
+    public void showFindReferenceInPage(ArrayList<String> backLinksList) {
+        if (model.getPage() == null) {
+            return;
+        }
+        startSupportActionMode(new ActionMode.Callback() {
+            FindReferencesInPageProvider findReferencesInPageProvider = new FindReferencesInPageProvider(requireContext());
+            int currentPos = 0;
+
+            @Override
+            public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+                findReferenceInPageActionMode = mode;
+                MenuItem menuItem = menu.add("find reference in page");
+                findReferencesInPageProvider.setListener(new FindReferencesInPageProvider.FindReferencesInPageListener() {
+
+                    @Override
+                    public void onFindNextClicked() {
+                        currentPos = ++currentPos >= backLinksList.size() ? 0 : currentPos;
+                        bridge.execute(JavaScriptActionHandler.prepareToScrollTo(backLinksList.get(currentPos), "{ highlight: true }"));
+                    }
+
+                    @Override
+                    public void onFindPrevClicked() {
+                        currentPos = --currentPos < 0 ? backLinksList.size() - 1 : currentPos;
+                        bridge.execute(JavaScriptActionHandler.prepareToScrollTo(backLinksList.get(currentPos), "{ highlight: true }"));
+                    }
+
+                    @Override
+                    public void onCloseClicked() {
+                        if (findReferenceInPageActionMode != null) {
+                            findReferenceInPageActionMode.finish();
+                        }
+
+                    }
+                });
+                menuItem.setActionProvider(findReferencesInPageProvider);
+                menuItem.expandActionView();
+                bridge.execute(JavaScriptActionHandler.prepareToScrollTo(backLinksList.get(0), "{ highlight: true }"));
+
+                return true;
+            }
+
+            @Override
+            public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+                mode.setTag("actionModeFindReferenceInPage");
+                return false;
+            }
+
+            @Override
+            public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+                return false;
+            }
+
+            @Override
+            public void onDestroyActionMode(ActionMode mode) {
+                if (webView == null || !isAdded()) {
+                    return;
+                }
+                findInPageActionMode = null;
+                hideSoftKeyboard();
+            }
+        });
+    }
+
     public void showFindInPage() {
         if (model.getPage() == null) {
             return;
@@ -994,7 +1058,11 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         bridge.addListener("back_link", (String messageType, JsonObject payload) -> {
             JsonArray backLinks = payload.getAsJsonArray("backLinks");
             if (backLinks.size() > 0) {
-                bridge.execute(JavaScriptActionHandler.prepareToScrollTo(backLinks.get(0).getAsJsonObject().get("id").getAsString(), "{ highlight: true }"));
+                ArrayList<String> backLinksList = new ArrayList<>();
+                for (int i = 0; i < backLinks.size(); i++) {
+                    backLinksList.add(backLinks.get(i).getAsJsonObject().get("id").getAsString());
+                }
+                showFindReferenceInPage(backLinksList);
             }
         });
         bridge.addListener("scroll_to_anchor", (String messageType, JsonObject payload) -> {
