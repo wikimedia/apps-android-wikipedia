@@ -643,6 +643,7 @@
   <string name="description_edit_success_saved_in_lang_snackbar">Descrição do artigo publicada! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Legenda da imagem publicada!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Legenda da imagem publicada! (%s)</string>
+  <string name="description_edit_success_saved_image_tags_snackbar">Marcações de imagem publicadas!</string>
   <string name="description_edit_success_encouragement">Você acabou de tornar a Wikipedia melhor para todos</string>
   <string name="description_edit_success_done">Concluído</string>
   <string name="description_edit_success_did_you_know">Você sabia?</string>
@@ -697,7 +698,6 @@
   <string name="suggested_edits_feed_card_title">Edições sugeridas</string>
   <string name="suggested_edits_feed_card_add_description_button">Adicionar descrição do artigo</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Adicionar descrição do artigo (%s)</string>
-  <string name="suggested_edits_tutorial_message">Bem-vindo ao novo lar para edição rápida no aplicativo da Wikipédia. Suas contribuições são muito apreciadas. Edição feliz!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Começar</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Legenda da imagem (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Descrição da imagem (%s)</string>
@@ -712,6 +712,7 @@
   <string name="suggested_edits_article_cta_snackbar_action">Ver</string>
   <string name="suggested_edits_feed_card_add_image_caption">Adicionar legenda à imagem</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Adicionar legenda da imagem (%s)</string>
+  <string name="suggested_edits_feed_card_add_image_tags">Adicionar marcações de imagem</string>
   <string name="suggested_edits_snackbar_survey_text">Como foi sua experiência de edição? Reserve um momento para preencher a pesquisa sobre edição no aplicativo.</string>
   <string name="suggested_edits_snackbar_survey_action_text">Responder a pesquisa</string>
   <string name="suggested_edits_task_action_text_add">Adicionar</string>

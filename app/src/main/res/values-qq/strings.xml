@@ -639,6 +639,7 @@
   <string name="description_edit_success_saved_in_lang_snackbar">Message shown on a snackbar that the article description the user just added was saved. The %s symbol is replaced by the language that the caption was used.</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Message shown on a snackbar that the image caption the user just added was saved.</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Message shown on a snackbar that the image caption the user just added was saved. The %s symbol is replaced by the language that the caption was used.</string>
+  <string name="description_edit_success_saved_image_tags_snackbar">Message shown on a snackbar that the image tags the user just added were saved.</string>
   <string name="description_edit_success_encouragement">Message that the user made Wikipedia better for everyone</string>
   <string name="description_edit_success_done">Button text to dismiss the description editing success screen\n{{Identical|Done}}</string>
   <string name="description_edit_success_did_you_know">Heading for a tip about editing articles in the app\n{{Identical|Did you know}}</string>
@@ -693,7 +694,6 @@
   <string name="suggested_edits_feed_card_title">Title text for suggested edits card in the explore feed.\n\n{{Identical|Suggested edits}}</string>
   <string name="suggested_edits_feed_card_add_description_button">Suggested edits feed card call-to-action text for adding article descriptions.</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Button label to add article description in certain language. The %s is replaced by the language that the description is used.</string>
-  <string name="suggested_edits_tutorial_message">Concise on-boarding message to the editor task list.</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Text on button to start tasks from edit action feed.\n{{Identical|Get started}}</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Label for image caption detail on image details screen. The %s is replaced by the language that the caption is used.</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Label for image description detail on image details screen. The %s is replaced by the language that the description is used.</string>
@@ -708,6 +708,7 @@
   <string name="suggested_edits_article_cta_snackbar_action">Button text suggesting the user to view the image</string>
   <string name="suggested_edits_feed_card_add_image_caption">Suggested edits feed card call-to-action text for adding image captions</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Suggested edits feed card call-to-action text for translating image captions. %s represents the language into which the image caption needs to be translated</string>
+  <string name="suggested_edits_feed_card_add_image_tags">Suggested edits feed card call-to-action text for adding image depicts.</string>
   <string name="suggested_edits_snackbar_survey_text">One-time text shown to users when they submit a successful suggested edit, requesting them to take a survey.</string>
   <string name="suggested_edits_snackbar_survey_action_text">Button label on the snackbar shown to users when they submit a successful suggested edit, requesting them to take a survey.</string>
   <string name="suggested_edits_task_action_text_add">Button label for suggested edits task add action</string>

@@ -472,11 +472,11 @@
   <string name="reading_lists_menu_sort_by">الترتيب حسب</string>
   <string name="reading_lists_refresh_sync_option">تحديث المزامنة</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">دخول / إنشاء حساب</string>
-  <plurals name="reading_list_article_offline_message">
+  <plurals name="reading_list_article_offline_message" fuzzy="true">
     <item quantity="one">ستصبح هذه المقالة متاحة في حالة عدم الاتصال.</item>
     <item quantity="other">ستصبح هذه المقالات متاحة في حالة عدم الاتصال</item>
   </plurals>
-  <plurals name="reading_list_article_not_offline_message">
+  <plurals name="reading_list_article_not_offline_message" fuzzy="true">
     <item quantity="one">ستصبح هذه المقالة غير متاحة في حالة عدم الاتصال.</item>
     <item quantity="other">ستصبح هذه المقالات غير متاحة في حالة عدم الاتصال.</item>
   </plurals>
@@ -497,27 +497,27 @@
   <string name="notification_syncing_cancel_button">ألغ</string>
   <string name="notification_syncing_reading_list_channel_description">جارٍ تقدم مزامنة قوائم القراءة</string>
   <string name="notification_many_unread">ليست لديك  %d إشعار غير مقروء</string>
-  <plurals name="notification_channel_name">
+  <plurals name="notification_channel_name" fuzzy="true">
     <item quantity="one">جارٍ تنزيل المقالة</item>
     <item quantity="other">جارٍ تنزيل المقالات</item>
   </plurals>
-  <plurals name="notification_syncing_title">
+  <plurals name="notification_syncing_title" fuzzy="true">
     <item quantity="one">جارٍ تنزيل %1$d مقالة…</item>
     <item quantity="other">جارٍ تنزيل Downloading %1$d مقالات…</item>
   </plurals>
-  <plurals name="notification_syncing_description">
+  <plurals name="notification_syncing_description" fuzzy="true">
     <item quantity="one">%1$d مقالة متبقية</item>
     <item quantity="other">%1$d مقالات متبقية</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_channel_name">
+  <plurals name="notification_syncing_reading_list_channel_name" fuzzy="true">
     <item quantity="one">مزامنة قائمة القراءة</item>
     <item quantity="other">مزامنة قوائم القراءة</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_title">
+  <plurals name="notification_syncing_reading_list_title" fuzzy="true">
     <item quantity="one">تجري مزامنة %1$d قائمة…</item>
     <item quantity="other">تجري مزامنة %1$d قوائم…</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_description">
+  <plurals name="notification_syncing_reading_list_description" fuzzy="true">
     <item quantity="one">%1$d مقالة متبقية</item>
     <item quantity="other">%1$d مقالات متبقية</item>
   </plurals>
@@ -529,7 +529,7 @@
   <string name="notifications_view_archived">عرض المؤرشف</string>
   <string name="notifications_prefs">تفضيلات الإشعارات</string>
   <string name="notifications_archive">التعليم كمقروء والأرشفة</string>
-  <plurals name="notification_archive_message">
+  <plurals name="notification_archive_message" fuzzy="true">
     <item quantity="one">تمت أرشفة الإشعار</item>
     <item quantity="other">تمت أرشفة %d إشعارا</item>
   </plurals>
@@ -576,7 +576,7 @@
   <string name="most_read_list_card_title">الأكثر زيارة</string>
   <string name="view_static_card_icon_content_description">أيقونة بطاقة</string>
   <string name="view_card_news_title">في الأخبار</string>
-  <plurals name="view_continue_reading_card_subtitle">
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
     <item quantity="one">أمس</item>
     <item quantity="other">قبل %d أيام</item>
   </plurals>
@@ -688,14 +688,13 @@
   <string name="suggested_edits_image_caption_summary_title_source">المصدر</string>
   <string name="suggested_edits_image_caption_summary_title_license">الترخيص</string>
   <string name="suggested_edits_image_caption_summary_title_date">التاريخ</string>
-  <plurals name="suggested_edits_contribution_count">
+  <plurals name="suggested_edits_contribution_count" fuzzy="true">
     <item quantity="one">مساهمة</item>
     <item quantity="other">%d مساهمات</item>
   </plurals>
   <string name="suggested_edits_feed_card_title">التعديلات المقترحة</string>
   <string name="suggested_edits_feed_card_add_description_button">إضافة وصف المقالة</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">إضافة وصف المقالة (%s)</string>
-  <string name="suggested_edits_tutorial_message">مرحبا بك في البيت الجديد للتعديل السريع من تطبيق ويكيبيديا. مساهماتك مرحب بها جدا. تحرير سعيد!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">ابدأ</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">شرح الصورة (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">وصف الصورة (%s)</string>
@@ -710,6 +709,7 @@
   <string name="suggested_edits_article_cta_snackbar_action">عرض</string>
   <string name="suggested_edits_feed_card_add_image_caption">إضافة شرح الصورة</string>
   <string name="suggested_edits_feed_card_translate_image_caption">إضافة تعليق الصورة (%s)</string>
+  <string name="suggested_edits_feed_card_add_image_tags">أضف وسومًا للصور</string>
   <string name="suggested_edits_snackbar_survey_text">كيف كانت تجربة التحرير الخاصة بك؟ يُرجَى قضاء بعض الوقت لملء الاستبيان حول التعديل داخل التطبيق.</string>
   <string name="suggested_edits_snackbar_survey_action_text">المشاركة في استبيان</string>
   <string name="suggested_edits_task_action_text_add">إضافة</string>
@@ -753,11 +753,11 @@
   <string name="suggested_edits_quality_sufficient_text">كافٍ</string>
   <string name="suggested_edits_quality_poor_text">فقير</string>
   <string name="suggested_edits_quality_bad_text">سيء</string>
-  <plurals name="suggested_edits_contribution">
+  <plurals name="suggested_edits_contribution" fuzzy="true">
     <item quantity="one">مساهمة</item>
     <item quantity="other">مساهمات</item>
   </plurals>
-  <plurals name="suggested_edits_edit_streak_detail_text">
+  <plurals name="suggested_edits_edit_streak_detail_text" fuzzy="true">
     <item quantity="one">%d يوم</item>
     <item quantity="other">%d أيام</item>
   </plurals>
@@ -806,7 +806,7 @@
   <string name="on_this_day_dialog_next_month">الشهر التالي</string>
   <string name="on_this_day_dialog_previous_month">الشهر السابق</string>
   <string name="on_this_day_open_date_picker">فتح منتقي التاريخ</string>
-  <plurals name="diff_years">
+  <plurals name="diff_years" fuzzy="true">
     <item quantity="one">السنة الماضية</item>
     <item quantity="other">قبل %d سنة</item>
   </plurals>
@@ -818,7 +818,7 @@
   <string name="wikipedia_languages_add_language_text">إضافة لغة</string>
   <string name="wikipedia_languages_remove_text">إزالة اللغة</string>
   <string name="wikipedia_languages_remove_action_mode_title">إزالة اللغة</string>
-  <plurals name="wikipedia_languages_remove_dialog_title">
+  <plurals name="wikipedia_languages_remove_dialog_title" fuzzy="true">
     <item quantity="one">إزالة اللغة المحددة؟</item>
     <item quantity="other">إزالة اللغات المحددة؟</item>
   </plurals>

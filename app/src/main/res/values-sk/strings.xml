@@ -459,11 +459,11 @@
   <string name="reading_lists_menu_sort_by">Zoradiť podľa</string>
   <string name="reading_lists_refresh_sync_option">Obnoviť synchronizáciu</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Prihlásiť sa/zaregistrovať sa</string>
-  <plurals name="reading_list_article_offline_message">
+  <plurals name="reading_list_article_offline_message" fuzzy="true">
     <item quantity="one">Tento článok teraz bude dostupný bez pripojenia.</item>
     <item quantity="other">Tieto články teraz budú dostupné bez pripojenia.</item>
   </plurals>
-  <plurals name="reading_list_article_not_offline_message">
+  <plurals name="reading_list_article_not_offline_message" fuzzy="true">
     <item quantity="one">Tento článok už nebude dostupný bez pripojenia.</item>
     <item quantity="other">Tieto články už nebudú dostupné bez pripojenia.</item>
   </plurals>
@@ -484,24 +484,24 @@
   <string name="notification_syncing_cancel_button">Zrušiť</string>
   <string name="notification_syncing_reading_list_channel_description">Pokrok v synchronizácii zoznamov na prečítanie</string>
   <string name="notification_many_unread">Máte %d neprečítaných upozornení</string>
-  <plurals name="notification_channel_name">
+  <plurals name="notification_channel_name" fuzzy="true">
     <item quantity="one">Preberanie článku</item>
     <item quantity="other">Preberanie článkov</item>
   </plurals>
-  <string name="notification_syncing_title">Preberá sa %1$d {{PLURAL:%1$d|článok|články|článkov}}…</string>
-  <plurals name="notification_syncing_description">
+  <string name="notification_syncing_title" fuzzy="true">Preberá sa %1$d {{PLURAL:%1$d|článok|články|článkov}}…</string>
+  <plurals name="notification_syncing_description" fuzzy="true">
     <item quantity="one">Ostáva %1$d článok</item>
     <item quantity="other">Ostávajú %1$d články</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_channel_name">
+  <plurals name="notification_syncing_reading_list_channel_name" fuzzy="true">
     <item quantity="one">Synchronizácia zoznamu na prečítanie</item>
     <item quantity="other">Synchronizácia zoznamov na prečítanie</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_title">
+  <plurals name="notification_syncing_reading_list_title" fuzzy="true">
     <item quantity="one">Synchronizácia %1$d zoznamu…</item>
     <item quantity="other">Synchronizácia %1$d zoznamov…</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_description">
+  <plurals name="notification_syncing_reading_list_description" fuzzy="true">
     <item quantity="one">zostáva %1$d zoznam</item>
     <item quantity="other">zostáva %1$d zoznamov</item>
   </plurals>
@@ -513,7 +513,7 @@
   <string name="notifications_view_archived">Zobraziť archivované</string>
   <string name="notifications_prefs">Nastavenia notifikácií</string>
   <string name="notifications_archive">Označiť ako prečítané a archivovať</string>
-  <plurals name="notification_archive_message">
+  <plurals name="notification_archive_message" fuzzy="true">
     <item quantity="one">Notifikácia bola archivovaná</item>
     <item quantity="two">2 notifikácie boli archivované</item>
     <item quantity="other">%d notifikácie boli archivované</item>
@@ -561,7 +561,7 @@
   <string name="most_read_list_card_title">Trendy</string>
   <string name="view_static_card_icon_content_description">Ikona karty</string>
   <string name="view_card_news_title">Správy</string>
-  <plurals name="view_continue_reading_card_subtitle">
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
     <item quantity="one">včera</item>
     <item quantity="other">pred %d dňami</item>
   </plurals>
@@ -673,14 +673,13 @@
   <string name="suggested_edits_image_caption_summary_title_source">Zdroj</string>
   <string name="suggested_edits_image_caption_summary_title_license">Licencia</string>
   <string name="suggested_edits_image_caption_summary_title_date">Dátum</string>
-  <plurals name="suggested_edits_contribution_count">
+  <plurals name="suggested_edits_contribution_count" fuzzy="true">
     <item quantity="one">príspevok v aplikácii</item>
     <item quantity="other">%d príspevky v aplikácii</item>
   </plurals>
   <string name="suggested_edits_feed_card_title">Navrhované úpravy</string>
   <string name="suggested_edits_feed_card_add_description_button">Pridať popis článku</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Pridať popis článku v jazyku %s</string>
-  <string name="suggested_edits_tutorial_message">Vitajte v novom domove pre rýchle upravovanie v aplikácii Wikipédia. Vaše príspevky sú veľmi oceňované. Veľa šťastia pri úpravách!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Začíname</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Titulok obrázku v jazyku %s</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Popis obrázku v jazyku %s</string>
@@ -738,11 +737,11 @@
   <string name="suggested_edits_quality_sufficient_text">Dostatočná</string>
   <string name="suggested_edits_quality_poor_text">Zlá</string>
   <string name="suggested_edits_quality_bad_text">Mizerná</string>
-  <plurals name="suggested_edits_contribution">
+  <plurals name="suggested_edits_contribution" fuzzy="true">
     <item quantity="one">Príspevok</item>
     <item quantity="other">Príspevky</item>
   </plurals>
-  <plurals name="suggested_edits_edit_streak_detail_text">
+  <plurals name="suggested_edits_edit_streak_detail_text" fuzzy="true">
     <item quantity="one">%d deň</item>
     <item quantity="few">%d dni</item>
     <item quantity="other">%d dní</item>
@@ -792,7 +791,7 @@
   <string name="on_this_day_dialog_next_month">Ďalší mesiac</string>
   <string name="on_this_day_dialog_previous_month">Minulý mesiac</string>
   <string name="on_this_day_open_date_picker">Otvoriť výber dátumu</string>
-  <plurals name="diff_years">
+  <plurals name="diff_years" fuzzy="true">
     <item quantity="one">Minulý rok</item>
     <item quantity="other">Pred %d rokmi</item>
   </plurals>
@@ -804,7 +803,7 @@
   <string name="wikipedia_languages_add_language_text">Pridať jazyk</string>
   <string name="wikipedia_languages_remove_text">Odstrániť jazyk</string>
   <string name="wikipedia_languages_remove_action_mode_title">Odstrániť jazyk</string>
-  <plurals name="wikipedia_languages_remove_dialog_title">
+  <plurals name="wikipedia_languages_remove_dialog_title" fuzzy="true">
     <item quantity="one">Odstrániť vybraný jazyk?</item>
     <item quantity="other">Odstrániť vybrané jazyky?</item>
   </plurals>

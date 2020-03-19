@@ -685,6 +685,7 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text">完成%d次（有效的）条目描述后方可解锁</string>
   <string name="suggested_edits_task_multilingual_negative">还是算了</string>
   <string name="suggested_edits_task_multilingual_positive">添加语言</string>
+  <string name="suggested_edits_image_caption_summary_title_file">文件</string>
   <string name="suggested_edits_image_caption_summary_title_artist">艺术家</string>
   <string name="suggested_edits_image_caption_summary_title_author">作者</string>
   <string name="suggested_edits_image_caption_summary_title_source">来源</string>
@@ -697,7 +698,6 @@
   <string name="suggested_edits_feed_card_title">建议编辑</string>
   <string name="suggested_edits_feed_card_add_description_button">添加条目描述</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">添加条目描述（%s）</string>
-  <string name="suggested_edits_tutorial_message">欢迎来到维基百科的新版应用内编辑界面。在这里，我们会提供你感兴趣的内容供你编辑。向你的贡献致敬！祝编辑愉快~</string>
   <string name="suggested_edits_tasks_onboarding_get_started">入门</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">图片说明（%s）</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">图片描述（%s）</string>
@@ -712,6 +712,7 @@
   <string name="suggested_edits_article_cta_snackbar_action">查看</string>
   <string name="suggested_edits_feed_card_add_image_caption">添加图像说明</string>
   <string name="suggested_edits_feed_card_translate_image_caption">添加图像说明（%s）</string>
+  <string name="suggested_edits_feed_card_add_image_tags">添加图像标签</string>
   <string name="suggested_edits_snackbar_survey_text">你的编辑经验如何？请花点时间填写有关应用内编辑的调查。</string>
   <string name="suggested_edits_snackbar_survey_action_text">参加调查</string>
   <string name="suggested_edits_task_action_text_add">添加</string>
@@ -739,6 +740,7 @@
     <item quantity="one">贡献</item>
     <item quantity="other">贡献</item>
   </plurals>
+  <string name="suggested_edits_last_edited">上次编辑</string>
   <string name="suggested_edits_last_edited_never">从不</string>
   <string name="suggested_edits_task_new">新</string>
   <string name="description_edit_revert_subtitle">感谢编辑维基百科！</string>

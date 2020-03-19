@@ -618,7 +618,6 @@
     <item quantity="one">bidrag fra appen</item>
     <item quantity="other">%d bidrag fra appen</item>
   </plurals>
-  <string name="suggested_edits_tutorial_message">Velkommen til den nye startsiden for enkel redigering i Wikipedia-appen. Alle bidrag er høyt verdsatt. Lykke til med redigeringen!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Kom i gang</string>
   <string name="suggested_edits_task_action_text_translate">Oversett</string>
   <string name="suggested_edits_quality_very_good_text">Veldig bra</string>

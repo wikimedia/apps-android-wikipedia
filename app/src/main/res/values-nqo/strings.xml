@@ -403,10 +403,10 @@
   <string name="reading_lists_menu_sort_by">ߞߵߊ߬ ߢߊߓߐ߫ ߡߊ߬</string>
   <string name="reading_lists_refresh_sync_option">ߕߎ߬ߡߊ߬ߢߐ߲߰ߦߊ߬ߟߌ ߟߊߛߎߡߊ߫</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">ߌ ߜߊ߲߬ߞߎ߲߫/ߖߊ߬ߕߋ߬ߘߊ ߛߌ߲ߘߌ߫</string>
-  <plurals name="reading_list_article_offline_message">
+  <plurals name="reading_list_article_offline_message" fuzzy="true">
     <item quantity="other">ߞߋߟߋ߲߫=ߞߎߡߘߊ ߣߌ߲߬ ߕߍ߫ ߣߊ߬ ߛߐ߲߬ ߞߍ߫ ߟߊ߫ ߜߊ߲߬ߞߎ߲߬ߠߌ߲߬ߓߊߟߌߦߊ ߘߐ߫</item>
   </plurals>
-  <plurals name="reading_list_article_not_offline_message">
+  <plurals name="reading_list_article_not_offline_message" fuzzy="true">
     <item quantity="other">ߞߋߟߋ߲߫=ߞߎߡߘߊ ߣߌ߲߬ ߕߍ߫ ߣߊ߬ ߥߊ߯ߕߌ߫ ߖߊ߲߫ ߞߍ߫ ߟߊ߫ ߜߊ߲߬ߞߎ߲߬ߠߌ߲߬ߓߊߟߌߦߊ ߘߐ߫</item>
   </plurals>
   <string name="reading_list_toast_last_sync">ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߓߘߊ߫ ߕߎ߬ߡߊ߬ߢߐ߲߰ߦߊ߬ ߞߏߟߌߞߏߟߌ߫.</string>
@@ -425,22 +425,22 @@
   <string name="notification_syncing_resume_button">ߟߊߛߎ߬ߘߎ߲߬ߧߊ߫</string>
   <string name="notification_syncing_cancel_button">ߊ߬ ߘߐߛߊ߬</string>
   <string name="notification_syncing_reading_list_channel_description">ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߕߎ߬ߡߊ߬ߢߐ߲߰ߦߊ ߓߘߊ߫ ߖߊ߲߬ߝߊ߫</string>
-  <plurals name="notification_channel_name">
+  <plurals name="notification_channel_name" fuzzy="true">
     <item quantity="other">ߦߌߟߡߊ߫ ߞߋߟߋ߲߫=ߟߊ߬ߖߌ߰ߒ߬ߞߎ߲߬ߠߌ߲ ߦߴߌ ߘߐ߫</item>
   </plurals>
-  <plurals name="notification_syncing_title">
+  <plurals name="notification_syncing_title" fuzzy="true">
     <item quantity="other">ߦߌߟߡߊ=ߞߋߟߋ߲߫ %1$d  ߟߊ߬ߖߌ߰ߒ߬ߞߎ߲߬ߠߌ߲ ߦߴߌ ߘߐ߫...</item>
   </plurals>
-  <plurals name="notification_syncing_description">
+  <plurals name="notification_syncing_description" fuzzy="true">
     <item quantity="other">ߦߌߟߡߊ߫=%1$d ߣߎߡߊ߲ ߝߍ߬</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_channel_name">
+  <plurals name="notification_syncing_reading_list_channel_name" fuzzy="true">
     <item quantity="other">ߞߋߟߋ߲߫=ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߕߎ߬ߡߊ߬ߢߐ߲߰ߦߊ ߦߴߌ ߘߐ߫</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_title">
+  <plurals name="notification_syncing_reading_list_title" fuzzy="true">
     <item quantity="other">ߞߋߟߋ߲߫=ߛߙߍߘߍ߫%1$dߕߎ߬ߡߊ߬ߢߐ߲߰ߦߊ ߦߴߌ ߘߐ߫...</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_description">
+  <plurals name="notification_syncing_reading_list_description" fuzzy="true">
     <item quantity="other">ߞߋߟߋ߲߫=ߛߙߍߘߍ%1$dߣߎߡߊ߲߫</item>
   </plurals>
   <string name="notification_echo_channel_description">ߥߞߌ-ߔߘߋߞߎ ߡߊ߬ߟߐ߲߬ߠߌ߲</string>
@@ -474,7 +474,7 @@
   <string name="most_read_list_card_title">ߝߊ߲ߞߊ߲ߠߌ߲</string>
   <string name="view_static_card_icon_content_description">ߔߊ߬ߔߘߊ ߛߌ߲ߞߐ߲</string>
   <string name="view_card_news_title">ߞߎߘߊ ߟߎ߬ ߘߐ߫</string>
-  <plurals name="view_continue_reading_card_subtitle">
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
     <item quantity="one">yesterday</item>
     <item quantity="other">%d days ago</item>
   </plurals>
@@ -565,7 +565,7 @@
   <string name="suggested_edits_image_caption_summary_title_source">ߛߎ߲</string>
   <string name="suggested_edits_image_caption_summary_title_license">ߕߌ߰ߦߊ</string>
   <string name="suggested_edits_image_caption_summary_title_date">ߕߎ߬ߡߊ߬ߘߊ</string>
-  <plurals name="suggested_edits_contribution_count">
+  <plurals name="suggested_edits_contribution_count" fuzzy="true">
     <item quantity="one">1 contribution</item>
     <item quantity="other">%d contributions</item>
   </plurals>
@@ -618,7 +618,7 @@
   <string name="more_events_text">ߛߌߦߊߡߊ߲߫ ߜߘߍ߫ ߟߎ߫ ߟߏ߲ ߣߌ߲߬ ߡߊ߬</string>
   <string name="this_year">ߢߌ߬ߣߊ߲߬</string>
   <string name="back_to_top">ߌ ߞߐߛߊ߬ߦߌ߬ ߛߊ߲ߝߍ߬</string>
-  <plurals name="diff_years">
+  <plurals name="diff_years" fuzzy="true">
     <item quantity="one">Last year</item>
     <item quantity="other">%d years ago</item>
   </plurals>

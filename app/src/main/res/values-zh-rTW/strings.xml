@@ -633,6 +633,7 @@
   <string name="description_edit_success_saved_in_lang_snackbar">條目描述已發布！（%s）</string>
   <string name="description_edit_success_saved_image_caption_snackbar">圖片說明已發佈！</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">圖片說明已發布！（%s）</string>
+  <string name="description_edit_success_saved_image_tags_snackbar">圖片標籤已發布！</string>
   <string name="description_edit_success_encouragement">謝謝您！您剛剛已令維基百科變得更完善，所有人都會受惠</string>
   <string name="description_edit_success_done">完成</string>
   <string name="description_edit_success_did_you_know">您知道嗎？</string>
@@ -687,7 +688,6 @@
   <string name="suggested_edits_feed_card_title">建議編輯</string>
   <string name="suggested_edits_feed_card_add_description_button">新增條目描述</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">新增條目描述（%s）</string>
-  <string name="suggested_edits_tutorial_message">歡迎來到在維基百科應用程式裡用於快速編輯的新主頁。對於您的貢獻我們在此感激，祝編安！</string>
   <string name="suggested_edits_tasks_onboarding_get_started">入門</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">圖片說明（%s）</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">圖片描述（%s）</string>
@@ -702,6 +702,7 @@
   <string name="suggested_edits_article_cta_snackbar_action">檢視</string>
   <string name="suggested_edits_feed_card_add_image_caption">新增圖片說明</string>
   <string name="suggested_edits_feed_card_translate_image_caption">新增圖片說明（%s）</string>
+  <string name="suggested_edits_feed_card_add_image_tags">添加圖像標記</string>
   <string name="suggested_edits_snackbar_survey_text">您的編輯體驗如何？請花些許時間來填寫有關應用程式內編輯的調查。</string>
   <string name="suggested_edits_snackbar_survey_action_text">參加調查</string>
   <string name="suggested_edits_task_action_text_add">新增</string>
