@@ -339,11 +339,11 @@
   <string name="no_user_lists_msg">Napravite spiskove za mjesta koja želite posjetiti, Vaše omiljene teme i još mnogo toga</string>
   <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Sinhronizacija spiskova za čitanje&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Spiskovi za čitanje sada se mogu sinhronizirati među raznim uređajima. Prijavite se na račun na Wikipediji i dozvolite čuvanje spiskova.</string>
   <string name="reading_lists_menu_sort_by">Sortiraj po</string>
-  <plurals name="reading_list_article_offline_message">
+  <plurals name="reading_list_article_offline_message" fuzzy="true">
     <item quantity="one">Članak će sada biti dostupan van mreže.</item>
     <item quantity="other">Članci će sada biti dostupni van mreže.</item>
   </plurals>
-  <plurals name="reading_list_article_not_offline_message">
+  <plurals name="reading_list_article_not_offline_message" fuzzy="true">
     <item quantity="one">Članak više neće biti dostupan van mreže.</item>
     <item quantity="other">Članci više neće biti dostupni van mreže.</item>
   </plurals>
@@ -357,15 +357,15 @@
   <string name="notification_syncing_pause_button">Pauziraj</string>
   <string name="notification_syncing_resume_button">Nastavi</string>
   <string name="notification_syncing_cancel_button">Otkaži</string>
-  <plurals name="notification_channel_name">
+  <plurals name="notification_channel_name" fuzzy="true">
     <item quantity="one">Preuzimam članak</item>
     <item quantity="other">Preuzimam članke</item>
   </plurals>
-  <plurals name="notification_syncing_title">
+  <plurals name="notification_syncing_title" fuzzy="true">
     <item quantity="one">Preuzimam %1$d članak…</item>
     <item quantity="other">Preuzimam %1$d članka…</item>
   </plurals>
-  <plurals name="notification_syncing_description">
+  <plurals name="notification_syncing_description" fuzzy="true">
     <item quantity="one">Preostao %1$d članak</item>
     <item quantity="other">Preostala su %1$d članka</item>
   </plurals>
@@ -396,7 +396,7 @@
   <string name="most_read_list_card_title">Aktualno</string>
   <string name="view_static_card_icon_content_description">Ikona kartice</string>
   <string name="view_card_news_title">Vijesti</string>
-  <plurals name="view_continue_reading_card_subtitle">
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
     <item quantity="one">jučer</item>
     <item quantity="other">prije %d dana</item>
   </plurals>
@@ -481,7 +481,7 @@
   <string name="more_events_text">Više na ovaj dan</string>
   <string name="events_count_text">%1$s događaja od %2$s do %3$d</string>
   <string name="back_to_top">Skoči na vrh</string>
-  <plurals name="diff_years">
+  <plurals name="diff_years" fuzzy="true">
     <item quantity="one">Prošle godine</item>
     <item quantity="other">Prije %d god.</item>
   </plurals>
@@ -493,7 +493,7 @@
   <string name="wikipedia_languages_add_language_text">Dodaj jezik</string>
   <string name="wikipedia_languages_remove_text">Ukloni jezik</string>
   <string name="wikipedia_languages_remove_action_mode_title">Ukloni jezik</string>
-  <plurals name="wikipedia_languages_remove_dialog_title">
+  <plurals name="wikipedia_languages_remove_dialog_title" fuzzy="true">
     <item quantity="one">Da uklonim izabrani jezik?</item>
     <item quantity="other">Da uklonim izabrane jezike?</item>
   </plurals>
