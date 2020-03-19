@@ -762,11 +762,11 @@
   <string name="suggested_edits_quality_sufficient_text">Suffisant</string>
   <string name="suggested_edits_quality_poor_text">Faible</string>
   <string name="suggested_edits_quality_bad_text">Mauvais</string>
-  <plurals name="suggested_edits_contribution">
+  <plurals name="suggested_edits_contribution" fuzzy="true">
     <item quantity="one">Contribution</item>
     <item quantity="other">Contributions</item>
   </plurals>
-  <plurals name="suggested_edits_edit_streak_detail_text">
+  <plurals name="suggested_edits_edit_streak_detail_text" fuzzy="true">
     <item quantity="one">%d jour</item>
     <item quantity="other">%d jours</item>
   </plurals>
