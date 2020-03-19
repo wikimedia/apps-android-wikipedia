@@ -858,6 +858,4 @@
   <string name="text_input_dialog_ok_button_text">Positive action button text in pop-up dialog for text input.\n{{Identical|OK}}</string>
   <string name="text_input_dialog_cancel_button_text">Negative action button text in pop-up dialog for text input.\n{{Identical|Cancel}}</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Negative action button text in date picker pop-up dialog.\n{{Identical|Cancel}}</string>
-  <string name="suggested_edits_feed_card_add_image_tags">Suggested edits feed card call-to-action text for adding image depicts.</string>
-  <string name="description_edit_success_saved_image_tags_snackbar">Message shown on a snackbar that the image tags the user just added were saved.</string>
 </resources>
