@@ -363,7 +363,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
 
     @Override
     public void onLinkPreviewCopyLink(@NonNull PageTitle title) {
-        copyLink(title.getCanonicalUri());
+        copyLink(title.getUri());
     }
 
     @Override

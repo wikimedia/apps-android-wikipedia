@@ -5,12 +5,14 @@ import android.net.Uri
 import android.view.View
 import io.reactivex.annotations.NonNull
 import kotlinx.android.synthetic.main.view_suggested_edit_card.view.*
+import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
 import org.wikipedia.feed.view.DefaultFeedCardView
 import org.wikipedia.feed.view.FeedAdapter
+import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.views.ItemTouchHelperSwipeAdapter
 
@@ -35,7 +37,9 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
         super.setCard(card)
         this.card = card
 
-        setLayoutDirectionByWikiSite(WikiSite.forLanguageCode(card.sourceSummary!!.lang), this)
+        if (card.sourceSummary != null) {
+            setLayoutDirectionByWikiSite(WikiSite.forLanguageCode(card.sourceSummary.lang), this)
+        }
 
         cardView.setOnClickListener {
             if (callback != null) {
@@ -57,17 +61,29 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
             TRANSLATE_DESCRIPTION -> showTranslateDescriptionUI()
             ADD_CAPTION -> showAddImageCaptionUI()
             TRANSLATE_CAPTION -> showTranslateImageCaptionUI()
+            ADD_IMAGE_TAGS -> showImageTagsUI()
             else -> showAddDescriptionUI()
         }
     }
 
+    private fun showImageTagsUI() {
+        viewArticleImage.visibility = View.VISIBLE
+        viewArticleExtract.visibility = View.GONE
+        divider.visibility = View.GONE
+        viewArticleImage.loadImage(Uri.parse(ImageUrlUtil.getUrlForPreferredSize(card!!.page!!.imageInfo()!!.thumbUrl, Constants.PREFERRED_CARD_THUMBNAIL_SIZE)))
+        viewArticleTitle.visibility = View.GONE
+        callToActionText.text = context.getString(R.string.suggested_edits_feed_card_add_image_tags)
+    }
+
     private fun showAddDescriptionUI() {
+        viewArticleTitle.visibility = View.VISIBLE
         viewArticleTitle.text = StringUtil.fromHtml(card!!.sourceSummary!!.displayTitle!!)
         callToActionText.text = if (card!!.action == TRANSLATE_DESCRIPTION) context.getString(R.string.suggested_edits_feed_card_add_translation_in_language_button, app.language().getAppLanguageCanonicalName(card!!.targetSummary!!.lang)) else context.getString(R.string.suggested_edits_feed_card_add_description_button)
         showImageOrExtract()
     }
 
     private fun showTranslateDescriptionUI() {
+        viewArticleTitle.visibility = View.VISIBLE
         sourceDescription = card!!.sourceSummary!!.description!!
         viewArticleSubtitle.visibility = View.VISIBLE
         viewArticleSubtitle.text = sourceDescription
@@ -75,6 +91,7 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
     }
 
     private fun showAddImageCaptionUI() {
+        viewArticleTitle.visibility = View.VISIBLE
         viewArticleImage.visibility = View.VISIBLE
         viewArticleExtract.visibility = View.GONE
         divider.visibility = View.GONE
@@ -84,6 +101,7 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
     }
 
     private fun showTranslateImageCaptionUI() {
+        viewArticleTitle.visibility = View.VISIBLE
         sourceDescription = card!!.sourceSummary!!.description!!
         viewArticleSubtitle.visibility = View.VISIBLE
         viewArticleSubtitle.text = sourceDescription

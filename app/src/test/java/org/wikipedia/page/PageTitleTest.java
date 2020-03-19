@@ -53,9 +53,9 @@ import static org.mockito.Mockito.when;
     @Test public void testCanonicalURL() {
         WikiSite enwiki = WikiSite.forLanguageCode("en");
 
-        assertThat(enwiki.titleForInternalLink("/wiki/India").getCanonicalUri(), is("https://en.wikipedia.org/wiki/India"));
-        assertThat(enwiki.titleForInternalLink("/wiki/India Gate").getCanonicalUri(), is("https://en.wikipedia.org/wiki/India_Gate"));
-        assertThat(enwiki.titleForInternalLink("/wiki/India's Gate").getCanonicalUri(), is("https://en.wikipedia.org/wiki/India%27s_Gate"));
+        assertThat(enwiki.titleForInternalLink("/wiki/India").getUri(), is("https://en.wikipedia.org/wiki/India"));
+        assertThat(enwiki.titleForInternalLink("/wiki/India Gate").getUri(), is("https://en.wikipedia.org/wiki/India_Gate"));
+        assertThat(enwiki.titleForInternalLink("/wiki/India's Gate").getUri(), is("https://en.wikipedia.org/wiki/India%27s_Gate"));
     }
 
     @Test public void testWikiSite() {
