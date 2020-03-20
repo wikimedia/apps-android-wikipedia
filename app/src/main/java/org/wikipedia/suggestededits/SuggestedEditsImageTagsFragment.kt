@@ -271,8 +271,18 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
 
     override fun onSelect(item: MwQueryPage.ImageLabel, searchTerm: String) {
         lastSearchTerm = searchTerm
-        item.isSelected = true
-        tagList.add(item)
+        var exists = false
+        for (tag in tagList) {
+            if (tag.wikidataId == item.wikidataId) {
+                exists = true
+                tag.isSelected = true
+                break
+            }
+        }
+        if (!exists) {
+            item.isSelected = true
+            tagList.add(item)
+        }
         updateContents()
     }
 
