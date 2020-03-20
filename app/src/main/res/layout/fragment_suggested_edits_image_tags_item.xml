@@ -94,14 +94,20 @@
                 tools:text="Lorem ipsum"
                 tools:visibility="visible"/>
 
-            <com.google.android.flexbox.FlexboxLayout
-                android:id="@+id/tagsChipGroup"
+            <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:layout_marginBottom="4dp"
-                app:flexWrap="wrap"
-                app:justifyContent="center"/>
+                android:layout_marginBottom="4dp">
+
+                <com.google.android.flexbox.FlexboxLayout
+                    android:id="@+id/tagsChipGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:flexWrap="wrap"
+                    app:justifyContent="center"/>
+
+            </ScrollView>
 
         </LinearLayout>
 
