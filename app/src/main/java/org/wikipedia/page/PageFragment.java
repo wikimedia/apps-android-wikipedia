@@ -808,7 +808,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         return pageHeaderView;
     }
 
-    public void showFindReferenceInPage(ArrayList<String> backLinksList) {
+    private void showFindReferenceInPage(ArrayList<String> backLinksList, String referenceText) {
         if (model.getPage() == null) {
             return;
         }
@@ -820,17 +820,21 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             public boolean onCreateActionMode(ActionMode mode, Menu menu) {
                 findReferenceInPageActionMode = mode;
                 MenuItem menuItem = menu.add("find reference in page");
-                findReferencesInPageProvider.setListener(new FindReferencesInPageProvider.FindReferencesInPageListener() {
 
+                findReferencesInPageProvider.setListener(new FindReferencesInPageProvider.FindReferencesInPageListener() {
                     @Override
                     public void onFindNextClicked() {
                         currentPos = ++currentPos >= backLinksList.size() ? 0 : currentPos;
+                        findReferencesInPageProvider.setReferenceCountText(getString(R.string.find_in_page_result,
+                                currentPos + 1, backLinksList.size()));
                         bridge.execute(JavaScriptActionHandler.prepareToScrollTo(backLinksList.get(currentPos), "{ highlight: true }"));
                     }
 
                     @Override
                     public void onFindPrevClicked() {
                         currentPos = --currentPos < 0 ? backLinksList.size() - 1 : currentPos;
+                        findReferencesInPageProvider.setReferenceCountText(getString(R.string.find_in_page_result,
+                                currentPos + 1, backLinksList.size()));
                         bridge.execute(JavaScriptActionHandler.prepareToScrollTo(backLinksList.get(currentPos), "{ highlight: true }"));
                     }
 
@@ -839,13 +843,29 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                         if (findReferenceInPageActionMode != null) {
                             findReferenceInPageActionMode.finish();
                         }
+                    }
 
+                    @Override
+                    public void onViewBindingComplete() {
+                        findReferencesInPageProvider.setReferenceLabel(getString(R.string.reference_list_title) + " " + referenceText);
+                        findReferencesInPageProvider.setReferenceCountText(getString(R.string.find_in_page_result,
+                                currentPos + 1, backLinksList.size()));
+                    }
+
+                    @Override
+                    public void onReferenceLabelClicked() {
+                        for (Section section : model.getPage().getSections()) {
+                            if (section.getHeading().contains("<span")) {
+                                bridge.execute(JavaScriptActionHandler.scrollToAnchor(section.getAnchor()));
+                                return;
+                            }
+                        }
                     }
                 });
+
                 menuItem.setActionProvider(findReferencesInPageProvider);
                 menuItem.expandActionView();
                 bridge.execute(JavaScriptActionHandler.prepareToScrollTo(backLinksList.get(0), "{ highlight: true }"));
-
                 return true;
             }
 
@@ -871,7 +891,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         });
     }
 
-    public void showFindInPage() {
+    void showFindInPage() {
         if (model.getPage() == null) {
             return;
         }
@@ -1062,7 +1082,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                 for (int i = 0; i < backLinks.size(); i++) {
                     backLinksList.add(backLinks.get(i).getAsJsonObject().get("id").getAsString());
                 }
-                showFindReferenceInPage(backLinksList);
+                showFindReferenceInPage(backLinksList, payload.get("referenceText").getAsString());
             }
         });
         bridge.addListener("scroll_to_anchor", (String messageType, JsonObject payload) -> {

@@ -3,6 +3,7 @@ package org.wikipedia.views;
 import android.content.Context;
 import android.view.ActionProvider;
 import android.view.View;
+import android.widget.TextView;
 
 import org.wikipedia.R;
 
@@ -16,6 +17,8 @@ public class FindReferencesInPageProvider extends ActionProvider {
         void onFindNextClicked();
         void onFindPrevClicked();
         void onCloseClicked();
+        void onViewBindingComplete();
+        void onReferenceLabelClicked();
     }
 
     public FindReferencesInPageProvider(Context context) {
@@ -23,6 +26,8 @@ public class FindReferencesInPageProvider extends ActionProvider {
         this.context = context;
     }
 
+    @BindView(R.id.reference_label) TextView referenceLabel;
+    @BindView(R.id.reference_count) TextView referenceCount;
     @BindView(R.id.find_in_page_next) View findInPageNext;
     @BindView(R.id.find_in_page_prev) View findInPagePrev;
 
@@ -39,6 +44,9 @@ public class FindReferencesInPageProvider extends ActionProvider {
     public View onCreateActionView() {
         View view = View.inflate(context, R.layout.group_find_references_in_page, null);
         ButterKnife.bind(this, view);
+        if (listener != null) {
+            listener.onViewBindingComplete();
+        }
         return view;
     }
 
@@ -62,5 +70,19 @@ public class FindReferencesInPageProvider extends ActionProvider {
         if (listener != null) {
             listener.onCloseClicked();
         }
+    }
+
+    @OnClick(R.id.reference_label) void onReferenceLabelClicked(View v) {
+        if (listener != null) {
+            listener.onReferenceLabelClicked();
+        }
+    }
+
+    public void setReferenceLabel(String referenceLabelText) {
+        referenceLabel.setText(referenceLabelText);
+    }
+
+    public void setReferenceCountText(String referenceCountText) {
+        referenceCount.setText(referenceCountText);
     }
 }
