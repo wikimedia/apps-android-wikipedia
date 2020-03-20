@@ -857,6 +857,9 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                         for (Section section : model.getPage().getSections()) {
                             if (section.getHeading().contains("<span")) {
                                 bridge.execute(JavaScriptActionHandler.scrollToAnchor(section.getAnchor()));
+                                if (findReferenceInPageActionMode != null) {
+                                    findReferenceInPageActionMode.finish();
+                                }
                                 return;
                             }
                         }
