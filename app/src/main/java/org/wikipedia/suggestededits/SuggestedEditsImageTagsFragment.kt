@@ -469,7 +469,8 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         when {
             publishSuccess -> {
                 tagsLicenseText.visibility = GONE
-                tagsHintText.visibility = GONE
+                tagsHintText.setText(R.string.suggested_edits_image_tags_published_list)
+                tagsHintText.visibility = VISIBLE
             }
             atLeastOneTagChecked() -> {
                 tagsLicenseText.visibility = VISIBLE
@@ -477,6 +478,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
             }
             else -> {
                 tagsLicenseText.visibility = GONE
+                tagsHintText.setText(R.string.suggested_edits_image_tags_choose)
                 tagsHintText.visibility = VISIBLE
             }
         }
