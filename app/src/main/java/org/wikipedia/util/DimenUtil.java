@@ -141,6 +141,11 @@ public final class DimenUtil {
         return (int) (getDisplayHeightPx() * articleHeaderViewScreenHeightRatio());
     }
 
+    @SuppressWarnings("checkstyle:magicnumber")
+    public static int getHalfScreenHeight() {
+        return (int) (getDisplayHeightPx() * 0.5);
+    }
+
     private static float articleHeaderViewScreenHeightRatio() {
         return DimenUtil.getFloat(R.dimen.articleHeaderViewScreenHeightRatio);
     }

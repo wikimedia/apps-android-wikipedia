@@ -117,6 +117,7 @@ import static org.wikipedia.page.PageCacher.loadIntoCache;
 import static org.wikipedia.settings.Prefs.isDescriptionEditTutorialEnabled;
 import static org.wikipedia.settings.Prefs.isLinkPreviewEnabled;
 import static org.wikipedia.util.DimenUtil.getContentTopOffsetPx;
+import static org.wikipedia.util.DimenUtil.getDensityScalar;
 import static org.wikipedia.util.DimenUtil.leadImageHeightForDevice;
 import static org.wikipedia.util.ResourceUtil.getThemedAttributeId;
 import static org.wikipedia.util.ResourceUtil.getThemedColor;
@@ -149,7 +150,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     private boolean pageRefreshed;
     private boolean errorState = false;
 
-    private static final int REFRESH_SPINNER_ADDITIONAL_OFFSET = (int) (16 * DimenUtil.getDensityScalar());
+    private static final int REFRESH_SPINNER_ADDITIONAL_OFFSET = (int) (16 * getDensityScalar());
 
     private PageFragmentLoadState pageFragmentLoadState;
     private PageViewModel model;
@@ -963,6 +964,8 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     private void setupMessageHandlers() {
         linkHandler = new LinkHandler(requireActivity()) {
             @Override public void onPageLinkClicked(@NonNull String anchor, @NonNull String linkText) {
+                dismissBottomSheet();
+                bridge.execute(JavaScriptActionHandler.prepareToScrollTo(anchor, "{ highlight: true }"));
             }
 
             @Override public void onInternalLinkClicked(@NonNull PageTitle title) {
@@ -998,7 +1001,9 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             }
         });
         bridge.addListener("scroll_to_anchor", (String messageType, JsonObject payload) -> {
-            bridge.execute(JavaScriptActionHandler.scrollToAnchor(payload.get("anchor").getAsString()));
+            JsonObject rectObj = payload.getAsJsonObject("rect");
+            int diffY = DimenUtil.roundedDpToPx((int) Float.parseFloat(rectObj.get("y").getAsString()));
+            webView.setScrollY(webView.getScrollY() + diffY - DimenUtil.getHalfScreenHeight());
         });
         bridge.addListener("image", (String messageType, JsonObject messagePayload) -> {
             String href = decodeURL(messagePayload.get("href").getAsString());
@@ -1311,7 +1316,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
 
         @Override
         public void onContentHeightChanged(int contentHeight) {
-            if (stagedScrollY > 0 && (contentHeight * DimenUtil.getDensityScalar() - webView.getHeight()) > stagedScrollY) {
+            if (stagedScrollY > 0 && (contentHeight * getDensityScalar() - webView.getHeight()) > stagedScrollY) {
                 webView.setScrollY(stagedScrollY);
                 stagedScrollY = 0;
             }
