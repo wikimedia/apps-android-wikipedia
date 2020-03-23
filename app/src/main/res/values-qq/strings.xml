@@ -723,6 +723,7 @@
   <string name="suggested_edits_image_tags_snackbar">One-time message shown to users to encourage them to start tagging images.</string>
   <string name="suggested_edits_image_tags_task_detail">Explanation for the task of adding tags to images.</string>
   <string name="suggested_edits_image_tags_choose">Short text asking the user to choose the tags that match the image.</string>
+  <string name="suggested_edits_image_tags_published_list">Title for list of tags that have been published.</string>
   <string name="suggested_edits_image_tags_search">Hint for text field used for searching image tags.</string>
   <string name="suggested_edits_image_tags_select_title">Title for a dialog box informing the user that they have not selected any tags for the current image.</string>
   <string name="suggested_edits_image_tags_select_text">Text for a dialog box asking the user whether they are sure about rejecting all of the suggested tags for the current image.</string>
