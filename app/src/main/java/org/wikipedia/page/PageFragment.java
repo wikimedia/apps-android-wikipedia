@@ -822,7 +822,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                 findReferenceInPageActionMode = mode;
                 MenuItem menuItem = menu.add("find reference in page");
 
-                findReferencesInPageProvider.setListener(new FindReferencesInPageProvider.FindReferencesInPageListener() {
+                findReferencesInPageProvider.setCallback(new FindReferencesInPageProvider.Callback() {
                     @Override
                     public void onFindNextClicked() {
                         currentPos = ++currentPos >= backLinksList.size() ? 0 : currentPos;
