@@ -21,7 +21,7 @@ import org.wikipedia.json.GsonMarshaller
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.views.ImageZoomHelper
 
-class SuggestedEditsFeedCardImageTagActivity : BaseActivity(), SuggestedEditsImageTagsFragment.Callback {
+class SuggestedEditsFeedCardImageTagActivity : BaseActivity() {
 
     private lateinit var imageZoomHelper: ImageZoomHelper
     private var suggestedEditsImageTagsFragment: SuggestedEditsImageTagsFragment? = null
@@ -40,50 +40,6 @@ class SuggestedEditsFeedCardImageTagActivity : BaseActivity(), SuggestedEditsIma
         suggestedEditsImageTagsFragment = supportFragmentManager.findFragmentById(R.id.imageTagFragment) as SuggestedEditsImageTagsFragment?
         addContributionButton.setOnClickListener { suggestedEditsImageTagsFragment!!.publish() }
         addContributionLandscapeImage.setOnClickListener { suggestedEditsImageTagsFragment!!.publish() }
-    }
-
-    override fun getLangCode(): String {
-        return WikipediaApp.getInstance().language().appLanguageCode
-    }
-
-    override fun getSinglePage(): MwQueryPage? {
-        return page
-    }
-
-    override fun updateActionButton() {
-        if (suggestedEditsImageTagsFragment != null) {
-            addContributionLandscapeImage.setBackgroundColor(if (!suggestedEditsImageTagsFragment!!.publishOutlined()) ResourceUtil.getThemedColor(this, R.attr.colorAccent) else Color.WHITE)
-            if(suggestedEditsImageTagsFragment!!.publishOutlined()) addContributionLandscapeImage.setBackgroundResource(R.drawable.button_shape_border_light)
-            addContributionButton.setBackgroundResource(if (suggestedEditsImageTagsFragment!!.publishOutlined()) R.drawable.button_shape_border_light else R.drawable.button_shape_add_reading_list)
-            addContributionText?.setTextColor(if (suggestedEditsImageTagsFragment!!.publishOutlined()) ResourceUtil.getThemedColor(this, R.attr.colorAccent) else Color.WHITE)
-            addContributionButton.isEnabled = suggestedEditsImageTagsFragment!!.publishEnabled()
-            addContributionLandscapeImage.isEnabled = suggestedEditsImageTagsFragment!!.publishEnabled()
-            addContributionButton.alpha = if (suggestedEditsImageTagsFragment!!.publishEnabled()) 1f else 0.5f
-        } else {
-            addContributionButton.setBackgroundResource(R.drawable.button_shape_border_light)
-        }
-        if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            addContributionButton.visibility = GONE
-            addContributionLandscapeImage.visibility = VISIBLE
-            val color = if (suggestedEditsImageTagsFragment!!.publishOutlined()) ResourceUtil.getThemedColor(this, R.attr.colorAccent) else Color.WHITE
-            val colorStateList = ColorStateList.valueOf(color)
-            ImageViewCompat.setImageTintList(addContributionLandscapeImage, colorStateList)
-        } else {
-            addContributionButton.visibility = VISIBLE
-            addContributionLandscapeImage.visibility = GONE
-            addContributionText?.text = getString(R.string.description_edit_save)
-            if (suggestedEditsImageTagsFragment != null) {
-                addContributionText?.setTextColor(if (suggestedEditsImageTagsFragment!!.publishOutlined()) ResourceUtil.getThemedColor(this, R.attr.colorAccent) else Color.WHITE)
-            } else {
-                addContributionText?.setTextColor(ResourceUtil.getThemedColor(this, R.attr.colorAccent))
-            }
-            addContributionImage.visibility = GONE
-        }
-    }
-
-    override fun nextPage() {
-        setResult(RESULT_OK)
-        finish()
     }
 
     override fun dispatchTouchEvent(event: MotionEvent?): Boolean {
