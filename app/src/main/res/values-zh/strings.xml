@@ -219,7 +219,7 @@
   <string name="about_description">关于维基百科应用</string>
   <string name="privacy_policy_description">隐私政策</string>
   <string name="terms_of_use_description">使用条款</string>
-  <string name="about_wikipedia_url" fuzzy="true">https://zh.m.wikipedia.org/wiki/Wikipedia:关于</string>
+  <string name="about_wikipedia_url">https://zh.wikipedia.org/wiki/Wikipedia:关于</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/zh#离线阅读和数据</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/zh</string>
@@ -722,6 +722,7 @@
   <string name="suggested_edits_image_tags_publishing">正在发布...</string>
   <string name="suggested_edits_image_tags_published">已发布</string>
   <string name="suggested_edits_image_tags_task_detail">标记图像，使它们更容易找到。从建议的标记中选择或添加您自己的标记。</string>
+  <string name="suggested_edits_image_tags_add_tag">添加标签</string>
   <string name="suggested_edits_add_descriptions_task_detail">标题描述可对条目作出总结，以帮助读者快速了解主题。</string>
   <string name="suggested_edits_ip_blocked_message">看样子您目前所使用的IP地址（或地址段）被禁止编辑维基百科。访问以下链接以便了解更多关于封禁的信息。</string>
   <string name="suggested_edits_editing_tips_link_text">编辑提示与技巧</string>

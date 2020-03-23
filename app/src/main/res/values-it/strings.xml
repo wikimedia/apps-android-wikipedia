@@ -729,7 +729,7 @@
   <string name="suggested_edits_image_tags_choose">Aggiungi o scegli le etichette corrispondenti</string>
   <string name="suggested_edits_image_tags_select_title">Non hai selezionato alcuna etichetta per questa immagine</string>
   <string name="suggested_edits_image_tags_select_text">Solo le etichette scelte verranno aggiunte alle immagini. Le etichette non selezionate verranno contrassegnate come rifiutate. Sei sicuro di voler contrassegnare tutte le etichette come rifiutate?</string>
-  <string name="suggested_edits_image_tags_add_tag">Aggiungi etichetta…</string>
+  <string name="suggested_edits_image_tags_add_tag">Aggiungi etichetta</string>
   <string name="suggested_edits_image_zoom_tooltip">Pizzica per ingrandire l\'immagine.</string>
   <string name="suggested_edits_encouragement_message">%s, grazie per le tue modifiche. Di seguito puoi trovare altri modi per contribuire a Wikipedia.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Ciao %s&lt;/b&gt;, sapevi che tutti possono modificare Wikipedia? Di seguito puoi trovare modi divertenti per migliorare Wikipedia. Buona modifica!</string>
