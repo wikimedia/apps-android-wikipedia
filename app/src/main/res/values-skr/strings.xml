@@ -203,7 +203,7 @@
   <string name="crash_report_quit">نکلو</string>
   <string name="article_header_edit_hint">لکھو۔۔۔</string>
   <string name="color_theme_select">مرکزی خیال</string>
-  <string name="color_theme_light">ہلکا</string>
+  <string name="color_theme_light">پھِکّا</string>
   <string name="color_theme_dark">گہرا</string>
   <string name="color_theme_black">کالا</string>
   <string name="nav_item_reading_lists">میݙیاں لسٹاں</string>
@@ -286,6 +286,9 @@
   <string name="suggested_edits_image_caption_summary_title_date">تریخ</string>
   <string name="suggested_edits_image_preview_dialog_date">تریخ</string>
   <string name="suggested_edits_article_cta_snackbar_action">ݙکھالا</string>
+  <string name="suggested_edits_feed_card_add_image_tags">تصویر ٹیگ شامل کرو</string>
+  <string name="suggested_edits_image_tags_search">ٹیگ ڳولو</string>
+  <string name="suggested_edits_image_tags_add_tag">ٹیگ شامل کرو</string>
   <string name="description_edit_login_cancel_button_text">منسوخ</string>
   <string name="size_gb">%.2f جی بی</string>
   <string name="size_mb">%.2f ایم بی</string>

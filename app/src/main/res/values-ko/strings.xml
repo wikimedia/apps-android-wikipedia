@@ -206,7 +206,7 @@
   <string name="about_description">위키백과 앱 정보</string>
   <string name="privacy_policy_description">개인정보 정책</string>
   <string name="terms_of_use_description">이용 약관</string>
-  <string name="about_wikipedia_url" fuzzy="true">https://ko.m.wikipedia.org/wiki/위키백과:소개</string>
+  <string name="about_wikipedia_url">https://ko.wikipedia.org/wiki/위키백과:소개</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ko#오프라인 읽기 및 데이터</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ko</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
@@ -697,6 +697,7 @@
   <string name="suggested_edits_article_cta_snackbar_action">보기</string>
   <string name="suggested_edits_feed_card_add_image_caption">이미지 캡션 추가</string>
   <string name="suggested_edits_feed_card_translate_image_caption">이미지 캡션 추가 (%s)</string>
+  <string name="suggested_edits_feed_card_add_image_tags">이미지 태그 추가</string>
   <string name="suggested_edits_snackbar_survey_text">편집 경험은 어떠셨나요? 시간을 내어 인앱 편집에 관한 설문조사를 작성해 주십시오.</string>
   <string name="suggested_edits_snackbar_survey_action_text">설문 조사 참가</string>
   <string name="suggested_edits_task_action_text_add">추가</string>
@@ -709,9 +710,11 @@
   <string name="suggested_edits_image_tags_onboarding_note">선택한 태그만 이미지에 추가됩니다.</string>
   <string name="suggested_edits_image_tags_snackbar">다른 사람이 더 쉽게 찾을 수 있도록 이미지 태그를 추가합니다.</string>
   <string name="suggested_edits_image_tags_task_detail" fuzzy="true">다른 사람이 더 쉽게 찾을 수 있도록 이미지를 태그합니다. 컴퓨터가 제안하지만 확인이 필요합니다.</string>
-  <string name="suggested_edits_image_tags_choose" fuzzy="true">일치하는 태그 선택</string>
+  <string name="suggested_edits_image_tags_choose">일치하는 태그 추가 또는 선택</string>
+  <string name="suggested_edits_image_tags_published_list">게시된 태그</string>
   <string name="suggested_edits_image_tags_select_title">이 이미지의 태그를 선택하지 않았습니다</string>
   <string name="suggested_edits_image_tags_select_text">선택하는 태그만 이미지에 추가됩니다. 선택되지 않은 태그는 거부로 표시됩니다. 모든 태그를 거부하시겠습니까?</string>
+  <string name="suggested_edits_image_tags_add_tag">태그 추가</string>
   <string name="suggested_edits_encouragement_message">%s님, 편집에 감사드립니다. 위키백과에 기여할 수 있는 더 많은 방법이 아래에 있습니다.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;%s님, 안녕하세요.&lt;/b&gt; 누구든지 위키백과를 편집할 수 있다는 사실을 알고 계셨나요? 위키백과의 발전에 도움을 주는 재밌는 방법이 아래에 있습니다. 즐거운 편집 되십시오!</string>
   <string name="suggested_edits_contributions_stat_tooltip">편집 제안을 통한 전체 기여 수입니다.</string>

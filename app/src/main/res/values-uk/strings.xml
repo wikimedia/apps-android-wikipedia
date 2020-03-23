@@ -461,12 +461,16 @@
   <string name="reading_lists_menu_sort_by">Сортувати за</string>
   <string name="reading_lists_refresh_sync_option">Оновити синхронізацію</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Увійти / зареєструватися</string>
-  <plurals name="reading_list_article_offline_message" fuzzy="true">
+  <plurals name="reading_list_article_offline_message">
     <item quantity="one">Ця стаття тепер буде доступна автономно.</item>
+    <item quantity="few">Ці статті тепер будуть доступні автономно.</item>
+    <item quantity="many">Ці статті тепер будуть доступні автономно.</item>
     <item quantity="other">Ці статті тепер будуть доступні автономно.</item>
   </plurals>
-  <plurals name="reading_list_article_not_offline_message" fuzzy="true">
+  <plurals name="reading_list_article_not_offline_message">
     <item quantity="one">Ця стаття більше не буде доступна автономно.</item>
+    <item quantity="few">Ці статті більше не будуть доступні автономно.</item>
+    <item quantity="many">Ці статті більше не будуть доступні автономно.</item>
     <item quantity="other">Ці статті більше не будуть доступні автономно.</item>
   </plurals>
   <string name="reading_list_toast_last_sync">Списки читання успішно синхронізовані</string>
@@ -486,29 +490,41 @@
   <string name="notification_syncing_cancel_button">Скасувати</string>
   <string name="notification_syncing_reading_list_channel_description">Статус синхронізації списків читання</string>
   <string name="notification_many_unread">У вас є непрочитані сповіщення (%d)</string>
-  <plurals name="notification_channel_name" fuzzy="true">
+  <plurals name="notification_channel_name">
     <item quantity="one">Завантаження статті</item>
+    <item quantity="few">Завантаження статей</item>
+    <item quantity="many">Завантаження статей</item>
     <item quantity="other">Завантаження статей</item>
   </plurals>
-  <plurals name="notification_syncing_title" fuzzy="true">
+  <plurals name="notification_syncing_title">
     <item quantity="one">Завантажується %1$d стаття…</item>
-    <item quantity="other">Завантажуються %1$d статті…</item>
+    <item quantity="few">Завантажуються %1$d статті…</item>
+    <item quantity="many">Завантажується %1$d статей…</item>
+    <item quantity="other">Завантажується %1$d статей…</item>
   </plurals>
-  <plurals name="notification_syncing_description" fuzzy="true">
+  <plurals name="notification_syncing_description">
     <item quantity="one">Залишилася %1$d стаття</item>
-    <item quantity="other">Залишилося %1$d статті</item>
+    <item quantity="few">Залишилося %1$d статті</item>
+    <item quantity="many">Залишилося %1$d статей</item>
+    <item quantity="other">Залишилося %1$d статей</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_channel_name" fuzzy="true">
+  <plurals name="notification_syncing_reading_list_channel_name">
     <item quantity="one">Синхронізація списку читання</item>
+    <item quantity="few">Синхронізація списків читання</item>
+    <item quantity="many">Синхронізація списків читання</item>
     <item quantity="other">Синхронізація списків читання</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_title" fuzzy="true">
+  <plurals name="notification_syncing_reading_list_title">
     <item quantity="one">Синхронізація %1$d списку…</item>
+    <item quantity="few">Синхронізація %1$d списків…</item>
+    <item quantity="many">Синхронізація %1$d списків…</item>
     <item quantity="other">Синхронізація %1$d списків…</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_description" fuzzy="true">
+  <plurals name="notification_syncing_reading_list_description">
     <item quantity="one">Залишився %1$d список</item>
-    <item quantity="other">Залишилося %1$d списки</item>
+    <item quantity="few">Залишилося %1$d списки</item>
+    <item quantity="many">Залишилося %1$d списків</item>
+    <item quantity="other">Синхронізація %1$d списків…</item>
   </plurals>
   <string name="notification_echo_channel_description">Сповіщення Вікіпедії</string>
   <string name="notifications_activity_title">Сповіщення</string>
@@ -518,9 +534,11 @@
   <string name="notifications_view_archived">Перегляд архівованих</string>
   <string name="notifications_prefs">Налаштування сповіщень</string>
   <string name="notifications_archive">Позначити як прочитане та архівувати</string>
-  <plurals name="notification_archive_message" fuzzy="true">
+  <plurals name="notification_archive_message">
     <item quantity="one">Сповіщення архівовано</item>
-    <item quantity="other">Архівовано %d сповіщення</item>
+    <item quantity="few">Архівовано %d сповіщення</item>
+    <item quantity="many">Архівовано %d сповіщень</item>
+    <item quantity="other">Архівовано %d сповіщень</item>
   </plurals>
   <string name="notifications_poll_enable_title">Увімкнути сповіщення</string>
   <string name="notifications_poll_enable_positive">Увімкнути</string>
@@ -680,9 +698,11 @@
   <string name="suggested_edits_image_caption_summary_title_source">Джерело</string>
   <string name="suggested_edits_image_caption_summary_title_license">Ліцензія</string>
   <string name="suggested_edits_image_caption_summary_title_date">Дата</string>
-  <plurals name="suggested_edits_contribution_count" fuzzy="true">
-    <item quantity="one">1 редагування</item>
-    <item quantity="other">%d редагування</item>
+  <plurals name="suggested_edits_contribution_count">
+    <item quantity="one">%d редагування</item>
+    <item quantity="few">%d редагування</item>
+    <item quantity="many">%d редагувань</item>
+    <item quantity="other">%d редагувань</item>
   </plurals>
   <string name="suggested_edits_feed_card_title">Пропоновані редагування</string>
   <string name="suggested_edits_feed_card_add_description_button">Додати опис статті</string>
@@ -716,10 +736,11 @@
   <string name="suggested_edits_image_tags_snackbar">Додавайте теги до зображень, щоб полегшити їх пошук для інших користувачів.</string>
   <string name="suggested_edits_image_tags_task_detail">Додавайте теги до зображень, щоб полегшити їх пошук для інших користувачів. Виберіть із-поміж запропонованих тегів, або додайте власні.</string>
   <string name="suggested_edits_image_tags_choose">Додайте чи виберіть відповідні теги</string>
+  <string name="suggested_edits_image_tags_published_list">Опубліковані теги</string>
   <string name="suggested_edits_image_tags_search">Пошук тегів</string>
   <string name="suggested_edits_image_tags_select_title">Ви не вибрали жодного тегу для цього зображення</string>
   <string name="suggested_edits_image_tags_select_text">До зображень буде додано лише ті теги, які ви виберете. Теги, які ви не виберете, буде позначено як відхилені. Ви впевнені, що хочете позначити всі теги як відхилені?</string>
-  <string name="suggested_edits_image_tags_add_tag">Додати тег...</string>
+  <string name="suggested_edits_image_tags_add_tag">Додати тег</string>
   <string name="suggested_edits_image_zoom_tooltip">Розтягніть, щоб збільшити зображення.</string>
   <string name="suggested_edits_encouragement_message">%s, дякуємо за ваші правки! Нижче ви можете знайти більше шляхів зробити внесок у Вікіпедію.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Вітаємо %s&lt;/b&gt;! Чи знаєте ви, що будь-хто може редагувати Вікіпедію? Нижче ви знайдете цікаві способи її покращення. Приємного редагування!</string>
@@ -745,8 +766,10 @@
   <string name="suggested_edits_quality_sufficient_text">Достатньо</string>
   <string name="suggested_edits_quality_poor_text">Не дуже</string>
   <string name="suggested_edits_quality_bad_text">Погано</string>
-  <plurals name="suggested_edits_contribution" fuzzy="true">
+  <plurals name="suggested_edits_contribution">
     <item quantity="one">Редагування</item>
+    <item quantity="few">Редагування</item>
+    <item quantity="many">Редагування</item>
     <item quantity="other">Редагування</item>
   </plurals>
   <plurals name="suggested_edits_edit_streak_detail_text">
@@ -800,9 +823,11 @@
   <string name="on_this_day_dialog_next_month">Наступний місяць</string>
   <string name="on_this_day_dialog_previous_month">Попередній місяць</string>
   <string name="on_this_day_open_date_picker">Вибір дати</string>
-  <plurals name="diff_years" fuzzy="true">
-    <item quantity="one">Минулий рік</item>
-    <item quantity="other">%d роки тому</item>
+  <plurals name="diff_years">
+    <item quantity="one">%d рік тому</item>
+    <item quantity="few">%d роки тому</item>
+    <item quantity="many">%d років тому</item>
+    <item quantity="other">%d років тому</item>
   </plurals>
   <string name="languages_list_activity_title">Додати мову</string>
   <string name="languages_list_suggested_text">Запропоновані</string>
@@ -812,8 +837,10 @@
   <string name="wikipedia_languages_add_language_text">Додати мову</string>
   <string name="wikipedia_languages_remove_text">Вилучити мову</string>
   <string name="wikipedia_languages_remove_action_mode_title">Вилучити мову</string>
-  <plurals name="wikipedia_languages_remove_dialog_title" fuzzy="true">
+  <plurals name="wikipedia_languages_remove_dialog_title">
     <item quantity="one">Вилучити обрану мову?</item>
+    <item quantity="few">Вилучити обрані мови?</item>
+    <item quantity="many">Вилучити обрані мови?</item>
     <item quantity="other">Вилучити обрані мови?</item>
   </plurals>
   <string name="wikipedia_languages_remove_dialog_content">Ви будете бачити вміст у стрічці та фільтрах швидкого пошуку тими мовами Вікіпедії, що залишилися.</string>

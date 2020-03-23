@@ -493,12 +493,16 @@
   <string name="reading_lists_menu_sort_by">Сортировать по</string>
   <string name="reading_lists_refresh_sync_option">Перезапустить синхронизацию</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Войти / зарегистрироваться</string>
-  <plurals name="reading_list_article_offline_message" fuzzy="true">
+  <plurals name="reading_list_article_offline_message">
     <item quantity="one">Эта статья теперь будет доступна в офлайн-режиме.</item>
+    <item quantity="few">Эти статьи теперь будут доступны в офлайн-режиме.</item>
+    <item quantity="many">Эти статьи теперь будут доступны в офлайн-режиме.</item>
     <item quantity="other">Эти статьи теперь будут доступны в офлайн-режиме.</item>
   </plurals>
-  <plurals name="reading_list_article_not_offline_message" fuzzy="true">
+  <plurals name="reading_list_article_not_offline_message">
     <item quantity="one">Эта статья больше не будет доступна в офлайн-режиме.</item>
+    <item quantity="few">Эти статьи больше не будут доступны в офлайн-режиме.</item>
+    <item quantity="many">Эти статьи больше не будут доступны в офлайн-режиме.</item>
     <item quantity="other">Эти статьи больше не будут доступны в офлайн-режиме.</item>
   </plurals>
   <string name="reading_list_toast_last_sync">Списки чтения успешно синхронизированы</string>
@@ -751,7 +755,7 @@
   <string name="suggested_edits_image_tags_search">Искать метки</string>
   <string name="suggested_edits_image_tags_select_title">Вы не выбрали ни одного тега этому изображению</string>
   <string name="suggested_edits_image_tags_select_text">Только выбранные вами теги будут добавлены изображениям. Те, которые вы не выбрали - будут отклонены. Вы уверены что хотите отклонить все теги?</string>
-  <string name="suggested_edits_image_tags_add_tag">Добавить ярлык…</string>
+  <string name="suggested_edits_image_tags_add_tag" fuzzy="true">Добавить ярлык…</string>
   <string name="suggested_edits_pageviews_label_text">Просмотры страниц</string>
   <string name="suggested_edits_quality_bad_text">Плохо</string>
   <plurals name="suggested_edits_edit_streak_detail_text" fuzzy="true">

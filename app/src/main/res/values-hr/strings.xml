@@ -440,9 +440,10 @@
   <string name="notification_syncing_resume_button">Nastavi</string>
   <string name="notification_syncing_cancel_button">Odustani</string>
   <string name="notification_syncing_reading_list_channel_description">Napredak sinkronizacije popisa za čitanje</string>
-  <plurals name="notification_channel_name" fuzzy="true">
-    <item quantity="one">Preuzimam članak</item>
-    <item quantity="other">Preuzimam članke</item>
+  <plurals name="notification_channel_name">
+    <item quantity="one">Preuzimanje članka</item>
+    <item quantity="few">Preuzimanje nekoliko članaka</item>
+    <item quantity="other">Preuzimanje članaka</item>
   </plurals>
   <plurals name="notification_syncing_title" fuzzy="true">
     <item quantity="one">Preuzimanje %1$d članka…</item>
@@ -634,7 +635,7 @@
   <string name="suggested_edits_image_tags_task_detail">Slikama dodajte oznake kako bi ih se lakše moglo naći. Izaberite neke od predloženih oznaka ili dodajte vlastite.</string>
   <string name="suggested_edits_image_tags_select_title">Niste odabrali nijednu oznaku za ovu sliku</string>
   <string name="suggested_edits_image_tags_select_text">Samo će oznake koje izaberete biti dodane slikama. Oznake koje ne izaberete bit će odbačene. Jeste li sigurni da želite odbaciti sve oznake?</string>
-  <string name="suggested_edits_image_tags_add_tag">Dodati oznaku...</string>
+  <string name="suggested_edits_image_tags_add_tag">Dodaj oznaku</string>
   <string name="suggested_edits_encouragement_message">%s, hvala Vam na vašim doprinosima. Niže možete saznati na koje sve još načine možete doprinijeti Wikipediji.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Pozdrav, %s&lt;/b&gt;, jeste li znali da svatko može uređivati Wikipediju? Niže su navedeni zabavni načini na koje možete pomoći u poboljšanju Wikipedije. Ugodno uređivanje!</string>
   <string name="suggested_edits_image_captions_task_detail">Opisi slika čitateljima pomažu u razumijevanju njihovog značenja i konteksta.</string>
