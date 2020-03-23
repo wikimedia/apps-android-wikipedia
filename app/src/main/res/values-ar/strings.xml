@@ -727,7 +727,7 @@
   <string name="suggested_edits_image_tags_search">علامات البحث</string>
   <string name="suggested_edits_image_tags_select_title">لم تقم بتحديد أي علامات لهذه الصورة</string>
   <string name="suggested_edits_image_tags_select_text">ستتم إضافة الأوسمة التي تختارها فقط إلى الصور. سيتم تمييز الأوسمة التي لم يتم تحديدها على أنها مرفوضة. هل أنت متأكد أنك تريد وضع علامة على جميع الأوسمة على أنها مرفوضة؟</string>
-  <string name="suggested_edits_image_tags_add_tag">أضف وسمًا...</string>
+  <string name="suggested_edits_image_tags_add_tag" fuzzy="true">أضف وسمًا...</string>
   <string name="suggested_edits_image_zoom_tooltip">ضم الاصبعين لتكبير هذه الصورة.</string>
   <string name="suggested_edits_encouragement_message">%s، شكرا على تعديلاتك، يمكنك العثور أدناه على المزيد من الطرق للمساهمة في ويكيبيديا.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;مرحبا %s&lt;/b&gt;، هل تعلم أنه يمكن للجميع تحرير ويكيبيديا؟ يمكنك العثور أدناه على طرق ممتعة للمساعدة في تحسين ويكيبيديا. تحرير سعيد!</string>
