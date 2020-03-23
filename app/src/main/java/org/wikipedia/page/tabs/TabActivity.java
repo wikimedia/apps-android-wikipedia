@@ -268,7 +268,9 @@ public class TabActivity extends BaseActivity {
                 alert.create().show();
                 return true;
             case R.id.menu_save_all_tabs:
-                saveTabsToList();
+                if (!app.getTabList().isEmpty()) {
+                    saveTabsToList();
+                }
                 return true;
             case R.id.menu_explore:
                 goToMainTab(NavTab.EXPLORE);
