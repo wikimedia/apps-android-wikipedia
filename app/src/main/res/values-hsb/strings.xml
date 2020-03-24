@@ -178,7 +178,7 @@
   <string name="about_description">Wo tutu app</string>
   <string name="privacy_policy_description">Datowoškitne směrnicy</string>
   <string name="terms_of_use_description">Wužiwanske wuměnjenja</string>
-  <string name="about_wikipedia_url">https://hsb.m.wikipedia.org/wiki/Wikipedija:Wo_Wikipediji</string>
+  <string name="about_wikipedia_url" fuzzy="true">https://hsb.m.wikipedia.org/wiki/Wikipedija:Wo_Wikipediji</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/de</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
@@ -420,11 +420,11 @@
   <string name="reading_lists_menu_sort_by">Sortěrować po</string>
   <string name="reading_lists_refresh_sync_option">Znowa synchronizować</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Přizjewić / konto wutworić</string>
-  <plurals name="reading_list_article_offline_message">
+  <plurals name="reading_list_article_offline_message" fuzzy="true">
     <item quantity="one">Tutón nastawk je nětko offline přistupny.</item>
     <item quantity="other">Tutej nastawkaj stej nětko offline přistupnej.</item>
   </plurals>
-  <plurals name="reading_list_article_not_offline_message">
+  <plurals name="reading_list_article_not_offline_message" fuzzy="true">
     <item quantity="one">Tutón nastawk njeje hižo offline přistupny.</item>
     <item quantity="other">Tutej nastawkaj njejstej hižo offline přistupnej.</item>
   </plurals>
@@ -444,7 +444,7 @@
   <string name="notification_syncing_resume_button">Pokročować</string>
   <string name="notification_syncing_cancel_button">Přetorhnyć</string>
   <string name="notification_syncing_reading_list_channel_description">Postup synchronizacije lisćinow</string>
-  <plurals name="notification_channel_name">
+  <plurals name="notification_channel_name" fuzzy="true">
     <item quantity="one">Sćehnjenje nastawka</item>
     <item quantity="other">Sćehnjenje nastawkow</item>
   </plurals>

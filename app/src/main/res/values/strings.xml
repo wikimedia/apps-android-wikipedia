@@ -342,6 +342,7 @@
     <string name="theme_chooser_dialog_match_system_theme_switch_label">Match system theme</string>
     <string name="page_footer_license_text">Content is available under $1 unless otherwise noted</string>
     <string name="empty_tab_title">New tab</string>
+    <string name="menu_save_all_tabs">Save all tabs</string>
 
     <!-- Crash reporter -->
     <string name="crash_report_activity_title">Application error</string>
@@ -650,6 +651,7 @@
     <string name="description_edit_success_saved_in_lang_snackbar">Article description published! (%s)</string>
     <string name="description_edit_success_saved_image_caption_snackbar">Image caption published!</string>
     <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Image caption published! (%s)</string>
+    <string name="description_edit_success_saved_image_tags_snackbar">Image tag(s) published!</string>
     <string name="description_edit_success_encouragement">You just made Wikipedia better for everyone</string>
     <string name="description_edit_success_done">Done</string>
     <string name="description_edit_success_did_you_know">Did you know?</string>
@@ -712,7 +714,6 @@
     <string name="suggested_edits_feed_card_title">Suggested edits</string>
     <string name="suggested_edits_feed_card_add_description_button">Add article description</string>
     <string name="suggested_edits_feed_card_add_translation_in_language_button">Add article description (%s)</string>
-    <string name="suggested_edits_tutorial_message">Welcome to the new home for quick editing in the Wikipedia app. Your contributions are much appreciated. Happy editing!</string>
     <string name="suggested_edits_tasks_onboarding_get_started">Get started</string>
     <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Image caption (%s)</string>
     <string name="suggested_edits_image_preview_dialog_description_in_language_title">Image description (%s)</string>
@@ -727,6 +728,7 @@
     <string name="suggested_edits_article_cta_snackbar_action">View</string>
     <string name="suggested_edits_feed_card_add_image_caption">Add image caption</string>
     <string name="suggested_edits_feed_card_translate_image_caption">Add image caption (%s)</string>
+    <string name="suggested_edits_feed_card_add_image_tags">Add image tags</string>
     <string name="suggested_edits_snackbar_survey_text">How was your editing experience? Please take a moment to fill out the survey about in-app editing.</string>
     <string name="suggested_edits_snackbar_survey_action_text">Take Survey</string>
     <string name="suggested_edits_task_action_text_add">Add</string>
@@ -741,10 +743,11 @@
     <string name="suggested_edits_image_tags_snackbar">Add image tags to make them easier for others to find.</string>
     <string name="suggested_edits_image_tags_task_detail">Tag images to make them easier to find. Select from the suggested tags or add your own.</string>
     <string name="suggested_edits_image_tags_choose">Add or choose matching tags</string>
+    <string name="suggested_edits_image_tags_published_list">Published tags</string>
     <string name="suggested_edits_image_tags_search">Search tags</string>
     <string name="suggested_edits_image_tags_select_title">You haven\'t selected any tags for this image</string>
     <string name="suggested_edits_image_tags_select_text">Only tags that you choose will be added to images. Tags that are not selected will be marked as rejected. Are you sure you want to mark all tags as rejected?</string>
-    <string name="suggested_edits_image_tags_add_tag">Add tag…</string>
+    <string name="suggested_edits_image_tags_add_tag">Add tag</string>
     <string name="suggested_edits_image_zoom_tooltip">Pinch to zoom this image.</string>
     <string name="suggested_edits_encouragement_message">%s\, thanks for your edits. Below you can find more ways to contribute to Wikipedia.</string>
     <string name="suggested_edits_onboarding_message"><![CDATA[<b>Hi %s\</b>, did you know that everyone can edit Wikipedia? Below you can find fun ways to help improve Wikipedia. Happy editing!]]></string>

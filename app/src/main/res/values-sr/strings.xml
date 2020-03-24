@@ -195,11 +195,11 @@
   <string name="about_description">О апликацији Википедија</string>
   <string name="privacy_policy_description">Смернице за приватност</string>
   <string name="terms_of_use_description">Услови коришћења</string>
-  <string name="about_wikipedia_url">https://sr.m.wikipedia.org/wiki/Википедија:О_нама</string>
-  <string name="privacy_policy_url">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
+  <string name="about_wikipedia_url">https://sr.wikipedia.org/wiki/Википедија:О_нама</string>
+  <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
-  <string name="terms_of_use_url">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
+  <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
@@ -487,7 +487,7 @@
   </plurals>
   <plurals name="notification_syncing_description">
     <item quantity="one">Преостао је %1$d чланак</item>
-    <item quantity="other">Преостала су %1$d чланка</item>
+    <item quantity="other">Преостао је %1$d чланак</item>
   </plurals>
   <plurals name="notification_syncing_reading_list_channel_name">
     <item quantity="one">Синхронизација списка за читање</item>
@@ -674,7 +674,6 @@
   <string name="suggested_edits_feed_card_title">Предложене измене</string>
   <string name="suggested_edits_feed_card_add_description_button">Додај опис чланка</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Додај опис чланка (%s)</string>
-  <string name="suggested_edits_tutorial_message">Добро дошли на нову почетну страницу за брзо уређивање у апликацији Википедија. Ваш допринос се веома цени. Срећно уређивање.</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Почнимо</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Натпис слике (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Опис слике (%s)</string>

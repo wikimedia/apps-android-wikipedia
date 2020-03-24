@@ -220,11 +220,11 @@
   <string name="about_description">À propos de l’application Wikipédia</string>
   <string name="privacy_policy_description">Politique de confidentialité</string>
   <string name="terms_of_use_description">Conditions d’utilisation</string>
-  <string name="about_wikipedia_url">https://fr.m.wikipedia.org/wiki/Wikipédia:À_propos_de_Wikipédia</string>
-  <string name="privacy_policy_url">https://meta.m.wikimedia.org/wiki/Privacy_policy/fr</string>
+  <string name="about_wikipedia_url">https://fr.wikipedia.org/wiki/Wikipédia:À_propos_de_Wikipédia</string>
+  <string name="privacy_policy_url" fuzzy="true">https://meta.m.wikimedia.org/wiki/Privacy_policy/fr</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/fr#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/fr</string>
-  <string name="terms_of_use_url">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
+  <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.fr</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.fr</string>
@@ -651,6 +651,7 @@
   <string name="description_edit_success_saved_in_lang_snackbar">Description de l’article publiée ! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Légende de l’image publiée !</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Légende de l\'image publiée ! (%s)</string>
+  <string name="description_edit_success_saved_image_tags_snackbar">Balise(s) de l’image publiée(s) !</string>
   <string name="description_edit_success_encouragement">Vous venez juste de rendre Wikipédia meilleure pour tout le monde</string>
   <string name="description_edit_success_done">Fermer</string>
   <string name="description_edit_success_did_you_know">Le saviez-vous ?</string>
@@ -705,7 +706,6 @@
   <string name="suggested_edits_feed_card_title">Modifications suggérées</string>
   <string name="suggested_edits_feed_card_add_description_button">Ajouter une description d’article</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Ajouter une description à l’article (%s)</string>
-  <string name="suggested_edits_tutorial_message">Bienvenue dans le nouvel accueil pour la modification rapide dans l’application de Wikipédia. Vos contributions sont toujours très appréciées. Bonnes modifications !</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Démarrer</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Légende de l’image (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Description de l’image (%s)</string>
@@ -720,6 +720,7 @@
   <string name="suggested_edits_article_cta_snackbar_action">Afficher</string>
   <string name="suggested_edits_feed_card_add_image_caption">Ajouter une légende</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Ajouter une légende (%s)</string>
+  <string name="suggested_edits_feed_card_add_image_tags">Ajouter des balises d’image</string>
   <string name="suggested_edits_snackbar_survey_text">Comment s’est déroulée votre expérience de création ou de modification ? Merci de prendre un moment pour répondre à l’enquête concernant les modifications avec l’application.</string>
   <string name="suggested_edits_snackbar_survey_action_text">Participer au sondage</string>
   <string name="suggested_edits_task_action_text_add">Ajouter</string>
@@ -734,10 +735,11 @@
   <string name="suggested_edits_image_tags_snackbar">Ajouter des balises à l’image pour les rendre plus faciles à trouver par les autres.</string>
   <string name="suggested_edits_image_tags_task_detail">Marquez les images pour les rendre plus faciles à trouver. Choisissez parmi les balises suggérées ou ajoutez les vôtres.</string>
   <string name="suggested_edits_image_tags_choose">Ajouter ou choisir les balises qui correspondent</string>
+  <string name="suggested_edits_image_tags_published_list">Balises publiées</string>
   <string name="suggested_edits_image_tags_search">Rechercher des balises</string>
   <string name="suggested_edits_image_tags_select_title">Vous n’avez pas sélectionné de balise pour cette image</string>
   <string name="suggested_edits_image_tags_select_text">Seules les balises que vous choisirez seront ajoutées aux images. Les balises qui ne sont pas sélectionnées seront marquées comme rejetées. Êtes-vous sûr de vouloir marquer toutes les balises comme rejetées ?</string>
-  <string name="suggested_edits_image_tags_add_tag">Ajouter une balise…</string>
+  <string name="suggested_edits_image_tags_add_tag">Ajouter une balise</string>
   <string name="suggested_edits_image_zoom_tooltip">Pincer pour zoomer sur cette image.</string>
   <string name="suggested_edits_encouragement_message">%s, merci pour vos modifications. Ci-dessous, vous pourrez trouver d’autres moyens de contribuer à Wikipédia.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Bonjour %s&lt;/b&gt;, saviez-vous que tout le monde peut modifier Wikipédia ? Ci-dessous, vous trouverez des manières amusantes pour aider à améliorer Wikipédia. Bonne modification !</string>

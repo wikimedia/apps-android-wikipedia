@@ -1,7 +1,11 @@
 package org.wikipedia.suggestededits
 
+import android.app.Dialog
 import android.content.ClipboardManager
 import android.content.Context
+import android.content.res.ColorStateList
+import android.graphics.drawable.InsetDrawable
+import android.os.Build
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -10,9 +14,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.TextView
+import androidx.core.view.ViewCompat
 import androidx.fragment.app.DialogFragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.shape.MaterialShapeDrawable
+import com.google.android.material.shape.ShapeAppearanceModel
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
@@ -25,6 +32,8 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.wikidata.Search
+import org.wikipedia.util.DimenUtil
+import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
 import java.util.*
 import kotlin.collections.ArrayList
@@ -44,7 +53,7 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return LayoutInflater.from(requireActivity()).inflate(R.layout.dialog_image_tag_select, container)
+        return inflater.inflate(R.layout.dialog_image_tag_select, container)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -52,6 +61,24 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
         imageTagsRecycler.adapter = adapter
         imageTagsSearchText.addTextChangedListener(textWatcher)
         applyResults(Collections.emptyList())
+    }
+
+    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+        val dialog = super.onCreateDialog(savedInstanceState)
+        val surfaceColor = ResourceUtil.getThemedColor(requireActivity(), R.attr.searchItemBackground)
+        val model = ShapeAppearanceModel.builder().setAllCornerSizes(DimenUtil.dpToPx(6f)).build()
+        val materialShapeDrawable = MaterialShapeDrawable(model)
+        materialShapeDrawable.fillColor = ColorStateList.valueOf(surfaceColor)
+        materialShapeDrawable.elevation = ViewCompat.getElevation(dialog.window!!.decorView)
+
+        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.P) {
+            val inset = DimenUtil.roundedDpToPx(16f)
+            val insetDrawable = InsetDrawable(materialShapeDrawable, inset, inset, inset, inset)
+            dialog.window!!.setBackgroundDrawable(insetDrawable)
+        } else {
+            dialog.window!!.setBackgroundDrawable(materialShapeDrawable)
+        }
+        return dialog
     }
 
     override fun onStart() {
