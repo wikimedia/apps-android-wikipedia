@@ -990,7 +990,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
 
             references = GsonUtil.getDefaultGson().fromJson(messagePayload, PageReferences.class);
 
-            if (references.getReferencesGroup() != null && references.getReferencesGroup().size() > 0) {
+            if (!references.getReferencesGroup().isEmpty()) {
                 showBottomSheet(new ReferenceDialog(requireActivity(), references.getSelectedIndex(), references.getReferencesGroup(), linkHandler));
             }
         });
@@ -1001,8 +1001,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             }
         });
         bridge.addListener("scroll_to_anchor", (String messageType, JsonObject payload) -> {
-            JsonObject rectObj = payload.getAsJsonObject("rect");
-            int diffY = DimenUtil.roundedDpToPx((int) Float.parseFloat(rectObj.get("y").getAsString()));
+            int diffY = DimenUtil.roundedDpToPx(payload.getAsJsonObject("rect").get("y").getAsFloat());
             webView.setScrollY(webView.getScrollY() + diffY - webView.getHeight() / 2);
         });
         bridge.addListener("image", (String messageType, JsonObject messagePayload) -> {
