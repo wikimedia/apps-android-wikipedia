@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
-    <string name="contributors_list"><a href="https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android">Team page</a></string>
     <string name="libraries_list"><a href="https://appcenter.ms/">App Center SDK</a>
         <!-- https://raw.githubusercontent.com/microsoft/appcenter-sdk-android/develop/license.txt -->
         (<a href="content:///android_asset/licenses/AppCenterSDK">license</a>),
