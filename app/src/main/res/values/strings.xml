@@ -190,11 +190,11 @@
     <string name="about_description">About the Wikipedia app</string>
     <string name="privacy_policy_description">Privacy policy</string>
     <string name="terms_of_use_description">Terms of use</string>
-    <string name="about_wikipedia_url">https://en.m.wikipedia.org/wiki/Wikipedia:About</string>
-    <string name="privacy_policy_url">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
+    <string name="about_wikipedia_url">https://en.wikipedia.org/wiki/Wikipedia:About</string>
+    <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Privacy_policy</string>
     <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
     <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
-    <string name="terms_of_use_url">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
+    <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
     <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
     <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
     <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
@@ -294,6 +294,7 @@
     <string name="close_all_tabs_confirm_yes">Yes</string>
     <string name="close_all_tabs_confirm_no">No</string>
     <string name="button_close_tab">Close tab</string>
+    <string name="unnamed_tab_closed">Tab closed.</string>
     <string name="tab_item_closed">%s closed.</string>
     <string name="all_tab_items_closed">All tabs closed.</string>
     <string name="tool_tip_bookmark_icon_title">Add to reading list</string>
@@ -341,6 +342,7 @@
     <string name="theme_chooser_dialog_match_system_theme_switch_label">Match system theme</string>
     <string name="page_footer_license_text">Content is available under $1 unless otherwise noted</string>
     <string name="empty_tab_title">New tab</string>
+    <string name="menu_save_all_tabs">Save all tabs</string>
 
     <!-- Crash reporter -->
     <string name="crash_report_activity_title">Application error</string>
@@ -450,14 +452,6 @@
     <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Don’t show me this again</string>
     <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Enable syncing</string>
     <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">No thanks</string>
-    <string name="reading_list_login_option_reminder_dialog_title">Reading list articles found</string>
-    <string name="reading_list_login_option_reminder_dialog_text">Articles were saved to the reading list while you were logged out. Would you like to add them to the reading lists in your account?</string>
-    <string name="reading_list_login_option_reminder_dialog_yes">Yes, add them to my reading lists</string>
-    <string name="reading_list_login_option_reminder_dialog_no">No, delete articles</string>
-    <string name="reading_list_logout_option_reminder_dialog_title">Keep saved articles in the app?</string>
-    <string name="reading_list_logout_option_reminder_dialog_text">There are articles currently saved in reading lists. Would you like to keep them there after logging out?</string>
-    <string name="reading_list_logout_option_reminder_dialog_yes">Yes, keep articles in lists</string>
-    <string name="reading_list_logout_option_reminder_dialog_no">No, delete articles from lists</string>
     <string name="default_reading_list_name">Saved</string>
     <string name="default_reading_list_description">Default list for your saved articles</string>
     <string name="no_user_lists_title">Organize articles into lists</string>
@@ -658,6 +652,7 @@
     <string name="description_edit_success_saved_in_lang_snackbar">Article description published! (%s)</string>
     <string name="description_edit_success_saved_image_caption_snackbar">Image caption published!</string>
     <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Image caption published! (%s)</string>
+    <string name="description_edit_success_saved_image_tags_snackbar">Image tag(s) published!</string>
     <string name="description_edit_success_encouragement">You just made Wikipedia better for everyone</string>
     <string name="description_edit_success_done">Done</string>
     <string name="description_edit_success_did_you_know">Did you know?</string>
@@ -718,7 +713,6 @@
     <string name="suggested_edits_feed_card_title">Suggested edits</string>
     <string name="suggested_edits_feed_card_add_description_button">Add article description</string>
     <string name="suggested_edits_feed_card_add_translation_in_language_button">Add article description (%s)</string>
-    <string name="suggested_edits_tutorial_message">Welcome to the new home for quick editing in the Wikipedia app. Your contributions are much appreciated. Happy editing!</string>
     <string name="suggested_edits_tasks_onboarding_get_started">Get started</string>
     <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Image caption (%s)</string>
     <string name="suggested_edits_image_preview_dialog_description_in_language_title">Image description (%s)</string>
@@ -733,6 +727,7 @@
     <string name="suggested_edits_article_cta_snackbar_action">View</string>
     <string name="suggested_edits_feed_card_add_image_caption">Add image caption</string>
     <string name="suggested_edits_feed_card_translate_image_caption">Add image caption (%s)</string>
+    <string name="suggested_edits_feed_card_add_image_tags">Add image tags</string>
     <string name="suggested_edits_snackbar_survey_text">How was your editing experience? Please take a moment to fill out the survey about in-app editing.</string>
     <string name="suggested_edits_snackbar_survey_action_text">Take Survey</string>
     <string name="suggested_edits_task_action_text_add">Add</string>
@@ -741,14 +736,17 @@
     <string name="suggested_edits_image_tags">Image tags</string>
     <string name="suggested_edits_image_tags_publishing">Publishing</string>
     <string name="suggested_edits_image_tags_published">Published</string>
-    <string name="suggested_edits_image_tags_onboarding_title">Tag images to make them easier for others to find</string>
-    <string name="suggested_edits_image_tags_onboarding_text">By confirming suggested tags, you can help make images easier to search for.\n\nTags are computer suggested but need to be validated by humans to ensure accuracy.</string>
+    <string name="suggested_edits_image_tags_onboarding_title">Tagging images makes them easier to find.</string>
+    <string name="suggested_edits_image_tags_onboarding_text">By adding image tags, you will help make images easier to search for on Commons, the free license image repository that Wikipedia uses for images in its articles.\n\nWe\'ve automatically suggested some tags, and you can also add your own.</string>
     <string name="suggested_edits_image_tags_onboarding_note">Only tags that you choose will be added to images.</string>
     <string name="suggested_edits_image_tags_snackbar">Add image tags to make them easier for others to find.</string>
-    <string name="suggested_edits_image_tags_task_detail">Tag images to make them easier for others to find. They are computer suggested, but need to be validated.</string>
-    <string name="suggested_edits_image_tags_choose">Choose matching tags</string>
+    <string name="suggested_edits_image_tags_task_detail">Tag images to make them easier to find. Select from the suggested tags or add your own.</string>
+    <string name="suggested_edits_image_tags_choose">Add or choose matching tags</string>
+    <string name="suggested_edits_image_tags_published_list">Published tags</string>
+    <string name="suggested_edits_image_tags_search">Search tags</string>
     <string name="suggested_edits_image_tags_select_title">You haven\'t selected any tags for this image</string>
     <string name="suggested_edits_image_tags_select_text">Only tags that you choose will be added to images. Tags that are not selected will be marked as rejected. Are you sure you want to mark all tags as rejected?</string>
+    <string name="suggested_edits_image_tags_add_tag">Add tag</string>
     <string name="suggested_edits_image_zoom_tooltip">Pinch to zoom this image.</string>
     <string name="suggested_edits_encouragement_message">%s\, thanks for your edits. Below you can find more ways to contribute to Wikipedia.</string>
     <string name="suggested_edits_onboarding_message"><![CDATA[<b>Hi %s\</b>, did you know that everyone can edit Wikipedia? Below you can find fun ways to help improve Wikipedia. Happy editing!]]></string>

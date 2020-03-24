@@ -187,11 +187,11 @@
   <string name="about_description">Σχετικά με την εφαρμογή της Βικιπαίδειας</string>
   <string name="privacy_policy_description">Πολιτική ιδιωτικότητας</string>
   <string name="terms_of_use_description">Όροι χρήσης</string>
-  <string name="about_wikipedia_url">https://el.m.wikipedia.org/wiki/Βικιπαίδεια:Σχετικά</string>
-  <string name="privacy_policy_url">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
+  <string name="about_wikipedia_url" fuzzy="true">https://el.m.wikipedia.org/wiki/Βικιπαίδεια:Σχετικά</string>
+  <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
-  <string name="terms_of_use_url">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
+  <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.el</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/3.0/</string>
@@ -398,10 +398,6 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Μην μου το ξαναεμφανίσεις πάλι</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Ενεργοποίηση συγχρονισμού</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Όχι, ευχαριστώ</string>
-  <string name="reading_list_login_option_reminder_dialog_no">Όχι, διαγραφή των λημμάτων</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">Διατήρηση των αποθηκευμένων λημμάτων στην εφαρμογή;</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">Ναι, κρατήστε τα άρθρα στις λίστες</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">Όχι, διαγράψτε τα άρθρα από τις λίστες</string>
   <string name="default_reading_list_name">Αποθηκεύθηκε</string>
   <string name="default_reading_list_description">Προεπιλεγμένη λίστα για τα αποθηκευμένα λήμματά σας</string>
   <string name="no_user_lists_title">Οργάνωση λημμάτων σε λίστες</string>
@@ -543,6 +539,7 @@
   <string name="suggested_edits_article_cta_snackbar_action">Προβολή</string>
   <string name="suggested_edits_task_action_text_add">Προσθήκη</string>
   <string name="suggested_edits_task_action_text_translate">Μετάφραση</string>
+  <string name="suggested_edits_image_tags_add_tag" fuzzy="true">Προσθήκη ετικέτας...</string>
   <string name="description_edit_revert_subtitle">Ευχαριστούμε που επεξεργάζεστε την Βικιπαίδεια!</string>
   <string name="description_edit_revert_reason2">η συνεισφορά σας έμοιαζε περισσότερο σαν πειραματισμός ή βανδαλισμός.</string>
   <string name="description_edit_revert_history">Εάν ενδιαφέρεστε, δείτε το &lt;a href=\"%1$s\"&gt;ιστορικό επεξεργασιών&lt;/a&gt;.</string>

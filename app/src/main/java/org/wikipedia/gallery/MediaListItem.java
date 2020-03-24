@@ -6,6 +6,7 @@ import androidx.annotation.Nullable;
 import com.google.gson.annotations.SerializedName;
 
 import org.apache.commons.lang3.StringUtils;
+import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
 
 import java.io.Serializable;
@@ -69,7 +70,7 @@ public class MediaListItem implements Serializable {
                 }
             }
         }
-        return imageUrl;
+        return UriUtil.resolveProtocolRelativeUrl(imageUrl);
     }
 
     @NonNull
@@ -86,7 +87,7 @@ public class MediaListItem implements Serializable {
 
         L.d("getImageUrl scale " + lastScale);
         L.d("getImageUrl url " + imageUrl);
-        return imageUrl;
+        return UriUtil.resolveProtocolRelativeUrl(imageUrl);
     }
 
     public class ImageSrcSet implements Serializable {

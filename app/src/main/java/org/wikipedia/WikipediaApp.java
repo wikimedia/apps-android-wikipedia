@@ -50,6 +50,7 @@ import org.wikipedia.settings.SiteInfoClient;
 import org.wikipedia.theme.Theme;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.ReleaseUtil;
+import org.wikipedia.util.SavedPagesConversionUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.ViewAnimations;
 
@@ -208,6 +209,8 @@ public class WikipediaApp extends Application {
 
         // Kick the notification receiver, in case it hasn't yet been started by the system.
         NotificationPollBroadcastReceiver.startPollTask(this);
+
+        SavedPagesConversionUtil.maybeRunOneTimeSavedPagesConversion();
     }
 
     public int getVersionCode() {

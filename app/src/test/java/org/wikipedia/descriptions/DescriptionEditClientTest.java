@@ -12,7 +12,6 @@ import org.wikipedia.dataclient.mwapi.MwServiceError;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageProperties;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.page.Section;
 import org.wikipedia.test.MockRetrofitTest;
 
 import java.util.Collections;
@@ -88,7 +87,7 @@ public class DescriptionEditClientTest extends MockRetrofitTest {
         when(props.canEdit()).thenReturn(true);
         when(props.getDescriptionSource()).thenReturn("central");
         Page page = new Page(new PageTitle("Test", wiki, null, null, props),
-                Collections.<Section>emptyList(), props);
+                Collections.emptyList(), props);
 
         assertThat(DescriptionEditUtil.isEditAllowed(page), is(true));
     }
@@ -98,7 +97,7 @@ public class DescriptionEditClientTest extends MockRetrofitTest {
         PageProperties props = mock(PageProperties.class);
         when(props.getWikiBaseItem()).thenReturn(null);
         Page page = new Page(new PageTitle("Test", wiki, null, null, props),
-                Collections.<Section>emptyList(), props);
+                Collections.emptyList(), props);
 
         assertThat(DescriptionEditUtil.isEditAllowed(page), is(false));
     }

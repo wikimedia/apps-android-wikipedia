@@ -171,7 +171,7 @@
   <string name="about_description">Apie Vikipedijos programėlę</string>
   <string name="privacy_policy_description">Privatumo politika</string>
   <string name="terms_of_use_description">Naudojimosi sąlygos</string>
-  <string name="about_wikipedia_url">https://lt.m.wikipedia.org/wiki/Vikipedija:Projekto_aprašymas</string>
+  <string name="about_wikipedia_url" fuzzy="true">https://lt.m.wikipedia.org/wiki/Vikipedija:Projekto_aprašymas</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.lt</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.lt</string>
   <string name="about_libraries_heading">Panaudotos bibliotekos</string>
@@ -328,11 +328,11 @@
   <string name="reading_list_turned_sync_off_dialog_settings">Nustatymai</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Ne, ačiū</string>
   <string name="default_reading_list_name">Išsaugota</string>
-  <plurals name="reading_list_article_offline_message">
+  <plurals name="reading_list_article_offline_message" fuzzy="true">
     <item quantity="one">Šis straipsnis bus prieinamas neprisijungus.</item>
     <item quantity="other">Šie straipsniai bus prieinami neprisijungus.</item>
   </plurals>
-  <plurals name="reading_list_article_not_offline_message">
+  <plurals name="reading_list_article_not_offline_message" fuzzy="true">
     <item quantity="one">Šis straipsnis nebebus prieinamas neprisijungus.</item>
     <item quantity="other">Šie straipsniai nebebus prieinami neprisijungus.</item>
   </plurals>
@@ -355,7 +355,7 @@
   <string name="most_read_list_card_title">Populiaru</string>
   <string name="view_static_card_icon_content_description">Kortelės piktograma</string>
   <string name="view_card_news_title">Naujienose</string>
-  <plurals name="view_continue_reading_card_subtitle">
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
     <item quantity="one">vakar</item>
     <item quantity="other">prieš %d dienas</item>
   </plurals>

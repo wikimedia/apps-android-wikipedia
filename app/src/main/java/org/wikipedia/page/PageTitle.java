@@ -220,10 +220,6 @@ public class PageTitle implements Parcelable {
         this.displayText = displayText;
     }
 
-    public boolean hasProperties() {
-        return properties != null;
-    }
-
     @Nullable public PageProperties getProperties() {
         return properties;
     }
@@ -236,16 +232,8 @@ public class PageTitle implements Parcelable {
         return mainPageTitle.equals(getDisplayText());
     }
 
-    public boolean isDisambiguationPage() {
-        return properties != null && properties.isDisambiguationPage();
-    }
-
-    public String getCanonicalUri() {
+    public String getUri() {
         return getUriForDomain(getWikiSite().authority());
-    }
-
-    public String getMobileUri() {
-        return getUriForDomain(getWikiSite().mobileAuthority());
     }
 
     public String getUriForAction(String action) {

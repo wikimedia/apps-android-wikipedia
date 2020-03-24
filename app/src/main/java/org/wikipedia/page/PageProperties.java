@@ -10,7 +10,6 @@ import androidx.annotation.Nullable;
 
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.auth.AccountUtil;
-import org.wikipedia.dataclient.page.PageLeadProperties;
 import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.dataclient.page.Protection;
 import org.wikipedia.util.DimenUtil;
@@ -35,7 +34,6 @@ public class PageProperties implements Parcelable {
     private final String displayTitleText;
     private String editProtectionStatus;
     private final boolean isMainPage;
-    private final boolean isDisambiguationPage;
     /** Nullable URL with no scheme. For example, foo.bar.com/ instead of http://foo.bar.com/. */
     @Nullable private String leadImageUrl;
     @Nullable private String leadImageName;
@@ -75,41 +73,10 @@ public class PageProperties implements Parcelable {
         // assume formatversion=2 is used so we get real booleans from the API
 
         isMainPage = pageSummary.getType().equals(PageSummary.TYPE_MAIN_PAGE);
-        isDisambiguationPage = pageSummary.getType().equals(PageSummary.TYPE_DISAMBIGUATION);
         wikiBaseItem = pageSummary.getWikiBaseItem();
         descriptionSource = pageSummary.getDescriptionSource();
     }
 
-
-    public PageProperties(PageLeadProperties core) {
-        pageId = core.getId();
-        namespace = core.getNamespace();
-        revisionId = core.getRevision();
-        displayTitleText = defaultString(core.getDisplayTitle());
-        geo = core.getGeo();
-        editProtectionStatus = core.getFirstAllowedEditorRole();
-
-        // todo: don't hardcode this here
-        leadImageUrl = core.getLeadImageUrl(DimenUtil.calculateLeadImageWidth());
-
-        leadImageName = core.getLeadImageFileName();
-        lastModified = new Date();
-        String lastModifiedText = core.getLastModified();
-        if (lastModifiedText != null) {
-            try {
-                lastModified.setTime(iso8601DateParse(lastModifiedText).getTime());
-            } catch (ParseException e) {
-                L.d("Failed to parse date: " + lastModifiedText);
-            }
-        }
-        // assume formatversion=2 is used so we get real booleans from the API
-        canEdit = core.isEditable();
-
-        isMainPage = core.isMainPage();
-        isDisambiguationPage = core.isDisambiguation();
-        wikiBaseItem = core.getWikiBaseItem();
-        descriptionSource = core.getDescriptionSource();
-    }
     /**
      * Constructor to be used when building a Page from a compilation. Initializes the title and
      * namespace fields, and explicitly disables editing. All other fields initialized to defaults.
@@ -127,7 +94,6 @@ public class PageProperties implements Parcelable {
         lastModified = new Date();
         canEdit = false;
         this.isMainPage = isMainPage;
-        isDisambiguationPage = false;
         wikiBaseItem = null;
         descriptionSource = null;
     }
@@ -167,10 +133,6 @@ public class PageProperties implements Parcelable {
 
     public boolean isMainPage() {
         return isMainPage;
-    }
-
-    public boolean isDisambiguationPage() {
-        return isDisambiguationPage;
     }
 
     /**
@@ -223,7 +185,6 @@ public class PageProperties implements Parcelable {
         parcel.writeString(editProtectionStatus);
         parcel.writeInt(canEdit ? 1 : 0);
         parcel.writeInt(isMainPage ? 1 : 0);
-        parcel.writeInt(isDisambiguationPage ? 1 : 0);
         parcel.writeString(leadImageUrl);
         parcel.writeString(leadImageName);
         parcel.writeString(wikiBaseItem);
@@ -240,7 +201,6 @@ public class PageProperties implements Parcelable {
         editProtectionStatus = in.readString();
         canEdit = in.readInt() == 1;
         isMainPage = in.readInt() == 1;
-        isDisambiguationPage = in.readInt() == 1;
         leadImageUrl = in.readString();
         leadImageName = in.readString();
         wikiBaseItem = in.readString();
@@ -279,7 +239,6 @@ public class PageProperties implements Parcelable {
                 && (geo == that.geo || geo != null && geo.equals(that.geo))
                 && canEdit == that.canEdit
                 && isMainPage == that.isMainPage
-                && isDisambiguationPage == that.isDisambiguationPage
                 && TextUtils.equals(editProtectionStatus, that.editProtectionStatus)
                 && TextUtils.equals(leadImageUrl, that.leadImageUrl)
                 && TextUtils.equals(leadImageName, that.leadImageName)
@@ -293,7 +252,6 @@ public class PageProperties implements Parcelable {
         result = 31 * result + (geo != null ? geo.hashCode() : 0);
         result = 31 * result + (editProtectionStatus != null ? editProtectionStatus.hashCode() : 0);
         result = 31 * result + (isMainPage ? 1 : 0);
-        result = 31 * result + (isDisambiguationPage ? 1 : 0);
         result = 31 * result + (leadImageUrl != null ? leadImageUrl.hashCode() : 0);
         result = 31 * result + (leadImageName != null ? leadImageName.hashCode() : 0);
         result = 31 * result + (wikiBaseItem != null ? wikiBaseItem.hashCode() : 0);

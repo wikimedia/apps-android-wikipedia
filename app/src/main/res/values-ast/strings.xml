@@ -69,6 +69,7 @@
   <string name="map_view_link_text">Ver nun mapa</string>
   <string name="other_languages_indication_text">Lleer n\'otra llingua</string>
   <string name="language_count_link_text">Disponible\'n %d idiomes más</string>
+  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in">Al publicar, aceutes les &lt;a href=\"%1$s\"&gt;Condiciones d\'usu&lt;/a&gt;, y lliberar ensin torgues les tos collaboraciones baxo los términos de la llicencia &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Al publicar, aceutes les &lt;a href=\"%1$s\"&gt;Condiciones d\'usu&lt;/a&gt;, y lliberar ensin torgues les tos collaboraciones baxo la llicencia &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Les ediciones atribuiránse a la dirección IP del to preséu. Si &lt;a href=\"https://#login\"&gt;anicies sesión&lt;/a&gt;, tendrás más intimidá.</string>
   <string name="preference_title_language">Llingües de Wikipedia</string>
@@ -185,7 +186,7 @@
   <string name="about_description">Tocante a la app de Wikipedia</string>
   <string name="privacy_policy_description">Política d\'intimidá</string>
   <string name="terms_of_use_description">Condiciones d\'usu</string>
-  <string name="about_wikipedia_url">https://ast.m.wikipedia.org/wiki/Wikipedia:Tocante_a</string>
+  <string name="about_wikipedia_url" fuzzy="true">https://ast.m.wikipedia.org/wiki/Wikipedia:Tocante_a</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
@@ -194,6 +195,7 @@
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Bbiblioteques utilizaes</string>
   <string name="about_contributors_heading">Collaboradores</string>
   <string name="about_translators_heading">Traductores</string>
@@ -327,10 +329,13 @@
   <string name="view_wiki_error_message_offline">Nun pudo coneutase a internet</string>
   <string name="view_wiki_error_message_timeout">Nun se pue coneutar con Wikipedia. Comprueba la conexón de rede o téntalo sero nuevamente</string>
   <string name="reference_title">Referencia %s</string>
+  <string name="reference_list_title">Referencies</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Amortecimientu d\'imaxes (na tema escura)</string>
   <string name="preference_title_prefer_offline_content">Preferir conteníu ensin conexón</string>
   <string name="preference_summary_prefer_offline_content">Aforrar l\'usu de datos cargando artículos que tean disponibles ensin conexón, en llugar de cargar siempres la última versión d\'un artículu.</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Casar col tema del sistema</string>
+  <string name="page_footer_license_text">El conteníu ta disponible baxo los términos de la $1 si nun s\'indica otra cosa</string>
+  <string name="empty_tab_title">Llingüeta nueva</string>
   <string name="crash_report_activity_title">Error de l\'aplicación:</string>
   <string name="crash_report_relaunch_or_quit">Sentímoslo, la app de Wikipedia esperimentó un error y terminóse.\n\n¿Quies volver a arrancar o colar?</string>
   <string name="crash_report_relaunch">Volver a arrancar</string>
@@ -429,14 +434,6 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Nun volver a amosame esto</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Activar sincronización</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Non, gracies</string>
-  <string name="reading_list_login_option_reminder_dialog_title">Alcontráronse artículos de llistes de llectura</string>
-  <string name="reading_list_login_option_reminder_dialog_text">Guardáronse artículos na llista de llectura al zarrase la to sesión. ¿Quies amestalos a les llistes de llectura de la to cuenta?</string>
-  <string name="reading_list_login_option_reminder_dialog_yes">Si, amestalos a les mios llistes de llectura</string>
-  <string name="reading_list_login_option_reminder_dialog_no">Non, desaniciar los artículos</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">¿Caltener los artículos guardaos na app?</string>
-  <string name="reading_list_logout_option_reminder_dialog_text">Hai artículos guardaos actualmente nes llistes de llectura. ¿Quies caltenelos ehí cuando zarres la sesión?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">Si, caltener los artículos nes llistes</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">Non, desaniciar los artículos de les llistes</string>
   <string name="default_reading_list_name">Guardaos</string>
   <string name="default_reading_list_description">Llista predeterminada pa los artículos guardaos</string>
   <string name="no_user_lists_title">Organizar artículos en llistes</string>
@@ -474,6 +471,7 @@
   <string name="notification_syncing_resume_button">Siguir</string>
   <string name="notification_syncing_cancel_button">Encaboxar</string>
   <string name="notification_syncing_reading_list_channel_description">Progresu de sincronización de llistes de llectura</string>
+  <string name="notification_many_unread">Tienes %d avisos ensin lleer</string>
   <plurals name="notification_channel_name">
     <item quantity="one">Descargando l\'artículu</item>
     <item quantity="other">Descargando los artículos</item>
@@ -632,6 +630,7 @@
   <string name="suggested_edits_translate_descriptions">Traducir descripciones d\'artículos</string>
   <string name="suggested_edits_add_image_captions">Añadir pies d\'imaxe</string>
   <string name="suggested_edits_translate_image_captions">Traducir pies d\'imaxe</string>
+  <string name="suggested_edits_tag_images">Etiquetar imáxenes</string>
   <string name="suggested_edits_review_description">Revisar descripción del artículu</string>
   <string name="suggested_edits_add_description_button">Amestar descripción</string>
   <string name="suggested_edits_edit_description_button">Editar la descripción</string>
@@ -658,6 +657,7 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text">Bloquiao hasta que tengas editaes %d descripciones d\'artículos (comprobaes)</string>
   <string name="suggested_edits_task_multilingual_negative">Nun ye pa min</string>
   <string name="suggested_edits_task_multilingual_positive">Amestar llingües</string>
+  <string name="suggested_edits_image_caption_summary_title_file">Ficheru</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Artista</string>
   <string name="suggested_edits_image_caption_summary_title_author">Autor</string>
   <string name="suggested_edits_image_caption_summary_title_source">Orixe</string>
@@ -670,7 +670,6 @@
   <string name="suggested_edits_feed_card_title">Ediciones suxeríes</string>
   <string name="suggested_edits_feed_card_add_description_button">Amestar descripción del artículu</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Amestar descripción del artículu (%s)</string>
-  <string name="suggested_edits_tutorial_message">Dámoste la bienvenida a la nueva páxina d\'entamu d\'edición rápida na app de Wikipedia. Apreciamos enforma les tos contribuciones. ¡Feliz edición!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Primeros pasos</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Pie d\'imaxe (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Descripción de la imaxe (%s)</string>
@@ -689,7 +688,12 @@
   <string name="suggested_edits_snackbar_survey_action_text">Contestar la encuesta</string>
   <string name="suggested_edits_task_action_text_add">Amestar</string>
   <string name="suggested_edits_task_action_text_translate">Traducir</string>
-  <string name="suggested_edits_image_captions" fuzzy="true">Pie d\'imaxe</string>
+  <string name="suggested_edits_image_captions">Pies d\'imáxenes</string>
+  <string name="suggested_edits_image_tags">Etiquetes d\'imáxenes</string>
+  <string name="suggested_edits_image_tags_publishing">Espublizando</string>
+  <string name="suggested_edits_image_tags_published">Espublizaes</string>
+  <string name="suggested_edits_image_tags_onboarding_title">Etiquetar les imáxenes failes más fáciles d\'alcontrar.</string>
+  <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">Les imáxenes siguientes tienen etiquetes suxeríes por un ordenador, y precísase que les valide un humanu pa garantizar la so exactitú.\n\nAl confirmar les etiquetes, ayudes a que sía más fácil buscales en Commons, el depósitu d\'imáxenes de llicencia llibre que Wikipedia usa pa les imáxenes de los artículos.</string>
   <string name="description_edit_revert_subtitle">¡Gracies por editar Wikipedia!</string>
   <string name="description_edit_revert_intro">Sabemos que tentasti faelo lo meyor posible, pero unu de los revisores tuvo una esmolición. Les posibles razones poles que se revertió la edición incluyen:</string>
   <string name="description_edit_revert_reason1">la to contribución nun siguió dalgunes de les &lt;a href=\"%1$s\"&gt;directrices&lt;/a&gt;.</string>

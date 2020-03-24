@@ -193,11 +193,11 @@
   <string name="about_description">Om Wikipedia-appen</string>
   <string name="privacy_policy_description">Behandling af personlige oplysninger</string>
   <string name="terms_of_use_description">Vilkår for anvendelse</string>
-  <string name="about_wikipedia_url">https://en.m.wikipedia.org/wiki/Wikipedia:About</string>
+  <string name="about_wikipedia_url">https://en.wikipedia.org/wiki/Wikipedia:About</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
-  <string name="terms_of_use_url">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
+  <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.da</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.da</string>
@@ -431,14 +431,6 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Vis ikke dette igen</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Aktiver synkronisering</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Nej tak</string>
-  <string name="reading_list_login_option_reminder_dialog_title">Fundne læselisteartikler</string>
-  <string name="reading_list_login_option_reminder_dialog_text">Artikler blev gemt til læselisten mens du ikke var logget ind. Ønsker du at tilføje dem til læselisterne i din konto?</string>
-  <string name="reading_list_login_option_reminder_dialog_yes">Ja, tilføj dem til mine læselister</string>
-  <string name="reading_list_login_option_reminder_dialog_no">Nej, slet artikler</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">Bevar gemte artikler i programmet?</string>
-  <string name="reading_list_logout_option_reminder_dialog_text">Der er artikler gemt i læselister. Ønsker du at bevare dem der efter, at du er logget ud?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">Ja, bevar artiklerne i listerne</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">Nej, slet artiklerne fra listerne</string>
   <string name="default_reading_list_name">Gemt</string>
   <string name="default_reading_list_description">Standardliste for dine gemte artikler</string>
   <string name="no_user_lists_title">Organiser artikler i lister</string>

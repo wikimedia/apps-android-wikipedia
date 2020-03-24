@@ -88,6 +88,8 @@
         <item name="color_group_57">@color/green30</item>
         <item name="color_group_58">@color/green50</item>
         <item name="color_group_59">@color/base50</item>
+        <item name="color_group_60">@color/base20</item>
+        <item name="color_group_61">@color/base30</item>
 
     </style>
 

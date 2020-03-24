@@ -165,7 +165,7 @@
   <string name="about_description">विकिपीडिया एप के बारे में</string>
   <string name="privacy_policy_description">गोपनीयता नीति</string>
   <string name="terms_of_use_description">उपयोग की शर्तें</string>
-  <string name="about_wikipedia_url">https://en.m.wikipedia.org/wiki/Wikipedia:About</string>
+  <string name="about_wikipedia_url" fuzzy="true">https://en.m.wikipedia.org/wiki/Wikipedia:About</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
@@ -367,12 +367,6 @@
   <string name="reading_list_turned_sync_off_dialog_ok">ठीक है</string>
   <string name="reading_list_turned_sync_off_dialog_settings">सेटिंग्स</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_title">पठन सूची को सिंक करना चालू करें?</string>
-  <string name="reading_list_login_option_reminder_dialog_text">जब आप लॉगआउट थे, इस पढ़ने की सूची में कुछ लेख बचा दिये गये थे। क्या आप इन्हें अपने खाते की पढ़ने की सूचियों में डालना चाहते हैं?</string>
-  <string name="reading_list_login_option_reminder_dialog_no">नहीं, लेख हटा दें</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">ऐप में सहेजे गए लेखों को रखें?</string>
-  <string name="reading_list_logout_option_reminder_dialog_text">कई लेख पढ़ने की सूचियों में सहेजे हुए हैं। क्या आप लाॅगआउट होने पर इन्हें रखना चाहते हैं?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">हाँ, सूचियों में आलेख रखें</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">नहीं, सूचियों से लेख हटाएं</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">यह लेख अब ऑफलाइन उपलब्ध होगा।</item>
     <item quantity="other">These articles will now be available offline.</item>

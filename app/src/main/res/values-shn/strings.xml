@@ -182,7 +182,7 @@
   <string name="about_description">လွင်ႈဢႅပ်ႉ ဝီႇၶီႇၽီးတီးယႃး</string>
   <string name="privacy_policy_description">လၵ်း​ၼမ်း လွင်ႈ​ႁူမ်ႇ​လူမ်ႈ သုၼ်ႇ​လဵဝ်</string>
   <string name="terms_of_use_description">ၶေႃႈၽၢင်ႉလွင်ႈၸႂ်ႉတိုဝ်း</string>
-  <string name="about_wikipedia_url">https://shn.m.wikipedia.org/wiki/ဝီႇၶီႇၽီးတီးယႃး:လွင်ႈဝႅပ်ႉသၢႆႉ</string>
+  <string name="about_wikipedia_url" fuzzy="true">https://shn.m.wikipedia.org/wiki/ဝီႇၶီႇၽီးတီးယႃး:လွင်ႈဝႅပ်ႉသၢႆႉ</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://shn.wikipedia.org/wiki/ဝီႇၶီႇၽီးတီးယႃး:Request_an_account</string>
@@ -419,14 +419,6 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">ယႃႇပေၼႄဢၼ်ၼႆႉထႅင်ႈ</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">ပိုတ်ႇပၼ် လွင်ႈၶူၼ်းၽဵင်ႇ</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">ပႆႇၵွၼ်ႇ</string>
-  <string name="reading_list_login_option_reminder_dialog_title">ထူပ်းႁၼ်ပွင်ႈၵႂၢမ်း သဵၼ်ႈမၢႆလူ</string>
-  <string name="reading_list_login_option_reminder_dialog_text">ၽွင်းၸဝ်ႈၵဝ်ႇလွၵ်ႉဢွၵ်ႉဝႆႉၼၼ်ႉ ပွင်ႈၵႂၢမ်းထုၵ်ႇသိမ်းဝႆႉၸူးတီႈ သဵၼ်ႈမၢႆလူ။ ၸွင်ႇၸဝ်ႈၵဝ်ႇ တေၶႂ်ႈဢဝ်ၶဝ် ထႅမ်သႂ်ႇၸူး သဵၼ်ႈမၢႆလူ တီႈဢၶွင်ႉၸဝ်ႈၵဝ်ႇႁိုဝ်?</string>
-  <string name="reading_list_login_option_reminder_dialog_yes">မႅၼ်ႈယဝ်ႉ၊ ဢဝ်ၶဝ် ထႅမ်သႂ်ႇၸူးၼႂ်း သဵၼ်ႈမၢႆလူၵဝ်ၶႃႈလႄႈ</string>
-  <string name="reading_list_login_option_reminder_dialog_no">ဢမ်ႇ၊ မွတ်ႇပႅတ်ႈပွင်ႈၵႂၢမ်းၸိူဝ်းၼၼ်ႉလႃႈ</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">တေသိုပ်ႇသိမ်းပွင်ႈၵႂၢမ်းၸိူဝ်းၼၼ်ႉဝႆႉ တီႈၼႂ်းဢႅပ်ႉၼႄႇ?</string>
-  <string name="reading_list_logout_option_reminder_dialog_text">မီးဝႆႉပွင်ႈၵႂၢမ်း ၸိူဝ်းတိုၵ်ႉသိုမ်းပၼ်ဝႆႉ တီႈၼႂ်းသဵၼ်ႈမၢႆလူ။ ၸွင်ႇၸဝ်ႈၵဝ်ႇ တေၶႂ်ႈသိမ်းၶဝ်ဝႆႉ ဝၢႆးသေလွၵ်ႉဢွၵ်ႉၼၼ်ႉ?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">မႅၼ်ႈယဝ်ႉ၊ ၵဵပ်းဝႆႉပွင်ႈၵႂၢမ်း တီႈၼႂ်းသဵၼ်ႈမၢႆလႄႈ</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">ဢမ်ႇ၊ မွတ်ႇပႅတ်ႈပွင်ႈၵႂၢမ်း ၵႃႈတီႈသဵၼ်ႈမၢႆ</string>
   <string name="default_reading_list_name">ၵဵပ်းသိမ်းယဝ်ႉ</string>
   <string name="default_reading_list_description">သဵၼ်ႈမၢႆပိူင်ၵႅဝ်ႈ တွၼ်ႈတႃႇ ပွင်ႈၵႂၢမ်းၸိူဝ်းသိမ်းဝႆႉႁင်းၸဝ်ႈၵဝ်ႇ</string>
   <string name="no_user_lists_title">ၸူႉတွမ်ပွင်ၵႂၢမ်း သႂ်ႇၼႂ်းသဵၼ်ႈမၢႆ</string>
@@ -640,7 +632,6 @@
   </plurals>
   <string name="suggested_edits_feed_card_title">လွင်ႈမႄးထတ်း ဢၼ်ၶႆႈၸႂ်ဝႆႉ</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">ထႅမ်သႂ်ႇ ၶေႃႈသပ်းလႅင်း ပွင်ႈၵႂၢမ်း (%s)</string>
-  <string name="suggested_edits_tutorial_message">ႁူမ်ၸူမ်းႁပ်ႉတွၼ်ႈ ၸူးၼႃႈႁူဝ်ႁႅၵ်ႇမႂ်ႇ တွၼ်ႈတႃႇ မႄးထတ်းလႆႈဝႆးဝႆး ၵႃႈတီႈၼႂ်း ဢႅပ်ႉဝီႇၶီႇၽီးတီးယႃး။ လွင်ႈၶဝ်ႈႁူမ်ႈၸဝ်ႈၵဝ်ႇၼႆႉ ထုၵ်ႇႁၼ်ထိုင်ၸွမ်းတႄႉတႄႉ။ ႁႂ်ႈမူၼ်ႈသိူဝ်းၸွမ်း လွင်ႈမႄးထတ်းသေၵမ်း!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">တႄႇၸႂ်ႉ</string>
   <string name="suggested_edits_image_preview_dialog_artist">ၸဝ်ႈပၢႆးမွၼ်း</string>
   <string name="suggested_edits_image_preview_dialog_date">ဝၼ်းထီႉ</string>

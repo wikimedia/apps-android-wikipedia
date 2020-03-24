@@ -217,11 +217,11 @@
   <string name="about_description">Informazioni sull\'app di Wikipedia</string>
   <string name="privacy_policy_description">Informativa sulla privacy</string>
   <string name="terms_of_use_description">Condizioni d\'uso</string>
-  <string name="about_wikipedia_url">https://it.m.wikipedia.org/wiki/Wikipedia:Sala_stampa/Wikipedia</string>
-  <string name="privacy_policy_url">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
+  <string name="about_wikipedia_url">https://it.wikipedia.org/wiki/Wikipedia:Sala_stampa/Wikipedia</string>
+  <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/it</string>
-  <string name="terms_of_use_url">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/it</string>
+  <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/it</string>
   <string name="android_app_request_an_account_url">https://it.wikipedia.org/wiki/Aiuto:Come_registrarsi</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.it</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.it</string>
@@ -319,6 +319,7 @@
   <string name="close_all_tabs_confirm_yes">Sì</string>
   <string name="close_all_tabs_confirm_no">No</string>
   <string name="button_close_tab">Chiudi scheda</string>
+  <string name="unnamed_tab_closed">Scheda chiusa.</string>
   <string name="tab_item_closed">%s chiuso.</string>
   <string name="all_tab_items_closed">Tutte le schede chiuse</string>
   <string name="tool_tip_bookmark_icon_title">Aggiungi all\'elenco di lettura</string>
@@ -464,14 +465,6 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Non mostrarmelo di nuovo</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Attiva sincronizzazione</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">No, grazie</string>
-  <string name="reading_list_login_option_reminder_dialog_title">Voci degli elenchi di lettura trovate</string>
-  <string name="reading_list_login_option_reminder_dialog_text">Le voci sono state salvate negli elenchi di lettura quando sei uscito. Vorresti aggiungerle agli elenchi di lettura della tua utenza?</string>
-  <string name="reading_list_login_option_reminder_dialog_yes">Sì, aggiungile ai miei elenchi di lettura</string>
-  <string name="reading_list_login_option_reminder_dialog_no">No, cancella le voci</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">Mantieni le voci salvate nell\'applicazione?</string>
-  <string name="reading_list_logout_option_reminder_dialog_text">Ci sono voci attualmente salvate negli elenchi di lettura. Vorresti conservarle anche dopo l\'uscita?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">Sì, tieni le voci nell\'elenco</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">No, cancella le voci dagli elenchi</string>
   <string name="default_reading_list_name">Salvato</string>
   <string name="default_reading_list_description">Elenco predefinito per le tue voci salvate</string>
   <string name="no_user_lists_title">Organizza voci in elenchi</string>
@@ -650,6 +643,7 @@
   <string name="description_edit_success_saved_in_lang_snackbar">Descrizione della voce pubblicata! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Didascalia dell\'immagine pubblicata!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Didascalia dell\'immagine pubblicata! (%s)</string>
+  <string name="description_edit_success_saved_image_tags_snackbar">Etichetta/e immagine pubblicata!</string>
   <string name="description_edit_success_encouragement">Hai appena reso Wikipedia migliore per tutti</string>
   <string name="description_edit_success_done">Fatto</string>
   <string name="description_edit_success_did_you_know">Lo sapevi?</string>
@@ -704,7 +698,6 @@
   <string name="suggested_edits_feed_card_title">Modifiche suggerite</string>
   <string name="suggested_edits_feed_card_add_description_button">Aggiungi una descrizione della voce</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Aggiungi descrizione della voce (%s)</string>
-  <string name="suggested_edits_tutorial_message">Benvenuto nella nuova pagina principale per la modifica rapida nell\'applicazione Wikipedia. I tuoi contributi sono molto apprezzati. Buona modifica!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Inizia</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Didascalia immagine (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Descrizione immagine (%s)</string>
@@ -719,6 +712,7 @@
   <string name="suggested_edits_article_cta_snackbar_action">Visualizza</string>
   <string name="suggested_edits_feed_card_add_image_caption">Aggiungi didascalia immagine</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Aggiungi didascalia immagine (%s)</string>
+  <string name="suggested_edits_feed_card_add_image_tags">Aggiungi etichette alle immagini</string>
   <string name="suggested_edits_snackbar_survey_text">Come è stata la tua esperienza di modifica? Ti preghiamo di dedicare un momento per compilare il sondaggio sulla modifica in-app.</string>
   <string name="suggested_edits_snackbar_survey_action_text">Rispondi sondaggio</string>
   <string name="suggested_edits_task_action_text_add">Aggiungi</string>
@@ -727,13 +721,16 @@
   <string name="suggested_edits_image_tags">Etichette dell\'immagine</string>
   <string name="suggested_edits_image_tags_publishing">Pubblicazione</string>
   <string name="suggested_edits_image_tags_published">Pubblicato</string>
-  <string name="suggested_edits_image_tags_onboarding_title">Etichetta le immagini per facilitarne la ricerca da parte di altri utenti</string>
-  <string name="suggested_edits_image_tags_onboarding_text">Confermando le etichette suggerite, puoi semplificare la ricerca delle immagini.\n\nLe etichette sono suggerite dal computer, ma devono essere convalidate dagli umani per garantire l\'accuratezza.</string>
+  <string name="suggested_edits_image_tags_onboarding_title">Etichettare le immagini facilita la ricerca da parte di altri utenti.</string>
+  <string name="suggested_edits_image_tags_onboarding_text">Aggiungendo le etichette alle immagini, puoi semplificare la ricerca delle immagini su Commons, il database multimediale che Wikipedia utilizza per le immagini nelle sue voci.\n\nSuggeriamo automaticamente alcune etichette, ma puoi anche aggiungerne altre che ritieni corrette.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Solo le etichette scelte verranno aggiunte alle immagini.</string>
   <string name="suggested_edits_image_tags_snackbar">Aggiungi delle etichette all\'immagine per facilitarne la ricerca da parte di altri utenti.</string>
-  <string name="suggested_edits_image_tags_task_detail">Etichetta le immagini per facilitarne la ricerca da parte di altri utenti. Sono suggerite dal computer, ma devono essere convalidate.</string>
-  <string name="suggested_edits_image_tags_choose">Scegli le etichette corrispondenti</string>
+  <string name="suggested_edits_image_tags_task_detail">Etichetta le immagini per facilitarne la ricerca. Selezionale fra quelle suggerite o aggiungine di tue.</string>
+  <string name="suggested_edits_image_tags_choose">Aggiungi o scegli le etichette corrispondenti</string>
   <string name="suggested_edits_image_tags_select_title">Non hai selezionato alcuna etichetta per questa immagine</string>
+  <string name="suggested_edits_image_tags_select_text">Solo le etichette scelte verranno aggiunte alle immagini. Le etichette non selezionate verranno contrassegnate come rifiutate. Sei sicuro di voler contrassegnare tutte le etichette come rifiutate?</string>
+  <string name="suggested_edits_image_tags_add_tag">Aggiungi etichetta</string>
+  <string name="suggested_edits_image_zoom_tooltip">Pizzica per ingrandire l\'immagine.</string>
   <string name="suggested_edits_encouragement_message">%s, grazie per le tue modifiche. Di seguito puoi trovare altri modi per contribuire a Wikipedia.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Ciao %s&lt;/b&gt;, sapevi che tutti possono modificare Wikipedia? Di seguito puoi trovare modi divertenti per migliorare Wikipedia. Buona modifica!</string>
   <string name="suggested_edits_image_captions_task_detail">Le didascalie delle immagini descrivono un\'immagine per aiutare i lettori a comprenderne il significato e il contesto.</string>
@@ -742,6 +739,7 @@
   <string name="suggested_edits_edit_streak_stat_tooltip">Quanti giorni senza interruzione hai contribuito tramite le modifiche suggerite. Se non hai contribuito per un po\', mostrerà la data del tuo ultimo contributo.</string>
   <string name="suggested_edits_page_views_stat_tooltip">Totale pagine visualizzate delle voci a cui hai contribuito negli ultimi 30 giorni con modifiche suggerite.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">In base a quante volte uno dei tuoi contributi è stato ripristinato (annullato da un altro editore). Modifiche ripristinate: %d.</string>
+  <string name="suggested_edits_paused_message">&lt;b&gt;Le modifiche suggerite vengono sospese fino al %1$s.&lt;/b&gt; Siamo spiacenti %2$s, alcuni dei tuoi contributi recenti sono stati ripristinati.\n\nScopri come migliorare le tue abilità di modifica su Wikipedia con il collegamento qui sotto.</string>
   <string name="suggested_edits_disabled_message">&lt;b&gt;Le modifiche suggerite sono disabilitate.&lt;/b&gt; Siamo spiacenti %s, troppi dei tuoi contributi recenti sono stati ripristinati.\n\nScopri cosa significa con il collegamento qui sotto.</string>
   <string name="suggested_edits_ip_blocked_message">Sembra che il tuo indirizzo IP (o intervallo di indirizzi IP) sia attualmente bloccato dalla modifica di Wikipedia. Trovi altre informazioni su cosa significa visitando il collegamento qui sotto.</string>
   <string name="suggested_edits_editing_tips_link_text">Suggerimenti e trucchi per la modifica</string>
@@ -785,6 +783,7 @@
   <string name="onboarding_explore_title">Nuovi modi per esplorare</string>
   <string name="onboarding_explore_text">Immergiti nella tana del coniglio di Wikipedia con un feed Esplora in costante aggiornamento. &lt;br/&gt; &lt;b&gt;Personalizza&lt;/b&gt; il feed per i tuoi interessi, sia che si tratti di conoscere eventi storici &lt;b&gt;In questo giorno&lt;/b&gt;, sia di lanciare i dadi con &lt;b&gt;Una pagina a caso&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Elenchi di lettura con sincronizzazione</string>
+  <string name="onboarding_reading_list_sync_text_v2">Puoi creare elenchi di lettura delle voci che desideri leggere in un secondo momento, anche quando sei offline. &lt;br/&gt; Accedi al tuo account Wikipedia per sincronizzare i tuoi elenchi di lettura. &lt;a href=\"#login\"&gt;Iscriviti a Wikipedia&lt;/a&gt;</string>
   <string name="onboarding_analytics_title">Invia dati anonimi</string>
   <string name="onboarding_analytics_offline_text">Contribuisci a migliorare l\'applicazione facendoci sapere come la usi. I dati raccolti sono anonimi. &lt;a href=\"#privacy\"&gt;Ulteriori informazioni&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Invia dati di utilizzo</string>

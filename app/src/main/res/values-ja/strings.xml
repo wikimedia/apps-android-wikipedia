@@ -210,7 +210,7 @@
   <string name="about_description">ウィキペディアアプリについて</string>
   <string name="privacy_policy_description">プライバシーポリシー</string>
   <string name="terms_of_use_description">利用規約</string>
-  <string name="about_wikipedia_url">https://ja.m.wikipedia.org/wiki/Wikipedia:ウィキペディアについて</string>
+  <string name="about_wikipedia_url" fuzzy="true">https://ja.m.wikipedia.org/wiki/Wikipedia:ウィキペディアについて</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ja#オフラインでの閲覧とデータ</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ja</string>
@@ -457,14 +457,6 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">次からは表示しない</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">同期を有効にする</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">やめます</string>
-  <string name="reading_list_login_option_reminder_dialog_title">あとで読むリストに記事が見つかりました</string>
-  <string name="reading_list_login_option_reminder_dialog_text">ログアウトしている間に、あとで読むリストに記事が追加されました。あなたのアカウントのあとで読むリストに、その記事を追加しますか？</string>
-  <string name="reading_list_login_option_reminder_dialog_yes">はい、記事をあとで読むリストに追加します</string>
-  <string name="reading_list_login_option_reminder_dialog_no">いいえ、記事を削除します</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">アプリ内の保存した記事をそのままにしますか？</string>
-  <string name="reading_list_logout_option_reminder_dialog_text">あとで読むリストに保存された記事があります。ログアウトした後でも保存したままにしますか？</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">はい、リスト内の記事をそのままにします。</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">いいえ、リストから記事を削除します。</string>
   <string name="default_reading_list_name">保存済み</string>
   <string name="default_reading_list_description">保存したページの既定の一覧</string>
   <string name="no_user_lists_title">記事をリストにまとめる</string>
@@ -699,7 +691,6 @@
   <string name="suggested_edits_feed_card_title">編集提案</string>
   <string name="suggested_edits_feed_card_add_description_button">記事の説明を追加</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">記事の説明を追加 (%s)</string>
-  <string name="suggested_edits_tutorial_message">ようこそ、ここはウィキペディアアプリ内で、編集を手早く実行するための新しいホーム画面です。皆さんの編集は大歓迎です。ではお楽しみください！</string>
   <string name="suggested_edits_tasks_onboarding_get_started">始める</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">画像キャプション (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">画像の説明 (%s)</string>

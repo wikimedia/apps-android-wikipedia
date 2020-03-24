@@ -190,7 +190,7 @@
   <string name="about_description">Относно приложението Уикипедия.</string>
   <string name="privacy_policy_description">Защита на личните данни</string>
   <string name="terms_of_use_description">Условия за ползване</string>
-  <string name="about_wikipedia_url">https://bg.m.wikipedia.org/wiki/Уикипедия:За_Уикипедия</string>
+  <string name="about_wikipedia_url" fuzzy="true">https://bg.m.wikipedia.org/wiki/Уикипедия:За_Уикипедия</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
@@ -432,14 +432,6 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Не показвай повече</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Включване на синхронизиране</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Не, благодаря</string>
-  <string name="reading_list_login_option_reminder_dialog_title">Открити статии в списъци за четене</string>
-  <string name="reading_list_login_option_reminder_dialog_text">Има запазени статии в списъка за четене, докато не сте били влезли в сметката си. Желаете ли да ги добавите към списъците за четене в сметката си?</string>
-  <string name="reading_list_login_option_reminder_dialog_yes">Да, добавяне към списъците ми за четене</string>
-  <string name="reading_list_login_option_reminder_dialog_no">Не, изтриване на статиите</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">Задържане на съхранените статии в приложението?</string>
-  <string name="reading_list_logout_option_reminder_dialog_text">Тези статии вече са запазени в списъци за четене. Желаете ли да останат запазени, след като излезете?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">Да, задържане на статиите в списъците</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">Не, изтриване на статиите от списъците</string>
   <string name="default_reading_list_name">Съхранено</string>
   <string name="default_reading_list_description">Списък по подразбиране за Вашите запазени статии</string>
   <string name="no_user_lists_title">Организирайте статии в списъци</string>
@@ -669,7 +661,6 @@
   <string name="suggested_edits_feed_card_title">Предложения за редактиране</string>
   <string name="suggested_edits_feed_card_add_description_button">Добавяне на описание на статията</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Добавяне на описание на статията (%s)</string>
-  <string name="suggested_edits_tutorial_message">Добре дошли в новия дом за редактиране от приложение на Уикипедия. Тук ще ви предложим възможности за добавяне на съдържание, което може да ви заинтересува. Вашите приноси са високо ценени. Успех!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Започване</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Описание на изображението (%s)</string>
   <string name="suggested_edits_image_preview_dialog_date">Дата</string>

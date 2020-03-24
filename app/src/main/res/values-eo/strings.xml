@@ -192,7 +192,7 @@
   <string name="about_description">Pri la Vikipedia aplikaĵo</string>
   <string name="privacy_policy_description">Politiko pri privateco</string>
   <string name="terms_of_use_description">Uzkondiĉoj</string>
-  <string name="about_wikipedia_url">https://en.m.wikipedia.org/wiki/Wikipedia:About</string>
+  <string name="about_wikipedia_url" fuzzy="true">https://en.m.wikipedia.org/wiki/Wikipedia:About</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
@@ -431,14 +431,6 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Ne plu montri ĉi tion</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Ŝalti sinkronigadon</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Ne, dankon</string>
-  <string name="reading_list_login_option_reminder_dialog_title">Trovis legolistajn artikolojn</string>
-  <string name="reading_list_login_option_reminder_dialog_text">Artikoloj konserviĝis en la legoliston dum vi estis elŝutita. Ĉu vi volas aldoni ilin al la legolistoj de via konto?</string>
-  <string name="reading_list_login_option_reminder_dialog_yes">Jes, aldonu ilin al miaj legolistoj</string>
-  <string name="reading_list_login_option_reminder_dialog_no">Ne, forigu la artikolojn</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">Ĉu konservi konservitajn artikolojn en la aplikaĵo?</string>
-  <string name="reading_list_logout_option_reminder_dialog_text">Estas artikoloj nuntempe konservitaj en legolistoj. Ĉu vi volas gardi ilin tie post kiam vi elsalutos?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">Jes, gardi artikolojn en listoj</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">Ne, forigi artikolojn de listoj</string>
   <string name="default_reading_list_name">Konservitaj</string>
   <string name="default_reading_list_description">Defaŭlta listo por viaj konservitaj artikoloj</string>
   <string name="no_user_lists_title">Organizi artikolojn en listoj</string>
@@ -476,10 +468,10 @@
   <string name="notification_syncing_resume_button">Daŭrigi</string>
   <string name="notification_syncing_cancel_button">Nuligi</string>
   <string name="notification_syncing_reading_list_channel_description">Progreso de sinkronigado de Legolistoj</string>
-  <plurals name="notification_channel_name">
+  <plurals name="notification_channel_name" fuzzy="true">
     <item quantity="other">unu=Elŝutanta artikolon</item>
   </plurals>
-  <plurals name="notification_syncing_title">
+  <plurals name="notification_syncing_title" fuzzy="true">
     <item quantity="other">unu=Elŝutanta %1$d artikolon…</item>
   </plurals>
   <plurals name="notification_syncing_description">
@@ -655,7 +647,6 @@
   <string name="suggested_edits_feed_card_title">Sugestataj redaktoj</string>
   <string name="suggested_edits_feed_card_add_description_button">Aldoni priskribon de artikolo</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Aldoni priskribon al artikolo (je %s)</string>
-  <string name="suggested_edits_tutorial_message">Bonvenon al la nova hejmo por rapida redaktado en la Vikipedia aplikaĵo. Ni valoras viajn kontribuojn. Feliĉan redaktadon!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Komenci</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Titolo de bildo (je %s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Priskribo de bildo (je %s)</string>
@@ -708,7 +699,7 @@
   <string name="events_count_text">%1$s eventoj dum %2$s–%3$d</string>
   <string name="this_year">Ĉi-jare</string>
   <string name="back_to_top">Reen al la supro</string>
-  <string name="diff_years">{{PLURALA|unu=Pasintjare|Antaŭ %d jaroj}}</string>
+  <string name="diff_years" fuzzy="true">{{PLURALA|unu=Pasintjare|Antaŭ %d jaroj}}</string>
   <string name="languages_list_activity_title">Aldoni lingvon</string>
   <string name="languages_list_suggested_text">Proponataj</string>
   <string name="languages_list_all_text">Ĉiuj lingvoj</string>
