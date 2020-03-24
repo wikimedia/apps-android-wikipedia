@@ -47,13 +47,13 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         fun getLangCode(): String
         fun getSinglePage(): MwQueryPage?
         fun updateActionButton()
-        fun nextPage()
+        fun nextPageIfNeeded(title: String)
     }
 
     var publishing: Boolean = false
     var publishSuccess: Boolean = false
+    var page: MwQueryPage? = null
     private var csrfClient: CsrfTokenClient = CsrfTokenClient(WikiSite(Service.COMMONS_URL))
-    private var page: MwQueryPage? = null
     private val tagList: MutableList<MwQueryPage.ImageLabel> = ArrayList()
     private var wasCaptionLongClicked: Boolean = false
     private var lastSearchTerm: String = ""
@@ -436,7 +436,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                 updateLicenseTextShown()
 
                 publishOverlayContainer.visibility = GONE
-                callback().nextPage()
+                callback().nextPageIfNeeded(page!!.title())
                 setPublishedState()
             }
         }, duration * 3)

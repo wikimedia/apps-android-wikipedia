@@ -23,6 +23,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.SuggestedEditsFunnel
 import org.wikipedia.dataclient.ServiceFactory
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.mwapi.SiteMatrix
 import org.wikipedia.descriptions.DescriptionEditActivity
@@ -49,13 +50,14 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
 
     private val topTitle: PageTitle?
         get() {
-            val f = topChild()
             return if (action == ADD_DESCRIPTION || action == ADD_CAPTION) {
-                f?.sourceSummary?.pageTitle?.description = f?.addedContribution
-                f?.sourceSummary?.pageTitle
+                topChild()?.sourceSummary?.pageTitle?.description = topChild()?.addedContribution
+                topChild()?.sourceSummary?.pageTitle
+            } else if (action == ADD_IMAGE_TAGS) {
+                PageTitle(topImageTagChild()?.page!!.title(), WikiSite(getLangCode()))
             } else {
-                f?.targetSummary?.pageTitle?.description = f?.addedContribution
-                f?.targetSummary?.pageTitle
+                topChild()?.targetSummary?.pageTitle?.description = topChild()?.addedContribution
+                topChild()?.targetSummary?.pageTitle
             }
         }
 
@@ -65,6 +67,10 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
 
     private fun topChild(): SuggestedEditsCardsItemFragment? {
         return (cardsViewPager.adapter as ViewPagerAdapter?)?.getFragmentAt(cardsViewPager.currentItem) as SuggestedEditsCardsItemFragment?
+    }
+
+    private fun topImageTagChild(): SuggestedEditsImageTagsFragment? {
+        return (cardsViewPager.adapter as ViewPagerAdapter?)?.getFragmentAt(cardsViewPager.currentItem) as SuggestedEditsImageTagsFragment?
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -158,6 +164,12 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
         return null
     }
 
+    override fun nextPageIfNeeded(title: String) {
+        if (title == topTitle?.displayText) {
+            nextPage()
+        }
+    }
+
     override fun updateActionButton() {
         val child = topBaseChild()
         var isAddedContributionEmpty = true
@@ -244,7 +256,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
         updateActionButton()
     }
 
-    override fun nextPage() {
+    private fun nextPage() {
         viewPagerListener.setNextPageSelectedAutomatic()
         cardsViewPager.setCurrentItem(cardsViewPager.currentItem + 1, true)
         updateActionButton()
