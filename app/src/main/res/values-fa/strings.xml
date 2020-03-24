@@ -210,7 +210,7 @@
   <string name="about_description">دربارهٔ نرم‌افزار ویکی‌پدیا</string>
   <string name="privacy_policy_description">سیاست حفظ حریم خصوصی</string>
   <string name="terms_of_use_description">شرایط استفاده</string>
-  <string name="about_wikipedia_url">https://fa.m.wikipedia.org/wiki/ویکی‌پدیا:آشنایی_با_دانشنامه</string>
+  <string name="about_wikipedia_url" fuzzy="true">https://fa.m.wikipedia.org/wiki/ویکی‌پدیا:آشنایی_با_دانشنامه</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/fa</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
@@ -450,14 +450,6 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">این را دوباره به من نشان نده</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">فعال‌کردن همسان‌سازی</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">نه ممنون</string>
-  <string name="reading_list_login_option_reminder_dialog_title">فهرست مطالعه مقاله یافت شد</string>
-  <string name="reading_list_login_option_reminder_dialog_text">مقاله در زمانی که شما از برنامه خارج شده بودید به فهرست خواندن‌ها اضافه شد. آیا مایلید آنها را به حساب کاربری خود اضافه‌کنید؟</string>
-  <string name="reading_list_login_option_reminder_dialog_yes">شما، آنها را به فهرست مطالعهٔ من افزودید</string>
-  <string name="reading_list_login_option_reminder_dialog_no">نه، حذف مقاله‌ها ذخیره شده در اپلیکیشن</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">مقالات ذخیره شده در اپلیکیشن نگهداری شوند؟</string>
-  <string name="reading_list_logout_option_reminder_dialog_text">اکنون تعدادی مقاله در فهرست خواندن ذخیره شده‌است. آیا قصد دارید بعد از خروج از سامانه آنها را نگهدارید؟</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">بله، مقالات را در فهرست نگهداری شود</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">نه، مقالات را از فهرست حذف کن</string>
   <string name="default_reading_list_name">ذخیره</string>
   <string name="default_reading_list_description">لیست پیش فرض برای ذخیره مقاله ها</string>
   <string name="no_user_lists_title">سامان‌دادن مقالات در فهرست‌ها</string>
@@ -679,7 +671,6 @@
   <string name="suggested_edits_feed_card_title">ویرایش‌های پیشنهادی</string>
   <string name="suggested_edits_feed_card_add_description_button">افزودن توضیح مقاله</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">افزودن توضیحات مقاله (%s)</string>
-  <string name="suggested_edits_tutorial_message">خوش آمدید به بخش جدیدی که برای ویرایش سریع در اپلیکیشن ویکی‌پدیا ایجاد کرده‌ایم. قدر مشارکت شما را می‌دانیم. ویرایشتان مبارک!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">شروع شد</string>
   <string name="suggested_edits_image_preview_dialog_artist">نام هنرمند</string>
   <string name="suggested_edits_image_preview_dialog_date">تاریخ</string>

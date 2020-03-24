@@ -12,8 +12,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="20dp"
-        android:src="@drawable/shape_circle"
-        android:tint="?attr/color_group_53"
+        app:srcCompat="@drawable/shape_circle"
+        app:tint="?attr/color_group_53"
         android:contentDescription="@null"/>
 
     <ImageView
@@ -87,8 +87,8 @@
             android:layout_height="24dp"
             android:layout_gravity="center_vertical"
             android:contentDescription="@null"
-            android:src="@drawable/ic_add_gray_white_24dp"
-            android:tint="?attr/colorAccent" />
+            app:srcCompat="@drawable/ic_add_gray_white_24dp"
+            app:tint="?attr/colorAccent" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -119,8 +119,8 @@
             android:layout_height="24dp"
             android:layout_gravity="center_vertical"
             android:contentDescription="@null"
-            android:src="@drawable/ic_translate_white_24dp"
-            android:tint="?attr/colorAccent" />
+            app:srcCompat="@drawable/ic_translate_white_24dp"
+            app:tint="?attr/colorAccent" />
 
         <TextView
             android:id="@+id/suggestedEditsTranslateActionText"

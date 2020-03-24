@@ -11,20 +11,27 @@
         android:layout_height="@dimen/view_card_header_height"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <org.wikipedia.views.FaceAndColorDetectImageView
-        android:id="@+id/view_featured_article_card_image"
-        style="@style/SimpleDraweeViewPlaceholder"
+    <FrameLayout
+        android:id="@+id/viewArticleImagePlaceholder"
         android:layout_width="match_parent"
         android:layout_height="192dp"
-        android:scaleType="centerCrop"
-        app:layout_constraintTop_toBottomOf="@id/view_featured_article_card_header" />
+        app:layout_constraintTop_toBottomOf="@id/view_featured_article_card_header">
+
+        <org.wikipedia.views.FaceAndColorDetectImageView
+            android:id="@+id/view_featured_article_card_image"
+            style="@style/SimpleDraweeViewPlaceholder"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@null" />
+
+    </FrameLayout>
 
     <View
         android:id="@+id/view_featured_article_card_divider"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="?attr/material_theme_border_color"
-        app:layout_constraintTop_toBottomOf="@id/view_featured_article_card_image" />
+        app:layout_constraintTop_toBottomOf="@id/viewArticleImagePlaceholder" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/view_featured_article_card_text_container"

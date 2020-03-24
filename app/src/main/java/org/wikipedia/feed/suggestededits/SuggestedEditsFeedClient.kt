@@ -7,6 +7,7 @@ import io.reactivex.schedulers.Schedulers
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
 import org.wikipedia.feed.FeedCoordinator
@@ -28,8 +29,6 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
     private var age: Int = 0
     private val disposables = CompositeDisposable()
     private val app = WikipediaApp.getInstance()
-    private var sourceSummary: SuggestedEditsSummary? = null
-    private var targetSummary: SuggestedEditsSummary? = null
     private val langFromCode: String = app.language().appLanguageCode
     private val langToCode: String = if (app.language().appLanguageCodes.size == 1) "" else app.language().appLanguageCodes[1]
 
@@ -55,8 +54,8 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
         disposables.clear()
     }
 
-    private fun toSuggestedEditsCard(wiki: WikiSite): SuggestedEditsCard {
-        return SuggestedEditsCard(wiki, action, sourceSummary, targetSummary, age)
+    private fun toSuggestedEditsCard(wiki: WikiSite, sourceSummary: SuggestedEditsSummary?, targetSummary: SuggestedEditsSummary?, page: MwQueryPage?): SuggestedEditsCard {
+        return SuggestedEditsCard(wiki, action, sourceSummary, targetSummary, page, age)
     }
 
     fun fetchSuggestedEditForType(cb: FeedClient.Callback?, callback: Callback?) {
@@ -64,8 +63,25 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
             TRANSLATE_DESCRIPTION -> getArticleToTranslateDescription(cb, callback)
             ADD_CAPTION -> getImageToAddCaption(cb, callback)
             TRANSLATE_CAPTION -> getImageToTranslateCaption(cb, callback)
+            ADD_IMAGE_TAGS -> getImageToAddTags(cb, callback)
             else -> getArticleToAddDescription(cb, callback)
         }
+    }
+
+    private fun getImageToAddTags(cb: FeedClient.Callback?, callback: Callback?) {
+        disposables.add(MissingDescriptionProvider
+                .getNextImageWithMissingTags(langFromCode)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({ page ->
+                    val pageForImageTag = page
+                    val card: SuggestedEditsCard = toSuggestedEditsCard(WikiSite.forLanguageCode(langFromCode), null, null, pageForImageTag)
+
+                    callback?.updateCardContent(card)
+                    if (cb != null) {
+                        FeedCoordinator.postCardsToCallback(cb, if (page == null) emptyList<Card>() else listOf(card))
+                    }
+                }, { cb?.error(it) }))
     }
 
     private fun getArticleToAddDescription(cb: FeedClient.Callback?, callback: Callback?) {
@@ -74,7 +90,7 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ pageSummary ->
-                    sourceSummary = SuggestedEditsSummary(
+                    val sourceSummary = SuggestedEditsSummary(
                             pageSummary.apiTitle,
                             langFromCode,
                             pageSummary.getPageTitle(WikiSite.forLanguageCode(langFromCode)),
@@ -85,18 +101,22 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
                             null, null, null
                     )
 
-                    val card: SuggestedEditsCard = toSuggestedEditsCard(WikiSite.forLanguageCode(langFromCode))
+                    val card: SuggestedEditsCard = toSuggestedEditsCard(WikiSite.forLanguageCode(langFromCode), sourceSummary, null, null)
 
-                    if (callback == null) {
-                        FeedCoordinator.postCardsToCallback(cb!!, if (sourceSummary == null) emptyList<Card>() else listOf(card))
-                    } else {
-                        callback.updateCardContent(card)
+                    callback?.updateCardContent(card)
+                    if (cb != null) {
+                        FeedCoordinator.postCardsToCallback(cb, if (sourceSummary == null) emptyList<Card>() else listOf(card))
                     }
-
-                }, { if (callback == null) cb!!.success(emptyList()) }))
+                }, { cb?.error(it) }))
     }
 
     private fun getArticleToTranslateDescription(cb: FeedClient.Callback?, callback: Callback?) {
+        if (langToCode.isEmpty()) {
+            if (cb != null) {
+                FeedCoordinator.postCardsToCallback(cb, emptyList<Card>())
+            }
+            return
+        }
         disposables.add(MissingDescriptionProvider
                 .getNextArticleWithMissingDescription(WikiSite.forLanguageCode(langFromCode), langToCode, true)
                 .subscribeOn(Schedulers.io())
@@ -105,7 +125,7 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
                     val source = pair.second
                     val target = pair.first
 
-                    sourceSummary = SuggestedEditsSummary(
+                    val sourceSummary = SuggestedEditsSummary(
                             source.apiTitle,
                             langFromCode,
                             source.getPageTitle(WikiSite.forLanguageCode(langFromCode)),
@@ -116,7 +136,7 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
                             null, null, null
                     )
 
-                    targetSummary = SuggestedEditsSummary(
+                    val targetSummary = SuggestedEditsSummary(
                             target.apiTitle,
                             langToCode,
                             target.getPageTitle(WikiSite.forLanguageCode(langToCode)),
@@ -127,15 +147,13 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
                             null, null, null
                     )
 
-                    val card: SuggestedEditsCard = toSuggestedEditsCard(WikiSite.forLanguageCode(langFromCode))
+                    val card: SuggestedEditsCard = toSuggestedEditsCard(WikiSite.forLanguageCode(langFromCode), sourceSummary, targetSummary, null)
 
-                    if (callback == null) {
-                        FeedCoordinator.postCardsToCallback(cb!!, if (pair == null) emptyList<Card>() else listOf(card))
-                    } else {
-                        callback.updateCardContent(card)
+                    callback?.updateCardContent(card)
+                    if (cb != null) {
+                        FeedCoordinator.postCardsToCallback(cb, if (pair == null) emptyList<Card>() else listOf(card))
                     }
-
-                }, { if (callback != null) cb!!.success(emptyList()) }))
+                }, { cb?.error(it) }))
     }
 
     private fun getImageToAddCaption(cb: FeedClient.Callback?, callback: Callback?) {
@@ -153,7 +171,7 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
                         val title = page.title()
                         val imageInfo = page.imageInfo()!!
 
-                        sourceSummary = SuggestedEditsSummary(
+                        val sourceSummary = SuggestedEditsSummary(
                                 title,
                                 langFromCode,
                                 PageTitle(
@@ -171,19 +189,23 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
                                 imageInfo.user,
                                 imageInfo.metadata
                         )
-                        val card: SuggestedEditsCard = toSuggestedEditsCard(WikiSite.forLanguageCode(langFromCode))
-                        if (callback == null) {
-                            FeedCoordinator.postCardsToCallback(cb!!, if (sourceSummary == null) emptyList<Card>() else listOf(card))
-                        } else {
-                            callback.updateCardContent(card)
+                        val card: SuggestedEditsCard = toSuggestedEditsCard(WikiSite.forLanguageCode(langFromCode), sourceSummary, null, null)
+                        callback?.updateCardContent(card)
+                        if (cb != null) {
+                            FeedCoordinator.postCardsToCallback(cb, if (sourceSummary == null) emptyList<Card>() else listOf(card))
                         }
                     }
-                }, { if (callback != null) cb!!.success(emptyList()) }))
+                }, { cb?.error(it) }))
     }
 
     private fun getImageToTranslateCaption(cb: FeedClient.Callback?, callback: Callback?) {
+        if (langToCode.isEmpty()) {
+            if (cb != null) {
+                FeedCoordinator.postCardsToCallback(cb, emptyList<Card>())
+            }
+            return
+        }
         var fileCaption: String? = null
-
         disposables.add(MissingDescriptionProvider.getNextImageWithMissingCaption(langFromCode, langToCode)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -199,7 +221,7 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
                         val title = page.title()
                         val imageInfo = page.imageInfo()!!
 
-                        sourceSummary = SuggestedEditsSummary(
+                        val sourceSummary = SuggestedEditsSummary(
                                 title,
                                 langFromCode,
                                 PageTitle(
@@ -218,7 +240,7 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
                                 imageInfo.metadata
                         )
 
-                        targetSummary = sourceSummary!!.copy(
+                        val targetSummary = sourceSummary!!.copy(
                                 description = null,
                                 lang = langToCode,
                                 pageTitle = PageTitle(
@@ -230,14 +252,13 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
                                 )
                         )
 
-                        val card: SuggestedEditsCard = toSuggestedEditsCard(WikiSite.forLanguageCode(langToCode))
-                        if (callback == null) {
-                            FeedCoordinator.postCardsToCallback(cb!!, if (targetSummary == null) emptyList<Card>() else listOf(card))
-                        } else {
-                            callback.updateCardContent(card)
+                        val card: SuggestedEditsCard = toSuggestedEditsCard(WikiSite.forLanguageCode(langToCode), sourceSummary, targetSummary, null)
+                        callback?.updateCardContent(card)
+                        if (cb != null) {
+                            FeedCoordinator.postCardsToCallback(cb, if (targetSummary == null) emptyList<Card>() else listOf(card))
                         }
                     }
-                }, { if (callback == null) cb!!.success(emptyList()) }))
+                }, { cb?.error(it) }))
     }
 
 }

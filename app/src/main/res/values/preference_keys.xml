@@ -82,7 +82,6 @@
     <string name="preference_key_reading_lists_deleted_ids">readingListsDeletedIds</string>
     <string name="preference_key_reading_list_pages_deleted_ids">readingListPagesDeletedIds</string>
     <string name="preference_key_show_reading_lists_sync_prompt">showReadingListsSyncPrompt</string>
-    <string name="preference_key_show_reading_lists_merge_prompt">showReadingListsMergePrompt</string>
     <string name="preference_key_reading_lists_first_time_sync">readingListsFirstTimeSync</string>
     <string name="preference_key_about_wikipedia_app">aboutWikipediaApp</string>
     <string name="preference_key_show_remove_chinese_variant_prompt">showRemoveChineseVariantPrompt</string>
@@ -113,5 +112,7 @@
     <string name="preference_key_suggested_edits_override_counts">suggestedEditsOverrideCounts</string>
     <string name="preference_key_suggested_edits_override_edits">suggestedEditsOverrideEdits</string>
     <string name="preference_key_suggested_edits_override_reverts">suggestedEditsOverrideReverts</string>
+    <string name="preference_key_pcs_to_mobilehtml_conversion_attempts">pcsToMobileHtmlConversionAttempts</string>
+    <string name="preference_key_pcs_to_mobilehtml_conversion_complete">pcsToMobileHtmlConversionComplete</string>
     <string name="preference_key_image_tags_onboarding_shown">imageTagsOnboardingShown</string>
 </resources>

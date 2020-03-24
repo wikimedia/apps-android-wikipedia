@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/imageTagsSearchContainer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
+
+        <org.wikipedia.views.PlainPasteEditText
+            android:id="@+id/imageTagsSearchText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:imeOptions="flagNoExtractUi"
+            android:hint="@string/suggested_edits_image_tags_search"
+            android:textSize="14sp"
+            android:textColor="?attr/material_theme_primary_color"
+            android:background="@null"
+            android:maxLines="1">
+            <requestFocus />
+        </org.wikipedia.views.PlainPasteEditText>
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="end|center_vertical"
+            app:srcCompat="@drawable/ic_search_white_24dp"
+            app:tint="?attr/material_theme_de_emphasised_color"
+            android:contentDescription="@null"/>
+
+    </FrameLayout>
+
+    <View
+        android:id="@+id/imageTagsDivider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?attr/material_theme_border_color" />
+
+    <TextView
+        android:id="@+id/noResultsText"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="center"
+        android:textStyle="italic"
+        android:textColor="?attr/material_theme_de_emphasised_color"
+        android:text="@string/search_no_results_found"
+        android:visibility="gone"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/imageTagsRecycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical" />
+
+</LinearLayout>

@@ -31,8 +31,6 @@ import org.wikipedia.notifications.NotificationActivity;
 import org.wikipedia.onboarding.InitialOnboardingActivity;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.tabs.TabActivity;
-import org.wikipedia.readinglist.ReadingListSyncBehaviorDialogs;
-import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.settings.AboutActivity;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SettingsActivity;
@@ -287,9 +285,6 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
                         .setPositiveButton(R.string.preference_title_logout, (dialog, which) -> {
                             WikipediaApp.getInstance().logOut();
                             FeedbackUtil.showMessage(MainActivity.this, R.string.toast_logout_complete);
-                            if (Prefs.isReadingListSyncEnabled() && !ReadingListDbHelper.instance().isEmpty()) {
-                                ReadingListSyncBehaviorDialogs.removeExistingListsOnLogoutDialog(MainActivity.this);
-                            }
                             Prefs.setReadingListsLastSyncTime(null);
                             Prefs.setReadingListSyncEnabled(false);
                             getFragment().resetNavTabLayouts();

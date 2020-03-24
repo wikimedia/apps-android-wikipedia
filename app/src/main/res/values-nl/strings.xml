@@ -3,6 +3,7 @@
 * Abijeet Patro
 * Dbrant
 * Elroy
+* Encycloon
 * Envlh
 * Festina90
 * Goefie
@@ -209,11 +210,11 @@
   <string name="about_description">Over de Wikipedia-app</string>
   <string name="privacy_policy_description">Privacybeleid</string>
   <string name="terms_of_use_description">Gebruiksvoorwaarden</string>
-  <string name="about_wikipedia_url">https://en.m.wikipedia.org/wiki/Wikipedia:About</string>
-  <string name="privacy_policy_url">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
+  <string name="about_wikipedia_url" fuzzy="true">https://en.m.wikipedia.org/wiki/Wikipedia:About</string>
+  <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
-  <string name="terms_of_use_url">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
+  <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.nl</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.nl</string>
@@ -311,6 +312,7 @@
   <string name="close_all_tabs_confirm_yes">Ja</string>
   <string name="close_all_tabs_confirm_no">Nee</string>
   <string name="button_close_tab">Tabblad sluiten</string>
+  <string name="unnamed_tab_closed">Tabblad gesloten.</string>
   <string name="tab_item_closed">%s gesloten.</string>
   <string name="all_tab_items_closed">Alle tabbladen gesloten.</string>
   <string name="tool_tip_bookmark_icon_title">Aan leeslijst toevoegen</string>
@@ -455,14 +457,6 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Niet opnieuw weergeven</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Synchronisatie inschakelen</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Nee, bedankt</string>
-  <string name="reading_list_login_option_reminder_dialog_title">Leeslijstartikelen gevonden</string>
-  <string name="reading_list_login_option_reminder_dialog_text">De artikelen werden opgeslagen naar de leeslijst terwijl u uitgelogd was. Wilt u deze toevoegen aan de leeslijst in uw account?</string>
-  <string name="reading_list_login_option_reminder_dialog_yes">Ja, voeg deze toe aan mijn leeslijsten</string>
-  <string name="reading_list_login_option_reminder_dialog_no">Nee, artikelen verwijderen</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">Opgeslagen artikelen in de app bewaren?</string>
-  <string name="reading_list_logout_option_reminder_dialog_text">Er zijn momenteel artikelen opgeslagen in leeslijsten. Wilt u ze daar houden na het uitloggen?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">Ja, bewaar de artikelen in lijsten</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">Nee, verwijder de artikelen van lijsten</string>
   <string name="default_reading_list_name">Opgeslagen</string>
   <string name="default_reading_list_description">Standaardlijst voor uw opgeslagen pagina\'s</string>
   <string name="no_user_lists_title">Pagina\'s in lijsten organiseren</string>
@@ -713,8 +707,9 @@
   <string name="suggested_edits_task_action_text_add">Toevoegen</string>
   <string name="suggested_edits_task_action_text_translate">Vertalen</string>
   <string name="suggested_edits_image_captions">Afbeeldingsbijschriften</string>
-  <string name="suggested_edits_image_tags_onboarding_title">Voeg aan afbeeldingen tags toe om ze gemakkelijker vindbaar te maken voor anderen</string>
-  <string name="suggested_edits_image_tags_onboarding_text">Door voorgestelde tags te bevestigen, kunt u helpen om eenvoudiger te zoeken naar afbeeldingen.\n\nTags worden door de computer voorgesteld, maar moeten door mensen worden gevalideerd om nauwkeurigheid te garanderen.</string>
+  <string name="suggested_edits_image_tags_onboarding_title" fuzzy="true">Voeg aan afbeeldingen tags toe om ze gemakkelijker vindbaar te maken voor anderen</string>
+  <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">Door voorgestelde tags te bevestigen, kunt u helpen om eenvoudiger te zoeken naar afbeeldingen.\n\nTags worden door de computer voorgesteld, maar moeten door mensen worden gevalideerd om nauwkeurigheid te garanderen.</string>
+  <string name="suggested_edits_ip_blocked_message">Het lijkt erop dat uw IP-adres (of bereik van IP-adressen) momenteel geblokkeerd is van het bewerken van Wikipedia. U kunt meer te weten komen over wat dit betekent door de link hieronder te volgen.</string>
   <string name="suggested_edits_quality_perfect_text">Perfect</string>
   <string name="suggested_edits_quality_excellent_text">Uitstekend</string>
   <string name="suggested_edits_quality_very_good_text">Erg goed</string>
@@ -734,6 +729,7 @@
   <string name="suggested_edits_last_edited">Laatste bewerking:</string>
   <string name="suggested_edits_last_edited_never">Nooit</string>
   <string name="suggested_edits_task_new">nieuw</string>
+  <string name="suggested_edits_cc0_notice">Door te publiceren gaat u akkoord met de &lt;a href=\"%1$s\"&gt;gebruiksvoorwaarden&lt;/a&gt; en het onherroepelijk vrijgeven van deze bijdrage onder de &lt;a href=\"%2$s\"&gt;CC0 licentie&lt;/a&gt;.</string>
   <string name="description_edit_revert_subtitle">Bedankt voor het bewerken van Wikipedia!</string>
   <string name="description_edit_revert_intro">Wij weten dat u uw best gedaan hebt, maar een van de beoordelaars zag een punt van zorg. Mogelijke redenen waarom uw bewerking is teruggedraaid, zijn:</string>
   <string name="description_edit_revert_reason1">uw bijdrage valt niet onder één van de &lt;a href=\"%1$s\"&gt;richtlijnen&lt;/a&gt;.</string>

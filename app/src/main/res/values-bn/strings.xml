@@ -194,7 +194,7 @@
   <string name="about_description">উইকিপিডিয়া অ্যাপ সম্পর্কে</string>
   <string name="privacy_policy_description">গোপনীয়তা নীতি</string>
   <string name="terms_of_use_description">ব্যবহারের শর্তাবলী</string>
-  <string name="about_wikipedia_url">https://bn.m.wikipedia.org/wiki/উইকিপিডিয়া:বৃত্তান্ত</string>
+  <string name="about_wikipedia_url" fuzzy="true">https://bn.m.wikipedia.org/wiki/উইকিপিডিয়া:বৃত্তান্ত</string>
   <string name="privacy_policy_url" fuzzy="true">https://meta.m.wikimedia.org/w/index.php?title=Privacy_policy/bn</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
@@ -404,7 +404,6 @@
   <string name="reading_list_turned_sync_off_dialog_ok">ঠিক আছে</string>
   <string name="reading_list_turned_sync_off_dialog_settings">সেটিং</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">না ধন্যবাদ</string>
-  <string name="reading_list_login_option_reminder_dialog_no">না, নিবন্ধগুলি মুছুন</string>
   <string name="default_reading_list_name">সংরক্ষিত</string>
   <string name="reading_list_saved_list_rename">%1$s (ব্যবহারকারী তৈরি করেছেন)</string>
   <string name="reading_lists_menu_create_list">নতুন তালিকা তৈরি করুন</string>

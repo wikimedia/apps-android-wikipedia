@@ -167,7 +167,7 @@
   <string name="about_description">Pri l\'apo (app) di Wikipedio</string>
   <string name="privacy_policy_description">Agado pri privateso</string>
   <string name="terms_of_use_description">Uzo-termini</string>
-  <string name="about_wikipedia_url">https://en.m.wikipedia.org/wiki/Wikipedia:About</string>
+  <string name="about_wikipedia_url" fuzzy="true">https://en.m.wikipedia.org/wiki/Wikipedia:About</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
@@ -356,7 +356,7 @@
   <string name="suggested_edits_image_captions">Deskripto-texti por imaji</string>
   <string name="suggested_edits_image_tags">Deskripto dil imaji</string>
   <string name="suggested_edits_image_tags_published">Publikigita</string>
-  <string name="suggested_edits_image_tags_onboarding_title">Pozez etiketi en l\'imaji, pro ke altri povos trovar li facile</string>
+  <string name="suggested_edits_image_tags_onboarding_title" fuzzy="true">Pozez etiketi en l\'imaji, pro ke altri povos trovar li facile</string>
   <string name="suggested_edits_task_new">nova</string>
   <string name="onboarding_continue">Durar</string>
   <string name="onboarding_welcome_title_v2">La libera Enciklopedio\n…en plua kam 300 lingui</string>

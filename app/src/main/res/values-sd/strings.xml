@@ -176,7 +176,7 @@
   <string name="about_description">وڪيپيڊيا ايپ بابت</string>
   <string name="privacy_policy_description">ذاتيات پاليسي</string>
   <string name="terms_of_use_description">استعمال جا شرط</string>
-  <string name="about_wikipedia_url">https://sd.m.wikipedia.org/wiki/Wikipedia:بابت</string>
+  <string name="about_wikipedia_url" fuzzy="true">https://sd.m.wikipedia.org/wiki/Wikipedia:بابت</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
@@ -401,12 +401,6 @@
   <string name="reading_list_turned_sync_off_dialog_settings">ترتيبون</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">مون کي ھي ٻيھر نہ ڏيکاريو</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">نہ مھرباني</string>
-  <string name="reading_list_login_option_reminder_dialog_title">پڙھڻ جي فھرست جا مضمون لڌا</string>
-  <string name="reading_list_login_option_reminder_dialog_yes">ھا، انھن کي منھنجي پڙھڻ جي فھرستن ۾ وجھو</string>
-  <string name="reading_list_login_option_reminder_dialog_no">نہ، مضمونن کي ڊاھيو</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">سانڍيل مضمونن کي ايپ ۾ رکو؟</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">ھا، مضمونن کي فھرستن ۾ رکو</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">نہ، مضمونن کي فھرستن مان ڊاھيو</string>
   <string name="default_reading_list_name">سانڍيل</string>
   <string name="default_reading_list_description">توھان جي سانڍيل مضمونن لاءَ  پاڻڏنل فھرست</string>
   <string name="no_user_lists_title">مضمونن کي فھرستن ۾ منظم ڪريو</string>
@@ -623,7 +617,6 @@
   <string name="suggested_edits_feed_card_title">صلاح-ڏنل سنوارون</string>
   <string name="suggested_edits_feed_card_add_description_button">مضمون جي تشريح وجھو</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">مضمون جي تشريح وجھو (%s)</string>
-  <string name="suggested_edits_tutorial_message">وڪيپيڊيا ايپ ۾ ترت سنوار لاءِ نئين گھر ۾ ڀليڪار. توھان جي ڀاڱيدارين جو وڏ قدر آھي. خوشگوار سنوار!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">شروع ڪريو</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">عڪس جو عنوان (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">عڪس جي تشريح (%s)</string>
