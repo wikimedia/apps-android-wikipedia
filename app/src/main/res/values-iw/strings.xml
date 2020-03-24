@@ -8,6 +8,7 @@
 * Eraab
 * Erelon
 * Guycn2
+* IKhitron
 * Inkbug
 * Matanya
 * Or
@@ -198,7 +199,7 @@
   <string name="about_description">אודות יישום ויקיפדיה</string>
   <string name="privacy_policy_description">מדיניות פרטיות</string>
   <string name="terms_of_use_description">תנאי שימוש</string>
-  <string name="about_wikipedia_url" fuzzy="true">https://he.m.wikipedia.org/wiki/Wikipedia:About</string>
+  <string name="about_wikipedia_url">https://he.wikipedia.org/wiki/Wikipedia:About</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
@@ -461,11 +462,15 @@
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">כניסה / הרשמה לחשבון</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">הערך הזה יהיה זמין ללא חיבור לרשת.</item>
+    <item quantity="two">הערכים האלה יהיו זמינים ללא חיבור לרשת.</item>
+    <item quantity="many">הערכים האלה יהיו זמינים ללא חיבור לרשת.</item>
     <item quantity="other">הערכים האלה יהין זמינים ללא חיבור לרשת.</item>
   </plurals>
   <plurals name="reading_list_article_not_offline_message">
     <item quantity="one">הערך הזה לא יהיה עוד זמין ללא חיבור לרשת.</item>
-    <item quantity="other">הערכים האילה לא יהיו עוד זמינים ללא חיבור לרשת.</item>
+    <item quantity="two">הערכים האלה לא יהיו עוד זמינים ללא חיבור לרשת.</item>
+    <item quantity="many">הערכים האלה לא יהיו עוד זמינים ללא חיבור לרשת.</item>
+    <item quantity="other">הערכים האלה לא יהיו עוד זמינים ללא חיבור לרשת.</item>
   </plurals>
   <string name="reading_list_toast_last_sync">רשימות הקריאה סונכרנו בהצלחה</string>
   <string name="reading_list_menu_last_sync">סנכרון אחרון: %s</string>
@@ -484,27 +489,27 @@
   <string name="notification_syncing_cancel_button">ביטול</string>
   <string name="notification_syncing_reading_list_channel_description">התקדמות סנכרון רשימות קריאה</string>
   <string name="notification_many_unread">יש לך %d התראות שלא נקראו</string>
-  <plurals name="notification_channel_name">
+  <plurals name="notification_channel_name" fuzzy="true">
     <item quantity="one">מתבצעת הורדה של ערך</item>
     <item quantity="other">מתבצעת הורדה של ערכים</item>
   </plurals>
-  <plurals name="notification_syncing_title">
+  <plurals name="notification_syncing_title" fuzzy="true">
     <item quantity="one">מתבצעת הורדה של %1$d אחד…</item>
     <item quantity="other">מתבצעת הורדה של %1$d ערכים…</item>
   </plurals>
-  <plurals name="notification_syncing_description">
+  <plurals name="notification_syncing_description" fuzzy="true">
     <item quantity="one">נשאר %1$d אחד</item>
     <item quantity="other">נשארו %1$d ערכים</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_channel_name">
+  <plurals name="notification_syncing_reading_list_channel_name" fuzzy="true">
     <item quantity="one">סנכרון רשימת קריאה</item>
     <item quantity="other">סנכרון רשימות קריאה</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_title">
+  <plurals name="notification_syncing_reading_list_title" fuzzy="true">
     <item quantity="one">מתבצע סנכרון של %1$d אחת…</item>
     <item quantity="other">מתבצע סנכרון של %1$d רשימות…</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_description">
+  <plurals name="notification_syncing_reading_list_description" fuzzy="true">
     <item quantity="one">נשארה %1$d אחת</item>
     <item quantity="other">נשארו %1$d רשימות</item>
   </plurals>
@@ -516,7 +521,7 @@
   <string name="notifications_view_archived">הצגת ארכיון</string>
   <string name="notifications_prefs">העדפות הודעות</string>
   <string name="notifications_archive">לסמן שההודעה נקראה ולשמור בארכיון</string>
-  <plurals name="notification_archive_message">
+  <plurals name="notification_archive_message" fuzzy="true">
     <item quantity="one">ההודעה נשלחה לארכיון</item>
     <item quantity="other">%d הודעות נשלחו לארכיון</item>
   </plurals>
@@ -563,7 +568,7 @@
   <string name="most_read_list_card_title">נושאים חמים</string>
   <string name="view_static_card_icon_content_description">סמל כרטיס</string>
   <string name="view_card_news_title">בחדשות</string>
-  <plurals name="view_continue_reading_card_subtitle">
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
     <item quantity="one">אתמול</item>
     <item quantity="other">לפני %d ימים</item>
   </plurals>
@@ -628,6 +633,7 @@
   <string name="description_edit_success_saved_in_lang_snackbar">תיאור הערך פורסם! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">כיתוב התמונה פורסם!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">כיתוב התמונה פורסם! (%s)</string>
+  <string name="description_edit_success_saved_image_tags_snackbar">תגיות התמונה פורסמו!</string>
   <string name="description_edit_success_encouragement">שיפרת עכשיו את ויקיפדיה עבור כולם</string>
   <string name="description_edit_success_done">בוצע</string>
   <string name="description_edit_success_did_you_know">הידעת?</string>
@@ -675,7 +681,7 @@
   <string name="suggested_edits_image_caption_summary_title_source">מקור</string>
   <string name="suggested_edits_image_caption_summary_title_license">רישיון</string>
   <string name="suggested_edits_image_caption_summary_title_date">תאריך</string>
-  <plurals name="suggested_edits_contribution_count">
+  <plurals name="suggested_edits_contribution_count" fuzzy="true">
     <item quantity="one">תרומה אחת</item>
     <item quantity="other">%d תרומות</item>
   </plurals>
@@ -696,6 +702,7 @@
   <string name="suggested_edits_article_cta_snackbar_action">הצגה</string>
   <string name="suggested_edits_feed_card_add_image_caption">הוספת כיתוב תמונה</string>
   <string name="suggested_edits_feed_card_translate_image_caption">הוספת כיתוב תמונה (%s)</string>
+  <string name="suggested_edits_feed_card_add_image_tags">הוספת תגיות תמונה</string>
   <string name="suggested_edits_snackbar_survey_text">איך הייתה חוויית העריכה שלך? נשמח אם יתאפשר לך להשקיע בנו רגע קט למלא סקר בנוגע לעריכה בעזרת היישום.</string>
   <string name="suggested_edits_snackbar_survey_action_text">מילוי הסקר</string>
   <string name="suggested_edits_task_action_text_add">הוספה</string>
@@ -710,10 +717,11 @@
   <string name="suggested_edits_image_tags_snackbar">תייגו תמונות כדי שלאחרים יהיה קל יותר למצוא אותן</string>
   <string name="suggested_edits_image_tags_task_detail">תייגו תמונות כדי שלאחרים יהיה קל יותר למצוא אותן. בחרו מתוך התגים המוצעים או הוסיפו תגים משלכם.</string>
   <string name="suggested_edits_image_tags_choose">נא לבחור או להוסיף תגים תואמים</string>
+  <string name="suggested_edits_image_tags_published_list">תגים שפורסמו</string>
   <string name="suggested_edits_image_tags_search">חיפוש תגים</string>
   <string name="suggested_edits_image_tags_select_title">לא בחרת שום תגים לתמונה הזאת</string>
   <string name="suggested_edits_image_tags_select_text">רק תגים שתבחרו יוספו לתמונות. תגים שלא בחרת יסומנו בתור תגים שנדחו. האם ברצונך באמת לסמן את כל התגים האלה בתור תגים שנדחו?</string>
-  <string name="suggested_edits_image_tags_add_tag">להוסיף תג...</string>
+  <string name="suggested_edits_image_tags_add_tag">להוסיף תג</string>
   <string name="suggested_edits_image_zoom_tooltip">אפשר לקרב את התמונה הזאת בשתי אצבעות.</string>
   <string name="suggested_edits_encouragement_message">%s, תודה על תרומתך. בהמשך הדף ניתן למצוא דרכים נוספות לתרום לוויקיפדיה.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;היי %s&lt;/b&gt;, ידעת שלכל אחד יש אפשרות לערוך את ויקיפדיה? להלן שיטות מהנות לסייע בשיפור ויקיפדיה. עריכה מהנה!</string>
@@ -739,11 +747,11 @@
   <string name="suggested_edits_quality_sufficient_text">ככה ככה</string>
   <string name="suggested_edits_quality_poor_text">ירודה</string>
   <string name="suggested_edits_quality_bad_text">גרועה</string>
-  <plurals name="suggested_edits_contribution">
+  <plurals name="suggested_edits_contribution" fuzzy="true">
     <item quantity="one">תרומה</item>
     <item quantity="other">תרומות</item>
   </plurals>
-  <plurals name="suggested_edits_edit_streak_detail_text">
+  <plurals name="suggested_edits_edit_streak_detail_text" fuzzy="true">
     <item quantity="one">יום אחד</item>
     <item quantity="two">יומיים</item>
     <item quantity="other">%d ימים</item>
@@ -793,7 +801,7 @@
   <string name="on_this_day_dialog_next_month">החודש הבא</string>
   <string name="on_this_day_dialog_previous_month">החודש הקודם</string>
   <string name="on_this_day_open_date_picker">פתיחת בוחר התאריך</string>
-  <plurals name="diff_years">
+  <plurals name="diff_years" fuzzy="true">
     <item quantity="one">שנה שעברה</item>
     <item quantity="other">שנתיים %d</item>
   </plurals>
@@ -805,7 +813,7 @@
   <string name="wikipedia_languages_add_language_text">הוספת שפה</string>
   <string name="wikipedia_languages_remove_text">הסרת שפה</string>
   <string name="wikipedia_languages_remove_action_mode_title">הסרת שפה</string>
-  <plurals name="wikipedia_languages_remove_dialog_title">
+  <plurals name="wikipedia_languages_remove_dialog_title" fuzzy="true">
     <item quantity="one">להסיר את השפה שנבחרה?</item>
     <item quantity="other">להסיר את השפות שנבחרו?</item>
   </plurals>

@@ -182,12 +182,12 @@ class SuggestedEditsTasksFragment : Fragment() {
         progressBar.visibility = VISIBLE
         disposables.add(SuggestedEditsUserStats.getEditCountsObservable()
                 .subscribe({ response ->
-                    val editorTaskCounts = response.query()!!.editorTaskCounts()!!
                     if (response.query()!!.userInfo()!!.isBlocked) {
 
                         setIPBlockedStatus()
 
                     } else if (!maybeSetPausedOrDisabled()) {
+                        val editorTaskCounts = response.query()!!.editorTaskCounts()!!
 
                         editQualityStatsView.setGoodnessState(SuggestedEditsUserStats.getRevertSeverity())
 

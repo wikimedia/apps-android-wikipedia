@@ -539,6 +539,7 @@
   <string name="suggested_edits_article_cta_snackbar_action">Προβολή</string>
   <string name="suggested_edits_task_action_text_add">Προσθήκη</string>
   <string name="suggested_edits_task_action_text_translate">Μετάφραση</string>
+  <string name="suggested_edits_image_tags_add_tag" fuzzy="true">Προσθήκη ετικέτας...</string>
   <string name="description_edit_revert_subtitle">Ευχαριστούμε που επεξεργάζεστε την Βικιπαίδεια!</string>
   <string name="description_edit_revert_reason2">η συνεισφορά σας έμοιαζε περισσότερο σαν πειραματισμός ή βανδαλισμός.</string>
   <string name="description_edit_revert_history">Εάν ενδιαφέρεστε, δείτε το &lt;a href=\"%1$s\"&gt;ιστορικό επεξεργασιών&lt;/a&gt;.</string>

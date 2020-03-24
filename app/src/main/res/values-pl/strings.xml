@@ -471,11 +471,11 @@
   <string name="reading_lists_menu_sort_by">Sortuj według</string>
   <string name="reading_lists_refresh_sync_option">Odśwież synchronizację</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Zaloguj się / zarejestruj</string>
-  <plurals name="reading_list_article_offline_message">
+  <plurals name="reading_list_article_offline_message" fuzzy="true">
     <item quantity="one">Ten artykuł będzie teraz dostępny w trybie offline.</item>
     <item quantity="other">Te artykuły będą teraz dostępne w trybie offline.</item>
   </plurals>
-  <plurals name="reading_list_article_not_offline_message">
+  <plurals name="reading_list_article_not_offline_message" fuzzy="true">
     <item quantity="one">Ten artykuł nie będzie już dostępny w trybie offline.</item>
     <item quantity="other">Te artykuły nie będą już dostępne w trybie offline.</item>
   </plurals>
@@ -495,27 +495,27 @@
   <string name="notification_syncing_resume_button">Wznów</string>
   <string name="notification_syncing_cancel_button">Przerwij</string>
   <string name="notification_syncing_reading_list_channel_description">Synchronizowanie List</string>
-  <plurals name="notification_channel_name">
+  <plurals name="notification_channel_name" fuzzy="true">
     <item quantity="one">Pobieranie artykułu</item>
     <item quantity="other">Pobieranie artykułów</item>
   </plurals>
-  <plurals name="notification_syncing_title">
+  <plurals name="notification_syncing_title" fuzzy="true">
     <item quantity="one">Pobieranie %1$d artykułu...</item>
     <item quantity="other">Pobieranie %1$d artykułów...</item>
   </plurals>
-  <plurals name="notification_syncing_description">
+  <plurals name="notification_syncing_description" fuzzy="true">
     <item quantity="one">pozostał %1$d artykuł</item>
     <item quantity="other">pozostało %1$d artykułów</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_channel_name">
+  <plurals name="notification_syncing_reading_list_channel_name" fuzzy="true">
     <item quantity="one">Synchronizowanie listy</item>
     <item quantity="other">Synchronizowanie list</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_title">
+  <plurals name="notification_syncing_reading_list_title" fuzzy="true">
     <item quantity="one">Synchronizuję %1$d listę…</item>
     <item quantity="other">Synchronizuję listy (%1$d)…</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_description">
+  <plurals name="notification_syncing_reading_list_description" fuzzy="true">
     <item quantity="one">pozostała %1$d lista</item>
     <item quantity="other">pozostało %1$d list</item>
   </plurals>
@@ -527,7 +527,7 @@
   <string name="notifications_view_archived">Zobacz zarchiwizowane</string>
   <string name="notifications_prefs">Preferencje powiadomień</string>
   <string name="notifications_archive">Oznacz jako przeczytane i zarchiwizuj</string>
-  <plurals name="notification_archive_message">
+  <plurals name="notification_archive_message" fuzzy="true">
     <item quantity="one">Powiadomienie zarchiwizowane</item>
     <item quantity="other">Powiadomienia zarchiwizowane (%d)</item>
   </plurals>
@@ -574,7 +574,7 @@
   <string name="most_read_list_card_title">Ostatnio popularne</string>
   <string name="view_static_card_icon_content_description">Ikona karty</string>
   <string name="view_card_news_title">W aktualnościach</string>
-  <plurals name="view_continue_reading_card_subtitle">
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
     <item quantity="one">wczoraj</item>
     <item quantity="other">%d dni temu</item>
   </plurals>
@@ -684,7 +684,7 @@
   <string name="suggested_edits_image_caption_summary_title_source">Źródło</string>
   <string name="suggested_edits_image_caption_summary_title_license">Licencja</string>
   <string name="suggested_edits_image_caption_summary_title_date">Data</string>
-  <plurals name="suggested_edits_contribution_count">
+  <plurals name="suggested_edits_contribution_count" fuzzy="true">
     <item quantity="one">1 wkład</item>
     <item quantity="other">%d wkładów</item>
   </plurals>
@@ -757,7 +757,7 @@
   <string name="on_this_day_dialog_next_month">Następny miesiąc</string>
   <string name="on_this_day_dialog_previous_month">Poprzedni miesiąc</string>
   <string name="on_this_day_open_date_picker">Wybierz datę</string>
-  <plurals name="diff_years">
+  <plurals name="diff_years" fuzzy="true">
     <item quantity="one">w zeszłym roku</item>
     <item quantity="other">%d lat temu</item>
   </plurals>
@@ -769,7 +769,7 @@
   <string name="wikipedia_languages_add_language_text">Dodaj język</string>
   <string name="wikipedia_languages_remove_text">Usuń język</string>
   <string name="wikipedia_languages_remove_action_mode_title">Usuń język</string>
-  <plurals name="wikipedia_languages_remove_dialog_title">
+  <plurals name="wikipedia_languages_remove_dialog_title" fuzzy="true">
     <item quantity="one">Usunąć wybrany język?</item>
     <item quantity="other">Usunąć wybrane języki?</item>
   </plurals>

@@ -34,7 +34,6 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
-import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.BackPressedHandler;
 import org.wikipedia.Constants;
 import org.wikipedia.Constants.InvokeSource;
@@ -71,8 +70,8 @@ import org.wikipedia.media.MediaPlayerImplementation;
 import org.wikipedia.page.action.PageActionTab;
 import org.wikipedia.page.leadimages.LeadImagesHandler;
 import org.wikipedia.page.leadimages.PageHeaderView;
+import org.wikipedia.page.references.PageReferences;
 import org.wikipedia.page.references.ReferenceDialog;
-import org.wikipedia.page.references.References;
 import org.wikipedia.page.shareafact.ShareHandler;
 import org.wikipedia.page.tabs.Tab;
 import org.wikipedia.readinglist.ReadingListBookmarkMenu;
@@ -118,6 +117,7 @@ import static org.wikipedia.page.PageCacher.loadIntoCache;
 import static org.wikipedia.settings.Prefs.isDescriptionEditTutorialEnabled;
 import static org.wikipedia.settings.Prefs.isLinkPreviewEnabled;
 import static org.wikipedia.util.DimenUtil.getContentTopOffsetPx;
+import static org.wikipedia.util.DimenUtil.getDensityScalar;
 import static org.wikipedia.util.DimenUtil.leadImageHeightForDevice;
 import static org.wikipedia.util.ResourceUtil.getThemedAttributeId;
 import static org.wikipedia.util.ResourceUtil.getThemedColor;
@@ -150,7 +150,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     private boolean pageRefreshed;
     private boolean errorState = false;
 
-    private static final int REFRESH_SPINNER_ADDITIONAL_OFFSET = (int) (16 * DimenUtil.getDensityScalar());
+    private static final int REFRESH_SPINNER_ADDITIONAL_OFFSET = (int) (16 * getDensityScalar());
 
     private PageFragmentLoadState pageFragmentLoadState;
     private PageViewModel model;
@@ -176,7 +176,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     private ShareHandler shareHandler;
     private CompositeDisposable disposables = new CompositeDisposable();
     private ActiveTimer activeTimer = new ActiveTimer();
-    private References references;
+    private PageReferences references;
     private long revision;
     @Nullable private AvPlayer avPlayer;
     @Nullable private AvCallback avCallback;
@@ -964,6 +964,8 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     private void setupMessageHandlers() {
         linkHandler = new LinkHandler(requireActivity()) {
             @Override public void onPageLinkClicked(@NonNull String anchor, @NonNull String linkText) {
+                dismissBottomSheet();
+                bridge.execute(JavaScriptActionHandler.prepareToScrollTo(anchor, "{ highlight: true }"));
             }
 
             @Override public void onInternalLinkClicked(@NonNull PageTitle title) {
@@ -986,29 +988,11 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                 return;
             }
 
-            disposables.add(getReferences()
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(references ->  {
-                        this.references = references;
-                        int selectedIndex = messagePayload.get("selectedIndex").getAsInt();
-                        JsonArray referencesGroup = messagePayload.getAsJsonArray("referencesGroup");
-                        List<References.Reference> adjacentReferencesList = new ArrayList<>();
-                        for (int i = 0; i < referencesGroup.size(); i++) {
-                            JsonObject reference = referencesGroup.get(i).getAsJsonObject();
-                            String getReferenceText = StringUtils.defaultString(reference.has("text") ? reference.get("text").getAsString() : null);
-                            String getReferenceId = UriUtil.getFragment(StringUtils.defaultString(reference.has("href") ? reference.get("href").getAsString() : null));
-                            References.Reference getReference = references.getReferencesMap().get(getReferenceId);
-                            if (getReference != null) {
-                                getReference.setText(getReferenceText);
-                                adjacentReferencesList.add(getReference);
-                            }
-                        }
+            references = GsonUtil.getDefaultGson().fromJson(messagePayload, PageReferences.class);
 
-                        if (adjacentReferencesList.size() > 0) {
-                            showBottomSheet(new ReferenceDialog(requireActivity(), selectedIndex, adjacentReferencesList, linkHandler));
-                        }
-                    }, L::d));
+            if (references.getReferencesGroup() != null && references.getReferencesGroup().size() > 0) {
+                showBottomSheet(new ReferenceDialog(requireActivity(), references.getSelectedIndex(), references.getReferencesGroup(), linkHandler));
+            }
         });
         bridge.addListener("back_link", (String messageType, JsonObject payload) -> {
             JsonArray backLinks = payload.getAsJsonArray("backLinks");
@@ -1017,7 +1001,9 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             }
         });
         bridge.addListener("scroll_to_anchor", (String messageType, JsonObject payload) -> {
-            bridge.execute(JavaScriptActionHandler.scrollToAnchor(payload.get("anchor").getAsString()));
+            JsonObject rectObj = payload.getAsJsonObject("rect");
+            int diffY = DimenUtil.roundedDpToPx((int) Float.parseFloat(rectObj.get("y").getAsString()));
+            webView.setScrollY(webView.getScrollY() + diffY - webView.getHeight() / 2);
         });
         bridge.addListener("image", (String messageType, JsonObject messagePayload) -> {
             String href = decodeURL(messagePayload.get("href").getAsString());
@@ -1330,7 +1316,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
 
         @Override
         public void onContentHeightChanged(int contentHeight) {
-            if (stagedScrollY > 0 && (contentHeight * DimenUtil.getDensityScalar() - webView.getHeight()) > stagedScrollY) {
+            if (stagedScrollY > 0 && (contentHeight * getDensityScalar() - webView.getHeight()) > stagedScrollY) {
                 webView.setScrollY(stagedScrollY);
                 stagedScrollY = 0;
             }
@@ -1344,16 +1330,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
 
     @Nullable String getLeadImageEditLang() {
         return leadImagesHandler.getCallToActionEditLang();
-    }
-
-    public Observable<References> getReferences() {
-        return references == null ? ServiceFactory.getRest(getTitle().getWikiSite()).getReferences(getTitle().getPrefixedText(), getRevision(),
-                getTitle().getWikiSite().languageCode(), UriUtil.encodeURL(getTitle().getPrefixedText()))
-                : Observable.just(references);
-    }
-
-    public LinkHandler getLinkHandler() {
-        return linkHandler;
     }
 
     void openImageInGallery(@NonNull String language) {

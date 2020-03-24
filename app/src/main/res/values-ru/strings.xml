@@ -3,6 +3,7 @@
 * 4elovek12345
 * Abijeet Patro
 * Alexander Istomin
+* Alexander Yukal
 * Alexey zakharenkov
 * Amire80
 * Batumski brodyaga
@@ -230,7 +231,7 @@
   <string name="about_description">О приложении «Википедия»</string>
   <string name="privacy_policy_description">Политика конфиденциальности</string>
   <string name="terms_of_use_description">Условия использования</string>
-  <string name="about_wikipedia_url" fuzzy="true">https://ru.m.wikipedia.org/wiki/Википедия:Описание</string>
+  <string name="about_wikipedia_url">https://ru.wikipedia.org/wiki/Википедия:Описание</string>
   <string name="privacy_policy_url" fuzzy="true">https://meta.m.wikimedia.org/w/index.php?title=Privacy_policy/ru</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ru#Чтение_в_офлайне_и_данные</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ru</string>
@@ -494,10 +495,14 @@
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Войти / зарегистрироваться</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Эта статья теперь будет доступна в офлайн-режиме.</item>
+    <item quantity="few">Эти статьи теперь будут доступны в офлайн-режиме.</item>
+    <item quantity="many">Эти статьи теперь будут доступны в офлайн-режиме.</item>
     <item quantity="other">Эти статьи теперь будут доступны в офлайн-режиме.</item>
   </plurals>
   <plurals name="reading_list_article_not_offline_message">
     <item quantity="one">Эта статья больше не будет доступна в офлайн-режиме.</item>
+    <item quantity="few">Эти статьи больше не будут доступны в офлайн-режиме.</item>
+    <item quantity="many">Эти статьи больше не будут доступны в офлайн-режиме.</item>
     <item quantity="other">Эти статьи больше не будут доступны в офлайн-режиме.</item>
   </plurals>
   <string name="reading_list_toast_last_sync">Списки чтения успешно синхронизированы</string>
@@ -516,28 +521,28 @@
   <string name="notification_syncing_resume_button">Продолжить</string>
   <string name="notification_syncing_cancel_button">Отмена</string>
   <string name="notification_syncing_reading_list_channel_description">Статус синхронизации списков чтения</string>
-  <plurals name="notification_channel_name">
+  <plurals name="notification_channel_name" fuzzy="true">
     <item quantity="one">Загрузка статьи</item>
     <item quantity="other">Загрузка статей</item>
   </plurals>
-  <plurals name="notification_syncing_title">
+  <plurals name="notification_syncing_title" fuzzy="true">
     <item quantity="one">Загрузка %1$d статьи…</item>
     <item quantity="other">Загрузка %1$d статей…</item>
   </plurals>
-  <plurals name="notification_syncing_description">
+  <plurals name="notification_syncing_description" fuzzy="true">
     <item quantity="one">Осталась %1$d статья</item>
     <item quantity="few">Осталось %1$d статьи</item>
     <item quantity="other">Осталось %1$d статей</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_channel_name">
+  <plurals name="notification_syncing_reading_list_channel_name" fuzzy="true">
     <item quantity="one">Синхронизация списка для чтения</item>
     <item quantity="other">Синхронизация списков для чтения</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_title">
+  <plurals name="notification_syncing_reading_list_title" fuzzy="true">
     <item quantity="one">Синхронизация %1$d списка…</item>
     <item quantity="other">Синхронизация %1$d списков…</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_description">
+  <plurals name="notification_syncing_reading_list_description" fuzzy="true">
     <item quantity="one">Остался %1$d список</item>
     <item quantity="few">Осталось %1$d списка</item>
     <item quantity="other">Осталось %1$d списков</item>
@@ -550,7 +555,7 @@
   <string name="notifications_view_archived">Просмотр архивированных</string>
   <string name="notifications_prefs">Настройки уведомлений</string>
   <string name="notifications_archive">Отметить как прочитанное и архивировать</string>
-  <plurals name="notification_archive_message">
+  <plurals name="notification_archive_message" fuzzy="true">
     <item quantity="one">Уведомление архивировано</item>
     <item quantity="other">Архивировано %d уведомлений</item>
   </plurals>
@@ -597,7 +602,7 @@
   <string name="most_read_list_card_title">В трендах</string>
   <string name="view_static_card_icon_content_description">Значок карточки</string>
   <string name="view_card_news_title">В новостях</string>
-  <plurals name="view_continue_reading_card_subtitle">
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
     <item quantity="one">вчера</item>
     <item quantity="other">%d день назад</item>
   </plurals>
@@ -662,6 +667,7 @@
   <string name="description_edit_success_saved_in_lang_snackbar">Описание статьи сохранено! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Описание изображения опубликовано!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Опубликовано описание изображения (%s)!</string>
+  <string name="description_edit_success_saved_image_tags_snackbar">Тег(и) изображени(й) опубликовано!</string>
   <string name="description_edit_success_encouragement">Вы только что сделали Википедию лучше для всех</string>
   <string name="description_edit_success_done">Готово</string>
   <string name="description_edit_success_did_you_know">Знаете ли вы?</string>
@@ -732,6 +738,7 @@
   <string name="suggested_edits_article_cta_snackbar_action">Просмотр</string>
   <string name="suggested_edits_feed_card_add_image_caption">Добавить заголовок изображения</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Добавить заголовок изображения (%s)</string>
+  <string name="suggested_edits_feed_card_add_image_tags">Добавить теги изображений</string>
   <string name="suggested_edits_snackbar_survey_text">Как вам редактирование? \nБудем вам благодарны, если уделите минутку, чтобы пройти опрос о редактирования в приложении.</string>
   <string name="suggested_edits_snackbar_survey_action_text">Пройти опрос</string>
   <string name="suggested_edits_task_action_text_add">Добавить</string>
@@ -743,12 +750,15 @@
   <string name="suggested_edits_image_tags_onboarding_title">Тегирование изображений позволяет их легче найти.</string>
   <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">Следующие изображения имеют теги предложенные компьютером и эти теги должен проверить человек, чтобы убедиться в их корректности.\n\nПодтверждая теги вы помогаете сделать изображения более доступными для поиска на Викискладе — репозитории изображений под свободной лицензией, которые используются в Википедии для иллюстрирования статей.</string>
   <string name="suggested_edits_image_tags_snackbar">Добавьте теги изображений, чтобы улучшить поиск таких изображений.</string>
-  <string name="suggested_edits_image_tags_choose" fuzzy="true">Выберите соответствующие теги</string>
+  <string name="suggested_edits_image_tags_task_detail">Помечайте изображения, чтобы их было легче найти. Выберите из предложенных тегов или добавьте свой собственный.</string>
+  <string name="suggested_edits_image_tags_choose">Добавить или выбрать подходящие теги</string>
+  <string name="suggested_edits_image_tags_search">Искать метки</string>
   <string name="suggested_edits_image_tags_select_title">Вы не выбрали ни одного тега этому изображению</string>
   <string name="suggested_edits_image_tags_select_text">Только выбранные вами теги будут добавлены изображениям. Те, которые вы не выбрали - будут отклонены. Вы уверены что хотите отклонить все теги?</string>
+  <string name="suggested_edits_image_tags_add_tag" fuzzy="true">Добавить ярлык…</string>
   <string name="suggested_edits_pageviews_label_text">Просмотры страниц</string>
   <string name="suggested_edits_quality_bad_text">Плохо</string>
-  <plurals name="suggested_edits_edit_streak_detail_text">
+  <plurals name="suggested_edits_edit_streak_detail_text" fuzzy="true">
     <item quantity="one">%d день</item>
     <item quantity="other">%d дня</item>
   </plurals>
@@ -791,7 +801,7 @@
   <string name="events_count_text">%1$s событий за %2$s—%3$d</string>
   <string name="this_year">Этот год</string>
   <string name="back_to_top">Вернуться наверх</string>
-  <plurals name="diff_years">
+  <plurals name="diff_years" fuzzy="true">
     <item quantity="one">В прошлом году</item>
     <item quantity="other">%d года назад</item>
   </plurals>
@@ -803,7 +813,7 @@
   <string name="wikipedia_languages_add_language_text">Добавить язык</string>
   <string name="wikipedia_languages_remove_text">Удалить язык</string>
   <string name="wikipedia_languages_remove_action_mode_title">Удалить язык</string>
-  <plurals name="wikipedia_languages_remove_dialog_title">
+  <plurals name="wikipedia_languages_remove_dialog_title" fuzzy="true">
     <item quantity="one">Удалить выбранный язык?</item>
     <item quantity="other">Удалить выбранные языки?</item>
   </plurals>

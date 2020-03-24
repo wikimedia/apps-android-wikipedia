@@ -487,7 +487,7 @@
   </plurals>
   <plurals name="notification_syncing_description">
     <item quantity="one">Преостао је %1$d чланак</item>
-    <item quantity="other">Преостала су %1$d чланка</item>
+    <item quantity="other">Преостао је %1$d чланак</item>
   </plurals>
   <plurals name="notification_syncing_reading_list_channel_name">
     <item quantity="one">Синхронизација списка за читање</item>
