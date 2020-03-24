@@ -21,7 +21,6 @@ import org.wikipedia.gallery.MediaList;
 import org.wikipedia.gallery.MediaListItem;
 import org.wikipedia.offline.OfflineObjectDbHelper;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.page.references.References;
 import org.wikipedia.pageimages.PageImage;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.readinglist.database.ReadingListPage;
@@ -57,9 +56,8 @@ public class SavedPageSyncService extends JobIntentService {
     private static final int JOB_ID = 1000;
     private static final int ENQUEUE_DELAY_MILLIS = 2000;
     public static final int SUMMARY_PROGRESS = 10;
-    public static final int MOBILE_HTML_SECTION_PROGRESS = 30;
-    public static final int MEDIA_LIST_PROGRESS = 50;
-    public static final int REFERENCES_PROGRESS = 70;
+    public static final int MOBILE_HTML_SECTION_PROGRESS = 50;
+    public static final int MEDIA_LIST_PROGRESS = 70;
 
     private static Runnable ENQUEUE_RUNNABLE = () -> enqueueWork(WikipediaApp.getInstance(),
             SavedPageSyncService.class, JOB_ID, new Intent(WikipediaApp.getInstance(), SavedPageSyncService.class));
@@ -220,15 +218,12 @@ public class SavedPageSyncService extends JobIntentService {
                 long revision = rsp.body() != null ? rsp.body().getRevision() : 0;
                 return Observable.zip(Observable.just(rsp),
                         reqMediaList(pageTitle, revision),
-                        reqPageReferences(pageTitle, revision),
-                        reqMobileHTML(pageTitle), (summaryRsp, mediaListRsp, referencesRsp, mobileHTMLRsp) -> {
+                        reqMobileHTML(pageTitle), (summaryRsp, mediaListRsp, mobileHTMLRsp) -> {
                             page.downloadProgress(SUMMARY_PROGRESS);
                             WikipediaApp.getInstance().getBus().post(new PageDownloadEvent(page));
                             page.downloadProgress(MOBILE_HTML_SECTION_PROGRESS);
                             WikipediaApp.getInstance().getBus().post(new PageDownloadEvent(page));
                             page.downloadProgress(MEDIA_LIST_PROGRESS);
-                            WikipediaApp.getInstance().getBus().post(new PageDownloadEvent(page));
-                            page.downloadProgress(REFERENCES_PROGRESS);
                             WikipediaApp.getInstance().getBus().post(new PageDownloadEvent(page));
                             Set<String> fileUrls = new HashSet<>();
 
@@ -264,7 +259,7 @@ public class SavedPageSyncService extends JobIntentService {
                             page.title(summaryRsp.body().getDisplayTitle());
                             page.description(summaryRsp.body().getDescription());
 
-                            reqSaveFiles(page, pageTitle, fileUrls, REFERENCES_PROGRESS, MAX_PROGRESS);
+                            reqSaveFiles(page, pageTitle, fileUrls, MEDIA_LIST_PROGRESS, MAX_PROGRESS);
 
                             long totalSize = OfflineObjectDbHelper.instance().getTotalBytesForPageId(page.id());
 
@@ -291,12 +286,6 @@ public class SavedPageSyncService extends JobIntentService {
     @NonNull
     private Observable<retrofit2.Response<MediaList>> reqMediaList(@NonNull PageTitle pageTitle, long revision) {
         return ServiceFactory.getRest(pageTitle.getWikiSite()).getMediaListResponse(pageTitle.getPrefixedText(), revision, CacheControl.FORCE_NETWORK.toString(),
-                OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle.getWikiSite().languageCode(), UriUtil.encodeURL(pageTitle.getPrefixedText()));
-    }
-
-    @NonNull
-    private Observable<retrofit2.Response<References>> reqPageReferences(@NonNull PageTitle pageTitle, long revision) {
-        return ServiceFactory.getRest(pageTitle.getWikiSite()).getReferencesResponse(pageTitle.getPrefixedText(), revision, CacheControl.FORCE_NETWORK.toString(),
                 OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle.getWikiSite().languageCode(), UriUtil.encodeURL(pageTitle.getPrefixedText()));
     }
 

@@ -64,6 +64,11 @@ object JavaScriptActionHandler {
     }
 
     @JvmStatic
+    fun prepareToScrollTo(anchorLink: String, options: String): String {
+        return "pcs.c1.Page.prepareForScrollToAnchor(\"${anchorLink}\", ${options} )"
+    }
+
+    @JvmStatic
     fun setUp(title: PageTitle): String {
         val app: WikipediaApp = WikipediaApp.getInstance()
         val topActionBarHeight = (app.resources.getDimensionPixelSize(R.dimen.lead_no_image_top_offset_dp) / getDensityScalar()).roundToInt()
