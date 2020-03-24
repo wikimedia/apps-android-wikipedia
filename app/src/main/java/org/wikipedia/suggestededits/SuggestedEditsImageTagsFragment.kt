@@ -13,6 +13,7 @@ import android.view.ViewGroup
 import android.widget.CompoundButton
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.fragment.app.Fragment
 import com.google.android.material.chip.Chip
 import io.reactivex.Observable
 import io.reactivex.ObservableSource
@@ -47,13 +48,13 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         fun getLangCode(): String
         fun getSinglePage(): MwQueryPage?
         fun updateActionButton()
-        fun nextPageIfNeeded(title: String)
+        fun nextPage(sourceFragment: Fragment?)
     }
 
     var publishing: Boolean = false
     var publishSuccess: Boolean = false
-    var page: MwQueryPage? = null
     private var csrfClient: CsrfTokenClient = CsrfTokenClient(WikiSite(Service.COMMONS_URL))
+    private var page: MwQueryPage? = null
     private val tagList: MutableList<MwQueryPage.ImageLabel> = ArrayList()
     private var wasCaptionLongClicked: Boolean = false
     private var lastSearchTerm: String = ""
@@ -436,7 +437,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                 updateLicenseTextShown()
 
                 publishOverlayContainer.visibility = GONE
-                callback().nextPageIfNeeded(page!!.title())
+                callback().nextPage(this)
                 setPublishedState()
             }
         }, duration * 3)
