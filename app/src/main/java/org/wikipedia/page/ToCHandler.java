@@ -449,8 +449,8 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
         if (itemToSelect != currentItemSelected) {
             adapter.setHighlightedSection(itemToSelect);
             currentItemSelected = itemToSelect;
+            bridge.execute(JavaScriptActionHandler.prepareToScrollTo(adapter.getItem(currentItemSelected).getAnchor(), "{ highlight: false }"));
         }
-        JavaScriptActionHandler.prepareToScrollTo(adapter.getItem(currentItemSelected).getAnchor(), "{ highlight: false }");
         tocList.smoothScrollToPositionFromTop(currentItemSelected,
                 scrollerViewParams.topMargin - DimenUtil.roundedDpToPx(TOC_SECTION_TOP_OFFSET_ADJUST), 0);
     }

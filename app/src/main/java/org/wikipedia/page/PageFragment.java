@@ -1001,8 +1001,10 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             }
         });
         bridge.addListener("scroll_to_anchor", (String messageType, JsonObject payload) -> {
-            int diffY = DimenUtil.roundedDpToPx(payload.getAsJsonObject("rect").get("y").getAsFloat());
-            webView.setScrollY(webView.getScrollY() + diffY - webView.getHeight() / 2);
+            if (payload.get("anchor").getAsString().contains("cite_")) {
+                int diffY = DimenUtil.roundedDpToPx(payload.getAsJsonObject("rect").get("y").getAsFloat());
+                webView.setScrollY(webView.getScrollY() + diffY - webView.getHeight() / 2);
+            }
         });
         bridge.addListener("image", (String messageType, JsonObject messagePayload) -> {
             String href = decodeURL(messagePayload.get("href").getAsString());
