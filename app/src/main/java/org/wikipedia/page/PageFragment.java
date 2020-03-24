@@ -182,7 +182,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     @Nullable private AvPlayer avPlayer;
     @Nullable private AvCallback avCallback;
     @Nullable private List<Section> sections;
-    private Section referencesSectionToScrollTo;
 
     private WikipediaApp app;
 
@@ -810,7 +809,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         return pageHeaderView;
     }
 
-    private void showFindReferenceInPage(ArrayList<String> backLinksList, String referenceText) {
+    private void showFindReferenceInPage(String referenceAnchor, ArrayList<String> backLinksList, String referenceText) {
         if (model.getPage() == null) {
             return;
         }
@@ -856,9 +855,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
 
                     @Override
                     public void onReferenceLabelClicked() {
-                        if (referencesSectionToScrollTo != null) {
-                            bridge.execute(JavaScriptActionHandler.scrollToAnchor(referencesSectionToScrollTo.getAnchor()));
-                        }
+                            bridge.execute(JavaScriptActionHandler.scrollToAnchor(referenceAnchor));
                         if (findReferenceInPageActionMode != null) {
                             findReferenceInPageActionMode.finish();
                         }
@@ -1080,27 +1077,13 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             }
         });
         bridge.addListener("back_link", (String messageType, JsonObject payload) -> {
-            int yOffset = DimenUtil.roundedPxToDp(webView.getScrollY());
-            int itemToSelect = 0;
-            if (tocHandler != null && tocHandler.getAdapter() != null) {
-                for (int i = 1; i < tocHandler.getAdapter().getCount(); i++) {
-                    Section section = tocHandler.getAdapter().getItem(i);
-                    int secOff = tocHandler.getAdapter().getYOffset(section.getId());
-                    if (secOff < yOffset) {
-                        itemToSelect = i;
-                    } else {
-                        break;
-                    }
-                }
-                referencesSectionToScrollTo = tocHandler.getAdapter().getItem(itemToSelect);
-            }
             JsonArray backLinks = payload.getAsJsonArray("backLinks");
             if (backLinks.size() > 0) {
                 ArrayList<String> backLinksList = new ArrayList<>();
                 for (int i = 0; i < backLinks.size(); i++) {
                     backLinksList.add(backLinks.get(i).getAsJsonObject().get("id").getAsString());
                 }
-                showFindReferenceInPage(backLinksList, payload.get("referenceText").getAsString());
+                showFindReferenceInPage(payload.get("referenceId").getAsString(), backLinksList, payload.get("referenceText").getAsString());
             }
         });
         bridge.addListener("scroll_to_anchor", (String messageType, JsonObject payload) -> {
