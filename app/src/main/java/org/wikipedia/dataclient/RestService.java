@@ -12,7 +12,6 @@ import org.wikipedia.feed.announcement.AnnouncementList;
 import org.wikipedia.feed.configure.FeedAvailability;
 import org.wikipedia.feed.onthisday.OnThisDay;
 import org.wikipedia.gallery.MediaList;
-import org.wikipedia.page.references.References;
 import org.wikipedia.readinglist.sync.SyncedReadingLists;
 import org.wikipedia.suggestededits.provider.SuggestedEditItem;
 
@@ -115,20 +114,6 @@ public interface RestService {
 
     @GET("feed/availability")
     @NonNull Observable<FeedAvailability> getFeedAvailability();
-
-    @GET("page/references/{title}/{revision}")
-    @NonNull Observable<References> getReferences(@NonNull @Path("title") String title,
-                                                  @Path("revision") long revision,
-                                                  @Nullable @Header(OfflineCacheInterceptor.LANG_HEADER) String langHeader,
-                                                  @Nullable @Header(OfflineCacheInterceptor.TITLE_HEADER) String titleHeader);
-
-    @GET("page/references/{title}/{revision}")
-    @NonNull Observable<Response<References>> getReferencesResponse(@Path("title") String title,
-                                                                    @Path("revision") long revision,
-                                                                    @Nullable @Header("Cache-Control") String cacheControl,
-                                                                    @Nullable @Header(OfflineCacheInterceptor.SAVE_HEADER) String saveHeader,
-                                                                    @Nullable @Header(OfflineCacheInterceptor.LANG_HEADER) String langHeader,
-                                                                    @Nullable @Header(OfflineCacheInterceptor.TITLE_HEADER) String titleHeader);
 
     // ------- Reading lists -------
 
