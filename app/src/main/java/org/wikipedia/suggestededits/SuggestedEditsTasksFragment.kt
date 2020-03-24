@@ -393,22 +393,19 @@ class SuggestedEditsTasksFragment : Fragment() {
         addImageTagsTask.imageDrawable = R.drawable.ic_image_tag
         addImageTagsTask.translatable = false
 
-        // TODO: remove condition when ready
-        if (ReleaseUtil.isPreBetaRelease()) {
-            displayedTasks.add(addImageTagsTask)
-        }
-
         addImageCaptionsTask = SuggestedEditsTask()
         addImageCaptionsTask.title = getString(R.string.suggested_edits_image_captions)
         addImageCaptionsTask.description = getString(R.string.suggested_edits_image_captions_task_detail)
         addImageCaptionsTask.imageDrawable = R.drawable.ic_image_caption
-        displayedTasks.add(addImageCaptionsTask)
 
         addDescriptionsTask = SuggestedEditsTask()
         addDescriptionsTask.title = getString(R.string.description_edit_tutorial_title_descriptions)
         addDescriptionsTask.description = getString(R.string.suggested_edits_add_descriptions_task_detail)
         addDescriptionsTask.imageDrawable = R.drawable.ic_article_description
+
+        displayedTasks.add(addImageTagsTask)
         displayedTasks.add(addDescriptionsTask)
+        displayedTasks.add(addImageCaptionsTask)
     }
 
 
