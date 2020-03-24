@@ -14,11 +14,11 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.dialog_image_preview.*
 import kotlinx.android.synthetic.main.view_image_detail.view.*
-import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.descriptions.DescriptionEditActivity.Action
 import org.wikipedia.json.GsonMarshaller
 import org.wikipedia.json.GsonUnmarshaller
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
@@ -36,13 +36,13 @@ import org.wikipedia.util.log.L
 class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.OnDismissListener {
 
     private lateinit var suggestedEditsSummary: SuggestedEditsSummary
-    private lateinit var invokeSource: InvokeSource
+    private lateinit var action: Action
     private val disposables = CompositeDisposable()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         val rootView = inflater.inflate(R.layout.dialog_image_preview, container)
-        suggestedEditsSummary = GsonUnmarshaller.unmarshal(SuggestedEditsSummary::class.java, arguments!!.getString(ARG_SUMMARY))
-        invokeSource = arguments!!.getSerializable(ARG_INVOKE_SOURCE) as InvokeSource
+        suggestedEditsSummary = GsonUnmarshaller.unmarshal(SuggestedEditsSummary::class.java, requireArguments().getString(ARG_SUMMARY))
+        action = requireArguments().getSerializable(ARG_ACTION) as Action
         setConditionalLayoutDirection(rootView, suggestedEditsSummary.lang)
         enableFullWidthDialog()
         return rootView
@@ -50,7 +50,7 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
 
     override fun onStart() {
         super.onStart()
-        BottomSheetBehavior.from(view!!.parent as View).peekHeight = DimenUtil
+        BottomSheetBehavior.from(requireView().parent as View).peekHeight = DimenUtil
                 .roundedDpToPx(DimenUtil.getDimension(R.dimen.imagePreviewSheetPeekHeight))
     }
 
@@ -58,7 +58,7 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
         super.onViewCreated(view, savedInstanceState)
         progressBar!!.visibility = VISIBLE
         toolbarView.setOnClickListener { dismiss() }
-        titleText!!.text = StringUtil.removeHTMLTags(suggestedEditsSummary.displayTitle!!)
+        titleText!!.text = StringUtil.removeHTMLTags(StringUtil.removeNamespace(suggestedEditsSummary.displayTitle!!))
         loadImage(suggestedEditsSummary.getPreferredSizeThumbnailUrl())
         loadImageInfoIfNeeded()
     }
@@ -81,10 +81,10 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
 
     private fun loadImageInfoIfNeeded() {
         if (suggestedEditsSummary.metadata == null) {
-            disposables.add(ServiceFactory.get(WikiSite.forLanguageCode(suggestedEditsSummary.lang)).getImageExtMetadata(suggestedEditsSummary.title)
+            disposables.add(ServiceFactory.get(WikiSite.forLanguageCode(suggestedEditsSummary.lang)).getImageInfo(suggestedEditsSummary.title, suggestedEditsSummary.lang)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .doFinally { setImageDetails() }
+                    .doAfterTerminate { setImageDetails() }
                     .subscribe({ response ->
                         val page = response.query()!!.pages()!![0]
                         if (page.imageInfo() != null) {
@@ -103,7 +103,7 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
     }
 
     private fun setImageDetails() {
-        if ((invokeSource == InvokeSource.SUGGESTED_EDITS_ADD_CAPTION || invokeSource == InvokeSource.FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION)
+        if ((action == Action.ADD_CAPTION)
                 && suggestedEditsSummary.pageTitle.description.isNullOrEmpty()) {
             // Show the image description when a structured caption does not exist.
             addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_description_in_language_title,
@@ -133,12 +133,12 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
             view.titleTextView.text = titleString
             view.detailTextView.text = StringUtil.strip(StringUtil.fromHtml(detail))
             if (!externalLink.isNullOrEmpty()) {
-                view.detailTextView.setTextColor(ResourceUtil.getThemedColor(context!!, R.attr.colorAccent))
+                view.detailTextView.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent))
                 view.detailTextView.setTextIsSelectable(false)
                 view.externalLinkView.visibility = VISIBLE
                 view.detailsContainer.setOnClickListener {
                     dismiss()
-                    UriUtil.visitInExternalBrowser(context, Uri.parse(externalLink))
+                    UriUtil.visitInExternalBrowser(requireContext(), Uri.parse(externalLink))
                 }
             } else {
                 view.detailTextView.movementMethod = movementMethod
@@ -160,13 +160,13 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
 
     companion object {
         private const val ARG_SUMMARY = "summary"
-        private const val ARG_INVOKE_SOURCE = "invokeSource"
+        private const val ARG_ACTION = "action"
 
-        fun newInstance(suggestedEditsSummary: SuggestedEditsSummary, invokeSource: InvokeSource): ImagePreviewDialog {
+        fun newInstance(suggestedEditsSummary: SuggestedEditsSummary, action: Action): ImagePreviewDialog {
             val dialog = ImagePreviewDialog()
             val args = Bundle()
             args.putString(ARG_SUMMARY, GsonMarshaller.marshal(suggestedEditsSummary))
-            args.putSerializable(ARG_INVOKE_SOURCE, invokeSource)
+            args.putSerializable(ARG_ACTION, action)
             dialog.arguments = args
             return dialog
         }

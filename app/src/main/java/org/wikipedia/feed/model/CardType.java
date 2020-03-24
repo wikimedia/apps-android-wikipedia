@@ -5,12 +5,12 @@ import android.content.Context;
 import androidx.annotation.NonNull;
 
 import org.wikipedia.feed.FeedContentType;
+import org.wikipedia.feed.accessibility.AccessibilityCardView;
 import org.wikipedia.feed.announcement.AnnouncementCardView;
 import org.wikipedia.feed.becauseyouread.BecauseYouReadCardView;
 import org.wikipedia.feed.dayheader.DayHeaderCardView;
 import org.wikipedia.feed.featured.FeaturedArticleCardView;
 import org.wikipedia.feed.image.FeaturedImageCardView;
-import org.wikipedia.feed.mainpage.MainPageCardView;
 import org.wikipedia.feed.mostread.MostReadCardView;
 import org.wikipedia.feed.news.NewsListCardView;
 import org.wikipedia.feed.offline.OfflineCardView;
@@ -49,11 +49,9 @@ public enum CardType implements EnumCode {
             return new RandomCardView(ctx);
         }
     },
-    MAIN_PAGE(6, FeedContentType.MAIN_PAGE) {
-        @NonNull @Override public FeedCardView<?> newView(@NonNull Context ctx) {
-            return new MainPageCardView(ctx);
-        }
-    },
+    //
+    // "6" used to be MAIN_PAGE.
+    //
     NEWS_LIST(7, FeedContentType.NEWS) {
         @NonNull @Override public FeedCardView<?> newView(@NonNull Context ctx) {
             return new NewsListCardView(ctx);
@@ -107,6 +105,18 @@ public enum CardType implements EnumCode {
     SUGGESTED_EDITS(21, FeedContentType.SUGGESTED_EDITS) {
         @NonNull @Override public FeedCardView<?> newView(@NonNull Context ctx) {
             return new SuggestedEditsCardView(ctx);
+        }
+    },
+    ACCESSIBILITY(22, FeedContentType.ACCESSIBILITY) {
+        @NonNull @Override public FeedCardView<?> newView(@NonNull Context ctx) {
+            return new AccessibilityCardView(ctx);
+        }
+    },
+    // TODO: refactor this item when the new Modern Event Platform is finished.
+    ARTICLE_ANNOUNCEMENT(96) {
+        @NonNull @Override public FeedCardView<?> newView(@NonNull Context ctx) {
+            // This is not actually used, since this type of card will not be shown in the feed.
+            return new AnnouncementCardView(ctx);
         }
     },
     DAY_HEADER(97) {

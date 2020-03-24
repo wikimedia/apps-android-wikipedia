@@ -4,10 +4,11 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
+
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 import org.wikipedia.R;
-import org.wikipedia.WikipediaApp;
 import org.wikipedia.util.DimenUtil;
 
 /**
@@ -29,13 +30,7 @@ public class ExtendedBottomSheetDialogFragment extends BottomSheetDialogFragment
     }
 
     @Override
-    public void onDestroy() {
-        super.onDestroy();
-        WikipediaApp.getInstance().getRefWatcher().watch(this);
-    }
-
-    @Override
-    public void onConfigurationChanged(Configuration newConfig) {
+    public void onConfigurationChanged(@NonNull Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         setWindowLayout();
     }

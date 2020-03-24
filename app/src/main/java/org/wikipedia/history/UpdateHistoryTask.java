@@ -21,7 +21,7 @@ public class UpdateHistoryTask implements Action {
     }
 
     @Override
-    public void run() throws Exception {
+    public void run() {
         DatabaseClient<HistoryEntry> client = WikipediaApp.getInstance().getDatabaseClient(HistoryEntry.class);
         client.upsert(new HistoryEntry(entry.getTitle(),
                         entry.getTimestamp(),
@@ -32,10 +32,10 @@ public class UpdateHistoryTask implements Action {
 
     private int getPreviousTimeSpent(@NonNull DatabaseClient<HistoryEntry> client) {
         int timeSpent = 0;
-        String selection = ":siteCol == ? and :langCol == ? and :titleCol == ?"
+        String selection = ":siteCol == ? and :langCol == ? and :apiTitleCol == ?"
                 .replaceAll(":siteCol", PageHistoryContract.Page.SITE.qualifiedName())
                 .replaceAll(":langCol", PageHistoryContract.Page.LANG.qualifiedName())
-                .replaceAll(":titleCol", PageHistoryContract.Page.TITLE.qualifiedName());
+                .replaceAll(":apiTitleCol", PageHistoryContract.Page.API_TITLE.qualifiedName());
         String[] selectionArgs = new String[]{entry.getTitle().getWikiSite().authority(),
                 entry.getTitle().getWikiSite().languageCode(),
                 entry.getTitle().getText()};

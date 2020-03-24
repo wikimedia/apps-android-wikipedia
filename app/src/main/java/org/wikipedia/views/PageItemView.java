@@ -57,7 +57,6 @@ public class PageItemView<T> extends ConstraintLayout {
     @BindView(R.id.page_list_item_action_secondary) ImageView secondaryActionView;
     @BindView(R.id.page_list_item_secondary_container) View secondaryContainer;
     @BindView(R.id.page_list_item_selected_image) View imageSelectedView;
-    @BindView(R.id.page_list_header_text) GoneIfEmptyTextView headerView;
     @BindView(R.id.page_list_item_circular_progress_bar) CircularProgressBar circularProgressBar;
     @BindView(R.id.chips_scrollview) View chipsScrollView;
     @BindView(R.id.reading_lists_chip_group) ChipGroup readingListsChipGroup;
@@ -80,8 +79,8 @@ public class PageItemView<T> extends ConstraintLayout {
         this.callback = callback;
     }
 
-    public void setTitle(@Nullable CharSequence text) {
-        titleView.setText(text);
+    public void setTitle(@Nullable String text) {
+        titleView.setText(StringUtil.fromHtml(text));
     }
 
     public void setTitleMaxLines(int linesCount) {
@@ -125,10 +124,6 @@ public class PageItemView<T> extends ConstraintLayout {
 
     public void setSecondaryActionHint(@StringRes int id) {
         secondaryActionView.setContentDescription(getContext().getString(id));
-    }
-
-    public void setHeaderText(@Nullable CharSequence text) {
-        headerView.setText(text);
     }
 
     public void setSelected(boolean selected) {

@@ -4,13 +4,16 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
 import androidx.fragment.app.Fragment;
-import androidx.viewpager.widget.PagerAdapter;
-import androidx.viewpager.widget.ViewPager;
+import androidx.viewpager2.adapter.FragmentStateAdapter;
+import androidx.viewpager2.widget.ViewPager2;
+
+import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
 
 import org.wikipedia.BackPressedHandler;
 import org.wikipedia.R;
@@ -19,29 +22,25 @@ import org.wikipedia.activity.FragmentUtil;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import butterknife.OnPageChange;
 import butterknife.Unbinder;
 
 public abstract class OnboardingFragment extends Fragment implements BackPressedHandler {
-    @BindView(R.id.fragment_pager) ViewPager viewPager;
-    @BindView(R.id.fragment_onboarding_skip_button) View skipButton;
+    @BindView(R.id.fragment_pager) ViewPager2 viewPager;
+    @BindView(R.id.fragment_onboarding_skip_button) Button skipButton;
     @BindView(R.id.fragment_onboarding_forward_button) View forwardButton;
-    @BindView(R.id.fragment_onboarding_done_button) TextView doneButton;
+    @BindView(R.id.view_onboarding_page_indicator) TabLayout pageIndicatorView;
+    @BindView(R.id.fragment_onboarding_done_button) Button doneButton;
     private Unbinder unbinder;
-    private PagerAdapter adapter;
+    private FragmentStateAdapter adapter;
+    private PageChangeCallback pageChangeCallback = new PageChangeCallback();
 
     public interface Callback {
         void onComplete();
     }
 
-    protected abstract PagerAdapter getAdapter();
+    protected abstract FragmentStateAdapter getAdapter();
 
     @StringRes protected abstract int getDoneButtonText();
-
-    protected ViewPager getViewPager() {
-        return viewPager;
-    }
-
 
     @Override public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
@@ -49,13 +48,19 @@ public abstract class OnboardingFragment extends Fragment implements BackPressed
         unbinder = ButterKnife.bind(this, view);
         adapter = getAdapter();
         viewPager.setAdapter(adapter);
+        viewPager.registerOnPageChangeCallback(pageChangeCallback);
+
+        new TabLayoutMediator(pageIndicatorView, viewPager, (tab, position) -> { }).attach();
+
         doneButton.setText(getDoneButtonText());
         updateButtonState();
+        updatePageIndicatorContentDescription();
         return view;
     }
 
     @Override public void onDestroyView() {
         viewPager.setAdapter(null);
+        viewPager.unregisterOnPageChangeCallback(pageChangeCallback);
         adapter = null;
         unbinder.unbind();
         unbinder = null;
@@ -70,8 +75,7 @@ public abstract class OnboardingFragment extends Fragment implements BackPressed
         return false;
     }
 
-    @OnClick({R.id.fragment_onboarding_forward_button, R.id.fragment_onboarding_done_button})
-    public void onForwardClick() {
+    @OnClick({R.id.fragment_onboarding_forward_button, R.id.fragment_onboarding_done_button}) void onForwardClick() {
         if (atLastPage()) {
             finish();
         } else {
@@ -83,17 +87,12 @@ public abstract class OnboardingFragment extends Fragment implements BackPressed
         finish();
     }
 
-    @OnPageChange(R.id.fragment_pager) void onPageChange() {
-        updateButtonState();
-    }
-
-
-    protected void advancePage() {
+    void advancePage() {
         if (!isAdded()) {
             return;
         }
         int nextPageIndex = viewPager.getCurrentItem() + 1;
-        int lastPageIndex = viewPager.getAdapter().getCount() - 1;
+        int lastPageIndex = viewPager.getAdapter().getItemCount() - 1;
         viewPager.setCurrentItem(Math.min(nextPageIndex, lastPageIndex), true);
     }
 
@@ -108,7 +107,11 @@ public abstract class OnboardingFragment extends Fragment implements BackPressed
     }
 
     private boolean atLastPage() {
-        return viewPager.getCurrentItem() == viewPager.getAdapter().getCount() - 1;
+        return viewPager.getCurrentItem() == viewPager.getAdapter().getItemCount() - 1;
+    }
+
+    private void updatePageIndicatorContentDescription() {
+        pageIndicatorView.setContentDescription(getString(R.string.content_description_for_page_indicator, viewPager.getCurrentItem() + 1, adapter.getItemCount()));
     }
 
     private void updateButtonState() {
@@ -120,6 +123,14 @@ public abstract class OnboardingFragment extends Fragment implements BackPressed
             skipButton.setVisibility(View.VISIBLE);
             forwardButton.setVisibility(View.VISIBLE);
             doneButton.setVisibility(View.GONE);
+        }
+    }
+
+    private class PageChangeCallback extends ViewPager2.OnPageChangeCallback {
+        @Override public void onPageSelected(int position) {
+            updateButtonState();
+            updatePageIndicatorContentDescription();
+            // TODO: request focus to child view to make it readable after switched page.
         }
     }
 }

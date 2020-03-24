@@ -1,16 +1,12 @@
 package org.wikipedia.suggestededits
 
-import android.graphics.drawable.Drawable
+import androidx.annotation.DrawableRes
 
 class SuggestedEditsTask {
-
     var title: String? = null
     var description: String? = null
     var disabled: Boolean = false
-    var showImagePlaceholder: Boolean = true
-    var showActionLayout: Boolean = false
-    var unlockActionPositiveButtonString: String? = null
-    var unlockActionNegativeButtonString: String? = null
-    var unlockMessageText: String? = null
-    var imageDrawable: Drawable? = null
+    var new: Boolean = false
+    var translatable: Boolean = true
+    @DrawableRes var imageDrawable: Int = 0
 }

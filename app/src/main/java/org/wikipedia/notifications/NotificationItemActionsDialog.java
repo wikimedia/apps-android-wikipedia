@@ -51,6 +51,9 @@ public class NotificationItemActionsDialog extends ExtendedBottomSheetDialogFrag
     @BindView(R.id.notification_action_tertiary) View tertiaryView;
     @BindView(R.id.notification_action_tertiary_icon) AppCompatImageView tertiaryImageView;
     @BindView(R.id.notification_action_tertiary_text) TextView tertiaryTextView;
+
+    private static final String ARG_NOTIFICATION = "notification";
+
     private Unbinder unbinder;
 
     private Notification notification;
@@ -60,7 +63,7 @@ public class NotificationItemActionsDialog extends ExtendedBottomSheetDialogFrag
     public static NotificationItemActionsDialog newInstance(@NonNull Notification notification) {
         NotificationItemActionsDialog instance = new NotificationItemActionsDialog();
         Bundle args = new Bundle();
-        args.putString("notification", GsonUtil.getDefaultGson().toJson(notification));
+        args.putString(ARG_NOTIFICATION, GsonUtil.getDefaultGson().toJson(notification));
         instance.setArguments(args);
         return instance;
     }
@@ -69,7 +72,7 @@ public class NotificationItemActionsDialog extends ExtendedBottomSheetDialogFrag
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.view_notification_actions, container);
         unbinder = ButterKnife.bind(this, view);
-        notification = GsonUtil.getDefaultGson().fromJson(getArguments().getString("notification"), Notification.class);
+        notification = GsonUtil.getDefaultGson().fromJson(getArguments().getString(ARG_NOTIFICATION), Notification.class);
         linkHandler = new NotificationLinkHandler(requireContext());
 
         if (notification.getContents() != null) {
@@ -162,6 +165,10 @@ public class NotificationItemActionsDialog extends ExtendedBottomSheetDialogFrag
             // ignore
         }
 
+        @Override public void onSVGLinkClicked(@NonNull String href) {
+            // ignore
+        }
+
         @Override
         public void onInternalLinkClicked(@NonNull PageTitle title) {
             callback().onActionPageTitle(title);
@@ -170,6 +177,7 @@ public class NotificationItemActionsDialog extends ExtendedBottomSheetDialogFrag
         @Override
         public void onExternalLinkClicked(@NonNull Uri uri) {
             try {
+                // TODO: handle "change password" since it will open a blank page in PageActivity
                 startActivity(new Intent(Intent.ACTION_VIEW).setData(uri));
             } catch (Exception e) {
                 L.e(e);

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
 
     <style name="ThemeDark">
 
@@ -46,7 +46,6 @@
         <item name="main_toolbar_icon_color">@android:color/white</item>
         <item name="page_status_bar_color">@color/base18</item>
         <item name="page_expanded_status_bar_color">@color/base18</item>
-        <item name="page_toolbar_color">@color/base18</item>
         <item name="page_toolbar_icon_color">@color/base100</item>
         <item name="themed_icon_color">@android:color/white</item>
         <item name="nav_tab_background_color">@color/base18</item>
@@ -75,11 +74,22 @@
         <item name="tab_placeholder_text_color">@color/base10</item>
         <item name="chip_background_color">@color/base20</item>
         <item name="chip_text_color">@color/base80</item>
+        <item name="action_mode_green_background">@color/green50</item>
+        <item name="image_tags_onboarding_image">@drawable/ic_image_tags_onboarding_dark</item>
 
         <!-- Background for cards, lists, and controls -->
         <item name="paper_color">@color/base14</item>
         <item name="suggestions_background_color">@color/base12</item>
         <item name="color_group_52">@color/accent75</item>
+        <item name="color_group_53">@color/accent30</item>
+        <item name="color_group_54">@color/base14</item>
+        <item name="color_group_55">@color/accent20</item>
+        <item name="color_group_56">@color/accent50</item>
+        <item name="color_group_57">@color/green30</item>
+        <item name="color_group_58">@color/green50</item>
+        <item name="color_group_59">@color/base50</item>
+        <item name="color_group_60">@color/base20</item>
+        <item name="color_group_61">@color/base30</item>
 
     </style>
 

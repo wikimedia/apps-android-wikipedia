@@ -42,8 +42,8 @@
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:layout_gravity="center_horizontal"
-            android:background="@null"
             android:contentDescription="@string/captcha_image"
+            app:backgroundImage="?attr/paper_color"
             app:actualImageScaleType="fitCenter" />
 
         <ProgressBar
@@ -85,7 +85,7 @@
             android:maxLines="1" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
+    <Button
         android:id="@+id/captcha_submit_button"
         style="@style/App.Button.Blue"
         android:layout_width="match_parent"

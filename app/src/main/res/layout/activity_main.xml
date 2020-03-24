@@ -24,8 +24,9 @@
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/main_toolbar_color"
             android:elevation="4dp"
-            android:theme="@style/ToolbarTheme"
-            app:titleTextColor="?attr/main_toolbar_title_color">
+            android:layout_marginStart="-12dp"
+            app:titleTextColor="?attr/main_toolbar_title_color"
+            app:titleMarginStart="28dp">
 
             <LinearLayout
                 android:id="@+id/hamburger_and_wordmark_layout"
@@ -38,15 +39,15 @@
                     android:id="@+id/drawer_icon_layout"
                     android:layout_width="48dp"
                     android:layout_height="match_parent"
-                    android:layout_marginStart="-12dp"
-                    android:background="?attr/selectableItemBackgroundBorderless">
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/main_drawer_content_description">
 
                     <ImageView
                         android:id="@+id/drawer_icon_menu"
                         android:layout_width="24dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:contentDescription="@null"
+                        android:contentDescription="@string/main_drawer_content_description"
                         app:srcCompat="@drawable/ic_menu_themed_24dp" />
 
                     <ImageView
@@ -79,5 +80,5 @@
         android:layout_width="288dp"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:background="?attr/paper_color" />
+        android:background="?attr/paper_color"/>
 </org.wikipedia.views.WikiDrawerLayout>

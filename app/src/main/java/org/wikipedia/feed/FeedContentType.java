@@ -4,29 +4,31 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 
-import org.wikipedia.Constants.InvokeSource;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.auth.AccountUtil;
+import org.wikipedia.descriptions.DescriptionEditActivity.Action;
+import org.wikipedia.feed.accessibility.AccessibilityCardClient;
 import org.wikipedia.feed.aggregated.AggregatedFeedContentClient;
 import org.wikipedia.feed.becauseyouread.BecauseYouReadClient;
 import org.wikipedia.feed.dataclient.FeedClient;
-import org.wikipedia.feed.mainpage.MainPageClient;
 import org.wikipedia.feed.random.RandomClient;
 import org.wikipedia.feed.suggestededits.SuggestedEditsFeedClient;
 import org.wikipedia.model.EnumCode;
 import org.wikipedia.model.EnumCodeMap;
 import org.wikipedia.settings.Prefs;
+import org.wikipedia.util.DeviceUtil;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static org.wikipedia.Constants.InvokeSource.FEED_CARD_SUGGESTED_EDITS_ADD_DESC;
-import static org.wikipedia.Constants.InvokeSource.FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION;
-import static org.wikipedia.Constants.InvokeSource.FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC;
-import static org.wikipedia.Constants.InvokeSource.FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION;
+import static org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_CAPTION;
+import static org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_DESCRIPTION;
+import static org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_IMAGE_TAGS;
+import static org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_CAPTION;
+import static org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION;
 
 public enum FeedContentType implements EnumCode {
     NEWS(0, R.string.view_card_news_title, R.string.feed_item_type_news, true) {
@@ -50,13 +52,9 @@ public enum FeedContentType implements EnumCode {
             return isEnabled() ? new AggregatedFeedContentClient.TrendingArticles(aggregatedClient) : null;
         }
     },
-    MAIN_PAGE(4, R.string.view_main_page_card_title, R.string.feed_item_type_main_page, false) {
-        @Nullable
-        @Override
-        public FeedClient newClient(AggregatedFeedContentClient aggregatedClient, int age) {
-            return isEnabled() && age == 0 ? new MainPageClient() : null;
-        }
-    },
+    //
+    // "4" used to be MAIN_PAGE.
+    //
     RANDOM(5, R.string.view_random_card_title, R.string.feed_item_type_randomizer, false) {
         @Nullable
         @Override
@@ -90,29 +88,29 @@ public enum FeedContentType implements EnumCode {
         @Override
         public FeedClient newClient(AggregatedFeedContentClient aggregatedClient, int age) {
             if (isEnabled() && AccountUtil.isLoggedIn() && WikipediaApp.getInstance().isOnline()) {
-                List<InvokeSource> unlockedTypes = getUnlockedEditingPrivileges();
+                List<Action> unlockedTypes = getUnlockedEditingPrivileges();
                 if (unlockedTypes.size() > 0) {
                     return new SuggestedEditsFeedClient(unlockedTypes.get(age % unlockedTypes.size()));
                 }
             }
             return null;
         }
+    },
+    ACCESSIBILITY(10, 0, 0, false, false) {
+        @Nullable
+        @Override
+        public FeedClient newClient(AggregatedFeedContentClient aggregatedClient, int age) {
+            return DeviceUtil.isAccessibilityEnabled() ? new AccessibilityCardClient() : null;
+        }
     };
 
-    List<InvokeSource> getUnlockedEditingPrivileges() {
-        List<InvokeSource> unlockedTypes = new ArrayList<>();
-        if (Prefs.isSuggestedEditsAddDescriptionsUnlocked()) {
-            unlockedTypes.add(FEED_CARD_SUGGESTED_EDITS_ADD_DESC);
-        }
-        if (Prefs.isSuggestedEditsTranslateDescriptionsUnlocked()) {
-            unlockedTypes.add(FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC);
-        }
-        if (Prefs.isSuggestedEditsAddCaptionsUnlocked()) {
-            unlockedTypes.add(FEED_CARD_SUGGESTED_EDITS_IMAGE_CAPTION);
-        }
-        if (Prefs.isSuggestedEditsTranslateCaptionsUnlocked()) {
-            unlockedTypes.add(FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION);
-        }
+    List<Action> getUnlockedEditingPrivileges() {
+        List<Action> unlockedTypes = new ArrayList<>();
+        unlockedTypes.add(ADD_DESCRIPTION);
+        unlockedTypes.add(TRANSLATE_DESCRIPTION);
+        unlockedTypes.add(ADD_CAPTION);
+        unlockedTypes.add(TRANSLATE_CAPTION);
+        unlockedTypes.add(ADD_IMAGE_TAGS);
         return unlockedTypes;
     }
 

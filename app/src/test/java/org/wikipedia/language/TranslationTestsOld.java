@@ -170,7 +170,7 @@ public class TranslationTestsOld {
                                      CharSequence[] expectedAny, @NonNull T... input) {
         String subject = String.format(new Locale(lang), entry.getValue(), input);
         String msg = lang + ":" + entry.getKey() + " = \"" + subject + "\"";
-        if (StringUtils.indexOfAny(subject, (CharSequence[]) expectedAny) < 0) {
+        if (StringUtils.indexOfAny(subject, expectedAny) < 0) {
             msg += " is missing any of \"" + Arrays.toString(expectedAny) + "\"";
             L.e(msg);
             mismatches.append(msg).append("\n");
@@ -219,7 +219,6 @@ public class TranslationTestsOld {
                         || name.startsWith("preference_")
                         // Required after upgrading Support Libraries from v23.0.1 to v23.1.0.
                         || name.equals("character_counter_pattern")
-                        || name.startsWith("hockeyapp_")
                         || name.equals("find_in_page_result")) {
                     continue;
                 }

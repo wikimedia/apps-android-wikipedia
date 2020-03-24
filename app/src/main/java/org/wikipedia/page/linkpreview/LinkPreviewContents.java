@@ -9,7 +9,6 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.page.PageSummary;
-import org.wikipedia.dataclient.restbase.page.RbPageSummary;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.StringUtil;
 
@@ -38,10 +37,10 @@ public class LinkPreviewContents {
     }
 
     LinkPreviewContents(@NonNull PageSummary pageSummary, @NonNull WikiSite wiki) {
-        title = new PageTitle(pageSummary.getTitle(), wiki);
+        title = new PageTitle(pageSummary.getApiTitle(), wiki);
         disambiguation = pageSummary.getType().equals(PageSummary.TYPE_DISAMBIGUATION);
         String extractStr;
-        if (pageSummary instanceof RbPageSummary) {
+        if (pageSummary instanceof PageSummary) {
             extractStr = pageSummary.getExtractHtml();
         } else {
             extractStr = createLegacyExtractText(pageSummary, title.getWikiSite());
@@ -98,7 +97,7 @@ public class LinkPreviewContents {
         }
         // fill in the rest of the string
         if (i + 1 < text.length()) {
-            outStr.append(text.substring(i + 1, text.length()));
+            outStr.append(text.substring(i + 1));
         }
         // if we had an imbalance of parentheses, then return the original string,
         // instead of the transformed one.

@@ -11,7 +11,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="?attr/page_toolbar_color"
+        android:background="?attr/main_toolbar_color"
         android:elevation="6dp">
 
         <androidx.appcompat.widget.Toolbar
@@ -84,10 +84,10 @@
     </FrameLayout>
 
     <LinearLayout
-        android:id="@+id/language_scroll_container"
+        android:id="@+id/search_language_scroll_view_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/page_toolbar_color"
+        android:background="?attr/main_toolbar_color"
         android:elevation="6dp"
         android:orientation="vertical"
         android:visibility="gone">
@@ -98,9 +98,11 @@
             android:background="?attr/material_theme_border_color" />
 
         <org.wikipedia.views.LanguageScrollView
-            android:id="@+id/lang_scroll"
+            android:id="@+id/search_language_scroll_view"
             android:layout_width="match_parent"
-            android:layout_height="48dp" />
+            android:layout_height="48dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"/>
 
     </LinearLayout>
 
@@ -110,14 +112,14 @@
         android:layout_weight="1"
         android:background="?android:windowBackground">
 
-        <fragment
+        <androidx.fragment.app.FragmentContainerView
             android:id="@+id/fragment_search_results"
             android:name="org.wikipedia.search.SearchResultsFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:layout="@layout/fragment_search_results" />
 
-        <fragment
+        <androidx.fragment.app.FragmentContainerView
             android:id="@+id/search_panel_recent"
             android:name="org.wikipedia.search.RecentSearchesFragment"
             android:layout_width="match_parent"

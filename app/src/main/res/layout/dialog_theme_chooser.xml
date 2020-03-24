@@ -110,27 +110,34 @@
             android:text="@string/color_theme_select"
             android:textColor="?attr/section_title_color" />
 
-        <LinearLayout
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/theme_chooser_match_system_theme_switch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center_vertical"
+            android:text="@string/theme_chooser_dialog_match_system_theme_switch_label"
+            android:textColor="?attr/primary_text_color" />
+
+        <LinearLayout
+            android:layout_width="300dp"
+            android:layout_height="56dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginStart="-4dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="-4dp"
-            android:layout_marginBottom="16dp"
             android:clipChildren="false">
 
             <FrameLayout
                 android:layout_width="0dp"
-                android:layout_height="48dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1">
 
-                <TextView
+                <Button
                     android:id="@+id/button_theme_light"
                     style="@style/App.Button.White"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_margin="0dp"
                     android:text="@string/color_theme_light" />
 
                 <View
@@ -148,17 +155,16 @@
 
             <FrameLayout
                 android:layout_width="0dp"
-                android:layout_height="48dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1">
 
-                <TextView
+                <Button
                     android:id="@+id/button_theme_sepia"
                     style="@style/App.Button.White"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_margin="0dp"
                     android:text="@string/color_theme_sepia"
-                    app:backgroundTint="@color/papyrus" />
+                    android:backgroundTint="@color/papyrus"/>
 
                 <View
                     android:id="@+id/button_theme_sepia_highlight"
@@ -172,18 +178,27 @@
                     android:elevation="4dp" />
 
             </FrameLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="300dp"
+            android:layout_height="56dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="-4dp"
+            android:layout_marginEnd="-4dp"
+            android:layout_marginBottom="16dp"
+            android:clipChildren="false">
 
             <FrameLayout
                 android:layout_width="0dp"
-                android:layout_height="48dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1">
 
-                <TextView
+                <Button
                     android:id="@+id/button_theme_dark"
                     style="@style/App.Button.Gray"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_margin="0dp"
                     android:text="@string/color_theme_dark" />
 
                 <View
@@ -201,15 +216,14 @@
 
             <FrameLayout
                 android:layout_width="0dp"
-                android:layout_height="48dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1">
 
-                <TextView
+                <Button
                     android:id="@+id/button_theme_black"
                     style="@style/App.Button.Black"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_margin="0dp"
                     android:text="@string/color_theme_black" />
 
                 <View

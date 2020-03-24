@@ -7,11 +7,10 @@ import androidx.annotation.NonNull;
 import org.wikipedia.Constants;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.dataclient.restbase.page.RbPageSummary;
+import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.feed.FeedCoordinator;
 import org.wikipedia.feed.dataclient.FeedClient;
 import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.page.bottomcontent.MainPageReadMoreTopicTask;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -42,7 +41,7 @@ public class BecauseYouReadClient implements FeedClient {
     private void getCardForHistoryEntry(@NonNull final HistoryEntry entry,
                                         final FeedClient.Callback cb) {
 
-        disposables.add(ServiceFactory.getRest(entry.getTitle().getWikiSite()).getRelatedPages(entry.getTitle().getConvertedText())
+        disposables.add(ServiceFactory.getRest(entry.getTitle().getWikiSite()).getRelatedPages(entry.getTitle().getPrefixedText())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .map(response -> response.getPages(Constants.SUGGESTION_REQUEST_ITEMS))
@@ -51,10 +50,10 @@ public class BecauseYouReadClient implements FeedClient {
                         cb::error));
     }
 
-    @NonNull private BecauseYouReadCard toBecauseYouReadCard(@NonNull List<RbPageSummary> results,
+    @NonNull private BecauseYouReadCard toBecauseYouReadCard(@NonNull List<PageSummary> results,
                                                              @NonNull HistoryEntry entry) {
         List<BecauseYouReadItemCard> itemCards = new ArrayList<>();
-        for (RbPageSummary result : results) {
+        for (PageSummary result : results) {
             itemCards.add(new BecauseYouReadItemCard(result.getPageTitle(entry.getTitle().getWikiSite())));
         }
         return new BecauseYouReadCard(entry, itemCards);

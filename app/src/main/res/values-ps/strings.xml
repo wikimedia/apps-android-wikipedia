@@ -29,7 +29,6 @@
   <string name="menu_text_select_define">تعريفول</string>
   <string name="menu_text_select_share">شريکول</string>
   <string name="menu_text_select_edit_here">دلته سمول</string>
-  <string name="nav_item_nearby">نژدې</string>
   <string name="last_updated_text">وروستئ هممهالېدنه %s</string>
   <string name="talk_page_link_text" fuzzy="true">خبرې اترې</string>
   <string name="preference_title_language" fuzzy="true">د ويکيپېډيا ژبه</string>
@@ -135,10 +134,7 @@
   <string name="button_continue_to_article">ليکنه لوستل</string>
   <string name="button_get_directions">لارښوونې ترلاسه کول</string>
   <string name="nav_item_donate">د ويکيپېډيا ملاتړ وکړئ</string>
-  <string name="crash_report_dialog_dont_send_button">تېرېدل</string>
-  <string name="crash_report_dialog_always_send_button">تل لېږل</string>
-  <string name="crash_report_dialog_send_button">لېږل</string>
-  <string name="crash_report_activity_title">د کاريال تېروتنه</string>
+    <string name="crash_report_activity_title">د کاريال تېروتنه</string>
   <string name="crash_report_relaunch">سر له نوي پيلول</string>
   <string name="crash_report_quit">بندول</string>
   <string name="article_header_edit_hint">سمول…</string>

@@ -26,6 +26,7 @@ import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.FaceAndColorDetectImageView;
 import org.wikipedia.views.GoneIfEmptyTextView;
+import org.wikipedia.views.ImageZoomHelper;
 import org.wikipedia.views.ItemTouchHelperSwipeAdapter;
 
 import butterknife.BindView;
@@ -53,6 +54,7 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
         super(context);
         inflate(getContext(), R.layout.view_card_featured_article, this);
         ButterKnife.bind(this);
+        ImageZoomHelper.setViewZoomable(imageView);
     }
 
     public void setCard(@NonNull FeaturedArticleCard card) {
@@ -99,7 +101,7 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
     }
 
     private void articleTitle(@NonNull String articleTitle) {
-        articleTitleView.setText(articleTitle);
+        articleTitleView.setText(StringUtil.fromHtml(articleTitle));
     }
 
     private void articleSubtitle(@Nullable String articleSubtitle) {

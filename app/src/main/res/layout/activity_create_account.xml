@@ -103,9 +103,10 @@
                         android:layout_marginEnd="0dp"
                         android:enabled="false"
                         android:text="@string/email_recommendation_message"
+                        android:textColor="?attr/material_theme_secondary_color"
                         android:textSize="12sp" />
 
-                    <TextView
+                    <Button
                         android:id="@+id/create_account_submit_button"
                         style="@style/App.Button.Blue"
                         android:layout_width="match_parent"

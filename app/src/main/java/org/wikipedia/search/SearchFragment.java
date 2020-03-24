@@ -74,8 +74,8 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
     @BindView(R.id.search_progress_bar) ProgressBar progressBar;
     @BindView(R.id.search_lang_button_container) View langButtonContainer;
     @BindView(R.id.search_lang_button) TextView langButton;
-    @BindView(R.id.lang_scroll) LanguageScrollView languageScrollView;
-    @BindView(R.id.language_scroll_container) View languageScrollContainer;
+    @BindView(R.id.search_language_scroll_view) LanguageScrollView languageScrollView;
+    @BindView(R.id.search_language_scroll_view_container) View languageScrollContainer;
     private Unbinder unbinder;
     private CompositeDisposable disposables = new CompositeDisposable();
 
@@ -182,15 +182,19 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
         toolbar.setNavigationOnClickListener((v) -> requireActivity().finish());
 
         initSearchView();
+        return view;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        setUpLanguageScroll(0);
+        startSearch(query, false);
+        searchView.setCloseButtonVisibility(query);
 
         if (!TextUtils.isEmpty(query)) {
             showPanel(PANEL_SEARCH_RESULTS);
         }
-
-        setUpLanguageScroll(0);
-        startSearch(query, false);
-        searchView.setCloseButtonVisibility(query);
-        return view;
     }
 
     @Override
@@ -306,7 +310,7 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
 
     @Override
     public void onSearchResultCopyLink(@NonNull PageTitle title) {
-        ClipboardUtil.setPlainText(requireContext(), null, title.getCanonicalUri());
+        ClipboardUtil.setPlainText(requireContext(), null, title.getUri());
         FeedbackUtil.showMessage(this, R.string.address_copied);
     }
 

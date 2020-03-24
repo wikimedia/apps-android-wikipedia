@@ -4,22 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_page_container"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/base10">
+    android:layout_height="match_parent">
 
-    <fragment
+    <androidx.fragment.app.FragmentContainerView
         android:id="@+id/page_fragment"
         android:name="org.wikipedia.page.PageFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout="@layout/fragment_page"
         tools:layout="@layout/fragment_page" />
 
     <FrameLayout
         android:id="@+id/page_toolbar_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/page_toolbar_color"
+        android:background="?attr/main_toolbar_color"
         android:elevation="4dp">
 
         <androidx.appcompat.widget.Toolbar
@@ -49,7 +47,7 @@
                     android:id="@+id/page_toolbar_button_tabs"
                     android:layout_width="48dp"
                     android:layout_height="match_parent"
-                    android:contentDescription="@string/menu_page_show_tabs"></org.wikipedia.views.TabCountsView>
+                    android:contentDescription="@string/menu_page_show_tabs" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/page_toolbar_button_show_overflow_menu"

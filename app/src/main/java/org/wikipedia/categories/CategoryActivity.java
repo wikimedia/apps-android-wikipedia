@@ -34,7 +34,6 @@ import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.ShareUtil;
-import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.PageItemView;
 import org.wikipedia.views.WikiErrorView;
@@ -80,7 +79,7 @@ public class CategoryActivity extends BaseActivity implements LinkPreviewDialog.
         setContentView(R.layout.activity_category);
         ButterKnife.bind(this);
 
-        setStatusBarColor(ResourceUtil.getThemedAttributeId(this, android.R.attr.windowBackground));
+        setStatusBarColor(ResourceUtil.getThemedColor(this, android.R.attr.windowBackground));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         categoryRecycler.setLayoutManager(new LinearLayoutManager(this));
@@ -231,7 +230,7 @@ public class CategoryActivity extends BaseActivity implements LinkPreviewDialog.
 
     @Override
     public void onLinkPreviewCopyLink(@NonNull PageTitle title) {
-        ClipboardUtil.setPlainText(this, null, title.getCanonicalUri());
+        ClipboardUtil.setPlainText(this, null, title.getUri());
         FeedbackUtil.showMessage(this, R.string.address_copied);
     }
 
@@ -255,8 +254,8 @@ public class CategoryActivity extends BaseActivity implements LinkPreviewDialog.
 
         void bindItem(PageTitle title) {
             itemView.setItem(title);
-            itemView.setTitle(StringUtil.fromHtml(title.namespace() != Namespace.CATEGORY
-                    ? title.getDisplayText() : title.getText().replace("_", " ")));
+            itemView.setTitle(title.namespace() != Namespace.CATEGORY
+                    ? title.getDisplayText() : title.getText().replace("_", " "));
             itemView.setImageUrl(title.getThumbUrl());
             itemView.setDescription(title.getDescription());
         }

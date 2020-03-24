@@ -193,7 +193,7 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
         for (ReadingList tempList : readingLists) {
             existingTitles.add(tempList.title());
         }
-        ReadingListTitleDialog.readingListTitleDialog(requireContext(), "", "",
+        ReadingListTitleDialog.readingListTitleDialog(requireActivity(), "", "",
                 existingTitles, (text, description) -> {
                     ReadingList list = ReadingListDbHelper.instance().createList(text, description);
                     addAndDismiss(list, titles);

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingStart="16dp"
+    android:paddingTop="4dp"
+    android:paddingBottom="4dp">
+
+    <TextView
+        android:id="@+id/reference_id_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp"
+        android:textColor="?attr/material_theme_primary_color"
+        android:maxLines="1"
+        android:minWidth="24dp"
+        tools:text="123"/>
+
+    <TextView
+        android:id="@+id/reference_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp"
+        android:layout_marginStart="16dp"
+        android:lineSpacingMultiplier="1.5"
+        android:textColor="?attr/material_theme_primary_color"
+        android:textIsSelectable="true"
+        tools:text="Lorem ipsum" />
+
+    <ImageView
+        android:id="@+id/reference_back_link"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:padding="12dp"
+        app:srcCompat="@drawable/ic_arrow_up_alt_24px"
+        app:tint="?attr/material_theme_secondary_color"
+        android:clickable="true"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@null"/>
+
+</LinearLayout>

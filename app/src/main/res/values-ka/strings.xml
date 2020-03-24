@@ -41,13 +41,10 @@
   <string name="menu_text_select_define">განსაზღვრა</string>
   <string name="menu_text_select_share">გაზიარება</string>
   <string name="menu_text_select_edit_here">დაარედაქტირე აქ</string>
-  <string name="nav_item_nearby">სიახლოვეს</string>
-  <string name="nearby_zoom_to_location">მიახლოება რუკაზე</string>
   <string name="last_updated_text">ბოლოს განახლდა %s</string>
   <string name="talk_page_link_text" fuzzy="true">განხილვა</string>
   <string name="map_view_link_text">რუკაზე ნახვა</string>
   <string name="language_count_link_text">ხელმისაწვდომია %d სხვა ენაზე</string>
-  <string name="content_license_html">შიგთავსი ვრცელდება &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ლიცენზიით, თუკი სხვაგვარად არ არის აღნიშნული</string>
   <string name="edit_save_action_license_logged_in" fuzzy="true">შენახვით, თქვენ ეთანხმებით &lt;a href=\"%1$s\"&gt;გამოყენების პირობებს&lt;/a&gt; და თქვენს მიერ დაწერილი ტექსტის &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ლიცენზიით გაშვებას.</string>
   <string name="edit_save_action_license_anon" fuzzy="true">შენახვით, თქვენ ეთანხმებით &lt;a href=\"%1$s\"&gt;გამოყენების პირობებს&lt;/a&gt; და თქვენს მიერ დაწერილი ტექსტის &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ლიცენზიით გაშვებას. რედაქტირების ავტორად დაფიქსირდება თქვენი მოწყობილობის IP-მისამართი. რეკომენდებულია &lt;a href=\"https://#login\"&gt;ავტორიზაციის&lt;/a&gt; გავლა მეტი დაცულობისათვის.</string>
   <string name="preference_title_language" fuzzy="true">ვიკიპედიის ენები</string>
@@ -200,7 +197,6 @@
   <string name="close_all_tabs_confirm_yes">დიახ</string>
   <string name="close_all_tabs_confirm_no">არა</string>
   <string name="button_close_tab">ჩანართის დახურვა</string>
-  <string name="tool_tip_share">საიტერესო ფაქტის აღმოჩენის შემდეგ, გააზიარეთ ის ფავორიტთა ქსელში!</string>
   <string name="page_view_in_browser">გვერდის ბრაუზერში ხილვა</string>
   <string name="error_response_malformed">სერვერისგან პასუხი არასწორად დაფორმატდა.</string>
   <string name="error_unknown">აღმოჩენილია უცნობი შეცდომა.</string>
@@ -224,11 +220,6 @@
   <string name="error_page_does_not_exist">ეს გვერდი არ არსებობს.</string>
   <string name="view_wiki_error_message_offline">ინტერნეტთან დაკავშირება ვერ ხერხდება.</string>
   <string name="reference_title">სქოლიო %s</string>
-  <string name="crash_report_dialog_title">უკაცრავად, უკანასკნელად აპლიკაციამ არ უმუშავა</string>
-  <string name="crash_report_dialog_text">გსურთ პრობლემის ანგარიშის სერვის-პროვაიდერ HockeyApp-სთვის გაგზავნა? ვიკიმედია შეეცდება განიხილოს თქვენი ანგარიში და გამოასწოროს ის.</string>
-  <string name="crash_report_dialog_dont_send_button">გამოტოვება</string>
-  <string name="crash_report_dialog_always_send_button">ყოველთვის გაგზავნა</string>
-  <string name="crash_report_dialog_send_button">გაგზავნა</string>
   <string name="crash_report_activity_title">აპლიკაციის შეცდომა</string>
   <string name="crash_report_relaunch_or_quit">გსურთ დაწყება ან გასვლა?</string>
   <string name="crash_report_relaunch">თავიდან დაწყება</string>

@@ -21,7 +21,6 @@ public class HistoryEntry implements Parcelable {
     public static final int SOURCE_LANGUAGE_LINK = 6;
     public static final int SOURCE_RANDOM = 7;
     public static final int SOURCE_MAIN_PAGE = 8;
-    public static final int SOURCE_NEARBY = 9;
     public static final int SOURCE_DISAMBIG = 10;
     public static final int SOURCE_READING_LIST = 11;
     public static final int SOURCE_FEED_CONTINUE_READING = 12;

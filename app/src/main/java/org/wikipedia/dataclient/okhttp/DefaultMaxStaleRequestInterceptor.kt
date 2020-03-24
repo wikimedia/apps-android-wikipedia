@@ -17,7 +17,7 @@ internal class DefaultMaxStaleRequestInterceptor : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         var req = chain.request()
 
-        if (!req.cacheControl().noCache()) {
+        if (!req.cacheControl.noCache) {
             // Set the max-stale parameter based on whether we're preferring offline content:
             // If we prefer offline content, then max-stale can be infinity. (OkHttp will still perform
             // a network call if the request is explicitly noCache)

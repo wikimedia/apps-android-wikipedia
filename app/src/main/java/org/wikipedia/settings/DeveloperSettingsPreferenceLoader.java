@@ -11,20 +11,15 @@ import androidx.preference.TwoStatePreference;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.crash.RemoteLogException;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.notifications.NotificationEditorTasksHandler;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.database.ReadingList;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.readinglist.database.ReadingListPage;
-import org.wikipedia.suggestededits.SuggestedEditsCardsActivity;
 import org.wikipedia.suggestededits.provider.MissingDescriptionProvider;
 import org.wikipedia.util.StringUtil;
-import org.wikipedia.util.log.L;
-import org.wikipedia.views.DialogTitleWithImage;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,24 +32,6 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
     private static final String TEXT_OF_READING_LIST = "Reading list";
 
     @NonNull private final Context context;
-
-    @NonNull private final Preference.OnPreferenceChangeListener setRestBaseManuallyChangeListener
-            = new Preference.OnPreferenceChangeListener() {
-        /**
-         * Called when the useRestBaseSetManually preference has been changed by the user. This is
-         * called before the state of the Preference is about to be updated and
-         * before the state is persisted.
-         *
-         * @param preference The changed Preference.
-         * @param newValue   The new value of the Preference.
-         * @return True to update the state of the Preference with the new value.
-         */
-        @Override
-        public boolean onPreferenceChange(Preference preference, Object newValue) {
-            setUseRestBasePreference((Boolean) newValue);
-            return true;
-        }
-    };
 
     @NonNull private final Preference.OnPreferenceChangeListener setMediaWikiBaseUriChangeListener
             = new Preference.OnPreferenceChangeListener() {
@@ -101,19 +78,11 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
     @Override
     public void loadPreferences() {
         loadPreferences(R.xml.developer_preferences);
-        setUpRestBaseCheckboxes();
         setUpMediaWikiSettings();
 
         findPreference(context.getString(R.string.preferences_developer_crash_key))
                 .setOnPreferenceClickListener(preference -> {
                     throw new TestException("User tested crash functionality.");
-                });
-
-        findPreference(R.string.preference_key_remote_log)
-                .setOnPreferenceChangeListener((preference, newValue) -> {
-                    L.logRemoteError(new RemoteLogException(newValue.toString()));
-                    WikipediaApp.getInstance().checkCrashes(getActivity());
-                    return true;
                 });
 
         findPreference(R.string.preference_key_add_articles)
@@ -180,7 +149,7 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
                                             .setTitle(StringUtil.fromHtml(summary.getDisplayTitle()))
                                             .setMessage(StringUtil.fromHtml(summary.getExtract()))
                                             .setPositiveButton("Go", (dialog, which) -> {
-                                                PageTitle title = new PageTitle(summary.getNormalizedTitle(), WikipediaApp.getInstance().getWikiSite());
+                                                PageTitle title = new PageTitle(summary.getApiTitle(), WikipediaApp.getInstance().getWikiSite());
                                                 getActivity().startActivity(PageActivity.newIntentForNewTab(getActivity(), new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK), title));
                                             })
                                             .setNegativeButton(R.string.cancel, null)
@@ -202,7 +171,7 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
                                             .setTitle(StringUtil.fromHtml(pair.getSecond().getDisplayTitle()))
                                             .setMessage(StringUtil.fromHtml(pair.getSecond().getDescription()))
                                             .setPositiveButton("Go", (dialog, which) -> {
-                                                PageTitle title = new PageTitle(pair.getSecond().getNormalizedTitle(), WikiSite.forLanguageCode(WikipediaApp.getInstance().language().getAppLanguageCodes().get(1)));
+                                                PageTitle title = new PageTitle(pair.getSecond().getApiTitle(), WikiSite.forLanguageCode(WikipediaApp.getInstance().language().getAppLanguageCodes().get(1)));
                                                 getActivity().startActivity(PageActivity.newIntentForNewTab(getActivity(), new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK), title));
                                             })
                                             .setNegativeButton(R.string.cancel, null)
@@ -214,89 +183,13 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
                     return true;
                 });
 
-        findPreference(context.getString(R.string.preference_key_dialog_with_image_test))
+        findPreference(context.getString(R.string.preferences_developer_announcement_reset_shown_dialogs_key)).setSummary(context.getString(R.string.preferences_developer_announcement_reset_shown_dialogs_summary, Prefs.getAnnouncementShownDialogs().size()));
+        findPreference(context.getString(R.string.preferences_developer_announcement_reset_shown_dialogs_key))
                 .setOnPreferenceClickListener(preference -> {
-                    new AlertDialog.Builder(getActivity())
-                            .setCustomTitle(new DialogTitleWithImage(getActivity(), R.string.suggested_edits_unlock_add_descriptions_dialog_title, R.drawable.ic_unlock_illustration_add, true))
-                            .setMessage(R.string.suggested_edits_unlock_add_descriptions_dialog_message)
-                            .setPositiveButton(R.string.suggested_edits_unlock_dialog_yes, null)
-                            .setNegativeButton(R.string.suggested_edits_unlock_dialog_no, null)
-                            .show();
+                    Prefs.resetAnnouncementShownDialogs();
+                    loadPreferences();
                     return true;
                 });
-
-        findPreference(context.getString(R.string.preferences_developer_suggested_edits_add_description_dialog))
-                .setOnPreferenceClickListener(preference -> {
-                    SuggestedEditsCardsActivity.Companion.showEditDescriptionUnlockDialog(getActivity());
-                    return true;
-                });
-
-        findPreference(context.getString(R.string.preferences_developer_suggested_edits_add_description_notification))
-                .setOnPreferenceClickListener(preference -> {
-                    NotificationEditorTasksHandler.maybeShowEditDescriptionUnlockNotification(getActivity(), true);
-                    return true;
-                });
-
-        findPreference(context.getString(R.string.preferences_developer_suggested_edits_translate_description_dialog))
-                .setOnPreferenceClickListener(preference -> {
-                    SuggestedEditsCardsActivity.Companion.showTranslateDescriptionUnlockDialog(getActivity());
-                    return true;
-                });
-
-        findPreference(context.getString(R.string.preferences_developer_suggested_edits_translate_description_notification))
-                .setOnPreferenceClickListener(preference -> {
-                    NotificationEditorTasksHandler.maybeShowTranslateDescriptionUnlockNotification(getActivity(), true);
-                    return true;
-                });
-
-        findPreference(context.getString(R.string.preferences_developer_suggested_edits_add_caption_dialog))
-                .setOnPreferenceClickListener(preference -> {
-                    SuggestedEditsCardsActivity.Companion.showEditCaptionUnlockDialog(getActivity());
-                    return true;
-                });
-
-        findPreference(context.getString(R.string.preferences_developer_suggested_edits_add_caption_notification))
-                .setOnPreferenceClickListener(preference -> {
-                    NotificationEditorTasksHandler.maybeShowEditCaptionUnlockNotification(getActivity(), true);
-                    return true;
-                });
-
-        findPreference(context.getString(R.string.preferences_developer_suggested_edits_translate_caption_dialog))
-                .setOnPreferenceClickListener(preference -> {
-                    SuggestedEditsCardsActivity.Companion.showTranslateCaptionUnlockDialog(getActivity());
-                    return true;
-                });
-
-        findPreference(context.getString(R.string.preferences_developer_suggested_edits_translate_caption_notification))
-                .setOnPreferenceClickListener(preference -> {
-                    NotificationEditorTasksHandler.maybeShowTranslateCaptionUnlockNotification(getActivity(), true);
-                    return true;
-                });
-    }
-
-    private void setUpRestBaseCheckboxes() {
-        TwoStatePreference manualPreference = (TwoStatePreference) findPreference(getManualKey());
-        manualPreference.setOnPreferenceChangeListener(setRestBaseManuallyChangeListener);
-        setUseRestBasePreference(manualPreference.isChecked());
-    }
-
-    private String getManualKey() {
-        return context.getString(R.string.preference_key_use_restbase_manual);
-    }
-
-    private void setUseRestBasePreference(boolean manualMode) {
-        RbSwitch.INSTANCE.update();
-        TwoStatePreference useRestBasePref = getUseRestBasePreference();
-        useRestBasePref.setEnabled(manualMode);
-        useRestBasePref.setChecked(RbSwitch.INSTANCE.isRestBaseEnabled());
-    }
-
-    private TwoStatePreference getUseRestBasePreference() {
-        return (TwoStatePreference) findPreference(getUseRestBaseKey());
-    }
-
-    private String getUseRestBaseKey() {
-        return context.getString(R.string.preference_key_use_restbase);
     }
 
     private void setUpMediaWikiSettings() {

@@ -5,7 +5,6 @@ import org.wikipedia.util.MathUtil;
 
 public class SessionData {
     private final MathUtil.Averaged<Long> leadLatency = new MathUtil.Averaged<>();
-    private final MathUtil.Averaged<Long> restLatency = new MathUtil.Averaged<>();
     private long startTime;
     private long lastTouchTime;
     private int pagesFromSearch;
@@ -15,8 +14,6 @@ public class SessionData {
     private int pagesFromExternal;
     private int pagesFromHistory;
     private int pagesFromReadingList;
-    private int pagesFromNearby;
-    private int pagesFromDisambig;
     private int pagesFromBack;
     private int pagesWithNoDescription;
     private int pagesFromSuggestedEdits;
@@ -46,12 +43,6 @@ public class SessionData {
                 break;
             case HistoryEntry.SOURCE_READING_LIST:
                 pagesFromReadingList++;
-                break;
-            case HistoryEntry.SOURCE_NEARBY:
-                pagesFromNearby++;
-                break;
-            case HistoryEntry.SOURCE_DISAMBIG:
-                pagesFromDisambig++;
                 break;
             case HistoryEntry.SOURCE_SUGGESTED_EDITS:
                 pagesFromSuggestedEdits++;
@@ -85,14 +76,6 @@ public class SessionData {
         this.leadLatency.addSample(leadLatency);
     }
 
-    public long getRestLatency() {
-        return (long) restLatency.getAverage();
-    }
-
-    public void addRestLatency(long restLatency) {
-        this.restLatency.addSample(restLatency);
-    }
-
     public int getPagesFromSearch() {
         return pagesFromSearch;
     }
@@ -121,14 +104,6 @@ public class SessionData {
         return pagesFromReadingList;
     }
 
-    public int getPagesFromNearby() {
-        return pagesFromNearby;
-    }
-
-    public int getPagesFromDisambig() {
-        return pagesFromDisambig;
-    }
-
     public int getPagesFromBack() {
         return pagesFromBack;
     }
@@ -151,7 +126,7 @@ public class SessionData {
 
     public int getTotalPages() {
         return pagesFromSearch + pagesFromRandom + pagesFromLangLink + pagesFromInternal
-                + pagesFromExternal + pagesFromHistory + pagesFromReadingList + pagesFromNearby
-                + pagesFromDisambig + pagesFromSuggestedEdits;
+                + pagesFromExternal + pagesFromHistory + pagesFromReadingList
+                + pagesFromSuggestedEdits;
     }
 }

@@ -17,7 +17,7 @@
         android:orientation="vertical"
         android:visibility="gone" />
 
-    <com.duolingo.open.rtlviewpager.RtlViewPager
+    <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/gallery_item_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
@@ -36,8 +36,7 @@
                 android:id="@+id/gallery_toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/black26"
-                android:theme="@style/ToolbarTheme" />
+                android:background="@color/black26" />
 
             <View
                 android:id="@+id/gallery_toolbar_gradient"
@@ -121,23 +120,24 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="12dp"
                 android:paddingBottom="16dp"
+                android:gravity="center_vertical"
                 android:foreground="?attr/selectableItemBackgroundBorderless">
 
                 <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_gravity="center_vertical"
-                    app:srcCompat="@drawable/ic_add_circle_black_24dp"
-                    app:tint="?attr/colorAccent"
-                    android:contentDescription="@null"/>
+                    android:layout_width="@dimen/app_shortcut_icon_size"
+                    android:layout_height="@dimen/app_shortcut_icon_size"
+                    android:contentDescription="@null"
+                    app:srcCompat="@drawable/ic_add_gray_white_24dp" />
 
                 <TextView
                     android:id="@+id/gallery_caption_translate_button_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingStart="4dp"
-                    android:textColor="?attr/colorAccent"
-                    android:layout_gravity="center_vertical"/>
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:textAllCaps="true"
+                    android:textColor="@color/base100"
+                    android:letterSpacing="0.1" />
 
             </LinearLayout>
 
@@ -150,25 +150,56 @@
         </FrameLayout>
 
         <LinearLayout
-            android:id="@+id/license_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/black38"
-            android:gravity="center_vertical"
             android:paddingStart="@dimen/activity_horizontal_margin"
             android:paddingTop="16dp"
             android:paddingEnd="@dimen/activity_horizontal_margin"
             android:paddingBottom="16dp">
 
-            <include layout="@layout/view_license_icons_layout" />
+            <LinearLayout
+                android:id="@+id/gallery_license_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/gallery_license_icon"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:contentDescription="@null"
+                    app:tint="@color/white70"
+                    tools:src="@drawable/ic_license_cc" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/gallery_license_icon_by"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_marginStart="4dp"
+                    android:contentDescription="@null"
+                    android:visibility="gone"
+                    app:tint="@color/white70"
+                    tools:src="@drawable/ic_license_by" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/gallery_license_icon_sa"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_marginStart="4dp"
+                    android:contentDescription="@null"
+                    android:visibility="gone"
+                    app:tint="@color/white70"
+                    tools:src="@drawable/ic_license_sharealike" />
+            </LinearLayout>
 
             <org.wikipedia.views.AppTextView
                 android:id="@+id/gallery_credit_text"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:ellipsize="end"
                 android:maxLines="2"
-                android:paddingStart="8dp"
+                android:layout_marginStart="8dp"
                 android:textColor="@color/white70"
                 android:textColorLink="@color/white70"
                 android:textIsSelectable="true"

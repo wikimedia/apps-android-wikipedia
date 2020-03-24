@@ -46,16 +46,12 @@
   <string name="menu_text_select_define">មើលនិយមន័យ</string>
   <string name="menu_text_select_share">ចែកចាយ</string>
   <string name="menu_text_select_edit_here">កែប្រែនៅទីនេះ</string>
-  <string name="nav_item_nearby">ជិតខាង</string>
-  <string name="nearby_zoom_to_location">ពង្រីកទៅរកទីតាំងមួយនៅលើផែនទី</string>
-  <string name="nearby_osm_license">&amp;copy; &amp;nbsp;អ្នករួមចំណែកនៅ&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt;</string>
   <string name="last_updated_text">បន្ទាន់សម័យចុង​ក្រោយ​នៅ %s</string>
   <string name="talk_page_link_text">មើលទំព័រពិភាក្សា</string>
   <string name="edit_history_link_text">មើលប្រវត្តិកែប្រែ</string>
   <string name="map_view_link_text">មើលនៅលើផែនទី</string>
   <string name="other_languages_indication_text">អាន​ជា​ភាសា​ផ្សេង​ទៀត</string>
   <string name="language_count_link_text">អាចប្រើបានជា%dភាសាផ្សេងទៀត</string>
-  <string name="content_license_html">ខ្លឹមសារអត្ថបទផ្ដល់ជូនក្រោមអាជ្ញាប័ណ្ណ &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; លើកលែងតែមានបញ្ជាក់ផ្សេងពីនេះ</string>
   <string name="edit_save_action_license_logged_in">តាមរយៈការបោះផ្សាយ អ្នកយល់ព្រមជាមួួយ &lt;a href=\"%1$s\"&gt;លក្ខខណ្ឌប្រើប្រាស់&lt;/a&gt;, និងផ្សព្វផ្សាយការរួមចំណែករបស់អ្នកដោយឥតផ្លាស់ប្ដូរវិញបានក្រោយអាជ្ញាប័ណ្ណ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ។</string>
   <string name="edit_save_action_license_anon">តាមរយៈការរបោះផ្សាយ អ្នកយល់ព្រមជាមួួយ &lt;a href=\"%1$s\"&gt;លក្ខខណ្ឌប្រើប្រាស់&lt;/a&gt;, និងផ្សព្វផ្សាយការរួមចំណែករបស់អ្នកដោយឥតផ្លាស់ប្ដូរវិញបានក្រោយអាជ្ញាប័ណ្ណ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ។ ការកែប្រែនឹងត្រូវភ្ជាប់នឹងអាសយដ្ឋានIPរបស់ឧបករណ៍របស់អ្នក។ ប្រសិនបើអ្នក&lt;a href=\"https://#login\"&gt;កត់ឈ្មោះចូល&lt;/a&gt; នោះអ្នកនឹងរក្សាឯកជនភាពបានប្រសើរជាង។</string>
   <string name="preference_title_language">ភាសាវិគីភីឌា</string>
@@ -232,9 +228,6 @@
   <string name="view_wiki_error_message_offline">មិនអាចភ្ជាប់អ៊ីនធើណិតបានទេ</string>
   <string name="reference_title">ឯកសារយោង %s</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">បង្អាប់រូបភាព (ក្នុងរចនាបថងងឹត)</string>
-  <string name="crash_report_dialog_dont_send_button">រំលង</string>
-  <string name="crash_report_dialog_always_send_button">ផ្ញើជានិច្ច</string>
-  <string name="crash_report_dialog_send_button">ផ្ញើ​</string>
   <string name="crash_report_activity_title">បញ្ហាកម្មវិធី</string>
   <string name="crash_report_relaunch">បើកឡើងវិញ</string>
   <string name="crash_report_quit">ចាកចេញ</string>
@@ -310,8 +303,6 @@
   <string name="notification_syncing_cancel_button">បោះបង់</string>
   <string name="notification_syncing_title" fuzzy="true">កំពុងទាញយកអត្ថបទចំនួន %1$d …</string>
   <string name="notification_syncing_description" fuzzy="true">នៅសល់អត្ថបទចំនួន %1$d</string>
-  <string name="preference_title_notification_welcome">សូមស្វាគមន៍</string>
-  <string name="preference_summary_notification_welcome">គណនីត្រូវបានបង្កើត</string>
   <string name="preference_title_notification_thanks">ការថ្លែងអំណរគុណ</string>
   <string name="preference_summary_notification_thanks">មាននរណាម្នាក់បានថ្លែងអំណរគុណអ្នកដែលបានធ្វើការកែប្រែមួយ</string>
   <string name="view_because_you_read_card_title">ព្រោះអ្នកបានអាន</string>

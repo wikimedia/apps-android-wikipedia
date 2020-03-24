@@ -27,7 +27,6 @@ import org.wikipedia.dataclient.mwapi.SiteMatrix;
 import org.wikipedia.history.SearchActionModeCallback;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.SearchEmptyView;
-import org.wikipedia.views.ViewUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -127,7 +126,6 @@ public class LanguagesListActivity extends BaseActivity {
             currentSearchQuery = "";
             isLanguageSearched = true;
             actionMode = mode;
-            ViewUtil.finishActionModeWhenTappingOnView(recyclerView, actionMode);
             return super.onCreateActionMode(mode, menu);
         }
 
@@ -154,11 +152,6 @@ public class LanguagesListActivity extends BaseActivity {
         @Override
         protected String getSearchHintString() {
             return getResources().getString(R.string.search_hint_search_languages);
-        }
-
-        @Override
-        protected boolean finishActionModeIfKeyboardHiding() {
-            return false;
         }
 
         @Override
@@ -339,7 +332,7 @@ public class LanguagesListActivity extends BaseActivity {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .map(SiteMatrix::getSites)
-                .doFinally(() -> {
+                .doAfterTerminate(() -> {
                     progressBar.setVisibility(View.INVISIBLE);
                     adapter.notifyDataSetChanged();
                 })

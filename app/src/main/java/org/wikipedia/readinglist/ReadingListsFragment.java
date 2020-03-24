@@ -25,7 +25,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -59,7 +58,6 @@ import org.wikipedia.views.DrawableItemDecoration;
 import org.wikipedia.views.PageItemView;
 import org.wikipedia.views.ReadingListsOverflowView;
 import org.wikipedia.views.SearchEmptyView;
-import org.wikipedia.views.ViewUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -119,12 +117,6 @@ public class ReadingListsFragment extends Fragment implements
     }
 
     @Override
-    public void onDestroy() {
-        super.onDestroy();
-        WikipediaApp.getInstance().getRefWatcher().watch(this);
-    }
-
-    @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_reading_lists, container, false);
         unbinder = ButterKnife.bind(this, view);
@@ -132,7 +124,7 @@ public class ReadingListsFragment extends Fragment implements
         searchEmptyView.setEmptyText(R.string.search_reading_lists_no_results);
         readingListView.setLayoutManager(new LinearLayoutManager(getContext()));
         readingListView.setAdapter(adapter);
-        readingListView.addItemDecoration(new DrawableItemDecoration(requireContext(), R.attr.list_separator_drawable, false));
+        readingListView.addItemDecoration(new DrawableItemDecoration(requireContext(), R.attr.list_separator_drawable, true, false));
 
         disposables.add(WikipediaApp.getInstance().getBus().subscribe(new EventBusConsumer()));
         swipeRefreshLayout.setColorSchemeResources(getThemedAttributeId(requireContext(), R.attr.colorAccent));
@@ -165,6 +157,15 @@ public class ReadingListsFragment extends Fragment implements
     public void onResume() {
         super.onResume();
         updateLists();
+        maybeShowOnboarding();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        if (actionMode != null) {
+            actionMode.finish();
+        }
     }
 
     @Override
@@ -230,7 +231,7 @@ public class ReadingListsFragment extends Fragment implements
                     existingTitles.add(((ReadingList) list).title());
                 }
             }
-            ReadingListTitleDialog.readingListTitleDialog(requireContext(), title, "",
+            ReadingListTitleDialog.readingListTitleDialog(requireActivity(), title, "",
                     existingTitles, (text, description) -> {
                         ReadingListDbHelper.instance().createList(text, description);
                         updateLists();
@@ -270,20 +271,6 @@ public class ReadingListsFragment extends Fragment implements
         } else {
             Prefs.setReadingListSyncEnabled(true);
             ReadingListSyncAdapter.manualSyncWithRefresh();
-        }
-    }
-
-    @Override
-    public void setUserVisibleHint(boolean visible) {
-        super.setUserVisibleHint(visible);
-        if (!isAdded()) {
-            return;
-        }
-        if (visible) {
-            updateLists();
-            maybeShowOnboarding();
-        } else if (actionMode != null) {
-            actionMode.finish();
         }
     }
 
@@ -359,7 +346,7 @@ public class ReadingListsFragment extends Fragment implements
     }
 
     private void maybeShowListLimitMessage() {
-        if (getUserVisibleHint() && displayedLists.size() >= Constants.MAX_READING_LISTS_LIMIT) {
+        if (displayedLists.size() >= Constants.MAX_READING_LISTS_LIMIT) {
             String message = getString(R.string.reading_lists_limit_message);
             FeedbackUtil.makeSnackbar(getActivity(), message, FeedbackUtil.LENGTH_DEFAULT).show();
         }
@@ -434,7 +421,7 @@ public class ReadingListsFragment extends Fragment implements
             getView().setTitle(page.title());
             getView().setTitleMaxLines(2);
             getView().setTitleEllipsis();
-            getView().setDescription(StringUtils.capitalize(page.description()));
+            getView().setDescription(page.description());
             getView().setDescriptionMaxLines(2);
             getView().setDescriptionEllipsis();
             getView().setListItemImageDimensions(DimenUtil.roundedDpToPx(ARTICLE_ITEM_IMAGE_DIMENSION), DimenUtil.roundedDpToPx(ARTICLE_ITEM_IMAGE_DIMENSION));
@@ -524,25 +511,8 @@ public class ReadingListsFragment extends Fragment implements
                 L.w("Attempted to rename default list.");
                 return;
             }
-            List<String> existingTitles = new ArrayList<>();
-            for (Object list : displayedLists) {
-                if (list instanceof ReadingList) {
-                    existingTitles.add(((ReadingList) list).title());
-                }
-            }
-            existingTitles.remove(readingList.title());
-            ReadingListTitleDialog.readingListTitleDialog(requireContext(), readingList.title(),
-                    readingList.description(), existingTitles, (text, description) -> {
-                        readingList.title(text);
-                        readingList.description(description);
-                        readingList.dirty(true);
-                        ReadingListDbHelper.instance().updateList(readingList, true);
-                        ReadingListSyncAdapter.manualSync();
-
-                        updateLists();
-                        funnel.logModifyList(readingList, displayedLists.size());
-                    }).show();
             ReadingListBehaviorsUtil.INSTANCE.renameReadingList(requireActivity(), readingList, () -> {
+                ReadingListSyncAdapter.manualSync();
                 updateLists(currentSearchQuery, true);
                 funnel.logModifyList(readingList, displayedLists.size());
             });
@@ -658,8 +628,6 @@ public class ReadingListsFragment extends Fragment implements
             actionMode = mode;
             // searching delay will let the animation cannot catch the update of list items, and will cause crashes
             enableLayoutTransition(false);
-            ViewUtil.finishActionModeWhenTappingOnView(getView(), actionMode);
-            ViewUtil.finishActionModeWhenTappingOnView(emptyContainer, actionMode);
             return super.onCreateActionMode(mode, menu);
         }
 
@@ -683,11 +651,6 @@ public class ReadingListsFragment extends Fragment implements
         @Override
         protected String getSearchHintString() {
             return requireContext().getResources().getString(R.string.search_hint_search_my_lists_and_articles);
-        }
-
-        @Override
-        protected boolean finishActionModeIfKeyboardHiding() {
-            return true;
         }
 
         @Override
@@ -756,7 +719,6 @@ public class ReadingListsFragment extends Fragment implements
     private class SyncReminderOnboardingCallback implements OnboardingView.Callback {
         @Override
         public void onPositiveAction() {
-            Prefs.shouldShowReadingListSyncMergePrompt(true);
             ReadingListSyncAdapter.setSyncEnabledWithSetup();
             maybeShowOnboarding();
         }

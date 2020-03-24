@@ -5,22 +5,20 @@ import android.net.Uri;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.dataclient.restbase.page.RbPageSummary;
+import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.feed.model.CardType;
 import org.wikipedia.feed.model.WikiSiteCard;
 import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.DateUtil;
 
 public class FeaturedArticleCard extends WikiSiteCard {
-    @NonNull private RbPageSummary page;
+    @NonNull private PageSummary page;
     private int age;
 
-    public FeaturedArticleCard(@NonNull RbPageSummary page, int age, @NonNull WikiSite wiki) {
+    public FeaturedArticleCard(@NonNull PageSummary page, int age, @NonNull WikiSite wiki) {
         super(wiki);
         this.page = page;
         this.age = age;
@@ -40,13 +38,12 @@ public class FeaturedArticleCard extends WikiSiteCard {
 
     @NonNull
     String articleTitle() {
-        return page.getNormalizedTitle();
+        return page.getDisplayTitle();
     }
 
     @Nullable
     String articleSubtitle() {
-        return page.getDescription() != null
-                ? StringUtils.capitalize(page.getDescription()) : null;
+        return page.getDescription();
     }
 
     @Override
@@ -68,16 +65,11 @@ public class FeaturedArticleCard extends WikiSiteCard {
 
     @NonNull
     public HistoryEntry historyEntry(int source) {
-        PageTitle title = new PageTitle(articleTitle(), wikiSite());
-        if (image() != null) {
-            title.setThumbUrl(image().toString());
-        }
-        title.setDescription(articleSubtitle());
-        return new HistoryEntry(title, source);
+        return new HistoryEntry(page.getPageTitle(wikiSite()), source);
     }
 
     @Override
     protected int dismissHashCode() {
-        return page.getTitle().hashCode();
+        return page.getApiTitle().hashCode();
     }
 }

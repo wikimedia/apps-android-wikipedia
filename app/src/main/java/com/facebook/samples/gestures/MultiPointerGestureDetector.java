@@ -26,13 +26,13 @@ public class MultiPointerGestureDetector {
   /** The listener for receiving notifications when gestures occur. */
   public interface Listener {
     /** A callback called right before the gesture is about to start. */
-    public void onGestureBegin(MultiPointerGestureDetector detector);
+    void onGestureBegin(MultiPointerGestureDetector detector);
 
     /** A callback called each time the gesture gets updated. */
-    public void onGestureUpdate(MultiPointerGestureDetector detector);
+    void onGestureUpdate(MultiPointerGestureDetector detector);
 
     /** A callback called right after the gesture has finished. */
-    public void onGestureEnd(MultiPointerGestureDetector detector);
+    void onGestureEnd(MultiPointerGestureDetector detector);
   }
 
   private static final int MAX_POINTERS = 2;
@@ -40,11 +40,11 @@ public class MultiPointerGestureDetector {
   private boolean mGestureInProgress;
   private int mPointerCount;
   private int mNewPointerCount;
-  private final int mId[] = new int[MAX_POINTERS];
-  private final float mStartX[] = new float[MAX_POINTERS];
-  private final float mStartY[] = new float[MAX_POINTERS];
-  private final float mCurrentX[] = new float[MAX_POINTERS];
-  private final float mCurrentY[] = new float[MAX_POINTERS];
+  private final int[] mId = new int[MAX_POINTERS];
+  private final float[] mStartX = new float[MAX_POINTERS];
+  private final float[] mStartY = new float[MAX_POINTERS];
+  private final float[] mCurrentX = new float[MAX_POINTERS];
+  private final float[] mCurrentY = new float[MAX_POINTERS];
 
   private Listener mListener = null;
 

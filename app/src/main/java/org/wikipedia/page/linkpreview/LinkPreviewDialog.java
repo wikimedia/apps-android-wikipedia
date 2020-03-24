@@ -28,7 +28,6 @@ import org.wikipedia.analytics.LinkPreviewFunnel;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.mwapi.MwQueryPage;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
-import org.wikipedia.dataclient.page.PageClientFactory;
 import org.wikipedia.gallery.GalleryActivity;
 import org.wikipedia.gallery.GalleryThumbnailScrollView;
 import org.wikipedia.gallery.MediaList;
@@ -44,6 +43,7 @@ import org.wikipedia.views.ViewUtil;
 import java.util.ArrayList;
 import java.util.List;
 
+import io.reactivex.Observable;
 import io.reactivex.ObservableSource;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
@@ -83,6 +83,7 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
 
     private HistoryEntry historyEntry;
     private PageTitle pageTitle;
+    private long revision;
     @Nullable private Location location;
     private LinkPreviewFunnel funnel;
     private CompositeDisposable disposables = new CompositeDisposable();
@@ -214,13 +215,13 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
     }
 
     private void loadContent() {
-        disposables.add(PageClientFactory.create(pageTitle.getWikiSite(), pageTitle.namespace())
-                .summary(pageTitle.getWikiSite(), pageTitle.getPrefixedText(), historyEntry.getReferrer())
+        disposables.add(ServiceFactory.getRest(pageTitle.getWikiSite()).getSummary(null, pageTitle.getPrefixedText())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(summary -> {
                     funnel.setPageId(summary.getPageId());
                     pageTitle.setThumbUrl(summary.getThumbnailUrl());
+                    revision = summary.getRevision();
                     // TODO: Remove this logic once Parsoid starts supporting language variants.
                     if (pageTitle.getWikiSite().languageCode().equals(pageTitle.getWikiSite().subdomain())) {
                         titleText.setText(StringUtil.fromHtml(summary.getDisplayTitle()));
@@ -229,7 +230,7 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
                     }
 
                     // TODO: remove after the restbase endpoint supports ZH variants
-                    pageTitle.setConvertedText(summary.getConvertedTitle());
+                    pageTitle.setText(StringUtil.removeNamespace(summary.getApiTitle()));
                     showPreview(new LinkPreviewContents(summary, pageTitle.getWikiSite()));
                 }, caught -> {
                     L.e(caught);
@@ -240,7 +241,7 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
 
     private void loadGallery() {
         if (isImageDownloadEnabled()) {
-            disposables.add(ServiceFactory.getRest(pageTitle.getWikiSite()).getMediaList(pageTitle.getConvertedText())
+            disposables.add(ServiceFactory.getRest(pageTitle.getWikiSite()).getMediaList(pageTitle.getPrefixedText(), revision)
                     .flatMap((Function<MediaList, ObservableSource<MwQueryResponse>>) mediaList -> {
                         final int maxImages = 10;
                         List<MediaListItem> items = mediaList.getItems("image", "video");
@@ -250,19 +251,21 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
                                 titleList.add(item.getTitle());
                             }
                         }
-                        return ServiceFactory.get(pageTitle.getWikiSite()).getImageExtMetadata(StringUtils.join(titleList, '|'));
+                        return titleList.isEmpty() ? Observable.empty() : ServiceFactory.get(pageTitle.getWikiSite()).getImageInfo(StringUtils.join(titleList, '|'), pageTitle.getWikiSite().languageCode());
                     })
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(response -> {
-                        List<MwQueryPage> pageList = new ArrayList<>();
-                        for (MwQueryPage page : response.query().pages()) {
-                            if (page.imageInfo() != null) {
-                                pageList.add(page);
+                        if (response != null) {
+                            List<MwQueryPage> pageList = new ArrayList<>();
+                            for (MwQueryPage page : response.query().pages()) {
+                                if (page.imageInfo() != null) {
+                                    pageList.add(page);
+                                }
                             }
+                            thumbnailGallery.setGalleryList(pageList);
+                            thumbnailGallery.setGalleryViewListener(galleryViewListener);
                         }
-                        thumbnailGallery.setGalleryList(pageList);
-                        thumbnailGallery.setGalleryViewListener(galleryViewListener);
                     }, caught -> {
                         // ignore errors
                         L.w("Failed to fetch gallery collection.", caught);
@@ -343,7 +346,7 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
         @Override
         public void onGalleryItemClicked(String imageName) {
             startActivityForResult(GalleryActivity.newIntent(requireContext(), pageTitle, imageName,
-                    pageTitle.getWikiSite(), GalleryFunnel.SOURCE_LINK_PREVIEW),
+                    pageTitle.getWikiSite(), revision, GalleryFunnel.SOURCE_LINK_PREVIEW),
                     Constants.ACTIVITY_REQUEST_GALLERY);
         }
     };

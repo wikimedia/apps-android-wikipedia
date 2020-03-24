@@ -31,12 +31,9 @@
   <string name="menu_text_select_copy">Koppehre</string>
   <string name="menu_text_select_share">Wigger jävve</string>
   <string name="menu_text_select_edit_here">Dat Änndere</string>
-  <string name="nav_item_nearby">En de Nöhde</string>
-  <string name="nearby_zoom_to_location">Donn obb ene Plaz en dä Kaat zoome.</string>
   <string name="last_updated_text">Läzte Änderong %s</string>
   <string name="talk_page_link_text" fuzzy="true">Klaaf</string>
-  <string name="content_license_html" fuzzy="true">Dä Ennhald es ze hann onger dälezänz &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ußer woh jädd anders schteiht.</string>
-  <string name="edit_save_action_license_logged_in" fuzzy="true">Mem Affchpeijschere schtemms De ddä &lt;a href=\"%1$s\"&gt;Bedengonge för et Benöze&lt;/a&gt; zoh un deijhß ohne Müjjeleschkeijt för ene Widerohf Dine Beijdrahch onger der &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; Lezänz öffentlesch maache.</string>
+    <string name="edit_save_action_license_logged_in" fuzzy="true">Mem Affchpeijschere schtemms De ddä &lt;a href=\"%1$s\"&gt;Bedengonge för et Benöze&lt;/a&gt; zoh un deijhß ohne Müjjeleschkeijt för ene Widerohf Dine Beijdrahch onger der &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; Lezänz öffentlesch maache.</string>
   <string name="preference_title_language" fuzzy="true">Dä Wikkipehdija ier Schprohch</string>
   <string name="langlinks_filter_hint">Söhke</string>
   <string name="langlinks_empty">Di Sigg es nit in ander Schprohche ze han.</string>
@@ -164,12 +161,7 @@
   <string name="preference_summary_show_link_previews">Donn ene koote Vöraff_Aanseesch vuun Sigge zeje, wam_mer op Lengks tipp.</string>
   <string name="nav_item_donate">Ongerschtöz de Wikkipehdija!</string>
   <string name="error_voice_search_not_available">Schahd, Schtemme ze äkänne es nit müjjelesch.</string>
-  <string name="crash_report_dialog_title">Schahd, die  Äpp es et läz affjeschmiert.</string>
-  <string name="crash_report_dialog_text" fuzzy="true">Wells De enne Bereesch övver dä Fähler aan de HockeyApp  udder ene äxtärne Deens scheke, esu dat mer beij Wikkimehdija Dinge Affbroch ongersöhke un dä Fähler repparehre kann, dä do henger schtisch?</string>
-  <string name="crash_report_dialog_dont_send_button">Övverjonn</string>
-  <string name="crash_report_dialog_always_send_button">Emmer Affscheke</string>
-  <string name="crash_report_dialog_send_button">Avschecke</string>
-  <string name="crash_report_activity_title">Fähler em Projramm</string>
+    <string name="crash_report_activity_title">Fähler em Projramm</string>
   <string name="crash_report_relaunch_or_quit">Schahd, De Wikkipehdija-Äpp es obb ene Fähler jeloufe un wood afjebroche.\n\nWells De se neu aanfange udder ophühre?</string>
   <string name="crash_report_relaunch">Neu aanfange</string>
   <string name="crash_report_quit">Ophühre</string>

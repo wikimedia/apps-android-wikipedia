@@ -63,14 +63,14 @@ public class PageTitle implements Parcelable {
     //       isn't consistent across titles. e.g., articles with colons, such as RTÉ News: Six One,
     //       are broken.
     @Nullable private final String namespace;
-    @NonNull private final String text;
+    @NonNull private String text;
     @Nullable private final String fragment;
     @Nullable private String thumbUrl;
     @SerializedName("site") @NonNull private final WikiSite wiki;
     @Nullable private String description;
     @Nullable private final PageProperties properties;
     // TODO: remove after the restbase endpoint supports ZH variants.
-    @Nullable private String convertedText;
+    @Nullable private String displayText;
 
     /**
      * Creates a new PageTitle object.
@@ -104,6 +104,11 @@ public class PageTitle implements Parcelable {
     public PageTitle(@Nullable String text, @NonNull WikiSite wiki, @Nullable String thumbUrl, @Nullable String description, @Nullable PageProperties properties) {
         this(text, wiki, thumbUrl, properties);
         this.description = description;
+    }
+
+    public PageTitle(@Nullable String text, @NonNull WikiSite wiki, @Nullable String thumbUrl, @Nullable String description, @Nullable String displayText) {
+        this(text, wiki, thumbUrl, description);
+        this.displayText = displayText;
     }
 
     public PageTitle(@Nullable String text, @NonNull WikiSite wiki, @Nullable String thumbUrl, @Nullable String description) {
@@ -202,21 +207,17 @@ public class PageTitle implements Parcelable {
         this.description = description;
     }
 
-    @NonNull
-    public String getConvertedText() {
-        return convertedText == null ? getPrefixedText() : convertedText;
-    }
-
-    public void setConvertedText(@Nullable String convertedText) {
-        this.convertedText = convertedText;
+    // This update the text to the API text.
+    public void setText(@NonNull String convertedFromText) {
+        this.text = convertedFromText;
     }
 
     @NonNull public String getDisplayText() {
-        return getPrefixedText().replace("_", " ");
+        return displayText == null ? getPrefixedText().replace("_", " ") : displayText;
     }
 
-    public boolean hasProperties() {
-        return properties != null;
+    public void setDisplayText(@Nullable String displayText) {
+        this.displayText = displayText;
     }
 
     @Nullable public PageProperties getProperties() {
@@ -231,16 +232,8 @@ public class PageTitle implements Parcelable {
         return mainPageTitle.equals(getDisplayText());
     }
 
-    public boolean isDisambiguationPage() {
-        return properties != null && properties.isDisambiguationPage();
-    }
-
-    public String getCanonicalUri() {
+    public String getUri() {
         return getUriForDomain(getWikiSite().authority());
-    }
-
-    public String getMobileUri() {
-        return getUriForDomain(getWikiSite().mobileAuthority());
     }
 
     public String getUriForAction(String action) {
@@ -302,7 +295,7 @@ public class PageTitle implements Parcelable {
         parcel.writeParcelable(properties, flags);
         parcel.writeString(thumbUrl);
         parcel.writeString(description);
-        parcel.writeString(convertedText);
+        parcel.writeString(displayText);
     }
 
     @Override public boolean equals(Object o) {
@@ -351,6 +344,6 @@ public class PageTitle implements Parcelable {
         properties = in.readParcelable(PageProperties.class.getClassLoader());
         thumbUrl = in.readString();
         description = in.readString();
-        convertedText = in.readString();
+        displayText = in.readString();
     }
 }

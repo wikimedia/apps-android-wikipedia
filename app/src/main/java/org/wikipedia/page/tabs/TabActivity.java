@@ -28,11 +28,14 @@ import org.wikipedia.activity.BaseActivity;
 import org.wikipedia.analytics.TabFunnel;
 import org.wikipedia.main.MainActivity;
 import org.wikipedia.navtab.NavTab;
+import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
+import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.TabCountsView;
 
@@ -49,6 +52,7 @@ import de.mrapp.android.tabswitcher.TabSwitcherDecorator;
 import de.mrapp.android.tabswitcher.TabSwitcherListener;
 import de.mrapp.android.util.logging.LogLevel;
 
+import static org.wikipedia.Constants.InvokeSource.TABS_ACTIVITY;
 import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
 
 public class TabActivity extends BaseActivity {
@@ -68,6 +72,7 @@ public class TabActivity extends BaseActivity {
     private TabFunnel funnel = new TabFunnel();
     private boolean cancelled = true;
     private long tabUpdatedTimeMillis;
+    private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
 
     @Nullable private static Bitmap FIRST_TAB_BITMAP;
 
@@ -132,11 +137,13 @@ public class TabActivity extends BaseActivity {
 
         FeedbackUtil.setToolbarButtonLongPressToast(tabCountsView);
 
-        setStatusBarColor(ResourceUtil.getThemedAttributeId(this, android.R.attr.colorBackground));
+        setStatusBarColor(ResourceUtil.getThemedColor(this, android.R.attr.colorBackground));
+        setNavigationBarColor(ResourceUtil.getThemedColor(this, android.R.attr.colorBackground));
         setSupportActionBar(tabToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("");
 
+        tabSwitcher.setPreserveState(false);
         tabSwitcher.setDecorator(new TabSwitcherDecorator() {
             @NonNull
             @Override
@@ -156,15 +163,17 @@ public class TabActivity extends BaseActivity {
             @Override
             public void onShowTab(@NonNull Context context, @NonNull TabSwitcher tabSwitcher, @NonNull View view,
                                   @NonNull Tab tab, int index, int viewType, @Nullable Bundle savedInstanceState) {
-                int tabIndex = app.getTabList().size() - index - 1;
-                if (viewType == 1) {
+                int tabIndex = app.getTabCount() - index - 1;
+                if (viewType == 1 || tabIndex < 0 || app.getTabList().get(tabIndex) == null) {
                     return;
                 }
                 TextView titleText = view.findViewById(R.id.tab_article_title);
                 TextView descriptionText = view.findViewById(R.id.tab_article_description);
 
                 PageTitle title = app.getTabList().get(tabIndex).getBackStackPositionTitle();
-                titleText.setText(title.getDisplayText());
+                titleText.setText(StringUtil.fromHtml(title.getDisplayText()));
+                titleText.setVisibility(title.getDisplayText().equals(Constants.EMPTY_PAGE_TITLE) ? View.GONE : View.VISIBLE);
+
                 if (TextUtils.isEmpty(title.getDescription())) {
                     descriptionText.setVisibility(View.GONE);
                 } else {
@@ -194,7 +203,12 @@ public class TabActivity extends BaseActivity {
             if (app.getTabList().get(tabIndex).getBackStack().isEmpty()) {
                 continue;
             }
-            Tab tab = new Tab(app.getTabList().get(tabIndex).getBackStackPositionTitle().getDisplayText());
+
+            String title = app.getTabList().get(tabIndex).getBackStackPositionTitle().getDisplayText();
+            if (title.equals(Constants.EMPTY_PAGE_TITLE)) {
+                title = getString(R.string.empty_tab_title);
+            }
+            Tab tab = new Tab(StringUtil.fromHtml(title));
             tab.setIcon(R.drawable.ic_image_black_24dp);
             tab.setIconTint(ResourceUtil.getThemedColor(this, R.attr.material_theme_secondary_color));
             tab.setTitleTextColor(ResourceUtil.getThemedColor(this, R.attr.material_theme_secondary_color));
@@ -240,6 +254,7 @@ public class TabActivity extends BaseActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
+            case R.id.menu_open_a_new_tab:
                 openNewTab();
                 return true;
             case R.id.menu_close_all_tabs:
@@ -252,33 +267,34 @@ public class TabActivity extends BaseActivity {
                 alert.setNegativeButton(R.string.close_all_tabs_confirm_no, null);
                 alert.create().show();
                 return true;
-            case R.id.menu_open_a_new_tab:
-                openNewTab();
+            case R.id.menu_save_all_tabs:
+                if (!app.getTabList().isEmpty()) {
+                    saveTabsToList();
+                }
                 return true;
             case R.id.menu_explore:
-                startActivity(MainActivity.newIntent(TabActivity.this)
-                        .putExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.EXPLORE.code()));
-                finish();
+                goToMainTab(NavTab.EXPLORE);
                 return true;
             case R.id.menu_reading_lists:
-                startActivity(MainActivity.newIntent(TabActivity.this)
-                        .putExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.READING_LISTS.code()));
-                finish();
+                goToMainTab(NavTab.READING_LISTS);
                 return true;
             case R.id.menu_history:
-                startActivity(MainActivity.newIntent(TabActivity.this)
-                        .putExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.HISTORY.code()));
-                finish();
-                return true;
-            case R.id.menu_nearby:
-                startActivity(MainActivity.newIntent(TabActivity.this)
-                        .putExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.NEARBY.code()));
-                finish();
+                goToMainTab(NavTab.HISTORY);
                 return true;
             default:
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void saveTabsToList() {
+        List<org.wikipedia.page.tabs.Tab> tabsList = app.getTabList();
+        List<PageTitle> titlesList = new ArrayList<>();
+        for (org.wikipedia.page.tabs.Tab tab : tabsList) {
+            titlesList.add(tab.getBackStackPositionTitle());
+        }
+        bottomSheetPresenter.show(getSupportFragmentManager(),
+                AddToReadingListDialog.newInstance(titlesList, TABS_ACTIVITY));
     }
 
     private boolean topTabLeadImageEnabled() {
@@ -301,7 +317,12 @@ public class TabActivity extends BaseActivity {
     }
 
     private void showUndoSnackbar(final Tab tab, final int index, final org.wikipedia.page.tabs.Tab appTab, final int appTabIndex) {
-        Snackbar snackbar = FeedbackUtil.makeSnackbar(this, getString(R.string.tab_item_closed, appTab.getBackStackPositionTitle().getDisplayText()), FeedbackUtil.LENGTH_DEFAULT);
+        if (appTab.getBackStackPositionTitle() == null) {
+            return;
+        }
+        Snackbar snackbar = FeedbackUtil.makeSnackbar(this, appTab.getBackStackPositionTitle().getDisplayText().equals(Constants.EMPTY_PAGE_TITLE)
+                ? getString(R.string.unnamed_tab_closed)
+                : getString(R.string.tab_item_closed, appTab.getBackStackPositionTitle().getDisplayText()), FeedbackUtil.LENGTH_DEFAULT);
         snackbar.setAction(R.string.reading_list_item_delete_undo, v -> {
             app.getTabList().add(appTabIndex, appTab);
             tabSwitcher.addTab(tab, index);
@@ -377,5 +398,13 @@ public class TabActivity extends BaseActivity {
             showUndoAllSnackbar(tabs, appTabs);
             tabUpdatedTimeMillis = System.currentTimeMillis();
         }
+    }
+
+    private void goToMainTab(NavTab tab) {
+        startActivity(MainActivity.newIntent(this)
+                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                .putExtra(Constants.INTENT_RETURN_TO_MAIN, true)
+                .putExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, tab.code()));
+        finish();
     }
 }

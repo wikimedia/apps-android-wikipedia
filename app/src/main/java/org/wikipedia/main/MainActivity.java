@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 
 import androidx.annotation.LayoutRes;
@@ -28,18 +29,17 @@ import org.wikipedia.history.HistoryFragment;
 import org.wikipedia.navtab.NavTab;
 import org.wikipedia.notifications.NotificationActivity;
 import org.wikipedia.onboarding.InitialOnboardingActivity;
-import org.wikipedia.onboarding.SuggestedEditsOnboardingActivity;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.tabs.TabActivity;
-import org.wikipedia.readinglist.ReadingListSyncBehaviorDialogs;
-import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.settings.AboutActivity;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SettingsActivity;
-import org.wikipedia.suggestededits.SuggestedEditsTasksActivity;
+import org.wikipedia.suggestededits.SuggestedEditsTasksFragment;
 import org.wikipedia.util.AnimationUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.ResourceUtil;
+import org.wikipedia.views.ImageZoomHelper;
 import org.wikipedia.views.TabCountsView;
 import org.wikipedia.views.WikiDrawerLayout;
 
@@ -60,6 +60,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
     @BindView(R.id.drawer_icon_layout) View drawerIconLayout;
     @BindView(R.id.drawer_icon_dot) View drawerIconDot;
     @BindView(R.id.hamburger_and_wordmark_layout) View hamburgerAndWordmarkLayout;
+    private ImageZoomHelper imageZoomHelper;
 
     private boolean controlNavTabInFragment;
 
@@ -70,10 +71,10 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        WikipediaApp.getInstance().checkCrashes(this);
         ButterKnife.bind(this);
         AnimationUtil.setSharedElementTransitions(this);
         AppShortcuts.setShortcuts(this);
+        imageZoomHelper = new ImageZoomHelper(this);
 
         if (Prefs.isInitialOnboardingEnabled() && savedInstanceState == null) {
             // Updating preference so the search multilingual tooltip
@@ -85,6 +86,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
             startActivityForResult(InitialOnboardingActivity.newIntent(this), ACTIVITY_REQUEST_INITIAL_ONBOARDING);
         }
 
+        setNavigationBarColor(ResourceUtil.getThemedColor(this, R.attr.nav_tab_background_color));
         setSupportActionBar(getToolbar());
         if (getSupportActionBar() != null) {
             getSupportActionBar().setTitle("");
@@ -107,6 +109,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
         drawerView.setCallback(new DrawerViewCallback());
         shouldShowMainDrawer(true);
         setUpHomeMenuIcon();
+        FeedbackUtil.setToolbarButtonLongPressToast(drawerIconLayout);
     }
 
     @Override
@@ -126,12 +129,13 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
+        getFragment().requestUpdateToolbarElevation();
         MenuItem tabsItem = menu.findItem(R.id.menu_tabs);
-        if (WikipediaApp.getInstance().getTabCount() < 1) {
+        if (WikipediaApp.getInstance().getTabCount() < 1 || (getFragment().getCurrentFragment() instanceof SuggestedEditsTasksFragment)) {
             tabsItem.setVisible(false);
         } else {
             tabsItem.setVisible(true);
-            TabCountsView tabCountsView = new TabCountsView(this);
+            TabCountsView tabCountsView = new TabCountsView(this, null);
             tabCountsView.setOnClickListener(v -> {
                 if (WikipediaApp.getInstance().getTabCount() == 1) {
                     startActivity(PageActivity.newIntent(MainActivity.this));
@@ -140,8 +144,10 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
                 }
             });
             tabCountsView.updateTabCount();
+            tabCountsView.setContentDescription(getString(R.string.menu_page_show_tabs));
             tabsItem.setActionView(tabCountsView);
             tabsItem.expandActionView();
+            FeedbackUtil.setToolbarButtonLongPressToast(tabCountsView);
         }
         return true;
     }
@@ -160,14 +166,19 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
     public void onTabChanged(@NonNull NavTab tab) {
         if (tab.equals(NavTab.EXPLORE)) {
             hamburgerAndWordmarkLayout.setVisibility(VISIBLE);
-            getSupportActionBar().setTitle("");
+            toolbar.setTitle("");
             controlNavTabInFragment = false;
         } else {
             if (tab.equals(NavTab.HISTORY) && getFragment().getCurrentFragment() != null) {
                 ((HistoryFragment) getFragment().getCurrentFragment()).refresh();
             }
+
+            if (tab.equals(NavTab.SUGGESTED_EDITS)) {
+                getFragment().hideNavTabOverlayLayout();
+            }
+
             hamburgerAndWordmarkLayout.setVisibility(GONE);
-            getSupportActionBar().setTitle(tab.text());
+            toolbar.setTitle(tab.text());
             controlNavTabInFragment = true;
         }
         shouldShowMainDrawer(!controlNavTabInFragment);
@@ -234,6 +245,11 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
         super.onBackPressed();
     }
 
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent event) {
+        return imageZoomHelper.onDispatchTouchEvent(event) || super.dispatchTouchEvent(event);
+    }
+
     public void closeMainDrawer() {
         drawerLayout.closeDrawer(GravityCompat.START);
     }
@@ -271,13 +287,9 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
                         .setPositiveButton(R.string.preference_title_logout, (dialog, which) -> {
                             WikipediaApp.getInstance().logOut();
                             FeedbackUtil.showMessage(MainActivity.this, R.string.toast_logout_complete);
-                            if (Prefs.isReadingListSyncEnabled() && !ReadingListDbHelper.instance().isEmpty()) {
-                                ReadingListSyncBehaviorDialogs.removeExistingListsOnLogoutDialog(MainActivity.this);
-                            }
                             Prefs.setReadingListsLastSyncTime(null);
                             Prefs.setReadingListSyncEnabled(false);
-                            Prefs.setSuggestedEditsAddDescriptionsUnlocked(false);
-                            Prefs.setSuggestedEditsTranslateDescriptionsUnlocked(false);
+                            getFragment().resetNavTabLayouts();
                         }).show();
             } else {
                 getFragment().onLoginRequested();
@@ -293,7 +305,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
         }
 
         @Override public void settingsClick() {
-            startActivityForResult(SettingsActivity.newIntent(MainActivity.this), Constants.ACTIVITY_REQUEST_SETTINGS);
+            getFragment().startActivityForResult(SettingsActivity.newIntent(MainActivity.this), Constants.ACTIVITY_REQUEST_SETTINGS);
             closeMainDrawer();
         }
 
@@ -301,17 +313,6 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
             if (getFragment().getCurrentFragment() instanceof FeedFragment) {
                 ((FeedFragment) getFragment().getCurrentFragment()).showConfigureActivity(-1);
             }
-            closeMainDrawer();
-        }
-
-        @Override
-        public void editingTasksClick() {
-            Prefs.setShowEditMenuOptionIndicator(false);
-            drawerView.maybeShowIndicatorDots();
-
-            startActivity(Prefs.showEditTaskOnboarding() ? SuggestedEditsOnboardingActivity.newIntent(MainActivity.this, Constants.InvokeSource.MAIN_ACTIVITY)
-                    : SuggestedEditsTasksActivity.newIntent(MainActivity.this, Constants.InvokeSource.MAIN_ACTIVITY));
-
             closeMainDrawer();
         }
 

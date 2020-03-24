@@ -68,16 +68,12 @@
   <string name="on_this_day_page_share">Κοινοποίηση</string>
   <string name="reading_list_page_share">Αποστολή</string>
   <string name="menu_text_select_edit_here">Επεξεργασία εδώ</string>
-  <string name="nav_item_nearby">Κοντινά</string>
-  <string name="nearby_zoom_to_location">Ζουμ σε μια θέση στο χάρτη</string>
-  <string name="nearby_osm_license">&amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;συνεισφέροντες του OpenStreetMap&lt;/a&gt;</string>
   <string name="last_updated_text">Τελευταία ενημέρωση %s</string>
   <string name="talk_page_link_text">Προβολή σελίδας συζήτησης</string>
   <string name="edit_history_link_text">Προβολή ιστορικού επεξεργασίας</string>
   <string name="map_view_link_text">Δέστε σε έναν χάρτη</string>
   <string name="other_languages_indication_text">Διαβάστε σε άλλη γλώσσα</string>
   <string name="language_count_link_text">Διαθέσιμο σε %d άλλες γλώσσες</string>
-  <string name="content_license_html">Το περιεχόμενο είναι διαθέσιμο υπό την &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; εκτός εάν σημειώνεται διαφορετικά</string>
   <string name="edit_save_action_license_logged_in">Με την δημοσίευση, συμφωνείτε με τους &lt;a href=\"%1$s\"&gt;Όρους Χρήσης&lt;/a&gt;, και αμετάκλητα δημοσιεύετε τις συνεισφορές σας υπό την άδεια &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Με την δημοσίευση, συμφωνείτε με τους &lt;a href=\"%1$s\"&gt;Όρους Χρήσης&lt;/a&gt;, και αμετάκλητα δημοσιεύετε τις συνεισφορές σας υπό την άδεια &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Επεξεργασίες σας θα αναφέρονται στην διεύθυνση IP της συσκευής σας. Αν &lt;a href=\"https://#login\"&gt;συνδεθείτε&lt;/a&gt;, θα έχετε μεγαλύτερη ιδιωτικότητα.</string>
   <string name="preference_title_language">Γλώσσες Βικιπαίδειας</string>
@@ -176,7 +172,7 @@
   <string name="preference_title_eventlogging_opt_in">Στείλτε εκθέσεις χρήσης</string>
   <string name="preference_summary_eventlogging_opt_in">Επιτρέψτε στο Wikimedia να συλλέξει πληροφορίες για το πως χρησιμοποιείτε την εφαρμογή ώστε να τη βελτιώσει</string>
   <string name="preference_title_auto_upload_crash_reports">Αποστολή αναφορών κατάρρευσης</string>
-  <string name="preference_summary_auto_upload_crash_reports">Επιτρέψτε στην εφαρμογή να στέλνει αναφορές κρασαρίσματος στο HockeyApp / μια υπηρεσία τρίτου μέρους αυτόματα ώστε να μπορούμε να επιθεωρήσουμε το κρασάρισμα και να διορθώσουμε το σφάλμα γρηγορότερα και ευκολότερα.</string>
+  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Επιτρέψτε στην εφαρμογή να στέλνει αναφορές κρασαρίσματος στο HockeyApp / μια υπηρεσία τρίτου μέρους αυτόματα ώστε να μπορούμε να επιθεωρήσουμε το κρασάρισμα και να διορθώσουμε το σφάλμα γρηγορότερα και ευκολότερα.</string>
   <string name="editing_error_spamblacklist">Ανιχνεύθηκαν σύνδεσμοι σε αποκλεισμένους ιστότοπους (%s). Παρακαλούμε αφαιρέστε τους και προσπαθήστε ξανά.</string>
   <string name="history_search_list_hint">Ιστορικό αναζήτησης</string>
   <string name="error_can_not_process_link">Αυτός ο σύνδεσμος δεν στάθηκε δυνατό να εμφανιστεί</string>
@@ -191,11 +187,11 @@
   <string name="about_description">Σχετικά με την εφαρμογή της Βικιπαίδειας</string>
   <string name="privacy_policy_description">Πολιτική ιδιωτικότητας</string>
   <string name="terms_of_use_description">Όροι χρήσης</string>
-  <string name="about_wikipedia_url">https://el.m.wikipedia.org/wiki/Βικιπαίδεια:Σχετικά</string>
-  <string name="privacy_policy_url">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
+  <string name="about_wikipedia_url" fuzzy="true">https://el.m.wikipedia.org/wiki/Βικιπαίδεια:Σχετικά</string>
+  <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
-  <string name="terms_of_use_url">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
+  <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.el</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/3.0/</string>
@@ -277,6 +273,7 @@
   <string name="captcha_image">Εικόνα Captcha</string>
   <string name="gallery_fair_use_license">Εύλογη χρήση</string>
   <string name="gallery_uploader_unknown">Άγνωστος</string>
+  <string name="gallery_not_available_offline_snackbar_dismiss">Απόρριψη</string>
   <string name="menu_new_tab">Νέα καρτέλα</string>
   <string name="menu_close_all_tabs">Κλείσιμο όλων των καρτελών</string>
   <string name="close_all_tabs_confirm">Είστε σίγουροι ότι θέλετε να κλείσετε όλες τις καρτέλες;</string>
@@ -285,7 +282,6 @@
   <string name="button_close_tab">Κλείσιμο καρτέλας</string>
   <string name="tab_item_closed">%s κλειστό.</string>
   <string name="tool_tip_bookmark_icon_title">Προσθήκη στη λίστα ανάγνωσης</string>
-  <string name="tool_tip_share">Μετά την επισήμανση ενός ενδιαφέροντος γεγονός, προσπαθήστε να την μοιραστείτε στα αγαπημένα σας δίκτυα!</string>
   <string name="page_view_in_browser">Προβολή σελίδας στον περιηγητή</string>
   <string name="error_response_malformed">Η απάντηση από το διακομιστή δεν ήταν κατάλληλα διαμορφωμένη.</string>
   <string name="error_unknown">Προέκυψε ένα άγνωστο σφάλμα.</string>
@@ -314,19 +310,17 @@
   <string name="error_page_does_not_exist">Αυτή η σελίδα δεν υπάρχει</string>
   <string name="view_wiki_error_message_offline">Δεν υπάρχει σύνδεση με το διαδίκτυο</string>
   <string name="reference_title">Παραπομπή %s</string>
+  <string name="reference_list_title">Παραπομπές</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Αμυδρότητα εικόνων (στο Σκοτεινό θέμα)</string>
   <string name="preference_title_prefer_offline_content">Προτίμηση περιεχόμενου εκτός σύνδεσης</string>
-  <string name="crash_report_dialog_title">Λυπούμαστε, η εφαρμογή κράσαρε την τελευταία φορά</string>
-  <string name="crash_report_dialog_dont_send_button">Παράβλεψη</string>
-  <string name="crash_report_dialog_always_send_button">Αποστολή πάντα</string>
-  <string name="crash_report_dialog_send_button">Αποστολή</string>
+  <string name="empty_tab_title">Νέα καρτέλα</string>
   <string name="crash_report_activity_title">Σφάλμα εφαρμογής</string>
   <string name="crash_report_relaunch">Ξεκινήσετε από την αρχή</string>
   <string name="crash_report_quit">Έξοδος</string>
   <string name="article_menu_bar_bookmark">Προσθέστε αυτό το λήμμα  σε λίστα ανάγνωσης</string>
   <string name="article_menu_bar_share">Κοινοποιήστε τον σύνδεσμο του λήμματος</string>
   <string name="article_header_edit_hint">Επεξεργασία...</string>
-  <string name="article_header_edit_description" fuzzy="true">Επεξεργασία περιγραφής τίτλου</string>
+  <string name="article_header_edit_description">Επεξεργασία περιγραφής άρθρου</string>
   <string name="article_header_edit_lead_section">Εισαγωγή επεξεργασίας</string>
   <string name="color_theme_select">Θέμα</string>
   <string name="color_theme_light">Φωτεινό</string>
@@ -385,6 +379,7 @@
   <string name="reading_list_add_to_other_list">Πρόσθεση σε άλλη λίστα ανάγνωσης</string>
   <string name="reading_list_remove_from_list">Αφαίρεση από το %s</string>
   <string name="reading_list_remove_from_lists">Αφαίρεση από τις λίστες ανάγνωσης</string>
+  <string name="reading_list_select_item">Επιλογή</string>
   <string name="reading_list_confirm_remove_article_from_offline">Αφαίρεση από τη λίστα εκτός σύνδεσης</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Το λήμμα εμφανίζεται σε πολλαπλές λίστες</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">Το %s δεν θα είναι πλέον διαθέσιμο εκτός σύνδεσης για όλες τις λίστες ανάγνωσης:</string>
@@ -403,10 +398,6 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Μην μου το ξαναεμφανίσεις πάλι</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Ενεργοποίηση συγχρονισμού</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Όχι, ευχαριστώ</string>
-  <string name="reading_list_login_option_reminder_dialog_no">Όχι, διαγραφή των λημμάτων</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">Διατήρηση των αποθηκευμένων λημμάτων στην εφαρμογή;</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">Ναι, κρατήστε τα άρθρα στις λίστες</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">Όχι, διαγράψτε τα άρθρα από τις λίστες</string>
   <string name="default_reading_list_name">Αποθηκεύθηκε</string>
   <string name="default_reading_list_description">Προεπιλεγμένη λίστα για τα αποθηκευμένα λήμματά σας</string>
   <string name="no_user_lists_title">Οργάνωση λημμάτων σε λίστες</string>
@@ -426,7 +417,7 @@
     <item quantity="one">Αυτό το λήμμα δεν θα είναι πλέον διαθέσιμο εκτός σύνδεσης.</item>
     <item quantity="other">Αυτά τα λήμματα δεν θα είναι πλέον διαθέσιμα εκτός σύνδεσης.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync">Τελευταίος συγχρονισμός</string>
+  <string name="reading_list_toast_last_sync" fuzzy="true">Τελευταίος συγχρονισμός</string>
   <string name="reading_list_menu_last_sync">Τελευταίος συγχρονισμός: %s</string>
   <string name="user_option_sync_label">Προτιμήσεις</string>
   <string name="notification_reverted_title">Ανεστραμμένη επεξεργασία</string>
@@ -459,9 +450,16 @@
   <string name="notifications_view_unread">Προβολή μη αναγνωσμένων</string>
   <string name="notifications_poll_enable_positive">Ενεργοποιημένο</string>
   <string name="notifications_poll_enable_negative">Όχι τώρα</string>
-  <string name="preference_title_notification_welcome">Καλωσορίσατε</string>
+  <string name="preference_category_notification_types">Τύποι ειδοποιήσεων εντός του app</string>
+  <string name="preference_title_notification_system">Συστήματος</string>
+  <string name="preference_summary_notification_system">Μηνύματα από το σύστημα</string>
   <string name="preference_title_notification_milestone">Ορόσημο</string>
   <string name="preference_title_notification_thanks">Ευχαριστίες</string>
+  <string name="preference_title_notification_revert">Αναστροφής</string>
+  <string name="preference_summary_notification_revert">Όταν αναστρέφεται μία από της συνεισφορές σας</string>
+  <string name="preference_title_notification_login_fail">Εισόδου</string>
+  <string name="preference_title_notification_mention">Αναφορές</string>
+  <string name="preference_summary_notification_mention">Όταν κάποιος σας αναφέρει σε σελίδα</string>
   <string name="view_because_you_read_card_title">Επειδή διαβάσατε</string>
   <string name="view_random_card_title">Τυχαιοποιητής</string>
   <string name="view_random_card_subtitle">Βρείτε τυχαία λήμματα για να διαβάσετε από την Βικιπαίδεια</string>
@@ -511,6 +509,7 @@
   <string name="feed_configure_onboarding_action">Προσαρμογή</string>
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Εξατομικεύστε την ροή εξερεύνησής σας&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Τώρα μπορείτε να επιλέξετε τι θα δείξετε στην ροή σας, καθώς και να βάλετε σε προτεραιότητα τους αγαπημένους τύπους περιεχομένου σας.</string>
   <string name="description_edit_text_hint" fuzzy="true">Περιγραφή τίτλου</string>
+  <string name="description_edit_article_description_label">Λήμμα</string>
   <string name="description_edit_save">Δημοσίευση</string>
   <string name="description_edit_add_description" fuzzy="true">Προσθήκη περιγραφής τίτλου</string>
   <string name="description_edit_edit_description">Επεξεργασία περιγραφή άρθρου</string>
@@ -531,7 +530,16 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Ιδανικά μια γραμμή, μεταξύ δύο και δώδεκα λέξεων</string>
   <string name="description_edit_tutorial_button_label_start_editing">Ξεκινήστε την επεξεργασία</string>
   <string name="description_edit_tutorial_promise">Ξεκινώντας, υπόσχομαι να μην καταχραστώ τη λειτουργία.</string>
+  <string name="suggested_edits_add_description_button">Προσθήκη περιγραφής</string>
+  <string name="suggested_edits_edit_description_button">Επεξεργασία περιγραφής</string>
+  <string name="suggested_edits_add_translation_button">Προσθήκη μετάφρασης</string>
+  <string name="suggested_edits_edit_translation_button">Επεξεργασία μετάφρασης</string>
   <string name="suggested_edits_my_contributions">Οι συνεισφορές μου</string>
+  <string name="suggested_edits_image_preview_dialog_date">Ημερομηνία</string>
+  <string name="suggested_edits_article_cta_snackbar_action">Προβολή</string>
+  <string name="suggested_edits_task_action_text_add">Προσθήκη</string>
+  <string name="suggested_edits_task_action_text_translate">Μετάφραση</string>
+  <string name="suggested_edits_image_tags_add_tag" fuzzy="true">Προσθήκη ετικέτας...</string>
   <string name="description_edit_revert_subtitle">Ευχαριστούμε που επεξεργάζεστε την Βικιπαίδεια!</string>
   <string name="description_edit_revert_reason2">η συνεισφορά σας έμοιαζε περισσότερο σαν πειραματισμός ή βανδαλισμός.</string>
   <string name="description_edit_revert_history">Εάν ενδιαφέρεστε, δείτε το &lt;a href=\"%1$s\"&gt;ιστορικό επεξεργασιών&lt;/a&gt;.</string>

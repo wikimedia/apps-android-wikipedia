@@ -30,7 +30,6 @@ public class PageActionOverflowView extends FrameLayout {
         void readingListsClick();
         void categoriesClick();
         void historyClick();
-        void nearbyClick();
     }
 
     @Nullable private Callback callback;
@@ -57,7 +56,7 @@ public class PageActionOverflowView extends FrameLayout {
 
     @OnClick({R.id.page_action_overflow_forward, R.id.page_action_overflow_feed,
             R.id.page_action_overflow_history, R.id.page_action_overflow_reading_lists,
-            R.id.page_action_overflow_nearby, R.id.page_action_overflow_categories})
+            R.id.page_action_overflow_categories})
     void onItemClick(View view) {
         if (popupWindowHost != null) {
             popupWindowHost.dismiss();
@@ -78,9 +77,6 @@ public class PageActionOverflowView extends FrameLayout {
                 break;
             case R.id.page_action_overflow_reading_lists:
                 callback.readingListsClick();
-                break;
-            case R.id.page_action_overflow_nearby:
-                callback.nearbyClick();
                 break;
             case R.id.page_action_overflow_categories:
                 callback.categoriesClick();

@@ -1,41 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/fragment_main_container"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:layout_marginTop="?attr/actionBarSize"
+    android:orientation="vertical">
 
-    <LinearLayout
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/fragment_main_coordinator"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="?attr/actionBarSize"
-        android:orientation="vertical">
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
-        <androidx.coordinatorlayout.widget.CoordinatorLayout
-            android:id="@+id/fragment_main_coordinator"
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/fragment_main_view_pager"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1">
+            android:layout_height="match_parent" />
 
-            <org.wikipedia.readinglist.NoSwipeViewPager
-                android:id="@+id/fragment_main_view_pager"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
-        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    <FrameLayout
+        android:id="@+id/fragment_main_nav_tab_container"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_gravity="bottom"
+        android:background="?attr/nav_tab_background_color"
+        android:elevation="6dp">
 
         <org.wikipedia.navtab.NavTabLayout
             android:id="@+id/fragment_main_nav_tab_layout"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:layout_gravity="bottom"
+            android:layout_height="match_parent"
             android:background="?attr/nav_tab_background_color"
-            android:elevation="6dp"
             app:itemIconTint="?attr/nav_tab_item_color_state"
             app:itemTextColor="?attr/nav_tab_item_color_state"
+            app:itemTextAppearanceInactive="@style/BottomNavigationTextAppearanceInactive"
+            app:itemTextAppearanceActive="@style/BottomNavigationTextAppearanceActive"
             app:tabGravity="fill"
+            app:labelVisibilityMode="labeled"
             app:tabIndicatorColor="@android:color/transparent" />
 
-    </LinearLayout>
+        <org.wikipedia.navtab.NavTabOverlayLayout
+            android:id="@+id/fragment_main_nav_tab_overlay_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:elevation="8dp"/>
 
-</FrameLayout>
+    </FrameLayout>
+
+</LinearLayout>

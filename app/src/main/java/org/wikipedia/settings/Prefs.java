@@ -1,8 +1,5 @@
 package org.wikipedia.settings;
 
-import android.text.TextUtils;
-
-import androidx.annotation.IntRange;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
@@ -18,12 +15,13 @@ import org.wikipedia.json.SessionUnmarshaller;
 import org.wikipedia.json.TabUnmarshaller;
 import org.wikipedia.page.tabs.Tab;
 import org.wikipedia.theme.Theme;
+import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.ReleaseUtil;
-import org.wikipedia.util.StringUtil;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -39,7 +37,6 @@ import static org.wikipedia.settings.PrefsIoUtil.getInt;
 import static org.wikipedia.settings.PrefsIoUtil.getKey;
 import static org.wikipedia.settings.PrefsIoUtil.getLong;
 import static org.wikipedia.settings.PrefsIoUtil.getString;
-import static org.wikipedia.settings.PrefsIoUtil.getStringSet;
 import static org.wikipedia.settings.PrefsIoUtil.remove;
 import static org.wikipedia.settings.PrefsIoUtil.setBoolean;
 import static org.wikipedia.settings.PrefsIoUtil.setInt;
@@ -72,17 +69,20 @@ public final class Prefs {
         setString(R.string.preference_key_reading_app_install_id, id);
     }
 
-    @Nullable
-    public static String getAppLanguageCode() {
-        return getString(R.string.preference_key_language, null);
-    }
-
-    public static int getThemeId() {
+    public static int getCurrentThemeId() {
         return getInt(R.string.preference_key_color_theme, Theme.getFallback().getMarshallingId());
     }
 
-    public static void setThemeId(int theme) {
+    public static void setCurrentThemeId(int theme) {
         setInt(R.string.preference_key_color_theme, theme);
+    }
+
+    public static int getPreviousThemeId() {
+        return getInt(R.string.preference_key_previous_color_theme, Theme.getFallback().getMarshallingId());
+    }
+
+    public static void setPreviousThemeId(int theme) {
+        setInt(R.string.preference_key_previous_color_theme, theme);
     }
 
     public static void setCookies(@NonNull SharedPreferenceCookieManager cookies) {
@@ -130,51 +130,6 @@ public final class Prefs {
 
     public static void setShowActionFeedIndicator(boolean enabled) {
         setBoolean(R.string.preference_key_show_action_feed_indicator, enabled);
-    }
-
-    public static void removeLoginUsername() {
-        remove(R.string.preference_key_login_username);
-    }
-
-    @Nullable
-    public static String getLoginPassword() {
-        return getString(R.string.preference_key_login_password, null);
-    }
-
-    public static boolean hasLoginPassword() {
-        return contains(R.string.preference_key_login_password);
-    }
-
-    public static void removeLoginPassword() {
-        remove(R.string.preference_key_login_password);
-    }
-
-    @NonNull
-    public static Map<String, Integer> getLoginUserIds() {
-        TypeToken<HashMap<String, Integer>> type = new TypeToken<HashMap<String, Integer>>(){};
-        return GsonUnmarshaller.unmarshal(type, getString(R.string.preference_key_login_user_id_map, "{}"));
-    }
-
-    public static void removeLoginUserIds() {
-        remove(R.string.preference_key_login_user_id_map);
-    }
-
-    @Nullable
-    public static String getLoginUsername() {
-        return getString(R.string.preference_key_login_username, null);
-    }
-
-    public static boolean hasLoginUsername() {
-        return contains(R.string.preference_key_login_username);
-    }
-
-    @Nullable
-    public static Set<String> getLoginGroups() {
-        return getStringSet(R.string.preference_key_login_groups, null);
-    }
-
-    public static void removeLoginGroups() {
-        remove(R.string.preference_key_login_groups);
     }
 
     @Nullable
@@ -290,34 +245,6 @@ public final class Prefs {
         return getInt(R.string.preference_key_announcement_version_code, 0);
     }
 
-    public static boolean useRestBaseSetManually() {
-        return getBoolean(R.string.preference_key_use_restbase_manual, false);
-    }
-
-    public static boolean useRestBase() {
-        return getBoolean(R.string.preference_key_use_restbase, true);
-    }
-
-    public static void setUseRestBase(boolean enabled) {
-        setBoolean(R.string.preference_key_use_restbase, enabled);
-    }
-
-    public static int getRbTicket(int defaultValue) {
-        return getInt(R.string.preference_key_restbase_ticket, defaultValue);
-    }
-
-    public static void setRbTicket(int rbTicket) {
-        setInt(R.string.preference_key_restbase_ticket, rbTicket);
-    }
-
-    @IntRange(from = RbSwitch.FAILED) public static int getRequestSuccessCounter(int defaultValue) {
-        return getInt(R.string.preference_key_request_successes, defaultValue);
-    }
-
-    public static void setRequestSuccessCounter(@IntRange(from = RbSwitch.FAILED) int successes) {
-        setInt(R.string.preference_key_request_successes, successes);
-    }
-
     public static Level getRetrofitLogLevel() {
         String prefValue = getString(R.string.preference_key_retrofit_log_level, null);
         if (prefValue == null) {
@@ -365,14 +292,6 @@ public final class Prefs {
 
     public static void pageLastShown(long time) {
         setLong(R.string.preference_key_page_last_shown, time);
-    }
-
-    public static boolean isShareTutorialEnabled() {
-        return getBoolean(R.string.preference_key_share_tutorial_enabled, true);
-    }
-
-    public static void setShareTutorialEnabled(boolean enabled) {
-        setBoolean(R.string.preference_key_share_tutorial_enabled, enabled);
     }
 
     public static boolean isReadingListTutorialEnabled() {
@@ -451,20 +370,8 @@ public final class Prefs {
         setBoolean(R.string.preference_key_description_edit_tutorial_enabled, enabled);
     }
 
-    public static long getLastDescriptionEditTime() {
-        return getLong(R.string.preference_key_last_description_edit_time, 0);
-    }
-
     public static void setLastDescriptionEditTime(long time) {
         setLong(R.string.preference_key_last_description_edit_time, time);
-    }
-
-    public static long getReadingListSyncRev() {
-        return getLong(R.string.preference_key_reading_list_sync_rev, 0);
-    }
-
-    public static void setReadingListSyncRev(long rev) {
-        setLong(R.string.preference_key_reading_list_sync_rev, rev);
     }
 
     public static int getTotalAnonDescriptionsEdited() {
@@ -531,21 +438,6 @@ public final class Prefs {
         setBoolean(R.string.preference_key_permission_asked + permission, true);
     }
 
-    public static void setReadingListsCurrentUser(@Nullable String userName) {
-        setString(R.string.preference_key_reading_lists_current_user_hash,
-                TextUtils.isEmpty(userName) ? "" : StringUtil.md5string(userName));
-    }
-
-    public static boolean hasReadingListsCurrentUser() {
-        return !TextUtils.isEmpty(getString(R.string.preference_key_reading_lists_current_user_hash, ""));
-    }
-
-    public static boolean isReadingListsCurrentUser(@Nullable String userName) {
-        return !TextUtils.isEmpty(userName)
-                && getString(R.string.preference_key_reading_lists_current_user_hash, "")
-                .equals(StringUtil.md5string(userName));
-    }
-
     public static boolean shouldDimDarkModeImages() {
         return getBoolean(R.string.preference_key_dim_dark_mode_images, true);
     }
@@ -571,7 +463,7 @@ public final class Prefs {
     }
 
     public static boolean notificationWelcomeEnabled() {
-        return getBoolean(R.string.preference_key_notification_welcome_enable, true);
+        return getBoolean(R.string.preference_key_notification_system_enable, true);
     }
 
     public static boolean notificationMilestoneEnabled() {
@@ -584,6 +476,18 @@ public final class Prefs {
 
     public static boolean notificationRevertEnabled() {
         return getBoolean(R.string.preference_key_notification_revert_enable, true);
+    }
+
+    public static boolean notificationUserTalkEnabled() {
+        return getBoolean(R.string.preference_key_notification_user_talk_enable, true);
+    }
+
+    public static boolean notificationLoginFailEnabled() {
+        return getBoolean(R.string.preference_key_notification_login_fail_enable, true);
+    }
+
+    public static boolean notificationMentionEnabled() {
+        return getBoolean(R.string.preference_key_notification_mention_enable, true);
     }
 
     public static boolean showAllNotifications() {
@@ -657,10 +561,6 @@ public final class Prefs {
         remove(R.string.preference_key_feed_cards_lang_disabled);
     }
 
-    public static void setFeedCustomizeTutorialCardEnabled(boolean enabled) {
-        setBoolean(R.string.preference_key_feed_customize_onboarding_card_enabled, enabled);
-    }
-
     public static String getReadingListsLastSyncTime() {
         return getString(R.string.preference_key_reading_lists_last_sync_time, "");
     }
@@ -725,14 +625,6 @@ public final class Prefs {
 
     public static void shouldShowReadingListSyncEnablePrompt(boolean enabled) {
         setBoolean(R.string.preference_key_show_reading_lists_sync_prompt, enabled);
-    }
-
-    public static boolean shouldShowReadingListSyncMergePrompt() {
-        return getBoolean(R.string.preference_key_show_reading_lists_merge_prompt, true);
-    }
-
-    public static void shouldShowReadingListSyncMergePrompt(boolean enabled) {
-        setBoolean(R.string.preference_key_show_reading_lists_merge_prompt, enabled);
     }
 
     public static boolean isReadingListsFirstTimeSync() {
@@ -809,72 +701,12 @@ public final class Prefs {
         setInt(R.string.preference_key_overflow_reading_lists_option_click_count, count);
     }
 
-    public static boolean showEditTaskOnboarding() {
-        return getBoolean(R.string.preference_key_show_edit_tasks_onboarding, true);
-    }
-
-    public static void setShowEditTasksOnboarding(boolean showOnboarding) {
-        setBoolean(R.string.preference_key_show_edit_tasks_onboarding, showOnboarding);
-    }
-
     public static boolean shouldShowHistoryOfflineArticlesToast() {
         return getBoolean(R.string.preference_key_history_offline_articles_toast, true);
     }
 
     public static void shouldShowHistoryOfflineArticlesToast(boolean showToast) {
         setBoolean(R.string.preference_key_history_offline_articles_toast, showToast);
-    }
-
-    public static boolean isSuggestedEditsAddDescriptionsUnlocked() {
-        return getBoolean(R.string.preference_key_suggested_edits_add_descriptions_unlocked, false);
-    }
-
-    public static void setSuggestedEditsAddDescriptionsUnlocked(boolean unlocked) {
-        if (!isSuggestedEditsUnlockOverride()) {
-            setBoolean(R.string.preference_key_suggested_edits_add_descriptions_unlocked, unlocked);
-        }
-    }
-
-    public static boolean isSuggestedEditsTranslateDescriptionsUnlocked() {
-        return getBoolean(R.string.preference_key_suggested_edits_translate_descriptions_unlocked, false);
-    }
-
-    public static void setSuggestedEditsTranslateDescriptionsUnlocked(boolean enabled) {
-        if (!isSuggestedEditsUnlockOverride()) {
-            setBoolean(R.string.preference_key_suggested_edits_translate_descriptions_unlocked, enabled);
-        }
-    }
-
-    public static boolean showSuggestedEditsMultilingualTeaserTask() {
-        return getBoolean(R.string.preference_key_show_suggested_edits_multilingual_teaser_task, true);
-    }
-
-    public static void setShowSuggestedEditsMultilingualTeaserTask(boolean showTask) {
-        setBoolean(R.string.preference_key_show_suggested_edits_multilingual_teaser_task, showTask);
-    }
-
-    public static boolean isSuggestedEditsAddCaptionsUnlocked() {
-        return getBoolean(R.string.preference_key_suggested_edits_add_captions_unlocked, false);
-    }
-
-    public static void setSuggestedEditsAddCaptionsUnlocked(boolean unlocked) {
-        if (!isSuggestedEditsUnlockOverride()) {
-            setBoolean(R.string.preference_key_suggested_edits_add_captions_unlocked, unlocked);
-        }
-    }
-
-    public static boolean isSuggestedEditsTranslateCaptionsUnlocked() {
-        return getBoolean(R.string.preference_key_suggested_edits_translate_captions_unlocked, false);
-    }
-
-    public static void setSuggestedEditsTranslateCaptionsUnlocked(boolean enabled) {
-        if (!isSuggestedEditsUnlockOverride()) {
-            setBoolean(R.string.preference_key_suggested_edits_translate_captions_unlocked, enabled);
-        }
-    }
-
-    public static boolean isSuggestedEditsUnlockOverride() {
-        return getBoolean(R.string.preference_key_suggested_edits_unlock_override, false);
     }
 
     public static boolean wasLoggedOutInBackground() {
@@ -893,6 +725,162 @@ public final class Prefs {
         setBoolean(R.string.preference_key_show_description_edit_success_prompt, enabled);
     }
 
+    public static int getSuggestedEditsCountForSurvey() {
+        return getInt(R.string.preference_key_suggested_edits_count_for_survey, 0);
+    }
+
+    public static void setSuggestedEditsCountForSurvey(int count) {
+        setInt(R.string.preference_key_suggested_edits_count_for_survey, count);
+    }
+
+    public static boolean wasSuggestedEditsSurveyClicked() {
+        return getBoolean(R.string.preference_key_suggested_edits_survey_clicked, false);
+    }
+
+    public static void setSuggestedEditsSurveyClicked(boolean surveyClicked) {
+        setBoolean(R.string.preference_key_suggested_edits_survey_clicked, surveyClicked);
+    }
+
+    public static boolean shouldShowSuggestedEditsSurvey() {
+        return getBoolean(R.string.preference_key_show_suggested_edits_survey, false);
+    }
+
+    public static void setShouldShowSuggestedEditsSurvey(boolean showSurvey) {
+        setBoolean(R.string.preference_key_show_suggested_edits_survey, showSurvey);
+    }
+
+    public static boolean shouldShowImageTagsTooltip() {
+        return getBoolean(R.string.preference_key_show_image_tags_tooltip, true);
+    }
+
+    public static void setShouldShowImageTagsTooltip(boolean enabled) {
+        setBoolean(R.string.preference_key_show_image_tags_tooltip, enabled);
+    }
+
+    public static boolean shouldShowSuggestedEditsTooltip() {
+        return getBoolean(R.string.preference_key_show_suggested_edits_tooltip, true);
+    }
+
+    public static void setShouldShowSuggestedEditsTooltip(boolean enabled) {
+        setBoolean(R.string.preference_key_show_suggested_edits_tooltip, enabled);
+    }
+
+    public static boolean hasVisitedArticlePage() {
+        return getBoolean(R.string.preference_key_visited_article_page, false);
+    }
+
+    public static void setHasVisitedArticlePage(boolean visited) {
+        setBoolean(R.string.preference_key_visited_article_page, visited);
+    }
+
+    @NonNull public static Set<String> getAnnouncementShownDialogs() {
+        Set<String> emptySet = new LinkedHashSet<>();
+        if (!hasAnnouncementShownDialogs()) {
+            return emptySet;
+        }
+        //noinspection unchecked
+        Set<String> announcement = GsonUnmarshaller.unmarshal(emptySet.getClass(),
+                getString(R.string.preference_key_announcement_shown_dialogs, null));
+        return announcement != null ? announcement : emptySet;
+    }
+
+    public static void setAnnouncementShownDialogs(@NonNull Set<String> newAnnouncementIds) {
+        Set<String> announcementIds = getAnnouncementShownDialogs();
+        announcementIds.addAll(newAnnouncementIds);
+        setString(R.string.preference_key_announcement_shown_dialogs, GsonMarshaller.marshal(announcementIds));
+    }
+
+    public static boolean hasAnnouncementShownDialogs() {
+        return contains(R.string.preference_key_announcement_shown_dialogs);
+    }
+
+    public static void resetAnnouncementShownDialogs() {
+        remove(R.string.preference_key_announcement_shown_dialogs);
+    }
+
+    public static boolean shouldMatchSystemTheme() {
+        return getBoolean(R.string.preference_key_match_system_theme, false);
+    }
+
+    public static void setMatchSystemTheme(boolean enabled) {
+        setBoolean(R.string.preference_key_match_system_theme, enabled);
+    }
+
+    public static Date getSuggestedEditsPauseDate() {
+        Date date = new Date(0);
+        try {
+            if (contains(R.string.preference_key_suggested_edits_pause_date)) {
+                date = DateUtil.dbDateParse(getString(R.string.preference_key_suggested_edits_pause_date, ""));
+            }
+        } catch (ParseException e) {
+            // ignore
+        }
+        return date;
+    }
+
+    public static void setSuggestedEditsPauseDate(Date date) {
+        setString(R.string.preference_key_suggested_edits_pause_date, DateUtil.dbDateFormat(date));
+    }
+
+    public static int getSuggestedEditsPauseReverts() {
+        return getInt(R.string.preference_key_suggested_edits_pause_reverts, 0);
+    }
+
+    public static void setSuggestedEditsPauseReverts(int count) {
+        setInt(R.string.preference_key_suggested_edits_pause_reverts, count);
+    }
+
+    public static boolean shouldOverrideSuggestedEditCounts() {
+        return getBoolean(R.string.preference_key_suggested_edits_override_counts, false);
+    }
+
+    public static int getOverrideSuggestedEditCount() {
+        return getInt(R.string.preference_key_suggested_edits_override_edits, 0);
+    }
+
+    public static int getOverrideSuggestedRevertCount() {
+        return getInt(R.string.preference_key_suggested_edits_override_reverts, 0);
+    }
+
+    public static boolean isOfflinePcsToMobileHtmlConversionComplete() {
+        return getBoolean(R.string.preference_key_pcs_to_mobilehtml_conversion_complete, false);
+    }
+
+    public static void setOfflinePcsToMobileHtmlConversionComplete(boolean conversionComplete) {
+        setBoolean(R.string.preference_key_pcs_to_mobilehtml_conversion_complete, conversionComplete);
+    }
+
+    public static int getOfflinePcsToMobileHtmlConversionAttempts() {
+        return getInt(R.string.preference_key_pcs_to_mobilehtml_conversion_attempts, 0);
+    }
+
+    public static void setOfflinePcsToMobileHtmlConversionAttempts(int attempts) {
+        setInt(R.string.preference_key_pcs_to_mobilehtml_conversion_attempts, attempts);
+    }
+
+    public static boolean shouldShowImageTagsOnboarding() {
+        return getBoolean(R.string.preference_key_image_tags_onboarding_shown, true);
+    }
+
+    public static void setShowImageTagsOnboarding(boolean showOnboarding) {
+        setBoolean(R.string.preference_key_image_tags_onboarding_shown, showOnboarding);
+    }
+
+    public static boolean shouldShowImageZoomTooltip() {
+        return getBoolean(R.string.preference_key_image_zoom_tooltip_shown, true);
+    }
+
+    public static void setShouldShowImageZoomTooltip(boolean show) {
+        setBoolean(R.string.preference_key_image_zoom_tooltip_shown, show);
+    }
+
+    public static boolean isSuggestedEditsImageTagsNew() {
+        return getBoolean(R.string.preference_key_suggested_edits_image_tags_new, true);
+    }
+
+    public static void setSuggestedEditsImageTagsNew(boolean enabled) {
+        setBoolean(R.string.preference_key_suggested_edits_image_tags_new, enabled);
+    }
 
     private Prefs() { }
 }

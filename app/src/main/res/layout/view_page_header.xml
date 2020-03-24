@@ -8,7 +8,8 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true">
 
         <org.wikipedia.views.FaceAndColorDetectImageView
             android:id="@+id/view_page_header_image"
@@ -55,7 +56,7 @@
                 android:fontFamily="sans-serif-medium"
                 android:textAllCaps="true"
                 android:textColor="@color/base100"
-                tools:text="ADD CAPTION" />
+                android:letterSpacing="0.1" />
         </LinearLayout>
 
     </FrameLayout>

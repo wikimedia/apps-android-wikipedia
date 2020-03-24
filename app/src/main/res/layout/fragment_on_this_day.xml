@@ -38,9 +38,12 @@
                     android:paddingBottom="20dp">
 
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:id="@+id/day_container"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:background="?android:selectableItemBackground"
+                        android:contentDescription="@string/on_this_day_open_date_picker">
 
                         <TextView
                             android:id="@+id/day"
@@ -57,10 +60,11 @@
 
                         <ImageView
                             android:id="@+id/drop_down"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
                             android:layout_gravity="center_vertical"
                             android:tint="?attr/main_toolbar_icon_color"
+                            android:contentDescription="@null"
                             app:srcCompat="@drawable/ic_arrow_drop_down_black_24dp" />
                     </LinearLayout>
 
@@ -101,14 +105,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:gravity="center_vertical"
-                android:theme="@style/ToolbarTheme"
                 app:layout_collapseMode="pin">
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:id="@+id/toolbar_day_container"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="start|center_vertical"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:background="?android:selectableItemBackground"
+                    android:contentDescription="@string/on_this_day_open_date_picker">
 
                     <TextView
                         android:id="@+id/toolbar_day"
@@ -126,9 +132,10 @@
 
                     <ImageView
                         android:id="@+id/drop_down_toolbar"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
                         android:tint="?attr/main_toolbar_icon_color"
+                        android:contentDescription="@null"
                         app:srcCompat="@drawable/ic_arrow_drop_down_black_24dp" />
                 </LinearLayout>
 

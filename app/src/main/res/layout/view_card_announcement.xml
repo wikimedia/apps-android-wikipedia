@@ -3,7 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:clipChildren="false"
+    android:clipToPadding="false">
 
     <org.wikipedia.views.FaceAndColorDetectImageView
         android:id="@+id/view_announcement_header_image"
@@ -31,9 +33,11 @@
         android:layout_gravity="end"
         android:layout_marginBottom="12dp"
         android:paddingStart="16dp"
-        android:paddingEnd="16dp">
+        android:paddingEnd="16dp"
+        android:clipToPadding="false"
+        android:clipChildren="false">
 
-        <TextView
+        <Button
             android:id="@+id/view_announcement_action_negative"
             style="@style/TransparentButton"
             android:layout_width="wrap_content"
@@ -42,7 +46,7 @@
             android:text="@string/view_announcement_card_negative_action"
             android:textColor="?attr/secondary_text_color" />
 
-        <TextView
+        <Button
             android:id="@+id/view_announcement_action_positive"
             style="@style/App.Button.Blue"
             android:textColor="@android:color/white"
@@ -53,7 +57,9 @@
         android:id="@+id/view_announcement_footer_border"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="?attr/material_theme_border_color" />
+        android:background="?attr/chip_background_color"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp" />
 
     <TextView
         android:id="@+id/view_announcement_footer_text"

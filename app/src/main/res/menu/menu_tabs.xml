@@ -4,6 +4,9 @@
     <item android:id="@+id/menu_open_a_new_tab"
           android:title="@string/menu_page_open_a_new_tab"
           app:showAsAction="never" />
+    <item android:id="@+id/menu_save_all_tabs"
+        android:title="@string/menu_save_all_tabs"
+        app:showAsAction="never" />
     <item android:id="@+id/menu_close_all_tabs"
         android:title="@string/menu_close_all_tabs"
         app:showAsAction="never" />
@@ -15,8 +18,5 @@
         app:showAsAction="never" />
     <item android:id="@+id/menu_history"
         android:title="@string/nav_item_history"
-        app:showAsAction="never" />
-    <item android:id="@+id/menu_nearby"
-        android:title="@string/nav_item_nearby"
         app:showAsAction="never" />
 </menu>

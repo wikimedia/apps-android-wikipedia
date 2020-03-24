@@ -135,7 +135,7 @@ public class CategoryDialog extends ExtendedBottomSheetDialogFragment {
         void bindItem(MwQueryPage.Category category) {
             PageTitle title = new PageTitle(category.title(), pageTitle.getWikiSite());
             itemView.setItem(title);
-            itemView.setTitle(StringUtil.fromHtml(title.getText().replace("_", " ")));
+            itemView.setTitle(title.getText().replace("_", " "));
         }
 
         public PageItemView getView() {

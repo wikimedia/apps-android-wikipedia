@@ -16,6 +16,7 @@
   <string name="page_tabs_back">Uɣal</string>
   <string name="nav_item_forward">Welleh</string>
   <string name="search_hint">Nadi di Wikipedia</string>
+  <string name="search_hint_voice_search">Anadi n yinekcam s taɣect</string>
   <string name="search_hint_search_history">Nadi amazray</string>
   <string name="search_hint_search_languages">Nadi γef akk tutlayin</string>
   <string name="search_hint_search_my_lists_and_articles">Nadi deg tibdarin-iw d yimagraden-iw</string>
@@ -62,16 +63,12 @@
   <string name="on_this_day_page_share">Bḍu</string>
   <string name="reading_list_page_share">Bḍu</string>
   <string name="menu_text_select_edit_here">Ẓreg dagi</string>
-  <string name="nav_item_nearby">S lqeṛban</string>
-  <string name="nearby_zoom_to_location">Semɣer amḍiq n tkarḍa</string>
-  <string name="nearby_osm_license">&amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt; imttekkiyen</string>
   <string name="last_updated_text">Lqem aneggaru %s</string>
   <string name="talk_page_link_text">Wali asebter n usqerdec</string>
   <string name="edit_history_link_text">Wali amazray n usnifel</string>
   <string name="map_view_link_text">Sken ɣef tkarḍa</string>
   <string name="other_languages_indication_text">Γer deg tutlayt-nniḍen</string>
   <string name="language_count_link_text">Yella di %d n tutlayin nniḍen</string>
-  <string name="content_license_html">Agbur yella daw n &lt;a href=\"%1$s\"&gt;turagt CC BY-SA 3.0&lt;/a&gt; alama yettwammel akken-nniḍen</string>
   <string name="edit_save_action_license_logged_in">S usuffeɣ, ad tqebleḍ &lt;a href=\"%1$s\"&gt;Tiwtilin n useqdec &lt;/a&gt;, udiɣ ad tserseḍ i lebda ittekkiyen-ik ddaw n turagt &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">S usuffeɣ, ad tqebleḍ &lt;a href=\"%1$s\"&gt;tiwtilin n useqdec&lt;/a&gt;, udiɣ ad tserseḍ i lebda ittekkiyen-ik ddaw n turagt &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Akk ayen tbeddleḍ ad ittunefk i tensa IP n yibenk-ik. Ma yella &lt;a href=\"https://#login\"&gt;teqqneḍ&lt;/a&gt;, ad yili ɣur-k ugar n tbaḍnit.</string>
   <string name="preference_title_language">Tutlayt n wikipedia</string>
@@ -94,6 +91,7 @@
   <string name="search_reading_lists_no_results">Ulac igmaḍ di tebdarin n tɣuri</string>
   <string name="search_history_no_results">Ulac igmaḍ deg umazray</string>
   <string name="edit_section_captcha_message">Akken ad tmuddeḍ afus n ummestane mgal ispamen, sekcem awalen ara d-ibanen daw-a</string>
+  <string name="edit_section_captcha_request_an_account_message">D awezɣi uwali n tugna ? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Suter amiḍan&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Ales awalen n daw-a</string>
   <string name="title_captcha">Sekcem CAPTCHA</string>
   <string name="edit_section_captcha_reload">Sekcem CAPTCHA ad talseḍ asali</string>
@@ -112,13 +110,19 @@
   <string name="login_in_progress_dialog_message">Tuqqna tetteddu...</string>
   <string name="login_success_toast">Yeqqen akken iwata!</string>
   <string name="reset_password_title">Sbadu awal-ik uffir</string>
+  <string name="reset_password_description">Teqqneḍ s wawal uffir askudan. Akken ad fakkeḍ tuqqna, sekcem awal-ik uffir amaynut dagi.</string>
   <string name="reset_password_hint">Awal uffir amaynut</string>
+  <string name="reset_password_button">Sekles sakin qqen</string>
   <string name="preference_title_logout">Ffeɣ</string>
   <string name="toast_logout_complete">Yeffeɣ</string>
   <string name="logout_dialog_cancel_button_text">Sefsex</string>
+  <string name="logged_out_in_background_title">Yeffeɣ</string>
+  <string name="logged_out_in_background_login">Qqen</string>
+  <string name="logged_out_in_background_cancel">Sefsex</string>
   <string name="history_empty_title">Ula d yiwen n umagrad ur twalan ussan-a ineggura</string>
   <string name="history_empty_message">Ḍfeṛ ayen tɣareḍ dagi.</string>
   <string name="search_empty_message">Nadi sakin ɣeṛ tasanayt tilellit s tutlayt-ik</string>
+  <string name="search_empty_message_multilingual_upgrade">Nadi Wikipedia deg wugar n tutlayin.</string>
   <string name="delete_selected_items">Kkes iferdisen yettwafernen</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Isem n useqdac</string>
@@ -140,19 +144,23 @@
   <string name="email_recommendation_dialog_create_without_email_action">Kemmel war imayl</string>
   <string name="email_recommendation_dialog_create_with_email_action">Rnu tansa imayl</string>
   <string name="create_account_button">Rnu amiḍan</string>
+  <string name="create_account_name_unavailable">Isem n useqdac \"%s\" ur yelli ara. Ttxil fren wayeḍ.</string>
+  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Ttfaṣil</string>
   <string name="preferences_general_heading">Amatu</string>
   <string name="wikipedia_app_faq">Isteqsiyen FAQ n isnasen Wikipedia</string>
   <string name="send_feedback">Azen-d tikti ɣef usnas</string>
   <string name="create_account_account_created_toast">Amiḍan yettwarna!</string>
+  <string name="preferences_heading_syncing">Amtawi</string>
   <string name="preferences_heading_data_usage">Aseqdec n isefka</string>
   <string name="preferences_heading_experimental">Anermay</string>
+  <string name="preference_title_download_reading_list_articles">Ssader-d umuɣ n yimagraden n tɣuri.</string>
   <string name="preference_summary_sync_reading_lists" fuzzy="true">Eǧǧ Wikimedia ad imtawi tibdarin-ik n tɣuri ticki teqqneḍ</string>
   <string name="preferences_privacy_settings_heading">Tabaḍnit</string>
   <string name="preference_title_eventlogging_opt_in">Azen ineqqisen n useqdec</string>
   <string name="preference_summary_eventlogging_opt_in">Eǧǧ Wikimedia ad yelqeḍ talɣut ɣef wamek tseqdaceḍ asnas akken ad t-terreḍ igarrez ugar.</string>
   <string name="preference_title_auto_upload_crash_reports">Azen ineqqisen n uɣelluy</string>
-  <string name="preference_summary_auto_upload_crash_reports">Sireg asnas ad yazen ineqqisen n wuguren ar HockeyApp, asaǧǧaw n imeẓla-nniḍen, s wudem awurman, akken ad nizmir ad nesleḍ sakin ad nseɣti ugur s zreb, s wudem fessusen.</string>
+  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Sireg asnas ad yazen ineqqisen n wuguren ar HockeyApp, asaǧǧaw n imeẓla-nniḍen, s wudem awurman, akken ad nizmir ad nesleḍ sakin ad nseɣti ugur s zreb, s wudem fessusen.</string>
   <string name="editing_error_spamblacklist">Tuṭṭfa n iseɣwan ar tɣula iweḥlen (%s). Ma ulac aɣilif, kkes-iten sakin ɛreḍ tikelt-nniḍen.</string>
   <string name="history_search_list_hint">Nadi amazray</string>
   <string name="error_can_not_process_link">Ur izmir ara ad d-yesken aseɣwen-agi</string>
@@ -167,7 +175,7 @@
   <string name="about_description">Ɣef usnas Wikipedia</string>
   <string name="privacy_policy_description">Tasertit n tbaḍnit</string>
   <string name="terms_of_use_description">Tiwtilin n useqdec</string>
-  <string name="about_wikipedia_url">https://en.m.wikipedia.org/wiki/Wikipedia:About</string>
+  <string name="about_wikipedia_url" fuzzy="true">https://en.m.wikipedia.org/wiki/Wikipedia:About</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/fr</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
@@ -232,6 +240,7 @@
   <string name="preference_title_show_images">Sken tugniwin</string>
   <string name="preference_summary_show_images">Rmed neɣ sens asnifel n tugniwin deg isebtar. Kkes acraḍ n uɣewwaṛ-agi ma yella tuqqna-ik ar Internet ẓẓayet, neɣ ma ɣur-k talast n isefka.</string>
   <string name="preference_title_download_only_over_wifi">Ssader-d s Wi-Fi kan</string>
+  <string name="dialog_title_download_only_over_wifi">Ad twekkdeḍ asider s usexdem n yisefka n uziraz?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Sireg</string>
   <string name="read_more_section">Ɣeṛ ugar</string>
   <string name="about_article_section">Ɣef umagrad-agi</string>
@@ -244,6 +253,7 @@
   <string name="gallery_save_success">Afaylu yettwasekles akken iwata.</string>
   <string name="gallery_error_video_failed">Ur izmir ara ad yurar tavidyut-agi.</string>
   <string name="gallery_save_image_write_permission_rationale">Tasiregt n tira ar umḍiq n usekles n yibenk-ik tlaq i usekles n tugniwin.</string>
+  <string name="gallery_add_image_caption_in_language_button">Rnu taneffust n tugna (%s)</string>
   <string name="err_cannot_save_file">Ur izmir ara ad isekles afaylu</string>
   <string name="snippet_share_intro">\"%1$s\" ɣef @Wikipedia: %2$s</string>
   <string name="expand_refs">Aru akken ad tesnefliḍ</string>
@@ -263,7 +273,6 @@
   <string name="tab_item_closed">%s imdel.</string>
   <string name="all_tab_items_closed">Iccaren akk medlen.</string>
   <string name="tool_tip_bookmark_icon_title">Rnu ɣer wumuɣ n tɣuri</string>
-  <string name="tool_tip_share">Seld asebruṛeq n tɣawsa yelhan, ɛreḍ beṭṭu-is deg iẓeḍwa-ik inurifen!</string>
   <string name="page_view_in_browser">Sken deg iminig-ik</string>
   <string name="tool_tip_lang_button">Senned ɣef tegnit iwakken ad ternuḍ ugar n tutlayin.</string>
   <string name="error_response_malformed">Tiririt n uqeddac ur temsil ara akken iwata.</string>
@@ -281,6 +290,7 @@
   <string name="error_no_maps_app">Ur izmir ara ad d-yaf asnas yettmuddun iwellihen.</string>
   <string name="preference_title_show_link_previews">Wali tiskanin n useɣwen</string>
   <string name="preference_summary_show_link_previews">Wali taskant taruraḍt n imagraden s unali n iseɣwan.</string>
+  <string name="preference_title_collapse_tables">Fneẓ tifelwiyin.</string>
   <string name="nav_item_donate">Mudd afus i Wikipedia</string>
   <string name="error_voice_search_not_available">Suref-aɣ, aɛqal aɣectan ulac-it.</string>
   <string name="location_service_disabled">Imezla n usideg nsan.</string>
@@ -297,11 +307,6 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Asibrek n tugna (deg usentel ubrik)</string>
   <string name="preference_title_prefer_offline_content">Bɣiɣ agbur n war tuqqna</string>
   <string name="preference_summary_prefer_offline_content">Sekles axiṛ isefka s usali n imagraden yellan s war tuqqna wala asali n lqem aneggaru n umagrad.</string>
-  <string name="crash_report_dialog_title">Suref-aɣ, asnas yeɣli tagara-agi</string>
-  <string name="crash_report_dialog_text">Tebɣiḍ ad tazneḍ aneqqis n uɣelluy ar HockeyApp  - asaǧǧaw n umeẓalu wis kraḍ - akken Wikimedia ad tizmir ad tesleḍ ugur-ik sakin ad tseɣti abug i t-id-yesseglan?</string>
-  <string name="crash_report_dialog_dont_send_button">Zgel</string>
-  <string name="crash_report_dialog_always_send_button">Azen yal tikelt</string>
-  <string name="crash_report_dialog_send_button">Azen</string>
   <string name="crash_report_activity_title">Tuccḍa n usnas</string>
   <string name="crash_report_relaunch_or_quit">Tebɣiḍ ad talseḍ asenker neɣ ad teffɣeḍ?</string>
   <string name="crash_report_relaunch">Ales tanekra</string>
@@ -378,6 +383,7 @@
   <string name="reading_list_article_save_in_progress">Aisder n umagrad iteddu, udiɣ ad yili s war tuqqna ticki yemmed.</string>
   <string name="reading_list_already_contains_selection">Tabdart yettwafernen tegber yakan akk isebtar yettwafernen.</string>
   <string name="reading_list_added_articles_list_titled">%1$d n imagraden ttwarnan ar %2$s</string>
+  <string name="reading_list_delete_confirm">Tettḥeqqeḍ tebɣiḍ ad tekkseḍ %s?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Kcem iwakken ad tsirgeḍ umuɣen-ik n tɣuri iwakken ad ttwaskelsen deg umiḍan-ik.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Sefsex</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Kcem</string>
@@ -386,7 +392,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Ur iyi-d-skan ara aya daɣen</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Rmed amtawi</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Ala, tanemmirt</string>
-  <string name="reading_list_login_option_reminder_dialog_title">Umuɣen n tɣuri n yimagraden ttwafen-d</string>
+  <string name="default_reading_list_name">Yettwasekles</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">Amagrad-agi yella s war tuqqna.</item>
     <item quantity="other">Imagraden-agi llan s war tuqqna.</item>
@@ -395,8 +401,29 @@
     <item quantity="one">Amagrad -agi ur yezgi yella s war tuqqna.</item>
     <item quantity="other">Imagraden-agi ur zgin llan s war tuqqna.</item>
   </plurals>
+  <string name="reading_list_remove_list_dialog_ok_button_text">IH</string>
+  <string name="reading_list_delete_dialog_ok_button_text">IH</string>
+  <string name="reading_list_remove_from_list_dialog_cancel_button_text">Sefsex</string>
+  <string name="reading_list_delete_dialog_cancel_button_text">Sefsex</string>
+  <string name="reading_list_remove_from_offline_cancel_button_text">Sefsex</string>
+  <string name="reading_list_download_using_mobile_data_cancel_button_text">Sefsex</string>
+  <string name="reading_list_split_dialog_ok_button_text">IH</string>
   <string name="user_option_sync_label">Ismenyifen</string>
   <string name="notification_reverted_title">Asnifel yettwasefsex</string>
+  <string name="notification_channel_description">Asfari n usader</string>
+  <string name="notification_syncing_pause_button">Rǧu</string>
+  <string name="notification_syncing_resume_button">Kemmel</string>
+  <string name="notification_syncing_cancel_button">Sefsex</string>
+  <string name="notification_echo_channel_description">Ilɣa n Wikipedia</string>
+  <string name="notifications_activity_title">Ilɣa</string>
+  <string name="notifications_activity_title_archived">Ilɣa (taṛcivt)</string>
+  <string name="notifications_search">Nadi ilɣa</string>
+  <string name="notifications_view_unread">Sken wid ur nettwaɣra</string>
+  <string name="notifications_view_archived">Sken taṛcivt</string>
+  <string name="notifications_prefs">Ismenyifen n yilɣa</string>
+  <string name="notifications_archive">Creḍ ttwaɣran sakin ḥrez</string>
+  <string name="notifications_poll_enable_positive">Rmed</string>
+  <string name="notifications_poll_enable_negative">Mačči tura</string>
   <string name="view_because_you_read_card_title">Acku teɣriḍ</string>
   <string name="view_random_card_title">Agacuran</string>
   <string name="view_random_card_subtitle" fuzzy="true">Ɣeṛ amagrad agacuran si Wikipedia</string>

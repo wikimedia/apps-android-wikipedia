@@ -1,5 +1,6 @@
 package org.wikipedia.util;
 
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -18,6 +19,8 @@ import org.wikipedia.util.log.L;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
+
+import okhttp3.HttpUrl;
 
 public final class UriUtil {
     public static final String LOCAL_URL_SETTINGS = "#settings";
@@ -52,6 +55,10 @@ public final class UriUtil {
         }
     }
 
+    @NonNull public static String encodeOkHttpUrl(@NonNull String basePath, @NonNull String title) {
+        return HttpUrl.parse(basePath).newBuilder().addPathSegment(title).build().toString();
+    }
+
     /**
      * Open the specified URI in an external browser (even if our app's intent filter
      * matches the given URI)
@@ -59,16 +66,15 @@ public final class UriUtil {
      * @param context Context of the calling app
      * @param uri URI to open in an external browser
      */
-    public static void visitInExternalBrowser(final Context context, Uri uri) {
-        Intent chooserIntent = ShareUtil.createChooserIntent(new Intent(Intent.ACTION_VIEW, uri),
-                null, context);
-        if (chooserIntent == null) {
+    public static void visitInExternalBrowser(@NonNull final Context context, @NonNull Uri uri) {
+        Intent chooserIntent = ShareUtil.createChooserIntent(new Intent(Intent.ACTION_VIEW, uri), context);
+        try {
+            chooserIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            context.startActivity(chooserIntent);
+        } catch (ActivityNotFoundException e) {
             // This means that there was no way to handle this link.
             // We will just show a toast now. FIXME: Make this more visible?
             ShareUtil.showUnresolvableIntentMessage(context);
-        } else {
-            chooserIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            context.startActivity(chooserIntent);
         }
     }
 
@@ -119,7 +125,7 @@ public final class UriUtil {
 
     public static String getUrlWithProvenance(Context context, PageTitle title,
                                               @StringRes int provId) {
-        return title.getCanonicalUri() + "?wprov=" + context.getString(provId);
+        return title.getUri() + "?wprov=" + context.getString(provId);
     }
 
     /**

@@ -41,7 +41,7 @@
         android:paddingStart="12dp"
         android:paddingEnd="12dp">
 
-        <TextView
+        <Button
             android:id="@+id/view_onboarding_action_negative"
             style="@style/TransparentButton"
             android:layout_width="wrap_content"
@@ -50,10 +50,9 @@
             android:text="@string/onboarding_negative_action"
             android:textColor="@android:color/white" />
 
-        <TextView
+        <Button
             android:id="@+id/view_onboarding_action_positive"
-            style="@style/App.Button.White"
-            android:textColor="@color/accent50"
+            style="@style/App.Button.Blue"
             tools:text="Lorem ipsum" />
     </LinearLayout>
 

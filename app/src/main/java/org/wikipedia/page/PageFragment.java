@@ -16,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
@@ -30,9 +31,9 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.wikipedia.BackPressedHandler;
 import org.wikipedia.Constants;
 import org.wikipedia.Constants.InvokeSource;
@@ -48,23 +49,30 @@ import org.wikipedia.analytics.TabFunnel;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.categories.CategoryActivity;
+import org.wikipedia.bridge.CommunicationBridge.CommunicationBridgeListener;
+import org.wikipedia.bridge.JavaScriptActionHandler;
+import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.okhttp.OkHttpWebViewClient;
+import org.wikipedia.dataclient.page.Protection;
 import org.wikipedia.descriptions.DescriptionEditActivity;
 import org.wikipedia.descriptions.DescriptionEditTutorialActivity;
 import org.wikipedia.edit.EditHandler;
+import org.wikipedia.feed.announcement.Announcement;
 import org.wikipedia.gallery.GalleryActivity;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.history.UpdateHistoryTask;
+import org.wikipedia.json.GsonUtil;
 import org.wikipedia.language.LangLinksActivity;
 import org.wikipedia.login.LoginActivity;
 import org.wikipedia.media.AvPlayer;
 import org.wikipedia.media.DefaultAvPlayer;
 import org.wikipedia.media.MediaPlayerImplementation;
 import org.wikipedia.page.action.PageActionTab;
-import org.wikipedia.page.bottomcontent.BottomContentView;
 import org.wikipedia.page.leadimages.LeadImagesHandler;
 import org.wikipedia.page.leadimages.PageHeaderView;
+import org.wikipedia.page.references.PageReferences;
+import org.wikipedia.page.references.ReferenceDialog;
 import org.wikipedia.page.shareafact.ShareHandler;
 import org.wikipedia.page.tabs.Tab;
 import org.wikipedia.readinglist.ReadingListBookmarkMenu;
@@ -76,6 +84,7 @@ import org.wikipedia.util.ActiveTimer;
 import org.wikipedia.util.AnimationUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.GeoUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.ThrowableUtil;
@@ -83,8 +92,10 @@ import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.SwipeRefreshLayoutWithScroll;
-import org.wikipedia.views.WikiPageErrorView;
+import org.wikipedia.views.WikiErrorView;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -98,23 +109,24 @@ import static android.app.Activity.RESULT_OK;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_GALLERY;
 import static org.wikipedia.Constants.InvokeSource.BOOKMARK_BUTTON;
 import static org.wikipedia.Constants.InvokeSource.PAGE_ACTIVITY;
+import static org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_DESCRIPTION;
 import static org.wikipedia.descriptions.DescriptionEditTutorialActivity.DESCRIPTION_SELECTED_TEXT;
+import static org.wikipedia.feed.announcement.Announcement.PLACEMENT_ARTICLE;
+import static org.wikipedia.feed.announcement.AnnouncementClient.shouldShow;
 import static org.wikipedia.page.PageActivity.ACTION_RESUME_READING;
 import static org.wikipedia.page.PageCacher.loadIntoCache;
-import static org.wikipedia.settings.Prefs.getTextSizeMultiplier;
 import static org.wikipedia.settings.Prefs.isDescriptionEditTutorialEnabled;
 import static org.wikipedia.settings.Prefs.isLinkPreviewEnabled;
-import static org.wikipedia.util.DimenUtil.getContentTopOffset;
 import static org.wikipedia.util.DimenUtil.getContentTopOffsetPx;
+import static org.wikipedia.util.DimenUtil.getDensityScalar;
 import static org.wikipedia.util.DimenUtil.leadImageHeightForDevice;
 import static org.wikipedia.util.ResourceUtil.getThemedAttributeId;
 import static org.wikipedia.util.ResourceUtil.getThemedColor;
-import static org.wikipedia.util.StringUtil.addUnderscores;
 import static org.wikipedia.util.ThrowableUtil.isOffline;
 import static org.wikipedia.util.UriUtil.decodeURL;
 import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
 
-public class PageFragment extends Fragment implements BackPressedHandler {
+public class PageFragment extends Fragment implements BackPressedHandler, CommunicationBridgeListener {
     public interface Callback {
         void onPageShowBottomSheet(@NonNull BottomSheetDialog dialog);
         void onPageShowBottomSheet(@NonNull BottomSheetDialogFragment dialog);
@@ -122,7 +134,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         void onPageLoadPage(@NonNull PageTitle title, @NonNull HistoryEntry entry);
         void onPageInitWebView(@NonNull ObservableWebView v);
         void onPageShowLinkPreview(@NonNull HistoryEntry entry);
-        void onPageLoadMainPageInForegroundTab();
+        void onPageLoadEmptyPageInForegroundTab();
         void onPageUpdateProgressBar(boolean visible, boolean indeterminate, int value);
         void onPageShowThemeChooser();
         void onPageStartSupportActionMode(@NonNull ActionMode.Callback callback);
@@ -139,7 +151,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     private boolean pageRefreshed;
     private boolean errorState = false;
 
-    private static final int REFRESH_SPINNER_ADDITIONAL_OFFSET = (int) (16 * DimenUtil.getDensityScalar());
+    private static final int REFRESH_SPINNER_ADDITIONAL_OFFSET = (int) (16 * getDensityScalar());
 
     private PageFragmentLoadState pageFragmentLoadState;
     private PageViewModel model;
@@ -149,11 +161,11 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     private PageScrollFunnel pageScrollFunnel;
     private LeadImagesHandler leadImagesHandler;
     private PageHeaderView pageHeaderView;
-    private BottomContentView bottomContentView;
     private ObservableWebView webView;
+    private View emptyPageContainer;
     private CoordinatorLayout containerView;
     private SwipeRefreshLayoutWithScroll refreshView;
-    private WikiPageErrorView errorView;
+    private WikiErrorView errorView;
     private PageActionTabLayout tabLayout;
     private ToCHandler tocHandler;
     private WebViewScrollTriggerListener scrollTriggerListener = new WebViewScrollTriggerListener();
@@ -165,8 +177,11 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     private ShareHandler shareHandler;
     private CompositeDisposable disposables = new CompositeDisposable();
     private ActiveTimer activeTimer = new ActiveTimer();
+    private PageReferences references;
+    private long revision;
     @Nullable private AvPlayer avPlayer;
     @Nullable private AvCallback avCallback;
+    @Nullable private List<Section> sections;
 
     private WikipediaApp app;
 
@@ -236,6 +251,11 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         return webView;
     }
 
+    @Override
+    public PageTitle getPageTitle() {
+        return model.getTitle();
+    }
+
     public PageTitle getTitle() {
         return model.getTitle();
     }
@@ -260,10 +280,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         return editHandler;
     }
 
-    public BottomContentView getBottomContentView() {
-        return bottomContentView;
-    }
-
     public ViewGroup getContainerView() {
         return containerView;
     }
@@ -283,6 +299,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         View rootView = inflater.inflate(R.layout.fragment_page, container, false);
         pageHeaderView = rootView.findViewById(R.id.page_header_view);
         DimenUtil.setViewHeight(pageHeaderView, leadImageHeightForDevice());
+        emptyPageContainer = rootView.findViewById(R.id.page_empty_container);
 
         webView = rootView.findViewById(R.id.page_web_view);
         initWebViewListeners();
@@ -300,8 +317,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
         errorView = rootView.findViewById(R.id.page_error);
 
-        bottomContentView = rootView.findViewById(R.id.page_bottom_view);
-
         return rootView;
     }
 
@@ -315,19 +330,12 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         bridge.cleanup();
         tocHandler.log();
         shareHandler.dispose();
-        bottomContentView.dispose();
         leadImagesHandler.dispose();
         disposables.clear();
         webView.clearAllListeners();
         ((ViewGroup) webView.getParent()).removeView(webView);
         webView = null;
         super.onDestroyView();
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        app.getRefWatcher().watch(this);
     }
 
     @Override
@@ -346,7 +354,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         // creating a seizure-inducing effect, or at the very least, a migraine with aura).
         webView.setBackgroundColor(getThemedColor(requireActivity(), R.attr.paper_color));
 
-        bridge = new CommunicationBridge(webView);
+        bridge = new CommunicationBridge(this);
         setupMessageHandlers();
         sendDecorOffsetMessage();
 
@@ -362,15 +370,12 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         });
 
         editHandler = new EditHandler(this, bridge);
-        pageFragmentLoadState.setEditHandler(editHandler);
 
         tocHandler = new ToCHandler(this, requireActivity().getWindow().getDecorView().findViewById(R.id.toc_container),
                 requireActivity().getWindow().getDecorView().findViewById(R.id.page_scroller_button), bridge);
 
         // TODO: initialize View references in onCreateView().
-        leadImagesHandler = new LeadImagesHandler(this, bridge, webView, pageHeaderView);
-
-        bottomContentView.setup(this, bridge, webView);
+        leadImagesHandler = new LeadImagesHandler(this, webView, pageHeaderView);
 
         shareHandler = new ShareHandler(this, bridge);
 
@@ -378,7 +383,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             new LongPressHandler(webView, HistoryEntry.SOURCE_INTERNAL_LINK, new PageContainerLongPressHandler(this));
         }
 
-        pageFragmentLoadState.setUp(model, this, refreshView, webView, bridge, leadImagesHandler, getCurrentTab());
+        pageFragmentLoadState.setUp(model, this, webView, bridge, leadImagesHandler, getCurrentTab());
 
         if (shouldLoadFromBackstack(requireActivity()) || savedInstanceState != null) {
             reloadFromBackstack();
@@ -390,7 +395,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         if (!pageFragmentLoadState.backStackEmpty()) {
             pageFragmentLoadState.loadFromBackStack();
         } else {
-            loadMainPageInForegroundTab();
+            loadEmptyPageInForegroundTab();
         }
     }
 
@@ -422,20 +427,101 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             @NonNull @Override public PageViewModel getModel() {
                 return model;
             }
+
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                super.onPageFinished(view, url);
+                if (!isAdded()) {
+                    return;
+                }
+                pageFragmentLoadState.onPageFinished();
+                updateProgressBar(false, true, 0);
+                webView.setVisibility(View.VISIBLE);
+                app.getSessionFunnel().leadSectionFetchEnd();
+            }
+
+            @Override
+            public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
+                onPageLoadError(new RuntimeException(description));
+            }
         });
+    }
+
+    public void onPageMetadataLoaded() {
+        editHandler.setPage(model.getPage());
+        refreshView.setEnabled(true);
+        refreshView.setRefreshing(false);
+        requireActivity().invalidateOptionsMenu();
+        initPageScrollFunnel();
+
+        if (model.getReadingListPage() != null) {
+            final ReadingListPage page = model.getReadingListPage();
+            final PageTitle title = model.getTitle();
+            disposables.add(Completable.fromAction(() -> {
+                if (!TextUtils.equals(page.thumbUrl(), title.getThumbUrl())
+                        || !TextUtils.equals(page.description(), title.getDescription())) {
+                    page.thumbUrl(title.getThumbUrl());
+                    page.description(title.getDescription());
+                    ReadingListDbHelper.instance().updatePage(page);
+                }
+            }).subscribeOn(Schedulers.io()).subscribe());
+        }
+
+        if (!errorState) {
+            editHandler.setPage(model.getPage());
+            webView.setVisibility(View.VISIBLE);
+        }
+
+        // TODO: As seen below, we are making four (4) separate requests over the Bridge.
+        // Does this impact performance? Can we reduce this?
+
+        bridge.execute(JavaScriptActionHandler.setFooter(model));
+
+        bridge.evaluate(JavaScriptActionHandler.getRevision(), revision -> {
+            try {
+                this.revision = Long.parseLong(revision.replace("\"", ""));
+            } catch (NumberFormatException e) {
+                L.e(e);
+            }
+        });
+
+        bridge.evaluate(JavaScriptActionHandler.getSections(), value -> {
+            Section[] secArray = GsonUtil.getDefaultGson().fromJson(value, Section[].class);
+            if (secArray != null) {
+                sections = new ArrayList<>(Arrays.asList(secArray));
+                sections.add(0, new Section(0, 0, model.getTitle().getDisplayText(), model.getTitle().getDisplayText(), ""));
+                if (model.getPage() != null) {
+                    model.getPage().setSections(sections);
+                }
+            }
+            tocHandler.setupToC(model.getPage(), model.getTitle().getWikiSite(), pageFragmentLoadState.isFirstPage());
+            tocHandler.setEnabled(true);
+        });
+
+        bridge.evaluate(JavaScriptActionHandler.getProtection(), value -> {
+            Protection protection = GsonUtil.getDefaultGson().fromJson(value, Protection.class);
+            if (model.getPage() != null) {
+                model.getPage().getPageProperties().setProtection(protection);
+                bridge.execute(JavaScriptActionHandler.setUpEditButtons(true, !model.getPage().getPageProperties().canEdit()));
+            }
+        });
+
+        checkAndShowBookmarkOnboarding();
+        maybeShowAnnouncement();
     }
 
     private void handleInternalLink(@NonNull PageTitle title) {
         if (!isResumed()) {
             return;
         }
+
         // If it's a Special page, launch it in an external browser, since mobileview
         // doesn't support the Special namespace.
         // TODO: remove when Special pages are properly returned by the server
         // If this is a Talk page also show in external browser since we don't handle those pages
         // in the app very well at this time.
         if (title.isSpecial() || title.isTalkPage()) {
-            visitInExternalBrowser(requireActivity(), Uri.parse(title.getMobileUri()));
+            visitInExternalBrowser(requireActivity(), Uri.parse(title.getUri()));
             return;
         }
 
@@ -447,7 +533,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         dismissBottomSheet();
         HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK);
         if (model.getTitle() != null) {
-            historyEntry.setReferrer(model.getTitle().getCanonicalUri());
+            historyEntry.setReferrer(model.getTitle().getUri());
         }
         if (title.namespace() != Namespace.MAIN || !isLinkPreviewEnabled()) {
             loadPage(title, historyEntry);
@@ -490,7 +576,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         // if the screen orientation changes, then re-layout the lead image container,
         // but only if we've finished fetching the page.
         if (!pageFragmentLoadState.isLoading() && !errorState) {
-            pageFragmentLoadState.layoutLeadImage();
+            pageFragmentLoadState.onConfigurationChanged();
         }
     }
 
@@ -560,6 +646,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             }
             requireActivity().invalidateOptionsMenu();
         } else {
+            pageFragmentLoadState.setTab(getCurrentTab());
             getCurrentTab().getBackStack().add(new PageBackStackItem(title, entry));
         }
     }
@@ -622,12 +709,9 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         addTimeSpentReading(activeTimer.getElapsedSec());
         activeTimer.reset();
 
-        // disable sliding of the ToC while sections are loading
         tocHandler.setEnabled(false);
-
         errorState = false;
         errorView.setVisibility(View.GONE);
-        tabLayout.enableAllTabs();
 
         model.setTitle(title);
         model.setTitleOriginal(title);
@@ -635,15 +719,33 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         model.setReadingListPage(null);
         model.setForceNetwork(isRefresh);
 
-        updateProgressBar(true, true, 0);
+        if (title.getText().equals(Constants.EMPTY_PAGE_TITLE)) {
+            // show Empty state...
+            tocHandler.setEnabled(false);
+            updateProgressBar(false, true, 0);
 
-        this.pageRefreshed = isRefresh;
+            webView.setVisibility(View.GONE);
+            leadImagesHandler.hide();
+            tabLayout.setVisibility(View.GONE);
+            emptyPageContainer.setVisibility(View.VISIBLE);
+            setToolbarFadeEnabled(false);
+        } else {
+            webView.setVisibility(View.VISIBLE);
+            tabLayout.setVisibility(View.VISIBLE);
+            emptyPageContainer.setVisibility(View.GONE);
 
-        closePageScrollFunnel();
-        pageFragmentLoadState.load(pushBackStack);
-        scrollTriggerListener.setStagedScrollY(stagedScrollY);
-        bottomContentView.hide();
-        updateBookmarkAndMenuOptions();
+            tabLayout.enableAllTabs();
+
+            updateProgressBar(true, true, 0);
+
+            this.pageRefreshed = isRefresh;
+            references = null;
+
+            closePageScrollFunnel();
+            pageFragmentLoadState.load(pushBackStack);
+            scrollTriggerListener.setStagedScrollY(stagedScrollY);
+            updateBookmarkAndMenuOptions();
+        }
     }
 
     public Bitmap getLeadImageBitmap() {
@@ -651,12 +753,11 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     }
 
     /**
-     * Update the WebView's font size, based on the specified font size multiplier from the app
-     * preferences. The default text zoom starts from 100, which is by percentage.
+     * Update the WebView's base font size, based on the specified font size from the app
+     * preferences.
      */
-    @SuppressWarnings("checkstyle:magicnumber")
     public void updateFontSize() {
-        webView.getSettings().setTextZoom(100 + getTextSizeMultiplier() * 10);
+        webView.getSettings().setDefaultFontSize((int) app.getFontSize(requireActivity().getWindow()));
     }
 
     public void updateBookmarkAndMenuOptions() {
@@ -670,7 +771,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     public void updateBookmarkAndMenuOptionsFromDao() {
         disposables.add(Observable.fromCallable(() -> ReadingListDbHelper.instance().findPageInAnyList(getTitle())).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .doFinally(() -> {
+                .doAfterTerminate(() -> {
                     pageActionTabsCallback.updateBookmark(model.getReadingListPage() != null);
                     requireActivity().invalidateOptionsMenu();
                 })
@@ -690,7 +791,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == Constants.ACTIVITY_REQUEST_EDIT_SECTION
                 && resultCode == EditHandler.RESULT_REFRESH_PAGE) {
-            pageFragmentLoadState.backFromEditing(data);
             FeedbackUtil.showMessage(requireActivity(), R.string.edit_saved_successfully);
             // and reload the page...
             loadPage(model.getTitleOriginal(), model.getCurEntry(), false, false);
@@ -709,10 +809,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         if (getPage() != null) {
             ShareUtil.shareText(requireActivity(), getPage().getTitle());
         }
-    }
-
-    @NonNull public ViewGroup getTabLayout() {
-        return tabLayout;
     }
 
     public View getHeaderView() {
@@ -786,37 +882,13 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         tocHandler.scrollToSection(sectionAnchor);
     }
 
-    public void onPageLoadComplete() {
-        refreshView.setEnabled(true);
-        requireActivity().invalidateOptionsMenu();
-
-        setupToC(model, pageFragmentLoadState.isFirstPage());
-        editHandler.setPage(model.getPage());
-        initPageScrollFunnel();
-        bottomContentView.setPage(model.getPage());
-
-        if (model.getReadingListPage() != null) {
-            final ReadingListPage page = model.getReadingListPage();
-            final PageTitle title = model.getTitle();
-            disposables.add(Completable.fromAction(() -> {
-                if (!TextUtils.equals(page.thumbUrl(), title.getThumbUrl())
-                        || !TextUtils.equals(page.description(), title.getDescription())) {
-                    page.thumbUrl(title.getThumbUrl());
-                    page.description(title.getDescription());
-                    ReadingListDbHelper.instance().updatePage(page);
-                }
-            }).subscribeOn(Schedulers.io()).subscribe());
-        }
-
-        checkAndShowBookmarkOnboarding();
-    }
-
     public void onPageLoadError(@NonNull Throwable caught) {
         if (!isAdded()) {
             return;
         }
         updateProgressBar(false, true, 0);
         refreshView.setRefreshing(false);
+        pageFragmentLoadState.onPageFinished();
 
         if (pageRefreshed) {
             pageRefreshed = false;
@@ -869,11 +941,6 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         return bridge;
     }
 
-    private void setupToC(@NonNull PageViewModel model, boolean isFirstPage) {
-        tocHandler.setupToC(model.getPage(), model.getTitle().getWikiSite(), isFirstPage);
-        tocHandler.setEnabled(true);
-    }
-
     private void setBookmarkIconForPageSavedState(boolean pageSaved) {
         View bookmarkTab = tabLayout.getChildAt(PageActionTab.ADD_TO_READING_LIST.code());
         if (bookmarkTab != null) {
@@ -905,86 +972,58 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         linkHandler = new LinkHandler(requireActivity()) {
             @Override public void onPageLinkClicked(@NonNull String anchor, @NonNull String linkText) {
                 dismissBottomSheet();
-                JSONObject payload = new JSONObject();
-                try {
-                    payload.put("anchor", anchor);
-                    payload.put("text", linkText);
-                } catch (JSONException e) {
-                    throw new RuntimeException(e);
-                }
-                bridge.sendMessage("handleReference", payload);
+                bridge.execute(JavaScriptActionHandler.prepareToScrollTo(anchor, "{ highlight: true }"));
             }
 
             @Override public void onInternalLinkClicked(@NonNull PageTitle title) {
                 handleInternalLink(title);
             }
 
+            @Override public void onSVGLinkClicked(@NonNull String href) {
+                startGalleryActivity(href);
+            }
+
             @Override public WikiSite getWikiSite() {
                 return model.getTitle().getWikiSite();
             }
         };
-        bridge.addListener("linkClicked", linkHandler);
+        bridge.addListener("link", linkHandler);
 
-        bridge.addListener("referenceClicked", new ReferenceHandler() {
-            @Override
-            protected void onReferenceClicked(int selectedIndex, @NonNull List<Reference> adjacentReferences) {
+        bridge.addListener("reference", (String messageType, JsonObject messagePayload) -> {
+            if (!isAdded()) {
+                L.d("Detached from activity, so stopping reference click.");
+                return;
+            }
 
-                if (!isAdded()) {
-                    L.d("Detached from activity, so stopping reference click.");
-                    return;
-                }
+            references = GsonUtil.getDefaultGson().fromJson(messagePayload, PageReferences.class);
 
-                showBottomSheet(new ReferenceDialog(requireActivity(), selectedIndex, adjacentReferences, linkHandler));
+            if (!references.getReferencesGroup().isEmpty()) {
+                showBottomSheet(new ReferenceDialog(requireActivity(), references.getSelectedIndex(), references.getReferencesGroup(), linkHandler));
             }
         });
-        bridge.addListener("imageClicked", (String messageType, JSONObject messagePayload) -> {
-            try {
-                String href = decodeURL(messagePayload.getString("href"));
-                if (href.startsWith("/wiki/")) {
-                    if (app.isOnline()) {
-                        String filename = UriUtil.removeInternalLinkPrefix(href);
-                        String fileUrl = null;
-
-                        // Set the lead image url manually if the filename equals to the lead image file name.
-                        if (getPage() != null && !TextUtils.isEmpty(getPage().getPageProperties().getLeadImageName())) {
-                            String leadImageName = addUnderscores(getPage().getPageProperties().getLeadImageName());
-                            String leadImageUrl = getPage().getPageProperties().getLeadImageUrl();
-                            if (filename.contains(leadImageName) && leadImageUrl != null) {
-                                fileUrl = UriUtil.resolveProtocolRelativeUrl(leadImageUrl);
-                            }
-                        }
-
-                        WikiSite wiki = model.getTitle().getWikiSite();
-                        requireActivity().startActivityForResult(GalleryActivity.newIntent(requireActivity(),
-                                model.getTitleOriginal(), filename, fileUrl, wiki,
-                                GalleryFunnel.SOURCE_NON_LEAD_IMAGE),
-                                ACTIVITY_REQUEST_GALLERY);
-                    } else {
-                        Snackbar snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.gallery_not_available_offline_snackbar), FeedbackUtil.LENGTH_DEFAULT);
-                        snackbar.setAction(R.string.gallery_not_available_offline_snackbar_dismiss, view -> snackbar.dismiss());
-                        snackbar.show();
-                    }
-                } else {
-                    linkHandler.onUrlClick(href, messagePayload.optString("title"), "");
-                }
-            } catch (JSONException e) {
-                L.logRemoteErrorIfProd(e);
+        bridge.addListener("back_link", (String messageType, JsonObject payload) -> {
+            JsonArray backLinks = payload.getAsJsonArray("backLinks");
+            if (backLinks.size() > 0) {
+                bridge.execute(JavaScriptActionHandler.prepareToScrollTo(backLinks.get(0).getAsJsonObject().get("id").getAsString(), "{ highlight: true }"));
             }
         });
-        bridge.addListener("mediaClicked", (String messageType, JSONObject messagePayload) -> {
-            try {
-                String href = decodeURL(messagePayload.getString("href"));
-                String filename = StringUtil.removeUnderscores(UriUtil.removeInternalLinkPrefix(href));
-                WikiSite wiki = model.getTitle().getWikiSite();
-                requireActivity().startActivityForResult(GalleryActivity.newIntent(requireActivity(),
-                        model.getTitleOriginal(), filename, wiki,
-                        GalleryFunnel.SOURCE_NON_LEAD_IMAGE),
-                        ACTIVITY_REQUEST_GALLERY);
-            } catch (JSONException e) {
-                L.logRemoteErrorIfProd(e);
+        bridge.addListener("scroll_to_anchor", (String messageType, JsonObject payload) -> {
+            int diffY = DimenUtil.roundedDpToPx(payload.getAsJsonObject("rect").get("y").getAsFloat());
+            webView.setScrollY(webView.getScrollY() + diffY - webView.getHeight() / 2);
+        });
+        bridge.addListener("image", (String messageType, JsonObject messagePayload) -> {
+            String href = decodeURL(messagePayload.get("href").getAsString());
+            if (href.startsWith("./File:")) {
+                startGalleryActivity(href);
+            } else {
+                linkHandler.onUrlClick(href, messagePayload.has("title") ? messagePayload.get("title").getAsString() : null, "");
             }
         });
-        bridge.addListener("pronunciationClicked", (String messageType, JSONObject messagePayload) -> {
+        bridge.addListener("media", (String messageType, JsonObject messagePayload) -> {
+            String href = decodeURL(messagePayload.get("href").getAsString());
+            startGalleryActivity(href);
+        });
+        bridge.addListener("pronunciation", (String messageType, JsonObject messagePayload) -> {
             if (avPlayer == null) {
                 avPlayer = new DefaultAvPlayer(new MediaPlayerImplementation());
                 avPlayer.init();
@@ -992,12 +1031,40 @@ public class PageFragment extends Fragment implements BackPressedHandler {
             if (avCallback == null) {
                 avCallback = new AvCallback();
             }
-            if (!avPlayer.isPlaying()) {
+            if (!avPlayer.isPlaying() && !(messagePayload.get("data-pronunciation-url") == null)) {
                 updateProgressBar(true, true, 0);
-                avPlayer.play(getPage().getTitlePronunciationUrl(), avCallback, avCallback);
+                avPlayer.play(messagePayload.get("data-pronunciation-url").getAsString(), avCallback, avCallback);
             } else {
                 updateProgressBar(false, true, 0);
                 avPlayer.stop();
+            }
+        });
+        bridge.addListener("footer_item", (String messageType, JsonObject messagePayload) -> {
+            String itemType = messagePayload.get("itemType").getAsString();
+            if ("talkPage".equals(itemType) && model.getTitle() != null) {
+                PageTitle talkPageTitle = new PageTitle("Talk", model.getTitle().getPrefixedText(), model.getTitle().getWikiSite());
+                visitInExternalBrowser(requireContext(), Uri.parse(talkPageTitle.getUri()));
+            } else if ("languages".equals(itemType)) {
+                startLangLinksActivity();
+            } else if ("lastEdited".equals(itemType) && model.getTitle() != null) {
+                visitInExternalBrowser(requireContext(), Uri.parse(model.getTitle().getUriForAction("history")));
+            } else if ("coordinate".equals(itemType) && model.getPage() != null && model.getPage().getPageProperties().getGeo() != null) {
+                GeoUtil.sendGeoIntent(requireActivity(), model.getPage().getPageProperties().getGeo(), model.getPage().getDisplayTitle());
+            } else if ("disambiguation".equals(itemType)) {
+                // TODO
+                // messagePayload contains an array of URLs called "payload".
+            }
+        });
+        bridge.addListener("read_more_titles_retrieved", (String messageType, JsonObject messagePayload) -> {
+            // TODO: do something with this.
+            L.v(messagePayload.toString());
+        });
+        bridge.addListener("view_license", (String messageType, JsonObject messagePayload) -> {
+            visitInExternalBrowser(requireContext(), Uri.parse(getString(R.string.cc_by_sa_3_url)));
+        });
+        bridge.addListener("view_in_browser", (String messageType, JsonObject messagePayload) -> {
+            if (model.getTitle() != null) {
+                visitInExternalBrowser(requireContext(), Uri.parse(model.getTitle().getUri()));
             }
         });
     }
@@ -1025,10 +1092,22 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                     Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT_TUTORIAL);
         } else {
             SuggestedEditsSummary sourceSummary = new SuggestedEditsSummary(getTitle().getPrefixedText(), getTitle().getWikiSite().languageCode(), getTitle(),
-                    getTitle().getDisplayText(), getTitle().getDisplayText(), getTitle().getDescription(), getTitle().getThumbUrl(),
+                    getTitle().getDisplayText(), getTitle().getDescription(), getTitle().getThumbUrl(),
                     null, null, null, null);
-            startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), getTitle(), text, sourceSummary, null, PAGE_ACTIVITY),
+            startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), getTitle(), text, sourceSummary, null, ADD_DESCRIPTION, PAGE_ACTIVITY),
                     Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT);
+        }
+    }
+
+    private void startGalleryActivity(@NonNull String href) {
+        if (app.isOnline()) {
+            requireActivity().startActivityForResult(GalleryActivity.newIntent(requireActivity(),
+                    model.getTitleOriginal(), StringUtil.removeUnderscores(UriUtil.removeInternalLinkPrefix(href)),
+                    model.getTitle().getWikiSite(), getRevision(), GalleryFunnel.SOURCE_NON_LEAD_IMAGE), ACTIVITY_REQUEST_GALLERY);
+        } else {
+            Snackbar snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.gallery_not_available_offline_snackbar), FeedbackUtil.LENGTH_DEFAULT);
+            snackbar.setAction(R.string.gallery_not_available_offline_snackbar_dismiss, view -> snackbar.dismiss());
+            snackbar.show();
         }
     }
 
@@ -1072,13 +1151,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
     }
 
     private void sendDecorOffsetMessage() {
-        JSONObject payload = new JSONObject();
-        try {
-            payload.put("offset", getContentTopOffset(requireActivity()));
-        } catch (JSONException e) {
-            throw new RuntimeException(e);
-        }
-        bridge.sendMessage("setDecorOffset", payload);
+        //Todo: mobile-html: add bridge communication
     }
 
     private void initPageScrollFunnel() {
@@ -1124,10 +1197,10 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         }
     }
 
-    private void loadMainPageInForegroundTab() {
+    private void loadEmptyPageInForegroundTab() {
         Callback callback = callback();
         if (callback != null) {
-            callback.onPageLoadMainPageInForegroundTab();
+            callback.onPageLoadEmptyPageInForegroundTab();
         }
     }
 
@@ -1180,6 +1253,10 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         requireActivity().startActivityForResult(langIntent, Constants.ACTIVITY_REQUEST_LANGLINKS);
     }
 
+    public long getRevision() {
+        return revision;
+    }
+
     private void trimTabCount() {
         while (app.getTabList().size() > Constants.MAX_TABS) {
             app.getTabList().remove(0);
@@ -1195,9 +1272,11 @@ public class PageFragment extends Fragment implements BackPressedHandler {
                 new Date(),
                 model.getCurEntry().getSource(),
                 timeSpentSec));
-        Completable.fromAction(new UpdateHistoryTask(model.getCurEntry()))
-                .subscribeOn(Schedulers.io())
-                .subscribe(() -> { }, L::e);
+        if (!model.getCurEntry().getTitle().getText().equals(Constants.EMPTY_PAGE_TITLE)) {
+            Completable.fromAction(new UpdateHistoryTask(model.getCurEntry()))
+                    .subscribeOn(Schedulers.io())
+                    .subscribe(() -> { }, L::e);
+        }
     }
 
     private LinearLayout.LayoutParams getContentTopOffsetParams(@NonNull Context context) {
@@ -1243,7 +1322,7 @@ public class PageFragment extends Fragment implements BackPressedHandler {
 
         @Override
         public void onContentHeightChanged(int contentHeight) {
-            if (stagedScrollY > 0 && (contentHeight * DimenUtil.getDensityScalar() - webView.getHeight()) > stagedScrollY) {
+            if (stagedScrollY > 0 && (contentHeight * getDensityScalar() - webView.getHeight()) > stagedScrollY) {
                 webView.setScrollY(stagedScrollY);
                 stagedScrollY = 0;
             }
@@ -1263,4 +1342,25 @@ public class PageFragment extends Fragment implements BackPressedHandler {
         leadImagesHandler.openImageInGallery(language);
     }
 
+    private void maybeShowAnnouncement() {
+        if (Prefs.hasVisitedArticlePage()) {
+            disposables.add(ServiceFactory.getRest(getTitle().getWikiSite()).getAnnouncements()
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(list -> {
+                        String country = GeoUtil.getGeoIPCountry();
+                        Date now = new Date();
+                        for (Announcement announcement : list.items()) {
+                            if (shouldShow(announcement, country, now)
+                                    && announcement.placement().equals(PLACEMENT_ARTICLE)
+                                    && !Prefs.getAnnouncementShownDialogs().contains(announcement.id())) {
+                                AnnouncementDialog dialog = new AnnouncementDialog(requireActivity(), announcement);
+                                dialog.setCancelable(false);
+                                dialog.show();
+                                break;
+                            }
+                        }
+                    }, L::d));
+        }
+    }
 }

@@ -63,16 +63,12 @@
   <string name="on_this_day_page_share">Kongsi</string>
   <string name="reading_list_page_share">Kongsi</string>
   <string name="menu_text_select_edit_here">Sunting di sini</string>
-  <string name="nav_item_nearby">Berdekatan</string>
-  <string name="nearby_zoom_to_location">Zum kepada lokasi pada peta</string>
-  <string name="nearby_osm_license">&amp;copy; &amp;nbsp;penyumbang &lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt;</string>
   <string name="last_updated_text">Mutakhir: %s</string>
   <string name="talk_page_link_text">Lihat laman perbincangan</string>
   <string name="edit_history_link_text">Lihat sejarah penyuntingan</string>
   <string name="map_view_link_text">Paparkan di peta</string>
   <string name="other_languages_indication_text">Baca dalam bahasa lain</string>
   <string name="language_count_link_text">Tersedia dalam %d bahasa lain</string>
-  <string name="content_license_html">Kandungan ini tersedia dengan lesen &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; melainkan dinyatakan sebaliknya</string>
   <string name="edit_save_action_license_logged_in">Dengan menerbitkan, anda menyetujui &lt;a href=\"%1$s\"&gt;Syarat-Syarat Penggunaan&lt;/a&gt; serta melepaskan kesemua sumbangan anda tanpa tertarik balik dengan lesen &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Dengan menerbitkan, anda menyetujui &lt;a href=\"%1$s\"&gt;Syarat-Syarat Penggunaan&lt;/a&gt; serta melepaskan kesemua sumbangan anda tanpa tertarik balik dengan lesen &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Suntingan akan diatribusikan kepada alamat IP peranti anda. Jika anda &lt;a href=\"https://#login\"&gt;log masuk&lt;/a&gt;, maka privasi anda bertambah baik.</string>
   <string name="preference_title_language">Bahasa Wikipedia</string>
@@ -168,7 +164,7 @@
   <string name="preference_title_eventlogging_opt_in">Laporkan penggunaan</string>
   <string name="preference_summary_eventlogging_opt_in">Benarkan Wikimedia untuk mengumpul maklumat mengenai cara penggunaan aplikasi demi peningkatan kualiti aplikasi</string>
   <string name="preference_title_auto_upload_crash_reports">Hantar laporan keruntuhan</string>
-  <string name="preference_summary_auto_upload_crash_reports">Benarkan aplikasi untuk menghantar laporan keruntuhan ke HockeyApp / pembekal perkhidmatan pihak ketiga secara automatik supaya kami boleh mengkaji keruntuhan anda dan membaiki pepijat dengan lebih cepat dan mudah.</string>
+  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Benarkan aplikasi untuk menghantar laporan keruntuhan ke HockeyApp / pembekal perkhidmatan pihak ketiga secara automatik supaya kami boleh mengkaji keruntuhan anda dan membaiki pepijat dengan lebih cepat dan mudah.</string>
   <string name="editing_error_spamblacklist">Pautan dari domain disekat (%s) dikesan. Sila gugurkan pautan itu dan cuba lagi.</string>
   <string name="history_search_list_hint">Cari dalam sejarah</string>
   <string name="error_can_not_process_link">Pautan ini tidak dapat dipaparkan</string>
@@ -183,11 +179,11 @@
   <string name="about_description">Tentang aplikasi Wikipedia</string>
   <string name="privacy_policy_description">Dasar privasi</string>
   <string name="terms_of_use_description">Syarat-syarat penggunaan</string>
-  <string name="about_wikipedia_url">https://ms.m.wikipedia.org/wiki/Wikipedia:Perihal</string>
-  <string name="privacy_policy_url">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
+  <string name="about_wikipedia_url" fuzzy="true">https://ms.m.wikipedia.org/wiki/Wikipedia:Perihal</string>
+  <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
-  <string name="terms_of_use_url">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
+  <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://ms.wikipedia.org/wiki/Wikipedia:Permohonan_akaun</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.ms</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ms</string>
@@ -284,7 +280,6 @@
   <string name="all_tab_items_closed">Semua tab ditutup.</string>
   <string name="tool_tip_bookmark_icon_title">Tambahkan ke senarai bacaan</string>
   <string name="tool_tip_bookmark_icon_text">Ketik pada ikon penanda buku untuk menyimpan rencana ke senarai bacaan.</string>
-  <string name="tool_tip_share">Setelah menyoroti fakta menarik, cuba anda sebarkannya dalam rangkaian kegemaran anda.</string>
   <string name="page_view_in_browser">Paparkan laman dalam pelayar</string>
   <string name="tool_tip_toc_title">Capaian cepat jadual kandungan</string>
   <string name="tool_tip_toc_text">Anda kini boleh leret ke kiri untuk membuka jadual kandungan, dan juga ketik dan seret pada butang scroller ini untuk melompat dengan cepat ke bahagian rencana yang berlainan.</string>
@@ -323,11 +318,6 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Pemalapan imej (dalam tema Gelap)</string>
   <string name="preference_title_prefer_offline_content">Lebih suka kandungan luar talian</string>
   <string name="preference_summary_prefer_offline_content">Menjimatkan penggunaan data dengan memuatkan rencana yang tersedia di luar talian dan bukannya memuatkan versi terkini rencana</string>
-  <string name="crash_report_dialog_title">Maaf kerana aplikasi runtuh dahulu</string>
-  <string name="crash_report_dialog_text">Adakah anda ingin menghantar laporan keruntuhan ke HockeyApp atau penyedia perkhidmatan pihak ketiga supaya Wikimedia boleh mengkaji keruntuhan anda dan membaiki pepijat yang menyebabkannya?</string>
-  <string name="crash_report_dialog_dont_send_button">Langkau</string>
-  <string name="crash_report_dialog_always_send_button">Sentiasa hantar</string>
-  <string name="crash_report_dialog_send_button">Hantar</string>
   <string name="crash_report_activity_title">Ralat aplikasi</string>
   <string name="crash_report_relaunch_or_quit">Maaf, aplikasi Wikipedia telah mengalami ralat dan terpaksa ditutup</string>
   <string name="crash_report_relaunch">Mula balik</string>
@@ -424,14 +414,6 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Jangan tunjukkan saya lagi ini</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Dayakan penyegerakan</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Tak apalah</string>
-  <string name="reading_list_login_option_reminder_dialog_title">Rencana senarai bacaan yang dijumpai</string>
-  <string name="reading_list_login_option_reminder_dialog_text">Rencana disimpan dalam senarai bacaan semasa anda log keluar. Adakah anda ingin menambahkannya ke senarai bacaan dalam akaun anda?</string>
-  <string name="reading_list_login_option_reminder_dialog_yes">Ya, tambahkan ke senarai bacaan saya</string>
-  <string name="reading_list_login_option_reminder_dialog_no">Tidak, padamkan rencana</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">Simpan rencana yang disimpan dalam aplikasinya?</string>
-  <string name="reading_list_logout_option_reminder_dialog_text">Terdapat rencana yang kini disimpan dalam senarai bacaan. Adakah anda ingin menyimpannya di sana selepas log keluar?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">Ya, simpan rencana dalam senarai</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">Tidak, padamkan rencana dari senarai</string>
   <string name="default_reading_list_name">Disimpan</string>
   <string name="default_reading_list_description">Senarai lalai untuk rencana anda yang disimpan</string>
   <string name="no_user_lists_title">Atur rencana ke dalam senarai</string>
@@ -508,8 +490,6 @@
   <string name="preference_title_notification_poll">Pilih pemberitahuan</string>
   <string name="preference_summary_notification_poll">Benarkan aplikasi menggunakan data untuk menyemak pemberitahuan baharu di latar belakang.</string>
   <string name="preference_category_notification_types">Jenis pemberitahuan dalam apl</string>
-  <string name="preference_title_notification_welcome">Selamat datang</string>
-  <string name="preference_summary_notification_welcome">Akaun dibuat</string>
   <string name="preference_title_notification_milestone">Pencapaian</string>
   <string name="preference_summary_notification_milestone">Tuntutan suntingan tertentu telah dicapai</string>
   <string name="preference_title_notification_thanks">Terima kasih</string>
@@ -588,16 +568,9 @@
   <string name="suggested_edits_review_description" fuzzy="true">Kaji penerangan tajuk</string>
   <string name="suggested_edits_add_description_button">Tambah penerangan</string>
   <string name="suggested_edits_my_contributions">Sumbangan saya</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_title" fuzzy="true">Senarai tugasan penyuntingan tajuk telah dibuka kunci!</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_message" fuzzy="true">Kami telah melihat anda menyusun penerangan tajuk, jadi kami telah menyusun senarai \"Tugas editor aplikasi\" dengan lebih banyak rencana yang hilang penerangan tajuk untuk membantu anda terus menyumbang!</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_title" fuzzy="true">Menterjemahkan penyuntingan deskripsi tajuk telah dibuka kunci!</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_message" fuzzy="true">Kami perhatikan anda seperti menyunting penerangan tajuk dan membaca Wikipedia dalam pelbagai bahasa. Semak senarai tugas ini yang memberikan akses kepada menterjemahkan lebih banyak penerangan tajuk!</string>
-  <string name="suggested_edits_unlock_dialog_no" fuzzy="true">Lain kalilah</string>
   <string name="suggested_edits_tasks_activity_title" fuzzy="true">Tugas editor aplikasi</string>
   <string name="suggested_edits_task_add_description_title" fuzzy="true">Tambah penerangan tajuk</string>
   <string name="suggested_edits_task_add_description_description">Sumbangan kepada rencana tanpa penerangan tajuk</string>
-  <string name="suggested_edits_task_translation_title" fuzzy="true">Terjemah penerangan tajuk</string>
-  <string name="suggested_edits_task_translation_description">Terjemahkan penerangan tajuk ke dalam bahasa lain.</string>
   <string name="suggested_edits_task_image_caption_title" fuzzy="true">Keterangan imej</string>
   <string name="suggested_edits_task_image_caption_description" fuzzy="true">Tambah kapsyen ke imej</string>
   <string name="suggested_edits_task_translate_caption_title">Terjemahkan kapsyen imej</string>
@@ -612,7 +585,6 @@
     <item quantity="one">sumbangan dalam apl</item>
     <item quantity="other">%d sumbangan dalam apl</item>
   </plurals>
-  <string name="suggested_edits_tutorial_message">Selamat datang ke rumah baru untuk penyuntingan dalam aplikasinya di Wikipedia. Di sini, kami akan mencadangkan peluang untuk menambah kandungan yang mungkin menarik minat anda. Sumbangan anda amat dihargai. Selamat menyunting!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Memulakan</string>
   <string name="description_edit_revert_subtitle">Terima kasih kerana menyunting di Wikipedia!</string>
   <string name="description_edit_revert_intro">Kami tahu anda mencuba yang terbaik, tetapi salah satu pengulas mempunyai kebimbangan. Sebab yang mungkin suntingan anda ditukar semula termasuk:</string>

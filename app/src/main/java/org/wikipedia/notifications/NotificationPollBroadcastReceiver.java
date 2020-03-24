@@ -59,7 +59,6 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
 
             locallyKnownNotifications = Prefs.getLocallyKnownNotifications();
             pollNotifications(context);
-            pollEditorTaskCounts(context);
         }
     }
 
@@ -84,7 +83,7 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
 
     @SuppressLint("CheckResult")
     private void pollNotifications(@NonNull final Context context) {
-        ServiceFactory.get(WikipediaApp.getInstance().getWikiSite()).getLastUnreadNotification()
+        ServiceFactory.get(new WikiSite(Service.COMMONS_URL)).getLastUnreadNotification()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(response -> {
@@ -120,18 +119,10 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
     }
 
     @SuppressLint("CheckResult")
-    public static void pollEditorTaskCounts(@NonNull final Context context) {
-        ServiceFactory.get(new WikiSite(Service.WIKIDATA_URL)).getEditorTaskCounts()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(response -> NotificationEditorTasksHandler.dispatchEditorTaskResults(context, response.query().editorTaskCounts()), L::e);
-    }
-
-    @SuppressLint("CheckResult")
     private void retrieveNotifications(@NonNull final Context context) {
         dbNameWikiSiteMap.clear();
-        dbNameWikiSiteMap.clear();
-        ServiceFactory.get(WikipediaApp.getInstance().getWikiSite()).getUnreadNotificationWikis()
+        dbNameWikiNameMap.clear();
+        ServiceFactory.get(new WikiSite(Service.COMMONS_URL)).getUnreadNotificationWikis()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(response -> {
@@ -150,7 +141,7 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
 
     @SuppressLint("CheckResult")
     private void getFullNotifications(@NonNull final Context context, @NonNull List<String> foreignWikis) {
-        ServiceFactory.get(WikipediaApp.getInstance().getWikiSite()).getAllNotifications(foreignWikis.isEmpty() ? "*" : TextUtils.join("|", foreignWikis), "!read", null)
+        ServiceFactory.get(new WikiSite(Service.COMMONS_URL)).getAllNotifications(foreignWikis.isEmpty() ? "*" : TextUtils.join("|", foreignWikis), "!read", null)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(response -> onNotificationsComplete(context, response.query().notifications().list()),
@@ -163,6 +154,7 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
         }
         boolean locallyKnownModified = false;
         List<Notification> knownNotifications = new ArrayList<>();
+        List<Notification> notificationsToDisplay = new ArrayList<>();
 
         for (final Notification n : notifications) {
             knownNotifications.add(n);
@@ -173,17 +165,26 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
             if (locallyKnownNotifications.size() > MAX_LOCALLY_KNOWN_NOTIFICATIONS) {
                 locallyKnownNotifications.remove(0);
             }
+            notificationsToDisplay.add(n);
             locallyKnownModified = true;
+        }
 
-            // TODO: remove these conditions when the time is right.
-            if ((n.type().equals(Notification.TYPE_WELCOME) && Prefs.notificationWelcomeEnabled())
-                    || (n.type().equals(Notification.TYPE_EDIT_THANK) && Prefs.notificationThanksEnabled())
-                    || (n.type().equals(Notification.TYPE_EDIT_MILESTONE) && Prefs.notificationMilestoneEnabled())
-                    || (n.type().equals(Notification.TYPE_REVERTED) && Prefs.notificationRevertEnabled())
-                    || Prefs.showAllNotifications()) {
+        if (notificationsToDisplay.size() > 2) {
+            NotificationPresenter.showMultipleUnread(context, notificationsToDisplay.size());
+        } else {
+            for (final Notification n : notificationsToDisplay) {
+                // TODO: remove these conditions when the time is right.
+                if ((n.category().startsWith(Notification.CATEGORY_SYSTEM) && Prefs.notificationWelcomeEnabled())
+                        || (n.category().equals(Notification.CATEGORY_EDIT_THANK) && Prefs.notificationThanksEnabled())
+                        || (n.category().equals(Notification.CATEGORY_THANK_YOU_EDIT) && Prefs.notificationMilestoneEnabled())
+                        || (n.category().equals(Notification.CATEGORY_REVERTED) && Prefs.notificationRevertEnabled())
+                        || (n.category().equals(Notification.CATEGORY_EDIT_USER_TALK) && Prefs.notificationUserTalkEnabled())
+                        || (n.category().equals(Notification.CATEGORY_LOGIN_FAIL) && Prefs.notificationLoginFailEnabled())
+                        || (n.category().startsWith(Notification.CATEGORY_MENTION) && Prefs.notificationMentionEnabled())
+                        || Prefs.showAllNotifications()) {
 
-                NotificationPresenter.showNotification(context, n, dbNameWikiNameMap.containsKey(n.wiki()) ? dbNameWikiNameMap.get(n.wiki()) : n.wiki());
-
+                    NotificationPresenter.showNotification(context, n, dbNameWikiNameMap.containsKey(n.wiki()) ? dbNameWikiNameMap.get(n.wiki()) : n.wiki());
+                }
             }
         }
 

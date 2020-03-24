@@ -31,7 +31,6 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 
-import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -62,7 +61,6 @@ import org.wikipedia.views.MultiSelectActionModeCallback;
 import org.wikipedia.views.PageItemView;
 import org.wikipedia.views.SearchEmptyView;
 import org.wikipedia.views.SwipeableItemTouchHelperCallback;
-import org.wikipedia.views.ViewUtil;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -155,7 +153,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
         ((SimpleItemAnimator) recyclerView.getItemAnimator()).setSupportsChangeAnimations(false);
-        recyclerView.addItemDecoration(new DrawableItemDecoration(requireContext(), R.attr.list_separator_drawable, false));
+        recyclerView.addItemDecoration(new DrawableItemDecoration(requireContext(), R.attr.list_separator_drawable, true, false));
 
         headerView = new ReadingListItemView(getContext());
         headerView.setCallback(headerCallback);
@@ -532,6 +530,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
             DeviceUtil.updateStatusBarTheme(requireActivity(), toolbar,
                     actionMode == null && (appBarLayout.getTotalScrollRange() + verticalOffset) > appBarLayout.getTotalScrollRange() / 2);
 
+            ((ReadingListActivity) requireActivity()).updateNavigationBarColor();
             // prevent swiping when collapsing the view
             swipeRefreshLayout.setEnabled(verticalOffset == 0);
         }
@@ -567,7 +566,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
             this.page = page;
             getView().setItem(page);
             getView().setTitle(page.title());
-            getView().setDescription(StringUtils.capitalize(page.description()));
+            getView().setDescription(page.description());
             getView().setImageUrl(page.thumbUrl());
             getView().setSelected(page.selected());
             getView().setSecondaryActionIcon(page.saving() ? R.drawable.ic_download_in_progress : R.drawable.ic_download_circle_gray_24dp,
@@ -830,7 +829,6 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
             recyclerView.stopScroll();
             appBarLayout.setExpanded(false, false);
             setStatusBarActionMode(true);
-            ViewUtil.finishActionModeWhenTappingOnView(getView(), actionMode);
             return super.onCreateActionMode(mode, menu);
         }
 
@@ -851,11 +849,6 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         @Override
         protected String getSearchHintString() {
             return getString(R.string.search_hint_search_my_lists_and_articles);
-        }
-
-        @Override
-        protected boolean finishActionModeIfKeyboardHiding() {
-            return true;
         }
 
         @Override
@@ -916,7 +909,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
 
     private class EventBusConsumer implements Consumer<Object> {
         @Override
-        public void accept(Object event) throws Exception {
+        public void accept(Object event) {
             if (event instanceof ReadingListSyncEvent) {
                 updateReadingListData();
             } else if (event instanceof PageDownloadEvent) {

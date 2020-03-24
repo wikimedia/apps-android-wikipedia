@@ -2,53 +2,79 @@ package org.wikipedia;
 
 import android.app.Activity;
 import android.app.Application;
+import android.content.res.Configuration;
+import android.os.Build;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+
 import org.wikipedia.main.MainActivity;
+import org.wikipedia.settings.Prefs;
+import org.wikipedia.theme.Theme;
 
 public class ActivityLifecycleHandler implements Application.ActivityLifecycleCallbacks {
     private boolean haveMainActivity;
     private boolean anyActivityResumed;
 
-    public boolean haveMainActivity() {
+    boolean haveMainActivity() {
         return haveMainActivity;
     }
 
-    public boolean isAnyActivityResumed() {
+    boolean isAnyActivityResumed() {
         return anyActivityResumed;
     }
 
     @Override
-    public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
+    public void onActivityCreated(@NonNull Activity activity, Bundle savedInstanceState) {
+        WikipediaApp app = WikipediaApp.getInstance();
         if (activity instanceof MainActivity) {
             haveMainActivity = true;
+        }
+        if (Prefs.shouldMatchSystemTheme() && Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            Theme currentTheme = app.getCurrentTheme();
+            switch (app.getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK) {
+                case Configuration.UI_MODE_NIGHT_YES:
+                    if (!app.getCurrentTheme().isDark()) {
+                        app.setCurrentTheme(!app.unmarshalTheme(Prefs.getPreviousThemeId()).isDark() ? Theme.BLACK : app.unmarshalTheme(Prefs.getPreviousThemeId()));
+                        Prefs.setPreviousThemeId(currentTheme.getMarshallingId());
+                    }
+                    break;
+                case Configuration.UI_MODE_NIGHT_NO:
+                    if (app.getCurrentTheme().isDark()) {
+                        app.setCurrentTheme(app.unmarshalTheme(Prefs.getPreviousThemeId()).isDark() ? Theme.LIGHT : app.unmarshalTheme(Prefs.getPreviousThemeId()));
+                        Prefs.setPreviousThemeId(currentTheme.getMarshallingId());
+                    }
+                    break;
+                default:
+                    break;
+            }
         }
     }
 
     @Override
-    public void onActivityStarted(Activity activity) {
+    public void onActivityStarted(@NonNull Activity activity) {
     }
 
     @Override
-    public void onActivityResumed(Activity activity) {
+    public void onActivityResumed(@NonNull Activity activity) {
         anyActivityResumed = true;
     }
 
     @Override
-    public void onActivityPaused(Activity activity) {
+    public void onActivityPaused(@NonNull Activity activity) {
         anyActivityResumed = false;
     }
 
     @Override
-    public void onActivityStopped(Activity activity) {
+    public void onActivityStopped(@NonNull Activity activity) {
     }
 
     @Override
-    public void onActivitySaveInstanceState(Activity activity, Bundle outState) {
+    public void onActivitySaveInstanceState(@NonNull Activity activity, @NonNull Bundle outState) {
     }
 
     @Override
-    public void onActivityDestroyed(Activity activity) {
+    public void onActivityDestroyed(@NonNull Activity activity) {
         if (activity instanceof MainActivity) {
             haveMainActivity = false;
         }

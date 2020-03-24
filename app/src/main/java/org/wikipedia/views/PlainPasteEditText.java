@@ -9,6 +9,7 @@ import android.view.KeyEvent;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
 
+import androidx.annotation.MenuRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
@@ -17,6 +18,7 @@ import com.google.android.material.textfield.TextInputEditText;
 import org.wikipedia.edit.richtext.SpanExtents;
 import org.wikipedia.edit.richtext.SyntaxHighlighter;
 import org.wikipedia.util.ClipboardUtil;
+import org.wikipedia.util.log.L;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,12 +51,12 @@ public class PlainPasteEditText extends TextInputEditText {
     @Override
     public boolean onTextContextMenuItem(int id) {
         if (id == android.R.id.paste) {
-            return onTextContextMenuPaste();
+            return onTextContextMenuPaste(id);
         }
         return super.onTextContextMenuItem(id);
     }
 
-    @Override public InputConnection onCreateInputConnection(EditorInfo outAttrs) {
+    @Override public InputConnection onCreateInputConnection(@NonNull EditorInfo outAttrs) {
         inputConnection = super.onCreateInputConnection(outAttrs);
 
         // For multiline EditTexts that specify a done keyboard action, unset the no carriage return
@@ -91,20 +93,27 @@ public class PlainPasteEditText extends TextInputEditText {
         }
     }
 
-    private boolean onTextContextMenuPaste() {
+    private boolean onTextContextMenuPaste(@MenuRes int menuId) {
         // Do not allow pasting of formatted text!
         // We do this by intercepting the clipboard and temporarily replacing its
         // contents with plain text.
         ClipboardManager clipboard = (ClipboardManager) getContext().getSystemService(Context.CLIPBOARD_SERVICE);
-        if (clipboard.hasPrimaryClip()) {
+        if (clipboard != null && clipboard.hasPrimaryClip() && clipboard.getPrimaryClip() != null) {
             ClipData oldClipData = clipboard.getPrimaryClip();
             String lastClipText = oldClipData.getItemAt(oldClipData.getItemCount() - 1).coerceToText(getContext()).toString();
             // temporarily set the new clip data as the primary
             ClipboardUtil.setPlainText(getContext(), null, lastClipText);
             // execute the paste!
-            super.onTextContextMenuItem(android.R.id.paste);
+            super.onTextContextMenuItem(menuId);
             // restore the clip data back to the old one.
-            clipboard.setPrimaryClip(oldClipData);
+            try {
+                clipboard.setPrimaryClip(oldClipData);
+            } catch (Exception e) {
+                // This could be a FileUriExposedException, among others, where we are unable to
+                // set the clipboard contents back to their original state. Unfortunately there's
+                // nothing to be done in that case.
+                L.w(e);
+            }
         }
         return true;
     }
@@ -145,17 +154,25 @@ public class PlainPasteEditText extends TextInputEditText {
         find(false);
     }
 
-    private void find(boolean direction) {
+    public void findFirstOrLast(boolean isFirst) {
         if (findListener == null) {
             return;
         }
-        if (direction) {
+        findInPageCurrentTextPosition = isFirst ? 0 : findInPageTextPositionList.size() - 1;
+        onFinished(true);
+        syntaxHighlighter.setSelectedMatchResultPosition(findInPageCurrentTextPosition);
+    }
+
+    private void find(boolean isNext) {
+        if (findListener == null) {
+            return;
+        }
+        if (isNext) {
             findInPageCurrentTextPosition = findInPageCurrentTextPosition == findInPageTextPositionList.size() - 1 ? 0 : ++findInPageCurrentTextPosition;
-            onFinished(true);
         } else {
             findInPageCurrentTextPosition = findInPageCurrentTextPosition == 0 ? findInPageTextPositionList.size() - 1 : --findInPageCurrentTextPosition;
-            onFinished(true);
         }
+        onFinished(true);
         syntaxHighlighter.setSelectedMatchResultPosition(findInPageCurrentTextPosition);
     }
 

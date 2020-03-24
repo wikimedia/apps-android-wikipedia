@@ -10,11 +10,9 @@ import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.ViewCompat;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentPagerAdapter;
-import androidx.viewpager.widget.ViewPager;
+import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -33,6 +31,7 @@ import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.util.AnimationUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.log.L;
+import org.wikipedia.views.PositionAwareFragmentStateAdapter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -47,7 +46,7 @@ import static org.wikipedia.Constants.INTENT_EXTRA_INVOKE_SOURCE;
 import static org.wikipedia.Constants.InvokeSource.RANDOM_ACTIVITY;
 
 public class RandomFragment extends Fragment {
-    @BindView(R.id.random_item_pager) ViewPager randomPager;
+    @BindView(R.id.random_item_pager) ViewPager2 randomPager;
     @BindView(R.id.random_next_button) FloatingActionButton nextButton;
     @BindView(R.id.random_save_button) ImageView saveButton;
     @BindView(R.id.random_back_button) View backButton;
@@ -72,9 +71,10 @@ public class RandomFragment extends Fragment {
         FeedbackUtil.setToolbarButtonLongPressToast(nextButton, saveButton);
 
         randomPager.setOffscreenPageLimit(2);
-        randomPager.setAdapter(new RandomItemAdapter((AppCompatActivity) requireActivity()));
-        randomPager.setPageTransformer(true, new AnimationUtil.PagerTransformer());
-        randomPager.addOnPageChangeListener(viewPagerListener);
+        randomPager.setAdapter(new RandomItemAdapter(this));
+
+        randomPager.setPageTransformer(new AnimationUtil.PagerTransformer(getResources().getConfiguration().getLayoutDirection() == ViewCompat.LAYOUT_DIRECTION_RTL));
+        randomPager.registerOnPageChangeCallback(viewPagerListener);
 
         updateSaveShareButton();
         updateBackButton(0);
@@ -90,7 +90,7 @@ public class RandomFragment extends Fragment {
     @Override
     public void onDestroyView() {
         disposables.clear();
-        randomPager.removeOnPageChangeListener(viewPagerListener);
+        randomPager.unregisterOnPageChangeCallback(viewPagerListener);
         unbinder.unbind();
         unbinder = null;
         if (funnel != null) {
@@ -179,14 +179,14 @@ public class RandomFragment extends Fragment {
     }
 
     @SuppressWarnings("magicnumber")
-    public void updateSaveShareButton() {
+    private void updateSaveShareButton() {
         RandomItemFragment f = getTopChild();
         boolean enable = f != null && f.isLoadComplete();
         saveButton.setClickable(enable);
         saveButton.setAlpha(enable ? 1f : 0.5f);
     }
 
-    public void onChildLoaded() {
+    void onChildLoaded() {
         updateSaveShareButton();
     }
 
@@ -196,45 +196,35 @@ public class RandomFragment extends Fragment {
     }
 
     @Nullable private RandomItemFragment getTopChild() {
-        FragmentManager fm = getFragmentManager();
-        for (Fragment f : fm.getFragments()) {
-            if (f instanceof RandomItemFragment
-                    && ((RandomItemFragment) f).getPagerPosition() == randomPager.getCurrentItem()) {
-                return ((RandomItemFragment) f);
-            }
+        if (randomPager.getAdapter() != null) {
+            return (RandomItemFragment) ((RandomItemAdapter) randomPager.getAdapter()).getFragmentAt(randomPager.getCurrentItem());
         }
         return null;
     }
 
-    private class RandomItemAdapter extends FragmentPagerAdapter{
-
-        RandomItemAdapter(AppCompatActivity activity) {
-            super(activity.getSupportFragmentManager());
+    private class RandomItemAdapter extends PositionAwareFragmentStateAdapter {
+        RandomItemAdapter(Fragment fragment) {
+            super(fragment);
         }
 
         @Override
-        public int getCount() {
+        public int getItemCount() {
             return Integer.MAX_VALUE;
         }
 
         @Override
-        public Fragment getItem(int position) {
-            RandomItemFragment f = RandomItemFragment.newInstance();
-            f.setPagerPosition(position);
-            return f;
+        @NonNull
+        public Fragment createFragment(int position) {
+            return RandomItemFragment.newInstance();
         }
     }
 
-    private class ViewPagerListener implements ViewPager.OnPageChangeListener {
+    private class ViewPagerListener extends ViewPager2.OnPageChangeCallback {
         private int prevPosition;
         private boolean nextPageSelectedAutomatic;
 
         void setNextPageSelectedAutomatic() {
             nextPageSelectedAutomatic = true;
-        }
-
-        @Override
-        public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
         }
 
         @Override
@@ -254,10 +244,6 @@ public class RandomFragment extends Fragment {
             nextPageSelectedAutomatic = false;
             prevPosition = position;
             updateSaveShareButton();
-        }
-
-        @Override
-        public void onPageScrollStateChanged(int state) {
         }
     }
 }

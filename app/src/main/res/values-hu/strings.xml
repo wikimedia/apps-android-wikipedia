@@ -27,10 +27,12 @@
   <string name="page_tabs_back">Vissza</string>
   <string name="nav_item_forward">Előre</string>
   <string name="search_hint">Keresés a Wikipédiában</string>
+  <string name="search_hint_voice_search">Hangalapú keresés</string>
   <string name="search_hint_search_history">Keresés az előzményekben</string>
   <string name="search_hint_search_languages">Nyelv keresése</string>
   <string name="search_hint_search_my_lists_and_articles">Listáim és szócikkeim keresése</string>
   <string name="nav_item_history">Előzmények</string>
+  <string name="nav_item_suggested_edits">Ajánlott szerkesztések</string>
   <string name="error_network_error">Nem sikerült csatlakozni az internethez.</string>
   <string name="page_error_retry">Újra</string>
   <string name="card_offline_error_retry">Újra</string>
@@ -73,16 +75,13 @@
   <string name="on_this_day_page_share">Megosztás</string>
   <string name="reading_list_page_share">Megosztás</string>
   <string name="menu_text_select_edit_here">Szerkesztés itt</string>
-  <string name="nav_item_nearby">Közelben</string>
-  <string name="nearby_zoom_to_location">Közelíts egy helyre a térképen</string>
-  <string name="nearby_osm_license">&amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/hu\"&gt;OpenStreetMap&lt;/a&gt; közreműködők</string>
   <string name="last_updated_text">Utoljára frissítve: %s</string>
   <string name="talk_page_link_text">Vitalap megtekintése</string>
   <string name="edit_history_link_text">Laptörténet megtekintése</string>
   <string name="map_view_link_text">Megtekintés térképen</string>
   <string name="other_languages_indication_text">Olvasás más nyelven</string>
   <string name="language_count_link_text">Elérhető %d másik nyelven</string>
-  <string name="content_license_html">A tartalom a &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; licenc alatt érhető el, ha nincs másképp feltüntetve</string>
+  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in">A közzététellel elfogadod a &lt;a href=\"%1$s\"&gt;felhasználási feltételeket&lt;/a&gt;, és visszavonhatatlan engedélyt adsz annak felhasználására a &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; licenc alatt.</string>
   <string name="edit_save_action_license_anon">A közzététellel elfogadod a &lt;a href=\"%1$s\"&gt;felhasználási feltételeket&lt;/a&gt;, és a közreműködéseidet visszavonhatatlanul közzéteszed a &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; licenc alatt. A szerkesztések az eszközöd IP-címéhez lesznek rendelve. Ha &lt;a href=\"https://#login\"&gt;bejelentkezel&lt;/a&gt;, nagyobb adatvédelmet szerzel.</string>
   <string name="preference_title_language">Wikipédia-nyelvek</string>
@@ -132,7 +131,7 @@
   <string name="logout_prompt">Ezzel kijelentkezel az összes eszközön. \nBiztosan ki akarsz jelentkezni?</string>
   <string name="logout_dialog_cancel_button_text">Mégse</string>
   <string name="logged_out_in_background_title">Kijelentkezve</string>
-  <string name="logged_out_in_background_dialog">Kijelentkeztél a Wikipédiából. Szeretnél bejelentkezni?</string>
+  <string name="logged_out_in_background_dialog">Kijelentkeztél a Wikipédiából. Szeretnél újra bejelentkezni?</string>
   <string name="logged_out_in_background_login">Bejelentkezés</string>
   <string name="logged_out_in_background_cancel">Mégsem</string>
   <string name="history_empty_title">Nincsenek nemrég megtekintett cikkek</string>
@@ -157,8 +156,8 @@
   <string name="create_account_password_error">A jelszó érvénytelen</string>
   <string name="create_account_generic_error">Nem sikerült a fiók létrehozása</string>
   <string name="create_account_next">Következő</string>
-  <string name="email_recommendation_dialog_title">Biztos létrehozod a fiókot e-mail-cím nélkül?</string>
-  <string name="email_recommendation_dialog_message">Noha az e-mail-cím opcionális, megadása &lt;b&gt;erősen javallott&lt;/b&gt;, hogy elfelejtett jelszó esetén helyreállíthasd fiókodat.</string>
+  <string name="email_recommendation_dialog_title">Biztosan e-mail-cím nélkül hozod létre a fiókot?</string>
+  <string name="email_recommendation_dialog_message">Noha az e-mail-cím megadása opcionális, megadása &lt;b&gt;erősen javallott&lt;/b&gt;, hogy elfelejtett jelszó esetén helyreállíthasd fiókodat.</string>
   <string name="email_recommendation_message">Ajánlott, mert a fiók esetleges helyreállításához szükséges lesz.</string>
   <string name="email_recommendation_dialog_create_without_email_action">Folytatás e-mail-cím nélkül</string>
   <string name="email_recommendation_dialog_create_with_email_action">E-mail-cím megadása</string>
@@ -184,7 +183,7 @@
   <string name="preference_title_eventlogging_opt_in">Használati jelentés küldése</string>
   <string name="preference_summary_eventlogging_opt_in">A Wikimédia adatokat gyűjthet arról, hogy hogyan használod az appot, hogy még jobbá tehessük.</string>
   <string name="preference_title_auto_upload_crash_reports">Hibajelentés küldése</string>
-  <string name="preference_summary_auto_upload_crash_reports">Az alkalmazás automatikusan küldhet hibajelentéseket a HockeyAppnek / egy harmadik fél szolgáltatónak, hogy elemezhessük az összeomlást, így gyorsabban és könnyebben kijavíthatjuk a hibát.</string>
+  <string name="preference_summary_auto_upload_crash_reports">Az alkalmazás automatikusan küldhet hibajelentéseket egy harmadik fél szolgáltatónak, hogy elemezhessük az összeomlást, így gyorsabban és könnyebben kijavíthatjuk a hibát.</string>
   <string name="editing_error_spamblacklist">Tiltott webhelyre (%s) mutató linkeket helyeztél el. Távolítsd el őket, majd próbáld újra.</string>
   <string name="history_search_list_hint">Keresés az előzményekben</string>
   <string name="error_can_not_process_link">Nem lehet megjeleníteni ezt a hivatkozást</string>
@@ -199,15 +198,15 @@
   <string name="about_description">A Wikipédia alkalmazás névjegye</string>
   <string name="privacy_policy_description">Adatvédelmi irányelvek</string>
   <string name="terms_of_use_description">Felhasználási feltételek</string>
-  <string name="about_wikipedia_url">https://hu.m.wikipedia.org/wiki/Wikipédia:Rólunk</string>
-  <string name="privacy_policy_url">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
+  <string name="about_wikipedia_url">https://hu.wikipedia.org/wiki/Wikipédia:Rólunk</string>
+  <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/hu#Offline_olvasás</string>
-  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
-  <string name="terms_of_use_url">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
+  <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/hu</string>
+  <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://hu.wikipedia.org/wiki/Wikipédia:Felhasználói_fiók_kérése</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.hu</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.hu</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/hu</string>
   <string name="about_libraries_heading">Felhasznált szoftverkönyvtárak</string>
   <string name="about_contributors_heading">Közreműködők</string>
   <string name="about_translators_heading">Fordítók</string>
@@ -281,6 +280,7 @@
   <string name="gallery_save_success">A fájl sikeresen mentve.</string>
   <string name="gallery_error_video_failed">A videó lejátszása sikertelen.</string>
   <string name="gallery_save_image_write_permission_rationale">Képek elmentéséhez szükséges engedély az eszközöd tárhelyére íráshoz.</string>
+  <string name="gallery_add_image_caption_button">Képaláírás hozzáadása</string>
   <string name="gallery_add_image_caption_in_language_button">Képaláírás hozzáadása (%s)</string>
   <string name="err_cannot_save_file">Fájl mentése sikertelen</string>
   <string name="snippet_share_intro">„%1$s” a @Wikipedia szabad enciklopédiában: %2$s</string>
@@ -292,17 +292,19 @@
   <string name="captcha_image">Captcha kép</string>
   <string name="gallery_fair_use_license">Fair use (méltányos használat)</string>
   <string name="gallery_uploader_unknown">Feltöltő ismeretlen</string>
+  <string name="gallery_not_available_offline_snackbar">A galéria-nézet offline nem elérhető.</string>
+  <string name="gallery_not_available_offline_snackbar_dismiss">Elrejt</string>
   <string name="menu_new_tab">Új fül</string>
   <string name="menu_close_all_tabs">Az összes lap bezárása</string>
   <string name="close_all_tabs_confirm">Biztosan be akarod zárni az összes lapot?</string>
   <string name="close_all_tabs_confirm_yes">Igen</string>
   <string name="close_all_tabs_confirm_no">Nem</string>
   <string name="button_close_tab">Fül bezárása</string>
+  <string name="unnamed_tab_closed">Fül bezárva</string>
   <string name="tab_item_closed">%s bezárva.</string>
   <string name="all_tab_items_closed">Az összes fül bezárva.</string>
   <string name="tool_tip_bookmark_icon_title">Hozzáadás az olvasólistához</string>
   <string name="tool_tip_bookmark_icon_text">Bökj a könyvjelző ikonra, hogy a cikket egy olvasólistádra mentsd.</string>
-  <string name="tool_tip_share">Egy érdekes adat kijelölése után próbáld meg megosztani a kedvenc hálózataidban!</string>
   <string name="page_view_in_browser">Lap megtekintése böngészőben</string>
   <string name="tool_tip_toc_title">Tartalomjegyzék gyors elérése</string>
   <string name="tool_tip_toc_text">A tartalomjegyzéket balra lapozva tudod előhozni és a görgőt megragadva gyorsan navigálhatsz a szócikk különböző részei között.</string>
@@ -318,7 +320,7 @@
   <string name="button_add_to_reading_list">Hozzáadás az olvasólistához</string>
   <string name="page_offline_notice_cannot_load_while_offline">A szócikk nem tölthető be kapcsolat nélkül.</string>
   <string name="page_offline_notice_add_to_reading_list">Tipp: Add hozzá a szócikket egy olvasólistához, hogy letöltődjön, amikor kapcsolódsz az internethez.</string>
-  <string name="page_offline_notice_last_date">A szócikk offline verzióját olvasod. mentve: %s</string>
+  <string name="page_offline_notice_last_date">A szócikk offline verzióját olvasod, mentve: %s</string>
   <string name="button_get_directions">Útvonalterv</string>
   <string name="error_no_maps_app">Nem található útvonaltervező alkalmazás.</string>
   <string name="preference_title_show_link_previews">Linkek előnézetének megjelenítése</string>
@@ -337,15 +339,15 @@
   <string name="view_link_preview_error_button_dismiss">Bezárás</string>
   <string name="error_page_does_not_exist">Ez a lap nem létezik</string>
   <string name="view_wiki_error_message_offline">Nem sikerült csatlakozni az internethez</string>
+  <string name="view_wiki_error_message_timeout">Nem sikerült csatlakozni a Wikipédiához. Ellenőrizd hálózati beállításaidat vagy próbáld meg később</string>
   <string name="reference_title">Hivatkozás: %s</string>
+  <string name="reference_list_title">Forráshivatkozások</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Képsötétítés (Sötét téma esetén)</string>
   <string name="preference_title_prefer_offline_content">Kapcsolat nélkül elérhető tartalom előnyben részesítése</string>
   <string name="preference_summary_prefer_offline_content">Adathasználat csökkentése a kapcsolat nélkül is elérhető tartalmak betöltésével, a cikk legfrissebb verziója helyett.</string>
-  <string name="crash_report_dialog_title">Sajnáljuk, az alkalmazás összeomlott legutóbb</string>
-  <string name="crash_report_dialog_text">Szeretnél küldeni egy összeomlási jelentést a HockeyAppnek / egy harmadik fél szolgáltatónak, hogy a Wikimédia átnézhesse az összeomlást és kijavíthassa az ezt okozó hibát?</string>
-  <string name="crash_report_dialog_dont_send_button">Kihagy</string>
-  <string name="crash_report_dialog_always_send_button">Küldés mindig</string>
-  <string name="crash_report_dialog_send_button">Küldés</string>
+  <string name="theme_chooser_dialog_match_system_theme_switch_label">Rendszer témával egyező</string>
+  <string name="page_footer_license_text">A tartalom további jelölés hiányában a(z) $1 feltételei szerint használható fel</string>
+  <string name="empty_tab_title">Új fül</string>
   <string name="crash_report_activity_title">Alkalmazáshiba</string>
   <string name="crash_report_relaunch_or_quit">Sajnáljuk, a Wikipédia alkalmazás hibát észlelt és leállt.\n\nSzeretnéd újrakezdeni, vagy kilépnél?</string>
   <string name="crash_report_relaunch">Újrakezdés</string>
@@ -353,7 +355,7 @@
   <string name="article_menu_bar_bookmark">Cikk hozzáadása egy olvasólistához</string>
   <string name="article_menu_bar_share">A cikk linkjének megosztása</string>
   <string name="article_header_edit_hint">Szerkesztés…</string>
-  <string name="article_header_edit_description" fuzzy="true">Címleírás szerkesztése</string>
+  <string name="article_header_edit_description">Szócikkleírás szerkesztése</string>
   <string name="article_header_edit_lead_section">Bevezető szerkesztése</string>
   <string name="color_theme_select">Téma</string>
   <string name="color_theme_light">Világos</string>
@@ -421,7 +423,7 @@
   <string name="reading_list_confirm_remove_article_from_offline_message">%s többé nem lesz elérhető kapcsolat nélkül egyik olvasólistánál sem:</string>
   <string name="reading_lists_sync_reminder_title">Bekapcsolod az olvasólisták szinkronizálását?</string>
   <string name="reading_lists_sync_reminder_text">Az olvasólistákra mentett szócikkek mostantól szinkronizálhatók a Wikipédia-fiókoddal. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/hu#Offline_olvasás\"&gt;További információk&lt;/a&gt;</string>
-  <string name="reading_lists_login_reminder_text_with_link">Az olvasólisták már eszközök között is szinkronizálhatók. Jelentkezz be a Wikipédia fiókodba, és engedélyezd a listáid mentését. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Synced_reading_lists\"&gt;További információk&lt;/a&gt;</string>
+  <string name="reading_lists_login_reminder_text_with_link">Az olvasólisták már eszközök között is szinkronizálhatók. Jelentkezz be a Wikipédia fiókodba, és engedélyezd a listáid mentését. &lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/hu#Olvasólisták_szinkronizálása\"&gt;További információk&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">Szinkronizálás engedélyezése</string>
   <string name="reading_list_login_reminder_title">Olvasólisták szinkronizálása</string>
   <string name="reading_lists_login_reminder_text">Az olvasólisták mostantól szinkronizálhatók a különböző eszközeid között. Jelentkezz be a Wikipédia-fiókodba és engedélyezd a listáid mentését.</string>
@@ -444,14 +446,6 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Ne mutasd ezt többet</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Szinkronizálás engedélyezése</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Köszönöm, nem</string>
-  <string name="reading_list_login_option_reminder_dialog_title">Olvasólistás szócikk találat</string>
-  <string name="reading_list_login_option_reminder_dialog_text">Szócikket mentettél az olvasólistádba, mialatt nem voltál bejelentkezve. Hozzá akarod adni ezeket a fiókodhoz tartozó olvasólistákhoz?</string>
-  <string name="reading_list_login_option_reminder_dialog_yes">Igen, vedd fel az olvasólistáimhoz</string>
-  <string name="reading_list_login_option_reminder_dialog_no">Nem, töröld a szócikkeket</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">Megtartod a mentett szócikkeket az alkalmazásban?</string>
-  <string name="reading_list_logout_option_reminder_dialog_text">Frissen mentett szócikkek vannak az olvasólistáidban. Meg akarod tartani őket a kijelentkezés után?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">Igen, szócikkek megtartása az olvasólistákon</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">Nem, szócikkek törlése az olvasólistákról</string>
   <string name="default_reading_list_name">Elmentve</string>
   <string name="default_reading_list_description">Alapértelmezett lista a mentett szócikkeidnek</string>
   <string name="no_user_lists_title">Rendezd listákba a szócikkeket</string>
@@ -489,6 +483,7 @@
   <string name="notification_syncing_resume_button">Folytatás</string>
   <string name="notification_syncing_cancel_button">Mégsem</string>
   <string name="notification_syncing_reading_list_channel_description">Olvasólisták frissítése folyamatban</string>
+  <string name="notification_many_unread">%d olvasatlan értesítésed van</string>
   <plurals name="notification_channel_name">
     <item quantity="one">Szócikk letöltése</item>
     <item quantity="other">Szócikkek letöltése</item>
@@ -535,14 +530,20 @@
   <string name="preference_title_notification_poll">Értesítések megjelenítése</string>
   <string name="preference_summary_notification_poll">Adatforgalom engedélyezése az alkalmazás számára, új értesítések háttérben történő kereséséhez.</string>
   <string name="preference_category_notification_types">Alkalmazáson belüli értesítéstípusok</string>
-  <string name="preference_title_notification_welcome">Üdvözlések</string>
-  <string name="preference_summary_notification_welcome">Létre lett hozva egy fiók</string>
+  <string name="preference_title_notification_system">Rendszer</string>
+  <string name="preference_summary_notification_system">Üzenetek a rendszertől</string>
   <string name="preference_title_notification_milestone">Mérföldkövek</string>
   <string name="preference_summary_notification_milestone">Bizonyos számú szerkesztésszám elérése</string>
   <string name="preference_title_notification_thanks">Köszönetek</string>
   <string name="preference_summary_notification_thanks">Valaki megköszönte egy szerkesztésedet</string>
   <string name="preference_title_notification_revert">Visszaállítás</string>
   <string name="preference_summary_notification_revert">Közreműködéseid egyike vissza lett vonva.</string>
+  <string name="preference_title_notification_login_fail">Bejelentkezés</string>
+  <string name="preference_summary_notification_login_fail">A bejelentkezési tevékenységeid</string>
+  <string name="preference_title_notification_mention">Említés</string>
+  <string name="preference_summary_notification_mention">Valaki megemlített egy lapon</string>
+  <string name="preference_title_notification_user_talk">Vitalap</string>
+  <string name="preference_summary_notification_user_talk">Üzenetek vitalapokról</string>
   <string name="view_because_you_read_card_title">Mert ezt olvastad:</string>
   <string name="view_random_card_title">Találomra</string>
   <string name="view_random_card_subtitle">Olvass találomra egy cikket a Wikipédiából.</string>
@@ -596,44 +597,52 @@
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Szabd testre a Felfedezés hírfolyamodat!&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Mostantól kiválaszthatod, hogy mi jelenjen meg a hírfolyamodban, és át is rendezheted azt, feljebb helyezve a kedvenc tartalomtípusaidat.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Mégse</string>
-  <string name="description_edit_text_hint" fuzzy="true">Cím leírása</string>
-  <string name="description_edit_add_caption_label_per_language">Képleírás (%s)</string>
+  <string name="feed_accessibility_card_text">Elérted a hírfolyamod alját.</string>
+  <string name="feed_accessibility_card_load_more_button">Továbbiak betöltése</string>
+  <string name="description_edit_text_hint">Szócikk leírása</string>
+  <string name="description_edit_article_description_label">Szócikk</string>
+  <string name="description_edit_translate_article_description_label_per_language">Szócikkleírás (%s)</string>
+  <string name="description_edit_translate_article_description_hint_per_language">Szócikkleírás (%s)</string>
+  <string name="description_edit_add_caption_label">Képleírás</string>
+  <string name="description_edit_add_caption_hint">Képaláírás</string>
+  <string name="description_edit_translate_caption_label_per_language">Képaláírás (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">Képaláírás (%s)</string>
   <string name="description_edit_save">Közzététel</string>
   <string name="description_edit_read">Olvasás</string>
-  <string name="description_edit_add_description" fuzzy="true">Adj meg egy címleírást</string>
-  <string name="description_edit_translate_description" fuzzy="true">Leírás fordítása</string>
-  <string name="description_edit_edit_description" fuzzy="true">Leírás szerkesztése</string>
+  <string name="description_edit_add_description">Add meg a szócikk leírását</string>
+  <string name="description_edit_translate_description">Szócikkleírás fordítása</string>
+  <string name="description_edit_edit_description">Szócikkleírás szerkesztése</string>
   <string name="description_edit_add_image_caption">Képaláírás hozzáadása</string>
   <string name="description_edit_edit_image_caption">Képaláírás szerkesztése</string>
   <string name="description_edit_translate_image_caption">Képaláírás fordítása</string>
   <string name="description_edit_cancel_hint">Mégse</string>
-  <string name="description_edit_help_title" fuzzy="true">Segítség: címleírások</string>
+  <string name="description_edit_help_title">Info: szócikkleírások</string>
   <string name="description_edit_help_about_wikidata">A Wikidatáról</string>
   <string name="description_edit_help_wikidata_guide">Wikidata-útmutató leírások készítéséről</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
-  <string name="description_edit_anon_limit" fuzzy="true">Köszönjük a folyamatos érdeklődésedet a leírások szerkesztése iránt! További szerkesztéshez kérjük jelentkezz be a Wikipédia-fiókoddal.</string>
-  <string name="description_edit_license_notice" fuzzy="true">A címleírás szerkesztésével elfogadom a &lt;a href=\"%1$s\"&gt;felhasználási feltételeket&lt;/a&gt; és visszavonhatatlanul &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; licenc alá helyezem a szerkesztéseimet.</string>
+  <string name="description_edit_anon_limit">Köszönjük a folyamatos érdeklődésedet a szócikkleírások szerkesztése iránt! További szerkesztéshez kérjük jelentkezz be a Wikipédia-fiókoddal.</string>
+  <string name="description_edit_license_notice">A szócikkleírás szerkesztésével elfogadom a &lt;a href=\"%1$s\"&gt;felhasználási feltételeket&lt;/a&gt; és visszavonhatatlanul &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; licenc alá helyezem a szerkesztéseimet.</string>
   <string name="description_edit_helper_text_lowercase_warning">általában kis kezdőbetűvel kezdődik</string>
-  <string name="description_edit_success_saved" fuzzy="true">Leírás közzétéve!</string>
-  <string name="description_edit_success_saved_snackbar" fuzzy="true">Leírás közzétéve!</string>
+  <string name="description_edit_success_saved">Szócikkleírás közzétéve!</string>
+  <string name="description_edit_success_saved_snackbar">Szócikkleírás közzétéve!</string>
+  <string name="description_edit_success_saved_in_lang_snackbar">Szócikkleírás (%s) közzétéve!</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Képaláírás közzétéve!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Képaláírás közzétéve! (%s)</string>
   <string name="description_edit_success_encouragement">Éppen mindenkinek jobbá tetted a Wikipédiát</string>
   <string name="description_edit_success_done">Kész</string>
   <string name="description_edit_success_did_you_know">Tudtad?</string>
   <string name="description_edit_success_article_edit_hint">Szerkesztheted is a szócikkeket ebben az alkalmazásban. Próbáld ki legközelebb elírások és rövid mondatok javításával a ^1 ikonra kattintva</string>
-  <string name="description_edit_tutorial_title_descriptions" fuzzy="true">Címleírások</string>
+  <string name="description_edit_tutorial_title_descriptions">Szócikkleírások</string>
   <string name="description_edit_tutorial_title_descriptions_summary">Összefoglalja a cikk tartalmát, hogy az olvasók gyorsan megérthessék, miről szól</string>
   <string name="description_edit_tutorial_keep_it_short">Legyen rövid</string>
   <string name="description_edit_tutorial_keep_it_short_instructions">Ideális esetben egy sor, két-tizenkét szó között.</string>
   <string name="description_edit_tutorial_button_label_start_editing">Szerkesztés elkezdése</string>
   <string name="description_edit_tutorial_promise">A kezdéskor megígérem, hogy nem élek vissza ezzel a funkcióval.</string>
-  <string name="suggested_edits_add_descriptions" fuzzy="true">Címleírások hozzáadása</string>
-  <string name="suggested_edits_translate_descriptions" fuzzy="true">Leírások fordítása</string>
+  <string name="suggested_edits_add_descriptions">Szócikkleírások hozzáadása</string>
+  <string name="suggested_edits_translate_descriptions">Szócikkleírások fordítása</string>
   <string name="suggested_edits_add_image_captions">Képaláírások hozzáadása</string>
   <string name="suggested_edits_translate_image_captions">Képaláírások fordítása</string>
-  <string name="suggested_edits_review_description" fuzzy="true">Címleírás ellenőrzése</string>
+  <string name="suggested_edits_review_description">Szócikkleírás ellenőrzése</string>
   <string name="suggested_edits_add_description_button">Leírás hozzáadása</string>
   <string name="suggested_edits_edit_description_button">Leírás szerkesztése</string>
   <string name="suggested_edits_add_translation_button">Fordítás hozzáadása</string>
@@ -643,40 +652,23 @@
   <string name="suggested_edits_review_image_caption">Képaláírások ellenőrzése</string>
   <string name="suggested_edits_my_contributions">Közreműködéseim</string>
   <string name="suggested_edits_no_description">Ennek a fájlnak nincs leírása</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_title" fuzzy="true">Feloldottad a „Leírások hozzáadása” feladatot</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_message">Köszönjük a közreműködéseidet! Mivel szeretsz címleírásokat szerkeszteni, összeállítottunk számodra egy „Szerkesztői feladatok” listáját olyan cikkekkel, melyeknél hiányzik a címleírás. Tudsz ezekben segíteni?</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_title" fuzzy="true">Feloldottad a „Leírások fordítása” feladatot</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_message">Köszönjük az eddigi szerkesztéseidet! Mivel az alkalmazást több nyelven is olvasod, ezért összeállítottunk egy listát, ahol a leírásoknál hiányzik a magyar fordítás. Volna kedved ebben besegíteni?</string>
-  <string name="suggested_edits_unlock_dialog_no">Talán később</string>
-  <string name="suggested_edits_unlock_dialog_yes">Igen, kezdjük</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_title" fuzzy="true">Feloldottad a „Leírások hozzáadása” feladatot</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_title" fuzzy="true">Feloldottad a „Leírások fordítása” feladatot</string>
-  <string name="suggested_edits_unlock_notification_text">Ajánlott szerkesztések</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_big_text">Javasolt szerkesztés\n\nKöszönjük a közreműködéseidet! Mivel jó vagy a szerkesztésben, összeállítottunk számodra egy listát olyan cikkekkel, melyeknél hiányzik a címleírás. Tudsz ezekben segíteni?</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">Javasolt szerkesztés\n\nKöszönjük az eddigi szerkesztéseidet! Az alkalmazást több nyelven is használod, ezért összeállítottunk egy listát, ahol a leírásoknál hiányzik a magyar fordítás. Volna kedved ebben segíteni?</string>
-  <string name="suggested_edits_unlock_notification_button">Igen, kezdjük</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_title">Feloldottad a „Képaláírások hozzáadása” feladatot</string>
-  <string name="suggested_edits_unlock_add_captions_notification_title">Feloldottad a „Képaláírások hozzáadása” feladatot</string>
-  <string name="suggested_edits_unlock_translate_captions_dialog_title">Feloldottad a „Képaláírások fordítása” feladatot</string>
-  <string name="suggested_edits_unlock_translate_captions_notification_title">Feloldottad a „Képaláírások fordítása” feladatot</string>
   <string name="suggested_edits_license_notice">A leírás hozzáadásával elfogadom a &lt;a href=\"%1$s\"&gt;felhasználási feltételeket&lt;/a&gt; és visszavonhatatlanul &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; licenc alá helyezem a szerkesztéseimet.</string>
   <string name="suggested_edits_image_caption_license_notice">A képaláírás hozzáadásával elfogadom a &lt;a href=\"%1$s\"&gt;felhasználási feltételeket&lt;/a&gt; és visszavonhatatlanul &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; licenc alá helyezem a szerkesztéseimet.</string>
   <string name="suggested_edits_menu_info">Információ</string>
   <string name="suggested_edits_tasks_activity_title">Javasolt szerkesztések</string>
-  <string name="suggested_edits_task_add_description_title" fuzzy="true">Címleírások hozzáadása</string>
+  <string name="suggested_edits_task_add_description_title">Szócikkleírások hozzáadása</string>
   <string name="suggested_edits_task_add_description_description">Működj közre a címleírások nélküli cikkeknél</string>
-  <string name="suggested_edits_task_translation_title" fuzzy="true">Leírások fordítása</string>
-  <string name="suggested_edits_task_translation_description">Leírások lefordítása több nyelvre.</string>
-  <string name="suggested_edits_task_image_caption_title" fuzzy="true">Képek feliratozása</string>
+  <string name="suggested_edits_task_image_caption_title">Képaláírások hozzáadása</string>
   <string name="suggested_edits_task_image_caption_description">Adj hiányzó rövid képaláírásokat a képekhez</string>
   <string name="suggested_edits_task_translate_caption_title">Képaláírások fordítása</string>
   <string name="suggested_edits_task_translate_caption_description">Fordíts képaláírásokat más nyelvekre</string>
   <string name="suggested_edits_task_multilingual_title">További feladatok többnyelvű szerkesztőknek</string>
   <string name="suggested_edits_task_multilingual_description">A fordítási feladatok akkor érhetőek el, ha több mint egy Wikipédia nyelven olvasol és írsz.</string>
   <string name="suggested_edits_task_image_caption_edit_disable_text">Zárolva, amíg nem szerkesztesz az alkalmazáson belül %d képaláírást</string>
-  <string name="suggested_edits_task_translate_description_edit_disable_text" fuzzy="true">Zárolva, míg el nem végzel az alkalmazáson belül %d ellenőrzött szerkesztést</string>
+  <string name="suggested_edits_task_translate_description_edit_disable_text">Zárolva, míg el nem végzel az alkalmazáson belül %d ellenőrzött szócikkleírás szerkesztést</string>
   <string name="suggested_edits_task_multilingual_negative">Nem nekem való</string>
   <string name="suggested_edits_task_multilingual_positive">Nyelvek hozzáadása</string>
+  <string name="suggested_edits_image_caption_summary_title_file">Fájl</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Művész</string>
   <string name="suggested_edits_image_caption_summary_title_author">Szerző</string>
   <string name="suggested_edits_image_caption_summary_title_source">Forrás</string>
@@ -687,7 +679,8 @@
     <item quantity="other">%d közreműködés</item>
   </plurals>
   <string name="suggested_edits_feed_card_title">Javasolt szerkesztések</string>
-  <string name="suggested_edits_tutorial_message">Légy üdvözölve a Wikipédia app gyors szerkesztőjében. Hozzájárulásodat nagyon köszönjük. Kellemes szerkesztést!</string>
+  <string name="suggested_edits_feed_card_add_description_button">Szócikkleírások hozzáadása</string>
+  <string name="suggested_edits_feed_card_add_translation_in_language_button">Szócikkleírások hozzáadása (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Kezdés</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Képaláírás (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Kép leírása (%s)</string>
@@ -697,8 +690,54 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Licenc</string>
   <string name="suggested_edits_image_preview_dialog_more_info">További információ</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Kép Wikimedia Commons-oldala</string>
+  <string name="suggested_edits_article_cta_image_caption">Képaláírás hozzáadása</string>
+  <string name="suggested_edits_article_cta_image_caption_in_language">Képaláírás hozzáadása (%s)</string>
+  <string name="suggested_edits_article_cta_snackbar_action">Megtekintés</string>
   <string name="suggested_edits_feed_card_add_image_caption">Képaláírás hozzáadása</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Képaláírás hozzáadása (%s)</string>
+  <string name="suggested_edits_snackbar_survey_text">Milyen tapasztalataid voltak a szerkesztés során? Kérlek töltsd ki ezt a kérdőívet az alkalmazáson belüli szerkesztésről.</string>
+  <string name="suggested_edits_snackbar_survey_action_text">Kérdőív kitöltése</string>
+  <string name="suggested_edits_task_action_text_add">Hozzáadás</string>
+  <string name="suggested_edits_task_action_text_translate">Fordítás</string>
+  <string name="suggested_edits_image_captions" fuzzy="true">Képaláírások</string>
+  <string name="suggested_edits_image_tags_publishing">Közzététel…</string>
+  <string name="suggested_edits_image_tags_published">Közzétéve</string>
+  <string name="suggested_edits_image_tags_choose">Passzoló címkék kiválasztása vagy hozzáadása</string>
+  <string name="suggested_edits_encouragement_message">%s, köszönet a szerkesztéseidért! Lentebb további módokat találsz, miképp közreműködhetsz még a Wikipédiához.</string>
+  <string name="suggested_edits_onboarding_message">&lt;b&gt;Szia %s!&lt;/b&gt; Tudtad, hogy bárki szerkesztheti a Wikipédiát? Lentebb további módokat találsz, miképp közreműködhetsz még a Wikipédiához. Jó szerkesztést!</string>
+  <string name="suggested_edits_image_captions_task_detail">A képfeliratok segítenek az olvasóknak megérteni a képek jelentését és tartalmát.</string>
+  <string name="suggested_edits_add_descriptions_task_detail">A szócikkleírás összefoglalja a cikk tartalmát, hogy az olvasók gyorsan megérthessék, miről szól.</string>
+  <string name="suggested_edits_contributions_stat_tooltip">A Javasolt szerkesztésekkel végzett közreműködések teljes száma.</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip">Hány napig működtél közre megszakítás nélkül a Javasolt szerkesztésekben. Ha egy ideje már nem működtél közre, akkor az utolsó közreműködés idejét mutatja.</string>
+  <string name="suggested_edits_page_views_stat_tooltip">Azon lapok megtekintési száma, amelyekben az elmúlt 30 nap során közreműködtél a Javasolt szerkesztések segítségével.</string>
+  <string name="suggested_edits_edit_quality_stat_tooltip">Az alapján, hogy hányszor volt visszavonva a közreműködések (más szerkesztő által visszaállítva). Visszavont szerkesztések: %d.</string>
+  <string name="suggested_edits_paused_message">&lt;b&gt;A Javasolt szerkesztések felfüggesztésre került eddig: %1$s&lt;/b&gt; Bocsi %2$s, de néhány friss közreműködésed visszavonásra került.</string>
+  <string name="suggested_edits_disabled_message">&lt;b&gt;A Javasolt szerkesztések letiltásra került.&lt;/b&gt; Bocsi %s, túl sok közreműködésed lett visszavonva mostanában.</string>
+  <string name="suggested_edits_ip_blocked_message">Úgí tűni, hogy az IP-címed (vagy egy IP-cím tartomány) jelenleg el van tiltva a Wikipédia szerkesztésétől. Az alábbi hivatkozásra kattintva többet megtudhatsz arról, hogy az mit is jelent pontosan.</string>
+  <string name="suggested_edits_editing_tips_link_text">Szerkesztési tippek-trükkök</string>
+  <string name="suggested_edits_help_page_link_text">Javasolt szerkesztések súgó oldal</string>
+  <string name="suggested_edits_edit_streak_label_text">Szerkesztési széria</string>
+  <string name="suggested_edits_pageviews_label_text">Megtekintések</string>
+  <string name="suggested_edits_quality_label_text">Szerkesztési minőség</string>
+  <string name="suggested_edits_quality_perfect_text">Tökéletes</string>
+  <string name="suggested_edits_quality_excellent_text">Kiváló</string>
+  <string name="suggested_edits_quality_very_good_text">Nagyon jó</string>
+  <string name="suggested_edits_quality_good_text">Jó</string>
+  <string name="suggested_edits_quality_okay_text">Rendben</string>
+  <string name="suggested_edits_quality_sufficient_text">Elégséges</string>
+  <string name="suggested_edits_quality_poor_text">Gyenge</string>
+  <string name="suggested_edits_quality_bad_text">Rossz</string>
+  <plurals name="suggested_edits_contribution">
+    <item quantity="one">Közreműködés</item>
+    <item quantity="other">Közreműködés</item>
+  </plurals>
+  <plurals name="suggested_edits_edit_streak_detail_text">
+    <item quantity="one">%d nap</item>
+    <item quantity="other">%d nap</item>
+  </plurals>
+  <string name="suggested_edits_last_edited">Utoljára szerkesztve</string>
+  <string name="suggested_edits_last_edited_never">Soha</string>
+  <string name="suggested_edits_task_new">új</string>
   <string name="description_edit_revert_subtitle">Köszönjük, hogy szerkesztetted a Wikipédiát!</string>
   <string name="description_edit_revert_intro">Tudjuk, hogy megtetted a tőled telhetőt, de egy másik szerkesztőnek aggályai voltak a szerkesztéseddel kapcsolatban. Többek között az alábbiak miatt vonhatták vissza a szerkesztésedet:</string>
   <string name="description_edit_revert_reason1">nem követted az &lt;a href=\"%1$s\"&gt;irányelveket&lt;/a&gt;</string>
@@ -737,6 +776,9 @@
   <string name="events_count_text">%1$s esemény %2$s és %3$d között</string>
   <string name="this_year">Ebben az évben</string>
   <string name="back_to_top">Vissza a tetejére</string>
+  <string name="on_this_day_dialog_next_month">Következő hónap</string>
+  <string name="on_this_day_dialog_previous_month">Előző hónap</string>
+  <string name="on_this_day_open_date_picker">Dátum választó megnyitása</string>
   <plurals name="diff_years">
     <item quantity="one">Tavaly</item>
     <item quantity="other">%d éve</item>
@@ -770,6 +812,7 @@
   <string name="edit_conflict_dialog_ok_button_text">OK</string>
   <string name="reverted_edit_dialog_ok_button_text">OK</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">Mégse</string>
+  <string name="content_description_for_page_indicator">%1$d. lap / %2$d</string>
   <string name="wikitext_bold">Félkövér</string>
   <string name="wikitext_italic">Dőlt</string>
   <string name="wikitext_link">Hivatkozás</string>
@@ -780,8 +823,11 @@
   <string name="wikitext_preview_link">Link előnézete</string>
   <string name="main_drawer_open">Megnyit</string>
   <string name="main_drawer_close">Bezár</string>
+  <string name="main_drawer_content_description">Fő navigációs fiók kinyitása</string>
   <string name="main_drawer_help">Segítség</string>
   <string name="main_drawer_login">Bejelentkezés/regisztrálás a Wikipédiába</string>
+  <string name="main_tooltip_text">%s, tudtad, hogy a Wikipédiát bárki szerkesztheti?</string>
+  <string name="main_tooltip_action_button">Kezdés</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_cancel_button_text">Mégse</string>
