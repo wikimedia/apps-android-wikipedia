@@ -64,6 +64,11 @@ object JavaScriptActionHandler {
     }
 
     @JvmStatic
+    fun prepareToScrollTo(anchorLink: String, options: String): String {
+        return "pcs.c1.Page.prepareForScrollToAnchor(\"${anchorLink}\", ${options} )"
+    }
+
+    @JvmStatic
     fun setUp(title: PageTitle): String {
         val app: WikipediaApp = WikipediaApp.getInstance()
         val topActionBarHeight = (app.resources.getDimensionPixelSize(R.dimen.lead_no_image_top_offset_dp) / getDensityScalar()).roundToInt()
@@ -100,7 +105,6 @@ object JavaScriptActionHandler {
         if (model.page == null) {
             return ""
         }
-        val showEditHistoryLink = !(model.page!!.isMainPage || model.page!!.isFilePage)
         val lastModifiedDate = formatDateRelative(model.page!!.pageProperties.lastModified)
         val showTalkLink = !(model.page!!.title.namespace() === Namespace.TALK)
         val showMapLink = model.page!!.pageProperties.geo != null
@@ -112,14 +116,14 @@ object JavaScriptActionHandler {
 
         // TODO: page-library also supports showing disambiguation ("similar pages") links and
         // "page issues". We should be mindful that they exist, even if we don't want them for now.
-
+        val baseURL = ServiceFactory.getRestBasePath(model.title?.wikiSite!!).trimEnd('/')
         return "pcs.c1.Footer.add({" +
                 "   platform: pcs.c1.Platforms.ANDROID," +
                 "   clientVersion: '${BuildConfig.VERSION_NAME}'," +
                 "   title: '${model.title!!.prefixedText}'," +
                 "   menu: {" +
                 "       items: [" +
-                                (if (showEditHistoryLink) "pcs.c1.Footer.MenuItemType.lastEdited, " else "") +
+                                "pcs.c1.Footer.MenuItemType.lastEdited, " +
                                 (if (showTalkLink) "pcs.c1.Footer.MenuItemType.talkPage, " else "") +
                                 (if (showMapLink) "pcs.c1.Footer.MenuItemType.coordinate, " else "") +
                 "               pcs.c1.Footer.MenuItemType.referenceList " +
@@ -140,7 +144,7 @@ object JavaScriptActionHandler {
                 "       }," +
                 "   readMore: { " +
                 "       itemCount: 3," +
-                "       baseURL: '${ServiceFactory.getRestBasePath(model.title?.wikiSite!!)}'" +
+                "       baseURL: '${baseURL}'" +
                 "   }" +
                 "})"
     }

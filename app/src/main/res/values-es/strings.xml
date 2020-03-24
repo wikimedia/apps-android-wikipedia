@@ -226,11 +226,11 @@
   <string name="about_description">Acerca de la aplicación de Wikipedia</string>
   <string name="privacy_policy_description">Normativa de privacidad</string>
   <string name="terms_of_use_description">Términos de uso</string>
-  <string name="about_wikipedia_url">https://es.m.wikipedia.org/wiki/Wikipedia:Acerca_de</string>
+  <string name="about_wikipedia_url">https://es.wikipedia.org/wiki/Wikipedia:Acerca_de</string>
   <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/wiki/Privacy_policy/es</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/es#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/es</string>
-  <string name="terms_of_use_url">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/es</string>
+  <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use/es</string>
   <string name="android_app_request_an_account_url">https://es.wikipedia.org/wiki/Wikipedia:Crear_una_cuenta_de_usuario</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.es</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.es</string>
@@ -710,7 +710,6 @@
   <string name="suggested_edits_feed_card_title">Ediciones sugeridas</string>
   <string name="suggested_edits_feed_card_add_description_button">Añadir descripción de artículo</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Añadir descripción de imagen (%s)</string>
-  <string name="suggested_edits_tutorial_message">\nBienvenido a la página de inicio de edición en la app de Wikipedia. Aquí te mostraremos sugerencias para añadir contenido que te pueda ser de interés. Apreciamos mucho tus contribuciones. ¡Que lo pases bien!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">\nEmpezar</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Leyenda de imagen (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Descripción de imagen (%s)</string>
@@ -733,15 +732,17 @@
   <string name="suggested_edits_image_tags">Etiquetas de imagen</string>
   <string name="suggested_edits_image_tags_publishing">Publicando</string>
   <string name="suggested_edits_image_tags_published">Publicado</string>
-  <string name="suggested_edits_image_tags_onboarding_title" fuzzy="true">Etiqueta imágenes para que otros las puedan encontrar más fácilmente.</string>
+  <string name="suggested_edits_image_tags_onboarding_title">Etiquetar las imágenes facilita poderlas encontrar.</string>
   <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">Al confirmar las etiquetas sugeridas contribuyes a que sea más fácil encontrar las imágenes.\n\nLas etiquetas son generadas automáticamente pero es necesario que sean validadas por humanos para garantizar su exactitud.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Solo las etiquetas que elijas se añadirán a las imágenes.</string>
   <string name="suggested_edits_image_tags_snackbar">Etiqueta las imágenes para facilitar su búsqueda.</string>
   <string name="suggested_edits_image_tags_task_detail" fuzzy="true">Etiqueta imágenes para que el resto las encuentre más fácilmente. Son sugeridas por computadora, pero deben ser validados.</string>
-  <string name="suggested_edits_image_tags_choose" fuzzy="true">Elige las etiquetas correspondientes a la imagen.</string>
+  <string name="suggested_edits_image_tags_choose">Añadir o elegir etiquetas correspondientes</string>
+  <string name="suggested_edits_image_tags_published_list">Etiquetas publicadas</string>
   <string name="suggested_edits_image_tags_search">Buscar etiquetas</string>
   <string name="suggested_edits_image_tags_select_title">No has seleccionado ninguna etiqueta para esta imagen.</string>
   <string name="suggested_edits_image_tags_select_text">Solo las etiquetas que elijas se añadirán a las imágenes. Las etiquetas no seleccionadas se marcarán como rechazadas. ¿Estás seguro de que quieres marcar todas las etiquetas como rechazadas?</string>
+  <string name="suggested_edits_image_tags_add_tag">Añadir etiqueta</string>
   <string name="suggested_edits_image_zoom_tooltip">Para ampliar esta imagen, utiliza dos dedos.</string>
   <string name="suggested_edits_encouragement_message">%s, gracias por tus ediciones. Más abajo puedes encontrar otras formas de contribuir con la Wikipedia.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Hola, %s&lt;/b&gt;. ¿Sabías que todo el mundo puede editar Wikipedia? Más abajo puedes encontrar formas divertidas de ayudar a mejorar la Wikipedia. ¡Feliz edición!</string>

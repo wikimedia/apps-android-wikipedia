@@ -178,7 +178,7 @@
   <string name="about_description">Maidir leis an aip Vicipéide</string>
   <string name="privacy_policy_description">Polasaí príobháideachais</string>
   <string name="terms_of_use_description">Coinníollacha úsáide</string>
-  <string name="about_wikipedia_url">https://ga.m.wikipedia.org/wiki/Vicipéid:Maidir leis</string>
+  <string name="about_wikipedia_url" fuzzy="true">https://ga.m.wikipedia.org/wiki/Vicipéid:Maidir leis</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://ga.wikipedia.org/wiki/Vicipéid:Dean_iarratas_ar_cuntas</string>
@@ -417,11 +417,11 @@
   <string name="reading_lists_menu_sort_by">Sórtáil de réir</string>
   <string name="reading_lists_refresh_sync_option">Athnuaigh sioncronú</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Logáil isteach / cláraigh</string>
-  <plurals name="reading_list_article_offline_message">
+  <plurals name="reading_list_article_offline_message" fuzzy="true">
     <item quantity="one">Beidh an t-alt seo ar fáil as líne anois.</item>
     <item quantity="other">Beidh na hailt seo ar fáil as líne anois.</item>
   </plurals>
-  <plurals name="reading_list_article_not_offline_message">
+  <plurals name="reading_list_article_not_offline_message" fuzzy="true">
     <item quantity="one">Ní bheidh an t-alt seo ar fáil as líne a thuilleadh.</item>
     <item quantity="other">Ní bheidh na hailt seo ar fáil as líne a thuilleadh.</item>
   </plurals>
@@ -438,27 +438,27 @@
   <string name="notification_syncing_resume_button">Atosaigh</string>
   <string name="notification_syncing_cancel_button">Cealaigh</string>
   <string name="notification_syncing_reading_list_channel_description">Dul chun cinn shioncrónú Liostaí Léitheoireachta</string>
-  <plurals name="notification_channel_name">
+  <plurals name="notification_channel_name" fuzzy="true">
     <item quantity="one">Ag íoslódáil ailt</item>
     <item quantity="other">Ag íoslódáil alt</item>
   </plurals>
-  <plurals name="notification_syncing_title">
+  <plurals name="notification_syncing_title" fuzzy="true">
     <item quantity="one">Ag íoslódáil %1$d ailt amháin…</item>
     <item quantity="other">Ag íoslódáil %1$d alt…</item>
   </plurals>
-  <plurals name="notification_syncing_description">
+  <plurals name="notification_syncing_description" fuzzy="true">
     <item quantity="one">%1$d alt amháin fágtha</item>
     <item quantity="other">%1$d alt fágtha</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_channel_name">
+  <plurals name="notification_syncing_reading_list_channel_name" fuzzy="true">
     <item quantity="one">Liosta Léitheoireachta á Shioncronú</item>
     <item quantity="other">Liostaí Léitheoireachta á Shioncronú</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_title">
+  <plurals name="notification_syncing_reading_list_title" fuzzy="true">
     <item quantity="one">Ag sioncronú %1$d liosta amháin…</item>
     <item quantity="other">Ag sioncronú %1$d liostaí…</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_description">
+  <plurals name="notification_syncing_reading_list_description" fuzzy="true">
     <item quantity="one">%1$d liosta amháin fágtha</item>
     <item quantity="other">%1$d liostaí fágtha</item>
   </plurals>
@@ -470,7 +470,7 @@
   <string name="notifications_view_archived">Féach ar cartlann</string>
   <string name="notifications_prefs">Sainroghanna fógraí</string>
   <string name="notifications_archive">Marcáil léite agus cuir sa chartlann</string>
-  <plurals name="notification_archive_message">
+  <plurals name="notification_archive_message" fuzzy="true">
     <item quantity="one">Cuireadh fógra sa chartlann</item>
     <item quantity="other">Cuireadh %d fógra sa chartlann</item>
   </plurals>
@@ -508,7 +508,7 @@
   <string name="most_read_list_card_title">Ag treochtáil</string>
   <string name="view_static_card_icon_content_description">Deilbhín cárta</string>
   <string name="view_card_news_title">Sa nuacht</string>
-  <plurals name="view_continue_reading_card_subtitle">
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
     <item quantity="one">inné</item>
     <item quantity="other">%d lá ó shin</item>
   </plurals>
@@ -573,7 +573,7 @@
   <string name="suggested_edits_task_multilingual_positive">Cuir teangacha leis</string>
   <string name="suggested_edits_image_caption_summary_title_license">Ceadúnas</string>
   <string name="suggested_edits_image_caption_summary_title_date">Dáta</string>
-  <plurals name="suggested_edits_contribution_count">
+  <plurals name="suggested_edits_contribution_count" fuzzy="true">
     <item quantity="one">dréacht san aip</item>
     <item quantity="other">%d dréachtaí san aip</item>
   </plurals>
@@ -618,7 +618,7 @@
   <string name="events_count_text">%1$s ócáid ó %2$s–%3$d</string>
   <string name="this_year">I mbliana</string>
   <string name="back_to_top">Siar go barr</string>
-  <plurals name="diff_years">
+  <plurals name="diff_years" fuzzy="true">
     <item quantity="one">An bhliain seo caite</item>
     <item quantity="other">%d bliana ó shin</item>
   </plurals>
@@ -630,7 +630,7 @@
   <string name="wikipedia_languages_add_language_text">Cuir teanga leis</string>
   <string name="wikipedia_languages_remove_text">Bain teanga</string>
   <string name="wikipedia_languages_remove_action_mode_title">Bain teanga</string>
-  <plurals name="wikipedia_languages_remove_dialog_title">
+  <plurals name="wikipedia_languages_remove_dialog_title" fuzzy="true">
     <item quantity="one">Bain teanga roghnaithe?</item>
     <item quantity="other">Bain teangacha roghnaithe?</item>
   </plurals>

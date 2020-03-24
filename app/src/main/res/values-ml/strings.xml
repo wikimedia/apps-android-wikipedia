@@ -171,7 +171,7 @@
   <string name="about_description">വിക്കിപീഡിയ ആപിന്റെ വിവരണം</string>
   <string name="privacy_policy_description">സ്വകാര്യതാനയം</string>
   <string name="terms_of_use_description">ഉപയോഗനിബന്ധനകൾ</string>
-  <string name="about_wikipedia_url">https://ml.m.wikipedia.org/wiki/വിക്കിപീഡിയ:വിവരണം</string>
+  <string name="about_wikipedia_url" fuzzy="true">https://ml.m.wikipedia.org/wiki/വിക്കിപീഡിയ:വിവരണം</string>
   <string name="about_libraries_heading">ഉപയോഗിച്ചിട്ടുള്ള ലൈബ്രറികൾ</string>
   <string name="about_contributors_heading">സംഭാവന ചെയ്തവർ</string>
   <string name="about_translators_heading">വിവർത്തകർ</string>

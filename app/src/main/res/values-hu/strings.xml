@@ -198,11 +198,11 @@
   <string name="about_description">A Wikipédia alkalmazás névjegye</string>
   <string name="privacy_policy_description">Adatvédelmi irányelvek</string>
   <string name="terms_of_use_description">Felhasználási feltételek</string>
-  <string name="about_wikipedia_url">https://hu.m.wikipedia.org/wiki/Wikipédia:Rólunk</string>
-  <string name="privacy_policy_url">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
+  <string name="about_wikipedia_url">https://hu.wikipedia.org/wiki/Wikipédia:Rólunk</string>
+  <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/hu#Offline_olvasás</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/hu</string>
-  <string name="terms_of_use_url">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
+  <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://hu.wikipedia.org/wiki/Wikipédia:Felhasználói_fiók_kérése</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.hu</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.hu</string>
@@ -300,6 +300,7 @@
   <string name="close_all_tabs_confirm_yes">Igen</string>
   <string name="close_all_tabs_confirm_no">Nem</string>
   <string name="button_close_tab">Fül bezárása</string>
+  <string name="unnamed_tab_closed">Fül bezárva</string>
   <string name="tab_item_closed">%s bezárva.</string>
   <string name="all_tab_items_closed">Az összes fül bezárva.</string>
   <string name="tool_tip_bookmark_icon_title">Hozzáadás az olvasólistához</string>
@@ -345,6 +346,7 @@
   <string name="preference_title_prefer_offline_content">Kapcsolat nélkül elérhető tartalom előnyben részesítése</string>
   <string name="preference_summary_prefer_offline_content">Adathasználat csökkentése a kapcsolat nélkül is elérhető tartalmak betöltésével, a cikk legfrissebb verziója helyett.</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Rendszer témával egyező</string>
+  <string name="page_footer_license_text">A tartalom további jelölés hiányában a(z) $1 feltételei szerint használható fel</string>
   <string name="empty_tab_title">Új fül</string>
   <string name="crash_report_activity_title">Alkalmazáshiba</string>
   <string name="crash_report_relaunch_or_quit">Sajnáljuk, a Wikipédia alkalmazás hibát észlelt és leállt.\n\nSzeretnéd újrakezdeni, vagy kilépnél?</string>
@@ -679,7 +681,6 @@
   <string name="suggested_edits_feed_card_title">Javasolt szerkesztések</string>
   <string name="suggested_edits_feed_card_add_description_button">Szócikkleírások hozzáadása</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Szócikkleírások hozzáadása (%s)</string>
-  <string name="suggested_edits_tutorial_message">Légy üdvözölve a Wikipédia app gyors szerkesztőjében. Hozzájárulásodat nagyon köszönjük. Kellemes szerkesztést!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Kezdés</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Képaláírás (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Kép leírása (%s)</string>
@@ -701,7 +702,7 @@
   <string name="suggested_edits_image_captions" fuzzy="true">Képaláírások</string>
   <string name="suggested_edits_image_tags_publishing">Közzététel…</string>
   <string name="suggested_edits_image_tags_published">Közzétéve</string>
-  <string name="suggested_edits_image_tags_choose" fuzzy="true">Válassz passzoló címkéket</string>
+  <string name="suggested_edits_image_tags_choose">Passzoló címkék kiválasztása vagy hozzáadása</string>
   <string name="suggested_edits_encouragement_message">%s, köszönet a szerkesztéseidért! Lentebb további módokat találsz, miképp közreműködhetsz még a Wikipédiához.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Szia %s!&lt;/b&gt; Tudtad, hogy bárki szerkesztheti a Wikipédiát? Lentebb további módokat találsz, miképp közreműködhetsz még a Wikipédiához. Jó szerkesztést!</string>
   <string name="suggested_edits_image_captions_task_detail">A képfeliratok segítenek az olvasóknak megérteni a képek jelentését és tartalmát.</string>

@@ -191,7 +191,7 @@
   <string name="about_description">O aplikaciji \"Wikipedia\"</string>
   <string name="privacy_policy_description">Politika privatnosti</string>
   <string name="terms_of_use_description">Uvjeti uporabe</string>
-  <string name="about_wikipedia_url">https://en.m.wikipedia.org/wiki/Wikipedia:About</string>
+  <string name="about_wikipedia_url">https://en.wikipedia.org/wiki/Wikipedia:About</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
@@ -291,6 +291,7 @@
   <string name="close_all_tabs_confirm_yes">Da</string>
   <string name="close_all_tabs_confirm_no">Ne</string>
   <string name="button_close_tab">Zatvori karticu</string>
+  <string name="unnamed_tab_closed">Kartica je zatvorena.</string>
   <string name="tab_item_closed">Članak %s zatvoren.</string>
   <string name="all_tab_items_closed">Sve kartice su zatvorene.</string>
   <string name="tool_tip_bookmark_icon_title">Dodaj na popis za čitanje</string>
@@ -440,14 +441,15 @@
   <string name="notification_syncing_cancel_button">Odustani</string>
   <string name="notification_syncing_reading_list_channel_description">Napredak sinkronizacije popisa za čitanje</string>
   <plurals name="notification_channel_name">
-    <item quantity="one">Preuzimam članak</item>
-    <item quantity="other">Preuzimam članke</item>
+    <item quantity="one">Preuzimanje članka</item>
+    <item quantity="few">Preuzimanje nekoliko članaka</item>
+    <item quantity="other">Preuzimanje članaka</item>
   </plurals>
-  <plurals name="notification_syncing_title">
+  <plurals name="notification_syncing_title" fuzzy="true">
     <item quantity="one">Preuzimanje %1$d članka…</item>
     <item quantity="other">Preuzimanje %1$d članka…</item>
   </plurals>
-  <plurals name="notification_syncing_description">
+  <plurals name="notification_syncing_description" fuzzy="true">
     <item quantity="one">Preostao je %1$d članak</item>
     <item quantity="other">Preostala su %1$d članka</item>
   </plurals>
@@ -501,7 +503,7 @@
   <string name="most_read_list_card_title">U trendu</string>
   <string name="view_static_card_icon_content_description">Ikona kartice</string>
   <string name="view_card_news_title">U novostima</string>
-  <plurals name="view_continue_reading_card_subtitle">
+  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
     <item quantity="one">jučer</item>
     <item quantity="other">prije %d dana</item>
   </plurals>
@@ -599,13 +601,12 @@
   <string name="suggested_edits_image_caption_summary_title_source">Izvor</string>
   <string name="suggested_edits_image_caption_summary_title_license">Licencija</string>
   <string name="suggested_edits_image_caption_summary_title_date">Datum</string>
-  <plurals name="suggested_edits_contribution_count">
+  <plurals name="suggested_edits_contribution_count" fuzzy="true">
     <item quantity="one">jedan doprinos</item>
     <item quantity="other">%d doprinos</item>
   </plurals>
   <string name="suggested_edits_feed_card_title">Predložene izmjene</string>
   <string name="suggested_edits_feed_card_add_description_button">Dodaj opis članka</string>
-  <string name="suggested_edits_tutorial_message">Dobro došli na novu početnu stranicu za brzo uređivanje u Wikipedijinoj aplikaciji. Veselimo se Vašim doprinosima. Ugodno uređivanje!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Krenimo</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Natpis slike (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Opis slike (%s)</string>
@@ -627,13 +628,14 @@
   <string name="suggested_edits_image_tags">Oznake za slike</string>
   <string name="suggested_edits_image_tags_publishing">Objavljivanje</string>
   <string name="suggested_edits_image_tags_published">Objavljeno</string>
-  <string name="suggested_edits_image_tags_onboarding_title" fuzzy="true">Slikama dodajte oznake kako bi ih ostali lakše mogli naći.</string>
-  <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">Potvrdite li predložene oznake, pomoći ćete ostalim osobama u traženju slika.\n\nOznake predlaže računalo, ali radi preciznosti trebaju ih potvrditi ljudi.</string>
+  <string name="suggested_edits_image_tags_onboarding_title">Dodavanjem oznaka slikama one se lakše mogu pronaći.</string>
+  <string name="suggested_edits_image_tags_onboarding_text">Dodavanjem oznaka slikama pomoći ćete ostalim osobama u traženju slika na Zajedničkom poslužitelju, skladištu datoteka slobodne licencije kojim se Wikipedija služi za postavljanje slika u članke.\n\nAutomatski smo predložili neke oznake, a možete dodati i vlastite.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Slikama će biti dodane samo one oznake koje izaberete.</string>
   <string name="suggested_edits_image_tags_snackbar">Slikama dodajte oznake kako bi ih ostali lakše mogli naći.</string>
-  <string name="suggested_edits_image_tags_task_detail" fuzzy="true">Slikama dodajte oznake kako bi ih ostali lakše mogli naći. Oznake predlaže računalo, no treba ih potvrditi.</string>
+  <string name="suggested_edits_image_tags_task_detail">Slikama dodajte oznake kako bi ih se lakše moglo naći. Izaberite neke od predloženih oznaka ili dodajte vlastite.</string>
   <string name="suggested_edits_image_tags_select_title">Niste odabrali nijednu oznaku za ovu sliku</string>
   <string name="suggested_edits_image_tags_select_text">Samo će oznake koje izaberete biti dodane slikama. Oznake koje ne izaberete bit će odbačene. Jeste li sigurni da želite odbaciti sve oznake?</string>
+  <string name="suggested_edits_image_tags_add_tag">Dodaj oznaku</string>
   <string name="suggested_edits_encouragement_message">%s, hvala Vam na vašim doprinosima. Niže možete saznati na koje sve još načine možete doprinijeti Wikipediji.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Pozdrav, %s&lt;/b&gt;, jeste li znali da svatko može uređivati Wikipediju? Niže su navedeni zabavni načini na koje možete pomoći u poboljšanju Wikipedije. Ugodno uređivanje!</string>
   <string name="suggested_edits_image_captions_task_detail">Opisi slika čitateljima pomažu u razumijevanju njihovog značenja i konteksta.</string>
@@ -647,11 +649,11 @@
   <string name="suggested_edits_quality_sufficient_text">Dovoljno</string>
   <string name="suggested_edits_quality_poor_text">Slabo</string>
   <string name="suggested_edits_quality_bad_text">Loše</string>
-  <plurals name="suggested_edits_contribution">
+  <plurals name="suggested_edits_contribution" fuzzy="true">
     <item quantity="one">Doprinos</item>
     <item quantity="other">Doprinosi</item>
   </plurals>
-  <plurals name="suggested_edits_edit_streak_detail_text">
+  <plurals name="suggested_edits_edit_streak_detail_text" fuzzy="true">
     <item quantity="one">%d dan</item>
     <item quantity="other">%d day</item>
   </plurals>
@@ -691,7 +693,7 @@
   <string name="on_this_day_dialog_next_month">Sljedeći mjesec</string>
   <string name="on_this_day_dialog_previous_month">Prošli mjesec</string>
   <string name="on_this_day_open_date_picker">Otvori birač datuma</string>
-  <plurals name="diff_years">
+  <plurals name="diff_years" fuzzy="true">
     <item quantity="one">Prošle godine</item>
     <item quantity="other">Prije %d godine</item>
   </plurals>

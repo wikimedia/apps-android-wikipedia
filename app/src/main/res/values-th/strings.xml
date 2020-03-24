@@ -192,7 +192,7 @@
   <string name="about_description">เกี่ยวกับแอปวิกิพีเดีย</string>
   <string name="privacy_policy_description">นโยบายความเป็นส่วนตัว</string>
   <string name="terms_of_use_description">ข้อตกลงในการใช้</string>
-  <string name="about_wikipedia_url">https://th.m.wikipedia.org/wiki/Wikipedia:About</string>
+  <string name="about_wikipedia_url" fuzzy="true">https://th.m.wikipedia.org/wiki/Wikipedia:About</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ?uselang=th#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ?uselang=th</string>
   <string name="android_app_request_an_account_url">https://en.m.wikipedia.org/wiki/Special:UserLogin/signup</string>
@@ -316,7 +316,6 @@
   <string name="suggested_edits_image_caption_summary_title_artist">ศิลปิน</string>
   <string name="suggested_edits_image_caption_summary_title_author">คนเขียน</string>
   <string name="suggested_edits_image_caption_summary_title_source">จุดกำเนิด</string>
-  <string name="suggested_edits_tutorial_message">ยินดีต้อนรับสู่บ้านใหม่สำหรับการแก้ไขในแอปบนวิกิพีเดีย ที่นี่เราจะแนะนำโอกาสในการเพิ่มเนื้อหาที่อาจเป็นที่สนใจแก่คุณ การช่วยเหลือของคุณได้รับการชื่นชมมาก ขอให้มีความสุขในการแก้ไข !</string>
   <string name="onboarding_skip">ข้าม</string>
   <string name="onboarding_explore_title">วิธีใหม่ในการสำรวจ</string>
   <string name="onboarding_analytics_title">ส่งข้อมูลแบบไม่ระบุตัวตน</string>
