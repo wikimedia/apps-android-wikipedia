@@ -80,6 +80,10 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
     private boolean showOnboading;
     private int currentItemSelected;
 
+    public ToCAdapter getAdapter() {
+        return adapter;
+    }
+
     private ValueCallback<String> sectionOffsetsCallback = new ValueCallback<String>() {
         @Override
         public void onReceiveValue(String value) {
