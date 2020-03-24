@@ -3,17 +3,15 @@ package org.wikipedia.page.references;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.google.gson.annotations.SerializedName;
-
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-@SuppressWarnings("unused,NullableProblems")
+@SuppressWarnings("unused")
 public class PageReferences {
-    @Nullable private int selectedIndex;
+    private int selectedIndex;
 
     @Nullable private String tid;
     @Nullable private Reference[] referencesGroup;
@@ -27,13 +25,13 @@ public class PageReferences {
     }
 
     public static class Reference  {
-        @Nullable @SerializedName("id") private String id;
-        @Nullable @SerializedName("html") private String content;
-        @Nullable @SerializedName("href") private String href;
+        @Nullable private String id;
+        @Nullable private String html;
+        @Nullable private String href;
         private String text;
 
         @NonNull public String getContent() {
-            return StringUtils.defaultString(content);
+            return StringUtils.defaultString(html);
         }
 
         @NonNull public String getText() {
