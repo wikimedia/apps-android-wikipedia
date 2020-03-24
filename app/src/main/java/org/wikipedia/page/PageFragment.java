@@ -1106,7 +1106,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         bridge.addListener("scroll_to_anchor", (String messageType, JsonObject payload) -> {
             JsonObject rectObj = payload.getAsJsonObject("rect");
             int diffY = DimenUtil.roundedDpToPx((int) Float.parseFloat(rectObj.get("y").getAsString()));
-            webView.setScrollY(webView.getScrollY() + diffY - DimenUtil.getHalfScreenHeight());
+            webView.setScrollY(webView.getScrollY() + diffY - webView.getHeight() / 2);
         });
         bridge.addListener("image", (String messageType, JsonObject messagePayload) -> {
             String href = decodeURL(messagePayload.get("href").getAsString());
