@@ -34,6 +34,7 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
+import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.BackPressedHandler;
 import org.wikipedia.Constants;
 import org.wikipedia.Constants.InvokeSource;
@@ -809,7 +810,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         return pageHeaderView;
     }
 
-    private void showFindReferenceInPage(String referenceAnchor, ArrayList<String> backLinksList, String referenceText) {
+    private void showFindReferenceInPage(@Nullable String referenceAnchor, @Nullable ArrayList<String> backLinksList, @Nullable String referenceText) {
         if (model.getPage() == null) {
             return;
         }
@@ -825,18 +826,22 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                 findReferencesInPageProvider.setCallback(new FindReferencesInPageProvider.Callback() {
                     @Override
                     public void onFindNextClicked() {
-                        currentPos = ++currentPos >= backLinksList.size() ? 0 : currentPos;
-                        findReferencesInPageProvider.setReferenceCountText(getString(R.string.find_in_page_result,
-                                currentPos + 1, backLinksList.size()));
-                        bridge.execute(JavaScriptActionHandler.prepareToScrollTo(backLinksList.get(currentPos), "{ highlight: true }"));
+                        if (backLinksList != null) {
+                            currentPos = ++currentPos >= backLinksList.size() ? 0 : currentPos;
+                            findReferencesInPageProvider.setReferenceCountText(getString(R.string.find_in_page_result,
+                                    currentPos + 1, backLinksList.size()));
+                            bridge.execute(JavaScriptActionHandler.prepareToScrollTo(backLinksList.get(currentPos), "{ highlight: true }"));
+                        }
                     }
 
                     @Override
                     public void onFindPrevClicked() {
-                        currentPos = --currentPos < 0 ? backLinksList.size() - 1 : currentPos;
-                        findReferencesInPageProvider.setReferenceCountText(getString(R.string.find_in_page_result,
-                                currentPos + 1, backLinksList.size()));
-                        bridge.execute(JavaScriptActionHandler.prepareToScrollTo(backLinksList.get(currentPos), "{ highlight: true }"));
+                        if (backLinksList != null) {
+                            currentPos = --currentPos < 0 ? backLinksList.size() - 1 : currentPos;
+                            findReferencesInPageProvider.setReferenceCountText(getString(R.string.find_in_page_result,
+                                    currentPos + 1, backLinksList.size()));
+                            bridge.execute(JavaScriptActionHandler.prepareToScrollTo(backLinksList.get(currentPos), "{ highlight: true }"));
+                        }
                     }
 
                     @Override
@@ -848,14 +853,16 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
 
                     @Override
                     public void onViewBindingComplete() {
-                        findReferencesInPageProvider.setReferenceLabel(getString(R.string.reference_list_title) + " " + referenceText);
+                        findReferencesInPageProvider.setReferenceLabel(getString(R.string.reference_list_title) + " " + StringUtils.defaultString(referenceText));
                         findReferencesInPageProvider.setReferenceCountText(getString(R.string.find_in_page_result,
-                                currentPos + 1, backLinksList.size()));
+                                currentPos + 1, backLinksList == null ? 0 : backLinksList.size()));
                     }
 
                     @Override
                     public void onReferenceLabelClicked() {
+                        if (referenceAnchor != null) {
                             bridge.execute(JavaScriptActionHandler.scrollToAnchor(referenceAnchor));
+                        }
                         if (findReferenceInPageActionMode != null) {
                             findReferenceInPageActionMode.finish();
                         }
@@ -864,7 +871,9 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
 
                 menuItem.setActionProvider(findReferencesInPageProvider);
                 menuItem.expandActionView();
-                bridge.execute(JavaScriptActionHandler.prepareToScrollTo(backLinksList.get(0), "{ highlight: true }"));
+                if (backLinksList != null && !backLinksList.isEmpty()) {
+                    bridge.execute(JavaScriptActionHandler.prepareToScrollTo(backLinksList.get(0), "{ highlight: true }"));
+                }
                 return true;
             }
 

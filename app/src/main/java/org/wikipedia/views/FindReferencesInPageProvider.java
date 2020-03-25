@@ -15,13 +15,9 @@ public class FindReferencesInPageProvider extends ActionProvider {
 
     public interface Callback {
         void onFindNextClicked();
-
         void onFindPrevClicked();
-
         void onCloseClicked();
-
         void onViewBindingComplete();
-
         void onReferenceLabelClicked();
     }
 
@@ -37,7 +33,6 @@ public class FindReferencesInPageProvider extends ActionProvider {
 
     private Context context;
     private Callback callback;
-
 
     @Override
     public boolean overridesItemVisibility() {
