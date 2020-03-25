@@ -893,8 +893,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                 if (webView == null || !isAdded()) {
                     return;
                 }
-                findInPageActionMode = null;
-                hideSoftKeyboard();
+                findReferenceInPageActionMode = null;
             }
         });
     }
