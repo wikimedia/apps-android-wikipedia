@@ -220,6 +220,7 @@
   <string name="suggested_edits_image_tags_help_url">URL for more information about contributing image tags from the app.</string>
   <string name="about_libraries_heading">Heading for section that lists the libraries that have been used in the app</string>
   <string name="about_contributors_heading">Heading for section that lists the people who have contributed to the app.\n{{Identical|Contributor}}</string>
+  <string name="about_contributors">URL leading to the page of the Wikimedia Android app team. {{doc-important|Please don\'t translate links and link titles.}}</string>
   <string name="about_translators_heading">Heading for section that gives credit to translatewiki transators.\n{{Identical|Translator}}</string>
   <string name="about_translators_translatewiki">Credit given to translatewiki.net translators.\n\n{{doc-important|Please don\'t translate the link and the site title.}}</string>
   <string name="about_app_license_heading">Heading for section that describes the license for the app itself.\n{{Identical|License}}</string>
