@@ -159,7 +159,6 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
         if (section == null) {
             return;
         }
-
         if (section.getId() == ABOUT_SECTION_ID) {
             bridge.execute(JavaScriptActionHandler.scrollToFooter(webView.getContext()));
         } else {
