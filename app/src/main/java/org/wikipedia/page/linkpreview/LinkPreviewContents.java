@@ -6,10 +6,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import org.wikipedia.R;
-import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.util.L10nUtil;
 import org.wikipedia.util.StringUtil;
 
 import java.text.BreakIterator;
@@ -40,13 +40,9 @@ public class LinkPreviewContents {
         title = new PageTitle(pageSummary.getApiTitle(), wiki);
         disambiguation = pageSummary.getType().equals(PageSummary.TYPE_DISAMBIGUATION);
         String extractStr;
-        if (pageSummary instanceof PageSummary) {
-            extractStr = pageSummary.getExtractHtml();
-        } else {
-            extractStr = createLegacyExtractText(pageSummary, title.getWikiSite());
-        }
+        extractStr = pageSummary.getExtractHtml();
         if (disambiguation) {
-            extractStr = "<p>" + WikipediaApp.getInstance().getString(R.string.link_preview_disambiguation_description) + "</p>" + extractStr;
+            extractStr = "<p>" + L10nUtil.getStringForArticleLanguage(title, R.string.link_preview_disambiguation_description) + "</p>" + extractStr;
         }
         extract = StringUtil.fromHtml(extractStr);
         title.setThumbUrl(pageSummary.getThumbnailUrl());
