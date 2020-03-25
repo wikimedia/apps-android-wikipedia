@@ -82,7 +82,7 @@ class SuggestedEditsFeedCardImageTagActivity : BaseActivity(), SuggestedEditsIma
         }
     }
 
-    override fun nextPage(sourceFragment: Fragment?) {
+    override fun nextPageIfNeeded(sourceFragment: Fragment?) {
         setResult(RESULT_OK)
         finish()
     }

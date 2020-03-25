@@ -106,7 +106,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
             if (nextButton.drawable is Animatable) {
                 (nextButton.drawable as Animatable).start()
             }
-            nextPage(this)
+            nextPage()
         }
         updateBackButton(0)
         addContributionButton.setOnClickListener { onSelectPage() }
@@ -156,6 +156,12 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
 
     override fun getSinglePage(): MwQueryPage? {
         return null
+    }
+
+    override fun nextPageIfNeeded(sourceFragment: Fragment?) {
+        if (sourceFragment == topBaseChild()) {
+            nextPage()
+        }
     }
 
     override fun updateActionButton() {
@@ -232,7 +238,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
                         else -> getString(R.string.description_edit_success_saved_snackbar)
                     }
             )
-            nextPage(this)
+            nextPage()
         }
     }
 
@@ -244,12 +250,10 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
         updateActionButton()
     }
 
-    override fun nextPage(sourceFragment: Fragment?) {
-        if (sourceFragment == topBaseChild()) {
-            viewPagerListener.setNextPageSelectedAutomatic()
-            cardsViewPager.setCurrentItem(cardsViewPager.currentItem + 1, true)
-            updateActionButton()
-        }
+    private fun nextPage() {
+        viewPagerListener.setNextPageSelectedAutomatic()
+        cardsViewPager.setCurrentItem(cardsViewPager.currentItem + 1, true)
+        updateActionButton()
     }
 
     fun onSelectPage() {

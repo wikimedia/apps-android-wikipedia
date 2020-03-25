@@ -48,7 +48,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         fun getLangCode(): String
         fun getSinglePage(): MwQueryPage?
         fun updateActionButton()
-        fun nextPage(sourceFragment: Fragment?)
+        fun nextPageIfNeeded(sourceFragment: Fragment?)
     }
 
     var publishing: Boolean = false
@@ -437,7 +437,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                 updateLicenseTextShown()
 
                 publishOverlayContainer.visibility = GONE
-                callback().nextPage(this)
+                callback().nextPageIfNeeded(this)
                 setPublishedState()
             }
         }, duration * 3)
