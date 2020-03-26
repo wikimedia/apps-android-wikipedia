@@ -38,6 +38,7 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
 
 import static org.wikipedia.Constants.INTENT_EXTRA_INVOKE_SOURCE;
+import static org.wikipedia.Constants.InvokeSource.TABS_ACTIVITY;
 
 public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
     private List<PageTitle> titles;
@@ -250,9 +251,12 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
                 .subscribe(numAdded -> {
                     String message;
                     if (numAdded == 0) {
-                        message = getString(R.string.reading_list_already_contains_selection);
+                        message = (invokeSource == TABS_ACTIVITY) ? String.format(getString(R.string.save_all_tabs_articles_already_exist_message),
+                                readingList.title()) : getString(R.string.reading_list_already_contains_selection);
+
                     } else {
-                        message = String.format(getString(R.string.reading_list_added_articles_list_titled), numAdded,
+                        message = (invokeSource == TABS_ACTIVITY) ? String.format(getString(R.string.save_all_tabs_success_message),
+                                readingList.title()) : String.format(getString(R.string.reading_list_added_articles_list_titled), numAdded,
                                 readingList.title());
                         new ReadingListsFunnel().logAddToList(readingList, readingLists.size(), invokeSource);
                     }
