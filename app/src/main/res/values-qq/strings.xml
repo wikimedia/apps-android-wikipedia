@@ -861,4 +861,6 @@
   <string name="text_input_dialog_cancel_button_text">Negative action button text in pop-up dialog for text input.\n{{Identical|Cancel}}</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Negative action button text in date picker pop-up dialog.\n{{Identical|Cancel}}</string>
   <string name="menu_save_all_tabs">Label suggesting user to add all open tabs to a list.</string>
+  <string name="save_all_tabs_success_message">Message shown when articles in open tabs are successfully to a reading lists. The \"%s\" symbol is replaced with the name of the reading list.</string>
+  <string name="save_all_tabs_articles_already_exist_message">Message shown while saving articles in open tabs to reading lists, if all articles in the tabs  are already in that reading list. The \"%s\" symbol is replaced with the name of the reading list.</string>
 </resources>
