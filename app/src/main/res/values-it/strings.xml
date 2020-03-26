@@ -367,6 +367,7 @@
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Abbina il tema del sistema</string>
   <string name="page_footer_license_text">Il contenuto è disponibile in base alla licenza $1, se non diversamente specificato</string>
   <string name="empty_tab_title">Nuova scheda</string>
+  <string name="menu_save_all_tabs">Salva tutte le schede</string>
   <string name="crash_report_activity_title">Errore dell\'applicazione</string>
   <string name="crash_report_relaunch_or_quit">Spiacenti, si è verificato un errore nell\'applicazione Wikipedia ed è stata terminata.\n\nVuoi riavviarla o uscire?</string>
   <string name="crash_report_relaunch">Avvia di nuovo</string>
@@ -518,6 +519,10 @@
   <plurals name="notification_syncing_reading_list_channel_name">
     <item quantity="one">Sincronizzazione dell\'elenco di lettura</item>
     <item quantity="other">Sincronizzazione degli elenchi di lettura</item>
+  </plurals>
+  <plurals name="notification_syncing_reading_list_title">
+    <item quantity="one">Sincronizzando %1$d elenco…</item>
+    <item quantity="other">Sincronizzando %1$d elenchi……</item>
   </plurals>
   <plurals name="notification_syncing_reading_list_description">
     <item quantity="one">%1$d elenco rimanente</item>
@@ -727,6 +732,8 @@
   <string name="suggested_edits_image_tags_snackbar">Aggiungi delle etichette all\'immagine per facilitarne la ricerca da parte di altri utenti.</string>
   <string name="suggested_edits_image_tags_task_detail">Etichetta le immagini per facilitarne la ricerca. Selezionale fra quelle suggerite o aggiungine di tue.</string>
   <string name="suggested_edits_image_tags_choose">Aggiungi o scegli le etichette corrispondenti</string>
+  <string name="suggested_edits_image_tags_published_list">Etichette pubblicate</string>
+  <string name="suggested_edits_image_tags_search">Cerca etichette</string>
   <string name="suggested_edits_image_tags_select_title">Non hai selezionato alcuna etichetta per questa immagine</string>
   <string name="suggested_edits_image_tags_select_text">Solo le etichette scelte verranno aggiunte alle immagini. Le etichette non selezionate verranno contrassegnate come rifiutate. Sei sicuro di voler contrassegnare tutte le etichette come rifiutate?</string>
   <string name="suggested_edits_image_tags_add_tag">Aggiungi etichetta</string>
@@ -766,6 +773,7 @@
   <string name="suggested_edits_last_edited">Ultima modifica</string>
   <string name="suggested_edits_last_edited_never">Mai</string>
   <string name="suggested_edits_task_new">nuovo</string>
+  <string name="suggested_edits_cc0_notice">Pubblicando, accetti le nostre &lt;a href=\"%1$s\"&gt;condizioni d\'uso&lt;/a&gt; e accetti di rilasciare irrevocabilmente il tuo contributo in base alla &lt;a href=\"%2$s\"&gt;licenza CC0&lt;/a&gt;.</string>
   <string name="description_edit_revert_subtitle">Grazie per aver modificato Wikipedia!</string>
   <string name="description_edit_revert_intro">Sappiamo che hai fatto del tuo meglio, ma uno dei recensori ha destato preoccupazione. I possibili motivi per cui la tua modifica è stata annullata includono:</string>
   <string name="description_edit_revert_reason1">il tuo contributo non rispetta una delle &lt;a href=\"%1$s\"&gt;linee guida&lt;/a&gt;.</string>
