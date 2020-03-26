@@ -17,6 +17,7 @@ import androidx.appcompat.app.AlertDialog;
 
 import com.google.android.material.textfield.TextInputLayout;
 
+import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.BaseActivity;
@@ -150,7 +151,7 @@ public class CreateAccountActivity extends BaseActivity {
     }
 
     @Override
-    protected void onSaveInstanceState(Bundle outState) {
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putParcelable("result", createAccountResult);
     }
@@ -192,13 +193,13 @@ public class CreateAccountActivity extends BaseActivity {
 
         String email = null;
         if (getText(emailInput).length() != 0) {
-            email = getText(emailInput).toString();
+            email = getText(emailInput);
         }
-        String password = getText(passwordInput).toString();
-        String repeat = getText(passwordRepeatInput).toString();
+        String password = getText(passwordInput);
+        String repeat = getText(passwordRepeatInput);
 
 
-        disposables.add(ServiceFactory.get(wiki).postCreateAccount(getText(usernameInput).toString(), password, repeat, token, Service.WIKIPEDIA_URL,
+        disposables.add(ServiceFactory.get(wiki).postCreateAccount(getText(usernameInput), password, repeat, token, Service.WIKIPEDIA_URL,
                 email,
                 captchaHandler.isActive() ? captchaHandler.captchaId() : "null",
                 captchaHandler.isActive() ? captchaHandler.captchaWord() : "null")
@@ -282,13 +283,9 @@ public class CreateAccountActivity extends BaseActivity {
                         .setTitle(R.string.email_recommendation_dialog_title)
                         .setMessage(StringUtil.fromHtml(getResources().getString(R.string.email_recommendation_dialog_message)))
                         .setPositiveButton(R.string.email_recommendation_dialog_create_without_email_action,
-                                (dialogInterface, i) -> {
-                                    createAccount();
-                                })
+                                (dialogInterface, i) -> createAccount())
                         .setNegativeButton(R.string.email_recommendation_dialog_create_with_email_action,
-                                (dialogInterface, i) -> {
-                                    emailInput.requestFocus();
-                                })
+                                (dialogInterface, i) -> emailInput.requestFocus())
                         .show();
                 break;
 
@@ -326,14 +323,14 @@ public class CreateAccountActivity extends BaseActivity {
         return ValidateResult.SUCCESS;
     }
 
-    @NonNull private CharSequence getText(@NonNull TextInputLayout input) {
-        return input.getEditText() != null ? input.getEditText().getText() : "";
+    @NonNull private String getText(@NonNull TextInputLayout input) {
+        return StringUtils.defaultString(input.getEditText() != null && input.getEditText().getText() != null ? input.getEditText().getText().toString() : "");
     }
 
     private void finishWithUserResult(@NonNull CreateAccountSuccessResult result) {
         Intent resultIntent = new Intent();
         resultIntent.putExtra(CREATE_ACCOUNT_RESULT_USERNAME, result.getUsername());
-        resultIntent.putExtra(CREATE_ACCOUNT_RESULT_PASSWORD, getText(passwordInput).toString());
+        resultIntent.putExtra(CREATE_ACCOUNT_RESULT_PASSWORD, getText(passwordInput));
         setResult(RESULT_ACCOUNT_CREATED, resultIntent);
 
         createAccountResult = result;
