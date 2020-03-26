@@ -101,6 +101,9 @@
   <string name="login_success_toast">Հաջող մուտք</string>
   <string name="reset_password_hint">Նոր գաղտնաբառ</string>
   <string name="preference_title_logout">Դուրս գալ</string>
+  <string name="logout_dialog_cancel_button_text">Չեղարկել</string>
+  <string name="logged_out_in_background_login">Մուտք գործել</string>
+  <string name="logged_out_in_background_cancel">Չեղարկել</string>
   <string name="history_empty_title">Վերջերս դիտված էջեր չկան</string>
   <string name="wp_stylized">&lt;big&gt;Վ&lt;/big&gt;ԻՔԻՊԵԴԻ&lt;big&gt;Ա&lt;/big&gt;</string>
   <string name="create_account_username_hint">Մասնակցային անուն</string>
@@ -197,7 +200,15 @@
   <string name="description_edit_tutorial_button_label_start_editing">Սկսել խմբագրել</string>
   <string name="suggested_edits_add_descriptions">Ավելացնել հոդվածի նկարագրություններ</string>
   <string name="suggested_edits_my_contributions">Իմ ներդրումներ</string>
+  <string name="suggested_edits_task_multilingual_positive">Ավելացնել լեզուներ</string>
   <string name="suggested_edits_image_caption_summary_title_file">Նիշք</string>
+  <string name="suggested_edits_image_caption_summary_title_artist">Նկարիչ</string>
+  <string name="suggested_edits_image_caption_summary_title_author">Հեղինակ</string>
+  <string name="suggested_edits_image_caption_summary_title_source">Աղբյուր</string>
+  <string name="suggested_edits_image_caption_summary_title_license">Արտոնագիր</string>
+  <string name="suggested_edits_image_caption_summary_title_date">Ամսաթիվ</string>
+  <string name="suggested_edits_image_preview_dialog_artist">Նկարիչ</string>
+  <string name="suggested_edits_image_preview_dialog_date">Ամսաթիվ</string>
   <string name="suggested_edits_last_edited_never">Երբեք</string>
   <string name="suggested_edits_task_new">նոր</string>
   <string name="onboarding_skip">Բաց թողնել</string>
