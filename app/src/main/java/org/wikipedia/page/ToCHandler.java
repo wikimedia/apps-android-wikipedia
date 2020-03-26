@@ -152,12 +152,7 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
     }
 
     void scrollToSection(@NonNull String sectionAnchor) {
-        for (Section section : adapter.sections) {
-            if (section.getAnchor().equals(sectionAnchor)) {
-                scrollToSection(section);
-                break;
-            }
-        }
+        bridge.execute(JavaScriptActionHandler.prepareToScrollTo(sectionAnchor, "{ highlight: false }"));
     }
 
     private void scrollToSection(@Nullable Section section) {
@@ -167,9 +162,7 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
         if (section.getId() == ABOUT_SECTION_ID) {
             bridge.execute(JavaScriptActionHandler.scrollToFooter(webView.getContext()));
         } else {
-            final int topScrollExtra = 64;
-            int offset = DimenUtil.roundedDpToPx(adapter.getYOffset(section.getId()) - topScrollExtra);
-            webView.setScrollY(section.getId() == 0 ? 0 : offset);
+            bridge.execute(JavaScriptActionHandler.prepareToScrollTo(section.getAnchor(), "{ highlight: false }"));
         }
     }
 

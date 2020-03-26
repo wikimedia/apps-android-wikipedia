@@ -65,7 +65,7 @@ object JavaScriptActionHandler {
 
     @JvmStatic
     fun prepareToScrollTo(anchorLink: String, options: String): String {
-        return "pcs.c1.Page.prepareForScrollToAnchor(\"${anchorLink}\", ${options} )"
+        return "pcs.c1.Page.prepareForScrollToAnchor(\"${anchorLink}\", $options )"
     }
 
     @JvmStatic
