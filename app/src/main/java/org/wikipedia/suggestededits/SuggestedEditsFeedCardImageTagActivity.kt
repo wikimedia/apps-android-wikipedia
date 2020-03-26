@@ -10,6 +10,7 @@ import android.view.MotionEvent
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import androidx.core.widget.ImageViewCompat
+import androidx.fragment.app.Fragment
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_suggested_edits_feed_card_image_tags.*
 import org.wikipedia.R
@@ -81,7 +82,7 @@ class SuggestedEditsFeedCardImageTagActivity : BaseActivity(), SuggestedEditsIma
         }
     }
 
-    override fun nextPage() {
+    override fun nextPage(sourceFragment: Fragment?) {
         setResult(RESULT_OK)
         finish()
     }

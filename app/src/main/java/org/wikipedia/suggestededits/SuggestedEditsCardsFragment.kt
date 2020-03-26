@@ -106,7 +106,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
             if (nextButton.drawable is Animatable) {
                 (nextButton.drawable as Animatable).start()
             }
-            nextPage()
+            nextPage(this)
         }
         updateBackButton(0)
         addContributionButton.setOnClickListener { onSelectPage() }
@@ -232,7 +232,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
                         else -> getString(R.string.description_edit_success_saved_snackbar)
                     }
             )
-            nextPage()
+            nextPage(this)
         }
     }
 
@@ -244,10 +244,12 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
         updateActionButton()
     }
 
-    override fun nextPage() {
-        viewPagerListener.setNextPageSelectedAutomatic()
-        cardsViewPager.setCurrentItem(cardsViewPager.currentItem + 1, true)
-        updateActionButton()
+    override fun nextPage(sourceFragment: Fragment?) {
+        if (sourceFragment == topBaseChild()) {
+            viewPagerListener.setNextPageSelectedAutomatic()
+            cardsViewPager.setCurrentItem(cardsViewPager.currentItem + 1, true)
+            updateActionButton()
+        }
     }
 
     fun onSelectPage() {
