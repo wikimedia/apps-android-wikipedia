@@ -151,15 +151,6 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
         }
     }
 
-    void scrollToSection(@NonNull String sectionAnchor) {
-        for (Section section : adapter.sections) {
-            if (section.getAnchor().equals(sectionAnchor)) {
-                scrollToSection(section);
-                break;
-            }
-        }
-    }
-
     private void scrollToSection(@Nullable Section section) {
         if (section == null) {
             return;

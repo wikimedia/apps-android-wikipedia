@@ -869,10 +869,10 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
      * @param sectionAnchor Anchor link of the section to scroll to.
      */
     public void scrollToSection(@NonNull String sectionAnchor) {
-        if (!isAdded() || tocHandler == null) {
+        if (!isAdded()) {
             return;
         }
-        tocHandler.scrollToSection(sectionAnchor);
+        bridge.execute(JavaScriptActionHandler.prepareToScrollTo(sectionAnchor, false));
     }
 
     public void onPageLoadError(@NonNull Throwable caught) {
