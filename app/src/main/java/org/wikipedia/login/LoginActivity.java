@@ -17,6 +17,7 @@ import androidx.annotation.Nullable;
 
 import com.google.android.material.textfield.TextInputLayout;
 
+import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -128,8 +129,8 @@ public class LoginActivity extends BaseActivity {
         visitInExternalBrowser(this, Uri.parse(title.getUri()));
     }
 
-    @NonNull private CharSequence getText(@NonNull TextInputLayout input) {
-        return input.getEditText() != null ? input.getEditText().getText() : "";
+    @NonNull private String getText(@NonNull TextInputLayout input) {
+        return StringUtils.defaultString(input.getEditText() != null && input.getEditText().getText() != null ? input.getEditText().getText().toString() : "");
     }
 
     private void clearErrors() {
@@ -206,9 +207,9 @@ public class LoginActivity extends BaseActivity {
     }
 
     private void doLogin() {
-        final String username = getText(usernameInput).toString();
-        final String password = getText(passwordInput).toString();
-        final String twoFactorCode = getText(twoFactorText).toString();
+        final String username = getText(usernameInput);
+        final String password = getText(passwordInput);
+        final String twoFactorCode = getText(twoFactorText);
 
         showProgressBar(true);
 
@@ -254,7 +255,7 @@ public class LoginActivity extends BaseActivity {
         @Override
         public void passwordResetPrompt(@Nullable String token) {
             startActivityForResult(ResetPasswordActivity.newIntent(LoginActivity.this,
-                    getText(usernameInput).toString(), token), Constants.ACTIVITY_REQUEST_RESET_PASSWORD);
+                    getText(usernameInput), token), Constants.ACTIVITY_REQUEST_RESET_PASSWORD);
         }
 
         @Override
