@@ -220,6 +220,7 @@
   <string name="suggested_edits_image_tags_help_url">URL for more information about contributing image tags from the app.</string>
   <string name="about_libraries_heading">Heading for section that lists the libraries that have been used in the app</string>
   <string name="about_contributors_heading">Heading for section that lists the people who have contributed to the app.\n{{Identical|Contributor}}</string>
+  <string name="about_contributors">URL leading to the page of the Wikimedia Android app team. {{doc-important|Please don\'t translate links and link titles.}}</string>
   <string name="about_translators_heading">Heading for section that gives credit to translatewiki transators.\n{{Identical|Translator}}</string>
   <string name="about_translators_translatewiki">Credit given to translatewiki.net translators.\n\n{{doc-important|Please don\'t translate the link and the site title.}}</string>
   <string name="about_app_license_heading">Heading for section that describes the license for the app itself.\n{{Identical|License}}</string>
@@ -359,6 +360,7 @@
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Label for a switch on the theme chooser dialog allowing the user to match the app theme to system theme.</string>
   <string name="page_footer_license_text">Text indicating that the article is under a specific license type. The $1 symbol is replaced with a license type.</string>
   <string name="empty_tab_title">Label shown on a blank tab with no content.</string>
+  <string name="menu_save_all_tabs">Label suggesting user to add all open tabs to a list.</string>
   <string name="crash_report_activity_title">Title of the retry screen displayed when the app crashes.</string>
   <string name="crash_report_relaunch_or_quit">Message shown to user when the app crashes allowing them to relaunch or quit the app.</string>
   <string name="crash_report_relaunch">Title of button user presses to relaunch the app after it crashes.</string>
