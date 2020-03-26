@@ -869,10 +869,10 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
      * @param sectionAnchor Anchor link of the section to scroll to.
      */
     public void scrollToSection(@NonNull String sectionAnchor) {
-        if (!isAdded() || tocHandler == null) {
+        if (!isAdded()) {
             return;
         }
-        tocHandler.scrollToSection(sectionAnchor);
+        bridge.execute(JavaScriptActionHandler.prepareToScrollTo(sectionAnchor, false));
     }
 
     public void onPageLoadError(@NonNull Throwable caught) {
@@ -965,7 +965,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         linkHandler = new LinkHandler(requireActivity()) {
             @Override public void onPageLinkClicked(@NonNull String anchor, @NonNull String linkText) {
                 dismissBottomSheet();
-                bridge.execute(JavaScriptActionHandler.prepareToScrollTo(anchor, "{ highlight: true }"));
+                bridge.execute(JavaScriptActionHandler.prepareToScrollTo(anchor, true));
             }
 
             @Override public void onInternalLinkClicked(@NonNull PageTitle title) {
@@ -997,12 +997,13 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         bridge.addListener("back_link", (String messageType, JsonObject payload) -> {
             JsonArray backLinks = payload.getAsJsonArray("backLinks");
             if (backLinks.size() > 0) {
-                bridge.execute(JavaScriptActionHandler.prepareToScrollTo(backLinks.get(0).getAsJsonObject().get("id").getAsString(), "{ highlight: true }"));
+                bridge.execute(JavaScriptActionHandler.prepareToScrollTo(backLinks.get(0).getAsJsonObject().get("id").getAsString(), true));
             }
         });
         bridge.addListener("scroll_to_anchor", (String messageType, JsonObject payload) -> {
             int diffY = DimenUtil.roundedDpToPx(payload.getAsJsonObject("rect").get("y").getAsFloat());
-            webView.setScrollY(webView.getScrollY() + diffY - webView.getHeight() / 2);
+            final int offsetFraction = 3;
+            webView.setScrollY(webView.getScrollY() + diffY - webView.getHeight() / offsetFraction);
         });
         bridge.addListener("image", (String messageType, JsonObject messagePayload) -> {
             String href = decodeURL(messagePayload.get("href").getAsString());
@@ -1024,9 +1025,9 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             if (avCallback == null) {
                 avCallback = new AvCallback();
             }
-            if (!avPlayer.isPlaying() && !(messagePayload.get("data-pronunciation-url") == null)) {
+            if (!avPlayer.isPlaying() && messagePayload.has("url")) {
                 updateProgressBar(true, true, 0);
-                avPlayer.play(messagePayload.get("data-pronunciation-url").getAsString(), avCallback, avCallback);
+                avPlayer.play(UriUtil.resolveProtocolRelativeUrl(messagePayload.get("url").getAsString()), avCallback, avCallback);
             } else {
                 updateProgressBar(false, true, 0);
                 avPlayer.stop();
