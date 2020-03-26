@@ -45,7 +45,8 @@ public class AnnouncementCardView extends DefaultFeedCardView<AnnouncementCard>
         ButterKnife.bind(this);
 
         setNegativeActionVisible(true);
-        footerTextView.setMovementMethod(new LinkMovementMethod());
+        textView.setMovementMethod(LinkMovementMethod.getInstance());
+        footerTextView.setMovementMethod(LinkMovementMethod.getInstance());
     }
 
     @Override public void setCard(@NonNull AnnouncementCard card) {
