@@ -227,6 +227,7 @@
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/tr#Resim_etiketleri</string>
   <string name="about_libraries_heading">Kullanılan kütüphaneler</string>
   <string name="about_contributors_heading">Katkıda bulunanlar</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android/tr\"&gt;Ekip sayfası&lt;/a&gt;</string>
   <string name="about_translators_heading">Çevirmenler</string>
   <string name="about_translators_translatewiki">Bu uygulama &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;\'teki gönüllü çevirmenler tarafından tercüme edilmiştir.</string>
   <string name="about_app_license_heading">Lisans</string>
@@ -366,6 +367,7 @@
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Sistem temasını eşleştir</string>
   <string name="page_footer_license_text">Aksi belirtilmediği sürece içerik, $1 lisansı kapsamındadır.</string>
   <string name="empty_tab_title">Yeni sekme</string>
+  <string name="menu_save_all_tabs">Tüm sekmeleri kaydet</string>
   <string name="crash_report_activity_title">Uygulama hatası</string>
   <string name="crash_report_relaunch_or_quit">Üzgünüz, Vikipedi uygulaması bir sorunla karşılaştı ve kapatıldı.\n\nBaştan başlamak mı yoksa çıkmak mı istiyorsunuz?</string>
   <string name="crash_report_relaunch">Baştan başla</string>
