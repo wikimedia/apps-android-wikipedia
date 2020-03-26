@@ -830,7 +830,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                             currentPos = ++currentPos >= backLinksList.size() ? 0 : currentPos;
                             findReferencesInPageProvider.setReferenceCountText(getString(R.string.find_in_page_result,
                                     currentPos + 1, backLinksList.size()));
-                            bridge.execute(JavaScriptActionHandler.prepareToScrollTo(backLinksList.get(currentPos), "{ highlight: true }"));
+                            bridge.execute(JavaScriptActionHandler.prepareToScrollTo(backLinksList.get(currentPos), true));
                         }
                     }
 
@@ -840,7 +840,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                             currentPos = --currentPos < 0 ? backLinksList.size() - 1 : currentPos;
                             findReferencesInPageProvider.setReferenceCountText(getString(R.string.find_in_page_result,
                                     currentPos + 1, backLinksList.size()));
-                            bridge.execute(JavaScriptActionHandler.prepareToScrollTo(backLinksList.get(currentPos), "{ highlight: true }"));
+                            bridge.execute(JavaScriptActionHandler.prepareToScrollTo(backLinksList.get(currentPos), true));
                         }
                     }
 
@@ -872,7 +872,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                 menuItem.setActionProvider(findReferencesInPageProvider);
                 menuItem.expandActionView();
                 if (backLinksList != null && !backLinksList.isEmpty()) {
-                    bridge.execute(JavaScriptActionHandler.prepareToScrollTo(backLinksList.get(0), "{ highlight: true }"));
+                    bridge.execute(JavaScriptActionHandler.prepareToScrollTo(backLinksList.get(0), true));
                 }
                 return true;
             }
