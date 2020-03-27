@@ -216,7 +216,7 @@ public class DescriptionEditView extends LinearLayout {
     public void setSaveState(boolean saving) {
         showProgressBar(saving);
         if (saving) {
-            enableSaveButton(false);
+            enableSaveButton(false, true);
         } else {
             updateSaveButtonEnabled();
         }
@@ -325,21 +325,29 @@ public class DescriptionEditView extends LinearLayout {
     private void updateSaveButtonEnabled() {
         if (!TextUtils.isEmpty(pageDescriptionText.getText())
                 && !StringUtils.equals(originalDescription, pageDescriptionText.getText())) {
-            enableSaveButton(true);
+            enableSaveButton(true, false);
         } else {
-            enableSaveButton(false);
+            enableSaveButton(false, false);
         }
     }
 
-    private void enableSaveButton(boolean enabled) {
-        if (enabled) {
+    private void enableSaveButton(boolean enabled, boolean saveInProgress) {
+        if (saveInProgress) {
             saveButton.setImageResource(R.drawable.ic_check_circle_black_24dp);
             ImageViewCompat.setImageTintList(saveButton, ColorStateList.valueOf(ResourceUtil.getThemedColor(getContext(), R.attr.themed_icon_color)));
-            saveButton.setEnabled(true);
-        } else {
-            saveButton.setImageResource(R.drawable.ic_check_black_24dp);
-            ImageViewCompat.setImageTintList(saveButton, ColorStateList.valueOf(ResourceUtil.getThemedColor(getContext(), R.attr.material_theme_de_emphasised_color)));
             saveButton.setEnabled(false);
+            saveButton.setAlpha(1 / 2f);
+        } else {
+            saveButton.setAlpha(1f);
+            if (enabled) {
+                saveButton.setImageResource(R.drawable.ic_check_circle_black_24dp);
+                ImageViewCompat.setImageTintList(saveButton, ColorStateList.valueOf(ResourceUtil.getThemedColor(getContext(), R.attr.themed_icon_color)));
+                saveButton.setEnabled(true);
+            } else {
+                saveButton.setImageResource(R.drawable.ic_check_black_24dp);
+                ImageViewCompat.setImageTintList(saveButton, ColorStateList.valueOf(ResourceUtil.getThemedColor(getContext(), R.attr.material_theme_de_emphasised_color)));
+                saveButton.setEnabled(false);
+            }
         }
     }
 

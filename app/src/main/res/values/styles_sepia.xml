@@ -9,7 +9,6 @@
 
         <item name="colorError">@color/red30</item>
 
-        <item name="colorPrimary">@color/kraft</item>
         <item name="android:textColorSecondary">@color/masi</item>
         <item name="android:textColorTertiary">@color/base30</item>
 

@@ -39,7 +39,7 @@ public class ReferenceDialog extends BottomSheetDialog {
     @BindView(R.id.reference_title_text) TextView titleTextView;
     private LinkHandler referenceLinkHandler;
 
-    public ReferenceDialog(@NonNull Context context, int selectedIndex, List<References.Reference> adjacentReferences, LinkHandler referenceLinkHandler) {
+    public ReferenceDialog(@NonNull Context context, int selectedIndex, List<PageReferences.Reference> adjacentReferences, LinkHandler referenceLinkHandler) {
         super(context);
         View rootView = LayoutInflater.from(context).inflate(R.layout.fragment_references_pager, null);
         setContentView(rootView);
@@ -102,9 +102,9 @@ public class ReferenceDialog extends BottomSheetDialog {
     }
 
     private class ReferencesAdapter extends RecyclerView.Adapter {
-        private List<References.Reference> references = new ArrayList<>();
+        private List<PageReferences.Reference> references = new ArrayList<>();
 
-        ReferencesAdapter(@NonNull List<References.Reference> adjacentReferences) {
+        ReferencesAdapter(@NonNull List<PageReferences.Reference> adjacentReferences) {
             references.addAll(adjacentReferences);
         }
 

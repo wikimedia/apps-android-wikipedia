@@ -43,16 +43,19 @@ public class OfflineObjectDbHelper {
         }
         // Couldn't find an exact match, so...
         // If we're trying to load an image from Commons, try to look for any other resolution.
-        if (url.contains("/commons/")) {
+        if (url.contains("/commons/thumb/")) {
             String[] parts = url.split("/");
             if (parts.length > 2) {
-                String fileName = parts[parts.length - 2].replaceAll("%", "~%").replaceAll("_", "~_");
+                String fileName = parts[parts.length - 2].replaceAll("'", "%27");
                 try (Cursor cursor = db.query(OfflineObjectContract.TABLE, null,
-                        OfflineObjectContract.Col.URL.getName() + " LIKE '%/" + fileName + "/%' ESCAPE '~'",
-                        null, null, null, null)) {
+                        OfflineObjectContract.Col.URL.getName() + " LIKE '%/' || ? || '/%'",
+                        new String[]{fileName}, null, null, null)) {
                     if (cursor.moveToFirst()) {
                         return OfflineObjectTable.DATABASE_TABLE.fromCursor(cursor);
                     }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    L.logRemoteErrorIfProd(e);
                 }
             }
         }

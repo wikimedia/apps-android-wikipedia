@@ -170,7 +170,7 @@
   <string name="about_description">Heqdê dezgehda Wikipedia</string>
   <string name="privacy_policy_description">Politikaya nımıteyiye</string>
   <string name="terms_of_use_description">Şertê gurenayışi</string>
-  <string name="about_wikipedia_url">https://diq.m.wikipedia.org/wiki/Wikipedia:Heqa_cı_de</string>
+  <string name="about_wikipedia_url" fuzzy="true">https://diq.m.wikipedia.org/wiki/Wikipedia:Heqa_cı_de</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
@@ -212,14 +212,14 @@
   <string name="clear_recent_searches_confirm_no">Nê</string>
   <string name="table_infobox">Zanayışê pratiki</string>
   <string name="table_other">Tayêna melumat</string>
-  <string name="table_close">Bıqefelne</string>
+  <string name="table_close">Kip ke</string>
   <string name="widget_name_featured_page">Perê bestıyayeyê Wikipedia</string>
   <string name="widget_title_featured_page">Ewro ra zerreko weçiniyaye</string>
   <string name="widget_name_search">Wikipedia Cıgeyrış</string>
   <string name="wiktionary_no_definitions_found">Herhangi yew zanayış nêvineya</string>
   <string name="alpha_update_notification_title">Alfa rovane kerdışa newi est a</string>
   <string name="alpha_update_notification_text">Qandé ronayışi dest pan</string>
-  <string name="dialog_close_description">Bıqefelne</string>
+  <string name="dialog_close_description">Kip ke</string>
   <string name="preference_title_show_images">Resıman bımocne</string>
   <string name="dialog_title_download_only_over_wifi_allow">Mısade bıdê</string>
   <string name="read_more_section">Tayêna bıwane</string>

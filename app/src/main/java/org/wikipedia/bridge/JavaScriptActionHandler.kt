@@ -14,7 +14,6 @@ import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.DimenUtil.getDensityScalar
 import org.wikipedia.util.DimenUtil.leadImageHeightForDevice
 import org.wikipedia.util.L10nUtil
-import org.wikipedia.util.L10nUtil.formatDateRelative
 import kotlin.math.roundToInt
 
 object JavaScriptActionHandler {
@@ -64,6 +63,11 @@ object JavaScriptActionHandler {
     }
 
     @JvmStatic
+    fun prepareToScrollTo(anchorLink: String, highlight: Boolean): String {
+        return "pcs.c1.Page.prepareForScrollToAnchor(\"${anchorLink}\", { highlight: $highlight } )"
+    }
+
+    @JvmStatic
     fun setUp(title: PageTitle): String {
         val app: WikipediaApp = WikipediaApp.getInstance()
         val topActionBarHeight = (app.resources.getDimensionPixelSize(R.dimen.lead_no_image_top_offset_dp) / getDensityScalar()).roundToInt()
@@ -100,7 +104,6 @@ object JavaScriptActionHandler {
         if (model.page == null) {
             return ""
         }
-        val showEditHistoryLink = !(model.page!!.isMainPage || model.page!!.isFilePage)
         val showTalkLink = !(model.page!!.title.namespace() === Namespace.TALK)
         val showMapLink = model.page!!.pageProperties.geo != null
 
@@ -113,14 +116,13 @@ object JavaScriptActionHandler {
                 "   title: \"${model.title!!.prefixedText}\"," +
                 "   menu: {" +
                 "       items: [" +
-                                (if (showEditHistoryLink) "pcs.c1.Footer.MenuItemType.lastEdited, " else "") +
+                                "pcs.c1.Footer.MenuItemType.lastEdited, " +
                                 (if (showTalkLink) "pcs.c1.Footer.MenuItemType.talkPage, " else "") +
                                 (if (showMapLink) "pcs.c1.Footer.MenuItemType.coordinate, " else "") +
                 "               pcs.c1.Footer.MenuItemType.referenceList " +
                 "              ]," +
                 "       fragment: \"pcs-menu\"," +
-                "       editedDaysAgo: ${3}," +
-                "       languageCount: ${12}" +
+                "       editedDaysAgo: ${3}" +
                 "   }," +
                 "   readMore: { " +
                 "       itemCount: 3," +

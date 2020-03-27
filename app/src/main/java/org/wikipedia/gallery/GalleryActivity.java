@@ -295,7 +295,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         }
         if (bitmap != null && item.getMediaInfo() != null) {
             ShareUtil.shareImage(this, bitmap, new File(ImageUrlUtil.getUrlForPreferredSize(item.getMediaInfo().getThumbUrl(), PREFERRED_GALLERY_IMAGE_SIZE)).getName(),
-                    subject, title.getCanonicalUri());
+                    subject, title.getUri());
         } else {
             ShareUtil.shareText(this, title);
         }
@@ -505,7 +505,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     }
 
     @Override public void onLinkPreviewCopyLink(@NonNull PageTitle title) {
-        ClipboardUtil.setPlainText(this, null, title.getCanonicalUri());
+        ClipboardUtil.setPlainText(this, null, title.getUri());
         FeedbackUtil.showMessage(this, R.string.address_copied);
     }
 

@@ -13,6 +13,7 @@ import android.view.ViewGroup
 import android.widget.CompoundButton
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.fragment.app.Fragment
 import com.google.android.material.chip.Chip
 import io.reactivex.Observable
 import io.reactivex.ObservableSource
@@ -22,6 +23,8 @@ import kotlinx.android.synthetic.main.fragment_suggested_edits_image_tags_item.*
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.activity.FragmentUtil
+import org.wikipedia.analytics.SuggestedEditsFunnel
 import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
@@ -41,6 +44,13 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundButton.OnCheckedChangeListener, OnClickListener, SuggestedEditsImageTagDialog.Callback {
+    interface Callback {
+        fun getLangCode(): String
+        fun getSinglePage(): MwQueryPage?
+        fun updateActionButton()
+        fun nextPage(sourceFragment: Fragment?)
+    }
+
     var publishing: Boolean = false
     var publishSuccess: Boolean = false
     private var csrfClient: CsrfTokenClient = CsrfTokenClient(WikiSite(Service.COMMONS_URL))
@@ -56,7 +66,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setConditionalLayoutDirection(contentContainer, parent().langFromCode)
+        setConditionalLayoutDirection(contentContainer, callback().getLangCode())
         imageView.setLegacyVisibilityHandlingEnabled(true)
         cardItemErrorView.setBackClickListener { requireActivity().finish() }
         cardItemErrorView.setRetryClickListener {
@@ -90,6 +100,11 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
             }
         }
 
+        if (callback().getSinglePage() != null) {
+            page = callback().getSinglePage()
+            applyTags()
+        }
+
         imageCaption.setOnLongClickListener {
             wasCaptionLongClicked = true
             false
@@ -101,31 +116,35 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
 
     override fun onStart() {
         super.onStart()
-        parent().updateActionButton()
+        callback().updateActionButton()
     }
 
     private fun getNextItem() {
         if (page != null) {
             return
         }
-        disposables.add(MissingDescriptionProvider.getNextImageWithMissingTags(parent().langFromCode)
+        disposables.add(MissingDescriptionProvider.getNextImageWithMissingTags(callback().getLangCode())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ page ->
                     this.page = page
-                    tagList.clear()
-                    val maxTags = 3
-                    for (label in page.imageLabels) {
-                        if (label.label.isEmpty()){
-                            continue
-                        }
-                        tagList.add(label)
-                        if (tagList.size >= maxTags) {
-                            break
-                        }
-                    }
+                    applyTags()
                     updateContents()
                 }, { this.setErrorState(it) })!!)
+    }
+
+    private fun applyTags() {
+        val maxTags = 3
+        tagList.clear()
+        for (label in page!!.imageLabels) {
+            if (label.label.isEmpty()) {
+                continue
+            }
+            tagList.add(label)
+            if (tagList.size >= maxTags) {
+                break
+            }
+        }
     }
 
     private fun setErrorState(t: Throwable) {
@@ -153,9 +172,6 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         val typeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
         tagsChipGroup.removeAllViews()
 
-        // add an artificial chip for adding a custom tag
-        addChip(null, typeface)
-
         for (label in tagList) {
             if (label.state.isNotEmpty() && label.state != "unreviewed") {
                 continue
@@ -163,12 +179,15 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
             addChip(label, typeface)
         }
 
+        // add an artificial chip for adding a custom tag
+        addChip(null, typeface)
+
         disposables.add(MediaHelper.getImageCaptions(page!!.title())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe { captions ->
-                    if (captions.containsKey(parent().langFromCode)) {
-                        imageCaption.text = captions[parent().langFromCode]
+                    if (captions.containsKey(callback().getLangCode())) {
+                        imageCaption.text = captions[callback().getLangCode()]
                         imageCaption.visibility = VISIBLE
                     } else {
                         if (page!!.imageInfo() != null && page!!.imageInfo()!!.metadata != null) {
@@ -181,7 +200,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                 })
 
         updateLicenseTextShown()
-        parent().updateActionButton()
+        callback().updateActionButton()
     }
 
     private fun addChip(label: MwQueryPage.ImageLabel?, typeface: Typeface) {
@@ -194,11 +213,9 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         chip.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_primary_color))
         chip.typeface = typeface
         chip.isCheckable = true
-        if (label == null) {
-            chip.setChipIconResource(R.drawable.ic_chip_add_24px)
-            chip.iconEndPadding = 0f
-            chip.textStartPadding = DimenUtil.dpToPx(2f)
-        }
+        chip.setChipIconResource(R.drawable.ic_chip_add_24px)
+        chip.iconEndPadding = 0f
+        chip.textStartPadding = DimenUtil.dpToPx(2f)
         chip.chipIconSize = DimenUtil.dpToPx(24f)
         chip.chipIconTint = ColorStateList.valueOf(ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_de_emphasised_color))
         chip.setCheckedIconResource(R.drawable.ic_chip_check_24px)
@@ -250,13 +267,23 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         }
 
         updateLicenseTextShown()
-        parent().updateActionButton()
+        callback().updateActionButton()
     }
 
     override fun onSelect(item: MwQueryPage.ImageLabel, searchTerm: String) {
         lastSearchTerm = searchTerm
-        item.isSelected = true
-        tagList.add(0, item)
+        var exists = false
+        for (tag in tagList) {
+            if (tag.wikidataId == item.wikidataId) {
+                exists = true
+                tag.isSelected = true
+                break
+            }
+        }
+        if (!exists) {
+            item.isSelected = true
+            tagList.add(item)
+        }
         updateContents()
     }
 
@@ -337,7 +364,8 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                             "\"id\":\"M${page!!.pageId()}\$${UUID.randomUUID()}\"," +
                             "\"rank\":\"normal\"}"
 
-                    claimObservables.add(ServiceFactory.get(commonsSite).postSetClaim(claimTemplate, token, null, null))
+                    claimObservables.add(ServiceFactory.get(commonsSite).postSetClaim(claimTemplate, token,
+                            SuggestedEditsFunnel.SUGGESTED_EDITS_ADD_COMMENT, null))
                 }
 
                 disposables.add(ServiceFactory.get(commonsSite).postReviewImageLabels(page!!.title(), token, batchBuilder.toString())
@@ -409,7 +437,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                 updateLicenseTextShown()
 
                 publishOverlayContainer.visibility = GONE
-                parent().nextPage()
+                callback().nextPage(this)
                 setPublishedState()
             }
         }, duration * 3)
@@ -442,7 +470,8 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         when {
             publishSuccess -> {
                 tagsLicenseText.visibility = GONE
-                tagsHintText.visibility = GONE
+                tagsHintText.setText(R.string.suggested_edits_image_tags_published_list)
+                tagsHintText.visibility = VISIBLE
             }
             atLeastOneTagChecked() -> {
                 tagsLicenseText.visibility = VISIBLE
@@ -450,6 +479,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
             }
             else -> {
                 tagsLicenseText.visibility = GONE
+                tagsHintText.setText(R.string.suggested_edits_image_tags_choose)
                 tagsHintText.visibility = VISIBLE
             }
         }
@@ -476,5 +506,9 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
             return false
         }
         return !atLeastOneTagChecked()
+    }
+
+    private fun callback(): Callback {
+        return FragmentUtil.getCallback(this, Callback::class.java)!!
     }
 }

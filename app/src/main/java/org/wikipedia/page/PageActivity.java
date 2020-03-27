@@ -47,8 +47,6 @@ import org.wikipedia.language.LangLinksActivity;
 import org.wikipedia.main.MainActivity;
 import org.wikipedia.navtab.NavTab;
 import org.wikipedia.page.linkpreview.LinkPreviewDialog;
-import org.wikipedia.page.references.ReferenceListDialog;
-import org.wikipedia.page.references.References;
 import org.wikipedia.page.tabs.TabActivity;
 import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.search.SearchActivity;
@@ -76,7 +74,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
-import io.reactivex.Observable;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.functions.Consumer;
 
@@ -89,7 +86,7 @@ import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
 
 public class PageActivity extends BaseActivity implements PageFragment.Callback,
         LinkPreviewDialog.Callback, ThemeChooserDialog.Callback,
-        WiktionaryDialog.Callback, ReferenceListDialog.Callback {
+        WiktionaryDialog.Callback{
     public static final String ACTION_LOAD_IN_NEW_TAB = "org.wikipedia.load_in_new_tab";
     public static final String ACTION_LOAD_IN_CURRENT_TAB = "org.wikipedia.load_in_current_tab";
     public static final String ACTION_LOAD_IN_CURRENT_TAB_SQUASH = "org.wikipedia.load_in_current_tab_squash";
@@ -219,14 +216,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         tabsButton.updateTabCount();
     }
 
-    private void finishActionMode() {
-        Set<ActionMode> actionModesToFinish = new HashSet<>(currentActionModes);
-        for (ActionMode mode : actionModesToFinish) {
-            mode.finish();
-        }
-        currentActionModes.clear();
-    }
-
     public void hideSoftKeyboard() {
         DeviceUtil.hideSoftKeyboard(this);
     }
@@ -269,7 +258,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     }
 
     /** @return True if the contextual action bar is open. */
-    public boolean isCabOpen() {
+    private boolean isCabOpen() {
         return !currentActionModes.isEmpty();
     }
 
@@ -423,7 +412,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         app.putCrashReportProperty("title", title.toString());
 
         if (title.isSpecial()) {
-            visitInExternalBrowser(this, Uri.parse(title.getMobileUri()));
+            visitInExternalBrowser(this, Uri.parse(title.getUri()));
             return;
         }
 
@@ -434,7 +423,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             // Close the link preview, if one is open.
             hideLinkPreview();
 
-            pageFragment.closeFindInPage();
+            onPageCloseActionMode();
             if (position == TabPosition.CURRENT_TAB) {
                 pageFragment.loadPage(title, entry, true, false);
             } else if (position == TabPosition.CURRENT_TAB_SQUASH) {
@@ -468,7 +457,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     @Override
     public void onBackPressed() {
         if (isCabOpen()) {
-            finishActionMode();
+            onPageCloseActionMode();
             return;
         }
 
@@ -576,13 +565,22 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     }
 
     @Override
+    public void onPageCloseActionMode() {
+        Set<ActionMode> actionModesToFinish = new HashSet<>(currentActionModes);
+        for (ActionMode mode : actionModesToFinish) {
+            mode.finish();
+        }
+        currentActionModes.clear();
+    }
+
+    @Override
     public void onLinkPreviewLoadPage(@NonNull PageTitle title, @NonNull HistoryEntry entry, boolean inNewTab) {
         loadPage(title, entry, inNewTab ? TabPosition.NEW_TAB_BACKGROUND : TabPosition.CURRENT_TAB);
     }
 
     @Override
     public void onLinkPreviewCopyLink(@NonNull PageTitle title) {
-        copyLink(title.getCanonicalUri());
+        copyLink(title.getUri());
         showCopySuccessMessage();
     }
 
@@ -608,14 +606,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     @Override
     public void onCancel() { }
-
-    @Override @NonNull public LinkHandler getLinkHandler() {
-        return pageFragment.getLinkHandler();
-    }
-
-    @Override @NonNull public Observable<References> getReferences() {
-        return pageFragment.getReferences();
-    }
 
     private void copyLink(@NonNull String url) {
         ClipboardUtil.setPlainText(this, null, url);
@@ -665,7 +655,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     public void onPause() {
         if (isCabOpen()) {
             // Explicitly close any current ActionMode (see T147191)
-            finishActionMode();
+            onPageCloseActionMode();
         }
         super.onPause();
     }

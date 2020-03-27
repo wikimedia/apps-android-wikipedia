@@ -36,7 +36,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:paddingStart="16dp"
-            android:paddingTop="11dp"
             android:paddingEnd="16dp"
             android:paddingBottom="16dp">
 
@@ -48,6 +47,7 @@
                 android:fontFamily="serif"
                 android:lineSpacingExtra="4sp"
                 android:maxLines="2"
+                android:layout_marginTop="11dp"
                 android:textColor="?attr/primary_text_color"
                 android:textSize="24sp"
                 tools:text="Lorem ipsum" />

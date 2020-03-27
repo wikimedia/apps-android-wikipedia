@@ -23,6 +23,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.SuggestedEditsFunnel
 import org.wikipedia.dataclient.ServiceFactory
+import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.mwapi.SiteMatrix
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
@@ -34,7 +35,7 @@ import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.PositionAwareFragmentStateAdapter
 
-class SuggestedEditsCardsFragment : Fragment() {
+class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.Callback {
     private val viewPagerListener = ViewPagerListener()
     private val disposables = CompositeDisposable()
     private val app = WikipediaApp.getInstance()
@@ -105,7 +106,7 @@ class SuggestedEditsCardsFragment : Fragment() {
             if (nextButton.drawable is Animatable) {
                 (nextButton.drawable as Animatable).start()
             }
-            nextPage()
+            nextPage(null)
         }
         updateBackButton(0)
         addContributionButton.setOnClickListener { onSelectPage() }
@@ -149,7 +150,15 @@ class SuggestedEditsCardsFragment : Fragment() {
         backButton.alpha = if (pagerPosition == 0) 0.31f else 1f
     }
 
-    fun updateActionButton() {
+    override fun getLangCode(): String {
+        return langFromCode
+    }
+
+    override fun getSinglePage(): MwQueryPage? {
+        return null
+    }
+
+    override fun updateActionButton() {
         val child = topBaseChild()
         var isAddedContributionEmpty = true
         if (child != null) {
@@ -223,7 +232,7 @@ class SuggestedEditsCardsFragment : Fragment() {
                         else -> getString(R.string.description_edit_success_saved_snackbar)
                     }
             )
-            nextPage()
+            nextPage(null)
         }
     }
 
@@ -235,10 +244,12 @@ class SuggestedEditsCardsFragment : Fragment() {
         updateActionButton()
     }
 
-    fun nextPage() {
-        viewPagerListener.setNextPageSelectedAutomatic()
-        cardsViewPager.setCurrentItem(cardsViewPager.currentItem + 1, true)
-        updateActionButton()
+    override fun nextPage(sourceFragment: Fragment?) {
+        if (sourceFragment == topBaseChild() || sourceFragment == null) {
+            viewPagerListener.setNextPageSelectedAutomatic()
+            cardsViewPager.setCurrentItem(cardsViewPager.currentItem + 1, true)
+            updateActionButton()
+        }
     }
 
     fun onSelectPage() {

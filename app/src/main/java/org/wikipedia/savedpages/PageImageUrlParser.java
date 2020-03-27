@@ -8,7 +8,6 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.wikipedia.dataclient.page.PageLead;
-import org.wikipedia.dataclient.page.PageRemaining;
 import org.wikipedia.html.ImageElement;
 import org.wikipedia.html.ImageTagParser;
 import org.wikipedia.html.ParseException;
@@ -33,10 +32,6 @@ public class PageImageUrlParser {
 
     @NonNull public List<String> parse(@NonNull PageLead lead) {
         return parse(lead, DimenUtil.calculateLeadImageWidth());
-    }
-
-    @NonNull public List<String> parse(@NonNull PageRemaining sections) {
-        return parse(sections.sections());
     }
 
     @NonNull public List<String> parse(@NonNull List<Section> sections) {

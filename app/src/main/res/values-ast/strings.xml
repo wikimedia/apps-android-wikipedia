@@ -186,7 +186,7 @@
   <string name="about_description">Tocante a la app de Wikipedia</string>
   <string name="privacy_policy_description">Política d\'intimidá</string>
   <string name="terms_of_use_description">Condiciones d\'usu</string>
-  <string name="about_wikipedia_url">https://ast.m.wikipedia.org/wiki/Wikipedia:Tocante_a</string>
+  <string name="about_wikipedia_url">https://ast.wikipedia.org/wiki/Wikipedia:Tocante_a</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
@@ -289,6 +289,7 @@
   <string name="close_all_tabs_confirm_yes">Sí</string>
   <string name="close_all_tabs_confirm_no">Non</string>
   <string name="button_close_tab">Zarrar llingüeta</string>
+  <string name="unnamed_tab_closed">Llingüeta zarrada.</string>
   <string name="tab_item_closed">Zarróse %s.</string>
   <string name="all_tab_items_closed">Zarráronse toles llingüetes.</string>
   <string name="tool_tip_bookmark_icon_title">Añadir a llista de llectura</string>
@@ -616,6 +617,7 @@
   <string name="description_edit_success_saved_in_lang_snackbar">Espublizóse la descripción d\'artículu (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Espublizóse\'l pie d\'imaxe</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Espublizóse\'l pie d\'imaxe (%s)</string>
+  <string name="description_edit_success_saved_image_tags_snackbar">Espublizaes les etiquetes d\'imaxe</string>
   <string name="description_edit_success_encouragement">Acabes d\'ameyorar Wikipedia pa toos</string>
   <string name="description_edit_success_done">Fecho</string>
   <string name="description_edit_success_did_you_know">¿Sabíeslo?</string>
@@ -670,7 +672,6 @@
   <string name="suggested_edits_feed_card_title">Ediciones suxeríes</string>
   <string name="suggested_edits_feed_card_add_description_button">Amestar descripción del artículu</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Amestar descripción del artículu (%s)</string>
-  <string name="suggested_edits_tutorial_message">Dámoste la bienvenida a la nueva páxina d\'entamu d\'edición rápida na app de Wikipedia. Apreciamos enforma les tos contribuciones. ¡Feliz edición!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Primeros pasos</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Pie d\'imaxe (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Descripción de la imaxe (%s)</string>
@@ -685,6 +686,7 @@
   <string name="suggested_edits_article_cta_snackbar_action">Ver</string>
   <string name="suggested_edits_feed_card_add_image_caption">Añadir un pie d\'imaxe</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Añadir un pie d\'imaxe (%s)</string>
+  <string name="suggested_edits_feed_card_add_image_tags">Amestar etiquetes d\'imaxe</string>
   <string name="suggested_edits_snackbar_survey_text">¿Qué tal foi la to esperiencia editando? Por favor, dedica un momentu a contestar la encuesta sobro la edición na aplicación.</string>
   <string name="suggested_edits_snackbar_survey_action_text">Contestar la encuesta</string>
   <string name="suggested_edits_task_action_text_add">Amestar</string>
@@ -694,7 +696,19 @@
   <string name="suggested_edits_image_tags_publishing">Espublizando</string>
   <string name="suggested_edits_image_tags_published">Espublizaes</string>
   <string name="suggested_edits_image_tags_onboarding_title">Etiquetar les imáxenes failes más fáciles d\'alcontrar.</string>
-  <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">Les imáxenes siguientes tienen etiquetes suxeríes por un ordenador, y precísase que les valide un humanu pa garantizar la so exactitú.\n\nAl confirmar les etiquetes, ayudes a que sía más fácil buscales en Commons, el depósitu d\'imáxenes de llicencia llibre que Wikipedia usa pa les imáxenes de los artículos.</string>
+  <string name="suggested_edits_image_tags_onboarding_text">Al amestar etiquetes d\'imaxe, ayudes a que sía más fácil buscales en Commons, el depósitu d\'imáxenes de llicencia llibre que Wikipedia usa pa les imáxenes de los artículos.\n\nSuxerimos automáticamente delles etiquetes, y tamién pues amestar les tuyes propies.</string>
+  <string name="suggested_edits_image_tags_onboarding_note">Solo les etiquetes qu\'escueyas van añadise a les imáxenes.</string>
+  <string name="suggested_edits_image_tags_snackbar">Etiqueta les imáxenes pa facilitar la so busca.</string>
+  <string name="suggested_edits_image_tags_task_detail">Etiqueta les imáxenes pa facilitar que les alcuentren. Seleiciona dende les etiquetes suxeríes o amiesta les tuyes propies.</string>
+  <string name="suggested_edits_image_tags_choose">Añadir o escoyer etiquetes que casen</string>
+  <string name="suggested_edits_image_tags_published_list">Etiquetes publicaes</string>
+  <string name="suggested_edits_image_tags_search">Buscar etiquetes</string>
+  <string name="suggested_edits_image_tags_select_title">Nun escoyisti nenguna etiqueta pa esta imaxe.</string>
+  <string name="suggested_edits_image_tags_select_text">Solo les etiquetes qu\'escueyas van añadise a les imáxenes. Les etiquetes ensin escoyer van marcase como refugaes. ¿Tas seguro de que quies marcar toles etiquetes como refugaes?</string>
+  <string name="suggested_edits_image_tags_add_tag">Añadir etiqueta</string>
+  <string name="suggested_edits_image_zoom_tooltip">Plizca p\'ampliar esta imaxe.</string>
+  <string name="suggested_edits_encouragement_message">%s, gracies poles tos ediciones. Más abaxo pues alcontrar otres formes de collaborar con Wikipedia.</string>
+  <string name="suggested_edits_onboarding_message">&lt;b&gt;Bones, %s&lt;/b&gt;. ¿Sabíes que tol mundu pue editar Wikipedia? Más abaxo pues alcontrar formes divertíes d\'ayudar a ameyorar la Wikipedia. ¡Feliz edición!</string>
   <string name="description_edit_revert_subtitle">¡Gracies por editar Wikipedia!</string>
   <string name="description_edit_revert_intro">Sabemos que tentasti faelo lo meyor posible, pero unu de los revisores tuvo una esmolición. Les posibles razones poles que se revertió la edición incluyen:</string>
   <string name="description_edit_revert_reason1">la to contribución nun siguió dalgunes de les &lt;a href=\"%1$s\"&gt;directrices&lt;/a&gt;.</string>

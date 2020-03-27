@@ -116,6 +116,20 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onStart() {
+        try {
+            // TODO: remove when bug is fixed.
+            // https://appcenter.ms/orgs/ci-apps-hockeyapp-f5mf/apps/Wikipedia-Beta/crashes/errors/2836099990u/overview
+            super.onStart();
+        } catch (Exception e) {
+            String className = this.getLocalClassName();
+            RuntimeException ex = new RuntimeException("Exception in " + className + ": " + e.getMessage());
+            ex.setStackTrace(e.getStackTrace());
+            throw ex;
+        }
+    }
+
+    @Override
     protected void onStop() {
         WikipediaApp.getInstance().getSessionFunnel().persistSession();
         super.onStop();
