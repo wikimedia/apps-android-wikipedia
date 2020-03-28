@@ -13,6 +13,6 @@ abstract class PositionAwareFragmentStateAdapter: FragmentStateAdapter {
     fun getFragmentAt(position: Int): Fragment? {
         // HACK: this is internal implementation-specific logic that is likely to change in the future.
         // TODO: wait until FragmentStateAdapter supports indexing fragments natively.
-        return fragmentManager.findFragmentByTag("f" + position)
+        return fragmentManager.findFragmentByTag("f$position")
     }
 }
