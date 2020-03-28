@@ -13,10 +13,10 @@ import org.wikipedia.util.ResourceUtil
 
 class CircularProgressBar constructor(context: Context, attrs: AttributeSet? = null) : View(context, attrs) {
 
-    private var progressPaint: Paint? = null
-    private var progressBackgroundPaint: Paint? = null
+    private var progressPaint: Paint = Paint()
+    private var progressBackgroundPaint: Paint = Paint()
     private var sweepAngle = 0
-    private var circleBounds: RectF? = null
+    private var circleBounds: RectF = RectF()
     private var maxProgressValue = MAX_PROGRESS.toDouble()
 
     init {
@@ -31,17 +31,14 @@ class CircularProgressBar constructor(context: Context, attrs: AttributeSet? = n
             maxProgressValue = a.getInt(R.styleable.CircularProgressBar_maxProgress, MAX_PROGRESS).toDouble()
             a.recycle()
         }
-        progressPaint = Paint()
-        progressPaint!!.strokeWidth = progressStrokeWidth.toFloat()
-        progressPaint!!.style = Paint.Style.FILL
-        progressPaint!!.color = progressColor
-        progressPaint!!.isAntiAlias = true
-        progressBackgroundPaint = Paint()
-        progressBackgroundPaint!!.strokeWidth = progressStrokeWidth.toFloat()
-        progressBackgroundPaint!!.style = Paint.Style.FILL
-        progressBackgroundPaint!!.color = progressBackgroundColor
-        progressBackgroundPaint!!.isAntiAlias = true
-        circleBounds = RectF()
+        progressPaint.strokeWidth = progressStrokeWidth.toFloat()
+        progressPaint.style = Paint.Style.FILL
+        progressPaint.color = progressColor
+        progressPaint.isAntiAlias = true
+        progressBackgroundPaint.strokeWidth = progressStrokeWidth.toFloat()
+        progressBackgroundPaint.style = Paint.Style.FILL
+        progressBackgroundPaint.color = progressBackgroundColor
+        progressBackgroundPaint.isAntiAlias = true
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
@@ -54,7 +51,7 @@ class CircularProgressBar constructor(context: Context, attrs: AttributeSet? = n
         val measuredHeight = MeasureSpec.getSize(heightMeasureSpec)
         val widthMode = MeasureSpec.getMode(widthMeasureSpec)
         val heightMode = MeasureSpec.getMode(heightMeasureSpec)
-        val strokeSizeOffset = progressPaint!!.strokeWidth
+        val strokeSizeOffset = progressPaint.strokeWidth
         var desiredSize = strokeSizeOffset.toInt() + (paddingBottom + paddingTop).coerceAtLeast(paddingLeft + paddingRight)
         desiredSize += desiredSize * .1f.toInt()
         val finalWidth = when (widthMode) {
@@ -80,12 +77,12 @@ class CircularProgressBar constructor(context: Context, attrs: AttributeSet? = n
     }
 
     private fun calculateBounds(w: Int, h: Int) {
-        val strokeSizeOffset = progressPaint!!.strokeWidth
+        val strokeSizeOffset = progressPaint.strokeWidth
         val halfOffset = strokeSizeOffset / 2f
-        circleBounds!!.left = halfOffset
-        circleBounds!!.top = halfOffset
-        circleBounds!!.right = w - halfOffset
-        circleBounds!!.bottom = h - halfOffset
+        circleBounds.left = halfOffset
+        circleBounds.top = halfOffset
+        circleBounds.right = w - halfOffset
+        circleBounds.bottom = h - halfOffset
     }
 
     override fun onDraw(canvas: Canvas) {
@@ -94,12 +91,12 @@ class CircularProgressBar constructor(context: Context, attrs: AttributeSet? = n
     }
 
     private fun drawProgressBackground(canvas: Canvas) {
-        canvas.drawArc(circleBounds!!, PROGRESS_BACKGROUND_MIN_ANGLE.toFloat(), PROGRESS_BACKGROUND_MAX_ANGLE.toFloat(),
-                false, progressBackgroundPaint!!)
+        canvas.drawArc(circleBounds, PROGRESS_BACKGROUND_MIN_ANGLE.toFloat(), PROGRESS_BACKGROUND_MAX_ANGLE.toFloat(),
+                false, progressBackgroundPaint)
     }
 
     private fun drawProgress(canvas: Canvas) {
-        canvas.drawArc(circleBounds!!, PROGRESS_START_ANGLE.toFloat(), sweepAngle.toFloat(), true, progressPaint!!)
+        canvas.drawArc(circleBounds, PROGRESS_START_ANGLE.toFloat(), sweepAngle.toFloat(), true, progressPaint)
     }
 
     fun setCurrentProgress(currentProgress: Double) {
@@ -112,17 +109,17 @@ class CircularProgressBar constructor(context: Context, attrs: AttributeSet? = n
 
     @get:ColorInt
     var progressColor: Int
-        get() = progressPaint!!.color
+        get() = progressPaint.color
         set(color) {
-            progressPaint!!.color = color
+            progressPaint.color = color
             invalidate()
         }
 
     @get:ColorInt
     var progressBackgroundColor: Int
-        get() = progressBackgroundPaint!!.color
+        get() = progressBackgroundPaint.color
         set(color) {
-            progressBackgroundPaint!!.color = color
+            progressBackgroundPaint.color = color
             invalidate()
         }
 
