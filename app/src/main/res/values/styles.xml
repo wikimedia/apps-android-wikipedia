@@ -340,17 +340,6 @@
         <item name="android:scaleType">centerCrop</item>
     </style>
 
-    <style name="SimpleDraweeViewPlaceholder.SuggestedEdits">
-        <!--
-        <item name="placeholderImage">?attr/material_theme_border_color</item>
-        <item name="failureImage">?attr/material_theme_border_color</item>
-        <item name="backgroundImage">@android:color/transparent</item>
-        -->
-    </style>
-
-    <style name="SimpleDraweeViewPlaceholder.SuggestedEdits.Review">
-    </style>
-
     <style name="SimpleDraweeViewPlaceholder.ReadingListThumbnail">
         <item name="android:layout_width">28dp</item>
         <item name="android:layout_height">28dp</item>

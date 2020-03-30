@@ -47,7 +47,6 @@
                 android:layout_height="200dp">
                 <org.wikipedia.views.FaceAndColorDetectImageView
                     android:id="@+id/viewArticleImage"
-                    style="@style/SimpleDraweeViewPlaceholder.SuggestedEdits"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
             </LinearLayout>

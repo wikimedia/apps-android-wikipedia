@@ -66,11 +66,13 @@ public class FaceAndColorDetectImageView extends AppCompatImageView {
 
     public void loadImage(@Nullable Uri uri) {
         if (!isImageDownloadEnabled() || uri == null) {
-            setImageURI(null);
+            setImageDrawable(ViewUtil.getPlaceholderDrawable(getContext()));
             return;
         }
         Glide.with(this)
                 .load(uri)
+                .placeholder(ViewUtil.getPlaceholderDrawable(getContext()))
+                .error(ViewUtil.getPlaceholderDrawable(getContext()))
                 .downsample(DownsampleStrategy.CENTER_OUTSIDE)
                 .transform(new CenterCropWithFace())
                 .into(this);

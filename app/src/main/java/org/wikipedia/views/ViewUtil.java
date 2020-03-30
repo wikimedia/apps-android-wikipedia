@@ -41,17 +41,21 @@ public final class ViewUtil {
     }
 
     public static void loadImage(@NonNull ImageView view, @Nullable String url, boolean roundedCorners, boolean force) {
-        if (PLACEHOLDER_DRAWABLE == null) {
-            PLACEHOLDER_DRAWABLE = new ColorDrawable(ResourceUtil.getThemedColor(view.getContext(), R.attr.material_theme_border_color));
-        }
         RequestBuilder<Drawable> builder = Glide.with(view)
                 .load((isImageDownloadEnabled() || force) && !TextUtils.isEmpty(url) ? Uri.parse(url) : null)
-                .placeholder(PLACEHOLDER_DRAWABLE)
-                .error(PLACEHOLDER_DRAWABLE);
+                .placeholder(getPlaceholderDrawable(view.getContext()))
+                .error(getPlaceholderDrawable(view.getContext()));
         if (roundedCorners) {
             builder = builder.transform(CENTER_CROP_ROUNDED_CORNERS);
         }
         builder.into(view);
+    }
+
+    static Drawable getPlaceholderDrawable(@NonNull Context context) {
+        if (PLACEHOLDER_DRAWABLE == null) {
+            PLACEHOLDER_DRAWABLE = new ColorDrawable(ResourceUtil.getThemedColor(context, R.attr.material_theme_border_color));
+        }
+        return PLACEHOLDER_DRAWABLE;
     }
 
     public static void clearPlaceholderDrawable() {
