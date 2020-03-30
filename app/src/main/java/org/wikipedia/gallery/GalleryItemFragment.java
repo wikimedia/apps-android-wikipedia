@@ -36,6 +36,7 @@ import org.wikipedia.util.ImageUrlUtil;
 import org.wikipedia.util.PermissionUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
+import org.wikipedia.views.ImageZoomHelper;
 import org.wikipedia.views.ViewUtil;
 
 import butterknife.BindView;
@@ -146,6 +147,13 @@ public class GalleryItemFragment extends Fragment {
             }
             mediaController.hide();
         }
+        ImageZoomHelper.clearViewZoomable(imageView);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        ImageZoomHelper.setViewZoomable(imageView);
     }
 
     private void updateProgressBar(boolean visible) {
@@ -286,27 +294,7 @@ public class GalleryItemFragment extends Fragment {
         } else {
             // show the video thumbnail while the video loads...
             videoThumbnail.setVisibility(View.VISIBLE);
-
             ViewUtil.loadImage(videoThumbnail, mediaInfo.getThumbUrl());
-            // TODO
-            /*
-            videoThumbnail.setController(Fresco.newDraweeControllerBuilder()
-                    .setUri(mediaInfo.getThumbUrl())
-                    .setAutoPlayAnimations(true)
-                    .setControllerListener(new BaseControllerListener<com.facebook.imagepipeline.image.ImageInfo>() {
-                        @Override
-                        public void onFinalImageSet(String id, com.facebook.imagepipeline.image.ImageInfo imageInfo, Animatable animatable) {
-                            updateProgressBar(false);
-                        }
-
-                        @Override
-                        public void onFailure(String id, Throwable throwable) {
-                            updateProgressBar(false);
-                        }
-                    })
-                    .build());
-
-            */
         }
         videoThumbnail.setOnClickListener(videoThumbnailClickListener);
     }
@@ -317,30 +305,7 @@ public class GalleryItemFragment extends Fragment {
 
         updateProgressBar(true);
         ViewUtil.loadImage(imageView, url);
-        // TODO
-        /*
-        imageView.setController(Fresco.newDraweeControllerBuilder()
-                .setUri(url)
-                .setAutoPlayAnimations(true)
-                .setControllerListener(new BaseControllerListener<com.facebook.imagepipeline.image.ImageInfo>() {
-                    @Override
-                    public void onFinalImageSet(String id, com.facebook.imagepipeline.image.ImageInfo imageInfo, Animatable animatable) {
-                        if (mediaInfo != null && !mediaInfo.getMimeType().contains("jpeg")) {
-                            imageView.setDrawBackground(true);
-                        }
-                        updateProgressBar(false);
-                        requireActivity().invalidateOptionsMenu();
-                    }
-
-                    @Override
-                    public void onFailure(String id, Throwable throwable) {
-                        updateProgressBar(false);
-                        FeedbackUtil.showMessage(getActivity(), R.string.gallery_error_draw_failed);
-                        L.d(throwable);
-                    }
-                })
-                .build());
-        */
+        // TODO: show error if loading failed.
     }
 
     private void shareImage() {
