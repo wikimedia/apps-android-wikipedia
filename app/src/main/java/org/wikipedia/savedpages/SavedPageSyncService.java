@@ -290,19 +290,21 @@ public class SavedPageSyncService extends JobIntentService {
     }
 
     private Observable<okhttp3.Response> reqMobileHTML(@NonNull PageTitle pageTitle) {
-        Request request = makeUrlRequest(CacheControl.FORCE_NETWORK, pageTitle.getWikiSite(),
+        Request request = makeUrlRequest(pageTitle.getWikiSite(),
                 UriUtil.encodeOkHttpUrl(ServiceFactory.getRestBasePath(pageTitle.getWikiSite()) + RestService.PAGE_HTML_ENDPOINT,
-                        pageTitle.getPrefixedText()))
-                .addHeader("Accept-Language", WikipediaApp.getInstance().getAcceptLanguage(pageTitle.getWikiSite()))
-                .addHeader(OfflineCacheInterceptor.SAVE_HEADER, OfflineCacheInterceptor.SAVE_HEADER_SAVE)
-                .addHeader(OfflineCacheInterceptor.LANG_HEADER, pageTitle.getWikiSite().languageCode())
-                .addHeader(OfflineCacheInterceptor.TITLE_HEADER, UriUtil.encodeURL(pageTitle.getPrefixedText()))
-                .build();
+                        pageTitle.getPrefixedText()), pageTitle).build();
 
         return Observable.create(emitter -> {
-            okhttp3.Response response = OkHttpConnectionFactory.getClient().newCall(request).execute();
-            emitter.onNext(response);
-            emitter.onComplete();
+            try {
+                if (!emitter.isDisposed()) {
+                    emitter.onNext(OkHttpConnectionFactory.getClient().newCall(request).execute());
+                    emitter.onComplete();
+                }
+            } catch (Exception e) {
+                if (!emitter.isDisposed()) {
+                    emitter.onError(e);
+                }
+            }
         });
     }
 
@@ -332,12 +334,7 @@ public class SavedPageSyncService extends JobIntentService {
     }
 
     private void reqSaveUrl(@NonNull PageTitle pageTitle, @NonNull WikiSite wiki, @NonNull String url) throws IOException {
-        Request request = makeUrlRequest(CacheControl.FORCE_NETWORK, wiki, url)
-                .addHeader(OfflineCacheInterceptor.SAVE_HEADER, OfflineCacheInterceptor.SAVE_HEADER_SAVE)
-                .addHeader(OfflineCacheInterceptor.LANG_HEADER, pageTitle.getWikiSite().languageCode())
-                .addHeader(OfflineCacheInterceptor.TITLE_HEADER, UriUtil.encodeURL(pageTitle.getPrefixedText()))
-                .build();
-
+        Request request = makeUrlRequest(wiki, url, pageTitle).build();
         Response rsp = OkHttpConnectionFactory.getClient().newCall(request).execute();
 
         // Read the entirety of the response, so that it's written to cache by the interceptor.
@@ -352,8 +349,12 @@ public class SavedPageSyncService extends JobIntentService {
         rsp.body().close();
     }
 
-    @NonNull private Request.Builder makeUrlRequest(@NonNull CacheControl cacheControl, @NonNull WikiSite wiki, @NonNull String url) {
-        return new Request.Builder().cacheControl(cacheControl).url(UriUtil.resolveProtocolRelativeUrl(wiki, url));
+    @NonNull private Request.Builder makeUrlRequest(@NonNull WikiSite wiki, @NonNull String url, @NonNull PageTitle pageTitle) {
+        return new Request.Builder().cacheControl(CacheControl.FORCE_NETWORK).url(UriUtil.resolveProtocolRelativeUrl(wiki, url))
+                .addHeader("Accept-Language", WikipediaApp.getInstance().getAcceptLanguage(pageTitle.getWikiSite()))
+                .addHeader(OfflineCacheInterceptor.SAVE_HEADER, OfflineCacheInterceptor.SAVE_HEADER_SAVE)
+                .addHeader(OfflineCacheInterceptor.LANG_HEADER, pageTitle.getWikiSite().languageCode())
+                .addHeader(OfflineCacheInterceptor.TITLE_HEADER, UriUtil.encodeURL(pageTitle.getPrefixedText()));
     }
 
     private void persistPageThumbnail(@NonNull PageTitle title, @NonNull String url) {
