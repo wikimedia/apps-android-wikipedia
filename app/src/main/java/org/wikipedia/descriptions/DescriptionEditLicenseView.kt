@@ -14,7 +14,7 @@ class DescriptionEditLicenseView constructor(context: Context, attrs: AttributeS
 
     init {
         inflate(context, R.layout.view_description_edit_license, this)
-        licenseText.movementMethod = LinkMovementMethod()
+        licenseText.movementMethod = LinkMovementMethod.getInstance()
         buildLicenseNotice(ARG_NOTICE_DEFAULT)
     }
 

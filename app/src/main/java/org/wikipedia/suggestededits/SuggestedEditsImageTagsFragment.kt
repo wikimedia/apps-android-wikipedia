@@ -13,6 +13,7 @@ import android.view.ViewGroup
 import android.widget.CompoundButton
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.fragment.app.Fragment
 import com.google.android.material.chip.Chip
 import io.reactivex.Observable
 import io.reactivex.ObservableSource
@@ -47,7 +48,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         fun getLangCode(): String
         fun getSinglePage(): MwQueryPage?
         fun updateActionButton()
-        fun nextPage()
+        fun nextPage(sourceFragment: Fragment?)
     }
 
     var publishing: Boolean = false
@@ -435,7 +436,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                 updateLicenseTextShown()
 
                 publishOverlayContainer.visibility = GONE
-                callback().nextPage()
+                callback().nextPage(this)
                 setPublishedState()
             }
         }, duration * 3)

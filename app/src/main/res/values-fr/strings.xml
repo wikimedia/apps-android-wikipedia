@@ -232,6 +232,7 @@
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Bibliothèques utilisées</string>
   <string name="about_contributors_heading">Contributeurs</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Page de l\'équipe&lt;/a&gt;</string>
   <string name="about_translators_heading">Traducteurs</string>
   <string name="about_translators_translatewiki">Cette application a été traduite par les traducteurs bénévoles de &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licence</string>
@@ -371,6 +372,7 @@
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Correspondre au thème du système</string>
   <string name="page_footer_license_text">Le contenu est disponible sous $1 sauf indication contraire</string>
   <string name="empty_tab_title">Nouvel onglet</string>
+  <string name="menu_save_all_tabs">Enregistrer tous les onglets</string>
   <string name="crash_report_activity_title">Erreur de l’application</string>
   <string name="crash_report_relaunch_or_quit">Désolé, l’application Wikipédia a rencontré une erreur et s’est arrêtée.\n\nDésirez-vous redémarrer ou quitter ?</string>
   <string name="crash_report_relaunch">Redémarrer</string>

@@ -210,6 +210,7 @@
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Bibliotek som har använts</string>
   <string name="about_contributors_heading">Bidragsgivare</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Teamsidan&lt;/a&gt;</string>
   <string name="about_translators_heading">Översättare</string>
   <string name="about_translators_translatewiki">Denna app översattes av de frivilliga översättarna på &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licens</string>
@@ -349,6 +350,7 @@
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Matcha systemtemat</string>
   <string name="page_footer_license_text">Innehållet är tillgängligt under $1 om ingenting annat anges</string>
   <string name="empty_tab_title">Ny flik</string>
+  <string name="menu_save_all_tabs">Spara alla flikar</string>
   <string name="crash_report_activity_title">Applikationsfel</string>
   <string name="crash_report_relaunch_or_quit">Tyvärr stötte Wikipedia-appen på ett fel och avslutades.\n\nVill du starta om eller avsluta?</string>
   <string name="crash_report_relaunch">Starta om</string>
@@ -629,6 +631,7 @@
   <string name="description_edit_success_saved_in_lang_snackbar">Artikelbeskrivningen har publicerats! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Bildtext skapades!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Bildtext skapades! %s</string>
+  <string name="description_edit_success_saved_image_tags_snackbar">Bildtagg(ar) publicerades!</string>
   <string name="description_edit_success_encouragement">Du gjorde precis Wikipedia bättre för alla</string>
   <string name="description_edit_success_done">Klar</string>
   <string name="description_edit_success_did_you_know">Visste du att?</string>
@@ -697,6 +700,7 @@
   <string name="suggested_edits_article_cta_snackbar_action">Visa</string>
   <string name="suggested_edits_feed_card_add_image_caption">Lägg till bildtext</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Lägg till bildtext (%s)</string>
+  <string name="suggested_edits_feed_card_add_image_tags">Lägg till bildtaggar</string>
   <string name="suggested_edits_snackbar_survey_text">Hur har din redigeringsupplevelse varit? Ta en stund att delta i en undersökning om att redigera i appen.</string>
   <string name="suggested_edits_snackbar_survey_action_text">Delta i undersökning</string>
   <string name="suggested_edits_task_action_text_add">Lägg till</string>
@@ -711,10 +715,11 @@
   <string name="suggested_edits_image_tags_snackbar">Lägg till bildtaggar för att göra det lättare för andra att hitta bilderna.</string>
   <string name="suggested_edits_image_tags_task_detail">Tagga bilder för att göra dem enklare att hitta. Välj bland de föreslagna taggarna eller lägg till egna.</string>
   <string name="suggested_edits_image_tags_choose">Lägg till eller välj lämpliga taggar</string>
+  <string name="suggested_edits_image_tags_published_list">Publicerade taggar</string>
   <string name="suggested_edits_image_tags_search">Sök taggar</string>
   <string name="suggested_edits_image_tags_select_title">Du har inte valt några taggar för denna bild</string>
   <string name="suggested_edits_image_tags_select_text">Endast taggar som du väljer kommer att läggas till i bilderna. Taggar som inte väljs kommer att markeras som avvisade. Är du säker på att du vill markera alla taggar som avvisade?</string>
-  <string name="suggested_edits_image_tags_add_tag" fuzzy="true">Lägg till tagg…</string>
+  <string name="suggested_edits_image_tags_add_tag">Lägg till tagg</string>
   <string name="suggested_edits_image_zoom_tooltip">Nyp för att zooma denna bild.</string>
   <string name="suggested_edits_encouragement_message">Tack för dina redigeringar, %s. Nedan kan du hitta fler sätt att bidra på Wikipedia.</string>
   <string name="suggested_edits_onboarding_message">Hej %s, visste du att alla kan redigera på Wikipedia? Nedan kan du hitta roliga sätt att hjälpa till att förbättra Wikipedia. Lycka till med redigeringen!</string>

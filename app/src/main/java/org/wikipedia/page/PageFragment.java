@@ -11,6 +11,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.ActionMode;
+import android.view.ActionProvider;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -19,6 +20,7 @@ import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -34,6 +36,7 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
+import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.BackPressedHandler;
 import org.wikipedia.Constants;
 import org.wikipedia.Constants.InvokeSource;
@@ -144,6 +147,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         void onPageHideAllContent();
         void onPageSetToolbarFadeEnabled(boolean enabled);
         void onPageSetToolbarElevationEnabled(boolean enabled);
+        void onPageCloseActionMode();
     }
 
     private boolean pageRefreshed;
@@ -171,7 +175,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     private CommunicationBridge bridge;
     private LinkHandler linkHandler;
     private EditHandler editHandler;
-    private ActionMode findInPageActionMode;
     private ShareHandler shareHandler;
     private CompositeDisposable disposables = new CompositeDisposable();
     private ActiveTimer activeTimer = new ActiveTimer();
@@ -806,7 +809,36 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         return pageHeaderView;
     }
 
-    public void showFindInPage() {
+    private void showFindReferenceInPage(@NonNull String referenceAnchor, @NonNull List<String> backLinksList, @NonNull String referenceText) {
+        if (model.getPage() == null) {
+            return;
+        }
+        startSupportActionMode(new ActionMode.Callback() {
+            @Override
+            public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+                MenuItem menuItem = menu.add(R.string.menu_page_find_in_page);
+                menuItem.setActionProvider(new FindReferenceInPageActionProvider(requireContext(), referenceAnchor, referenceText, backLinksList));
+                menuItem.expandActionView();
+                return true;
+            }
+
+            @Override
+            public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+                mode.setTag("actionModeFindReferenceInPage");
+                return false;
+            }
+
+            @Override
+            public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+                return false;
+            }
+
+            @Override
+            public void onDestroyActionMode(ActionMode mode) { }
+        });
+    }
+
+    void showFindInPage() {
         if (model.getPage() == null) {
             return;
         }
@@ -816,11 +848,8 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                 = new FindInWebPageActionProvider(this, funnel);
 
         startSupportActionMode(new ActionMode.Callback() {
-            private final String actionModeTag = "actionModeFindInPage";
-
             @Override
             public boolean onCreateActionMode(ActionMode mode, Menu menu) {
-                findInPageActionMode = mode;
                 MenuItem menuItem = menu.add(R.string.menu_page_find_in_page);
                 menuItem.setActionProvider(findInPageActionProvider);
                 menuItem.expandActionView();
@@ -830,7 +859,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
 
             @Override
             public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
-                mode.setTag(actionModeTag);
+                mode.setTag("actionModeFindInPage");
                 return false;
             }
 
@@ -844,7 +873,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                 if (webView == null || !isAdded()) {
                     return;
                 }
-                findInPageActionMode = null;
                 funnel.setPageHeight(webView.getContentHeight());
                 funnel.logDone();
                 webView.clearMatches();
@@ -854,23 +882,15 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         });
     }
 
-    public boolean closeFindInPage() {
-        if (findInPageActionMode != null) {
-            findInPageActionMode.finish();
-            return true;
-        }
-        return false;
-    }
-
     /**
      * Scroll to a specific section in the WebView.
      * @param sectionAnchor Anchor link of the section to scroll to.
      */
     public void scrollToSection(@NonNull String sectionAnchor) {
-        if (!isAdded() || tocHandler == null) {
+        if (!isAdded()) {
             return;
         }
-        tocHandler.scrollToSection(sectionAnchor);
+        bridge.execute(JavaScriptActionHandler.prepareToScrollTo(sectionAnchor, false));
     }
 
     public void onPageLoadError(@NonNull Throwable caught) {
@@ -963,7 +983,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         linkHandler = new LinkHandler(requireActivity()) {
             @Override public void onPageLinkClicked(@NonNull String anchor, @NonNull String linkText) {
                 dismissBottomSheet();
-                bridge.execute(JavaScriptActionHandler.prepareToScrollTo(anchor, "{ highlight: true }"));
+                bridge.execute(JavaScriptActionHandler.prepareToScrollTo(anchor, true));
             }
 
             @Override public void onInternalLinkClicked(@NonNull PageTitle title) {
@@ -995,12 +1015,18 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         bridge.addListener("back_link", (String messageType, JsonObject payload) -> {
             JsonArray backLinks = payload.getAsJsonArray("backLinks");
             if (backLinks.size() > 0) {
-                bridge.execute(JavaScriptActionHandler.prepareToScrollTo(backLinks.get(0).getAsJsonObject().get("id").getAsString(), "{ highlight: true }"));
+                List<String> backLinksList = new ArrayList<>();
+                for (int i = 0; i < backLinks.size(); i++) {
+                    backLinksList.add(backLinks.get(i).getAsJsonObject().get("id").getAsString());
+                }
+                showFindReferenceInPage(StringUtils.defaultString(payload.get("referenceId").getAsString()),
+                        backLinksList, StringUtils.defaultString(payload.get("referenceText").getAsString()));
             }
         });
         bridge.addListener("scroll_to_anchor", (String messageType, JsonObject payload) -> {
             int diffY = DimenUtil.roundedDpToPx(payload.getAsJsonObject("rect").get("y").getAsFloat());
-            webView.setScrollY(webView.getScrollY() + diffY - webView.getHeight() / 2);
+            final int offsetFraction = 3;
+            webView.setScrollY(webView.getScrollY() + diffY - webView.getHeight() / offsetFraction);
         });
         bridge.addListener("image", (String messageType, JsonObject messagePayload) -> {
             String href = decodeURL(messagePayload.get("href").getAsString());
@@ -1022,9 +1048,9 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             if (avCallback == null) {
                 avCallback = new AvCallback();
             }
-            if (!avPlayer.isPlaying() && !(messagePayload.get("data-pronunciation-url") == null)) {
+            if (!avPlayer.isPlaying() && messagePayload.has("url")) {
                 updateProgressBar(true, true, 0);
-                avPlayer.play(messagePayload.get("data-pronunciation-url").getAsString(), avCallback, avCallback);
+                avPlayer.play(UriUtil.resolveProtocolRelativeUrl(messagePayload.get("url").getAsString()), avCallback, avCallback);
             } else {
                 updateProgressBar(false, true, 0);
                 avPlayer.stop();
@@ -1117,9 +1143,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     public boolean onBackPressed() {
         if (tocHandler != null && tocHandler.isVisible()) {
             tocHandler.hide();
-            return true;
-        }
-        if (closeFindInPage()) {
             return true;
         }
         if (pageFragmentLoadState.goBack()) {
@@ -1354,4 +1377,72 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                     }, L::d));
         }
     }
+
+    private class FindReferenceInPageActionProvider extends ActionProvider implements View.OnClickListener {
+        private TextView referenceLabel, referenceCount;
+        private View findInPageNext, findInPagePrev, findInPageClose;
+        private String referenceAnchor, referenceText;
+        private List<String> backLinksList;
+        private int currentPos;
+
+        FindReferenceInPageActionProvider(@NonNull Context context, @NonNull String referenceAnchor,
+                                          @NonNull String referenceText, @NonNull List<String> backLinksList) {
+            super(context);
+            this.referenceAnchor = referenceAnchor;
+            this.referenceText = referenceText;
+            this.backLinksList = backLinksList;
+        }
+
+        @Override
+        public View onCreateActionView() {
+            View view = View.inflate(requireContext(), R.layout.group_find_references_in_page, null);
+            referenceLabel = view.findViewById(R.id.reference_label);
+            referenceCount = view.findViewById(R.id.reference_count);
+            findInPagePrev = view.findViewById(R.id.find_in_page_prev);
+            findInPageNext = view.findViewById(R.id.find_in_page_next);
+            findInPageClose = view.findViewById(R.id.close_button);
+            findInPagePrev.setOnClickListener(this);
+            findInPageNext.setOnClickListener(this);
+            referenceLabel.setOnClickListener(this);
+            findInPageClose.setOnClickListener(this);
+
+            referenceLabel.setText(getString(R.string.reference_list_title) + " " + StringUtils.defaultString(referenceText));
+
+            if (!backLinksList.isEmpty()) {
+                scrollTo(0);
+            }
+            return view;
+        }
+
+        @Override
+        public boolean overridesItemVisibility() {
+            return true;
+        }
+
+        @Override
+        public void onClick(View v) {
+            if (v.equals(findInPagePrev)) {
+                if (!backLinksList.isEmpty()) {
+                    currentPos = --currentPos < 0 ? backLinksList.size() - 1 : currentPos;
+                    scrollTo(currentPos);
+                }
+            } else if (v.equals(findInPageNext)) {
+                if (!backLinksList.isEmpty()) {
+                    currentPos = ++currentPos >= backLinksList.size() ? 0 : currentPos;
+                    scrollTo(currentPos);
+                }
+            } else if (v.equals(referenceLabel)) {
+                bridge.execute(JavaScriptActionHandler.scrollToAnchor(referenceAnchor));
+                callback().onPageCloseActionMode();
+            } else if (v.equals(findInPageClose)) {
+                callback().onPageCloseActionMode();
+            }
+        }
+
+        private void scrollTo(int position) {
+            referenceCount.setText(getString(R.string.find_in_page_result, position + 1, backLinksList.isEmpty() ? 0 : backLinksList.size()));
+            bridge.execute(JavaScriptActionHandler.prepareToScrollTo(backLinksList.get(position), true));
+        }
+    }
+
 }
