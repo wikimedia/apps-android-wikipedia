@@ -182,7 +182,7 @@ public class ReadingListItemView extends ConstraintLayout {
 
     private void clearThumbnails() {
         for (ImageView view : imageViews) {
-            ViewUtil.loadImageUrlInto(view, null);
+            ViewUtil.loadImage(view, null);
         }
     }
 
@@ -211,7 +211,7 @@ public class ReadingListItemView extends ConstraintLayout {
     }
 
     private void loadThumbnail(@NonNull ImageView view, @Nullable String url) {
-        ViewUtil.loadImageUrlInto(view, url);
+        ViewUtil.loadImage(view, url);
     }
 
     @NonNull private String buildStatisticalSummaryText(@NonNull ReadingList readingList) {

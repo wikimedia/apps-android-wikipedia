@@ -3,6 +3,8 @@ package org.wikipedia.views;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.text.TextUtils;
 import android.view.View;
@@ -13,32 +15,47 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.RequestBuilder;
+import com.bumptech.glide.load.MultiTransformation;
+import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
-import com.bumptech.glide.request.RequestOptions;
 
 import org.wikipedia.R;
 import org.wikipedia.util.DimenUtil;
+import org.wikipedia.util.ResourceUtil;
 
 import java.util.Locale;
 
 import static org.wikipedia.settings.Prefs.isImageDownloadEnabled;
 
 public final class ViewUtil {
-    private static RequestOptions ROUNDED_CORNERS_OPTIONS = new RequestOptions().transform(new RoundedCorners(DimenUtil.roundedDpToPx(2)));
+    private static Drawable PLACEHOLDER_DRAWABLE = null;
+    private static MultiTransformation<Bitmap> CENTER_CROP_ROUNDED_CORNERS = new MultiTransformation<>(new CenterCrop(), new RoundedCorners(DimenUtil.roundedDpToPx(2)));
 
-    public static void loadImageUrlInto(@NonNull ImageView drawee, @Nullable String url, boolean roundedCorners) {
-        Glide.with(drawee)
-                .load(isImageDownloadEnabled() && !TextUtils.isEmpty(url) ? Uri.parse(url) : null)
-                // TODO: the rounded-corners transform is applied *before* the "centerCrop" transform specified in XML.
-                // we should move the centerCrop transform out of XML and into here.
-                .apply(ROUNDED_CORNERS_OPTIONS)
-                .into(drawee);
+    public static void loadImageWithRoundedCorners(@NonNull ImageView view, @Nullable String url) {
+        loadImage(view, url, true, false);
     }
 
-    public static void loadImageUrlInto(@NonNull ImageView drawee, @Nullable String url) {
-        Glide.with(drawee)
-                .load(isImageDownloadEnabled() && !TextUtils.isEmpty(url) ? Uri.parse(url) : null)
-                .into(drawee);
+    public static void loadImage(@NonNull ImageView view, @Nullable String url) {
+        loadImage(view, url, false, false);
+    }
+
+    public static void loadImage(@NonNull ImageView view, @Nullable String url, boolean roundedCorners, boolean force) {
+        if (PLACEHOLDER_DRAWABLE == null) {
+            PLACEHOLDER_DRAWABLE = new ColorDrawable(ResourceUtil.getThemedColor(view.getContext(), R.attr.material_theme_border_color));
+        }
+        RequestBuilder<Drawable> builder = Glide.with(view)
+                .load((isImageDownloadEnabled() || force) && !TextUtils.isEmpty(url) ? Uri.parse(url) : null)
+                .placeholder(PLACEHOLDER_DRAWABLE)
+                .error(PLACEHOLDER_DRAWABLE);
+        if (roundedCorners) {
+            builder = builder.transform(CENTER_CROP_ROUNDED_CORNERS);
+        }
+        builder.into(view);
+    }
+
+    public static void clearPlaceholderDrawable() {
+        PLACEHOLDER_DRAWABLE = null;
     }
 
     public static void setCloseButtonInActionMode(@NonNull Context context, @NonNull android.view.ActionMode actionMode) {

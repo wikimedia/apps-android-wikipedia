@@ -507,8 +507,7 @@ public class SearchResultsFragment extends Fragment {
             StringUtil.boldenKeywordText(pageTitleText, result.getPageTitle().getDisplayText(), currentSearchTerm);
 
             searchResultItemImage.setVisibility((result.getPageTitle().getThumbUrl() == null) ? View.GONE : View.VISIBLE);
-            ViewUtil.loadImageUrlInto(searchResultItemImage,
-                    result.getPageTitle().getThumbUrl(), true);
+            ViewUtil.loadImageWithRoundedCorners(searchResultItemImage, result.getPageTitle().getThumbUrl());
 
             // ...and lastly, if we've scrolled to the last item in the list, then
             // continue searching!

@@ -298,7 +298,7 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
         String thumbnailImageUrl = contents.getTitle().getThumbUrl();
         if (thumbnailImageUrl != null) {
             thumbnailView.setVisibility(View.VISIBLE);
-            ViewUtil.loadImageUrlInto(thumbnailView, thumbnailImageUrl);
+            ViewUtil.loadImage(thumbnailView, thumbnailImageUrl);
         }
         if (overlayView != null) {
             overlayView.setPrimaryButtonText(getStringForArticleLanguage(pageTitle,

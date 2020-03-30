@@ -213,7 +213,7 @@ public class PageItemView<T> extends ConstraintLayout {
             setBackgroundColor(getThemedColor(getContext(), R.attr.multi_select_background_color));
         } else {
             imageView.setVisibility(TextUtils.isEmpty(imageUrl) ? GONE : VISIBLE);
-            ViewUtil.loadImageUrlInto(imageView, imageUrl, true);
+            ViewUtil.loadImageWithRoundedCorners(imageView, imageUrl);
             imageSelectedView.setVisibility(GONE);
             setBackgroundColor(getThemedColor(getContext(), R.attr.paper_color));
         }

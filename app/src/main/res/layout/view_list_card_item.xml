@@ -35,7 +35,6 @@
 
     <ImageView
         android:id="@+id/view_list_card_item_image"
-        style="@style/SimpleDraweeViewPlaceholder"
         android:layout_width="@dimen/view_list_card_item_image"
         android:layout_height="@dimen/view_list_card_item_image"
         android:layout_marginStart="16dp"

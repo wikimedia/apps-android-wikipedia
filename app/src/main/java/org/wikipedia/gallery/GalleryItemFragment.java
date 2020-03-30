@@ -287,7 +287,7 @@ public class GalleryItemFragment extends Fragment {
             // show the video thumbnail while the video loads...
             videoThumbnail.setVisibility(View.VISIBLE);
 
-            ViewUtil.loadImageUrlInto(videoThumbnail, mediaInfo.getThumbUrl());
+            ViewUtil.loadImage(videoThumbnail, mediaInfo.getThumbUrl());
             // TODO
             /*
             videoThumbnail.setController(Fresco.newDraweeControllerBuilder()
@@ -316,8 +316,7 @@ public class GalleryItemFragment extends Fragment {
         L.v("Loading image from url: " + url);
 
         updateProgressBar(true);
-
-        ViewUtil.loadImageUrlInto(imageView, url);
+        ViewUtil.loadImage(imageView, url);
         // TODO
         /*
         imageView.setController(Fresco.newDraweeControllerBuilder()

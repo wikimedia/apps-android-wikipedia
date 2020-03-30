@@ -67,7 +67,7 @@ public class GalleryThumbnailScrollView extends RecyclerView {
             mGalleryItem = item;
             mImageView.setOnClickListener(this);
             mImageView.setOnTouchListener(this);
-            ViewUtil.loadImageUrlInto(mImageView, mGalleryItem.imageInfo().getThumbUrl());
+            ViewUtil.loadImage(mImageView, mGalleryItem.imageInfo().getThumbUrl());
         }
 
         @Override

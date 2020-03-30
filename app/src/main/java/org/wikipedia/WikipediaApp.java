@@ -47,6 +47,7 @@ import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.SavedPagesConversionUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.ViewAnimations;
+import org.wikipedia.views.ViewUtil;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -285,6 +286,7 @@ public class WikipediaApp extends Application {
         if (theme != currentTheme) {
             currentTheme = theme;
             Prefs.setCurrentThemeId(currentTheme.getMarshallingId());
+            ViewUtil.clearPlaceholderDrawable();
             bus.post(new ThemeChangeEvent());
         }
     }

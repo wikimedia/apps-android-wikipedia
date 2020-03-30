@@ -139,34 +139,7 @@ public class CaptchaHandler {
         // In case there was a captcha attempt before
         captchaText.setText("");
 
-        // TODO:
-        ViewUtil.loadImageUrlInto(captchaImage, captchaResult.getCaptchaUrl(wiki));
-        /*
-        captchaImage.setController(Fresco.newDraweeControllerBuilder()
-                .setUri(captchaResult.getCaptchaUrl(wiki))
-                .setAutoPlayAnimations(true)
-                .setControllerListener(new BaseControllerListener<ImageInfo>() {
-                    @Override
-                    public void onFinalImageSet(String id, ImageInfo imageInfo, Animatable animatable) {
-                        ((AppCompatActivity)activity).getSupportActionBar().setTitle(R.string.title_captcha);
-
-                        // for our Dark theme, show a "negative image" of the captcha!
-                        final int maxColorVal = 255;
-                        if (WikipediaApp.getInstance().getCurrentTheme().isDark()) {
-                            float[] colorMatrixNegative = {
-                                    -1.0f, 0, 0, 0, maxColorVal, //red
-                                    0, -1.0f, 0, 0, maxColorVal, //green
-                                    0, 0, -1.0f, 0, maxColorVal, //blue
-                                    0, 0, 0, 1.0f, 0 //alpha
-                            };
-                            captchaImage.getDrawable().setColorFilter(new ColorMatrixColorFilter(colorMatrixNegative));
-                        } else {
-                            captchaImage.getDrawable().clearColorFilter();
-                        }
-                    }
-                })
-                .build());
-         */
+        ViewUtil.loadImage(captchaImage, captchaResult.getCaptchaUrl(wiki), false, true);
     }
 
     public void hideCaptcha() {
