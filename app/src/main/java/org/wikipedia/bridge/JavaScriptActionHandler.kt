@@ -59,7 +59,7 @@ object JavaScriptActionHandler {
         val anchor = if (anchorLink.contains("#")) anchorLink.substring(anchorLink.indexOf("#") + 1) else anchorLink
         return "var el = document.getElementById('$anchor');" +
                 "window.scrollTo(0, el.offsetTop - (screen.height / 2));" +
-                "setTimeout(function(){ el.style.backgroundColor='#ee0';" +
+                "setTimeout(function(){ el.style.backgroundColor='#fc3';" +
                 "    setTimeout(function(){ el.style.backgroundColor=null; }, 500);" +
                 "}, 250);"
     }
