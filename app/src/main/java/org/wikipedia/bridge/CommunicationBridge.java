@@ -139,7 +139,7 @@ public class CommunicationBridge {
                 }
             } catch (Exception e) {
                 e.printStackTrace();
-                L.logRemoteErrorIfProd(e);
+                L.logRemoteError(e);
             }
             return false;
         }

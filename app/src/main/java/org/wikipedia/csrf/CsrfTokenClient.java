@@ -126,7 +126,7 @@ public class CsrfTokenClient {
                     }
 
                     @Override
-                    public void twoFactorPrompt(@NonNull Throwable caught, @Nullable String token) {
+                    public void twoFactorPrompt(@NonNull Throwable caught, @NonNull String token) {
                         callback.twoFactorPrompt();
                     }
 

@@ -244,7 +244,7 @@ public class LoginActivity extends BaseActivity {
         }
 
         @Override
-        public void twoFactorPrompt(@NonNull Throwable caught, @Nullable String token) {
+        public void twoFactorPrompt(@NonNull Throwable caught, @NonNull String token) {
             showProgressBar(false);
             firstStepToken = token;
             twoFactorText.setVisibility(View.VISIBLE);
