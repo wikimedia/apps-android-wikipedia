@@ -35,7 +35,7 @@ public class LoginClient {
     private CompositeDisposable disposables = new CompositeDisposable();
     public interface LoginCallback {
         void success(@NonNull LoginResult result);
-        void twoFactorPrompt(@NonNull Throwable caught, @Nullable String token);
+        void twoFactorPrompt(@NonNull Throwable caught, @NonNull String token);
         void passwordResetPrompt(@Nullable String token);
         void error(@NonNull Throwable caught);
     }
