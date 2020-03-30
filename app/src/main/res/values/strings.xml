@@ -381,8 +381,8 @@
     <string name="reading_list_save_to">Save to reading list</string>
     <string name="reading_list_create_new">Create new</string>
     <string name="reading_list_title_exists">Reading list \"%s\" already exists.</string>
-    <string name="reading_list_article_added_to_named">Successfully added %s to %s.</string>
-    <string name="reading_list_article_already_exists">All good! %s already contains %s.</string>
+    <string name="reading_list_article_added_to_named">Successfully added %1$s to %2$s.</string>
+    <string name="reading_list_article_already_exists">All good! %1$s already contains %2$s.</string>
     <string name="reading_list_articles_already_exist_message">All good! %s already contains all articles.</string>
     <string name="reading_list_added_view_button">View list</string>
     <string name="format_reading_list_statistical_summary_singular">1 article, %1$.2f MB</string>
