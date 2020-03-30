@@ -272,8 +272,6 @@
   <string name="nav_item_reading_lists">माझ्या याद्या</string>
   <string name="reading_list_save_to">वाचन यादीत जतन करा</string>
   <string name="reading_list_create_new">नवीन तयार करा</string>
-  <string name="reading_list_added_to_named">%s ला जोडले.</string>
-  <string name="reading_list_already_exists">हा लेख यादीत पूर्वीच आहे.</string>
   <string name="reading_list_added_view_button">यादी बघा</string>
   <string name="reading_list_sort">निवडा</string>
   <string name="reading_list_sort_by_name">नावानुसार निवडा</string>

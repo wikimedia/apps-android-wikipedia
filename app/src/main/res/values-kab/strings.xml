@@ -331,8 +331,6 @@
   <string name="reading_list_save_to">Sekles tabdart n tɣuri</string>
   <string name="reading_list_create_new">Rnu tura</string>
   <string name="reading_list_title_exists">Tabdart n tquri \"%s\" tella yakan.</string>
-  <string name="reading_list_added_to_named">Yettwarna ar %s</string>
-  <string name="reading_list_already_exists">Amagrad-agi yella yakan deg tebdart-agi.</string>
   <string name="reading_list_added_view_button">Sken tabdart</string>
   <string name="format_reading_list_statistical_summary_singular">1 n umagrad, %1$.2f MAṬ</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d n imagraden, %2$.2f MAṬ</string>
@@ -381,7 +379,6 @@
   <string name="reading_lists_confirm_remote_delete_yes">Ih</string>
   <string name="reading_lists_confirm_remote_delete_no">Uhu</string>
   <string name="reading_list_article_save_in_progress">Aisder n umagrad iteddu, udiɣ ad yili s war tuqqna ticki yemmed.</string>
-  <string name="reading_list_already_contains_selection">Tabdart yettwafernen tegber yakan akk isebtar yettwafernen.</string>
   <string name="reading_list_added_articles_list_titled">%1$d n imagraden ttwarnan ar %2$s</string>
   <string name="reading_list_delete_confirm">Tettḥeqqeḍ tebɣiḍ ad tekkseḍ %s?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Kcem iwakken ad tsirgeḍ umuɣen-ik n tɣuri iwakken ad ttwaskelsen deg umiḍan-ik.</string>

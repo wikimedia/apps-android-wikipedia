@@ -299,8 +299,6 @@
   <string name="nav_item_reading_lists">എന്റെ പട്ടികകൾ</string>
   <string name="reading_list_save_to">വായന പട്ടികയിലേക്ക് ചേർക്കുക</string>
   <string name="reading_list_create_new">പുതിയത് സൃഷ്ടിക്കുക</string>
-  <string name="reading_list_added_to_named">%s പട്ടികയിലേക്ക് ചേർക്കുക</string>
-  <string name="reading_list_already_exists">ഈ ലേഖനം പട്ടികയിൽ നേരത്തേയുണ്ട്.</string>
   <string name="reading_list_added_view_button">പട്ടിക കാണുക</string>
   <string name="reading_list_sort">ക്രമീകരിക്കുക</string>
   <string name="reading_list_sort_ellipsis">ഇങ്ങനെ ക്രമപ്പെടുത്തുക...</string>

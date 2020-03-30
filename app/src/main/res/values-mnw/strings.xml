@@ -351,8 +351,6 @@
   <string name="reading_list_save_to">စုတ် ပ္ဍဲ စရင် လိက်ဗွဟ်</string>
   <string name="reading_list_create_new">ခၞံကၠောန် တၟိ</string>
   <string name="reading_list_title_exists">စရင် လိက်ဗွဟ် %s ဂှ် နွံဒၟံင် တုဲတုဲ၊၊</string>
-  <string name="reading_list_added_to_named">စုတ် ပ္ဍဲ %s</string>
-  <string name="reading_list_already_exists">လိက်ပရေင်ဏအ် နွံ ပ္ဍဲ စရင်ဂှ် တုဲတုဲရ၊၊</string>
   <string name="reading_list_added_view_button">ဗဵု စရင်</string>
   <string name="format_reading_list_statistical_summary_singular">၁ လိက်ပရေင်, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d လိက်ပရေင်, %2$.2f MB</string>
@@ -408,7 +406,6 @@
   <string name="reading_lists_confirm_remote_delete_yes">ယွံ</string>
   <string name="reading_lists_confirm_remote_delete_no">ဟအှ်ေ</string>
   <string name="reading_list_article_save_in_progress">လိက်ပရေင်ဏအ် တံင်လုပ်ဒၟံင်၊ ကာလတုဲမ္ဂး လိက်ဂှ် ဗှ် မ္ၚးလာင်ဂွံရ၊၊</string>
-  <string name="reading_list_already_contains_selection">စရင် မရုဲစှ်လဝ်တအ်ဂှ် ပါလုပ်ဒၟံင် ပ္ဍဲ မုက်လိက် မရုဲစှ်လဝ်တုဲတုဲတအ် သီုဖအိုတ်၊၊</string>
   <string name="reading_list_added_articles_list_titled">စုတ် %1$d လိက်ပရေင် ပ္ဍဲ %2$s</string>
   <string name="reading_list_delete_confirm">မၞး မိက်ဂွံ ဇိုတ်ပလီု %s ကွေဟ်ဟ်ရဟာ？</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">လုပ်လံက်အေန် သွက်ဂွံ ကချဳဓရာင်</string>

@@ -373,8 +373,6 @@
   <string name="reading_list_save_to">Uložiť do zoznamu na prečítanie</string>
   <string name="reading_list_create_new">Vytvoriť nový</string>
   <string name="reading_list_title_exists">Zoznam na prečítanie s názvom „%s“ už existuje.</string>
-  <string name="reading_list_added_to_named">Článok bol pridaný do zoznamu %s</string>
-  <string name="reading_list_already_exists">Tento článok sa už v zozname na prečítanie nachádza.</string>
   <string name="reading_list_added_view_button">Zobraziť zoznam</string>
   <string name="format_reading_list_statistical_summary_singular">1 článok, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d článkov, %2$.2f MB</string>
@@ -430,7 +428,6 @@
   <string name="reading_lists_confirm_remote_delete_yes">Áno</string>
   <string name="reading_lists_confirm_remote_delete_no">Nie</string>
   <string name="reading_list_article_save_in_progress">Článok sa preberá. Keď sa preberanie dokončí, bude dostupný aj bez pripojenia na internet.</string>
-  <string name="reading_list_already_contains_selection">Vybraný zoznam už obsahuje všetky vybrané stránky.</string>
   <string name="reading_list_added_articles_list_titled">%1$d článkov pridané do %2$s</string>
   <string name="reading_list_delete_confirm">Naozaj chcete odstrániť zoznam %s?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Ak chcete povoliť synchronizáciu, prihláste sa</string>

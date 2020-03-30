@@ -291,8 +291,6 @@
   <string name="reading_list_save_to">Adjuntez a la lektebla listo</string>
   <string name="reading_list_create_new">Krear nova</string>
   <string name="reading_list_title_exists">Lektebla listo \"%s\" ja existas.</string>
-  <string name="reading_list_added_to_named">Adjuntita a(d) %s.</string>
-  <string name="reading_list_already_exists">Ica artiklo ja esas en ta listo.</string>
   <string name="reading_list_added_view_button">Vidar listo</string>
   <string name="format_reading_list_statistical_summary_singular">1 artiklo, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d artikli, %2$.2f MB</string>

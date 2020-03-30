@@ -251,8 +251,6 @@
   <string name="reading_list_save_to">រក្សាទុកក្នុងបញ្ជីអំណាន</string>
   <string name="reading_list_create_new">បង្កើតថ្មី</string>
   <string name="reading_list_title_exists">បញ្ជីអំណាន \"%s\" មានរួចហើយ។</string>
-  <string name="reading_list_added_to_named">បន្ថែមទៅ %s។</string>
-  <string name="reading_list_already_exists">អត្ថបទនេះមាននៅក្នុងបញ្ជីនោះហើយ។</string>
   <string name="reading_list_added_view_button">មើលបញ្ជី</string>
   <string name="reading_list_sort">តម្រៀប</string>
   <string name="reading_list_sort_ellipsis">តម្រៀបតាម...</string>

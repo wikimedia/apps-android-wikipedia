@@ -216,11 +216,10 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
                 .subscribe(exists -> {
                     String message;
                     if (exists) {
-                        message = getString(R.string.reading_list_already_exists);
+                        message = getString(R.string.reading_list_article_already_exists, readingList.title(), title.getDisplayText());
                         showViewListSnackBar(readingList, message);
-
                     } else {
-                        message = String.format(getString(R.string.reading_list_added_to_named), readingList.title());
+                        message = getString(R.string.reading_list_article_added_to_named, title.getDisplayText(), readingList.title());
                         new ReadingListsFunnel(title.getWikiSite()).logAddToList(readingList, readingLists.size(), invokeSource);
 
                         ReadingListDbHelper.instance().addPageToList(readingList, title, true);
@@ -251,9 +250,7 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
                 .subscribe(numAdded -> {
                     String message;
                     if (numAdded == 0) {
-                        message = (invokeSource == TABS_ACTIVITY) ? String.format(getString(R.string.save_all_tabs_articles_already_exist_message),
-                                readingList.title()) : getString(R.string.reading_list_already_contains_selection);
-
+                        message = getString(R.string.reading_list_articles_already_exist_message, readingList.title());
                     } else {
                         message = (invokeSource == TABS_ACTIVITY) ? String.format(getString(R.string.save_all_tabs_success_message),
                                 readingList.title()) : String.format(getString(R.string.reading_list_added_articles_list_titled), numAdded,

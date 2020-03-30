@@ -347,8 +347,6 @@
   <string name="reading_list_save_to">পড়ার তালিকায় সংরক্ষণ করুন</string>
   <string name="reading_list_create_new">নতুন তৈরি করুন</string>
   <string name="reading_list_title_exists">পড়ার তালিকা \"%s\" ইতিমধ্যে বিদ্যমান।</string>
-  <string name="reading_list_added_to_named">%s-এ যোগ করা হয়েছে।</string>
-  <string name="reading_list_already_exists">এই নিবন্ধটি ইতিমধ্যে সেই তালিকায় রয়েছে।</string>
   <string name="reading_list_added_view_button">তালিকা দেখুন</string>
   <string name="format_reading_list_statistical_summary_singular">১টি নিবন্ধ, %1$.2f মেগাবাইট</string>
   <string name="format_reading_list_statistical_summary_plural">%1$dটি নিবন্ধ, %2$.2f মেগাবাইট</string>

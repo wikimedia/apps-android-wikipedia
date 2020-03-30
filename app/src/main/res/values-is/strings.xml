@@ -363,8 +363,6 @@
   <string name="reading_list_save_to">Vista í leslista</string>
   <string name="reading_list_create_new">Búa til nýjan</string>
   <string name="reading_list_title_exists">Leslistinn „%s“ er þegar til.</string>
-  <string name="reading_list_added_to_named">Bætt við %s.</string>
-  <string name="reading_list_already_exists">Þessi grein er nú þegar á listanum.</string>
   <string name="reading_list_added_view_button">Skoða lista</string>
   <string name="format_reading_list_statistical_summary_singular">1 grein, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d greinar, %2$.2f MB</string>
@@ -420,7 +418,6 @@
   <string name="reading_lists_confirm_remote_delete_yes">Já</string>
   <string name="reading_lists_confirm_remote_delete_no">Nei</string>
   <string name="reading_list_article_save_in_progress">Verið er að sækja þessa grein og verður hún tiltæk án nettengingar þegar því er lokið.</string>
-  <string name="reading_list_already_contains_selection">Valinn listi inniheldur nú þegar allar völdu síðurnar.</string>
   <string name="reading_list_added_articles_list_titled">Bætti %1$d greinum við %2$s</string>
   <string name="reading_list_delete_confirm">Ertu viss um að þú viljir eyða %s?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Skráðu inn til að virkja samstillingu</string>

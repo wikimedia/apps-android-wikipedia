@@ -279,8 +279,6 @@
   <string name="reading_list_save_to">Arbed i\'ch rhestr ddarllen</string>
   <string name="reading_list_create_new">Creu o\'r newydd</string>
   <string name="reading_list_title_exists">Mae \"%s\" yn bodoli\'n barod</string>
-  <string name="reading_list_added_to_named">Ychwanegwyd at %s.</string>
-  <string name="reading_list_already_exists">Mae\'r erthygl hon ar y rhestr yn barod.</string>
   <string name="reading_list_added_view_button">Gweld y rhestr</string>
   <string name="reading_list_sort">Didioli (sortio)</string>
   <string name="reading_list_sort_by_name">Sortio yn ôl yr enw</string>

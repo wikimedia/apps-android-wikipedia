@@ -374,8 +374,6 @@
   <string name="reading_list_save_to">לשמור לרשימת קריאה</string>
   <string name="reading_list_create_new">ליצור חדשה</string>
   <string name="reading_list_title_exists">רשימת הקריאה \"%s\" כבר קיימת.</string>
-  <string name="reading_list_added_to_named">נוסף לרשימה %s.</string>
-  <string name="reading_list_already_exists">הערך הזה כבר ברשימה.</string>
   <string name="reading_list_added_view_button">הצגת הרשימה</string>
   <string name="format_reading_list_statistical_summary_singular">ערך אחד %1$.2f מ\"ב</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d ערכים %2$.2f מ\"ב</string>
@@ -431,7 +429,6 @@
   <string name="reading_lists_confirm_remote_delete_yes">כן</string>
   <string name="reading_lists_confirm_remote_delete_no">לא</string>
   <string name="reading_list_article_save_in_progress">הורדת הערך מתבצעת, והוא יהיה זמין ללא חיבור לרשת כשהיא תושלם.</string>
-  <string name="reading_list_already_contains_selection">הרשימה שנבחרה כבר מכילה את כל הדפים שנבחרו.</string>
   <string name="reading_list_added_articles_list_titled">נוספו %1$d ערכים לרשימה %2$s</string>
   <string name="reading_list_delete_confirm">למחוק את %s?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">נא להיכנס לשם הפעלת הסנכרון</string>

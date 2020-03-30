@@ -204,8 +204,6 @@
   <string name="nav_item_reading_lists" fuzzy="true">Уҡыу өсөн исемлектәр</string>
   <string name="reading_list_save_to">Уҡыу исемлегенә һаҡларға</string>
   <string name="reading_list_create_new">Яңыны төҙөргә</string>
-  <string name="reading_list_added_to_named">%s өҫтәлде.</string>
-  <string name="reading_list_already_exists">Был исемлектә мәҡәлә бар инде.</string>
   <string name="reading_list_added_view_button">Исемлекте ҡарау</string>
   <string name="reading_list_sort">Сортҡа айырыу</string>
   <string name="reading_list_sort_by_name">Исем буйынса айырыу</string>

@@ -384,8 +384,6 @@
   <string name="reading_list_save_to">Naar leeslijst opslaan</string>
   <string name="reading_list_create_new">Nieuwe aanmaken</string>
   <string name="reading_list_title_exists">Leeslijst “%s” bestaan reeds.</string>
-  <string name="reading_list_added_to_named">Toegevoegd aan %s.</string>
-  <string name="reading_list_already_exists">Deze pagina staat al in die lijst.</string>
   <string name="reading_list_added_view_button">Lijst bekijken</string>
   <string name="format_reading_list_statistical_summary_singular">1 pagina, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d pagina\'s, %2$.2f MB</string>
@@ -441,7 +439,6 @@
   <string name="reading_lists_confirm_remote_delete_yes">Ja</string>
   <string name="reading_lists_confirm_remote_delete_no">Nee</string>
   <string name="reading_list_article_save_in_progress">Deze pagina wordt gedownload en zal offline beschikbaar zijn na afloop.</string>
-  <string name="reading_list_already_contains_selection">De gekozen lijst bevat alle geselecteerde pagina\'s reeds.</string>
   <string name="reading_list_added_articles_list_titled">%1$d pagina\'s aan %2$s toegevoegd</string>
   <string name="reading_list_delete_confirm">Weet u zeker dat u %s wilt verwijderen?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Aanmelden om synchronisatie te activeren</string>

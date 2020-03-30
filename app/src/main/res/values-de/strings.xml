@@ -372,8 +372,6 @@
   <string name="reading_list_save_to">Zur Leseliste hinzufügen</string>
   <string name="reading_list_create_new">Neue erstellen</string>
   <string name="reading_list_title_exists">Die Leseliste „%s“ ist bereits vorhanden.</string>
-  <string name="reading_list_added_to_named">Zu %s hinzugefügt.</string>
-  <string name="reading_list_already_exists">Dieser Artikel ist bereits in dieser Liste.</string>
   <string name="reading_list_added_view_button">Liste ansehen</string>
   <string name="format_reading_list_statistical_summary_singular">Ein Artikel, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d Artikel, %2$.2f MB</string>
@@ -429,7 +427,6 @@
   <string name="reading_lists_confirm_remote_delete_yes">Ja</string>
   <string name="reading_lists_confirm_remote_delete_no">Nein</string>
   <string name="reading_list_article_save_in_progress">Der Artikel wird derzeit heruntergeladen und wird offline verfügbar sein, wenn der Download abgeschlossen ist.</string>
-  <string name="reading_list_already_contains_selection">Die ausgewählte Liste enthält bereits alle der ausgewählten Seiten.</string>
   <string name="reading_list_added_articles_list_titled">%1$d Artikel zu %2$s hinzugefügt</string>
   <string name="reading_list_delete_confirm">Bist du sicher, dass du %s löschen möchtest?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Melde dich an, um die Synchronisierung zu aktivieren.</string>

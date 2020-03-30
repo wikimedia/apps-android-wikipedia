@@ -331,8 +331,6 @@
   <string name="reading_list_save_to">পঢ়া তালিকাত সাঁচি থওক</string>
   <string name="reading_list_create_new">নতুন সৃষ্টি কৰক</string>
   <string name="reading_list_title_exists">পঢ়াৰ তালিকা \"%s\" ইতিমধ্যে বিদ্যমান।</string>
-  <string name="reading_list_added_to_named">%s-ত যোগ কৰা হৈছে।</string>
-  <string name="reading_list_already_exists">এই প্ৰবন্ধটো ইতিমধ্যে সেই তালিকাত আছে।</string>
   <string name="reading_list_added_view_button">তালিকা চাওক</string>
   <string name="format_reading_list_statistical_summary_singular">১টা প্ৰবন্ধ, %1$.2f মেগাবাইট</string>
   <string name="format_reading_list_statistical_summary_plural">%1$dটা প্ৰবন্ধ, %2$.2f মেগাবাইট</string>

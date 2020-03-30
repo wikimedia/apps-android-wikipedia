@@ -386,8 +386,6 @@
   <string name="reading_list_save_to">Menu item label for saving the current article to a reading list.</string>
   <string name="reading_list_create_new">Dialog title for creating a new reading list.</string>
   <string name="reading_list_title_exists">Error text shown when a user attempts to create a new list with the same title as an existing list. The \"%s\" symbol is replaced with the title of the existing list.</string>
-  <string name="reading_list_added_to_named">Message shown when an article is added to a reading list. The \"%s\" symbol is replaced with the name of the reading list.</string>
-  <string name="reading_list_already_exists">Message shown when an article already exists in the selected reading list.</string>
   <string name="reading_list_added_view_button">Button label to view the reading list to which the article was just added.</string>
   <string name="format_reading_list_statistical_summary_singular">Summary shown for a reading list that contains one article (singular); this string is formatted with a parameter containing the number of megabytes saved to disk for offline page reading. The %1$.2f symbol is replaced with the cache size of the article.</string>
   <string name="format_reading_list_statistical_summary_plural">Summary shown for a reading list that contains zero or multiple articles (plural); this string is formatted with two arguments: 1)(%1$d) the number of pages in the list, 2)(%2$.2f) a parameter containing the total number of megabytes saved to disk for offline page reading.</string>
@@ -443,7 +441,6 @@
   <string name="reading_lists_confirm_remote_delete_yes">Affirmative answer to confirm that remotely stored reading list data used for syncing across devices should be deleted.\n{{Identical|Yes}}</string>
   <string name="reading_lists_confirm_remote_delete_no">Negative answer to confirm that remotely stored reading list data used for syncing across devices should be deleted.\n{{Identical|No}}</string>
   <string name="reading_list_article_save_in_progress">Message shown when the article is in the process of being downloaded, and is not yet available for offline access.</string>
-  <string name="reading_list_already_contains_selection">Message shown to the user when the user tries to add pages to a reading list but the list already contains all of the chosen pages.</string>
   <string name="reading_list_added_articles_list_titled">Message shown when the user adds articles to a named reading list.  The %1$d symbol is replaced with the number of articles added, and the %2$s symbol is replaced with the list name.</string>
   <string name="reading_list_delete_confirm">Confirmation message shown when deleting a reading list. The \"%s\" symbol is replaced with the name of the list.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Title of warning message shown to a user to login for enabling syncing of reading lists.</string>
@@ -862,5 +859,7 @@
   <string name="text_input_dialog_cancel_button_text">Negative action button text in pop-up dialog for text input.\n{{Identical|Cancel}}</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Negative action button text in date picker pop-up dialog.\n{{Identical|Cancel}}</string>
   <string name="save_all_tabs_success_message">Message shown when articles in open tabs are successfully added to a reading list. The \"%s\" symbol is replaced with the name of the reading list.</string>
-  <string name="save_all_tabs_articles_already_exist_message">Message shown while saving articles in open tabs to a reading list, if all articles in the tabs are already in that reading list. The \"%s\" symbol is replaced with the name of the reading list.</string>
+  <string name="reading_list_articles_already_exist_message">Message shown to users when they try to add already existing articles to a reading list. The \"%s\" symbol is replaced with the name of the reading list.</string>
+  <string name="reading_list_article_added_to_named">Message shown to user when an article gets suffessfully added to a readingList.The first \"%s\" symbol is replaced with the name of the article and the second \"%s\" symbol is replaced with the name of the reading list.</string>
+  <string name="reading_list_article_already_exists">Message shown to users when they try to add an already existing article to a reading list.The first \"%s\" symbol is replaced with the name of the reading list and the second \"%s\" symbol is replaced with the name of the article.</string>
 </resources>

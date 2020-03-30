@@ -318,8 +318,6 @@
   <string name="nav_item_reading_lists" fuzzy="true">Liste de lecturi</string>
   <string name="reading_list_save_to">Salvează în lista de lecturi</string>
   <string name="reading_list_create_new">Creează una nouă</string>
-  <string name="reading_list_added_to_named">Adăugat în %s.</string>
-  <string name="reading_list_already_exists">Acest articol se află deja în acea listă.</string>
   <string name="reading_list_added_view_button">Vezi lista</string>
   <string name="reading_list_sort">Sortare</string>
   <string name="reading_list_sort_by_name">Sortare după titlu</string>

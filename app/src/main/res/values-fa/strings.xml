@@ -377,8 +377,6 @@
   <string name="reading_list_save_to">ذخیره در فهرست مطالعه</string>
   <string name="reading_list_create_new">ایجاد جدید</string>
   <string name="reading_list_title_exists">فهرست خواندن «%s» موجود است.</string>
-  <string name="reading_list_added_to_named">به %s افزوده شد</string>
-  <string name="reading_list_already_exists">این مقاله در فهرست مطالعه موجود است.</string>
   <string name="reading_list_added_view_button">مشاهدهٔ فهرست</string>
   <string name="format_reading_list_statistical_summary_singular">۱ مقاله، %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d مقاله، %2$.2f مگابایت</string>
@@ -434,7 +432,6 @@
   <string name="reading_lists_confirm_remote_delete_yes">بله</string>
   <string name="reading_lists_confirm_remote_delete_no">خیر</string>
   <string name="reading_list_article_save_in_progress">بارگیری مقاله در حال انجام است و به صورت آفلاین قابل دسترس خواهد بود.</string>
-  <string name="reading_list_already_contains_selection">فهرست انتخاب‌شده همیشه شامل همهٔ صفحات انتخاب‌شده‌ است.</string>
   <string name="reading_list_added_articles_list_titled">%1$d مقاله به %2$s اضافه شد</string>
   <string name="reading_list_delete_confirm">آیا مطمئن هستید که می‌خواهید %s را حذف کنید؟</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">برای فعال‌کردن همسان‌سازی وارد شوید</string>

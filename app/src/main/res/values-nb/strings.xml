@@ -356,8 +356,6 @@
   <string name="reading_list_save_to">Lagre i leseliste</string>
   <string name="reading_list_create_new">Opprett ny</string>
   <string name="reading_list_title_exists">Leselisten «%s» finnes allerede.</string>
-  <string name="reading_list_added_to_named">Lagt til i %s.</string>
-  <string name="reading_list_already_exists">Denne artikkelen er allerede i listen.</string>
   <string name="reading_list_added_view_button">Vis liste</string>
   <string name="format_reading_list_statistical_summary_singular">1 artikkel, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d artikler, %2$.2f MB</string>
@@ -412,7 +410,6 @@
   <string name="reading_lists_confirm_remote_delete_yes">Ja</string>
   <string name="reading_lists_confirm_remote_delete_no">Nei</string>
   <string name="reading_list_article_save_in_progress">Artikkelen lastes ned og vil bli tilgjengelig offline når den er ferdig.</string>
-  <string name="reading_list_already_contains_selection">Den valgte listen inneholder allerede alle de valgte sidene.</string>
   <string name="reading_list_added_articles_list_titled">La til %1$d artikler i %2$s</string>
   <string name="reading_list_delete_confirm">Er du sikker på at du vil slette %s?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Logg inn for å aktivere synkronisering</string>
