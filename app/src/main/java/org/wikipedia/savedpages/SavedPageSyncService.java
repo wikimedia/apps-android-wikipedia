@@ -56,8 +56,8 @@ public class SavedPageSyncService extends JobIntentService {
     private static final int JOB_ID = 1000;
     private static final int ENQUEUE_DELAY_MILLIS = 2000;
     public static final int SUMMARY_PROGRESS = 10;
-    public static final int MOBILE_HTML_SECTION_PROGRESS = 50;
-    public static final int MEDIA_LIST_PROGRESS = 70;
+    public static final int MOBILE_HTML_SECTION_PROGRESS = 20;
+    public static final int MEDIA_LIST_PROGRESS = 30;
 
     private static Runnable ENQUEUE_RUNNABLE = () -> enqueueWork(WikipediaApp.getInstance(),
             SavedPageSyncService.class, JOB_ID, new Intent(WikipediaApp.getInstance(), SavedPageSyncService.class));
