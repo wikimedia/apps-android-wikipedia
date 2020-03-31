@@ -39,7 +39,7 @@ android {
         applicationId 'org.wikipedia'
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 50310
+        versionCode 50312
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner "org.wikipedia.WikipediaTestRunner"
         vectorDrawables.useSupportLibrary = true
@@ -85,6 +85,18 @@ android {
             signingConfig signingConfigs.debug
             dimension 'default'
         }
+        labsPCS {
+            versionName computeVersionName('labsPCS')
+            applicationIdSuffix 'labsPCS'
+            signingConfig signingConfigs.debug
+            dimension 'default'
+        }
+        localPCS {
+            versionName computeVersionName('labsPCS')
+            applicationIdSuffix 'labsPCS'
+            signingConfig signingConfigs.debug
+            dimension 'default'
+        }
         prod {
             versionName computeVersionName('r')
             signingConfig signingConfigs.prod
@@ -118,6 +130,16 @@ android {
             manifestPlaceholders = [customChannel:getProperty('customChannel').toString()]
             signingConfig signingConfigs.prod
             dimension 'default'
+        }
+    }
+
+    applicationVariants.all { variant ->
+        if (variant.getName().startsWith("labsPCS")) {
+            variant.buildConfigField "String", "DEFAULT_RESTBASE_URI_FORMAT", '"https://mobileapps.wmflabs.org/%2$s/v1/"'
+        } else if (variant.getName().startsWith("localPCS")) {
+            variant.buildConfigField "String", "DEFAULT_RESTBASE_URI_FORMAT", '"http://10.0.2.2:8888/%2$s/v1/"'
+        } else {
+            variant.buildConfigField "String", "DEFAULT_RESTBASE_URI_FORMAT", '"%1$s://%2$s/api/rest_v1/"'
         }
     }
 

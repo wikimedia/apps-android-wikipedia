@@ -36,18 +36,17 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:paddingBottom="16dp">
+            android:paddingEnd="16dp">
 
             <TextView
                 android:id="@+id/viewArticleTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:ellipsize="end"
                 android:fontFamily="serif"
                 android:lineSpacingExtra="4sp"
                 android:maxLines="2"
-                android:layout_marginTop="11dp"
                 android:textColor="?attr/primary_text_color"
                 android:textSize="24sp"
                 tools:text="Lorem ipsum" />
@@ -87,8 +86,7 @@
             <LinearLayout
                 android:id="@+id/viewAddDescriptionButton"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_height="@dimen/view_card_footer_height"
                 android:gravity="center_vertical">
 
                 <ImageView
