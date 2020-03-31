@@ -365,6 +365,8 @@
   <string name="page_footer_license_text">O conteúdo está disponível sob $1, salvo indicação em contrário</string>
   <string name="empty_tab_title">Nova guia</string>
   <string name="menu_save_all_tabs">Salvar todas as guias</string>
+  <string name="save_all_tabs_success_message">Adicionou com sucesso todos os artigos em guias abertas a %s.</string>
+  <string name="save_all_tabs_articles_already_exist_message">Tudo bom! %s já contém todos os artigos em guias abertas.</string>
   <string name="crash_report_activity_title">Erro no aplicativo</string>
   <string name="crash_report_relaunch_or_quit">Desculpe-nos, o aplicativo da Wikipédia presenciou um erro e foi finalizado.\n\nGostaria de começar ou sair?</string>
   <string name="crash_report_relaunch">Recomeçar</string>
