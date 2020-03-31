@@ -272,7 +272,7 @@
   <string name="gallery_error_video_failed">Video tidak dapat ditayangkan.</string>
   <string name="gallery_save_image_write_permission_rationale">Kebenaran untuk menulis kepada storan pada peranti anda diperlukan untuk menyimpan gambar.</string>
   <string name="gallery_add_image_caption_button">Tambah kapsyen gambar</string>
-  <string name="gallery_add_image_caption_in_language_button" fuzzy="true">Tambah kapsyen gambar %&lt;span class=\"notranslate\"&gt;s&lt;/span&gt;</string>
+  <string name="gallery_add_image_caption_in_language_button">Tambah kapsyen gambar %s</string>
   <string name="err_cannot_save_file">Fail tidak dapat disimpan</string>
   <string name="snippet_share_intro">Fakta menarik di @Wikipedia %1$s: %2$s</string>
   <string name="expand_refs">Ketik untuk kembangkan</string>
