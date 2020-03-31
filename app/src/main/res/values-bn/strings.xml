@@ -10,6 +10,7 @@
 * Rasal Lia
 * Sandipan
 * Sayma Jahan
+* Sourav Halder
 * Tahmid02016
 * Tauhid16
 * Wikisagnik
@@ -126,8 +127,10 @@
   <string name="reset_password_button">সংরক্ষণ ও প্রবেশ করুন</string>
   <string name="preference_title_logout">প্রস্থান</string>
   <string name="toast_logout_complete">প্রস্থান সম্পন্ন</string>
-  <string name="logout_prompt" fuzzy="true">আপনি কি নিশ্চিত যে আপনি প্রস্থান করতে চান?</string>
+  <string name="logout_prompt">আপনি কি নিশ্চিত যে আপনি প্রস্থান করতে চান?</string>
   <string name="logout_dialog_cancel_button_text">বাতিল</string>
+  <string name="logged_out_in_background_title">লগ আউট</string>
+  <string name="logged_out_in_background_dialog">আপনি উইকিপিডিয়া থেকে লগ আউট করেছেন।  আপনি আবার লগ ইন করতে চান?</string>
   <string name="logged_out_in_background_login">প্রবেশ করুন</string>
   <string name="logged_out_in_background_cancel">বাতিল</string>
   <string name="history_empty_title">সম্প্রতি কোন নিবন্ধ দেখা হয়নি</string>
@@ -169,7 +172,7 @@
   <string name="preferences_heading_syncing">সুসংগত করা হচ্ছে</string>
   <string name="preferences_heading_data_usage">ডাটা ব্যাবহার</string>
   <string name="preferences_heading_experimental">পরীক্ষামূলক</string>
-  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">সুসংগত পড়ার তালিকা সক্ষম করুন</string>
+  <string name="preference_title_sync_reading_lists_from_account">সুসংগত পড়ার তালিকা সক্ষম করুন</string>
   <string name="preference_title_download_reading_list_articles">পড়ার তালিকার নিবন্ধ ডাউনলোড করুন</string>
   <string name="preference_summary_sync_reading_lists">বিভিন্ন যন্ত্রে পড়ার তালিকাগুলিকে সুসংগত করার জন্য তাঁদের আপনার উইকিপিডিয়া অ্যাকাউন্টে সংরক্ষণ করে</string>
   <string name="preference_summary_sync_reading_lists_from_account">বিভিন্ন যন্ত্রে পড়ার তালিকাগুলিকে সুসংগত করার জন্য তাঁদের আপনার \"%s\" উইকিপিডিয়া অ্যাকাউন্টে সংরক্ষণ করে</string>
@@ -179,7 +182,7 @@
   <string name="preference_title_eventlogging_opt_in">ব্যবহারের রিপোর্ট পাঠান</string>
   <string name="preference_summary_eventlogging_opt_in">অ্যাপ আরও ভালো করতে উইকিমিডিয়াকে আপনি কিভাবে অ্যাপ্লিকেশন ব্যবহার করছেন সেই সম্পর্কে তথ্য সংগ্রহ করার অনুমতি দিন</string>
   <string name="preference_title_auto_upload_crash_reports">ক্র্যাশ প্রতিবেদন পাঠান</string>
-  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">অ্যাপকে স্বয়ংক্রিয়ভাবে একটি তৃতীয় পক্ষের পরিষেবা প্রদানকারী HockeyApp-এর কাছে ত্রুটি প্রতিবেদন পাঠাতে অনুমতি দিন তাহলে আমরা আপনার ত্রুটি পর্যালোচনা করতে পারবো এবং আরো সহজে ও দ্রুত বাগ ঠিক করতে পারবো।</string>
+  <string name="preference_summary_auto_upload_crash_reports">অ্যাপকে স্বয়ংক্রিয়ভাবে একটি তৃতীয় পক্ষের পরিষেবা প্রদানকারী HockeyApp-এর কাছে ত্রুটি প্রতিবেদন পাঠাতে অনুমতি দিন তাহলে আমরা আপনার ত্রুটি পর্যালোচনা করতে পারবো এবং আরো সহজে ও দ্রুত বাগ ঠিক করতে পারবো।</string>
   <string name="editing_error_spamblacklist">অবরুদ্ধ ডোমেইনের (%s) লিংক সনাক্ত হয়েছে। দয়া করে তাদের সরিয়ে নিন ও আবার চেষ্টা করুন।</string>
   <string name="history_search_list_hint">ইতিহাস অনুসন্ধান</string>
   <string name="error_can_not_process_link">কোনো সংযোগ প্রদর্শিত হয়নি।</string>
@@ -194,7 +197,7 @@
   <string name="about_description">উইকিপিডিয়া অ্যাপ সম্পর্কে</string>
   <string name="privacy_policy_description">গোপনীয়তা নীতি</string>
   <string name="terms_of_use_description">ব্যবহারের শর্তাবলী</string>
-  <string name="about_wikipedia_url" fuzzy="true">https://bn.m.wikipedia.org/wiki/উইকিপিডিয়া:বৃত্তান্ত</string>
+  <string name="about_wikipedia_url">https://bn.m.wikipedia.org/wiki/উইকিপিডিয়া:বৃত্তান্ত</string>
   <string name="privacy_policy_url" fuzzy="true">https://meta.m.wikimedia.org/w/index.php?title=Privacy_policy/bn</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
@@ -323,6 +326,8 @@
   <string name="preference_title_prefer_offline_content">অফলাইন সামগ্রীর পছন্দ</string>
   <string name="preference_summary_prefer_offline_content">সর্বদা নিবন্ধের সর্বশেষ সংস্করণ লোড করার পরিবর্তে অফলাইনে উপলব্ধ নিবন্ধগুলি লোড করে ডেটা খরচ বাঁচান</string>
   <string name="empty_tab_title">নতুন ট্যাব</string>
+  <string name="save_all_tabs_success_message">খোলা ট্যাবগুলিতে সমস্ত নিবন্ধ সাফল্যের সাথে %s এ যুক্ত করা হয়েছে।</string>
+  <string name="save_all_tabs_articles_already_exist_message">সব ভাল! %s ইতিমধ্যে খোলা ট্যাবগুলিতে সমস্ত নিবন্ধ রয়েছে।</string>
   <string name="crash_report_activity_title">অ্যাপ্লিকেশন ত্রুটি</string>
   <string name="crash_report_relaunch_or_quit">আমরা দুঃখিত, উইকিপিডিয়া অ্যাপ্লিকেশন একটি ত্রুটির সম্মুখীন হয়েছে এবং বন্ধ হয়ে গেছে।\n\nআপনি কি পুনরারম্ভ বা প্রস্থান করতে চান?</string>
   <string name="crash_report_relaunch">পুনরারম্ভ করুন</string>

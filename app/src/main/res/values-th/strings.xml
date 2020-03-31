@@ -28,6 +28,7 @@
   <string name="search_hint_search_languages">ค้นหาภาษา</string>
   <string name="search_hint_search_my_lists_and_articles">ค้นหารายชื่อและบทความที่บันทึกใว้</string>
   <string name="nav_item_history">ประวัติ</string>
+  <string name="nav_item_suggested_edits">แนะนำการแก้ไข</string>
   <string name="error_network_error">ไม่สามารถเชื่อมต่อเครือข่ายอินเตอร์เน็ตได้</string>
   <string name="page_error_retry">ลองใหม่</string>
   <string name="card_offline_error_retry">ลองใหม่</string>
@@ -76,6 +77,7 @@
   <string name="map_view_link_text">ดูบนแผนที่</string>
   <string name="other_languages_indication_text">อ่านในภาษาอื่น</string>
   <string name="language_count_link_text">มีให้ใช้ในอีก %d ภาษา</string>
+  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in">ในการเผยแพร่หน้านี้ คุณได้ยอมรับ &lt;a href=\"%1$s\"&gt;นโยบายในการใช้งาน&lt;/a&gt; และเผยแพร่สิ่งที่คุณแก้ไขอย่างถาวรภายใต้ &lt;a href=\"%2$s\"&gt;สัญญาอนุญาต CC BY-SA 3.0&lt;/a&gt;</string>
   <string name="edit_save_action_license_anon">ในการเผยแพร่หน้านี้ คุณได้ยอมรับ &lt;a href=\"%1$s\"&gt;นโยบายในการใช้งาน&lt;/a&gt; และเผยแพร่สิ่งที่คุณแก้ไขอย่างถาวรภายใต้ &lt;a href=\"%2$s\"&gt;สัญญาอนุญาต CC BY-SA 3.0&lt;/a&gt;\nการแก้ไขจะถูกส่งผ่านที่อยู่ไอพีของอุปกรณ์ของคุณ คุณจะมีความเป็นส่วนตัวมากขึ้นถ้าคุณ &lt;a href=\"https://#login\"&gt;ลงชื่อเข้าใช้&lt;/a&gt;</string>
   <string name="preference_title_language">ภาษาของวิกิพีเดีย</string>
@@ -177,7 +179,7 @@
   <string name="preference_title_eventlogging_opt_in">ส่งรายงานการใช้</string>
   <string name="preference_summary_eventlogging_opt_in">อนุญาตให้ Wikimedia เก็บข้อมูลการใช้แอพลิเคชั่นของคุณเพื่อการพัฒนาที่ดีขึ้น</string>
   <string name="preference_title_auto_upload_crash_reports">ส่งรายงานความผิดพลาด</string>
-  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">อนุญาตให้แอพลิเคชั่นส่งรายงานความผิดพลาดไปยัง HockeyApp และผู้ให้บริการโดยอัตโนมัติ เพื่อให้เราทราบถึงปัญหาและแก้ไขข้อผิดพลาดได้เร็วขึ้น</string>
+  <string name="preference_summary_auto_upload_crash_reports">อนุญาติให้แอปพลิเคชันส่งรายงานข้อผิดพลาดที่อาจเกิดขึ้นไปยังบริการของบุคคลที่สามโดยอัตโนมัติ และให้พวกเขามามารถตรวจสอบข้อผิดพลาดและแก้ไขปัญหาได้รวดเร็วและง่ายดายยิ่งขึ้น</string>
   <string name="editing_error_spamblacklist">คุณได้เพิ่มโดเมนเว็บไซต์ต้องห้ามในรายชื่อต้องห้ามของเรา (%s) กรุณาลบมันและลองอีกครั้ง</string>
   <string name="history_search_list_hint">ประวัติการค้นหา</string>
   <string name="error_can_not_process_link">ไม่สามารถแสดงลิงก์นี้ได้</string>
@@ -192,10 +194,13 @@
   <string name="about_description">เกี่ยวกับแอปวิกิพีเดีย</string>
   <string name="privacy_policy_description">นโยบายความเป็นส่วนตัว</string>
   <string name="terms_of_use_description">ข้อตกลงในการใช้</string>
-  <string name="about_wikipedia_url" fuzzy="true">https://th.m.wikipedia.org/wiki/Wikipedia:About</string>
+  <string name="about_wikipedia_url">https://th.wikipedia.org/wiki/วิกิพีเดีย:เกี่ยวกับ</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ?uselang=th#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ?uselang=th</string>
   <string name="android_app_request_an_account_url">https://en.m.wikipedia.org/wiki/Special:UserLogin/signup</string>
+  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.th</string>
+  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.th</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/th</string>
   <string name="about_contributors_heading">ผู้ม่ส่วนร่วม</string>
   <string name="about_translators_heading">ผู้แปล</string>
   <string name="about_app_license_heading">สัญญาอนุญาต</string>

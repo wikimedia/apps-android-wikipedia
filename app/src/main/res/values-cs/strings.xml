@@ -213,6 +213,7 @@
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/cs#Image_tags</string>
   <string name="about_libraries_heading">Použité knihovny</string>
   <string name="about_contributors_heading">Přispěvatelé</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Stránka produkčního týmu&lt;/a&gt;</string>
   <string name="about_translators_heading">Překladatelé</string>
   <string name="about_translators_translatewiki">Tuto aplikaci přeložili dobrovolní překladatelé na &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licence</string>
@@ -352,6 +353,9 @@
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Přizpůsobit vzhledu systému</string>
   <string name="page_footer_license_text">Obsah je dostupný pod $1, pokud není uvedeno jinak</string>
   <string name="empty_tab_title">Nová záložka</string>
+  <string name="menu_save_all_tabs">Uložit všechny záložky</string>
+  <string name="save_all_tabs_success_message">Všechny články v otevřených záložkách byly úspěšně přidány do seznamu %s.</string>
+  <string name="save_all_tabs_articles_already_exist_message">Vše je v pořádku! Seznam %s obsahuje všechny články, které se nacházejí v otevřených záložkách.</string>
   <string name="crash_report_activity_title">Chyba aplikace</string>
   <string name="crash_report_relaunch_or_quit">Omlouváme se, v aplikaci Wikipedie došlo k chybě a byla ukončena.\n\nChcete aplikaci otevřít znovu nebo ji ukončit?</string>
   <string name="crash_report_relaunch">Otevřít znovu</string>
@@ -716,10 +720,12 @@
   <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">Potvrzením navrhovaných značek můžete pomoci, aby byly obrázky snáze vyhledatelné.\n\nZnačky jsou navrhované počítačem, ale musí být ověřeny člověkem pro zajištění přesnosti.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Pouze značky, které vyberete, budou přidány k obrázkům.</string>
   <string name="suggested_edits_image_tags_snackbar">Přidejte značky obrázkům, aby je ostatní mohli snáze najít.</string>
-  <string name="suggested_edits_image_tags_task_detail" fuzzy="true">Označte obrázky, aby je ostatní mohli snáze najít. Značky jsou navrhované počítačem, ale musí být zkontrolovány.</string>
+  <string name="suggested_edits_image_tags_task_detail">Označte obrázky, aby je ostatní mohli snáze najít. Vyberte z navrhovaných značek nebo přidejte vlastní.</string>
   <string name="suggested_edits_image_tags_choose">Vyberte nebo přidejte shodující se značky</string>
+  <string name="suggested_edits_image_tags_search">Vyhledávat značky</string>
   <string name="suggested_edits_image_tags_select_title">Pro tento obrázek jste nevybrali žádné značky</string>
   <string name="suggested_edits_image_tags_select_text">Jen značky, které vyberete, budou přidány k obrázkům. Značky, které nejsou vybrané, budou označeny jako odmítnuté. Jste si jisti, že chcete všechny značky označit jako odmítnuté?</string>
+  <string name="suggested_edits_image_tags_add_tag">Přidat značku</string>
   <string name="suggested_edits_image_zoom_tooltip">Roztáhnutím dvou prstů zvětšíte obrázek.</string>
   <string name="suggested_edits_encouragement_message">Uživateli %s, děkujeme za vaše úpravy. Níže naleznete další způsoby, jak přispívat na Wikipedii.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Dobrý den, uživateli %s&lt;/b&gt;, věděli jste, že editovat Wikipedii může každý? Níže naleznete zábavné způsoby, jak pomoci vylepšit Wikipedii. Přejeme šťastné editování!</string>
