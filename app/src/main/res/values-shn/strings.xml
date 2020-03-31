@@ -401,7 +401,6 @@
   <string name="reading_lists_confirm_remote_delete_yes">ၸႂ်ႈယဝ်ႉ</string>
   <string name="reading_lists_confirm_remote_delete_no">ဢမ်ႇ</string>
   <string name="reading_list_article_save_in_progress">ပွင်ႈၵႂၢမ်းၼႆႉ တိုၵ်ႉလူတ်ႇလူင်းဝႆႉယူႇယဝ်ႉ၊ ပေႃးဝႃႈမၼ်းယဝ်ႉတူဝ်ႈၵႂႃႇၼႆ မၼ်းတေၸၢင်ႈၸႂ်ႉလႆႈ တီႈဢွပ်ႉၾ်လၢႆးယဝ်ႉ။</string>
-  <string name="reading_list_added_articles_list_titled">ပွင်ႈၵႂၢမ်း %1$d ထႅမ်ႈသႂ်ႇၸူး %2$s ယဝ်ႉယဝ်ႈ</string>
   <string name="reading_list_delete_confirm">ၸဝ်ႈၵဝ်ႇ တေမွတ်ႇပႅတ်ႈ %s ဢၼ်ဝႃႈၼၼ်ႉ ၼႄႉၼွၼ်းယဝ်ႉႁႃႉ?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">လွၵ်ႉဢိၼ်ႇ တွၼ်ႈတႃႇ ၶူၼ်းၽဵင်ႇ</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">လွၵ်ႉဢိၼ်ႇတွၼ်ႈတႃႇ ၶႂၢင်းပၼ်သဵၼ်ႈမၢႆလူၸဝ်ႈၵဝ်ႇ တႃႇသိမ်းပၼ်ဝႆႉ တီႈၼႂ်း ဢၶွင်ႉၸဝ်ႈၵဝ်ႇ။</string>

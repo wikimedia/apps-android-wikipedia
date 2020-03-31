@@ -413,7 +413,6 @@
   <string name="reading_lists_confirm_remote_delete_yes">Jes</string>
   <string name="reading_lists_confirm_remote_delete_no">Ne</string>
   <string name="reading_list_article_save_in_progress">La artikolo estas elŝutata, kaj ĝi estos havebla kiam la elŝutado estos kompleta.</string>
-  <string name="reading_list_added_articles_list_titled">Aldoniĝis %1$d artikoloj al %2$s</string>
   <string name="reading_list_delete_confirm">Ĉu vi certas, ke vi volas forigi %s?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Ensalutu por ebligi sinkronigadon</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Ensalutu por ebligi ke viaj legolistoj estu konservitaj al via konto.</string>

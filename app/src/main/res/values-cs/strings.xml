@@ -432,7 +432,6 @@
   <string name="reading_lists_confirm_remote_delete_yes">Ano</string>
   <string name="reading_lists_confirm_remote_delete_no">Ne</string>
   <string name="reading_list_article_save_in_progress">Článek se stahuje. Až se stahování dokončí, bude článek dostupný i bez připojení k internetu (offline).</string>
-  <string name="reading_list_added_articles_list_titled">%1$d článků přidáno do %2$s</string>
   <string name="reading_list_delete_confirm">Opravdu chcete odstranit seznam „%s“?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Přihlaste se pro povolení synchronizace</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Přihlaste se, abyste povolili ukládání seznamů k přečtení na váš účet.</string>

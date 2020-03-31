@@ -379,7 +379,6 @@
   <string name="reading_lists_confirm_remote_delete_yes">Ih</string>
   <string name="reading_lists_confirm_remote_delete_no">Uhu</string>
   <string name="reading_list_article_save_in_progress">Aisder n umagrad iteddu, udiɣ ad yili s war tuqqna ticki yemmed.</string>
-  <string name="reading_list_added_articles_list_titled">%1$d n imagraden ttwarnan ar %2$s</string>
   <string name="reading_list_delete_confirm">Tettḥeqqeḍ tebɣiḍ ad tekkseḍ %s?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Kcem iwakken ad tsirgeḍ umuɣen-ik n tɣuri iwakken ad ttwaskelsen deg umiḍan-ik.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Sefsex</string>

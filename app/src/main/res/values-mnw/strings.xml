@@ -406,7 +406,6 @@
   <string name="reading_lists_confirm_remote_delete_yes">ယွံ</string>
   <string name="reading_lists_confirm_remote_delete_no">ဟအှ်ေ</string>
   <string name="reading_list_article_save_in_progress">လိက်ပရေင်ဏအ် တံင်လုပ်ဒၟံင်၊ ကာလတုဲမ္ဂး လိက်ဂှ် ဗှ် မ္ၚးလာင်ဂွံရ၊၊</string>
-  <string name="reading_list_added_articles_list_titled">စုတ် %1$d လိက်ပရေင် ပ္ဍဲ %2$s</string>
   <string name="reading_list_delete_confirm">မၞး မိက်ဂွံ ဇိုတ်ပလီု %s ကွေဟ်ဟ်ရဟာ？</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">လုပ်လံက်အေန် သွက်ဂွံ ကချဳဓရာင်</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">လုပ်လံက်အေန် သွက်ဂွံ ကဵုအခေါင် စရင် လိက်ဗွဟ် မၞး ဂွံ ဂိုင်သိပ် ပ္ဍဲ အကံက် မၞး၊၊</string>

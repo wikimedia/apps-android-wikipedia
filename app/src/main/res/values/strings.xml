@@ -344,7 +344,6 @@
     <string name="page_footer_license_text">Content is available under $1 unless otherwise noted</string>
     <string name="empty_tab_title">New tab</string>
     <string name="menu_save_all_tabs">Save all tabs</string>
-    <string name="save_all_tabs_success_message">Successfully added all articles in open tabs to %s.</string>
 
     <!-- Crash reporter -->
     <string name="crash_report_activity_title">Application error</string>
@@ -439,7 +438,7 @@
     <string name="reading_lists_confirm_remote_delete_yes">Yes</string>
     <string name="reading_lists_confirm_remote_delete_no">No</string>
     <string name="reading_list_article_save_in_progress">The article is being downloaded, and it will be available offline when complete.</string>
-    <string name="reading_list_added_articles_list_titled">Added %1$d articles to %2$s</string>
+    <string name="reading_list_successfully_added_articles_to_list">Successfully Added %1$d articles to %2$s</string>
     <string name="reading_list_delete_confirm">Are you sure you want to delete %s?</string>
     <string name="reading_list_preference_login_to_enable_sync_dialog_title">Log in to enable sync</string>
     <string name="reading_list_preference_login_to_enable_sync_dialog_text">Log in to allow your reading lists to be saved to your account.</string>

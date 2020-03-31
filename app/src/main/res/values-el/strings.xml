@@ -385,7 +385,6 @@
   <string name="reading_list_login_reminder_title">Λίστες ανάγνωσης Sync</string>
   <string name="reading_lists_confirm_remote_delete_yes">Ναι</string>
   <string name="reading_lists_confirm_remote_delete_no">Όχι</string>
-  <string name="reading_list_added_articles_list_titled">Προστέθηκαν %1$d λήμματα στο %2$s</string>
   <string name="reading_list_delete_confirm">Είστε σίγουρος ότι θέλετε να διαγράψετε το %s;</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Συνδεθείτε για να ενεργοποιήσετε τον συγχρονισμό</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Ακύρωση</string>

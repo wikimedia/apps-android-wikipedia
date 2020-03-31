@@ -388,7 +388,6 @@
   <string name="reading_lists_confirm_remote_delete_yes">Iya</string>
   <string name="reading_lists_confirm_remote_delete_no">Ora</string>
   <string name="reading_list_article_save_in_progress">Artikelé pinuju diundhuh, lan bakal wis siyap ing njaban jaringan nalika rampung olèhé ngundhuh.</string>
-  <string name="reading_list_added_articles_list_titled">Nambahaké artikel %1$d ing %2$s</string>
   <string name="reading_list_delete_confirm">Apa panjenengan yakin arep mbusak %s?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Mlebu log saperlu ngurubaké sinkronisasi</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Mlebu log saperlu ngidinaké pratélan wacané panjenengan kasimpen ing akuné panjenengan.</string>

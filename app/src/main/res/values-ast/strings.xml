@@ -417,7 +417,6 @@
   <string name="reading_lists_confirm_remote_delete_yes">Sí</string>
   <string name="reading_lists_confirm_remote_delete_no">Non</string>
   <string name="reading_list_article_save_in_progress">L\'artículu ta descargándose, y tará disponible sin conexón cuando se complete.</string>
-  <string name="reading_list_added_articles_list_titled">Añadiéronse %1$d artículos a %2$s</string>
   <string name="reading_list_delete_confirm">¿Tas seguru de que quies desaniciar %s?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Anicia sesión p\'activar la sincronización</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Anicia sesión pa permitir guardar les llistes de llectura na to cuenta.</string>

@@ -451,7 +451,6 @@
   <string name="reading_lists_confirm_remote_delete_yes">是</string>
   <string name="reading_lists_confirm_remote_delete_no">否</string>
   <string name="reading_list_article_save_in_progress">条目已开始下载，并将在完成时离线可用。</string>
-  <string name="reading_list_added_articles_list_titled">已添加%1$d个条目至%2$s</string>
   <string name="reading_list_delete_confirm">您确定要删除%s么？</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">登录以启用同步</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">登录以将您的阅读列表保存到您的帐户中。</string>

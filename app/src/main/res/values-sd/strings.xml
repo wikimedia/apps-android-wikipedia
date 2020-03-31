@@ -389,7 +389,6 @@
   <string name="reading_lists_confirm_remote_delete_yes">ھا</string>
   <string name="reading_lists_confirm_remote_delete_no">نہ</string>
   <string name="reading_list_article_save_in_progress">ھي مضمون لاٿو پيو وڃي، ۽ اھو مڪمل ٿيڻ کانپوءِ آفلائين موجود ھوندو.</string>
-  <string name="reading_list_added_articles_list_titled">%1$d مضمونن کي %2$s کي ۾ وڌو ويو</string>
   <string name="reading_list_delete_confirm">ڇا توھان کي پڪ آھي تہ توھان %s ڊاھڻ ٿا چاھيو؟</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">پڙھڻ جي فھرست کي پنھنجي کاتي ۾ سانڍڻ لاءِ داخل ٿيو.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">رد</string>

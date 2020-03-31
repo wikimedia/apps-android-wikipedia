@@ -398,7 +398,6 @@
   <string name="reading_lists_confirm_remote_delete_yes">ہاں</string>
   <string name="reading_lists_confirm_remote_delete_no">نہیں</string>
   <string name="reading_list_article_save_in_progress">یہ مضمون ڈاؤنلوڈ ہو رہا ہے، مکمل ہونے کے بعد یہ آف لائن دستیاب ہوگا۔</string>
-  <string name="reading_list_added_articles_list_titled">%2$s میں %1$d مضامین شامل کیے گئے</string>
   <string name="reading_list_delete_confirm">کیا آپ یقینی طور پر اس کو مطالعہ کی فہرست سے %s حذف کرنا چاہتے ہیں؟</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">منسوخ</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">داخل ہوں</string>

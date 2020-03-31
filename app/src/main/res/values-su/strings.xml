@@ -375,7 +375,6 @@
   <string name="reading_lists_confirm_remote_delete_yes">Nya</string>
   <string name="reading_lists_confirm_remote_delete_no">Teu</string>
   <string name="reading_list_article_save_in_progress">Artikel keur diundeur, sarta bakal nyangkaruk sacara oflén nalika geus bérés.</string>
-  <string name="reading_list_added_articles_list_titled">%1$d ditambahkeun ka %2$s</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Asup log pikeun ngahurungkeun singkronan</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Bolay</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Asup log</string>

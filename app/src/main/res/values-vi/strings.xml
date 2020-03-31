@@ -364,7 +364,6 @@
   <string name="reading_lists_confirm_remote_delete_yes">Có</string>
   <string name="reading_lists_confirm_remote_delete_no">Không</string>
   <string name="reading_list_article_save_in_progress">Bài này đang được tải về. Nó sẽ có sẵn ngoại tuyến khi tải về xong.</string>
-  <string name="reading_list_added_articles_list_titled">Đã thêm %1$d bài viết vào %2$s</string>
   <string name="reading_list_delete_confirm">Bạn có chắc chắn muốn xóa %s?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Đăng nhập để bật đồng bộ hóa</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Đăng nhập để cho phép các danh sách đọc được lưu vào tài khoản của bạn.</string>

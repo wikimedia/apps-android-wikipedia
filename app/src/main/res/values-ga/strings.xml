@@ -387,7 +387,6 @@
   <string name="reading_lists_confirm_remote_delete_yes">Bain</string>
   <string name="reading_lists_confirm_remote_delete_no">Ná bain</string>
   <string name="reading_list_article_save_in_progress">Tá an t-alt á íoslódáil, agus beidh sé ar fáil as líne nuair a bheidh sé críochnaithe.</string>
-  <string name="reading_list_added_articles_list_titled">Cuireadh %1$d alt le %2$s</string>
   <string name="reading_list_delete_confirm">An bhfuil tú cinnte gur mhaith leat %s a scriosadh?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Logáil isteach le sioncronú a chumasú</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Logáil isteach le ceadú go sábhálfar do chuid liostaí léitheoireachta chuig do chuntas.</string>

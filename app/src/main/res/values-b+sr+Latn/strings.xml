@@ -408,7 +408,6 @@
   <string name="reading_lists_confirm_remote_delete_yes">Da</string>
   <string name="reading_lists_confirm_remote_delete_no">Ne</string>
   <string name="reading_list_article_save_in_progress">Članak se preuzima. Po završetku preuzimanja će biti dostupan oflajn.</string>
-  <string name="reading_list_added_articles_list_titled">Na listu „%2$s” su dodati članci (%1$d)</string>
   <string name="reading_list_delete_confirm">Želite li zaista da izbrišete „%s”?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Prijavite se da biste omogućili sinhronizaciju</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Prijavite se da biste sačuvali liste za čitanje na vaš nalog.</string>
