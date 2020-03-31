@@ -43,6 +43,8 @@ android {
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner "org.wikipedia.WikipediaTestRunner"
         vectorDrawables.useSupportLibrary = true
+
+        buildConfigField "String", "DEFAULT_RESTBASE_URI_FORMAT", '"%1$s://%2$s/api/rest_v1/"'
     }
 
     sourceSets {
@@ -81,21 +83,23 @@ android {
     productFlavors {
         dev {
             versionName computeVersionName('dev')
-            applicationIdSuffix 'dev'
+            applicationIdSuffix '.dev'
             signingConfig signingConfigs.debug
             dimension 'default'
         }
         labsPCS {
             versionName computeVersionName('labsPCS')
-            applicationIdSuffix 'labsPCS'
+            applicationIdSuffix '.labsPCS'
             signingConfig signingConfigs.debug
             dimension 'default'
+            buildConfigField "String", "DEFAULT_RESTBASE_URI_FORMAT", '"https://mobileapps.wmflabs.org/%2$s/v1/"'
         }
         localPCS {
             versionName computeVersionName('labsPCS')
-            applicationIdSuffix 'labsPCS'
+            applicationIdSuffix '.labsPCS'
             signingConfig signingConfigs.debug
             dimension 'default'
+            buildConfigField "String", "DEFAULT_RESTBASE_URI_FORMAT", '"http://10.0.2.2:8888/%2$s/v1/"'
         }
         prod {
             versionName computeVersionName('r')
@@ -104,13 +108,13 @@ android {
         }
         alpha {
             versionName computeVersionName('alpha')
-            applicationIdSuffix 'alpha'
+            applicationIdSuffix '.alpha'
             signingConfig signingConfigs.debug
             dimension 'default'
         }
         beta {
             versionName computeVersionName('beta')
-            applicationIdSuffix 'beta'
+            applicationIdSuffix '.beta'
             signingConfig signingConfigs.prod
             dimension 'default'
         }
@@ -276,14 +280,8 @@ addSyncContentProviderAuthority 'readinglists', 'reading_lists'
 
 private void addSyncContentProviderAuthority(String path, String name) {
     android.productFlavors.all { ProductFlavor flavor ->
-        String authority = "${appId(flavor)}.sync.${path}"
+        String authority = "${android.defaultConfig.applicationId + flavor.applicationIdSuffix}.sync.${path}"
         resValue 'string', "${name.toLowerCase()}_authority", authority
         buildConfigField 'String', "${name.toUpperCase()}_AUTHORITY", "\"$authority\""
     }
-}
-
-private String appId(ProductFlavor flavor) {
-    String suffix = flavor.applicationIdSuffix
-    String id = android.defaultConfig.applicationId + (suffix ? ".$suffix" : '')
-    return id
 }
