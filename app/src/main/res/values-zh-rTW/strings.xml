@@ -355,6 +355,8 @@
   <string name="page_footer_license_text">除非另有註明，否則頁面內容均以 $1 條款授權</string>
   <string name="empty_tab_title">新分頁</string>
   <string name="menu_save_all_tabs">儲存所有分頁</string>
+  <string name="save_all_tabs_success_message">成功新增在所有開啟分頁裡的條目到%s。</string>
+  <string name="save_all_tabs_articles_already_exist_message">一切完成！%s已包含了在所有開啟分頁裡的條目。</string>
   <string name="crash_report_activity_title">應用程式錯誤</string>
   <string name="crash_report_relaunch_or_quit">很抱歉，維基百科應用程式發生錯誤並且已終止運行。\n\n要重新啟動，還是結束程式？</string>
   <string name="crash_report_relaunch">重新啟動</string>

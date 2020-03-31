@@ -368,6 +368,8 @@
   <string name="page_footer_license_text">Aksi belirtilmediği sürece içerik, $1 lisansı kapsamındadır.</string>
   <string name="empty_tab_title">Yeni sekme</string>
   <string name="menu_save_all_tabs">Tüm sekmeleri kaydet</string>
+  <string name="save_all_tabs_success_message">Açık sekmelerdeki tüm maddeler %s klasörüne başarıyla eklendi.</string>
+  <string name="save_all_tabs_articles_already_exist_message">Hepsi iyi! %s zaten açık sekmelerdeki tüm makaleleri içeriyor.</string>
   <string name="crash_report_activity_title">Uygulama hatası</string>
   <string name="crash_report_relaunch_or_quit">Üzgünüz, Vikipedi uygulaması bir sorunla karşılaştı ve kapatıldı.\n\nBaştan başlamak mı yoksa çıkmak mı istiyorsunuz?</string>
   <string name="crash_report_relaunch">Baştan başla</string>

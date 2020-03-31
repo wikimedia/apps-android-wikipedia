@@ -390,7 +390,7 @@
   <string name="format_reading_list_statistical_detail_singular">1つの記事のうちの%1$dをオフラインで利用できます。%2$.2f MB</string>
   <string name="format_reading_list_statistical_detail_plural">%2$d件の記事のうち、%1$d件がオフラインで利用できます。  %3$.2f MB</string>
   <string name="reading_list_sort">並べ替え</string>
-  <string name="reading_list_sort_ellipsis">ソート順:</string>
+  <string name="reading_list_sort_ellipsis">並び順:</string>
   <string name="reading_list_sort_by_name">名前順に並べ替え</string>
   <string name="reading_list_sort_by_name_desc">名前順に並べ替え (降順)</string>
   <string name="reading_list_sort_by_recent">新しい方から並べ替え</string>

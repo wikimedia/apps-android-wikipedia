@@ -352,6 +352,8 @@
   <string name="page_footer_license_text">Вміст доступний на умовах $1, якщо не вказано інше</string>
   <string name="empty_tab_title">Нова вкладка</string>
   <string name="menu_save_all_tabs">Зберегти всі вкладки</string>
+  <string name="save_all_tabs_success_message">Успішно додано всі статті у відкритих вкладках до %s.</string>
+  <string name="save_all_tabs_articles_already_exist_message">Усе добре! %s уже містить всі статті у відкритих вкладках.</string>
   <string name="crash_report_activity_title">Помилка програми</string>
   <string name="crash_report_relaunch_or_quit">Перепрошуємо, у додатку Вікіпедії сталася помилка і його було закрито.\n\nХочете почати спочатку чи вийти?</string>
   <string name="crash_report_relaunch">Почати спочатку</string>

@@ -210,6 +210,7 @@
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/ca</string>
   <string name="about_libraries_heading">Biblioteques utilitzades</string>
   <string name="about_contributors_heading">Col·laboradors</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Pàgina de l\'equip&lt;/a&gt;</string>
   <string name="about_translators_heading">Traductors</string>
   <string name="about_translators_translatewiki">La traducció de l\'aplicació és obra dels traductors voluntaris de &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Llicència</string>
@@ -349,6 +350,9 @@
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Coincideix amb el tema del sistema</string>
   <string name="page_footer_license_text">El contingut està disponible sota $1 si no s\'indica el contrari</string>
   <string name="empty_tab_title">Pestanya nova</string>
+  <string name="menu_save_all_tabs">Desa totes les pestanyes</string>
+  <string name="save_all_tabs_success_message">S\'han afegit amb èxit tots els articles de les pestanyes obertes a %s.</string>
+  <string name="save_all_tabs_articles_already_exist_message">Tot bé! %s ja conté tots els articles en les pestanyes obertes.</string>
   <string name="crash_report_activity_title">Error de l\'aplicació</string>
   <string name="crash_report_relaunch_or_quit">Ens sap greu, l\'aplicació de Viquipèdia ha experimentat un error i s\'ha tancat.\n\nVoleu començar de nou o sortir?</string>
   <string name="crash_report_relaunch">Comença de nou</string>
