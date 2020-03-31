@@ -130,7 +130,10 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
     }
 
     @SuppressLint("RtlHardcoded")
-    void setupToC(@NonNull Page page, @NonNull WikiSite wiki, boolean firstPage) {
+    void setupToC(@Nullable Page page, @NonNull WikiSite wiki, boolean firstPage) {
+        if (page == null) {
+            return;
+        }
         adapter.setPage(page);
         rtl = L10nUtil.isLangRTL(wiki.languageCode());
         showOnboading = Prefs.isTocTutorialEnabled() && !page.isMainPage() && !firstPage;
