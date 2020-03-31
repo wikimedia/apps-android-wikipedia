@@ -44,6 +44,9 @@ android {
         testInstrumentationRunner "org.wikipedia.WikipediaTestRunner"
         vectorDrawables.useSupportLibrary = true
 
+        dimension 'default'
+        signingConfig signingConfigs.debug
+
         buildConfigField "String", "DEFAULT_RESTBASE_URI_FORMAT", '"%1$s://%2$s/api/rest_v1/"'
     }
 
@@ -84,56 +87,43 @@ android {
         dev {
             versionName computeVersionName('dev')
             applicationIdSuffix '.dev'
-            signingConfig signingConfigs.debug
-            dimension 'default'
         }
         labsPCS {
-            versionName computeVersionName('labsPCS')
-            applicationIdSuffix '.labsPCS'
-            signingConfig signingConfigs.debug
-            dimension 'default'
+            versionName computeVersionName('dev')
+            applicationIdSuffix '.dev'
             buildConfigField "String", "DEFAULT_RESTBASE_URI_FORMAT", '"https://mobileapps.wmflabs.org/%2$s/v1/"'
         }
         localPCS {
-            versionName computeVersionName('labsPCS')
-            applicationIdSuffix '.labsPCS'
-            signingConfig signingConfigs.debug
-            dimension 'default'
+            versionName computeVersionName('dev')
+            applicationIdSuffix '.dev'
             buildConfigField "String", "DEFAULT_RESTBASE_URI_FORMAT", '"http://10.0.2.2:8888/%2$s/v1/"'
         }
         prod {
             versionName computeVersionName('r')
             signingConfig signingConfigs.prod
-            dimension 'default'
         }
         alpha {
             versionName computeVersionName('alpha')
             applicationIdSuffix '.alpha'
-            signingConfig signingConfigs.debug
-            dimension 'default'
         }
         beta {
             versionName computeVersionName('beta')
             applicationIdSuffix '.beta'
             signingConfig signingConfigs.prod
-            dimension 'default'
         }
         amazon {
             versionName computeVersionName('amazon')
             signingConfig signingConfigs.prod
-            dimension 'default'
         }
         fdroid {
             versionName computeVersionName('fdroid')
             signingConfig signingConfigs.prod
-            dimension 'default'
         }
         custom {
             versionName computeVersionName(customChannel)
             // next line is for injecting a custom channel value into the custom/AndroidManifest.xml
             manifestPlaceholders = [customChannel:getProperty('customChannel').toString()]
             signingConfig signingConfigs.prod
-            dimension 'default'
         }
     }
 
