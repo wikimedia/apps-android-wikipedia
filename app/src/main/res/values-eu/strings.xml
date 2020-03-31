@@ -6,6 +6,7 @@
 * EukeneFL
 * Fitoschido
 * Gorkaazk
+* Iñaki LL
 * Mikel Ibaiba
 * Osoitz
 * Sator
@@ -331,6 +332,8 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Irudia lausotu (gai ilunetan)</string>
   <string name="preference_title_prefer_offline_content">Konexiorik gabeko edukia hobestu</string>
   <string name="preference_summary_prefer_offline_content">Aurreztu itzazu datuak, lineaz kanpo erabilgarri dauden artikuluak kargatuz, artikulu baten azken bertsioa kargatzearen ordez</string>
+  <string name="save_all_tabs_success_message">Fitxa irekietako artikulu guztiak behar bezala gehitu dira %s(e)ra.</string>
+  <string name="save_all_tabs_articles_already_exist_message">Dena ondo! %s(e)k fitxa irekietako artikulu guztiak biltzen ditu dagoeneko.</string>
   <string name="crash_report_activity_title">Aplikazioaren akatsa</string>
   <string name="crash_report_relaunch_or_quit">Sentitzen dugu, Wikipedia aplikazioak errorea jasan du eta eten egin da.\n\nBerriro hasi ala irten nahiko zenuke?</string>
   <string name="crash_report_relaunch">Berriro ere hasi</string>
