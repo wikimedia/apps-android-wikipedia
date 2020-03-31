@@ -340,6 +340,8 @@
   <string name="page_footer_license_text">Содржината е достапна под $1, освен ако не е поинаку наведено</string>
   <string name="empty_tab_title">Ново јазиче</string>
   <string name="menu_save_all_tabs">Зачувај ги сите јазичиња</string>
+  <string name="save_all_tabs_success_message">Успешно ставени сите статии од отворените јазичиња во %s.</string>
+  <string name="save_all_tabs_articles_already_exist_message">Сè е во ред! %s веќе ги содржи сите статии во отворени јазичиња.</string>
   <string name="crash_report_activity_title">Грешка во прилогот</string>
   <string name="crash_report_relaunch_or_quit">За жал, прилогот наиде на грешка и беше запрен.\n\nДали би сакале да почнете одново или да напуштите?</string>
   <string name="crash_report_relaunch">Почни одново</string>

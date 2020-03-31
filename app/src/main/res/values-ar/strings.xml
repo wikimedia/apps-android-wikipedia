@@ -222,6 +222,7 @@
   <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="about_libraries_heading">المكتبات المستخدمة</string>
   <string name="about_contributors_heading">المساهمون</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;صفحة الفريق&lt;/a&gt;</string>
   <string name="about_translators_heading">المترجمون</string>
   <string name="about_translators_translatewiki">قام بترجمة هذا التطبيق مترجمون متطوعون في &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">الترخيص</string>
@@ -361,6 +362,9 @@
   <string name="theme_chooser_dialog_match_system_theme_switch_label">تطابق موضوع النظام</string>
   <string name="page_footer_license_text">المحتوى متوفر تحت رخصة $1 إلا إذا ذُكر غير ذلك</string>
   <string name="empty_tab_title">لسان جديد</string>
+  <string name="menu_save_all_tabs">حفظ كل الألسنة</string>
+  <string name="save_all_tabs_success_message">تمت إضافة كل المقالات في الألسنة المفتوحة بنجاح إلى %s.</string>
+  <string name="save_all_tabs_articles_already_exist_message">كل شيء جيد! %s تحتوي بالفعل على كل المقالات في الألسنة المفتوحة.</string>
   <string name="crash_report_activity_title">عطل في التطبيق</string>
   <string name="crash_report_relaunch_or_quit">نحن آسفون، وقع خطأ في تطبيق ويكيبيديا أدى إلى توقفه.\n\nتريد أن تبدأ من جديد أو إنهاء؟</string>
   <string name="crash_report_relaunch">ابدأ من جديد</string>
@@ -641,6 +645,7 @@
   <string name="description_edit_success_saved_in_lang_snackbar">تم نشر وصف المقالة! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">تم نشر تعليق الصورة!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">تم نشر تعليق الصورة! (%s)</string>
+  <string name="description_edit_success_saved_image_tags_snackbar">وسم(وسوم) الصورة تم نشرها!</string>
   <string name="description_edit_success_encouragement">لقد جعلت ويكيبيديا أفضل للجميع</string>
   <string name="description_edit_success_done">تم</string>
   <string name="description_edit_success_did_you_know">هل تعلم؟</string>
@@ -724,10 +729,11 @@
   <string name="suggested_edits_image_tags_snackbar">اضافة أوسمة على الصور لتسهيل العثور عليها بواسطة الآخرين</string>
   <string name="suggested_edits_image_tags_task_detail">ضع وسم على الصور لتسهيل العثور عليها. اختر من الأوسمة المقترحة أو أضف الأوسمة الخاصة بك.</string>
   <string name="suggested_edits_image_tags_choose">أضف أو اختر الأوسمة المطابقة</string>
+  <string name="suggested_edits_image_tags_published_list">وسوم منشورة</string>
   <string name="suggested_edits_image_tags_search">علامات البحث</string>
   <string name="suggested_edits_image_tags_select_title">لم تقم بتحديد أي علامات لهذه الصورة</string>
   <string name="suggested_edits_image_tags_select_text">ستتم إضافة الأوسمة التي تختارها فقط إلى الصور. سيتم تمييز الأوسمة التي لم يتم تحديدها على أنها مرفوضة. هل أنت متأكد أنك تريد وضع علامة على جميع الأوسمة على أنها مرفوضة؟</string>
-  <string name="suggested_edits_image_tags_add_tag" fuzzy="true">أضف وسمًا...</string>
+  <string name="suggested_edits_image_tags_add_tag">إضافة وسم</string>
   <string name="suggested_edits_image_zoom_tooltip">ضم الاصبعين لتكبير هذه الصورة.</string>
   <string name="suggested_edits_encouragement_message">%s، شكرا على تعديلاتك، يمكنك العثور أدناه على المزيد من الطرق للمساهمة في ويكيبيديا.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;مرحبا %s&lt;/b&gt;، هل تعلم أنه يمكن للجميع تحرير ويكيبيديا؟ يمكنك العثور أدناه على طرق ممتعة للمساعدة في تحسين ويكيبيديا. تحرير سعيد!</string>
