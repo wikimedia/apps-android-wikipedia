@@ -43,6 +43,11 @@ android {
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner "org.wikipedia.WikipediaTestRunner"
         vectorDrawables.useSupportLibrary = true
+
+        dimension 'default'
+        signingConfig signingConfigs.debug
+
+        buildConfigField "String", "DEFAULT_RESTBASE_URI_FORMAT", '"%1$s://%2$s/api/rest_v1/"'
     }
 
     sourceSets {
@@ -81,43 +86,44 @@ android {
     productFlavors {
         dev {
             versionName computeVersionName('dev')
-            applicationIdSuffix 'dev'
-            signingConfig signingConfigs.debug
-            dimension 'default'
+            applicationIdSuffix '.dev'
+        }
+        labsPCS {
+            versionName computeVersionName('dev')
+            applicationIdSuffix '.dev'
+            buildConfigField "String", "DEFAULT_RESTBASE_URI_FORMAT", '"https://mobileapps.wmflabs.org/%2$s/v1/"'
+        }
+        localPCS {
+            versionName computeVersionName('dev')
+            applicationIdSuffix '.dev'
+            buildConfigField "String", "DEFAULT_RESTBASE_URI_FORMAT", '"http://10.0.2.2:8888/%2$s/v1/"'
         }
         prod {
             versionName computeVersionName('r')
             signingConfig signingConfigs.prod
-            dimension 'default'
         }
         alpha {
             versionName computeVersionName('alpha')
-            applicationIdSuffix 'alpha'
-            signingConfig signingConfigs.debug
-            dimension 'default'
+            applicationIdSuffix '.alpha'
         }
         beta {
             versionName computeVersionName('beta')
-            applicationIdSuffix 'beta'
+            applicationIdSuffix '.beta'
             signingConfig signingConfigs.prod
-            dimension 'default'
         }
         amazon {
             versionName computeVersionName('amazon')
             signingConfig signingConfigs.prod
-            dimension 'default'
         }
         fdroid {
             versionName computeVersionName('fdroid')
             signingConfig signingConfigs.prod
-            dimension 'default'
         }
         custom {
             versionName computeVersionName(customChannel)
             // next line is for injecting a custom channel value into the custom/AndroidManifest.xml
             manifestPlaceholders = [customChannel:getProperty('customChannel').toString()]
             signingConfig signingConfigs.prod
-            dimension 'default'
         }
     }
 
@@ -254,14 +260,8 @@ addSyncContentProviderAuthority 'readinglists', 'reading_lists'
 
 private void addSyncContentProviderAuthority(String path, String name) {
     android.productFlavors.all { ProductFlavor flavor ->
-        String authority = "${appId(flavor)}.sync.${path}"
+        String authority = "${android.defaultConfig.applicationId + flavor.applicationIdSuffix}.sync.${path}"
         resValue 'string', "${name.toLowerCase()}_authority", authority
         buildConfigField 'String', "${name.toUpperCase()}_AUTHORITY", "\"$authority\""
     }
-}
-
-private String appId(ProductFlavor flavor) {
-    String suffix = flavor.applicationIdSuffix
-    String id = android.defaultConfig.applicationId + (suffix ? ".$suffix" : '')
-    return id
 }
