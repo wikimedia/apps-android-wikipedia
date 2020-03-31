@@ -10,9 +10,10 @@
     <TextView
         android:id="@+id/reference_label"
         android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:gravity="center_vertical"
+        android:layout_height="match_parent"
         android:layout_marginStart="16dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:gravity="center_vertical"
         android:maxLines="1"
         android:textColor="?attr/colorAccent"
         android:textSize="16sp"
@@ -27,7 +28,7 @@
         android:id="@+id/reference_count"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:gravity="center"
+        android:gravity="center_vertical"
         android:textSize="12sp"
         tools:text="99/99"
         tools:visibility="visible" />
@@ -45,6 +46,7 @@
         style="@style/Widget.AppCompat.ImageButton"
         android:layout_width="48dp"
         android:layout_height="48dp"
+        android:layout_gravity="center_vertical"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/find_previous"
         app:srcCompat="@drawable/ic_expand_less_themed_24dp" />
@@ -54,6 +56,7 @@
         style="@style/Widget.AppCompat.ImageButton"
         android:layout_width="48dp"
         android:layout_height="48dp"
+        android:layout_gravity="center_vertical"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/find_next"
         app:srcCompat="@drawable/ic_expand_more_themed_24dp" />
@@ -63,6 +66,7 @@
         style="@style/Widget.AppCompat.ImageButton"
         android:layout_width="48dp"
         android:layout_height="48dp"
+        android:layout_gravity="center_vertical"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/dialog_close_description"
         app:srcCompat="@drawable/ic_close_themed_24dp" />
