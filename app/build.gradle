@@ -127,16 +127,6 @@ android {
         }
     }
 
-    applicationVariants.all { variant ->
-        if (variant.getName().startsWith("labsPCS")) {
-            variant.buildConfigField "String", "DEFAULT_RESTBASE_URI_FORMAT", '"https://mobileapps.wmflabs.org/%2$s/v1/"'
-        } else if (variant.getName().startsWith("localPCS")) {
-            variant.buildConfigField "String", "DEFAULT_RESTBASE_URI_FORMAT", '"http://10.0.2.2:8888/%2$s/v1/"'
-        } else {
-            variant.buildConfigField "String", "DEFAULT_RESTBASE_URI_FORMAT", '"%1$s://%2$s/api/rest_v1/"'
-        }
-    }
-
     packagingOptions {
         exclude 'META-INF/services/javax.annotation.processing.Processor' // required by Butter Knife
 
