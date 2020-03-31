@@ -215,7 +215,7 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
                 .subscribe(exists -> {
                     String message;
                     if (exists) {
-                        message = getString(R.string.reading_list_article_already_exists, readingList.title(), title.getDisplayText());
+                        message = getString(R.string.reading_list_article_already_exists_message, readingList.title(), title.getDisplayText());
                         showViewListSnackBar(readingList, message);
                     } else {
                         message = getString(R.string.reading_list_article_added_to_named, title.getDisplayText(), readingList.title());
@@ -251,7 +251,7 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
                     if (numAdded == 0) {
                         message = getString(R.string.reading_list_articles_already_exist_message, readingList.title());
                     } else {
-                        message = getString(R.string.reading_list_successfully_added_articles_to_list, numAdded, readingList.title());
+                        message = getString(R.string.reading_list_articles_added_to_named, numAdded, readingList.title());
                         new ReadingListsFunnel().logAddToList(readingList, readingLists.size(), invokeSource);
                     }
                     showViewListSnackBar(readingList, message);
