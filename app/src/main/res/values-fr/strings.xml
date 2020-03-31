@@ -373,6 +373,8 @@
   <string name="page_footer_license_text">Le contenu est disponible sous $1 sauf indication contraire</string>
   <string name="empty_tab_title">Nouvel onglet</string>
   <string name="menu_save_all_tabs">Enregistrer tous les onglets</string>
+  <string name="save_all_tabs_success_message">Bien ajouté tous les articles dans les onglets ouverts à %s.</string>
+  <string name="save_all_tabs_articles_already_exist_message">Tout va bien ! %s contient déjà tous les articles dans les onglets ouverts.</string>
   <string name="crash_report_activity_title">Erreur de l’application</string>
   <string name="crash_report_relaunch_or_quit">Désolé, l’application Wikipédia a rencontré une erreur et s’est arrêtée.\n\nDésirez-vous redémarrer ou quitter ?</string>
   <string name="crash_report_relaunch">Redémarrer</string>

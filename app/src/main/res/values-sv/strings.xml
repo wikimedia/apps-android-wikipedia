@@ -351,6 +351,8 @@
   <string name="page_footer_license_text">Innehållet är tillgängligt under $1 om ingenting annat anges</string>
   <string name="empty_tab_title">Ny flik</string>
   <string name="menu_save_all_tabs">Spara alla flikar</string>
+  <string name="save_all_tabs_success_message">Lade till alla artiklar i de öppnade flikarna till %s.</string>
+  <string name="save_all_tabs_articles_already_exist_message">%s innehåller redan alla artiklar i de öppnade flikarna.</string>
   <string name="crash_report_activity_title">Applikationsfel</string>
   <string name="crash_report_relaunch_or_quit">Tyvärr stötte Wikipedia-appen på ett fel och avslutades.\n\nVill du starta om eller avsluta?</string>
   <string name="crash_report_relaunch">Starta om</string>
