@@ -322,7 +322,7 @@ public class GalleryItemFragment extends Fragment {
                     callback().onShare(GalleryItemFragment.this, bitmap, getShareSubject(), imageTitle);
                 }
             }
-        }.get();
+        }.get(requireContext());
     }
 
     @Override

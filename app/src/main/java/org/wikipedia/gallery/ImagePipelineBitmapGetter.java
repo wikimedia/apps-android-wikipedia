@@ -1,9 +1,16 @@
 package org.wikipedia.gallery;
 
+import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.CustomTarget;
+import com.bumptech.glide.request.transition.Transition;
 
 import org.wikipedia.WikipediaApp;
 
@@ -20,35 +27,19 @@ public abstract class ImagePipelineBitmapGetter {
         Toast.makeText(WikipediaApp.getInstance(), t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
     }
 
-    public void get() {
-        /*
-        ImageRequest request = ImageRequestBuilder.newBuilderWithSource(Uri.parse(imageUrl))
-                .build();
-        ImagePipeline imagePipeline = Fresco.getImagePipeline();
-        DataSource<CloseableReference<CloseableImage>> dataSource
-                = imagePipeline.fetchDecodedImage(request, WikipediaApp.getInstance());
-        dataSource.subscribe(new BitmapDataSubscriber(), UiThreadImmediateExecutorService.getInstance());
-        */
-    }
+    public void get(@NonNull Context context) {
+        Glide.with(context)
+                .asBitmap()
+                .load(imageUrl)
+                .into(new CustomTarget<Bitmap>() {
+                    @Override
+                    public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
+                        onSuccess(resource);
+                    }
 
-    // TODO
-    /*
-    private class BitmapDataSubscriber extends BaseBitmapDataSubscriber {
-        @Override
-        protected void onNewResultImpl(@Nullable Bitmap tempBitmap) {
-            Bitmap bitmap = null;
-            if (tempBitmap != null) {
-                bitmap = Bitmap.createBitmap(tempBitmap.getWidth(), tempBitmap.getHeight(), Bitmap.Config.ARGB_8888);
-                Canvas canvas = new Canvas(bitmap);
-                canvas.drawBitmap(tempBitmap, 0f, 0f, new Paint());
-            }
-            onSuccess(bitmap);
-        }
-
-        @Override
-        protected void onFailureImpl(DataSource<CloseableReference<CloseableImage>> dataSource) {
-            onError(dataSource.getFailureCause());
-        }
+                    @Override
+                    public void onLoadCleared(@Nullable Drawable placeholder) {
+                    }
+                });
     }
-    */
 }

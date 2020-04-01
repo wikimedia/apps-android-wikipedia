@@ -300,7 +300,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
                     FeedbackUtil.showMessage(MainFragment.this, getString(R.string.gallery_share_error, card.baseImage().title()));
                 }
             }
-        }.get();
+        }.get(requireContext());
     }
 
     @Override public void onFeedDownloadImage(FeaturedImage image) {
