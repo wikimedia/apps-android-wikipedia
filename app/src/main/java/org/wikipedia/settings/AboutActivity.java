@@ -63,7 +63,7 @@ public class AboutActivity extends BaseActivity {
     @OnClick(R.id.send_feedback_text) void onSendFeedbackClick(View v) {
         Intent intent = new Intent()
                 .setAction(Intent.ACTION_SENDTO)
-                .setData(Uri.parse("mailto:mobile-android-wikipedia@wikimedia.org?subject=Android App "
+                .setData(Uri.parse("mailto:android-support@wikimedia.org?subject=Android App "
                         + BuildConfig.VERSION_NAME + " Feedback"));
         startActivity(intent);
     }
