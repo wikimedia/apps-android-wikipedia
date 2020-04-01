@@ -472,40 +472,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             webView.setVisibility(View.VISIBLE);
         }
 
-        // TODO: As seen below, we are making four (4) separate requests over the Bridge.
-        // Does this impact performance? Can we reduce this?
-
-        bridge.execute(JavaScriptActionHandler.setFooter(model));
-
-        bridge.evaluate(JavaScriptActionHandler.getRevision(), revision -> {
-            try {
-                this.revision = Long.parseLong(revision.replace("\"", ""));
-            } catch (NumberFormatException e) {
-                L.e(e);
-            }
-        });
-
-        bridge.evaluate(JavaScriptActionHandler.getSections(), value -> {
-            Section[] secArray = GsonUtil.getDefaultGson().fromJson(value, Section[].class);
-            if (secArray != null) {
-                sections = new ArrayList<>(Arrays.asList(secArray));
-                sections.add(0, new Section(0, 0, model.getTitle().getDisplayText(), model.getTitle().getDisplayText(), ""));
-                if (model.getPage() != null) {
-                    model.getPage().setSections(sections);
-                }
-            }
-            tocHandler.setupToC(model.getPage(), model.getTitle().getWikiSite(), pageFragmentLoadState.isFirstPage());
-            tocHandler.setEnabled(true);
-        });
-
-        bridge.evaluate(JavaScriptActionHandler.getProtection(), value -> {
-            Protection protection = GsonUtil.getDefaultGson().fromJson(value, Protection.class);
-            if (model.getPage() != null) {
-                model.getPage().getPageProperties().setProtection(protection);
-                bridge.execute(JavaScriptActionHandler.setUpEditButtons(true, !model.getPage().getPageProperties().canEdit()));
-            }
-        });
-
         checkAndShowBookmarkOnboarding();
         maybeShowAnnouncement();
     }
@@ -1000,6 +966,49 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         };
         bridge.addListener("link", linkHandler);
 
+        bridge.addListener("setup", (String messageType, JsonObject messagePayload) -> {
+            if (!isAdded()) {
+                return;
+            }
+
+            bridge.evaluate(JavaScriptActionHandler.getRevision(), revision -> {
+                try {
+                    this.revision = Long.parseLong(revision.replace("\"", ""));
+                } catch (NumberFormatException e) {
+                    L.e(e);
+                }
+            });
+
+            bridge.evaluate(JavaScriptActionHandler.getSections(), value -> {
+                Section[] secArray = GsonUtil.getDefaultGson().fromJson(value, Section[].class);
+                if (secArray != null) {
+                    sections = new ArrayList<>(Arrays.asList(secArray));
+                    sections.add(0, new Section(0, 0, model.getTitle().getDisplayText(), model.getTitle().getDisplayText(), ""));
+                    if (model.getPage() != null) {
+                        model.getPage().setSections(sections);
+                    }
+                }
+                tocHandler.setupToC(model.getPage(), model.getTitle().getWikiSite(), pageFragmentLoadState.isFirstPage());
+                tocHandler.setEnabled(true);
+            });
+
+            bridge.evaluate(JavaScriptActionHandler.getProtection(), value -> {
+                Protection protection = GsonUtil.getDefaultGson().fromJson(value, Protection.class);
+                if (model.getPage() != null) {
+                    model.getPage().getPageProperties().setProtection(protection);
+                    bridge.execute(JavaScriptActionHandler.setUpEditButtons(true, !model.getPage().getPageProperties().canEdit()));
+                }
+            });
+
+        });
+        bridge.addListener("final_setup", (String messageType, JsonObject messagePayload) -> {
+            if (!isAdded()) {
+                return;
+            }
+
+            bridge.execute(JavaScriptActionHandler.setFooter(model));
+
+        });
         bridge.addListener("reference", (String messageType, JsonObject messagePayload) -> {
             if (!isAdded()) {
                 L.d("Detached from activity, so stopping reference click.");
@@ -1074,7 +1083,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         });
         bridge.addListener("read_more_titles_retrieved", (String messageType, JsonObject messagePayload) -> {
             // TODO: do something with this.
-            L.v(messagePayload.toString());
         });
         bridge.addListener("view_license", (String messageType, JsonObject messagePayload) -> {
             visitInExternalBrowser(requireContext(), Uri.parse(getString(R.string.cc_by_sa_3_url)));
