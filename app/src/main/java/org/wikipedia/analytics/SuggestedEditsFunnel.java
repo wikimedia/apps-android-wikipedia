@@ -16,6 +16,7 @@ import java.util.List;
 import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS;
 import static org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_CAPTION;
 import static org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_DESCRIPTION;
+import static org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_IMAGE_TAGS;
 import static org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_CAPTION;
 import static org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION;
 
@@ -78,6 +79,8 @@ public final class SuggestedEditsFunnel extends TimedFunnel {
             statsCollection.addCaptionStats.impressions++;
         } else if (action == TRANSLATE_CAPTION) {
             statsCollection.translateCaptionStats.impressions++;
+        } else if (action == ADD_IMAGE_TAGS) {
+            statsCollection.machineImageTagStats.impressions++;
         }
     }
 
@@ -127,6 +130,8 @@ public final class SuggestedEditsFunnel extends TimedFunnel {
             statsCollection.addCaptionStats.successes++;
         } else if (action == TRANSLATE_CAPTION) {
             statsCollection.translateCaptionStats.successes++;
+        } else if (action == ADD_IMAGE_TAGS) {
+            statsCollection.machineImageTagStats.successes++;
         }
     }
 
@@ -139,6 +144,8 @@ public final class SuggestedEditsFunnel extends TimedFunnel {
             statsCollection.addCaptionStats.failures++;
         } else if (action == TRANSLATE_CAPTION) {
             statsCollection.translateCaptionStats.failures++;
+        } else if (action == ADD_IMAGE_TAGS) {
+            statsCollection.machineImageTagStats.failures++;
         }
     }
 
@@ -160,19 +167,20 @@ public final class SuggestedEditsFunnel extends TimedFunnel {
     }
 
     private static class SuggestedEditStatsCollection {
-        @SerializedName("add-description") private SuggestedEditStats addDescriptionStats = new SuggestedEditStats();
-        @SerializedName("translate-description") private SuggestedEditStats translateDescriptionStats = new SuggestedEditStats();
-        @SerializedName("add-caption") private SuggestedEditStats addCaptionStats = new SuggestedEditStats();
-        @SerializedName("translate-caption") private SuggestedEditStats translateCaptionStats = new SuggestedEditStats();
+        @SerializedName("a-d") private SuggestedEditStats addDescriptionStats = new SuggestedEditStats();
+        @SerializedName("t-d") private SuggestedEditStats translateDescriptionStats = new SuggestedEditStats();
+        @SerializedName("a-c") private SuggestedEditStats addCaptionStats = new SuggestedEditStats();
+        @SerializedName("t-c") private SuggestedEditStats translateCaptionStats = new SuggestedEditStats();
+        @SerializedName("i-t") private SuggestedEditStats machineImageTagStats = new SuggestedEditStats();
     }
 
     @SuppressWarnings("unused")
     private static class SuggestedEditStats {
-        private int impressions;
-        private int clicks;
-        @SerializedName("suggestions_clicked") private int suggestionsClicked;
-        private int cancels;
-        private int successes;
-        private int failures;
+        @SerializedName("imp")private int impressions;
+        @SerializedName("clk")private int clicks;
+        @SerializedName("sug_clkd") private int suggestionsClicked;
+        @SerializedName("cncl")private int cancels;
+        @SerializedName("suc")private int successes;
+        @SerializedName("fl")private int failures;
     }
 }
