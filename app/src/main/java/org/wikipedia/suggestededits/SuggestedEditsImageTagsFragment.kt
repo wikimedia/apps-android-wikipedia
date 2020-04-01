@@ -24,16 +24,18 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil
+import org.wikipedia.analytics.EditFunnel
 import org.wikipedia.analytics.SuggestedEditsFunnel
 import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.mwapi.MwPostResponse
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.mwapi.media.MediaHelper
-import org.wikipedia.dataclient.wikidata.EntityPostResponse
 import org.wikipedia.login.LoginClient.LoginFailedException
 import org.wikipedia.page.LinkMovementMethodExt
+import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.suggestededits.provider.MissingDescriptionProvider
 import org.wikipedia.util.*
@@ -58,6 +60,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
     private val tagList: MutableList<MwQueryPage.ImageLabel> = ArrayList()
     private var wasCaptionLongClicked: Boolean = false
     private var lastSearchTerm: String = ""
+    private var funnel: EditFunnel? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -162,6 +165,8 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         if (page == null) {
             return
         }
+
+        funnel = EditFunnel(WikipediaApp.getInstance(), PageTitle(page!!.title(), WikiSite(Service.COMMONS_URL)))
 
         tagsLicenseText.visibility = GONE
         tagsHintText.visibility = VISIBLE
@@ -342,6 +347,8 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         publishing = true
         publishSuccess = false
 
+        funnel?.logSaveAttempt()
+
         publishProgressText.setText(R.string.suggested_edits_image_tags_publishing)
         publishProgressCheck.visibility = GONE
         publishOverlayContainer.visibility = VISIBLE
@@ -353,7 +360,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         csrfClient.request(false, object : CsrfTokenClient.Callback {
             override fun success(token: String) {
 
-                val claimObservables = ArrayList<ObservableSource<EntityPostResponse>>()
+                val claimObservables = ArrayList<ObservableSource<MwPostResponse>>()
                 for (label in acceptedLabels) {
                     val claimTemplate = "{\"mainsnak\":" +
                             "{\"snaktype\":\"value\",\"property\":\"P180\"," +
@@ -373,6 +380,13 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                         .flatMap { response ->
                             if (claimObservables.size > 0) {
                                 Observable.zip(claimObservables) { responses ->
+                                    for (res in responses) {
+                                        if (res is MwPostResponse) {
+                                            if (res.pageInfo != null) {
+                                                funnel?.logSaved(res.pageInfo!!.lastRevId)
+                                            }
+                                        }
+                                    }
                                     responses[0]
                                 }
                             } else {
@@ -446,6 +460,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
 
     private fun onError(caught: Throwable) {
         // TODO: expand this a bit.
+        funnel?.logError(caught.localizedMessage)
         publishOverlayContainer.visibility = GONE
         FeedbackUtil.showError(requireActivity(), caught)
     }

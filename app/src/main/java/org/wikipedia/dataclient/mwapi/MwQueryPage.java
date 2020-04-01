@@ -22,6 +22,7 @@ public class MwQueryPage extends BaseModel {
     private int pageid;
     private int ns;
     private int index;
+    private long lastrevid;
     @Nullable private String title;
     @Nullable private List<LangLink> langlinks;
     @Nullable private List<Revision> revisions;
@@ -141,6 +142,10 @@ public class MwQueryPage extends BaseModel {
 
     @NonNull public List<ImageLabel> getImageLabels() {
         return imageLabels != null ? imageLabels : Collections.emptyList();
+    }
+
+    public long getLastRevId() {
+        return lastrevid;
     }
 
     public static class Revision {
