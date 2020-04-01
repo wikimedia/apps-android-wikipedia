@@ -34,7 +34,7 @@ public class EditFunnel extends Funnel {
         );
     }
 
-    public void logSaved(int revID) {
+    public void logSaved(long revID) {
         log(
                 "action", "saved",
                 "revID", revID
