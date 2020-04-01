@@ -50,8 +50,6 @@ public class CardLargeHeaderView extends ConstraintLayout {
         imageView.setOnImageLoadListener(new ImageLoadListener());
     }
 
-    // todo: should this use ViewUtil.loadImageUrlInto() instead? should loadImageUrlInto() set
-    //       view visibility?
     @NonNull public CardLargeHeaderView setImage(@Nullable Uri uri) {
         imageView.setVisibility(uri == null ? GONE : VISIBLE);
         imageView.loadImage(uri);
@@ -86,11 +84,6 @@ public class CardLargeHeaderView extends ConstraintLayout {
                 }
                 animateBackgroundColor(CardLargeHeaderView.this, mainColor);
             });
-        }
-
-        @Override
-        public void onImageFailed() {
-            resetBackgroundColor();
         }
 
         private void animateBackgroundColor(@NonNull View view, @ColorInt int targetColor) {

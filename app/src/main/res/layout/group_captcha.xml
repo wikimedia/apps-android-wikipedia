@@ -38,7 +38,7 @@
 
         <ImageView
             android:id="@+id/captcha_image"
-            style="@style/SimpleDraweeViewPlaceholder"
+            style="@style/ImageViewDefault"
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:layout_gravity="center_horizontal"

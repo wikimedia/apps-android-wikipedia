@@ -336,14 +336,14 @@
         <item name="android:maxLength">11</item>
     </style>
 
-    <style name="SimpleDraweeViewPlaceholder">
+    <style name="ImageViewDefault">
         <item name="android:scaleType">centerCrop</item>
+        <item name="android:contentDescription">@null</item>
     </style>
 
-    <style name="SimpleDraweeViewPlaceholder.ReadingListThumbnail">
+    <style name="ImageViewDefault.ReadingListThumbnail">
         <item name="android:layout_width">28dp</item>
         <item name="android:layout_height">28dp</item>
-        <item name="android:contentDescription">@null</item>
     </style>
 
     <style name="CounterOverflowTextAppearance" parent="@style/TextAppearance.Design.Counter.Overflow">

@@ -11,21 +11,21 @@
 
     <ImageView
         android:id="@+id/item_image_1"
-        style="@style/SimpleDraweeViewPlaceholder.ReadingListThumbnail"
+        style="@style/ImageViewDefault.ReadingListThumbnail"
         android:layout_marginEnd="0.5dp"
         app:layout_constraintEnd_toStartOf="@+id/item_image_2"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/item_image_2"
-        style="@style/SimpleDraweeViewPlaceholder.ReadingListThumbnail"
+        style="@style/ImageViewDefault.ReadingListThumbnail"
         android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/item_image_3"
-        style="@style/SimpleDraweeViewPlaceholder.ReadingListThumbnail"
+        style="@style/ImageViewDefault.ReadingListThumbnail"
         android:layout_marginTop="0.5dp"
         app:layout_constraintEnd_toStartOf="@+id/item_image_4"
         app:layout_constraintStart_toStartOf="@+id/item_image_1"
@@ -33,7 +33,7 @@
 
     <ImageView
         android:id="@+id/item_image_4"
-        style="@style/SimpleDraweeViewPlaceholder.ReadingListThumbnail"
+        style="@style/ImageViewDefault.ReadingListThumbnail"
         android:layout_marginStart="0.5dp"
         android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"

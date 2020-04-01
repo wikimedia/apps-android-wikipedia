@@ -29,7 +29,6 @@ import java.util.Locale;
 import static org.wikipedia.settings.Prefs.isImageDownloadEnabled;
 
 public final class ViewUtil {
-    private static Drawable PLACEHOLDER_DRAWABLE = null;
     private static MultiTransformation<Bitmap> CENTER_CROP_ROUNDED_CORNERS = new MultiTransformation<>(new CenterCrop(), new RoundedCorners(DimenUtil.roundedDpToPx(2)));
 
     public static void loadImageWithRoundedCorners(@NonNull ImageView view, @Nullable String url) {
@@ -41,10 +40,11 @@ public final class ViewUtil {
     }
 
     public static void loadImage(@NonNull ImageView view, @Nullable String url, boolean roundedCorners, boolean force) {
+        Drawable placeholder = getPlaceholderDrawable(view.getContext());
         RequestBuilder<Drawable> builder = Glide.with(view)
                 .load((isImageDownloadEnabled() || force) && !TextUtils.isEmpty(url) ? Uri.parse(url) : null)
-                .placeholder(getPlaceholderDrawable(view.getContext()))
-                .error(getPlaceholderDrawable(view.getContext()));
+                .placeholder(placeholder)
+                .error(placeholder);
         if (roundedCorners) {
             builder = builder.transform(CENTER_CROP_ROUNDED_CORNERS);
         }
@@ -52,14 +52,7 @@ public final class ViewUtil {
     }
 
     static Drawable getPlaceholderDrawable(@NonNull Context context) {
-        if (PLACEHOLDER_DRAWABLE == null) {
-            PLACEHOLDER_DRAWABLE = new ColorDrawable(ResourceUtil.getThemedColor(context, R.attr.material_theme_border_color));
-        }
-        return PLACEHOLDER_DRAWABLE;
-    }
-
-    public static void clearPlaceholderDrawable() {
-        PLACEHOLDER_DRAWABLE = null;
+        return new ColorDrawable(ResourceUtil.getThemedColor(context, R.attr.material_theme_border_color));
     }
 
     public static void setCloseButtonInActionMode(@NonNull Context context, @NonNull android.view.ActionMode actionMode) {

@@ -17,7 +17,7 @@
 
         <org.wikipedia.views.FaceAndColorDetectImageView
             android:id="@+id/view_featured_image_card_image"
-            style="@style/SimpleDraweeViewPlaceholder"
+            style="@style/ImageViewDefault"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop" />

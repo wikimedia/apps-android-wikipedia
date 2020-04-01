@@ -75,7 +75,7 @@
 
         <ImageView
             android:id="@+id/page_list_item_image"
-            style="@style/SimpleDraweeViewPlaceholder"
+            style="@style/ImageViewDefault"
             android:layout_width="@dimen/view_list_card_item_image"
             android:layout_height="@dimen/view_list_card_item_image"
             android:layout_marginEnd="@dimen/list_item_horizontal_padding" />

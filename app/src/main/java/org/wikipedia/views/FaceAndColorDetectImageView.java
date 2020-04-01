@@ -8,6 +8,7 @@ import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.PointF;
 import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
 import android.media.FaceDetector;
 import android.net.Uri;
 import android.util.AttributeSet;
@@ -43,7 +44,6 @@ public class FaceAndColorDetectImageView extends AppCompatImageView {
 
     public interface OnImageLoadListener {
         void onImageLoaded(int bmpHeight, @Nullable PointF faceLocation, @ColorInt int mainColor);
-        void onImageFailed();
     }
 
     @NonNull private OnImageLoadListener listener = new DefaultListener();
@@ -65,14 +65,15 @@ public class FaceAndColorDetectImageView extends AppCompatImageView {
     }
 
     public void loadImage(@Nullable Uri uri) {
+        Drawable placeholder = ViewUtil.getPlaceholderDrawable(getContext());
         if (!isImageDownloadEnabled() || uri == null) {
-            setImageDrawable(ViewUtil.getPlaceholderDrawable(getContext()));
+            setImageDrawable(placeholder);
             return;
         }
         Glide.with(this)
                 .load(uri)
-                .placeholder(ViewUtil.getPlaceholderDrawable(getContext()))
-                .error(ViewUtil.getPlaceholderDrawable(getContext()))
+                .placeholder(placeholder)
+                .error(placeholder)
                 .downsample(DownsampleStrategy.CENTER_OUTSIDE)
                 .transform(new CenterCropWithFace())
                 .into(this);
@@ -85,16 +86,6 @@ public class FaceAndColorDetectImageView extends AppCompatImageView {
     private class DefaultListener implements OnImageLoadListener {
         @Override
         public void onImageLoaded(int bmpHeight, @Nullable final PointF faceLocation, @ColorInt int mainColor) {
-        }
-
-        @Override
-        public void onImageFailed() {
-            if (isAttachedToWindow()) {
-                Glide.with(FaceAndColorDetectImageView.this)
-                        .load(R.drawable.lead_default)
-                        .centerCrop()
-                        .into(FaceAndColorDetectImageView.this);
-            }
         }
     }
 
