@@ -18,6 +18,7 @@ import com.microsoft.appcenter.AppCenter;
 import com.microsoft.appcenter.crashes.Crashes;
 
 import org.wikipedia.analytics.FunnelManager;
+import org.wikipedia.analytics.InstallReferrerListener;
 import org.wikipedia.analytics.SessionFunnel;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.concurrency.RxBus;
@@ -189,6 +190,8 @@ public class WikipediaApp extends Application {
         NotificationPollBroadcastReceiver.startPollTask(this);
 
         SavedPagesConversionUtil.maybeRunOneTimeSavedPagesConversion();
+
+        InstallReferrerListener.newInstance(this);
     }
 
     public int getVersionCode() {
