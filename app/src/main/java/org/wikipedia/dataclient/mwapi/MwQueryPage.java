@@ -232,6 +232,7 @@ public class MwQueryPage extends BaseModel {
         @Nullable private String label;
         @Nullable private String description;
         private boolean selected;
+        private boolean custom;
 
         public ImageLabel() {
         }
@@ -240,6 +241,7 @@ public class MwQueryPage extends BaseModel {
             this.wikidataId = wikidataId;
             this.label = label;
             this.description = description;
+            custom = true;
         }
 
         @NonNull public String getWikidataId() {
@@ -264,6 +266,10 @@ public class MwQueryPage extends BaseModel {
 
         public void setSelected(boolean selected) {
             this.selected = selected;
+        }
+
+        public boolean isCustom() {
+            return custom;
         }
     }
 }
