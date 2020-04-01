@@ -448,6 +448,9 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     }
 
     public void onPageMetadataLoaded() {
+        if (model.getPage() == null) {
+            return;
+        }
         editHandler.setPage(model.getPage());
         refreshView.setEnabled(true);
         refreshView.setRefreshing(false);
@@ -980,24 +983,26 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             });
 
             bridge.evaluate(JavaScriptActionHandler.getSections(), value -> {
+                if (model.getPage() == null) {
+                    return;
+                }
                 Section[] secArray = GsonUtil.getDefaultGson().fromJson(value, Section[].class);
                 if (secArray != null) {
                     sections = new ArrayList<>(Arrays.asList(secArray));
                     sections.add(0, new Section(0, 0, model.getTitle().getDisplayText(), model.getTitle().getDisplayText(), ""));
-                    if (model.getPage() != null) {
-                        model.getPage().setSections(sections);
-                    }
+                    model.getPage().setSections(sections);
                 }
                 tocHandler.setupToC(model.getPage(), model.getTitle().getWikiSite(), pageFragmentLoadState.isFirstPage());
                 tocHandler.setEnabled(true);
             });
 
             bridge.evaluate(JavaScriptActionHandler.getProtection(), value -> {
-                Protection protection = GsonUtil.getDefaultGson().fromJson(value, Protection.class);
-                if (model.getPage() != null) {
-                    model.getPage().getPageProperties().setProtection(protection);
-                    bridge.execute(JavaScriptActionHandler.setUpEditButtons(true, !model.getPage().getPageProperties().canEdit()));
+                if (model.getPage() == null) {
+                    return;
                 }
+                Protection protection = GsonUtil.getDefaultGson().fromJson(value, Protection.class);
+                model.getPage().getPageProperties().setProtection(protection);
+                bridge.execute(JavaScriptActionHandler.setUpEditButtons(true, !model.getPage().getPageProperties().canEdit()));
             });
 
         });
