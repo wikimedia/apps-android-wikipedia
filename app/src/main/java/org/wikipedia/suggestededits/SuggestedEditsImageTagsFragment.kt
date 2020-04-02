@@ -402,10 +402,8 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                         .subscribe({ response ->
                             // TODO: check anything else in the response?
                             publishSuccess = true
-                            SuggestedEditsFunnel.get().success(ADD_IMAGE_TAGS)
                             onSuccess()
                         }, { caught ->
-                            SuggestedEditsFunnel.get().failure(ADD_IMAGE_TAGS)
                             onError(caught)
                         }))
             }
@@ -422,6 +420,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
 
     private fun onSuccess() {
         Prefs.setSuggestedEditsImageTagsNew(false)
+        SuggestedEditsFunnel.get().success(ADD_IMAGE_TAGS)
 
         val duration = 500L
         publishProgressBar.alpha = 1f
@@ -463,6 +462,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
 
     private fun onError(caught: Throwable) {
         // TODO: expand this a bit.
+        SuggestedEditsFunnel.get().failure(ADD_IMAGE_TAGS)
         funnel?.logError(caught.localizedMessage)
         publishOverlayContainer.visibility = GONE
         FeedbackUtil.showError(requireActivity(), caught)

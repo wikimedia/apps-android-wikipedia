@@ -381,7 +381,7 @@ public class DescriptionEditFragment extends Fragment {
             if (funnel != null && logError) {
                 funnel.logError(caught.getMessage());
             }
-            SuggestedEditsFunnel.get().cancel(action);
+            SuggestedEditsFunnel.get().failure(action);
         }
 
         @Override
