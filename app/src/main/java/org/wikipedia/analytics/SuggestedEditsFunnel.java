@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 
 import com.google.gson.annotations.SerializedName;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.Constants.InvokeSource;
 import org.wikipedia.WikipediaApp;
@@ -11,6 +12,7 @@ import org.wikipedia.descriptions.DescriptionEditActivity.Action;
 import org.wikipedia.json.GsonUtil;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS;
@@ -153,17 +155,49 @@ public final class SuggestedEditsFunnel extends TimedFunnel {
         helpOpenedCount++;
     }
 
-    public void contributionsOpened() {
-        contributionsOpenedCount++;
+    public void log() {
+        try {
+            JSONObject jsonObject = new JSONObject(GsonUtil.getDefaultGson().toJson(statsCollection));
+            removeStatsWithNoValues(jsonObject);
+            log(
+                    "edit_tasks", jsonObject,
+                    "help_opened", helpOpenedCount,
+                    "source", (invokeSource.getName())
+            );
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 
-    public void log() {
-        log(
-                "edit_tasks", GsonUtil.getDefaultGson().toJson(statsCollection),
-                "help_opened", helpOpenedCount,
-                "scorecard_opened", contributionsOpenedCount,
-                "source", (invokeSource.getName())
-        );
+    private void removeStatsWithNoValues(JSONObject editTasksJSONObject) {
+        ArrayList<String> editTaskKeysToRemove = new ArrayList<>();
+        try {
+            Iterator<String> editTaskKeys = editTasksJSONObject.keys();
+            while (editTaskKeys.hasNext()) {
+                String key = editTaskKeys.next();
+
+                if (editTasksJSONObject.get(key) instanceof JSONObject) {
+                    JSONObject editTaskInnerTypeJSONObject = (JSONObject) editTasksJSONObject.get(key);
+                    Iterator<String> innerJSONObjectKeys = editTaskInnerTypeJSONObject.keys();
+                    boolean noValue = true;
+
+                    while (innerJSONObjectKeys.hasNext()) {
+                        String keyinner = innerJSONObjectKeys.next();
+                        if (!(editTaskInnerTypeJSONObject.getInt(keyinner) == 0)) {
+                            noValue = false;
+                        }
+                    }
+                    if (noValue) {
+                        editTaskKeysToRemove.add(key);
+                    }
+                }
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        for (String keyy : editTaskKeysToRemove) {
+            editTasksJSONObject.remove(keyy);
+        }
     }
 
     private static class SuggestedEditStatsCollection {
