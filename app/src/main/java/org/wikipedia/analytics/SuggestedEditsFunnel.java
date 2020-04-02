@@ -2,17 +2,20 @@ package org.wikipedia.analytics;
 
 import androidx.annotation.NonNull;
 
+import com.google.gson.JsonElement;
+import com.google.gson.JsonNull;
+import com.google.gson.JsonSerializationContext;
+import com.google.gson.JsonSerializer;
 import com.google.gson.annotations.SerializedName;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 import org.wikipedia.Constants.InvokeSource;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.descriptions.DescriptionEditActivity.Action;
 import org.wikipedia.json.GsonUtil;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS;
@@ -156,47 +159,19 @@ public final class SuggestedEditsFunnel extends TimedFunnel {
     }
 
     public void log() {
-        try {
-            JSONObject jsonObject = new JSONObject(GsonUtil.getDefaultGson().toJson(statsCollection));
-            removeStatsWithNoValues(jsonObject);
-            log(
-                    "edit_tasks", jsonObject,
-                    "help_opened", helpOpenedCount,
-                    "source", (invokeSource.getName())
-            );
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+        log(
+                "edit_tasks", GsonUtil.getDefaultGson().newBuilder()
+                        .registerTypeAdapter(SuggestedEditStats.class, new SuggestedEditsStatsTypeAdapter())
+                        .create().toJson(statsCollection),
+                "help_opened", helpOpenedCount,
+                "source", (invokeSource.getName())
+        );
     }
 
-    private void removeStatsWithNoValues(JSONObject editTasksJSONObject) {
-        ArrayList<String> editTaskKeysToRemove = new ArrayList<>();
-        try {
-            Iterator<String> editTaskKeys = editTasksJSONObject.keys();
-            while (editTaskKeys.hasNext()) {
-                String key = editTaskKeys.next();
-
-                if (editTasksJSONObject.get(key) instanceof JSONObject) {
-                    JSONObject editTaskInnerTypeJSONObject = (JSONObject) editTasksJSONObject.get(key);
-                    Iterator<String> innerJSONObjectKeys = editTaskInnerTypeJSONObject.keys();
-                    boolean noValue = true;
-
-                    while (innerJSONObjectKeys.hasNext()) {
-                        String keyinner = innerJSONObjectKeys.next();
-                        if (!(editTaskInnerTypeJSONObject.getInt(keyinner) == 0)) {
-                            noValue = false;
-                        }
-                    }
-                    if (noValue) {
-                        editTaskKeysToRemove.add(key);
-                    }
-                }
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        for (String keyy : editTaskKeysToRemove) {
-            editTasksJSONObject.remove(keyy);
+    private static class SuggestedEditsStatsTypeAdapter implements JsonSerializer<SuggestedEditStats> {
+        @Override
+        public JsonElement serialize(SuggestedEditStats src, Type typeOfSrc, JsonSerializationContext context) {
+            return src.isEmpty() ? JsonNull.INSTANCE : GsonUtil.getDefaultGson().toJsonTree(src, typeOfSrc);
         }
     }
 
@@ -216,5 +191,9 @@ public final class SuggestedEditsFunnel extends TimedFunnel {
         @SerializedName("cncl")private int cancels;
         @SerializedName("suc")private int successes;
         @SerializedName("fl")private int failures;
+
+        public boolean isEmpty() {
+            return impressions == 0 && clicks == 0 && suggestionsClicked == 0 && cancels == 0 && successes == 0 && failures == 0;
+        }
     }
 }
