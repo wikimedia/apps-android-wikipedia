@@ -43,9 +43,9 @@
 
         <org.wikipedia.views.FaceAndColorDetectImageView
             android:id="@+id/page_list_item_image"
-            style="@style/SimpleDraweeViewPlaceholder"
+            style="@style/ImageViewDefault"
             android:layout_width="72dp"
             android:layout_height="match_parent"
-            app:actualImageScaleType="centerCrop" />
+            android:scaleType="centerCrop" />
     </LinearLayout>
 </androidx.cardview.widget.CardView>

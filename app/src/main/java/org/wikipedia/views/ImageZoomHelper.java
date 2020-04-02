@@ -373,8 +373,8 @@ public class ImageZoomHelper {
         view.setTag(getIntTag(view) | FLAG_ZOOMABLE);
     }
 
-    public static void setZoomEnabled(View view, boolean enabled) {
-        view.setTag(enabled ? getIntTag(view) | FLAG_UNZOOMABLE : getIntTag(view) & ~FLAG_UNZOOMABLE);
+    public static void clearViewZoomable(View view) {
+        view.setTag(getIntTag(view) & ~FLAG_ZOOMABLE);
     }
 
     public interface OnZoomListener {

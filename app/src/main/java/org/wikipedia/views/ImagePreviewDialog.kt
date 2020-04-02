@@ -154,8 +154,7 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
     private fun loadImage(url: String?) {
         progressBar!!.visibility = GONE
         galleryImage.visibility = VISIBLE
-        L.v("Loading image from url: $url")
-        ViewUtil.loadImageUrlInto(galleryImage, url)
+        ViewUtil.loadImage(galleryImage, url)
     }
 
     companion object {

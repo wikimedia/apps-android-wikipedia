@@ -8,11 +8,9 @@
 
     <org.wikipedia.views.FaceAndColorDetectImageView
         android:id="@+id/horizontal_scroll_list_item_image"
-        style="@style/SimpleDraweeViewPlaceholder"
         android:layout_width="match_parent"
         android:layout_height="96dp"
-        android:transitionName="@string/transition_news_item"
-        app:actualImageScaleType="focusCrop" />
+        android:transitionName="@string/transition_news_item" />
 
     <TextView
         android:id="@+id/horizontal_scroll_list_item_text"

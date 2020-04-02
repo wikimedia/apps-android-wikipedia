@@ -14,9 +14,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatDelegate;
 
-import com.facebook.drawee.backends.pipeline.Fresco;
-import com.facebook.imagepipeline.core.ImagePipelineConfig;
-import com.facebook.imagepipeline.nativecode.ImagePipelineNativeLoader;
 import com.microsoft.appcenter.AppCenter;
 import com.microsoft.appcenter.crashes.Crashes;
 
@@ -32,9 +29,6 @@ import org.wikipedia.database.DatabaseClient;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.SharedPreferenceCookieManager;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.dataclient.fresco.DisabledCache;
-import org.wikipedia.dataclient.okhttp.CacheableOkHttpNetworkFetcher;
-import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory;
 import org.wikipedia.edit.summaries.EditSummary;
 import org.wikipedia.events.ChangeTextSizeEvent;
 import org.wikipedia.events.ThemeChangeEvent;
@@ -189,22 +183,6 @@ public class WikipediaApp extends Application {
         initTabs();
 
         enableWebViewDebugging();
-
-        ImagePipelineConfig.Builder config = ImagePipelineConfig.newBuilder(this)
-                .setNetworkFetcher(new CacheableOkHttpNetworkFetcher(OkHttpConnectionFactory.getClient()))
-                .setFileCacheFactory(DisabledCache.factory());
-        try {
-            Fresco.initialize(this, config.build());
-            ImagePipelineNativeLoader.load();
-        } catch (UnsatisfiedLinkError e) {
-            L.e(e);
-            Fresco.shutDown();
-            config.experiment().setNativeCodeDisabled(true);
-            Fresco.initialize(this, config.build());
-        } catch (Exception e) {
-            L.e(e);
-            // TODO: Remove when we're able to initialize Fresco in test builds.
-        }
 
         registerActivityLifecycleCallbacks(activityLifecycleHandler);
 

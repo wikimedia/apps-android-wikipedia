@@ -18,7 +18,6 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.ImageUrlUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
@@ -44,8 +43,6 @@ public class RandomItemFragment extends Fragment {
     @BindView(R.id.view_random_article_card_extract) TextView extractView;
     @BindView(R.id.random_item_error_view) WikiErrorView errorView;
 
-    private static final float IMAGE_ASPECT_RATIO_PORTRAIT = 1.77f;
-    private static final float IMAGE_ASPECT_RATIO_LANDSCAPE = 3.8f;
     private CompositeDisposable disposables = new CompositeDisposable();
     @Nullable private PageSummary summary;
 
@@ -69,8 +66,6 @@ public class RandomItemFragment extends Fragment {
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_random_item, container, false);
         ButterKnife.bind(this, view);
-        imageView.setLegacyVisibilityHandlingEnabled(true);
-        imageView.setAspectRatio(DimenUtil.isLandscape(requireContext()) ? IMAGE_ASPECT_RATIO_LANDSCAPE : IMAGE_ASPECT_RATIO_PORTRAIT);
         errorView.setBackClickListener(v -> requireActivity().finish());
         errorView.setRetryClickListener(v -> {
             progressBar.setVisibility(View.VISIBLE);

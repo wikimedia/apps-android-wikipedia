@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.facebook.drawee.view.SimpleDraweeView xmlns:android="http://schemas.android.com/apk/res/android"
+<ImageView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/gallery_thumbnail_image"
-    style="@style/SimpleDraweeViewPlaceholder"
+    style="@style/ImageViewDefault"
     android:layout_width="@dimen/linkPreviewImageSize"
     android:layout_height="@dimen/linkPreviewImageSize"
     android:layout_margin="5dp"
