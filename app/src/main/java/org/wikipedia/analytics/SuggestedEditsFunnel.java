@@ -87,7 +87,7 @@ public final class SuggestedEditsFunnel extends TimedFunnel {
         } else if (action == TRANSLATE_CAPTION) {
             statsCollection.translateCaptionStats.impressions++;
         } else if (action == ADD_IMAGE_TAGS) {
-            statsCollection.machineImageTagStats.impressions++;
+            statsCollection.imageTagStats.impressions++;
         }
     }
 
@@ -138,7 +138,7 @@ public final class SuggestedEditsFunnel extends TimedFunnel {
         } else if (action == TRANSLATE_CAPTION) {
             statsCollection.translateCaptionStats.successes++;
         } else if (action == ADD_IMAGE_TAGS) {
-            statsCollection.machineImageTagStats.successes++;
+            statsCollection.imageTagStats.successes++;
         }
     }
 
@@ -152,7 +152,7 @@ public final class SuggestedEditsFunnel extends TimedFunnel {
         } else if (action == TRANSLATE_CAPTION) {
             statsCollection.translateCaptionStats.failures++;
         } else if (action == ADD_IMAGE_TAGS) {
-            statsCollection.machineImageTagStats.failures++;
+            statsCollection.imageTagStats.failures++;
         }
     }
 
@@ -182,17 +182,17 @@ public final class SuggestedEditsFunnel extends TimedFunnel {
         @SerializedName("t-d") private SuggestedEditStats translateDescriptionStats = new SuggestedEditStats();
         @SerializedName("a-c") private SuggestedEditStats addCaptionStats = new SuggestedEditStats();
         @SerializedName("t-c") private SuggestedEditStats translateCaptionStats = new SuggestedEditStats();
-        @SerializedName("i-t") private SuggestedEditStats machineImageTagStats = new SuggestedEditStats();
+        @SerializedName("i-t") private SuggestedEditStats imageTagStats = new SuggestedEditStats();
     }
 
     @SuppressWarnings("unused")
     private static class SuggestedEditStats {
-        @SerializedName("imp")private int impressions;
-        @SerializedName("clk")private int clicks;
-        @SerializedName("sug_clkd") private int suggestionsClicked;
-        @SerializedName("cncl")private int cancels;
-        @SerializedName("suc")private int successes;
-        @SerializedName("fl")private int failures;
+        @SerializedName("imp") private int impressions;
+        @SerializedName("clk") private int clicks;
+        @SerializedName("sg") private int suggestionsClicked;
+        @SerializedName("cxl")private int cancels;
+        @SerializedName("suc") private int successes;
+        @SerializedName("fl") private int failures;
 
         public boolean isEmpty() {
             return impressions == 0 && clicks == 0 && suggestionsClicked == 0 && cancels == 0 && successes == 0 && failures == 0;
