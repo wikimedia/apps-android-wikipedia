@@ -32,6 +32,7 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwPostResponse
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.mwapi.media.MediaHelper
+import org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_IMAGE_TAGS
 import org.wikipedia.login.LoginClient.LoginFailedException
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.PageTitle
@@ -418,6 +419,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
 
     private fun onSuccess() {
         Prefs.setSuggestedEditsImageTagsNew(false)
+        SuggestedEditsFunnel.get().success(ADD_IMAGE_TAGS)
 
         val duration = 500L
         publishProgressBar.alpha = 1f
@@ -459,6 +461,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
 
     private fun onError(caught: Throwable) {
         // TODO: expand this a bit.
+        SuggestedEditsFunnel.get().failure(ADD_IMAGE_TAGS)
         funnel?.logError(caught.localizedMessage)
         publishOverlayContainer.visibility = GONE
         FeedbackUtil.showError(requireActivity(), caught)
