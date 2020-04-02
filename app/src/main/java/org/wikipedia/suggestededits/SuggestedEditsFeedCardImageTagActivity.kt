@@ -3,7 +3,6 @@ package org.wikipedia.suggestededits
 import android.content.Context
 import android.content.Intent
 import android.content.res.ColorStateList
-import android.content.res.Configuration
 import android.graphics.Color
 import android.os.Bundle
 import android.view.MotionEvent
@@ -19,6 +18,7 @@ import org.wikipedia.activity.BaseActivity
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.json.GsonMarshaller
+import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.views.ImageZoomHelper
 
@@ -63,7 +63,7 @@ class SuggestedEditsFeedCardImageTagActivity : BaseActivity(), SuggestedEditsIma
         } else {
             addContributionButton.setBackgroundResource(R.drawable.button_shape_border_light)
         }
-        if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+        if (DimenUtil.isLandscape(this)) {
             addContributionButton.visibility = GONE
             addContributionLandscapeImage.visibility = VISIBLE
             val color = if (suggestedEditsImageTagsFragment!!.publishOutlined()) ResourceUtil.getThemedColor(this, R.attr.colorAccent) else Color.WHITE
