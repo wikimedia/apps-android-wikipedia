@@ -121,7 +121,6 @@ import static org.wikipedia.settings.Prefs.isDescriptionEditTutorialEnabled;
 import static org.wikipedia.settings.Prefs.isLinkPreviewEnabled;
 import static org.wikipedia.util.DimenUtil.getContentTopOffsetPx;
 import static org.wikipedia.util.DimenUtil.getDensityScalar;
-import static org.wikipedia.util.DimenUtil.leadImageHeightForDevice;
 import static org.wikipedia.util.ResourceUtil.getThemedAttributeId;
 import static org.wikipedia.util.ResourceUtil.getThemedColor;
 import static org.wikipedia.util.ThrowableUtil.isOffline;
@@ -300,7 +299,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                              final Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_page, container, false);
         pageHeaderView = rootView.findViewById(R.id.page_header_view);
-        DimenUtil.setViewHeight(pageHeaderView, leadImageHeightForDevice());
         emptyPageContainer = rootView.findViewById(R.id.page_empty_container);
 
         webView = rootView.findViewById(R.id.page_web_view);
@@ -358,7 +356,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
 
         bridge = new CommunicationBridge(this);
         setupMessageHandlers();
-        sendDecorOffsetMessage();
 
         errorView.setRetryClickListener((v) -> refreshPage());
         errorView.setBackClickListener((v) -> {
@@ -535,9 +532,8 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     }
 
     @Override
-    public void onConfigurationChanged(Configuration newConfig) {
+    public void onConfigurationChanged(@NonNull Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
-        sendDecorOffsetMessage();
         // if the screen orientation changes, then re-layout the lead image container,
         // but only if we've finished fetching the page.
         if (!pageFragmentLoadState.isLoading() && !errorState) {
@@ -950,6 +946,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         return app.getTabList().size();
     }
 
+    @SuppressWarnings("checkstyle:methodlength")
     private void setupMessageHandlers() {
         linkHandler = new LinkHandler(requireActivity()) {
             @Override public void onPageLinkClicked(@NonNull String anchor, @NonNull String linkText) {
@@ -1177,10 +1174,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                     R.string.tool_tip_bookmark_icon_title, R.string.tool_tip_bookmark_icon_text, null);
             Prefs.shouldShowBookmarkToolTip(false);
         }
-    }
-
-    private void sendDecorOffsetMessage() {
-        //Todo: mobile-html: add bridge communication
     }
 
     private void initPageScrollFunnel() {

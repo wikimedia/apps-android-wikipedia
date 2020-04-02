@@ -33,6 +33,8 @@ public final class SuggestedEditsFunnel extends TimedFunnel {
 
     public static final String SUGGESTED_EDITS_ADD_COMMENT = "#suggestededit-add " + SUGGESTED_EDITS_UI_VERSION;
     public static final String SUGGESTED_EDITS_TRANSLATE_COMMENT = "#suggestededit-translate " + SUGGESTED_EDITS_UI_VERSION;
+    public static final String SUGGESTED_EDITS_IMAGE_TAG_AUTO_COMMENT = "#suggestededit-imgtag-auto " + SUGGESTED_EDITS_UI_VERSION;
+    public static final String SUGGESTED_EDITS_IMAGE_TAG_CUSTOM_COMMENT = "#suggestededit-imgtag-custom " + SUGGESTED_EDITS_UI_VERSION;
 
     private InvokeSource invokeSource;
     private String parentSessionToken;

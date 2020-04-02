@@ -115,4 +115,5 @@
     <string name="preference_key_pcs_to_mobilehtml_conversion_attempts">pcsToMobileHtmlConversionAttempts</string>
     <string name="preference_key_pcs_to_mobilehtml_conversion_complete">pcsToMobileHtmlConversionComplete</string>
     <string name="preference_key_image_tags_onboarding_shown">imageTagsOnboardingShown</string>
+    <string name="preference_key_install_referrer_attempts">installReferrerAttempts</string>
 </resources>
