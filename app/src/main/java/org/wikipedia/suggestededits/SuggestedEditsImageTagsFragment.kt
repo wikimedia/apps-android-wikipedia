@@ -33,6 +33,7 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwPostResponse
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.mwapi.media.MediaHelper
+import org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_IMAGE_TAGS
 import org.wikipedia.login.LoginClient.LoginFailedException
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.PageTitle
@@ -401,8 +402,10 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                         .subscribe({ response ->
                             // TODO: check anything else in the response?
                             publishSuccess = true
+                            SuggestedEditsFunnel.get().success(ADD_IMAGE_TAGS)
                             onSuccess()
                         }, { caught ->
+                            SuggestedEditsFunnel.get().failure(ADD_IMAGE_TAGS)
                             onError(caught)
                         }))
             }
