@@ -121,7 +121,6 @@ import static org.wikipedia.settings.Prefs.isDescriptionEditTutorialEnabled;
 import static org.wikipedia.settings.Prefs.isLinkPreviewEnabled;
 import static org.wikipedia.util.DimenUtil.getContentTopOffsetPx;
 import static org.wikipedia.util.DimenUtil.getDensityScalar;
-import static org.wikipedia.util.DimenUtil.leadImageHeightForDevice;
 import static org.wikipedia.util.ResourceUtil.getThemedAttributeId;
 import static org.wikipedia.util.ResourceUtil.getThemedColor;
 import static org.wikipedia.util.ThrowableUtil.isOffline;
@@ -300,7 +299,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                              final Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_page, container, false);
         pageHeaderView = rootView.findViewById(R.id.page_header_view);
-        DimenUtil.setViewHeight(pageHeaderView, leadImageHeightForDevice(requireContext()));
         emptyPageContainer = rootView.findViewById(R.id.page_empty_container);
 
         webView = rootView.findViewById(R.id.page_web_view);
@@ -534,7 +532,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     }
 
     @Override
-    public void onConfigurationChanged(Configuration newConfig) {
+    public void onConfigurationChanged(@NonNull Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         // if the screen orientation changes, then re-layout the lead image container,
         // but only if we've finished fetching the page.
@@ -974,10 +972,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             if (!isAdded()) {
                 return;
             }
-
-            // TODO: investigate why this is necessary.
-            // (if we don't do this, the top margin behaves weirdly upon screen rotation.)
-            bridge.execute(JavaScriptActionHandler.setTopMargin(leadImagesHandler.getTopMargin()));
 
             bridge.evaluate(JavaScriptActionHandler.getRevision(), revision -> {
                 try {

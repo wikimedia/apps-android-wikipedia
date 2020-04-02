@@ -14,6 +14,7 @@ import android.widget.TextView;
 import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.view.ViewCompat;
 
 import org.wikipedia.R;
@@ -62,6 +63,7 @@ public class PageHeaderView extends LinearLayoutOverWebView implements Observabl
     }
 
     public void show() {
+        setLayoutParams(new CoordinatorLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, leadImageHeightForDevice(getContext())));
         setVisibility(View.VISIBLE);
     }
 
@@ -137,9 +139,7 @@ public class PageHeaderView extends LinearLayoutOverWebView implements Observabl
         ViewCompat.setTransitionName(this, getContext().getString(R.string.transition_floating_queue));
         gradientViewTop.setBackground(getPowerGradient(R.color.black38, Gravity.TOP));
         gradientViewBottom.setBackground(getPowerGradient(R.color.black38, Gravity.BOTTOM));
-
         image.setOnImageLoadListener(new ImageLoadListener());
-        setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, leadImageHeightForDevice(getContext())));
     }
 
     private class ImageLoadListener implements FaceAndColorDetectImageView.OnImageLoadListener {

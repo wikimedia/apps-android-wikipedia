@@ -75,7 +75,7 @@ object JavaScriptActionHandler {
         val topActionBarHeight = (app.resources.getDimensionPixelSize(R.dimen.lead_no_image_top_offset_dp) / getDensityScalar()).roundToInt()
         val res = L10nUtil.getStringsForArticleLanguage(title, intArrayOf(R.string.description_edit_add_description,
                 R.string.table_infobox, R.string.table_other, R.string.table_close))
-        val leadImageHeight = (leadImageHeightForDevice(context) / getDensityScalar()).roundToInt() - topActionBarHeight
+        val leadImageHeight = if (DimenUtil.isLandscape(context)) 0 else (leadImageHeightForDevice(context) / getDensityScalar()).roundToInt() - topActionBarHeight
         val topMargin = topActionBarHeight + 16
 
         return String.format("{" +
