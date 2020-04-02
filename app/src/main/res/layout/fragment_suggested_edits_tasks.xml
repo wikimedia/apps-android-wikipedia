@@ -144,24 +144,24 @@
                     android:padding="8dp">
 
                     <TextView
-                        android:id="@+id/ipBlocked"
+                        android:id="@+id/showIPBlockedMessage"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
                         android:textAllCaps="true"
                         android:textColor="?attr/colorAccent"
-                        android:textSize="10sp"
-                        android:text="ipBlocked" />
+                        android:textSize="@dimen/bottom_nav_label_text_size"
+                        android:text="IPBlocked" />
 
                     <TextView
-                        android:id="@+id/onboarding1"
+                        android:id="@+id/showOnboardingMessage"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
                         android:textAllCaps="true"
                         android:textColor="?attr/colorAccent"
-                        android:textSize="10sp"
-                        android:text="onboarding" />
+                        android:textSize="@dimen/bottom_nav_label_text_size"
+                        android:text="Onboarding" />
                 </LinearLayout>
 
             </LinearLayout>
