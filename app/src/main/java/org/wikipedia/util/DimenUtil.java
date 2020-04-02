@@ -1,6 +1,7 @@
 package org.wikipedia.util;
 
 import android.content.Context;
+import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.util.DisplayMetrics;
@@ -10,6 +11,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 
 import androidx.annotation.DimenRes;
+import androidx.annotation.NonNull;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -137,8 +139,10 @@ public final class DimenUtil {
         view.setLayoutParams(params);
     }
 
-    public static int leadImageHeightForDevice() {
-        return (int) (getDisplayHeightPx() * articleHeaderViewScreenHeightRatio());
+    public static int leadImageHeightForDevice(@NonNull Context context) {
+        return context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE
+                ? (int) (getDisplayWidthPx() * articleHeaderViewScreenHeightRatio())
+                : (int) (getDisplayHeightPx() * articleHeaderViewScreenHeightRatio());
     }
 
     private static float articleHeaderViewScreenHeightRatio() {

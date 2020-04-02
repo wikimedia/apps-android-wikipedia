@@ -139,7 +139,7 @@ public class PageHeaderView extends LinearLayoutOverWebView implements Observabl
         gradientViewBottom.setBackground(getPowerGradient(R.color.black38, Gravity.BOTTOM));
 
         image.setOnImageLoadListener(new ImageLoadListener());
-        setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, leadImageHeightForDevice()));
+        setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, leadImageHeightForDevice(getContext())));
     }
 
     private class ImageLoadListener implements FaceAndColorDetectImageView.OnImageLoadListener {

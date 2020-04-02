@@ -97,9 +97,8 @@ public class LeadImagesHandler {
                 && !TextUtils.isEmpty(getLeadImageUrl());
     }
 
-
     public int getTopMargin() {
-        return isLeadImageEnabled() ? Math.round(leadImageHeightForDevice() / DimenUtil.getDensityScalar())
+        return isLeadImageEnabled() ? Math.round(leadImageHeightForDevice(parentFragment.requireContext()) / DimenUtil.getDensityScalar())
                 : Math.round(parentFragment.requireActivity().getResources().getDimensionPixelSize(R.dimen.lead_no_image_top_offset_dp) / DimenUtil.getDensityScalar());
     }
 
