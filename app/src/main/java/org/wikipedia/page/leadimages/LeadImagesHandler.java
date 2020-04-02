@@ -1,6 +1,5 @@
 package org.wikipedia.page.leadimages;
 
-import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.text.TextUtils;
@@ -91,15 +90,14 @@ public class LeadImagesHandler {
 
     public boolean isLeadImageEnabled() {
         return isImageDownloadEnabled()
-                && !(getActivity().getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE)
+                && !(DimenUtil.isLandscape(getActivity()))
                 && displayHeightDp >= MIN_SCREEN_HEIGHT_DP
                 && !isMainPage()
                 && !TextUtils.isEmpty(getLeadImageUrl());
     }
 
-
     public int getTopMargin() {
-        return isLeadImageEnabled() ? Math.round(leadImageHeightForDevice() / DimenUtil.getDensityScalar())
+        return isLeadImageEnabled() ? Math.round(leadImageHeightForDevice(parentFragment.requireContext()) / DimenUtil.getDensityScalar())
                 : Math.round(parentFragment.requireActivity().getResources().getDimensionPixelSize(R.dimen.lead_no_image_top_offset_dp) / DimenUtil.getDensityScalar());
     }
 

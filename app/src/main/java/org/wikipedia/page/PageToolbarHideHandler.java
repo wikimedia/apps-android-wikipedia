@@ -59,7 +59,7 @@ public class PageToolbarHideHandler extends ViewHideHandler {
 
     @Override
     protected void onScrolled(int oldScrollY, int scrollY) {
-        int opacity = fadeEnabled && scrollY < (DimenUtil.leadImageHeightForDevice() - toolbarHeight) ? 0 : FULL_OPACITY;
+        int opacity = fadeEnabled && scrollY < (DimenUtil.leadImageHeightForDevice(pageFragment.requireContext()) - toolbarHeight) ? 0 : FULL_OPACITY;
         toolbarBackground.setAlpha(opacity);
         updateChildIconTint(toolbar, opacity);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {

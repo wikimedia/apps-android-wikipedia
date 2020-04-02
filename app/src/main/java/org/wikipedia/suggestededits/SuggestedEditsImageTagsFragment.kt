@@ -319,7 +319,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
     }
 
     private fun doPublish() {
-        val acceptedLabels = ArrayList<String>()
+        val acceptedLabels = ArrayList<MwQueryPage.ImageLabel>()
         var rejectedCount = 0
         val batchBuilder = StringBuilder()
         batchBuilder.append("[")
@@ -335,7 +335,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                 batchBuilder.append("\"}")
             }
             if (label.isSelected) {
-                acceptedLabels.add(label.wikidataId)
+                acceptedLabels.add(label)
             } else {
                 rejectedCount++
             }
@@ -365,14 +365,15 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                     val claimTemplate = "{\"mainsnak\":" +
                             "{\"snaktype\":\"value\",\"property\":\"P180\"," +
                             "\"datavalue\":{\"value\":" +
-                            "{\"entity-type\":\"item\",\"id\":\"${label}\"}," +
+                            "{\"entity-type\":\"item\",\"id\":\"${label.wikidataId}\"}," +
                             "\"type\":\"wikibase-entityid\"},\"datatype\":\"wikibase-item\"}," +
                             "\"type\":\"statement\"," +
                             "\"id\":\"M${page!!.pageId()}\$${UUID.randomUUID()}\"," +
                             "\"rank\":\"normal\"}"
 
                     claimObservables.add(ServiceFactory.get(commonsSite).postSetClaim(claimTemplate, token,
-                            SuggestedEditsFunnel.SUGGESTED_EDITS_ADD_COMMENT, null))
+                            if (label.isCustom) SuggestedEditsFunnel.SUGGESTED_EDITS_IMAGE_TAG_CUSTOM_COMMENT else SuggestedEditsFunnel.SUGGESTED_EDITS_IMAGE_TAG_AUTO_COMMENT,
+                            null))
                 }
 
                 disposables.add(ServiceFactory.get(commonsSite).postReviewImageLabels(page!!.title(), token, batchBuilder.toString())
