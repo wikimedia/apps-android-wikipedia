@@ -64,11 +64,12 @@ public class ReferenceDialog extends BottomSheetDialog {
         setConditionalLayoutDirection(rootView, referenceLinkHandler.getWikiSite().languageCode());
     }
 
-    @NonNull private String processLinkTextWithAlphaReferences(@NonNull String linkText) {
+    @NonNull
+    private String processLinkTextWithAlphaReferences(@NonNull String linkText) {
         boolean isLowercase = linkText.contains("lower");
         if (linkText.contains("alpha ")) {
             String[] strings = linkText.split(" ");
-            String alphaReference = StringUtil.getBase26String(Integer.valueOf(strings[strings.length - 1].replace("]", "")));
+            String alphaReference = StringUtil.getBase26String(Integer.parseInt(strings[strings.length - 1].replace("]", "")));
             alphaReference = isLowercase ? alphaReference.toLowerCase() : alphaReference;
             linkText = alphaReference;
         }
