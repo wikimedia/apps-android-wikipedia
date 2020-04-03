@@ -859,6 +859,14 @@ public final class Prefs {
         setInt(R.string.preference_key_pcs_to_mobilehtml_conversion_attempts, attempts);
     }
 
+    public static int getInstallReferrerAttempts() {
+        return getInt(R.string.preference_key_install_referrer_attempts, 0);
+    }
+
+    public static void setInstallReferrerAttempts(int attempts) {
+        setInt(R.string.preference_key_install_referrer_attempts, attempts);
+    }
+
     public static boolean shouldShowImageTagsOnboarding() {
         return getBoolean(R.string.preference_key_image_tags_onboarding_shown, true);
     }

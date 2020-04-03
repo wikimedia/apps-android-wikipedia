@@ -266,10 +266,10 @@ public interface Service {
     @Headers("Cache-Control: no-cache")
     @POST(MW_API_PREFIX + "action=wbsetclaim&errorlang=uselang")
     @FormUrlEncoded
-    Observable<EntityPostResponse> postSetClaim(@NonNull @Field("claim") String claim,
-                                                @NonNull @Field("token") String token,
-                                                @Nullable @Field("summary") String summary,
-                                                @Nullable @Field("tags") String tags);
+    Observable<MwPostResponse> postSetClaim(@NonNull @Field("claim") String claim,
+                                            @NonNull @Field("token") String token,
+                                            @Nullable @Field("summary") String summary,
+                                            @Nullable @Field("tags") String tags);
 
     @Headers("Cache-Control: no-cache")
     @POST(MW_API_PREFIX + "action=wbsetdescription&errorlang=uselang")

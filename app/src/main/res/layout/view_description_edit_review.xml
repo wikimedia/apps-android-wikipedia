@@ -23,11 +23,8 @@
 
             <org.wikipedia.views.FaceAndColorDetectImageView
                 android:id="@+id/articleImage"
-                style="@style/SimpleDraweeViewPlaceholder.SuggestedEdits"
                 android:layout_width="match_parent"
-                android:layout_height="192dp"
-                app:actualImageScaleType="focusCrop"
-                app:fadeDuration="0" />
+                android:layout_height="192dp" />
 
             <View
                 android:layout_width="match_parent"
@@ -101,11 +98,9 @@
 
         <org.wikipedia.views.FaceAndColorDetectImageView
             android:id="@+id/galleryImage"
-            style="@style/SimpleDraweeViewPlaceholder.SuggestedEdits.Review"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:actualImageScaleType="fitCenter"
-            app:fadeDuration="0" />
+            android:scaleType="fitCenter" />
 
         <org.wikipedia.views.AppTextView
             android:id="@+id/galleryDescriptionText"

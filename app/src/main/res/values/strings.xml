@@ -113,7 +113,7 @@
     <string name="menu_login">Log in</string>
     <string name="login_activity_title">Log in to Wikipedia</string>
     <string name="login_in_progress_dialog_message">Logging you in…</string>
-    <string name="login_success_toast">Logged in successfully!</string>
+    <string name="login_success_toast">Logged in!</string>
     <string name="reset_password_title">Set your password</string>
     <string name="reset_password_description">You logged in with a temporary password. To finish logging in, please set your new password here.</string>
     <string name="reset_password_hint">New password</string>
@@ -272,7 +272,7 @@
     <string name="gallery_menu_share">Share</string>
     <string name="gallery_share_error">Could not share image: %s</string>
     <string name="gallery_save_progress">Downloading file…</string>
-    <string name="gallery_save_success">File saved successfully.</string>
+    <string name="gallery_save_success">File saved.</string>
     <string name="gallery_error_video_failed">Could not play the video.</string>
     <string name="gallery_save_image_write_permission_rationale">Permission to write to storage on your device is required for saving images.</string>
     <string name="gallery_add_image_caption_button">Add image caption</string>
@@ -474,7 +474,7 @@
         <item quantity="one">This article will no longer be available offline.</item>
         <item quantity="other">These articles will no longer be available offline.</item>
     </plurals>
-    <string name="reading_list_toast_last_sync">Reading lists synced successfully</string>
+    <string name="reading_list_toast_last_sync">Reading lists synced</string>
     <string name="reading_list_menu_last_sync">Last sync: %s</string>
     <string name="reading_list_remove_list_dialog_ok_button_text">OK</string>
     <string name="reading_list_delete_dialog_ok_button_text">OK</string>

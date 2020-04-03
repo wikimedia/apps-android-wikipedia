@@ -53,7 +53,6 @@ import org.wikipedia.search.SearchActivity;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.theme.ThemeChooserDialog;
-import org.wikipedia.util.AnimationUtil;
 import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.DimenUtil;
@@ -136,7 +135,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         app = (WikipediaApp) getApplicationContext();
-        AnimationUtil.setSharedElementTransitions(this);
 
         PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
 
@@ -176,7 +174,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         boolean languageChanged = false;
         if (savedInstanceState != null) {
             if (savedInstanceState.getBoolean("isSearching")) {
-                openSearchActivity(TOOLBAR, null);
+                openSearchActivity();
             }
             String language = savedInstanceState.getString(LANGUAGE_CODE_BUNDLE_KEY);
             languageChanged = !app.getAppOrSystemLanguageCode().equals(language);
@@ -196,7 +194,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     @OnClick(R.id.page_toolbar_button_search)
     public void onSearchButtonClicked() {
-        openSearchActivity(TOOLBAR, null);
+        openSearchActivity();
     }
 
     @OnClick(R.id.page_toolbar_button_tabs)
@@ -241,12 +239,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             default:
                 return super.onOptionsItemSelected(item);
         }
-    }
-
-    @Override
-    public boolean onSearchRequested() {
-        openSearchActivity(TOOLBAR, null);
-        return true;
     }
 
     private void goToMainTab(@NonNull NavTab tab) {
@@ -769,8 +761,8 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
                 .show();
     }
 
-    private void openSearchActivity(@NonNull InvokeSource source, @Nullable String query) {
-        Intent intent = SearchActivity.newIntent(this, source, query);
+    private void openSearchActivity() {
+        Intent intent = SearchActivity.newIntent(this, TOOLBAR, null);
         startActivity(intent);
     }
 

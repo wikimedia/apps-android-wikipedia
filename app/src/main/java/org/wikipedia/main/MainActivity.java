@@ -35,7 +35,6 @@ import org.wikipedia.settings.AboutActivity;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.suggestededits.SuggestedEditsTasksFragment;
-import org.wikipedia.util.AnimationUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
@@ -72,7 +71,6 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ButterKnife.bind(this);
-        AnimationUtil.setSharedElementTransitions(this);
         AppShortcuts.setShortcuts(this);
         imageZoomHelper = new ImageZoomHelper(this);
 

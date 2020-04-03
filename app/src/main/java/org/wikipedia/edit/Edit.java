@@ -17,7 +17,7 @@ public class Edit extends MwPostResponse {
 
     class Result {
         @SuppressWarnings("unused") @Nullable private String result;
-        @SuppressWarnings("unused") private int newrevid;
+        @SuppressWarnings("unused") private long newrevid;
         @SuppressWarnings("unused") @Nullable private Captcha captcha;
         @SuppressWarnings("unused") @Nullable private String code;
         @SuppressWarnings("unused") @Nullable private String info;
@@ -28,7 +28,7 @@ public class Edit extends MwPostResponse {
             return result;
         }
 
-        int newRevId() {
+        long newRevId() {
             return newrevid;
         }
 
