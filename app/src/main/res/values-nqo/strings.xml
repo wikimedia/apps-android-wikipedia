@@ -323,8 +323,6 @@
   <string name="reading_list_save_to">ߊ߬ ߟߊߞߎ߲߬ߘߎ߫ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߘߐ߫</string>
   <string name="reading_list_create_new">ߞߎߘߊ߫ ߛߌ߲ߘߌ߫</string>
   <string name="reading_list_title_exists">ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ %s ߦߋ߫ ߦߋ߲߬ ߞߘߐ߬ߡߊ߲߬.</string>
-  <string name="reading_list_added_to_named">ߊ߬ ߓߘߊ߫ ߟߊߘߏ߲߬ %s ߘߐ߫.</string>
-  <string name="reading_list_already_exists">ߦߌߟߡߊ ߣߌ߲߬ ߦߋ߫ ߛߙߍߘߍ ߣߌ߲߬ ߘߐ߫ ߞߘߐ߬ߡߊ߲߫.</string>
   <string name="reading_list_added_view_button">ߛߙߍߘߍ ߦߋ߫</string>
   <string name="format_reading_list_statistical_summary_singular">ߦߌߟߡߊ߫ ߁߸  %1$.2f ߝ.ߝ</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d ߦߌߟߡߊ߸ %2$.2f ߝ.ߝ</string>
@@ -380,8 +378,6 @@
   <string name="reading_lists_confirm_remote_delete_yes">ߐ߲߬ߐ߲߬ߐ߲߫</string>
   <string name="reading_lists_confirm_remote_delete_no">ߍ߲߬ߍ߲߫</string>
   <string name="reading_list_article_save_in_progress">ߞߎߡߘߊ ߓߘߊ߫ ߟߊߖߌ߱ ߘߊߡߌ߬ߣߊ߬ ߌ ߞߎ߲߬߸ ߊ߬ ߓߊ߯ ߘߝߊ߫ ߕߎ߬ߡߊ ߡߍ߲߸ ߊ߬ ߘߌ߫ ߞߍ߫ ߜߊ߲߬ߞߎ߲߬ߓߊߟߌߦߊ ߘߐ߫.</string>
-  <string name="reading_list_already_contains_selection">ߛߙߍߘߍ߫ ߛߎߥߊ߲ߘߌߣߍ߲ ߓߍ߯ ߦߋ߫ ߞߐߜߍ߫ ߓߊߕߐ߬ߡߐ߲߬ߣߍ߲ ߘߐ߫ ߞߘߐ߬ߡߊ߲߫.</string>
-  <string name="reading_list_added_articles_list_titled">ߦߌߟߡߊ %1$d ߓߘߊ߫ ߓߌ߬ߟߊ߬ %2$s ߘߐ߫</string>
   <string name="reading_list_delete_confirm">ߌ ߟߊ߫ ߣߴߊ߬ ߟߊ߫ ߞߴߌ ߦߴߊ߬ ߝߍ߬ ߞߊ߬ %s ߖߏ߬ߛߌ߬؟</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">ߌ ߜߊ߲߬ߞߎ߲߫ ߞߊ߬ ߕߎ߬ߡߊ߬ߢߐ߲߰ߦߊ ߓߌ߬ߟߵߊ߬ ߟߊ߫</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">ߌ ߜߊ߲߬ߞߎ߲߫ ߛߴߌ ߟߊ߫ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߘߌ߫ ߛߋ߫ ߟߊߞߎ߲߬ߘߎ߬ ߟߴߌ ߟߊ߫ ߖߊ߬ߕߋ߬ߘߊ ߟߊ߫.</string>

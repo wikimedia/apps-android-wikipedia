@@ -366,8 +366,6 @@
   <string name="reading_list_save_to">Gardar en lista de lectura</string>
   <string name="reading_list_create_new">Crear nova</string>
   <string name="reading_list_title_exists">A lista de lectura \"%s\" xa existe.</string>
-  <string name="reading_list_added_to_named">Engadido a %s.</string>
-  <string name="reading_list_already_exists">Este artigo xa está nesa lista.</string>
   <string name="reading_list_added_view_button">Ver lista</string>
   <string name="format_reading_list_statistical_summary_singular">1 artigo, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d artigos, %2$.2f MB</string>
@@ -423,8 +421,6 @@
   <string name="reading_lists_confirm_remote_delete_yes">Si</string>
   <string name="reading_lists_confirm_remote_delete_no">Non</string>
   <string name="reading_list_article_save_in_progress">O artigo está sendo descargado, e estará dispoñible sen conexión cando se remate.</string>
-  <string name="reading_list_already_contains_selection">A lista escollida xa contén tódalas páxinas seleccionadas.</string>
-  <string name="reading_list_added_articles_list_titled">Engadidos %1$d artigos a %2$s</string>
   <string name="reading_list_delete_confirm">Está seguro de que quere eliminar %s?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Acceda para activar a sincronización</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Acceda para permitir que as súas listas de lectura se garden na súa conta.</string>

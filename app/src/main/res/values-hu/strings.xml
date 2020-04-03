@@ -373,8 +373,6 @@
   <string name="reading_list_save_to">Mentés olvasólistára</string>
   <string name="reading_list_create_new">Új létrehozása</string>
   <string name="reading_list_title_exists">A(z) „%s” olvasólista már létezik.</string>
-  <string name="reading_list_added_to_named">Hozzáadva a(z) %s olvasólistához.</string>
-  <string name="reading_list_already_exists">Ez a szócikk már szerepel ebben a listában.</string>
   <string name="reading_list_added_view_button">Lista megtekintése</string>
   <string name="format_reading_list_statistical_summary_singular">1 cikk, %1$.2f megabyte</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d szócikk, %2$.2f megabyte</string>
@@ -430,8 +428,6 @@
   <string name="reading_lists_confirm_remote_delete_yes">Igen</string>
   <string name="reading_lists_confirm_remote_delete_no">Nem</string>
   <string name="reading_list_article_save_in_progress">A cikk letöltése folyamatban, a letöltés befejeztével offline is elérhető lesz.</string>
-  <string name="reading_list_already_contains_selection">A megadott lista már tartalmazza a kiválasztott oldalak mindegyikét.</string>
-  <string name="reading_list_added_articles_list_titled">%1$d szócikk hozzáadva ide: %2$s</string>
   <string name="reading_list_delete_confirm">Biztosan szeretnéd törölni a(z) %s olvasólistát?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Jelentkezz be a szinkronizálás engedélyezéséhez</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Jelentkezz be, ha az olvasólistáidat a fiókodba akarod menteni.</string>

@@ -378,8 +378,6 @@
   <string name="reading_list_save_to">Spara i läslista</string>
   <string name="reading_list_create_new">Skapa ny</string>
   <string name="reading_list_title_exists">Läslistan \"%s\" finns redan.</string>
-  <string name="reading_list_added_to_named">Lades till i %s.</string>
-  <string name="reading_list_already_exists">Denna artikel är redan i den listan.</string>
   <string name="reading_list_added_view_button">Visa lista</string>
   <string name="format_reading_list_statistical_summary_singular">1 artikel • %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d artiklar • %2$.2f MB</string>
@@ -435,8 +433,6 @@
   <string name="reading_lists_confirm_remote_delete_yes">Ja</string>
   <string name="reading_lists_confirm_remote_delete_no">Nej</string>
   <string name="reading_list_article_save_in_progress">Artikeln laddas ned och kommer att vara tillgänglig offline när den är färdig.</string>
-  <string name="reading_list_already_contains_selection">Den valda listan innehåller redan alla markerade sidor.</string>
-  <string name="reading_list_added_articles_list_titled">Lade till %1$d artiklar i %2$s</string>
   <string name="reading_list_delete_confirm">Är du säker på att du vill radera %s?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Logga in för att aktivera synkronisering</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Logga in för att tillåta att dina läslistor sparas till ditt konto.</string>

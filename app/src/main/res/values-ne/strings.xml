@@ -323,8 +323,6 @@
   <string name="nav_item_reading_lists">मेरा सूचीहरू</string>
   <string name="reading_list_save_to">अध्ययन सूचीमा सुरक्षित गर्नुहोस्</string>
   <string name="reading_list_create_new">नयाँ सिर्जना गर्नुहोस्</string>
-  <string name="reading_list_added_to_named">%s मा थप गरियो।</string>
-  <string name="reading_list_already_exists">यो लेख पहिलेदेखि नै त्यो सूचीमा छ।</string>
   <string name="reading_list_added_view_button">सूची हेर्नुहोस्</string>
   <string name="format_reading_list_statistical_summary_singular">१ लेख, %1$.2f एमबी</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d लेखहरू, %2$.2f एमबी</string>

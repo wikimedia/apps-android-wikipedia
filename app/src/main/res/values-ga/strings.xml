@@ -335,8 +335,6 @@
   <string name="reading_list_save_to">Sábháil ar liosta léitheoireachta</string>
   <string name="reading_list_create_new">Cruthaigh nua</string>
   <string name="reading_list_title_exists">Tá liosta \"%s\" ann cheana féin.</string>
-  <string name="reading_list_added_to_named">Cuireadh ar %s é.</string>
-  <string name="reading_list_already_exists">Tá an t-alt seo ar an liosta sin cheana féin.</string>
   <string name="reading_list_added_view_button">Féach ar liosta</string>
   <string name="format_reading_list_statistical_summary_singular">1 alt amháin, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d alt, %2$.2f MB</string>
@@ -389,8 +387,6 @@
   <string name="reading_lists_confirm_remote_delete_yes">Bain</string>
   <string name="reading_lists_confirm_remote_delete_no">Ná bain</string>
   <string name="reading_list_article_save_in_progress">Tá an t-alt á íoslódáil, agus beidh sé ar fáil as líne nuair a bheidh sé críochnaithe.</string>
-  <string name="reading_list_already_contains_selection">Tá na leathanaigh roghnaithe go léir le fáil sa liosta roghnaithe cheana féin.</string>
-  <string name="reading_list_added_articles_list_titled">Cuireadh %1$d alt le %2$s</string>
   <string name="reading_list_delete_confirm">An bhfuil tú cinnte gur mhaith leat %s a scriosadh?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Logáil isteach le sioncronú a chumasú</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Logáil isteach le ceadú go sábhálfar do chuid liostaí léitheoireachta chuig do chuntas.</string>

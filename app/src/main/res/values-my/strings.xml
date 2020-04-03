@@ -359,8 +359,6 @@
   <string name="reading_list_save_to">စာဖတ်စာရင်းသို့ သိမ်းရန်</string>
   <string name="reading_list_create_new">အသစ်ဖန်တီးရန်</string>
   <string name="reading_list_title_exists">ဖတ်ရှုရန်စာရင်းတွင် \"%s\" ရှိပြီးသားဖြစ်သည်။</string>
-  <string name="reading_list_added_to_named">%s သို့ ပေါင်းထည့်ပြီး။</string>
-  <string name="reading_list_already_exists">ထိုစာရင်းထဲတွင် ဤဆောင်းပါး ရှိနှင့်ပြီး ဖြစ်သည်။</string>
   <string name="reading_list_added_view_button">စာရင်းအား ကြည့်ရန်</string>
   <string name="format_reading_list_statistical_summary_singular">ဆောင်းပါး ၁ ခု၊ %1$.2f မက်ဂါဘိုက်</string>
   <string name="format_reading_list_statistical_summary_plural">ဆောင်းပါး %1$d ခု၊ %2$.2f မက်ဂါဘိုက်</string>
@@ -416,8 +414,6 @@
   <string name="reading_lists_confirm_remote_delete_yes">လုပ်မည်။</string>
   <string name="reading_lists_confirm_remote_delete_no">မလုပ်ပါ။</string>
   <string name="reading_list_article_save_in_progress">ဆောင်းပါကို ဒေါင်းလုတ်ဆွဲနေသည်၊ ယင်းသည် ပြီးဆုံးပါက အော့ဖ်လိုင်းအနေဖြင့် ရရှိနိုင်မည်ဖြစ်သည်။</string>
-  <string name="reading_list_already_contains_selection">ရွေးချယ်လိုက်သောစာရင်းတွင် ရွေးထားသည့်စာမျက်နှာများအားလုံး ပါဝင်ပြီးဖြစ်သည်။</string>
-  <string name="reading_list_added_articles_list_titled">%1$d ဆောင်းပါးများကို %2$s သို့ ပေါင်းထည့်လိုက်သည်</string>
   <string name="reading_list_delete_confirm">ဤ %s အား ဖျက်ရန် သေချာပါသလား</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Syn လုပ်နိုင်ရန် အကောင့်ထဲဝင်ပါ</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">သင်၏အကောင့်ထဲသို့ စာဖတ်စာရင်းများ သိမ်းဆည်းခွင့်ရှိရန် အကောင့်သို့ဝင်ရောက်ပါ။</string>
