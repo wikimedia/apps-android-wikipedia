@@ -37,7 +37,7 @@ public abstract class LinkHandler implements CommunicationBridge.JSEventListener
 
     public abstract void onInternalLinkClicked(@NonNull PageTitle title);
 
-    public abstract void onMediaLinkClicked(@NonNull String href);
+    public abstract void onMediaLinkClicked(@NonNull PageTitle title);
 
     public abstract WikiSite getWikiSite();
 
@@ -105,7 +105,7 @@ public abstract class LinkHandler implements CommunicationBridge.JSEventListener
                     ? site.titleForInternalLink(uri.getPath())
                     : PageTitle.withSeparateFragment(titleString, uri.getFragment(), site);
             if (title.isFilePage()) {
-                onMediaLinkClicked(href);
+                onMediaLinkClicked(title);
             } else {
                 onInternalLinkClicked(title);
             }
