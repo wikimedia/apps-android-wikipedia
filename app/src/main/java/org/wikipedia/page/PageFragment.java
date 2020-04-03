@@ -971,15 +971,18 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             }
 
             bridge.evaluate(JavaScriptActionHandler.getRevision(), revision -> {
+                if (!isAdded()) {
+                    return;
+                }
                 try {
                     this.revision = Long.parseLong(revision.replace("\"", ""));
-                } catch (NumberFormatException e) {
+                } catch (Exception e) {
                     L.e(e);
                 }
             });
 
             bridge.evaluate(JavaScriptActionHandler.getSections(), value -> {
-                if (model.getPage() == null) {
+                if (!isAdded() || model.getPage() == null) {
                     return;
                 }
                 Section[] secArray = GsonUtil.getDefaultGson().fromJson(value, Section[].class);
@@ -993,7 +996,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             });
 
             bridge.evaluate(JavaScriptActionHandler.getProtection(), value -> {
-                if (model.getPage() == null) {
+                if (!isAdded() || model.getPage() == null) {
                     return;
                 }
                 Protection protection = GsonUtil.getDefaultGson().fromJson(value, Protection.class);
@@ -1012,7 +1015,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         });
         bridge.addListener("reference", (String messageType, JsonObject messagePayload) -> {
             if (!isAdded()) {
-                L.d("Detached from activity, so stopping reference click.");
                 return;
             }
 

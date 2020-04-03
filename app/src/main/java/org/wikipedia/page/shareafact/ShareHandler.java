@@ -198,6 +198,9 @@ public class ShareHandler {
             // send an event to the WebView that will make it return the
             // selected text (or first paragraph) back to us...
             bridge.evaluate(JavaScriptActionHandler.getTextSelection(), value -> {
+                if (!fragment.isAdded()) {
+                    return;
+                }
                 leaveActionMode();
                 JSONObject messagePayload;
 
