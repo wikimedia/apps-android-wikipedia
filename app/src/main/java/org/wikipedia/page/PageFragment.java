@@ -87,7 +87,6 @@ import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.GeoUtil;
 import org.wikipedia.util.ShareUtil;
-import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.ThrowableUtil;
 import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
@@ -957,7 +956,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             }
 
             @Override public void onMediaLinkClicked(@NonNull PageTitle title) {
-                UriUtil.visitInExternalBrowser(requireActivity(), Uri.parse(title.getUri()));
+                startGalleryActivity(title.getPrefixedText());
             }
 
             @Override public WikiSite getWikiSite() {
@@ -1040,10 +1039,12 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             webView.setScrollY(webView.getScrollY() + diffY - webView.getHeight() / offsetFraction);
         });
         bridge.addListener("image", (String messageType, JsonObject messagePayload) -> {
-            startGalleryActivity(decodeURL(messagePayload.get("href").getAsString()));
+            linkHandler.onUrlClick(decodeURL(messagePayload.get("href").getAsString()),
+                    messagePayload.has("title") ? messagePayload.get("title").getAsString() : null, "");
         });
         bridge.addListener("media", (String messageType, JsonObject messagePayload) -> {
-            startGalleryActivity(decodeURL(messagePayload.get("href").getAsString()));
+            linkHandler.onUrlClick(decodeURL(messagePayload.get("href").getAsString()),
+                    messagePayload.has("title") ? messagePayload.get("title").getAsString() : null, "");
         });
         bridge.addListener("pronunciation", (String messageType, JsonObject messagePayload) -> {
             if (avPlayer == null) {
@@ -1120,10 +1121,10 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         }
     }
 
-    private void startGalleryActivity(@NonNull String href) {
+    private void startGalleryActivity(@NonNull String fileName) {
         if (app.isOnline()) {
             requireActivity().startActivityForResult(GalleryActivity.newIntent(requireActivity(),
-                    model.getTitleOriginal(), StringUtil.removeUnderscores(UriUtil.removeInternalLinkPrefix(href)),
+                    model.getTitleOriginal(), fileName,
                     model.getTitle().getWikiSite(), getRevision(), GalleryFunnel.SOURCE_NON_LEAD_IMAGE), ACTIVITY_REQUEST_GALLERY);
         } else {
             Snackbar snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.gallery_not_available_offline_snackbar), FeedbackUtil.LENGTH_DEFAULT);
