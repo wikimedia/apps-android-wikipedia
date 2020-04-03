@@ -83,6 +83,9 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
     private ValueCallback<String> sectionOffsetsCallback = new ValueCallback<String>() {
         @Override
         public void onReceiveValue(String value) {
+            if (!fragment.isAdded()) {
+                return;
+            }
             try {
                 JSONArray sections = new JSONObject(value).getJSONArray("sections");
                 for (int i = 0; i < sections.length(); i++) {
