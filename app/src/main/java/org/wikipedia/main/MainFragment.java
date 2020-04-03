@@ -435,7 +435,6 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     }
 
     private void goToTab(@NonNull NavTab tab) {
-        L.d("CurrentItem: goToTab " + tab.getId());
         tabLayout.setSelectedItemId(tab.getId());
     }
 
