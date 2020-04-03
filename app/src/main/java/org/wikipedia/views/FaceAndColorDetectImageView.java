@@ -75,7 +75,7 @@ public class FaceAndColorDetectImageView extends AppCompatImageView {
                 .placeholder(placeholder)
                 .error(placeholder)
                 .downsample(DownsampleStrategy.CENTER_OUTSIDE)
-                .transform(new CenterCropWithFace())
+                .transform(new CenterCropWithFace(listener))
                 .into(this);
     }
 
@@ -83,15 +83,20 @@ public class FaceAndColorDetectImageView extends AppCompatImageView {
         this.setImageResource(id);
     }
 
-    private class DefaultListener implements OnImageLoadListener {
+    private static class DefaultListener implements OnImageLoadListener {
         @Override
         public void onImageLoaded(int bmpHeight, @Nullable final PointF faceLocation, @ColorInt int mainColor) {
         }
     }
 
-    private final class CenterCropWithFace extends BitmapTransformation {
+    private static class CenterCropWithFace extends BitmapTransformation {
         private static final String ID = "org.wikipedia.views.CenterCropWithFace";
         private final byte[] idBytes = ID.getBytes(CHARSET);
+        private OnImageLoadListener listener;
+
+        CenterCropWithFace(OnImageLoadListener listener) {
+            this.listener = listener;
+        }
 
         @Override
         protected Bitmap transform(@NonNull BitmapPool pool, @NonNull Bitmap toTransform, int outWidth, int outHeight) {
