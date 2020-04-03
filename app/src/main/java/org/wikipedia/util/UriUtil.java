@@ -136,6 +136,11 @@ public final class UriUtil {
         return removeFragment(removeLinkPrefix(url)).replace("_", " ");
     }
 
+    @NonNull
+    public static String getTitleFromMobileHtmlUrl(@NonNull String url) {
+        return removeFragment(removeMobileHtmlLinkPrefix(url)).replace("_", " ");
+    }
+
     /** Get language variant code from a Uri, e.g. "zh.*", otherwise returns empty string. */
     @NonNull
     public static String getLanguageVariantFromUri(@NonNull Uri uri) {
@@ -156,6 +161,12 @@ public final class UriUtil {
     @NonNull
     private static String removeLinkPrefix(@NonNull String link) {
         return link.replaceFirst("^.*?/wiki/", "");
+    }
+
+    /** For mobile-html links */
+    @NonNull
+    private static String removeMobileHtmlLinkPrefix(@NonNull String link) {
+        return link.replaceFirst("^.*?/mobile-html/", "");
     }
 
     /** Removes an optional fragment portion of a URL */
