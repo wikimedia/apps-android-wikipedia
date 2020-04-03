@@ -956,7 +956,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                 handleInternalLink(title);
             }
 
-            @Override public void onSVGLinkClicked(@NonNull String href) {
+            @Override public void onMediaLinkClicked(@NonNull String href) {
                 startGalleryActivity(href);
             }
 
@@ -1040,16 +1040,12 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             webView.setScrollY(webView.getScrollY() + diffY - webView.getHeight() / offsetFraction);
         });
         bridge.addListener("image", (String messageType, JsonObject messagePayload) -> {
-            String href = decodeURL(messagePayload.get("href").getAsString());
-            if (href.startsWith("./File:")) {
-                startGalleryActivity(href);
-            } else {
-                linkHandler.onUrlClick(href, messagePayload.has("title") ? messagePayload.get("title").getAsString() : null, "");
-            }
+            linkHandler.onUrlClick(decodeURL(messagePayload.get("href").getAsString()),
+                    messagePayload.has("title") ? messagePayload.get("title").getAsString() : null, "");
         });
         bridge.addListener("media", (String messageType, JsonObject messagePayload) -> {
-            String href = decodeURL(messagePayload.get("href").getAsString());
-            startGalleryActivity(href);
+            linkHandler.onUrlClick(decodeURL(messagePayload.get("href").getAsString()),
+                    messagePayload.has("title") ? messagePayload.get("title").getAsString() : null, "");
         });
         bridge.addListener("pronunciation", (String messageType, JsonObject messagePayload) -> {
             if (avPlayer == null) {
