@@ -14,10 +14,10 @@
 
     <org.wikipedia.views.FaceAndColorDetectImageView
         android:id="@+id/view_card_header_large_image"
-        style="@style/SimpleDraweeViewPlaceholder"
+        style="@style/ImageViewDefault"
         android:layout_width="96dp"
         android:layout_height="match_parent"
-        app:actualImageScaleType="focusCrop"
+        android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView

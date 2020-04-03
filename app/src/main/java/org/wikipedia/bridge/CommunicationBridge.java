@@ -171,7 +171,8 @@ public class CommunicationBridge {
 
         @JavascriptInterface
         public synchronized String getSetupSettings() {
-            return JavaScriptActionHandler.setUp(communicationBridgeListener.getPageTitle());
+            return JavaScriptActionHandler.setUp(communicationBridgeListener.getWebView().getContext(),
+                    communicationBridgeListener.getPageTitle());
         }
     }
 

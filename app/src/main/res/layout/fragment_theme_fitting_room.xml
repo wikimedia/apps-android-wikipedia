@@ -49,7 +49,7 @@
                     android:layout_height="80dp"
                     android:layout_marginStart="8dp"
                     android:contentDescription="@null"
-                    app:actualImageScaleType="centerInside" />
+                    android:scaleType="centerInside" />
 
             </LinearLayout>
 

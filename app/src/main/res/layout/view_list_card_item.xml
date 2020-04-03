@@ -33,9 +33,8 @@
         app:layout_constraintTop_toBottomOf="@+id/view_list_card_item_title"
         tools:text="Lorem ipsum" />
 
-    <com.facebook.drawee.view.SimpleDraweeView
+    <ImageView
         android:id="@+id/view_list_card_item_image"
-        style="@style/SimpleDraweeViewPlaceholder"
         android:layout_width="@dimen/view_list_card_item_image"
         android:layout_height="@dimen/view_list_card_item_image"
         android:layout_marginStart="16dp"
@@ -43,6 +42,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/view_list_card_item_title"
         app:layout_constraintTop_toTopOf="parent"
-        app:roundedCornerRadius="2dp" />
+        android:contentDescription="@null"/>
 
 </merge>

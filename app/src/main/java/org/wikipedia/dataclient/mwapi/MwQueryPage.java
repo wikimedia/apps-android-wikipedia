@@ -22,6 +22,7 @@ public class MwQueryPage extends BaseModel {
     private int pageid;
     private int ns;
     private int index;
+    private long lastrevid;
     @Nullable private String title;
     @Nullable private List<LangLink> langlinks;
     @Nullable private List<Revision> revisions;
@@ -143,6 +144,10 @@ public class MwQueryPage extends BaseModel {
         return imageLabels != null ? imageLabels : Collections.emptyList();
     }
 
+    public long getLastRevId() {
+        return lastrevid;
+    }
+
     public static class Revision {
         @SerializedName("contentformat") @Nullable private String contentFormat;
         @SerializedName("contentmodel") @Nullable private String contentModel;
@@ -232,6 +237,7 @@ public class MwQueryPage extends BaseModel {
         @Nullable private String label;
         @Nullable private String description;
         private boolean selected;
+        private boolean custom;
 
         public ImageLabel() {
         }
@@ -240,6 +246,7 @@ public class MwQueryPage extends BaseModel {
             this.wikidataId = wikidataId;
             this.label = label;
             this.description = description;
+            custom = true;
         }
 
         @NonNull public String getWikidataId() {
@@ -264,6 +271,10 @@ public class MwQueryPage extends BaseModel {
 
         public void setSelected(boolean selected) {
             this.selected = selected;
+        }
+
+        public boolean isCustom() {
+            return custom;
         }
     }
 }

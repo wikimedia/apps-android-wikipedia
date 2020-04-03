@@ -24,11 +24,8 @@
 
         <org.wikipedia.views.FaceAndColorDetectImageView
             android:id="@+id/viewArticleImage"
-            style="@style/SimpleDraweeViewPlaceholder.SuggestedEdits"
             android:layout_width="match_parent"
-            android:layout_height="201dp"
-            app:actualImageScaleType="focusCrop"
-            app:fadeDuration="0" />
+            android:layout_height="201dp" />
 
         <LinearLayout
             android:id="@+id/viewArticleContainer"

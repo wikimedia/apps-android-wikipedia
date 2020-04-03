@@ -1,7 +1,6 @@
 package org.wikipedia.onboarding;
 
 import android.content.Context;
-import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
@@ -27,6 +26,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.page.LinkMovementMethodExt;
+import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.StringUtil;
 
 import java.util.ArrayList;
@@ -101,8 +101,7 @@ public class OnboardingPageView extends LinearLayout {
     }
 
     private void init(@Nullable AttributeSet attrs, @AttrRes int defStyleAttr, @StyleRes int defStyleRes) {
-        setOrientation(getResources().getConfiguration().orientation
-                == Configuration.ORIENTATION_PORTRAIT ? VERTICAL : HORIZONTAL);
+        setOrientation(!DimenUtil.isLandscape(getContext()) ? VERTICAL : HORIZONTAL);
         inflate(getContext(), R.layout.view_onboarding_page, this);
         ButterKnife.bind(this);
         if (attrs != null) {

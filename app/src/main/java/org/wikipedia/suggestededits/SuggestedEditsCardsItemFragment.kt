@@ -42,7 +42,6 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
         super.onViewCreated(view, savedInstanceState)
         setConditionalLayoutDirection(viewArticleContainer, parent().langFromCode)
 
-        viewArticleImage.setLegacyVisibilityHandlingEnabled(true)
         viewArticleImage.setOnClickListener {
             if (Prefs.shouldShowImageZoomTooltip()) {
                 Prefs.setShouldShowImageZoomTooltip(false)
