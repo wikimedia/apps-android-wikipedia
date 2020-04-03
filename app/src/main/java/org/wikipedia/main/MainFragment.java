@@ -435,7 +435,8 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     }
 
     private void goToTab(@NonNull NavTab tab) {
-        tabLayout.setSelectedItemId(tab.code());
+        L.d("CurrentItem: goToTab " + tab.getId());
+        tabLayout.setSelectedItemId(tab.getId());
     }
 
     private void refreshExploreFeed() {
@@ -447,7 +448,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
 
     void resetNavTabLayouts() {
         tabLayout.setTabViews();
-        tabLayout.setSelectedItemId(viewPager.getCurrentItem());
+        tabLayout.setSelectedItemId(((MainActivity) requireActivity()).getCurrentTab().getId());
         if (AccountUtil.isLoggedIn()) {
             if (Prefs.shouldShowSuggestedEditsTooltip()) {
                 Prefs.setShouldShowSuggestedEditsTooltip(false);

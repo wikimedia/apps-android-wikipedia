@@ -25,7 +25,7 @@ class NavTabLayout constructor(context: Context, attrs: AttributeSet) : BottomNa
             if (!AccountUtil.isLoggedIn() && NavTab.SUGGESTED_EDITS === navTab) {
                 continue
             }
-            menu.add(Menu.NONE, View.generateViewId(), i, navTab.text()).setIcon(navTab.icon())
+            menu.add(Menu.NONE, navTab.id, i, navTab.text).setIcon(navTab.icon)
         }
         fixTextStyle()
     }

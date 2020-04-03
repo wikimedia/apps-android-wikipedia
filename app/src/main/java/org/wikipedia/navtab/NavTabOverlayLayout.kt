@@ -16,7 +16,7 @@ class NavTabOverlayLayout constructor(context: Context, attrs: AttributeSet? = n
             var childView = View(context)
             if (NavTab.of(i) == navTab) {
                 childView = inflate(context, R.layout.view_nav_tab_overlay_fill, null)
-                childView.pulsingBaseIcon.setImageResource(navTab.icon())
+                childView.pulsingBaseIcon.setImageResource(navTab.icon)
                 childView.pulsingCircleOuter.startAnimation(AnimationUtils.loadAnimation(context, R.anim.pulsing_circle))
             }
             childView.layoutParams = LayoutParams(0, LayoutParams.MATCH_PARENT, 1.0f)
