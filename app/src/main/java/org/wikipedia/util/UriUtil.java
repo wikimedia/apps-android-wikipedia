@@ -108,17 +108,6 @@ public final class UriUtil {
                 && uri.getPath().startsWith("/wiki"));
     }
 
-    /*
-    Links in a ZIM file are of the form "[Title].html", instead of "/wiki/[Title]", which is what
-    isValidPageLink() expects.  This necessitates a slightly different way to check for validity.
-    */
-    public static boolean isValidOfflinePageLink(@NonNull Uri uri) {
-        return (!TextUtils.isEmpty(uri.getAuthority())
-                && uri.getAuthority().endsWith("wikipedia.org")
-                && !TextUtils.isEmpty(uri.getPath())
-                && uri.getPath().endsWith(".html"));
-    }
-
     public static void handleExternalLink(final Context context, final Uri uri) {
         visitInExternalBrowser(context, uri);
     }
