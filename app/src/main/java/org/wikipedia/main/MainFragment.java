@@ -447,7 +447,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
 
     void resetNavTabLayouts() {
         tabLayout.setTabViews();
-        tabLayout.setSelectedItemId(tabLayout.getMenu().getItem(viewPager.getCurrentItem()).getItemId());
+        goToTab(NavTab.of(viewPager.getCurrentItem()));
         if (AccountUtil.isLoggedIn()) {
             if (Prefs.shouldShowSuggestedEditsTooltip()) {
                 Prefs.setShouldShowSuggestedEditsTooltip(false);
