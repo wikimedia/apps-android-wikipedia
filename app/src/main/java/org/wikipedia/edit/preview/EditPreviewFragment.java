@@ -239,7 +239,7 @@ public class EditPreviewFragment extends Fragment implements CommunicationBridge
                     showLeavingEditDialogue(() -> handleExternalLink(getContext(), uri));
                 }
 
-                @Override public void onSVGLinkClicked(@NonNull String href) {
+                @Override public void onMediaLinkClicked(@NonNull PageTitle title) {
                     // ignore
                 }
 

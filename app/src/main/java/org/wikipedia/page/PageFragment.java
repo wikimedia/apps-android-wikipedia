@@ -87,7 +87,6 @@ import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.GeoUtil;
 import org.wikipedia.util.ShareUtil;
-import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.ThrowableUtil;
 import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
@@ -956,8 +955,8 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                 handleInternalLink(title);
             }
 
-            @Override public void onSVGLinkClicked(@NonNull String href) {
-                startGalleryActivity(href);
+            @Override public void onMediaLinkClicked(@NonNull PageTitle title) {
+                startGalleryActivity(title.getPrefixedText());
             }
 
             @Override public WikiSite getWikiSite() {
@@ -972,15 +971,18 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             }
 
             bridge.evaluate(JavaScriptActionHandler.getRevision(), revision -> {
+                if (!isAdded()) {
+                    return;
+                }
                 try {
                     this.revision = Long.parseLong(revision.replace("\"", ""));
-                } catch (NumberFormatException e) {
+                } catch (Exception e) {
                     L.e(e);
                 }
             });
 
             bridge.evaluate(JavaScriptActionHandler.getSections(), value -> {
-                if (model.getPage() == null) {
+                if (!isAdded() || model.getPage() == null) {
                     return;
                 }
                 Section[] secArray = GsonUtil.getDefaultGson().fromJson(value, Section[].class);
@@ -994,7 +996,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             });
 
             bridge.evaluate(JavaScriptActionHandler.getProtection(), value -> {
-                if (model.getPage() == null) {
+                if (!isAdded() || model.getPage() == null) {
                     return;
                 }
                 Protection protection = GsonUtil.getDefaultGson().fromJson(value, Protection.class);
@@ -1013,7 +1015,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         });
         bridge.addListener("reference", (String messageType, JsonObject messagePayload) -> {
             if (!isAdded()) {
-                L.d("Detached from activity, so stopping reference click.");
                 return;
             }
 
@@ -1040,16 +1041,12 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             webView.setScrollY(webView.getScrollY() + diffY - webView.getHeight() / offsetFraction);
         });
         bridge.addListener("image", (String messageType, JsonObject messagePayload) -> {
-            String href = decodeURL(messagePayload.get("href").getAsString());
-            if (href.startsWith("./File:")) {
-                startGalleryActivity(href);
-            } else {
-                linkHandler.onUrlClick(href, messagePayload.has("title") ? messagePayload.get("title").getAsString() : null, "");
-            }
+            linkHandler.onUrlClick(decodeURL(messagePayload.get("href").getAsString()),
+                    messagePayload.has("title") ? messagePayload.get("title").getAsString() : null, "");
         });
         bridge.addListener("media", (String messageType, JsonObject messagePayload) -> {
-            String href = decodeURL(messagePayload.get("href").getAsString());
-            startGalleryActivity(href);
+            linkHandler.onUrlClick(decodeURL(messagePayload.get("href").getAsString()),
+                    messagePayload.has("title") ? messagePayload.get("title").getAsString() : null, "");
         });
         bridge.addListener("pronunciation", (String messageType, JsonObject messagePayload) -> {
             if (avPlayer == null) {
@@ -1126,10 +1123,10 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         }
     }
 
-    private void startGalleryActivity(@NonNull String href) {
+    private void startGalleryActivity(@NonNull String fileName) {
         if (app.isOnline()) {
             requireActivity().startActivityForResult(GalleryActivity.newIntent(requireActivity(),
-                    model.getTitleOriginal(), StringUtil.removeUnderscores(UriUtil.removeInternalLinkPrefix(href)),
+                    model.getTitleOriginal(), fileName,
                     model.getTitle().getWikiSite(), getRevision(), GalleryFunnel.SOURCE_NON_LEAD_IMAGE), ACTIVITY_REQUEST_GALLERY);
         } else {
             Snackbar snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.gallery_not_available_offline_snackbar), FeedbackUtil.LENGTH_DEFAULT);

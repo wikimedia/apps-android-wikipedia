@@ -207,8 +207,6 @@
   <string name="reading_list_save_to">Enregistrar dins la lista de lectura</string>
   <string name="reading_list_create_new">Crear un novèl</string>
   <string name="reading_list_title_exists">La lista de lectura «%s» existís ja.</string>
-  <string name="reading_list_added_to_named">Apondut a %s.</string>
-  <string name="reading_list_already_exists">Aqueste article fa ja partida d\'aquesta lista.</string>
   <string name="reading_list_added_view_button">Afichar la lista</string>
   <string name="reading_list_sort">Triar</string>
   <string name="reading_list_sort_by_name">Triar per nom</string>

@@ -41,12 +41,7 @@ public class FaceAndColorDetectImageView extends AppCompatImageView {
     public static final int PAINT_FLAGS = Paint.DITHER_FLAG | Paint.FILTER_BITMAP_FLAG;
     private static final Paint DEFAULT_PAINT = new Paint(PAINT_FLAGS);
     private static final int BITMAP_COPY_WIDTH = 200;
-
-    public interface OnImageLoadListener {
-        void onImageLoaded(int bmpHeight, @Nullable PointF faceLocation, @ColorInt int mainColor);
-    }
-
-    @NonNull private OnImageLoadListener listener = new DefaultListener();
+    private static final CenterCropWithFace FACE_DETECT_TRANSFORM = new CenterCropWithFace();
 
     public FaceAndColorDetectImageView(Context context) {
         super(context);
@@ -60,10 +55,6 @@ public class FaceAndColorDetectImageView extends AppCompatImageView {
         super(context, attrs, defStyle);
     }
 
-    public void setOnImageLoadListener(@Nullable OnImageLoadListener listener) {
-        this.listener = listener == null ? new DefaultListener() : listener;
-    }
-
     public void loadImage(@Nullable Uri uri) {
         Drawable placeholder = ViewUtil.getPlaceholderDrawable(getContext());
         if (!isImageDownloadEnabled() || uri == null) {
@@ -75,7 +66,7 @@ public class FaceAndColorDetectImageView extends AppCompatImageView {
                 .placeholder(placeholder)
                 .error(placeholder)
                 .downsample(DownsampleStrategy.CENTER_OUTSIDE)
-                .transform(new CenterCropWithFace())
+                .transform(FACE_DETECT_TRANSFORM)
                 .into(this);
     }
 
@@ -83,20 +74,9 @@ public class FaceAndColorDetectImageView extends AppCompatImageView {
         this.setImageResource(id);
     }
 
-    private class DefaultListener implements OnImageLoadListener {
-        @Override
-        public void onImageLoaded(int bmpHeight, @Nullable final PointF faceLocation, @ColorInt int mainColor) {
-        }
-    }
-
-    private final class CenterCropWithFace extends BitmapTransformation {
+    private static class CenterCropWithFace extends BitmapTransformation {
         private static final String ID = "org.wikipedia.views.CenterCropWithFace";
         private final byte[] idBytes = ID.getBytes(CHARSET);
-
-        @Override
-        protected Bitmap transform(@NonNull BitmapPool pool, @NonNull Bitmap toTransform, int outWidth, int outHeight) {
-            return centerCropWithFace(pool, toTransform, outWidth, outHeight);
-        }
 
         @Override
         public boolean equals(Object o) {
@@ -113,7 +93,8 @@ public class FaceAndColorDetectImageView extends AppCompatImageView {
             messageDigest.update(idBytes);
         }
 
-        private Bitmap centerCropWithFace(@NonNull BitmapPool pool, @NonNull Bitmap inBitmap, int width, int height) {
+        @Override
+        protected Bitmap transform(@NonNull BitmapPool pool, @NonNull Bitmap inBitmap, int width, int height) {
             if (inBitmap.getWidth() == width && inBitmap.getHeight() == height) {
                 return inBitmap;
             }
@@ -168,8 +149,6 @@ public class FaceAndColorDetectImageView extends AppCompatImageView {
             TransformationUtils.setAlpha(inBitmap, result);
 
             applyMatrix(inBitmap, result, m);
-
-            listener.onImageLoaded(result.getHeight(), facePos, mainColor);
             return result;
         }
     }

@@ -346,8 +346,6 @@
   <string name="reading_list_save_to">သိမ်းသႂ်ႇၸူး သဵၼ်ႈမၢႆလူ</string>
   <string name="reading_list_create_new">ၵေႃႇသၢင်ႈ ဢၼ်မႂ်ႇ</string>
   <string name="reading_list_title_exists">သဵၼ်ႈမၢႆလူ \"%s\" ၼႆႉ မီးဝႆႉယဝ်ႉ။</string>
-  <string name="reading_list_added_to_named">ထႅမ်သႂ်ႇၸူး %s ယဝ်ႉယဝ်ႈ။</string>
-  <string name="reading_list_already_exists">ပွင်ႈလိၵ်ႈဢၼ်ၼႆ့ ပေႃးမီးဝႆႉ တီႈၼႂ်းသဵၼ်ႈမၢႆယဝ်ႈ။</string>
   <string name="reading_list_added_view_button">တူၺ်းသဵၼ်ႈမၢႆ</string>
   <string name="format_reading_list_statistical_summary_singular">ပွင်ႈၵႂၢမ်း 1 ႁူဝ်, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">ပွင်ႈၵႂၢမ်း %1$d , %2$.2f MB</string>
@@ -403,8 +401,6 @@
   <string name="reading_lists_confirm_remote_delete_yes">ၸႂ်ႈယဝ်ႉ</string>
   <string name="reading_lists_confirm_remote_delete_no">ဢမ်ႇ</string>
   <string name="reading_list_article_save_in_progress">ပွင်ႈၵႂၢမ်းၼႆႉ တိုၵ်ႉလူတ်ႇလူင်းဝႆႉယူႇယဝ်ႉ၊ ပေႃးဝႃႈမၼ်းယဝ်ႉတူဝ်ႈၵႂႃႇၼႆ မၼ်းတေၸၢင်ႈၸႂ်ႉလႆႈ တီႈဢွပ်ႉၾ်လၢႆးယဝ်ႉ။</string>
-  <string name="reading_list_already_contains_selection">ၼႃႈလိၵ်ႈၸိူဝ်းလိၵ်ႈဝႆႉၼႆႉ မၼ်းပေႃးၶဝ်ႈပႃးဝႆႉ တီႈၼႂ်းသဵၼ်ႈမၢႆဢၼ်လိူၵ်ႈဝႆႉၼၼ်ႉယဝ်ႉ။</string>
-  <string name="reading_list_added_articles_list_titled">ပွင်ႈၵႂၢမ်း %1$d ထႅမ်ႈသႂ်ႇၸူး %2$s ယဝ်ႉယဝ်ႈ</string>
   <string name="reading_list_delete_confirm">ၸဝ်ႈၵဝ်ႇ တေမွတ်ႇပႅတ်ႈ %s ဢၼ်ဝႃႈၼၼ်ႉ ၼႄႉၼွၼ်းယဝ်ႉႁႃႉ?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">လွၵ်ႉဢိၼ်ႇ တွၼ်ႈတႃႇ ၶူၼ်းၽဵင်ႇ</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">လွၵ်ႉဢိၼ်ႇတွၼ်ႈတႃႇ ၶႂၢင်းပၼ်သဵၼ်ႈမၢႆလူၸဝ်ႈၵဝ်ႇ တႃႇသိမ်းပၼ်ဝႆႉ တီႈၼႂ်း ဢၶွင်ႉၸဝ်ႈၵဝ်ႇ။</string>

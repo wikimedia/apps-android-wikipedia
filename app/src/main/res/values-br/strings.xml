@@ -339,8 +339,6 @@
   <string name="reading_list_save_to">Enrollañ er roll lenn</string>
   <string name="reading_list_create_new">Krouiñ unan nevez</string>
   <string name="reading_list_title_exists">Ar roll lenn «%s» zo anezhañ dija.</string>
-  <string name="reading_list_added_to_named">Ouzhpennet da%s</string>
-  <string name="reading_list_already_exists">Ar pennad-mañ zo er roll-se dija.</string>
   <string name="reading_list_added_view_button">Diskwel ar roll</string>
   <string name="format_reading_list_statistical_summary_singular">1 pennad, %1$.2f Mo</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d pennadoù, %2$.2f Mo</string>
@@ -394,8 +392,6 @@
   <string name="reading_lists_confirm_remote_delete_yes">Ya</string>
   <string name="reading_lists_confirm_remote_delete_no">Ket</string>
   <string name="reading_list_article_save_in_progress">Emañ ar pennad o pellgargañ ha gallout a reot kaout anezhañ pa vo echuet.</string>
-  <string name="reading_list_already_contains_selection">Er roll emañ an holl bajennoù dibabet dija.</string>
-  <string name="reading_list_added_articles_list_titled">%1$d pennad ouzhpennet da %2$s</string>
   <string name="reading_list_delete_confirm">Ha sur eo hoc\'h eus c\'hoant da zilemel %s ?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Kevreit evit gweredekaat ar sinkronelaat</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Kevreit evit aotren enrollañ ho rolloù lenn en ho kont.</string>

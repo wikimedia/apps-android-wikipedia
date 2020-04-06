@@ -276,8 +276,6 @@
   <string name="reading_list_save_to">Sačuvaj na spisak za čitanje</string>
   <string name="reading_list_create_new">Napravi novi</string>
   <string name="reading_list_title_exists">Spisak za čitanje \"%s\" već postoji.</string>
-  <string name="reading_list_added_to_named">Dodano na spisak %s.</string>
-  <string name="reading_list_already_exists">Ovaj članak već je na tom spisku.</string>
   <string name="reading_list_added_view_button">Prikaži spisak</string>
   <string name="format_reading_list_statistical_summary_singular">1 članaka, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d članka, %2$.2f MB</string>

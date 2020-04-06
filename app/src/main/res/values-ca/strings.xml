@@ -378,8 +378,6 @@
   <string name="reading_list_save_to">Desa a la llista de lectura</string>
   <string name="reading_list_create_new">Crea’n una nova</string>
   <string name="reading_list_title_exists">La llista de lectura «%s» ja existeix.</string>
-  <string name="reading_list_added_to_named">Afegit a %s.</string>
-  <string name="reading_list_already_exists">L\'article ja és a la llista.</string>
   <string name="reading_list_added_view_button">Mostra la llista</string>
   <string name="format_reading_list_statistical_summary_singular">1 article, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d articles, %2$.2f MB</string>
@@ -435,8 +433,6 @@
   <string name="reading_lists_confirm_remote_delete_yes">Sí</string>
   <string name="reading_lists_confirm_remote_delete_no">No</string>
   <string name="reading_list_article_save_in_progress">S\'està baixant l\'article. Estarà disponible fora de línia quan acabi.</string>
-  <string name="reading_list_already_contains_selection">La llista triada ja conté totes les pàgines seleccionades.</string>
-  <string name="reading_list_added_articles_list_titled">S\'han afegit %1$d articles a %2$s</string>
   <string name="reading_list_delete_confirm">Esteu segur que voleu suprimir %s?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Inicieu una sessió per habilitar la sincronització</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Inicieu una sessió per permetre desar les llistes de lectura al vostre compte.</string>

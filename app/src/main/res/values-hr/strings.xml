@@ -357,8 +357,6 @@
   <string name="reading_list_save_to">Dodaj na popis za čitanje</string>
   <string name="reading_list_create_new">Stvori novi</string>
   <string name="reading_list_title_exists">Popis za čitanje „%s” već postoji.</string>
-  <string name="reading_list_added_to_named">Dodano u %s.</string>
-  <string name="reading_list_already_exists">Ovaj članak već postoji na popisu.</string>
   <string name="reading_list_added_view_button">Prikaz popisa</string>
   <string name="format_reading_list_statistical_summary_singular">1 članak, %1$.2f MB</string>
   <string name="reading_list_sort">Poredaj</string>
@@ -404,7 +402,6 @@
   <string name="reading_lists_confirm_remote_delete_yes">Da</string>
   <string name="reading_lists_confirm_remote_delete_no">Ne</string>
   <string name="reading_list_article_save_in_progress">Članak se preuzima i nakon dovršetka bit će dostupan izvan mreže.</string>
-  <string name="reading_list_already_contains_selection">Odabrani popis već sadrži sve odabrane stranice.</string>
   <string name="reading_list_delete_confirm">Želite li zaista pobrisati %s?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Prijavite se za omogućavanje sinkronizacije</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Odustani</string>

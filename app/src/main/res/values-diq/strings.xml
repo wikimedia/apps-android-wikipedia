@@ -299,8 +299,6 @@
   <string name="reading_list_save_to">Lista mendışi qeyd kerê</string>
   <string name="reading_list_create_new">Newe vıraze</string>
   <string name="reading_list_title_exists">Xora namey be \"%s\" ya lista esta.</string>
-  <string name="reading_list_added_to_named">Debya %s tede</string>
-  <string name="reading_list_already_exists">No meqaley, weçinaye lista de esto</string>
   <string name="reading_list_added_view_button">Listi Bıvin</string>
   <string name="format_reading_list_statistical_summary_singular">1 meqale, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d meqaley , %2$.2f MB</string>
