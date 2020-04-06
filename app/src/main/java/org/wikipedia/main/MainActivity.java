@@ -59,7 +59,6 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
     @BindView(R.id.drawer_icon_layout) View drawerIconLayout;
     @BindView(R.id.drawer_icon_dot) View drawerIconDot;
     @BindView(R.id.hamburger_and_wordmark_layout) View hamburgerAndWordmarkLayout;
-    private NavTab currentTab = NavTab.EXPLORE;
     private ImageZoomHelper imageZoomHelper;
 
     private boolean controlNavTabInFragment;
@@ -163,7 +162,6 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
 
     @Override
     public void onTabChanged(@NonNull NavTab tab) {
-        currentTab = tab;
         if (tab.equals(NavTab.EXPLORE)) {
             hamburgerAndWordmarkLayout.setVisibility(VISIBLE);
             toolbar.setTitle("");
@@ -178,7 +176,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
             }
 
             hamburgerAndWordmarkLayout.setVisibility(GONE);
-            toolbar.setTitle(tab.getText());
+            toolbar.setTitle(tab.text());
             controlNavTabInFragment = true;
         }
         shouldShowMainDrawer(!controlNavTabInFragment);
@@ -256,10 +254,6 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
 
     public Toolbar getToolbar() {
         return toolbar;
-    }
-
-    public NavTab getCurrentTab() {
-        return currentTab;
     }
 
     public void shouldShowMainDrawer(boolean enabled) {
