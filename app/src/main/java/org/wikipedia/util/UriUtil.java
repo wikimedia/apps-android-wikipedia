@@ -106,7 +106,7 @@ public final class UriUtil {
                 && uri.getAuthority().endsWith("wikipedia.org")
                 && !TextUtils.isEmpty(uri.getPath())
                 && uri.getPath().startsWith("/wiki"))
-                && (uri.getFragment() == null || !uri.getFragment().startsWith("cite_note"));
+                && (uri.getFragment() == null || !uri.getFragment().startsWith("cite"));
     }
 
     public static void handleExternalLink(final Context context, final Uri uri) {
