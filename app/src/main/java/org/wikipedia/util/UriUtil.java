@@ -105,7 +105,8 @@ public final class UriUtil {
         return (!TextUtils.isEmpty(uri.getAuthority())
                 && uri.getAuthority().endsWith("wikipedia.org")
                 && !TextUtils.isEmpty(uri.getPath())
-                && uri.getPath().startsWith("/wiki"));
+                && uri.getPath().startsWith("/wiki"))
+                && (uri.getFragment() == null || !uri.getFragment().startsWith("cite_note"));
     }
 
     public static void handleExternalLink(final Context context, final Uri uri) {
@@ -123,11 +124,6 @@ public final class UriUtil {
     @NonNull
     public static String getTitleFromUrl(@NonNull String url) {
         return removeFragment(removeLinkPrefix(url)).replace("_", " ");
-    }
-
-    @NonNull
-    public static String getTitleFromMobileHtmlUrl(@NonNull String url) {
-        return removeFragment(removeMobileHtmlLinkPrefix(url)).replace("_", " ");
     }
 
     /** Get language variant code from a Uri, e.g. "zh.*", otherwise returns empty string. */
@@ -150,12 +146,6 @@ public final class UriUtil {
     @NonNull
     private static String removeLinkPrefix(@NonNull String link) {
         return link.replaceFirst("^.*?/wiki/", "");
-    }
-
-    /** For mobile-html links */
-    @NonNull
-    private static String removeMobileHtmlLinkPrefix(@NonNull String link) {
-        return link.replaceFirst("^.*?/mobile-html/", "");
     }
 
     /** Removes an optional fragment portion of a URL */

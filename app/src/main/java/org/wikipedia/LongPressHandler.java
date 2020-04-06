@@ -20,7 +20,6 @@ import org.wikipedia.Constants.InvokeSource;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.util.UriUtil;
 
 import static org.wikipedia.Constants.InvokeSource.CONTEXT_MENU;
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
@@ -59,10 +58,7 @@ public class LongPressHandler implements View.OnCreateContextMenuListener,
                     }
                     title = wikiSite.titleForInternalLink(uri.getPath());
                     referrer = ((WebViewOverflowMenuListener) overflowMenuListener).getReferrer();
-                    // show the popup menu if user does not long pressing on a reference link
-                    if (!isCurrentArticleReference(((WebView) view), uri.toString())) {
-                        showPopupMenu(view, null);
-                    }
+                    showPopupMenu(view, null);
                 }
             }
         } else if (view instanceof ListView) {
@@ -80,13 +76,6 @@ public class LongPressHandler implements View.OnCreateContextMenuListener,
             clickPositionY = motionEvent.getY();
         }
         return false;
-    }
-
-    private boolean isCurrentArticleReference(@NonNull WebView webView, @NonNull String url) {
-        String titleFromWebView = UriUtil.getTitleFromMobileHtmlUrl(webView.getUrl());
-        String titleFromUri = UriUtil.getTitleFromUrl(url);
-        String fragmentFromUri = UriUtil.getFragment(url);
-        return (titleFromWebView.equals(titleFromUri) || titleFromUri.isEmpty()) && fragmentFromUri != null;
     }
 
     private void showPopupMenu(@NonNull View view, @Nullable AdapterView.AdapterContextMenuInfo info) {
