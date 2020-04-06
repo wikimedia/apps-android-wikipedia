@@ -1,147 +1,147 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="app_name_prod">Wikipedia</string>
-  <string name="app_name_beta">Wikipedia Beta</string>
-  <string name="app_name_alpha">Wikipedia Alpha</string>
-  <string name="search_hint">Wikipedia ah kawl</string>
-  <string name="nav_item_history">Cakhumh</string>
-  <string name="error_network_error" fuzzy="true">Network connection a um lo,</string>
-  <string name="page_error_retry">Tuah than</string>
-  <string name="menu_clear_all_history">Cakhumh hloh ding</string>
-  <string name="dialog_title_clear_history" fuzzy="true">Na kawlnak pawl na hlo lai maw?</string>
-  <string name="share_via">in hrawmh</string>
-  <string name="last_updated_text">Hnubik tharchuah %s</string>
+    <string name="app_name_prod">Wikipedia</string>
+    <string name="app_name_beta">Wikipedia Beta</string>
+    <string name="app_name_alpha">Wikipedia Alpha</string>
+    <string name="search_hint">Wikipedia ah kawl</string>
+    <string name="nav_item_history">Cakhumh</string>
+    <string name="error_network_error" fuzzy="true">Network connection a um lo,</string>
+    <string name="page_error_retry">Tuah than</string>
+    <string name="menu_clear_all_history">Cakhumh hloh ding</string>
+    <string name="dialog_title_clear_history" fuzzy="true">Na kawlnak pawl na hlo lai maw?</string>
+    <string name="share_via">in hrawmh</string>
+    <string name="last_updated_text">Hnubik tharchuah %s</string>
     <string name="edit_save_action_license_logged_in">Na khonnak thawng in atanglei hi hmanding ah na lungtling. &lt;a href=\"%1$s\"&gt; Na tuahmi pawl cu hi license tangah chuah na lungtling.\n&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;</string>
-  <string name="edit_save_action_license_anon">Na khonnak thawngin atanglei pawl hi na lungtling..&lt;a href=\"%1$s\"&gt;Terms of Use&lt;/a&gt; Na tuahmi pawl cu hi license ning chuah a si lai. Na IP address kha kan lak lai. &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; Achung na luh asicun &lt;a href=\"https://#login\"&gt;log in&lt;/a&gt;, na him deuh lai dakaw.</string>
-  <string name="preference_title_language">Wikipedia holh pawl</string>
+    <string name="edit_save_action_license_anon">Na khonnak thawngin atanglei pawl hi na lungtling..&lt;a href=\"%1$s\"&gt;Terms of Use&lt;/a&gt; Na tuahmi pawl cu hi license ning chuah a si lai. Na IP address kha kan lak lai. &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; Achung na luh asicun &lt;a href=\"https://#login\"&gt;log in&lt;/a&gt;, na him deuh lai dakaw.</string>
+    <string name="preference_title_language">Wikipedia holh pawl</string>
     <string name="langlinks_filter_hint">Kawlnak</string>
-  <string name="langlinks_empty">Holh dang in a ngah lo.</string>
-  <string name="langlinks_no_match">Na kawlmi kan hmu lo.</string>
-  <string name="langlinks_activity_title">Holh dang in</string>
-  <string name="menu_save_changes" fuzzy="true">Na thlenmi fim ding</string>
-  <string name="dialog_saving_in_progress" fuzzy="true">Khon lio....hngak</string>
-  <string name="edit_saved_successfully" fuzzy="true">Na remhmi a khong cang!</string>
-  <string name="dialog_message_edit_failed">Na remhmi ngah lo!</string>
-  <string name="dialog_message_edit_failed_retry">Tuah than</string>
-  <string name="dialog_message_edit_failed_cancel">Let than</string>
-  <string name="dialog_message_leaving_edit">Na remhmi pawl a khong rih lo. Na chuak tak ko lai maw?</string>
-  <string name="dialog_message_leaving_edit_leave">Chuak ning</string>
-  <string name="dialog_message_leaving_edit_stay">Ka um ko lai.</string>
-  <string name="menu_show_toc">Chungum</string>
-  <string name="search_no_results_found">Phichuak a um lo</string>
-  <string name="edit_section_captcha_message">Cachia pawl umlonak caah, atanglei alangmi cafang hi tial hna</string>
-  <string name="edit_section_captcha_hint">Acunglei biafang hi nawlh hna</string>
-  <string name="title_captcha">CAPTCHA tialnak</string>
-  <string name="edit_section_captcha_reload">CAPTCHA kha hmet than</string>
-  <string name="nav_item_login" fuzzy="true">Luhnak</string>
-  <string name="login_username_hint">Na Min</string>
-  <string name="login_password_hint">Biathup</string>
-  <string name="menu_login">Lutnak</string>
-  <string name="login_activity_title" fuzzy="true">Wikipedia ah lut</string>
-  <string name="login_in_progress_dialog_message">Kan in luh lio...</string>
-  <string name="login_success_toast" fuzzy="true">Na lut kho cang!</string>
-  <string name="preference_title_logout">Chuahnak</string>
-  <string name="toast_logout_complete">Chuak cang</string>
-  <string name="history_empty_title" fuzzy="true">Zohmi cahmai a um rih lo.</string>
-  <string name="history_empty_message" fuzzy="true">Na hloh dih hna i si men lai. Voidang cu cahmai na kal khawhnak ah kal cang.</string>
-  <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
-  <string name="create_account_username_hint">Na min</string>
-  <string name="create_account_activity_title">Account sernak</string>
-  <string name="dialog_create_account_checking_progress">A zohfel lio</string>
-  <string name="create_account_email_hint">Email (na ngeih cun)</string>
-  <string name="create_account_password_repeat_hint">Biathup tial than</string>
-  <string name="create_account_passwords_mismatch_error">Biathup a lo lo</string>
-  <string name="create_account_email_error">Na email a ngah lo</string>
-  <string name="create_account_generic_error">Account tuah khawh a si lo</string>
-  <string name="create_account_next">Kal</string>
-  <string name="create_account_button">Account sernak</string>
-  <string name="preferences_general_heading">Adangdang</string>
-  <string name="wikipedia_app_faq">Wikipedia App Biahalnak</string>
+    <string name="langlinks_empty">Holh dang in a ngah lo.</string>
+    <string name="langlinks_no_match">Na kawlmi kan hmu lo.</string>
+    <string name="langlinks_activity_title">Holh dang in</string>
+    <string name="menu_save_changes" fuzzy="true">Na thlenmi fim ding</string>
+    <string name="dialog_saving_in_progress" fuzzy="true">Khon lio....hngak</string>
+    <string name="edit_saved_successfully" fuzzy="true">Na remhmi a khong cang!</string>
+    <string name="dialog_message_edit_failed">Na remhmi ngah lo!</string>
+    <string name="dialog_message_edit_failed_retry">Tuah than</string>
+    <string name="dialog_message_edit_failed_cancel">Let than</string>
+    <string name="dialog_message_leaving_edit">Na remhmi pawl a khong rih lo. Na chuak tak ko lai maw?</string>
+    <string name="dialog_message_leaving_edit_leave">Chuak ning</string>
+    <string name="dialog_message_leaving_edit_stay">Ka um ko lai.</string>
+    <string name="menu_show_toc">Chungum</string>
+    <string name="search_no_results_found">Phichuak a um lo</string>
+    <string name="edit_section_captcha_message">Cachia pawl umlonak caah, atanglei alangmi cafang hi tial hna</string>
+    <string name="edit_section_captcha_hint">Acunglei biafang hi nawlh hna</string>
+    <string name="title_captcha">CAPTCHA tialnak</string>
+    <string name="edit_section_captcha_reload">CAPTCHA kha hmet than</string>
+    <string name="nav_item_login" fuzzy="true">Luhnak</string>
+    <string name="login_username_hint">Na Min</string>
+    <string name="login_password_hint">Biathup</string>
+    <string name="menu_login">Lutnak</string>
+    <string name="login_activity_title" fuzzy="true">Wikipedia ah lut</string>
+    <string name="login_in_progress_dialog_message">Kan in luh lio...</string>
+    <string name="login_success_toast" fuzzy="true">Na lut kho cang!</string>
+    <string name="preference_title_logout">Chuahnak</string>
+    <string name="toast_logout_complete">Chuak cang</string>
+    <string name="history_empty_title" fuzzy="true">Zohmi cahmai a um rih lo.</string>
+    <string name="history_empty_message" fuzzy="true">Na hloh dih hna i si men lai. Voidang cu cahmai na kal khawhnak ah kal cang.</string>
+    <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
+    <string name="create_account_username_hint">Na min</string>
+    <string name="create_account_activity_title">Account sernak</string>
+    <string name="dialog_create_account_checking_progress">A zohfel lio</string>
+    <string name="create_account_email_hint">Email (na ngeih cun)</string>
+    <string name="create_account_password_repeat_hint">Biathup tial than</string>
+    <string name="create_account_passwords_mismatch_error">Biathup a lo lo</string>
+    <string name="create_account_email_error">Na email a ngah lo</string>
+    <string name="create_account_generic_error">Account tuah khawh a si lo</string>
+    <string name="create_account_next">Kal</string>
+    <string name="create_account_button">Account sernak</string>
+    <string name="preferences_general_heading">Adangdang</string>
+    <string name="wikipedia_app_faq">Wikipedia App Biahalnak</string>
     <string name="edit_preview_fetching_dialog_message">A langhchung lio</string>
-  <string name="send_feedback">App cung ruahnak kuat ding</string>
-  <string name="create_account_account_created_toast">Account ser khawh cang!</string>
-  <string name="preference_title_eventlogging_opt_in">Hmannak ripawt kua</string>
-  <string name="preference_summary_eventlogging_opt_in">App na hmannak ah a that deuh nakhga Wikimedia kha thil sining pawl laknak nawl pe</string>
-  <string name="editing_error_spamblacklist">Block cangmi domain pawl %s link a um. Hlo hna law tuah than te.</string>
-  <string name="history_search_list_hint">Kawlnak cakhumh</string>
-  <string name="error_can_not_process_link">Mah link hi a pehtawn kho lo</string>
-  <string name="page_protected_autoconfirmed">Hi cahmai hi tlawmpal kilven a si.</string>
-  <string name="page_protected_sysop">Hi cahmai hi kilvenpiak a si.</string>
-  <string name="page_protected_other">Hi cahmai atanglei dotning in kilven a si: %s</string>
-  <string name="page_protected_can_not_edit" fuzzy="true">Hi cahmai remhnak nawl na ngei lo.</string>
-  <string name="page_protected_can_not_edit_title">Hi cahmai hi kilvenpiak a si.</string>
-  <string name="about_description">Hi Wikipedia app konglam</string>
-  <string name="privacy_policy_description">Pumpak Kilvenak Policy</string>
-  <string name="terms_of_use_description">Hmannak Hngalhawk Phung</string>
-  <string name="about_libraries_heading" fuzzy="true">Hmanmi caruuk</string>
-  <string name="about_contributors_heading" fuzzy="true">Teltumtu pawl</string>
-  <string name="about_translators_heading" fuzzy="true">Holh Lettu</string>
-  <string name="about_translators_translatewiki">Hi app cu zaanghleicawi holh lettu nih &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; a leh hna.</string>
-  <string name="about_wmf" fuzzy="true">Wikimedia Foundation &lt;a href=\"https://wikimediafoundation.org/\"&gt; thil a si.</string>
-  <string name="about_activity_title">Konglam</string>
-  <string name="edit_abandon_confirm">Hi cahmai cu thlenremh a si. Na remhnak pawl khon loin maw na chuah ko lai?</string>
-  <string name="user_blocked_from_editing_title">Block a si</string>
-  <string name="user_logged_in_blocked_from_editing">Na account min hi wiki ah cabia remh ding in block a si.</string>
-  <string name="user_anon_blocked_from_editing">Na IP address hi cabia remhnak in block a si.</string>
-  <string name="edit_how_page_improved">Hi cahmai cu zeitin na remh?</string>
-  <string name="edit_next">Kal</string>
-  <string name="edit_done" fuzzy="true">Khong</string>
-  <string name="edit_preview">Zohchunawk</string>
-  <string name="edit_summary_tag_typo">Tial palhmi ka remh</string>
-  <string name="edit_summary_tag_grammar">Grammar ka remh</string>
-  <string name="edit_summary_tag_links">Link ka bet</string>
-  <string name="edit_summary_tag_other">Adang</string>
-  <string name="edit_summary_tag_other_hint">Cahmai na remhning adang pawl</string>
-  <string name="find_next">Hmai ah kawl</string>
-  <string name="find_previous">Kir law kawl</string>
-  <string name="abusefilter_title_warn" fuzzy="true">Na remhning a dik deuh kho lo men. Na khon ko lai maw?</string>
-  <string name="abusefilter_title_disallow" fuzzy="true">Na remhnak hi na khong kho lai lo. Kir than law thleng than.</string>
-  <string name="abusefilter_text_warn">Seh nih na tuahning a tha lo, a ti. Ai thuatmi a um &lt;br/&gt;&lt;br/&gt;. Cafang lian in  tialmi &lt;br/&gt;. Cabia pingpalo asiloah cachia a tel &lt;br/&gt;. Link dik lo asiloah hmanthlak thalo &lt;br/&gt;. Cafang a nawlh thanmi pawl</string>
-  <string name="abusefilter_text_disallow">Seh nih na remh mi pawl a duh lo. Remh ning tha lo asiloah hrawhduhnak pawl a tel. &lt;br/&gt;&lt;br/&gt; Wikipedia hi konglamtling relnak a si. Aho papeknak umlomi cabia pawl lawng a cohlan.</string>
+    <string name="send_feedback">App cung ruahnak kuat ding</string>
+    <string name="create_account_account_created_toast">Account ser khawh cang!</string>
+    <string name="preference_title_eventlogging_opt_in">Hmannak ripawt kua</string>
+    <string name="preference_summary_eventlogging_opt_in">App na hmannak ah a that deuh nakhga Wikimedia kha thil sining pawl laknak nawl pe</string>
+    <string name="editing_error_spamblacklist">Block cangmi domain pawl %s link a um. Hlo hna law tuah than te.</string>
+    <string name="history_search_list_hint">Kawlnak cakhumh</string>
+    <string name="error_can_not_process_link">Mah link hi a pehtawn kho lo</string>
+    <string name="page_protected_autoconfirmed">Hi cahmai hi tlawmpal kilven a si.</string>
+    <string name="page_protected_sysop">Hi cahmai hi kilvenpiak a si.</string>
+    <string name="page_protected_other">Hi cahmai atanglei dotning in kilven a si: %s</string>
+    <string name="page_protected_can_not_edit" fuzzy="true">Hi cahmai remhnak nawl na ngei lo.</string>
+    <string name="page_protected_can_not_edit_title">Hi cahmai hi kilvenpiak a si.</string>
+    <string name="about_description">Hi Wikipedia app konglam</string>
+    <string name="privacy_policy_description">Pumpak Kilvenak Policy</string>
+    <string name="terms_of_use_description">Hmannak Hngalhawk Phung</string>
+    <string name="about_libraries_heading" fuzzy="true">Hmanmi caruuk</string>
+    <string name="about_contributors_heading" fuzzy="true">Teltumtu pawl</string>
+    <string name="about_translators_heading" fuzzy="true">Holh Lettu</string>
+    <string name="about_translators_translatewiki">Hi app cu zaanghleicawi holh lettu nih &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; a leh hna.</string>
+    <string name="about_wmf" fuzzy="true">Wikimedia Foundation &lt;a href=\"https://wikimediafoundation.org/\"&gt; thil a si.</string>
+    <string name="about_activity_title">Konglam</string>
+    <string name="edit_abandon_confirm">Hi cahmai cu thlenremh a si. Na remhnak pawl khon loin maw na chuah ko lai?</string>
+    <string name="user_blocked_from_editing_title">Block a si</string>
+    <string name="user_logged_in_blocked_from_editing">Na account min hi wiki ah cabia remh ding in block a si.</string>
+    <string name="user_anon_blocked_from_editing">Na IP address hi cabia remhnak in block a si.</string>
+    <string name="edit_how_page_improved">Hi cahmai cu zeitin na remh?</string>
+    <string name="edit_next">Kal</string>
+    <string name="edit_done" fuzzy="true">Khong</string>
+    <string name="edit_preview">Zohchunawk</string>
+    <string name="edit_summary_tag_typo">Tial palhmi ka remh</string>
+    <string name="edit_summary_tag_grammar">Grammar ka remh</string>
+    <string name="edit_summary_tag_links">Link ka bet</string>
+    <string name="edit_summary_tag_other">Adang</string>
+    <string name="edit_summary_tag_other_hint">Cahmai na remhning adang pawl</string>
+    <string name="find_next">Hmai ah kawl</string>
+    <string name="find_previous">Kir law kawl</string>
+    <string name="abusefilter_title_warn" fuzzy="true">Na remhning a dik deuh kho lo men. Na khon ko lai maw?</string>
+    <string name="abusefilter_title_disallow" fuzzy="true">Na remhnak hi na khong kho lai lo. Kir than law thleng than.</string>
+    <string name="abusefilter_text_warn">Seh nih na tuahning a tha lo, a ti. Ai thuatmi a um &lt;br/&gt;&lt;br/&gt;. Cafang lian in  tialmi &lt;br/&gt;. Cabia pingpalo asiloah cachia a tel &lt;br/&gt;. Link dik lo asiloah hmanthlak thalo &lt;br/&gt;. Cafang a nawlh thanmi pawl</string>
+    <string name="abusefilter_text_disallow">Seh nih na remh mi pawl a duh lo. Remh ning tha lo asiloah hrawhduhnak pawl a tel. &lt;br/&gt;&lt;br/&gt; Wikipedia hi konglamtling relnak a si. Aho papeknak umlomi cabia pawl lawng a cohlan.</string>
     <string name="text_size_select">Cafang hmetngan</string>
-  <string name="page_similar_titles">Cahmai khat pawl</string>
-  <string name="search_did_you_mean">Na chimduh mi cu \"%s\" si maw?</string>
-  <string name="search_recent_header">Na kawlmi tete:</string>
-  <string name="button_clear_all_recent_searches">Tunai kawlmi pawl hloh ding</string>
-  <string name="clear_recent_searches_confirm">Na kawlnak pawl hloh na duh taktak maw?</string>
-  <string name="error_browser_not_found">Web cahmai kawl hun khawh a si lo (browser app a hmu lo).</string>
-  <string name="table_infobox">Cinkenawk tete</string>
-  <string name="table_other">Konglam tamdeuh</string>
-  <string name="table_close">Chuak</string>
-  <string name="widget_name_featured_page">Wikipedia thimmi cahmai</string>
-  <string name="widget_title_featured_page">Tuni thimmi cahmai:</string>
-  <string name="widget_name_search">Wikipedia kawlnak</string>
-  <string name="alpha_update_notification_title">Update thar a chuak cang</string>
-  <string name="alpha_update_notification_text">Download ding ah hmet</string>
-  <string name="dialog_close_description">Chuak</string>
-  <string name="preference_title_show_images">Hmanthlak langhter</string>
-  <string name="preference_summary_show_images" fuzzy="true">Hmanthlak langhternak tuah asiloah tuah hlah. Na internet connection a chiat tuk asiloah data rikhiah na ngeih asicun hi setting hi tuah hlah.</string>
-  <string name="read_more_section">Tamdeuh in relnak</string>
-  <string name="menu_gallery_visit_page">File cahmai ah kal</string>
-  <string name="gallery_error_draw_failed">Hmathlak a langh kho lo</string>
-  <string name="license_title">%s caruuk caah license biafang</string>
-  <string name="gallery_menu_share">Hrawmh</string>
-  <string name="gallery_share_error">Hmanthlak a hrawmh kholo: %s</string>
-  <string name="gallery_save_success" fuzzy="true">Hmanthlak a khon khawh cang.</string>
-  <string name="gallery_error_video_failed">Video a langh kholo.</string>
-  <string name="err_cannot_save_file">File a khong kholo</string>
-  <string name="snippet_share_intro">\@Wikipedia ah \"%1$s\": %2$s</string>
-  <string name="expand_refs">Kauh ding in hmet</string>
-  <string name="share_snippet_button">Hmanthlak hrawmh ding</string>
-  <string name="share_normal_button">Biafang hrawmh ding</string>
-  <string name="snippet_share_preview_image_desc">Hmanthlak zohchunnak</string>
-  <string name="cc_logo">Creative Commons license</string>
-  <string name="captcha_image">Captcha hmanthlak</string>
-  <string name="gallery_fair_use_license">Rikhiah hmannak nawl</string>
-  <string name="gallery_uploader_unknown">Atartu hngalh a si lo</string>
-  <string name="menu_new_tab">Adang in hung</string>
-  <string name="button_close_tab">Khar ding</string>
+    <string name="page_similar_titles">Cahmai khat pawl</string>
+    <string name="search_did_you_mean">Na chimduh mi cu \"%s\" si maw?</string>
+    <string name="search_recent_header">Na kawlmi tete:</string>
+    <string name="button_clear_all_recent_searches">Tunai kawlmi pawl hloh ding</string>
+    <string name="clear_recent_searches_confirm">Na kawlnak pawl hloh na duh taktak maw?</string>
+    <string name="error_browser_not_found">Web cahmai kawl hun khawh a si lo (browser app a hmu lo).</string>
+    <string name="table_infobox">Cinkenawk tete</string>
+    <string name="table_other">Konglam tamdeuh</string>
+    <string name="table_close">Chuak</string>
+    <string name="widget_name_featured_page">Wikipedia thimmi cahmai</string>
+    <string name="widget_title_featured_page">Tuni thimmi cahmai:</string>
+    <string name="widget_name_search">Wikipedia kawlnak</string>
+    <string name="alpha_update_notification_title">Update thar a chuak cang</string>
+    <string name="alpha_update_notification_text">Download ding ah hmet</string>
+    <string name="dialog_close_description">Chuak</string>
+    <string name="preference_title_show_images">Hmanthlak langhter</string>
+    <string name="preference_summary_show_images" fuzzy="true">Hmanthlak langhternak tuah asiloah tuah hlah. Na internet connection a chiat tuk asiloah data rikhiah na ngeih asicun hi setting hi tuah hlah.</string>
+    <string name="read_more_section">Tamdeuh in relnak</string>
+    <string name="menu_gallery_visit_page">File cahmai ah kal</string>
+    <string name="gallery_error_draw_failed">Hmathlak a langh kho lo</string>
+    <string name="license_title">%s caruuk caah license biafang</string>
+    <string name="gallery_menu_share">Hrawmh</string>
+    <string name="gallery_share_error">Hmanthlak a hrawmh kholo: %s</string>
+    <string name="gallery_save_success" fuzzy="true">Hmanthlak a khon khawh cang.</string>
+    <string name="gallery_error_video_failed">Video a langh kholo.</string>
+    <string name="err_cannot_save_file">File a khong kholo</string>
+    <string name="snippet_share_intro">\@Wikipedia ah \"%1$s\": %2$s</string>
+    <string name="expand_refs">Kauh ding in hmet</string>
+    <string name="share_snippet_button">Hmanthlak hrawmh ding</string>
+    <string name="share_normal_button">Biafang hrawmh ding</string>
+    <string name="snippet_share_preview_image_desc">Hmanthlak zohchunnak</string>
+    <string name="cc_logo">Creative Commons license</string>
+    <string name="captcha_image">Captcha hmanthlak</string>
+    <string name="gallery_fair_use_license">Rikhiah hmannak nawl</string>
+    <string name="gallery_uploader_unknown">Atartu hngalh a si lo</string>
+    <string name="menu_new_tab">Adang in hung</string>
+    <string name="button_close_tab">Khar ding</string>
     <string name="page_view_in_browser">Cahmai browser ah zoh ding</string>
-  <string name="error_response_malformed">Server bialehnak cu thate in a thleng lo.</string>
-  <string name="error_unknown">Palhnak pakhat khat a um.</string>
-  <string name="format_error_server_message">Cakuat: \"%s\"</string>
-  <string name="button_add_to_reading_list">Relding cazin ah telh</string>
-  <string name="color_theme_select">Muisam</string>
-  <string name="color_theme_light">Aceu</string>
-  <string name="color_theme_dark">Amui</string>
+    <string name="error_response_malformed">Server bialehnak cu thate in a thleng lo.</string>
+    <string name="error_unknown">Palhnak pakhat khat a um.</string>
+    <string name="format_error_server_message">Cakuat: \"%s\"</string>
+    <string name="button_add_to_reading_list">Relding cazin ah telh</string>
+    <string name="color_theme_select">Muisam</string>
+    <string name="color_theme_light">Aceu</string>
+    <string name="color_theme_dark">Amui</string>
 </resources>

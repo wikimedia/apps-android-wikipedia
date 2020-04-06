@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Authors:
+<?xml version="1.0" encoding="utf-8"?><!-- Authors:
 * Carlosedepaula
 * Julian Mendez
 * Karmwiki
@@ -7,170 +6,170 @@
 * McDutchie
 -->
 <resources>
-  <string name="app_name_prod">Wikipedia</string>
-  <string name="app_name_beta">Wikipedia Beta</string>
-  <string name="app_name_alpha">Wikipedia Alpha</string>
-  <string name="wikimedia">Wikimedia</string>
-  <string name="nav_item_back">Retro</string>
-  <string name="nav_item_forward">Avante</string>
-  <string name="search_hint">Cercar in Wikipedia</string>
-  <string name="nav_item_history">Historia</string>
-  <string name="error_network_error">Il non es possibile connecter se a Internet.</string>
-  <string name="page_error_retry">Reprobar</string>
-  <string name="page_error_back_to_main">Retornar</string>
-  <string name="menu_clear_all_history">Rader historia</string>
-  <string name="dialog_title_clear_history">Rader historia de navigation</string>
-  <string name="dialog_message_clear_history">Isto delera tote le historia de tu navigator e claudera omne schedas aperte. Es tu secur?</string>
-  <string name="share_via">Divider via</string>
-  <string name="menu_page_show_tabs">Monstrar schedas</string>
-  <string name="menu_page_other_languages">Cambiar de lingua</string>
-  <string name="menu_page_find_in_page">Cercar in pagina</string>
-  <string name="menu_page_font_and_theme">Typo de litteras e thema</string>
-  <string name="menu_page_add_to_list">Adder al lista de lectura</string>
-  <string name="menu_page_share">Divider ligamine</string>
-  <string name="menu_page_open_a_new_tab">Aperir un nove scheda</string>
-  <string name="menu_page_reading_lists">Listas de lectura</string>
-  <string name="menu_page_recently_viewed">Recentemente visitate</string>
-  <string name="menu_long_press_open_page">Aperir</string>
-  <string name="menu_long_press_open_in_new_tab">Aperir in un nove scheda</string>
-  <string name="menu_long_press_copy_page">Copiar le adresse del ligamine</string>
-  <string name="menu_text_select_copy">Copiar</string>
-  <string name="menu_text_select_define">Definir</string>
-  <string name="menu_text_select_share">Divider</string>
-  <string name="menu_text_select_edit_here">Modificar hic</string>
-  <string name="last_updated_text">Ultime actualisation %s</string>
+    <string name="app_name_prod">Wikipedia</string>
+    <string name="app_name_beta">Wikipedia Beta</string>
+    <string name="app_name_alpha">Wikipedia Alpha</string>
+    <string name="wikimedia">Wikimedia</string>
+    <string name="nav_item_back">Retro</string>
+    <string name="nav_item_forward">Avante</string>
+    <string name="search_hint">Cercar in Wikipedia</string>
+    <string name="nav_item_history">Historia</string>
+    <string name="error_network_error">Il non es possibile connecter se a Internet.</string>
+    <string name="page_error_retry">Reprobar</string>
+    <string name="page_error_back_to_main">Retornar</string>
+    <string name="menu_clear_all_history">Rader historia</string>
+    <string name="dialog_title_clear_history">Rader historia de navigation</string>
+    <string name="dialog_message_clear_history">Isto delera tote le historia de tu navigator e claudera omne schedas aperte. Es tu secur?</string>
+    <string name="share_via">Divider via</string>
+    <string name="menu_page_show_tabs">Monstrar schedas</string>
+    <string name="menu_page_other_languages">Cambiar de lingua</string>
+    <string name="menu_page_find_in_page">Cercar in pagina</string>
+    <string name="menu_page_font_and_theme">Typo de litteras e thema</string>
+    <string name="menu_page_add_to_list">Adder al lista de lectura</string>
+    <string name="menu_page_share">Divider ligamine</string>
+    <string name="menu_page_open_a_new_tab">Aperir un nove scheda</string>
+    <string name="menu_page_reading_lists">Listas de lectura</string>
+    <string name="menu_page_recently_viewed">Recentemente visitate</string>
+    <string name="menu_long_press_open_page">Aperir</string>
+    <string name="menu_long_press_open_in_new_tab">Aperir in un nove scheda</string>
+    <string name="menu_long_press_copy_page">Copiar le adresse del ligamine</string>
+    <string name="menu_text_select_copy">Copiar</string>
+    <string name="menu_text_select_define">Definir</string>
+    <string name="menu_text_select_share">Divider</string>
+    <string name="menu_text_select_edit_here">Modificar hic</string>
+    <string name="last_updated_text">Ultime actualisation %s</string>
     <string name="edit_save_action_license_logged_in" fuzzy="true">By saving, you agree to the &lt;a href=\"%1$s\"&gt;Terms of Use&lt;/a&gt;, and to irrevocably release your contributions under the &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; license.</string>
-  <string name="edit_save_action_license_anon" fuzzy="true">By saving, you agree to the &lt;a href=\"%1$s\"&gt;Terms of Use&lt;/a&gt;, and to irrevocably release your contributions under the &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; license. Edits will be attributed to the IP address of your device. If you &lt;a href=\"https://#login\"&gt;log in&lt;/a&gt;, you will have more privacy.</string>
-  <string name="preference_title_language" fuzzy="true">Lingua de Wikipedia</string>
-  <string name="langlinks_filter_hint">Cercar</string>
-  <string name="langlinks_empty">Iste pagina non es disponibile in altere linguas</string>
-  <string name="langlinks_no_match" fuzzy="true">Nulle lingua trovate que corresponde a tu recerca.</string>
-  <string name="langlinks_activity_title">Altere linguas</string>
-  <string name="menu_save_changes" fuzzy="true">Salveguardar modificationes</string>
-  <string name="dialog_saving_in_progress" fuzzy="true">Salveguarda…</string>
-  <string name="edit_saved_successfully" fuzzy="true">Modification salveguardate!</string>
-  <string name="dialog_message_edit_failed">Modification fallite!</string>
-  <string name="dialog_message_edit_failed_retry">Reprobar</string>
-  <string name="dialog_message_edit_failed_cancel">Cancellar</string>
-  <string name="dialog_message_leaving_edit" fuzzy="true">Tu modificationes non ha ancora essite salveguardate. Es tu secur de voler quitar iste pagina?</string>
-  <string name="dialog_message_leaving_edit_leave">Quitar</string>
-  <string name="dialog_message_leaving_edit_stay">Restar</string>
-  <string name="menu_show_toc">Tabula de contento</string>
-  <string name="search_no_results_found">Nulle resultato trovate</string>
-  <string name="edit_section_captcha_message">Pro adjutar a proteger contra le spam automatisate, per favor insere le parolas que appare infra</string>
-  <string name="edit_section_captcha_hint">Repete le parolas de supra</string>
-  <string name="title_captcha">Scribe le CAPTCHA</string>
-  <string name="edit_section_captcha_reload">Tocca CAPTCHA pro recargar</string>
-  <string name="nav_item_login">Aperir session in Wikipedia</string>
-  <string name="login_username_hint">Nomine de usator</string>
-  <string name="login_password_hint">Contrasigno</string>
-  <string name="menu_login">Aperir session</string>
-  <string name="login_activity_title">Aperir session in Wikipedia</string>
-  <string name="login_in_progress_dialog_message">Accesso in curso…</string>
-  <string name="login_success_toast">Session aperite con successo!</string>
-  <string name="preference_title_logout">Clauder session</string>
-  <string name="toast_logout_complete">Session claudite</string>
-  <string name="history_empty_title" fuzzy="true">Il non ha paginas recente.</string>
-  <string name="history_empty_message" fuzzy="true">Tu ha probabilemente delite totes. Le sequente vice que tu accede a un pagina, tu potera retrovar lo hic.</string>
-  <string name="create_account_username_hint">Nomine de usator</string>
-  <string name="create_account_activity_title">Crear un conto</string>
-  <string name="dialog_create_account_checking_progress">Verification in curso</string>
-  <string name="create_account_email_hint">E-mail (optional)</string>
-  <string name="create_account_password_repeat_hint">Repete contrasigno</string>
-  <string name="create_account_passwords_mismatch_error">Le contrasignos non es identic</string>
-  <string name="create_account_email_error">Adresse de e-mail invalide</string>
-  <string name="create_account_generic_error">Non pote crear le conto</string>
-  <string name="create_account_next">Sequente</string>
-  <string name="create_account_button">Crear conto</string>
-  <string name="preferences_general_heading">General</string>
-  <string name="wikipedia_app_faq">FAQ re app Wikipedia</string>
-  <string name="send_feedback">Inviar commentario re le application</string>
-  <string name="create_account_account_created_toast">Conto create!</string>
-  <string name="history_search_list_hint">Cercar in le historia</string>
-  <string name="page_protected_can_not_edit_title">Iste pagina es protegite</string>
-  <string name="about_description">A proposito del app Wikipedia</string>
-  <string name="privacy_policy_description">Politica de confidentialitate</string>
-  <string name="terms_of_use_description">Conditiones de uso</string>
-  <string name="about_libraries_heading">Bibliothecas usate</string>
-  <string name="about_contributors_heading">Contributores</string>
-  <string name="about_translators_heading">Traductores</string>
-  <string name="about_activity_title">A proposito</string>
-  <string name="user_blocked_from_editing_title">Blocate</string>
-  <string name="edit_how_page_improved">Como ha tu ameliorate le pagina?</string>
-  <string name="edit_next">Sequente</string>
-  <string name="edit_done" fuzzy="true">Salveguardar</string>
-  <string name="edit_preview">Previsualisation</string>
-  <string name="edit_summary_tag_typo">Error dactylographic corrigite</string>
-  <string name="edit_summary_tag_grammar">Grammatica corrigite</string>
-  <string name="edit_summary_tag_links">Ligamines addite</string>
-  <string name="edit_summary_tag_other">Altere</string>
-  <string name="edit_summary_tag_other_hint">Altere manieras del quales tu ha meliorate iste pagina</string>
-  <string name="find_next">Cercar sequente</string>
-  <string name="find_previous">Cargar precedente</string>
-  <string name="abusefilter_title_warn" fuzzy="true">Iste pote esser un modification non constructive. Es tu secur de voler salveguardar lo?</string>
-  <string name="abusefilter_title_disallow" fuzzy="true">Tu non pote salveguardar iste modification. Per favor retorna e cambia lo.</string>
-  <string name="text_size_select">Dimension del litteras</string>
-  <string name="page_similar_titles">Paginas simile</string>
-  <string name="search_did_you_mean">Forsan cercava tu: \"%s\"?</string>
-  <string name="search_recent_header">Recercas recente:</string>
-  <string name="button_clear_all_recent_searches">Rader le recercas recente</string>
-  <string name="clear_recent_searches_confirm">Es tu secur de voler rader tu historia de recerca?</string>
-  <string name="error_browser_not_found">Impossibile aperir le pagina web (nulle navigator trovate).</string>
-  <string name="table_infobox">Factos in breve</string>
-  <string name="table_other">Plus de informationes</string>
-  <string name="table_close">Clauder</string>
-  <string name="widget_name_featured_page">Pagina de Wikipedia in prime plano</string>
-  <string name="widget_title_featured_page">Pagina in prime plano de hodie:</string>
-  <string name="dialog_close_description">Clauder</string>
-  <string name="preference_title_show_images">Monstrar imagines</string>
-  <string name="read_more_section">Leger plus</string>
-  <string name="menu_gallery_visit_page">Visitar le pagina del file</string>
-  <string name="gallery_error_draw_failed">Non poteva monstrar le imagine.</string>
-  <string name="gallery_menu_share">Divider</string>
-  <string name="gallery_share_error">Non poteva divider imagine: %s</string>
-  <string name="gallery_save_success">File salveguardate correctemente.</string>
-  <string name="err_cannot_save_file">Impossibile salveguardar le file</string>
-  <string name="snippet_share_intro">\"%1$s\" sur @Wikipedia: %2$s</string>
-  <string name="expand_refs">Tocca pro displicar</string>
-  <string name="share_snippet_button">Divider como imagine</string>
-  <string name="share_normal_button">Divider como texto</string>
-  <string name="snippet_share_preview_image_desc">Previsualisar imagine</string>
-  <string name="cc_logo">Licentia Creative Commons</string>
-  <string name="captcha_image">Imagine CAPTCHA</string>
-  <string name="page_view_in_browser">Vider le pagina in le navigator</string>
-  <string name="color_theme_select">Thema</string>
-  <string name="color_theme_light">Clar</string>
-  <string name="color_theme_dark">Obscur</string>
-  <string name="saved_list_empty_title">Nulle pagina salveguardate ancora</string>
-  <string name="reading_list_menu_last_sync">Ultime sync: %s</string>
-  <string name="notification_echo_channel_description">Notificationes de Wikipedia</string>
-  <string name="notifications_activity_title">Notificationes</string>
-  <string name="notifications_activity_title_archived">Notificationes (archivate)</string>
-  <string name="notifications_search">Cercar in notificationes</string>
-  <string name="notifications_view_unread">Vider non legites</string>
-  <string name="notifications_view_archived">Vider archivates</string>
-  <string name="notifications_prefs">Preferentias de notification</string>
-  <string name="notifications_archive">Marcar como legite e archivar</string>
-  <plurals name="notification_archive_message">
-    <item quantity="one">Notification archivate</item>
-    <item quantity="other">%d notificationes archivate</item>
-  </plurals>
-  <string name="notifications_poll_enable_title">Activar notificationes</string>
-  <string name="notifications_poll_enable_positive">Activar</string>
-  <string name="notifications_poll_enable_negative">Non ora</string>
-  <string name="notifications_empty_message">Il non ha nove notificationes.</string>
-  <string name="notifications_view_archived_button_text">Vider notificationes archivate</string>
-  <string name="notification_preferences_title">Preferentias de notification</string>
-  <string name="preference_title_notification_poll">Sondar notificationes</string>
-  <string name="preference_summary_notification_poll">Permitter al app de transferer datos in secunde plano pro verificar si il ha nove notificationes.</string>
-  <string name="preference_category_notification_types">Typos de notification in app</string>
-  <string name="preference_title_notification_welcome">Benvenite</string>
-  <string name="preference_summary_notification_welcome">Un conto es create</string>
-  <string name="preference_title_notification_milestone">Petra milliari</string>
-  <string name="preference_summary_notification_milestone">Un certe numero de modificationes es attingite</string>
-  <string name="preference_title_notification_thanks">Gratias</string>
-  <string name="preference_summary_notification_thanks">Un persona te regratia pro un modification</string>
-  <string name="more_events_text">Plus sur iste die</string>
-  <string name="events_count_text">%1$s eventos inter %2$s e %3$d</string>
-  <string name="back_to_top">Retro al initio</string>
+    <string name="edit_save_action_license_anon" fuzzy="true">By saving, you agree to the &lt;a href=\"%1$s\"&gt;Terms of Use&lt;/a&gt;, and to irrevocably release your contributions under the &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; license. Edits will be attributed to the IP address of your device. If you &lt;a href=\"https://#login\"&gt;log in&lt;/a&gt;, you will have more privacy.</string>
+    <string name="preference_title_language" fuzzy="true">Lingua de Wikipedia</string>
+    <string name="langlinks_filter_hint">Cercar</string>
+    <string name="langlinks_empty">Iste pagina non es disponibile in altere linguas</string>
+    <string name="langlinks_no_match" fuzzy="true">Nulle lingua trovate que corresponde a tu recerca.</string>
+    <string name="langlinks_activity_title">Altere linguas</string>
+    <string name="menu_save_changes" fuzzy="true">Salveguardar modificationes</string>
+    <string name="dialog_saving_in_progress" fuzzy="true">Salveguarda…</string>
+    <string name="edit_saved_successfully" fuzzy="true">Modification salveguardate!</string>
+    <string name="dialog_message_edit_failed">Modification fallite!</string>
+    <string name="dialog_message_edit_failed_retry">Reprobar</string>
+    <string name="dialog_message_edit_failed_cancel">Cancellar</string>
+    <string name="dialog_message_leaving_edit" fuzzy="true">Tu modificationes non ha ancora essite salveguardate. Es tu secur de voler quitar iste pagina?</string>
+    <string name="dialog_message_leaving_edit_leave">Quitar</string>
+    <string name="dialog_message_leaving_edit_stay">Restar</string>
+    <string name="menu_show_toc">Tabula de contento</string>
+    <string name="search_no_results_found">Nulle resultato trovate</string>
+    <string name="edit_section_captcha_message">Pro adjutar a proteger contra le spam automatisate, per favor insere le parolas que appare infra</string>
+    <string name="edit_section_captcha_hint">Repete le parolas de supra</string>
+    <string name="title_captcha">Scribe le CAPTCHA</string>
+    <string name="edit_section_captcha_reload">Tocca CAPTCHA pro recargar</string>
+    <string name="nav_item_login">Aperir session in Wikipedia</string>
+    <string name="login_username_hint">Nomine de usator</string>
+    <string name="login_password_hint">Contrasigno</string>
+    <string name="menu_login">Aperir session</string>
+    <string name="login_activity_title">Aperir session in Wikipedia</string>
+    <string name="login_in_progress_dialog_message">Accesso in curso…</string>
+    <string name="login_success_toast">Session aperite con successo!</string>
+    <string name="preference_title_logout">Clauder session</string>
+    <string name="toast_logout_complete">Session claudite</string>
+    <string name="history_empty_title" fuzzy="true">Il non ha paginas recente.</string>
+    <string name="history_empty_message" fuzzy="true">Tu ha probabilemente delite totes. Le sequente vice que tu accede a un pagina, tu potera retrovar lo hic.</string>
+    <string name="create_account_username_hint">Nomine de usator</string>
+    <string name="create_account_activity_title">Crear un conto</string>
+    <string name="dialog_create_account_checking_progress">Verification in curso</string>
+    <string name="create_account_email_hint">E-mail (optional)</string>
+    <string name="create_account_password_repeat_hint">Repete contrasigno</string>
+    <string name="create_account_passwords_mismatch_error">Le contrasignos non es identic</string>
+    <string name="create_account_email_error">Adresse de e-mail invalide</string>
+    <string name="create_account_generic_error">Non pote crear le conto</string>
+    <string name="create_account_next">Sequente</string>
+    <string name="create_account_button">Crear conto</string>
+    <string name="preferences_general_heading">General</string>
+    <string name="wikipedia_app_faq">FAQ re app Wikipedia</string>
+    <string name="send_feedback">Inviar commentario re le application</string>
+    <string name="create_account_account_created_toast">Conto create!</string>
+    <string name="history_search_list_hint">Cercar in le historia</string>
+    <string name="page_protected_can_not_edit_title">Iste pagina es protegite</string>
+    <string name="about_description">A proposito del app Wikipedia</string>
+    <string name="privacy_policy_description">Politica de confidentialitate</string>
+    <string name="terms_of_use_description">Conditiones de uso</string>
+    <string name="about_libraries_heading">Bibliothecas usate</string>
+    <string name="about_contributors_heading">Contributores</string>
+    <string name="about_translators_heading">Traductores</string>
+    <string name="about_activity_title">A proposito</string>
+    <string name="user_blocked_from_editing_title">Blocate</string>
+    <string name="edit_how_page_improved">Como ha tu ameliorate le pagina?</string>
+    <string name="edit_next">Sequente</string>
+    <string name="edit_done" fuzzy="true">Salveguardar</string>
+    <string name="edit_preview">Previsualisation</string>
+    <string name="edit_summary_tag_typo">Error dactylographic corrigite</string>
+    <string name="edit_summary_tag_grammar">Grammatica corrigite</string>
+    <string name="edit_summary_tag_links">Ligamines addite</string>
+    <string name="edit_summary_tag_other">Altere</string>
+    <string name="edit_summary_tag_other_hint">Altere manieras del quales tu ha meliorate iste pagina</string>
+    <string name="find_next">Cercar sequente</string>
+    <string name="find_previous">Cargar precedente</string>
+    <string name="abusefilter_title_warn" fuzzy="true">Iste pote esser un modification non constructive. Es tu secur de voler salveguardar lo?</string>
+    <string name="abusefilter_title_disallow" fuzzy="true">Tu non pote salveguardar iste modification. Per favor retorna e cambia lo.</string>
+    <string name="text_size_select">Dimension del litteras</string>
+    <string name="page_similar_titles">Paginas simile</string>
+    <string name="search_did_you_mean">Forsan cercava tu: \"%s\"?</string>
+    <string name="search_recent_header">Recercas recente:</string>
+    <string name="button_clear_all_recent_searches">Rader le recercas recente</string>
+    <string name="clear_recent_searches_confirm">Es tu secur de voler rader tu historia de recerca?</string>
+    <string name="error_browser_not_found">Impossibile aperir le pagina web (nulle navigator trovate).</string>
+    <string name="table_infobox">Factos in breve</string>
+    <string name="table_other">Plus de informationes</string>
+    <string name="table_close">Clauder</string>
+    <string name="widget_name_featured_page">Pagina de Wikipedia in prime plano</string>
+    <string name="widget_title_featured_page">Pagina in prime plano de hodie:</string>
+    <string name="dialog_close_description">Clauder</string>
+    <string name="preference_title_show_images">Monstrar imagines</string>
+    <string name="read_more_section">Leger plus</string>
+    <string name="menu_gallery_visit_page">Visitar le pagina del file</string>
+    <string name="gallery_error_draw_failed">Non poteva monstrar le imagine.</string>
+    <string name="gallery_menu_share">Divider</string>
+    <string name="gallery_share_error">Non poteva divider imagine: %s</string>
+    <string name="gallery_save_success">File salveguardate correctemente.</string>
+    <string name="err_cannot_save_file">Impossibile salveguardar le file</string>
+    <string name="snippet_share_intro">\"%1$s\" sur @Wikipedia: %2$s</string>
+    <string name="expand_refs">Tocca pro displicar</string>
+    <string name="share_snippet_button">Divider como imagine</string>
+    <string name="share_normal_button">Divider como texto</string>
+    <string name="snippet_share_preview_image_desc">Previsualisar imagine</string>
+    <string name="cc_logo">Licentia Creative Commons</string>
+    <string name="captcha_image">Imagine CAPTCHA</string>
+    <string name="page_view_in_browser">Vider le pagina in le navigator</string>
+    <string name="color_theme_select">Thema</string>
+    <string name="color_theme_light">Clar</string>
+    <string name="color_theme_dark">Obscur</string>
+    <string name="saved_list_empty_title">Nulle pagina salveguardate ancora</string>
+    <string name="reading_list_menu_last_sync">Ultime sync: %s</string>
+    <string name="notification_echo_channel_description">Notificationes de Wikipedia</string>
+    <string name="notifications_activity_title">Notificationes</string>
+    <string name="notifications_activity_title_archived">Notificationes (archivate)</string>
+    <string name="notifications_search">Cercar in notificationes</string>
+    <string name="notifications_view_unread">Vider non legites</string>
+    <string name="notifications_view_archived">Vider archivates</string>
+    <string name="notifications_prefs">Preferentias de notification</string>
+    <string name="notifications_archive">Marcar como legite e archivar</string>
+    <plurals name="notification_archive_message">
+        <item quantity="one">Notification archivate</item>
+        <item quantity="other">%d notificationes archivate</item>
+    </plurals>
+    <string name="notifications_poll_enable_title">Activar notificationes</string>
+    <string name="notifications_poll_enable_positive">Activar</string>
+    <string name="notifications_poll_enable_negative">Non ora</string>
+    <string name="notifications_empty_message">Il non ha nove notificationes.</string>
+    <string name="notifications_view_archived_button_text">Vider notificationes archivate</string>
+    <string name="notification_preferences_title">Preferentias de notification</string>
+    <string name="preference_title_notification_poll">Sondar notificationes</string>
+    <string name="preference_summary_notification_poll">Permitter al app de transferer datos in secunde plano pro verificar si il ha nove notificationes.</string>
+    <string name="preference_category_notification_types">Typos de notification in app</string>
+    <string name="preference_title_notification_welcome">Benvenite</string>
+    <string name="preference_summary_notification_welcome">Un conto es create</string>
+    <string name="preference_title_notification_milestone">Petra milliari</string>
+    <string name="preference_summary_notification_milestone">Un certe numero de modificationes es attingite</string>
+    <string name="preference_title_notification_thanks">Gratias</string>
+    <string name="preference_summary_notification_thanks">Un persona te regratia pro un modification</string>
+    <string name="more_events_text">Plus sur iste die</string>
+    <string name="events_count_text">%1$s eventos inter %2$s e %3$d</string>
+    <string name="back_to_top">Retro al initio</string>
 </resources>

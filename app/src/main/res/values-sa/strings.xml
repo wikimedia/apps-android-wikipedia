@@ -1,192 +1,191 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Authors:
+<?xml version="1.0" encoding="utf-8"?><!-- Authors:
 * Charunandan16
 * NehalDaveND
 -->
 <resources>
-  <string name="app_name_prod">विकिपीडिया</string>
-  <string name="app_name_beta">विकिपीडिया उपान्त्यम्</string>
-  <string name="app_name_alpha">विकिपीडिया आल्फा</string>
-  <string name="wikimedia">विकिमीडिया</string>
-  <string name="search_hint">विकिपीडिया-जाले अन्विष्यताम्</string>
-  <string name="nav_item_history">इतिहासः</string>
-  <string name="error_network_error">अन्तर्जालेन सह सम्पर्कः न शक्यते</string>
-  <string name="page_error_retry">पुनःप्रयासः</string>
-  <string name="page_error_back_to_main">प्रतिगम्यताम्</string>
-  <string name="menu_clear_all_history">इतिहासः मार्ज्यताम्</string>
-  <string name="dialog_title_clear_history">अन्वेषणस्य इतिहासः अपाकर्तव्यो वा</string>
-  <string name="dialog_message_clear_history">एतत् भवतः/भवत्याः विचरणेतिहासं (search history) अपाकरिष्यति, एतत् सर्वान् टैब् पिदधास्यति । किम् एवम् इच्छति ?</string>
-  <string name="share_via">द्वारा वितरतु</string>
-  <string name="search_redirect_from">(%s इत्यस्मात् पुनर्निर्दिष्टम्)</string>
-  <string name="menu_page_show_tabs">प्लवनानि दृश्यताम्</string>
-  <string name="menu_page_other_languages">भाषा परिवर्त्यताम्</string>
-  <string name="menu_page_find_in_page">पृष्ठम् अन्विष्यताम्</string>
-  <string name="menu_page_font_and_theme">वर्णः, प्रसङ्गश्च</string>
-  <string name="menu_page_share">परिसन्धिं वितरतु</string>
-  <string name="menu_long_press_open_page">उद्घाट्यताम्</string>
-  <string name="menu_long_press_open_in_new_tab">नवीनं प्लवनकुड्मलम् उद्घाटयतु</string>
-  <string name="menu_long_press_copy_page">परिसन्धि-सङ्केतस्य प्रतिकृतिं करोतु</string>
-  <string name="menu_text_select_copy">प्रतिकृतिः</string>
-  <string name="menu_text_select_define">परिभाष्यताम्</string>
-  <string name="menu_text_select_share">वितरतु</string>
-  <string name="menu_text_select_edit_here">अत्र सम्पाद्यताम्</string>
-  <string name="last_updated_text">%s अन्तिमम् अद्यतनम् अभवत्</string>
-  <string name="talk_page_link_text" fuzzy="true">सम्भाषणम्</string>
+    <string name="app_name_prod">विकिपीडिया</string>
+    <string name="app_name_beta">विकिपीडिया उपान्त्यम्</string>
+    <string name="app_name_alpha">विकिपीडिया आल्फा</string>
+    <string name="wikimedia">विकिमीडिया</string>
+    <string name="search_hint">विकिपीडिया-जाले अन्विष्यताम्</string>
+    <string name="nav_item_history">इतिहासः</string>
+    <string name="error_network_error">अन्तर्जालेन सह सम्पर्कः न शक्यते</string>
+    <string name="page_error_retry">पुनःप्रयासः</string>
+    <string name="page_error_back_to_main">प्रतिगम्यताम्</string>
+    <string name="menu_clear_all_history">इतिहासः मार्ज्यताम्</string>
+    <string name="dialog_title_clear_history">अन्वेषणस्य इतिहासः अपाकर्तव्यो वा</string>
+    <string name="dialog_message_clear_history">एतत् भवतः/भवत्याः विचरणेतिहासं (search history) अपाकरिष्यति, एतत् सर्वान् टैब् पिदधास्यति । किम् एवम् इच्छति ?</string>
+    <string name="share_via">द्वारा वितरतु</string>
+    <string name="search_redirect_from">(%s इत्यस्मात् पुनर्निर्दिष्टम्)</string>
+    <string name="menu_page_show_tabs">प्लवनानि दृश्यताम्</string>
+    <string name="menu_page_other_languages">भाषा परिवर्त्यताम्</string>
+    <string name="menu_page_find_in_page">पृष्ठम् अन्विष्यताम्</string>
+    <string name="menu_page_font_and_theme">वर्णः, प्रसङ्गश्च</string>
+    <string name="menu_page_share">परिसन्धिं वितरतु</string>
+    <string name="menu_long_press_open_page">उद्घाट्यताम्</string>
+    <string name="menu_long_press_open_in_new_tab">नवीनं प्लवनकुड्मलम् उद्घाटयतु</string>
+    <string name="menu_long_press_copy_page">परिसन्धि-सङ्केतस्य प्रतिकृतिं करोतु</string>
+    <string name="menu_text_select_copy">प्रतिकृतिः</string>
+    <string name="menu_text_select_define">परिभाष्यताम्</string>
+    <string name="menu_text_select_share">वितरतु</string>
+    <string name="menu_text_select_edit_here">अत्र सम्पाद्यताम्</string>
+    <string name="last_updated_text">%s अन्तिमम् अद्यतनम् अभवत्</string>
+    <string name="talk_page_link_text" fuzzy="true">सम्भाषणम्</string>
     <string name="edit_save_action_license_logged_in" fuzzy="true">रक्षणेन सह, भवान्/भवती &lt;a href=\"%1$s\"&gt;उपयोगनियामानां&lt;/a&gt; समर्थनं करोति । तथा च अपरिवर्तनीयरूपेण योगदानं भवान्/भवती &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; अन्तर्गतं प्रकाशयति ।</string>
-  <string name="edit_save_action_license_anon" fuzzy="true">रक्षणेन सह भवान्/भवती &lt;a href=\"%1$s\"&gt;उपयोगनियामानां&lt;/a&gt; समर्थनं करोति । तथा च अपरिवर्तनीयरूपेण योगदानं भवान्/भवती &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; अन्तर्गतं प्रकाशयति ।\nसम्पादनस्य कृते भवतां यन्त्रस्य सार्वसङ्केतः आधारत्वेन परिगण्यते । यदि भवान्/भवती &lt;a href=\"https://#login\"&gt;प्रविशति&lt;/a&gt;, तर्हि अधिकगोपनीयतां प्राप्नोति ।</string>
-  <string name="preference_title_language" fuzzy="true">विकिपीडिया भाषा</string>
-  <string name="langlinks_filter_hint">अन्विष्यताम्</string>
-  <string name="langlinks_empty">अन्यभाषासु पृष्ठमिदं न विद्यते ।</string>
-  <string name="langlinks_no_match" fuzzy="true">भवता/भवत्या इष्टं पृष्ठं न प्राप्तम् ।</string>
-  <string name="langlinks_activity_title">अन्यभाषाः</string>
-  <string name="menu_save_changes" fuzzy="true">परिवर्तनानि रक्ष्यन्ताम्</string>
-  <string name="dialog_saving_in_progress" fuzzy="true">रक्षति…</string>
-  <string name="edit_saved_successfully" fuzzy="true">सम्पादितं रक्षितम् !</string>
-  <string name="dialog_message_edit_failed">सम्पादनम् असफलम् !</string>
-  <string name="dialog_message_edit_failed_retry">पुनःप्रयासः</string>
-  <string name="dialog_message_edit_failed_cancel">निरस्यताम्</string>
-  <string name="dialog_message_leaving_edit" fuzzy="true">भवता कृतानि परिवर्तनानि इतोऽपि न रक्षितानि । भवान्/भवती निश्चयेन पृष्ठमिदं त्यक्तम् इच्छति ?</string>
-  <string name="dialog_message_leaving_edit_leave">त्यजतु</string>
-  <string name="dialog_message_leaving_edit_stay">स्थीयताम्</string>
-  <string name="menu_show_toc">सामग्रीणां सारणी</string>
-  <string name="search_no_results_found">परिणामाः न लब्धाः</string>
-  <string name="edit_section_captcha_message">स्वतचालितफल्गोः रक्षणाय कृपया अधः दृश्यमानशब्दान् लिखतु</string>
-  <string name="edit_section_captcha_hint">उपरिनिर्दिष्टाः शब्दाः पुनः लिख्यताम्</string>
-  <string name="title_captcha">संभेपूस्वसाट्यूप (CAPTCHA) लिख्यताम्</string>
-  <string name="edit_section_captcha_reload">संभेपूस्वसाट्यूप (CAPTCHA) परिवर्तयितुं नुद्यताम्</string>
-  <string name="nav_item_login">विकिपीडिया-जालं प्रविश्यताम्</string>
-  <string name="login_username_hint">सदस्यनाम</string>
-  <string name="login_password_hint">कूटशब्दः</string>
-  <string name="menu_login">प्रविश्यताम्</string>
-  <string name="login_activity_title">विकिपीडिया-जालं प्रविश्यताम्</string>
-  <string name="login_in_progress_dialog_message">प्रविशति…</string>
-  <string name="login_success_toast">प्रवेशः सिद्धः !</string>
-  <string name="reset_password_title">स्वस्य कूटशब्दः लिख्यताम्</string>
-  <string name="reset_password_description">भवता/भवत्या अल्पकालीन(temporary)कूटशब्देन प्रवेशः प्राप्तः । \nसदस्यताप्रक्रियां पूर्णां कर्तुं नूतनः कूटशब्दः लेखनीयः एव ।</string>
-  <string name="reset_password_hint">नूतनः कूटशब्दः</string>
-  <string name="reset_password_button">रक्य्ातां प्रविश्यतां च</string>
-  <string name="preference_title_logout">निर्गम्यताम्</string>
-  <string name="toast_logout_complete">निर्गतम्</string>
-  <string name="history_empty_title" fuzzy="true">अत्र नवीनपृष्ठानि न सन्ति !</string>
-  <string name="history_empty_message" fuzzy="true">कदाचित् तानि सर्वाणि भवता/भवत्या अपाकृतानि । द्वितीयवारं यदा भवान्/भवती तत् पृष्ठं गच्छति, तदा इतः तत् पुनः प्राप्स्यति ।</string>
-  <string name="wp_stylized">&lt;big&gt;वि&lt;/big&gt;किपीडि&lt;big&gt;या&lt;/big&gt;</string>
-  <string name="create_account_username_hint">सदस्यनाम</string>
-  <string name="create_account_activity_title">सदस्यता प्राप्यताम्</string>
-  <string name="dialog_create_account_checking_progress">सत्यापयति</string>
-  <string name="create_account_email_hint">वि-पत्रम् (ऐच्छिकं)</string>
-  <string name="create_account_password_repeat_hint">कूटशब्दः पुनः लिख्यताम्</string>
-  <string name="create_account_passwords_mismatch_error">कूटशब्दयोः समानता नास्ति</string>
-  <string name="create_account_email_error">अमान्यः वि-पत्रसङ्केतः</string>
-  <string name="create_account_generic_error">सदस्यता प्राप्तुं न शक्यते</string>
-  <string name="create_account_next">अग्रिमम्</string>
-  <string name="create_account_button">सदस्यता प्राप्यताम्</string>
-  <string name="preferences_general_heading">सामान्यम्</string>
-  <string name="wikipedia_app_faq">विकिपीडिया-अनुप्रयोगाय सामान्यजिज्ञासाः</string>
-  <string name="edit_preview_fetching_dialog_message">प्राग्दृश्यम् आवहति…</string>
-  <string name="send_feedback">अनुप्रयोगप्रतिक्रियां प्रेषयतु</string>
-  <string name="create_account_account_created_toast">सदस्यता प्राप्ता !</string>
-  <string name="preferences_privacy_settings_heading">गोपनीयता</string>
-  <string name="preference_title_eventlogging_opt_in">उपयोगस्य वृत्तान्तं प्रेषयतु</string>
-  <string name="preference_summary_eventlogging_opt_in">अनुप्रयोगे आवश्यकपरिवर्तनं कर्तुं भवान्/भवती विकिपीडिया-अनुप्रयोगस्य कथम् उपयोगं करोति इत्यस्य सूचनां क्रोडीकर्तुं विकिपीडिया-जालाय अनुमतिं ददातु ।</string>
-  <string name="preference_title_auto_upload_crash_reports">ध्वंसस्य वृत्तान्तं प्रेषयतु</string>
-  <string name="preference_summary_auto_upload_crash_reports">अनुप्रयोगस्य ध्वंसवृत्तान्तं HockeyApp इत्यत्र उत तृतीयपक्षप्रदात्रे प्रेष्यताम्, येन वयं समीक्षां कृत्वा भवतः/भवत्याः ध्वंसमत्कुणं सारल्येन समीकर्तुं शक्नुमः ।</string>
-  <string name="editing_error_spamblacklist">(%s) इत्येतानि स्थगितानि जालस्थानि प्राप्तानि । कृपया तानि अपाकृत्य पुनः प्रयत्यताम् ।</string>
-  <string name="history_search_list_hint">इतिहासः अन्विष्यताम्</string>
-  <string name="error_can_not_process_link">एषः परिसन्धिः दर्शयितुं न शक्यते</string>
-  <string name="page_protected_autoconfirmed">एतत् पृष्ठम् अर्धसंरक्षितम् अस्ति ।</string>
-  <string name="page_protected_sysop">एतत् पृष्ठं पूर्णतया संरक्षितम् अस्ति ।</string>
-  <string name="page_protected_other">%s स्तरं यावत् एतत् पृष्ठं संरक्षितम् अस्ति ।</string>
-  <string name="page_protected_can_not_edit" fuzzy="true">एतस्मिन् पृष्ठे सम्पादनं कर्तुं भवतः/भवत्याः पार्श्वे अधिकाराः न सन्ति ।</string>
-  <string name="page_protected_can_not_edit_title">एतत् पृष्ठं संरक्षितचरम् अस्ति</string>
-  <string name="settings_item_preferences">अभिविन्यासाः</string>
-  <string name="settings_activity_title">अभिविन्यासाः</string>
-  <string name="about_description">विकिपीडिया-अनुप्रयोगस्य विवरणम्</string>
-  <string name="privacy_policy_description">गोपनीयतानीतिः</string>
-  <string name="terms_of_use_description">प्रयोगस्य नियमाः</string>
-  <string name="about_libraries_heading">प्रयुक्ताः सङ्ग्रहालयाः</string>
-  <string name="about_contributors_heading">योगदानानि</string>
-  <string name="about_translators_heading">अनुवादकाः</string>
-  <string name="about_translators_translatewiki">&lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; इत्यस्मिन् जाले एतस्य अनुप्रयोगस्य अनुवादः स्वयंसेव्यनुवादकेन कृतः ।</string>
-  <string name="about_app_license_heading">अनुज्ञापत्रम्</string>
-  <string name="about_wmf" fuzzy="true">&lt;a href=\"https://wikimediafoundation.org/\"&gt;विकिमीडिया फाउण्डेशन्&lt;/a&gt;-संस्थायाः उत्पादनम् अस्ति ।</string>
-  <string name="about_activity_title">विवरणम्</string>
-  <string name="edit_abandon_confirm">पृष्ठेऽस्मिन् परिवर्तनम् अभवत् । भवान्/भवती  निश्चयने परिवर्तनानि अरक्षित्वा निर्गन्तुम् इच्छति ?</string>
-  <string name="user_blocked_from_editing_title">अवरुद्धम्</string>
-  <string name="user_logged_in_blocked_from_editing">विकि-मध्ये सम्पादनं कर्तुं भवतः/भवत्याः लेखा प्रतिबन्धिता अस्ति ।</string>
-  <string name="user_anon_blocked_from_editing">सम्पादनेन भवतः/भवत्याः सार्वसङ्केतः प्रतिबन्धितः ।</string>
-  <string name="edit_how_page_improved">पृष्ठम् विशोधयितुं भवान्/भवती कथं योगदानम् अकरोत् ?</string>
-  <string name="edit_next">अग्रिमम्</string>
-  <string name="edit_done" fuzzy="true">संरक्ष्यताम्</string>
-  <string name="edit_preview">प्राग्दृश्यम्</string>
-  <string name="edit_summary_tag_typo">टङ्कणदोषः परिष्कृतः</string>
-  <string name="edit_summary_tag_grammar">व्याकरणदोषः परिष्कृतः</string>
-  <string name="edit_summary_tag_links">परिसन्धिः योजितः</string>
-  <string name="edit_summary_tag_other">अन्यत्</string>
-  <string name="edit_summary_tag_other_hint">अन्यरीत्या पृष्ठं व्यशोधयत्</string>
-  <string name="find_next">अग्रिमम् अन्विष्यताम्</string>
-  <string name="find_previous">पूर्वतनम् अन्विष्यताम्</string>
-  <string name="abusefilter_title_warn" fuzzy="true">एतत् सम्पादनम् अरचनात्मकं भाति । भवान्/भवती निश्चयेन एतत् रक्षितुम् इच्छति ?</string>
-  <string name="abusefilter_title_disallow" fuzzy="true">भवान्/भवती एतत् सम्पादनं रक्षितुं न शक्नोति । कृपया प्रतिनिवर्त्य परिवर्तयतु ।</string>
-  <string name="abusefilter_text_warn">स्वचालितशोधन्या भवतः/भवत्याः सम्पादनम् अरचनात्मकम् उत नाशकत्वं परिगण्यते । निम्नेषु एकम् उत एकाधिकं भवेत् :&lt;br /&gt;&lt;br /&gt;· सर्वाणि बृहदाक्षराणि (caps) टङ्कितानि &lt;br /&gt;· लेखं त्रोटयति उत फल्गूकरोति &lt;br /&gt;·  बाह्यपरिसन्धिः असङ्गतः उत चित्राणि असङ्गतानि&lt;br /&gt;· अक्षराणां पुनरुक्तिः</string>
-  <string name="abusefilter_text_disallow">स्वचालितशोधन्या भवतः/भवत्याः सम्पादनम् अरचनात्मकम् उत नाशकत्वं परिगण्यते । &lt;br /&gt;&lt;br /&gt; विकिपीडिया-जालम् विश्वकोशः वर्तते । सः निष्पक्षं, प्रसिद्धं च विषयं धरते ।</string>
-  <string name="text_size_select">वर्ण(font)मानम्</string>
-  <string name="page_similar_titles">समानपृष्ठानि</string>
-  <string name="search_did_you_mean">\"%s\" एषः भवताम् आशयः ?</string>
-  <string name="search_recent_header">सद्यःकृतानि अन्वेषणानि :</string>
-  <string name="button_clear_all_recent_searches">सद्यःकृतानि अन्वेषणानि अपाक्रियन्ताम्</string>
-  <string name="clear_recent_searches_confirm">अन्वेषणेतिहासम् अपाकर्तुं निश्चयः अस्ति खलु ?</string>
-  <string name="error_browser_not_found">जालपृष्ठम् उद्घोटयितुं न शक्यते (गवेषकस्य अनुप्रयोगः न प्राप्तः)</string>
-  <string name="table_infobox">त्वरिततथ्यानि</string>
-  <string name="table_other">अधिकसूचना</string>
-  <string name="table_close">पिदधातु</string>
-  <string name="widget_name_featured_page">विकिपीडियाजालस्य निर्वाचितं पृष्ठम्</string>
-  <string name="widget_title_featured_page">अद्यतनं निर्वाचितं पृष्ठम्</string>
-  <string name="widget_name_search">विकिपीडिया-जाले अन्विष्यताम्</string>
-  <string name="alpha_update_notification_title">नवीनम् आरम्भिकम् अद्यतनम् उपलब्धम्</string>
-  <string name="alpha_update_notification_text">अवारोपयितुं नुद्यताम्</string>
-  <string name="dialog_close_description">पिदधातु</string>
-  <string name="preference_title_show_images">चित्राणि दृश्यन्ताम्</string>
-  <string name="preference_summary_show_images">पृष्ठे विद्यमानानां चित्राणाम् अवारोपणं सक्रियम् उत निष्क्रियं क्रियताम् । भवतां/भवत्याः अन्तर्जालसम्पर्कः शिथिलः अस्ति उत डेटा-योजना मर्यादिता अस्ति चेत्, अभिविन्यासे एषः विकल्पः अङ्क्यताम् ।</string>
-  <string name="read_more_section">अधिकं पठ्यताम्</string>
-  <string name="menu_gallery_visit_page">सञ्चिकां पश्यतु</string>
-  <string name="gallery_error_draw_failed">चित्रं कर्षितुं न शक्यते</string>
-  <string name="license_title" fuzzy="true">%s इत्यस्मै सङ्ग्रहालयाय अधिकारपाठः</string>
-  <string name="gallery_menu_share">वितरतु</string>
-  <string name="gallery_share_error">चित्रस्य वितरणं न जातम् : %s</string>
-  <string name="gallery_save_success">चित्रं सफलतया रक्षितम् ।</string>
-  <string name="gallery_error_video_failed">चलच्चित्रम् आरब्धुं न शक्तम् ।</string>
-  <string name="gallery_save_image_write_permission_rationale" fuzzy="true">चित्राणि सङ्ग्रहे रक्षयितुं भवतः/भवत्याः सङ्ग्रहाकस्य अनुमतिः आवश्यकी । कृपया पुनः प्रयत्नं कृत्वा अनुमतिं ददातु ।</string>
-  <string name="err_cannot_save_file">सञ्चिकारक्षणम् असफलम्</string>
-  <string name="snippet_share_intro">\@Wikipedia उपरि \"%1$s\": %2$s</string>
-  <string name="expand_refs">विस्तारयितुं नुद्यताम्</string>
-  <string name="share_snippet_button">चित्ररूपेण वितरतु</string>
-  <string name="share_normal_button">पाठरूपेण वितरतु</string>
-  <string name="snippet_share_preview_image_desc">चित्रस्य प्राग्दृश्यम्</string>
-  <string name="cc_logo">क्रिएटिव् कॉमन्स्-अधिकारः</string>
-  <string name="captcha_image">संभेपूस्वसाट्यूप चित्रम्</string>
-  <string name="gallery_fair_use_license">उचितोपयोगः</string>
-  <string name="gallery_uploader_unknown">अज्ञातः उपारोहकः</string>
-  <string name="menu_new_tab">नवीनं प्लवनम्</string>
-  <string name="button_close_tab">प्लवनं पिदधातु</string>
+    <string name="edit_save_action_license_anon" fuzzy="true">रक्षणेन सह भवान्/भवती &lt;a href=\"%1$s\"&gt;उपयोगनियामानां&lt;/a&gt; समर्थनं करोति । तथा च अपरिवर्तनीयरूपेण योगदानं भवान्/भवती &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; अन्तर्गतं प्रकाशयति ।\nसम्पादनस्य कृते भवतां यन्त्रस्य सार्वसङ्केतः आधारत्वेन परिगण्यते । यदि भवान्/भवती &lt;a href=\"https://#login\"&gt;प्रविशति&lt;/a&gt;, तर्हि अधिकगोपनीयतां प्राप्नोति ।</string>
+    <string name="preference_title_language" fuzzy="true">विकिपीडिया भाषा</string>
+    <string name="langlinks_filter_hint">अन्विष्यताम्</string>
+    <string name="langlinks_empty">अन्यभाषासु पृष्ठमिदं न विद्यते ।</string>
+    <string name="langlinks_no_match" fuzzy="true">भवता/भवत्या इष्टं पृष्ठं न प्राप्तम् ।</string>
+    <string name="langlinks_activity_title">अन्यभाषाः</string>
+    <string name="menu_save_changes" fuzzy="true">परिवर्तनानि रक्ष्यन्ताम्</string>
+    <string name="dialog_saving_in_progress" fuzzy="true">रक्षति…</string>
+    <string name="edit_saved_successfully" fuzzy="true">सम्पादितं रक्षितम् !</string>
+    <string name="dialog_message_edit_failed">सम्पादनम् असफलम् !</string>
+    <string name="dialog_message_edit_failed_retry">पुनःप्रयासः</string>
+    <string name="dialog_message_edit_failed_cancel">निरस्यताम्</string>
+    <string name="dialog_message_leaving_edit" fuzzy="true">भवता कृतानि परिवर्तनानि इतोऽपि न रक्षितानि । भवान्/भवती निश्चयेन पृष्ठमिदं त्यक्तम् इच्छति ?</string>
+    <string name="dialog_message_leaving_edit_leave">त्यजतु</string>
+    <string name="dialog_message_leaving_edit_stay">स्थीयताम्</string>
+    <string name="menu_show_toc">सामग्रीणां सारणी</string>
+    <string name="search_no_results_found">परिणामाः न लब्धाः</string>
+    <string name="edit_section_captcha_message">स्वतचालितफल्गोः रक्षणाय कृपया अधः दृश्यमानशब्दान् लिखतु</string>
+    <string name="edit_section_captcha_hint">उपरिनिर्दिष्टाः शब्दाः पुनः लिख्यताम्</string>
+    <string name="title_captcha">संभेपूस्वसाट्यूप (CAPTCHA) लिख्यताम्</string>
+    <string name="edit_section_captcha_reload">संभेपूस्वसाट्यूप (CAPTCHA) परिवर्तयितुं नुद्यताम्</string>
+    <string name="nav_item_login">विकिपीडिया-जालं प्रविश्यताम्</string>
+    <string name="login_username_hint">सदस्यनाम</string>
+    <string name="login_password_hint">कूटशब्दः</string>
+    <string name="menu_login">प्रविश्यताम्</string>
+    <string name="login_activity_title">विकिपीडिया-जालं प्रविश्यताम्</string>
+    <string name="login_in_progress_dialog_message">प्रविशति…</string>
+    <string name="login_success_toast">प्रवेशः सिद्धः !</string>
+    <string name="reset_password_title">स्वस्य कूटशब्दः लिख्यताम्</string>
+    <string name="reset_password_description">भवता/भवत्या अल्पकालीन(temporary)कूटशब्देन प्रवेशः प्राप्तः । \nसदस्यताप्रक्रियां पूर्णां कर्तुं नूतनः कूटशब्दः लेखनीयः एव ।</string>
+    <string name="reset_password_hint">नूतनः कूटशब्दः</string>
+    <string name="reset_password_button">रक्य्ातां प्रविश्यतां च</string>
+    <string name="preference_title_logout">निर्गम्यताम्</string>
+    <string name="toast_logout_complete">निर्गतम्</string>
+    <string name="history_empty_title" fuzzy="true">अत्र नवीनपृष्ठानि न सन्ति !</string>
+    <string name="history_empty_message" fuzzy="true">कदाचित् तानि सर्वाणि भवता/भवत्या अपाकृतानि । द्वितीयवारं यदा भवान्/भवती तत् पृष्ठं गच्छति, तदा इतः तत् पुनः प्राप्स्यति ।</string>
+    <string name="wp_stylized">&lt;big&gt;वि&lt;/big&gt;किपीडि&lt;big&gt;या&lt;/big&gt;</string>
+    <string name="create_account_username_hint">सदस्यनाम</string>
+    <string name="create_account_activity_title">सदस्यता प्राप्यताम्</string>
+    <string name="dialog_create_account_checking_progress">सत्यापयति</string>
+    <string name="create_account_email_hint">वि-पत्रम् (ऐच्छिकं)</string>
+    <string name="create_account_password_repeat_hint">कूटशब्दः पुनः लिख्यताम्</string>
+    <string name="create_account_passwords_mismatch_error">कूटशब्दयोः समानता नास्ति</string>
+    <string name="create_account_email_error">अमान्यः वि-पत्रसङ्केतः</string>
+    <string name="create_account_generic_error">सदस्यता प्राप्तुं न शक्यते</string>
+    <string name="create_account_next">अग्रिमम्</string>
+    <string name="create_account_button">सदस्यता प्राप्यताम्</string>
+    <string name="preferences_general_heading">सामान्यम्</string>
+    <string name="wikipedia_app_faq">विकिपीडिया-अनुप्रयोगाय सामान्यजिज्ञासाः</string>
+    <string name="edit_preview_fetching_dialog_message">प्राग्दृश्यम् आवहति…</string>
+    <string name="send_feedback">अनुप्रयोगप्रतिक्रियां प्रेषयतु</string>
+    <string name="create_account_account_created_toast">सदस्यता प्राप्ता !</string>
+    <string name="preferences_privacy_settings_heading">गोपनीयता</string>
+    <string name="preference_title_eventlogging_opt_in">उपयोगस्य वृत्तान्तं प्रेषयतु</string>
+    <string name="preference_summary_eventlogging_opt_in">अनुप्रयोगे आवश्यकपरिवर्तनं कर्तुं भवान्/भवती विकिपीडिया-अनुप्रयोगस्य कथम् उपयोगं करोति इत्यस्य सूचनां क्रोडीकर्तुं विकिपीडिया-जालाय अनुमतिं ददातु ।</string>
+    <string name="preference_title_auto_upload_crash_reports">ध्वंसस्य वृत्तान्तं प्रेषयतु</string>
+    <string name="preference_summary_auto_upload_crash_reports">अनुप्रयोगस्य ध्वंसवृत्तान्तं HockeyApp इत्यत्र उत तृतीयपक्षप्रदात्रे प्रेष्यताम्, येन वयं समीक्षां कृत्वा भवतः/भवत्याः ध्वंसमत्कुणं सारल्येन समीकर्तुं शक्नुमः ।</string>
+    <string name="editing_error_spamblacklist">(%s) इत्येतानि स्थगितानि जालस्थानि प्राप्तानि । कृपया तानि अपाकृत्य पुनः प्रयत्यताम् ।</string>
+    <string name="history_search_list_hint">इतिहासः अन्विष्यताम्</string>
+    <string name="error_can_not_process_link">एषः परिसन्धिः दर्शयितुं न शक्यते</string>
+    <string name="page_protected_autoconfirmed">एतत् पृष्ठम् अर्धसंरक्षितम् अस्ति ।</string>
+    <string name="page_protected_sysop">एतत् पृष्ठं पूर्णतया संरक्षितम् अस्ति ।</string>
+    <string name="page_protected_other">%s स्तरं यावत् एतत् पृष्ठं संरक्षितम् अस्ति ।</string>
+    <string name="page_protected_can_not_edit" fuzzy="true">एतस्मिन् पृष्ठे सम्पादनं कर्तुं भवतः/भवत्याः पार्श्वे अधिकाराः न सन्ति ।</string>
+    <string name="page_protected_can_not_edit_title">एतत् पृष्ठं संरक्षितचरम् अस्ति</string>
+    <string name="settings_item_preferences">अभिविन्यासाः</string>
+    <string name="settings_activity_title">अभिविन्यासाः</string>
+    <string name="about_description">विकिपीडिया-अनुप्रयोगस्य विवरणम्</string>
+    <string name="privacy_policy_description">गोपनीयतानीतिः</string>
+    <string name="terms_of_use_description">प्रयोगस्य नियमाः</string>
+    <string name="about_libraries_heading">प्रयुक्ताः सङ्ग्रहालयाः</string>
+    <string name="about_contributors_heading">योगदानानि</string>
+    <string name="about_translators_heading">अनुवादकाः</string>
+    <string name="about_translators_translatewiki">&lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; इत्यस्मिन् जाले एतस्य अनुप्रयोगस्य अनुवादः स्वयंसेव्यनुवादकेन कृतः ।</string>
+    <string name="about_app_license_heading">अनुज्ञापत्रम्</string>
+    <string name="about_wmf" fuzzy="true">&lt;a href=\"https://wikimediafoundation.org/\"&gt;विकिमीडिया फाउण्डेशन्&lt;/a&gt;-संस्थायाः उत्पादनम् अस्ति ।</string>
+    <string name="about_activity_title">विवरणम्</string>
+    <string name="edit_abandon_confirm">पृष्ठेऽस्मिन् परिवर्तनम् अभवत् । भवान्/भवती  निश्चयने परिवर्तनानि अरक्षित्वा निर्गन्तुम् इच्छति ?</string>
+    <string name="user_blocked_from_editing_title">अवरुद्धम्</string>
+    <string name="user_logged_in_blocked_from_editing">विकि-मध्ये सम्पादनं कर्तुं भवतः/भवत्याः लेखा प्रतिबन्धिता अस्ति ।</string>
+    <string name="user_anon_blocked_from_editing">सम्पादनेन भवतः/भवत्याः सार्वसङ्केतः प्रतिबन्धितः ।</string>
+    <string name="edit_how_page_improved">पृष्ठम् विशोधयितुं भवान्/भवती कथं योगदानम् अकरोत् ?</string>
+    <string name="edit_next">अग्रिमम्</string>
+    <string name="edit_done" fuzzy="true">संरक्ष्यताम्</string>
+    <string name="edit_preview">प्राग्दृश्यम्</string>
+    <string name="edit_summary_tag_typo">टङ्कणदोषः परिष्कृतः</string>
+    <string name="edit_summary_tag_grammar">व्याकरणदोषः परिष्कृतः</string>
+    <string name="edit_summary_tag_links">परिसन्धिः योजितः</string>
+    <string name="edit_summary_tag_other">अन्यत्</string>
+    <string name="edit_summary_tag_other_hint">अन्यरीत्या पृष्ठं व्यशोधयत्</string>
+    <string name="find_next">अग्रिमम् अन्विष्यताम्</string>
+    <string name="find_previous">पूर्वतनम् अन्विष्यताम्</string>
+    <string name="abusefilter_title_warn" fuzzy="true">एतत् सम्पादनम् अरचनात्मकं भाति । भवान्/भवती निश्चयेन एतत् रक्षितुम् इच्छति ?</string>
+    <string name="abusefilter_title_disallow" fuzzy="true">भवान्/भवती एतत् सम्पादनं रक्षितुं न शक्नोति । कृपया प्रतिनिवर्त्य परिवर्तयतु ।</string>
+    <string name="abusefilter_text_warn">स्वचालितशोधन्या भवतः/भवत्याः सम्पादनम् अरचनात्मकम् उत नाशकत्वं परिगण्यते । निम्नेषु एकम् उत एकाधिकं भवेत् :&lt;br /&gt;&lt;br /&gt;· सर्वाणि बृहदाक्षराणि (caps) टङ्कितानि &lt;br /&gt;· लेखं त्रोटयति उत फल्गूकरोति &lt;br /&gt;·  बाह्यपरिसन्धिः असङ्गतः उत चित्राणि असङ्गतानि&lt;br /&gt;· अक्षराणां पुनरुक्तिः</string>
+    <string name="abusefilter_text_disallow">स्वचालितशोधन्या भवतः/भवत्याः सम्पादनम् अरचनात्मकम् उत नाशकत्वं परिगण्यते । &lt;br /&gt;&lt;br /&gt; विकिपीडिया-जालम् विश्वकोशः वर्तते । सः निष्पक्षं, प्रसिद्धं च विषयं धरते ।</string>
+    <string name="text_size_select">वर्ण(font)मानम्</string>
+    <string name="page_similar_titles">समानपृष्ठानि</string>
+    <string name="search_did_you_mean">\"%s\" एषः भवताम् आशयः ?</string>
+    <string name="search_recent_header">सद्यःकृतानि अन्वेषणानि :</string>
+    <string name="button_clear_all_recent_searches">सद्यःकृतानि अन्वेषणानि अपाक्रियन्ताम्</string>
+    <string name="clear_recent_searches_confirm">अन्वेषणेतिहासम् अपाकर्तुं निश्चयः अस्ति खलु ?</string>
+    <string name="error_browser_not_found">जालपृष्ठम् उद्घोटयितुं न शक्यते (गवेषकस्य अनुप्रयोगः न प्राप्तः)</string>
+    <string name="table_infobox">त्वरिततथ्यानि</string>
+    <string name="table_other">अधिकसूचना</string>
+    <string name="table_close">पिदधातु</string>
+    <string name="widget_name_featured_page">विकिपीडियाजालस्य निर्वाचितं पृष्ठम्</string>
+    <string name="widget_title_featured_page">अद्यतनं निर्वाचितं पृष्ठम्</string>
+    <string name="widget_name_search">विकिपीडिया-जाले अन्विष्यताम्</string>
+    <string name="alpha_update_notification_title">नवीनम् आरम्भिकम् अद्यतनम् उपलब्धम्</string>
+    <string name="alpha_update_notification_text">अवारोपयितुं नुद्यताम्</string>
+    <string name="dialog_close_description">पिदधातु</string>
+    <string name="preference_title_show_images">चित्राणि दृश्यन्ताम्</string>
+    <string name="preference_summary_show_images">पृष्ठे विद्यमानानां चित्राणाम् अवारोपणं सक्रियम् उत निष्क्रियं क्रियताम् । भवतां/भवत्याः अन्तर्जालसम्पर्कः शिथिलः अस्ति उत डेटा-योजना मर्यादिता अस्ति चेत्, अभिविन्यासे एषः विकल्पः अङ्क्यताम् ।</string>
+    <string name="read_more_section">अधिकं पठ्यताम्</string>
+    <string name="menu_gallery_visit_page">सञ्चिकां पश्यतु</string>
+    <string name="gallery_error_draw_failed">चित्रं कर्षितुं न शक्यते</string>
+    <string name="license_title" fuzzy="true">%s इत्यस्मै सङ्ग्रहालयाय अधिकारपाठः</string>
+    <string name="gallery_menu_share">वितरतु</string>
+    <string name="gallery_share_error">चित्रस्य वितरणं न जातम् : %s</string>
+    <string name="gallery_save_success">चित्रं सफलतया रक्षितम् ।</string>
+    <string name="gallery_error_video_failed">चलच्चित्रम् आरब्धुं न शक्तम् ।</string>
+    <string name="gallery_save_image_write_permission_rationale" fuzzy="true">चित्राणि सङ्ग्रहे रक्षयितुं भवतः/भवत्याः सङ्ग्रहाकस्य अनुमतिः आवश्यकी । कृपया पुनः प्रयत्नं कृत्वा अनुमतिं ददातु ।</string>
+    <string name="err_cannot_save_file">सञ्चिकारक्षणम् असफलम्</string>
+    <string name="snippet_share_intro">\@Wikipedia उपरि \"%1$s\": %2$s</string>
+    <string name="expand_refs">विस्तारयितुं नुद्यताम्</string>
+    <string name="share_snippet_button">चित्ररूपेण वितरतु</string>
+    <string name="share_normal_button">पाठरूपेण वितरतु</string>
+    <string name="snippet_share_preview_image_desc">चित्रस्य प्राग्दृश्यम्</string>
+    <string name="cc_logo">क्रिएटिव् कॉमन्स्-अधिकारः</string>
+    <string name="captcha_image">संभेपूस्वसाट्यूप चित्रम्</string>
+    <string name="gallery_fair_use_license">उचितोपयोगः</string>
+    <string name="gallery_uploader_unknown">अज्ञातः उपारोहकः</string>
+    <string name="menu_new_tab">नवीनं प्लवनम्</string>
+    <string name="button_close_tab">प्लवनं पिदधातु</string>
     <string name="page_view_in_browser">गवेषके पृष्ठं दृश्यताम्</string>
-  <string name="error_response_malformed">वितरकात् प्राप्तं प्रत्युत्तरं योग्यतया प्रारूपितं नास्ति ।</string>
-  <string name="error_unknown">कश्चन अज्ञातः दोषः जातः ।</string>
-  <string name="format_error_server_message">सन्देशः : \"%s\"</string>
-  <string name="address_copied">अंशफलके सङ्केतः प्रतिकृतिकृतः ।</string>
-  <string name="text_copied">अंशफलके पाठः प्रतिकृतिकृतः ।</string>
-  <string name="button_continue_to_article">लखं पठतु</string>
-  <string name="preference_title_show_link_previews">परिसन्धेः प्राग्दृश्यानि दर्श्यन्ताम्</string>
-  <string name="preference_summary_show_link_previews">यदा परिसन्धौ नुद्यते, तदा लेखानां त्वरितप्राग्दृश्यं दर्श्यताम् ।</string>
-  <string name="nav_item_donate">विकिपीडिया समर्थ्यताम्</string>
+    <string name="error_response_malformed">वितरकात् प्राप्तं प्रत्युत्तरं योग्यतया प्रारूपितं नास्ति ।</string>
+    <string name="error_unknown">कश्चन अज्ञातः दोषः जातः ।</string>
+    <string name="format_error_server_message">सन्देशः : \"%s\"</string>
+    <string name="address_copied">अंशफलके सङ्केतः प्रतिकृतिकृतः ।</string>
+    <string name="text_copied">अंशफलके पाठः प्रतिकृतिकृतः ।</string>
+    <string name="button_continue_to_article">लखं पठतु</string>
+    <string name="preference_title_show_link_previews">परिसन्धेः प्राग्दृश्यानि दर्श्यन्ताम्</string>
+    <string name="preference_summary_show_link_previews">यदा परिसन्धौ नुद्यते, तदा लेखानां त्वरितप्राग्दृश्यं दर्श्यताम् ।</string>
+    <string name="nav_item_donate">विकिपीडिया समर्थ्यताम्</string>
     <string name="crash_report_activity_title">आवेदने दोषः</string>
-  <string name="crash_report_relaunch_or_quit">भवान्/भवती आरब्धुम् उत त्यक्तुम् इच्छति ?</string>
-  <string name="crash_report_relaunch">प्रारभ्यताम्</string>
-  <string name="crash_report_quit">त्यजतु</string>
-  <string name="color_theme_select">प्रसङ्गः (Theme)</string>
-  <string name="color_theme_light">शुभ्रम्</string>
-  <string name="color_theme_dark">श्यामम्</string>
-  <string name="user_option_sync_label">इष्टतमानि</string>
-  <string name="onboarding_welcome_title_v2" fuzzy="true"> निःशुल्कः ज्ञानकोशः...प्रायः ३०० भाषासु</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">भाषासम्पादनम्</string>
-  <string name="dialog_of_remove_chinese_variants_from_app_lang_no">मास्तु, धन्यवादः</string>
+    <string name="crash_report_relaunch_or_quit">भवान्/भवती आरब्धुम् उत त्यक्तुम् इच्छति ?</string>
+    <string name="crash_report_relaunch">प्रारभ्यताम्</string>
+    <string name="crash_report_quit">त्यजतु</string>
+    <string name="color_theme_select">प्रसङ्गः (Theme)</string>
+    <string name="color_theme_light">शुभ्रम्</string>
+    <string name="color_theme_dark">श्यामम्</string>
+    <string name="user_option_sync_label">इष्टतमानि</string>
+    <string name="onboarding_welcome_title_v2" fuzzy="true"> निःशुल्कः ज्ञानकोशः...प्रायः ३०० भाषासु</string>
+    <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">भाषासम्पादनम्</string>
+    <string name="dialog_of_remove_chinese_variants_from_app_lang_no">मास्तु, धन्यवादः</string>
 </resources>

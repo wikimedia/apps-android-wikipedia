@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Authors:
+<?xml version="1.0" encoding="utf-8"?><!-- Authors:
 * COMISSIONTOPOC
 * Cedric31
 * Envlh
@@ -10,260 +9,260 @@
 * Unuaiga
 -->
 <resources>
-  <string name="app_name_prod">Wikipèdia</string>
-  <string name="app_name_beta">Wikipèdia Bèta</string>
-  <string name="app_name_alpha">Wikipèdia Alfa</string>
-  <string name="wikimedia">Wikimèdia</string>
-  <string name="search_hint">Recercar dins Wikipèdia</string>
-  <string name="search_hint_search_history">Recercar dins l\'istoric</string>
-  <string name="nav_item_history">Istoric</string>
-  <string name="error_network_error">Impossible de se connectar a Internet.</string>
-  <string name="page_error_retry">Ensajar tornarmai</string>
-  <string name="page_error_back_to_main">Tornar en arrièr</string>
-  <string name="menu_clear_all_history">Voidar l\'istoric</string>
-  <string name="history_item_delete_undo">Anullar</string>
-  <string name="dialog_title_clear_history">Escafar l’istoric de navigacion</string>
-  <string name="dialog_message_clear_history">Aquò suprimirà tot l’istoric de navigacion, e tamparà totes los onglets dobèrts actualament. Sètz segur ?</string>
-  <string name="dialog_message_clear_history_yes">Òc</string>
-  <string name="dialog_message_clear_history_no">Non</string>
-  <string name="share_via">Partejar via</string>
-  <string name="search_redirect_from">Redirigit dempuèi %s</string>
-  <string name="menu_page_show_tabs">Afichar los onglets</string>
-  <string name="menu_page_other_languages">Cambiar de lenga</string>
-  <string name="menu_page_find_in_page">Recercar dins la pagina</string>
-  <string name="menu_page_font_and_theme">Modificar la poliça e lo tèma</string>
-  <string name="menu_page_add_to_list">Apondre a la lista de lectura</string>
-  <string name="menu_page_share">Partejar lo ligam</string>
-  <string name="menu_long_press_open_page">Dobrir</string>
-  <string name="menu_long_press_open_in_new_tab">Dobrir dins un onglet novèl</string>
-  <string name="menu_long_press_copy_page">Copiar l\'adreça del ligam</string>
-  <string name="menu_text_select_copy">Copiar</string>
-  <string name="menu_text_select_define">Definir</string>
-  <string name="menu_text_select_share">Partejar</string>
-  <string name="menu_text_select_edit_here">Editar aiçí</string>
-  <string name="last_updated_text">Darrièra modificacion lo %s</string>
-  <string name="talk_page_link_text">Veire la pagina de discussion</string>
-  <string name="edit_history_link_text">Afichar l\'istoric de las modificacions</string>
-  <string name="edit_save_action_license_logged_in" fuzzy="true">En enregistrant, acceptatz las &lt;a href=\"%1$s\"&gt;Condicions d’utilizacion&lt;/a&gt;, e plaçatz de faiçon irrevocabla vòstras contribucions jos la licéncia &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon" fuzzy="true">En enregistrant, acceptatz las &lt;a href=\"%1$s\"&gt;Condicions d’utilizacion&lt;/a&gt;, e plaçatz de faiçon irrevocabla vòstras contribucions jos la licéncia &lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt;. Las modificacions seràn atribuidas a l’adreça IP de vòstre equipament. Se &lt;a href=\"https://#login\"&gt;vos connectatz&lt;/a&gt;, auretz mai de confidencialitat.</string>
-  <string name="preference_title_language" fuzzy="true">Lenga de Wikipèdia</string>
-  <string name="langlinks_filter_hint">Recercar</string>
-  <string name="langlinks_empty">Aquesta pagina es pas disponibla dins d’autras lengas</string>
-  <string name="langlinks_no_match" fuzzy="true">Cap de lenga pas trobat que corresponda a vòstra requèsta.</string>
-  <string name="langlinks_activity_title">Autras lengas</string>
-  <string name="menu_save_changes">Publicar las modificacions</string>
-  <string name="edit_saved_successfully">Modificacion publicada !</string>
-  <string name="dialog_message_edit_failed">Fracàs de l’enregistrament !</string>
-  <string name="dialog_message_edit_failed_retry">Ensajar tornarmai</string>
-  <string name="dialog_message_edit_failed_cancel">Anullar</string>
-  <string name="dialog_message_leaving_edit_leave">Quitar</string>
-  <string name="dialog_message_leaving_edit_stay">Demorar</string>
-  <string name="menu_show_toc">Ensenhador</string>
-  <string name="search_no_results_found">Cap de resultat pas trobat</string>
-  <string name="edit_section_captcha_message">Per ajudar a la proteccion contra lo spam, mercé d\'entrar los mots qu\'apareisson çaijós</string>
-  <string name="edit_section_captcha_hint">Repetir los mots çaisús</string>
-  <string name="title_captcha">Entrar lo captcha</string>
-  <string name="edit_section_captcha_reload">Picar lo captcha per recargar</string>
-  <string name="nav_item_login">Connexion a Wikipèdia</string>
-  <string name="login_username_hint">Nom d\'utilizaire</string>
-  <string name="login_password_hint">Senhal</string>
-  <string name="login_2fa_hint">Còdi d\'autenticación de dos factors</string>
-  <string name="menu_login">Connexion</string>
-  <string name="login_activity_title">Se connectar a Wikipèdia</string>
-  <string name="login_in_progress_dialog_message">Connexion en cors…</string>
-  <string name="login_success_toast">Connectat amb succès !</string>
-  <string name="preference_title_logout">Se desconnectar</string>
-  <string name="toast_logout_complete">Desconnectat</string>
-  <string name="history_empty_title">Cap d\'articles pas legits recentament</string>
-  <string name="history_empty_message">Consultatz çò qu\'avètz legit aicí.</string>
-  <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPÈDI&lt;big&gt;A&lt;/big&gt;</string>
-  <string name="create_account_username_hint">Nom d\'utilizaire</string>
-  <string name="login_join_wikipedia">Rejónher Wikipèdia</string>
-  <string name="login_forgot_password">Senhal doblidat ?</string>
-  <string name="create_account_already_have">Avètz ja un compte ?</string>
-  <string name="create_account_activity_title">Crear un compte</string>
-  <string name="dialog_create_account_checking_progress">Verificacion en cors</string>
-  <string name="create_account_email_hint">Adreça de corrièr electronic (facultatiu)</string>
-  <string name="create_account_password_repeat_hint">Repetir lo senhal</string>
-  <string name="create_account_passwords_mismatch_error">Los senhals son pas identics</string>
-  <string name="create_account_email_error">Adreça de corrièr electronic invalida</string>
-  <string name="create_account_username_error">Caractèrs invalids dins lo nom d\'utilizaire</string>
-  <string name="create_account_password_error">Lo senhal es pas valid</string>
-  <string name="create_account_generic_error">Impossible de crear lo compte</string>
-  <string name="create_account_next">Seguent</string>
-  <string name="create_account_button">Crear un compte</string>
-  <string name="preferences_general_heading">General</string>
-  <string name="wikipedia_app_faq">FAQ de las aplicacions Wikipèdia</string>
-  <string name="send_feedback">Mandar un comentari sus l’aplicacion</string>
-  <string name="create_account_account_created_toast">Compte creat !</string>
-  <string name="preferences_privacy_settings_heading">Confidencialitat</string>
-  <string name="preference_title_eventlogging_opt_in">Mandar los rapòrts d’utilizacion</string>
-  <string name="preference_title_auto_upload_crash_reports">Mandar de rapòrts d’incident</string>
-  <string name="history_search_list_hint">Recercar dins l\'istoric</string>
-  <string name="error_can_not_process_link">Impossible d’afichar aqueste ligam</string>
-  <string name="page_protected_autoconfirmed">Aquesta pagina es estada semiprotegida.</string>
-  <string name="page_protected_sysop">Aquesta pagina es estada entièrament protegida.</string>
-  <string name="page_protected_can_not_edit">O planhèm, vòstre compte a pas los dreits sufisents per modificar aquesta pagina pel moment.</string>
-  <string name="page_protected_can_not_edit_title">Aquesta pagina es protegida</string>
-  <string name="settings_item_preferences">Paramètres</string>
-  <string name="settings_activity_title">Paramètres</string>
-  <string name="about_description">A prepaus de l’aplicacion Wikipèdia</string>
-  <string name="privacy_policy_description">Politica de confidencialitat</string>
-  <string name="terms_of_use_description">Condicions d\'utilizacion</string>
-  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
-  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
-  <string name="about_libraries_heading">Bibliotècas utilizadas</string>
-  <string name="about_contributors_heading">Contributors</string>
-  <string name="about_translators_heading">Traductors</string>
-  <string name="about_translators_translatewiki">Aquesta aplicacion es estada traduita pels traductors volontaris de &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
-  <string name="about_app_license_heading">Licéncia</string>
-  <string name="about_wmf" fuzzy="true">Un produit de la &lt;a href=\"https://wikimediafoundation.org/\"&gt;Fondacion Wikimèdia&lt;/a&gt;</string>
-  <string name="about_activity_title">A prepaus</string>
-  <string name="edit_abandon_confirm">La pagina es estada modificada. Sètz segur que volètz quitar sens enregistrar vòstras modificacions ?</string>
-  <string name="edit_abandon_confirm_yes">Òc</string>
-  <string name="edit_abandon_confirm_no">Non</string>
-  <string name="user_blocked_from_editing_title">Blocat</string>
-  <string name="user_logged_in_blocked_from_editing">Vòstre compte d\'utilizaire es estat blocat per las modificacions sus aqueste wiki.</string>
-  <string name="edit_how_page_improved">Cossí avètz melhorat aquesta pagina?</string>
-  <string name="edit_next">Seguent</string>
-  <string name="edit_done">Publicar</string>
-  <string name="edit_preview">Apercebut</string>
-  <string name="edit_summary_tag_typo">Fauta de picada corregida</string>
-  <string name="edit_summary_tag_grammar">Fauta de gramatica corregida</string>
-  <string name="edit_summary_tag_links">Ligams aponduts</string>
-  <string name="edit_summary_tag_other">Autre</string>
-  <string name="edit_summary_tag_other_hint">Autres biaisses de melhorar la pagina</string>
-  <string name="edit_conflict_title">Modificar lo conflicte.</string>
-  <string name="edit_conflict_message">Aquesta pagina foguèt ja modificada per un autre utilizaire, e es en conflicte amb la vòstra publicacion. Merce de copiar las vòstras publicacions, tornar a la pagina precedenta e refrescar la pagina, puèi ensajatz de publicar tornamai.</string>
-  <string name="find_next">Recercar lo seguent</string>
-  <string name="find_previous">Recercar lo precedent</string>
-  <string name="text_size_select">Talha de poliça</string>
-  <string name="page_similar_titles">Paginas similaras</string>
-  <string name="search_did_you_mean">Volètz dire « %s » ?</string>
-  <string name="search_recent_header">Recèrcas recentas :</string>
-  <string name="button_clear_all_recent_searches">Escafar las recèrcas recentas</string>
-  <string name="clear_recent_searches_confirm_yes">Òc</string>
-  <string name="clear_recent_searches_confirm_no">Non</string>
-  <string name="table_infobox">Faits en brèu</string>
-  <string name="table_other">Mai d’informacions</string>
-  <string name="table_close">Tampar</string>
-  <string name="widget_name_featured_page">Pagina mesa en avant de Wikipèdia</string>
-  <string name="widget_title_featured_page">Pagina mesa en avant uèi :</string>
-  <string name="widget_name_search">Recèrca Wikipèdia</string>
-  <string name="wiktionary_no_definitions_found">Cap de definicion pas trobada.</string>
-  <string name="alpha_update_notification_text">Tustatz per telecargar</string>
-  <string name="dialog_close_description">Tampar</string>
-  <string name="preference_title_show_images">Veire los imatges</string>
-  <string name="read_more_section">Ne saber mai</string>
-  <string name="menu_gallery_visit_page">Anar a la pagina del fichièr</string>
-  <string name="gallery_error_draw_failed">Impossible de dessenhar l’imatge.</string>
-  <string name="license_title">Licéncia per la bibliotèca %s</string>
-  <string name="gallery_menu_share">Partejar</string>
-  <string name="gallery_share_error">Impossible de partejar l’imatge : %s</string>
-  <string name="gallery_save_progress">Telecargament del fichièr...</string>
-  <string name="gallery_save_success">Fichièr enregistrat corrèctament.</string>
-  <string name="gallery_error_video_failed">Impossible de jogar la vidèo.</string>
-  <string name="err_cannot_save_file">Impossible d’enregistrar lo fichièr</string>
-  <string name="snippet_share_intro">Fait interessant sus @Wikipedia %1$s : %2$s</string>
-  <string name="expand_refs">Tustar per desvolopar</string>
-  <string name="share_snippet_button">Partejar coma imatge</string>
-  <string name="share_normal_button">Partejar coma tèxte</string>
-  <string name="snippet_share_preview_image_desc">Apercebut de l’imatge</string>
-  <string name="cc_logo">Licéncia Creative Commons</string>
-  <string name="captcha_image">Imatge Captcha</string>
-  <string name="gallery_fair_use_license">Utilizacion normala</string>
-  <string name="gallery_uploader_unknown">Telecargador desconegut</string>
-  <string name="menu_new_tab">Onglet novèl</string>
-  <string name="menu_close_all_tabs">Tampar totes los onglets</string>
-  <string name="close_all_tabs_confirm">Sètz segur que volètz tampar totes los onglets ?</string>
-  <string name="close_all_tabs_confirm_yes">Òc</string>
-  <string name="close_all_tabs_confirm_no">Non</string>
-  <string name="button_close_tab">Tampar l’onglet</string>
-  <string name="unnamed_tab_closed">Onglet tampat</string>
-  <string name="page_view_in_browser">Afichar la pagina dins lo navigador</string>
-  <string name="error_unknown">Una error desconeguda s\'es produita.</string>
-  <string name="format_error_server_message">Messatge : \"%s\"</string>
-  <string name="address_copied">Adreça copiada dins lo quichapapièrs.</string>
-  <string name="text_copied">Tèxte copiat dins lo quichapapièrs.</string>
-  <string name="button_continue_to_article">Legir l’article</string>
-  <string name="button_get_directions">Obténer las direccions</string>
-  <string name="preference_title_show_link_previews">Afichar los apercebuts de ligam</string>
-  <string name="nav_item_donate">Sosténer Wikipèdia</string>
-  <string name="error_voice_search_not_available">O planhèm, la reconeissença vocala es pas disponibla.</string>
-  <string name="location_service_disabled">Los servicis de localizacion son desactivats.</string>
-  <string name="enable_location_service">Activar</string>
-  <string name="crash_report_activity_title">Error de l\'aplicacion</string>
-  <string name="crash_report_relaunch">Reaviar</string>
-  <string name="crash_report_quit">Quitar</string>
-  <string name="article_menu_bar_bookmark">Apondre aqueste article a una lista de lectura</string>
-  <string name="article_menu_bar_share">Partejar lo ligam cap a la pagina</string>
-  <string name="article_header_edit_hint">Modificar...</string>
-  <string name="article_header_edit_description" fuzzy="true">Modificar la descripcion del títol</string>
-  <string name="article_header_edit_lead_section">Modificar l\'introduccion</string>
-  <string name="color_theme_select">Tèma</string>
-  <string name="color_theme_light">Clar</string>
-  <string name="color_theme_dark">Escur</string>
-  <string name="nav_item_reading_lists">Mas listas</string>
-  <string name="reading_list_save_to">Enregistrar dins la lista de lectura</string>
-  <string name="reading_list_create_new">Crear un novèl</string>
-  <string name="reading_list_title_exists">La lista de lectura «%s» existís ja.</string>
-  <string name="reading_list_added_view_button">Afichar la lista</string>
-  <string name="reading_list_sort">Triar</string>
-  <string name="reading_list_sort_by_name">Triar per nom</string>
-  <string name="reading_list_sort_by_name_desc">Triar per nom (invèrse)</string>
-  <string name="reading_list_sort_by_recent" fuzzy="true">Triar segon los mai recents</string>
-  <string name="reading_list_sort_by_recent_desc" fuzzy="true">Triar segon los mens recents</string>
-  <string name="reading_list_menu_delete">Suprimir la lista</string>
-  <string name="reading_list_name_sample">Ma lista de lectura</string>
-  <string name="reading_list_name_hint">Nom d\'aquesta lista</string>
-  <string name="reading_list_description_hint">Descripcion (facultatiu)</string>
-  <string name="reading_list_item_deleted">%s suprimit de la lista</string>
-  <string name="reading_list_item_delete_undo">Anullar</string>
-  <string name="reading_list_deleted">%s suprimit</string>
-  <string name="saved_list_empty_title">Encara i a pas cap de lista de lectura.</string>
-  <string name="reading_lists_onboarding_for_example">Per exemple</string>
-  <string name="reading_lists_onboarding_example1">Endreits a visitar</string>
-  <string name="reading_lists_onboarding_example2">Animals favorits</string>
-  <string name="reading_lists_onboarding_example3">Exploracion espaciala</string>
-  <string name="reading_lists_onboarding_got_it">L’obténer</string>
-  <string name="reading_list_delete_confirm" fuzzy="true">Sètz segur que volètz suprimir aquesta lista %s de lectura ?</string>
-  <string name="user_option_sync_label">Preferéncias</string>
-  <string name="notification_reverted_title">Modificacion anullada</string>
-  <string name="view_because_you_read_card_title">Perque avètz legit</string>
-  <string name="view_random_card_title">A l\'azard</string>
-  <string name="view_random_card_subtitle" fuzzy="true">Legissètz un article de la Wikipèdia a l\'azard</string>
-  <string name="view_main_page_card_title">Uèi sus Wikipèdia</string>
-  <string name="view_main_page_card_subtitle">Pagina principala lo %s</string>
-  <string name="view_featured_image_card_title">Imatge del jorn</string>
-  <string name="view_featured_image_card_download">Telecargar</string>
-  <string name="menu_feed_card_dismiss">Amagar aquesta carta</string>
-  <string name="menu_feed_card_dismissed">Carta amagada.</string>
-  <string name="menu_feed_overflow_label">Mai d\'opcions</string>
-  <string name="feed_featured_image_share_subject">Imatge destacat de Wikimedia Commons</string>
-  <string name="feed">Explorar</string>
-  <string name="most_read_list_card_title">Tendéncia</string>
-  <string name="view_static_card_icon_content_description">Icòna de la carta</string>
-  <string name="view_card_news_title">Dins l’actualitat</string>
-  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
-    <item quantity="one">Ièr</item>
-    <item quantity="other">I a %d jorns</item>
-  </plurals>
-  <string name="view_continue_reading_card_subtitle_today" fuzzy="true">Uèi</string>
-  <string name="view_announcement_card_negative_action">Non mercé</string>
-  <string name="description_edit_text_hint" fuzzy="true">Descripcion del títol</string>
-  <string name="description_edit_save">Publicar</string>
-  <string name="description_edit_add_description" fuzzy="true">Apondre una descripcion del títol</string>
-  <string name="description_edit_edit_description" fuzzy="true">Modificar la descripcion</string>
-  <string name="description_edit_cancel_hint">Anullar</string>
-  <string name="description_edit_help_title" fuzzy="true">Ajuda : descripcions dels títols</string>
-  <string name="description_edit_help_about_wikidata">A prepaus de Wikidata</string>
-  <string name="description_edit_help_wikidata_guide">Guida Wikidata per escriure de descripcions</string>
-  <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
-  <string name="description_edit_success_saved" fuzzy="true">Descripcion publicada !</string>
-  <string name="description_edit_success_done">Fait</string>
-  <string name="description_edit_success_did_you_know">O sabiatz ?</string>
-  <string name="description_edit_tutorial_title_descriptions" fuzzy="true">Descripcions del títol</string>
-  <string name="description_edit_tutorial_keep_it_short">Siatz brèu</string>
-  <string name="description_edit_tutorial_button_label_start_editing">Començatz d\'editar</string>
-  <string name="suggested_edits_article_cta_snackbar_action">Monstrar</string>
+    <string name="app_name_prod">Wikipèdia</string>
+    <string name="app_name_beta">Wikipèdia Bèta</string>
+    <string name="app_name_alpha">Wikipèdia Alfa</string>
+    <string name="wikimedia">Wikimèdia</string>
+    <string name="search_hint">Recercar dins Wikipèdia</string>
+    <string name="search_hint_search_history">Recercar dins l\'istoric</string>
+    <string name="nav_item_history">Istoric</string>
+    <string name="error_network_error">Impossible de se connectar a Internet.</string>
+    <string name="page_error_retry">Ensajar tornarmai</string>
+    <string name="page_error_back_to_main">Tornar en arrièr</string>
+    <string name="menu_clear_all_history">Voidar l\'istoric</string>
+    <string name="history_item_delete_undo">Anullar</string>
+    <string name="dialog_title_clear_history">Escafar l’istoric de navigacion</string>
+    <string name="dialog_message_clear_history">Aquò suprimirà tot l’istoric de navigacion, e tamparà totes los onglets dobèrts actualament. Sètz segur ?</string>
+    <string name="dialog_message_clear_history_yes">Òc</string>
+    <string name="dialog_message_clear_history_no">Non</string>
+    <string name="share_via">Partejar via</string>
+    <string name="search_redirect_from">Redirigit dempuèi %s</string>
+    <string name="menu_page_show_tabs">Afichar los onglets</string>
+    <string name="menu_page_other_languages">Cambiar de lenga</string>
+    <string name="menu_page_find_in_page">Recercar dins la pagina</string>
+    <string name="menu_page_font_and_theme">Modificar la poliça e lo tèma</string>
+    <string name="menu_page_add_to_list">Apondre a la lista de lectura</string>
+    <string name="menu_page_share">Partejar lo ligam</string>
+    <string name="menu_long_press_open_page">Dobrir</string>
+    <string name="menu_long_press_open_in_new_tab">Dobrir dins un onglet novèl</string>
+    <string name="menu_long_press_copy_page">Copiar l\'adreça del ligam</string>
+    <string name="menu_text_select_copy">Copiar</string>
+    <string name="menu_text_select_define">Definir</string>
+    <string name="menu_text_select_share">Partejar</string>
+    <string name="menu_text_select_edit_here">Editar aiçí</string>
+    <string name="last_updated_text">Darrièra modificacion lo %s</string>
+    <string name="talk_page_link_text">Veire la pagina de discussion</string>
+    <string name="edit_history_link_text">Afichar l\'istoric de las modificacions</string>
+    <string name="edit_save_action_license_logged_in" fuzzy="true">En enregistrant, acceptatz las &lt;a href=\"%1$s\"&gt;Condicions d’utilizacion&lt;/a&gt;, e plaçatz de faiçon irrevocabla vòstras contribucions jos la licéncia &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+    <string name="edit_save_action_license_anon" fuzzy="true">En enregistrant, acceptatz las &lt;a href=\"%1$s\"&gt;Condicions d’utilizacion&lt;/a&gt;, e plaçatz de faiçon irrevocabla vòstras contribucions jos la licéncia &lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt;. Las modificacions seràn atribuidas a l’adreça IP de vòstre equipament. Se &lt;a href=\"https://#login\"&gt;vos connectatz&lt;/a&gt;, auretz mai de confidencialitat.</string>
+    <string name="preference_title_language" fuzzy="true">Lenga de Wikipèdia</string>
+    <string name="langlinks_filter_hint">Recercar</string>
+    <string name="langlinks_empty">Aquesta pagina es pas disponibla dins d’autras lengas</string>
+    <string name="langlinks_no_match" fuzzy="true">Cap de lenga pas trobat que corresponda a vòstra requèsta.</string>
+    <string name="langlinks_activity_title">Autras lengas</string>
+    <string name="menu_save_changes">Publicar las modificacions</string>
+    <string name="edit_saved_successfully">Modificacion publicada !</string>
+    <string name="dialog_message_edit_failed">Fracàs de l’enregistrament !</string>
+    <string name="dialog_message_edit_failed_retry">Ensajar tornarmai</string>
+    <string name="dialog_message_edit_failed_cancel">Anullar</string>
+    <string name="dialog_message_leaving_edit_leave">Quitar</string>
+    <string name="dialog_message_leaving_edit_stay">Demorar</string>
+    <string name="menu_show_toc">Ensenhador</string>
+    <string name="search_no_results_found">Cap de resultat pas trobat</string>
+    <string name="edit_section_captcha_message">Per ajudar a la proteccion contra lo spam, mercé d\'entrar los mots qu\'apareisson çaijós</string>
+    <string name="edit_section_captcha_hint">Repetir los mots çaisús</string>
+    <string name="title_captcha">Entrar lo captcha</string>
+    <string name="edit_section_captcha_reload">Picar lo captcha per recargar</string>
+    <string name="nav_item_login">Connexion a Wikipèdia</string>
+    <string name="login_username_hint">Nom d\'utilizaire</string>
+    <string name="login_password_hint">Senhal</string>
+    <string name="login_2fa_hint">Còdi d\'autenticación de dos factors</string>
+    <string name="menu_login">Connexion</string>
+    <string name="login_activity_title">Se connectar a Wikipèdia</string>
+    <string name="login_in_progress_dialog_message">Connexion en cors…</string>
+    <string name="login_success_toast">Connectat amb succès !</string>
+    <string name="preference_title_logout">Se desconnectar</string>
+    <string name="toast_logout_complete">Desconnectat</string>
+    <string name="history_empty_title">Cap d\'articles pas legits recentament</string>
+    <string name="history_empty_message">Consultatz çò qu\'avètz legit aicí.</string>
+    <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPÈDI&lt;big&gt;A&lt;/big&gt;</string>
+    <string name="create_account_username_hint">Nom d\'utilizaire</string>
+    <string name="login_join_wikipedia">Rejónher Wikipèdia</string>
+    <string name="login_forgot_password">Senhal doblidat ?</string>
+    <string name="create_account_already_have">Avètz ja un compte ?</string>
+    <string name="create_account_activity_title">Crear un compte</string>
+    <string name="dialog_create_account_checking_progress">Verificacion en cors</string>
+    <string name="create_account_email_hint">Adreça de corrièr electronic (facultatiu)</string>
+    <string name="create_account_password_repeat_hint">Repetir lo senhal</string>
+    <string name="create_account_passwords_mismatch_error">Los senhals son pas identics</string>
+    <string name="create_account_email_error">Adreça de corrièr electronic invalida</string>
+    <string name="create_account_username_error">Caractèrs invalids dins lo nom d\'utilizaire</string>
+    <string name="create_account_password_error">Lo senhal es pas valid</string>
+    <string name="create_account_generic_error">Impossible de crear lo compte</string>
+    <string name="create_account_next">Seguent</string>
+    <string name="create_account_button">Crear un compte</string>
+    <string name="preferences_general_heading">General</string>
+    <string name="wikipedia_app_faq">FAQ de las aplicacions Wikipèdia</string>
+    <string name="send_feedback">Mandar un comentari sus l’aplicacion</string>
+    <string name="create_account_account_created_toast">Compte creat !</string>
+    <string name="preferences_privacy_settings_heading">Confidencialitat</string>
+    <string name="preference_title_eventlogging_opt_in">Mandar los rapòrts d’utilizacion</string>
+    <string name="preference_title_auto_upload_crash_reports">Mandar de rapòrts d’incident</string>
+    <string name="history_search_list_hint">Recercar dins l\'istoric</string>
+    <string name="error_can_not_process_link">Impossible d’afichar aqueste ligam</string>
+    <string name="page_protected_autoconfirmed">Aquesta pagina es estada semiprotegida.</string>
+    <string name="page_protected_sysop">Aquesta pagina es estada entièrament protegida.</string>
+    <string name="page_protected_can_not_edit">O planhèm, vòstre compte a pas los dreits sufisents per modificar aquesta pagina pel moment.</string>
+    <string name="page_protected_can_not_edit_title">Aquesta pagina es protegida</string>
+    <string name="settings_item_preferences">Paramètres</string>
+    <string name="settings_activity_title">Paramètres</string>
+    <string name="about_description">A prepaus de l’aplicacion Wikipèdia</string>
+    <string name="privacy_policy_description">Politica de confidencialitat</string>
+    <string name="terms_of_use_description">Condicions d\'utilizacion</string>
+    <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
+    <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
+    <string name="about_libraries_heading">Bibliotècas utilizadas</string>
+    <string name="about_contributors_heading">Contributors</string>
+    <string name="about_translators_heading">Traductors</string>
+    <string name="about_translators_translatewiki">Aquesta aplicacion es estada traduita pels traductors volontaris de &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
+    <string name="about_app_license_heading">Licéncia</string>
+    <string name="about_wmf" fuzzy="true">Un produit de la &lt;a href=\"https://wikimediafoundation.org/\"&gt;Fondacion Wikimèdia&lt;/a&gt;</string>
+    <string name="about_activity_title">A prepaus</string>
+    <string name="edit_abandon_confirm">La pagina es estada modificada. Sètz segur que volètz quitar sens enregistrar vòstras modificacions ?</string>
+    <string name="edit_abandon_confirm_yes">Òc</string>
+    <string name="edit_abandon_confirm_no">Non</string>
+    <string name="user_blocked_from_editing_title">Blocat</string>
+    <string name="user_logged_in_blocked_from_editing">Vòstre compte d\'utilizaire es estat blocat per las modificacions sus aqueste wiki.</string>
+    <string name="edit_how_page_improved">Cossí avètz melhorat aquesta pagina?</string>
+    <string name="edit_next">Seguent</string>
+    <string name="edit_done">Publicar</string>
+    <string name="edit_preview">Apercebut</string>
+    <string name="edit_summary_tag_typo">Fauta de picada corregida</string>
+    <string name="edit_summary_tag_grammar">Fauta de gramatica corregida</string>
+    <string name="edit_summary_tag_links">Ligams aponduts</string>
+    <string name="edit_summary_tag_other">Autre</string>
+    <string name="edit_summary_tag_other_hint">Autres biaisses de melhorar la pagina</string>
+    <string name="edit_conflict_title">Modificar lo conflicte.</string>
+    <string name="edit_conflict_message">Aquesta pagina foguèt ja modificada per un autre utilizaire, e es en conflicte amb la vòstra publicacion. Merce de copiar las vòstras publicacions, tornar a la pagina precedenta e refrescar la pagina, puèi ensajatz de publicar tornamai.</string>
+    <string name="find_next">Recercar lo seguent</string>
+    <string name="find_previous">Recercar lo precedent</string>
+    <string name="text_size_select">Talha de poliça</string>
+    <string name="page_similar_titles">Paginas similaras</string>
+    <string name="search_did_you_mean">Volètz dire « %s » ?</string>
+    <string name="search_recent_header">Recèrcas recentas :</string>
+    <string name="button_clear_all_recent_searches">Escafar las recèrcas recentas</string>
+    <string name="clear_recent_searches_confirm_yes">Òc</string>
+    <string name="clear_recent_searches_confirm_no">Non</string>
+    <string name="table_infobox">Faits en brèu</string>
+    <string name="table_other">Mai d’informacions</string>
+    <string name="table_close">Tampar</string>
+    <string name="widget_name_featured_page">Pagina mesa en avant de Wikipèdia</string>
+    <string name="widget_title_featured_page">Pagina mesa en avant uèi :</string>
+    <string name="widget_name_search">Recèrca Wikipèdia</string>
+    <string name="wiktionary_no_definitions_found">Cap de definicion pas trobada.</string>
+    <string name="alpha_update_notification_text">Tustatz per telecargar</string>
+    <string name="dialog_close_description">Tampar</string>
+    <string name="preference_title_show_images">Veire los imatges</string>
+    <string name="read_more_section">Ne saber mai</string>
+    <string name="menu_gallery_visit_page">Anar a la pagina del fichièr</string>
+    <string name="gallery_error_draw_failed">Impossible de dessenhar l’imatge.</string>
+    <string name="license_title">Licéncia per la bibliotèca %s</string>
+    <string name="gallery_menu_share">Partejar</string>
+    <string name="gallery_share_error">Impossible de partejar l’imatge : %s</string>
+    <string name="gallery_save_progress">Telecargament del fichièr...</string>
+    <string name="gallery_save_success">Fichièr enregistrat corrèctament.</string>
+    <string name="gallery_error_video_failed">Impossible de jogar la vidèo.</string>
+    <string name="err_cannot_save_file">Impossible d’enregistrar lo fichièr</string>
+    <string name="snippet_share_intro">Fait interessant sus @Wikipedia %1$s : %2$s</string>
+    <string name="expand_refs">Tustar per desvolopar</string>
+    <string name="share_snippet_button">Partejar coma imatge</string>
+    <string name="share_normal_button">Partejar coma tèxte</string>
+    <string name="snippet_share_preview_image_desc">Apercebut de l’imatge</string>
+    <string name="cc_logo">Licéncia Creative Commons</string>
+    <string name="captcha_image">Imatge Captcha</string>
+    <string name="gallery_fair_use_license">Utilizacion normala</string>
+    <string name="gallery_uploader_unknown">Telecargador desconegut</string>
+    <string name="menu_new_tab">Onglet novèl</string>
+    <string name="menu_close_all_tabs">Tampar totes los onglets</string>
+    <string name="close_all_tabs_confirm">Sètz segur que volètz tampar totes los onglets ?</string>
+    <string name="close_all_tabs_confirm_yes">Òc</string>
+    <string name="close_all_tabs_confirm_no">Non</string>
+    <string name="button_close_tab">Tampar l’onglet</string>
+    <string name="unnamed_tab_closed">Onglet tampat</string>
+    <string name="page_view_in_browser">Afichar la pagina dins lo navigador</string>
+    <string name="error_unknown">Una error desconeguda s\'es produita.</string>
+    <string name="format_error_server_message">Messatge : \"%s\"</string>
+    <string name="address_copied">Adreça copiada dins lo quichapapièrs.</string>
+    <string name="text_copied">Tèxte copiat dins lo quichapapièrs.</string>
+    <string name="button_continue_to_article">Legir l’article</string>
+    <string name="button_get_directions">Obténer las direccions</string>
+    <string name="preference_title_show_link_previews">Afichar los apercebuts de ligam</string>
+    <string name="nav_item_donate">Sosténer Wikipèdia</string>
+    <string name="error_voice_search_not_available">O planhèm, la reconeissença vocala es pas disponibla.</string>
+    <string name="location_service_disabled">Los servicis de localizacion son desactivats.</string>
+    <string name="enable_location_service">Activar</string>
+    <string name="crash_report_activity_title">Error de l\'aplicacion</string>
+    <string name="crash_report_relaunch">Reaviar</string>
+    <string name="crash_report_quit">Quitar</string>
+    <string name="article_menu_bar_bookmark">Apondre aqueste article a una lista de lectura</string>
+    <string name="article_menu_bar_share">Partejar lo ligam cap a la pagina</string>
+    <string name="article_header_edit_hint">Modificar...</string>
+    <string name="article_header_edit_description" fuzzy="true">Modificar la descripcion del títol</string>
+    <string name="article_header_edit_lead_section">Modificar l\'introduccion</string>
+    <string name="color_theme_select">Tèma</string>
+    <string name="color_theme_light">Clar</string>
+    <string name="color_theme_dark">Escur</string>
+    <string name="nav_item_reading_lists">Mas listas</string>
+    <string name="reading_list_save_to">Enregistrar dins la lista de lectura</string>
+    <string name="reading_list_create_new">Crear un novèl</string>
+    <string name="reading_list_title_exists">La lista de lectura «%s» existís ja.</string>
+    <string name="reading_list_added_view_button">Afichar la lista</string>
+    <string name="reading_list_sort">Triar</string>
+    <string name="reading_list_sort_by_name">Triar per nom</string>
+    <string name="reading_list_sort_by_name_desc">Triar per nom (invèrse)</string>
+    <string name="reading_list_sort_by_recent" fuzzy="true">Triar segon los mai recents</string>
+    <string name="reading_list_sort_by_recent_desc" fuzzy="true">Triar segon los mens recents</string>
+    <string name="reading_list_menu_delete">Suprimir la lista</string>
+    <string name="reading_list_name_sample">Ma lista de lectura</string>
+    <string name="reading_list_name_hint">Nom d\'aquesta lista</string>
+    <string name="reading_list_description_hint">Descripcion (facultatiu)</string>
+    <string name="reading_list_item_deleted">%s suprimit de la lista</string>
+    <string name="reading_list_item_delete_undo">Anullar</string>
+    <string name="reading_list_deleted">%s suprimit</string>
+    <string name="saved_list_empty_title">Encara i a pas cap de lista de lectura.</string>
+    <string name="reading_lists_onboarding_for_example">Per exemple</string>
+    <string name="reading_lists_onboarding_example1">Endreits a visitar</string>
+    <string name="reading_lists_onboarding_example2">Animals favorits</string>
+    <string name="reading_lists_onboarding_example3">Exploracion espaciala</string>
+    <string name="reading_lists_onboarding_got_it">L’obténer</string>
+    <string name="reading_list_delete_confirm" fuzzy="true">Sètz segur que volètz suprimir aquesta lista %s de lectura ?</string>
+    <string name="user_option_sync_label">Preferéncias</string>
+    <string name="notification_reverted_title">Modificacion anullada</string>
+    <string name="view_because_you_read_card_title">Perque avètz legit</string>
+    <string name="view_random_card_title">A l\'azard</string>
+    <string name="view_random_card_subtitle" fuzzy="true">Legissètz un article de la Wikipèdia a l\'azard</string>
+    <string name="view_main_page_card_title">Uèi sus Wikipèdia</string>
+    <string name="view_main_page_card_subtitle">Pagina principala lo %s</string>
+    <string name="view_featured_image_card_title">Imatge del jorn</string>
+    <string name="view_featured_image_card_download">Telecargar</string>
+    <string name="menu_feed_card_dismiss">Amagar aquesta carta</string>
+    <string name="menu_feed_card_dismissed">Carta amagada.</string>
+    <string name="menu_feed_overflow_label">Mai d\'opcions</string>
+    <string name="feed_featured_image_share_subject">Imatge destacat de Wikimedia Commons</string>
+    <string name="feed">Explorar</string>
+    <string name="most_read_list_card_title">Tendéncia</string>
+    <string name="view_static_card_icon_content_description">Icòna de la carta</string>
+    <string name="view_card_news_title">Dins l’actualitat</string>
+    <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
+        <item quantity="one">Ièr</item>
+        <item quantity="other">I a %d jorns</item>
+    </plurals>
+    <string name="view_continue_reading_card_subtitle_today" fuzzy="true">Uèi</string>
+    <string name="view_announcement_card_negative_action">Non mercé</string>
+    <string name="description_edit_text_hint" fuzzy="true">Descripcion del títol</string>
+    <string name="description_edit_save">Publicar</string>
+    <string name="description_edit_add_description" fuzzy="true">Apondre una descripcion del títol</string>
+    <string name="description_edit_edit_description" fuzzy="true">Modificar la descripcion</string>
+    <string name="description_edit_cancel_hint">Anullar</string>
+    <string name="description_edit_help_title" fuzzy="true">Ajuda : descripcions dels títols</string>
+    <string name="description_edit_help_about_wikidata">A prepaus de Wikidata</string>
+    <string name="description_edit_help_wikidata_guide">Guida Wikidata per escriure de descripcions</string>
+    <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
+    <string name="description_edit_success_saved" fuzzy="true">Descripcion publicada !</string>
+    <string name="description_edit_success_done">Fait</string>
+    <string name="description_edit_success_did_you_know">O sabiatz ?</string>
+    <string name="description_edit_tutorial_title_descriptions" fuzzy="true">Descripcions del títol</string>
+    <string name="description_edit_tutorial_keep_it_short">Siatz brèu</string>
+    <string name="description_edit_tutorial_button_label_start_editing">Començatz d\'editar</string>
+    <string name="suggested_edits_article_cta_snackbar_action">Monstrar</string>
 </resources>

@@ -1,116 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="app_name_prod">Wikipedya</string>
-  <string name="app_name_beta">Wikipedya Beta</string>
-  <string name="app_name_alpha">Wikipedya Alpha</string>
-  <string name="search_hint">Hwilas yn Wikipedia</string>
-  <string name="nav_item_history">Istori</string>
-  <string name="error_network_error" fuzzy="true">Nyns eus junyans rosweyth :(</string>
-  <string name="page_error_retry">Assaya arta</string>
-  <string name="menu_clear_all_history">Klerhe an istori</string>
-  <string name="dialog_title_clear_history" fuzzy="true">Klerhe an istori peuri?</string>
+    <string name="app_name_prod">Wikipedya</string>
+    <string name="app_name_beta">Wikipedya Beta</string>
+    <string name="app_name_alpha">Wikipedya Alpha</string>
+    <string name="search_hint">Hwilas yn Wikipedia</string>
+    <string name="nav_item_history">Istori</string>
+    <string name="error_network_error" fuzzy="true">Nyns eus junyans rosweyth :(</string>
+    <string name="page_error_retry">Assaya arta</string>
+    <string name="menu_clear_all_history">Klerhe an istori</string>
+    <string name="dialog_title_clear_history" fuzzy="true">Klerhe an istori peuri?</string>
     <string name="share_via">Kevranna dre</string>
-  <string name="menu_page_other_languages" fuzzy="true">Redya yn yethow erel</string>
-  <string name="menu_page_find_in_page">Hwilas y\'n folen</string>
-  <string name="menu_page_font_and_theme">Font ha thema</string>
-  <string name="menu_page_share" fuzzy="true">Kevranna</string>
-  <string name="last_updated_text">Nowedhans diwettha %s</string>
+    <string name="menu_page_other_languages" fuzzy="true">Redya yn yethow erel</string>
+    <string name="menu_page_find_in_page">Hwilas y\'n folen</string>
+    <string name="menu_page_font_and_theme">Font ha thema</string>
+    <string name="menu_page_share" fuzzy="true">Kevranna</string>
+    <string name="last_updated_text">Nowedhans diwettha %s</string>
     <string name="edit_save_action_license_logged_in">Dre witha, yth esowgh owth akordya dhe\'n &lt;a href=\"%1$s\"&gt;Termynyow Devnydh&lt;/a&gt;, ha dhe dhyllo agas kevrohow rag nevra yn-dann an leshyans &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="edit_save_action_license_anon">Dre witha, yth esowgh owth akordya dhe\'n &lt;a href=\"%1$s\"&gt;Termynyow Devnydh&lt;/a&gt;, ha dhe dhyllo agas kevrohow rag nevra yn-dann an leshyans &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Agas trigva IP a vydh rekordyes avel awtour agas chanjyow. Mar &lt;a href=\"https://#login\"&gt;omgelmewgh&lt;/a&gt;, hwi a gyv moy privetter.</string>
-  <string name="preference_title_language">Yeth Wikipedya</string>
+    <string name="edit_save_action_license_anon">Dre witha, yth esowgh owth akordya dhe\'n &lt;a href=\"%1$s\"&gt;Termynyow Devnydh&lt;/a&gt;, ha dhe dhyllo agas kevrohow rag nevra yn-dann an leshyans &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Agas trigva IP a vydh rekordyes avel awtour agas chanjyow. Mar &lt;a href=\"https://#login\"&gt;omgelmewgh&lt;/a&gt;, hwi a gyv moy privetter.</string>
+    <string name="preference_title_language">Yeth Wikipedya</string>
     <string name="langlinks_filter_hint">Hwilas</string>
-  <string name="langlinks_empty">Nyns yw kavadow an folen ma yn yethow erel.</string>
-  <string name="langlinks_no_match">Ny veu kevys yeth vyth.</string>
-  <string name="langlinks_activity_title">Yethow erel</string>
-  <string name="menu_save_changes">Gwitha an chanjyow</string>
-  <string name="dialog_saving_in_progress">Ow kwitha…</string>
-  <string name="edit_saved_successfully">Chanj gwithys!</string>
-  <string name="dialog_message_edit_failed">An chanj a fyllis!</string>
-  <string name="dialog_message_edit_failed_retry">Assaya arta</string>
-  <string name="dialog_message_edit_failed_cancel">Hedhi</string>
-  <string name="dialog_message_leaving_edit" fuzzy="true">Nyns yw agas chanjyow gwithys hwath. Owgh hwi sur bos hwans dhywgh diberth?</string>
-  <string name="dialog_message_leaving_edit_leave">Diberth</string>
-  <string name="dialog_message_leaving_edit_stay">Triga</string>
-  <string name="menu_show_toc">Rol an dalgh</string>
-  <string name="search_no_results_found">Ny veu kevys sewyans vyth</string>
-  <string name="edit_section_captcha_message">Rag gweres dhe witha rag spam awtomategys, entrewgh an geryow a dhiskwa a-woles</string>
-  <string name="edit_section_captcha_hint">Skrifewgh arta an geryow a-ugh</string>
-  <string name="title_captcha">Entrewgh an CAPTCHA</string>
-  <string name="edit_section_captcha_reload">Gweskewgh an CAPTCHA rag y dhaskarga</string>
+    <string name="langlinks_empty">Nyns yw kavadow an folen ma yn yethow erel.</string>
+    <string name="langlinks_no_match">Ny veu kevys yeth vyth.</string>
+    <string name="langlinks_activity_title">Yethow erel</string>
+    <string name="menu_save_changes">Gwitha an chanjyow</string>
+    <string name="dialog_saving_in_progress">Ow kwitha…</string>
+    <string name="edit_saved_successfully">Chanj gwithys!</string>
+    <string name="dialog_message_edit_failed">An chanj a fyllis!</string>
+    <string name="dialog_message_edit_failed_retry">Assaya arta</string>
+    <string name="dialog_message_edit_failed_cancel">Hedhi</string>
+    <string name="dialog_message_leaving_edit" fuzzy="true">Nyns yw agas chanjyow gwithys hwath. Owgh hwi sur bos hwans dhywgh diberth?</string>
+    <string name="dialog_message_leaving_edit_leave">Diberth</string>
+    <string name="dialog_message_leaving_edit_stay">Triga</string>
+    <string name="menu_show_toc">Rol an dalgh</string>
+    <string name="search_no_results_found">Ny veu kevys sewyans vyth</string>
+    <string name="edit_section_captcha_message">Rag gweres dhe witha rag spam awtomategys, entrewgh an geryow a dhiskwa a-woles</string>
+    <string name="edit_section_captcha_hint">Skrifewgh arta an geryow a-ugh</string>
+    <string name="title_captcha">Entrewgh an CAPTCHA</string>
+    <string name="edit_section_captcha_reload">Gweskewgh an CAPTCHA rag y dhaskarga</string>
     <string name="nav_item_login" fuzzy="true">Omgelmi</string>
-  <string name="login_username_hint">Hanow devnydhyer</string>
-  <string name="login_password_hint">Ger tremena</string>
-  <string name="menu_login">Omgelmi</string>
-  <string name="login_activity_title" fuzzy="true">Omgelmi orth Wikipedya</string>
-  <string name="login_in_progress_dialog_message">Orth agas omgelmi…</string>
-  <string name="login_success_toast" fuzzy="true">Omgelmys!</string>
-  <string name="preference_title_logout">Digelmi</string>
-  <string name="toast_logout_complete">Omgelmys</string>
-  <string name="history_empty_title">Nyns eus folennow a-dhiwedhes omma!</string>
-  <string name="history_empty_message">Hwi a dhileas oll anedha martesen. An nessa termyn mayth ewgh dhe folen y hyllowgh dehweles dhedhi alemma.</string>
-  <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDY&lt;big&gt;A&lt;/big&gt;</string>
-  <string name="create_account_username_hint">Hanow devnydhyer</string>
-  <string name="create_account_activity_title">Gwruthyl akont</string>
-  <string name="dialog_create_account_checking_progress">Ow kwirya</string>
-  <string name="create_account_email_hint">Ebost (dewisel)</string>
-  <string name="create_account_password_repeat_hint">Skrifa an ger tremena arta</string>
-  <string name="create_account_passwords_mismatch_error">Dihaval yw an geryow tremena</string>
-  <string name="create_account_email_error">Trigva ebost drog</string>
-  <string name="create_account_generic_error">Ny ylles gwruthyl an akont</string>
-  <string name="create_account_next">Nessa</string>
-  <string name="create_account_button">Gwruthyl akont</string>
-  <string name="preferences_general_heading">Ollgemmyn</string>
+    <string name="login_username_hint">Hanow devnydhyer</string>
+    <string name="login_password_hint">Ger tremena</string>
+    <string name="menu_login">Omgelmi</string>
+    <string name="login_activity_title" fuzzy="true">Omgelmi orth Wikipedya</string>
+    <string name="login_in_progress_dialog_message">Orth agas omgelmi…</string>
+    <string name="login_success_toast" fuzzy="true">Omgelmys!</string>
+    <string name="preference_title_logout">Digelmi</string>
+    <string name="toast_logout_complete">Omgelmys</string>
+    <string name="history_empty_title">Nyns eus folennow a-dhiwedhes omma!</string>
+    <string name="history_empty_message">Hwi a dhileas oll anedha martesen. An nessa termyn mayth ewgh dhe folen y hyllowgh dehweles dhedhi alemma.</string>
+    <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDY&lt;big&gt;A&lt;/big&gt;</string>
+    <string name="create_account_username_hint">Hanow devnydhyer</string>
+    <string name="create_account_activity_title">Gwruthyl akont</string>
+    <string name="dialog_create_account_checking_progress">Ow kwirya</string>
+    <string name="create_account_email_hint">Ebost (dewisel)</string>
+    <string name="create_account_password_repeat_hint">Skrifa an ger tremena arta</string>
+    <string name="create_account_passwords_mismatch_error">Dihaval yw an geryow tremena</string>
+    <string name="create_account_email_error">Trigva ebost drog</string>
+    <string name="create_account_generic_error">Ny ylles gwruthyl an akont</string>
+    <string name="create_account_next">Nessa</string>
+    <string name="create_account_button">Gwruthyl akont</string>
+    <string name="preferences_general_heading">Ollgemmyn</string>
     <string name="edit_preview_fetching_dialog_message">Ow kerghes ragwel…</string>
-  <string name="send_feedback">Danvon dasliv a\'n towlennik</string>
-  <string name="create_account_account_created_toast">Akont gwrys!</string>
-  <string name="preference_title_eventlogging_opt_in">Danvon derivadow devnydh</string>
-  <string name="preference_summary_eventlogging_opt_in">Alowa Wikimedia dhe guntel kedhlow a-dro dhe\'n fordh may tevnydhyowgh an app rag y wellhe</string>
-  <string name="editing_error_spamblacklist">Kevrennow dhe drigvaow lettyes (%s) helerghys. Gwrewgh aga dilea hag assaya arta.</string>
-  <string name="history_search_list_hint" fuzzy="true">Hwilas</string>
-  <string name="error_can_not_process_link">Ny ylles diskwedhes an gevren ma</string>
-  <string name="page_protected_autoconfirmed">Hanter-difresys re beu an folen ma.</string>
-  <string name="page_protected_sysop">Difresys yn leun re beu an folen ma.</string>
-  <string name="page_protected_other">Difresys re beu an folen ma dhe\'n nivellow a syw: %s</string>
-  <string name="page_protected_can_not_edit">Ny\'gas beus an gwiryow dhe janjya an folen ma</string>
-  <string name="page_protected_can_not_edit_title">Difresys yw an folen ma</string>
-  <string name="settings_activity_title" fuzzy="true">Settyansow</string>
-  <string name="about_description">A-dro dhe\'n app Wikipedia</string>
-  <string name="privacy_policy_description">Polici privetter</string>
-  <string name="terms_of_use_description">Termynyow devnydh</string>
-  <string name="about_libraries_heading" fuzzy="true">lyverjiow devnydhys</string>
-  <string name="about_contributors_heading" fuzzy="true">kevrohoyon</string>
-  <string name="about_translators_heading" fuzzy="true">treylyoryon</string>
-  <string name="about_translators_translatewiki">Treylyes veu an app ma gans an dreylyoryon orth &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
-  <string name="about_wmf">Askorras gans an &lt;a href=\"https://wikimediafoundation.org/\"&gt;Fondyans Wikimedia&lt;/a&gt;</string>
-  <string name="about_activity_title">A-dro</string>
-  <string name="edit_abandon_confirm">Chanjyes re beu an folen. Owgh hwi sur bos hwans dhywgh kwytya heb gwitha agas chanjyow?</string>
-  <string name="user_blocked_from_editing_title">Lettyes</string>
-  <string name="user_logged_in_blocked_from_editing">Lettyes re beu agas akont devnydher rag chanjya war an wiki ma.</string>
-  <string name="user_anon_blocked_from_editing">Lettyes re beu agas trigva IP rag chanjya.</string>
-  <string name="edit_how_page_improved">Fatel wellhasowgh an folen?</string>
-  <string name="edit_next">Nessa</string>
-  <string name="edit_done">Gwitha</string>
-  <string name="edit_preview">Ragweles</string>
-  <string name="edit_summary_tag_typo">Kammskrifans ewnhes</string>
-  <string name="edit_summary_tag_grammar">Yethador ewnhes</string>
-  <string name="edit_summary_tag_links">Kevrennow keworrys</string>
-  <string name="edit_summary_tag_other">Aral</string>
-  <string name="edit_summary_tag_other_hint">Fordhow erel may hwellhasowgh an folen</string>
-  <string name="find_next">Kavos an nessa</string>
-  <string name="find_previous">Kavos an kyns</string>
-  <string name="abusefilter_title_warn">Hemm a alsa bos chanj didhrehevus. Owgh hwi sur bos hwans dhywgh y witha?</string>
-  <string name="abusefilter_title_disallow">Ny yllowgh gwitha an chanj ma. Gwrewgh dehweles hag y janjya.</string>
-  <string name="text_size_select">Myns an font</string>
-  <string name="color_theme_select">Thema</string>
-  <string name="color_theme_light">Skav</string>
-  <string name="color_theme_dark">Tew</string>
-  <string name="page_similar_titles">Folennow haval</string>
-  <string name="search_did_you_mean">A vensowgh \"%s\"?</string>
-  <string name="search_recent_header">Hwilansow a-dhiwedhes:</string>
-  <string name="button_clear_all_recent_searches">Klerhe hwilansow a-dhiwedhes</string>
-  <string name="clear_recent_searches_confirm">Owgh hwi sur bos hwans dhywgh klerhe agas istori hwilas?</string>
-  <string name="error_browser_not_found">Ny ylles ygeri an folen wias (ny gavas towlennik peurell)</string>
-  <string name="table_other">Moy kedhlow</string>
-  <string name="table_close">Degea</string>
-  <string name="dialog_close_description">Degea</string>
+    <string name="send_feedback">Danvon dasliv a\'n towlennik</string>
+    <string name="create_account_account_created_toast">Akont gwrys!</string>
+    <string name="preference_title_eventlogging_opt_in">Danvon derivadow devnydh</string>
+    <string name="preference_summary_eventlogging_opt_in">Alowa Wikimedia dhe guntel kedhlow a-dro dhe\'n fordh may tevnydhyowgh an app rag y wellhe</string>
+    <string name="editing_error_spamblacklist">Kevrennow dhe drigvaow lettyes (%s) helerghys. Gwrewgh aga dilea hag assaya arta.</string>
+    <string name="history_search_list_hint" fuzzy="true">Hwilas</string>
+    <string name="error_can_not_process_link">Ny ylles diskwedhes an gevren ma</string>
+    <string name="page_protected_autoconfirmed">Hanter-difresys re beu an folen ma.</string>
+    <string name="page_protected_sysop">Difresys yn leun re beu an folen ma.</string>
+    <string name="page_protected_other">Difresys re beu an folen ma dhe\'n nivellow a syw: %s</string>
+    <string name="page_protected_can_not_edit">Ny\'gas beus an gwiryow dhe janjya an folen ma</string>
+    <string name="page_protected_can_not_edit_title">Difresys yw an folen ma</string>
+    <string name="settings_activity_title" fuzzy="true">Settyansow</string>
+    <string name="about_description">A-dro dhe\'n app Wikipedia</string>
+    <string name="privacy_policy_description">Polici privetter</string>
+    <string name="terms_of_use_description">Termynyow devnydh</string>
+    <string name="about_libraries_heading" fuzzy="true">lyverjiow devnydhys</string>
+    <string name="about_contributors_heading" fuzzy="true">kevrohoyon</string>
+    <string name="about_translators_heading" fuzzy="true">treylyoryon</string>
+    <string name="about_translators_translatewiki">Treylyes veu an app ma gans an dreylyoryon orth &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
+    <string name="about_wmf">Askorras gans an &lt;a href=\"https://wikimediafoundation.org/\"&gt;Fondyans Wikimedia&lt;/a&gt;</string>
+    <string name="about_activity_title">A-dro</string>
+    <string name="edit_abandon_confirm">Chanjyes re beu an folen. Owgh hwi sur bos hwans dhywgh kwytya heb gwitha agas chanjyow?</string>
+    <string name="user_blocked_from_editing_title">Lettyes</string>
+    <string name="user_logged_in_blocked_from_editing">Lettyes re beu agas akont devnydher rag chanjya war an wiki ma.</string>
+    <string name="user_anon_blocked_from_editing">Lettyes re beu agas trigva IP rag chanjya.</string>
+    <string name="edit_how_page_improved">Fatel wellhasowgh an folen?</string>
+    <string name="edit_next">Nessa</string>
+    <string name="edit_done">Gwitha</string>
+    <string name="edit_preview">Ragweles</string>
+    <string name="edit_summary_tag_typo">Kammskrifans ewnhes</string>
+    <string name="edit_summary_tag_grammar">Yethador ewnhes</string>
+    <string name="edit_summary_tag_links">Kevrennow keworrys</string>
+    <string name="edit_summary_tag_other">Aral</string>
+    <string name="edit_summary_tag_other_hint">Fordhow erel may hwellhasowgh an folen</string>
+    <string name="find_next">Kavos an nessa</string>
+    <string name="find_previous">Kavos an kyns</string>
+    <string name="abusefilter_title_warn">Hemm a alsa bos chanj didhrehevus. Owgh hwi sur bos hwans dhywgh y witha?</string>
+    <string name="abusefilter_title_disallow">Ny yllowgh gwitha an chanj ma. Gwrewgh dehweles hag y janjya.</string>
+    <string name="text_size_select">Myns an font</string>
+    <string name="color_theme_select">Thema</string>
+    <string name="color_theme_light">Skav</string>
+    <string name="color_theme_dark">Tew</string>
+    <string name="page_similar_titles">Folennow haval</string>
+    <string name="search_did_you_mean">A vensowgh \"%s\"?</string>
+    <string name="search_recent_header">Hwilansow a-dhiwedhes:</string>
+    <string name="button_clear_all_recent_searches">Klerhe hwilansow a-dhiwedhes</string>
+    <string name="clear_recent_searches_confirm">Owgh hwi sur bos hwans dhywgh klerhe agas istori hwilas?</string>
+    <string name="error_browser_not_found">Ny ylles ygeri an folen wias (ny gavas towlennik peurell)</string>
+    <string name="table_other">Moy kedhlow</string>
+    <string name="table_close">Degea</string>
+    <string name="dialog_close_description">Degea</string>
 </resources>

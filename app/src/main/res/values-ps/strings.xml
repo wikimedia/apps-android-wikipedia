@@ -1,180 +1,179 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Authors:
+<?xml version="1.0" encoding="utf-8"?><!-- Authors:
 * Ahmed-Najib-Biabani-Ibrahimkhel
 * Amjad Khan
 * Baloch Khan
 -->
 <resources>
-  <string name="app_name_prod">ويکيپېډيا</string>
-  <string name="app_name_beta">بيټا ويکيپېډيا</string>
-  <string name="app_name_alpha">الفا ويکيپېډيا</string>
-  <string name="wikimedia">ويکيمېډيا</string>
-  <string name="search_hint">ويکيپېډيا پلټل</string>
-  <string name="nav_item_history">پېښليک</string>
-  <string name="error_network_error">انټرنټ سره نه شي تړل کېدای.</string>
-  <string name="page_error_retry">بياآزمويل</string>
-  <string name="page_error_back_to_main">پر شا تلل</string>
-  <string name="menu_clear_all_history">پېښليک پاکول</string>
-  <string name="dialog_title_clear_history">سپړل شوی پېښليک سپينول</string>
-  <string name="share_via">د شريکولو لار</string>
-  <string name="menu_page_other_languages">ژبه بدلول</string>
-  <string name="menu_page_find_in_page">په مخ کې موندل</string>
-  <string name="menu_page_font_and_theme">ليکبڼه او شازمکه</string>
-  <string name="menu_page_add_to_list">لوست لړليک کې ورگډول</string>
-  <string name="menu_page_share">تړنه شريکول</string>
-  <string name="menu_long_press_open_page">پرانيستل</string>
-  <string name="menu_long_press_open_in_new_tab">تړنه په نوې کړکۍ کې پرانيستل</string>
-  <string name="menu_long_press_copy_page">د تړنې پته لمېسل</string>
-  <string name="menu_text_select_copy">لمېسل</string>
-  <string name="menu_text_select_define">تعريفول</string>
-  <string name="menu_text_select_share">شريکول</string>
-  <string name="menu_text_select_edit_here">دلته سمول</string>
-  <string name="last_updated_text">وروستئ هممهالېدنه %s</string>
-  <string name="talk_page_link_text" fuzzy="true">خبرې اترې</string>
-  <string name="preference_title_language" fuzzy="true">د ويکيپېډيا ژبه</string>
-  <string name="langlinks_filter_hint">پلټل</string>
-  <string name="langlinks_empty">دا مخ په نورو ژبو کې نشته.</string>
-  <string name="langlinks_activity_title">نورې ژبې</string>
-  <string name="menu_save_changes" fuzzy="true">بدلونونه خوندي کول</string>
-  <string name="dialog_saving_in_progress" fuzzy="true">خوندي کېدنې کې دی…</string>
-  <string name="edit_saved_successfully" fuzzy="true">سمون مو خوندي شو!</string>
-  <string name="dialog_message_edit_failed">سمون مو نابرياله شو!</string>
-  <string name="dialog_message_edit_failed_retry">بياآزمويل</string>
-  <string name="dialog_message_edit_failed_cancel">ناگارل</string>
-  <string name="dialog_message_leaving_edit" fuzzy="true">ستاسې بدلونونه لا تر اوسه پورې نه دي خوندي شوي. ايا د دې مخ په پرېښودلو کې ډاډمن يې؟</string>
-  <string name="dialog_message_leaving_edit_leave">وتل</string>
-  <string name="dialog_message_leaving_edit_stay">پاتې کېدل</string>
-  <string name="menu_show_toc">نيوليک</string>
-  <string name="search_no_results_found">کومې پايلې و نه موندل شوې</string>
-  <string name="title_captcha">کېپچا ورکړئ</string>
-  <string name="edit_section_captcha_reload">په کپچا گوته ووهئ چې بيابرسېره شي</string>
-  <string name="nav_item_login">ويکيپېډيا کې ننوتل</string>
-  <string name="login_username_hint">کارن-نوم</string>
-  <string name="login_password_hint">پټنوم</string>
-  <string name="menu_login">ننوتل</string>
-  <string name="login_activity_title">ويکيپېډيا کې ننوتل</string>
-  <string name="login_in_progress_dialog_message">په ننوتلو کې دی…</string>
-  <string name="login_success_toast">برياليتوب سره ننوتلي ياست!</string>
-  <string name="preference_title_logout">وتل</string>
-  <string name="toast_logout_complete">ووتلۍ</string>
-  <string name="wp_stylized">&lt;big&gt;و&lt;/big&gt;يکيپېډي&lt;big&gt;ا&lt;/big&gt;</string>
-  <string name="create_account_username_hint">کارن-نوم</string>
-  <string name="create_account_activity_title">يو گڼون جوړول</string>
-  <string name="dialog_create_account_checking_progress">تاييدېدنه</string>
-  <string name="create_account_email_hint">برېښليک (اختياري)</string>
-  <string name="create_account_password_repeat_hint">پټنوم بياليکل</string>
-  <string name="create_account_passwords_mismatch_error">پټنومونه مو سره ورته نه دي</string>
-  <string name="create_account_email_error">ناسمه برېښليک پته</string>
-  <string name="create_account_generic_error">گڼون مو جوړ نه شو</string>
-  <string name="create_account_next">راتلونکی</string>
-  <string name="create_account_button">گڼون جوړول</string>
-  <string name="preferences_general_heading">ټولگړی</string>
-  <string name="wikipedia_app_faq">ويکيپېډيا کاريال ډ.ځ.پ</string>
-  <string name="edit_preview_fetching_dialog_message">مخليدنه راغونډېدنې کې ده…</string>
-  <string name="send_feedback">د کاريال په اړه غبرگون لېږل</string>
-  <string name="create_account_account_created_toast">گڼون مو جوړ شو!</string>
-  <string name="preferences_privacy_settings_heading">پټنتيا</string>
-  <string name="preference_title_eventlogging_opt_in">د کارېدنې راپورونه لېږل</string>
-  <string name="preference_title_auto_upload_crash_reports">د ټکر راپورونه لېږل</string>
-  <string name="history_search_list_hint">پېښليک پلټل</string>
-  <string name="error_can_not_process_link">دا تړنه ښکاره نه شوه</string>
-  <string name="page_protected_autoconfirmed">دا مخ نيم-ژغورلی دی.</string>
-  <string name="page_protected_sysop">دا مخ بشپړ ژغورلی دی.</string>
-  <string name="page_protected_can_not_edit_title">دا مخ ژغورل شوی</string>
-  <string name="settings_item_preferences">امستنې</string>
-  <string name="settings_activity_title">امستنې</string>
-  <string name="about_description">د ويکيپېډيا کاريال په اړه</string>
-  <string name="privacy_policy_description">د پټنتيا تگلاره</string>
-  <string name="terms_of_use_description">د کارولو شرطونه</string>
-  <string name="about_libraries_heading">کارېدلي کتابتونونه</string>
-  <string name="about_contributors_heading">ونډه وال</string>
-  <string name="about_translators_heading">ژباړونکي</string>
-  <string name="about_app_license_heading">منښتليک</string>
-  <string name="about_activity_title">په اړه</string>
-  <string name="user_blocked_from_editing_title">بنديز لگېدلی</string>
-  <string name="edit_how_page_improved">ليکنه مو څنگه ښه کړه؟</string>
-  <string name="edit_next">راتلونکی</string>
-  <string name="edit_done" fuzzy="true">خوندي کول</string>
-  <string name="edit_preview">مخليدنه</string>
-  <string name="edit_summary_tag_grammar">ژبښود سم شو</string>
-  <string name="edit_summary_tag_links">تړنې ورگډې کړې</string>
-  <string name="edit_summary_tag_other">بل</string>
-  <string name="find_next">بل موندل</string>
-  <string name="find_previous">پخوانی موندل</string>
-  <string name="text_size_select">د ليکبڼې کچه</string>
-  <string name="page_similar_titles">ورته مخونه</string>
-  <string name="search_did_you_mean">آيا  \"%s\" مو مقصد و؟</string>
-  <string name="search_recent_header">وروستنۍ پلټنې:</string>
-  <string name="button_clear_all_recent_searches">وروستنۍ پلټنې سپينول</string>
-  <string name="table_other">نور مالومات</string>
-  <string name="table_close">تړل</string>
-  <string name="widget_name_featured_page">د ويکيپېډيا غوره مخ</string>
-  <string name="widget_title_featured_page">د نن غوره شوی مخ:</string>
-  <string name="widget_name_search">ويکيپېډيا پلټل</string>
-  <string name="dialog_close_description">تړل</string>
-  <string name="preference_title_show_images">انځورونه ښکاره کول</string>
-  <string name="read_more_section">نور لوستل</string>
-  <string name="menu_gallery_visit_page">د دوتنې مخ ته ورځه</string>
-  <string name="license_title">د %s منښتليک</string>
-  <string name="gallery_menu_share">شريکول</string>
-  <string name="gallery_save_progress">دوتنه ښکته کېږي…</string>
-  <string name="gallery_save_success">دوتنه برياليتوب سره خوندي شوه.</string>
-  <string name="gallery_error_video_failed">ويډيو و نه غږول شوه.</string>
-  <string name="err_cannot_save_file">دوتنه د خوندي کولو وړ نه ده</string>
-  <string name="snippet_share_intro">\"%1$s\" په @Wikipedia: %2$s</string>
-  <string name="share_snippet_button">د انځور په توگه شريکول</string>
-  <string name="share_normal_button">د متن په توگه شريکول</string>
-  <string name="snippet_share_preview_image_desc">انځور مخليدنه</string>
-  <string name="cc_logo">کريټيف کامنز منښتليک</string>
-  <string name="captcha_image">کېپچا انځور</string>
-  <string name="gallery_fair_use_license">منصفانه کارېدنه</string>
-  <string name="gallery_uploader_unknown">ناڅرگند پورته کوونکی</string>
-  <string name="page_view_in_browser">مخ په کتنمل کې کتل</string>
-  <string name="format_error_server_message">پيغام: \"%s\"</string>
-  <string name="button_continue_to_article">ليکنه لوستل</string>
-  <string name="button_get_directions">لارښوونې ترلاسه کول</string>
-  <string name="nav_item_donate">د ويکيپېډيا ملاتړ وکړئ</string>
+    <string name="app_name_prod">ويکيپېډيا</string>
+    <string name="app_name_beta">بيټا ويکيپېډيا</string>
+    <string name="app_name_alpha">الفا ويکيپېډيا</string>
+    <string name="wikimedia">ويکيمېډيا</string>
+    <string name="search_hint">ويکيپېډيا پلټل</string>
+    <string name="nav_item_history">پېښليک</string>
+    <string name="error_network_error">انټرنټ سره نه شي تړل کېدای.</string>
+    <string name="page_error_retry">بياآزمويل</string>
+    <string name="page_error_back_to_main">پر شا تلل</string>
+    <string name="menu_clear_all_history">پېښليک پاکول</string>
+    <string name="dialog_title_clear_history">سپړل شوی پېښليک سپينول</string>
+    <string name="share_via">د شريکولو لار</string>
+    <string name="menu_page_other_languages">ژبه بدلول</string>
+    <string name="menu_page_find_in_page">په مخ کې موندل</string>
+    <string name="menu_page_font_and_theme">ليکبڼه او شازمکه</string>
+    <string name="menu_page_add_to_list">لوست لړليک کې ورگډول</string>
+    <string name="menu_page_share">تړنه شريکول</string>
+    <string name="menu_long_press_open_page">پرانيستل</string>
+    <string name="menu_long_press_open_in_new_tab">تړنه په نوې کړکۍ کې پرانيستل</string>
+    <string name="menu_long_press_copy_page">د تړنې پته لمېسل</string>
+    <string name="menu_text_select_copy">لمېسل</string>
+    <string name="menu_text_select_define">تعريفول</string>
+    <string name="menu_text_select_share">شريکول</string>
+    <string name="menu_text_select_edit_here">دلته سمول</string>
+    <string name="last_updated_text">وروستئ هممهالېدنه %s</string>
+    <string name="talk_page_link_text" fuzzy="true">خبرې اترې</string>
+    <string name="preference_title_language" fuzzy="true">د ويکيپېډيا ژبه</string>
+    <string name="langlinks_filter_hint">پلټل</string>
+    <string name="langlinks_empty">دا مخ په نورو ژبو کې نشته.</string>
+    <string name="langlinks_activity_title">نورې ژبې</string>
+    <string name="menu_save_changes" fuzzy="true">بدلونونه خوندي کول</string>
+    <string name="dialog_saving_in_progress" fuzzy="true">خوندي کېدنې کې دی…</string>
+    <string name="edit_saved_successfully" fuzzy="true">سمون مو خوندي شو!</string>
+    <string name="dialog_message_edit_failed">سمون مو نابرياله شو!</string>
+    <string name="dialog_message_edit_failed_retry">بياآزمويل</string>
+    <string name="dialog_message_edit_failed_cancel">ناگارل</string>
+    <string name="dialog_message_leaving_edit" fuzzy="true">ستاسې بدلونونه لا تر اوسه پورې نه دي خوندي شوي. ايا د دې مخ په پرېښودلو کې ډاډمن يې؟</string>
+    <string name="dialog_message_leaving_edit_leave">وتل</string>
+    <string name="dialog_message_leaving_edit_stay">پاتې کېدل</string>
+    <string name="menu_show_toc">نيوليک</string>
+    <string name="search_no_results_found">کومې پايلې و نه موندل شوې</string>
+    <string name="title_captcha">کېپچا ورکړئ</string>
+    <string name="edit_section_captcha_reload">په کپچا گوته ووهئ چې بيابرسېره شي</string>
+    <string name="nav_item_login">ويکيپېډيا کې ننوتل</string>
+    <string name="login_username_hint">کارن-نوم</string>
+    <string name="login_password_hint">پټنوم</string>
+    <string name="menu_login">ننوتل</string>
+    <string name="login_activity_title">ويکيپېډيا کې ننوتل</string>
+    <string name="login_in_progress_dialog_message">په ننوتلو کې دی…</string>
+    <string name="login_success_toast">برياليتوب سره ننوتلي ياست!</string>
+    <string name="preference_title_logout">وتل</string>
+    <string name="toast_logout_complete">ووتلۍ</string>
+    <string name="wp_stylized">&lt;big&gt;و&lt;/big&gt;يکيپېډي&lt;big&gt;ا&lt;/big&gt;</string>
+    <string name="create_account_username_hint">کارن-نوم</string>
+    <string name="create_account_activity_title">يو گڼون جوړول</string>
+    <string name="dialog_create_account_checking_progress">تاييدېدنه</string>
+    <string name="create_account_email_hint">برېښليک (اختياري)</string>
+    <string name="create_account_password_repeat_hint">پټنوم بياليکل</string>
+    <string name="create_account_passwords_mismatch_error">پټنومونه مو سره ورته نه دي</string>
+    <string name="create_account_email_error">ناسمه برېښليک پته</string>
+    <string name="create_account_generic_error">گڼون مو جوړ نه شو</string>
+    <string name="create_account_next">راتلونکی</string>
+    <string name="create_account_button">گڼون جوړول</string>
+    <string name="preferences_general_heading">ټولگړی</string>
+    <string name="wikipedia_app_faq">ويکيپېډيا کاريال ډ.ځ.پ</string>
+    <string name="edit_preview_fetching_dialog_message">مخليدنه راغونډېدنې کې ده…</string>
+    <string name="send_feedback">د کاريال په اړه غبرگون لېږل</string>
+    <string name="create_account_account_created_toast">گڼون مو جوړ شو!</string>
+    <string name="preferences_privacy_settings_heading">پټنتيا</string>
+    <string name="preference_title_eventlogging_opt_in">د کارېدنې راپورونه لېږل</string>
+    <string name="preference_title_auto_upload_crash_reports">د ټکر راپورونه لېږل</string>
+    <string name="history_search_list_hint">پېښليک پلټل</string>
+    <string name="error_can_not_process_link">دا تړنه ښکاره نه شوه</string>
+    <string name="page_protected_autoconfirmed">دا مخ نيم-ژغورلی دی.</string>
+    <string name="page_protected_sysop">دا مخ بشپړ ژغورلی دی.</string>
+    <string name="page_protected_can_not_edit_title">دا مخ ژغورل شوی</string>
+    <string name="settings_item_preferences">امستنې</string>
+    <string name="settings_activity_title">امستنې</string>
+    <string name="about_description">د ويکيپېډيا کاريال په اړه</string>
+    <string name="privacy_policy_description">د پټنتيا تگلاره</string>
+    <string name="terms_of_use_description">د کارولو شرطونه</string>
+    <string name="about_libraries_heading">کارېدلي کتابتونونه</string>
+    <string name="about_contributors_heading">ونډه وال</string>
+    <string name="about_translators_heading">ژباړونکي</string>
+    <string name="about_app_license_heading">منښتليک</string>
+    <string name="about_activity_title">په اړه</string>
+    <string name="user_blocked_from_editing_title">بنديز لگېدلی</string>
+    <string name="edit_how_page_improved">ليکنه مو څنگه ښه کړه؟</string>
+    <string name="edit_next">راتلونکی</string>
+    <string name="edit_done" fuzzy="true">خوندي کول</string>
+    <string name="edit_preview">مخليدنه</string>
+    <string name="edit_summary_tag_grammar">ژبښود سم شو</string>
+    <string name="edit_summary_tag_links">تړنې ورگډې کړې</string>
+    <string name="edit_summary_tag_other">بل</string>
+    <string name="find_next">بل موندل</string>
+    <string name="find_previous">پخوانی موندل</string>
+    <string name="text_size_select">د ليکبڼې کچه</string>
+    <string name="page_similar_titles">ورته مخونه</string>
+    <string name="search_did_you_mean">آيا  \"%s\" مو مقصد و؟</string>
+    <string name="search_recent_header">وروستنۍ پلټنې:</string>
+    <string name="button_clear_all_recent_searches">وروستنۍ پلټنې سپينول</string>
+    <string name="table_other">نور مالومات</string>
+    <string name="table_close">تړل</string>
+    <string name="widget_name_featured_page">د ويکيپېډيا غوره مخ</string>
+    <string name="widget_title_featured_page">د نن غوره شوی مخ:</string>
+    <string name="widget_name_search">ويکيپېډيا پلټل</string>
+    <string name="dialog_close_description">تړل</string>
+    <string name="preference_title_show_images">انځورونه ښکاره کول</string>
+    <string name="read_more_section">نور لوستل</string>
+    <string name="menu_gallery_visit_page">د دوتنې مخ ته ورځه</string>
+    <string name="license_title">د %s منښتليک</string>
+    <string name="gallery_menu_share">شريکول</string>
+    <string name="gallery_save_progress">دوتنه ښکته کېږي…</string>
+    <string name="gallery_save_success">دوتنه برياليتوب سره خوندي شوه.</string>
+    <string name="gallery_error_video_failed">ويډيو و نه غږول شوه.</string>
+    <string name="err_cannot_save_file">دوتنه د خوندي کولو وړ نه ده</string>
+    <string name="snippet_share_intro">\"%1$s\" په @Wikipedia: %2$s</string>
+    <string name="share_snippet_button">د انځور په توگه شريکول</string>
+    <string name="share_normal_button">د متن په توگه شريکول</string>
+    <string name="snippet_share_preview_image_desc">انځور مخليدنه</string>
+    <string name="cc_logo">کريټيف کامنز منښتليک</string>
+    <string name="captcha_image">کېپچا انځور</string>
+    <string name="gallery_fair_use_license">منصفانه کارېدنه</string>
+    <string name="gallery_uploader_unknown">ناڅرگند پورته کوونکی</string>
+    <string name="page_view_in_browser">مخ په کتنمل کې کتل</string>
+    <string name="format_error_server_message">پيغام: \"%s\"</string>
+    <string name="button_continue_to_article">ليکنه لوستل</string>
+    <string name="button_get_directions">لارښوونې ترلاسه کول</string>
+    <string name="nav_item_donate">د ويکيپېډيا ملاتړ وکړئ</string>
     <string name="crash_report_activity_title">د کاريال تېروتنه</string>
-  <string name="crash_report_relaunch">سر له نوي پيلول</string>
-  <string name="crash_report_quit">بندول</string>
-  <string name="article_header_edit_hint">سمول…</string>
-  <string name="color_theme_select">شازمکه</string>
-  <string name="color_theme_light">رڼا</string>
-  <string name="color_theme_dark">تياره</string>
-  <string name="nav_item_reading_lists" fuzzy="true">لوست لړليک</string>
-  <string name="reading_list_save_to">لوستلړ کې خوندي کول</string>
-  <string name="reading_list_create_new">نوی جوړول</string>
-  <string name="reading_list_added_to_named">%s کې ورگډ شو.</string>
-  <string name="reading_list_added_view_button">لړليک کتل</string>
-  <string name="reading_list_sort">اوډل</string>
-  <string name="reading_list_sort_by_name">اوډنه د نوم له مخې</string>
-  <string name="reading_list_sort_by_recent" fuzzy="true">اوډنه تر ټولو تازه له مخې</string>
-  <string name="reading_list_menu_delete">لړليک ړنگول</string>
-  <string name="reading_list_menu_rename" fuzzy="true">بيانومول</string>
-  <string name="reading_list_name_sample">زما لوست لړليک</string>
-  <string name="reading_list_name_hint">د دې لړليک نوم</string>
-  <string name="reading_list_description_hint">څرگندونه (اختياري)</string>
-  <string name="reading_list_item_deleted">%s له لړليک څخه وغورځول شو</string>
-  <string name="reading_list_item_delete_undo">ناکړل</string>
-  <string name="reading_list_deleted">%s ړنگ شو</string>
-  <string name="reading_lists_onboarding_for_example">د بېلگې په توگه</string>
-  <string name="reading_lists_onboarding_example1">د کتلو ځايونه</string>
-  <string name="reading_lists_onboarding_example2">خواپوري ژوي</string>
-  <string name="reading_lists_onboarding_example3" fuzzy="true">تشيال!</string>
-  <string name="reading_lists_onboarding_got_it">وپوهېدم</string>
-  <string name="user_option_sync_label">غوره توبونه</string>
-  <string name="view_continue_reading_card_title">پرله پورې لوستل</string>
-  <string name="view_because_you_read_card_title">ځکه چې تاسې لولی</string>
-  <string name="view_random_card_subtitle" fuzzy="true">د ويکيپېډيا يوه ناټاکلې ليکنه لوستل</string>
-  <string name="view_main_page_card_title">نن په ويکيپېډيا کې</string>
-  <string name="view_main_page_card_subtitle">لومړی مخ په %s</string>
-  <string name="view_featured_image_card_title">د نن ورځې انځور</string>
-  <string name="view_featured_image_card_download">ښکته کول</string>
-  <string name="menu_feed_card_dismiss">همدا کارت پټول</string>
-  <string name="menu_feed_card_dismissed">پټ شوی کارت.</string>
-  <string name="feed" fuzzy="true">ويکيپېډيا سپړل</string>
-  <string name="view_static_card_icon_content_description">ايکان کارت</string>
-  <string name="view_card_news_title">په خبرونو کې</string>
-  <string name="view_featured_article_card_title">مخکښه ليکنه</string>
-  <string name="view_featured_article_footer_save_button_label">خوندي کول</string>
+    <string name="crash_report_relaunch">سر له نوي پيلول</string>
+    <string name="crash_report_quit">بندول</string>
+    <string name="article_header_edit_hint">سمول…</string>
+    <string name="color_theme_select">شازمکه</string>
+    <string name="color_theme_light">رڼا</string>
+    <string name="color_theme_dark">تياره</string>
+    <string name="nav_item_reading_lists" fuzzy="true">لوست لړليک</string>
+    <string name="reading_list_save_to">لوستلړ کې خوندي کول</string>
+    <string name="reading_list_create_new">نوی جوړول</string>
+    <string name="reading_list_added_to_named">%s کې ورگډ شو.</string>
+    <string name="reading_list_added_view_button">لړليک کتل</string>
+    <string name="reading_list_sort">اوډل</string>
+    <string name="reading_list_sort_by_name">اوډنه د نوم له مخې</string>
+    <string name="reading_list_sort_by_recent" fuzzy="true">اوډنه تر ټولو تازه له مخې</string>
+    <string name="reading_list_menu_delete">لړليک ړنگول</string>
+    <string name="reading_list_menu_rename" fuzzy="true">بيانومول</string>
+    <string name="reading_list_name_sample">زما لوست لړليک</string>
+    <string name="reading_list_name_hint">د دې لړليک نوم</string>
+    <string name="reading_list_description_hint">څرگندونه (اختياري)</string>
+    <string name="reading_list_item_deleted">%s له لړليک څخه وغورځول شو</string>
+    <string name="reading_list_item_delete_undo">ناکړل</string>
+    <string name="reading_list_deleted">%s ړنگ شو</string>
+    <string name="reading_lists_onboarding_for_example">د بېلگې په توگه</string>
+    <string name="reading_lists_onboarding_example1">د کتلو ځايونه</string>
+    <string name="reading_lists_onboarding_example2">خواپوري ژوي</string>
+    <string name="reading_lists_onboarding_example3" fuzzy="true">تشيال!</string>
+    <string name="reading_lists_onboarding_got_it">وپوهېدم</string>
+    <string name="user_option_sync_label">غوره توبونه</string>
+    <string name="view_continue_reading_card_title">پرله پورې لوستل</string>
+    <string name="view_because_you_read_card_title">ځکه چې تاسې لولی</string>
+    <string name="view_random_card_subtitle" fuzzy="true">د ويکيپېډيا يوه ناټاکلې ليکنه لوستل</string>
+    <string name="view_main_page_card_title">نن په ويکيپېډيا کې</string>
+    <string name="view_main_page_card_subtitle">لومړی مخ په %s</string>
+    <string name="view_featured_image_card_title">د نن ورځې انځور</string>
+    <string name="view_featured_image_card_download">ښکته کول</string>
+    <string name="menu_feed_card_dismiss">همدا کارت پټول</string>
+    <string name="menu_feed_card_dismissed">پټ شوی کارت.</string>
+    <string name="feed" fuzzy="true">ويکيپېډيا سپړل</string>
+    <string name="view_static_card_icon_content_description">ايکان کارت</string>
+    <string name="view_card_news_title">په خبرونو کې</string>
+    <string name="view_featured_article_card_title">مخکښه ليکنه</string>
+    <string name="view_featured_article_footer_save_button_label">خوندي کول</string>
 </resources>

@@ -1,73 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="app_name_prod">Wikipedia</string>
-  <string name="app_name_beta">Wikipedia Beta</string>
-  <string name="search_hint">Leita í Wikipedia</string>
-  <string name="nav_item_history">Søga</string>
-  <string name="error_network_error" fuzzy="true">Tað er onki internet samband :(</string>
-  <string name="page_error_retry">Royn aftur</string>
-  <string name="menu_clear_all_history">Rudda søguyvirlitið</string>
-  <string name="dialog_title_clear_history" fuzzy="true">Rudda brovsarasøguna?</string>
-  <string name="dialog_message_clear_history" fuzzy="true">Ert tú vís/ur í at tú ynskir at tøma alt søguyvirlitið.</string>
+    <string name="app_name_prod">Wikipedia</string>
+    <string name="app_name_beta">Wikipedia Beta</string>
+    <string name="search_hint">Leita í Wikipedia</string>
+    <string name="nav_item_history">Søga</string>
+    <string name="error_network_error" fuzzy="true">Tað er onki internet samband :(</string>
+    <string name="page_error_retry">Royn aftur</string>
+    <string name="menu_clear_all_history">Rudda søguyvirlitið</string>
+    <string name="dialog_title_clear_history" fuzzy="true">Rudda brovsarasøguna?</string>
+    <string name="dialog_message_clear_history" fuzzy="true">Ert tú vís/ur í at tú ynskir at tøma alt søguyvirlitið.</string>
     <string name="share_via">Deil via</string>
-  <string name="menu_page_other_languages" fuzzy="true">Les á øðrum málum</string>
-  <string name="menu_page_share" fuzzy="true">Deil</string>
-  <string name="last_updated_text">Seinast dagført %s</string>
+    <string name="menu_page_other_languages" fuzzy="true">Les á øðrum málum</string>
+    <string name="menu_page_share" fuzzy="true">Deil</string>
+    <string name="last_updated_text">Seinast dagført %s</string>
     <string name="preference_title_language">Wikipediamál</string>
     <string name="langlinks_filter_hint">Leita</string>
-  <string name="langlinks_empty">Henda síðan er ikki tøk á øðrum málum.</string>
-  <string name="langlinks_activity_title">Onnur mál</string>
-  <string name="menu_save_changes">Goym broytingar</string>
-  <string name="dialog_saving_in_progress">Goymir…</string>
-  <string name="edit_saved_successfully">Rættingin er goymd!</string>
-  <string name="dialog_message_edit_failed">Rættingin miseydnaðist!</string>
-  <string name="dialog_message_edit_failed_retry">Royn aftur</string>
-  <string name="dialog_message_edit_failed_cancel">Angra</string>
-  <string name="menu_show_toc">Innihaldsyvirlit</string>
-  <string name="search_no_results_found">Ongi úrslit funnin</string>
-  <string name="edit_section_captcha_message">Fyri at verja móti sjálvvirkandi spammi, vinarliga skriva orðini ið tú sært omanfyri</string>
-  <string name="edit_section_captcha_hint">Endurtak orðini omanfyri</string>
-  <string name="title_captcha">Skriva hetta captcha</string>
-  <string name="edit_section_captcha_reload">Trýst á CAPTCHA fyri at dagføra</string>
+    <string name="langlinks_empty">Henda síðan er ikki tøk á øðrum málum.</string>
+    <string name="langlinks_activity_title">Onnur mál</string>
+    <string name="menu_save_changes">Goym broytingar</string>
+    <string name="dialog_saving_in_progress">Goymir…</string>
+    <string name="edit_saved_successfully">Rættingin er goymd!</string>
+    <string name="dialog_message_edit_failed">Rættingin miseydnaðist!</string>
+    <string name="dialog_message_edit_failed_retry">Royn aftur</string>
+    <string name="dialog_message_edit_failed_cancel">Angra</string>
+    <string name="menu_show_toc">Innihaldsyvirlit</string>
+    <string name="search_no_results_found">Ongi úrslit funnin</string>
+    <string name="edit_section_captcha_message">Fyri at verja móti sjálvvirkandi spammi, vinarliga skriva orðini ið tú sært omanfyri</string>
+    <string name="edit_section_captcha_hint">Endurtak orðini omanfyri</string>
+    <string name="title_captcha">Skriva hetta captcha</string>
+    <string name="edit_section_captcha_reload">Trýst á CAPTCHA fyri at dagføra</string>
     <string name="nav_item_login" fuzzy="true">Rita inn</string>
-  <string name="login_username_hint">Brúkaranavn</string>
-  <string name="login_password_hint">Loyniorð</string>
-  <string name="menu_login">Rita inn</string>
-  <string name="login_activity_title" fuzzy="true">Rita inn á Wikipedia</string>
-  <string name="login_in_progress_dialog_message">Ritar teg inn…</string>
-  <string name="login_success_toast" fuzzy="true">Væleydnað innritan!</string>
-  <string name="preference_title_logout">Rita út</string>
-  <string name="toast_logout_complete">Tú ert ritað/ur út</string>
-  <string name="history_empty_message" fuzzy="true">Títt søguyvirlit er tómt.</string>
-  <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
-  <string name="create_account_username_hint">Brúkaranavn</string>
-  <string name="create_account_activity_title">Stovna eina kontu</string>
-  <string name="dialog_create_account_checking_progress">Váttar</string>
-  <string name="create_account_email_hint">T-postur (valfrítt)</string>
-  <string name="create_account_password_repeat_hint">Endurtak loyniorð</string>
-  <string name="create_account_passwords_mismatch_error">Loyniorðini eru ikki eins</string>
-  <string name="create_account_email_error">Ógyldug t-post adressa</string>
-  <string name="create_account_generic_error">Tað bar ikki til at upprætta kontu</string>
-  <string name="preferences_general_heading">Generelt</string>
+    <string name="login_username_hint">Brúkaranavn</string>
+    <string name="login_password_hint">Loyniorð</string>
+    <string name="menu_login">Rita inn</string>
+    <string name="login_activity_title" fuzzy="true">Rita inn á Wikipedia</string>
+    <string name="login_in_progress_dialog_message">Ritar teg inn…</string>
+    <string name="login_success_toast" fuzzy="true">Væleydnað innritan!</string>
+    <string name="preference_title_logout">Rita út</string>
+    <string name="toast_logout_complete">Tú ert ritað/ur út</string>
+    <string name="history_empty_message" fuzzy="true">Títt søguyvirlit er tómt.</string>
+    <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
+    <string name="create_account_username_hint">Brúkaranavn</string>
+    <string name="create_account_activity_title">Stovna eina kontu</string>
+    <string name="dialog_create_account_checking_progress">Váttar</string>
+    <string name="create_account_email_hint">T-postur (valfrítt)</string>
+    <string name="create_account_password_repeat_hint">Endurtak loyniorð</string>
+    <string name="create_account_passwords_mismatch_error">Loyniorðini eru ikki eins</string>
+    <string name="create_account_email_error">Ógyldug t-post adressa</string>
+    <string name="create_account_generic_error">Tað bar ikki til at upprætta kontu</string>
+    <string name="preferences_general_heading">Generelt</string>
     <string name="send_feedback">Send app afturmelding</string>
-  <string name="create_account_account_created_toast">Konto upprættað!</string>
-  <string name="preference_title_eventlogging_opt_in">Send frágreiðingar um brúkara</string>
-  <string name="preference_summary_eventlogging_opt_in">Loyv Wikimedia at savna kunning um hvussu tú nýtir appina, fyri at appin kann gerast betri</string>
-  <string name="editing_error_spamblacklist">Leinki til sperraði økisnøvn (domains) (%s) vóru funnin. Vinarliga tak tey burtur og royn aftur.</string>
-  <string name="history_search_list_hint" fuzzy="true">Leita</string>
-  <string name="error_can_not_process_link">Kundi ikki vísa hesa leinkjuna</string>
-  <string name="page_protected_autoconfirmed">Henda síðan er blivin hálv-vard.</string>
-  <string name="page_protected_sysop">Henda síðan er blivin vard.</string>
-  <string name="page_protected_other">Henda síðan er vard á henda hátt: %s</string>
-  <string name="page_protected_can_not_edit">Tú hevur ikki loyvi til at rætta hesa síðuna</string>
-  <string name="page_protected_can_not_edit_title">Henda síðan er vard</string>
-  <string name="settings_activity_title" fuzzy="true">Innstillingar</string>
-  <string name="about_description">Um Wikipedia-appina</string>
-  <string name="about_contributors_heading" fuzzy="true">høvundar</string>
-  <string name="about_wmf">Ein app frá &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
-  <string name="about_activity_title">Um</string>
-  <string name="edit_abandon_confirm">Síðan er broytt. Ert tú sikkur í at tú ynskir at fara frá síðuni uttan at goyma tínar broytingar?</string>
-  <string name="user_blocked_from_editing_title">Sperrað</string>
-  <string name="user_logged_in_blocked_from_editing">Tín konta er blivin sperrað, so at tú ikki sleppur at rætta á hesi wiki.</string>
-  <string name="user_anon_blocked_from_editing">Tín IP-adressa er blivin sperrað, so rættingar ikki kunnu gerast.</string>
+    <string name="create_account_account_created_toast">Konto upprættað!</string>
+    <string name="preference_title_eventlogging_opt_in">Send frágreiðingar um brúkara</string>
+    <string name="preference_summary_eventlogging_opt_in">Loyv Wikimedia at savna kunning um hvussu tú nýtir appina, fyri at appin kann gerast betri</string>
+    <string name="editing_error_spamblacklist">Leinki til sperraði økisnøvn (domains) (%s) vóru funnin. Vinarliga tak tey burtur og royn aftur.</string>
+    <string name="history_search_list_hint" fuzzy="true">Leita</string>
+    <string name="error_can_not_process_link">Kundi ikki vísa hesa leinkjuna</string>
+    <string name="page_protected_autoconfirmed">Henda síðan er blivin hálv-vard.</string>
+    <string name="page_protected_sysop">Henda síðan er blivin vard.</string>
+    <string name="page_protected_other">Henda síðan er vard á henda hátt: %s</string>
+    <string name="page_protected_can_not_edit">Tú hevur ikki loyvi til at rætta hesa síðuna</string>
+    <string name="page_protected_can_not_edit_title">Henda síðan er vard</string>
+    <string name="settings_activity_title" fuzzy="true">Innstillingar</string>
+    <string name="about_description">Um Wikipedia-appina</string>
+    <string name="about_contributors_heading" fuzzy="true">høvundar</string>
+    <string name="about_wmf">Ein app frá &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Foundation&lt;/a&gt;</string>
+    <string name="about_activity_title">Um</string>
+    <string name="edit_abandon_confirm">Síðan er broytt. Ert tú sikkur í at tú ynskir at fara frá síðuni uttan at goyma tínar broytingar?</string>
+    <string name="user_blocked_from_editing_title">Sperrað</string>
+    <string name="user_logged_in_blocked_from_editing">Tín konta er blivin sperrað, so at tú ikki sleppur at rætta á hesi wiki.</string>
+    <string name="user_anon_blocked_from_editing">Tín IP-adressa er blivin sperrað, so rættingar ikki kunnu gerast.</string>
 </resources>

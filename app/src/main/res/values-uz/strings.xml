@@ -1,105 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="app_name_prod">Vikipediya</string>
-  <string name="app_name_beta">Vikipedia Beta</string>
-  <string name="app_name_alpha">Vikipediya (alfa variant)</string>
-  <string name="search_hint">Vikipediadan izlash</string>
-  <string name="nav_item_history">Tarix</string>
-  <string name="error_network_error" fuzzy="true">Tarmoq aloqasi mavjud emas :(</string>
-  <string name="page_error_retry">Qayta urinib koʻrish</string>
-  <string name="menu_clear_all_history">Oldingi ro\'yxatni tozalash</string>
-  <string name="dialog_title_clear_history" fuzzy="true">Ko\'rish tarixini o\'chirasizmi?</string>
+    <string name="app_name_prod">Vikipediya</string>
+    <string name="app_name_beta">Vikipedia Beta</string>
+    <string name="app_name_alpha">Vikipediya (alfa variant)</string>
+    <string name="search_hint">Vikipediadan izlash</string>
+    <string name="nav_item_history">Tarix</string>
+    <string name="error_network_error" fuzzy="true">Tarmoq aloqasi mavjud emas :(</string>
+    <string name="page_error_retry">Qayta urinib koʻrish</string>
+    <string name="menu_clear_all_history">Oldingi ro\'yxatni tozalash</string>
+    <string name="dialog_title_clear_history" fuzzy="true">Ko\'rish tarixini o\'chirasizmi?</string>
     <string name="share_via">Orqali bo\'lishish</string>
-  <string name="menu_page_other_languages" fuzzy="true">Boshqa tillarda o\'qish</string>
-  <string name="menu_page_find_in_page">Sahifadan topish</string>
-  <string name="menu_page_font_and_theme">Shrift va mavzu</string>
-  <string name="menu_page_share" fuzzy="true">Bo\'lishish</string>
-  <string name="last_updated_text">%sda oxirgi bor yangilangan</string>
-  <string name="preference_title_language">Vikipedia tili</string>
+    <string name="menu_page_other_languages" fuzzy="true">Boshqa tillarda o\'qish</string>
+    <string name="menu_page_find_in_page">Sahifadan topish</string>
+    <string name="menu_page_font_and_theme">Shrift va mavzu</string>
+    <string name="menu_page_share" fuzzy="true">Bo\'lishish</string>
+    <string name="last_updated_text">%sda oxirgi bor yangilangan</string>
+    <string name="preference_title_language">Vikipedia tili</string>
     <string name="langlinks_filter_hint">Izlash</string>
-  <string name="langlinks_empty">Bu sahifa boshqa tillarda mavjud emas.</string>
-  <string name="langlinks_no_match">So\'rovingizga mos til topilmadi.</string>
-  <string name="langlinks_activity_title">Boshqa tillarda</string>
-  <string name="menu_save_changes">O‘zgarishlarni saqlash</string>
-  <string name="dialog_saving_in_progress">Saqlanyapti…</string>
-  <string name="edit_saved_successfully">Tahrir saqlandi!</string>
-  <string name="dialog_message_edit_failed">Tahrirni saqlab bo\'lmadi!</string>
-  <string name="dialog_message_edit_failed_retry">Qayta urinib koʻrish</string>
-  <string name="dialog_message_edit_failed_cancel">Bekor qilish</string>
-  <string name="dialog_message_leaving_edit_leave">Chiqish</string>
-  <string name="dialog_message_leaving_edit_stay">Qolish</string>
-  <string name="menu_show_toc">Mundarija</string>
-  <string name="search_no_results_found">Natija topilmadi</string>
-  <string name="edit_section_captcha_hint">Tepadagi so\'zlarni takrorlang</string>
-  <string name="title_captcha">CAPTCHAni kiriting</string>
-  <string name="nav_item_login" fuzzy="true">Kirish</string>
-  <string name="login_username_hint">Foydalanuvchi ismi</string>
-  <string name="login_password_hint">Maxfiy soʻz</string>
-  <string name="menu_login">Kirish</string>
-  <string name="login_activity_title" fuzzy="true">Vikipediaga kirish</string>
-  <string name="login_in_progress_dialog_message">Saytga kiryapsiz…</string>
-  <string name="login_success_toast" fuzzy="true">Kirish muvaffaqiyatli amalga oshdi!</string>
-  <string name="preference_title_logout">Chiqish</string>
-  <string name="toast_logout_complete">Chiqildi</string>
-  <string name="history_empty_title">Bu yerda so‘nggi sahifalar yo‘q!</string>
-  <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
-  <string name="create_account_username_hint">Foydalanuvchi nomi</string>
-  <string name="create_account_activity_title">Hisob yaratish</string>
-  <string name="dialog_create_account_checking_progress">Tekshirilyapti</string>
-  <string name="create_account_email_hint">Elektron pochta (ixtiyoriy)</string>
-  <string name="create_account_password_repeat_hint">Maxfiy so‘zni takrorlang</string>
-  <string name="create_account_passwords_mismatch_error">Maxfiy so‘zlar mos kelmadi</string>
-  <string name="create_account_email_error">Noto‘g‘ri elektron pochta manzili</string>
-  <string name="create_account_generic_error">Hisob yozuvini yaratib bo‘lmadi</string>
-  <string name="create_account_next">Keyingi</string>
-  <string name="create_account_button">Hisob yaratish</string>
-  <string name="preferences_general_heading">Umumiy</string>
+    <string name="langlinks_empty">Bu sahifa boshqa tillarda mavjud emas.</string>
+    <string name="langlinks_no_match">So\'rovingizga mos til topilmadi.</string>
+    <string name="langlinks_activity_title">Boshqa tillarda</string>
+    <string name="menu_save_changes">O‘zgarishlarni saqlash</string>
+    <string name="dialog_saving_in_progress">Saqlanyapti…</string>
+    <string name="edit_saved_successfully">Tahrir saqlandi!</string>
+    <string name="dialog_message_edit_failed">Tahrirni saqlab bo\'lmadi!</string>
+    <string name="dialog_message_edit_failed_retry">Qayta urinib koʻrish</string>
+    <string name="dialog_message_edit_failed_cancel">Bekor qilish</string>
+    <string name="dialog_message_leaving_edit_leave">Chiqish</string>
+    <string name="dialog_message_leaving_edit_stay">Qolish</string>
+    <string name="menu_show_toc">Mundarija</string>
+    <string name="search_no_results_found">Natija topilmadi</string>
+    <string name="edit_section_captcha_hint">Tepadagi so\'zlarni takrorlang</string>
+    <string name="title_captcha">CAPTCHAni kiriting</string>
+    <string name="nav_item_login" fuzzy="true">Kirish</string>
+    <string name="login_username_hint">Foydalanuvchi ismi</string>
+    <string name="login_password_hint">Maxfiy soʻz</string>
+    <string name="menu_login">Kirish</string>
+    <string name="login_activity_title" fuzzy="true">Vikipediaga kirish</string>
+    <string name="login_in_progress_dialog_message">Saytga kiryapsiz…</string>
+    <string name="login_success_toast" fuzzy="true">Kirish muvaffaqiyatli amalga oshdi!</string>
+    <string name="preference_title_logout">Chiqish</string>
+    <string name="toast_logout_complete">Chiqildi</string>
+    <string name="history_empty_title">Bu yerda so‘nggi sahifalar yo‘q!</string>
+    <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
+    <string name="create_account_username_hint">Foydalanuvchi nomi</string>
+    <string name="create_account_activity_title">Hisob yaratish</string>
+    <string name="dialog_create_account_checking_progress">Tekshirilyapti</string>
+    <string name="create_account_email_hint">Elektron pochta (ixtiyoriy)</string>
+    <string name="create_account_password_repeat_hint">Maxfiy so‘zni takrorlang</string>
+    <string name="create_account_passwords_mismatch_error">Maxfiy so‘zlar mos kelmadi</string>
+    <string name="create_account_email_error">Noto‘g‘ri elektron pochta manzili</string>
+    <string name="create_account_generic_error">Hisob yozuvini yaratib bo‘lmadi</string>
+    <string name="create_account_next">Keyingi</string>
+    <string name="create_account_button">Hisob yaratish</string>
+    <string name="preferences_general_heading">Umumiy</string>
     <string name="edit_preview_fetching_dialog_message">
 Oldindan yoqimli …</string>
-  <string name="send_feedback">Dastur haqida fikr bildirish</string>
-  <string name="create_account_account_created_toast">Hisob yozuvi yaratildi!</string>
-  <string name="preference_title_eventlogging_opt_in">Foydalanish haqida hisobotni joʻnatish</string>
-  <string name="history_search_list_hint">Tarihida qidiruv</string>
-  <string name="error_can_not_process_link">Havolani ochib bo\'lmadi</string>
-  <string name="page_protected_autoconfirmed">Bu sahifa yarim himoyalangan.</string>
-  <string name="page_protected_sysop">Bu sahifa toʻliq himoyalangan.</string>
-  <string name="page_protected_other">Bu sahifa quyidagi darajalarda himoyalangan: %s</string>
-  <string name="page_protected_can_not_edit">Ushbu sahifani tahrirlash uchun yetarli huquqingiz yoʻq</string>
-  <string name="page_protected_can_not_edit_title">Bu sahifa himoyalangan</string>
-  <string name="settings_activity_title" fuzzy="true">Moslamalar</string>
-  <string name="about_description">«Vikipediya» dasturi haqida</string>
-  <string name="privacy_policy_description">Maxfiylik siyosati</string>
-  <string name="terms_of_use_description">Foydalanish shartlari</string>
-  <string name="about_libraries_heading" fuzzy="true">ishlatilgan kutubxonalar</string>
-  <string name="about_contributors_heading" fuzzy="true">mualliflar</string>
-  <string name="about_translators_heading" fuzzy="true">tarjimonlar</string>
-  <string name="about_translators_translatewiki">Dastur &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;da koʻngilli tarjimonlar tomonidan tarjima qilingan.</string>
-  <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;Vikimediya Fondi&lt;/a&gt;ning maxsuloti</string>
-  <string name="about_activity_title">Dastur haqida</string>
-  <string name="edit_abandon_confirm">Sahifa oʻzgartirildi. Oʻzgartirishlaringizni saqlamasdan chiqmoqchimisiz?</string>
-  <string name="user_blocked_from_editing_title">Chetlatilgan</string>
-  <string name="user_logged_in_blocked_from_editing">Sizning hisobingiz ushbu vikini tahrirlashdan toʻsib qoʻyilgan.</string>
-  <string name="user_anon_blocked_from_editing">Sizning IP manzilingiz tahrirlashdan toʻsib qoʻyilgan.</string>
-  <string name="edit_how_page_improved">Sahifani yaxshilashga qanday yordam koʻrsatdingiz?</string>
-  <string name="edit_next">Keyingi</string>
-  <string name="edit_done">Saqlash</string>
-  <string name="edit_preview">Koʻrib chiqish</string>
-  <string name="edit_summary_tag_typo">Xatoni tuzatdim</string>
-  <string name="edit_summary_tag_grammar">Grammatikani tuzatdim</string>
-  <string name="edit_summary_tag_links">Havola(lar) qoʻshildi</string>
-  <string name="edit_summary_tag_other">Boshqa</string>
-  <string name="find_next">Keyingisini topish</string>
-  <string name="find_previous">Oldingisini topish</string>
+    <string name="send_feedback">Dastur haqida fikr bildirish</string>
+    <string name="create_account_account_created_toast">Hisob yozuvi yaratildi!</string>
+    <string name="preference_title_eventlogging_opt_in">Foydalanish haqida hisobotni joʻnatish</string>
+    <string name="history_search_list_hint">Tarihida qidiruv</string>
+    <string name="error_can_not_process_link">Havolani ochib bo\'lmadi</string>
+    <string name="page_protected_autoconfirmed">Bu sahifa yarim himoyalangan.</string>
+    <string name="page_protected_sysop">Bu sahifa toʻliq himoyalangan.</string>
+    <string name="page_protected_other">Bu sahifa quyidagi darajalarda himoyalangan: %s</string>
+    <string name="page_protected_can_not_edit">Ushbu sahifani tahrirlash uchun yetarli huquqingiz yoʻq</string>
+    <string name="page_protected_can_not_edit_title">Bu sahifa himoyalangan</string>
+    <string name="settings_activity_title" fuzzy="true">Moslamalar</string>
+    <string name="about_description">«Vikipediya» dasturi haqida</string>
+    <string name="privacy_policy_description">Maxfiylik siyosati</string>
+    <string name="terms_of_use_description">Foydalanish shartlari</string>
+    <string name="about_libraries_heading" fuzzy="true">ishlatilgan kutubxonalar</string>
+    <string name="about_contributors_heading" fuzzy="true">mualliflar</string>
+    <string name="about_translators_heading" fuzzy="true">tarjimonlar</string>
+    <string name="about_translators_translatewiki">Dastur &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;da koʻngilli tarjimonlar tomonidan tarjima qilingan.</string>
+    <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;Vikimediya Fondi&lt;/a&gt;ning maxsuloti</string>
+    <string name="about_activity_title">Dastur haqida</string>
+    <string name="edit_abandon_confirm">Sahifa oʻzgartirildi. Oʻzgartirishlaringizni saqlamasdan chiqmoqchimisiz?</string>
+    <string name="user_blocked_from_editing_title">Chetlatilgan</string>
+    <string name="user_logged_in_blocked_from_editing">Sizning hisobingiz ushbu vikini tahrirlashdan toʻsib qoʻyilgan.</string>
+    <string name="user_anon_blocked_from_editing">Sizning IP manzilingiz tahrirlashdan toʻsib qoʻyilgan.</string>
+    <string name="edit_how_page_improved">Sahifani yaxshilashga qanday yordam koʻrsatdingiz?</string>
+    <string name="edit_next">Keyingi</string>
+    <string name="edit_done">Saqlash</string>
+    <string name="edit_preview">Koʻrib chiqish</string>
+    <string name="edit_summary_tag_typo">Xatoni tuzatdim</string>
+    <string name="edit_summary_tag_grammar">Grammatikani tuzatdim</string>
+    <string name="edit_summary_tag_links">Havola(lar) qoʻshildi</string>
+    <string name="edit_summary_tag_other">Boshqa</string>
+    <string name="find_next">Keyingisini topish</string>
+    <string name="find_previous">Oldingisini topish</string>
     <string name="text_size_select">Shrift o‘lchami</string>
-  <string name="color_theme_select">Mavzu</string>
-  <string name="color_theme_light">Och rang</string>
-  <string name="color_theme_dark">To\'q</string>
-  <string name="page_similar_titles">O‘xshash sahifalar</string>
-  <string name="search_recent_header">Oxirgi qidirishlar:</string>
-  <string name="table_close">Yopish</string>
-  <string name="alpha_update_notification_title">Yangi alfa versiya mavjud</string>
-  <string name="alpha_update_notification_text">Koʻchirib olish uchun bosing</string>
-  <string name="dialog_close_description">Yopish</string>
-  <string name="read_more_section">Koʻproq bilib olish</string>
-  <string name="gallery_menu_share">Bo\'lishish</string>
+    <string name="color_theme_select">Mavzu</string>
+    <string name="color_theme_light">Och rang</string>
+    <string name="color_theme_dark">To\'q</string>
+    <string name="page_similar_titles">O‘xshash sahifalar</string>
+    <string name="search_recent_header">Oxirgi qidirishlar:</string>
+    <string name="table_close">Yopish</string>
+    <string name="alpha_update_notification_title">Yangi alfa versiya mavjud</string>
+    <string name="alpha_update_notification_text">Koʻchirib olish uchun bosing</string>
+    <string name="dialog_close_description">Yopish</string>
+    <string name="read_more_section">Koʻproq bilib olish</string>
+    <string name="gallery_menu_share">Bo\'lishish</string>
 </resources>

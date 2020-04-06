@@ -1,95 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="app_name_prod">Wikipedia</string>
-  <string name="app_name_beta">Wikipedia ya Beta</string>
-  <string name="app_name_alpha">Wikipedia ya Alpha</string>
-  <string name="search_hint">Tafuta Wikipedia</string>
-  <string name="nav_item_history">Historia</string>
-  <string name="error_network_error" fuzzy="true">Hakuna muunganisho kwa mtandao :(</string>
-  <string name="page_error_retry">Jaribu tena</string>
-  <string name="menu_clear_all_history">Futa historia</string>
-  <string name="dialog_title_clear_history" fuzzy="true">Futa historia ya kuvijari?</string>
+    <string name="app_name_prod">Wikipedia</string>
+    <string name="app_name_beta">Wikipedia ya Beta</string>
+    <string name="app_name_alpha">Wikipedia ya Alpha</string>
+    <string name="search_hint">Tafuta Wikipedia</string>
+    <string name="nav_item_history">Historia</string>
+    <string name="error_network_error" fuzzy="true">Hakuna muunganisho kwa mtandao :(</string>
+    <string name="page_error_retry">Jaribu tena</string>
+    <string name="menu_clear_all_history">Futa historia</string>
+    <string name="dialog_title_clear_history" fuzzy="true">Futa historia ya kuvijari?</string>
     <string name="share_via">Shiriki kupitia</string>
-  <string name="menu_page_other_languages" fuzzy="true">Soma katika lugha zingine</string>
-  <string name="menu_page_find_in_page">Tafuta katika ukurasa</string>
-  <string name="menu_page_share" fuzzy="true">Gawa</string>
-  <string name="last_updated_text">Ilisasishwa mwisho %s</string>
+    <string name="menu_page_other_languages" fuzzy="true">Soma katika lugha zingine</string>
+    <string name="menu_page_find_in_page">Tafuta katika ukurasa</string>
+    <string name="menu_page_share" fuzzy="true">Gawa</string>
+    <string name="last_updated_text">Ilisasishwa mwisho %s</string>
     <string name="preference_title_language">Lugha ya Wikipedia</string>
     <string name="langlinks_filter_hint">Tafuta</string>
-  <string name="langlinks_empty">Ukurasa huu haupatikani katika lugha zingine.</string>
-  <string name="langlinks_activity_title">Lugha zingine</string>
-  <string name="menu_save_changes">Hifadhi mabadiliko</string>
-  <string name="dialog_saving_in_progress">Inahifadhi…</string>
-  <string name="edit_saved_successfully">Hariri imehifadhiwa!</string>
-  <string name="dialog_message_edit_failed_retry">Jaribu tena</string>
-  <string name="dialog_message_edit_failed_cancel">Ghairi</string>
-  <string name="dialog_message_leaving_edit_leave">Toka</string>
-  <string name="dialog_message_leaving_edit_stay">Kaa</string>
-  <string name="menu_show_toc">Jedwali la maudhui</string>
-  <string name="search_no_results_found">Hakuna matokeo</string>
-  <string name="title_captcha">Ingiza CAPTCHA</string>
-  <string name="edit_section_captcha_reload">Guza CAPTCHA kupakia tena</string>
-  <string name="nav_item_login" fuzzy="true">Ingia</string>
-  <string name="login_username_hint">Jina la mtumiaji</string>
-  <string name="login_password_hint">Neno la siri</string>
-  <string name="menu_login">Ingia</string>
-  <string name="login_activity_title" fuzzy="true">Ingia katika Wikipedia</string>
-  <string name="login_in_progress_dialog_message">Inakuingiza…</string>
-  <string name="login_success_toast" fuzzy="true">Umefaulu kuingia</string>
-  <string name="preference_title_logout">Toka</string>
-  <string name="wp_stylized">big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
-  <string name="create_account_username_hint">Jina la mtumiaji</string>
-  <string name="create_account_activity_title">Unda akaunti</string>
-  <string name="dialog_create_account_checking_progress">Inadhibitisha</string>
-  <string name="create_account_email_hint">Barua pepe(sio lazima)</string>
-  <string name="create_account_password_repeat_hint">Rudia neno la siri</string>
-  <string name="create_account_passwords_mismatch_error">Maneno ya siri hayafanani</string>
-  <string name="create_account_email_error">Anwani batili ya barua pepe</string>
-  <string name="create_account_generic_error">Haikufaulu kuunda akaunti</string>
-  <string name="create_account_next">Inayofuata</string>
-  <string name="create_account_button">Unda akaunti</string>
-  <string name="preferences_general_heading">Kijumla</string>
+    <string name="langlinks_empty">Ukurasa huu haupatikani katika lugha zingine.</string>
+    <string name="langlinks_activity_title">Lugha zingine</string>
+    <string name="menu_save_changes">Hifadhi mabadiliko</string>
+    <string name="dialog_saving_in_progress">Inahifadhi…</string>
+    <string name="edit_saved_successfully">Hariri imehifadhiwa!</string>
+    <string name="dialog_message_edit_failed_retry">Jaribu tena</string>
+    <string name="dialog_message_edit_failed_cancel">Ghairi</string>
+    <string name="dialog_message_leaving_edit_leave">Toka</string>
+    <string name="dialog_message_leaving_edit_stay">Kaa</string>
+    <string name="menu_show_toc">Jedwali la maudhui</string>
+    <string name="search_no_results_found">Hakuna matokeo</string>
+    <string name="title_captcha">Ingiza CAPTCHA</string>
+    <string name="edit_section_captcha_reload">Guza CAPTCHA kupakia tena</string>
+    <string name="nav_item_login" fuzzy="true">Ingia</string>
+    <string name="login_username_hint">Jina la mtumiaji</string>
+    <string name="login_password_hint">Neno la siri</string>
+    <string name="menu_login">Ingia</string>
+    <string name="login_activity_title" fuzzy="true">Ingia katika Wikipedia</string>
+    <string name="login_in_progress_dialog_message">Inakuingiza…</string>
+    <string name="login_success_toast" fuzzy="true">Umefaulu kuingia</string>
+    <string name="preference_title_logout">Toka</string>
+    <string name="wp_stylized">big&gt;W&lt;/big&gt;IKIPEDI&lt;big&gt;A&lt;/big&gt;</string>
+    <string name="create_account_username_hint">Jina la mtumiaji</string>
+    <string name="create_account_activity_title">Unda akaunti</string>
+    <string name="dialog_create_account_checking_progress">Inadhibitisha</string>
+    <string name="create_account_email_hint">Barua pepe(sio lazima)</string>
+    <string name="create_account_password_repeat_hint">Rudia neno la siri</string>
+    <string name="create_account_passwords_mismatch_error">Maneno ya siri hayafanani</string>
+    <string name="create_account_email_error">Anwani batili ya barua pepe</string>
+    <string name="create_account_generic_error">Haikufaulu kuunda akaunti</string>
+    <string name="create_account_next">Inayofuata</string>
+    <string name="create_account_button">Unda akaunti</string>
+    <string name="preferences_general_heading">Kijumla</string>
     <string name="edit_preview_fetching_dialog_message">Inapakia mtazamo…</string>
-  <string name="send_feedback">Toa maoni ya programu timizi</string>
-  <string name="create_account_account_created_toast">Akaunti imeundwa!</string>
-  <string name="preference_title_eventlogging_opt_in">Tuma ripoti za matumizi</string>
-  <string name="history_search_list_hint" fuzzy="true">Tafuta</string>
-  <string name="error_can_not_process_link">Haingeonyesha kiungo hiki</string>
-  <string name="page_protected_autoconfirmed">Ukurasa huu umezuiwa kiasi</string>
-  <string name="page_protected_sysop">Ukurasa huu umezuiwa kabisa.</string>
-  <string name="page_protected_can_not_edit_title">Ukurasa huu umezuiwa</string>
-  <string name="about_description">Kuhusu programu tumizi ya Wikimedia</string>
-  <string name="privacy_policy_description">Sera ya faragha</string>
-  <string name="terms_of_use_description">Masharti ya matumizi</string>
-  <string name="about_libraries_heading" fuzzy="true">maktaba yanayotumiwa</string>
-  <string name="about_contributors_heading" fuzzy="true">wachangiaji</string>
-  <string name="about_translators_heading" fuzzy="true">wafasiri</string>
-  <string name="about_translators_translatewiki">Programu tumizi hii imetafsiriwa na wahnga katika &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
-  <string name="about_wmf">Bidhaa ya &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wakfu wa Wikimedia&lt;/a&gt;</string>
-  <string name="about_activity_title">Kuhusu</string>
-  <string name="user_blocked_from_editing_title">Imezuia</string>
-  <string name="edit_next">Inayofuata</string>
-  <string name="edit_done">Hifadhi</string>
-  <string name="edit_preview">Onyesha hakikisho</string>
-  <string name="edit_summary_tag_grammar">Nimerekebisha sarufi</string>
-  <string name="edit_summary_tag_links">Nimeongeza viungo</string>
-  <string name="edit_summary_tag_other">Nyingine</string>
-  <string name="edit_summary_tag_other_hint">Njia zingine ulizoboresha ukurasa</string>
-  <string name="find_next">Tafuta ifuatayo</string>
-  <string name="find_previous">Tafuta iliyotangulia</string>
-  <string name="page_similar_titles">Kurasa zifananazo</string>
-  <string name="search_did_you_mean">Je ulimaanisha \"%s\"?</string>
-  <string name="table_other">Maelezo zaidi</string>
-  <string name="table_close">Funga</string>
-  <string name="dialog_close_description">Funga</string>
-  <string name="preference_title_show_images">Onyesha picha</string>
-  <string name="read_more_section">Soma zaidi</string>
-  <string name="gallery_menu_share">Gawa</string>
-  <string name="gallery_share_error">Haingeshiriki picha: %s</string>
-  <string name="err_cannot_save_file">Haiwezi kuhifadhi faili</string>
-  <string name="snippet_share_intro">\"%1$s\" katika @Wikipedia: %2$s</string>
-  <string name="share_snippet_button">Shiriki kama picha</string>
-  <string name="share_normal_button">Shiriki kama maandiko</string>
-  <string name="snippet_share_preview_image_desc">Tazama hakikisho la picha</string>
-  <string name="cc_logo">Leseni ya Creative Commons</string>
+    <string name="send_feedback">Toa maoni ya programu timizi</string>
+    <string name="create_account_account_created_toast">Akaunti imeundwa!</string>
+    <string name="preference_title_eventlogging_opt_in">Tuma ripoti za matumizi</string>
+    <string name="history_search_list_hint" fuzzy="true">Tafuta</string>
+    <string name="error_can_not_process_link">Haingeonyesha kiungo hiki</string>
+    <string name="page_protected_autoconfirmed">Ukurasa huu umezuiwa kiasi</string>
+    <string name="page_protected_sysop">Ukurasa huu umezuiwa kabisa.</string>
+    <string name="page_protected_can_not_edit_title">Ukurasa huu umezuiwa</string>
+    <string name="about_description">Kuhusu programu tumizi ya Wikimedia</string>
+    <string name="privacy_policy_description">Sera ya faragha</string>
+    <string name="terms_of_use_description">Masharti ya matumizi</string>
+    <string name="about_libraries_heading" fuzzy="true">maktaba yanayotumiwa</string>
+    <string name="about_contributors_heading" fuzzy="true">wachangiaji</string>
+    <string name="about_translators_heading" fuzzy="true">wafasiri</string>
+    <string name="about_translators_translatewiki">Programu tumizi hii imetafsiriwa na wahnga katika &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
+    <string name="about_wmf">Bidhaa ya &lt;a href=\"https://wikimediafoundation.org/\"&gt;Wakfu wa Wikimedia&lt;/a&gt;</string>
+    <string name="about_activity_title">Kuhusu</string>
+    <string name="user_blocked_from_editing_title">Imezuia</string>
+    <string name="edit_next">Inayofuata</string>
+    <string name="edit_done">Hifadhi</string>
+    <string name="edit_preview">Onyesha hakikisho</string>
+    <string name="edit_summary_tag_grammar">Nimerekebisha sarufi</string>
+    <string name="edit_summary_tag_links">Nimeongeza viungo</string>
+    <string name="edit_summary_tag_other">Nyingine</string>
+    <string name="edit_summary_tag_other_hint">Njia zingine ulizoboresha ukurasa</string>
+    <string name="find_next">Tafuta ifuatayo</string>
+    <string name="find_previous">Tafuta iliyotangulia</string>
+    <string name="page_similar_titles">Kurasa zifananazo</string>
+    <string name="search_did_you_mean">Je ulimaanisha \"%s\"?</string>
+    <string name="table_other">Maelezo zaidi</string>
+    <string name="table_close">Funga</string>
+    <string name="dialog_close_description">Funga</string>
+    <string name="preference_title_show_images">Onyesha picha</string>
+    <string name="read_more_section">Soma zaidi</string>
+    <string name="gallery_menu_share">Gawa</string>
+    <string name="gallery_share_error">Haingeshiriki picha: %s</string>
+    <string name="err_cannot_save_file">Haiwezi kuhifadhi faili</string>
+    <string name="snippet_share_intro">\"%1$s\" katika @Wikipedia: %2$s</string>
+    <string name="share_snippet_button">Shiriki kama picha</string>
+    <string name="share_normal_button">Shiriki kama maandiko</string>
+    <string name="snippet_share_preview_image_desc">Tazama hakikisho la picha</string>
+    <string name="cc_logo">Leseni ya Creative Commons</string>
 </resources>

@@ -1,48 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-  <string name="app_name_prod">Википедия</string>
-  <string name="app_name_beta" tools:ignore="UnusedResources">Википедиа Бета хувилбар</string>
-  <string name="app_name_alpha" tools:ignore="UnusedResources">Википедиа Альфа хувилбар</string>
-  <string name="search_hint">Википедиа -аас хайх</string>
-  <string name="nav_item_history">Түүх</string>
-  <string name="error_network_error" fuzzy="true">Сүлжээнд холбогдож чадахгүй байна :(</string>
-  <string name="page_error_retry">Дахин оролд</string>
-  <string name="menu_clear_all_history">Түүх арилгах</string>
-  <string name="dialog_title_clear_history">Хөтчид хадгалагдсан түүхийг устгах</string>
+    <string name="app_name_prod">Википедия</string>
+    <string name="app_name_beta" tools:ignore="UnusedResources">Википедиа Бета хувилбар</string>
+    <string name="app_name_alpha" tools:ignore="UnusedResources">Википедиа Альфа хувилбар</string>
+    <string name="search_hint">Википедиа -аас хайх</string>
+    <string name="nav_item_history">Түүх</string>
+    <string name="error_network_error" fuzzy="true">Сүлжээнд холбогдож чадахгүй байна :(</string>
+    <string name="page_error_retry">Дахин оролд</string>
+    <string name="menu_clear_all_history">Түүх арилгах</string>
+    <string name="dialog_title_clear_history">Хөтчид хадгалагдсан түүхийг устгах</string>
     <string name="menu_page_share">Хуваалцах</string>
-  <string name="share_via">Хуваалцахдаа</string>
+    <string name="share_via">Хуваалцахдаа</string>
     <string name="langlinks_filter_hint">Хайлт</string>
-  <string name="menu_page_other_languages">Бусад хэл дээр унших</string>
-  <string name="langlinks_activity_title">Бусад хэл</string>
-  <string name="menu_save_changes">Өөрчлөлтөө хадгалах</string>
-  <string name="dialog_saving_in_progress">Хадгалж байна…</string>
-  <string name="edit_saved_successfully">Хадгалснаа засах!</string>
-  <string name="dialog_message_edit_failed">Алдаатайг засах!</string>
-  <string name="dialog_message_edit_failed_retry">Дахин оролд</string>
-  <string name="dialog_message_edit_failed_cancel">Цуцлах</string>
-  <string name="menu_show_toc">Агуулгын хүснэгт</string>
-  <string name="search_no_results_found">Үр дүн олдсонгүй</string>
-  <string name="edit_section_captcha_message">Автомат спамаас хамгаалахын тулд доор харагдаж байгаа үгнүүдийг оруулна уу</string>
-  <string name="edit_section_captcha_hint">Дээрх үгнүүдийг давтана уу</string>
-  <string name="title_captcha">CAPTCHA -г оруулна уу</string>
-  <string name="nav_item_login">Нэвтрэх</string>
-  <string name="login_username_hint">Хэрэглэгчийн нэр</string>
-  <string name="login_password_hint">Нууц үг</string>
-  <string name="menu_login">Нэвтрэх</string>
-  <string name="login_activity_title">Википедия руу нэвтрэх</string>
-  <string name="login_in_progress_dialog_message">… руу нэвтэрч байна.</string>
-  <string name="login_success_toast">Нэвтрэлт амжилттай боллоо</string>
-  <string name="preference_title_logout">Гарах</string>
-  <string name="toast_logout_complete">Гарлаа</string>
-  <string name="create_account_username_hint">Хэрэглэгчийн нэр</string>
-  <string name="create_account_activity_title">Бүртгүүлэх</string>
-  <string name="create_account_email_hint">Емайл (Албагүй)</string>
-  <string name="create_account_password_repeat_hint">Нууц үгээ давтана уу</string>
-  <string name="create_account_passwords_mismatch_error">Нууц үг буруу</string>
-  <string name="create_account_email_error">Емайл хаяг буруу</string>
-  <string name="create_account_generic_error">Бүртгүүлэх боломжгүй байна</string>
-  <string name="create_account_next">Дараагийн</string>
-  <string name="create_account_button">Бүртгүүлэх</string>
-  <string name="preferences_general_heading">Ерөнхий</string>
-  <string name="page_similar_titles" fuzzy="true">Бусад утга</string>
+    <string name="menu_page_other_languages">Бусад хэл дээр унших</string>
+    <string name="langlinks_activity_title">Бусад хэл</string>
+    <string name="menu_save_changes">Өөрчлөлтөө хадгалах</string>
+    <string name="dialog_saving_in_progress">Хадгалж байна…</string>
+    <string name="edit_saved_successfully">Хадгалснаа засах!</string>
+    <string name="dialog_message_edit_failed">Алдаатайг засах!</string>
+    <string name="dialog_message_edit_failed_retry">Дахин оролд</string>
+    <string name="dialog_message_edit_failed_cancel">Цуцлах</string>
+    <string name="menu_show_toc">Агуулгын хүснэгт</string>
+    <string name="search_no_results_found">Үр дүн олдсонгүй</string>
+    <string name="edit_section_captcha_message">Автомат спамаас хамгаалахын тулд доор харагдаж байгаа үгнүүдийг оруулна уу</string>
+    <string name="edit_section_captcha_hint">Дээрх үгнүүдийг давтана уу</string>
+    <string name="title_captcha">CAPTCHA -г оруулна уу</string>
+    <string name="nav_item_login">Нэвтрэх</string>
+    <string name="login_username_hint">Хэрэглэгчийн нэр</string>
+    <string name="login_password_hint">Нууц үг</string>
+    <string name="menu_login">Нэвтрэх</string>
+    <string name="login_activity_title">Википедия руу нэвтрэх</string>
+    <string name="login_in_progress_dialog_message">… руу нэвтэрч байна.</string>
+    <string name="login_success_toast">Нэвтрэлт амжилттай боллоо</string>
+    <string name="preference_title_logout">Гарах</string>
+    <string name="toast_logout_complete">Гарлаа</string>
+    <string name="create_account_username_hint">Хэрэглэгчийн нэр</string>
+    <string name="create_account_activity_title">Бүртгүүлэх</string>
+    <string name="create_account_email_hint">Емайл (Албагүй)</string>
+    <string name="create_account_password_repeat_hint">Нууц үгээ давтана уу</string>
+    <string name="create_account_passwords_mismatch_error">Нууц үг буруу</string>
+    <string name="create_account_email_error">Емайл хаяг буруу</string>
+    <string name="create_account_generic_error">Бүртгүүлэх боломжгүй байна</string>
+    <string name="create_account_next">Дараагийн</string>
+    <string name="create_account_button">Бүртгүүлэх</string>
+    <string name="preferences_general_heading">Ерөнхий</string>
+    <string name="page_similar_titles" fuzzy="true">Бусад утга</string>
 </resources>
