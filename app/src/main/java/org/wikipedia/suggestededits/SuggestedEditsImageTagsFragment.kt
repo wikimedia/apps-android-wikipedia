@@ -361,6 +361,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
             override fun success(token: String) {
 
                 val claimObservables = ArrayList<ObservableSource<MwPostResponse>>()
+                val claimComments = ArrayList<String>()
                 for (label in acceptedLabels) {
                     val claimTemplate = "{\"mainsnak\":" +
                             "{\"snaktype\":\"value\",\"property\":\"P180\"," +
@@ -371,9 +372,9 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                             "\"id\":\"M${page!!.pageId()}\$${UUID.randomUUID()}\"," +
                             "\"rank\":\"normal\"}"
 
-                    claimObservables.add(ServiceFactory.get(commonsSite).postSetClaim(claimTemplate, token,
-                            if (label.isCustom) SuggestedEditsFunnel.SUGGESTED_EDITS_IMAGE_TAG_CUSTOM_COMMENT else SuggestedEditsFunnel.SUGGESTED_EDITS_IMAGE_TAG_AUTO_COMMENT,
-                            null))
+                    val comment = if (label.isCustom) SuggestedEditsFunnel.SUGGESTED_EDITS_IMAGE_TAG_CUSTOM_COMMENT else SuggestedEditsFunnel.SUGGESTED_EDITS_IMAGE_TAG_AUTO_COMMENT
+                    claimObservables.add(ServiceFactory.get(commonsSite).postSetClaim(claimTemplate, token, comment, null))
+                    claimComments.add(comment)
                 }
 
                 disposables.add(ServiceFactory.get(commonsSite).postReviewImageLabels(page!!.title(), token, batchBuilder.toString())
@@ -383,7 +384,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                                     for (res in responses) {
                                         if (res is MwPostResponse) {
                                             if (res.pageInfo != null) {
-                                                funnel?.logSaved(res.pageInfo!!.lastRevId)
+                                                funnel?.logSaved(res.pageInfo!!.lastRevId, if (claimComments.isEmpty()) "" else claimComments.removeAt(0))
                                             }
                                         }
                                     }
