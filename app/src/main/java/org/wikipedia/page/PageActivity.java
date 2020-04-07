@@ -700,15 +700,15 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     public void onActionModeStarted(ActionMode mode) {
         super.onActionModeStarted(mode);
         if (!isCabOpen() && mode.getTag() == null) {
-            Menu menu = mode.getMenu();
-            modifyMenu(mode, menu);
+            modifyMenu(mode);
             ViewUtil.setCloseButtonInActionMode(pageFragment.requireContext(), mode);
             pageFragment.onActionModeShown(mode);
         }
         currentActionModes.add(mode);
     }
 
-    private void modifyMenu(ActionMode mode, Menu menu) {
+    private void modifyMenu(ActionMode mode) {
+        Menu menu = mode.getMenu();
         ArrayList<MenuItem> menuItemsList = new ArrayList<>();
 
         for (int i = 0; i < menu.size(); i++) {
