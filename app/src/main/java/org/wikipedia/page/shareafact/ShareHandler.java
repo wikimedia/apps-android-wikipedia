@@ -28,7 +28,6 @@ import org.wikipedia.page.Page;
 import org.wikipedia.page.PageFragment;
 import org.wikipedia.page.PageProperties;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.UriUtil;
@@ -134,13 +133,7 @@ public class ShareHandler {
 
         // Provide our own listeners for the copy, define, and share buttons.
         shareItem.setOnMenuItemClickListener(new RequestTextSelectOnMenuItemClickListener(PAYLOAD_PURPOSE_SHARE));
-        MenuItem copyItem = menu.findItem(R.id.menu_text_select_copy);
-        copyItem.setOnMenuItemClickListener((MenuItem menuItem) -> {
-            fragment.getWebView().copyToClipboard();
-            FeedbackUtil.showMessage(fragment.getActivity(), R.string.text_copied);
-            leaveActionMode();
-            return true;
-        });
+
         MenuItem defineItem = menu.findItem(R.id.menu_text_select_define);
         if (shouldEnableWiktionaryDialog()) {
             defineItem.setVisible(true);
