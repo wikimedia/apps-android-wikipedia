@@ -92,9 +92,9 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     public static final String EXTRA_PAGETITLE = "org.wikipedia.pagetitle";
     public static final String EXTRA_HISTORYENTRY  = "org.wikipedia.history.historyentry";
     public static final int MENU_COPY_ID  = 1000;
-    public static final int MENU_SHARE_ID  = 1000;
-    public static final int MENU_DEFINE_ID  = 1000;
-    public static final int MENU_EDIT_HERE_ID  = 1000;
+    public static final int MENU_SHARE_ID  = 1001;
+    public static final int MENU_DEFINE_ID  = 1002;
+    public static final int MENU_EDIT_HERE_ID  = 1003;
 
     private static final String LANGUAGE_CODE_BUNDLE_KEY = "language";
 
@@ -712,24 +712,24 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         currentActionModes.add(mode);
     }
 
-        private void modifyMenu(Menu menu) {
-            ArrayList<Integer> menuItemIdsList = new ArrayList<>();
-            ArrayList<String> menuItemTitlesList = new ArrayList<>();
-            for (int i = 0; i < menu.size(); i++) {
-                if (!menuItemTitlesList.get(i).contains(getString(R.string.menu_text_select_copy)) && !menuItemTitlesList.get(i).contains(getString(R.string.menu_text_select_define)) && !menuItemTitlesList.get(i).contains(getString(R.string.menu_text_select_share))) {
-                    menuItemIdsList.add(menu.getItem(i).getItemId());
-                    menuItemTitlesList.add(menu.getItem(i).getTitle().toString());
-                }
+    private void modifyMenu(Menu menu) {
+        ArrayList<MenuItem> menuItemsList = new ArrayList<>();
+
+        for (int i = 0; i < menu.size(); i++) {
+            String title = menu.getItem(i).getTitle().toString();
+            if (!title.contains(getString(R.string.menu_text_select_copy)) && !title.contains(getString(R.string.menu_text_select_define)) && !title.contains(getString(R.string.menu_text_select_share))) {
+                menuItemsList.add(menu.getItem(i));
             }
-            menu.clear();
-            int order = 0;
-            menu.add(Menu.NONE, MENU_COPY_ID, order++, getString(R.string.menu_text_select_copy)).setIcon(R.drawable.ic_content_copy_themed_24dp);
-            menu.add(Menu.NONE, MENU_SHARE_ID, order++, getString(R.string.menu_text_select_share)).setIcon(R.drawable.ic_share_themed_24dp);
-            menu.add(Menu.NONE, MENU_DEFINE_ID, order++, getString(R.string.menu_text_select_define)).setIcon(R.drawable.ic_define_themed);
-            menu.add(Menu.NONE, MENU_EDIT_HERE_ID, order++, getString(R.string.menu_text_select_edit_here)).setIcon(R.drawable.ic_mode_edit_themed_24dp);
-            for (int i = 0; i < menuItemIdsList.size(); i++) {
-                menu.add(Menu.NONE, menuItemIdsList.get(i), order++, menuItemTitlesList.get(i)).setIcon(R.drawable.ic_content_copy_themed_24dp);
-            }
+        }
+        menu.clear();
+        int order = 0;
+        menu.add(Menu.NONE, MENU_COPY_ID, order++, getString(R.string.menu_text_select_copy)).setIcon(R.drawable.ic_content_copy_themed_24dp);
+        menu.add(Menu.NONE, MENU_SHARE_ID, order++, getString(R.string.menu_text_select_share)).setIcon(R.drawable.ic_share_themed_24dp);
+        menu.add(Menu.NONE, MENU_DEFINE_ID, order++, getString(R.string.menu_text_select_define)).setIcon(R.drawable.ic_define_themed);
+        menu.add(Menu.NONE, MENU_EDIT_HERE_ID, order++, getString(R.string.menu_text_select_edit_here)).setIcon(R.drawable.ic_mode_edit_themed_24dp);
+        for (MenuItem menuItem : menuItemsList) {
+            menu.add(Menu.NONE, menuItem.getItemId(), order++, menuItem.getTitle());
+        }
     }
     @Override
     public void onActionModeFinished(ActionMode mode) {
