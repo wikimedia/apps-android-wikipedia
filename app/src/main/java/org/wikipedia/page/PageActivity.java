@@ -91,10 +91,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     public static final String ACTION_RESUME_READING = "org.wikipedia.resume_reading";
     public static final String EXTRA_PAGETITLE = "org.wikipedia.pagetitle";
     public static final String EXTRA_HISTORYENTRY  = "org.wikipedia.history.historyentry";
-    public static final int MENU_COPY_ID  = 1000;
-    public static final int MENU_SHARE_ID  = 1001;
-    public static final int MENU_DEFINE_ID  = 1002;
-    public static final int MENU_EDIT_HERE_ID  = 1003;
 
     private static final String LANGUAGE_CODE_BUNDLE_KEY = "language";
 
@@ -705,14 +701,14 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         super.onActionModeStarted(mode);
         if (!isCabOpen() && mode.getTag() == null) {
             Menu menu = mode.getMenu();
-            modifyMenu(menu);
+            modifyMenu(mode, menu);
             ViewUtil.setCloseButtonInActionMode(pageFragment.requireContext(), mode);
             pageFragment.onActionModeShown(mode);
         }
         currentActionModes.add(mode);
     }
 
-    private void modifyMenu(Menu menu) {
+    private void modifyMenu(ActionMode mode, Menu menu) {
         ArrayList<MenuItem> menuItemsList = new ArrayList<>();
 
         for (int i = 0; i < menu.size(); i++) {
@@ -723,12 +719,10 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         }
         menu.clear();
         int order = 0;
-        menu.add(Menu.NONE, MENU_COPY_ID, order++, getString(R.string.menu_text_select_copy)).setIcon(R.drawable.ic_content_copy_themed_24dp);
-        menu.add(Menu.NONE, MENU_SHARE_ID, order++, getString(R.string.menu_text_select_share)).setIcon(R.drawable.ic_share_themed_24dp);
-        menu.add(Menu.NONE, MENU_DEFINE_ID, order++, getString(R.string.menu_text_select_define)).setIcon(R.drawable.ic_define_themed);
-        menu.add(Menu.NONE, MENU_EDIT_HERE_ID, order++, getString(R.string.menu_text_select_edit_here)).setIcon(R.drawable.ic_mode_edit_themed_24dp);
+        mode.getMenuInflater().inflate(R.menu.menu_text_select, menu);
+
         for (MenuItem menuItem : menuItemsList) {
-            menu.add(Menu.NONE, menuItem.getItemId(), order++, menuItem.getTitle());
+            menu.add(Menu.NONE, menuItem.getItemId(), order++, menuItem.getTitle()).setIntent(menuItem.getIntent()).setIcon(menuItem.getIcon());
         }
     }
     @Override

@@ -43,10 +43,6 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
 
 import static org.wikipedia.analytics.ShareAFactFunnel.ShareMode;
-import static org.wikipedia.page.PageActivity.MENU_COPY_ID;
-import static org.wikipedia.page.PageActivity.MENU_DEFINE_ID;
-import static org.wikipedia.page.PageActivity.MENU_EDIT_HERE_ID;
-import static org.wikipedia.page.PageActivity.MENU_SHARE_ID;
 
 /**
  * Let user choose between sharing as text or as image.
@@ -134,23 +130,23 @@ public class ShareHandler {
     public void onTextSelected(ActionMode mode) {
         webViewActionMode = mode;
         Menu menu = mode.getMenu();
-        MenuItem shareItem = menu.findItem(MENU_SHARE_ID);
+        MenuItem shareItem = menu.findItem(R.id.menu_text_select_share);
 
         // Provide our own listeners for the copy, define, and share buttons.
         shareItem.setOnMenuItemClickListener(new RequestTextSelectOnMenuItemClickListener(PAYLOAD_PURPOSE_SHARE));
-        MenuItem copyItem = menu.findItem(MENU_COPY_ID);
+        MenuItem copyItem = menu.findItem(R.id.menu_text_select_copy);
         copyItem.setOnMenuItemClickListener((MenuItem menuItem) -> {
             fragment.getWebView().copyToClipboard();
             FeedbackUtil.showMessage(fragment.getActivity(), R.string.text_copied);
             leaveActionMode();
             return true;
         });
-        MenuItem defineItem = menu.findItem(MENU_DEFINE_ID);
+        MenuItem defineItem = menu.findItem(R.id.menu_text_select_define);
         if (shouldEnableWiktionaryDialog()) {
             defineItem.setVisible(true);
             defineItem.setOnMenuItemClickListener(new RequestTextSelectOnMenuItemClickListener(PAYLOAD_PURPOSE_DEFINE));
         }
-        MenuItem editItem = menu.findItem(MENU_EDIT_HERE_ID);
+        MenuItem editItem = menu.findItem(R.id.menu_text_edit_here);
         editItem.setOnMenuItemClickListener(new RequestTextSelectOnMenuItemClickListener(PAYLOAD_PURPOSE_EDIT_HERE));
         if (!fragment.getPage().isArticle()) {
             editItem.setVisible(false);
