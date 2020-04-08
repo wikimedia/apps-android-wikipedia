@@ -33,7 +33,6 @@ import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.PlainPasteEditText;
-import org.wikipedia.views.ViewUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -104,7 +103,6 @@ public class DescriptionEditView extends LinearLayout {
         originalDescription = pageTitle.getDescription();
         setHintText();
         setHelperText();
-        setCounterMaxLength();
         setDescription(originalDescription);
         setReviewHeaderText(false);
     }
@@ -112,16 +110,6 @@ public class DescriptionEditView extends LinearLayout {
     private void setHintText() {
         pageDescriptionLayout.setHintTextAppearance(R.style.DescriptionEditViewHintTextStyle);
         pageDescriptionLayout.setHint(getHintText(pageTitle.getWikiSite().languageCode()));
-    }
-
-    private void setCounterMaxLength() {
-        pageDescriptionLayout.setCounterMaxLength((action == TRANSLATE_CAPTION || action == ADD_CAPTION)
-                ? getContext().getResources().getInteger(R.integer.image_caption_max_chars)
-                : getContext().getResources().getInteger(R.integer.description_max_chars));
-
-        if (action == TRANSLATE_CAPTION || action == ADD_CAPTION) {
-            ViewUtil.setEditTextMaxLength(pageDescriptionText, getContext().getResources().getInteger(R.integer.image_caption_max_chars));
-        }
     }
 
     private void setHelperText() {
