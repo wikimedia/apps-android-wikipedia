@@ -43,6 +43,7 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
 
     @BindView(R.id.view_featured_article_card_header) CardHeaderView headerView;
     @BindView(R.id.view_featured_article_card_footer) ActionFooterView footerView;
+    @BindView(R.id.view_featured_article_card_image_container) View imageContainerView;
     @BindView(R.id.view_featured_article_card_image) FaceAndColorDetectImageView imageView;
     @BindView(R.id.view_featured_article_card_article_title) TextView articleTitleView;
     @BindView(R.id.view_featured_article_card_article_subtitle) GoneIfEmptyTextView articleSubtitleView;
@@ -153,9 +154,9 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
 
     private void image(@Nullable Uri uri) {
         if (uri == null) {
-            imageView.setVisibility(GONE);
+            imageContainerView.setVisibility(GONE);
         } else {
-            imageView.setVisibility(VISIBLE);
+            imageContainerView.setVisibility(VISIBLE);
             imageView.loadImage(uri);
         }
     }

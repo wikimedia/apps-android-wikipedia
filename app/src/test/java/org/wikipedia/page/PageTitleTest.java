@@ -58,6 +58,16 @@ import static org.mockito.Mockito.when;
         assertThat(enwiki.titleForInternalLink("/wiki/India's Gate").getUri(), is("https://en.wikipedia.org/wiki/India%27s_Gate"));
     }
 
+    @Test public void testVariants() {
+        assertThat(new PageTitle("Taiwan", WikiSite.forLanguageCode("en")).getUri(), is("https://en.wikipedia.org/wiki/Taiwan"));
+        assertThat(new PageTitle("Taiwan", WikiSite.forLanguageCode("zh")).getUri(), is("https://zh.wikipedia.org/zh/Taiwan"));
+        assertThat(new PageTitle("Taiwan", WikiSite.forLanguageCode("zh-hant")).getUri(), is("https://zh.wikipedia.org/zh-hant/Taiwan"));
+        assertThat(new PageTitle("Taiwan", WikiSite.forLanguageCode("zh-hans")).getUri(), is("https://zh.wikipedia.org/zh-hans/Taiwan"));
+        assertThat(WikiSite.forLanguageCode("zh-hant").titleForInternalLink("/zh/Taiwan").getUri(), is("https://zh.wikipedia.org/zh-hant/Taiwan"));
+        assertThat(WikiSite.forLanguageCode("zh-hant").titleForInternalLink("/zh-hant/Taiwan").getUri(), is("https://zh.wikipedia.org/zh-hant/Taiwan"));
+        assertThat(WikiSite.forLanguageCode("zh-hant").titleForInternalLink("/wiki/Taiwan").getUri(), is("https://zh.wikipedia.org/zh-hant/Taiwan"));
+    }
+
     @Test public void testWikiSite() {
         WikiSite enwiki = WikiSite.forLanguageCode("en");
 
