@@ -27,7 +27,6 @@ import org.wikipedia.util.log.L;
 import org.wikipedia.views.FaceAndColorDetectImageView;
 import org.wikipedia.views.GoneIfEmptyTextView;
 import org.wikipedia.views.ImageZoomHelper;
-import org.wikipedia.views.ItemTouchHelperSwipeAdapter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -38,8 +37,7 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
-public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticleCard>
-        implements ItemTouchHelperSwipeAdapter.SwipeableView {
+public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticleCard> {
 
     @BindView(R.id.view_featured_article_card_header) CardHeaderView headerView;
     @BindView(R.id.view_featured_article_card_footer) ActionFooterView footerView;

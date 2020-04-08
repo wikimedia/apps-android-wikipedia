@@ -18,14 +18,12 @@ import org.wikipedia.feed.view.DefaultFeedCardView;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.FaceAndColorDetectImageView;
-import org.wikipedia.views.ItemTouchHelperSwipeAdapter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class AnnouncementCardView extends DefaultFeedCardView<AnnouncementCard>
-        implements ItemTouchHelperSwipeAdapter.SwipeableView {
+public class AnnouncementCardView extends DefaultFeedCardView<AnnouncementCard> {
     public interface Callback {
         void onAnnouncementPositiveAction(@NonNull Card card, @NonNull Uri uri);
         void onAnnouncementNegativeAction(@NonNull Card card);
