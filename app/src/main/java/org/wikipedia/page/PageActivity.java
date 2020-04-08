@@ -713,16 +713,15 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
         for (int i = 0; i < menu.size(); i++) {
             String title = menu.getItem(i).getTitle().toString();
-            if (!title.contains(getString(R.string.menu_text_select_share))) {
+            if (!title.contains(getString(R.string.menu_text_select_share)) && !title.contains(getString(R.string.search_hint))) {
                 menuItemsList.add(menu.getItem(i));
             }
         }
 
         menu.clear();
         mode.getMenuInflater().inflate(R.menu.menu_text_select, menu);
-
         for (MenuItem menuItem : menuItemsList) {
-            menu.add(Menu.NONE, menuItem.getItemId(), Menu.NONE, menuItem.getTitle()).setIntent((menuItem.getIntent() == null) ? null : menuItem.getIntent().addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)).setIcon(menuItem.getIcon());
+            menu.add(menuItem.getGroupId(), menuItem.getItemId(), Menu.NONE, menuItem.getTitle()).setIntent(menuItem.getIntent()).setIcon(menuItem.getIcon());
         }
     }
 
