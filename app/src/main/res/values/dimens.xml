@@ -80,6 +80,7 @@
     <!-- Description editing -->
     <integer name="description_max_chars">90</integer>
     <integer name="description_max_anon_edits">5</integer>
+    <integer name="image_caption_max_chars">250</integer>
 
     <!-- Notifications -->
     <integer name="notification_poll_interval_minutes">10</integer>

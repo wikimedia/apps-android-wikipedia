@@ -6,8 +6,10 @@ import android.graphics.Canvas;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.text.InputFilter;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -83,6 +85,12 @@ public final class ViewUtil {
             return;
         }
         langButton.setTextSize(langButtonTextSizeLarger);
+    }
+
+    public static void setEditTextMaxLength(EditText editTextView, int maxLength) {
+        InputFilter[] inputFilters = new InputFilter[1];
+        inputFilters[0] = new InputFilter.LengthFilter(maxLength);
+        editTextView.setFilters(inputFilters);
     }
 
     private ViewUtil() {
