@@ -38,18 +38,17 @@ import java.io.IOException;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.concurrent.TimeUnit;
 
 import io.reactivex.Completable;
 import io.reactivex.Observable;
 import io.reactivex.schedulers.Schedulers;
-import okhttp3.CacheControl;
 import okhttp3.Request;
 import okhttp3.Response;
 import okio.Buffer;
 import okio.Sink;
 import okio.Timeout;
 
+import static org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory.CACHE_CONTROL_FORCE_NETWORK;
 import static org.wikipedia.views.CircularProgressBar.MAX_PROGRESS;
 
 public class SavedPageSyncService extends JobIntentService {
@@ -59,7 +58,6 @@ public class SavedPageSyncService extends JobIntentService {
     public static final int SUMMARY_PROGRESS = 10;
     public static final int MOBILE_HTML_SECTION_PROGRESS = 20;
     public static final int MEDIA_LIST_PROGRESS = 30;
-    private static final CacheControl CACHE_CONTROL_FORCE_NETWORK = new CacheControl.Builder().maxAge(0, TimeUnit.SECONDS).build();
 
     private static Runnable ENQUEUE_RUNNABLE = () -> enqueueWork(WikipediaApp.getInstance(),
             SavedPageSyncService.class, JOB_ID, new Intent(WikipediaApp.getInstance(), SavedPageSyncService.class));

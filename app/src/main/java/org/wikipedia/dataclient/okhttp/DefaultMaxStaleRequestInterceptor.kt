@@ -1,12 +1,10 @@
 package org.wikipedia.dataclient.okhttp
 
-import okhttp3.CacheControl
 import okhttp3.Interceptor
 import okhttp3.Response
 import org.wikipedia.WikipediaApp
 import org.wikipedia.settings.Prefs
 import java.io.IOException
-import java.util.concurrent.TimeUnit
 
 /**
  * This interceptor adds a `max-stale` parameter to the Cache-Control header that directs
@@ -23,7 +21,7 @@ internal class DefaultMaxStaleRequestInterceptor : Interceptor {
             // If we're offline, or if we prefer offline content, then raise the max-stale value
             // to infinity, since we would rather show some content than none.
             req = req.newBuilder()
-                    .cacheControl(CacheControl.Builder().maxStale(Integer.MAX_VALUE, TimeUnit.SECONDS).build())
+                    .cacheControl(OkHttpConnectionFactory.CACHE_CONTROL_MAX_STALE)
                     .build()
         }
 
