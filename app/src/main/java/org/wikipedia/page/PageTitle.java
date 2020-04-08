@@ -10,6 +10,7 @@ import androidx.annotation.Nullable;
 import com.google.gson.annotations.SerializedName;
 
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.language.AppLanguageLookUpTable;
 import org.wikipedia.settings.SiteInfoClient;
 import org.wikipedia.util.StringUtil;
 
@@ -321,9 +322,10 @@ public class PageTitle implements Parcelable {
     private String getUriForDomain(String domain) {
         try {
             return String.format(
-                    "%1$s://%2$s/wiki/%3$s%4$s",
+                    "%1$s://%2$s/%3$s/%4$s%5$s",
                     getWikiSite().scheme(),
                     domain,
+                    domain.startsWith(AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE) ? getWikiSite().languageCode() : "wiki",
                     URLEncoder.encode(getPrefixedText(), "utf-8"),
                     (this.fragment != null && this.fragment.length() > 0) ? ("#" + this.fragment) : ""
             );
