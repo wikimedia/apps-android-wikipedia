@@ -54,13 +54,13 @@ class OnboardingPageView constructor(context: Context, attrs: AttributeSet? = nu
             val background = array.getDrawable(R.styleable.OnboardingPageView_background)
             val imageSize = array.getDimension(R.styleable.OnboardingPageView_imageSize, 0f)
             background?.let { setBackground(it) }
-            imageViewCentered!!.setImageDrawable(centeredImage)
+            imageViewCentered.setImageDrawable(centeredImage)
             if (imageSize > 0 && centeredImage != null && centeredImage.intrinsicHeight > 0) {
                 val aspect = centeredImage.intrinsicWidth.toFloat() / centeredImage.intrinsicHeight
-                val params = imageViewCentered!!.layoutParams
+                val params = imageViewCentered.layoutParams
                 params.width = imageSize.toInt()
                 params.height = (imageSize / aspect).toInt()
-                imageViewCentered!!.layoutParams = params
+                imageViewCentered.layoutParams = params
             }
             primaryTextView.text = primaryText
             secondaryTextView.text = StringUtil.fromHtml(secondaryText)
@@ -89,7 +89,7 @@ class OnboardingPageView constructor(context: Context, attrs: AttributeSet? = nu
     }
 
     fun setSwitchChecked(checked: Boolean) {
-        switchView!!.isChecked = checked
+        switchView.isChecked = checked
     }
 
     private fun setUpLanguageListContainer(showListView: Boolean, dataType: String?) {
@@ -122,17 +122,14 @@ class OnboardingPageView constructor(context: Context, attrs: AttributeSet? = nu
             holder.optionLabelTextView.text = context.getString(R.string.onboarding_option_string, (position + 1).toString(), items[position])
         }
 
-        override fun getItemCount(): Int {
-            return items.size
-        }
+        override fun getItemCount(): Int = items.size
 
         inner class OptionsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             var optionLabelTextView: TextView = itemView.findViewById(R.id.option_label)
-
         }
     }
 
-    fun refresh() {
+    fun refreshLanguageList() {
         if (languagesList.adapter != null) {
             languagesList.adapter = null
             languagesList.adapter = LanguageListAdapter(getListData(listDataType))
