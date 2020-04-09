@@ -56,9 +56,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:ellipsize="end"
                     android:lineSpacingExtra="6sp"
-                    android:maxLines="6"
                     android:textColor="?attr/secondary_text_color"
                     android:textSize="14sp"
                     tools:text="Lorem ipsum" />
