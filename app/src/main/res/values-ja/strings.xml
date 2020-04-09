@@ -133,7 +133,7 @@
   <string name="menu_login">ログイン</string>
   <string name="login_activity_title">ウィキペディアにログイン</string>
   <string name="login_in_progress_dialog_message">ログイン中…</string>
-  <string name="login_success_toast">ログインに成功しました!</string>
+  <string name="login_success_toast" fuzzy="true">ログインに成功しました!</string>
   <string name="reset_password_title">パスワードを設定する</string>
   <string name="reset_password_description">あなたは一時的なパスワードでログインしています。ログインを完了するには、新しいパスワードをここで設定してください。</string>
   <string name="reset_password_hint">新しいパスワード</string>
@@ -289,7 +289,7 @@
   <string name="gallery_menu_share">共有</string>
   <string name="gallery_share_error">画像が共有できませんでした: %s</string>
   <string name="gallery_save_progress">ファイルをダウンロードしています…</string>
-  <string name="gallery_save_success">ファイルを保存しました。</string>
+  <string name="gallery_save_success" fuzzy="true">ファイルを保存しました。</string>
   <string name="gallery_error_video_failed">動画を再生できません</string>
   <string name="gallery_save_image_write_permission_rationale">ストレージに書き込む許可は画像の保存に必要になります。</string>
   <string name="gallery_add_image_caption_button">画像キャプションを追加</string>
@@ -439,6 +439,7 @@
   <string name="reading_lists_confirm_remote_delete_yes">はい</string>
   <string name="reading_lists_confirm_remote_delete_no">いいえ</string>
   <string name="reading_list_article_save_in_progress">記事がダウンロードされ、完了したら記事をオフラインで利用できるようになります。</string>
+  <string name="reading_list_articles_added_to_named">%1$dに%2$sを追加しました</string>
   <string name="reading_list_delete_confirm">%s を本当に削除しますか?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">ログインして同期を有効にする</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">ログインして、あとで読むリストをアカウントに保存することを許可</string>
@@ -474,7 +475,7 @@
     <item quantity="one">この記事はオフラインでは利用できなくなります。</item>
     <item quantity="other">これらの記事はオフラインで利用できなくなります。</item>
   </plurals>
-  <string name="reading_list_toast_last_sync">あとで読むリストの同期が完了しました</string>
+  <string name="reading_list_toast_last_sync" fuzzy="true">あとで読むリストの同期が完了しました</string>
   <string name="reading_list_menu_last_sync">最後の同期: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">OK</string>
   <string name="reading_list_delete_dialog_ok_button_text">OK</string>

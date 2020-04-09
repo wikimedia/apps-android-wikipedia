@@ -133,7 +133,7 @@
   <string name="menu_login">تسجيل الدخول</string>
   <string name="login_activity_title">تسجيل الدخول إلى ويكيبيديا</string>
   <string name="login_in_progress_dialog_message">جارٍ تسجيل دخولك…</string>
-  <string name="login_success_toast">تم تسجيل الدخول بنجاح!</string>
+  <string name="login_success_toast" fuzzy="true">تم تسجيل الدخول بنجاح!</string>
   <string name="reset_password_title">تعيين كلمة مرورك</string>
   <string name="reset_password_description">قمت بتسجيل الدخول باستخدام كلمة سر مؤقتة، لإنهاء تسجيل الدخول; يُرجَى تعيين كلمة السر الجديدة هنا.</string>
   <string name="reset_password_hint">كلمة السر الجديدة</string>
@@ -291,7 +291,7 @@
   <string name="gallery_menu_share">مشاركة</string>
   <string name="gallery_share_error">تعذّرت مشاركة الصورة: %s</string>
   <string name="gallery_save_progress">جارٍ تنزيل الملف…</string>
-  <string name="gallery_save_success">حُفظ الملف بنجاح.</string>
+  <string name="gallery_save_success" fuzzy="true">حُفظ الملف بنجاح.</string>
   <string name="gallery_error_video_failed">لا يمكن تشغيل الفيديو.</string>
   <string name="gallery_save_image_write_permission_rationale">صلاحية الكتابة في ذاكرة التخزين على جهازك مطلوبة لحفظ الصور.</string>
   <string name="gallery_add_image_caption_button">إضافة شرح الصورة</string>
@@ -363,8 +363,6 @@
   <string name="page_footer_license_text">المحتوى متوفر تحت رخصة $1 إلا إذا ذُكر غير ذلك</string>
   <string name="empty_tab_title">لسان جديد</string>
   <string name="menu_save_all_tabs">حفظ كل الألسنة</string>
-  <string name="save_all_tabs_success_message">تمت إضافة كل المقالات في الألسنة المفتوحة بنجاح إلى %s.</string>
-  <string name="save_all_tabs_articles_already_exist_message">كل شيء جيد! %s تحتوي بالفعل على كل المقالات في الألسنة المفتوحة.</string>
   <string name="crash_report_activity_title">عطل في التطبيق</string>
   <string name="crash_report_relaunch_or_quit">نحن آسفون، وقع خطأ في تطبيق ويكيبيديا أدى إلى توقفه.\n\nتريد أن تبدأ من جديد أو إنهاء؟</string>
   <string name="crash_report_relaunch">ابدأ من جديد</string>
@@ -390,6 +388,7 @@
   <string name="reading_list_save_to">حفظ في قائمة القراءة</string>
   <string name="reading_list_create_new">أنشئ قائمة قراءة جديدة</string>
   <string name="reading_list_title_exists">قائمة القراءة \"%s\" موجودة فعلًا.</string>
+  <string name="reading_list_articles_already_exist_message" fuzzy="true">كل شيء جيد! %s تحتوي بالفعل على كل المقالات في الألسنة المفتوحة.</string>
   <string name="reading_list_added_view_button">عرض القائمة</string>
   <string name="format_reading_list_statistical_summary_singular">مقالة واحدة، %1$.2f ميجا بايت</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d مقالة/مقالات، %2$.2f ميجا بايت</string>
@@ -445,6 +444,7 @@
   <string name="reading_lists_confirm_remote_delete_yes">نعم</string>
   <string name="reading_lists_confirm_remote_delete_no">لا</string>
   <string name="reading_list_article_save_in_progress">جارٍ تنزيل المقالة، وستكون متاحةً في وضع عدم الاتصال عن الاكتمال.</string>
+  <string name="reading_list_articles_added_to_named">تمت إضافة مقالات %1$d إلى %2$s</string>
   <string name="reading_list_delete_confirm">هل أنت متأكد من أنك تريد حذف %s؟</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">سجل الدخول لتمكين المزامنة</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">سجل الدخول للسماح بقوائم قراءتك ليتم حفظها في حسابك.</string>
@@ -480,7 +480,7 @@
     <item quantity="one">ستصبح هذه المقالة غير متاحة في حالة عدم الاتصال.</item>
     <item quantity="other">ستصبح هذه المقالات غير متاحة في حالة عدم الاتصال.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync">تمت مزامنة قوائم القراءة بنجاح</string>
+  <string name="reading_list_toast_last_sync" fuzzy="true">تمت مزامنة قوائم القراءة بنجاح</string>
   <string name="reading_list_menu_last_sync">آخر مزامنة: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">حسنا</string>
   <string name="reading_list_delete_dialog_ok_button_text">حسنا</string>

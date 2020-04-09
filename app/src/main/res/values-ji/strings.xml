@@ -73,7 +73,7 @@
   <string name="menu_login">אַרײַנלאגירן</string>
   <string name="login_activity_title">ארײַנלאגירן צו וויקיפעדיע</string>
   <string name="login_in_progress_dialog_message">לאגירט אײַך אריין…</string>
-  <string name="login_success_toast">אריינלאגירט מיט הצלחה!</string>
+  <string name="login_success_toast" fuzzy="true">אריינלאגירט מיט הצלחה!</string>
   <string name="reset_password_title">שטעלן אײַער פאַסווארט</string>
   <string name="reset_password_hint">ניי פּאסוואָרט</string>
   <string name="reset_password_button">אויפֿהיטן און אריינלאגירן</string>
@@ -168,7 +168,7 @@
   <string name="license_title">ליצענץ פאר %s</string>
   <string name="gallery_menu_share">טיילן</string>
   <string name="gallery_save_progress">אראָפלאָדנדיק טעקע…</string>
-  <string name="gallery_save_success">טעקע דערפאלגרייך געשפייכלערט.</string>
+  <string name="gallery_save_success" fuzzy="true">טעקע דערפאלגרייך געשפייכלערט.</string>
   <string name="gallery_error_video_failed">קען נישט שפילן ווידעא.</string>
   <string name="err_cannot_save_file">קען נישט אויפהיטן טעקע</string>
   <string name="snippet_share_intro">\"%1$s\" ביי @Wikipedia: %2$s</string>

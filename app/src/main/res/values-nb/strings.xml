@@ -118,7 +118,7 @@
   <string name="menu_login">Logg inn</string>
   <string name="login_activity_title">Logg inn på Wikipedia</string>
   <string name="login_in_progress_dialog_message">Logger deg inn…</string>
-  <string name="login_success_toast">Innloggingen var vellykket!</string>
+  <string name="login_success_toast" fuzzy="true">Innloggingen var vellykket!</string>
   <string name="reset_password_title">Endre passord</string>
   <string name="reset_password_description">Du logget inn med et midlertidig passord. For å fullføre innloggingen må du lage deg ditt eget passord.</string>
   <string name="reset_password_hint">Nytt passord</string>
@@ -270,7 +270,7 @@
   <string name="gallery_menu_share">Del</string>
   <string name="gallery_share_error">Kunne ikke dele bilde: %s</string>
   <string name="gallery_save_progress">Laster ned fil…</string>
-  <string name="gallery_save_success">Filen ble lagret.</string>
+  <string name="gallery_save_success" fuzzy="true">Filen ble lagret.</string>
   <string name="gallery_error_video_failed">Kunne ikke spille av videoen.</string>
   <string name="gallery_save_image_write_permission_rationale">Tilgang til lagring på enheten trengs for å lagre bilder.</string>
   <string name="err_cannot_save_file">Kunne ikke lagre filen</string>
@@ -410,6 +410,7 @@
   <string name="reading_lists_confirm_remote_delete_yes">Ja</string>
   <string name="reading_lists_confirm_remote_delete_no">Nei</string>
   <string name="reading_list_article_save_in_progress">Artikkelen lastes ned og vil bli tilgjengelig offline når den er ferdig.</string>
+  <string name="reading_list_articles_added_to_named">La til %1$d artikler i %2$s</string>
   <string name="reading_list_delete_confirm">Er du sikker på at du vil slette %s?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Logg inn for å aktivere synkronisering</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Logg inn om du ønsker at leselistene skal lagres i brukerkontoen din.</string>
@@ -445,7 +446,7 @@
     <item quantity="one">Denne artikkelen vil ikke lenger være tilgjengelig offline.</item>
     <item quantity="other">Disse artiklene vil ikke lenger være tilgjengelig offline.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync">Leselistene ble synkronisert</string>
+  <string name="reading_list_toast_last_sync" fuzzy="true">Leselistene ble synkronisert</string>
   <string name="reading_list_menu_last_sync">Sist synkronisert: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">OK</string>
   <string name="reading_list_delete_dialog_ok_button_text">OK</string>

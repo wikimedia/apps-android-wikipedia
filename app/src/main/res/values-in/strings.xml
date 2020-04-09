@@ -127,7 +127,7 @@
   <string name="menu_login">Masuk log</string>
   <string name="login_activity_title">Masuk log Wikipedia</string>
   <string name="login_in_progress_dialog_message">Sedang masuk log…</string>
-  <string name="login_success_toast">Berhasil masuk log!</string>
+  <string name="login_success_toast" fuzzy="true">Berhasil masuk log!</string>
   <string name="reset_password_title">Setel kata sandi Anda</string>
   <string name="reset_password_description">Anda masuk log dengan kata sandi sementara. Untuk menyelesaikan masuk log, setel kata sandi baru Anda di sini.</string>
   <string name="reset_password_hint">Kata sandi baru</string>
@@ -283,7 +283,7 @@
   <string name="gallery_menu_share">Bagikan</string>
   <string name="gallery_share_error">Tidak dapat membagikan gambar: %s</string>
   <string name="gallery_save_progress">Mengunduh berkas…</string>
-  <string name="gallery_save_success">Berkas berhasil disimpan.</string>
+  <string name="gallery_save_success" fuzzy="true">Berkas berhasil disimpan.</string>
   <string name="gallery_error_video_failed">Tidak dapat memutar video.</string>
   <string name="gallery_save_image_write_permission_rationale">Izin untuk menulis ke penyimpanan di perangkat Anda dibutuhkan untuk menyimpan gambar.</string>
   <string name="gallery_add_image_caption_button">Tambahkan takarir gambar</string>
@@ -433,6 +433,7 @@
   <string name="reading_lists_confirm_remote_delete_yes">Ya</string>
   <string name="reading_lists_confirm_remote_delete_no">Tidak</string>
   <string name="reading_list_article_save_in_progress">Artikel sedang diunduh, dan akan tersedia secara luring saat selesai.</string>
+  <string name="reading_list_articles_added_to_named">%1$d ditambahkan ke %2$s</string>
   <string name="reading_list_delete_confirm">Apakah Anda yakin ingin menghapus %s?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Masuk log untuk mengaktifkan sinkronisasi</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Masuk log untuk membolehkan daftar bacaan Anda disimpan ke akun Anda.</string>
@@ -468,7 +469,7 @@
     <item quantity="one">Artikel ini tidak lagi tersedia secara luring.</item>
     <item quantity="other">Artikel-artikel ini tidak lagi tersedia secara luring.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync">Daftar bacaan berhasil disinkronkan</string>
+  <string name="reading_list_toast_last_sync" fuzzy="true">Daftar bacaan berhasil disinkronkan</string>
   <string name="reading_list_menu_last_sync">Terakhir disinkronkan: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">Oke</string>
   <string name="reading_list_delete_dialog_ok_button_text">Oke</string>
