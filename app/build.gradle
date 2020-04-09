@@ -39,7 +39,7 @@ android {
         applicationId 'org.wikipedia'
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 50312
+        versionCode 50314
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner "org.wikipedia.WikipediaTestRunner"
         vectorDrawables.useSupportLibrary = true
@@ -160,9 +160,9 @@ dependencies {
 
     String okHttpVersion = '4.3.1'
     String retrofitVersion = '2.6.0'
+    String glideVersion = '4.11.0'
     String butterknifeVersion = '10.2.0'
     String espressoVersion = '3.1.1'
-    String frescoVersion = '2.1.0' // When updating this version, resync file copies under app/src/main/java/com/facebook
     String mockitoCore = 'org.mockito:mockito-core:1.9.5'
     String leakCanaryVersion = '2.2'
     String kotlinCoroutinesVersion = '1.2.1'
@@ -181,14 +181,15 @@ dependencies {
     implementation "androidx.recyclerview:recyclerview:1.1.0"
     implementation "androidx.viewpager2:viewpager2:1.0.0"
     implementation 'com.google.android:flexbox:2.0.1'
+    implementation 'com.android.installreferrer:installreferrer:1.1.2'
 
     implementation ('com.github.michael-rapp:chrome-like-tab-switcher:0.4.6') {
         exclude group: 'org.jetbrains'
     }
 
-    implementation "com.facebook.fresco:animated-gif:$frescoVersion"
-    implementation "com.facebook.fresco:fresco:$frescoVersion"
-    implementation "com.facebook.fresco:imagepipeline-okhttp3:$frescoVersion"
+    implementation "com.github.bumptech.glide:glide:$glideVersion"
+    implementation "com.github.bumptech.glide:okhttp3-integration:$glideVersion"
+    annotationProcessor "com.github.bumptech.glide:compiler:$glideVersion"
 
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"

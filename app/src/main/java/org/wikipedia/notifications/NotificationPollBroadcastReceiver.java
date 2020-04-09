@@ -20,6 +20,7 @@ import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.settings.Prefs;
+import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.log.L;
 
 import java.util.ArrayList;
@@ -43,6 +44,12 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         if (TextUtils.equals(intent.getAction(), Intent.ACTION_BOOT_COMPLETED)) {
+            // To test the BOOT_COMPLETED intent:
+            // `adb shell am broadcast -a android.intent.action.BOOT_COMPLETED`
+
+            // Update our channel name, if needed.
+            L.v("channel=" + ReleaseUtil.getChannel(context));
+
             if (Prefs.notificationPollEnabled()) {
                 startPollTask(context);
             } else {

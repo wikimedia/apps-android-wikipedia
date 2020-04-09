@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.Menu;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -57,6 +58,7 @@ import org.wikipedia.util.ImageUrlUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
+import org.wikipedia.views.ImageZoomHelper;
 import org.wikipedia.views.PositionAwareFragmentStateAdapter;
 import org.wikipedia.views.ViewAnimations;
 import org.wikipedia.views.WikiErrorView;
@@ -82,8 +84,6 @@ import static org.wikipedia.Constants.InvokeSource.LINK_PREVIEW_MENU;
 import static org.wikipedia.Constants.PREFERRED_GALLERY_IMAGE_SIZE;
 import static org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_CAPTION;
 import static org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_CAPTION;
-import static org.wikipedia.util.StringUtil.addUnderscores;
-import static org.wikipedia.util.StringUtil.removeUnderscores;
 import static org.wikipedia.util.StringUtil.strip;
 import static org.wikipedia.util.UriUtil.handleExternalLink;
 import static org.wikipedia.util.UriUtil.resolveProtocolRelativeUrl;
@@ -131,6 +131,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
 
     private boolean controlsShowing = true;
     private GalleryPageChangeListener pageChangeListener = new GalleryPageChangeListener();
+    private ImageZoomHelper imageZoomHelper;
 
     @Nullable private GalleryFunnel funnel;
 
@@ -213,12 +214,13 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         galleryPager.registerOnPageChangeCallback(pageChangeListener);
         galleryPager.setOffscreenPageLimit(2);
 
+        imageZoomHelper = new ImageZoomHelper(this);
         funnel = new GalleryFunnel(app, getIntent().getParcelableExtra(EXTRA_WIKI),
                 getIntent().getIntExtra(EXTRA_SOURCE, 0));
 
         if (savedInstanceState == null) {
             if (initialFilename != null) {
-                funnel.logGalleryOpen(pageTitle, removeUnderscores(initialFilename));
+                funnel.logGalleryOpen(pageTitle, initialFilename);
             }
         } else {
             controlsShowing = savedInstanceState.getBoolean("controlsShowing");
@@ -316,6 +318,11 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
             layOutGalleryDescription();
             setResult(ACTIVITY_RESULT_IMAGE_CAPTION_ADDED);
         }
+    }
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent event) {
+        return imageZoomHelper.onDispatchTouchEvent(event) || super.dispatchTouchEvent(event);
     }
 
     @OnClick(R.id.gallery_caption_edit_button) void onEditClick(View v) {
@@ -557,17 +564,13 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     }
 
     private void applyGalleryList(@NonNull List<MediaListItem> list) {
-        // remove the page transformer while we operate on the pager...
-        galleryPager.setPageTransformer(null);
         // first, verify that the collection contains the item that the user
         // initially requested, if we have one...
         int initialImagePos = -1;
         if (initialFilename != null) {
             for (MediaListItem item : list) {
-                // sometimes the namespace of a file would be in different languages rather than English.
-                String title = StringUtil.removeNamespace(item.getTitle());
-                String titleFromPage = StringUtil.removeNamespace(addUnderscores(initialFilename));
-                if (title.equals(titleFromPage)) {
+                // the namespace of a file could be in a different language than English.
+                if (StringUtil.removeNamespace(item.getTitle()).equals(StringUtil.removeNamespace(initialFilename))) {
                     initialImagePos = list.indexOf(item);
                     break;
                 }
@@ -591,7 +594,6 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
             // if we have a target image index to jump to, then do it!
             galleryPager.setCurrentItem(initialImageIndex, false);
         }
-        galleryPager.setPageTransformer(new GalleryPagerTransformer());
     }
 
     @Nullable

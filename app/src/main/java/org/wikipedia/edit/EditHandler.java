@@ -36,7 +36,10 @@ public class EditHandler implements CommunicationBridge.JSEventListener {
         bridge.addListener("add_title_description", this);
     }
 
-    public void setPage(Page page) {
+    public void setPage(@Nullable Page page) {
+        if (page == null) {
+            return;
+        }
         this.currentPage = page;
         this.funnel = new ProtectedEditAttemptFunnel(WikipediaApp.getInstance(), page.getTitle().getWikiSite());
     }

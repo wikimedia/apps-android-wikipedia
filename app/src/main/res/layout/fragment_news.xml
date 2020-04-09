@@ -27,12 +27,10 @@
 
                 <org.wikipedia.views.FaceAndColorDetectImageView
                     android:id="@+id/view_news_fullscreen_header_image"
-                    style="@style/SimpleDraweeViewPlaceholder"
+                    style="@style/ImageViewDefault"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:transitionName="@string/transition_news_item"
-                    app:actualImageScaleType="focusCrop"
-                    app:fadeDuration="0" />
+                    android:transitionName="@string/transition_news_item" />
 
                 <View
                     android:id="@+id/view_news_fullscreen_gradient"

@@ -56,13 +56,12 @@
                     tools:text="Lorem ipsum" />
             </LinearLayout>
 
-            <org.wikipedia.views.FaceAndColorDetectImageView
+            <ImageView
                 android:id="@+id/galleryImage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:contentDescription="@null"
-                app:actualImageScaleType="fitCenter"
-                app:viewAspectRatio="1.33" />
+                android:scaleType="fitCenter" />
 
             <LinearLayout
                 android:id="@+id/detailsHolder"

@@ -113,7 +113,7 @@
     <string name="menu_login">Log in</string>
     <string name="login_activity_title">Log in to Wikipedia</string>
     <string name="login_in_progress_dialog_message">Logging you in…</string>
-    <string name="login_success_toast">Logged in successfully!</string>
+    <string name="login_success_toast">Logged in!</string>
     <string name="reset_password_title">Set your password</string>
     <string name="reset_password_description">You logged in with a temporary password. To finish logging in, please set your new password here.</string>
     <string name="reset_password_hint">New password</string>
@@ -272,7 +272,7 @@
     <string name="gallery_menu_share">Share</string>
     <string name="gallery_share_error">Could not share image: %s</string>
     <string name="gallery_save_progress">Downloading file…</string>
-    <string name="gallery_save_success">File saved successfully.</string>
+    <string name="gallery_save_success">File saved.</string>
     <string name="gallery_error_video_failed">Could not play the video.</string>
     <string name="gallery_save_image_write_permission_rationale">Permission to write to storage on your device is required for saving images.</string>
     <string name="gallery_add_image_caption_button">Add image caption</string>
@@ -344,8 +344,6 @@
     <string name="page_footer_license_text">Content is available under $1 unless otherwise noted</string>
     <string name="empty_tab_title">New tab</string>
     <string name="menu_save_all_tabs">Save all tabs</string>
-    <string name="save_all_tabs_success_message">Successfully added all articles in open tabs to %s.</string>
-    <string name="save_all_tabs_articles_already_exist_message">All good! %s already contains all articles in open tabs.</string>
 
     <!-- Crash reporter -->
     <string name="crash_report_activity_title">Application error</string>
@@ -382,8 +380,9 @@
     <string name="reading_list_save_to">Save to reading list</string>
     <string name="reading_list_create_new">Create new</string>
     <string name="reading_list_title_exists">Reading list \"%s\" already exists.</string>
-    <string name="reading_list_added_to_named">Added to %s.</string>
-    <string name="reading_list_already_exists">This article is already in that list.</string>
+    <string name="reading_list_article_added_to_named">Added %1$s to %2$s.</string>
+    <string name="reading_list_article_already_exists_message">All good! %1$s already contains %2$s.</string>
+    <string name="reading_list_articles_already_exist_message">All good! %s already contains all articles.</string>
     <string name="reading_list_added_view_button">View list</string>
     <string name="format_reading_list_statistical_summary_singular">1 article, %1$.2f MB</string>
     <string name="format_reading_list_statistical_summary_plural">%1$d articles, %2$.2f MB</string>
@@ -439,8 +438,7 @@
     <string name="reading_lists_confirm_remote_delete_yes">Yes</string>
     <string name="reading_lists_confirm_remote_delete_no">No</string>
     <string name="reading_list_article_save_in_progress">The article is being downloaded, and it will be available offline when complete.</string>
-    <string name="reading_list_already_contains_selection">The chosen list already contains all of the selected pages.</string>
-    <string name="reading_list_added_articles_list_titled">Added %1$d articles to %2$s</string>
+    <string name="reading_list_articles_added_to_named">Added %1$d articles to %2$s</string>
     <string name="reading_list_delete_confirm">Are you sure you want to delete %s?</string>
     <string name="reading_list_preference_login_to_enable_sync_dialog_title">Log in to enable sync</string>
     <string name="reading_list_preference_login_to_enable_sync_dialog_text">Log in to allow your reading lists to be saved to your account.</string>
@@ -476,7 +474,7 @@
         <item quantity="one">This article will no longer be available offline.</item>
         <item quantity="other">These articles will no longer be available offline.</item>
     </plurals>
-    <string name="reading_list_toast_last_sync">Reading lists synced successfully</string>
+    <string name="reading_list_toast_last_sync">Reading lists synced</string>
     <string name="reading_list_menu_last_sync">Last sync: %s</string>
     <string name="reading_list_remove_list_dialog_ok_button_text">OK</string>
     <string name="reading_list_delete_dialog_ok_button_text">OK</string>

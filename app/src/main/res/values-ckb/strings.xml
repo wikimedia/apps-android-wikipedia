@@ -418,8 +418,6 @@
   <string name="reading_lists_menu_create_list">دروستکردنی لیستی نوێ</string>
   <string name="reading_lists_menu_sort_by">ڕیزکردن بە</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">چوونە ژوورەوە/تۆمارکردن</string>
-  <string name="reading_list_article_offline_message" fuzzy="true">ئەم وتارە ئێستا بەبێ ئینتەرنێت بەردەستە</string>
-  <string name="reading_list_article_not_offline_message" fuzzy="true">ئەم وتارە چی تر بەردەست نابێت بەبێ ئینتەرنێت.</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">باشە</string>
   <string name="reading_list_delete_dialog_ok_button_text">باشە</string>
   <string name="reading_list_remove_from_list_dialog_cancel_button_text">ھەڵوەشاندنەوە</string>

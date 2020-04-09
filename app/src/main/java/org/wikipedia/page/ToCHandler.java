@@ -83,6 +83,9 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
     private ValueCallback<String> sectionOffsetsCallback = new ValueCallback<String>() {
         @Override
         public void onReceiveValue(String value) {
+            if (!fragment.isAdded()) {
+                return;
+            }
             try {
                 JSONArray sections = new JSONObject(value).getJSONArray("sections");
                 for (int i = 0; i < sections.length(); i++) {
@@ -130,7 +133,10 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
     }
 
     @SuppressLint("RtlHardcoded")
-    void setupToC(@NonNull Page page, @NonNull WikiSite wiki, boolean firstPage) {
+    void setupToC(@Nullable Page page, @NonNull WikiSite wiki, boolean firstPage) {
+        if (page == null) {
+            return;
+        }
         adapter.setPage(page);
         rtl = L10nUtil.isLangRTL(wiki.languageCode());
         showOnboading = Prefs.isTocTutorialEnabled() && !page.isMainPage() && !firstPage;

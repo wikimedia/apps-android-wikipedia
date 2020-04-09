@@ -83,12 +83,10 @@ import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.suggestededits.SuggestedEditsSummary;
 import org.wikipedia.util.ActiveTimer;
-import org.wikipedia.util.AnimationUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.GeoUtil;
 import org.wikipedia.util.ShareUtil;
-import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.ThrowableUtil;
 import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
@@ -121,7 +119,6 @@ import static org.wikipedia.settings.Prefs.isDescriptionEditTutorialEnabled;
 import static org.wikipedia.settings.Prefs.isLinkPreviewEnabled;
 import static org.wikipedia.util.DimenUtil.getContentTopOffsetPx;
 import static org.wikipedia.util.DimenUtil.getDensityScalar;
-import static org.wikipedia.util.DimenUtil.leadImageHeightForDevice;
 import static org.wikipedia.util.ResourceUtil.getThemedAttributeId;
 import static org.wikipedia.util.ResourceUtil.getThemedColor;
 import static org.wikipedia.util.ThrowableUtil.isOffline;
@@ -289,7 +286,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        AnimationUtil.setSharedElementTransitions(requireActivity());
         app = (WikipediaApp) requireActivity().getApplicationContext();
         model = new PageViewModel();
         pageFragmentLoadState = new PageFragmentLoadState();
@@ -300,7 +296,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                              final Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_page, container, false);
         pageHeaderView = rootView.findViewById(R.id.page_header_view);
-        DimenUtil.setViewHeight(pageHeaderView, leadImageHeightForDevice());
         emptyPageContainer = rootView.findViewById(R.id.page_empty_container);
 
         webView = rootView.findViewById(R.id.page_web_view);
@@ -358,7 +353,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
 
         bridge = new CommunicationBridge(this);
         setupMessageHandlers();
-        sendDecorOffsetMessage();
 
         errorView.setRetryClickListener((v) -> refreshPage());
         errorView.setBackClickListener((v) -> {
@@ -450,6 +444,9 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     }
 
     public void onPageMetadataLoaded() {
+        if (model.getPage() == null) {
+            return;
+        }
         editHandler.setPage(model.getPage());
         refreshView.setEnabled(true);
         refreshView.setRefreshing(false);
@@ -532,9 +529,8 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     }
 
     @Override
-    public void onConfigurationChanged(Configuration newConfig) {
+    public void onConfigurationChanged(@NonNull Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
-        sendDecorOffsetMessage();
         // if the screen orientation changes, then re-layout the lead image container,
         // but only if we've finished fetching the page.
         if (!pageFragmentLoadState.isLoading() && !errorState) {
@@ -947,6 +943,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         return app.getTabList().size();
     }
 
+    @SuppressWarnings("checkstyle:methodlength")
     private void setupMessageHandlers() {
         linkHandler = new LinkHandler(requireActivity()) {
             @Override public void onPageLinkClicked(@NonNull String anchor, @NonNull String linkText) {
@@ -958,8 +955,8 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                 handleInternalLink(title);
             }
 
-            @Override public void onSVGLinkClicked(@NonNull String href) {
-                startGalleryActivity(href);
+            @Override public void onMediaLinkClicked(@NonNull PageTitle title) {
+                startGalleryActivity(title.getPrefixedText());
             }
 
             @Override public WikiSite getWikiSite() {
@@ -974,32 +971,37 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             }
 
             bridge.evaluate(JavaScriptActionHandler.getRevision(), revision -> {
+                if (!isAdded()) {
+                    return;
+                }
                 try {
                     this.revision = Long.parseLong(revision.replace("\"", ""));
-                } catch (NumberFormatException e) {
+                } catch (Exception e) {
                     L.e(e);
                 }
             });
 
             bridge.evaluate(JavaScriptActionHandler.getSections(), value -> {
+                if (!isAdded() || model.getPage() == null) {
+                    return;
+                }
                 Section[] secArray = GsonUtil.getDefaultGson().fromJson(value, Section[].class);
                 if (secArray != null) {
                     sections = new ArrayList<>(Arrays.asList(secArray));
                     sections.add(0, new Section(0, 0, model.getTitle().getDisplayText(), model.getTitle().getDisplayText(), ""));
-                    if (model.getPage() != null) {
-                        model.getPage().setSections(sections);
-                    }
+                    model.getPage().setSections(sections);
                 }
                 tocHandler.setupToC(model.getPage(), model.getTitle().getWikiSite(), pageFragmentLoadState.isFirstPage());
                 tocHandler.setEnabled(true);
             });
 
             bridge.evaluate(JavaScriptActionHandler.getProtection(), value -> {
-                Protection protection = GsonUtil.getDefaultGson().fromJson(value, Protection.class);
-                if (model.getPage() != null) {
-                    model.getPage().getPageProperties().setProtection(protection);
-                    bridge.execute(JavaScriptActionHandler.setUpEditButtons(true, !model.getPage().getPageProperties().canEdit()));
+                if (!isAdded() || model.getPage() == null) {
+                    return;
                 }
+                Protection protection = GsonUtil.getDefaultGson().fromJson(value, Protection.class);
+                model.getPage().getPageProperties().setProtection(protection);
+                bridge.execute(JavaScriptActionHandler.setUpEditButtons(true, !model.getPage().getPageProperties().canEdit()));
             });
 
         });
@@ -1013,7 +1015,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         });
         bridge.addListener("reference", (String messageType, JsonObject messagePayload) -> {
             if (!isAdded()) {
-                L.d("Detached from activity, so stopping reference click.");
                 return;
             }
 
@@ -1040,16 +1041,12 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             webView.setScrollY(webView.getScrollY() + diffY - webView.getHeight() / offsetFraction);
         });
         bridge.addListener("image", (String messageType, JsonObject messagePayload) -> {
-            String href = decodeURL(messagePayload.get("href").getAsString());
-            if (href.startsWith("./File:")) {
-                startGalleryActivity(href);
-            } else {
-                linkHandler.onUrlClick(href, messagePayload.has("title") ? messagePayload.get("title").getAsString() : null, "");
-            }
+            linkHandler.onUrlClick(decodeURL(messagePayload.get("href").getAsString()),
+                    messagePayload.has("title") ? messagePayload.get("title").getAsString() : null, "");
         });
         bridge.addListener("media", (String messageType, JsonObject messagePayload) -> {
-            String href = decodeURL(messagePayload.get("href").getAsString());
-            startGalleryActivity(href);
+            linkHandler.onUrlClick(decodeURL(messagePayload.get("href").getAsString()),
+                    messagePayload.has("title") ? messagePayload.get("title").getAsString() : null, "");
         });
         bridge.addListener("pronunciation", (String messageType, JsonObject messagePayload) -> {
             if (avPlayer == null) {
@@ -1126,10 +1123,10 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         }
     }
 
-    private void startGalleryActivity(@NonNull String href) {
+    private void startGalleryActivity(@NonNull String fileName) {
         if (app.isOnline()) {
             requireActivity().startActivityForResult(GalleryActivity.newIntent(requireActivity(),
-                    model.getTitleOriginal(), StringUtil.removeUnderscores(UriUtil.removeInternalLinkPrefix(href)),
+                    model.getTitleOriginal(), fileName,
                     model.getTitle().getWikiSite(), getRevision(), GalleryFunnel.SOURCE_NON_LEAD_IMAGE), ACTIVITY_REQUEST_GALLERY);
         } else {
             Snackbar snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.gallery_not_available_offline_snackbar), FeedbackUtil.LENGTH_DEFAULT);
@@ -1172,10 +1169,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                     R.string.tool_tip_bookmark_icon_title, R.string.tool_tip_bookmark_icon_text, null);
             Prefs.shouldShowBookmarkToolTip(false);
         }
-    }
-
-    private void sendDecorOffsetMessage() {
-        //Todo: mobile-html: add bridge communication
     }
 
     private void initPageScrollFunnel() {

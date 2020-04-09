@@ -3,7 +3,6 @@ package org.wikipedia.suggestededits
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.graphics.Typeface
-import android.net.Uri
 import android.os.Bundle
 import android.view.HapticFeedbackConstants
 import android.view.LayoutInflater
@@ -24,22 +23,26 @@ import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil
+import org.wikipedia.analytics.EditFunnel
 import org.wikipedia.analytics.SuggestedEditsFunnel
 import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.mwapi.MwPostResponse
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.mwapi.media.MediaHelper
-import org.wikipedia.dataclient.wikidata.EntityPostResponse
+import org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_IMAGE_TAGS
 import org.wikipedia.login.LoginClient.LoginFailedException
 import org.wikipedia.page.LinkMovementMethodExt
+import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.suggestededits.provider.MissingDescriptionProvider
 import org.wikipedia.util.*
 import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ImageZoomHelper
+import org.wikipedia.views.ViewUtil
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -58,6 +61,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
     private val tagList: MutableList<MwQueryPage.ImageLabel> = ArrayList()
     private var wasCaptionLongClicked: Boolean = false
     private var lastSearchTerm: String = ""
+    private var funnel: EditFunnel? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -67,7 +71,6 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setConditionalLayoutDirection(contentContainer, callback().getLangCode())
-        imageView.setLegacyVisibilityHandlingEnabled(true)
         cardItemErrorView.setBackClickListener { requireActivity().finish() }
         cardItemErrorView.setRetryClickListener {
             cardItemProgressBar.visibility = VISIBLE
@@ -163,11 +166,13 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
             return
         }
 
+        funnel = EditFunnel(WikipediaApp.getInstance(), PageTitle(page!!.title(), WikiSite(Service.COMMONS_URL)))
+
         tagsLicenseText.visibility = GONE
         tagsHintText.visibility = VISIBLE
         ImageZoomHelper.setViewZoomable(imageView)
 
-        imageView.loadImage(Uri.parse(ImageUrlUtil.getUrlForPreferredSize(page!!.imageInfo()!!.thumbUrl, Constants.PREFERRED_CARD_THUMBNAIL_SIZE)))
+        ViewUtil.loadImage(imageView, ImageUrlUtil.getUrlForPreferredSize(page!!.imageInfo()!!.thumbUrl, Constants.PREFERRED_CARD_THUMBNAIL_SIZE))
 
         val typeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
         tagsChipGroup.removeAllViews()
@@ -314,7 +319,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
     }
 
     private fun doPublish() {
-        val acceptedLabels = ArrayList<String>()
+        val acceptedLabels = ArrayList<MwQueryPage.ImageLabel>()
         var rejectedCount = 0
         val batchBuilder = StringBuilder()
         batchBuilder.append("[")
@@ -330,7 +335,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                 batchBuilder.append("\"}")
             }
             if (label.isSelected) {
-                acceptedLabels.add(label.wikidataId)
+                acceptedLabels.add(label)
             } else {
                 rejectedCount++
             }
@@ -341,6 +346,8 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
 
         publishing = true
         publishSuccess = false
+
+        funnel?.logSaveAttempt()
 
         publishProgressText.setText(R.string.suggested_edits_image_tags_publishing)
         publishProgressCheck.visibility = GONE
@@ -353,25 +360,34 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         csrfClient.request(false, object : CsrfTokenClient.Callback {
             override fun success(token: String) {
 
-                val claimObservables = ArrayList<ObservableSource<EntityPostResponse>>()
+                val claimObservables = ArrayList<ObservableSource<MwPostResponse>>()
+                val claimComments = ArrayList<String>()
                 for (label in acceptedLabels) {
                     val claimTemplate = "{\"mainsnak\":" +
                             "{\"snaktype\":\"value\",\"property\":\"P180\"," +
                             "\"datavalue\":{\"value\":" +
-                            "{\"entity-type\":\"item\",\"id\":\"${label}\"}," +
+                            "{\"entity-type\":\"item\",\"id\":\"${label.wikidataId}\"}," +
                             "\"type\":\"wikibase-entityid\"},\"datatype\":\"wikibase-item\"}," +
                             "\"type\":\"statement\"," +
                             "\"id\":\"M${page!!.pageId()}\$${UUID.randomUUID()}\"," +
                             "\"rank\":\"normal\"}"
 
-                    claimObservables.add(ServiceFactory.get(commonsSite).postSetClaim(claimTemplate, token,
-                            SuggestedEditsFunnel.SUGGESTED_EDITS_ADD_COMMENT, null))
+                    val comment = if (label.isCustom) SuggestedEditsFunnel.SUGGESTED_EDITS_IMAGE_TAG_CUSTOM_COMMENT else SuggestedEditsFunnel.SUGGESTED_EDITS_IMAGE_TAG_AUTO_COMMENT
+                    claimObservables.add(ServiceFactory.get(commonsSite).postSetClaim(claimTemplate, token, comment, null))
+                    claimComments.add(comment)
                 }
 
                 disposables.add(ServiceFactory.get(commonsSite).postReviewImageLabels(page!!.title(), token, batchBuilder.toString())
                         .flatMap { response ->
                             if (claimObservables.size > 0) {
                                 Observable.zip(claimObservables) { responses ->
+                                    for (res in responses) {
+                                        if (res is MwPostResponse) {
+                                            if (res.pageInfo != null) {
+                                                funnel?.logSaved(res.pageInfo!!.lastRevId, if (claimComments.isEmpty()) "" else claimComments.removeAt(0))
+                                            }
+                                        }
+                                    }
                                     responses[0]
                                 }
                             } else {
@@ -404,6 +420,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
 
     private fun onSuccess() {
         Prefs.setSuggestedEditsImageTagsNew(false)
+        SuggestedEditsFunnel.get().success(ADD_IMAGE_TAGS)
 
         val duration = 500L
         publishProgressBar.alpha = 1f
@@ -445,6 +462,8 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
 
     private fun onError(caught: Throwable) {
         // TODO: expand this a bit.
+        SuggestedEditsFunnel.get().failure(ADD_IMAGE_TAGS)
+        funnel?.logError(caught.localizedMessage)
         publishOverlayContainer.visibility = GONE
         FeedbackUtil.showError(requireActivity(), caught)
     }

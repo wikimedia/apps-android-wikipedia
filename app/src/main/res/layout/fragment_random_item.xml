@@ -44,12 +44,10 @@
 
             <org.wikipedia.views.FaceAndColorDetectImageView
                 android:id="@+id/view_random_article_card_image"
-                style="@style/SimpleDraweeViewPlaceholder"
+                style="@style/ImageViewDefault"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:actualImageScaleType="focusCrop"
-                app:viewAspectRatio="1.77"
-                app:fadeDuration="0" />
+                android:layout_height="160dp"
+                android:scaleType="centerCrop" />
 
             <View
                 android:layout_width="match_parent"

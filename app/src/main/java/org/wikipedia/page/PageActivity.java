@@ -1,8 +1,6 @@
 package org.wikipedia.page;
 
 import android.app.SearchManager;
-import android.appwidget.AppWidgetManager;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -51,9 +49,7 @@ import org.wikipedia.page.tabs.TabActivity;
 import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.search.SearchActivity;
 import org.wikipedia.settings.Prefs;
-import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.theme.ThemeChooserDialog;
-import org.wikipedia.util.AnimationUtil;
 import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.DimenUtil;
@@ -64,7 +60,6 @@ import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.PageActionOverflowView;
 import org.wikipedia.views.TabCountsView;
 import org.wikipedia.views.ViewUtil;
-import org.wikipedia.widgets.WidgetProviderFeaturedPage;
 import org.wikipedia.wiktionary.WiktionaryDialog;
 
 import java.util.HashSet;
@@ -136,7 +131,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         app = (WikipediaApp) getApplicationContext();
-        AnimationUtil.setSharedElementTransitions(this);
 
         PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
 
@@ -176,7 +170,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         boolean languageChanged = false;
         if (savedInstanceState != null) {
             if (savedInstanceState.getBoolean("isSearching")) {
-                openSearchActivity(TOOLBAR, null);
+                openSearchActivity();
             }
             String language = savedInstanceState.getString(LANGUAGE_CODE_BUNDLE_KEY);
             languageChanged = !app.getAppOrSystemLanguageCode().equals(language);
@@ -196,7 +190,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     @OnClick(R.id.page_toolbar_button_search)
     public void onSearchButtonClicked() {
-        openSearchActivity(TOOLBAR, null);
+        openSearchActivity();
     }
 
     @OnClick(R.id.page_toolbar_button_tabs)
@@ -241,12 +235,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             default:
                 return super.onOptionsItemSelected(item);
         }
-    }
-
-    @Override
-    public boolean onSearchRequested() {
-        openSearchActivity(TOOLBAR, null);
-        return true;
     }
 
     private void goToMainTab(@NonNull NavTab tab) {
@@ -744,22 +732,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         return requestCode == Constants.ACTIVITY_REQUEST_GALLERY && resultCode == GalleryActivity.ACTIVITY_RESULT_IMAGE_CAPTION_ADDED;
     }
 
-    private boolean languageChanged(int resultCode) {
-        return resultCode == SettingsActivity.ACTIVITY_RESULT_LANGUAGE_CHANGED;
-    }
-
-    /**
-     * Update any instances of our Featured Page widget, since it will change with the currently selected language.
-     */
-    private void updateFeaturedPageWidget() {
-        Intent widgetIntent = new Intent(this, WidgetProviderFeaturedPage.class);
-        widgetIntent.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
-        int[] ids = AppWidgetManager.getInstance(getApplication()).getAppWidgetIds(
-                new ComponentName(this, WidgetProviderFeaturedPage.class));
-        widgetIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, ids);
-        sendBroadcast(widgetIntent);
-    }
-
     private void showDescriptionEditRevertDialog(@NonNull String qNumber) {
         new AlertDialog.Builder(this)
                 .setTitle(R.string.notification_reverted_title)
@@ -769,8 +741,8 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
                 .show();
     }
 
-    private void openSearchActivity(@NonNull InvokeSource source, @Nullable String query) {
-        Intent intent = SearchActivity.newIntent(this, source, query);
+    private void openSearchActivity() {
+        Intent intent = SearchActivity.newIntent(this, TOOLBAR, null);
         startActivity(intent);
     }
 
