@@ -764,7 +764,7 @@
     <item quantity="one">%d день</item>
     <item quantity="few">%d дня</item>
     <item quantity="many">%d дней</item>
-    <item quantity="other">дни</item>
+    <item quantity="other">%d дней</item>
   </plurals>
   <string name="suggested_edits_last_edited_never">Никогда</string>
   <string name="description_edit_revert_subtitle">Спасибо за редактирование Википедии!</string>
