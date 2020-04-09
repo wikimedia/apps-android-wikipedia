@@ -117,7 +117,7 @@
   <string name="menu_login">เข้าสู่ระบบ</string>
   <string name="login_activity_title">เข้าสู่ระบบวิกิพีเดีย</string>
   <string name="login_in_progress_dialog_message">กำลังเข้าสู่ระบบ…</string>
-  <string name="login_success_toast">เข้าสู่ระบบสำเร็จ!</string>
+  <string name="login_success_toast" fuzzy="true">เข้าสู่ระบบสำเร็จ!</string>
   <string name="reset_password_title">ตั้งรหัสผ่านของคุณ</string>
   <string name="reset_password_description">คุณเข้าสู่ระบบด้วยรหัสผ่านชั่วคราว คุณต้องตั้งรหัสผ่านใหม่ที่นี่เพื่อให้การเข้าสู่ระบบเสร็จสมบูรณ์</string>
   <string name="reset_password_hint">รหัสผ่านใหม่</string>
@@ -238,7 +238,7 @@
   <string name="gallery_menu_share">แบ่งปัน</string>
   <string name="gallery_share_error">ไม่สามารถแบ่งปันรูปภาพ: %s</string>
   <string name="gallery_save_progress">กำลังดาวน์โหลดไฟล์...</string>
-  <string name="gallery_save_success">บันทึกไฟล์เสร็จสมบูรณ์</string>
+  <string name="gallery_save_success" fuzzy="true">บันทึกไฟล์เสร็จสมบูรณ์</string>
   <string name="gallery_error_video_failed">ไม่สามารถเล่นวีดีโอได้</string>
   <string name="gallery_save_image_write_permission_rationale" fuzzy="true">ต้องการการยินยอมให้เขียนข้อมูลลงในที่จัดเก็บบนอุปกรณ์ของคุณ เพื่อบันทึกภาพ กรุณาลองอีกครั้ง และยินยอมการอนุญาต</string>
   <string name="err_cannot_save_file">ไม่สามารถบันทึกไฟล์</string>
@@ -277,8 +277,6 @@
   <string name="reading_list_save_to">บันทึกลงในรายการอ่าน</string>
   <string name="reading_list_create_new">สร้างใหม่</string>
   <string name="reading_list_title_exists">รายการอ่าน \"%s\" มีอยู่แล้ว</string>
-  <string name="reading_list_added_to_named">เพิ่มไปยัง%s</string>
-  <string name="reading_list_already_exists">บทความนี้มีอยู่ในรายการอยู่แล้ว</string>
   <string name="reading_list_added_view_button">ดูรายการ</string>
   <string name="reading_list_sort">เรียงลำดับ</string>
   <string name="reading_list_sort_by_name">เรียงตามชื่อ</string>

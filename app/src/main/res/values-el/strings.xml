@@ -113,7 +113,7 @@
   <string name="menu_login">Σύνδεση</string>
   <string name="login_activity_title">Σύνδεση στη Wikipedia</string>
   <string name="login_in_progress_dialog_message">Σύνδεση…</string>
-  <string name="login_success_toast">Επιτυχής σύνδεση!</string>
+  <string name="login_success_toast" fuzzy="true">Επιτυχής σύνδεση!</string>
   <string name="reset_password_title">Εισαγάγετε τον κωδικό σας</string>
   <string name="reset_password_description">Συνδεθήκατε με έναν προσωρινό κωδικό πρόσβασης. Για να ολοκληρώσετε τη σύνδεση, παρακαλώ ορίστε ένα νέο κωδικό πρόσβασης εδώ.</string>
   <string name="reset_password_hint">Νέος κωδικός πρόσβασης</string>
@@ -260,7 +260,7 @@
   <string name="gallery_menu_share">Κοινοποίηση</string>
   <string name="gallery_share_error">Δεν ήταν δυνατό να μοιραστεί η εικόνα: %s</string>
   <string name="gallery_save_progress">Λήψη αρχείου...</string>
-  <string name="gallery_save_success">Το αρχείο αποθηκεύτηκε με επιτυχία.</string>
+  <string name="gallery_save_success" fuzzy="true">Το αρχείο αποθηκεύτηκε με επιτυχία.</string>
   <string name="gallery_error_video_failed">Το βίντεο δεν μπόρεσε να παιχτεί.</string>
   <string name="gallery_save_image_write_permission_rationale">Απαιτείται άδεια για εγγραφή στο χώρο αποθήκευσης της συσκευής σας για να αποθηκεύσετε εικόνες.</string>
   <string name="err_cannot_save_file">Δεν ήταν δυνατό να αποθηκευτεί το αρχείο</string>
@@ -336,8 +336,6 @@
   <string name="reading_list_save_to">Αποθήκευση στη λίστα ανάγνωσης</string>
   <string name="reading_list_create_new">Δημιουργία νέας</string>
   <string name="reading_list_title_exists">Η λίστα ανάγνωσης \"%s\" ήδη υπάρχει.</string>
-  <string name="reading_list_added_to_named">Προστέθηκε στη %s.</string>
-  <string name="reading_list_already_exists">Το λήμμα είναι ήδη σε αυτή τη λίστα.</string>
   <string name="reading_list_added_view_button">Προβολή λίστας.</string>
   <string name="format_reading_list_statistical_summary_singular">1 λήμμα, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d λήμματα, %2$.2f MB</string>
@@ -387,7 +385,7 @@
   <string name="reading_list_login_reminder_title">Λίστες ανάγνωσης Sync</string>
   <string name="reading_lists_confirm_remote_delete_yes">Ναι</string>
   <string name="reading_lists_confirm_remote_delete_no">Όχι</string>
-  <string name="reading_list_added_articles_list_titled">Προστέθηκαν %1$d λήμματα στο %2$s</string>
+  <string name="reading_list_articles_added_to_named">Προστέθηκαν %1$d λήμματα στο %2$s</string>
   <string name="reading_list_delete_confirm">Είστε σίγουρος ότι θέλετε να διαγράψετε το %s;</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Συνδεθείτε για να ενεργοποιήσετε τον συγχρονισμό</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Ακύρωση</string>

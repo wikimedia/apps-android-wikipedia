@@ -5,6 +5,7 @@
 * Arifin.wijaya
 * Aviator
 * CyberTroopers
+* Dbrant
 * Envlh
 * Jeluang Terluang
 * Kurniasan
@@ -113,7 +114,7 @@
   <string name="menu_login">Log masuk</string>
   <string name="login_activity_title">Log masuk ke dalam Wikipedia</string>
   <string name="login_in_progress_dialog_message">Sedang log masuk…</string>
-  <string name="login_success_toast">Berjaya log masuk!</string>
+  <string name="login_success_toast" fuzzy="true">Berjaya log masuk!</string>
   <string name="reset_password_title">Tetapkan kata laluan anda</string>
   <string name="reset_password_description">Anda log masuk dengan kata laluan sementara. Untuk menyelesaikan log masuk, sila tetapkan kata laluan baru anda di sini.</string>
   <string name="reset_password_hint">Kata laluan baru</string>
@@ -268,7 +269,7 @@
   <string name="gallery_menu_share">Kongsi</string>
   <string name="gallery_share_error">Imej tidak dapat dikongsikan: %s</string>
   <string name="gallery_save_progress">Memuat turun fail...</string>
-  <string name="gallery_save_success">Fail berjaya disimpan.</string>
+  <string name="gallery_save_success" fuzzy="true">Fail berjaya disimpan.</string>
   <string name="gallery_error_video_failed">Video tidak dapat ditayangkan.</string>
   <string name="gallery_save_image_write_permission_rationale">Kebenaran untuk menulis kepada storan pada peranti anda diperlukan untuk menyimpan gambar.</string>
   <string name="gallery_add_image_caption_button">Tambah kapsyen gambar</string>
@@ -339,8 +340,6 @@
   <string name="page_footer_license_text">Kandungan tersedia di bawah $ 1 melainkan dinyatakan sebaliknya</string>
   <string name="empty_tab_title">Tab baru</string>
   <string name="menu_save_all_tabs">Simpan semua tab</string>
-  <string name="save_all_tabs_success_message">Berjaya menambah semua rencana dalam tab terbuka ke %s.</string>
-  <string name="save_all_tabs_articles_already_exist_message">Semua baik! %s sudah mengandungi semua rencana dalam tab terbuka.</string>
   <string name="crash_report_activity_title">Ralat aplikasi</string>
   <string name="crash_report_relaunch_or_quit">Maaf, aplikasi Wikipedia telah mengalami ralat dan terpaksa ditutup</string>
   <string name="crash_report_relaunch">Mula balik</string>
@@ -366,8 +365,7 @@
   <string name="reading_list_save_to">Simpan ke senarai bacaan</string>
   <string name="reading_list_create_new">Cipta yang baru</string>
   <string name="reading_list_title_exists">Senarai bacaan \"%s\" telah wujud.</string>
-  <string name="reading_list_added_to_named">Ditambahkan ke %s.</string>
-  <string name="reading_list_already_exists">Rencana ini sudah terdapat dalam senarai itu.</string>
+  <string name="reading_list_articles_already_exist_message" fuzzy="true">Semua baik! %s sudah mengandungi semua rencana dalam tab terbuka.</string>
   <string name="reading_list_added_view_button">Lihat senarai</string>
   <string name="format_reading_list_statistical_summary_singular">1 rencana, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d rencana, %2$.2f MB</string>
@@ -423,8 +421,7 @@
   <string name="reading_lists_confirm_remote_delete_yes">Ya</string>
   <string name="reading_lists_confirm_remote_delete_no">Tidak</string>
   <string name="reading_list_article_save_in_progress">Rencana sedang dimuat turun, dan ia akan tersedia di luar talian apabila selesai.</string>
-  <string name="reading_list_already_contains_selection">Senarai yang dipilih sudah mengandungi semua halaman yang dipilih.</string>
-  <string name="reading_list_added_articles_list_titled">%1$d ditambahkan ke %2$s</string>
+  <string name="reading_list_articles_added_to_named">%1$d ditambahkan ke %2$s</string>
   <string name="reading_list_delete_confirm">Adakah anda benar-benar ingin memadamkan %s?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Log masuk untuk mendayakan penyegerakan</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Log masuk untuk membolehkan senarai bacaan anda disimpan ke akaun anda.</string>
@@ -460,7 +457,7 @@
     <item quantity="one">Rencana ini tidak lagi tersedia di luar talian.</item>
     <item quantity="other">Rencana-rencana ini tidak lagi tersedia di luar talian.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync">Senarai bacaan berjaya disegerakkan</string>
+  <string name="reading_list_toast_last_sync" fuzzy="true">Senarai bacaan berjaya disegerakkan</string>
   <string name="reading_list_menu_last_sync">Penyegerakan lepas: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">OK</string>
   <string name="reading_list_delete_dialog_ok_button_text">OK</string>

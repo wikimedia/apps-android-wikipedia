@@ -149,7 +149,7 @@
   <string name="menu_login">Acceder</string>
   <string name="login_activity_title">Acceder a Wikipedia</string>
   <string name="login_in_progress_dialog_message">Accediendo…</string>
-  <string name="login_success_toast">Se inició la sesión correctamente.</string>
+  <string name="login_success_toast">Has accedido.</string>
   <string name="reset_password_title">Establecer contraseña</string>
   <string name="reset_password_description">Has accedido con una contraseña temporal. Para completar tu acceso, establece una contraseña nueva.</string>
   <string name="reset_password_hint">Contraseña nueva</string>
@@ -305,7 +305,7 @@
   <string name="gallery_menu_share">Compartir</string>
   <string name="gallery_share_error">No se pudo compartir la imagen: %s</string>
   <string name="gallery_save_progress">Descargando archivo…</string>
-  <string name="gallery_save_success">Archivo guardado correctamente.</string>
+  <string name="gallery_save_success">Se guardó el archivo.</string>
   <string name="gallery_error_video_failed">No se pudo reproducir el vídeo.</string>
   <string name="gallery_save_image_write_permission_rationale">Para guardar imágenes se necesita el permiso para escribir en el almacenamiento. Inténtalo de nuevo y otorga el permiso solicitado.</string>
   <string name="gallery_add_image_caption_button">Añadir pie de foto</string>
@@ -402,8 +402,6 @@
   <string name="reading_list_save_to">Guardar en lista de lectura</string>
   <string name="reading_list_create_new">Crear una nueva</string>
   <string name="reading_list_title_exists">La lista de lectura «%s» ya existe.</string>
-  <string name="reading_list_added_to_named">Añadido a %s.</string>
-  <string name="reading_list_already_exists">Este artículo ya está en esa lista.</string>
   <string name="reading_list_added_view_button">Ver lista</string>
   <string name="format_reading_list_statistical_summary_singular">1 artículo, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d artículos, %2$.2f MB</string>
@@ -459,8 +457,7 @@
   <string name="reading_lists_confirm_remote_delete_yes">Sí</string>
   <string name="reading_lists_confirm_remote_delete_no">No</string>
   <string name="reading_list_article_save_in_progress">El artículo está descargándose y estará disponible sin conexión cuando finalice el proceso.</string>
-  <string name="reading_list_already_contains_selection">La lista elegida ya contiene todas las páginas seleccionadas.</string>
-  <string name="reading_list_added_articles_list_titled">Se añadieron %1$d artículos a %2$s</string>
+  <string name="reading_list_articles_added_to_named">Se añadieron %1$d artículos a %2$s</string>
   <string name="reading_list_delete_confirm">¿Confirmas que quieres eliminar %s?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Accede para activar la sincronización</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Accede a tu cuenta para permitir que se guarden tus listas de lectura.</string>
@@ -496,7 +493,7 @@
     <item quantity="one">Este artículo ya no estará disponible sin conexión.</item>
     <item quantity="other">Estos artículos ya no estarán disponibles sin conexión.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync">Lectura de listas sincronizadas exitosa</string>
+  <string name="reading_list_toast_last_sync">Se sincronizaron las listas de lectura</string>
   <string name="reading_list_menu_last_sync">Última sincronización: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">Aceptar</string>
   <string name="reading_list_delete_dialog_ok_button_text">Aceptar</string>

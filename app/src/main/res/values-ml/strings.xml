@@ -105,7 +105,7 @@
   <string name="menu_login">പ്രവേശിക്കുക</string>
   <string name="login_activity_title">വിക്കിപീഡിയയിൽ പ്രവേശിക്കുക</string>
   <string name="login_in_progress_dialog_message">താങ്കളെ പ്രവേശിപ്പിക്കുന്നു…</string>
-  <string name="login_success_toast">പ്രവേശനം വിജയകരം!</string>
+  <string name="login_success_toast" fuzzy="true">പ്രവേശനം വിജയകരം!</string>
   <string name="reset_password_title">താങ്കളുടെ രഹസ്യവാക്ക് സജ്ജീകരിക്കുക</string>
   <string name="reset_password_description">താൽക്കാലിക രഹസ്യവാക്ക് ഉപയോഗിച്ചാണ് താങ്കൾ പ്രവേശിച്ചിരിക്കുന്നത്.\nപ്രവേശനം പൂർത്തിയാക്കാൻ, ഇവിടെ പുതിയ രഹസ്യവാക്ക് സജ്ജമാക്കുക:</string>
   <string name="reset_password_hint">പുതിയ രഹസ്യവാക്ക്</string>
@@ -299,8 +299,6 @@
   <string name="nav_item_reading_lists">എന്റെ പട്ടികകൾ</string>
   <string name="reading_list_save_to">വായന പട്ടികയിലേക്ക് ചേർക്കുക</string>
   <string name="reading_list_create_new">പുതിയത് സൃഷ്ടിക്കുക</string>
-  <string name="reading_list_added_to_named">%s പട്ടികയിലേക്ക് ചേർക്കുക</string>
-  <string name="reading_list_already_exists">ഈ ലേഖനം പട്ടികയിൽ നേരത്തേയുണ്ട്.</string>
   <string name="reading_list_added_view_button">പട്ടിക കാണുക</string>
   <string name="reading_list_sort">ക്രമീകരിക്കുക</string>
   <string name="reading_list_sort_ellipsis">ഇങ്ങനെ ക്രമപ്പെടുത്തുക...</string>

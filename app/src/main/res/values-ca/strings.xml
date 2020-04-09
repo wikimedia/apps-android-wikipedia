@@ -123,7 +123,7 @@
   <string name="menu_login">Inicia la sessió</string>
   <string name="login_activity_title">Inicia sessió a la Viquipèdia</string>
   <string name="login_in_progress_dialog_message">S’està iniciant la sessió…</string>
-  <string name="login_success_toast">S\'ha iniciat la sessió correctament!</string>
+  <string name="login_success_toast">S’ha iniciat la sessió.</string>
   <string name="reset_password_title">Definiu una contrasenya</string>
   <string name="reset_password_description">Heu iniciat una sessió amb una contrasenya temporal. Per a finalitzar la sessió definiu una contrasenya nova.</string>
   <string name="reset_password_hint">Contrasenya nova</string>
@@ -279,7 +279,7 @@
   <string name="gallery_menu_share">Comparteix</string>
   <string name="gallery_share_error">No s\'ha pogut compartir la imatge: %s</string>
   <string name="gallery_save_progress">S\'està baixant el fitxer…</string>
-  <string name="gallery_save_success">La imatge s\'ha desat correctament.</string>
+  <string name="gallery_save_success">S’ha desat el fitxer.</string>
   <string name="gallery_error_video_failed">No s\'ha pogut reproduir el vídeo.</string>
   <string name="gallery_save_image_write_permission_rationale">Cal tenir permís d’escriptura en el vostre dispositiu per a poder desar les imatges.</string>
   <string name="gallery_add_image_caption_button">Afegeix una llegenda a la imatge</string>
@@ -351,8 +351,6 @@
   <string name="page_footer_license_text">El contingut està disponible sota $1 si no s\'indica el contrari</string>
   <string name="empty_tab_title">Pestanya nova</string>
   <string name="menu_save_all_tabs">Desa totes les pestanyes</string>
-  <string name="save_all_tabs_success_message">S\'han afegit amb èxit tots els articles de les pestanyes obertes a %s.</string>
-  <string name="save_all_tabs_articles_already_exist_message">Tot bé! %s ja conté tots els articles en les pestanyes obertes.</string>
   <string name="crash_report_activity_title">Error de l\'aplicació</string>
   <string name="crash_report_relaunch_or_quit">Ens sap greu, l\'aplicació de Viquipèdia ha experimentat un error i s\'ha tancat.\n\nVoleu començar de nou o sortir?</string>
   <string name="crash_report_relaunch">Comença de nou</string>
@@ -378,8 +376,7 @@
   <string name="reading_list_save_to">Desa a la llista de lectura</string>
   <string name="reading_list_create_new">Crea’n una nova</string>
   <string name="reading_list_title_exists">La llista de lectura «%s» ja existeix.</string>
-  <string name="reading_list_added_to_named">Afegit a %s.</string>
-  <string name="reading_list_already_exists">L\'article ja és a la llista.</string>
+  <string name="reading_list_articles_already_exist_message" fuzzy="true">Tot bé! %s ja conté tots els articles en les pestanyes obertes.</string>
   <string name="reading_list_added_view_button">Mostra la llista</string>
   <string name="format_reading_list_statistical_summary_singular">1 article, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d articles, %2$.2f MB</string>
@@ -435,8 +432,7 @@
   <string name="reading_lists_confirm_remote_delete_yes">Sí</string>
   <string name="reading_lists_confirm_remote_delete_no">No</string>
   <string name="reading_list_article_save_in_progress">S\'està baixant l\'article. Estarà disponible fora de línia quan acabi.</string>
-  <string name="reading_list_already_contains_selection">La llista triada ja conté totes les pàgines seleccionades.</string>
-  <string name="reading_list_added_articles_list_titled">S\'han afegit %1$d articles a %2$s</string>
+  <string name="reading_list_articles_added_to_named">S\'han afegit %1$d articles a %2$s</string>
   <string name="reading_list_delete_confirm">Esteu segur que voleu suprimir %s?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Inicieu una sessió per habilitar la sincronització</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Inicieu una sessió per permetre desar les llistes de lectura al vostre compte.</string>
@@ -472,7 +468,7 @@
     <item quantity="one">Aquest article no continuarà estant disponible fora de línia.</item>
     <item quantity="other">Aquests articles no continuaran estant disponibles fora de línia.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync">Les llistes de lectura s’han sincronitzat correctament</string>
+  <string name="reading_list_toast_last_sync">S’han sincronitzat les llistes de lectura</string>
   <string name="reading_list_menu_last_sync">Darrera sincronització: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">D’acord</string>
   <string name="reading_list_delete_dialog_ok_button_text">D’acord</string>

@@ -88,7 +88,7 @@
   <string name="menu_login">Têkeve</string>
   <string name="login_activity_title">Têkeve Wîkîpediyayê</string>
   <string name="login_in_progress_dialog_message">Niha têdikeve...</string>
-  <string name="login_success_toast">Têketin serkeftî bû!</string>
+  <string name="login_success_toast" fuzzy="true">Têketin serkeftî bû!</string>
   <string name="reset_password_title">Şîfreya xwe eyar bike</string>
   <string name="reset_password_description">Te bi şîfreyek demkî têket. Ji bo ku çalakiya têketinê temam bikî, xêra xwe şîfreya xwe ya nû li vir binivîse.</string>
   <string name="reset_password_hint">Şîfreya nû</string>
@@ -169,7 +169,7 @@
   <string name="preference_title_show_images">Wêneyan nîşan bide</string>
   <string name="read_more_section">Zêdetir bixwîne</string>
   <string name="gallery_menu_share">Parve bike</string>
-  <string name="gallery_save_success">Pel bi awayekî serkeftî hate tomarkirin.</string>
+  <string name="gallery_save_success" fuzzy="true">Pel bi awayekî serkeftî hate tomarkirin.</string>
   <string name="err_cannot_save_file">Dosye nikare bê tomarkirin</string>
   <string name="share_snippet_button">Wek wêne parve bike</string>
   <string name="share_normal_button">Wek nivîs parve bike</string>
@@ -195,8 +195,6 @@
   <string name="nav_item_reading_lists">Lîsteyên min</string>
   <string name="reading_list_save_to">Li lîsteya xwendinê qeyd bike</string>
   <string name="reading_list_create_new">Yekê nû çêke</string>
-  <string name="reading_list_added_to_named">Li %s hate îlawekirin.</string>
-  <string name="reading_list_already_exists">Ev gotar jixwe di vê lîsteyê de ye.</string>
   <string name="reading_list_added_view_button">Lîsteyê bibîne</string>
   <string name="reading_list_sort_by_name">Li gorî nav rêz bike</string>
   <string name="reading_list_menu_delete">Lîsteyê jê bibe</string>

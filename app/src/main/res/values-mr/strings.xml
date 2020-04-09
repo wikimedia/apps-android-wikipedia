@@ -83,7 +83,7 @@
   <string name="menu_login">सनोंद-प्रवेश करा</string>
   <string name="login_activity_title">विकिपीडियात सनोंद-प्रवेश करा</string>
   <string name="login_in_progress_dialog_message">तुमचा प्रवेश नोंदवत आहे…</string>
-  <string name="login_success_toast">यशस्वीरित्या सनोंद प्रवेशित!</string>
+  <string name="login_success_toast" fuzzy="true">यशस्वीरित्या सनोंद प्रवेशित!</string>
   <string name="preference_title_logout">बाहेर पडा</string>
   <string name="toast_logout_complete">सनोंद-निर्गमित</string>
   <string name="history_empty_title">अलीकडील पाने येथे नाहीत!</string>
@@ -202,7 +202,7 @@
   <string name="gallery_menu_share">सहभाग करा</string>
   <string name="gallery_share_error">चित्र सहभागी करु शकलो नाही:%s</string>
   <string name="gallery_save_progress">संचिका अधिभारण करीत आहे…</string>
-  <string name="gallery_save_success">संचिका यशस्वीरित्या जतन केली.</string>
+  <string name="gallery_save_success" fuzzy="true">संचिका यशस्वीरित्या जतन केली.</string>
   <string name="gallery_error_video_failed">व्हिडिओ चालवता आला नाही.</string>
   <string name="gallery_save_image_write_permission_rationale">चित्रे जतन करण्यास, आपल्या उपकरणावर, भांडार-लेखन परवानगी आवश्यक आहे.</string>
   <string name="err_cannot_save_file">संचिका जतन करता येत नाही.</string>
@@ -272,8 +272,6 @@
   <string name="nav_item_reading_lists">माझ्या याद्या</string>
   <string name="reading_list_save_to">वाचन यादीत जतन करा</string>
   <string name="reading_list_create_new">नवीन तयार करा</string>
-  <string name="reading_list_added_to_named">%s ला जोडले.</string>
-  <string name="reading_list_already_exists">हा लेख यादीत पूर्वीच आहे.</string>
   <string name="reading_list_added_view_button">यादी बघा</string>
   <string name="reading_list_sort">निवडा</string>
   <string name="reading_list_sort_by_name">नावानुसार निवडा</string>

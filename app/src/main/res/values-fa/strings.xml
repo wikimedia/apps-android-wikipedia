@@ -133,7 +133,7 @@
   <string name="menu_login">ورود به سامانه</string>
   <string name="login_activity_title">ورود به ویکی‌پدیا</string>
   <string name="login_in_progress_dialog_message">در حال وارد شدن به سامانه…</string>
-  <string name="login_success_toast">ورود با موفقیت انجام شد!</string>
+  <string name="login_success_toast" fuzzy="true">ورود با موفقیت انجام شد!</string>
   <string name="reset_password_title">تنظیم گذرواژه</string>
   <string name="reset_password_description">با گذرواژهٔ موقت به سامانه وارد شدید. برای ورود مجدد گذرواژهٔ جدید انتخاب کنید.</string>
   <string name="reset_password_hint">گذرواژهٔ جدید</string>
@@ -289,7 +289,7 @@
   <string name="gallery_menu_share">به‌اشتراک‌گذاشتن</string>
   <string name="gallery_share_error">امکان به اشتراک‌گذاری تصویر نیست: %s</string>
   <string name="gallery_save_progress">در حال دریافت پرونده…</string>
-  <string name="gallery_save_success">پرونده با موفقیت ذخیره‌شده‌است</string>
+  <string name="gallery_save_success" fuzzy="true">پرونده با موفقیت ذخیره‌شده‌است</string>
   <string name="gallery_error_video_failed">امکان پخش ویدئو وجود ندارد.</string>
   <string name="gallery_save_image_write_permission_rationale">برای ذخیره تصاویر نیازمند اجازه ذخیره بر روی دستگاهتان است.</string>
   <string name="gallery_add_image_caption_in_language_button">افزودن توضیح تصویر (%s)</string>
@@ -377,8 +377,6 @@
   <string name="reading_list_save_to">ذخیره در فهرست مطالعه</string>
   <string name="reading_list_create_new">ایجاد جدید</string>
   <string name="reading_list_title_exists">فهرست خواندن «%s» موجود است.</string>
-  <string name="reading_list_added_to_named">به %s افزوده شد</string>
-  <string name="reading_list_already_exists">این مقاله در فهرست مطالعه موجود است.</string>
   <string name="reading_list_added_view_button">مشاهدهٔ فهرست</string>
   <string name="format_reading_list_statistical_summary_singular">۱ مقاله، %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d مقاله، %2$.2f مگابایت</string>
@@ -434,8 +432,7 @@
   <string name="reading_lists_confirm_remote_delete_yes">بله</string>
   <string name="reading_lists_confirm_remote_delete_no">خیر</string>
   <string name="reading_list_article_save_in_progress">بارگیری مقاله در حال انجام است و به صورت آفلاین قابل دسترس خواهد بود.</string>
-  <string name="reading_list_already_contains_selection">فهرست انتخاب‌شده همیشه شامل همهٔ صفحات انتخاب‌شده‌ است.</string>
-  <string name="reading_list_added_articles_list_titled">%1$d مقاله به %2$s اضافه شد</string>
+  <string name="reading_list_articles_added_to_named">%1$d مقاله به %2$s اضافه شد</string>
   <string name="reading_list_delete_confirm">آیا مطمئن هستید که می‌خواهید %s را حذف کنید؟</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">برای فعال‌کردن همسان‌سازی وارد شوید</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">برای اجازه ذخیره‌شدن فهرست‌های مطالعه در حساب کاربری خود وارد شوید.</string>
@@ -471,7 +468,7 @@
     <item quantity="one">دیگر در حالت آفلاین مقاله در دسترس نیست.</item>
     <item quantity="other">دیگر در حالت آفلاین این مقالات در دسترس نیستند.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync">فهرست مطالعه با موفقیت همگام سازی شد</string>
+  <string name="reading_list_toast_last_sync" fuzzy="true">فهرست مطالعه با موفقیت همگام سازی شد</string>
   <string name="reading_list_menu_last_sync">آخرین هم‌زمان‌سازی: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">تأیید</string>
   <string name="reading_list_delete_dialog_ok_button_text">تأیید</string>

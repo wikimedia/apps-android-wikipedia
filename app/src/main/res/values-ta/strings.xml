@@ -119,7 +119,7 @@
   <string name="menu_login">புகுபதிகை</string>
   <string name="login_activity_title">விக்கிப்பீடியாவில் புகுபதிகை செய்</string>
   <string name="login_in_progress_dialog_message">புகுபதிகையாகின்றது…</string>
-  <string name="login_success_toast">புகுபதிகை வெற்றி</string>
+  <string name="login_success_toast" fuzzy="true">புகுபதிகை வெற்றி</string>
   <string name="reset_password_title">உங்கள் கடவுச்சொல்லை அமைக்கவும்</string>
   <string name="reset_password_description">நீங்கள் தற்காலிகமாக மின்னஞ்சல் செய்யப்பட்ட குறியீடுடன் புகுபதிந்துள்ளீர்.\nபுகுபதிவை நிறைவு செய்ய, புதிய கடவுச்சொல்லை இங்கு உருவாக்குங்கள்.</string>
   <string name="reset_password_hint">புதிய கடவுச்சொல்</string>
@@ -264,7 +264,7 @@
   <string name="gallery_menu_share">பகிர்</string>
   <string name="gallery_share_error">%s படிமத்தை பகிர இயலவில்லை</string>
   <string name="gallery_save_progress">கோப்பு பதிவிறக்கம் செய்யப்படுகிறது...</string>
-  <string name="gallery_save_success">கோப்பு வெற்றிகரமாக சேமிக்கப்பட்டது.</string>
+  <string name="gallery_save_success" fuzzy="true">கோப்பு வெற்றிகரமாக சேமிக்கப்பட்டது.</string>
   <string name="gallery_error_video_failed">காணொளியை இயக்க இயலவில்லை.</string>
   <string name="gallery_save_image_write_permission_rationale">படங்களை இந்த சேமிபகத்தில் சேமிப்பதற்கு எழுவதற்கான அனுமதி தேவை.</string>
   <string name="err_cannot_save_file">ஆவணத்தை சேமிக்க முடியாது.</string>
@@ -333,8 +333,6 @@
   <string name="reading_list_save_to">படிக்கும் பட்டியலில் சேர்க</string>
   <string name="reading_list_create_new">புதிதாக உருவாக்கவும்</string>
   <string name="reading_list_title_exists">%s படிக்கும் பட்டியலில் ஏற்கனவே உள்ளது.</string>
-  <string name="reading_list_added_to_named">%sக்கு சேர்க்கப்பட்டது.</string>
-  <string name="reading_list_already_exists">அந்தப் பட்டியலில் ஏற்கனவே இந்த கட்டுரை உள்ளது.</string>
   <string name="reading_list_added_view_button">பட்டியலை பார்வையிடுக</string>
   <string name="format_reading_list_statistical_summary_singular">1 கட்டுரை %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d கட்டுரைகள், %2$.2f MB</string>

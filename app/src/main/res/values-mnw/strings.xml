@@ -107,7 +107,7 @@
   <string name="menu_login">လုပ်လံက်အေန်</string>
   <string name="login_activity_title">လုပ်လံက်အေန် ပ္ဍဲ ဝဳကဳပဳဒဳယာ</string>
   <string name="login_in_progress_dialog_message">လုပ်လံက်အေန်ဒၟံင် ...</string>
-  <string name="login_success_toast">လုပ်လံက်အေန် အံင်ဇၞးပေင်င်!</string>
+  <string name="login_success_toast" fuzzy="true">လုပ်လံက်အေန် အံင်ဇၞးပေင်င်!</string>
   <string name="reset_password_title">စုတ် မလိက်ပၞုက် မၞး</string>
   <string name="reset_password_description">မၞး လုပ်လံက်အေန်လဝ် နကဵု မလိက်ပၞုက်ယာယဳ၊၊ တၞဟ်န မဂွံပတုဲ လုပ်လံက်အေန်၊ ပဂုန်တုဲ စုတ် မလိက်ပၞုက် တၟိညိ၊၊</string>
   <string name="reset_password_hint">မလိက်ပၞုက် တၟိ</string>
@@ -261,7 +261,7 @@
   <string name="gallery_menu_share">ပါ်ပရအ်</string>
   <string name="gallery_share_error">ပါ်ပရအ် ဗီုရုပ် %s ဟွံဂွံ</string>
   <string name="gallery_save_progress">တံင်လုပ်ကေတ်ဒၟံင် ဝှာင်...</string>
-  <string name="gallery_save_success">ဝှာင်ဂှ် ဂိုင်သိပ်ဂွံ ဗွဲမအံင်ဇၞး၊၊</string>
+  <string name="gallery_save_success" fuzzy="true">ဝှာင်ဂှ် ဂိုင်သိပ်ဂွံ ဗွဲမအံင်ဇၞး၊၊</string>
   <string name="gallery_error_video_failed">ပံက် ဗဳဒဳယောဏအ် ဟွံဂွံ၊၊</string>
   <string name="gallery_save_image_write_permission_rationale">အခေါင်အရာ သွက်ဂွံ ချူ ပ္ဍဲ ဒၞာဲမဂိုင်ဒိပ် မၞးဂှ် အာတ်မိက်ဒၟံင် သွက်ဂွံ ဂိုင်သိပ် ဗီုရုပ်တအ်၊၊</string>
   <string name="gallery_add_image_caption_button">စုတ် ပရူပရာ ဗီုရုပ်</string>
@@ -351,8 +351,6 @@
   <string name="reading_list_save_to">စုတ် ပ္ဍဲ စရင် လိက်ဗွဟ်</string>
   <string name="reading_list_create_new">ခၞံကၠောန် တၟိ</string>
   <string name="reading_list_title_exists">စရင် လိက်ဗွဟ် %s ဂှ် နွံဒၟံင် တုဲတုဲ၊၊</string>
-  <string name="reading_list_added_to_named">စုတ် ပ္ဍဲ %s</string>
-  <string name="reading_list_already_exists">လိက်ပရေင်ဏအ် နွံ ပ္ဍဲ စရင်ဂှ် တုဲတုဲရ၊၊</string>
   <string name="reading_list_added_view_button">ဗဵု စရင်</string>
   <string name="format_reading_list_statistical_summary_singular">၁ လိက်ပရေင်, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d လိက်ပရေင်, %2$.2f MB</string>
@@ -408,8 +406,7 @@
   <string name="reading_lists_confirm_remote_delete_yes">ယွံ</string>
   <string name="reading_lists_confirm_remote_delete_no">ဟအှ်ေ</string>
   <string name="reading_list_article_save_in_progress">လိက်ပရေင်ဏအ် တံင်လုပ်ဒၟံင်၊ ကာလတုဲမ္ဂး လိက်ဂှ် ဗှ် မ္ၚးလာင်ဂွံရ၊၊</string>
-  <string name="reading_list_already_contains_selection">စရင် မရုဲစှ်လဝ်တအ်ဂှ် ပါလုပ်ဒၟံင် ပ္ဍဲ မုက်လိက် မရုဲစှ်လဝ်တုဲတုဲတအ် သီုဖအိုတ်၊၊</string>
-  <string name="reading_list_added_articles_list_titled">စုတ် %1$d လိက်ပရေင် ပ္ဍဲ %2$s</string>
+  <string name="reading_list_articles_added_to_named">စုတ် %1$d လိက်ပရေင် ပ္ဍဲ %2$s</string>
   <string name="reading_list_delete_confirm">မၞး မိက်ဂွံ ဇိုတ်ပလီု %s ကွေဟ်ဟ်ရဟာ？</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">လုပ်လံက်အေန် သွက်ဂွံ ကချဳဓရာင်</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">လုပ်လံက်အေန် သွက်ဂွံ ကဵုအခေါင် စရင် လိက်ဗွဟ် မၞး ဂွံ ဂိုင်သိပ် ပ္ဍဲ အကံက် မၞး၊၊</string>
@@ -445,7 +442,7 @@
     <item quantity="one">လိက်ပရေင်ဏအ် ဗှ် မ္ၚးလာင် ဟွံဂွံရ </item>
     <item quantity="other">These articles will no longer be available offline.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync">ပချဳဓရာင် စရင်လိက်သွက်ဂွံဗှ် အံင်ဇၞးခိုဟ်ဟ်</string>
+  <string name="reading_list_toast_last_sync" fuzzy="true">ပချဳဓရာင် စရင်လိက်သွက်ဂွံဗှ် အံင်ဇၞးခိုဟ်ဟ်</string>
   <string name="reading_list_menu_last_sync">ပံၚ်လကြဴအိုတ်: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">OK</string>
   <string name="reading_list_delete_dialog_ok_button_text">OK</string>

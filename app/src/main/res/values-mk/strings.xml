@@ -110,7 +110,7 @@
   <string name="menu_login">Најава</string>
   <string name="login_activity_title">Најава на Википедија</string>
   <string name="login_in_progress_dialog_message">Ве најавувам…</string>
-  <string name="login_success_toast">Најавата успеа!</string>
+  <string name="login_success_toast">Се најавивте!</string>
   <string name="reset_password_title">Ставете лозинка</string>
   <string name="reset_password_description">Се најавивте со привремена лозинка. За да ја довршите најавата, тука задајте нова.</string>
   <string name="reset_password_hint">Нова лозинка</string>
@@ -268,7 +268,7 @@
   <string name="gallery_menu_share">Сподели</string>
   <string name="gallery_share_error">Не можев да ја споделам сликата: %s</string>
   <string name="gallery_save_progress">Ја преземам податотеката…</string>
-  <string name="gallery_save_success">Податотеката е успешно зачувана.</string>
+  <string name="gallery_save_success">Податотеката е зачувана.</string>
   <string name="gallery_error_video_failed">Не можам да го пуштам видеото.</string>
   <string name="gallery_save_image_write_permission_rationale">Се бара дозвола за зачувување слики на вашиот уред.</string>
   <string name="gallery_add_image_caption_button">Додај опис на сликата</string>
@@ -340,8 +340,6 @@
   <string name="page_footer_license_text">Содржината е достапна под $1, освен ако не е поинаку наведено</string>
   <string name="empty_tab_title">Ново јазиче</string>
   <string name="menu_save_all_tabs">Зачувај ги сите јазичиња</string>
-  <string name="save_all_tabs_success_message">Успешно ставени сите статии од отворените јазичиња во %s.</string>
-  <string name="save_all_tabs_articles_already_exist_message">Сè е во ред! %s веќе ги содржи сите статии во отворени јазичиња.</string>
   <string name="crash_report_activity_title">Грешка во прилогот</string>
   <string name="crash_report_relaunch_or_quit">За жал, прилогот наиде на грешка и беше запрен.\n\nДали би сакале да почнете одново или да напуштите?</string>
   <string name="crash_report_relaunch">Почни одново</string>
@@ -367,8 +365,9 @@
   <string name="reading_list_save_to">Зачувај во списокот за читање</string>
   <string name="reading_list_create_new">Создај нов</string>
   <string name="reading_list_title_exists">Списокот за читање „%s“ веќе постои.</string>
-  <string name="reading_list_added_to_named">Додадено во %s.</string>
-  <string name="reading_list_already_exists">Статијава веќе стои на тој список.</string>
+  <string name="reading_list_article_added_to_named">Додаден %1$s во %2$s.</string>
+  <string name="reading_list_article_already_exists_message">Сè е во ред! %1$s веќе ја содржи %2$s.</string>
+  <string name="reading_list_articles_already_exist_message">Сè е во ред! %s веќе ги содржи сите статии.</string>
   <string name="reading_list_added_view_button">Погл. списокот</string>
   <string name="format_reading_list_statistical_summary_singular">1 статија, %1$.2f МБ</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d статии, %2$.2f МБ</string>
@@ -424,8 +423,7 @@
   <string name="reading_lists_confirm_remote_delete_yes">Да</string>
   <string name="reading_lists_confirm_remote_delete_no">Не</string>
   <string name="reading_list_article_save_in_progress">Преземањето на статијата е во тек. Ќе биде достапна вонмрежно кога ќе заврши.</string>
-  <string name="reading_list_already_contains_selection">Избраниот список веќе ги содржи сите одбрани страници.</string>
-  <string name="reading_list_added_articles_list_titled">Додадени %1$d статии во %2$s</string>
+  <string name="reading_list_articles_added_to_named">Додадени %1$d статии во %2$s</string>
   <string name="reading_list_delete_confirm">Дали сте сигурни дека сакате да го избришете %s?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Најавете се за да го овозможите усогласувањето</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Најавете се за да дозволите списоците за читање да се зачуваат во вашата сметка.</string>
@@ -461,7 +459,7 @@
     <item quantity="one">Статијава повеќе нема да биде достапна вонмрежно.</item>
     <item quantity="other">Статииве повеќе нема да бидат достапни вонмрежно.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync">Списоците за читање се успешно усогласени</string>
+  <string name="reading_list_toast_last_sync">Списоците за читање се усогласени</string>
   <string name="reading_list_menu_last_sync">Последно усогласување: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">ОК</string>
   <string name="reading_list_delete_dialog_ok_button_text">ОК</string>

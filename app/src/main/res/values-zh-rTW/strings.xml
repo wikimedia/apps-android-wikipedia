@@ -125,7 +125,7 @@
   <string name="menu_login">登入</string>
   <string name="login_activity_title">登入維基百科</string>
   <string name="login_in_progress_dialog_message">正在登入…</string>
-  <string name="login_success_toast">登入成功！</string>
+  <string name="login_success_toast">已登入！</string>
   <string name="reset_password_title">設定您的密碼</string>
   <string name="reset_password_description">您以臨時密碼登入。要完成登入，請在此設定您的新密碼。</string>
   <string name="reset_password_hint">新密碼</string>
@@ -283,7 +283,7 @@
   <string name="gallery_menu_share">分享</string>
   <string name="gallery_share_error">無法分享圖片：%s</string>
   <string name="gallery_save_progress">正在下載檔案…</string>
-  <string name="gallery_save_success">已成功儲存檔案。</string>
+  <string name="gallery_save_success">已儲存檔案。</string>
   <string name="gallery_error_video_failed">無法播放影片</string>
   <string name="gallery_save_image_write_permission_rationale">需要寫入您的裝置儲存庫的權限方能儲存圖片。</string>
   <string name="gallery_add_image_caption_button">新增語言說明</string>
@@ -355,8 +355,6 @@
   <string name="page_footer_license_text">除非另有註明，否則頁面內容均以 $1 條款授權</string>
   <string name="empty_tab_title">新分頁</string>
   <string name="menu_save_all_tabs">儲存所有分頁</string>
-  <string name="save_all_tabs_success_message">成功新增在所有開啟分頁裡的條目到%s。</string>
-  <string name="save_all_tabs_articles_already_exist_message">一切完成！%s已包含了在所有開啟分頁裡的條目。</string>
   <string name="crash_report_activity_title">應用程式錯誤</string>
   <string name="crash_report_relaunch_or_quit">很抱歉，維基百科應用程式發生錯誤並且已終止運行。\n\n要重新啟動，還是結束程式？</string>
   <string name="crash_report_relaunch">重新啟動</string>
@@ -382,8 +380,9 @@
   <string name="reading_list_save_to">儲存至閱讀清單</string>
   <string name="reading_list_create_new">建立新的</string>
   <string name="reading_list_title_exists">已有名為「%s」的閱讀清單。</string>
-  <string name="reading_list_added_to_named">已新增至 %s。</string>
-  <string name="reading_list_already_exists">這個條目已經在清單之中。</string>
+  <string name="reading_list_article_added_to_named">已新增%1$s到%2$s。</string>
+  <string name="reading_list_article_already_exists_message">一切完成！%1$s已包含%2$s。</string>
+  <string name="reading_list_articles_already_exist_message">一切完成！%s已包含所有條目。</string>
   <string name="reading_list_added_view_button">檢視清單</string>
   <string name="format_reading_list_statistical_summary_singular">1 個條目，%1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d 個條目，%2$.2f MB</string>
@@ -439,8 +438,7 @@
   <string name="reading_lists_confirm_remote_delete_yes">是</string>
   <string name="reading_lists_confirm_remote_delete_no">否</string>
   <string name="reading_list_article_save_in_progress">條目下載進行中，完成之後可用於離線狀態下。</string>
-  <string name="reading_list_already_contains_selection">挑選清單已包含所有已選頁面。</string>
-  <string name="reading_list_added_articles_list_titled">已添加 %1$d 個條目至%2$s</string>
+  <string name="reading_list_articles_added_to_named">已添加 %1$d 個條目至%2$s</string>
   <string name="reading_list_delete_confirm">你確定要刪除%s？</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">登入來啟用同步</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">登入來允許您的閱讀清單可儲存至您的帳號裡。</string>
@@ -476,7 +474,7 @@
     <item quantity="one">此條目不再可離線閱讀。</item>
     <item quantity="other">這些條目不再可離線閱讀。</item>
   </plurals>
-  <string name="reading_list_toast_last_sync">成功同步閱讀清單</string>
+  <string name="reading_list_toast_last_sync">已同步閱讀清單</string>
   <string name="reading_list_menu_last_sync">上一次同步：%s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">確認</string>
   <string name="reading_list_delete_dialog_ok_button_text">確認</string>

@@ -120,7 +120,7 @@
   <string name="menu_login">Prihlásiť sa</string>
   <string name="login_activity_title">Prihlásiť sa na Wikipédiu</string>
   <string name="login_in_progress_dialog_message">Prihlasujem…</string>
-  <string name="login_success_toast">Prihlásenie bolo úspešné!</string>
+  <string name="login_success_toast" fuzzy="true">Prihlásenie bolo úspešné!</string>
   <string name="reset_password_title">Nastavte svoje heslo</string>
   <string name="reset_password_description">Ste prihlásení s dočasným heslom. Ak chcete dokončiť prihlásenie, nastavte si tu nové heslo.</string>
   <string name="reset_password_hint">Nové heslo</string>
@@ -277,7 +277,7 @@
   <string name="gallery_menu_share">Zdieľať</string>
   <string name="gallery_share_error">Obrázok nebolo možné zdielať: %s</string>
   <string name="gallery_save_progress">Preberanie súboru…</string>
-  <string name="gallery_save_success">Súbor bol úspešne uložený.</string>
+  <string name="gallery_save_success" fuzzy="true">Súbor bol úspešne uložený.</string>
   <string name="gallery_error_video_failed">Nepodarilo sa prehrať video.</string>
   <string name="gallery_save_image_write_permission_rationale">Na uloženie obrázkov je nutné povolenie na zápis údajov do zariadenia.</string>
   <string name="gallery_add_image_caption_button">Pridať titulok obrázku</string>
@@ -373,8 +373,6 @@
   <string name="reading_list_save_to">Uložiť do zoznamu na prečítanie</string>
   <string name="reading_list_create_new">Vytvoriť nový</string>
   <string name="reading_list_title_exists">Zoznam na prečítanie s názvom „%s“ už existuje.</string>
-  <string name="reading_list_added_to_named">Článok bol pridaný do zoznamu %s</string>
-  <string name="reading_list_already_exists">Tento článok sa už v zozname na prečítanie nachádza.</string>
   <string name="reading_list_added_view_button">Zobraziť zoznam</string>
   <string name="format_reading_list_statistical_summary_singular">1 článok, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d článkov, %2$.2f MB</string>
@@ -430,8 +428,7 @@
   <string name="reading_lists_confirm_remote_delete_yes">Áno</string>
   <string name="reading_lists_confirm_remote_delete_no">Nie</string>
   <string name="reading_list_article_save_in_progress">Článok sa preberá. Keď sa preberanie dokončí, bude dostupný aj bez pripojenia na internet.</string>
-  <string name="reading_list_already_contains_selection">Vybraný zoznam už obsahuje všetky vybrané stránky.</string>
-  <string name="reading_list_added_articles_list_titled">%1$d článkov pridané do %2$s</string>
+  <string name="reading_list_articles_added_to_named">%1$d článkov pridané do %2$s</string>
   <string name="reading_list_delete_confirm">Naozaj chcete odstrániť zoznam %s?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Ak chcete povoliť synchronizáciu, prihláste sa</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Prihláste sa, aby ste povolili ukladanie zoznamov na prečítanie na váš účet.</string>
@@ -467,7 +464,7 @@
     <item quantity="one">Tento článok už nebude dostupný bez pripojenia.</item>
     <item quantity="other">Tieto články už nebudú dostupné bez pripojenia.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync">Zoznamy na prečítanie boli úspešne synchronizované</string>
+  <string name="reading_list_toast_last_sync" fuzzy="true">Zoznamy na prečítanie boli úspešne synchronizované</string>
   <string name="reading_list_menu_last_sync">Posledná synchronizácia: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">OK</string>
   <string name="reading_list_delete_dialog_ok_button_text">OK</string>
