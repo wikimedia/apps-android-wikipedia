@@ -118,7 +118,7 @@
   <string name="menu_login">Log på</string>
   <string name="login_activity_title">Log på Wikipedia</string>
   <string name="login_in_progress_dialog_message">Logger dig på…</string>
-  <string name="login_success_toast">Du er nu logget på!</string>
+  <string name="login_success_toast" fuzzy="true">Du er nu logget på!</string>
   <string name="reset_password_title">Sæt din adgangskode</string>
   <string name="reset_password_description">Du loggede på med en midlertidig kode. For at afslutte indlogning, angiv venligst din nye adgangskode her.</string>
   <string name="reset_password_hint">Ny adgangskode</string>
@@ -270,7 +270,7 @@
   <string name="gallery_menu_share">Del</string>
   <string name="gallery_share_error">Kunne ikke dele billedet: %s</string>
   <string name="gallery_save_progress">Henter fil…</string>
-  <string name="gallery_save_success">Filen er gemt.</string>
+  <string name="gallery_save_success" fuzzy="true">Filen er gemt.</string>
   <string name="gallery_error_video_failed">Kan ikke afspille video.</string>
   <string name="gallery_save_image_write_permission_rationale">Tilladelse til lagring på din enhed er påkrævet for at gemme billeder.</string>
   <string name="err_cannot_save_file">Kan ikke gemme filen</string>
@@ -413,6 +413,7 @@
   <string name="reading_lists_confirm_remote_delete_yes">Ja</string>
   <string name="reading_lists_confirm_remote_delete_no">Nej</string>
   <string name="reading_list_article_save_in_progress">Artiklen hentes og vil være tilgængelig lokalt når færdig.</string>
+  <string name="reading_list_articles_added_to_named">Tilføjede %1$d artikler til %2$s</string>
   <string name="reading_list_delete_confirm">Er du sikker på, at du ønsker at slette %s?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Log ind for at aktivere synkronsering</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Log ind for at tillade at dine læselister gemmes på din konto.</string>
@@ -448,7 +449,7 @@
     <item quantity="one">Denne artikel vil ikke længere være tilgængelig lokalt.</item>
     <item quantity="other">Disse artikler vil ikke længere være tilgængelige lokalt.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync">Læselisterne blev synkroniseret</string>
+  <string name="reading_list_toast_last_sync" fuzzy="true">Læselisterne blev synkroniseret</string>
   <string name="reading_list_menu_last_sync">Sidste synkronosering: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">OK</string>
   <string name="reading_list_delete_dialog_ok_button_text">OK</string>

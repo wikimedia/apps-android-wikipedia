@@ -72,7 +72,7 @@
   <string name="menu_login">Hiditra</string>
   <string name="login_activity_title">Hiditra amin\'i Wikipedia</string>
   <string name="login_in_progress_dialog_message">Mampiditra anao....</string>
-  <string name="login_success_toast">Tafiditra!</string>
+  <string name="login_success_toast" fuzzy="true">Tafiditra!</string>
   <string name="reset_password_title">Forony ny tenimiafinao</string>
   <string name="reset_password_hint">Tenimiafina vaovao</string>
   <string name="reset_password_button">Tehirizina ary hiditra</string>
@@ -165,7 +165,7 @@
   <string name="gallery_menu_share">Zaraina</string>
   <string name="gallery_share_error">Tsy afaka mizara ny sary: %s</string>
   <string name="gallery_save_progress">Mampidina ny rakitra...</string>
-  <string name="gallery_save_success">Voatahiry soa aman-tsara ny rakitra.</string>
+  <string name="gallery_save_success" fuzzy="true">Voatahiry soa aman-tsara ny rakitra.</string>
   <string name="gallery_error_video_failed">Tsy afaka namaky ilay videô.</string>
   <string name="err_cannot_save_file">Tsy afaka nitahiry ilay sary</string>
   <string name="snippet_share_intro">%1$s eo amin\'i @Wikipedia: %2$s</string>

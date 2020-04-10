@@ -103,7 +103,7 @@
   <string name="menu_login">Aloggen</string>
   <string name="login_activity_title">Op Wikipedia aloggen</string>
   <string name="login_in_progress_dialog_message">Dir gitt ageloggt…</string>
-  <string name="login_success_toast">Ageloggt mat Succès!</string>
+  <string name="login_success_toast">Ageloggt!</string>
   <string name="reset_password_title">Leet Äert Passwuert fest</string>
   <string name="reset_password_hint">Neit Passwuert</string>
   <string name="reset_password_button">Späicheren an aloggen</string>
@@ -358,6 +358,7 @@
   <string name="reading_list_login_reminder_title">Lieslëschte synchroniséieren</string>
   <string name="reading_lists_confirm_remote_delete_yes">Jo</string>
   <string name="reading_lists_confirm_remote_delete_no">Neen</string>
+  <string name="reading_list_articles_added_to_named">%1$d Artikel op %2$s dobäigesat</string>
   <string name="reading_list_delete_confirm">Sidd Dir sécher datt Dir %s läsche wëllt?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Ofbriechen</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Aloggen</string>

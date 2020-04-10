@@ -42,13 +42,13 @@ import java.util.Set;
 import io.reactivex.Completable;
 import io.reactivex.Observable;
 import io.reactivex.schedulers.Schedulers;
-import okhttp3.CacheControl;
 import okhttp3.Request;
 import okhttp3.Response;
 import okio.Buffer;
 import okio.Sink;
 import okio.Timeout;
 
+import static org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory.CACHE_CONTROL_FORCE_NETWORK;
 import static org.wikipedia.views.CircularProgressBar.MAX_PROGRESS;
 
 public class SavedPageSyncService extends JobIntentService {
@@ -279,13 +279,13 @@ public class SavedPageSyncService extends JobIntentService {
 
     @NonNull
     private Observable<retrofit2.Response<PageSummary>> reqPageSummary(@NonNull PageTitle pageTitle) {
-        return ServiceFactory.getRest(pageTitle.getWikiSite()).getSummaryResponse(pageTitle.getPrefixedText(), null, CacheControl.FORCE_NETWORK.toString(),
+        return ServiceFactory.getRest(pageTitle.getWikiSite()).getSummaryResponse(pageTitle.getPrefixedText(), null, CACHE_CONTROL_FORCE_NETWORK.toString(),
                 OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle.getWikiSite().languageCode(), UriUtil.encodeURL(pageTitle.getPrefixedText()));
     }
 
     @NonNull
     private Observable<retrofit2.Response<MediaList>> reqMediaList(@NonNull PageTitle pageTitle, long revision) {
-        return ServiceFactory.getRest(pageTitle.getWikiSite()).getMediaListResponse(pageTitle.getPrefixedText(), revision, CacheControl.FORCE_NETWORK.toString(),
+        return ServiceFactory.getRest(pageTitle.getWikiSite()).getMediaListResponse(pageTitle.getPrefixedText(), revision, CACHE_CONTROL_FORCE_NETWORK.toString(),
                 OfflineCacheInterceptor.SAVE_HEADER_SAVE, pageTitle.getWikiSite().languageCode(), UriUtil.encodeURL(pageTitle.getPrefixedText()));
     }
 
@@ -350,7 +350,7 @@ public class SavedPageSyncService extends JobIntentService {
     }
 
     @NonNull private Request.Builder makeUrlRequest(@NonNull WikiSite wiki, @NonNull String url, @NonNull PageTitle pageTitle) {
-        return new Request.Builder().cacheControl(CacheControl.FORCE_NETWORK).url(UriUtil.resolveProtocolRelativeUrl(wiki, url))
+        return new Request.Builder().cacheControl(CACHE_CONTROL_FORCE_NETWORK).url(UriUtil.resolveProtocolRelativeUrl(wiki, url))
                 .addHeader("Accept-Language", WikipediaApp.getInstance().getAcceptLanguage(pageTitle.getWikiSite()))
                 .addHeader(OfflineCacheInterceptor.SAVE_HEADER, OfflineCacheInterceptor.SAVE_HEADER_SAVE)
                 .addHeader(OfflineCacheInterceptor.LANG_HEADER, pageTitle.getWikiSite().languageCode())

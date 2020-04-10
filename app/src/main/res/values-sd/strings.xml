@@ -108,7 +108,7 @@
   <string name="menu_login">داخل ٿيو</string>
   <string name="login_activity_title">وڪيپيڊيا ۾ داخل ٿيو</string>
   <string name="login_in_progress_dialog_message">توهان کي داخل ڪندي...</string>
-  <string name="login_success_toast">ڪاميابيءَ سان داخل ٿيل!</string>
+  <string name="login_success_toast" fuzzy="true">ڪاميابيءَ سان داخل ٿيل!</string>
   <string name="reset_password_title">پنھنجو ڳجھولفظ طي ڪريو</string>
   <string name="reset_password_description">توھان ھڪ عارضي ڳجھي-لفظ سان داخل ٿيا. داخل ٿيڻ کي مڪمل ڪرڻ لاءِ پنھننو ھڪ نئون ڳجھولفظ ترتيب ڪريو.</string>
   <string name="reset_password_hint">نئون ڳجھولفظ</string>
@@ -252,7 +252,7 @@
   <string name="gallery_menu_share">ونڊيو</string>
   <string name="gallery_share_error">ونڊجي نہ سگھيو عڪس: %s</string>
   <string name="gallery_save_progress">فائيل ڊائونلوڊ ڪندي…</string>
-  <string name="gallery_save_success">فائيل ڪاميابيءَ سان سانڍجي ويو.</string>
+  <string name="gallery_save_success" fuzzy="true">فائيل ڪاميابيءَ سان سانڍجي ويو.</string>
   <string name="gallery_error_video_failed">وڊيو هلائي نہ سگھيو.</string>
   <string name="gallery_save_image_write_permission_rationale">تصويرون سانڍڻ لاءِ توھان ڊوائيس جي سنڀار تي ڪم ڪرڻ جي اجازت گھربل آھي.</string>
   <string name="gallery_add_image_caption_button">عڪس جو عنوان وجھو</string>
@@ -389,6 +389,7 @@
   <string name="reading_lists_confirm_remote_delete_yes">ھا</string>
   <string name="reading_lists_confirm_remote_delete_no">نہ</string>
   <string name="reading_list_article_save_in_progress">ھي مضمون لاٿو پيو وڃي، ۽ اھو مڪمل ٿيڻ کانپوءِ آفلائين موجود ھوندو.</string>
+  <string name="reading_list_articles_added_to_named">%1$d مضمونن کي %2$s کي ۾ وڌو ويو</string>
   <string name="reading_list_delete_confirm">ڇا توھان کي پڪ آھي تہ توھان %s ڊاھڻ ٿا چاھيو؟</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">پڙھڻ جي فھرست کي پنھنجي کاتي ۾ سانڍڻ لاءِ داخل ٿيو.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">رد</string>
