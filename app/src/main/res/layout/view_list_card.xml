@@ -18,7 +18,7 @@
         android:visibility="gone"
         app:layout_constraintTop_toBottomOf="@id/view_list_card_header" />
 
-    <androidx.recyclerview.widget.RecyclerView
+    <org.wikipedia.views.NavMenuAwareRecyclerView
         android:id="@+id/view_list_card_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

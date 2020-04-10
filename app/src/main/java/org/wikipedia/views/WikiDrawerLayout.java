@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.Gravity;
+import android.view.MotionEvent;
 import android.view.View;
 
 import androidx.core.view.GravityCompat;
@@ -12,6 +13,7 @@ import androidx.customview.widget.ViewDragHelper;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.drawerlayout.widget.FixedDrawerLayout;
 
+import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.log.L;
 
 import java.lang.reflect.Field;
@@ -35,6 +37,11 @@ public class WikiDrawerLayout extends FixedDrawerLayout {
     public WikiDrawerLayout(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
+
+
+
+
+
 
     public boolean getSlidingEnabled(int gravity) {
         return getDrawerLockMode(gravity) == DrawerLayout.LOCK_MODE_UNLOCKED;

@@ -38,6 +38,7 @@ import org.wikipedia.suggestededits.SuggestedEditsTasksFragment;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
+import org.wikipedia.views.FrameLayoutNavMenuTriggerer;
 import org.wikipedia.views.ImageZoomHelper;
 import org.wikipedia.views.TabCountsView;
 import org.wikipedia.views.WikiDrawerLayout;
@@ -51,10 +52,11 @@ import static android.view.View.VISIBLE;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_INITIAL_ONBOARDING;
 
 public class MainActivity extends SingleFragmentActivity<MainFragment>
-        implements MainFragment.Callback {
+        implements MainFragment.Callback, FrameLayoutNavMenuTriggerer.Callback {
 
     @BindView(R.id.navigation_drawer) WikiDrawerLayout drawerLayout;
     @BindView(R.id.navigation_drawer_view) MainDrawerView drawerView;
+    @BindView(R.id.navigation_drawer_triggerer) FrameLayoutNavMenuTriggerer triggererView;
     @BindView(R.id.single_fragment_toolbar) Toolbar toolbar;
     @BindView(R.id.drawer_icon_layout) View drawerIconLayout;
     @BindView(R.id.drawer_icon_dot) View drawerIconDot;
@@ -108,6 +110,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
         shouldShowMainDrawer(true);
         setUpHomeMenuIcon();
         FeedbackUtil.setToolbarButtonLongPressToast(drawerIconLayout);
+        triggererView.setCallback(this);
     }
 
     @Override
@@ -189,6 +192,13 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
 
     @OnClick(R.id.drawer_icon_layout) void onDrawerOpenClicked() {
         drawerLayout.openDrawer(GravityCompat.START);
+    }
+
+    @Override
+    public void onNavMenuTriggered() {
+        drawerLayout.post(() -> {
+            onDrawerOpenClicked();
+        });
     }
 
     @Override
