@@ -71,7 +71,7 @@
   <string name="menu_login">Connexion</string>
   <string name="login_activity_title">Se connectar a Wikipèdia</string>
   <string name="login_in_progress_dialog_message">Connexion en cors…</string>
-  <string name="login_success_toast">Connectat amb succès !</string>
+  <string name="login_success_toast" fuzzy="true">Connectat amb succès !</string>
   <string name="preference_title_logout">Se desconnectar</string>
   <string name="toast_logout_complete">Desconnectat</string>
   <string name="history_empty_title">Cap d\'articles pas legits recentament</string>
@@ -161,7 +161,7 @@
   <string name="gallery_menu_share">Partejar</string>
   <string name="gallery_share_error">Impossible de partejar l’imatge : %s</string>
   <string name="gallery_save_progress">Telecargament del fichièr...</string>
-  <string name="gallery_save_success">Fichièr enregistrat corrèctament.</string>
+  <string name="gallery_save_success" fuzzy="true">Fichièr enregistrat corrèctament.</string>
   <string name="gallery_error_video_failed">Impossible de jogar la vidèo.</string>
   <string name="err_cannot_save_file">Impossible d’enregistrar lo fichièr</string>
   <string name="snippet_share_intro">Fait interessant sus @Wikipedia %1$s : %2$s</string>

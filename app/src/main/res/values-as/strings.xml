@@ -108,7 +108,7 @@
   <string name="menu_login">প্ৰৱেশ</string>
   <string name="login_activity_title">ৱিকিপিডিয়াত প্ৰৱেশ কৰক</string>
   <string name="login_in_progress_dialog_message">আপুনি প্ৰৱেশ কৰিছে…</string>
-  <string name="login_success_toast">প্ৰৱেশ সফল হ\'ল!</string>
+  <string name="login_success_toast" fuzzy="true">প্ৰৱেশ সফল হ\'ল!</string>
   <string name="reset_password_title">আপোনাৰ গুপ্তশব্দ লিখক</string>
   <string name="reset_password_description">আপুনি এটা অস্থায়ী গুপ্তশব্দৰে প্ৰৱেশ কৰিছে। প্ৰৱেশ সম্পূৰ্ণ কৰিবলৈ আপুনি ইয়াত এটা নতুন গুপ্তশব্দ নিৰ্ধাৰণ কৰিব লাগিব।</string>
   <string name="reset_password_hint">নতুন গুপ্তশব্দ</string>
@@ -260,7 +260,7 @@
   <string name="gallery_menu_share">শ্বেয়াৰ কৰক</string>
   <string name="gallery_share_error">ছবিখন শ্বেয়াৰ কৰিব পৰা নগ\'ল: %s</string>
   <string name="gallery_save_progress">ফাইল ডাউনল\'ড হৈ আছে...</string>
-  <string name="gallery_save_success">ফাইল সফলতাৰে সঞ্চিত হ\'ল।</string>
+  <string name="gallery_save_success" fuzzy="true">ফাইল সফলতাৰে সঞ্চিত হ\'ল।</string>
   <string name="gallery_error_video_failed">ভিডিঅ\'টো চলাব পৰা নগ\'ল।</string>
   <string name="gallery_save_image_write_permission_rationale">ছবি সাঁচিবৰ বাবে আপোনাৰ সঁজুলিৰ সংগ্ৰহস্থলত লিখাৰ অনুমতিৰ প্ৰয়োজন।</string>
   <string name="gallery_add_image_caption_in_language_button">ছবিৰ শিৰোনাম যোগ কৰক (%s)</string>

@@ -101,7 +101,7 @@
   <string name="menu_login">प्रवेश</string>
   <string name="login_activity_title">विकिपीडिया में प्रवेश करें</string>
   <string name="login_in_progress_dialog_message">आपको प्रवेश दिया जा रहा है…</string>
-  <string name="login_success_toast">सफलतापूर्वक प्रविष्ट</string>
+  <string name="login_success_toast" fuzzy="true">सफलतापूर्वक प्रविष्ट</string>
   <string name="reset_password_title">अपना पासवर्ड लगाएं</string>
   <string name="reset_password_description">अपने एक अस्थाई पासवर्ड से लॉगिन किया। लॉगिन को पूरा करने के लिए यहाँ एक नया पासवर्ड जोड़ें।</string>
   <string name="reset_password_hint">नया पासवर्ड</string>
@@ -239,7 +239,7 @@
   <string name="gallery_menu_share">साझा करें</string>
   <string name="gallery_share_error">%s चित्र को साझा नहीं किया जा सका</string>
   <string name="gallery_save_progress">फ़ाइल को डाउनलोड किया जा रहा है…</string>
-  <string name="gallery_save_success">फ़ाइल को सफलतापूर्वक सहेज लिया गया है।</string>
+  <string name="gallery_save_success" fuzzy="true">फ़ाइल को सफलतापूर्वक सहेज लिया गया है।</string>
   <string name="gallery_error_video_failed">वीडियो को चलाया नहीं जा सका।</string>
   <string name="gallery_save_image_write_permission_rationale">चित्रों को सहेजने के लिए आपके यंत्र भंडारण पर लिखने की अनुमति की आवश्यकता है।</string>
   <string name="err_cannot_save_file">फ़ाइल को सहेजा नहीं जा सकता</string>
@@ -359,6 +359,7 @@
   <string name="reading_lists_confirm_remote_delete_yes">हाँ</string>
   <string name="reading_lists_confirm_remote_delete_no">नहीं</string>
   <string name="reading_list_article_save_in_progress">लेख का अधोभारण हो रहा है, और यह ऑफलाइन उपलब्ध होगा जब यह पूरा हो जाएगा।</string>
+  <string name="reading_list_articles_added_to_named">%2$s में %1$d आलेख जोड़े गए</string>
   <string name="reading_list_delete_confirm" fuzzy="true">क्या आप  \"%s\" को मिटाने हेतु निश्चित हैं?</string>
   <string name="reading_list_turned_sync_off_dialog_ok">ठीक है</string>
   <string name="reading_list_turned_sync_off_dialog_settings">सेटिंग्स</string>

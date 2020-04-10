@@ -120,7 +120,7 @@
   <string name="menu_login">প্রবেশ</string>
   <string name="login_activity_title">উইকিপিডিয়াতে প্রবেশ করুন</string>
   <string name="login_in_progress_dialog_message">আপনি প্রবেশ করছেন…</string>
-  <string name="login_success_toast">প্রবেশ করা সফল!</string>
+  <string name="login_success_toast" fuzzy="true">প্রবেশ করা সফল!</string>
   <string name="reset_password_title">আপনার পাসওয়ার্ড নির্ধারন করুন</string>
   <string name="reset_password_description">আপনি একটি সাময়িক পাসওয়ার্ড দিয়ে প্রবেশ করেছেন। প্রবেশ সম্পূর্ণ করতে, এখানে আপনার নতুন পাসওয়ার্ড নির্ধারণ করুন।</string>
   <string name="reset_password_hint">নতুন পাসওয়ার্ড</string>
@@ -271,7 +271,7 @@
   <string name="gallery_menu_share">শেয়ার</string>
   <string name="gallery_share_error">শেয়ার করা যাচ্ছে না: %s</string>
   <string name="gallery_save_progress">ফাইল ডাউনলোড হচ্ছে…</string>
-  <string name="gallery_save_success">ফাইল সফলভাবে সংরক্ষিত হয়েছে।</string>
+  <string name="gallery_save_success" fuzzy="true">ফাইল সফলভাবে সংরক্ষিত হয়েছে।</string>
   <string name="gallery_error_video_failed">ভিডিওটি চালু হচ্ছেনা।</string>
   <string name="gallery_save_image_write_permission_rationale">ছবি সংরক্ষণের জন্য আপনার ডিভাইসের সংগ্রহস্থলে লেখার অনুমতি প্রয়োজন।</string>
   <string name="err_cannot_save_file">ফাইলটি সংরক্ষণ করা যাচ্ছে না</string>
@@ -326,8 +326,6 @@
   <string name="preference_title_prefer_offline_content">অফলাইন সামগ্রীর পছন্দ</string>
   <string name="preference_summary_prefer_offline_content">সর্বদা নিবন্ধের সর্বশেষ সংস্করণ লোড করার পরিবর্তে অফলাইনে উপলব্ধ নিবন্ধগুলি লোড করে ডেটা খরচ বাঁচান</string>
   <string name="empty_tab_title">নতুন ট্যাব</string>
-  <string name="save_all_tabs_success_message">খোলা ট্যাবগুলিতে সমস্ত নিবন্ধ সাফল্যের সাথে %s এ যুক্ত করা হয়েছে।</string>
-  <string name="save_all_tabs_articles_already_exist_message">সব ভাল! %s ইতিমধ্যে খোলা ট্যাবগুলিতে সমস্ত নিবন্ধ রয়েছে।</string>
   <string name="crash_report_activity_title">অ্যাপ্লিকেশন ত্রুটি</string>
   <string name="crash_report_relaunch_or_quit">আমরা দুঃখিত, উইকিপিডিয়া অ্যাপ্লিকেশন একটি ত্রুটির সম্মুখীন হয়েছে এবং বন্ধ হয়ে গেছে।\n\nআপনি কি পুনরারম্ভ বা প্রস্থান করতে চান?</string>
   <string name="crash_report_relaunch">পুনরারম্ভ করুন</string>
@@ -352,6 +350,7 @@
   <string name="reading_list_save_to">পড়ার তালিকায় সংরক্ষণ করুন</string>
   <string name="reading_list_create_new">নতুন তৈরি করুন</string>
   <string name="reading_list_title_exists">পড়ার তালিকা \"%s\" ইতিমধ্যে বিদ্যমান।</string>
+  <string name="reading_list_articles_already_exist_message" fuzzy="true">সব ভাল! %s ইতিমধ্যে খোলা ট্যাবগুলিতে সমস্ত নিবন্ধ রয়েছে।</string>
   <string name="reading_list_added_view_button">তালিকা দেখুন</string>
   <string name="format_reading_list_statistical_summary_singular">১টি নিবন্ধ, %1$.2f মেগাবাইট</string>
   <string name="format_reading_list_statistical_summary_plural">%1$dটি নিবন্ধ, %2$.2f মেগাবাইট</string>
@@ -400,6 +399,7 @@
   <string name="reading_list_confirm_remove_article_from_offline_message">এই সব পড়ার তালিকার জন্য %s আর অফলাইনে উপলব্ধ হবে না:</string>
   <string name="reading_lists_confirm_remote_delete_yes">হ্যাঁ</string>
   <string name="reading_lists_confirm_remote_delete_no">না</string>
+  <string name="reading_list_articles_added_to_named">%2$s-এ %1$dটি নিবন্ধ যোগ হয়েছে</string>
   <string name="reading_list_delete_confirm">আপনি কি নিশ্চিতভাবে এই %s অপসারণ করতে চান?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">বাতিল</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">প্রবেশ করুন</string>

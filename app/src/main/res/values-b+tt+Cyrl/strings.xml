@@ -92,7 +92,7 @@
   <string name="menu_login">Керү</string>
   <string name="login_activity_title">Википедиягә керү</string>
   <string name="login_in_progress_dialog_message">Керүегез бара…</string>
-  <string name="login_success_toast">Сез кереп булдыгыз!</string>
+  <string name="login_success_toast" fuzzy="true">Сез кереп булдыгыз!</string>
   <string name="reset_password_title">Серсүзне язып бирегез</string>
   <string name="reset_password_description">Сез вакытлы серсүз белән кердегез. Керүегезне төгәлләү өчен биредә яңа серсүзегезне язып бирегез әле.</string>
   <string name="reset_password_hint">Яңа серсүз</string>

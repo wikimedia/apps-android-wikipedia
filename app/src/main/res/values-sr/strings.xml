@@ -118,7 +118,7 @@
   <string name="menu_login">Пријави ме</string>
   <string name="login_activity_title">Пријава на Википедију</string>
   <string name="login_in_progress_dialog_message">Пријављујем вас…</string>
-  <string name="login_success_toast">Успешно сте пријављени.</string>
+  <string name="login_success_toast" fuzzy="true">Успешно сте пријављени.</string>
   <string name="reset_password_title">Поставите лозинку</string>
   <string name="reset_password_description">Пријавили сте се са привременом лозинком. Да бисте завршили пријаву, овде поставите нову.</string>
   <string name="reset_password_hint">Нова лозинка</string>
@@ -274,7 +274,7 @@
   <string name="gallery_menu_share">Дели</string>
   <string name="gallery_share_error">Није могуће делити слику: %s</string>
   <string name="gallery_save_progress">Преузимање датотеке…</string>
-  <string name="gallery_save_success">Датотека је успешно сачувана.</string>
+  <string name="gallery_save_success" fuzzy="true">Датотека је успешно сачувана.</string>
   <string name="gallery_error_video_failed">Није могуће репродуковати видео.</string>
   <string name="gallery_save_image_write_permission_rationale">Потребна је дозвола за писање на меморијски простор уређаја да бисте чували слике.</string>
   <string name="gallery_add_image_caption_button">Додај опис слике</string>
@@ -421,6 +421,7 @@
   <string name="reading_lists_confirm_remote_delete_yes">Да</string>
   <string name="reading_lists_confirm_remote_delete_no">Не</string>
   <string name="reading_list_article_save_in_progress">Чланак се преузима. По завршетку преузимања ће бити доступан офлајн.</string>
+  <string name="reading_list_articles_added_to_named">На листу „%2$s” су додати чланци (%1$d)</string>
   <string name="reading_list_delete_confirm">Желите ли заиста да избришете „%s”?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Пријавите се да бисте омогућили синхронизацију</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Пријавите се да бисте сачували листе за читање на ваш налог.</string>
@@ -456,7 +457,7 @@
     <item quantity="one">Овај чланак више неће бити доступан офлајн.</item>
     <item quantity="other">Ови чланци више неће бити доступни офлајн.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync">Листе за читање су успешно синхронизоване</string>
+  <string name="reading_list_toast_last_sync" fuzzy="true">Листе за читање су успешно синхронизоване</string>
   <string name="reading_list_menu_last_sync">Последња синхронизација: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">У реду</string>
   <string name="reading_list_delete_dialog_ok_button_text">У реду</string>

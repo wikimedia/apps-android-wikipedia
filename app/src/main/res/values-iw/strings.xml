@@ -122,7 +122,7 @@
   <string name="menu_login">כניסה לחשבון</string>
   <string name="login_activity_title">כניסה לוויקיפדיה</string>
   <string name="login_in_progress_dialog_message">אנחנו מכניסים אותך לחשבון…</string>
-  <string name="login_success_toast">הכניסה לחשבון הצליחה!</string>
+  <string name="login_success_toast">נכנסת לחשבון!</string>
   <string name="reset_password_title">הגדרת הסיסמה שלך</string>
   <string name="reset_password_description">נכנסת לחשבון עם סיסמה זמנית. כדי לסיים את הכניסה, יש להגדיר את הסיסמה החדשה כאן.</string>
   <string name="reset_password_hint">סיסמה חדשה</string>
@@ -210,6 +210,7 @@
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/he</string>
   <string name="about_libraries_heading">ספריות בשימוש</string>
   <string name="about_contributors_heading">תורמים</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;דף הצוות&lt;/a&gt;</string>
   <string name="about_translators_heading">מתרגמים</string>
   <string name="about_translators_translatewiki">היישום הזה תורגם על־ידי מתרגמים מתנדבים באתר &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">רישיון</string>
@@ -278,7 +279,7 @@
   <string name="gallery_menu_share">שיתוף</string>
   <string name="gallery_share_error">לא היה ניתן לשתף את התמונה: %s</string>
   <string name="gallery_save_progress">הורדת קובץ…</string>
-  <string name="gallery_save_success">הקובץ נשמר בהצלחה.</string>
+  <string name="gallery_save_success">הקובץ נשמר.</string>
   <string name="gallery_error_video_failed">לא היה אפשר לנגן את הסרטון.</string>
   <string name="gallery_save_image_write_permission_rationale">הרשאה לכתוב לאחסון במכשיר שלך דרושה לשמירת תמונות.</string>
   <string name="gallery_add_image_caption_button">הוספת כיתוב לתמונה</string>
@@ -349,6 +350,7 @@
   <string name="theme_chooser_dialog_match_system_theme_switch_label">התאמה לערכת העיצוב של המערכת</string>
   <string name="page_footer_license_text">התוכן זמין לפי תנאי $1 אלא אם צוין אחרת</string>
   <string name="empty_tab_title">לשונית חדשה</string>
+  <string name="menu_save_all_tabs">שמירת כל הלשוניות</string>
   <string name="crash_report_activity_title">שגיאת יישום</string>
   <string name="crash_report_relaunch_or_quit">אנחנו מצטערים, ביישום ויקיפדיה אירעה שגיאה והוא נעצר.\n\nהאם להתחיל מהתחלה או לצאת?</string>
   <string name="crash_report_relaunch">להתחיל מהתחלה</string>
@@ -374,6 +376,7 @@
   <string name="reading_list_save_to">לשמור לרשימת קריאה</string>
   <string name="reading_list_create_new">ליצור חדשה</string>
   <string name="reading_list_title_exists">רשימת הקריאה \"%s\" כבר קיימת.</string>
+  <string name="reading_list_articles_already_exist_message" fuzzy="true">הכול טוב! הרשימה %s כבר מכילה את כל הערכים בלשוניות פתוחות.</string>
   <string name="reading_list_added_view_button">הצגת הרשימה</string>
   <string name="format_reading_list_statistical_summary_singular">ערך אחד %1$.2f מ\"ב</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d ערכים %2$.2f מ\"ב</string>
@@ -429,6 +432,7 @@
   <string name="reading_lists_confirm_remote_delete_yes">כן</string>
   <string name="reading_lists_confirm_remote_delete_no">לא</string>
   <string name="reading_list_article_save_in_progress">הורדת הערך מתבצעת, והוא יהיה זמין ללא חיבור לרשת כשהיא תושלם.</string>
+  <string name="reading_list_articles_added_to_named">נוספו %1$d ערכים לרשימה %2$s</string>
   <string name="reading_list_delete_confirm">למחוק את %s?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">נא להיכנס לשם הפעלת הסנכרון</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">נא להיכנס כדי לאפשר את השמירה של רשימות הקריאה שלך לחשבון שלך.</string>
@@ -468,7 +472,7 @@
     <item quantity="many">הערכים האלה לא יהיו עוד זמינים ללא חיבור לרשת.</item>
     <item quantity="other">הערכים האלה לא יהיו עוד זמינים ללא חיבור לרשת.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync">רשימות הקריאה סונכרנו בהצלחה</string>
+  <string name="reading_list_toast_last_sync">רשימות הקריאה סונכרנו</string>
   <string name="reading_list_menu_last_sync">סנכרון אחרון: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">אישור</string>
   <string name="reading_list_delete_dialog_ok_button_text">אישור</string>

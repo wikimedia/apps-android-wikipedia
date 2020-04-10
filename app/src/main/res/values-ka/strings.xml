@@ -110,7 +110,7 @@
   <string name="menu_login">შესვლა</string>
   <string name="login_activity_title">ვიკიპედიაში შესვლა</string>
   <string name="login_in_progress_dialog_message">შედიხართ სისტემაში…</string>
-  <string name="login_success_toast">შესვლა წარმატებით განხორციელდა!</string>
+  <string name="login_success_toast" fuzzy="true">შესვლა წარმატებით განხორციელდა!</string>
   <string name="reset_password_title">დააყენეთ პაროლი</string>
   <string name="reset_password_description">თქვენ შესული ხართ დროებითი პაროლის დახმარებით. სისტემაში შესვლის დასრულებისთვის, აუცილებელია აქ ახალი პაროლის დაყენება.</string>
   <string name="reset_password_hint">ახალი პაროლი</string>
@@ -221,7 +221,7 @@
   <string name="gallery_menu_share">გაზიარება</string>
   <string name="gallery_share_error">სურათის გაზიარება შეუძლებელია: %s</string>
   <string name="gallery_save_progress">ფაილის ჩამოტვირთვა…</string>
-  <string name="gallery_save_success">ფაილი წარმატებით შეინახა.</string>
+  <string name="gallery_save_success" fuzzy="true">ფაილი წარმატებით შეინახა.</string>
   <string name="gallery_error_video_failed">ამ ვიდეოს გახსნა ვერ მოხერხდა.</string>
   <string name="gallery_save_image_write_permission_rationale">თქვენი მოწყობილობის მეხსიერებაში ჩასაწერად საჭიროა სურათების შენახვა.</string>
   <string name="err_cannot_save_file">ფაილი ვერ შეინახა</string>

@@ -114,7 +114,7 @@
   <string name="menu_login">Autentificare</string>
   <string name="login_activity_title">Autentificare la Wikipedia</string>
   <string name="login_in_progress_dialog_message">Autentificare în curs…</string>
-  <string name="login_success_toast">Autentificare reușită!</string>
+  <string name="login_success_toast" fuzzy="true">Autentificare reușită!</string>
   <string name="reset_password_title">Setează parola</string>
   <string name="reset_password_description">V-ați conectat cu o parolă temporară. Pentru a finaliza conectarea, vă rugăm să vă setați noua parolă aici.</string>
   <string name="reset_password_hint">Parola nouă</string>
@@ -267,7 +267,7 @@
   <string name="gallery_menu_share">Distribuie</string>
   <string name="gallery_share_error">Nu s-a putut distribui imaginea: %s</string>
   <string name="gallery_save_progress">Se descarcă fișierul…</string>
-  <string name="gallery_save_success">Fișier salvat cu succes.</string>
+  <string name="gallery_save_success" fuzzy="true">Fișier salvat cu succes.</string>
   <string name="gallery_error_video_failed">Filmul nu a putut fi redat.</string>
   <string name="gallery_save_image_write_permission_rationale">Pentru salvarea imaginilor este necesară permisiunea de a scrie pe spațiul de stocare al dispozitivului. Încercați din nou și oferiți permisiunea solicitată.</string>
   <string name="err_cannot_save_file">Nu se poate salva fișierul</string>

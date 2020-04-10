@@ -102,7 +102,7 @@
   <string name="menu_login">Přizjewić</string>
   <string name="login_activity_title">We Wikipediji přizjewić</string>
   <string name="login_in_progress_dialog_message">Přizjewješ so...</string>
-  <string name="login_success_toast">Přizjewjenje wuspěšne!</string>
+  <string name="login_success_toast" fuzzy="true">Přizjewjenje wuspěšne!</string>
   <string name="reset_password_title">Postaj swoje hesło</string>
   <string name="reset_password_description">Sy so z nachwilnym hesłom přizjewił(a). Zo by wotzamknył(a) přizjewjenje, postaj prošu tule swoje nowe hesło.</string>
   <string name="reset_password_hint">Nowe hesło</string>
@@ -254,7 +254,7 @@
   <string name="gallery_menu_share">Dźělić</string>
   <string name="gallery_share_error">Wobraz njeda so dźělić: %s</string>
   <string name="gallery_save_progress">Sćahnu dataju...</string>
-  <string name="gallery_save_success">Dataja wuspěšnje składowana.</string>
+  <string name="gallery_save_success" fuzzy="true">Dataja wuspěšnje składowana.</string>
   <string name="gallery_error_video_failed">Widejo njeda so wothrawać.</string>
   <string name="gallery_save_image_write_permission_rationale">Trjebam dowolnosć za składowanje wobrazow na twojim aparaće.</string>
   <string name="gallery_add_image_caption_button">Wobrazowy wopis dodać</string>
@@ -392,6 +392,7 @@
   <string name="reading_lists_confirm_remote_delete_yes">Haj</string>
   <string name="reading_lists_confirm_remote_delete_no">Ně</string>
   <string name="reading_list_article_save_in_progress">Tutón nastawk so tuchwilu sćehnje a budźe offline přistupny, ručež je sćehnjene wotzamknjene.</string>
+  <string name="reading_list_articles_added_to_named">%1$d nastawkow přidate k %2$s</string>
   <string name="reading_list_delete_confirm">Chceš %s woprawdźe zhašeć?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Přizjew so, zo by synchronizowanje zmóžnił(a)</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Přizjew so, zo by składowanje twojich čitanskich lisćinow w twojim konće dowolił.</string>
@@ -424,7 +425,7 @@
     <item quantity="one">Tutón nastawk njeje hižo offline přistupny.</item>
     <item quantity="other">Tutej nastawkaj njejstej hižo offline přistupnej.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync">Čitanske lisćiny wuspěšnje synchronizowane</string>
+  <string name="reading_list_toast_last_sync" fuzzy="true">Čitanske lisćiny wuspěšnje synchronizowane</string>
   <string name="reading_list_menu_last_sync">Poslednja synchronizacija: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">W porjadku</string>
   <string name="reading_list_delete_dialog_ok_button_text">W porjadku</string>

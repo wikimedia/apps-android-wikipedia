@@ -108,7 +108,7 @@
   <string name="menu_login">Qqen</string>
   <string name="login_activity_title">Qqen ar Wikipedia</string>
   <string name="login_in_progress_dialog_message">Tuqqna tetteddu...</string>
-  <string name="login_success_toast">Yeqqen akken iwata!</string>
+  <string name="login_success_toast" fuzzy="true">Yeqqen akken iwata!</string>
   <string name="reset_password_title">Sbadu awal-ik uffir</string>
   <string name="reset_password_description">Teqqneḍ s wawal uffir askudan. Akken ad fakkeḍ tuqqna, sekcem awal-ik uffir amaynut dagi.</string>
   <string name="reset_password_hint">Awal uffir amaynut</string>
@@ -250,7 +250,7 @@
   <string name="gallery_menu_share">Bḍu</string>
   <string name="gallery_share_error">Ur izmir ara ad ibḍu: %s</string>
   <string name="gallery_save_progress">Asider n ufaylu...</string>
-  <string name="gallery_save_success">Afaylu yettwasekles akken iwata.</string>
+  <string name="gallery_save_success" fuzzy="true">Afaylu yettwasekles akken iwata.</string>
   <string name="gallery_error_video_failed">Ur izmir ara ad yurar tavidyut-agi.</string>
   <string name="gallery_save_image_write_permission_rationale">Tasiregt n tira ar umḍiq n usekles n yibenk-ik tlaq i usekles n tugniwin.</string>
   <string name="gallery_add_image_caption_in_language_button">Rnu taneffust n tugna (%s)</string>
@@ -379,6 +379,7 @@
   <string name="reading_lists_confirm_remote_delete_yes">Ih</string>
   <string name="reading_lists_confirm_remote_delete_no">Uhu</string>
   <string name="reading_list_article_save_in_progress">Aisder n umagrad iteddu, udiɣ ad yili s war tuqqna ticki yemmed.</string>
+  <string name="reading_list_articles_added_to_named">%1$d n imagraden ttwarnan ar %2$s</string>
   <string name="reading_list_delete_confirm">Tettḥeqqeḍ tebɣiḍ ad tekkseḍ %s?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Kcem iwakken ad tsirgeḍ umuɣen-ik n tɣuri iwakken ad ttwaskelsen deg umiḍan-ik.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Sefsex</string>
