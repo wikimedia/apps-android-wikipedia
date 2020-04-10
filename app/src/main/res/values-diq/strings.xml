@@ -111,7 +111,7 @@
   <string name="menu_login">Cı kewe</string>
   <string name="login_activity_title">Wikipediya kewe</string>
   <string name="login_in_progress_dialog_message">Ronıştışo abêno...</string>
-  <string name="login_success_toast">Hesab abıya!</string>
+  <string name="login_success_toast">Ronıştış abıyayo!</string>
   <string name="reset_password_title">Parolay ho eyar kerê</string>
   <string name="reset_password_hint">Parolaya newiye</string>
   <string name="reset_password_button">Bışevekne u cıkewe</string>
@@ -170,7 +170,7 @@
   <string name="about_description">Heqdê dezgehda Wikipedia</string>
   <string name="privacy_policy_description">Politikaya nımıteyiye</string>
   <string name="terms_of_use_description">Şertê gurenayışi</string>
-  <string name="about_wikipedia_url" fuzzy="true">https://diq.m.wikipedia.org/wiki/Wikipedia:Heqa_cı_de</string>
+  <string name="about_wikipedia_url">https://diq.m.wikipedia.org/wiki/Wikipedia:Heqa</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
@@ -180,6 +180,7 @@
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Karkerdena kıtıbxani</string>
   <string name="about_contributors_heading">İştırakkerdoği</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android/tr\"&gt;Pela taxıme&lt;/a&gt;</string>
   <string name="about_translators_heading">Açarnayoği</string>
   <string name="about_app_license_heading">Lisans</string>
   <string name="about_activity_title">Heqa</string>
@@ -335,6 +336,8 @@
   <string name="reading_list_select_item">Weçine</string>
   <string name="reading_lists_confirm_remote_delete_yes">Eya</string>
   <string name="reading_lists_confirm_remote_delete_no">Nê</string>
+  <string name="reading_list_delete_confirm">Şıma qayılê na listay wendışi %s besterê?</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_title">Seba senkronizeyi ronıştış akerê</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Bıtexelne</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Cı kewe</string>
   <string name="reading_list_turned_sync_off_dialog_ok">TEMAM</string>
@@ -471,11 +474,15 @@
   <string name="suggested_edits_image_preview_dialog_artist">Senetkar</string>
   <string name="suggested_edits_image_preview_dialog_date">Tarix</string>
   <string name="suggested_edits_image_preview_dialog_source">Çıme/Fotrafkar</string>
+  <string name="suggested_edits_image_preview_dialog_licensing">Lisansdayış</string>
+  <string name="suggested_edits_image_preview_dialog_more_info">Tayêna melumat</string>
+  <string name="suggested_edits_image_preview_dialog_file_page_link_text">Pela dosyay Wikimedia Commonsi</string>
   <string name="suggested_edits_article_cta_image_caption">Bınnuştey resimi cı kerê</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Bınnuştey resimi cı kerê (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Bıvêne</string>
   <string name="suggested_edits_feed_card_add_image_caption">Bınnuştey resimi cı kerê</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Bınnuştey resimi cı kerê (%s)</string>
+  <string name="suggested_edits_feed_card_add_image_tags">Etiketê resımi cı kerê</string>
   <string name="suggested_edits_snackbar_survey_action_text">Anket pırr ke</string>
   <string name="suggested_edits_task_action_text_add">Cı ke</string>
   <string name="suggested_edits_task_action_text_translate">Açarne</string>
@@ -528,6 +535,7 @@
   <string name="top_on_this_day">%1$s sero zaf populeri</string>
   <string name="on_this_day_card_title">Noroc de</string>
   <string name="more_events_text">Zêde Noroci</string>
+  <string name="events_count_text">Serranê %2$s–%3$d ra %1$s weqeyi</string>
   <string name="this_year">Naser</string>
   <string name="back_to_top">Şo serani</string>
   <string name="on_this_day_dialog_next_month">Aşma bahdoyêne</string>

@@ -79,7 +79,7 @@
   <string name="menu_login">Гирмек</string>
   <string name="login_activity_title">Википедиягъа гирмек</string>
   <string name="login_in_progress_dialog_message">Системге гирмек…</string>
-  <string name="login_success_toast">Бажарывлу гирив болду!</string>
+  <string name="login_success_toast" fuzzy="true">Бажарывлу гирив болду!</string>
   <string name="reset_password_title">Чечилингни бер</string>
   <string name="reset_password_hint">Янгы чечил</string>
   <string name="reset_password_button">Сакълап гирмек</string>
@@ -138,7 +138,7 @@
   <string name="gallery_error_draw_failed">Суратны чыгъарма бажарылмады.</string>
   <string name="gallery_menu_share">Пайлашмакъ</string>
   <string name="gallery_save_progress">Саплам эндирив…</string>
-  <string name="gallery_save_success">Саплам тюзевлю сакълангъан.</string>
+  <string name="gallery_save_success" fuzzy="true">Саплам тюзевлю сакълангъан.</string>
   <string name="err_cannot_save_file">Саплам сакъланмай</string>
   <string name="expand_refs">Генглешдирмек учун бас</string>
   <string name="share_snippet_button">Суратдай пайлашмакъ</string>

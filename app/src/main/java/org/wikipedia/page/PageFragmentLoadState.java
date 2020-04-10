@@ -29,7 +29,6 @@ import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
-import okhttp3.CacheControl;
 
 /**
  * Our  page load strategy, which uses responses from the following to construct the page:
@@ -209,7 +208,7 @@ public class PageFragmentLoadState {
         app.getSessionFunnel().leadSectionFetchStart();
 
         disposables.add(ServiceFactory.getRest(model.getTitle().getWikiSite())
-                .getSummaryResponse(model.getTitle().getPrefixedText(), null, model.shouldForceNetwork() ? CacheControl.FORCE_NETWORK.toString() : null,
+                .getSummaryResponse(model.getTitle().getPrefixedText(), null, model.getCacheControl().toString(),
                         model.shouldSaveOffline() ? OfflineCacheInterceptor.SAVE_HEADER_SAVE : null,
                         model.getTitle().getWikiSite().languageCode(), UriUtil.encodeURL(model.getTitle().getPrefixedText()))
                 .subscribeOn(Schedulers.io())

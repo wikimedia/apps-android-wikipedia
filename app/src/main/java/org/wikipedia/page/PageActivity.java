@@ -1,8 +1,6 @@
 package org.wikipedia.page;
 
 import android.app.SearchManager;
-import android.appwidget.AppWidgetManager;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -51,7 +49,6 @@ import org.wikipedia.page.tabs.TabActivity;
 import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.search.SearchActivity;
 import org.wikipedia.settings.Prefs;
-import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.theme.ThemeChooserDialog;
 import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.DeviceUtil;
@@ -63,7 +60,6 @@ import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.PageActionOverflowView;
 import org.wikipedia.views.TabCountsView;
 import org.wikipedia.views.ViewUtil;
-import org.wikipedia.widgets.WidgetProviderFeaturedPage;
 import org.wikipedia.wiktionary.WiktionaryDialog;
 
 import java.util.HashSet;
@@ -734,22 +730,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     private boolean galleryImageCaptionAdded(int requestCode, int resultCode) {
         return requestCode == Constants.ACTIVITY_REQUEST_GALLERY && resultCode == GalleryActivity.ACTIVITY_RESULT_IMAGE_CAPTION_ADDED;
-    }
-
-    private boolean languageChanged(int resultCode) {
-        return resultCode == SettingsActivity.ACTIVITY_RESULT_LANGUAGE_CHANGED;
-    }
-
-    /**
-     * Update any instances of our Featured Page widget, since it will change with the currently selected language.
-     */
-    private void updateFeaturedPageWidget() {
-        Intent widgetIntent = new Intent(this, WidgetProviderFeaturedPage.class);
-        widgetIntent.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
-        int[] ids = AppWidgetManager.getInstance(getApplication()).getAppWidgetIds(
-                new ComponentName(this, WidgetProviderFeaturedPage.class));
-        widgetIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, ids);
-        sendBroadcast(widgetIntent);
     }
 
     private void showDescriptionEditRevertDialog(@NonNull String qNumber) {

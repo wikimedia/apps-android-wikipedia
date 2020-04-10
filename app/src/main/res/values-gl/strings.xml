@@ -116,7 +116,7 @@
   <string name="menu_login">Acceder ó sistema</string>
   <string name="login_activity_title">Iniciar sesión na Wikipedia</string>
   <string name="login_in_progress_dialog_message">Accedendo ao sistema…</string>
-  <string name="login_success_toast">Accedeu correctamente!</string>
+  <string name="login_success_toast" fuzzy="true">Accedeu correctamente!</string>
   <string name="reset_password_title">Definir o seu contrasinal</string>
   <string name="reset_password_description">Accedeu con contrasinal temporal. Para completar o seu acceso, por favor, estableza un novo contrasinal.</string>
   <string name="reset_password_hint">Novo contrasinal</string>
@@ -272,7 +272,7 @@
   <string name="gallery_menu_share">Compartir</string>
   <string name="gallery_share_error">Non se puido compartir a imaxe: %s</string>
   <string name="gallery_save_progress">Descargando ficheiro…</string>
-  <string name="gallery_save_success">O ficheiro gardouse correctamente.</string>
+  <string name="gallery_save_success" fuzzy="true">O ficheiro gardouse correctamente.</string>
   <string name="gallery_error_video_failed">Non se puido reproducir o vídeo.</string>
   <string name="gallery_save_image_write_permission_rationale">É necesario o permiso de escritura no seu dispositivo para gardar imaxes.</string>
   <string name="gallery_add_image_caption_button">Engadir lenda de imaxe</string>
@@ -421,6 +421,7 @@
   <string name="reading_lists_confirm_remote_delete_yes">Si</string>
   <string name="reading_lists_confirm_remote_delete_no">Non</string>
   <string name="reading_list_article_save_in_progress">O artigo está sendo descargado, e estará dispoñible sen conexión cando se remate.</string>
+  <string name="reading_list_articles_added_to_named">Engadidos %1$d artigos a %2$s</string>
   <string name="reading_list_delete_confirm">Está seguro de que quere eliminar %s?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Acceda para activar a sincronización</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Acceda para permitir que as súas listas de lectura se garden na súa conta.</string>
@@ -456,7 +457,7 @@
     <item quantity="one">Este artigo xa non estará dispoñible sen conexión.</item>
     <item quantity="other">Estes artigos xa non estarán dispoñibles sen conexión.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync">As listas de lectura foron sincronizadas correctamente</string>
+  <string name="reading_list_toast_last_sync" fuzzy="true">As listas de lectura foron sincronizadas correctamente</string>
   <string name="reading_list_menu_last_sync">Última sincronización: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">OK</string>
   <string name="reading_list_delete_dialog_ok_button_text">OK</string>
