@@ -46,7 +46,7 @@
 
                 <org.wikipedia.views.AppTextView
                     android:id="@+id/primaryTextView"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="6dp"
                     android:fontFamily="sans-serif-medium"
@@ -57,6 +57,7 @@
 
                 <org.wikipedia.views.AppTextView
                     android:id="@+id/secondaryTextView"
+                    style="@style/TextViewCentered"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="12dp"
@@ -107,7 +108,8 @@
 
             <org.wikipedia.views.GoneIfEmptyTextView
                 android:id="@+id/tertiaryTextView"
-                android:layout_width="wrap_content"
+                style="@style/TextViewCentered"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
