@@ -375,7 +375,7 @@ public final class Prefs {
         setLong(R.string.preference_key_last_description_edit_time, time);
     }
 
-    public static long getLastDesccriptionEditTime() {
+    public static long getLastDescriptionEditTime() {
         return getLong(R.string.preference_key_last_description_edit_time, 0);
     }
 

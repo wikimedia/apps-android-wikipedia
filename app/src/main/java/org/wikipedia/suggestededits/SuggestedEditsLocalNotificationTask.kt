@@ -9,13 +9,13 @@ import java.util.concurrent.TimeUnit
 class SuggestedEditsLocalNotificationTask(context: Context) : RecurringTask() {
 
     override fun shouldRun(lastRun: Date): Boolean {
-        val days = System.currentTimeMillis() - Prefs.getLastDesccriptionEditTime()
+        val days = System.currentTimeMillis() - Prefs.getLastDescriptionEditTime()
         return (days in FIRST_NOTIFICATION_SHOW_ON_DAY until SECOND_NOTIFICATION_SHOW_ON_DAY && !Prefs.isSuggestedEditsLocalNotificationShown())
                 || (days >= SECOND_NOTIFICATION_SHOW_ON_DAY && Prefs.isSuggestedEditsLocalNotificationShown())
     }
 
     override fun run(lastRun: Date) {
-        val days = System.currentTimeMillis() - Prefs.getLastDesccriptionEditTime()
+        val days = System.currentTimeMillis() - Prefs.getLastDescriptionEditTime()
         if (days in FIRST_NOTIFICATION_SHOW_ON_DAY until SECOND_NOTIFICATION_SHOW_ON_DAY && !Prefs.isSuggestedEditsLocalNotificationShown()) {
             Prefs.setSuggestedEditsLocalNotificationShown(true)
             // TODO: show local notification - 3 days after last SE edit
