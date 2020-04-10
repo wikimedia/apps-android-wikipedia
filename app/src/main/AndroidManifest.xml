@@ -65,8 +65,7 @@
         <activity
             android:name=".main.MainActivity"
             android:windowSoftInputMode="adjustResize"
-            android:theme="@style/AppTheme.Splash"
-            android:launchMode="singleTask">
+            android:theme="@style/AppTheme.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
