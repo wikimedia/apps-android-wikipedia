@@ -28,8 +28,6 @@
         <item name="materialButtonStyle">@style/Widget.MaterialComponents.Button.TextButton</item>
         <item name="maxActionInlineWidth">@dimen/snackbar_action_inline_max_dimen</item>
         <item name="textInputStyle">@style/TextInputLayoutStyle</item>
-        <item name="android:navigationBarColor">@android:color/transparent</item>
-        <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
 
     <style name="AppTheme" parent="BaseAppTheme">
