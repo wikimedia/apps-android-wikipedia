@@ -22,12 +22,6 @@ class SuggestedEditsImageTagsOnboardingActivity : BaseActivity() {
         }
     }
 
-    override fun onStart() {
-        super.onStart()
-        setSupportActionBar(onboarding_toolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-    }
-
     companion object {
         fun newIntent(context: Context): Intent {
             return Intent(context, SuggestedEditsImageTagsOnboardingActivity::class.java)
