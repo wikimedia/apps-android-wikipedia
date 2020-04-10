@@ -375,6 +375,10 @@ public final class Prefs {
         setLong(R.string.preference_key_last_description_edit_time, time);
     }
 
+    public static long getLastDesccriptionEditTime() {
+        return getLong(R.string.preference_key_last_description_edit_time, 0);
+    }
+
     public static int getTotalAnonDescriptionsEdited() {
         return getInt(R.string.preference_key_total_anon_descriptions_edited, 0);
     }
@@ -889,6 +893,14 @@ public final class Prefs {
 
     public static void setSuggestedEditsImageTagsNew(boolean enabled) {
         setBoolean(R.string.preference_key_suggested_edits_image_tags_new, enabled);
+    }
+
+    public static boolean isSuggestedEditsLocalNotificationShown() {
+        return getBoolean(R.string.preference_key_suggested_edits_local_notification_shown, false);
+    }
+
+    public static void setSuggestedEditsLocalNotificationShown(boolean shown) {
+        setBoolean(R.string.preference_key_suggested_edits_local_notification_shown, shown);
     }
 
     private Prefs() { }
