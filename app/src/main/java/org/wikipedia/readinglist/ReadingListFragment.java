@@ -187,6 +187,12 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         updateReadingListData();
     }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+        bottomSheetPresenter.dismiss(getChildFragmentManager());
+    }
+
     @Override public void onDestroyView() {
         disposables.clear();
         recyclerView.setAdapter(null);
