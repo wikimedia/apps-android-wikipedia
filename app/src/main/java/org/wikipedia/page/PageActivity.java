@@ -4,7 +4,9 @@ import android.app.SearchManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Rect;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.ActionMode;
@@ -12,6 +14,7 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowInsets;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
@@ -22,6 +25,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.ViewCompat;
 import androidx.preference.PreferenceManager;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
@@ -62,7 +66,9 @@ import org.wikipedia.views.TabCountsView;
 import org.wikipedia.views.ViewUtil;
 import org.wikipedia.wiktionary.WiktionaryDialog;
 
+import java.util.Collections;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import butterknife.BindView;
@@ -107,6 +113,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     @BindView(R.id.page_toolbar_button_search) ImageView searchButton;
     @BindView(R.id.page_toolbar_button_tabs) TabCountsView tabsButton;
     @BindView(R.id.page_toolbar_button_show_overflow_menu) ImageView overflowButton;
+    @BindView(R.id.activity_page_container) View root;
     @Nullable private Unbinder unbinder;
 
     private PageFragment pageFragment;
@@ -128,6 +135,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     };
 
     @Override
+    @SuppressWarnings("checkstyle:magicnumber")
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         app = (WikipediaApp) getApplicationContext();
@@ -186,6 +194,22 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             // then we must have been launched with an Intent, so... handle it!
             handleIntent(getIntent());
         }
+        root.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION);
+        root.setOnApplyWindowInsetsListener(new View.OnApplyWindowInsetsListener() {
+            @Override
+            public WindowInsets onApplyWindowInsets(View v, WindowInsets insets) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                    Rect boundingBox = new Rect();
+                    boundingBox.set(0, 0, DimenUtil.getDisplayWidthPx(), DimenUtil.getDisplayHeightPx() / 2 + 200);
+                    List<Rect> exclusions = Collections.singletonList(boundingBox);
+                    ViewCompat.setSystemGestureExclusionRects(root, exclusions);
+                }
+                //int immersiveModeUiVisibility = View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
+
+                //root.setSystemUiVisibility(immersiveModeUiVisibility);
+                return insets.consumeSystemWindowInsets();
+            }
+        });
     }
 
     @OnClick(R.id.page_toolbar_button_search)
