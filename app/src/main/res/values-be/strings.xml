@@ -79,7 +79,7 @@
   <string name="menu_login">Увайсці</string>
   <string name="login_activity_title">Увайсці ў Вікіпедыю</string>
   <string name="login_in_progress_dialog_message">Уваход у сістэму…</string>
-  <string name="login_success_toast">Паспяховы ўваход у сістэму!</string>
+  <string name="login_success_toast" fuzzy="true">Паспяховы ўваход у сістэму!</string>
   <string name="preference_title_logout">Выйсці</string>
   <string name="toast_logout_complete">Вы выйшлі</string>
   <string name="history_empty_title">Няма нядаўна прагледжаных артыкулаў</string>
@@ -186,7 +186,7 @@
   <string name="gallery_menu_share">Падзяліцца</string>
   <string name="gallery_share_error">Не атрымалася падзяліцца выявай: %s</string>
   <string name="gallery_save_progress">Спампаванне файлу…</string>
-  <string name="gallery_save_success">Файл паспяхова захаваны.</string>
+  <string name="gallery_save_success" fuzzy="true">Файл паспяхова захаваны.</string>
   <string name="gallery_error_video_failed">Немагчыма прайграць відэа.</string>
   <string name="gallery_save_image_write_permission_rationale">Для захавання выяваў патрабуецца дазвол на запіс у сховішча Вашай прылады.</string>
   <string name="err_cannot_save_file">Немагчыма захаваць файл</string>

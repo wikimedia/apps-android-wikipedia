@@ -84,7 +84,7 @@
   <string name="menu_login">Prijavi me</string>
   <string name="login_activity_title">Prijava na Wikipediju</string>
   <string name="login_in_progress_dialog_message">Prijavljujem Vas...</string>
-  <string name="login_success_toast">Uspješno ste prijavljeni!</string>
+  <string name="login_success_toast" fuzzy="true">Uspješno ste prijavljeni!</string>
   <string name="preference_title_logout">Odjavi me</string>
   <string name="toast_logout_complete">Odjavljeni ste</string>
   <string name="logout_dialog_cancel_button_text">Otkaži</string>
@@ -206,7 +206,7 @@
   <string name="gallery_menu_share">Podijeli</string>
   <string name="gallery_share_error">Ne mogu podijeliti sliku: %s</string>
   <string name="gallery_save_progress">Preuzimam datoteku...</string>
-  <string name="gallery_save_success">Datoteka je uspješno sačuvana.</string>
+  <string name="gallery_save_success" fuzzy="true">Datoteka je uspješno sačuvana.</string>
   <string name="gallery_error_video_failed">Ne mogu reproducirati videozapis.</string>
   <string name="gallery_save_image_write_permission_rationale">Potrebna je dozvola za čuvanje slika na Vaš uređaj.</string>
   <string name="err_cannot_save_file">Ne mogu sačuvati datoteku</string>

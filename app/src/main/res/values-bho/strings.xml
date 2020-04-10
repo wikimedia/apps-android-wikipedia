@@ -106,7 +106,7 @@
   <string name="menu_login">खाता में प्रवेश</string>
   <string name="login_activity_title">विकिपीडिया पर खाता में प्रवेश करीं</string>
   <string name="login_in_progress_dialog_message">रउवाँ के खाता में प्रवेश करावल जा रहल बा...</string>
-  <string name="login_success_toast">खाता में प्रवेश सफल भइल!</string>
+  <string name="login_success_toast" fuzzy="true">खाता में प्रवेश सफल भइल!</string>
   <string name="reset_password_title">आपन पासवर्ड सेट करीं</string>
   <string name="reset_password_description">आप टंपरौरी पासवर्ड से लॉग इन बाड़ीं। लॉग इन पूरा करे खाती हेइजा नाया पासवर्ड सेट करीं।</string>
   <string name="reset_password_hint">नाया पासवर्ड</string>
@@ -255,7 +255,7 @@
   <string name="gallery_menu_share">साझा करीं</string>
   <string name="gallery_share_error">चित्र %s शेयर ना हो पावल</string>
   <string name="gallery_save_progress">फाइल डाउनलोड होता...</string>
-  <string name="gallery_save_success">फाइल सहेजल सफल।</string>
+  <string name="gallery_save_success" fuzzy="true">फाइल सहेजल सफल।</string>
   <string name="gallery_error_video_failed">बीडियो प्ले ना हो पावल।</string>
   <string name="gallery_save_image_write_permission_rationale">इमेज सहेजे खाती आपके डिवाइस पर राइट करे के परमीशन चाहीं।</string>
   <string name="gallery_add_image_caption_in_language_button">फोटो कैप्शन (%s) जोड़ीं</string>

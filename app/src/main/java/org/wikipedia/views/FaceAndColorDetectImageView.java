@@ -42,6 +42,14 @@ public class FaceAndColorDetectImageView extends AppCompatImageView {
     private static final Paint DEFAULT_PAINT = new Paint(PAINT_FLAGS);
     private static final int BITMAP_COPY_WIDTH = 200;
     private static final CenterCropWithFace FACE_DETECT_TRANSFORM = new CenterCropWithFace();
+    private static final Paint PAINT_WHITE = new Paint();
+    private static final Paint PAINT_DARK_OVERLAY = new Paint();
+
+    static {
+        final int blackAlpha = 100;
+        PAINT_WHITE.setColor(Color.WHITE);
+        PAINT_DARK_OVERLAY.setColor(Color.argb(blackAlpha, 0, 0, 0));
+    }
 
     public FaceAndColorDetectImageView(Context context) {
         super(context);
@@ -99,11 +107,9 @@ public class FaceAndColorDetectImageView extends AppCompatImageView {
                 return inBitmap;
             }
 
-            Bitmap result = pool.getDirty(width, height, getNonNullConfig(inBitmap));
             PointF facePos = null;
             @ColorInt int mainColor = ContextCompat.getColor(WikipediaApp.getInstance(), R.color.base30);
 
-            copyWithWhiteBackground(result, inBitmap);
             if (isBitmapEligibleForImageProcessing(inBitmap)) {
                 Bitmap testBmp = new565ScaledBitmap(pool, inBitmap);
                 Palette colorPalette = Palette.from(testBmp).generate();
@@ -145,10 +151,11 @@ public class FaceAndColorDetectImageView extends AppCompatImageView {
             m.setScale(scale, scale);
             m.postTranslate((int) (dx + half), (int) (dy + half));
 
+            Bitmap result = pool.getDirty(width, height, getNonNullConfig(inBitmap));
             // We don't add or remove alpha, so keep the alpha setting of the Bitmap we were given.
             TransformationUtils.setAlpha(inBitmap, result);
 
-            applyMatrix(inBitmap, result, m);
+            applyMatrixWithBackground(inBitmap, result, m);
             return result;
         }
     }
@@ -157,12 +164,16 @@ public class FaceAndColorDetectImageView extends AppCompatImageView {
         return bitmap.getConfig() != null ? bitmap.getConfig() : Bitmap.Config.ARGB_8888;
     }
 
-    private static void applyMatrix(@NonNull Bitmap inBitmap, @NonNull Bitmap targetBitmap, Matrix matrix) {
+    private static void applyMatrixWithBackground(@NonNull Bitmap inBitmap, @NonNull Bitmap targetBitmap, Matrix matrix) {
         TransformationUtils.getBitmapDrawableLock().lock();
         try {
             Canvas canvas = new Canvas(targetBitmap);
+            canvas.drawRect(0f, 0f, targetBitmap.getWidth(), targetBitmap.getHeight(), PAINT_WHITE);
             canvas.drawBitmap(inBitmap, matrix, DEFAULT_PAINT);
-            canvas.setBitmap(null);
+            if (WikipediaApp.getInstance().getCurrentTheme().isDark() && Prefs.shouldDimDarkModeImages()) {
+                // "dim" images by drawing a translucent black rectangle over them.
+                canvas.drawRect(0f, 0f, targetBitmap.getWidth(), targetBitmap.getHeight(), PAINT_DARK_OVERLAY);
+            }
         } finally {
             TransformationUtils.getBitmapDrawableLock().unlock();
         }
@@ -215,19 +226,5 @@ public class FaceAndColorDetectImageView extends AppCompatImageView {
     private static boolean isBitmapEligibleForImageProcessing(@NonNull Bitmap bitmap) {
         final int minSize = 64;
         return bitmap.getWidth() >= minSize && bitmap.getHeight() >= minSize;
-    }
-
-    private static void copyWithWhiteBackground(@NonNull Bitmap destBitmap, @NonNull Bitmap sourceBitmap) {
-        Canvas canvas = new Canvas(destBitmap);
-        Paint backgroundPaint = new Paint();
-        backgroundPaint.setColor(Color.WHITE);
-        canvas.drawRect(0f, 0f, destBitmap.getWidth(), destBitmap.getHeight(), backgroundPaint);
-        canvas.drawBitmap(sourceBitmap, 0f, 0f, backgroundPaint);
-        if (WikipediaApp.getInstance().getCurrentTheme().isDark() && Prefs.shouldDimDarkModeImages()) {
-            // "dim" images by drawing a translucent black rectangle over them.
-            final int blackAlpha = 100;
-            backgroundPaint.setColor(Color.argb(blackAlpha, 0, 0, 0));
-            canvas.drawRect(0f, 0f, destBitmap.getWidth(), destBitmap.getHeight(), backgroundPaint);
-        }
     }
 }

@@ -190,29 +190,55 @@ public class ReadingListsFragment extends Fragment implements
     }
 
     @Override
-    public void onToggleItemOffline(@NonNull ReadingListPage page) {
+    public void onToggleItemOffline(long pageId) {
+        ReadingListPage page = getPageById(pageId);
+        if (page == null) {
+            return;
+        }
         ReadingListBehaviorsUtil.INSTANCE.togglePageOffline(requireActivity(), page, this::updateLists);
     }
 
     @Override
-    public void onShareItem(@NonNull ReadingListPage page) {
+    public void onShareItem(long pageId) {
+        ReadingListPage page = getPageById(pageId);
+        if (page == null) {
+            return;
+        }
         ShareUtil.shareText(getContext(), ReadingListPage.toPageTitle(page));
     }
 
     @Override
-    public void onAddItemToOther(@NonNull ReadingListPage page) {
+    public void onAddItemToOther(long pageId) {
+        ReadingListPage page = getPageById(pageId);
+        if (page == null) {
+            return;
+        }
         bottomSheetPresenter.show(getChildFragmentManager(),
                 AddToReadingListDialog.newInstance(ReadingListPage.toPageTitle(page), READING_LIST_ACTIVITY));
     }
 
     @Override
-    public void onSelectItem(@NonNull ReadingListPage page) {
+    public void onSelectItem(long pageId) {
         // ignore
     }
 
     @Override
-    public void onDeleteItem(@NonNull ReadingListPage page) {
+    public void onDeleteItem(long pageId) {
+        ReadingListPage page = getPageById(pageId);
+        if (page == null) {
+            return;
+        }
         ReadingListBehaviorsUtil.INSTANCE.deletePages(requireActivity(), ReadingListBehaviorsUtil.INSTANCE.getListsContainPage(page), page, this::updateLists, this::updateLists);
+    }
+
+    @Nullable
+    private ReadingListPage getPageById(long id) {
+        for (Object obj : displayedLists) {
+            if (obj instanceof ReadingListPage && ((ReadingListPage)obj).id() == id) {
+                return (ReadingListPage)obj;
+            }
+        }
+        return null;
     }
 
     private class OverflowCallback implements ReadingListsOverflowView.Callback {
@@ -563,7 +589,7 @@ public class ReadingListsFragment extends Fragment implements
                 return false;
             }
             bottomSheetPresenter.show(getChildFragmentManager(),
-                    ReadingListItemActionsDialog.newInstance(ReadingListBehaviorsUtil.INSTANCE.getListsContainPage(page), page, actionMode != null));
+                    ReadingListItemActionsDialog.newInstance(ReadingListBehaviorsUtil.INSTANCE.getListsContainPage(page), page.id(), actionMode != null));
             return true;
         }
 
@@ -578,7 +604,7 @@ public class ReadingListsFragment extends Fragment implements
                 return;
             }
             bottomSheetPresenter.show(getChildFragmentManager(),
-                    ReadingListItemActionsDialog.newInstance(ReadingListBehaviorsUtil.INSTANCE.getListsContainPage(page), page, actionMode != null));
+                    ReadingListItemActionsDialog.newInstance(ReadingListBehaviorsUtil.INSTANCE.getListsContainPage(page), page.id(), actionMode != null));
         }
 
         @Override

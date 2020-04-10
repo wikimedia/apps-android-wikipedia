@@ -115,7 +115,7 @@
   <string name="menu_login">Ensaluti</string>
   <string name="login_activity_title">Ensaluti en Vikipedion</string>
   <string name="login_in_progress_dialog_message">Ensalutante…</string>
-  <string name="login_success_toast">Ensaluto sukcesis!</string>
+  <string name="login_success_toast" fuzzy="true">Ensaluto sukcesis!</string>
   <string name="reset_password_title">Ŝanĝu vian pasvorton</string>
   <string name="reset_password_description">Vi ensalutis per provizora pasvorto. Por fini vian ensalutadon, agordu novan pasvorton ĉi tie.</string>
   <string name="reset_password_hint">Nova pasvorto</string>
@@ -269,7 +269,7 @@
   <string name="gallery_menu_share">Konigi</string>
   <string name="gallery_share_error">Ne eblis konigi la bildon: %s</string>
   <string name="gallery_save_progress">Elŝutado de dosiero…</string>
-  <string name="gallery_save_success">Dosiero sukcese konservita.</string>
+  <string name="gallery_save_success" fuzzy="true">Dosiero sukcese konservita.</string>
   <string name="gallery_error_video_failed">Ne eblis ludi la filmeton.</string>
   <string name="gallery_save_image_write_permission_rationale">Savi bildon bezonas permeson skribi al konservejo de via aparato.</string>
   <string name="gallery_add_image_caption_in_language_button">Aldoni titolon al bildo (je %s)</string>
@@ -413,6 +413,7 @@
   <string name="reading_lists_confirm_remote_delete_yes">Jes</string>
   <string name="reading_lists_confirm_remote_delete_no">Ne</string>
   <string name="reading_list_article_save_in_progress">La artikolo estas elŝutata, kaj ĝi estos havebla kiam la elŝutado estos kompleta.</string>
+  <string name="reading_list_articles_added_to_named">Aldoniĝis %1$d artikoloj al %2$s</string>
   <string name="reading_list_delete_confirm">Ĉu vi certas, ke vi volas forigi %s?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Ensalutu por ebligi sinkronigadon</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Ensalutu por ebligi ke viaj legolistoj estu konservitaj al via konto.</string>
@@ -448,7 +449,7 @@
     <item quantity="one">Ĉi tiu artikolo estas ne plu havebla eksterrete.</item>
     <item quantity="other">Ĉi tiuj artikoloj estas ne plu haveblaj eksterrete.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync">Sukcese sinkronigis legolistojn</string>
+  <string name="reading_list_toast_last_sync" fuzzy="true">Sukcese sinkronigis legolistojn</string>
   <string name="reading_list_menu_last_sync">Lasta sinkronigo: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">Bone</string>
   <string name="reading_list_delete_dialog_ok_button_text">Bone</string>

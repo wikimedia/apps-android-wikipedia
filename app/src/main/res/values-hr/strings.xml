@@ -114,7 +114,7 @@
   <string name="menu_login">Prijavite se</string>
   <string name="login_activity_title">Prijavite se na Wikipediju</string>
   <string name="login_in_progress_dialog_message">Ulaz u sustav…</string>
-  <string name="login_success_toast">Uspješno ste se prijavili!</string>
+  <string name="login_success_toast" fuzzy="true">Uspješno ste se prijavili!</string>
   <string name="reset_password_title">Postavite zaporku</string>
   <string name="reset_password_description">Prijavili ste se s privremenom zaporkom. Za dovršetak prijave, molimo Vas, postavite novu zaporku ovdje.</string>
   <string name="reset_password_hint">Nova zaporka</string>
@@ -268,7 +268,7 @@
   <string name="gallery_menu_share">Podijeli</string>
   <string name="gallery_share_error">Nije moguće podijeliti sliku: %s</string>
   <string name="gallery_save_progress">Preuzimanje datoteke…</string>
-  <string name="gallery_save_success">Datoteka je uspješno spremljena.</string>
+  <string name="gallery_save_success" fuzzy="true">Datoteka je uspješno spremljena.</string>
   <string name="gallery_error_video_failed">Nije moguće reproducirati videozapis.</string>
   <string name="gallery_save_image_write_permission_rationale">Da bi se slike spremile na Vaš uređaj, potrebna je dozvola za pristup pohrani.</string>
   <string name="gallery_add_image_caption_button">Dodaj opis slike</string>

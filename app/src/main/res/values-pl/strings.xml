@@ -134,7 +134,7 @@
   <string name="menu_login">Zaloguj się</string>
   <string name="login_activity_title">Zaloguj się do Wikipedii</string>
   <string name="login_in_progress_dialog_message">Logowanie…</string>
-  <string name="login_success_toast">Zalogowano pomyślnie!</string>
+  <string name="login_success_toast" fuzzy="true">Zalogowano pomyślnie!</string>
   <string name="reset_password_title">Wpisz swoje hasło</string>
   <string name="reset_password_description">Zalogowano się z użyciem hasła tymczasowego. Aby dokończyć logowanie, ustaw nowe hasło.</string>
   <string name="reset_password_hint">Nowe hasło</string>
@@ -290,7 +290,7 @@
   <string name="gallery_menu_share">Udostępnij</string>
   <string name="gallery_share_error">Nie można udostępnić obrazu: %s</string>
   <string name="gallery_save_progress">Pobieranie pliku…</string>
-  <string name="gallery_save_success">Plik pomyślnie zapisany.</string>
+  <string name="gallery_save_success" fuzzy="true">Plik pomyślnie zapisany.</string>
   <string name="gallery_error_video_failed">Nie można odtworzyć filmu wideo.</string>
   <string name="gallery_save_image_write_permission_rationale">Do zapisu obrazów w pamięci twojego urządzenia wymagane są uprawnień do zapisu obrazów.</string>
   <string name="gallery_add_image_caption_button">Dodaj podpis obrazu</string>
@@ -440,6 +440,7 @@
   <string name="reading_lists_confirm_remote_delete_yes">Tak</string>
   <string name="reading_lists_confirm_remote_delete_no">Nie</string>
   <string name="reading_list_article_save_in_progress">Artykuł jest w trakcie pobierania i będzie dostępny w trybie offline, gdy pobieranie się zakończy.</string>
+  <string name="reading_list_articles_added_to_named">Dodano %1$d artykułów do %2$s</string>
   <string name="reading_list_delete_confirm">Czy na pewno chcesz usunąć „%s”?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Zaloguj się, aby włączyć synchronizację</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Zaloguj się, aby umożliwić zapisywanie list na swoim koncie.</string>
@@ -475,7 +476,7 @@
     <item quantity="one">Ten artykuł nie będzie już dostępny w trybie offline.</item>
     <item quantity="other">Te artykuły nie będą już dostępne w trybie offline.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync">Listy czytanych pomyślnie zsynchronizowane</string>
+  <string name="reading_list_toast_last_sync" fuzzy="true">Listy czytanych pomyślnie zsynchronizowane</string>
   <string name="reading_list_menu_last_sync">Ostatnia synchronizacja: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">OK</string>
   <string name="reading_list_delete_dialog_ok_button_text">OK</string>

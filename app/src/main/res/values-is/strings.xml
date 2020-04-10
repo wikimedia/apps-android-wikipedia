@@ -110,7 +110,7 @@
   <string name="menu_login">Skrá inn</string>
   <string name="login_activity_title">Skrá inn á Wikipedia</string>
   <string name="login_in_progress_dialog_message">Skráir þig inn…</string>
-  <string name="login_success_toast">Sending tókst!</string>
+  <string name="login_success_toast" fuzzy="true">Sending tókst!</string>
   <string name="reset_password_title">Stilltu lykilorðið þitt</string>
   <string name="reset_password_description">Þú skráðir þig inn með bráðabirgðalykilorði. Til að klára að skrá þig inn, verður þú að velja nýtt lykilorð hér.</string>
   <string name="reset_password_hint">Nýtt lykilorð</string>
@@ -267,7 +267,7 @@
   <string name="gallery_menu_share">Deila</string>
   <string name="gallery_share_error">Gat ekki deilt myndinni: %s</string>
   <string name="gallery_save_progress">Sæki skrá…</string>
-  <string name="gallery_save_success">Tókst að vista skrána.</string>
+  <string name="gallery_save_success" fuzzy="true">Tókst að vista skrána.</string>
   <string name="gallery_error_video_failed">Tókst ekki að spila myndskeiðið.</string>
   <string name="gallery_save_image_write_permission_rationale">Til að vista myndir er nauðsynlegt að hafa heimild til að skrifa í gagnageymslu tækisins.</string>
   <string name="gallery_add_image_caption_button">Bæta við myndatexta</string>
@@ -418,6 +418,7 @@
   <string name="reading_lists_confirm_remote_delete_yes">Já</string>
   <string name="reading_lists_confirm_remote_delete_no">Nei</string>
   <string name="reading_list_article_save_in_progress">Verið er að sækja þessa grein og verður hún tiltæk án nettengingar þegar því er lokið.</string>
+  <string name="reading_list_articles_added_to_named">Bætti %1$d greinum við %2$s</string>
   <string name="reading_list_delete_confirm">Ertu viss um að þú viljir eyða %s?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Skráðu inn til að virkja samstillingu</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Skráðu þig inn til að leyfa vistun leslista inn á aðganginn þinn.</string>
@@ -453,7 +454,7 @@
     <item quantity="one">Þessi grein verður ekki lengur tiltæk án nettengingar.</item>
     <item quantity="other">Þessar greinar verða ekki lengur tiltækar án nettengingar.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync">Það tókst að samstilla leslista</string>
+  <string name="reading_list_toast_last_sync" fuzzy="true">Það tókst að samstilla leslista</string>
   <string name="reading_list_menu_last_sync">Síðasta samstilling: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">Í lagi</string>
   <string name="reading_list_delete_dialog_ok_button_text">Í lagi</string>
