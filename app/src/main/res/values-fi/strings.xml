@@ -125,7 +125,7 @@
   <string name="menu_login">Kirjaudu sisään</string>
   <string name="login_activity_title">Kirjaudu Wikipediaan</string>
   <string name="login_in_progress_dialog_message">Kirjaudutaan…</string>
-  <string name="login_success_toast">Kirjautuminen onnistui!</string>
+  <string name="login_success_toast" fuzzy="true">Kirjautuminen onnistui!</string>
   <string name="reset_password_title">Aseta salasanasi</string>
   <string name="reset_password_description">Kirjauduit sisään väliaikaisella salasanalla. Viimeistelläksesi kirjautumisen, aseta uusi salasanasi tässä.</string>
   <string name="reset_password_hint">Uusi salasana</string>
@@ -280,7 +280,7 @@
   <string name="gallery_menu_share">Jaa</string>
   <string name="gallery_share_error">Kuvaa ei voitu jakaa: %s</string>
   <string name="gallery_save_progress">Ladataan tiedostoa…</string>
-  <string name="gallery_save_success">Tiedosto on tallennettu.</string>
+  <string name="gallery_save_success" fuzzy="true">Tiedosto on tallennettu.</string>
   <string name="gallery_error_video_failed">Videota ei voitu toistaa.</string>
   <string name="gallery_save_image_write_permission_rationale">Käyttöoikeus laitteesi ulkoiseen muistiin vaaditaan kuvien tallentamista varten.</string>
   <string name="gallery_add_image_caption_button">Lisää kuvateksti</string>
@@ -427,6 +427,7 @@
   <string name="reading_lists_confirm_remote_delete_yes">Kyllä</string>
   <string name="reading_lists_confirm_remote_delete_no">Ei</string>
   <string name="reading_list_article_save_in_progress">Artikkelia ladataan ja se tulee käytettäväksi offline-tilassa kun lataus on valmis.</string>
+  <string name="reading_list_articles_added_to_named">Lisättiin %1$d artikkelia listaan %2$s</string>
   <string name="reading_list_delete_confirm">Haluatko varmasti poistaa %s?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Kirjaudu sisään ottaaksesi synkronoinnin käyttöön</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Kirjaudu sisään salliaksesi lukulistojesi tallentamisen tunnuksellesi.</string>
@@ -462,7 +463,7 @@
     <item quantity="one">Tämä artikkeli ei ole enää käytettävissä offline-tilassa.</item>
     <item quantity="other">Nämä artikkelit eivät enää ole käytettävissä offline-tilassa.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync">Lukulistat synkronoitu onnistuneesti</string>
+  <string name="reading_list_toast_last_sync" fuzzy="true">Lukulistat synkronoitu onnistuneesti</string>
   <string name="reading_list_menu_last_sync">Viimeksi synkronoitu: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">OK</string>
   <string name="reading_list_delete_dialog_ok_button_text">OK</string>
