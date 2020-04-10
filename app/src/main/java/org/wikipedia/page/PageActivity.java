@@ -107,7 +107,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     @BindView(R.id.page_toolbar_button_search) ImageView searchButton;
     @BindView(R.id.page_toolbar_button_tabs) TabCountsView tabsButton;
     @BindView(R.id.page_toolbar_button_show_overflow_menu) ImageView overflowButton;
-    @BindView(R.id.activity_page_container) View root;
     @Nullable private Unbinder unbinder;
 
     private PageFragment pageFragment;
@@ -129,7 +128,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     };
 
     @Override
-    @SuppressWarnings("checkstyle:magicnumber")
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         app = (WikipediaApp) getApplicationContext();
