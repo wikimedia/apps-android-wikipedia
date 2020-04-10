@@ -713,7 +713,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
         for (int i = 0; i < menu.size(); i++) {
             String title = menu.getItem(i).getTitle().toString();
-            if (!title.contains(getString(R.string.menu_text_select_share)) && !title.contains(getString(R.string.search_hint))) {
+            if (!title.contains(getString(R.string.search_hint)) && !title.contains(getString(R.string.menu_text_select_define))) {
                 menuItemsList.add(menu.getItem(i));
             }
         }
