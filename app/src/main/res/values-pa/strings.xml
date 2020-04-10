@@ -71,7 +71,7 @@
   <string name="menu_login">ਦਾਖ਼ਲ ਹੋਵੋ</string>
   <string name="login_activity_title">ਵਿਕੀਪੀਡੀਆ \'ਚ ਦਾਖ਼ਲ ਹੋਵੋ</string>
   <string name="login_in_progress_dialog_message">ਦਾਖ਼ਲ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ…</string>
-  <string name="login_success_toast">ਦਾਖ਼ਲਾ ਕਾਮਯਾਬ ਹੋੲਿਅਾ।</string>
+  <string name="login_success_toast" fuzzy="true">ਦਾਖ਼ਲਾ ਕਾਮਯਾਬ ਹੋੲਿਅਾ।</string>
   <string name="preference_title_logout">ਬਾਹਰ ਆਉ</string>
   <string name="toast_logout_complete">ਬਾਹਰ ਆਏ</string>
   <string name="history_empty_title" fuzzy="true">ਇੱਥੇ ਕੋਈ ਹਾਲੀਆ ਵਰਕੇ ਨਹੀਂ!</string>
@@ -166,7 +166,7 @@
   <string name="gallery_menu_share">ਸਾਂਝਾ ਕਰੋ</string>
   <string name="gallery_share_error">ਤਸਵੀਰ ਸਾਂਝੀ ਨਹੀਂ ਹੋ ਸਕੀ: %s</string>
   <string name="gallery_save_progress">ਫ਼ਾਈਲ ਡਾਊਨਲੋਡ ਹੋ ਰਹੀ ਹੈ...</string>
-  <string name="gallery_save_success">ਫਾਈਲ ਸਫਲਤਾਪੂਰਵਕ ਸਾਂਭੀ ਗਈ।</string>
+  <string name="gallery_save_success" fuzzy="true">ਫਾਈਲ ਸਫਲਤਾਪੂਰਵਕ ਸਾਂਭੀ ਗਈ।</string>
   <string name="gallery_error_video_failed">ਵੀਡੀਓ ਨਹੀਂ ਚਲਾ ਸਕੇ।</string>
   <string name="err_cannot_save_file">ਫਾਈਲ ਸਾਂਭੀ ਨਹੀਂ ਗਈ</string>
   <string name="snippet_share_intro">\"%1$s\" @Wikipedia ਉੱਤੇ: %2$s</string>

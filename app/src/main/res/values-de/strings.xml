@@ -5,6 +5,7 @@
 * Chronist
 * Dbrant
 * Envlh
+* FF11
 * Hikemaniac
 * Hwboehm
 * Killarnee
@@ -121,7 +122,7 @@
   <string name="menu_login">Anmelden</string>
   <string name="login_activity_title">Bei Wikipedia anmelden</string>
   <string name="login_in_progress_dialog_message">Melde dich an …</string>
-  <string name="login_success_toast">Erfolgreich angemeldet!</string>
+  <string name="login_success_toast">Angemeldet!</string>
   <string name="reset_password_title">Dein Passwort festlegen</string>
   <string name="reset_password_description">Du hast dich mit einem temporären Passwort angemeldet. Um die Anmeldung abzuschließen, lege bitte hier dein neues Passwort fest.</string>
   <string name="reset_password_hint">Neues Passwort</string>
@@ -277,7 +278,7 @@
   <string name="gallery_menu_share">Teilen</string>
   <string name="gallery_share_error">Bild konnte nicht geteilt werden: %s</string>
   <string name="gallery_save_progress">Lade Datei herunter …</string>
-  <string name="gallery_save_success">Datei erfolgreich gespeichert.</string>
+  <string name="gallery_save_success">Datei gespeichert.</string>
   <string name="gallery_error_video_failed">Das Video konnte nicht abgespielt werden.</string>
   <string name="gallery_save_image_write_permission_rationale">Zum Speichern von Bildern ist eine Berechtigung zum Schreiben auf den Speicher deines Gerätes erforderlich.</string>
   <string name="gallery_add_image_caption_button">Bildunterschrift hinzufügen</string>
@@ -427,6 +428,7 @@
   <string name="reading_lists_confirm_remote_delete_yes">Ja</string>
   <string name="reading_lists_confirm_remote_delete_no">Nein</string>
   <string name="reading_list_article_save_in_progress">Der Artikel wird derzeit heruntergeladen und wird offline verfügbar sein, wenn der Download abgeschlossen ist.</string>
+  <string name="reading_list_articles_added_to_named">%1$d Artikel zu %2$s hinzugefügt</string>
   <string name="reading_list_delete_confirm">Bist du sicher, dass du %s löschen möchtest?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Melde dich an, um die Synchronisierung zu aktivieren.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Melde dich an, um die Speicherung deiner Leselisten in deinem Benutzerkonto zu erlauben.</string>
@@ -462,7 +464,7 @@
     <item quantity="one">Dieser Artikel ist nicht mehr offline verfügbar.</item>
     <item quantity="other">Diese Artikel sind nicht mehr offline verfügbar.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync">Leselisten erfolgreich synchronisiert</string>
+  <string name="reading_list_toast_last_sync">Leselisten synchronisiert</string>
   <string name="reading_list_menu_last_sync">Letzte Synchronisierung: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">Okay</string>
   <string name="reading_list_delete_dialog_ok_button_text">Okay</string>

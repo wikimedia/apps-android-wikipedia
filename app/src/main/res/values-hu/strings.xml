@@ -121,7 +121,7 @@
   <string name="menu_login">Bejelentkezés</string>
   <string name="login_activity_title">Bejelentkezés a Wikipédiába</string>
   <string name="login_in_progress_dialog_message">Bejelentkezés…</string>
-  <string name="login_success_toast">Sikeresen bejelentkezve!</string>
+  <string name="login_success_toast">Bejelentkezve!</string>
   <string name="reset_password_title">Jelszó beállítása</string>
   <string name="reset_password_description">Ideiglenes jelszóval jelentkeztél be. A bejelentkezés befejezéséhez állíts be itt egy új jelszót.</string>
   <string name="reset_password_hint">Új jelszó</string>
@@ -277,7 +277,7 @@
   <string name="gallery_menu_share">Megosztás</string>
   <string name="gallery_share_error">A kép megosztása sikertelen: %s</string>
   <string name="gallery_save_progress">Fájl letöltése folyamatban…</string>
-  <string name="gallery_save_success">A fájl sikeresen mentve.</string>
+  <string name="gallery_save_success" fuzzy="true">A fájl sikeresen mentve.</string>
   <string name="gallery_error_video_failed">A videó lejátszása sikertelen.</string>
   <string name="gallery_save_image_write_permission_rationale">Képek elmentéséhez szükséges engedély az eszközöd tárhelyére íráshoz.</string>
   <string name="gallery_add_image_caption_button">Képaláírás hozzáadása</string>
@@ -428,6 +428,7 @@
   <string name="reading_lists_confirm_remote_delete_yes">Igen</string>
   <string name="reading_lists_confirm_remote_delete_no">Nem</string>
   <string name="reading_list_article_save_in_progress">A cikk letöltése folyamatban, a letöltés befejeztével offline is elérhető lesz.</string>
+  <string name="reading_list_articles_added_to_named">%1$d szócikk hozzáadva ide: %2$s</string>
   <string name="reading_list_delete_confirm">Biztosan szeretnéd törölni a(z) %s olvasólistát?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Jelentkezz be a szinkronizálás engedélyezéséhez</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Jelentkezz be, ha az olvasólistáidat a fiókodba akarod menteni.</string>
@@ -463,7 +464,7 @@
     <item quantity="one">A szócikk mostantól nem érhető el kapcsolat nélkül.</item>
     <item quantity="other">A szócikkek mostantól nem érhetők el kapcsolat nélkül.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync">Az olvasólisták sikeresen szinkronizálva</string>
+  <string name="reading_list_toast_last_sync" fuzzy="true">Az olvasólisták sikeresen szinkronizálva</string>
   <string name="reading_list_menu_last_sync">Utolsó szinkronizálás: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">OK</string>
   <string name="reading_list_delete_dialog_ok_button_text">OK</string>

@@ -117,7 +117,7 @@
   <string name="menu_login">داخل ہوں</string>
   <string name="login_activity_title">ویکیپیڈیا میں داخل ہوں</string>
   <string name="login_in_progress_dialog_message">داخل ہو رہے ہیں۔۔۔</string>
-  <string name="login_success_toast">کامیابی سے داخل ہو گئے!</string>
+  <string name="login_success_toast" fuzzy="true">کامیابی سے داخل ہو گئے!</string>
   <string name="reset_password_title">اپنا پاسورڈ سیٹ کریں</string>
   <string name="reset_password_description">آپ ایک عارضی پاسورڈ سے لاگ ان ہیں۔ لاگ ان کو مکمل کرنے کے لیے براہ مہربانی یہاں ایک نیا پاسورڈ سیٹ کریں۔</string>
   <string name="reset_password_hint">نیا پاسورڈ</string>
@@ -264,7 +264,7 @@
   <string name="gallery_menu_share">دوسروں کو بھیجیں</string>
   <string name="gallery_share_error">تصویر دوسروں کو بھیجی نہیں جا سکی: %s</string>
   <string name="gallery_save_progress">ملف کا ڈاؤنلوڈ جاری ہے …</string>
-  <string name="gallery_save_success">ملف  کامیابی سے محفوظ ہو گیا۔</string>
+  <string name="gallery_save_success" fuzzy="true">ملف  کامیابی سے محفوظ ہو گیا۔</string>
   <string name="gallery_error_video_failed">ویڈیو کو چلایا نہیں جا سکا۔</string>
   <string name="gallery_save_image_write_permission_rationale">اپنے آلے پر تصاویر کو محفوظ کرنے کے لیے اجازت کی ضرورت ہے۔</string>
   <string name="gallery_add_image_caption_button">تصویر کی وضاحت درج کریں</string>
@@ -398,6 +398,7 @@
   <string name="reading_lists_confirm_remote_delete_yes">ہاں</string>
   <string name="reading_lists_confirm_remote_delete_no">نہیں</string>
   <string name="reading_list_article_save_in_progress">یہ مضمون ڈاؤنلوڈ ہو رہا ہے، مکمل ہونے کے بعد یہ آف لائن دستیاب ہوگا۔</string>
+  <string name="reading_list_articles_added_to_named">%2$s میں %1$d مضامین شامل کیے گئے</string>
   <string name="reading_list_delete_confirm">کیا آپ یقینی طور پر اس کو مطالعہ کی فہرست سے %s حذف کرنا چاہتے ہیں؟</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">منسوخ</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">داخل ہوں</string>

@@ -15,14 +15,6 @@
         app:secondaryText="@string/suggested_edits_image_tags_onboarding_text"
         app:tertiaryText="@string/suggested_edits_image_tags_onboarding_note"/>
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/onboarding_toolbar"
-        style="@style/ToolbarStyle"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        app:title="@string/suggested_edits_tag_images"
-        app:titleTextColor="?attr/main_toolbar_title_color"/>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
