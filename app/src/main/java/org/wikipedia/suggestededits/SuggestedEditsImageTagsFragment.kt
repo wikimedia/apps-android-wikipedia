@@ -149,6 +149,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                 break
             }
         }
+        tagList.sortByDescending { it.confidenceScore }
     }
 
     private fun setErrorState(t: Throwable) {
