@@ -48,7 +48,7 @@ public class ObservableWebView extends WebView {
     */
     private static final int MAX_HUMAN_SCROLL = (int) (500 * DimenUtil.getDensityScalar());
 
-    private static final int SWIPE_THRESHOLD = DimenUtil.roundedDpToPx(64);
+    private static final int SWIPE_THRESHOLD = DimenUtil.roundedDpToPx(80);
 
     /**
      * Maximum amount of time that needs to elapse before the previous scroll amount

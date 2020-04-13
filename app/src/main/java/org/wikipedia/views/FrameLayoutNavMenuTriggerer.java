@@ -8,15 +8,15 @@ import android.widget.FrameLayout;
 import androidx.annotation.Nullable;
 
 import org.wikipedia.util.DimenUtil;
-import org.wikipedia.util.log.L;
+import org.wikipedia.util.L10nUtil;
 
 public class FrameLayoutNavMenuTriggerer extends FrameLayout {
     public interface Callback {
-        void onNavMenuTriggered();
+        void onNavMenuTriggered(int swipeAmount);
     }
 
     private static final int SWIPE_SLOP_Y = DimenUtil.roundedDpToPx(32);
-    private static final int SWIPE_SLOP_X = DimenUtil.roundedDpToPx(64);
+    private static final int SWIPE_SLOP_X = DimenUtil.roundedDpToPx(80);
     private static boolean CHILD_VIEW_SCROLLED = false;
 
     private float initialX;
@@ -63,11 +63,10 @@ public class FrameLayoutNavMenuTriggerer extends FrameLayout {
         } else if (action == MotionEvent.ACTION_MOVE && maybeSwiping) {
             if (Math.abs((int)(ev.getY() - initialY)) > SWIPE_SLOP_Y) {
                 maybeSwiping = false;
-            } else if (ev.getX() - initialX > SWIPE_SLOP_X) {
-                L.d(">>> opening!");
+            } else if (Math.abs(ev.getX() - initialX) > SWIPE_SLOP_X) {
                 maybeSwiping = false;
-                if (callback != null) {
-                    callback.onNavMenuTriggered();
+                if (callback != null && (L10nUtil.isDeviceRTL() ? initialX > ev.getX() : ev.getX() > initialX)) {
+                    callback.onNavMenuTriggered((int)(ev.getX() - initialX));
                 }
             }
         }

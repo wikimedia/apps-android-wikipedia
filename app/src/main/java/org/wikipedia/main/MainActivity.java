@@ -195,14 +195,12 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
     }
 
     @OnClick(R.id.drawer_icon_layout) void onDrawerOpenClicked() {
-        drawerLayout.openDrawer(GravityCompat.START);
+        drawerLayout.openDrawer(drawerView);
     }
 
     @Override
-    public void onNavMenuTriggered() {
-        drawerLayout.post(() -> {
-            onDrawerOpenClicked();
-        });
+    public void onNavMenuTriggered(int swipeAmount) {
+        drawerLayout.post(this::onDrawerOpenClicked);
     }
 
     @Override
