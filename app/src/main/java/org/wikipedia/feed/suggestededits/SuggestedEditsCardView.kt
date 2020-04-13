@@ -14,9 +14,8 @@ import org.wikipedia.feed.view.DefaultFeedCardView
 import org.wikipedia.feed.view.FeedAdapter
 import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.StringUtil
-import org.wikipedia.views.ItemTouchHelperSwipeAdapter
 
-class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEditsCard>(context), ItemTouchHelperSwipeAdapter.SwipeableView, SuggestedEditsFeedClient.Callback {
+class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEditsCard>(context), SuggestedEditsFeedClient.Callback {
     interface Callback {
         fun onSuggestedEditsCardClick(view: SuggestedEditsCardView)
     }
