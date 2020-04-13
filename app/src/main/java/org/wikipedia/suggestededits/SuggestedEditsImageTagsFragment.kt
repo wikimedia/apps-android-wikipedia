@@ -211,11 +211,15 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
 
     private fun addChip(label: MwQueryPage.ImageLabel?, typeface: Typeface) {
         val chip = Chip(requireContext())
-        var labelWithConfidenceScore = getString(R.string.suggested_edits_image_tags_add_tag)
-        if (label != null) {
-            labelWithConfidenceScore = "${label.label} (${showConfidenceScoreInPercentage(label.confidenceScore)})"
+        if (ReleaseUtil.isPreBetaRelease()) {
+            var labelWithConfidenceScore = getString(R.string.suggested_edits_image_tags_add_tag)
+            if (label != null) {
+                labelWithConfidenceScore = "${label.label} (${showConfidenceScoreInPercentage(label.confidenceScore)})"
+            }
+            chip.text = labelWithConfidenceScore
+        } else {
+            chip.text = label?.label ?: getString(R.string.suggested_edits_image_tags_add_tag)
         }
-        chip.text = labelWithConfidenceScore
         chip.textAlignment = TEXT_ALIGNMENT_CENTER
         chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.chip_background_color))
         chip.chipStrokeWidth = DimenUtil.dpToPx(1f)
