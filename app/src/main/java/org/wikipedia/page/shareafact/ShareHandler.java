@@ -97,11 +97,7 @@ public class ShareHandler {
         funnel.logHighlight();
     }
 
-    private boolean shouldEnableWiktionaryDialog() {
-        return isWiktionaryDialogEnabledForArticleLanguage();
-    }
-
-    private boolean isWiktionaryDialogEnabledForArticleLanguage() {
+    public boolean shouldEnableWiktionaryDialog() {
         return Arrays.asList(WiktionaryDialog.getEnabledLanguages())
                 .contains(fragment.getTitle().getWikiSite().languageCode());
     }
