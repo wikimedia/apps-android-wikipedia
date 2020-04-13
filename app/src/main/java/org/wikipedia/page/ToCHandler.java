@@ -74,7 +74,6 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
     private ToCInteractionFunnel funnel;
 
     private boolean rtl;
-    private boolean tocShown;
     private boolean showOnboading;
     private int currentItemSelected;
 
@@ -175,15 +174,19 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
     }
 
     public void show() {
-        fadeInToc(false);
+        drawerLayout.openDrawer(containerView);
+        currentItemSelected = -1;
+        onScrollerMoved(0f, false);
+        funnel.scrollStart();
     }
 
     public void hide() {
-        fadeOutToc();
+        drawerLayout.closeDrawers();
+        funnel.scrollStop();
     }
 
     public boolean isVisible() {
-        return tocShown;
+        return drawerLayout.isDrawerOpen(containerView);
     }
 
     public void setEnabled(boolean enabled) {
@@ -358,23 +361,6 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
         scrollerView.setLayoutParams(scrollerViewParams);
     }
 
-    private void fadeInToc(boolean semiFade) {
-        drawerLayout.openDrawer(containerView);
-        currentItemSelected = -1;
-        onScrollerMoved(0f, false);
-        funnel.scrollStart();
-        if (semiFade) {
-            return;
-        }
-        tocShown = true;
-    }
-
-    private void fadeOutToc() {
-        drawerLayout.closeDrawers();
-        tocShown = false;
-        funnel.scrollStop();
-    }
-
     private void scrollToListSectionByOffset(int yOffset) {
         yOffset = DimenUtil.roundedPxToDp(yOffset);
         int itemToSelect = 0;
@@ -415,17 +401,15 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
     private class ScrollerCallback implements PageScrollerView.Callback {
         @Override
         public void onClick() {
-            show();
         }
 
         @Override
         public void onScrollStart() {
-            fadeInToc(true);
         }
 
         @Override
         public void onScrollStop() {
-            fadeOutToc();
+            hide();
         }
 
         @Override
