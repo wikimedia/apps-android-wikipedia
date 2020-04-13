@@ -15,14 +15,12 @@ import androidx.core.content.ContextCompat;
 
 import org.wikipedia.R;
 import org.wikipedia.feed.model.Card;
-import org.wikipedia.views.ItemTouchHelperSwipeAdapter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public abstract class StaticCardView<T extends Card> extends DefaultFeedCardView<T>
-        implements ItemTouchHelperSwipeAdapter.SwipeableView {
+public abstract class StaticCardView<T extends Card> extends DefaultFeedCardView<T> {
     @BindView(R.id.view_static_card_container) View containerView;
     @BindView(R.id.view_static_card_title) TextView title;
     @BindView(R.id.view_static_card_subtitle) TextView subtitle;

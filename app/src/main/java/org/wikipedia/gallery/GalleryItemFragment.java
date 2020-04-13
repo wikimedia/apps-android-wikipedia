@@ -37,7 +37,6 @@ import org.wikipedia.util.PermissionUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
-import org.wikipedia.views.ImageZoomHelper;
 import org.wikipedia.views.ViewUtil;
 
 import butterknife.BindView;
@@ -148,13 +147,6 @@ public class GalleryItemFragment extends Fragment {
             }
             mediaController.hide();
         }
-        ImageZoomHelper.clearViewZoomable(imageView);
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        ImageZoomHelper.setViewZoomable(imageView);
     }
 
     private void updateProgressBar(boolean visible) {
