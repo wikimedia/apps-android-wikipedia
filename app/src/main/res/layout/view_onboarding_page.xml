@@ -9,6 +9,7 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/bottomOffset">
 
         <LinearLayout
@@ -48,6 +49,7 @@
 
                 <org.wikipedia.views.AppTextView
                     android:id="@+id/secondaryTextView"
+                    style="@style/TextViewCentered"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
@@ -97,6 +99,7 @@
 
                 <org.wikipedia.views.GoneIfEmptyTextView
                     android:id="@+id/tertiaryTextView"
+                    style="@style/TextViewCentered"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="40dp"

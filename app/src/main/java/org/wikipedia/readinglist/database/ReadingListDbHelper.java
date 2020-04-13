@@ -670,6 +670,18 @@ public class ReadingListDbHelper {
     }
 
     @Nullable
+    public ReadingListPage getPageById(long id) {
+        SQLiteDatabase db = getReadableDatabase();
+        try (Cursor cursor = db.query(ReadingListPageContract.TABLE, null, ReadingListPageContract.Col.ID.getName() + " = ?",
+                new String[]{Long.toString(id)}, null, null, null)) {
+            if (cursor.moveToNext()) {
+                return ReadingListPage.DATABASE_TABLE.fromCursor(cursor);
+            }
+        }
+        return null;
+    }
+
+    @Nullable
     private ReadingListPage getPageByTitle(SQLiteDatabase db, @NonNull ReadingList list, @NonNull PageTitle title) {
         try (Cursor cursor = db.query(ReadingListPageContract.TABLE, null,
                 ReadingListPageContract.Col.SITE.getName() + " = ? AND "

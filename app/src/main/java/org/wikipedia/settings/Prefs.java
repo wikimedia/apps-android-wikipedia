@@ -751,7 +751,7 @@ public final class Prefs {
     }
 
     public static boolean shouldShowImageTagsTooltip() {
-        return getBoolean(R.string.preference_key_show_image_tags_tooltip, true);
+        return ReleaseUtil.isPreProdRelease() && getBoolean(R.string.preference_key_show_image_tags_tooltip, true);
     }
 
     public static void setShouldShowImageTagsTooltip(boolean enabled) {

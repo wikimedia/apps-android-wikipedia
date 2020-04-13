@@ -62,6 +62,7 @@ import org.wikipedia.views.TabCountsView;
 import org.wikipedia.views.ViewUtil;
 import org.wikipedia.wiktionary.WiktionaryDialog;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -699,13 +700,30 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     public void onActionModeStarted(ActionMode mode) {
         super.onActionModeStarted(mode);
         if (!isCabOpen() && mode.getTag() == null) {
-            Menu menu = mode.getMenu();
-            menu.clear();
-            mode.getMenuInflater().inflate(R.menu.menu_text_select, menu);
+            modifyMenu(mode);
             ViewUtil.setCloseButtonInActionMode(pageFragment.requireContext(), mode);
             pageFragment.onActionModeShown(mode);
         }
         currentActionModes.add(mode);
+    }
+
+    private void modifyMenu(ActionMode mode) {
+        Menu menu = mode.getMenu();
+        ArrayList<MenuItem> menuItemsList = new ArrayList<>();
+
+        for (int i = 0; i < menu.size(); i++) {
+            String title = menu.getItem(i).getTitle().toString();
+            if (!title.contains(getString(R.string.search_hint))
+                    && !(title.contains(getString(R.string.menu_text_select_define)) && pageFragment.getShareHandler().shouldEnableWiktionaryDialog())) {
+                menuItemsList.add(menu.getItem(i));
+            }
+        }
+
+        menu.clear();
+        mode.getMenuInflater().inflate(R.menu.menu_text_select, menu);
+        for (MenuItem menuItem : menuItemsList) {
+            menu.add(menuItem.getGroupId(), menuItem.getItemId(), Menu.NONE, menuItem.getTitle()).setIntent(menuItem.getIntent()).setIcon(menuItem.getIcon());
+        }
     }
 
     @Override
