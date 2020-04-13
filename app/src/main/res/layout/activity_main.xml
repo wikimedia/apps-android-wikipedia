@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<org.wikipedia.views.WikiDrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.FixedDrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_drawer"
@@ -82,4 +82,4 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:background="?attr/paper_color"/>
-</org.wikipedia.views.WikiDrawerLayout>
+</androidx.drawerlayout.widget.FixedDrawerLayout>

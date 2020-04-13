@@ -17,6 +17,7 @@ import androidx.appcompat.view.ActionMode;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.drawerlayout.widget.FixedDrawerLayout;
 
 import org.wikipedia.Constants;
 import org.wikipedia.R;
@@ -41,7 +42,6 @@ import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.views.FrameLayoutNavMenuTriggerer;
 import org.wikipedia.views.ImageZoomHelper;
 import org.wikipedia.views.TabCountsView;
-import org.wikipedia.views.WikiDrawerLayout;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -54,7 +54,7 @@ import static org.wikipedia.Constants.ACTIVITY_REQUEST_INITIAL_ONBOARDING;
 public class MainActivity extends SingleFragmentActivity<MainFragment>
         implements MainFragment.Callback, FrameLayoutNavMenuTriggerer.Callback {
 
-    @BindView(R.id.navigation_drawer) WikiDrawerLayout drawerLayout;
+    @BindView(R.id.navigation_drawer) FixedDrawerLayout drawerLayout;
     @BindView(R.id.navigation_drawer_view) MainDrawerView drawerView;
     @BindView(R.id.navigation_drawer_triggerer) FrameLayoutNavMenuTriggerer triggererView;
     @BindView(R.id.single_fragment_toolbar) Toolbar toolbar;
@@ -93,7 +93,6 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
             getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         }
 
-        drawerLayout.setDragEdgeWidth(getResources().getDimensionPixelSize(R.dimen.drawer_drag_margin));
         drawerLayout.addDrawerListener(new DrawerLayout.SimpleDrawerListener() {
             @Override
             public void onDrawerStateChanged(int newState) {
