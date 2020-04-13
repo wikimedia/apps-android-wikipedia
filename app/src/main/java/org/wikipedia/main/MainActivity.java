@@ -106,7 +106,13 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
             }
         });
         drawerView.setCallback(new DrawerViewCallback());
-        shouldShowMainDrawer(true);
+
+        ActionBarDrawerToggle drawerToggle = new ActionBarDrawerToggle(this,
+                drawerLayout, toolbar,
+                R.string.main_drawer_open, R.string.main_drawer_close);
+        drawerToggle.syncState();
+        getToolbar().setNavigationIcon(null);
+
         setUpHomeMenuIcon();
         FeedbackUtil.setToolbarButtonLongPressToast(drawerIconLayout);
         triggererView.setCallback(this);
@@ -181,7 +187,6 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
             toolbar.setTitle(tab.text());
             controlNavTabInFragment = true;
         }
-        shouldShowMainDrawer(!controlNavTabInFragment);
         getFragment().requestUpdateToolbarElevation();
     }
 
@@ -263,18 +268,6 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
 
     public Toolbar getToolbar() {
         return toolbar;
-    }
-
-    public void shouldShowMainDrawer(boolean enabled) {
-        drawerLayout.setSlidingEnabled(enabled);
-
-        if (enabled) {
-            ActionBarDrawerToggle drawerToggle = new ActionBarDrawerToggle(this,
-                    drawerLayout, toolbar,
-                    R.string.main_drawer_open, R.string.main_drawer_close);
-            drawerToggle.syncState();
-            getToolbar().setNavigationIcon(null);
-        }
     }
 
     protected void setToolbarElevationDefault() {
