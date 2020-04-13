@@ -34,8 +34,8 @@ public class ObservableWebView extends WebView {
 
     private long lastScrollTime;
     private int totalAmountScrolled;
-    private boolean edgeSwipePending;
-    private boolean edgeSwipeReset;
+    private boolean swipePending;
+    private boolean swipeReset;
 
     /**
     * Threshold (in pixels) of continuous scrolling, to be considered "fast" scrolling.
@@ -48,7 +48,7 @@ public class ObservableWebView extends WebView {
     */
     private static final int MAX_HUMAN_SCROLL = (int) (500 * DimenUtil.getDensityScalar());
 
-    private static final int EDGE_SWIPE_THRESHOLD = DimenUtil.roundedDpToPx(64);
+    private static final int SWIPE_THRESHOLD = DimenUtil.roundedDpToPx(64);
 
     /**
      * Maximum amount of time that needs to elapse before the previous scroll amount
@@ -189,22 +189,22 @@ public class ObservableWebView extends WebView {
                 }
                 touchStartX = event.getX();
                 touchStartY = event.getY();
-                edgeSwipePending = true;
+                swipePending = true;
                 break;
             case MotionEvent.ACTION_MOVE:
-                if (edgeSwipePending) {
-                    if (edgeSwipeReset) {
+                if (swipePending) {
+                    if (swipeReset) {
                         touchStartX = event.getX();
                         touchStartY = event.getY();
-                        edgeSwipeReset = false;
+                        swipeReset = false;
                     }
-                    if (event.getX() - touchStartX > EDGE_SWIPE_THRESHOLD) {
-                        edgeSwipePending = false;
+                    if (event.getX() - touchStartX > SWIPE_THRESHOLD) {
+                        swipePending = false;
                         if (onEdgeSwipeListener != null) {
                             onEdgeSwipeListener.onEdgeSwipe(true);
                         }
-                    } else if (touchStartX - event.getX() > EDGE_SWIPE_THRESHOLD) {
-                        edgeSwipePending = false;
+                    } else if (touchStartX - event.getX() > SWIPE_THRESHOLD) {
+                        swipePending = false;
                         if (onEdgeSwipeListener != null) {
                             onEdgeSwipeListener.onEdgeSwipe(false);
                         }
@@ -212,7 +212,7 @@ public class ObservableWebView extends WebView {
                 }
                 break;
             case MotionEvent.ACTION_UP:
-                edgeSwipePending = false;
+                swipePending = false;
                 if (Math.abs(event.getX() - touchStartX) <= touchSlop
                         && Math.abs(event.getY() - touchStartY) <= touchSlop) {
                     for (OnClickListener listener : onClickListeners) {
@@ -222,7 +222,7 @@ public class ObservableWebView extends WebView {
                     }
                 }
             case MotionEvent.ACTION_CANCEL:
-                edgeSwipePending = false;
+                swipePending = false;
                 for (OnUpOrCancelMotionEventListener listener : onUpOrCancelMotionEventListeners) {
                     listener.onUpOrCancelMotionEvent();
                 }
@@ -239,7 +239,7 @@ public class ObservableWebView extends WebView {
         if (isInEditMode()) {
             return;
         }
-        edgeSwipeReset = true;
+        swipeReset = true;
         if (contentHeight != getContentHeight()) {
             contentHeight = getContentHeight();
             for (OnContentHeightChangedListener listener : onContentHeightChangedListeners) {

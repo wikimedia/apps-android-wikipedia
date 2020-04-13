@@ -16,7 +16,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.drawerlayout.widget.FixedDrawerLayout;
 
 import com.getkeepsafe.taptargetview.TapTargetView;
@@ -51,9 +51,6 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
         ObservableWebView.OnScrollChangeListener, ObservableWebView.OnContentHeightChangedListener,
         ObservableWebView.OnEdgeSwipeListener {
     private static final float SCROLLER_BUTTON_SIZE = 44f;
-    private static final float SCROLLER_BUTTON_PEEK_MARGIN = -18f;
-    private static final float SCROLLER_BUTTON_HIDE_MARGIN = 48f;
-    private static final float SCROLLER_BUTTON_ONBOARDING_MARGIN = 22f;
     private static final float SCROLLER_BUTTON_REVEAL_MARGIN = 12f;
 
     private static final float TOC_LEAD_TEXT_SIZE = 24f;
@@ -68,6 +65,7 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
     private final PageScrollerView scrollerView;
     private final FrameLayout.LayoutParams scrollerViewParams;
     private final FixedDrawerLayout drawerLayout;
+    private final View containerView;
     private final ObservableWebView webView;
     private final CommunicationBridge bridge;
     private final PageFragment fragment;
@@ -108,10 +106,10 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
         this.scrollerView = scrollerView;
         scrollerViewParams = new FrameLayout.LayoutParams(DimenUtil.roundedDpToPx(SCROLLER_BUTTON_SIZE), DimenUtil.roundedDpToPx(SCROLLER_BUTTON_SIZE));
 
-        View backgroundView = drawerLayout.findViewById(R.id.toc_container);
+        containerView = drawerLayout.findViewById(R.id.toc_container);
         final int transparency = 0xe0000000;
         final int colorMask = 0xffffff;
-        backgroundView.setBackgroundColor(transparency | (ResourceUtil.getThemedColor(fragment.requireContext(), R.attr.paper_color) & colorMask));
+        containerView.setBackgroundColor(transparency | (ResourceUtil.getThemedColor(fragment.requireContext(), R.attr.paper_color) & colorMask));
 
         tocList = drawerLayout.findViewById(R.id.toc_list);
         tocList.setAdapter(adapter);
@@ -147,12 +145,10 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
         showOnboading = Prefs.isTocTutorialEnabled() && !page.isMainPage() && !firstPage;
         tocList.setRtl(rtl);
 
-        // TODO: check if this is still needed:
-        //setConditionalLayoutDirection(tocContainer, wiki.languageCode());
-        //FrameLayout.LayoutParams params = (FrameLayout.LayoutParams)tocContainer.getLayoutParams();
-        //params.gravity = rtl ? Gravity.LEFT : Gravity.RIGHT;
-        //tocContainer.setLayoutParams(params);
-
+        setConditionalLayoutDirection(containerView, wiki.languageCode());
+        DrawerLayout.LayoutParams params = (DrawerLayout.LayoutParams)containerView.getLayoutParams();
+        params.gravity = rtl ? Gravity.LEFT : Gravity.RIGHT;
+        containerView.setLayoutParams(params);
 
         log();
         funnel = new ToCInteractionFunnel(WikipediaApp.getInstance(), wiki,
@@ -363,7 +359,7 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
     }
 
     private void fadeInToc(boolean semiFade) {
-        drawerLayout.openDrawer(GravityCompat.END);
+        drawerLayout.openDrawer(containerView);
         currentItemSelected = -1;
         onScrollerMoved(0f, false);
         funnel.scrollStart();
@@ -435,11 +431,6 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
         @Override
         public void onVerticalScroll(float dy) {
             onScrollerMoved(dy, true);
-        }
-
-        @Override
-        public void onSwipeOut() {
-            fadeInToc(false);
         }
     }
 }
