@@ -54,6 +54,7 @@ import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.ThrowableUtil;
 import org.wikipedia.views.ObservableWebView;
@@ -306,7 +307,12 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     private void handleIntent(@NonNull Intent intent) {
         if (Intent.ACTION_VIEW.equals(intent.getAction()) && intent.getData() != null) {
-            WikiSite wiki = new WikiSite(intent.getData());
+            Uri uri = intent.getData();
+            if (ReleaseUtil.isProdRelease() && uri.getScheme() != null && uri.getScheme().equals("http")) {
+                // For external links, ensure that they're using https.
+                uri = uri.buildUpon().scheme(WikiSite.DEFAULT_SCHEME).build();
+            }
+            WikiSite wiki = new WikiSite(uri);
             PageTitle title = wiki.titleForUri(intent.getData());
             HistoryEntry historyEntry = new HistoryEntry(title,
                     intent.hasExtra(Constants.INTENT_EXTRA_VIEW_FROM_NOTIFICATION)
