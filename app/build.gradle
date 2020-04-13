@@ -182,6 +182,7 @@ dependencies {
     implementation "androidx.viewpager2:viewpager2:1.0.0"
     implementation 'com.google.android:flexbox:2.0.1'
     implementation 'com.android.installreferrer:installreferrer:1.1.2'
+    implementation 'androidx.drawerlayout:drawerlayout:1.1.0-beta01'
 
     implementation ('com.github.michael-rapp:chrome-like-tab-switcher:0.4.6') {
         exclude group: 'org.jetbrains'

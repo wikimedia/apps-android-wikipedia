@@ -26,13 +26,12 @@ import org.wikipedia.feed.suggestededits.SuggestedEditsCardView;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.views.DefaultRecyclerAdapter;
 import org.wikipedia.views.DefaultViewHolder;
-import org.wikipedia.views.ItemTouchHelperSwipeAdapter;
 
 public class FeedAdapter<T extends View & FeedCardView<?>> extends DefaultRecyclerAdapter<Card, T> {
-    public interface Callback extends ItemTouchHelperSwipeAdapter.Callback,
-            ListCardItemView.Callback, CardHeaderView.Callback,  FeaturedImageCardView.Callback,
-            SearchCardView.Callback, NewsListCardView.Callback, AnnouncementCardView.Callback,
-            RandomCardView.Callback, ListCardView.Callback, BecauseYouReadCardView.Callback, SuggestedEditsCardView.Callback {
+    public interface Callback extends ListCardItemView.Callback, CardHeaderView.Callback,
+            FeaturedImageCardView.Callback, SearchCardView.Callback, NewsListCardView.Callback,
+            AnnouncementCardView.Callback, RandomCardView.Callback, ListCardView.Callback,
+            BecauseYouReadCardView.Callback, SuggestedEditsCardView.Callback {
         void onShowCard(@Nullable Card card);
         void onRequestMore();
         void onRetryFromOffline();
