@@ -30,6 +30,8 @@ public class ObservableWebView extends WebView {
     private int contentHeight = 0;
     private float touchStartX;
     private float touchStartY;
+    private float swipeStartX;
+    private float swipeStartY;
     private int touchSlop;
 
     private long lastScrollTime;
@@ -189,21 +191,23 @@ public class ObservableWebView extends WebView {
                 }
                 touchStartX = event.getX();
                 touchStartY = event.getY();
+                swipeStartX = touchStartX;
+                swipeStartY = touchStartY;
                 swipePending = true;
                 break;
             case MotionEvent.ACTION_MOVE:
                 if (swipePending) {
                     if (swipeReset) {
-                        touchStartX = event.getX();
-                        touchStartY = event.getY();
+                        swipeStartX = event.getX();
+                        swipeStartY = event.getY();
                         swipeReset = false;
                     }
-                    if (event.getX() - touchStartX > SWIPE_THRESHOLD) {
+                    if (event.getX() - swipeStartX > SWIPE_THRESHOLD) {
                         swipePending = false;
                         if (onEdgeSwipeListener != null) {
                             onEdgeSwipeListener.onEdgeSwipe(true);
                         }
-                    } else if (touchStartX - event.getX() > SWIPE_THRESHOLD) {
+                    } else if (swipeStartX - event.getX() > SWIPE_THRESHOLD) {
                         swipePending = false;
                         if (onEdgeSwipeListener != null) {
                             onEdgeSwipeListener.onEdgeSwipe(false);
