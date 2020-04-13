@@ -70,10 +70,7 @@
   <string name="menu_long_press_open_page">Obre</string>
   <string name="menu_long_press_open_in_new_tab">Obre en una pestanya nova</string>
   <string name="menu_long_press_copy_page">Copia l\'adreça de l\'enllaç</string>
-  <string name="menu_text_select_copy">Copia</string>
   <string name="menu_text_select_define">Defineix</string>
-  <string name="menu_text_select_share">Comparteix</string>
-  <string name="share">Comparteix</string>
   <string name="on_this_day_page_share">Comparteix</string>
   <string name="reading_list_page_share">Comparteix</string>
   <string name="menu_text_select_edit_here">Editeu aquí</string>
@@ -285,11 +282,7 @@
   <string name="gallery_add_image_caption_button">Afegeix una llegenda a la imatge</string>
   <string name="gallery_add_image_caption_in_language_button">Afegeix una llegenda a la imatge (%s)</string>
   <string name="err_cannot_save_file">No es pot desar el fitxer</string>
-  <string name="snippet_share_intro">«%1$s» a @Viquipedia: %2$s</string>
   <string name="expand_refs">Toqueu per ampliar</string>
-  <string name="share_snippet_button">Comparteix com a imatge</string>
-  <string name="share_normal_button">Comparteix com a text</string>
-  <string name="snippet_share_preview_image_desc">Previsualitza la imatge</string>
   <string name="cc_logo">Llicència Creative Commons</string>
   <string name="captcha_image">Imatge Captcha</string>
   <string name="gallery_fair_use_license">Fair use (ús raonable)</string>

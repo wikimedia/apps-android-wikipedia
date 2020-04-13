@@ -93,8 +93,6 @@
   <string name="gallery_menu_share">Aqsam</string>
   <string name="gallery_share_error">L-istampa ma setgħetx tiġi mxerrda: %s</string>
   <string name="expand_refs">Agħfas biex tkabbar</string>
-  <string name="share_snippet_button">Xerred l-istampa</string>
-  <string name="share_normal_button">Xerred it-test</string>
   <string name="cc_logo">Liċenzja Creative Commons</string>
   <string name="captcha_image">Stampa captcha</string>
   <string name="gallery_fair_use_license">Użu ġust</string>

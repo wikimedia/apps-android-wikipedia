@@ -69,10 +69,7 @@
   <string name="menu_long_press_open_page">Öppna</string>
   <string name="menu_long_press_open_in_new_tab">Öppna i ny flik</string>
   <string name="menu_long_press_copy_page">Kopiera länkadress</string>
-  <string name="menu_text_select_copy">Kopiera</string>
   <string name="menu_text_select_define">\nDefinera</string>
-  <string name="menu_text_select_share">\nDela</string>
-  <string name="share">\nDela</string>
   <string name="on_this_day_page_share">Dela</string>
   <string name="reading_list_page_share">Dela</string>
   <string name="menu_text_select_edit_here">Redigera här</string>
@@ -286,11 +283,7 @@
   <string name="gallery_add_image_caption_button">Lägg till bildtext</string>
   <string name="gallery_add_image_caption_in_language_button">Lägg till bildtexter %s</string>
   <string name="err_cannot_save_file">Kan inte spara filen</string>
-  <string name="snippet_share_intro">\"%1$s\" på @Wikipedia: %2$s</string>
   <string name="expand_refs">Tryck för att expandera</string>
-  <string name="share_snippet_button">Dela som bild</string>
-  <string name="share_normal_button">Dela som text</string>
-  <string name="snippet_share_preview_image_desc">Förhandsvisa bild</string>
   <string name="cc_logo">Creative Commons-licens</string>
   <string name="captcha_image">Captcha-bild</string>
   <string name="gallery_fair_use_license">Fair use</string>

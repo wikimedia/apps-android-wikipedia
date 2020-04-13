@@ -54,10 +54,7 @@
   <string name="menu_long_press_open_page">Apertar</string>
   <string name="menu_long_press_open_in_new_tab">Apertar en nova etiketo</string>
   <string name="menu_long_press_copy_page">Kopiar ligilo-adreso</string>
-  <string name="menu_text_select_copy">Kopiar</string>
   <string name="menu_text_select_define">Definar</string>
-  <string name="menu_text_select_share">Difuzar</string>
-  <string name="share">Partigez l\'arkivo</string>
   <string name="on_this_day_page_share">Partigez l\'arkivo</string>
   <string name="reading_list_page_share">Partigez l\'arkivo</string>
   <string name="menu_text_select_edit_here">Modifikez ol hike</string>
@@ -240,11 +237,7 @@
   <string name="gallery_error_video_failed">Ne povis montrar la video*.</string>
   <string name="gallery_save_image_write_permission_rationale">Permiso pri la deskargo (\'download\') di kopiuri di imaji en tua lokala aparato bezonesas.</string>
   <string name="err_cannot_save_file">Ne povas konservar kopiuro dil arkivo</string>
-  <string name="snippet_share_intro">\"%1$s\" en @Wikipedio: %2$s</string>
   <string name="expand_refs">Kliktez por expansar</string>
-  <string name="share_snippet_button">Montrez quale imajo</string>
-  <string name="share_normal_button">Montrez quale texto</string>
-  <string name="snippet_share_preview_image_desc">Previdar l\'imajo</string>
   <string name="cc_logo">Legala permiso Creative Commons</string>
   <string name="captcha_image">imajo CAPTCHA</string>
   <string name="gallery_fair_use_license">yusta uzo</string>

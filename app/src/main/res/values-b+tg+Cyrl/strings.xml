@@ -51,9 +51,6 @@
   <string name="menu_long_press_open_page">Кушодан</string>
   <string name="menu_long_press_open_in_new_tab">Кушодан дар баргаи нав</string>
   <string name="menu_long_press_copy_page">Нусхбардории нишонаи пайванд</string>
-  <string name="menu_text_select_copy">Нусхабардорӣ</string>
-  <string name="menu_text_select_share">Паҳнкунӣ</string>
-  <string name="share">Паҳнкунӣ</string>
   <string name="on_this_day_page_share">Паҳнкунӣ</string>
   <string name="reading_list_page_share">Паҳнкунӣ</string>
   <string name="menu_text_select_edit_here">Вироиши инҷо</string>

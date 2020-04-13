@@ -36,8 +36,6 @@
   <string name="menu_long_press_open_page">Buksan</string>
   <string name="menu_long_press_open_in_new_tab">Buksan sa bagong talahanayan (tab)</string>
   <string name="menu_long_press_copy_page">Kopyahin ang direksiyon ng kawing</string>
-  <string name="menu_text_select_copy">Kopyahin</string>
-  <string name="menu_text_select_share">Ibahagi</string>
   <string name="last_updated_text">Huling pagsasa-panahon (update) %s</string>
   <string name="talk_page_link_text">Tingnan ang pahinang usapan</string>
   <string name="edit_history_link_text">Tingnan ang kasaysayan ng pagbabago</string>
@@ -173,11 +171,7 @@
   <string name="gallery_save_success" fuzzy="true">Matagumpay na naitala ang larawan.</string>
   <string name="gallery_error_video_failed">Hindi mai-play ang video.</string>
   <string name="err_cannot_save_file">Hindi maitala ang talakasan</string>
-  <string name="snippet_share_intro">\"%1$s\" sa @Wikipedia: %2$s</string>
   <string name="expand_refs">Tapakin upang palawakin</string>
-  <string name="share_snippet_button">Ibahagi bilang larawan</string>
-  <string name="share_normal_button">Ibahagi bilang teksto</string>
-  <string name="snippet_share_preview_image_desc">Paunang tingin sa pahina</string>
   <string name="cc_logo">Creative Commons license</string>
   <string name="captcha_image">Larawang captcha</string>
   <string name="gallery_fair_use_license">Patas na paggamit</string>

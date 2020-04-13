@@ -85,10 +85,7 @@
   <string name="menu_long_press_open_page">Aç</string>
   <string name="menu_long_press_open_in_new_tab">Yeni sekmede aç</string>
   <string name="menu_long_press_copy_page">Bağlantı adresini kopyala</string>
-  <string name="menu_text_select_copy">Kopyala</string>
   <string name="menu_text_select_define">Tanımla</string>
-  <string name="menu_text_select_share">Paylaş</string>
-  <string name="share">Paylaş</string>
   <string name="on_this_day_page_share">Paylaş</string>
   <string name="reading_list_page_share">Paylaş</string>
   <string name="menu_text_select_edit_here">Burayı düzenle</string>
@@ -302,11 +299,7 @@
   <string name="gallery_add_image_caption_button">Resim başlığı ekle</string>
   <string name="gallery_add_image_caption_in_language_button">Resim başlığı ekle (%s)</string>
   <string name="err_cannot_save_file">Dosya kaydedilemiyor</string>
-  <string name="snippet_share_intro">\"%1$s\" @Wikipedia üzerinde: %2$s</string>
   <string name="expand_refs">Genişletmek için tıklayın</string>
-  <string name="share_snippet_button">Resim olarak paylaş</string>
-  <string name="share_normal_button">Metin olarak paylaş</string>
-  <string name="snippet_share_preview_image_desc">Resmi önizle</string>
   <string name="cc_logo">Creative Commons lisansı</string>
   <string name="captcha_image">Captcha resmi</string>
   <string name="gallery_fair_use_license">Adil kullanım</string>

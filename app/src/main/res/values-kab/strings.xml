@@ -56,10 +56,7 @@
   <string name="menu_long_press_open_page">Ldi</string>
   <string name="menu_long_press_open_in_new_tab">Ldi deg iccer amaynut</string>
   <string name="menu_long_press_copy_page">Nɣel tansa n useɣwen</string>
-  <string name="menu_text_select_copy">Nɣel</string>
   <string name="menu_text_select_define">Mudd tabadut</string>
-  <string name="menu_text_select_share">Bḍu</string>
-  <string name="share">Bḍu</string>
   <string name="on_this_day_page_share">Bḍu</string>
   <string name="reading_list_page_share">Bḍu</string>
   <string name="menu_text_select_edit_here">Ẓreg dagi</string>
@@ -255,11 +252,7 @@
   <string name="gallery_save_image_write_permission_rationale">Tasiregt n tira ar umḍiq n usekles n yibenk-ik tlaq i usekles n tugniwin.</string>
   <string name="gallery_add_image_caption_in_language_button">Rnu taneffust n tugna (%s)</string>
   <string name="err_cannot_save_file">Ur izmir ara ad isekles afaylu</string>
-  <string name="snippet_share_intro">\"%1$s\" ɣef @Wikipedia: %2$s</string>
   <string name="expand_refs">Aru akken ad tesnefliḍ</string>
-  <string name="share_snippet_button">Bḍu tugna</string>
-  <string name="share_normal_button">Bḍu am uḍris</string>
-  <string name="snippet_share_preview_image_desc">Taskant n tugna</string>
   <string name="cc_logo">Turagt Creative Commons</string>
   <string name="captcha_image">Tugna Captcha</string>
   <string name="gallery_fair_use_license">Aseqdec amagnu</string>

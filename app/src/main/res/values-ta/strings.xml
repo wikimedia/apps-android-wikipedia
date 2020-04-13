@@ -67,10 +67,7 @@
   <string name="menu_long_press_open_page">திற</string>
   <string name="menu_long_press_open_in_new_tab">புதிய தத்தலில் திற</string>
   <string name="menu_long_press_copy_page">இணைப்பு முகவரியை நகலெடு</string>
-  <string name="menu_text_select_copy">நகலெடு</string>
   <string name="menu_text_select_define">விளக்கு</string>
-  <string name="menu_text_select_share">பகிர்</string>
-  <string name="share">பகிர்க</string>
   <string name="on_this_day_page_share">பகிர்க</string>
   <string name="reading_list_page_share">பகிர்க</string>
   <string name="menu_text_select_edit_here">இங்கே தொகு</string>
@@ -268,11 +265,7 @@
   <string name="gallery_error_video_failed">காணொளியை இயக்க இயலவில்லை.</string>
   <string name="gallery_save_image_write_permission_rationale">படங்களை இந்த சேமிபகத்தில் சேமிப்பதற்கு எழுவதற்கான அனுமதி தேவை.</string>
   <string name="err_cannot_save_file">ஆவணத்தை சேமிக்க முடியாது.</string>
-  <string name="snippet_share_intro">\@Wikipedia வில் \"%1$s\": %2$s</string>
   <string name="expand_refs">விரிவாக்க தட்டுங்கள்</string>
-  <string name="share_snippet_button">அமைகையாக பகிர்.</string>
-  <string name="share_normal_button">உரையாக பகிர்.</string>
-  <string name="snippet_share_preview_image_desc">உருவ முன்னோட்டம்.</string>
   <string name="cc_logo">படைப்பாக்கப் பொதும உரிமம்</string>
   <string name="captcha_image">CAPTCHA படம்</string>
   <string name="gallery_fair_use_license">நியாயப் பயன்பாடு</string>

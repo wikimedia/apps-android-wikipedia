@@ -64,10 +64,7 @@
   <string name="menu_long_press_open_page">Ireki</string>
   <string name="menu_long_press_open_in_new_tab">Ireki fitxa berrian</string>
   <string name="menu_long_press_copy_page">Kopiatu loturaren helbidea</string>
-  <string name="menu_text_select_copy">Kopiatu</string>
   <string name="menu_text_select_define">Definitu</string>
-  <string name="menu_text_select_share">Partekatu</string>
-  <string name="share">Partekatu</string>
   <string name="on_this_day_page_share">Partekatu</string>
   <string name="reading_list_page_share">Partekatu</string>
   <string name="menu_text_select_edit_here">Editatu hementxe</string>
@@ -278,11 +275,7 @@
   <string name="gallery_add_image_caption_button">Gehitu irudi oineko testua</string>
   <string name="gallery_add_image_caption_in_language_button">Gehitu irudi oineko testua (%s)</string>
   <string name="err_cannot_save_file">Ezin da fitxategia gorde</string>
-  <string name="snippet_share_intro">\"%1$s\" @Wikipedia: %2$s -(e)n</string>
   <string name="expand_refs">Ukitu hedatzeko</string>
-  <string name="share_snippet_button">Iruditzat partekatu</string>
-  <string name="share_normal_button">Testutzat partekatu</string>
-  <string name="snippet_share_preview_image_desc">Aurrikuspen irudia</string>
   <string name="cc_logo">Creative Commons lizentzia</string>
   <string name="captcha_image">Captcha irudia</string>
   <string name="gallery_fair_use_license">Erabilera justua</string>

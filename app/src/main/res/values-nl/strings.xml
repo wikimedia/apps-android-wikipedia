@@ -80,10 +80,7 @@
   <string name="menu_long_press_open_page">Openen</string>
   <string name="menu_long_press_open_in_new_tab">In nieuw tabblad openen</string>
   <string name="menu_long_press_copy_page">Koppelingsadres kopiëren</string>
-  <string name="menu_text_select_copy">Kopiëren</string>
   <string name="menu_text_select_define">Definiëren</string>
-  <string name="menu_text_select_share">Delen</string>
-  <string name="share">Delen</string>
   <string name="on_this_day_page_share">Delen</string>
   <string name="reading_list_page_share">Delen</string>
   <string name="menu_text_select_edit_here">Hier bewerken</string>
@@ -295,11 +292,7 @@
   <string name="gallery_add_image_caption_button">Afbeeldingsbijschrift toevoegen</string>
   <string name="gallery_add_image_caption_in_language_button">Afbeeldingsbijschrift toevoegen (%s)</string>
   <string name="err_cannot_save_file">Het bestand kan niet opgeslagen worden</string>
-  <string name="snippet_share_intro">\"%1$s\" op @Wikipedia: %2$s</string>
   <string name="expand_refs">Aantikken om te vergroten</string>
-  <string name="share_snippet_button">Als afbeelding delen</string>
-  <string name="share_normal_button">Als tekst delen</string>
-  <string name="snippet_share_preview_image_desc">Voorbeeldafbeelding</string>
   <string name="cc_logo">Creative Commonslicentie</string>
   <string name="captcha_image">Captcha-afbeelding</string>
   <string name="gallery_fair_use_license">Fair use</string>

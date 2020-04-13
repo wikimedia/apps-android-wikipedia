@@ -62,10 +62,7 @@
   <string name="menu_long_press_open_page">Otvori</string>
   <string name="menu_long_press_open_in_new_tab">Otvori u novoj kartici</string>
   <string name="menu_long_press_copy_page">Kopiraj adresu poveznice</string>
-  <string name="menu_text_select_copy">Kopiraj</string>
   <string name="menu_text_select_define">Definiraj</string>
-  <string name="menu_text_select_share">Podijeli</string>
-  <string name="share">Podijeli</string>
   <string name="on_this_day_page_share">Podijeli</string>
   <string name="reading_list_page_share">Podijeli</string>
   <string name="menu_text_select_edit_here">Uredi ovdje</string>
@@ -274,11 +271,7 @@
   <string name="gallery_add_image_caption_button">Dodaj opis slike</string>
   <string name="gallery_add_image_caption_in_language_button">Dodajte opis slike (%s)</string>
   <string name="err_cannot_save_file">Nije moguće spremiti datoteku</string>
-  <string name="snippet_share_intro">\"%1$s\" na @Wikipediji: %2$s</string>
   <string name="expand_refs">Dodirnite da biste proširili</string>
-  <string name="share_snippet_button">Podijeliti kao sliku</string>
-  <string name="share_normal_button">Podijeliti kao tekst</string>
-  <string name="snippet_share_preview_image_desc">Pregled slike</string>
   <string name="cc_logo">Licencija Creative Commons</string>
   <string name="captcha_image">Captcha slika</string>
   <string name="gallery_fair_use_license">Poštena upotreba</string>

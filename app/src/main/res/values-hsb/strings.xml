@@ -53,10 +53,7 @@
   <string name="menu_long_press_open_page">Wočinić</string>
   <string name="menu_long_press_open_in_new_tab">W nowym rajtarku wočinić</string>
   <string name="menu_long_press_copy_page">Adresu wotkaza kopěrować</string>
-  <string name="menu_text_select_copy">Kopěrować</string>
   <string name="menu_text_select_define">Definować</string>
-  <string name="menu_text_select_share">Dźělić</string>
-  <string name="share">Dźělić</string>
   <string name="on_this_day_page_share">Dźělić</string>
   <string name="reading_list_page_share">Dźělić</string>
   <string name="menu_text_select_edit_here">Tule wobdźěłać</string>
@@ -260,11 +257,7 @@
   <string name="gallery_add_image_caption_button">Wobrazowy wopis dodać</string>
   <string name="gallery_add_image_caption_in_language_button">Wobrazowy wopis dodać (%s)</string>
   <string name="err_cannot_save_file">Dataja njeda so składować</string>
-  <string name="snippet_share_intro">\"%1$s\" na @Wikipedia: %2$s</string>
   <string name="expand_refs">Tłóč za wjace wobsaha</string>
-  <string name="share_snippet_button">Jako wobraz dźělić</string>
-  <string name="share_normal_button">Jako tekst dźělić</string>
-  <string name="snippet_share_preview_image_desc">Přehlad wobraza</string>
   <string name="cc_logo">Licenca Creative Commons</string>
   <string name="captcha_image">Captcha-wobraz</string>
   <string name="gallery_fair_use_license">Fair Use</string>
