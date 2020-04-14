@@ -61,10 +61,7 @@
   <string name="menu_long_press_open_page">खोल्नुहोस्</string>
   <string name="menu_long_press_open_in_new_tab">नयाँ ट्याबमा खोल्नुहोस्</string>
   <string name="menu_long_press_copy_page">सूत्रकाे ठेगाना प्रतिलिपि गर्नुहोस्</string>
-  <string name="menu_text_select_copy">प्रतिलिपि गर्नुहोस्</string>
   <string name="menu_text_select_define">परिभाषित गर्नुहोस्</string>
-  <string name="menu_text_select_share">आदान-प्रदान गर्नुहोस्</string>
-  <string name="share">आदान-प्रदान गर्नुहोस्</string>
   <string name="on_this_day_page_share">आदान-प्रदान गर्नुहोस्</string>
   <string name="reading_list_page_share">आदान-प्रदान गर्नुहोस्</string>
   <string name="menu_text_select_edit_here">यहाँ सम्पादन गर्नुहोस्</string>
@@ -259,11 +256,7 @@
   <string name="gallery_error_video_failed">भिडियो चलाउन सकिएन।</string>
   <string name="gallery_add_image_caption_button">तस्विर शीर्षक थप्नुहोस्</string>
   <string name="err_cannot_save_file">फाइल सुरक्षित गर्न सकिएन</string>
-  <string name="snippet_share_intro">\@Wikipedia मा \"%1$s\": %2$s</string>
   <string name="expand_refs">विस्तृत गर्न ट्याप गर्नुहोस्</string>
-  <string name="share_snippet_button">चित्रको रूपमा आदान-प्रदान गर्नुहोस्</string>
-  <string name="share_normal_button">अक्षरको रूपमा आदान-प्रदान गर्नुहोस्</string>
-  <string name="snippet_share_preview_image_desc">चित्रको पूर्वावलोकन</string>
   <string name="cc_logo">Creative Commons इजाजतपत्र</string>
   <string name="captcha_image">Captcha छवि</string>
   <string name="gallery_fair_use_license">उचित उपयोग</string>

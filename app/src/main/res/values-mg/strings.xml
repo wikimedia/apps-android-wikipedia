@@ -33,9 +33,7 @@
   <string name="menu_long_press_open_page">Sokafana</string>
   <string name="menu_long_press_open_in_new_tab">Hanokatra rohy anaty sasa-joro vaovao</string>
   <string name="menu_long_press_copy_page">Handika ny adiresin-drohy</string>
-  <string name="menu_text_select_copy">Dikaina</string>
   <string name="menu_text_select_define">Faritana</string>
-  <string name="menu_text_select_share">Zaraina</string>
   <string name="menu_text_select_edit_here">Ovaina eto</string>
   <string name="last_updated_text">Nohavaozina farany ny %s</string>
   <string name="talk_page_link_text">Hijery ny pejin-dresaka</string>
@@ -168,11 +166,7 @@
   <string name="gallery_save_success" fuzzy="true">Voatahiry soa aman-tsara ny rakitra.</string>
   <string name="gallery_error_video_failed">Tsy afaka namaky ilay videô.</string>
   <string name="err_cannot_save_file">Tsy afaka nitahiry ilay sary</string>
-  <string name="snippet_share_intro">%1$s eo amin\'i @Wikipedia: %2$s</string>
   <string name="expand_refs">Kitiho mba hanitatra</string>
-  <string name="share_snippet_button">Zaraina ho sary</string>
-  <string name="share_normal_button">Zaraina ho soratra</string>
-  <string name="snippet_share_preview_image_desc">Topi-mason-tsary</string>
   <string name="cc_logo">Fahazoan-dalana Creative Commons</string>
   <string name="captcha_image">Sary CAPTCHA</string>
   <string name="gallery_fair_use_license">Fair use</string>

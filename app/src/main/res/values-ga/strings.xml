@@ -53,10 +53,7 @@
   <string name="menu_long_press_open_page">Oscail</string>
   <string name="menu_long_press_open_in_new_tab">Oscail i dtáb nua</string>
   <string name="menu_long_press_copy_page">Cóipeáil seoladh an naisc</string>
-  <string name="menu_text_select_copy">Cóipeáil</string>
   <string name="menu_text_select_define">Sainmhínigh</string>
-  <string name="menu_text_select_share">Comhroinn</string>
-  <string name="share">Comhroinn</string>
   <string name="on_this_day_page_share">Comhroinn</string>
   <string name="reading_list_page_share">Comhroinn</string>
   <string name="menu_text_select_edit_here">Cuir in eagar anseo</string>
@@ -253,11 +250,7 @@
   <string name="gallery_error_video_failed">Níorbh fhéidir an físeán a sheinm.</string>
   <string name="gallery_save_image_write_permission_rationale">Le híomhánna a shábháil, éilítear cead sonraí a chur i stóras ar do ghléas.</string>
   <string name="err_cannot_save_file">Ní féidir an comhad a shábháil</string>
-  <string name="snippet_share_intro">\"%1$s\" ar @Wikipedia: %2$s</string>
   <string name="expand_refs">Tapáil le fairsingiú</string>
-  <string name="share_snippet_button">Comhroinn mar íomhá</string>
-  <string name="share_normal_button">Comhroinn mar théacs</string>
-  <string name="snippet_share_preview_image_desc">Tabhair réamhamharc ar íomhá</string>
   <string name="cc_logo">Ceadúnas Creative Commons</string>
   <string name="captcha_image">Íomhá captcha</string>
   <string name="gallery_fair_use_license">Úsáid chóir</string>

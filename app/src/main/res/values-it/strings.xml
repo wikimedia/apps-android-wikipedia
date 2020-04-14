@@ -87,10 +87,7 @@
   <string name="menu_long_press_open_page">Apri</string>
   <string name="menu_long_press_open_in_new_tab">Apri in una nuova scheda</string>
   <string name="menu_long_press_copy_page">Copia l\'indirizzo del collegamento</string>
-  <string name="menu_text_select_copy">Copia</string>
   <string name="menu_text_select_define">Definisci</string>
-  <string name="menu_text_select_share">Condividi</string>
-  <string name="share">Condividi</string>
   <string name="on_this_day_page_share">Condividi</string>
   <string name="reading_list_page_share">Condividi</string>
   <string name="menu_text_select_edit_here">Modifica qui</string>
@@ -302,11 +299,7 @@
   <string name="gallery_add_image_caption_button">Aggiungi didascalia immagine</string>
   <string name="gallery_add_image_caption_in_language_button">Aggiungi didascalia immagine (%s)</string>
   <string name="err_cannot_save_file">Impossibile salvare il file</string>
-  <string name="snippet_share_intro">\"%1$s\" su @Wikipedia: %2$s</string>
   <string name="expand_refs">Tocca per espandere</string>
-  <string name="share_snippet_button">Condividi come immagine</string>
-  <string name="share_normal_button">Condividi come testo</string>
-  <string name="snippet_share_preview_image_desc">Anteprima immagine</string>
   <string name="cc_logo">Licenza Creative Commons</string>
   <string name="captcha_image">Immagine captcha</string>
   <string name="gallery_fair_use_license">Utilizzo onesto</string>
@@ -393,6 +386,7 @@
   <string name="reading_list_save_to">Salva nell\'elenco di lettura</string>
   <string name="reading_list_create_new">Crea nuovo</string>
   <string name="reading_list_title_exists">L\'elenco di lettura \"%s\" già esiste.</string>
+  <string name="reading_list_article_added_to_named">%1$s aggiunta a %2$s.</string>
   <string name="reading_list_added_view_button">Visualizza elenco</string>
   <string name="format_reading_list_statistical_summary_singular">1 voce, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d voci, %2$.2f MB</string>

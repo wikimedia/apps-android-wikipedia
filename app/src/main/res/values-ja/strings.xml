@@ -80,10 +80,7 @@
   <string name="menu_long_press_open_page">開く</string>
   <string name="menu_long_press_open_in_new_tab">新しいタブで開く</string>
   <string name="menu_long_press_copy_page">リンクのアドレスをコピー</string>
-  <string name="menu_text_select_copy">コピー</string>
   <string name="menu_text_select_define">語釈</string>
-  <string name="menu_text_select_share">共有</string>
-  <string name="share">共有</string>
   <string name="on_this_day_page_share">共有</string>
   <string name="reading_list_page_share">共有</string>
   <string name="menu_text_select_edit_here">ここを編集</string>
@@ -295,11 +292,7 @@
   <string name="gallery_add_image_caption_button">画像キャプションを追加</string>
   <string name="gallery_add_image_caption_in_language_button">画像キャプションを追加 (%s)</string>
   <string name="err_cannot_save_file">ファイルを保存できません</string>
-  <string name="snippet_share_intro">「%1$s」の記事を @Wikipedia で読む: %2$s</string>
   <string name="expand_refs">タップして開く</string>
-  <string name="share_snippet_button">画像を共有</string>
-  <string name="share_normal_button">テキストとして共有</string>
-  <string name="snippet_share_preview_image_desc">画像をプレビュー</string>
   <string name="cc_logo">クリエイティブ・コモンズ・ライセンス</string>
   <string name="captcha_image">CAPTCHA 画像</string>
   <string name="gallery_fair_use_license">フェアユース</string>

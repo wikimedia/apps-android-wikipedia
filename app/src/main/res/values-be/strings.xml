@@ -41,9 +41,7 @@
   <string name="menu_long_press_open_page">Адкрыць</string>
   <string name="menu_long_press_open_in_new_tab">Адкрыць у новай укладцы</string>
   <string name="menu_long_press_copy_page">Скапіяваць адрас спасылкі</string>
-  <string name="menu_text_select_copy">Капіраваць</string>
   <string name="menu_text_select_define">Вызначыць</string>
-  <string name="menu_text_select_share">Падзяліцца</string>
   <string name="menu_text_select_edit_here">Правіць тут</string>
   <string name="last_updated_text">Апошняе абнаўленне %s</string>
   <string name="talk_page_link_text" fuzzy="true">Размовы</string>
@@ -190,11 +188,7 @@
   <string name="gallery_error_video_failed">Немагчыма прайграць відэа.</string>
   <string name="gallery_save_image_write_permission_rationale">Для захавання выяваў патрабуецца дазвол на запіс у сховішча Вашай прылады.</string>
   <string name="err_cannot_save_file">Немагчыма захаваць файл</string>
-  <string name="snippet_share_intro">\"%1$s\" на сайце @Wikipedia: %2$s</string>
   <string name="expand_refs">Націсніце, каб разгарнуць</string>
-  <string name="share_snippet_button">Падзяліцца як выявай</string>
-  <string name="share_normal_button">Падзяліцца як тэкстам</string>
-  <string name="snippet_share_preview_image_desc">Папярэдні прагляд выявы</string>
   <string name="cc_logo">Ліцэнзія Creative Commons</string>
   <string name="captcha_image">Капча-выява</string>
   <string name="gallery_fair_use_license">Добрасумленнае выкарыстанне</string>
