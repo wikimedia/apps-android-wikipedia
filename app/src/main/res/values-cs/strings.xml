@@ -71,10 +71,7 @@
   <string name="menu_long_press_open_page">Otevřít</string>
   <string name="menu_long_press_open_in_new_tab">Otevřít v nové záložce</string>
   <string name="menu_long_press_copy_page">Zkopírovat adresu odkazu</string>
-  <string name="menu_text_select_copy">Kopírovat</string>
   <string name="menu_text_select_define">Definovat</string>
-  <string name="menu_text_select_share">Sdílet</string>
-  <string name="share">Sdílet</string>
   <string name="on_this_day_page_share">Sdílet</string>
   <string name="reading_list_page_share">Sdílet</string>
   <string name="menu_text_select_edit_here">Editovat zde</string>
@@ -288,11 +285,7 @@
   <string name="gallery_add_image_caption_button">Přidat titulek obrázku</string>
   <string name="gallery_add_image_caption_in_language_button">Přidat titulek obrázku (%s)</string>
   <string name="err_cannot_save_file">Není možno uložit soubor</string>
-  <string name="snippet_share_intro">„%1$s“ na @Wikipedia: %2$s</string>
   <string name="expand_refs">Klepnutím rozbalte</string>
-  <string name="share_snippet_button">Sdílet jako obrázek</string>
-  <string name="share_normal_button">Sdílet jako text</string>
-  <string name="snippet_share_preview_image_desc">Náhled obrázku</string>
   <string name="cc_logo">Licence Creative Commons</string>
   <string name="captcha_image">Obrázek CAPTCHA</string>
   <string name="gallery_fair_use_license">Fair use</string>

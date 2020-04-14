@@ -76,10 +76,7 @@
   <string name="menu_long_press_open_page">열기</string>
   <string name="menu_long_press_open_in_new_tab">새 탭에 링크 열기</string>
   <string name="menu_long_press_copy_page">링크 주소 복사</string>
-  <string name="menu_text_select_copy">복사</string>
   <string name="menu_text_select_define">정의</string>
-  <string name="menu_text_select_share">공유</string>
-  <string name="share">공유</string>
   <string name="on_this_day_page_share">공유</string>
   <string name="reading_list_page_share">공유</string>
   <string name="menu_text_select_edit_here">여기를 편집</string>
@@ -290,11 +287,7 @@
   <string name="gallery_add_image_caption_button">이미지 캡션 추가</string>
   <string name="gallery_add_image_caption_in_language_button">이미지 설명 추가 (%s)</string>
   <string name="err_cannot_save_file">파일을 저장할 수 없음</string>
-  <string name="snippet_share_intro">\@Wikipedia의 \"%1$s\": %2$s</string>
   <string name="expand_refs">펼치려면 탭</string>
-  <string name="share_snippet_button">그림 공유하기</string>
-  <string name="share_normal_button">텍스트 공유하기</string>
-  <string name="snippet_share_preview_image_desc">그림 미리 보기</string>
   <string name="cc_logo">크리에이티브 커먼즈 라이선스</string>
   <string name="captcha_image">보안 영상</string>
   <string name="gallery_fair_use_license">공정 이용</string>

@@ -102,10 +102,7 @@
   <string name="menu_long_press_open_page">Открыть</string>
   <string name="menu_long_press_open_in_new_tab">Открыть в новой вкладке</string>
   <string name="menu_long_press_copy_page">Скопировать адрес ссылки</string>
-  <string name="menu_text_select_copy">Копировать</string>
   <string name="menu_text_select_define">Определение</string>
-  <string name="menu_text_select_share">Поделиться</string>
-  <string name="share">Поделиться</string>
   <string name="on_this_day_page_share">Поделиться</string>
   <string name="reading_list_page_share">Поделиться</string>
   <string name="menu_text_select_edit_here">Править здесь</string>
@@ -318,11 +315,7 @@
   <string name="gallery_add_image_caption_button">Добавить описание изображения</string>
   <string name="gallery_add_image_caption_in_language_button">Добавить описание изображения (%s)</string>
   <string name="err_cannot_save_file">Не удаётся сохранить файл</string>
-  <string name="snippet_share_intro">«%1$s» на сайте @Wikipedia: %2$s</string>
   <string name="expand_refs">Нажмите, чтобы развернуть</string>
-  <string name="share_snippet_button">Поделиться изображением</string>
-  <string name="share_normal_button">Поделиться текстом</string>
-  <string name="snippet_share_preview_image_desc">Предварительный просмотр изображения</string>
   <string name="cc_logo">Лицензия Creative Commons</string>
   <string name="captcha_image">Капча-изображение</string>
   <string name="gallery_fair_use_license">Добросовестное использование</string>

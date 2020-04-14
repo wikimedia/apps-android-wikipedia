@@ -61,10 +61,7 @@
   <string name="menu_long_press_open_page">Άνοιγμα</string>
   <string name="menu_long_press_open_in_new_tab">Άνοιγμα σε νέα καρτέλα</string>
   <string name="menu_long_press_copy_page">Αντιγραφή διεύθυνσης συνδέσμου</string>
-  <string name="menu_text_select_copy">Αντιγραφή</string>
   <string name="menu_text_select_define">Ορισμός</string>
-  <string name="menu_text_select_share">Κοινοποίηση</string>
-  <string name="share">Αποστολή</string>
   <string name="on_this_day_page_share">Κοινοποίηση</string>
   <string name="reading_list_page_share">Αποστολή</string>
   <string name="menu_text_select_edit_here">Επεξεργασία εδώ</string>
@@ -264,11 +261,7 @@
   <string name="gallery_error_video_failed">Το βίντεο δεν μπόρεσε να παιχτεί.</string>
   <string name="gallery_save_image_write_permission_rationale">Απαιτείται άδεια για εγγραφή στο χώρο αποθήκευσης της συσκευής σας για να αποθηκεύσετε εικόνες.</string>
   <string name="err_cannot_save_file">Δεν ήταν δυνατό να αποθηκευτεί το αρχείο</string>
-  <string name="snippet_share_intro">\"%1$s\" στη @Wikipedia: %2$s</string>
   <string name="expand_refs">Πατήστε για να επεκτείνετε</string>
-  <string name="share_snippet_button">Μοιραστείτε ως εικόνα</string>
-  <string name="share_normal_button">Μοιραστείτε ως κείμενο</string>
-  <string name="snippet_share_preview_image_desc">Προεπισκόπηση εικόνας</string>
   <string name="cc_logo">Creative Commons άδεια</string>
   <string name="captcha_image">Εικόνα Captcha</string>
   <string name="gallery_fair_use_license">Εύλογη χρήση</string>

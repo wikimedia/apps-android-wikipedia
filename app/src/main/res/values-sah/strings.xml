@@ -59,10 +59,7 @@
   <string name="menu_long_press_open_page">Арый</string>
   <string name="menu_long_press_open_in_new_tab">Саҥа кыбытыкка арый</string>
   <string name="menu_long_press_copy_page">Сигэ аадырыһын хатылаа</string>
-  <string name="menu_text_select_copy">Хатылаа</string>
   <string name="menu_text_select_define">Быһаарыыта</string>
-  <string name="menu_text_select_share">Тарҕат</string>
-  <string name="share">Тарҕат</string>
   <string name="on_this_day_page_share">Тарҕат</string>
   <string name="reading_list_page_share">Тарҕатыы</string>
   <string name="menu_text_select_edit_here">Маны көннөр</string>
@@ -272,11 +269,7 @@
   <string name="gallery_add_image_caption_button">Ойуу туһунан суруйарга</string>
   <string name="gallery_add_image_caption_in_language_button">Ойуу туһунан суруйарга (%s)</string>
   <string name="err_cannot_save_file">Билэни харайар табыллыбата</string>
-  <string name="snippet_share_intro">«%1$s» @Wikipedia-ҕа: %2$s</string>
   <string name="expand_refs">Тэнитэргэ баттаа</string>
-  <string name="share_snippet_button">Ойуу курдук тарҕат</string>
-  <string name="share_normal_button">Тиэкис быһыытынан тарҕат</string>
-  <string name="snippet_share_preview_image_desc">Ойууну эрдэ көрүү</string>
   <string name="cc_logo">Creative Commons лиссиэнсийэ</string>
   <string name="captcha_image">Капча-ойуу</string>
   <string name="gallery_fair_use_license">Сиэрдээх туһаныы</string>
