@@ -62,10 +62,7 @@
   <string name="menu_long_press_open_page">Deschide</string>
   <string name="menu_long_press_open_in_new_tab">Deschide în filă nouă</string>
   <string name="menu_long_press_copy_page">Copiază adresa legăturii</string>
-  <string name="menu_text_select_copy">Copiază</string>
   <string name="menu_text_select_define">Definire</string>
-  <string name="menu_text_select_share">Distribuie</string>
-  <string name="share">Distribuie</string>
   <string name="on_this_day_page_share">Distribuie</string>
   <string name="reading_list_page_share">Distribuie</string>
   <string name="menu_text_select_edit_here">Modifică aici</string>
@@ -271,11 +268,7 @@
   <string name="gallery_error_video_failed">Filmul nu a putut fi redat.</string>
   <string name="gallery_save_image_write_permission_rationale">Pentru salvarea imaginilor este necesară permisiunea de a scrie pe spațiul de stocare al dispozitivului. Încercați din nou și oferiți permisiunea solicitată.</string>
   <string name="err_cannot_save_file">Nu se poate salva fișierul</string>
-  <string name="snippet_share_intro">O informație interesantă despre %1$s la @Wikipedia: %2$s</string>
   <string name="expand_refs">Atingeți pentru a extinde</string>
-  <string name="share_snippet_button">Distribuie ca imagine</string>
-  <string name="share_normal_button">Distribuie ca text</string>
-  <string name="snippet_share_preview_image_desc">Previzualizează imaginea</string>
   <string name="cc_logo">Licență Creative Commons</string>
   <string name="captcha_image">Imagine Captcha</string>
   <string name="gallery_fair_use_license">Utilizare cinstită</string>

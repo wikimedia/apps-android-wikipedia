@@ -67,10 +67,7 @@
   <string name="menu_long_press_open_page">Otvoriť</string>
   <string name="menu_long_press_open_in_new_tab">Otvoriť na novej karte</string>
   <string name="menu_long_press_copy_page">Skopírovať adresu odkazu</string>
-  <string name="menu_text_select_copy">Kopírovať</string>
   <string name="menu_text_select_define">Definícia</string>
-  <string name="menu_text_select_share">Zdieľať</string>
-  <string name="share">Zdieľať</string>
   <string name="on_this_day_page_share">Zdieľať</string>
   <string name="reading_list_page_share">Zdieľať</string>
   <string name="menu_text_select_edit_here">Upraviť tu</string>
@@ -283,11 +280,7 @@
   <string name="gallery_add_image_caption_button">Pridať titulok obrázku</string>
   <string name="gallery_add_image_caption_in_language_button">Pridať popis obrázka (%s)</string>
   <string name="err_cannot_save_file">Súbor nebolo možné uložiť</string>
-  <string name="snippet_share_intro">\"%1$s\" na @Wikipédia: %2$s</string>
   <string name="expand_refs">Ťuknutím rozšírite</string>
-  <string name="share_snippet_button">Zdieľať ako obrázok</string>
-  <string name="share_normal_button">Zdieľať ako text</string>
-  <string name="snippet_share_preview_image_desc">Náhľad obrázka</string>
   <string name="cc_logo">Licencia Creative Commons</string>
   <string name="captcha_image">Captcha obrázok</string>
   <string name="gallery_fair_use_license">Férové použitie</string>

@@ -57,10 +57,7 @@
   <string name="menu_long_press_open_page">کوليو</string>
   <string name="menu_long_press_open_in_new_tab">نئين ٽيب ۾ کوليو</string>
   <string name="menu_long_press_copy_page">ڳنڍڻو نقل ڪريو</string>
-  <string name="menu_text_select_copy">نقل ڪريو</string>
   <string name="menu_text_select_define">وصف ٻڌايو</string>
-  <string name="menu_text_select_share">ونڊيو</string>
-  <string name="share">ونڊيو</string>
   <string name="on_this_day_page_share">ونڊيو</string>
   <string name="reading_list_page_share">ونڊيو</string>
   <string name="menu_text_select_edit_here">ھتي سنواريو</string>
@@ -258,11 +255,7 @@
   <string name="gallery_add_image_caption_button">عڪس جو عنوان وجھو</string>
   <string name="gallery_add_image_caption_in_language_button">عڪس جو عنوان وجھو (%s)</string>
   <string name="err_cannot_save_file">فائيل سانڍي نٿو سگھجي</string>
-  <string name="snippet_share_intro">\"%1$s\" @Wikipedia تي: %2$s</string>
   <string name="expand_refs">وڏو ڪرڻ لاءِ ڪلڪ ڪريو</string>
-  <string name="share_snippet_button">بطور عڪس ونڊيو</string>
-  <string name="share_normal_button">بطور ٽيڪسٽ ونڊيو</string>
-  <string name="snippet_share_preview_image_desc">عڪس تي نگاھ وجھو</string>
   <string name="cc_logo">ڪريئيٽو ڪامنز اجازتنامو</string>
   <string name="captcha_image">ڪيپچا عڪس</string>
   <string name="gallery_fair_use_license">واجب استعمال</string>

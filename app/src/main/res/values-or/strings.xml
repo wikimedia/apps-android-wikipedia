@@ -23,9 +23,7 @@
   <string name="menu_long_press_open_page">ଖୋଲିବେ</string>
   <string name="menu_long_press_open_in_new_tab">ନୂଆ ଟ୍ୟାବରେ ଖୋଲନ୍ତୁ</string>
   <string name="menu_long_press_copy_page">ଲିଙ୍କ ଠିକଣା କପିକରନ୍ତୁ</string>
-  <string name="menu_text_select_copy">କପି</string>
   <string name="menu_text_select_define">ବଖାଣନ୍ତୁ</string>
-  <string name="menu_text_select_share">ବିତରଣ କରନ୍ତୁ</string>
   <string name="menu_text_select_edit_here">ଏଠାରେ ସମ୍ପାଦନା କରନ୍ତୁ</string>
   <string name="last_updated_text">%s ରେ ଶେଷଥର ଅପଡେଟ ହୋଇଥିଲା</string>
   <string name="talk_page_link_text">ଆଲୋଚନା</string>

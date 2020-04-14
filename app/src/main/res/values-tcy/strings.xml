@@ -50,10 +50,7 @@
   <string name="menu_long_press_open_page">ತೋಜಾಲೇ</string>
   <string name="menu_long_press_open_in_new_tab">ಪೊಸ ಪಟ್ಟಿಡ್ ತೋಜಾಲೇ</string>
   <string name="menu_long_press_copy_page">ಕೊಂಡಿದ ವಿಳಾಸೊನು ನಕಲ್ ಮಲ್ಪುಲೆ</string>
-  <string name="menu_text_select_copy">ನಕಲ್ ಮಲ್ಪುಲೆ</string>
   <string name="menu_text_select_define">ದಾದಂದು ತೇರಿಪಾವೊಡಾ</string>
-  <string name="menu_text_select_share">ಪಟ್ಟ್‌ಲೆ</string>
-  <string name="share">ಪಟ್ಟ್‌ಲೆ</string>
   <string name="on_this_day_page_share">ಪಟ್ಟುಲೆ</string>
   <string name="reading_list_page_share">ಪಟ್ಟುಲೆ</string>
   <string name="menu_text_select_edit_here">ಮುಲ್ಪ ಸಂಪೊಲಿಪುಲೆ</string>
@@ -211,11 +208,7 @@
   <string name="gallery_save_success" fuzzy="true">ಫೈಲ್ ಒರಿಪಾಂಡ್.</string>
   <string name="gallery_error_video_failed">ವಿಡಿಯೋ</string>
   <string name="err_cannot_save_file">ಫೈಲ್ ಒರಿಪಾಯಿಜೀ</string>
-  <string name="snippet_share_intro">\"%1$s\" on @Wikipedia: %2$s</string>
   <string name="expand_refs">ಪಟ್ಟಿ ತೂಯರ ಉತ್ತುಲೇ</string>
-  <string name="share_snippet_button">ಪಟ ಅತ್ ಪಟ್ಟುಕಾ</string>
-  <string name="share_normal_button">ಪದೋ ಅತ್ ಪಟ್ಟುಕಾ</string>
-  <string name="snippet_share_preview_image_desc">ಪಟತಾ ಮುನ್ನೋಟ</string>
   <string name="captcha_image">Captcha ಪಟೊ</string>
   <string name="menu_new_tab">ಪೊಸ ಟ್ಯಾಬ್</string>
   <string name="menu_close_all_tabs">ಮಾಂತ ಕಂಡಿಲೆನ್ ಮುಚ್ಚಿಲೆ</string>

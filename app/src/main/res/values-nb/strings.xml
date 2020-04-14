@@ -66,10 +66,7 @@
   <string name="menu_long_press_open_page">Åpne</string>
   <string name="menu_long_press_open_in_new_tab">Åpne i ny fane</string>
   <string name="menu_long_press_copy_page">Kopier lenkeadresse</string>
-  <string name="menu_text_select_copy">Kopier</string>
   <string name="menu_text_select_define">Definer</string>
-  <string name="menu_text_select_share">Del</string>
-  <string name="share">Del</string>
   <string name="on_this_day_page_share">Del</string>
   <string name="reading_list_page_share">Del</string>
   <string name="menu_text_select_edit_here">Rediger her</string>
@@ -274,11 +271,7 @@
   <string name="gallery_error_video_failed">Kunne ikke spille av videoen.</string>
   <string name="gallery_save_image_write_permission_rationale">Tilgang til lagring på enheten trengs for å lagre bilder.</string>
   <string name="err_cannot_save_file">Kunne ikke lagre filen</string>
-  <string name="snippet_share_intro">«%1$s» på @Wikipedia: %2$s</string>
   <string name="expand_refs">Trykk for å utvide</string>
-  <string name="share_snippet_button">Del som bilde</string>
-  <string name="share_normal_button">Del som tekst</string>
-  <string name="snippet_share_preview_image_desc">Forhåndsvis bilde</string>
   <string name="cc_logo">Creative Commons-lisens</string>
   <string name="captcha_image">Captcha-bilde</string>
   <string name="gallery_fair_use_license">Fair use</string>

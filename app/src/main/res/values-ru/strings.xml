@@ -44,6 +44,7 @@
 * Stjn
 * ToJack
 * Vlad5250
+* Wikisaurus
 * WindEwriX
 * Wirbel78
 * Yuryleb
@@ -101,10 +102,7 @@
   <string name="menu_long_press_open_page">Открыть</string>
   <string name="menu_long_press_open_in_new_tab">Открыть в новой вкладке</string>
   <string name="menu_long_press_copy_page">Скопировать адрес ссылки</string>
-  <string name="menu_text_select_copy">Копировать</string>
   <string name="menu_text_select_define">Определение</string>
-  <string name="menu_text_select_share">Поделиться</string>
-  <string name="share">Поделиться</string>
   <string name="on_this_day_page_share">Поделиться</string>
   <string name="reading_list_page_share">Поделиться</string>
   <string name="menu_text_select_edit_here">Править здесь</string>
@@ -154,7 +152,7 @@
   <string name="menu_login">Войти</string>
   <string name="login_activity_title">Войти в Википедию</string>
   <string name="login_in_progress_dialog_message">Вход в систему…</string>
-  <string name="login_success_toast">Вошли!</string>
+  <string name="login_success_toast">Вход выполнен успешно!</string>
   <string name="reset_password_title">Установите пароль</string>
   <string name="reset_password_description">Вы представились с помощью временного пароля. Для завершения входа необходимо установить новый пароль.</string>
   <string name="reset_password_hint">Новый пароль</string>
@@ -317,11 +315,7 @@
   <string name="gallery_add_image_caption_button">Добавить описание изображения</string>
   <string name="gallery_add_image_caption_in_language_button">Добавить описание изображения (%s)</string>
   <string name="err_cannot_save_file">Не удаётся сохранить файл</string>
-  <string name="snippet_share_intro">«%1$s» на сайте @Wikipedia: %2$s</string>
   <string name="expand_refs">Нажмите, чтобы развернуть</string>
-  <string name="share_snippet_button">Поделиться изображением</string>
-  <string name="share_normal_button">Поделиться текстом</string>
-  <string name="snippet_share_preview_image_desc">Предварительный просмотр изображения</string>
   <string name="cc_logo">Лицензия Creative Commons</string>
   <string name="captcha_image">Капча-изображение</string>
   <string name="gallery_fair_use_license">Добросовестное использование</string>
@@ -628,7 +622,7 @@
   <string name="feed_item_type_featured_article">Избранная статья дня в Википедии</string>
   <string name="feed_item_type_trending">Самые просматриваемые статьи за этот день</string>
   <string name="feed_item_type_featured_image">Избранное изображение дня с Викисклада</string>
-  <string name="feed_item_type_main_page">Главная страница Википедии с ежедневно обновляемыми избранными материалами</string>
+  <string name="feed_item_type_main_page">Заглавная страница Википедии с ежедневно обновляемыми избранными материалами</string>
   <string name="feed_item_type_randomizer">Сгенерировать случайный список статей для чтения</string>
   <string name="feed_item_type_suggested_edits">Предложено к редактированию кратких описаний</string>
   <string name="feed_empty_message">Ваша лента пуста</string>
