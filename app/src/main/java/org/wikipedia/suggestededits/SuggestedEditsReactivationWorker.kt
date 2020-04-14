@@ -8,6 +8,7 @@ import androidx.work.WorkerParameters
 import org.wikipedia.Constants.INTENT_EXTRA_GO_TO_SE_TAB
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.auth.AccountUtil
 import org.wikipedia.main.MainActivity
 import org.wikipedia.notifications.NotificationPresenter
 import org.wikipedia.settings.Prefs
@@ -17,13 +18,15 @@ import java.util.concurrent.TimeUnit
 class SuggestedEditsReactivationWorker(val context: Context, workerParams: WorkerParameters) : Worker(context, workerParams) {
 
     override fun doWork(): Result {
-        val days = System.currentTimeMillis() - Prefs.getLastDescriptionEditTime()
-        if (days in FIRST_NOTIFICATION_SHOW_ON_DAY until SECOND_NOTIFICATION_SHOW_ON_DAY && !Prefs.isSuggestedEditsReactivationPassStageOne()) {
-            Prefs.setSuggestedEditsReactivationPassStageOne(true)
-            showSuggestedEditsLocalNotification(context, R.string.suggested_edits_reactivation_notification_stage_one, false)
-        } else if (days >= SECOND_NOTIFICATION_SHOW_ON_DAY && Prefs.isSuggestedEditsReactivationPassStageOne() && Prefs.getLastDescriptionEditTime() > 0) {
-            Prefs.setSuggestedEditsReactivationPassStageOne(false)
-            showSuggestedEditsLocalNotification(context, R.string.suggested_edits_reactivation_notification_stage_two, false)
+        if (AccountUtil.isLoggedIn()) {
+            val days = System.currentTimeMillis() - Prefs.getLastDescriptionEditTime()
+            if (days in FIRST_NOTIFICATION_SHOW_ON_DAY until SECOND_NOTIFICATION_SHOW_ON_DAY && !Prefs.isSuggestedEditsReactivationPassStageOne()) {
+                Prefs.setSuggestedEditsReactivationPassStageOne(true)
+                showSuggestedEditsLocalNotification(context, R.string.suggested_edits_reactivation_notification_stage_one, false)
+            } else if (days >= SECOND_NOTIFICATION_SHOW_ON_DAY && Prefs.isSuggestedEditsReactivationPassStageOne() && Prefs.getLastDescriptionEditTime() > 0) {
+                Prefs.setSuggestedEditsReactivationPassStageOne(false)
+                showSuggestedEditsLocalNotification(context, R.string.suggested_edits_reactivation_notification_stage_two, false)
+            }
         }
         return Result.success()
     }
