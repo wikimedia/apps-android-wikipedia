@@ -320,12 +320,12 @@
             android:summary="The first local notification for editor reactivation has shown."/>
 
         <Preference
-            android:key="@string/preferences_developer_suggested_edits_local_notification_first"
-            android:title="@string/preferences_developer_suggested_edits_local_notification_first"/>
+            android:key="@string/preferences_developer_suggested_edits_reactivation_notification_stage_one"
+            android:title="@string/preferences_developer_suggested_edits_reactivation_notification_stage_one"/>
 
         <Preference
-            android:key="@string/preferences_developer_suggested_edits_local_notification_second"
-            android:title="@string/preferences_developer_suggested_edits_local_notification_second"/>
+            android:key="@string/preferences_developer_suggested_edits_reactivation_notification_stage_two"
+            android:title="@string/preferences_developer_suggested_edits_reactivation_notification_stage_two"/>
     </PreferenceCategory>
 
 </androidx.preference.PreferenceScreen>

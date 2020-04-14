@@ -194,13 +194,13 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
                     return true;
                 });
 
-        findPreference(context.getString(R.string.preferences_developer_suggested_edits_local_notification_first))
+        findPreference(context.getString(R.string.preferences_developer_suggested_edits_reactivation_notification_stage_one))
                 .setOnPreferenceClickListener(preference -> {
                     SuggestedEditsReactivationWorker.showSuggestedEditsLocalNotification(getActivity(), R.string.suggested_edits_reactivation_notification_first, true);
                     return true;
                 });
 
-        findPreference(context.getString(R.string.preferences_developer_suggested_edits_local_notification_second))
+        findPreference(context.getString(R.string.preferences_developer_suggested_edits_reactivation_notification_stage_two))
                 .setOnPreferenceClickListener(preference -> {
                     SuggestedEditsReactivationWorker.showSuggestedEditsLocalNotification(getActivity(), R.string.suggested_edits_reactivation_notification_second, true);
                     return true;
