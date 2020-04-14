@@ -58,9 +58,7 @@
   <string name="menu_long_press_open_page">खोलें</string>
   <string name="menu_long_press_open_in_new_tab">नये टैब में खोलें</string>
   <string name="menu_long_press_copy_page">लिंक एड्रेस को कॉपी करें</string>
-  <string name="menu_text_select_copy">कॉपी</string>
   <string name="menu_text_select_define">परिभाषित करें</string>
-  <string name="menu_text_select_share">साझा करें</string>
   <string name="menu_text_select_edit_here">यहाँ सम्पादित करें</string>
   <string name="last_updated_text">%s को अन्तिम अपडेट किया गया।</string>
   <string name="talk_page_link_text">वार्ता पृष्ठ देखें</string>
@@ -243,11 +241,7 @@
   <string name="gallery_error_video_failed">वीडियो को चलाया नहीं जा सका।</string>
   <string name="gallery_save_image_write_permission_rationale">चित्रों को सहेजने के लिए आपके यंत्र भंडारण पर लिखने की अनुमति की आवश्यकता है।</string>
   <string name="err_cannot_save_file">फ़ाइल को सहेजा नहीं जा सकता</string>
-  <string name="snippet_share_intro">\@Wikipedia पर \"%1$s\": %2$s</string>
   <string name="expand_refs">फ़ैलाने के लिये दबाएं</string>
-  <string name="share_snippet_button">चित्र की तरह साझा करें</string>
-  <string name="share_normal_button">टेक्स्ट की तरह साझा करें</string>
-  <string name="snippet_share_preview_image_desc">चित्र को प्रीव्यू करें</string>
   <string name="cc_logo">क्रिएटिव कॉमन्स लाइसेंस</string>
   <string name="captcha_image">कैप्चा चित्र</string>
   <string name="gallery_fair_use_license">उचित प्रयोग</string>

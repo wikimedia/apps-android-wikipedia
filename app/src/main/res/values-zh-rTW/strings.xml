@@ -72,10 +72,7 @@
   <string name="menu_long_press_open_page">開啟</string>
   <string name="menu_long_press_open_in_new_tab">在新分頁開啟</string>
   <string name="menu_long_press_copy_page">複製連結網址</string>
-  <string name="menu_text_select_copy">複製</string>
   <string name="menu_text_select_define">定義</string>
-  <string name="menu_text_select_share">分享</string>
-  <string name="share">分享</string>
   <string name="on_this_day_page_share">分享</string>
   <string name="reading_list_page_share">分享</string>
   <string name="menu_text_select_edit_here">在此編輯</string>
@@ -289,11 +286,7 @@
   <string name="gallery_add_image_caption_button">新增語言說明</string>
   <string name="gallery_add_image_caption_in_language_button">新增圖片說明（%s）</string>
   <string name="err_cannot_save_file">無法儲存檔案</string>
-  <string name="snippet_share_intro">\"%1$s\" 於 @Wikipedia：%2$s</string>
   <string name="expand_refs">輕觸展開</string>
-  <string name="share_snippet_button">以圖片分享</string>
-  <string name="share_normal_button">以文字分享</string>
-  <string name="snippet_share_preview_image_desc">預覽圖片</string>
   <string name="cc_logo">創用 CC 授權</string>
   <string name="captcha_image">驗證碼圖片</string>
   <string name="gallery_fair_use_license">合理使用</string>

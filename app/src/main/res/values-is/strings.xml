@@ -57,10 +57,7 @@
   <string name="menu_long_press_open_page">Opna</string>
   <string name="menu_long_press_open_in_new_tab">Opna í nýjum flipa</string>
   <string name="menu_long_press_copy_page">Afrita vistfang tengils</string>
-  <string name="menu_text_select_copy">Afrita</string>
   <string name="menu_text_select_define">Skilgreina</string>
-  <string name="menu_text_select_share">Deila</string>
-  <string name="share">Deila</string>
   <string name="on_this_day_page_share">Deila</string>
   <string name="reading_list_page_share">Deila</string>
   <string name="menu_text_select_edit_here">Breyta hér</string>
@@ -273,11 +270,7 @@
   <string name="gallery_add_image_caption_button">Bæta við myndatexta</string>
   <string name="gallery_add_image_caption_in_language_button">Bæta við myndatexta (%s)</string>
   <string name="err_cannot_save_file">Gat ekki vistað skrá</string>
-  <string name="snippet_share_intro">\"%1$s\" á @Wikipedia: %2$s</string>
   <string name="expand_refs">Banka til að stækka</string>
-  <string name="share_snippet_button">Deila sem mynd</string>
-  <string name="share_normal_button">Deila sem texta</string>
-  <string name="snippet_share_preview_image_desc">Forskoða mynd</string>
   <string name="cc_logo">Creative Commons notkunarleyfi</string>
   <string name="captcha_image">Captcha-mynd</string>
   <string name="gallery_fair_use_license">Sanngjörn notkun</string>

@@ -55,10 +55,7 @@
   <string name="menu_long_press_open_page">Agor</string>
   <string name="menu_long_press_open_in_new_tab">Agor mewn tab newydd</string>
   <string name="menu_long_press_copy_page">Copio cyfeiriad y ddolen</string>
-  <string name="menu_text_select_copy">Copio</string>
   <string name="menu_text_select_define">Diffiniwch</string>
-  <string name="menu_text_select_share">Rhannu</string>
-  <string name="share">Rhannu</string>
   <string name="on_this_day_page_share">Rhannu</string>
   <string name="reading_list_page_share">Rhannu</string>
   <string name="menu_text_select_edit_here">Golygwch yma</string>
@@ -230,11 +227,7 @@
   <string name="gallery_add_image_caption_button">Ychwanga gapsiwn i\'r ddelwedd</string>
   <string name="gallery_add_image_caption_in_language_button">Ychwanega gapsiwn (%s)</string>
   <string name="err_cannot_save_file">Methwyd ag arbed y ffeil</string>
-  <string name="snippet_share_intro">\"%1$s\" ar @Wicipedia: %2$s</string>
   <string name="expand_refs">Tapiwch i\'w chwyddo</string>
-  <string name="share_snippet_button">Rhannwch ddelwedd</string>
-  <string name="share_normal_button">Rhannwch fel testun</string>
-  <string name="snippet_share_preview_image_desc">Rhagweld y ddelwedd</string>
   <string name="cc_logo">Trwydded Comin Creu (\'\'Creative Commons\'\')</string>
   <string name="captcha_image">Delwedd Captcha</string>
   <string name="gallery_fair_use_license">Defnydd teg</string>

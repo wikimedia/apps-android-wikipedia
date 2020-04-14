@@ -57,10 +57,7 @@
   <string name="menu_long_press_open_page">გახსნა</string>
   <string name="menu_long_press_open_in_new_tab">ახალ ჩანართში გახსნა</string>
   <string name="menu_long_press_copy_page">ბმულის მისამართის დაკოპირება</string>
-  <string name="menu_text_select_copy">კოპირება</string>
   <string name="menu_text_select_define">განსაზღვრა</string>
-  <string name="menu_text_select_share">გაზიარება</string>
-  <string name="share">გაზიარება</string>
   <string name="on_this_day_page_share">გაზიარება</string>
   <string name="reading_list_page_share">გაზიარება</string>
   <string name="menu_text_select_edit_here">დაარედაქტირე აქ</string>
@@ -225,11 +222,7 @@
   <string name="gallery_error_video_failed">ამ ვიდეოს გახსნა ვერ მოხერხდა.</string>
   <string name="gallery_save_image_write_permission_rationale">თქვენი მოწყობილობის მეხსიერებაში ჩასაწერად საჭიროა სურათების შენახვა.</string>
   <string name="err_cannot_save_file">ფაილი ვერ შეინახა</string>
-  <string name="snippet_share_intro">„%1$s“ საიტზე @Wikipedia: %2$s</string>
   <string name="expand_refs">გადიდებისათვის დააჭირეთ</string>
-  <string name="share_snippet_button">სურათად გაზიარება</string>
-  <string name="share_normal_button">ტექსტად გაზიარება</string>
-  <string name="snippet_share_preview_image_desc">სურათის წინასწარ გადახედვა</string>
   <string name="cc_logo">Creative Commons ლიცენზია</string>
   <string name="captcha_image">Captcha-ს სურათი</string>
   <string name="gallery_fair_use_license">კეთილსინდისიერი გამოყენება</string>

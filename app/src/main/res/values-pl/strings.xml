@@ -82,10 +82,7 @@
   <string name="menu_long_press_open_page">Otwórz</string>
   <string name="menu_long_press_open_in_new_tab">Otwórz w nowej karcie</string>
   <string name="menu_long_press_copy_page">Kopiuj adres łącza</string>
-  <string name="menu_text_select_copy">Kopiuj</string>
   <string name="menu_text_select_define">Definicja</string>
-  <string name="menu_text_select_share">Udostępnij</string>
-  <string name="share">Udostępnij</string>
   <string name="on_this_day_page_share">Udostępnij</string>
   <string name="reading_list_page_share">Udostępnij</string>
   <string name="menu_text_select_edit_here">Edytuj tutaj</string>
@@ -296,11 +293,7 @@
   <string name="gallery_add_image_caption_button">Dodaj podpis obrazu</string>
   <string name="gallery_add_image_caption_in_language_button">Dodaj podpis obrazu (%s)</string>
   <string name="err_cannot_save_file">Nie można zapisać pliku</string>
-  <string name="snippet_share_intro">\"%1$s\" na @Wikipedia: %2$s</string>
   <string name="expand_refs">Kliknij, aby rozwinąć</string>
-  <string name="share_snippet_button">Udostępnij jako obraz</string>
-  <string name="share_normal_button">Udostępnij jako tekst</string>
-  <string name="snippet_share_preview_image_desc">Podgląd obrazu</string>
   <string name="cc_logo">Licencja Creative Commons</string>
   <string name="captcha_image">Obrazek captcha</string>
   <string name="gallery_fair_use_license">Fair use</string>
