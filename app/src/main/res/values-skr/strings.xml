@@ -87,7 +87,7 @@
   <string name="menu_login">لاگ ان تھیوو</string>
   <string name="login_activity_title">وکی پیڈیا وچ لاگ ان تھیوو</string>
   <string name="login_in_progress_dialog_message">لاگ ان  تھیندے پئے ہو۔۔۔</string>
-  <string name="login_success_toast" fuzzy="true">کامیابی نال لاگ ان تھی ڳئے</string>
+  <string name="login_success_toast">لاگ ان تھی ڳیا!</string>
   <string name="reset_password_hint">نواں پاس ورڈ</string>
   <string name="reset_password_button">محفوظ کرو تے لا ان تھیوو</string>
   <string name="preference_title_logout">لاگ آؤٹ</string>
@@ -170,7 +170,7 @@
   <string name="license_title">%s کیتے لائیسنس</string>
   <string name="gallery_menu_share">شیئر</string>
   <string name="gallery_save_progress">فائل ݙاؤن لوڈ کریندا پئے۔۔۔</string>
-  <string name="gallery_save_success" fuzzy="true">فائل کامیابی نال محفوظ تھی ڳئی۔</string>
+  <string name="gallery_save_success">فائل محفوظ تھی ڳئی۔</string>
   <string name="gallery_error_video_failed">ویڈیو کوں کائنی چلایا ون٘ڄ سڳدا۔</string>
   <string name="share_normal_button">عبارت دے طور تے سانجھی کرو</string>
   <string name="snippet_share_preview_image_desc">تصویر دی پہلے نمائش</string>

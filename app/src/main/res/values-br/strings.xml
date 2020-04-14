@@ -340,6 +340,9 @@
   <string name="reading_list_save_to">Enrollañ er roll lenn</string>
   <string name="reading_list_create_new">Krouiñ unan nevez</string>
   <string name="reading_list_title_exists">Ar roll lenn «%s» zo anezhañ dija.</string>
+  <string name="reading_list_article_added_to_named">Ouzhpennet %1$s da %2$s.</string>
+  <string name="reading_list_article_already_exists_message">Pep tra zo mat ! Emañ %2$s e %1$s c\'hoazh.</string>
+  <string name="reading_list_articles_already_exist_message">Pep tra zo mat ! Emañ an holl bennadoù e %s c\'hoazh.</string>
   <string name="reading_list_added_view_button">Diskwel ar roll</string>
   <string name="format_reading_list_statistical_summary_singular">1 pennad, %1$.2f Mo</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d pennadoù, %2$.2f Mo</string>
