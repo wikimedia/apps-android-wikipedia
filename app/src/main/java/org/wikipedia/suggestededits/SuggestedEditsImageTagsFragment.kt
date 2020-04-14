@@ -43,6 +43,7 @@ import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ImageZoomHelper
 import org.wikipedia.views.ViewUtil
+import java.text.NumberFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -148,6 +149,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                 break
             }
         }
+        tagList.sortByDescending { it.confidenceScore }
     }
 
     private fun setErrorState(t: Throwable) {
@@ -210,7 +212,15 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
 
     private fun addChip(label: MwQueryPage.ImageLabel?, typeface: Typeface) {
         val chip = Chip(requireContext())
-        chip.text = label?.label ?: getString(R.string.suggested_edits_image_tags_add_tag)
+        if (ReleaseUtil.isPreBetaRelease()) {
+            var labelWithConfidenceScore = getString(R.string.suggested_edits_image_tags_add_tag)
+            if (label != null) {
+                labelWithConfidenceScore = "${label.label} (${showConfidenceScoreInPercentage(label.confidenceScore)})"
+            }
+            chip.text = labelWithConfidenceScore
+        } else {
+            chip.text = label?.label ?: getString(R.string.suggested_edits_image_tags_add_tag)
+        }
         chip.textAlignment = TEXT_ALIGNMENT_CENTER
         chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.chip_background_color))
         chip.chipStrokeWidth = DimenUtil.dpToPx(1f)
@@ -479,6 +489,12 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                 chip.setChipStrokeColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.chip_background_color))
             }
         }
+    }
+
+    private fun showConfidenceScoreInPercentage(number: Float): String {
+        val numberFormat: NumberFormat = NumberFormat.getPercentInstance()
+        numberFormat.minimumFractionDigits = 1
+        return numberFormat.format(number)
     }
 
     private fun playSuccessVibration() {
