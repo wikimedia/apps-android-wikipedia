@@ -763,7 +763,7 @@
   <string name="suggested_edits_quality_excellent_text">Excelente</string>
   <string name="suggested_edits_quality_very_good_text">Muy buena</string>
   <string name="suggested_edits_quality_good_text">Buena</string>
-  <string name="suggested_edits_quality_okay_text">Aceptar</string>
+  <string name="suggested_edits_quality_okay_text">Aceptable</string>
   <string name="suggested_edits_quality_sufficient_text">Suficiente</string>
   <string name="suggested_edits_quality_poor_text">Deficiente</string>
   <string name="suggested_edits_quality_bad_text">Mala</string>
@@ -791,7 +791,7 @@
   <string name="size_mb">%.2f MB</string>
   <string name="onboarding_skip">Saltar</string>
   <string name="onboarding_continue">Continuar</string>
-  <string name="onboarding_get_started">Empieza</string>
+  <string name="onboarding_get_started">Empezar</string>
   <string name="onboarding_maybe_later">Quizás más tarde</string>
   <string name="onboarding_explore_title">Nuevas formas de explorar</string>
   <string name="onboarding_explore_text">Piérdete en la vastedad de Wikipedia a través del canal de exploración, siempre al día.&lt;br/&gt; &lt;b&gt;Personaliza&lt;/b&gt; el canal en función de lo que te interesa. Aprende sobre acontecimientos históricos en &lt;b&gt;Un día como hoy&lt;/b&gt; o lanza un dado virtual mediante &lt;b&gt;Aleatorio&lt;/b&gt;.</string>
@@ -806,7 +806,7 @@
   <string name="onboarding_got_it">Entendido</string>
   <string name="onboarding_multilingual_secondary_text">Encontramos lo siguiente en tu dispositivo:</string>
   <string name="onboarding_multilingual_add_language_text">Añadir o editar idiomas</string>
-  <string name="onboarding_welcome_title_v2">La enciclopedia libre…\n… en más de 300 lenguas</string>
+  <string name="onboarding_welcome_title_v2">La enciclopedia libre…\n… en más de 300 idiomas</string>
   <string name="app_shortcuts_random">Aleatorio</string>
   <string name="app_shortcuts_continue_reading">Continuar leyendo</string>
   <string name="app_shortcuts_search">Buscar</string>

@@ -476,7 +476,7 @@
   <string name="suggested_edits_image_preview_dialog_source">Çıme/Fotrafkar</string>
   <string name="suggested_edits_image_preview_dialog_licensing">Lisansdayış</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Tayêna melumat</string>
-  <string name="suggested_edits_image_preview_dialog_file_page_link_text">Pela dosyay Wikimedia Commonsi</string>
+  <string name="suggested_edits_image_preview_dialog_file_page_link_text">Wikimedia Commons de pela dosyeyan</string>
   <string name="suggested_edits_article_cta_image_caption">Bınnuştey resimi cı kerê</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Bınnuştey resimi cı kerê (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Bıvêne</string>
