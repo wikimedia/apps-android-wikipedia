@@ -48,7 +48,7 @@ import org.wikipedia.recurring.RecurringTasksExecutor;
 import org.wikipedia.savedpages.SavedPageSyncService;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SiteInfoClient;
-import org.wikipedia.suggestededits.SuggestedEditsLocalNotificationWorker;
+import org.wikipedia.suggestededits.SuggestedEditsReactivationWorker;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.PermissionUtil;
@@ -96,9 +96,9 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
 
         PeriodicWorkRequest editorReactivationWorker =
-                new PeriodicWorkRequest.Builder(SuggestedEditsLocalNotificationWorker.class, 15, TimeUnit.MINUTES)
+                new PeriodicWorkRequest.Builder(SuggestedEditsReactivationWorker.class, 1, TimeUnit.DAYS)
                         .setConstraints(new Constraints.Builder().build())
-                        .setInitialDelay(30, TimeUnit.SECONDS)
+                        .setInitialDelay(1, TimeUnit.HOURS)
                         .build();
         WorkManager.getInstance(this)
                 .enqueueUniquePeriodicWork("suggested-edits-worker", KEEP, editorReactivationWorker);

@@ -14,7 +14,7 @@ import org.wikipedia.settings.Prefs
 import java.util.concurrent.TimeUnit
 
 
-class SuggestedEditsLocalNotificationWorker(val context: Context, workerParams: WorkerParameters) : Worker(context, workerParams) {
+class SuggestedEditsReactivationWorker(val context: Context, workerParams: WorkerParameters) : Worker(context, workerParams) {
 
     override fun doWork(): Result {
         val days = System.currentTimeMillis() - Prefs.getLastDescriptionEditTime()
