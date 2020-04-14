@@ -63,10 +63,7 @@
   <string name="menu_long_press_open_page">Malfermi</string>
   <string name="menu_long_press_open_in_new_tab">Malfermi en nova langeto</string>
   <string name="menu_long_press_copy_page">Kopii ligilan adreson</string>
-  <string name="menu_text_select_copy">Kopii</string>
   <string name="menu_text_select_define">Difini</string>
-  <string name="menu_text_select_share">Konigi</string>
-  <string name="share">Kunhavigi</string>
   <string name="on_this_day_page_share">Kunhavigi</string>
   <string name="reading_list_page_share">Kunhavigi</string>
   <string name="menu_text_select_edit_here">Redakti ĉi tie</string>
@@ -274,11 +271,7 @@
   <string name="gallery_save_image_write_permission_rationale">Savi bildon bezonas permeson skribi al konservejo de via aparato.</string>
   <string name="gallery_add_image_caption_in_language_button">Aldoni titolon al bildo (je %s)</string>
   <string name="err_cannot_save_file">Ne eblis konservi la dosieron</string>
-  <string name="snippet_share_intro">\"%1$s\" ĉe @Wikipedia: %2$s</string>
   <string name="expand_refs">Tuŝetu por etendi</string>
-  <string name="share_snippet_button">Konigi kiel bildo</string>
-  <string name="share_normal_button">Konigi kiel teksto</string>
-  <string name="snippet_share_preview_image_desc">Antaŭrigardo de la bildo</string>
   <string name="cc_logo">Krea komunaĵa permesilo</string>
   <string name="captcha_image">Captcha-bildo</string>
   <string name="gallery_fair_use_license">Justa uzo</string>

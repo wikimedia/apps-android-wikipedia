@@ -90,10 +90,7 @@
   <string name="menu_long_press_open_page">打开</string>
   <string name="menu_long_press_open_in_new_tab">在新标签页打开链接</string>
   <string name="menu_long_press_copy_page">复制链接地址</string>
-  <string name="menu_text_select_copy">复制</string>
   <string name="menu_text_select_define">编辑定义</string>
-  <string name="menu_text_select_share">分享</string>
-  <string name="share">分享</string>
   <string name="on_this_day_page_share">分享</string>
   <string name="reading_list_page_share">分享</string>
   <string name="menu_text_select_edit_here">在此编辑</string>
@@ -305,11 +302,7 @@
   <string name="gallery_add_image_caption_button">添加图像说明</string>
   <string name="gallery_add_image_caption_in_language_button">添加图像说明（%s）</string>
   <string name="err_cannot_save_file">无法保存文件</string>
-  <string name="snippet_share_intro">\@Wikipedia 上的“%1$s”：%2$s</string>
   <string name="expand_refs">点按展开</string>
-  <string name="share_snippet_button">以图像分享</string>
-  <string name="share_normal_button">以文本分享</string>
-  <string name="snippet_share_preview_image_desc">预览图像</string>
   <string name="cc_logo">知识共享许可协议</string>
   <string name="captcha_image">验证码图像</string>
   <string name="gallery_fair_use_license">合理使用</string>

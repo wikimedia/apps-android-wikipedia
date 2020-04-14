@@ -61,10 +61,7 @@
   <string name="menu_long_press_open_page">Atidaryti</string>
   <string name="menu_long_press_open_in_new_tab">Atidaryti naujame skirtuke</string>
   <string name="menu_long_press_copy_page">Kopijuoti nuorodos adresą</string>
-  <string name="menu_text_select_copy">Kopijuoti</string>
   <string name="menu_text_select_define">Nustatyti</string>
-  <string name="menu_text_select_share">Dalintis</string>
-  <string name="share">Dalintis</string>
   <string name="on_this_day_page_share">Dalintis</string>
   <string name="reading_list_page_share">Dalintis</string>
   <string name="menu_text_select_edit_here">Keisti čia</string>
@@ -235,11 +232,7 @@
   <string name="gallery_save_success" fuzzy="true">Failas išsaugotas sėkmingai.</string>
   <string name="gallery_error_video_failed">Negalima paleisti vaizdo įrašo.</string>
   <string name="err_cannot_save_file">Negalima įrašyti failų</string>
-  <string name="snippet_share_intro">\"%1$s\" @Wikipedia: %2$s</string>
   <string name="expand_refs">Bakstelėkite norėdami išplėsti</string>
-  <string name="share_snippet_button">Dalintis kaip vaizdu</string>
-  <string name="share_normal_button">Dalintis kaip tekstu</string>
-  <string name="snippet_share_preview_image_desc">Peržiūrėti paveikslėlį</string>
   <string name="cc_logo">Creative Commons licencija</string>
   <string name="captcha_image">Captcha nuotrauka</string>
   <string name="gallery_fair_use_license">Sąžiningas naudojimasis</string>

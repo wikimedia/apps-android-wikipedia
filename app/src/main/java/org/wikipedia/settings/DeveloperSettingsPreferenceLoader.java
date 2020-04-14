@@ -1,5 +1,6 @@
 package org.wikipedia.settings;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.text.TextUtils;
 
@@ -75,6 +76,7 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
         this.context = fragment.requireActivity();
     }
 
+    @SuppressLint("CheckResult")
     @SuppressWarnings("checkstyle:methodlength")
     @Override
     public void loadPreferences() {
@@ -92,7 +94,7 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
                         return true;
                     }
 
-                    int numberOfArticles = Integer.valueOf(newValue.toString().trim());
+                    int numberOfArticles = Integer.parseInt(newValue.toString().trim());
                     createTestReadingList(TEXT_OF_TEST_READING_LIST, 1, numberOfArticles);
 
                     return true;
@@ -104,7 +106,7 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
                         return true;
                     }
 
-                    int numOfLists = Integer.valueOf(newValue.toString().trim());
+                    int numOfLists = Integer.parseInt(newValue.toString().trim());
                     createTestReadingList(TEXT_OF_READING_LIST, numOfLists, 10);
 
                     return true;
@@ -115,7 +117,7 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
                     if (newValue.toString().trim().equals("") || newValue.toString().trim().equals("0")) {
                         return true;
                     }
-                    int numOfLists = Integer.valueOf(newValue.toString().trim());
+                    int numOfLists = Integer.parseInt(newValue.toString().trim());
                     deleteTestReadingList(TEXT_OF_READING_LIST, numOfLists);
                     return true;
                 });
@@ -124,14 +126,14 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
                     if (newValue.toString().trim().equals("") || newValue.toString().trim().equals("0")) {
                         return true;
                     }
-                    int numOfLists = Integer.valueOf(newValue.toString().trim());
+                    int numOfLists = Integer.parseInt(newValue.toString().trim());
                     deleteTestReadingList(TEXT_OF_TEST_READING_LIST, numOfLists);
                     return true;
                 });
 
         findPreference(R.string.preference_key_add_malformed_reading_list_page)
                 .setOnPreferenceChangeListener((preference, newValue) -> {
-                    int numberOfArticles = TextUtils.isEmpty(newValue.toString()) ? 1 :  Integer.valueOf(newValue.toString().trim());
+                    int numberOfArticles = TextUtils.isEmpty(newValue.toString()) ? 1 :  Integer.parseInt(newValue.toString().trim());
                     List<ReadingListPage> pages = new ArrayList<>();
                     for (int i = 0; i < numberOfArticles; i++) {
                         PageTitle pageTitle = new PageTitle("Malformed page " + i, WikiSite.forLanguageCode("foo"));
@@ -225,7 +227,7 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
             ReadingList lastReadingList = lists.get(i);
             if (lastReadingList.title().contains(listName)) {
                 String trimmedListTitle = lastReadingList.title().substring(listName.length()).trim();
-                index = (trimmedListTitle.isEmpty()) ? index : (Integer.valueOf(trimmedListTitle) > index ? Integer.valueOf(trimmedListTitle) : index);
+                index = trimmedListTitle.isEmpty() ? index : Math.max(Integer.parseInt(trimmedListTitle), index);
                 break;
             }
         }

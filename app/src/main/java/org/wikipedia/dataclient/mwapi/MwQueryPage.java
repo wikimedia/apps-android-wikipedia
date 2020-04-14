@@ -233,6 +233,7 @@ public class MwQueryPage extends BaseModel {
 
     public static class ImageLabel {
         @SerializedName("wikidata_id") @Nullable private String wikidataId;
+        @Nullable private Confidence confidence;
         @Nullable private String state;
         @Nullable private String label;
         @Nullable private String description;
@@ -275,6 +276,18 @@ public class MwQueryPage extends BaseModel {
 
         public boolean isCustom() {
             return custom;
+        }
+
+        public float getConfidenceScore() {
+            return confidence == null ? 0 : confidence.getGoogle();
+        }
+    }
+
+    public static class Confidence {
+        private float google;
+
+        public float getGoogle() {
+            return google;
         }
     }
 }

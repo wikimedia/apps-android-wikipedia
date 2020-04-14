@@ -64,10 +64,7 @@
   <string name="menu_long_press_open_page">เปิด</string>
   <string name="menu_long_press_open_in_new_tab">เปิดในหน้าต่างใหม่</string>
   <string name="menu_long_press_copy_page">คัดลอกที่อยู่ลิงก์</string>
-  <string name="menu_text_select_copy">คัดลอก</string>
   <string name="menu_text_select_define">นิยาม</string>
-  <string name="menu_text_select_share">แบ่งปัน</string>
-  <string name="share">แบ่งปัน</string>
   <string name="on_this_day_page_share">แบ่งปัน</string>
   <string name="reading_list_page_share">แบ่งปัน</string>
   <string name="menu_text_select_edit_here">แก้ไขตรงนี้</string>
@@ -242,10 +239,7 @@
   <string name="gallery_error_video_failed">ไม่สามารถเล่นวีดีโอได้</string>
   <string name="gallery_save_image_write_permission_rationale" fuzzy="true">ต้องการการยินยอมให้เขียนข้อมูลลงในที่จัดเก็บบนอุปกรณ์ของคุณ เพื่อบันทึกภาพ กรุณาลองอีกครั้ง และยินยอมการอนุญาต</string>
   <string name="err_cannot_save_file">ไม่สามารถบันทึกไฟล์</string>
-  <string name="snippet_share_intro">\"%1$s\" บน @Wikipedia: %2$s</string>
   <string name="expand_refs">แตะเพื่อขยาย</string>
-  <string name="share_snippet_button">แบ่งปันเป็นรูปภาพ</string>
-  <string name="share_normal_button">แบ่งปันเป็นข้อความ</string>
   <string name="gallery_uploader_unknown">ไม่ทราบผู้อัปโหลด</string>
   <string name="menu_new_tab">เปิดแท็บใหม่</string>
   <string name="menu_close_all_tabs">ปิดแท็บทั้งหมด</string>

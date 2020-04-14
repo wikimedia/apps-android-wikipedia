@@ -30,9 +30,7 @@
   <string name="menu_page_share">რცხიშ გობჟინაფა</string>
   <string name="menu_long_press_open_page">გონწყუმა</string>
   <string name="menu_long_press_copy_page">რცხიშ მიოწურაფუშ კოპირაფა</string>
-  <string name="menu_text_select_copy">კოპირაფა</string>
   <string name="menu_text_select_define">გოთანჯუა</string>
-  <string name="menu_text_select_share">გობჟინაფა</string>
   <string name="menu_text_select_edit_here">დარედაქტირით თაქ</string>
   <string name="last_updated_text">ბოლოს გეახალჷ %s</string>
   <string name="talk_page_link_text" fuzzy="true">სხუნუა</string>
