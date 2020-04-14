@@ -44,6 +44,7 @@
 * Stjn
 * ToJack
 * Vlad5250
+* Wikisaurus
 * WindEwriX
 * Wirbel78
 * Yuryleb
@@ -151,7 +152,7 @@
   <string name="menu_login">Войти</string>
   <string name="login_activity_title">Войти в Википедию</string>
   <string name="login_in_progress_dialog_message">Вход в систему…</string>
-  <string name="login_success_toast">Вошли!</string>
+  <string name="login_success_toast">Вход выполнен успешно!</string>
   <string name="reset_password_title">Установите пароль</string>
   <string name="reset_password_description">Вы представились с помощью временного пароля. Для завершения входа необходимо установить новый пароль.</string>
   <string name="reset_password_hint">Новый пароль</string>
@@ -621,7 +622,7 @@
   <string name="feed_item_type_featured_article">Избранная статья дня в Википедии</string>
   <string name="feed_item_type_trending">Самые просматриваемые статьи за этот день</string>
   <string name="feed_item_type_featured_image">Избранное изображение дня с Викисклада</string>
-  <string name="feed_item_type_main_page">Главная страница Википедии с ежедневно обновляемыми избранными материалами</string>
+  <string name="feed_item_type_main_page">Заглавная страница Википедии с ежедневно обновляемыми избранными материалами</string>
   <string name="feed_item_type_randomizer">Сгенерировать случайный список статей для чтения</string>
   <string name="feed_item_type_suggested_edits">Предложено к редактированию кратких описаний</string>
   <string name="feed_empty_message">Ваша лента пуста</string>

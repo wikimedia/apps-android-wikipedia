@@ -383,6 +383,7 @@
   <string name="reading_list_save_to">Salvar na lista de leitura</string>
   <string name="reading_list_create_new">Criar novo</string>
   <string name="reading_list_title_exists">A lista de leitura \"%s\" já existe.</string>
+  <string name="reading_list_article_already_exists_message">Tudo bom! %1$s já contém %2$s.</string>
   <string name="reading_list_articles_already_exist_message" fuzzy="true">Tudo bom! %s já contém todos os artigos em guias abertas.</string>
   <string name="reading_list_added_view_button">Ver lista</string>
   <string name="format_reading_list_statistical_summary_singular">1 artigo, %1$.2f MB</string>

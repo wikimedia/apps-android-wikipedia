@@ -379,6 +379,7 @@
     <item quantity="one">Dësen Artikel ass net méi offline disponibel.</item>
     <item quantity="other">Dës Artikele sinn net méi offline disponibel.</item>
   </plurals>
+  <string name="reading_list_toast_last_sync">Lieslëschte goufe synchroniséiert</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">OK</string>
   <string name="reading_list_delete_dialog_ok_button_text">OK</string>
   <string name="reading_list_remove_from_list_dialog_cancel_button_text">Ofbriechen</string>

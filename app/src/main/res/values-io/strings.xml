@@ -284,6 +284,9 @@
   <string name="reading_list_save_to">Adjuntez a la lektebla listo</string>
   <string name="reading_list_create_new">Krear nova</string>
   <string name="reading_list_title_exists">Lektebla listo \"%s\" ja existas.</string>
+  <string name="reading_list_article_added_to_named">Adjuntita %1$s a(d) %2$s.</string>
+  <string name="reading_list_article_already_exists_message">Bone! %1$s anke kontenas %2$s.</string>
+  <string name="reading_list_articles_already_exist_message">Bone! %s ja kontenas omna artikli.</string>
   <string name="reading_list_added_view_button">Vidar listo</string>
   <string name="format_reading_list_statistical_summary_singular">1 artiklo, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d artikli, %2$.2f MB</string>
@@ -353,4 +356,5 @@
   <string name="onboarding_welcome_title_v2">La libera Enciklopedio\n…en plua kam 300 lingui</string>
   <string name="this_year">Cayare</string>
   <string name="languages_list_all_text">Omna lingui</string>
+  <string name="text_input_dialog_cancel_button_text">Nuligar</string>
 </resources>

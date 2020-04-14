@@ -369,7 +369,9 @@
   <string name="reading_list_save_to">Desa a la llista de lectura</string>
   <string name="reading_list_create_new">Crea’n una nova</string>
   <string name="reading_list_title_exists">La llista de lectura «%s» ja existeix.</string>
-  <string name="reading_list_articles_already_exist_message" fuzzy="true">Tot bé! %s ja conté tots els articles en les pestanyes obertes.</string>
+  <string name="reading_list_article_added_to_named">Afegit %1$s a %2$s.</string>
+  <string name="reading_list_article_already_exists_message">Tot correcte! %1$s ja conté %2$s.</string>
+  <string name="reading_list_articles_already_exist_message">Tot correcte! %s ja conté tots els articles.</string>
   <string name="reading_list_added_view_button">Mostra la llista</string>
   <string name="format_reading_list_statistical_summary_singular">1 article, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d articles, %2$.2f MB</string>

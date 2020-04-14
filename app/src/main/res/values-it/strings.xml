@@ -386,6 +386,7 @@
   <string name="reading_list_save_to">Salva nell\'elenco di lettura</string>
   <string name="reading_list_create_new">Crea nuovo</string>
   <string name="reading_list_title_exists">L\'elenco di lettura \"%s\" già esiste.</string>
+  <string name="reading_list_article_added_to_named">%1$s aggiunta a %2$s.</string>
   <string name="reading_list_added_view_button">Visualizza elenco</string>
   <string name="format_reading_list_statistical_summary_singular">1 voce, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d voci, %2$.2f MB</string>
