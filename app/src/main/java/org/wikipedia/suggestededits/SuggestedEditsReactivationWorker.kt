@@ -20,10 +20,10 @@ class SuggestedEditsReactivationWorker(val context: Context, workerParams: Worke
         val days = System.currentTimeMillis() - Prefs.getLastDescriptionEditTime()
         if (days in FIRST_NOTIFICATION_SHOW_ON_DAY until SECOND_NOTIFICATION_SHOW_ON_DAY && !Prefs.isSuggestedEditsReactivationPassStageOne()) {
             Prefs.setSuggestedEditsReactivationPassStageOne(true)
-            showSuggestedEditsLocalNotification(context, R.string.suggested_edits_reactivation_notification_first, false)
+            showSuggestedEditsLocalNotification(context, R.string.suggested_edits_reactivation_notification_stage_one, false)
         } else if (days >= SECOND_NOTIFICATION_SHOW_ON_DAY && Prefs.isSuggestedEditsReactivationPassStageOne() && Prefs.getLastDescriptionEditTime() > 0) {
             Prefs.setSuggestedEditsReactivationPassStageOne(false)
-            showSuggestedEditsLocalNotification(context, R.string.suggested_edits_reactivation_notification_second, false)
+            showSuggestedEditsLocalNotification(context, R.string.suggested_edits_reactivation_notification_stage_two, false)
         }
         return Result.success()
     }
