@@ -108,6 +108,7 @@ public class DescriptionEditFragment extends Fragment {
             }
 
             Prefs.setLastDescriptionEditTime(new Date().getTime());
+            Prefs.setSuggestedEditsReactivationPassStageOne(false);
             SuggestedEditsFunnel.get().success(action);
 
             if (getActivity() == null)  {

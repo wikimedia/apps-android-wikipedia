@@ -895,12 +895,12 @@ public final class Prefs {
         setBoolean(R.string.preference_key_suggested_edits_image_tags_new, enabled);
     }
 
-    public static boolean isSuggestedEditsLocalNotificationShown() {
-        return getBoolean(R.string.preference_key_suggested_edits_local_notification_shown, false);
+    public static boolean isSuggestedEditsReactivationPassStageOne() {
+        return getBoolean(R.string.preference_key_suggested_edits_reactivation_pass_stage_one, true);
     }
 
-    public static void setSuggestedEditsLocalNotificationShown(boolean shown) {
-        setBoolean(R.string.preference_key_suggested_edits_local_notification_shown, shown);
+    public static void setSuggestedEditsReactivationPassStageOne(boolean pass) {
+        setBoolean(R.string.preference_key_suggested_edits_reactivation_pass_stage_one, pass);
     }
 
     private Prefs() { }

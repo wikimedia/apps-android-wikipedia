@@ -19,7 +19,7 @@ import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.database.ReadingList;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.readinglist.database.ReadingListPage;
-import org.wikipedia.suggestededits.SuggestedEditsLocalNotificationTask;
+import org.wikipedia.suggestededits.SuggestedEditsLocalNotificationWorker;
 import org.wikipedia.suggestededits.provider.MissingDescriptionProvider;
 import org.wikipedia.util.StringUtil;
 
@@ -196,13 +196,13 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
 
         findPreference(context.getString(R.string.preferences_developer_suggested_edits_local_notification_first))
                 .setOnPreferenceClickListener(preference -> {
-                    SuggestedEditsLocalNotificationTask.showSuggestedEditsLocalNotification(getActivity(), R.string.suggested_edits_local_notification_first, true);
+                    SuggestedEditsLocalNotificationWorker.showSuggestedEditsLocalNotification(getActivity(), R.string.suggested_edits_reactivation_notification_first, true);
                     return true;
                 });
 
         findPreference(context.getString(R.string.preferences_developer_suggested_edits_local_notification_second))
                 .setOnPreferenceClickListener(preference -> {
-                    SuggestedEditsLocalNotificationTask.showSuggestedEditsLocalNotification(getActivity(), R.string.suggested_edits_local_notification_second, true);
+                    SuggestedEditsLocalNotificationWorker.showSuggestedEditsLocalNotification(getActivity(), R.string.suggested_edits_reactivation_notification_second, true);
                     return true;
                 });
     }

@@ -314,6 +314,11 @@
             android:key="@string/preference_key_suggested_edits_override_reverts"
             android:title="@string/preference_key_suggested_edits_override_reverts" />
 
+        <SwitchPreferenceCompat
+            android:key="@string/preference_key_suggested_edits_reactivation_pass_stage_one"
+            android:title="@string/preference_key_suggested_edits_reactivation_pass_stage_one"
+            android:summary="The first local notification for editor reactivation has shown."/>
+
         <Preference
             android:key="@string/preferences_developer_suggested_edits_local_notification_first"
             android:title="@string/preferences_developer_suggested_edits_local_notification_first"/>
