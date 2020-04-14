@@ -53,10 +53,7 @@
   <string name="menu_long_press_open_page">Opmaachen</string>
   <string name="menu_long_press_open_in_new_tab">An engem neien Tab opmaachen</string>
   <string name="menu_long_press_copy_page">Adress vum Link kopéieren</string>
-  <string name="menu_text_select_copy">Kopéieren</string>
   <string name="menu_text_select_define">Definéieren</string>
-  <string name="menu_text_select_share">Deelen</string>
-  <string name="share">Deelen</string>
   <string name="on_this_day_page_share">Deelen</string>
   <string name="reading_list_page_share">Deelen</string>
   <string name="menu_text_select_edit_here">Hei änneren</string>
@@ -244,11 +241,7 @@
   <string name="gallery_save_success">Fichier gespäichert.</string>
   <string name="gallery_error_video_failed">De Video konnt net gespillt ginn.</string>
   <string name="err_cannot_save_file">Fichier kann net gespäichert ginn</string>
-  <string name="snippet_share_intro">\"%1$s\" op @Wikipedia: %2$s</string>
   <string name="expand_refs">Tippe fir opzeklappen</string>
-  <string name="share_snippet_button">Als Bild deelen</string>
-  <string name="share_normal_button">Als Text deelen</string>
-  <string name="snippet_share_preview_image_desc">Bild kucken ouni ze späicheren</string>
   <string name="cc_logo">Creative-Commons-Lizenz</string>
   <string name="captcha_image">Captcha-Bild</string>
   <string name="gallery_fair_use_license">Fair Use</string>
@@ -386,6 +379,7 @@
     <item quantity="one">Dësen Artikel ass net méi offline disponibel.</item>
     <item quantity="other">Dës Artikele sinn net méi offline disponibel.</item>
   </plurals>
+  <string name="reading_list_toast_last_sync">Lieslëschte goufe synchroniséiert</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">OK</string>
   <string name="reading_list_delete_dialog_ok_button_text">OK</string>
   <string name="reading_list_remove_from_list_dialog_cancel_button_text">Ofbriechen</string>

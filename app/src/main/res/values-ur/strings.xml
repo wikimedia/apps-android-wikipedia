@@ -64,10 +64,7 @@
   <string name="menu_long_press_open_page">کھولیں</string>
   <string name="menu_long_press_open_in_new_tab">نئے ٹیب میں کھولیں</string>
   <string name="menu_long_press_copy_page">ربط کا پتہ نقل کریں</string>
-  <string name="menu_text_select_copy">نقل کریں</string>
   <string name="menu_text_select_define">تشریح کریں</string>
-  <string name="menu_text_select_share">دوسروں کو بھیجیں</string>
-  <string name="share">اشتراک کریں</string>
   <string name="on_this_day_page_share">اشتراک کریں</string>
   <string name="reading_list_page_share">اشتراک کریں</string>
   <string name="menu_text_select_edit_here">یہاں ترمیم کریں</string>
@@ -270,11 +267,7 @@
   <string name="gallery_add_image_caption_button">تصویر کی وضاحت درج کریں</string>
   <string name="gallery_add_image_caption_in_language_button">تصویر کی وضاحت درج کریں (%s)</string>
   <string name="err_cannot_save_file">ملف کو محفوظ نہیں کرسکتے</string>
-  <string name="snippet_share_intro">\"%1$s\" @Wikipedia: \"%2$s\" پر</string>
   <string name="expand_refs">پھیلانے کے لیے کلک کیجیے</string>
-  <string name="share_snippet_button">تصویر کے طور پر دوسروں کو بھیجیں</string>
-  <string name="share_normal_button">متن کے طور پر دوسروں کو بھیجیں</string>
-  <string name="snippet_share_preview_image_desc">تصویر کی نمائش</string>
   <string name="cc_logo">کریئیٹیو کامنز اجازت نامہ</string>
   <string name="captcha_image">کیپچا تصویر</string>
   <string name="gallery_fair_use_license">منصفانہ استعمال</string>

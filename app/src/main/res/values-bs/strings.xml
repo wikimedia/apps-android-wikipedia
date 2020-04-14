@@ -37,9 +37,7 @@
   <string name="menu_long_press_open_page">Otvori</string>
   <string name="menu_long_press_open_in_new_tab">Otvori u novoj kartici</string>
   <string name="menu_long_press_copy_page">Kopiraj adresu linka</string>
-  <string name="menu_text_select_copy">Kopiraj</string>
   <string name="menu_text_select_define">Definiraj</string>
-  <string name="menu_text_select_share">Podijeli</string>
   <string name="menu_text_select_edit_here">Uredi ovdje</string>
   <string name="last_updated_text">Posljednja izmjena: %s</string>
   <string name="talk_page_link_text">Prikaži stranicu za razgovor</string>
@@ -210,11 +208,7 @@
   <string name="gallery_error_video_failed">Ne mogu reproducirati videozapis.</string>
   <string name="gallery_save_image_write_permission_rationale">Potrebna je dozvola za čuvanje slika na Vaš uređaj.</string>
   <string name="err_cannot_save_file">Ne mogu sačuvati datoteku</string>
-  <string name="snippet_share_intro">\"%1$s\" na sajtu @Wikipedia: %2$s</string>
   <string name="expand_refs">Dodirnite da biste proširili</string>
-  <string name="share_snippet_button">Podijeli kao sliku</string>
-  <string name="share_normal_button">Podijeli kao tekst</string>
-  <string name="snippet_share_preview_image_desc">Pregledaj sliku</string>
   <string name="cc_logo">Slobodna licenca</string>
   <string name="captcha_image">Slika CAPTCHA</string>
   <string name="gallery_fair_use_license">Poštena upotreba</string>
