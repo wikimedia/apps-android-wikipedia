@@ -804,7 +804,7 @@ public final class Prefs {
     }
 
     public static boolean shouldMatchSystemTheme() {
-        return getBoolean(R.string.preference_key_match_system_theme, false);
+        return getBoolean(R.string.preference_key_match_system_theme, true);
     }
 
     public static void setMatchSystemTheme(boolean enabled) {
