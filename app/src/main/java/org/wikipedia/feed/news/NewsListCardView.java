@@ -11,12 +11,10 @@ import org.wikipedia.feed.view.HorizontalScrollingListCardItemView;
 import org.wikipedia.feed.view.HorizontalScrollingListCardView;
 import org.wikipedia.util.DateUtil;
 import org.wikipedia.views.DefaultViewHolder;
-import org.wikipedia.views.ItemTouchHelperSwipeAdapter;
 
 import java.util.List;
 
-public class NewsListCardView extends HorizontalScrollingListCardView<NewsListCard>
-        implements ItemTouchHelperSwipeAdapter.SwipeableView {
+public class NewsListCardView extends HorizontalScrollingListCardView<NewsListCard> {
     public interface Callback {
         void onNewsItemSelected(@NonNull NewsItemCard card, @NonNull HorizontalScrollingListCardItemView view);
     }

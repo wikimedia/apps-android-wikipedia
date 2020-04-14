@@ -1,26 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-      xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item android:id="@+id/menu_text_select_copy"
-          android:title="@string/menu_text_select_copy"
-          android:icon="@drawable/ic_content_copy_themed_24dp"
-          app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/menu_text_select_define"
+        android:icon="@drawable/ic_define_themed"
+        android:title="@string/menu_text_select_define"
+        android:visible="false"
+        app:showAsAction="ifRoom" />
 
-    <item android:id="@+id/menu_text_select_share"
-          android:title="@string/menu_text_select_share"
-          android:icon="@drawable/ic_share_themed_24dp"
-          app:showAsAction="ifRoom" />
-
-    <item android:id="@+id/menu_text_select_define"
-          android:title="@string/menu_text_select_define"
-          android:icon="@drawable/ic_define_themed"
-          android:visible="false"
-          app:showAsAction="ifRoom" />
-
-    <item android:id="@+id/menu_text_edit_here"
-        android:title="@string/menu_text_select_edit_here"
+    <item
+        android:id="@+id/menu_text_edit_here"
         android:icon="@drawable/ic_mode_edit_themed_24dp"
+        android:title="@string/menu_text_select_edit_here"
         app:showAsAction="ifRoom" />
 
 </menu>

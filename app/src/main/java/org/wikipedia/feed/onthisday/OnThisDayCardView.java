@@ -36,7 +36,6 @@ import org.wikipedia.util.GradientUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.views.DontInterceptTouchListener;
-import org.wikipedia.views.ItemTouchHelperSwipeAdapter;
 import org.wikipedia.views.MarginItemDecoration;
 
 import java.util.List;
@@ -49,7 +48,7 @@ import static org.wikipedia.Constants.InvokeSource.ON_THIS_DAY_ACTIVITY;
 import static org.wikipedia.Constants.InvokeSource.ON_THIS_DAY_CARD_BODY;
 import static org.wikipedia.Constants.InvokeSource.ON_THIS_DAY_CARD_FOOTER;
 
-public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implements ItemTouchHelperSwipeAdapter.SwipeableView, OnThisDayActionsDialog.Callback {
+public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implements OnThisDayActionsDialog.Callback {
     @BindView(R.id.view_on_this_day_card_header) CardHeaderView headerView;
     @BindView(R.id.text) TextView descTextView;
     @BindView(R.id.next_event_years) TextView nextEventYearsTextView;

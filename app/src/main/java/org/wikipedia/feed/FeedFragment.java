@@ -10,7 +10,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import androidx.annotation.IntRange;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
@@ -138,7 +137,6 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         unbinder = ButterKnife.bind(this, view);
         feedAdapter = new FeedAdapter<>(coordinator, feedCallback);
         feedView.setAdapter(feedAdapter);
-        feedView.setCallback(feedCallback);
         feedView.addOnScrollListener(feedScrollListener);
 
         swipeRefreshLayout.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent));
@@ -279,7 +277,6 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         coordinator.setFeedUpdateListener(null);
         swipeRefreshLayout.setOnRefreshListener(null);
         feedView.removeOnScrollListener(feedScrollListener);
-        feedView.setCallback((FeedAdapter.Callback) null);
         feedView.setAdapter(null);
         feedAdapter = null;
         unbinder.unbind();
@@ -460,11 +457,6 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         @Override
         public void onRequestCustomize(@NonNull Card card) {
             showConfigureActivity(card.type().code());
-        }
-
-        @Override
-        public void onSwiped(@IntRange(from = 0) int itemPos) {
-            onRequestDismissCard(coordinator.getCards().get(itemPos));
         }
 
         @Override

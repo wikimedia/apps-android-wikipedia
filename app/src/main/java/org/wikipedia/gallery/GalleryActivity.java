@@ -12,7 +12,6 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.Menu;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -58,7 +57,6 @@ import org.wikipedia.util.ImageUrlUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
-import org.wikipedia.views.ImageZoomHelper;
 import org.wikipedia.views.PositionAwareFragmentStateAdapter;
 import org.wikipedia.views.ViewAnimations;
 import org.wikipedia.views.WikiErrorView;
@@ -131,7 +129,6 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
 
     private boolean controlsShowing = true;
     private GalleryPageChangeListener pageChangeListener = new GalleryPageChangeListener();
-    private ImageZoomHelper imageZoomHelper;
 
     @Nullable private GalleryFunnel funnel;
 
@@ -214,7 +211,6 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         galleryPager.registerOnPageChangeCallback(pageChangeListener);
         galleryPager.setOffscreenPageLimit(2);
 
-        imageZoomHelper = new ImageZoomHelper(this);
         funnel = new GalleryFunnel(app, getIntent().getParcelableExtra(EXTRA_WIKI),
                 getIntent().getIntExtra(EXTRA_SOURCE, 0));
 
@@ -318,11 +314,6 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
             layOutGalleryDescription();
             setResult(ACTIVITY_RESULT_IMAGE_CAPTION_ADDED);
         }
-    }
-
-    @Override
-    public boolean dispatchTouchEvent(MotionEvent event) {
-        return imageZoomHelper.onDispatchTouchEvent(event) || super.dispatchTouchEvent(event);
     }
 
     @OnClick(R.id.gallery_caption_edit_button) void onEditClick(View v) {
