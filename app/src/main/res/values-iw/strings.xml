@@ -376,7 +376,9 @@
   <string name="reading_list_save_to">לשמור לרשימת קריאה</string>
   <string name="reading_list_create_new">ליצור חדשה</string>
   <string name="reading_list_title_exists">רשימת הקריאה \"%s\" כבר קיימת.</string>
-  <string name="reading_list_articles_already_exist_message" fuzzy="true">הכול טוב! הרשימה %s כבר מכילה את כל הערכים בלשוניות פתוחות.</string>
+  <string name="reading_list_article_added_to_named">הערך %1$s נוסף לרשימה %2$s.</string>
+  <string name="reading_list_article_already_exists_message">הכול טוב! הרשימה %1$s כבר מכילה את הערך %2$s.</string>
+  <string name="reading_list_articles_already_exist_message">הכול טוב! הרשימה %s כבר מכילה את כל הערכים.</string>
   <string name="reading_list_added_view_button">הצגת הרשימה</string>
   <string name="format_reading_list_statistical_summary_singular">ערך אחד %1$.2f מ\"ב</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d ערכים %2$.2f מ\"ב</string>
