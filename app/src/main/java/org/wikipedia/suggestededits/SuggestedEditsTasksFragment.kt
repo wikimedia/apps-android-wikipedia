@@ -91,7 +91,10 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     private fun onUserStatClicked(view: View) {
         when (view) {
-            contributionsStatsView -> showContributionsStatsViewTooltip()
+            contributionsStatsView -> {
+                showContributionsStatsViewTooltip()
+                startActivity(SuggestedEditsContributionsActivity.newIntent(requireActivity()))
+            }
             editStreakStatsView -> showEditStreakStatsViewTooltip()
             pageViewStatsView -> showPageViewStatsViewTooltip()
             else -> showEditQualityStatsViewTooltip()
