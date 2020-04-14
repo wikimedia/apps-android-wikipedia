@@ -57,10 +57,7 @@
   <string name="menu_long_press_open_page">Digeriñ</string>
   <string name="menu_long_press_open_in_new_tab">Digeriñ en un ivinell nevez</string>
   <string name="menu_long_press_copy_page">Eilañ chomlec\'h al liamm</string>
-  <string name="menu_text_select_copy">Eilañ</string>
   <string name="menu_text_select_define">Termenañ</string>
-  <string name="menu_text_select_share">Rannañ</string>
-  <string name="share">Rannañ</string>
   <string name="on_this_day_page_share">Rannañ</string>
   <string name="reading_list_page_share">Rannañ</string>
   <string name="menu_text_select_edit_here">Kemmañ amañ</string>
@@ -259,11 +256,7 @@
   <string name="gallery_error_video_failed">Ne c\'haller ket lenn ar video.</string>
   <string name="gallery_save_image_write_permission_rationale">Ret eo kaout gwir da skrivañ e lec\'h stokañ hoc\'h ardivink evit enrollañ skeudennoù.</string>
   <string name="err_cannot_save_file">Ne c\'haller ket enrollañ ar restr</string>
-  <string name="snippet_share_intro">Fed dedennus e @Wikipedia %1$s : %2$s</string>
   <string name="expand_refs">Pouezañ war ur stokell evit diorren</string>
-  <string name="share_snippet_button">Rannañ evel ur skeudenn</string>
-  <string name="share_normal_button">Rannañ evel un destenn</string>
-  <string name="snippet_share_preview_image_desc">Alberz ar skeudenn</string>
   <string name="cc_logo">Aotre-implijout Creative Commons</string>
   <string name="captcha_image">Skeudenn captcha</string>
   <string name="gallery_fair_use_license">Implij reizh</string>

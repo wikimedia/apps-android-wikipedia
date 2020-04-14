@@ -56,10 +56,7 @@
   <string name="menu_long_press_open_page">Բացել</string>
   <string name="menu_long_press_open_in_new_tab">Բացել նոր ներդիրում</string>
   <string name="menu_long_press_copy_page">Պատճենել հղման հասցեն</string>
-  <string name="menu_text_select_copy">Պատճենել</string>
   <string name="menu_text_select_define">Բացատրել</string>
-  <string name="menu_text_select_share">Կիսվել</string>
-  <string name="share">Կիսվել</string>
   <string name="on_this_day_page_share">Կիսվել</string>
   <string name="reading_list_page_share">Կիսվել</string>
   <string name="menu_text_select_edit_here">Խմբագրել այստեղից</string>

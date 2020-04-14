@@ -53,10 +53,7 @@
   <string name="menu_long_press_open_page">Bukak</string>
   <string name="menu_long_press_open_in_new_tab">Bukak ing tab anyar</string>
   <string name="menu_long_press_copy_page">Turun alamat pranala</string>
-  <string name="menu_text_select_copy">Turun</string>
   <string name="menu_text_select_define">Wedharaké</string>
-  <string name="menu_text_select_share">Dum</string>
-  <string name="share">Dum</string>
   <string name="on_this_day_page_share">Dum</string>
   <string name="reading_list_page_share">Dum</string>
   <string name="menu_text_select_edit_here">Besut ing kéné</string>
@@ -260,11 +257,7 @@
   <string name="gallery_error_video_failed">Ora bisa muter vidéo.</string>
   <string name="gallery_save_image_write_permission_rationale">Butuh idin nulis ing panyimpenan pirantimu saperlu nyimpen gambar.</string>
   <string name="err_cannot_save_file">Ora bisa nyimpen barkas</string>
-  <string name="snippet_share_intro">\"%1$s\" ing @Wikipedia: %2$s</string>
   <string name="expand_refs">Tunyuk saperlu njembaraké</string>
-  <string name="share_snippet_button">Dum minangka gambar</string>
-  <string name="share_normal_button">Dum minangka tèks</string>
-  <string name="snippet_share_preview_image_desc">Pratuduhaké gambar</string>
   <string name="cc_logo">Lisènsi Creative Commons</string>
   <string name="captcha_image">Gambar Captcha</string>
   <string name="gallery_fair_use_license">Pangguna lumrah</string>

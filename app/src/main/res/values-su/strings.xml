@@ -52,10 +52,7 @@
   <string name="menu_long_press_open_page">Buka</string>
   <string name="menu_long_press_open_in_new_tab">Buka na tab anyar</string>
   <string name="menu_long_press_copy_page">Tiron alamat tutumbu</string>
-  <string name="menu_text_select_copy">Tiron</string>
   <string name="menu_text_select_define">Hartikeun</string>
-  <string name="menu_text_select_share">Bagikeun</string>
-  <string name="share">Bagikeun</string>
   <string name="on_this_day_page_share">Bagikeun</string>
   <string name="reading_list_page_share">Bagikeun</string>
   <string name="menu_text_select_edit_here">Édit didieu</string>
@@ -255,11 +252,7 @@
   <string name="gallery_error_video_failed">Teu bisa maénkeun vidio.</string>
   <string name="gallery_save_image_write_permission_rationale">Idin pikeun nulis kana panyimpenan dina parangkat anjeun dibutuhkeun, pikeun nyimpen gambar.</string>
   <string name="err_cannot_save_file">Teu bisa nyimpen berkas</string>
-  <string name="snippet_share_intro">\"%1$s\" na @Wikipedia: %2$s</string>
   <string name="expand_refs">Toél pikeun ngalegakeun</string>
-  <string name="share_snippet_button">Bagikeun minangka gambar</string>
-  <string name="share_normal_button">Bagikeun minangka téks</string>
-  <string name="snippet_share_preview_image_desc">Pramidang gambar</string>
   <string name="cc_logo">Lisénsi Creative Commons</string>
   <string name="captcha_image">Gambar Captcha</string>
   <string name="gallery_fair_use_license">Pamakéan wajar</string>

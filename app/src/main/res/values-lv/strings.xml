@@ -49,9 +49,6 @@
   <string name="menu_long_press_open_page">Atvērt</string>
   <string name="menu_long_press_open_in_new_tab">Atvērt jaunā cilnē</string>
   <string name="menu_long_press_copy_page">Kopēt saites adresi</string>
-  <string name="menu_text_select_copy">Kopēt</string>
-  <string name="menu_text_select_share">Dalīties</string>
-  <string name="share">Dalīties</string>
   <string name="on_this_day_page_share">Dalīties</string>
   <string name="reading_list_page_share">Dalīties</string>
   <string name="menu_text_select_edit_here">Labot šeit</string>
@@ -171,9 +168,6 @@
   <string name="gallery_save_progress">Lejuplādē failu...</string>
   <string name="gallery_save_success" fuzzy="true">Fails saglabāts veiksmīgi.</string>
   <string name="err_cannot_save_file">Nevar saglabāt failu</string>
-  <string name="share_snippet_button">Kopīgot kā attēlu</string>
-  <string name="share_normal_button">Kopīgot kā tekstu</string>
-  <string name="snippet_share_preview_image_desc">Attēla pirmskats</string>
   <string name="captcha_image">Captcha attēls</string>
   <string name="gallery_uploader_unknown">Augšupielādētājs nav zināms</string>
   <string name="menu_new_tab">Jauna cilne</string>

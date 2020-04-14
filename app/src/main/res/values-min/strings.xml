@@ -52,10 +52,7 @@
   <string name="menu_long_press_open_page">Bukak</string>
   <string name="menu_long_press_open_in_new_tab">Bukak di tab baru</string>
   <string name="menu_long_press_copy_page">Salin alamaik pautan</string>
-  <string name="menu_text_select_copy">Salin</string>
   <string name="menu_text_select_define">Artikan</string>
-  <string name="menu_text_select_share">Bagikan</string>
-  <string name="share">Bagikan</string>
   <string name="on_this_day_page_share">Bagikan</string>
   <string name="reading_list_page_share">Bagikan</string>
   <string name="menu_text_select_edit_here">Suntiang di siko</string>

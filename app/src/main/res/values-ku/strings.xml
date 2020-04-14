@@ -44,9 +44,7 @@
   <string name="menu_long_press_open_page">Veke</string>
   <string name="menu_long_press_open_in_new_tab">Di hilpêkînek nû de veke</string>
   <string name="menu_long_press_copy_page">Navnîşana girêdanê kopî bike</string>
-  <string name="menu_text_select_copy">Kopî bike</string>
   <string name="menu_text_select_define">Tarîf bike</string>
-  <string name="menu_text_select_share">Parve bike</string>
   <string name="menu_text_select_edit_here">Vê derê biguherîne</string>
   <string name="last_updated_text">Nûkirina dawîn: %s</string>
   <string name="talk_page_link_text">Rûpela gotûbêjê bibîne</string>
@@ -171,8 +169,6 @@
   <string name="gallery_menu_share">Parve bike</string>
   <string name="gallery_save_success" fuzzy="true">Pel bi awayekî serkeftî hate tomarkirin.</string>
   <string name="err_cannot_save_file">Dosye nikare bê tomarkirin</string>
-  <string name="share_snippet_button">Wek wêne parve bike</string>
-  <string name="share_normal_button">Wek nivîs parve bike</string>
   <string name="cc_logo">Lîsansa Creative Commonsê</string>
   <string name="gallery_fair_use_license">Bikaranîna dadmend</string>
   <string name="gallery_uploader_unknown">Barker nenas e</string>

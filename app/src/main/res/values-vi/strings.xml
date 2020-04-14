@@ -63,10 +63,7 @@
   <string name="menu_long_press_open_page">Mở</string>
   <string name="menu_long_press_open_in_new_tab">Mở trong thẻ mới</string>
   <string name="menu_long_press_copy_page">Chép địa chỉ liên kết</string>
-  <string name="menu_text_select_copy">Chép</string>
   <string name="menu_text_select_define">Định nghĩa</string>
-  <string name="menu_text_select_share">Chia sẻ</string>
-  <string name="share">Chia sẻ</string>
   <string name="on_this_day_page_share">Chia sẻ</string>
   <string name="reading_list_page_share">Chia sẻ</string>
   <string name="menu_text_select_edit_here">Sửa đổi tại đây</string>
@@ -277,11 +274,7 @@
   <string name="gallery_add_image_caption_button">Thêm chú thích hình ảnh</string>
   <string name="gallery_add_image_caption_in_language_button">Thêm chú thích hình ảnh (%s)</string>
   <string name="err_cannot_save_file">Không thể lưu tập tin</string>
-  <string name="snippet_share_intro">“%1$s” trên @Wikipedia: %2$s</string>
   <string name="expand_refs">Chạm để mở rộng</string>
-  <string name="share_snippet_button">Chia sẻ hình ảnh</string>
-  <string name="share_normal_button">Chia sẻ văn bản</string>
-  <string name="snippet_share_preview_image_desc">Xem trước hình ảnh</string>
   <string name="cc_logo">Giấy phép Creative Commons</string>
   <string name="captcha_image">Hình CAPTCHA</string>
   <string name="gallery_fair_use_license">Sử dụng hợp lý</string>
