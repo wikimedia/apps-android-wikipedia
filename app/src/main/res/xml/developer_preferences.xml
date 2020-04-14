@@ -314,6 +314,13 @@
             android:key="@string/preference_key_suggested_edits_override_reverts"
             android:title="@string/preference_key_suggested_edits_override_reverts" />
 
+        <Preference
+            android:key="@string/preferences_developer_suggested_edits_local_notification_first"
+            android:title="@string/preferences_developer_suggested_edits_local_notification_first"/>
+
+        <Preference
+            android:key="@string/preferences_developer_suggested_edits_local_notification_second"
+            android:title="@string/preferences_developer_suggested_edits_local_notification_second"/>
     </PreferenceCategory>
 
 </androidx.preference.PreferenceScreen>
