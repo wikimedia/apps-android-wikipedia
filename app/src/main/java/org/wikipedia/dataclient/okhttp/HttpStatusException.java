@@ -32,7 +32,7 @@ public class HttpStatusException extends IOException {
         }
     }
 
-    public HttpStatusException(int code, String url, String message) {
+    public HttpStatusException(int code, @NonNull String url, @Nullable String message) {
         this.code = code;
         this.url = url;
         this.message = message;
