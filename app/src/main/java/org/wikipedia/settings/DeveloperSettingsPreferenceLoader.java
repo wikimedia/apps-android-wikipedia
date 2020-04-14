@@ -214,7 +214,7 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
             ReadingList lastReadingList = lists.get(i);
             if (lastReadingList.title().contains(listName)) {
                 String trimmedListTitle = lastReadingList.title().substring(listName.length()).trim();
-                index = (trimmedListTitle.isEmpty()) ? index : (Math.max(Integer.parseInt(trimmedListTitle), index));
+                index = trimmedListTitle.isEmpty() ? index : Math.max(Integer.parseInt(trimmedListTitle), index);
                 break;
             }
         }
