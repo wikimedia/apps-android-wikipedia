@@ -67,6 +67,13 @@ public class FrameLayoutNavMenuTriggerer extends FrameLayout {
             } else if (Math.abs(ev.getX() - initialX) > SWIPE_SLOP_X) {
                 maybeSwiping = false;
                 if (callback != null) {
+                    // send an explicit event to children to cancel the current gesture that
+                    // they thought was occurring.
+                    MotionEvent moveEvent = MotionEvent.obtain(ev);
+                    moveEvent.setAction(MotionEvent.ACTION_CANCEL);
+                    post(() -> super.dispatchTouchEvent(moveEvent));
+
+                    // and trigger our custom swipe request!
                     callback.onNavMenuSwipeRequest(L10nUtil.isDeviceRTL()
                             ? (ev.getX() > initialX ? Gravity.END : Gravity.START)
                             : (ev.getX() > initialX ? Gravity.START : Gravity.END));

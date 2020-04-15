@@ -31,6 +31,7 @@ public class ObservableWebView extends WebView {
 
     private long lastScrollTime;
     private int totalAmountScrolled;
+    private int drawEventsWhileSwiping;
 
     /**
     * Threshold (in pixels) of continuous scrolling, to be considered "fast" scrolling.
@@ -50,6 +51,8 @@ public class ObservableWebView extends WebView {
      * a possible "fast" scroll.
      */
     private static final int MAX_MILLIS_BETWEEN_SCROLLS = 500;
+
+    private static final int SWIPE_DRAW_TOLERANCE = 4;
 
     public void addOnClickListener(OnClickListener onClickListener) {
         onClickListeners.add(onClickListener);
@@ -161,6 +164,7 @@ public class ObservableWebView extends WebView {
                 }
                 touchStartX = event.getX();
                 touchStartY = event.getY();
+                drawEventsWhileSwiping = 0;
                 break;
             case MotionEvent.ACTION_UP:
                 if (Math.abs(event.getX() - touchStartX) <= touchSlop
@@ -171,10 +175,12 @@ public class ObservableWebView extends WebView {
                         }
                     }
                 }
+                drawEventsWhileSwiping = 0;
             case MotionEvent.ACTION_CANCEL:
                 for (OnUpOrCancelMotionEventListener listener : onUpOrCancelMotionEventListeners) {
                     listener.onUpOrCancelMotionEvent();
                 }
+                drawEventsWhileSwiping = 0;
                 break;
             default:
                 break;
@@ -189,7 +195,10 @@ public class ObservableWebView extends WebView {
             return;
         }
 
-        FrameLayoutNavMenuTriggerer.setChildViewScrolled();
+        drawEventsWhileSwiping++;
+        if (drawEventsWhileSwiping > SWIPE_DRAW_TOLERANCE) {
+            FrameLayoutNavMenuTriggerer.setChildViewScrolled();
+        }
 
         if (contentHeight != getContentHeight()) {
             contentHeight = getContentHeight();
