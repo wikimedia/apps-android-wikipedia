@@ -17,6 +17,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebResourceResponse;
 import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -53,8 +55,10 @@ import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.bridge.CommunicationBridge.CommunicationBridgeListener;
 import org.wikipedia.bridge.JavaScriptActionHandler;
+import org.wikipedia.dataclient.RestService;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.dataclient.okhttp.HttpStatusException;
 import org.wikipedia.dataclient.okhttp.OkHttpWebViewClient;
 import org.wikipedia.dataclient.page.Protection;
 import org.wikipedia.descriptions.DescriptionEditActivity;
@@ -427,7 +431,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             @Override
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
-                if (!isAdded()) {
+                if (!isAdded() || CommunicationBridge.BLANK_PAGE.equals(url)) {
                     return;
                 }
                 pageFragmentLoadState.onPageFinished();
@@ -439,6 +443,16 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             @Override
             public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
                 onPageLoadError(new RuntimeException(description));
+            }
+
+            @Override
+            public void onReceivedHttpError(WebView view, WebResourceRequest request, WebResourceResponse errorResponse) {
+                if (!request.getUrl().toString().contains(RestService.PAGE_HTML_ENDPOINT)) {
+                    // If the request is anything except the main mobile-html content request, then
+                    // don't worry about any errors and let the WebView deal with it.
+                    return;
+                }
+                onPageLoadError(new HttpStatusException(errorResponse.getStatusCode(), request.getUrl().toString(), errorResponse.getReasonPhrase()));
             }
         });
     }
@@ -1140,6 +1154,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
      */
     private void hidePageContent() {
         leadImagesHandler.hide();
+        webView.loadUrl(CommunicationBridge.BLANK_PAGE);
         webView.setVisibility(View.INVISIBLE);
         if (callback() != null) {
             callback().onPageHideAllContent();

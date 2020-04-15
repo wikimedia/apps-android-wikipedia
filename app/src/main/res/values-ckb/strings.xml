@@ -60,10 +60,7 @@
   <string name="menu_long_press_open_page">بیکەرەوە</string>
   <string name="menu_long_press_open_in_new_tab">کردنەوە لە تابێکی نوێ</string>
   <string name="menu_long_press_copy_page">لەبەرگرتنەوەی ناونیشانی بەستەر</string>
-  <string name="menu_text_select_copy">لەبەرگرتنەوە</string>
   <string name="menu_text_select_define">پێناسەکردن</string>
-  <string name="menu_text_select_share">ھاوبەشکردن</string>
-  <string name="share">ھاوبەشکردن</string>
   <string name="on_this_day_page_share">ھاوبەشکردن</string>
   <string name="reading_list_page_share">ھاوبەشکردن</string>
   <string name="menu_text_select_edit_here">دەستکاریی ئێرە</string>
@@ -270,11 +267,7 @@
   <string name="gallery_add_image_caption_button">زیادکردنی شرۆڤەی وێنە</string>
   <string name="gallery_add_image_caption_in_language_button">زیادکردنی شرۆڤەی وێنە (%s)</string>
   <string name="err_cannot_save_file">نەتوانرا پەڕگە پاشەکەوت بکرێت</string>
-  <string name="snippet_share_intro">\"%1$s\" لە @ویکیپیدیا: %2$s</string>
   <string name="expand_refs">دابگرە بۆ فراوانکردن</string>
-  <string name="share_snippet_button">ھاوبەشکردن وەک وێنە</string>
-  <string name="share_normal_button">ھاوبەشکردن وەک نووسین</string>
-  <string name="snippet_share_preview_image_desc">پێشبینینی وێنە</string>
   <string name="cc_logo">مۆڵەتی دروستکردنی کۆمنز</string>
   <string name="captcha_image">وێنەی کاپشا</string>
   <string name="gallery_fair_use_license">بەکارھێنانی لەبار</string>
@@ -418,6 +411,8 @@
   <string name="reading_lists_menu_create_list">دروستکردنی لیستی نوێ</string>
   <string name="reading_lists_menu_sort_by">ڕیزکردن بە</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">چوونە ژوورەوە/تۆمارکردن</string>
+  <string name="reading_list_article_offline_message" fuzzy="true">ئەم وتارە ئێستا بەبێ ئینتەرنێت بەردەستە</string>
+  <string name="reading_list_article_not_offline_message" fuzzy="true">ئەم وتارە چی تر بەردەست نابێت بەبێ ئینتەرنێت.</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">باشە</string>
   <string name="reading_list_delete_dialog_ok_button_text">باشە</string>
   <string name="reading_list_remove_from_list_dialog_cancel_button_text">ھەڵوەشاندنەوە</string>

@@ -55,10 +55,7 @@
   <string name="menu_long_press_open_page">Aç</string>
   <string name="menu_long_press_open_in_new_tab">Səhifəni yeni pəncərədə aç</string>
   <string name="menu_long_press_copy_page">Səhifənin ünvanını kopyala</string>
-  <string name="menu_text_select_copy">Kopyala</string>
   <string name="menu_text_select_define">Dəqiqləşdirmək</string>
-  <string name="menu_text_select_share">Paylaş</string>
-  <string name="share">Paylaş</string>
   <string name="on_this_day_page_share">Paylaş</string>
   <string name="reading_list_page_share">Paylaş</string>
   <string name="menu_text_select_edit_here">Burada redaktə edin</string>

@@ -60,10 +60,7 @@
   <string name="menu_long_press_open_page">Отваряне</string>
   <string name="menu_long_press_open_in_new_tab">Отваряне в нов раздел</string>
   <string name="menu_long_press_copy_page">Копиране адреса на препратката</string>
-  <string name="menu_text_select_copy">Копиране</string>
   <string name="menu_text_select_define">В Уикиречник</string>
-  <string name="menu_text_select_share">Споделяне</string>
-  <string name="share">Споделяне</string>
   <string name="on_this_day_page_share">Споделяне</string>
   <string name="reading_list_page_share">Споделяне</string>
   <string name="menu_text_select_edit_here">Редактиране тук</string>
@@ -273,11 +270,7 @@
   <string name="gallery_add_image_caption_button">Добавяне на надпис към изображението</string>
   <string name="gallery_add_image_caption_in_language_button">Добавяне на надпис към изображението (%s)</string>
   <string name="err_cannot_save_file">Файлът не може да бъде запазен</string>
-  <string name="snippet_share_intro">„%1$s“ на @Wikipedia: %2$s</string>
   <string name="expand_refs">Докоснете за разширяване</string>
-  <string name="share_snippet_button">Споделяне като изображение</string>
-  <string name="share_normal_button">Споделяне като текст</string>
-  <string name="snippet_share_preview_image_desc">Преглед на изображението</string>
   <string name="cc_logo">Лиценз Creative Commons</string>
   <string name="captcha_image">Изображение за проверка</string>
   <string name="gallery_fair_use_license">Честна употреба</string>
