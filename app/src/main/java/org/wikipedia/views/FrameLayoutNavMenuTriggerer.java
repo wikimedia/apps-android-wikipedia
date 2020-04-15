@@ -2,6 +2,7 @@ package org.wikipedia.views;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.view.Gravity;
 import android.view.MotionEvent;
 import android.widget.FrameLayout;
 
@@ -12,7 +13,7 @@ import org.wikipedia.util.L10nUtil;
 
 public class FrameLayoutNavMenuTriggerer extends FrameLayout {
     public interface Callback {
-        void onNavMenuTriggered(int swipeAmount);
+        void onNavMenuSwipeRequest(int gravity);
     }
 
     private static final int SWIPE_SLOP_Y = DimenUtil.roundedDpToPx(32);
@@ -65,8 +66,10 @@ public class FrameLayoutNavMenuTriggerer extends FrameLayout {
                 maybeSwiping = false;
             } else if (Math.abs(ev.getX() - initialX) > SWIPE_SLOP_X) {
                 maybeSwiping = false;
-                if (callback != null && (L10nUtil.isDeviceRTL() ? initialX > ev.getX() : ev.getX() > initialX)) {
-                    callback.onNavMenuTriggered((int)(ev.getX() - initialX));
+                if (callback != null) {
+                    callback.onNavMenuSwipeRequest(L10nUtil.isDeviceRTL()
+                            ? (ev.getX() > initialX ? Gravity.END : Gravity.START)
+                            : (ev.getX() > initialX ? Gravity.START : Gravity.END));
                 }
             }
         }

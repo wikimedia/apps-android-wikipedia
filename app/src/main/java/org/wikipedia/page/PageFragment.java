@@ -283,6 +283,10 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         return editHandler;
     }
 
+    public ToCHandler getTocHandler() {
+        return tocHandler;
+    }
+
     public ViewGroup getContainerView() {
         return containerView;
     }

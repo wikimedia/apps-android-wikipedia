@@ -3,6 +3,7 @@ package org.wikipedia.main;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -199,8 +200,10 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
     }
 
     @Override
-    public void onNavMenuTriggered(int swipeAmount) {
-        drawerLayout.post(this::onDrawerOpenClicked);
+    public void onNavMenuSwipeRequest(int gravity) {
+        if (gravity == Gravity.START) {
+            drawerLayout.post(this::onDrawerOpenClicked);
+        }
     }
 
     @Override

@@ -48,8 +48,7 @@ import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
 import static org.wikipedia.util.ResourceUtil.getThemedColor;
 
 public class ToCHandler implements ObservableWebView.OnClickListener,
-        ObservableWebView.OnScrollChangeListener, ObservableWebView.OnContentHeightChangedListener,
-        ObservableWebView.OnEdgeSwipeListener {
+        ObservableWebView.OnScrollChangeListener, ObservableWebView.OnContentHeightChangedListener {
     private static final float SCROLLER_BUTTON_SIZE = 44f;
     private static final float SCROLLER_BUTTON_REVEAL_MARGIN = 12f;
 
@@ -124,7 +123,6 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
         webView.addOnClickListener(this);
         webView.addOnScrollChangeListener(this);
         webView.addOnContentHeightChangedListener(this);
-        webView.setOnEdgeSwipeListener(this);
 
         scrollerView.setCallback(new ScrollerCallback());
         setScrollerPosition();
@@ -221,13 +219,6 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
             return;
         }
         bridge.evaluate(JavaScriptActionHandler.getOffsets(), sectionOffsetsCallback);
-    }
-
-    @Override
-    public void onEdgeSwipe(boolean direction) {
-        if (direction == rtl) {
-            show();
-        }
     }
 
     public final class ToCAdapter extends BaseAdapter {
