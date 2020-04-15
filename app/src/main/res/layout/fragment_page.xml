@@ -29,7 +29,7 @@
         <org.wikipedia.page.leadimages.PageHeaderView
             android:id="@+id/page_header_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="16dp"
             android:visibility="gone" />
 
         <org.wikipedia.views.WikiErrorView

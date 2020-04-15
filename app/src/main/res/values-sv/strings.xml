@@ -15,6 +15,7 @@
 * Pyscowicz
 * Skalman
 * Sturban
+* Technic2
 * Vesihiisi
 * WikiPhoenix
 -->
@@ -68,10 +69,7 @@
   <string name="menu_long_press_open_page">Öppna</string>
   <string name="menu_long_press_open_in_new_tab">Öppna i ny flik</string>
   <string name="menu_long_press_copy_page">Kopiera länkadress</string>
-  <string name="menu_text_select_copy">Kopiera</string>
   <string name="menu_text_select_define">\nDefinera</string>
-  <string name="menu_text_select_share">\nDela</string>
-  <string name="share">\nDela</string>
   <string name="on_this_day_page_share">Dela</string>
   <string name="reading_list_page_share">Dela</string>
   <string name="menu_text_select_edit_here">Redigera här</string>
@@ -210,6 +208,7 @@
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Bibliotek som har använts</string>
   <string name="about_contributors_heading">Bidragsgivare</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Teamsidan&lt;/a&gt;</string>
   <string name="about_translators_heading">Översättare</string>
   <string name="about_translators_translatewiki">Denna app översattes av de frivilliga översättarna på &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licens</string>
@@ -284,11 +283,7 @@
   <string name="gallery_add_image_caption_button">Lägg till bildtext</string>
   <string name="gallery_add_image_caption_in_language_button">Lägg till bildtexter %s</string>
   <string name="err_cannot_save_file">Kan inte spara filen</string>
-  <string name="snippet_share_intro">\"%1$s\" på @Wikipedia: %2$s</string>
   <string name="expand_refs">Tryck för att expandera</string>
-  <string name="share_snippet_button">Dela som bild</string>
-  <string name="share_normal_button">Dela som text</string>
-  <string name="snippet_share_preview_image_desc">Förhandsvisa bild</string>
   <string name="cc_logo">Creative Commons-licens</string>
   <string name="captcha_image">Captcha-bild</string>
   <string name="gallery_fair_use_license">Fair use</string>
@@ -349,6 +344,7 @@
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Matcha systemtemat</string>
   <string name="page_footer_license_text">Innehållet är tillgängligt under $1 om ingenting annat anges</string>
   <string name="empty_tab_title">Ny flik</string>
+  <string name="menu_save_all_tabs">Spara alla flikar</string>
   <string name="crash_report_activity_title">Applikationsfel</string>
   <string name="crash_report_relaunch_or_quit">Tyvärr stötte Wikipedia-appen på ett fel och avslutades.\n\nVill du starta om eller avsluta?</string>
   <string name="crash_report_relaunch">Starta om</string>
@@ -374,8 +370,9 @@
   <string name="reading_list_save_to">Spara i läslista</string>
   <string name="reading_list_create_new">Skapa ny</string>
   <string name="reading_list_title_exists">Läslistan \"%s\" finns redan.</string>
-  <string name="reading_list_added_to_named">Lades till i %s.</string>
-  <string name="reading_list_already_exists">Denna artikel är redan i den listan.</string>
+  <string name="reading_list_article_added_to_named">Lade till %1$s i %2$s.</string>
+  <string name="reading_list_article_already_exists_message">%1$s innehåller redan %2$s.</string>
+  <string name="reading_list_articles_already_exist_message">%s innehåller redan alla artiklar.</string>
   <string name="reading_list_added_view_button">Visa lista</string>
   <string name="format_reading_list_statistical_summary_singular">1 artikel • %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d artiklar • %2$.2f MB</string>
@@ -431,8 +428,7 @@
   <string name="reading_lists_confirm_remote_delete_yes">Ja</string>
   <string name="reading_lists_confirm_remote_delete_no">Nej</string>
   <string name="reading_list_article_save_in_progress">Artikeln laddas ned och kommer att vara tillgänglig offline när den är färdig.</string>
-  <string name="reading_list_already_contains_selection">Den valda listan innehåller redan alla markerade sidor.</string>
-  <string name="reading_list_added_articles_list_titled">Lade till %1$d artiklar i %2$s</string>
+  <string name="reading_list_articles_added_to_named">Lade till %1$d artiklar i %2$s</string>
   <string name="reading_list_delete_confirm">Är du säker på att du vill radera %s?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Logga in för att aktivera synkronisering</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Logga in för att tillåta att dina läslistor sparas till ditt konto.</string>
@@ -537,8 +533,8 @@
   <string name="preference_summary_notification_milestone">Vissa antal redigeringar uppnås</string>
   <string name="preference_title_notification_thanks">Tack</string>
   <string name="preference_summary_notification_thanks">Någon tackar dig för en redigering</string>
-  <string name="preference_title_notification_revert">Återställ</string>
-  <string name="preference_summary_notification_revert">Ett av dina bidrag återställdes</string>
+  <string name="preference_title_notification_revert">Återställning</string>
+  <string name="preference_summary_notification_revert">Ett av dina bidrag återställs</string>
   <string name="preference_title_notification_login_fail">Inloggning</string>
   <string name="preference_summary_notification_login_fail">Dina inloggningsaktiviteter</string>
   <string name="preference_title_notification_mention">Omnämnande</string>
@@ -628,7 +624,8 @@
   <string name="description_edit_success_saved_snackbar">Artikelbeskrivningen har publicerats!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Artikelbeskrivningen har publicerats! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Bildtext skapades!</string>
-  <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Bildtext skapades! %s</string>
+  <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Bildtext skapades! (%s)</string>
+  <string name="description_edit_success_saved_image_tags_snackbar">Bildtagg(ar) publicerades!</string>
   <string name="description_edit_success_encouragement">Du gjorde precis Wikipedia bättre för alla</string>
   <string name="description_edit_success_done">Klar</string>
   <string name="description_edit_success_did_you_know">Visste du att?</string>
@@ -697,6 +694,7 @@
   <string name="suggested_edits_article_cta_snackbar_action">Visa</string>
   <string name="suggested_edits_feed_card_add_image_caption">Lägg till bildtext</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Lägg till bildtext (%s)</string>
+  <string name="suggested_edits_feed_card_add_image_tags">Lägg till bildtaggar</string>
   <string name="suggested_edits_snackbar_survey_text">Hur har din redigeringsupplevelse varit? Ta en stund att delta i en undersökning om att redigera i appen.</string>
   <string name="suggested_edits_snackbar_survey_action_text">Delta i undersökning</string>
   <string name="suggested_edits_task_action_text_add">Lägg till</string>
@@ -711,10 +709,11 @@
   <string name="suggested_edits_image_tags_snackbar">Lägg till bildtaggar för att göra det lättare för andra att hitta bilderna.</string>
   <string name="suggested_edits_image_tags_task_detail">Tagga bilder för att göra dem enklare att hitta. Välj bland de föreslagna taggarna eller lägg till egna.</string>
   <string name="suggested_edits_image_tags_choose">Lägg till eller välj lämpliga taggar</string>
+  <string name="suggested_edits_image_tags_published_list">Publicerade taggar</string>
   <string name="suggested_edits_image_tags_search">Sök taggar</string>
   <string name="suggested_edits_image_tags_select_title">Du har inte valt några taggar för denna bild</string>
   <string name="suggested_edits_image_tags_select_text">Endast taggar som du väljer kommer att läggas till i bilderna. Taggar som inte väljs kommer att markeras som avvisade. Är du säker på att du vill markera alla taggar som avvisade?</string>
-  <string name="suggested_edits_image_tags_add_tag" fuzzy="true">Lägg till tagg…</string>
+  <string name="suggested_edits_image_tags_add_tag">Lägg till tagg</string>
   <string name="suggested_edits_image_zoom_tooltip">Nyp för att zooma denna bild.</string>
   <string name="suggested_edits_encouragement_message">Tack för dina redigeringar, %s. Nedan kan du hitta fler sätt att bidra på Wikipedia.</string>
   <string name="suggested_edits_onboarding_message">Hej %s, visste du att alla kan redigera på Wikipedia? Nedan kan du hitta roliga sätt att hjälpa till att förbättra Wikipedia. Lycka till med redigeringen!</string>

@@ -1,8 +1,6 @@
 package org.wikipedia.page;
 
 import android.app.SearchManager;
-import android.appwidget.AppWidgetManager;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -51,22 +49,21 @@ import org.wikipedia.page.tabs.TabActivity;
 import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.search.SearchActivity;
 import org.wikipedia.settings.Prefs;
-import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.theme.ThemeChooserDialog;
-import org.wikipedia.util.AnimationUtil;
 import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.ThrowableUtil;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.PageActionOverflowView;
 import org.wikipedia.views.TabCountsView;
 import org.wikipedia.views.ViewUtil;
-import org.wikipedia.widgets.WidgetProviderFeaturedPage;
 import org.wikipedia.wiktionary.WiktionaryDialog;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -136,7 +133,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         app = (WikipediaApp) getApplicationContext();
-        AnimationUtil.setSharedElementTransitions(this);
 
         PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
 
@@ -176,7 +172,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         boolean languageChanged = false;
         if (savedInstanceState != null) {
             if (savedInstanceState.getBoolean("isSearching")) {
-                openSearchActivity(TOOLBAR, null);
+                openSearchActivity();
             }
             String language = savedInstanceState.getString(LANGUAGE_CODE_BUNDLE_KEY);
             languageChanged = !app.getAppOrSystemLanguageCode().equals(language);
@@ -196,7 +192,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     @OnClick(R.id.page_toolbar_button_search)
     public void onSearchButtonClicked() {
-        openSearchActivity(TOOLBAR, null);
+        openSearchActivity();
     }
 
     @OnClick(R.id.page_toolbar_button_tabs)
@@ -214,14 +210,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         Animation anim = AnimationUtils.loadAnimation(this, R.anim.tab_list_zoom_enter);
         tabsButton.startAnimation(anim);
         tabsButton.updateTabCount();
-    }
-
-    private void finishActionMode() {
-        Set<ActionMode> actionModesToFinish = new HashSet<>(currentActionModes);
-        for (ActionMode mode : actionModesToFinish) {
-            mode.finish();
-        }
-        currentActionModes.clear();
     }
 
     public void hideSoftKeyboard() {
@@ -251,12 +239,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         }
     }
 
-    @Override
-    public boolean onSearchRequested() {
-        openSearchActivity(TOOLBAR, null);
-        return true;
-    }
-
     private void goToMainTab(@NonNull NavTab tab) {
         startActivity(MainActivity.newIntent(this)
                 .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
@@ -266,7 +248,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     }
 
     /** @return True if the contextual action bar is open. */
-    public boolean isCabOpen() {
+    private boolean isCabOpen() {
         return !currentActionModes.isEmpty();
     }
 
@@ -325,8 +307,13 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     private void handleIntent(@NonNull Intent intent) {
         if (Intent.ACTION_VIEW.equals(intent.getAction()) && intent.getData() != null) {
-            WikiSite wiki = new WikiSite(intent.getData());
-            PageTitle title = wiki.titleForUri(intent.getData());
+            Uri uri = intent.getData();
+            if (ReleaseUtil.isProdRelease() && uri.getScheme() != null && uri.getScheme().equals("http")) {
+                // For external links, ensure that they're using https.
+                uri = uri.buildUpon().scheme(WikiSite.DEFAULT_SCHEME).build();
+            }
+            WikiSite wiki = new WikiSite(uri);
+            PageTitle title = wiki.titleForUri(uri);
             HistoryEntry historyEntry = new HistoryEntry(title,
                     intent.hasExtra(Constants.INTENT_EXTRA_VIEW_FROM_NOTIFICATION)
                             ? HistoryEntry.SOURCE_NOTIFICATION_SYSTEM : HistoryEntry.SOURCE_EXTERNAL_LINK);
@@ -336,7 +323,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
                 historyEntry.setReferrer(intent.getExtras().get(Intent.EXTRA_REFERRER).toString());
             }
             if (title.isSpecial()) {
-                visitInExternalBrowser(this, intent.getData());
+                visitInExternalBrowser(this, uri);
                 finish();
                 return;
             }
@@ -431,7 +418,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             // Close the link preview, if one is open.
             hideLinkPreview();
 
-            pageFragment.closeFindInPage();
+            onPageCloseActionMode();
             if (position == TabPosition.CURRENT_TAB) {
                 pageFragment.loadPage(title, entry, true, false);
             } else if (position == TabPosition.CURRENT_TAB_SQUASH) {
@@ -465,7 +452,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     @Override
     public void onBackPressed() {
         if (isCabOpen()) {
-            finishActionMode();
+            onPageCloseActionMode();
             return;
         }
 
@@ -573,6 +560,15 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     }
 
     @Override
+    public void onPageCloseActionMode() {
+        Set<ActionMode> actionModesToFinish = new HashSet<>(currentActionModes);
+        for (ActionMode mode : actionModesToFinish) {
+            mode.finish();
+        }
+        currentActionModes.clear();
+    }
+
+    @Override
     public void onLinkPreviewLoadPage(@NonNull PageTitle title, @NonNull HistoryEntry entry, boolean inNewTab) {
         loadPage(title, entry, inNewTab ? TabPosition.NEW_TAB_BACKGROUND : TabPosition.CURRENT_TAB);
     }
@@ -654,7 +650,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     public void onPause() {
         if (isCabOpen()) {
             // Explicitly close any current ActionMode (see T147191)
-            finishActionMode();
+            onPageCloseActionMode();
         }
         super.onPause();
     }
@@ -710,13 +706,30 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     public void onActionModeStarted(ActionMode mode) {
         super.onActionModeStarted(mode);
         if (!isCabOpen() && mode.getTag() == null) {
-            Menu menu = mode.getMenu();
-            menu.clear();
-            mode.getMenuInflater().inflate(R.menu.menu_text_select, menu);
+            modifyMenu(mode);
             ViewUtil.setCloseButtonInActionMode(pageFragment.requireContext(), mode);
             pageFragment.onActionModeShown(mode);
         }
         currentActionModes.add(mode);
+    }
+
+    private void modifyMenu(ActionMode mode) {
+        Menu menu = mode.getMenu();
+        ArrayList<MenuItem> menuItemsList = new ArrayList<>();
+
+        for (int i = 0; i < menu.size(); i++) {
+            String title = menu.getItem(i).getTitle().toString();
+            if (!title.contains(getString(R.string.search_hint))
+                    && !(title.contains(getString(R.string.menu_text_select_define)) && pageFragment.getShareHandler().shouldEnableWiktionaryDialog())) {
+                menuItemsList.add(menu.getItem(i));
+            }
+        }
+
+        menu.clear();
+        mode.getMenuInflater().inflate(R.menu.menu_text_select, menu);
+        for (MenuItem menuItem : menuItemsList) {
+            menu.add(menuItem.getGroupId(), menuItem.getItemId(), Menu.NONE, menuItem.getTitle()).setIntent(menuItem.getIntent()).setIcon(menuItem.getIcon());
+        }
     }
 
     @Override
@@ -743,22 +756,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         return requestCode == Constants.ACTIVITY_REQUEST_GALLERY && resultCode == GalleryActivity.ACTIVITY_RESULT_IMAGE_CAPTION_ADDED;
     }
 
-    private boolean languageChanged(int resultCode) {
-        return resultCode == SettingsActivity.ACTIVITY_RESULT_LANGUAGE_CHANGED;
-    }
-
-    /**
-     * Update any instances of our Featured Page widget, since it will change with the currently selected language.
-     */
-    private void updateFeaturedPageWidget() {
-        Intent widgetIntent = new Intent(this, WidgetProviderFeaturedPage.class);
-        widgetIntent.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
-        int[] ids = AppWidgetManager.getInstance(getApplication()).getAppWidgetIds(
-                new ComponentName(this, WidgetProviderFeaturedPage.class));
-        widgetIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, ids);
-        sendBroadcast(widgetIntent);
-    }
-
     private void showDescriptionEditRevertDialog(@NonNull String qNumber) {
         new AlertDialog.Builder(this)
                 .setTitle(R.string.notification_reverted_title)
@@ -768,8 +765,8 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
                 .show();
     }
 
-    private void openSearchActivity(@NonNull InvokeSource source, @Nullable String query) {
-        Intent intent = SearchActivity.newIntent(this, source, query);
+    private void openSearchActivity() {
+        Intent intent = SearchActivity.newIntent(this, TOOLBAR, null);
         startActivity(intent);
     }
 

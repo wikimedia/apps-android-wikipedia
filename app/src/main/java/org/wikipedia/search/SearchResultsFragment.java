@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -15,8 +16,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.collection.LruCache;
 import androidx.fragment.app.Fragment;
-
-import com.facebook.drawee.view.SimpleDraweeView;
 
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.Constants.InvokeSource;
@@ -489,7 +488,7 @@ public class SearchResultsFragment extends Fragment {
             TextView pageTitleText = convertView.findViewById(R.id.page_list_item_title);
             SearchResult result = (SearchResult) getItem(position);
 
-            SimpleDraweeView searchResultItemImage = convertView.findViewById(R.id.page_list_item_image);
+            ImageView searchResultItemImage = convertView.findViewById(R.id.page_list_item_image);
             GoneIfEmptyTextView descriptionText = convertView.findViewById(R.id.page_list_item_description);
             TextView redirectText = convertView.findViewById(R.id.page_list_item_redirect);
             View redirectArrow = convertView.findViewById(R.id.page_list_item_redirect_arrow);
@@ -508,8 +507,7 @@ public class SearchResultsFragment extends Fragment {
             StringUtil.boldenKeywordText(pageTitleText, result.getPageTitle().getDisplayText(), currentSearchTerm);
 
             searchResultItemImage.setVisibility((result.getPageTitle().getThumbUrl() == null) ? View.GONE : View.VISIBLE);
-            ViewUtil.loadImageUrlInto(searchResultItemImage,
-                    result.getPageTitle().getThumbUrl());
+            ViewUtil.loadImageWithRoundedCorners(searchResultItemImage, result.getPageTitle().getThumbUrl());
 
             // ...and lastly, if we've scrolled to the last item in the list, then
             // continue searching!

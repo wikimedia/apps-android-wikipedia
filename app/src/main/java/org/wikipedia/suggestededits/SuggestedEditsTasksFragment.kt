@@ -378,11 +378,11 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     private fun setupTestingButtons() {
         if (!ReleaseUtil.isPreBetaRelease()) {
-            ipBlocked.visibility = GONE
-            onboarding1.visibility = GONE
+            showIPBlockedMessage.visibility = GONE
+            showOnboardingMessage.visibility = GONE
         }
-        ipBlocked.setOnClickListener { setIPBlockedStatus() }
-        onboarding1.setOnClickListener { SuggestedEditsUserStats.totalEdits = 0; setFinalUIState() }
+        showIPBlockedMessage.setOnClickListener { setIPBlockedStatus() }
+        showOnboardingMessage.setOnClickListener { SuggestedEditsUserStats.totalEdits = 0; setFinalUIState() }
     }
 
     private fun setUpTasks() {
@@ -417,9 +417,9 @@ class SuggestedEditsTasksFragment : Fragment() {
         // TODO: remove condition when ready
         if (ReleaseUtil.isPreBetaRelease()) {
             displayedTasks.add(vandalismPatrolTask)
+            displayedTasks.add(addImageTagsTask)
         }
 
-        displayedTasks.add(addImageTagsTask)
         displayedTasks.add(addDescriptionsTask)
         displayedTasks.add(addImageCaptionsTask)
     }

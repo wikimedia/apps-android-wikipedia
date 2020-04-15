@@ -66,10 +66,7 @@
   <string name="menu_long_press_open_page">Отвори</string>
   <string name="menu_long_press_open_in_new_tab">Отвори у новој картици</string>
   <string name="menu_long_press_copy_page">Копирај адресу линка</string>
-  <string name="menu_text_select_copy">Копирај</string>
   <string name="menu_text_select_define">Дефиниши</string>
-  <string name="menu_text_select_share">Дели</string>
-  <string name="share">Дели</string>
   <string name="on_this_day_page_share">Дели</string>
   <string name="reading_list_page_share">Дели</string>
   <string name="menu_text_select_edit_here">Уреди овде</string>
@@ -118,7 +115,7 @@
   <string name="menu_login">Пријави ме</string>
   <string name="login_activity_title">Пријава на Википедију</string>
   <string name="login_in_progress_dialog_message">Пријављујем вас…</string>
-  <string name="login_success_toast">Успешно сте пријављени.</string>
+  <string name="login_success_toast" fuzzy="true">Успешно сте пријављени.</string>
   <string name="reset_password_title">Поставите лозинку</string>
   <string name="reset_password_description">Пријавили сте се са привременом лозинком. Да бисте завршили пријаву, овде поставите нову.</string>
   <string name="reset_password_hint">Нова лозинка</string>
@@ -274,17 +271,13 @@
   <string name="gallery_menu_share">Дели</string>
   <string name="gallery_share_error">Није могуће делити слику: %s</string>
   <string name="gallery_save_progress">Преузимање датотеке…</string>
-  <string name="gallery_save_success">Датотека је успешно сачувана.</string>
+  <string name="gallery_save_success" fuzzy="true">Датотека је успешно сачувана.</string>
   <string name="gallery_error_video_failed">Није могуће репродуковати видео.</string>
   <string name="gallery_save_image_write_permission_rationale">Потребна је дозвола за писање на меморијски простор уређаја да бисте чували слике.</string>
   <string name="gallery_add_image_caption_button">Додај опис слике</string>
   <string name="gallery_add_image_caption_in_language_button">Додај опис слике (%s)</string>
   <string name="err_cannot_save_file">Није могуће сачувати датотеку</string>
-  <string name="snippet_share_intro">„%1$s” на @Wikipedia: %2$s</string>
   <string name="expand_refs">Додирните да бисте проширили</string>
-  <string name="share_snippet_button">Дели као слику</string>
-  <string name="share_normal_button">Дели као текст</string>
-  <string name="snippet_share_preview_image_desc">Преглед слике</string>
   <string name="cc_logo">Лиценца Creative Commons</string>
   <string name="captcha_image">CAPTCHA слика</string>
   <string name="gallery_fair_use_license">Поштено коришћење</string>
@@ -366,8 +359,6 @@
   <string name="reading_list_save_to">Сачувај на листу за читање</string>
   <string name="reading_list_create_new">Направи нови</string>
   <string name="reading_list_title_exists">Листа за читање „%s” већ постоји.</string>
-  <string name="reading_list_added_to_named">Додато на листу „%s”.</string>
-  <string name="reading_list_already_exists">Овај чланак се већ налази на тој листи.</string>
   <string name="reading_list_added_view_button">Прикажи листу</string>
   <string name="format_reading_list_statistical_summary_singular">1 чланак, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d чланака, %2$.2f MB</string>
@@ -423,8 +414,7 @@
   <string name="reading_lists_confirm_remote_delete_yes">Да</string>
   <string name="reading_lists_confirm_remote_delete_no">Не</string>
   <string name="reading_list_article_save_in_progress">Чланак се преузима. По завршетку преузимања ће бити доступан офлајн.</string>
-  <string name="reading_list_already_contains_selection">Одабрана листа већ садржи све изабране странице.</string>
-  <string name="reading_list_added_articles_list_titled">На листу „%2$s” су додати чланци (%1$d)</string>
+  <string name="reading_list_articles_added_to_named">На листу „%2$s” су додати чланци (%1$d)</string>
   <string name="reading_list_delete_confirm">Желите ли заиста да избришете „%s”?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Пријавите се да бисте омогућили синхронизацију</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Пријавите се да бисте сачували листе за читање на ваш налог.</string>
@@ -460,7 +450,7 @@
     <item quantity="one">Овај чланак више неће бити доступан офлајн.</item>
     <item quantity="other">Ови чланци више неће бити доступни офлајн.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync">Листе за читање су успешно синхронизоване</string>
+  <string name="reading_list_toast_last_sync" fuzzy="true">Листе за читање су успешно синхронизоване</string>
   <string name="reading_list_menu_last_sync">Последња синхронизација: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">У реду</string>
   <string name="reading_list_delete_dialog_ok_button_text">У реду</string>

@@ -36,9 +36,7 @@
   <string name="menu_long_press_open_page">Äöpen</string>
   <string name="menu_long_press_open_in_new_tab">Äöpen in e nuuj tabblaad</string>
   <string name="menu_long_press_copy_page">Kopieer linkadres</string>
-  <string name="menu_text_select_copy">Kopieer</string>
   <string name="menu_text_select_define">Bepaol</string>
-  <string name="menu_text_select_share">Deil</string>
   <string name="menu_text_select_edit_here">Bewirk hie</string>
   <string name="last_updated_text">Lits biegewirk %s</string>
   <string name="talk_page_link_text">Betrach euverlèkpagina</string>

@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 
 import com.google.gson.reflect.TypeToken;
 
+import org.wikipedia.BuildConfig;
 import org.wikipedia.R;
 import org.wikipedia.analytics.SessionData;
 import org.wikipedia.analytics.SessionFunnel;
@@ -266,7 +267,7 @@ public final class Prefs {
     @NonNull
     public static String getRestbaseUriFormat() {
         return defaultIfBlank(getString(R.string.preference_key_restbase_uri_format, null),
-                "%1$s://%2$s/api/rest_v1/");
+                BuildConfig.DEFAULT_RESTBASE_URI_FORMAT);
     }
 
     @NonNull
@@ -750,7 +751,7 @@ public final class Prefs {
     }
 
     public static boolean shouldShowImageTagsTooltip() {
-        return getBoolean(R.string.preference_key_show_image_tags_tooltip, true);
+        return ReleaseUtil.isPreProdRelease() && getBoolean(R.string.preference_key_show_image_tags_tooltip, true);
     }
 
     public static void setShouldShowImageTagsTooltip(boolean enabled) {
@@ -799,7 +800,7 @@ public final class Prefs {
     }
 
     public static boolean shouldMatchSystemTheme() {
-        return getBoolean(R.string.preference_key_match_system_theme, false);
+        return getBoolean(R.string.preference_key_match_system_theme, true);
     }
 
     public static void setMatchSystemTheme(boolean enabled) {
@@ -856,6 +857,14 @@ public final class Prefs {
 
     public static void setOfflinePcsToMobileHtmlConversionAttempts(int attempts) {
         setInt(R.string.preference_key_pcs_to_mobilehtml_conversion_attempts, attempts);
+    }
+
+    public static int getInstallReferrerAttempts() {
+        return getInt(R.string.preference_key_install_referrer_attempts, 0);
+    }
+
+    public static void setInstallReferrerAttempts(int attempts) {
+        setInt(R.string.preference_key_install_referrer_attempts, attempts);
     }
 
     public static boolean shouldShowImageTagsOnboarding() {

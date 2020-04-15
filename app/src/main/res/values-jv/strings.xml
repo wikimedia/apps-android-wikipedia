@@ -53,10 +53,7 @@
   <string name="menu_long_press_open_page">Bukak</string>
   <string name="menu_long_press_open_in_new_tab">Bukak ing tab anyar</string>
   <string name="menu_long_press_copy_page">Turun alamat pranala</string>
-  <string name="menu_text_select_copy">Turun</string>
   <string name="menu_text_select_define">Wedharaké</string>
-  <string name="menu_text_select_share">Dum</string>
-  <string name="share">Dum</string>
   <string name="on_this_day_page_share">Dum</string>
   <string name="reading_list_page_share">Dum</string>
   <string name="menu_text_select_edit_here">Besut ing kéné</string>
@@ -105,7 +102,7 @@
   <string name="menu_login">Mlebu log</string>
   <string name="login_activity_title">Mlebu log Wikipédia</string>
   <string name="login_in_progress_dialog_message">Lagi mlebu log...</string>
-  <string name="login_success_toast">Bisa mlebu log!</string>
+  <string name="login_success_toast" fuzzy="true">Bisa mlebu log!</string>
   <string name="reset_password_title">Setèl tembung wadimu</string>
   <string name="reset_password_description">Kowé mlebu log nganggo tembung wadi sadhéla. Saperlu ngrampungaké olèhmu mlebu log, setèla tembung wadimu kang anyar ing kéné.</string>
   <string name="reset_password_hint">Tembung wadi anyar</string>
@@ -256,15 +253,11 @@
   <string name="gallery_menu_share">Dum</string>
   <string name="gallery_share_error">Ora bisa andum gambar: %s</string>
   <string name="gallery_save_progress">Ngundhuh barkas...</string>
-  <string name="gallery_save_success">Barkas kasil disimpen.</string>
+  <string name="gallery_save_success" fuzzy="true">Barkas kasil disimpen.</string>
   <string name="gallery_error_video_failed">Ora bisa muter vidéo.</string>
   <string name="gallery_save_image_write_permission_rationale">Butuh idin nulis ing panyimpenan pirantimu saperlu nyimpen gambar.</string>
   <string name="err_cannot_save_file">Ora bisa nyimpen barkas</string>
-  <string name="snippet_share_intro">\"%1$s\" ing @Wikipedia: %2$s</string>
   <string name="expand_refs">Tunyuk saperlu njembaraké</string>
-  <string name="share_snippet_button">Dum minangka gambar</string>
-  <string name="share_normal_button">Dum minangka tèks</string>
-  <string name="snippet_share_preview_image_desc">Pratuduhaké gambar</string>
   <string name="cc_logo">Lisènsi Creative Commons</string>
   <string name="captcha_image">Gambar Captcha</string>
   <string name="gallery_fair_use_license">Pangguna lumrah</string>
@@ -333,8 +326,6 @@
   <string name="reading_list_save_to">Simpen menyang pratélan wacan</string>
   <string name="reading_list_create_new">Gawé anyar</string>
   <string name="reading_list_title_exists">Pratélan wacan \"%s\" wis ana.</string>
-  <string name="reading_list_added_to_named">Ditambahaké menyang %s.</string>
-  <string name="reading_list_already_exists">Artikel iki wis ana ing pratélan iku.</string>
   <string name="reading_list_added_view_button">Deleng pratélan</string>
   <string name="format_reading_list_statistical_summary_singular">1 artikel, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d artikel, %2$.2f MB</string>
@@ -390,8 +381,7 @@
   <string name="reading_lists_confirm_remote_delete_yes">Iya</string>
   <string name="reading_lists_confirm_remote_delete_no">Ora</string>
   <string name="reading_list_article_save_in_progress">Artikelé pinuju diundhuh, lan bakal wis siyap ing njaban jaringan nalika rampung olèhé ngundhuh.</string>
-  <string name="reading_list_already_contains_selection">Pratélan sing kapilih wis ngemu kabèh kaca sing kapilih.</string>
-  <string name="reading_list_added_articles_list_titled">Nambahaké artikel %1$d ing %2$s</string>
+  <string name="reading_list_articles_added_to_named">Nambahaké artikel %1$d ing %2$s</string>
   <string name="reading_list_delete_confirm">Apa panjenengan yakin arep mbusak %s?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Mlebu log saperlu ngurubaké sinkronisasi</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Mlebu log saperlu ngidinaké pratélan wacané panjenengan kasimpen ing akuné panjenengan.</string>
@@ -426,7 +416,7 @@
     <item quantity="one">Artikel iki ora bakal cumawis manèh nalika ing jaban jaringan.</item>
     <item quantity="other">Artikel-artikel iki ora bakal cumawis manèh nalika ing jaban jaringan.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync">Pratélan wacan kasil kasinkronisasi</string>
+  <string name="reading_list_toast_last_sync" fuzzy="true">Pratélan wacan kasil kasinkronisasi</string>
   <string name="reading_list_menu_last_sync">Singkronisasi pungkasan: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">YA</string>
   <string name="reading_list_delete_dialog_ok_button_text">YA</string>

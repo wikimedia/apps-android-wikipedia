@@ -32,7 +32,7 @@ class DescriptionEditBottomBarView constructor(context: Context, attrs: Attribut
             viewImageThumbnail.visibility = GONE
         } else {
             viewImageThumbnail.visibility = VISIBLE
-            ViewUtil.loadImageUrlInto(viewImageThumbnail, summary.thumbnailUrl)
+            ViewUtil.loadImage(viewImageThumbnail, summary.thumbnailUrl)
         }
         show()
     }

@@ -300,7 +300,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
                     FeedbackUtil.showMessage(MainFragment.this, getString(R.string.gallery_share_error, card.baseImage().title()));
                 }
             }
-        }.get();
+        }.get(requireContext());
     }
 
     @Override public void onFeedDownloadImage(FeaturedImage image) {
@@ -435,7 +435,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     }
 
     private void goToTab(@NonNull NavTab tab) {
-        tabLayout.setSelectedItemId(tab.code());
+        tabLayout.setSelectedItemId(tabLayout.getMenu().getItem(tab.code()).getItemId());
     }
 
     private void refreshExploreFeed() {
@@ -447,7 +447,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
 
     void resetNavTabLayouts() {
         tabLayout.setTabViews();
-        tabLayout.setSelectedItemId(viewPager.getCurrentItem());
+        goToTab(NavTab.of(viewPager.getCurrentItem()));
         if (AccountUtil.isLoggedIn()) {
             if (Prefs.shouldShowSuggestedEditsTooltip()) {
                 Prefs.setShouldShowSuggestedEditsTooltip(false);

@@ -87,10 +87,7 @@
   <string name="menu_long_press_open_page">Apri</string>
   <string name="menu_long_press_open_in_new_tab">Apri in una nuova scheda</string>
   <string name="menu_long_press_copy_page">Copia l\'indirizzo del collegamento</string>
-  <string name="menu_text_select_copy">Copia</string>
   <string name="menu_text_select_define">Definisci</string>
-  <string name="menu_text_select_share">Condividi</string>
-  <string name="share">Condividi</string>
   <string name="on_this_day_page_share">Condividi</string>
   <string name="reading_list_page_share">Condividi</string>
   <string name="menu_text_select_edit_here">Modifica qui</string>
@@ -140,7 +137,7 @@
   <string name="menu_login">Entra</string>
   <string name="login_activity_title">Accedi a Wikipedia</string>
   <string name="login_in_progress_dialog_message">Accesso in corso…</string>
-  <string name="login_success_toast">Accesso eseguito con successo!</string>
+  <string name="login_success_toast">Accesso effettuato!</string>
   <string name="reset_password_title">Imposta la tua password</string>
   <string name="reset_password_description">L\'accesso è stato effettuato con una password temporanea. Per completare l\'accesso, è necessario impostare una nuova password qui.</string>
   <string name="reset_password_hint">Nuova password</string>
@@ -296,17 +293,13 @@
   <string name="gallery_menu_share">Condividi</string>
   <string name="gallery_share_error">Impossibile condividere l\'immagine: %s</string>
   <string name="gallery_save_progress">Scaricamento del file…</string>
-  <string name="gallery_save_success">File salvato correttamente.</string>
+  <string name="gallery_save_success">File salvato.</string>
   <string name="gallery_error_video_failed">Impossibile riprodurre il video.</string>
   <string name="gallery_save_image_write_permission_rationale">Il permesso di scrittura sul dispositivo è necessario per il salvataggio delle immagini.</string>
   <string name="gallery_add_image_caption_button">Aggiungi didascalia immagine</string>
   <string name="gallery_add_image_caption_in_language_button">Aggiungi didascalia immagine (%s)</string>
   <string name="err_cannot_save_file">Impossibile salvare il file</string>
-  <string name="snippet_share_intro">\"%1$s\" su @Wikipedia: %2$s</string>
   <string name="expand_refs">Tocca per espandere</string>
-  <string name="share_snippet_button">Condividi come immagine</string>
-  <string name="share_normal_button">Condividi come testo</string>
-  <string name="snippet_share_preview_image_desc">Anteprima immagine</string>
   <string name="cc_logo">Licenza Creative Commons</string>
   <string name="captcha_image">Immagine captcha</string>
   <string name="gallery_fair_use_license">Utilizzo onesto</string>
@@ -367,6 +360,7 @@
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Abbina il tema del sistema</string>
   <string name="page_footer_license_text">Il contenuto è disponibile in base alla licenza $1, se non diversamente specificato</string>
   <string name="empty_tab_title">Nuova scheda</string>
+  <string name="menu_save_all_tabs">Salva tutte le schede</string>
   <string name="crash_report_activity_title">Errore dell\'applicazione</string>
   <string name="crash_report_relaunch_or_quit">Spiacenti, si è verificato un errore nell\'applicazione Wikipedia ed è stata terminata.\n\nVuoi riavviarla o uscire?</string>
   <string name="crash_report_relaunch">Avvia di nuovo</string>
@@ -392,8 +386,7 @@
   <string name="reading_list_save_to">Salva nell\'elenco di lettura</string>
   <string name="reading_list_create_new">Crea nuovo</string>
   <string name="reading_list_title_exists">L\'elenco di lettura \"%s\" già esiste.</string>
-  <string name="reading_list_added_to_named">Aggiunto a %s.</string>
-  <string name="reading_list_already_exists">Questa voce è già presente in questo elenco.</string>
+  <string name="reading_list_article_added_to_named">%1$s aggiunta a %2$s.</string>
   <string name="reading_list_added_view_button">Visualizza elenco</string>
   <string name="format_reading_list_statistical_summary_singular">1 voce, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d voci, %2$.2f MB</string>
@@ -449,8 +442,7 @@
   <string name="reading_lists_confirm_remote_delete_yes">Sì</string>
   <string name="reading_lists_confirm_remote_delete_no">No</string>
   <string name="reading_list_article_save_in_progress">La voce è in fase di scaricamento e sarà disponibile offline al termine.</string>
-  <string name="reading_list_already_contains_selection">L\'elenco scelto contiene già tutte le pagine selezionate.</string>
-  <string name="reading_list_added_articles_list_titled">Aggiunte %1$d voci a %2$s</string>
+  <string name="reading_list_articles_added_to_named">Aggiunte %1$d voci a %2$s</string>
   <string name="reading_list_delete_confirm">Sei sicuro di voler cancellare %s?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Accedi per abilitare la sincronizzazione</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Accedi per consentire il salvataggio degli elenchi di lettura sulla tua utenza.</string>
@@ -486,7 +478,7 @@
     <item quantity="one">Questa voce non sarà più disponibile offline.</item>
     <item quantity="other">Queste voci non saranno più disponibili offline.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync">Elenchi di lettura sincronizzati correttamente</string>
+  <string name="reading_list_toast_last_sync">Elenchi di lettura sincronizzati</string>
   <string name="reading_list_menu_last_sync">Ultima sincronizzazione: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">OK</string>
   <string name="reading_list_delete_dialog_ok_button_text">OK</string>
@@ -518,6 +510,10 @@
   <plurals name="notification_syncing_reading_list_channel_name">
     <item quantity="one">Sincronizzazione dell\'elenco di lettura</item>
     <item quantity="other">Sincronizzazione degli elenchi di lettura</item>
+  </plurals>
+  <plurals name="notification_syncing_reading_list_title">
+    <item quantity="one">Sincronizzando %1$d elenco…</item>
+    <item quantity="other">Sincronizzando %1$d elenchi……</item>
   </plurals>
   <plurals name="notification_syncing_reading_list_description">
     <item quantity="one">%1$d elenco rimanente</item>
@@ -727,6 +723,8 @@
   <string name="suggested_edits_image_tags_snackbar">Aggiungi delle etichette all\'immagine per facilitarne la ricerca da parte di altri utenti.</string>
   <string name="suggested_edits_image_tags_task_detail">Etichetta le immagini per facilitarne la ricerca. Selezionale fra quelle suggerite o aggiungine di tue.</string>
   <string name="suggested_edits_image_tags_choose">Aggiungi o scegli le etichette corrispondenti</string>
+  <string name="suggested_edits_image_tags_published_list">Etichette pubblicate</string>
+  <string name="suggested_edits_image_tags_search">Cerca etichette</string>
   <string name="suggested_edits_image_tags_select_title">Non hai selezionato alcuna etichetta per questa immagine</string>
   <string name="suggested_edits_image_tags_select_text">Solo le etichette scelte verranno aggiunte alle immagini. Le etichette non selezionate verranno contrassegnate come rifiutate. Sei sicuro di voler contrassegnare tutte le etichette come rifiutate?</string>
   <string name="suggested_edits_image_tags_add_tag">Aggiungi etichetta</string>
@@ -766,6 +764,7 @@
   <string name="suggested_edits_last_edited">Ultima modifica</string>
   <string name="suggested_edits_last_edited_never">Mai</string>
   <string name="suggested_edits_task_new">nuovo</string>
+  <string name="suggested_edits_cc0_notice">Pubblicando, accetti le nostre &lt;a href=\"%1$s\"&gt;condizioni d\'uso&lt;/a&gt; e accetti di rilasciare irrevocabilmente il tuo contributo in base alla &lt;a href=\"%2$s\"&gt;licenza CC0&lt;/a&gt;.</string>
   <string name="description_edit_revert_subtitle">Grazie per aver modificato Wikipedia!</string>
   <string name="description_edit_revert_intro">Sappiamo che hai fatto del tuo meglio, ma uno dei recensori ha destato preoccupazione. I possibili motivi per cui la tua modifica è stata annullata includono:</string>
   <string name="description_edit_revert_reason1">il tuo contributo non rispetta una delle &lt;a href=\"%1$s\"&gt;linee guida&lt;/a&gt;.</string>

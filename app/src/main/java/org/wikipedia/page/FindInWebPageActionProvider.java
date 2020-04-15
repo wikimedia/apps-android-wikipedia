@@ -61,7 +61,7 @@ public class FindInWebPageActionProvider extends FindInPageActionProvider
 
     @Override
     public void onCloseClicked() {
-        fragment.closeFindInPage();
+        fragment.callback().onPageCloseActionMode();
     }
 
     @Override

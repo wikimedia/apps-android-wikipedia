@@ -85,10 +85,7 @@
   <string name="menu_long_press_open_page">Aç</string>
   <string name="menu_long_press_open_in_new_tab">Yeni sekmede aç</string>
   <string name="menu_long_press_copy_page">Bağlantı adresini kopyala</string>
-  <string name="menu_text_select_copy">Kopyala</string>
   <string name="menu_text_select_define">Tanımla</string>
-  <string name="menu_text_select_share">Paylaş</string>
-  <string name="share">Paylaş</string>
   <string name="on_this_day_page_share">Paylaş</string>
   <string name="reading_list_page_share">Paylaş</string>
   <string name="menu_text_select_edit_here">Burayı düzenle</string>
@@ -138,7 +135,7 @@
   <string name="menu_login">Oturum aç</string>
   <string name="login_activity_title">Vikipedi\'ye oturum aç</string>
   <string name="login_in_progress_dialog_message">Giriş yapılıyor...</string>
-  <string name="login_success_toast">Başarıyla oturum açıldı!</string>
+  <string name="login_success_toast">Oturum açıldı!</string>
   <string name="reset_password_title">Parolanızı belirleyin</string>
   <string name="reset_password_description">Geçici bir şifre ile giriş yaptınız. Giriş işlemini tamamlamak için lütfen yeni şifrenizi buraya girin.</string>
   <string name="reset_password_hint">Yeni parola</string>
@@ -227,10 +224,11 @@
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/tr#Resim_etiketleri</string>
   <string name="about_libraries_heading">Kullanılan kütüphaneler</string>
   <string name="about_contributors_heading">Katkıda bulunanlar</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android/tr\"&gt;Ekip sayfası&lt;/a&gt;</string>
   <string name="about_translators_heading">Çevirmenler</string>
   <string name="about_translators_translatewiki">Bu uygulama &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;\'teki gönüllü çevirmenler tarafından tercüme edilmiştir.</string>
   <string name="about_app_license_heading">Lisans</string>
-  <string name="about_app_license">Kaynak koduna &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; ve &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;\'da &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 Lisansı&lt;/a&gt; ile ulaşılabilir. Aksi belirtilmediği sürece, içerikler &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License\"&gt;Creative Commons Attribution-ShareAlike Lisansı&lt;/a&gt; ile sunulmaktadır.</string>
+  <string name="about_app_license">Kaynak koduna &lt;a href=\"https://gerrit.wikimedia.org/r/#/admin/projects/apps/android/wikipedia\"&gt;Gerrit&lt;/a&gt; ve &lt;a href=\"https://github.com/wikimedia/apps-android-wikipedia\"&gt;GitHub&lt;/a&gt;\'da &lt;a href=\"https://phabricator.wikimedia.org/diffusion/APAW/browse/master/COPYING?view=raw\"&gt;Apache 2.0 Lisansı&lt;/a&gt; ile ulaşılabilir. Aksi belirtilmediği sürece, içerikler &lt;a href=\"https://tr.wikipedia.org/wiki/Vikipedi:Creative_Commons_Atıf-AynıLisanslaPaylaş_3.0_Yerelleştirilmemiş_lisans_metni\"&gt;Creative Commons Atıf-BenzerPaylaşım Lisansı&lt;/a&gt; ile sunulmaktadır.</string>
   <string name="about_wmf">&lt;a href=\"https://wikimediafoundation.org/\"&gt;Wikimedia Vakfı&lt;/a&gt; ürünüdür</string>
   <string name="about_activity_title">Hakkında</string>
   <string name="edit_abandon_confirm">Sayfada değişiklikler yapıldı. Kaydetmeden çıkmak istediğinizden emin misiniz?</string>
@@ -295,17 +293,13 @@
   <string name="gallery_menu_share">Paylaş</string>
   <string name="gallery_share_error">Resim paylaşılamadı: %s</string>
   <string name="gallery_save_progress">Dosya indiriliyor...</string>
-  <string name="gallery_save_success">Dosya başarıyla kaydedildi.</string>
+  <string name="gallery_save_success">Dosya kaydedildi.</string>
   <string name="gallery_error_video_failed">Video oynatılamadı.</string>
   <string name="gallery_save_image_write_permission_rationale">Görüntüleri kaydetmek için cihazınızın hafızasına yazma izni gerekiyor.</string>
   <string name="gallery_add_image_caption_button">Resim başlığı ekle</string>
   <string name="gallery_add_image_caption_in_language_button">Resim başlığı ekle (%s)</string>
   <string name="err_cannot_save_file">Dosya kaydedilemiyor</string>
-  <string name="snippet_share_intro">\"%1$s\" @Wikipedia üzerinde: %2$s</string>
   <string name="expand_refs">Genişletmek için tıklayın</string>
-  <string name="share_snippet_button">Resim olarak paylaş</string>
-  <string name="share_normal_button">Metin olarak paylaş</string>
-  <string name="snippet_share_preview_image_desc">Resmi önizle</string>
   <string name="cc_logo">Creative Commons lisansı</string>
   <string name="captcha_image">Captcha resmi</string>
   <string name="gallery_fair_use_license">Adil kullanım</string>
@@ -366,6 +360,7 @@
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Sistem temasını eşleştir</string>
   <string name="page_footer_license_text">Aksi belirtilmediği sürece içerik, $1 lisansı kapsamındadır.</string>
   <string name="empty_tab_title">Yeni sekme</string>
+  <string name="menu_save_all_tabs">Tüm sekmeleri kaydet</string>
   <string name="crash_report_activity_title">Uygulama hatası</string>
   <string name="crash_report_relaunch_or_quit">Üzgünüz, Vikipedi uygulaması bir sorunla karşılaştı ve kapatıldı.\n\nBaştan başlamak mı yoksa çıkmak mı istiyorsunuz?</string>
   <string name="crash_report_relaunch">Baştan başla</string>
@@ -391,8 +386,9 @@
   <string name="reading_list_save_to">Okuma listesine kaydet</string>
   <string name="reading_list_create_new">Yeni oluştur</string>
   <string name="reading_list_title_exists">\"%s\" adlı okuma listesi zaten mevcut.</string>
-  <string name="reading_list_added_to_named">%s listesine eklendi.</string>
-  <string name="reading_list_already_exists">Bu madde, seçtiğiniz listede mevcut.</string>
+  <string name="reading_list_article_added_to_named">%1$s ile %2$s eklendi.</string>
+  <string name="reading_list_article_already_exists_message">Hepsi iyi! %1$s zaten %2$s içeriyor.</string>
+  <string name="reading_list_articles_already_exist_message">Hepsi iyi! %s zaten tüm maddeleri içeriyor.</string>
   <string name="reading_list_added_view_button">Listeyi görüntüle</string>
   <string name="format_reading_list_statistical_summary_singular">1 madde, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d madde, %2$.2f MB</string>
@@ -448,8 +444,7 @@
   <string name="reading_lists_confirm_remote_delete_yes">Evet</string>
   <string name="reading_lists_confirm_remote_delete_no">Hayır</string>
   <string name="reading_list_article_save_in_progress">Madde indiriliyor; işlem tamamlandığında çevrimdışı olarak erişilebilir olacak.</string>
-  <string name="reading_list_already_contains_selection">Seçilen liste zaten seçilen sayfaların tümünü içermektedir.</string>
-  <string name="reading_list_added_articles_list_titled">%2$s içeriğine %1$d madde eklendi</string>
+  <string name="reading_list_articles_added_to_named">%2$s içeriğine %1$d madde eklendi</string>
   <string name="reading_list_delete_confirm">Bu %s okuma listesini silmek istediğinizden emin misiniz?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Senkronizasyonu etkinleştirmek için giriş yapın</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Okuma listelerinizin hesabınıza kaydedilmesini sağlamak için giriş yapın.</string>
@@ -485,7 +480,7 @@
     <item quantity="one">Bu maddeye artık çevrimdışı olarak erişilemez.</item>
     <item quantity="other">Bu maddelere artık çevrimdışı olarak erişilemez.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync">Okuma listeleri başarıyla eşitlendi</string>
+  <string name="reading_list_toast_last_sync">Okuma listeleri eşitlendi</string>
   <string name="reading_list_menu_last_sync">Son senkron: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">Tamam</string>
   <string name="reading_list_delete_dialog_ok_button_text">Tamam</string>

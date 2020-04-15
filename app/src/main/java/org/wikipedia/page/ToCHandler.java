@@ -83,6 +83,9 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
     private ValueCallback<String> sectionOffsetsCallback = new ValueCallback<String>() {
         @Override
         public void onReceiveValue(String value) {
+            if (!fragment.isAdded()) {
+                return;
+            }
             try {
                 JSONArray sections = new JSONObject(value).getJSONArray("sections");
                 for (int i = 0; i < sections.length(); i++) {
@@ -130,7 +133,10 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
     }
 
     @SuppressLint("RtlHardcoded")
-    void setupToC(@NonNull Page page, @NonNull WikiSite wiki, boolean firstPage) {
+    void setupToC(@Nullable Page page, @NonNull WikiSite wiki, boolean firstPage) {
+        if (page == null) {
+            return;
+        }
         adapter.setPage(page);
         rtl = L10nUtil.isLangRTL(wiki.languageCode());
         showOnboading = Prefs.isTocTutorialEnabled() && !page.isMainPage() && !firstPage;
@@ -151,25 +157,16 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
         }
     }
 
-    void scrollToSection(@NonNull String sectionAnchor) {
-        for (Section section : adapter.sections) {
-            if (section.getAnchor().equals(sectionAnchor)) {
-                scrollToSection(section);
-                break;
-            }
-        }
-    }
-
     private void scrollToSection(@Nullable Section section) {
         if (section == null) {
             return;
         }
-        if (section.getId() == ABOUT_SECTION_ID) {
+        if (section.isLead()) {
+            webView.setScrollY(0);
+        } else if (section.getId() == ABOUT_SECTION_ID) {
             bridge.execute(JavaScriptActionHandler.scrollToFooter(webView.getContext()));
         } else {
-            final int topScrollExtra = 64;
-            int offset = DimenUtil.roundedDpToPx(adapter.getYOffset(section.getId()) - topScrollExtra);
-            webView.setScrollY(section.getId() == 0 ? 0 : offset);
+            bridge.execute(JavaScriptActionHandler.prepareToScrollTo(section.getAnchor(), false));
         }
     }
 
@@ -233,13 +230,11 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
     public final class ToCAdapter extends BaseAdapter {
         private final ArrayList<Section> sections = new ArrayList<>();
         private final SparseIntArray sectionYOffsets = new SparseIntArray();
-        private String pageTitle;
         private int highlightedSection;
 
         void setPage(@NonNull Page page) {
             sections.clear();
             sectionYOffsets.clear();
-            pageTitle = page.getDisplayTitle();
 
             for (Section s : page.getSections()) {
                 if (s.getLevel() < MAX_LEVELS) {

@@ -82,10 +82,7 @@
   <string name="menu_long_press_open_page">Otwórz</string>
   <string name="menu_long_press_open_in_new_tab">Otwórz w nowej karcie</string>
   <string name="menu_long_press_copy_page">Kopiuj adres łącza</string>
-  <string name="menu_text_select_copy">Kopiuj</string>
   <string name="menu_text_select_define">Definicja</string>
-  <string name="menu_text_select_share">Udostępnij</string>
-  <string name="share">Udostępnij</string>
   <string name="on_this_day_page_share">Udostępnij</string>
   <string name="reading_list_page_share">Udostępnij</string>
   <string name="menu_text_select_edit_here">Edytuj tutaj</string>
@@ -134,7 +131,7 @@
   <string name="menu_login">Zaloguj się</string>
   <string name="login_activity_title">Zaloguj się do Wikipedii</string>
   <string name="login_in_progress_dialog_message">Logowanie…</string>
-  <string name="login_success_toast">Zalogowano pomyślnie!</string>
+  <string name="login_success_toast" fuzzy="true">Zalogowano pomyślnie!</string>
   <string name="reset_password_title">Wpisz swoje hasło</string>
   <string name="reset_password_description">Zalogowano się z użyciem hasła tymczasowego. Aby dokończyć logowanie, ustaw nowe hasło.</string>
   <string name="reset_password_hint">Nowe hasło</string>
@@ -290,17 +287,13 @@
   <string name="gallery_menu_share">Udostępnij</string>
   <string name="gallery_share_error">Nie można udostępnić obrazu: %s</string>
   <string name="gallery_save_progress">Pobieranie pliku…</string>
-  <string name="gallery_save_success">Plik pomyślnie zapisany.</string>
+  <string name="gallery_save_success" fuzzy="true">Plik pomyślnie zapisany.</string>
   <string name="gallery_error_video_failed">Nie można odtworzyć filmu wideo.</string>
   <string name="gallery_save_image_write_permission_rationale">Do zapisu obrazów w pamięci twojego urządzenia wymagane są uprawnień do zapisu obrazów.</string>
   <string name="gallery_add_image_caption_button">Dodaj podpis obrazu</string>
   <string name="gallery_add_image_caption_in_language_button">Dodaj podpis obrazu (%s)</string>
   <string name="err_cannot_save_file">Nie można zapisać pliku</string>
-  <string name="snippet_share_intro">\"%1$s\" na @Wikipedia: %2$s</string>
   <string name="expand_refs">Kliknij, aby rozwinąć</string>
-  <string name="share_snippet_button">Udostępnij jako obraz</string>
-  <string name="share_normal_button">Udostępnij jako tekst</string>
-  <string name="snippet_share_preview_image_desc">Podgląd obrazu</string>
   <string name="cc_logo">Licencja Creative Commons</string>
   <string name="captcha_image">Obrazek captcha</string>
   <string name="gallery_fair_use_license">Fair use</string>
@@ -385,8 +378,6 @@
   <string name="reading_list_save_to">Zapisz do przeczytania</string>
   <string name="reading_list_create_new">Utwórz nową</string>
   <string name="reading_list_title_exists">Lista \"%s\" już istnieje.</string>
-  <string name="reading_list_added_to_named">Dodano do %s.</string>
-  <string name="reading_list_already_exists">Ten artykuł znajduje się już na tej liście.</string>
   <string name="reading_list_added_view_button">Zobacz listę</string>
   <string name="format_reading_list_statistical_summary_singular">1 artykuł, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d artykułów, %2$.2f MB</string>
@@ -442,8 +433,7 @@
   <string name="reading_lists_confirm_remote_delete_yes">Tak</string>
   <string name="reading_lists_confirm_remote_delete_no">Nie</string>
   <string name="reading_list_article_save_in_progress">Artykuł jest w trakcie pobierania i będzie dostępny w trybie offline, gdy pobieranie się zakończy.</string>
-  <string name="reading_list_already_contains_selection">Wybrana lista zawiera już wszystkie wybrane strony.</string>
-  <string name="reading_list_added_articles_list_titled">Dodano %1$d artykułów do %2$s</string>
+  <string name="reading_list_articles_added_to_named">Dodano %1$d artykułów do %2$s</string>
   <string name="reading_list_delete_confirm">Czy na pewno chcesz usunąć „%s”?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Zaloguj się, aby włączyć synchronizację</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Zaloguj się, aby umożliwić zapisywanie list na swoim koncie.</string>
@@ -479,7 +469,7 @@
     <item quantity="one">Ten artykuł nie będzie już dostępny w trybie offline.</item>
     <item quantity="other">Te artykuły nie będą już dostępne w trybie offline.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync">Listy czytanych pomyślnie zsynchronizowane</string>
+  <string name="reading_list_toast_last_sync" fuzzy="true">Listy czytanych pomyślnie zsynchronizowane</string>
   <string name="reading_list_menu_last_sync">Ostatnia synchronizacja: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">OK</string>
   <string name="reading_list_delete_dialog_ok_button_text">OK</string>

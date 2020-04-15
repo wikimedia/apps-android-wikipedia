@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -15,8 +16,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.PopupMenu;
-
-import com.facebook.drawee.view.SimpleDraweeView;
 
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.Constants;
@@ -74,7 +73,7 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
     private LinkPreviewErrorView errorContainer;
     private ProgressBar progressBar;
     private TextView extractText;
-    private SimpleDraweeView thumbnailView;
+    private ImageView thumbnailView;
     private GalleryThumbnailScrollView thumbnailGallery;
     private LinkPreviewOverlayView overlayView;
     private TextView titleText;
@@ -222,13 +221,7 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
                     funnel.setPageId(summary.getPageId());
                     pageTitle.setThumbUrl(summary.getThumbnailUrl());
                     revision = summary.getRevision();
-                    // TODO: Remove this logic once Parsoid starts supporting language variants.
-                    if (pageTitle.getWikiSite().languageCode().equals(pageTitle.getWikiSite().subdomain())) {
-                        titleText.setText(StringUtil.fromHtml(summary.getDisplayTitle()));
-                    } else {
-                        titleText.setText(StringUtil.fromHtml(pageTitle.getDisplayText()));
-                    }
-
+                    titleText.setText(StringUtil.fromHtml(summary.getDisplayTitle()));
                     // TODO: remove after the restbase endpoint supports ZH variants
                     pageTitle.setText(StringUtil.removeNamespace(summary.getApiTitle()));
                     showPreview(new LinkPreviewContents(summary, pageTitle.getWikiSite()));
@@ -305,7 +298,7 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
         String thumbnailImageUrl = contents.getTitle().getThumbUrl();
         if (thumbnailImageUrl != null) {
             thumbnailView.setVisibility(View.VISIBLE);
-            ViewUtil.loadImageUrlInto(thumbnailView, thumbnailImageUrl);
+            ViewUtil.loadImage(thumbnailView, thumbnailImageUrl);
         }
         if (overlayView != null) {
             overlayView.setPrimaryButtonText(getStringForArticleLanguage(pageTitle,

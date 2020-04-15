@@ -37,6 +37,7 @@ import java.util.Map;
  *
  */
 public class CommunicationBridge {
+    public static final String BLANK_PAGE = "about:blank";
     private final Map<String, List<JSEventListener>> eventListeners;
     private final CommunicationBridgeListener communicationBridgeListener;
 
@@ -132,9 +133,14 @@ public class CommunicationBridge {
                 L.e("No such message type registered: " + message.getAction());
                 return false;
             }
-            List<JSEventListener> listeners = eventListeners.get(message.getAction());
-            for (JSEventListener listener : listeners) {
-                listener.onMessage(message.getAction(), message.getData());
+            try {
+                List<JSEventListener> listeners = eventListeners.get(message.getAction());
+                for (JSEventListener listener : listeners) {
+                    listener.onMessage(message.getAction(), message.getData());
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                L.logRemoteError(e);
             }
             return false;
         }
@@ -166,7 +172,8 @@ public class CommunicationBridge {
 
         @JavascriptInterface
         public synchronized String getSetupSettings() {
-            return JavaScriptActionHandler.setUp(communicationBridgeListener.getPageTitle());
+            return JavaScriptActionHandler.setUp(communicationBridgeListener.getWebView().getContext(),
+                    communicationBridgeListener.getPageTitle());
         }
     }
 

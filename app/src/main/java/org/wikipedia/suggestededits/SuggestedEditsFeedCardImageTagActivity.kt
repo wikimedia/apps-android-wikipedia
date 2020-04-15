@@ -3,13 +3,13 @@ package org.wikipedia.suggestededits
 import android.content.Context
 import android.content.Intent
 import android.content.res.ColorStateList
-import android.content.res.Configuration
 import android.graphics.Color
 import android.os.Bundle
 import android.view.MotionEvent
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import androidx.core.widget.ImageViewCompat
+import androidx.fragment.app.Fragment
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_suggested_edits_feed_card_image_tags.*
 import org.wikipedia.R
@@ -18,6 +18,7 @@ import org.wikipedia.activity.BaseActivity
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.json.GsonMarshaller
+import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.views.ImageZoomHelper
 
@@ -62,7 +63,7 @@ class SuggestedEditsFeedCardImageTagActivity : BaseActivity(), SuggestedEditsIma
         } else {
             addContributionButton.setBackgroundResource(R.drawable.button_shape_border_light)
         }
-        if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+        if (DimenUtil.isLandscape(this)) {
             addContributionButton.visibility = GONE
             addContributionLandscapeImage.visibility = VISIBLE
             val color = if (suggestedEditsImageTagsFragment!!.publishOutlined()) ResourceUtil.getThemedColor(this, R.attr.colorAccent) else Color.WHITE
@@ -81,7 +82,7 @@ class SuggestedEditsFeedCardImageTagActivity : BaseActivity(), SuggestedEditsIma
         }
     }
 
-    override fun nextPage() {
+    override fun nextPage(sourceFragment: Fragment?) {
         setResult(RESULT_OK)
         finish()
     }

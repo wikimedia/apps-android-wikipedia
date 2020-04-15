@@ -5,6 +5,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import org.wikipedia.WikipediaApp
+import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
@@ -74,8 +75,7 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ page ->
-                    val pageForImageTag = page
-                    val card: SuggestedEditsCard = toSuggestedEditsCard(WikiSite.forLanguageCode(langFromCode), null, null, pageForImageTag)
+                    val card: SuggestedEditsCard = toSuggestedEditsCard(WikiSite.forLanguageCode(langFromCode), null, null, page)
 
                     callback?.updateCardContent(card)
                     if (cb != null) {
@@ -105,7 +105,7 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
 
                     callback?.updateCardContent(card)
                     if (cb != null) {
-                        FeedCoordinator.postCardsToCallback(cb, if (sourceSummary == null) emptyList<Card>() else listOf(card))
+                        FeedCoordinator.postCardsToCallback(cb, listOf(card))
                     }
                 }, { cb?.error(it) }))
     }
@@ -161,7 +161,7 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .flatMap { title ->
-                    ServiceFactory.get(WikiSite.forLanguageCode(langFromCode)).getImageInfo(title, langFromCode)
+                    ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo(title, langFromCode)
                             .subscribeOn(Schedulers.io())
                             .observeOn(AndroidSchedulers.mainThread())
                 }
@@ -192,7 +192,7 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
                         val card: SuggestedEditsCard = toSuggestedEditsCard(WikiSite.forLanguageCode(langFromCode), sourceSummary, null, null)
                         callback?.updateCardContent(card)
                         if (cb != null) {
-                            FeedCoordinator.postCardsToCallback(cb, if (sourceSummary == null) emptyList<Card>() else listOf(card))
+                            FeedCoordinator.postCardsToCallback(cb, listOf(card))
                         }
                     }
                 }, { cb?.error(it) }))
@@ -211,7 +211,7 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
                 .observeOn(AndroidSchedulers.mainThread())
                 .flatMap { pair ->
                     fileCaption = pair.first
-                    ServiceFactory.get(WikiSite.forLanguageCode(langFromCode)).getImageInfo(pair.second, langFromCode)
+                    ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo(pair.second, langFromCode)
                             .subscribeOn(Schedulers.io())
                             .observeOn(AndroidSchedulers.mainThread())
                 }
@@ -240,7 +240,7 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
                                 imageInfo.metadata
                         )
 
-                        val targetSummary = sourceSummary!!.copy(
+                        val targetSummary = sourceSummary.copy(
                                 description = null,
                                 lang = langToCode,
                                 pageTitle = PageTitle(
@@ -255,7 +255,7 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
                         val card: SuggestedEditsCard = toSuggestedEditsCard(WikiSite.forLanguageCode(langToCode), sourceSummary, targetSummary, null)
                         callback?.updateCardContent(card)
                         if (cb != null) {
-                            FeedCoordinator.postCardsToCallback(cb, if (targetSummary == null) emptyList<Card>() else listOf(card))
+                            FeedCoordinator.postCardsToCallback(cb, listOf(card))
                         }
                     }
                 }, { cb?.error(it) }))

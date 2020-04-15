@@ -73,10 +73,7 @@
   <string name="menu_long_press_open_page">Avaa</string>
   <string name="menu_long_press_open_in_new_tab">Avaa uudessa välilehdessä</string>
   <string name="menu_long_press_copy_page">Kopioi linkin osoite</string>
-  <string name="menu_text_select_copy">Kopioi</string>
   <string name="menu_text_select_define">Määritelmä</string>
-  <string name="menu_text_select_share">Jaa</string>
-  <string name="share">Jaa</string>
   <string name="on_this_day_page_share">Jaa</string>
   <string name="reading_list_page_share">Jaa</string>
   <string name="menu_text_select_edit_here">Muokkaa tästä</string>
@@ -125,7 +122,7 @@
   <string name="menu_login">Kirjaudu sisään</string>
   <string name="login_activity_title">Kirjaudu Wikipediaan</string>
   <string name="login_in_progress_dialog_message">Kirjaudutaan…</string>
-  <string name="login_success_toast">Kirjautuminen onnistui!</string>
+  <string name="login_success_toast" fuzzy="true">Kirjautuminen onnistui!</string>
   <string name="reset_password_title">Aseta salasanasi</string>
   <string name="reset_password_description">Kirjauduit sisään väliaikaisella salasanalla. Viimeistelläksesi kirjautumisen, aseta uusi salasanasi tässä.</string>
   <string name="reset_password_hint">Uusi salasana</string>
@@ -280,17 +277,13 @@
   <string name="gallery_menu_share">Jaa</string>
   <string name="gallery_share_error">Kuvaa ei voitu jakaa: %s</string>
   <string name="gallery_save_progress">Ladataan tiedostoa…</string>
-  <string name="gallery_save_success">Tiedosto on tallennettu.</string>
+  <string name="gallery_save_success" fuzzy="true">Tiedosto on tallennettu.</string>
   <string name="gallery_error_video_failed">Videota ei voitu toistaa.</string>
   <string name="gallery_save_image_write_permission_rationale">Käyttöoikeus laitteesi ulkoiseen muistiin vaaditaan kuvien tallentamista varten.</string>
   <string name="gallery_add_image_caption_button">Lisää kuvateksti</string>
   <string name="gallery_add_image_caption_in_language_button">Lisää kuvateksti (%s)</string>
   <string name="err_cannot_save_file">Tiedostoa ei voitu tallentaa</string>
-  <string name="snippet_share_intro">\"%1$s\" sivustolla @Wikipedia: %2$s</string>
   <string name="expand_refs">Napauta laajentaaksesi</string>
-  <string name="share_snippet_button">Jaa kuvana</string>
-  <string name="share_normal_button">Jaa tekstinä</string>
-  <string name="snippet_share_preview_image_desc">Esikatsele kuvaa</string>
   <string name="cc_logo">Creative Commons -lisenssi</string>
   <string name="captcha_image">CAPTCHA-kuva</string>
   <string name="gallery_fair_use_license">Fair use -lisenssi</string>
@@ -372,8 +365,6 @@
   <string name="reading_list_save_to">Tallenna lukulistaan</string>
   <string name="reading_list_create_new">Luo uusi</string>
   <string name="reading_list_title_exists">Lukulukuluettelo ”%s” on jo olemassa.</string>
-  <string name="reading_list_added_to_named">Lisätty listaan %s.</string>
-  <string name="reading_list_already_exists">Tämä artikkeli on valitussa lukulistassa.</string>
   <string name="reading_list_added_view_button">Näytä lista</string>
   <string name="format_reading_list_statistical_summary_singular">1 artikkeli, %1$.2f Mt</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d artikkelia, %2$.2f Mt</string>
@@ -429,8 +420,7 @@
   <string name="reading_lists_confirm_remote_delete_yes">Kyllä</string>
   <string name="reading_lists_confirm_remote_delete_no">Ei</string>
   <string name="reading_list_article_save_in_progress">Artikkelia ladataan ja se tulee käytettäväksi offline-tilassa kun lataus on valmis.</string>
-  <string name="reading_list_already_contains_selection">Valittu lista sisältää jo kaikki valitut sivut.</string>
-  <string name="reading_list_added_articles_list_titled">Lisättiin %1$d artikkelia listaan %2$s</string>
+  <string name="reading_list_articles_added_to_named">Lisättiin %1$d artikkelia listaan %2$s</string>
   <string name="reading_list_delete_confirm">Haluatko varmasti poistaa %s?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Kirjaudu sisään ottaaksesi synkronoinnin käyttöön</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Kirjaudu sisään salliaksesi lukulistojesi tallentamisen tunnuksellesi.</string>
@@ -466,7 +456,7 @@
     <item quantity="one">Tämä artikkeli ei ole enää käytettävissä offline-tilassa.</item>
     <item quantity="other">Nämä artikkelit eivät enää ole käytettävissä offline-tilassa.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync">Lukulistat synkronoitu onnistuneesti</string>
+  <string name="reading_list_toast_last_sync" fuzzy="true">Lukulistat synkronoitu onnistuneesti</string>
   <string name="reading_list_menu_last_sync">Viimeksi synkronoitu: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">OK</string>
   <string name="reading_list_delete_dialog_ok_button_text">OK</string>

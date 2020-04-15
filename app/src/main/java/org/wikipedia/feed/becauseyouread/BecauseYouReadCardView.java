@@ -14,12 +14,10 @@ import org.wikipedia.feed.view.ListCardView;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.util.DateUtil;
 import org.wikipedia.views.DefaultViewHolder;
-import org.wikipedia.views.ItemTouchHelperSwipeAdapter;
 
 import java.util.List;
 
-public class BecauseYouReadCardView extends ListCardView<BecauseYouReadCard>
-        implements ItemTouchHelperSwipeAdapter.SwipeableView {
+public class BecauseYouReadCardView extends ListCardView<BecauseYouReadCard> {
     public interface Callback {
         void onSelectPageFromExistingTab(@NonNull Card card, @NonNull HistoryEntry entry);
     }

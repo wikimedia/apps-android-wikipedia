@@ -4,6 +4,7 @@ import android.content.Context
 import android.text.TextUtils
 import android.util.AttributeSet
 import android.view.Menu
+import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 
@@ -24,7 +25,7 @@ class NavTabLayout constructor(context: Context, attrs: AttributeSet) : BottomNa
             if (!AccountUtil.isLoggedIn() && NavTab.SUGGESTED_EDITS === navTab) {
                 continue
             }
-            menu.add(Menu.NONE, i, i, navTab.text()).setIcon(navTab.icon())
+            menu.add(Menu.NONE, View.generateViewId(), i, navTab.text()).setIcon(navTab.icon())
         }
         fixTextStyle()
     }

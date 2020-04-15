@@ -22,6 +22,7 @@ public class MwQueryPage extends BaseModel {
     private int pageid;
     private int ns;
     private int index;
+    private long lastrevid;
     @Nullable private String title;
     @Nullable private List<LangLink> langlinks;
     @Nullable private List<Revision> revisions;
@@ -34,6 +35,7 @@ public class MwQueryPage extends BaseModel {
     @SerializedName("descriptionsource") @Nullable private String descriptionSource;
     @SerializedName("imageinfo") @Nullable private List<ImageInfo> imageInfo;
     @SerializedName("videoinfo") @Nullable private List<ImageInfo> videoInfo;
+    @Nullable private String imagerepository;
     @Nullable private String redirectFrom;
     @Nullable private String convertedFrom;
     @Nullable private String convertedTo;
@@ -143,6 +145,14 @@ public class MwQueryPage extends BaseModel {
         return imageLabels != null ? imageLabels : Collections.emptyList();
     }
 
+    public boolean isImageFromCommons() {
+        return StringUtils.defaultString(imagerepository).equals("shared");
+    }
+
+    public long getLastRevId() {
+        return lastrevid;
+    }
+
     public static class Revision {
         @SerializedName("contentformat") @Nullable private String contentFormat;
         @SerializedName("contentmodel") @Nullable private String contentModel;
@@ -228,10 +238,12 @@ public class MwQueryPage extends BaseModel {
 
     public static class ImageLabel {
         @SerializedName("wikidata_id") @Nullable private String wikidataId;
+        @Nullable private Confidence confidence;
         @Nullable private String state;
         @Nullable private String label;
         @Nullable private String description;
         private boolean selected;
+        private boolean custom;
 
         public ImageLabel() {
         }
@@ -240,6 +252,7 @@ public class MwQueryPage extends BaseModel {
             this.wikidataId = wikidataId;
             this.label = label;
             this.description = description;
+            custom = true;
         }
 
         @NonNull public String getWikidataId() {
@@ -264,6 +277,22 @@ public class MwQueryPage extends BaseModel {
 
         public void setSelected(boolean selected) {
             this.selected = selected;
+        }
+
+        public boolean isCustom() {
+            return custom;
+        }
+
+        public float getConfidenceScore() {
+            return confidence == null ? 0 : confidence.getGoogle();
+        }
+    }
+
+    public static class Confidence {
+        private float google;
+
+        public float getGoogle() {
+            return google;
         }
     }
 }

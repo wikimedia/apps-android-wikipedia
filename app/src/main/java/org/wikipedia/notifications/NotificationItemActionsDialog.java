@@ -165,7 +165,7 @@ public class NotificationItemActionsDialog extends ExtendedBottomSheetDialogFrag
             // ignore
         }
 
-        @Override public void onSVGLinkClicked(@NonNull String href) {
+        @Override public void onMediaLinkClicked(@NonNull PageTitle title) {
             // ignore
         }
 

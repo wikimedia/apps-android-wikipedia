@@ -10,6 +10,7 @@
 * Rasal Lia
 * Sandipan
 * Sayma Jahan
+* Sourav Halder
 * Tahmid02016
 * Tauhid16
 * Wikisagnik
@@ -67,10 +68,7 @@
   <string name="menu_long_press_open_page">খুলুন</string>
   <string name="menu_long_press_open_in_new_tab">নতুন ট্যাবে খুলুন</string>
   <string name="menu_long_press_copy_page">লিঙ্ক ঠিকানা অনুলিপি করো</string>
-  <string name="menu_text_select_copy">অনুলিপি</string>
   <string name="menu_text_select_define">সংজ্ঞা</string>
-  <string name="menu_text_select_share">বণ্টন</string>
-  <string name="share">শেয়ার করুন</string>
   <string name="on_this_day_page_share">শেয়ার করুন</string>
   <string name="reading_list_page_share">শেয়ার করুন</string>
   <string name="menu_text_select_edit_here">এখানে সম্পাদনা করুন</string>
@@ -119,15 +117,17 @@
   <string name="menu_login">প্রবেশ</string>
   <string name="login_activity_title">উইকিপিডিয়াতে প্রবেশ করুন</string>
   <string name="login_in_progress_dialog_message">আপনি প্রবেশ করছেন…</string>
-  <string name="login_success_toast">প্রবেশ করা সফল!</string>
+  <string name="login_success_toast" fuzzy="true">প্রবেশ করা সফল!</string>
   <string name="reset_password_title">আপনার পাসওয়ার্ড নির্ধারন করুন</string>
   <string name="reset_password_description">আপনি একটি সাময়িক পাসওয়ার্ড দিয়ে প্রবেশ করেছেন। প্রবেশ সম্পূর্ণ করতে, এখানে আপনার নতুন পাসওয়ার্ড নির্ধারণ করুন।</string>
   <string name="reset_password_hint">নতুন পাসওয়ার্ড</string>
   <string name="reset_password_button">সংরক্ষণ ও প্রবেশ করুন</string>
   <string name="preference_title_logout">প্রস্থান</string>
   <string name="toast_logout_complete">প্রস্থান সম্পন্ন</string>
-  <string name="logout_prompt" fuzzy="true">আপনি কি নিশ্চিত যে আপনি প্রস্থান করতে চান?</string>
+  <string name="logout_prompt">আপনি কি নিশ্চিত যে আপনি প্রস্থান করতে চান?</string>
   <string name="logout_dialog_cancel_button_text">বাতিল</string>
+  <string name="logged_out_in_background_title">লগ আউট</string>
+  <string name="logged_out_in_background_dialog">আপনি উইকিপিডিয়া থেকে লগ আউট করেছেন।  আপনি আবার লগ ইন করতে চান?</string>
   <string name="logged_out_in_background_login">প্রবেশ করুন</string>
   <string name="logged_out_in_background_cancel">বাতিল</string>
   <string name="history_empty_title">সম্প্রতি কোন নিবন্ধ দেখা হয়নি</string>
@@ -169,7 +169,7 @@
   <string name="preferences_heading_syncing">সুসংগত করা হচ্ছে</string>
   <string name="preferences_heading_data_usage">ডাটা ব্যাবহার</string>
   <string name="preferences_heading_experimental">পরীক্ষামূলক</string>
-  <string name="preference_title_sync_reading_lists_from_account" fuzzy="true">সুসংগত পড়ার তালিকা সক্ষম করুন</string>
+  <string name="preference_title_sync_reading_lists_from_account">সুসংগত পড়ার তালিকা সক্ষম করুন</string>
   <string name="preference_title_download_reading_list_articles">পড়ার তালিকার নিবন্ধ ডাউনলোড করুন</string>
   <string name="preference_summary_sync_reading_lists">বিভিন্ন যন্ত্রে পড়ার তালিকাগুলিকে সুসংগত করার জন্য তাঁদের আপনার উইকিপিডিয়া অ্যাকাউন্টে সংরক্ষণ করে</string>
   <string name="preference_summary_sync_reading_lists_from_account">বিভিন্ন যন্ত্রে পড়ার তালিকাগুলিকে সুসংগত করার জন্য তাঁদের আপনার \"%s\" উইকিপিডিয়া অ্যাকাউন্টে সংরক্ষণ করে</string>
@@ -179,7 +179,7 @@
   <string name="preference_title_eventlogging_opt_in">ব্যবহারের রিপোর্ট পাঠান</string>
   <string name="preference_summary_eventlogging_opt_in">অ্যাপ আরও ভালো করতে উইকিমিডিয়াকে আপনি কিভাবে অ্যাপ্লিকেশন ব্যবহার করছেন সেই সম্পর্কে তথ্য সংগ্রহ করার অনুমতি দিন</string>
   <string name="preference_title_auto_upload_crash_reports">ক্র্যাশ প্রতিবেদন পাঠান</string>
-  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">অ্যাপকে স্বয়ংক্রিয়ভাবে একটি তৃতীয় পক্ষের পরিষেবা প্রদানকারী HockeyApp-এর কাছে ত্রুটি প্রতিবেদন পাঠাতে অনুমতি দিন তাহলে আমরা আপনার ত্রুটি পর্যালোচনা করতে পারবো এবং আরো সহজে ও দ্রুত বাগ ঠিক করতে পারবো।</string>
+  <string name="preference_summary_auto_upload_crash_reports">অ্যাপকে স্বয়ংক্রিয়ভাবে একটি তৃতীয় পক্ষের পরিষেবা প্রদানকারী HockeyApp-এর কাছে ত্রুটি প্রতিবেদন পাঠাতে অনুমতি দিন তাহলে আমরা আপনার ত্রুটি পর্যালোচনা করতে পারবো এবং আরো সহজে ও দ্রুত বাগ ঠিক করতে পারবো।</string>
   <string name="editing_error_spamblacklist">অবরুদ্ধ ডোমেইনের (%s) লিংক সনাক্ত হয়েছে। দয়া করে তাদের সরিয়ে নিন ও আবার চেষ্টা করুন।</string>
   <string name="history_search_list_hint">ইতিহাস অনুসন্ধান</string>
   <string name="error_can_not_process_link">কোনো সংযোগ প্রদর্শিত হয়নি।</string>
@@ -194,7 +194,7 @@
   <string name="about_description">উইকিপিডিয়া অ্যাপ সম্পর্কে</string>
   <string name="privacy_policy_description">গোপনীয়তা নীতি</string>
   <string name="terms_of_use_description">ব্যবহারের শর্তাবলী</string>
-  <string name="about_wikipedia_url" fuzzy="true">https://bn.m.wikipedia.org/wiki/উইকিপিডিয়া:বৃত্তান্ত</string>
+  <string name="about_wikipedia_url">https://bn.m.wikipedia.org/wiki/উইকিপিডিয়া:বৃত্তান্ত</string>
   <string name="privacy_policy_url" fuzzy="true">https://meta.m.wikimedia.org/w/index.php?title=Privacy_policy/bn</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
@@ -268,15 +268,11 @@
   <string name="gallery_menu_share">শেয়ার</string>
   <string name="gallery_share_error">শেয়ার করা যাচ্ছে না: %s</string>
   <string name="gallery_save_progress">ফাইল ডাউনলোড হচ্ছে…</string>
-  <string name="gallery_save_success">ফাইল সফলভাবে সংরক্ষিত হয়েছে।</string>
+  <string name="gallery_save_success" fuzzy="true">ফাইল সফলভাবে সংরক্ষিত হয়েছে।</string>
   <string name="gallery_error_video_failed">ভিডিওটি চালু হচ্ছেনা।</string>
   <string name="gallery_save_image_write_permission_rationale">ছবি সংরক্ষণের জন্য আপনার ডিভাইসের সংগ্রহস্থলে লেখার অনুমতি প্রয়োজন।</string>
   <string name="err_cannot_save_file">ফাইলটি সংরক্ষণ করা যাচ্ছে না</string>
-  <string name="snippet_share_intro">\@Wikipedia তে \"%1$s\": %2$s</string>
   <string name="expand_refs">বিস্তারিত জানতে ক্লিক করুন</string>
-  <string name="share_snippet_button">ছবি হিসাবে ভাগ করুন</string>
-  <string name="share_normal_button">লেখা হিসাবে ভাগ করুন</string>
-  <string name="snippet_share_preview_image_desc">চিত্র প্রাকদর্শন</string>
   <string name="cc_logo">ক্রিয়েটিভ কমন্স লাইসেন্স</string>
   <string name="captcha_image">ক্যাপচা চিত্র</string>
   <string name="gallery_fair_use_license">বৈধ ব্যবহার</string>
@@ -347,8 +343,7 @@
   <string name="reading_list_save_to">পড়ার তালিকায় সংরক্ষণ করুন</string>
   <string name="reading_list_create_new">নতুন তৈরি করুন</string>
   <string name="reading_list_title_exists">পড়ার তালিকা \"%s\" ইতিমধ্যে বিদ্যমান।</string>
-  <string name="reading_list_added_to_named">%s-এ যোগ করা হয়েছে।</string>
-  <string name="reading_list_already_exists">এই নিবন্ধটি ইতিমধ্যে সেই তালিকায় রয়েছে।</string>
+  <string name="reading_list_articles_already_exist_message" fuzzy="true">সব ভাল! %s ইতিমধ্যে খোলা ট্যাবগুলিতে সমস্ত নিবন্ধ রয়েছে।</string>
   <string name="reading_list_added_view_button">তালিকা দেখুন</string>
   <string name="format_reading_list_statistical_summary_singular">১টি নিবন্ধ, %1$.2f মেগাবাইট</string>
   <string name="format_reading_list_statistical_summary_plural">%1$dটি নিবন্ধ, %2$.2f মেগাবাইট</string>
@@ -397,7 +392,7 @@
   <string name="reading_list_confirm_remove_article_from_offline_message">এই সব পড়ার তালিকার জন্য %s আর অফলাইনে উপলব্ধ হবে না:</string>
   <string name="reading_lists_confirm_remote_delete_yes">হ্যাঁ</string>
   <string name="reading_lists_confirm_remote_delete_no">না</string>
-  <string name="reading_list_added_articles_list_titled">%2$s-এ %1$dটি নিবন্ধ যোগ হয়েছে</string>
+  <string name="reading_list_articles_added_to_named">%2$s-এ %1$dটি নিবন্ধ যোগ হয়েছে</string>
   <string name="reading_list_delete_confirm">আপনি কি নিশ্চিতভাবে এই %s অপসারণ করতে চান?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">বাতিল</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">প্রবেশ করুন</string>

@@ -67,7 +67,7 @@ public class EditPreviewFragment extends Fragment implements CommunicationBridge
     private CompositeDisposable disposables = new CompositeDisposable();
 
     @Override
-    @SuppressLint({"AddJavascriptInterface", "SetJavaScriptEnabled"})
+    @SuppressLint("SetJavaScriptEnabled")
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View parent = inflater.inflate(R.layout.fragment_preview_edit, container, false);
         webview = parent.findViewById(R.id.edit_preview_webview);
@@ -87,9 +87,7 @@ public class EditPreviewFragment extends Fragment implements CommunicationBridge
                 //Save the html received from the the wikitext to mobile-html transform, to use in the savedInstanceState
                 view.evaluateJavascript(
                         "(function() { return (document.documentElement.outerHTML); })();",
-                        html -> {
-                            previewHTML = html;
-                        });
+                        html -> previewHTML = html);
             }
         });
 
@@ -239,7 +237,7 @@ public class EditPreviewFragment extends Fragment implements CommunicationBridge
                     showLeavingEditDialogue(() -> handleExternalLink(getContext(), uri));
                 }
 
-                @Override public void onSVGLinkClicked(@NonNull String href) {
+                @Override public void onMediaLinkClicked(@NonNull PageTitle title) {
                     // ignore
                 }
 

@@ -68,10 +68,7 @@
   <string name="menu_long_press_open_page">Megnyitás</string>
   <string name="menu_long_press_open_in_new_tab">Megnyitás új fülön</string>
   <string name="menu_long_press_copy_page">Hivatkozás címének másolása</string>
-  <string name="menu_text_select_copy">Másolás</string>
   <string name="menu_text_select_define">Definiálás</string>
-  <string name="menu_text_select_share">Megosztás</string>
-  <string name="share">Megosztás</string>
   <string name="on_this_day_page_share">Megosztás</string>
   <string name="reading_list_page_share">Megosztás</string>
   <string name="menu_text_select_edit_here">Szerkesztés itt</string>
@@ -121,7 +118,7 @@
   <string name="menu_login">Bejelentkezés</string>
   <string name="login_activity_title">Bejelentkezés a Wikipédiába</string>
   <string name="login_in_progress_dialog_message">Bejelentkezés…</string>
-  <string name="login_success_toast">Sikeresen bejelentkezve!</string>
+  <string name="login_success_toast">Bejelentkezve!</string>
   <string name="reset_password_title">Jelszó beállítása</string>
   <string name="reset_password_description">Ideiglenes jelszóval jelentkeztél be. A bejelentkezés befejezéséhez állíts be itt egy új jelszót.</string>
   <string name="reset_password_hint">Új jelszó</string>
@@ -277,17 +274,13 @@
   <string name="gallery_menu_share">Megosztás</string>
   <string name="gallery_share_error">A kép megosztása sikertelen: %s</string>
   <string name="gallery_save_progress">Fájl letöltése folyamatban…</string>
-  <string name="gallery_save_success">A fájl sikeresen mentve.</string>
+  <string name="gallery_save_success" fuzzy="true">A fájl sikeresen mentve.</string>
   <string name="gallery_error_video_failed">A videó lejátszása sikertelen.</string>
   <string name="gallery_save_image_write_permission_rationale">Képek elmentéséhez szükséges engedély az eszközöd tárhelyére íráshoz.</string>
   <string name="gallery_add_image_caption_button">Képaláírás hozzáadása</string>
   <string name="gallery_add_image_caption_in_language_button">Képaláírás hozzáadása (%s)</string>
   <string name="err_cannot_save_file">Fájl mentése sikertelen</string>
-  <string name="snippet_share_intro">„%1$s” a @Wikipedia szabad enciklopédiában: %2$s</string>
   <string name="expand_refs">Érintsd meg a kinyitáshoz</string>
-  <string name="share_snippet_button">Megosztás képként</string>
-  <string name="share_normal_button">Megosztás szövegként</string>
-  <string name="snippet_share_preview_image_desc">Előnézeti kép</string>
   <string name="cc_logo">Creative Commons licenc</string>
   <string name="captcha_image">Captcha kép</string>
   <string name="gallery_fair_use_license">Fair use (méltányos használat)</string>
@@ -373,8 +366,6 @@
   <string name="reading_list_save_to">Mentés olvasólistára</string>
   <string name="reading_list_create_new">Új létrehozása</string>
   <string name="reading_list_title_exists">A(z) „%s” olvasólista már létezik.</string>
-  <string name="reading_list_added_to_named">Hozzáadva a(z) %s olvasólistához.</string>
-  <string name="reading_list_already_exists">Ez a szócikk már szerepel ebben a listában.</string>
   <string name="reading_list_added_view_button">Lista megtekintése</string>
   <string name="format_reading_list_statistical_summary_singular">1 cikk, %1$.2f megabyte</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d szócikk, %2$.2f megabyte</string>
@@ -430,8 +421,7 @@
   <string name="reading_lists_confirm_remote_delete_yes">Igen</string>
   <string name="reading_lists_confirm_remote_delete_no">Nem</string>
   <string name="reading_list_article_save_in_progress">A cikk letöltése folyamatban, a letöltés befejeztével offline is elérhető lesz.</string>
-  <string name="reading_list_already_contains_selection">A megadott lista már tartalmazza a kiválasztott oldalak mindegyikét.</string>
-  <string name="reading_list_added_articles_list_titled">%1$d szócikk hozzáadva ide: %2$s</string>
+  <string name="reading_list_articles_added_to_named">%1$d szócikk hozzáadva ide: %2$s</string>
   <string name="reading_list_delete_confirm">Biztosan szeretnéd törölni a(z) %s olvasólistát?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Jelentkezz be a szinkronizálás engedélyezéséhez</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Jelentkezz be, ha az olvasólistáidat a fiókodba akarod menteni.</string>
@@ -467,7 +457,7 @@
     <item quantity="one">A szócikk mostantól nem érhető el kapcsolat nélkül.</item>
     <item quantity="other">A szócikkek mostantól nem érhetők el kapcsolat nélkül.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync">Az olvasólisták sikeresen szinkronizálva</string>
+  <string name="reading_list_toast_last_sync" fuzzy="true">Az olvasólisták sikeresen szinkronizálva</string>
   <string name="reading_list_menu_last_sync">Utolsó szinkronizálás: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">OK</string>
   <string name="reading_list_delete_dialog_ok_button_text">OK</string>

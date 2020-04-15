@@ -53,10 +53,7 @@
   <string name="menu_long_press_open_page">Opmaachen</string>
   <string name="menu_long_press_open_in_new_tab">An engem neien Tab opmaachen</string>
   <string name="menu_long_press_copy_page">Adress vum Link kopéieren</string>
-  <string name="menu_text_select_copy">Kopéieren</string>
   <string name="menu_text_select_define">Definéieren</string>
-  <string name="menu_text_select_share">Deelen</string>
-  <string name="share">Deelen</string>
   <string name="on_this_day_page_share">Deelen</string>
   <string name="reading_list_page_share">Deelen</string>
   <string name="menu_text_select_edit_here">Hei änneren</string>
@@ -103,7 +100,7 @@
   <string name="menu_login">Aloggen</string>
   <string name="login_activity_title">Op Wikipedia aloggen</string>
   <string name="login_in_progress_dialog_message">Dir gitt ageloggt…</string>
-  <string name="login_success_toast">Ageloggt mat Succès!</string>
+  <string name="login_success_toast">Ageloggt!</string>
   <string name="reset_password_title">Leet Äert Passwuert fest</string>
   <string name="reset_password_hint">Neit Passwuert</string>
   <string name="reset_password_button">Späicheren an aloggen</string>
@@ -244,11 +241,7 @@
   <string name="gallery_save_success">Fichier gespäichert.</string>
   <string name="gallery_error_video_failed">De Video konnt net gespillt ginn.</string>
   <string name="err_cannot_save_file">Fichier kann net gespäichert ginn</string>
-  <string name="snippet_share_intro">\"%1$s\" op @Wikipedia: %2$s</string>
   <string name="expand_refs">Tippe fir opzeklappen</string>
-  <string name="share_snippet_button">Als Bild deelen</string>
-  <string name="share_normal_button">Als Text deelen</string>
-  <string name="snippet_share_preview_image_desc">Bild kucken ouni ze späicheren</string>
   <string name="cc_logo">Creative-Commons-Lizenz</string>
   <string name="captcha_image">Captcha-Bild</string>
   <string name="gallery_fair_use_license">Fair Use</string>
@@ -314,8 +307,6 @@
   <string name="reading_list_save_to">Op d\'Lieslëscht setzen</string>
   <string name="reading_list_create_new">Neier uleeën</string>
   <string name="reading_list_title_exists">D\'Lieslëscht \"%s\" gëtt et schonn.</string>
-  <string name="reading_list_added_to_named">Bei %s dobäigesat.</string>
-  <string name="reading_list_already_exists">Dësen Artikel ass schonn an där Lëscht.</string>
   <string name="reading_list_added_view_button">Lëscht weisen</string>
   <string name="format_reading_list_statistical_summary_singular">Een Artikel, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d Artikelen, %2$.2f MB</string>
@@ -360,8 +351,7 @@
   <string name="reading_list_login_reminder_title">Lieslëschte synchroniséieren</string>
   <string name="reading_lists_confirm_remote_delete_yes">Jo</string>
   <string name="reading_lists_confirm_remote_delete_no">Neen</string>
-  <string name="reading_list_already_contains_selection">An der erausgesichter Lëscht si schonn all déi erausgesicht Säiten.</string>
-  <string name="reading_list_added_articles_list_titled">%1$d Artikel op %2$s dobäigesat</string>
+  <string name="reading_list_articles_added_to_named">%1$d Artikel op %2$s dobäigesat</string>
   <string name="reading_list_delete_confirm">Sidd Dir sécher datt Dir %s läsche wëllt?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Ofbriechen</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Aloggen</string>
@@ -389,6 +379,7 @@
     <item quantity="one">Dësen Artikel ass net méi offline disponibel.</item>
     <item quantity="other">Dës Artikele sinn net méi offline disponibel.</item>
   </plurals>
+  <string name="reading_list_toast_last_sync">Lieslëschte goufe synchroniséiert</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">OK</string>
   <string name="reading_list_delete_dialog_ok_button_text">OK</string>
   <string name="reading_list_remove_from_list_dialog_cancel_button_text">Ofbriechen</string>
@@ -545,7 +536,7 @@
   <string name="suggested_edits_image_tags_publishing">Verëffentlechen</string>
   <string name="suggested_edits_image_tags_published">Verëffentlecht</string>
   <string name="suggested_edits_image_tags_onboarding_title">D\'Markéiere vu Biller mécht et méi einfach fir se erëmzefannen.</string>
-  <string name="suggested_edits_image_tags_add_tag" fuzzy="true">Markéierung derbäisetzen...</string>
+  <string name="suggested_edits_image_tags_add_tag">Markéierung derbäisetzen</string>
   <string name="suggested_edits_quality_perfect_text">Perfekt</string>
   <string name="suggested_edits_last_edited">Lescht Ännerung</string>
   <string name="suggested_edits_last_edited_never">Ni</string>

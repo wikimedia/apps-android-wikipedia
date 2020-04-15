@@ -82,8 +82,6 @@ import static org.wikipedia.Constants.InvokeSource.LINK_PREVIEW_MENU;
 import static org.wikipedia.Constants.PREFERRED_GALLERY_IMAGE_SIZE;
 import static org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_CAPTION;
 import static org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_CAPTION;
-import static org.wikipedia.util.StringUtil.addUnderscores;
-import static org.wikipedia.util.StringUtil.removeUnderscores;
 import static org.wikipedia.util.StringUtil.strip;
 import static org.wikipedia.util.UriUtil.handleExternalLink;
 import static org.wikipedia.util.UriUtil.resolveProtocolRelativeUrl;
@@ -218,7 +216,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
 
         if (savedInstanceState == null) {
             if (initialFilename != null) {
-                funnel.logGalleryOpen(pageTitle, removeUnderscores(initialFilename));
+                funnel.logGalleryOpen(pageTitle, initialFilename);
             }
         } else {
             controlsShowing = savedInstanceState.getBoolean("controlsShowing");
@@ -557,17 +555,13 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     }
 
     private void applyGalleryList(@NonNull List<MediaListItem> list) {
-        // remove the page transformer while we operate on the pager...
-        galleryPager.setPageTransformer(null);
         // first, verify that the collection contains the item that the user
         // initially requested, if we have one...
         int initialImagePos = -1;
         if (initialFilename != null) {
             for (MediaListItem item : list) {
-                // sometimes the namespace of a file would be in different languages rather than English.
-                String title = StringUtil.removeNamespace(item.getTitle());
-                String titleFromPage = StringUtil.removeNamespace(addUnderscores(initialFilename));
-                if (title.equals(titleFromPage)) {
+                // the namespace of a file could be in a different language than English.
+                if (StringUtil.removeNamespace(item.getTitle()).equals(StringUtil.removeNamespace(initialFilename))) {
                     initialImagePos = list.indexOf(item);
                     break;
                 }
@@ -591,7 +585,6 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
             // if we have a target image index to jump to, then do it!
             galleryPager.setCurrentItem(initialImageIndex, false);
         }
-        galleryPager.setPageTransformer(new GalleryPagerTransformer());
     }
 
     @Nullable

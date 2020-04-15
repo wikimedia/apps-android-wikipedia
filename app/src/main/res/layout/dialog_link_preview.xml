@@ -28,9 +28,9 @@
                 android:clickable="true"
                 android:minHeight="64dp">
 
-                <com.facebook.drawee.view.SimpleDraweeView
+                <ImageView
                     android:id="@+id/link_preview_thumbnail"
-                    style="@style/SimpleDraweeViewPlaceholder"
+                    style="@style/ImageViewDefault"
                     android:layout_width="@dimen/defaultListItemSize"
                     android:layout_height="@dimen/defaultListItemSize"
                     android:layout_gravity="center_vertical"
