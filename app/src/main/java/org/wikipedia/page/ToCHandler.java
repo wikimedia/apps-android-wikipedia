@@ -19,8 +19,6 @@ import androidx.annotation.Nullable;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.drawerlayout.widget.FixedDrawerLayout;
 
-import com.getkeepsafe.taptargetview.TapTargetView;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -30,13 +28,10 @@ import org.wikipedia.analytics.ToCInteractionFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.bridge.JavaScriptActionHandler;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DimenUtil;
-import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.L10nUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.StringUtil;
-import org.wikipedia.util.log.L;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.PageScrollerView;
 import org.wikipedia.views.SwipeableListView;
@@ -73,7 +68,6 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
     private ToCInteractionFunnel funnel;
 
     private boolean rtl;
-    private boolean showOnboading;
     private int currentItemSelected;
 
     private ValueCallback<String> sectionOffsetsCallback = new ValueCallback<String>() {
@@ -133,13 +127,12 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
     }
 
     @SuppressLint("RtlHardcoded")
-    void setupToC(@Nullable Page page, @NonNull WikiSite wiki, boolean firstPage) {
+    void setupToC(@Nullable Page page, @NonNull WikiSite wiki) {
         if (page == null) {
             return;
         }
         adapter.setPage(page);
         rtl = L10nUtil.isLangRTL(wiki.languageCode());
-        showOnboading = Prefs.isTocTutorialEnabled() && !page.isMainPage() && !firstPage;
         tocList.setRtl(rtl);
 
         setConditionalLayoutDirection(containerView, wiki.languageCode());
@@ -190,9 +183,6 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
     public void setEnabled(boolean enabled) {
         if (enabled) {
             setScrollerPosition();
-            if (showOnboading) {
-                showTocOnboarding();
-            }
             drawerLayout.setSlidingEnabled(true);
         } else {
             drawerLayout.closeDrawers();
@@ -309,33 +299,6 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
             }
             return convertView;
         }
-    }
-
-    private void showTocOnboarding() {
-        try {
-            FeedbackUtil.showTapTargetView(fragment.requireActivity(), scrollerView, R.string.tool_tip_toc_title,
-                    R.string.tool_tip_toc_text, new TapTargetView.Listener() {
-
-                        boolean targetClicked;
-
-                        @Override
-                        public void onTargetClick(TapTargetView view) {
-                            super.onTargetClick(view);
-                            targetClicked = true;
-                            show();
-                        }
-
-                        @Override
-                        public void onTargetDismissed(TapTargetView view, boolean userInitiated) {
-                            if (!targetClicked) {
-                                hide();
-                            }
-                        }
-                    });
-        } catch (Exception e) {
-            L.w("ToC onboarding failed", e);
-        }
-        Prefs.setTocTutorialEnabled(false);
     }
 
     @SuppressLint("RtlHardcoded")

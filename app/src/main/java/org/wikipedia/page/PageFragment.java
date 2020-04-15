@@ -1009,7 +1009,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                     sections.add(0, new Section(0, 0, model.getTitle().getDisplayText(), model.getTitle().getDisplayText(), ""));
                     model.getPage().setSections(sections);
                 }
-                tocHandler.setupToC(model.getPage(), model.getTitle().getWikiSite(), pageFragmentLoadState.isFirstPage());
+                tocHandler.setupToC(model.getPage(), model.getTitle().getWikiSite());
                 tocHandler.setEnabled(true);
             });
 
