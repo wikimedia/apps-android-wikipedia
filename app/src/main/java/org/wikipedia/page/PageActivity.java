@@ -84,8 +84,8 @@ import static org.wikipedia.settings.Prefs.isLinkPreviewEnabled;
 import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
 
 public class PageActivity extends BaseActivity implements PageFragment.Callback,
-        LinkPreviewDialog.Callback, ThemeChooserDialog.Callback,
-        WiktionaryDialog.Callback{
+        LinkPreviewDialog.Callback, ThemeChooserDialog.Callback, WiktionaryDialog.Callback,
+        FrameLayoutNavMenuTriggerer.Callback {
     public static final String ACTION_LOAD_IN_NEW_TAB = "org.wikipedia.load_in_new_tab";
     public static final String ACTION_LOAD_IN_CURRENT_TAB = "org.wikipedia.load_in_current_tab";
     public static final String ACTION_LOAD_IN_CURRENT_TAB_SQUASH = "org.wikipedia.load_in_current_tab_squash";
@@ -172,11 +172,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
         toolbarHideHandler = new PageToolbarHideHandler(pageFragment, toolbarContainerView, toolbar, tabsButton);
 
-        containerWithNavTrigger.setCallback(gravity -> {
-            if (gravity == Gravity.END) {
-                pageFragment.getTocHandler().show();
-            }
-        });
+        containerWithNavTrigger.setCallback(this);
 
         boolean languageChanged = false;
         if (savedInstanceState != null) {
@@ -245,6 +241,13 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Override
+    public void onNavMenuSwipeRequest(int gravity) {
+        if (!isCabOpen() && gravity == Gravity.END) {
+            pageFragment.getTocHandler().show();
         }
     }
 

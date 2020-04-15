@@ -63,6 +63,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
     @BindView(R.id.drawer_icon_dot) View drawerIconDot;
     @BindView(R.id.hamburger_and_wordmark_layout) View hamburgerAndWordmarkLayout;
     private ImageZoomHelper imageZoomHelper;
+    @Nullable private ActionMode currentActionMode;
 
     private boolean controlNavTabInFragment;
 
@@ -201,7 +202,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
 
     @Override
     public void onNavMenuSwipeRequest(int gravity) {
-        if (gravity == Gravity.START) {
+        if (currentActionMode == null && gravity == Gravity.START) {
             drawerLayout.post(this::onDrawerOpenClicked);
         }
     }
@@ -209,6 +210,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
     @Override
     public void onSupportActionModeStarted(@NonNull ActionMode mode) {
         super.onSupportActionModeStarted(mode);
+        currentActionMode = mode;
         if (!controlNavTabInFragment) {
             getFragment().setBottomNavVisible(false);
         }
@@ -218,6 +220,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
     public void onSupportActionModeFinished(@NonNull ActionMode mode) {
         super.onSupportActionModeFinished(mode);
         getFragment().setBottomNavVisible(true);
+        currentActionMode = null;
     }
 
     @Override
