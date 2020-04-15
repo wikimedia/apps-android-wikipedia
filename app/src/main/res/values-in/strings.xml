@@ -74,10 +74,7 @@
   <string name="menu_long_press_open_page">Buka</string>
   <string name="menu_long_press_open_in_new_tab">Buka di tab baru</string>
   <string name="menu_long_press_copy_page">Salin alamat pranala</string>
-  <string name="menu_text_select_copy">Salin</string>
   <string name="menu_text_select_define">Artikan</string>
-  <string name="menu_text_select_share">Bagikan</string>
-  <string name="share">Bagikan</string>
   <string name="on_this_day_page_share">Bagikan</string>
   <string name="reading_list_page_share">Bagikan</string>
   <string name="menu_text_select_edit_here">Sunting di sini</string>
@@ -289,11 +286,7 @@
   <string name="gallery_add_image_caption_button">Tambahkan takarir gambar</string>
   <string name="gallery_add_image_caption_in_language_button">Tambahkan takarir gambar %s</string>
   <string name="err_cannot_save_file">Tidak dapat menyimpan berkas</string>
-  <string name="snippet_share_intro">\"%1$s\" di @Wikipedia: %2$s</string>
   <string name="expand_refs">Ketuk untuk memperluas</string>
-  <string name="share_snippet_button">Bagikan sebagai gambar</string>
-  <string name="share_normal_button">Bagikan sebagai teks</string>
-  <string name="snippet_share_preview_image_desc">Pratayang gambar</string>
   <string name="cc_logo">Lisensi Creative Commons</string>
   <string name="captcha_image">Gambar Captcha</string>
   <string name="gallery_fair_use_license">Penggunaan wajar</string>

@@ -35,9 +35,7 @@
   <string name="menu_long_press_open_page">Bukak</string>
   <string name="menu_long_press_open_in_new_tab">Bukak i tab baru</string>
   <string name="menu_long_press_copy_page">Salin alaman pranala</string>
-  <string name="menu_text_select_copy">Salin</string>
   <string name="menu_text_select_define">Artion</string>
-  <string name="menu_text_select_share">Bagion</string>
   <string name="menu_text_select_edit_here">Edit ison</string>
   <string name="last_updated_text">Parpudi ipature %s</string>
   <string name="talk_page_link_text">Ligin alaman parkobaran</string>

@@ -64,10 +64,7 @@
   <string name="menu_long_press_open_page">ဖွင့်ပါ</string>
   <string name="menu_long_press_open_in_new_tab">tab အသစ်တွင် ဖွင့်ရန်</string>
   <string name="menu_long_press_copy_page">ဝက်ဘ်လိပ်စာကို ကူးယူရန်</string>
-  <string name="menu_text_select_copy">မိတ္တူကူး</string>
   <string name="menu_text_select_define">အဓိပ္ပာယ်ဖွင့်ရန်</string>
-  <string name="menu_text_select_share">မျှဝေ</string>
-  <string name="share">မျှဝေ</string>
   <string name="on_this_day_page_share">မျှဝေ</string>
   <string name="reading_list_page_share">မျှဝေ</string>
   <string name="menu_text_select_edit_here">ဤနေရာတွင် တည်းဖြတ်ရန်</string>
@@ -276,11 +273,7 @@
   <string name="gallery_add_image_caption_button">ရုပ်ပုံ ပုံစာ ပေါင်းထည့်ရန်</string>
   <string name="gallery_add_image_caption_in_language_button">ရုပ်ပုံ ပုံစာ ပေါင်းထည့်ရန် (%s)</string>
   <string name="err_cannot_save_file">ဖိုင်အား မသိမ်းဆည်းနိုင်ပါ</string>
-  <string name="snippet_share_intro">\@Wikipedia ပေါ်ရှိ \"%1$s\": %2$s</string>
   <string name="expand_refs">ချဲ့ကားရန် တို့ထိ</string>
-  <string name="share_snippet_button">ပုံအဖြစ် မျှဝေရန်</string>
-  <string name="share_normal_button">စာသားအဖြစ် မျှဝေရန်</string>
-  <string name="snippet_share_preview_image_desc">ပုံနမူနာကြည့်ရန်</string>
   <string name="cc_logo">Creative Commons လိုင်စင်</string>
   <string name="captcha_image">Captcha ပုံ</string>
   <string name="gallery_fair_use_license">တရားမျှတစွာ အသုံးပြုခြင်း</string>

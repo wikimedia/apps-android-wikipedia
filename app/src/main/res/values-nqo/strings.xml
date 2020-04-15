@@ -53,10 +53,7 @@
   <string name="menu_long_press_open_page">ߊ߬ ߟߊߞߊ߬</string>
   <string name="menu_long_press_open_in_new_tab">ߊ߬ ߟߊߞߊ߬ ߘߎ߲ߛߓߍ߫ ߞߎߘߊ߫ ߘߐ߫</string>
   <string name="menu_long_press_copy_page">ߛߘߌ߬ߜߋ߲ ߛߊ߲߬ߓߊ߬ߕߐ߮ ߓߊߓߌ߬ߟߊ߬</string>
-  <string name="menu_text_select_copy">ߊ߬ ߓߊߓߌ߬ߟߊ߬</string>
   <string name="menu_text_select_define">ߊ߬ ߡߊߕߍ߰</string>
-  <string name="menu_text_select_share">ߊ߬ ߟߊߖߍ߲ߛߍ߲߫</string>
-  <string name="share">ߊ߬ ߟߊߖߍ߲ߛߍ߲߫</string>
   <string name="on_this_day_page_share">ߊ߬ ߟߊߖߍ߲ߛߍ߲߫</string>
   <string name="reading_list_page_share">ߊ߬ ߟߊߖߍ߲ߛߍ߲߫</string>
   <string name="menu_text_select_edit_here">ߦߊ߲߬ ߡߊߦߟߍ߬ߡߊ߲߫</string>
@@ -250,11 +247,7 @@
   <string name="gallery_save_image_write_permission_rationale">ߛߓߍߟߌ ߞߍߟߌ ߌ ߟߊ߫ ߞߍߟߊ߲ ߡߣߐ߬ߘߐ ߘߐ߫߸ ߏ߬ ߡߊߢߌ߬ߣߌ߲߬ߞߊ߬ ߣߍ߲߫ ߖߌ߬ߦߊ߬ߓߍ ߟߊߡߙߊ߬ ߞߏ ߘߐ߫.</string>
   <string name="gallery_add_image_caption_in_language_button">ߖߌ߬ߦߊ߬ߓߍ ߝߍ߬ߛߓߍߟߌ ߟߊߘߏ߲߬ (%s)</string>
   <string name="err_cannot_save_file">ߊ߬߫ ߕߴߛߋ߫ ߞߐߕߐ߮ ߟߊߞߎ߲߬ߘߎ߬ ߟߊ߫</string>
-  <string name="snippet_share_intro">%1$s @wikipedia: ߞߊ߲߬ ߦߊ߲߬ %2$s</string>
   <string name="expand_refs">ߊ߬ ߛߐ߲߬ߞߌ߲߫ ߞߵߊ߬ ߘߐߥߙߊ߬</string>
-  <string name="share_snippet_button">ߊ߬ ߟߊߖߍ߲ߛߍ߲߫ ߖߌ߬ߦߊ߬ߓߍ ߘߌ߫</string>
-  <string name="share_normal_button">ߊ߬ ߟߊߖߍ߲ߛߍ߲߫ ߛߓߍߟߌ ߘߌ߫</string>
-  <string name="snippet_share_preview_image_desc">ߖߌ߬ߦߊ߬ߓߍ ߘߐߜߍ߫</string>
   <string name="cc_logo">ߞߐߡߐ߲ ߕߌ߰ߦߊ ߟߊ߬ߘߊ߲߬ߠߌ߲</string>
   <string name="captcha_image">ߢߏ߰ߛߏ߬ߢߊ߯ߛߊ ߖߌ߬ߦߊ߬ߓߍ</string>
   <string name="gallery_fair_use_license">ߟߊ߬ߓߊ߰ߙߊ߬ߟߌ߬ ߘߝߊߣߍ߲</string>

@@ -56,10 +56,7 @@
   <string name="menu_long_press_open_page">খোলক</string>
   <string name="menu_long_press_open_in_new_tab">নতুন টেবত খোলক</string>
   <string name="menu_long_press_copy_page">লিংক ঠিকনা প্ৰতিলিপি কৰক</string>
-  <string name="menu_text_select_copy">প্ৰতিলিপি</string>
   <string name="menu_text_select_define">সংজ্ঞা</string>
-  <string name="menu_text_select_share">ভাগবতৰা কৰক</string>
-  <string name="share">শ্বেয়াৰ কৰক</string>
   <string name="on_this_day_page_share">শ্বেয়াৰ কৰক</string>
   <string name="reading_list_page_share">শ্বেয়াৰ কৰক</string>
   <string name="menu_text_select_edit_here">ইয়াত সম্পাদনা কৰক</string>
@@ -265,11 +262,7 @@
   <string name="gallery_save_image_write_permission_rationale">ছবি সাঁচিবৰ বাবে আপোনাৰ সঁজুলিৰ সংগ্ৰহস্থলত লিখাৰ অনুমতিৰ প্ৰয়োজন।</string>
   <string name="gallery_add_image_caption_in_language_button">ছবিৰ শিৰোনাম যোগ কৰক (%s)</string>
   <string name="err_cannot_save_file">ফাইল সাঁচিব পৰা নগ\'ল</string>
-  <string name="snippet_share_intro">\@Wikipedia ত \"%1$s\": %2$s</string>
   <string name="expand_refs">বহলাবলৈ টেপ্‌ কৰক</string>
-  <string name="share_snippet_button">ছবি হিচাপে শ্বেয়াৰ কৰক</string>
-  <string name="share_normal_button">পাঠ্য হিচাপে শ্বেয়াৰ কৰক</string>
-  <string name="snippet_share_preview_image_desc">ছবিৰ প্ৰাক্‌দৰ্শন কৰক</string>
   <string name="cc_logo">ক্ৰিয়েটিভ কমন্স লাইচেন্স</string>
   <string name="captcha_image">কেপ্‌চা ছবি</string>
   <string name="gallery_fair_use_license">ভাল ব্যৱহাৰ</string>

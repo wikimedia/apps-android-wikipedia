@@ -55,10 +55,7 @@
   <string name="menu_long_press_open_page">ပံက်</string>
   <string name="menu_long_press_open_in_new_tab">ပံက် ပ္ဍဲ မုက်တေပ်တၟိ</string>
   <string name="menu_long_press_copy_page">စၠောအ်ကပ်ပဳကေတ် လေန် မုက်လိက်</string>
-  <string name="menu_text_select_copy">စၠောအ်ကပ်ပဳ</string>
   <string name="menu_text_select_define">ပသောင်အဓိပ္ပါယ်</string>
-  <string name="menu_text_select_share">ပါ်ပရအ်</string>
-  <string name="share">ပါ်ပရအ်</string>
   <string name="on_this_day_page_share">ပါ်ပရအ်</string>
   <string name="reading_list_page_share">ပါ်ပရအ်</string>
   <string name="menu_text_select_edit_here">ပလေဝ် ဒၞာဲဏအ်</string>
@@ -267,11 +264,7 @@
   <string name="gallery_add_image_caption_button">စုတ် ပရူပရာ ဗီုရုပ်</string>
   <string name="gallery_add_image_caption_in_language_button">စုတ် ပရူပရာ ဗီုရုပ် %s</string>
   <string name="err_cannot_save_file">ဂိုင်သိပ် ဝှာင် ဟွံဂွံ</string>
-  <string name="snippet_share_intro">\"%1$s\" ပ္ဍဲ @Wikipedia: %2$s</string>
   <string name="expand_refs">မုက်တေပ် သွက်ဂွံ ဇၞော်ပတိုန်</string>
-  <string name="share_snippet_button">ပါ်ပရအ် နဒဒှ် ဗီုရုပ်</string>
-  <string name="share_normal_button">ပါ်ပရအ် နဒဒှ် လိက်</string>
-  <string name="snippet_share_preview_image_desc">ဗီုရုပ် နမူနာ</string>
   <string name="cc_logo">Creative Commons license</string>
   <string name="captcha_image">ဗီုရုပ် Captcha</string>
   <string name="gallery_fair_use_license">သုင်စောဲ ဗဗွဲဓဝ်</string>

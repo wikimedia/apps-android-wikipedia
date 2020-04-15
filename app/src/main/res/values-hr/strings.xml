@@ -62,10 +62,7 @@
   <string name="menu_long_press_open_page">Otvori</string>
   <string name="menu_long_press_open_in_new_tab">Otvori u novoj kartici</string>
   <string name="menu_long_press_copy_page">Kopiraj adresu poveznice</string>
-  <string name="menu_text_select_copy">Kopiraj</string>
   <string name="menu_text_select_define">Definiraj</string>
-  <string name="menu_text_select_share">Podijeli</string>
-  <string name="share">Podijeli</string>
   <string name="on_this_day_page_share">Podijeli</string>
   <string name="reading_list_page_share">Podijeli</string>
   <string name="menu_text_select_edit_here">Uredi ovdje</string>
@@ -114,7 +111,7 @@
   <string name="menu_login">Prijavite se</string>
   <string name="login_activity_title">Prijavite se na Wikipediju</string>
   <string name="login_in_progress_dialog_message">Ulaz u sustav…</string>
-  <string name="login_success_toast" fuzzy="true">Uspješno ste se prijavili!</string>
+  <string name="login_success_toast">Prijavili ste se!</string>
   <string name="reset_password_title">Postavite zaporku</string>
   <string name="reset_password_description">Prijavili ste se s privremenom zaporkom. Za dovršetak prijave, molimo Vas, postavite novu zaporku ovdje.</string>
   <string name="reset_password_hint">Nova zaporka</string>
@@ -268,17 +265,13 @@
   <string name="gallery_menu_share">Podijeli</string>
   <string name="gallery_share_error">Nije moguće podijeliti sliku: %s</string>
   <string name="gallery_save_progress">Preuzimanje datoteke…</string>
-  <string name="gallery_save_success" fuzzy="true">Datoteka je uspješno spremljena.</string>
+  <string name="gallery_save_success">Datoteka je spremljena.</string>
   <string name="gallery_error_video_failed">Nije moguće reproducirati videozapis.</string>
   <string name="gallery_save_image_write_permission_rationale">Da bi se slike spremile na Vaš uređaj, potrebna je dozvola za pristup pohrani.</string>
   <string name="gallery_add_image_caption_button">Dodaj opis slike</string>
   <string name="gallery_add_image_caption_in_language_button">Dodajte opis slike (%s)</string>
   <string name="err_cannot_save_file">Nije moguće spremiti datoteku</string>
-  <string name="snippet_share_intro">\"%1$s\" na @Wikipediji: %2$s</string>
   <string name="expand_refs">Dodirnite da biste proširili</string>
-  <string name="share_snippet_button">Podijeliti kao sliku</string>
-  <string name="share_normal_button">Podijeliti kao tekst</string>
-  <string name="snippet_share_preview_image_desc">Pregled slike</string>
   <string name="cc_logo">Licencija Creative Commons</string>
   <string name="captcha_image">Captcha slika</string>
   <string name="gallery_fair_use_license">Poštena upotreba</string>
@@ -350,6 +343,7 @@
   <string name="color_theme_sepia">Sepija</string>
   <string name="color_theme_test_title">Primjer teksta</string>
   <string name="preference_title_app_theme">Tema aplikacije</string>
+  <string name="preference_summary_color_theme">Promijenite izgled aplikacije na tamnu temu</string>
   <string name="text_size_increase">Povećaj veličinu teksta</string>
   <string name="text_size_decrease">Smanji veličinu teksta</string>
   <string name="text_size_percent_default">%s (zadano)</string>
@@ -731,6 +725,7 @@
   <string name="main_drawer_open">Otvori</string>
   <string name="main_drawer_close">Zatvori</string>
   <string name="main_drawer_help">Pomoć</string>
+  <string name="main_drawer_login">Prijavite se na Wikipediju / pridružite se Wikipediji</string>
   <string name="main_tooltip_text">%s, jeste li znali da svatko može uređivati Wikipediju?</string>
   <string name="main_tooltip_action_button">Krenimo</string>
   <string name="custom_date_picker_dialog_ok_button_text">U redu</string>

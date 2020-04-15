@@ -55,10 +55,7 @@
   <string name="menu_long_press_open_page">Odpri</string>
   <string name="menu_long_press_open_in_new_tab">Odpri v novem zavihku</string>
   <string name="menu_long_press_copy_page">Kopiraj naslov povezave</string>
-  <string name="menu_text_select_copy">Kopiraj</string>
   <string name="menu_text_select_define">Definiraj</string>
-  <string name="menu_text_select_share">Deli</string>
-  <string name="share">Deli</string>
   <string name="on_this_day_page_share">Deli</string>
   <string name="reading_list_page_share">Deli</string>
   <string name="menu_text_select_edit_here">Uredi tukaj</string>

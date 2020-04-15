@@ -69,10 +69,7 @@
   <string name="menu_long_press_open_page">פתיחה</string>
   <string name="menu_long_press_open_in_new_tab">פתיחת קישור בלשונית חדשה</string>
   <string name="menu_long_press_copy_page">העתקת כתובת הקישור</string>
-  <string name="menu_text_select_copy">העתקה</string>
   <string name="menu_text_select_define">הגדרה</string>
-  <string name="menu_text_select_share">שיתוף</string>
-  <string name="share">שיתוף</string>
   <string name="on_this_day_page_share">שיתוף</string>
   <string name="reading_list_page_share">שיתוף</string>
   <string name="menu_text_select_edit_here">לערוך כאן</string>
@@ -285,11 +282,7 @@
   <string name="gallery_add_image_caption_button">הוספת כיתוב לתמונה</string>
   <string name="gallery_add_image_caption_in_language_button">הוספת כיתוב תמונה (%s)</string>
   <string name="err_cannot_save_file">לא ניתן לשמור קובץ</string>
-  <string name="snippet_share_intro">\"%1$s\" בוויקיפדיה @Wikipedia: %2$s</string>
   <string name="expand_refs">יש ללחוץ להרחבה</string>
-  <string name="share_snippet_button">שיתוף בתור תמונה</string>
-  <string name="share_normal_button">שיתוף בתור טקסט</string>
-  <string name="snippet_share_preview_image_desc">תצוגה מקדימה של תמונה</string>
   <string name="cc_logo">רישיון קריאייטיב קומונז</string>
   <string name="captcha_image">תמונת אישור</string>
   <string name="gallery_fair_use_license">שימוש הוגן</string>
@@ -376,7 +369,9 @@
   <string name="reading_list_save_to">לשמור לרשימת קריאה</string>
   <string name="reading_list_create_new">ליצור חדשה</string>
   <string name="reading_list_title_exists">רשימת הקריאה \"%s\" כבר קיימת.</string>
-  <string name="reading_list_articles_already_exist_message" fuzzy="true">הכול טוב! הרשימה %s כבר מכילה את כל הערכים בלשוניות פתוחות.</string>
+  <string name="reading_list_article_added_to_named">הערך %1$s נוסף לרשימה %2$s.</string>
+  <string name="reading_list_article_already_exists_message">הכול טוב! הרשימה %1$s כבר מכילה את הערך %2$s.</string>
+  <string name="reading_list_articles_already_exist_message">הכול טוב! הרשימה %s כבר מכילה את כל הערכים.</string>
   <string name="reading_list_added_view_button">הצגת הרשימה</string>
   <string name="format_reading_list_statistical_summary_singular">ערך אחד %1$.2f מ\"ב</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d ערכים %2$.2f מ\"ב</string>

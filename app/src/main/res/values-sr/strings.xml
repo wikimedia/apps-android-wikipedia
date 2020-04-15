@@ -66,10 +66,7 @@
   <string name="menu_long_press_open_page">Отвори</string>
   <string name="menu_long_press_open_in_new_tab">Отвори у новој картици</string>
   <string name="menu_long_press_copy_page">Копирај адресу линка</string>
-  <string name="menu_text_select_copy">Копирај</string>
   <string name="menu_text_select_define">Дефиниши</string>
-  <string name="menu_text_select_share">Дели</string>
-  <string name="share">Дели</string>
   <string name="on_this_day_page_share">Дели</string>
   <string name="reading_list_page_share">Дели</string>
   <string name="menu_text_select_edit_here">Уреди овде</string>
@@ -280,11 +277,7 @@
   <string name="gallery_add_image_caption_button">Додај опис слике</string>
   <string name="gallery_add_image_caption_in_language_button">Додај опис слике (%s)</string>
   <string name="err_cannot_save_file">Није могуће сачувати датотеку</string>
-  <string name="snippet_share_intro">„%1$s” на @Wikipedia: %2$s</string>
   <string name="expand_refs">Додирните да бисте проширили</string>
-  <string name="share_snippet_button">Дели као слику</string>
-  <string name="share_normal_button">Дели као текст</string>
-  <string name="snippet_share_preview_image_desc">Преглед слике</string>
   <string name="cc_logo">Лиценца Creative Commons</string>
   <string name="captcha_image">CAPTCHA слика</string>
   <string name="gallery_fair_use_license">Поштено коришћење</string>

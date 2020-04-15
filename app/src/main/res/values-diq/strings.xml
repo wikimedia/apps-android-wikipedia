@@ -60,10 +60,7 @@
   <string name="menu_long_press_open_page">Ake</string>
   <string name="menu_long_press_open_in_new_tab">Taba neweyên de ake</string>
   <string name="menu_long_press_copy_page">Adresa gri kopya ke</string>
-  <string name="menu_text_select_copy">Kopya ke</string>
   <string name="menu_text_select_define">Bışınasne</string>
-  <string name="menu_text_select_share">Vıla ke</string>
-  <string name="share">Vıla ke</string>
   <string name="on_this_day_page_share">Vıla ke</string>
   <string name="reading_list_page_share">Vıla ke</string>
   <string name="menu_text_select_edit_here">Tiyay bıvurnê</string>
@@ -232,11 +229,7 @@
   <string name="gallery_save_progress">Dosya roneyêna...</string>
   <string name="gallery_error_video_failed">Video nêcıneyêno</string>
   <string name="err_cannot_save_file">Dosya qedy nêbena</string>
-  <string name="snippet_share_intro">\"%1$s\" dı @Wikipedia: %2$s</string>
   <string name="expand_refs">Hera kerdışi rê bıploğnê</string>
-  <string name="share_snippet_button">Zê resim bıvılaynê</string>
-  <string name="share_normal_button">Zê metin bıvılaynê</string>
-  <string name="snippet_share_preview_image_desc">Verqaytê resimi</string>
   <string name="cc_logo">Lisansê Creative Commonsi</string>
   <string name="captcha_image">Resimê Captcha</string>
   <string name="gallery_fair_use_license">Karnayışo adilın</string>
@@ -476,7 +469,7 @@
   <string name="suggested_edits_image_preview_dialog_source">Çıme/Fotrafkar</string>
   <string name="suggested_edits_image_preview_dialog_licensing">Lisansdayış</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Tayêna melumat</string>
-  <string name="suggested_edits_image_preview_dialog_file_page_link_text">Pela dosyay Wikimedia Commonsi</string>
+  <string name="suggested_edits_image_preview_dialog_file_page_link_text">Wikimedia Commons de pela dosyeyan</string>
   <string name="suggested_edits_article_cta_image_caption">Bınnuştey resimi cı kerê</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Bınnuştey resimi cı kerê (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Bıvêne</string>
