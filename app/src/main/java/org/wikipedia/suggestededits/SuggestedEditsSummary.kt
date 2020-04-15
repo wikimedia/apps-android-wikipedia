@@ -23,7 +23,7 @@ data class SuggestedEditsSummary(
                 displayTitle: String?,
                 description: String?,
                 thumbnailUrl: String?
-    ): this(title, lang, pageTitle, displayTitle, description, thumbnailUrl, null, null, null, null)
+    ): this(title, lang, pageTitle, displayTitle, description, thumbnailUrl, null)
 
     fun getPreferredSizeThumbnailUrl(): String = ImageUrlUtil.getUrlForPreferredSize(thumbnailUrl!!, Constants.PREFERRED_CARD_THUMBNAIL_SIZE)
 }
