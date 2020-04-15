@@ -84,8 +84,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
                                     source.displayTitle,
                                     source.description,
                                     source.thumbnailUrl,
-                                    source.extractHtml,
-                                    null, null, null
+                                    source.extractHtml
                             )
 
                             targetSummary = SuggestedEditsSummary(
@@ -95,8 +94,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
                                     target.displayTitle,
                                     target.description,
                                     target.thumbnailUrl,
-                                    target.extractHtml,
-                                    null, null, null
+                                    target.extractHtml
                             )
                             updateContents()
                         }, { this.setErrorState(it) })!!)
@@ -204,8 +202,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
                                     pageSummary.displayTitle,
                                     pageSummary.description,
                                     pageSummary.thumbnailUrl,
-                                    pageSummary.extractHtml,
-                                    null, null, null
+                                    pageSummary.extractHtml
                             )
                             updateContents()
                         }, { this.setErrorState(it) }))
