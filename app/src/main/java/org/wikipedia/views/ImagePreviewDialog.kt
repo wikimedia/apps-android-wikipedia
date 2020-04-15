@@ -116,7 +116,7 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
                     else suggestedEditsSummary.pageTitle.description)
         }
         addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_artist), suggestedEditsSummary.metadata!!.artist())
-        addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_tags), suggestedEditsSummary.metadata!!.artist())
+        addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_tags), getAcceptedTags())
         addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_date), suggestedEditsSummary.metadata!!.dateTime())
         addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_source), suggestedEditsSummary.metadata!!.credit())
         addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_licensing), suggestedEditsSummary.metadata!!.licenseShortName(), suggestedEditsSummary.metadata!!.licenseUrl())
@@ -146,6 +146,16 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
             }
             detailsHolder.addView(view)
         }
+    }
+
+    private fun getAcceptedTags(): String {
+        var tags = ""
+        suggestedEditsSummary.labels?.forEach {
+            if (it.state == "accepted") {
+                tags = "$tags\n${it.label}"
+            }
+        }
+        return tags
     }
 
     private val movementMethod = LinkMovementMethodExt { url: String ->

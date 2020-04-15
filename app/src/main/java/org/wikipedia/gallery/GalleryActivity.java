@@ -328,7 +328,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
 
         SuggestedEditsSummary summary = new SuggestedEditsSummary(title.getPrefixedText(), sourceWiki.languageCode(), title,
                 title.getDisplayText(), StringUtils.defaultIfBlank(StringUtil.fromHtml(item.getMediaInfo().getMetadata().imageDescription()).toString(), null),
-                item.getMediaInfo().getThumbUrl(), null, null, null, null);
+                item.getMediaInfo().getThumbUrl(), null, null, null, null, null);
 
         startActivityForResult(DescriptionEditActivity.newIntent(this, title, null, summary, null, ADD_CAPTION, GALLERY_ACTIVITY),
                 ACTIVITY_REQUEST_DESCRIPTION_EDIT);
@@ -353,11 +353,11 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
 
         SuggestedEditsSummary sourceSummary = new SuggestedEditsSummary(sourceTitle.getPrefixedText(), sourceTitle.getWikiSite().languageCode(), sourceTitle,
                 sourceTitle.getDisplayText(), currentCaption, item.getMediaInfo().getThumbUrl(),
-                null, null, null, null);
+                null, null, null, null, null);
 
         SuggestedEditsSummary targetSummary = new SuggestedEditsSummary(targetTitle.getPrefixedText(), targetTitle.getWikiSite().languageCode(), targetTitle,
                 targetTitle.getDisplayText(), null, item.getMediaInfo().getThumbUrl(),
-                null, null, null, null);
+                null, null, null, null, null);
 
         startActivityForResult(DescriptionEditActivity.newIntent(this, targetTitle, null, sourceSummary, targetSummary,
                 (sourceSummary.getLang().equals(targetSummary.getLang())) ? ADD_CAPTION : TRANSLATE_CAPTION, GALLERY_ACTIVITY),
