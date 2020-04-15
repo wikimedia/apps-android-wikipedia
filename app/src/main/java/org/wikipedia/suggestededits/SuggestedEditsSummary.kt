@@ -1,6 +1,7 @@
 package org.wikipedia.suggestededits
 
 import org.wikipedia.Constants
+import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.gallery.ExtMetadata
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.ImageUrlUtil
@@ -15,7 +16,8 @@ data class SuggestedEditsSummary(
         var extractHtml: String?,
         var timestamp: String?,
         var user: String?,
-        var metadata: ExtMetadata?
+        var metadata: ExtMetadata?,
+        var labels: List<MwQueryPage.ImageLabel>?
 ) {
     fun getPreferredSizeThumbnailUrl(): String = ImageUrlUtil.getUrlForPreferredSize(thumbnailUrl!!, Constants.PREFERRED_CARD_THUMBNAIL_SIZE)
 }

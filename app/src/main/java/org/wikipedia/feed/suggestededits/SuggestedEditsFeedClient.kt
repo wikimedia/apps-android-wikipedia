@@ -98,7 +98,7 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
                             pageSummary.description,
                             pageSummary.thumbnailUrl,
                             pageSummary.extractHtml,
-                            null, null, null
+                            null, null, null, null
                     )
 
                     val card: SuggestedEditsCard = toSuggestedEditsCard(WikiSite.forLanguageCode(langFromCode), sourceSummary, null, null)
@@ -133,7 +133,7 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
                             source.description,
                             source.thumbnailUrl,
                             source.extractHtml,
-                            null, null, null
+                            null, null, null, null
                     )
 
                     val targetSummary = SuggestedEditsSummary(
@@ -144,7 +144,7 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
                             target.description,
                             target.thumbnailUrl,
                             target.extractHtml,
-                            null, null, null
+                            null, null, null, null
                     )
 
                     val card: SuggestedEditsCard = toSuggestedEditsCard(WikiSite.forLanguageCode(langFromCode), sourceSummary, targetSummary, null)
@@ -187,7 +187,8 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
                                 null,
                                 imageInfo.timestamp,
                                 imageInfo.user,
-                                imageInfo.metadata
+                                imageInfo.metadata,
+                                page.imageLabels
                         )
                         val card: SuggestedEditsCard = toSuggestedEditsCard(WikiSite.forLanguageCode(langFromCode), sourceSummary, null, null)
                         callback?.updateCardContent(card)
@@ -237,7 +238,8 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
                                 null,
                                 imageInfo.timestamp,
                                 imageInfo.user,
-                                imageInfo.metadata
+                                imageInfo.metadata,
+                                page.imageLabels
                         )
 
                         val targetSummary = sourceSummary.copy(

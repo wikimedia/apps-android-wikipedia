@@ -85,7 +85,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
                                     source.description,
                                     source.thumbnailUrl,
                                     source.extractHtml,
-                                    null, null, null
+                                    null, null, null, null
                             )
 
                             targetSummary = SuggestedEditsSummary(
@@ -96,7 +96,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
                                     target.description,
                                     target.thumbnailUrl,
                                     target.extractHtml,
-                                    null, null, null
+                                    null, null, null, null
                             )
                             updateContents()
                         }, { this.setErrorState(it) })!!)
@@ -133,7 +133,8 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
                                         null,
                                         imageInfo.timestamp,
                                         imageInfo.user,
-                                        imageInfo.metadata
+                                        imageInfo.metadata,
+                                        page.imageLabels
                                 )
                             }
                             updateContents()
@@ -173,7 +174,8 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
                                         null,
                                         imageInfo.timestamp,
                                         imageInfo.user,
-                                        imageInfo.metadata
+                                        imageInfo.metadata,
+                                        page.imageLabels
                                 )
 
                                 targetSummary = sourceSummary!!.copy(
@@ -205,7 +207,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
                                     pageSummary.description,
                                     pageSummary.thumbnailUrl,
                                     pageSummary.extractHtml,
-                                    null, null, null
+                                    null, null, null, null
                             )
                             updateContents()
                         }, { this.setErrorState(it) }))
