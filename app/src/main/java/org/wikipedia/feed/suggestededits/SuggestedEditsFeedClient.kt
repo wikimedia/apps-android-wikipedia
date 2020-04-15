@@ -97,8 +97,7 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
                             pageSummary.displayTitle,
                             pageSummary.description,
                             pageSummary.thumbnailUrl,
-                            pageSummary.extractHtml,
-                            null, null, null, null
+                            pageSummary.extractHtml
                     )
 
                     val card: SuggestedEditsCard = toSuggestedEditsCard(WikiSite.forLanguageCode(langFromCode), sourceSummary, null, null)
@@ -132,8 +131,7 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
                             source.displayTitle,
                             source.description,
                             source.thumbnailUrl,
-                            source.extractHtml,
-                            null, null, null, null
+                            source.extractHtml
                     )
 
                     val targetSummary = SuggestedEditsSummary(
@@ -143,8 +141,7 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
                             target.displayTitle,
                             target.description,
                             target.thumbnailUrl,
-                            target.extractHtml,
-                            null, null, null, null
+                            target.extractHtml
                     )
 
                     val card: SuggestedEditsCard = toSuggestedEditsCard(WikiSite.forLanguageCode(langFromCode), sourceSummary, targetSummary, null)

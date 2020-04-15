@@ -13,11 +13,19 @@ data class SuggestedEditsSummary(
         var displayTitle: String?,
         var description: String?,
         var thumbnailUrl: String?,
-        var extractHtml: String?,
-        var timestamp: String?,
-        var user: String?,
-        var metadata: ExtMetadata?,
-        var labels: List<MwQueryPage.ImageLabel>?
+        var extractHtml: String? = null,
+        var timestamp: String? = null,
+        var user: String? = null,
+        var metadata: ExtMetadata? = null,
+        var labels: List<MwQueryPage.ImageLabel>? = null
 ) {
+    constructor(title: String,
+                lang: String,
+                pageTitle: PageTitle,
+                displayTitle: String?,
+                description: String?,
+                thumbnailUrl: String?
+    ): this(title, lang, pageTitle, displayTitle, description, thumbnailUrl, null)
+
     fun getPreferredSizeThumbnailUrl(): String = ImageUrlUtil.getUrlForPreferredSize(thumbnailUrl!!, Constants.PREFERRED_CARD_THUMBNAIL_SIZE)
 }
