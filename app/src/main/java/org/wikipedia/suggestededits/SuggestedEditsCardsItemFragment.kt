@@ -107,7 +107,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .flatMap { title ->
-                            ServiceFactory.get(WikiSite.forLanguageCode(parent().langFromCode)).getImageInfo(title, parent().langFromCode)
+                            ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo(title, parent().langFromCode)
                                     .subscribeOn(Schedulers.io())
                                     .observeOn(AndroidSchedulers.mainThread())
                         }
@@ -147,7 +147,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
                         .observeOn(AndroidSchedulers.mainThread())
                         .flatMap { pair ->
                             fileCaption = pair.first
-                            ServiceFactory.get(WikiSite.forLanguageCode(parent().langFromCode)).getImageInfo(pair.second, parent().langFromCode)
+                            ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo(pair.second, parent().langFromCode)
                                     .subscribeOn(Schedulers.io())
                                     .observeOn(AndroidSchedulers.mainThread())
                         }

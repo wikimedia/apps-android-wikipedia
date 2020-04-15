@@ -35,6 +35,7 @@ public class MwQueryPage extends BaseModel {
     @SerializedName("descriptionsource") @Nullable private String descriptionSource;
     @SerializedName("imageinfo") @Nullable private List<ImageInfo> imageInfo;
     @SerializedName("videoinfo") @Nullable private List<ImageInfo> videoInfo;
+    @Nullable private String imagerepository;
     @Nullable private String redirectFrom;
     @Nullable private String convertedFrom;
     @Nullable private String convertedTo;
@@ -142,6 +143,10 @@ public class MwQueryPage extends BaseModel {
 
     @NonNull public List<ImageLabel> getImageLabels() {
         return imageLabels != null ? imageLabels : Collections.emptyList();
+    }
+
+    public boolean isImageFromCommons() {
+        return StringUtils.defaultString(imagerepository).equals("shared");
     }
 
     public long getLastRevId() {
