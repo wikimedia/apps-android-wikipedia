@@ -201,9 +201,6 @@ class SuggestedEditsTasksFragment : Fragment() {
                         }
 
                         getPageViews()
-
-                        // TODO: maybe we will need to create a new preference instead of using the existing one?
-                        Prefs.setLastDescriptionEditTime(editorTaskCounts.lastEditDate.time)
                     }
                 }, { t ->
                     L.e(t)

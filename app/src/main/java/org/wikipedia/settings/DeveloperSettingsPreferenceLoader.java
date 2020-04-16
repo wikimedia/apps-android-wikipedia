@@ -14,12 +14,12 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.notifications.NotificationPollBroadcastReceiver;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.database.ReadingList;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.readinglist.database.ReadingListPage;
-import org.wikipedia.suggestededits.SuggestedEditsReactivationWorker;
 import org.wikipedia.suggestededits.provider.MissingDescriptionProvider;
 import org.wikipedia.util.StringUtil;
 
@@ -196,13 +196,13 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
 
         findPreference(context.getString(R.string.preferences_developer_suggested_edits_reactivation_notification_stage_one))
                 .setOnPreferenceClickListener(preference -> {
-                    SuggestedEditsReactivationWorker.showSuggestedEditsLocalNotification(getActivity(), R.string.suggested_edits_reactivation_notification_stage_one, true);
+                    NotificationPollBroadcastReceiver.showSuggestedEditsLocalNotification(getActivity(), R.string.suggested_edits_reactivation_notification_stage_one, true);
                     return true;
                 });
 
         findPreference(context.getString(R.string.preferences_developer_suggested_edits_reactivation_notification_stage_two))
                 .setOnPreferenceClickListener(preference -> {
-                    SuggestedEditsReactivationWorker.showSuggestedEditsLocalNotification(getActivity(), R.string.suggested_edits_reactivation_notification_stage_two, true);
+                    NotificationPollBroadcastReceiver.showSuggestedEditsLocalNotification(getActivity(), R.string.suggested_edits_reactivation_notification_stage_two, true);
                     return true;
                 });
     }

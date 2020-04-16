@@ -22,9 +22,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
-import androidx.work.Constraints;
-import androidx.work.PeriodicWorkRequest;
-import androidx.work.WorkManager;
 
 import com.google.android.material.snackbar.Snackbar;
 
@@ -42,26 +39,23 @@ import org.wikipedia.events.ReadingListsNoLongerSyncedEvent;
 import org.wikipedia.events.SplitLargeListsEvent;
 import org.wikipedia.events.ThemeChangeEvent;
 import org.wikipedia.login.LoginActivity;
+import org.wikipedia.notifications.NotificationPollBroadcastReceiver;
 import org.wikipedia.readinglist.ReadingListSyncBehaviorDialogs;
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter;
 import org.wikipedia.recurring.RecurringTasksExecutor;
 import org.wikipedia.savedpages.SavedPageSyncService;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SiteInfoClient;
-import org.wikipedia.suggestededits.SuggestedEditsReactivationWorker;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.PermissionUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.log.L;
 
-import java.util.concurrent.TimeUnit;
-
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 
-import static androidx.work.ExistingPeriodicWorkPolicy.KEEP;
 import static org.wikipedia.Constants.INTENT_EXTRA_INVOKE_SOURCE;
 import static org.wikipedia.appshortcuts.AppShortcuts.APP_SHORTCUT_ID;
 
@@ -95,13 +89,7 @@ public abstract class BaseActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 
-        PeriodicWorkRequest editorReactivationWorker =
-                new PeriodicWorkRequest.Builder(SuggestedEditsReactivationWorker.class, 1, TimeUnit.DAYS)
-                        .setConstraints(new Constraints.Builder().build())
-                        .setInitialDelay(1, TimeUnit.HOURS)
-                        .build();
-        WorkManager.getInstance(this)
-                .enqueueUniquePeriodicWork("suggested-edits-worker", KEEP, editorReactivationWorker);
+        NotificationPollBroadcastReceiver.startPollTask(WikipediaApp.getInstance());
 
         // Conditionally execute all recurring tasks
         new RecurringTasksExecutor(WikipediaApp.getInstance()).run();

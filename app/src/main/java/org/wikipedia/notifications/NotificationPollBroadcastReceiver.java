@@ -10,6 +10,7 @@ import android.os.SystemClock;
 import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.StringRes;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -19,6 +20,7 @@ import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwException;
+import org.wikipedia.main.MainActivity;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.log.L;
@@ -33,9 +35,13 @@ import io.reactivex.Completable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
+import static org.wikipedia.Constants.INTENT_EXTRA_GO_TO_SE_TAB;
+
 public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
     public static final String ACTION_POLL = "action_notification_poll";
     private static final int MAX_LOCALLY_KNOWN_NOTIFICATIONS = 32;
+    private static final int FIRST_EDITOR_REACTIVATION_NOTIFICATION_SHOW_ON_DAY = 3;
+    private static final int SECOND_EDITOR_REACTIVATION__NOTIFICATION_SHOW_ON_DAY = 7;
 
     private Map<String, WikiSite> dbNameWikiSiteMap = new HashMap<>();
     private Map<String, String> dbNameWikiNameMap = new HashMap<>();
@@ -50,17 +56,16 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
             // Update our channel name, if needed.
             L.v("channel=" + ReleaseUtil.getChannel(context));
 
-            if (Prefs.notificationPollEnabled()) {
-                startPollTask(context);
-            } else {
-                stopPollTask(context);
-            }
+            startPollTask(context);
         } else if (TextUtils.equals(intent.getAction(), ACTION_POLL)) {
-            if (!Prefs.notificationPollEnabled()) {
-                stopPollTask(context);
+
+            if (!AccountUtil.isLoggedIn()) {
                 return;
             }
-            if (!AccountUtil.isLoggedIn()) {
+
+            maybeShowLocalNotificationForEditorReactivation(context);
+
+            if (!Prefs.notificationPollEnabled()) {
                 return;
             }
 
@@ -75,11 +80,6 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
                 SystemClock.elapsedRealtime(),
                 TimeUnit.MINUTES.toMillis(context.getResources().getInteger(R.integer.notification_poll_interval_minutes)),
                 getAlarmPendingIntent(context));
-    }
-
-    public static void stopPollTask(@NonNull Context context) {
-        AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        alarmManager.cancel(getAlarmPendingIntent(context));
     }
 
     @NonNull private static PendingIntent getAlarmPendingIntent(@NonNull Context context) {
@@ -233,5 +233,30 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
                         .subscribe(response -> { }, L::e);
             }
         });
+    }
+
+    private void maybeShowLocalNotificationForEditorReactivation(@NonNull Context context) {
+        long days = TimeUnit.MILLISECONDS.toDays(System.currentTimeMillis() - Prefs.getLastDescriptionEditTime());
+        if (days >= FIRST_EDITOR_REACTIVATION_NOTIFICATION_SHOW_ON_DAY && days < SECOND_EDITOR_REACTIVATION__NOTIFICATION_SHOW_ON_DAY
+                && !Prefs.isSuggestedEditsReactivationPassStageOne()) {
+            Prefs.setSuggestedEditsReactivationPassStageOne(true);
+            showSuggestedEditsLocalNotification(context, R.string.suggested_edits_reactivation_notification_stage_one, false);
+        } else if (days >= SECOND_EDITOR_REACTIVATION__NOTIFICATION_SHOW_ON_DAY && Prefs.isSuggestedEditsReactivationPassStageOne()
+                && Prefs.getLastDescriptionEditTime() > 0) {
+            Prefs.setSuggestedEditsReactivationPassStageOne(false);
+            showSuggestedEditsLocalNotification(context, R.string.suggested_edits_reactivation_notification_stage_two, false);
+        }
+    }
+
+    public static void showSuggestedEditsLocalNotification(@NonNull Context context,
+                                                           @StringRes int description,
+                                                           boolean forced) {
+        if (!WikipediaApp.getInstance().isAnyActivityResumed() || forced) {
+            Intent intent = MainActivity.newIntent(context).putExtra(INTENT_EXTRA_GO_TO_SE_TAB, true);
+            NotificationPresenter.showNotification(context, NotificationPresenter.getDefaultBuilder(context), 0,
+                    context.getString(R.string.suggested_edits_reactivation_notification_title),
+                    context.getString(description), context.getString(description),
+                    R.drawable.ic_mode_edit_white_24dp, R.color.accent50, intent);
+        }
     }
 }
