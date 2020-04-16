@@ -41,7 +41,7 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
     public static final String ACTION_POLL = "action_notification_poll";
     private static final int MAX_LOCALLY_KNOWN_NOTIFICATIONS = 32;
     private static final int FIRST_EDITOR_REACTIVATION_NOTIFICATION_SHOW_ON_DAY = 3;
-    private static final int SECOND_EDITOR_REACTIVATION__NOTIFICATION_SHOW_ON_DAY = 7;
+    private static final int SECOND_EDITOR_REACTIVATION_NOTIFICATION_SHOW_ON_DAY = 7;
 
     private Map<String, WikiSite> dbNameWikiSiteMap = new HashMap<>();
     private Map<String, String> dbNameWikiNameMap = new HashMap<>();
@@ -237,11 +237,11 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
 
     private void maybeShowLocalNotificationForEditorReactivation(@NonNull Context context) {
         long days = TimeUnit.MILLISECONDS.toDays(System.currentTimeMillis() - Prefs.getLastDescriptionEditTime());
-        if (days >= FIRST_EDITOR_REACTIVATION_NOTIFICATION_SHOW_ON_DAY && days < SECOND_EDITOR_REACTIVATION__NOTIFICATION_SHOW_ON_DAY
+        if (days >= FIRST_EDITOR_REACTIVATION_NOTIFICATION_SHOW_ON_DAY && days < SECOND_EDITOR_REACTIVATION_NOTIFICATION_SHOW_ON_DAY
                 && !Prefs.isSuggestedEditsReactivationPassStageOne()) {
             Prefs.setSuggestedEditsReactivationPassStageOne(true);
             showSuggestedEditsLocalNotification(context, R.string.suggested_edits_reactivation_notification_stage_one, false);
-        } else if (days >= SECOND_EDITOR_REACTIVATION__NOTIFICATION_SHOW_ON_DAY && Prefs.isSuggestedEditsReactivationPassStageOne()
+        } else if (days >= SECOND_EDITOR_REACTIVATION_NOTIFICATION_SHOW_ON_DAY && Prefs.isSuggestedEditsReactivationPassStageOne()
                 && Prefs.getLastDescriptionEditTime() > 0) {
             Prefs.setSuggestedEditsReactivationPassStageOne(false);
             showSuggestedEditsLocalNotification(context, R.string.suggested_edits_reactivation_notification_stage_two, false);
