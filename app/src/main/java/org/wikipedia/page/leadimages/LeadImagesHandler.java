@@ -143,7 +143,7 @@ public class LeadImagesHandler {
                                 pageHeaderView.setUpCallToAction(app.getResources().getString(R.string.suggested_edits_article_cta_image_caption));
                                 callToActionSourceSummary = new SuggestedEditsSummary(captionSourcePageTitle.getPrefixedText(), getTitle().getWikiSite().languageCode(), captionSourcePageTitle,
                                         captionSourcePageTitle.getDisplayText(), StringUtils.defaultIfBlank(StringUtil.fromHtml(imageInfo.getMetadata().imageDescription()).toString(), null),
-                                        imageInfo.getThumbUrl(), null, null, null, null);
+                                        imageInfo.getThumbUrl());
 
                                 return;
                             }
