@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.ActionMode;
+import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -57,6 +58,7 @@ import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.ThrowableUtil;
+import org.wikipedia.views.FrameLayoutNavMenuTriggerer;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.PageActionOverflowView;
 import org.wikipedia.views.TabCountsView;
@@ -82,8 +84,8 @@ import static org.wikipedia.settings.Prefs.isLinkPreviewEnabled;
 import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
 
 public class PageActivity extends BaseActivity implements PageFragment.Callback,
-        LinkPreviewDialog.Callback, ThemeChooserDialog.Callback,
-        WiktionaryDialog.Callback{
+        LinkPreviewDialog.Callback, ThemeChooserDialog.Callback, WiktionaryDialog.Callback,
+        FrameLayoutNavMenuTriggerer.Callback {
     public static final String ACTION_LOAD_IN_NEW_TAB = "org.wikipedia.load_in_new_tab";
     public static final String ACTION_LOAD_IN_CURRENT_TAB = "org.wikipedia.load_in_current_tab";
     public static final String ACTION_LOAD_IN_CURRENT_TAB_SQUASH = "org.wikipedia.load_in_current_tab_squash";
@@ -103,6 +105,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         EXISTING_TAB
     }
 
+    @BindView(R.id.activity_page_container) FrameLayoutNavMenuTriggerer containerWithNavTrigger;
     @BindView(R.id.page_progress_bar) ProgressBar progressBar;
     @BindView(R.id.page_toolbar_container) View toolbarContainerView;
     @BindView(R.id.page_toolbar) Toolbar toolbar;
@@ -168,6 +171,8 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         FeedbackUtil.setToolbarButtonLongPressToast(searchButton, tabsButton, overflowButton);
 
         toolbarHideHandler = new PageToolbarHideHandler(pageFragment, toolbarContainerView, toolbar, tabsButton);
+
+        containerWithNavTrigger.setCallback(this);
 
         boolean languageChanged = false;
         if (savedInstanceState != null) {
@@ -236,6 +241,13 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Override
+    public void onNavMenuSwipeRequest(int gravity) {
+        if (!isCabOpen() && gravity == Gravity.END) {
+            pageFragment.getTocHandler().show();
         }
     }
 
