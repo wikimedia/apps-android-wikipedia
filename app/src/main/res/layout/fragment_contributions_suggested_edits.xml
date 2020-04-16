@@ -3,5 +3,10 @@
     android:id="@+id/refreshContainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/contributionsRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/holo_blue_bright"
+        android:scrollbars="vertical" />
 </org.wikipedia.views.SwipeRefreshLayoutWithScroll>

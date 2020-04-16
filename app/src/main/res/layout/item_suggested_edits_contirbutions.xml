@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:paddingEnd="8dp"
+        android:textColor="?attr/material_theme_de_emphasised_color"
+        android:textSize="@dimen/suggested_edits_message_textview_text_size"
+        android:textStyle="bold"
+        tools:text="Lorem ipsum" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="2dp"
+                android:textColor="?attr/material_theme_primary_color"
+                android:textSize="@dimen/suggested_edits_icon_title_text_size"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/description"
+                style="@style/MaterialListTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:paddingEnd="8dp"
+                tools:text="Lorem ipsum" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/image"
+            style="@style/ImageViewDefault"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="@dimen/list_item_horizontal_padding"
+            android:contentDescription="@null" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp">
+
+        <ImageView
+            android:id="@+id/editTypeIcon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="12dp"
+            android:contentDescription="@null"
+            android:tint="?attr/material_theme_de_emphasised_color"
+            app:srcCompat="@drawable/ic_article_description" />
+
+        <TextView
+            android:id="@+id/tagType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textColor="?attr/material_theme_de_emphasised_color"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tools:text="Lorem ipsum" />
+    </LinearLayout>
+</LinearLayout>
