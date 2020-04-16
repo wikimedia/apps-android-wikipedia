@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.MotionEvent
-import org.wikipedia.R
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.ResourceUtil
@@ -19,8 +18,7 @@ class FilePageActivity : SingleFragmentActivity<FilePageFragment>() {
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         supportActionBar!!.title = intent.getParcelableExtra<PageTitle>(INTENT_EXTRA_PAGE_TITLE)!!.displayText
         imageZoomHelper = ImageZoomHelper(this)
-        setStatusBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color))
-        setNavigationBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color))
+        setNavigationBarColor(ResourceUtil.getThemedColor(this, android.R.attr.windowBackground))
     }
 
     override fun createFragment(): FilePageFragment {
@@ -36,6 +34,7 @@ class FilePageActivity : SingleFragmentActivity<FilePageFragment>() {
 
     companion object {
         const val INTENT_EXTRA_PAGE_TITLE = "pageTitle"
+        @JvmStatic
         fun newIntent(context: Context, pageTitle: PageTitle): Intent {
             return Intent(context, FilePageActivity::class.java).putExtra(INTENT_EXTRA_PAGE_TITLE, pageTitle)
         }
