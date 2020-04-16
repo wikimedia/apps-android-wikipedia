@@ -3,6 +3,7 @@ package org.wikipedia.main;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -17,6 +18,7 @@ import androidx.appcompat.view.ActionMode;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.drawerlayout.widget.FixedDrawerLayout;
 
 import org.wikipedia.Constants;
 import org.wikipedia.R;
@@ -38,9 +40,9 @@ import org.wikipedia.suggestededits.SuggestedEditsTasksFragment;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
+import org.wikipedia.views.FrameLayoutNavMenuTriggerer;
 import org.wikipedia.views.ImageZoomHelper;
 import org.wikipedia.views.TabCountsView;
-import org.wikipedia.views.WikiDrawerLayout;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -51,15 +53,17 @@ import static android.view.View.VISIBLE;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_INITIAL_ONBOARDING;
 
 public class MainActivity extends SingleFragmentActivity<MainFragment>
-        implements MainFragment.Callback {
+        implements MainFragment.Callback, FrameLayoutNavMenuTriggerer.Callback {
 
-    @BindView(R.id.navigation_drawer) WikiDrawerLayout drawerLayout;
+    @BindView(R.id.navigation_drawer) FixedDrawerLayout drawerLayout;
     @BindView(R.id.navigation_drawer_view) MainDrawerView drawerView;
+    @BindView(R.id.navigation_drawer_triggerer) FrameLayoutNavMenuTriggerer triggererView;
     @BindView(R.id.single_fragment_toolbar) Toolbar toolbar;
     @BindView(R.id.drawer_icon_layout) View drawerIconLayout;
     @BindView(R.id.drawer_icon_dot) View drawerIconDot;
     @BindView(R.id.hamburger_and_wordmark_layout) View hamburgerAndWordmarkLayout;
     private ImageZoomHelper imageZoomHelper;
+    @Nullable private ActionMode currentActionMode;
 
     private boolean controlNavTabInFragment;
 
@@ -91,7 +95,6 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
             getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         }
 
-        drawerLayout.setDragEdgeWidth(getResources().getDimensionPixelSize(R.dimen.drawer_drag_margin));
         drawerLayout.addDrawerListener(new DrawerLayout.SimpleDrawerListener() {
             @Override
             public void onDrawerStateChanged(int newState) {
@@ -105,9 +108,16 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
             }
         });
         drawerView.setCallback(new DrawerViewCallback());
-        shouldShowMainDrawer(true);
+
+        ActionBarDrawerToggle drawerToggle = new ActionBarDrawerToggle(this,
+                drawerLayout, toolbar,
+                R.string.main_drawer_open, R.string.main_drawer_close);
+        drawerToggle.syncState();
+        getToolbar().setNavigationIcon(null);
+
         setUpHomeMenuIcon();
         FeedbackUtil.setToolbarButtonLongPressToast(drawerIconLayout);
+        triggererView.setCallback(this);
     }
 
     @Override
@@ -179,7 +189,6 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
             toolbar.setTitle(tab.text());
             controlNavTabInFragment = true;
         }
-        shouldShowMainDrawer(!controlNavTabInFragment);
         getFragment().requestUpdateToolbarElevation();
     }
 
@@ -188,12 +197,20 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
     }
 
     @OnClick(R.id.drawer_icon_layout) void onDrawerOpenClicked() {
-        drawerLayout.openDrawer(GravityCompat.START);
+        drawerLayout.openDrawer(drawerView);
+    }
+
+    @Override
+    public void onNavMenuSwipeRequest(int gravity) {
+        if (currentActionMode == null && gravity == Gravity.START) {
+            drawerLayout.post(this::onDrawerOpenClicked);
+        }
     }
 
     @Override
     public void onSupportActionModeStarted(@NonNull ActionMode mode) {
         super.onSupportActionModeStarted(mode);
+        currentActionMode = mode;
         if (!controlNavTabInFragment) {
             getFragment().setBottomNavVisible(false);
         }
@@ -203,6 +220,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
     public void onSupportActionModeFinished(@NonNull ActionMode mode) {
         super.onSupportActionModeFinished(mode);
         getFragment().setBottomNavVisible(true);
+        currentActionMode = null;
     }
 
     @Override
@@ -254,18 +272,6 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
 
     public Toolbar getToolbar() {
         return toolbar;
-    }
-
-    public void shouldShowMainDrawer(boolean enabled) {
-        drawerLayout.setSlidingEnabled(enabled);
-
-        if (enabled) {
-            ActionBarDrawerToggle drawerToggle = new ActionBarDrawerToggle(this,
-                    drawerLayout, toolbar,
-                    R.string.main_drawer_open, R.string.main_drawer_close);
-            drawerToggle.syncState();
-            getToolbar().setNavigationIcon(null);
-        }
     }
 
     protected void setToolbarElevationDefault() {
