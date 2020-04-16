@@ -4,13 +4,6 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 
-/**
- * TODO: Remove this class when Google updates the Support library.
- * This solves an intermittent crash when using DrawerLayout.
- *
- * https://code.google.com/p/android/issues/detail?id=77926
- *
- */
 public class FixedDrawerLayout extends DrawerLayout {
     public FixedDrawerLayout(Context context) {
         super(context);
@@ -24,6 +17,17 @@ public class FixedDrawerLayout extends DrawerLayout {
         super(context, attrs, defStyle);
     }
 
+    public void setSlidingEnabled(boolean enable) {
+        if (enable) {
+            this.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
+        } else {
+            this.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
+        }
+    }
+
+    // TODO: Remove this class when Google updates the Support library.
+    // This solves an intermittent crash when using DrawerLayout.
+    // https://code.google.com/p/android/issues/detail?id=77926
     @Override
     boolean isContentView(View child) {
         if (child == null) {

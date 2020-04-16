@@ -283,6 +283,10 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         return editHandler;
     }
 
+    public ToCHandler getTocHandler() {
+        return tocHandler;
+    }
+
     public ViewGroup getContainerView() {
         return containerView;
     }
@@ -371,7 +375,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
 
         editHandler = new EditHandler(this, bridge);
 
-        tocHandler = new ToCHandler(this, requireActivity().getWindow().getDecorView().findViewById(R.id.toc_container),
+        tocHandler = new ToCHandler(this, requireActivity().getWindow().getDecorView().findViewById(R.id.navigation_drawer),
                 requireActivity().getWindow().getDecorView().findViewById(R.id.page_scroller_button), bridge);
 
         // TODO: initialize View references in onCreateView().
@@ -1005,7 +1009,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                     sections.add(0, new Section(0, 0, model.getTitle().getDisplayText(), model.getTitle().getDisplayText(), ""));
                     model.getPage().setSections(sections);
                 }
-                tocHandler.setupToC(model.getPage(), model.getTitle().getWikiSite(), pageFragmentLoadState.isFirstPage());
+                tocHandler.setupToC(model.getPage(), model.getTitle().getWikiSite());
                 tocHandler.setEnabled(true);
             });
 
@@ -1130,8 +1134,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                     Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT_TUTORIAL);
         } else {
             SuggestedEditsSummary sourceSummary = new SuggestedEditsSummary(getTitle().getPrefixedText(), getTitle().getWikiSite().languageCode(), getTitle(),
-                    getTitle().getDisplayText(), getTitle().getDescription(), getTitle().getThumbUrl(),
-                    null, null, null, null);
+                    getTitle().getDisplayText(), getTitle().getDescription(), getTitle().getThumbUrl());
             startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), getTitle(), text, sourceSummary, null, ADD_DESCRIPTION, PAGE_ACTIVITY),
                     Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT);
         }
