@@ -69,10 +69,7 @@
   <string name="menu_long_press_open_page">Відкрити</string>
   <string name="menu_long_press_open_in_new_tab">Відкрити у новій вкладці</string>
   <string name="menu_long_press_copy_page">Копіювати адресу посилання</string>
-  <string name="menu_text_select_copy">Скопіювати</string>
   <string name="menu_text_select_define">Визначення</string>
-  <string name="menu_text_select_share">Поділитися</string>
-  <string name="share">Поширити</string>
   <string name="on_this_day_page_share">Поділитися</string>
   <string name="reading_list_page_share">Поділитися</string>
   <string name="menu_text_select_edit_here">Редагувати тут</string>
@@ -286,11 +283,7 @@
   <string name="gallery_add_image_caption_button">Додати підпис зображення</string>
   <string name="gallery_add_image_caption_in_language_button">Додати підпис зображення (%s)</string>
   <string name="err_cannot_save_file">Не вдається зберегти файл</string>
-  <string name="snippet_share_intro">\"%1$s\" на сайті @Wikipedia: %2$s</string>
   <string name="expand_refs">Торкніться, щоб розкрити</string>
-  <string name="share_snippet_button">Поділитися як зображенням</string>
-  <string name="share_normal_button">Поділитися як текстом</string>
-  <string name="snippet_share_preview_image_desc">Попередній перегляд зображення</string>
   <string name="cc_logo">Ліцензія Creative Commons</string>
   <string name="captcha_image">Зображення captcha</string>
   <string name="gallery_fair_use_license">Добросовісне використання</string>

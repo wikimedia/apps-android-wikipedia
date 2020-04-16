@@ -71,10 +71,7 @@
   <string name="menu_long_press_open_page">Otevřít</string>
   <string name="menu_long_press_open_in_new_tab">Otevřít v nové záložce</string>
   <string name="menu_long_press_copy_page">Zkopírovat adresu odkazu</string>
-  <string name="menu_text_select_copy">Kopírovat</string>
   <string name="menu_text_select_define">Definovat</string>
-  <string name="menu_text_select_share">Sdílet</string>
-  <string name="share">Sdílet</string>
   <string name="on_this_day_page_share">Sdílet</string>
   <string name="reading_list_page_share">Sdílet</string>
   <string name="menu_text_select_edit_here">Editovat zde</string>
@@ -124,7 +121,7 @@
   <string name="menu_login">Přihlásit se</string>
   <string name="login_activity_title">Přihlášení do Wikipedie</string>
   <string name="login_in_progress_dialog_message">Přihlašování…</string>
-  <string name="login_success_toast" fuzzy="true">Přihlášení uspělo!</string>
+  <string name="login_success_toast">Přihlášeno!</string>
   <string name="reset_password_title">Nastavte si své heslo</string>
   <string name="reset_password_description">Jste přihlášeni pomocí dočasného hesla. Chcete-li dokončit přihlášení, zadejte prosím nové heslo.</string>
   <string name="reset_password_hint">Nové heslo</string>
@@ -288,11 +285,7 @@
   <string name="gallery_add_image_caption_button">Přidat titulek obrázku</string>
   <string name="gallery_add_image_caption_in_language_button">Přidat titulek obrázku (%s)</string>
   <string name="err_cannot_save_file">Není možno uložit soubor</string>
-  <string name="snippet_share_intro">„%1$s“ na @Wikipedia: %2$s</string>
   <string name="expand_refs">Klepnutím rozbalte</string>
-  <string name="share_snippet_button">Sdílet jako obrázek</string>
-  <string name="share_normal_button">Sdílet jako text</string>
-  <string name="snippet_share_preview_image_desc">Náhled obrázku</string>
   <string name="cc_logo">Licence Creative Commons</string>
   <string name="captcha_image">Obrázek CAPTCHA</string>
   <string name="gallery_fair_use_license">Fair use</string>
@@ -379,7 +372,7 @@
   <string name="reading_list_save_to">Uložit do seznamu k přečtení</string>
   <string name="reading_list_create_new">Vytvořit nový</string>
   <string name="reading_list_title_exists">Seznam k přečtení „%s“ už existuje.</string>
-  <string name="reading_list_articles_already_exist_message" fuzzy="true">Vše je v pořádku! Seznam %s obsahuje všechny články, které se nacházejí v otevřených záložkách.</string>
+  <string name="reading_list_articles_already_exist_message">Vše je v pořádku! Seznam %s obsahuje všechny články.</string>
   <string name="reading_list_added_view_button">Zobrazit seznam</string>
   <string name="format_reading_list_statistical_summary_singular">1 článek, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d článků, %2$.2f MB</string>

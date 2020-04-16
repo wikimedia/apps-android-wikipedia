@@ -68,10 +68,7 @@
   <string name="menu_long_press_open_page">খুলুন</string>
   <string name="menu_long_press_open_in_new_tab">নতুন ট্যাবে খুলুন</string>
   <string name="menu_long_press_copy_page">লিঙ্ক ঠিকানা অনুলিপি করো</string>
-  <string name="menu_text_select_copy">অনুলিপি</string>
   <string name="menu_text_select_define">সংজ্ঞা</string>
-  <string name="menu_text_select_share">বণ্টন</string>
-  <string name="share">শেয়ার করুন</string>
   <string name="on_this_day_page_share">শেয়ার করুন</string>
   <string name="reading_list_page_share">শেয়ার করুন</string>
   <string name="menu_text_select_edit_here">এখানে সম্পাদনা করুন</string>
@@ -275,11 +272,7 @@
   <string name="gallery_error_video_failed">ভিডিওটি চালু হচ্ছেনা।</string>
   <string name="gallery_save_image_write_permission_rationale">ছবি সংরক্ষণের জন্য আপনার ডিভাইসের সংগ্রহস্থলে লেখার অনুমতি প্রয়োজন।</string>
   <string name="err_cannot_save_file">ফাইলটি সংরক্ষণ করা যাচ্ছে না</string>
-  <string name="snippet_share_intro">\@Wikipedia তে \"%1$s\": %2$s</string>
   <string name="expand_refs">বিস্তারিত জানতে ক্লিক করুন</string>
-  <string name="share_snippet_button">ছবি হিসাবে ভাগ করুন</string>
-  <string name="share_normal_button">লেখা হিসাবে ভাগ করুন</string>
-  <string name="snippet_share_preview_image_desc">চিত্র প্রাকদর্শন</string>
   <string name="cc_logo">ক্রিয়েটিভ কমন্স লাইসেন্স</string>
   <string name="captcha_image">ক্যাপচা চিত্র</string>
   <string name="gallery_fair_use_license">বৈধ ব্যবহার</string>

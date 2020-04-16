@@ -53,10 +53,7 @@
   <string name="menu_long_press_open_page">ပိုတ်ႇ</string>
   <string name="menu_long_press_open_in_new_tab">ပိုတ်ႇၼင်ႇ ထႅပ်ႉဢၼ်မႂ်ႇ</string>
   <string name="menu_long_press_copy_page">ထုတ်ႇဢဝ် ႁဵင်းလိၵ်ႈႁဵင်းၵွင်ႉ</string>
-  <string name="menu_text_select_copy">ထုတ်ႇ</string>
   <string name="menu_text_select_define">မၵ်းမၼ်ႈ</string>
-  <string name="menu_text_select_share">ၽႄႈတိုၼ်း</string>
-  <string name="share">ၽႄႈတိုၼ်း</string>
   <string name="on_this_day_page_share">ၽႄႈတိုၼ်း</string>
   <string name="reading_list_page_share">ၽႄႈတိုၼ်း</string>
   <string name="menu_text_select_edit_here">မႄးထတ်း တီႈၼႆႈ</string>
@@ -264,11 +261,7 @@
   <string name="gallery_save_image_write_permission_rationale">တွၼ်ႈတႃႇ သိမ်းၶႅပ်းႁၢင်ႈၼႆႉ တေလူဝ်ႇၶေႃႈၶႂၢင်းပၼ် တွၼ်ႈတႃႇတေတႅမ်ႈမၢႆသႂ်ႇ တီႈၼႂ်း ၶိူင်ႈၶူဝ်းၸဝ်ႈၵဝ်ႇဢေႃႈ။</string>
   <string name="gallery_add_image_caption_in_language_button">ထႅမ်သႂ်ႇ ႁူဝ်ၶေႃႈ ၶႅပ်းႁၢင်ႈ (%s)</string>
   <string name="err_cannot_save_file">ဢမ်ႇၸၢင်ႈ သိမ်းၾၢႆႇ</string>
-  <string name="snippet_share_intro">\"%1$s\" တီႈၼိူဝ် @ဝီႇၶီႇၽီးတီးယႃး: %2$s</string>
   <string name="expand_refs">ၼဵၵ်းတႃႇ ၵႄႈတူၺ်း</string>
-  <string name="share_snippet_button">ၽႄႈတိုၼ်းၼင်ႇ ၶႅပ်းႁၢင်ႈ</string>
-  <string name="share_normal_button">ၽႄႈတိုၼ်းၼင်ႇ လိၵ်ႈ</string>
-  <string name="snippet_share_preview_image_desc">ႁၢင်ႈတူၺ်းလူင်ႈၼႃႈ</string>
   <string name="cc_logo">ဝႂ်ၶႂၢင်း လွင်ႈၵေႃႇသၢင်ႈ တႃႇတင်းၼမ်</string>
   <string name="captcha_image">ႁၢင်ႈၶေႃႈၼႄႉၼွၼ်း</string>
   <string name="gallery_fair_use_license">ၸႂ်ႉၽဵင်ႇပဵင်းၵၼ်</string>

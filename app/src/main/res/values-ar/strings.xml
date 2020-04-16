@@ -80,10 +80,7 @@
   <string name="menu_long_press_open_page">افتح</string>
   <string name="menu_long_press_open_in_new_tab">افتح في تبويب جديد</string>
   <string name="menu_long_press_copy_page">انسخ عنوان الوصلة</string>
-  <string name="menu_text_select_copy">انسخ</string>
   <string name="menu_text_select_define">عرّف</string>
-  <string name="menu_text_select_share">شارك</string>
-  <string name="share">شارك</string>
   <string name="on_this_day_page_share">شارك</string>
   <string name="reading_list_page_share">شارك</string>
   <string name="menu_text_select_edit_here">عدل هنا</string>
@@ -291,17 +288,13 @@
   <string name="gallery_menu_share">مشاركة</string>
   <string name="gallery_share_error">تعذّرت مشاركة الصورة: %s</string>
   <string name="gallery_save_progress">جارٍ تنزيل الملف…</string>
-  <string name="gallery_save_success" fuzzy="true">حُفظ الملف بنجاح.</string>
+  <string name="gallery_save_success">حُفظ الملف بنجاح.</string>
   <string name="gallery_error_video_failed">لا يمكن تشغيل الفيديو.</string>
   <string name="gallery_save_image_write_permission_rationale">صلاحية الكتابة في ذاكرة التخزين على جهازك مطلوبة لحفظ الصور.</string>
   <string name="gallery_add_image_caption_button">إضافة شرح الصورة</string>
   <string name="gallery_add_image_caption_in_language_button">إضافة تسمية توضيحية للصورة (%s)</string>
   <string name="err_cannot_save_file">تعذّر حفظ الملف</string>
-  <string name="snippet_share_intro">\"%1$s\" في @Wikipedia: %2$s</string>
   <string name="expand_refs">اضغط للتوسيع</string>
-  <string name="share_snippet_button">شارك كصورة</string>
-  <string name="share_normal_button">شارك كنص</string>
-  <string name="snippet_share_preview_image_desc">معاينة الصورة</string>
   <string name="cc_logo">رخصة المشاع الإبداعي</string>
   <string name="captcha_image">صورة الكابتشا</string>
   <string name="gallery_fair_use_license">استخدام عادل</string>
