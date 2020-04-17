@@ -66,7 +66,7 @@ object JavaScriptActionHandler {
 
     @JvmStatic
     fun prepareToScrollTo(anchorLink: String, highlight: Boolean): String {
-        return "pcs.c1.Page.prepareForScrollToAnchor(\"${anchorLink}\", { highlight: $highlight } )"
+        return "pcs.c1.Page.prepareForScrollToAnchor(\"${anchorLink.replace("\"", "\\\"")}\", { highlight: $highlight } )"
     }
 
     @JvmStatic
