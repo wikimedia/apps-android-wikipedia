@@ -32,7 +32,7 @@ public class ABTestFunnel extends Funnel {
         int group = PrefsIoUtil.getInt(AB_TEST_KEY_PREFIX + abTestName, -1);
         if (group == -1) {
             // initialize the group if it hasn't been yet.
-            group = new Random().nextInt();
+            group = new Random().nextInt(Integer.MAX_VALUE);
             PrefsIoUtil.setInt(AB_TEST_KEY_PREFIX + abTestName, group);
         }
         return group % abTestGroupCount;
