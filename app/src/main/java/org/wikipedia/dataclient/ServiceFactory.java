@@ -24,6 +24,7 @@ public final class ServiceFactory {
     private static final int SERVICE_CACHE_SIZE = 8;
     private static LruCache<Long, Service> SERVICE_CACHE = new LruCache<>(SERVICE_CACHE_SIZE);
     private static LruCache<Long, RestService> REST_SERVICE_CACHE = new LruCache<>(SERVICE_CACHE_SIZE);
+    private static LruCache<Long, CoreRestService> CORE_REST_SERVICE_CACHE = new LruCache<>(SERVICE_CACHE_SIZE);
 
     public static Service get(@NonNull WikiSite wiki) {
         long hashCode = wiki.hashCode();
@@ -44,6 +45,17 @@ public final class ServiceFactory {
         Retrofit r = createRetrofit(wiki, getRestBasePath(wiki));
         RestService s = r.create(RestService.class);
         REST_SERVICE_CACHE.put(hashCode, s);
+        return s;
+    }
+
+    public static CoreRestService getCoreRest(@NonNull WikiSite wiki) {
+        long hashCode = wiki.hashCode();
+        if (CORE_REST_SERVICE_CACHE.get(hashCode) != null) {
+            return CORE_REST_SERVICE_CACHE.get(hashCode);
+        }
+        Retrofit r = createRetrofit(wiki, wiki.url() + "/" + CoreRestService.CORE_REST_API_PREFIX);
+        CoreRestService s = r.create(CoreRestService.class);
+        CORE_REST_SERVICE_CACHE.put(hashCode, s);
         return s;
     }
 
