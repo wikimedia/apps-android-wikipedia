@@ -288,7 +288,7 @@
   <string name="gallery_menu_share">مشاركة</string>
   <string name="gallery_share_error">تعذّرت مشاركة الصورة: %s</string>
   <string name="gallery_save_progress">جارٍ تنزيل الملف…</string>
-  <string name="gallery_save_success" fuzzy="true">حُفظ الملف بنجاح.</string>
+  <string name="gallery_save_success">حُفظ الملف بنجاح.</string>
   <string name="gallery_error_video_failed">لا يمكن تشغيل الفيديو.</string>
   <string name="gallery_save_image_write_permission_rationale">صلاحية الكتابة في ذاكرة التخزين على جهازك مطلوبة لحفظ الصور.</string>
   <string name="gallery_add_image_caption_button">إضافة شرح الصورة</string>

@@ -107,7 +107,7 @@
   <string name="menu_login">Skrá inn</string>
   <string name="login_activity_title">Skrá inn á Wikipedia</string>
   <string name="login_in_progress_dialog_message">Skráir þig inn…</string>
-  <string name="login_success_toast" fuzzy="true">Sending tókst!</string>
+  <string name="login_success_toast">Innskráning tókst!</string>
   <string name="reset_password_title">Stilltu lykilorðið þitt</string>
   <string name="reset_password_description">Þú skráðir þig inn með bráðabirgðalykilorði. Til að klára að skrá þig inn, verður þú að velja nýtt lykilorð hér.</string>
   <string name="reset_password_hint">Nýtt lykilorð</string>
@@ -196,6 +196,7 @@
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">notuð aðgerðasöfn</string>
   <string name="about_contributors_heading">framlög frá</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Síða teymisins&lt;/a&gt;</string>
   <string name="about_translators_heading">þýðendur</string>
   <string name="about_translators_translatewiki">Þetta forrit/app var þýtt af sjálfboðaliðum á &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Notkunarleyfi</string>
@@ -264,7 +265,7 @@
   <string name="gallery_menu_share">Deila</string>
   <string name="gallery_share_error">Gat ekki deilt myndinni: %s</string>
   <string name="gallery_save_progress">Sæki skrá…</string>
-  <string name="gallery_save_success" fuzzy="true">Tókst að vista skrána.</string>
+  <string name="gallery_save_success">Skrá vistuð.</string>
   <string name="gallery_error_video_failed">Tókst ekki að spila myndskeiðið.</string>
   <string name="gallery_save_image_write_permission_rationale">Til að vista myndir er nauðsynlegt að hafa heimild til að skrifa í gagnageymslu tækisins.</string>
   <string name="gallery_add_image_caption_button">Bæta við myndatexta</string>
@@ -331,6 +332,7 @@
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Samsvara þema kerfis</string>
   <string name="page_footer_license_text">Efni má nota samkvæmt $1 nema annað komi fram</string>
   <string name="empty_tab_title">Nýr flipi</string>
+  <string name="menu_save_all_tabs">Vista alla flipa</string>
   <string name="crash_report_activity_title">Villa í forriti</string>
   <string name="crash_report_relaunch_or_quit">Því miður, Wikipedia-appið varð fyrir villu og vað þessvegna lokað.\n\nViltu byrja aftur eða hætta alveg?</string>
   <string name="crash_report_relaunch">Byrja aftur</string>
@@ -356,6 +358,9 @@
   <string name="reading_list_save_to">Vista í leslista</string>
   <string name="reading_list_create_new">Búa til nýjan</string>
   <string name="reading_list_title_exists">Leslistinn „%s“ er þegar til.</string>
+  <string name="reading_list_article_added_to_named">Bætti %1$s við %2$s.</string>
+  <string name="reading_list_article_already_exists_message">Allt í þessu fína! %1$s inniheldur þegar %2$s.</string>
+  <string name="reading_list_articles_already_exist_message">Allt í þessu fína! %s inniheldur þegar allar greinar.</string>
   <string name="reading_list_added_view_button">Skoða lista</string>
   <string name="format_reading_list_statistical_summary_singular">1 grein, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d greinar, %2$.2f MB</string>
@@ -447,7 +452,7 @@
     <item quantity="one">Þessi grein verður ekki lengur tiltæk án nettengingar.</item>
     <item quantity="other">Þessar greinar verða ekki lengur tiltækar án nettengingar.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync" fuzzy="true">Það tókst að samstilla leslista</string>
+  <string name="reading_list_toast_last_sync">Leslistar samstilltir</string>
   <string name="reading_list_menu_last_sync">Síðasta samstilling: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">Í lagi</string>
   <string name="reading_list_delete_dialog_ok_button_text">Í lagi</string>
