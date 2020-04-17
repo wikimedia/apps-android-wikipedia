@@ -74,12 +74,12 @@ class SuggestedEditsVandalismPatrolFragment : SuggestedEditsItemFragment(), Comp
 
         voteGoodButton.setOnClickListener {
             // TODO
-            parent().nextPage()
+            parent().nextPage(this)
         }
 
         voteNotSureButton.setOnClickListener {
             // TODO
-            parent().nextPage()
+            parent().nextPage(this)
         }
 
         voteRevertButton.setOnClickListener {
@@ -234,7 +234,7 @@ class SuggestedEditsVandalismPatrolFragment : SuggestedEditsItemFragment(), Comp
             return
         }
 
-        parent().nextPage()
+        parent().nextPage(this)
 
         /*
 
@@ -323,7 +323,7 @@ class SuggestedEditsVandalismPatrolFragment : SuggestedEditsItemFragment(), Comp
         publishProgressBar.postDelayed({
             if (isAdded) {
                 publishOverlayContainer.visibility = GONE
-                parent().nextPage()
+                parent().nextPage(this)
                 setPublishedState()
             }
         }, duration * 3)
