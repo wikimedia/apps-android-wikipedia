@@ -37,6 +37,7 @@ import java.util.Map;
  *
  */
 public class CommunicationBridge {
+    public static final String BLANK_PAGE = "about:blank";
     private final Map<String, List<JSEventListener>> eventListeners;
     private final CommunicationBridgeListener communicationBridgeListener;
 

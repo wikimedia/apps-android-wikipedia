@@ -108,6 +108,7 @@ public class DescriptionEditFragment extends Fragment {
             }
 
             Prefs.setLastDescriptionEditTime(new Date().getTime());
+            Prefs.setSuggestedEditsReactivationPassStageOne(false);
             SuggestedEditsFunnel.get().success(action);
 
             if (getActivity() == null)  {
@@ -356,15 +357,13 @@ public class DescriptionEditFragment extends Fragment {
 
         private Observable<EntityPostResponse> getPostObservable(@NonNull String editToken, @Nullable String languageCode) {
             if (action == ADD_CAPTION || action == TRANSLATE_CAPTION) {
-                return ServiceFactory.get(wikiCommons).postLabelEdit(pageTitle.getWikiSite().languageCode(),
-                        pageTitle.getWikiSite().languageCode(), commonsDbName,
+                return ServiceFactory.get(wikiCommons).postLabelEdit(languageCode, languageCode, commonsDbName,
                         pageTitle.getPrefixedText(), editView.getDescription(),
                         action == ADD_CAPTION ? SuggestedEditsFunnel.SUGGESTED_EDITS_ADD_COMMENT
                                 : action == TRANSLATE_CAPTION ? SuggestedEditsFunnel.SUGGESTED_EDITS_TRANSLATE_COMMENT : null,
                         editToken, AccountUtil.isLoggedIn() ? "user" : null);
             } else {
-                return ServiceFactory.get(wikiData).postDescriptionEdit(languageCode,
-                        pageTitle.getWikiSite().languageCode(), pageTitle.getWikiSite().dbName(),
+                return ServiceFactory.get(wikiData).postDescriptionEdit(languageCode, languageCode, pageTitle.getWikiSite().dbName(),
                         pageTitle.getPrefixedText(), editView.getDescription(),
                         action == ADD_DESCRIPTION ? SuggestedEditsFunnel.SUGGESTED_EDITS_ADD_COMMENT
                                 : action == TRANSLATE_DESCRIPTION ? SuggestedEditsFunnel.SUGGESTED_EDITS_TRANSLATE_COMMENT : null,

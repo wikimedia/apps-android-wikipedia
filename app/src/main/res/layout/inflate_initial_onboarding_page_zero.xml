@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    app:centeredImage="@drawable/app_onboarding_globe"
+    app:centeredImage="@drawable/w_nav_mark"
     app:dataType="@string/language_data"
     app:imageSize="160dp"
     app:primaryText="@string/onboarding_welcome_title_v2"

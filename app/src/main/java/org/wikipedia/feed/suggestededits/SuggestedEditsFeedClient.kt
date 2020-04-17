@@ -5,6 +5,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import org.wikipedia.WikipediaApp
+import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
@@ -96,8 +97,7 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
                             pageSummary.displayTitle,
                             pageSummary.description,
                             pageSummary.thumbnailUrl,
-                            pageSummary.extractHtml,
-                            null, null, null
+                            pageSummary.extractHtml
                     )
 
                     val card: SuggestedEditsCard = toSuggestedEditsCard(WikiSite.forLanguageCode(langFromCode), sourceSummary, null, null)
@@ -131,8 +131,7 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
                             source.displayTitle,
                             source.description,
                             source.thumbnailUrl,
-                            source.extractHtml,
-                            null, null, null
+                            source.extractHtml
                     )
 
                     val targetSummary = SuggestedEditsSummary(
@@ -142,8 +141,7 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
                             target.displayTitle,
                             target.description,
                             target.thumbnailUrl,
-                            target.extractHtml,
-                            null, null, null
+                            target.extractHtml
                     )
 
                     val card: SuggestedEditsCard = toSuggestedEditsCard(WikiSite.forLanguageCode(langFromCode), sourceSummary, targetSummary, null)
@@ -160,7 +158,7 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .flatMap { title ->
-                    ServiceFactory.get(WikiSite.forLanguageCode(langFromCode)).getImageInfo(title, langFromCode)
+                    ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo(title, langFromCode)
                             .subscribeOn(Schedulers.io())
                             .observeOn(AndroidSchedulers.mainThread())
                 }
@@ -210,7 +208,7 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
                 .observeOn(AndroidSchedulers.mainThread())
                 .flatMap { pair ->
                     fileCaption = pair.first
-                    ServiceFactory.get(WikiSite.forLanguageCode(langFromCode)).getImageInfo(pair.second, langFromCode)
+                    ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo(pair.second, langFromCode)
                             .subscribeOn(Schedulers.io())
                             .observeOn(AndroidSchedulers.mainThread())
                 }

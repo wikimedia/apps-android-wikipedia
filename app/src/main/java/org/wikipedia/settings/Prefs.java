@@ -375,6 +375,10 @@ public final class Prefs {
         setLong(R.string.preference_key_last_description_edit_time, time);
     }
 
+    public static long getLastDescriptionEditTime() {
+        return getLong(R.string.preference_key_last_description_edit_time, 0);
+    }
+
     public static int getTotalAnonDescriptionsEdited() {
         return getInt(R.string.preference_key_total_anon_descriptions_edited, 0);
     }
@@ -800,7 +804,7 @@ public final class Prefs {
     }
 
     public static boolean shouldMatchSystemTheme() {
-        return getBoolean(R.string.preference_key_match_system_theme, false);
+        return getBoolean(R.string.preference_key_match_system_theme, true);
     }
 
     public static void setMatchSystemTheme(boolean enabled) {
@@ -889,6 +893,14 @@ public final class Prefs {
 
     public static void setSuggestedEditsImageTagsNew(boolean enabled) {
         setBoolean(R.string.preference_key_suggested_edits_image_tags_new, enabled);
+    }
+
+    public static boolean isSuggestedEditsReactivationPassStageOne() {
+        return getBoolean(R.string.preference_key_suggested_edits_reactivation_pass_stage_one, true);
+    }
+
+    public static void setSuggestedEditsReactivationPassStageOne(boolean pass) {
+        setBoolean(R.string.preference_key_suggested_edits_reactivation_pass_stage_one, pass);
     }
 
     private Prefs() { }

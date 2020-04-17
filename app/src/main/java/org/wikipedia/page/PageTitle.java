@@ -137,15 +137,22 @@ public class PageTitle implements Parcelable {
             text = SiteInfoClient.getMainPageForLang(wiki.languageCode());
         }
 
-        String[] fragParts = text.split("#", -1);
-        text = fragParts[0];
-        if (fragParts.length > 1) {
-            this.fragment = decodeURL(fragParts[1]).replace(" ", "_");
+        // Remove any URL parameters (?...) from the title
+        String[] parts = text.split("\\?", -1);
+        if (parts.length > 1 && parts[1].contains("=")) {
+            text = parts[0];
+        }
+
+        // Split off any fragment (#...) from the title
+        parts = text.split("#", -1);
+        text = parts[0];
+        if (parts.length > 1) {
+            this.fragment = decodeURL(parts[1]).replace(" ", "_");
         } else {
             this.fragment = null;
         }
 
-        String[] parts = text.split(":", -1);
+        parts = text.split(":", -1);
         if (parts.length > 1) {
             String namespaceOrLanguage = parts[0];
             if (Arrays.asList(Locale.getISOLanguages()).contains(namespaceOrLanguage)) {

@@ -39,6 +39,7 @@ import org.wikipedia.events.ReadingListsNoLongerSyncedEvent;
 import org.wikipedia.events.SplitLargeListsEvent;
 import org.wikipedia.events.ThemeChangeEvent;
 import org.wikipedia.login.LoginActivity;
+import org.wikipedia.notifications.NotificationPollBroadcastReceiver;
 import org.wikipedia.readinglist.ReadingListSyncBehaviorDialogs;
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter;
 import org.wikipedia.recurring.RecurringTasksExecutor;
@@ -87,6 +88,8 @@ public abstract class BaseActivity extends AppCompatActivity {
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
+
+        NotificationPollBroadcastReceiver.startPollTask(WikipediaApp.getInstance());
 
         // Conditionally execute all recurring tasks
         new RecurringTasksExecutor(WikipediaApp.getInstance()).run();
