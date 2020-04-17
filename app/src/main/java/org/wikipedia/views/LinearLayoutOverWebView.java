@@ -53,8 +53,6 @@ public class LinearLayoutOverWebView extends LinearLayout {
                     int maxScroll = contentHeight - webView.getScrollY() - webView.getHeight();
                     int scrollAmount = Math.min((int) (startY - event.getY()), maxScroll);
                     scrollAmount = Math.max(minScroll, scrollAmount);
-                    // manually scroll the WebView that's underneath us...
-                    webView.scrollBy(0, scrollAmount);
                     amountScrolled += scrollAmount;
                     if (Math.abs(amountScrolled) > touchSlop && !slopReached) {
                         // if we go outside the slop radius, then dispatch a Cancel event to
@@ -65,6 +63,10 @@ public class LinearLayoutOverWebView extends LinearLayout {
                         moveEvent.setAction(MotionEvent.ACTION_CANCEL);
                         super.dispatchTouchEvent(moveEvent);
                         return true;
+                    }
+                    if (slopReached) {
+                        // manually scroll the WebView that's underneath us...
+                        webView.scrollBy(0, scrollAmount);
                     }
                 }
                 break;
