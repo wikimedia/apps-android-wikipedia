@@ -59,12 +59,17 @@
                     android:layout_gravity="center"
                     android:visibility="gone" />
 
-                <ImageView
-                    android:id="@+id/imageView"
+                <FrameLayout
+                    android:id="@+id/imageViewPlaceholder"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:contentDescription="@null"
-                    android:scaleType="fitCenter" />
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:id="@+id/imageView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@null"
+                        android:scaleType="fitCenter"/>
+                </FrameLayout>
 
             </LinearLayout>
 

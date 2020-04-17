@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -14,6 +15,7 @@ import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_file_page.*
 import kotlinx.android.synthetic.main.view_image_detail.*
 import kotlinx.android.synthetic.main.view_image_detail.view.*
+import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
@@ -22,10 +24,7 @@ import org.wikipedia.dataclient.mwapi.media.MediaHelper.getImageCaptions
 import org.wikipedia.gallery.ImageInfo
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.PageTitle
-import org.wikipedia.util.L10nUtil
-import org.wikipedia.util.ResourceUtil
-import org.wikipedia.util.StringUtil
-import org.wikipedia.util.UriUtil
+import org.wikipedia.util.*
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ImageDetailView
 import org.wikipedia.views.ImageZoomHelper
@@ -92,7 +91,8 @@ class FilePageFragment : Fragment() {
             progressBar!!.visibility = View.GONE
             imageView.visibility = View.VISIBLE
             ImageZoomHelper.setViewZoomable(imageView)
-            ViewUtil.loadImage(imageView, imageInfo.thumbUrl)
+            ViewUtil.loadImage(imageView, ImageUrlUtil.getUrlForPreferredSize(imageInfo.thumbUrl, Constants.PREFERRED_GALLERY_IMAGE_SIZE))
+            imageViewPlaceholder.layoutParams = LinearLayout.LayoutParams(imageDetailsContainer.width, adjustImagePlaceholderHeight(imageInfo))
 
             if (imageInfo.captions.containsKey(pageTitle.wikiSite.languageCode())) {
                 addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_caption_in_language_title,
@@ -113,6 +113,20 @@ class FilePageFragment : Fragment() {
                     getString(R.string.suggested_edits_image_file_page_commons_link, pageTitle.displayText))
             imageDetailsContainer.requestLayout()
         }
+    }
+
+    private fun adjustImagePlaceholderHeight(imageInfo: ImageInfo): Int {
+        var placeholderHeight = if (Constants.PREFERRED_GALLERY_IMAGE_SIZE > imageInfo.thumbWidth) {
+            Constants.PREFERRED_GALLERY_IMAGE_SIZE / imageInfo.thumbWidth * imageInfo.thumbHeight
+        } else {
+            imageInfo.thumbWidth / Constants.PREFERRED_GALLERY_IMAGE_SIZE * imageInfo.thumbHeight
+        }
+        placeholderHeight *= if (imageDetailsContainer.width > Constants.PREFERRED_GALLERY_IMAGE_SIZE) {
+            imageDetailsContainer.width / Constants.PREFERRED_GALLERY_IMAGE_SIZE
+        } else {
+            Constants.PREFERRED_GALLERY_IMAGE_SIZE / imageDetailsContainer.width
+        }
+        return placeholderHeight
     }
 
     private fun addDetailPortion(titleString: String, detail: String?) {
