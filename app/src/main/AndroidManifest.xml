@@ -244,7 +244,7 @@
 
         <activity
             android:name=".commons.FilePageActivity"
-            android:theme="@style/AppTheme.ActionBar"/>
+            android:theme="@style/AppTheme"/>
 
         <provider
             android:authorities="${applicationId}"

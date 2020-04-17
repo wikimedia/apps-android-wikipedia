@@ -7,7 +7,6 @@ import android.view.MotionEvent
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.ResourceUtil
-import org.wikipedia.util.StringUtil
 import org.wikipedia.views.ImageZoomHelper
 
 class FilePageActivity : SingleFragmentActivity<FilePageFragment>() {
@@ -16,9 +15,6 @@ class FilePageActivity : SingleFragmentActivity<FilePageFragment>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        // TODO: use toolbar view instead of system toolbar to fit long file name
-        supportActionBar!!.title = StringUtil.removeNamespace(intent.getParcelableExtra<PageTitle>(INTENT_EXTRA_PAGE_TITLE)!!.displayText)
         imageZoomHelper = ImageZoomHelper(this)
         setNavigationBarColor(ResourceUtil.getThemedColor(this, android.R.attr.windowBackground))
     }
