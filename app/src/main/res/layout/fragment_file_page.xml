@@ -70,10 +70,7 @@
                         android:contentDescription="@null"
                         android:scaleType="fitCenter"/>
                 </FrameLayout>
-
             </LinearLayout>
-
         </ScrollView>
-
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </LinearLayout>
