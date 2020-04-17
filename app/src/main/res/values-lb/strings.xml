@@ -254,6 +254,8 @@
   <string name="close_all_tabs_confirm_no">Neen</string>
   <string name="button_close_tab">Tab zoumaachen</string>
   <string name="unnamed_tab_closed">Tab zougemaach.</string>
+  <string name="tab_item_closed">%s zougemaach.</string>
+  <string name="tool_tip_bookmark_icon_title">Op d\'Lieslëscht derbäisetzen</string>
   <string name="page_view_in_browser">Säit am Browser weisen</string>
   <string name="error_response_malformed">D\'Äntwert vum Server war net richteg formatéiert.</string>
   <string name="error_unknown">En onbekannte Feeler ass geschitt.</string>
@@ -261,6 +263,7 @@
   <string name="address_copied">Adress an den Tëschespäicher kopéiert.</string>
   <string name="text_copied">Text an den Tëschespäicher kopéiert.</string>
   <string name="button_continue_to_article">Artikel liesen</string>
+  <string name="button_continue_to_disambiguation">Änlech Säite weisen</string>
   <string name="button_add_to_reading_list">Op d\'Lieslëscht derbäisetzen</string>
   <string name="page_offline_notice_cannot_load_while_offline">Den Artikel kann net geluede gi wann Dir offline sidd.</string>
   <string name="page_offline_notice_last_date">Dir liest eng offline Versioun vun dësem Artikel gespäichert de(n) %s.</string>
@@ -285,6 +288,7 @@
   <string name="preference_title_prefer_offline_content">Preferenz fir Offline-Inhalt</string>
   <string name="page_footer_license_text">Den Text ass ënner der $1 disponibel wann et net anescht uginn ass</string>
   <string name="empty_tab_title">Neien Tab</string>
+  <string name="menu_save_all_tabs">All Onglete späicheren</string>
   <string name="crash_report_activity_title">Feeler vum Programm</string>
   <string name="crash_report_relaunch_or_quit">Et deet eis Leed, bei der Wikipedai-App ass e Feeler geschitt a se gouf gestoppt.\n\nWëllt Dir se nei starten oder erausgoen?</string>
   <string name="crash_report_relaunch">Nei starten</string>
@@ -328,6 +332,7 @@
   <string name="reading_list_description_hint">Beschreiwung (fakultativ):</string>
   <string name="reading_list_item_deleted">%s vun der Lëscht erofhehuoll</string>
   <string name="reading_list_items_deleted">%d Artikele vun der Lëscht erofgeholl</string>
+  <string name="reading_lists_item_deleted">%s vun de Lëschten erofgeholl</string>
   <string name="reading_list_item_delete_undo">Réckgängeg maachen</string>
   <string name="reading_list_deleted">%s geläscht</string>
   <string name="saved_list_empty_title">Nach keng Lieslëschten!</string>
@@ -348,6 +353,7 @@
   <string name="reading_list_confirm_remove_article_from_offline">Aus der Offline-Lëscht eraushuelen</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">Artikel ass a verschiddene Lëschten</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">%s ass fir keng Lieslëscht méi offline disponibel:</string>
+  <string name="reading_lists_sync_reminder_action">Synchronisatioun aktivéieren</string>
   <string name="reading_list_login_reminder_title">Lieslëschte synchroniséieren</string>
   <string name="reading_lists_confirm_remote_delete_yes">Jo</string>
   <string name="reading_lists_confirm_remote_delete_no">Neen</string>
@@ -380,6 +386,7 @@
     <item quantity="other">Dës Artikele sinn net méi offline disponibel.</item>
   </plurals>
   <string name="reading_list_toast_last_sync">Lieslëschte goufe synchroniséiert</string>
+  <string name="reading_list_menu_last_sync">Lescht Synchronisatioun: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">OK</string>
   <string name="reading_list_delete_dialog_ok_button_text">OK</string>
   <string name="reading_list_remove_from_list_dialog_cancel_button_text">Ofbriechen</string>
@@ -432,6 +439,7 @@
   <string name="notifications_empty_message">Dir hutt keng nei Notifikatioune méi!</string>
   <string name="notifications_view_archived_button_text">Archivéiert Notifikatioune weisen</string>
   <string name="notification_preferences_title">Astellunge vun den Notifikatiounen</string>
+  <string name="notifications_mark_unread">Als net gelies markéieren</string>
   <string name="preference_title_notification_system">System</string>
   <string name="preference_summary_notification_system">Message vum System</string>
   <string name="preference_title_notification_milestone">Meilesteen</string>
@@ -469,6 +477,7 @@
   <string name="view_announcement_card_negative_action">Nee, merci</string>
   <string name="onboarding_negative_action">Nee, merci</string>
   <string name="view_offline_card_text">Et ka keen Inhalt geluede gi wann Dir offline sidd.</string>
+  <string name="view_featured_article_card_title">Exzellenten Artikel</string>
   <string name="view_featured_article_footer_save_button_label">Späicheren</string>
   <string name="view_static_card_save_button_label">Späicheren</string>
   <string name="view_featured_article_footer_saved_button_label">Gespäichert</string>
@@ -485,6 +494,7 @@
   <string name="feed_accessibility_card_load_more_button">Méi lueden</string>
   <string name="description_edit_text_hint">Artikelbeschreiwung</string>
   <string name="description_edit_article_description_label">Artikel</string>
+  <string name="description_edit_translate_article_description_label_per_language">Beschreiwung vum Artikel (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Beschreiwung vum Artikel (%s)</string>
   <string name="description_edit_add_caption_label">Beschreiwung vum Bild</string>
   <string name="description_edit_save">Verëffentlechen</string>
@@ -510,12 +520,13 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealerweis eng Linn, mat tëscht zwee an zwielef Wierder</string>
   <string name="description_edit_tutorial_button_label_start_editing">Ufänke mat Änneren</string>
   <string name="description_edit_tutorial_promise">Ech verspriechen dës Funktioun net ze mëssbrauchen.</string>
-  <string name="suggested_edits_add_descriptions" fuzzy="true">Beschreiwungen derbäisetzen</string>
-  <string name="suggested_edits_translate_descriptions" fuzzy="true">Beschreiwungen iwwersetzen</string>
+  <string name="suggested_edits_add_descriptions">Artikel-Beschreiwungen derbäisetzen</string>
+  <string name="suggested_edits_translate_descriptions">Artikel-Beschreiwungen iwwersetzen</string>
   <string name="suggested_edits_review_description">Artikel-Beschreiwung iwwerliesen</string>
   <string name="suggested_edits_add_description_button">Beschreiwung derbäisetzen</string>
   <string name="suggested_edits_add_translation_button">Iwwersetzung derbäisetzen</string>
   <string name="suggested_edits_edit_translation_button">Iwwersetzung änneren</string>
+  <string name="suggested_edits_my_contributions">Meng Kontributiounen</string>
   <string name="suggested_edits_no_description">Dëse Fichier huet keng Beschreiwung</string>
   <string name="suggested_edits_menu_info">Informatioun</string>
   <string name="suggested_edits_tasks_activity_title">Proposéiert Ännerungen</string>
@@ -530,9 +541,15 @@
   <string name="suggested_edits_image_caption_summary_title_date">Datum</string>
   <string name="suggested_edits_feed_card_title">Proposéiert Ännerungen</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Fir unzefänken</string>
+  <string name="suggested_edits_image_preview_dialog_artist">Kënschtler</string>
+  <string name="suggested_edits_image_preview_dialog_date">Datum</string>
+  <string name="suggested_edits_image_preview_dialog_source">Quell/Fotograf</string>
+  <string name="suggested_edits_image_preview_dialog_licensing">Lizenz</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Méi Informatiounen</string>
   <string name="suggested_edits_article_cta_snackbar_action">Weisen</string>
   <string name="suggested_edits_snackbar_survey_action_text">Bei der Ëmfro matmaachen</string>
+  <string name="suggested_edits_task_action_text_add">Derbäisetzen</string>
+  <string name="suggested_edits_task_action_text_translate">Iwwersetzen</string>
   <string name="suggested_edits_image_tags_publishing">Verëffentlechen</string>
   <string name="suggested_edits_image_tags_published">Verëffentlecht</string>
   <string name="suggested_edits_image_tags_onboarding_title">D\'Markéiere vu Biller mécht et méi einfach fir se erëmzefannen.</string>

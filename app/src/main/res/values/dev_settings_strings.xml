@@ -36,6 +36,8 @@
     <string name="preferences_developer_summary_configure_articles">Type the number of articles</string>
     <string name="preferences_developer_summary_configure_reading_lists">Type the number of lists</string>
     <string name="preferences_developer_suggested_edits_category">Suggested edits</string>
+    <string name="preferences_developer_suggested_edits_reactivation_notification_stage_one">Show the first stage local notification for editor re-activation</string>
+    <string name="preferences_developer_suggested_edits_reactivation_notification_stage_two">Show the second stage local notification for editor re-activation</string>
     <string name="cancel">Cancel</string>
     <string name="ok">OK</string>
 </resources>
