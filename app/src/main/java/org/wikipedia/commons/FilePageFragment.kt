@@ -6,8 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.functions.BiFunction
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_file_page.*
 import kotlinx.android.synthetic.main.view_image_detail.*
@@ -15,7 +17,8 @@ import kotlinx.android.synthetic.main.view_image_detail.view.*
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.ServiceFactory
-import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.mwapi.MwQueryResponse
+import org.wikipedia.dataclient.mwapi.media.MediaHelper.getImageCaptions
 import org.wikipedia.gallery.ImageInfo
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.PageTitle
@@ -62,11 +65,18 @@ class FilePageFragment : Fragment() {
     }
 
     private fun loadImageInfo() {
-        disposables.add(ServiceFactory.get(WikiSite.forLanguageCode(pageTitle.wikiSite.languageCode())).getImageInfo(pageTitle.prefixedText, pageTitle.wikiSite.languageCode())
+        disposables.add(Observable.zip(getImageCaptions(pageTitle.prefixedText),
+                ServiceFactory.get(pageTitle.wikiSite).getImageInfo(pageTitle.prefixedText, pageTitle.wikiSite.languageCode()),
+                BiFunction<Map<String, String>, MwQueryResponse, ImageInfo> {
+                    caption: Map<String, String>, page: MwQueryResponse? ->
+                    val imageInfo = page!!.query()!!.pages()!![0].imageInfo()
+                    imageInfo!!.captions = caption
+                    imageInfo
+                })
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
-                    setImageDetails(it.query()!!.pages()!![0].imageInfo())
+                    setImageDetails(it)
                 }, { caught ->
                     L.e(caught)
                     showError(caught)
@@ -84,13 +94,12 @@ class FilePageFragment : Fragment() {
                 addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_caption_in_language_title,
                         WikipediaApp.getInstance().language().getAppLanguageLocalizedName(pageTitle.wikiSite.languageCode())),
                         imageInfo.captions[pageTitle.wikiSite.languageCode()])
-            } else if (imageInfo.metadata != null){
-                // Show the image description when a structured caption does not exist.
-                addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_description_in_language_title,
-                        WikipediaApp.getInstance().language().getAppLanguageLocalizedName(pageTitle.wikiSite.languageCode())),
-                        imageInfo.metadata!!.imageDescription().trim())
             }
 
+            // Show the image description when a structured caption does not exist.
+            addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_description_in_language_title,
+                    WikipediaApp.getInstance().language().getAppLanguageLocalizedName(pageTitle.wikiSite.languageCode())),
+                    imageInfo.metadata!!.imageDescription().trim())
             addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_artist), imageInfo.metadata!!.artist())
             addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_date), imageInfo.metadata!!.dateTime())
             addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_source), imageInfo.metadata!!.credit())
