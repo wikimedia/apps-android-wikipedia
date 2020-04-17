@@ -121,7 +121,7 @@
   <string name="menu_login">Přihlásit se</string>
   <string name="login_activity_title">Přihlášení do Wikipedie</string>
   <string name="login_in_progress_dialog_message">Přihlašování…</string>
-  <string name="login_success_toast" fuzzy="true">Přihlášení uspělo!</string>
+  <string name="login_success_toast">Přihlášeno!</string>
   <string name="reset_password_title">Nastavte si své heslo</string>
   <string name="reset_password_description">Jste přihlášeni pomocí dočasného hesla. Chcete-li dokončit přihlášení, zadejte prosím nové heslo.</string>
   <string name="reset_password_hint">Nové heslo</string>
@@ -372,7 +372,7 @@
   <string name="reading_list_save_to">Uložit do seznamu k přečtení</string>
   <string name="reading_list_create_new">Vytvořit nový</string>
   <string name="reading_list_title_exists">Seznam k přečtení „%s“ už existuje.</string>
-  <string name="reading_list_articles_already_exist_message" fuzzy="true">Vše je v pořádku! Seznam %s obsahuje všechny články, které se nacházejí v otevřených záložkách.</string>
+  <string name="reading_list_articles_already_exist_message">Vše je v pořádku! Seznam %s obsahuje všechny články.</string>
   <string name="reading_list_added_view_button">Zobrazit seznam</string>
   <string name="format_reading_list_statistical_summary_singular">1 článek, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d článků, %2$.2f MB</string>
