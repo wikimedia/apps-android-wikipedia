@@ -108,7 +108,7 @@
         android:textSize="16sp"
         tools:text="Thomas Edison films American sharpshooter Annie Oakley, which is instrumental in her hiring by Buffalo Bill for his Wild West Show." />
 
-    <androidx.recyclerview.widget.RecyclerView
+    <org.wikipedia.views.NavMenuAwareRecyclerView
         android:id="@+id/pages_recycler"
         android:layout_width="match_parent"
         android:layout_height="72dp"
