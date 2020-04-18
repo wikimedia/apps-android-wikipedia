@@ -20,7 +20,6 @@ class SuggestedEditsContributionsItemView<T>(context: Context) : LinearLayout(co
 
     private var callback: Callback<T>? = null
     private var item: T? = null
-    private var imageUrl: String? = null
     fun setItem(item: T?) {
         this.item = item
     }
@@ -49,7 +48,12 @@ class SuggestedEditsContributionsItemView<T>(context: Context) : LinearLayout(co
 
 
     fun setImageUrl(url: String?) {
-        ViewUtil.loadImageWithRoundedCorners(image, url)
+        if (url == null || url.equals("null")) {
+            image.visibility = View.GONE
+            return
+        }
+        //Glide.with(this).load(url).into(image);
+        ViewUtil.loadImageWithRoundedCorners(image, "https://upload.wikimedia.org/wikipedia/commons/5/53/1-sucre-1930.jpg")
     }
 
 

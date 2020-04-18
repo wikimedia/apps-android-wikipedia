@@ -45,6 +45,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:paddingEnd="8dp"
+                android:maxLines="3"
+                android:ellipsize="end"
                 tools:text="Lorem ipsum" />
         </LinearLayout>
 
@@ -52,7 +54,7 @@
             android:id="@+id/image"
             style="@style/ImageViewDefault"
             android:layout_width="80dp"
-            android:layout_height="match_parent"
+            android:layout_height="80dp"
             android:layout_marginEnd="@dimen/list_item_horizontal_padding"
             android:contentDescription="@null" />
     </LinearLayout>

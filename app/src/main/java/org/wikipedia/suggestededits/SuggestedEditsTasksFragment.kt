@@ -31,6 +31,7 @@ import org.wikipedia.language.LanguageSettingsInvokeSource
 import org.wikipedia.main.MainActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
+import org.wikipedia.suggestededits.SuggestedEditsContributionsFragment.ContributionObject
 import org.wikipedia.util.*
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DefaultRecyclerAdapter
@@ -44,6 +45,8 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     private val displayedTasks = ArrayList<SuggestedEditsTask>()
     private val callback = TaskViewCallback()
+    var contributionObjects=ArrayList<ContributionObject>()
+    private var timestamps = ArrayList<String>()
 
     private val disposables = CompositeDisposable()
     private var currentTooltip: Toast? = null
@@ -93,7 +96,9 @@ class SuggestedEditsTasksFragment : Fragment() {
         when (view) {
             contributionsStatsView -> {
                 showContributionsStatsViewTooltip()
-                startActivity(SuggestedEditsContributionsActivity.newIntent(requireActivity()))
+                if (!contributionObjects.isEmpty()) {
+                    startActivity(SuggestedEditsContributionsActivity.newIntent(requireActivity(), contributionObjects))
+                }
             }
             editStreakStatsView -> showEditStreakStatsViewTooltip()
             pageViewStatsView -> showPageViewStatsViewTooltip()
@@ -220,6 +225,7 @@ class SuggestedEditsTasksFragment : Fragment() {
                 .observeOn(AndroidSchedulers.mainThread())
                 .flatMap { response ->
                     for (userContribution in response.query()!!.userContributions()) {
+                        timestamps.add(userContribution.timestamp)
                         var descLang = ""
                         val strArr = userContribution.comment.split(" ")
                         for (str in strArr) {
@@ -268,9 +274,13 @@ class SuggestedEditsTasksFragment : Fragment() {
                     }
 
                     val observableList = ArrayList<Observable<MwQueryResponse>>()
-
+                    var i = 0
                     for (lang in langArticleMap.keys) {
                         val site = WikiSite.forLanguageCode(lang)
+                        for (title in langArticleMap[lang]!!) {
+                            val contributionObject = ContributionObject(title, "", getString(R.string.suggested_edits_contributions_type, getString(R.string.description_edit_text_hint), lang), "", timestamps[i++], site)
+                            contributionObjects.add(contributionObject)
+                        }
                         observableList.add(ServiceFactory.get(site).getPageViewsForTitles(langArticleMap[lang]!!.joinToString("|"))
                                 .subscribeOn(Schedulers.io())
                                 .observeOn(AndroidSchedulers.mainThread()))

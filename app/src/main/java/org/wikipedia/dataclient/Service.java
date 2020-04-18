@@ -87,6 +87,9 @@ public interface Service {
     @NonNull Observable<MwQueryResponse> getImageInfo(@NonNull @Query("titles") String titles,
                                                       @NonNull @Query("iiextmetadatalanguage") String lang);
 
+    @GET(MW_API_PREFIX + "action=query&list=usercontribs&ucprop=ids|title|timestamp|comment|size|flags|sizediff|tags")
+    @NonNull Observable<MwQueryResponse> getUserImageContributions(@NonNull @Query("ucuser") String username, @Query("uclimit") int maxCount);
+
     @GET(MW_API_PREFIX + "action=query&prop=videoinfo|imagelabels&viprop=timestamp|user|url|mime|extmetadata|derivatives&viurlwidth=" + PREFERRED_THUMB_SIZE)
     @NonNull Observable<MwQueryResponse> getVideoInfo(@NonNull @Query("titles") String titles,
                                                       @NonNull @Query("viextmetadatalanguage") String lang);
