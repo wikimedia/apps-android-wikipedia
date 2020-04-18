@@ -10,8 +10,6 @@ import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 
 import org.wikipedia.R;
-import org.wikipedia.WikipediaApp;
-import org.wikipedia.notifications.NotificationPollBroadcastReceiver;
 import org.wikipedia.util.ResourceUtil;
 
 class NotificationSettingsPreferenceLoader extends BasePreferenceLoader {
@@ -25,7 +23,6 @@ class NotificationSettingsPreferenceLoader extends BasePreferenceLoader {
         loadPreferences(R.xml.preferences_notifications);
 
         Preference pref = findPreference(R.string.preference_key_notification_poll_enable);
-        pref.setOnPreferenceChangeListener(new PollPreferenceListener());
 
         pref = findPreference(R.string.preference_key_notification_system_enable);
         Drawable drawable = AppCompatResources.getDrawable(getActivity(), R.drawable.ic_speech_bubbles);
@@ -61,16 +58,5 @@ class NotificationSettingsPreferenceLoader extends BasePreferenceLoader {
         drawable = AppCompatResources.getDrawable(getActivity(), R.drawable.ic_edit_user_talk);
         DrawableCompat.setTint(drawable, ResourceUtil.getThemedColor(getActivity(), R.attr.colorAccent));
         pref.setIcon(drawable);
-    }
-
-    private final class PollPreferenceListener implements Preference.OnPreferenceChangeListener {
-        @Override public boolean onPreferenceChange(final Preference preference, Object newValue) {
-            if ((Boolean) newValue) {
-                NotificationPollBroadcastReceiver.startPollTask(WikipediaApp.getInstance());
-            } else {
-                NotificationPollBroadcastReceiver.stopPollTask(WikipediaApp.getInstance());
-            }
-            return true;
-        }
     }
 }
