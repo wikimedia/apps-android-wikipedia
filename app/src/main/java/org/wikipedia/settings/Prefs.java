@@ -903,5 +903,13 @@ public final class Prefs {
         setBoolean(R.string.preference_key_suggested_edits_reactivation_pass_stage_one, pass);
     }
 
+    public static boolean isSuggestedEditsReactivationTestEnabled() {
+        return getBoolean(R.string.preference_key_suggested_edits_reactivation_test, false);
+    }
+
+    public static void setSuggestedEditsReactivationTestEnabled(boolean enabled) {
+        setBoolean(R.string.preference_key_suggested_edits_reactivation_test, enabled);
+    }
+
     private Prefs() { }
 }
