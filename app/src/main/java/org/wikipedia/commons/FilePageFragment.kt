@@ -80,23 +80,23 @@ class FilePageFragment : Fragment() {
         progressBar.visibility = View.VISIBLE
         disposables.add(Observable.zip(getImageCaptions(pageTitle.prefixedText),
                 ServiceFactory.get(pageTitle.wikiSite).getImageInfo(pageTitle.prefixedText, pageTitle.wikiSite.languageCode()),
-                BiFunction<Map<String, String>, MwQueryResponse, ImageInfo> {
+                BiFunction<Map<String, String>, MwQueryResponse, Pair<ImageInfo, Boolean>> {
                     caption: Map<String, String>, page: MwQueryResponse? ->
                     val imageInfo = page!!.query()!!.pages()!![0].imageInfo()
                     imageInfo!!.captions = caption
-                    imageInfo
+                    Pair(imageInfo, page!!.query()!!.pages()!![0].isImageFromCommons)
                 })
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
-                    setImageDetails(it)
+                    setImageDetails(it.first, it.second)
                 }, { caught ->
                     L.e(caught)
                     showError(caught)
                 }))
     }
 
-    private fun setImageDetails(imageInfo: ImageInfo?) {
+    private fun setImageDetails(imageInfo: ImageInfo?, isImageFromCommons: Boolean) {
         if (imageInfo != null) {
             progressBar.visibility = View.GONE
             imageView.visibility = View.VISIBLE
@@ -120,9 +120,15 @@ class FilePageFragment : Fragment() {
             addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_date), imageInfo.metadata!!.dateTime())
             addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_source), imageInfo.metadata!!.credit())
             addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_licensing), imageInfo.metadata!!.licenseShortName(), imageInfo.metadata!!.licenseUrl())
-            addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_more_info),
-                    getString(R.string.suggested_edits_image_preview_dialog_file_page_link_text),
-                    getString(R.string.suggested_edits_image_file_page_commons_link, pageTitle.displayText))
+            if (isImageFromCommons) {
+                addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_more_info),
+                        getString(R.string.suggested_edits_image_preview_dialog_file_page_link_text),
+                        getString(R.string.suggested_edits_image_file_page_commons_link, pageTitle.displayText))
+            } else {
+                addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_more_info),
+                        getString(R.string.suggested_edits_image_preview_dialog_file_page_wikipedia_link_text),
+                        pageTitle.uri)
+            }
             imageDetailsContainer.requestLayout()
         }
     }

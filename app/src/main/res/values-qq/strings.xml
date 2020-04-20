@@ -698,6 +698,7 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Label for image licensing detail on image details screen.</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Label for link to more details about the image on commons page.</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Text for link to more details about the image on commons page.</string>
+  <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">Text for link to more details about the image on Wikipedia page.</string>
   <string name="suggested_edits_article_cta_image_caption">Text for call to action button on article lead image, prompting the user to add a caption in the current app language.</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Text for call to action button on article lead image, prompting the user to add a caption in the %s language.</string>
   <string name="suggested_edits_article_cta_snackbar_action">Button text suggesting the user to view the image</string>
