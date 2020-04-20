@@ -739,6 +739,9 @@
   <string name="suggested_edits_last_edited_never">Никогаш</string>
   <string name="suggested_edits_task_new">ново</string>
   <string name="suggested_edits_cc0_notice">Објавувајќи, се согласувате со &lt;a href=\"%1$s\"&gt;Условите на употреба&lt;/a&gt; и дека неотповикливо го објавувате овој придонес под лиценцата &lt;a href=\"%2$s\"&gt;CC0&lt;/a&gt;.</string>
+  <string name="suggested_edits_reactivation_notification_title">Предложени уредувања</string>
+  <string name="suggested_edits_reactivation_notification_stage_one">Ви благодариме што ја урадувавте Википедија! Зошто не продолжите од кајшто запревте?</string>
+  <string name="suggested_edits_reactivation_notification_stage_two">Имате минутка за да ја подобрите Википедија малку повеќе? Погледајте ги овие совети за уредување.</string>
   <string name="description_edit_revert_subtitle">Ви благодариме што ја уредувате Википедија!</string>
   <string name="description_edit_revert_intro">Знаеме дека се трудите да напишете што подобро, но еден од прегледувачите има примедба за уреденото. Веројатни причини за отповиканото уредување се:</string>
   <string name="description_edit_revert_reason1">вашиот придонес крши едно од &lt;a href=\"%1$s\"&gt;напатствијата&lt;/a&gt;.</string>
