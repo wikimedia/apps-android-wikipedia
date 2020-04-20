@@ -126,8 +126,8 @@
   <string name="toast_logout_complete">প্রস্থান সম্পন্ন</string>
   <string name="logout_prompt">আপনি কি নিশ্চিত যে আপনি প্রস্থান করতে চান?</string>
   <string name="logout_dialog_cancel_button_text">বাতিল</string>
-  <string name="logged_out_in_background_title">লগ আউট</string>
-  <string name="logged_out_in_background_dialog">আপনি উইকিপিডিয়া থেকে লগ আউট করেছেন।  আপনি আবার লগ ইন করতে চান?</string>
+  <string name="logged_out_in_background_title">প্রস্থান সম্পন্ন</string>
+  <string name="logged_out_in_background_dialog">আপনি উইকিপিডিয়া থেকে প্রস্থান করেছেন।  আপনি কি আবার প্রবেশ করতে চান?</string>
   <string name="logged_out_in_background_login">প্রবেশ করুন</string>
   <string name="logged_out_in_background_cancel">বাতিল</string>
   <string name="history_empty_title">সম্প্রতি কোন নিবন্ধ দেখা হয়নি</string>
@@ -538,6 +538,7 @@
   <string name="suggested_edits_task_multilingual_positive">ভাষা যোগ করুন</string>
   <string name="suggested_edits_snackbar_survey_text">আপনার সম্পাদনার অভিজ্ঞতা কেমন ছিল? অ্যাপ্লিকেশন সম্পাদনা সম্পর্কে এই জরিপে দয়া করে অংশ নিন।</string>
   <string name="suggested_edits_snackbar_survey_action_text">জরিপে অংশ নিন</string>
+  <string name="suggested_edits_reactivation_notification_title">পরামর্শকৃত সম্পাদনা</string>
   <string name="description_edit_revert_subtitle">উইকিপিডিয়ায় সম্পাদনা করার জন্য ধন্যবাদ!</string>
   <string name="description_edit_revert_reason1">আপনার অবদান &lt;a href=\"%1$s\"&gt;নীতিমালা&lt;/a&gt; অনুসরণ করেনি।</string>
   <string name="description_edit_revert_reason2">আপনার অবদান পরীক্ষামূলক বা ধ্বংসপ্রবণতামূলক বলে মনে হচ্ছে।</string>

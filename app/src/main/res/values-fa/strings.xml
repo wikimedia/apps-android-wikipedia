@@ -286,7 +286,7 @@
   <string name="gallery_menu_share">به‌اشتراک‌گذاشتن</string>
   <string name="gallery_share_error">امکان به اشتراک‌گذاری تصویر نیست: %s</string>
   <string name="gallery_save_progress">در حال دریافت پرونده…</string>
-  <string name="gallery_save_success" fuzzy="true">پرونده با موفقیت ذخیره‌شده‌است</string>
+  <string name="gallery_save_success">پرونده ذخیره شد.</string>
   <string name="gallery_error_video_failed">امکان پخش ویدئو وجود ندارد.</string>
   <string name="gallery_save_image_write_permission_rationale">برای ذخیره تصاویر نیازمند اجازه ذخیره بر روی دستگاهتان است.</string>
   <string name="gallery_add_image_caption_in_language_button">افزودن توضیح تصویر (%s)</string>
@@ -672,7 +672,8 @@
   <string name="suggested_edits_article_cta_snackbar_action">نمایش</string>
   <string name="suggested_edits_feed_card_add_image_caption">افزودن زیرنویس تصویر</string>
   <string name="suggested_edits_feed_card_translate_image_caption">افزودن زیرنویس تصویر (%s)</string>
-  <string name="description_edit_revert_subtitle">از بابت ویرایش در ویکی‌پدیا ممنونیم!</string>
+  <string name="suggested_edits_reactivation_notification_title">ویرایش‌های پیشنهادی</string>
+  <string name="description_edit_revert_subtitle">سپاس بابت ویرایش در ویکی‌پدیا!</string>
   <string name="description_edit_revert_intro">با وجودی که شما همهٔ تلاشتان را کردید، یکی از ویرایشگران با ویرایش شما مخالف است و آن را واگردانی کرده‌است که دلیل آن:</string>
   <string name="description_edit_revert_reason1">ویرایش شما طبق &lt;a href=\"%1$s\"&gt;شیوه‌نامه&lt;/a&gt; نیست.</string>
   <string name="description_edit_revert_reason2">مشارکت شما شبیه یک تمرین یا خرابکاریست.</string>
