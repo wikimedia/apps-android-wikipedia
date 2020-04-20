@@ -36,7 +36,7 @@
             android:layout_height="match_parent">
 
             <LinearLayout
-                android:id="@+id/imageDetailsContainer"
+                android:id="@+id/container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
@@ -70,6 +70,12 @@
                         android:contentDescription="@null"
                         android:scaleType="fitCenter"/>
                 </FrameLayout>
+
+                <LinearLayout
+                    android:id="@+id/imageDetailsContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"/>
             </LinearLayout>
         </ScrollView>
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

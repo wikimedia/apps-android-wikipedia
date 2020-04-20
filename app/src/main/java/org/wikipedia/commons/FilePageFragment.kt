@@ -13,7 +13,6 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.functions.BiFunction
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_file_page.*
-import kotlinx.android.synthetic.main.view_image_detail.*
 import kotlinx.android.synthetic.main.view_image_detail.view.*
 import org.wikipedia.Constants
 import org.wikipedia.R
@@ -51,6 +50,10 @@ class FilePageFragment : Fragment() {
         (requireActivity() as FilePageActivity).supportActionBar?.setDisplayShowHomeEnabled(true)
         (requireActivity() as FilePageActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
         toolbarTitle.text = StringUtil.removeNamespace(pageTitle.displayText)
+        swipeRefreshLayout.setOnRefreshListener {
+            swipeRefreshLayout.isRefreshing = false
+            loadImageInfo()
+        }
         loadImageInfo()
     }
 
@@ -61,13 +64,19 @@ class FilePageFragment : Fragment() {
 
     private fun showError(caught: Throwable?) {
         progressBar.visibility = View.GONE
-        detailsContainer.visibility = View.GONE
+        imageDetailsContainer.visibility = View.GONE
+        imageViewPlaceholder.visibility = View.GONE
         imageView.visibility = View.GONE
         errorView.visibility = View.VISIBLE
         errorView.setError(caught)
     }
 
     private fun loadImageInfo() {
+        errorView.visibility = View.GONE
+        imageDetailsContainer.visibility = View.GONE
+        imageViewPlaceholder.visibility = View.GONE
+        imageView.visibility = View.GONE
+        progressBar.visibility = View.VISIBLE
         disposables.add(Observable.zip(getImageCaptions(pageTitle.prefixedText),
                 ServiceFactory.get(pageTitle.wikiSite).getImageInfo(pageTitle.prefixedText, pageTitle.wikiSite.languageCode()),
                 BiFunction<Map<String, String>, MwQueryResponse, ImageInfo> {
@@ -88,11 +97,13 @@ class FilePageFragment : Fragment() {
 
     private fun setImageDetails(imageInfo: ImageInfo?) {
         if (imageInfo != null) {
-            progressBar!!.visibility = View.GONE
+            progressBar.visibility = View.GONE
             imageView.visibility = View.VISIBLE
+            imageViewPlaceholder.visibility = View.VISIBLE
+            imageDetailsContainer.visibility = View.VISIBLE
             ImageZoomHelper.setViewZoomable(imageView)
             ViewUtil.loadImage(imageView, ImageUrlUtil.getUrlForPreferredSize(imageInfo.thumbUrl, Constants.PREFERRED_GALLERY_IMAGE_SIZE))
-            imageViewPlaceholder.layoutParams = LinearLayout.LayoutParams(imageDetailsContainer.width, adjustImagePlaceholderHeight(imageInfo))
+            imageViewPlaceholder.layoutParams = LinearLayout.LayoutParams(container.width, adjustImagePlaceholderHeight(imageInfo))
 
             if (imageInfo.captions.containsKey(pageTitle.wikiSite.languageCode())) {
                 addDetailPortion(getString(R.string.suggested_edits_image_preview_dialog_caption_in_language_title,
@@ -121,10 +132,10 @@ class FilePageFragment : Fragment() {
         } else {
             imageInfo.thumbWidth / Constants.PREFERRED_GALLERY_IMAGE_SIZE * imageInfo.thumbHeight
         }
-        placeholderHeight *= if (imageDetailsContainer.width > Constants.PREFERRED_GALLERY_IMAGE_SIZE) {
-            imageDetailsContainer.width / Constants.PREFERRED_GALLERY_IMAGE_SIZE
+        placeholderHeight *= if (container.width > Constants.PREFERRED_GALLERY_IMAGE_SIZE) {
+            container.width / Constants.PREFERRED_GALLERY_IMAGE_SIZE
         } else {
-            Constants.PREFERRED_GALLERY_IMAGE_SIZE / imageDetailsContainer.width
+            Constants.PREFERRED_GALLERY_IMAGE_SIZE / container.width
         }
         return placeholderHeight
     }
