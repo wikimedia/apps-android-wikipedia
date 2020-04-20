@@ -269,7 +269,7 @@
   <string name="dialog_title_download_only_over_wifi">Підтвердити завантаження через мобільні дані?</string>
   <string name="dialog_text_download_only_over_wifi">У Ваших налаштуваннях увімкнено «Завантаження лише через Wi-Fi». Чи хочете Ви дозволити використання Вашого плану мобільних даних для здійснення лише цього завантаження?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Дозволити</string>
-  <string name="read_more_section">Читати більше</string>
+  <string name="read_more_section">Пов\'язані сторінки</string>
   <string name="about_article_section">Про цю статтю</string>
   <string name="menu_gallery_visit_page">Перейти на сторінку файлу</string>
   <string name="gallery_error_draw_failed">Не вдалось відтворити зображення.</string>
