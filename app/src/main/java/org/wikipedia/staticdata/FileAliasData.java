@@ -21,7 +21,7 @@ public final class FileAliasData {
 
     @SuppressWarnings({"checkstyle:methodlength", "SpellCheckingInspection"})
     private static Map<String, String> newMap() {
-        final int size = 299;
+        final int size = 302;
         Map<String, String> map = new HashMap<>(size);
         map.put("ab", "Афаил");
         map.put("ace", "Beureukaih");
@@ -109,6 +109,7 @@ public final class FileAliasData {
         map.put("ga", "Íomhá");
         map.put("gag", "Dosye");
         map.put("gan", "文檔");
+        map.put("gcr", "Fiché");
         map.put("gd", "Faidhle");
         map.put("gl", "Ficheiro");
         map.put("glk", "فاىل");
@@ -191,12 +192,13 @@ public final class FileAliasData {
         map.put("mk", "Податотека");
         map.put("ml", "പ്രമാണം");
         map.put("mn", "Файл");
+        map.put("mnw", "ဝှာင်");
         map.put("mr", "चित्र");
         map.put("mrj", "Файл");
         map.put("ms", "Fail");
         map.put("mt", "Stampa");
         map.put("mwl", "Fexeiro");
-        map.put("my", "File");
+        map.put("my", "ဖိုင်");
         map.put("myv", "Артовкс");
         map.put("mzn", "پرونده");
         map.put("na", "File");
@@ -273,6 +275,7 @@ public final class FileAliasData {
         map.put("sv", "Fil");
         map.put("sw", "Picha");
         map.put("szl", "Plik");
+        map.put("szy", "tangan");
         map.put("ta", "படிமம்");
         map.put("tcy", "ಫೈಲ್");
         map.put("te", "దస్త్రం");
