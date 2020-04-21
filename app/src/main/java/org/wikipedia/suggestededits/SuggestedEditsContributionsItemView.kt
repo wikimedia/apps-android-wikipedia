@@ -52,8 +52,7 @@ class SuggestedEditsContributionsItemView<T>(context: Context) : LinearLayout(co
             image.visibility = View.GONE
             return
         }
-        //Glide.with(this).load(url).into(image);
-        ViewUtil.loadImageWithRoundedCorners(image, "https://upload.wikimedia.org/wikipedia/commons/5/53/1-sucre-1930.jpg")
+        ViewUtil.loadImage(image, url, true, true)
     }
 
 

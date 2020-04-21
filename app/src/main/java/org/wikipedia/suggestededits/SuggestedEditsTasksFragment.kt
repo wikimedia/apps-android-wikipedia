@@ -278,7 +278,7 @@ class SuggestedEditsTasksFragment : Fragment() {
                     for (lang in langArticleMap.keys) {
                         val site = WikiSite.forLanguageCode(lang)
                         for (title in langArticleMap[lang]!!) {
-                            val contributionObject = ContributionObject(title, "", getString(R.string.suggested_edits_contributions_type, getString(R.string.description_edit_text_hint), lang), "", timestamps[i++], site)
+                            val contributionObject = ContributionObject(title, "", getString(R.string.suggested_edits_contributions_type, getString(R.string.description_edit_text_hint), lang), "", DateUtil.iso8601DateParse(timestamps[i++]), site)
                             contributionObjects.add(contributionObject)
                         }
                         observableList.add(ServiceFactory.get(site).getPageViewsForTitles(langArticleMap[lang]!!.joinToString("|"))
