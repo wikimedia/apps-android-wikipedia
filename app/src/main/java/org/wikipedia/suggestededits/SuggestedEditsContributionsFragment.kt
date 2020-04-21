@@ -69,7 +69,7 @@ class SuggestedEditsContributionsFragment : Fragment() {
                 super.onScrolled(recyclerView, dx, dy)
 
                 val linearLayoutManager = recyclerView.layoutManager as LinearLayoutManager?
-                if (!loadingMore) {
+                if (!loadingMore && !userImageContributionsContinuation.isNullOrEmpty() && !userContributionsContinuation.isNullOrEmpty()) {
                     if (linearLayoutManager != null && linearLayoutManager.findLastCompletelyVisibleItemPosition() == contributionsWithDatesList.size - 1) {
                         loadMoreContributions()
                         loadingMore = true
@@ -115,7 +115,7 @@ class SuggestedEditsContributionsFragment : Fragment() {
 
     private fun getImageInfo(mwQueryResponse: MwQueryResponse) {
         var imageCount = 0
-        userImageContributionsContinuation = mwQueryResponse.continuation()!!["uccontinue"]
+        userImageContributionsContinuation = if (mwQueryResponse.continuation().isNullOrEmpty()) "" else mwQueryResponse.continuation()!!["uccontinue"]
         for (userContribution in mwQueryResponse.query()!!.userContributions()) {
             val strArr = userContribution.comment.split(" ")
             var contributionLanguage = "en"

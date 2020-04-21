@@ -225,7 +225,7 @@ class SuggestedEditsTasksFragment : Fragment() {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .flatMap { response ->
-                    userContributionsContinuation = response.continuation()!!["uccontinue"]
+                    userContributionsContinuation = if (response.continuation().isNullOrEmpty()) "" else response.continuation()!!["uccontinue"]
                     for (userContribution in response.query()!!.userContributions()) {
                         timestamps.add(userContribution.timestamp)
                         var descLang = ""
