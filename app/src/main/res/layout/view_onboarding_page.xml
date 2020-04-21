@@ -89,6 +89,7 @@
                         android:layout_marginBottom="8dp"
                         android:textColor="?attr/material_theme_primary_color"
                         app:theme="@style/OnboardingSwitch"
+                        android:focusable="true"
                         tools:text="Lorem ipsum" />
 
                     <View
