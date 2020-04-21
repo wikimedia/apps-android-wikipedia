@@ -45,11 +45,12 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     private val displayedTasks = ArrayList<SuggestedEditsTask>()
     private val callback = TaskViewCallback()
-    var contributionObjects=ArrayList<ContributionObject>()
+    var contributionObjects = ArrayList<ContributionObject>()
     private var timestamps = ArrayList<String>()
 
     private val disposables = CompositeDisposable()
     private var currentTooltip: Toast? = null
+    private var userContributionsContinuation: String? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -97,7 +98,7 @@ class SuggestedEditsTasksFragment : Fragment() {
             contributionsStatsView -> {
                 showContributionsStatsViewTooltip()
                 if (!contributionObjects.isEmpty()) {
-                    startActivity(SuggestedEditsContributionsActivity.newIntent(requireActivity(), contributionObjects))
+                    startActivity(SuggestedEditsContributionsActivity.newIntent(requireActivity(), contributionObjects, userContributionsContinuation!!))
                 }
             }
             editStreakStatsView -> showEditStreakStatsViewTooltip()
@@ -224,6 +225,7 @@ class SuggestedEditsTasksFragment : Fragment() {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .flatMap { response ->
+                    userContributionsContinuation = response.continuation()!!["uccontinue"]
                     for (userContribution in response.query()!!.userContributions()) {
                         timestamps.add(userContribution.timestamp)
                         var descLang = ""

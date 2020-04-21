@@ -90,6 +90,9 @@ public interface Service {
     @GET(MW_API_PREFIX + "action=query&list=usercontribs&ucprop=ids|title|timestamp|comment|size|flags|sizediff|tags")
     @NonNull Observable<MwQueryResponse> getUserImageContributions(@NonNull @Query("ucuser") String username, @Query("uclimit") int maxCount);
 
+    @GET(MW_API_PREFIX + "action=query&list=usercontribs&ucprop=ids|title|timestamp|comment|size|flags|sizediff|tags")
+    @NonNull Observable<MwQueryResponse> getUserImageContributionsWithContinuation(@NonNull @Query("ucuser") String username, @Query("uclimit") int maxCount, @NonNull @Query("uccontinue") String uccontinue);
+
     @GET(MW_API_PREFIX + "action=query&prop=videoinfo|imagelabels&viprop=timestamp|user|url|mime|extmetadata|derivatives&viurlwidth=" + PREFERRED_THUMB_SIZE)
     @NonNull Observable<MwQueryResponse> getVideoInfo(@NonNull @Query("titles") String titles,
                                                       @NonNull @Query("viextmetadatalanguage") String lang);
@@ -233,6 +236,9 @@ public interface Service {
 
     @GET(MW_API_PREFIX + "action=query&list=usercontribs&ucprop=ids|title|timestamp|comment|size|flags|sizediff|tags")
     @NonNull Observable<MwQueryResponse> getUserContributions(@NonNull @Query("ucuser") String username, @Query("uclimit") int maxCount);
+
+    @GET(MW_API_PREFIX + "action=query&list=usercontribs&ucprop=ids|title|timestamp|comment|size|flags|sizediff|tags")
+    @NonNull Observable<MwQueryResponse> getUserContributionsWithContinuation(@NonNull @Query("ucuser") String username, @Query("uclimit") int maxCount, @NonNull @Query("uccontinue") String uccontinue);
 
     @GET(MW_API_PREFIX + "action=query&prop=pageviews")
     @NonNull Observable<MwQueryResponse> getPageViewsForTitles(@NonNull @Query("titles") String titles);

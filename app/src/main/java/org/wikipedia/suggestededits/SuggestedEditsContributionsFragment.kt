@@ -20,8 +20,10 @@ import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.json.GsonUnmarshaller
+import org.wikipedia.suggestededits.SuggestedEditsContributionsActivity.Companion.ARG_CONTRIBUTIONS_CONTINUE
 import org.wikipedia.suggestededits.SuggestedEditsContributionsActivity.Companion.ARG_CONTRIBUTIONS_LIST
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.ResourceUtil
@@ -38,41 +40,92 @@ class SuggestedEditsContributionsFragment : Fragment() {
     private var contributionsWithDatesList: MutableList<Any> = ArrayList()
     private var contributionsList = ArrayList<ContributionObject>()
     var imageContributionTitles = HashMap<String, String>()
+    private var userContributionsContinuation: String? = null
+    private var userImageContributionsContinuation: String? = null
+    var loading = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         contributionsList = GsonUnmarshaller.unmarshal(object : TypeToken<java.util.ArrayList<ContributionObject>>() {}, requireActivity().intent.getStringExtra(ARG_CONTRIBUTIONS_LIST))
+        userContributionsContinuation = requireActivity().intent.getStringExtra(ARG_CONTRIBUTIONS_CONTINUE)!!
+        getArticleAndImageInfoForContributions()
+        retainInstance = true
+    }
 
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
+                              savedInstanceState: Bundle?): View? {
+        super.onCreateView(inflater, container, savedInstanceState)
+        return inflater.inflate(R.layout.fragment_contributions_suggested_edits, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        contributionsRecyclerView.setLayoutManager(LinearLayoutManager(context))
+        contributionsRecyclerView.setAdapter(adapter)
+        val scrollListener = object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                super.onScrolled(recyclerView, dx, dy)
+
+                val linearLayoutManager = recyclerView.layoutManager as LinearLayoutManager?
+                if (!loading) {
+                    if (linearLayoutManager != null && linearLayoutManager.findLastCompletelyVisibleItemPosition() == contributionsWithDatesList.size - 1) {
+                        loadMoreContributions()
+                        loading = true
+                    }
+                }
+            }
+
+        }
+        contributionsRecyclerView.addOnScrollListener(scrollListener)
+    }
+
+
+    companion object {
+        fun newInstance(): SuggestedEditsContributionsFragment {
+            return SuggestedEditsContributionsFragment()
+        }
+    }
+
+    private fun getArticleAndImageInfoForContributions() {
         for (contributionObject in contributionsList) {
             disposables.add(ServiceFactory.getRest(contributionObject.wikiSite).getSummary(null, contributionObject.title)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ summary -> createArticleContributionObjects(contributionObject, summary) }) { t: Throwable? -> L.e(t) })
         }
-
-        disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getUserImageContributions(AccountUtil.getUserName()!!, 10)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ response ->
-                    for (userContribution in response.query()!!.userContributions()) {
-                        val strArr = userContribution.comment.split(" ")
-                        var contributionLanguage = "en"
-                        for (str in strArr) {
-                            if (str.contains("wbsetlabel")) {
-                                val descArr = str.split("|")
-                                if (descArr.size > 1) {
-                                    contributionLanguage = descArr[1]
-                                }
-                            }
-                        }
-                        imageContributionTitles[userContribution.title] = contributionLanguage
-                    }
-                    getImageInfo()
-                }) { t: Throwable? -> L.e(t) })
+        if (userImageContributionsContinuation == null) {
+            disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getUserImageContributions(AccountUtil.getUserName()!!, 10)
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe({ response ->
+                        getImageInfo(response)
+                    }) { t: Throwable? -> L.e(t) })
+        } else {
+            disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getUserImageContributionsWithContinuation(AccountUtil.getUserName()!!, 10, userImageContributionsContinuation!!)
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe({ response ->
+                        getImageInfo(response)
+                    }) { t: Throwable? -> L.e(t) })
+        }
     }
 
-    private fun getImageInfo() {
+    private fun getImageInfo(mwQueryResponse: MwQueryResponse) {
         var imageCount = 0
+        userImageContributionsContinuation = mwQueryResponse.continuation()!!["uccontinue"]
+        for (userContribution in mwQueryResponse.query()!!.userContributions()) {
+            val strArr = userContribution.comment.split(" ")
+            var contributionLanguage = "en"
+            for (str in strArr) {
+                if (str.contains("wbsetlabel")) {
+                    val descArr = str.split("|")
+                    if (descArr.size > 1) {
+                        contributionLanguage = descArr[1]
+                    }
+                }
+            }
+            imageContributionTitles[userContribution.title] = contributionLanguage
+        }
         for (title in imageContributionTitles.keys) {
             disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo(title, imageContributionTitles[title]!!)
                     .subscribeOn(Schedulers.io())
@@ -101,6 +154,7 @@ class SuggestedEditsContributionsFragment : Fragment() {
                                     contributionsWithDatesList.add(contributionsList[position])
                                 }
                                 adapter.setList(contributionsWithDatesList)
+                                loading = false
                             }
                         }
                     }, { caught ->
@@ -110,28 +164,79 @@ class SuggestedEditsContributionsFragment : Fragment() {
         }
     }
 
+    private fun loadMoreContributions() {
+        val qLangMap = HashMap<String, HashSet<String>>()
+        val timestamps = ArrayList<String>()
+
+        disposables.add(ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getUserContributionsWithContinuation(AccountUtil.getUserName()!!, 10, userContributionsContinuation!!)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .flatMap { response ->
+                    userContributionsContinuation = response.continuation()!!["uccontinue"]
+                    for (userContribution in response.query()!!.userContributions()) {
+                        timestamps.add(userContribution.timestamp)
+                        var descLang = ""
+                        val strArr = userContribution.comment.split(" ")
+                        for (str in strArr) {
+                            if (str.contains("wbsetdescription")) {
+                                val descArr = str.split("|")
+                                if (descArr.size > 1) {
+                                    descLang = descArr[1]
+                                    break
+                                }
+                            }
+                        }
+                        if (descLang.isEmpty()) {
+                            continue
+                        }
+
+                        if (!qLangMap.containsKey(userContribution.title)) {
+                            qLangMap[userContribution.title] = HashSet()
+                        }
+                        qLangMap[userContribution.title]!!.add(descLang)
+                    }
+                    ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getWikidataLabelsAndDescriptions(qLangMap.keys.joinToString("|"))
+                            .subscribeOn(Schedulers.io())
+                            .observeOn(AndroidSchedulers.mainThread())
+                }
+                .subscribe({
+
+                    val langArticleMap = HashMap<String, ArrayList<String>>()
+                    for (entityKey in it.entities().keys) {
+                        val entity = it.entities()[entityKey]!!
+                        for (qKey in qLangMap.keys) {
+                            if (qKey == entityKey) {
+                                for (lang in qLangMap[qKey]!!) {
+                                    val dbName = WikiSite.forLanguageCode(lang).dbName()
+                                    if (entity.sitelinks().containsKey(dbName)) {
+                                        if (!langArticleMap.containsKey(lang)) {
+                                            langArticleMap[lang] = ArrayList()
+                                        }
+                                        langArticleMap[lang]!!.add(entity.sitelinks()[dbName]!!.title)
+                                    }
+                                }
+                                break
+                            }
+                        }
+                    }
+
+                    var i = 0
+                    for (lang in langArticleMap.keys) {
+                        val site = WikiSite.forLanguageCode(lang)
+                        for (title in langArticleMap[lang]!!) {
+                            val contributionObject = ContributionObject(title, "", getString(R.string.suggested_edits_contributions_type, getString(R.string.description_edit_text_hint), lang), "", DateUtil.iso8601DateParse(timestamps[i++]), site)
+                            contributionsList.add(contributionObject)
+                        }
+                    }
+                    getArticleAndImageInfoForContributions()
+                }, { t ->
+                    L.e(t)
+                }))
+    }
+
     private fun createArticleContributionObjects(contributionObject: ContributionObject, summary: PageSummary) {
         contributionObject.description = StringUtils.defaultString(summary.description)
         contributionObject.imageUrl = summary.thumbnailUrl.toString()
-    }
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
-        super.onCreateView(inflater, container, savedInstanceState)
-        return inflater.inflate(R.layout.fragment_contributions_suggested_edits, container, false)
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        contributionsRecyclerView.setLayoutManager(LinearLayoutManager(context))
-        contributionsRecyclerView.setAdapter(adapter)
-    }
-
-
-    companion object {
-        fun newInstance(): SuggestedEditsContributionsFragment {
-            return SuggestedEditsContributionsFragment()
-        }
     }
 
     private class HeaderViewHolder internal constructor(itemView: View) : DefaultViewHolder<View?>(itemView) {
@@ -142,7 +247,7 @@ class SuggestedEditsContributionsFragment : Fragment() {
         }
     }
 
-    private class ContributionItemHolder internal constructor(itemView: SuggestedEditsContributionsItemView<ContributionObject>) : DefaultViewHolder<SuggestedEditsContributionsItemView<ContributionObject>?>(itemView!!) {
+    private class ContributionItemHolder internal constructor(itemView: SuggestedEditsContributionsItemView<ContributionObject>) : DefaultViewHolder<SuggestedEditsContributionsItemView<ContributionObject>?>(itemView) {
         fun bindItem(contributionObject: ContributionObject) {
             view.setItem(contributionObject)
             view.setTime(DateUtil.get24HrFormatTimeOnlyString(contributionObject.date))
@@ -153,7 +258,6 @@ class SuggestedEditsContributionsFragment : Fragment() {
         }
 
     }
-
 
     private class ContributionsEntryItemAdapter : RecyclerView.Adapter<DefaultViewHolder<*>>() {
         private var contributionsList: MutableList<Any> = ArrayList()
@@ -175,10 +279,6 @@ class SuggestedEditsContributionsFragment : Fragment() {
         fun setList(list: MutableList<Any>) {
             contributionsList = list
             notifyDataSetChanged()
-        }
-
-        fun clearList() {
-            contributionsList.clear()
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DefaultViewHolder<*> {

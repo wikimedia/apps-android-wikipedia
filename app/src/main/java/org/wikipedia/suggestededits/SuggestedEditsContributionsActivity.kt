@@ -18,8 +18,9 @@ class SuggestedEditsContributionsActivity : SingleFragmentActivity<SuggestedEdit
 
     companion object {
         const val ARG_CONTRIBUTIONS_LIST = "contributions"
-        fun newIntent(context: Context, contributionObjects: List<ContributionObject>): Intent {
-            return Intent(context, SuggestedEditsContributionsActivity::class.java).putExtra(ARG_CONTRIBUTIONS_LIST, GsonMarshaller.marshal(contributionObjects))
+        const val ARG_CONTRIBUTIONS_CONTINUE = "continue"
+        fun newIntent(context: Context, contributionObjects: List<ContributionObject>, userContributionsContinuation: String): Intent {
+            return Intent(context, SuggestedEditsContributionsActivity::class.java).putExtra(ARG_CONTRIBUTIONS_LIST, GsonMarshaller.marshal(contributionObjects)).putExtra(ARG_CONTRIBUTIONS_CONTINUE, userContributionsContinuation)
         }
     }
 }
