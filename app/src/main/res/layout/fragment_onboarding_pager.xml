@@ -60,6 +60,7 @@
                     android:layout_gravity="end|center_vertical"
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:clickable="true"
+                    android:focusable="true"
                     android:contentDescription="@string/onboarding_continue"
                     android:scaleType="center"
                     android:tint="?attr/colorAccent"
