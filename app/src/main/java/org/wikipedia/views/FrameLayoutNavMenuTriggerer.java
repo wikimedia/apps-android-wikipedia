@@ -17,7 +17,7 @@ public class FrameLayoutNavMenuTriggerer extends FrameLayout {
     }
 
     private static final int SWIPE_SLOP_Y = DimenUtil.roundedDpToPx(32);
-    private static final int SWIPE_SLOP_X = DimenUtil.roundedDpToPx(80);
+    private static final int SWIPE_SLOP_X = DimenUtil.roundedDpToPx(100);
     private static boolean CHILD_VIEW_SCROLLED = false;
 
     private float initialX;
