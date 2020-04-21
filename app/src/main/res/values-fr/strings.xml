@@ -772,6 +772,9 @@
   <string name="suggested_edits_last_edited_never">Jamais</string>
   <string name="suggested_edits_task_new">nouveau</string>
   <string name="suggested_edits_cc0_notice">En publiant, vous acceptez les &lt;a href=\"%1$s\"&gt;conditions d’utilisation&lt;/a&gt; et de mettre de façon irrévocable cette contribution sous la &lt;a href=\"%2$s\"&gt;licence CC0&lt;/a&gt;.</string>
+  <string name="suggested_edits_reactivation_notification_title">Modifications suggérées</string>
+  <string name="suggested_edits_reactivation_notification_stage_one">Merci d\'avoir modifié Wikipédia ! Pourquoi ne pas continuer là où vous l’avez laissé ?</string>
+  <string name="suggested_edits_reactivation_notification_stage_two">Vous avez une minute pour contin uer à améliorer Wikipedia ? Regardez ces suggestions de modification.</string>
   <string name="description_edit_revert_subtitle">Merci pour l’édition de Wikipédia !</string>
   <string name="description_edit_revert_intro">Nous savons que vous avez fait de votre mieux, mais un de nos relecteurs a eu un souci. Les raisons possibles de l’annulation de votre modification comprennent :</string>
   <string name="description_edit_revert_reason1">votre contribution ne respectait pas une des &lt;a href=\"%1$s\"&gt;directives&lt;/a&gt;.</string>

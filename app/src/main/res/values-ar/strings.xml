@@ -23,6 +23,7 @@
 * NEHAOUA
 * PhiberOptik
 * Shbib Al-Subaie
+* Tala Ali
 * Youssef
 * بدارين
 * ديفيد
@@ -760,6 +761,8 @@
   <string name="suggested_edits_last_edited_never">أبدا</string>
   <string name="suggested_edits_task_new">جديد</string>
   <string name="suggested_edits_cc0_notice">بالنشر، فإنك توافق على &lt;a href=\"%1$s\"&gt;شروط الاستخدام&lt;/a&gt;، ونشر تعديلك بلا رجعة تحت رخصة &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="suggested_edits_reactivation_notification_title">التعديلات المقترحة</string>
+  <string name="suggested_edits_reactivation_notification_stage_two">  .لديك وقت لمواصلة تحسين ويكيبيديا؟ تحقق من اقتراحات التعديل هذه</string>
   <string name="description_edit_revert_subtitle">شكرا للتحرير في ويكيبيديا!</string>
   <string name="description_edit_revert_intro">نحن نعلم أنك جربت أفضل ما لديك، ولكن كان أحد المراجعين قلقا، من بين الأسباب المحتملة لاسترجاع تعديلك ما يلي:</string>
   <string name="description_edit_revert_reason1">مساهمتك لا تتبع أحد &lt;a href=\"%1$s\"&gt;الإرشادات&lt;/a&gt;.</string>
