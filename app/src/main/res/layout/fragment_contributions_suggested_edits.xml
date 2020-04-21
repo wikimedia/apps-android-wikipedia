@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="?attr/paper_color"
+    android:orientation="vertical">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/contributionsRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="?attr/paper_color"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:scrollbars="vertical" />
+
+    <ProgressBar
+        android:id="@+id/loadMoreProgressView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone" />
 </LinearLayout>

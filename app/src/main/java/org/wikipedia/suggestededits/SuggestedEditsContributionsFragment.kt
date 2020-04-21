@@ -3,6 +3,8 @@ package org.wikipedia.suggestededits
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
@@ -42,7 +44,7 @@ class SuggestedEditsContributionsFragment : Fragment() {
     var imageContributionTitles = HashMap<String, String>()
     private var userContributionsContinuation: String? = null
     private var userImageContributionsContinuation: String? = null
-    var loading = false
+    var loadingMore = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -67,10 +69,11 @@ class SuggestedEditsContributionsFragment : Fragment() {
                 super.onScrolled(recyclerView, dx, dy)
 
                 val linearLayoutManager = recyclerView.layoutManager as LinearLayoutManager?
-                if (!loading) {
+                if (!loadingMore) {
                     if (linearLayoutManager != null && linearLayoutManager.findLastCompletelyVisibleItemPosition() == contributionsWithDatesList.size - 1) {
                         loadMoreContributions()
-                        loading = true
+                        loadingMore = true
+                        loadMoreProgressView.visibility = VISIBLE
                     }
                 }
             }
@@ -154,7 +157,8 @@ class SuggestedEditsContributionsFragment : Fragment() {
                                     contributionsWithDatesList.add(contributionsList[position])
                                 }
                                 adapter.setList(contributionsWithDatesList)
-                                loading = false
+                                loadingMore = false
+                                loadMoreProgressView.visibility = GONE
                             }
                         }
                     }, { caught ->
