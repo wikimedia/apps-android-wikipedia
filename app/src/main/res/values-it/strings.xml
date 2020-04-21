@@ -354,7 +354,7 @@
   <string name="view_wiki_error_message_timeout">Impossibile connettersi a Wikipedia. Controlla la connessione di rete o riprova più tardi</string>
   <string name="reference_title">Riferimento %s</string>
   <string name="reference_list_title">Note</string>
-  <string name="theme_chooser_dialog_image_dimming_switch_label">Attenuazione dell\'immagine (in tema Scuro)</string>
+  <string name="theme_chooser_dialog_image_dimming_switch_label">Attenuazione dell\'immagine (in tema Scuro e Nero)</string>
   <string name="preference_title_prefer_offline_content">Preferisci contenuti offline</string>
   <string name="preference_summary_prefer_offline_content">Salva l\'utilizzo dei dati caricando le voci che sono disponibili offline anziché caricare sempre l\'ultima versione di una voce</string>
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Abbina il tema del sistema</string>
@@ -387,6 +387,8 @@
   <string name="reading_list_create_new">Crea nuovo</string>
   <string name="reading_list_title_exists">L\'elenco di lettura \"%s\" già esiste.</string>
   <string name="reading_list_article_added_to_named">%1$s aggiunta a %2$s.</string>
+  <string name="reading_list_article_already_exists_message">Tutto bene! %1$s contiene già %2$s.</string>
+  <string name="reading_list_articles_already_exist_message">Tutto bene! %s contiene già tutte le voci.</string>
   <string name="reading_list_added_view_button">Visualizza elenco</string>
   <string name="format_reading_list_statistical_summary_singular">1 voce, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d voci, %2$.2f MB</string>
@@ -765,6 +767,9 @@
   <string name="suggested_edits_last_edited_never">Mai</string>
   <string name="suggested_edits_task_new">nuovo</string>
   <string name="suggested_edits_cc0_notice">Pubblicando, accetti le nostre &lt;a href=\"%1$s\"&gt;condizioni d\'uso&lt;/a&gt; e accetti di rilasciare irrevocabilmente il tuo contributo in base alla &lt;a href=\"%2$s\"&gt;licenza CC0&lt;/a&gt;.</string>
+  <string name="suggested_edits_reactivation_notification_title">Modifiche suggerite</string>
+  <string name="suggested_edits_reactivation_notification_stage_one">Grazie per aver modificato Wikipedia! Perché non continuare da dove avevi interrotto?</string>
+  <string name="suggested_edits_reactivation_notification_stage_two">Hai un minuto per continuare a migliorare Wikipedia? Dai un\'occhiata a questi suggerimenti di modifica.</string>
   <string name="description_edit_revert_subtitle">Grazie per aver modificato Wikipedia!</string>
   <string name="description_edit_revert_intro">Sappiamo che hai fatto del tuo meglio, ma uno dei recensori ha destato preoccupazione. I possibili motivi per cui la tua modifica è stata annullata includono:</string>
   <string name="description_edit_revert_reason1">il tuo contributo non rispetta una delle &lt;a href=\"%1$s\"&gt;linee guida&lt;/a&gt;.</string>
