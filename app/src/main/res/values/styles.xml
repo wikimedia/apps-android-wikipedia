@@ -264,6 +264,7 @@
         <item name="backgroundTint">@color/color_state_green</item>
         <item name="android:textColor">@android:color/white</item>
         <item name="android:textAlignment">center</item>
+        <item name="android:focusable">true</item>
     </style>
 
     <style name="App.Button.Blue">
@@ -288,6 +289,7 @@
         <item name="android:backgroundTint">@android:color/transparent</item>
         <item name="backgroundTint">@android:color/transparent</item>
         <item name="android:foreground">?android:selectableItemBackground</item>
+        <item name="android:focusable">true</item>
     </style>
 
     <style name="OnboardingSwitch">
