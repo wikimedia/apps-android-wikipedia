@@ -48,11 +48,13 @@ class SuggestedEditsContributionsItemView<T>(context: Context) : LinearLayout(co
 
 
     fun setImageUrl(url: String?) {
-        if (url == null || url.equals("null")) {
+        if (url.isNullOrEmpty() || url.equals("null")) {
             image.visibility = View.GONE
             return
+        } else {
+            image.visibility = View.VISIBLE
+            ViewUtil.loadImageWithRoundedCorners(image, url)
         }
-        ViewUtil.loadImage(image, url, true, true)
     }
 
 

@@ -219,9 +219,10 @@ class SuggestedEditsTasksFragment : Fragment() {
     }
 
     private fun getPageViews() {
+        contributionObjects.clear()
         val qLangMap = HashMap<String, HashSet<String>>()
 
-        disposables.add(ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getUserContributions(AccountUtil.getUserName()!!, 10)
+        disposables.add(ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getUserContributions(AccountUtil.getUserName()!!, 3)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .flatMap { response ->
@@ -246,6 +247,9 @@ class SuggestedEditsTasksFragment : Fragment() {
                         if (!qLangMap.containsKey(userContribution.title)) {
                             qLangMap[userContribution.title] = HashSet()
                         }
+                        contributionObjects.add(ContributionObject(userContribution.title, "", "", getString(R.string.suggested_edits_contributions_type,
+                                getString(R.string.description_edit_text_hint), descLang), "", DateUtil.iso8601DateParse(userContribution.timestamp), WikiSite.forLanguageCode(descLang)))
+
                         qLangMap[userContribution.title]!!.add(descLang)
                     }
                     ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getWikidataLabelsAndDescriptions(qLangMap.keys.joinToString("|"))
@@ -259,6 +263,12 @@ class SuggestedEditsTasksFragment : Fragment() {
                     val langArticleMap = HashMap<String, ArrayList<String>>()
                     for (entityKey in it.entities().keys) {
                         val entity = it.entities()[entityKey]!!
+                        for (contribution in contributionObjects) {
+                            if (contribution.qNumber == entityKey) {
+                                contribution.title = entity.labels()[contribution.wikiSite.languageCode()]!!.value()
+                                contribution.description = entity.descriptions()[contribution.wikiSite.languageCode()]!!.value()
+                            }
+                        }
                         for (qKey in qLangMap.keys) {
                             if (qKey == entityKey) {
                                 for (lang in qLangMap[qKey]!!) {
@@ -279,10 +289,6 @@ class SuggestedEditsTasksFragment : Fragment() {
                     var i = 0
                     for (lang in langArticleMap.keys) {
                         val site = WikiSite.forLanguageCode(lang)
-                        for (title in langArticleMap[lang]!!) {
-                            val contributionObject = ContributionObject(title, "", getString(R.string.suggested_edits_contributions_type, getString(R.string.description_edit_text_hint), lang), "", DateUtil.iso8601DateParse(timestamps[i++]), site)
-                            contributionObjects.add(contributionObject)
-                        }
                         observableList.add(ServiceFactory.get(site).getPageViewsForTitles(langArticleMap[lang]!!.joinToString("|"))
                                 .subscribeOn(Schedulers.io())
                                 .observeOn(AndroidSchedulers.mainThread()))
