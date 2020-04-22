@@ -1,4 +1,4 @@
-Resmi Wikipedia Android uygulaması, Vikipedi hakkındaki bilgileri bulmanıza, keşfetmenize ve keşfetmenize yardımcı olmak için tasarlanmıştır. Uygulama aracılığıyla hızlı bir arama yaparak arkadaşınızla bir bahis yapın ya da öne çıkan makaleler, resimler, önerilen makaleler ve daha fazla bilgi edinmek için keşif özet akışını kullanın. Yaklaşık 300 dilde 39 milyondan fazla makalesi ile en sevdiğiniz ücretsiz çevrimiçi ansiklopedi artık parmaklarınızın ucunda.
+Resmi Wikipedia Android uygulaması, Wikipedia hakkındaki bilgileri bulmanıza, keşfetmenize ve keşfetmenize yardımcı olmak için tasarlanmıştır. Uygulama aracılığıyla hızlı bir arama yaparak arkadaşınızla bir bahis yapın ya da öne çıkan ve önerilen makaleler, resimler ve daha fazla bilgi edinmek için keşif akışını kullanın. Yaklaşık 300 dilde 39 milyondan fazla makalesi ile en sevdiğiniz özgür çevrim içi ansiklopedi artık parmaklarınızın ucunda.
 
 Özellikler:
 
@@ -20,9 +20,9 @@ Resim galerisi - Tam görüntüleri taramak için hızlıca kaydırmak için se�
 
 Vikisözlükten tanımlar - Bir kelimeyi vurgulamak için Dokun ve basılı tutun, ardından "Tanımla" düğmesine dokunarak Vikisözlük kelimesinin bir tanımını görebilirsiniz.
 
-Wikipedia Zero - Katılan mobil operatörler için Android'den ücretsiz veri ücretleri. (katılımcı operatörlere bağlantı).
+Wikipedia Zero - Katılan mobil operatörlerde Android için Wikipedia'ya veri ücreti olmadan erişin. (katılımcı operatörlere bağlantı).
 
-Uygulama ile ilgili görüşlerinizi bize gönderin! Menüde "Ayarlar" a, ardından "Wikipedia uygulaması hakkında", ardından "Uygulama geri bildirimi gönder" e basın.
+Uygulama ile ilgili geri dönüşlerinizi bize gönderin! Menüde "Ayarlar", ardından "Wikipedia uygulaması hakkında", ardından "Uygulama geri bildirimi gönder" düğmesine basın.
 
 Kod %100 açık kaynaklıdır. Java ve Android SDK ile tecrübeniz varsa, katkılarınızı bekliyoruz! https://github.com/wikimedia/apps-android-wikipedia
 
