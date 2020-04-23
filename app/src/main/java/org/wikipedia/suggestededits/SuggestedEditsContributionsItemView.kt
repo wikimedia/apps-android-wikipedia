@@ -9,6 +9,8 @@ import androidx.appcompat.content.res.AppCompatResources
 import butterknife.OnClick
 import kotlinx.android.synthetic.main.item_suggested_edits_contirbutions.view.*
 import org.wikipedia.R
+import org.wikipedia.suggestededits.SuggestedEditsContributionsFragment.Contribution.Companion.EDIT_TYPE_IMAGE_CAPTION
+import org.wikipedia.suggestededits.SuggestedEditsContributionsFragment.Contribution.Companion.EDIT_TYPE_IMAGE_TAG
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.views.ViewUtil
@@ -42,8 +44,21 @@ class SuggestedEditsContributionsItemView<T>(context: Context) : LinearLayout(co
         time.text = contributionTime
     }
 
-    fun setTagType(contributionTagType: String?) {
-        tagType.text = contributionTagType
+    fun setTagType(contributionType: Int, language: String) {
+        when (contributionType) {
+            EDIT_TYPE_IMAGE_CAPTION -> {
+                editType.text = context.getString(R.string.suggested_edits_contributions_type, context.getString(R.string.description_edit_add_caption_hint), language)
+                editTypeIcon.setImageResource(R.drawable.ic_image_caption)
+            }
+            EDIT_TYPE_IMAGE_TAG -> {
+                editType.text = context.getString(R.string.suggested_edits_contributions_type, context.getString(R.string.suggested_edits_type_image_tag), language)
+                editTypeIcon.setImageResource(R.drawable.ic_image_tag)
+            }
+            else -> {
+                editType.text = context.getString(R.string.suggested_edits_contributions_type, context.getString(R.string.description_edit_text_hint), language)
+                editTypeIcon.setImageResource(R.drawable.ic_article_description)
+            }
+        }
     }
 
 
@@ -69,9 +84,6 @@ class SuggestedEditsContributionsItemView<T>(context: Context) : LinearLayout(co
     init {
         View.inflate(context, R.layout.item_suggested_edits_contirbutions, this)
         layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-        val topBottomPadding = 16
-        setPadding(0, DimenUtil.roundedDpToPx(topBottomPadding.toFloat()), 0, DimenUtil.roundedDpToPx(topBottomPadding.toFloat()))
-        setBackgroundColor(ResourceUtil.getThemedColor(context, R.attr.paper_color))
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             foreground = AppCompatResources.getDrawable(context, ResourceUtil.getThemedAttributeId(context, R.attr.selectableItemBackground))
         }

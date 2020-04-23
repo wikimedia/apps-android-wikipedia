@@ -781,6 +781,8 @@
     <string name="suggested_edits_reactivation_notification_title">Suggested edits</string>
     <string name="suggested_edits_reactivation_notification_stage_one">Thanks for editing Wikipedia! Why not continue where you left off?</string>
     <string name="suggested_edits_reactivation_notification_stage_two">Have a minute to continue improving Wikipedia? Check out these editing suggestions.</string>
+    <string name="suggested_edits_type_image_tag">Image tag</string>
+    <string name="suggested_edits_contributions_screen_title">%s\'s contributions</string>
     <!-- /Suggested edits -->
 
     <!-- Description editing revert help -->

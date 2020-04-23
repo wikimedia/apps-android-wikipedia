@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginTop="8dp"
+    android:background="?attr/selectableItemBackground"
     android:orientation="vertical">
 
     <TextView
@@ -44,9 +46,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:paddingEnd="8dp"
-                android:maxLines="3"
                 android:ellipsize="end"
+                android:maxLines="3"
+                android:paddingEnd="8dp"
                 tools:text="Lorem ipsum" />
         </LinearLayout>
 
@@ -62,19 +64,19 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp">
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp">
 
         <ImageView
             android:id="@+id/editTypeIcon"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginStart="12dp"
             android:contentDescription="@null"
             android:tint="?attr/material_theme_de_emphasised_color"
             app:srcCompat="@drawable/ic_article_description" />
 
         <TextView
-            android:id="@+id/tagType"
+            android:id="@+id/editType"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"

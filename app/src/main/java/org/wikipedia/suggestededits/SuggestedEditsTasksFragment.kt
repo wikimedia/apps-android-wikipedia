@@ -31,7 +31,8 @@ import org.wikipedia.language.LanguageSettingsInvokeSource
 import org.wikipedia.main.MainActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
-import org.wikipedia.suggestededits.SuggestedEditsContributionsFragment.ContributionObject
+import org.wikipedia.suggestededits.SuggestedEditsContributionsFragment.Contribution
+import org.wikipedia.suggestededits.SuggestedEditsContributionsFragment.Contribution.Companion.EDIT_TYPE_ARTICLE_DESCRIPTION
 import org.wikipedia.util.*
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DefaultRecyclerAdapter
@@ -45,7 +46,7 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     private val displayedTasks = ArrayList<SuggestedEditsTask>()
     private val callback = TaskViewCallback()
-    var contributionObjects = ArrayList<ContributionObject>()
+    var contributionObjects = ArrayList<Contribution>()
     private var timestamps = ArrayList<String>()
 
     private val disposables = CompositeDisposable()
@@ -247,8 +248,7 @@ class SuggestedEditsTasksFragment : Fragment() {
                         if (!qLangMap.containsKey(userContribution.title)) {
                             qLangMap[userContribution.title] = HashSet()
                         }
-                        contributionObjects.add(ContributionObject(userContribution.title, "", "", getString(R.string.suggested_edits_contributions_type,
-                                getString(R.string.description_edit_text_hint), descLang), "", DateUtil.iso8601DateParse(userContribution.timestamp), WikiSite.forLanguageCode(descLang)))
+                        contributionObjects.add(Contribution(userContribution.title, "", "", EDIT_TYPE_ARTICLE_DESCRIPTION, "", DateUtil.iso8601DateParse(userContribution.timestamp), WikiSite.forLanguageCode(descLang)))
 
                         qLangMap[userContribution.title]!!.add(descLang)
                     }

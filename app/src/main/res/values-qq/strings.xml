@@ -858,4 +858,6 @@
   <string name="text_input_dialog_cancel_button_text">Negative action button text in pop-up dialog for text input.\n{{Identical|Cancel}}</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Negative action button text in date picker pop-up dialog.\n{{Identical|Cancel}}</string>
   <string name="suggested_edits_contributions_type">Text indicating the type of user edit. %1$s is the typ and %2$s indicates the language</string>
+  <string name="suggested_edits_type_image_tag">Text indicating that the user edit was an Image tag edit</string>
+  <string name="suggested_edits_contributions_screen_title">Contributions screen title text. The %s symbol is replaced with the username.</string>
 </resources>
