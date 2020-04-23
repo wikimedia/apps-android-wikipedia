@@ -27,6 +27,7 @@ public class HorizontalScrollingListCardItemView extends CardView {
         inflate(getContext(), R.layout.view_horizontal_scroll_list_item_card, this);
         setCardBackgroundColor(ResourceUtil.getThemedColor(context, R.attr.paper_color));
         ButterKnife.bind(this);
+        setFocusable(true);
     }
 
     public void setCallback(@Nullable FeedAdapter.Callback callback) {
