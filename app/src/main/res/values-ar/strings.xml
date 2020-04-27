@@ -23,6 +23,7 @@
 * NEHAOUA
 * PhiberOptik
 * Shbib Al-Subaie
+* Tala Ali
 * Youssef
 * بدارين
 * ديفيد
@@ -288,7 +289,7 @@
   <string name="gallery_menu_share">مشاركة</string>
   <string name="gallery_share_error">تعذّرت مشاركة الصورة: %s</string>
   <string name="gallery_save_progress">جارٍ تنزيل الملف…</string>
-  <string name="gallery_save_success" fuzzy="true">حُفظ الملف بنجاح.</string>
+  <string name="gallery_save_success">حُفظ الملف بنجاح.</string>
   <string name="gallery_error_video_failed">لا يمكن تشغيل الفيديو.</string>
   <string name="gallery_save_image_write_permission_rationale">صلاحية الكتابة في ذاكرة التخزين على جهازك مطلوبة لحفظ الصور.</string>
   <string name="gallery_add_image_caption_button">إضافة شرح الصورة</string>
@@ -760,6 +761,8 @@
   <string name="suggested_edits_last_edited_never">أبدا</string>
   <string name="suggested_edits_task_new">جديد</string>
   <string name="suggested_edits_cc0_notice">بالنشر، فإنك توافق على &lt;a href=\"%1$s\"&gt;شروط الاستخدام&lt;/a&gt;، ونشر تعديلك بلا رجعة تحت رخصة &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="suggested_edits_reactivation_notification_title">التعديلات المقترحة</string>
+  <string name="suggested_edits_reactivation_notification_stage_two">  .لديك وقت لمواصلة تحسين ويكيبيديا؟ تحقق من اقتراحات التعديل هذه</string>
   <string name="description_edit_revert_subtitle">شكرا للتحرير في ويكيبيديا!</string>
   <string name="description_edit_revert_intro">نحن نعلم أنك جربت أفضل ما لديك، ولكن كان أحد المراجعين قلقا، من بين الأسباب المحتملة لاسترجاع تعديلك ما يلي:</string>
   <string name="description_edit_revert_reason1">مساهمتك لا تتبع أحد &lt;a href=\"%1$s\"&gt;الإرشادات&lt;/a&gt;.</string>

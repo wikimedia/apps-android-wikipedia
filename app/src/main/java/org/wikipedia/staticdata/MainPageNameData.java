@@ -21,7 +21,7 @@ public final class MainPageNameData {
 
     @SuppressWarnings({"checkstyle:methodlength", "SpellCheckingInspection"})
     private static Map<String, String> newMap() {
-        final int size = 299;
+        final int size = 302;
         Map<String, String> map = new HashMap<>(size);
         map.put("ab", "Ихадоу адаҟьа");
         map.put("ace", "Ôn Keue");
@@ -109,6 +109,7 @@ public final class MainPageNameData {
         map.put("ga", "Príomhleathanach");
         map.put("gag", "Baş yaprak");
         map.put("gan", "封面");
+        map.put("gcr", "Paj Prensipal");
         map.put("gd", "Prìomh-Dhuilleag");
         map.put("gl", "Portada");
         map.put("glk", "گتˇ ولگ");
@@ -134,7 +135,7 @@ public final class MainPageNameData {
         map.put("id", "Halaman Utama");
         map.put("ie", "Principal págine");
         map.put("ig", "Ihu m̀bụ");
-        map.put("ik", "Makpiġaaq Kanna");
+        map.put("ik", "Aimaaġvik");
         map.put("ilo", "Umuna a Panid");
         map.put("inh", "Керттера оагӀув");
         map.put("io", "Frontispico");
@@ -191,6 +192,7 @@ public final class MainPageNameData {
         map.put("mk", "Главна страница");
         map.put("ml", "പ്രധാന താൾ");
         map.put("mn", "Нүүр хуудас");
+        map.put("mnw", "မုက်လိက်တမ်");
         map.put("mr", "मुखपृष्ठ");
         map.put("mrj", "Тӹнг ӹлӹштӓш");
         map.put("ms", "Laman Utama");
@@ -273,6 +275,7 @@ public final class MainPageNameData {
         map.put("sv", "Portal:Huvudsida");
         map.put("sw", "Mwanzo");
         map.put("szl", "Przodniŏ zajta");
+        map.put("szy", "saayaway a belih");
         map.put("ta", "முதற் பக்கம்");
         map.put("tcy", "ಮುಖ್ಯ ಪುಟ");
         map.put("te", "మొదటి పేజీ");

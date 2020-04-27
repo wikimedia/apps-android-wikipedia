@@ -45,6 +45,7 @@ public final class Constants {
     public static final String INTENT_EXTRA_NOTIFICATION_SYNC_PAUSE_RESUME = "syncPauseResume";
     public static final String INTENT_EXTRA_NOTIFICATION_SYNC_CANCEL = "syncCancel";
     public static final String INTENT_EXTRA_GO_TO_MAIN_TAB = "goToMainTab";
+    public static final String INTENT_EXTRA_GO_TO_SE_TAB = "goToSETab";
     public static final String INTENT_EXTRA_INVOKE_SOURCE = "invokeSource";
     public static final String INTENT_EXTRA_ACTION = "intentAction";
 

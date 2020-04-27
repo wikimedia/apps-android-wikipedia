@@ -761,6 +761,9 @@
   <string name="suggested_edits_last_edited_never">Displayed when the user has never made an edit.</string>
   <string name="suggested_edits_task_new">Quick label shown for tasks that are newly introduced (should be lowercase in languages that support it).\n\nShould be translated as a kind of advertising, referring to somthing like a \"new (feature)\" or a \"new (thing)\".</string>
   <string name="suggested_edits_cc0_notice">Disclaimer that specifies the Terms of Use and CC license that applies to publishing these types of edits. Please preserve the %1$s and %2$s parameters, since these will be replaced with URLs.</string>
+  <string name="suggested_edits_reactivation_notification_title">Title of notification when the user has not edited for days.</string>
+  <string name="suggested_edits_reactivation_notification_stage_one">Text of notification when the user has not edited for days (first stage).</string>
+  <string name="suggested_edits_reactivation_notification_stage_two">Text of notification when the user has not edited for days (second stage).</string>
   <string name="description_edit_revert_subtitle">Subtitle in the dialog that informs the user that their edit was reverted.</string>
   <string name="description_edit_revert_intro">Introduction message informing the user that their edit was reverted, and leading into possible reasons for the revert.</string>
   <string name="description_edit_revert_reason1">Reason for an edit being reverted, because it did not follow the guidelines for descriptions. (Please preserve the anchor tag and formatted symbol (%1$s) in its exact form)</string>

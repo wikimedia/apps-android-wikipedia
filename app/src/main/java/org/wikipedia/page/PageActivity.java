@@ -4,6 +4,7 @@ import android.app.SearchManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -23,6 +24,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.Toolbar;
+import androidx.drawerlayout.widget.FixedDrawerLayout;
 import androidx.preference.PreferenceManager;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
@@ -105,6 +107,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         EXISTING_TAB
     }
 
+    @BindView(R.id.navigation_drawer) FixedDrawerLayout drawerLayout;
     @BindView(R.id.activity_page_container) FrameLayoutNavMenuTriggerer containerWithNavTrigger;
     @BindView(R.id.page_progress_bar) ProgressBar progressBar;
     @BindView(R.id.page_toolbar_container) View toolbarContainerView;
@@ -172,6 +175,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
         toolbarHideHandler = new PageToolbarHideHandler(pageFragment, toolbarContainerView, toolbar, tabsButton);
 
+        drawerLayout.setScrimColor(Color.TRANSPARENT);
         containerWithNavTrigger.setCallback(this);
 
         boolean languageChanged = false;
