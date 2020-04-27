@@ -482,7 +482,6 @@ public class SearchResultsFragment extends Fragment {
         public View getView(int position, View convertView, ViewGroup parent) {
             if (convertView == null) {
                 convertView = inflater.inflate(R.layout.item_search_result, parent, false);
-                convertView.setFocusable(true);
                 convertView.setOnClickListener(this);
                 convertView.setOnLongClickListener(this);
             }
