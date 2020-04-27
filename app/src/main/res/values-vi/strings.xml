@@ -22,6 +22,7 @@
   <string name="wikimedia">Wikimedia</string>
   <string name="nav_item_back">Quay lại</string>
   <string name="page_tabs_back">Quay lại</string>
+  <string name="nav_item_forward">Chuyển tiếp</string>
   <string name="search_hint">Tìm trong Wikipedia</string>
   <string name="search_hint_voice_search">Tìm kiếm nhập giọng nói</string>
   <string name="search_hint_search_history">Tìm trong lịch sử</string>
@@ -58,6 +59,7 @@
   <string name="menu_page_add_to_list">Thêm vào danh sách đọc</string>
   <string name="feed_card_add_to_list">Thêm vào danh sách đọc</string>
   <string name="menu_page_share">Chia sẻ liên kết</string>
+  <string name="menu_page_open_a_new_tab">Mở một thẻ mới</string>
   <string name="menu_page_reading_lists">Danh sách đọc</string>
   <string name="menu_page_recently_viewed">Đã xem gần đây</string>
   <string name="menu_long_press_open_page">Mở</string>
@@ -82,13 +84,13 @@
   <string name="langlinks_no_match">Không tìm thấy ngôn ngữ</string>
   <string name="langlinks_activity_title">Ngôn ngữ khác</string>
   <string name="langlinks_your_wikipedia_languages">Các ngôn ngữ Wikipedia của bạn</string>
-  <string name="menu_save_changes">Đăng các thay đổi</string>
+  <string name="menu_save_changes">Đăng thay đổi</string>
   <string name="edit_saved_successfully">Thay đổi đã được đăng tải!</string>
   <string name="dialog_message_edit_failed">Sửa đổi thất bại!</string>
   <string name="dialog_message_edit_failed_retry">Thử lại</string>
   <string name="dialog_message_edit_failed_cancel">Hủy bỏ</string>
-  <string name="dialog_message_leaving_edit" fuzzy="true">Các thay đổi của bạn chưa được lưu. Bạn có chắc chắn muốn rời bỏ trang này?</string>
-  <string name="dialog_message_leaving_edit_leave">Rời bỏ</string>
+  <string name="dialog_message_leaving_edit">Thay đổi của bạn vẫn chưa được đăng lên. Bạn có chắc chắn muốn rời khỏi trang này không?</string>
+  <string name="dialog_message_leaving_edit_leave">Rời</string>
   <string name="dialog_message_leaving_edit_stay">Ở lại</string>
   <string name="menu_show_toc">Mục lục</string>
   <string name="search_no_results_found">Không tìm thấy kết quả</string>
@@ -96,7 +98,7 @@
   <string name="search_reading_lists_no_results">Không tìm thấy kết quả trong danh sách đọc</string>
   <string name="search_history_no_results">Không tìm thấy kết quả trong lịch sử</string>
   <string name="edit_section_captcha_message">Để giúp tránh các sửa đổi spam tự động, xin vui lòng nhập các từ xuất hiện ở dưới</string>
-  <string name="edit_section_captcha_request_an_account_message" fuzzy="true">Không đọc được các chữ trong hình này? &lt;a href=\"https://vi.wikipedia.org/wiki/Wikipedia:Yêu_cầu_tạo_tài_khoản\"&gt;Tìm hiểu thêm&lt;/a&gt;</string>
+  <string name="edit_section_captcha_request_an_account_message">Không đọc được các chữ trong hình này? &lt;a href=\"https://vi.wikipedia.org/wiki/Wikipedia:Yêu_cầu_tạo_tài_khoản\"&gt;Yêu cầu tạo tài khoản&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Lặp lại các từ bên trên</string>
   <string name="title_captcha">Nhập CAPTCHA</string>
   <string name="edit_section_captcha_reload">Chạm vào CAPTCHA để tải lại</string>
@@ -190,7 +192,7 @@
   <string name="about_description">Giới thiệu về ứng dụng Wikipedia</string>
   <string name="privacy_policy_description">Quy định về quyền riêng tư</string>
   <string name="terms_of_use_description">Điều khoản sử dụng</string>
-  <string name="about_wikipedia_url" fuzzy="true">https://vi.wikipedia.org/wiki/Wikipedia:Giới_thiệu</string>
+  <string name="about_wikipedia_url">https://vi.wikipedia.org/wiki/Wikipedia:Giới_thiệu</string>
   <string name="privacy_policy_url" fuzzy="true">https://meta.m.wikimedia.org/wiki/Privacy_policy/vi?uselang=vi</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
@@ -285,7 +287,13 @@
   <string name="close_all_tabs_confirm_yes">Có</string>
   <string name="close_all_tabs_confirm_no">Không</string>
   <string name="button_close_tab">Đóng tab</string>
+  <string name="unnamed_tab_closed">Đã đóng thẻ.</string>
+  <string name="tab_item_closed">Đã đóng %s.</string>
+  <string name="all_tab_items_closed">Đã đóng tất cả thẻ.</string>
+  <string name="tool_tip_bookmark_icon_title">Thêm vào danh sách đọc</string>
+  <string name="tool_tip_bookmark_icon_text">Chạm vào biểu trưng dấu trang để lưu bài viết vào danh sách đọc.</string>
   <string name="page_view_in_browser">Xem trang trong trình duyệt</string>
+  <string name="tool_tip_toc_title">Truy cập nhanh mục lục</string>
   <string name="tool_tip_lang_button">Từ bây giờ, bạn đã có thể tìm và đọc Wikipedia bằng nhiều ngôn ngữ trong ứng dụng.\n\n\nChạm vào biểu tượng để thêm ngôn ngữ.</string>
   <string name="error_response_malformed">Phản hồi từ máy chủ không được định dạng đúng.</string>
   <string name="error_unknown">Gặp lỗi lạ.</string>
@@ -316,9 +324,12 @@
   <string name="error_page_does_not_exist">Trang này không tồn tại</string>
   <string name="view_wiki_error_message_offline">Không thể kết nối với Internet</string>
   <string name="reference_title">Chú thích %s</string>
+  <string name="reference_list_title">Tham khảo</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Hình ảnh mờ (trong giao diện Tối)</string>
   <string name="preference_title_prefer_offline_content">Tải nội dung ngoại tuyến nếu có thể</string>
   <string name="preference_summary_prefer_offline_content">Tiết kiệm dữ liệu bằng cách tải các bài viết có sẵn ngoại tuyến thay vì luôn tải phiên bản mới nhất của bài viết</string>
+  <string name="empty_tab_title">Thẻ mới</string>
+  <string name="menu_save_all_tabs">Lưu tất cả các thẻ</string>
   <string name="crash_report_activity_title">Lỗi ứng dụng</string>
   <string name="crash_report_relaunch_or_quit">Bạn muốn bắt đầu lại hay thoát?</string>
   <string name="crash_report_relaunch">Bắt đầu lại</string>
@@ -343,6 +354,9 @@
   <string name="reading_list_save_to">Lưu vào danh sách đọc</string>
   <string name="reading_list_create_new">Tạo mới</string>
   <string name="reading_list_title_exists">Danh sách đọc “%s” đã tồn tại.</string>
+  <string name="reading_list_article_added_to_named">Đã thêm %1$s vào %2$s.</string>
+  <string name="reading_list_article_already_exists_message">Rất tốt! %1$s đã chứa %2$s rồi.</string>
+  <string name="reading_list_articles_already_exist_message">Rất tốt! %s đã chứa tất cả bài viết rồi.</string>
   <string name="reading_list_added_view_button">Xem danh sách</string>
   <string name="format_reading_list_statistical_summary_singular">1 bài, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d bài, %2$.2f MB</string>
@@ -368,6 +382,7 @@
   <string name="reading_list_description_hint">Miêu tả (tùy chọn)</string>
   <string name="reading_list_item_deleted">Đã xóa %s khỏi danh sách</string>
   <string name="reading_list_items_deleted">%d bài viết đã được xóa khỏi danh sách</string>
+  <string name="reading_lists_item_deleted">Đã loại bỏ %s khỏi danh sách</string>
   <string name="reading_list_item_delete_undo">Hoàn tác</string>
   <string name="reading_list_deleted">Đã xóa %s</string>
   <string name="saved_list_empty_title">Chưa có danh sách đọc</string>
@@ -433,7 +448,7 @@
     <item quantity="one">Bài này hiện không còn có sẵn ngoại tuyến.</item>
     <item quantity="other">Các bài này hiện không còn có sẵn ngoại tuyến.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync">Đã đồng bộ hóa các danh sách đọc</string>
+  <string name="reading_list_toast_last_sync">Đã đồng bộ hóa danh sách đọc</string>
   <string name="reading_list_menu_last_sync">Lần đồng bộ cuối: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">OK</string>
   <string name="reading_list_delete_dialog_ok_button_text">OK</string>
@@ -449,6 +464,7 @@
   <string name="notification_syncing_resume_button">Tiếp tục</string>
   <string name="notification_syncing_cancel_button">Hủy bỏ</string>
   <string name="notification_syncing_reading_list_channel_description">Tiến trình đồng bộ hóa danh sách đọc</string>
+  <string name="notification_many_unread">Bạn có %d thông báo chưa đọc</string>
   <plurals name="notification_channel_name">
     <item quantity="one">Đang tải về bài viết</item>
     <item quantity="other">Đang tải về các bài viết</item>
@@ -504,6 +520,9 @@
   <string name="preference_title_notification_revert">Lùi lại</string>
   <string name="preference_summary_notification_revert">Một trong những đóng góp của bạn đã được lùi lại</string>
   <string name="preference_title_notification_login_fail">Đăng nhập</string>
+  <string name="preference_summary_notification_login_fail">Hoạt động đăng nhập của bạn</string>
+  <string name="preference_title_notification_mention">Đề cập</string>
+  <string name="preference_summary_notification_mention">Ai đó đề cập bạn trong một trang</string>
   <string name="preference_title_notification_user_talk">Trang thảo luận</string>
   <string name="preference_summary_notification_user_talk">Tin nhắn từ trang thảo luận</string>
   <string name="view_because_you_read_card_title">Vì bạn đã đọc</string>
@@ -551,6 +570,7 @@
   <string name="feed_item_type_featured_image">Hình ảnh chọn lọc trong ngày từ Wikimedia Commons</string>
   <string name="feed_item_type_main_page">Trang chính của Wikipedia với các nội dung chọn lọc hằng ngày</string>
   <string name="feed_item_type_randomizer">Đưa ra danh sách các bài viết ngẫu nhiên để đọc</string>
+  <string name="feed_item_type_suggested_edits">Đề xuất thêm nội dung vào Wikipedia</string>
   <string name="feed_empty_message">Không có gì trên Bảng tin khám phá của bạn</string>
   <string name="feed_configure_onboarding_action">Tùy chỉnh</string>
   <string name="customize_lang_selection_dialog_ok_button_text">OK</string>

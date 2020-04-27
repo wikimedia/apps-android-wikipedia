@@ -614,7 +614,7 @@
   <string name="feed_accessibility_card_load_more_button">Daha fazla yükle</string>
   <string name="description_edit_text_hint">Madde tanımı</string>
   <string name="description_edit_article_description_label">Madde</string>
-  <string name="description_edit_translate_article_description_label_per_language">Makale açıklaması (%s)</string>
+  <string name="description_edit_translate_article_description_label_per_language">Madde açıklaması (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Madde açıklaması (%s)</string>
   <string name="description_edit_add_caption_label">Resim açıklaması</string>
   <string name="description_edit_add_caption_hint">Resim altyazısı</string>
@@ -680,7 +680,7 @@
   <string name="suggested_edits_task_multilingual_title">Çok dilli editörler için daha fazla görev</string>
   <string name="suggested_edits_task_multilingual_description">Eğer birden fazla Vikipedi dilinde okuyup yazabiliyorsanız, çeviri görevleri size göredir.</string>
   <string name="suggested_edits_task_image_caption_edit_disable_text">Siz %d resim altyazısını düzenleyene kadar kilitlendi</string>
-  <string name="suggested_edits_task_translate_description_edit_disable_text">%d makale açıklamalarını düzenleyene kadar kilitlendi (doğrulandı)</string>
+  <string name="suggested_edits_task_translate_description_edit_disable_text">%d madde açıklamalarını düzenleyene kadar kilitlendi (doğrulandı)</string>
   <string name="suggested_edits_task_multilingual_negative">Bana göre değil</string>
   <string name="suggested_edits_task_multilingual_positive">Dil ekle</string>
   <string name="suggested_edits_image_caption_summary_title_file">Dosya</string>
