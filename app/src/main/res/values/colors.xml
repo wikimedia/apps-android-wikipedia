@@ -12,7 +12,7 @@
     <color name="base18">#43464a</color> <!-- AAA: "Mesosphere gray" -->
     <color name="base14">#2e3136</color> <!-- AAA: "Thermosphere gray" -->
     <color name="base12">#27292d</color> <!-- AAA: "Exosphere gray" -->
-    <color name="base10">#222</color> <!-- W AAA: Copy color, Buttons / widgets text -->
+    <color name="base10">#202122</color> <!-- W AAA: Copy color, Buttons / widgets text -->
     <color name="base4">#101418</color> <!-- W AAA: "Pitch black" -->
     <color name="base0">#000</color> <!-- W AAA: Emphasized copy color, Active button widgets text -->
 
