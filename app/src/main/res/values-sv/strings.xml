@@ -751,6 +751,9 @@
   <string name="suggested_edits_last_edited_never">Aldrig</string>
   <string name="suggested_edits_task_new">ny</string>
   <string name="suggested_edits_cc0_notice">Genom att publisera samtycker du till &lt;a href=\"%1$s\"&gt;användningsvillkoren&lt;/a&gt; och att oåterkalleligen släppa detta bidrag under licensen &lt;a href=\"%2$s\"&gt;CC0&lt;/a&gt;.</string>
+  <string name="suggested_edits_reactivation_notification_title">Redigeringsförslag</string>
+  <string name="suggested_edits_reactivation_notification_stage_one">Tack för att du redigerar på Wikipedia! Varför inte fortsätta där du slutade sist?</string>
+  <string name="suggested_edits_reactivation_notification_stage_two">Har du en minut över för att förbättra Wikipedia? Titta på dessa redigeringsförslag.</string>
   <string name="description_edit_revert_subtitle">Tack för att du redigerar på Wikipedia!</string>
   <string name="description_edit_revert_intro">Vi vet att du försökte ditt bästa men en av korrekturläsarna hade en invändning. Möjliga anledningar till att din redigering gjordes om inkluderar:</string>
   <string name="description_edit_revert_reason1">ditt bidrag följde inte ett av &lt;a href=\"%1$s\"&gt;riktlinjerna&lt;/a&gt;.</string>
