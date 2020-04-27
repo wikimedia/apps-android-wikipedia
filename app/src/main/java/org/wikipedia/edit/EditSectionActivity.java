@@ -613,8 +613,8 @@ public class EditSectionActivity extends BaseActivity {
         outState.putBoolean("hasTemporaryWikitextStored", true);
         outState.putParcelable("abusefilter", abusefilterEditResult);
         outState.putBoolean("sectionTextModified", sectionTextModified);
-        Prefs.storeTemporaryWikitext(sectionWikitext);
         captchaHandler.saveState(outState);
+        Prefs.storeTemporaryWikitext(sectionWikitext);
     }
 
     private void updateTextSize() {
