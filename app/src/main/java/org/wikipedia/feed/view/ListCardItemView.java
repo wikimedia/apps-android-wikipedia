@@ -52,6 +52,7 @@ public class ListCardItemView extends ConstraintLayout {
         inflate(getContext(), R.layout.view_list_card_item, this);
         ButterKnife.bind(this);
 
+        setFocusable(true);
         setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         final int topBottomPadding = 16;
         setPadding(0, DimenUtil.roundedDpToPx(topBottomPadding), 0, DimenUtil.roundedDpToPx(topBottomPadding));
