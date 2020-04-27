@@ -5,7 +5,7 @@ import android.util.AttributeSet
 import android.view.View
 import androidx.constraintlayout.widget.ConstraintLayout
 
-open class ConfigurableTabLayout  constructor(context: Context, attrs: AttributeSet? = null) : ConstraintLayout(context, attrs) {
+open class ConfigurableTabLayout constructor(context: Context, attrs: AttributeSet? = null) : ConstraintLayout(context, attrs) {
     private fun enableTab(index: Int) {
         val tab = getChildAt(index)
         if (tab != null) {
