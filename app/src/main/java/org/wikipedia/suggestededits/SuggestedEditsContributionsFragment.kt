@@ -35,8 +35,6 @@ import org.wikipedia.views.DefaultViewHolder
 import java.util.*
 import kotlin.collections.ArrayList
 
-private val disposables = CompositeDisposable()
-
 
 class SuggestedEditsContributionsFragment : Fragment() {
     private val adapter: ContributionsEntryItemAdapter = ContributionsEntryItemAdapter()
@@ -47,6 +45,7 @@ class SuggestedEditsContributionsFragment : Fragment() {
 
     private var continuedArticlesContributions = ArrayList<Contribution>()
     private val continuedImageContributions = HashSet<Contribution>()
+    private val disposables = CompositeDisposable()
 
     private var articleContributionsContinuation: String? = null
     private var imageContributionsContinuation: String? = null
@@ -334,6 +333,7 @@ class SuggestedEditsContributionsFragment : Fragment() {
         consolidatedContributionsWithDates.clear()
         articleContributions.clear()
         imageContributions.clear()
+        disposables.clear()
         super.onDestroy()
     }
 

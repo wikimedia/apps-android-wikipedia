@@ -286,7 +286,6 @@ class SuggestedEditsTasksFragment : Fragment() {
                     }
 
                     val observableList = ArrayList<Observable<MwQueryResponse>>()
-                    var i = 0
                     for (lang in langArticleMap.keys) {
                         val site = WikiSite.forLanguageCode(lang)
                         observableList.add(ServiceFactory.get(site).getPageViewsForTitles(langArticleMap[lang]!!.joinToString("|"))

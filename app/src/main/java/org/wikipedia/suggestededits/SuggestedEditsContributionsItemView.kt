@@ -7,11 +7,10 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.appcompat.content.res.AppCompatResources
 import butterknife.OnClick
-import kotlinx.android.synthetic.main.item_suggested_edits_contirbutions.view.*
+import kotlinx.android.synthetic.main.item_suggested_edits_contributions.view.*
 import org.wikipedia.R
 import org.wikipedia.suggestededits.SuggestedEditsContributionsFragment.Contribution.Companion.EDIT_TYPE_IMAGE_CAPTION
 import org.wikipedia.suggestededits.SuggestedEditsContributionsFragment.Contribution.Companion.EDIT_TYPE_IMAGE_TAG
-import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.views.ViewUtil
 
@@ -82,7 +81,7 @@ class SuggestedEditsContributionsItemView<T>(context: Context) : LinearLayout(co
 
 
     init {
-        View.inflate(context, R.layout.item_suggested_edits_contirbutions, this)
+        View.inflate(context, R.layout.item_suggested_edits_contributions, this)
         layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             foreground = AppCompatResources.getDrawable(context, ResourceUtil.getThemedAttributeId(context, R.attr.selectableItemBackground))
