@@ -223,7 +223,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         contributionObjects.clear()
         val qLangMap = HashMap<String, HashSet<String>>()
 
-        disposables.add(ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getUserContributions(AccountUtil.getUserName()!!, 3)
+        disposables.add(ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getUserContributions(AccountUtil.getUserName()!!, 10, null)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .flatMap { response ->

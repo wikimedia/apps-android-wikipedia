@@ -114,8 +114,8 @@ class SuggestedEditsContributionsFragment : Fragment() {
     }
 
     private fun getImageContributionDetails() {
-        val imageContributionsObservable = if (imageContributionsContinuation.isNullOrEmpty()) ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getUserImageContributions(AccountUtil.getUserName()!!, 10)
-        else ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getUserImageContributionsWithContinuation(AccountUtil.getUserName()!!, 10, imageContributionsContinuation!!)
+        val imageContributionsObservable = if (imageContributionsContinuation.isNullOrEmpty()) ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getUserContributions(AccountUtil.getUserName()!!, 10, null)
+        else ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getUserContributions(AccountUtil.getUserName()!!, 10, imageContributionsContinuation!!)
         disposables.add(imageContributionsObservable
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -194,7 +194,7 @@ class SuggestedEditsContributionsFragment : Fragment() {
     private fun loadMoreContributions() {
         val qLangMap = HashMap<String, HashSet<String>>()
 
-        disposables.add(ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getUserContributionsWithContinuation(AccountUtil.getUserName()!!, 10, articleContributionsContinuation!!)
+        disposables.add(ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getUserContributions(AccountUtil.getUserName()!!, 10, articleContributionsContinuation!!)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .flatMap { response ->
