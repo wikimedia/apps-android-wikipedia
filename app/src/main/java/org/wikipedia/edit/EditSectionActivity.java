@@ -233,12 +233,6 @@ public class EditSectionActivity extends BaseActivity {
     }
 
     @Override
-    public void onPause() {
-        super.onPause();
-        Prefs.storeTemporaryWikitext(sectionWikitext);
-    }
-
-    @Override
     public void onDestroy() {
         disposables.clear();
         captchaHandler.dispose();
@@ -619,6 +613,7 @@ public class EditSectionActivity extends BaseActivity {
         outState.putBoolean("hasTemporaryWikitextStored", true);
         outState.putParcelable("abusefilter", abusefilterEditResult);
         outState.putBoolean("sectionTextModified", sectionTextModified);
+        Prefs.storeTemporaryWikitext(sectionWikitext);
         captchaHandler.saveState(outState);
     }
 
