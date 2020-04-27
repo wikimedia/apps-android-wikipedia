@@ -77,9 +77,6 @@ public final class DateUtil {
     public static String getMonthOnlyWithoutDayDateString(@NonNull Date date) {
         return getDateStringWithSkeletonPattern(date, "MMMM");
     }
-    public static String get24HrFormatTimeOnlyString(@NonNull Date date) {
-        return getDateStringWithSkeletonPattern(date, "kk:mm");
-    }
 
     private static String getExtraShortDateString(@NonNull Date date) {
         return getDateStringWithSkeletonPattern(date, "MMM d");

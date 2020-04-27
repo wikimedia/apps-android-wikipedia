@@ -39,23 +39,16 @@ class SuggestedEditsContributionsItemView<T>(context: Context) : LinearLayout(co
         description.text = contributionDescription
     }
 
-    fun setTime(contributionTime: String?) {
-        time.text = contributionTime
-    }
-
     fun setTagType(contributionType: Int, language: String) {
         when (contributionType) {
             EDIT_TYPE_IMAGE_CAPTION -> {
                 editType.text = context.getString(R.string.suggested_edits_contributions_type, context.getString(R.string.description_edit_add_caption_hint), language)
-                editTypeIcon.setImageResource(R.drawable.ic_image_caption)
             }
             EDIT_TYPE_IMAGE_TAG -> {
                 editType.text = context.getString(R.string.suggested_edits_contributions_type, context.getString(R.string.suggested_edits_type_image_tag), language)
-                editTypeIcon.setImageResource(R.drawable.ic_image_tag)
             }
             else -> {
                 editType.text = context.getString(R.string.suggested_edits_contributions_type, context.getString(R.string.description_edit_text_hint), language)
-                editTypeIcon.setImageResource(R.drawable.ic_article_description)
             }
         }
     }

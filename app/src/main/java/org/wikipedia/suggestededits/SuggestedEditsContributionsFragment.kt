@@ -255,7 +255,6 @@ class SuggestedEditsContributionsFragment : Fragment() {
     private class ContributionItemHolder internal constructor(itemView: SuggestedEditsContributionsItemView<Contribution>) : DefaultViewHolder<SuggestedEditsContributionsItemView<Contribution>?>(itemView) {
         fun bindItem(contribution: Contribution) {
             view.setItem(contribution)
-            view.setTime(DateUtil.get24HrFormatTimeOnlyString(contribution.date))
             view.setTitle(contribution.title)
             view.setDescription(contribution.description)
             view.setImageUrl(contribution.imageUrl)
