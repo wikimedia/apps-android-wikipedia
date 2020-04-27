@@ -14,6 +14,7 @@ import androidx.annotation.StringRes;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.analytics.ABTestEditorRetentionNotificationFunnel;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.csrf.CsrfTokenClient;
 import org.wikipedia.dataclient.Service;
@@ -253,10 +254,18 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
         if (days >= FIRST_EDITOR_REACTIVATION_NOTIFICATION_SHOW_ON_DAY && days < SECOND_EDITOR_REACTIVATION_NOTIFICATION_SHOW_ON_DAY
                 && !Prefs.isSuggestedEditsReactivationPassStageOne()) {
             Prefs.setSuggestedEditsReactivationPassStageOne(true);
-            showSuggestedEditsLocalNotification(context, R.string.suggested_edits_reactivation_notification_stage_one);
+            ABTestEditorRetentionNotificationFunnel funnel = new ABTestEditorRetentionNotificationFunnel();
+            funnel.logNotificationStage1();
+            if (funnel.shouldSeeNotification()) {
+                showSuggestedEditsLocalNotification(context, R.string.suggested_edits_reactivation_notification_stage_one);
+            }
         } else if (days >= SECOND_EDITOR_REACTIVATION_NOTIFICATION_SHOW_ON_DAY && Prefs.isSuggestedEditsReactivationPassStageOne()) {
             Prefs.setSuggestedEditsReactivationPassStageOne(false);
-            showSuggestedEditsLocalNotification(context, R.string.suggested_edits_reactivation_notification_stage_two);
+            ABTestEditorRetentionNotificationFunnel funnel = new ABTestEditorRetentionNotificationFunnel();
+            funnel.logNotificationStage2();
+            if (funnel.shouldSeeNotification()) {
+                showSuggestedEditsLocalNotification(context, R.string.suggested_edits_reactivation_notification_stage_two);
+            }
         }
     }
 
