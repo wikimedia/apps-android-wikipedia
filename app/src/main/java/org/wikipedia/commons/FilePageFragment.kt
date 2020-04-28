@@ -46,10 +46,6 @@ class FilePageFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        (requireActivity() as FilePageActivity).setSupportActionBar(toolbar)
-        (requireActivity() as FilePageActivity).supportActionBar?.setDisplayShowHomeEnabled(true)
-        (requireActivity() as FilePageActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        toolbarTitle.text = StringUtil.removeNamespace(pageTitle.displayText)
         swipeRefreshLayout.setOnRefreshListener {
             swipeRefreshLayout.isRefreshing = false
             loadImageInfo()

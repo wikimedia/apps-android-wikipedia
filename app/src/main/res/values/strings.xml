@@ -709,6 +709,7 @@
     <string name="suggested_edits_tasks_onboarding_get_started">Get started</string>
     <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Image caption (%s)</string>
     <string name="suggested_edits_image_preview_dialog_description_in_language_title">Image description (%s)</string>
+    <string name="suggested_edits_image_preview_dialog_file">File</string>
     <string name="suggested_edits_image_preview_dialog_artist">Artist</string>
     <string name="suggested_edits_image_preview_dialog_date">Date</string>
     <string name="suggested_edits_image_preview_dialog_source">Source/Photographer</string>
@@ -782,6 +783,10 @@
     <string name="suggested_edits_reactivation_notification_stage_one">Thanks for editing Wikipedia! Why not continue where you left off?</string>
     <string name="suggested_edits_reactivation_notification_stage_two">Have a minute to continue improving Wikipedia? Check out these editing suggestions.</string>
     <!-- /Suggested edits -->
+
+    <!-- File page -->
+    <string name="file_page_activity_title">File page</string>
+    <!-- /File page -->
 
     <!-- Description editing revert help -->
     <string name="description_edit_revert_subtitle">Thanks for editing Wikipedia!</string>

@@ -16,6 +16,7 @@ class FilePageActivity : SingleFragmentActivity<FilePageFragment>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         imageZoomHelper = ImageZoomHelper(this)
+        supportActionBar!!.elevation = 0.0f
         setNavigationBarColor(ResourceUtil.getThemedColor(this, android.R.attr.windowBackground))
     }
 
