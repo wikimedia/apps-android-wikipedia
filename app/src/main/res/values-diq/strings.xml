@@ -227,6 +227,7 @@
   <string name="license_title">Seba %s lisans</string>
   <string name="gallery_menu_share">Vıla ke</string>
   <string name="gallery_save_progress">Dosya roneyêna...</string>
+  <string name="gallery_save_success">Dosya şevekneyê</string>
   <string name="gallery_error_video_failed">Video nêcıneyêno</string>
   <string name="err_cannot_save_file">Dosya qedy nêbena</string>
   <string name="expand_refs">Hera kerdışi rê bıploğnê</string>
@@ -270,6 +271,7 @@
   <string name="preference_title_prefer_offline_content">Offline zerreki tercih bıkerê</string>
   <string name="page_footer_license_text">Çına vêr niro se zerrek, lisansa $1 bın dero</string>
   <string name="empty_tab_title">Tava newiye</string>
+  <string name="menu_save_all_tabs">Taba pêroyın qeyd kerê</string>
   <string name="crash_report_activity_title">Xetay dezgehi</string>
   <string name="crash_report_relaunch">Fına sere kı</string>
   <string name="crash_report_quit">Veciyayış</string>
@@ -293,6 +295,8 @@
   <string name="reading_list_save_to">Lista mendışi qeyd kerê</string>
   <string name="reading_list_create_new">Newe vıraze</string>
   <string name="reading_list_title_exists">Xora namey be \"%s\" ya lista esta.</string>
+  <string name="reading_list_article_added_to_named">%1$s ya %2$s defineya.</string>
+  <string name="reading_list_article_already_exists_message">Pêro wwşi! Xora  %1$s miyan de %2$s ihtiwa keno .</string>
   <string name="reading_list_added_view_button">Listi Bıvin</string>
   <string name="format_reading_list_statistical_summary_singular">1 meqale, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d meqaley , %2$.2f MB</string>
@@ -310,6 +314,7 @@
   <string name="reading_list_action_menu_save_all_for_offline">Pêroyın seba offliney qeyd kerê</string>
   <string name="reading_list_action_menu_add_to_another_list">Yewna lista tede kerê</string>
   <string name="reading_list_name_sample">Lista mına wendışi</string>
+  <string name="reading_list_name_hint">Namey na lista</string>
   <string name="reading_list_description_hint">Şınasnayış (opsiyonel)</string>
   <string name="reading_list_item_deleted">%s liste ra wedariyê</string>
   <string name="reading_list_items_deleted">Meqaley %d liste ra wedariya</string>
@@ -366,6 +371,7 @@
   <string name="notifications_view_archived">Arşivyaya bıvinê</string>
   <string name="notifications_prefs">Tercihê pêhesnayışi</string>
   <string name="notifications_archive">Waneyaya u arşivyaya nışan kerê</string>
+  <string name="notifications_poll_enable_negative">Newke nê</string>
   <string name="preference_title_notification_system">Sistem</string>
   <string name="preference_title_notification_milestone">Siyê kilometri</string>
   <string name="preference_title_notification_thanks">Teşekur</string>
@@ -445,13 +451,17 @@
   <string name="suggested_edits_tag_images">Etiketê resiman</string>
   <string name="suggested_edits_review_description">Şınastiya meqaley tetkik kerê</string>
   <string name="suggested_edits_add_description_button">Arezekerdış cı ke</string>
+  <string name="suggested_edits_edit_description_button">Şınastiye bıvurnê</string>
   <string name="suggested_edits_add_translation_button">Açarnayış cı kerê</string>
   <string name="suggested_edits_edit_translation_button">Açarnayışi bıvurne</string>
+  <string name="suggested_edits_add_caption_button">Şınastiye cıkere</string>
+  <string name="suggested_edits_edit_caption_button">Bınnuştey bıvurnê</string>
   <string name="suggested_edits_review_image_caption">Bınnuştey resimi tetkik kerê</string>
   <string name="suggested_edits_my_contributions">İştirakê mı</string>
   <string name="suggested_edits_license_notice">Şınastey vurnayışiya\"&lt;a href=\"%1$s\"&gt;Şertanê karkerdışi &lt;/a&gt;\"u iştıraka peyser megêriya weziyet de lisansê &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; çapnayışi qebul kena.</string>
   <string name="suggested_edits_image_caption_license_notice">Bınnuştey resimi vurnayışiya \"&lt;a href=\"%1$s\"&gt;Şertanê karkerdışi&lt;/a&gt;\" u iştıraka peyser megêriya weziyet de lisansê &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; çapnayışi qebul kena.</string>
   <string name="suggested_edits_menu_info">Melumat</string>
+  <string name="suggested_edits_tasks_activity_title">Wesıbnaye vurnayışi</string>
   <string name="suggested_edits_task_add_description_title">Şınasnayışê meqaley cı kerê</string>
   <string name="suggested_edits_task_image_caption_title">Bınnuştey resimi cı kerê</string>
   <string name="suggested_edits_task_multilingual_negative">Seba mı nê</string>
