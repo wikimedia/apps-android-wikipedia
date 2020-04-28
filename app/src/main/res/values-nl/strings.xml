@@ -353,6 +353,7 @@
   <string name="preference_summary_prefer_offline_content">Bespaar mobiele gegevens door pagina\'s die offline beschikbaar zijn te laden in plaatst van steeds de laatste versie op te halen</string>
   <string name="page_footer_license_text">De inhoud is beschikbaar onder $1 tenzij anders aangegeven</string>
   <string name="empty_tab_title">Nieuw tabblad</string>
+  <string name="menu_save_all_tabs">Alle tabbladen opslaan</string>
   <string name="crash_report_activity_title">Programmafout</string>
   <string name="crash_report_relaunch_or_quit">Er is helaas een fout opgetreden in de Wikipedia-app en de app is beëindigd.\n\nWilt u overnieuw beginnen of sluiten?</string>
   <string name="crash_report_relaunch">Opnieuw beginnen</string>
