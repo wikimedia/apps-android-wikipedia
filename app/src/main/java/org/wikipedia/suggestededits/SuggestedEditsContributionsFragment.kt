@@ -39,11 +39,9 @@ class SuggestedEditsContributionsFragment : Fragment() {
     private var imageContributions = HashSet<Contribution>()
     private var articleAndImageContributions = ArrayList<Contribution>()
     private var consolidatedContributionsWithDates: MutableList<Any> = ArrayList()
-
     private var continuedArticlesContributions = ArrayList<Contribution>()
     private val continuedImageContributions = HashSet<Contribution>()
     private val disposables = CompositeDisposable()
-
     private var articleContributionsContinuation: String? = null
     private var imageContributionsContinuation: String? = null
     private var loadingMore = false
@@ -80,6 +78,7 @@ class SuggestedEditsContributionsFragment : Fragment() {
         }
 
         contributionsRecyclerView.addOnScrollListener(scrollListener)
+
         articleDescriptions.setOnClickListener {
             editFilterType = EDIT_TYPE_ARTICLE_DESCRIPTION
             createConsolidatedList()
@@ -101,133 +100,11 @@ class SuggestedEditsContributionsFragment : Fragment() {
         }
     }
 
-    private fun getArticleContributionDetails() {
-        var count = 0
-        for (contributionObject in continuedArticlesContributions) {
-            disposables.add(ServiceFactory.getRest(contributionObject.wikiSite).getSummary(null, contributionObject.title)
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .doFinally {
-                        if (++count == continuedArticlesContributions.size) {
-                            articleContributions.addAll(continuedArticlesContributions)
-                            if (editFilterType == EDIT_TYPE_ARTICLE_DESCRIPTION) {
-                                createConsolidatedList()
-                            } else {
-                                getImageContributionDetails()
-                            }
-                        }
-                    }
-                    .subscribe({ summary ->
-                        contributionObject.description = StringUtils.defaultString(summary.description)
-                        contributionObject.imageUrl = summary.thumbnailUrl.toString()
-
-                    }) { t: Throwable? -> L.e(t) })
-        }
-    }
-
-    private fun getImageContributionDetails() {
-
-        disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getUserContributions(AccountUtil.getUserName()!!, 10, imageContributionsContinuation)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ mwQueryResponse ->
-                    continuedImageContributions.clear()
-                    var imageCount = 0
-                    imageContributionsContinuation = if (mwQueryResponse.continuation().isNullOrEmpty()) "" else mwQueryResponse.continuation()!!["uccontinue"]
-                    for (userContribution in mwQueryResponse.query()!!.userContributions()) {
-                        val strArr = userContribution.comment.split(" ")
-                        var contributionLanguage = "en"
-                        var editType: Int = -1
-
-                        for (str in strArr) {
-                            if (str.contains("wbsetlabel")) {
-                                val descArr = str.split("|")
-                                if (descArr.size > 1) {
-                                    contributionLanguage = descArr[1]
-                                }
-                                editType = EDIT_TYPE_IMAGE_CAPTION
-                            }
-                        }
-                        if (editType == -1) {
-                            editType = EDIT_TYPE_IMAGE_TAG
-                        }
-                        continuedImageContributions.add(Contribution("", userContribution.title, "", editType, "", DateUtil.iso8601DateParse(userContribution.timestamp), WikiSite.forLanguageCode(contributionLanguage)))
-                    }
-                    for (contribution in continuedImageContributions) {
-                        disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo(contribution.title, contribution.wikiSite.languageCode())
-                                .subscribeOn(Schedulers.io())
-                                .observeOn(AndroidSchedulers.mainThread())
-                                .doAfterTerminate {
-                                    if (++imageCount == continuedImageContributions.size) {
-                                        imageContributions.addAll(continuedImageContributions)
-                                        createConsolidatedList()
-                                    }
-                                }
-                                .subscribe({ response ->
-                                    val page = response.query()!!.pages()!![0]
-                                    if (page.imageInfo() != null) {
-                                        val imageInfo = page.imageInfo()!!
-                                        contribution.description = imageInfo.metadata!!.imageDescription()
-                                        contribution.imageUrl = imageInfo.originalUrl
-                                    }
-                                }, { caught ->
-                                    L.e(caught)
-                                }))
-                    }
-                }) { t: Throwable? -> L.e(t) })
-
-    }
-
-    private fun createConsolidatedList() {
-        articleAndImageContributions.clear()
-        when (editFilterType) {
-            EDIT_TYPE_ARTICLE_DESCRIPTION -> {
-                articleAndImageContributions.addAll(articleContributions)
-            }
-            EDIT_TYPE_IMAGE_CAPTION -> {
-                for (imageContribution in imageContributions) {
-                    if (imageContribution.editType == EDIT_TYPE_IMAGE_CAPTION) {
-                        articleAndImageContributions.add(imageContribution)
-                    }
-                }
-            }
-            EDIT_TYPE_IMAGE_TAG -> {
-                for (imageContribution in imageContributions) {
-                    if (imageContribution.editType == EDIT_TYPE_IMAGE_TAG) {
-                        articleAndImageContributions.add(imageContribution)
-                    }
-                }
-            }
-            else -> {
-                articleAndImageContributions.addAll(articleContributions)
-                articleAndImageContributions.addAll(imageContributions)
-            }
-        }
-        articleAndImageContributions.sortWith(Comparator { o2, o1 -> (o1.date.compareTo(o2.date)) })
-        consolidatedContributionsWithDates.clear()
-        adapter.clearList()
-        adapter.notifyDataSetChanged()
-        var currentDate = articleAndImageContributions[0].date
-        var nextDate: Date
-        consolidatedContributionsWithDates.add(if (DateUtils.isSameDay(Calendar.getInstance().time, currentDate)) getString(R.string.view_continue_reading_card_subtitle_today) else DateUtil.getFeedCardDateString(currentDate))
-        for (position in 0 until articleAndImageContributions.size) {
-            nextDate = articleAndImageContributions[position].date
-            if (!DateUtils.isSameDay(nextDate, currentDate)) {
-                consolidatedContributionsWithDates.add(DateUtil.getFeedCardDateString(nextDate))
-                currentDate = nextDate
-            }
-            consolidatedContributionsWithDates.add(articleAndImageContributions[position])
-        }
-        adapter.setList(consolidatedContributionsWithDates)
-        loadingMore = false
-        loadMoreProgressView.visibility = GONE
-    }
-
     private fun loadContentOfEditFilterType() {
         if (editFilterType == ALL_EDIT_TYPES || editFilterType == EDIT_TYPE_ARTICLE_DESCRIPTION) {
             getArticleContributions()
         } else {
-            getImageContributionDetails()
+            getImageContributions()
         }
     }
 
@@ -281,6 +158,131 @@ class SuggestedEditsContributionsFragment : Fragment() {
                 }, { t ->
                     L.e(t)
                 }))
+    }
+
+    private fun getArticleContributionDetails() {
+        var count = 0
+        for (contributionObject in continuedArticlesContributions) {
+            disposables.add(ServiceFactory.getRest(contributionObject.wikiSite).getSummary(null, contributionObject.title)
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .doFinally {
+                        if (++count == continuedArticlesContributions.size) {
+                            articleContributions.addAll(continuedArticlesContributions)
+                            if (editFilterType == EDIT_TYPE_ARTICLE_DESCRIPTION) {
+                                createConsolidatedList()
+                            } else {
+                                getImageContributions()
+                            }
+                        }
+                    }
+                    .subscribe({ summary ->
+                        contributionObject.description = StringUtils.defaultString(summary.description)
+                        contributionObject.imageUrl = summary.thumbnailUrl.toString()
+
+                    }) { t: Throwable? -> L.e(t) })
+        }
+    }
+
+    private fun getImageContributions() {
+        disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getUserContributions(AccountUtil.getUserName()!!, 10, imageContributionsContinuation)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({ mwQueryResponse ->
+                    continuedImageContributions.clear()
+                    var imageCount = 0
+                    imageContributionsContinuation = if (mwQueryResponse.continuation().isNullOrEmpty()) "" else mwQueryResponse.continuation()!!["uccontinue"]
+                    for (userContribution in mwQueryResponse.query()!!.userContributions()) {
+                        val strArr = userContribution.comment.split(" ")
+                        var contributionLanguage = "en"
+                        var editType: Int = -1
+
+                        for (str in strArr) {
+                            if (str.contains("wbsetlabel")) {
+                                val descArr = str.split("|")
+                                if (descArr.size > 1) {
+                                    contributionLanguage = descArr[1]
+                                }
+                                editType = EDIT_TYPE_IMAGE_CAPTION
+                            }
+                        }
+                        if (editType == -1) {
+                            editType = EDIT_TYPE_IMAGE_TAG
+                        }
+                        continuedImageContributions.add(Contribution("", userContribution.title, "", editType, "", DateUtil.iso8601DateParse(userContribution.timestamp), WikiSite.forLanguageCode(contributionLanguage)))
+                    }
+                    for (contribution in continuedImageContributions) {
+                        disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo(contribution.title, contribution.wikiSite.languageCode())
+                                .subscribeOn(Schedulers.io())
+                                .observeOn(AndroidSchedulers.mainThread())
+                                .doAfterTerminate {
+                                    if (++imageCount == continuedImageContributions.size) {
+                                        imageContributions.addAll(continuedImageContributions)
+                                        createConsolidatedList()
+                                    }
+                                }
+                                .subscribe({ response ->
+                                    val page = response.query()!!.pages()!![0]
+                                    if (page.imageInfo() != null) {
+                                        val imageInfo = page.imageInfo()!!
+                                        contribution.description = imageInfo.metadata!!.imageDescription()
+                                        contribution.imageUrl = imageInfo.originalUrl
+                                    }
+                                }, { caught ->
+                                    L.e(caught)
+                                }))
+                    }
+                }) { t: Throwable? -> L.e(t) })
+
+    }
+
+    private fun createConsolidatedList() {
+        articleAndImageContributions.clear()
+        loadDataBasedOnFilter()
+        articleAndImageContributions.sortWith(Comparator { o2, o1 -> (o1.date.compareTo(o2.date)) })
+        consolidatedContributionsWithDates.clear()
+        adapter.clearList()
+        adapter.notifyDataSetChanged()
+        var currentDate = articleAndImageContributions[0].date
+        var nextDate: Date
+        consolidatedContributionsWithDates.add(if (DateUtils.isSameDay(Calendar.getInstance().time, currentDate)) getString(R.string.view_continue_reading_card_subtitle_today) else DateUtil.getFeedCardDateString(currentDate))
+        for (position in 0 until articleAndImageContributions.size) {
+            nextDate = articleAndImageContributions[position].date
+            if (!DateUtils.isSameDay(nextDate, currentDate)) {
+                consolidatedContributionsWithDates.add(DateUtil.getFeedCardDateString(nextDate))
+                currentDate = nextDate
+            }
+            consolidatedContributionsWithDates.add(articleAndImageContributions[position])
+        }
+        adapter.setList(consolidatedContributionsWithDates)
+        loadingMore = false
+        loadMoreProgressView.visibility = GONE
+    }
+
+    private fun loadDataBasedOnFilter() {
+        when (editFilterType) {
+            EDIT_TYPE_ARTICLE_DESCRIPTION -> {
+                articleAndImageContributions.addAll(articleContributions)
+            }
+            EDIT_TYPE_IMAGE_CAPTION -> {
+                for (imageContribution in imageContributions) {
+                    if (imageContribution.editType == EDIT_TYPE_IMAGE_CAPTION) {
+                        articleAndImageContributions.add(imageContribution)
+                    }
+                }
+            }
+            EDIT_TYPE_IMAGE_TAG -> {
+                for (imageContribution in imageContributions) {
+                    if (imageContribution.editType == EDIT_TYPE_IMAGE_TAG) {
+                        articleAndImageContributions.add(imageContribution)
+                    }
+                }
+            }
+            else -> {
+                articleAndImageContributions.addAll(articleContributions)
+                articleAndImageContributions.addAll(imageContributions)
+            }
+        }
     }
 
     private class HeaderViewHolder internal constructor(itemView: View) : DefaultViewHolder<View?>(itemView) {
