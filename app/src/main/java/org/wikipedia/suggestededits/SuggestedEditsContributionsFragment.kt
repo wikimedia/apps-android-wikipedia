@@ -10,7 +10,6 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.gson.reflect.TypeToken
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
@@ -22,9 +21,7 @@ import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.json.GsonUnmarshaller
-import org.wikipedia.suggestededits.SuggestedEditsContributionsActivity.Companion.ARG_CONTRIBUTIONS_CONTINUE
-import org.wikipedia.suggestededits.SuggestedEditsContributionsActivity.Companion.ARG_CONTRIBUTIONS_LIST
+import org.wikipedia.suggestededits.SuggestedEditsContributionsFragment.Contribution.Companion.ALL_EDIT_TYPES
 import org.wikipedia.suggestededits.SuggestedEditsContributionsFragment.Contribution.Companion.EDIT_TYPE_ARTICLE_DESCRIPTION
 import org.wikipedia.suggestededits.SuggestedEditsContributionsFragment.Contribution.Companion.EDIT_TYPE_IMAGE_CAPTION
 import org.wikipedia.suggestededits.SuggestedEditsContributionsFragment.Contribution.Companion.EDIT_TYPE_IMAGE_TAG
@@ -49,13 +46,12 @@ class SuggestedEditsContributionsFragment : Fragment() {
 
     private var articleContributionsContinuation: String? = null
     private var imageContributionsContinuation: String? = null
-    var loadingMore = false
+    private var loadingMore = false
+    private var editFilterType = ALL_EDIT_TYPES
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        continuedArticlesContributions = GsonUnmarshaller.unmarshal(object : TypeToken<java.util.ArrayList<Contribution>>() {}, requireActivity().intent.getStringExtra(ARG_CONTRIBUTIONS_LIST))
-        articleContributionsContinuation = requireActivity().intent.getStringExtra(ARG_CONTRIBUTIONS_CONTINUE)!!
-        getArticleContributionDetails()
+        loadContentOfEditFilterType()
         retainInstance = true
     }
 
@@ -70,20 +66,32 @@ class SuggestedEditsContributionsFragment : Fragment() {
         contributionsRecyclerView.setLayoutManager(LinearLayoutManager(context))
         contributionsRecyclerView.setAdapter(adapter)
         val scrollListener = object : RecyclerView.OnScrollListener() {
-            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-                super.onScrolled(recyclerView, dx, dy)
+            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+                super.onScrollStateChanged(recyclerView, newState)
                 val linearLayoutManager = recyclerView.layoutManager as LinearLayoutManager?
                 if (!loadingMore && !imageContributionsContinuation.isNullOrEmpty() && !articleContributionsContinuation.isNullOrEmpty()) {
                     if (linearLayoutManager != null && linearLayoutManager.findLastCompletelyVisibleItemPosition() == consolidatedContributionsWithDates.size - 1) {
-                        loadMoreContributions()
+                        loadContentOfEditFilterType()
                         loadingMore = true
                         loadMoreProgressView.visibility = VISIBLE
                     }
                 }
             }
-
         }
+
         contributionsRecyclerView.addOnScrollListener(scrollListener)
+        articleDescriptions.setOnClickListener {
+            editFilterType = EDIT_TYPE_ARTICLE_DESCRIPTION
+            createConsolidatedList()
+        }
+        imageCaptions.setOnClickListener {
+            editFilterType = EDIT_TYPE_IMAGE_CAPTION
+            createConsolidatedList()
+        }
+        imageTags.setOnClickListener {
+            editFilterType = EDIT_TYPE_IMAGE_TAG
+            createConsolidatedList()
+        }
     }
 
 
@@ -102,7 +110,11 @@ class SuggestedEditsContributionsFragment : Fragment() {
                     .doFinally {
                         if (++count == continuedArticlesContributions.size) {
                             articleContributions.addAll(continuedArticlesContributions)
-                            getImageContributionDetails()
+                            if (editFilterType == EDIT_TYPE_ARTICLE_DESCRIPTION) {
+                                createConsolidatedList()
+                            } else {
+                                getImageContributionDetails()
+                            }
                         }
                     }
                     .subscribe({ summary ->
@@ -114,9 +126,8 @@ class SuggestedEditsContributionsFragment : Fragment() {
     }
 
     private fun getImageContributionDetails() {
-        val imageContributionsObservable = if (imageContributionsContinuation.isNullOrEmpty()) ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getUserContributions(AccountUtil.getUserName()!!, 10, null)
-        else ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getUserContributions(AccountUtil.getUserName()!!, 10, imageContributionsContinuation!!)
-        disposables.add(imageContributionsObservable
+
+        disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getUserContributions(AccountUtil.getUserName()!!, 10, imageContributionsContinuation)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ mwQueryResponse ->
@@ -169,8 +180,29 @@ class SuggestedEditsContributionsFragment : Fragment() {
 
     private fun createConsolidatedList() {
         articleAndImageContributions.clear()
-        articleAndImageContributions.addAll(articleContributions)
-        articleAndImageContributions.addAll(imageContributions)
+        when (editFilterType) {
+            EDIT_TYPE_ARTICLE_DESCRIPTION -> {
+                articleAndImageContributions.addAll(articleContributions)
+            }
+            EDIT_TYPE_IMAGE_CAPTION -> {
+                for (imageContribution in imageContributions) {
+                    if (imageContribution.editType == EDIT_TYPE_IMAGE_CAPTION) {
+                        articleAndImageContributions.add(imageContribution)
+                    }
+                }
+            }
+            EDIT_TYPE_IMAGE_TAG -> {
+                for (imageContribution in imageContributions) {
+                    if (imageContribution.editType == EDIT_TYPE_IMAGE_TAG) {
+                        articleAndImageContributions.add(imageContribution)
+                    }
+                }
+            }
+            else -> {
+                articleAndImageContributions.addAll(articleContributions)
+                articleAndImageContributions.addAll(imageContributions)
+            }
+        }
         articleAndImageContributions.sortWith(Comparator { o2, o1 -> (o1.date.compareTo(o2.date)) })
         consolidatedContributionsWithDates.clear()
         adapter.clearList()
@@ -191,10 +223,17 @@ class SuggestedEditsContributionsFragment : Fragment() {
         loadMoreProgressView.visibility = GONE
     }
 
-    private fun loadMoreContributions() {
-        val qLangMap = HashMap<String, HashSet<String>>()
+    private fun loadContentOfEditFilterType() {
+        if (editFilterType == ALL_EDIT_TYPES || editFilterType == EDIT_TYPE_ARTICLE_DESCRIPTION) {
+            getArticleContributions()
+        } else {
+            getImageContributionDetails()
+        }
+    }
 
-        disposables.add(ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getUserContributions(AccountUtil.getUserName()!!, 10, articleContributionsContinuation!!)
+    private fun getArticleContributions() {
+        val qLangMap = HashMap<String, HashSet<String>>()
+        disposables.add(ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getUserContributions(AccountUtil.getUserName()!!, 10, articleContributionsContinuation)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .flatMap { response ->
@@ -337,7 +376,6 @@ class SuggestedEditsContributionsFragment : Fragment() {
     }
 
     class Contribution internal constructor(val qNumber: String, var title: String, var description: String, val editType: Int, var imageUrl: String, val date: Date, val wikiSite: WikiSite) {
-
         override fun hashCode(): Int {
             return title.hashCode()
         }
@@ -353,11 +391,11 @@ class SuggestedEditsContributionsFragment : Fragment() {
             const val EDIT_TYPE_ARTICLE_DESCRIPTION = 0
             const val EDIT_TYPE_IMAGE_CAPTION = 1
             const val EDIT_TYPE_IMAGE_TAG = 2
+            const val ALL_EDIT_TYPES = 3
         }
     }
 
     private class ItemCallback : SuggestedEditsContributionsItemView.Callback<Contribution> {
-
         override fun onClick() {
         }
     }

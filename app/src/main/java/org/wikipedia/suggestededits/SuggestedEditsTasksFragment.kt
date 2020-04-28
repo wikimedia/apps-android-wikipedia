@@ -31,8 +31,6 @@ import org.wikipedia.language.LanguageSettingsInvokeSource
 import org.wikipedia.main.MainActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
-import org.wikipedia.suggestededits.SuggestedEditsContributionsFragment.Contribution
-import org.wikipedia.suggestededits.SuggestedEditsContributionsFragment.Contribution.Companion.EDIT_TYPE_ARTICLE_DESCRIPTION
 import org.wikipedia.util.*
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DefaultRecyclerAdapter
@@ -46,12 +44,8 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     private val displayedTasks = ArrayList<SuggestedEditsTask>()
     private val callback = TaskViewCallback()
-    var contributionObjects = ArrayList<Contribution>()
-    private var timestamps = ArrayList<String>()
-
     private val disposables = CompositeDisposable()
     private var currentTooltip: Toast? = null
-    private var userContributionsContinuation: String? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -98,9 +92,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         when (view) {
             contributionsStatsView -> {
                 showContributionsStatsViewTooltip()
-                if (!contributionObjects.isEmpty()) {
-                    startActivity(SuggestedEditsContributionsActivity.newIntent(requireActivity(), contributionObjects, userContributionsContinuation!!))
-                }
+                startActivity(SuggestedEditsContributionsActivity.newIntent(requireActivity()))
             }
             editStreakStatsView -> showEditStreakStatsViewTooltip()
             pageViewStatsView -> showPageViewStatsViewTooltip()
@@ -220,16 +212,13 @@ class SuggestedEditsTasksFragment : Fragment() {
     }
 
     private fun getPageViews() {
-        contributionObjects.clear()
         val qLangMap = HashMap<String, HashSet<String>>()
 
         disposables.add(ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getUserContributions(AccountUtil.getUserName()!!, 10, null)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .flatMap { response ->
-                    userContributionsContinuation = if (response.continuation().isNullOrEmpty()) "" else response.continuation()!!["uccontinue"]
                     for (userContribution in response.query()!!.userContributions()) {
-                        timestamps.add(userContribution.timestamp)
                         var descLang = ""
                         val strArr = userContribution.comment.split(" ")
                         for (str in strArr) {
@@ -248,8 +237,6 @@ class SuggestedEditsTasksFragment : Fragment() {
                         if (!qLangMap.containsKey(userContribution.title)) {
                             qLangMap[userContribution.title] = HashSet()
                         }
-                        contributionObjects.add(Contribution(userContribution.title, "", "", EDIT_TYPE_ARTICLE_DESCRIPTION, "", DateUtil.iso8601DateParse(userContribution.timestamp), WikiSite.forLanguageCode(descLang)))
-
                         qLangMap[userContribution.title]!!.add(descLang)
                     }
                     ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getWikidataLabelsAndDescriptions(qLangMap.keys.joinToString("|"))
@@ -263,12 +250,6 @@ class SuggestedEditsTasksFragment : Fragment() {
                     val langArticleMap = HashMap<String, ArrayList<String>>()
                     for (entityKey in it.entities().keys) {
                         val entity = it.entities()[entityKey]!!
-                        for (contribution in contributionObjects) {
-                            if (contribution.qNumber == entityKey) {
-                                contribution.title = entity.labels()[contribution.wikiSite.languageCode()]!!.value()
-                                contribution.description = entity.descriptions()[contribution.wikiSite.languageCode()]!!.value()
-                            }
-                        }
                         for (qKey in qLangMap.keys) {
                             if (qKey == entityKey) {
                                 for (lang in qLangMap[qKey]!!) {
