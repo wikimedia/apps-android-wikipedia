@@ -47,6 +47,8 @@
                         android:contentDescription="@string/search_hint"
                         android:paddingStart="12dp"
                         android:paddingEnd="12dp"
+                        android:clickable="true"
+                        android:focusable="true"
                         app:srcCompat="@drawable/ic_search_themed_24dp"
                         app:tint="?attr/page_toolbar_icon_color" />
 
@@ -64,6 +66,8 @@
                         android:contentDescription="@string/menu_feed_overflow_label"
                         android:paddingStart="12dp"
                         android:paddingEnd="12dp"
+                        android:clickable="true"
+                        android:focusable="true"
                         app:srcCompat="@drawable/ic_more_vert_themed_24dp"
                         app:tint="?attr/page_toolbar_icon_color" />
                 </LinearLayout>

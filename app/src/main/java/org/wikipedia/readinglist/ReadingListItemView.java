@@ -156,6 +156,7 @@ public class ReadingListItemView extends ConstraintLayout {
             setForeground(AppCompatResources.getDrawable(getContext(), ResourceUtil.getThemedAttributeId(getContext(), R.attr.selectableItemBackground)));
         }
         setClickable(true);
+        setFocusable(true);
         clearThumbnails();
     }
 
