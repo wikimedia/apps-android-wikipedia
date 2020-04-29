@@ -42,7 +42,7 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
         detailsContainer.removeAllViews()
         ImageZoomHelper.setViewZoomable(imageView)
         ViewUtil.loadImage(imageView, ImageUrlUtil.getUrlForPreferredSize(summary.thumbnailUrl!!, Constants.PREFERRED_GALLERY_IMAGE_SIZE))
-        imageViewPlaceholder.layoutParams = LayoutParams(containerWidth, adjustImagePlaceholderHeight(containerWidth, thumbWidth, thumbHeight))
+        imageViewPlaceholder.layoutParams = LayoutParams(containerWidth, adjustImagePlaceholderHeight(containerWidth.toFloat(), thumbWidth.toFloat(), thumbHeight.toFloat()))
 
         var appLanguageLocalizedName = WikipediaApp.getInstance().language().getAppLanguageLocalizedName(summary.lang)
         if (!imageFromCommons) {
@@ -80,18 +80,18 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
         }
     }
 
-    private fun adjustImagePlaceholderHeight(containerWidth: Int, thumbWidth: Int, thumbHeight: Int): Int {
+    private fun adjustImagePlaceholderHeight(containerWidth: Float, thumbWidth: Float, thumbHeight: Float): Int {
         var placeholderHeight = if (Constants.PREFERRED_GALLERY_IMAGE_SIZE > thumbWidth) {
-            Constants.PREFERRED_GALLERY_IMAGE_SIZE / thumbWidth * thumbHeight
+            Constants.PREFERRED_GALLERY_IMAGE_SIZE.toFloat().div(thumbWidth) * thumbHeight
         } else {
-            thumbWidth / Constants.PREFERRED_GALLERY_IMAGE_SIZE * thumbHeight
+            thumbWidth.div(Constants.PREFERRED_GALLERY_IMAGE_SIZE.toFloat()) * thumbHeight
         }
         placeholderHeight *= if (containerWidth > Constants.PREFERRED_GALLERY_IMAGE_SIZE) {
-            containerWidth / Constants.PREFERRED_GALLERY_IMAGE_SIZE
+            Constants.PREFERRED_GALLERY_IMAGE_SIZE.toFloat().div(containerWidth)
         } else {
-            Constants.PREFERRED_GALLERY_IMAGE_SIZE / containerWidth
+            containerWidth.div(Constants.PREFERRED_GALLERY_IMAGE_SIZE.toFloat())
         }
-        return placeholderHeight
+        return placeholderHeight.toInt()
     }
 
     private fun addDetail(titleString: String, detail: String?) {
