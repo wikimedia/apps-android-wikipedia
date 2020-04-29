@@ -95,7 +95,8 @@ class FilePageFragment : Fragment() {
                             container.width,
                             it.first.thumbWidth,
                             it.first.thumbHeight,
-                            it.second
+                            it.second,
+                            true
                     )
                 }, { caught ->
                     L.e(caught)

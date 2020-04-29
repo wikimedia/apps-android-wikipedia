@@ -37,7 +37,8 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
               containerWidth: Int,
               thumbWidth: Int,
               thumbHeight: Int,
-              imageFromCommons: Boolean) {
+              imageFromCommons: Boolean,
+              showEditButton: Boolean) {
 
         detailsContainer.removeAllViews()
         ImageZoomHelper.setViewZoomable(imageView)
@@ -53,11 +54,11 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
                 && summary.pageTitle.description.isNullOrEmpty()) {
             // Show the image description when a structured caption does not exist.
             addDetail(context.getString(R.string.suggested_edits_image_preview_dialog_description_in_language_title, appLanguageLocalizedName),
-                    summary.description, editButtonOnClickListener(summary))
+                    summary.description, if (showEditButton) editButtonOnClickListener(summary) else null)
         } else {
             addDetail(context.getString(R.string.suggested_edits_image_preview_dialog_caption_in_language_title, appLanguageLocalizedName),
                     if (summary.pageTitle.description.isNullOrEmpty()) summary.description
-                    else summary.pageTitle.description, editButtonOnClickListener(summary))
+                    else summary.pageTitle.description, if (showEditButton) editButtonOnClickListener(summary) else null)
         }
         addDetail(context.getString(R.string.suggested_edits_image_preview_dialog_artist), summary.metadata!!.artist())
         addDetail(context.getString(R.string.suggested_edits_image_preview_dialog_date), summary.metadata!!.dateTime())
