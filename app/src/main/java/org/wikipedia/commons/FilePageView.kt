@@ -6,10 +6,12 @@ import android.util.AttributeSet
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import androidx.core.content.ContextCompat.startActivity
 import kotlinx.android.synthetic.main.view_file_page.view.*
 import kotlinx.android.synthetic.main.view_image_detail.view.*
 import kotlinx.android.synthetic.main.view_image_detail.view.detailsContainer
 import org.wikipedia.Constants
+import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.descriptions.DescriptionEditActivity
@@ -19,7 +21,6 @@ import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
-import org.wikipedia.util.log.L
 import org.wikipedia.views.ImageDetailView
 import org.wikipedia.views.ImageZoomHelper
 import org.wikipedia.views.ViewUtil
@@ -49,27 +50,32 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
         if ((action == DescriptionEditActivity.Action.ADD_CAPTION)
                 && summary.pageTitle.description.isNullOrEmpty()) {
             // Show the image description when a structured caption does not exist.
-            addDetailPortion(context.getString(R.string.suggested_edits_image_preview_dialog_description_in_language_title, appLanguageLocalizedName),
-                    summary.description, View.OnClickListener {
-                // TODO: add startActivity
-            })
+            addDetail(context.getString(R.string.suggested_edits_image_preview_dialog_description_in_language_title, appLanguageLocalizedName),
+                    summary.description, OnClickListener { editButtonOnClickListener(summary) })
         } else {
-            addDetailPortion(context.getString(R.string.suggested_edits_image_preview_dialog_caption_in_language_title, appLanguageLocalizedName),
+            addDetail(context.getString(R.string.suggested_edits_image_preview_dialog_caption_in_language_title, appLanguageLocalizedName),
                     if (summary.pageTitle.description.isNullOrEmpty()) summary.description
-                    else summary.pageTitle.description, View.OnClickListener {
-                // TODO: add startActivity
-            })
+                    else summary.pageTitle.description, OnClickListener { editButtonOnClickListener(summary) })
         }
-        addDetailPortion(context.getString(R.string.suggested_edits_image_preview_dialog_artist), summary.metadata!!.artist())
-        addDetailPortion(context.getString(R.string.suggested_edits_image_preview_dialog_date), summary.metadata!!.dateTime())
-        addDetailPortion(context.getString(R.string.suggested_edits_image_preview_dialog_source), summary.metadata!!.credit())
-        addDetailPortion(true, context.getString(R.string.suggested_edits_image_preview_dialog_licensing), summary.metadata!!.licenseShortName(), summary.metadata!!.licenseUrl())
+        addDetail(context.getString(R.string.suggested_edits_image_preview_dialog_artist), summary.metadata!!.artist())
+        addDetail(context.getString(R.string.suggested_edits_image_preview_dialog_date), summary.metadata!!.dateTime())
+        addDetail(context.getString(R.string.suggested_edits_image_preview_dialog_source), summary.metadata!!.credit())
+        addDetail(true, context.getString(R.string.suggested_edits_image_preview_dialog_licensing), summary.metadata!!.licenseShortName(), summary.metadata!!.licenseUrl())
         if (imageFromCommons) {
-            addDetailPortion(false, context.getString(R.string.suggested_edits_image_preview_dialog_more_info), context.getString(R.string.suggested_edits_image_preview_dialog_file_page_link_text), context.getString(R.string.suggested_edits_image_file_page_commons_link, summary.title))
+            addDetail(false, context.getString(R.string.suggested_edits_image_preview_dialog_more_info), context.getString(R.string.suggested_edits_image_preview_dialog_file_page_link_text), context.getString(R.string.suggested_edits_image_file_page_commons_link, summary.title))
         } else {
-            addDetailPortion(false, context.getString(R.string.suggested_edits_image_preview_dialog_more_info), context.getString(R.string.suggested_edits_image_preview_dialog_file_page_wikipedia_link_text), summary.pageTitle.uri)
+            addDetail(false, context.getString(R.string.suggested_edits_image_preview_dialog_more_info), context.getString(R.string.suggested_edits_image_preview_dialog_file_page_wikipedia_link_text), summary.pageTitle.uri)
         }
         requestLayout()
+    }
+
+    private fun editButtonOnClickListener(summary: SuggestedEditsSummary): OnClickListener {
+        return OnClickListener {
+            startActivity(context, DescriptionEditActivity.newIntent(context,
+                    summary.pageTitle, null, summary, null,
+                    DescriptionEditActivity.Action.ADD_CAPTION, InvokeSource.FILE_PAGE_ACTIVITY
+            ), null)
+        }
     }
 
     private fun adjustImagePlaceholderHeight(containerWidth: Int, thumbWidth: Int, thumbHeight: Int): Int {
@@ -86,22 +92,20 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
         return placeholderHeight
     }
 
-    private fun addDetailPortion(titleString: String, detail: String?) {
-        addDetailPortion(true, titleString, detail, null, null)
+    private fun addDetail(titleString: String, detail: String?) {
+        addDetail(true, titleString, detail, null, null)
     }
 
-    private fun addDetailPortion(titleString: String, detail: String?, listener: View.OnClickListener?) {
-        addDetailPortion(true, titleString, detail, null, listener)
+    private fun addDetail(titleString: String, detail: String?, listener: OnClickListener?) {
+        addDetail(true, titleString, detail, null, listener)
     }
 
-    private fun addDetailPortion(showDivider: Boolean, titleString: String, detail: String?, externalLink: String?) {
-        addDetailPortion(showDivider, titleString, detail, externalLink, null)
+    private fun addDetail(showDivider: Boolean, titleString: String, detail: String?, externalLink: String?) {
+        addDetail(showDivider, titleString, detail, externalLink, null)
     }
 
-    private fun addDetailPortion(showDivider: Boolean, titleString: String, detail: String?, externalLink: String?, listener: View.OnClickListener?) {
-        L.d("addDetailPortion before")
+    private fun addDetail(showDivider: Boolean, titleString: String, detail: String?, externalLink: String?, listener: OnClickListener?) {
         if (!detail.isNullOrEmpty()) {
-            L.d("addDetailPortion success")
             val view = ImageDetailView(context)
             view.titleTextView.text = titleString
             view.detailTextView.text = StringUtil.strip(StringUtil.fromHtml(detail))
