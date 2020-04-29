@@ -16,12 +16,12 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.page.LinkMovementMethodExt
+import org.wikipedia.richtext.RichTextUtil
 import org.wikipedia.suggestededits.SuggestedEditsSummary
 import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
-import org.wikipedia.util.log.L
 import org.wikipedia.views.ImageDetailView
 import org.wikipedia.views.ImageZoomHelper
 import org.wikipedia.views.ViewUtil
@@ -111,6 +111,7 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
             val view = ImageDetailView(context)
             view.titleText.text = titleString
             view.contentText.text = StringUtil.strip(StringUtil.fromHtml(detail))
+            RichTextUtil.removeUnderlinesFromLinks(view.contentText)
             if (!externalLink.isNullOrEmpty()) {
                 view.contentText.setTextColor(ResourceUtil.getThemedColor(context, R.attr.colorAccent))
                 view.contentText.setTextIsSelectable(false)
