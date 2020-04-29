@@ -34,23 +34,12 @@
                 android:layout_gravity="center"
                 android:visibility="gone" />
 
-            <FrameLayout
-                android:id="@+id/imageViewPlaceholder"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <ImageView
-                    android:id="@+id/imageView"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:contentDescription="@null"
-                    android:scaleType="fitCenter"/>
-            </FrameLayout>
-
-            <LinearLayout
-                android:id="@+id/imageDetailsContainer"
+            <org.wikipedia.commons.FilePageView
+                android:id="@+id/filePageView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"/>
+                android:orientation="vertical"
+                android:background="?attr/main_toolbar_color"/>
         </LinearLayout>
     </ScrollView>
 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
