@@ -15,7 +15,7 @@
         android:orientation="horizontal"
         android:layout_marginBottom="2dp">
         <TextView
-            android:id="@+id/titleTextView"
+            android:id="@+id/titleText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -38,7 +38,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/detailsContainer"
+        android:id="@+id/contentContainer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingBottom="16dp"
@@ -46,7 +46,7 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/detailTextView"
+            android:id="@+id/contentText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-medium"
@@ -58,7 +58,7 @@
             tools:text="Watercolor portrait of Ada King, Countess of Lovelace (Ada Lovelace)" />
 
         <ImageView
-            android:id="@+id/externalLinkView"
+            android:id="@+id/externalLink"
             android:layout_width="16dp"
             android:layout_height="16dp"
             android:layout_marginStart="8dp"

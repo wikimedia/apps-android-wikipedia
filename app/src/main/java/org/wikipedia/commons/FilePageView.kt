@@ -4,12 +4,12 @@ import android.content.Context
 import android.net.Uri
 import android.util.AttributeSet
 import android.view.View
+import android.view.View.OnClickListener
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.core.content.ContextCompat.startActivity
 import kotlinx.android.synthetic.main.view_file_page.view.*
 import kotlinx.android.synthetic.main.view_image_detail.view.*
-import kotlinx.android.synthetic.main.view_image_detail.view.detailsContainer
 import org.wikipedia.Constants
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
@@ -21,6 +21,7 @@ import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
+import org.wikipedia.util.log.L
 import org.wikipedia.views.ImageDetailView
 import org.wikipedia.views.ImageZoomHelper
 import org.wikipedia.views.ViewUtil
@@ -38,6 +39,7 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
               thumbHeight: Int,
               imageFromCommons: Boolean) {
 
+        detailsContainer.removeAllViews()
         ImageZoomHelper.setViewZoomable(imageView)
         ViewUtil.loadImage(imageView, ImageUrlUtil.getUrlForPreferredSize(summary.thumbnailUrl!!, Constants.PREFERRED_GALLERY_IMAGE_SIZE))
         imageViewPlaceholder.layoutParams = LayoutParams(containerWidth, adjustImagePlaceholderHeight(containerWidth, thumbWidth, thumbHeight))
@@ -51,11 +53,11 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
                 && summary.pageTitle.description.isNullOrEmpty()) {
             // Show the image description when a structured caption does not exist.
             addDetail(context.getString(R.string.suggested_edits_image_preview_dialog_description_in_language_title, appLanguageLocalizedName),
-                    summary.description, OnClickListener { editButtonOnClickListener(summary) })
+                    summary.description, editButtonOnClickListener(summary))
         } else {
             addDetail(context.getString(R.string.suggested_edits_image_preview_dialog_caption_in_language_title, appLanguageLocalizedName),
                     if (summary.pageTitle.description.isNullOrEmpty()) summary.description
-                    else summary.pageTitle.description, OnClickListener { editButtonOnClickListener(summary) })
+                    else summary.pageTitle.description, editButtonOnClickListener(summary))
         }
         addDetail(context.getString(R.string.suggested_edits_image_preview_dialog_artist), summary.metadata!!.artist())
         addDetail(context.getString(R.string.suggested_edits_image_preview_dialog_date), summary.metadata!!.dateTime())
@@ -107,17 +109,17 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
     private fun addDetail(showDivider: Boolean, titleString: String, detail: String?, externalLink: String?, listener: OnClickListener?) {
         if (!detail.isNullOrEmpty()) {
             val view = ImageDetailView(context)
-            view.titleTextView.text = titleString
-            view.detailTextView.text = StringUtil.strip(StringUtil.fromHtml(detail))
+            view.titleText.text = titleString
+            view.contentText.text = StringUtil.strip(StringUtil.fromHtml(detail))
             if (!externalLink.isNullOrEmpty()) {
-                view.detailTextView.setTextColor(ResourceUtil.getThemedColor(context, R.attr.colorAccent))
-                view.detailTextView.setTextIsSelectable(false)
-                view.externalLinkView.visibility = View.VISIBLE
-                view.detailsContainer.setOnClickListener {
+                view.contentText.setTextColor(ResourceUtil.getThemedColor(context, R.attr.colorAccent))
+                view.contentText.setTextIsSelectable(false)
+                view.externalLink.visibility = View.VISIBLE
+                view.contentContainer.setOnClickListener {
                     UriUtil.visitInExternalBrowser(context, Uri.parse(externalLink))
                 }
             } else {
-                view.detailTextView.movementMethod = movementMethod
+                view.contentText.movementMethod = movementMethod
             }
             if (!showDivider) {
                 view.divider.visibility = View.GONE

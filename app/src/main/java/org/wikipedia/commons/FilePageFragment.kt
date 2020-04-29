@@ -78,18 +78,25 @@ class FilePageFragment : Fragment() {
                 .subscribe({
                     filePageView.visibility = View.VISIBLE
                     progressBar.visibility = View.GONE
-                    filePageView.setup(SuggestedEditsSummary(
-                            pageTitle.prefixedText,
-                            pageTitle.wikiSite.languageCode(),
-                            pageTitle,
-                            pageTitle.displayText,
-                            StringUtils.defaultIfBlank(StringUtil.fromHtml(it.first.metadata!!.imageDescription()).toString(), null),
-                            it.first.thumbUrl,
-                            null,
-                            it.first.timestamp,
-                            it.first.user,
-                            it.first.metadata
-                    ), DescriptionEditActivity.Action.FILE_PAGE, container.width, it.first.thumbWidth, it.first.thumbHeight, it.second)
+                    filePageView.setup(
+                            SuggestedEditsSummary(
+                                    pageTitle.prefixedText,
+                                    pageTitle.wikiSite.languageCode(),
+                                    pageTitle,
+                                    pageTitle.displayText,
+                                    StringUtils.defaultIfBlank(StringUtil.fromHtml(it.first.metadata!!.imageDescription()).toString(), null),
+                                    it.first.thumbUrl,
+                                    null,
+                                    it.first.timestamp,
+                                    it.first.user,
+                                    it.first.metadata
+                            ),
+                            DescriptionEditActivity.Action.FILE_PAGE,
+                            container.width,
+                            it.first.thumbWidth,
+                            it.first.thumbHeight,
+                            it.second
+                    )
                 }, { caught ->
                     L.e(caught)
                     showError(caught)

@@ -56,15 +56,8 @@
                     tools:text="Lorem ipsum" />
             </LinearLayout>
 
-            <ImageView
-                android:id="@+id/galleryImage"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:contentDescription="@null"
-                android:scaleType="fitCenter" />
-
-            <LinearLayout
-                android:id="@+id/detailsHolder"
+            <org.wikipedia.commons.FilePageView
+                android:id="@+id/filePageView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical" />
