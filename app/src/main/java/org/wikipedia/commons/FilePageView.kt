@@ -38,25 +38,26 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
               thumbWidth: Int,
               thumbHeight: Int,
               imageFromCommons: Boolean,
+              showFilename: Boolean,
               showEditButton: Boolean) {
 
-        detailsContainer.removeAllViews()
-        ImageZoomHelper.setViewZoomable(imageView)
-        ViewUtil.loadImage(imageView, ImageUrlUtil.getUrlForPreferredSize(summary.thumbnailUrl!!, Constants.PREFERRED_GALLERY_IMAGE_SIZE))
-        imageViewPlaceholder.layoutParams = LayoutParams(containerWidth, adjustImagePlaceholderHeight(containerWidth.toFloat(), thumbWidth.toFloat(), thumbHeight.toFloat()))
+        loadImage(summary, containerWidth, thumbWidth, thumbHeight)
 
-        var appLanguageLocalizedName = WikipediaApp.getInstance().language().getAppLanguageLocalizedName(summary.lang)
-        if (!imageFromCommons) {
-            appLanguageLocalizedName = WikipediaApp.getInstance().language().getAppLanguageLocalizedName(WikipediaApp.getInstance().language().appLanguageCode)
+        if (showFilename) {
+            filenameView.visibility = View.VISIBLE
+            filenameView.titleText.text = context.getString(R.string.suggested_edits_image_preview_dialog_file)
+            filenameView.contentText.text = StringUtil.removeNamespace(summary.displayTitle!!)
+            filenameView.divider.visibility = View.GONE
         }
 
+        detailsContainer.removeAllViews()
         if ((action == DescriptionEditActivity.Action.ADD_CAPTION)
                 && summary.pageTitle.description.isNullOrEmpty()) {
             // Show the image description when a structured caption does not exist.
-            addDetail(context.getString(R.string.suggested_edits_image_preview_dialog_description_in_language_title, appLanguageLocalizedName),
+            addDetail(context.getString(R.string.suggested_edits_image_preview_dialog_description_in_language_title, getProperLanguageLocalizedName(summary, imageFromCommons)),
                     summary.description, if (showEditButton) editButtonOnClickListener(summary) else null)
         } else {
-            addDetail(context.getString(R.string.suggested_edits_image_preview_dialog_caption_in_language_title, appLanguageLocalizedName),
+            addDetail(context.getString(R.string.suggested_edits_image_preview_dialog_caption_in_language_title, getProperLanguageLocalizedName(summary, imageFromCommons)),
                     if (summary.pageTitle.description.isNullOrEmpty()) summary.description
                     else summary.pageTitle.description, if (showEditButton) editButtonOnClickListener(summary) else null)
         }
@@ -70,6 +71,21 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
             addDetail(false, context.getString(R.string.suggested_edits_image_preview_dialog_more_info), context.getString(R.string.suggested_edits_image_preview_dialog_file_page_wikipedia_link_text), summary.pageTitle.uri)
         }
         requestLayout()
+    }
+
+    private fun getProperLanguageLocalizedName(summary: SuggestedEditsSummary, imageFromCommons: Boolean): String? {
+        var appLanguageLocalizedName = WikipediaApp.getInstance().language().getAppLanguageLocalizedName(summary.lang)
+        if (!imageFromCommons) {
+            // the getAppLanguageLocalizedName() will return "null" when it receiving "commons"
+            appLanguageLocalizedName = WikipediaApp.getInstance().language().getAppLanguageLocalizedName(WikipediaApp.getInstance().language().appLanguageCode)
+        }
+        return appLanguageLocalizedName
+    }
+
+    private fun loadImage(summary: SuggestedEditsSummary, containerWidth: Int, thumbWidth: Int, thumbHeight: Int) {
+        ImageZoomHelper.setViewZoomable(imageView)
+        ViewUtil.loadImage(imageView, ImageUrlUtil.getUrlForPreferredSize(summary.thumbnailUrl!!, Constants.PREFERRED_GALLERY_IMAGE_SIZE))
+        imageViewPlaceholder.layoutParams = LayoutParams(containerWidth, adjustImagePlaceholderHeight(containerWidth.toFloat(), thumbWidth.toFloat(), thumbHeight.toFloat()))
     }
 
     private fun editButtonOnClickListener(summary: SuggestedEditsSummary): OnClickListener {

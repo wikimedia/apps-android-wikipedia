@@ -2,6 +2,13 @@
 <merge xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:parentTag="android.widget.LinearLayout">
+
+    <org.wikipedia.views.ImageDetailView
+        android:id="@+id/filenameView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"/>
+
     <FrameLayout
         android:id="@+id/imageViewPlaceholder"
         android:layout_width="match_parent"

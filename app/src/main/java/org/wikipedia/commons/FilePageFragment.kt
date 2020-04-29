@@ -96,7 +96,8 @@ class FilePageFragment : Fragment() {
                             it.first.thumbWidth,
                             it.first.thumbHeight,
                             it.second,
-                            true
+                            showFilename = true,
+                            showEditButton = true
                     )
                 }, { caught ->
                     L.e(caught)
