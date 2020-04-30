@@ -209,10 +209,10 @@
   <string name="privacy_policy_description">プライバシーポリシー</string>
   <string name="terms_of_use_description">利用規約</string>
   <string name="about_wikipedia_url">https://ja.wikipedia.org/wiki/Wikipedia:ウィキペディアについて</string>
-  <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
+  <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ja#オフラインでの閲覧とデータ</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ja</string>
-  <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
+  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">//ja.wikipedia.org/wiki/Help:ログイン#アカウントの作成</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.ja</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ja</string>
@@ -384,6 +384,7 @@
   <string name="reading_list_title_exists">\'\'%s\'\'という名前のあとで読むリストはすでにあります。</string>
   <string name="reading_list_article_added_to_named">%1$sを %2$sに加える。</string>
   <string name="reading_list_article_already_exists_message">完了。%1$sは%2$sに含まれています。</string>
+  <string name="reading_list_articles_already_exist_message">完了しました！ 指定した記事はすべて%sに収納されています。</string>
   <string name="reading_list_added_view_button">リストを表示</string>
   <string name="format_reading_list_statistical_summary_singular">1件の記事、%1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d記事、%2$.2f MB</string>
@@ -475,7 +476,7 @@
     <item quantity="one">この記事はオフラインでは利用できなくなります。</item>
     <item quantity="other">これらの記事はオフラインで利用できなくなります。</item>
   </plurals>
-  <string name="reading_list_toast_last_sync" fuzzy="true">あとで読むリストの同期が完了しました</string>
+  <string name="reading_list_toast_last_sync">あとで読むリストの同期が完了しました</string>
   <string name="reading_list_menu_last_sync">最後の同期: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">OK</string>
   <string name="reading_list_delete_dialog_ok_button_text">OK</string>
