@@ -254,6 +254,7 @@
   <string name="suggested_edits_image_caption_summary_title_date">Ամսաթիվ</string>
   <string name="suggested_edits_image_preview_dialog_artist">Նկարիչ</string>
   <string name="suggested_edits_image_preview_dialog_date">Ամսաթիվ</string>
+  <string name="suggested_edits_article_cta_snackbar_action">Դիտել</string>
   <string name="suggested_edits_task_action_text_add">Ավելացնել</string>
   <string name="suggested_edits_task_action_text_translate">Թարգմանել</string>
   <string name="suggested_edits_quality_perfect_text">Կատարյալ</string>
