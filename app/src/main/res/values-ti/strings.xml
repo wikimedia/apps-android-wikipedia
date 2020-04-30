@@ -7,9 +7,9 @@
   <string name="app_name_beta">ዊኪፔዲያ በታ</string>
   <string name="app_name_alpha">ዊኪፔዲያ ኣልፋ</string>
   <string name="wikimedia">ዊኪሜዲያ</string>
-  <string name="nav_item_back">ሕቖ</string>
-  <string name="page_tabs_back">ሕቖ</string>
-  <string name="nav_item_forward">ንቕድሚት</string>
+  <string name="nav_item_back">ተመለስ</string>
+  <string name="page_tabs_back">ተመለስ</string>
+  <string name="nav_item_forward">ዝቕጽል</string>
   <string name="search_hint">ዊኪፔዲያ ውሽጢ ይድለዩ</string>
   <string name="search_hint_voice_search">ብደሃይ ምድላይ</string>
   <string name="search_hint_search_history">ታሪኽ ውሽጢ ምድላይ</string>
@@ -84,7 +84,7 @@
   <string name="login_forgot_password">መሕለፊ ቃልካ ረሲዕኻዮ?</string>
   <string name="create_account_activity_title">መንነት መፍለዪ ፍጠር</string>
   <string name="create_account_email_hint">ኢሜይል (ኣማራጽያዊ)</string>
-  <string name="create_account_next">ቀጻሊ</string>
+  <string name="create_account_next">ዝቕጽል</string>
   <string name="create_account_button">መንነት መፍለዪ ፍጠር</string>
   <string name="create_account_ip_block_details">ዝርዝሪት</string>
   <string name="preferences_general_heading">ሓፈሻዊ</string>
@@ -109,7 +109,7 @@
   <string name="about_activity_title">ብዛዕባ</string>
   <string name="edit_abandon_confirm_yes">እወ</string>
   <string name="edit_abandon_confirm_no">ኣይፋል</string>
-  <string name="edit_next">ቀጻሊ</string>
+  <string name="edit_next">ዝቕጽል</string>
   <string name="edit_done">ኣሕቲሙ</string>
   <string name="edit_preview">ኣቐደሚ ትርኢት</string>
   <string name="edit_undo">ፈትሐ</string>
