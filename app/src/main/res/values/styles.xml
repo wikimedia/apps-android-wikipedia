@@ -358,7 +358,6 @@
         <item name="android:textStyle">bold</item>
     </style>
 
-
     <style name="MaterialLargePrimaryTitle">
         <item name="android:textAlignment">center</item>
         <item name="android:textSize">20sp</item>
