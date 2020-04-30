@@ -25,6 +25,7 @@ import org.wikipedia.util.UriUtil
 import org.wikipedia.views.ImageDetailView
 import org.wikipedia.views.ImageZoomHelper
 import org.wikipedia.views.ViewUtil
+import kotlin.math.roundToInt
 
 class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
     init {
@@ -98,17 +99,7 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
     }
 
     private fun adjustImagePlaceholderHeight(containerWidth: Float, thumbWidth: Float, thumbHeight: Float): Int {
-        var placeholderHeight = if (Constants.PREFERRED_GALLERY_IMAGE_SIZE > thumbWidth) {
-            Constants.PREFERRED_GALLERY_IMAGE_SIZE.toFloat().div(thumbWidth) * thumbHeight
-        } else {
-            thumbWidth.div(Constants.PREFERRED_GALLERY_IMAGE_SIZE.toFloat()) * thumbHeight
-        }
-        placeholderHeight *= if (containerWidth > Constants.PREFERRED_GALLERY_IMAGE_SIZE) {
-            Constants.PREFERRED_GALLERY_IMAGE_SIZE.toFloat().div(containerWidth)
-        } else {
-            containerWidth.div(Constants.PREFERRED_GALLERY_IMAGE_SIZE.toFloat())
-        }
-        return placeholderHeight.toInt()
+        return (Constants.PREFERRED_GALLERY_IMAGE_SIZE.toFloat().div(thumbWidth) * thumbHeight * containerWidth.div(Constants.PREFERRED_GALLERY_IMAGE_SIZE.toFloat())).roundToInt()
     }
 
     private fun addDetail(titleString: String, detail: String?) {
