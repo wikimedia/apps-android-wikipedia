@@ -15,4 +15,12 @@ abstract class PositionAwareFragmentStateAdapter: FragmentStateAdapter {
         // TODO: wait until FragmentStateAdapter supports indexing fragments natively.
         return fragmentManager.findFragmentByTag("f$position")
     }
+
+    // TODO: remove until the TransactionTooLargeException when swiping too many pages is resolved.
+    fun removeFragmentAt(position: Int) {
+        val fragment = getFragmentAt(position)
+        if (fragment != null) {
+            fragmentManager.beginTransaction().remove(fragment).commit()
+        }
+    }
 }
