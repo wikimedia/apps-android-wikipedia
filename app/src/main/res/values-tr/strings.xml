@@ -56,8 +56,8 @@
   <string name="storage_access_error_retry">Tekrar dene</string>
   <string name="article_load_error_retry">Tekrar dene</string>
   <string name="offline_load_error_retry">Tekrar dene</string>
-  <string name="page_error_back_to_main">Geri git</string>
-  <string name="error_back">Geri git</string>
+  <string name="page_error_back_to_main">Geri dön</string>
+  <string name="error_back">Geri dön</string>
   <string name="menu_clear_all_history">Geçmişi temizle</string>
   <string name="history_item_deleted">%s, geçmişten kaldırıldı</string>
   <string name="history_items_deleted">%d madde geçmişten kaldırıldı</string>
