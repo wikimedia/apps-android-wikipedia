@@ -352,6 +352,12 @@
         <item name="android:textColor">@color/red50</item>
     </style>
 
+    <style name="ToolbarTextAppearance">
+        <item name="android:textColor">?attr/material_theme_primary_color</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
     <style name="MaterialLargePrimaryTitle">
         <item name="android:textAlignment">center</item>
         <item name="android:textSize">20sp</item>
