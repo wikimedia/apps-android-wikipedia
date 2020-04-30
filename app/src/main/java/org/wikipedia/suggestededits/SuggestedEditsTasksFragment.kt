@@ -54,7 +54,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         setupTestingButtons()
 
         contributionsCard.setOnClickListener {
-            // TODO
+            startActivity(SuggestedEditsContributionsActivity.newIntent(requireActivity()))
         }
 
         contributionsStatsView.setImageDrawable(R.drawable.ic_mode_edit_white_24dp)
@@ -75,16 +75,11 @@ class SuggestedEditsTasksFragment : Fragment() {
         suggestedEditsScrollView.setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener { _, _, scrollY, _, _ ->
             (requireActivity() as MainActivity).updateToolbarElevation(scrollY > 0)
         })
-
         setUpTasks()
         tasksRecyclerView.layoutManager = LinearLayoutManager(context)
         tasksRecyclerView.adapter = RecyclerAdapter(displayedTasks)
 
         clearContents()
-    }
-
-    private fun onUserStatClicked(view: View) {
-        startActivity(SuggestedEditsContributionsActivity.newIntent(requireActivity()))
     }
 
     override fun onPause() {

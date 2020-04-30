@@ -784,6 +784,7 @@
     <string name="suggested_edits_reactivation_notification_stage_two">Have a minute to continue improving Wikipedia? Check out these editing suggestions.</string>
     <string name="suggested_edits_type_image_tag">Image tag</string>
     <string name="suggested_edits_contributions_screen_title">%s\'s contributions</string>
+    <string name="suggested_edits_spinner_item_text">%d %s</string>
     <!-- /Suggested edits -->
 
     <!-- Description editing revert help -->

@@ -19,6 +19,9 @@ object SuggestedEditsUserStats {
     private const val PAUSE_DURATION_DAYS = 7
 
     var totalEdits: Int = 0
+    var totalDescriptionEdits: Int = 0
+    var totalImageCaptionEdits: Int = 0
+    var totalImageTagEdits: Int = 0
     var totalReverts: Int = 0
 
     fun getEditCountsObservable(): Observable<MwQueryResponse> {
@@ -34,6 +37,9 @@ object SuggestedEditsUserStats {
                     if (!it.query()!!.userInfo()!!.isBlocked) {
                         val editorTaskCounts = it.query()!!.editorTaskCounts()!!
                         totalEdits = editorTaskCounts.totalEdits
+                        totalDescriptionEdits = editorTaskCounts.totalDescriptionEdits
+                        totalImageCaptionEdits = editorTaskCounts.totalImageCaptionEdits
+                        totalImageTagEdits = editorTaskCounts.getTotalDepictsEdits()
                         totalReverts = editorTaskCounts.totalReverts
                         maybePauseAndGetEndDate()
                     }

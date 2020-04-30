@@ -1,12 +1,13 @@
 package org.wikipedia.suggestededits
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
-import android.widget.TextView
+import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -29,11 +30,12 @@ import org.wikipedia.util.DateUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DefaultViewHolder
+import java.lang.reflect.Method
 import java.util.*
 import kotlin.collections.ArrayList
 
 
-class SuggestedEditsContributionsFragment : Fragment() {
+class SuggestedEditsContributionsFragment : Fragment(), AdapterView.OnItemSelectedListener {
     private val adapter: ContributionsEntryItemAdapter = ContributionsEntryItemAdapter()
     private var articleContributions = ArrayList<Contribution>()
     private var imageContributions = HashSet<Contribution>()
@@ -46,6 +48,7 @@ class SuggestedEditsContributionsFragment : Fragment() {
     private var imageContributionsContinuation: String? = null
     private var loadingMore = false
     private var editFilterType = ALL_EDIT_TYPES
+    private var editFilters = ArrayList<EditFilter>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -78,19 +81,13 @@ class SuggestedEditsContributionsFragment : Fragment() {
         }
 
         contributionsRecyclerView.addOnScrollListener(scrollListener)
-
-        articleDescriptions.setOnClickListener {
-            editFilterType = EDIT_TYPE_ARTICLE_DESCRIPTION
-            createConsolidatedList()
-        }
-        imageCaptions.setOnClickListener {
-            editFilterType = EDIT_TYPE_IMAGE_CAPTION
-            createConsolidatedList()
-        }
-        imageTags.setOnClickListener {
-            editFilterType = EDIT_TYPE_IMAGE_TAG
-            createConsolidatedList()
-        }
+        editFilters.add(EditFilter(getString(R.string.suggested_edits_spinner_item_text, SuggestedEditsUserStats.totalEdits, resources.getQuantityString(R.plurals.suggested_edits_contribution, 25)), ALL_EDIT_TYPES, R.drawable.ic_mode_edit_themed_24dp))
+        editFilters.add(EditFilter(getString(R.string.suggested_edits_spinner_item_text, SuggestedEditsUserStats.totalDescriptionEdits, getString(R.string.description_edit_tutorial_title_descriptions)), EDIT_TYPE_ARTICLE_DESCRIPTION, R.drawable.ic_article_description))
+        editFilters.add(EditFilter(getString(R.string.suggested_edits_spinner_item_text, SuggestedEditsUserStats.totalImageCaptionEdits, getString(R.string.suggested_edits_image_captions)), EDIT_TYPE_IMAGE_CAPTION, R.drawable.ic_image_caption))
+        editFilters.add(EditFilter(getString(R.string.suggested_edits_spinner_item_text, SuggestedEditsUserStats.totalImageTagEdits, getString(R.string.suggested_edits_image_tags)), EDIT_TYPE_IMAGE_TAG, R.drawable.ic_image_tag))
+        val customAdapter = CustomSpinnerAdapter(requireActivity(), suggestedEditsTypesSpinner, editFilters)
+        suggestedEditsTypesSpinner.adapter = customAdapter
+        suggestedEditsTypesSpinner.onItemSelectedListener = this
     }
 
 
@@ -243,18 +240,20 @@ class SuggestedEditsContributionsFragment : Fragment() {
         consolidatedContributionsWithDates.clear()
         adapter.clearList()
         adapter.notifyDataSetChanged()
-        var currentDate = articleAndImageContributions[0].date
-        var nextDate: Date
-        consolidatedContributionsWithDates.add(if (DateUtils.isSameDay(Calendar.getInstance().time, currentDate)) getString(R.string.view_continue_reading_card_subtitle_today) else DateUtil.getFeedCardDateString(currentDate))
-        for (position in 0 until articleAndImageContributions.size) {
-            nextDate = articleAndImageContributions[position].date
-            if (!DateUtils.isSameDay(nextDate, currentDate)) {
-                consolidatedContributionsWithDates.add(DateUtil.getFeedCardDateString(nextDate))
-                currentDate = nextDate
+        if (!articleAndImageContributions.isNullOrEmpty()) {
+            var currentDate = articleAndImageContributions[0].date
+            var nextDate: Date
+            consolidatedContributionsWithDates.add(if (DateUtils.isSameDay(Calendar.getInstance().time, currentDate)) getString(R.string.view_continue_reading_card_subtitle_today) else DateUtil.getFeedCardDateString(currentDate))
+            for (position in 0 until articleAndImageContributions.size) {
+                nextDate = articleAndImageContributions[position].date
+                if (!DateUtils.isSameDay(nextDate, currentDate)) {
+                    consolidatedContributionsWithDates.add(DateUtil.getFeedCardDateString(nextDate))
+                    currentDate = nextDate
+                }
+                consolidatedContributionsWithDates.add(articleAndImageContributions[position])
             }
-            consolidatedContributionsWithDates.add(articleAndImageContributions[position])
+            adapter.setList(consolidatedContributionsWithDates)
         }
-        adapter.setList(consolidatedContributionsWithDates)
         loadingMore = false
         loadMoreProgressView.visibility = GONE
     }
@@ -295,13 +294,11 @@ class SuggestedEditsContributionsFragment : Fragment() {
 
     private class ContributionItemHolder internal constructor(itemView: SuggestedEditsContributionsItemView<Contribution>) : DefaultViewHolder<SuggestedEditsContributionsItemView<Contribution>?>(itemView) {
         fun bindItem(contribution: Contribution) {
-            view.setItem(contribution)
             view.setTitle(contribution.title)
             view.setDescription(contribution.description)
             view.setImageUrl(contribution.imageUrl)
             view.setTagType(contribution.editType, contribution.wikiSite.languageCode())
         }
-
     }
 
     private class ContributionsEntryItemAdapter : RecyclerView.Adapter<DefaultViewHolder<*>>() {
@@ -377,6 +374,57 @@ class SuggestedEditsContributionsFragment : Fragment() {
         super.onDestroy()
     }
 
+    class CustomSpinnerAdapter(internal var context: Context, spinner: Spinner, internal var editFilters: ArrayList<EditFilter>) :
+            ArrayAdapter<String>(context, R.layout.item_suggested_edits_type, R.id.text) {
+        var spinner: Spinner? = null
+        override fun getCount(): Int {
+            return editFilters.size
+        }
+
+        override fun getDropDownView(position: Int, convertView: View?, parent: ViewGroup): View {
+            return getView(position, convertView, parent)
+        }
+
+        override fun getView(i: Int, view: View?, viewGroup: ViewGroup): View {
+            val itemView = view ?: LayoutInflater.from(context).inflate(
+                    R.layout.item_suggested_edits_type,
+                    viewGroup,
+                    false
+            )
+
+
+            val icon = itemView.findViewById<View>(R.id.image) as ImageView?
+            val textView = itemView.findViewById<View>(R.id.title) as TextView?
+            itemView.setOnClickListener {
+                spinner!!.setSelection(i)
+                if (spinner != null) {
+                    try {
+                        val method: Method = Spinner::class.java.getDeclaredMethod("onDetachedFromWindow")
+                        method.setAccessible(true)
+                        method.invoke(spinner)
+                    } catch (e: Exception) {
+                        e.printStackTrace()
+                    }
+                }
+            }
+            icon!!.setImageResource(editFilters[i].imageResource)
+            textView!!.text = editFilters[i].title
+            return itemView
+        }
+
+        override fun getItem(position: Int): String? {
+            return editFilters[position].title
+        }
+
+        override fun getItemId(position: Int): Long {
+            return 0
+        }
+
+        init {
+            this.spinner = spinner
+        }
+    }
+
     class Contribution internal constructor(val qNumber: String, var title: String, var description: String, val editType: Int, var imageUrl: String, val date: Date, val wikiSite: WikiSite) {
         override fun hashCode(): Int {
             return title.hashCode()
@@ -397,8 +445,19 @@ class SuggestedEditsContributionsFragment : Fragment() {
         }
     }
 
+    class EditFilter internal constructor(val title: String, val editType: Int, val imageResource: Int)
+
     private class ItemCallback : SuggestedEditsContributionsItemView.Callback<Contribution> {
         override fun onClick() {
         }
     }
+
+    override fun onNothingSelected(parent: AdapterView<*>?) {
+    }
+
+    override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+        editFilterType = editFilters[position].editType
+        createConsolidatedList()
+    }
+
 }

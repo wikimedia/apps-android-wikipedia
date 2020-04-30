@@ -20,10 +20,6 @@ class SuggestedEditsContributionsItemView<T>(context: Context) : LinearLayout(co
     }
 
     private var callback: Callback<T>? = null
-    private var item: T? = null
-    fun setItem(item: T?) {
-        this.item = item
-    }
 
     fun setCallback(callback: Callback<T>?) {
         this.callback = callback
