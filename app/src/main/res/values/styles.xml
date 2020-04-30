@@ -55,6 +55,7 @@
     </style>
 
     <style name="AppTheme.ActionBar.LargeTextToolbar">
+        <item name="actionBarTheme">@style/PageToolbarTheme</item>
         <item name="actionBarStyle">@style/LargeTextToolbarStyle</item>
     </style>
 
@@ -133,7 +134,7 @@
 
     <style name="LargeTextToolbarStyle" parent="ToolbarStyle">
         <item name="titleTextStyle">@style/LargeTextToolbarTitleText</item>
-        <item name="background">?attr/main_toolbar_color</item>
+        <item name="background">?attr/paper_color</item>
         <item name="elevation">0dp</item>
     </style>
 
