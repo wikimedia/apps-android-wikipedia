@@ -53,7 +53,7 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
         progressBar!!.visibility = VISIBLE
         toolbarView.setOnClickListener { dismiss() }
         titleText!!.text = StringUtil.removeHTMLTags(StringUtil.removeNamespace(suggestedEditsSummary.displayTitle!!))
-        loadImageInfoIfNeeded()
+        loadImageInfo()
     }
 
     override fun onDestroyView() {
@@ -71,29 +71,25 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
         errorView.setError(caught)
     }
 
-    private fun loadImageInfoIfNeeded() {
-        if (suggestedEditsSummary.metadata == null) {
-            disposables.add(ServiceFactory.get(WikiSite.forLanguageCode(suggestedEditsSummary.lang)).getImageInfo(suggestedEditsSummary.title, suggestedEditsSummary.lang)
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .doAfterTerminate { loadImageDetail() }
-                    .subscribe({ response ->
-                        val page = response.query()!!.pages()!![0]
-                        if (page.imageInfo() != null) {
-                            val imageInfo = page.imageInfo()!!
-                            suggestedEditsSummary.timestamp = imageInfo.timestamp
-                            suggestedEditsSummary.user = imageInfo.user
-                            suggestedEditsSummary.metadata = imageInfo.metadata
-                            thumbnailWidth = imageInfo.thumbWidth
-                            thumbnailHeight = imageInfo.thumbHeight
-                        }
-                    }, { caught ->
-                        L.e(caught)
-                        showError(caught)
-                    }))
-        } else {
-            loadImageDetail()
-        }
+    private fun loadImageInfo() {
+        disposables.add(ServiceFactory.get(WikiSite.forLanguageCode(suggestedEditsSummary.lang)).getImageInfo(suggestedEditsSummary.title, suggestedEditsSummary.lang)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .doAfterTerminate { loadImageDetail() }
+                .subscribe({ response ->
+                    val page = response.query()!!.pages()!![0]
+                    if (page.imageInfo() != null) {
+                        val imageInfo = page.imageInfo()!!
+                        suggestedEditsSummary.timestamp = imageInfo.timestamp
+                        suggestedEditsSummary.user = imageInfo.user
+                        suggestedEditsSummary.metadata = imageInfo.metadata
+                        thumbnailWidth = imageInfo.thumbWidth
+                        thumbnailHeight = imageInfo.thumbHeight
+                    }
+                }, { caught ->
+                    L.e(caught)
+                    showError(caught)
+                }))
     }
 
     private fun loadImageDetail() {
