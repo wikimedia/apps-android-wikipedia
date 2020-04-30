@@ -22,7 +22,6 @@ import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
-import org.wikipedia.util.log.L
 import org.wikipedia.views.ImageDetailView
 import org.wikipedia.views.ImageZoomHelper
 import org.wikipedia.views.ViewUtil
@@ -85,10 +84,6 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
 
     private fun loadImage(summary: SuggestedEditsSummary, containerWidth: Int, thumbWidth: Int, thumbHeight: Int) {
         ImageZoomHelper.setViewZoomable(imageView)
-        L.d("loadImage url " + summary.thumbnailUrl)
-        L.d("loadImage url " + containerWidth.toFloat())
-        L.d("loadImage url " + thumbWidth.toFloat())
-        L.d("loadImage url " + thumbHeight.toFloat())
         ViewUtil.loadImage(imageView, ImageUrlUtil.getUrlForPreferredSize(summary.thumbnailUrl!!, Constants.PREFERRED_GALLERY_IMAGE_SIZE))
         imageViewPlaceholder.layoutParams = LayoutParams(containerWidth, adjustImagePlaceholderHeight(containerWidth.toFloat(), thumbWidth.toFloat(), thumbHeight.toFloat()))
     }
@@ -158,5 +153,4 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
     private val movementMethod = LinkMovementMethodExt { url: String ->
         UriUtil.handleExternalLink(context, Uri.parse(UriUtil.resolveProtocolRelativeUrl(url)))
     }
-
 }
