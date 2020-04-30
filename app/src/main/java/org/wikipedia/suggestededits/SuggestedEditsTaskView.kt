@@ -22,6 +22,7 @@ internal class SuggestedEditsTaskView constructor(context: Context, attrs: Attri
         params.leftMargin = DimenUtil.roundedDpToPx(16f)
         params.rightMargin = params.leftMargin
         layoutParams = params
+        setCardBackgroundColor(ResourceUtil.getThemedColor(getContext(), R.attr.paper_color))
         View.inflate(context, R.layout.view_suggested_edits_task_item, this)
         isClickable = true
         isFocusable = true

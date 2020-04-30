@@ -101,7 +101,7 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.menu_suggested_edits_tasks, menu)
-        ResourceUtil.setMenuItemTint(requireContext(), menu.findItem(R.id.menu_help), R.attr.colorAccent)
+        ResourceUtil.setMenuItemTint(requireContext(), menu.findItem(R.id.menu_help), R.attr.material_theme_secondary_color)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
