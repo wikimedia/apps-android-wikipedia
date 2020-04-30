@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.appcompat.content.res.AppCompatResources
-import butterknife.OnClick
 import kotlinx.android.synthetic.main.item_suggested_edits_contributions.view.*
 import org.wikipedia.R
 import org.wikipedia.suggestededits.SuggestedEditsContributionsFragment.Contribution.Companion.EDIT_TYPE_IMAGE_CAPTION
@@ -16,7 +15,7 @@ import org.wikipedia.views.ViewUtil
 
 class SuggestedEditsContributionsItemView<T>(context: Context) : LinearLayout(context) {
     interface Callback<T> {
-        fun onClick()
+        fun onClick(context: Context)
     }
 
     private var callback: Callback<T>? = null
@@ -60,20 +59,16 @@ class SuggestedEditsContributionsItemView<T>(context: Context) : LinearLayout(co
         }
     }
 
-
-    @OnClick
-    fun onClick() {
-        if (callback != null) {
-            callback!!.onClick()
-        }
-    }
-
-
     init {
         View.inflate(context, R.layout.item_suggested_edits_contributions, this)
         layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             foreground = AppCompatResources.getDrawable(context, ResourceUtil.getThemedAttributeId(context, R.attr.selectableItemBackground))
+        }
+        setOnClickListener {
+            if (callback != null) {
+                callback!!.onClick(context)
+            }
         }
     }
 }

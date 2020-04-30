@@ -247,6 +247,10 @@
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
             android:theme="@style/AppTheme.ActionBar" />
 
+        <activity
+            android:name=".suggestededits.SuggestedEditsContributionDetailsActivity"
+            android:theme="@style/AppTheme.ActionBar.SuggestedEdits" />
+
         <provider
             android:authorities="${applicationId}"
             android:name=".database.AppContentProvider"

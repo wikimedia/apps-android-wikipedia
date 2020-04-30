@@ -448,7 +448,8 @@ class SuggestedEditsContributionsFragment : Fragment(), AdapterView.OnItemSelect
     class EditFilter internal constructor(val title: String, val editType: Int, val imageResource: Int)
 
     private class ItemCallback : SuggestedEditsContributionsItemView.Callback<Contribution> {
-        override fun onClick() {
+        override fun onClick(context: Context) {
+            context.startActivity(SuggestedEditsContributionDetailsActivity.newIntent(context))
         }
     }
 
