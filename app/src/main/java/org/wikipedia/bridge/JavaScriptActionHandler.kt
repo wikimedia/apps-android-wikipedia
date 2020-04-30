@@ -46,7 +46,20 @@ object JavaScriptActionHandler {
 
     @JvmStatic
     fun getRevision(): String {
-        return "pcs.c1.Page.getRevision();"
+        return "pcs.c1.Page.getRevision()"
+    }
+
+    @JvmStatic
+    fun getPageInformation(model: PageViewModel): String {
+        return "function pageInformation() {" +
+                "  return {" +
+                "      toc: ${getSections()}, " +
+                "      revision: ${getRevision()}, " +
+                "      protection: ${getProtection()}, " +
+                "      footer: ${setFooter(model)} " +
+                "  } " +
+                "}" +
+                "pageInformation()"
     }
 
     @JvmStatic

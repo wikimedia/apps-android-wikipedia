@@ -39,6 +39,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
 import org.apache.commons.lang3.StringUtils;
+import org.json.JSONObject;
 import org.wikipedia.BackPressedHandler;
 import org.wikipedia.Constants;
 import org.wikipedia.Constants.InvokeSource;
@@ -491,6 +492,32 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
 
         checkAndShowBookmarkOnboarding();
         maybeShowAnnouncement();
+
+        bridge.evaluate(JavaScriptActionHandler.getPageInformation(model), pageInfo -> {
+            if (!isAdded() || model.getPage() == null) {
+                return;
+            }
+            try {
+                JSONObject jsonObject = new JSONObject(pageInfo);
+                // revision
+                revision = Long.parseLong(jsonObject.getString("revision").replace("\"", ""));
+                // table of content
+                Section[] secArray = GsonUtil.getDefaultGson().fromJson(jsonObject.getString("toc"), Section[].class);
+                if (secArray != null) {
+                    sections = new ArrayList<>(Arrays.asList(secArray));
+                    sections.add(0, new Section(0, 0, model.getTitle().getDisplayText(), model.getTitle().getDisplayText(), ""));
+                    model.getPage().setSections(sections);
+                }
+                tocHandler.setupToC(model.getPage(), model.getTitle().getWikiSite());
+                tocHandler.setEnabled(true);
+                // protection
+                Protection protection = GsonUtil.getDefaultGson().fromJson(jsonObject.getString("protection"), Protection.class);
+                model.getPage().getPageProperties().setProtection(protection);
+                bridge.execute(JavaScriptActionHandler.setUpEditButtons(true, !model.getPage().getPageProperties().canEdit()));
+            } catch (Exception e) {
+                L.e(e);
+            }
+        });
     }
 
     private void handleInternalLink(@NonNull PageTitle title) {
@@ -983,54 +1010,9 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         };
         bridge.addListener("link", linkHandler);
 
-        bridge.addListener("setup", (String messageType, JsonObject messagePayload) -> {
-            if (!isAdded()) {
-                return;
-            }
+        bridge.addListener("setup", (String messageType, JsonObject messagePayload) -> { });
+        bridge.addListener("final_setup", (String messageType, JsonObject messagePayload) -> { });
 
-            bridge.evaluate(JavaScriptActionHandler.getRevision(), revision -> {
-                if (!isAdded()) {
-                    return;
-                }
-                try {
-                    this.revision = Long.parseLong(revision.replace("\"", ""));
-                } catch (Exception e) {
-                    L.e(e);
-                }
-            });
-
-            bridge.evaluate(JavaScriptActionHandler.getSections(), value -> {
-                if (!isAdded() || model.getPage() == null) {
-                    return;
-                }
-                Section[] secArray = GsonUtil.getDefaultGson().fromJson(value, Section[].class);
-                if (secArray != null) {
-                    sections = new ArrayList<>(Arrays.asList(secArray));
-                    sections.add(0, new Section(0, 0, model.getTitle().getDisplayText(), model.getTitle().getDisplayText(), ""));
-                    model.getPage().setSections(sections);
-                }
-                tocHandler.setupToC(model.getPage(), model.getTitle().getWikiSite());
-                tocHandler.setEnabled(true);
-            });
-
-            bridge.evaluate(JavaScriptActionHandler.getProtection(), value -> {
-                if (!isAdded() || model.getPage() == null) {
-                    return;
-                }
-                Protection protection = GsonUtil.getDefaultGson().fromJson(value, Protection.class);
-                model.getPage().getPageProperties().setProtection(protection);
-                bridge.execute(JavaScriptActionHandler.setUpEditButtons(true, !model.getPage().getPageProperties().canEdit()));
-            });
-
-        });
-        bridge.addListener("final_setup", (String messageType, JsonObject messagePayload) -> {
-            if (!isAdded()) {
-                return;
-            }
-
-            bridge.execute(JavaScriptActionHandler.setFooter(model));
-
-        });
         bridge.addListener("reference", (String messageType, JsonObject messagePayload) -> {
             if (!isAdded()) {
                 return;
