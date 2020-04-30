@@ -180,8 +180,8 @@ public class EditSectionActivity extends BaseActivity {
             funnel.logStart();
         }
 
-        if (savedInstanceState != null && savedInstanceState.containsKey("sectionWikitext")) {
-            sectionWikitext = savedInstanceState.getString("sectionWikitext");
+        if (savedInstanceState != null && savedInstanceState.containsKey("hasTemporaryWikitextStored")) {
+            sectionWikitext = Prefs.getTemporaryWikitext();
         }
 
         captchaHandler.restoreState(savedInstanceState);
@@ -610,10 +610,11 @@ public class EditSectionActivity extends BaseActivity {
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putString("sectionWikitext", sectionWikitext);
+        outState.putBoolean("hasTemporaryWikitextStored", true);
         outState.putParcelable("abusefilter", abusefilterEditResult);
         outState.putBoolean("sectionTextModified", sectionTextModified);
         captchaHandler.saveState(outState);
+        Prefs.storeTemporaryWikitext(sectionWikitext);
     }
 
     private void updateTextSize() {

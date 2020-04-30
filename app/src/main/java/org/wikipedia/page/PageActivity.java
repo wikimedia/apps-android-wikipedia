@@ -660,6 +660,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     protected void onResume() {
         super.onResume();
         app.resetWikiSite();
+        Prefs.storeTemporaryWikitext(null);
     }
 
     @Override
