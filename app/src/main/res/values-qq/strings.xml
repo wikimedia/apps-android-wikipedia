@@ -766,7 +766,7 @@
   <string name="suggested_edits_reactivation_notification_stage_two">Text of notification when the user has not edited for days (second stage).</string>
   <string name="suggested_edits_interstitial_contribution">Message shown to a user about the number of contribution the user has made. (Please preserve the anchor tag and formatted symbol (%s) in its exact form)</string>
   <string name="suggested_edits_interstitial_edit_strike">Message shown to a user about the length of edit streak the user has made. (Please preserve the anchor tag and formatted symbol (%1$s and %2$s) in its exact form)</string>
-  <string name="suggested_edits_interstitial_page_views">Message shown to a user about the pageviews the user has earned in a period of time. (Please preserve the anchor tag and formatted symbol (%1$s and %2$s) in its exact form)</string>
+  <string name="suggested_edits_interstitial_page_views">Message shown to a user about the pageviews the user has earned in a period of time. (Please preserve the anchor tag and formatted symbol (%d and %s) in its exact form)</string>
   <string name="suggested_edits_interstitial_edit_quality">Message shown to a user about the edit quality status. (Please preserve the anchor tag in its exact form)</string>
   <string name="suggested_edits_interstitial_continue_button">Button label to move to the next card of suggested edits.</string>
   <string name="description_edit_revert_subtitle">Subtitle in the dialog that informs the user that their edit was reverted.</string>
