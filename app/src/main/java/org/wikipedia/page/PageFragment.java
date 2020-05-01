@@ -1159,7 +1159,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
      */
     private void hidePageContent() {
         leadImagesHandler.hide();
-        webView.loadUrl(CommunicationBridge.BLANK_PAGE);
+        bridge.loadBlankPage();
         webView.setVisibility(View.INVISIBLE);
         if (callback() != null) {
             callback().onPageHideAllContent();

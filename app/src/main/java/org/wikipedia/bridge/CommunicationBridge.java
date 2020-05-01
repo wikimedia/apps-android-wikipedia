@@ -70,6 +70,10 @@ public class CommunicationBridge {
         flushMessages();
     }
 
+    public void loadBlankPage() {
+        communicationBridgeListener.getWebView().loadUrl(BLANK_PAGE);
+    }
+
     public void resetHtml(@NonNull PageTitle pageTitle) {
         isDOMReady = false;
         pendingJSMessages.clear();
@@ -87,6 +91,10 @@ public class CommunicationBridge {
             incomingMessageHandler.removeCallbacksAndMessages(null);
             incomingMessageHandler = null;
         }
+        communicationBridgeListener.getWebView().setWebViewClient(null);
+        communicationBridgeListener.getWebView().removeJavascriptInterface("pcsClient");
+        // Explicitly load a blank page into the WebView, to stop playback of any media.
+        loadBlankPage();
     }
 
     public void addListener(String type, JSEventListener listener) {
