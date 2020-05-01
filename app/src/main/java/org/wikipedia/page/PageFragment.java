@@ -433,18 +433,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             }
 
             @Override
-            public void onPageFinished(WebView view, String url) {
-                super.onPageFinished(view, url);
-                if (!isAdded() || CommunicationBridge.BLANK_PAGE.equals(url)) {
-                    return;
-                }
-                pageFragmentLoadState.onPageFinished();
-                updateProgressBar(false, true, 0);
-                webView.setVisibility(View.VISIBLE);
-                app.getSessionFunnel().leadSectionFetchEnd();
-            }
-
-            @Override
             public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
                 onPageLoadError(new RuntimeException(description));
             }
@@ -491,6 +479,9 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
 
         checkAndShowBookmarkOnboarding();
         maybeShowAnnouncement();
+
+        bridge.onMetadataReady();
+        bridge.execute(JavaScriptActionHandler.setFooter(model));
     }
 
     private void handleInternalLink(@NonNull PageTitle title) {
@@ -551,7 +542,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         super.onConfigurationChanged(newConfig);
         // if the screen orientation changes, then re-layout the lead image container,
         // but only if we've finished fetching the page.
-        if (!pageFragmentLoadState.isLoading() && !errorState) {
+        if (!bridge.isLoading() && !errorState) {
             pageFragmentLoadState.onConfigurationChanged();
         }
     }
@@ -881,13 +872,14 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         }
         updateProgressBar(false, true, 0);
         refreshView.setRefreshing(false);
-        pageFragmentLoadState.onPageFinished();
 
         if (pageRefreshed) {
             pageRefreshed = false;
         }
 
         hidePageContent();
+        bridge.onMetadataReady();
+
         errorView.setError(caught);
         errorView.setVisibility(View.VISIBLE);
 
@@ -912,7 +904,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     }
 
     public void refreshPage(int stagedScrollY) {
-        if (pageFragmentLoadState.isLoading()) {
+        if (bridge.isLoading()) {
             refreshView.setRefreshing(false);
             return;
         }
@@ -927,11 +919,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     }
 
     boolean isLoading() {
-        return pageFragmentLoadState.isLoading();
-    }
-
-    CommunicationBridge getBridge() {
-        return bridge;
+        return bridge.isLoading();
     }
 
     private void setBookmarkIconForPageSavedState(boolean pageSaved) {
@@ -988,6 +976,10 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                 return;
             }
 
+            updateProgressBar(false, true, 0);
+            webView.setVisibility(View.VISIBLE);
+            app.getSessionFunnel().leadSectionFetchEnd();
+
             bridge.evaluate(JavaScriptActionHandler.getRevision(), revision -> {
                 if (!isAdded()) {
                     return;
@@ -1027,9 +1019,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             if (!isAdded()) {
                 return;
             }
-
-            bridge.execute(JavaScriptActionHandler.setFooter(model));
-
+            bridge.onPcsReady();
         });
         bridge.addListener("reference", (String messageType, JsonObject messagePayload) -> {
             if (!isAdded()) {
