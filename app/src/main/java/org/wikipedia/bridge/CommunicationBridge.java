@@ -41,7 +41,8 @@ public class CommunicationBridge {
     private final Map<String, List<JSEventListener>> eventListeners;
     private final CommunicationBridgeListener communicationBridgeListener;
 
-    private boolean isDOMReady;
+    private boolean isMetadataReady;
+    private boolean isPcsReady;
     private final List<String> pendingJSMessages = new ArrayList<>();
     private final Map<String, ValueCallback<String>> pendingEvals = new HashMap<>();
 
@@ -65,13 +66,23 @@ public class CommunicationBridge {
         eventListeners = new HashMap<>();
     }
 
-    public void onPageFinished() {
-        isDOMReady = true;
+    public void onPcsReady() {
+        isPcsReady = true;
         flushMessages();
     }
 
+    public void onMetadataReady() {
+        isMetadataReady = true;
+        flushMessages();
+    }
+
+    public boolean isLoading() {
+        return !(isMetadataReady && isPcsReady);
+    }
+
     public void resetHtml(@NonNull PageTitle pageTitle) {
-        isDOMReady = false;
+        isPcsReady = false;
+        isMetadataReady = false;
         pendingJSMessages.clear();
         pendingEvals.clear();
         communicationBridgeListener.getWebView().loadUrl(UriUtil
@@ -111,7 +122,7 @@ public class CommunicationBridge {
     }
 
     private void flushMessages() {
-        if (!isDOMReady) {
+        if (!isPcsReady || !isMetadataReady) {
             return;
         }
         for (String jsString : pendingJSMessages) {
