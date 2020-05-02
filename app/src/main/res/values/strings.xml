@@ -781,11 +781,11 @@
     <string name="suggested_edits_reactivation_notification_title">Suggested edits</string>
     <string name="suggested_edits_reactivation_notification_stage_one">Thanks for editing Wikipedia! Why not continue where you left off?</string>
     <string name="suggested_edits_reactivation_notification_stage_two">Have a minute to continue improving Wikipedia? Check out these editing suggestions.</string>
-    <string name="suggested_edits_interstitial_contribution"><![CDATA[Wow, that was your %s <b>contribution</b> to Wikipedia with Suggested edits.]]></string>
-    <string name="suggested_edits_interstitial_edit_strike"><![CDATA[You\'re on a <b>edit streak</b> for %1$s days.  Keep it going, %2$s!]]></string>
-    <string name="suggested_edits_interstitial_page_views"><![CDATA[Your edits have earned %1$d <b>pageviews</b> in the last %2$s days.]]></string>
-    <string name="suggested_edits_interstitial_edit_quality"><![CDATA[Your <b>edit quality</b> is perfect. We look forward to your next edits.]]></string>
-    <string name="suggested_edits_interstitial_continue_button">Continue</string>
+    <string name="suggested_edits_rewards_contribution"><![CDATA[Wow, that was your %s <b>contribution</b> to Wikipedia with Suggested edits.]]></string>
+    <string name="suggested_edits_rewards_edit_strike"><![CDATA[You\'re on a <b>edit streak</b> for %1$s days.  Keep it going, %2$s!]]></string>
+    <string name="suggested_edits_rewards_page_views"><![CDATA[Your edits have earned %1$d <b>pageviews</b> in the last %2$s days.]]></string>
+    <string name="suggested_edits_rewards_edit_quality"><![CDATA[Your <b>edit quality</b> is perfect. We look forward to your next edits.]]></string>
+    <string name="suggested_edits_rewards_continue_button">Continue</string>
     <!-- /Suggested edits -->
 
     <!-- Description editing revert help -->
