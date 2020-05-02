@@ -4,12 +4,12 @@ import com.google.gson.stream.MalformedJsonException;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.threeten.bp.Instant;
+import org.threeten.bp.format.DateTimeFormatter;
 import org.wikipedia.json.GsonUnmarshaller;
 import org.wikipedia.test.MockRetrofitTest;
 import org.wikipedia.test.TestFileUtil;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Locale;
 
 import io.reactivex.Observable;
@@ -29,7 +29,7 @@ public class AnnouncementClientTest extends MockRetrofitTest {
     private static final int ANNOUNCEMENT_BETA_WITH_VERSION = 6;
     private static final int ANNOUNCEMENT_FOR_OLD_VERSION = 7;
     private AnnouncementList announcementList;
-    private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.ROOT);
+    private DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd", Locale.ROOT);
 
     private static final String ANNOUNCEMENT_JSON_FILE = "announce_2016_11_21.json";
 
@@ -76,7 +76,7 @@ public class AnnouncementClientTest extends MockRetrofitTest {
 
     @Test public void testShouldShowByCountry() throws Throwable {
         Announcement announcement = announcementList.items().get(ANNOUNCEMENT_SURVEY_ANDROID);
-        Date dateDuring = dateFormat.parse("2016-11-20");
+        Instant dateDuring = Instant.from(dateFormatter.parse("2016-11-20"));
         assertThat(AnnouncementClient.shouldShow(announcement, "US", dateDuring), is(true));
         assertThat(AnnouncementClient.shouldShow(announcement, "FI", dateDuring), is(false));
         assertThat(AnnouncementClient.shouldShow(announcement, null, dateDuring), is(false));
@@ -84,15 +84,15 @@ public class AnnouncementClientTest extends MockRetrofitTest {
 
     @Test public void testShouldShowByDate() throws Throwable {
         Announcement announcement = announcementList.items().get(ANNOUNCEMENT_SURVEY_ANDROID);
-        Date dateBefore = dateFormat.parse("2016-08-01");
-        Date dateAfter = dateFormat.parse("2017-01-05");
+        Instant dateBefore = Instant.from(dateFormatter.parse("2016-08-01"));
+        Instant dateAfter = Instant.from(dateFormatter.parse("2017-01-05"));
         assertThat(AnnouncementClient.shouldShow(announcement, "US", dateBefore), is(false));
         assertThat(AnnouncementClient.shouldShow(announcement, "US", dateAfter), is(false));
     }
 
     @Test public void testShouldShowByPlatform() throws Throwable {
         Announcement announcementIOS = announcementList.items().get(ANNOUNCEMENT_IOS);
-        Date dateDuring = dateFormat.parse("2016-11-20");
+        Instant dateDuring = Instant.from(dateFormatter.parse("2016-11-20"));
         assertThat(AnnouncementClient.shouldShow(announcementIOS, "US", dateDuring), is(false));
     }
 
@@ -103,7 +103,7 @@ public class AnnouncementClientTest extends MockRetrofitTest {
 
     @Test public void testShouldShowForInvalidCountries() throws Throwable {
         Announcement announcement = announcementList.items().get(ANNOUNCEMENT_NO_COUNTRIES);
-        Date dateDuring = dateFormat.parse("2016-11-20");
+        Instant dateDuring = Instant.from(dateFormatter.parse("2016-11-20"));
         assertThat(AnnouncementClient.shouldShow(announcement, "US", dateDuring), is(false));
         assertThat(AnnouncementClient.shouldShow(announcement, "FI", dateDuring), is(false));
         assertThat(AnnouncementClient.shouldShow(announcement, "", dateDuring), is(false));
@@ -111,13 +111,13 @@ public class AnnouncementClientTest extends MockRetrofitTest {
 
     @Test public void testBetaWithVersion() throws Throwable {
         Announcement announcement = announcementList.items().get(ANNOUNCEMENT_BETA_WITH_VERSION);
-        Date dateDuring = dateFormat.parse("2016-11-20");
+        Instant dateDuring = Instant.from(dateFormatter.parse("2016-11-20"));
         assertThat(AnnouncementClient.shouldShow(announcement, "US", dateDuring), is(true));
     }
 
     @Test public void testForOldVersion() throws Throwable {
         Announcement announcement = announcementList.items().get(ANNOUNCEMENT_FOR_OLD_VERSION);
-        Date dateDuring = dateFormat.parse("2016-11-20");
+        Instant dateDuring = Instant.from(dateFormatter.parse("2016-11-20"));
         assertThat(AnnouncementClient.shouldShow(announcement, "US", dateDuring), is(false));
     }
 

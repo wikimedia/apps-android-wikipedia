@@ -23,6 +23,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.google.android.material.snackbar.Snackbar;
 
+import org.threeten.bp.Instant;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.BaseActivity;
@@ -49,7 +50,6 @@ import org.wikipedia.views.WikiErrorView;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -285,9 +285,9 @@ public class NotificationActivity extends BaseActivity implements NotificationIt
                         && !n.getContents().getHeader().contains(currentSearchQuery)) {
                     continue;
                 }
-                if (millis - n.getTimestamp().getTime() > TimeUnit.DAYS.toMillis(1)) {
+                if (millis - n.getTimestamp().toEpochMilli() > TimeUnit.DAYS.toMillis(1)) {
                     notificationContainerList.add(new NotificationListItemContainer(n.getTimestamp()));
-                    millis = n.getTimestamp().getTime();
+                    millis = n.getTimestamp().toEpochMilli();
                 }
                 notificationContainerList.add(new NotificationListItemContainer(n));
 
@@ -579,8 +579,8 @@ public class NotificationActivity extends BaseActivity implements NotificationIt
             dateView = view.findViewById(R.id.notification_date_text);
         }
 
-        void bindItem(Date date) {
-            dateView.setText(DateUtil.getFeedCardDateString(date));
+        void bindItem(Instant instant) {
+            dateView.setText(DateUtil.getFeedCardDateString(instant));
         }
     }
 
@@ -610,7 +610,7 @@ public class NotificationActivity extends BaseActivity implements NotificationIt
         @Override
         public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int pos) {
             if (holder instanceof NotificationDateHolder) {
-                ((NotificationDateHolder) holder).bindItem(notificationContainerList.get(pos).date);
+                ((NotificationDateHolder) holder).bindItem(notificationContainerList.get(pos).instant);
             } else if (holder instanceof NotificationItemHolderSwipeable) {
                 ((NotificationItemHolderSwipeable) holder).bindItem(notificationContainerList.get(pos));
             } else if (holder instanceof NotificationItemHolder) {
@@ -695,11 +695,11 @@ public class NotificationActivity extends BaseActivity implements NotificationIt
 
         private final int type;
         private Notification notification;
-        private Date date;
+        private Instant instant;
         private boolean selected;
 
-        NotificationListItemContainer(@NonNull Date date) {
-            this.date = date;
+        NotificationListItemContainer(@NonNull Instant instant) {
+            this.instant = instant;
             type = ITEM_DATE_HEADER;
         }
 

@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 
+import org.threeten.bp.Instant;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.dataclient.ServiceFactory;
@@ -20,7 +21,6 @@ import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.log.L;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -56,9 +56,8 @@ public class AnnouncementClient implements FeedClient {
     private static List<Card> buildCards(@NonNull List<Announcement> announcements) {
         List<Card> cards = new ArrayList<>();
         String country = GeoUtil.getGeoIPCountry();
-        Date now = new Date();
         for (Announcement announcement : announcements) {
-            if (shouldShow(announcement, country, now)) {
+            if (shouldShow(announcement, country, Instant.now())) {
                 switch (announcement.type()) {
                     case Announcement.SURVEY:
                         cards.add(new SurveyCard(announcement));
@@ -79,7 +78,7 @@ public class AnnouncementClient implements FeedClient {
 
     public static boolean shouldShow(@Nullable Announcement announcement,
                               @Nullable String country,
-                              @NonNull Date date) {
+                              @NonNull Instant date) {
         return announcement != null
                 && (announcement.platforms().contains(PLATFORM_CODE) || announcement.platforms().contains(PLATFORM_CODE_NEW))
                 && matchesCountryCode(announcement, country)
@@ -99,14 +98,14 @@ public class AnnouncementClient implements FeedClient {
         return announcement.countries().contains(country);
     }
 
-    private static boolean matchesDate(@NonNull Announcement announcement, Date date) {
+    private static boolean matchesDate(@NonNull Announcement announcement, Instant date) {
         if (Prefs.ignoreDateForAnnouncements()) {
             return true;
         }
-        if (announcement.startTime() != null && announcement.startTime().after(date)) {
+        if (announcement.startTime() != null && announcement.startTime().isAfter(date)) {
             return false;
         }
-        return announcement.endTime() == null || !announcement.endTime().before(date);
+        return announcement.endTime() == null || !announcement.endTime().isBefore(date);
     }
 
     private static boolean matchesConditions(@NonNull Announcement announcement) {

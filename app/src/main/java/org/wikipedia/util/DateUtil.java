@@ -11,6 +11,7 @@ import org.threeten.bp.Instant;
 import org.threeten.bp.ZoneId;
 import org.threeten.bp.ZoneOffset;
 import org.threeten.bp.format.DateTimeFormatter;
+import org.threeten.bp.format.FormatStyle;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.feed.model.UtcDate;
@@ -32,6 +33,10 @@ public final class DateUtil {
 
     public static synchronized String iso8601DateFormat(Instant instant) {
         return getCachedDateTimeFormatter("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.ROOT, true).format(instant);
+    }
+
+    public static synchronized Instant iso8601InstantParse(String date) {
+        return Instant.from(getCachedDateTimeFormatter("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.ROOT, true).parse(date));
     }
 
     public static synchronized Date iso8601DateParse(String date) throws ParseException {
@@ -62,6 +67,10 @@ public final class DateUtil {
         return getShortDateString(date.getTime());
     }
 
+    public static String getFeedCardDateString(@NonNull Instant instant) {
+        return getShortDateString(instant);
+    }
+
     public static String getFeedCardDateString(@NonNull Date date) {
         return getShortDateString(date);
     }
@@ -84,6 +93,10 @@ public final class DateUtil {
 
     private static String getExtraShortDateString(@NonNull Date date) {
         return getDateStringWithSkeletonPattern(date, "MMM d");
+    }
+
+    private static synchronized String getDateStringWithSkeletonPattern(@NonNull Instant instant, @NonNull String pattern) {
+        return getCachedDateTimeFormatter(android.text.format.DateFormat.getBestDateTimePattern(Locale.getDefault(), pattern), Locale.getDefault(), false).format(instant);
     }
 
     private static synchronized String getDateStringWithSkeletonPattern(@NonNull Date date, @NonNull String pattern) {
@@ -120,6 +133,11 @@ public final class DateUtil {
         return dateFormat.format(date);
     }
 
+    public static String getShortDateString(@NonNull Instant instant) {
+        return DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM).withZone(ZoneOffset.UTC)
+                .format(instant);
+    }
+
     public static UtcDate getUtcRequestDateFor(int age) {
         return new UtcDate(age);
     }
@@ -141,6 +159,10 @@ public final class DateUtil {
 
     public static synchronized String getHttpLastModifiedDate(@NonNull Date date) {
         return getCachedDateFormat("EEE, dd MMM yyyy HH:mm:ss zzz", Locale.ENGLISH, true).format(date);
+    }
+
+    public static synchronized String getHttpLastModifiedInstant(@NonNull Instant instant) {
+        return getCachedDateTimeFormatter("EEE, dd MMM yyyy HH:mm:ss zzz", Locale.ENGLISH, true).format(instant);
     }
 
     public static String getReadingListsLastSyncDateString(@NonNull String dateStr) throws ParseException {

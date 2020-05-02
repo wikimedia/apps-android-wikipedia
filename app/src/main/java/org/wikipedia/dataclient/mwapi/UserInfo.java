@@ -1,16 +1,14 @@
 package org.wikipedia.dataclient.mwapi;
 
-import android.text.TextUtils;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.collection.ArraySet;
 
+import org.apache.commons.lang3.StringUtils;
+import org.threeten.bp.Instant;
 import org.wikipedia.util.DateUtil;
 
-import java.text.ParseException;
 import java.util.Collections;
-import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
@@ -34,18 +32,7 @@ public class UserInfo {
     }
 
     public boolean isBlocked() {
-        if (TextUtils.isEmpty(blockexpiry)) {
-            return false;
-        }
-        try {
-            Date now = new Date();
-            Date expiry = DateUtil.iso8601DateParse(blockexpiry);
-            if (expiry.after(now)) {
-                return true;
-            }
-        } catch (ParseException e) {
-            // ignore
-        }
-        return false;
+        return StringUtils.isNotEmpty(blockexpiry)
+                && DateUtil.iso8601InstantParse(blockexpiry).isAfter(Instant.now());
     }
 }

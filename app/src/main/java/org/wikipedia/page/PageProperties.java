@@ -9,19 +9,16 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import org.apache.commons.lang3.StringUtils;
+import org.threeten.bp.Instant;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.dataclient.page.Protection;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.ImageUrlUtil;
 import org.wikipedia.util.UriUtil;
-import org.wikipedia.util.log.L;
-
-import java.text.ParseException;
-import java.util.Date;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
-import static org.wikipedia.util.DateUtil.iso8601DateParse;
+import static org.wikipedia.util.DateUtil.iso8601InstantParse;
 
 /**
  * Immutable class that contains metadata associated with a PageTitle.
@@ -30,7 +27,7 @@ public class PageProperties implements Parcelable {
     private final int pageId;
     @NonNull private final Namespace namespace;
     private final long revisionId;
-    private final Date lastModified;
+    private Instant lastModified;
     private final String displayTitleText;
     private String editProtectionStatus;
     private final boolean isMainPage;
@@ -58,17 +55,13 @@ public class PageProperties implements Parcelable {
         revisionId = pageSummary.getRevision();
         displayTitleText = defaultString(pageSummary.getDisplayTitle());
         geo = pageSummary.getGeo();
-        lastModified = new Date();
+        lastModified = Instant.now();
         leadImageName = UriUtil.decodeURL(StringUtils.defaultString(pageSummary.getLeadImageName()));
         leadImageUrl = pageSummary.getThumbnailUrl() != null
                 ? UriUtil.resolveProtocolRelativeUrl(ImageUrlUtil.getUrlForPreferredSize(pageSummary.getThumbnailUrl(), DimenUtil.calculateLeadImageWidth())) : null;
         String lastModifiedText = pageSummary.getTimestamp();
         if (lastModifiedText != null) {
-            try {
-                lastModified.setTime(iso8601DateParse(lastModifiedText).getTime());
-            } catch (ParseException e) {
-                L.d("Failed to parse date: " + lastModifiedText);
-            }
+            lastModified = iso8601InstantParse(lastModifiedText);
         }
         // assume formatversion=2 is used so we get real booleans from the API
 
@@ -91,7 +84,7 @@ public class PageProperties implements Parcelable {
         editProtectionStatus = "";
         leadImageUrl = null;
         leadImageName = "";
-        lastModified = new Date();
+        lastModified = Instant.now();
         canEdit = false;
         this.isMainPage = isMainPage;
         wikiBaseItem = null;
@@ -110,7 +103,7 @@ public class PageProperties implements Parcelable {
         return revisionId;
     }
 
-    public Date getLastModified() {
+    public Instant getLastModified() {
         return lastModified;
     }
 
@@ -179,7 +172,7 @@ public class PageProperties implements Parcelable {
         parcel.writeInt(pageId);
         parcel.writeInt(namespace.code());
         parcel.writeLong(revisionId);
-        parcel.writeLong(lastModified.getTime());
+        parcel.writeLong(lastModified.toEpochMilli());
         parcel.writeString(displayTitleText);
         parcel.writeString(GeoMarshaller.marshal(geo));
         parcel.writeString(editProtectionStatus);
@@ -195,7 +188,7 @@ public class PageProperties implements Parcelable {
         pageId = in.readInt();
         namespace = Namespace.of(in.readInt());
         revisionId = in.readLong();
-        lastModified = new Date(in.readLong());
+        lastModified = Instant.ofEpochMilli(in.readLong());
         displayTitleText = in.readString();
         geo = GeoUnmarshaller.unmarshal(in.readString());
         editProtectionStatus = in.readString();

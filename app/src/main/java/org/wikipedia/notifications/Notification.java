@@ -8,12 +8,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.annotations.SerializedName;
 
 import org.apache.commons.lang3.StringUtils;
+import org.threeten.bp.Instant;
 import org.wikipedia.json.GsonUtil;
 import org.wikipedia.util.DateUtil;
-import org.wikipedia.util.log.L;
 
-import java.text.ParseException;
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -75,8 +73,8 @@ public class Notification {
         return contents;
     }
 
-    @NonNull Date getTimestamp() {
-        return timestamp != null ? timestamp.date() : new Date();
+    @NonNull Instant getTimestamp() {
+        return timestamp != null ? timestamp.date() : Instant.now();
     }
 
     @NonNull String getUtcIso8601() {
@@ -130,13 +128,8 @@ public class Notification {
     public static class Timestamp {
         @SuppressWarnings("unused") @Nullable private String utciso8601;
 
-        public Date date() {
-            try {
-                return DateUtil.iso8601DateParse(utciso8601);
-            } catch (ParseException e) {
-                L.e(e);
-                return new Date();
-            }
+        public Instant date() {
+            return DateUtil.iso8601InstantParse(utciso8601);
         }
     }
 

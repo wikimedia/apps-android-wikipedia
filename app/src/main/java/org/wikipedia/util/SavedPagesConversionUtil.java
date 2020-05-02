@@ -218,12 +218,7 @@ public final class SavedPagesConversionUtil {
             String title = CURRENT_PAGE.apiTitle();
 
             String summaryUrl = UriUtil.encodeOkHttpUrl(ServiceFactory.getRestBasePath(CURRENT_PAGE.wiki()) + "page/summary/", title);
-            String date = DateUtil.getHttpLastModifiedDate(new Date());
-            try {
-                date = DateUtil.getHttpLastModifiedDate(DateUtil.iso8601DateParse(pageLead.getLastModified()));
-            } catch (Exception e) {
-                //
-            }
+            String date = DateUtil.getHttpLastModifiedInstant(DateUtil.iso8601InstantParse(pageLead.getLastModified()));
 
             OfflineCacheInterceptor.createCacheItemFor(CURRENT_PAGE, summaryUrl, json, "application/json", date);
         } catch (Exception e) {

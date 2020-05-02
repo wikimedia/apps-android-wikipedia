@@ -101,7 +101,6 @@ import org.wikipedia.views.WikiErrorView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
 
 import io.reactivex.Completable;
@@ -1377,7 +1376,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(list -> {
                         String country = GeoUtil.getGeoIPCountry();
-                        Date now = new Date();
+                        Instant now = Instant.now();
                         for (Announcement announcement : list.items()) {
                             if (shouldShow(announcement, country, now)
                                     && announcement.placement().equals(PLACEMENT_ARTICLE)

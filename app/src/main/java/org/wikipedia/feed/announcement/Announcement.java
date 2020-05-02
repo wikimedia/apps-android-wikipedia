@@ -7,13 +7,12 @@ import androidx.annotation.Nullable;
 
 import com.google.gson.annotations.SerializedName;
 
+import org.threeten.bp.Instant;
 import org.wikipedia.json.annotations.Required;
 import org.wikipedia.model.BaseModel;
 import org.wikipedia.util.DateUtil;
 
-import java.text.ParseException;
 import java.util.Collections;
-import java.util.Date;
 import java.util.List;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
@@ -68,20 +67,12 @@ public class Announcement extends BaseModel {
     }
 
     @Nullable
-    public Date startTime() {
-        try {
-            return DateUtil.iso8601DateParse(startTime);
-        } catch (ParseException e) {
-            return null;
-        }
+    public Instant startTime() {
+        return DateUtil.iso8601InstantParse(startTime);
     }
 
-    @Nullable Date endTime() {
-        try {
-            return DateUtil.iso8601DateParse(endTime);
-        } catch (ParseException e) {
-            return null;
-        }
+    @Nullable Instant endTime() {
+        return DateUtil.iso8601InstantParse(endTime);
     }
 
     @NonNull List<String> platforms() {
