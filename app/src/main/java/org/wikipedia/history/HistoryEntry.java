@@ -7,9 +7,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import org.apache.commons.lang3.StringUtils;
+import org.threeten.bp.Instant;
 import org.wikipedia.page.PageTitle;
-
-import java.util.Date;
 
 public class HistoryEntry implements Parcelable {
     public static final HistoryEntryDatabaseTable DATABASE_TABLE = new HistoryEntryDatabaseTable();
@@ -44,14 +43,14 @@ public class HistoryEntry implements Parcelable {
     public static final int SOURCE_SUGGESTED_EDITS = 30;
 
     @NonNull private final PageTitle title;
-    @NonNull private final Date timestamp;
+    @NonNull private final Instant timestamp;
     private final int source;
     private final int timeSpentSec;
 
     // Transient variable, not stored in the db, to be set when navigating back and forth between articles.
     @Nullable private String referrer;
 
-    public HistoryEntry(@NonNull PageTitle title, @NonNull Date timestamp, int source,
+    public HistoryEntry(@NonNull PageTitle title, @NonNull Instant timestamp, int source,
                         int timeSpentSec) {
         this.title = title;
         this.timestamp = timestamp;
@@ -59,19 +58,19 @@ public class HistoryEntry implements Parcelable {
         this.timeSpentSec = timeSpentSec;
     }
 
-    public HistoryEntry(@NonNull PageTitle title, @NonNull Date timestamp, int source) {
+    public HistoryEntry(@NonNull PageTitle title, @NonNull Instant timestamp, int source) {
         this(title, timestamp, source, 0);
     }
 
     public HistoryEntry(@NonNull PageTitle title, int source) {
-        this(title, new Date(), source);
+        this(title, Instant.now(), source);
     }
 
     @NonNull public PageTitle getTitle() {
         return title;
     }
 
-    @NonNull public Date getTimestamp() {
+    @NonNull public Instant getTimestamp() {
         return timestamp;
     }
 
@@ -116,7 +115,7 @@ public class HistoryEntry implements Parcelable {
         return "HistoryEntry{"
                 + "title=" + title
                 + ", source=" + source
-                + ", timestamp=" + timestamp.getTime()
+                + ", timestamp=" + timestamp.toEpochMilli()
                 + ", timeSpentSec=" + timeSpentSec
                 + '}';
     }
@@ -128,16 +127,16 @@ public class HistoryEntry implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeParcelable(getTitle(), flags);
-        dest.writeLong(getTimestamp().getTime());
-        dest.writeInt(getSource());
-        dest.writeInt(getTimeSpentSec());
+        dest.writeParcelable(title, flags);
+        dest.writeLong(timestamp.toEpochMilli());
+        dest.writeInt(source);
+        dest.writeInt(timeSpentSec);
         dest.writeString(StringUtils.defaultString(referrer));
     }
 
     private HistoryEntry(Parcel in) {
         this.title = in.readParcelable(PageTitle.class.getClassLoader());
-        this.timestamp = new Date(in.readLong());
+        this.timestamp = Instant.ofEpochMilli(in.readLong());
         this.source = in.readInt();
         this.timeSpentSec = in.readInt();
         this.referrer = in.readString();

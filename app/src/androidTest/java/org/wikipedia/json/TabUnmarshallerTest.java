@@ -2,13 +2,13 @@ package org.wikipedia.json;
 
 
 import org.junit.Test;
+import org.threeten.bp.Instant;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageBackStackItem;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.tabs.Tab;
 
-import java.util.Date;
 import java.util.List;
 
 import static java.util.Collections.singletonList;
@@ -24,7 +24,7 @@ public class TabUnmarshallerTest {
 
     @Test public void testUnmarshalSingle() {
         PageTitle page = new PageTitle("text", WikiSite.forLanguageCode("test"));
-        HistoryEntry history = new HistoryEntry(page, new Date(0), HistoryEntry.SOURCE_SEARCH);
+        HistoryEntry history = new HistoryEntry(page, Instant.ofEpochMilli(0), HistoryEntry.SOURCE_SEARCH);
         Tab tab = new Tab();
         tab.getBackStack().add(new PageBackStackItem(page, history));
         List<Tab> tabs = singletonList(tab);
@@ -35,7 +35,7 @@ public class TabUnmarshallerTest {
     // T152980
     @Test(expected = RuntimeException.class) public void testUnmarshalNoPageTitleAuthority() {
         PageTitle page = new PageTitle("text", new WikiSite("", ""));
-        HistoryEntry history = new HistoryEntry(page, new Date(0), HistoryEntry.SOURCE_SEARCH);
+        HistoryEntry history = new HistoryEntry(page, Instant.ofEpochMilli(0), HistoryEntry.SOURCE_SEARCH);
         Tab tab = new Tab();
         tab.getBackStack().add(new PageBackStackItem(page, history));
         List<Tab> tabs = singletonList(tab);
@@ -47,7 +47,7 @@ public class TabUnmarshallerTest {
     @Test(expected = RuntimeException.class) public void testUnmarshalNoHistoryEntryAuthority() {
         PageTitle page = new PageTitle("text", WikiSite.forLanguageCode("test"));
         PageTitle prevPage = new PageTitle("text", new WikiSite("", ""));
-        HistoryEntry history = new HistoryEntry(prevPage, new Date(0), HistoryEntry.SOURCE_SEARCH);
+        HistoryEntry history = new HistoryEntry(prevPage, Instant.ofEpochMilli(0), HistoryEntry.SOURCE_SEARCH);
         Tab tab = new Tab();
         tab.getBackStack().add(new PageBackStackItem(page, history));
         List<Tab> tabs = singletonList(tab);

@@ -39,6 +39,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
 import org.apache.commons.lang3.StringUtils;
+import org.threeten.bp.Instant;
 import org.wikipedia.BackPressedHandler;
 import org.wikipedia.Constants;
 import org.wikipedia.Constants.InvokeSource;
@@ -1296,7 +1297,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             return;
         }
         model.setCurEntry(new HistoryEntry(model.getCurEntry().getTitle(),
-                new Date(),
+                Instant.now(),
                 model.getCurEntry().getSource(),
                 timeSpentSec));
         if (!model.getCurEntry().getTitle().getText().equals(Constants.EMPTY_PAGE_TITLE)) {

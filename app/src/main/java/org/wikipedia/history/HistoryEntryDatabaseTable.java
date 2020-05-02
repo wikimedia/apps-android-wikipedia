@@ -5,14 +5,13 @@ import android.database.Cursor;
 
 import androidx.annotation.NonNull;
 
+import org.threeten.bp.Instant;
 import org.wikipedia.database.DatabaseTable;
 import org.wikipedia.database.column.Column;
 import org.wikipedia.database.contract.PageHistoryContract;
 import org.wikipedia.database.contract.PageHistoryContract.Col;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.page.PageTitle;
-
-import java.util.Date;
 
 public class HistoryEntryDatabaseTable extends DatabaseTable<HistoryEntry> {
     private static final int DB_VER_NAMESPACE_ADDED = 6;
@@ -28,7 +27,7 @@ public class HistoryEntryDatabaseTable extends DatabaseTable<HistoryEntry> {
     public HistoryEntry fromCursor(Cursor cursor) {
         WikiSite wiki = new WikiSite(Col.SITE.val(cursor), Col.LANG.val(cursor));
         PageTitle title = new PageTitle(Col.NAMESPACE.val(cursor), Col.API_TITLE.val(cursor), wiki);
-        Date timestamp = Col.TIMESTAMP.val(cursor);
+        Instant timestamp = Col.TIMESTAMP.val(cursor);
         int source = Col.SOURCE.val(cursor);
         title.setDisplayText(Col.DISPLAY_TITLE.val(cursor));
         return new HistoryEntry(title, timestamp, source);
@@ -42,7 +41,7 @@ public class HistoryEntryDatabaseTable extends DatabaseTable<HistoryEntry> {
         contentValues.put(Col.API_TITLE.getName(), obj.getTitle().getText());
         contentValues.put(Col.DISPLAY_TITLE.getName(), obj.getTitle().getDisplayText());
         contentValues.put(Col.NAMESPACE.getName(), obj.getTitle().getNamespace());
-        contentValues.put(Col.TIMESTAMP.getName(), obj.getTimestamp().getTime());
+        contentValues.put(Col.TIMESTAMP.getName(), obj.getTimestamp().toEpochMilli());
         contentValues.put(Col.SOURCE.getName(), obj.getSource());
         contentValues.put(Col.TIME_SPENT.getName(), obj.getTimeSpentSec());
         return contentValues;

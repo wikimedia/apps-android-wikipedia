@@ -30,6 +30,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.snackbar.Snackbar;
 
+import org.threeten.bp.Instant;
+import org.threeten.bp.ZoneId;
+import org.threeten.bp.format.DateTimeFormatter;
+import org.threeten.bp.format.FormatStyle;
 import org.wikipedia.BackPressedHandler;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -48,9 +52,7 @@ import org.wikipedia.views.PageItemView;
 import org.wikipedia.views.SearchEmptyView;
 import org.wikipedia.views.SwipeableItemTouchHelperCallback;
 
-import java.text.DateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 
@@ -361,8 +363,9 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
             adapter.clearList();
         }
 
-        private String getDateString(Date date) {
-            return DateFormat.getDateInstance().format(date);
+        private String getDateString(Instant instant) {
+            return DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM)
+                    .withZone(ZoneId.systemDefault()).format(instant);
         }
     }
 

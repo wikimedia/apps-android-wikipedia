@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import org.threeten.bp.temporal.ChronoField;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.feed.model.CardType;
@@ -52,7 +53,7 @@ public class BecauseYouReadCard extends ListCard<BecauseYouReadItemCard> {
     /** @return The last visit age in days. */
     public long daysOld() {
         long now = System.currentTimeMillis();
-        long lastVisited = entry.getTimestamp().getTime();
+        long lastVisited = entry.getTimestamp().toEpochMilli();
         return TimeUnit.MILLISECONDS.toDays(now - lastVisited);
     }
 

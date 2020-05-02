@@ -5,12 +5,11 @@ import android.database.Cursor;
 
 import androidx.annotation.NonNull;
 
+import org.threeten.bp.Instant;
 import org.wikipedia.database.DatabaseTable;
 import org.wikipedia.database.column.Column;
 import org.wikipedia.database.contract.EditHistoryContract;
 import org.wikipedia.database.contract.EditHistoryContract.Col;
-
-import java.util.Date;
 
 public class EditSummaryDatabaseTable extends DatabaseTable<EditSummary> {
     private static final int DB_VER_INTRODUCED = 2;
@@ -23,7 +22,7 @@ public class EditSummaryDatabaseTable extends DatabaseTable<EditSummary> {
     @Override
     public EditSummary fromCursor(Cursor cursor) {
         String summary = Col.SUMMARY.val(cursor);
-        Date lastUsed = Col.LAST_USED.val(cursor);
+        Instant lastUsed = Col.LAST_USED.val(cursor);
         return new EditSummary(summary, lastUsed);
     }
 
@@ -31,7 +30,7 @@ public class EditSummaryDatabaseTable extends DatabaseTable<EditSummary> {
     protected ContentValues toContentValues(EditSummary obj) {
         ContentValues contentValues = new ContentValues();
         contentValues.put(Col.SUMMARY.getName(), obj.getSummary());
-        contentValues.put(Col.LAST_USED.getName(), obj.getLastUsed().getTime());
+        contentValues.put(Col.LAST_USED.getName(), obj.getLastUsed().toEpochMilli());
         return contentValues;
     }
 
