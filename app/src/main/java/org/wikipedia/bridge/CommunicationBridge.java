@@ -37,7 +37,6 @@ import java.util.Map;
  *
  */
 public class CommunicationBridge {
-    public static final String BLANK_PAGE = "about:blank";
     private final Map<String, List<JSEventListener>> eventListeners;
     private final CommunicationBridgeListener communicationBridgeListener;
 
@@ -71,6 +70,10 @@ public class CommunicationBridge {
         flushMessages();
     }
 
+    public void loadBlankPage() {
+        communicationBridgeListener.getWebView().loadUrl("about:blank");
+    }
+
     public void onMetadataReady() {
         isMetadataReady = true;
         flushMessages();
@@ -98,6 +101,10 @@ public class CommunicationBridge {
             incomingMessageHandler.removeCallbacksAndMessages(null);
             incomingMessageHandler = null;
         }
+        communicationBridgeListener.getWebView().setWebViewClient(null);
+        communicationBridgeListener.getWebView().removeJavascriptInterface("pcsClient");
+        // Explicitly load a blank page into the WebView, to stop playback of any media.
+        loadBlankPage();
     }
 
     public void addListener(String type, JSEventListener listener) {
