@@ -12,6 +12,7 @@ import org.threeten.bp.ZoneId;
 import org.threeten.bp.ZoneOffset;
 import org.threeten.bp.format.DateTimeFormatter;
 import org.threeten.bp.format.FormatStyle;
+import org.threeten.bp.temporal.TemporalAccessor;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.feed.model.UtcDate;
@@ -56,19 +57,15 @@ public final class DateUtil {
     }
 
     public static String getFeedCardDayHeaderDate(int age) {
-        return getDateStringWithSkeletonPattern(new UtcDate(age).baseCalendar().getTime(), "EEEE MMM d");
+        return getDateStringWithSkeletonPattern(new UtcDate(age).baseZonedDateTime(), "EEEE MMM d");
     }
 
     public static String getFeedCardDateString(int age) {
-        return getFeedCardDateString(new UtcDate(age).baseCalendar());
+        return getFeedCardDateString(new UtcDate(age).baseZonedDateTime());
     }
 
-    public static String getFeedCardDateString(@NonNull Calendar date) {
-        return getShortDateString(date.getTime());
-    }
-
-    public static String getFeedCardDateString(@NonNull Instant instant) {
-        return getShortDateString(instant);
+    public static String getFeedCardDateString(@NonNull TemporalAccessor temporalAccessor) {
+        return getShortDateString(temporalAccessor);
     }
 
     public static String getFeedCardDateString(@NonNull Date date) {
@@ -95,8 +92,8 @@ public final class DateUtil {
         return getDateStringWithSkeletonPattern(date, "MMM d");
     }
 
-    private static synchronized String getDateStringWithSkeletonPattern(@NonNull Instant instant, @NonNull String pattern) {
-        return getCachedDateTimeFormatter(android.text.format.DateFormat.getBestDateTimePattern(Locale.getDefault(), pattern), Locale.getDefault(), false).format(instant);
+    private static synchronized String getDateStringWithSkeletonPattern(@NonNull TemporalAccessor temporalAccessor, @NonNull String pattern) {
+        return getCachedDateTimeFormatter(android.text.format.DateFormat.getBestDateTimePattern(Locale.getDefault(), pattern), Locale.getDefault(), false).format(temporalAccessor);
     }
 
     private static synchronized String getDateStringWithSkeletonPattern(@NonNull Date date, @NonNull String pattern) {
@@ -133,9 +130,9 @@ public final class DateUtil {
         return dateFormat.format(date);
     }
 
-    public static String getShortDateString(@NonNull Instant instant) {
+    public static String getShortDateString(@NonNull TemporalAccessor temporalAccessor) {
         return DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM).withZone(ZoneOffset.UTC)
-                .format(instant);
+                .format(temporalAccessor);
     }
 
     public static UtcDate getUtcRequestDateFor(int age) {

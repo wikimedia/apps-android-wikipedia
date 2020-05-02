@@ -1,41 +1,33 @@
 package org.wikipedia.feed.model;
 
-import androidx.annotation.NonNull;
-
-import java.util.Calendar;
-
-import static java.util.TimeZone.getTimeZone;
+import org.threeten.bp.ZoneOffset;
+import org.threeten.bp.ZonedDateTime;
 
 public class UtcDate {
-    @NonNull private Calendar cal;
-    @NonNull private String year;
-    @NonNull private String month;
-    @NonNull private String date;
+    private final ZonedDateTime zonedDateTime;
+    private final String year;
+    private final String month;
+    private final String date;
 
     public UtcDate(int age) {
-        this.cal = Calendar.getInstance(getTimeZone("UTC"));
-        cal.add(Calendar.DATE, -age);
-        this.year = Integer.toString(cal.get(Calendar.YEAR));
-        this.month = pad(Integer.toString(cal.get(Calendar.MONTH) + 1));
-        this.date = pad(Integer.toString(cal.get(Calendar.DATE)));
+        this.zonedDateTime = ZonedDateTime.now(ZoneOffset.UTC).minusDays(age);
+        this.year = Integer.toString(zonedDateTime.getYear());
+        this.month = pad(Integer.toString(zonedDateTime.getMonthValue()));
+        this.date = pad(Integer.toString(zonedDateTime.getDayOfMonth()));
     }
 
-    @NonNull
-    public Calendar baseCalendar() {
-        return cal;
+    public ZonedDateTime baseZonedDateTime() {
+        return zonedDateTime;
     }
 
-    @NonNull
     public String year() {
         return year;
     }
 
-    @NonNull
     public String month() {
         return month;
     }
 
-    @NonNull
     public String date() {
         return date;
     }

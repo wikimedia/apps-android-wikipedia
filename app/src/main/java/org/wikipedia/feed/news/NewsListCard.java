@@ -10,7 +10,6 @@ import org.wikipedia.feed.model.UtcDate;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 public class NewsListCard extends ListCard<NewsItemCard> {
     @NonNull private UtcDate date;
@@ -37,6 +36,6 @@ public class NewsListCard extends ListCard<NewsItemCard> {
     }
 
     @Override protected int dismissHashCode() {
-        return (int) TimeUnit.MILLISECONDS.toDays(date.baseCalendar().getTime().getTime()) + wikiSite().hashCode();
+        return (int) date.baseZonedDateTime().toLocalDate().toEpochDay() + wikiSite().hashCode();
     }
 }
