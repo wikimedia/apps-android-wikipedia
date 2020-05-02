@@ -4,6 +4,7 @@ import android.content.Context;
 
 import androidx.annotation.NonNull;
 
+import org.apache.commons.collections4.CollectionUtils;
 import org.wikipedia.Constants;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
@@ -45,7 +46,7 @@ public class BecauseYouReadClient implements FeedClient {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .map(response -> response.getPages(Constants.SUGGESTION_REQUEST_ITEMS))
-                .subscribe(results -> FeedCoordinator.postCardsToCallback(cb, (results == null || results.size() == 0)
+                .subscribe(results -> FeedCoordinator.postCardsToCallback(cb, CollectionUtils.isEmpty(results)
                             ? Collections.emptyList() : Collections.singletonList(toBecauseYouReadCard(results, entry))),
                         cb::error));
     }
