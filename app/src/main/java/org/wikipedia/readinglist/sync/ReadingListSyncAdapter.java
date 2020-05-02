@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
+import org.threeten.bp.Instant;
 import org.wikipedia.BuildConfig;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -31,10 +32,8 @@ import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -567,12 +566,8 @@ public class ReadingListSyncAdapter extends AbstractThreadedSyncAdapter {
         if (TextUtils.isEmpty(lastDateHeader)) {
             return lastSyncTime;
         }
-        try {
-            Date date = DateUtil.getHttpLastModifiedDate(lastDateHeader);
-            return DateUtil.iso8601DateFormat(date);
-        } catch (ParseException e) {
-            return lastSyncTime;
-        }
+        final Instant instant = DateUtil.getHttpLastModifiedInstant(lastDateHeader);
+        return DateUtil.iso8601DateFormat(instant);
     }
 
     private void createOrUpdatePage(@NonNull ReadingList listForPage,

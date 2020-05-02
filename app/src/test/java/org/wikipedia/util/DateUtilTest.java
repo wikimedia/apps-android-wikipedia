@@ -17,12 +17,7 @@ public class DateUtilTest {
     }
 
     @Test
-    public void testIso8601DateFormat() throws Throwable {
-        assertThat(DateUtil.iso8601DateFormat(DateUtil.getHttpLastModifiedDate(HTTP_DATE_HEADER)), is("2017-05-25T21:13:47Z"));
-    }
-
-    @Test
-    public void testIso8601Identity() throws Throwable {
-        assertThat(DateUtil.iso8601DateFormat(DateUtil.iso8601DateParse("2017-05-25T21:13:47Z")), is("2017-05-25T21:13:47Z"));
+    public void testIso8601DateTimeFormatter() {
+        assertThat(DateUtil.iso8601DateFormat(DateUtil.getHttpLastModifiedInstant(HTTP_DATE_HEADER)), is("2017-05-25T21:13:47Z"));
     }
 }

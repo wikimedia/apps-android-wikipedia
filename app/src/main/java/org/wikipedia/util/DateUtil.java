@@ -3,9 +3,14 @@ package org.wikipedia.util;
 import android.content.Context;
 import android.icu.text.RelativeDateTimeFormatter;
 import android.os.Build;
+import android.util.ArrayMap;
 
 import androidx.annotation.NonNull;
 
+import org.threeten.bp.Instant;
+import org.threeten.bp.ZoneId;
+import org.threeten.bp.ZoneOffset;
+import org.threeten.bp.format.DateTimeFormatter;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.feed.model.UtcDate;
@@ -22,12 +27,11 @@ import java.util.Map;
 import java.util.TimeZone;
 
 public final class DateUtil {
-    private static Map<String, SimpleDateFormat> DATE_FORMATS = new HashMap<>();
+    private static final Map<String, SimpleDateFormat> DATE_FORMATS = new HashMap<>();
+    private static final Map<String, DateTimeFormatter> DATE_TIME_FORMATTERS = new ArrayMap<>();
 
-    // TODO: Switch to DateTimeFormatter when minSdk = 26.
-
-    public static synchronized String iso8601DateFormat(Date date) {
-        return getCachedDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.ROOT, true).format(date);
+    public static synchronized String iso8601DateFormat(Instant instant) {
+        return getCachedDateTimeFormatter("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.ROOT, true).format(instant);
     }
 
     public static synchronized Date iso8601DateParse(String date) throws ParseException {
@@ -86,6 +90,15 @@ public final class DateUtil {
         return getCachedDateFormat(android.text.format.DateFormat.getBestDateTimePattern(Locale.getDefault(), pattern), Locale.getDefault(), false).format(date);
     }
 
+    private static DateTimeFormatter getCachedDateTimeFormatter(String pattern, Locale locale, boolean utc) {
+        if (!DATE_TIME_FORMATTERS.containsKey(pattern)) {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern(pattern).withLocale(locale)
+                    .withZone(utc ? ZoneOffset.UTC : ZoneId.systemDefault());
+            DATE_TIME_FORMATTERS.put(pattern, formatter);
+        }
+        return DATE_TIME_FORMATTERS.get(pattern);
+    }
+
     private static SimpleDateFormat getCachedDateFormat(String pattern, Locale locale, boolean utc) {
         if (!DATE_FORMATS.containsKey(pattern)) {
             SimpleDateFormat df = new SimpleDateFormat(pattern, locale);
@@ -119,6 +132,11 @@ public final class DateUtil {
 
     public static synchronized Date getHttpLastModifiedDate(@NonNull String dateStr) throws ParseException {
         return getCachedDateFormat("EEE, dd MMM yyyy HH:mm:ss zzz", Locale.ENGLISH, true).parse(dateStr);
+    }
+
+    public static synchronized Instant getHttpLastModifiedInstant(@NonNull String dateStr) {
+        return Instant.from(getCachedDateTimeFormatter("EEE, dd MMM yyyy HH:mm:ss zzz",
+                Locale.ENGLISH, true).parse(dateStr));
     }
 
     public static synchronized String getHttpLastModifiedDate(@NonNull Date date) {
