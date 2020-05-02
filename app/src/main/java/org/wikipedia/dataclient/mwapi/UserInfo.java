@@ -6,10 +6,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.collection.ArraySet;
 
+import org.apache.commons.collections4.ListUtils;
 import org.wikipedia.util.DateUtil;
 
 import java.text.ParseException;
-import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
@@ -30,7 +30,7 @@ public class UserInfo {
     }
 
     @NonNull public Set<String> getGroups() {
-        return groups != null ? new ArraySet<>(groups) : Collections.emptySet();
+        return new ArraySet<>(ListUtils.emptyIfNull(groups));
     }
 
     public boolean isBlocked() {

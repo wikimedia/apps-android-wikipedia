@@ -6,9 +6,9 @@ import androidx.collection.ArraySet;
 
 import com.google.gson.annotations.SerializedName;
 
+import org.apache.commons.collections4.ListUtils;
 import org.apache.commons.lang3.StringUtils;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 
@@ -38,6 +38,6 @@ public class ListUserResponse {
     }
 
     @NonNull public Set<String> getGroups() {
-        return groups != null ? new ArraySet<>(groups) : Collections.emptySet();
+        return new ArraySet<>(ListUtils.emptyIfNull(groups));
     }
 }
