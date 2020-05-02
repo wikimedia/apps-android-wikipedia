@@ -8,6 +8,8 @@ import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 
 import org.threeten.bp.Instant;
+import org.threeten.bp.LocalDate;
+import org.threeten.bp.ZoneId;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.dataclient.ServiceFactory;
@@ -56,8 +58,9 @@ public class AnnouncementClient implements FeedClient {
     private static List<Card> buildCards(@NonNull List<Announcement> announcements) {
         List<Card> cards = new ArrayList<>();
         String country = GeoUtil.getGeoIPCountry();
+        final LocalDate now = LocalDate.now();
         for (Announcement announcement : announcements) {
-            if (shouldShow(announcement, country, Instant.now())) {
+            if (shouldShow(announcement, country, now)) {
                 switch (announcement.type()) {
                     case Announcement.SURVEY:
                         cards.add(new SurveyCard(announcement));
@@ -78,7 +81,7 @@ public class AnnouncementClient implements FeedClient {
 
     public static boolean shouldShow(@Nullable Announcement announcement,
                               @Nullable String country,
-                              @NonNull Instant date) {
+                              @NonNull LocalDate date) {
         return announcement != null
                 && (announcement.platforms().contains(PLATFORM_CODE) || announcement.platforms().contains(PLATFORM_CODE_NEW))
                 && matchesCountryCode(announcement, country)
@@ -98,14 +101,15 @@ public class AnnouncementClient implements FeedClient {
         return announcement.countries().contains(country);
     }
 
-    private static boolean matchesDate(@NonNull Announcement announcement, Instant date) {
+    private static boolean matchesDate(@NonNull Announcement announcement, LocalDate date) {
         if (Prefs.ignoreDateForAnnouncements()) {
             return true;
         }
-        if (announcement.startTime() != null && announcement.startTime().isAfter(date)) {
+        final Instant instant = date.atStartOfDay(ZoneId.systemDefault()).toInstant();
+        if (announcement.startTime() != null && announcement.startTime().isAfter(instant)) {
             return false;
         }
-        return announcement.endTime() == null || !announcement.endTime().isBefore(date);
+        return announcement.endTime() == null || !announcement.endTime().isBefore(instant);
     }
 
     private static boolean matchesConditions(@NonNull Announcement announcement) {

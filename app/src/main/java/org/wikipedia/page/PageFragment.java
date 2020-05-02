@@ -40,6 +40,7 @@ import com.google.gson.JsonObject;
 
 import org.apache.commons.lang3.StringUtils;
 import org.threeten.bp.Instant;
+import org.threeten.bp.LocalDate;
 import org.wikipedia.BackPressedHandler;
 import org.wikipedia.Constants;
 import org.wikipedia.Constants.InvokeSource;
@@ -1376,7 +1377,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(list -> {
                         String country = GeoUtil.getGeoIPCountry();
-                        Instant now = Instant.now();
+                        final LocalDate now = LocalDate.now();
                         for (Announcement announcement : list.items()) {
                             if (shouldShow(announcement, country, now)
                                     && announcement.placement().equals(PLACEMENT_ARTICLE)

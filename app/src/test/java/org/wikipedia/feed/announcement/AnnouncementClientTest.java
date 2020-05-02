@@ -4,13 +4,11 @@ import com.google.gson.stream.MalformedJsonException;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.threeten.bp.Instant;
+import org.threeten.bp.LocalDate;
 import org.threeten.bp.format.DateTimeFormatter;
 import org.wikipedia.json.GsonUnmarshaller;
 import org.wikipedia.test.MockRetrofitTest;
 import org.wikipedia.test.TestFileUtil;
-
-import java.util.Locale;
 
 import io.reactivex.Observable;
 import io.reactivex.observers.TestObserver;
@@ -29,7 +27,7 @@ public class AnnouncementClientTest extends MockRetrofitTest {
     private static final int ANNOUNCEMENT_BETA_WITH_VERSION = 6;
     private static final int ANNOUNCEMENT_FOR_OLD_VERSION = 7;
     private AnnouncementList announcementList;
-    private DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd", Locale.ROOT);
+    private DateTimeFormatter dateFormatter = DateTimeFormatter.ISO_LOCAL_DATE;
 
     private static final String ANNOUNCEMENT_JSON_FILE = "announce_2016_11_21.json";
 
@@ -74,25 +72,25 @@ public class AnnouncementClientTest extends MockRetrofitTest {
         assertThat(announcement.hasImageUrl(), is(true));
     }
 
-    @Test public void testShouldShowByCountry() throws Throwable {
+    @Test public void testShouldShowByCountry() {
         Announcement announcement = announcementList.items().get(ANNOUNCEMENT_SURVEY_ANDROID);
-        Instant dateDuring = Instant.from(dateFormatter.parse("2016-11-20"));
+        LocalDate dateDuring = LocalDate.from(dateFormatter.parse("2016-11-20"));
         assertThat(AnnouncementClient.shouldShow(announcement, "US", dateDuring), is(true));
         assertThat(AnnouncementClient.shouldShow(announcement, "FI", dateDuring), is(false));
         assertThat(AnnouncementClient.shouldShow(announcement, null, dateDuring), is(false));
     }
 
-    @Test public void testShouldShowByDate() throws Throwable {
+    @Test public void testShouldShowByDate() {
         Announcement announcement = announcementList.items().get(ANNOUNCEMENT_SURVEY_ANDROID);
-        Instant dateBefore = Instant.from(dateFormatter.parse("2016-08-01"));
-        Instant dateAfter = Instant.from(dateFormatter.parse("2017-01-05"));
+        LocalDate dateBefore = LocalDate.from(dateFormatter.parse("2016-08-01"));
+        LocalDate dateAfter = LocalDate.from(dateFormatter.parse("2017-01-05"));
         assertThat(AnnouncementClient.shouldShow(announcement, "US", dateBefore), is(false));
         assertThat(AnnouncementClient.shouldShow(announcement, "US", dateAfter), is(false));
     }
 
-    @Test public void testShouldShowByPlatform() throws Throwable {
+    @Test public void testShouldShowByPlatform() {
         Announcement announcementIOS = announcementList.items().get(ANNOUNCEMENT_IOS);
-        Instant dateDuring = Instant.from(dateFormatter.parse("2016-11-20"));
+        LocalDate dateDuring = LocalDate.from(dateFormatter.parse("2016-11-20"));
         assertThat(AnnouncementClient.shouldShow(announcementIOS, "US", dateDuring), is(false));
     }
 
@@ -101,23 +99,23 @@ public class AnnouncementClientTest extends MockRetrofitTest {
         assertThat(announcementList.items().get(ANNOUNCEMENT_NO_DATES), is(nullValue()));
     }
 
-    @Test public void testShouldShowForInvalidCountries() throws Throwable {
+    @Test public void testShouldShowForInvalidCountries() {
         Announcement announcement = announcementList.items().get(ANNOUNCEMENT_NO_COUNTRIES);
-        Instant dateDuring = Instant.from(dateFormatter.parse("2016-11-20"));
+        LocalDate dateDuring = LocalDate.from(dateFormatter.parse("2016-11-20"));
         assertThat(AnnouncementClient.shouldShow(announcement, "US", dateDuring), is(false));
         assertThat(AnnouncementClient.shouldShow(announcement, "FI", dateDuring), is(false));
         assertThat(AnnouncementClient.shouldShow(announcement, "", dateDuring), is(false));
     }
 
-    @Test public void testBetaWithVersion() throws Throwable {
+    @Test public void testBetaWithVersion() {
         Announcement announcement = announcementList.items().get(ANNOUNCEMENT_BETA_WITH_VERSION);
-        Instant dateDuring = Instant.from(dateFormatter.parse("2016-11-20"));
+        LocalDate dateDuring = LocalDate.from(dateFormatter.parse("2016-11-20"));
         assertThat(AnnouncementClient.shouldShow(announcement, "US", dateDuring), is(true));
     }
 
-    @Test public void testForOldVersion() throws Throwable {
+    @Test public void testForOldVersion() {
         Announcement announcement = announcementList.items().get(ANNOUNCEMENT_FOR_OLD_VERSION);
-        Instant dateDuring = Instant.from(dateFormatter.parse("2016-11-20"));
+        LocalDate dateDuring = LocalDate.from(dateFormatter.parse("2016-11-20"));
         assertThat(AnnouncementClient.shouldShow(announcement, "US", dateDuring), is(false));
     }
 
