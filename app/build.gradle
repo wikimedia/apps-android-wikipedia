@@ -203,6 +203,7 @@ dependencies {
     implementation "com.jakewharton:butterknife:$butterknifeVersion"
     implementation 'com.microsoft.appcenter:appcenter-crashes:3.1.0'
     implementation 'org.apache.commons:commons-lang3:3.9'
+    implementation 'org.apache.commons:commons-collections4:4.4'
     implementation 'org.jsoup:jsoup:1.12.1'
     implementation 'com.github.chrisbanes:PhotoView:2.3.0'
 
