@@ -24,6 +24,10 @@ import io.reactivex.Completable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
+import static org.apache.commons.collections4.CollectionUtils.isEmpty;
+import static org.apache.commons.collections4.CollectionUtils.isNotEmpty;
+import static org.apache.commons.collections4.CollectionUtils.size;
+
 public class ReadingListBookmarkMenu {
     public interface Callback {
         void onAddRequest(@Nullable ReadingListPage page);
@@ -73,7 +77,7 @@ public class ReadingListBookmarkMenu {
         menu.getMenuInflater().inflate(menuRes, menu.getMenu());
         menu.setOnMenuItemClickListener(new PageSaveMenuClickListener());
 
-        if (listsContainingPage.size() == 1) {
+        if (size(listsContainingPage) == 1) {
             MenuItem removeItem = menu.getMenu().findItem(R.id.menu_remove_from_lists);
             removeItem.setTitle(context.getString(R.string.reading_list_remove_from_list, listsContainingPage.get(0).title()));
         }
@@ -82,16 +86,16 @@ public class ReadingListBookmarkMenu {
             menu.setGravity(Gravity.END);
 
             MenuItem addToOtherItem = menu.getMenu().findItem(R.id.menu_add_to_other_list);
-            addToOtherItem.setVisible(listsContainingPage.size() > 0);
-            addToOtherItem.setEnabled(listsContainingPage.size() > 0);
+            addToOtherItem.setVisible(isNotEmpty(listsContainingPage));
+            addToOtherItem.setEnabled(isNotEmpty(listsContainingPage));
 
             MenuItem removeItem = menu.getMenu().findItem(R.id.menu_remove_from_lists);
-            removeItem.setVisible(listsContainingPage.size() > 0);
-            removeItem.setEnabled(listsContainingPage.size() > 0);
+            removeItem.setVisible(isNotEmpty(listsContainingPage));
+            removeItem.setEnabled(isNotEmpty(listsContainingPage));
 
             MenuItem saveItem = menu.getMenu().findItem(R.id.menu_feed_card_item_save);
-            saveItem.setVisible(listsContainingPage.size() == 0);
-            saveItem.setEnabled(listsContainingPage.size() == 0);
+            saveItem.setVisible(isEmpty(listsContainingPage));
+            saveItem.setEnabled(isEmpty(listsContainingPage));
         }
 
         menu.show();
@@ -109,7 +113,7 @@ public class ReadingListBookmarkMenu {
     }
 
     private boolean isListsContainingPageEmpty() {
-        return listsContainingPage == null || listsContainingPage.isEmpty();
+        return isEmpty(listsContainingPage);
     }
 
     private class PageSaveMenuClickListener implements PopupMenu.OnMenuItemClickListener {
