@@ -1,28 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/paper_color"
     android:orientation="vertical">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        app:cardCornerRadius="12dp">
+        android:layout_height="wrap_content">
 
-        <Spinner
-            android:id="@+id/suggestedEditsTypesSpinner"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:clickable="true"
-            android:dropDownSelector="@color/accent20"
-            android:focusable="true" />
-    </androidx.cardview.widget.CardView>
+        <org.wikipedia.suggestededits.SuggestedEditsTypeItem
+            android:id="@+id/allTypesView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"
+            android:layout_weight="0.5" />
+
+        <org.wikipedia.suggestededits.SuggestedEditsTypeItem
+            android:id="@+id/articleDescriptionView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="12dp"
+            android:layout_weight="0.5" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <org.wikipedia.suggestededits.SuggestedEditsTypeItem
+            android:id="@+id/imageCaptionsView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="12dp"
+            android:layout_weight="0.5" />
+
+        <org.wikipedia.suggestededits.SuggestedEditsTypeItem
+            android:id="@+id/imageTagsView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="12dp"
+            android:layout_weight="0.5" />
+    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/contributionsRecyclerView"
