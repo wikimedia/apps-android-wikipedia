@@ -17,6 +17,7 @@ import androidx.annotation.Nullable;
 import androidx.collection.LruCache;
 import androidx.fragment.app.Fragment;
 
+import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.Constants.InvokeSource;
 import org.wikipedia.LongPressHandler;
@@ -170,7 +171,7 @@ public class SearchResultsFragment extends Fragment {
         }
 
         List<SearchResult> cacheResult = searchResultsCache.get(getSearchLanguageCode() + "-" + term);
-        if (cacheResult != null && !cacheResult.isEmpty()) {
+        if (CollectionUtils.isNotEmpty(cacheResult)) {
             clearResults();
             displayResults(cacheResult);
             return;
