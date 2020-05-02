@@ -5,6 +5,8 @@ import androidx.annotation.Nullable;
 
 import com.google.gson.annotations.SerializedName;
 
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.collections4.ListUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.Serializable;
@@ -96,11 +98,11 @@ public class ImageInfo implements Serializable {
     }
 
     @NonNull public List<Derivative> getDerivatives() {
-        return derivatives != null ? derivatives : Collections.emptyList();
+        return ListUtils.emptyIfNull(derivatives);
     }
 
     @Nullable public Derivative getBestDerivative() {
-        if (derivatives == null || derivatives.size() == 0) {
+        if (CollectionUtils.isEmpty(derivatives)) {
             return null;
         }
         // TODO: make this smarter.
