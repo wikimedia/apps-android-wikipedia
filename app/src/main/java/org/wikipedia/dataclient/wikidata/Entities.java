@@ -3,11 +3,11 @@ package org.wikipedia.dataclient.wikidata;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import org.apache.commons.collections4.MapUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.dataclient.mwapi.MwResponse;
 import org.wikipedia.json.PostProcessingTypeAdapter;
 
-import java.util.Collections;
 import java.util.Map;
 
 @SuppressWarnings("unused")
@@ -16,7 +16,7 @@ public class Entities extends MwResponse implements PostProcessingTypeAdapter.Po
     private int success;
 
     @NonNull public Map<String, Entity> entities() {
-        return entities != null ? entities : Collections.emptyMap();
+        return MapUtils.emptyIfNull(entities);
     }
 
     @Nullable public Entity getFirst() {
@@ -47,15 +47,15 @@ public class Entities extends MwResponse implements PostProcessingTypeAdapter.Po
         }
 
         @NonNull public Map<String, Label> labels() {
-            return labels != null ? labels : Collections.emptyMap();
+            return MapUtils.emptyIfNull(labels);
         }
 
         @NonNull public Map<String, Label> descriptions() {
-            return descriptions != null ? descriptions : Collections.emptyMap();
+            return MapUtils.emptyIfNull(descriptions);
         }
 
         @NonNull public Map<String, SiteLink> sitelinks() {
-            return sitelinks != null ? sitelinks : Collections.emptyMap();
+            return MapUtils.emptyIfNull(sitelinks);
         }
 
         public boolean isMissing() {
