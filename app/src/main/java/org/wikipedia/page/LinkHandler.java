@@ -9,6 +9,7 @@ import androidx.annotation.Nullable;
 
 import com.google.gson.JsonObject;
 
+import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.util.UriUtil;
@@ -66,7 +67,7 @@ public abstract class LinkHandler implements CommunicationBridge.JSEventListener
 
         Uri uri = Uri.parse(href);
 
-        if (!TextUtils.isEmpty(uri.getFragment()) && uri.getFragment().contains("cite")) {
+        if (StringUtils.contains(uri.getFragment(), "cite")) {
             onPageLinkClicked(uri.getFragment(), linkText);
             return;
         }
@@ -93,8 +94,8 @@ public abstract class LinkHandler implements CommunicationBridge.JSEventListener
         }
 
         L.d("Link clicked was " + uri.toString());
-        if (!TextUtils.isEmpty(uri.getPath()) && WikiSite.supportedAuthority(uri.getAuthority())
-                && (uri.getPath().startsWith("/wiki/") || uri.getPath().startsWith("/zh-"))) {
+        if (StringUtils.startsWithAny(uri.getPath(), "/wiki/", "/zh-")
+                && WikiSite.supportedAuthority(uri.getAuthority())) {
             WikiSite site = new WikiSite(uri);
             if (site.subdomain().equals(getWikiSite().subdomain())
                     && !site.languageCode().equals(getWikiSite().languageCode())) {
@@ -109,8 +110,8 @@ public abstract class LinkHandler implements CommunicationBridge.JSEventListener
             } else {
                 onInternalLinkClicked(title);
             }
-        } else if (!TextUtils.isEmpty(uri.getAuthority()) && WikiSite.supportedAuthority(uri.getAuthority())
-                && !TextUtils.isEmpty(uri.getFragment())) {
+        } else if (!StringUtils.isAnyEmpty(uri.getAuthority(), uri.getFragment())
+                && WikiSite.supportedAuthority(uri.getAuthority())) {
             onPageLinkClicked(uri.getFragment(), linkText);
         } else {
             onExternalLinkClicked(uri);

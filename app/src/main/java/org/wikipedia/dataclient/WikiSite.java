@@ -64,7 +64,7 @@ public class WikiSite implements Parcelable {
     }
 
     public static void setDefaultBaseUrl(@NonNull String url) {
-        DEFAULT_BASE_URL = TextUtils.isEmpty(url) ? Service.WIKIPEDIA_URL : url;
+        DEFAULT_BASE_URL = StringUtils.defaultIfEmpty(url, Service.WIKIPEDIA_URL);
     }
 
     public static WikiSite forLanguageCode(@NonNull String languageCode) {
@@ -77,8 +77,8 @@ public class WikiSite implements Parcelable {
     public WikiSite(@NonNull Uri uri) {
         Uri tempUri = ensureScheme(uri);
         String authority = StringUtils.defaultString(tempUri.getAuthority());
-        if (("wikipedia.org".equals(authority) || "www.wikipedia.org".equals(authority))
-                && tempUri.getPath() != null && tempUri.getPath().startsWith("/wiki")) {
+        if (StringUtils.equalsAny(authority, "wikipedia.org", "www.wikipedia.org")
+                && StringUtils.startsWith(tempUri.getPath(), "/wiki")) {
             // Special case for Wikipedia only: assume English subdomain when none given.
             authority = "en.wikipedia.org";
         }
@@ -114,7 +114,7 @@ public class WikiSite implements Parcelable {
 
     @NonNull
     public String scheme() {
-        return TextUtils.isEmpty(uri.getScheme()) ? DEFAULT_SCHEME : uri.getScheme();
+        return StringUtils.defaultString(uri.getScheme(), DEFAULT_SCHEME);
     }
 
     /**

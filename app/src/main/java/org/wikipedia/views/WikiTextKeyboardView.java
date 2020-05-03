@@ -11,6 +11,7 @@ import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.R;
 
 import butterknife.BindView;
@@ -117,12 +118,12 @@ public class WikiTextKeyboardView extends FrameLayout {
         }
         @Nullable String title = null;
         CharSequence selection = editText.getInputConnection().getSelectedText(0);
-        if (selection != null && selection.length() > 0 && !selection.toString().contains("[[")) {
+        if (!TextUtils.isEmpty(selection) && !selection.toString().contains("[[")) {
             title = trimPunctuation(selection.toString());
         } else {
             String before;
             String after;
-            if (selection != null && selection.length() > 1) {
+            if (StringUtils.length(selection) > 1) {
                 String selectionStr = selection.toString();
                 before = selectionStr.substring(0, selectionStr.length() / 2);
                 after = selectionStr.substring(selectionStr.length() / 2);
@@ -156,7 +157,7 @@ public class WikiTextKeyboardView extends FrameLayout {
         if (editText.getSelectionStart() == editText.getSelectionEnd()) {
             CharSequence before = ic.getTextBeforeCursor(prefix.length(), 0);
             CharSequence after = ic.getTextAfterCursor(suffix.length(), 0);
-            if (before != null && before.toString().equals(prefix) && after != null && after.toString().equals(suffix)) {
+            if (StringUtils.equals(before, prefix) && StringUtils.equals(after, suffix)) {
                 // the cursor is actually inside the exact syntax, so negate it.
                 ic.deleteSurroundingText(prefix.length(), suffix.length());
             } else {
@@ -197,10 +198,10 @@ public class WikiTextKeyboardView extends FrameLayout {
     }
 
     private String trimPunctuation(@NonNull String str) {
-        while (str.startsWith(".") || str.startsWith(",") || str.startsWith(";") || str.startsWith("?") || str.startsWith("!")) {
+        while (StringUtils.startsWithAny(str, ".", ",", ";", "?", "!")) {
             str = str.substring(1);
         }
-        while (str.endsWith(".") || str.endsWith(",") || str.endsWith(";") || str.endsWith("?") || str.endsWith("!")) {
+        while (StringUtils.endsWithAny(str, ".", ",", ";", "?", "!")) {
             str = str.substring(0, str.length() - 1);
         }
         return str;
