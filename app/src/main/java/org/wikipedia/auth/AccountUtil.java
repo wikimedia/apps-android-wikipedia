@@ -12,6 +12,7 @@ import androidx.annotation.Nullable;
 
 import com.google.gson.reflect.TypeToken;
 
+import org.apache.commons.collections4.MapUtils;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.json.GsonMarshaller;
@@ -64,9 +65,7 @@ public final class AccountUtil {
     }
 
     public static int getUserIdForLanguage(@NonNull String code) {
-        Map<String, Integer> map = getUserIds();
-        Integer id = map.get(code);
-        return id == null ? 0 : id;
+        return MapUtils.getIntValue(getUserIds(), code);
     }
 
     public static void putUserIdForLanguage(@NonNull String code, int id) {
