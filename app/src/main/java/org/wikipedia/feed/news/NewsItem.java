@@ -5,6 +5,7 @@ import android.net.Uri;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import org.apache.commons.collections4.ListUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.page.PageSummary;
@@ -27,7 +28,7 @@ public final class NewsItem {
     }
 
     @NonNull public List<PageSummary> links() {
-        return links != null ? links : Collections.emptyList();
+        return ListUtils.emptyIfNull(links);
     }
 
     @NonNull List<NewsLinkCard> linkCards(WikiSite wiki) {

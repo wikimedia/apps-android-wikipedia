@@ -3,6 +3,7 @@ package org.wikipedia.feed.onthisday;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import org.apache.commons.collections4.ListUtils;
 import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.json.annotations.Required;
 import org.wikipedia.util.StringUtil;
@@ -21,7 +22,7 @@ public class OnThisDay {
     @SuppressWarnings("unused") @Nullable private List<Event> holidays;
 
     @NonNull public List<Event> selectedEvents() {
-        return selected != null ? selected : Collections.emptyList();
+        return ListUtils.emptyIfNull(selected);
     }
 
     @NonNull public List<Event> events() {

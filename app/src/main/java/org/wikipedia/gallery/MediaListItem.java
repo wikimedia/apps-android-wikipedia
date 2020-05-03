@@ -5,12 +5,12 @@ import androidx.annotation.Nullable;
 
 import com.google.gson.annotations.SerializedName;
 
+import org.apache.commons.collections4.ListUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
 
 import java.io.Serializable;
-import java.util.Collections;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -52,7 +52,7 @@ public class MediaListItem implements Serializable {
 
     @NonNull
     public List<ImageSrcSet> getSrcSets() {
-        return srcSets != null ? srcSets : Collections.emptyList();
+        return ListUtils.emptyIfNull(srcSets);
     }
 
     @NonNull
