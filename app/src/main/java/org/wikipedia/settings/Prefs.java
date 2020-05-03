@@ -5,6 +5,8 @@ import androidx.annotation.Nullable;
 
 import com.google.gson.reflect.TypeToken;
 
+import org.apache.commons.collections4.ListUtils;
+import org.apache.commons.collections4.MapUtils;
 import org.wikipedia.BuildConfig;
 import org.wikipedia.R;
 import org.wikipedia.analytics.SessionData;
@@ -510,7 +512,7 @@ public final class Prefs {
         //noinspection unchecked
         List<Boolean> enabledList = GsonUnmarshaller.unmarshal(new TypeToken<ArrayList<Boolean>>(){},
                 getString(R.string.preference_key_feed_cards_enabled, null));
-        return enabledList != null ? enabledList : Collections.emptyList();
+        return ListUtils.emptyIfNull(enabledList);
     }
 
     public static void setFeedCardsEnabled(@NonNull List<Boolean> enabledList) {
@@ -524,7 +526,7 @@ public final class Prefs {
         //noinspection unchecked
         List<Integer> orderList = GsonUnmarshaller.unmarshal(new TypeToken<ArrayList<Integer>>(){},
                 getString(R.string.preference_key_feed_cards_order, null));
-        return orderList != null ? orderList : Collections.emptyList();
+        return ListUtils.emptyIfNull(orderList);
     }
 
     public static void setFeedCardsOrder(@NonNull List<Integer> orderList) {
@@ -538,7 +540,7 @@ public final class Prefs {
         //noinspection unchecked
         Map<Integer, List<String>> map = GsonUnmarshaller.unmarshal(new TypeToken<Map<Integer, List<String>>>(){},
                 getString(R.string.preference_key_feed_cards_lang_supported, null));
-        return map != null ? map : Collections.emptyMap();
+        return MapUtils.emptyIfNull(map);
     }
 
     public static void setFeedCardsLangSupported(@NonNull Map<Integer, List<String>> langSupportedMap) {
@@ -552,7 +554,7 @@ public final class Prefs {
         //noinspection unchecked
         Map<Integer, List<String>> map = GsonUnmarshaller.unmarshal(new TypeToken<Map<Integer, List<String>>>(){},
                 getString(R.string.preference_key_feed_cards_lang_disabled, null));
-        return map != null ? map : Collections.emptyMap();
+        return MapUtils.emptyIfNull(map);
     }
 
     public static void setFeedCardsLangDisabled(@NonNull Map<Integer, List<String>> langDisabledMap) {
