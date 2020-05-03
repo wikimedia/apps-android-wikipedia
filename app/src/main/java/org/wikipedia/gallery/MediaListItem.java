@@ -6,6 +6,7 @@ import androidx.annotation.Nullable;
 import com.google.gson.annotations.SerializedName;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.math.NumberUtils;
 import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
 
@@ -100,7 +101,7 @@ public class MediaListItem implements Serializable {
         }
 
         public float getScale() {
-            return scale == null ? 0 : Float.parseFloat(scale.replace("x", ""));
+            return NumberUtils.toFloat(StringUtils.remove(scale, 'x'));
         }
     }
 }
