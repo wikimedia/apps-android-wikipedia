@@ -5,11 +5,11 @@ import androidx.annotation.Nullable;
 
 import com.google.gson.annotations.SerializedName;
 
+import org.apache.commons.collections4.ListUtils;
 import org.wikipedia.page.Namespace;
 import org.wikipedia.page.Section;
 import org.wikipedia.util.UriUtil;
 
-import java.util.Collections;
 import java.util.List;
 
 import static org.wikipedia.dataclient.Service.PREFERRED_THUMB_SIZE;
@@ -119,7 +119,7 @@ public class PageLead {
     }
 
     @NonNull public List<Section> getSections() {
-        return sections == null ? Collections.emptyList() : sections;
+        return ListUtils.emptyIfNull(sections);
     }
 
     /**

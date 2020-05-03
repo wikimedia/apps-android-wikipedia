@@ -4,7 +4,8 @@ import androidx.annotation.NonNull;
 
 import com.google.gson.annotations.SerializedName;
 
-import java.util.Collections;
+import org.apache.commons.collections4.ListUtils;
+
 import java.util.List;
 
 @SuppressWarnings("unused")
@@ -16,22 +17,22 @@ public class FeedAvailability {
     @SerializedName("on_this_day") private List<String> onThisDay;
 
     @NonNull public List<String> featuredArticle() {
-        return featuredArticle != null ? featuredArticle : Collections.emptyList();
+        return ListUtils.emptyIfNull(featuredArticle);
     }
 
     @NonNull public List<String> mostRead() {
-        return mostRead != null ? mostRead : Collections.emptyList();
+        return ListUtils.emptyIfNull(mostRead);
     }
 
     @NonNull public List<String> featuredPicture() {
-        return featuredPicture != null ? featuredPicture : Collections.emptyList();
+        return ListUtils.emptyIfNull(featuredPicture);
     }
 
     @NonNull public List<String> news() {
-        return news != null ? news : Collections.emptyList();
+        return ListUtils.emptyIfNull(news);
     }
 
     @NonNull public List<String> onThisDay() {
-        return onThisDay != null ? onThisDay : Collections.emptyList();
+        return ListUtils.emptyIfNull(onThisDay);
     }
 }

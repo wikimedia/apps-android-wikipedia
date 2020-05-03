@@ -4,9 +4,9 @@ import androidx.annotation.Nullable;
 
 import com.google.gson.annotations.SerializedName;
 
+import org.apache.commons.collections4.ListUtils;
 import org.apache.commons.lang3.StringUtils;
 
-import java.util.Collections;
 import java.util.List;
 
 @SuppressWarnings("unused")
@@ -41,7 +41,7 @@ public class DiffResponse {
     private List<DiffItem> diff;
 
     public List<DiffItem> getDiffs() {
-        return diff != null ? diff : Collections.emptyList();
+        return ListUtils.emptyIfNull(diff);
     }
 
     public static class DiffItem {
@@ -60,7 +60,7 @@ public class DiffResponse {
         }
 
         public List<HighlightRange> getHighlightRanges() {
-            return highlightRanges != null ? highlightRanges : Collections.emptyList();
+            return ListUtils.emptyIfNull(highlightRanges);
         }
     }
 

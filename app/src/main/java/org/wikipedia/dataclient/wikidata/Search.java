@@ -3,10 +3,10 @@ package org.wikipedia.dataclient.wikidata;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import org.apache.commons.collections4.ListUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.dataclient.mwapi.MwResponse;
 
-import java.util.Collections;
 import java.util.List;
 
 @SuppressWarnings("unused")
@@ -15,7 +15,7 @@ public class Search extends MwResponse {
     private int success;
 
     @NonNull public List<SearchResult> results() {
-        return search != null ? search : Collections.emptyList();
+        return ListUtils.emptyIfNull(search);
     }
 
     public static class SearchResult {
