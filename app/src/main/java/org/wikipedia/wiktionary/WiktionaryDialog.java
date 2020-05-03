@@ -12,6 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import org.apache.commons.lang3.ArrayUtils;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
@@ -143,7 +144,7 @@ public class WiktionaryDialog extends ExtendedBottomSheetDialogFragment {
         LinearLayout fullDefinitionsList = rootView.findViewById(R.id.wiktionary_definitions_by_part_of_speech);
 
         RbDefinition.Usage[] usageList = currentDefinition.getUsagesForLang("en");
-        if (usageList == null || usageList.length == 0) {
+        if (ArrayUtils.isEmpty(usageList)) {
             displayNoDefinitionsFound();
             return;
         }
