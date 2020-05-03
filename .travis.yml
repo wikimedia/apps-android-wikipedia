@@ -1,12 +1,11 @@
 language: android
 jdk:
-- oraclejdk8
-dist: trusty
+- oraclejdk9
+dist: xenial
 android:
   components:
   - platform-tools
   - tools
-  - build-tools-28.0.3
   - build-tools-29.0.2
   - android-29
 before_script:
