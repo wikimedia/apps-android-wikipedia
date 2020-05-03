@@ -57,6 +57,9 @@ public class StringUtilTest {
 
     @Test
     public void testStrip() {
+        assertThat(StringUtil.strip(null), is(""));
+        assertThat(StringUtil.strip(""), is(""));
+        assertThat(StringUtil.strip("    "), is(""));
         assertThat(StringUtil.strip("test"), is("test"));
         assertThat(StringUtil.strip(" test  "), is("test"));
     }

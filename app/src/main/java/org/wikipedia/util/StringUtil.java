@@ -85,22 +85,7 @@ public final class StringUtil {
      * @return The trimmed CharSequence.
      */
     @NonNull public static CharSequence strip(@Nullable CharSequence str) {
-        if (TextUtils.isEmpty(str)) {
-            return "";
-        }
-        int len = str.length();
-        int start = 0;
-        int end = len - 1;
-        while (start < len && Character.isWhitespace(str.charAt(start))) {
-            start++;
-        }
-        while (end > 0 && Character.isWhitespace(str.charAt(end))) {
-            end--;
-        }
-        if (end > start) {
-            return str.subSequence(start, end + 1);
-        }
-        return "";
+        return TextUtils.isEmpty(str) ? "" : StringUtils.strip(str.toString());
     }
 
     @NonNull
