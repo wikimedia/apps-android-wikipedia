@@ -7,12 +7,12 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.annotations.SerializedName;
 
+import org.apache.commons.collections4.MapUtils;
 import org.wikipedia.json.GsonUtil;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DateUtil;
 
 import java.text.ParseException;
-import java.util.Collections;
 import java.util.Date;
 import java.util.Map;
 
@@ -28,7 +28,7 @@ public class EditorTaskCounts {
         if (counts != null && !(counts instanceof JsonArray)) {
             editsPerLanguage = GsonUtil.getDefaultGson().fromJson(counts, Counts.class).appDescriptionEdits;
         }
-        return editsPerLanguage == null ? Collections.emptyMap() : editsPerLanguage;
+        return MapUtils.emptyIfNull(editsPerLanguage);
     }
 
     @NonNull
@@ -37,7 +37,7 @@ public class EditorTaskCounts {
         if (counts != null && !(counts instanceof JsonArray)) {
             editsPerLanguage = GsonUtil.getDefaultGson().fromJson(counts, Counts.class).appCaptionEdits;
         }
-        return editsPerLanguage == null ? Collections.emptyMap() : editsPerLanguage;
+        return MapUtils.emptyIfNull(editsPerLanguage);
     }
 
     private int getTotalDepictsEdits() {
@@ -45,7 +45,7 @@ public class EditorTaskCounts {
         if (counts != null && !(counts instanceof JsonArray)) {
             editsPerLanguage = GsonUtil.getDefaultGson().fromJson(counts, Counts.class).appDepictsEdits;
         }
-        return editsPerLanguage == null ? 0 : editsPerLanguage.get("*") == null ? 0 : editsPerLanguage.get("*");
+        return MapUtils.getIntValue(editsPerLanguage, "*");
     }
 
     public int getTotalEdits() {
@@ -69,7 +69,7 @@ public class EditorTaskCounts {
         if (revertCounts != null && !(revertCounts instanceof JsonArray)) {
             revertsPerLanguage = GsonUtil.getDefaultGson().fromJson(revertCounts, Counts.class).appDescriptionEdits;
         }
-        return revertsPerLanguage == null ? Collections.emptyMap() : revertsPerLanguage;
+        return MapUtils.emptyIfNull(revertsPerLanguage);
     }
 
     @NonNull
@@ -78,7 +78,7 @@ public class EditorTaskCounts {
         if (revertCounts != null && !(revertCounts instanceof JsonArray)) {
             revertsPerLanguage = GsonUtil.getDefaultGson().fromJson(revertCounts, Counts.class).appCaptionEdits;
         }
-        return revertsPerLanguage == null ? Collections.emptyMap() : revertsPerLanguage;
+        return MapUtils.emptyIfNull(revertsPerLanguage);
     }
 
     private int getTotalDepictsReverts() {
@@ -86,7 +86,7 @@ public class EditorTaskCounts {
         if (revertCounts != null && !(revertCounts instanceof JsonArray)) {
             revertsPerLanguage = GsonUtil.getDefaultGson().fromJson(revertCounts, Counts.class).appDepictsEdits;
         }
-        return revertsPerLanguage == null ? 0 : revertsPerLanguage.get("*") == null ? 0 : revertsPerLanguage.get("*");
+        return MapUtils.getIntValue(revertsPerLanguage, "*");
     }
 
     public int getTotalReverts() {
