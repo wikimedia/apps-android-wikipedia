@@ -5,6 +5,8 @@ import android.os.Parcelable;
 
 import androidx.annotation.Nullable;
 
+import org.apache.commons.lang3.StringUtils;
+
 class EditAbuseFilterResult extends EditResult {
     static final int TYPE_WARNING = 1;
     static final int TYPE_ERROR = 2;
@@ -47,11 +49,11 @@ class EditAbuseFilterResult extends EditResult {
     }
 
     public int getType() {
-        if (code != null && code.startsWith("abusefilter-warning")) {
+        if (StringUtils.startsWith(code, "abusefilter-warning")) {
             return TYPE_WARNING;
-        } else if (code != null && code.startsWith("abusefilter-disallowed")) {
+        } else if (StringUtils.startsWith(code, "abusefilter-disallowed")) {
             return TYPE_ERROR;
-        } else if (info != null && info.startsWith("Hit AbuseFilter")) {
+        } else if (StringUtils.startsWith(code, "Hit AbuseFilter")) {
             // This case is here because, unfortunately, an admin can create an abuse filter which
             // emits an arbitrary error code over the API.
             // TODO: More properly handle the case where the AbuseFilter throws an arbitrary error.

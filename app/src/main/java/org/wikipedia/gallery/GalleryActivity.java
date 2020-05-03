@@ -467,7 +467,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
             Uri uri = Uri.parse(url);
             String authority = uri.getAuthority();
             if (authority != null && WikiSite.supportedAuthority(authority)
-                && uri.getPath() != null && uri.getPath().startsWith("/wiki/")) {
+                && StringUtils.startsWith(uri.getPath(), "/wiki/")) {
                 PageTitle title = new WikiSite(uri).titleForUri(uri);
                 showLinkPreview(title);
             } else {
