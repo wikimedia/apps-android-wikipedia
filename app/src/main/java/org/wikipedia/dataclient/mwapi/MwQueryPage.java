@@ -5,6 +5,8 @@ import androidx.annotation.Nullable;
 
 import com.google.gson.annotations.SerializedName;
 
+import org.apache.commons.collections4.ListUtils;
+import org.apache.commons.collections4.MapUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.gallery.ImageInfo;
 import org.wikipedia.model.BaseModel;
@@ -134,15 +136,15 @@ public class MwQueryPage extends BaseModel {
     }
 
     @NonNull public String displayTitle(@NonNull String langCode) {
-        return varianttitles != null ? StringUtils.defaultIfEmpty(varianttitles.get(langCode), title()) : title();
+        return StringUtils.defaultIfEmpty(MapUtils.getString(varianttitles, langCode), title());
     }
 
     @NonNull public Map<String, Long> getPageViewsMap() {
-        return pageViewsMap != null ? pageViewsMap : Collections.emptyMap();
+        return MapUtils.emptyIfNull(pageViewsMap);
     }
 
     @NonNull public List<ImageLabel> getImageLabels() {
-        return imageLabels != null ? imageLabels : Collections.emptyList();
+        return ListUtils.emptyIfNull(imageLabels);
     }
 
     public boolean isImageFromCommons() {
