@@ -17,6 +17,7 @@ import androidx.annotation.Nullable;
 
 import com.google.gson.Gson;
 
+import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
 
 import java.nio.charset.StandardCharsets;
@@ -84,7 +85,7 @@ public final class StringUtil {
      * @return The trimmed CharSequence.
      */
     @NonNull public static CharSequence strip(@Nullable CharSequence str) {
-        if (str == null || str.length() == 0) {
+        if (TextUtils.isEmpty(str)) {
             return "";
         }
         int len = str.length();
@@ -163,7 +164,7 @@ public final class StringUtil {
         if (source == null) {
             return new SpannedString("");
         }
-        if (!source.contains("<") && !source.contains("&")) {
+        if (StringUtils.containsNone(source, '<', '&')) {
             // If the string doesn't contain any hints of HTML entities, then skip the expensive
             // processing that fromHtml() performs.
             return new SpannedString(source);
