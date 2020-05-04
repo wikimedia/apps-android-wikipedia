@@ -159,9 +159,9 @@ public class LoginClient {
         return ServiceFactory.get(wiki).getUserInfo()
                 .subscribeOn(Schedulers.io())
                 .map(response -> {
-                    int id = response.query().userInfo().id();
+                    int id = response.query().userInfo().getId();
                     loginResult.setUserId(id);
-                    loginResult.setGroups(response.query().userInfo().getGroups());
+                    loginResult.setGroups(response.query().userInfo().getGroupsAsSet());
                     L.v("Found user ID " + id + " for " + wiki.subdomain());
                     return loginResult;
                 });

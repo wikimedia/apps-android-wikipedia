@@ -90,7 +90,7 @@ public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapte
         if (users != null) {
             for (ListUserResponse user : users) {
                 // MediaWiki user names are case sensitive, but the first letter is always capitalized.
-                if (StringUtils.capitalize(userName).equals(user.name())) {
+                if (StringUtils.capitalize(userName).equals(user.getName())) {
                     return user;
                 }
             }
