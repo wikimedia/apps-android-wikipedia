@@ -259,6 +259,11 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         return model.getTitle();
     }
 
+    @Override
+    public boolean isPreview() {
+        return false;
+    }
+
     public PageTitle getTitle() {
         return model.getTitle();
     }
