@@ -69,7 +69,7 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
         viewArticleImage.visibility = View.VISIBLE
         viewArticleExtract.visibility = View.GONE
         divider.visibility = View.GONE
-        viewArticleImage.loadImage(Uri.parse(ImageUrlUtil.getUrlForPreferredSize(card!!.page!!.imageInfo()!!.thumbUrl, Constants.PREFERRED_CARD_THUMBNAIL_SIZE)))
+        viewArticleImage.loadImage(Uri.parse(ImageUrlUtil.getUrlForPreferredSize(card!!.page!!.imageInfo()!!.thumbUrl!!, Constants.PREFERRED_CARD_THUMBNAIL_SIZE)))
         viewArticleTitle.visibility = View.GONE
         callToActionText.text = context.getString(R.string.suggested_edits_feed_card_add_image_tags)
     }
