@@ -174,7 +174,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         tagsHintText.visibility = VISIBLE
         ImageZoomHelper.setViewZoomable(imageView)
 
-        ViewUtil.loadImage(imageView, ImageUrlUtil.getUrlForPreferredSize(page!!.imageInfo()!!.thumbUrl, Constants.PREFERRED_CARD_THUMBNAIL_SIZE))
+        ViewUtil.loadImage(imageView, ImageUrlUtil.getUrlForPreferredSize(page!!.imageInfo()!!.thumbUrl!!, Constants.PREFERRED_CARD_THUMBNAIL_SIZE))
 
         val typeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
         tagsChipGroup.removeAllViews()
