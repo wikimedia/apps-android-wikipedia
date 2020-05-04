@@ -176,7 +176,6 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
             }
         });
 
-        feedHeader.setBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.main_toolbar_color));
         if (getCallback() != null) {
             getCallback().updateToolbarElevation(shouldElevateToolbar());
         }
