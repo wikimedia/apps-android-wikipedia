@@ -121,7 +121,7 @@
   <string name="menu_login">Entrar</string>
   <string name="login_activity_title">Iniciar sessão na Wikipédia</string>
   <string name="login_in_progress_dialog_message">A iniciar a sua sessão...</string>
-  <string name="login_success_toast" fuzzy="true">Sessão iniciada!</string>
+  <string name="login_success_toast">Com sessão iniciada!</string>
   <string name="reset_password_title">Defina a sua palavra-passe</string>
   <string name="reset_password_description">Autenticou-se com uma palavra-passe temporária. Para concluir a autenticação, defina uma palavra-passe nova aqui.</string>
   <string name="reset_password_hint">Nova palavra-passe</string>
@@ -198,7 +198,7 @@
   <string name="about_description">Sobre a aplicação Wikipédia</string>
   <string name="privacy_policy_description">Normas de privacidade</string>
   <string name="terms_of_use_description">Condições de utilização</string>
-  <string name="about_wikipedia_url" fuzzy="true">https://pt.m.wikipedia.org/wiki/Wikipédia:Sobre_a_Wikipédia</string>
+  <string name="about_wikipedia_url">https://pt.wikipedia.org/wiki/Wikip%C3%A9dia:Sobre_a_Wikip%C3%A9dia</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/pt#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/pt</string>
@@ -210,6 +210,7 @@
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Bibliotecas usadas</string>
   <string name="about_contributors_heading">Contribuidores</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Página da equipa&lt;/a&gt;</string>
   <string name="about_translators_heading">Tradutores</string>
   <string name="about_translators_translatewiki">Esta aplicação foi traduzida pelos tradutores voluntários da &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licença</string>
@@ -278,7 +279,7 @@
   <string name="gallery_menu_share">Partilhar</string>
   <string name="gallery_share_error">Não foi possível partilhar a imagem: %s</string>
   <string name="gallery_save_progress">A descarregar o ficheiro…</string>
-  <string name="gallery_save_success" fuzzy="true">O ficheiro foi gravado.</string>
+  <string name="gallery_save_success">Ficheiro guardado.</string>
   <string name="gallery_error_video_failed">Não foi possível reproduzir o vídeo.</string>
   <string name="gallery_save_image_write_permission_rationale">Para gravar imagens, é necessária permissão de escrita no armazenamento do seu dispositivo.</string>
   <string name="gallery_add_image_caption_button">Adicionar legenda à imagem</string>
@@ -297,6 +298,7 @@
   <string name="close_all_tabs_confirm_yes">Sim</string>
   <string name="close_all_tabs_confirm_no">Não</string>
   <string name="button_close_tab">Fechar separador</string>
+  <string name="unnamed_tab_closed">Separador fechado.</string>
   <string name="tab_item_closed">%s fechado.</string>
   <string name="all_tab_items_closed">Separadores todos fechados.</string>
   <string name="tool_tip_bookmark_icon_title">Adicionar à lista de leitura</string>
@@ -344,6 +346,7 @@
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Corresponder ao tema do sistema</string>
   <string name="page_footer_license_text">Conteúdo disponibilizado nos termos da licença $1, salvo indicação em contrário</string>
   <string name="empty_tab_title">Novo separador</string>
+  <string name="menu_save_all_tabs">Guardar todos os separadores</string>
   <string name="crash_report_activity_title">Erro da aplicação</string>
   <string name="crash_report_relaunch_or_quit">Lamentamos, mas a aplicação Wikipédia teve uma falha e foi encerrada.\n\nQuer voltar a começar ou sair?</string>
   <string name="crash_report_relaunch">Recomeçar</string>
@@ -460,7 +463,7 @@
     <item quantity="one">Este artigo deixará de estar disponível sem acesso à Internet.</item>
     <item quantity="other">Estes artigos deixarão de estar disponíveis sem acesso à Internet.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync" fuzzy="true">As listas de leitura foram sincronizadas</string>
+  <string name="reading_list_toast_last_sync">Listas de leitura sincronizadas</string>
   <string name="reading_list_menu_last_sync">Última sincronização: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">OK</string>
   <string name="reading_list_delete_dialog_ok_button_text">OK</string>
@@ -697,14 +700,17 @@
   <string name="suggested_edits_image_tags">Etiquetas de imagens</string>
   <string name="suggested_edits_image_tags_publishing">A publicar</string>
   <string name="suggested_edits_image_tags_published">Publicadas</string>
-  <string name="suggested_edits_image_tags_onboarding_title" fuzzy="true">Etiquete imagens para que outros as encontrem facilmente</string>
-  <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">Ao confirmar as etiquetas sugeridas, pode ajudar a tornar mais fácil encontrar imagens.\n\nAs etiquetas são sugeridas de forma automática e precisam de ser validadas por pessoas para confirmar a sua precisão.</string>
+  <string name="suggested_edits_image_tags_onboarding_title">Etiquetar as imagens facilita a sua procura.</string>
+  <string name="suggested_edits_image_tags_onboarding_text">Ao adicionar etiquetas de imagem, irá ajudar a facilitar a pesquisa na Commons, o repositório de imagens de licença gratuita que a Wikipedia utiliza para as imagens nos seus artigos.\n\nNós sugerimos automaticamente algumas etiquetas, e também pode adicionar as suas.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Só as etiquetas que escolher serão adicionadas às imagens.</string>
   <string name="suggested_edits_image_tags_snackbar">Adicione etiquetas de imagens para que outros as encontrem facilmente.</string>
-  <string name="suggested_edits_image_tags_task_detail" fuzzy="true">Etiquete imagens para que outros as encontrem facilmente. As etiquetas são sugeridas de forma automática e precisam de ser validadas.</string>
-  <string name="suggested_edits_image_tags_choose" fuzzy="true">Escolha etiquetas que descrevem a imagem</string>
+  <string name="suggested_edits_image_tags_task_detail">Etiquete as imagens para facilitar a sua procura. Selecione das etiquetas sugeridas ou adicione as suas.</string>
+  <string name="suggested_edits_image_tags_choose">Adicionar ou escolher etiquetas coincidentes</string>
+  <string name="suggested_edits_image_tags_published_list">Etiquetas publicadas</string>
+  <string name="suggested_edits_image_tags_search">Pesquisar etiquetas</string>
   <string name="suggested_edits_image_tags_select_title">Não selecionou nenhuma etiqueta para esta imagem</string>
   <string name="suggested_edits_image_tags_select_text">Só as etiquetas que escolher serão adicionadas às imagens. As etiquetas que não selecionar serão marcadas como tendo sido rejeitadas. Tem a certeza de que quer marcar todas as etiquetas como rejeitadas?</string>
+  <string name="suggested_edits_image_tags_add_tag">Adicionar etiqueta</string>
   <string name="suggested_edits_image_zoom_tooltip">Junte/separe dois dedos para ampliar/afastar esta imagem.</string>
   <string name="suggested_edits_encouragement_message">%s, obrigado pelas suas edições. Pode encontrar abaixo outras formas de contribuir para a Wikipédia.</string>
   <string name="suggested_edits_onboarding_message">&lt;/b&gt;Olá %s&lt;/b&gt;, sabia que qualquer pessoa pode editar a Wikipédia? Encontra abaixo algumas formas divertidas de ajudar a melhorar a Wikipédia. Divirta-se a editar!</string>
@@ -742,6 +748,7 @@
   <string name="suggested_edits_last_edited_never">Nunca</string>
   <string name="suggested_edits_task_new">nova</string>
   <string name="suggested_edits_cc0_notice">Ao publicar, concorda com as &lt;a href=\"%1$s\"&gt;condições de utilização&lt;/a&gt; e em publicar irrevogavelmente esta contribuição ao abrigo da &lt;a href=\"%2$s\"&gt;licença CC0&lt;/a&gt;.</string>
+  <string name="suggested_edits_reactivation_notification_title">Edições sugeridas</string>
   <string name="description_edit_revert_subtitle">Obrigado por editar a Wikipédia!</string>
   <string name="description_edit_revert_intro">Sabemos que tentou fazer o melhor, mas um dos revisores teve uma preocupação. As possíveis razões pelas quais a sua edição foi desfeita incluem:</string>
   <string name="description_edit_revert_reason1">a sua contribuição não seguiu uma das &lt;a href=\"%1$s\"&gt;diretrizes&lt;/a&gt;.</string>
