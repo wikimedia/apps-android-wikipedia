@@ -259,6 +259,11 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         return model.getTitle();
     }
 
+    @Override
+    public boolean isPreview() {
+        return false;
+    }
+
     public PageTitle getTitle() {
         return model.getTitle();
     }
@@ -1149,7 +1154,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
      */
     private void hidePageContent() {
         leadImagesHandler.hide();
-        webView.loadUrl(CommunicationBridge.BLANK_PAGE);
+        bridge.loadBlankPage();
         webView.setVisibility(View.INVISIBLE);
         if (callback() != null) {
             callback().onPageHideAllContent();

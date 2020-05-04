@@ -306,6 +306,7 @@
   <string name="close_all_tabs_confirm_yes">بله</string>
   <string name="close_all_tabs_confirm_no">خیر</string>
   <string name="button_close_tab">بستن برگه</string>
+  <string name="unnamed_tab_closed">زبانه بسته شد.</string>
   <string name="tab_item_closed">%s بسته شده</string>
   <string name="all_tab_items_closed">همهٔ زبانه‌های بسته شده.</string>
   <string name="tool_tip_bookmark_icon_title">افزودن به فهرست مطالعه</string>
@@ -697,6 +698,16 @@
   <string name="suggested_edits_quality_sufficient_text">کافی</string>
   <string name="suggested_edits_quality_poor_text">ضعیف</string>
   <string name="suggested_edits_quality_bad_text">بد</string>
+  <string name="suggested_edits_contribute">مشارکت</string>
+  <plurals name="suggested_edits_contribution">
+    <item quantity="one">مشارکت</item>
+    <item quantity="other">مشارکت‌ها</item>
+  </plurals>
+  <plurals name="suggested_edits_edit_streak_detail_text">
+    <item quantity="one">%d روز</item>
+    <item quantity="other">%d روز</item>
+  </plurals>
+  <string name="suggested_edits_last_edited">آخرین ویرایش</string>
   <string name="suggested_edits_last_edited_never">هرگز</string>
   <string name="suggested_edits_task_new">تازه</string>
   <string name="suggested_edits_reactivation_notification_title">ویرایش‌های پیشنهادی</string>
@@ -786,6 +797,7 @@
   <string name="main_drawer_close">بستن</string>
   <string name="main_drawer_help">راهنما</string>
   <string name="main_drawer_login">ورود / پیوستن به ویکیپدیا</string>
+  <string name="main_tooltip_text">%s، آیا می‌دانید که هر کسی می‌تواند ویکی‌پدیا را ویرایش کند؟</string>
   <string name="custom_date_picker_dialog_ok_button_text">تأیید</string>
   <string name="text_input_dialog_ok_button_text">تأیید</string>
   <string name="text_input_dialog_cancel_button_text">لغو</string>

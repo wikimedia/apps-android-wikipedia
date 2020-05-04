@@ -40,18 +40,8 @@ object ReadingListBehaviorsUtil {
     private val scope = CoroutineScope(Dispatchers.Main)
     private val exceptionHandler = CoroutineExceptionHandler { _, exception -> L.w(exception) }
 
-    fun getListsContainPage(readingListPage: ReadingListPage): List<ReadingList> {
-        val lists = mutableListOf<ReadingList>()
-        allReadingLists.forEach { list ->
-            list.pages().forEach addToList@{ page ->
-                if (page.title() == readingListPage.title()) {
-                    lists.add(list)
-                    return@addToList
-                }
-            }
-        }
-        return lists
-    }
+    fun getListsContainPage(readingListPage: ReadingListPage) =
+            allReadingLists.filter { list -> list.pages().asSequence().any { it.title() == readingListPage.title() } }
 
     fun savePagesForOffline(activity: Activity, selectedPages: List<ReadingListPage>, callback: Callback) {
         if (Prefs.isDownloadOnlyOverWiFiEnabled() && !DeviceUtil.isOnWiFi()) {
