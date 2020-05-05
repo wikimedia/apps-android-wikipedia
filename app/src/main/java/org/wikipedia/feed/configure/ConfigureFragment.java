@@ -70,24 +70,24 @@ public class ConfigureFragment extends Fragment implements ConfigureItemView.Cal
                 .subscribe(result -> {
                     // apply the new availability rules to our content types
                     FeedContentType.NEWS.getLangCodesSupported().clear();
-                    if (isLimitedToDomains(result.news())) {
-                        addDomainNamesAsLangCodes(FeedContentType.NEWS.getLangCodesSupported(), result.news());
+                    if (isLimitedToDomains(result.getNews())) {
+                        addDomainNamesAsLangCodes(FeedContentType.NEWS.getLangCodesSupported(), result.getNews());
                     }
                     FeedContentType.ON_THIS_DAY.getLangCodesSupported().clear();
-                    if (isLimitedToDomains(result.onThisDay())) {
-                        addDomainNamesAsLangCodes(FeedContentType.ON_THIS_DAY.getLangCodesSupported(), result.onThisDay());
+                    if (isLimitedToDomains(result.getOnThisDay())) {
+                        addDomainNamesAsLangCodes(FeedContentType.ON_THIS_DAY.getLangCodesSupported(), result.getOnThisDay());
                     }
                     FeedContentType.TRENDING_ARTICLES.getLangCodesSupported().clear();
-                    if (isLimitedToDomains(result.mostRead())) {
-                        addDomainNamesAsLangCodes(FeedContentType.TRENDING_ARTICLES.getLangCodesSupported(), result.mostRead());
+                    if (isLimitedToDomains(result.getMostRead())) {
+                        addDomainNamesAsLangCodes(FeedContentType.TRENDING_ARTICLES.getLangCodesSupported(), result.getMostRead());
                     }
                     FeedContentType.FEATURED_ARTICLE.getLangCodesSupported().clear();
-                    if (isLimitedToDomains(result.featuredArticle())) {
-                        addDomainNamesAsLangCodes(FeedContentType.FEATURED_ARTICLE.getLangCodesSupported(), result.featuredArticle());
+                    if (isLimitedToDomains(result.getFeaturedArticle())) {
+                        addDomainNamesAsLangCodes(FeedContentType.FEATURED_ARTICLE.getLangCodesSupported(), result.getFeaturedArticle());
                     }
                     FeedContentType.FEATURED_IMAGE.getLangCodesSupported().clear();
-                    if (isLimitedToDomains(result.featuredPicture())) {
-                        addDomainNamesAsLangCodes(FeedContentType.FEATURED_IMAGE.getLangCodesSupported(), result.featuredPicture());
+                    if (isLimitedToDomains(result.getFeaturedPicture())) {
+                        addDomainNamesAsLangCodes(FeedContentType.FEATURED_IMAGE.getLangCodesSupported(), result.getFeaturedPicture());
                     }
                     FeedContentType.saveState();
                 }, L::e));
