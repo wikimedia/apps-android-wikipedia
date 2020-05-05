@@ -14,6 +14,7 @@ import android.widget.ArrayAdapter
 import androidx.core.widget.ImageViewCompat
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
+import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
@@ -22,8 +23,12 @@ import org.wikipedia.Constants.*
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.SuggestedEditsFunnel
+import org.wikipedia.auth.AccountUtil
+import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
+import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.dataclient.mwapi.SiteMatrix
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
@@ -34,6 +39,7 @@ import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.PositionAwareFragmentStateAdapter
+import java.util.concurrent.TimeUnit
 
 class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.Callback {
     private val viewPagerListener = ViewPagerListener()
@@ -47,6 +53,8 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
     var langToCode: String = if (app.language().appLanguageCodes.size == 1) "" else app.language().appLanguageCodes[1]
     var action: DescriptionEditActivity.Action = ADD_DESCRIPTION
     var editCountPerSession = 0
+    var rewardInterstitialImage = 0
+    var rewardInterstitialText = ""
 
     private val topTitle: PageTitle?
         get() {
@@ -148,7 +156,10 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
     }
 
     private fun showRewardInterstitial(): Boolean {
-        return editCountPerSession > 2 && Prefs.isSuggestedEditsRewardInterstitialEnabled()
+        return editCountPerSession > 2
+                && Prefs.isSuggestedEditsRewardInterstitialEnabled()
+                && rewardInterstitialImage != 0
+                && rewardInterstitialText.isNotEmpty()
     }
 
     private fun updateBackButton(pagerPosition: Int) {
@@ -239,7 +250,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
                     }
             )
             nextPage(null)
-            editCountPerSession++
+            fetchUserContribution()
         }
     }
 
@@ -262,7 +273,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
     fun onSelectPage() {
         if (action == ADD_IMAGE_TAGS && topBaseChild() != null) {
             topBaseChild()!!.publish()
-            editCountPerSession++
+            fetchUserContribution()
         } else if (topTitle != null) {
             startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), topTitle!!, null, topChild()!!.sourceSummary, topChild()!!.targetSummary,
                     action, InvokeSource.SUGGESTED_EDITS), ACTIVITY_REQUEST_DESCRIPTION_EDIT)
@@ -336,6 +347,138 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
         wikiToLanguageSpinner.setSelection(app.language().appLanguageCodes.indexOf(langToCode))
     }
 
+    private fun fetchUserContribution() {
+        L.d("SE rewards fetchUserContribution")
+        editCountPerSession++
+        if (editCountPerSession > 2) {
+            L.d("SE rewards fetchUserContribution pass editCountPerSession $editCountPerSession")
+            disposables.add(SuggestedEditsUserStats.getEditCountsObservable()
+                    .subscribe({ response ->
+                        val editorTaskCounts = response.query()!!.editorTaskCounts()!!
+                        val day = TimeUnit.MILLISECONDS.toDays(System.currentTimeMillis() - editorTaskCounts.lastEditDate.time).toInt()
+
+                        L.d("SE rewards fetchUserContribution day $day")
+                        if (editorTaskCounts.totalEdits == SuggestedEditsRewardsItemFragment.CONTRIBUTION_INITIAL_COUNT || editorTaskCounts.totalEdits % SuggestedEditsRewardsItemFragment.CONTRIBUTION_COUNT == 0) {
+                            rewardInterstitialImage = R.drawable.ic_illustration_heart
+                            rewardInterstitialText = getString(R.string.suggested_edits_rewards_contribution, editorTaskCounts.totalEdits)
+                        } else if (editorTaskCounts.editStreak % SuggestedEditsRewardsItemFragment.EDIT_STREAK_COUNT == 0) {
+                            rewardInterstitialImage = R.drawable.ic_illustration_calendar
+                            rewardInterstitialText = getString(R.string.suggested_edits_rewards_edit_streak, editorTaskCounts.editStreak, AccountUtil.getUserName())
+                        } else if (day < SuggestedEditsRewardsItemFragment.EDIT_QUALITY_ON_DAY && SuggestedEditsUserStats.getRevertSeverity() <= SuggestedEditsRewardsItemFragment.EDIT_STREAK_MAX_REVERT_SEVERITY) {
+                            when (SuggestedEditsUserStats.getRevertSeverity()) {
+                                0 -> {
+                                    rewardInterstitialImage = R.drawable.ic_illustration_quality_perfect
+                                    rewardInterstitialText = getString(R.string.suggested_edits_rewards_edit_quality, getString(R.string.suggested_edits_quality_perfect_text))
+                                }
+                                1 -> {
+                                    rewardInterstitialImage = R.drawable.ic_illustration_quality_excellent
+                                    rewardInterstitialText = getString(R.string.suggested_edits_rewards_edit_quality, getString(R.string.suggested_edits_quality_excellent_text))
+                                }
+                                2 -> {
+                                    rewardInterstitialImage = R.drawable.ic_illustration_quality_very_good
+                                    rewardInterstitialText = getString(R.string.suggested_edits_rewards_edit_quality, getString(R.string.suggested_edits_quality_very_good_text))
+                                }
+                                else -> {
+                                    rewardInterstitialImage = R.drawable.ic_illustration_quality_good
+                                    rewardInterstitialText = getString(R.string.suggested_edits_rewards_edit_quality, getString(R.string.suggested_edits_quality_good_text))
+                                }
+                            }
+                        } else if (day == SuggestedEditsRewardsItemFragment.PAGEVIEWS_ON_DAY) {
+                            getPageViews()
+                        } else {
+                            L.d("SE rewards: nothing happened")
+                        }
+                    }, { t ->
+                        L.e(t)
+                    }))
+        }
+    }
+
+    private fun getPageViews() {
+        val qLangMap = HashMap<String, HashSet<String>>()
+        disposables.add(ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getUserContributions(AccountUtil.getUserName()!!, 10)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .flatMap { response ->
+                    for (userContribution in response.query()!!.userContributions()) {
+                        var descLang = ""
+                        val strArr = userContribution.comment.split(" ")
+                        for (str in strArr) {
+                            if (str.contains("wbsetdescription")) {
+                                val descArr = str.split("|")
+                                if (descArr.size > 1) {
+                                    descLang = descArr[1]
+                                    break
+                                }
+                            }
+                        }
+                        if (descLang.isEmpty()) {
+                            continue
+                        }
+
+                        if (!qLangMap.containsKey(userContribution.title)) {
+                            qLangMap[userContribution.title] = HashSet()
+                        }
+                        qLangMap[userContribution.title]!!.add(descLang)
+                    }
+                    ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getWikidataLabelsAndDescriptions(qLangMap.keys.joinToString("|"))
+                            .subscribeOn(Schedulers.io())
+                            .observeOn(AndroidSchedulers.mainThread())
+                }
+                .flatMap {
+                    if (it.entities().isEmpty()) {
+                        return@flatMap Observable.just(0L)
+                    }
+                    val langArticleMap = HashMap<String, ArrayList<String>>()
+                    for (entityKey in it.entities().keys) {
+                        val entity = it.entities()[entityKey]!!
+                        for (qKey in qLangMap.keys) {
+                            if (qKey == entityKey) {
+                                for (lang in qLangMap[qKey]!!) {
+                                    val dbName = WikiSite.forLanguageCode(lang).dbName()
+                                    if (entity.sitelinks().containsKey(dbName)) {
+                                        if (!langArticleMap.containsKey(lang)) {
+                                            langArticleMap[lang] = ArrayList()
+                                        }
+                                        langArticleMap[lang]!!.add(entity.sitelinks()[dbName]!!.title)
+                                    }
+                                }
+                                break
+                            }
+                        }
+                    }
+
+                    val observableList = ArrayList<Observable<MwQueryResponse>>()
+
+                    for (lang in langArticleMap.keys) {
+                        val site = WikiSite.forLanguageCode(lang)
+                        observableList.add(ServiceFactory.get(site).getPageViewsForTitles(langArticleMap[lang]!!.joinToString("|"))
+                                .subscribeOn(Schedulers.io())
+                                .observeOn(AndroidSchedulers.mainThread()))
+                    }
+
+                    Observable.zip(observableList) { resultList ->
+                        var totalPageViews = 0L
+                        for (result in resultList) {
+                            if (result is MwQueryResponse && result.query() != null) {
+                                for (page in result.query()!!.pages()!!) {
+                                    for (day in page.pageViewsMap.values) {
+                                        totalPageViews += day ?: 0
+                                    }
+                                }
+                            }
+                        }
+                        totalPageViews
+                    }
+                }
+                .subscribe({ pageViewsCount ->
+                    rewardInterstitialImage = R.drawable.ic_illustration_views
+                    rewardInterstitialText = getString(R.string.suggested_edits_rewards_pageviews, pageViewsCount)
+                }, { t ->
+                    L.e(t)
+                }))
+    }
+
     private inner class OnFromSpinnerItemSelectedListener : AdapterView.OnItemSelectedListener {
         override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
             if (langToCode == app.language().appLanguageCodes[position]) {
@@ -377,7 +520,8 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
         override fun createFragment(position: Int): Fragment {
             return when {
                 showRewardInterstitial() -> {
-                    SuggestedEditsRewardsItemFragment.newInstance()
+                    Prefs.setSuggestedEditsRewardInterstitialEnabled(false)
+                    SuggestedEditsRewardsItemFragment.newInstance(rewardInterstitialImage, rewardInterstitialText)
                 }
                 action == ADD_IMAGE_TAGS -> {
                     SuggestedEditsImageTagsFragment.newInstance()
