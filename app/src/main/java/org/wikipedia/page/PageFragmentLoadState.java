@@ -46,8 +46,6 @@ public class PageFragmentLoadState {
         void call(@NonNull Throwable error);
     }
 
-    private boolean loading;
-
     @NonNull private Tab currentTab = new Tab();
 
     private ErrorCallback networkErrorCallback;
@@ -87,19 +85,7 @@ public class PageFragmentLoadState {
                 currentTab.getBackStack().remove(0);
             }
         }
-
-        loading = true;
-
         pageLoadCheckReadingLists();
-    }
-
-    public boolean isLoading() {
-        return loading;
-    }
-
-    public void onPageFinished() {
-        bridge.onPageFinished();
-        loading = false;
     }
 
     public void loadFromBackStack() {
@@ -162,17 +148,12 @@ public class PageFragmentLoadState {
         fragment.setToolbarFadeEnabled(leadImagesHandler.isLeadImageEnabled());
     }
 
-    public boolean isFirstPage() {
-        return currentTab.getBackStack().size() <= 1 && !webView.canGoBack();
-    }
-
     protected void commonSectionFetchOnCatch(@NonNull Throwable caught) {
         if (!fragment.isAdded()) {
             return;
         }
         ErrorCallback callback = networkErrorCallback;
         networkErrorCallback = null;
-        loading = false;
         fragment.requireActivity().invalidateOptionsMenu();
         if (callback != null) {
             callback.call(caught);
@@ -199,7 +180,6 @@ public class PageFragmentLoadState {
         if (!fragment.isAdded()) {
             return;
         }
-        loading = true;
         fragment.requireActivity().invalidateOptionsMenu();
         if (fragment.callback() != null) {
             fragment.callback().onPageUpdateProgressBar(true, true, 0);
@@ -219,8 +199,7 @@ public class PageFragmentLoadState {
                             } else {
                                 throw new RuntimeException("Summary response was invalid.");
                             }
-                            if ((pageSummaryResponse.raw().cacheResponse() != null && pageSummaryResponse.raw().networkResponse() == null)
-                                    || OfflineCacheInterceptor.SAVE_HEADER_SAVE.equals(pageSummaryResponse.headers().get(OfflineCacheInterceptor.SAVE_HEADER))) {
+                            if (OfflineCacheInterceptor.SAVE_HEADER_SAVE.equals(pageSummaryResponse.headers().get(OfflineCacheInterceptor.SAVE_HEADER))) {
                                 showPageOfflineMessage(pageSummaryResponse.raw().header("date", ""));
                             }
                             fragment.onPageMetadataLoaded();

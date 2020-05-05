@@ -212,10 +212,9 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
                                     contributionLanguage = descArr[1]
                                 }
                                 editType = EDIT_TYPE_IMAGE_CAPTION
+                            } else if (str.contains("wbsetclaim") && userContribution.comment.contains("suggestededit")) {
+                                editType = EDIT_TYPE_IMAGE_TAG
                             }
-                        }
-                        if (editType == -1) {
-                            editType = EDIT_TYPE_IMAGE_TAG
                         }
                         continuedImageContributions.add(Contribution("", userContribution.title, "", editType, "", DateUtil.iso8601DateParse(userContribution.timestamp), WikiSite.forLanguageCode(contributionLanguage)))
                     }
