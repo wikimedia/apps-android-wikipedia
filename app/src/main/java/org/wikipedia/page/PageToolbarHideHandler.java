@@ -41,9 +41,9 @@ public class PageToolbarHideHandler extends ViewHideHandler {
         this.pageFragment = pageFragment;
         this.toolbar = toolbar;
         this.toolbarBackground = hideableView.getBackground().mutate();
-        themedIconColor = getThemedColor(toolbar.getContext(), R.attr.page_toolbar_icon_color);
+        themedIconColor = getThemedColor(toolbar.getContext(), R.attr.toolbar_icon_color);
         baseStatusBarColor = getThemedColor(toolbar.getContext(), R.attr.page_expanded_status_bar_color);
-        themedStatusBarColor = getThemedColor(toolbar.getContext(), R.attr.page_status_bar_color);
+        themedStatusBarColor = getThemedColor(toolbar.getContext(), R.attr.paper_color);
         toolbarHeight = DimenUtil.getToolbarHeightPx(pageFragment.requireContext());
         tabsButton.updateTabCount();
     }
