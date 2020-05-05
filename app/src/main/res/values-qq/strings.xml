@@ -764,10 +764,10 @@
   <string name="suggested_edits_reactivation_notification_title">Title of notification when the user has not edited for days.</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Text of notification when the user has not edited for days (first stage).</string>
   <string name="suggested_edits_reactivation_notification_stage_two">Text of notification when the user has not edited for days (second stage).</string>
-  <string name="suggested_edits_rewards_contribution">Message shown to a user about the number of contribution the user has made. (Please preserve the anchor tag and formatted symbol (%s) in its exact form)</string>
-  <string name="suggested_edits_rewards_edit_streak">Message shown to a user about the length of edit streak the user has made. (Please preserve the anchor tag and formatted symbol (%1$s and %2$s) in its exact form)</string>
-  <string name="suggested_edits_rewards_pageviews">Message shown to a user about the pageviews the user has earned in a period of time. (Please preserve the anchor tag and formatted symbol (%1$d and %2$s) in its exact form)</string>
-  <string name="suggested_edits_rewards_edit_quality">Message shown to a user about the edit quality status. (Please preserve the anchor tag and formatted symbol (%s) in its exact form)</string>
+  <string name="suggested_edits_rewards_contribution">Message shown to a user about the number of contributions the user has made. The %s represents the number of contrubutions.</string>
+  <string name="suggested_edits_rewards_edit_streak">Message shown to a user about the length of edit streak the user has made. The %1$d represents the length of edit streak and the %2$s represents the user name.</string>
+  <string name="suggested_edits_rewards_pageviews">Message shown to a user about the pageviews the user has earned in a period of time. The %s represents the number of pageviews.</string>
+  <string name="suggested_edits_rewards_edit_quality">Message shown to a user about the edit quality status. The %s represents the quality of edits.</string>
   <string name="suggested_edits_rewards_continue_button">Button label to move to the next card of suggested edits.</string>
   <string name="description_edit_revert_subtitle">Subtitle in the dialog that informs the user that their edit was reverted.</string>
   <string name="description_edit_revert_intro">Introduction message informing the user that their edit was reverted, and leading into possible reasons for the revert.</string>
