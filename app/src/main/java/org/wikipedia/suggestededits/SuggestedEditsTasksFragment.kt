@@ -267,7 +267,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         errorView.visibility = GONE
         disabledStatesView.visibility = GONE
         suggestedEditsScrollView.scrollTo(0, 0)
-        swipeRefreshLayout.setBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.main_toolbar_color))
+        swipeRefreshLayout.setBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
     }
 
     private fun showError(t: Throwable) {
