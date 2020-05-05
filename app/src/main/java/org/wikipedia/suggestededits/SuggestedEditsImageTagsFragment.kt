@@ -113,6 +113,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
 
         getNextItem()
         updateContents()
+        updateTagChips()
     }
 
     override fun onStart() {
