@@ -27,6 +27,7 @@
 * Viztor
 * VulpesVulpes825
 * WQL
+* XinuGod
 * Xiplus
 * Xxoopiggy
 * Yfdyh000
@@ -760,6 +761,7 @@
   <string name="suggested_edits_quality_sufficient_text">尚可</string>
   <string name="suggested_edits_quality_poor_text">较差</string>
   <string name="suggested_edits_quality_bad_text">糟糕</string>
+  <string name="suggested_edits_contribute">贡献</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">贡献</item>
     <item quantity="other">贡献</item>
