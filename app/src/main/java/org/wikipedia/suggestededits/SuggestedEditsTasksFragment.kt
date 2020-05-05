@@ -148,12 +148,12 @@ class SuggestedEditsTasksFragment : Fragment() {
 
                         editQualityStatsView.setGoodnessState(SuggestedEditsUserStats.getRevertSeverity())
 
-                        if (editorTaskCounts.editStreak < 2) {
+                        if (editorTaskCounts.editStreakLength < 2) {
                             editStreakStatsView.setTitle(if (editorTaskCounts.lastEditDate.time > 0) DateUtil.getMDYDateString(editorTaskCounts.lastEditDate) else resources.getString(R.string.suggested_edits_last_edited_never))
                             editStreakStatsView.setDescription(resources.getString(R.string.suggested_edits_last_edited))
                         } else {
                             editStreakStatsView.setTitle(resources.getQuantityString(R.plurals.suggested_edits_edit_streak_detail_text,
-                                    editorTaskCounts.editStreak, editorTaskCounts.editStreak))
+                                    editorTaskCounts.editStreakLength, editorTaskCounts.editStreakLength))
                             editStreakStatsView.setDescription(resources.getString(R.string.suggested_edits_edit_streak_label_text))
                         }
 
