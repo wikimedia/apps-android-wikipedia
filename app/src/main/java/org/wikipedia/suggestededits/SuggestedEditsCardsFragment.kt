@@ -46,6 +46,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
     var langFromCode: String = app.language().appLanguageCode
     var langToCode: String = if (app.language().appLanguageCodes.size == 1) "" else app.language().appLanguageCodes[1]
     var action: DescriptionEditActivity.Action = ADD_DESCRIPTION
+    var editCountPerSession = 0
 
     private val topTitle: PageTitle?
         get() {
@@ -145,14 +146,8 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
         }
     }
 
-    private fun getRewardInterstitialType(): SuggestedEditsRewardsItemFragment.TYPE {
-        // TODO: add logic
-        return SuggestedEditsRewardsItemFragment.TYPE.EDIT_QUALITY_EXCELLENT
-    }
-
     private fun showRewardInterstitial(): Boolean {
-        // TODO: add logic
-        return true
+        return editCountPerSession > 2 && Prefs.isSuggestedEditsRewardInterstitialEnabled()
     }
 
     private fun updateBackButton(pagerPosition: Int) {
@@ -243,6 +238,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
                     }
             )
             nextPage(null)
+            editCountPerSession++
         }
     }
 
@@ -379,7 +375,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
         override fun createFragment(position: Int): Fragment {
             return when {
                 showRewardInterstitial() -> {
-                    SuggestedEditsRewardsItemFragment.newInstance(getRewardInterstitialType())
+                    SuggestedEditsRewardsItemFragment.newInstance()
                 }
                 action == ADD_IMAGE_TAGS -> {
                     SuggestedEditsImageTagsFragment.newInstance()

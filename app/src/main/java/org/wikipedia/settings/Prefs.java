@@ -919,5 +919,13 @@ public final class Prefs {
         setBoolean(R.string.preference_key_suggested_edits_reactivation_test, enabled);
     }
 
+    public static boolean isSuggestedEditsRewardInterstitialEnabled() {
+        return getBoolean(R.string.preference_key_suggested_edits_reward_interstitial_enabled, false);
+    }
+
+    public static void setSuggestedEditsRewardInterstitialEnabled(boolean enabled) {
+        setBoolean(R.string.preference_key_suggested_edits_reward_interstitial_enabled, enabled);
+    }
+
     private Prefs() { }
 }
