@@ -91,7 +91,6 @@ class FilePageFragment : Fragment() {
                                     it.first.user,
                                     it.first.metadata
                             ),
-                            DescriptionEditActivity.Action.FILE_PAGE,
                             container.width,
                             it.first.thumbWidth,
                             it.first.thumbHeight,

@@ -95,7 +95,7 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
     private fun loadImageDetail() {
         filePageView.visibility = VISIBLE
         progressBar.visibility = GONE
-        filePageView.setup(suggestedEditsSummary, action, dialogDetailContainer.width, thumbnailWidth, thumbnailHeight, imageFromCommons = true, showFilename = false, showEditButton = false)
+        filePageView.setup(suggestedEditsSummary, dialogDetailContainer.width, thumbnailWidth, thumbnailHeight, imageFromCommons = true, showFilename = false, showEditButton = false, action = action)
     }
 
     companion object {

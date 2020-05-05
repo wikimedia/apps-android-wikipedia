@@ -34,13 +34,13 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
     }
 
     fun setup(summary: SuggestedEditsSummary,
-              action: DescriptionEditActivity.Action,
               containerWidth: Int,
               thumbWidth: Int,
               thumbHeight: Int,
               imageFromCommons: Boolean,
               showFilename: Boolean,
-              showEditButton: Boolean) {
+              showEditButton: Boolean,
+              action: DescriptionEditActivity.Action? = null) {
 
         loadImage(summary, containerWidth, thumbWidth, thumbHeight)
 
@@ -52,7 +52,7 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
         }
 
         detailsContainer.removeAllViews()
-        if ((action == DescriptionEditActivity.Action.ADD_CAPTION)
+        if (action != null && (action == DescriptionEditActivity.Action.ADD_CAPTION)
                 && summary.pageTitle.description.isNullOrEmpty()) {
             // Show the image description when a structured caption does not exist.
             addDetail(context.getString(R.string.suggested_edits_image_preview_dialog_description_in_language_title, getProperLanguageLocalizedName(summary, imageFromCommons)),
