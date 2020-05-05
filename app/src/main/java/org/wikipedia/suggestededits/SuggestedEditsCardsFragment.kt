@@ -73,6 +73,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
         retainInstance = true
         action = arguments?.getSerializable(INTENT_EXTRA_ACTION) as DescriptionEditActivity.Action
 
+        Prefs.setSuggestedEditsRewardInterstitialEnabled(true)
         // Record the first impression, since the ViewPager doesn't send an event for the first topmost item.
         SuggestedEditsFunnel.get().impression(action)
     }
@@ -261,6 +262,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
     fun onSelectPage() {
         if (action == ADD_IMAGE_TAGS && topBaseChild() != null) {
             topBaseChild()!!.publish()
+            editCountPerSession++
         } else if (topTitle != null) {
             startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), topTitle!!, null, topChild()!!.sourceSummary, topChild()!!.targetSummary,
                     action, InvokeSource.SUGGESTED_EDITS), ACTIVITY_REQUEST_DESCRIPTION_EDIT)
