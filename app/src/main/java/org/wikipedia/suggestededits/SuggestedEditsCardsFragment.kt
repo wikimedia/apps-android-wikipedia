@@ -145,6 +145,16 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
         }
     }
 
+    private fun getRewardInterstitialType(): SuggestedEditsRewardsItemFragment.TYPE {
+        // TODO: add logic
+        return SuggestedEditsRewardsItemFragment.TYPE.EDIT_QUALITY_EXCELLENT
+    }
+
+    private fun showRewardInterstitial(): Boolean {
+        // TODO: add logic
+        return true
+    }
+
     private fun updateBackButton(pagerPosition: Int) {
         backButton.isClickable = pagerPosition != 0
         backButton.alpha = if (pagerPosition == 0) 0.31f else 1f
@@ -367,10 +377,17 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
         }
 
         override fun createFragment(position: Int): Fragment {
-            return if (action == ADD_IMAGE_TAGS)
-                SuggestedEditsImageTagsFragment.newInstance()
-            else
-                SuggestedEditsCardsItemFragment.newInstance()
+            return when {
+                showRewardInterstitial() -> {
+                    SuggestedEditsRewardsItemFragment.newInstance(getRewardInterstitialType())
+                }
+                action == ADD_IMAGE_TAGS -> {
+                    SuggestedEditsImageTagsFragment.newInstance()
+                }
+                else -> {
+                    SuggestedEditsCardsItemFragment.newInstance()
+                }
+            }
         }
     }
 
