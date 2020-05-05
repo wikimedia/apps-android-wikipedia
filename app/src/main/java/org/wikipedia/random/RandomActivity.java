@@ -24,7 +24,8 @@ public class RandomActivity extends SingleFragmentActivity<RandomFragment> {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().setElevation(0f);
-        setNavigationBarColor(ResourceUtil.getThemedColor(this, R.attr.main_toolbar_color));
+        setStatusBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color));
+        setNavigationBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color));
     }
 
     @Override

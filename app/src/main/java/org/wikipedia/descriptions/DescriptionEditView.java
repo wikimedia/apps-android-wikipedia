@@ -181,11 +181,11 @@ public class DescriptionEditView extends LinearLayout {
     private void setDarkReviewScreen(boolean enabled) {
         if (action == ADD_CAPTION || action == TRANSLATE_CAPTION) {
             int whiteRes = getResources().getColor(android.R.color.white);
-            toolbarContainer.setBackgroundResource(enabled ? android.R.color.black : ResourceUtil.getThemedAttributeId(getContext(), R.attr.main_toolbar_color));
+            toolbarContainer.setBackgroundResource(enabled ? android.R.color.black : ResourceUtil.getThemedAttributeId(getContext(), R.attr.paper_color));
             saveButton.setColorFilter(enabled ? whiteRes : ResourceUtil.getThemedColor(getContext(), R.attr.themed_icon_color), PorterDuff.Mode.SRC_IN);
-            cancelButton.setColorFilter(enabled ? whiteRes : ResourceUtil.getThemedColor(getContext(), R.attr.main_toolbar_icon_color), PorterDuff.Mode.SRC_IN);
-            headerText.setTextColor(enabled ? whiteRes : ResourceUtil.getThemedColor(getContext(), R.attr.main_toolbar_title_color));
-            ((DescriptionEditActivity) activity).updateStatusBarColor(enabled ? Color.BLACK : ResourceUtil.getThemedColor(getContext(), R.attr.main_status_bar_color));
+            cancelButton.setColorFilter(enabled ? whiteRes : ResourceUtil.getThemedColor(getContext(), R.attr.toolbar_icon_color), PorterDuff.Mode.SRC_IN);
+            headerText.setTextColor(enabled ? whiteRes : ResourceUtil.getThemedColor(getContext(), R.attr.toolbar_title_color));
+            ((DescriptionEditActivity) activity).updateStatusBarColor(enabled ? Color.BLACK : ResourceUtil.getThemedColor(getContext(), R.attr.paper_color));
             DeviceUtil.updateStatusBarTheme(activity, null, enabled);
             ((DescriptionEditActivity) activity).updateNavigationBarColor(enabled ? Color.BLACK : ResourceUtil.getThemedColor(getContext(), R.attr.paper_color));
         }

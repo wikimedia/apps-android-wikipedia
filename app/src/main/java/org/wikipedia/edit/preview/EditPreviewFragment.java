@@ -289,8 +289,8 @@ public class EditPreviewFragment extends Fragment implements CommunicationBridge
         if (webview != null) {
             webview.clearAllListeners();
             ((ViewGroup) webview.getParent()).removeView(webview);
-            webview = null;
             bridge.cleanup();
+            webview = null;
         }
         super.onDestroyView();
     }
