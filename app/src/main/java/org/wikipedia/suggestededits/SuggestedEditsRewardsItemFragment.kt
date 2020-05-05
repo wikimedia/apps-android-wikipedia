@@ -4,7 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import kotlinx.android.synthetic.main.fragment_suggested_edits_tasks.*
 import org.wikipedia.R
+import org.wikipedia.util.DateUtil
+import org.wikipedia.util.log.L
 
 class SuggestedEditsRewardsItemFragment : SuggestedEditsItemFragment() {
 
@@ -19,17 +22,29 @@ class SuggestedEditsRewardsItemFragment : SuggestedEditsItemFragment() {
     }
 
     private fun fetchUserContribution() {
-        // add endpoint loading
+        // TODO: add progressbar?
+        disposables.add(SuggestedEditsUserStats.getEditCountsObservable()
+                .subscribe({ response ->
+                    val editorTaskCounts = response.query()!!.editorTaskCounts()!!
+
+                    // TODO: see setGoodnessState() for edit quality rates
+                    SuggestedEditsUserStats.getRevertSeverity()
+
+
+//                    Contributions:
+//                    Starting at the 5th contribution, shown after every 50th additional contribution, (5, 55, 105 and so forth)
+//                    Edit streak:
+//                    Shown when on an edit streak on every 5th day (5, 10, 15 and so forth)
+//                    Edit quality:
+//                    Shown every 14 days when revert rate is “Perfect“, “Excellent“, “Very good“ or “Good“, when user has actively contributed in the past 14 days (at least one edit)
+//                    Page views:
+//                    Shown once a month when user has actively contributed in the past 30 days (at least one edit)
+
+                }, { t ->
+                    L.e(t)
+                    // TODO: add errorView?
+                }))
     }
-//    enum class TYPE(val image: Int, val text: Int) {
-//        CONTRIBUTION(R.drawable.ic_illustration_heart, R.string.suggested_edits_rewards_contribution),
-//        PAGEVIEW(R.drawable.ic_illustration_views, R.string.suggested_edits_rewards_pageviews),
-//        EDIT_STREAK(R.drawable.ic_illustration_calendar, R.string.suggested_edits_rewards_edit_streak),
-//        EDIT_QUALITY_PERFECT(R.drawable.ic_illustration_quality_perfect, R.string.suggested_edits_rewards_edit_quality),
-//        EDIT_QUALITY_EXCELLENT(R.drawable.ic_illustration_quality_excellent, R.string.suggested_edits_rewards_edit_quality),
-//        EDIT_QUALITY_VERY_GOOD(R.drawable.ic_illustration_quality_very_good, R.string.suggested_edits_rewards_edit_quality),
-//        EDIT_QUALITY_GOOD(R.drawable.ic_illustration_quality_good, R.string.suggested_edits_rewards_edit_quality)
-//    }
 
     companion object {
         fun newInstance(): SuggestedEditsItemFragment {
