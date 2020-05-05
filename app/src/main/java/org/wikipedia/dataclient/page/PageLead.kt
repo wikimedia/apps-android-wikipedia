@@ -7,7 +7,7 @@ import org.wikipedia.page.Section
 import org.wikipedia.util.UriUtil
 
 @Suppress("UNUSED")
-class PageLead {
+open class PageLead {
     private val ns = 0
     val id = 0
     val revision: Long = 0
