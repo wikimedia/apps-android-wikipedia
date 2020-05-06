@@ -107,7 +107,7 @@ public final class DeviceUtil {
 
         if (toolbar != null) {
             toolbar.getNavigationIcon().setColorFilter(reset ? activity.getResources().getColor(android.R.color.white)
-                    : ResourceUtil.getThemedColor(activity, R.attr.main_toolbar_icon_color), PorterDuff.Mode.SRC_IN);
+                    : ResourceUtil.getThemedColor(activity, R.attr.toolbar_icon_color), PorterDuff.Mode.SRC_IN);
         }
     }
 
