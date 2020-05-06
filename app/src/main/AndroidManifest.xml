@@ -249,7 +249,7 @@
 
         <activity
             android:name=".suggestededits.SuggestedEditsContributionDetailsActivity"
-            android:theme="@style/AppTheme.ActionBar.SuggestedEdits" />
+            android:theme="@style/AppTheme.FullScreen" />
 
         <provider
             android:authorities="${applicationId}"

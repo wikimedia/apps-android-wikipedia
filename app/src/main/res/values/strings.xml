@@ -785,6 +785,13 @@
     <string name="suggested_edits_type_image_tag">Image tag</string>
     <string name="suggested_edits_contributions_screen_title">%s\'s contributions</string>
     <string name="suggested_edits_spinner_item_text">%1$d %2$s</string>
+    <string name="suggested_edits_language_label">Language</string>
+    <string name="suggested_edits_date_time_label">Date / Time</string>
+    <string name="suggested_edits_type_label">Contribution type</string>
+    <string name="suggested_edits_image_label">File</string>
+    <string name="suggested_edits_article_label">Article</string>
+    <string name="suggested_edits_contribution_views">%s views</string>
+    <string name="suggested_edits_contribution_label">You added %d characters</string>
     <!-- /Suggested edits -->
 
     <!-- Description editing revert help -->

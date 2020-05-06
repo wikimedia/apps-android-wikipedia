@@ -8,25 +8,31 @@ import android.widget.LinearLayout
 import androidx.appcompat.content.res.AppCompatResources
 import kotlinx.android.synthetic.main.item_suggested_edits_contributions.view.*
 import org.wikipedia.R
+import org.wikipedia.suggestededits.SuggestedEditsContributionsFragment.Contribution
 import org.wikipedia.suggestededits.SuggestedEditsContributionsFragment.Contribution.Companion.EDIT_TYPE_IMAGE_CAPTION
 import org.wikipedia.suggestededits.SuggestedEditsContributionsFragment.Contribution.Companion.EDIT_TYPE_IMAGE_TAG
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.views.ViewUtil
 
 class SuggestedEditsContributionsItemView<T>(context: Context) : LinearLayout(context) {
-    interface Callback<T> {
-        fun onClick(context: Context)
+    interface Callback {
+        fun onClick(context: Context, contribution: Contribution)
     }
 
-    private var callback: Callback<T>? = null
+    private var callback: Callback? = null
+    private var contribution: Contribution? = null
 
-    fun setCallback(callback: Callback<T>?) {
+    fun setCallback(callback: Callback?) {
         this.callback = callback
     }
 
 
     fun setTitle(contributionTitle: String?) {
         title.text = contributionTitle
+    }
+
+    fun setItem(contribution: Contribution) {
+        this.contribution = contribution
     }
 
 
@@ -67,7 +73,7 @@ class SuggestedEditsContributionsItemView<T>(context: Context) : LinearLayout(co
         }
         setOnClickListener {
             if (callback != null) {
-                callback!!.onClick(context)
+                callback!!.onClick(context, contribution!!)
             }
         }
     }
