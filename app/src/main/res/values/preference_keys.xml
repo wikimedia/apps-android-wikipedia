@@ -120,4 +120,6 @@
     <string name="preference_key_install_referrer_attempts">installReferrerAttempts</string>
     <string name="preference_key_temporary_wikitext_storage">temporaryWikitextStorage</string>
     <string name="preference_key_suggested_edits_reward_interstitial_enabled">suggestedEditsRewardInterstitialEnabled</string>
+    <string name="preference_key_suggested_edits_reward_interstitial_last_edit_quality_shown">suggestedEditsRewardInterstitialLastEditQualityShown</string>
+    <string name="preference_key_suggested_edits_reward_interstitial_last_pageviews_shown">suggestedEditsRewardInterstitialLastPageviewsShown</string>
 </resources>

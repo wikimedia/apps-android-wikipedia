@@ -927,5 +927,21 @@ public final class Prefs {
         setBoolean(R.string.preference_key_suggested_edits_reward_interstitial_enabled, enabled);
     }
 
+    public static long getLastSuggestedEditsRewardInterstitialEditQualityShown() {
+        return getLong(R.string.preference_key_suggested_edits_reward_interstitial_last_edit_quality_shown, 0);
+    }
+
+    public static void setLastSuggestedEditsRewardInterstitialEditQualityShown(long time) {
+        setLong(R.string.preference_key_suggested_edits_reward_interstitial_last_edit_quality_shown, time);
+    }
+
+    public static long getLastSuggestedEditsRewardInterstitialPageviewsShown() {
+        return getLong(R.string.preference_key_suggested_edits_reward_interstitial_last_pageviews_shown, 0);
+    }
+
+    public static void setLastSuggestedEditsRewardInterstitialPageviewsShown(long time) {
+        setLong(R.string.preference_key_suggested_edits_reward_interstitial_last_pageviews_shown, time);
+    }
+
     private Prefs() { }
 }

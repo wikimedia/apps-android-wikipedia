@@ -49,10 +49,10 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
     private var languageList: MutableList<String> = mutableListOf()
     private var swappingLanguageSpinners: Boolean = false
     private var resettingViewPager: Boolean = false
+    private var sessionEditCount = 0
     var langFromCode: String = app.language().appLanguageCode
     var langToCode: String = if (app.language().appLanguageCodes.size == 1) "" else app.language().appLanguageCodes[1]
     var action: DescriptionEditActivity.Action = ADD_DESCRIPTION
-    var editCountPerSession = 0
     var rewardInterstitialImage = 0
     var rewardInterstitialText = ""
 
@@ -156,7 +156,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
     }
 
     private fun showRewardInterstitial(): Boolean {
-        return editCountPerSession > 2
+        return sessionEditCount > 2
                 && Prefs.isSuggestedEditsRewardInterstitialEnabled()
                 && rewardInterstitialImage != 0
                 && rewardInterstitialText.isNotEmpty()
@@ -194,7 +194,10 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
             addContributionButton.setBackgroundResource(R.drawable.button_shape_border_light)
         }
 
-        if (action == ADD_IMAGE_TAGS) {
+        if (child != null && child is SuggestedEditsRewardsItemFragment) {
+            addContributionText?.text = getString(R.string.suggested_edits_rewards_continue_button)
+            addContributionImage.visibility = GONE
+        } else if (action == ADD_IMAGE_TAGS) {
             if (addContributionText == null) {
                 // implying landscape mode, where addContributionText doesn't exist.
                 addContributionImage.visibility = VISIBLE
@@ -271,7 +274,9 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
     }
 
     fun onSelectPage() {
-        if (action == ADD_IMAGE_TAGS && topBaseChild() != null) {
+        if (topBaseChild() is SuggestedEditsRewardsItemFragment) {
+            nextPage(null)
+        } else if (action == ADD_IMAGE_TAGS && topBaseChild() != null) {
             topBaseChild()!!.publish()
             fetchUserContribution()
         } else if (topTitle != null) {
@@ -348,23 +353,24 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
     }
 
     private fun fetchUserContribution() {
-        L.d("SE rewards fetchUserContribution")
-        editCountPerSession++
-        if (editCountPerSession > 2) {
-            L.d("SE rewards fetchUserContribution pass editCountPerSession $editCountPerSession")
+        sessionEditCount++
+        if (sessionEditCount > 2) {
             disposables.add(SuggestedEditsUserStats.getEditCountsObservable()
                     .subscribe({ response ->
                         val editorTaskCounts = response.query()!!.editorTaskCounts()!!
-                        val day = TimeUnit.MILLISECONDS.toDays(System.currentTimeMillis() - editorTaskCounts.lastEditDate.time).toInt()
+                        val daysOfLastEditQualityShown = TimeUnit.MILLISECONDS.toDays(System.currentTimeMillis() - Prefs.getLastSuggestedEditsRewardInterstitialEditQualityShown()).toInt()
+                        val daysOfLastPageviewsShown = TimeUnit.MILLISECONDS.toDays(System.currentTimeMillis() - Prefs.getLastSuggestedEditsRewardInterstitialPageviewsShown()).toInt()
 
-                        L.d("SE rewards fetchUserContribution day $day")
-                        if (editorTaskCounts.totalEdits == SuggestedEditsRewardsItemFragment.CONTRIBUTION_INITIAL_COUNT || editorTaskCounts.totalEdits % SuggestedEditsRewardsItemFragment.CONTRIBUTION_COUNT == 0) {
+                        if (editorTaskCounts.totalEdits == SuggestedEditsRewardsItemFragment.CONTRIBUTION_INITIAL_COUNT
+                                || editorTaskCounts.totalEdits % SuggestedEditsRewardsItemFragment.CONTRIBUTION_COUNT == 0) {
                             rewardInterstitialImage = R.drawable.ic_illustration_heart
                             rewardInterstitialText = getString(R.string.suggested_edits_rewards_contribution, editorTaskCounts.totalEdits)
                         } else if (editorTaskCounts.editStreak % SuggestedEditsRewardsItemFragment.EDIT_STREAK_COUNT == 0) {
                             rewardInterstitialImage = R.drawable.ic_illustration_calendar
                             rewardInterstitialText = getString(R.string.suggested_edits_rewards_edit_streak, editorTaskCounts.editStreak, AccountUtil.getUserName())
-                        } else if (day < SuggestedEditsRewardsItemFragment.EDIT_QUALITY_ON_DAY && SuggestedEditsUserStats.getRevertSeverity() <= SuggestedEditsRewardsItemFragment.EDIT_STREAK_MAX_REVERT_SEVERITY) {
+                        } else if ((Prefs.getLastSuggestedEditsRewardInterstitialEditQualityShown().toInt() == 0
+                                        || daysOfLastEditQualityShown == SuggestedEditsRewardsItemFragment.EDIT_QUALITY_ON_DAY)
+                                && SuggestedEditsUserStats.getRevertSeverity() <= SuggestedEditsRewardsItemFragment.EDIT_STREAK_MAX_REVERT_SEVERITY) {
                             when (SuggestedEditsUserStats.getRevertSeverity()) {
                                 0 -> {
                                     rewardInterstitialImage = R.drawable.ic_illustration_quality_perfect
@@ -383,10 +389,10 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
                                     rewardInterstitialText = getString(R.string.suggested_edits_rewards_edit_quality, getString(R.string.suggested_edits_quality_good_text))
                                 }
                             }
-                        } else if (day == SuggestedEditsRewardsItemFragment.PAGEVIEWS_ON_DAY) {
+                            Prefs.setLastSuggestedEditsRewardInterstitialEditQualityShown(System.currentTimeMillis())
+                        } else if (Prefs.getLastSuggestedEditsRewardInterstitialPageviewsShown().toInt() == 0
+                                || daysOfLastPageviewsShown == SuggestedEditsRewardsItemFragment.PAGEVIEWS_ON_DAY) {
                             getPageViews()
-                        } else {
-                            L.d("SE rewards: nothing happened")
                         }
                     }, { t ->
                         L.e(t)
@@ -474,6 +480,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
                 .subscribe({ pageViewsCount ->
                     rewardInterstitialImage = R.drawable.ic_illustration_views
                     rewardInterstitialText = getString(R.string.suggested_edits_rewards_pageviews, pageViewsCount)
+                    Prefs.setLastSuggestedEditsRewardInterstitialPageviewsShown(System.currentTimeMillis())
                 }, { t ->
                     L.e(t)
                 }))
