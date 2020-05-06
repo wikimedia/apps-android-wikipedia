@@ -25,7 +25,7 @@ class SuggestedEditsContributionsItemView<T>(context: Context) : LinearLayout(co
 
 
     fun setTitle(contributionTitle: String?) {
-        title.text = contributionTitle
+        title.text = StringUtil.fromHtml(contributionTitle)
     }
 
 
