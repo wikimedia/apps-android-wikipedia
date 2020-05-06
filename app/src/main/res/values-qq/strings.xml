@@ -862,4 +862,5 @@
   <string name="suggested_edits_type_image_tag">Text indicating that the user edit was an Image tag edit</string>
   <string name="suggested_edits_contributions_screen_title">Contributions screen title text. The %s symbol is replaced with the username.</string>
   <string name="suggested_edits_spinner_item_text">Contributions filter dropdown item text. %1$d represents the count of the edit type. %2$s is the type of the edit.</string>
+  <string name="suggested_edits_contribution_seen_text">Contribution detail text about the pageviews. %d represented the times the contribution has been viewed in the past 30 days.</string>
 </resources>

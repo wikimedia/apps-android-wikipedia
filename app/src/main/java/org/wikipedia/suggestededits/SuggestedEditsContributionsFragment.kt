@@ -62,6 +62,8 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        loadingMore = true
+        loadMoreProgressView.visibility = VISIBLE
         contributionsRecyclerView.setLayoutManager(LinearLayoutManager(context))
         contributionsRecyclerView.setAdapter(adapter)
         val scrollListener = object : RecyclerView.OnScrollListener() {
@@ -90,13 +92,6 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
 
     private fun setFilterAndUIState(view: SuggestedEditsTypeItem) {
         editFilterType = view.editType
-        for (filterView in filterViews) {
-            if (filterView == view) {
-                filterView.setEnabledStateUI()
-            } else {
-                filterView.setDisabledStateUI()
-            }
-        }
         createConsolidatedList()
     }
 
@@ -121,7 +116,9 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .flatMap { response ->
-                    articleContributionsContinuation = response.continuation()!!["uccontinue"]
+                    if (!response.continuation().isNullOrEmpty()) {
+                        articleContributionsContinuation = response.continuation()!!["uccontinue"]
+                    }
                     continuedArticlesContributions.clear()
                     for (userContribution in response.query()!!.userContributions()) {
                         var descLang = ""
@@ -201,7 +198,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
                     imageContributionsContinuation = if (mwQueryResponse.continuation().isNullOrEmpty()) "" else mwQueryResponse.continuation()!!["uccontinue"]
                     for (userContribution in mwQueryResponse.query()!!.userContributions()) {
                         val strArr = userContribution.comment.split(" ")
-                        var contributionLanguage = "en"
+                        var contributionLanguage = ""
                         var editType: Int = -1
 
                         for (str in strArr) {
@@ -234,6 +231,15 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
                                         contribution.description = imageInfo.metadata!!.imageDescription()
                                         contribution.imageUrl = imageInfo.originalUrl
                                         contribution.title = contribution.title.replace("File:", "")
+                                        if (contribution.editType == EDIT_TYPE_IMAGE_TAG) {
+                                            if (!page.imageLabels.isNullOrEmpty()) {
+                                                var labelsString = ""
+                                                for (imageLabel in page.imageLabels) {
+                                                    labelsString = imageLabel.label + "," + labelsString
+                                                }
+                                                contribution.description = labelsString
+                                            }
+                                        }
                                     }
                                 }, { caught ->
                                     L.e(caught)
@@ -266,6 +272,40 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
         }
         loadingMore = false
         loadMoreProgressView.visibility = GONE
+        updateFilterViewUI()
+    }
+
+    private fun updateFilterViewUI() {
+        val view: SuggestedEditsTypeItem
+        val count: Int
+        when (editFilterType) {
+            EDIT_TYPE_ARTICLE_DESCRIPTION -> {
+                view = articleDescriptionView
+                count = SuggestedEditsUserStats.totalDescriptionEdits
+            }
+            EDIT_TYPE_IMAGE_CAPTION -> {
+                view = imageCaptionsView
+                count = SuggestedEditsUserStats.totalImageCaptionEdits
+            }
+            EDIT_TYPE_IMAGE_TAG -> {
+                view = imageTagsView
+                count = SuggestedEditsUserStats.totalImageTagEdits
+            }
+            else -> {
+                view = allTypesView
+                count = SuggestedEditsUserStats.totalEdits
+            }
+        }
+
+        contributionsCountText.text = getString(R.string.suggested_edits_spinner_item_text, count, resources.getQuantityString(R.plurals.suggested_edits_contribution, count))
+        contributionsSeenText.text = getString(R.string.suggested_edits_contribution_seen_text, 555)
+        for (filterView in filterViews) {
+            if (filterView == view) {
+                filterView.setEnabledStateUI()
+            } else {
+                filterView.setDisabledStateUI()
+            }
+        }
     }
 
     private fun loadDataBasedOnFilter() {
@@ -304,10 +344,10 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
 
     private class ContributionItemHolder internal constructor(itemView: SuggestedEditsContributionsItemView<Contribution>) : DefaultViewHolder<SuggestedEditsContributionsItemView<Contribution>?>(itemView) {
         fun bindItem(contribution: Contribution) {
-            view.setTitle(contribution.title)
-            view.setDescription(contribution.description)
+            view.setTitle(contribution.description)
+            view.setDescription(contribution.title)
             view.setImageUrl(contribution.imageUrl)
-            view.setTagType(contribution.editType, contribution.wikiSite.languageCode())
+            view.setIcon(contribution.editType)
         }
     }
 
