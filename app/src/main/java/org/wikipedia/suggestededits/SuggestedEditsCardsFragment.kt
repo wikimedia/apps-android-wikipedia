@@ -53,7 +53,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
     var langFromCode: String = app.language().appLanguageCode
     var langToCode: String = if (app.language().appLanguageCodes.size == 1) "" else app.language().appLanguageCodes[1]
     var action: DescriptionEditActivity.Action = ADD_DESCRIPTION
-    var rewardInterstitialImage = 0
+    var rewardInterstitialImage = -1
     var rewardInterstitialText = ""
 
     private val topTitle: PageTitle?
@@ -158,7 +158,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
     private fun showRewardInterstitial(): Boolean {
         return sessionEditCount > 2
                 && Prefs.isSuggestedEditsRewardInterstitialEnabled()
-                && rewardInterstitialImage != 0
+                && rewardInterstitialImage != -1
                 && rewardInterstitialText.isNotEmpty()
     }
 
@@ -354,22 +354,22 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
 
     private fun fetchUserContribution() {
         sessionEditCount++
-        if (sessionEditCount > 2) {
+        if (rewardInterstitialImage == -1 && rewardInterstitialText.isEmpty()) {
+            // Need to preload the user contribution in case we miss the latest data
             disposables.add(SuggestedEditsUserStats.getEditCountsObservable()
                     .subscribe({ response ->
                         val editorTaskCounts = response.query()!!.editorTaskCounts()!!
                         val daysOfLastEditQualityShown = TimeUnit.MILLISECONDS.toDays(System.currentTimeMillis() - Prefs.getLastSuggestedEditsRewardInterstitialEditQualityShown()).toInt()
                         val daysOfLastPageviewsShown = TimeUnit.MILLISECONDS.toDays(System.currentTimeMillis() - Prefs.getLastSuggestedEditsRewardInterstitialPageviewsShown()).toInt()
-
-                        if (editorTaskCounts.totalEdits == SuggestedEditsRewardsItemFragment.CONTRIBUTION_INITIAL_COUNT
-                                || editorTaskCounts.totalEdits % SuggestedEditsRewardsItemFragment.CONTRIBUTION_COUNT == 0) {
+                        if (editorTaskCounts.totalEdits == Prefs.getSuggestedEditsRewardInterstitialContributionOnInitialCount()
+                                || editorTaskCounts.totalEdits % Prefs.getSuggestedEditsRewardInterstitialContributionOnCount() == 0) {
                             rewardInterstitialImage = R.drawable.ic_illustration_heart
                             rewardInterstitialText = getString(R.string.suggested_edits_rewards_contribution, editorTaskCounts.totalEdits)
-                        } else if (editorTaskCounts.editStreak % SuggestedEditsRewardsItemFragment.EDIT_STREAK_COUNT == 0) {
+                        } else if (editorTaskCounts.editStreak % Prefs.getSuggestedEditsRewardInterstitialEditStreakOnCount() == 0) {
                             rewardInterstitialImage = R.drawable.ic_illustration_calendar
                             rewardInterstitialText = getString(R.string.suggested_edits_rewards_edit_streak, editorTaskCounts.editStreak, AccountUtil.getUserName())
                         } else if ((Prefs.getLastSuggestedEditsRewardInterstitialEditQualityShown().toInt() == 0
-                                        || daysOfLastEditQualityShown == SuggestedEditsRewardsItemFragment.EDIT_QUALITY_ON_DAY)
+                                        || daysOfLastEditQualityShown == Prefs.getSuggestedEditsRewardInterstitialEditQualityOnDay())
                                 && SuggestedEditsUserStats.getRevertSeverity() <= SuggestedEditsRewardsItemFragment.EDIT_STREAK_MAX_REVERT_SEVERITY) {
                             when (SuggestedEditsUserStats.getRevertSeverity()) {
                                 0 -> {
@@ -391,7 +391,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
                             }
                             Prefs.setLastSuggestedEditsRewardInterstitialEditQualityShown(System.currentTimeMillis())
                         } else if (Prefs.getLastSuggestedEditsRewardInterstitialPageviewsShown().toInt() == 0
-                                || daysOfLastPageviewsShown == SuggestedEditsRewardsItemFragment.PAGEVIEWS_ON_DAY) {
+                                || daysOfLastPageviewsShown == Prefs.getSuggestedEditsRewardInterstitialPageviewsOnDay()) {
                             getPageViews()
                         }
                     }, { t ->

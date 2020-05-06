@@ -943,5 +943,25 @@ public final class Prefs {
         setLong(R.string.preference_key_suggested_edits_reward_interstitial_last_pageviews_shown, time);
     }
 
+    public static int getSuggestedEditsRewardInterstitialContributionOnInitialCount() {
+        return getInt(R.string.preference_key_suggested_edits_reward_interstitial_contribution_on_initial_count, 5);
+    }
+
+    public static int getSuggestedEditsRewardInterstitialContributionOnCount() {
+        return getInt(R.string.preference_key_suggested_edits_reward_interstitial_contribution_on_count, 50);
+    }
+
+    public static int getSuggestedEditsRewardInterstitialEditStreakOnCount() {
+        return getInt(R.string.preference_key_suggested_edits_reward_interstitial_edit_streak_on_count, 5);
+    }
+
+    public static int getSuggestedEditsRewardInterstitialEditQualityOnDay() {
+        return getInt(R.string.preference_key_suggested_edits_reward_interstitial_edit_quality_on_day, 14);
+    }
+
+    public static int getSuggestedEditsRewardInterstitialPageviewsOnDay() {
+        return getInt(R.string.preference_key_suggested_edits_reward_interstitial_pageviews_on_day, 30);
+    }
+
     private Prefs() { }
 }
