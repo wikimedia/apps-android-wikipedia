@@ -45,6 +45,7 @@ import static org.wikipedia.settings.PrefsIoUtil.setLong;
 import static org.wikipedia.settings.PrefsIoUtil.setString;
 
 /** Shared preferences utility for convenient POJO access. */
+@SuppressWarnings("checkstyle:magicnumber")
 public final class Prefs {
     @Nullable
     public static String getAppChannel() {
