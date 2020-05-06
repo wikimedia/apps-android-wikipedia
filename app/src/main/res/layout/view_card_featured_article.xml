@@ -11,11 +11,10 @@
         android:layout_height="@dimen/view_card_header_height"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
+    <FrameLayout
         android:id="@+id/view_featured_article_card_image_container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:layout_height="193dp"
         app:layout_constraintTop_toBottomOf="@id/view_featured_article_card_header">
 
         <org.wikipedia.views.FaceAndColorDetectImageView
@@ -28,8 +27,9 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
+            android:layout_gravity="bottom"
             android:background="?attr/material_theme_border_color" />
-    </LinearLayout>
+    </FrameLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/view_featured_article_card_text_container"
