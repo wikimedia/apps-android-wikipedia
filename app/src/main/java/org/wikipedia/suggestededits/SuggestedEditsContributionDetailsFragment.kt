@@ -35,6 +35,7 @@ class SuggestedEditsContributionDetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         topView.background = GradientUtil.getPowerGradient(R.color.green90, Gravity.TOP)
+        back.setOnClickListener { requireActivity().onBackPressed() }
         contribution = GsonUnmarshaller.unmarshal(SuggestedEditsContributionsFragment.Contribution::class.java, requireActivity().intent.getStringExtra(EXTRA_SOURCE_CONTRIBUTION))
         contributionText.text = getString(R.string.suggested_edits_contribution_label, 55)
         contributionDetailText.text = contribution!!.description

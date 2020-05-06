@@ -12,11 +12,12 @@
         android:layout_height="300dp" />
 
     <ImageView
+        android:id="@+id/back"
         android:layout_width="?attr/actionBarSize"
         android:layout_height="?attr/actionBarSize"
         android:contentDescription="@null"
         android:padding="16dp"
-        android:tint="?attr/main_toolbar_title_color"
+        android:tint="?attr/toolbar_title_color"
         app:srcCompat="@drawable/ic_arrow_back_themed_24dp" />
 
     <LinearLayout
