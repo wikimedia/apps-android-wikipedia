@@ -215,7 +215,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
                                 editType = EDIT_TYPE_IMAGE_TAG
                             }
                         }
-                        continuedImageContributions.add(Contribution("", userContribution.title.replace("File:", ""), "", editType, "", DateUtil.iso8601DateParse(userContribution.timestamp), WikiSite.forLanguageCode(contributionLanguage)))
+                        continuedImageContributions.add(Contribution("", userContribution.title, "", editType, "", DateUtil.iso8601DateParse(userContribution.timestamp), WikiSite.forLanguageCode(contributionLanguage)))
                     }
                     for (contribution in continuedImageContributions) {
                         disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo(contribution.title, contribution.wikiSite.languageCode())
@@ -233,6 +233,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
                                         val imageInfo = page.imageInfo()!!
                                         contribution.description = imageInfo.metadata!!.imageDescription()
                                         contribution.imageUrl = imageInfo.originalUrl
+                                        contribution.title = contribution.title.replace("File:", "")
                                     }
                                 }, { caught ->
                                     L.e(caught)
