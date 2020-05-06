@@ -74,14 +74,14 @@ public final class NotificationPresenter {
             iconColor = R.color.base0;
         }
 
-        showNotification(context, builder, (int) n.key(), wikiSiteName, title, title, iconResId, iconColor, activityIntent);
+        showNotification(context, builder, (int) n.key(), wikiSiteName, title, title, iconResId, iconColor, true, activityIntent);
     }
 
     public static void showMultipleUnread(@NonNull Context context, int unreadCount) {
         NotificationCompat.Builder builder = getDefaultBuilder(context);
         showNotification(context, builder, 0, context.getString(R.string.app_name),
                 context.getString(R.string.notification_many_unread, unreadCount), context.getString(R.string.notification_many_unread, unreadCount),
-                R.drawable.ic_notifications_black_24dp, R.color.accent50, NotificationActivity.newIntent(context));
+                R.drawable.ic_notifications_black_24dp, R.color.accent50, true, NotificationActivity.newIntent(context));
     }
 
     public static NotificationCompat.Builder getDefaultBuilder(@NonNull Context context) {
@@ -106,9 +106,9 @@ public final class NotificationPresenter {
     @SuppressWarnings("checkstyle:parameternumber")
     public static void showNotification(@NonNull Context context, @NonNull NotificationCompat.Builder builder, int id,
                                         @NonNull String title, @NonNull String text, @NonNull CharSequence longText,
-                                        @DrawableRes int icon, @ColorRes int color, @NonNull Intent bodyIntent) {
+                                        @DrawableRes int icon, @ColorRes int color, boolean drawIconCircle, @NonNull Intent bodyIntent) {
         builder.setContentIntent(PendingIntent.getActivity(context, REQUEST_CODE_ACTIVITY, bodyIntent, PendingIntent.FLAG_UPDATE_CURRENT))
-                .setLargeIcon(drawNotificationBitmap(context, color, icon))
+                .setLargeIcon(drawNotificationBitmap(context, color, icon, drawIconCircle))
                 .setSmallIcon(R.drawable.ic_wikipedia_w)
                 .setColor(ContextCompat.getColor(context, color))
                 .setContentTitle(title)
@@ -132,16 +132,16 @@ public final class NotificationPresenter {
         builder.addAction(0, labelStr, pendingIntent);
     }
 
-    private static Bitmap drawNotificationBitmap(@NonNull Context context, @ColorRes int color, @DrawableRes int icon) {
+    private static Bitmap drawNotificationBitmap(@NonNull Context context, @ColorRes int color, @DrawableRes int icon, boolean drawIconCircle) {
         final int bitmapHalfSize = DimenUtil.roundedDpToPx(20);
         final int iconHalfSize = DimenUtil.roundedDpToPx(12);
         Bitmap bmp = Bitmap.createBitmap(bitmapHalfSize * 2, bitmapHalfSize * 2, Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(bmp);
         Paint p = new Paint();
         p.setAntiAlias(true);
-        p.setColor(ContextCompat.getColor(context, color));
+        p.setColor(ContextCompat.getColor(context, drawIconCircle ? color : android.R.color.transparent));
         canvas.drawCircle(bitmapHalfSize, bitmapHalfSize, bitmapHalfSize, p);
-        Bitmap iconBmp = ResourceUtil.bitmapFromVectorDrawable(context, icon, android.R.color.white);
+        Bitmap iconBmp = ResourceUtil.bitmapFromVectorDrawable(context, icon, drawIconCircle ? android.R.color.white : color);
         canvas.drawBitmap(iconBmp, null, new Rect(bitmapHalfSize - iconHalfSize, bitmapHalfSize - iconHalfSize,
                 bitmapHalfSize + iconHalfSize, bitmapHalfSize + iconHalfSize), null);
         iconBmp.recycle();
