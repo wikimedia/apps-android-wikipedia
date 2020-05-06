@@ -37,7 +37,7 @@
                 android:paddingStart="12dp"
                 android:paddingEnd="12dp"
                 app:srcCompat="@drawable/ic_arrow_forward_black_24dp"
-                app:tint="?attr/page_toolbar_icon_color" />
+                app:tint="?attr/toolbar_icon_color" />
 
         </LinearLayout>
 
