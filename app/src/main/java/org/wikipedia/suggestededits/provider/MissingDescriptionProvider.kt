@@ -205,7 +205,9 @@ object MissingDescriptionProvider {
                 ServiceFactory.get(WikiSite(Service.COMMONS_URL)).randomWithImageInfo
                         .map { response ->
                             for (page in response.query()!!.pages()!!) {
-                                imagesWithMissingTagsCache.push(page)
+                                if (page.imageInfo()!!.mimeType == "image/jpeg") {
+                                    imagesWithMissingTagsCache.push(page)
+                                }
                             }
                             var item: MwQueryPage? = null
                             if (!imagesWithMissingTagsCache.empty()) {
