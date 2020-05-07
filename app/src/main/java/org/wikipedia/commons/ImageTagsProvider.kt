@@ -1,7 +1,6 @@
 package org.wikipedia.commons
 
 import io.reactivex.Observable
-import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
@@ -12,7 +11,6 @@ object ImageTagsProvider {
     fun getImageTagsObservable(pageId: String, langCode: String): Observable<Map<String, String>> {
         return ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getClaims("M$pageId")
                 .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
                 .flatMap { claims ->
                     val depicts = claims.claims()["P180"]
                     val ids = mutableListOf<String?>()
@@ -21,6 +19,7 @@ object ImageTagsProvider {
                     }
                     ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getWikidataLabels(ids.joinToString(separator = "|"), langCode)
                 }
+                .subscribeOn(Schedulers.io())
                 .map { entities ->
                     val captions = HashMap<String, String>()
                     for (label in entities.first!!.labels().values) {
