@@ -141,9 +141,9 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
 
         DeviceUtil.updateStatusBarTheme(requireActivity(), toolbar, true);
         appBarLayout.addOnOffsetChangedListener(appBarListener);
-        toolBarLayout.setCollapsedTitleTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.main_toolbar_icon_color));
+        toolBarLayout.setCollapsedTitleTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.toolbar_icon_color));
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            toolBarLayout.setStatusBarScrimColor(ResourceUtil.getThemedColor(requireContext(), R.attr.main_status_bar_color));
+            toolBarLayout.setStatusBarScrimColor(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color));
         }
 
         touchCallback = new SwipeableItemTouchHelperCallback(requireContext());
@@ -216,9 +216,9 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         MenuItem searchItem = menu.findItem(R.id.menu_search_lists);
         MenuItem sortOptionsItem = menu.findItem(R.id.menu_sort_options);
         searchItem.getIcon().setColorFilter(toolbarExpanded ? getResources().getColor(android.R.color.white)
-                : ResourceUtil.getThemedColor(requireContext(), R.attr.main_toolbar_icon_color), PorterDuff.Mode.SRC_IN);
+                : ResourceUtil.getThemedColor(requireContext(), R.attr.toolbar_icon_color), PorterDuff.Mode.SRC_IN);
         sortOptionsItem.getIcon().setColorFilter(toolbarExpanded ? getResources().getColor(android.R.color.white)
-                : ResourceUtil.getThemedColor(requireContext(), R.attr.main_toolbar_icon_color), PorterDuff.Mode.SRC_IN);
+                : ResourceUtil.getThemedColor(requireContext(), R.attr.toolbar_icon_color), PorterDuff.Mode.SRC_IN);
 
         if (readingList != null && readingList.isDefault()) {
             if (menu.findItem(R.id.menu_reading_list_rename) != null) {
@@ -851,7 +851,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         DeviceUtil.updateStatusBarTheme(requireActivity(), toolbar, toolbarExpanded && !inActionMode);
         requireActivity().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         requireActivity().getWindow().setStatusBarColor(!inActionMode
-                ? Color.TRANSPARENT : ResourceUtil.getThemedColor(requireActivity(), R.attr.main_status_bar_color));
+                ? Color.TRANSPARENT : ResourceUtil.getThemedColor(requireActivity(), R.attr.paper_color));
     }
 
     private class SearchCallback extends SearchActionModeCallback {
