@@ -386,9 +386,10 @@ public class CreateAccountActivity extends BaseActivity {
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(response -> {
                         ListUserResponse user = response.query().getUserResponse(userName);
-                        if (user.canCreate()) {
-                            usernameInput.setErrorEnabled(false);
-                        } else {
+                        usernameInput.setErrorEnabled(false);
+                        if (user.isBlocked()) {
+                            handleAccountCreationError(user.getError());
+                        } else if (!user.canCreate()) {
                             usernameInput.setError(getString(R.string.create_account_name_unavailable, userName));
                         }
                     }, L::e));

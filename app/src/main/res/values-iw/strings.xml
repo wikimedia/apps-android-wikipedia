@@ -484,28 +484,40 @@
   <string name="notification_syncing_cancel_button">ביטול</string>
   <string name="notification_syncing_reading_list_channel_description">התקדמות סנכרון רשימות קריאה</string>
   <string name="notification_many_unread">יש לך %d התראות שלא נקראו</string>
-  <plurals name="notification_channel_name" fuzzy="true">
+  <plurals name="notification_channel_name">
     <item quantity="one">מתבצעת הורדה של ערך</item>
+    <item quantity="two">מתבצעת הורדה של ערכים</item>
+    <item quantity="many">מתבצעת הורדה של ערכים</item>
     <item quantity="other">מתבצעת הורדה של ערכים</item>
   </plurals>
-  <plurals name="notification_syncing_title" fuzzy="true">
-    <item quantity="one">מתבצעת הורדה של %1$d אחד…</item>
+  <plurals name="notification_syncing_title">
+    <item quantity="one">מתבצעת הורדה של ערך אחד…</item>
+    <item quantity="two">מתבצעת הורדה של %1$d ערכים…</item>
+    <item quantity="many">מתבצעת הורדה של %1$d ערכים…</item>
     <item quantity="other">מתבצעת הורדה של %1$d ערכים…</item>
   </plurals>
-  <plurals name="notification_syncing_description" fuzzy="true">
-    <item quantity="one">נשאר %1$d אחד</item>
+  <plurals name="notification_syncing_description">
+    <item quantity="one">נשאר ערך אחד</item>
+    <item quantity="two">נשארו %1$d ערכים</item>
+    <item quantity="many">נשארו %1$d ערכים</item>
     <item quantity="other">נשארו %1$d ערכים</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_channel_name" fuzzy="true">
+  <plurals name="notification_syncing_reading_list_channel_name">
     <item quantity="one">סנכרון רשימת קריאה</item>
+    <item quantity="two">סנכרון רשימות קריאה</item>
+    <item quantity="many">סנכרון רשימות קריאה</item>
     <item quantity="other">סנכרון רשימות קריאה</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_title" fuzzy="true">
-    <item quantity="one">מתבצע סנכרון של %1$d אחת…</item>
+  <plurals name="notification_syncing_reading_list_title">
+    <item quantity="one">מתבצע סנכרון של רשימה אחת…</item>
+    <item quantity="two">מתבצע סנכרון של %1$d רשימות…</item>
+    <item quantity="many">מתבצע סנכרון של %1$d רשימות…</item>
     <item quantity="other">מתבצע סנכרון של %1$d רשימות…</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_description" fuzzy="true">
-    <item quantity="one">נשארה %1$d אחת</item>
+  <plurals name="notification_syncing_reading_list_description">
+    <item quantity="one">נשארה רשימה אחת</item>
+    <item quantity="two">נשארו %1$d רשימות</item>
+    <item quantity="many">נשארו %1$d רשימות</item>
     <item quantity="other">נשארו %1$d רשימות</item>
   </plurals>
   <string name="notification_echo_channel_description">הודעות ויקיפדיה</string>
@@ -516,8 +528,10 @@
   <string name="notifications_view_archived">הצגת ארכיון</string>
   <string name="notifications_prefs">העדפות הודעות</string>
   <string name="notifications_archive">לסמן שההודעה נקראה ולשמור בארכיון</string>
-  <plurals name="notification_archive_message" fuzzy="true">
+  <plurals name="notification_archive_message">
     <item quantity="one">ההודעה נשלחה לארכיון</item>
+    <item quantity="two">%d הודעות נשלחו לארכיון</item>
+    <item quantity="many">%d הודעות נשלחו לארכיון</item>
     <item quantity="other">%d הודעות נשלחו לארכיון</item>
   </plurals>
   <string name="notifications_poll_enable_title">הפעלת הודעות</string>
@@ -563,8 +577,10 @@
   <string name="most_read_list_card_title">נושאים חמים</string>
   <string name="view_static_card_icon_content_description">סמל כרטיס</string>
   <string name="view_card_news_title">בחדשות</string>
-  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
+  <plurals name="view_continue_reading_card_subtitle">
     <item quantity="one">אתמול</item>
+    <item quantity="two">שלשום</item>
+    <item quantity="many">לפני %d ימים</item>
     <item quantity="other">לפני %d ימים</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">היום</string>
@@ -676,8 +692,10 @@
   <string name="suggested_edits_image_caption_summary_title_source">מקור</string>
   <string name="suggested_edits_image_caption_summary_title_license">רישיון</string>
   <string name="suggested_edits_image_caption_summary_title_date">תאריך</string>
-  <plurals name="suggested_edits_contribution_count" fuzzy="true">
+  <plurals name="suggested_edits_contribution_count">
     <item quantity="one">תרומה אחת</item>
+    <item quantity="two">%d תרומות</item>
+    <item quantity="many">%d תרומות</item>
     <item quantity="other">%d תרומות</item>
   </plurals>
   <string name="suggested_edits_feed_card_title">עריכות מוצעות</string>
@@ -707,10 +725,10 @@
   <string name="suggested_edits_image_tags_publishing">מתפרסם</string>
   <string name="suggested_edits_image_tags_published">פורסם</string>
   <string name="suggested_edits_image_tags_onboarding_title">תיוג תמונות עוזר לאחרים למצוא אותן.</string>
-  <string name="suggested_edits_image_tags_onboarding_text">אימות התגים יעזור לאחרים למצוא אותן בוויקישיתוף, מאגר התמונות החופשיות שוויקיפדיה משתמשת בו לתמונות בערכים שלה.\n\nהצענו כמה תגים באופן אוטומטי, ובאפשרותך להוסיף תגים משלך.</string>
+  <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">אימות התגים יעזור לאחרים למצוא אותן בוויקישיתוף, מאגר התמונות החופשיות שוויקיפדיה משתמשת בו לתמונות בערכים שלה.\n\nהצענו כמה תגים באופן אוטומטי, ובאפשרותך להוסיף תגים משלך.</string>
   <string name="suggested_edits_image_tags_onboarding_note">רק תגים שאישרת יוּספו לתמונות.</string>
   <string name="suggested_edits_image_tags_snackbar">תייגו תמונות כדי שלאחרים יהיה קל יותר למצוא אותן</string>
-  <string name="suggested_edits_image_tags_task_detail">תייגו תמונות כדי שלאחרים יהיה קל יותר למצוא אותן. בחרו מתוך התגים המוצעים או הוסיפו תגים משלכם.</string>
+  <string name="suggested_edits_image_tags_task_detail" fuzzy="true">תייגו תמונות כדי שלאחרים יהיה קל יותר למצוא אותן. בחרו מתוך התגים המוצעים או הוסיפו תגים משלכם.</string>
   <string name="suggested_edits_image_tags_choose">נא לבחור או להוסיף תגים תואמים</string>
   <string name="suggested_edits_image_tags_published_list">תגים שפורסמו</string>
   <string name="suggested_edits_image_tags_search">חיפוש תגים</string>
@@ -742,19 +760,26 @@
   <string name="suggested_edits_quality_sufficient_text">ככה ככה</string>
   <string name="suggested_edits_quality_poor_text">ירודה</string>
   <string name="suggested_edits_quality_bad_text">גרועה</string>
-  <plurals name="suggested_edits_contribution" fuzzy="true">
+  <string name="suggested_edits_contribute">לתרום</string>
+  <plurals name="suggested_edits_contribution">
     <item quantity="one">תרומה</item>
+    <item quantity="two">תרומות</item>
+    <item quantity="many">תרומות</item>
     <item quantity="other">תרומות</item>
   </plurals>
-  <plurals name="suggested_edits_edit_streak_detail_text" fuzzy="true">
+  <plurals name="suggested_edits_edit_streak_detail_text">
     <item quantity="one">יום אחד</item>
     <item quantity="two">יומיים</item>
+    <item quantity="many">%d ימים</item>
     <item quantity="other">%d ימים</item>
   </plurals>
   <string name="suggested_edits_last_edited">עריכה אחרונה</string>
   <string name="suggested_edits_last_edited_never">לעולם לא</string>
   <string name="suggested_edits_task_new">חדשה</string>
   <string name="suggested_edits_cc0_notice">הפרסום מהווה את הסכמתך הבלתי־חוזרת ל&lt;a href=\"%1$s\"&gt;תנאי השימוש&lt;/a&gt; ולשחרור של התרומה הזאת לפי &lt;a href=\"%2$s\"&gt;רישיון CC0&lt;/a&gt;.</string>
+  <string name="suggested_edits_reactivation_notification_title">עריכות מוצעות</string>
+  <string name="suggested_edits_reactivation_notification_stage_one">תודה על עריכת ויקיפדיה! מדוע לא להמשיך היכן שהפסקת?</string>
+  <string name="suggested_edits_reactivation_notification_stage_two">יש לך דקה להמשיך לשפר את ויקיפדיה? תציץ בהצעות העריכה האלו.</string>
   <string name="description_edit_revert_subtitle">תודה על עריכת ויקיפדיה!</string>
   <string name="description_edit_revert_intro">אנחנו יודעים שניסית היטב, אבל לאחד מהסוקרים היה חשד. סיבות אפשריות לכך שהעריכה שלך בוטלה:</string>
   <string name="description_edit_revert_reason1">התרומה שלך הייתה מנוגדת ל&lt;a href=\"%1$s\"&gt;הוראות&lt;/a&gt;.</string>
@@ -796,9 +821,11 @@
   <string name="on_this_day_dialog_next_month">החודש הבא</string>
   <string name="on_this_day_dialog_previous_month">החודש הקודם</string>
   <string name="on_this_day_open_date_picker">פתיחת בוחר התאריך</string>
-  <plurals name="diff_years" fuzzy="true">
+  <plurals name="diff_years">
     <item quantity="one">שנה שעברה</item>
-    <item quantity="other">שנתיים %d</item>
+    <item quantity="two">לפני שנתיים</item>
+    <item quantity="many">לפני %d שנים</item>
+    <item quantity="other">לפני %d שנים</item>
   </plurals>
   <string name="languages_list_activity_title">הוספת שפה</string>
   <string name="languages_list_suggested_text">מוצעות</string>
@@ -808,8 +835,10 @@
   <string name="wikipedia_languages_add_language_text">הוספת שפה</string>
   <string name="wikipedia_languages_remove_text">הסרת שפה</string>
   <string name="wikipedia_languages_remove_action_mode_title">הסרת שפה</string>
-  <plurals name="wikipedia_languages_remove_dialog_title" fuzzy="true">
+  <plurals name="wikipedia_languages_remove_dialog_title">
     <item quantity="one">להסיר את השפה שנבחרה?</item>
+    <item quantity="two">להסיר את השפות שנבחרו?</item>
+    <item quantity="many">להסיר את השפות שנבחרו?</item>
     <item quantity="other">להסיר את השפות שנבחרו?</item>
   </plurals>
   <string name="wikipedia_languages_remove_dialog_content">בהזנת הגילוי וכן במסנני החיפוש המהירים, יוצג רק תוכן בשפות הוויקיפדיה שמופיעות ברשימה.</string>

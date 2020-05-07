@@ -23,10 +23,11 @@
             style="@style/ToolbarStyle"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/main_toolbar_color"
+            android:background="?attr/paper_color"
             android:elevation="4dp"
             android:layout_marginStart="-12dp"
-            app:titleTextColor="?attr/main_toolbar_title_color"
+            app:titleTextAppearance="@style/ToolbarTextAppearance"
+            app:titleTextColor="?attr/toolbar_title_color"
             app:titleMarginStart="28dp">
 
             <LinearLayout
@@ -71,7 +72,7 @@
                     android:layout_marginStart="20dp"
                     android:contentDescription="@null"
                     app:srcCompat="@drawable/feed_header_wordmark"
-                    app:tint="?attr/main_toolbar_title_color" />
+                    app:tint="?attr/toolbar_title_color" />
             </LinearLayout>
         </androidx.appcompat.widget.Toolbar>
     </org.wikipedia.views.FrameLayoutNavMenuTriggerer>

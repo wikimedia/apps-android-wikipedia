@@ -11,12 +11,6 @@
         android:layout_height="match_parent"
         android:focusableInTouchMode="true">
 
-        <View
-            android:id="@+id/fragment_feed_header"
-            android:layout_width="match_parent"
-            android:layout_height="72dp"
-            android:background="@color/accent30" />
-
         <org.wikipedia.feed.view.FeedView
             android:id="@+id/fragment_feed_feed"
             android:layout_width="match_parent"

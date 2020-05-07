@@ -38,7 +38,7 @@ public class CabSearchView extends SearchView {
     public CabSearchView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
 
-        int themedIconColor = getThemedColor(getContext(), R.attr.page_toolbar_icon_color);
+        int themedIconColor = getThemedColor(getContext(), R.attr.toolbar_icon_color);
         searchSrcTextView = findViewById(R.id.search_src_text);
         searchSrcTextView.setTextColor(getThemedColor(getContext(), R.attr.primary_text_color));
         searchSrcTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, SEARCH_TEXT_SIZE);

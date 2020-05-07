@@ -2,6 +2,7 @@
 <!-- Authors:
 * Aaribaud
 * Abijeet Patro
+* Alno
 * Bbernrd
 * Blurby
 * C13m3n7
@@ -725,10 +726,10 @@
   <string name="suggested_edits_image_tags_publishing">Publication</string>
   <string name="suggested_edits_image_tags_published">Publié</string>
   <string name="suggested_edits_image_tags_onboarding_title">Marquer les images permet de les retrouver plus facilement.</string>
-  <string name="suggested_edits_image_tags_onboarding_text">En ajoutant des balises d’image, vous facilitez la recherche d’images sur Commons, le répertoire d’images sous licence libre utilisé par Wikipédia pour illustrer ses articles.\n\nNous vous avons suggéré quelques balises de manière automatique et vous pouvez également ajouter les vôtres.</string>
+  <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">En ajoutant des balises d’image, vous facilitez la recherche d’images sur Commons, le répertoire d’images sous licence libre utilisé par Wikipédia pour illustrer ses articles.\n\nNous vous avons suggéré quelques balises de manière automatique et vous pouvez également ajouter les vôtres.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Seules les balises que vous choisissez seront ajoutées aux images.</string>
   <string name="suggested_edits_image_tags_snackbar">Ajouter des balises à l’image pour les rendre plus faciles à trouver par les autres.</string>
-  <string name="suggested_edits_image_tags_task_detail">Marquez les images pour les rendre plus faciles à trouver. Choisissez parmi les balises suggérées ou ajoutez les vôtres.</string>
+  <string name="suggested_edits_image_tags_task_detail" fuzzy="true">Marquez les images pour les rendre plus faciles à trouver. Choisissez parmi les balises suggérées ou ajoutez les vôtres.</string>
   <string name="suggested_edits_image_tags_choose">Ajouter ou choisir les balises qui correspondent</string>
   <string name="suggested_edits_image_tags_published_list">Balises publiées</string>
   <string name="suggested_edits_image_tags_search">Rechercher des balises</string>
@@ -760,6 +761,7 @@
   <string name="suggested_edits_quality_sufficient_text">Suffisant</string>
   <string name="suggested_edits_quality_poor_text">Faible</string>
   <string name="suggested_edits_quality_bad_text">Mauvais</string>
+  <string name="suggested_edits_contribute">Contribuer</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">Contribution</item>
     <item quantity="other">Contributions</item>
@@ -773,8 +775,8 @@
   <string name="suggested_edits_task_new">nouveau</string>
   <string name="suggested_edits_cc0_notice">En publiant, vous acceptez les &lt;a href=\"%1$s\"&gt;conditions d’utilisation&lt;/a&gt; et de mettre de façon irrévocable cette contribution sous la &lt;a href=\"%2$s\"&gt;licence CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Modifications suggérées</string>
-  <string name="suggested_edits_reactivation_notification_stage_one">Merci d\'avoir modifié Wikipédia ! Pourquoi ne pas continuer là où vous l’avez laissé ?</string>
-  <string name="suggested_edits_reactivation_notification_stage_two">Vous avez une minute pour contin uer à améliorer Wikipedia ? Regardez ces suggestions de modification.</string>
+  <string name="suggested_edits_reactivation_notification_stage_one">Merci d\'avoir modifié Wikipédia ! Pourquoi ne pas reprendre là où vous en étiez ?</string>
+  <string name="suggested_edits_reactivation_notification_stage_two">Vous avez une minute pour continuer à améliorer Wikipédia ? Consultez ces suggestions de modifications.</string>
   <string name="description_edit_revert_subtitle">Merci pour l’édition de Wikipédia !</string>
   <string name="description_edit_revert_intro">Nous savons que vous avez fait de votre mieux, mais un de nos relecteurs a eu un souci. Les raisons possibles de l’annulation de votre modification comprennent :</string>
   <string name="description_edit_revert_reason1">votre contribution ne respectait pas une des &lt;a href=\"%1$s\"&gt;directives&lt;/a&gt;.</string>

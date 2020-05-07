@@ -5,6 +5,7 @@
 * Asoxor
 * Diyariq
 * Kurd
+* Kushared
 * Pirehelokan
 * Sarchia
 * Épine
@@ -321,6 +322,7 @@
   <string name="theme_chooser_dialog_match_system_theme_switch_label">ڕووکاری سیستم بگونجێنە</string>
   <string name="page_footer_license_text">ناوەڕۆک بەردەستە لەژێر $1 مەگەر بە پێچەوانەوە وترابێت</string>
   <string name="empty_tab_title">تابی نوێ</string>
+  <string name="menu_save_all_tabs">هەموو تابەکان پاشەکەوت بکە</string>
   <string name="crash_report_activity_title">ھەڵەی نەرمەواڵە</string>
   <string name="crash_report_relaunch_or_quit">دەتەوێت سەرلەنوێ دەست پێبکەیتەوە یان وازدەھێنیت؟</string>
   <string name="crash_report_relaunch">دەستپێکردنەوە</string>
@@ -557,6 +559,7 @@
   <string name="suggested_edits_add_caption_button">زیادکردنی شرۆڤە</string>
   <string name="suggested_edits_edit_caption_button">دەستکاری شرۆڤە</string>
   <string name="suggested_edits_review_image_caption">پێداچوونەوەی شرۆڤەی وێنە</string>
+  <string name="suggested_edits_my_contributions">بەشدارییەکانم</string>
   <string name="suggested_edits_no_description">ئەم پەڕگەیە وەسفی نییە</string>
   <string name="suggested_edits_menu_info">زانیاری</string>
   <string name="suggested_edits_tasks_activity_title">دەستکاری پێشنیارکراوەکان</string>
@@ -564,6 +567,7 @@
   <string name="suggested_edits_task_image_caption_title">زیادکردنی شرۆڤەی وێنە</string>
   <string name="suggested_edits_task_translate_caption_title">وەرگێڕانی شرۆڤەی وێنە</string>
   <string name="suggested_edits_task_translate_caption_description">وەرگێڕانی شرۆڤەکان بۆ ناو زمانەکانی دیکە</string>
+  <string name="suggested_edits_task_multilingual_negative">بۆ من نا</string>
   <string name="suggested_edits_task_multilingual_positive">زمان زیاد بکە</string>
   <string name="suggested_edits_image_caption_summary_title_file">پەڕگە</string>
   <string name="suggested_edits_image_caption_summary_title_artist">ھونەرمەند</string>
@@ -588,6 +592,7 @@
   <string name="suggested_edits_article_cta_snackbar_action">بینین</string>
   <string name="suggested_edits_feed_card_add_image_caption">زیادکردنی شرۆڤەی وێنە</string>
   <string name="suggested_edits_feed_card_translate_image_caption">زیادکردنی شرۆڤەی وێنە (%s)</string>
+  <string name="suggested_edits_feed_card_add_image_tags">زیادکردنی تاگەکانی وێنە</string>
   <string name="suggested_edits_task_action_text_add">زیاد بکە</string>
   <string name="suggested_edits_task_action_text_translate">وەرگێڕان</string>
   <string name="suggested_edits_image_captions">شرۆڤەی وێنە</string>
@@ -595,7 +600,7 @@
   <string name="suggested_edits_image_tags_publishing">بڵاوکردنەوە</string>
   <string name="suggested_edits_image_tags_published">بڵاوکراو</string>
   <string name="suggested_edits_image_tags_search">گەڕانی تاگەکان</string>
-  <string name="suggested_edits_image_tags_add_tag" fuzzy="true">زیادکردنی تاگ...</string>
+  <string name="suggested_edits_image_tags_add_tag">زیادکردنی تاگ</string>
   <string name="suggested_edits_help_page_link_text">دەستکاریە پێشنیارکاوەکان پەڕەی یارمەتی</string>
   <string name="suggested_edits_pageviews_label_text">بینینەکانی پەڕە</string>
   <string name="suggested_edits_quality_label_text">دەستکاری جۆر</string>
@@ -628,6 +633,7 @@
   <string name="onboarding_skip">پەڕاندن</string>
   <string name="onboarding_continue">بەردەوامبوون</string>
   <string name="onboarding_get_started">دەست پێ بکە</string>
+  <string name="onboarding_maybe_later">ڕەنگە بۆ دواتر</string>
   <string name="onboarding_explore_title">شێوازی نوێ بۆ دۆزینەوە</string>
   <string name="onboarding_analytics_title">داتای نەناسراوە بنێرە</string>
   <string name="onboarding_analytics_switch_title">داتای بەکارھێنان بنێرە</string>
