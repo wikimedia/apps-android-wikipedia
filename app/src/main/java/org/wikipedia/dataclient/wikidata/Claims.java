@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 
 import com.google.gson.annotations.SerializedName;
 
+import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.dataclient.mwapi.MwResponse;
 import org.wikipedia.json.PostProcessingTypeAdapter;
 
@@ -25,6 +26,10 @@ public class Claims extends MwResponse implements PostProcessingTypeAdapter.Post
         @Nullable private String type;
         @Nullable private String id;
         @Nullable private String rank;
+
+        @Nullable public MainSnak getMainSnak() {
+            return mainSnak;
+        }
     }
 
     public static class MainSnak {
@@ -33,16 +38,28 @@ public class Claims extends MwResponse implements PostProcessingTypeAdapter.Post
         @Nullable private String hash;
         @Nullable @SerializedName("datavalue") private DataValue dataValue;
         @Nullable @SerializedName("datatype") private String dataType;
+
+        @Nullable public DataValue getDataValue() {
+            return dataValue;
+        }
     }
 
     public static class DataValue {
         @Nullable private Value value;
         @Nullable private String type;
+
+        @Nullable public Value getValue() {
+            return value;
+        }
     }
 
     public static class Value {
         @Nullable private @SerializedName("entity-type") String entityType;
         private @SerializedName("numeric-id") int numericId;
         @Nullable private String id;
+
+        @NonNull public String getId() {
+            return StringUtils.defaultString(id);
+        }
     }
 }
