@@ -133,7 +133,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         progressBar.visibility = VISIBLE
         disposables.add(SuggestedEditsUserStats.getEditCountsObservable()
                 .map { response ->
-                    var shouldLoadPageviews = false
+                    var shouldLoadPageViews = false
                     if (response.query()!!.userInfo()!!.isBlocked) {
 
                         setIPBlockedStatus()
@@ -151,9 +151,9 @@ class SuggestedEditsTasksFragment : Fragment() {
                                     editorTaskCounts.editStreak, editorTaskCounts.editStreak))
                             editStreakStatsView.setDescription(resources.getString(R.string.suggested_edits_edit_streak_label_text))
                         }
-                        shouldLoadPageviews = true
+                        shouldLoadPageViews = true
                     }
-                    shouldLoadPageviews
+                    shouldLoadPageViews
                 }
                 .flatMap {
                     if (it) {
