@@ -10,9 +10,7 @@ import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import io.reactivex.Observable
-import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_suggested_edits_tasks.*
 import org.wikipedia.Constants
 import org.wikipedia.Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE
@@ -21,10 +19,6 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.SuggestedEditsFunnel
 import org.wikipedia.auth.AccountUtil
-import org.wikipedia.dataclient.Service
-import org.wikipedia.dataclient.ServiceFactory
-import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
 import org.wikipedia.language.LanguageSettingsInvokeSource
 import org.wikipedia.main.MainActivity
@@ -138,7 +132,8 @@ class SuggestedEditsTasksFragment : Fragment() {
 
         progressBar.visibility = VISIBLE
         disposables.add(SuggestedEditsUserStats.getEditCountsObservable()
-                .subscribe({ response ->
+                .map { response ->
+                    var shouldLoadPageviews = false
                     if (response.query()!!.userInfo()!!.isBlocked) {
 
                         setIPBlockedStatus()
@@ -156,103 +151,27 @@ class SuggestedEditsTasksFragment : Fragment() {
                                     editorTaskCounts.editStreak, editorTaskCounts.editStreak))
                             editStreakStatsView.setDescription(resources.getString(R.string.suggested_edits_edit_streak_label_text))
                         }
-
-                        getPageViews()
+                        shouldLoadPageviews = true
                     }
-                }, { t ->
-                    L.e(t)
-                    showError(t)
-                }))
-
-    }
-
-    private fun getPageViews() {
-        val qLangMap = HashMap<String, HashSet<String>>()
-
-        disposables.add(ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getUserContributions(AccountUtil.getUserName()!!, 10)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .flatMap { response ->
-                    for (userContribution in response.query()!!.userContributions()) {
-                        var descLang = ""
-                        val strArr = userContribution.comment.split(" ")
-                        for (str in strArr) {
-                            if (str.contains("wbsetdescription")) {
-                                val descArr = str.split("|")
-                                if (descArr.size > 1) {
-                                    descLang = descArr[1]
-                                    break
-                                }
-                            }
-                        }
-                        if (descLang.isEmpty()) {
-                            continue
-                        }
-
-                        if (!qLangMap.containsKey(userContribution.title)) {
-                            qLangMap[userContribution.title] = HashSet()
-                        }
-                        qLangMap[userContribution.title]!!.add(descLang)
-                    }
-                    ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getWikidataLabelsAndDescriptions(qLangMap.keys.joinToString("|"))
-                            .subscribeOn(Schedulers.io())
-                            .observeOn(AndroidSchedulers.mainThread())
+                    shouldLoadPageviews
                 }
                 .flatMap {
-                    if (it.entities().isEmpty()) {
-                        return@flatMap Observable.just(0L)
-                    }
-                    val langArticleMap = HashMap<String, ArrayList<String>>()
-                    for (entityKey in it.entities().keys) {
-                        val entity = it.entities()[entityKey]!!
-                        for (qKey in qLangMap.keys) {
-                            if (qKey == entityKey) {
-                                for (lang in qLangMap[qKey]!!) {
-                                    val dbName = WikiSite.forLanguageCode(lang).dbName()
-                                    if (entity.sitelinks().containsKey(dbName)) {
-                                        if (!langArticleMap.containsKey(lang)) {
-                                            langArticleMap[lang] = ArrayList()
-                                        }
-                                        langArticleMap[lang]!!.add(entity.sitelinks()[dbName]!!.title)
-                                    }
-                                }
-                                break
-                            }
-                        }
-                    }
-
-                    val observableList = ArrayList<Observable<MwQueryResponse>>()
-
-                    for (lang in langArticleMap.keys) {
-                        val site = WikiSite.forLanguageCode(lang)
-                        observableList.add(ServiceFactory.get(site).getPageViewsForTitles(langArticleMap[lang]!!.joinToString("|"))
-                                .subscribeOn(Schedulers.io())
-                                .observeOn(AndroidSchedulers.mainThread()))
-                    }
-
-                    Observable.zip(observableList) { resultList ->
-                        var totalPageViews = 0L
-                        for (result in resultList) {
-                            if (result is MwQueryResponse && result.query() != null) {
-                                for (page in result.query()!!.pages()!!) {
-                                    for (day in page.pageViewsMap.values) {
-                                        totalPageViews += day ?: 0
-                                    }
-                                }
-                            }
-                        }
-                        totalPageViews
+                    if (it) {
+                        SuggestedEditsUserStats.getPageViewsObservable()
+                    } else {
+                        Observable.just((-1).toLong())
                     }
                 }
-                .subscribe({ pageViewsCount ->
-
-                    pageViewStatsView.setTitle(pageViewsCount.toString())
-                    setFinalUIState()
-
+                .subscribe({
+                    if (it >= 0) {
+                        pageViewStatsView.setTitle(it.toString())
+                        setFinalUIState()
+                    }
                 }, { t ->
                     L.e(t)
                     showError(t)
                 }))
+
     }
 
     private fun refreshContents() {
