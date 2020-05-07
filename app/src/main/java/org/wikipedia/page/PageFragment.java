@@ -126,7 +126,7 @@ import static org.wikipedia.util.DimenUtil.getDensityScalar;
 import static org.wikipedia.util.ResourceUtil.getThemedAttributeId;
 import static org.wikipedia.util.ResourceUtil.getThemedColor;
 import static org.wikipedia.util.ThrowableUtil.isOffline;
-import static org.wikipedia.util.UriUtil.decodeURL;
+import static org.wikipedia.util.UriUtil.decodeURIComponent;
 import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
 
 public class PageFragment extends Fragment implements BackPressedHandler, CommunicationBridgeListener {
@@ -1056,11 +1056,11 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             webView.setScrollY(webView.getScrollY() + diffY - webView.getHeight() / offsetFraction);
         });
         bridge.addListener("image", (String messageType, JsonObject messagePayload) -> {
-            linkHandler.onUrlClick(decodeURL(messagePayload.get("href").getAsString()),
+            linkHandler.onUrlClick(decodeURIComponent(messagePayload.get("href").getAsString()),
                     messagePayload.has("title") ? messagePayload.get("title").getAsString() : null, "");
         });
         bridge.addListener("media", (String messageType, JsonObject messagePayload) -> {
-            linkHandler.onUrlClick(decodeURL(messagePayload.get("href").getAsString()),
+            linkHandler.onUrlClick(decodeURIComponent(messagePayload.get("href").getAsString()),
                     messagePayload.has("title") ? messagePayload.get("title").getAsString() : null, "");
         });
         bridge.addListener("pronunciation", (String messageType, JsonObject messagePayload) -> {

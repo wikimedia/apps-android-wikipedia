@@ -17,7 +17,7 @@ import org.wikipedia.util.log.L;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.wikipedia.util.UriUtil.decodeURL;
+import static org.wikipedia.util.UriUtil.decodeURIComponent;
 import static org.wikipedia.util.UriUtil.handleExternalLink;
 
 /**
@@ -44,7 +44,7 @@ public abstract class LinkHandler implements CommunicationBridge.JSEventListener
     // message from JS bridge:
     @Override
     public void onMessage(String messageType, JsonObject messagePayload) {
-        String href = decodeURL(messagePayload.get("href").getAsString());
+        String href = decodeURIComponent(messagePayload.get("href").getAsString());
         onUrlClick(href, messagePayload.has("title") ? messagePayload.get("title").getAsString() : null,
                 messagePayload.has("text") ? messagePayload.get("text").getAsString() : "");
     }

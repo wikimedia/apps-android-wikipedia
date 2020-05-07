@@ -16,17 +16,21 @@ import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.log.L;
 
+import java.io.CharArrayWriter;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
-
-import okhttp3.HttpUrl;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
+import java.util.BitSet;
 
 public final class UriUtil {
     public static final String LOCAL_URL_SETTINGS = "#settings";
     public static final String LOCAL_URL_LOGIN = "#login";
     public static final String LOCAL_URL_CUSTOMIZE_FEED = "#customizefeed";
     public static final String LOCAL_URL_LANGUAGES = "#languages";
+
+    private static BitSet UNENCODED_CHARS;
 
     /**
      * Decodes a URL-encoded string into its UTF-8 equivalent. If the string cannot be decoded, the
@@ -53,10 +57,6 @@ public final class UriUtil {
         } catch (UnsupportedEncodingException e) {
             throw new RuntimeException(e);
         }
-    }
-
-    @NonNull public static String encodeOkHttpUrl(@NonNull String basePath, @NonNull String title) {
-        return HttpUrl.parse(basePath).newBuilder().addPathSegment(title).build().toString();
     }
 
     /**
@@ -159,7 +159,151 @@ public final class UriUtil {
         return Uri.parse(link).getFragment();
     }
 
-    private UriUtil() {
+    /**
+     * This reproduces the functionality of the JavaScript encodeURIComponent() function, and is
+     * necessary because our RESTBase endpoints require path segments to be encoded this way to
+     * ensure that the correctly-cached content is returned.
+     * This is based on Java's own URLEncoder.encode() functionality, except with a few more
+     * unreserved characters included.
+     * @param s Unencoded string.
+     * @return Encoded string.
+     */
+    @SuppressWarnings("checkstyle:magicnumber")
+    public static String encodeURIComponent(String s) {
+        if (UNENCODED_CHARS == null) {
+            UNENCODED_CHARS = new BitSet(256);
+            for (int i = 'a'; i <= 'z'; i++) {
+                UNENCODED_CHARS.set(i);
+            }
+            for (int i = 'A'; i <= 'Z'; i++) {
+                UNENCODED_CHARS.set(i);
+            }
+            for (int i = '0'; i <= '9'; i++) {
+                UNENCODED_CHARS.set(i);
+            }
+            UNENCODED_CHARS.set('-');
+            UNENCODED_CHARS.set('_');
+            UNENCODED_CHARS.set('.');
+            UNENCODED_CHARS.set('*');
+            UNENCODED_CHARS.set('~');
+            UNENCODED_CHARS.set('\'');
+            UNENCODED_CHARS.set('(');
+            UNENCODED_CHARS.set(')');
+            UNENCODED_CHARS.set('!');
+        }
 
+        int caseDiff = ('a' - 'A');
+        boolean needToChange = false;
+        StringBuilder out = new StringBuilder(s.length());
+        Charset charset;
+        CharArrayWriter charArrayWriter = new CharArrayWriter();
+        charset = StandardCharsets.UTF_8;
+
+        for (int i = 0; i < s.length();) {
+            int c = s.charAt(i);
+            if (UNENCODED_CHARS.get(c)) {
+                if (c == ' ') {
+                    c = '+';
+                    needToChange = true;
+                }
+                out.append((char)c);
+                i++;
+            } else {
+                // convert to external encoding before hex conversion
+                do {
+                    charArrayWriter.write(c);
+                    if (c >= 0xD800 && c <= 0xDBFF) {
+                        if ((i + 1) < s.length()) {
+                            int d = s.charAt(i + 1);
+                            if (d >= 0xDC00 && d <= 0xDFFF) {
+                                charArrayWriter.write(d);
+                                i++;
+                            }
+                        }
+                    }
+                    i++;
+                    if (i >= s.length()) {
+                        break;
+                    }
+                    c = s.charAt(i);
+                } while (!UNENCODED_CHARS.get(c));
+
+                charArrayWriter.flush();
+                String str = new String(charArrayWriter.toCharArray());
+                byte[] ba = str.getBytes(charset);
+                for (byte b : ba) {
+                    out.append('%');
+                    char ch = Character.forDigit((b >> 4) & 0xF, 16);
+                    // converting to use uppercase letter as part of the hex value if ch is a letter.
+                    if (Character.isLetter(ch)) {
+                        ch -= caseDiff;
+                    }
+                    out.append(ch);
+                    ch = Character.forDigit(b & 0xF, 16);
+                    if (Character.isLetter(ch)) {
+                        ch -= caseDiff;
+                    }
+                    out.append(ch);
+                }
+                charArrayWriter.reset();
+                needToChange = true;
+            }
+        }
+        return (needToChange ? out.toString() : s);
     }
+
+    /**
+     * This reproduces the functionality of the JavaScript decodeURIComponent() function, and is
+     * necessary for decoding encoded segments received from the JavaScript bridge.
+     * This is based on Java's own URLDecoder.decode() functionality, except without transforming
+     * the plus sign to a space character.
+     * @param s Encoded string.
+     * @return Decoded string.
+     */
+    @SuppressWarnings("checkstyle:magicnumber")
+    public static String decodeURIComponent(String s) {
+        boolean needToChange = false;
+        int numChars = s.length();
+        StringBuilder sb = new StringBuilder(numChars > 500 ? numChars / 2 : numChars);
+        int i = 0;
+        char c;
+        byte[] bytes = null;
+
+        while (i < numChars) {
+            c = s.charAt(i);
+            if (c == '%') {
+                try {
+                    if (bytes == null) {
+                        bytes = new byte[(numChars - i) / 3];
+                    }
+                    int pos = 0;
+
+                    while (((i + 2) < numChars) && (c == '%')) {
+                        int v = Integer.parseInt(s.substring(i + 1, i + 3), 16);
+                        if (v < 0) {
+                            throw new IllegalArgumentException("URLDecoder: Illegal hex characters in escape (%) pattern");
+                        }
+                        bytes[pos++] = (byte) v;
+                        i += 3;
+                        if (i < numChars) {
+                            c = s.charAt(i);
+                        }
+                    }
+                    if ((i < numChars) && (c == '%')) {
+                        throw new IllegalArgumentException("URLDecoder: Incomplete trailing escape (%) pattern");
+                    }
+                    sb.append(new String(bytes, 0, pos, StandardCharsets.UTF_8));
+                } catch (NumberFormatException e) {
+                    throw new IllegalArgumentException("URLDecoder: Illegal hex characters in escape (%) pattern - " + e.getMessage());
+                }
+                needToChange = true;
+            } else {
+                sb.append(c);
+                i++;
+            }
+        }
+        return (needToChange ? sb.toString() : s);
+    }
+
+    private UriUtil() { }
 }
