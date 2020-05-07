@@ -260,6 +260,9 @@ public interface Service {
     @NonNull Call<Entities> getWikidataLabels(@Query("ids") @NonNull String idList,
                                               @Query("languages") @NonNull String langList);
 
+    @GET(MW_API_PREFIX + "action=wbgetclaims")
+    @NonNull Observable<Entities> getClaims(@Query("entity") @NonNull String entity);
+
     @GET(MW_API_PREFIX + "action=wbgetentities&props=descriptions|labels|sitelinks")
     @NonNull Observable<Entities> getWikidataLabelsAndDescriptions(@Query("ids") @NonNull String idList);
 
