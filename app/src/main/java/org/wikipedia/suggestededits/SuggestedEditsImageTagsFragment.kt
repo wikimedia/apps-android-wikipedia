@@ -11,7 +11,6 @@ import android.view.View.*
 import android.view.ViewGroup
 import android.widget.CompoundButton
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import com.google.android.material.chip.Chip
 import io.reactivex.Observable
@@ -43,7 +42,6 @@ import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ImageZoomHelper
 import org.wikipedia.views.ViewUtil
-import java.text.NumberFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -106,7 +104,6 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
 
         if (callback().getSinglePage() != null) {
             page = callback().getSinglePage()
-            applyTags()
         }
 
         imageCaption.setOnLongClickListener {
@@ -116,6 +113,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
 
         getNextItem()
         updateContents()
+        updateTagChips()
     }
 
     override fun onStart() {
@@ -132,24 +130,9 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ page ->
                     this.page = page
-                    applyTags()
                     updateContents()
+                    updateTagChips()
                 }, { this.setErrorState(it) })!!)
-    }
-
-    private fun applyTags() {
-        val maxTags = 3
-        tagList.clear()
-        for (label in page!!.imageLabels) {
-            if (label.label.isEmpty()) {
-                continue
-            }
-            tagList.add(label)
-            if (tagList.size >= maxTags) {
-                break
-            }
-        }
-        tagList.sortByDescending { it.confidenceScore }
     }
 
     private fun setErrorState(t: Throwable) {
@@ -176,19 +159,6 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
 
         ViewUtil.loadImage(imageView, ImageUrlUtil.getUrlForPreferredSize(page!!.imageInfo()!!.thumbUrl, Constants.PREFERRED_CARD_THUMBNAIL_SIZE))
 
-        val typeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
-        tagsChipGroup.removeAllViews()
-
-        for (label in tagList) {
-            if (label.state.isNotEmpty() && label.state != "unreviewed") {
-                continue
-            }
-            addChip(label, typeface)
-        }
-
-        // add an artificial chip for adding a custom tag
-        addChip(null, typeface)
-
         disposables.add(MediaHelper.getImageCaptions(page!!.title())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -210,17 +180,24 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         callback().updateActionButton()
     }
 
+    private fun updateTagChips() {
+        val typeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
+        tagsChipGroup.removeAllViews()
+
+        // add an artificial chip for adding a custom tag
+        addChip(null, typeface)
+
+        for (label in tagList) {
+            addChip(label, typeface)
+        }
+
+        updateLicenseTextShown()
+        callback().updateActionButton()
+    }
+
     private fun addChip(label: MwQueryPage.ImageLabel?, typeface: Typeface) {
         val chip = Chip(requireContext())
-        if (ReleaseUtil.isPreBetaRelease()) {
-            var labelWithConfidenceScore = getString(R.string.suggested_edits_image_tags_add_tag)
-            if (label != null) {
-                labelWithConfidenceScore = "${label.label} (${showConfidenceScoreInPercentage(label.confidenceScore)})"
-            }
-            chip.text = labelWithConfidenceScore
-        } else {
-            chip.text = label?.label ?: getString(R.string.suggested_edits_image_tags_add_tag)
-        }
+        chip.text = label?.label ?: getString(R.string.suggested_edits_image_tags_add_tag)
         chip.textAlignment = TEXT_ALIGNMENT_CENTER
         chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.chip_background_color))
         chip.chipStrokeWidth = DimenUtil.dpToPx(1f)
@@ -299,58 +276,23 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
             item.isSelected = true
             tagList.add(item)
         }
-        updateContents()
+        updateTagChips()
     }
 
     override fun publish() {
         if (publishing || publishSuccess || tagsChipGroup.childCount == 0) {
             return
         }
-        var acceptedCount = 0
-        for (i in 0 until tagsChipGroup.childCount) {
-            val chip = tagsChipGroup.getChildAt(i) as Chip
-            if (chip.isChecked) {
-                acceptedCount++
-            }
-        }
-        if (acceptedCount == 0) {
-            AlertDialog.Builder(requireContext())
-                    .setTitle(R.string.suggested_edits_image_tags_select_title)
-                    .setMessage(R.string.suggested_edits_image_tags_select_text)
-                    .setNegativeButton(android.R.string.cancel, null)
-                    .setPositiveButton(R.string.description_edit_save) { _, _ ->
-                        doPublish()
-                    }
-                    .show()
-            return
-        } else {
-            doPublish()
-        }
-    }
 
-    private fun doPublish() {
         val acceptedLabels = ArrayList<MwQueryPage.ImageLabel>()
-        var rejectedCount = 0
-        val batchBuilder = StringBuilder()
-        batchBuilder.append("[")
         for (label in tagList) {
-            if (label.state.isNotEmpty()) {
-                if (batchBuilder.length > 2) {
-                    batchBuilder.append(",")
-                }
-                batchBuilder.append("{\"label\":\"")
-                batchBuilder.append(label.wikidataId)
-                batchBuilder.append("\",\"review\":\"")
-                batchBuilder.append(if (label.isSelected) "accept" else "reject")
-                batchBuilder.append("\"}")
-            }
             if (label.isSelected) {
                 acceptedLabels.add(label)
-            } else {
-                rejectedCount++
             }
         }
-        batchBuilder.append("]")
+        if (acceptedLabels.isEmpty()) {
+            return
+        }
 
         // -- point of no return --
 
@@ -387,29 +329,22 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                     claimComments.add(comment)
                 }
 
-                disposables.add(ServiceFactory.get(commonsSite).postReviewImageLabels(page!!.title(), token, batchBuilder.toString())
-                        .flatMap { response ->
-                            if (claimObservables.size > 0) {
-                                Observable.zip(claimObservables) { responses ->
-                                    for (res in responses) {
-                                        if (res is MwPostResponse) {
-                                            if (res.pageInfo != null) {
-                                                funnel?.logSaved(res.pageInfo!!.lastRevId, if (claimComments.isEmpty()) "" else claimComments.removeAt(0))
-                                            }
-                                        }
-                                    }
-                                    responses[0]
-                                }
-                            } else {
-                                Observable.just(response)
+                disposables.add(Observable.zip(claimObservables) { responses ->
+                    for (res in responses) {
+                        if (res is MwPostResponse) {
+                            if (res.pageInfo != null) {
+                                funnel?.logSaved(res.pageInfo!!.lastRevId, if (claimComments.isEmpty()) "" else claimComments.removeAt(0))
                             }
                         }
+                    }
+                    responses[0]
+                }
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .doAfterTerminate {
                             publishing = false
                         }
-                        .subscribe({ response ->
+                        .subscribe({ _ ->
                             // TODO: check anything else in the response?
                             publishSuccess = true
                             onSuccess()
@@ -491,12 +426,6 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         }
     }
 
-    private fun showConfidenceScoreInPercentage(number: Float): String {
-        val numberFormat: NumberFormat = NumberFormat.getPercentInstance()
-        numberFormat.minimumFractionDigits = 1
-        return numberFormat.format(number)
-    }
-
     private fun playSuccessVibration() {
         imageView.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS)
     }
@@ -514,8 +443,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
             }
             else -> {
                 tagsLicenseText.visibility = GONE
-                tagsHintText.setText(R.string.suggested_edits_image_tags_choose)
-                tagsHintText.visibility = VISIBLE
+                tagsHintText.visibility = GONE
             }
         }
     }
@@ -533,7 +461,14 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
     }
 
     override fun publishEnabled(): Boolean {
-        return !publishSuccess
+        var acceptedCount = 0
+        for (i in 0 until tagsChipGroup.childCount) {
+            val chip = tagsChipGroup.getChildAt(i) as Chip
+            if (chip.isChecked) {
+                acceptedCount++
+            }
+        }
+        return !publishSuccess && acceptedCount > 0
     }
 
     override fun publishOutlined(): Boolean {
