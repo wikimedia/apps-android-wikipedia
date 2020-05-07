@@ -54,8 +54,6 @@ public class Claims extends MwResponse implements PostProcessingTypeAdapter.Post
     }
 
     public static class Value {
-        @Nullable private @SerializedName("entity-type") String entityType;
-        private @SerializedName("numeric-id") int numericId;
         @Nullable private String id;
 
         @NonNull public String getId() {
