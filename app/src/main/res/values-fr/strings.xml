@@ -726,10 +726,10 @@
   <string name="suggested_edits_image_tags_publishing">Publication</string>
   <string name="suggested_edits_image_tags_published">Publié</string>
   <string name="suggested_edits_image_tags_onboarding_title">Marquer les images permet de les retrouver plus facilement.</string>
-  <string name="suggested_edits_image_tags_onboarding_text">En ajoutant des balises d’image, vous facilitez la recherche d’images sur Commons, le répertoire d’images sous licence libre utilisé par Wikipédia pour illustrer ses articles.\n\nNous vous avons suggéré quelques balises de manière automatique et vous pouvez également ajouter les vôtres.</string>
+  <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">En ajoutant des balises d’image, vous facilitez la recherche d’images sur Commons, le répertoire d’images sous licence libre utilisé par Wikipédia pour illustrer ses articles.\n\nNous vous avons suggéré quelques balises de manière automatique et vous pouvez également ajouter les vôtres.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Seules les balises que vous choisissez seront ajoutées aux images.</string>
   <string name="suggested_edits_image_tags_snackbar">Ajouter des balises à l’image pour les rendre plus faciles à trouver par les autres.</string>
-  <string name="suggested_edits_image_tags_task_detail">Marquez les images pour les rendre plus faciles à trouver. Choisissez parmi les balises suggérées ou ajoutez les vôtres.</string>
+  <string name="suggested_edits_image_tags_task_detail" fuzzy="true">Marquez les images pour les rendre plus faciles à trouver. Choisissez parmi les balises suggérées ou ajoutez les vôtres.</string>
   <string name="suggested_edits_image_tags_choose">Ajouter ou choisir les balises qui correspondent</string>
   <string name="suggested_edits_image_tags_published_list">Balises publiées</string>
   <string name="suggested_edits_image_tags_search">Rechercher des balises</string>
