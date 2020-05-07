@@ -704,10 +704,10 @@
   <string name="suggested_edits_image_tags_publishing">Publicerar</string>
   <string name="suggested_edits_image_tags_published">Publicerades</string>
   <string name="suggested_edits_image_tags_onboarding_title">Bildtaggar gör dem lättare att hitta.</string>
-  <string name="suggested_edits_image_tags_onboarding_text">Genom att lägga till bildtaggar hjälper du till att göra det lättare att söka efter bilder på Commons, den frilicenserade bildarkivet som Wikipedia använder för bilder i sina artiklar.\n\nVi har automatiskt skapat förslag på några taggar och du kan också lägga till egna.</string>
+  <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">Genom att lägga till bildtaggar hjälper du till att göra det lättare att söka efter bilder på Commons, den frilicenserade bildarkivet som Wikipedia använder för bilder i sina artiklar.\n\nVi har automatiskt skapat förslag på några taggar och du kan också lägga till egna.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Endast taggar som du väljer kommer att läggas till i bilder.</string>
   <string name="suggested_edits_image_tags_snackbar">Lägg till bildtaggar för att göra det lättare för andra att hitta bilderna.</string>
-  <string name="suggested_edits_image_tags_task_detail">Tagga bilder för att göra dem enklare att hitta. Välj bland de föreslagna taggarna eller lägg till egna.</string>
+  <string name="suggested_edits_image_tags_task_detail" fuzzy="true">Tagga bilder för att göra dem enklare att hitta. Välj bland de föreslagna taggarna eller lägg till egna.</string>
   <string name="suggested_edits_image_tags_choose">Lägg till eller välj lämpliga taggar</string>
   <string name="suggested_edits_image_tags_published_list">Publicerade taggar</string>
   <string name="suggested_edits_image_tags_search">Sök taggar</string>
