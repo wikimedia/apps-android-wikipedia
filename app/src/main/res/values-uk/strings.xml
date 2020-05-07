@@ -726,10 +726,10 @@
   <string name="suggested_edits_image_tags_publishing">Публікація</string>
   <string name="suggested_edits_image_tags_published">Опубліковано</string>
   <string name="suggested_edits_image_tags_onboarding_title">Додавання тегів до зображень полегшує їх пошук.</string>
-  <string name="suggested_edits_image_tags_onboarding_text">Додаючи теги до зображень, ви допоможете полегшити пошук таких зображень на Вікісховищі — сховищі зображень під вільними ліцензіями, яке Вікіпедія використовує для додавання зображень до своїх статей.\n\nМи автоматично запропонували деякі теги, а також ви можете додати свої власні.</string>
+  <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">Додаючи теги до зображень, ви допоможете полегшити пошук таких зображень на Вікісховищі — сховищі зображень під вільними ліцензіями, яке Вікіпедія використовує для додавання зображень до своїх статей.\n\nМи автоматично запропонували деякі теги, а також ви можете додати свої власні.</string>
   <string name="suggested_edits_image_tags_onboarding_note">До зображень буде додано лише ті теги, які ви затвердите.</string>
   <string name="suggested_edits_image_tags_snackbar">Додавайте теги до зображень, щоб полегшити їх пошук для інших користувачів.</string>
-  <string name="suggested_edits_image_tags_task_detail">Додавайте теги до зображень, щоб полегшити їх пошук для інших користувачів. Виберіть із-поміж запропонованих тегів, або додайте власні.</string>
+  <string name="suggested_edits_image_tags_task_detail" fuzzy="true">Додавайте теги до зображень, щоб полегшити їх пошук для інших користувачів. Виберіть із-поміж запропонованих тегів, або додайте власні.</string>
   <string name="suggested_edits_image_tags_choose">Додайте чи виберіть відповідні теги</string>
   <string name="suggested_edits_image_tags_published_list">Опубліковані теги</string>
   <string name="suggested_edits_image_tags_search">Пошук тегів</string>

@@ -726,10 +726,10 @@
   <string name="suggested_edits_image_tags_publishing">正在发布</string>
   <string name="suggested_edits_image_tags_published">已发布</string>
   <string name="suggested_edits_image_tags_onboarding_title">给图片打上标签，使其更容易找到。</string>
-  <string name="suggested_edits_image_tags_onboarding_text">通过添加图片标签，您将有助于使图片更容易在维基共享资源上搜索到，维基共享资源是维基百科在其文章中使用的免费授权图片库。\n\n我们已经自动推荐了一些标签，您也可以添加自己的标签。</string>
+  <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">通过添加图片标签，您将有助于使图片更容易在维基共享资源上搜索到，维基共享资源是维基百科在其文章中使用的免费授权图片库。\n\n我们已经自动推荐了一些标签，您也可以添加自己的标签。</string>
   <string name="suggested_edits_image_tags_onboarding_note">只有您选择的标签才会被添加到图片中。</string>
   <string name="suggested_edits_image_tags_snackbar">添加图片标签，使其更容易被他人发现。</string>
-  <string name="suggested_edits_image_tags_task_detail">标记图像，使它们更容易找到。从建议的标记中选择或添加您自己的标记。</string>
+  <string name="suggested_edits_image_tags_task_detail" fuzzy="true">标记图像，使它们更容易找到。从建议的标记中选择或添加您自己的标记。</string>
   <string name="suggested_edits_image_tags_choose">添加或选择匹配的标签</string>
   <string name="suggested_edits_image_tags_published_list">发布标签</string>
   <string name="suggested_edits_image_tags_search">搜寻标签</string>

@@ -701,10 +701,10 @@
   <string name="suggested_edits_image_tags_publishing">A publicar</string>
   <string name="suggested_edits_image_tags_published">Publicadas</string>
   <string name="suggested_edits_image_tags_onboarding_title">Etiquetar as imagens facilita a sua procura.</string>
-  <string name="suggested_edits_image_tags_onboarding_text">Ao adicionar etiquetas de imagem, irá ajudar a facilitar a pesquisa na Commons, o repositório de imagens de licença gratuita que a Wikipedia utiliza para as imagens nos seus artigos.\n\nNós sugerimos automaticamente algumas etiquetas, e também pode adicionar as suas.</string>
+  <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">Ao adicionar etiquetas de imagem, irá ajudar a facilitar a pesquisa na Commons, o repositório de imagens de licença gratuita que a Wikipedia utiliza para as imagens nos seus artigos.\n\nNós sugerimos automaticamente algumas etiquetas, e também pode adicionar as suas.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Só as etiquetas que escolher serão adicionadas às imagens.</string>
   <string name="suggested_edits_image_tags_snackbar">Adicione etiquetas de imagens para que outros as encontrem facilmente.</string>
-  <string name="suggested_edits_image_tags_task_detail">Etiquete as imagens para facilitar a sua procura. Selecione das etiquetas sugeridas ou adicione as suas.</string>
+  <string name="suggested_edits_image_tags_task_detail" fuzzy="true">Etiquete as imagens para facilitar a sua procura. Selecione das etiquetas sugeridas ou adicione as suas.</string>
   <string name="suggested_edits_image_tags_choose">Adicionar ou escolher etiquetas coincidentes</string>
   <string name="suggested_edits_image_tags_published_list">Etiquetas publicadas</string>
   <string name="suggested_edits_image_tags_search">Pesquisar etiquetas</string>
