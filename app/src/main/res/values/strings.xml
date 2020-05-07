@@ -786,6 +786,7 @@
     <string name="suggested_edits_contributions_screen_title">%s\'s contributions</string>
     <string name="suggested_edits_spinner_item_text">%1$d %2$s</string>
     <string name="suggested_edits_contribution_seen_text">Seen %d times in the past 30 days.</string>
+    <string name="suggested_edits_date_string_yesterday">Yesterday</string>
     <!-- /Suggested edits -->
 
     <!-- Description editing revert help -->

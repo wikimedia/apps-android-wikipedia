@@ -259,11 +259,11 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
         if (!articleAndImageContributions.isNullOrEmpty()) {
             var currentDate = articleAndImageContributions[0].date
             var nextDate: Date
-            consolidatedContributionsWithDates.add(if (DateUtils.isSameDay(Calendar.getInstance().time, currentDate)) getString(R.string.view_continue_reading_card_subtitle_today) else DateUtil.getFeedCardDateString(currentDate))
+            consolidatedContributionsWithDates.add(getCorrectDateString(currentDate))
             for (position in 0 until articleAndImageContributions.size) {
                 nextDate = articleAndImageContributions[position].date
                 if (!DateUtils.isSameDay(nextDate, currentDate)) {
-                    consolidatedContributionsWithDates.add(DateUtil.getFeedCardDateString(nextDate))
+                    consolidatedContributionsWithDates.add(getCorrectDateString(nextDate))
                     currentDate = nextDate
                 }
                 consolidatedContributionsWithDates.add(articleAndImageContributions[position])
@@ -273,6 +273,16 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
         loadingMore = false
         loadMoreProgressView.visibility = GONE
         updateFilterViewUI()
+    }
+
+    private fun getCorrectDateString(date: Date): String {
+        val yesterday: Calendar = Calendar.getInstance()
+        yesterday.add(Calendar.DAY_OF_YEAR, -1)
+        return when {
+            DateUtils.isSameDay(Calendar.getInstance().time, date) -> getString(R.string.view_continue_reading_card_subtitle_today).capitalize()
+            DateUtils.isSameDay(yesterday.time, date) -> getString(R.string.suggested_edits_date_string_yesterday)
+            else -> DateUtil.getFeedCardDateString(date)
+        }
     }
 
     private fun updateFilterViewUI() {
