@@ -39,7 +39,7 @@
   <string name="page_error_back_to_main">Atzera joan</string>
   <string name="error_back">Atzera joan</string>
   <string name="menu_clear_all_history">Historia garbitu</string>
-  <string name="history_item_deleted">%s historiatik kendu da</string>
+  <string name="history_item_deleted">«%s» kendu da historiatik</string>
   <string name="history_items_deleted">%d artikulu kendu dira historiatik</string>
   <string name="history_item_delete_undo">Desegin</string>
   <string name="notification_archive_undo">Desegin</string>
@@ -376,7 +376,7 @@
   <string name="reading_list_name_sample">Nire irakurketa zerrenda</string>
   <string name="reading_list_name_hint">Zerrenda honen izena</string>
   <string name="reading_list_description_hint">Deskribapena (aukerakoa)</string>
-  <string name="reading_list_item_deleted">%s zerrendatik kendu da</string>
+  <string name="reading_list_item_deleted">«%s» kendu da zerrendatik</string>
   <string name="reading_list_items_deleted">%d artikulu ezabatu dira zerrendatik</string>
   <string name="reading_list_item_delete_undo">Desegin</string>
   <string name="reading_list_deleted">%s ezabatua</string>
