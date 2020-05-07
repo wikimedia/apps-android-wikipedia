@@ -24,6 +24,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="16dp"
                 android:contentDescription="@null"
+                android:layout_marginTop="4dp"
                 android:tint="?attr/colorAccent"
                 app:srcCompat="@drawable/ic_article_description" />
         </FrameLayout>
