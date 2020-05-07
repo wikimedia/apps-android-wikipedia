@@ -41,7 +41,7 @@ object SuggestedEditsUserStats {
                 }
     }
 
-    fun getPageViewsObservable(): Observable<Long> {
+    fun getPageViewsObservable(): Observable<Array<Any?>> {
         val qLangMap = HashMap<String, HashSet<String>>()
         return ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getUserContributions(AccountUtil.getUserName()!!, 10)
                 .subscribeOn(Schedulers.io())
@@ -74,7 +74,7 @@ object SuggestedEditsUserStats {
                 }
                 .flatMap {
                     if (it.entities().isEmpty()) {
-                        return@flatMap Observable.just(0L)
+                        return@flatMap Observable.just(emptyArray<Any?>())
                     }
                     val langArticleMap = HashMap<String, ArrayList<String>>()
                     for (entityKey in it.entities().keys) {
@@ -115,7 +115,7 @@ object SuggestedEditsUserStats {
                                 }
                             }
                         }
-                        totalPageViews
+                        resultList
                     }
                 }
     }

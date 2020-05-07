@@ -19,6 +19,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.SuggestedEditsFunnel
 import org.wikipedia.auth.AccountUtil
+import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
 import org.wikipedia.language.LanguageSettingsInvokeSource
 import org.wikipedia.main.MainActivity
@@ -159,12 +160,22 @@ class SuggestedEditsTasksFragment : Fragment() {
                     if (it) {
                         SuggestedEditsUserStats.getPageViewsObservable()
                     } else {
-                        Observable.just((-1).toLong())
+                        Observable.just(emptyArray())
                     }
                 }
                 .subscribe({
-                    if (it >= 0) {
-                        pageViewStatsView.setTitle(it.toString())
+                    var totalPageViews = 0L
+                    for (result in it) {
+                        if (result is MwQueryResponse && result.query() != null) {
+                            for (page in result.query()!!.pages()!!) {
+                                for (day in page.pageViewsMap.values) {
+                                    totalPageViews += day ?: 0
+                                }
+                            }
+                        }
+                    }
+                    if (totalPageViews >= 0) {
+                        pageViewStatsView.setTitle(totalPageViews.toString())
                         setFinalUIState()
                     }
                 }, { t ->
