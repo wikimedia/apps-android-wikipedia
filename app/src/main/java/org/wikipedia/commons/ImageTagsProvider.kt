@@ -8,7 +8,7 @@ import org.wikipedia.dataclient.WikiSite
 import java.util.*
 
 object ImageTagsProvider {
-    fun getImageTagsObservable(pageId: String, langCode: String): Observable<Map<String, String>> {
+    fun getImageTagsObservable(pageId: String, langCode: String): Observable<Map<String, List<String>>> {
         return ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getClaims("M$pageId")
                 .subscribeOn(Schedulers.io())
                 .flatMap { claims ->
@@ -21,11 +21,17 @@ object ImageTagsProvider {
                 }
                 .subscribeOn(Schedulers.io())
                 .map { entities ->
-                    val captions = HashMap<String, String>()
-                    for (label in entities.first!!.labels().values) {
-                        captions[label.language()] = label.value()
+                    val tags = HashMap<String, MutableList<String>>()
+                    entities.entities().forEach {
+                        it.value.labels().values.forEach { label ->
+                            if (tags[label.language()].isNullOrEmpty()) {
+                                tags[label.language()] = mutableListOf(label.value())
+                            } else {
+                                tags[label.language()]!!.add(label.value())
+                            }
+                        }
                     }
-                    captions
+                    tags
                 }
     }
 }
