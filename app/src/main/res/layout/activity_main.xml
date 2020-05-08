@@ -26,7 +26,6 @@
             android:background="?attr/paper_color"
             android:elevation="4dp"
             android:layout_marginStart="-12dp"
-            app:titleTextAppearance="@style/ToolbarTextAppearance"
             app:titleTextColor="?attr/toolbar_title_color"
             app:titleMarginStart="28dp">
 
