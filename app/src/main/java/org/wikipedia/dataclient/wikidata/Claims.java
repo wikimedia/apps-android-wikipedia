@@ -7,14 +7,13 @@ import com.google.gson.annotations.SerializedName;
 
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.dataclient.mwapi.MwResponse;
-import org.wikipedia.json.PostProcessingTypeAdapter;
 
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
 @SuppressWarnings("unused")
-public class Claims extends MwResponse implements PostProcessingTypeAdapter.PostProcessable {
+public class Claims extends MwResponse {
     @Nullable private Map<String, List<Claim>> claims;
 
     @NonNull public Map<String, List<Claim>> claims() {

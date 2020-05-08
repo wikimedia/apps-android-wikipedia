@@ -8,7 +8,7 @@ import org.wikipedia.dataclient.WikiSite
 import java.util.*
 
 object ImageTagsProvider {
-    fun getImageTagsObservable(pageId: String, langCode: String): Observable<Map<String, List<String>>> {
+    fun getImageTagsObservable(pageId: Long, langCode: String): Observable<Map<String, List<String>>> {
         return ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getClaims("M$pageId")
                 .subscribeOn(Schedulers.io())
                 .flatMap { claims ->
@@ -17,7 +17,11 @@ object ImageTagsProvider {
                     depicts?.forEach {
                         ids.add(it.mainSnak?.dataValue?.value?.id)
                     }
-                    ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getWikidataLabels(ids.joinToString(separator = "|"), langCode)
+                    if (ids.isEmpty()) {
+                        Observable.empty()
+                    } else {
+                        ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getWikidataLabels(ids.joinToString(separator = "|"), langCode)
+                    }
                 }
                 .subscribeOn(Schedulers.io())
                 .map { entities ->
