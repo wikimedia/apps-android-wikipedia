@@ -17,6 +17,7 @@
 * McDutchie
 * MedShot
 * Mirolith
+* Nieuwsgierige Gebruiker
 * Optilete
 * Patio
 * PonkoSasuke
@@ -702,6 +703,8 @@
   <string name="suggested_edits_task_action_text_add">Toevoegen</string>
   <string name="suggested_edits_task_action_text_translate">Vertalen</string>
   <string name="suggested_edits_image_captions">Afbeeldingsbijschriften</string>
+  <string name="suggested_edits_image_tags_publishing">Publiceren</string>
+  <string name="suggested_edits_image_tags_published">Gepubliceerd</string>
   <string name="suggested_edits_image_tags_onboarding_title" fuzzy="true">Voeg aan afbeeldingen tags toe om ze gemakkelijker vindbaar te maken voor anderen</string>
   <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">Door voorgestelde tags te bevestigen, kunt u helpen om eenvoudiger te zoeken naar afbeeldingen.\n\nTags worden door de computer voorgesteld, maar moeten door mensen worden gevalideerd om nauwkeurigheid te garanderen.</string>
   <string name="suggested_edits_ip_blocked_message">Het lijkt erop dat uw IP-adres (of bereik van IP-adressen) momenteel geblokkeerd is van het bewerken van Wikipedia. U kunt meer te weten komen over wat dit betekent door de link hieronder te volgen.</string>

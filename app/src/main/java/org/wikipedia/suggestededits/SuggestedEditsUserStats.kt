@@ -5,6 +5,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.functions.BiFunction
 import io.reactivex.schedulers.Schedulers
 import org.wikipedia.WikipediaApp
+import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -36,6 +37,85 @@ object SuggestedEditsUserStats {
                         totalEdits = editorTaskCounts.totalEdits
                         totalReverts = editorTaskCounts.totalReverts
                         maybePauseAndGetEndDate()
+                    }
+                }
+    }
+
+    fun getPageViewsObservable(): Observable<Long> {
+        val qLangMap = HashMap<String, HashSet<String>>()
+        return ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getUserContributions(AccountUtil.getUserName()!!, 10)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .flatMap { response ->
+                    for (userContribution in response.query()!!.userContributions()) {
+                        var descLang = ""
+                        val strArr = userContribution.comment.split(" ")
+                        for (str in strArr) {
+                            if (str.contains("wbsetdescription")) {
+                                val descArr = str.split("|")
+                                if (descArr.size > 1) {
+                                    descLang = descArr[1]
+                                    break
+                                }
+                            }
+                        }
+                        if (descLang.isEmpty()) {
+                            continue
+                        }
+
+                        if (!qLangMap.containsKey(userContribution.title)) {
+                            qLangMap[userContribution.title] = HashSet()
+                        }
+                        qLangMap[userContribution.title]!!.add(descLang)
+                    }
+                    ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getWikidataLabelsAndDescriptions(qLangMap.keys.joinToString("|"))
+                            .subscribeOn(Schedulers.io())
+                            .observeOn(AndroidSchedulers.mainThread())
+                }
+                .flatMap {
+                    if (it.entities().isEmpty()) {
+                        return@flatMap Observable.just(0L)
+                    }
+                    val langArticleMap = HashMap<String, ArrayList<String>>()
+                    for (entityKey in it.entities().keys) {
+                        val entity = it.entities()[entityKey]!!
+                        for (qKey in qLangMap.keys) {
+                            if (qKey == entityKey) {
+                                for (lang in qLangMap[qKey]!!) {
+                                    val dbName = WikiSite.forLanguageCode(lang).dbName()
+                                    if (entity.sitelinks().containsKey(dbName)) {
+                                        if (!langArticleMap.containsKey(lang)) {
+                                            langArticleMap[lang] = ArrayList()
+                                        }
+                                        langArticleMap[lang]!!.add(entity.sitelinks()[dbName]!!.title)
+                                    }
+                                }
+                                break
+                            }
+                        }
+                    }
+
+                    val observableList = ArrayList<Observable<MwQueryResponse>>()
+
+                    for (lang in langArticleMap.keys) {
+                        val site = WikiSite.forLanguageCode(lang)
+                        observableList.add(ServiceFactory.get(site).getPageViewsForTitles(langArticleMap[lang]!!.joinToString("|"))
+                                .subscribeOn(Schedulers.io())
+                                .observeOn(AndroidSchedulers.mainThread()))
+                    }
+
+                    Observable.zip(observableList) { resultList ->
+                        var totalPageViews = 0L
+                        for (result in resultList) {
+                            if (result is MwQueryResponse && result.query() != null) {
+                                for (page in result.query()!!.pages()!!) {
+                                    for (day in page.pageViewsMap.values) {
+                                        totalPageViews += day ?: 0
+                                    }
+                                }
+                            }
+                        }
+                        totalPageViews
                     }
                 }
     }
