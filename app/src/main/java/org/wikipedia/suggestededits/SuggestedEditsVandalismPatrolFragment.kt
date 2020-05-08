@@ -2,7 +2,6 @@ package org.wikipedia.suggestededits
 
 import android.content.res.ColorStateList
 import android.graphics.Color
-import android.net.Uri
 import android.os.Bundle
 import android.text.Spannable
 import android.text.SpannableStringBuilder
@@ -11,6 +10,7 @@ import android.text.style.StrikethroughSpan
 import android.view.*
 import android.view.View.*
 import android.widget.CompoundButton
+import androidx.appcompat.app.AlertDialog
 import com.google.android.material.animation.ArgbEvaluatorCompat
 import com.google.android.material.chip.Chip
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -20,9 +20,10 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.dataclient.Service
+import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
-import org.wikipedia.page.PageTitle
+import org.wikipedia.dataclient.restbase.DiffResponse
 import org.wikipedia.settings.Prefs
 import org.wikipedia.suggestededits.provider.MissingDescriptionProvider
 import org.wikipedia.suggestededits.provider.RevertCandidateProvider
@@ -38,7 +39,7 @@ class SuggestedEditsVandalismPatrolFragment : SuggestedEditsItemFragment(), Comp
     private var csrfClient: CsrfTokenClient = CsrfTokenClient(WikiSite(Service.COMMONS_URL))
 
     private var candidate: RevertCandidateProvider.RevertCandidate? = null
-    private var diff: RevertCandidateProvider.DiffResponse? = null
+    private var diff: DiffResponse? = null
 
     private val tagList: MutableList<MwQueryPage.ImageLabel> = ArrayList()
 
@@ -85,13 +86,13 @@ class SuggestedEditsVandalismPatrolFragment : SuggestedEditsItemFragment(), Comp
         voteRevertButton.setOnClickListener {
             // TODO
 
+            AlertDialog.Builder(requireContext())
+                    .setMessage("TODO: revert right away, or take user to edit confirmation screen.")
+                    .setPositiveButton(R.string.ok, null)
+                    .show()
 
-
-
-            val title = PageTitle(candidate!!.title, WikiSite.forLanguageCode(parent().langFromCode))
-            UriUtil.visitInExternalBrowser(requireContext(), Uri.parse(title.getUriForAction("history")))
-
-
+            //val title = PageTitle(candidate!!.title, WikiSite.forLanguageCode(parent().langFromCode))
+            //UriUtil.visitInExternalBrowser(requireContext(), Uri.parse(title.getUriForAction("history")))
 
             //parent().nextPage()
         }
@@ -109,7 +110,7 @@ class SuggestedEditsVandalismPatrolFragment : SuggestedEditsItemFragment(), Comp
         disposables.add(MissingDescriptionProvider.getNextRevertCandidate(parent().langFromCode)
                 .flatMap {
                     candidate = it
-                    RevertCandidateProvider.getService(WikiSite.forLanguageCode(parent().langFromCode))
+                    ServiceFactory.getCoreRest(WikiSite.forLanguageCode(parent().langFromCode))
                             .getDiff(candidate!!.revFrom, candidate!!.revTo)
                 }
                 .subscribeOn(Schedulers.io())
@@ -153,20 +154,20 @@ class SuggestedEditsVandalismPatrolFragment : SuggestedEditsItemFragment(), Comp
         val sb = SpannableStringBuilder()
 
         for (d in diff!!.diffs) {
-            if (d.type == RevertCandidateProvider.DIFF_TYPE_LINE_WITH_SAME_CONTENT) {
+            if (d.type == DiffResponse.DIFF_TYPE_LINE_WITH_SAME_CONTENT) {
                 sb.append(d.text)
                 sb.append("\n")
-            } else if (d.type == RevertCandidateProvider.DIFF_TYPE_LINE_ADDED) {
+            } else if (d.type == DiffResponse.DIFF_TYPE_LINE_ADDED) {
                 val spanStart = sb.length
                 sb.append(d.text)
                 sb.setSpan(BackgroundColorSpan(colorAdd), spanStart, sb.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
                 sb.append("\n")
-            } else if (d.type == RevertCandidateProvider.DIFF_TYPE_LINE_REMOVED) {
+            } else if (d.type == DiffResponse.DIFF_TYPE_LINE_REMOVED) {
                 val spanStart = sb.length
                 sb.append(d.text)
                 sb.setSpan(BackgroundColorSpan(colorDelete), spanStart, sb.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
                 sb.append("\n")
-            } else if (d.type == RevertCandidateProvider.DIFF_TYPE_LINE_WITH_DIFF) {
+            } else if (d.type == DiffResponse.DIFF_TYPE_LINE_WITH_DIFF) {
                 val spanStart = sb.length
                 val indices = StringUtil.utf8Indices(d.text)
                 sb.append(d.text)
@@ -175,7 +176,7 @@ class SuggestedEditsVandalismPatrolFragment : SuggestedEditsItemFragment(), Comp
                         val rangeStart = indices[range.start]
                         val rangeEnd = if (range.start + range.length < indices.size) indices[range.start + range.length] else indices[indices.size - 1]
 
-                        if (range.type == RevertCandidateProvider.HIGHLIGHT_TYPE_ADD) {
+                        if (range.type == DiffResponse.HIGHLIGHT_TYPE_ADD) {
                             sb.setSpan(BackgroundColorSpan(colorAdd), spanStart + rangeStart, spanStart + rangeEnd, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
                         } else {
                             sb.setSpan(BackgroundColorSpan(colorDelete), spanStart + rangeStart, spanStart + rangeEnd, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)

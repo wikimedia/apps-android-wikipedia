@@ -5,15 +5,12 @@ import androidx.annotation.Nullable;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
 import com.google.gson.annotations.SerializedName;
 
 import org.apache.commons.lang3.StringUtils;
-import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory;
 import org.wikipedia.json.GsonUtil;
 
-import java.util.Collections;
 import java.util.List;
 
 import io.reactivex.Observable;
@@ -21,32 +18,9 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
-import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public class RevertCandidateProvider {
-
-    // A line with the same content in both revisions, included to provide context when viewing the diff. The API returns up to two context lines around each change.
-    public static final int DIFF_TYPE_LINE_WITH_SAME_CONTENT = 0;
-
-    // A line included in the to revision but not in the from revision.
-    public static final int DIFF_TYPE_LINE_ADDED = 1;
-
-    // A line included in the from revision but not in the to revision.
-    public static final int DIFF_TYPE_LINE_REMOVED = 2;
-
-    // A line containing text that differs between the two revisions. (For changes to paragraph location as well as content, see type 5.)
-    public static final int DIFF_TYPE_LINE_WITH_DIFF = 3;
-
-    // When a paragraph's location differs between the two revisions, a type 4 object represents the location in the from revision.
-    public static final int DIFF_TYPE_PARAGRAPH_MOVED_FROM = 4;
-
-    // When a paragraph's location differs between the two revisions, a type 5 object represents the location in the to revision. This type can also include word-level differences between the two revisions.
-    public static final int DIFF_TYPE_PARAGRAPH_MOVED_TO = 5;
-
-    public static final int HIGHLIGHT_TYPE_ADD = 0;
-    public static final int HIGHLIGHT_TYPE_DELETE = 1;
-
 
     public static class RevertCandidate {
         private long id;
@@ -108,77 +82,14 @@ public class RevertCandidateProvider {
         @SerializedName("false") private float falseProb;
     }
 
-    public static class DiffResponse {
-        // TODO: from
-        // TODO: to
-        private List<DiffItem> diff;
-
-        public List<DiffItem> getDiffs() {
-            return diff != null ? diff : Collections.emptyList();
-        }
-    }
-
-    public static class DiffItem {
-        private int type;
-        private int lineNumber;
-        private String text;
-        private DiffOffset offset;
-        private List<HighlightRange> highlightRanges;
-
-        public int getType() {
-            return type;
-        }
-
-        public String getText() {
-            return StringUtils.defaultString(text);
-        }
-
-        public List<HighlightRange> getHighlightRanges() {
-            return highlightRanges != null ? highlightRanges : Collections.emptyList();
-        }
-    }
-
-    public static class DiffOffset {
-        private int from;
-        private int to;
-    }
-
-    public static class HighlightRange {
-        private int start;
-        private int length;
-        private int type;
-
-        public int getStart() {
-            return start;
-        }
-
-        public int getLength() {
-            return length;
-        }
-
-        public int getType() {
-            return type;
-        }
-    }
-
     public static WikiLoopService getWikiLoopService() {
         Retrofit r = new Retrofit.Builder()
                 .client(OkHttpConnectionFactory.getClient())
-                .baseUrl("http://battlefield2.wikiloop.org/")
+                .baseUrl("http://battlefield.wikiloop.org/")
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create(GsonUtil.getDefaultGson()))
                 .build();
         return r.create(WikiLoopService.class);
-    }
-
-    public static RestService getService(WikiSite wiki) {
-        Retrofit r = new Retrofit.Builder()
-                .client(OkHttpConnectionFactory.getClient())
-                .baseUrl(wiki.url() + "/w/rest.php/v1/")
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .addConverterFactory(GsonConverterFactory.create(GsonUtil.getDefaultGson()))
-                .build();
-        return r.create(RestService.class);
     }
 
     public interface WikiLoopService {
@@ -188,12 +99,5 @@ public class RevertCandidateProvider {
                                                               @Query("timestamp") long timestamp,
                                                               @NonNull @Query("direction") String direction,
                                                               @Query("limit") int limit);
-    }
-
-    public interface RestService {
-        @GET("revision/{oldRev}/compare/{newRev}")
-        @NonNull
-        Observable<DiffResponse> getDiff(@Path("oldRev") long oldRev,
-                                         @Path("newRev") long newRev);
     }
 }
