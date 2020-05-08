@@ -123,6 +123,9 @@ public interface Service {
     @GET(MW_API_PREFIX + "action=query&generator=unreviewedimagelabels&guillimit=10&prop=imagelabels|imageinfo&iiprop=timestamp|user|url|mime|extmetadata&iiurlwidth=" + PREFERRED_THUMB_SIZE)
     @NonNull Observable<MwQueryResponse> getImagesWithUnreviewedLabels(@NonNull @Query("uselang") String lang);
 
+    @GET(MW_API_PREFIX + "action=query&list=recentchanges&rcprop=title|timestamp|ids|oresscores|sizes|tags|user|parsedcomment|comment|flags&rcnamespace=0&rctoponly=1&rcshow=anon&rctype=edit|new")
+    @NonNull Observable<MwQueryResponse> getRecentEdits(@Query("rclimit") int count);
+
 
     // ------- CSRF, Login, and Create Account -------
 

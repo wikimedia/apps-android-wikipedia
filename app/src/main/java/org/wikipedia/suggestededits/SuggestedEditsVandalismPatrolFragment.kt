@@ -23,10 +23,10 @@ import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
+import org.wikipedia.dataclient.mwapi.MwQueryResult
 import org.wikipedia.dataclient.restbase.DiffResponse
 import org.wikipedia.settings.Prefs
 import org.wikipedia.suggestededits.provider.MissingDescriptionProvider
-import org.wikipedia.suggestededits.provider.RevertCandidateProvider
 import org.wikipedia.util.*
 import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
 import org.wikipedia.util.log.L
@@ -38,7 +38,7 @@ class SuggestedEditsVandalismPatrolFragment : SuggestedEditsItemFragment(), Comp
     var publishSuccess: Boolean = false
     private var csrfClient: CsrfTokenClient = CsrfTokenClient(WikiSite(Service.COMMONS_URL))
 
-    private var candidate: RevertCandidateProvider.RevertCandidate? = null
+    private var candidate: MwQueryResult.RecentChange? = null
     private var diff: DiffResponse? = null
 
     private val tagList: MutableList<MwQueryPage.ImageLabel> = ArrayList()

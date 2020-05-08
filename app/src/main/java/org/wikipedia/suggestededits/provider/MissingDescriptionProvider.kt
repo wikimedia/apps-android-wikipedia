@@ -6,6 +6,7 @@ import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
+import org.wikipedia.dataclient.mwapi.MwQueryResult
 import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.page.PageTitle
 import java.util.*
@@ -27,7 +28,7 @@ object MissingDescriptionProvider {
     private var imagesWithTranslatableCaptionCacheToLang : String = ""
 
     private val imagesWithMissingTagsCache : Stack<MwQueryPage> = Stack()
-    private val revertCandidateCache : Stack<RevertCandidateProvider.RevertCandidate> = Stack()
+    private val revertCandidateCache : Stack<MwQueryResult.RecentChange> = Stack()
 
     // TODO: add a maximum-retry limit -- it's currently infinite, or until disposed.
 
@@ -232,12 +233,9 @@ object MissingDescriptionProvider {
         }.doFinally { mutex.release() }
     }
 
-    fun getNextRevertCandidate(lang: String): Observable<RevertCandidateProvider.RevertCandidate> {
-
-        val timestamp = (Date().time / 1000) - 60
-
+    fun getNextRevertCandidate(lang: String): Observable<MwQueryResult.RecentChange> {
         return Observable.fromCallable { mutex.acquire() }.flatMap {
-            var cachedItem: RevertCandidateProvider.RevertCandidate? = null
+            var cachedItem: MwQueryResult.RecentChange? = null
             if (!revertCandidateCache.empty()) {
                 cachedItem = revertCandidateCache.pop()
             }
@@ -245,16 +243,15 @@ object MissingDescriptionProvider {
             if (cachedItem != null) {
                 Observable.just(cachedItem)
             } else {
-                RevertCandidateProvider.getWikiLoopService()
-                        .getRevertCandidates(WikiSite.forLanguageCode(lang).dbName(), 0, "older", 5)
+                ServiceFactory.get(WikiSite.forLanguageCode(lang)).getRecentEdits(20)
                         .map { response ->
-                            for (candidate in response) {
+                            for (candidate in response.query()!!.recentChanges) {
                                 if (candidate.ores == null) {
                                     continue
                                 }
                                 revertCandidateCache.push(candidate)
                             }
-                            var item: RevertCandidateProvider.RevertCandidate? = null
+                            var item: MwQueryResult.RecentChange? = null
                             if (!revertCandidateCache.empty()) {
                                 item = revertCandidateCache.pop()
                             }

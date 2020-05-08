@@ -3,10 +3,13 @@ package org.wikipedia.dataclient.mwapi;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
 import com.google.gson.annotations.SerializedName;
 
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.json.GsonUtil;
 import org.wikipedia.json.PostProcessingTypeAdapter;
 import org.wikipedia.model.BaseModel;
 import org.wikipedia.notifications.Notification;
@@ -34,6 +37,7 @@ public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapte
     @SerializedName("general") @Nullable private SiteInfo generalSiteInfo;
     @SerializedName("wikimediaeditortaskscounts") @Nullable private EditorTaskCounts editorTaskCounts;
     @SerializedName("usercontribs") @Nullable private List<UserContributions> userContributions;
+    @SerializedName("recentchanges") @Nullable private List<RecentChange> recentChanges;
 
     @Nullable public List<MwQueryPage> pages() {
         return pages;
@@ -121,6 +125,10 @@ public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapte
 
     @NonNull public List<UserContributions> userContributions() {
         return userContributions != null ? userContributions : Collections.emptyList();
+    }
+
+    @NonNull public List<RecentChange> getRecentChanges() {
+        return recentChanges != null ? recentChanges : Collections.emptyList();
     }
 
     @Override
@@ -249,5 +257,63 @@ public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapte
         @Nullable public Notification.SeenTime getSeenTime() {
             return seenTime;
         }
+    }
+
+    public static class RecentChange {
+        @Nullable private String type;
+        private int ns;
+        @Nullable private String title;
+        private long pageid;
+        private long revid;
+        @SerializedName("old_revid") private long oldrevid;
+        private long rcid;
+        @Nullable private String user;
+        private boolean anon;
+        private boolean bot;
+        @SerializedName("new") private boolean isnew;
+        private boolean minor;
+        private int oldlen;
+        private int newlen;
+        @Nullable private String timestamp;
+        @Nullable private String comment;
+        @Nullable private String parsedcomment;
+        @Nullable private List<String> tags;
+        private JsonElement oresscores;
+
+        @NonNull public String getTitle() {
+            return StringUtils.defaultString(title);
+        }
+
+        public long getRevFrom() {
+            return oldrevid;
+        }
+
+        public long getRevTo() {
+            return revid;
+        }
+
+        @Nullable
+        public OresResult getOres() {
+            if (oresscores != null && !(oresscores instanceof JsonArray)) {
+                return GsonUtil.getDefaultGson().fromJson(oresscores, OresResult.class);
+            }
+            return null;
+        }
+    }
+
+    public static class OresResult {
+        private OresItem damaging;
+        private OresItem goodfaith;
+        // TODO: articlequality
+        // TODO: draftquality
+
+        public float getDamagingProb() {
+            return damaging != null ? damaging.trueProb : 0f;
+        }
+    }
+
+    public static class OresItem {
+        @SerializedName("true") private float trueProb;
+        @SerializedName("false") private float falseProb;
     }
 }
