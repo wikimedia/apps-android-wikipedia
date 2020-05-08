@@ -357,10 +357,11 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
         if (rewardInterstitialImage == -1 && rewardInterstitialText.isEmpty()) {
             // Need to preload the user contribution in case we miss the latest data
             disposables.add(SuggestedEditsUserStats.getEditCountsObservable()
-                    .subscribe({ response ->
+                    .map { response ->
                         val editorTaskCounts = response.query()!!.editorTaskCounts()!!
                         val daysOfLastEditQualityShown = TimeUnit.MILLISECONDS.toDays(System.currentTimeMillis() - Prefs.getLastSuggestedEditsRewardInterstitialEditQualityShown()).toInt()
                         val daysOfLastPageviewsShown = TimeUnit.MILLISECONDS.toDays(System.currentTimeMillis() - Prefs.getLastSuggestedEditsRewardInterstitialPageviewsShown()).toInt()
+                        var shouldLoadPageViews = false
                         if (editorTaskCounts.totalEdits == Prefs.getSuggestedEditsRewardInterstitialContributionOnInitialCount()
                                 || editorTaskCounts.totalEdits % Prefs.getSuggestedEditsRewardInterstitialContributionOnCount() == 0) {
                             rewardInterstitialImage = R.drawable.ic_illustration_heart
@@ -392,98 +393,27 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
                             Prefs.setLastSuggestedEditsRewardInterstitialEditQualityShown(System.currentTimeMillis())
                         } else if (Prefs.getLastSuggestedEditsRewardInterstitialPageviewsShown().toInt() == 0
                                 || daysOfLastPageviewsShown == Prefs.getSuggestedEditsRewardInterstitialPageviewsOnDay()) {
-                            getPageViews()
+                            shouldLoadPageViews = true
+                        }
+                        shouldLoadPageViews
+                    }
+                    .flatMap {
+                        if (it) {
+                            SuggestedEditsUserStats.getPageViewsObservable()
+                        } else {
+                            Observable.just((-1).toLong())
+                        }
+                    }
+                    .subscribe({
+                        if (it >= 0) {
+                            rewardInterstitialImage = R.drawable.ic_illustration_views
+                            rewardInterstitialText = getString(R.string.suggested_edits_rewards_pageviews, it)
+                            Prefs.setLastSuggestedEditsRewardInterstitialPageviewsShown(System.currentTimeMillis())
                         }
                     }, { t ->
                         L.e(t)
                     }))
         }
-    }
-
-    private fun getPageViews() {
-        val qLangMap = HashMap<String, HashSet<String>>()
-        disposables.add(ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getUserContributions(AccountUtil.getUserName()!!, 10)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .flatMap { response ->
-                    for (userContribution in response.query()!!.userContributions()) {
-                        var descLang = ""
-                        val strArr = userContribution.comment.split(" ")
-                        for (str in strArr) {
-                            if (str.contains("wbsetdescription")) {
-                                val descArr = str.split("|")
-                                if (descArr.size > 1) {
-                                    descLang = descArr[1]
-                                    break
-                                }
-                            }
-                        }
-                        if (descLang.isEmpty()) {
-                            continue
-                        }
-
-                        if (!qLangMap.containsKey(userContribution.title)) {
-                            qLangMap[userContribution.title] = HashSet()
-                        }
-                        qLangMap[userContribution.title]!!.add(descLang)
-                    }
-                    ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getWikidataLabelsAndDescriptions(qLangMap.keys.joinToString("|"))
-                            .subscribeOn(Schedulers.io())
-                            .observeOn(AndroidSchedulers.mainThread())
-                }
-                .flatMap {
-                    if (it.entities().isEmpty()) {
-                        return@flatMap Observable.just(0L)
-                    }
-                    val langArticleMap = HashMap<String, ArrayList<String>>()
-                    for (entityKey in it.entities().keys) {
-                        val entity = it.entities()[entityKey]!!
-                        for (qKey in qLangMap.keys) {
-                            if (qKey == entityKey) {
-                                for (lang in qLangMap[qKey]!!) {
-                                    val dbName = WikiSite.forLanguageCode(lang).dbName()
-                                    if (entity.sitelinks().containsKey(dbName)) {
-                                        if (!langArticleMap.containsKey(lang)) {
-                                            langArticleMap[lang] = ArrayList()
-                                        }
-                                        langArticleMap[lang]!!.add(entity.sitelinks()[dbName]!!.title)
-                                    }
-                                }
-                                break
-                            }
-                        }
-                    }
-
-                    val observableList = ArrayList<Observable<MwQueryResponse>>()
-
-                    for (lang in langArticleMap.keys) {
-                        val site = WikiSite.forLanguageCode(lang)
-                        observableList.add(ServiceFactory.get(site).getPageViewsForTitles(langArticleMap[lang]!!.joinToString("|"))
-                                .subscribeOn(Schedulers.io())
-                                .observeOn(AndroidSchedulers.mainThread()))
-                    }
-
-                    Observable.zip(observableList) { resultList ->
-                        var totalPageViews = 0L
-                        for (result in resultList) {
-                            if (result is MwQueryResponse && result.query() != null) {
-                                for (page in result.query()!!.pages()!!) {
-                                    for (day in page.pageViewsMap.values) {
-                                        totalPageViews += day ?: 0
-                                    }
-                                }
-                            }
-                        }
-                        totalPageViews
-                    }
-                }
-                .subscribe({ pageViewsCount ->
-                    rewardInterstitialImage = R.drawable.ic_illustration_views
-                    rewardInterstitialText = getString(R.string.suggested_edits_rewards_pageviews, pageViewsCount)
-                    Prefs.setLastSuggestedEditsRewardInterstitialPageviewsShown(System.currentTimeMillis())
-                }, { t ->
-                    L.e(t)
-                }))
     }
 
     private inner class OnFromSpinnerItemSelectedListener : AdapterView.OnItemSelectedListener {
