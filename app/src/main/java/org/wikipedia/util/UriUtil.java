@@ -164,7 +164,7 @@ public final class UriUtil {
      * necessary because our RESTBase endpoints require path segments to be encoded this way to
      * ensure that the correctly-cached content is returned.
      * This is based on Java's own URLEncoder.encode() functionality, except with a few more
-     * unreserved characters included.
+     * unreserved characters included, and no transforming the space character to a plus.
      * @param s Unencoded string.
      * @return Encoded string.
      */
@@ -202,10 +202,6 @@ public final class UriUtil {
         for (int i = 0; i < s.length();) {
             int c = s.charAt(i);
             if (UNENCODED_CHARS.get(c)) {
-                if (c == ' ') {
-                    c = '+';
-                    needToChange = true;
-                }
                 out.append((char)c);
                 i++;
             } else {
