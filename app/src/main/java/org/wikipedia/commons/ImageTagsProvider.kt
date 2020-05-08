@@ -5,12 +5,16 @@ import io.reactivex.schedulers.Schedulers
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.wikidata.Claims
+import org.wikipedia.dataclient.wikidata.Entities
+import org.wikipedia.util.log.L
 import java.util.*
 
 object ImageTagsProvider {
-    fun getImageTagsObservable(pageId: Long, langCode: String): Observable<Map<String, List<String>>> {
+    fun getImageTagsObservable(pageId: Int, langCode: String): Observable<Map<String, List<String>>> {
         return ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getClaims("M$pageId")
                 .subscribeOn(Schedulers.io())
+                .onErrorReturnItem(Claims())
                 .flatMap { claims ->
                     val depicts = claims.claims()["P180"]
                     val ids = mutableListOf<String?>()
@@ -18,7 +22,7 @@ object ImageTagsProvider {
                         ids.add(it.mainSnak?.dataValue?.value?.id)
                     }
                     if (ids.isEmpty()) {
-                        Observable.empty()
+                        Observable.just(Entities())
                     } else {
                         ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getWikidataLabels(ids.joinToString(separator = "|"), langCode)
                     }
