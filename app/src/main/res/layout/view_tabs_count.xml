@@ -15,7 +15,7 @@
         android:fontFamily="sans-serif-medium"
         android:gravity="center"
         android:textAlignment="center"
-        android:textColor="?attr/page_toolbar_icon_color"
+        android:textColor="?attr/toolbar_icon_color"
         android:textSize="12sp"
         tools:text="3" />
 </merge>

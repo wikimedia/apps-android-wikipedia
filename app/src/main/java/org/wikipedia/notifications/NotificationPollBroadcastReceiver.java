@@ -14,6 +14,7 @@ import androidx.annotation.StringRes;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.analytics.ABTestEditorRetentionNotificationFunnel;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.csrf.CsrfTokenClient;
 import org.wikipedia.dataclient.Service;
@@ -78,8 +79,14 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         alarmManager.setInexactRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP,
                 SystemClock.elapsedRealtime(),
-                TimeUnit.MINUTES.toMillis(context.getResources().getInteger(R.integer.notification_poll_interval_minutes)),
+                TimeUnit.MINUTES.toMillis(context.getResources().getInteger(R.integer.notification_poll_interval_minutes)
+                        / (Prefs.isSuggestedEditsReactivationTestEnabled() && !ReleaseUtil.isDevRelease() ? 10 : 1)),
                 getAlarmPendingIntent(context));
+    }
+
+    public static void stopPollTask(@NonNull Context context) {
+        AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+        alarmManager.cancel(getAlarmPendingIntent(context));
     }
 
     @NonNull private static PendingIntent getAlarmPendingIntent(@NonNull Context context) {
@@ -236,27 +243,37 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
     }
 
     private void maybeShowLocalNotificationForEditorReactivation(@NonNull Context context) {
+        if (Prefs.getLastDescriptionEditTime() == 0
+                || WikipediaApp.getInstance().isAnyActivityResumed()) {
+            return;
+        }
         long days = TimeUnit.MILLISECONDS.toDays(System.currentTimeMillis() - Prefs.getLastDescriptionEditTime());
+        if (Prefs.isSuggestedEditsReactivationTestEnabled()) {
+            days = TimeUnit.MILLISECONDS.toMinutes(System.currentTimeMillis() - Prefs.getLastDescriptionEditTime());
+        }
         if (days >= FIRST_EDITOR_REACTIVATION_NOTIFICATION_SHOW_ON_DAY && days < SECOND_EDITOR_REACTIVATION_NOTIFICATION_SHOW_ON_DAY
                 && !Prefs.isSuggestedEditsReactivationPassStageOne()) {
             Prefs.setSuggestedEditsReactivationPassStageOne(true);
-            showSuggestedEditsLocalNotification(context, R.string.suggested_edits_reactivation_notification_stage_one, false);
-        } else if (days >= SECOND_EDITOR_REACTIVATION_NOTIFICATION_SHOW_ON_DAY && Prefs.isSuggestedEditsReactivationPassStageOne()
-                && Prefs.getLastDescriptionEditTime() > 0) {
+            ABTestEditorRetentionNotificationFunnel funnel = new ABTestEditorRetentionNotificationFunnel();
+            funnel.logNotificationStage1();
+            if (funnel.shouldSeeNotification()) {
+                showSuggestedEditsLocalNotification(context, R.string.suggested_edits_reactivation_notification_stage_one);
+            }
+        } else if (days >= SECOND_EDITOR_REACTIVATION_NOTIFICATION_SHOW_ON_DAY && Prefs.isSuggestedEditsReactivationPassStageOne()) {
             Prefs.setSuggestedEditsReactivationPassStageOne(false);
-            showSuggestedEditsLocalNotification(context, R.string.suggested_edits_reactivation_notification_stage_two, false);
+            ABTestEditorRetentionNotificationFunnel funnel = new ABTestEditorRetentionNotificationFunnel();
+            funnel.logNotificationStage2();
+            if (funnel.shouldSeeNotification()) {
+                showSuggestedEditsLocalNotification(context, R.string.suggested_edits_reactivation_notification_stage_two);
+            }
         }
     }
 
-    public static void showSuggestedEditsLocalNotification(@NonNull Context context,
-                                                           @StringRes int description,
-                                                           boolean forced) {
-        if (!WikipediaApp.getInstance().isAnyActivityResumed() || forced) {
-            Intent intent = MainActivity.newIntent(context).putExtra(INTENT_EXTRA_GO_TO_SE_TAB, true);
-            NotificationPresenter.showNotification(context, NotificationPresenter.getDefaultBuilder(context), 0,
-                    context.getString(R.string.suggested_edits_reactivation_notification_title),
-                    context.getString(description), context.getString(description),
-                    R.drawable.ic_mode_edit_white_24dp, R.color.accent50, intent);
-        }
+    public static void showSuggestedEditsLocalNotification(@NonNull Context context, @StringRes int description) {
+        Intent intent = MainActivity.newIntent(context).putExtra(INTENT_EXTRA_GO_TO_SE_TAB, true);
+        NotificationPresenter.showNotification(context, NotificationPresenter.getDefaultBuilder(context), 0,
+                context.getString(R.string.suggested_edits_reactivation_notification_title),
+                context.getString(description), context.getString(description),
+                R.drawable.ic_mode_edit_white_24dp, R.color.accent50, intent);
     }
 }

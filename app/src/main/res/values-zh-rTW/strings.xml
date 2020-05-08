@@ -707,10 +707,10 @@
   <string name="suggested_edits_image_tags_publishing">發布中</string>
   <string name="suggested_edits_image_tags_published">已發布</string>
   <string name="suggested_edits_image_tags_onboarding_title">標記圖片來讓它們能更容易被找到。</string>
-  <string name="suggested_edits_image_tags_onboarding_text">透過確認標籤，您可以協助圖片在維基共享資源上能更容易被搜尋到，維基共享資源是讓維基百科能使用圖片在條目裡的自由許可圖片儲存庫。\n\n我們已自動建議出一些標籤，另外您也可以新增您自己的標籤。</string>
+  <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">透過確認標籤，您可以協助圖片在維基共享資源上能更容易被搜尋到，維基共享資源是讓維基百科能使用圖片在條目裡的自由許可圖片儲存庫。\n\n我們已自動建議出一些標籤，另外您也可以新增您自己的標籤。</string>
   <string name="suggested_edits_image_tags_onboarding_note">僅添加您挑選的標籤到圖片上。</string>
   <string name="suggested_edits_image_tags_snackbar">添加圖片標籤來讓它們能更容易被其他人找到</string>
-  <string name="suggested_edits_image_tags_task_detail">標記圖片來讓它們能更容易被找到。請從建議的標籤裡選擇，或是新增您自己的標籤。</string>
+  <string name="suggested_edits_image_tags_task_detail" fuzzy="true">標記圖片來讓它們能更容易被找到。請從建議的標籤裡選擇，或是新增您自己的標籤。</string>
   <string name="suggested_edits_image_tags_choose">新增或挑選符合的標記</string>
   <string name="suggested_edits_image_tags_published_list">已發布標籤</string>
   <string name="suggested_edits_image_tags_search">搜尋標籤</string>
@@ -742,6 +742,7 @@
   <string name="suggested_edits_quality_sufficient_text">尚可</string>
   <string name="suggested_edits_quality_poor_text">粗劣</string>
   <string name="suggested_edits_quality_bad_text">糟糕</string>
+  <string name="suggested_edits_contribute">貢獻</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">貢獻</item>
     <item quantity="other">貢獻</item>
@@ -754,6 +755,9 @@
   <string name="suggested_edits_last_edited_never">從不</string>
   <string name="suggested_edits_task_new">新</string>
   <string name="suggested_edits_cc0_notice">發布後，表示您同意我們的&lt;a href=\"%1$s\"&gt;使用條款&lt;/a&gt;同時依據 &lt;a href=\"%2$s\"&gt;CC0&lt;/a&gt; 授權不做出撤回您所釋出的貢獻。</string>
+  <string name="suggested_edits_reactivation_notification_title">建議編輯</string>
+  <string name="suggested_edits_reactivation_notification_stage_one">感謝編輯維基百科！何不從上次停下的地方繼續？</string>
+  <string name="suggested_edits_reactivation_notification_stage_two">有空閒來繼續增進維基百科內容嗎？請查看這些編輯建議。</string>
   <string name="description_edit_revert_subtitle">感謝編輯維基百科！</string>
   <string name="description_edit_revert_intro">我們知道您已盡力了，但有編者檢閱內容有所疑慮而做出還原。您的編輯被回退的原因可能是：</string>
   <string name="description_edit_revert_reason1">您的貢獻並未遵循&lt;a href=\"%1$s\"&gt;指引&lt;/a&gt;之一。</string>

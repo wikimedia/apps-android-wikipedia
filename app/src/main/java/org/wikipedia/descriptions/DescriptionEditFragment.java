@@ -28,7 +28,6 @@ import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.mwapi.MwServiceError;
-import org.wikipedia.dataclient.retrofit.RetrofitException;
 import org.wikipedia.dataclient.wikidata.EntityPostResponse;
 import org.wikipedia.descriptions.DescriptionEditActivity.Action;
 import org.wikipedia.json.GsonMarshaller;
@@ -328,8 +327,7 @@ public class DescriptionEditFragment extends Fragment {
                                 funnel.logSaved(response.getEntity() != null ? response.getEntity().getLastRevId() : 0);
                             }
                         } else {
-                            editFailed(RetrofitException.unexpectedError(new RuntimeException(
-                                    "Received unrecognized description edit response")), true);
+                            editFailed(new RuntimeException("Received unrecognized description edit response"), true);
                         }
                     }, caught -> {
                         if (caught instanceof MwException) {

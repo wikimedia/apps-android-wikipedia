@@ -56,8 +56,8 @@
   <string name="storage_access_error_retry">Tekrar dene</string>
   <string name="article_load_error_retry">Tekrar dene</string>
   <string name="offline_load_error_retry">Tekrar dene</string>
-  <string name="page_error_back_to_main">Geri git</string>
-  <string name="error_back">Geri git</string>
+  <string name="page_error_back_to_main">Geri dön</string>
+  <string name="error_back">Geri dön</string>
   <string name="menu_clear_all_history">Geçmişi temizle</string>
   <string name="history_item_deleted">%s, geçmişten kaldırıldı</string>
   <string name="history_items_deleted">%d madde geçmişten kaldırıldı</string>
@@ -614,7 +614,7 @@
   <string name="feed_accessibility_card_load_more_button">Daha fazla yükle</string>
   <string name="description_edit_text_hint">Madde tanımı</string>
   <string name="description_edit_article_description_label">Madde</string>
-  <string name="description_edit_translate_article_description_label_per_language">Makale açıklaması (%s)</string>
+  <string name="description_edit_translate_article_description_label_per_language">Madde açıklaması (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Madde açıklaması (%s)</string>
   <string name="description_edit_add_caption_label">Resim açıklaması</string>
   <string name="description_edit_add_caption_hint">Resim altyazısı</string>
@@ -680,7 +680,7 @@
   <string name="suggested_edits_task_multilingual_title">Çok dilli editörler için daha fazla görev</string>
   <string name="suggested_edits_task_multilingual_description">Eğer birden fazla Vikipedi dilinde okuyup yazabiliyorsanız, çeviri görevleri size göredir.</string>
   <string name="suggested_edits_task_image_caption_edit_disable_text">Siz %d resim altyazısını düzenleyene kadar kilitlendi</string>
-  <string name="suggested_edits_task_translate_description_edit_disable_text">%d makale açıklamalarını düzenleyene kadar kilitlendi (doğrulandı)</string>
+  <string name="suggested_edits_task_translate_description_edit_disable_text">%d madde açıklamalarını düzenleyene kadar kilitlendi (doğrulandı)</string>
   <string name="suggested_edits_task_multilingual_negative">Bana göre değil</string>
   <string name="suggested_edits_task_multilingual_positive">Dil ekle</string>
   <string name="suggested_edits_image_caption_summary_title_file">Dosya</string>
@@ -720,10 +720,10 @@
   <string name="suggested_edits_image_tags_publishing">Yayımlanıyor</string>
   <string name="suggested_edits_image_tags_published">Yayınlandı</string>
   <string name="suggested_edits_image_tags_onboarding_title">Görüntüleri etiketlemek onları bulmayı kolaylaştırır.</string>
-  <string name="suggested_edits_image_tags_onboarding_text">Resim etiketleri ekleyerek, Vikipedi\'nin maddelerde ki resimler için kullandığı ücretsiz lisans resim deposu Commons\'ta resimlerin aranmasını kolaylaştırmaya yardımcı olacaksınız.\n\nOtomatik olarak bazı etiketler önerdik ve kendi etiketlerinizi de ekleyebilirsiniz.</string>
+  <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">Resim etiketleri ekleyerek, Vikipedi\'nin maddelerde ki resimler için kullandığı ücretsiz lisans resim deposu Commons\'ta resimlerin aranmasını kolaylaştırmaya yardımcı olacaksınız.\n\nOtomatik olarak bazı etiketler önerdik ve kendi etiketlerinizi de ekleyebilirsiniz.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Yalnızca seçtiğiniz etiketler görüntülere eklenir.</string>
   <string name="suggested_edits_image_tags_snackbar">Başkalarının bulmasını kolaylaştırmak için resim etiketleri ekleyin.</string>
-  <string name="suggested_edits_image_tags_task_detail">Bulmalarını kolaylaştırmak için görüntüleri etiketleyin. Önerilen etiketler arasından seçim yapın veya kendi etiketinizi ekleyin.</string>
+  <string name="suggested_edits_image_tags_task_detail" fuzzy="true">Bulmalarını kolaylaştırmak için görüntüleri etiketleyin. Önerilen etiketler arasından seçim yapın veya kendi etiketinizi ekleyin.</string>
   <string name="suggested_edits_image_tags_choose">Eşleşen etiketler ekleyin veya seçin</string>
   <string name="suggested_edits_image_tags_published_list">Yayınlanan etiketler</string>
   <string name="suggested_edits_image_tags_search">Etiketleri ara</string>
@@ -734,7 +734,7 @@
   <string name="suggested_edits_encouragement_message">%s, düzenlemeleriniz için teşekkürler. Aşağıda Vikipedi\'ye katkıda bulunmak için daha fazla yol bulabilirsiniz.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Merhaba %s&lt;/b&gt;, Herkesin Vikipedi\'yi düzenleyebileceğini biliyor muydun? Aşağıda Vikipedi\'yi iyileştirmeye yardımcı olacak eğlenceli yollar bulabilirsiniz. Mutlu düzenlemeler!</string>
   <string name="suggested_edits_image_captions_task_detail">Resim yazıları, okuyucuların anlamını ve içeriğini anlamalarına yardımcı olmak için bir resim tarif eder.</string>
-  <string name="suggested_edits_add_descriptions_task_detail">Makale açıklamaları, okuyucuların konuyu bir bakışta anlamalarına yardımcı olacak bir makaleyi özetler.</string>
+  <string name="suggested_edits_add_descriptions_task_detail">Madde açıklamaları, okuyucuların konuyu bir bakışta anlamalarına yardımcı olacak bir maddeyi özetler.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Önerilen düzenlemelerle toplam katkı sayınız.</string>
   <string name="suggested_edits_edit_streak_stat_tooltip">Önerilen düzenlemelerle ara vermeden kaç gün katkıda bulundunuz. Bir süredir katkıda bulunmadıysanız, son katkı tarihinizi gösterir.</string>
   <string name="suggested_edits_page_views_stat_tooltip">Son 30 gün içerisinde katkıda bulunduğunuz öğelerin sayfa görüntüleme sayısı Önerilen düzenlemelerle.</string>
@@ -755,6 +755,7 @@
   <string name="suggested_edits_quality_sufficient_text">Yeterli</string>
   <string name="suggested_edits_quality_poor_text">Zayıf</string>
   <string name="suggested_edits_quality_bad_text">Kötü</string>
+  <string name="suggested_edits_contribute">Katkıda bulun</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">Katkı</item>
     <item quantity="other">Katkı</item>
@@ -767,6 +768,9 @@
   <string name="suggested_edits_last_edited_never">Asla</string>
   <string name="suggested_edits_task_new">yeni</string>
   <string name="suggested_edits_cc0_notice">Yayınlayarak, &lt;a href=\"%1$s\"&gt;kullanım şartlarını&lt;/a&gt; ve bu katkıyı &lt;a href=\"%2$s\"&gt;CC0 lisansı&lt;/a&gt; altında geri dönülmez bir şekilde serbest bırakmayı kabul edersiniz.</string>
+  <string name="suggested_edits_reactivation_notification_title">Önerilen düzenlemeler</string>
+  <string name="suggested_edits_reactivation_notification_stage_one">Vikipedi\'yi düzenlediğiniz için teşekkürler! Neden kaldığınız yerden devam etmiyorsunuz?</string>
+  <string name="suggested_edits_reactivation_notification_stage_two">Vikipedi\'yi geliştirmeye devam etmek için bir dakikanız var mı? Bu düzenleme önerilerine göz atın.</string>
   <string name="description_edit_revert_subtitle">Vikipedi\'yi düzenlediğiniz için teşekkürler!</string>
   <string name="description_edit_revert_intro">Elinizden geleni yaptığınızı biliyoruz ama inceleyenlerden biri, bir sıkıntı gördü. Değişikliğiniz geri alınmasının muhtemel sebepleri şunlar olabilir:</string>
   <string name="description_edit_revert_reason1">katkınız &lt;a href=\"%1$s\"&gt;kurallardan&lt;/a&gt; birine uymuyordu.</string>

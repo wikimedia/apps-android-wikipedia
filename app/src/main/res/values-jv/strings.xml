@@ -2,6 +2,7 @@
 <!-- Authors:
 * Abijeet Patro
 * Arifin.wijaya
+* Naufal06
 * NoiX180
 -->
 <resources>
@@ -615,6 +616,7 @@
   <string name="suggested_edits_article_cta_snackbar_action">Deleng</string>
   <string name="suggested_edits_feed_card_add_image_caption" fuzzy="true">Wuwuh katerangan</string>
   <string name="suggested_edits_feed_card_translate_image_caption" fuzzy="true">Wuwuh katerangan (%s)</string>
+  <string name="suggested_edits_reactivation_notification_title">Besutan kang kaprayogakake</string>
   <string name="description_edit_revert_subtitle">Matur nuwun wis mbesut Wikipédia!</string>
   <string name="description_edit_revert_intro">Awak dhéwé sumurup panjenengan wis njajal sakatogé, nanging salah siji pamriksa sedhih. Alesané bokmanawa besutané panjenengan dibalèkaké ya iku:</string>
   <string name="description_edit_revert_reason1">pasumbangmu ora minangkani salah siji &lt;a href=\"%1$s\"&gt;panuntun iki&lt;/a&gt;.</string>

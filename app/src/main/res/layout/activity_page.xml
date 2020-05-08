@@ -24,7 +24,7 @@
             android:id="@+id/page_toolbar_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?attr/main_toolbar_color"
+            android:background="?attr/paper_color"
             android:elevation="4dp">
 
             <androidx.appcompat.widget.Toolbar
@@ -32,7 +32,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:theme="@style/PageToolbarTheme"
-                app:titleTextColor="?attr/page_toolbar_icon_color">
+                app:titleTextColor="?attr/toolbar_icon_color">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -47,8 +47,10 @@
                         android:contentDescription="@string/search_hint"
                         android:paddingStart="12dp"
                         android:paddingEnd="12dp"
+                        android:clickable="true"
+                        android:focusable="true"
                         app:srcCompat="@drawable/ic_search_themed_24dp"
-                        app:tint="?attr/page_toolbar_icon_color" />
+                        app:tint="?attr/toolbar_icon_color" />
 
                     <org.wikipedia.views.TabCountsView
                         android:id="@+id/page_toolbar_button_tabs"
@@ -64,8 +66,10 @@
                         android:contentDescription="@string/menu_feed_overflow_label"
                         android:paddingStart="12dp"
                         android:paddingEnd="12dp"
+                        android:clickable="true"
+                        android:focusable="true"
                         app:srcCompat="@drawable/ic_more_vert_themed_24dp"
-                        app:tint="?attr/page_toolbar_icon_color" />
+                        app:tint="?attr/toolbar_icon_color" />
                 </LinearLayout>
             </androidx.appcompat.widget.Toolbar>
 

@@ -30,7 +30,6 @@ import org.wikipedia.bridge.JavaScriptActionHandler;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.L10nUtil;
-import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.PageScrollerView;
@@ -99,10 +98,6 @@ public class ToCHandler implements ObservableWebView.OnClickListener,
         scrollerViewParams = new FrameLayout.LayoutParams(DimenUtil.roundedDpToPx(SCROLLER_BUTTON_SIZE), DimenUtil.roundedDpToPx(SCROLLER_BUTTON_SIZE));
 
         containerView = drawerLayout.findViewById(R.id.toc_container);
-        final int transparency = 0xe0000000;
-        final int colorMask = 0xffffff;
-        containerView.setBackgroundColor(transparency | (ResourceUtil.getThemedColor(fragment.requireContext(), R.attr.paper_color) & colorMask));
-
         tocList = drawerLayout.findViewById(R.id.toc_list);
         tocList.setAdapter(adapter);
         tocList.setOnItemClickListener((parent, view, position, id) -> {

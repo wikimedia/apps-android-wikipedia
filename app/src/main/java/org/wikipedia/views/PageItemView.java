@@ -202,6 +202,7 @@ public class PageItemView<T> extends ConstraintLayout {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             setForeground(AppCompatResources.getDrawable(getContext(), ResourceUtil.getThemedAttributeId(getContext(), R.attr.selectableItemBackground)));
         }
+        setFocusable(true);
 
         FeedbackUtil.setToolbarButtonLongPressToast(secondaryActionView);
     }

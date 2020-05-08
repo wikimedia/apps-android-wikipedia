@@ -400,6 +400,11 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
 
             nextPageSelectedAutomatic = false
             prevPosition = position
+
+            val storedOffScreenPagesCount = cardsViewPager.offscreenPageLimit * 2 + 1
+            if (position >= storedOffScreenPagesCount) {
+                (cardsViewPager.adapter as ViewPagerAdapter).removeFragmentAt(position - storedOffScreenPagesCount)
+            }
         }
     }
 

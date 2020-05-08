@@ -86,6 +86,7 @@
         android:layout_gravity="end"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:clickable="true"
+        android:focusable="true"
         android:contentDescription="@string/abc_action_menu_overflow_description"
         android:padding="8dp"
         android:tint="?attr/secondary_text_color"

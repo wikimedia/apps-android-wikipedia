@@ -692,10 +692,10 @@
   <string name="suggested_edits_image_tags_publishing">Објавувам</string>
   <string name="suggested_edits_image_tags_published">Објавено</string>
   <string name="suggested_edits_image_tags_onboarding_title">Означувањето на сликите ги прави полесни за наоѓање.</string>
-  <string name="suggested_edits_image_tags_onboarding_text">Потврдувајќи ги предложените ознаки, им помагате на другите полесно да ги најдат сликите во пребарување на Ризницата, складот на слободно лиценцирани слики кој го користи Википедија за нејзините сликовни содржини.\n\nАвтоматски предложивме некои ознаки, а можете да додадете и ваши.</string>
+  <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">Потврдувајќи ги предложените ознаки, им помагате на другите полесно да ги најдат сликите во пребарување на Ризницата, складот на слободно лиценцирани слики кој го користи Википедија за нејзините сликовни содржини.\n\nАвтоматски предложивме некои ознаки, а можете да додадете и ваши.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Кон сликите ќе се додадат само ознаки кои сте ги избрале вие.</string>
   <string name="suggested_edits_image_tags_snackbar">Означете ги сликите за да можат полесно да се пронаоѓаат.</string>
-  <string name="suggested_edits_image_tags_task_detail">Означете ги сликите за да можат полесно да се пронаоѓаат. Изберете од предложените ознаки или додадете ваши.</string>
+  <string name="suggested_edits_image_tags_task_detail" fuzzy="true">Означете ги сликите за да можат полесно да се пронаоѓаат. Изберете од предложените ознаки или додадете ваши.</string>
   <string name="suggested_edits_image_tags_choose">Додајте или изберете соодветни ознаки</string>
   <string name="suggested_edits_image_tags_published_list">Објавени ознаки</string>
   <string name="suggested_edits_image_tags_search">Пребарај ознаки</string>
@@ -727,6 +727,7 @@
   <string name="suggested_edits_quality_sufficient_text">Доволен</string>
   <string name="suggested_edits_quality_poor_text">Слаб</string>
   <string name="suggested_edits_quality_bad_text">Лош</string>
+  <string name="suggested_edits_contribute">Придонесете</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">Придонес</item>
     <item quantity="other">Придонеси</item>
@@ -739,6 +740,9 @@
   <string name="suggested_edits_last_edited_never">Никогаш</string>
   <string name="suggested_edits_task_new">ново</string>
   <string name="suggested_edits_cc0_notice">Објавувајќи, се согласувате со &lt;a href=\"%1$s\"&gt;Условите на употреба&lt;/a&gt; и дека неотповикливо го објавувате овој придонес под лиценцата &lt;a href=\"%2$s\"&gt;CC0&lt;/a&gt;.</string>
+  <string name="suggested_edits_reactivation_notification_title">Предложени уредувања</string>
+  <string name="suggested_edits_reactivation_notification_stage_one">Ви благодариме што ја урадувавте Википедија! Зошто не продолжите од кајшто запревте?</string>
+  <string name="suggested_edits_reactivation_notification_stage_two">Имате минутка за да ја подобрите Википедија малку повеќе? Погледајте ги овие совети за уредување.</string>
   <string name="description_edit_revert_subtitle">Ви благодариме што ја уредувате Википедија!</string>
   <string name="description_edit_revert_intro">Знаеме дека се трудите да напишете што подобро, но еден од прегледувачите има примедба за уреденото. Веројатни причини за отповиканото уредување се:</string>
   <string name="description_edit_revert_reason1">вашиот придонес крши едно од &lt;a href=\"%1$s\"&gt;напатствијата&lt;/a&gt;.</string>

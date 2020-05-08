@@ -19,6 +19,7 @@ class TabCountsView constructor(context: Context, attrs: AttributeSet? = null) :
         View.inflate(context, R.layout.view_tabs_count, this)
         layoutParams = ViewGroup.LayoutParams(DimenUtil.roundedDpToPx(48.0f), ViewGroup.LayoutParams.MATCH_PARENT)
         setBackgroundResource(ResourceUtil.getThemedAttributeId(context, R.attr.selectableItemBackgroundBorderless))
+        isFocusable = true
     }
 
     fun updateTabCount() {
