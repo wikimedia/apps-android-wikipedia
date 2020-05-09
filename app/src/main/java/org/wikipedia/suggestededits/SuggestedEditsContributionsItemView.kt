@@ -33,6 +33,15 @@ class SuggestedEditsContributionsItemView<T>(context: Context) : LinearLayout(co
         description.text = StringUtil.fromHtml(contributionDescription)
     }
 
+    fun setPageViewCountText(pageViewCount: Long) {
+        if (pageViewCount == 0L) {
+            pageViewLayout.visibility = View.GONE
+        } else {
+            pageViewLayout.visibility = View.VISIBLE
+            pageviewCountText.text = pageViewCount.toString()
+        }
+    }
+
     fun setIcon(contributionType: Int) {
         when (contributionType) {
             EDIT_TYPE_IMAGE_CAPTION -> {

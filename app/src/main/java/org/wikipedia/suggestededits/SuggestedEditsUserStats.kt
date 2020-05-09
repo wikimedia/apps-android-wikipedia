@@ -49,7 +49,7 @@ object SuggestedEditsUserStats {
 
     fun getPageViewsObservable(): Observable<Long> {
         val qLangMap = HashMap<String, HashSet<String>>()
-        return ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getUserContributions(AccountUtil.getUserName()!!, 10)
+        return ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getUserContributions(AccountUtil.getUserName()!!, 10, null)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .flatMap { response ->

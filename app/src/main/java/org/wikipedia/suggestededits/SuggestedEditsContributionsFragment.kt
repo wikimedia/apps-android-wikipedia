@@ -10,6 +10,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
@@ -21,6 +22,7 @@ import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.suggestededits.SuggestedEditsContributionsFragment.Contribution.Companion.ALL_EDIT_TYPES
 import org.wikipedia.suggestededits.SuggestedEditsContributionsFragment.Contribution.Companion.EDIT_TYPE_ARTICLE_DESCRIPTION
 import org.wikipedia.suggestededits.SuggestedEditsContributionsFragment.Contribution.Companion.EDIT_TYPE_IMAGE_CAPTION
@@ -31,6 +33,7 @@ import org.wikipedia.util.log.L
 import org.wikipedia.views.DefaultViewHolder
 import java.util.*
 import kotlin.collections.ArrayList
+import kotlin.collections.HashMap
 
 
 class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.Callback {
@@ -47,6 +50,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
     private var loadingMore = false
     private var editFilterType = ALL_EDIT_TYPES
     private var filterViews = ArrayList<SuggestedEditsTypeItem>()
+    val pageViewsMap = HashMap<String, Long>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -88,6 +92,9 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
         articleDescriptionView.setAttributes(getString(R.string.suggested_edits_spinner_item_text, SuggestedEditsUserStats.totalDescriptionEdits, getString(R.string.description_edit_tutorial_title_descriptions)), R.drawable.ic_article_description, EDIT_TYPE_ARTICLE_DESCRIPTION, this)
         imageCaptionsView.setAttributes(getString(R.string.suggested_edits_spinner_item_text, SuggestedEditsUserStats.totalImageCaptionEdits, getString(R.string.suggested_edits_image_captions)), R.drawable.ic_image_caption, EDIT_TYPE_IMAGE_CAPTION, this)
         imageTagsView.setAttributes(getString(R.string.suggested_edits_spinner_item_text, SuggestedEditsUserStats.totalImageTagEdits, getString(R.string.suggested_edits_image_tags)), R.drawable.ic_image_tag, EDIT_TYPE_IMAGE_TAG, this)
+        disposables.add(SuggestedEditsUserStats.getPageViewsObservable().subscribe {
+            contributionsSeenText.text = getString(R.string.suggested_edits_contribution_seen_text, it.toString())
+        })
     }
 
     private fun setFilterAndUIState(view: SuggestedEditsTypeItem) {
@@ -112,7 +119,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
 
     private fun getArticleContributions() {
         val qLangMap = HashMap<String, HashSet<String>>()
-        disposables.add(ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getUserContributions(AccountUtil.getUserName()!!, 10, articleContributionsContinuation)
+        disposables.add(ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getUserContributions(AccountUtil.getUserName()!!, 50, articleContributionsContinuation)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .flatMap { response ->
@@ -139,16 +146,15 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
                         if (!qLangMap.containsKey(userContribution.title)) {
                             qLangMap[userContribution.title] = HashSet()
                         }
-                        continuedArticlesContributions.add(Contribution(userContribution.title, "", "", EDIT_TYPE_ARTICLE_DESCRIPTION, "", DateUtil.iso8601DateParse(userContribution.timestamp), WikiSite.forLanguageCode(descLang)))
+                        continuedArticlesContributions.add(Contribution(userContribution.title, "", "", EDIT_TYPE_ARTICLE_DESCRIPTION, "", DateUtil.iso8601DateParse(userContribution.timestamp), WikiSite.forLanguageCode(descLang), 0))
 
                         qLangMap[userContribution.title]!!.add(descLang)
                     }
                     ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getWikidataLabelsAndDescriptions(qLangMap.keys.joinToString("|"))
                             .subscribeOn(Schedulers.io())
                             .observeOn(AndroidSchedulers.mainThread())
-                }
-                .subscribe({
-
+                }.flatMap {
+                    val langArticleMap = HashMap<String, java.util.ArrayList<String>>()
                     for (entityKey in it.entities().keys) {
                         val entity = it.entities()[entityKey]!!
                         for (contribution in continuedArticlesContributions) {
@@ -157,7 +163,46 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
                                 contribution.description = entity.descriptions()[contribution.wikiSite.languageCode()]!!.value()
                             }
                         }
+                        for (qKey in qLangMap.keys) {
+                            if (qKey == entityKey) {
+                                for (lang in qLangMap[qKey]!!) {
+                                    val dbName = WikiSite.forLanguageCode(lang).dbName()
+                                    if (entity.sitelinks().containsKey(dbName)) {
+                                        if (!langArticleMap.containsKey(lang)) {
+                                            langArticleMap[lang] = java.util.ArrayList()
+                                        }
+                                        langArticleMap[lang]!!.add(entity.sitelinks()[dbName]!!.title)
+                                    }
+                                }
+                                break
+                            }
+                        }
+
                     }
+                    val observableList = java.util.ArrayList<Observable<MwQueryResponse>>()
+
+                    for (lang in langArticleMap.keys) {
+                        val site = WikiSite.forLanguageCode(lang)
+                        observableList.add(ServiceFactory.get(site).getPageViewsForTitles(langArticleMap[lang]!!.joinToString("|"))
+                                .subscribeOn(Schedulers.io())
+                                .observeOn(AndroidSchedulers.mainThread()))
+                    }
+                    Observable.zip(observableList) { resultList ->
+
+                        for (result in resultList) {
+                            if (result is MwQueryResponse && result.query() != null) {
+                                for (page in result.query()!!.pages()!!) {
+                                    var totalPageViews = 0L
+                                    for (day in page.pageViewsMap.values) {
+                                        totalPageViews += day ?: 0
+                                    }
+                                    pageViewsMap[page.title()] = totalPageViews
+                                }
+                            }
+                        }
+                        pageViewsMap
+                    }
+                }.subscribe({ map ->
                     getArticleContributionDetails()
                 }, { t ->
                     L.e(t)
@@ -183,13 +228,13 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
                     .subscribe({ summary ->
                         contributionObject.description = StringUtils.defaultString(summary.description)
                         contributionObject.imageUrl = summary.thumbnailUrl.toString()
-
+                        contributionObject.pageViews = pageViewsMap[contributionObject.title] ?: 0
                     }) { t: Throwable? -> L.e(t) })
         }
     }
 
     private fun getImageContributions() {
-        disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getUserContributions(AccountUtil.getUserName()!!, 10, imageContributionsContinuation)
+        disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getUserContributions(AccountUtil.getUserName()!!, 50, imageContributionsContinuation)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ mwQueryResponse ->
@@ -212,7 +257,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
                                 editType = EDIT_TYPE_IMAGE_TAG
                             }
                         }
-                        continuedImageContributions.add(Contribution("", userContribution.title, "", editType, "", DateUtil.iso8601DateParse(userContribution.timestamp), WikiSite.forLanguageCode(contributionLanguage)))
+                        continuedImageContributions.add(Contribution("", userContribution.title, "", editType, "", DateUtil.iso8601DateParse(userContribution.timestamp), WikiSite.forLanguageCode(contributionLanguage), 0))
                     }
                     for (contribution in continuedImageContributions) {
                         disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo(contribution.title, contribution.wikiSite.languageCode())
@@ -308,7 +353,6 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
         }
 
         contributionsCountText.text = getString(R.string.suggested_edits_spinner_item_text, count, resources.getQuantityString(R.plurals.suggested_edits_contribution, count))
-        contributionsSeenText.text = getString(R.string.suggested_edits_contribution_seen_text, 555)
         for (filterView in filterViews) {
             if (filterView == view) {
                 filterView.setEnabledStateUI()
@@ -358,6 +402,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
             view.setDescription(contribution.title)
             view.setImageUrl(contribution.imageUrl)
             view.setIcon(contribution.editType)
+            view.setPageViewCountText(contribution.pageViews)
         }
     }
 
@@ -434,7 +479,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
         super.onDestroy()
     }
 
-    class Contribution internal constructor(val qNumber: String, var title: String, var description: String, val editType: Int, var imageUrl: String, val date: Date, val wikiSite: WikiSite) {
+    class Contribution internal constructor(val qNumber: String, var title: String, var description: String, val editType: Int, var imageUrl: String, val date: Date, val wikiSite: WikiSite, var pageViews: Long) {
         override fun hashCode(): Int {
             return title.hashCode()
         }
