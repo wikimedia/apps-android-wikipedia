@@ -51,7 +51,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setupTestingButtons()
 
-        contributionsCard.setOnClickListener {
+        contributionsStatsView.setOnClickListener {
             startActivity(SuggestedEditsContributionsActivity.newIntent(requireActivity()))
         }
 
