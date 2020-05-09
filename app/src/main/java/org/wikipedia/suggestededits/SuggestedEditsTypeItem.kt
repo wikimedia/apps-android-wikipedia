@@ -4,7 +4,7 @@ import android.content.Context
 import android.content.res.ColorStateList
 import android.os.Build
 import android.util.AttributeSet
-import android.view.LayoutInflater
+import android.view.View
 import android.widget.LinearLayout
 import androidx.annotation.DrawableRes
 import androidx.appcompat.content.res.AppCompatResources
@@ -29,8 +29,7 @@ class SuggestedEditsTypeItem @JvmOverloads constructor(
     }
 
     init {
-        LayoutInflater.from(context)
-                .inflate(R.layout.item_suggested_edits_type, this, true)
+        View.inflate(context, R.layout.item_suggested_edits_type, this)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             foreground = AppCompatResources.getDrawable(context, ResourceUtil.getThemedAttributeId(context, R.attr.selectableItemBackground))
         }
@@ -57,13 +56,13 @@ class SuggestedEditsTypeItem @JvmOverloads constructor(
     fun setEnabledStateUI() {
         title.setTextColor(ResourceUtil.getThemedColor(context, R.attr.colorAccent))
         ImageViewCompat.setImageTintList(image, ColorStateList.valueOf(ContextCompat.getColor(context, ResourceUtil.getThemedAttributeId(context, R.attr.colorAccent))))
-        baseView.background = ContextCompat.getDrawable(context, R.drawable.rounded_12dp_accent90_fill)
+        this.background = ContextCompat.getDrawable(context, R.drawable.rounded_12dp_accent90_fill)
     }
 
     fun setDisabledStateUI() {
         title.setTextColor(ResourceUtil.getThemedColor(context, R.attr.secondary_text_color))
         ImageViewCompat.setImageTintList(image, ColorStateList.valueOf(ContextCompat.getColor(context, ResourceUtil.getThemedAttributeId(context, R.attr.chart_shade4))))
-        baseView.background = ContextCompat.getDrawable(context, R.drawable.rounded_12dp_corner_base90_fill)
+        this.background = ContextCompat.getDrawable(context, R.drawable.rounded_12dp_corner_base90_fill)
     }
 
     fun setType(editType: Int) {

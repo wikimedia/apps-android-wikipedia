@@ -51,10 +51,6 @@ class SuggestedEditsTasksFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setupTestingButtons()
 
-        contributionsStatsView.setOnClickListener {
-            startActivity(SuggestedEditsContributionsActivity.newIntent(requireActivity()))
-        }
-
         contributionsStatsView.setImageDrawable(R.drawable.ic_mode_edit_white_24dp)
         contributionsStatsView.setOnClickListener { onUserStatClicked(contributionsStatsView) }
 
@@ -88,7 +84,10 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     private fun onUserStatClicked(view: View) {
         when (view) {
-            contributionsStatsView -> showContributionsStatsViewTooltip()
+            contributionsStatsView -> {
+                showContributionsStatsViewTooltip()
+                startActivity(SuggestedEditsContributionsActivity.newIntent(requireActivity()))
+            }
             editStreakStatsView -> showEditStreakStatsViewTooltip()
             pageViewStatsView -> showPageViewStatsViewTooltip()
             else -> showEditQualityStatsViewTooltip()
