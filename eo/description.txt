@@ -2,7 +2,7 @@ La oficiala aplikaĵo de Vikipedio por Android estas projektita por helpi al vi 
 
 Eblaĵoj:
 
-Esplor-fluo – prezentas kaj senĉese ĝisdatigas legindan Vikipedian enhavon sur la hejmekrano, ampleksante populariĝantajn artikolojn, nunajn eventojn, legindaĵojn kaj pli.
+Esplor-fluo – prezentas kaj senĉese ĝisdatigas legindan vikipedian enhavon sur la hejmekrano, ampleksante populariĝantajn artikolojn, nunajn eventojn, legindaĵojn kaj pli.
 
 Pervoĉa serĉo – facile trovi kion vi serĉas per distingebla serĉujo ĉe supre de la aplikaĵo, inkluzive pervoĉan serĉon per via aparato.
 
