@@ -20,8 +20,6 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
 
-import okhttp3.HttpUrl;
-
 public final class UriUtil {
     public static final String LOCAL_URL_SETTINGS = "#settings";
     public static final String LOCAL_URL_LOGIN = "#login";
@@ -36,7 +34,9 @@ public final class UriUtil {
      */
     @NonNull public static String decodeURL(@NonNull String url) {
         try {
-            return URLDecoder.decode(url, "UTF-8");
+            // Force decoding of plus sign, since the built-in decode() function will replace
+            // plus sign with space.
+            return URLDecoder.decode(url.replace("+", "%2B"), "UTF-8");
         } catch (IllegalArgumentException e) {
             // Swallow IllegalArgumentException (can happen with malformed encoding), and just
             // return the original string.
@@ -49,14 +49,12 @@ public final class UriUtil {
 
     @NonNull public static String encodeURL(@NonNull String url) {
         try {
-            return URLEncoder.encode(url, "UTF-8");
+            // Before returning, explicitly convert plus signs to encoded spaces, since URLEncoder
+            // does that for some reason.
+            return URLEncoder.encode(url, "UTF-8").replace("+", "%20");
         } catch (UnsupportedEncodingException e) {
             throw new RuntimeException(e);
         }
-    }
-
-    @NonNull public static String encodeOkHttpUrl(@NonNull String basePath, @NonNull String title) {
-        return HttpUrl.parse(basePath).newBuilder().addPathSegment(title).build().toString();
     }
 
     /**
@@ -159,7 +157,5 @@ public final class UriUtil {
         return Uri.parse(link).getFragment();
     }
 
-    private UriUtil() {
-
-    }
+    private UriUtil() { }
 }
