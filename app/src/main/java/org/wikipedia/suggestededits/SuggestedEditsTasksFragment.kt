@@ -6,13 +6,12 @@ import android.os.Bundle
 import android.view.*
 import android.view.View.GONE
 import android.view.View.VISIBLE
+import android.widget.Toast
 import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import io.reactivex.Observable
-import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_suggested_edits_tasks.*
 import org.wikipedia.Constants
 import org.wikipedia.Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE
@@ -21,10 +20,6 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.SuggestedEditsFunnel
 import org.wikipedia.auth.AccountUtil
-import org.wikipedia.dataclient.Service
-import org.wikipedia.dataclient.ServiceFactory
-import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
 import org.wikipedia.language.LanguageSettingsInvokeSource
 import org.wikipedia.main.MainActivity
@@ -34,6 +29,7 @@ import org.wikipedia.util.*
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DefaultRecyclerAdapter
 import org.wikipedia.views.DefaultViewHolder
+import org.wikipedia.views.DrawableItemDecoration
 
 class SuggestedEditsTasksFragment : Fragment() {
     private lateinit var addDescriptionsTask: SuggestedEditsTask
@@ -42,7 +38,9 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     private val displayedTasks = ArrayList<SuggestedEditsTask>()
     private val callback = TaskViewCallback()
+
     private val disposables = CompositeDisposable()
+    private var currentTooltip: Toast? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -53,19 +51,19 @@ class SuggestedEditsTasksFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setupTestingButtons()
 
-        contributionsCard.setOnClickListener {
-            // TODO
-        }
-
         contributionsStatsView.setImageDrawable(R.drawable.ic_mode_edit_white_24dp)
+        contributionsStatsView.setOnClickListener { onUserStatClicked(contributionsStatsView) }
 
         editStreakStatsView.setDescription(resources.getString(R.string.suggested_edits_edit_streak_label_text))
         editStreakStatsView.setImageDrawable(R.drawable.ic_timer_black_24dp)
+        editStreakStatsView.setOnClickListener { onUserStatClicked(editStreakStatsView) }
 
         pageViewStatsView.setDescription(getString(R.string.suggested_edits_pageviews_label_text))
         pageViewStatsView.setImageDrawable(R.drawable.ic_trending_up_black_24dp)
+        pageViewStatsView.setOnClickListener { onUserStatClicked(pageViewStatsView) }
 
         editQualityStatsView.setDescription(getString(R.string.suggested_edits_quality_label_text))
+        editQualityStatsView.setOnClickListener { onUserStatClicked(editQualityStatsView) }
 
         swipeRefreshLayout.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent))
         swipeRefreshLayout.setOnRefreshListener { this.refreshContents() }
@@ -78,13 +76,52 @@ class SuggestedEditsTasksFragment : Fragment() {
 
         setUpTasks()
         tasksRecyclerView.layoutManager = LinearLayoutManager(context)
+        tasksRecyclerView.addItemDecoration(DrawableItemDecoration(requireContext(), R.attr.list_separator_drawable, drawStart = false, drawEnd = false,
+                horizontalPadding = resources.getDimension(R.dimen.activity_horizontal_margin).toInt()))
         tasksRecyclerView.adapter = RecyclerAdapter(displayedTasks)
 
         clearContents()
     }
 
+    private fun onUserStatClicked(view: View) {
+        when (view) {
+            contributionsStatsView -> showContributionsStatsViewTooltip()
+            editStreakStatsView -> showEditStreakStatsViewTooltip()
+            pageViewStatsView -> showPageViewStatsViewTooltip()
+            else -> showEditQualityStatsViewTooltip()
+        }
+    }
+
+    private fun hideCurrentTooltip() {
+        if (currentTooltip != null) {
+            currentTooltip!!.cancel()
+            currentTooltip = null
+        }
+    }
+
+    private fun showContributionsStatsViewTooltip() {
+        hideCurrentTooltip()
+        currentTooltip = FeedbackUtil.showToastOverView(contributionsStatsView, getString(R.string.suggested_edits_contributions_stat_tooltip), Toast.LENGTH_LONG)
+    }
+
+    private fun showEditStreakStatsViewTooltip() {
+        hideCurrentTooltip()
+        currentTooltip = FeedbackUtil.showToastOverView(editStreakStatsView, getString(R.string.suggested_edits_edit_streak_stat_tooltip), FeedbackUtil.LENGTH_LONG)
+    }
+
+    private fun showPageViewStatsViewTooltip() {
+        hideCurrentTooltip()
+        currentTooltip = FeedbackUtil.showToastOverView(pageViewStatsView, getString(R.string.suggested_edits_page_views_stat_tooltip), Toast.LENGTH_LONG)
+    }
+
+    private fun showEditQualityStatsViewTooltip() {
+        hideCurrentTooltip()
+        currentTooltip = FeedbackUtil.showToastOverView(editQualityStatsView, getString(R.string.suggested_edits_edit_quality_stat_tooltip, SuggestedEditsUserStats.totalReverts), FeedbackUtil.LENGTH_LONG)
+    }
+
     override fun onPause() {
         super.onPause()
+        hideCurrentTooltip()
         SuggestedEditsFunnel.get().pause()
     }
 
@@ -101,7 +138,7 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.menu_suggested_edits_tasks, menu)
-        ResourceUtil.setMenuItemTint(requireContext(), menu.findItem(R.id.menu_help), R.attr.material_theme_secondary_color)
+        ResourceUtil.setMenuItemTint(requireContext(), menu.findItem(R.id.menu_help), R.attr.colorAccent)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -138,7 +175,8 @@ class SuggestedEditsTasksFragment : Fragment() {
 
         progressBar.visibility = VISIBLE
         disposables.add(SuggestedEditsUserStats.getEditCountsObservable()
-                .subscribe({ response ->
+                .map { response ->
+                    var shouldLoadPageViews = false
                     if (response.query()!!.userInfo()!!.isBlocked) {
 
                         setIPBlockedStatus()
@@ -156,103 +194,27 @@ class SuggestedEditsTasksFragment : Fragment() {
                                     editorTaskCounts.editStreak, editorTaskCounts.editStreak))
                             editStreakStatsView.setDescription(resources.getString(R.string.suggested_edits_edit_streak_label_text))
                         }
-
-                        getPageViews()
+                        shouldLoadPageViews = true
                     }
-                }, { t ->
-                    L.e(t)
-                    showError(t)
-                }))
-
-    }
-
-    private fun getPageViews() {
-        val qLangMap = HashMap<String, HashSet<String>>()
-
-        disposables.add(ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getUserContributions(AccountUtil.getUserName()!!, 10)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .flatMap { response ->
-                    for (userContribution in response.query()!!.userContributions()) {
-                        var descLang = ""
-                        val strArr = userContribution.comment.split(" ")
-                        for (str in strArr) {
-                            if (str.contains("wbsetdescription")) {
-                                val descArr = str.split("|")
-                                if (descArr.size > 1) {
-                                    descLang = descArr[1]
-                                    break
-                                }
-                            }
-                        }
-                        if (descLang.isEmpty()) {
-                            continue
-                        }
-
-                        if (!qLangMap.containsKey(userContribution.title)) {
-                            qLangMap[userContribution.title] = HashSet()
-                        }
-                        qLangMap[userContribution.title]!!.add(descLang)
-                    }
-                    ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getWikidataLabelsAndDescriptions(qLangMap.keys.joinToString("|"))
-                            .subscribeOn(Schedulers.io())
-                            .observeOn(AndroidSchedulers.mainThread())
+                    shouldLoadPageViews
                 }
                 .flatMap {
-                    if (it.entities().isEmpty()) {
-                        return@flatMap Observable.just(0L)
-                    }
-                    val langArticleMap = HashMap<String, ArrayList<String>>()
-                    for (entityKey in it.entities().keys) {
-                        val entity = it.entities()[entityKey]!!
-                        for (qKey in qLangMap.keys) {
-                            if (qKey == entityKey) {
-                                for (lang in qLangMap[qKey]!!) {
-                                    val dbName = WikiSite.forLanguageCode(lang).dbName()
-                                    if (entity.sitelinks().containsKey(dbName)) {
-                                        if (!langArticleMap.containsKey(lang)) {
-                                            langArticleMap[lang] = ArrayList()
-                                        }
-                                        langArticleMap[lang]!!.add(entity.sitelinks()[dbName]!!.title)
-                                    }
-                                }
-                                break
-                            }
-                        }
-                    }
-
-                    val observableList = ArrayList<Observable<MwQueryResponse>>()
-
-                    for (lang in langArticleMap.keys) {
-                        val site = WikiSite.forLanguageCode(lang)
-                        observableList.add(ServiceFactory.get(site).getPageViewsForTitles(langArticleMap[lang]!!.joinToString("|"))
-                                .subscribeOn(Schedulers.io())
-                                .observeOn(AndroidSchedulers.mainThread()))
-                    }
-
-                    Observable.zip(observableList) { resultList ->
-                        var totalPageViews = 0L
-                        for (result in resultList) {
-                            if (result is MwQueryResponse && result.query() != null) {
-                                for (page in result.query()!!.pages()!!) {
-                                    for (day in page.pageViewsMap.values) {
-                                        totalPageViews += day ?: 0
-                                    }
-                                }
-                            }
-                        }
-                        totalPageViews
+                    if (it) {
+                        SuggestedEditsUserStats.getPageViewsObservable()
+                    } else {
+                        Observable.just((-1).toLong())
                     }
                 }
-                .subscribe({ pageViewsCount ->
-
-                    pageViewStatsView.setTitle(pageViewsCount.toString())
-                    setFinalUIState()
-
+                .subscribe({
+                    if (it >= 0) {
+                        pageViewStatsView.setTitle(it.toString())
+                        setFinalUIState()
+                    }
                 }, { t ->
                     L.e(t)
                     showError(t)
                 }))
+
     }
 
     private fun refreshContents() {
@@ -287,23 +249,19 @@ class SuggestedEditsTasksFragment : Fragment() {
             editQualityStatsView.visibility = GONE
             editStreakStatsView.visibility = GONE
             pageViewStatsView.visibility = GONE
-            userNameText.visibility = GONE
-            profileArrowImage.visibility = GONE
             onboardingImageView.visibility = VISIBLE
-            onboardingMessage.text = StringUtil.fromHtml(getString(R.string.suggested_edits_onboarding_message, AccountUtil.getUserName()))
-            onboardingMessage.visibility = VISIBLE
+            textViewForMessage.text = StringUtil.fromHtml(getString(R.string.suggested_edits_onboarding_message, AccountUtil.getUserName()))
+            textViewForMessage.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_primary_color))
         } else {
             contributionsStatsView.visibility = VISIBLE
             editQualityStatsView.visibility = VISIBLE
             editStreakStatsView.visibility = VISIBLE
             pageViewStatsView.visibility = VISIBLE
             onboardingImageView.visibility = GONE
-            onboardingMessage.visibility = GONE
-            userNameText.text = AccountUtil.getUserName()
-            userNameText.visibility = VISIBLE
-            profileArrowImage.visibility = VISIBLE
             contributionsStatsView.setTitle(SuggestedEditsUserStats.totalEdits.toString())
             contributionsStatsView.setDescription(resources.getQuantityString(R.plurals.suggested_edits_contribution, SuggestedEditsUserStats.totalEdits))
+            textViewForMessage.text = getString(R.string.suggested_edits_encouragement_message, AccountUtil.getUserName())
+            textViewForMessage.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_secondary_color))
         }
 
         swipeRefreshLayout.setBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
