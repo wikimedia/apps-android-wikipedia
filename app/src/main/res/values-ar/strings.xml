@@ -382,7 +382,9 @@
   <string name="reading_list_save_to">حفظ في قائمة القراءة</string>
   <string name="reading_list_create_new">أنشئ قائمة قراءة جديدة</string>
   <string name="reading_list_title_exists">قائمة القراءة \"%s\" موجودة فعلًا.</string>
-  <string name="reading_list_articles_already_exist_message" fuzzy="true">كل شيء جيد! %s تحتوي بالفعل على كل المقالات في الألسنة المفتوحة.</string>
+  <string name="reading_list_article_added_to_named">أضيف %1$s إلى %2$s.</string>
+  <string name="reading_list_article_already_exists_message">كل شيء على ما يرام! %1$s يحتوي مسبقا على %2$s.</string>
+  <string name="reading_list_articles_already_exist_message">كل شيء جيد! %s تحتوي بالفعل على كل المقالات.</string>
   <string name="reading_list_added_view_button">عرض القائمة</string>
   <string name="format_reading_list_statistical_summary_singular">مقالة واحدة، %1$.2f ميجا بايت</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d مقالة/مقالات، %2$.2f ميجا بايت</string>
@@ -474,7 +476,7 @@
     <item quantity="one">ستصبح هذه المقالة غير متاحة في حالة عدم الاتصال.</item>
     <item quantity="other">ستصبح هذه المقالات غير متاحة في حالة عدم الاتصال.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync" fuzzy="true">تمت مزامنة قوائم القراءة بنجاح</string>
+  <string name="reading_list_toast_last_sync">تمت مزامنة قوائم القراءة</string>
   <string name="reading_list_menu_last_sync">آخر مزامنة: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">حسنا</string>
   <string name="reading_list_delete_dialog_ok_button_text">حسنا</string>
