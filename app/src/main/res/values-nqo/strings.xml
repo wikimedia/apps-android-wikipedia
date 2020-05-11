@@ -15,6 +15,7 @@
   <string name="page_tabs_back">ߟߊߞߐߛߊ߬ߦߌ߬</string>
   <string name="nav_item_forward">ߟߊߕߊ߯ߢߍ߫</string>
   <string name="search_hint">ߢߌߣߌ߲ߠߌ߲ ߞߍ߫ ߥߞߌߔߘߋߞߎ ߘߐ߫</string>
+  <string name="search_hint_voice_search">ߡߍ߲ߞߊ߲ߠߊ߫ ߢߌߣߌ߲ߠߌ߲</string>
   <string name="search_hint_search_history">ߕߊ߬ߡߌ߲߬ߣߍ߲ ߘߏ߫ ߢߌߣߌ߲߫</string>
   <string name="search_hint_search_languages">ߞߊ߲ ߘߏ߫ ߢߌߣߌ߲߫</string>
   <string name="search_hint_search_my_lists_and_articles">ߒ ߠߊ߫ ߛߙߍߘߍ ߣߌ߫ ߞߎߡߘߊ ߟߎ߬ ߢߌߣߌ߲߫</string>
@@ -100,7 +101,7 @@
   <string name="menu_login">ߌ ߜߊ߲߬ߞߎ߲߫</string>
   <string name="login_activity_title">ߌ ߜߊ߲߬ߞߎ߲߬ ߥߞߌ-ߔߘߋߞߎ ߟߊ߫</string>
   <string name="login_in_progress_dialog_message">ߌ ߜߊ߲߬ߞߎ߲߬ߠߌ߲ ߦߴߌ ߘߐ߫...</string>
-  <string name="login_success_toast" fuzzy="true">ߌ ߓߘߴߌ ߜߊ߲߬ߞߎ߲߬ ߛߎߘߊ߲ߠߌ߲߫ ߓߟߏߡߊ߬߹</string>
+  <string name="login_success_toast">ߌ ߓߘߴߌ ߜߊ߲߬ߞߎ߲߬߹</string>
   <string name="reset_password_title">ߌ ߟߊ߫ ߕߊ߬ߡߌ߲߬ߞߊ߲ ߠߊߘߏ߲߬</string>
   <string name="reset_password_description">ߌ ߓߘߴߌ ߜߊ߲߬ߞߎ߲߬ ߥߊ߯ߕߌ߫ ߟߊߕߊߡߌ߲߫ ߕߊߡߌ߲ߞߊ߲ ߠߊ߫.ߖߐ߲߬ߛߊ߫ ߌ ߘߴߌ ߟߊ߫ ߜߊ߲߬ߞߎ߲߬ߠߌ߲ ߠߊߞߎߙߊ߲߫߸ ߌ ߟߊ߫ ߕߊ߬ߡߌ߲߬ߞߊ߲߬ ߞߎߘߊ ߟߊߘߏ߲߬ ߦߊ߲߬ ߖߊ߰ߣߌ߲߬.</string>
   <string name="reset_password_hint">ߕߊ߬ߡߌ߲߬ߞߊ߲߬ ߞߎߘߊ</string>
@@ -245,6 +246,7 @@
   <string name="gallery_save_success" fuzzy="true">ߞߐߕߐ߮ ߟߊߞߎ߲߬ߘߎ߬ߟߌ ߓߘߊ߫ ߛߎߘߊ߲߫.</string>
   <string name="gallery_error_video_failed">ߊ߬ ߕߴߛߋ߫ ߖߌ߬ߦߊ߬ߖߟߎ ߟߊߞߊ߬ߛߌ߬ ߟߊ߫.</string>
   <string name="gallery_save_image_write_permission_rationale">ߛߓߍߟߌ ߞߍߟߌ ߌ ߟߊ߫ ߞߍߟߊ߲ ߡߣߐ߬ߘߐ ߘߐ߫߸ ߏ߬ ߡߊߢߌ߬ߣߌ߲߬ߞߊ߬ ߣߍ߲߫ ߖߌ߬ߦߊ߬ߓߍ ߟߊߡߙߊ߬ ߞߏ ߘߐ߫.</string>
+  <string name="gallery_add_image_caption_button">ߖߌ߬ߦߊ߬ߓߍ ߝߍ߬ߛߓߍߟߌ ߟߊߘߏ߲߬</string>
   <string name="gallery_add_image_caption_in_language_button">ߖߌ߬ߦߊ߬ߓߍ ߝߍ߬ߛߓߍߟߌ ߟߊߘߏ߲߬ (%s)</string>
   <string name="err_cannot_save_file">ߊ߬߫ ߕߴߛߋ߫ ߞߐߕߐ߮ ߟߊߞߎ߲߬ߘߎ߬ ߟߊ߫</string>
   <string name="expand_refs">ߊ߬ ߛߐ߲߬ߞߌ߲߫ ߞߵߊ߬ ߘߐߥߙߊ߬</string>
