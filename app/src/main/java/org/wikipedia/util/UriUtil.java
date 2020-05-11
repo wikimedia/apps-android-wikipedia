@@ -49,7 +49,9 @@ public final class UriUtil {
 
     @NonNull public static String encodeURL(@NonNull String url) {
         try {
-            return URLEncoder.encode(url, "UTF-8");
+            // Before returning, explicitly convert plus signs to encoded spaces, since URLEncoder
+            // does that for some reason.
+            return URLEncoder.encode(url, "UTF-8").replace("+", "%20");
         } catch (UnsupportedEncodingException e) {
             throw new RuntimeException(e);
         }
