@@ -12,7 +12,7 @@ internal class TitleEncodeInterceptor : Interceptor {
             val pathSegments = chain.request().url.pathSegments
             val builder = chain.request().url.newBuilder()
             for (i in pathSegments.indices) {
-                builder.setEncodedPathSegment(i, UriUtil.encodeURIComponent(pathSegments[i]))
+                builder.setEncodedPathSegment(i, UriUtil.encodeURL(pathSegments[i]))
             }
             chain.proceed(chain.request().newBuilder().url(builder.build()).build())
         } else {

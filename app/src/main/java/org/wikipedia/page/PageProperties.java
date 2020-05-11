@@ -59,7 +59,7 @@ public class PageProperties implements Parcelable {
         displayTitleText = defaultString(pageSummary.getDisplayTitle());
         geo = pageSummary.getGeo();
         lastModified = new Date();
-        leadImageName = UriUtil.decodeURIComponent(StringUtils.defaultString(pageSummary.getLeadImageName()));
+        leadImageName = UriUtil.decodeURL(StringUtils.defaultString(pageSummary.getLeadImageName()));
         leadImageUrl = pageSummary.getThumbnailUrl() != null
                 ? UriUtil.resolveProtocolRelativeUrl(ImageUrlUtil.getUrlForPreferredSize(pageSummary.getThumbnailUrl(), DimenUtil.calculateLeadImageWidth())) : null;
         String lastModifiedText = pageSummary.getTimestamp();
