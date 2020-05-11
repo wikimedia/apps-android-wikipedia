@@ -34,4 +34,11 @@ public class UriUtilTest {
     public void testRemoveFragmentWithHash() {
         assertThat(UriUtil.removeFragment(TITLE + "##"), is(TITLE));
     }
+
+    @Test
+    public void testDecodeURIComponent() {
+        assertThat(UriUtil.decodeURL("Unencoded"), is("Unencoded"));
+        assertThat(UriUtil.decodeURL("C++"), is("C++"));
+        assertThat(UriUtil.decodeURL("C%2B%2B"), is("C++"));
+    }
 }
