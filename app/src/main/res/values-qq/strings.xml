@@ -869,4 +869,6 @@
   <string name="suggested_edits_contribution_views">Text label indicating that the associated data indicates the number of views that the contribution has. %s represents the type of contribution.</string>
   <string name="suggested_edits_image_label">Text label that indicates that the contribution is to an image file.</string>
   <string name="suggested_edits_article_label">Text label that indicates that the contribution is to an article.</string>
+  <string name="suggested_edits_contribution_seen_text">Contribution detail text about the pageviews. %s represented the times the contribution has been viewed in the past 30 days.</string>
+  <string name="suggested_edits_date_string_yesterday">Text for contributions date to indicate it was contributed yesterday</string>
 </resources>
