@@ -36,23 +36,23 @@ public class UserInfo {
     }
 
     @SuppressWarnings("checkstyle:magicnumber")
-    public boolean passesSemiProtectionOnCommons() {
+    public boolean semiProtectedOnCommons() {
         // Reference: https://commons.wikimedia.org/wiki/Commons:Protection_policy
         if (TextUtils.isEmpty(registrationdate)) {
-            return false;
+            return true;
         }
 
         try {
             Date registrationDate = DateUtil.iso8601DateParse(registrationdate);
             long diffDays = TimeUnit.MILLISECONDS.toDays(System.currentTimeMillis() - registrationDate.getTime());
             if (diffDays > 4) {
-                return true;
+                return false;
             }
         } catch (ParseException e) {
             // ignore
         }
 
-        return false;
+        return true;
     }
 
     public boolean isBlocked() {

@@ -133,14 +133,13 @@ public class LeadImagesHandler {
         String imageTitle = "File:" + getPage().getPageProperties().getLeadImageName();
         disposables.add(Observable.zip(MediaHelper.INSTANCE.getImageCaptions(imageTitle),
                 ServiceFactory.get(getTitle().getWikiSite()).getImageInfo(imageTitle, WikipediaApp.getInstance().getAppOrSystemLanguageCode()),
-                ServiceFactory.get(new WikiSite(Service.COMMONS_URL)).getProtectionInfo(imageTitle),
-                ServiceFactory.get(getTitle().getWikiSite()).getUserInfo(), (captions, imageInfoRsp, protectionInfoRsp, userInfoRsp) -> {
+                ServiceFactory.get(new WikiSite(Service.COMMONS_URL)).getProtectionInfo(imageTitle), (captions, imageInfoRsp, protectionInfoRsp) -> {
                     boolean allowEdit = true;
                     for (Protection protection : protectionInfoRsp.query().firstPage().protection()) {
                         if (protection.getType().equals("edit")) {
                             // TODO: should we consider about if the user is actually an administrator?
                             if (protection.getLevel().equals("sysop") || (protection.getLevel().equals("autoconfirmed")
-                                    && !userInfoRsp.query().userInfo().passesSemiProtectionOnCommons())) {
+                                    && protectionInfoRsp.query().userInfo().semiProtectedOnCommons())) {
                                 allowEdit = false;
                             }
                             break;

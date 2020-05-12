@@ -604,15 +604,14 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         updateProgressBar(true);
         disposeImageCaptionDisposable();
         imageCaptionDisposable = Observable.zip(MediaHelper.INSTANCE.getImageCaptions(item.getImageTitle().getPrefixedText()),
-                ServiceFactory.get(new WikiSite(Service.COMMONS_URL)).getProtectionInfo(item.getImageTitle().getPrefixedText()),
-                ServiceFactory.get(item.getImageTitle().getWikiSite()).getUserInfo(), (captions, protectionInfoRsp, userInfoRsp) -> {
+                ServiceFactory.get(new WikiSite(Service.COMMONS_URL)).getProtectionInfo(item.getImageTitle().getPrefixedText()), (captions, protectionInfoRsp) -> {
                     boolean allowEdit = true;
                     item.getMediaInfo().setCaptions(captions);
                     for (Protection protection : protectionInfoRsp.query().firstPage().protection()) {
                         if (protection.getType().equals("edit")) {
                             // TODO: should we consider about if the user is actually an administrator?
                             if (protection.getLevel().equals("sysop") || (protection.getLevel().equals("autoconfirmed")
-                                    && !userInfoRsp.query().userInfo().passesSemiProtectionOnCommons())) {
+                                    && protectionInfoRsp.query().userInfo().semiProtectedOnCommons())) {
                                 allowEdit = false;
                             }
                             break;

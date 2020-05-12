@@ -91,7 +91,7 @@ public interface Service {
     @NonNull Observable<MwQueryResponse> getVideoInfo(@NonNull @Query("titles") String titles,
                                                       @NonNull @Query("viextmetadatalanguage") String lang);
 
-    @GET(MW_API_PREFIX + "action=query&prop=info&inprop=protection")
+    @GET(MW_API_PREFIX + "action=query&meta=userinfo&prop=info&inprop=protection&uiprop=registrationdate")
     @NonNull Observable<MwQueryResponse> getProtectionInfo(@NonNull @Query("titles") String titles);
 
     @GET(MW_API_PREFIX + "action=sitematrix&smtype=language&smlangprop=code|name|localname&maxage=" + SITE_INFO_MAXAGE + "&smaxage=" + SITE_INFO_MAXAGE)
@@ -179,7 +179,7 @@ public interface Service {
     @GET(MW_API_PREFIX + "action=query&meta=authmanagerinfo|tokens&amirequestsfor=create&type=createaccount")
     @NonNull Observable<MwQueryResponse> getAuthManagerInfo();
 
-    @GET(MW_API_PREFIX + "action=query&meta=userinfo&uiprop=groups|blockinfo|registrationdate")
+    @GET(MW_API_PREFIX + "action=query&meta=userinfo&uiprop=groups|blockinfo")
     @NonNull Observable<MwQueryResponse> getUserInfo();
 
     @GET(MW_API_PREFIX + "action=query&list=users&usprop=groups|cancreate")
