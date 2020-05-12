@@ -1,6 +1,7 @@
 package org.wikipedia.suggestededits
 
 import android.content.Context
+import android.util.AttributeSet
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
@@ -12,14 +13,20 @@ import org.wikipedia.suggestededits.SuggestedEditsContributionsFragment.Contribu
 import org.wikipedia.util.StringUtil
 import org.wikipedia.views.ViewUtil
 
-class SuggestedEditsContributionsItemView<T>(context: Context) : LinearLayout(context) {
-    interface Callback<T> {
+class SuggestedEditsContributionsItemView @JvmOverloads constructor(
+        context: Context,
+        attrs: AttributeSet? = null,
+        defStyle: Int = 0,
+        defStyleRes: Int = 0
+) : LinearLayout(context, attrs, defStyle, defStyleRes) {
+
+    interface Callback {
         fun onClick()
     }
 
-    private var callback: Callback<T>? = null
+    private var callback: Callback? = null
 
-    fun setCallback(callback: Callback<T>?) {
+    fun setCallback(callback: Callback?) {
         this.callback = callback
     }
 
@@ -58,7 +65,7 @@ class SuggestedEditsContributionsItemView<T>(context: Context) : LinearLayout(co
 
 
     fun setImageUrl(url: String?) {
-        if (url.isNullOrEmpty() || url.equals("null")) {
+        if (url.isNullOrEmpty() || url == "null") {
             image.visibility = View.GONE
             return
         } else {

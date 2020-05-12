@@ -396,7 +396,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
         }
     }
 
-    private class ContributionItemHolder internal constructor(itemView: SuggestedEditsContributionsItemView<Contribution>) : DefaultViewHolder<SuggestedEditsContributionsItemView<Contribution>?>(itemView) {
+    private class ContributionItemHolder internal constructor(itemView: SuggestedEditsContributionsItemView) : DefaultViewHolder<SuggestedEditsContributionsItemView?>(itemView) {
         fun bindItem(contribution: Contribution) {
             view.setTitle(contribution.description)
             view.setDescription(contribution.title)
@@ -500,7 +500,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
     }
 
 
-    private class ItemCallback : SuggestedEditsContributionsItemView.Callback<Contribution> {
+    private class ItemCallback : SuggestedEditsContributionsItemView.Callback {
         override fun onClick() {
         }
     }
