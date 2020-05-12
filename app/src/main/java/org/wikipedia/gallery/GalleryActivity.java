@@ -38,6 +38,7 @@ import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.media.MediaHelper;
+import org.wikipedia.dataclient.page.Protection;
 import org.wikipedia.descriptions.DescriptionEditActivity;
 import org.wikipedia.feed.image.FeaturedImage;
 import org.wikipedia.history.HistoryEntry;
@@ -126,6 +127,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     private Disposable imageCaptionDisposable;
     private long revision;
     private WikiSite sourceWiki;
+    private String protectionLevel;
 
     private boolean controlsShowing = true;
     private GalleryPageChangeListener pageChangeListener = new GalleryPageChangeListener();
@@ -603,10 +605,22 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         disposeImageCaptionDisposable();
         imageCaptionDisposable = MediaHelper.INSTANCE.getImageCaptions(item.getImageTitle().getPrefixedText())
                 .subscribeOn(Schedulers.io())
+                .flatMap(captions -> {
+                    item.getMediaInfo().setCaptions(captions);
+                    return ServiceFactory.get(new WikiSite(Service.COMMONS_URL))
+                            .getProtectionInfo(item.getImageTitle().getPrefixedText())
+                            .subscribeOn(Schedulers.io());
+                })
                 .observeOn(AndroidSchedulers.mainThread())
                 .doAfterTerminate(this::updateGalleryDescription)
-                .subscribe(captions -> item.getMediaInfo().setCaptions(captions),
-                        L::e);
+                .subscribe(response -> {
+                    for (Protection protection : response.query().firstPage().protection()) {
+                        if (protection.getType().equals("edit")) {
+                            protectionLevel = protection.getLevel();
+                            break;
+                        }
+                    }
+                }, L::e);
     }
 
     public void updateGalleryDescription() {

@@ -13,6 +13,7 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 @SuppressWarnings("unused")
 public class UserInfo {
@@ -24,6 +25,7 @@ public class UserInfo {
     @Nullable private String blockedby;
     @Nullable private String blockedtimestamp;
     @Nullable private String blockexpiry;
+    @Nullable private String registrationdate;
 
     public int id() {
         return id;
@@ -31,6 +33,26 @@ public class UserInfo {
 
     @NonNull public Set<String> getGroups() {
         return groups != null ? new ArraySet<>(groups) : Collections.emptySet();
+    }
+
+    @SuppressWarnings("checkstyle:magicnumber")
+    public boolean passesSemiProtectionOnCommons() {
+        // Reference: https://commons.wikimedia.org/wiki/Commons:Protection_policy
+        if (TextUtils.isEmpty(registrationdate)) {
+            return false;
+        }
+
+        try {
+            Date registrationDate = DateUtil.iso8601DateParse(registrationdate);
+            long diffDays = TimeUnit.MILLISECONDS.toDays(System.currentTimeMillis() - registrationDate.getTime());
+            if (diffDays > 4) {
+                return true;
+            }
+        } catch (ParseException e) {
+            // ignore
+        }
+
+        return false;
     }
 
     public boolean isBlocked() {
