@@ -609,9 +609,8 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
                     item.getMediaInfo().setCaptions(captions);
                     for (Protection protection : protectionInfoRsp.query().firstPage().protection()) {
                         if (protection.getType().equals("edit")) {
-                            // TODO: should we consider about if the user is actually an administrator?
-                            if (protection.getLevel().equals("sysop") || (protection.getLevel().equals("autoconfirmed")
-                                    && protectionInfoRsp.query().userInfo().semiProtectedOnCommons())) {
+                            if ((protection.getLevel().equals("sysop") && !protectionInfoRsp.query().userInfo().getGroups().contains("sysop"))
+                                    || (protection.getLevel().equals("autoconfirmed") && protectionInfoRsp.query().userInfo().semiProtectedOnCommons())) {
                                 allowEdit = false;
                             }
                             break;
