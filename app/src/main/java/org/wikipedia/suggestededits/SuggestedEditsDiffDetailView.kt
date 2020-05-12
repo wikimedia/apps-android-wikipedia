@@ -13,6 +13,7 @@ class SuggestedEditsDiffDetailView @JvmOverloads constructor(
         defStyle: Int = 0,
         defStyleRes: Int = 0
 ) : LinearLayout(context, attrs, defStyle, defStyleRes) {
+
     init {
         LayoutInflater.from(context)
                 .inflate(R.layout.view_suggested_edits_contribution_diff_detail, this, true)

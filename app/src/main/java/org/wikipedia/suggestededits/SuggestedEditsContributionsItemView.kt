@@ -13,33 +13,19 @@ import org.wikipedia.suggestededits.SuggestedEditsContributionsFragment.Contribu
 import org.wikipedia.util.StringUtil
 import org.wikipedia.views.ViewUtil
 
-class SuggestedEditsContributionsItemView<T> @JvmOverloads constructor(
+class SuggestedEditsContributionsItemView @JvmOverloads constructor(
         context: Context,
         attrs: AttributeSet? = null,
         defStyle: Int = 0,
         defStyleRes: Int = 0
 ) : LinearLayout(context, attrs, defStyle, defStyleRes) {
+
     interface Callback {
         fun onClick(context: Context, contribution: Contribution)
     }
 
-    private var callback: Callback? = null
-    private var contribution: Contribution? = null
-
-    interface Callback {
-        fun onClick()
-    }
-
-    private var callback: Callback? = null
-
-
-    fun setCallback(callback: Callback?) {
-        this.callback = callback
-    }
-
-    fun setItem(contribution: Contribution) {
-        this.contribution = contribution
-    }
+    var callback: Callback? = null
+    var contribution: Contribution? = null
 
     fun setTitle(contributionTitle: String?) {
         title.text = StringUtil.fromHtml(contributionTitle)

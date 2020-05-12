@@ -400,7 +400,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
 
     private class ContributionItemHolder internal constructor(itemView: SuggestedEditsContributionsItemView) : DefaultViewHolder<SuggestedEditsContributionsItemView?>(itemView) {
         fun bindItem(contribution: Contribution) {
-            view.setItem(contribution)
+            view.contribution = contribution
             view.setTitle(contribution.description)
             view.setDescription(contribution.title)
             view.setImageUrl(contribution.imageUrl)
@@ -452,13 +452,13 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
         override fun onViewAttachedToWindow(holder: DefaultViewHolder<*>) {
             super.onViewAttachedToWindow(holder)
             if (holder is ContributionItemHolder) {
-                holder.view.setCallback(ItemCallback())
+                holder.view.callback = ItemCallback()
             }
         }
 
         override fun onViewDetachedFromWindow(holder: DefaultViewHolder<*>) {
             if (holder is ContributionItemHolder) {
-                holder.view.setCallback(null)
+                holder.view.callback = null
             }
             super.onViewDetachedFromWindow(holder)
         }

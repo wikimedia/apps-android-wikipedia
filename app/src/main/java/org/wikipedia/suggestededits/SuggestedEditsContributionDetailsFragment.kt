@@ -24,12 +24,6 @@ import org.wikipedia.views.ViewUtil
 class SuggestedEditsContributionDetailsFragment : Fragment() {
     var contribution: SuggestedEditsContributionsFragment.Contribution? = null
 
-    companion object {
-        fun newInstance(): SuggestedEditsContributionDetailsFragment {
-            return SuggestedEditsContributionDetailsFragment()
-        }
-    }
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -51,7 +45,7 @@ class SuggestedEditsContributionDetailsFragment : Fragment() {
         revisionText.text = contribution!!.revisionId.toString()
 
         contributionTitle.text = contribution!!.title
-        if (contribution!!.imageUrl.isEmpty() || contribution!!.imageUrl.equals("null")) contributionImage.visibility = GONE else ViewUtil.loadImageWithRoundedCorners(contributionImage, contribution!!.imageUrl)
+        if (contribution!!.imageUrl.isEmpty() || contribution!!.imageUrl == "null") contributionImage.visibility = GONE else ViewUtil.loadImageWithRoundedCorners(contributionImage, contribution!!.imageUrl)
 
         typeDetailView.setLabel(getString(R.string.suggested_edits_type_label))
 
@@ -99,6 +93,12 @@ class SuggestedEditsContributionDetailsFragment : Fragment() {
                 languageDetailView.visibility = GONE
                 languageDetailsDivider.visibility = GONE
             }
+        }
+    }
+
+    companion object {
+        fun newInstance(): SuggestedEditsContributionDetailsFragment {
+            return SuggestedEditsContributionDetailsFragment()
         }
     }
 }
