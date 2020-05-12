@@ -692,10 +692,10 @@
   <string name="suggested_edits_image_tags_publishing">Објавувам</string>
   <string name="suggested_edits_image_tags_published">Објавено</string>
   <string name="suggested_edits_image_tags_onboarding_title">Означувањето на сликите ги прави полесни за наоѓање.</string>
-  <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">Потврдувајќи ги предложените ознаки, им помагате на другите полесно да ги најдат сликите во пребарување на Ризницата, складот на слободно лиценцирани слики кој го користи Википедија за нејзините сликовни содржини.\n\nАвтоматски предложивме некои ознаки, а можете да додадете и ваши.</string>
+  <string name="suggested_edits_image_tags_onboarding_text">Потврдувајќи ги предложените ознаки, им помагате на другите полесно да ги најдат сликите во пребарување на Ризницата, складот на слободно лиценцирани слики кој го користи Википедија за нејзините сликовни содржини.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Кон сликите ќе се додадат само ознаки кои сте ги избрале вие.</string>
   <string name="suggested_edits_image_tags_snackbar">Означете ги сликите за да можат полесно да се пронаоѓаат.</string>
-  <string name="suggested_edits_image_tags_task_detail" fuzzy="true">Означете ги сликите за да можат полесно да се пронаоѓаат. Изберете од предложените ознаки или додадете ваши.</string>
+  <string name="suggested_edits_image_tags_task_detail">Означете ги сликите за да можат полесно да се пронаоѓаат.</string>
   <string name="suggested_edits_image_tags_choose">Додајте или изберете соодветни ознаки</string>
   <string name="suggested_edits_image_tags_published_list">Објавени ознаки</string>
   <string name="suggested_edits_image_tags_search">Пребарај ознаки</string>
