@@ -10,9 +10,13 @@ import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_contribution_diff_detail.*
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.history.HistoryEntry
 import org.wikipedia.json.GsonUnmarshaller
+import org.wikipedia.page.PageActivity
+import org.wikipedia.page.PageTitle
 import org.wikipedia.suggestededits.SuggestedEditsContributionDetailsActivity.Companion.EXTRA_SOURCE_CONTRIBUTION
 import org.wikipedia.suggestededits.SuggestedEditsContributionsFragment.Contribution.Companion.EDIT_TYPE_ARTICLE_DESCRIPTION
+import org.wikipedia.suggestededits.SuggestedEditsContributionsFragment.Contribution.Companion.EDIT_TYPE_IMAGE_CAPTION
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.GradientUtil
 import org.wikipedia.views.ViewUtil
@@ -37,19 +41,64 @@ class SuggestedEditsContributionDetailsFragment : Fragment() {
         topView.background = GradientUtil.getPowerGradient(R.color.green90, Gravity.TOP)
         back.setOnClickListener { requireActivity().onBackPressed() }
         contribution = GsonUnmarshaller.unmarshal(SuggestedEditsContributionsFragment.Contribution::class.java, requireActivity().intent.getStringExtra(EXTRA_SOURCE_CONTRIBUTION))
-        contributionText.text = getString(R.string.suggested_edits_contribution_label, 55)
+        setUpContributionDetails()
+    }
+
+    private fun setUpContributionDetails() {
+        contributionContainer.setOnClickListener { startTypeSpecificActivity() }
+        contributionDiffText.text = getString(R.string.suggested_edits_contribution_label, contribution!!.sizeDiff)
         contributionDetailText.text = contribution!!.description
-        contributionCategory.text = if (contribution!!.editType == EDIT_TYPE_ARTICLE_DESCRIPTION) getString(R.string.suggested_edits_article_label) else getString(R.string.suggested_edits_image_label)
+        revisionText.text = contribution!!.revisionId.toString()
+
         contributionTitle.text = contribution!!.title
-        contributionIcon.setImageResource(if (contribution!!.editType == EDIT_TYPE_ARTICLE_DESCRIPTION) R.drawable.ic_article_description else R.drawable.ic_image_caption)
         if (contribution!!.imageUrl.isEmpty() || contribution!!.imageUrl.equals("null")) contributionImage.visibility = GONE else ViewUtil.loadImageWithRoundedCorners(contributionImage, contribution!!.imageUrl)
-        pageViewsDetailView.setLabel(getString(R.string.suggested_edits_contribution_views, if (contribution!!.editType == EDIT_TYPE_ARTICLE_DESCRIPTION) getString(R.string.suggested_edits_article_label) else getString(R.string.suggested_edits_image_label)))
-        pageViewsDetailView.setDetail("599")
+
         typeDetailView.setLabel(getString(R.string.suggested_edits_type_label))
-        typeDetailView.setDetail(if (contribution!!.editType == EDIT_TYPE_ARTICLE_DESCRIPTION) getString(R.string.description_edit_text_hint) else getString(R.string.description_edit_add_caption_hint))
+
         dateTimeDetailView.setLabel(getString(R.string.suggested_edits_date_time_label))
         dateTimeDetailView.setDetail(DateUtil.getFeedCardDateString(contribution!!.date) + " / " + DateUtil.get24HrFormatTimeOnlyString(contribution!!.date))
-        languageDetailView.setLabel(getString(R.string.suggested_edits_language_label))
-        languageDetailView.setDetail(WikipediaApp.getInstance().language().getAppLanguageCanonicalName(contribution!!.wikiSite.languageCode()))
+
+        setTypSpecificData()
+    }
+
+    private fun startTypeSpecificActivity() {
+        if (contribution!!.editType == EDIT_TYPE_ARTICLE_DESCRIPTION) {
+            startActivity(PageActivity.newIntentForNewTab(requireActivity(), HistoryEntry(PageTitle(contribution!!.title, contribution!!.wikiSite), HistoryEntry.SOURCE_SUGGESTED_EDITS),
+                    PageTitle(contribution!!.title, contribution!!.wikiSite)))
+        } else {
+            //Todo: Start File page activity
+        }
+    }
+
+    private fun setTypSpecificData() {
+        when (contribution!!.editType) {
+            EDIT_TYPE_ARTICLE_DESCRIPTION -> {
+                contributionCategory.text = getString(R.string.suggested_edits_article_label)
+                pageViewsDetailView.setLabel(getString(R.string.suggested_edits_contribution_views, if (contribution!!.editType == EDIT_TYPE_ARTICLE_DESCRIPTION) getString(R.string.suggested_edits_article_label) else getString(R.string.suggested_edits_image_label)))
+                pageViewsDetailView.setDetail(contribution!!.pageViews.toString())
+                contributionIcon.setImageResource(R.drawable.ic_article_description)
+                typeDetailView.setDetail(getString(R.string.description_edit_text_hint))
+                languageDetailView.setLabel(getString(R.string.suggested_edits_language_label))
+                languageDetailView.setDetail(WikipediaApp.getInstance().language().getAppLanguageCanonicalName(contribution!!.wikiSite.languageCode()))
+            }
+            EDIT_TYPE_IMAGE_CAPTION -> {
+                contributionCategory.text = getString(R.string.suggested_edits_image_label)
+                pageviewContainer.visibility = GONE
+                pageviewDivider.visibility = GONE
+                contributionIcon.setImageResource(R.drawable.ic_image_caption)
+                typeDetailView.setDetail(getString(R.string.description_edit_add_caption_hint))
+                languageDetailView.setLabel(getString(R.string.suggested_edits_language_label))
+                languageDetailView.setDetail(WikipediaApp.getInstance().language().getAppLanguageCanonicalName(contribution!!.wikiSite.languageCode()))
+            }
+            else -> {
+                contributionCategory.text = getString(R.string.suggested_edits_image_label)
+                pageviewContainer.visibility = GONE
+                pageviewDivider.visibility = GONE
+                contributionIcon.setImageResource(R.drawable.ic_image_tag)
+                typeDetailView.setDetail(getString(R.string.suggested_edits_type_image_tag))
+                languageDetailView.visibility = GONE
+                languageDetailsDivider.visibility = GONE
+            }
+        }
     }
 }

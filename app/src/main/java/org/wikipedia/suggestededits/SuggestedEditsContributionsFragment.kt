@@ -28,6 +28,7 @@ import org.wikipedia.suggestededits.SuggestedEditsContributionsFragment.Contribu
 import org.wikipedia.suggestededits.SuggestedEditsContributionsFragment.Contribution.Companion.EDIT_TYPE_ARTICLE_DESCRIPTION
 import org.wikipedia.suggestededits.SuggestedEditsContributionsFragment.Contribution.Companion.EDIT_TYPE_IMAGE_CAPTION
 import org.wikipedia.suggestededits.SuggestedEditsContributionsFragment.Contribution.Companion.EDIT_TYPE_IMAGE_TAG
+import org.wikipedia.suggestededits.SuggestedEditsContributionsItemView.Callback
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
@@ -147,7 +148,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
                         if (!qLangMap.containsKey(userContribution.title)) {
                             qLangMap[userContribution.title] = HashSet()
                         }
-                        continuedArticlesContributions.add(Contribution(userContribution.title, "", "", EDIT_TYPE_ARTICLE_DESCRIPTION, "", DateUtil.iso8601DateParse(userContribution.timestamp), WikiSite.forLanguageCode(descLang), 0))
+                        continuedArticlesContributions.add(Contribution(userContribution.title, "", "", EDIT_TYPE_ARTICLE_DESCRIPTION, "", DateUtil.iso8601DateParse(userContribution.timestamp), WikiSite.forLanguageCode(descLang), 0, userContribution.sizediff, userContribution.revid))
 
                         qLangMap[userContribution.title]!!.add(descLang)
                     }
@@ -258,7 +259,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
                                 editType = EDIT_TYPE_IMAGE_TAG
                             }
                         }
-                        continuedImageContributions.add(Contribution("", userContribution.title, "", editType, "", DateUtil.iso8601DateParse(userContribution.timestamp), WikiSite.forLanguageCode(contributionLanguage), 0))
+                        continuedImageContributions.add(Contribution("", userContribution.title, "", editType, "", DateUtil.iso8601DateParse(userContribution.timestamp), WikiSite.forLanguageCode(contributionLanguage), 0, userContribution.sizediff, userContribution.revid))
                     }
                     for (contribution in continuedImageContributions) {
                         disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo(contribution.title, contribution.wikiSite.languageCode())
@@ -399,6 +400,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
 
     private class ContributionItemHolder internal constructor(itemView: SuggestedEditsContributionsItemView<Contribution>) : DefaultViewHolder<SuggestedEditsContributionsItemView<Contribution>?>(itemView) {
         fun bindItem(contribution: Contribution) {
+            view.setItem(contribution)
             view.setTitle(contribution.description)
             view.setDescription(contribution.title)
             view.setImageUrl(contribution.imageUrl)
@@ -480,7 +482,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
         super.onDestroy()
     }
 
-    class Contribution internal constructor(val qNumber: String, var title: String, var description: String, val editType: Int, var imageUrl: String, val date: Date, val wikiSite: WikiSite, var pageViews: Long) {
+    class Contribution internal constructor(val qNumber: String, var title: String, var description: String, val editType: Int, var imageUrl: String, val date: Date, val wikiSite: WikiSite, var pageViews: Long, var sizeDiff: Int, var revisionId: Long) {
         override fun hashCode(): Int {
             return title.hashCode()
         }
@@ -501,7 +503,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
     }
 
 
-    private class ItemCallback : SuggestedEditsContributionsItemView.Callback {
+    private class ItemCallback : Callback {
         override fun onClick(context: Context, contribution: Contribution) {
             context.startActivity(SuggestedEditsContributionDetailsActivity.newIntent(context, contribution))
         }

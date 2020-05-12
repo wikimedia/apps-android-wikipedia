@@ -47,7 +47,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/contributionText"
+                    android:id="@+id/contributionDiffText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-medium"
@@ -117,6 +117,7 @@
                 android:textStyle="normal" />
 
             <LinearLayout
+                android:id="@+id/contributionContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -148,6 +149,7 @@
             android:background="?attr/color_group_60" />
 
         <LinearLayout
+            android:id="@+id/pageviewContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
@@ -168,6 +170,7 @@
         </LinearLayout>
 
         <View
+            android:id="@+id/pageviewDivider"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="?attr/color_group_60" />
@@ -203,6 +206,7 @@
             android:layout_height="80dp" />
 
         <View
+            android:id="@+id/languageDetailsDivider"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="?attr/color_group_60" />
