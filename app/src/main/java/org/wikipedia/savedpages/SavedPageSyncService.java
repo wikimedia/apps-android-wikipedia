@@ -290,9 +290,8 @@ public class SavedPageSyncService extends JobIntentService {
     }
 
     private Observable<okhttp3.Response> reqMobileHTML(@NonNull PageTitle pageTitle) {
-        Request request = makeUrlRequest(pageTitle.getWikiSite(),
-                UriUtil.encodeOkHttpUrl(ServiceFactory.getRestBasePath(pageTitle.getWikiSite()) + RestService.PAGE_HTML_ENDPOINT,
-                        pageTitle.getPrefixedText()), pageTitle).build();
+        Request request = makeUrlRequest(pageTitle.getWikiSite(), ServiceFactory.getRestBasePath(pageTitle.getWikiSite())
+                + RestService.PAGE_HTML_ENDPOINT + pageTitle.getPrefixedText(), pageTitle).build();
 
         return Observable.create(emitter -> {
             try {

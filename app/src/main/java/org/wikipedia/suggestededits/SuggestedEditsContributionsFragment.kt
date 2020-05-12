@@ -398,7 +398,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
         }
     }
 
-    private class ContributionItemHolder internal constructor(itemView: SuggestedEditsContributionsItemView<Contribution>) : DefaultViewHolder<SuggestedEditsContributionsItemView<Contribution>?>(itemView) {
+    private class ContributionItemHolder internal constructor(itemView: SuggestedEditsContributionsItemView) : DefaultViewHolder<SuggestedEditsContributionsItemView?>(itemView) {
         fun bindItem(contribution: Contribution) {
             view.setItem(contribution)
             view.setTitle(contribution.description)
@@ -502,13 +502,11 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
         }
     }
 
-
     private class ItemCallback : Callback {
         override fun onClick(context: Context, contribution: Contribution) {
             context.startActivity(SuggestedEditsContributionDetailsActivity.newIntent(context, contribution))
         }
     }
-
 
     override fun onClick(view: SuggestedEditsTypeItem) {
         setFilterAndUIState(view)

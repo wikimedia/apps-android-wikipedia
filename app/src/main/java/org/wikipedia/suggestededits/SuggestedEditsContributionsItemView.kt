@@ -26,6 +26,13 @@ class SuggestedEditsContributionsItemView<T> @JvmOverloads constructor(
     private var callback: Callback? = null
     private var contribution: Contribution? = null
 
+    interface Callback {
+        fun onClick()
+    }
+
+    private var callback: Callback? = null
+
+
     fun setCallback(callback: Callback?) {
         this.callback = callback
     }
