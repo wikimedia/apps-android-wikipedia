@@ -6,6 +6,7 @@ import androidx.annotation.Nullable;
 import com.google.gson.annotations.SerializedName;
 
 import org.apache.commons.lang3.StringUtils;
+import org.wikipedia.dataclient.page.Protection;
 import org.wikipedia.gallery.ImageInfo;
 import org.wikipedia.model.BaseModel;
 import org.wikipedia.page.Namespace;
@@ -28,6 +29,7 @@ public class MwQueryPage extends BaseModel {
     @Nullable private List<Revision> revisions;
     @Nullable private List<Coordinates> coordinates;
     @Nullable private List<Category> categories;
+    @Nullable private List<Protection> protection;
     @Nullable private PageProps pageprops;
     @Nullable private String extract;
     @Nullable private Thumbnail thumbnail;
@@ -65,6 +67,10 @@ public class MwQueryPage extends BaseModel {
 
     @Nullable public List<Category> categories() {
         return categories;
+    }
+
+    @Nullable public List<Protection> protection() {
+        return protection;
     }
 
     @Nullable public List<Coordinates> coordinates() {
