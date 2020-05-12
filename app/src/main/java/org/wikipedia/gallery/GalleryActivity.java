@@ -72,6 +72,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnLongClick;
 import butterknife.Unbinder;
+import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
@@ -127,7 +128,6 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     private Disposable imageCaptionDisposable;
     private long revision;
     private WikiSite sourceWiki;
-    private String protectionLevel;
 
     private boolean controlsShowing = true;
     private GalleryPageChangeListener pageChangeListener = new GalleryPageChangeListener();
@@ -603,27 +603,29 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         }
         updateProgressBar(true);
         disposeImageCaptionDisposable();
-        imageCaptionDisposable = MediaHelper.INSTANCE.getImageCaptions(item.getImageTitle().getPrefixedText())
-                .subscribeOn(Schedulers.io())
-                .flatMap(captions -> {
+        imageCaptionDisposable = Observable.zip(MediaHelper.INSTANCE.getImageCaptions(item.getImageTitle().getPrefixedText()),
+                ServiceFactory.get(new WikiSite(Service.COMMONS_URL)).getProtectionInfo(item.getImageTitle().getPrefixedText()),
+                ServiceFactory.get(item.getImageTitle().getWikiSite()).getUserInfo(), (captions, protectionInfoRsp, userInfoRsp) -> {
+                    boolean allowEdit = true;
                     item.getMediaInfo().setCaptions(captions);
-                    return ServiceFactory.get(new WikiSite(Service.COMMONS_URL))
-                            .getProtectionInfo(item.getImageTitle().getPrefixedText())
-                            .subscribeOn(Schedulers.io());
-                })
-                .observeOn(AndroidSchedulers.mainThread())
-                .doAfterTerminate(this::updateGalleryDescription)
-                .subscribe(response -> {
-                    for (Protection protection : response.query().firstPage().protection()) {
+                    for (Protection protection : protectionInfoRsp.query().firstPage().protection()) {
                         if (protection.getType().equals("edit")) {
-                            protectionLevel = protection.getLevel();
+                            // TODO: should we consider about if the user is actually an administrator?
+                            if (protection.getLevel().equals("sysop") || (protection.getLevel().equals("autoconfirmed")
+                                    && !userInfoRsp.query().userInfo().passesSemiProtectionOnCommons())) {
+                                allowEdit = false;
+                            }
                             break;
                         }
                     }
-                }, L::e);
+                    return allowEdit;
+                })
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(this::updateGalleryDescription, L::e);
     }
 
-    public void updateGalleryDescription() {
+    public void updateGalleryDescription(boolean allowEdit) {
         updateProgressBar(false);
 
         GalleryItemFragment item = getCurrentItem();
@@ -634,7 +636,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
 
         // Display the Caption Edit button based on whether the image is hosted on Commons,
         // and not the local Wikipedia.
-        boolean captionEditable = AccountUtil.isLoggedIn() && item.getMediaInfo().getThumbUrl().contains(Service.URL_FRAGMENT_FROM_COMMONS);
+        boolean captionEditable = AccountUtil.isLoggedIn() && item.getMediaInfo().getThumbUrl().contains(Service.URL_FRAGMENT_FROM_COMMONS) && allowEdit;
         captionEditButton.setVisibility(captionEditable ? View.VISIBLE : View.GONE);
 
         boolean allowTranslate = false;
