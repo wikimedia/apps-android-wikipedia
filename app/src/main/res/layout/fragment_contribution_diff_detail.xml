@@ -62,7 +62,7 @@
                     android:ellipsize="end"
                     android:fontFamily="sans-serif"
                     android:lineSpacingExtra="8sp"
-                    android:maxLines="2"
+                    android:maxLines="3"
                     android:textColor="?attr/primary_text_color"
                     android:textSize="24sp"
                     android:textStyle="bold" />

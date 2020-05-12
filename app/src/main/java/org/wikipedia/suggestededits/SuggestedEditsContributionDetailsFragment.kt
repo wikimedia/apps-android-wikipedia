@@ -40,7 +40,7 @@ class SuggestedEditsContributionDetailsFragment : Fragment() {
 
     private fun setUpContributionDetails() {
         contributionContainer.setOnClickListener { startTypeSpecificActivity() }
-        contributionDiffText.text = getString(R.string.suggested_edits_contribution_label, contribution!!.sizeDiff)
+        contributionDiffText.text = getString(R.string.suggested_edits_contribution_label, contribution!!.description.length)
         contributionDetailText.text = contribution!!.description
         revisionText.text = contribution!!.revisionId.toString()
 
