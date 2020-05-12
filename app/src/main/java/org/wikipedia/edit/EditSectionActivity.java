@@ -661,20 +661,8 @@ public class EditSectionActivity extends BaseActivity {
         ViewAnimations.crossFade(progressBar, sectionContainer);
         scrollToHighlight(textToHighlight);
 
-        if (pageProps != null && !TextUtils.isEmpty(pageProps.getEditProtectionStatus())) {
-            String message;
-            switch (pageProps.getEditProtectionStatus()) {
-                case "sysop":
-                    message = getString(R.string.page_protected_sysop);
-                    break;
-                case "autoconfirmed":
-                    message = getString(R.string.page_protected_autoconfirmed);
-                    break;
-                default:
-                    message = getString(R.string.page_protected_other, pageProps.getEditProtectionStatus());
-                    break;
-            }
-            FeedbackUtil.showMessage(this, message);
+        if (pageProps != null) {
+            FeedbackUtil.showProtectionStatusMessage(this, pageProps.getEditProtectionStatus());
         }
     }
 
