@@ -20,6 +20,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
@@ -120,7 +121,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     @BindView(R.id.gallery_credit_text) TextView creditText;
     @BindView(R.id.gallery_item_pager) ViewPager2 galleryPager;
     @BindView(R.id.view_gallery_error) WikiErrorView errorView;
-    @BindView(R.id.gallery_caption_edit_button) View captionEditButton;
+    @BindView(R.id.gallery_caption_edit_button) ImageView captionEditButton;
     @BindView(R.id.gallery_caption_translate_container) View captionTranslateContainer;
     @BindView(R.id.gallery_caption_translate_button_text) TextView captionTranslateButtonText;
     @Nullable private Unbinder unbinder;
@@ -321,6 +322,16 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     @OnClick(R.id.gallery_caption_edit_button) void onEditClick(View v) {
         GalleryItemFragment item = getCurrentItem();
         if (item == null || item.getImageTitle() == null || item.getMediaInfo() == null || item.getMediaInfo().getMetadata() == null) {
+            return;
+        }
+
+        if (v.getTag() != null && (Boolean) v.getTag()) {
+            new AlertDialog.Builder(this)
+                    .setCancelable(false)
+                    .setTitle(R.string.page_protected_can_not_edit_title)
+                    .setMessage(R.string.page_protected_can_not_edit)
+                    .setPositiveButton(R.string.protected_page_warning_dialog_ok_button_text, null)
+                    .show();
             return;
         }
 
@@ -605,25 +616,25 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         disposeImageCaptionDisposable();
         imageCaptionDisposable = Observable.zip(MediaHelper.INSTANCE.getImageCaptions(item.getImageTitle().getPrefixedText()),
                 ServiceFactory.get(new WikiSite(Service.COMMONS_URL)).getProtectionInfo(item.getImageTitle().getPrefixedText()), (captions, protectionInfoRsp) -> {
-                    boolean allowEdit = true;
+                    boolean protectedFile = false;
                     item.getMediaInfo().setCaptions(captions);
                     for (Protection protection : protectionInfoRsp.query().firstPage().protection()) {
                         if (protection.getType().equals("edit")) {
                             if ((protection.getLevel().equals("sysop") && !protectionInfoRsp.query().userInfo().getGroups().contains("sysop"))
                                     || (protection.getLevel().equals("autoconfirmed") && protectionInfoRsp.query().userInfo().semiProtectedOnCommons())) {
-                                allowEdit = false;
+                                protectedFile = true;
                             }
                             break;
                         }
                     }
-                    return allowEdit;
+                    return protectedFile;
                 })
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(this::updateGalleryDescription, L::e);
     }
 
-    public void updateGalleryDescription(boolean allowEdit) {
+    public void updateGalleryDescription(boolean protectedFile) {
         updateProgressBar(false);
 
         GalleryItemFragment item = getCurrentItem();
@@ -634,8 +645,14 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
 
         // Display the Caption Edit button based on whether the image is hosted on Commons,
         // and not the local Wikipedia.
-        boolean captionEditable = AccountUtil.isLoggedIn() && item.getMediaInfo().getThumbUrl().contains(Service.URL_FRAGMENT_FROM_COMMONS) && allowEdit;
+        boolean captionEditable = AccountUtil.isLoggedIn() && item.getMediaInfo().getThumbUrl().contains(Service.URL_FRAGMENT_FROM_COMMONS);
         captionEditButton.setVisibility(captionEditable ? View.VISIBLE : View.GONE);
+        captionEditButton.setImageResource(R.drawable.ic_mode_edit_white_24dp);
+        captionEditButton.setTag(protectedFile);
+        if (protectedFile) {
+            captionEditButton.setImageResource(R.drawable.ic_edit_pencil_locked);
+            captionEditable = false;
+        }
 
         boolean allowTranslate = false;
         boolean showTextWithTargetLang = false;

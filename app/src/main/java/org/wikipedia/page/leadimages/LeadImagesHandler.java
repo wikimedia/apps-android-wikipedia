@@ -134,17 +134,17 @@ public class LeadImagesHandler {
         disposables.add(Observable.zip(MediaHelper.INSTANCE.getImageCaptions(imageTitle),
                 ServiceFactory.get(getTitle().getWikiSite()).getImageInfo(imageTitle, WikipediaApp.getInstance().getAppOrSystemLanguageCode()),
                 ServiceFactory.get(new WikiSite(Service.COMMONS_URL)).getProtectionInfo(imageTitle), (captions, imageInfoRsp, protectionInfoRsp) -> {
-                    boolean allowEdit = true;
+                    boolean protectedFile = false;
                     for (Protection protection : protectionInfoRsp.query().firstPage().protection()) {
                         if (protection.getType().equals("edit")) {
                             if ((protection.getLevel().equals("sysop") && !protectionInfoRsp.query().userInfo().getGroups().contains("sysop"))
                                     || (protection.getLevel().equals("autoconfirmed") && protectionInfoRsp.query().userInfo().semiProtectedOnCommons())) {
-                                allowEdit = false;
+                                protectedFile = true;
                             }
                             break;
                         }
                     }
-                    return allowEdit ? new Pair<>(captions, imageInfoRsp) : null;
+                    return protectedFile ? null : new Pair<>(captions, imageInfoRsp);
                 })
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
