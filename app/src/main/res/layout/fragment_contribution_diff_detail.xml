@@ -138,8 +138,7 @@
                     android:id="@+id/contributionImage"
                     android:layout_width="52dp"
                     android:layout_height="52dp"
-                    android:contentDescription="@null"
-                    android:tint="?attr/material_theme_de_emphasised_color" />
+                    android:contentDescription="@null"/>
             </LinearLayout>
         </LinearLayout>
 
