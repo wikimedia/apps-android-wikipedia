@@ -43,8 +43,12 @@ public class InstallReferrerListener implements InstallReferrerStateListener {
     }
 
     private void queryReferrer(@NonNull Context context) {
-        referrerClient = InstallReferrerClient.newBuilder(context).build();
-        referrerClient.startConnection(this);
+        try {
+            referrerClient = InstallReferrerClient.newBuilder(context).build();
+            referrerClient.startConnection(this);
+        } catch (SecurityException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
