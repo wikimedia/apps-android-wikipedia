@@ -371,6 +371,7 @@
     <!-- Reading lists -->
     <string name="nav_item_reading_lists">My lists</string>
     <string name="reading_list_save_to">Save to reading list</string>
+    <string name="reading_list_move_to">Move to reading list</string>
     <string name="reading_list_create_new">Create new</string>
     <string name="reading_list_title_exists">Reading list \"%s\" already exists.</string>
     <string name="reading_list_article_added_to_named">Added %1$s to %2$s.</string>

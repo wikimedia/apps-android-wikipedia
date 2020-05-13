@@ -466,6 +466,19 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         }
     }
 
+    private void moveSelectedPagesToList() {
+        List<ReadingListPage> selectedPages = getSelectedPages();
+        if (!selectedPages.isEmpty()) {
+            List<PageTitle> titles = new ArrayList<>();
+            for (ReadingListPage page : selectedPages) {
+                titles.add(ReadingListPage.toPageTitle(page));
+            }
+            bottomSheetPresenter.show(getChildFragmentManager(),
+                    MoveToReadingListDialog.newInstance(titles, READING_LIST_ACTIVITY));
+            update();
+        }
+    }
+
     private void delete() {
         ReadingListBehaviorsUtil.INSTANCE.deleteReadingList(requireActivity(), readingList, true, () -> {
             startActivity(MainActivity.newIntent(requireActivity())
@@ -512,7 +525,9 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         if (page == null) {
             return;
         }
-        // TODO: add logic
+        bottomSheetPresenter.show(getChildFragmentManager(),
+                MoveToReadingListDialog.newInstance(ReadingListPage.toPageTitle(page),
+                        READING_LIST_ACTIVITY));
     }
 
     @Override
@@ -929,6 +944,10 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
                     return true;
                 case R.id.menu_add_to_another_list:
                     addSelectedPagesToList();
+                    finishActionMode();
+                    return true;
+                case R.id.menu_move_to_another_list:
+                    moveSelectedPagesToList();
                     finishActionMode();
                     return true;
                 default:

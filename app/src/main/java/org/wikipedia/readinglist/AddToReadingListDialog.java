@@ -50,7 +50,7 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
     private CompositeDisposable disposables = new CompositeDisposable();
 
     private List<ReadingList> readingLists = new ArrayList<>();
-    private static final String PAGETITLES_LIST = "titles";
+    static final String PAGETITLES_LIST = "titles";
 
     @Nullable private DialogInterface.OnDismissListener dismissListener;
     private ReadingListItemCallback listItemCallback = new ReadingListItemCallback();

@@ -223,7 +223,8 @@ public class ReadingListsFragment extends Fragment implements
         if (page == null) {
             return;
         }
-        // TODO: add logic
+        bottomSheetPresenter.show(getChildFragmentManager(),
+                MoveToReadingListDialog.newInstance(ReadingListPage.toPageTitle(page), READING_LIST_ACTIVITY));
     }
 
     @Override
