@@ -218,6 +218,15 @@ public class ReadingListsFragment extends Fragment implements
     }
 
     @Override
+    public void onMoveItemToOther(long pageId) {
+        ReadingListPage page = getPageById(pageId);
+        if (page == null) {
+            return;
+        }
+        // TODO: add logic
+    }
+
+    @Override
     public void onSelectItem(long pageId) {
         // ignore
     }

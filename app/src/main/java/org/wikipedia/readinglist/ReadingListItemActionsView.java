@@ -23,6 +23,7 @@ public class ReadingListItemActionsView extends LinearLayout {
         void onToggleOffline();
         void onShare();
         void onAddToOther();
+        void onMoveToOther();
         void onSelect();
         void onDelete();
     }
@@ -75,6 +76,12 @@ public class ReadingListItemActionsView extends LinearLayout {
     @OnClick(R.id.reading_list_item_add_to_other) void onAddToOtherClick(View view) {
         if (callback != null) {
             callback.onAddToOther();
+        }
+    }
+
+    @OnClick(R.id.reading_list_item_move_to_other) void onMoveToOtherClick(View view) {
+        if (callback != null) {
+            callback.onMoveToOther();
         }
     }
 
