@@ -297,7 +297,7 @@ public class GalleryItemFragment extends Fragment {
         L.v("Loading image from url: " + url);
 
         updateProgressBar(true);
-        ViewUtil.loadImage(imageView, url);
+        ViewUtil.loadImageWithWhiteBackground(imageView, url);
         // TODO: show error if loading failed.
     }
 

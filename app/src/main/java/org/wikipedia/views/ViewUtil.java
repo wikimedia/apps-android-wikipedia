@@ -23,6 +23,7 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import org.wikipedia.R;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.ResourceUtil;
+import org.wikipedia.util.WhiteBackgroundTransformation;
 
 import java.util.Locale;
 
@@ -49,6 +50,16 @@ public final class ViewUtil {
             builder = builder.transform(CENTER_CROP_ROUNDED_CORNERS);
         }
         builder.into(view);
+    }
+
+    public static void loadImageWithWhiteBackground(@NonNull ImageView view, @Nullable String url) {
+        Drawable placeholder = getPlaceholderDrawable(view.getContext());
+        Glide.with(view)
+                .load(!TextUtils.isEmpty(url) ? Uri.parse(url) : null)
+                .placeholder(placeholder)
+                .error(placeholder)
+                .transform(new WhiteBackgroundTransformation())
+                .into(view);
     }
 
     static Drawable getPlaceholderDrawable(@NonNull Context context) {
