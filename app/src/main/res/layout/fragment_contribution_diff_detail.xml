@@ -143,73 +143,20 @@
             </LinearLayout>
         </LinearLayout>
 
-        <View
+        <org.wikipedia.suggestededits.SuggestedEditsDiffDetailView
+            android:id="@+id/pageViewsDetailView"
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="?attr/color_group_60" />
+            android:layout_height="80dp" />
 
-        <LinearLayout
-            android:id="@+id/pageviewContainer"
+        <org.wikipedia.suggestededits.SuggestedEditsDiffDetailView
+            android:id="@+id/typeDetailView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
-
-            <org.wikipedia.suggestededits.SuggestedEditsDiffDetailView
-                android:id="@+id/pageViewsDetailView"
-                android:layout_width="0dp"
-                android:layout_height="80dp"
-                android:layout_weight="1" />
-
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:contentDescription="@null"
-                android:tint="?attr/chart_shade4"
-                app:srcCompat="@drawable/ic_trending_up_black_24dp" />
-        </LinearLayout>
-
-        <View
-            android:id="@+id/pageviewDivider"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="?attr/color_group_60" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
-
-            <org.wikipedia.suggestededits.SuggestedEditsDiffDetailView
-                android:id="@+id/typeDetailView"
-                android:layout_width="0dp"
-                android:layout_height="80dp"
-                android:layout_weight="1" />
-
-            <ImageView
-                android:id="@+id/contributionIcon"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:contentDescription="@null"
-                android:tint="?attr/chart_shade4" />
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="?attr/color_group_60" />
+            android:layout_height="80dp" />
 
         <org.wikipedia.suggestededits.SuggestedEditsDiffDetailView
             android:id="@+id/dateTimeDetailView"
             android:layout_width="match_parent"
             android:layout_height="80dp" />
-
-        <View
-            android:id="@+id/languageDetailsDivider"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="?attr/color_group_60" />
 
         <org.wikipedia.suggestededits.SuggestedEditsDiffDetailView
             android:id="@+id/languageDetailView"
