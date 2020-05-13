@@ -164,7 +164,7 @@ public class FaceAndColorDetectImageView extends AppCompatImageView {
         return bitmap.getConfig() != null ? bitmap.getConfig() : Bitmap.Config.ARGB_8888;
     }
 
-    private static void applyMatrixWithBackground(@NonNull Bitmap inBitmap, @NonNull Bitmap targetBitmap, Matrix matrix) {
+    public static void applyMatrixWithBackground(@NonNull Bitmap inBitmap, @NonNull Bitmap targetBitmap, @NonNull Matrix matrix) {
         TransformationUtils.getBitmapDrawableLock().lock();
         try {
             Canvas canvas = new Canvas(targetBitmap);
