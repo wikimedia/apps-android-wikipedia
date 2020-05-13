@@ -34,4 +34,22 @@ public class UriUtilTest {
     public void testRemoveFragmentWithHash() {
         assertThat(UriUtil.removeFragment(TITLE + "##"), is(TITLE));
     }
+
+    @Test
+    public void testEncodeURIComponent() {
+        assertThat(UriUtil.encodeURL("Unencoded"), is("Unencoded"));
+        assertThat(UriUtil.encodeURL("C++"), is("C%2B%2B"));
+        assertThat(UriUtil.encodeURL("100%"), is("100%25"));
+        assertThat(UriUtil.encodeURL("Википедия"), is("%D0%92%D0%B8%D0%BA%D0%B8%D0%BF%D0%B5%D0%B4%D0%B8%D1%8F"));
+        assertThat(UriUtil.encodeURL("Sentence with spaces"), is("Sentence%20with%20spaces"));
+    }
+
+    @Test
+    public void testDecodeURIComponent() {
+        assertThat(UriUtil.decodeURL("Unencoded"), is("Unencoded"));
+        assertThat(UriUtil.decodeURL("C++"), is("C++"));
+        assertThat(UriUtil.decodeURL("C%2B%2B"), is("C++"));
+        assertThat(UriUtil.decodeURL("%D0%92%D0%B8%D0%BA%D0%B8%D0%BF%D0%B5%D0%B4%D0%B8%D1%8F"), is("Википедия"));
+        assertThat(UriUtil.decodeURL("Sentence%20with%20spaces"), is("Sentence with spaces"));
+    }
 }

@@ -20,6 +20,9 @@ internal class ImageTitleDescriptionView constructor(context: Context, attrs: At
     init {
         View.inflate(context, R.layout.view_image_title_description, this)
         layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        isClickable = true
+        isFocusable = true
+        setBackgroundResource(ResourceUtil.getThemedAttributeId(context, R.attr.selectableItemBackgroundBorderless))
     }
 
     fun setTitle(titleText: String) {

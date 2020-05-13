@@ -735,7 +735,7 @@
     <string name="suggested_edits_image_tags_onboarding_text">By adding image tags, you will help make images easier to search for on Commons, the free license image repository that Wikipedia uses for images in its articles.</string>
     <string name="suggested_edits_image_tags_onboarding_note">Only tags that you choose will be added to images.</string>
     <string name="suggested_edits_image_tags_snackbar">Add image tags to make them easier for others to find.</string>
-    <string name="suggested_edits_image_tags_task_detail">Tag images to make them easier to find.</string>
+    <string name="suggested_edits_image_tags_task_detail">Add custom tags to an image to make it easier to find.</string>
     <string name="suggested_edits_image_tags_choose">Add or choose matching tags</string>
     <string name="suggested_edits_image_tags_published_list">Published tags</string>
     <string name="suggested_edits_image_tags_search">Search tags</string>
@@ -745,8 +745,8 @@
     <string name="suggested_edits_image_zoom_tooltip">Pinch to zoom this image.</string>
     <string name="suggested_edits_encouragement_message">%s\, thanks for your edits. Below you can find more ways to contribute to Wikipedia.</string>
     <string name="suggested_edits_onboarding_message"><![CDATA[<b>Hi %s\</b>, did you know that everyone can edit Wikipedia? Below you can find fun ways to help improve Wikipedia. Happy editing!]]></string>
-    <string name="suggested_edits_image_captions_task_detail">Image captions describe an image to help readers understand its meaning and context.</string>
-    <string name="suggested_edits_add_descriptions_task_detail">Article descriptions summarize an article to help readers understand the subject at a glance.</string>
+    <string name="suggested_edits_image_captions_task_detail">Describe an image to help readers understand its meaning and context.</string>
+    <string name="suggested_edits_add_descriptions_task_detail">Summarize an article to help readers understand the subject at a glance.</string>
     <string name="suggested_edits_contributions_stat_tooltip">Your total number of contributions with Suggested edits.</string>
     <string name="suggested_edits_edit_streak_stat_tooltip">How many days without break you\'ve contributed via Suggested edits. If you haven\'t contributed in a while, it shows your last contribution date.</string>
     <string name="suggested_edits_page_views_stat_tooltip">Total pageviews of items you contributed to in the last 30 days with Suggested edits.</string>
