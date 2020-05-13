@@ -14,6 +14,9 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_contributions_suggested_edits.*
+import kotlinx.android.synthetic.main.fragment_contributions_suggested_edits.errorView
+import kotlinx.android.synthetic.main.fragment_contributions_suggested_edits.swipeRefreshLayout
+import kotlinx.android.synthetic.main.fragment_suggested_edits_tasks.*
 import org.apache.commons.lang3.StringUtils
 import org.apache.commons.lang3.time.DateUtils
 import org.wikipedia.R
@@ -65,10 +68,15 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        loadingMore = true
         loadMoreProgressView.visibility = VISIBLE
         contributionsRecyclerView.setLayoutManager(LinearLayoutManager(context))
         contributionsRecyclerView.setAdapter(adapter)
+        swipeRefreshLayout.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent))
+        swipeRefreshLayout.setOnRefreshListener {
+            if (!loadingMore) {
+                loadContentOfEditFilterType()
+            }
+        }
         val scrollListener = object : RecyclerView.OnScrollListener() {
             override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
                 super.onScrollStateChanged(recyclerView, newState)
@@ -109,6 +117,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
     }
 
     private fun loadContentOfEditFilterType() {
+        loadingMore = true
         if (editFilterType == ALL_EDIT_TYPES || editFilterType == EDIT_TYPE_ARTICLE_DESCRIPTION) {
             getArticleContributions()
         } else {
@@ -166,6 +175,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
                     getArticleContributionDetails()
                 }, { t ->
                     L.e(t)
+                    showError(t)
                 }))
     }
 
@@ -189,7 +199,9 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
                         contributionObject.description = StringUtils.defaultString(summary.description)
                         contributionObject.imageUrl = summary.thumbnailUrl.toString()
                         contributionObject.pageViews = pageViewsMap[contributionObject.title] ?: 0
-                    }) { t: Throwable? -> L.e(t) })
+                    }) { t: Throwable? ->
+                        L.e(t)
+                    })
         }
     }
 
@@ -213,7 +225,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
                                     contributionLanguage = descArr[1]
                                 }
                                 editType = EDIT_TYPE_IMAGE_CAPTION
-                            } else if (str.contains("wbsetclaim") && userContribution.comment.contains("suggestededit")) {
+                            } else if (str.contains("wbsetclaim")) {
                                 editType = EDIT_TYPE_IMAGE_TAG
                             }
                         }
@@ -258,7 +270,10 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
                                     L.e(caught)
                                 }))
                     }
-                }) { t: Throwable? -> L.e(t) })
+                }) { t: Throwable? ->
+                    L.e(t)
+                    showError(t!!)
+                })
     }
 
     private fun createConsolidatedList() {
@@ -283,7 +298,9 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
             adapter.setList(consolidatedContributionsWithDates)
         }
         loadingMore = false
+        swipeRefreshLayout.isRefreshing = false
         loadMoreProgressView.visibility = GONE
+        contentContainer.visibility = VISIBLE
         updateFilterViewUI()
     }
 
@@ -295,6 +312,13 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
             DateUtils.isSameDay(yesterday.time, date) -> getString(R.string.suggested_edits_date_string_yesterday)
             else -> DateUtil.getFeedCardDateString(date)
         }
+    }
+
+    private fun showError(t: Throwable) {
+        swipeRefreshLayout.isRefreshing = false
+        contentContainer.visibility = GONE
+        errorView.setError(t)
+        errorView.visibility = VISIBLE
     }
 
     private fun updateFilterViewUI() {
