@@ -11,7 +11,6 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
@@ -156,8 +155,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
                     ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getWikidataLabelsAndDescriptions(qLangMap.keys.joinToString("|"))
                             .subscribeOn(Schedulers.io())
                             .observeOn(AndroidSchedulers.mainThread())
-                }.flatMap {
-                    val langArticleMap = HashMap<String, java.util.ArrayList<String>>()
+                }.subscribe({
                     for (entityKey in it.entities().keys) {
                         val entity = it.entities()[entityKey]!!
                         for (contribution in continuedArticlesContributions) {
@@ -166,46 +164,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
                                 contribution.description = entity.descriptions()[contribution.wikiSite.languageCode()]!!.value()
                             }
                         }
-                        for (qKey in qLangMap.keys) {
-                            if (qKey == entityKey) {
-                                for (lang in qLangMap[qKey]!!) {
-                                    val dbName = WikiSite.forLanguageCode(lang).dbName()
-                                    if (entity.sitelinks().containsKey(dbName)) {
-                                        if (!langArticleMap.containsKey(lang)) {
-                                            langArticleMap[lang] = java.util.ArrayList()
-                                        }
-                                        langArticleMap[lang]!!.add(entity.sitelinks()[dbName]!!.title)
-                                    }
-                                }
-                                break
-                            }
-                        }
-
                     }
-                    val observableList = java.util.ArrayList<Observable<MwQueryResponse>>()
-
-                    for (lang in langArticleMap.keys) {
-                        val site = WikiSite.forLanguageCode(lang)
-                        observableList.add(ServiceFactory.get(site).getPageViewsForTitles(langArticleMap[lang]!!.joinToString("|"))
-                                .subscribeOn(Schedulers.io())
-                                .observeOn(AndroidSchedulers.mainThread()))
-                    }
-                    Observable.zip(observableList) { resultList ->
-
-                        for (result in resultList) {
-                            if (result is MwQueryResponse && result.query() != null) {
-                                for (page in result.query()!!.pages()!!) {
-                                    var totalPageViews = 0L
-                                    for (day in page.pageViewsMap.values) {
-                                        totalPageViews += day ?: 0
-                                    }
-                                    pageViewsMap[page.title()] = totalPageViews
-                                }
-                            }
-                        }
-                        pageViewsMap
-                    }
-                }.subscribe({ map ->
                     getArticleContributionDetails()
                 }, { t ->
                     L.e(t)
@@ -414,6 +373,27 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
             view.setImageUrl(contribution.imageUrl)
             view.setIcon(contribution.editType)
             view.setPageViewCountText(contribution.pageViews)
+            getPageView(view, contribution)
+        }
+
+        private fun getPageView(view: SuggestedEditsContributionsItemView, contribution: Contribution) {
+            val disposables = CompositeDisposable()
+
+            disposables.add(ServiceFactory.get(contribution.wikiSite).getPageViewsForTitles(contribution.title)
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe({ response ->
+                        if (response is MwQueryResponse) {
+                            var pageviews = 0L
+                            for (page in response.query()!!.pages()!!) {
+                                for (day in page.pageViewsMap.values) {
+                                    pageviews += day ?: 0
+                                }
+                            }
+                            contribution.pageViews = pageviews
+                            view.setPageViewCountText(contribution.pageViews)
+                        }
+                    }) { t: Throwable? -> L.e(t) })
         }
     }
 
