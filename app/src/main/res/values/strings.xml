@@ -794,6 +794,10 @@
     <string name="suggested_edits_contribution_label">You added %d characters</string>
     <string name="suggested_edits_contribution_seen_text">Seen %s times in the past 30 days.</string>
     <string name="suggested_edits_date_string_yesterday">Yesterday</string>
+    <plurals name="suggested_edits_image_tag_contribution_label">
+        <item quantity="one">You added %d tag</item>
+        <item quantity="other">You added %d tags</item>
+    </plurals>
     <!-- /Suggested edits -->
 
     <!-- Description editing revert help -->

@@ -40,7 +40,6 @@ class SuggestedEditsContributionDetailsFragment : Fragment() {
 
     private fun setUpContributionDetails() {
         contributionContainer.setOnClickListener { startTypeSpecificActivity() }
-        contributionDiffText.text = getString(R.string.suggested_edits_contribution_label, contribution!!.description.length)
         contributionDetailText.text = contribution!!.description
         revisionText.text = contribution!!.revisionId.toString()
 
@@ -74,6 +73,7 @@ class SuggestedEditsContributionDetailsFragment : Fragment() {
                 typeDetailView.setDetail(getString(R.string.description_edit_text_hint))
                 languageDetailView.setLabel(getString(R.string.suggested_edits_language_label))
                 languageDetailView.setDetail(WikipediaApp.getInstance().language().getAppLanguageCanonicalName(contribution!!.wikiSite.languageCode()))
+                contributionDiffText.text = getString(R.string.suggested_edits_contribution_label, contribution!!.description.length)
             }
             EDIT_TYPE_IMAGE_CAPTION -> {
                 contributionCategory.text = getString(R.string.suggested_edits_image_label)
@@ -83,6 +83,7 @@ class SuggestedEditsContributionDetailsFragment : Fragment() {
                 typeDetailView.setDetail(getString(R.string.description_edit_add_caption_hint))
                 languageDetailView.setLabel(getString(R.string.suggested_edits_language_label))
                 languageDetailView.setDetail(WikipediaApp.getInstance().language().getAppLanguageCanonicalName(contribution!!.wikiSite.languageCode()))
+                contributionDiffText.text = getString(R.string.suggested_edits_contribution_label, contribution!!.description.length)
             }
             else -> {
                 contributionCategory.text = getString(R.string.suggested_edits_image_label)
@@ -92,6 +93,7 @@ class SuggestedEditsContributionDetailsFragment : Fragment() {
                 typeDetailView.setDetail(getString(R.string.suggested_edits_type_image_tag))
                 languageDetailView.visibility = GONE
                 languageDetailsDivider.visibility = GONE
+                contributionDiffText.text = resources.getQuantityString(R.plurals.suggested_edits_image_tag_contribution_label, contribution!!.tagCount, contribution!!.tagCount)
             }
         }
     }

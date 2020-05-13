@@ -871,4 +871,8 @@
   <string name="suggested_edits_article_label">Text label that indicates that the contribution is to an article.</string>
   <string name="suggested_edits_contribution_seen_text">Contribution detail text about the pageviews. %s represented the times the contribution has been viewed in the past 30 days.</string>
   <string name="suggested_edits_date_string_yesterday">Text for contributions date to indicate it was contributed yesterday</string>
+  <plurals name="suggested_edits_image_tag_contribution_label">
+    <item quantity="one">Text summarizing the user\'s image tag contribution. %d represents the number of tags contributed.</item>
+    <item quantity="other">Text summarizing the user\'s image tag contribution. %d represents the number of tags contributed.</item>
+  </plurals>
 </resources>

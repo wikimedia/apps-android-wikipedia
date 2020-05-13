@@ -148,7 +148,8 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
                         if (!qLangMap.containsKey(userContribution.title)) {
                             qLangMap[userContribution.title] = HashSet()
                         }
-                        continuedArticlesContributions.add(Contribution(userContribution.title, "", "", EDIT_TYPE_ARTICLE_DESCRIPTION, "", DateUtil.iso8601DateParse(userContribution.timestamp), WikiSite.forLanguageCode(descLang), 0, userContribution.sizediff, userContribution.revid))
+                        continuedArticlesContributions.add(Contribution(userContribution.title, "", "", EDIT_TYPE_ARTICLE_DESCRIPTION,
+                                "", DateUtil.iso8601DateParse(userContribution.timestamp), WikiSite.forLanguageCode(descLang), 0, 0, userContribution.revid))
 
                         qLangMap[userContribution.title]!!.add(descLang)
                     }
@@ -259,7 +260,11 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
                                 editType = EDIT_TYPE_IMAGE_TAG
                             }
                         }
-                        continuedImageContributions.add(Contribution("", userContribution.title, "", editType, "", DateUtil.iso8601DateParse(userContribution.timestamp), WikiSite.forLanguageCode(contributionLanguage), 0, userContribution.sizediff, userContribution.revid))
+                        val con = Contribution("", userContribution.title, "", editType, "", DateUtil.iso8601DateParse(userContribution.timestamp),
+                                WikiSite.forLanguageCode(contributionLanguage), 0, if (editType == EDIT_TYPE_IMAGE_TAG) 1 else 0, userContribution.revid)
+                        if (!continuedImageContributions.add(con)) {
+                            continuedImageContributions.elementAt(continuedImageContributions.indexOf(con)).tagCount++
+                        }
                     }
                     for (contribution in continuedImageContributions) {
                         disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo(contribution.title, contribution.wikiSite.languageCode())
@@ -267,7 +272,11 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
                                 .observeOn(AndroidSchedulers.mainThread())
                                 .doAfterTerminate {
                                     if (++imageCount == continuedImageContributions.size) {
-                                        imageContributions.addAll(continuedImageContributions)
+                                        for (continuedImageContribution in continuedImageContributions) {
+                                            if (!imageContributions.add(continuedImageContribution)) {
+                                                continuedImageContributions.elementAt(continuedImageContributions.indexOf(continuedImageContribution)).tagCount++
+                                            }
+                                        }
                                         createConsolidatedList()
                                     }
                                 }
@@ -293,7 +302,6 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
                                 }))
                     }
                 }) { t: Throwable? -> L.e(t) })
-
     }
 
     private fun createConsolidatedList() {
@@ -482,7 +490,8 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
         super.onDestroy()
     }
 
-    class Contribution internal constructor(val qNumber: String, var title: String, var description: String, val editType: Int, var imageUrl: String, val date: Date, val wikiSite: WikiSite, var pageViews: Long, var sizeDiff: Int, var revisionId: Long) {
+    class Contribution internal constructor(val qNumber: String, var title: String, var description: String, val editType: Int, var imageUrl: String,
+                                            val date: Date, val wikiSite: WikiSite, var pageViews: Long, var tagCount: Int, var revisionId: Long) {
         override fun hashCode(): Int {
             return title.hashCode()
         }
