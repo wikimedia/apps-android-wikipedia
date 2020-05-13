@@ -20,7 +20,6 @@ import org.wikipedia.dataclient.RestService;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.json.GsonUtil;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
 
 import java.util.ArrayList;
@@ -89,9 +88,8 @@ public class CommunicationBridge {
         isMetadataReady = false;
         pendingJSMessages.clear();
         pendingEvals.clear();
-        communicationBridgeListener.getWebView().loadUrl(UriUtil
-                .encodeOkHttpUrl(ServiceFactory.getRestBasePath(pageTitle.getWikiSite()) + RestService.PAGE_HTML_ENDPOINT,
-                        pageTitle.getPrefixedText()));
+        communicationBridgeListener.getWebView().loadUrl(ServiceFactory.getRestBasePath(pageTitle.getWikiSite())
+                + RestService.PAGE_HTML_ENDPOINT + pageTitle.getPrefixedText());
     }
 
     public void cleanup() {

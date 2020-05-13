@@ -39,7 +39,7 @@ android {
         applicationId 'org.wikipedia'
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 50316
+        versionCode 50317
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner "org.wikipedia.WikipediaTestRunner"
         vectorDrawables.useSupportLibrary = true
@@ -129,10 +129,6 @@ android {
 
     packagingOptions {
         exclude 'META-INF/services/javax.annotation.processing.Processor' // required by Butter Knife
-
-        // For Espresso testing libraries. See http://stackoverflow.com/q/33800924/970346.
-        exclude 'META-INF/maven/com.google.guava/guava/pom.xml'
-        exclude 'META-INF/maven/com.google.guava/guava/pom.properties'
     }
 
     testOptions {
@@ -162,7 +158,6 @@ dependencies {
     String retrofitVersion = '2.6.0'
     String glideVersion = '4.11.0'
     String butterknifeVersion = '10.2.0'
-    String espressoVersion = '3.1.1'
     String mockitoCore = 'org.mockito:mockito-core:1.9.5'
     String leakCanaryVersion = '2.2'
     String kotlinCoroutinesVersion = '1.2.1'
@@ -226,9 +221,6 @@ dependencies {
 
     androidTestImplementation "androidx.test:rules:1.2.0" // JUnit Rules
     androidTestImplementation "androidx.test:runner:1.2.0" // Android JUnit Runner
-    androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVersion"
-    androidTestImplementation "androidx.test.espresso:espresso-contrib:$espressoVersion"
-
 }
 
 private setSigningConfigKey(config, Properties props) {
