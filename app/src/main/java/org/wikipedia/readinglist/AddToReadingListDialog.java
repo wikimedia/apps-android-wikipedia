@@ -211,12 +211,11 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
             dismiss();
             return;
         }
-        
+
         execute(readingList, title);
     }
 
     private void addAndDismiss(final ReadingList readingList, final List<PageTitle> titles) {
-
         if ((readingList.pages().size() + titles.size()) > SiteInfoClient.getMaxPagesPerReadingList()) {
             String message = getString(R.string.reading_list_article_limit_message, readingList.title(), SiteInfoClient.getMaxPagesPerReadingList());
             FeedbackUtil.makeSnackbar(getActivity(), message, FeedbackUtil.LENGTH_DEFAULT).show();
