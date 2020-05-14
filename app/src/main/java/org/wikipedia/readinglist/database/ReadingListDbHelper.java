@@ -285,10 +285,16 @@ public class ReadingListDbHelper {
     }
 
     private void movePageToList(SQLiteDatabase db, @NonNull ReadingList list, @NonNull PageTitle title) {
-        ReadingListPage protoPage = new ReadingListPage(title);
-        protoPage.listId(list.id());
-        updatePageInDb(db, protoPage);
-        WikipediaApp.getInstance().getBus().post(new ArticleSavedOrDeletedEvent(true, protoPage));
+        ReadingListPage readingListPage = getPageByTitle(db, list, title);
+        L.d("movePageToList readingListPage " + readingListPage);
+        if (readingListPage != null) {
+            L.d("movePageToList readingListPage id => " + readingListPage.id());
+            L.d("movePageToList readingListPage listId => " + readingListPage.listId());
+            readingListPage.listId(list.id());
+            L.d("movePageToList readingListPage listId => " + readingListPage.listId());
+            updatePageInDb(db, readingListPage);
+            WikipediaApp.getInstance().getBus().post(new ArticleSavedOrDeletedEvent(true, readingListPage));
+        }
     }
 
     public void markPagesForDeletion(@NonNull ReadingList list, @NonNull List<ReadingListPage> pages) {
