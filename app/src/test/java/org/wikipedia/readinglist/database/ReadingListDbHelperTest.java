@@ -135,14 +135,14 @@ public class ReadingListDbHelperTest {
         pages.add(page);
         pages.add(page2);
         pages.add(page3);
-        int numAdded = readingListDbHelper.addPagesToListIfNotExist(list, pages);
+        ArrayList<String> addedTitles = readingListDbHelper.addPagesToListIfNotExist(list, pages);
         readingListDbHelper.deleteList(list);
         List<ReadingListPage> readingListPages = new ArrayList<>();
         for (PageTitle page1 : pages) {
             readingListPages.add(new ReadingListPage(page1));
         }
         readingListDbHelper.markPagesForDeletion(list, readingListPages);
-        Assert.assertTrue(numAdded == 2);
+        Assert.assertTrue(addedTitles.size() == 2);
     }
 
     @Test
