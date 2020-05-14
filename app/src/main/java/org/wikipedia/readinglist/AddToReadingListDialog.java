@@ -45,11 +45,11 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
     private View listsContainer;
     private View onboardingContainer;
     private View onboardingButton;
-    private InvokeSource invokeSource;
     private CreateButtonClickListener createClickListener = new CreateButtonClickListener();
-    private CompositeDisposable disposables = new CompositeDisposable();
+    List<ReadingList> readingLists = new ArrayList<>();
+    InvokeSource invokeSource;
+    CompositeDisposable disposables = new CompositeDisposable();
 
-    private List<ReadingList> readingLists = new ArrayList<>();
     static final String PAGE_TITLE_LIST = "pageTitleList";
 
     @Nullable private DialogInterface.OnDismissListener dismissListener;
@@ -204,7 +204,7 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
                 }).show();
     }
 
-    private void addAndDismiss(final ReadingList readingList, final PageTitle title) {
+    void addAndDismiss(final ReadingList readingList, final PageTitle title) {
 
         if (readingList.pages().size() >= SiteInfoClient.getMaxPagesPerReadingList()) {
             String message = getString(R.string.reading_list_article_limit_message, readingList.title(), SiteInfoClient.getMaxPagesPerReadingList());
@@ -224,16 +224,14 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
                     } else {
                         message = getString(R.string.reading_list_article_added_to_named, title.getDisplayText(), readingList.title());
                         new ReadingListsFunnel(title.getWikiSite()).logAddToList(readingList, readingLists.size(), invokeSource);
-
                         ReadingListDbHelper.instance().addPageToList(readingList, title, true);
                         showViewListSnackBar(readingList, message);
-
                     }
                     dismiss();
                 }, L::w));
     }
 
-    private void addAndDismiss(final ReadingList readingList, final List<PageTitle> titles) {
+    void addAndDismiss(final ReadingList readingList, final List<PageTitle> titles) {
 
         if ((readingList.pages().size() + titles.size()) > SiteInfoClient.getMaxPagesPerReadingList()) {
             String message = getString(R.string.reading_list_article_limit_message, readingList.title(), SiteInfoClient.getMaxPagesPerReadingList());
@@ -263,7 +261,7 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
                 }, L::w));
     }
 
-    private void showViewListSnackBar(@NonNull final ReadingList list, @NonNull String message) {
+    void showViewListSnackBar(@NonNull final ReadingList list, @NonNull String message) {
         FeedbackUtil.makeSnackbar(getActivity(), message, FeedbackUtil.LENGTH_DEFAULT)
                 .setAction(R.string.reading_list_added_view_button, v -> v.getContext().startActivity(ReadingListActivity.newIntent(v.getContext(), list))).show();
     }
