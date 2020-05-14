@@ -15,6 +15,7 @@ import org.wikipedia.database.contract.ReadingListPageContract;
 import org.wikipedia.events.ArticleSavedOrDeletedEvent;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter;
+import org.wikipedia.readinglist.sync.ReadingListSyncEvent;
 import org.wikipedia.savedpages.SavedPageSyncService;
 import org.wikipedia.util.log.L;
 
@@ -171,11 +172,11 @@ public class ReadingListDbHelper {
         }
     }
 
-    public void movePageToList(@NonNull ReadingList list, @NonNull PageTitle title, boolean queueForSync) {
+    public void movePageToList(long sourceReadingListId, @NonNull ReadingList list, @NonNull PageTitle title, boolean queueForSync) {
         SQLiteDatabase db = getWritableDatabase();
         db.beginTransaction();
         try {
-            movePageToList(db, list, title);
+            movePageToList(db, sourceReadingListId, list, title);
             db.setTransactionSuccessful();
         } finally {
             db.endTransaction();
@@ -191,7 +192,7 @@ public class ReadingListDbHelper {
         db.beginTransaction();
         try {
             for (ReadingList list : lists) {
-                if (getPageByTitle(db, list, ReadingListPage.toPageTitle(page)) != null) {
+                if (getPageByTitle(db, list.id(), ReadingListPage.toPageTitle(page)) != null) {
                     continue;
                 }
                 page.status(ReadingListPage.STATUS_QUEUE_FOR_SAVE);
@@ -238,7 +239,7 @@ public class ReadingListDbHelper {
         int numAdded = 0;
         try {
             for (PageTitle title : titles) {
-                if (getPageByTitle(db, list, title) != null) {
+                if (getPageByTitle(db, list.id(), title) != null) {
                     continue;
                 }
                 addPageToList(db, list, title);
@@ -255,16 +256,16 @@ public class ReadingListDbHelper {
         return numAdded;
     }
 
-    public int movePagesToListIfNotExist(@NonNull ReadingList list, @NonNull List<PageTitle> titles) {
+    public int movePagesToListIfNotExist(long sourceReadingListId, @NonNull ReadingList list, @NonNull List<PageTitle> titles) {
         SQLiteDatabase db = getWritableDatabase();
         db.beginTransaction();
         int numAdded = 0;
         try {
             for (PageTitle title : titles) {
-                if (getPageByTitle(db, list, title) != null) {
+                if (getPageByTitle(db, list.id(), title) != null) {
                     continue;
                 }
-                movePageToList(db, list, title);
+                movePageToList(db, sourceReadingListId, list, title);
                 numAdded++;
             }
             db.setTransactionSuccessful();
@@ -284,16 +285,12 @@ public class ReadingListDbHelper {
         WikipediaApp.getInstance().getBus().post(new ArticleSavedOrDeletedEvent(true, protoPage));
     }
 
-    private void movePageToList(SQLiteDatabase db, @NonNull ReadingList list, @NonNull PageTitle title) {
-        ReadingListPage readingListPage = getPageByTitle(db, list, title);
-        L.d("movePageToList readingListPage " + readingListPage);
+    private void movePageToList(SQLiteDatabase db, long sourceReadingListId, @NonNull ReadingList list, @NonNull PageTitle title) {
+        ReadingListPage readingListPage = getPageByTitle(db, sourceReadingListId, title);
         if (readingListPage != null) {
-            L.d("movePageToList readingListPage id => " + readingListPage.id());
-            L.d("movePageToList readingListPage listId => " + readingListPage.listId());
             readingListPage.listId(list.id());
-            L.d("movePageToList readingListPage listId => " + readingListPage.listId());
             updatePageInDb(db, readingListPage);
-            WikipediaApp.getInstance().getBus().post(new ArticleSavedOrDeletedEvent(true, readingListPage));
+            WikipediaApp.getInstance().getBus().post(new ReadingListSyncEvent());
         }
     }
 
@@ -505,13 +502,13 @@ public class ReadingListDbHelper {
 
     public boolean pageExistsInList(@NonNull ReadingList list, @NonNull PageTitle title) {
         SQLiteDatabase db = getReadableDatabase();
-        return getPageByTitle(db, list, title) != null;
+        return getPageByTitle(db, list.id(), title) != null;
     }
 
     @Nullable
     public ReadingListPage getPageByTitle(@NonNull ReadingList list, @NonNull PageTitle title) {
         SQLiteDatabase db = getReadableDatabase();
-        return getPageByTitle(db, list, title);
+        return getPageByTitle(db, list.id(), title);
     }
 
     @NonNull
@@ -733,7 +730,7 @@ public class ReadingListDbHelper {
     }
 
     @Nullable
-    private ReadingListPage getPageByTitle(SQLiteDatabase db, @NonNull ReadingList list, @NonNull PageTitle title) {
+    private ReadingListPage getPageByTitle(SQLiteDatabase db, long readingListId, @NonNull PageTitle title) {
         try (Cursor cursor = db.query(ReadingListPageContract.TABLE, null,
                 ReadingListPageContract.Col.SITE.getName() + " = ? AND "
                         + ReadingListPageContract.Col.LANG.getName() + " = ? AND "
@@ -744,7 +741,7 @@ public class ReadingListDbHelper {
                         + ReadingListPageContract.Col.STATUS.getName() + " != ?",
                 new String[]{title.getWikiSite().authority(), title.getWikiSite().languageCode(),
                         Integer.toString(title.namespace().code()), title.getDisplayText(), title.getPrefixedText(),
-                        Long.toString(list.id()),
+                        Long.toString(readingListId),
                         Integer.toString(ReadingListPage.STATUS_QUEUE_FOR_DELETE)},
                 null, null, null)) {
             if (cursor.moveToNext()) {

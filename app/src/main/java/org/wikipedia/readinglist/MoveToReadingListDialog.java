@@ -97,7 +97,7 @@ public class MoveToReadingListDialog extends AddToReadingListDialog {
                     } else {
                         message = getString(R.string.reading_list_article_moved_to_named, title.getDisplayText(), readingList.title());
                         // TODO: add funnel?
-                        ReadingListDbHelper.instance().movePageToList(readingList, title, true);
+                        ReadingListDbHelper.instance().movePageToList(sourceReadingListId, readingList, title, true);
                         showViewListSnackBar(readingList, message);
                     }
                     dismiss();
@@ -119,7 +119,7 @@ public class MoveToReadingListDialog extends AddToReadingListDialog {
             return;
         }
 
-        disposables.add(Observable.fromCallable(() -> ReadingListDbHelper.instance().movePagesToListIfNotExist(readingList, titles))
+        disposables.add(Observable.fromCallable(() -> ReadingListDbHelper.instance().movePagesToListIfNotExist(sourceReadingListId, readingList, titles))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(numAdded -> {
