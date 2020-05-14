@@ -16,8 +16,6 @@ import org.wikipedia.R;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.database.ReadingList;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
-import org.wikipedia.settings.SiteInfoClient;
-import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.log.L;
 
 import java.util.ArrayList;
@@ -77,15 +75,7 @@ public class MoveToReadingListDialog extends AddToReadingListDialog {
     }
 
     @Override
-    void addAndDismiss(final ReadingList readingList, final PageTitle title) {
-
-        if (readingList.pages().size() >= SiteInfoClient.getMaxPagesPerReadingList()) {
-            String message = getString(R.string.reading_list_move_article_limit_message, readingList.title(), SiteInfoClient.getMaxPagesPerReadingList());
-            FeedbackUtil.makeSnackbar(getActivity(), message, FeedbackUtil.LENGTH_DEFAULT).show();
-            dismiss();
-            return;
-        }
-
+    void execute(final ReadingList readingList, final PageTitle title) {
         disposables.add(Observable.fromCallable(() -> ReadingListDbHelper.instance().pageExistsInList(readingList, title))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -105,20 +95,7 @@ public class MoveToReadingListDialog extends AddToReadingListDialog {
     }
 
     @Override
-    void addAndDismiss(final ReadingList readingList, final List<PageTitle> titles) {
-
-        if ((readingList.pages().size() + titles.size()) > SiteInfoClient.getMaxPagesPerReadingList()) {
-            String message = getString(R.string.reading_list_article_limit_message, readingList.title(), SiteInfoClient.getMaxPagesPerReadingList());
-            FeedbackUtil.makeSnackbar(getActivity(), message, FeedbackUtil.LENGTH_DEFAULT).show();
-            dismiss();
-            return;
-        }
-
-        if (titles.size() == 1) {
-            addAndDismiss(readingList, titles.get(0));
-            return;
-        }
-
+    void execute(final ReadingList readingList, final List<PageTitle> titles) {
         disposables.add(Observable.fromCallable(() -> ReadingListDbHelper.instance().movePagesToListIfNotExist(sourceReadingListId, readingList, titles))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
