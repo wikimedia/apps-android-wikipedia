@@ -224,7 +224,7 @@ public class ReadingListsFragment extends Fragment implements
             return;
         }
         bottomSheetPresenter.show(getChildFragmentManager(),
-                MoveToReadingListDialog.newInstance(page.listId(), ReadingListPage.toPageTitle(page), READING_LIST_ACTIVITY));
+                MoveToReadingListDialog.newInstance(ReadingListPage.toPageTitle(page), READING_LIST_ACTIVITY));
     }
 
     @Override

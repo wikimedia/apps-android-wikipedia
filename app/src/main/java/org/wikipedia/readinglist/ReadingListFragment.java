@@ -474,7 +474,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
                 titles.add(ReadingListPage.toPageTitle(page));
             }
             bottomSheetPresenter.show(getChildFragmentManager(),
-                    MoveToReadingListDialog.newInstance(readingListId, titles, READING_LIST_ACTIVITY));
+                    MoveToReadingListDialog.newInstance(titles, READING_LIST_ACTIVITY));
             update();
         }
     }
@@ -526,7 +526,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
             return;
         }
         bottomSheetPresenter.show(getChildFragmentManager(),
-                MoveToReadingListDialog.newInstance(readingListId, ReadingListPage.toPageTitle(page),
+                MoveToReadingListDialog.newInstance(ReadingListPage.toPageTitle(page),
                         READING_LIST_ACTIVITY));
     }
 

@@ -171,6 +171,21 @@ public class ReadingListDbHelper {
         }
     }
 
+    public void movePageToList(@NonNull ReadingList list, @NonNull PageTitle title, boolean queueForSync) {
+        SQLiteDatabase db = getWritableDatabase();
+        db.beginTransaction();
+        try {
+            movePageToList(db, list, title);
+            db.setTransactionSuccessful();
+        } finally {
+            db.endTransaction();
+        }
+        SavedPageSyncService.enqueue();
+        if (queueForSync) {
+            ReadingListSyncAdapter.manualSync();
+        }
+    }
+
     public void addPageToLists(@NonNull List<ReadingList> lists, @NonNull ReadingListPage page, boolean queueForSync) {
         SQLiteDatabase db = getWritableDatabase();
         db.beginTransaction();
@@ -240,9 +255,39 @@ public class ReadingListDbHelper {
         return numAdded;
     }
 
+    public int movePagesToListIfNotExist(@NonNull ReadingList list, @NonNull List<PageTitle> titles) {
+        SQLiteDatabase db = getWritableDatabase();
+        db.beginTransaction();
+        int numAdded = 0;
+        try {
+            for (PageTitle title : titles) {
+                if (getPageByTitle(db, list, title) != null) {
+                    continue;
+                }
+                movePageToList(db, list, title);
+                numAdded++;
+            }
+            db.setTransactionSuccessful();
+        } finally {
+            db.endTransaction();
+        }
+        if (numAdded > 0) {
+            SavedPageSyncService.enqueue();
+            ReadingListSyncAdapter.manualSync();
+        }
+        return numAdded;
+    }
+
     private void addPageToList(SQLiteDatabase db, @NonNull ReadingList list, @NonNull PageTitle title) {
         ReadingListPage protoPage = new ReadingListPage(title);
         insertPageInDb(db, list, protoPage);
+        WikipediaApp.getInstance().getBus().post(new ArticleSavedOrDeletedEvent(true, protoPage));
+    }
+
+    private void movePageToList(SQLiteDatabase db, @NonNull ReadingList list, @NonNull PageTitle title) {
+        ReadingListPage protoPage = new ReadingListPage(title);
+        protoPage.listId(list.id());
+        updatePageInDb(db, protoPage);
         WikipediaApp.getInstance().getBus().post(new ArticleSavedOrDeletedEvent(true, protoPage));
     }
 
