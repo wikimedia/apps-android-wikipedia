@@ -116,13 +116,7 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
     private final SearchView.OnQueryTextListener searchQueryListener = new SearchView.OnQueryTextListener() {
         @Override
         public boolean onQueryTextSubmit(String queryText) {
-            PageTitle firstResult = null;
-            if (getActivePanel() == PANEL_SEARCH_RESULTS) {
-                firstResult = searchResultsFragment.getFirstResult();
-            }
-            if (firstResult != null) {
-                navigateToTitle(firstResult, false, 0);
-            }
+            DeviceUtil.hideSoftKeyboard(requireActivity());
             return true;
         }
 
