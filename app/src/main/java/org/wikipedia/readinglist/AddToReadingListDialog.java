@@ -211,6 +211,7 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
             dismiss();
             return;
         }
+        
         execute(readingList, title);
     }
 

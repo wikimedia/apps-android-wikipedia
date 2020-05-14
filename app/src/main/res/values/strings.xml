@@ -404,8 +404,6 @@
     <string name="reading_list_description_hint">Description (optional)</string>
     <string name="reading_list_item_deleted">%s removed from list</string>
     <string name="reading_list_items_deleted">%d articles removed from list</string>
-    <string name="reading_list_item_moved">Moved %1$s to %2$s</string>
-    <string name="reading_list_items_moved">Moved %1$d articles to %2$s</string>
     <string name="reading_lists_item_deleted">%s removed from lists</string>
     <string name="reading_list_item_delete_undo">Undo</string>
     <string name="reading_list_deleted">%s deleted</string>
