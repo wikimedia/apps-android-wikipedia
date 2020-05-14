@@ -23,23 +23,39 @@ import static org.wikipedia.Constants.INTENT_EXTRA_INVOKE_SOURCE;
 
 public class MoveToReadingListDialog extends AddToReadingListDialog {
 
-    public static MoveToReadingListDialog newInstance(@NonNull PageTitle title, Constants.InvokeSource source) {
-        return newInstance(Collections.singletonList(title), source, null);
+    private static final String SOURCE_READING_LIST_ID = "sourceReadingListId";
+    private long sourceReadingListId;
+
+    public static MoveToReadingListDialog newInstance(long sourceReadingListId,
+                                                      @NonNull PageTitle title,
+                                                      @NonNull Constants.InvokeSource source) {
+        return newInstance(sourceReadingListId, Collections.singletonList(title), source, null);
     }
 
-    public static MoveToReadingListDialog newInstance(@NonNull List<PageTitle> titles, Constants.InvokeSource source) {
-        return newInstance(titles, source, null);
+    public static MoveToReadingListDialog newInstance(long sourceReadingListId,
+                                                      @NonNull List<PageTitle> titles,
+                                                      @NonNull Constants.InvokeSource source) {
+        return newInstance(sourceReadingListId, titles, source, null);
     }
 
-    public static MoveToReadingListDialog newInstance(@NonNull List<PageTitle> titles, Constants.InvokeSource source,
+    public static MoveToReadingListDialog newInstance(long sourceReadingListId,
+                                                      @NonNull List<PageTitle> titles,
+                                                      @NonNull Constants.InvokeSource source,
                                                       @Nullable DialogInterface.OnDismissListener listener) {
         MoveToReadingListDialog dialog = new MoveToReadingListDialog();
         Bundle args = new Bundle();
-        args.putParcelableArrayList(PAGETITLES_LIST, new ArrayList<Parcelable>(titles));
+        args.putParcelableArrayList(PAGE_TITLE_LIST, new ArrayList<Parcelable>(titles));
         args.putSerializable(INTENT_EXTRA_INVOKE_SOURCE, source);
+        args.putLong(SOURCE_READING_LIST_ID, sourceReadingListId);
         dialog.setArguments(args);
         dialog.setOnDismissListener(listener);
         return dialog;
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        sourceReadingListId = getArguments().getLong(SOURCE_READING_LIST_ID);
     }
 
     @Override

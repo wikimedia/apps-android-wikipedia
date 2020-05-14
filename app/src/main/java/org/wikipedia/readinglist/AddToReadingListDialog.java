@@ -50,29 +50,33 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
     private CompositeDisposable disposables = new CompositeDisposable();
 
     private List<ReadingList> readingLists = new ArrayList<>();
-    static final String PAGETITLES_LIST = "titles";
+    static final String PAGE_TITLE_LIST = "pageTitleList";
 
     @Nullable private DialogInterface.OnDismissListener dismissListener;
     private ReadingListItemCallback listItemCallback = new ReadingListItemCallback();
 
-    public static AddToReadingListDialog newInstance(@NonNull PageTitle title, InvokeSource source) {
+    public static AddToReadingListDialog newInstance(@NonNull PageTitle title,
+                                                     @NonNull InvokeSource source) {
         return newInstance(title, source, null);
     }
 
-    public static AddToReadingListDialog newInstance(@NonNull PageTitle title, InvokeSource source,
+    public static AddToReadingListDialog newInstance(@NonNull PageTitle title,
+                                                     @NonNull InvokeSource source,
                                                      @Nullable DialogInterface.OnDismissListener listener) {
         return newInstance(Collections.singletonList(title), source, listener);
     }
 
-    public static AddToReadingListDialog newInstance(@NonNull List<PageTitle> titles, InvokeSource source) {
+    public static AddToReadingListDialog newInstance(@NonNull List<PageTitle> titles,
+                                                     @NonNull InvokeSource source) {
         return newInstance(titles, source, null);
     }
 
-    public static AddToReadingListDialog newInstance(@NonNull List<PageTitle> titles, InvokeSource source,
+    public static AddToReadingListDialog newInstance(@NonNull List<PageTitle> titles,
+                                                     @NonNull InvokeSource source,
                                                      @Nullable DialogInterface.OnDismissListener listener) {
         AddToReadingListDialog dialog = new AddToReadingListDialog();
         Bundle args = new Bundle();
-        args.putParcelableArrayList(PAGETITLES_LIST, new ArrayList<Parcelable>(titles));
+        args.putParcelableArrayList(PAGE_TITLE_LIST, new ArrayList<Parcelable>(titles));
         args.putSerializable(INTENT_EXTRA_INVOKE_SOURCE, source);
         dialog.setArguments(args);
         dialog.setOnDismissListener(listener);
@@ -82,7 +86,7 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        titles = getArguments().getParcelableArrayList(PAGETITLES_LIST);
+        titles = getArguments().getParcelableArrayList(PAGE_TITLE_LIST);
         invokeSource = (InvokeSource) getArguments().getSerializable(INTENT_EXTRA_INVOKE_SOURCE);
         adapter = new ReadingListAdapter();
     }
