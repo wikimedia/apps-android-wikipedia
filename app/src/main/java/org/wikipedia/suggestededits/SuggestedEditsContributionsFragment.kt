@@ -14,9 +14,6 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_contributions_suggested_edits.*
-import kotlinx.android.synthetic.main.fragment_contributions_suggested_edits.errorView
-import kotlinx.android.synthetic.main.fragment_contributions_suggested_edits.swipeRefreshLayout
-import kotlinx.android.synthetic.main.fragment_suggested_edits_tasks.*
 import org.apache.commons.lang3.StringUtils
 import org.apache.commons.lang3.time.DateUtils
 import org.wikipedia.R
@@ -461,13 +458,13 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
         override fun onViewAttachedToWindow(holder: DefaultViewHolder<*>) {
             super.onViewAttachedToWindow(holder)
             if (holder is ContributionItemHolder) {
-                holder.view.setCallback(ItemCallback())
+                holder.view.callback = ItemCallback()
             }
         }
 
         override fun onViewDetachedFromWindow(holder: DefaultViewHolder<*>) {
             if (holder is ContributionItemHolder) {
-                holder.view.setCallback(null)
+                holder.view.callback = null
             }
             super.onViewDetachedFromWindow(holder)
         }
