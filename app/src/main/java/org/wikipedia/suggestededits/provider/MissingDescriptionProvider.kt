@@ -205,7 +205,17 @@ object MissingDescriptionProvider {
                 ServiceFactory.get(WikiSite(Service.COMMONS_URL)).randomWithImageInfo
                         .map { response ->
                             for (page in response.query()!!.pages()!!) {
-                                if (page.imageInfo()!!.mimeType == "image/jpeg") {
+                                if (page.imageInfo()!!.mimeType != "image/jpeg") {
+                                    continue
+                                }
+                                var hasTags = false
+                                for (revision in page.revisions()) {
+                                    if (revision.getContentFromSlot("mediainfo").contains("P180")) {
+                                        hasTags = true
+                                        break
+                                    }
+                                }
+                                if (!hasTags) {
                                     imagesWithMissingTagsCache.push(page)
                                 }
                             }
