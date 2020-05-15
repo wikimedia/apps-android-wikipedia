@@ -11,6 +11,7 @@ import org.wikipedia.dataclient.mwapi.MwParseResponse;
 import org.wikipedia.dataclient.mwapi.MwPostResponse;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.mwapi.SiteMatrix;
+import org.wikipedia.dataclient.wikidata.Claims;
 import org.wikipedia.dataclient.wikidata.Entities;
 import org.wikipedia.dataclient.wikidata.EntityPostResponse;
 import org.wikipedia.dataclient.wikidata.Search;
@@ -259,8 +260,11 @@ public interface Service {
                                                @Query("uselang") @NonNull String resultLang);
 
     @GET(MW_API_PREFIX + "action=wbgetentities&props=labels&languagefallback=1")
-    @NonNull Call<Entities> getWikidataLabels(@Query("ids") @NonNull String idList,
-                                              @Query("languages") @NonNull String langList);
+    @NonNull Observable<Entities> getWikidataLabels(@Query("ids") @NonNull String idList,
+                                                    @Query("languages") @NonNull String langList);
+
+    @GET(MW_API_PREFIX + "action=wbgetclaims")
+    @NonNull Observable<Claims> getClaims(@Query("entity") @NonNull String entity);
 
     @GET(MW_API_PREFIX + "action=wbgetentities&props=descriptions|labels|sitelinks")
     @NonNull Observable<Entities> getWikidataLabelsAndDescriptions(@Query("ids") @NonNull String idList);
