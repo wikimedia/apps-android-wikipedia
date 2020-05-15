@@ -10,14 +10,12 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.functions.BiFunction
 import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.dialog_image_preview.*
 import kotlinx.android.synthetic.main.fragment_file_page.*
-import kotlinx.android.synthetic.main.fragment_file_page.errorView
-import kotlinx.android.synthetic.main.fragment_file_page.filePageView
-import kotlinx.android.synthetic.main.fragment_file_page.progressBar
 import org.apache.commons.lang3.StringUtils
 import org.wikipedia.R
+import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.dataclient.mwapi.media.MediaHelper.getImageCaptions
 import org.wikipedia.page.PageTitle
@@ -73,7 +71,7 @@ class FilePageFragment : Fragment() {
         filePageView.visibility = View.GONE
         progressBar.visibility = View.VISIBLE
         disposables.add(Observable.zip(getImageCaptions(pageTitle.prefixedText),
-                ServiceFactory.get(pageTitle.wikiSite).getImageInfo(pageTitle.prefixedText, pageTitle.wikiSite.languageCode()),
+                ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo(pageTitle.prefixedText, pageTitle.wikiSite.languageCode()),
                 BiFunction<Map<String, String>, MwQueryResponse, Pair<Map<String, String>, MwQueryResponse>> {
                     caption: Map<String, String>, page: MwQueryResponse -> Pair(caption, page)
                 })
@@ -106,10 +104,10 @@ class FilePageFragment : Fragment() {
                     filePageView.setup(
                             suggestedEditsSummary,
                             imageTags,
-                            dialogDetailContainer.width,
+                            container.width,
                             thumbnailWidth, thumbnailHeight,
                             imageFromCommons = isFromCommons,
-                            showFilename = false,
+                            showFilename = true,
                             showEditButton = false
                     )
                 }

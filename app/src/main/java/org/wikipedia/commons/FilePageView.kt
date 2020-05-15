@@ -64,6 +64,7 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
                     else summary.pageTitle.description, if (showEditButton) editButtonOnClickListener(summary) else null)
         }
         addDetail(context.getString(R.string.suggested_edits_image_preview_dialog_artist), summary.metadata!!.artist())
+        addDetail(context.getString(R.string.suggested_edits_image_preview_dialog_tags), getImageTags(imageTags, summary.lang))
         addDetail(context.getString(R.string.suggested_edits_image_preview_dialog_date), summary.metadata!!.dateTime())
         addDetail(context.getString(R.string.suggested_edits_image_preview_dialog_source), summary.metadata!!.credit())
         addDetail(true, context.getString(R.string.suggested_edits_image_preview_dialog_licensing), summary.metadata!!.licenseShortName(), summary.metadata!!.licenseUrl())
@@ -73,6 +74,10 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
             addDetail(false, context.getString(R.string.suggested_edits_image_preview_dialog_more_info), context.getString(R.string.suggested_edits_image_preview_dialog_file_page_wikipedia_link_text), summary.pageTitle.uri)
         }
         requestLayout()
+    }
+
+    private fun getImageTags(imageTags: Map<String, List<String>>, languageCode: String) : String? {
+        return imageTags[languageCode]?.joinToString(separator = "\n")
     }
 
     private fun getProperLanguageLocalizedName(summary: SuggestedEditsSummary, imageFromCommons: Boolean): String? {

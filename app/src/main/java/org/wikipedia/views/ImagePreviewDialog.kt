@@ -14,6 +14,7 @@ import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.dialog_image_preview.*
 import org.wikipedia.R
 import org.wikipedia.commons.ImageTagsProvider
+import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.descriptions.DescriptionEditActivity.Action
@@ -75,7 +76,7 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
     }
 
     private fun loadImageInfo() {
-        disposables.add(ServiceFactory.get(WikiSite.forLanguageCode(suggestedEditsSummary.lang)).getImageInfo(suggestedEditsSummary.title, suggestedEditsSummary.lang)
+        disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo(suggestedEditsSummary.title, suggestedEditsSummary.lang)
                 .subscribeOn(Schedulers.io())
                 .flatMap { response ->
                     val page = response.query()!!.pages()!![0]
