@@ -256,27 +256,27 @@ public class ReadingListDbHelper {
         return addedTitles;
     }
 
-    public int movePagesToListIfNotExist(long sourceReadingListId, @NonNull ReadingList list, @NonNull List<PageTitle> titles) {
+    public List<String> movePagesToListIfNotExist(long sourceReadingListId, @NonNull ReadingList list, @NonNull List<PageTitle> titles) {
         SQLiteDatabase db = getWritableDatabase();
         db.beginTransaction();
-        int numMoved = 0;
+        List<String> movedTitles = new ArrayList<>();
         try {
             for (PageTitle title : titles) {
                 if (getPageByTitle(db, list.id(), title) != null) {
                     continue;
                 }
                 movePageToList(db, sourceReadingListId, list, title);
-                numMoved++;
+                movedTitles.add(title.getDisplayText());
             }
             db.setTransactionSuccessful();
         } finally {
             db.endTransaction();
         }
-        if (numMoved > 0) {
+        if (movedTitles.isEmpty()) {
             SavedPageSyncService.enqueue();
             ReadingListSyncAdapter.manualSync();
         }
-        return numMoved;
+        return movedTitles;
     }
 
     private void addPageToList(SQLiteDatabase db, @NonNull ReadingList list, @NonNull PageTitle title) {

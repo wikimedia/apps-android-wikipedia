@@ -99,12 +99,13 @@ public class MoveToReadingListDialog extends AddToReadingListDialog {
         disposables.add(Observable.fromCallable(() -> ReadingListDbHelper.instance().movePagesToListIfNotExist(sourceReadingListId, readingList, titles))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(numAdded -> {
+                .subscribe(movedTitlesList -> {
                     String message;
-                    if (numAdded == 0) {
+                    if (movedTitlesList.isEmpty()) {
                         message = getString(R.string.reading_list_articles_already_exist_message, readingList.title());
                     } else {
-                        message = getString(R.string.reading_list_articles_moved_to_named, numAdded, readingList.title());
+                        message = (movedTitlesList.size() == 1) ? getString(R.string.reading_list_article_moved_to_named, movedTitlesList.get(0), readingList.title())
+                                : getString(R.string.reading_list_articles_moved_to_named, movedTitlesList.size(), readingList.title());
                         // TODO: add funnel?
                     }
                     showViewListSnackBar(readingList, message);
