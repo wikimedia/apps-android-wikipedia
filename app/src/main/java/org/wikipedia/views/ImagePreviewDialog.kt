@@ -81,10 +81,10 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
                 .subscribeOn(Schedulers.io())
                 .flatMap {
                     if (it.query()!!.pages()!![0].imageInfo() == null) {
-                        // If file page comes from *.wikipedia.org, it will not have imageInfo and pageId.
+                        // If file page originally comes from *.wikipedia.org (i.e. movie posters), it will not have imageInfo and pageId.
                         ServiceFactory.get(suggestedEditsSummary.pageTitle.wikiSite).getImageInfo(suggestedEditsSummary.title, suggestedEditsSummary.lang)
                     } else {
-                        // Fetch API from commons domain and check whether if it is not a "shared" image,.
+                        // Fetch API from commons.wikimedia.org and check whether if it is not a "shared" image.
                         isFromCommons = !it.query()!!.pages()!![0].isImageShared
                         Observable.just(it)
                     }
