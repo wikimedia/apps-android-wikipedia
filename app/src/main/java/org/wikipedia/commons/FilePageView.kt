@@ -34,6 +34,7 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
     }
 
     fun setup(summary: SuggestedEditsSummary,
+              imageTags: Map<String, List<String>>,
               containerWidth: Int,
               thumbWidth: Int,
               thumbHeight: Int,

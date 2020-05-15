@@ -13,6 +13,7 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.dialog_image_preview.*
 import org.wikipedia.R
+import org.wikipedia.commons.ImageTagsProvider
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.descriptions.DescriptionEditActivity.Action
@@ -28,7 +29,9 @@ import org.wikipedia.util.log.L
 class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.OnDismissListener {
 
     private lateinit var suggestedEditsSummary: SuggestedEditsSummary
+    private lateinit var imageTags: Map<String, List<String>>
     private lateinit var action: Action
+    private var isFromCommons: Boolean = true
     private var thumbnailWidth: Int = 0
     private var thumbnailHeight: Int = 0
     private val disposables = CompositeDisposable()
@@ -74,9 +77,7 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
     private fun loadImageInfo() {
         disposables.add(ServiceFactory.get(WikiSite.forLanguageCode(suggestedEditsSummary.lang)).getImageInfo(suggestedEditsSummary.title, suggestedEditsSummary.lang)
                 .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .doAfterTerminate { loadImageDetail() }
-                .subscribe({ response ->
+                .flatMap { response ->
                     val page = response.query()!!.pages()!![0]
                     if (page.imageInfo() != null) {
                         val imageInfo = page.imageInfo()!!
@@ -86,16 +87,28 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
                         thumbnailWidth = imageInfo.thumbWidth
                         thumbnailHeight = imageInfo.thumbHeight
                     }
-                }, { caught ->
+                    isFromCommons = page.isImageFromCommons
+                    ImageTagsProvider.getImageTagsObservable(page.pageId(), suggestedEditsSummary.lang)
+                }
+                .observeOn(AndroidSchedulers.mainThread())
+                .doAfterTerminate {
+                    filePageView.visibility = VISIBLE
+                    progressBar.visibility = GONE
+                    filePageView.setup(
+                            suggestedEditsSummary,
+                            imageTags,
+                            dialogDetailContainer.width,
+                            thumbnailWidth, thumbnailHeight,
+                            imageFromCommons = isFromCommons,
+                            showFilename = false,
+                            showEditButton = false,
+                            action = action
+                    )
+                }
+                .subscribe({ imageTags = it }, { caught ->
                     L.e(caught)
                     showError(caught)
                 }))
-    }
-
-    private fun loadImageDetail() {
-        filePageView.visibility = VISIBLE
-        progressBar.visibility = GONE
-        filePageView.setup(suggestedEditsSummary, dialogDetailContainer.width, thumbnailWidth, thumbnailHeight, imageFromCommons = true, showFilename = false, showEditButton = false, action = action)
     }
 
     companion object {
