@@ -8,6 +8,7 @@ import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
 import com.google.android.material.bottomsheet.BottomSheetBehavior
+import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
@@ -32,7 +33,7 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
     private lateinit var suggestedEditsSummary: SuggestedEditsSummary
     private lateinit var imageTags: Map<String, List<String>>
     private lateinit var action: Action
-    private var isFromCommons: Boolean = true
+    private var isFromCommons: Boolean = false
     private var thumbnailWidth: Int = 0
     private var thumbnailHeight: Int = 0
     private val disposables = CompositeDisposable()
@@ -78,6 +79,16 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
     private fun loadImageInfo() {
         disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo(suggestedEditsSummary.title, suggestedEditsSummary.lang)
                 .subscribeOn(Schedulers.io())
+                .flatMap {
+                    if (it.query()!!.pages()!![0].imageInfo() == null) {
+                        // If file page comes from *.wikipedia.org, it will not have imageInfo and pageId.
+                        ServiceFactory.get(suggestedEditsSummary.pageTitle.wikiSite).getImageInfo(suggestedEditsSummary.title, suggestedEditsSummary.lang)
+                    } else {
+                        // Fetch API from commons domain and check whether if it is not a "shared" image,.
+                        isFromCommons = !it.query()!!.pages()!![0].isImageShared
+                        Observable.just(it)
+                    }
+                }
                 .flatMap { response ->
                     val page = response.query()!!.pages()!![0]
                     if (page.imageInfo() != null) {
@@ -88,7 +99,6 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
                         thumbnailWidth = imageInfo.thumbWidth
                         thumbnailHeight = imageInfo.thumbHeight
                     }
-                    isFromCommons = page.isImageFromCommons
                     ImageTagsProvider.getImageTagsObservable(page.pageId(), suggestedEditsSummary.lang)
                 }
                 .observeOn(AndroidSchedulers.mainThread())

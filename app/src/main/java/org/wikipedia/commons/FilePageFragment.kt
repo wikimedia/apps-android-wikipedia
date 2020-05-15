@@ -28,7 +28,7 @@ class FilePageFragment : Fragment() {
     private lateinit var pageTitle: PageTitle
     private lateinit var suggestedEditsSummary: SuggestedEditsSummary
     private lateinit var imageTags: Map<String, List<String>>
-    private var isFromCommons: Boolean = true
+    private var isFromCommons: Boolean = false
     private var thumbnailWidth: Int = 0
     private var thumbnailHeight: Int = 0
     private val disposables = CompositeDisposable()
@@ -70,16 +70,30 @@ class FilePageFragment : Fragment() {
         errorView.visibility = View.GONE
         filePageView.visibility = View.GONE
         progressBar.visibility = View.VISIBLE
+
         disposables.add(Observable.zip(getImageCaptions(pageTitle.prefixedText),
                 ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo(pageTitle.prefixedText, pageTitle.wikiSite.languageCode()),
-                BiFunction<Map<String, String>, MwQueryResponse, Pair<Map<String, String>, MwQueryResponse>> {
-                    caption: Map<String, String>, page: MwQueryResponse -> Pair(caption, page)
+                BiFunction<Map<String, String>, MwQueryResponse, MwQueryResponse> {
+                    caption: Map<String, String>, response: MwQueryResponse ->
+                    // set image caption to pageTitle description
+                    pageTitle.description = caption[pageTitle.wikiSite.languageCode()]
+                    response
                 })
                 .subscribeOn(Schedulers.io())
                 .flatMap {
-                    val page = it.second.query()!!.pages()!![0]
-                    val imageInfo = page.imageInfo()
-                    imageInfo!!.captions = it.first
+                    if (it.query()!!.pages()!![0].imageInfo() == null) {
+                        // If file page comes from *.wikipedia.org, it will not have imageInfo and pageId.
+                        ServiceFactory.get(pageTitle.wikiSite).getImageInfo(pageTitle.prefixedText, pageTitle.wikiSite.languageCode())
+                    } else {
+                        // Fetch API from commons domain and check whether if it is not a "shared" image,.
+                        isFromCommons = !it.query()!!.pages()!![0].isImageShared
+                        Observable.just(it)
+                    }
+                }
+                .subscribeOn(Schedulers.io())
+                .flatMap {
+                    val page = it.query()!!.pages()!![0]
+                    val imageInfo = page.imageInfo()!!
                     suggestedEditsSummary =  SuggestedEditsSummary(
                             pageTitle.prefixedText,
                             pageTitle.wikiSite.languageCode(),
@@ -92,7 +106,6 @@ class FilePageFragment : Fragment() {
                             imageInfo.user,
                             imageInfo.metadata
                     )
-                    isFromCommons = page.isImageFromCommons
                     thumbnailHeight = imageInfo.thumbHeight
                     thumbnailWidth = imageInfo.thumbWidth
                     ImageTagsProvider.getImageTagsObservable(page.pageId(), suggestedEditsSummary.lang)
@@ -108,7 +121,7 @@ class FilePageFragment : Fragment() {
                             thumbnailWidth, thumbnailHeight,
                             imageFromCommons = isFromCommons,
                             showFilename = true,
-                            showEditButton = false
+                            showEditButton = isFromCommons
                     )
                 }
                 .subscribe({ imageTags = it }, { caught ->

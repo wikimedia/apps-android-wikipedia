@@ -53,8 +53,7 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
         }
 
         detailsContainer.removeAllViews()
-        if (action != null && (action == DescriptionEditActivity.Action.ADD_CAPTION)
-                && summary.pageTitle.description.isNullOrEmpty()) {
+        if ((action == DescriptionEditActivity.Action.ADD_CAPTION || action == null) && summary.pageTitle.description.isNullOrEmpty()) {
             // Show the image description when a structured caption does not exist.
             addDetail(context.getString(R.string.suggested_edits_image_preview_dialog_description_in_language_title, getProperLanguageLocalizedName(summary, imageFromCommons)),
                     summary.description, if (showEditButton) editButtonOnClickListener(summary) else null)
