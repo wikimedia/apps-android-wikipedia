@@ -248,7 +248,7 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(addedTitlesList -> {
                     String message;
-                    if (addedTitlesList.size() == 0) {
+                    if (addedTitlesList.isEmpty()) {
                         message = getString(R.string.reading_list_articles_already_exist_message, readingList.title());
                     } else {
                         message = (addedTitlesList.size() == 1) ? getString(R.string.reading_list_article_added_to_named, addedTitlesList.get(0), readingList.title())
