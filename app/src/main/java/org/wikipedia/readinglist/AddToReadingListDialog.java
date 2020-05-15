@@ -254,12 +254,13 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
         disposables.add(Observable.fromCallable(() -> ReadingListDbHelper.instance().addPagesToListIfNotExist(readingList, titles))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(numAdded -> {
+                .subscribe(addedTitlesList -> {
                     String message;
-                    if (numAdded == 0) {
+                    if (addedTitlesList.isEmpty()) {
                         message = getString(R.string.reading_list_articles_already_exist_message, readingList.title());
                     } else {
-                        message = getString(R.string.reading_list_articles_added_to_named, numAdded, readingList.title());
+                        message = (addedTitlesList.size() == 1) ? getString(R.string.reading_list_article_added_to_named, addedTitlesList.get(0), readingList.title())
+                                : getString(R.string.reading_list_articles_added_to_named, addedTitlesList.size(), readingList.title());
                         new ReadingListsFunnel().logAddToList(readingList, readingLists.size(), invokeSource);
                     }
                     showViewListSnackBar(readingList, message);
