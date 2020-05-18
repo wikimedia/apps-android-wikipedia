@@ -22,6 +22,7 @@
 * Ykhwong
 * Ysjbserver
 * 고솜
+* 그냥기여자
 * 밝은소년
 * 밥풀떼기
 * 아라
@@ -213,6 +214,7 @@
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">사용된 라이브러리</string>
   <string name="about_contributors_heading">기여자</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;팀 페이지&lt;/a&gt;</string>
   <string name="about_translators_heading">번역자</string>
   <string name="about_translators_translatewiki">이 앱은 &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;의 자원 번역자가 번역했습니다.</string>
   <string name="about_app_license_heading">라이선스</string>
@@ -537,10 +539,10 @@
   <string name="preference_title_notification_user_talk">토론 문서</string>
   <string name="preference_summary_notification_user_talk">토크 페이지의 메시지</string>
   <string name="view_because_you_read_card_title">읽었던 글 관련 추천</string>
-  <string name="view_random_card_title">임의 문서 보기</string>
+  <string name="view_random_card_title">임의의 문서 보기</string>
   <string name="view_random_card_subtitle">카드를 넘겨 위키백과에서 임의의 문서를 읽어보세요.</string>
   <string name="view_random_card_action">주사위 던지기</string>
-  <string name="view_next_random_article">다른 임의 문서 불러오기</string>
+  <string name="view_next_random_article">무작위로 다른 문서 불러오기</string>
   <string name="view_main_page_card_title">오늘의 위키백과</string>
   <string name="view_main_page_card_subtitle">%s의 대문</string>
   <string name="view_main_page_card_action">대문 문서 보기</string>
@@ -620,6 +622,7 @@
   <string name="description_edit_success_saved_in_lang_snackbar">문서 설명을 게시했습니다! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">이미지 설명이 게시되었습니다!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">이미지 설명이 게시되었습니다! (%s)</string>
+  <string name="description_edit_success_saved_image_tags_snackbar">이미지 태그가 저장되었습니다!</string>
   <string name="description_edit_success_encouragement">방금 모두를 위해 위키백과를 개선해주셨습니다</string>
   <string name="description_edit_success_done">완료</string>
   <string name="description_edit_success_did_you_know">알고 계십니까?</string>
@@ -700,15 +703,20 @@
   <string name="suggested_edits_image_tags_onboarding_title">태그를 지정하면 이미지를 더 쉽게 찾을 수 있습니다.</string>
   <string name="suggested_edits_image_tags_onboarding_note">선택한 태그만 이미지에 추가됩니다.</string>
   <string name="suggested_edits_image_tags_snackbar">다른 사람이 더 쉽게 찾을 수 있도록 이미지 태그를 추가합니다.</string>
-  <string name="suggested_edits_image_tags_task_detail" fuzzy="true">다른 사람이 더 쉽게 찾을 수 있도록 이미지를 태그합니다. 컴퓨터가 제안하지만 확인이 필요합니다.</string>
+  <string name="suggested_edits_image_tags_task_detail">이미지를 더 쉽게 찾을 수 있도록 사용자 지정 태그를 추가합니다.</string>
   <string name="suggested_edits_image_tags_choose">일치하는 태그 추가 또는 선택</string>
   <string name="suggested_edits_image_tags_published_list">게시된 태그</string>
+  <string name="suggested_edits_image_tags_search">태그 검색</string>
   <string name="suggested_edits_image_tags_select_title">이 이미지의 태그를 선택하지 않았습니다</string>
   <string name="suggested_edits_image_tags_select_text">선택하는 태그만 이미지에 추가됩니다. 선택되지 않은 태그는 거부로 표시됩니다. 모든 태그를 거부하시겠습니까?</string>
   <string name="suggested_edits_image_tags_add_tag">태그 추가</string>
   <string name="suggested_edits_encouragement_message">%s님, 편집에 감사드립니다. 위키백과에 기여할 수 있는 더 많은 방법이 아래에 있습니다.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;%s님, 안녕하세요.&lt;/b&gt; 누구든지 위키백과를 편집할 수 있다는 사실을 알고 계셨나요? 위키백과의 발전에 도움을 주는 재밌는 방법이 아래에 있습니다. 즐거운 편집 되십시오!</string>
+  <string name="suggested_edits_image_captions_task_detail" fuzzy="true">이미지 캡션은 독자가 그림의 의미나 맥락을 파악하는 데 도움을 줍니다.</string>
+  <string name="suggested_edits_add_descriptions_task_detail" fuzzy="true">문서 설명은 독자들이 한눈에 주제를 파악할 수 있도록 글을 요약합니다.</string>
   <string name="suggested_edits_contributions_stat_tooltip">편집 제안을 통한 전체 기여 수입니다.</string>
+  <string name="suggested_edits_page_views_stat_tooltip">최근 30일 동안 편집 제안을 통해 수정한 항목들의 총 조회수입니다.</string>
+  <string name="suggested_edits_edit_quality_stat_tooltip">당신의 편집이 (다른 편집자에 의하여) 몇 번 되돌려졌는지를 기반으로 합니다.\n되돌려진 편집: %d건.</string>
   <string name="suggested_edits_paused_message">&lt;b&gt;편집 제안이 %1$s까지 일시 중단되었습니다.&lt;/b&gt; %2$s님, 죄송합니다. 최근 기여 중 일부 기여가 되돌려졌습니다.\n\n위키백과에서 편집 실력을 개선하는 방법은 아래의 링크를 통해 알아볼 수 있습니다.</string>
   <string name="suggested_edits_disabled_message">&lt;b&gt;편집 제안이 비활성화되었습니다.&lt;/b&gt; %s님, 죄송합니다. 최근 기여 중 너무 많은 기여가 되돌려졌습니다.\n\n무슨 의미인지는 아래의 링크를 통해 알아볼 수 있습니다.</string>
   <string name="suggested_edits_ip_blocked_message">현재 사용 중인 IP(또는 IP의 주소)가 위키피디아를 편집하는 것으로부터 차단 되어있습니다. 아래의 링크를 방문하여 차단에 대해 더 알아보십시오.</string>
@@ -735,6 +743,11 @@
   </plurals>
   <string name="suggested_edits_last_edited">최근 편집</string>
   <string name="suggested_edits_last_edited_never">편집 없음</string>
+  <string name="suggested_edits_task_new">새로운</string>
+  <string name="suggested_edits_cc0_notice">편집을 게시하면,  &lt;a href=\"%1$s\"&gt;이용 규약&lt;/a&gt; 에 동의하고 기여한 내용을 &lt;a href=\"%2$s\"&gt;CC0 라이선스&lt;/a&gt;로 배포하는 데 동의하는 것으로 간주합니다. 이 동의는 철회할 수 없습니다.</string>
+  <string name="suggested_edits_reactivation_notification_title">편집 제안</string>
+  <string name="suggested_edits_reactivation_notification_stage_one">위키백과를 편집해주셔서 감사드립니다! 계속 편집을 진행해보시는 건 어떨까요?</string>
+  <string name="suggested_edits_reactivation_notification_stage_two">위키백과를 개선할 자투리 시간이 있나요? 편집 제안을 확인해보세요.</string>
   <string name="description_edit_revert_subtitle">위키백과를 편집해 주셔서 감사합니다!</string>
   <string name="description_edit_revert_intro">저희는 당신이 최선의 노력을 다해주신 것을 알고 있습니다만, 검토자들 중 한 명이 걱정하는 부분이 있습니다. 당신의 편집이 되돌려진 잠재적 이유는 다음과 같습니다:</string>
   <string name="description_edit_revert_reason1">당신의 기여는 &lt;a href=\"%1$s\"&gt;지침들&lt;/a&gt; 가운데 하나를 준수하지 않았습니다.</string>

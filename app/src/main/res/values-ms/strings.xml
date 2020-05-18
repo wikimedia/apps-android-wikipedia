@@ -7,6 +7,7 @@
 * CyberTroopers
 * Dbrant
 * Envlh
+* Izing
 * Jeluang Terluang
 * Kurniasan
 * Macofe
@@ -111,7 +112,7 @@
   <string name="menu_login">Log masuk</string>
   <string name="login_activity_title">Log masuk ke dalam Wikipedia</string>
   <string name="login_in_progress_dialog_message">Sedang log masuk…</string>
-  <string name="login_success_toast" fuzzy="true">Berjaya log masuk!</string>
+  <string name="login_success_toast">Sudah log masuk</string>
   <string name="reset_password_title">Tetapkan kata laluan anda</string>
   <string name="reset_password_description">Anda log masuk dengan kata laluan sementara. Untuk menyelesaikan log masuk, sila tetapkan kata laluan baru anda di sini.</string>
   <string name="reset_password_hint">Kata laluan baru</string>
@@ -266,7 +267,7 @@
   <string name="gallery_menu_share">Kongsi</string>
   <string name="gallery_share_error">Imej tidak dapat dikongsikan: %s</string>
   <string name="gallery_save_progress">Memuat turun fail...</string>
-  <string name="gallery_save_success" fuzzy="true">Fail berjaya disimpan.</string>
+  <string name="gallery_save_success">Fail berjaya disimpan.</string>
   <string name="gallery_error_video_failed">Video tidak dapat ditayangkan.</string>
   <string name="gallery_save_image_write_permission_rationale">Kebenaran untuk menulis kepada storan pada peranti anda diperlukan untuk menyimpan gambar.</string>
   <string name="gallery_add_image_caption_button">Tambah kapsyen gambar</string>

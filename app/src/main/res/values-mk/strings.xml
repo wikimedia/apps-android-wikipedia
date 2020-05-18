@@ -695,7 +695,7 @@
   <string name="suggested_edits_image_tags_onboarding_text">Потврдувајќи ги предложените ознаки, им помагате на другите полесно да ги најдат сликите во пребарување на Ризницата, складот на слободно лиценцирани слики кој го користи Википедија за нејзините сликовни содржини.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Кон сликите ќе се додадат само ознаки кои сте ги избрале вие.</string>
   <string name="suggested_edits_image_tags_snackbar">Означете ги сликите за да можат полесно да се пронаоѓаат.</string>
-  <string name="suggested_edits_image_tags_task_detail">Означете ги сликите за да можат полесно да се пронаоѓаат.</string>
+  <string name="suggested_edits_image_tags_task_detail" fuzzy="true">Означете ги сликите за да можат полесно да се пронаоѓаат.</string>
   <string name="suggested_edits_image_tags_choose">Додајте или изберете соодветни ознаки</string>
   <string name="suggested_edits_image_tags_published_list">Објавени ознаки</string>
   <string name="suggested_edits_image_tags_search">Пребарај ознаки</string>
@@ -705,8 +705,8 @@
   <string name="suggested_edits_image_zoom_tooltip">Штипнете за да ја приближите сликата.</string>
   <string name="suggested_edits_encouragement_message">%s, ви благодариме за уредувањата. Подолу ќе најдете други начини да учествувате на Википедија.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Здраво %s&lt;/b&gt;. Дали сте знаеле дека секој може да ја уредува Википедија? Подолу ќе најдете интересни начини да помогнете во нејзиното подобрување. Пријатно уредување!</string>
-  <string name="suggested_edits_image_captions_task_detail">Описите му кажуваат на читателот за што се работи и даваат контекст на сликата.</string>
-  <string name="suggested_edits_add_descriptions_task_detail">Описите на насловите даваат претстава за темата статијата на прв поглед.</string>
+  <string name="suggested_edits_image_captions_task_detail" fuzzy="true">Описите му кажуваат на читателот за што се работи и даваат контекст на сликата.</string>
+  <string name="suggested_edits_add_descriptions_task_detail" fuzzy="true">Описите на насловите даваат претстава за темата статијата на прв поглед.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Вкупно ваши придонеси со „Предложени уредувања“.</string>
   <string name="suggested_edits_edit_streak_stat_tooltip">Колку дена едноподруго сте учествувале со „Предложени уредувања“. Ако немате учествувано подолго време, ќе се прикаже последниот ден на учество.</string>
   <string name="suggested_edits_page_views_stat_tooltip">Вкупно посети на единиците што ги уредуивте со „Предложени уредувања“ во изминатите 30 дена.</string>
