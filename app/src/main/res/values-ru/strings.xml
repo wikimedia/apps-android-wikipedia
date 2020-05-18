@@ -753,6 +753,7 @@
   <string name="suggested_edits_image_tags_select_title">Вы не выбрали ни одного тега этому изображению</string>
   <string name="suggested_edits_image_tags_select_text">Только выбранные вами теги будут добавлены изображениям. Те, которые вы не выбрали - будут отклонены. Вы уверены что хотите отклонить все теги?</string>
   <string name="suggested_edits_image_tags_add_tag">Добавить тег</string>
+  <string name="suggested_edits_editing_tips_link_text">Советы и рекомендации по редактированию</string>
   <string name="suggested_edits_pageviews_label_text">Просмотры страниц</string>
   <string name="suggested_edits_quality_label_text">Качество правки</string>
   <string name="suggested_edits_quality_perfect_text">Превосходная</string>
@@ -776,6 +777,7 @@
     <item quantity="many">%d дней</item>
     <item quantity="other">%d дней</item>
   </plurals>
+  <string name="suggested_edits_last_edited">Последнее изменение</string>
   <string name="suggested_edits_last_edited_never">Никогда</string>
   <string name="suggested_edits_reactivation_notification_title">Предложенные правки</string>
   <string name="suggested_edits_reactivation_notification_stage_two">Есть минутка, чтобы продолжить улучшать Википедию? Ознакомьтесь с этими предложениями по редактированию.</string>
@@ -819,6 +821,7 @@
   <string name="back_to_top">Вернуться наверх</string>
   <string name="on_this_day_dialog_next_month">Следующий месяц</string>
   <string name="on_this_day_dialog_previous_month">Предыдущий месяц</string>
+  <string name="on_this_day_open_date_picker">Открыть календарь</string>
   <plurals name="diff_years" fuzzy="true">
     <item quantity="one">В прошлом году</item>
     <item quantity="other">%d года назад</item>
