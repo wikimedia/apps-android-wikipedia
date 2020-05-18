@@ -136,11 +136,8 @@ public class LeadImagesHandler {
                 ServiceFactory.get(new WikiSite(Service.COMMONS_URL)).getProtectionInfo(imageTitle), (captions, imageInfoRsp, protectionInfoRsp) -> {
                     boolean protectedFile = false;
                     for (Protection protection : protectionInfoRsp.query().firstPage().protection()) {
-                        if (protection.getType().equals("edit")) {
-                            if ((protection.getLevel().equals("sysop") && !protectionInfoRsp.query().userInfo().getGroups().contains("sysop"))
-                                    || (protection.getLevel().equals("autoconfirmed") && protectionInfoRsp.query().userInfo().semiProtectedOnCommons())) {
-                                protectedFile = true;
-                            }
+                        if (protection.getType().equals("edit") && !protectionInfoRsp.query().userInfo().getGroups().contains(protection.getLevel())) {
+                            protectedFile = true;
                             break;
                         }
                     }
