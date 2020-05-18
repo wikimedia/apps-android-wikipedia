@@ -449,7 +449,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                     // don't worry about any errors and let the WebView deal with it.
                     return;
                 }
-                onPageLoadError(new HttpStatusException(errorResponse.getStatusCode(), request.getUrl().toString(), errorResponse.getReasonPhrase()));
+                onPageLoadError(new HttpStatusException(errorResponse.getStatusCode(), request.getUrl().toString(), UriUtil.decodeURL(errorResponse.getReasonPhrase())));
             }
         });
     }
