@@ -7,12 +7,22 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import kotlinx.android.synthetic.main.item_suggested_edits_contributions.view.*
 import org.wikipedia.R
-import org.wikipedia.suggestededits.SuggestedEditsContributionsFragment.Contribution.Companion.EDIT_TYPE_IMAGE_CAPTION
-import org.wikipedia.suggestededits.SuggestedEditsContributionsFragment.Contribution.Companion.EDIT_TYPE_IMAGE_TAG
+import org.wikipedia.suggestededits.Contribution.Companion.EDIT_TYPE_IMAGE_CAPTION
+import org.wikipedia.suggestededits.Contribution.Companion.EDIT_TYPE_IMAGE_TAG
 import org.wikipedia.util.StringUtil
 import org.wikipedia.views.ViewUtil
 
 class SuggestedEditsContributionsItemView constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
+
+    init {
+        View.inflate(context, R.layout.item_suggested_edits_contributions, this)
+        layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        setOnClickListener {
+            if (callback != null) {
+                callback!!.onClick()
+            }
+        }
+    }
 
     interface Callback {
         fun onClick()
@@ -58,16 +68,6 @@ class SuggestedEditsContributionsItemView constructor(context: Context, attrs: A
         } else {
             image.visibility = View.VISIBLE
             ViewUtil.loadImageWithRoundedCorners(image, url)
-        }
-    }
-
-    init {
-        View.inflate(context, R.layout.item_suggested_edits_contributions, this)
-        layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-        setOnClickListener {
-            if (callback != null) {
-                callback!!.onClick()
-            }
         }
     }
 }

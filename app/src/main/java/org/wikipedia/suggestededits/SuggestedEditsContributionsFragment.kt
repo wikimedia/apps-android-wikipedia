@@ -22,10 +22,10 @@ import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
-import org.wikipedia.suggestededits.SuggestedEditsContributionsFragment.Contribution.Companion.ALL_EDIT_TYPES
-import org.wikipedia.suggestededits.SuggestedEditsContributionsFragment.Contribution.Companion.EDIT_TYPE_ARTICLE_DESCRIPTION
-import org.wikipedia.suggestededits.SuggestedEditsContributionsFragment.Contribution.Companion.EDIT_TYPE_IMAGE_CAPTION
-import org.wikipedia.suggestededits.SuggestedEditsContributionsFragment.Contribution.Companion.EDIT_TYPE_IMAGE_TAG
+import org.wikipedia.suggestededits.Contribution.Companion.ALL_EDIT_TYPES
+import org.wikipedia.suggestededits.Contribution.Companion.EDIT_TYPE_ARTICLE_DESCRIPTION
+import org.wikipedia.suggestededits.Contribution.Companion.EDIT_TYPE_IMAGE_CAPTION
+import org.wikipedia.suggestededits.Contribution.Companion.EDIT_TYPE_IMAGE_TAG
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
@@ -43,13 +43,13 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
     private var consolidatedContributionsWithDates: MutableList<Any> = ArrayList()
     private var continuedArticlesContributions = ArrayList<Contribution>()
     private val continuedImageContributions = HashSet<Contribution>()
-    private val disposables = CompositeDisposable()
+    val disposables = CompositeDisposable()
     private var articleContributionsContinuation: String? = null
     private var imageContributionsContinuation: String? = null
     private var loadingMore = false
     private var editFilterType = ALL_EDIT_TYPES
     private var filterViews = ArrayList<SuggestedEditsTypeItem>()
-    val pageViewsMap = HashMap<String, Long>()
+    private val pageViewsMap = HashMap<String, Long>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -66,8 +66,8 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         loadMoreProgressView.visibility = VISIBLE
-        contributionsRecyclerView.setLayoutManager(LinearLayoutManager(context))
-        contributionsRecyclerView.setAdapter(adapter)
+        contributionsRecyclerView.layoutManager = LinearLayoutManager(context)
+        contributionsRecyclerView.adapter = adapter
         swipeRefreshLayout.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent))
         swipeRefreshLayout.setOnRefreshListener {
             if (!loadingMore) {
@@ -105,7 +105,6 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
         editFilterType = view.editType
         createConsolidatedList()
     }
-
 
     companion object {
         fun newInstance(): SuggestedEditsContributionsFragment {
@@ -488,33 +487,10 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
         super.onDestroy()
     }
 
-    class Contribution internal constructor(val qNumber: String, var title: String, var description: String, val editType: Int, var imageUrl: String,
-                                            val date: Date, val wikiSite: WikiSite, var pageViews: Long, var tagCount: Int) {
-        override fun hashCode(): Int {
-            return title.hashCode()
-        }
-
-        override fun equals(other: Any?): Boolean {
-            if (other is Contribution) {
-                return this.title.equals(other.title)
-            }
-            return false
-        }
-
-        companion object {
-            const val EDIT_TYPE_ARTICLE_DESCRIPTION = 0
-            const val EDIT_TYPE_IMAGE_CAPTION = 1
-            const val EDIT_TYPE_IMAGE_TAG = 2
-            const val ALL_EDIT_TYPES = 3
-        }
-    }
-
-
     private class ItemCallback : SuggestedEditsContributionsItemView.Callback {
         override fun onClick() {
         }
     }
-
 
     override fun onClick(view: SuggestedEditsTypeItem) {
         setFilterAndUIState(view)

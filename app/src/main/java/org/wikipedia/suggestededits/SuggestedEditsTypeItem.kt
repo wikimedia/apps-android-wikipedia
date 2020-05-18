@@ -12,7 +12,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.widget.ImageViewCompat
 import kotlinx.android.synthetic.main.item_suggested_edits_type.view.*
 import org.wikipedia.R
-import org.wikipedia.suggestededits.SuggestedEditsContributionsFragment.Contribution.Companion.ALL_EDIT_TYPES
+import org.wikipedia.suggestededits.Contribution.Companion.ALL_EDIT_TYPES
 import org.wikipedia.util.ResourceUtil
 
 class SuggestedEditsTypeItem constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
