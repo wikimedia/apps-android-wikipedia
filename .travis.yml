@@ -1,15 +1,16 @@
 language: android
 jdk:
-- oraclejdk8
+- oraclejdk9
 dist: xenial
 android:
   components:
+  - tools
   - build-tools-29.0.3
-  - android-29
-  - add-on
-  - extra
   licenses:
-    - 'android-sdk-license-.+'
+    - '.+'
+install:
+  - echo yes | sdkmanager "tools"
+  - echo yes | sdkmanager "platforms;android-29"
 before_script:
 - chmod +x gradlew scripts/tag-latest.sh
 branches:
