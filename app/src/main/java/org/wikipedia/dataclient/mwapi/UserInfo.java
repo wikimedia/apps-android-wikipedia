@@ -24,7 +24,6 @@ public class UserInfo {
     @Nullable private String blockedby;
     @Nullable private String blockedtimestamp;
     @Nullable private String blockexpiry;
-    @Nullable private String registrationdate;
 
     public int id() {
         return id;
