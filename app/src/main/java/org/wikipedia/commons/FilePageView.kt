@@ -81,7 +81,7 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
 
     private fun getProperLanguageLocalizedName(summary: SuggestedEditsSummary, imageFromCommons: Boolean): String? {
         var appLanguageLocalizedName = WikipediaApp.getInstance().language().getAppLanguageLocalizedName(summary.lang)
-        if (!imageFromCommons) {
+        if (!imageFromCommons || summary.lang == "commons") {
             // the getAppLanguageLocalizedName() will return "null" when it receiving "commons"
             appLanguageLocalizedName = WikipediaApp.getInstance().language().getAppLanguageLocalizedName(WikipediaApp.getInstance().language().appLanguageCode)
         }
