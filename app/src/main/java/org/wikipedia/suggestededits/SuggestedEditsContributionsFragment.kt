@@ -10,6 +10,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
@@ -176,29 +177,30 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
     }
 
     private fun getArticleContributionDetails() {
-        var count = 0
-        for (contributionObject in continuedArticlesContributions) {
-            disposables.add(ServiceFactory.getRest(contributionObject.wikiSite).getSummary(null, contributionObject.title)
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .doFinally {
-                        if (++count == continuedArticlesContributions.size) {
-                            articleContributions.addAll(continuedArticlesContributions)
-                            if (editFilterType == EDIT_TYPE_ARTICLE_DESCRIPTION) {
-                                createConsolidatedList()
-                            } else {
-                                getImageContributions()
-                            }
+        disposables.add(Observable.fromIterable(continuedArticlesContributions)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .doFinally {
+                    articleContributions.addAll(continuedArticlesContributions)
+                    if (editFilterType == EDIT_TYPE_ARTICLE_DESCRIPTION) {
+                        createConsolidatedList()
+                    } else {
+                        getImageContributions()
+                    }
+                }
+                .flatMap { contribution -> ServiceFactory.getRest(contribution.wikiSite).getSummary(null, contribution.title) }
+                .subscribe({ summary ->
+                    for (contributionObject in continuedArticlesContributions) {
+                        if (contributionObject.title == summary.displayTitle) {
+                            contributionObject.description = StringUtils.defaultString(summary.description)
+                            contributionObject.imageUrl = summary.thumbnailUrl.toString()
+                            contributionObject.pageViews = pageViewsMap[contributionObject.title]
+                                    ?: 0
                         }
                     }
-                    .subscribe({ summary ->
-                        contributionObject.description = StringUtils.defaultString(summary.description)
-                        contributionObject.imageUrl = summary.thumbnailUrl.toString()
-                        contributionObject.pageViews = pageViewsMap[contributionObject.title] ?: 0
-                    }) { t: Throwable? ->
-                        L.e(t)
-                    })
-        }
+                }, { t ->
+                    L.e(t)
+                }))
     }
 
     private fun getImageContributions() {
