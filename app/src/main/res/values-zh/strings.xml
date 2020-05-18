@@ -739,8 +739,8 @@
   <string name="suggested_edits_image_zoom_tooltip">缩放此图像。</string>
   <string name="suggested_edits_encouragement_message">%s，感谢您的编辑。下面您可以找到更多的方法来为维基百科做贡献。</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;您好 %s阁下&lt;/b&gt;，您知道每个人都可以编辑维基百科吗？下面，您可以找到一些有趣的方法来帮助改进维基百科。祝您编辑顺利!</string>
-  <string name="suggested_edits_image_captions_task_detail">图片说明描述图像，帮助读者理解图像的含义和上下文。</string>
-  <string name="suggested_edits_add_descriptions_task_detail">标题描述可对条目作出总结，以帮助读者快速了解主题。</string>
+  <string name="suggested_edits_image_captions_task_detail" fuzzy="true">图片说明描述图像，帮助读者理解图像的含义和上下文。</string>
+  <string name="suggested_edits_add_descriptions_task_detail" fuzzy="true">标题描述可对条目作出总结，以帮助读者快速了解主题。</string>
   <string name="suggested_edits_contributions_stat_tooltip">您的贡献总数和建议编辑。</string>
   <string name="suggested_edits_edit_streak_stat_tooltip">您通过建议编辑保持了多少天的连续编辑记录。如果您已经有一段时间没有投稿了，会显示您的最后一次贡献日期。</string>
   <string name="suggested_edits_page_views_stat_tooltip">在过去30天内，您通过建议编辑所贡献的项目总浏览量。</string>
