@@ -23,6 +23,7 @@ import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
+import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.suggestededits.Contribution.Companion.ALL_EDIT_TYPES
 import org.wikipedia.suggestededits.Contribution.Companion.EDIT_TYPE_ARTICLE_DESCRIPTION
 import org.wikipedia.suggestededits.Contribution.Companion.EDIT_TYPE_IMAGE_CAPTION
@@ -188,16 +189,14 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
                         getImageContributions()
                     }
                 }
-                .flatMap { contribution -> ServiceFactory.getRest(contribution.wikiSite).getSummary(null, contribution.title) }
-                .subscribe({ summary ->
-                    for (contributionObject in continuedArticlesContributions) {
-                        if (contributionObject.title == summary.displayTitle) {
-                            contributionObject.description = StringUtils.defaultString(summary.description)
-                            contributionObject.imageUrl = summary.thumbnailUrl.toString()
-                            contributionObject.pageViews = pageViewsMap[contributionObject.title]
-                                    ?: 0
-                        }
-                    }
+                .flatMap({ contribution: Contribution -> ServiceFactory.getRest(contribution.wikiSite).getSummary(null, contribution.title) }, { first: Contribution, second: PageSummary -> Pair(first, second) })
+                .subscribe({ pair ->
+                    val summary = pair.second
+                    val contribution = pair.first
+                    contribution.description = StringUtils.defaultString(summary.description)
+                    contribution.imageUrl = summary.thumbnailUrl.toString()
+                    contribution.pageViews = pageViewsMap[contribution.title]
+                            ?: 0
                 }, { t ->
                     L.e(t)
                 }))
