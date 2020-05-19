@@ -468,10 +468,7 @@
   <string name="reading_lists_menu_sort_by">الترتيب حسب</string>
   <string name="reading_lists_refresh_sync_option">تحديث المزامنة</string>
   <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">دخول / إنشاء حساب</string>
-  <plurals name="reading_list_article_offline_message" fuzzy="true">
-    <item quantity="one">ستصبح هذه المقالة متاحة في حالة عدم الاتصال.</item>
-    <item quantity="other">ستصبح هذه المقالات متاحة في حالة عدم الاتصال</item>
-  </plurals>
+  <string name="reading_list_article_offline_message">{{PLURAL|one=ستصبح هذه المقالة متاحة في حالة عدم الاتصال.|two=ستصبح هتان المقالتان متاحتان في حالة عدم الاتصال.|ستصبح هذه المقالات متاحة في حالة عدم الاتصال.}{</string>
   <plurals name="reading_list_article_not_offline_message" fuzzy="true">
     <item quantity="one">ستصبح هذه المقالة غير متاحة في حالة عدم الاتصال.</item>
     <item quantity="other">ستصبح هذه المقالات غير متاحة في حالة عدم الاتصال.</item>
@@ -729,8 +726,8 @@
   <string name="suggested_edits_image_zoom_tooltip">ضم الاصبعين لتكبير هذه الصورة.</string>
   <string name="suggested_edits_encouragement_message">%s، شكرا على تعديلاتك، يمكنك العثور أدناه على المزيد من الطرق للمساهمة في ويكيبيديا.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;مرحبا %s&lt;/b&gt;، هل تعلم أنه يمكن للجميع تحرير ويكيبيديا؟ يمكنك العثور أدناه على طرق ممتعة للمساعدة في تحسين ويكيبيديا. تحرير سعيد!</string>
-  <string name="suggested_edits_image_captions_task_detail">تصف التعليقات التوضيحية صورة لمساعدة القراء على فهم معناها وسياقها.</string>
-  <string name="suggested_edits_add_descriptions_task_detail">تلخص أوصاف المقالات مقالة لمساعدة القراء على فهم الموضوع في لمحة.</string>
+  <string name="suggested_edits_image_captions_task_detail" fuzzy="true">تصف التعليقات التوضيحية صورة لمساعدة القراء على فهم معناها وسياقها.</string>
+  <string name="suggested_edits_add_descriptions_task_detail" fuzzy="true">تلخص أوصاف المقالات مقالة لمساعدة القراء على فهم الموضوع في لمحة.</string>
   <string name="suggested_edits_contributions_stat_tooltip">إجمالي عدد المساهمات مع التعديلات المقترحة.</string>
   <string name="suggested_edits_edit_streak_stat_tooltip">كم يوم بدون انقطاع ساهمت به عبر التعديلات المقترحة، إذا لم تكن قد ساهمت في فترة من الوقت، فسوف يعرض تاريخ آخر مساهمة لك.</string>
   <string name="suggested_edits_page_views_stat_tooltip">إجمالي مشاهدات الصفحة للعناصر التي ساهمت بها في آخر 30 يوما مع التعديلات المقترحة.</string>

@@ -110,7 +110,7 @@
   <string name="menu_login">Влизане</string>
   <string name="login_activity_title">Влизане в Уикипедия</string>
   <string name="login_in_progress_dialog_message">Влизане...</string>
-  <string name="login_success_toast" fuzzy="true">Успешно влизане!</string>
+  <string name="login_success_toast">Успешно влизане!</string>
   <string name="reset_password_title">Въведете паролата си</string>
   <string name="reset_password_description">Влязохте с временна парола. За да завършите влизането, моля, въведете нова парола тук.</string>
   <string name="reset_password_hint">Нова парола</string>
@@ -187,7 +187,7 @@
   <string name="about_description">Относно приложението Уикипедия.</string>
   <string name="privacy_policy_description">Защита на личните данни</string>
   <string name="terms_of_use_description">Условия за ползване</string>
-  <string name="about_wikipedia_url" fuzzy="true">https://bg.m.wikipedia.org/wiki/Уикипедия:За_Уикипедия</string>
+  <string name="about_wikipedia_url">https://bg.wikipedia.org/wiki/Уикипедия:За_Уикипедия</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
@@ -264,7 +264,7 @@
   <string name="gallery_menu_share">Споделяне</string>
   <string name="gallery_share_error">Изображението не може да бъде споделено: %s</string>
   <string name="gallery_save_progress">Изтегляне на файла...</string>
-  <string name="gallery_save_success" fuzzy="true">Файлът е записан успешно.</string>
+  <string name="gallery_save_success">Файлът е записан.</string>
   <string name="gallery_error_video_failed">Видеото не може да бъде възпроизведено.</string>
   <string name="gallery_save_image_write_permission_rationale">Нужно е разрешение за записване в паметта на устройството, за да се запази изображение.</string>
   <string name="gallery_add_image_caption_button">Добавяне на надпис към изображението</string>
@@ -443,7 +443,7 @@
     <item quantity="one">Тази статия вече не е налична в офлайн режим.</item>
     <item quantity="other">Тези статии вече не са налични в офлайн режим.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync" fuzzy="true">Списъците за четене са синхронизирани успешно</string>
+  <string name="reading_list_toast_last_sync">Списъците за четене са синхронизирани</string>
   <string name="reading_list_menu_last_sync">Последно синхронизиране: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">Добре</string>
   <string name="reading_list_delete_dialog_ok_button_text">Добре</string>
@@ -661,10 +661,10 @@
   <string name="suggested_edits_snackbar_survey_action_text">Попълнете анкета</string>
   <string name="suggested_edits_task_action_text_add">Добавяне</string>
   <string name="suggested_edits_task_action_text_translate">Превод</string>
-  <string name="suggested_edits_image_captions" fuzzy="true">Описания на изображения</string>
+  <string name="suggested_edits_image_captions">Описания на изображения</string>
   <string name="suggested_edits_encouragement_message">%s, благодарим Ви за вашите редакции. По-долу може да намерите още начини как да допринасяте за Уикипедия.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Здравейте, %s&lt;/b&gt;, знаехте ли, че всеки може да редактира Уикипедия? Надолу може да намерите развлекателни начини, за да помогнете в подобряването на Уикипедия. Приятно редактиране!</string>
-  <string name="suggested_edits_image_captions_task_detail">Описанията на изображенията помагат на читателя да разбере значението и контекста на изображението.</string>
+  <string name="suggested_edits_image_captions_task_detail" fuzzy="true">Описанията на изображенията помагат на читателя да разбере значението и контекста на изображението.</string>
   <string name="suggested_edits_editing_tips_link_text">Съвети и трикове за редактирането</string>
   <string name="suggested_edits_pageviews_label_text">Преглеждания</string>
   <string name="suggested_edits_quality_label_text">Качество на редакциите</string>

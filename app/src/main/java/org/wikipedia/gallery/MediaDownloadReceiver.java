@@ -109,6 +109,7 @@ public class MediaDownloadReceiver extends BroadcastReceiver {
         return filename.startsWith(FILE_NAMESPACE) ? filename.substring(FILE_NAMESPACE.length()) : filename;
     }
 
+    // TODO: Research whether this whole call is necessary anymore.
     private void notifyContentResolver(@NonNull Context context, @Nullable String path, @NonNull String mimeType) {
         ContentValues values = new ContentValues();
         Uri contentUri = null;
@@ -126,7 +127,11 @@ public class MediaDownloadReceiver extends BroadcastReceiver {
             contentUri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
         }
         if (contentUri != null) {
-            context.getContentResolver().insert(contentUri, values);
+            try {
+                context.getContentResolver().insert(contentUri, values);
+            } catch (Exception e) {
+                // ignore
+            }
         }
     }
 }
