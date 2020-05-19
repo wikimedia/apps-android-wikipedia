@@ -312,7 +312,7 @@ public class DescriptionEditFragment extends Fragment {
         @SuppressWarnings("checkstyle:magicnumber")
         private void postDescription(@NonNull String editToken) {
 
-            disposables.add(ServiceFactory.get(pageTitle.getWikiSite()).getSiteInfo()
+            disposables.add(ServiceFactory.get(WikiSite.forLanguageCode(pageTitle.getWikiSite().languageCode())).getSiteInfo()
                     .flatMap(response -> {
                         String languageCode = response.query().siteInfo() != null && response.query().siteInfo().lang() != null
                                 ? response.query().siteInfo().lang() : pageTitle.getWikiSite().languageCode();
@@ -353,7 +353,7 @@ public class DescriptionEditFragment extends Fragment {
                     }));
         }
 
-        private Observable<EntityPostResponse> getPostObservable(@NonNull String editToken, @Nullable String languageCode) {
+        private Observable<EntityPostResponse> getPostObservable(@NonNull String editToken, @NonNull String languageCode) {
             if (action == ADD_CAPTION || action == TRANSLATE_CAPTION) {
                 return ServiceFactory.get(wikiCommons).postLabelEdit(languageCode, languageCode, commonsDbName,
                         pageTitle.getPrefixedText(), editView.getDescription(),
