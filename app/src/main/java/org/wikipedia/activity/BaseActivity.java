@@ -104,6 +104,8 @@ public abstract class BaseActivity extends AppCompatActivity {
         registerReceiver(networkStateReceiver, filter);
 
         DeviceUtil.setLightSystemUiVisibility(this);
+
+        setStatusBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color));
         setNavigationBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color));
 
         maybeShowLoggedOutInBackgroundDialog();
