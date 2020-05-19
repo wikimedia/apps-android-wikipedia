@@ -272,7 +272,7 @@ public class ReadingListDbHelper {
         } finally {
             db.endTransaction();
         }
-        if (movedTitles.isEmpty()) {
+        if (!movedTitles.isEmpty()) {
             SavedPageSyncService.enqueue();
             ReadingListSyncAdapter.manualSync();
         }
@@ -288,8 +288,8 @@ public class ReadingListDbHelper {
     private void movePageToList(SQLiteDatabase db, long sourceReadingListId, @NonNull ReadingList list, @NonNull PageTitle title) {
         ReadingListPage readingListPage = getPageByTitle(db, sourceReadingListId, title);
         if (readingListPage != null) {
-            readingListPage.listId(list.id());
-            updatePageInDb(db, readingListPage);
+            addPageToList(db, list, title);
+            markPagesForDeletion(list, Collections.singletonList(readingListPage));
             WikipediaApp.getInstance().getBus().post(new ReadingListSyncEvent());
         }
     }

@@ -46,8 +46,8 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
     private View onboardingContainer;
     private View onboardingButton;
     private CreateButtonClickListener createClickListener = new CreateButtonClickListener();
-    List<ReadingList> readingLists = new ArrayList<>();
-    InvokeSource invokeSource;
+    private List<ReadingList> readingLists = new ArrayList<>();
+    private InvokeSource invokeSource;
     CompositeDisposable disposables = new CompositeDisposable();
 
     static final String PAGE_TITLE_LIST = "pageTitleList";
