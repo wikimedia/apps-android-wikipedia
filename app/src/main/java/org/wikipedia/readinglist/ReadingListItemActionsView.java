@@ -31,6 +31,7 @@ public class ReadingListItemActionsView extends LinearLayout {
     @BindView(R.id.reading_list_item_title) TextView titleView;
     @BindView(R.id.reading_list_item_remove_text) TextView removeTextView;
     @BindView(R.id.reading_list_item_offline_switch) SwitchCompat offlineSwitchView;
+    @BindView(R.id.reading_list_item_move_to_other) ViewGroup moveItemContainer;
     @BindView(R.id.reading_list_item_select) ViewGroup selectItemContainer;
 
     @Nullable private Callback callback;
@@ -55,6 +56,7 @@ public class ReadingListItemActionsView extends LinearLayout {
         titleView.setText(StringUtil.fromHtml(pageTitle));
         removeTextView.setText(removeFromListText);
         selectItemContainer.setVisibility(hasActionMode ? View.GONE : View.VISIBLE);
+        moveItemContainer.setVisibility(hasActionMode ? View.GONE : View.VISIBLE);
     }
 
     public void setCallback(@Nullable Callback callback) {
