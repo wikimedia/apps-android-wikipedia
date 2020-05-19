@@ -114,6 +114,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:clickable="true"
+                        android:focusable="true"
                         android:text="@string/login_forgot_password"
                         android:textColor="?attr/colorAccent" />
 
@@ -131,6 +132,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:clickable="true"
+                        android:focusable="true"
                         android:text="@string/privacy_policy_description"
                         android:textColor="?attr/colorAccent" />
 
