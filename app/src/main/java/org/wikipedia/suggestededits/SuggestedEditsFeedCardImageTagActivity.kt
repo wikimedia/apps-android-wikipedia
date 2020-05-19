@@ -35,8 +35,6 @@ class SuggestedEditsFeedCardImageTagActivity : BaseActivity(), SuggestedEditsIma
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         supportActionBar!!.title = getString(R.string.suggested_edits_tag_images)
         imageZoomHelper = ImageZoomHelper(this)
-        setStatusBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color))
-        setNavigationBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color))
         setContentView(R.layout.activity_suggested_edits_feed_card_image_tags)
         suggestedEditsImageTagsFragment = supportFragmentManager.findFragmentById(R.id.imageTagFragment) as SuggestedEditsImageTagsFragment?
         addContributionButton.setOnClickListener { suggestedEditsImageTagsFragment!!.publish() }
