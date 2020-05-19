@@ -127,7 +127,6 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
         val qLangMap = HashMap<String, HashSet<String>>()
         disposables.add(ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getUserContributions(AccountUtil.getUserName()!!, 50, articleContributionsContinuation)
                 .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
                 .flatMap { response ->
                     if (!response.continuation().isNullOrEmpty()) {
                         articleContributionsContinuation = response.continuation()!!["uccontinue"]
@@ -160,7 +159,9 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
                     ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getWikidataLabelsAndDescriptions(qLangMap.keys.joinToString("|"))
                             .subscribeOn(Schedulers.io())
                             .observeOn(AndroidSchedulers.mainThread())
-                }.subscribe({
+                }
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({
                     for (entityKey in it.entities().keys) {
                         val entity = it.entities()[entityKey]!!
                         for (contribution in continuedArticlesContributions) {
@@ -180,7 +181,6 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
     private fun getArticleContributionDetails() {
         disposables.add(Observable.fromIterable(continuedArticlesContributions)
                 .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
                 .doFinally {
                     articleContributions.addAll(continuedArticlesContributions)
                     if (editFilterType == EDIT_TYPE_ARTICLE_DESCRIPTION) {
@@ -189,7 +189,9 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
                         getImageContributions()
                     }
                 }
-                .flatMap({ contribution: Contribution -> ServiceFactory.getRest(contribution.wikiSite).getSummary(null, contribution.title) }, { first: Contribution, second: PageSummary -> Pair(first, second) })
+                .flatMap({ contribution: Contribution -> ServiceFactory.getRest(contribution.wikiSite).getSummary(null, contribution.title) },
+                        { first: Contribution, second: PageSummary -> Pair(first, second) })
+                .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ pair ->
                     val summary = pair.second
                     val contribution = pair.first
@@ -205,10 +207,8 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
     private fun getImageContributions() {
         disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getUserContributions(AccountUtil.getUserName()!!, 50, imageContributionsContinuation)
                 .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ mwQueryResponse ->
+                .flatMap { mwQueryResponse ->
                     continuedImageContributions.clear()
-                    var imageCount = 0
                     imageContributionsContinuation = if (mwQueryResponse.continuation().isNullOrEmpty()) "" else mwQueryResponse.continuation()!!["uccontinue"]
                     for (userContribution in mwQueryResponse.query()!!.userContributions()) {
                         val strArr = userContribution.comment.split(" ")
@@ -232,45 +232,41 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
                             continuedImageContributions.elementAt(continuedImageContributions.indexOf(con)).tagCount++
                         }
                     }
-                    for (contribution in continuedImageContributions) {
-                        disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo(contribution.title, contribution.wikiSite.languageCode())
-                                .subscribeOn(Schedulers.io())
-                                .observeOn(AndroidSchedulers.mainThread())
-                                .doAfterTerminate {
-                                    if (++imageCount == continuedImageContributions.size) {
-                                        for (continuedImageContribution in continuedImageContributions) {
-                                            if (!imageContributions.add(continuedImageContribution)) {
-                                                continuedImageContributions.elementAt(continuedImageContributions.indexOf(continuedImageContribution)).tagCount++
-                                            }
-                                        }
-                                        createConsolidatedList()
-                                    }
-                                }
-                                .subscribe({ response ->
-                                    val page = response.query()!!.pages()!![0]
-                                    if (page.imageInfo() != null) {
-                                        val imageInfo = page.imageInfo()!!
-                                        contribution.description = imageInfo.metadata!!.imageDescription()
-                                        contribution.imageUrl = imageInfo.originalUrl
-                                        contribution.title = contribution.title.replace("File:", "")
-                                        if (contribution.editType == EDIT_TYPE_IMAGE_TAG) {
-                                            if (!page.imageLabels.isNullOrEmpty()) {
-                                                var labelsString = ""
-                                                for (imageLabel in page.imageLabels) {
-                                                    labelsString = imageLabel.label + "," + labelsString
-                                                }
-                                                contribution.description = labelsString
-                                            }
-                                        }
-                                    }
-                                }, { caught ->
-                                    L.e(caught)
-                                }))
+                    Observable.fromIterable(continuedImageContributions)
+                }
+                .flatMap({ contribution: Contribution -> ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo(contribution.title, contribution.wikiSite.languageCode()) },
+                        { first: Contribution, second: MwQueryResponse -> Pair(first, second) })
+                .observeOn(AndroidSchedulers.mainThread())
+                .doAfterTerminate {
+                    for (continuedImageContribution in continuedImageContributions) {
+                        if (!imageContributions.add(continuedImageContribution)) {
+                            continuedImageContributions.elementAt(continuedImageContributions.indexOf(continuedImageContribution)).tagCount++
+                        }
                     }
-                }) { t: Throwable? ->
+                    createConsolidatedList()
+                }
+                .subscribe({ pair ->
+                    val response = pair.second
+                    val contribution = pair.first
+                    val page = response.query()!!.pages()!![0]
+                    if (page.imageInfo() != null) {
+                        val imageInfo = page.imageInfo()!!
+                        contribution.description = imageInfo.metadata!!.imageDescription()
+                        contribution.imageUrl = imageInfo.originalUrl
+                        contribution.title = contribution.title.replace("File:", "")
+                        if (contribution.editType == EDIT_TYPE_IMAGE_TAG) {
+                            if (!page.imageLabels.isNullOrEmpty()) {
+                                var labelString = ""
+                                for (imageLabel in page.imageLabels) {
+                                    labelString = imageLabel.label + "," + labelString
+                                }
+                                contribution.description = labelString
+                            }
+                        }
+                    }
+                }, { t ->
                     L.e(t)
-                    showError(t!!)
-                })
+                }))
     }
 
     private fun createConsolidatedList() {
