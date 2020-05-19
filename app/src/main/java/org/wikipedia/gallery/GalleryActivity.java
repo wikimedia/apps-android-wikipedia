@@ -616,15 +616,13 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         disposeImageCaptionDisposable();
         imageCaptionDisposable = Observable.zip(MediaHelper.INSTANCE.getImageCaptions(item.getImageTitle().getPrefixedText()),
                 ServiceFactory.get(new WikiSite(Service.COMMONS_URL)).getProtectionInfo(item.getImageTitle().getPrefixedText()), (captions, protectionInfoRsp) -> {
-                    boolean protectedFile = false;
                     item.getMediaInfo().setCaptions(captions);
                     for (Protection protection : protectionInfoRsp.query().firstPage().protection()) {
                         if (protection.getType().equals("edit") && !protectionInfoRsp.query().userInfo().getGroups().contains(protection.getLevel())) {
-                            protectedFile = true;
-                            break;
+                            return true;
                         }
                     }
-                    return protectedFile;
+                    return false;
                 })
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
