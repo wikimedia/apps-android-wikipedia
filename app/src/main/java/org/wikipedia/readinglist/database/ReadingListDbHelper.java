@@ -75,6 +75,16 @@ public class ReadingListDbHelper {
         return lists;
     }
 
+    private ReadingList getListWithoutContentsById(SQLiteDatabase db, long readingListId) {
+        try (Cursor cursor = db.query(ReadingListContract.TABLE, null, ReadingListContract.Col.ID.getName() + " = ?",
+                new String[]{Long.toString(readingListId)}, null, null, null)) {
+            if (cursor.moveToNext()) {
+                return ReadingList.DATABASE_TABLE.fromCursor(cursor);
+            }
+        }
+        return null;
+    }
+
     @NonNull
     public ReadingList createList(@NonNull String title, @Nullable String description) {
         if (TextUtils.isEmpty(title)) {
@@ -286,12 +296,20 @@ public class ReadingListDbHelper {
     }
 
     private void movePageToList(SQLiteDatabase db, long sourceReadingListId, @NonNull ReadingList list, @NonNull PageTitle title) {
-        ReadingListPage readingListPage = getPageByTitle(db, sourceReadingListId, title);
-        if (readingListPage != null) {
+        ReadingListPage sourceReadingListPage = getPageByTitle(db, sourceReadingListId, title);
+        ReadingList sourceReadingList = getListWithoutContentsById(db, sourceReadingListId);
+        if (sourceReadingListPage != null && sourceReadingList != null) {
             addPageToList(db, list, title);
-            markPagesForDeletion(list, Collections.singletonList(readingListPage));
+            markPageForDeletion(db, sourceReadingList, sourceReadingListPage);
             WikipediaApp.getInstance().getBus().post(new ReadingListSyncEvent());
         }
+    }
+
+    private void markPageForDeletion(SQLiteDatabase db, @NonNull ReadingList list, @NonNull ReadingListPage page) {
+        page.status(ReadingListPage.STATUS_QUEUE_FOR_DELETE);
+        updatePageInDb(db, page);
+        ReadingListSyncAdapter.manualSyncWithDeletePages(list, Collections.singletonList(page));
+        WikipediaApp.getInstance().getBus().post(new ArticleSavedOrDeletedEvent(false, page));
     }
 
     public void markPagesForDeletion(@NonNull ReadingList list, @NonNull List<ReadingListPage> pages) {
