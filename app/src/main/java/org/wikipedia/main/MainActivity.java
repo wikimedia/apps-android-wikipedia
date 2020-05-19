@@ -88,7 +88,6 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
             startActivityForResult(InitialOnboardingActivity.newIntent(this), ACTIVITY_REQUEST_INITIAL_ONBOARDING);
         }
 
-        setStatusBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color));
         setNavigationBarColor(ResourceUtil.getThemedColor(this, R.attr.nav_tab_background_color));
         setSupportActionBar(getToolbar());
         if (getSupportActionBar() != null) {

@@ -12,8 +12,6 @@
         <item name="android:textColorSecondary">@color/masi</item>
         <item name="android:textColorTertiary">@color/base30</item>
 
-        <item name="page_expanded_status_bar_color">@color/papyrus</item>
-
         <item name="section_title_color">@color/masi</item>
         <item name="secondary_text_color">@color/masi</item>
         <item name="searchItemBackground">@color/parchment</item>
@@ -21,6 +19,7 @@
         <item name="toc_scroller_button_color">@color/parchment</item>
         <item name="button_background_color">@color/parchment</item>
         <item name="tab_placeholder_text_color">@color/amate</item>
+        <item name="color_group_22">@color/papyrus</item>
         <item name="color_group_53">@color/amate</item>
         <item name="color_group_54">@color/amate</item>
         <item name="color_group_59">@color/masi</item>

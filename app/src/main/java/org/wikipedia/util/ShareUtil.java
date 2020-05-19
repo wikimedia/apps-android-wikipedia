@@ -95,7 +95,10 @@ public final class ShareUtil {
     }
 
 
-    private static Uri getUriFromFile(@NonNull Context context, @NonNull File file) {
+    private static Uri getUriFromFile(@NonNull Context context, @Nullable File file) {
+        if (file == null) {
+            return null;
+        }
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
                 ? FileProvider.getUriForFile(context, FILE_PROVIDER_AUTHORITY, file)
                 : Uri.parse(FILE_PREFIX + file.getAbsolutePath());
