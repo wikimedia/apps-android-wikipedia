@@ -7,7 +7,6 @@
         <item name="android:windowBackground">@color/base4</item>
 
         <!-- Overrides of our own custom color attributes -->
-        <item name="page_expanded_status_bar_color">@color/base14</item>
         <item name="themed_icon_color">@android:color/white</item>
         <item name="nav_tab_background_color">@color/base14</item>
         <item name="randomizer_dice_icon_color">@color/accent50</item>
@@ -20,6 +19,7 @@
         <!-- Background for cards, lists, and controls -->
         <item name="paper_color">@color/base0</item>
         <item name="suggestions_background_color">@color/base0</item>
+        <item name="color_group_22">@color/base14</item>
         <item name="color_group_53">@color/accent20</item>
         <item name="color_group_54">@color/base10</item>
         <item name="color_group_60">@color/base18</item>

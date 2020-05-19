@@ -707,7 +707,7 @@
   <string name="suggested_edits_image_tags_onboarding_text">Genom att lägga till bildtaggar hjälper du till att göra det lättare att söka efter dem på Commons, det frilicenserade bildarkivet som Wikipedia använder för bilder i sina artiklar.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Endast taggar som du väljer kommer att läggas till i bilder.</string>
   <string name="suggested_edits_image_tags_snackbar">Lägg till bildtaggar för att göra det lättare för andra att hitta bilderna.</string>
-  <string name="suggested_edits_image_tags_task_detail">Tagga bilder för att göra dem enklare att hitta.</string>
+  <string name="suggested_edits_image_tags_task_detail" fuzzy="true">Tagga bilder för att göra dem enklare att hitta.</string>
   <string name="suggested_edits_image_tags_choose">Lägg till eller välj lämpliga taggar</string>
   <string name="suggested_edits_image_tags_published_list">Publicerade taggar</string>
   <string name="suggested_edits_image_tags_search">Sök taggar</string>
@@ -717,8 +717,8 @@
   <string name="suggested_edits_image_zoom_tooltip">Nyp för att zooma denna bild.</string>
   <string name="suggested_edits_encouragement_message">Tack för dina redigeringar, %s. Nedan kan du hitta fler sätt att bidra på Wikipedia.</string>
   <string name="suggested_edits_onboarding_message">Hej %s, visste du att alla kan redigera på Wikipedia? Nedan kan du hitta roliga sätt att hjälpa till att förbättra Wikipedia. Lycka till med redigeringen!</string>
-  <string name="suggested_edits_image_captions_task_detail">Bildtexter beskriver en bild för att hjälpa läsare förstå dess betydelse och sammanhang.</string>
-  <string name="suggested_edits_add_descriptions_task_detail">Titelbeskrivningar sammanfattar en artikel för att hjälpa läsare förstå ämnet på ett ögonblick.</string>
+  <string name="suggested_edits_image_captions_task_detail" fuzzy="true">Bildtexter beskriver en bild för att hjälpa läsare förstå dess betydelse och sammanhang.</string>
+  <string name="suggested_edits_add_descriptions_task_detail" fuzzy="true">Titelbeskrivningar sammanfattar en artikel för att hjälpa läsare förstå ämnet på ett ögonblick.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Ditt totala antal bidrag med redigeringsförslag.</string>
   <string name="suggested_edits_edit_streak_stat_tooltip">Antal dagar i rad du har bidragit via redigeringsförslag. Om du inte har bidragit på ett tag kommer datumet för ditt senaste bidrag visas.</string>
   <string name="suggested_edits_page_views_stat_tooltip">Sidvisningar för objekt du har bidragit till de senaste 30 dagarna med redigeringsförslag.</string>

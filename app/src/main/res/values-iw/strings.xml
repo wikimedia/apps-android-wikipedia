@@ -205,6 +205,7 @@
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.he</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.he</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/he</string>
+  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/he#Image_tags</string>
   <string name="about_libraries_heading">ספריות בשימוש</string>
   <string name="about_contributors_heading">תורמים</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;דף הצוות&lt;/a&gt;</string>
@@ -728,7 +729,7 @@
   <string name="suggested_edits_image_tags_onboarding_text">אימות התגים יעזור לאחרים למצוא אותן בוויקישיתוף, מאגר התמונות החופשיות שוויקיפדיה משתמשת בו לתמונות בערכים שלה.</string>
   <string name="suggested_edits_image_tags_onboarding_note">רק תגים שאישרת יוּספו לתמונות.</string>
   <string name="suggested_edits_image_tags_snackbar">תייגו תמונות כדי שלאחרים יהיה קל יותר למצוא אותן</string>
-  <string name="suggested_edits_image_tags_task_detail">תייגו תמונות כדי שלאחרים יהיה קל יותר למצוא אותן.</string>
+  <string name="suggested_edits_image_tags_task_detail" fuzzy="true">תייגו תמונות כדי שלאחרים יהיה קל יותר למצוא אותן.</string>
   <string name="suggested_edits_image_tags_choose">נא לבחור או להוסיף תגים תואמים</string>
   <string name="suggested_edits_image_tags_published_list">תגים שפורסמו</string>
   <string name="suggested_edits_image_tags_search">חיפוש תגים</string>
@@ -738,8 +739,8 @@
   <string name="suggested_edits_image_zoom_tooltip">אפשר לקרב את התמונה הזאת בשתי אצבעות.</string>
   <string name="suggested_edits_encouragement_message">%s, תודה על תרומתך. בהמשך הדף ניתן למצוא דרכים נוספות לתרום לוויקיפדיה.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;היי %s&lt;/b&gt;, ידעת שלכל אחד יש אפשרות לערוך את ויקיפדיה? להלן שיטות מהנות לסייע בשיפור ויקיפדיה. עריכה מהנה!</string>
-  <string name="suggested_edits_image_captions_task_detail">כותרות התמונות מתארות תמונה כדי לסייע לקוראים להבין את המשמעות וההקשר.</string>
-  <string name="suggested_edits_add_descriptions_task_detail">תיאורי ערכים מסכמים את הערך כדי לעזור לקוראים להבין את הנושא במבט אחד.</string>
+  <string name="suggested_edits_image_captions_task_detail" fuzzy="true">כותרות התמונות מתארות תמונה כדי לסייע לקוראים להבין את המשמעות וההקשר.</string>
+  <string name="suggested_edits_add_descriptions_task_detail" fuzzy="true">תיאורי ערכים מסכמים את הערך כדי לעזור לקוראים להבין את הנושא במבט אחד.</string>
   <string name="suggested_edits_contributions_stat_tooltip">המספר הכולל של התרומות שלך באמצעות עריכות מוצעות.</string>
   <string name="suggested_edits_edit_streak_stat_tooltip">כמה ימים בלי הפסקה תרמת דרך עריכות מוצעות. אם לא תרמת במשך זמן־מה, זה מראה את תאריך התרומה האחרונה שלך.</string>
   <string name="suggested_edits_page_views_stat_tooltip">סך הצגות הדפים שתרמת להם ב־30 הימים האחרונים באמצעות עריכות מוצעות.</string>

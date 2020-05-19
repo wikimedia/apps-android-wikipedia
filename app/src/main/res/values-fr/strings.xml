@@ -729,7 +729,7 @@
   <string name="suggested_edits_image_tags_onboarding_text">En ajoutant des balises d’image, vous faciliterez la recherche d’images sur Commons, le répertoire d’images sous licence libre utilisé par Wikipédia dans ses articles.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Seules les balises que vous choisissez seront ajoutées aux images.</string>
   <string name="suggested_edits_image_tags_snackbar">Ajouter des balises à l’image pour les rendre plus faciles à trouver par les autres.</string>
-  <string name="suggested_edits_image_tags_task_detail">Marquez les images pour les retrouver plus facilement.</string>
+  <string name="suggested_edits_image_tags_task_detail">Ajouter des balises personnalisées à une image pour la retrouver plus facilement.</string>
   <string name="suggested_edits_image_tags_choose">Ajouter ou choisir les balises qui correspondent</string>
   <string name="suggested_edits_image_tags_published_list">Balises publiées</string>
   <string name="suggested_edits_image_tags_search">Rechercher des balises</string>
@@ -739,8 +739,8 @@
   <string name="suggested_edits_image_zoom_tooltip">Pincer pour zoomer sur cette image.</string>
   <string name="suggested_edits_encouragement_message">%s, merci pour vos modifications. Ci-dessous, vous pourrez trouver d’autres moyens de contribuer à Wikipédia.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Bonjour %s&lt;/b&gt;, saviez-vous que tout le monde peut modifier Wikipédia ? Ci-dessous, vous trouverez des manières amusantes pour aider à améliorer Wikipédia. Bonne modification !</string>
-  <string name="suggested_edits_image_captions_task_detail">Les légendes d’image décrivent une image pour aider les lecteurs à comprendre leur signification et leur contexte.</string>
-  <string name="suggested_edits_add_descriptions_task_detail">Les descriptions d’article résument un article, pour aider les lecteurs à comprendre le sujet d’un coup d’œil.</string>
+  <string name="suggested_edits_image_captions_task_detail">Décrire une image pour aider les lecteurs à comprendre sa signification et son contexte.</string>
+  <string name="suggested_edits_add_descriptions_task_detail">Résumer un article, pour aider les lecteurs à comprendre le sujet d’un coup d’œil.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Votre nombre total de contributions avec Modifications suggérées.</string>
   <string name="suggested_edits_edit_streak_stat_tooltip">Pendant combien de jours sans arrêt vous avez contribué avec les Modifications suggérées. Si vous n’avez pas contribué depuis longtemps, ceci affiche la date de votre dernière contribution.</string>
   <string name="suggested_edits_page_views_stat_tooltip">Nombre total de pages vues des éléments auxquels vous avez contribué ces 30 derniers jours avec Modifications suggérées.</string>

@@ -217,27 +217,27 @@ public class ReadingListDbHelper {
         SavedPageSyncService.enqueue();
     }
 
-    public int addPagesToListIfNotExist(@NonNull ReadingList list, @NonNull List<PageTitle> titles) {
+    public List<String> addPagesToListIfNotExist(@NonNull ReadingList list, @NonNull List<PageTitle> titles) {
         SQLiteDatabase db = getWritableDatabase();
         db.beginTransaction();
-        int numAdded = 0;
+        List<String> addedTitles = new ArrayList<>();
         try {
             for (PageTitle title : titles) {
                 if (getPageByTitle(db, list, title) != null) {
                     continue;
                 }
                 addPageToList(db, list, title);
-                numAdded++;
+                addedTitles.add(title.getDisplayText());
             }
             db.setTransactionSuccessful();
         } finally {
             db.endTransaction();
         }
-        if (numAdded > 0) {
+        if (!addedTitles.isEmpty()) {
             SavedPageSyncService.enqueue();
             ReadingListSyncAdapter.manualSync();
         }
-        return numAdded;
+        return addedTitles;
     }
 
     private void addPageToList(SQLiteDatabase db, @NonNull ReadingList list, @NonNull PageTitle title) {

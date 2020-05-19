@@ -705,8 +705,8 @@
   <string name="suggested_edits_image_zoom_tooltip">Klíptu til að renna að þessari mynd.</string>
   <string name="suggested_edits_encouragement_message">%s, takk fyrir breytingarnar þínar. Hér fyrir neðan geturðu séð fleiri leiðir til að leggja þitt af mörkum til Wikipedia.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Hæ %s&lt;/b&gt;, issir þú að allir geta breytt efni á Wikipedia? Hér fyrir neðan geturðu séð ýmsar skemmtilegar leiðir til að bæta Wikipedia. Skemmtu þér vel!</string>
-  <string name="suggested_edits_image_captions_task_detail">Myndatextar lýsa myndum til að hjálpa notendum að skilja meiningu og samhengi myndanna.</string>
-  <string name="suggested_edits_add_descriptions_task_detail">Lýsingar á greinum draga saman efni greinar í örfáum orðum til að hjálpa lesendum að skilja umfjöllunarefnið í fljótu bragði.</string>
+  <string name="suggested_edits_image_captions_task_detail" fuzzy="true">Myndatextar lýsa myndum til að hjálpa notendum að skilja meiningu og samhengi myndanna.</string>
+  <string name="suggested_edits_add_descriptions_task_detail" fuzzy="true">Lýsingar á greinum draga saman efni greinar í örfáum orðum til að hjálpa lesendum að skilja umfjöllunarefnið í fljótu bragði.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Heildarfjöldi breytinga sem þú hefur gert út frá tillögum að breytingum.</string>
   <string name="suggested_edits_edit_streak_stat_tooltip">Hve marga daga í röð þú hefur gert breytingar út frá tillögum að breytingum. Ef þú hefur ekki nýtt þér þetta í einhvern tíma, þá birtist dagsetningin þegar þú gerðir það síðast.</string>
   <string name="suggested_edits_page_views_stat_tooltip">Heildarfjöldi síðuflettinga á atriði sem þú hefur gert síðustu 30 daga út frá tillögum að breytingum.</string>

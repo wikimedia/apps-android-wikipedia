@@ -74,6 +74,7 @@ public abstract class LinkHandler implements CommunicationBridge.JSEventListener
         for (String scheme : KNOWN_SCHEMES) {
             if (href.startsWith(scheme + ":")) {
                 knownScheme = true;
+                break;
             }
         }
         if (!knownScheme) {
