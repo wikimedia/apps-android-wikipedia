@@ -9,6 +9,7 @@ import android.view.WindowManager;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import org.wikipedia.R;
 import org.wikipedia.activity.SingleFragmentActivity;
 import org.wikipedia.readinglist.database.ReadingList;
 import org.wikipedia.util.ResourceUtil;
@@ -34,6 +35,6 @@ public class ReadingListActivity extends SingleFragmentActivity<ReadingListFragm
     }
 
     public void updateNavigationBarColor() {
-        setNavigationBarColor(ResourceUtil.getThemedColor(this, android.R.attr.windowBackground));
+        setNavigationBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color));
     }
 }

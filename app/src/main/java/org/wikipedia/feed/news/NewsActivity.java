@@ -9,6 +9,7 @@ import android.view.WindowManager;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import org.wikipedia.R;
 import org.wikipedia.activity.SingleFragmentActivity;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.json.GsonMarshaller;
@@ -39,6 +40,6 @@ public class NewsActivity extends SingleFragmentActivity<NewsFragment> {
     }
 
     public void updateNavigationBarColor() {
-        setNavigationBarColor(ResourceUtil.getThemedColor(this, android.R.attr.windowBackground));
+        setNavigationBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color));
     }
 }
