@@ -18,6 +18,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestBuilder;
 import com.bumptech.glide.load.MultiTransformation;
 import com.bumptech.glide.load.resource.bitmap.CenterCrop;
+import com.bumptech.glide.load.resource.bitmap.DownsampleStrategy;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 
 import org.wikipedia.R;
@@ -58,6 +59,7 @@ public final class ViewUtil {
                 .load(!TextUtils.isEmpty(url) ? Uri.parse(url) : null)
                 .placeholder(placeholder)
                 .error(placeholder)
+                .downsample(DownsampleStrategy.CENTER_INSIDE)
                 .transform(new WhiteBackgroundTransformation())
                 .into(view);
     }
