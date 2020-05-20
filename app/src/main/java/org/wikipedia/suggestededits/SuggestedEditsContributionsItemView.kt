@@ -7,18 +7,23 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import kotlinx.android.synthetic.main.item_suggested_edits_contributions.view.*
 import org.wikipedia.R
-import org.wikipedia.suggestededits.SuggestedEditsContributionsFragment.Contribution
-import org.wikipedia.suggestededits.SuggestedEditsContributionsFragment.Contribution.Companion.EDIT_TYPE_IMAGE_CAPTION
-import org.wikipedia.suggestededits.SuggestedEditsContributionsFragment.Contribution.Companion.EDIT_TYPE_IMAGE_TAG
+
+import org.wikipedia.suggestededits.Contribution.Companion.EDIT_TYPE_IMAGE_CAPTION
+import org.wikipedia.suggestededits.Contribution.Companion.EDIT_TYPE_IMAGE_TAG
 import org.wikipedia.util.StringUtil
 import org.wikipedia.views.ViewUtil
 
-class SuggestedEditsContributionsItemView @JvmOverloads constructor(
-        context: Context,
-        attrs: AttributeSet? = null,
-        defStyle: Int = 0,
-        defStyleRes: Int = 0
-) : LinearLayout(context, attrs, defStyle, defStyleRes) {
+class SuggestedEditsContributionsItemView constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
+
+    init {
+        View.inflate(context, R.layout.item_suggested_edits_contributions, this)
+        layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        setOnClickListener {
+            if (callback != null) {
+                callback!!.onClick(context, contribution!!)
+            }
+        }
+    }
 
     interface Callback {
         fun onClick(context: Context, contribution: Contribution)
@@ -58,7 +63,6 @@ class SuggestedEditsContributionsItemView @JvmOverloads constructor(
         }
     }
 
-
     fun setImageUrl(url: String?) {
         if (url.isNullOrEmpty() || url == "null") {
             image.visibility = View.GONE
@@ -66,16 +70,6 @@ class SuggestedEditsContributionsItemView @JvmOverloads constructor(
         } else {
             image.visibility = View.VISIBLE
             ViewUtil.loadImageWithRoundedCorners(image, url)
-        }
-    }
-
-    init {
-        View.inflate(context, R.layout.item_suggested_edits_contributions, this)
-        layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-        setOnClickListener {
-            if (callback != null) {
-                callback!!.onClick(context, contribution!!)
-            }
         }
     }
 }

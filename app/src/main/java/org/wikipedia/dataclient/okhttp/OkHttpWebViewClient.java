@@ -103,7 +103,7 @@ public abstract class OkHttpWebViewClient extends WebViewClient {
             }
             //------------------
 
-            String reasonCode = TextUtils.isEmpty(e.getMessage()) ? "Unknown error" : e.getMessage();
+            String reasonCode = TextUtils.isEmpty(e.getMessage()) ? "Unknown error" : UriUtil.encodeURL(e.getMessage());
             if (e instanceof HttpStatusException) {
                 response = new WebResourceResponse(null, null, ((HttpStatusException) e).code(), reasonCode, null, null);
             } else {

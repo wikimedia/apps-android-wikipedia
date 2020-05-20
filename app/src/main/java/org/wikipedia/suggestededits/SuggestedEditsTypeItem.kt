@@ -6,21 +6,16 @@ import android.os.Build
 import android.util.AttributeSet
 import android.view.View
 import android.widget.LinearLayout
-import androidx.annotation.DrawableRes
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
 import androidx.core.widget.ImageViewCompat
 import kotlinx.android.synthetic.main.item_suggested_edits_type.view.*
 import org.wikipedia.R
-import org.wikipedia.suggestededits.SuggestedEditsContributionsFragment.Contribution.Companion.ALL_EDIT_TYPES
+import org.wikipedia.suggestededits.Contribution.Companion.ALL_EDIT_TYPES
 import org.wikipedia.util.ResourceUtil
 
-class SuggestedEditsTypeItem @JvmOverloads constructor(
-        context: Context,
-        attrs: AttributeSet? = null,
-        defStyle: Int = 0,
-        defStyleRes: Int = 0
-) : LinearLayout(context, attrs, defStyle, defStyleRes) {
+class SuggestedEditsTypeItem constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
+
     var editType: Int = ALL_EDIT_TYPES
     private var callback: Callback? = null
 
@@ -33,24 +28,11 @@ class SuggestedEditsTypeItem @JvmOverloads constructor(
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             foreground = AppCompatResources.getDrawable(context, ResourceUtil.getThemedAttributeId(context, R.attr.selectableItemBackground))
         }
-        this.setOnClickListener {
+        setOnClickListener {
             if (callback != null) {
                 callback!!.onClick(this)
             }
         }
-    }
-
-    fun setCallback(callback: Callback?) {
-        this.callback = callback
-    }
-
-
-    fun setTitle(contributionTitle: String?) {
-        title.text = contributionTitle
-    }
-
-    fun setImageResource(@DrawableRes imageResource: Int) {
-        image.setImageResource(imageResource)
     }
 
     fun setEnabledStateUI() {
@@ -65,14 +47,10 @@ class SuggestedEditsTypeItem @JvmOverloads constructor(
         this.background = ContextCompat.getDrawable(context, R.drawable.rounded_12dp_corner_base90_fill)
     }
 
-    fun setType(editType: Int) {
-        this.editType = editType
-    }
-
     fun setAttributes(title: String, imageResource: Int, editType: Int, callback: Callback) {
-        setTitle(title)
-        setImageResource(imageResource)
-        setType(editType)
-        setCallback(callback)
+        this.title.text = title
+        image.setImageResource(imageResource)
+        this.editType = editType
+        this.callback = callback
     }
 }

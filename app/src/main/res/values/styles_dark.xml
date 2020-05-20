@@ -42,7 +42,6 @@
         <!-- Overrides of our own custom color attributes -->
         <item name="toolbar_title_color">@android:color/white</item>
         <item name="toolbar_icon_color">@android:color/white</item>
-        <item name="page_expanded_status_bar_color">@color/base18</item>
         <item name="themed_icon_color">@android:color/white</item>
         <item name="nav_tab_background_color">@color/base18</item>
         <item name="nav_tab_item_color_state">@color/color_state_nav_tab_dark</item>
@@ -76,6 +75,7 @@
         <!-- Background for cards, lists, and controls -->
         <item name="paper_color">@color/base14</item>
         <item name="suggestions_background_color">@color/base12</item>
+        <item name="color_group_22">@color/base18</item>
         <item name="color_group_52">@color/accent75</item>
         <item name="color_group_53">@color/accent30</item>
         <item name="color_group_54">@color/base14</item>

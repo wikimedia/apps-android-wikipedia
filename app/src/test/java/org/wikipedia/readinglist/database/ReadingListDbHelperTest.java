@@ -1,7 +1,5 @@
 package org.wikipedia.readinglist.database;
 
-import junit.framework.Assert;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -13,6 +11,9 @@ import org.wikipedia.page.PageTitle;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
 
 @RunWith(RobolectricTestRunner.class)
 @Config(application = WikipediaApp.class)
@@ -29,9 +30,9 @@ public class ReadingListDbHelperTest {
         List<ReadingList> lists = readingListDbHelper.getAllLists();
         int initialSize = lists.size();
         ReadingList list = readingListDbHelper.createList("Test", "TestDesc");
-        Assert.assertEquals(initialSize + 1, readingListDbHelper.getAllLists().size());
+        assertThat(readingListDbHelper.getAllLists().size(), is(initialSize + 1));
         readingListDbHelper.deleteList(list);
-        Assert.assertEquals(initialSize, readingListDbHelper.getAllLists().size());
+        assertThat(readingListDbHelper.getAllLists().size(), is(initialSize));
     }
 
     @Test
@@ -43,7 +44,7 @@ public class ReadingListDbHelperTest {
                 isEmpty = false;
             }
         }
-        Assert.assertTrue(isEmpty);
+        assertThat(isEmpty, is(true));
     }
 
     @Test
@@ -51,7 +52,7 @@ public class ReadingListDbHelperTest {
         List<ReadingList> lists = readingListDbHelper.getAllLists();
         int initialSize = lists.size();
         ReadingList list = readingListDbHelper.createList("Test1", "TestDesc");
-        Assert.assertEquals(initialSize + 1, readingListDbHelper.getAllLists().size());
+        assertThat(readingListDbHelper.getAllLists().size(), is(initialSize + 1));
         readingListDbHelper.deleteList(list);
     }
 
@@ -61,8 +62,8 @@ public class ReadingListDbHelperTest {
         list.title("testTitle");
         readingListDbHelper.updateList(list, false);
         List<ReadingList> lists = readingListDbHelper.getAllLists();
-        Assert.assertTrue(hasTitle(lists, "testTitle"));
-        Assert.assertFalse(hasTitle(lists, "Test2"));
+        assertThat(hasTitle(lists, "testTitle"), is(true));
+        assertThat(hasTitle(lists, "Test2"), is(false));
         readingListDbHelper.deleteList(list);
     }
 
@@ -72,8 +73,8 @@ public class ReadingListDbHelperTest {
         int initialSize = lists.size();
         ReadingList list = readingListDbHelper.createList("Test3", "TestDesc");
         readingListDbHelper.deleteList(list);
-        Assert.assertEquals(initialSize, readingListDbHelper.getAllLists().size());
-        Assert.assertFalse(hasTitle(lists, "Test3"));
+        assertThat(readingListDbHelper.getAllLists().size(), is(initialSize));
+        assertThat(hasTitle(lists, "Test3"), is(false));
     }
 
     @Test
@@ -90,7 +91,7 @@ public class ReadingListDbHelperTest {
         readingListDbHelper.deleteList(list2);
         readingListDbHelper.markPagesForDeletion(list, pages);
         readingListDbHelper.markPagesForDeletion(list2, pages);
-        Assert.assertFalse(lists.contains(list));
+        assertThat(lists.contains(list), is(false));
     }
 
     public void testGetAllPagesToBeSavedForRetrievingPages() {
@@ -106,7 +107,7 @@ public class ReadingListDbHelperTest {
         List<ReadingListPage> pages = new ArrayList<>();
         pages.add(readingListPage);
         readingListDbHelper.markPagesForDeletion(list, pages);
-        Assert.assertTrue(pagesList.size() != 0);
+        assertThat(pagesList.isEmpty(), is(false));
     }
 
     @Test
@@ -121,7 +122,7 @@ public class ReadingListDbHelperTest {
         List<ReadingListPage> pagesList = readingListDbHelper.getAllPagesToBeDeleted();
         readingListDbHelper.deleteList(list);
         readingListDbHelper.markPagesForDeletion(list, pagesListToBeAdded);
-        Assert.assertTrue(pagesList.size() != 0);
+        assertThat(pagesList.isEmpty(), is(false));
     }
 
     @Test
@@ -135,14 +136,14 @@ public class ReadingListDbHelperTest {
         pages.add(page);
         pages.add(page2);
         pages.add(page3);
-        int numAdded = readingListDbHelper.addPagesToListIfNotExist(list, pages);
+        List<String> addedTitles = readingListDbHelper.addPagesToListIfNotExist(list, pages);
         readingListDbHelper.deleteList(list);
         List<ReadingListPage> readingListPages = new ArrayList<>();
         for (PageTitle page1 : pages) {
             readingListPages.add(new ReadingListPage(page1));
         }
         readingListDbHelper.markPagesForDeletion(list, readingListPages);
-        Assert.assertTrue(numAdded == 2);
+        assertThat(addedTitles.size(), is(2));
     }
 
     @Test
@@ -161,7 +162,7 @@ public class ReadingListDbHelperTest {
         pages.add(new ReadingListPage(page2));
         pages.add(new ReadingListPage(page3));
         readingListDbHelper.markPagesForDeletion(list, pages);
-        Assert.assertTrue(exists);
+        assertThat(exists, is(true));
     }
 
     @Test
@@ -181,7 +182,7 @@ public class ReadingListDbHelperTest {
         pages.clear();
         pages.add(new ReadingListPage(page2));
         readingListDbHelper.markPagesForDeletion(list2, pages);
-        Assert.assertTrue(readingListPage != null);
+        assertThat(readingListPage != null, is(true));
     }
 
     @Test
@@ -198,7 +199,7 @@ public class ReadingListDbHelperTest {
         pages.add(new ReadingListPage(page));
         readingListDbHelper.markPagesForDeletion(list, pages);
         readingListDbHelper.markPagesForDeletion(list2, pages);
-        Assert.assertTrue(numOfPages != 0);
+        assertThat(numOfPages != 0, is(true));
     }
 
 
