@@ -8,12 +8,7 @@ import androidx.annotation.DrawableRes
 import kotlinx.android.synthetic.main.view_suggested_edits_contribution_diff_detail.view.*
 import org.wikipedia.R
 
-class SuggestedEditsDiffDetailView @JvmOverloads constructor(
-        context: Context,
-        attrs: AttributeSet? = null,
-        defStyle: Int = 0,
-        defStyleRes: Int = 0
-) : LinearLayout(context, attrs, defStyle, defStyleRes) {
+class SuggestedEditsDiffDetailView constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
 
     init {
         LayoutInflater.from(context)
