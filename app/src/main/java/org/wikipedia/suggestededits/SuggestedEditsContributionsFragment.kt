@@ -246,9 +246,8 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
                     createConsolidatedList()
                 }
                 .subscribe({ pair ->
-                    val response = pair.second
                     val contribution = pair.first
-                    val page = response.query()!!.pages()!![0]
+                    val page = pair.second.query()!!.pages()!![0]
                     if (page.imageInfo() != null) {
                         val imageInfo = page.imageInfo()!!
                         contribution.description = imageInfo.metadata!!.imageDescription()
@@ -256,11 +255,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
                         contribution.title = contribution.title.replace("File:", "")
                         if (contribution.editType == EDIT_TYPE_IMAGE_TAG) {
                             if (!page.imageLabels.isNullOrEmpty()) {
-                                var labelString = ""
-                                for (imageLabel in page.imageLabels) {
-                                    labelString = imageLabel.label + "," + labelString
-                                }
-                                contribution.description = labelString
+                                page.imageLabels.joinToString(separator = ",")
                             }
                         }
                     }
@@ -335,7 +330,6 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
                 count = SuggestedEditsUserStats.totalEdits
             }
         }
-
         contributionsCountText.text = getString(R.string.suggested_edits_spinner_item_text, count, resources.getQuantityString(R.plurals.suggested_edits_contribution, count))
         for (filterView in filterViews) {
             if (filterView == view) {
@@ -352,18 +346,10 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
                 articleAndImageContributions.addAll(articleContributions)
             }
             EDIT_TYPE_IMAGE_CAPTION -> {
-                for (imageContribution in imageContributions) {
-                    if (imageContribution.editType == EDIT_TYPE_IMAGE_CAPTION) {
-                        articleAndImageContributions.add(imageContribution)
-                    }
-                }
+                articleAndImageContributions.addAll(imageContributions.filter { it.editType == EDIT_TYPE_ARTICLE_DESCRIPTION })
             }
             EDIT_TYPE_IMAGE_TAG -> {
-                for (imageContribution in imageContributions) {
-                    if (imageContribution.editType == EDIT_TYPE_IMAGE_TAG) {
-                        articleAndImageContributions.add(imageContribution)
-                    }
-                }
+                articleAndImageContributions.addAll(imageContributions.filter { it.editType == EDIT_TYPE_IMAGE_TAG })
             }
             else -> {
                 articleAndImageContributions.addAll(articleContributions)

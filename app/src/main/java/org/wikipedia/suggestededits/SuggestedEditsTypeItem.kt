@@ -6,7 +6,6 @@ import android.os.Build
 import android.util.AttributeSet
 import android.view.View
 import android.widget.LinearLayout
-import androidx.annotation.DrawableRes
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
 import androidx.core.widget.ImageViewCompat
@@ -36,14 +35,6 @@ class SuggestedEditsTypeItem constructor(context: Context, attrs: AttributeSet? 
         }
     }
 
-    fun setTitle(contributionTitle: String?) {
-        title.text = contributionTitle
-    }
-
-    fun setImageResource(@DrawableRes imageResource: Int) {
-        image.setImageResource(imageResource)
-    }
-
     fun setEnabledStateUI() {
         title.setTextColor(ResourceUtil.getThemedColor(context, R.attr.colorAccent))
         ImageViewCompat.setImageTintList(image, ColorStateList.valueOf(ContextCompat.getColor(context, ResourceUtil.getThemedAttributeId(context, R.attr.colorAccent))))
@@ -57,8 +48,8 @@ class SuggestedEditsTypeItem constructor(context: Context, attrs: AttributeSet? 
     }
 
     fun setAttributes(title: String, imageResource: Int, editType: Int, callback: Callback) {
-        setTitle(title)
-        setImageResource(imageResource)
+        this.title.text = title
+        image.setImageResource(imageResource)
         this.editType = editType
         this.callback = callback
     }
