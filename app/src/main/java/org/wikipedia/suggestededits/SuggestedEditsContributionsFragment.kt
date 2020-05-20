@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import io.reactivex.Observable
+import io.reactivex.ObservableSource
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
@@ -179,28 +180,36 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
     }
 
     private fun getArticleContributionDetails() {
-        disposables.add(Observable.fromIterable(continuedArticlesContributions)
-                .subscribeOn(Schedulers.io())
-                .doFinally {
+        val summaryObservables = ArrayList<ObservableSource<PageSummary>?>()
+        for (contribution in continuedArticlesContributions) {
+            summaryObservables.add(ServiceFactory.getRest(contribution.wikiSite).getSummary(null, contribution.title).subscribeOn(Schedulers.io()).onErrorReturnItem(PageSummary()))
+        }
+        disposables.add(Observable.zip(summaryObservables) { summaries ->
+            for (summary in summaries) {
+                if (summary is PageSummary) {
+                    for (contribution in continuedArticlesContributions) {
+                        if (contribution.title == summary.displayTitle) {
+                            contribution.description = StringUtils.defaultString(summary.description)
+                            contribution.imageUrl = summary.thumbnailUrl.toString()
+                            contribution.pageViews = pageViewsMap[contribution.title]
+                                    ?: 0
+                        }
+                    }
+
+                }
+            }
+            summaries[0]
+        }
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({ _ ->
                     articleContributions.addAll(continuedArticlesContributions)
                     if (editFilterType == EDIT_TYPE_ARTICLE_DESCRIPTION) {
                         createConsolidatedList()
                     } else {
                         getImageContributions()
                     }
-                }
-                .flatMap({ contribution: Contribution -> ServiceFactory.getRest(contribution.wikiSite).getSummary(null, contribution.title) },
-                        { first: Contribution, second: PageSummary -> Pair(first, second) })
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ pair ->
-                    val summary = pair.second
-                    val contribution = pair.first
-                    contribution.description = StringUtils.defaultString(summary.description)
-                    contribution.imageUrl = summary.thumbnailUrl.toString()
-                    contribution.pageViews = pageViewsMap[contribution.title]
-                            ?: 0
-                }, { t ->
-                    L.e(t)
+                }, { caught ->
+                    L.e(caught)
                 }))
     }
 
@@ -232,33 +241,44 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
                             continuedImageContributions.elementAt(continuedImageContributions.indexOf(con)).tagCount++
                         }
                     }
-                    Observable.fromIterable(continuedImageContributions)
+                    val imageInfoObservables = ArrayList<ObservableSource<MwQueryResponse>>()
+                    for (contribution in continuedImageContributions) {
+                        imageInfoObservables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo(contribution.title, contribution.wikiSite.languageCode()).onErrorReturnItem(MwQueryResponse()))
+                    }
+                    Observable.zip(imageInfoObservables) {
+                        for (response in it) {
+                            if (response is MwQueryResponse) {
+                                val page = response.query()!!.pages()!![0]
+                                if (page.imageInfo() != null) {
+                                    val imageInfo = page.imageInfo()!!
+                                    for (contribution in continuedImageContributions) {
+                                        if (contribution.title == page.title()) {
+                                            contribution.description = imageInfo.metadata!!.imageDescription()
+                                            contribution.imageUrl = imageInfo.originalUrl
+                                            contribution.title = contribution.title.replace("File:", "")
+                                            if (contribution.editType == EDIT_TYPE_IMAGE_TAG) {
+                                                if (!page.imageLabels.isNullOrEmpty()) {
+                                                    page.imageLabels.joinToString(separator = ",")
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        it[0]
+                    }
                 }
-                .flatMap({ contribution: Contribution -> ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo(contribution.title, contribution.wikiSite.languageCode()) },
-                        { first: Contribution, second: MwQueryResponse -> Pair(first, second) })
                 .observeOn(AndroidSchedulers.mainThread())
-                .doAfterTerminate {
+                .subscribe({
+
                     for (continuedImageContribution in continuedImageContributions) {
                         if (!imageContributions.add(continuedImageContribution)) {
                             continuedImageContributions.elementAt(continuedImageContributions.indexOf(continuedImageContribution)).tagCount++
                         }
                     }
                     createConsolidatedList()
-                }
-                .subscribe({ pair ->
-                    val contribution = pair.first
-                    val page = pair.second.query()!!.pages()!![0]
-                    if (page.imageInfo() != null) {
-                        val imageInfo = page.imageInfo()!!
-                        contribution.description = imageInfo.metadata!!.imageDescription()
-                        contribution.imageUrl = imageInfo.originalUrl
-                        contribution.title = contribution.title.replace("File:", "")
-                        if (contribution.editType == EDIT_TYPE_IMAGE_TAG) {
-                            if (!page.imageLabels.isNullOrEmpty()) {
-                                page.imageLabels.joinToString(separator = ",")
-                            }
-                        }
-                    }
+
                 }, { t ->
                     L.e(t)
                 }))
