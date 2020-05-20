@@ -46,6 +46,7 @@ public final class ViewUtil {
         RequestBuilder<Drawable> builder = Glide.with(view)
                 .load((isImageDownloadEnabled() || force) && !TextUtils.isEmpty(url) ? Uri.parse(url) : null)
                 .placeholder(placeholder)
+                .downsample(DownsampleStrategy.CENTER_INSIDE)
                 .error(placeholder);
         if (roundedCorners) {
             builder = builder.transform(CENTER_CROP_ROUNDED_CORNERS);
