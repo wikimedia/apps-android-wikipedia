@@ -49,7 +49,9 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
     private val disposables = CompositeDisposable()
 
     private val searchRunnable = Runnable {
-        requestResults(currentSearchTerm)
+        if (isAdded) {
+            requestResults(currentSearchTerm)
+        }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -106,6 +108,7 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         imageTagsSearchText.removeTextChangedListener(textWatcher)
+        imageTagsSearchText.removeCallbacks(searchRunnable)
         disposables.clear()
     }
 
