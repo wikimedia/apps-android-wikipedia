@@ -105,9 +105,9 @@ public final class FeedbackUtil {
         visitInExternalBrowser(context, Uri.parse(context.getString(urlStr)));
     }
 
-    public static boolean showProtectionStatusMessage(@NonNull Activity activity, @Nullable String status) {
+    public static void showProtectionStatusMessage(@NonNull Activity activity, @Nullable String status) {
         if (TextUtils.isEmpty(status)) {
-            return false;
+            return;
         }
         String message;
         switch (status) {
@@ -122,7 +122,6 @@ public final class FeedbackUtil {
                 break;
         }
         showMessage(activity, message);
-        return true;
     }
 
     public static void setToolbarButtonLongPressToast(View... views) {
