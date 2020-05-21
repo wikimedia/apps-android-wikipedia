@@ -76,21 +76,14 @@ public class MoveToReadingListDialog extends AddToReadingListDialog {
 
     @Override
     void run(final ReadingList readingList, final List<PageTitle> titles) {
-        disposables.add(Observable.fromCallable(() -> ReadingListDbHelper.instance().movePagesToListIfNotExist(sourceReadingListId, readingList, titles))
+        disposables.add(Observable.fromCallable(() -> ReadingListDbHelper.instance().movePagesToListAndDeleteSourcePages(sourceReadingListId, readingList, titles))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(movedTitlesList -> {
-                    String message;
-                    if (movedTitlesList.isEmpty()) {
-                        message = titles.size() == 1
-                                ? getString(R.string.reading_list_article_already_exists_message, readingList.title(), titles.get(0).getDisplayText())
-                                : getString(R.string.reading_list_articles_already_exist_message, readingList.title());
-                    } else {
-                        message = (movedTitlesList.size() == 1) ? getString(R.string.reading_list_article_moved_to_named, movedTitlesList.get(0), readingList.title())
-                                : getString(R.string.reading_list_articles_moved_to_named, movedTitlesList.size(), readingList.title());
-                        // TODO: add funnel?
-                    }
-                    showViewListSnackBar(readingList, message);
+                    // TODO: add funnel?
+                    showViewListSnackBar(readingList, (movedTitlesList.size() == 1)
+                            ? getString(R.string.reading_list_article_moved_to_named, movedTitlesList.get(0), readingList.title())
+                            : getString(R.string.reading_list_articles_moved_to_named, movedTitlesList.size(), readingList.title()));
                     dismiss();
                 }, L::w));
     }

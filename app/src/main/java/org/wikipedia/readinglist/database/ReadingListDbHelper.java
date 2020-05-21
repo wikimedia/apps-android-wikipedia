@@ -252,7 +252,7 @@ public class ReadingListDbHelper {
         return addedTitles;
     }
 
-    public List<String> movePagesToListIfNotExist(long sourceReadingListId, @NonNull ReadingList list, @NonNull List<PageTitle> titles) {
+    public List<String> movePagesToListAndDeleteSourcePages(long sourceReadingListId, @NonNull ReadingList list, @NonNull List<PageTitle> titles) {
         SQLiteDatabase db = getWritableDatabase();
         db.beginTransaction();
         List<String> movedTitles = new ArrayList<>();
@@ -279,15 +279,17 @@ public class ReadingListDbHelper {
     }
 
     private void movePageToList(SQLiteDatabase db, long sourceReadingListId, @NonNull ReadingList list, @NonNull PageTitle title) {
-        ReadingList sourceReadingList = getListWithoutContentsById(db, sourceReadingListId);
-        if (sourceReadingList != null) {
-            ReadingListPage sourceReadingListPage = getPageByTitle(db, sourceReadingList, title);
-            if (sourceReadingListPage != null) {
-                if (getPageByTitle(db, list, title) == null) {
-                    addPageToList(db, list, title);
+        if (sourceReadingListId != list.id()) {
+            ReadingList sourceReadingList = getListWithoutContentsById(db, sourceReadingListId);
+            if (sourceReadingList != null) {
+                ReadingListPage sourceReadingListPage = getPageByTitle(db, sourceReadingList, title);
+                if (sourceReadingListPage != null) {
+                    if (getPageByTitle(db, list, title) == null) {
+                        addPageToList(db, list, title);
+                    }
+                    markPagesForDeletion(sourceReadingList, Collections.singletonList(sourceReadingListPage));
+                    WikipediaApp.getInstance().getBus().post(new ReadingListSyncEvent());
                 }
-                markPagesForDeletion(sourceReadingList, Collections.singletonList(sourceReadingListPage));
-                WikipediaApp.getInstance().getBus().post(new ReadingListSyncEvent());
             }
         }
     }
