@@ -391,7 +391,6 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
 
         publishProgressBar.postDelayed({
             if (isAdded) {
-
                 for (i in 0 until tagsChipGroup.childCount) {
                     val chip = tagsChipGroup.getChildAt(i) as Chip
                     if (chip.tag == null) {
