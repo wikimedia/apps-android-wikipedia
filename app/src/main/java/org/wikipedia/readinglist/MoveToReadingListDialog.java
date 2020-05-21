@@ -75,34 +75,16 @@ public class MoveToReadingListDialog extends AddToReadingListDialog {
     }
 
     @Override
-    void execute(final ReadingList readingList, final PageTitle title) {
-        disposables.add(Observable.fromCallable(() -> ReadingListDbHelper.instance().pageExistsInList(readingList, title))
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(exists -> {
-                    String message;
-                    if (exists) {
-                        message = getString(R.string.reading_list_article_already_exists_message, readingList.title(), title.getDisplayText());
-                        showViewListSnackBar(readingList, message);
-                    } else {
-                        message = getString(R.string.reading_list_article_moved_to_named, title.getDisplayText(), readingList.title());
-                        // TODO: add funnel?
-                        ReadingListDbHelper.instance().movePageToList(sourceReadingListId, readingList, title, true);
-                        showViewListSnackBar(readingList, message);
-                    }
-                    dismiss();
-                }, L::w));
-    }
-
-    @Override
-    void execute(final ReadingList readingList, final List<PageTitle> titles) {
+    void run(final ReadingList readingList, final List<PageTitle> titles) {
         disposables.add(Observable.fromCallable(() -> ReadingListDbHelper.instance().movePagesToListIfNotExist(sourceReadingListId, readingList, titles))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(movedTitlesList -> {
                     String message;
                     if (movedTitlesList.isEmpty()) {
-                        message = getString(R.string.reading_list_articles_already_exist_message, readingList.title());
+                        message = titles.size() == 1
+                                ? getString(R.string.reading_list_article_already_exists_message, readingList.title(), titles.get(0).getDisplayText())
+                                : getString(R.string.reading_list_articles_already_exist_message, readingList.title());
                     } else {
                         message = (movedTitlesList.size() == 1) ? getString(R.string.reading_list_article_moved_to_named, movedTitlesList.get(0), readingList.title())
                                 : getString(R.string.reading_list_articles_moved_to_named, movedTitlesList.size(), readingList.title());

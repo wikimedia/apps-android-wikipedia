@@ -204,17 +204,6 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
                 }).show();
     }
 
-    private void addAndDismiss(final ReadingList readingList, final PageTitle title) {
-        if (readingList.pages().size() >= SiteInfoClient.getMaxPagesPerReadingList()) {
-            String message = getString(R.string.reading_list_article_limit_message, readingList.title(), SiteInfoClient.getMaxPagesPerReadingList());
-            FeedbackUtil.makeSnackbar(getActivity(), message, FeedbackUtil.LENGTH_DEFAULT).show();
-            dismiss();
-            return;
-        }
-
-        execute(readingList, title);
-    }
-
     private void addAndDismiss(final ReadingList readingList, final List<PageTitle> titles) {
         if ((readingList.pages().size() + titles.size()) > SiteInfoClient.getMaxPagesPerReadingList()) {
             String message = getString(R.string.reading_list_article_limit_message, readingList.title(), SiteInfoClient.getMaxPagesPerReadingList());
@@ -222,42 +211,19 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
             dismiss();
             return;
         }
-
-        if (titles.size() == 1) {
-            addAndDismiss(readingList, titles.get(0));
-            return;
-        }
-
-        execute(readingList, titles);
+        run(readingList, titles);
     }
 
-    void execute(final ReadingList readingList, final PageTitle title) {
-        disposables.add(Observable.fromCallable(() -> ReadingListDbHelper.instance().pageExistsInList(readingList, title))
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(exists -> {
-                    String message;
-                    if (exists) {
-                        message = getString(R.string.reading_list_article_already_exists_message, readingList.title(), title.getDisplayText());
-                        showViewListSnackBar(readingList, message);
-                    } else {
-                        message = getString(R.string.reading_list_article_added_to_named, title.getDisplayText(), readingList.title());
-                        new ReadingListsFunnel(title.getWikiSite()).logAddToList(readingList, readingLists.size(), invokeSource);
-                        ReadingListDbHelper.instance().addPageToList(readingList, title, true);
-                        showViewListSnackBar(readingList, message);
-                    }
-                    dismiss();
-                }, L::w));
-    }
-
-    void execute(final ReadingList readingList, final List<PageTitle> titles) {
+    void run(final ReadingList readingList, final List<PageTitle> titles) {
         disposables.add(Observable.fromCallable(() -> ReadingListDbHelper.instance().addPagesToListIfNotExist(readingList, titles))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(addedTitlesList -> {
                     String message;
                     if (addedTitlesList.isEmpty()) {
-                        message = getString(R.string.reading_list_articles_already_exist_message, readingList.title());
+                        message = titles.size() == 1
+                                ? getString(R.string.reading_list_article_already_exists_message, readingList.title(), titles.get(0).getDisplayText())
+                                : getString(R.string.reading_list_articles_already_exist_message, readingList.title());
                     } else {
                         message = (addedTitlesList.size() == 1) ? getString(R.string.reading_list_article_added_to_named, addedTitlesList.get(0), readingList.title())
                                 : getString(R.string.reading_list_articles_added_to_named, addedTitlesList.size(), readingList.title());
