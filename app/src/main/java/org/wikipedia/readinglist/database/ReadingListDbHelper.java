@@ -258,9 +258,6 @@ public class ReadingListDbHelper {
         List<String> movedTitles = new ArrayList<>();
         try {
             for (PageTitle title : titles) {
-                if (getPageByTitle(db, list, title) != null) {
-                    continue;
-                }
                 movePageToList(db, sourceReadingListId, list, title);
                 movedTitles.add(title.getDisplayText());
             }
@@ -286,13 +283,14 @@ public class ReadingListDbHelper {
         if (sourceReadingList != null) {
             ReadingListPage sourceReadingListPage = getPageByTitle(db, sourceReadingList, title);
             if (sourceReadingListPage != null) {
-                addPageToList(db, list, title);
+                if (getPageByTitle(db, list, title) == null) {
+                    addPageToList(db, list, title);
+                }
                 markPagesForDeletion(sourceReadingList, Collections.singletonList(sourceReadingListPage));
                 WikipediaApp.getInstance().getBus().post(new ReadingListSyncEvent());
             }
         }
     }
-
 
     public void markPagesForDeletion(@NonNull ReadingList list, @NonNull List<ReadingListPage> pages) {
         markPagesForDeletion(list, pages, true);
