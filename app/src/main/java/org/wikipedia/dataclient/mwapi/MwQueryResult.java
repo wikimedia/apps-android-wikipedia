@@ -7,6 +7,7 @@ import com.google.gson.annotations.SerializedName;
 
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.dataclient.page.Protection;
 import org.wikipedia.json.PostProcessingTypeAdapter;
 import org.wikipedia.model.BaseModel;
 import org.wikipedia.notifications.Notification;
@@ -121,6 +122,18 @@ public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapte
 
     @NonNull public List<UserContributions> userContributions() {
         return userContributions != null ? userContributions : Collections.emptyList();
+    }
+
+    public boolean isEditProtected() {
+        if (firstPage() == null || userInfo() == null) {
+            return false;
+        }
+        for (Protection protection : firstPage().protection()) {
+            if (protection.getType().equals("edit") && !userInfo().getGroups().contains(protection.getLevel())) {
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override
