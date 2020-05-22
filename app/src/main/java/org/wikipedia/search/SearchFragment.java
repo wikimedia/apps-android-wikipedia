@@ -377,7 +377,6 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
         isSearchActive = true;
 
         searchView.setIconified(false);
-        searchView.requestFocusFromTouch();
         // if we already have a previous search query, then put it into the SearchView, and it will
         // automatically trigger the showing of the corresponding search results.
         if (isValidQuery(query)) {
