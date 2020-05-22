@@ -199,7 +199,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
                     imageContributionsContinuation = if (mwQueryResponse.continuation().isNullOrEmpty()) "" else mwQueryResponse.continuation()!!["uccontinue"]
                     for (userContribution in mwQueryResponse.query()!!.userContributions()) {
                         val strArr = userContribution.comment.split(" ")
-                        var contributionLanguage = "en"
+                        var contributionLanguage = ""
                         var editType: Int = -1
 
                         for (str in strArr) {
@@ -327,6 +327,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
     }
 
     private class ContributionItemHolder internal constructor(itemView: SuggestedEditsContributionsItemView) : DefaultViewHolder<SuggestedEditsContributionsItemView?>(itemView) {
+        val disposables = CompositeDisposable()
         fun bindItem(contribution: Contribution) {
             view.setTitle(contribution.description)
             view.setDescription(contribution.title)
@@ -336,8 +337,11 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
             getImageDetails(view, contribution)
         }
 
+        fun clearDisposables() {
+            disposables.clear()
+        }
+
         private fun getImageDetails(itemView: SuggestedEditsContributionsItemView, contribution: Contribution) {
-            val disposables = CompositeDisposable()
             if (contribution.editType == EDIT_TYPE_ARTICLE_DESCRIPTION) {
                 disposables.add(ServiceFactory.getRest(contribution.wikiSite).getSummary(null, contribution.title)
                         .subscribeOn(Schedulers.io())
@@ -349,7 +353,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
                             L.e(t)
                         }))
             } else {
-                disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo(contribution.title, "en")
+                disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo(contribution.title, contribution.wikiSite.languageCode())
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe({ response ->
@@ -381,7 +385,6 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
                 view.setPageViewCountText(0)
                 return
             }
-            val disposables = CompositeDisposable()
             disposables.add(ServiceFactory.get(contribution.wikiSite).getPageViewsForTitles(contribution.title)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
@@ -450,6 +453,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
         override fun onViewDetachedFromWindow(holder: DefaultViewHolder<*>) {
             if (holder is ContributionItemHolder) {
                 holder.view.callback = null
+                holder.clearDisposables()
             }
             super.onViewDetachedFromWindow(holder)
         }
