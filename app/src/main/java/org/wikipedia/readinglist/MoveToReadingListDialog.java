@@ -29,9 +29,8 @@ import io.reactivex.schedulers.Schedulers;
 import static org.wikipedia.Constants.INTENT_EXTRA_INVOKE_SOURCE;
 
 public class MoveToReadingListDialog extends AddToReadingListDialog {
-
     private static final String SOURCE_READING_LIST_ID = "sourceReadingListId";
-    private long sourceReadingListId;
+    private ReadingList sourceReadingList;
 
     public static MoveToReadingListDialog newInstance(long sourceReadingListId,
                                                       @NonNull PageTitle title,
@@ -60,23 +59,23 @@ public class MoveToReadingListDialog extends AddToReadingListDialog {
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        sourceReadingListId = getArguments().getLong(SOURCE_READING_LIST_ID);
-    }
-
-    @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View parentView = super.onCreateView(inflater, container, savedInstanceState);
         TextView dialogTitle = parentView.findViewById(R.id.dialog_title);
         dialogTitle.setText(R.string.reading_list_move_to);
+
+        long sourceReadingListId = getArguments().getLong(SOURCE_READING_LIST_ID);
+        sourceReadingList = ReadingListDbHelper.instance().getListById(sourceReadingListId, false);
+        if (sourceReadingList == null) {
+            dismiss();
+        }
         return parentView;
     }
 
     @Override
-    void run(final ReadingList readingList, final List<PageTitle> titles) {
-        disposables.add(Observable.fromCallable(() -> ReadingListDbHelper.instance().movePagesToListAndDeleteSourcePages(sourceReadingListId, readingList, titles))
+    void commitChanges(final ReadingList readingList, final List<PageTitle> titles) {
+        disposables.add(Observable.fromCallable(() -> ReadingListDbHelper.instance().movePagesToListAndDeleteSourcePages(sourceReadingList, readingList, titles))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(movedTitlesList -> {
