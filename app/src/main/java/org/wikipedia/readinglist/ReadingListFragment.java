@@ -466,6 +466,19 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         }
     }
 
+    private void moveSelectedPagesToList() {
+        List<ReadingListPage> selectedPages = getSelectedPages();
+        if (!selectedPages.isEmpty()) {
+            List<PageTitle> titles = new ArrayList<>();
+            for (ReadingListPage page : selectedPages) {
+                titles.add(ReadingListPage.toPageTitle(page));
+            }
+            bottomSheetPresenter.show(getChildFragmentManager(),
+                    MoveToReadingListDialog.newInstance(readingListId, titles, READING_LIST_ACTIVITY));
+            update();
+        }
+    }
+
     private void delete() {
         ReadingListBehaviorsUtil.INSTANCE.deleteReadingList(requireActivity(), readingList, true, () -> {
             startActivity(MainActivity.newIntent(requireActivity())
@@ -503,6 +516,17 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         }
         bottomSheetPresenter.show(getChildFragmentManager(),
                 AddToReadingListDialog.newInstance(ReadingListPage.toPageTitle(page),
+                        READING_LIST_ACTIVITY));
+    }
+
+    @Override
+    public void onMoveItemToOther(long pageId) {
+        ReadingListPage page = getPageById(pageId);
+        if (page == null) {
+            return;
+        }
+        bottomSheetPresenter.show(getChildFragmentManager(),
+                MoveToReadingListDialog.newInstance(readingListId, ReadingListPage.toPageTitle(page),
                         READING_LIST_ACTIVITY));
     }
 
@@ -920,6 +944,10 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
                     return true;
                 case R.id.menu_add_to_another_list:
                     addSelectedPagesToList();
+                    finishActionMode();
+                    return true;
+                case R.id.menu_move_to_another_list:
+                    moveSelectedPagesToList();
                     finishActionMode();
                     return true;
                 default:

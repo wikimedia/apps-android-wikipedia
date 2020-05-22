@@ -371,9 +371,11 @@
     <!-- Reading lists -->
     <string name="nav_item_reading_lists">My lists</string>
     <string name="reading_list_save_to">Save to reading list</string>
+    <string name="reading_list_move_to">Move to reading list</string>
     <string name="reading_list_create_new">Create new</string>
     <string name="reading_list_title_exists">Reading list \"%s\" already exists.</string>
     <string name="reading_list_article_added_to_named">Added %1$s to %2$s.</string>
+    <string name="reading_list_article_moved_to_named">Moved %1$s to %2$s.</string>
     <string name="reading_list_article_already_exists_message">All good! %1$s already contains %2$s.</string>
     <string name="reading_list_articles_already_exist_message">All good! %s already contains all articles.</string>
     <string name="reading_list_added_view_button">View list</string>
@@ -396,6 +398,7 @@
     <string name="reading_list_action_menu_remove_all_from_offline">Remove all from offline</string>
     <string name="reading_list_action_menu_save_all_for_offline">Save all for offline</string>
     <string name="reading_list_action_menu_add_to_another_list">Add to another list</string>
+    <string name="reading_list_action_menu_move_to_another_list">Move to another list</string>
     <string name="reading_list_name_sample">My reading list</string>
     <string name="reading_list_name_hint">Name of this list</string>
     <string name="reading_list_description_hint">Description (optional)</string>
@@ -416,6 +419,7 @@
     <string name="reading_list_article_offline">Available offline</string>
     <string name="reading_list_article_make_offline">Make this article available offline</string>
     <string name="reading_list_add_to_other_list">Add to another reading list</string>
+    <string name="reading_list_move_to_other_list">Move to another reading list</string>
     <string name="reading_list_remove_from_list">Remove from %s</string>
     <string name="reading_list_remove_from_lists">Remove from reading lists</string>
     <string name="reading_list_select_item">Select</string>
@@ -432,6 +436,7 @@
     <string name="reading_lists_confirm_remote_delete_no">No</string>
     <string name="reading_list_article_save_in_progress">The article is being downloaded, and it will be available offline when complete.</string>
     <string name="reading_list_articles_added_to_named">Added %1$d articles to %2$s</string>
+    <string name="reading_list_articles_moved_to_named">Moved %1$d articles to %2$s</string>
     <string name="reading_list_delete_confirm">Are you sure you want to delete %s?</string>
     <string name="reading_list_preference_login_to_enable_sync_dialog_title">Log in to enable sync</string>
     <string name="reading_list_preference_login_to_enable_sync_dialog_text">Log in to allow your reading lists to be saved to your account.</string>
@@ -452,6 +457,7 @@
     <string name="no_user_lists_msg">Create lists for places to travel to, favorite topics, and much more</string>
     <string name="reading_list_saved_list_rename">%1$s (user created)</string>
     <string name="split_reading_list_message">There is a limit of %d articles per reading list. Existing lists with more than this limit have been split into multiple lists.</string>
+    <string name="reading_list_move_article_limit_message">Can\'t move to this list. You\'ve reached the limit of %2$d articles per list for \"%1$s\".</string>
     <string name="reading_list_article_limit_message">Can\'t add to this list. You\'ve reached the limit of %2$d articles per list for \"%1$s\".</string>
     <string name="reading_lists_limit_message">Can\'t create another list. You\'ve reached the limit of 100 reading lists per account.</string>
     <string name="feed_reading_lists_sync_onboarding_text"><![CDATA[<strong>Sync reading lists</strong><br /><br />Reading lists can now be synced across devices. Log in to your Wikipedia account and allow your lists to be saved.]]></string>
