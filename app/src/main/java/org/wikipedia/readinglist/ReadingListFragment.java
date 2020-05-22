@@ -302,7 +302,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
     }
 
     private void updateReadingListData() {
-        disposables.add(Observable.fromCallable(() -> ReadingListDbHelper.instance().getFullListById(readingListId))
+        disposables.add(Observable.fromCallable(() -> ReadingListDbHelper.instance().getListById(readingListId, true))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(list -> {
