@@ -47,7 +47,6 @@ public class SearchActionProvider extends ActionProvider {
         View view = View.inflate(context, R.layout.group_search, null);
         ButterKnife.bind(this, view);
         searchView.setFocusable(true);
-        searchView.requestFocusFromTouch();
         searchView.setIconified(false);
         searchView.setMaxWidth(Integer.MAX_VALUE);
         searchView.setInputType(EditorInfo.TYPE_CLASS_TEXT);

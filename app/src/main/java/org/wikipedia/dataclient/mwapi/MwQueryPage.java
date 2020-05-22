@@ -69,8 +69,8 @@ public class MwQueryPage extends BaseModel {
         return categories;
     }
 
-    @Nullable public List<Protection> protection() {
-        return protection;
+    @NonNull public List<Protection> protection() {
+        return protection == null ? Collections.emptyList() : protection;
     }
 
     @Nullable public List<Coordinates> coordinates() {

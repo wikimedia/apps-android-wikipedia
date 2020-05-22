@@ -218,6 +218,16 @@ public class ReadingListsFragment extends Fragment implements
     }
 
     @Override
+    public void onMoveItemToOther(long pageId) {
+        ReadingListPage page = getPageById(pageId);
+        if (page == null) {
+            return;
+        }
+        bottomSheetPresenter.show(getChildFragmentManager(),
+                MoveToReadingListDialog.newInstance(page.listId(), ReadingListPage.toPageTitle(page), READING_LIST_ACTIVITY));
+    }
+
+    @Override
     public void onSelectItem(long pageId) {
         // ignore
     }
