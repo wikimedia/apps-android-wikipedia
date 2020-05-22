@@ -14,6 +14,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_contributions_suggested_edits.*
+import org.apache.commons.lang3.StringUtils
 import org.apache.commons.lang3.time.DateUtils
 import org.wikipedia.R
 import org.wikipedia.auth.AccountUtil
@@ -42,7 +43,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
     private var consolidatedContributionsWithDates: MutableList<Any> = ArrayList()
     private var continuedArticlesContributions = ArrayList<Contribution>()
     private val continuedImageContributions = HashSet<Contribution>()
-    val disposables = CompositeDisposable()
+    private val disposables = CompositeDisposable()
     private var articleContributionsContinuation: String? = null
     private var imageContributionsContinuation: String? = null
     private var loadingMore = false
@@ -255,7 +256,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
         val yesterday: Calendar = Calendar.getInstance()
         yesterday.add(Calendar.DAY_OF_YEAR, -1)
         return when {
-            DateUtils.isSameDay(Calendar.getInstance().time, date) -> getString(R.string.view_continue_reading_card_subtitle_today).capitalize()
+            DateUtils.isSameDay(Calendar.getInstance().time, date) -> StringUtils.capitalize(getString(R.string.view_continue_reading_card_subtitle_today))
             DateUtils.isSameDay(yesterday.time, date) -> getString(R.string.suggested_edits_date_string_yesterday)
             else -> DateUtil.getFeedCardDateString(date)
         }
@@ -330,6 +331,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
             view.setTitle(contribution.description)
             view.setDescription(contribution.title)
             view.setIcon(contribution.editType)
+            view.setImageUrl(contribution.imageUrl)
             getPageView(view, contribution)
             getImageDetails(view, contribution)
         }
@@ -376,6 +378,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
 
         private fun getPageView(view: SuggestedEditsContributionsItemView, contribution: Contribution) {
             if (contribution.editType != EDIT_TYPE_ARTICLE_DESCRIPTION) {
+                view.setPageViewCountText(0)
                 return
             }
             val disposables = CompositeDisposable()
