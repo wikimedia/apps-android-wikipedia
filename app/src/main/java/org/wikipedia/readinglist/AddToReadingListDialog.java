@@ -211,10 +211,10 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
             dismiss();
             return;
         }
-        run(readingList, titles);
+        commitChanges(readingList, titles);
     }
 
-    void run(final ReadingList readingList, final List<PageTitle> titles) {
+    void commitChanges(final ReadingList readingList, final List<PageTitle> titles) {
         disposables.add(Observable.fromCallable(() -> ReadingListDbHelper.instance().addPagesToListIfNotExist(readingList, titles))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
