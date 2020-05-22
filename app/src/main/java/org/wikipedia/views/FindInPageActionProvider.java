@@ -60,7 +60,6 @@ public class FindInPageActionProvider extends ActionProvider {
         setFindInPageChevronsEnabled(false);
         searchView.setQueryHint(context.getString(R.string.menu_page_find_in_page));
         searchView.setFocusable(true);
-        searchView.requestFocusFromTouch();
         searchView.setOnQueryTextListener(searchQueryListener);
         searchView.setIconified(false);
         searchView.setMaxWidth(Integer.MAX_VALUE);
