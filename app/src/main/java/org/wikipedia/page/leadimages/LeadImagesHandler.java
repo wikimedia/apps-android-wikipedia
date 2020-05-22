@@ -19,7 +19,6 @@ import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.media.MediaHelper;
-import org.wikipedia.dataclient.page.Protection;
 import org.wikipedia.descriptions.DescriptionEditActivity;
 import org.wikipedia.gallery.GalleryActivity;
 import org.wikipedia.gallery.ImageInfo;
@@ -133,15 +132,8 @@ public class LeadImagesHandler {
         String imageTitle = "File:" + getPage().getPageProperties().getLeadImageName();
         disposables.add(ServiceFactory.get(new WikiSite(Service.COMMONS_URL)).getProtectionInfo(imageTitle)
                 .subscribeOn(Schedulers.io())
-                .map(response -> {
-                    for (Protection protection : response.query().firstPage().protection()) {
-                        if (protection.getType().equals("edit") && !response.query().userInfo().getGroups().contains(protection.getLevel())) {
-                            return true;
-                        }
-                    }
-                    return false;
-                })
-                .flatMap(protectedFile -> protectedFile ? Observable.empty() : Observable.zip(MediaHelper.INSTANCE.getImageCaptions(imageTitle),
+                .map(response -> response.query().isEditProtected())
+                .flatMap(isProtected -> isProtected ? Observable.empty() : Observable.zip(MediaHelper.INSTANCE.getImageCaptions(imageTitle),
                         ServiceFactory.get(getTitle().getWikiSite()).getImageInfo(imageTitle, WikipediaApp.getInstance().getAppOrSystemLanguageCode()), Pair::new))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
