@@ -6,7 +6,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
-import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -137,7 +136,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         void onPageLoadPage(@NonNull PageTitle title, @NonNull HistoryEntry entry);
         void onPageInitWebView(@NonNull ObservableWebView v);
         void onPageShowLinkPreview(@NonNull HistoryEntry entry);
-        void onPageLoadEmptyPageInForegroundTab();
+        void onPageLoadMainPageInForegroundTab();
         void onPageUpdateProgressBar(boolean visible, boolean indeterminate, int value);
         void onPageShowThemeChooser();
         void onPageStartSupportActionMode(@NonNull ActionMode.Callback callback);
@@ -166,7 +165,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     private LeadImagesHandler leadImagesHandler;
     private PageHeaderView pageHeaderView;
     private ObservableWebView webView;
-    private View emptyPageContainer;
     private CoordinatorLayout containerView;
     private SwipeRefreshLayoutWithScroll refreshView;
     private WikiErrorView errorView;
@@ -309,7 +307,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                              final Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_page, container, false);
         pageHeaderView = rootView.findViewById(R.id.page_header_view);
-        emptyPageContainer = rootView.findViewById(R.id.page_empty_container);
 
         webView = rootView.findViewById(R.id.page_web_view);
         initWebViewListeners();
@@ -404,7 +401,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         if (!pageFragmentLoadState.backStackEmpty()) {
             pageFragmentLoadState.loadFromBackStack();
         } else {
-            loadEmptyPageInForegroundTab();
+            loadMainPageInForegroundTab();
         }
     }
 
@@ -691,37 +688,20 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         model.setReadingListPage(null);
         model.setForceNetwork(isRefresh);
 
-        if (title.getText().equals(Constants.EMPTY_PAGE_TITLE)) {
-            // show Empty state...
-            tocHandler.setEnabled(false);
-            updateProgressBar(false, true, 0);
+        webView.setVisibility(View.VISIBLE);
+        tabLayout.setVisibility(View.VISIBLE);
 
-            webView.setVisibility(View.GONE);
-            leadImagesHandler.hide();
-            tabLayout.setVisibility(View.GONE);
-            emptyPageContainer.setVisibility(View.VISIBLE);
-            setToolbarFadeEnabled(false);
-        } else {
-            webView.setVisibility(View.VISIBLE);
-            tabLayout.setVisibility(View.VISIBLE);
-            emptyPageContainer.setVisibility(View.GONE);
+        tabLayout.enableAllTabs();
 
-            tabLayout.enableAllTabs();
+        updateProgressBar(true, true, 0);
 
-            updateProgressBar(true, true, 0);
+        this.pageRefreshed = isRefresh;
+        references = null;
 
-            this.pageRefreshed = isRefresh;
-            references = null;
-
-            closePageScrollFunnel();
-            pageFragmentLoadState.load(pushBackStack);
-            scrollTriggerListener.setStagedScrollY(stagedScrollY);
-            updateBookmarkAndMenuOptions();
-        }
-    }
-
-    public Bitmap getLeadImageBitmap() {
-        return leadImagesHandler.getLeadImageBitmap();
+        closePageScrollFunnel();
+        pageFragmentLoadState.load(pushBackStack);
+        scrollTriggerListener.setStagedScrollY(stagedScrollY);
+        updateBookmarkAndMenuOptions();
     }
 
     /**
@@ -1229,10 +1209,10 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         }
     }
 
-    private void loadEmptyPageInForegroundTab() {
+    private void loadMainPageInForegroundTab() {
         Callback callback = callback();
         if (callback != null) {
-            callback.onPageLoadEmptyPageInForegroundTab();
+            callback.onPageLoadMainPageInForegroundTab();
         }
     }
 
@@ -1304,11 +1284,9 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                 new Date(),
                 model.getCurEntry().getSource(),
                 timeSpentSec));
-        if (!model.getCurEntry().getTitle().getText().equals(Constants.EMPTY_PAGE_TITLE)) {
-            Completable.fromAction(new UpdateHistoryTask(model.getCurEntry()))
-                    .subscribeOn(Schedulers.io())
-                    .subscribe(() -> { }, L::e);
-        }
+        Completable.fromAction(new UpdateHistoryTask(model.getCurEntry()))
+                .subscribeOn(Schedulers.io())
+                .subscribe(() -> { }, L::e);
     }
 
     private LinearLayout.LayoutParams getContentTopOffsetParams(@NonNull Context context) {
