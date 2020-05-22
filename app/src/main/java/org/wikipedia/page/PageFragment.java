@@ -91,6 +91,7 @@ import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.GeoUtil;
 import org.wikipedia.util.ShareUtil;
+import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.ThrowableUtil;
 import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
@@ -1005,6 +1006,14 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                     sections = new ArrayList<>(Arrays.asList(secArray));
                     sections.add(0, new Section(0, 0, model.getTitle().getDisplayText(), model.getTitle().getDisplayText(), ""));
                     model.getPage().setSections(sections);
+                }
+
+                if (model.getTitle() != null && model.getTitle().getFragment() != null && sections != null && !sections.isEmpty()) {
+                    for (Section s : sections) {
+                        if (StringUtil.removeUnderscores(s.getAnchor()).contains(StringUtils.capitalize(model.getTitle().getFragment().toLowerCase()))) {
+                            scrollToSection(s.getAnchor());
+                        }
+                    }
                 }
                 tocHandler.setupToC(model.getPage(), model.getTitle().getWikiSite());
                 tocHandler.setEnabled(true);

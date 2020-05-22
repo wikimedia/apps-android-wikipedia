@@ -235,7 +235,6 @@ public class PageFragmentLoadState {
 
         Page page = pageSummary.toPage(model.getTitle());
         model.setPage(page);
-        model.setTitle(page.getTitle());
 
         if (page.getTitle().getDescription() == null) {
             app.getSessionFunnel().noDescription();
