@@ -9,10 +9,7 @@ import android.os.Build
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.view.WindowManager
+import android.view.*
 import android.widget.TextView
 import androidx.core.view.ViewCompat
 import androidx.fragment.app.DialogFragment
@@ -80,6 +77,11 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
         } else {
             dialog.window!!.setBackgroundDrawable(materialShapeDrawable)
         }
+
+        val params = dialog.window!!.attributes
+        params.gravity = Gravity.TOP
+        dialog.window!!.attributes = params
+
         return dialog
     }
 
