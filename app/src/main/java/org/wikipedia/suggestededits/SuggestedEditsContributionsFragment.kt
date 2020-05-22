@@ -12,7 +12,6 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
@@ -25,7 +24,6 @@ import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
-import org.wikipedia.dataclient.page.PageSummary
 import org.wikipedia.suggestededits.Contribution.Companion.ALL_EDIT_TYPES
 import org.wikipedia.suggestededits.Contribution.Companion.EDIT_TYPE_ARTICLE_DESCRIPTION
 import org.wikipedia.suggestededits.Contribution.Companion.EDIT_TYPE_IMAGE_CAPTION
@@ -48,13 +46,12 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
     private var consolidatedContributionsWithDates: MutableList<Any> = ArrayList()
     private var continuedArticlesContributions = ArrayList<Contribution>()
     private val continuedImageContributions = HashSet<Contribution>()
-    val disposables = CompositeDisposable()
+    private val disposables = CompositeDisposable()
     private var articleContributionsContinuation: String? = null
     private var imageContributionsContinuation: String? = null
     private var loadingMore = false
     private var editFilterType = ALL_EDIT_TYPES
     private var filterViews = ArrayList<SuggestedEditsTypeItem>()
-    private val pageViewsMap = HashMap<String, Long>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -130,6 +127,14 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
         val qLangMap = HashMap<String, HashSet<String>>()
         disposables.add(ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getUserContributions(AccountUtil.getUserName()!!, 50, articleContributionsContinuation)
                 .subscribeOn(Schedulers.io())
+                .doFinally {
+                    articleContributions.addAll(continuedArticlesContributions)
+                    if (editFilterType == EDIT_TYPE_ARTICLE_DESCRIPTION) {
+                        createConsolidatedList()
+                    } else {
+                        getImageContributions()
+                    }
+                }
                 .flatMap { response ->
                     if (!response.continuation().isNullOrEmpty()) {
                         articleContributionsContinuation = response.continuation()!!["uccontinue"]
@@ -174,43 +179,25 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
                             }
                         }
                     }
-                    getArticleContributionDetails()
                 }, { t ->
                     L.e(t)
                     showError(t)
                 }))
     }
 
-    private fun getArticleContributionDetails() {
-        disposables.add(Observable.fromIterable(continuedArticlesContributions)
-                .subscribeOn(Schedulers.io())
-                .doFinally {
-                    articleContributions.addAll(continuedArticlesContributions)
-                    if (editFilterType == EDIT_TYPE_ARTICLE_DESCRIPTION) {
-                        createConsolidatedList()
-                    } else {
-                        getImageContributions()
-                    }
-                }
-                .flatMap({ contribution: Contribution -> ServiceFactory.getRest(contribution.wikiSite).getSummary(null, contribution.title) },
-                        { first: Contribution, second: PageSummary -> Pair(first, second) })
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ pair ->
-                    val summary = pair.second
-                    val contribution = pair.first
-                    contribution.description = StringUtils.defaultString(summary.description)
-                    contribution.imageUrl = summary.thumbnailUrl.toString()
-                    contribution.pageViews = pageViewsMap[contribution.title]
-                            ?: 0
-                }, { t ->
-                    L.e(t)
-                }))
-    }
-
     private fun getImageContributions() {
         disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getUserContributions(AccountUtil.getUserName()!!, 50, imageContributionsContinuation)
                 .subscribeOn(Schedulers.io())
-                .flatMap { mwQueryResponse ->
+                .observeOn(AndroidSchedulers.mainThread())
+                .doAfterTerminate {
+                    for (continuedImageContribution in continuedImageContributions) {
+                        if (!imageContributions.add(continuedImageContribution)) {
+                            continuedImageContributions.elementAt(continuedImageContributions.indexOf(continuedImageContribution)).tagCount++
+                        }
+                    }
+                    createConsolidatedList()
+                }
+                .subscribe({ mwQueryResponse ->
                     continuedImageContributions.clear()
                     imageContributionsContinuation = if (mwQueryResponse.continuation().isNullOrEmpty()) "" else mwQueryResponse.continuation()!!["uccontinue"]
                     for (userContribution in mwQueryResponse.query()!!.userContributions()) {
@@ -233,33 +220,6 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
                                 WikiSite.forLanguageCode(contributionLanguage), 0, if (editType == EDIT_TYPE_IMAGE_TAG) 1 else 0, userContribution.revid)
                         if (!continuedImageContributions.add(con)) {
                             continuedImageContributions.elementAt(continuedImageContributions.indexOf(con)).tagCount++
-                        }
-                    }
-                    Observable.fromIterable(continuedImageContributions)
-                }
-                .flatMap({ contribution: Contribution -> ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo(contribution.title, contribution.wikiSite.languageCode()) },
-                        { first: Contribution, second: MwQueryResponse -> Pair(first, second) })
-                .observeOn(AndroidSchedulers.mainThread())
-                .doAfterTerminate {
-                    for (continuedImageContribution in continuedImageContributions) {
-                        if (!imageContributions.add(continuedImageContribution)) {
-                            continuedImageContributions.elementAt(continuedImageContributions.indexOf(continuedImageContribution)).tagCount++
-                        }
-                    }
-                    createConsolidatedList()
-                }
-                .subscribe({ pair ->
-                    val contribution = pair.first
-                    val page = pair.second.query()!!.pages()!![0]
-                    if (page.imageInfo() != null) {
-                        val imageInfo = page.imageInfo()!!
-                        contribution.description = imageInfo.metadata!!.imageDescription()
-                        contribution.imageUrl = imageInfo.originalUrl
-                        contribution.title = contribution.title.replace("File:", "")
-                        if (contribution.editType == EDIT_TYPE_IMAGE_TAG) {
-                            if (!page.imageLabels.isNullOrEmpty()) {
-                                page.imageLabels.joinToString(separator = ",")
-                            }
                         }
                     }
                 }, { t ->
@@ -299,7 +259,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
         val yesterday: Calendar = Calendar.getInstance()
         yesterday.add(Calendar.DAY_OF_YEAR, -1)
         return when {
-            DateUtils.isSameDay(Calendar.getInstance().time, date) -> getString(R.string.view_continue_reading_card_subtitle_today).capitalize()
+            DateUtils.isSameDay(Calendar.getInstance().time, date) -> StringUtils.capitalize(getString(R.string.view_continue_reading_card_subtitle_today))
             DateUtils.isSameDay(yesterday.time, date) -> getString(R.string.suggested_edits_date_string_yesterday)
             else -> DateUtil.getFeedCardDateString(date)
         }
@@ -349,7 +309,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
                 articleAndImageContributions.addAll(articleContributions)
             }
             EDIT_TYPE_IMAGE_CAPTION -> {
-                articleAndImageContributions.addAll(imageContributions.filter { it.editType == EDIT_TYPE_ARTICLE_DESCRIPTION })
+                articleAndImageContributions.addAll(imageContributions.filter { it.editType == EDIT_TYPE_IMAGE_CAPTION })
             }
             EDIT_TYPE_IMAGE_TAG -> {
                 articleAndImageContributions.addAll(imageContributions.filter { it.editType == EDIT_TYPE_IMAGE_TAG })
@@ -370,19 +330,65 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
     }
 
     private class ContributionItemHolder internal constructor(itemView: SuggestedEditsContributionsItemView) : DefaultViewHolder<SuggestedEditsContributionsItemView?>(itemView) {
+        val disposables = CompositeDisposable()
         fun bindItem(contribution: Contribution) {
             view.contribution = contribution
             view.setTitle(contribution.description)
             view.setDescription(contribution.title)
-            view.setImageUrl(contribution.imageUrl)
             view.setIcon(contribution.editType)
-            view.setPageViewCountText(contribution.pageViews)
+            view.setImageUrl(contribution.imageUrl)
             getPageView(view, contribution)
+            getImageDetails(view, contribution)
+        }
+
+        fun clearDisposables() {
+            disposables.clear()
+        }
+
+        private fun getImageDetails(itemView: SuggestedEditsContributionsItemView, contribution: Contribution) {
+            if (contribution.editType == EDIT_TYPE_ARTICLE_DESCRIPTION) {
+                disposables.add(ServiceFactory.getRest(contribution.wikiSite).getSummary(null, contribution.title)
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe({ summary ->
+                            contribution.imageUrl = summary.thumbnailUrl.toString()
+                            itemView.setImageUrl(contribution.imageUrl)
+                        }, { t ->
+                            L.e(t)
+                        }))
+            } else {
+                disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo(contribution.title, contribution.wikiSite.languageCode())
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe({ response ->
+                            val page = response.query()!!.pages()!![0]
+                            val labels = ArrayList<String>()
+                            if (page.imageInfo() != null) {
+                                val imageInfo = page.imageInfo()!!
+                                contribution.description = imageInfo.metadata!!.imageDescription()
+                                contribution.imageUrl = imageInfo.originalUrl
+                                if (contribution.editType == EDIT_TYPE_IMAGE_TAG) {
+                                    if (!page.imageLabels.isNullOrEmpty()) {
+                                        for (imageLabel in page.imageLabels) {
+                                            labels.add(imageLabel.label)
+                                        }
+                                        contribution.description = labels.joinToString(" , ")
+                                    }
+                                }
+                                itemView.setImageUrl(contribution.imageUrl)
+                                itemView.setTitle(contribution.description)
+                            }
+                        }, { t ->
+                            L.e(t)
+                        }))
+            }
         }
 
         private fun getPageView(view: SuggestedEditsContributionsItemView, contribution: Contribution) {
-            val disposables = CompositeDisposable()
-
+            if (contribution.editType != EDIT_TYPE_ARTICLE_DESCRIPTION) {
+                view.setPageViewCountText(0)
+                return
+            }
             disposables.add(ServiceFactory.get(contribution.wikiSite).getPageViewsForTitles(contribution.title)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
@@ -451,6 +457,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
         override fun onViewDetachedFromWindow(holder: DefaultViewHolder<*>) {
             if (holder is ContributionItemHolder) {
                 holder.view.callback = null
+                holder.clearDisposables()
             }
             super.onViewDetachedFromWindow(holder)
         }

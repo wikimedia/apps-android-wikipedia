@@ -18,4 +18,8 @@
         android:id="@+id/menu_add_to_another_list"
         android:title="@string/reading_list_action_menu_add_to_another_list"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_move_to_another_list"
+        android:title="@string/reading_list_action_menu_move_to_another_list"
+        app:showAsAction="never" />
 </menu>

@@ -9,10 +9,7 @@ import android.os.Build
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.view.WindowManager
+import android.view.*
 import android.widget.TextView
 import androidx.core.view.ViewCompat
 import androidx.fragment.app.DialogFragment
@@ -49,7 +46,9 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
     private val disposables = CompositeDisposable()
 
     private val searchRunnable = Runnable {
-        requestResults(currentSearchTerm)
+        if (isAdded) {
+            requestResults(currentSearchTerm)
+        }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -78,6 +77,11 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
         } else {
             dialog.window!!.setBackgroundDrawable(materialShapeDrawable)
         }
+
+        val params = dialog.window!!.attributes
+        params.gravity = Gravity.TOP
+        dialog.window!!.attributes = params
+
         return dialog
     }
 
@@ -106,6 +110,7 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         imageTagsSearchText.removeTextChangedListener(textWatcher)
+        imageTagsSearchText.removeCallbacks(searchRunnable)
         disposables.clear()
     }
 

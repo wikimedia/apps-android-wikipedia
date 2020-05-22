@@ -377,9 +377,11 @@
   <string name="text_size_percent_default">Label indicating that the current text size is the default size. The %s symbol is replaced with the percentage of the size.</string>
   <string name="nav_item_reading_lists">Navigation menu item label for reading lists.</string>
   <string name="reading_list_save_to">Menu item label for saving the current article to a reading list.</string>
+  <string name="reading_list_move_to">Menu item label for moving the current article to a reading list.</string>
   <string name="reading_list_create_new">Dialog title for creating a new reading list.</string>
   <string name="reading_list_title_exists">Error text shown when a user attempts to create a new list with the same title as an existing list. The \"%s\" symbol is replaced with the title of the existing list.</string>
   <string name="reading_list_article_added_to_named">Message shown to user when an article gets suffessfully added to a readingList.\n\nThe %1$s symbol is replaced with the name of the article and the second %2$s symbol is replaced with the name of the reading list.</string>
+  <string name="reading_list_article_moved_to_named">Message shown to user when an article gets suffessfully moved to a readingList.\n\nThe %1$s symbol is replaced with the name of the article and the second %2$s symbol is replaced with the name of the reading list.</string>
   <string name="reading_list_article_already_exists_message">Message shown to users when they try to add an already existing article to a reading list.The first %1$s symbol is replaced with the name of the reading list and the second %2$s symbol is replaced with the name of the article.</string>
   <string name="reading_list_articles_already_exist_message">Message shown to users when they try to add already existing articles to a reading list. The \"%s\" symbol is replaced with the name of the reading list.</string>
   <string name="reading_list_added_view_button">Button label to view the reading list to which the article was just added.</string>
@@ -402,6 +404,7 @@
   <string name="reading_list_action_menu_remove_all_from_offline">Label for a menu option allowing the user to remove all articles in a reading list from offline storage</string>
   <string name="reading_list_action_menu_save_all_for_offline">Label for a menu option allowing the user to save all articles in a reading list for offline availability</string>
   <string name="reading_list_action_menu_add_to_another_list">Label for a menu option allowing the user to add the selected articles to another reading list</string>
+  <string name="reading_list_action_menu_move_to_another_list">Label for a menu option allowing the user to move the selected articles to another reading list</string>
   <string name="reading_list_name_sample">Default name for a new reading list.</string>
   <string name="reading_list_name_hint">Text input hint for entering the name of this reading list.</string>
   <string name="reading_list_description_hint">Text input hint for entering a description of this reading list. Mention that the description is optional.</string>
@@ -422,6 +425,7 @@
   <string name="reading_list_article_offline">Label for a toggle switch to make a reading list article available offline or online.</string>
   <string name="reading_list_article_make_offline">Hint for button that makes a reading list article available for offline use.</string>
   <string name="reading_list_add_to_other_list">Menu item to add an article to another reading list (when the article already exists in one or more lists).</string>
+  <string name="reading_list_move_to_other_list">Menu item to move an article to another reading list (when the article already exists in one or more lists).</string>
   <string name="reading_list_remove_from_list">Menu item to remove an article from a specific reading list. The %s symbol is replaced with the name of the reading list.</string>
   <string name="reading_list_remove_from_lists">Menu item to remove an article from multiple reading lists to which it might belong.</string>
   <string name="reading_list_select_item">Menu item to select an article for further multiple delete action.</string>
@@ -437,7 +441,8 @@
   <string name="reading_lists_confirm_remote_delete_yes">Affirmative answer to confirm that remotely stored reading list data used for syncing across devices should be deleted.\n{{Identical|Yes}}</string>
   <string name="reading_lists_confirm_remote_delete_no">Negative answer to confirm that remotely stored reading list data used for syncing across devices should be deleted.\n{{Identical|No}}</string>
   <string name="reading_list_article_save_in_progress">Message shown when the article is in the process of being downloaded, and is not yet available for offline access.</string>
-  <string name="reading_list_articles_added_to_named">Message shown when the user adds articles to a named reading list.  The %1$d symbol is replaced with the number of articles added, and the %2$s symbol is replaced with the list name.</string>
+  <string name="reading_list_articles_added_to_named">Message shown when the user adds articles to a named reading list. The %1$d symbol is replaced with the number of articles added, and the %2$s symbol is replaced with the list name.</string>
+  <string name="reading_list_articles_moved_to_named">Message shown when the user moves articles to a named reading list. The %1$d symbol is replaced with the number of articles moved, and the %2$s symbol is replaced with the list name.</string>
   <string name="reading_list_delete_confirm">Confirmation message shown when deleting a reading list. The \"%s\" symbol is replaced with the name of the list.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Title of warning message shown to a user to login for enabling syncing of reading lists.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Warning message shown to a user to login for enabling syncing of reading lists.</string>
@@ -458,6 +463,7 @@
   <string name="no_user_lists_msg">Text explaining the advantages of creating reading lists, to users</string>
   <string name="reading_list_saved_list_rename">\"%1$s\" _[string indicating that the list was created by user]</string>
   <string name="split_reading_list_message">Message shown to users with large reading lists, informing them that this update will enforce a limit on the number of articles per list and hence will be splitting already existing lists that contain more than the limit. The %d symbol is replaced with the maximum number of articles per list.</string>
+  <string name="reading_list_move_article_limit_message">Message shown to the users when the limit for maximum number of articles in a list is reached, denoted by the \"%2$d\" symbol, informing them that they will not be able to move the article to that list, named \"%1$s\".</string>
   <string name="reading_list_article_limit_message">Message shown to the users when the limit for maximum number of articles in a list is reached, denoted by the \"%2$d\" symbol, informing them that they will not be able to add anymore to that list, named \"%1$s\".</string>
   <string name="reading_lists_limit_message">Message shown to the users when the limit for maimum number of reading lists is reached, informing them that they will not be able to create anymore lists</string>
   <string name="feed_reading_lists_sync_onboarding_text">User education message suggesting the users to log in to reap the benefits of synced reading lists</string>

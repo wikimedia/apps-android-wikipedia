@@ -66,7 +66,6 @@ class SuggestedEditsContributionsItemView constructor(context: Context, attrs: A
     fun setImageUrl(url: String?) {
         if (url.isNullOrEmpty() || url == "null") {
             image.visibility = View.GONE
-            return
         } else {
             image.visibility = View.VISIBLE
             ViewUtil.loadImageWithRoundedCorners(image, url)

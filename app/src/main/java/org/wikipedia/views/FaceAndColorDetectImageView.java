@@ -73,7 +73,7 @@ public class FaceAndColorDetectImageView extends AppCompatImageView {
                 .load(uri)
                 .placeholder(placeholder)
                 .error(placeholder)
-                .downsample(DownsampleStrategy.CENTER_OUTSIDE)
+                .downsample(DownsampleStrategy.CENTER_INSIDE)
                 .transform(FACE_DETECT_TRANSFORM)
                 .into(this);
     }
