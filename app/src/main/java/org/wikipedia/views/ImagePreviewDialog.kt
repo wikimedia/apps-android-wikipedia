@@ -43,7 +43,6 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
         suggestedEditsSummary = GsonUnmarshaller.unmarshal(SuggestedEditsSummary::class.java, requireArguments().getString(ARG_SUMMARY))
         action = requireArguments().getSerializable(ARG_ACTION) as Action
         setConditionalLayoutDirection(rootView, suggestedEditsSummary.lang)
-        enableFullWidthDialog()
         return rootView
     }
 
