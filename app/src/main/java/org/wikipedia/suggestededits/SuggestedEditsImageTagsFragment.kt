@@ -302,6 +302,8 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         for (label in tagList) {
             if (label.isSelected) {
                 acceptedLabels.add(label)
+            } else {
+                tagList.remove(label)
             }
         }
         if (acceptedLabels.isEmpty()) {
