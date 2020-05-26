@@ -367,9 +367,11 @@
   <string name="text_size_percent_default">%s (per defecte)</string>
   <string name="nav_item_reading_lists">Les meves llistes</string>
   <string name="reading_list_save_to">Desa a la llista de lectura</string>
+  <string name="reading_list_move_to">Mou a la llista de lectura</string>
   <string name="reading_list_create_new">Crea’n una nova</string>
   <string name="reading_list_title_exists">La llista de lectura «%s» ja existeix.</string>
   <string name="reading_list_article_added_to_named">Afegit %1$s a %2$s.</string>
+  <string name="reading_list_article_moved_to_named">S\'ha mogut %1$s a %2$s.</string>
   <string name="reading_list_article_already_exists_message">Tot correcte! %1$s ja conté %2$s.</string>
   <string name="reading_list_articles_already_exist_message">Tot correcte! %s ja conté tots els articles.</string>
   <string name="reading_list_added_view_button">Mostra la llista</string>
@@ -392,6 +394,7 @@
   <string name="reading_list_action_menu_remove_all_from_offline">Elimina-ho tot de fora de línia</string>
   <string name="reading_list_action_menu_save_all_for_offline">Desa-ho tot per a fora de línia</string>
   <string name="reading_list_action_menu_add_to_another_list">Afegeix a una altra llista</string>
+  <string name="reading_list_action_menu_move_to_another_list">Mou a una altra llista</string>
   <string name="reading_list_name_sample">La meva llista de lectura</string>
   <string name="reading_list_name_hint">Nom de la llista</string>
   <string name="reading_list_description_hint">Descripció (opcional)</string>
@@ -412,6 +415,7 @@
   <string name="reading_list_article_offline">Disponible fora de línia</string>
   <string name="reading_list_article_make_offline">Fes aquest article disponible fora de línia</string>
   <string name="reading_list_add_to_other_list">Afegeix a una altra llista de lectura</string>
+  <string name="reading_list_move_to_other_list">Mou a una altra llista de lectura</string>
   <string name="reading_list_remove_from_list">Suprimeix de %s</string>
   <string name="reading_list_remove_from_lists">Suprimeix de les llistes de seguiment</string>
   <string name="reading_list_select_item">Selecciona</string>
@@ -428,6 +432,7 @@
   <string name="reading_lists_confirm_remote_delete_no">No</string>
   <string name="reading_list_article_save_in_progress">S\'està baixant l\'article. Estarà disponible fora de línia quan acabi.</string>
   <string name="reading_list_articles_added_to_named">S\'han afegit %1$d articles a %2$s</string>
+  <string name="reading_list_articles_moved_to_named">S\'han mogut %1$d articles a %2$s</string>
   <string name="reading_list_delete_confirm">Esteu segur que voleu suprimir %s?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Inicieu una sessió per habilitar la sincronització</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Inicieu una sessió per permetre desar les llistes de lectura al vostre compte.</string>
@@ -448,6 +453,7 @@
   <string name="no_user_lists_msg">Crear llistes per llocs on viatjar, temes favorits, i molt més</string>
   <string name="reading_list_saved_list_rename">%1$s (creat per l’usuari)</string>
   <string name="split_reading_list_message">Hi ha un límit de fins a %d articles per llista de lectura. Les llistes de lectura anteriors que tenien més articles que aquest límit s\'han partit en diferents llistes.</string>
+  <string name="reading_list_move_article_limit_message">No es pot moure a la llista. Heu arribat al límit de %2$d per llista per a «%1$s».</string>
   <string name="reading_list_article_limit_message">No podeu afegir elements a aquesta llista. Heu assolit el límit de %2$d articles per llista per a «%1$s».</string>
   <string name="reading_lists_limit_message">No es pot crear una altra llista. Heu assolit el límit de 100 llistes de lectura per compte.</string>
   <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Sincronitza les llistes de lectura&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Les llistes de lectures ara ja poden sincronitzar-se entre dispositius. Inicieu una sessió al vostre compte de Viquipèdia i permeteu que les llistes es puguin desar.</string>
@@ -703,10 +709,10 @@
   <string name="suggested_edits_image_tags_publishing">Publicació</string>
   <string name="suggested_edits_image_tags_published">Publicat</string>
   <string name="suggested_edits_image_tags_onboarding_title">Etiquetar les imatges facilita que es puguin trobar.</string>
-  <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">En afegir etiquetes d\'imatge ajudareu a facilitar la cerca d\'imatges a Commons (el repositori d\'imatges lliures que la Viquipèdia utilitza per a les imatges de llurs articles).\n\nHem suggerit automàticament algunes etiquetes i també podeu afegir-hi les vostres pròpies.</string>
+  <string name="suggested_edits_image_tags_onboarding_text">En afegir etiquetes d\'imatge ajudareu a facilitar la cerca d\'imatges a Commons (el repositori d\'imatges lliures que la Viquipèdia utilitza per a les imatges de llurs articles).</string>
   <string name="suggested_edits_image_tags_onboarding_note">S\'afegiran a les imatges només les etiquetes que trieu.</string>
   <string name="suggested_edits_image_tags_snackbar">Afegeix etiquetes d\'imatge per a facilitar que altres les trobin.</string>
-  <string name="suggested_edits_image_tags_task_detail" fuzzy="true">Etiqueteu les imatges per a facilitar que es trobin. Seleccioneu-ne de les etiquetes suggerides o afegiu les vostres pròpies.</string>
+  <string name="suggested_edits_image_tags_task_detail">Afegiu etiquetes personalitzades a una imatge per a fer-la més fàcil de trobar.</string>
   <string name="suggested_edits_image_tags_choose">Afegeix o tria les etiquetes que coincideixen</string>
   <string name="suggested_edits_image_tags_published_list">Etiquetes publicades</string>
   <string name="suggested_edits_image_tags_search">Cerca etiquetes</string>
@@ -716,8 +722,8 @@
   <string name="suggested_edits_image_zoom_tooltip">Utilitza els dits per a fer zoom de la imatge.</string>
   <string name="suggested_edits_encouragement_message">%s, gràcies per les vostres edicions. A continuació podeu trobar més formes de contribuir a la Viquipèdia.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Hola %s&lt;/b&gt;, sabíeu que tothom pot contribuir a la Viquipèdia? A continuació podeu trobar formes divertides per a ajudar a millorar-la. Gaudiu-ne editant-hi!</string>
-  <string name="suggested_edits_image_captions_task_detail" fuzzy="true">Les llegendes d\'imatge descriuen una imatge per tal d\'ajudar els lectors a entendre el seu significat i context.</string>
-  <string name="suggested_edits_add_descriptions_task_detail" fuzzy="true">Les descripcions d\'article resumeixen un article per tal d\'ajudar els lectors a entendre el tema a primera vista.</string>
+  <string name="suggested_edits_image_captions_task_detail">Descriure una imatge ajuda als lectors a entendre el seu significat i context.</string>
+  <string name="suggested_edits_add_descriptions_task_detail">Resumir un article ajuda als lectors a entendre la temàtica d\'un primer cop d\'ull.</string>
   <string name="suggested_edits_contributions_stat_tooltip">El vostre nombre total de contribucions des de les edicions suggerides.</string>
   <string name="suggested_edits_edit_streak_stat_tooltip">Quants dies seguits heu contribuït des de les edicions suggerides. Si no hi heu contribuït de fa temps, mostra la data de la darrera contribució.</string>
   <string name="suggested_edits_page_views_stat_tooltip">Pàgines vistes totals dels elements en què heu contribuït durant els darrers 30 dies des de les edicions suggerides.</string>
@@ -738,6 +744,7 @@
   <string name="suggested_edits_quality_sufficient_text">Suficient</string>
   <string name="suggested_edits_quality_poor_text">Pobra</string>
   <string name="suggested_edits_quality_bad_text">Dolenta</string>
+  <string name="suggested_edits_contribute">Contribuïu-hi</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">Contribució</item>
     <item quantity="other">Contribucions</item>
@@ -750,6 +757,9 @@
   <string name="suggested_edits_last_edited_never">Mai</string>
   <string name="suggested_edits_task_new">nou</string>
   <string name="suggested_edits_cc0_notice">En publicar-ho, esteu d\'acord amb les &lt;a href=\"%1$s\"&gt;condicions d\'ús&lt;/a&gt; tot alliberant la contribució de forma irrevocable sota la &lt;a href=\"%2$s\"&gt;llicència CC0&lt;/a&gt;.</string>
+  <string name="suggested_edits_reactivation_notification_title">Edicions suggerides</string>
+  <string name="suggested_edits_reactivation_notification_stage_one">Gràcies per editar a la Viquipèdia! Per què no continueu on ho heu deixat?</string>
+  <string name="suggested_edits_reactivation_notification_stage_two">Teniu un minut per a continuar millorant la Viquipèdia? Comproveu aquests suggeriments d\'edició.</string>
   <string name="description_edit_revert_subtitle">Gràcies per editar a la Viquipèdia!</string>
   <string name="description_edit_revert_intro">Sabem que heu fet el millor possible, però un dels revisors tenia una precaució. Els motius possibles de la reversió de la modificació poden ser:</string>
   <string name="description_edit_revert_reason1">la vostra contribució no seguia una de les &lt;a href=\"%1$s\"&gt;directrius&lt;/a&gt;.</string>

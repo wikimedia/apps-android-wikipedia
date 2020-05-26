@@ -368,9 +368,11 @@
   <string name="text_size_percent_default">%s (standard)</string>
   <string name="nav_item_reading_lists">Mina listor</string>
   <string name="reading_list_save_to">Spara i läslista</string>
+  <string name="reading_list_move_to">Flytta till läslista</string>
   <string name="reading_list_create_new">Skapa ny</string>
   <string name="reading_list_title_exists">Läslistan \"%s\" finns redan.</string>
   <string name="reading_list_article_added_to_named">Lade till %1$s i %2$s.</string>
+  <string name="reading_list_article_moved_to_named">Flyttade %1$s till %2$s.</string>
   <string name="reading_list_article_already_exists_message">%1$s innehåller redan %2$s.</string>
   <string name="reading_list_articles_already_exist_message">%s innehåller redan alla artiklar.</string>
   <string name="reading_list_added_view_button">Visa lista</string>
@@ -393,6 +395,7 @@
   <string name="reading_list_action_menu_remove_all_from_offline">Ta bort alla från offline</string>
   <string name="reading_list_action_menu_save_all_for_offline">Spara alla för offline</string>
   <string name="reading_list_action_menu_add_to_another_list">Lägg till i en annan lista</string>
+  <string name="reading_list_action_menu_move_to_another_list">Flytta till en annan lista</string>
   <string name="reading_list_name_sample">Min läslista</string>
   <string name="reading_list_name_hint">Namn på denna lista</string>
   <string name="reading_list_description_hint">Beskrivning (valfri)</string>
@@ -413,6 +416,7 @@
   <string name="reading_list_article_offline">Tillgänglig offline</string>
   <string name="reading_list_article_make_offline">Gör denna artikel tillgänglig offline</string>
   <string name="reading_list_add_to_other_list">Lägg till i en annan läslista</string>
+  <string name="reading_list_move_to_other_list">Flytta till en annan läslista</string>
   <string name="reading_list_remove_from_list">Ta bort från %s</string>
   <string name="reading_list_remove_from_lists">Ta bort från läslistor</string>
   <string name="reading_list_select_item">Markera</string>
@@ -429,6 +433,7 @@
   <string name="reading_lists_confirm_remote_delete_no">Nej</string>
   <string name="reading_list_article_save_in_progress">Artikeln laddas ned och kommer att vara tillgänglig offline när den är färdig.</string>
   <string name="reading_list_articles_added_to_named">Lade till %1$d artiklar i %2$s</string>
+  <string name="reading_list_articles_moved_to_named">Flyttade %1$d artiklar till %2$s</string>
   <string name="reading_list_delete_confirm">Är du säker på att du vill radera %s?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Logga in för att aktivera synkronisering</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Logga in för att tillåta att dina läslistor sparas till ditt konto.</string>
@@ -449,6 +454,7 @@
   <string name="no_user_lists_msg">Skapa listor för platser att åka till, favoritämnen och mycket mer</string>
   <string name="reading_list_saved_list_rename">%1$s (skapad av användare)</string>
   <string name="split_reading_list_message">Det finns en gräns på %d artiklar per läslista. Befintliga listor med fler än denna gräns har delats upp i flera listor.</string>
+  <string name="reading_list_move_article_limit_message">Kan inte flytta till denna lista. Du har nått gränsen på %2$d artiklar per lista för \"%1$s\".</string>
   <string name="reading_list_article_limit_message">Kan inte lägga till i denna lista. Du har nått gränsen på %2$d artiklar per lista för \"%1$s\".</string>
   <string name="reading_lists_limit_message">Kan inte skapa en till lista. Du har nått gränsen på 100 läslistor per konto.</string>
   <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Synkronisera läslistor&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Läslistor kan nu synkroniseras över enheter. Logga in till ditt Wikipedia-konto och tillåt dina listor att sparas.</string>
@@ -707,7 +713,7 @@
   <string name="suggested_edits_image_tags_onboarding_text">Genom att lägga till bildtaggar hjälper du till att göra det lättare att söka efter dem på Commons, det frilicenserade bildarkivet som Wikipedia använder för bilder i sina artiklar.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Endast taggar som du väljer kommer att läggas till i bilder.</string>
   <string name="suggested_edits_image_tags_snackbar">Lägg till bildtaggar för att göra det lättare för andra att hitta bilderna.</string>
-  <string name="suggested_edits_image_tags_task_detail" fuzzy="true">Tagga bilder för att göra dem enklare att hitta.</string>
+  <string name="suggested_edits_image_tags_task_detail">Lägg till anpassade taggar på en bild för att göra den enklare att hitta.</string>
   <string name="suggested_edits_image_tags_choose">Lägg till eller välj lämpliga taggar</string>
   <string name="suggested_edits_image_tags_published_list">Publicerade taggar</string>
   <string name="suggested_edits_image_tags_search">Sök taggar</string>
@@ -717,8 +723,8 @@
   <string name="suggested_edits_image_zoom_tooltip">Nyp för att zooma denna bild.</string>
   <string name="suggested_edits_encouragement_message">Tack för dina redigeringar, %s. Nedan kan du hitta fler sätt att bidra på Wikipedia.</string>
   <string name="suggested_edits_onboarding_message">Hej %s, visste du att alla kan redigera på Wikipedia? Nedan kan du hitta roliga sätt att hjälpa till att förbättra Wikipedia. Lycka till med redigeringen!</string>
-  <string name="suggested_edits_image_captions_task_detail" fuzzy="true">Bildtexter beskriver en bild för att hjälpa läsare förstå dess betydelse och sammanhang.</string>
-  <string name="suggested_edits_add_descriptions_task_detail" fuzzy="true">Titelbeskrivningar sammanfattar en artikel för att hjälpa läsare förstå ämnet på ett ögonblick.</string>
+  <string name="suggested_edits_image_captions_task_detail">Beskriv en bild för att hjälpa läsare förstå dess betydelse och sammanhang.</string>
+  <string name="suggested_edits_add_descriptions_task_detail">Sammanfatta en artikel för att hjälpa läsare förstå ämnet på ett ögonblick.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Ditt totala antal bidrag med redigeringsförslag.</string>
   <string name="suggested_edits_edit_streak_stat_tooltip">Antal dagar i rad du har bidragit via redigeringsförslag. Om du inte har bidragit på ett tag kommer datumet för ditt senaste bidrag visas.</string>
   <string name="suggested_edits_page_views_stat_tooltip">Sidvisningar för objekt du har bidragit till de senaste 30 dagarna med redigeringsförslag.</string>
