@@ -238,7 +238,12 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
                 ft.commitAllowingStateLoss();
             }
         }
-        toolbarContainer.post(() -> setControlsShowing(controlsShowing));
+        toolbarContainer.post(() -> {
+            if (isDestroyed()) {
+                return;
+            }
+            setControlsShowing(controlsShowing);
+        });
         loadGalleryContent();
     }
 
