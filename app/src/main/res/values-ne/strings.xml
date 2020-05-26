@@ -164,7 +164,7 @@
   <string name="preference_title_sync_reading_lists_from_account">अध्ययन सूची समक्रमण गर्दै</string>
   <string name="preference_title_download_reading_list_articles">अध्ययन सूचिका लेखहरू डाउनलोड गर्दै</string>
   <string name="preference_summary_sync_reading_lists">अध्ययन सूची विकिपिडियामा सङ्ग्रह गरेर विभिन्न उपकरणहरूमा समक्रमण गर्नुहोस्</string>
-  <string name="preference_summary_sync_reading_lists_from_account">अध्ययन सूची विकिपिडिया खाता \"%s\" मा सङ्ग्रह गरेर विभिन्न उपकरणहरूमा समक्रमण गर्नुहोस् \</string>
+  <string name="preference_summary_sync_reading_lists_from_account">अध्ययन सूची विकिपिडिया खाता \"%s\" मा सङ्ग्रह गरेर विभिन्न उपकरणहरूमा समक्रमण गर्नुहोस् \\</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">\"%s\" बाट समक्रमण गरिएको अध्ययन सूची हटाउने?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">यसले पहिले समक्रमण गरिएको अध्ययन सूचीलाई रिमोट भण्डारणबाट हटाउने छ। सबै समक्रमण गरिएको सूचीहरू तपाईको खाता \"%s\" बाट हटाउने हो?</string>
   <string name="preferences_privacy_settings_heading">गोपनीयता</string>

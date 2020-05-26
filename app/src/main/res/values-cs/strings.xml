@@ -4,6 +4,7 @@
 * Aktron
 * Bsitzmann
 * Cvanca
+* Dbrant
 * Dvorapa
 * Evica
 * Frettie
@@ -447,7 +448,7 @@
   <string name="default_reading_list_description">Výchozí seznam pro vaše uložené články</string>
   <string name="no_user_lists_title">Uspořádejte články do seznamů</string>
   <string name="no_user_lists_msg">Vytvořte seznamy míst pro cestování, oblíbená témata a mnoho dalšího</string>
-  <string name="reading_list_saved_list_rename">%1$s% (uživatel vytvořen)</string>
+  <string name="reading_list_saved_list_rename">%1$s (uživatel vytvořen)</string>
   <string name="split_reading_list_message">Existuje limit %d článků pro seznamy k přečtení. Existující seznamy, které mají více než tento počet článků, byly rozděleny do více seznamů.</string>
   <string name="reading_list_article_limit_message">Nebylo možno přidat do tohoto seznamu. Překročili jste limit %2$d článků do seznamu pro „%1$s“.</string>
   <string name="reading_lists_limit_message">Nelze vytvořit další seznam. Dosáhli jste limitu 100 seznamů k přečtení pro účet.</string>
