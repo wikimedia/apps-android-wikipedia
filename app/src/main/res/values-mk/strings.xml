@@ -356,9 +356,11 @@
   <string name="text_size_percent_default">%s (по основно)</string>
   <string name="nav_item_reading_lists">Мои списоци</string>
   <string name="reading_list_save_to">Зачувај во списокот за читање</string>
+  <string name="reading_list_move_to">Премести во списокот за читање</string>
   <string name="reading_list_create_new">Создај нов</string>
   <string name="reading_list_title_exists">Списокот за читање „%s“ веќе постои.</string>
   <string name="reading_list_article_added_to_named">Додаден %1$s во %2$s.</string>
+  <string name="reading_list_article_moved_to_named">Преместена %1$s во %2$s.</string>
   <string name="reading_list_article_already_exists_message">Сè е во ред! %1$s веќе ја содржи %2$s.</string>
   <string name="reading_list_articles_already_exist_message">Сè е во ред! %s веќе ги содржи сите статии.</string>
   <string name="reading_list_added_view_button">Погл. списокот</string>
@@ -381,6 +383,7 @@
   <string name="reading_list_action_menu_remove_all_from_offline">Отстрани ги сите од вонмрежни</string>
   <string name="reading_list_action_menu_save_all_for_offline">Зачувај ги сите за вонмрежно</string>
   <string name="reading_list_action_menu_add_to_another_list">Додај во друг список</string>
+  <string name="reading_list_action_menu_move_to_another_list">Премести во друг список</string>
   <string name="reading_list_name_sample">Мој список за читање</string>
   <string name="reading_list_name_hint">Назив на овој список</string>
   <string name="reading_list_description_hint">Опис (незадолжително)</string>
@@ -401,6 +404,7 @@
   <string name="reading_list_article_offline">Достапно вонмрежно</string>
   <string name="reading_list_article_make_offline">Направи ја статијава достапна вонмрежно</string>
   <string name="reading_list_add_to_other_list">Стави во список за читање</string>
+  <string name="reading_list_move_to_other_list">Премести во друг список за читање</string>
   <string name="reading_list_remove_from_list">Отстрани од %s</string>
   <string name="reading_list_remove_from_lists">Отстрани од списоци за читање</string>
   <string name="reading_list_select_item">Изберете</string>
@@ -417,6 +421,7 @@
   <string name="reading_lists_confirm_remote_delete_no">Не</string>
   <string name="reading_list_article_save_in_progress">Преземањето на статијата е во тек. Ќе биде достапна вонмрежно кога ќе заврши.</string>
   <string name="reading_list_articles_added_to_named">Додадени %1$d статии во %2$s</string>
+  <string name="reading_list_articles_moved_to_named">Преместени %1$d статии во %2$s</string>
   <string name="reading_list_delete_confirm">Дали сте сигурни дека сакате да го избришете %s?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Најавете се за да го овозможите усогласувањето</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Најавете се за да дозволите списоците за читање да се зачуваат во вашата сметка.</string>
@@ -437,6 +442,7 @@
   <string name="no_user_lists_msg">Направете списоци за места што сакате да ги посетите, ваши омилени теми и многу друго</string>
   <string name="reading_list_saved_list_rename">%1$s (направена од корисник)</string>
   <string name="split_reading_list_message">Секој список на читање прима највеќе %d статии. Постоечките списоци со повеќе статии се разделени.</string>
+  <string name="reading_list_move_article_limit_message">Не можам да го преместам списоков. Ја достигнавте границата од %2$d статии по список за „%1$s“.</string>
   <string name="reading_list_article_limit_message">Не можам да го дополнам списоков. Ја достигнавте границата од %2$d статии по список за „%1$s“.</string>
   <string name="reading_lists_limit_message">Не можете да направите друг список. Ја достигнавте границата од 100 списоци по сметка.</string>
   <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Усогласување на списоци за читање&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Списоците за читање можат да се усогласат низ сите уреди. Најавете се со сметката на Википедија и дозволете зачувување на списоците.</string>
@@ -695,7 +701,7 @@
   <string name="suggested_edits_image_tags_onboarding_text">Потврдувајќи ги предложените ознаки, им помагате на другите полесно да ги најдат сликите во пребарување на Ризницата, складот на слободно лиценцирани слики кој го користи Википедија за нејзините сликовни содржини.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Кон сликите ќе се додадат само ознаки кои сте ги избрале вие.</string>
   <string name="suggested_edits_image_tags_snackbar">Означете ги сликите за да можат полесно да се пронаоѓаат.</string>
-  <string name="suggested_edits_image_tags_task_detail" fuzzy="true">Означете ги сликите за да можат полесно да се пронаоѓаат.</string>
+  <string name="suggested_edits_image_tags_task_detail">Ставете ѝ ваши ознаки на сликата за да може полесно да се пронаоѓа.</string>
   <string name="suggested_edits_image_tags_choose">Додајте или изберете соодветни ознаки</string>
   <string name="suggested_edits_image_tags_published_list">Објавени ознаки</string>
   <string name="suggested_edits_image_tags_search">Пребарај ознаки</string>
@@ -705,8 +711,8 @@
   <string name="suggested_edits_image_zoom_tooltip">Штипнете за да ја приближите сликата.</string>
   <string name="suggested_edits_encouragement_message">%s, ви благодариме за уредувањата. Подолу ќе најдете други начини да учествувате на Википедија.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Здраво %s&lt;/b&gt;. Дали сте знаеле дека секој може да ја уредува Википедија? Подолу ќе најдете интересни начини да помогнете во нејзиното подобрување. Пријатно уредување!</string>
-  <string name="suggested_edits_image_captions_task_detail" fuzzy="true">Описите му кажуваат на читателот за што се работи и даваат контекст на сликата.</string>
-  <string name="suggested_edits_add_descriptions_task_detail" fuzzy="true">Описите на насловите даваат претстава за темата статијата на прв поглед.</string>
+  <string name="suggested_edits_image_captions_task_detail">Дајте ѝ опис на сликата за да му помогнете на читателот да разбере за што се работи и добие контекст.</string>
+  <string name="suggested_edits_add_descriptions_task_detail">Ставете караток опис на статија, давајќи им претстава на читателите за што се работи.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Вкупно ваши придонеси со „Предложени уредувања“.</string>
   <string name="suggested_edits_edit_streak_stat_tooltip">Колку дена едноподруго сте учествувале со „Предложени уредувања“. Ако немате учествувано подолго време, ќе се прикаже последниот ден на учество.</string>
   <string name="suggested_edits_page_views_stat_tooltip">Вкупно посети на единиците што ги уредуивте со „Предложени уредувања“ во изминатите 30 дена.</string>
