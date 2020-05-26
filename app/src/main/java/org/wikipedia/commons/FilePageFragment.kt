@@ -27,10 +27,6 @@ import org.wikipedia.util.log.L
 class FilePageFragment : Fragment() {
     private lateinit var pageTitle: PageTitle
     private lateinit var suggestedEditsSummary: SuggestedEditsSummary
-    private lateinit var imageTags: Map<String, List<String>>
-    private var isFromCommons: Boolean = false
-    private var thumbnailWidth: Int = 0
-    private var thumbnailHeight: Int = 0
     private val disposables = CompositeDisposable()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -67,6 +63,12 @@ class FilePageFragment : Fragment() {
     }
 
     private fun loadImageInfo() {
+        lateinit var imageTags: Map<String, List<String>>
+        var isFromCommons: Boolean = false
+        var isEditProtected: Boolean = false
+        var thumbnailWidth: Int = 0
+        var thumbnailHeight: Int = 0
+
         errorView.visibility = View.GONE
         filePageView.visibility = View.GONE
         progressBar.visibility = View.VISIBLE
@@ -110,6 +112,11 @@ class FilePageFragment : Fragment() {
                     thumbnailWidth = imageInfo.thumbWidth
                     ImageTagsProvider.getImageTagsObservable(page.pageId(), suggestedEditsSummary.lang)
                 }
+                .flatMap {
+                    imageTags = it
+                    ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getProtectionInfo(pageTitle.prefixedText)
+                }
+                .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doAfterTerminate {
                     filePageView.visibility = View.VISIBLE
@@ -118,13 +125,16 @@ class FilePageFragment : Fragment() {
                             suggestedEditsSummary,
                             imageTags,
                             container.width,
-                            thumbnailWidth, thumbnailHeight,
+                            thumbnailWidth,
+                            thumbnailHeight,
                             imageFromCommons = isFromCommons,
                             showFilename = true,
-                            showEditButton = isFromCommons
+                            showEditButton = isFromCommons && !isEditProtected
                     )
                 }
-                .subscribe({ imageTags = it }, { caught ->
+                .subscribe({
+                    isEditProtected = it.query()!!.isEditProtected
+                }, { caught ->
                     L.e(caught)
                     showError(caught)
                 }))
