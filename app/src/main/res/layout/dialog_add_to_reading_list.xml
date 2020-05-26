@@ -10,6 +10,7 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/dialog_title"
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:gravity="center_vertical"
@@ -44,6 +45,7 @@
                 android:layout_height="wrap_content"
                 android:background="?attr/selectableItemBackground"
                 android:clickable="true"
+                android:focusable="true"
                 android:paddingStart="@dimen/list_item_horizontal_padding"
                 android:paddingTop="16dp"
                 android:paddingEnd="@dimen/list_item_horizontal_padding"
