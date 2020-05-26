@@ -77,11 +77,18 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
 
     public static void startPollTask(@NonNull Context context) {
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        alarmManager.setInexactRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP,
-                SystemClock.elapsedRealtime(),
-                TimeUnit.MINUTES.toMillis(context.getResources().getInteger(R.integer.notification_poll_interval_minutes)
-                        / (Prefs.isSuggestedEditsReactivationTestEnabled() && !ReleaseUtil.isDevRelease() ? 10 : 1)),
-                getAlarmPendingIntent(context));
+        try {
+            alarmManager.setInexactRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP,
+                    SystemClock.elapsedRealtime(),
+                    TimeUnit.MINUTES.toMillis(context.getResources().getInteger(R.integer.notification_poll_interval_minutes)
+                            / (Prefs.isSuggestedEditsReactivationTestEnabled() && !ReleaseUtil.isDevRelease() ? 10 : 1)),
+                    getAlarmPendingIntent(context));
+        } catch (Exception e) {
+            // There seems to be a Samsung-specific issue where it doesn't update the existing
+            // alarm correctly and adds it as a new one, and eventually hits the limit of 500
+            // concurrent alarms, causing a crash.
+            L.logRemoteErrorIfProd(e);
+        }
     }
 
     public static void stopPollTask(@NonNull Context context) {
