@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_gravity="bottom">
+    android:orientation="vertical">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -57,15 +56,8 @@
                     tools:text="Lorem ipsum" />
             </LinearLayout>
 
-            <ImageView
-                android:id="@+id/galleryImage"
-                android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:contentDescription="@null"
-                android:scaleType="fitCenter" />
-
-            <LinearLayout
-                android:id="@+id/detailsHolder"
+            <org.wikipedia.commons.FilePageView
+                android:id="@+id/filePageView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical" />
@@ -89,4 +81,4 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center" />
 
-</FrameLayout>
+</LinearLayout>
