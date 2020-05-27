@@ -31,11 +31,7 @@ import org.wikipedia.util.log.L
 class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.OnDismissListener {
 
     private lateinit var suggestedEditsSummary: SuggestedEditsSummary
-    private lateinit var imageTags: Map<String, List<String>>
     private lateinit var action: Action
-    private var isFromCommons: Boolean = false
-    private var thumbnailWidth: Int = 0
-    private var thumbnailHeight: Int = 0
     private val disposables = CompositeDisposable()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -77,6 +73,11 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
     }
 
     private fun loadImageInfo() {
+        lateinit var imageTags: Map<String, List<String>>
+        var isFromCommons: Boolean = false
+        var thumbnailWidth: Int = 0
+        var thumbnailHeight: Int = 0
+
         disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo(suggestedEditsSummary.title, suggestedEditsSummary.lang)
                 .subscribeOn(Schedulers.io())
                 .flatMap {
