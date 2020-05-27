@@ -37,7 +37,6 @@
         app:layout_constraintStart_toEndOf="@+id/view_card_header_image"
         app:layout_constraintEnd_toStartOf="@+id/view_card_header_subtitle"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintHorizontal_weight="1"
         tools:text="Lorem ipsum" />
 
     <TextView
