@@ -253,8 +253,13 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     }
 
     @Override
-    public String onBridgePageSetup() {
-        return JavaScriptActionHandler.setUp(model.getTitle(), leadImagesHandler.getTopMargin());
+    public PageTitle getPageTitle() {
+        return model.getTitle();
+    }
+
+    @Override
+    public boolean isPreview() {
+        return false;
     }
 
     public PageTitle getTitle() {
