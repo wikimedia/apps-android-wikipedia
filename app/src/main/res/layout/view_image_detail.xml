@@ -20,21 +20,25 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:fontFamily="sans-serif-medium"
-            android:lineSpacingExtra="4sp"
+            android:lineSpacingExtra="2sp"
             android:textColor="?attr/material_theme_de_emphasised_color"
-            android:textSize="16sp"
+            android:textSize="14sp"
             tools:text="IMAGE CAPTION" />
         <ImageView
             android:id="@+id/editButton"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            app:srcCompat="@drawable/ic_mode_edit_white_24dp"
-            app:tint="?attr/material_theme_de_emphasised_color"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:clickable="true"
             android:focusable="true"
             android:visibility="gone"
-            android:contentDescription="@null"/>
+            android:padding="8dp"
+            android:contentDescription="@null"
+            android:layout_marginEnd="-8dp"
+            android:layout_marginTop="-8dp"
+            android:layout_marginBottom="-8dp"
+            app:srcCompat="@drawable/ic_mode_edit_white_24dp"
+            app:tint="?attr/material_theme_de_emphasised_color"/>
     </LinearLayout>
 
     <LinearLayout
@@ -49,12 +53,13 @@
             android:id="@+id/contentText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-medium"
+            android:fontFamily="sans-serif"
             android:layout_gravity="center_vertical"
             android:lineSpacingExtra="8sp"
             android:textColor="?attr/primary_text_color"
             android:textSize="20sp"
             android:textIsSelectable="true"
+            android:textStyle="bold"
             tools:text="Watercolor portrait of Ada King, Countess of Lovelace (Ada Lovelace)" />
 
         <ImageView
