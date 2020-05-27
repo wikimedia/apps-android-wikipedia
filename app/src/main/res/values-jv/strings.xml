@@ -2,6 +2,8 @@
 <!-- Authors:
 * Abijeet Patro
 * Arifin.wijaya
+* Diki Ananta
+* N219
 * Naufal06
 * NoiX180
 -->
@@ -91,9 +93,9 @@
   <string name="title_captcha">Lebokaké CAPTCHA</string>
   <string name="edit_section_captcha_reload">Dudul CAPTCHA saperlu ngambali ngamot</string>
   <string name="nav_item_login">Mlebu log Wikipédia</string>
-  <string name="login_username_hint">Jeneng panganggo</string>
-  <string name="login_password_hint">Tembung wadi</string>
-  <string name="account_creation_password_hint">Tembung wadi</string>
+  <string name="login_username_hint">Jeneng naraguna</string>
+  <string name="login_password_hint">Tembung sandi</string>
+  <string name="account_creation_password_hint">Tembung sandi</string>
   <string name="login_2fa_hint">Kodhe Otèntifikasi Rong-Faktor</string>
   <string name="login_2fa_other_workflow_error_msg">Butuh otèntifikasi rong-faktor! Balia menyang kagiyatan pokok lan mlebu log mawa token 2FA-mu, banjur jajal manèh.</string>
   <string name="onboarding_card_login">Mlebu log</string>
@@ -106,7 +108,7 @@
   <string name="login_success_toast" fuzzy="true">Bisa mlebu log!</string>
   <string name="reset_password_title">Setèl tembung wadimu</string>
   <string name="reset_password_description">Kowé mlebu log nganggo tembung wadi sadhéla. Saperlu ngrampungaké olèhmu mlebu log, setèla tembung wadimu kang anyar ing kéné.</string>
-  <string name="reset_password_hint">Tembung wadi anyar</string>
+  <string name="reset_password_hint">Tembung sandi anyar</string>
   <string name="reset_password_button">Simpen lan mlebu log</string>
   <string name="preference_title_logout">Metu log</string>
   <string name="toast_logout_complete">Wis metu log</string>
@@ -121,7 +123,7 @@
   <string name="search_empty_message_multilingual_upgrade">Golèk Wikipédia ing basa liyané</string>
   <string name="delete_selected_items">Busak item sing pinilih</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;IKIPÉDI&lt;big&gt;A&lt;/big&gt;</string>
-  <string name="create_account_username_hint">Jeneng panganggo</string>
+  <string name="create_account_username_hint">Jeneng naraguna</string>
   <string name="login_dont_have_account">Durung duwé akun?</string>
   <string name="login_join_wikipedia">Ayo gabung Wikipédia</string>
   <string name="login_forgot_password">Lali tembung wadimu?</string>
@@ -129,10 +131,10 @@
   <string name="create_account_activity_title">Gawé akun</string>
   <string name="dialog_create_account_checking_progress">Lagi vèrifikasi</string>
   <string name="create_account_email_hint">Layang-èl (Manasuka)</string>
-  <string name="create_account_password_repeat_hint">Balèni tembung wadi</string>
+  <string name="create_account_password_repeat_hint">Balèni tembung sandi</string>
   <string name="create_account_passwords_mismatch_error">Tembung wadi ora mathuk</string>
   <string name="create_account_email_error">Alamat layang-èl ora trep</string>
-  <string name="create_account_username_error">Karakter ing jeneng panganggo ora trep</string>
+  <string name="create_account_username_error">Karakter ing jeneng naraguna ora trep</string>
   <string name="create_account_password_error">Tembung wadi ora trep</string>
   <string name="create_account_generic_error">Ora bisa gawé akun</string>
   <string name="create_account_next">Sabanjuré</string>
@@ -140,7 +142,7 @@
   <string name="email_recommendation_dialog_create_without_email_action">Banjuraké tanpa layang-è</string>
   <string name="email_recommendation_dialog_create_with_email_action">Wuwuh alamat layang-è</string>
   <string name="create_account_button">Gawé akun</string>
-  <string name="create_account_name_unavailable">Jeneng panganggo \"%s\" ora ana. Jajal anggonen jeneng liyané.</string>
+  <string name="create_account_name_unavailable">Jeneng naraguna \"%s\" ora ana. Jajal anggonen jeneng liyané.</string>
   <string name="create_account_ip_block_message">Nyuwun pangapura, alamat IP-mu saiki kapenggak saka nggawé akun anyar.</string>
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">Rerincèn</string>
@@ -212,7 +214,7 @@
   <string name="edit_summary_tag_other">Liyané</string>
   <string name="edit_summary_tag_other_hint">Cara liyané olèhmu ngapiki kacané</string>
   <string name="edit_conflict_title">Cengkah besutan</string>
-  <string name="edit_conflict_message">Kaca iki wis didandani panganggo liya, lan cengkah karo besutanmu. Mangga turun besutanmu, balik lan segeraké kacané, banjur jajal besut manèh.</string>
+  <string name="edit_conflict_message">Kaca iki wis didandani naraguna liya, lan cengkah karo besutanmu. Mangga turun besutanmu, balik lan segeraké kacané, banjur jajal besut manèh.</string>
   <string name="find_next">Golèk sabanjuré</string>
   <string name="find_previous">Golèk sadurungé</string>
   <string name="find_first_occurence">Iki kadadéan pisanan</string>
@@ -401,7 +403,7 @@
   <string name="default_reading_list_description">Pratélan baku tumrap artikel-artikelé panjenengan sing kasimpen</string>
   <string name="no_user_lists_title">Tata artikel dadi pratélan</string>
   <string name="no_user_lists_msg">Gawé pratélan bab papan-papan sing arep kajajahi, rembug-rembung sing kasenengi, lan liya-liyané.</string>
-  <string name="reading_list_saved_list_rename">%1$s (digawé panganggo)</string>
+  <string name="reading_list_saved_list_rename">%1$s (digawé naraguna)</string>
   <string name="split_reading_list_message">Ana watesan %d artikel ing saben pratélan wacan. Pratélan-pratélan kang ana saiki  kang isiné munjuli watesan iki wis kapérang dadi sawatara pratélan.</string>
   <string name="reading_list_article_limit_message">Ora bisa nambahaké ing pratélan iki. Panjenengan wis tekan wates %2$d artikel saben pratélan kanggo \"%1$s\".</string>
   <string name="reading_lists_limit_message">Ora bisa nggawé pratélan liyané. Panjenengan wis nyandhak watesan 100 pratélan wewacan ing saben akun.</string>
