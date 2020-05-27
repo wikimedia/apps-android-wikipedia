@@ -715,12 +715,15 @@
     <string name="suggested_edits_tasks_onboarding_get_started">Get started</string>
     <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Image caption (%s)</string>
     <string name="suggested_edits_image_preview_dialog_description_in_language_title">Image description (%s)</string>
+    <string name="suggested_edits_image_preview_dialog_file">File name</string>
     <string name="suggested_edits_image_preview_dialog_artist">Artist</string>
+    <string name="suggested_edits_image_preview_dialog_tags">Tags</string>
     <string name="suggested_edits_image_preview_dialog_date">Date</string>
     <string name="suggested_edits_image_preview_dialog_source">Source/Photographer</string>
     <string name="suggested_edits_image_preview_dialog_licensing">Licensing</string>
     <string name="suggested_edits_image_preview_dialog_more_info">More Info</string>
     <string name="suggested_edits_image_preview_dialog_file_page_link_text">File page on Wikimedia Commons</string>
+    <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">File page on Wikipedia</string>
     <string name="suggested_edits_article_cta_image_caption">Add image caption</string>
     <string name="suggested_edits_article_cta_image_caption_in_language">Add image caption (%s)</string>
     <string name="suggested_edits_article_cta_snackbar_action">View</string>
@@ -794,6 +797,10 @@
     <string name="suggested_edits_contribution_seen_text">Seen %s times in the past 30 days.</string>
     <string name="suggested_edits_date_string_yesterday">Yesterday</string>
     <!-- /Suggested edits -->
+
+    <!-- File page -->
+    <string name="file_page_activity_title">File page</string>
+    <!-- /File page -->
 
     <!-- Description editing revert help -->
     <string name="description_edit_revert_subtitle">Thanks for editing Wikipedia!</string>

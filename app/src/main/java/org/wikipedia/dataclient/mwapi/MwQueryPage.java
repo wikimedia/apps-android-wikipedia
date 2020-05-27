@@ -151,7 +151,7 @@ public class MwQueryPage extends BaseModel {
         return imageLabels != null ? imageLabels : Collections.emptyList();
     }
 
-    public boolean isImageFromCommons() {
+    public boolean isImageShared() {
         return StringUtils.defaultString(imagerepository).equals("shared");
     }
 

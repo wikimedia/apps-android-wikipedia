@@ -6,7 +6,6 @@ public final class Constants {
     public static final int HISTORY_FRAGMENT_LOADER_ID = 100;
     public static final int RECENT_SEARCHES_FRAGMENT_LOADER_ID = 101;
 
-    public static final String EMPTY_PAGE_TITLE = "$empty$";
     public static final String PLAIN_TEXT_MIME_TYPE = "text/plain";
 
     public static final int ACTIVITY_REQUEST_SETTINGS = 41;
@@ -91,7 +90,8 @@ public final class Constants {
         ON_THIS_DAY_CARD_BODY("onThisDayCard"),
         ON_THIS_DAY_CARD_FOOTER("onThisDayCardFooter"),
         LEAD_IMAGE("leadImage"),
-        TABS_ACTIVITY("tabsActivity");
+        TABS_ACTIVITY("tabsActivity"),
+        FILE_PAGE_ACTIVITY("filePage");
 
         private String name;
 

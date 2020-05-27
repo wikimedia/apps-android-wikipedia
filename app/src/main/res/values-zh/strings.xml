@@ -35,6 +35,7 @@
 * Zjzengdongyang
 * 予弦
 * 佛壁灯
+* 列维劳德
 * 水獭很懒
 * 沈澄心
 * 神樂坂秀吉
@@ -390,9 +391,11 @@
   <string name="text_size_percent_default">%s（默认）</string>
   <string name="nav_item_reading_lists">我的列表</string>
   <string name="reading_list_save_to">保存至阅读列表</string>
+  <string name="reading_list_move_to">移动至阅读列表</string>
   <string name="reading_list_create_new">创建新的</string>
   <string name="reading_list_title_exists">阅读列表“%s”已存在。</string>
   <string name="reading_list_article_added_to_named">已添加%1$s至%2$s.</string>
+  <string name="reading_list_article_moved_to_named">已移动%1$s至%2$s.</string>
   <string name="reading_list_article_already_exists_message">都好！%1$s 中已经包含了%2$s。</string>
   <string name="reading_list_articles_already_exist_message">都好！%s 中已经包含了所有的文章。</string>
   <string name="reading_list_added_view_button">查看列表</string>
@@ -415,6 +418,7 @@
   <string name="reading_list_action_menu_remove_all_from_offline">从离线内容中移除所有</string>
   <string name="reading_list_action_menu_save_all_for_offline">保存所有供离线使用</string>
   <string name="reading_list_action_menu_add_to_another_list">添加到另一列表</string>
+  <string name="reading_list_action_menu_move_to_another_list">移动到另一列表</string>
   <string name="reading_list_name_sample">我的阅读列表</string>
   <string name="reading_list_name_hint">此列表的名称</string>
   <string name="reading_list_description_hint">描述（可选）</string>
@@ -435,6 +439,7 @@
   <string name="reading_list_article_offline">离线可用</string>
   <string name="reading_list_article_make_offline">使该条目离线时可用</string>
   <string name="reading_list_add_to_other_list">添加到另一个阅读列表</string>
+  <string name="reading_list_move_to_other_list">移动到另一个阅读列表</string>
   <string name="reading_list_remove_from_list">从%s中移除</string>
   <string name="reading_list_remove_from_lists">从阅读列表中移除</string>
   <string name="reading_list_select_item">选择</string>
@@ -451,6 +456,7 @@
   <string name="reading_lists_confirm_remote_delete_no">取消</string>
   <string name="reading_list_article_save_in_progress">条目已开始下载，并将在完成时离线可用。</string>
   <string name="reading_list_articles_added_to_named">已添加%1$d个条目至%2$s</string>
+  <string name="reading_list_articles_moved_to_named">已移动%1$d个条目至%2$s</string>
   <string name="reading_list_delete_confirm">您确定要删除%s么？</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">登录以启用同步</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">登录以将您的阅读列表保存到您的帐户中。</string>
@@ -471,6 +477,7 @@
   <string name="no_user_lists_msg">创建想前往旅行的地点、感兴趣的话题及更多事物的列表</string>
   <string name="reading_list_saved_list_rename">%1$s（用户创建）</string>
   <string name="split_reading_list_message">每个阅读列表限制%d个条目。超过此限制的现有列表需要拆分为多个列表。</string>
+  <string name="reading_list_move_article_limit_message">不能移动到此列表。您已达到用于“%1$s”的每个列表%2$d个条目的限制。</string>
   <string name="reading_list_article_limit_message">不能添加到此列表。您已达到用于“%1$s”的每个列表%2$d个条目的限制。</string>
   <string name="reading_lists_limit_message">不能创建作者列表。您已达到每个账户100个阅读列表的限制。</string>
   <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;同步阅读列表&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;阅读列表现在可以跨设备同步。登录您的维基百科账户并允许保存您的列表吧。</string>
@@ -726,10 +733,10 @@
   <string name="suggested_edits_image_tags_publishing">正在发布</string>
   <string name="suggested_edits_image_tags_published">已发布</string>
   <string name="suggested_edits_image_tags_onboarding_title">给图片打上标签，使其更容易找到。</string>
-  <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">通过添加图片标签，您将有助于使图片更容易在维基共享资源上搜索到，维基共享资源是维基百科在其文章中使用的免费授权图片库。\n\n我们已经自动推荐了一些标签，您也可以添加自己的标签。</string>
+  <string name="suggested_edits_image_tags_onboarding_text">通过添加图片标签，您将有助于使图片更容易在维基共享资源上搜索到，维基共享资源是维基百科在其文章中使用的免费授权图片库。</string>
   <string name="suggested_edits_image_tags_onboarding_note">只有您选择的标签才会被添加到图片中。</string>
   <string name="suggested_edits_image_tags_snackbar">添加图片标签，使其更容易被他人发现。</string>
-  <string name="suggested_edits_image_tags_task_detail" fuzzy="true">标记图像，使它们更容易找到。从建议的标记中选择或添加您自己的标记。</string>
+  <string name="suggested_edits_image_tags_task_detail">为图片添加自定义标签，使其更容易被找到。</string>
   <string name="suggested_edits_image_tags_choose">添加或选择匹配的标签</string>
   <string name="suggested_edits_image_tags_published_list">发布标签</string>
   <string name="suggested_edits_image_tags_search">搜寻标签</string>
@@ -739,8 +746,8 @@
   <string name="suggested_edits_image_zoom_tooltip">缩放此图像。</string>
   <string name="suggested_edits_encouragement_message">%s，感谢您的编辑。下面您可以找到更多的方法来为维基百科做贡献。</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;您好 %s阁下&lt;/b&gt;，您知道每个人都可以编辑维基百科吗？下面，您可以找到一些有趣的方法来帮助改进维基百科。祝您编辑顺利!</string>
-  <string name="suggested_edits_image_captions_task_detail" fuzzy="true">图片说明描述图像，帮助读者理解图像的含义和上下文。</string>
-  <string name="suggested_edits_add_descriptions_task_detail" fuzzy="true">标题描述可对条目作出总结，以帮助读者快速了解主题。</string>
+  <string name="suggested_edits_image_captions_task_detail">描述图片，帮助读者理解图像的含义和上下文。</string>
+  <string name="suggested_edits_add_descriptions_task_detail">总结条目以帮助读者一目了然地了解主题。</string>
   <string name="suggested_edits_contributions_stat_tooltip">您的贡献总数和建议编辑。</string>
   <string name="suggested_edits_edit_streak_stat_tooltip">您通过建议编辑保持了多少天的连续编辑记录。如果您已经有一段时间没有投稿了，会显示您的最后一次贡献日期。</string>
   <string name="suggested_edits_page_views_stat_tooltip">在过去30天内，您通过建议编辑所贡献的项目总浏览量。</string>

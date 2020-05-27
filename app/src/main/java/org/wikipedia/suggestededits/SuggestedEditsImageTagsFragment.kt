@@ -302,6 +302,8 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         for (label in tagList) {
             if (label.isSelected) {
                 acceptedLabels.add(label)
+            } else {
+                tagList.remove(label)
             }
         }
         if (acceptedLabels.isEmpty()) {
@@ -344,27 +346,28 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                 }
 
                 disposables.add(Observable.zip(claimObservables) { responses ->
-                    for (res in responses) {
-                        if (res is MwPostResponse) {
-                            if (res.pageInfo != null) {
-                                funnel?.logSaved(res.pageInfo!!.lastRevId, if (claimComments.isEmpty()) "" else claimComments.removeAt(0))
+                        for (res in responses) {
+                            if (res is MwPostResponse) {
+                                if (res.pageInfo != null) {
+                                    funnel?.logSaved(res.pageInfo!!.lastRevId, if (claimComments.isEmpty()) "" else claimComments.removeAt(0))
+                                }
                             }
                         }
+                        responses[0]
                     }
-                    responses[0]
-                }
-                        .subscribeOn(Schedulers.io())
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .doAfterTerminate {
-                            publishing = false
-                        }
-                        .subscribe({ _ ->
-                            // TODO: check anything else in the response?
-                            publishSuccess = true
-                            onSuccess()
-                        }, { caught ->
-                            onError(caught)
-                        }))
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .doAfterTerminate {
+                        publishing = false
+                    }
+                    .subscribe({
+                        // TODO: check anything else in the response?
+                        publishSuccess = true
+                        onSuccess()
+                    }, { caught ->
+                        onError(caught)
+                    })
+                )
             }
 
             override fun failure(caught: Throwable) {
