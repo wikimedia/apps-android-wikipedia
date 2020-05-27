@@ -483,6 +483,9 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         maybeShowAnnouncement();
 
         bridge.onMetadataReady();
+        // Explicitly set the top margin (even though it might have already been set in the setup
+        // handler), since the page metadata might have altered the lead image display state.
+        bridge.execute(JavaScriptActionHandler.setTopMargin(leadImagesHandler.getTopMargin()));
         bridge.execute(JavaScriptActionHandler.setFooter(model));
     }
 
