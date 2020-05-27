@@ -3,7 +3,6 @@ package org.wikipedia.main;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -12,13 +11,9 @@ import android.view.View;
 import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.view.ActionMode;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.drawerlayout.widget.FixedDrawerLayout;
 
 import org.wikipedia.Constants;
 import org.wikipedia.R;
@@ -40,27 +35,20 @@ import org.wikipedia.suggestededits.SuggestedEditsTasksFragment;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
-import org.wikipedia.views.FrameLayoutNavMenuTriggerer;
 import org.wikipedia.views.ImageZoomHelper;
 import org.wikipedia.views.TabCountsView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_INITIAL_ONBOARDING;
 
 public class MainActivity extends SingleFragmentActivity<MainFragment>
-        implements MainFragment.Callback, FrameLayoutNavMenuTriggerer.Callback {
+        implements MainFragment.Callback {
 
-    @BindView(R.id.navigation_drawer) FixedDrawerLayout drawerLayout;
-    @BindView(R.id.navigation_drawer_view) MainDrawerView drawerView;
-    @BindView(R.id.navigation_drawer_triggerer) FrameLayoutNavMenuTriggerer triggererView;
     @BindView(R.id.single_fragment_toolbar) Toolbar toolbar;
-    @BindView(R.id.drawer_icon_layout) View drawerIconLayout;
-    @BindView(R.id.drawer_icon_dot) View drawerIconDot;
     @BindView(R.id.hamburger_and_wordmark_layout) View hamburgerAndWordmarkLayout;
     private ImageZoomHelper imageZoomHelper;
     @Nullable private ActionMode currentActionMode;
@@ -94,38 +82,6 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
             getSupportActionBar().setTitle("");
             getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         }
-
-        drawerLayout.addDrawerListener(new DrawerLayout.SimpleDrawerListener() {
-            @Override
-            public void onDrawerStateChanged(int newState) {
-                if (newState == DrawerLayout.STATE_DRAGGING || newState == DrawerLayout.STATE_SETTLING) {
-                    drawerView.updateState();
-                    if (drawerIconDot.getVisibility() == VISIBLE) {
-                        Prefs.setShowActionFeedIndicator(false);
-                        setUpHomeMenuIcon();
-                    }
-                }
-            }
-        });
-        drawerView.setCallback(new DrawerViewCallback());
-
-        ActionBarDrawerToggle drawerToggle = new ActionBarDrawerToggle(this,
-                drawerLayout, toolbar,
-                R.string.main_drawer_open, R.string.main_drawer_close);
-        drawerToggle.syncState();
-        getToolbar().setNavigationIcon(null);
-
-        setUpHomeMenuIcon();
-        FeedbackUtil.setToolbarButtonLongPressToast(drawerIconLayout);
-        triggererView.setCallback(this);
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        // update main nav drawer after rotating screen
-        drawerView.updateState();
-        setUpHomeMenuIcon();
     }
 
     @Override
@@ -193,18 +149,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
     }
 
     void setUpHomeMenuIcon() {
-        drawerIconDot.setVisibility(AccountUtil.isLoggedIn() && Prefs.showActionFeedIndicator() ? VISIBLE : GONE);
-    }
-
-    @OnClick(R.id.drawer_icon_layout) void onDrawerOpenClicked() {
-        drawerLayout.openDrawer(drawerView);
-    }
-
-    @Override
-    public void onNavMenuSwipeRequest(int gravity) {
-        if (currentActionMode == null && gravity == Gravity.START) {
-            drawerLayout.post(this::onDrawerOpenClicked);
-        }
+        //drawerIconDot.setVisibility(AccountUtil.isLoggedIn() && Prefs.showActionFeedIndicator() ? VISIBLE : GONE);
     }
 
     @Override
@@ -251,10 +196,6 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
 
     @Override
     public void onBackPressed() {
-        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
-            drawerLayout.closeDrawer(GravityCompat.START);
-            return;
-        }
         if (getFragment().onBackPressed()) {
             return;
         }
@@ -267,7 +208,6 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
     }
 
     public void closeMainDrawer() {
-        drawerLayout.closeDrawer(GravityCompat.START);
     }
 
     public Toolbar getToolbar() {
