@@ -333,12 +333,7 @@ public class EditPreviewFragment extends Fragment implements CommunicationBridge
     }
 
     @Override
-    public PageTitle getPageTitle() {
-        return model.getTitle();
-    }
-
-    @Override
-    public boolean isPreview() {
-        return true;
+    public String onBridgePageSetup() {
+        return JavaScriptActionHandler.setUp(model.getTitle(), 0);
     }
 }

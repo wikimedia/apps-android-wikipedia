@@ -11,12 +11,9 @@ import org.wikipedia.page.PageTitle
 import org.wikipedia.page.PageViewModel
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
-import org.wikipedia.util.DimenUtil.getDensityScalar
-import org.wikipedia.util.DimenUtil.leadImageHeightForDevice
 import org.wikipedia.util.L10nUtil
 import java.util.*
 import java.util.concurrent.TimeUnit
-import kotlin.math.roundToInt
 
 object JavaScriptActionHandler {
     @JvmStatic
@@ -70,14 +67,10 @@ object JavaScriptActionHandler {
     }
 
     @JvmStatic
-    fun setUp(context: Context, title: PageTitle, isPreview: Boolean): String {
+    fun setUp(title: PageTitle, topMargin: Int): String {
         val app: WikipediaApp = WikipediaApp.getInstance()
-        val topActionBarHeight = if (isPreview) 0 else (app.resources.getDimensionPixelSize(R.dimen.lead_no_image_top_offset_dp) / getDensityScalar()).roundToInt()
         val res = L10nUtil.getStringsForArticleLanguage(title, intArrayOf(R.string.description_edit_add_description,
                 R.string.table_infobox, R.string.table_other, R.string.table_close))
-        val leadImageHeight = if (isPreview) 0 else
-            (if (DimenUtil.isLandscape(context) || !Prefs.isImageDownloadEnabled()) 0 else (leadImageHeightForDevice(context) / getDensityScalar()).roundToInt() - topActionBarHeight)
-        val topMargin = topActionBarHeight + 16
 
         return String.format("{" +
                 "   \"platform\": \"android\"," +
@@ -96,7 +89,7 @@ object JavaScriptActionHandler {
                 "   \"textSizeAdjustmentPercentage\": \"100%%\"," +
                 "   \"loadImages\": ${Prefs.isImageDownloadEnabled()}," +
                 "   \"userGroups\": \"${AccountUtil.getGroups()}\"" +
-                "}", topMargin, 16, 48, 16, leadImageHeight)
+                "}", topMargin + 16, 16, 48, 16, 0)
     }
 
     @JvmStatic

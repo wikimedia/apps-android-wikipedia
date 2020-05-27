@@ -51,8 +51,7 @@ public class CommunicationBridge {
 
     public interface CommunicationBridgeListener {
         WebView getWebView();
-        PageTitle getPageTitle();
-        boolean isPreview();
+        String onBridgePageSetup();
     }
 
     @SuppressLint({"AddJavascriptInterface", "SetJavaScriptEnabled"})
@@ -190,8 +189,7 @@ public class CommunicationBridge {
 
         @JavascriptInterface
         public synchronized String getSetupSettings() {
-            return JavaScriptActionHandler.setUp(communicationBridgeListener.getWebView().getContext(),
-                    communicationBridgeListener.getPageTitle(), communicationBridgeListener.isPreview());
+            return communicationBridgeListener.onBridgePageSetup();
         }
     }
 
