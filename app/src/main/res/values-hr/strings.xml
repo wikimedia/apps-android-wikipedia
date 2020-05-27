@@ -351,8 +351,10 @@
   <string name="text_size_percent_default">%s (zadano)</string>
   <string name="nav_item_reading_lists">Moji popisi</string>
   <string name="reading_list_save_to">Dodaj na popis za čitanje</string>
+  <string name="reading_list_move_to">Premjesti na popis za čitanje</string>
   <string name="reading_list_create_new">Stvori novi</string>
   <string name="reading_list_title_exists">Popis za čitanje „%s” već postoji.</string>
+  <string name="reading_list_article_moved_to_named">Premješten %1$s na %2$s.</string>
   <string name="reading_list_article_already_exists_message">Sve je u redu! %1$s već sadrži %2$s.</string>
   <string name="reading_list_added_view_button">Prikaz popisa</string>
   <string name="format_reading_list_statistical_summary_singular">1 članak, %1$.2f MB</string>
@@ -371,6 +373,7 @@
   <string name="reading_list_action_menu_remove_all_from_offline">Ukloni sve iz izvanmrežne pohrane</string>
   <string name="reading_list_action_menu_save_all_for_offline">Spremi sve u izvanmrežnu pohranu</string>
   <string name="reading_list_action_menu_add_to_another_list">Dodaj na drugi popis</string>
+  <string name="reading_list_action_menu_move_to_another_list">Premjesti na drugi popis</string>
   <string name="reading_list_name_sample">Moj popis za čitanje</string>
   <string name="reading_list_name_hint">Naziv ovog popisa</string>
   <string name="reading_list_description_hint">Opis (nije obavezno)</string>

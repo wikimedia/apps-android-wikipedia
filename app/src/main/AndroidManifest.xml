@@ -252,6 +252,11 @@
             android:name=".suggestededits.SuggestedEditsContributionDetailsActivity"
             android:theme="@style/AppTheme.Page" />
 
+         <activity
+            android:name=".commons.FilePageActivity"
+            android:label="@string/file_page_activity_title"
+            android:theme="@style/AppTheme.ActionBar.LargeTextToolbar"/>
+
         <provider
             android:authorities="${applicationId}"
             android:name=".database.AppContentProvider"
