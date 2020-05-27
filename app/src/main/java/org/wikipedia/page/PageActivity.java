@@ -7,7 +7,10 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.text.TextUtils;
+import android.text.format.DateUtils;
 import android.view.ActionMode;
 import android.view.Gravity;
 import android.view.KeyEvent;
@@ -42,6 +45,7 @@ import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.descriptions.DescriptionEditRevertHelpView;
 import org.wikipedia.events.ArticleSavedOrDeletedEvent;
 import org.wikipedia.events.ChangeTextSizeEvent;
+import org.wikipedia.feed.mainpage.MainPageClient;
 import org.wikipedia.gallery.GalleryActivity;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.language.LangLinksActivity;
@@ -65,6 +69,7 @@ import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.PageActionOverflowView;
 import org.wikipedia.views.TabCountsView;
 import org.wikipedia.views.ViewUtil;
+import org.wikipedia.widgets.WidgetProviderFeaturedPage;
 import org.wikipedia.wiktionary.WiktionaryDialog;
 
 import java.util.ArrayList;
@@ -78,11 +83,13 @@ import butterknife.Unbinder;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.functions.Consumer;
 
+import static org.wikipedia.Constants.ACTIVITY_REQUEST_SETTINGS;
 import static org.wikipedia.Constants.INTENT_EXTRA_ACTION;
 import static org.wikipedia.Constants.InvokeSource.LINK_PREVIEW_MENU;
 import static org.wikipedia.Constants.InvokeSource.TOOLBAR;
 import static org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_CAPTION;
 import static org.wikipedia.settings.Prefs.isLinkPreviewEnabled;
+import static org.wikipedia.settings.SettingsActivity.ACTIVITY_RESULT_LANGUAGE_CHANGED;
 import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
 
 public class PageActivity extends BaseActivity implements PageFragment.Callback,
@@ -189,7 +196,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
         if (languageChanged) {
             app.resetWikiSite();
-            loadEmptyPage(TabPosition.EXISTING_TAB);
+            loadMainPage(TabPosition.EXISTING_TAB);
         }
 
         if (savedInstanceState == null) {
@@ -379,9 +386,9 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_WIDGET);
             loadPage(title, historyEntry, TabPosition.EXISTING_TAB);
         } else if (ACTION_CREATE_NEW_TAB.equals(intent.getAction())) {
-            loadEmptyPage(TabPosition.NEW_TAB_FOREGROUND);
+            loadMainPage(TabPosition.NEW_TAB_FOREGROUND);
         } else {
-            loadEmptyPage(TabPosition.CURRENT_TAB);
+            loadMainPage(TabPosition.CURRENT_TAB);
         }
     }
 
@@ -450,9 +457,9 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         });
     }
 
-    public void loadEmptyPage(TabPosition position) {
-        PageTitle title = new PageTitle(Constants.EMPTY_PAGE_TITLE, app.getWikiSite());
-        HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK);
+    public void loadMainPage(TabPosition position) {
+        PageTitle title = MainPageClient.getMainPageTitle();
+        HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_MAIN_PAGE);
         loadPage(title, historyEntry, position);
     }
 
@@ -511,8 +518,8 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     }
 
     @Override
-    public void onPageLoadEmptyPageInForegroundTab() {
-        loadEmptyPage(TabPosition.EXISTING_TAB);
+    public void onPageLoadMainPageInForegroundTab() {
+        loadMainPage(TabPosition.EXISTING_TAB);
     }
 
     @Override
@@ -680,7 +687,9 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, final Intent data) {
-        if (newArticleLanguageSelected(requestCode, resultCode) || galleryPageSelected(requestCode, resultCode)) {
+        if (requestCode == ACTIVITY_REQUEST_SETTINGS) {
+            handleSettingsActivityResult(resultCode);
+        } else if (newArticleLanguageSelected(requestCode, resultCode) || galleryPageSelected(requestCode, resultCode)) {
             toolbarContainerView.post(() -> handleIntent(data));
         } else if (galleryImageCaptionAdded(requestCode, resultCode)) {
             pageFragment.refreshPage();
@@ -691,7 +700,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
                 return;
             }
             if (resultCode == TabActivity.RESULT_NEW_TAB) {
-                loadEmptyPage(TabPosition.NEW_TAB_FOREGROUND);
+                loadMainPage(TabPosition.NEW_TAB_FOREGROUND);
                 animateTabsButton();
             } else if (resultCode == TabActivity.RESULT_LOAD_FROM_BACKSTACK) {
                 pageFragment.reloadFromBackstack();
@@ -759,6 +768,20 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     protected void clearActionBarTitle() {
         getSupportActionBar().setTitle("");
+    }
+
+    private void handleSettingsActivityResult(int resultCode) {
+        if (resultCode == ACTIVITY_RESULT_LANGUAGE_CHANGED) {
+            loadNewLanguageMainPage();
+        }
+    }
+
+    private void loadNewLanguageMainPage() {
+        Handler uiThread = new Handler(Looper.getMainLooper());
+        uiThread.postDelayed(() -> {
+            loadMainPage(TabPosition.EXISTING_TAB);
+            WidgetProviderFeaturedPage.forceUpdateWidget(getApplicationContext());
+        }, DateUtils.SECOND_IN_MILLIS);
     }
 
     private boolean newArticleLanguageSelected(int requestCode, int resultCode) {
