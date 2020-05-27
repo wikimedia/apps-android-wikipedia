@@ -59,9 +59,9 @@
         <item name="actionBarStyle">@style/LargeTextToolbarStyle</item>
     </style>
 
-    <style name="AppTheme.ActionBar.SuggestedEdits">
+    <style name="AppTheme.ActionBar.NoElevation">
         <item name="actionBarTheme">@style/PageToolbarTheme</item>
-        <item name="actionBarStyle">@style/SuggestedEditsToolbarStyle</item>
+        <item name="actionBarStyle">@style/NoElevationToolbarStyle</item>
     </style>
 
     <style name="AppTheme.ActionBar.Page">
@@ -138,7 +138,7 @@
         <item name="elevation">0dp</item>
     </style>
 
-    <style name="SuggestedEditsToolbarStyle" parent="PageToolbarStyle">
+    <style name="NoElevationToolbarStyle" parent="PageToolbarStyle">
         <item name="background">?attr/paper_color</item>
         <item name="elevation">0dp</item>
     </style>

@@ -3,6 +3,7 @@ package org.wikipedia.commons
 import android.content.Context
 import android.net.Uri
 import android.util.AttributeSet
+import android.util.TypedValue
 import android.view.View
 import android.view.View.OnClickListener
 import android.view.ViewGroup
@@ -48,7 +49,9 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
         if (showFilename) {
             filenameView.visibility = View.VISIBLE
             filenameView.titleText.text = context.getString(R.string.suggested_edits_image_preview_dialog_file)
+            filenameView.titleText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16f)
             filenameView.contentText.text = StringUtil.removeNamespace(summary.displayTitle!!)
+            filenameView.contentText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 24f)
             filenameView.divider.visibility = View.GONE
         }
 
