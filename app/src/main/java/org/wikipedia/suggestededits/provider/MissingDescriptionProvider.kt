@@ -202,18 +202,20 @@ object MissingDescriptionProvider {
             if (cachedItem != null) {
                 Observable.just(cachedItem)
             } else {
-                ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImagesWithUnreviewedLabels(WikiSite.normalizeLanguageCode(lang))
+                ServiceFactory.get(WikiSite(Service.COMMONS_URL)).randomWithImageInfo
                         .map { response ->
                             for (page in response.query()!!.pages()!!) {
-                                // make sure there's at least one unreviewed tag
-                                var hasUnreviewed = false
-                                for (label in page.imageLabels) {
-                                    if (label.state == "unreviewed") {
-                                        hasUnreviewed = true
+                                if (page.imageInfo()!!.mimeType != "image/jpeg") {
+                                    continue
+                                }
+                                var hasTags = false
+                                for (revision in page.revisions()) {
+                                    if (revision.getContentFromSlot("mediainfo").contains("P180")) {
+                                        hasTags = true
                                         break
                                     }
                                 }
-                                if (hasUnreviewed) {
+                                if (!hasTags) {
                                     imagesWithMissingTagsCache.push(page)
                                 }
                             }

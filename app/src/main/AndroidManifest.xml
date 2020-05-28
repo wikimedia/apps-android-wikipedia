@@ -133,7 +133,7 @@
             android:name=".suggestededits.SuggestedEditsCardsActivity"
             android:launchMode="singleTask"
             android:windowSoftInputMode="adjustPan"
-            android:theme="@style/AppTheme.ActionBar.SuggestedEdits" />
+            android:theme="@style/AppTheme.ActionBar.NoElevation" />
         <activity
             android:name=".edit.EditSectionActivity"
             android:theme="@style/AppTheme.ActionBar.Page"
@@ -241,7 +241,7 @@
 
         <activity
             android:name=".suggestededits.SuggestedEditsFeedCardImageTagActivity"
-            android:theme="@style/AppTheme.ActionBar.SuggestedEdits" />
+            android:theme="@style/AppTheme.ActionBar.NoElevation" />
 
         <activity
             android:name=".suggestededits.SuggestedEditsContributionsActivity"
@@ -254,8 +254,8 @@
 
          <activity
             android:name=".commons.FilePageActivity"
-            android:label="@string/file_page_activity_title"
-            android:theme="@style/AppTheme.ActionBar.LargeTextToolbar"/>
+            android:label=""
+            android:theme="@style/AppTheme.ActionBar.NoElevation"/>
 
         <provider
             android:authorities="${applicationId}"
