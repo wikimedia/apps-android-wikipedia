@@ -24,7 +24,7 @@
 
     <TextView
         android:id="@+id/view_card_header_title"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:layout_marginStart="8dp"
@@ -35,6 +35,7 @@
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/view_card_header_image"
+        app:layout_constraintEnd_toStartOf="@+id/view_card_header_subtitle"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Lorem ipsum" />
 
@@ -47,7 +48,8 @@
         android:textColor="?attr/secondary_text_color"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/view_list_card_header_lang_background"
+        app:layout_constraintStart_toEndOf="@+id/view_card_header_title"
+        app:layout_constraintEnd_toStartOf="@+id/view_list_card_header_lang_code"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Lorem ipsum" />
 
@@ -76,6 +78,7 @@
         android:textSize="9sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/view_list_card_header_menu"
+        app:layout_constraintStart_toEndOf="@+id/view_card_header_subtitle"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="zh-hant" />
 
