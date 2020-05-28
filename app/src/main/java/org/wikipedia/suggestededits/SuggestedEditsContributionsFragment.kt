@@ -34,7 +34,6 @@ import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
 
-
 class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.Callback {
     private val adapter: ContributionsEntryItemAdapter = ContributionsEntryItemAdapter()
     private var articleContributions = ArrayList<Contribution>()

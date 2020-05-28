@@ -7,7 +7,6 @@ import org.wikipedia.R
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.auth.AccountUtil
 
-
 class SuggestedEditsContributionsActivity : SingleFragmentActivity<SuggestedEditsContributionsFragment>() {
     public override fun createFragment(): SuggestedEditsContributionsFragment {
         return SuggestedEditsContributionsFragment.newInstance()
