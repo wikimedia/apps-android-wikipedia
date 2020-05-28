@@ -70,8 +70,8 @@ public class MwQueryPage extends BaseModel {
         return categories;
     }
 
-    @Nullable public List<Protection> protection() {
-        return protection;
+    @NonNull public List<Protection> protection() {
+        return protection == null ? Collections.emptyList() : protection;
     }
 
     @Nullable public List<Coordinates> coordinates() {
@@ -152,7 +152,7 @@ public class MwQueryPage extends BaseModel {
         return imageLabels != null ? imageLabels : Collections.emptyList();
     }
 
-    public boolean isImageFromCommons() {
+    public boolean isImageShared() {
         return StringUtils.defaultString(imagerepository).equals("shared");
     }
 

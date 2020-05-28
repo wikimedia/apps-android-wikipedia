@@ -34,7 +34,7 @@
   <string name="storage_access_error_retry">Reprovi</string>
   <string name="article_load_error_retry">Reprovi</string>
   <string name="offline_load_error_retry">Reprovi</string>
-  <string name="page_error_back_to_main">Reen</string>
+  <string name="page_error_back_to_main">Reveni</string>
   <string name="error_back">Reveni</string>
   <string name="menu_clear_all_history">Malplenigi historion</string>
   <string name="history_item_deleted">%s estas forigita de historio</string>
@@ -651,6 +651,7 @@
   <string name="suggested_edits_article_cta_snackbar_action">Vidi</string>
   <string name="suggested_edits_feed_card_add_image_caption" fuzzy="true">Aldoni titolon</string>
   <string name="suggested_edits_feed_card_translate_image_caption" fuzzy="true">Aldoni titolon (je %s)</string>
+  <string name="suggested_edits_contribute">Kontribui</string>
   <string name="description_edit_revert_subtitle">Dankon pro tio ke vi redaktas Vikipedion!</string>
   <string name="description_edit_revert_intro">Ni scias ke vi provis vian plej bonan, sed unu el la reviziantoj esprimis sian dubon.\n\nEblaj kialoj ke via redakto estas malfarita inkluzivas:</string>
   <string name="description_edit_revert_reason1">via kontribuo ne akordis kun unu el la &lt;a href=\"%1$s\"&gt;gvidnormoj&lt;/a&gt;.</string>
