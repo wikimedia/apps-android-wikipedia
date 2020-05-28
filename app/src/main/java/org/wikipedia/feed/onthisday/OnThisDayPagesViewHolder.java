@@ -17,6 +17,7 @@ import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.FaceAndColorDetectImageView;
@@ -50,6 +51,7 @@ public class OnThisDayPagesViewHolder extends RecyclerView.ViewHolder {
         this.wiki = wiki;
         this.isSingleCard = isSingleCard;
         this.activity = activity;
+        DeviceUtil.setRightClickEvent(parent);
     }
 
     public void setFields(@NonNull PageSummary page) {

@@ -19,6 +19,7 @@ import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageAvailableOfflineHandler;
 import org.wikipedia.readinglist.ReadingListBookmarkMenu;
 import org.wikipedia.readinglist.database.ReadingListPage;
+import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.StringUtil;
@@ -60,6 +61,7 @@ public class ListCardItemView extends ConstraintLayout {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             setForeground(AppCompatResources.getDrawable(getContext(), ResourceUtil.getThemedAttributeId(getContext(), R.attr.selectableItemBackground)));
         }
+        DeviceUtil.setRightClickEvent(this);
     }
 
     @NonNull public ListCardItemView setCard(@Nullable Card card) {

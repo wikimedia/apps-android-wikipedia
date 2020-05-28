@@ -21,6 +21,7 @@ import com.google.android.material.chip.ChipGroup;
 
 import org.wikipedia.R;
 import org.wikipedia.readinglist.database.ReadingList;
+import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
@@ -203,6 +204,7 @@ public class PageItemView<T> extends ConstraintLayout {
             setForeground(AppCompatResources.getDrawable(getContext(), ResourceUtil.getThemedAttributeId(getContext(), R.attr.selectableItemBackground)));
         }
         setFocusable(true);
+        DeviceUtil.setRightClickEvent(this);
 
         FeedbackUtil.setToolbarButtonLongPressToast(secondaryActionView);
     }

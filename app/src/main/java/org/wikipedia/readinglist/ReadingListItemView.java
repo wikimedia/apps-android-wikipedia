@@ -23,6 +23,7 @@ import androidx.core.widget.TextViewCompat;
 import org.wikipedia.R;
 import org.wikipedia.readinglist.database.ReadingList;
 import org.wikipedia.readinglist.database.ReadingListPage;
+import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.StringUtil;
@@ -158,6 +159,7 @@ public class ReadingListItemView extends ConstraintLayout {
         setClickable(true);
         setFocusable(true);
         clearThumbnails();
+        DeviceUtil.setRightClickEvent(this);
     }
 
     public void setOverflowViewVisibility(int visibility) {
