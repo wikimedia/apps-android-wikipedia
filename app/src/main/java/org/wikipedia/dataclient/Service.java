@@ -109,11 +109,6 @@ public interface Service {
     @NonNull Observable<MwQueryResponse> getRandomWithPageProps();
 
     @Headers("Cache-Control: no-cache")
-    @GET(MW_API_PREFIX + "action=query&generator=random&redirects=1&grnnamespace=6&grnlimit=50"
-            + "&prop=description|imageinfo&iiprop=timestamp|user|url|mime&iiurlwidth=" + PREFERRED_THUMB_SIZE)
-    @NonNull Observable<MwQueryResponse> getRandomWithImageInfo();
-
-    @Headers("Cache-Control: no-cache")
     @GET(MW_API_PREFIX + "action=query&generator=random&redirects=1&grnnamespace=6&grnlimit=100&prop=imagelabels")
     @NonNull Observable<MwQueryResponse> getRandomWithImageLabels();
 
@@ -123,6 +118,10 @@ public interface Service {
     @GET(MW_API_PREFIX + "action=query&list=categorymembers&cmlimit=500")
     @NonNull Observable<MwQueryResponse> getCategoryMembers(@NonNull @Query("cmtitle") String title,
                                                             @Nullable @Query("cmcontinue") String continueStr);
+
+    @Headers("Cache-Control: no-cache")
+    @GET(MW_API_PREFIX + "action=query&generator=random&redirects=1&grnnamespace=6&grnlimit=10&prop=description|imageinfo|revisions&rvprop=ids|timestamp|flags|comment|user|content&rvslots=mediainfo&iiprop=timestamp|user|url|mime|extmetadata&iiurlwidth=" + PREFERRED_THUMB_SIZE)
+    @NonNull Observable<MwQueryResponse> getRandomWithImageInfo();
 
     @GET(MW_API_PREFIX + "action=query&generator=unreviewedimagelabels&guillimit=10&prop=imagelabels|imageinfo&iiprop=timestamp|user|url|mime|extmetadata&iiurlwidth=" + PREFERRED_THUMB_SIZE)
     @NonNull Observable<MwQueryResponse> getImagesWithUnreviewedLabels(@NonNull @Query("uselang") String lang);
