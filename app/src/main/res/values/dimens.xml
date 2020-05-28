@@ -38,8 +38,6 @@
     <dimen name="leadImageWidth">640dp</dimen>
     <item type="dimen" format="float" name="articleHeaderViewScreenHeightRatio">0.4</item>
 
-    <!-- Default maximum width of bottom sheets. -->
-    <dimen name="bottomSheetMaxWidth">480dp</dimen>
     <!-- Default height with which bottom sheets peek out from the bottom -->
     <dimen name="bottomSheetPeekHeight">320dp</dimen>
     <dimen name="themeChooserSheetPeekHeight">420dp</dimen>

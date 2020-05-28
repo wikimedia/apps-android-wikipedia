@@ -698,12 +698,15 @@
   <string name="suggested_edits_tasks_onboarding_get_started">Text on button to start tasks from edit action feed.\n{{Identical|Get started}}</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Label for image caption detail on image details screen. The %s is replaced by the language that the caption is used.</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Label for image description detail on image details screen. The %s is replaced by the language that the description is used.</string>
+  <string name="suggested_edits_image_preview_dialog_file">Label for image file name on image details screen.</string>
   <string name="suggested_edits_image_preview_dialog_artist">Label for image artist detail on image details screen.</string>
+  <string name="suggested_edits_image_preview_dialog_tags">Label for image tags detail on image details screen.</string>
   <string name="suggested_edits_image_preview_dialog_date">Label for image date detail on image details screen.</string>
   <string name="suggested_edits_image_preview_dialog_source">Label for image source detail on image details screen.</string>
   <string name="suggested_edits_image_preview_dialog_licensing">Label for image licensing detail on image details screen.</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Label for link to more details about the image on commons page.</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Text for link to more details about the image on commons page.</string>
+  <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">Text for link to more details about the image on Wikipedia page.</string>
   <string name="suggested_edits_article_cta_image_caption">Text for call to action button on article lead image, prompting the user to add a caption in the current app language.</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Text for call to action button on article lead image, prompting the user to add a caption in the %s language.</string>
   <string name="suggested_edits_article_cta_snackbar_action">Button text suggesting the user to view the image</string>
@@ -775,6 +778,7 @@
   <string name="suggested_edits_rewards_pageviews">Message shown to a user about the pageviews the user has earned in a period of time. The %d represents the number of pageviews.</string>
   <string name="suggested_edits_rewards_edit_quality">Message shown to a user about the edit quality status. The %s represents the quality of edits.</string>
   <string name="suggested_edits_rewards_continue_button">Button label to move to the next card of suggested edits.</string>
+  <string name="file_page_activity_title">Title shown at the top of the activity for the file page.</string>
   <string name="description_edit_revert_subtitle">Subtitle in the dialog that informs the user that their edit was reverted.</string>
   <string name="description_edit_revert_intro">Introduction message informing the user that their edit was reverted, and leading into possible reasons for the revert.</string>
   <string name="description_edit_revert_reason1">Reason for an edit being reverted, because it did not follow the guidelines for descriptions. (Please preserve the anchor tag and formatted symbol (%1$s) in its exact form)</string>

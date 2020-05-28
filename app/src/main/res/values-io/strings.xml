@@ -282,9 +282,11 @@
   <string name="text_size_percent_default">%s (Default)</string>
   <string name="nav_item_reading_lists">Mea listi</string>
   <string name="reading_list_save_to">Adjuntez a la lektebla listo</string>
+  <string name="reading_list_move_to">Movar a lektebla listo</string>
   <string name="reading_list_create_new">Krear nova</string>
   <string name="reading_list_title_exists">Lektebla listo \"%s\" ja existas.</string>
   <string name="reading_list_article_added_to_named">Adjuntita %1$s a(d) %2$s.</string>
+  <string name="reading_list_article_moved_to_named">Transferita de %1$s a %2$s.</string>
   <string name="reading_list_article_already_exists_message">Bone! %1$s anke kontenas %2$s.</string>
   <string name="reading_list_articles_already_exist_message">Bone! %s ja kontenas omna artikli.</string>
   <string name="reading_list_added_view_button">Vidar listo</string>

@@ -22,6 +22,7 @@ import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
+import org.wikipedia.commons.FilePageActivity;
 import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
@@ -35,7 +36,6 @@ import org.wikipedia.util.FileUtil;
 import org.wikipedia.util.ImageUrlUtil;
 import org.wikipedia.util.PermissionUtil;
 import org.wikipedia.util.StringUtil;
-import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.ViewUtil;
 
@@ -171,9 +171,7 @@ public class GalleryItemFragment extends Fragment {
         switch (item.getItemId()) {
             case R.id.menu_gallery_visit_page:
                 if (mediaInfo != null && imageTitle != null) {
-                    UriUtil.visitInExternalBrowser(requireActivity(), Uri.parse(imageTitle.getUri()));
-                    // TODO: load the page within the app once it's supported.
-                    //((GalleryActivity) requireActivity()).finishWithPageResult(imageTitle);
+                    startActivity(FilePageActivity.newIntent(requireContext(), imageTitle));
                 }
                 return true;
             case R.id.menu_gallery_save:
