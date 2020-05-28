@@ -145,21 +145,21 @@
         <org.wikipedia.suggestededits.SuggestedEditsDiffDetailView
             android:id="@+id/pageViewsDetailView"
             android:layout_width="match_parent"
-            android:layout_height="80dp" />
+            android:layout_height="wrap_content" />
 
         <org.wikipedia.suggestededits.SuggestedEditsDiffDetailView
             android:id="@+id/typeDetailView"
             android:layout_width="match_parent"
-            android:layout_height="80dp" />
+            android:layout_height="wrap_content" />
 
         <org.wikipedia.suggestededits.SuggestedEditsDiffDetailView
             android:id="@+id/dateTimeDetailView"
             android:layout_width="match_parent"
-            android:layout_height="80dp" />
+            android:layout_height="wrap_content" />
 
         <org.wikipedia.suggestededits.SuggestedEditsDiffDetailView
             android:id="@+id/languageDetailView"
             android:layout_width="match_parent"
-            android:layout_height="80dp" />
+            android:layout_height="wrap_content" />
     </LinearLayout>
 </FrameLayout>
