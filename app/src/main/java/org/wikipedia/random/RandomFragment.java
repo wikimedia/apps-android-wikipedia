@@ -134,6 +134,11 @@ public class RandomFragment extends Fragment {
                 }
 
                 @Override
+                public void onMoveRequest(@Nullable ReadingListPage page) {
+                    // TODO:
+                }
+
+                @Override
                 public void onDeleted(@Nullable ReadingListPage page) {
                     FeedbackUtil.showMessage(getActivity(),
                             getString(R.string.reading_list_item_deleted, title.getDisplayText()));

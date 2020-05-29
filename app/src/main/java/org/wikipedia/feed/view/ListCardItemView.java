@@ -97,6 +97,11 @@ public class ListCardItemView extends ConstraintLayout {
             }
 
             @Override
+            public void onMoveRequest(@Nullable ReadingListPage page) {
+                // TODO:
+            }
+
+            @Override
             public void onDeleted(@Nullable ReadingListPage page) {
                 if (getCallback() != null && entry != null) {
                     getCallback().onRemovePageFromList(entry);

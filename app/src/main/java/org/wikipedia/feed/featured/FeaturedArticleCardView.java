@@ -185,6 +185,11 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
                     }
 
                     @Override
+                    public void onMoveRequest(@Nullable ReadingListPage page) {
+                        // TODO:
+                    }
+
+                    @Override
                     public void onDeleted(@Nullable ReadingListPage page) {
                         if (getCallback() != null && getCard() != null) {
                             getCallback().onRemovePageFromList(getEntry());
