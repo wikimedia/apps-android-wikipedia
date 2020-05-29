@@ -34,13 +34,6 @@ public class ExclusiveBottomSheetPresenter {
     public void showMoveToListDialog(@NonNull FragmentManager fm,
                                      long sourceReadingListId,
                                      @NonNull PageTitle title,
-                                     @NonNull InvokeSource source) {
-        show(fm, MoveToReadingListDialog.newInstance(sourceReadingListId, title, source));
-    }
-
-    public void showMoveToListDialog(@NonNull FragmentManager fm,
-                                     long sourceReadingListId,
-                                     @NonNull PageTitle title,
                                      @NonNull InvokeSource source,
                                      @Nullable DialogInterface.OnDismissListener listener) {
         show(fm, MoveToReadingListDialog.newInstance(sourceReadingListId, Collections.singletonList(title), source, listener));
