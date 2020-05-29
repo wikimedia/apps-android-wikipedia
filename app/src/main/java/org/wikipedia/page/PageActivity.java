@@ -550,7 +550,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     public void onPageAddToReadingList(@NonNull PageTitle title, @NonNull InvokeSource source) {
         showAddToListDialog(title, source);
     }
-    
+
     @Override
     public void onPageMoveToReadingList(long sourceReadingListId, @NonNull PageTitle title, @NonNull InvokeSource source) {
         showMoveToListDialog(sourceReadingListId, title, source);

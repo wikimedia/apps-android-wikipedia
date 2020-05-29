@@ -35,6 +35,7 @@ public class ListCardItemView extends ConstraintLayout {
     public interface Callback {
         void onSelectPage(@NonNull Card card, @NonNull HistoryEntry entry);
         void onAddPageToList(@NonNull HistoryEntry entry);
+        void onMovePageToList(long sourceReadingListId, @NonNull HistoryEntry entry);
         void onRemovePageFromList(@NonNull HistoryEntry entry);
         void onSharePage(@NonNull HistoryEntry entry);
     }
@@ -98,7 +99,9 @@ public class ListCardItemView extends ConstraintLayout {
 
             @Override
             public void onMoveRequest(@Nullable ReadingListPage page) {
-                // TODO:
+                if (getCallback() != null && entry != null) {
+                    getCallback().onMovePageToList(page.listId(), entry);
+                }
             }
 
             @Override

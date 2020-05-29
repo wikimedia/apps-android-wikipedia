@@ -203,7 +203,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
 
                     @Override
                     public void onMoveRequest(@Nullable ReadingListPage page) {
-                        // TODO:
+                        moveToReadingList(page.listId(), getTitle(), BOOKMARK_BUTTON);
                     }
 
                     @Override
@@ -1266,10 +1266,10 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         }
     }
 
-    public void moveToReadingList(@NonNull PageTitle title, @NonNull InvokeSource source) {
+    public void moveToReadingList(long sourceReadingListId, @NonNull PageTitle title, @NonNull InvokeSource source) {
         Callback callback = callback();
         if (callback != null) {
-            callback.onPageAddToReadingList(title, source);
+            callback.onPageMoveToReadingList(sourceReadingListId, title, source);
         }
     }
 
