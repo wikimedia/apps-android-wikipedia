@@ -76,6 +76,9 @@ public class ReadingListBookmarkMenu {
         if (listsContainingPage.size() == 1) {
             MenuItem removeItem = menu.getMenu().findItem(R.id.menu_remove_from_lists);
             removeItem.setTitle(context.getString(R.string.reading_list_remove_from_list, listsContainingPage.get(0).title()));
+
+            MenuItem moveItem = menu.getMenu().findItem(R.id.menu_move_to_another_list);
+            moveItem.setTitle(context.getString(R.string.reading_list_move_from_to_other_list, listsContainingPage.get(0).title()));
         }
 
         if (existsInAnyList) {
@@ -92,6 +95,10 @@ public class ReadingListBookmarkMenu {
             MenuItem saveItem = menu.getMenu().findItem(R.id.menu_feed_card_item_save);
             saveItem.setVisible(listsContainingPage.size() == 0);
             saveItem.setEnabled(listsContainingPage.size() == 0);
+
+            MenuItem moveItem = menu.getMenu().findItem(R.id.menu_move_to_another_list);
+            moveItem.setVisible(listsContainingPage.size() == 1);
+            moveItem.setEnabled(listsContainingPage.size() == 1);
         }
 
         menu.show();
