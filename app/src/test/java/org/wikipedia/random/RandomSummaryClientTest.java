@@ -7,37 +7,29 @@ import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.test.MockRetrofitTest;
 
 import io.reactivex.rxjava3.core.Observable;
-import io.reactivex.rxjava3.observers.TestObserver;
 
 public class RandomSummaryClientTest extends MockRetrofitTest {
 
     @Test
     public void testRequestEligible() throws Throwable {
         enqueueFromFile("rb_page_summary_valid.json");
-
-        TestObserver<PageSummary> observer = new TestObserver<>();
-        getObservable().subscribe(observer);
-
-        observer.assertComplete().assertNoErrors()
+        getObservable().test().await()
+                .assertComplete().assertNoErrors()
                 .assertValue(summary -> summary != null
                         && summary.getDisplayTitle().equals("Fermat's Last Theorem")
                         && summary.getDescription().equals("theorem in number theory"));
     }
 
-    @Test public void testRequestMalformed() {
+    @Test public void testRequestMalformed() throws Throwable {
         enqueueMalformed();
-
-        TestObserver<PageSummary> observer = new TestObserver<>();
-        getObservable().subscribe(observer);
-        observer.assertError(MalformedJsonException.class);
+        getObservable().test().await()
+                .assertError(MalformedJsonException.class);
     }
 
-    @Test public void testRequestFailure() {
+    @Test public void testRequestFailure() throws Throwable {
         enqueue404();
-
-        TestObserver<PageSummary> observer = new TestObserver<>();
-        getObservable().subscribe(observer);
-        observer.assertError(Exception.class);
+        getObservable().test().await()
+                .assertError(Exception.class);
     }
 
     private Observable<PageSummary> getObservable() {
