@@ -35,8 +35,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnCheckedChanged;
 import butterknife.Unbinder;
-import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.functions.Consumer;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.functions.Consumer;
 
 public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
     @BindView(R.id.buttonDecreaseTextSize) TextView buttonDecreaseTextSize;

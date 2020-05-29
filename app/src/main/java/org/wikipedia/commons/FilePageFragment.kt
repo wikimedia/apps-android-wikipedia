@@ -5,11 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import io.reactivex.Observable
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.functions.BiFunction
-import io.reactivex.schedulers.Schedulers
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.disposables.CompositeDisposable
+import io.reactivex.rxjava3.functions.BiFunction
+import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_file_page.*
 import org.apache.commons.lang3.StringUtils
 import org.wikipedia.R
@@ -64,10 +64,10 @@ class FilePageFragment : Fragment() {
 
     private fun loadImageInfo() {
         lateinit var imageTags: Map<String, List<String>>
-        var isFromCommons: Boolean = false
-        var isEditProtected: Boolean = false
-        var thumbnailWidth: Int = 0
-        var thumbnailHeight: Int = 0
+        var isFromCommons = false
+        var isEditProtected = false
+        var thumbnailWidth = 0
+        var thumbnailHeight = 0
 
         errorView.visibility = View.GONE
         filePageView.visibility = View.GONE
@@ -75,7 +75,7 @@ class FilePageFragment : Fragment() {
 
         disposables.add(Observable.zip(getImageCaptions(pageTitle.prefixedText),
                 ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo(pageTitle.prefixedText, pageTitle.wikiSite.languageCode()),
-                BiFunction<Map<String, String>, MwQueryResponse, MwQueryResponse> {
+                BiFunction {
                     caption: Map<String, String>, response: MwQueryResponse ->
                     // set image caption to pageTitle description
                     pageTitle.description = caption[pageTitle.wikiSite.languageCode()]
