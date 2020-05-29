@@ -6,8 +6,8 @@ import org.junit.Test;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.test.MockRetrofitTest;
 
-import io.reactivex.Observable;
-import io.reactivex.observers.TestObserver;
+import io.reactivex.rxjava3.core.Observable;
+import io.reactivex.rxjava3.observers.TestObserver;
 
 public class FullTextSearchClientTest extends MockRetrofitTest {
     private static final WikiSite TESTWIKI = new WikiSite("test.wikimedia.org");

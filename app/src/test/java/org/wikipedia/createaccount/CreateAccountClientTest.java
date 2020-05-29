@@ -7,8 +7,8 @@ import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.mwapi.CreateAccountResponse;
 import org.wikipedia.test.MockRetrofitTest;
 
-import io.reactivex.Observable;
-import io.reactivex.observers.TestObserver;
+import io.reactivex.rxjava3.core.Observable;
+import io.reactivex.rxjava3.observers.TestObserver;
 
 public class CreateAccountClientTest extends MockRetrofitTest {
 

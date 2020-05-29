@@ -9,8 +9,8 @@ import org.wikipedia.test.MockRetrofitTest;
 
 import java.util.List;
 
-import io.reactivex.Observable;
-import io.reactivex.observers.TestObserver;
+import io.reactivex.rxjava3.core.Observable;
+import io.reactivex.rxjava3.observers.TestObserver;
 
 public class RelatedPagesSearchClientTest extends MockRetrofitTest {
     private static final String RAW_JSON_FILE = "related_pages_search_results.json";

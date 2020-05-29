@@ -14,8 +14,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
-import io.reactivex.Observable;
-import io.reactivex.observers.TestObserver;
+import io.reactivex.rxjava3.core.Observable;
+import io.reactivex.rxjava3.observers.TestObserver;
 
 public class PageImagesClientTest extends MockRetrofitTest {
     private static final WikiSite WIKISITE_TEST = WikiSite.forLanguageCode("test");

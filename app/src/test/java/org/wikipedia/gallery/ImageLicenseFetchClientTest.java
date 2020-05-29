@@ -8,7 +8,7 @@ import org.wikipedia.dataclient.mwapi.MwQueryPage;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.test.MockRetrofitTest;
 
-import io.reactivex.observers.TestObserver;
+import io.reactivex.rxjava3.observers.TestObserver;
 
 public class ImageLicenseFetchClientTest extends MockRetrofitTest {
     private static final WikiSite WIKISITE_TEST = WikiSite.forLanguageCode("test");
