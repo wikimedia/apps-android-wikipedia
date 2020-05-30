@@ -90,10 +90,10 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
         filterViews.add(articleDescriptionView)
         filterViews.add(imageCaptionsView)
         filterViews.add(imageTagsView)
-        allTypesView.setAttributes(getString(R.string.suggested_edits_spinner_item_text, SuggestedEditsUserStats.totalEdits, resources.getQuantityString(R.plurals.suggested_edits_contribution, 25)), R.drawable.ic_mode_edit_themed_24dp, ALL_EDIT_TYPES, this)
-        articleDescriptionView.setAttributes(getString(R.string.suggested_edits_spinner_item_text, SuggestedEditsUserStats.totalDescriptionEdits, getString(R.string.description_edit_tutorial_title_descriptions)), R.drawable.ic_article_description, EDIT_TYPE_ARTICLE_DESCRIPTION, this)
-        imageCaptionsView.setAttributes(getString(R.string.suggested_edits_spinner_item_text, SuggestedEditsUserStats.totalImageCaptionEdits, getString(R.string.suggested_edits_image_captions)), R.drawable.ic_image_caption, EDIT_TYPE_IMAGE_CAPTION, this)
-        imageTagsView.setAttributes(getString(R.string.suggested_edits_spinner_item_text, SuggestedEditsUserStats.totalImageTagEdits, getString(R.string.suggested_edits_image_tags)), R.drawable.ic_image_tag, EDIT_TYPE_IMAGE_TAG, this)
+        allTypesView.setAttributes(getString(R.string.suggested_edits_contribution_type_title, SuggestedEditsUserStats.totalEdits, resources.getQuantityString(R.plurals.suggested_edits_contribution, 25)), R.drawable.ic_mode_edit_themed_24dp, ALL_EDIT_TYPES, this)
+        articleDescriptionView.setAttributes(getString(R.string.suggested_edits_contribution_type_title, SuggestedEditsUserStats.totalDescriptionEdits, getString(R.string.description_edit_tutorial_title_descriptions)), R.drawable.ic_article_description, EDIT_TYPE_ARTICLE_DESCRIPTION, this)
+        imageCaptionsView.setAttributes(getString(R.string.suggested_edits_contribution_type_title, SuggestedEditsUserStats.totalImageCaptionEdits, getString(R.string.suggested_edits_image_captions)), R.drawable.ic_image_caption, EDIT_TYPE_IMAGE_CAPTION, this)
+        imageTagsView.setAttributes(getString(R.string.suggested_edits_contribution_type_title, SuggestedEditsUserStats.totalImageTagEdits, getString(R.string.suggested_edits_image_tags)), R.drawable.ic_image_tag, EDIT_TYPE_IMAGE_TAG, this)
         disposables.add(SuggestedEditsUserStats.getPageViewsObservable().subscribe {
             contributionsSeenText.text = getString(R.string.suggested_edits_contribution_seen_text, it.toString())
         })
@@ -256,7 +256,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
         yesterday.add(Calendar.DAY_OF_YEAR, -1)
         return when {
             DateUtils.isSameDay(Calendar.getInstance().time, date) -> StringUtils.capitalize(getString(R.string.view_continue_reading_card_subtitle_today))
-            DateUtils.isSameDay(yesterday.time, date) -> getString(R.string.suggested_edits_date_string_yesterday)
+            DateUtils.isSameDay(yesterday.time, date) -> getString(R.string.suggested_edits_contribution_date_yesterday_text)
             else -> DateUtil.getFeedCardDateString(date)
         }
     }
@@ -289,7 +289,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
                 count = SuggestedEditsUserStats.totalEdits
             }
         }
-        contributionsCountText.text = getString(R.string.suggested_edits_spinner_item_text, count, resources.getQuantityString(R.plurals.suggested_edits_contribution, count))
+        contributionsCountText.text = getString(R.string.suggested_edits_contribution_type_title, count, resources.getQuantityString(R.plurals.suggested_edits_contribution, count))
         for (filterView in filterViews) {
             if (filterView == view) {
                 filterView.setEnabledStateUI()
