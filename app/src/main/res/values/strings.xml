@@ -793,22 +793,19 @@
     <string name="suggested_edits_reactivation_notification_stage_two">Have a minute to continue improving Wikipedia? Check out these editing suggestions.</string>
     <string name="suggested_edits_contribution_type_image_tag">Image tag</string>
     <string name="suggested_edits_contributions_screen_title">%s\'s contributions</string>
-    <string name="suggested_edits_spinner_item_text">%1$d %2$s</string>
-    <string name="suggested_edits_language_label">Language</string>
-    <string name="suggested_edits_date_time_label">Date / Time</string>
-    <string name="suggested_edits_type_label">Contribution type</string>
-    <string name="suggested_edits_image_label">File</string>
-    <string name="suggested_edits_article_label">Article</string>
+    <string name="suggested_edits_contribution_language_label">Language</string>
+    <string name="suggested_edits_contribution_date_time_label">Date / Time</string>
+    <string name="suggested_edits_contribution_type_label">Contribution type</string>
+    <string name="suggested_edits_contribution_image_label">File</string>
+    <string name="suggested_edits_contribution_article_label">Article</string>
     <string name="suggested_edits_contribution_views">%s views</string>
     <string name="suggested_edits_contribution_label">You added %d characters</string>
     <string name="suggested_edits_contribution_seen_text">Seen %s times in the past 30 days.</string>
-    <string name="suggested_edits_date_string_yesterday">Yesterday</string>
     <plurals name="suggested_edits_image_tag_contribution_label">
         <item quantity="one">You added %d tag</item>
         <item quantity="other">You added %d tags</item>
     </plurals>
     <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
-    <string name="suggested_edits_contribution_seen_text">Seen %s times in the past 30 days.</string>
     <string name="suggested_edits_contribution_date_yesterday_text">Yesterday</string>
     <!-- /Suggested edits -->
 
