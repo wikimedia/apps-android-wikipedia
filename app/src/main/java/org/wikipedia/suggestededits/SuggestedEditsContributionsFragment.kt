@@ -10,10 +10,13 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.functions.BiFunction
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_contributions_suggested_edits.*
+import kotlinx.android.synthetic.main.fragment_contributions_suggested_edits.swipeRefreshLayout
 import org.apache.commons.lang3.StringUtils
 import org.apache.commons.lang3.time.DateUtils
 import org.wikipedia.R
@@ -22,6 +25,7 @@ import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
+import org.wikipedia.dataclient.wikidata.Entities
 import org.wikipedia.suggestededits.Contribution.Companion.ALL_EDIT_TYPES
 import org.wikipedia.suggestededits.Contribution.Companion.EDIT_TYPE_ARTICLE_DESCRIPTION
 import org.wikipedia.suggestededits.Contribution.Companion.EDIT_TYPE_IMAGE_CAPTION
@@ -36,16 +40,19 @@ import kotlin.collections.HashMap
 
 class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.Callback {
     private val adapter: ContributionsEntryItemAdapter = ContributionsEntryItemAdapter()
+
     private var articleContributions = ArrayList<Contribution>()
     private var imageContributions = HashSet<Contribution>()
     private var articleAndImageContributions = ArrayList<Contribution>()
+
     private var consolidatedContributionsWithDates: MutableList<Any> = ArrayList()
-    private var continuedArticlesContributions = ArrayList<Contribution>()
-    private val continuedImageContributions = HashSet<Contribution>()
+
     private val disposables = CompositeDisposable()
     private var articleContributionsContinuation: String? = null
     private var imageContributionsContinuation: String? = null
+
     private var loadingMore = false
+
     private var editFilterType = ALL_EDIT_TYPES
     private var filterViews = ArrayList<SuggestedEditsTypeItem>()
 
@@ -99,6 +106,12 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
         })
     }
 
+    override fun onDestroyView() {
+        contributionsRecyclerView.adapter = null
+        disposables.clear()
+        super.onDestroyView()
+    }
+
     private fun setFilterAndUIState(view: SuggestedEditsTypeItem) {
         editFilterType = view.editType
         createConsolidatedList()
@@ -112,25 +125,18 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
 
     private fun loadContentOfEditFilterType() {
         loadingMore = true
-        if (editFilterType == ALL_EDIT_TYPES || editFilterType == EDIT_TYPE_ARTICLE_DESCRIPTION) {
-            getArticleContributions()
-        } else {
-            getImageContributions()
-        }
+        fetchContributions()
     }
 
-    private fun getArticleContributions() {
+    private fun fetchContributions() {
+        val continuedArticlesContributions = ArrayList<Contribution>()
+        val continuedImageContributions = HashSet<Contribution>()
         val qLangMap = HashMap<String, HashSet<String>>()
-        disposables.add(ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getUserContributions(AccountUtil.getUserName()!!, 50, articleContributionsContinuation)
+
+
+
+        disposables.add(Observable.zip(ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getUserContributions(AccountUtil.getUserName()!!, 50, articleContributionsContinuation)
                 .subscribeOn(Schedulers.io())
-                .doFinally {
-                    articleContributions.addAll(continuedArticlesContributions)
-                    if (editFilterType == EDIT_TYPE_ARTICLE_DESCRIPTION) {
-                        createConsolidatedList()
-                    } else {
-                        getImageContributions()
-                    }
-                }
                 .flatMap { response ->
                     if (!response.continuation().isNullOrEmpty()) {
                         articleContributionsContinuation = response.continuation()!!["uccontinue"]
@@ -162,12 +168,13 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
                     }
                     ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getWikidataLabelsAndDescriptions(qLangMap.keys.joinToString("|"))
                             .subscribeOn(Schedulers.io())
-                            .observeOn(AndroidSchedulers.mainThread())
-                }
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({
-                    for (entityKey in it.entities().keys) {
-                        val entity = it.entities()[entityKey]!!
+                },
+                ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getUserContributions(AccountUtil.getUserName()!!, 50, imageContributionsContinuation)
+                        .subscribeOn(Schedulers.io()),
+                BiFunction<Entities, MwQueryResponse, MwQueryResponse> { entities: Entities, commonsResponse: MwQueryResponse ->
+
+                    for (entityKey in entities.entities().keys) {
+                        val entity = entities.entities()[entityKey]!!
                         for (contribution in continuedArticlesContributions) {
                             if (contribution.qNumber == entityKey) {
                                 contribution.title = entity.labels()[contribution.wikiSite.languageCode()]!!.value()
@@ -175,28 +182,10 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
                             }
                         }
                     }
-                }, { t ->
-                    L.e(t)
-                    showError(t)
-                }))
-    }
 
-    private fun getImageContributions() {
-        disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getUserContributions(AccountUtil.getUserName()!!, 50, imageContributionsContinuation)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .doAfterTerminate {
-                    for (continuedImageContribution in continuedImageContributions) {
-                        if (!imageContributions.add(continuedImageContribution)) {
-                            continuedImageContributions.elementAt(continuedImageContributions.indexOf(continuedImageContribution)).tagCount++
-                        }
-                    }
-                    createConsolidatedList()
-                }
-                .subscribe({ mwQueryResponse ->
                     continuedImageContributions.clear()
-                    imageContributionsContinuation = if (mwQueryResponse.continuation().isNullOrEmpty()) "" else mwQueryResponse.continuation()!!["uccontinue"]
-                    for (userContribution in mwQueryResponse.query()!!.userContributions()) {
+                    imageContributionsContinuation = if (commonsResponse.continuation().isNullOrEmpty()) "" else commonsResponse.continuation()!!["uccontinue"]
+                    for (userContribution in commonsResponse.query()!!.userContributions()) {
                         val strArr = userContribution.comment.split(" ")
                         var contributionLanguage = ""
                         var editType: Int = -1
@@ -218,8 +207,32 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
                             continuedImageContributions.elementAt(continuedImageContributions.indexOf(con)).tagCount++
                         }
                     }
-                }, { t ->
-                    L.e(t)
+
+
+                    commonsResponse
+                })
+
+
+
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({
+
+
+                    articleContributions.addAll(continuedArticlesContributions)
+
+                    for (continuedImageContribution in continuedImageContributions) {
+                        if (!imageContributions.add(continuedImageContribution)) {
+                            continuedImageContributions.elementAt(continuedImageContributions.indexOf(continuedImageContribution)).tagCount++
+                        }
+                    }
+
+                    createConsolidatedList()
+
+
+                }, { caught ->
+                    L.e(caught)
+                    showError(caught)
                 }))
     }
 
@@ -461,19 +474,6 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
             private const val VIEW_TYPE_HEADER = 0
             private const val VIEW_TYPE_ITEM = 1
         }
-    }
-
-    override fun onDestroy() {
-        if (contributionsRecyclerView != null) {
-            contributionsRecyclerView.adapter = null
-        }
-        adapter.clearList()
-        articleAndImageContributions.clear()
-        consolidatedContributionsWithDates.clear()
-        articleContributions.clear()
-        imageContributions.clear()
-        disposables.clear()
-        super.onDestroy()
     }
 
     private class ItemCallback : SuggestedEditsContributionsItemView.Callback {
