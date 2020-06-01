@@ -14,7 +14,7 @@ class SuggestedEditsContributionsActivity : SingleFragmentActivity<SuggestedEdit
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        supportActionBar!!.title = getString(R.string.suggested_edits_contributions_screen_title, AccountUtil.getUserName())
+        supportActionBar?.title = getString(R.string.suggested_edits_contributions_screen_title, AccountUtil.getUserName())
     }
 
     companion object {
