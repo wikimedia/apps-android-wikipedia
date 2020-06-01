@@ -3,6 +3,7 @@ package org.wikipedia.views;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.util.AttributeSet;
+import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.ViewConfiguration;
 import android.webkit.WebView;
@@ -10,6 +11,7 @@ import android.webkit.WebView;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.events.WebViewInvalidateEvent;
 import org.wikipedia.util.DimenUtil;
+import org.wikipedia.util.log.L;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +25,7 @@ public class ObservableWebView extends WebView {
     private List<OnUpOrCancelMotionEventListener> onUpOrCancelMotionEventListeners;
     private List<OnContentHeightChangedListener> onContentHeightChangedListeners;
     private OnFastScrollListener onFastScrollListener;
+    private GestureDetector gestureDetector;
 
     private int contentHeight = 0;
     private float touchStartX;
@@ -129,6 +132,13 @@ public class ObservableWebView extends WebView {
         onUpOrCancelMotionEventListeners = new ArrayList<>();
         onContentHeightChangedListeners = new ArrayList<>();
         touchSlop = ViewConfiguration.get(getContext()).getScaledTouchSlop();
+        gestureDetector = new GestureDetector(getContext(), new GestureDetector.SimpleOnGestureListener() {
+            @Override
+            public void onLongPress(MotionEvent event) {
+                L.d("ObservableWebView onLongPress");
+                performLongClick();
+            }
+        });
     }
 
     @Override
@@ -183,7 +193,7 @@ public class ObservableWebView extends WebView {
             default:
                 break;
         }
-        return super.onTouchEvent(event);
+        return gestureDetector.onTouchEvent(event) || super.onTouchEvent(event);
     }
 
     @Override
