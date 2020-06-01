@@ -79,7 +79,7 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
     }
 
     private fun getImageTags(imageTags: Map<String, List<String>>, languageCode: String) : String? {
-        return imageTags[languageCode]?.joinToString(separator = "\n")
+        return imageTags[languageCode]?.joinToString(separator = ", ")
     }
 
     private fun getProperLanguageLocalizedName(summary: SuggestedEditsSummary, imageFromCommons: Boolean): String? {
