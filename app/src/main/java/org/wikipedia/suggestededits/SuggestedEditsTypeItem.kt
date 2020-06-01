@@ -30,7 +30,7 @@ class SuggestedEditsTypeItem constructor(context: Context, attrs: AttributeSet? 
         }
         setOnClickListener {
             if (callback != null) {
-                callback!!.onClick(this)
+                callback?.onClick(this)
             }
         }
     }

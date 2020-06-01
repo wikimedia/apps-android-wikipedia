@@ -19,7 +19,7 @@ class SuggestedEditsContributionsItemView constructor(context: Context, attrs: A
         layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         setOnClickListener {
             if (callback != null) {
-                callback!!.onClick()
+                callback?.onClick()
             }
         }
     }
