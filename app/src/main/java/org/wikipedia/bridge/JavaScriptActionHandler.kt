@@ -1,6 +1,7 @@
 package org.wikipedia.bridge
 
 import android.content.Context
+import androidx.annotation.ColorInt
 import org.wikipedia.BuildConfig
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -136,5 +137,14 @@ object JavaScriptActionHandler {
                 "       fragment: \"pcs-read-more\"" +
                 "   }" +
                 "})"
+    }
+
+    @JvmStatic
+    fun mainPageShim(@ColorInt backgroundColor: Int): String {
+        return "(function() { var elements = document.querySelectorAll('tr,td,div,h2,h3');" +
+                "for (var i = 0; i < elements.length; i++) {" +
+                "  elements[i].style.backgroundColor = '#${String.format("%08x", backgroundColor).substring(2)}';" +
+                "}" +
+                "})();"
     }
 }

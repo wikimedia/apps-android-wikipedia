@@ -89,6 +89,7 @@ import org.wikipedia.util.ActiveTimer;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.GeoUtil;
+import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.ThrowableUtil;
 import org.wikipedia.util.UriUtil;
@@ -460,6 +461,10 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         refreshView.setRefreshing(false);
         requireActivity().invalidateOptionsMenu();
         initPageScrollFunnel();
+
+        if (model.getPage().isMainPage()) {
+            bridge.execute(JavaScriptActionHandler.mainPageShim(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color)));
+        }
 
         if (model.getReadingListPage() != null) {
             final ReadingListPage page = model.getReadingListPage();
