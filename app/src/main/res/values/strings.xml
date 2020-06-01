@@ -791,7 +791,7 @@
     <string name="suggested_edits_reactivation_notification_title">Suggested edits</string>
     <string name="suggested_edits_reactivation_notification_stage_one">Thanks for editing Wikipedia! Why not continue where you left off?</string>
     <string name="suggested_edits_reactivation_notification_stage_two">Have a minute to continue improving Wikipedia? Check out these editing suggestions.</string>
-    <string name="suggested_edits_type_image_tag">Image tag</string>
+    <string name="suggested_edits_contribution_type_image_tag">Image tag</string>
     <string name="suggested_edits_contributions_screen_title">%s\'s contributions</string>
     <string name="suggested_edits_spinner_item_text">%1$d %2$s</string>
     <string name="suggested_edits_language_label">Language</string>
@@ -807,6 +807,9 @@
         <item quantity="one">You added %d tag</item>
         <item quantity="other">You added %d tags</item>
     </plurals>
+    <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
+    <string name="suggested_edits_contribution_seen_text">Seen %s times in the past 30 days.</string>
+    <string name="suggested_edits_contribution_date_yesterday_text">Yesterday</string>
     <!-- /Suggested edits -->
 
     <!-- File page -->
