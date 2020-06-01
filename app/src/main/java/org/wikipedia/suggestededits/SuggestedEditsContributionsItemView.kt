@@ -13,22 +13,19 @@ import org.wikipedia.util.StringUtil
 import org.wikipedia.views.ViewUtil
 
 class SuggestedEditsContributionsItemView constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
-
-    init {
-        View.inflate(context, R.layout.item_suggested_edits_contributions, this)
-        layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-        setOnClickListener {
-            if (callback != null) {
-                callback!!.onClick()
-            }
-        }
-    }
-
     interface Callback {
         fun onClick()
     }
 
     var callback: Callback? = null
+
+    init {
+        View.inflate(context, R.layout.item_suggested_edits_contributions, this)
+        layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        setOnClickListener {
+            callback?.onClick()
+        }
+    }
 
     fun setTitle(contributionTitle: String?) {
         title.text = StringUtil.fromHtml(contributionTitle)

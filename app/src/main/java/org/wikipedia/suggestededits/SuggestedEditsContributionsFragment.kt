@@ -25,7 +25,6 @@ import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
-import org.wikipedia.dataclient.wikidata.Entities
 import org.wikipedia.suggestededits.Contribution.Companion.ALL_EDIT_TYPES
 import org.wikipedia.suggestededits.Contribution.Companion.EDIT_TYPE_ARTICLE_DESCRIPTION
 import org.wikipedia.suggestededits.Contribution.Companion.EDIT_TYPE_IMAGE_CAPTION
@@ -41,11 +40,8 @@ import kotlin.collections.HashMap
 class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.Callback {
     private val adapter: ContributionsEntryItemAdapter = ContributionsEntryItemAdapter()
 
-    private var articleContributions = ArrayList<Contribution>()
-    private var imageContributions = HashSet<Contribution>()
-    private var articleAndImageContributions = ArrayList<Contribution>()
-
-    private var consolidatedContributionsWithDates: MutableList<Any> = ArrayList()
+    private var allContributions = ArrayList<Contribution>()
+    private var displayedContributions: MutableList<Any> = ArrayList()
 
     private val disposables = CompositeDisposable()
     private var articleContributionsContinuation: String? = null
@@ -58,7 +54,6 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        loadContentOfEditFilterType()
         retainInstance = true
     }
 
@@ -70,40 +65,41 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        loadMoreProgressView.visibility = VISIBLE
         contributionsRecyclerView.layoutManager = LinearLayoutManager(context)
         contributionsRecyclerView.adapter = adapter
         swipeRefreshLayout.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent))
+
         swipeRefreshLayout.setOnRefreshListener {
-            if (!loadingMore) {
-                loadContentOfEditFilterType()
-            }
+            fetchContributions()
         }
-        val scrollListener = object : RecyclerView.OnScrollListener() {
+
+        contributionsRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
                 super.onScrollStateChanged(recyclerView, newState)
                 val linearLayoutManager = recyclerView.layoutManager as LinearLayoutManager?
                 if (!loadingMore && !imageContributionsContinuation.isNullOrEmpty() && !articleContributionsContinuation.isNullOrEmpty()) {
-                    if (linearLayoutManager != null && linearLayoutManager.findLastCompletelyVisibleItemPosition() == consolidatedContributionsWithDates.size - 1) {
-                        loadContentOfEditFilterType()
-                        loadingMore = true
-                        loadMoreProgressView.visibility = VISIBLE
+                    if (linearLayoutManager != null && linearLayoutManager.findLastCompletelyVisibleItemPosition() == displayedContributions.size - 1) {
+                        fetchContributions()
                     }
                 }
             }
-        }
-        contributionsRecyclerView.addOnScrollListener(scrollListener)
+        })
+
         filterViews.add(allTypesView)
         filterViews.add(articleDescriptionView)
         filterViews.add(imageCaptionsView)
         filterViews.add(imageTagsView)
+
         allTypesView.setAttributes(getString(R.string.suggested_edits_contribution_type_title, SuggestedEditsUserStats.totalEdits, resources.getQuantityString(R.plurals.suggested_edits_contribution, 25)), R.drawable.ic_mode_edit_themed_24dp, ALL_EDIT_TYPES, this)
         articleDescriptionView.setAttributes(getString(R.string.suggested_edits_contribution_type_title, SuggestedEditsUserStats.totalDescriptionEdits, getString(R.string.description_edit_tutorial_title_descriptions)), R.drawable.ic_article_description, EDIT_TYPE_ARTICLE_DESCRIPTION, this)
         imageCaptionsView.setAttributes(getString(R.string.suggested_edits_contribution_type_title, SuggestedEditsUserStats.totalImageCaptionEdits, getString(R.string.suggested_edits_image_captions)), R.drawable.ic_image_caption, EDIT_TYPE_IMAGE_CAPTION, this)
         imageTagsView.setAttributes(getString(R.string.suggested_edits_contribution_type_title, SuggestedEditsUserStats.totalImageTagEdits, getString(R.string.suggested_edits_image_tags)), R.drawable.ic_image_tag, EDIT_TYPE_IMAGE_TAG, this)
+
         disposables.add(SuggestedEditsUserStats.getPageViewsObservable().subscribe {
             contributionsSeenText.text = getString(R.string.suggested_edits_contribution_seen_text, it.toString())
         })
+
+        fetchContributions()
     }
 
     override fun onDestroyView() {
@@ -112,36 +108,32 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
         super.onDestroyView()
     }
 
-    private fun setFilterAndUIState(view: SuggestedEditsTypeItem) {
-        editFilterType = view.editType
+    override fun onTypeItemClick(editType: Int) {
+        editFilterType = editType
         createConsolidatedList()
     }
 
     companion object {
+        private const val VIEW_TYPE_HEADER = 0
+        private const val VIEW_TYPE_ITEM = 1
+
         fun newInstance(): SuggestedEditsContributionsFragment {
             return SuggestedEditsContributionsFragment()
         }
     }
 
-    private fun loadContentOfEditFilterType() {
-        loadingMore = true
-        fetchContributions()
-    }
-
     private fun fetchContributions() {
-        val continuedArticlesContributions = ArrayList<Contribution>()
-        val continuedImageContributions = HashSet<Contribution>()
-        val qLangMap = HashMap<String, HashSet<String>>()
-
-
+        loadingMore = true
+        loadMoreProgressView.visibility = VISIBLE
 
         disposables.add(Observable.zip(ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getUserContributions(AccountUtil.getUserName()!!, 50, articleContributionsContinuation)
                 .subscribeOn(Schedulers.io())
                 .flatMap { response ->
+                    val wikidataContributions = ArrayList<Contribution>()
+                    val qLangMap = HashMap<String, HashSet<String>>()
                     if (!response.continuation().isNullOrEmpty()) {
                         articleContributionsContinuation = response.continuation()!!["uccontinue"]
                     }
-                    continuedArticlesContributions.clear()
                     for (userContribution in response.query()!!.userContributions()) {
                         var descLang = ""
                         val strArr = userContribution.comment.split(" ")
@@ -161,29 +153,32 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
                         if (!qLangMap.containsKey(userContribution.title)) {
                             qLangMap[userContribution.title] = HashSet()
                         }
-                        continuedArticlesContributions.add(Contribution(userContribution.title, "", "", EDIT_TYPE_ARTICLE_DESCRIPTION,
-                                "", DateUtil.iso8601DateParse(userContribution.timestamp), WikiSite.forLanguageCode(descLang), 0, 0))
+                        wikidataContributions.add(Contribution(userContribution.title, "", "", EDIT_TYPE_ARTICLE_DESCRIPTION,
+                                "", DateUtil.iso8601DateParse(userContribution.timestamp), WikiSite.forLanguageCode(descLang), 0))
 
                         qLangMap[userContribution.title]!!.add(descLang)
                     }
                     ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getWikidataLabelsAndDescriptions(qLangMap.keys.joinToString("|"))
                             .subscribeOn(Schedulers.io())
+                            .flatMap { entities ->
+                                for (entityKey in entities.entities().keys) {
+                                    val entity = entities.entities()[entityKey]!!
+                                    for (contribution in wikidataContributions) {
+                                        if (contribution.qNumber == entityKey) {
+                                            contribution.title = entity.labels()[contribution.wikiSite.languageCode()]!!.value()
+                                            contribution.description = entity.descriptions()[contribution.wikiSite.languageCode()]!!.value()
+                                        }
+                                    }
+                                }
+                                Observable.just(wikidataContributions)
+                            }
                 },
                 ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getUserContributions(AccountUtil.getUserName()!!, 50, imageContributionsContinuation)
                         .subscribeOn(Schedulers.io()),
-                BiFunction<Entities, MwQueryResponse, MwQueryResponse> { entities: Entities, commonsResponse: MwQueryResponse ->
+                BiFunction<List<Contribution>, MwQueryResponse, List<Contribution>> { wikidataContributions, commonsResponse ->
+                    val contributions = ArrayList<Contribution>()
+                    contributions.addAll(wikidataContributions)
 
-                    for (entityKey in entities.entities().keys) {
-                        val entity = entities.entities()[entityKey]!!
-                        for (contribution in continuedArticlesContributions) {
-                            if (contribution.qNumber == entityKey) {
-                                contribution.title = entity.labels()[contribution.wikiSite.languageCode()]!!.value()
-                                contribution.description = entity.descriptions()[contribution.wikiSite.languageCode()]!!.value()
-                            }
-                        }
-                    }
-
-                    continuedImageContributions.clear()
                     imageContributionsContinuation = if (commonsResponse.continuation().isNullOrEmpty()) "" else commonsResponse.continuation()!!["uccontinue"]
                     for (userContribution in commonsResponse.query()!!.userContributions()) {
                         val strArr = userContribution.comment.split(" ")
@@ -201,35 +196,21 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
                                 editType = EDIT_TYPE_IMAGE_TAG
                             }
                         }
-                        val con = Contribution("", userContribution.title, "", editType, "", DateUtil.iso8601DateParse(userContribution.timestamp),
-                                WikiSite.forLanguageCode(contributionLanguage), 0, if (editType == EDIT_TYPE_IMAGE_TAG) 1 else 0)
-                        if (!continuedImageContributions.add(con)) {
-                            continuedImageContributions.elementAt(continuedImageContributions.indexOf(con)).tagCount++
-                        }
+                        contributions.add(Contribution("", userContribution.title, "", editType, "",
+                                DateUtil.iso8601DateParse(userContribution.timestamp), WikiSite.forLanguageCode(contributionLanguage), 0))
                     }
-
-
-                    commonsResponse
+                    contributions
                 })
-
-
-
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
+                .doAfterTerminate {
+                    loadingMore = false
+                    swipeRefreshLayout.isRefreshing = false
+                    loadMoreProgressView.visibility = GONE
+                }
                 .subscribe({
-
-
-                    articleContributions.addAll(continuedArticlesContributions)
-
-                    for (continuedImageContribution in continuedImageContributions) {
-                        if (!imageContributions.add(continuedImageContribution)) {
-                            continuedImageContributions.elementAt(continuedImageContributions.indexOf(continuedImageContribution)).tagCount++
-                        }
-                    }
-
+                    allContributions.addAll(it)
                     createConsolidatedList()
-
-
                 }, { caught ->
                     L.e(caught)
                     showError(caught)
@@ -237,29 +218,37 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
     }
 
     private fun createConsolidatedList() {
-        articleAndImageContributions.clear()
-        loadDataBasedOnFilter()
-        articleAndImageContributions.sortWith(Comparator { o2, o1 -> (o1.date.compareTo(o2.date)) })
-        consolidatedContributionsWithDates.clear()
-        adapter.clearList()
-        adapter.notifyDataSetChanged()
-        if (!articleAndImageContributions.isNullOrEmpty()) {
-            var currentDate = articleAndImageContributions[0].date
+        val sortedContributions = ArrayList<Contribution>()
+        when (editFilterType) {
+            EDIT_TYPE_ARTICLE_DESCRIPTION -> {
+                sortedContributions.addAll(allContributions.filter { it.editType == EDIT_TYPE_ARTICLE_DESCRIPTION })
+            }
+            EDIT_TYPE_IMAGE_CAPTION -> {
+                sortedContributions.addAll(allContributions.filter { it.editType == EDIT_TYPE_IMAGE_CAPTION })
+            }
+            EDIT_TYPE_IMAGE_TAG -> {
+                sortedContributions.addAll(allContributions.filter { it.editType == EDIT_TYPE_IMAGE_TAG })
+            }
+            else -> {
+                sortedContributions.addAll(allContributions)
+            }
+        }
+        sortedContributions.sortWith(Comparator { o2, o1 -> (o1.date.compareTo(o2.date)) })
+
+        if (!sortedContributions.isNullOrEmpty()) {
+            var currentDate = sortedContributions[0].date
             var nextDate: Date
-            consolidatedContributionsWithDates.add(getCorrectDateString(currentDate))
-            for (position in 0 until articleAndImageContributions.size) {
-                nextDate = articleAndImageContributions[position].date
+            displayedContributions.add(getCorrectDateString(currentDate))
+            for (position in 0 until sortedContributions.size) {
+                nextDate = sortedContributions[position].date
                 if (!DateUtils.isSameDay(nextDate, currentDate)) {
-                    consolidatedContributionsWithDates.add(getCorrectDateString(nextDate))
+                    displayedContributions.add(getCorrectDateString(nextDate))
                     currentDate = nextDate
                 }
-                consolidatedContributionsWithDates.add(articleAndImageContributions[position])
+                displayedContributions.add(sortedContributions[position])
             }
-            adapter.setList(consolidatedContributionsWithDates)
         }
-        loadingMore = false
-        swipeRefreshLayout.isRefreshing = false
-        loadMoreProgressView.visibility = GONE
+        adapter.notifyDataSetChanged()
         contentContainer.visibility = VISIBLE
         updateFilterViewUI()
     }
@@ -308,24 +297,6 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
                 filterView.setEnabledStateUI()
             } else {
                 filterView.setDisabledStateUI()
-            }
-        }
-    }
-
-    private fun loadDataBasedOnFilter() {
-        when (editFilterType) {
-            EDIT_TYPE_ARTICLE_DESCRIPTION -> {
-                articleAndImageContributions.addAll(articleContributions)
-            }
-            EDIT_TYPE_IMAGE_CAPTION -> {
-                articleAndImageContributions.addAll(imageContributions.filter { it.editType == EDIT_TYPE_IMAGE_CAPTION })
-            }
-            EDIT_TYPE_IMAGE_TAG -> {
-                articleAndImageContributions.addAll(imageContributions.filter { it.editType == EDIT_TYPE_IMAGE_TAG })
-            }
-            else -> {
-                articleAndImageContributions.addAll(articleContributions)
-                articleAndImageContributions.addAll(imageContributions)
             }
         }
     }
@@ -415,27 +386,17 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
         }
     }
 
-    private class ContributionsEntryItemAdapter : RecyclerView.Adapter<DefaultViewHolder<*>>() {
-        private var mutableList: MutableList<Any> = ArrayList()
+    inner class ContributionsEntryItemAdapter : RecyclerView.Adapter<DefaultViewHolder<*>>() {
         override fun getItemCount(): Int {
-            return mutableList.size
+            return displayedContributions.size
         }
 
         override fun getItemViewType(position: Int): Int {
-            return if (mutableList[position] is String) {
+            return if (displayedContributions[position] is String) {
                 VIEW_TYPE_HEADER
             } else {
                 VIEW_TYPE_ITEM
             }
-        }
-
-        fun clearList() {
-            mutableList.clear()
-        }
-
-        fun setList(list: MutableList<Any>) {
-            mutableList.addAll(list)
-            notifyDataSetChanged()
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DefaultViewHolder<*> {
@@ -449,9 +410,9 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
 
         override fun onBindViewHolder(holder: DefaultViewHolder<*>, pos: Int) {
             if (holder is ContributionItemHolder) {
-                holder.bindItem((mutableList[pos] as Contribution))
+                holder.bindItem((displayedContributions[pos] as Contribution))
             } else {
-                (holder as HeaderViewHolder).bindItem((mutableList[pos] as String))
+                (holder as HeaderViewHolder).bindItem((displayedContributions[pos] as String))
             }
         }
 
@@ -469,11 +430,6 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
             }
             super.onViewDetachedFromWindow(holder)
         }
-
-        companion object {
-            private const val VIEW_TYPE_HEADER = 0
-            private const val VIEW_TYPE_ITEM = 1
-        }
     }
 
     private class ItemCallback : SuggestedEditsContributionsItemView.Callback {
@@ -481,7 +437,4 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
         }
     }
 
-    override fun onClick(view: SuggestedEditsTypeItem) {
-        setFilterAndUIState(view)
-    }
 }

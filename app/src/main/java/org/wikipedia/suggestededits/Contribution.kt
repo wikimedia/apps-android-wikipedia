@@ -4,7 +4,7 @@ import org.wikipedia.dataclient.WikiSite
 import java.util.*
 
 class Contribution internal constructor(val qNumber: String, var title: String, var description: String, val editType: Int, var imageUrl: String,
-                                        val date: Date, val wikiSite: WikiSite, var pageViews: Long, var tagCount: Int) {
+                                        val date: Date, val wikiSite: WikiSite, var pageViews: Long) {
     override fun hashCode(): Int {
         return title.hashCode()
     }

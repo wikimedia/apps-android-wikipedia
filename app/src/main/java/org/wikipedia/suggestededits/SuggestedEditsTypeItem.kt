@@ -15,12 +15,11 @@ import org.wikipedia.suggestededits.Contribution.Companion.ALL_EDIT_TYPES
 import org.wikipedia.util.ResourceUtil
 
 class SuggestedEditsTypeItem constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
-
-    var editType: Int = ALL_EDIT_TYPES
+    private var editType: Int = ALL_EDIT_TYPES
     private var callback: Callback? = null
 
     interface Callback {
-        fun onClick(view: SuggestedEditsTypeItem)
+        fun onTypeItemClick(editType: Int)
     }
 
     init {
@@ -30,7 +29,7 @@ class SuggestedEditsTypeItem constructor(context: Context, attrs: AttributeSet? 
         }
         setOnClickListener {
             if (callback != null) {
-                callback!!.onClick(this)
+                callback!!.onTypeItemClick(editType)
             }
         }
     }
