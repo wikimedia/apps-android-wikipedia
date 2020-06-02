@@ -11,7 +11,6 @@ import android.webkit.WebView;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.events.WebViewInvalidateEvent;
 import org.wikipedia.util.DimenUtil;
-import org.wikipedia.util.log.L;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -132,13 +131,6 @@ public class ObservableWebView extends WebView {
         onUpOrCancelMotionEventListeners = new ArrayList<>();
         onContentHeightChangedListeners = new ArrayList<>();
         touchSlop = ViewConfiguration.get(getContext()).getScaledTouchSlop();
-        gestureDetector = new GestureDetector(getContext(), new GestureDetector.SimpleOnGestureListener() {
-            @Override
-            public void onLongPress(MotionEvent event) {
-                L.d("ObservableWebView onLongPress");
-                performLongClick();
-            }
-        });
     }
 
     @Override
@@ -193,7 +185,7 @@ public class ObservableWebView extends WebView {
             default:
                 break;
         }
-        return gestureDetector.onTouchEvent(event) || super.onTouchEvent(event);
+        return super.onTouchEvent(event);
     }
 
     @Override

@@ -125,6 +125,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     @Nullable private Unbinder unbinder;
 
     private PageFragment pageFragment;
+    private boolean isAltPressed;
 
     private WikipediaApp app;
     private Set<ActionMode> currentActionModes = new HashSet<>();
@@ -230,6 +231,14 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     public void hideSoftKeyboard() {
         DeviceUtil.hideSoftKeyboard(this);
+    }
+
+    public void isAltPressed(boolean isAltPressed) {
+        this.isAltPressed = isAltPressed;
+    }
+
+    public boolean isAltPressed() {
+        return isAltPressed;
     }
 
     @Override
@@ -835,11 +844,18 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
+        isAltPressed = event.isAltPressed();
         if ((event.isCtrlPressed() && keyCode == KeyEvent.KEYCODE_F)
                 || (!event.isCtrlPressed() && keyCode == KeyEvent.KEYCODE_F3)) {
             pageFragment.showFindInPage();
             return true;
         }
-        return super.onKeyDown(keyCode, event);
+        return true;
+    }
+
+    @Override
+    public boolean onKeyUp(int keyCode, KeyEvent event) {
+        isAltPressed = event.isAltPressed();
+        return super.onKeyUp(keyCode, event);
     }
 }

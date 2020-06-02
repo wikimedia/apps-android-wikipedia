@@ -117,7 +117,8 @@ public abstract class OkHttpWebViewClient extends WebViewClient {
     @Override
     public boolean shouldOverrideKeyEvent(WebView view, KeyEvent event) {
         return ((event.isCtrlPressed() && event.getKeyCode() == KeyEvent.KEYCODE_F)
-                || (!event.isCtrlPressed() && event.getKeyCode() == KeyEvent.KEYCODE_F3));
+                || (!event.isCtrlPressed() && event.getKeyCode() == KeyEvent.KEYCODE_F3)
+                || (event.getKeyCode() == KeyEvent.KEYCODE_ALT_LEFT || event.getKeyCode() == KeyEvent.KEYCODE_ALT_RIGHT));
     }
 
     @NonNull private Response request(WebResourceRequest request) throws IOException {

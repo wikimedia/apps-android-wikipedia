@@ -389,6 +389,15 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             new LongPressHandler(webView, HistoryEntry.SOURCE_INTERNAL_LINK, new PageContainerLongPressHandler(this));
         }
 
+        webView.addOnClickListener((x, y) -> {
+            if (((PageActivity) requireActivity()).isAltPressed()) {
+                webView.performLongClick();
+                // TODO: startActionMode with "standard" action mode bar (copy, share...etc).
+                ((PageActivity) requireActivity()).isAltPressed(false);
+            }
+            return false;
+        });
+
         pageFragmentLoadState.setUp(model, this, webView, bridge, leadImagesHandler, getCurrentTab());
 
         if (shouldLoadFromBackstack(requireActivity()) || savedInstanceState != null) {
