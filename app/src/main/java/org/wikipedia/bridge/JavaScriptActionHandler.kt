@@ -25,6 +25,11 @@ object JavaScriptActionHandler {
     }
 
     @JvmStatic
+    fun getGeneralTextSelection(): String {
+        return "(function(){return window.getSelection().toString()})()"
+    }
+
+    @JvmStatic
     fun getTextSelection(): String {
         return "pcs.c1.InteractionHandling.getSelectionInfo()"
     }

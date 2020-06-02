@@ -23,6 +23,7 @@ public class ObservableWebView extends WebView {
     private List<OnUpOrCancelMotionEventListener> onUpOrCancelMotionEventListeners;
     private List<OnContentHeightChangedListener> onContentHeightChangedListeners;
     private OnFastScrollListener onFastScrollListener;
+    private OnMouseClickListener onMouseClickListener;
 
     private int contentHeight = 0;
     private float touchStartX;
@@ -54,6 +55,10 @@ public class ObservableWebView extends WebView {
 
     private static final int SWIPE_DRAW_TOLERANCE = 4;
 
+    public void setOnMouseClickListener(OnMouseClickListener onMouseClickListener) {
+        this.onMouseClickListener = onMouseClickListener;
+    }
+
     public void addOnClickListener(OnClickListener onClickListener) {
         onClickListeners.add(onClickListener);
     }
@@ -81,6 +86,12 @@ public class ObservableWebView extends WebView {
         onUpOrCancelMotionEventListeners.clear();
         onContentHeightChangedListeners.clear();
         onFastScrollListener = null;
+        onMouseClickListener = null;
+    }
+
+    public interface OnMouseClickListener {
+        void onLeftClick();
+        void onRightClick();
     }
 
     public interface OnClickListener {
@@ -152,6 +163,18 @@ public class ObservableWebView extends WebView {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
+
+        //  mouse button events
+        switch (event.getButtonState()) {
+            case MotionEvent.BUTTON_PRIMARY:
+                onMouseClickListener.onLeftClick();
+                break;
+
+            case MotionEvent.BUTTON_SECONDARY:
+                onMouseClickListener.onRightClick();
+                break;
+        }
+
         switch (event.getActionMasked()) {
             case MotionEvent.ACTION_DOWN:
                 for (OnDownMotionEventListener listener : onDownMotionEventListeners) {

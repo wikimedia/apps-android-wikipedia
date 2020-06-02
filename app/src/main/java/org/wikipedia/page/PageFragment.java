@@ -126,6 +126,7 @@ import static org.wikipedia.util.ResourceUtil.getThemedAttributeId;
 import static org.wikipedia.util.ResourceUtil.getThemedColor;
 import static org.wikipedia.util.ThrowableUtil.isOffline;
 import static org.wikipedia.util.UriUtil.decodeURL;
+import static org.wikipedia.util.UriUtil.isValidPageLink;
 import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
 
 public class PageFragment extends Fragment implements BackPressedHandler, CommunicationBridgeListener {
@@ -447,6 +448,51 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                     return;
                 }
                 onPageLoadError(new HttpStatusException(errorResponse.getStatusCode(), request.getUrl().toString(), UriUtil.decodeURL(errorResponse.getReasonPhrase())));
+            }
+        });
+        webView.setOnMouseClickListener(new ObservableWebView.OnMouseClickListener() {
+            @Override
+            public void onLeftClick() {}
+
+            @Override
+            public void onRightClick() {
+                bridge.evaluate(JavaScriptActionHandler.getGeneralTextSelection(), value -> {
+                    if (!isAdded() || value == null) {
+                        return;
+                    }
+                    WebView.HitTestResult result = webView.getHitTestResult();
+                    boolean validPageLink = false;
+                    if (result.getType() == WebView.HitTestResult.SRC_ANCHOR_TYPE) {
+                        validPageLink = isValidPageLink(Uri.parse(result.getExtra()));
+                    }
+                    if (TextUtils.isEmpty(value.replaceAll("\"", ""))) {
+                        if (validPageLink) {
+                            webView.showContextMenu();
+                        }
+                    } else {
+                        startSupportActionMode(new ActionMode.Callback() {
+                            @Override
+                            public boolean onCreateActionMode(ActionMode actionMode, Menu menu) {
+                                return true;
+                            }
+
+                            @Override
+                            public boolean onPrepareActionMode(ActionMode actionMode, Menu menu) {
+                                return false;
+                            }
+
+                            @Override
+                            public boolean onActionItemClicked(ActionMode actionMode, MenuItem menuItem) {
+                                return false;
+                            }
+
+                            @Override
+                            public void onDestroyActionMode(ActionMode actionMode) {
+
+                            }
+                        });
+                    }
+                });
             }
         });
     }
