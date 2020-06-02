@@ -24,7 +24,6 @@ public class ObservableWebView extends WebView {
     private List<OnUpOrCancelMotionEventListener> onUpOrCancelMotionEventListeners;
     private List<OnContentHeightChangedListener> onContentHeightChangedListeners;
     private OnFastScrollListener onFastScrollListener;
-    private GestureDetector gestureDetector;
 
     private int contentHeight = 0;
     private float touchStartX;
