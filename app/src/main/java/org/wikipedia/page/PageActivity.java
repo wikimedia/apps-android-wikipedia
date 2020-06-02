@@ -850,7 +850,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             pageFragment.showFindInPage();
             return true;
         }
-        return true;
+        return super.onKeyDown(keyCode, event);
     }
 
     @Override
