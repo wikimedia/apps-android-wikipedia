@@ -154,7 +154,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
                             qLangMap[userContribution.title] = HashSet()
                         }
                         wikidataContributions.add(Contribution(userContribution.title, "", "", EDIT_TYPE_ARTICLE_DESCRIPTION,
-                                "", DateUtil.iso8601DateParse(userContribution.timestamp), WikiSite.forLanguageCode(descLang), 0))
+                                null, DateUtil.iso8601DateParse(userContribution.timestamp), WikiSite.forLanguageCode(descLang), 0))
 
                         qLangMap[userContribution.title]!!.add(descLang)
                     }
@@ -196,7 +196,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
                                 editType = EDIT_TYPE_IMAGE_TAG
                             }
                         }
-                        contributions.add(Contribution("", userContribution.title, "", editType, "",
+                        contributions.add(Contribution("", userContribution.title, "", editType, null,
                                 DateUtil.iso8601DateParse(userContribution.timestamp), WikiSite.forLanguageCode(contributionLanguage), 0))
                     }
                     contributions
@@ -316,15 +316,20 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
             view.setDescription(contribution.title)
             view.setIcon(contribution.editType)
             view.setImageUrl(contribution.imageUrl)
-            getPageView(view, contribution)
-            getImageDetails(view, contribution)
+            view.setPageViewCountText(contribution.pageViews)
+            if (contribution.pageViews == 0L && contribution.editType == EDIT_TYPE_ARTICLE_DESCRIPTION) {
+                getPageViews(view, contribution)
+            }
+            if (contribution.imageUrl == null) {
+                getContributionDetails(view, contribution)
+            }
         }
 
         fun clearDisposables() {
             disposables.clear()
         }
 
-        private fun getImageDetails(itemView: SuggestedEditsContributionsItemView, contribution: Contribution) {
+        private fun getContributionDetails(itemView: SuggestedEditsContributionsItemView, contribution: Contribution) {
             if (contribution.editType == EDIT_TYPE_ARTICLE_DESCRIPTION) {
                 disposables.add(ServiceFactory.getRest(contribution.wikiSite).getSummary(null, contribution.title)
                         .subscribeOn(Schedulers.io())
@@ -341,18 +346,12 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe({ response ->
                             val page = response.query()!!.pages()!![0]
-                            val labels = ArrayList<String>()
                             if (page.imageInfo() != null) {
                                 val imageInfo = page.imageInfo()!!
                                 contribution.description = imageInfo.metadata!!.imageDescription()
                                 contribution.imageUrl = imageInfo.originalUrl
                                 if (contribution.editType == EDIT_TYPE_IMAGE_TAG) {
-                                    if (!page.imageLabels.isNullOrEmpty()) {
-                                        for (imageLabel in page.imageLabels) {
-                                            labels.add(imageLabel.label)
-                                        }
-                                        contribution.description = labels.joinToString(" , ")
-                                    }
+                                    //
                                 }
                                 itemView.setImageUrl(contribution.imageUrl)
                                 itemView.setTitle(contribution.description)
@@ -363,7 +362,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
             }
         }
 
-        private fun getPageView(view: SuggestedEditsContributionsItemView, contribution: Contribution) {
+        private fun getPageViews(view: SuggestedEditsContributionsItemView, contribution: Contribution) {
             if (contribution.editType != EDIT_TYPE_ARTICLE_DESCRIPTION) {
                 view.setPageViewCountText(0)
                 return
