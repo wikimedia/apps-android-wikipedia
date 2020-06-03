@@ -3,9 +3,12 @@ package org.wikipedia.page.shareafact;
 import android.view.ActionMode;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.PopupMenu;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -78,8 +81,10 @@ public class ShareHandler {
      */
     public void onTextSelected(ActionMode mode) {
         webViewActionMode = mode;
-        Menu menu = mode.getMenu();
+        onTextSelected(mode.getMenu(), false);
+    }
 
+    private void onTextSelected(@NonNull Menu menu, boolean isPopupMenu) {
         MenuItem defineItem = menu.findItem(R.id.menu_text_select_define);
         if (shouldEnableWiktionaryDialog()) {
             defineItem.setVisible(true);
@@ -91,10 +96,46 @@ public class ShareHandler {
             editItem.setVisible(false);
         }
 
+        if (isPopupMenu) {
+            menu.findItem(R.id.menu_text_select_copy).setVisible(true);
+            menu.findItem(R.id.menu_text_select_share).setVisible(true);
+            menu.findItem(R.id.menu_text_select_web_search).setVisible(true);
+        }
+
         if (funnel == null) {
             createFunnel();
         }
         funnel.logHighlight();
+    }
+
+    public void showPopupMenuOnTextSelected(@NonNull View view, float x, float y) {
+        PopupMenu popupMenu;
+        View tempView = new View(view.getContext());
+        tempView.setX(x);
+        tempView.setY(y);
+        ((ViewGroup) view.getRootView()).addView(tempView);
+        popupMenu = new PopupMenu(view.getContext(), tempView, 0);
+        popupMenu.setOnDismissListener(menu -> ((ViewGroup) view.getRootView()).removeView(tempView));
+        popupMenu.getMenuInflater().inflate(R.menu.menu_text_select, popupMenu.getMenu());
+        onTextSelected(popupMenu.getMenu(), true);
+        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.menu_text_select_copy:
+                        fragment.getWebView().copyToClipboard();
+                        return true;
+                    case R.id.menu_text_select_share:
+
+                        return true;
+                    case R.id.menu_text_select_web_search:
+
+                        return true;
+                }
+                return false;
+            }
+        });
+        popupMenu.show();
     }
 
     public boolean shouldEnableWiktionaryDialog() {

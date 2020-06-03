@@ -452,10 +452,10 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         });
         webView.setOnMouseClickListener(new ObservableWebView.OnMouseClickListener() {
             @Override
-            public void onLeftClick() { }
+            public void onLeftClick(float x, float y) { }
 
             @Override
-            public void onRightClick() {
+            public void onRightClick(float x, float y) {
                 bridge.evaluate(JavaScriptActionHandler.getGeneralTextSelection(), value -> {
                     if (!isAdded() || value == null) {
                         return;
@@ -471,6 +471,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                         }
                     } else {
                         // TODO: write custom context menu with standard actions (e.g. copy, share, define...etc)
+                        shareHandler.showPopupMenuOnTextSelected(webView, x, y);
                     }
                 });
             }

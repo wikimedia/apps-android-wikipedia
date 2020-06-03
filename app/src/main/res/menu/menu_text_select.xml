@@ -15,4 +15,21 @@
         android:title="@string/menu_text_select_edit_here"
         app:showAsAction="ifRoom" />
 
+    <item
+        android:id="@+id/menu_text_select_copy"
+        android:title="@string/menu_text_select_copy"
+        android:visible="false"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/menu_text_select_share"
+        android:title="@string/menu_text_select_share"
+        android:visible="false"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/menu_text_select_web_search"
+        android:title="@string/menu_text_select_web_search"
+        android:visible="false"
+        app:showAsAction="ifRoom" />
 </menu>

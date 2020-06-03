@@ -90,8 +90,8 @@ public class ObservableWebView extends WebView {
     }
 
     public interface OnMouseClickListener {
-        void onLeftClick();
-        void onRightClick();
+        void onLeftClick(float x, float y);
+        void onRightClick(float x, float y);
     }
 
     public interface OnClickListener {
@@ -167,11 +167,11 @@ public class ObservableWebView extends WebView {
         //  mouse button events
         switch (event.getButtonState()) {
             case MotionEvent.BUTTON_PRIMARY:
-                onMouseClickListener.onLeftClick();
+                onMouseClickListener.onLeftClick(event.getX(), event.getY());
                 break;
 
             case MotionEvent.BUTTON_SECONDARY:
-                onMouseClickListener.onRightClick();
+                onMouseClickListener.onRightClick(event.getX(), event.getY());
                 break;
             default:
                 break;
