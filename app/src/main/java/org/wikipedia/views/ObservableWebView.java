@@ -173,6 +173,8 @@ public class ObservableWebView extends WebView {
             case MotionEvent.BUTTON_SECONDARY:
                 onMouseClickListener.onRightClick();
                 break;
+            default:
+                break;
         }
 
         switch (event.getActionMasked()) {
