@@ -452,7 +452,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         });
         webView.setOnMouseClickListener(new ObservableWebView.OnMouseClickListener() {
             @Override
-            public void onLeftClick() {}
+            public void onLeftClick() { }
 
             @Override
             public void onRightClick() {
