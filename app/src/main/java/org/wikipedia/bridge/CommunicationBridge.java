@@ -89,8 +89,12 @@ public class CommunicationBridge {
         isMetadataReady = false;
         pendingJSMessages.clear();
         pendingEvals.clear();
-        communicationBridgeListener.getWebView().loadUrl(ServiceFactory.getRestBasePath(pageTitle.getWikiSite())
-                + RestService.PAGE_HTML_ENDPOINT + UriUtil.encodeURL(pageTitle.getPrefixedText()));
+        if (pageTitle.isMainPage()) {
+            communicationBridgeListener.getWebView().loadUrl(pageTitle.getMobileUri());
+        } else {
+            communicationBridgeListener.getWebView().loadUrl(ServiceFactory.getRestBasePath(pageTitle.getWikiSite())
+                    + RestService.PAGE_HTML_ENDPOINT + UriUtil.encodeURL(pageTitle.getPrefixedText()));
+        }
     }
 
     public void cleanup() {
@@ -126,6 +130,10 @@ public class CommunicationBridge {
     public void evaluate(@NonNull String js, ValueCallback<String> callback) {
         pendingEvals.put(js, callback);
         flushMessages();
+    }
+
+    public void evaluateImmediate(@NonNull String js, ValueCallback<String> callback) {
+        communicationBridgeListener.getWebView().evaluateJavascript(js, callback);
     }
 
     private void flushMessages() {

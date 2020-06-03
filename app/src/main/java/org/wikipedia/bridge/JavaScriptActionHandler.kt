@@ -140,15 +140,11 @@ object JavaScriptActionHandler {
     }
 
     @JvmStatic
-    fun mainPageShim(@ColorInt backgroundColor: Int): String {
-        return "(function() { var i; var elements = document.querySelectorAll('tr,td,div,h2,h3');" +
-                "for (i = 0; i < elements.length; i++) {" +
-                "  elements[i].style.backgroundColor = '#${String.format("%08x", backgroundColor).substring(2)}';" +
-                "  if (elements[i].tagName === 'TD') {" +
-                "    elements[i].style.display = 'block';" +
-                "    elements[i].style.width = '100%';" +
-                "  }" +
-                "}" +
+    fun mobileWebChromeShim(): String {
+        return "(function() {" +
+                "let style = document.createElement('style');" +
+                "style.innerHTML = '.header-chrome { visibility: hidden; } #page-secondary-actions { display: none; } .mw-footer { margin-bottom: 48px; }';" +
+                "document.head.appendChild(style);" +
                 "})();"
     }
 }
