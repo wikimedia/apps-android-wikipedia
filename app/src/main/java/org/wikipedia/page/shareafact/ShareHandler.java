@@ -131,8 +131,9 @@ public class ShareHandler {
                 case R.id.menu_text_select_web_search:
                     startWebSearch(selectedText);
                     return true;
+                default:
+                    return false;
             }
-            return false;
         });
         popupMenu.show();
     }
