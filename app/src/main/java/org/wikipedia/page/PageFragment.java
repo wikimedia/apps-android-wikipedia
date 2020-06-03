@@ -471,7 +471,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                             webView.showContextMenu();
                         }
                     } else {
-                        // TODO: write custom context menu with standard actions (e.g. copy, share, define...etc)
                         shareHandler.showPopupMenuOnTextSelected(selectedText, x, y);
                     }
                 });
