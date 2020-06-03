@@ -2,7 +2,9 @@ package org.wikipedia.views;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.os.SystemClock;
 import android.util.AttributeSet;
+import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.ViewConfiguration;
 import android.webkit.WebView;
@@ -133,6 +135,7 @@ public class ObservableWebView extends WebView {
         init();
     }
 
+
     private void init() {
         onClickListeners = new ArrayList<>();
         onScrollChangeListeners = new ArrayList<>();
@@ -238,5 +241,14 @@ public class ObservableWebView extends WebView {
 
     public float getTouchStartY() {
         return touchStartY;
+    }
+
+    public void copyToClipboard() {
+        // Simulate a Ctrl-C key press, which copies the current selection to the clipboard.
+        // Seems to work across all APIs.
+        dispatchKeyEvent(new KeyEvent(SystemClock.uptimeMillis(), SystemClock.uptimeMillis(),
+                KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_C, 0, KeyEvent.META_CTRL_ON));
+        dispatchKeyEvent(new KeyEvent(SystemClock.uptimeMillis(), SystemClock.uptimeMillis(),
+                KeyEvent.ACTION_UP, KeyEvent.KEYCODE_C, 0, KeyEvent.META_CTRL_ON));
     }
 }

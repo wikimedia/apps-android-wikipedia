@@ -1,5 +1,7 @@
 package org.wikipedia.page.shareafact;
 
+import android.app.SearchManager;
+import android.content.Intent;
 import android.view.ActionMode;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -108,32 +110,29 @@ public class ShareHandler {
         funnel.logHighlight();
     }
 
-    public void showPopupMenuOnTextSelected(@NonNull View view, float x, float y) {
+    public void showPopupMenuOnTextSelected(@NonNull String selectedText, float x, float y) {
         PopupMenu popupMenu;
-        View tempView = new View(view.getContext());
+        View tempView = new View(fragment.getWebView().getContext());
         tempView.setX(x);
         tempView.setY(y);
-        ((ViewGroup) view.getRootView()).addView(tempView);
-        popupMenu = new PopupMenu(view.getContext(), tempView, 0);
-        popupMenu.setOnDismissListener(menu -> ((ViewGroup) view.getRootView()).removeView(tempView));
+        ((ViewGroup) fragment.getWebView().getRootView()).addView(tempView);
+        popupMenu = new PopupMenu(fragment.getWebView().getContext(), tempView, 0);
+        popupMenu.setOnDismissListener(menu -> ((ViewGroup) fragment.getWebView().getRootView()).removeView(tempView));
         popupMenu.getMenuInflater().inflate(R.menu.menu_text_select, popupMenu.getMenu());
         onTextSelected(popupMenu.getMenu(), true);
-        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                switch (item.getItemId()) {
-                    case R.id.menu_text_select_copy:
-                        fragment.getWebView().copyToClipboard();
-                        return true;
-                    case R.id.menu_text_select_share:
-
-                        return true;
-                    case R.id.menu_text_select_web_search:
-
-                        return true;
-                }
-                return false;
+        popupMenu.setOnMenuItemClickListener(item -> {
+            switch (item.getItemId()) {
+                case R.id.menu_text_select_copy:
+                    fragment.getWebView().copyToClipboard();
+                    return true;
+                case R.id.menu_text_select_share:
+                    sharePlainText(selectedText);
+                    return true;
+                case R.id.menu_text_select_web_search:
+                    startWebSearch(selectedText);
+                    return true;
             }
+            return false;
         });
         popupMenu.show();
     }
@@ -141,6 +140,19 @@ public class ShareHandler {
     public boolean shouldEnableWiktionaryDialog() {
         return Arrays.asList(WiktionaryDialog.getEnabledLanguages())
                 .contains(fragment.getTitle().getWikiSite().languageCode());
+    }
+
+    private void sharePlainText(@NonNull String text) {
+        Intent intent = new Intent(android.content.Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        intent.putExtra(android.content.Intent.EXTRA_TEXT, text);
+        fragment.requireActivity().startActivity(intent);
+    }
+
+    private void startWebSearch(@NonNull String text) {
+        Intent intent = new Intent(Intent.ACTION_WEB_SEARCH );
+        intent.putExtra(SearchManager.QUERY, text);
+        fragment.requireActivity().startActivity(intent);
     }
 
     private void leaveActionMode() {

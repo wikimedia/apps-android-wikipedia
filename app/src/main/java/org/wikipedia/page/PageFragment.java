@@ -456,22 +456,23 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
 
             @Override
             public void onRightClick(float x, float y) {
-                bridge.evaluate(JavaScriptActionHandler.getGeneralTextSelection(), value -> {
-                    if (!isAdded() || value == null) {
+                bridge.evaluate(JavaScriptActionHandler.getGeneralTextSelection(), selectedText -> {
+                    if (!isAdded() || selectedText == null) {
                         return;
                     }
+                    selectedText = selectedText.replaceAll("\"", "");
                     WebView.HitTestResult result = webView.getHitTestResult();
                     boolean validPageLink = false;
                     if (result.getType() == WebView.HitTestResult.SRC_ANCHOR_TYPE) {
                         validPageLink = isValidPageLink(Uri.parse(result.getExtra()));
                     }
-                    if (TextUtils.isEmpty(value.replaceAll("\"", ""))) {
+                    if (TextUtils.isEmpty(selectedText)) {
                         if (validPageLink) {
                             webView.showContextMenu();
                         }
                     } else {
                         // TODO: write custom context menu with standard actions (e.g. copy, share, define...etc)
-                        shareHandler.showPopupMenuOnTextSelected(webView, x, y);
+                        shareHandler.showPopupMenuOnTextSelected(selectedText, x, y);
                     }
                 });
             }
