@@ -141,9 +141,13 @@ object JavaScriptActionHandler {
 
     @JvmStatic
     fun mainPageShim(@ColorInt backgroundColor: Int): String {
-        return "(function() { var elements = document.querySelectorAll('tr,td,div,h2,h3');" +
-                "for (var i = 0; i < elements.length; i++) {" +
+        return "(function() { var i; var elements = document.querySelectorAll('tr,td,div,h2,h3');" +
+                "for (i = 0; i < elements.length; i++) {" +
                 "  elements[i].style.backgroundColor = '#${String.format("%08x", backgroundColor).substring(2)}';" +
+                "  if (elements[i].tagName === 'TD') {" +
+                "    elements[i].style.display = 'block';" +
+                "    elements[i].style.width = '100%';" +
+                "  }" +
                 "}" +
                 "})();"
     }

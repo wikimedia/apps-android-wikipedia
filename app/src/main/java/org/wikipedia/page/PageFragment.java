@@ -462,10 +462,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         requireActivity().invalidateOptionsMenu();
         initPageScrollFunnel();
 
-        if (model.getPage().isMainPage()) {
-            bridge.execute(JavaScriptActionHandler.mainPageShim(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color)));
-        }
-
         if (model.getReadingListPage() != null) {
             final ReadingListPage page = model.getReadingListPage();
             final PageTitle title = model.getTitle();
@@ -492,6 +488,10 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         // handler), since the page metadata might have altered the lead image display state.
         bridge.execute(JavaScriptActionHandler.setTopMargin(leadImagesHandler.getTopMargin()));
         bridge.execute(JavaScriptActionHandler.setFooter(model));
+
+        if (model.getPage().isMainPage()) {
+            bridge.execute(JavaScriptActionHandler.mainPageShim(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color)));
+        }
     }
 
     private void handleInternalLink(@NonNull PageTitle title) {
