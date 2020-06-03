@@ -490,6 +490,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         bridge.execute(JavaScriptActionHandler.setFooter(model));
 
         if (model.getPage().isMainPage()) {
+            // TODO: remove when mobile-html presents the Main Page more correctly.
             bridge.execute(JavaScriptActionHandler.mainPageShim(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color)));
         }
     }
