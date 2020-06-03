@@ -143,14 +143,14 @@ public class ShareHandler {
     }
 
     private void sharePlainText(@NonNull String text) {
-        Intent intent = new Intent(android.content.Intent.ACTION_SEND);
+        Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("text/plain");
-        intent.putExtra(android.content.Intent.EXTRA_TEXT, text);
+        intent.putExtra(Intent.EXTRA_TEXT, text);
         fragment.requireActivity().startActivity(intent);
     }
 
     private void startWebSearch(@NonNull String text) {
-        Intent intent = new Intent(Intent.ACTION_WEB_SEARCH );
+        Intent intent = new Intent(Intent.ACTION_WEB_SEARCH);
         intent.putExtra(SearchManager.QUERY, text);
         fragment.requireActivity().startActivity(intent);
     }
