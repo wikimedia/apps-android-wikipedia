@@ -28,9 +28,7 @@ class SuggestedEditsTypeItem constructor(context: Context, attrs: AttributeSet? 
             foreground = AppCompatResources.getDrawable(context, ResourceUtil.getThemedAttributeId(context, R.attr.selectableItemBackground))
         }
         setOnClickListener {
-            if (callback != null) {
-                callback!!.onTypeItemClick(editType)
-            }
+            callback?.onTypeItemClick(editType)
         }
     }
 
