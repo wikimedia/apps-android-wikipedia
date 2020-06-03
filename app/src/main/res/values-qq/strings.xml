@@ -869,4 +869,6 @@
   <string name="text_input_dialog_cancel_button_text">Negative action button text in pop-up dialog for text input.\n{{Identical|Cancel}}</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Negative action button text in date picker pop-up dialog.\n{{Identical|Cancel}}</string>
   <string name="nav_item_more">Navigation menu item label for accessing menu items.</string>
+  <string name="preference_title_customize_explore_feed">Title of the preference for customizing the explore feed.</string>
+  <string name="preference_summary_customize_explore_feed">Description of the preference for customizing the explore feed.</string>
 </resources>

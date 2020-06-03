@@ -9,10 +9,12 @@ import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.SwitchPreferenceCompat;
 
+import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.auth.AccountUtil;
+import org.wikipedia.feed.configure.ConfigureActivity;
 import org.wikipedia.language.LanguageSettingsInvokeSource;
 import org.wikipedia.login.LoginActivity;
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter;
@@ -56,6 +58,13 @@ class SettingsPreferenceLoader extends BasePreferenceLoader {
         contentLanguagePref.setOnPreferenceClickListener(preference -> {
             getActivity().startActivityForResult(WikipediaLanguagesActivity.newIntent(getActivity(), LanguageSettingsInvokeSource.SETTINGS.text()),
                     ACTIVITY_REQUEST_ADD_A_LANGUAGE);
+            return true;
+        });
+
+        Preference customizeExploreFeedPref = findPreference(R.string.preference_key_customize_explore_feed);
+        customizeExploreFeedPref.setOnPreferenceClickListener(preference -> {
+            getActivity().startActivityForResult(ConfigureActivity.newIntent(getActivity(), Constants.InvokeSource.NAV_MENU.ordinal()),
+                    Constants.ACTIVITY_REQUEST_FEED_CONFIGURE);
             return true;
         });
 
