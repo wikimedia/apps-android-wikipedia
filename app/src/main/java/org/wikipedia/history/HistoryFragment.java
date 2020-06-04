@@ -49,9 +49,12 @@ import org.wikipedia.views.PageItemView;
 import org.wikipedia.views.SearchEmptyView;
 import org.wikipedia.views.SwipeableItemTouchHelperCallback;
 
-import java.text.DateFormat;
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 
@@ -378,8 +381,9 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
             adapter.clearList();
         }
 
-        private String getDateString(Date date) {
-            return DateFormat.getDateInstance().format(date);
+        private String getDateString(Instant instant) {
+            return DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM)
+                    .format(LocalDateTime.ofInstant(instant, ZoneId.systemDefault()));
         }
     }
 

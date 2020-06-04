@@ -97,6 +97,7 @@ import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.SwipeRefreshLayoutWithScroll;
 import org.wikipedia.views.WikiErrorView;
 
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -1321,7 +1322,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             return;
         }
         model.setCurEntry(new HistoryEntry(model.getCurEntry().getTitle(),
-                new Date(),
+                Instant.now(),
                 model.getCurEntry().getSource(),
                 timeSpentSec));
         Completable.fromAction(new UpdateHistoryTask(model.getCurEntry()))

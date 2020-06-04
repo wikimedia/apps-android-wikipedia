@@ -13,8 +13,11 @@ import org.wikipedia.feed.model.ListCard;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageTitle;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.Period;
+import java.time.ZoneId;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 public class BecauseYouReadCard extends ListCard<BecauseYouReadItemCard> {
     @NonNull private HistoryEntry entry;
@@ -51,9 +54,8 @@ public class BecauseYouReadCard extends ListCard<BecauseYouReadItemCard> {
 
     /** @return The last visit age in days. */
     public long daysOld() {
-        long now = System.currentTimeMillis();
-        long lastVisited = entry.getTimestamp().getTime();
-        return TimeUnit.MILLISECONDS.toDays(now - lastVisited);
+        final LocalDateTime timestamp = LocalDateTime.ofInstant(entry.getTimestamp(), ZoneId.systemDefault());
+        return Period.between(LocalDate.now(), timestamp.toLocalDate()).getDays();
     }
 
     @Override
