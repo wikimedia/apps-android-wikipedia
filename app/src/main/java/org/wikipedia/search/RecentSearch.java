@@ -3,19 +3,19 @@ package org.wikipedia.search;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import java.util.Date;
+import java.time.Instant;
 
 public class RecentSearch implements Parcelable {
     public static final RecentSearchDatabaseTable DATABASE_TABLE = new RecentSearchDatabaseTable();
 
     private final String text;
-    private final Date timestamp;
+    private final Instant timestamp;
 
     public RecentSearch(String text) {
-        this(text, new Date());
+        this(text, Instant.now());
     }
 
-    public RecentSearch(String text, Date timestamp) {
+    public RecentSearch(String text, Instant timestamp) {
         this.text = text;
         this.timestamp = timestamp;
     }
@@ -24,7 +24,7 @@ public class RecentSearch implements Parcelable {
         return text;
     }
 
-    public Date getTimestamp() {
+    public Instant getTimestamp() {
         return timestamp;
     }
 
@@ -46,7 +46,7 @@ public class RecentSearch implements Parcelable {
     public String toString() {
         return "RecentSearch{"
                 + "text=" + text
-                + ", timestamp=" + timestamp.getTime()
+                + ", timestamp=" + timestamp.toEpochMilli()
                 + '}';
     }
 
@@ -57,13 +57,13 @@ public class RecentSearch implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(getText());
-        dest.writeLong(getTimestamp().getTime());
+        dest.writeString(text);
+        dest.writeLong(timestamp.toEpochMilli());
     }
 
     private RecentSearch(Parcel in) {
         this.text = in.readString();
-        this.timestamp = new Date(in.readLong());
+        this.timestamp = Instant.ofEpochMilli(in.readLong());
     }
 
     public static final Creator<RecentSearch> CREATOR

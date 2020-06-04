@@ -10,7 +10,7 @@ import org.wikipedia.database.column.Column;
 import org.wikipedia.database.contract.SearchHistoryContract;
 import org.wikipedia.database.contract.SearchHistoryContract.Col;
 
-import java.util.Date;
+import java.time.Instant;
 
 public class RecentSearchDatabaseTable extends DatabaseTable<RecentSearch> {
     private static final int DB_VER_INTRODUCED = 5;
@@ -22,7 +22,7 @@ public class RecentSearchDatabaseTable extends DatabaseTable<RecentSearch> {
     @Override
     public RecentSearch fromCursor(Cursor cursor) {
         String title = Col.TEXT.val(cursor);
-        Date timestamp = Date.from(Col.TIMESTAMP.val(cursor));
+        Instant timestamp = Col.TIMESTAMP.val(cursor);
         return new RecentSearch(title, timestamp);
     }
 
@@ -30,7 +30,7 @@ public class RecentSearchDatabaseTable extends DatabaseTable<RecentSearch> {
     protected ContentValues toContentValues(RecentSearch obj) {
         ContentValues contentValues = new ContentValues();
         contentValues.put(Col.TEXT.getName(), obj.getText());
-        contentValues.put(Col.TIMESTAMP.getName(), obj.getTimestamp().getTime());
+        contentValues.put(Col.TIMESTAMP.getName(), obj.getTimestamp().toEpochMilli());
         return contentValues;
     }
 
