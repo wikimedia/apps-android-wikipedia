@@ -711,7 +711,7 @@
   <string name="suggested_edits_tasks_onboarding_get_started">מדריך למתחילים</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">כיתוב התמונה (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">תיאור התמונה (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_file" fuzzy="true">שם הקובץ</string>
+  <string name="suggested_edits_image_preview_dialog_file">קובץ</string>
   <string name="suggested_edits_image_preview_dialog_artist">יוצר</string>
   <string name="suggested_edits_image_preview_dialog_tags">תגיות</string>
   <string name="suggested_edits_image_preview_dialog_date">תאריך</string>
