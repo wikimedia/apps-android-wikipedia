@@ -19,7 +19,7 @@ import org.wikipedia.database.contract.EditHistoryContract;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.ContentProviderClientCompat;
 
-import java.util.Date;
+import java.time.Instant;
 
 import static org.wikipedia.util.L10nUtil.setConditionalTextDirection;
 
@@ -63,7 +63,7 @@ public class EditSummaryHandler {
 
     public void persistSummary() {
         WikipediaApp app = (WikipediaApp)container.getContext().getApplicationContext();
-        EditSummary summary = new EditSummary(summaryEdit.getText().toString(), new Date());
+        EditSummary summary = new EditSummary(summaryEdit.getText().toString(), Instant.now());
         app.getDatabaseClient(EditSummary.class).upsert(summary, EditHistoryContract.Summary.SELECTION);
     }
 

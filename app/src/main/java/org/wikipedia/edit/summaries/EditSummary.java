@@ -1,13 +1,13 @@
 package org.wikipedia.edit.summaries;
 
-import java.util.Date;
+import java.time.Instant;
 
 public class EditSummary {
     public static final EditSummaryDatabaseTable DATABASE_TABLE = new EditSummaryDatabaseTable();
     private final String summary;
-    private final Date lastUsed;
+    private final Instant lastUsed;
 
-    public EditSummary(String summary, Date lastUsed) {
+    public EditSummary(String summary, Instant lastUsed) {
         this.summary = summary;
         this.lastUsed = lastUsed;
     }
@@ -16,7 +16,7 @@ public class EditSummary {
         return summary;
     }
 
-    public Date getLastUsed() {
+    public Instant getLastUsed() {
         return lastUsed;
     }
 }

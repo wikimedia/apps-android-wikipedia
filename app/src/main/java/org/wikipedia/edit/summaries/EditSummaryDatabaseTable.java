@@ -24,14 +24,14 @@ public class EditSummaryDatabaseTable extends DatabaseTable<EditSummary> {
     public EditSummary fromCursor(Cursor cursor) {
         String summary = Col.SUMMARY.val(cursor);
         Date lastUsed = Col.LAST_USED.val(cursor);
-        return new EditSummary(summary, lastUsed);
+        return new EditSummary(summary, lastUsed.toInstant());
     }
 
     @Override
     protected ContentValues toContentValues(EditSummary obj) {
         ContentValues contentValues = new ContentValues();
         contentValues.put(Col.SUMMARY.getName(), obj.getSummary());
-        contentValues.put(Col.LAST_USED.getName(), obj.getLastUsed().getTime());
+        contentValues.put(Col.LAST_USED.getName(), obj.getLastUsed().toEpochMilli());
         return contentValues;
     }
 
