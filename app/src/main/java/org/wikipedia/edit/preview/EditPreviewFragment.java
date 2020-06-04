@@ -206,53 +206,7 @@ public class EditPreviewFragment extends Fragment implements CommunicationBridge
         bridge.addListener("final_setup", (String messageType, JsonObject messagePayload) -> {
             // ignore
         });
-        bridge.addListener("link", new LinkHandler(requireActivity()) {
-            @Override
-            public void onPageLinkClicked(@NonNull String href, @NonNull String linkText) {
-                // TODO: also need to handle references, issues, disambig, ... in preview eventually
-            }
-
-            @Override
-            public void onInternalLinkClicked(@NonNull final PageTitle title) {
-                showLeavingEditDialogue(() -> startActivity(PageActivity.newIntentForCurrentTab(getContext(),
-                        new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK), title)));
-            }
-
-            @Override
-            public void onExternalLinkClicked(@NonNull final Uri uri) {
-                showLeavingEditDialogue(() -> handleExternalLink(getContext(), uri));
-            }
-
-            @Override
-            public void onMediaLinkClicked(@NonNull PageTitle title) {
-                // ignore
-            }
-
-            /**
-             * Shows the user a dialogue asking them if they really meant to leave the edit
-             * workflow, and warning them that their changes have not yet been saved.
-             *
-             * @param runnable The runnable that is run if the user chooses to leave.
-             */
-            private void showLeavingEditDialogue(final Runnable runnable) {
-                //Ask the user if they really meant to leave the edit workflow
-                final AlertDialog leavingEditDialog = new AlertDialog.Builder(requireActivity())
-                        .setMessage(R.string.dialog_message_leaving_edit)
-                        .setPositiveButton(R.string.dialog_message_leaving_edit_leave, (dialog, which) -> {
-                            //They meant to leave; close dialogue and run specified action
-                            dialog.dismiss();
-                            runnable.run();
-                        })
-                        .setNegativeButton(R.string.dialog_message_leaving_edit_stay, null)
-                        .create();
-                leavingEditDialog.show();
-            }
-
-            @Override
-            public WikiSite getWikiSite() {
-                return model.getTitle().getWikiSite();
-            }
-        });
+        bridge.addListener("link", linkHandler);
         bridge.addListener("image", (messageType, messagePayload) -> {
             // TODO: do something when an image is clicked in Preview.
         });
