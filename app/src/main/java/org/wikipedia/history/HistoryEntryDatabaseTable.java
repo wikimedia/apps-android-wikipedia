@@ -28,7 +28,7 @@ public class HistoryEntryDatabaseTable extends DatabaseTable<HistoryEntry> {
     public HistoryEntry fromCursor(Cursor cursor) {
         WikiSite wiki = new WikiSite(Col.SITE.val(cursor), Col.LANG.val(cursor));
         PageTitle title = new PageTitle(Col.NAMESPACE.val(cursor), Col.API_TITLE.val(cursor), wiki);
-        Date timestamp = Col.TIMESTAMP.val(cursor);
+        Date timestamp = Date.from(Col.TIMESTAMP.val(cursor));
         int source = Col.SOURCE.val(cursor);
         title.setDisplayText(Col.DISPLAY_TITLE.val(cursor));
         return new HistoryEntry(title, timestamp, source);

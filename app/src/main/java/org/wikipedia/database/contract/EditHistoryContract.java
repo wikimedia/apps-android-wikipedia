@@ -4,7 +4,7 @@ import android.net.Uri;
 import android.provider.BaseColumns;
 
 import org.wikipedia.database.DbUtil;
-import org.wikipedia.database.column.DateColumn;
+import org.wikipedia.database.column.InstantColumn;
 import org.wikipedia.database.column.LongColumn;
 import org.wikipedia.database.column.StrColumn;
 
@@ -15,7 +15,7 @@ public interface EditHistoryContract {
     interface Col {
         LongColumn ID = new LongColumn(TABLE, BaseColumns._ID, "integer primary key");
         StrColumn SUMMARY = new StrColumn(TABLE, "summary", "string");
-        DateColumn LAST_USED = new DateColumn(TABLE, "lastUsed", "integer");
+        InstantColumn LAST_USED = new InstantColumn(TABLE, "lastUsed", "integer");
 
         String[] SELECTION = DbUtil.qualifiedNames(SUMMARY);
     }

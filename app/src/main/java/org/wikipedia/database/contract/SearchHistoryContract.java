@@ -4,7 +4,7 @@ import android.net.Uri;
 import android.provider.BaseColumns;
 
 import org.wikipedia.database.DbUtil;
-import org.wikipedia.database.column.DateColumn;
+import org.wikipedia.database.column.InstantColumn;
 import org.wikipedia.database.column.LongColumn;
 import org.wikipedia.database.column.StrColumn;
 
@@ -15,7 +15,7 @@ public interface SearchHistoryContract {
     interface Col {
         LongColumn ID = new LongColumn(TABLE, BaseColumns._ID, "integer primary key");
         StrColumn TEXT = new StrColumn(TABLE, "text", "string");
-        DateColumn TIMESTAMP = new DateColumn(TABLE, "timestamp", "integer");
+        InstantColumn TIMESTAMP = new InstantColumn(TABLE, "timestamp", "integer");
 
         String[] SELECTION = DbUtil.qualifiedNames(TEXT);
     }

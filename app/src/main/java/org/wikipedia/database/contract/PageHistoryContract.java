@@ -4,7 +4,7 @@ import android.net.Uri;
 import android.provider.BaseColumns;
 
 import org.wikipedia.database.DbUtil;
-import org.wikipedia.database.column.DateColumn;
+import org.wikipedia.database.column.InstantColumn;
 import org.wikipedia.database.column.IntColumn;
 import org.wikipedia.database.column.LongColumn;
 import org.wikipedia.database.column.StrColumn;
@@ -21,7 +21,7 @@ public final class PageHistoryContract {
         StrColumn API_TITLE = new StrColumn(TABLE, "title", "string");
         StrColumn DISPLAY_TITLE = new StrColumn(TABLE, "displayTitle", "string");
         StrColumn NAMESPACE = new StrColumn(TABLE, "namespace", "string");
-        DateColumn TIMESTAMP = new DateColumn(TABLE, "timestamp", "integer");
+        InstantColumn TIMESTAMP = new InstantColumn(TABLE, "timestamp", "integer");
         IntColumn SOURCE = new IntColumn(TABLE, "source", "integer");
         IntColumn TIME_SPENT = new IntColumn(TABLE, "timeSpent", "integer"); // seconds
 

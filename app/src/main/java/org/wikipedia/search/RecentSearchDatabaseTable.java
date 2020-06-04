@@ -22,7 +22,7 @@ public class RecentSearchDatabaseTable extends DatabaseTable<RecentSearch> {
     @Override
     public RecentSearch fromCursor(Cursor cursor) {
         String title = Col.TEXT.val(cursor);
-        Date timestamp = Col.TIMESTAMP.val(cursor);
+        Date timestamp = Date.from(Col.TIMESTAMP.val(cursor));
         return new RecentSearch(title, timestamp);
     }
 

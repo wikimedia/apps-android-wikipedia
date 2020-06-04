@@ -10,7 +10,7 @@ import org.wikipedia.database.column.Column;
 import org.wikipedia.database.contract.EditHistoryContract;
 import org.wikipedia.database.contract.EditHistoryContract.Col;
 
-import java.util.Date;
+import java.time.Instant;
 
 public class EditSummaryDatabaseTable extends DatabaseTable<EditSummary> {
     private static final int DB_VER_INTRODUCED = 2;
@@ -23,8 +23,8 @@ public class EditSummaryDatabaseTable extends DatabaseTable<EditSummary> {
     @Override
     public EditSummary fromCursor(Cursor cursor) {
         String summary = Col.SUMMARY.val(cursor);
-        Date lastUsed = Col.LAST_USED.val(cursor);
-        return new EditSummary(summary, lastUsed.toInstant());
+        Instant lastUsed = Col.LAST_USED.val(cursor);
+        return new EditSummary(summary, lastUsed);
     }
 
     @Override
