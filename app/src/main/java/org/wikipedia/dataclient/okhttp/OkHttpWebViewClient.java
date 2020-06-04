@@ -50,7 +50,9 @@ public abstract class OkHttpWebViewClient extends WebViewClient {
 
     @Override
     public boolean shouldOverrideUrlLoading(WebView view, String url) {
-        if (getModel().getTitle() != null && getModel().getTitle().isMainPage()) {
+        if (getModel().shouldLoadAsMobileWeb()) {
+            // If the page was loaded as Mobile Web, then pass all link clicks through
+            // to our own link handler.
             getLinkHandler().onUrlClick(UriUtil.decodeURL(url), null, "");
             return true;
         }

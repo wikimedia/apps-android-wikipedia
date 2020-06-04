@@ -253,8 +253,8 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     }
 
     @Override
-    public PageTitle getPageTitle() {
-        return model.getTitle();
+    public PageViewModel getModel() {
+        return model;
     }
 
     @Override
@@ -978,7 +978,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         if (bookmarkTab != null) {
             ((ImageView) bookmarkTab).setImageResource(pageSaved ? R.drawable.ic_bookmark_white_24dp
                     : R.drawable.ic_bookmark_border_white_24dp);
-            bookmarkTab.setEnabled(!(model.getTitle() != null && model.getTitle().isMainPage()));
+            bookmarkTab.setEnabled(!model.shouldLoadAsMobileWeb());
         }
     }
 

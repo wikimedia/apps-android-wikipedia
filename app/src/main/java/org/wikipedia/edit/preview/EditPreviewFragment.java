@@ -294,8 +294,8 @@ public class EditPreviewFragment extends Fragment implements CommunicationBridge
     }
 
     @Override
-    public PageTitle getPageTitle() {
-        return model.getTitle();
+    public PageViewModel getModel() {
+        return model;
     }
 
     @Override

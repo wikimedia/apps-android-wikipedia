@@ -20,6 +20,7 @@ import org.wikipedia.dataclient.RestService;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.json.GsonUtil;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.page.PageViewModel;
 import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
 
@@ -51,7 +52,7 @@ public class CommunicationBridge {
 
     public interface CommunicationBridgeListener {
         WebView getWebView();
-        PageTitle getPageTitle();
+        PageViewModel getModel();
         boolean isPreview();
     }
 
@@ -89,7 +90,7 @@ public class CommunicationBridge {
         isMetadataReady = false;
         pendingJSMessages.clear();
         pendingEvals.clear();
-        if (pageTitle.isMainPage()) {
+        if (communicationBridgeListener.getModel().shouldLoadAsMobileWeb()) {
             communicationBridgeListener.getWebView().loadUrl(pageTitle.getMobileUri());
         } else {
             communicationBridgeListener.getWebView().loadUrl(ServiceFactory.getRestBasePath(pageTitle.getWikiSite())
@@ -172,7 +173,7 @@ public class CommunicationBridge {
         }
     });
 
-    private class CommunicatingChrome extends WebChromeClient {
+    private static class CommunicatingChrome extends WebChromeClient {
         @Override
         public boolean onConsoleMessage(@NonNull ConsoleMessage consoleMessage) {
             L.d(consoleMessage.sourceId() + ":" + consoleMessage.lineNumber() + " - " + consoleMessage.message());
@@ -199,12 +200,12 @@ public class CommunicationBridge {
         @JavascriptInterface
         public synchronized String getSetupSettings() {
             return JavaScriptActionHandler.setUp(communicationBridgeListener.getWebView().getContext(),
-                    communicationBridgeListener.getPageTitle(), communicationBridgeListener.isPreview());
+                    communicationBridgeListener.getModel().getTitle(), communicationBridgeListener.isPreview());
         }
     }
 
     @SuppressWarnings("unused")
-    private class BridgeMessage {
+    private static class BridgeMessage {
         @Nullable private String action;
         @Nullable private JsonObject data;
 

@@ -1,7 +1,6 @@
 package org.wikipedia.bridge
 
 import android.content.Context
-import androidx.annotation.ColorInt
 import org.wikipedia.BuildConfig
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
