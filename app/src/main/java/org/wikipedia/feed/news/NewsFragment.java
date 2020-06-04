@@ -47,7 +47,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-import static org.wikipedia.Constants.InvokeSource.MOST_READ_ACTIVITY;
 import static org.wikipedia.Constants.InvokeSource.NEWS_ACTIVITY;
 import static org.wikipedia.feed.news.NewsActivity.EXTRA_NEWS_ITEM;
 import static org.wikipedia.feed.news.NewsActivity.EXTRA_WIKI;
@@ -171,7 +170,7 @@ public class NewsFragment extends Fragment {
         @Override
         public void onMovePageToList(long sourceReadingListId, @NonNull HistoryEntry entry) {
             bottomSheetPresenter.show(getChildFragmentManager(),
-                    MoveToReadingListDialog.newInstance(sourceReadingListId, entry.getTitle(), MOST_READ_ACTIVITY));
+                    MoveToReadingListDialog.newInstance(sourceReadingListId, entry.getTitle(), NEWS_ACTIVITY));
         }
 
         @Override

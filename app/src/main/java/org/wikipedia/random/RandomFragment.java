@@ -25,6 +25,7 @@ import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.AddToReadingListDialog;
+import org.wikipedia.readinglist.MoveToReadingListDialog;
 import org.wikipedia.readinglist.ReadingListBookmarkMenu;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.readinglist.database.ReadingListPage;
@@ -32,6 +33,8 @@ import org.wikipedia.util.AnimationUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.PositionAwareFragmentStateAdapter;
+
+import java.util.Collections;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -135,7 +138,7 @@ public class RandomFragment extends Fragment {
 
                 @Override
                 public void onMoveRequest(@Nullable ReadingListPage page) {
-                    // TODO:
+                    onMovePageToList(page.listId(), title);
                 }
 
                 @Override
@@ -163,6 +166,12 @@ public class RandomFragment extends Fragment {
     public void onAddPageToList(@NonNull PageTitle title) {
         bottomSheetPresenter.show(getChildFragmentManager(),
                 AddToReadingListDialog.newInstance(title,
+                        RANDOM_ACTIVITY, (DialogInterface dialogInterface) -> updateSaveShareButton(title)));
+    }
+
+    public void onMovePageToList(long sourceReadingListId, @NonNull PageTitle title) {
+        bottomSheetPresenter.show(getChildFragmentManager(),
+                MoveToReadingListDialog.newInstance(sourceReadingListId, Collections.singletonList(title),
                         RANDOM_ACTIVITY, (DialogInterface dialogInterface) -> updateSaveShareButton(title)));
     }
 
