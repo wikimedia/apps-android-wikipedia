@@ -677,12 +677,15 @@
   <string name="suggested_edits_tasks_onboarding_get_started">Започни</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Опис на сликата (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Опис на сликата (%s)</string>
+  <string name="suggested_edits_image_preview_dialog_file" fuzzy="true">Име на податотеката</string>
   <string name="suggested_edits_image_preview_dialog_artist">Уметник</string>
+  <string name="suggested_edits_image_preview_dialog_tags">Ознаки</string>
   <string name="suggested_edits_image_preview_dialog_date">Датум</string>
   <string name="suggested_edits_image_preview_dialog_source">Извор/Фотограф</string>
   <string name="suggested_edits_image_preview_dialog_licensing">Лиценцирање</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Повеќе инфо</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Податотечна страница на Ризницата</string>
+  <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">Податотечна страница на Википедија</string>
   <string name="suggested_edits_article_cta_image_caption">Додај опис на сликата</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Додај опис на сликата (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Преглед</string>
@@ -749,6 +752,7 @@
   <string name="suggested_edits_reactivation_notification_title">Предложени уредувања</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Ви благодариме што ја урадувавте Википедија! Зошто не продолжите од кајшто запревте?</string>
   <string name="suggested_edits_reactivation_notification_stage_two">Имате минутка за да ја подобрите Википедија малку повеќе? Погледајте ги овие совети за уредување.</string>
+  <string name="file_page_activity_title">Податотечна страница</string>
   <string name="description_edit_revert_subtitle">Ви благодариме што ја уредувате Википедија!</string>
   <string name="description_edit_revert_intro">Знаеме дека се трудите да напишете што подобро, но еден од прегледувачите има примедба за уреденото. Веројатни причини за отповиканото уредување се:</string>
   <string name="description_edit_revert_reason1">вашиот придонес крши едно од &lt;a href=\"%1$s\"&gt;напатствијата&lt;/a&gt;.</string>

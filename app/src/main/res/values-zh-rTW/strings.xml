@@ -692,12 +692,15 @@
   <string name="suggested_edits_tasks_onboarding_get_started">入門</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">圖片說明（%s）</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">圖片描述（%s）</string>
+  <string name="suggested_edits_image_preview_dialog_file" fuzzy="true">檔案名稱</string>
   <string name="suggested_edits_image_preview_dialog_artist">藝術家</string>
+  <string name="suggested_edits_image_preview_dialog_tags">標籤</string>
   <string name="suggested_edits_image_preview_dialog_date">日期</string>
   <string name="suggested_edits_image_preview_dialog_source">來源/攝影者</string>
   <string name="suggested_edits_image_preview_dialog_licensing">授權</string>
   <string name="suggested_edits_image_preview_dialog_more_info">更多資訊</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">在維基共享資源上的檔案頁面</string>
+  <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">在維基百科的檔案頁面</string>
   <string name="suggested_edits_article_cta_image_caption">新增圖片說明</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">新增圖片說明（%s）</string>
   <string name="suggested_edits_article_cta_snackbar_action">檢視</string>
@@ -764,6 +767,7 @@
   <string name="suggested_edits_reactivation_notification_title">建議編輯</string>
   <string name="suggested_edits_reactivation_notification_stage_one">感謝編輯維基百科！何不從上次停下的地方繼續？</string>
   <string name="suggested_edits_reactivation_notification_stage_two">有空閒來繼續增進維基百科內容嗎？請查看這些編輯建議。</string>
+  <string name="file_page_activity_title">檔案頁面</string>
   <string name="description_edit_revert_subtitle">感謝編輯維基百科！</string>
   <string name="description_edit_revert_intro">我們知道您已盡力了，但有編者檢閱內容有所疑慮而做出還原。您的編輯被回退的原因可能是：</string>
   <string name="description_edit_revert_reason1">您的貢獻並未遵循&lt;a href=\"%1$s\"&gt;指引&lt;/a&gt;之一。</string>
