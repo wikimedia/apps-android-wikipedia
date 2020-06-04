@@ -11,8 +11,9 @@ import org.wikipedia.feed.view.FeedAdapter;
 import org.wikipedia.feed.view.StaticCardView;
 import org.wikipedia.history.HistoryEntry;
 
-import java.text.DateFormat;
-import java.util.Date;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 
 public class MainPageCardView extends StaticCardView<MainPageCard> {
     public MainPageCardView(@NonNull Context context) {
@@ -23,7 +24,7 @@ public class MainPageCardView extends StaticCardView<MainPageCard> {
         super.setCard(card);
         setTitle(getString(R.string.view_main_page_card_title));
         setSubtitle(getContext().getString(R.string.view_main_page_card_subtitle,
-                DateFormat.getDateInstance().format(new Date())));
+                DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM).format(LocalDateTime.now())));
         setIcon(R.drawable.ic_today_24dp);
         setContainerBackground(R.color.green50);
         setAction(R.drawable.ic_arrow_forward_black_24dp, R.string.view_main_page_card_action);
