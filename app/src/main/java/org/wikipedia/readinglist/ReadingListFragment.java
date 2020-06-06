@@ -35,6 +35,7 @@ import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.ReadingListsFunnel;
+import org.wikipedia.databinding.FragmentReadingListBinding;
 import org.wikipedia.events.PageDownloadEvent;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.history.SearchActionModeCallback;
@@ -66,9 +67,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
 import io.reactivex.Completable;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -85,15 +83,16 @@ import static org.wikipedia.util.ResourceUtil.getThemedAttributeId;
 import static org.wikipedia.views.CircularProgressBar.MAX_PROGRESS;
 
 public class ReadingListFragment extends Fragment implements ReadingListItemActionsDialog.Callback {
-    @BindView(R.id.reading_list_toolbar) Toolbar toolbar;
-    @BindView(R.id.reading_list_toolbar_container) CollapsingToolbarLayout toolBarLayout;
-    @BindView(R.id.reading_list_app_bar) AppBarLayout appBarLayout;
-    @BindView(R.id.reading_list_header) ReadingListHeaderView headerImageView;
-    @BindView(R.id.reading_list_contents) RecyclerView recyclerView;
-    @BindView(R.id.reading_list_empty_text) TextView emptyView;
-    @BindView(R.id.search_empty_view) SearchEmptyView searchEmptyView;
-    @BindView(R.id.reading_list_swipe_refresh) SwipeRefreshLayout swipeRefreshLayout;
-    private Unbinder unbinder;
+    private FragmentReadingListBinding binding;
+
+    private Toolbar toolbar;
+    private CollapsingToolbarLayout toolBarLayout;
+    private AppBarLayout appBarLayout;
+    private ReadingListHeaderView headerImageView;
+    private RecyclerView recyclerView;
+    private TextView emptyView;
+    private SearchEmptyView searchEmptyView;
+    private SwipeRefreshLayout swipeRefreshLayout;
     private CompositeDisposable disposables = new CompositeDisposable();
 
     @Nullable private ReadingList readingList;
@@ -132,8 +131,16 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        View view = inflater.inflate(R.layout.fragment_reading_list, container, false);
-        unbinder = ButterKnife.bind(this, view);
+        binding = FragmentReadingListBinding.inflate(inflater, container, false);
+
+        toolbar = binding.readingListToolbar;
+        toolBarLayout = binding.readingListToolbarContainer;
+        appBarLayout = binding.readingListAppBar;
+        headerImageView = binding.readingListHeader;
+        recyclerView = binding.readingListContents;
+        emptyView = binding.readingListEmptyText;
+        searchEmptyView = binding.searchEmptyView;
+        swipeRefreshLayout = binding.readingListSwipeRefresh;
 
         getAppCompatActivity().setSupportActionBar(toolbar);
         getAppCompatActivity().getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -172,7 +179,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
             swipeRefreshLayout.setEnabled(false);
         }
 
-        return view;
+        return binding.getRoot();
     }
 
     @Override
@@ -191,9 +198,8 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         disposables.clear();
         recyclerView.setAdapter(null);
         appBarLayout.removeOnOffsetChangedListener(appBarListener);
-        unbinder.unbind();
-        unbinder = null;
         super.onDestroyView();
+        binding = null;
     }
 
     @Override
