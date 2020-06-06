@@ -34,6 +34,7 @@ import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.captcha.CaptchaHandler;
 import org.wikipedia.captcha.CaptchaResult;
 import org.wikipedia.csrf.CsrfTokenClient;
+import org.wikipedia.databinding.ActivityEditSectionBinding;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.mwapi.MwQueryPage;
@@ -57,12 +58,9 @@ import org.wikipedia.views.PlainPasteEditText;
 import org.wikipedia.views.ViewAnimations;
 import org.wikipedia.views.ViewUtil;
 import org.wikipedia.views.WikiErrorView;
-import org.wikipedia.views.WikiTextKeyboardView;
 
 import java.util.concurrent.TimeUnit;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
@@ -80,17 +78,16 @@ public class EditSectionActivity extends BaseActivity {
     public static final String EXTRA_PAGE_PROPS = "org.wikipedia.edit_section.pageprops";
     public static final String EXTRA_HIGHLIGHT_TEXT = "org.wikipedia.edit_section.highlight";
 
-    @BindView(R.id.edit_section_text) PlainPasteEditText sectionText;
-    @BindView(R.id.edit_section_container) View sectionContainer;
-    @BindView(R.id.edit_section_scroll) ScrollView sectionScrollView;
-    @BindView(R.id.edit_keyboard_overlay) WikiTextKeyboardView wikiTextKeyboardView;
-    @BindView(R.id.view_edit_section_error) WikiErrorView errorView;
-    @BindView(R.id.view_progress_bar) ProgressBar progressBar;
-    @BindView(R.id.edit_section_abusefilter_container) View abusefilterContainer;
-    @BindView(R.id.edit_section_abusefilter_image) ImageView abuseFilterImage;
-    @BindView(R.id.edit_section_abusefilter_title) TextView abusefilterTitle;
-    @BindView(R.id.edit_section_abusefilter_text) TextView abusefilterText;
-    @BindView(R.id.edit_section_captcha_container) View captchaContainer;
+    private PlainPasteEditText sectionText;
+    private View sectionContainer;
+    private ScrollView sectionScrollView;
+    private WikiErrorView errorView;
+    private ProgressBar progressBar;
+    private View abusefilterContainer;
+    private ImageView abuseFilterImage;
+    private TextView abusefilterTitle;
+    private TextView abusefilterText;
+    private View captchaContainer;
 
     private CsrfTokenClient csrfClient;
 
@@ -145,8 +142,21 @@ public class EditSectionActivity extends BaseActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_section);
-        ButterKnife.bind(this);
+
+        final ActivityEditSectionBinding binding = ActivityEditSectionBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+
+        sectionText = binding.editSectionText;
+        sectionContainer = binding.editSectionContainer;
+        sectionScrollView = binding.editSectionScroll;
+        errorView = binding.viewEditSectionError;
+        progressBar = binding.viewProgressBar;
+        abusefilterContainer = binding.editSectionAbusefilterContainer;
+        abuseFilterImage = binding.editSectionAbusefilterImage;
+        abusefilterTitle = binding.editSectionAbusefilterTitle;
+        abusefilterText = binding.editSectionAbusefilterText;
+        captchaContainer = binding.editSectionCaptchaContainer;
+
         setNavigationBarColor(ResourceUtil.getThemedColor(this, android.R.attr.colorBackground));
 
         if (!getIntent().getAction().equals(ACTION_EDIT_SECTION)) {
@@ -207,8 +217,8 @@ public class EditSectionActivity extends BaseActivity {
         }
 
         sectionText.addTextChangedListener(textWatcher);
-        wikiTextKeyboardView.setEditText(sectionText);
-        wikiTextKeyboardView.setCallback(titleStr -> bottomSheetPresenter.show(getSupportFragmentManager(),
+        binding.editKeyboardOverlay.setEditText(sectionText);
+        binding.editKeyboardOverlay.setCallback(titleStr -> bottomSheetPresenter.show(getSupportFragmentManager(),
                 LinkPreviewDialog.newInstance(new HistoryEntry(new PageTitle(titleStr, title.getWikiSite()), HistoryEntry.SOURCE_INTERNAL_LINK), null)));
         sectionText.setOnClickListener(v -> finishActionMode());
 
