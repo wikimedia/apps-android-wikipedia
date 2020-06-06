@@ -16,16 +16,12 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import org.wikipedia.R;
+import org.wikipedia.databinding.DatePickerDialogBinding;
 import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.ResourceUtil;
 
 import java.util.Calendar;
 import java.util.Locale;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-import butterknife.Unbinder;
 
 public class CustomDatePicker extends DialogFragment {
     public interface Callback {
@@ -35,13 +31,13 @@ public class CustomDatePicker extends DialogFragment {
     public static final int LEAP_YEAR = 2016;
     private static final int MAX_COLUMN_SPAN = 7;
     private Callback callback;
-    private Unbinder unbinder;
+    private DatePickerDialogBinding binding;
 
-    @BindView(R.id.day) TextView day;
-    @BindView(R.id.month_string) TextView monthString;
-    @BindView(R.id.grid) RecyclerView monthGrid;
-    @BindView(R.id.previous_month) ImageView previousMonthBtn;
-    @BindView(R.id.next_month) ImageView nextMonthBtn;
+    private TextView day;
+    private TextView monthString;
+    private RecyclerView monthGrid;
+    private ImageView previousMonthBtn;
+    private ImageView nextMonthBtn;
 
     private Calendar today, selectedDay = Calendar.getInstance(), callbackDay = Calendar.getInstance();
 
@@ -49,7 +45,16 @@ public class CustomDatePicker extends DialogFragment {
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         View view = View.inflate(requireContext(), R.layout.date_picker_dialog, null);
-        unbinder = ButterKnife.bind(this, view);
+        binding = DatePickerDialogBinding.inflate(requireActivity().getLayoutInflater());
+
+        day = binding.day;
+        monthString = binding.monthString;
+        monthGrid = binding.grid;
+        previousMonthBtn = binding.previousMonth;
+        nextMonthBtn = binding.nextMonth;
+
+        setOnClickListeners();
+
         today = Calendar.getInstance();
         setUpMonthGrid();
         setMonthString();
@@ -63,20 +68,19 @@ public class CustomDatePicker extends DialogFragment {
                 .create();
     }
 
-    @OnClick(R.id.previous_month)
-    void onPreviousMonthClicked() {
-        int currentMonth = selectedDay.get(Calendar.MONTH);
-        selectedDay.set(LEAP_YEAR, currentMonth == 0 ? Calendar.DECEMBER : currentMonth - 1, 1);
-        setMonthString();
-        monthGrid.getAdapter().notifyDataSetChanged();
-    }
-
-    @OnClick(R.id.next_month)
-    void onNextMonthClicked() {
-        int currentMonth = selectedDay.get(Calendar.MONTH);
-        selectedDay.set(LEAP_YEAR, currentMonth == Calendar.DECEMBER ? Calendar.JANUARY : currentMonth + 1, 1);
-        setMonthString();
-        monthGrid.getAdapter().notifyDataSetChanged();
+    private void setOnClickListeners() {
+        previousMonthBtn.setOnClickListener(v -> {
+            int currentMonth = selectedDay.get(Calendar.MONTH);
+            selectedDay.set(LEAP_YEAR, currentMonth == 0 ? Calendar.DECEMBER : currentMonth - 1, 1);
+            setMonthString();
+            monthGrid.getAdapter().notifyDataSetChanged();
+        });
+        nextMonthBtn.setOnClickListener(v -> {
+            int currentMonth = selectedDay.get(Calendar.MONTH);
+            selectedDay.set(LEAP_YEAR, currentMonth == Calendar.DECEMBER ? Calendar.JANUARY : currentMonth + 1, 1);
+            setMonthString();
+            monthGrid.getAdapter().notifyDataSetChanged();
+        });
     }
 
     private void setUpMonthGrid() {
@@ -160,10 +164,7 @@ public class CustomDatePicker extends DialogFragment {
 
     @Override
     public void onDestroyView() {
-        if (unbinder != null) {
-            unbinder.unbind();
-            unbinder = null;
-        }
         super.onDestroyView();
+        binding = null;
     }
 }
