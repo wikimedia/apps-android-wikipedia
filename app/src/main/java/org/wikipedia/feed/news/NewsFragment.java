@@ -7,20 +7,16 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.material.appbar.AppBarLayout;
-import com.google.android.material.appbar.CollapsingToolbarLayout;
-
 import org.wikipedia.R;
+import org.wikipedia.databinding.FragmentNewsBinding;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.view.ListCardItemView;
@@ -39,13 +35,8 @@ import org.wikipedia.util.ShareUtil;
 import org.wikipedia.views.DefaultRecyclerAdapter;
 import org.wikipedia.views.DefaultViewHolder;
 import org.wikipedia.views.DrawableItemDecoration;
-import org.wikipedia.views.FaceAndColorDetectImageView;
 
 import java.util.List;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
 
 import static org.wikipedia.Constants.InvokeSource.NEWS_ACTIVITY;
 import static org.wikipedia.feed.news.NewsActivity.EXTRA_NEWS_ITEM;
@@ -54,16 +45,11 @@ import static org.wikipedia.richtext.RichTextUtil.stripHtml;
 import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
 
 public class NewsFragment extends Fragment {
-    @BindView(R.id.view_news_fullscreen_header_image) FaceAndColorDetectImageView image;
-    @BindView(R.id.view_news_fullscreen_story_text) TextView text;
-    @BindView(R.id.view_news_fullscreen_link_card_list) RecyclerView links;
-    @BindView(R.id.view_news_fullscreen_toolbar) Toolbar toolbar;
-    @BindView(R.id.news_toolbar_container) CollapsingToolbarLayout toolBarLayout;
-    @BindView(R.id.news_app_bar) AppBarLayout appBarLayout;
-    @BindView(R.id.view_news_fullscreen_gradient) View gradientView;
+    private FragmentNewsBinding binding;
+
+    private RecyclerView links;
 
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
-    private Unbinder unbinder;
 
     @NonNull
     public static NewsFragment newInstance(@NonNull NewsItem item, @NonNull WikiSite wiki) {
@@ -79,48 +65,48 @@ public class NewsFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        View view = inflater.inflate(R.layout.fragment_news, container, false);
-        unbinder = ButterKnife.bind(this, view);
+        binding = FragmentNewsBinding.inflate(inflater, container, false);
 
-        gradientView.setBackground(GradientUtil.getPowerGradient(R.color.black54, Gravity.TOP));
-        getAppCompatActivity().setSupportActionBar(toolbar);
+        links = binding.viewNewsFullscreenLinkCardList;
+
+        binding.viewNewsFullscreenGradient.setBackground(GradientUtil.getPowerGradient(R.color.black54, Gravity.TOP));
+        getAppCompatActivity().setSupportActionBar(binding.viewNewsFullscreenToolbar);
         getAppCompatActivity().getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getAppCompatActivity().getSupportActionBar().setTitle("");
 
         NewsItem item = GsonUnmarshaller.unmarshal(NewsItem.class, requireActivity().getIntent().getStringExtra(EXTRA_NEWS_ITEM));
         WikiSite wiki = GsonUnmarshaller.unmarshal(WikiSite.class, requireActivity().getIntent().getStringExtra(EXTRA_WIKI));
 
-        setConditionalLayoutDirection(view, wiki.languageCode());
+        setConditionalLayoutDirection(binding.getRoot(), wiki.languageCode());
 
         Uri imageUri = item.featureImage();
         if (imageUri == null) {
-            appBarLayout.setExpanded(false, false);
+            binding.newsAppBar.setExpanded(false, false);
         }
 
-        DeviceUtil.updateStatusBarTheme(requireActivity(), toolbar, true);
-        appBarLayout.addOnOffsetChangedListener((layout, offset) -> {
-            DeviceUtil.updateStatusBarTheme(requireActivity(), toolbar,
+        DeviceUtil.updateStatusBarTheme(requireActivity(), binding.viewNewsFullscreenToolbar, true);
+        binding.newsAppBar.addOnOffsetChangedListener((layout, offset) -> {
+            DeviceUtil.updateStatusBarTheme(requireActivity(), binding.viewNewsFullscreenToolbar,
                     (layout.getTotalScrollRange() + offset) > layout.getTotalScrollRange() / 2);
             ((NewsActivity) requireActivity()).updateNavigationBarColor();
         });
 
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            toolBarLayout.setStatusBarScrimColor(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color));
+            binding.newsToolbarContainer.setStatusBarScrimColor(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color));
         }
 
 
-        image.loadImage(imageUri);
-        text.setText(stripHtml(item.story()));
+        binding.viewNewsFullscreenHeaderImage.loadImage(imageUri);
+        binding.viewNewsFullscreenStoryText.setText(stripHtml(item.story()));
         initRecycler();
         links.setAdapter(new RecyclerAdapter(item.linkCards(wiki), new Callback()));
-        return view;
+        return binding.getRoot();
     }
 
     @Override public void onDestroyView() {
-        unbinder.unbind();
-        unbinder = null;
         super.onDestroyView();
+        binding = null;
     }
 
     private AppCompatActivity getAppCompatActivity() {
