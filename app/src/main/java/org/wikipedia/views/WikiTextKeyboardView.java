@@ -11,11 +11,7 @@ import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import org.wikipedia.R;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
+import org.wikipedia.databinding.ViewWikitextKeyboardBinding;
 
 public class WikiTextKeyboardView extends FrameLayout {
     public interface Callback {
@@ -24,10 +20,6 @@ public class WikiTextKeyboardView extends FrameLayout {
 
     @Nullable private Callback callback;
     private PlainPasteEditText editText;
-
-    @BindView(R.id.wikitext_button_undo) View undoButton;
-    @BindView(R.id.wikitext_button_redo) View redoButton;
-    @BindView(R.id.wikitext_undo_redo_separator) View undoRedoSeparator;
 
     public WikiTextKeyboardView(Context context) {
         super(context);
@@ -45,12 +37,50 @@ public class WikiTextKeyboardView extends FrameLayout {
     }
 
     private void init() {
-        inflate(getContext(), R.layout.view_wikitext_keyboard, this);
-        ButterKnife.bind(this);
+        final ViewWikitextKeyboardBinding binding = ViewWikitextKeyboardBinding.bind(this);
 
-        undoButton.setVisibility(android.os.Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP ? VISIBLE : GONE);
-        redoButton.setVisibility(android.os.Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP ? VISIBLE : GONE);
-        undoRedoSeparator.setVisibility(android.os.Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP ? VISIBLE : GONE);
+        binding.wikitextButtonLink.setOnClickListener(v -> {
+            if (editText.getInputConnection() != null) {
+                toggleSyntaxAroundCurrentSelection(editText.getInputConnection(), "[[", "]]");
+            }
+        });
+        binding.wikitextButtonItalic.setOnClickListener(v -> {
+            if (editText.getInputConnection() != null) {
+                toggleSyntaxAroundCurrentSelection(editText.getInputConnection(), "''", "''");
+            }
+        });
+        binding.wikitextButtonBold.setOnClickListener(v -> {
+            if (editText.getInputConnection() != null) {
+                toggleSyntaxAroundCurrentSelection(editText.getInputConnection(), "'''", "'''");
+            }
+        });
+        binding.wikitextButtonUndo.setOnClickListener(v -> editText.undo());
+        binding.wikitextButtonRedo.setOnClickListener(v -> editText.redo());
+        binding.wikitextButtonTemplate.setOnClickListener(v -> {
+            if (editText.getInputConnection() != null) {
+                toggleSyntaxAroundCurrentSelection(editText.getInputConnection(), "{{", "}}");
+            }
+        });
+        binding.wikitextButtonRef.setOnClickListener(v -> {
+            if (editText.getInputConnection() != null) {
+                toggleSyntaxAroundCurrentSelection(editText.getInputConnection(), "<ref>", "</ref>");
+            }
+        });
+        binding.wikitextButtonListBulleted.setOnClickListener(v -> {
+            if (editText.getInputConnection() != null) {
+                editText.getInputConnection().commitText("\n* ", 1);
+            }
+        });
+        binding.wikitextButtonListNumbered.setOnClickListener(v -> {
+            if (editText.getInputConnection() != null) {
+                editText.getInputConnection().commitText("\n# ", 1);
+            }
+        });
+        binding.wikitextButtonPreviewLink.setOnClickListener(this::onClickButtonPreviewLink);
+
+        binding.wikitextButtonUndo.setVisibility(Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP ? VISIBLE : GONE);
+        binding.wikitextButtonRedo.setVisibility(Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP ? VISIBLE : GONE);
+        binding.wikitextUndoRedoSeparator.setVisibility(Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP ? VISIBLE : GONE);
     }
 
     public void setCallback(@Nullable Callback callback) {
@@ -61,57 +91,7 @@ public class WikiTextKeyboardView extends FrameLayout {
         this.editText = editText;
     }
 
-    @OnClick(R.id.wikitext_button_link) void onClickButtonLink(View v) {
-        if (editText.getInputConnection() != null) {
-            toggleSyntaxAroundCurrentSelection(editText.getInputConnection(), "[[", "]]");
-        }
-    }
-
-    @OnClick(R.id.wikitext_button_italic) void onClickButtonItalic(View v) {
-        if (editText.getInputConnection() != null) {
-            toggleSyntaxAroundCurrentSelection(editText.getInputConnection(), "''", "''");
-        }
-    }
-
-    @OnClick(R.id.wikitext_button_bold) void onClickButtonBold(View v) {
-        if (editText.getInputConnection() != null) {
-            toggleSyntaxAroundCurrentSelection(editText.getInputConnection(), "'''", "'''");
-        }
-    }
-
-    @OnClick(R.id.wikitext_button_undo) void onClickButtonUndo(View v) {
-        editText.undo();
-    }
-
-    @OnClick(R.id.wikitext_button_redo) void onClickButtonRedo(View v) {
-        editText.redo();
-    }
-
-    @OnClick(R.id.wikitext_button_template) void onClickButtonTemplate(View v) {
-        if (editText.getInputConnection() != null) {
-            toggleSyntaxAroundCurrentSelection(editText.getInputConnection(), "{{", "}}");
-        }
-    }
-
-    @OnClick(R.id.wikitext_button_ref) void onClickButtonRef(View v) {
-        if (editText.getInputConnection() != null) {
-            toggleSyntaxAroundCurrentSelection(editText.getInputConnection(), "<ref>", "</ref>");
-        }
-    }
-
-    @OnClick(R.id.wikitext_button_list_bulleted) void onClickButtonListBulleted(View v) {
-        if (editText.getInputConnection() != null) {
-            editText.getInputConnection().commitText("\n* ", 1);
-        }
-    }
-
-    @OnClick(R.id.wikitext_button_list_numbered) void onClickButtonListNumbered(View v) {
-        if (editText.getInputConnection() != null) {
-            editText.getInputConnection().commitText("\n# ", 1);
-        }
-    }
-
-    @OnClick(R.id.wikitext_button_preview_link) void onClickButtonPreviewLink(View v) {
+    private void onClickButtonPreviewLink(View v) {
         if (editText.getInputConnection() == null) {
             return;
         }
