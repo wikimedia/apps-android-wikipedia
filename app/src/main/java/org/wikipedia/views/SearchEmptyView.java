@@ -8,13 +8,10 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 
-import org.wikipedia.R;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
+import org.wikipedia.databinding.ViewSearchEmptyBinding;
 
 public class SearchEmptyView extends LinearLayout {
-    @BindView(R.id.search_empty_text) TextView emptyText;
+    private TextView emptyText;
 
     public SearchEmptyView(Context context) {
         super(context);
@@ -45,8 +42,8 @@ public class SearchEmptyView extends LinearLayout {
     }
 
     private void init() {
-        inflate(getContext(), R.layout.view_search_empty, this);
-        ButterKnife.bind(this);
+        ViewSearchEmptyBinding binding = ViewSearchEmptyBinding.bind(this);
+        emptyText = binding.searchEmptyText;
         setOrientation(VERTICAL);
     }
 }
