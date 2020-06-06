@@ -1,17 +1,5 @@
 -dontobfuscate
 
-# --- Butter Knife ---
-# Finder.castParam() is stripped when not needed and ProGuard notes it
-# unnecessarily. When castParam() is needed, it's not stripped. e.g.:
-#
-#  @OnItemSelected(value = R.id.history_entry_list)
-#  void foo(ListView bar) {
-#      L.d("baz");
-#  }
-
--dontnote butterknife.internal.**
-# --- /Butter Knife ---
-
 # --- Retrofit2 ---
 # Platform calls Class.forName on types which do not exist on Android to determine platform.
 -dontnote retrofit2.Platform

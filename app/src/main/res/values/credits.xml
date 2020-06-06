@@ -4,10 +4,6 @@
         <!-- https://raw.githubusercontent.com/microsoft/appcenter-sdk-android/develop/license.txt -->
         (<a href="content:///android_asset/licenses/AppCenterSDK">license</a>),
 
-        <a href="https://jakewharton.github.io/butterknife/">ButterKnife</a>
-        <!-- https://raw.githubusercontent.com/JakeWharton/butterknife/master/LICENSE.txt -->
-        (<a href="content:///android_asset/licenses/ButterKnife">license</a>),
-
         <a href="https://github.com/michael-rapp/ChromeLikeTabSwitcher">ChromeLikeTabSwitcher</a>
         <!-- https://github.com/michael-rapp/ChromeLikeTabSwitcher/blob/master/LICENSE.txt -->
         (<a href="content:///android_asset/licenses/ChromeLikeTabSwitcher">license</a>),
