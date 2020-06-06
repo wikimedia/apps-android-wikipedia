@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.Space;
 import android.widget.TextView;
 
 import androidx.annotation.DrawableRes;
@@ -17,23 +16,19 @@ import androidx.annotation.StringRes;
 import androidx.appcompat.content.res.AppCompatResources;
 
 import org.wikipedia.R;
+import org.wikipedia.databinding.ViewWikiErrorBinding;
 import org.wikipedia.dataclient.mwapi.MwException;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
 
 import static org.wikipedia.util.ThrowableUtil.is404;
 import static org.wikipedia.util.ThrowableUtil.isOffline;
 import static org.wikipedia.util.ThrowableUtil.isTimeout;
 
 public class WikiErrorView extends LinearLayout {
-    @BindView(R.id.view_wiki_error_icon) ImageView icon;
-    @BindView(R.id.view_wiki_error_text) TextView errorText;
-    @BindView(R.id.view_wiki_error_button) Button button;
-    @BindView(R.id.view_wiki_error_footer_text) TextView footerText;
-    @BindView(R.id.view_wiki_error_article_content_top_offset) Space contentTopOffset;
-    @BindView(R.id.view_wiki_error_article_tab_layout_offset) Space tabLayoutOffset;
-    @BindView(R.id.view_wiki_error_footer_layout) View footerLayout;
+    private ImageView icon;
+    private TextView errorText;
+    private Button button;
+    private TextView footerText;
+    private View footerLayout;
 
     @Nullable private OnClickListener retryListener;
     @Nullable private OnClickListener backListener;
@@ -48,8 +43,12 @@ public class WikiErrorView extends LinearLayout {
 
     public WikiErrorView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-        inflate(context, R.layout.view_wiki_error, this);
-        ButterKnife.bind(this);
+        ViewWikiErrorBinding binding = ViewWikiErrorBinding.bind(this);
+        icon = binding.viewWikiErrorIcon;
+        errorText = binding.viewWikiErrorText;
+        button = binding.viewWikiErrorButton;
+        footerText = binding.viewWikiErrorFooterText;
+        footerLayout = binding.viewWikiErrorFooterLayout;
     }
 
     @Nullable public OnClickListener getRetryListener() {
