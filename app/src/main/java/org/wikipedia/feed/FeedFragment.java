@@ -28,6 +28,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.FeedFunnel;
 import org.wikipedia.analytics.SuggestedEditsFunnel;
+import org.wikipedia.databinding.FragmentFeedBinding;
 import org.wikipedia.descriptions.DescriptionEditActivity;
 import org.wikipedia.feed.configure.ConfigureActivity;
 import org.wikipedia.feed.configure.ConfigureItemLanguageDialogView;
@@ -63,11 +64,6 @@ import org.wikipedia.util.UriUtil;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-import butterknife.Unbinder;
-
 import static android.app.Activity.RESULT_OK;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT;
@@ -83,10 +79,11 @@ import static org.wikipedia.language.AppLanguageLookUpTable.SIMPLIFIED_CHINESE_L
 import static org.wikipedia.language.AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE;
 
 public class FeedFragment extends Fragment implements BackPressedHandler {
-    @BindView(R.id.feed_swipe_refresh_layout) SwipeRefreshLayout swipeRefreshLayout;
-    @BindView(R.id.fragment_feed_feed) FeedView feedView;
-    @BindView(R.id.fragment_feed_empty_container) View emptyContainer;
-    private Unbinder unbinder;
+    private FragmentFeedBinding binding;
+
+    private SwipeRefreshLayout swipeRefreshLayout;
+    private FeedView feedView;
+    private View emptyContainer;
     private FeedAdapter<?> feedAdapter;
     private WikipediaApp app;
     private FeedCoordinator coordinator;
@@ -132,9 +129,14 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
                                                  @Nullable ViewGroup container,
                                                  @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        View view = inflater.inflate(R.layout.fragment_feed, container, false);
+        binding = FragmentFeedBinding.inflate(inflater, container, false);
 
-        unbinder = ButterKnife.bind(this, view);
+        swipeRefreshLayout = binding.feedSwipeRefreshLayout;
+        feedView = binding.fragmentFeedFeed;
+        emptyContainer = binding.fragmentFeedEmptyContainer;
+
+        binding.fragmentFeedCustomizeButton.setOnClickListener(v -> showConfigureActivity(-1));
+
         feedAdapter = new FeedAdapter<>(coordinator, feedCallback);
         feedView.setAdapter(feedAdapter);
         feedView.addOnScrollListener(feedScrollListener);
@@ -182,7 +184,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
 
         ReadingListSyncAdapter.manualSync();
 
-        return view;
+        return binding.getRoot();
     }
 
     private void showRemoveChineseVariantPrompt() {
@@ -281,9 +283,8 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         feedView.removeOnScrollListener(feedScrollListener);
         feedView.setAdapter(null);
         feedAdapter = null;
-        unbinder.unbind();
-        unbinder = null;
         super.onDestroyView();
+        binding = null;
     }
 
     @Override
@@ -322,10 +323,6 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
     @Override
     public boolean onBackPressed() {
         return false;
-    }
-
-    @OnClick(R.id.fragment_feed_customize_button) void onCustomizeClick() {
-        showConfigureActivity(-1);
     }
 
     public void scrollToTop() {
