@@ -13,8 +13,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.databinding.FragmentRandomItemBinding;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.page.PageTitle;
@@ -25,9 +25,6 @@ import org.wikipedia.views.FaceAndColorDetectImageView;
 import org.wikipedia.views.GoneIfEmptyTextView;
 import org.wikipedia.views.WikiErrorView;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
@@ -35,13 +32,15 @@ import io.reactivex.schedulers.Schedulers;
 import static org.wikipedia.Constants.PREFERRED_CARD_THUMBNAIL_SIZE;
 
 public class RandomItemFragment extends Fragment {
-    @BindView(R.id.random_item_container) ViewGroup containerView;
-    @BindView(R.id.random_item_progress) View progressBar;
-    @BindView(R.id.view_random_article_card_image) FaceAndColorDetectImageView imageView;
-    @BindView(R.id.view_random_article_card_article_title) TextView articleTitleView;
-    @BindView(R.id.view_random_article_card_article_subtitle) GoneIfEmptyTextView articleSubtitleView;
-    @BindView(R.id.view_random_article_card_extract) TextView extractView;
-    @BindView(R.id.random_item_error_view) WikiErrorView errorView;
+    private FragmentRandomItemBinding binding;
+
+    private ViewGroup containerView;
+    private View progressBar;
+    private FaceAndColorDetectImageView imageView;
+    private TextView articleTitleView;
+    private GoneIfEmptyTextView articleSubtitleView;
+    private TextView extractView;
+    private WikiErrorView errorView;
 
     private CompositeDisposable disposables = new CompositeDisposable();
     @Nullable private PageSummary summary;
@@ -64,8 +63,22 @@ public class RandomItemFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        View view = inflater.inflate(R.layout.fragment_random_item, container, false);
-        ButterKnife.bind(this, view);
+        binding = FragmentRandomItemBinding.inflate(inflater, container, false);
+
+        containerView = binding.randomItemContainer;
+        progressBar = binding.randomItemProgress;
+        imageView = binding.viewRandomArticleCardImage;
+        articleTitleView = binding.viewRandomArticleCardArticleTitle;
+        articleSubtitleView = binding.viewRandomArticleCardArticleSubtitle;
+        extractView = binding.viewRandomArticleCardExtract;
+        errorView = binding.randomItemErrorView;
+
+        containerView.setOnClickListener(v -> {
+            if (getTitle() != null) {
+                parent().onSelectPage(getTitle());
+            }
+        });
+
         errorView.setBackClickListener(v -> requireActivity().finish());
         errorView.setRetryClickListener(v -> {
             progressBar.setVisibility(View.VISIBLE);
@@ -75,13 +88,19 @@ public class RandomItemFragment extends Fragment {
         if (summary == null) {
             getRandomPage();
         }
-        return view;
+        return binding.getRoot();
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
         disposables.clear();
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null;
     }
 
     private void getRandomPage() {
@@ -101,12 +120,6 @@ public class RandomItemFragment extends Fragment {
         errorView.setVisibility(View.VISIBLE);
         progressBar.setVisibility(View.GONE);
         containerView.setVisibility(View.GONE);
-    }
-
-    @OnClick(R.id.random_item_container) void onClick(View v) {
-        if (getTitle() != null) {
-            parent().onSelectPage(getTitle());
-        }
     }
 
     private void updateContents() {
