@@ -13,13 +13,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.widget.SearchView;
 
 import org.wikipedia.R;
+import org.wikipedia.databinding.GroupFindInPageBinding;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.ResourceUtil;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-import butterknife.OnLongClick;
 
 public class FindInPageActionProvider extends ActionProvider {
     public interface FindInPageListener {
@@ -31,10 +27,10 @@ public class FindInPageActionProvider extends ActionProvider {
         void onSearchTextChanged(String text);
     }
 
-    @BindView(R.id.find_in_page_next) View findInPageNext;
-    @BindView(R.id.find_in_page_prev) View findInPagePrev;
-    @BindView(R.id.find_in_page_match) TextView findInPageMatch;
-    @BindView(R.id.find_in_page_input) SearchView searchView;
+    private View findInPageNext;
+    private View findInPagePrev;
+    private TextView findInPageMatch;
+    private SearchView searchView;
 
     private Context context;
     private FindInPageListener listener;
@@ -56,7 +52,42 @@ public class FindInPageActionProvider extends ActionProvider {
     @Override
     public View onCreateActionView() {
         View view = View.inflate(context, R.layout.group_find_in_page, null);
-        ButterKnife.bind(this, view);
+        final GroupFindInPageBinding binding = GroupFindInPageBinding.bind(view);
+
+        findInPageNext = binding.findInPageNext;
+        findInPageMatch = binding.findInPageMatch;
+        findInPagePrev = binding.findInPagePrev;
+        searchView = binding.findInPageInput;
+
+        findInPageNext.setOnClickListener(v -> {
+            DeviceUtil.hideSoftKeyboard(v);
+            listener.onFindNextClicked();
+        });
+        findInPageNext.setOnLongClickListener(v -> {
+            if (isLastOccurrence) {
+                Toast.makeText(context, context.getString(R.string.find_last_occurence), Toast.LENGTH_SHORT).show();
+            } else {
+                DeviceUtil.hideSoftKeyboard(v);
+                listener.onFindNextLongClicked();
+                lastOccurrenceSearchFlag = true;
+            }
+            return true;
+        });
+        findInPagePrev.setOnClickListener(v -> {
+            DeviceUtil.hideSoftKeyboard(v);
+            listener.onFindPrevClicked();
+        });
+        findInPagePrev.setOnLongClickListener(v -> {
+            if (isFirstOccurrence) {
+                Toast.makeText(context, context.getString(R.string.find_first_occurence), Toast.LENGTH_SHORT).show();
+            } else {
+                DeviceUtil.hideSoftKeyboard(v);
+                listener.onFindPrevLongClicked();
+            }
+            return true;
+        });
+        binding.closeButton.setOnClickListener(v -> listener.onCloseClicked());
+
         setFindInPageChevronsEnabled(false);
         searchView.setQueryHint(context.getString(R.string.menu_page_find_in_page));
         searchView.setFocusable(true);
@@ -108,46 +139,6 @@ public class FindInPageActionProvider extends ActionProvider {
             listener.onFindPrevClicked();
         }
         findInPageMatch.setVisibility(View.VISIBLE);
-    }
-
-    @OnClick(R.id.find_in_page_next)
-    void onFindInPageNextClicked(View v) {
-        DeviceUtil.hideSoftKeyboard(v);
-        listener.onFindNextClicked();
-    }
-
-    @OnLongClick(R.id.find_in_page_next)
-    boolean onFindInPageNextLongClicked(View v) {
-        if (isLastOccurrence) {
-            Toast.makeText(context, context.getString(R.string.find_last_occurence), Toast.LENGTH_SHORT).show();
-        } else {
-            DeviceUtil.hideSoftKeyboard(v);
-            listener.onFindNextLongClicked();
-            lastOccurrenceSearchFlag = true;
-        }
-        return true;
-    }
-
-    @OnClick(R.id.find_in_page_prev)
-    void onFindInPagePrevClicked(View v) {
-        DeviceUtil.hideSoftKeyboard(v);
-        listener.onFindPrevClicked();
-    }
-
-    @OnLongClick(R.id.find_in_page_prev)
-    boolean onFindInPagePrevLongClicked(View v) {
-        if (isFirstOccurrence) {
-            Toast.makeText(context, context.getString(R.string.find_first_occurence), Toast.LENGTH_SHORT).show();
-        } else {
-            DeviceUtil.hideSoftKeyboard(v);
-            listener.onFindPrevLongClicked();
-        }
-        return true;
-    }
-
-    @OnClick(R.id.close_button)
-    void onCloseClicked(View v) {
-        listener.onCloseClicked();
     }
 
     private final SearchView.OnQueryTextListener searchQueryListener = new SearchView.OnQueryTextListener() {
