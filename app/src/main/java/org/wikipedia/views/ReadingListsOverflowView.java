@@ -15,14 +15,11 @@ import androidx.annotation.Nullable;
 import androidx.core.widget.PopupWindowCompat;
 
 import org.wikipedia.R;
+import org.wikipedia.databinding.ViewReadingListsOverflowBinding;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DateUtil;
 
 import java.text.ParseException;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 public class ReadingListsOverflowView extends FrameLayout {
 
@@ -32,7 +29,7 @@ public class ReadingListsOverflowView extends FrameLayout {
         void refreshClick();
     }
 
-    @BindView(R.id.reading_lists_overflow_last_sync) TextView lastSync;
+    private TextView lastSync;
     @Nullable private Callback callback;
     @Nullable private PopupWindow popupWindowHost;
 
@@ -64,8 +61,6 @@ public class ReadingListsOverflowView extends FrameLayout {
         }
     }
 
-    @OnClick({R.id.reading_lists_overflow_sort_by, R.id.reading_lists_overflow_create_new_list,
-            R.id.reading_lists_overflow_refresh})
     void onItemClick(View view) {
         if (popupWindowHost != null) {
             popupWindowHost.dismiss();
@@ -90,7 +85,11 @@ public class ReadingListsOverflowView extends FrameLayout {
     }
 
     private void init() {
-        inflate(getContext(), R.layout.view_reading_lists_overflow, this);
-        ButterKnife.bind(this);
+        ViewReadingListsOverflowBinding binding = ViewReadingListsOverflowBinding.bind(this);
+        lastSync = binding.readingListsOverflowLastSync;
+
+        binding.readingListsOverflowLastSync.setOnClickListener(this::onItemClick);
+        binding.readingListsOverflowCreateNewList.setOnClickListener(this::onItemClick);
+        binding.readingListsOverflowRefresh.setOnClickListener(this::onItemClick);
     }
 }
