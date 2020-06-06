@@ -20,6 +20,7 @@ import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.RandomizerFunnel;
+import org.wikipedia.databinding.FragmentRandomBinding;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.page.PageActivity;
@@ -36,10 +37,6 @@ import org.wikipedia.views.PositionAwareFragmentStateAdapter;
 
 import java.util.Collections;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-import butterknife.Unbinder;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
@@ -49,11 +46,13 @@ import static org.wikipedia.Constants.INTENT_EXTRA_INVOKE_SOURCE;
 import static org.wikipedia.Constants.InvokeSource.RANDOM_ACTIVITY;
 
 public class RandomFragment extends Fragment {
-    @BindView(R.id.random_item_pager) ViewPager2 randomPager;
-    @BindView(R.id.random_next_button) FloatingActionButton nextButton;
-    @BindView(R.id.random_save_button) ImageView saveButton;
-    @BindView(R.id.random_back_button) View backButton;
-    private Unbinder unbinder;
+    private FragmentRandomBinding binding;
+
+    private ViewPager2 randomPager;
+    private FloatingActionButton nextButton;
+    private ImageView saveButton;
+    private View backButton;
+
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
     private boolean saveButtonState;
     private ViewPagerListener viewPagerListener = new ViewPagerListener();
@@ -69,8 +68,14 @@ public class RandomFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        View view = inflater.inflate(R.layout.fragment_random, container, false);
-        unbinder = ButterKnife.bind(this, view);
+        binding = FragmentRandomBinding.inflate(inflater, container, false);
+
+        randomPager = binding.randomItemPager;
+        nextButton = binding.randomNextButton;
+        saveButton = binding.randomSaveButton;
+        backButton = binding.randomBackButton;
+
+        setButtonOnClickListeners();
         FeedbackUtil.setToolbarButtonLongPressToast(nextButton, saveButton);
 
         randomPager.setOffscreenPageLimit(2);
@@ -87,54 +92,52 @@ public class RandomFragment extends Fragment {
 
         funnel = new RandomizerFunnel(WikipediaApp.getInstance(), WikipediaApp.getInstance().getWikiSite(),
                 (Constants.InvokeSource) requireActivity().getIntent().getSerializableExtra(INTENT_EXTRA_INVOKE_SOURCE));
-        return view;
+        return binding.getRoot();
     }
 
     @Override
     public void onDestroyView() {
         disposables.clear();
         randomPager.unregisterOnPageChangeCallback(viewPagerListener);
-        unbinder.unbind();
-        unbinder = null;
         if (funnel != null) {
             funnel.done();
             funnel = null;
         }
         super.onDestroyView();
+        binding = null;
     }
 
-    @OnClick(R.id.random_next_button) void onNextClick() {
-        if (nextButton.getDrawable() instanceof Animatable) {
-            ((Animatable) nextButton.getDrawable()).start();
-        }
-        viewPagerListener.setNextPageSelectedAutomatic();
-        randomPager.setCurrentItem(randomPager.getCurrentItem() + 1, true);
-        if (funnel != null) {
-            funnel.clickedForward();
-        }
-    }
-
-    @OnClick(R.id.random_back_button) void onBackClick() {
-        viewPagerListener.setNextPageSelectedAutomatic();
-        if (randomPager.getCurrentItem() > 0) {
-            randomPager.setCurrentItem(randomPager.getCurrentItem() - 1, true);
-            if (funnel != null) {
-                funnel.clickedBack();
+    private void setButtonOnClickListeners() {
+        nextButton.setOnClickListener(v -> {
+            if (nextButton.getDrawable() instanceof Animatable) {
+                ((Animatable) nextButton.getDrawable()).start();
             }
-        }
-    }
-
-    @OnClick(R.id.random_save_button) void onSaveShareClick() {
-        PageTitle title = getTopTitle();
-        if (title == null) {
-            return;
-        }
-        if (saveButtonState) {
-            new ReadingListBookmarkMenu(saveButton, new ReadingListBookmarkMenu.Callback() {
-                @Override
-                public void onAddRequest(@Nullable ReadingListPage page) {
-                    onAddPageToList(title);
+            viewPagerListener.setNextPageSelectedAutomatic();
+            randomPager.setCurrentItem(randomPager.getCurrentItem() + 1, true);
+            if (funnel != null) {
+                funnel.clickedForward();
+            }
+        });
+        backButton.setOnClickListener(v -> {
+            viewPagerListener.setNextPageSelectedAutomatic();
+            if (randomPager.getCurrentItem() > 0) {
+                randomPager.setCurrentItem(randomPager.getCurrentItem() - 1, true);
+                if (funnel != null) {
+                    funnel.clickedBack();
                 }
+            }
+        });
+        saveButton.setOnClickListener(v -> {
+            PageTitle title = getTopTitle();
+            if (title == null) {
+                return;
+            }
+            if (saveButtonState) {
+                new ReadingListBookmarkMenu(saveButton, new ReadingListBookmarkMenu.Callback() {
+                    @Override
+                    public void onAddRequest(@Nullable ReadingListPage page) {
+                        onAddPageToList(title);
+                    }
 
                 @Override
                 public void onMoveRequest(@Nullable ReadingListPage page) {
@@ -148,14 +151,15 @@ public class RandomFragment extends Fragment {
                     updateSaveShareButton(title);
                 }
 
-                @Override
-                public void onShare() {
-                    // ignore
-                }
-            }).show(title);
-        } else {
-            onAddPageToList(title);
-        }
+                    @Override
+                    public void onShare() {
+                        // ignore
+                    }
+                }).show(title);
+            } else {
+                onAddPageToList(title);
+            }
+        });
     }
 
     public void onSelectPage(@NonNull PageTitle title) {
