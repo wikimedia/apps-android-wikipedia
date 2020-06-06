@@ -12,21 +12,24 @@ import org.wikipedia.feed.model.WikiSiteCard;
 import org.wikipedia.feed.view.FeedAdapter;
 import org.wikipedia.util.DateUtil;
 
-import java.util.Calendar;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.temporal.ChronoField;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Random;
-import java.util.concurrent.TimeUnit;
 
 public class OnThisDayCard extends WikiSiteCard {
     private int nextYear;
-    private Calendar date;
+    private LocalDateTime date;
     private FeedAdapter.Callback callback;
     private OnThisDay.Event eventShownOnCard;
     private int age;
 
     public OnThisDayCard(@NonNull List<OnThisDay.Event> events, @NonNull WikiSite wiki, int age) {
         super(wiki);
-        this.date = DateUtil.getDefaultDateFor(age);
+        this.date = LocalDateTime.now().minusDays(age);
         this.age = age;
         int randomIndex = 0;
         if (events.size() > 1) {
@@ -53,11 +56,11 @@ public class OnThisDayCard extends WikiSiteCard {
     }
 
     @Override @NonNull public String subtitle() {
-        return DateUtil.getFeedCardShortDateString(date);
+        return DateUtil.getFeedCardShortDateString(GregorianCalendar.from(date.atZone(ZoneId.systemDefault())));
     }
 
     @NonNull String dayString() {
-        return DateUtil.getMonthOnlyDateString(date.getTime());
+        return DateUtil.getMonthOnlyDateString(Date.from(date.atZone(ZoneId.systemDefault()).toInstant()));
     }
 
     @NonNull public CharSequence text() {
@@ -68,7 +71,7 @@ public class OnThisDayCard extends WikiSiteCard {
         return eventShownOnCard.year();
     }
 
-    @NonNull public Calendar date() {
+    @NonNull public LocalDateTime date() {
         return date;
     }
 
@@ -85,6 +88,6 @@ public class OnThisDayCard extends WikiSiteCard {
     }
 
     @Override protected int dismissHashCode() {
-        return (int) TimeUnit.MILLISECONDS.toDays(date.getTime().getTime()) + wikiSite().hashCode();
+        return date.get(ChronoField.EPOCH_DAY) + wikiSite().hashCode();
     }
 }
