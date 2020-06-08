@@ -340,6 +340,7 @@
   <string name="suggested_edits_image_caption_summary_title_license">Licenco</string>
   <string name="suggested_edits_feed_card_add_description_button">Adjuntez deskripto dil artiklo</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Por komencar</string>
+  <string name="suggested_edits_image_preview_dialog_file">Arkivo</string>
   <string name="suggested_edits_image_preview_dialog_artist">Artisto</string>
   <string name="suggested_edits_image_preview_dialog_date">Dato</string>
   <string name="suggested_edits_image_preview_dialog_source">Fonto/Fotografisto</string>
