@@ -14,9 +14,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.view.ActionMode;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.drawerlayout.widget.FixedDrawerLayout;
 import androidx.fragment.app.Fragment;
 
 import org.wikipedia.Constants;
