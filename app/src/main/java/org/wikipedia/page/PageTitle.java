@@ -244,6 +244,10 @@ public class PageTitle implements Parcelable {
         return getUriForDomain(getWikiSite().authority());
     }
 
+    public String getMobileUri() {
+        return getUriForDomain(getWikiSite().authority().replace(".wikipedia.org", ".m.wikipedia.org"));
+    }
+
     public String getUriForAction(String action) {
         try {
             return String.format(

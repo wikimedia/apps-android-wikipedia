@@ -259,8 +259,8 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     }
 
     @Override
-    public PageTitle getPageTitle() {
-        return model.getTitle();
+    public PageViewModel getModel() {
+        return model;
     }
 
     @Override
@@ -440,6 +440,25 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                 return model;
             }
 
+            @NonNull @Override public LinkHandler getLinkHandler() {
+                return linkHandler;
+            }
+
+            public void onPageFinished(WebView view, String url) {
+                bridge.evaluateImmediate("(function() { return (typeof pcs !== 'undefined'); })();", pcsExists -> {
+                    // TODO: This is a bit of a hack: If PCS does not exist in the current page, then
+                    // it's implied that this page was loaded via Mobile Web (e.g. the Main Page) and
+                    // doesn't support PCS, meaning that we will never receive the `setup` event that
+                    // tells us the page is finished loading. In such a case, we must infer that the
+                    // page has now loaded and trigger the remaining logic ourselves.
+                    if (!"true".equals(pcsExists)) {
+                        onPageSetupEvent();
+                        bridge.onPcsReady();
+                        bridge.execute(JavaScriptActionHandler.mobileWebChromeShim());
+                    }
+                });
+            }
+
             @Override
             public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
                 onPageLoadError(new RuntimeException(description));
@@ -493,6 +512,50 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         // handler), since the page metadata might have altered the lead image display state.
         bridge.execute(JavaScriptActionHandler.setTopMargin(leadImagesHandler.getTopMargin()));
         bridge.execute(JavaScriptActionHandler.setFooter(model));
+    }
+
+    private void onPageSetupEvent() {
+        if (!isAdded()) {
+            return;
+        }
+
+        updateProgressBar(false, true, 0);
+        webView.setVisibility(View.VISIBLE);
+        app.getSessionFunnel().leadSectionFetchEnd();
+
+        bridge.evaluate(JavaScriptActionHandler.getRevision(), revision -> {
+            if (!isAdded()) {
+                return;
+            }
+            try {
+                this.revision = Long.parseLong(revision.replace("\"", ""));
+            } catch (Exception e) {
+                L.e(e);
+            }
+        });
+
+        bridge.evaluate(JavaScriptActionHandler.getSections(), value -> {
+            if (!isAdded() || model.getPage() == null) {
+                return;
+            }
+            Section[] secArray = GsonUtil.getDefaultGson().fromJson(value, Section[].class);
+            if (secArray != null) {
+                sections = new ArrayList<>(Arrays.asList(secArray));
+                sections.add(0, new Section(0, 0, model.getTitle().getDisplayText(), model.getTitle().getDisplayText(), ""));
+                model.getPage().setSections(sections);
+            }
+            tocHandler.setupToC(model.getPage(), model.getTitle().getWikiSite());
+            tocHandler.setEnabled(true);
+        });
+
+        bridge.evaluate(JavaScriptActionHandler.getProtection(), value -> {
+            if (!isAdded() || model.getPage() == null) {
+                return;
+            }
+            Protection protection = GsonUtil.getDefaultGson().fromJson(value, Protection.class);
+            model.getPage().getPageProperties().setProtection(protection);
+            bridge.execute(JavaScriptActionHandler.setUpEditButtons(true, !model.getPage().getPageProperties().canEdit()));
+        });
     }
 
     private void handleInternalLink(@NonNull PageTitle title) {
@@ -921,6 +984,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         if (bookmarkTab != null) {
             ((ImageView) bookmarkTab).setImageResource(pageSaved ? R.drawable.ic_bookmark_white_24dp
                     : R.drawable.ic_bookmark_border_white_24dp);
+            bookmarkTab.setEnabled(!model.shouldLoadAsMobileWeb());
         }
     }
 
@@ -966,48 +1030,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         bridge.addListener("link", linkHandler);
 
         bridge.addListener("setup", (String messageType, JsonObject messagePayload) -> {
-            if (!isAdded()) {
-                return;
-            }
-
-            updateProgressBar(false, true, 0);
-            webView.setVisibility(View.VISIBLE);
-            app.getSessionFunnel().leadSectionFetchEnd();
-
-            bridge.evaluate(JavaScriptActionHandler.getRevision(), revision -> {
-                if (!isAdded()) {
-                    return;
-                }
-                try {
-                    this.revision = Long.parseLong(revision.replace("\"", ""));
-                } catch (Exception e) {
-                    L.e(e);
-                }
-            });
-
-            bridge.evaluate(JavaScriptActionHandler.getSections(), value -> {
-                if (!isAdded() || model.getPage() == null) {
-                    return;
-                }
-                Section[] secArray = GsonUtil.getDefaultGson().fromJson(value, Section[].class);
-                if (secArray != null) {
-                    sections = new ArrayList<>(Arrays.asList(secArray));
-                    sections.add(0, new Section(0, 0, model.getTitle().getDisplayText(), model.getTitle().getDisplayText(), ""));
-                    model.getPage().setSections(sections);
-                }
-                tocHandler.setupToC(model.getPage(), model.getTitle().getWikiSite());
-                tocHandler.setEnabled(true);
-            });
-
-            bridge.evaluate(JavaScriptActionHandler.getProtection(), value -> {
-                if (!isAdded() || model.getPage() == null) {
-                    return;
-                }
-                Protection protection = GsonUtil.getDefaultGson().fromJson(value, Protection.class);
-                model.getPage().getPageProperties().setProtection(protection);
-                bridge.execute(JavaScriptActionHandler.setUpEditButtons(true, !model.getPage().getPageProperties().canEdit()));
-            });
-
+            onPageSetupEvent();
         });
         bridge.addListener("final_setup", (String messageType, JsonObject messagePayload) -> {
             if (!isAdded()) {
