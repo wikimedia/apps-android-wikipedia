@@ -54,6 +54,7 @@ import org.wikipedia.page.linkpreview.LinkPreviewDialog;
 import org.wikipedia.page.tabs.TabActivity;
 import org.wikipedia.random.RandomActivity;
 import org.wikipedia.readinglist.AddToReadingListDialog;
+import org.wikipedia.readinglist.MoveToReadingListDialog;
 import org.wikipedia.search.SearchActivity;
 import org.wikipedia.search.SearchFragment;
 import org.wikipedia.settings.Prefs;
@@ -270,6 +271,11 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     @Override public void onFeedAddPageToList(HistoryEntry entry) {
         bottomSheetPresenter.show(getChildFragmentManager(),
                 AddToReadingListDialog.newInstance(entry.getTitle(), FEED));
+    }
+
+    @Override public void onFeedMovePageToList(long sourceReadingListId, HistoryEntry entry) {
+        bottomSheetPresenter.show(getChildFragmentManager(),
+                MoveToReadingListDialog.newInstance(sourceReadingListId, entry.getTitle(), FEED));
     }
 
     @Override
