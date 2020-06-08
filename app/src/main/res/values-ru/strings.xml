@@ -754,7 +754,7 @@
   <string name="suggested_edits_image_tags_choose">Добавить или выбрать подходящие теги</string>
   <string name="suggested_edits_image_tags_search">Искать метки</string>
   <string name="suggested_edits_image_tags_select_title">Вы не выбрали ни одного тега этому изображению</string>
-  <string name="suggested_edits_image_tags_select_text">Только выбранные вами теги будут добавлены изображениям. Те, которые вы не выбрали - будут отклонены. Вы уверены что хотите отклонить все теги?</string>
+  <string name="suggested_edits_image_tags_select_text">Только выбранные вами теги будут добавлены изображениям. Те, которые вы не выбрали, будут отклонены. Вы уверены, что хотите отклонить все теги?</string>
   <string name="suggested_edits_image_tags_add_tag">Добавить тег</string>
   <string name="suggested_edits_editing_tips_link_text">Советы и рекомендации по редактированию</string>
   <string name="suggested_edits_pageviews_label_text">Просмотры страниц</string>

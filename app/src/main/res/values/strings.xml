@@ -423,6 +423,7 @@
     <string name="reading_list_article_make_offline">Make this article available offline</string>
     <string name="reading_list_add_to_other_list">Add to another reading list</string>
     <string name="reading_list_move_to_other_list">Move to another reading list</string>
+    <string name="reading_list_move_from_to_other_list">Move from %s to another reading list</string>
     <string name="reading_list_remove_from_list">Remove from %s</string>
     <string name="reading_list_remove_from_lists">Remove from reading lists</string>
     <string name="reading_list_select_item">Select</string>
