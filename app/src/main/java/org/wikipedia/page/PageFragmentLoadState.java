@@ -236,7 +236,9 @@ public class PageFragmentLoadState {
             app.getSessionFunnel().noDescription();
         }
 
-        model.getTitle().setDisplayText(page.getDisplayTitle());
+        if (!model.getTitle().isMainPage()) {
+            model.getTitle().setDisplayText(page.getDisplayTitle());
+        }
 
         leadImagesHandler.loadLeadImage();
 
