@@ -493,12 +493,12 @@
   <plurals name="notification_syncing_title">
     <item quantity="one">Descărcare %1$d articol…</item>
     <item quantity="few">Descărcare %1$d articole…</item>
-    <item quantity="other"/>
+    <item quantity="other">Descărcare %1$d articole…</item>
   </plurals>
   <plurals name="notification_syncing_description">
     <item quantity="one">%1$d articol rămas</item>
     <item quantity="few">%1$d articole rămase</item>
-    <item quantity="other"/>
+    <item quantity="other">%1$d articole rămase</item>
   </plurals>
   <plurals name="notification_syncing_reading_list_channel_name">
     <item quantity="one">Sincronizarea listei de citire</item>
@@ -508,12 +508,12 @@
   <plurals name="notification_syncing_reading_list_title">
     <item quantity="one">Sincronizare %1$d liste…</item>
     <item quantity="few">Sincronizare %1$d liste…</item>
-    <item quantity="other"/>
+    <item quantity="other">Sincronizare %1$d liste…</item>
   </plurals>
   <plurals name="notification_syncing_reading_list_description">
     <item quantity="one">%1$d listă rămasă</item>
     <item quantity="few">%1$d liste rămase</item>
-    <item quantity="other"/>
+    <item quantity="other">%1$d liste rămase</item>
   </plurals>
   <string name="notification_echo_channel_description">Notificări Wikipedia</string>
   <string name="notifications_activity_title">Notificări</string>
@@ -526,7 +526,7 @@
   <plurals name="notification_archive_message">
     <item quantity="one">Notificarea arhivată</item>
     <item quantity="few">%d notificări arhivate</item>
-    <item quantity="other"/>
+    <item quantity="other">%d notificări arhivate</item>
   </plurals>
   <string name="notifications_poll_enable_title">Activați notificările</string>
   <string name="notifications_poll_enable_positive">Activează</string>
@@ -574,7 +574,7 @@
   <plurals name="view_continue_reading_card_subtitle">
     <item quantity="one">ieri</item>
     <item quantity="few">%d zile în urmă</item>
-    <item quantity="other"/>
+    <item quantity="other">%d zile în urmă</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">astăzi</string>
   <string name="view_continue_reading_card_subtitle_read_date">Citește %s</string>
@@ -687,7 +687,7 @@
   <plurals name="suggested_edits_contribution_count">
     <item quantity="one">1 contribuție</item>
     <item quantity="few">%d contribuții</item>
-    <item quantity="other"/>
+    <item quantity="other">%d contribuții</item>
   </plurals>
   <string name="suggested_edits_feed_card_title">Modificări sugerate</string>
   <string name="suggested_edits_feed_card_add_description_button">Adaugă descrierea articolului</string>
@@ -763,7 +763,7 @@
   <plurals name="suggested_edits_edit_streak_detail_text">
     <item quantity="one">%d zi</item>
     <item quantity="few">%d zile</item>
-    <item quantity="other"/>
+    <item quantity="other">%d zile</item>
   </plurals>
   <string name="suggested_edits_last_edited">Ultima modificare:</string>
   <string name="suggested_edits_last_edited_never">Niciodată</string>
@@ -817,7 +817,7 @@
   <plurals name="diff_years">
     <item quantity="one">Anul trecut</item>
     <item quantity="few">%d cu ani în urmă</item>
-    <item quantity="other"/>
+    <item quantity="other">%d cu ani în urmă</item>
   </plurals>
   <string name="languages_list_activity_title">Adăugați o limbă</string>
   <string name="languages_list_suggested_text">Sugerat</string>
