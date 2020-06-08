@@ -131,7 +131,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
             if (!navTabAutoSelect && getCurrentFragment() instanceof FeedFragment && item.getOrder() == 0) {
                 ((FeedFragment) getCurrentFragment()).scrollToTop();
             }
-            viewPager.setCurrentItem(item.getOrder());
+            viewPager.setCurrentItem(item.getOrder(), false);
             return true;
         });
 
