@@ -112,4 +112,8 @@
         <attr name="title" format="string" />
         <attr name="detail" format="string" />
     </declare-styleable>
+
+    <declare-styleable name="PlainPasteEditText">
+        <attr name="roundedTopWithBorder" format="boolean" />
+    </declare-styleable>
 </resources>

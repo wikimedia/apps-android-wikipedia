@@ -32,7 +32,8 @@
                 android:inputType="textMultiLine"
                 android:scrollbars="vertical"
                 android:textColor="?attr/primary_text_color"
-                android:textColorHighlight="#FF9632" />
+                android:textColorHighlight="#FF9632"
+                app:roundedTopWithBorder="false"/>
         </ScrollView>
 
         <HorizontalScrollView

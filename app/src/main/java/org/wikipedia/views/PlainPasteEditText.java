@@ -3,18 +3,21 @@ package org.wikipedia.views;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.os.SystemClock;
 import android.util.AttributeSet;
 import android.view.KeyEvent;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
 
+import androidx.annotation.AttrRes;
 import androidx.annotation.MenuRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.google.android.material.textfield.TextInputEditText;
 
+import org.wikipedia.R;
 import org.wikipedia.edit.richtext.SpanExtents;
 import org.wikipedia.edit.richtext.SyntaxHighlighter;
 import org.wikipedia.util.ClipboardUtil;
@@ -38,14 +41,29 @@ public class PlainPasteEditText extends TextInputEditText {
 
     public PlainPasteEditText(Context context) {
         super(context);
+        init(null, 0);
     }
 
     public PlainPasteEditText(Context context, AttributeSet attrs) {
         super(context, attrs);
+        init(attrs, 0);
     }
 
     public PlainPasteEditText(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
+        init(attrs, defStyle);
+    }
+
+    private void init(@Nullable AttributeSet attrs, @AttrRes int defStyleAttr) {
+        if (attrs != null) {
+            TypedArray array = getContext().obtainStyledAttributes(attrs,
+                    R.styleable.PlainPasteEditText, defStyleAttr, 0);
+            boolean hasRoundedTopWithBorder = array.getBoolean(R.styleable.PlainPasteEditText_roundedTopWithBorder, true);
+            if (hasRoundedTopWithBorder) {
+                setBackgroundResource(R.drawable.text_input_bg_with_rounded_top);
+            }
+            array.recycle();
+        }
     }
 
     @Override

@@ -21,7 +21,8 @@
             android:textSize="14sp"
             android:textColor="?attr/material_theme_primary_color"
             android:background="@null"
-            android:maxLines="1">
+            android:maxLines="1"
+            app:roundedTopWithBorder="false">
             <requestFocus />
         </org.wikipedia.views.PlainPasteEditText>
 
