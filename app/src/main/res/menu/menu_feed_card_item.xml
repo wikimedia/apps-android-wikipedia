@@ -7,6 +7,9 @@
         android:title="@string/reading_list_add_to_other_list"/>
     <item android:id="@+id/menu_remove_from_lists"
         android:title="@string/reading_list_remove_from_lists"/>
+    <item android:id="@+id/menu_move_from_list_to_another_list"
+        android:title="@string/reading_list_move_from_to_other_list"
+        android:visible="false"/>
     <item android:id="@+id/menu_feed_card_item_share"
         android:title="@string/menu_page_share"/>
 </menu>

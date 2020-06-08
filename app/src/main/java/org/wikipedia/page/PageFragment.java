@@ -142,6 +142,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         void onPageStartSupportActionMode(@NonNull ActionMode.Callback callback);
         void onPageHideSoftKeyboard();
         void onPageAddToReadingList(@NonNull PageTitle title, @NonNull InvokeSource source);
+        void onPageMoveToReadingList(long sourceReadingListId, @NonNull PageTitle title, @NonNull InvokeSource source);
         void onPageRemoveFromReadingLists(@NonNull PageTitle title);
         void onPageLoadError(@NonNull PageTitle title);
         void onPageLoadErrorBackPressed();
@@ -198,6 +199,11 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                     @Override
                     public void onAddRequest(@Nullable ReadingListPage page) {
                         addToReadingList(getTitle(), BOOKMARK_BUTTON);
+                    }
+
+                    @Override
+                    public void onMoveRequest(@Nullable ReadingListPage page) {
+                        moveToReadingList(page.listId(), getTitle(), BOOKMARK_BUTTON);
                     }
 
                     @Override
@@ -1280,6 +1286,13 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         Callback callback = callback();
         if (callback != null) {
             callback.onPageAddToReadingList(title, source);
+        }
+    }
+
+    public void moveToReadingList(long sourceReadingListId, @NonNull PageTitle title, @NonNull InvokeSource source) {
+        Callback callback = callback();
+        if (callback != null) {
+            callback.onPageMoveToReadingList(sourceReadingListId, title, source);
         }
     }
 
