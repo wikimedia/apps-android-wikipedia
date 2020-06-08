@@ -1,7 +1,9 @@
 package org.wikipedia.commons
 
 import android.content.Context
+import android.icu.text.ListFormatter
 import android.net.Uri
+import android.os.Build
 import android.util.AttributeSet
 import android.util.TypedValue
 import android.view.View
@@ -26,6 +28,7 @@ import org.wikipedia.util.UriUtil
 import org.wikipedia.views.ImageDetailView
 import org.wikipedia.views.ImageZoomHelper
 import org.wikipedia.views.ViewUtil
+import java.util.*
 import kotlin.math.roundToInt
 
 class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
@@ -79,7 +82,11 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
     }
 
     private fun getImageTags(imageTags: Map<String, List<String>>, languageCode: String) : String? {
-        return imageTags[languageCode]?.joinToString(separator = "\n")
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && imageTags.isNotEmpty()) {
+            ListFormatter.getInstance(Locale(languageCode)).format(imageTags[languageCode])
+        } else {
+            imageTags[languageCode]?.joinToString(separator = "\n")
+        }
     }
 
     private fun getProperLanguageLocalizedName(summary: SuggestedEditsSummary, imageFromCommons: Boolean): String? {
