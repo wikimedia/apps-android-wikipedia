@@ -29,6 +29,7 @@
     <string name="preference_key_show_developer_settings">showDeveloperSettings</string>
     <string name="preference_key_last_run_time_format">%s-lastrun</string>
     <string name="preference_key_tabs">tabs</string>
+    <string name="preference_key_customize_explore_feed">customizeExploreFeed</string>
     <string name="preference_key_show_link_previews">showLinkPreviews</string>
     <string name="preference_key_collapse_tables">collapseTables</string>
     <string name="preference_key_session_data">session_data</string>
