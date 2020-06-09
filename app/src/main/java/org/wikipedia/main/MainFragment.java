@@ -1,6 +1,7 @@
 package org.wikipedia.main;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.DownloadManager;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
@@ -43,10 +44,12 @@ import org.wikipedia.gallery.MediaDownloadReceiver;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.history.HistoryFragment;
 import org.wikipedia.login.LoginActivity;
+import org.wikipedia.navtab.MenuNavTabDialog;
 import org.wikipedia.navtab.NavTab;
 import org.wikipedia.navtab.NavTabFragmentPagerAdapter;
 import org.wikipedia.navtab.NavTabLayout;
 import org.wikipedia.navtab.NavTabOverlayLayout;
+import org.wikipedia.notifications.NotificationActivity;
 import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
@@ -57,6 +60,7 @@ import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.readinglist.MoveToReadingListDialog;
 import org.wikipedia.search.SearchActivity;
 import org.wikipedia.search.SearchFragment;
+import org.wikipedia.settings.AboutActivity;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.suggestededits.SuggestedEditsTasksFragment;
@@ -519,4 +523,42 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     @Nullable private Callback callback() {
         return FragmentUtil.getCallback(this, Callback.class);
     }
+
+    private class DrawerViewCallback implements MenuNavTabDialog.Callback {
+        @Override
+        public void loginLogoutClick() {
+            if (AccountUtil.isLoggedIn()) {
+                new AlertDialog.Builder(requireContext())
+                        .setMessage(R.string.logout_prompt)
+                        .setNegativeButton(R.string.logout_dialog_cancel_button_text, null)
+                        .setPositiveButton(R.string.preference_title_logout, (dialog, which) -> {
+                            WikipediaApp.getInstance().logOut();
+                            FeedbackUtil.showMessage(requireActivity(), R.string.toast_logout_complete);
+                            Prefs.setReadingListsLastSyncTime(null);
+                            Prefs.setReadingListSyncEnabled(false);
+                            resetNavTabLayouts();
+                        }).show();
+            } else {
+                onLoginRequested();
+            }
+        }
+
+        @Override
+        public void notificationsClick() {
+            if (AccountUtil.isLoggedIn()) {
+                startActivity(NotificationActivity.newIntent(requireActivity()));
+            }
+        }
+
+        @Override
+        public void settingsClick() {
+            startActivityForResult(SettingsActivity.newIntent(requireActivity()), Constants.ACTIVITY_REQUEST_SETTINGS);
+        }
+
+        @Override
+        public void aboutClick() {
+            startActivity(new Intent(requireActivity(), AboutActivity.class));
+        }
+    }
+
 }
