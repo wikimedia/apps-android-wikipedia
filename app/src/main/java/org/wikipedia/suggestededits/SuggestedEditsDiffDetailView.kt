@@ -15,7 +15,7 @@ class SuggestedEditsDiffDetailView constructor(context: Context, attrs: Attribut
                 .inflate(R.layout.view_suggested_edits_contribution_diff_detail, this, true)
     }
 
-    fun setLabelAndDetail(labelText: String?, detailText: String?, @DrawableRes drawableRes: Int) {
+    fun setLabelAndDetail(labelText: String? = "", detailText: String? = "", @DrawableRes drawableRes: Int = -1) {
         if (detailText.isNullOrEmpty()) {
             visibility = GONE
             return

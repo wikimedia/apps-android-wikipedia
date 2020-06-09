@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_contribution_diff_detail.*
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.json.GsonUnmarshaller
 import org.wikipedia.page.PageActivity
@@ -53,7 +54,7 @@ class SuggestedEditsContributionDetailsFragment : Fragment() {
             startActivity(PageActivity.newIntentForNewTab(requireActivity(), HistoryEntry(PageTitle(contribution.title, contribution.wikiSite), HistoryEntry.SOURCE_SUGGESTED_EDITS),
                     PageTitle(contribution.title, contribution.wikiSite)))
         } else {
-            //Todo: Start File page activity
+            startActivity(FilePageActivity.newIntent(requireContext(), PageTitle(contribution.title, contribution.wikiSite)))
         }
     }
 
@@ -66,21 +67,21 @@ class SuggestedEditsContributionDetailsFragment : Fragment() {
                         if (contribution.editType == EDIT_TYPE_ARTICLE_DESCRIPTION) getString(R.string.suggested_edits_contribution_article_label)
                         else getString(R.string.suggested_edits_contribution_image_label)), contribution.pageViews.toString(), R.drawable.ic_trending_up_black_24dp)
                 typeDetailView.setLabelAndDetail(getString(R.string.suggested_edits_contribution_type_label), getString(R.string.description_edit_text_hint), R.drawable.ic_article_description)
-                languageDetailView.setLabelAndDetail(getString(R.string.suggested_edits_contribution_language_label), WikipediaApp.getInstance().language().getAppLanguageCanonicalName(contribution.wikiSite.languageCode()), -1)
+                languageDetailView.setLabelAndDetail(getString(R.string.suggested_edits_contribution_language_label), WikipediaApp.getInstance().language().getAppLanguageCanonicalName(contribution.wikiSite.languageCode()))
             }
             EDIT_TYPE_IMAGE_CAPTION -> {
                 contributionCategory.text = getString(R.string.suggested_edits_contribution_image_label)
                 contributionDiffText.text = getString(R.string.suggested_edits_contribution_label, contribution.description.length)
-                pageViewsDetailView.setLabelAndDetail("", "", -1)
+                pageViewsDetailView.setLabelAndDetail()
                 typeDetailView.setLabelAndDetail(getString(R.string.suggested_edits_contribution_type_label), getString(R.string.description_edit_add_caption_hint), R.drawable.ic_image_caption)
-                languageDetailView.setLabelAndDetail(getString(R.string.suggested_edits_contribution_language_label), WikipediaApp.getInstance().language().getAppLanguageCanonicalName(contribution.wikiSite.languageCode()), -1)
+                languageDetailView.setLabelAndDetail(getString(R.string.suggested_edits_contribution_language_label), WikipediaApp.getInstance().language().getAppLanguageCanonicalName(contribution.wikiSite.languageCode()))
             }
             else -> {
                 contributionCategory.text = getString(R.string.suggested_edits_contribution_image_label)
                 contributionDiffText.text = resources.getQuantityString(R.plurals.suggested_edits_image_tag_contribution_label, contribution.tagCount, contribution.tagCount)
                 typeDetailView.setLabelAndDetail(getString(R.string.suggested_edits_contribution_type_label), getString(R.string.suggested_edits_contribution_type_image_tag), R.drawable.ic_image_tag)
-                pageViewsDetailView.setLabelAndDetail("", "", -1)
-                languageDetailView.setLabelAndDetail("", "", -1)
+                pageViewsDetailView.setLabelAndDetail()
+                languageDetailView.setLabelAndDetail()
             }
         }
     }
