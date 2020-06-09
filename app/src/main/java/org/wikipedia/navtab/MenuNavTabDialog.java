@@ -32,7 +32,6 @@ public class MenuNavTabDialog extends ExtendedBottomSheetDialogFragment {
         void loginLogoutClick();
         void notificationsClick();
         void settingsClick();
-        void configureFeedClick();
         void aboutClick();
     }
 
@@ -45,7 +44,7 @@ public class MenuNavTabDialog extends ExtendedBottomSheetDialogFragment {
 
     public static MenuNavTabDialog newInstance(Callback drawerViewCallback) {
         MenuNavTabDialog dialog = new MenuNavTabDialog();
-        dialog.setCallback(drawerViewCallback);
+        dialog.callback = drawerViewCallback;
         return dialog;
     }
 
@@ -61,23 +60,19 @@ public class MenuNavTabDialog extends ExtendedBottomSheetDialogFragment {
         updateState();
     }
 
-    public void setCallback(@Nullable Callback callback) {
-        this.callback = callback;
-    }
-
     public void updateState() {
         if (AccountUtil.isLoggedIn()) {
             accountNameView.setText(AccountUtil.getUserName());
             accountNameView.setVisibility(VISIBLE);
-            loginLogoutButton.setText(getContext().getString(R.string.preference_title_logout));
-            loginLogoutButton.setTextColor(ResourceUtil.getThemedColor(getContext(), R.attr.colorError));
+            loginLogoutButton.setText(requireContext().getString(R.string.preference_title_logout));
+            loginLogoutButton.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.colorError));
             accountAvatar.setVisibility(VISIBLE);
             accountWikiGlobe.setVisibility(GONE);
             notificationsContainer.setVisibility(VISIBLE);
         } else {
             accountNameView.setVisibility(GONE);
-            loginLogoutButton.setText(getContext().getString(R.string.main_drawer_login));
-            loginLogoutButton.setTextColor(ResourceUtil.getThemedColor(getContext(), R.attr.colorAccent));
+            loginLogoutButton.setText(requireContext().getString(R.string.main_drawer_login));
+            loginLogoutButton.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent));
             accountAvatar.setVisibility(GONE);
             accountWikiGlobe.setVisibility(VISIBLE);
             notificationsContainer.setVisibility(GONE);
@@ -90,12 +85,6 @@ public class MenuNavTabDialog extends ExtendedBottomSheetDialogFragment {
         }
     }
 
-    @OnClick(R.id.main_drawer_configure_container) void onConfigureClick() {
-        if (callback != null) {
-            callback.configureFeedClick();
-        }
-    }
-
     @OnClick(R.id.main_drawer_notifications_container) void onNotificationsClick() {
         if (callback != null) {
             callback.notificationsClick();
@@ -103,7 +92,7 @@ public class MenuNavTabDialog extends ExtendedBottomSheetDialogFragment {
     }
 
     @OnClick(R.id.main_drawer_donate_container) void onDonateClick() {
-        UriUtil.visitInExternalBrowser(getContext(),
+        UriUtil.visitInExternalBrowser(requireContext(),
                 Uri.parse(String.format(getContext().getString(R.string.donate_url),
                         BuildConfig.VERSION_NAME, WikipediaApp.getInstance().language().getSystemLanguageCode())));
     }
@@ -115,7 +104,7 @@ public class MenuNavTabDialog extends ExtendedBottomSheetDialogFragment {
     }
 
     @OnClick(R.id.main_drawer_help_container) void onHelpClick() {
-        UriUtil.visitInExternalBrowser(getContext(),
+        UriUtil.visitInExternalBrowser(requireContext(),
                 Uri.parse(getContext().getString(R.string.android_app_faq_url)));
     }
 

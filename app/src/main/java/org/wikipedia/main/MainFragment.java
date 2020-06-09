@@ -75,6 +75,7 @@ import java.util.concurrent.TimeUnit;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.Unbinder;
 import io.reactivex.Completable;
 import io.reactivex.disposables.CompositeDisposable;
@@ -150,6 +151,14 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         super.onPause();
         downloadReceiver.setCallback(null);
         requireContext().unregisterReceiver(downloadReceiver);
+    }
+
+    @OnClick(R.id.menu_layout) void onMoreClicked(View v) {
+        showBottomSheet();
+    }
+    public void showBottomSheet() {
+        bottomSheetPresenter.show(getChildFragmentManager(), MenuNavTabDialog.newInstance(new DrawerViewCallback()));
+
     }
 
     @Override public void onResume() {
