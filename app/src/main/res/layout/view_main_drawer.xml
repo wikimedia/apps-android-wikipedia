@@ -11,7 +11,7 @@
         android:id="@+id/main_drawer_account_container"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/base80"
+        android:background="?attr/color_group_60"
         android:orientation="horizontal">
 
         <FrameLayout
@@ -33,7 +33,6 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:contentDescription="@null"
-                android:tint="@color/accent20"
                 app:srcCompat="@drawable/user_avatar" />
 
         </FrameLayout>
