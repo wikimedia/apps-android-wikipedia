@@ -919,4 +919,6 @@
     <string name="text_input_dialog_ok_button_text">OK</string>
     <string name="text_input_dialog_cancel_button_text">Cancel</string>
     <string name="custom_date_picker_dialog_cancel_button_text">Cancel</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

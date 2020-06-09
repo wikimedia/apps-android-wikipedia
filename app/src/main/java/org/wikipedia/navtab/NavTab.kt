@@ -29,11 +29,6 @@ enum class NavTab constructor(private val text: Int, private val icon: Int) : En
         override fun newInstance(): Fragment {
             return SuggestedEditsTasksFragment.newInstance()
         }
-    },
-    MORE(R.string.nav_item_more, R.drawable.ic_menu_themed_24dp) {
-        override fun newInstance(): Fragment {
-            return HistoryFragment.newInstance()
-        }
     };
 
     fun text(): Int {

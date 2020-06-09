@@ -11,7 +11,6 @@ import android.view.View;
 import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.view.ActionMode;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
@@ -21,17 +20,12 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.SingleFragmentActivity;
 import org.wikipedia.appshortcuts.AppShortcuts;
-import org.wikipedia.auth.AccountUtil;
-import org.wikipedia.feed.FeedFragment;
 import org.wikipedia.history.HistoryFragment;
 import org.wikipedia.navtab.NavTab;
-import org.wikipedia.notifications.NotificationActivity;
 import org.wikipedia.onboarding.InitialOnboardingActivity;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.tabs.TabActivity;
-import org.wikipedia.settings.AboutActivity;
 import org.wikipedia.settings.Prefs;
-import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.suggestededits.SuggestedEditsTasksFragment;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
@@ -52,7 +46,6 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
     @BindView(R.id.single_fragment_toolbar) Toolbar toolbar;
     @BindView(R.id.hamburger_and_wordmark_layout) View hamburgerAndWordmarkLayout;
     private ImageZoomHelper imageZoomHelper;
-    @Nullable private ActionMode currentActionMode;
 
     private boolean controlNavTabInFragment;
 
@@ -149,14 +142,9 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
         getFragment().requestUpdateToolbarElevation();
     }
 
-    void setUpHomeMenuIcon() {
-        //drawerIconDot.setVisibility(AccountUtil.isLoggedIn() && Prefs.showActionFeedIndicator() ? VISIBLE : GONE);
-    }
-
     @Override
     public void onSupportActionModeStarted(@NonNull ActionMode mode) {
         super.onSupportActionModeStarted(mode);
-        currentActionMode = mode;
         if (!controlNavTabInFragment) {
             getFragment().setBottomNavVisible(false);
         }
@@ -166,7 +154,6 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
     public void onSupportActionModeFinished(@NonNull ActionMode mode) {
         super.onSupportActionModeFinished(mode);
         getFragment().setBottomNavVisible(true);
-        currentActionMode = null;
     }
 
     @Override
@@ -225,49 +212,5 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
 
     protected void clearToolbarElevation() {
         getToolbar().setElevation(0f);
-    }
-
-    private class DrawerViewCallback implements MainDrawerView.Callback {
-        @Override public void loginLogoutClick() {
-            if (AccountUtil.isLoggedIn()) {
-                new AlertDialog.Builder(MainActivity.this)
-                        .setMessage(R.string.logout_prompt)
-                        .setNegativeButton(R.string.logout_dialog_cancel_button_text, null)
-                        .setPositiveButton(R.string.preference_title_logout, (dialog, which) -> {
-                            WikipediaApp.getInstance().logOut();
-                            FeedbackUtil.showMessage(MainActivity.this, R.string.toast_logout_complete);
-                            Prefs.setReadingListsLastSyncTime(null);
-                            Prefs.setReadingListSyncEnabled(false);
-                            getFragment().resetNavTabLayouts();
-                        }).show();
-            } else {
-                getFragment().onLoginRequested();
-            }
-            closeMainDrawer();
-        }
-
-        @Override public void notificationsClick() {
-            if (AccountUtil.isLoggedIn()) {
-                startActivity(NotificationActivity.newIntent(MainActivity.this));
-                closeMainDrawer();
-            }
-        }
-
-        @Override public void settingsClick() {
-            getFragment().startActivityForResult(SettingsActivity.newIntent(MainActivity.this), Constants.ACTIVITY_REQUEST_SETTINGS);
-            closeMainDrawer();
-        }
-
-        @Override public void configureFeedClick() {
-            if (getFragment().getCurrentFragment() instanceof FeedFragment) {
-                ((FeedFragment) getFragment().getCurrentFragment()).showConfigureActivity(-1);
-            }
-            closeMainDrawer();
-        }
-
-        @Override public void aboutClick() {
-            startActivity(new Intent(MainActivity.this, AboutActivity.class));
-            closeMainDrawer();
-        }
     }
 }
