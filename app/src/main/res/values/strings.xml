@@ -905,9 +905,6 @@
     <string name="wikitext_reference">Reference</string>
     <string name="wikitext_preview_link">Preview link</string>
 
-    <string name="main_drawer_open">Open</string>
-    <string name="main_drawer_close">Close</string>
-    <string name="main_drawer_content_description">Open main navigation drawer</string>
     <string name="main_drawer_help">Help</string>
     <string name="main_drawer_login">Log in / join Wikipedia</string>
     <string name="main_tooltip_text">%s, did you know that everyone can edit Wikipedia?</string>

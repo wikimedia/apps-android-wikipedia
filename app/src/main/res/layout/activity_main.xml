@@ -2,17 +2,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/navigation_drawer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_gravity="start"
+    android:background="@color/accent20"
     android:orientation="vertical"
     tools:context=".main.MainActivity">
-
-    <FrameLayout
-        android:id="@+id/fragment_container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/single_fragment_toolbar"
@@ -29,10 +23,15 @@
             android:id="@+id/single_fragment_toolbar_wordmark"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="32dp"
             android:contentDescription="@null"
             app:srcCompat="@drawable/feed_header_wordmark"
             app:tint="?attr/toolbar_title_color" />
     </androidx.appcompat.widget.Toolbar>
 
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 </LinearLayout>
