@@ -791,6 +791,9 @@
     <string name="suggested_edits_reactivation_notification_title">Suggested edits</string>
     <string name="suggested_edits_reactivation_notification_stage_one">Thanks for editing Wikipedia! Why not continue where you left off?</string>
     <string name="suggested_edits_reactivation_notification_stage_two">Have a minute to continue improving Wikipedia? Check out these editing suggestions.</string>
+    <string name="suggested_edits_encourage_account_creation_card_title">Did you know that everyone can edit Wikipedia?</string>
+    <string name="suggested_edits_encourage_account_creation_card_content">Suggested edits is a new way to edit Wikipedia on Android. It helps you make small but vital contributions to Wikipedia. Our goal is to make editing easier and more accessible for everyone! Log in or join Wikipedia to get started.</string>
+    <string name="suggested_edits_encourage_account_creation_card_login_button">Log in / join Wikipedia</string>
     <!-- /Suggested edits -->
 
     <!-- File page -->

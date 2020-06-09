@@ -458,23 +458,19 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     void resetNavTabLayouts() {
         tabLayout.setTabViews();
         goToTab(NavTab.of(viewPager.getCurrentItem()));
-        if (AccountUtil.isLoggedIn()) {
-            if (Prefs.shouldShowSuggestedEditsTooltip()) {
-                Prefs.setShouldShowSuggestedEditsTooltip(false);
-                Prefs.setShouldShowImageTagsTooltip(false);
-                tabOverlayLayout.pick(NavTab.SUGGESTED_EDITS);
-                suggestedEditsNavTabSnackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.main_tooltip_text, AccountUtil.getUserName()), FeedbackUtil.LENGTH_LONG);
-                suggestedEditsNavTabSnackbar.setAction(R.string.main_tooltip_action_button, view -> goToTab(NavTab.SUGGESTED_EDITS));
-                suggestedEditsNavTabSnackbar.show();
-            } else if (Prefs.shouldShowImageTagsTooltip()) {
-                Prefs.setShouldShowImageTagsTooltip(false);
-                tabOverlayLayout.pick(NavTab.SUGGESTED_EDITS);
-                suggestedEditsNavTabSnackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.suggested_edits_image_tags_snackbar), FeedbackUtil.LENGTH_LONG);
-                suggestedEditsNavTabSnackbar.setAction(R.string.main_tooltip_action_button, view -> goToTab(NavTab.SUGGESTED_EDITS));
-                suggestedEditsNavTabSnackbar.show();
-            }
-        } else {
-            hideNavTabOverlayLayout();
+        if (Prefs.shouldShowSuggestedEditsTooltip()) {
+            Prefs.setShouldShowSuggestedEditsTooltip(false);
+            Prefs.setShouldShowImageTagsTooltip(false);
+            tabOverlayLayout.pick(NavTab.SUGGESTED_EDITS);
+            suggestedEditsNavTabSnackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.main_tooltip_text, AccountUtil.getUserName()), FeedbackUtil.LENGTH_LONG);
+            suggestedEditsNavTabSnackbar.setAction(R.string.main_tooltip_action_button, view -> goToTab(NavTab.SUGGESTED_EDITS));
+            suggestedEditsNavTabSnackbar.show();
+        } else if (Prefs.shouldShowImageTagsTooltip()) {
+            Prefs.setShouldShowImageTagsTooltip(false);
+            tabOverlayLayout.pick(NavTab.SUGGESTED_EDITS);
+            suggestedEditsNavTabSnackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.suggested_edits_image_tags_snackbar), FeedbackUtil.LENGTH_LONG);
+            suggestedEditsNavTabSnackbar.setAction(R.string.main_tooltip_action_button, view -> goToTab(NavTab.SUGGESTED_EDITS));
+            suggestedEditsNavTabSnackbar.show();
         }
     }
 
