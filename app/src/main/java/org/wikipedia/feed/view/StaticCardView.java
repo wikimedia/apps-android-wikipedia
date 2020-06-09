@@ -41,7 +41,7 @@ public abstract class StaticCardView<T extends Card> extends DefaultFeedCardView
         title.setText(text);
     }
 
-    protected void setSubtitle(String text) {
+    protected void setSubtitle(CharSequence text) {
         subtitle.setText(text);
     }
 
