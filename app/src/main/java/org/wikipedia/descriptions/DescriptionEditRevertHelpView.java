@@ -38,10 +38,10 @@ public class DescriptionEditRevertHelpView extends ScrollView {
                 .replaceAll(":revertSubtitle", getString(R.string.description_edit_revert_subtitle))
                 .replaceAll(":revertIntro", getString(R.string.description_edit_revert_intro))
                 .replaceAll(":revertHistory",
-                        String.format(getString(R.string.description_edit_revert_history), getHistoryUri(qNumber))));
+                        getContext().getString(R.string.description_edit_revert_history, getHistoryUri(qNumber))));
 
         int gapWidth = DimenUtil.roundedDpToPx(8);
-        SpannableString revertReason1 = new SpannableString(StringUtil.fromHtml(String.format(getString(R.string.description_edit_revert_reason1), getString(R.string.wikidata_description_guide_url))));
+        SpannableString revertReason1 = new SpannableString(StringUtil.fromHtml(getContext().getString(R.string.description_edit_revert_reason1, getString(R.string.wikidata_description_guide_url))));
         SpannableString revertReason2 = new SpannableString(StringUtil.fromHtml(getString(R.string.description_edit_revert_reason2)));
         revertReason1.setSpan(new BulletSpan(gapWidth), 0, revertReason1.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         revertReason2.setSpan(new BulletSpan(gapWidth), 0, revertReason2.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
