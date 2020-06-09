@@ -22,7 +22,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginEnd="12dp"
+        android:baselineAligned="false">
 
         <FrameLayout
             android:id="@+id/fragment_main_nav_tab_container"
@@ -60,6 +62,7 @@
             android:layout_height="match_parent"
             android:background="?attr/nav_tab_background_color"
             android:elevation="6dp"
+            android:gravity="center_horizontal"
             android:orientation="vertical">
 
             <ImageView
