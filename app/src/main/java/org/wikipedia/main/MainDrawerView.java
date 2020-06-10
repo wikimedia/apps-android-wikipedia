@@ -97,7 +97,7 @@ public class MainDrawerView extends ScrollView {
 
     @OnClick(R.id.main_drawer_donate_container) void onDonateClick() {
         UriUtil.visitInExternalBrowser(getContext(),
-                Uri.parse(String.format(getContext().getString(R.string.donate_url),
+                Uri.parse(getContext().getString(R.string.donate_url,
                         BuildConfig.VERSION_NAME, WikipediaApp.getInstance().language().getSystemLanguageCode())));
     }
 
