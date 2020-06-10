@@ -313,7 +313,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
                             if (page.imageInfo() != null) {
                                 val imageInfo = page.imageInfo()!!
                                 contribution.description = imageInfo.metadata!!.imageDescription()
-                                contribution.imageUrl = imageInfo.originalUrl
+                                contribution.imageUrl = imageInfo.thumbUrl
                                 if (contribution.editType == EDIT_TYPE_IMAGE_TAG) {
                                     //
                                 }
