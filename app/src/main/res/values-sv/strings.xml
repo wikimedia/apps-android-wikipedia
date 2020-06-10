@@ -689,12 +689,15 @@
   <string name="suggested_edits_tasks_onboarding_get_started">Kom igång</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Bildtexter (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Bildbeskrivning (%s)</string>
+  <string name="suggested_edits_image_preview_dialog_file">Fil</string>
   <string name="suggested_edits_image_preview_dialog_artist">Konstnär</string>
+  <string name="suggested_edits_image_preview_dialog_tags">Taggar</string>
   <string name="suggested_edits_image_preview_dialog_date">Datum</string>
   <string name="suggested_edits_image_preview_dialog_source">Källa/fotograf</string>
   <string name="suggested_edits_image_preview_dialog_licensing">Licensiering</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Mer info</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Filsida på Wikimedia Commons</string>
+  <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">Filsida på Wikipedia</string>
   <string name="suggested_edits_article_cta_image_caption">Lägg till bildtext</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Lägg till bildtext (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Visa</string>
@@ -761,6 +764,7 @@
   <string name="suggested_edits_reactivation_notification_title">Redigeringsförslag</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Tack för att du redigerar på Wikipedia! Varför inte fortsätta där du slutade sist?</string>
   <string name="suggested_edits_reactivation_notification_stage_two">Har du en minut över för att förbättra Wikipedia? Titta på dessa redigeringsförslag.</string>
+  <string name="file_page_activity_title">Filsida</string>
   <string name="description_edit_revert_subtitle">Tack för att du redigerar på Wikipedia!</string>
   <string name="description_edit_revert_intro">Vi vet att du försökte ditt bästa men en av korrekturläsarna hade en invändning. Möjliga anledningar till att din redigering gjordes om inkluderar:</string>
   <string name="description_edit_revert_reason1">ditt bidrag följde inte ett av &lt;a href=\"%1$s\"&gt;riktlinjerna&lt;/a&gt;.</string>

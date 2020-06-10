@@ -252,6 +252,7 @@
   <string name="suggested_edits_image_caption_summary_title_source">Աղբյուր</string>
   <string name="suggested_edits_image_caption_summary_title_license">Արտոնագիր</string>
   <string name="suggested_edits_image_caption_summary_title_date">Ամսաթիվ</string>
+  <string name="suggested_edits_image_preview_dialog_file">Նիշք</string>
   <string name="suggested_edits_image_preview_dialog_artist">Նկարիչ</string>
   <string name="suggested_edits_image_preview_dialog_date">Ամսաթիվ</string>
   <string name="suggested_edits_article_cta_snackbar_action">Դիտել</string>
