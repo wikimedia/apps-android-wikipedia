@@ -28,6 +28,7 @@ import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.ListUserResponse;
+import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.StringUtil;
@@ -57,7 +58,7 @@ public class CreateAccountActivity extends BaseActivity {
     public static final String CREATE_ACCOUNT_RESULT_USERNAME = "username";
     public static final String CREATE_ACCOUNT_RESULT_PASSWORD = "password";
 
-    public static final Pattern USERNAME_PATTERN = Pattern.compile("[^#<>\\[\\]|{}\\/@]*");
+    public static final Pattern USERNAME_PATTERN = Pattern.compile("[^#<>\\[\\]|{}/@]*");
     private static final int PASSWORD_MIN_LENGTH = 6;
 
     public enum ValidateResult {
@@ -67,7 +68,6 @@ public class CreateAccountActivity extends BaseActivity {
     private CompositeDisposable disposables = new CompositeDisposable();
 
     @BindView(R.id.create_account_primary_container) View primaryContainer;
-    @BindView(R.id.create_account_onboarding_container) View onboardingContainer;
     @BindView(R.id.create_account_username) TextInputLayout usernameInput;
     @BindView(R.id.create_account_password_input) TextInputLayout passwordInput;
     @BindView(R.id.create_account_password_repeat) TextInputLayout passwordRepeatInput;
@@ -90,10 +90,6 @@ public class CreateAccountActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_account);
         ButterKnife.bind(this);
-
-        if (ReadingListSyncAdapter.isDisabledByRemoteConfig()) {
-            onboardingContainer.setVisibility(View.GONE);
-        }
 
         errorView.setBackClickListener((v) -> onBackPressed());
         errorView.setRetryClickListener((v) -> errorView.setVisibility(View.GONE));
@@ -148,6 +144,11 @@ public class CreateAccountActivity extends BaseActivity {
 
     @OnClick(R.id.privacy_policy_link) void onPrivacyPolicyClick() {
         FeedbackUtil.showPrivacyPolicy(this);
+    }
+
+    @OnClick(R.id.forgot_password_link) void onForgotPasswordClick() {
+        PageTitle title = new PageTitle("Special:PasswordReset", WikipediaApp.getInstance().getWikiSite());
+        visitInExternalBrowser(this, Uri.parse(title.getUri()));
     }
 
     @Override

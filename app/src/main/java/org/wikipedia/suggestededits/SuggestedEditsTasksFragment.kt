@@ -170,8 +170,8 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     private fun fetchUserContributions() {
         if (!AccountUtil.isLoggedIn()) {
+            clearContents()
             encourageAccountCreationView.visibility = VISIBLE
-            swipeRefreshLayout.isRefreshing = false
             return
         }
 
