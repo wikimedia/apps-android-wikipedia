@@ -118,4 +118,12 @@
     <string name="preference_key_image_tags_onboarding_shown">imageTagsOnboardingShown</string>
     <string name="preference_key_install_referrer_attempts">installReferrerAttempts</string>
     <string name="preference_key_temporary_wikitext_storage">temporaryWikitextStorage</string>
+    <string name="preference_key_suggested_edits_reward_interstitial_enabled">SERewardInterstitialEnabled</string>
+    <string name="preference_key_suggested_edits_reward_interstitial_last_edit_quality_shown">SERewardInterstitialLastEditQualityShown</string>
+    <string name="preference_key_suggested_edits_reward_interstitial_last_pageviews_shown">SERewardInterstitialLastPageviewsShown</string>
+    <string name="preference_key_suggested_edits_reward_interstitial_contribution_on_initial_count">SERewardInterstitialContributionOnInitialCount</string>
+    <string name="preference_key_suggested_edits_reward_interstitial_contribution_on_count">SERewardInterstitialContributionOnCount</string>
+    <string name="preference_key_suggested_edits_reward_interstitial_edit_streak_on_count">SERewardInterstitialEditStreakOnCount</string>
+    <string name="preference_key_suggested_edits_reward_interstitial_edit_quality_on_day">SERewardInterstitialEditQualityOnDay</string>
+    <string name="preference_key_suggested_edits_reward_interstitial_pageviews_on_day">SERewardInterstitialPageviewsOnDay</string>
 </resources>

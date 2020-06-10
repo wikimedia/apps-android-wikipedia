@@ -93,7 +93,7 @@ public class MenuNavTabDialog extends ExtendedBottomSheetDialogFragment {
 
     @OnClick(R.id.main_drawer_donate_container) void onDonateClick() {
         UriUtil.visitInExternalBrowser(requireContext(),
-                Uri.parse(String.format(getContext().getString(R.string.donate_url),
+                Uri.parse(requireContext().getString(R.string.donate_url,
                         BuildConfig.VERSION_NAME, WikipediaApp.getInstance().language().getSystemLanguageCode())));
     }
 
