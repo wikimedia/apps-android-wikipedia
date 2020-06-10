@@ -37,7 +37,7 @@ import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
 
-class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.Callback {
+class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributionsHeaderView.Callback {
     private val adapter: ContributionsEntryItemAdapter = ContributionsEntryItemAdapter()
 
     private var allContributions = ArrayList<Contribution>()
@@ -50,12 +50,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
     private var loadingMore = false
 
     private var editFilterType = ALL_EDIT_TYPES
-    private var filterViews = ArrayList<SuggestedEditsTypeItem>()
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        retainInstance = true
-    }
+    private var totalPageViews = 0L
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -85,18 +80,9 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
             }
         })
 
-        filterViews.add(allTypesView)
-        filterViews.add(articleDescriptionView)
-        filterViews.add(imageCaptionsView)
-        filterViews.add(imageTagsView)
-
-        allTypesView.setAttributes(getString(R.string.suggested_edits_contribution_type_title, SuggestedEditsUserStats.totalEdits, resources.getQuantityString(R.plurals.suggested_edits_contribution, SuggestedEditsUserStats.totalEdits)), R.drawable.ic_mode_edit_themed_24dp, ALL_EDIT_TYPES, this)
-        articleDescriptionView.setAttributes(getString(R.string.suggested_edits_contribution_type_title, SuggestedEditsUserStats.totalDescriptionEdits, getString(R.string.description_edit_tutorial_title_descriptions)), R.drawable.ic_article_description, EDIT_TYPE_ARTICLE_DESCRIPTION, this)
-        imageCaptionsView.setAttributes(getString(R.string.suggested_edits_contribution_type_title, SuggestedEditsUserStats.totalImageCaptionEdits, getString(R.string.suggested_edits_image_captions)), R.drawable.ic_image_caption, EDIT_TYPE_IMAGE_CAPTION, this)
-        imageTagsView.setAttributes(getString(R.string.suggested_edits_contribution_type_title, SuggestedEditsUserStats.totalImageTagEdits, getString(R.string.suggested_edits_image_tags)), R.drawable.ic_image_tag, EDIT_TYPE_IMAGE_TAG, this)
-
         disposables.add(SuggestedEditsUserStats.getPageViewsObservable().subscribe {
-            contributionsSeenText.text = getString(R.string.suggested_edits_contribution_seen_text, it.toString())
+            totalPageViews = it
+            adapter.notifyDataSetChanged()
         })
 
         fetchContributions()
@@ -110,12 +96,14 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
 
     override fun onTypeItemClick(editType: Int) {
         editFilterType = editType
+        displayedContributions.clear()
         createConsolidatedList()
     }
 
     companion object {
         private const val VIEW_TYPE_HEADER = 0
-        private const val VIEW_TYPE_ITEM = 1
+        private const val VIEW_TYPE_DATE = 1
+        private const val VIEW_TYPE_ITEM = 2
 
         fun newInstance(): SuggestedEditsContributionsFragment {
             return SuggestedEditsContributionsFragment()
@@ -249,8 +237,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
             }
         }
         adapter.notifyDataSetChanged()
-        contentContainer.visibility = VISIBLE
-        updateFilterViewUI()
+        contributionsRecyclerView.visibility = VISIBLE
     }
 
     private fun getCorrectDateString(date: Date): String {
@@ -265,43 +252,20 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
 
     private fun showError(t: Throwable) {
         swipeRefreshLayout.isRefreshing = false
-        contentContainer.visibility = GONE
+        contributionsRecyclerView.visibility = GONE
         errorView.setError(t)
         errorView.visibility = VISIBLE
     }
 
-    private fun updateFilterViewUI() {
-        val view: SuggestedEditsTypeItem
-        val count: Int
-        when (editFilterType) {
-            EDIT_TYPE_ARTICLE_DESCRIPTION -> {
-                view = articleDescriptionView
-                count = SuggestedEditsUserStats.totalDescriptionEdits
-            }
-            EDIT_TYPE_IMAGE_CAPTION -> {
-                view = imageCaptionsView
-                count = SuggestedEditsUserStats.totalImageCaptionEdits
-            }
-            EDIT_TYPE_IMAGE_TAG -> {
-                view = imageTagsView
-                count = SuggestedEditsUserStats.totalImageTagEdits
-            }
-            else -> {
-                view = allTypesView
-                count = SuggestedEditsUserStats.totalEdits
-            }
-        }
-        contributionsCountText.text = getString(R.string.suggested_edits_contribution_type_title, count, resources.getQuantityString(R.plurals.suggested_edits_contribution, count))
-        for (filterView in filterViews) {
-            if (filterView == view) {
-                filterView.setEnabledStateUI()
-            } else {
-                filterView.setDisabledStateUI()
-            }
+    private inner class HeaderViewHolder internal constructor(itemView: SuggestedEditsContributionsHeaderView) : DefaultViewHolder<SuggestedEditsContributionsHeaderView?>(itemView) {
+        fun bindItem() {
+            view.callback = this@SuggestedEditsContributionsFragment
+            view.updateFilterViewUI(editFilterType)
+            view.updateTotalPageViews(totalPageViews)
         }
     }
 
-    private class HeaderViewHolder internal constructor(itemView: View) : DefaultViewHolder<View?>(itemView) {
+    private class DateViewHolder internal constructor(itemView: View) : DefaultViewHolder<View?>(itemView) {
         var headerText: TextView = itemView.findViewById(R.id.section_header_text)
         fun bindItem(date: String) {
             headerText.text = date
@@ -387,31 +351,49 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
 
     inner class ContributionsEntryItemAdapter : RecyclerView.Adapter<DefaultViewHolder<*>>() {
         override fun getItemCount(): Int {
-            return displayedContributions.size
+            return displayedContributions.size + 1
         }
 
         override fun getItemViewType(position: Int): Int {
-            return if (displayedContributions[position] is String) {
-                VIEW_TYPE_HEADER
-            } else {
-                VIEW_TYPE_ITEM
+            return when {
+                position == 0 -> {
+                    VIEW_TYPE_HEADER
+                }
+                displayedContributions[position + 1] is String -> {
+                    VIEW_TYPE_DATE
+                }
+                else -> {
+                    VIEW_TYPE_ITEM
+                }
             }
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DefaultViewHolder<*> {
-            return if (viewType == VIEW_TYPE_HEADER) {
-                val view = LayoutInflater.from(parent.context).inflate(R.layout.view_section_header, parent, false)
-                HeaderViewHolder(view)
-            } else {
-                ContributionItemHolder(SuggestedEditsContributionsItemView(parent.context))
+            return when (viewType) {
+                VIEW_TYPE_HEADER -> {
+                    HeaderViewHolder(SuggestedEditsContributionsHeaderView(parent.context))
+                }
+                VIEW_TYPE_DATE -> {
+                    val view = LayoutInflater.from(parent.context).inflate(R.layout.view_section_header, parent, false)
+                    DateViewHolder(view)
+                }
+                else -> {
+                    ContributionItemHolder(SuggestedEditsContributionsItemView(parent.context))
+                }
             }
         }
 
         override fun onBindViewHolder(holder: DefaultViewHolder<*>, pos: Int) {
-            if (holder is ContributionItemHolder) {
-                holder.bindItem((displayedContributions[pos] as Contribution))
-            } else {
-                (holder as HeaderViewHolder).bindItem((displayedContributions[pos] as String))
+            when (holder) {
+                is HeaderViewHolder -> {
+                    holder.bindItem()
+                }
+                is ContributionItemHolder -> {
+                    holder.bindItem((displayedContributions[pos + 1] as Contribution))
+                }
+                else -> {
+                    (holder as DateViewHolder).bindItem((displayedContributions[pos + 1] as String))
+                }
             }
         }
 
