@@ -34,6 +34,7 @@ import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DefaultViewHolder
 import java.util.*
+import java.util.concurrent.TimeUnit
 import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
 
@@ -65,27 +66,10 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
         swipeRefreshLayout.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent))
 
         swipeRefreshLayout.setOnRefreshListener {
-            fetchContributions()
+            resetAndFetch()
         }
 
-        contributionsRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
-            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
-                super.onScrollStateChanged(recyclerView, newState)
-                val linearLayoutManager = recyclerView.layoutManager as LinearLayoutManager?
-                if (!loadingMore && !imageContributionsContinuation.isNullOrEmpty() && !articleContributionsContinuation.isNullOrEmpty()) {
-                    if (linearLayoutManager != null && linearLayoutManager.findLastCompletelyVisibleItemPosition() == displayedContributions.size - 1) {
-                        fetchContributions()
-                    }
-                }
-            }
-        })
-
-        disposables.add(SuggestedEditsUserStats.getPageViewsObservable().subscribe {
-            totalPageViews = it
-            adapter.notifyDataSetChanged()
-        })
-
-        fetchContributions()
+        resetAndFetch()
     }
 
     override fun onDestroyView() {
@@ -96,7 +80,6 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
 
     override fun onTypeItemClick(editType: Int) {
         editFilterType = editType
-        displayedContributions.clear()
         createConsolidatedList()
     }
 
@@ -110,18 +93,39 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
         }
     }
 
+    private fun resetAndFetch() {
+        allContributions.clear()
+        displayedContributions.clear()
+        articleContributionsContinuation = null
+        imageContributionsContinuation = null
+        adapter.notifyDataSetChanged()
+        fetchContributions()
+    }
+
     private fun fetchContributions() {
+        if (allContributions.isNotEmpty() && articleContributionsContinuation.isNullOrEmpty() && imageContributionsContinuation.isNullOrEmpty()) {
+            // there's nothing more to fetch!
+            return
+        }
+
         loadingMore = true
         loadMoreProgressView.visibility = VISIBLE
+        disposables.clear()
 
-        disposables.add(Observable.zip(ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getUserContributions(AccountUtil.getUserName()!!, 50, articleContributionsContinuation)
+        if (allContributions.isEmpty()) {
+            disposables.add(SuggestedEditsUserStats.getPageViewsObservable().subscribe {
+                totalPageViews = it
+                adapter.notifyDataSetChanged()
+            })
+        }
+
+        disposables.add(Observable.zip(if (allContributions.isNotEmpty() && articleContributionsContinuation.isNullOrEmpty()) Observable.just(Collections.emptyList<Contribution>())
+        else ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getUserContributions(AccountUtil.getUserName()!!, 50, articleContributionsContinuation)
                 .subscribeOn(Schedulers.io())
                 .flatMap { response ->
                     val wikidataContributions = ArrayList<Contribution>()
                     val qLangMap = HashMap<String, HashSet<String>>()
-                    if (!response.continuation().isNullOrEmpty()) {
-                        articleContributionsContinuation = response.continuation()!!["uccontinue"]
-                    }
+                    articleContributionsContinuation = response.continuation()["uccontinue"]
                     for (userContribution in response.query()!!.userContributions()) {
                         var descLang = ""
                         val strArr = userContribution.comment.split(" ")
@@ -161,32 +165,38 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
                                 Observable.just(wikidataContributions)
                             }
                 },
-                ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getUserContributions(AccountUtil.getUserName()!!, 50, imageContributionsContinuation)
-                        .subscribeOn(Schedulers.io()),
-                BiFunction<List<Contribution>, MwQueryResponse, List<Contribution>> { wikidataContributions, commonsResponse ->
+                if (allContributions.isNotEmpty() && imageContributionsContinuation.isNullOrEmpty()) Observable.just(Collections.emptyList<Contribution>()) else
+                ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getUserContributions(AccountUtil.getUserName()!!, 200, imageContributionsContinuation)
+                        .subscribeOn(Schedulers.io())
+                        .flatMap { response ->
+                            val contributions = ArrayList<Contribution>()
+                            imageContributionsContinuation = response.continuation()["uccontinue"]
+                            for (userContribution in response.query()!!.userContributions()) {
+                                val strArr = userContribution.comment.split(" ")
+                                var contributionLanguage = ""
+                                var editType: Int = -1
+
+                                for (str in strArr) {
+                                    if (str.contains("wbsetlabel")) {
+                                        val descArr = str.split("|")
+                                        if (descArr.size > 1) {
+                                            contributionLanguage = descArr[1]
+                                        }
+                                        editType = EDIT_TYPE_IMAGE_CAPTION
+                                    } else if (str.contains("wbsetclaim")) {
+                                        editType = EDIT_TYPE_IMAGE_TAG
+                                    }
+                                }
+                                contributions.add(Contribution("", userContribution.title, "", editType, null,
+                                        DateUtil.iso8601DateParse(userContribution.timestamp), WikiSite.forLanguageCode(contributionLanguage), 0))
+
+                            }
+                            Observable.just(contributions)
+                        },
+                BiFunction<List<Contribution>, List<Contribution>, List<Contribution>> { wikidataContributions, commonsContributions ->
                     val contributions = ArrayList<Contribution>()
                     contributions.addAll(wikidataContributions)
-
-                    imageContributionsContinuation = if (commonsResponse.continuation().isNullOrEmpty()) "" else commonsResponse.continuation()!!["uccontinue"]
-                    for (userContribution in commonsResponse.query()!!.userContributions()) {
-                        val strArr = userContribution.comment.split(" ")
-                        var contributionLanguage = ""
-                        var editType: Int = -1
-
-                        for (str in strArr) {
-                            if (str.contains("wbsetlabel")) {
-                                val descArr = str.split("|")
-                                if (descArr.size > 1) {
-                                    contributionLanguage = descArr[1]
-                                }
-                                editType = EDIT_TYPE_IMAGE_CAPTION
-                            } else if (str.contains("wbsetclaim")) {
-                                editType = EDIT_TYPE_IMAGE_TAG
-                            }
-                        }
-                        contributions.add(Contribution("", userContribution.title, "", editType, null,
-                                DateUtil.iso8601DateParse(userContribution.timestamp), WikiSite.forLanguageCode(contributionLanguage), 0))
-                    }
+                    contributions.addAll(commonsContributions)
                     contributions
                 })
                 .subscribeOn(Schedulers.io())
@@ -206,6 +216,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
     }
 
     private fun createConsolidatedList() {
+        displayedContributions.clear()
         val sortedContributions = ArrayList<Contribution>()
         when (editFilterType) {
             EDIT_TYPE_ARTICLE_DESCRIPTION -> {
@@ -297,6 +308,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
             if (contribution.editType == EDIT_TYPE_ARTICLE_DESCRIPTION) {
                 disposables.add(ServiceFactory.getRest(contribution.wikiSite).getSummary(null, contribution.title)
                         .subscribeOn(Schedulers.io())
+                        .delaySubscription(250, TimeUnit.MILLISECONDS)
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe({ summary ->
                             contribution.imageUrl = summary.thumbnailUrl.toString()
@@ -307,6 +319,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
             } else {
                 disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo(contribution.title, contribution.wikiSite.languageCode())
                         .subscribeOn(Schedulers.io())
+                        .delaySubscription(250, TimeUnit.MILLISECONDS)
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe({ response ->
                             val page = response.query()!!.pages()!![0]
@@ -333,6 +346,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
             }
             disposables.add(ServiceFactory.get(contribution.wikiSite).getPageViewsForTitles(contribution.title)
                     .subscribeOn(Schedulers.io())
+                    .delaySubscription(250, TimeUnit.MILLISECONDS)
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ response ->
                         if (response is MwQueryResponse) {
@@ -359,7 +373,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
                 position == 0 -> {
                     VIEW_TYPE_HEADER
                 }
-                displayedContributions[position + 1] is String -> {
+                displayedContributions[position - 1] is String -> {
                     VIEW_TYPE_DATE
                 }
                 else -> {
@@ -389,11 +403,15 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
                     holder.bindItem()
                 }
                 is ContributionItemHolder -> {
-                    holder.bindItem((displayedContributions[pos + 1] as Contribution))
+                    holder.bindItem((displayedContributions[pos - 1] as Contribution))
                 }
                 else -> {
-                    (holder as DateViewHolder).bindItem((displayedContributions[pos + 1] as String))
+                    (holder as DateViewHolder).bindItem((displayedContributions[pos - 1] as String))
                 }
+            }
+            if (displayedContributions.isNotEmpty() && pos >= displayedContributions.size - 1) {
+                // If we have scrolled to the bottom, fetch the next batch of items.
+                fetchContributions()
             }
         }
 
