@@ -22,7 +22,7 @@ public class MainPageCardView extends StaticCardView<MainPageCard> {
     @Override public void setCard(@NonNull final MainPageCard card) {
         super.setCard(card);
         setTitle(getString(R.string.view_main_page_card_title));
-        setSubtitle(String.format(getString(R.string.view_main_page_card_subtitle),
+        setSubtitle(getContext().getString(R.string.view_main_page_card_subtitle,
                 DateFormat.getDateInstance().format(new Date())));
         setIcon(R.drawable.ic_today_24dp);
         setContainerBackground(R.color.green50);

@@ -36,6 +36,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.database.DatabaseClient;
 import org.wikipedia.database.contract.PageHistoryContract;
+import org.wikipedia.main.MainActivity;
 import org.wikipedia.main.MainFragment;
 import org.wikipedia.page.PageAvailableOfflineHandler;
 import org.wikipedia.readinglist.database.ReadingList;
@@ -173,17 +174,21 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
     }
 
     @Override
-    public void onCreateOptionsMenu(@NonNull Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.menu_history, menu);
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        if (((MainActivity) requireActivity()).isCurrentFragmentSelected(this)) {
+            inflater.inflate(R.menu.menu_history, menu);
+        }
     }
 
     @Override
     public void onPrepareOptionsMenu(@NonNull Menu menu) {
-        super.onPrepareOptionsMenu(menu);
-        boolean isHistoryAvailable = !adapter.isEmpty();
-        menu.findItem(R.id.menu_clear_all_history)
-                .setVisible(isHistoryAvailable)
-                .setEnabled(isHistoryAvailable);
+        if (((MainActivity) requireActivity()).isCurrentFragmentSelected(this)) {
+            super.onPrepareOptionsMenu(menu);
+            boolean isHistoryAvailable = !adapter.isEmpty();
+            menu.findItem(R.id.menu_clear_all_history)
+                    .setVisible(isHistoryAvailable)
+                    .setEnabled(isHistoryAvailable);
+        }
     }
 
     @Override
@@ -286,8 +291,8 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
 
     private void showDeleteItemsUndoSnackbar(final List<HistoryEntry> entries) {
         String message = entries.size() == 1
-                ? String.format(getString(R.string.history_item_deleted), entries.get(0).getTitle().getDisplayText())
-                : String.format(getString(R.string.history_items_deleted), entries.size());
+                ? getString(R.string.history_item_deleted, entries.get(0).getTitle().getDisplayText())
+                : getString(R.string.history_items_deleted, entries.size());
         Snackbar snackbar = FeedbackUtil.makeSnackbar(getActivity(), message,
                 FeedbackUtil.LENGTH_DEFAULT);
         snackbar.setAction(R.string.history_item_delete_undo, (v) -> {
