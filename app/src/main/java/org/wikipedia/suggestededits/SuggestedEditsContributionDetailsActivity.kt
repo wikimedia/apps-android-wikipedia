@@ -3,10 +3,10 @@ package org.wikipedia.suggestededits
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import androidx.core.content.ContextCompat
 import org.wikipedia.R
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.json.GsonMarshaller
+import org.wikipedia.util.ResourceUtil
 
 class SuggestedEditsContributionDetailsActivity : SingleFragmentActivity<SuggestedEditsContributionDetailsFragment>() {
     override fun createFragment(): SuggestedEditsContributionDetailsFragment {
@@ -15,7 +15,7 @@ class SuggestedEditsContributionDetailsActivity : SingleFragmentActivity<Suggest
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setStatusBarColor(ContextCompat.getColor(this, R.color.green90))
+        setStatusBarColor(ResourceUtil.getThemedColor(this, R.attr.color_group_57))
     }
 
     companion object {

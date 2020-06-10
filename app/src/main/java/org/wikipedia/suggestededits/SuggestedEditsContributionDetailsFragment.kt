@@ -20,6 +20,7 @@ import org.wikipedia.suggestededits.Contribution.Companion.EDIT_TYPE_IMAGE_CAPTI
 import org.wikipedia.suggestededits.SuggestedEditsContributionDetailsActivity.Companion.EXTRA_SOURCE_CONTRIBUTION
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.GradientUtil
+import org.wikipedia.util.ResourceUtil
 import org.wikipedia.views.ViewUtil
 
 class SuggestedEditsContributionDetailsFragment : Fragment() {
@@ -33,7 +34,7 @@ class SuggestedEditsContributionDetailsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        topView.background = GradientUtil.getPowerGradient(R.color.green90, Gravity.TOP)
+        topView.background = GradientUtil.getPowerGradient(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.color_group_57), Gravity.TOP)
         back.setOnClickListener { requireActivity().onBackPressed() }
         contribution = GsonUnmarshaller.unmarshal(Contribution::class.java, requireActivity().intent.getStringExtra(EXTRA_SOURCE_CONTRIBUTION))
         setUpContributionDetails()
