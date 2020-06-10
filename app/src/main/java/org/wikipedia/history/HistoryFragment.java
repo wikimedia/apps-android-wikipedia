@@ -291,8 +291,8 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
 
     private void showDeleteItemsUndoSnackbar(final List<HistoryEntry> entries) {
         String message = entries.size() == 1
-                ? String.format(getString(R.string.history_item_deleted), entries.get(0).getTitle().getDisplayText())
-                : String.format(getString(R.string.history_items_deleted), entries.size());
+                ? getString(R.string.history_item_deleted, entries.get(0).getTitle().getDisplayText())
+                : getString(R.string.history_items_deleted, entries.size());
         Snackbar snackbar = FeedbackUtil.makeSnackbar(getActivity(), message,
                 FeedbackUtil.LENGTH_DEFAULT);
         snackbar.setAction(R.string.history_item_delete_undo, (v) -> {

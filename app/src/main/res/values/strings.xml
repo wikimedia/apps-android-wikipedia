@@ -791,6 +791,11 @@
     <string name="suggested_edits_reactivation_notification_title">Suggested edits</string>
     <string name="suggested_edits_reactivation_notification_stage_one">Thanks for editing Wikipedia! Why not continue where you left off?</string>
     <string name="suggested_edits_reactivation_notification_stage_two">Have a minute to continue improving Wikipedia? Check out these editing suggestions.</string>
+    <string name="suggested_edits_rewards_contribution">You\'ve made %d contributions to Wikipedia using Suggested edits. Thank you!</string>
+    <string name="suggested_edits_rewards_edit_streak">You\'ve edited every day for %1$d days so far. Keep the streak going, %2$s!</string>
+    <string name="suggested_edits_rewards_pageviews">Your edits have been seen by %d people in the last 30 days. Thanks, and keep going!</string>
+    <string name="suggested_edits_rewards_edit_quality">Your edits so far are %s. Keep going! We look forward to your contributions.</string>
+    <string name="suggested_edits_rewards_continue_button">Continue</string>
     <string name="suggested_edits_encourage_account_creation_card_title">Did you know that everyone can edit Wikipedia?</string>
     <string name="suggested_edits_encourage_account_creation_card_content">Suggested edits is a new way to edit Wikipedia on Android. It helps you make small but vital contributions to Wikipedia. Our goal is to make editing easier and more accessible for everyone! Log in or join Wikipedia to get started.</string>
     <string name="suggested_edits_encourage_account_creation_card_login_button">Log in / join Wikipedia</string>
