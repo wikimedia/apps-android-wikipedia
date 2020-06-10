@@ -301,6 +301,13 @@
         <item name="android:textColor">@color/base30</item>
     </style>
 
+    <style name="FlatButton" parent="@style/Widget.MaterialComponents.Button.UnelevatedButton">
+        <item name="backgroundTint">?attr/color_group_22</item>
+        <item name="cornerRadius">8dp</item>
+        <item name="android:textColor">?attr/colorAccent</item>
+        <item name="rippleColor">?attr/color_group_60</item>
+    </style>
+
     <style name="TransparentButton" parent="@style/Widget.MaterialComponents.Button.UnelevatedButton">
         <item name="android:textAlignment">center</item>
         <item name="android:backgroundTint">@android:color/transparent</item>

@@ -66,7 +66,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         editQualityStatsView.setOnClickListener { onUserStatClicked(editQualityStatsView) }
 
         swipeRefreshLayout.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent))
-        swipeRefreshLayout.setOnRefreshListener { this.refreshContents() }
+        swipeRefreshLayout.setOnRefreshListener { refreshContents() }
 
         errorView.setRetryClickListener { refreshContents() }
 
@@ -170,10 +170,13 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     private fun fetchUserContributions() {
         if (!AccountUtil.isLoggedIn()) {
+            encourageAccountCreationView.visibility = VISIBLE
+            swipeRefreshLayout.isRefreshing = false
             return
         }
 
         progressBar.visibility = VISIBLE
+        encourageAccountCreationView.visibility = GONE
         disposables.add(SuggestedEditsUserStats.getEditCountsObservable()
                 .map { response ->
                     var shouldLoadPageViews = false
@@ -228,6 +231,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         tasksContainer.visibility = GONE
         errorView.visibility = GONE
         disabledStatesView.visibility = GONE
+        encourageAccountCreationView.visibility = GONE
         suggestedEditsScrollView.scrollTo(0, 0)
         swipeRefreshLayout.setBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
     }
