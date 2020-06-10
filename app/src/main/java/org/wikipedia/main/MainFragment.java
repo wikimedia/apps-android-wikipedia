@@ -153,12 +153,8 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         requireContext().unregisterReceiver(downloadReceiver);
     }
 
-    @OnClick(R.id.menu_layout) void onMoreClicked(View v) {
-        showBottomSheet();
-    }
-    public void showBottomSheet() {
+    @OnClick(R.id.nav_more_container) void onMoreClicked(View v) {
         bottomSheetPresenter.show(getChildFragmentManager(), MenuNavTabDialog.newInstance(new DrawerViewCallback()));
-
     }
 
     @Override public void onResume() {
