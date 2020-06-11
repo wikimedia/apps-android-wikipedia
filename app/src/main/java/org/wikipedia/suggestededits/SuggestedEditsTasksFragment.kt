@@ -20,6 +20,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.SuggestedEditsFunnel
 import org.wikipedia.auth.AccountUtil
+import org.wikipedia.createaccount.CreateAccountActivity
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
 import org.wikipedia.language.LanguageSettingsInvokeSource
 import org.wikipedia.main.MainActivity
@@ -69,6 +70,8 @@ class SuggestedEditsTasksFragment : Fragment() {
         swipeRefreshLayout.setOnRefreshListener { refreshContents() }
 
         errorView.setRetryClickListener { refreshContents() }
+
+        loginButton.setOnClickListener { startCreateAccountActivity() }
 
         suggestedEditsScrollView.setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener { _, _, scrollY, _, _ ->
             (requireActivity() as MainActivity).updateToolbarElevation(scrollY > 0)
@@ -166,6 +169,12 @@ class SuggestedEditsTasksFragment : Fragment() {
         disposables.clear()
         SuggestedEditsFunnel.get().log()
         SuggestedEditsFunnel.reset()
+    }
+
+    private fun startCreateAccountActivity() {
+        // TODO: update funnel?
+        startActivityForResult(CreateAccountActivity.newIntent(requireContext(), LOGIN_SOURCE, ""),
+                Constants.ACTIVITY_REQUEST_CREATE_ACCOUNT)
     }
 
     private fun fetchUserContributions() {
@@ -331,7 +340,6 @@ class SuggestedEditsTasksFragment : Fragment() {
         displayedTasks.add(addImageCaptionsTask)
     }
 
-
     private inner class TaskViewCallback : SuggestedEditsTaskView.Callback {
         override fun onViewClick(task: SuggestedEditsTask, isTranslate: Boolean) {
             if (WikipediaApp.getInstance().language().appLanguageCodes.size < Constants.MIN_LANGUAGES_TO_UNLOCK_TRANSLATION && isTranslate) {
@@ -368,6 +376,7 @@ class SuggestedEditsTasksFragment : Fragment() {
     }
 
     companion object {
+        const val LOGIN_SOURCE = "suggested_edits"
         fun newInstance(): SuggestedEditsTasksFragment {
             return SuggestedEditsTasksFragment()
         }

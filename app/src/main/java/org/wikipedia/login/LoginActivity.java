@@ -164,6 +164,7 @@ public class LoginActivity extends BaseActivity {
         Intent intent = new Intent(this, CreateAccountActivity.class);
         intent.putExtra(CreateAccountActivity.LOGIN_SESSION_TOKEN, funnel.getSessionToken());
         intent.putExtra(CreateAccountActivity.LOGIN_REQUEST_SOURCE, loginSource);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivityForResult(intent, Constants.ACTIVITY_REQUEST_CREATE_ACCOUNT);
     }
 

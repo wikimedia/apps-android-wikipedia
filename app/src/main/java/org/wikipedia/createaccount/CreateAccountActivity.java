@@ -1,5 +1,6 @@
 package org.wikipedia.createaccount;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -28,6 +29,7 @@ import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.ListUserResponse;
+import org.wikipedia.login.LoginActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter;
 import org.wikipedia.util.FeedbackUtil;
@@ -84,6 +86,16 @@ public class CreateAccountActivity extends BaseActivity {
     private WikiSite wiki;
     private UserNameTextWatcher userNameTextWatcher = new UserNameTextWatcher();
     private UserNameVerifyRunnable userNameVerifyRunnable = new UserNameVerifyRunnable();
+    private String requestSource;
+    private String sessionToken;
+
+    public static Intent newIntent(@NonNull Context context,
+                                   @NonNull String source,
+                                   @NonNull String sessionToken) {
+        return new Intent(context, CreateAccountActivity.class)
+                .putExtra(LOGIN_REQUEST_SOURCE, source)
+                .putExtra(LOGIN_SESSION_TOKEN, sessionToken);
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -120,12 +132,13 @@ public class CreateAccountActivity extends BaseActivity {
             createAccountResult = savedInstanceState.getParcelable("result");
         }
 
-        funnel = new CreateAccountFunnel(WikipediaApp.getInstance(),
-                getIntent().getStringExtra(LOGIN_REQUEST_SOURCE));
+        requestSource = getIntent().getStringExtra(LOGIN_REQUEST_SOURCE);
+        funnel = new CreateAccountFunnel(WikipediaApp.getInstance(), requestSource);
 
         // Only send the editing start log event if the activity is created for the first time
         if (savedInstanceState == null) {
-            funnel.logStart(getIntent().getStringExtra(LOGIN_SESSION_TOKEN));
+            sessionToken = getIntent().getStringExtra(LOGIN_SESSION_TOKEN);
+            funnel.logStart(sessionToken);
         }
         // Set default result to failed, so we can override if it did not
         setResult(RESULT_ACCOUNT_NOT_CREATED);
@@ -136,10 +149,7 @@ public class CreateAccountActivity extends BaseActivity {
     }
 
     @OnClick(R.id.create_account_login_button) void onLoginClick() {
-        // This assumes that the CreateAccount activity was launched from the Login activity
-        // (since there's currently no other mechanism to invoke CreateAccountActivity),
-        // so finishing this activity will implicitly go back to Login.
-        finish();
+        startActivity(LoginActivity.newIntent(this, requestSource, sessionToken).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
     }
 
     @OnClick(R.id.privacy_policy_link) void onPrivacyPolicyClick() {
