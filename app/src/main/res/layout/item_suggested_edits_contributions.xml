@@ -2,101 +2,96 @@
 <merge xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    tools:layout_width="match_parent"
+    tools:layout_height="wrap_content"
+    tools:parentTag="android.widget.LinearLayout">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="?attr/selectableItemBackground"
-        android:orientation="horizontal"
-        android:paddingStart="16dp">
+    <FrameLayout
+        android:layout_width="16dp"
+        android:layout_height="match_parent">
 
-        <FrameLayout
-            android:layout_width="16dp"
-            android:layout_height="match_parent">
-
-            <View
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_horizontal"
-                android:background="?attr/color_group_60" />
-
-            <ImageView
-                android:id="@+id/contributionIcon"
-                android:layout_width="match_parent"
-                android:layout_height="16dp"
-                android:layout_marginTop="26dp"
-                android:contentDescription="@null"
-                android:tint="?attr/colorAccent"
-                app:srcCompat="@drawable/ic_article_description" />
-        </FrameLayout>
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="24dp"
-            android:layout_marginBottom="24dp"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ellipsize="end"
-                android:maxLines="2"
-                android:textColor="?attr/material_theme_primary_color"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <org.wikipedia.views.GoneIfEmptyTextView
-                android:id="@+id/description"
-                style="@style/MaterialListTitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ellipsize="end"
-                android:maxLines="2"
-                android:paddingEnd="8dp"
-                tools:text="Lorem ipsum" />
-
-            <LinearLayout
-                android:id="@+id/pageViewLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="16dp"
-                    android:layout_height="16dp"
-                    android:contentDescription="@null"
-                    android:tint="?attr/action_mode_green_background"
-                    app:srcCompat="@drawable/ic_trending_up_black_24dp" />
-
-                <TextView
-                    android:id="@+id/pageviewCountText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:lineSpacingExtra="4sp"
-                    android:textColor="?attr/action_mode_green_background"
-                    android:textSize="12sp"
-                    android:textStyle="bold"
-                    tools:text="1,837" />
-            </LinearLayout>
-        </LinearLayout>
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:background="?attr/color_group_60" />
 
         <ImageView
-            android:id="@+id/image"
-            style="@style/ImageViewDefault"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="@dimen/list_item_horizontal_padding"
-            android:contentDescription="@null" />
+            android:id="@+id/contributionIcon"
+            android:layout_width="match_parent"
+            android:layout_height="24dp"
+            android:layout_marginTop="20dp"
+            android:contentDescription="@null"
+            android:background="?attr/paper_color"
+            app:tint="?attr/colorAccent"
+            app:srcCompat="@drawable/ic_article_description" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textColor="?attr/material_theme_primary_color"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <org.wikipedia.views.GoneIfEmptyTextView
+            android:id="@+id/description"
+            style="@style/MaterialListTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:paddingEnd="8dp"
+            tools:text="Lorem ipsum" />
+
+        <LinearLayout
+            android:id="@+id/pageViewLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:contentDescription="@null"
+                android:tint="?attr/action_mode_green_background"
+                app:srcCompat="@drawable/ic_trending_up_black_24dp" />
+
+            <TextView
+                android:id="@+id/pageviewCountText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:lineSpacingExtra="4sp"
+                android:textColor="?attr/action_mode_green_background"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                tools:text="1,837" />
+        </LinearLayout>
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/image"
+        style="@style/ImageViewDefault"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="@dimen/list_item_horizontal_padding"
+        android:contentDescription="@null" />
+
 </merge>

@@ -62,6 +62,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
         super.onViewCreated(view, savedInstanceState)
         contributionsRecyclerView.layoutManager = LinearLayoutManager(context)
         contributionsRecyclerView.adapter = adapter
+
         contributionsRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 val scrollY = recyclerView.computeVerticalScrollOffset()
