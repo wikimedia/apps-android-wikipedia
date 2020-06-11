@@ -431,7 +431,7 @@
     </style>
 
     <style name="TextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
-        <item name="boxBackgroundColor">?attr/paper_color</item>
+        <item name="boxBackgroundColor">?attr/color_group_22</item>
         <item name="android:textColorHint">?attr/material_theme_de_emphasised_color</item>
         <item name="hintTextColor">?attr/colorAccent</item>
         <item name="helperTextTextColor">?attr/material_theme_de_emphasised_color</item>
