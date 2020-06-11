@@ -71,8 +71,6 @@ class SuggestedEditsTasksFragment : Fragment() {
 
         errorView.setRetryClickListener { refreshContents() }
 
-        loginButton.setOnClickListener { startCreateAccountActivity() }
-
         suggestedEditsScrollView.setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener { _, _, scrollY, _, _ ->
             (requireActivity() as MainActivity).updateToolbarElevation(scrollY > 0)
         })
@@ -171,21 +169,13 @@ class SuggestedEditsTasksFragment : Fragment() {
         SuggestedEditsFunnel.reset()
     }
 
-    private fun startCreateAccountActivity() {
-        // TODO: update funnel?
-        startActivityForResult(CreateAccountActivity.newIntent(requireContext(), LOGIN_SOURCE, ""),
-                Constants.ACTIVITY_REQUEST_CREATE_ACCOUNT)
-    }
-
     private fun fetchUserContributions() {
         if (!AccountUtil.isLoggedIn()) {
-            clearContents()
-            encourageAccountCreationView.visibility = VISIBLE
+            setRequiredLoginStatus()
             return
         }
 
         progressBar.visibility = VISIBLE
-        encourageAccountCreationView.visibility = GONE
         disposables.add(SuggestedEditsUserStats.getEditCountsObservable()
                 .map { response ->
                     var shouldLoadPageViews = false
@@ -240,7 +230,6 @@ class SuggestedEditsTasksFragment : Fragment() {
         tasksContainer.visibility = GONE
         errorView.visibility = GONE
         disabledStatesView.visibility = GONE
-        encourageAccountCreationView.visibility = GONE
         suggestedEditsScrollView.scrollTo(0, 0)
         swipeRefreshLayout.setBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
     }
@@ -284,6 +273,12 @@ class SuggestedEditsTasksFragment : Fragment() {
     private fun setIPBlockedStatus() {
         clearContents()
         disabledStatesView.setIPBlocked()
+        disabledStatesView.visibility = VISIBLE
+    }
+
+    private fun setRequiredLoginStatus() {
+        clearContents()
+        disabledStatesView.setRequiredLogin()
         disabledStatesView.visibility = VISIBLE
     }
 
@@ -376,7 +371,6 @@ class SuggestedEditsTasksFragment : Fragment() {
     }
 
     companion object {
-        const val LOGIN_SOURCE = "suggested_edits"
         fun newInstance(): SuggestedEditsTasksFragment {
             return SuggestedEditsTasksFragment()
         }

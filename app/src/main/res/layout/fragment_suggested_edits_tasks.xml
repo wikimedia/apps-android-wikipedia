@@ -38,64 +38,6 @@
                     android:layout_gravity="center"
                     android:visibility="gone" />
 
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/encourageAccountCreationView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:visibility="gone"
-                    android:layout_marginTop="23dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginBottom="16dp"
-                    app:cardBackgroundColor="?attr/paper_color"
-                    app:cardCornerRadius="12dp"
-                    app:cardElevation="2dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_margin="16dp">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/ic_require_login_header"
-                            android:contentDescription="@null" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:textSize="20sp"
-                            android:fontFamily="sans-serif"
-                            android:textStyle="bold"
-                            android:textColor="?attr/material_theme_primary_color"
-                            android:lineSpacingExtra="8sp"
-                            android:layout_marginTop="16dp"
-                            android:layout_marginBottom="12dp"
-                            android:text="@string/suggested_edits_encourage_account_creation_card_title"/>
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:textSize="16sp"
-                            android:fontFamily="sans-serif"
-                            android:textColor="?attr/material_theme_secondary_color"
-                            android:lineSpacingExtra="8sp"
-                            android:text="@string/suggested_edits_encourage_account_creation_card_content"
-                            android:layout_marginBottom="4dp"/>
-
-                        <Button
-                            android:id="@+id/loginButton"
-                            style="@style/FlatButton"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/suggested_edits_encourage_account_creation_card_login_button" />
-
-                    </LinearLayout>
-
-                </androidx.cardview.widget.CardView>
-
                 <LinearLayout
                     android:id="@+id/tasksContainer"
                     android:layout_width="match_parent"
@@ -231,5 +173,6 @@
             android:indeterminateTint="?attr/colorAccent"
             android:progressBackgroundTint="?attr/multi_select_background_color"
             android:layout_marginTop="-6dp" />
+
     </FrameLayout>
 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

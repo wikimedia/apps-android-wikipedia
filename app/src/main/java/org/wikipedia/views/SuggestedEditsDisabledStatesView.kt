@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.LinearLayout
 import kotlinx.android.synthetic.main.view_suggested_edits_disabled_states.view.*
 import org.wikipedia.R
+import org.wikipedia.createaccount.CreateAccountActivity
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
 
@@ -14,32 +15,44 @@ internal class SuggestedEditsDisabledStatesView constructor(context: Context, at
 
     init {
         View.inflate(context, R.layout.view_suggested_edits_disabled_states, this)
-        linkContainer1.setOnClickListener { UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(linkContainer1.tag as Int))) }
     }
 
     fun setPaused(message: String) {
         setDefaultState()
-        messageTextView.text = StringUtil.fromHtml(message)
-        image.setImageResource(R.drawable.ic_suggested_edits_paused)
+        cardTitleView.text = context.getString(R.string.suggested_edits_paused_title)
+        cardContentView.text = StringUtil.fromHtml(message)
+        imageView.setImageResource(R.drawable.ic_suggested_edits_paused)
     }
 
     fun setDisabled(message: String) {
         setDefaultState()
-        messageTextView.text = StringUtil.fromHtml(message)
-        image.setImageResource(R.drawable.ic_suggested_edits_disabled)
+        cardTitleView.text = context.getString(R.string.suggested_edits_disabled_title)
+        cardContentView.text = StringUtil.fromHtml(message)
+        imageView.setImageResource(R.drawable.ic_suggested_edits_disabled)
     }
 
     fun setIPBlocked() {
-        image.visibility = GONE
-        messageTextView.text = StringUtil.fromHtml(context.getString(R.string.suggested_edits_ip_blocked_message))
+        imageView.visibility = GONE
+        cardTitleView.text = context.getString(R.string.suggested_edits_ip_blocked_title)
+        cardContentView.text = context.getString(R.string.suggested_edits_ip_blocked_message)
 
-        linkText1.text = context.getString(R.string.suggested_edits_help_page_link_text)
-        linkContainer1.tag = R.string.create_account_ip_block_help_url
+        actionButton.text = context.getString(R.string.suggested_edits_help_page_link_text)
+        actionButton.setOnClickListener { UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(R.string.create_account_ip_block_help_url))) }
+    }
+
+    fun setRequiredLogin() {
+        setDefaultState()
+        cardTitleView.text = context.getString(R.string.suggested_edits_encourage_account_creation_title)
+        cardContentView.text = context.getString(R.string.suggested_edits_encourage_account_creation_message)
+        imageView.setImageResource(R.drawable.ic_suggested_edits_disabled)
+        actionButton.text = context.getString(R.string.suggested_edits_encourage_account_creation_login_button)
+        // TODO: update intent source
+        actionButton.setOnClickListener { context.startActivity(CreateAccountActivity.newIntent(context, "", "")) }
     }
 
     private fun setDefaultState() {
-        image.visibility = View.VISIBLE
-        linkText1.text = context.getString(R.string.suggested_edits_help_page_link_text)
-        linkContainer1.tag = R.string.android_app_edit_help_url
+        imageView.visibility = View.VISIBLE
+        actionButton.text = context.getString(R.string.suggested_edits_help_page_link_text)
+        actionButton.setOnClickListener { UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(R.string.android_app_edit_help_url))) }
     }
 }

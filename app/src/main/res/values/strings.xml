@@ -759,8 +759,11 @@
     <string name="suggested_edits_edit_streak_stat_tooltip">How many days without break you\'ve contributed via Suggested edits. If you haven\'t contributed in a while, it shows your last contribution date.</string>
     <string name="suggested_edits_page_views_stat_tooltip">Total pageviews of items you contributed to in the last 30 days with Suggested edits.</string>
     <string name="suggested_edits_edit_quality_stat_tooltip">Based on how many times one of your contributions was reverted (undone by another editor). Reverted edits: %d.</string>
+    <string name="suggested_edits_paused_title">Paused</string>
     <string name="suggested_edits_paused_message"><![CDATA[<b>Suggested edits is paused until %1$s.</b> Sorry %2$s, some of your recent contributions have been reverted.\n\nLearn how to improve your editing skills on Wikipedia with the link below.]]></string>
+    <string name="suggested_edits_disabled_title">Disabled</string>
     <string name="suggested_edits_disabled_message"><![CDATA[<b>Suggested edits is disabled.</b> Sorry %s, too many of your recent contributions have been reverted.\n\nLearn what this means with the link below.]]></string>
+    <string name="suggested_edits_ip_blocked_title">IP blocked</string>
     <string name="suggested_edits_ip_blocked_message">It looks like your IP address (or range of IP addresses) is currently blocked from editing Wikipedia. Learn more about what this means by visiting the link below.</string>
     <string name="suggested_edits_editing_tips_link_text">Editing tips and tricks</string>
     <string name="suggested_edits_help_page_link_text">Suggested edits help page</string>
@@ -796,9 +799,9 @@
     <string name="suggested_edits_rewards_pageviews">Your edits have been seen by %d people in the last 30 days. Thanks, and keep going!</string>
     <string name="suggested_edits_rewards_edit_quality">Your edits so far are %s. Keep going! We look forward to your contributions.</string>
     <string name="suggested_edits_rewards_continue_button">Continue</string>
-    <string name="suggested_edits_encourage_account_creation_card_title">Did you know that everyone can edit Wikipedia?</string>
-    <string name="suggested_edits_encourage_account_creation_card_content">Suggested edits is a new way to edit Wikipedia on Android. It helps you make small but vital contributions to Wikipedia. Our goal is to make editing easier and more accessible for everyone! Log in or join Wikipedia to get started.</string>
-    <string name="suggested_edits_encourage_account_creation_card_login_button">Log in / join Wikipedia</string>
+    <string name="suggested_edits_encourage_account_creation_title">Did you know that everyone can edit Wikipedia?</string>
+    <string name="suggested_edits_encourage_account_creation_message">Suggested edits is a new way to edit Wikipedia on Android. It helps you make small but vital contributions to Wikipedia. Our goal is to make editing easier and more accessible for everyone! Log in or join Wikipedia to get started.</string>
+    <string name="suggested_edits_encourage_account_creation_login_button">Log in / join Wikipedia</string>
     <!-- /Suggested edits -->
 
     <!-- File page -->
