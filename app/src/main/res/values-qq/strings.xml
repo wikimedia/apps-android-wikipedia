@@ -881,4 +881,10 @@
   <string name="text_input_dialog_ok_button_text">Positive action button text in pop-up dialog for text input.\n{{Identical|OK}}</string>
   <string name="text_input_dialog_cancel_button_text">Negative action button text in pop-up dialog for text input.\n{{Identical|Cancel}}</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Negative action button text in date picker pop-up dialog.\n{{Identical|Cancel}}</string>
+  <string name="suggested_edits_contributions_type">Text indicating the type of user edit. %1$s is the typ and %2$s indicates the language</string>
+  <string name="suggested_edits_contribution_type_image_tag">Text indicating that the user edit was an Image tag edit</string>
+  <string name="suggested_edits_contributions_screen_title">Contributions screen title text. The %s symbol is replaced with the username.</string>
+  <string name="suggested_edits_contribution_type_title">Contributions filter dropdown item text. %1$d represents the count of the edit type. %2$s is the type of the edit.</string>
+  <string name="suggested_edits_contribution_seen_text">Contribution detail text about the pageviews. %s represented the times the contribution has been viewed in the past 30 days.</string>
+  <string name="suggested_edits_contribution_date_yesterday_text">Text for contributions date to indicate it was contributed yesterday</string>
 </resources>
