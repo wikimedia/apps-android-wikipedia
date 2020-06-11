@@ -109,7 +109,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
         }
 
         loadingMore = true
-        loadMoreProgressView.visibility = VISIBLE
+        progressBar.visibility = VISIBLE
         disposables.clear()
 
         if (allContributions.isEmpty()) {
@@ -204,7 +204,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
                 .doAfterTerminate {
                     loadingMore = false
                     swipeRefreshLayout.isRefreshing = false
-                    loadMoreProgressView.visibility = GONE
+                    progressBar.visibility = GONE
                 }
                 .subscribe({
                     allContributions.addAll(it)
@@ -435,5 +435,4 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
         override fun onClick() {
         }
     }
-
 }
