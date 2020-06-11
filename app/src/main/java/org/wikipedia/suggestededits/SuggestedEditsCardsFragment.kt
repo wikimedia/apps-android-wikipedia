@@ -19,13 +19,11 @@ import kotlinx.android.synthetic.main.fragment_suggested_edits_cards.*
 import org.wikipedia.Constants.*
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.ABTestSuggestedEditsInterstitialFunnel
 import org.wikipedia.analytics.SuggestedEditsFunnel
 import org.wikipedia.auth.AccountUtil
-import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
-import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
-import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.dataclient.mwapi.SiteMatrix
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
@@ -152,7 +150,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
         }
     }
 
-    private fun showRewardInterstitial(): Boolean {
+    private fun shouldShowRewardInterstitial(): Boolean {
         return sessionEditCount > 2
                 && Prefs.isSuggestedEditsRewardInterstitialEnabled()
                 && rewardInterstitialImage != -1
@@ -241,7 +239,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
                     }
             )
             nextPage(null)
-            fetchUserContribution()
+            fetchUserInfoForNextInterstitialState()
         }
     }
 
@@ -266,7 +264,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
             nextPage(null)
         } else if (action == ADD_IMAGE_TAGS && topBaseChild() != null) {
             topBaseChild()!!.publish()
-            fetchUserContribution()
+            fetchUserInfoForNextInterstitialState()
         } else if (topTitle != null) {
             startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), topTitle!!, null, topChild()!!.sourceSummary, topChild()!!.targetSummary,
                     action, InvokeSource.SUGGESTED_EDITS), ACTIVITY_REQUEST_DESCRIPTION_EDIT)
@@ -340,7 +338,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
         wikiToLanguageSpinner.setSelection(app.language().appLanguageCodes.indexOf(langToCode))
     }
 
-    private fun fetchUserContribution() {
+    private fun fetchUserInfoForNextInterstitialState() {
         sessionEditCount++
         if (rewardInterstitialImage == -1 && rewardInterstitialText.isEmpty()) {
             // Need to preload the user contribution in case we miss the latest data
@@ -389,7 +387,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
                         if (it) {
                             SuggestedEditsUserStats.getPageViewsObservable()
                         } else {
-                            Observable.just((-1).toLong())
+                            Observable.just(-1L)
                         }
                     }
                     .subscribe({
@@ -443,12 +441,16 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
         }
 
         override fun createFragment(position: Int): Fragment {
-            return when {
-                showRewardInterstitial() -> {
-                    Prefs.setSuggestedEditsRewardInterstitialEnabled(false)
-                    SuggestedEditsRewardsItemFragment.newInstance(rewardInterstitialImage, rewardInterstitialText)
+            if (shouldShowRewardInterstitial()) {
+                val funnel = ABTestSuggestedEditsInterstitialFunnel()
+                funnel.logInterstitialShown()
+                Prefs.setSuggestedEditsRewardInterstitialEnabled(false)
+                if (funnel.shouldSeeInterstitial()) {
+                    return SuggestedEditsRewardsItemFragment.newInstance(rewardInterstitialImage, rewardInterstitialText)
                 }
-                action == ADD_IMAGE_TAGS -> {
+            }
+            return when (action) {
+                ADD_IMAGE_TAGS -> {
                     SuggestedEditsImageTagsFragment.newInstance()
                 }
                 else -> {
