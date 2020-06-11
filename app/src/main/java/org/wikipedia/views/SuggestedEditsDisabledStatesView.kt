@@ -44,7 +44,7 @@ internal class SuggestedEditsDisabledStatesView constructor(context: Context, at
         setDefaultState()
         cardTitleView.text = context.getString(R.string.suggested_edits_encourage_account_creation_title)
         cardContentView.text = context.getString(R.string.suggested_edits_encourage_account_creation_message)
-        imageView.setImageResource(R.drawable.ic_suggested_edits_disabled)
+        imageView.setImageResource(R.drawable.ic_require_login_header)
         actionButton.text = context.getString(R.string.suggested_edits_encourage_account_creation_login_button)
         // TODO: update intent source
         actionButton.setOnClickListener { context.startActivity(CreateAccountActivity.newIntent(context, "", "")) }
@@ -52,7 +52,7 @@ internal class SuggestedEditsDisabledStatesView constructor(context: Context, at
 
     private fun setDefaultState() {
         imageView.visibility = View.VISIBLE
-        actionButton.text = context.getString(R.string.suggested_edits_help_page_link_text)
+        actionButton.text = context.getString(R.string.suggested_edits_learn_more_button_text)
         actionButton.setOnClickListener { UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(R.string.android_app_edit_help_url))) }
     }
 }
