@@ -25,6 +25,7 @@
 * Linedwell
 * Ltrlg
 * Léon973
+* MSClaudiu
 * Macofe
 * NemesisIII
 * Niridya
@@ -711,12 +712,15 @@
   <string name="suggested_edits_tasks_onboarding_get_started">Démarrer</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Légende de l’image (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Description de l’image (%s)</string>
+  <string name="suggested_edits_image_preview_dialog_file">Fichier</string>
   <string name="suggested_edits_image_preview_dialog_artist">Artiste</string>
+  <string name="suggested_edits_image_preview_dialog_tags">Balises</string>
   <string name="suggested_edits_image_preview_dialog_date">Date</string>
   <string name="suggested_edits_image_preview_dialog_source">Source/Photographe</string>
   <string name="suggested_edits_image_preview_dialog_licensing">Licence</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Plus d’informations</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Page du fichier sur Wikimedia Commons</string>
+  <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">Page du fichier sur Wikipédia</string>
   <string name="suggested_edits_article_cta_image_caption">Ajouter la légende de l’image</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Ajouter une légende d’image (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Afficher</string>
@@ -783,6 +787,7 @@
   <string name="suggested_edits_reactivation_notification_title">Modifications suggérées</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Merci d\'avoir modifié Wikipédia ! Pourquoi ne pas reprendre là où vous en étiez ?</string>
   <string name="suggested_edits_reactivation_notification_stage_two">Vous avez une minute pour continuer à améliorer Wikipédia ? Consultez ces suggestions de modifications.</string>
+  <string name="file_page_activity_title">Page du fichier</string>
   <string name="description_edit_revert_subtitle">Merci pour l’édition de Wikipédia !</string>
   <string name="description_edit_revert_intro">Nous savons que vous avez fait de votre mieux, mais un de nos relecteurs a eu un souci. Les raisons possibles de l’annulation de votre modification comprennent :</string>
   <string name="description_edit_revert_reason1">votre contribution ne respectait pas une des &lt;a href=\"%1$s\"&gt;directives&lt;/a&gt;.</string>

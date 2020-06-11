@@ -340,6 +340,7 @@
   <string name="suggested_edits_image_caption_summary_title_license">Licenco</string>
   <string name="suggested_edits_feed_card_add_description_button">Adjuntez deskripto dil artiklo</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Por komencar</string>
+  <string name="suggested_edits_image_preview_dialog_file">Arkivo</string>
   <string name="suggested_edits_image_preview_dialog_artist">Artisto</string>
   <string name="suggested_edits_image_preview_dialog_date">Dato</string>
   <string name="suggested_edits_image_preview_dialog_source">Fonto/Fotografisto</string>
@@ -356,6 +357,7 @@
   <string name="suggested_edits_task_new">nova</string>
   <string name="onboarding_continue">Durar</string>
   <string name="onboarding_welcome_title_v2">La libera Enciklopedio\n…en plua kam 300 lingui</string>
+  <string name="app_shortcuts_search">Serchez</string>
   <string name="this_year">Cayare</string>
   <string name="languages_list_all_text">Omna lingui</string>
   <string name="text_input_dialog_cancel_button_text">Nuligar</string>

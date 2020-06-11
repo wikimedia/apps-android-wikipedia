@@ -353,9 +353,11 @@
   <string name="text_size_percent_default">%s (по подразбиране)</string>
   <string name="nav_item_reading_lists">Моите списъци</string>
   <string name="reading_list_save_to">Добавяне в списъка за четене</string>
+  <string name="reading_list_move_to">Преместване в списък за четене</string>
   <string name="reading_list_create_new">Създаване на нов</string>
   <string name="reading_list_title_exists">Списъкът за четене „%s“ вече съществува.</string>
   <string name="reading_list_article_added_to_named">%1$s е добавена към %2$s.</string>
+  <string name="reading_list_article_moved_to_named">%1$s е преместена в %2$s.</string>
   <string name="reading_list_added_view_button">Преглед на списъка</string>
   <string name="format_reading_list_statistical_summary_singular">1 статия, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d статии, %2$.2f MB</string>
@@ -376,6 +378,7 @@
   <string name="reading_list_action_menu_remove_all_from_offline">Премахване на всички от офлайн</string>
   <string name="reading_list_action_menu_save_all_for_offline">Запазване на всички за офлайн</string>
   <string name="reading_list_action_menu_add_to_another_list">Добавяне в друг списък</string>
+  <string name="reading_list_action_menu_move_to_another_list">Преместване в друг списък</string>
   <string name="reading_list_name_sample">Моят списък за четене</string>
   <string name="reading_list_name_hint">Име на този списък</string>
   <string name="reading_list_description_hint">Описание (незадължително)</string>
@@ -396,6 +399,7 @@
   <string name="reading_list_article_offline">Наличен офлайн</string>
   <string name="reading_list_article_make_offline">Правене на статията достъпна офлайн</string>
   <string name="reading_list_add_to_other_list">Добавяне в друг списък за четене</string>
+  <string name="reading_list_move_to_other_list">Преместване в друг списък за четене</string>
   <string name="reading_list_remove_from_list">Премахване от %s</string>
   <string name="reading_list_remove_from_lists">Премахване от списъците за четене</string>
   <string name="reading_list_select_item">Избиране</string>
@@ -412,6 +416,7 @@
   <string name="reading_lists_confirm_remote_delete_no">Не</string>
   <string name="reading_list_article_save_in_progress">Статията се изтегля и ще бъде налична офлайн, когато е готова.</string>
   <string name="reading_list_articles_added_to_named">Добавени %1$d статии в %2$s</string>
+  <string name="reading_list_articles_moved_to_named">Преместени са %1$d статии в %2$s</string>
   <string name="reading_list_delete_confirm">Сигурни ли сте, че искате да изтриете %s?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Влезте, за да включите синхронизиране</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Влезте, за да позволите съхранението на списъци за четене в сметката си.</string>
@@ -659,6 +664,7 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Добавяне на описание на статията (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Започване</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Описание на изображението (%s)</string>
+  <string name="suggested_edits_image_preview_dialog_file">Файл</string>
   <string name="suggested_edits_image_preview_dialog_artist">Създател</string>
   <string name="suggested_edits_image_preview_dialog_date">Дата</string>
   <string name="suggested_edits_image_preview_dialog_source">Източник/Фотограф</string>
@@ -675,6 +681,7 @@
   <string name="suggested_edits_encouragement_message">%s, благодарим Ви за вашите редакции. По-долу може да намерите още начини как да допринасяте за Уикипедия.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Здравейте, %s&lt;/b&gt;, знаехте ли, че всеки може да редактира Уикипедия? Надолу може да намерите развлекателни начини, за да помогнете в подобряването на Уикипедия. Приятно редактиране!</string>
   <string name="suggested_edits_image_captions_task_detail">Опишете изображение, за да помогнете на читателите да разберат смисъла и контекста му.</string>
+  <string name="suggested_edits_add_descriptions_task_detail">Обобщава статията, за да помогне на читателите да добият представа за темата.</string>
   <string name="suggested_edits_editing_tips_link_text">Съвети и трикове за редактирането</string>
   <string name="suggested_edits_pageviews_label_text">Преглеждания</string>
   <string name="suggested_edits_quality_label_text">Качество на редакциите</string>
@@ -700,6 +707,7 @@
   <string name="suggested_edits_task_new">ново</string>
   <string name="suggested_edits_cc0_notice">Публикувайки, Вие се съгласявате с &lt;a href=\"%1$s\"&gt;условията за ползване&lt;/a&gt; и безвъзвратно публикувате приносите си под &lt;a href=\"%2$s\"&gt;CC0 лиценз&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Предложения за редактиране</string>
+  <string name="file_page_activity_title">Страница на файла</string>
   <string name="description_edit_revert_subtitle">Благодарим за редактирането на Уикипедия!</string>
   <string name="description_edit_revert_intro">Знаем, че дадохте всичко от себе си, но един от преглеждащите има забележка. Възможните причини за върната редакция включват:</string>
   <string name="description_edit_revert_reason1">вашият принос е в разрез с едно от &lt;a href=\"%1$s\"&gt;напътствията за описания&lt;/a&gt;.</string>
