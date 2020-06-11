@@ -28,10 +28,10 @@ class SuggestedEditsContributionsHeaderView constructor(context: Context, attrs:
         filterViews.add(imageCaptionsView)
         filterViews.add(imageTagsView)
 
-        allTypesView.setAttributes(getContext().getString(R.string.suggested_edits_contribution_type_title, SuggestedEditsUserStats.totalEdits, resources.getQuantityString(R.plurals.suggested_edits_contribution, SuggestedEditsUserStats.totalEdits)), R.drawable.ic_mode_edit_themed_24dp, Contribution.ALL_EDIT_TYPES, this)
-        articleDescriptionView.setAttributes(getContext().getString(R.string.suggested_edits_contribution_type_title, SuggestedEditsUserStats.totalDescriptionEdits, getContext().getString(R.string.description_edit_tutorial_title_descriptions)), R.drawable.ic_article_description, Contribution.EDIT_TYPE_ARTICLE_DESCRIPTION, this)
-        imageCaptionsView.setAttributes(getContext().getString(R.string.suggested_edits_contribution_type_title, SuggestedEditsUserStats.totalImageCaptionEdits, getContext().getString(R.string.suggested_edits_image_captions)), R.drawable.ic_image_caption, EDIT_TYPE_IMAGE_CAPTION, this)
-        imageTagsView.setAttributes(getContext().getString(R.string.suggested_edits_contribution_type_title, SuggestedEditsUserStats.totalImageTagEdits, getContext().getString(R.string.suggested_edits_image_tags)), R.drawable.ic_image_tag, EDIT_TYPE_IMAGE_TAG, this)
+        allTypesView.setAttributes(getContext().getString(R.string.suggested_edits_tasks_activity_title), R.drawable.ic_mode_edit_themed_24dp, Contribution.ALL_EDIT_TYPES, this)
+        articleDescriptionView.setAttributes(getContext().getString(R.string.description_edit_tutorial_title_descriptions), R.drawable.ic_article_description, Contribution.EDIT_TYPE_ARTICLE_DESCRIPTION, this)
+        imageCaptionsView.setAttributes(getContext().getString(R.string.suggested_edits_image_captions), R.drawable.ic_image_caption, EDIT_TYPE_IMAGE_CAPTION, this)
+        imageTagsView.setAttributes(getContext().getString(R.string.suggested_edits_image_tags), R.drawable.ic_image_tag, EDIT_TYPE_IMAGE_TAG, this)
     }
 
     fun updateFilterViewUI(editType: Int) {
