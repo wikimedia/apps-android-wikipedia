@@ -22,7 +22,8 @@
             android:id="@+id/imageView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:contentDescription="@null" />
+            android:contentDescription="@null"
+            android:layout_marginBottom="16dp" />
 
         <TextView
             android:id="@+id/cardTitleView"
@@ -33,7 +34,6 @@
             android:textStyle="bold"
             android:textColor="?attr/material_theme_primary_color"
             android:lineSpacingExtra="8sp"
-            android:layout_marginTop="16dp"
             android:layout_marginBottom="12dp"/>
 
         <TextView
