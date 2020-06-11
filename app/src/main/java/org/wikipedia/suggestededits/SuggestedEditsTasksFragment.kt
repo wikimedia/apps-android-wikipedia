@@ -11,7 +11,9 @@ import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import io.reactivex.Observable
+import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_suggested_edits_tasks.*
 import org.wikipedia.Constants
 import org.wikipedia.Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE
@@ -20,7 +22,7 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.SuggestedEditsFunnel
 import org.wikipedia.auth.AccountUtil
-import org.wikipedia.createaccount.CreateAccountActivity
+import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
 import org.wikipedia.language.LanguageSettingsInvokeSource
 import org.wikipedia.main.MainActivity
@@ -173,7 +175,7 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     private fun fetchUserContributions() {
         if (!AccountUtil.isLoggedIn()) {
-            setRequiredLoginStatus()
+            showAccountCreationOrIPBlocked()
             return
         }
 
@@ -219,6 +221,22 @@ class SuggestedEditsTasksFragment : Fragment() {
                     showError(t)
                 }))
 
+    }
+
+    private fun showAccountCreationOrIPBlocked() {
+        disposables.add(ServiceFactory.get(WikipediaApp.getInstance().wikiSite).userInfo
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({ response ->
+                    if (response.query()!!.userInfo()!!.isBlocked) {
+                        setIPBlockedStatus()
+                    } else {
+                        setRequiredLoginStatus()
+                    }
+                }, { t ->
+                    L.e(t)
+                    showError(t)
+                }))
     }
 
     private fun refreshContents() {

@@ -40,7 +40,7 @@ object SuggestedEditsUserStats {
                         totalEdits = editorTaskCounts.totalEdits
                         totalDescriptionEdits = editorTaskCounts.totalDescriptionEdits
                         totalImageCaptionEdits = editorTaskCounts.totalImageCaptionEdits
-                        totalImageTagEdits = editorTaskCounts.getTotalDepictsEdits()
+                        totalImageTagEdits = editorTaskCounts.totalDepictsEdits
                         totalReverts = editorTaskCounts.totalReverts
                         maybePauseAndGetEndDate()
                     }

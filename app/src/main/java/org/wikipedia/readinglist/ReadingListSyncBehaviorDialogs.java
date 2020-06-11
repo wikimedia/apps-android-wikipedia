@@ -12,8 +12,8 @@ import androidx.appcompat.app.AlertDialog;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.LoginFunnel;
+import org.wikipedia.createaccount.CreateAccountActivity;
 import org.wikipedia.events.ReadingListsEnableSyncStatusEvent;
-import org.wikipedia.login.LoginActivity;
 import org.wikipedia.page.LinkMovementMethodExt;
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter;
 import org.wikipedia.settings.Prefs;
@@ -78,7 +78,7 @@ public final class ReadingListSyncBehaviorDialogs {
                 .setView(view)
                 .setPositiveButton(R.string.reading_list_preference_login_or_signup_to_enable_sync_dialog_login,
                         (dialogInterface, i) -> {
-                            Intent loginIntent = LoginActivity.newIntent(activity,
+                            Intent loginIntent = CreateAccountActivity.newIntent(activity,
                                     LoginFunnel.SOURCE_READING_MANUAL_SYNC);
 
                             activity.startActivity(loginIntent);
