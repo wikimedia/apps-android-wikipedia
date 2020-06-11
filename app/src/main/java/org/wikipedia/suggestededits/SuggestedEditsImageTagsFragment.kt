@@ -276,8 +276,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         callback().updateActionButton()
     }
 
-    override fun onSelect(item: MwQueryPage.ImageLabel, searchTerm: String) {
-        lastSearchTerm = searchTerm
+    override fun onSearchSelect(item: MwQueryPage.ImageLabel) {
         var exists = false
         for (tag in tagList) {
             if (tag.wikidataId == item.wikidataId) {
@@ -291,6 +290,10 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
             tagList.add(item)
         }
         updateTagChips()
+    }
+
+    override fun onSearchDismiss(searchTerm: String) {
+        lastSearchTerm = searchTerm
     }
 
     override fun publish() {

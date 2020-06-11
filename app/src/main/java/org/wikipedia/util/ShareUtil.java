@@ -124,16 +124,13 @@ public final class ShareUtil {
     }
 
     private static void displayOnCatchMessage(Throwable caught, Context context) {
-        Toast.makeText(context,
-                String.format(context.getString(R.string.gallery_share_error),
-                        caught.getLocalizedMessage()), Toast.LENGTH_SHORT).show();
+        Toast.makeText(context, context.getString(R.string.gallery_share_error,
+                caught.getLocalizedMessage()), Toast.LENGTH_SHORT).show();
     }
 
     private static void displayShareErrorMessage(Context context) {
-        Toast.makeText(context,
-                String.format(context.getString(R.string.gallery_share_error),
-                        context.getString(R.string.err_cannot_save_file)),
-                Toast.LENGTH_SHORT).show();
+        Toast.makeText(context, context.getString(R.string.gallery_share_error,
+                context.getString(R.string.err_cannot_save_file)), Toast.LENGTH_SHORT).show();
     }
 
     public static void showUnresolvableIntentMessage(Context context) {

@@ -56,7 +56,7 @@ public class ReadingListsOverflowView extends FrameLayout {
         lastSync.setVisibility(TextUtils.isEmpty(lastSyncTime) ? View.GONE : View.VISIBLE);
         if (!TextUtils.isEmpty(lastSyncTime)) {
             try {
-                lastSync.setText(String.format(getContext().getString(R.string.reading_list_menu_last_sync),
+                lastSync.setText(getContext().getString(R.string.reading_list_menu_last_sync,
                         DateUtil.getReadingListsLastSyncDateString(Prefs.getReadingListsLastSyncTime())));
             } catch (ParseException e) {
                 // ignore

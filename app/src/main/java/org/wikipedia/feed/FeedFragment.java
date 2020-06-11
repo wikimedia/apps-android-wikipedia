@@ -216,6 +216,9 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         showRemoveChineseVariantPrompt();
         funnel.enter();
 
+        // Explicitly invalidate the feed adapter, since it occasionally crashes the StaggeredGridLayout
+        // on certain devices. (TODO: investigate further)
+        feedAdapter.notifyDataSetChanged();
     }
 
     @Override
