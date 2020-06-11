@@ -46,12 +46,13 @@
             android:lineSpacingExtra="8sp"
             android:layout_marginBottom="4dp"/>
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/actionButton"
             style="@style/FlatButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:drawableStart="@drawable/ic_open_in_new_black_24px"/>
+            app:icon="@drawable/ic_open_in_new_black_24px"
+            app:iconTint="@color/accent50"/>
 
     </LinearLayout>
 

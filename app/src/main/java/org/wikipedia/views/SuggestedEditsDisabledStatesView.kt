@@ -32,11 +32,10 @@ internal class SuggestedEditsDisabledStatesView constructor(context: Context, at
     }
 
     fun setIPBlocked() {
+        setDefaultState()
         imageView.visibility = GONE
         cardTitleView.text = context.getString(R.string.suggested_edits_ip_blocked_title)
         cardContentView.text = context.getString(R.string.suggested_edits_ip_blocked_message)
-
-        actionButton.text = context.getString(R.string.suggested_edits_help_page_link_text)
         actionButton.setOnClickListener { UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(R.string.create_account_ip_block_help_url))) }
     }
 
@@ -46,6 +45,7 @@ internal class SuggestedEditsDisabledStatesView constructor(context: Context, at
         cardContentView.text = context.getString(R.string.suggested_edits_encourage_account_creation_message)
         imageView.setImageResource(R.drawable.ic_require_login_header)
         actionButton.text = context.getString(R.string.suggested_edits_encourage_account_creation_login_button)
+        actionButton.icon = null
         // TODO: update intent source
         actionButton.setOnClickListener { context.startActivity(CreateAccountActivity.newIntent(context, "", "")) }
     }
