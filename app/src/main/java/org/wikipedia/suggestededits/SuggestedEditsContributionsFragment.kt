@@ -287,10 +287,14 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
     }
 
     private class DateViewHolder internal constructor(itemView: View) : DefaultViewHolder<View?>(itemView) {
+        init {
+            itemView.setPaddingRelative(itemView.paddingStart, 0, itemView.paddingEnd, 0)
+            itemView.layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, DimenUtil.roundedDpToPx(32f))
+        }
+
         var headerText: TextView = itemView.findViewById(R.id.section_header_text)
         fun bindItem(date: String) {
             headerText.text = date
-            headerText.setTextColor(ResourceUtil.getThemedColor(headerText.context, R.attr.colorAccent))
         }
     }
 

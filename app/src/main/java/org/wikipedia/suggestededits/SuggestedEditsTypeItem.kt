@@ -2,11 +2,10 @@ package org.wikipedia.suggestededits
 
 import android.content.Context
 import android.content.res.ColorStateList
-import android.os.Build
 import android.util.AttributeSet
 import android.view.View
+import android.view.ViewGroup
 import android.widget.LinearLayout
-import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
 import androidx.core.widget.ImageViewCompat
 import kotlinx.android.synthetic.main.item_suggested_edits_type.view.*
@@ -24,9 +23,7 @@ class SuggestedEditsTypeItem constructor(context: Context, attrs: AttributeSet? 
 
     init {
         View.inflate(context, R.layout.item_suggested_edits_type, this)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            foreground = AppCompatResources.getDrawable(context, ResourceUtil.getThemedAttributeId(context, R.attr.selectableItemBackground))
-        }
+        layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         setOnClickListener {
             callback?.onTypeItemClick(editType)
         }
