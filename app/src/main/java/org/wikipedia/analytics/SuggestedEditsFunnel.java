@@ -160,12 +160,18 @@ public final class SuggestedEditsFunnel extends TimedFunnel {
         helpOpenedCount++;
     }
 
+    // TODO: Hook this up when opening the user's contributions screen.
+    public void contributionsOpened() {
+        contributionsOpenedCount++;
+    }
+
     public void log() {
         log(
                 "edit_tasks", GsonUtil.getDefaultGson().newBuilder()
                         .registerTypeAdapter(SuggestedEditStats.class, new SuggestedEditsStatsTypeAdapter())
                         .create().toJson(statsCollection),
                 "help_opened", helpOpenedCount,
+                "scorecard_opened", contributionsOpenedCount,
                 "source", (invokeSource.getName())
         );
     }

@@ -544,6 +544,7 @@
   <string name="suggested_edits_task_multilingual_positive">ভাষা যোগ করুন</string>
   <string name="suggested_edits_image_caption_summary_title_source">উৎস</string>
   <string name="suggested_edits_image_caption_summary_title_date">তারিখ</string>
+  <string name="suggested_edits_image_preview_dialog_file">ফাইল</string>
   <string name="suggested_edits_image_preview_dialog_date">তারিখ</string>
   <string name="suggested_edits_snackbar_survey_text">আপনার সম্পাদনার অভিজ্ঞতা কেমন ছিল? অ্যাপ্লিকেশন সম্পাদনা সম্পর্কে এই জরিপে দয়া করে অংশ নিন।</string>
   <string name="suggested_edits_snackbar_survey_action_text">জরিপে অংশ নিন</string>

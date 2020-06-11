@@ -13,8 +13,6 @@ import com.google.gson.JsonObject;
 
 import org.wikipedia.Constants;
 import org.wikipedia.R;
-import org.wikipedia.WikipediaApp;
-import org.wikipedia.analytics.ProtectedEditAttemptFunnel;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.descriptions.DescriptionEditUtil;
@@ -27,7 +25,6 @@ public class EditHandler implements CommunicationBridge.JSEventListener {
     public static final int RESULT_REFRESH_PAGE = 1;
 
     private final PageFragment fragment;
-    private ProtectedEditAttemptFunnel funnel;
     private Page currentPage;
 
     public EditHandler(PageFragment fragment, CommunicationBridge bridge) {
@@ -41,7 +38,6 @@ public class EditHandler implements CommunicationBridge.JSEventListener {
             return;
         }
         this.currentPage = page;
-        this.funnel = new ProtectedEditAttemptFunnel(WikipediaApp.getInstance(), page.getTitle().getWikiSite());
     }
 
     public void startEditingSection(int sectionID, @Nullable String highlightText) {
@@ -73,7 +69,6 @@ public class EditHandler implements CommunicationBridge.JSEventListener {
                         : R.string.page_protected_can_not_edit_anon)
                 .setPositiveButton(R.string.protected_page_warning_dialog_ok_button_text, null)
                 .show();
-        funnel.log(currentPage.getPageProperties().getEditProtectionStatus());
     }
 
     @Override

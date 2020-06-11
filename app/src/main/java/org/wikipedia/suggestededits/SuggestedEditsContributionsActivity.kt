@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import org.wikipedia.R
 import org.wikipedia.activity.SingleFragmentActivity
+import org.wikipedia.analytics.SuggestedEditsFunnel
 import org.wikipedia.auth.AccountUtil
 
 class SuggestedEditsContributionsActivity : SingleFragmentActivity<SuggestedEditsContributionsFragment>() {
@@ -14,6 +15,7 @@ class SuggestedEditsContributionsActivity : SingleFragmentActivity<SuggestedEdit
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        SuggestedEditsFunnel.get().contributionsOpened()
         supportActionBar?.title = getString(R.string.suggested_edits_contributions_screen_title, AccountUtil.getUserName())
     }
 

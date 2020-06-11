@@ -269,8 +269,8 @@
   <string name="dialog_title_download_only_over_wifi">Vahvista lataus mobiilidatalla?</string>
   <string name="dialog_text_download_only_over_wifi">Olet ottanut käyttöön \"Lataa vain Wi-Fi-yhteyden kautta\" -asetuksen. Haluatko käyttää mobiilidataasi vain tähän lataukseen?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Salli</string>
-  <string name="read_more_section">Lue lisää</string>
-  <string name="about_article_section">Tietoja tästä artikkelista</string>
+  <string name="read_more_section">Lue myös</string>
+  <string name="about_article_section">Tietoa tästä artikkelista</string>
   <string name="menu_gallery_visit_page">Mene tiedostosivulle</string>
   <string name="gallery_error_draw_failed">Kuvaa ei voitu piirtää.</string>
   <string name="license_title">Lisenssi %s:lle</string>
