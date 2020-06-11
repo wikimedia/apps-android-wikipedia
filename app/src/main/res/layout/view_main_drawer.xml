@@ -57,7 +57,8 @@
             android:id="@+id/main_drawer_login_button"
             style="@style/TransparentButton"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
             android:text="@string/main_drawer_login" />
 
     </LinearLayout>
