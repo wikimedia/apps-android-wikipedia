@@ -787,10 +787,16 @@
     <string name="suggested_edits_last_edited">Last edited</string>
     <string name="suggested_edits_last_edited_never">Never</string>
     <string name="suggested_edits_task_new">new</string>
+    <string name="suggested_edits_contributions_type">%1$s (%2$s)</string>
     <string name="suggested_edits_cc0_notice"><![CDATA[By publishing, you agree to the <a href="%1$s">terms of use</a> and to irrevocably release this contribution under the <a href="%2$s">CC0 license</a>.]]></string>
     <string name="suggested_edits_reactivation_notification_title">Suggested edits</string>
     <string name="suggested_edits_reactivation_notification_stage_one">Thanks for editing Wikipedia! Why not continue where you left off?</string>
     <string name="suggested_edits_reactivation_notification_stage_two">Have a minute to continue improving Wikipedia? Check out these editing suggestions.</string>
+    <string name="suggested_edits_contribution_type_image_tag">Image tag</string>
+    <string name="suggested_edits_contributions_screen_title">%s\'s contributions</string>
+    <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
+    <string name="suggested_edits_contribution_seen_text">Seen %s times in the past 30 days.</string>
+    <string name="suggested_edits_contribution_date_yesterday_text">Yesterday</string>
     <string name="suggested_edits_rewards_contribution">You\'ve made %d contributions to Wikipedia using Suggested edits. Thank you!</string>
     <string name="suggested_edits_rewards_edit_streak">You\'ve edited every day for %1$d days so far. Keep the streak going, %2$s!</string>
     <string name="suggested_edits_rewards_pageviews">Your edits have been seen by %d people in the last 30 days. Thanks, and keep going!</string>
