@@ -7,6 +7,7 @@ import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -16,7 +17,6 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.functions.BiFunction
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_contributions_suggested_edits.*
-import kotlinx.android.synthetic.main.fragment_contributions_suggested_edits.swipeRefreshLayout
 import org.apache.commons.lang3.StringUtils
 import org.apache.commons.lang3.time.DateUtils
 import org.wikipedia.R
@@ -30,6 +30,7 @@ import org.wikipedia.suggestededits.Contribution.Companion.EDIT_TYPE_ARTICLE_DES
 import org.wikipedia.suggestededits.Contribution.Companion.EDIT_TYPE_IMAGE_CAPTION
 import org.wikipedia.suggestededits.Contribution.Companion.EDIT_TYPE_IMAGE_TAG
 import org.wikipedia.util.DateUtil
+import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DefaultViewHolder
@@ -48,8 +49,6 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
     private var articleContributionsContinuation: String? = null
     private var imageContributionsContinuation: String? = null
 
-    private var loadingMore = false
-
     private var editFilterType = ALL_EDIT_TYPES
     private var totalPageViews = 0L
 
@@ -63,8 +62,19 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
         super.onViewCreated(view, savedInstanceState)
         contributionsRecyclerView.layoutManager = LinearLayoutManager(context)
         contributionsRecyclerView.adapter = adapter
-        swipeRefreshLayout.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent))
+        contributionsRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                val scrollY = recyclerView.computeVerticalScrollOffset()
+                val activity = requireActivity() as AppCompatActivity
+                if (scrollY == 0 && activity.supportActionBar?.elevation != 0f) {
+                    activity.supportActionBar?.elevation = 0f
+                } else if (scrollY != 0 && activity.supportActionBar?.elevation == 0f) {
+                    activity.supportActionBar?.elevation = DimenUtil.dpToPx(DimenUtil.getDimension(R.dimen.toolbar_default_elevation))
+                }
+            }
+        })
 
+        swipeRefreshLayout.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent))
         swipeRefreshLayout.setOnRefreshListener {
             resetAndFetch()
         }
@@ -74,6 +84,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
 
     override fun onDestroyView() {
         contributionsRecyclerView.adapter = null
+        contributionsRecyclerView.clearOnScrollListeners()
         disposables.clear()
         super.onDestroyView()
     }
@@ -108,7 +119,6 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
             return
         }
 
-        loadingMore = true
         progressBar.visibility = VISIBLE
         disposables.clear()
 
@@ -202,7 +212,6 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doAfterTerminate {
-                    loadingMore = false
                     swipeRefreshLayout.isRefreshing = false
                     progressBar.visibility = GONE
                 }
