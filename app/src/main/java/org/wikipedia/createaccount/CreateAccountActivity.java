@@ -51,6 +51,7 @@ import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
 public class CreateAccountActivity extends BaseActivity {
     public static final int RESULT_ACCOUNT_CREATED = 1;
     public static final int RESULT_ACCOUNT_NOT_CREATED = 2;
+    public static final int RESULT_ACCOUNT_LOGIN = 3;
 
     public static final String LOGIN_REQUEST_SOURCE = "login_request_source";
     public static final String LOGIN_SESSION_TOKEN = "login_session_token";
@@ -137,6 +138,7 @@ public class CreateAccountActivity extends BaseActivity {
         // This assumes that the CreateAccount activity was launched from the Login activity
         // (since there's currently no other mechanism to invoke CreateAccountActivity),
         // so finishing this activity will implicitly go back to Login.
+        setResult(RESULT_ACCOUNT_LOGIN);
         finish();
     }
 

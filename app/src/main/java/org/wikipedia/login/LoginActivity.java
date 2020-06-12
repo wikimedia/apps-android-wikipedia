@@ -193,6 +193,8 @@ public class LoginActivity extends BaseActivity {
                 FeedbackUtil.showMessage(this,
                         R.string.create_account_account_created_toast);
                 doLogin();
+            } else if (resultCode == CreateAccountActivity.RESULT_ACCOUNT_NOT_CREATED) {
+                finish();
             } else {
                 funnel.logCreateAccountFailure();
             }
