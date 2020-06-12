@@ -32,7 +32,6 @@ import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.ListUserResponse;
 import org.wikipedia.login.LoginActivity;
-import org.wikipedia.login.ResetPasswordActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.StringUtil;
