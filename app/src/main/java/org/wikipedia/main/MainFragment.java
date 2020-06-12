@@ -330,7 +330,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
 
     @Override
     public void onLoginRequested() {
-        startActivityForResult(LoginActivity.newIntent(requireContext(), LoginFunnel.SOURCE_NAV, true),
+        startActivityForResult(LoginActivity.newIntent(requireContext(), LoginFunnel.SOURCE_NAV),
                 Constants.ACTIVITY_REQUEST_LOGIN);
     }
 
