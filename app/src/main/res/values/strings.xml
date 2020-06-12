@@ -843,9 +843,6 @@
     <string name="onboarding_analytics_title">Send anonymous data</string>
     <string name="onboarding_analytics_offline_text"><![CDATA[Help make the app better by letting us know how you use it. Data collected is anonymous. <a href="#privacy">Learn more</a>]]></string>
     <string name="onboarding_analytics_switch_title">Send usage data</string>
-    <string name="onboarding_create_account_sync">Sync your reading lists</string>
-    <string name="onboarding_create_account_contributions">Keep track of your contributions</string>
-    <string name="onboarding_create_account_preferences">Save your preferences</string>
     <string name="onboarding_got_it">Got it</string>
     <string name="onboarding_multilingual_secondary_text">We’ve found the following on your device:</string>
     <string name="onboarding_multilingual_add_language_text">Add or edit languages</string>

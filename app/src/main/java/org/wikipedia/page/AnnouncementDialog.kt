@@ -7,7 +7,6 @@ import android.widget.ScrollView
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.FeedFunnel
 import org.wikipedia.analytics.LoginFunnel
-import org.wikipedia.createaccount.CreateAccountActivity
 import org.wikipedia.feed.announcement.Announcement
 import org.wikipedia.feed.announcement.AnnouncementCard
 import org.wikipedia.feed.announcement.AnnouncementCardView

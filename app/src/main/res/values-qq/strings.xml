@@ -808,9 +808,6 @@
   <string name="onboarding_analytics_title">Title for a tutorial screen about anonymous usage reports sent by the app.</string>
   <string name="onboarding_analytics_offline_text">Short explanatory text about the benefits of allowing the app to send anonymous usage reports. (Please preserve the anchor tag in its exact form)</string>
   <string name="onboarding_analytics_switch_title">Label for an on-off switch that enables sending anonymous usage reports.</string>
-  <string name="onboarding_create_account_sync">Short explanation of the benefits of creating an account, which is the ability to synchronize your reading lists.</string>
-  <string name="onboarding_create_account_contributions">Short explanation of the benefits of creating an account, which is the ability to keep a record of your edits.</string>
-  <string name="onboarding_create_account_preferences">Short explanation of the benefits of creating an account, which is the ability to save your preferences.</string>
   <string name="onboarding_got_it">Button label for dismissing the current onboarding card.\n{{Identical|Got it}}</string>
   <string name="onboarding_multilingual_secondary_text">Onboarding subtitle text informing the user about the languages found on the device.</string>
   <string name="onboarding_multilingual_add_language_text">Button text to suggest that users can now add more languages of their preference.</string>
