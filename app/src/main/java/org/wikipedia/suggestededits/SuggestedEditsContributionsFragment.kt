@@ -36,6 +36,8 @@ import org.wikipedia.util.log.L
 import org.wikipedia.views.DefaultViewHolder
 import java.util.*
 import java.util.concurrent.TimeUnit
+import java.util.regex.Matcher
+import java.util.regex.Pattern
 import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
 
@@ -186,6 +188,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
                                 val strArr = userContribution.comment.split(" ")
                                 var contributionLanguage = ""
                                 var editType: Int = -1
+                                var qNumber = ""
 
                                 for (str in strArr) {
                                     if (str.contains("wbsetlabel")) {
@@ -195,10 +198,11 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
                                         }
                                         editType = EDIT_TYPE_IMAGE_CAPTION
                                     } else if (str.contains("wbsetclaim")) {
+                                        qNumber = getQNumberFrom(userContribution.comment)
                                         editType = EDIT_TYPE_IMAGE_TAG
                                     }
                                 }
-                                contributions.add(Contribution("", userContribution.title, "", editType, null,
+                                contributions.add(Contribution(qNumber, userContribution.title, "", editType, null,
                                         DateUtil.iso8601DateParse(userContribution.timestamp), WikiSite.forLanguageCode(contributionLanguage), 0))
 
                             }
@@ -223,6 +227,16 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
                     L.e(caught)
                     showError(caught)
                 }))
+    }
+
+    private fun getQNumberFrom(searchString: String): String {
+        val pattern: Pattern = Pattern.compile("Q(\\d+)")
+        val matcher: Matcher = pattern.matcher(searchString)
+        var qNumber = ""
+        if (matcher.find()) {
+            qNumber = matcher.group()
+        }
+        return qNumber
     }
 
     private fun createConsolidatedList() {
@@ -341,8 +355,8 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
                                 val imageInfo = page.imageInfo()!!
                                 contribution.description = imageInfo.metadata!!.imageDescription()
                                 contribution.imageUrl = imageInfo.thumbUrl
-                                if (contribution.editType == EDIT_TYPE_IMAGE_TAG) {
-                                    //
+                                if (contribution.editType == EDIT_TYPE_IMAGE_TAG && contribution.qNumber.isNotEmpty()) {
+                                    getLabel(itemView, contribution)
                                 }
                                 itemView.setImageUrl(contribution.imageUrl)
                                 itemView.setTitle(contribution.description)
@@ -351,6 +365,15 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
                             L.e(t)
                         }))
             }
+        }
+
+        private fun getLabel(view: SuggestedEditsContributionsItemView, contribution: Contribution) {
+            disposables.add(ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getWikidataLabels(contribution.qNumber, contribution.wikiSite.languageCode()).subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread()).subscribe {
+                        contribution.description = it.entities()[contribution.qNumber]!!.labels()[contribution.wikiSite.languageCode()]!!.value()
+                        view.setTitle(contribution.description)
+                    })
+
         }
 
         private fun getPageViews(view: SuggestedEditsContributionsItemView, contribution: Contribution) {
