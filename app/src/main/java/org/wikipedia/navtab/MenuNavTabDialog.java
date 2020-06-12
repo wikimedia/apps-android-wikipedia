@@ -82,12 +82,14 @@ public class MenuNavTabDialog extends ExtendedBottomSheetDialogFragment {
     @OnClick(R.id.main_drawer_settings_container) void onSettingsClick() {
         if (callback != null) {
             callback.settingsClick();
+            dismiss();
         }
     }
 
     @OnClick(R.id.main_drawer_notifications_container) void onNotificationsClick() {
         if (callback != null) {
             callback.notificationsClick();
+            dismiss();
         }
     }
 
@@ -95,22 +97,26 @@ public class MenuNavTabDialog extends ExtendedBottomSheetDialogFragment {
         UriUtil.visitInExternalBrowser(requireContext(),
                 Uri.parse(requireContext().getString(R.string.donate_url,
                         BuildConfig.VERSION_NAME, WikipediaApp.getInstance().language().getSystemLanguageCode())));
+        dismiss();
     }
 
     @OnClick(R.id.main_drawer_about_container) void onAboutClick() {
         if (callback != null) {
             callback.aboutClick();
+            dismiss();
         }
     }
 
     @OnClick(R.id.main_drawer_help_container) void onHelpClick() {
         UriUtil.visitInExternalBrowser(requireContext(),
                 Uri.parse(getContext().getString(R.string.android_app_faq_url)));
+        dismiss();
     }
 
     @OnClick(R.id.main_drawer_login_button) void onLoginClick() {
         if (callback != null) {
             callback.loginLogoutClick();
+            dismiss();
         }
     }
 }
