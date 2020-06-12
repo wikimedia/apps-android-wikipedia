@@ -44,7 +44,7 @@ class AnnouncementDialog internal constructor(context: Context, val announcement
     override fun onAnnouncementPositiveAction(card: Card, uri: Uri) {
         when {
             uri.toString() == UriUtil.LOCAL_URL_LOGIN ->
-                context.startActivity(CreateAccountActivity.newIntent(context, LoginFunnel.SOURCE_NAV))
+                context.startActivity(LoginActivity.newIntent(context, LoginFunnel.SOURCE_NAV, true))
             uri.toString() == UriUtil.LOCAL_URL_SETTINGS ->
                 context.startActivity(SettingsActivity.newIntent(context))
             uri.toString() == UriUtil.LOCAL_URL_CUSTOMIZE_FEED ->

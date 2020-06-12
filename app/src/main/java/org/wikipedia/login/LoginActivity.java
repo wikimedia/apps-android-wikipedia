@@ -65,13 +65,20 @@ public class LoginActivity extends BaseActivity {
     private boolean wentStraightToCreateAccount;
 
     public static Intent newIntent(@NonNull Context context, @NonNull String source) {
-        return newIntent(context, source, null);
+        return newIntent(context, source, false, null);
     }
 
-    public static Intent newIntent(@NonNull Context context, @NonNull String source,
+    public static Intent newIntent(@NonNull Context context, @NonNull String source, boolean wentStraightToCreateAccount) {
+        return newIntent(context, source, wentStraightToCreateAccount, null);
+    }
+
+    public static Intent newIntent(@NonNull Context context,
+                                   @NonNull String source,
+                                   boolean wentStraightToCreateAccount,
                                    @Nullable String token) {
         return new Intent(context, LoginActivity.class)
                 .putExtra(LOGIN_REQUEST_SOURCE, source)
+                .putExtra(ACTION_CREATE_ACCOUNT, wentStraightToCreateAccount)
                 .putExtra(EDIT_SESSION_TOKEN, token);
     }
 
@@ -164,7 +171,6 @@ public class LoginActivity extends BaseActivity {
         Intent intent = new Intent(this, CreateAccountActivity.class);
         intent.putExtra(CreateAccountActivity.LOGIN_SESSION_TOKEN, funnel.getSessionToken());
         intent.putExtra(CreateAccountActivity.LOGIN_REQUEST_SOURCE, loginSource);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivityForResult(intent, Constants.ACTIVITY_REQUEST_CREATE_ACCOUNT);
     }
 

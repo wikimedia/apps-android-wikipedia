@@ -254,7 +254,7 @@ public class EditSectionActivity extends BaseActivity {
             if (url.equals("https://#login")) {
                 funnel.logLoginAttempt();
                 Intent loginIntent = LoginActivity.newIntent(EditSectionActivity.this,
-                        LoginFunnel.SOURCE_EDIT, funnel.getSessionToken());
+                        LoginFunnel.SOURCE_EDIT, false, funnel.getSessionToken());
                 startActivityForResult(loginIntent, Constants.ACTIVITY_REQUEST_LOGIN);
             } else {
                 handleExternalLink(EditSectionActivity.this, Uri.parse(url));

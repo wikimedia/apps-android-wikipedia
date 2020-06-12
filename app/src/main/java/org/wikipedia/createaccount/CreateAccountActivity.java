@@ -1,6 +1,5 @@
 package org.wikipedia.createaccount;
 
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -14,13 +13,11 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 
 import com.google.android.material.textfield.TextInputLayout;
 
 import org.apache.commons.lang3.StringUtils;
-import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.BaseActivity;
@@ -31,7 +28,6 @@ import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.ListUserResponse;
-import org.wikipedia.login.LoginActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.StringUtil;
@@ -49,7 +45,6 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
 
-import static org.wikipedia.login.LoginActivity.RESULT_LOGIN_SUCCESS;
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
 
@@ -88,21 +83,6 @@ public class CreateAccountActivity extends BaseActivity {
     private WikiSite wiki;
     private UserNameTextWatcher userNameTextWatcher = new UserNameTextWatcher();
     private UserNameVerifyRunnable userNameVerifyRunnable = new UserNameVerifyRunnable();
-    private String requestSource;
-    private String sessionToken;
-
-    public static Intent newIntent(@NonNull Context context,
-                                   @NonNull String source) {
-        return newIntent(context, source, null);
-    }
-
-    public static Intent newIntent(@NonNull Context context,
-                                   @NonNull String source,
-                                   @Nullable String token) {
-        return new Intent(context, CreateAccountActivity.class)
-                .putExtra(LOGIN_REQUEST_SOURCE, source)
-                .putExtra(LOGIN_SESSION_TOKEN, token);
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -139,13 +119,11 @@ public class CreateAccountActivity extends BaseActivity {
             createAccountResult = savedInstanceState.getParcelable("result");
         }
 
-        requestSource = getIntent().getStringExtra(LOGIN_REQUEST_SOURCE);
-        funnel = new CreateAccountFunnel(WikipediaApp.getInstance(), requestSource);
+        funnel = new CreateAccountFunnel(WikipediaApp.getInstance(), getIntent().getStringExtra(LOGIN_REQUEST_SOURCE));
 
         // Only send the editing start log event if the activity is created for the first time
         if (savedInstanceState == null) {
-            sessionToken = getIntent().getStringExtra(LOGIN_SESSION_TOKEN);
-            funnel.logStart(sessionToken);
+            funnel.logStart(getIntent().getStringExtra(LOGIN_SESSION_TOKEN));
         }
         // Set default result to failed, so we can override if it did not
         setResult(RESULT_ACCOUNT_NOT_CREATED);
@@ -156,8 +134,7 @@ public class CreateAccountActivity extends BaseActivity {
     }
 
     @OnClick(R.id.create_account_login_button) void onLoginClick() {
-        startActivityForResult(LoginActivity.newIntent(this, requestSource, sessionToken)
-                .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP), Constants.ACTIVITY_REQUEST_LOGIN);
+        finish();
     }
 
     @OnClick(R.id.privacy_policy_link) void onPrivacyPolicyClick() {
@@ -264,15 +241,6 @@ public class CreateAccountActivity extends BaseActivity {
         captchaHandler.dispose();
         usernameInput.getEditText().removeTextChangedListener(userNameTextWatcher);
         super.onDestroy();
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == Constants.ACTIVITY_REQUEST_LOGIN) {
-            setResult(RESULT_LOGIN_SUCCESS);
-            finish();
-        }
     }
 
     private void clearErrors() {

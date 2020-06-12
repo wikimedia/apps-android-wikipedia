@@ -7,7 +7,9 @@ import android.view.View
 import android.widget.LinearLayout
 import kotlinx.android.synthetic.main.view_suggested_edits_disabled_states.view.*
 import org.wikipedia.R
+import org.wikipedia.analytics.LoginFunnel.SOURCE_SUGGESTED_EDITS
 import org.wikipedia.createaccount.CreateAccountActivity
+import org.wikipedia.login.LoginActivity
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
 
@@ -46,8 +48,8 @@ internal class SuggestedEditsDisabledStatesView constructor(context: Context, at
         imageView.setImageResource(R.drawable.ic_require_login_header)
         actionButton.text = context.getString(R.string.suggested_edits_encourage_account_creation_login_button)
         actionButton.icon = null
-        // TODO: update intent source
-        actionButton.setOnClickListener { context.startActivity(CreateAccountActivity.newIntent(context, "", "")) }
+        // TODO: add funnel session?
+        actionButton.setOnClickListener { context.startActivity(LoginActivity.newIntent(context, SOURCE_SUGGESTED_EDITS, true)) }
     }
 
     private fun setDefaultState() {
