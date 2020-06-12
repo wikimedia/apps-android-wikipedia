@@ -417,6 +417,7 @@
   <string name="reading_list_article_make_offline">Gör denna artikel tillgänglig offline</string>
   <string name="reading_list_add_to_other_list">Lägg till i en annan läslista</string>
   <string name="reading_list_move_to_other_list">Flytta till en annan läslista</string>
+  <string name="reading_list_move_from_to_other_list">Flytta från %s till en annan läslista</string>
   <string name="reading_list_remove_from_list">Ta bort från %s</string>
   <string name="reading_list_remove_from_lists">Ta bort från läslistor</string>
   <string name="reading_list_select_item">Markera</string>

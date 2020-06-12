@@ -727,6 +727,7 @@
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Описание изображения (%s)</string>
   <string name="suggested_edits_image_preview_dialog_file">Файл</string>
   <string name="suggested_edits_image_preview_dialog_artist">Автор</string>
+  <string name="suggested_edits_image_preview_dialog_tags">Теги</string>
   <string name="suggested_edits_image_preview_dialog_date">Дата</string>
   <string name="suggested_edits_image_preview_dialog_source">Источник/Фотограф</string>
   <string name="suggested_edits_image_preview_dialog_licensing">Лицензирование</string>
