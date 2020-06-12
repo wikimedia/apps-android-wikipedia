@@ -134,6 +134,9 @@ public class CreateAccountActivity extends BaseActivity {
     }
 
     @OnClick(R.id.create_account_login_button) void onLoginClick() {
+        // This assumes that the CreateAccount activity was launched from the Login activity
+        // (since there's currently no other mechanism to invoke CreateAccountActivity),
+        // so finishing this activity will implicitly go back to Login.
         finish();
     }
 
