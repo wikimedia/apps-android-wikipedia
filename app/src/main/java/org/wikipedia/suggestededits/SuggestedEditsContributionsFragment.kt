@@ -373,7 +373,6 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
                         contribution.description = it.entities()[contribution.qNumber]!!.labels()[contribution.wikiSite.languageCode()]!!.value()
                         view.setTitle(contribution.description)
                     })
-
         }
 
         private fun getPageViews(view: SuggestedEditsContributionsItemView, contribution: Contribution) {
