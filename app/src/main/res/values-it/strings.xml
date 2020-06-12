@@ -777,6 +777,7 @@
   <string name="suggested_edits_reactivation_notification_title">Modifiche suggerite</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Grazie per aver modificato Wikipedia! Perché non continuare da dove avevi interrotto?</string>
   <string name="suggested_edits_reactivation_notification_stage_two">Hai un minuto per continuare a migliorare Wikipedia? Dai un\'occhiata a questi suggerimenti di modifica.</string>
+  <string name="suggested_edits_rewards_continue_button">Continua</string>
   <string name="description_edit_revert_subtitle">Grazie per aver modificato Wikipedia!</string>
   <string name="description_edit_revert_intro">Sappiamo che hai fatto del tuo meglio, ma uno dei recensori ha destato preoccupazione. I possibili motivi per cui la tua modifica è stata annullata includono:</string>
   <string name="description_edit_revert_reason1">il tuo contributo non rispetta una delle &lt;a href=\"%1$s\"&gt;linee guida&lt;/a&gt;.</string>
