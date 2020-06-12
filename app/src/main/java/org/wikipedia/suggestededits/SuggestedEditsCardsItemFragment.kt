@@ -197,8 +197,8 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
                         .subscribe({ pageSummary ->
                             sourceSummary = SuggestedEditsSummary(
                                     pageSummary.apiTitle,
-                                    pageSummary.lang,
-                                    pageSummary.getPageTitle(WikiSite.forLanguageCode(pageSummary.lang)),
+                                    parent().langFromCode,
+                                    pageSummary.getPageTitle(WikiSite.forLanguageCode(parent().langFromCode)),
                                     pageSummary.displayTitle,
                                     pageSummary.description,
                                     pageSummary.thumbnailUrl,

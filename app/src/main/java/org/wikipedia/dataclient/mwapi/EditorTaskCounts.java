@@ -40,7 +40,7 @@ public class EditorTaskCounts {
         return editsPerLanguage == null ? Collections.emptyMap() : editsPerLanguage;
     }
 
-    private int getTotalDepictsEdits() {
+    public int getTotalDepictsEdits() {
         Map<String, Integer> editsPerLanguage = null;
         if (counts != null && !(counts instanceof JsonArray)) {
             editsPerLanguage = GsonUtil.getDefaultGson().fromJson(counts, Counts.class).appDepictsEdits;
@@ -59,6 +59,22 @@ public class EditorTaskCounts {
         totalEdits += getTotalDepictsEdits();
         if (Prefs.shouldOverrideSuggestedEditCounts()) {
             totalEdits = Prefs.getOverrideSuggestedEditCount();
+        }
+        return totalEdits;
+    }
+
+    public int getTotalDescriptionEdits() {
+        int totalEdits = 0;
+        for (int count : getDescriptionEditsPerLanguage().values()) {
+            totalEdits += count;
+        }
+        return totalEdits;
+    }
+
+    public int getTotalImageCaptionEdits() {
+        int totalEdits = 0;
+        for (int count : getCaptionEditsPerLanguage().values()) {
+            totalEdits += count;
         }
         return totalEdits;
     }
