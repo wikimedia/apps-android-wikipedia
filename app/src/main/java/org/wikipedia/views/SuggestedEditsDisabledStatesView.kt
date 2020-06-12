@@ -48,7 +48,6 @@ internal class SuggestedEditsDisabledStatesView constructor(context: Context, at
         imageView.setImageResource(R.drawable.ic_require_login_header)
         actionButton.text = context.getString(R.string.suggested_edits_encourage_account_creation_login_button)
         actionButton.icon = null
-        // TODO: add funnel session?
         actionButton.setOnClickListener { context.startActivity(LoginActivity.newIntent(context, SOURCE_SUGGESTED_EDITS, true)) }
     }
 
