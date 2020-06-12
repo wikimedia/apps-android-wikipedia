@@ -129,7 +129,7 @@ public class ReadingListPageTable extends DatabaseTable<ReadingListPage> {
     private void renameListsWithIdenticalNameAsDefault(SQLiteDatabase db, List<ReadingList> lists) {
         for (ReadingList list : lists) {
             if (list.dbTitle().equalsIgnoreCase(WikipediaApp.getInstance().getString(R.string.default_reading_list_name))) {
-                list.title(String.format(WikipediaApp.getInstance().getString(R.string.reading_list_saved_list_rename), list.dbTitle()));
+                list.title(WikipediaApp.getInstance().getString(R.string.reading_list_saved_list_rename, list.dbTitle()));
                 ReadingListDbHelper.instance().updateList(db, list, false);
             }
         }

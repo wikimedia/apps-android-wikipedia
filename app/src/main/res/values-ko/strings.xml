@@ -22,6 +22,7 @@
 * Twotwo2019
 * Ykhwong
 * Ysjbserver
+* YuzaTea
 * 고솜
 * 그냥기여자
 * 밝은소년
@@ -49,7 +50,7 @@
   <string name="storage_access_error_retry">다시 시도</string>
   <string name="article_load_error_retry">다시 시도</string>
   <string name="offline_load_error_retry">다시 시도</string>
-  <string name="page_error_back_to_main">뒤로 가기</string>
+  <string name="page_error_back_to_main">돌아가기</string>
   <string name="error_back">돌아가기</string>
   <string name="menu_clear_all_history">방문 기록 지우기</string>
   <string name="history_item_deleted">%s 문서가 역사에서 제거되었습니다</string>

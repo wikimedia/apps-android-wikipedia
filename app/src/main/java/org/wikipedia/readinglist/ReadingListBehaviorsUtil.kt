@@ -142,8 +142,8 @@ object ReadingListBehaviorsUtil {
         }
         FeedbackUtil
                 .makeSnackbar(activity,
-                        String.format(activity.getString(
-                                if (lists.size == 1) R.string.reading_list_item_deleted else R.string.reading_lists_item_deleted), page.title()),
+                        activity.getString(
+                                if (lists.size == 1) R.string.reading_list_item_deleted else R.string.reading_lists_item_deleted, page.title()),
                         FeedbackUtil.LENGTH_DEFAULT)
                 .setAction(R.string.reading_list_item_delete_undo) {
                     ReadingListDbHelper.instance().addPageToLists(lists, page, true)
@@ -157,8 +157,8 @@ object ReadingListBehaviorsUtil {
         }
         FeedbackUtil
                 .makeSnackbar(activity,
-                        String.format(activity.getString(
-                                if (pages.size == 1) R.string.reading_list_item_deleted else R.string.reading_list_items_deleted),
+                        activity.getString(
+                                if (pages.size == 1) R.string.reading_list_item_deleted else R.string.reading_list_items_deleted,
                                 if (pages.size == 1) pages[0].title() else pages.size),
                         FeedbackUtil.LENGTH_DEFAULT)
                 .setAction(R.string.reading_list_item_delete_undo) {
@@ -177,7 +177,7 @@ object ReadingListBehaviorsUtil {
             return
         }
         FeedbackUtil
-                .makeSnackbar(activity, String.format(activity.getString(R.string.reading_list_deleted), readingList.title()), FeedbackUtil.LENGTH_DEFAULT)
+                .makeSnackbar(activity, activity.getString(R.string.reading_list_deleted, readingList.title()), FeedbackUtil.LENGTH_DEFAULT)
                 .setAction(R.string.reading_list_item_delete_undo) {
                     val newList = ReadingListDbHelper.instance().createList(readingList.title(), readingList.description())
                     val newPages = ArrayList<ReadingListPage>()
