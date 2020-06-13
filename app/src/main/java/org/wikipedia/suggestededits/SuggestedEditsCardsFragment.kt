@@ -340,7 +340,6 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
 
     private fun fetchUserInfoForNextInterstitialState() {
         sessionEditCount++
-
         if (rewardInterstitialImage == -1 && rewardInterstitialText.isEmpty()) {
             // Need to preload the user contribution in case we miss the latest data
             disposables.add(SuggestedEditsUserStats.getEditCountsObservable()
