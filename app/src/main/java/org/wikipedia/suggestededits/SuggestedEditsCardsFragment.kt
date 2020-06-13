@@ -151,7 +151,6 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
     }
 
     private fun shouldShowRewardInterstitial(): Boolean {
-        return true
         return sessionEditCount > 2
                 && Prefs.isSuggestedEditsRewardInterstitialEnabled()
                 && rewardInterstitialImage != -1
@@ -444,8 +443,6 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
 
         override fun createFragment(position: Int): Fragment {
             if (shouldShowRewardInterstitial()) {
-                rewardInterstitialImage = R.attr.reward_interstitial_view_drawable
-                rewardInterstitialText = getString(R.string.suggested_edits_rewards_edit_streak, 5, AccountUtil.getUserName())
                 val funnel = ABTestSuggestedEditsInterstitialFunnel()
                 funnel.logInterstitialShown()
                 Prefs.setSuggestedEditsRewardInterstitialEnabled(false)
