@@ -21,6 +21,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.widget.TextViewCompat;
 
 import org.wikipedia.R;
+import org.wikipedia.databinding.ItemReadingListBinding;
 import org.wikipedia.readinglist.database.ReadingList;
 import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.util.DimenUtil;
@@ -29,13 +30,8 @@ import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.ViewUtil;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-
-import butterknife.BindView;
-import butterknife.BindViews;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-import butterknife.OnLongClick;
 
 public class ReadingListItemView extends ConstraintLayout {
 
@@ -49,13 +45,13 @@ public class ReadingListItemView extends ConstraintLayout {
 
     public enum Description { DETAIL, SUMMARY }
 
-    @BindView(R.id.item_title) TextView titleView;
-    @BindView(R.id.item_reading_list_statistical_description) TextView statisticalDescriptionView;
-    @BindView(R.id.item_description) TextView descriptionView;
+    private TextView titleView;
+    private TextView statisticalDescriptionView;
+    private TextView descriptionView;
 
-    @BindView(R.id.default_list_empty_image) ImageView defaultListEmptyView;
-    @BindView(R.id.item_overflow_menu) View overflowView;
-    @BindViews({R.id.item_image_1, R.id.item_image_2, R.id.item_image_3, R.id.item_image_4}) List<ImageView> imageViews;
+    private ImageView defaultListEmptyView;
+    private View overflowView;
+    private List<ImageView> imageViews;
 
     @Nullable private Callback callback;
     @Nullable private ReadingList readingList;
@@ -113,40 +109,45 @@ public class ReadingListItemView extends ConstraintLayout {
         StringUtil.boldenKeywordText(titleView, titleView.getText().toString(), searchQuery);
     }
 
-    @OnClick void onClick(View view) {
-        if (callback != null && readingList != null) {
-            callback.onClick(readingList);
-        }
-    }
-
-    @OnClick(R.id.item_overflow_menu) void showOverflowMenu(View anchorView) {
-        PopupMenu menu = new PopupMenu(getContext(), anchorView, Gravity.END);
-        menu.getMenuInflater().inflate(R.menu.menu_reading_list_item, menu.getMenu());
-
-        if (readingList.isDefault()) {
-            menu.getMenu().findItem(R.id.menu_reading_list_rename).setVisible(false);
-            menu.getMenu().findItem(R.id.menu_reading_list_delete).setVisible(false);
-        }
-        menu.setOnMenuItemClickListener(new OverflowMenuClickListener(readingList));
-        menu.show();
-    }
-
-    @OnLongClick boolean onLongClick(View view) {
-        PopupMenu menu = new PopupMenu(getContext(), view, Gravity.END);
-        menu.getMenuInflater().inflate(R.menu.menu_reading_list_item, menu.getMenu());
-
-        if (readingList.isDefault()) {
-            menu.getMenu().findItem(R.id.menu_reading_list_rename).setVisible(false);
-            menu.getMenu().findItem(R.id.menu_reading_list_delete).setVisible(false);
-        }
-        menu.setOnMenuItemClickListener(new OverflowMenuClickListener(readingList));
-        menu.show();
-        return false;
-    }
-
     private void init() {
-        inflate(getContext(), R.layout.item_reading_list, this);
-        ButterKnife.bind(this);
+        final ItemReadingListBinding binding = ItemReadingListBinding.bind(this);
+
+        setOnClickListener(view -> {
+            if (callback != null && readingList != null) {
+                callback.onClick(readingList);
+            }
+        });
+        setOnLongClickListener(view -> {
+            PopupMenu menu = new PopupMenu(getContext(), view, Gravity.END);
+            menu.getMenuInflater().inflate(R.menu.menu_reading_list_item, menu.getMenu());
+
+            if (readingList.isDefault()) {
+                menu.getMenu().findItem(R.id.menu_reading_list_rename).setVisible(false);
+                menu.getMenu().findItem(R.id.menu_reading_list_delete).setVisible(false);
+            }
+            menu.setOnMenuItemClickListener(new OverflowMenuClickListener(readingList));
+            menu.show();
+            return false;
+        });
+
+        titleView = binding.itemTitle;
+        statisticalDescriptionView = binding.itemReadingListStatisticalDescription;
+        descriptionView = binding.itemDescription;
+        defaultListEmptyView = binding.defaultListEmptyImage;
+        overflowView = binding.itemOverflowMenu;
+        imageViews = Arrays.asList(binding.itemImage1, binding.itemImage2, binding.itemImage3, binding.itemImage4);
+
+        binding.itemOverflowMenu.setOnClickListener(view -> {
+            PopupMenu menu = new PopupMenu(getContext(), view, Gravity.END);
+            menu.getMenuInflater().inflate(R.menu.menu_reading_list_item, menu.getMenu());
+
+            if (readingList.isDefault()) {
+                menu.getMenu().findItem(R.id.menu_reading_list_rename).setVisible(false);
+                menu.getMenu().findItem(R.id.menu_reading_list_delete).setVisible(false);
+            }
+            menu.setOnMenuItemClickListener(new OverflowMenuClickListener(readingList));
+            menu.show();
+        });
 
         setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         final int topBottomPadding = 16;
