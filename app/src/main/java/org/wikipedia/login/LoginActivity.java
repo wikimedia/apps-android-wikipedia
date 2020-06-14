@@ -25,6 +25,7 @@ import org.wikipedia.activity.BaseActivity;
 import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.createaccount.CreateAccountActivity;
+import org.wikipedia.databinding.ActivityLoginBinding;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter;
 import org.wikipedia.settings.Prefs;
@@ -34,10 +35,6 @@ import org.wikipedia.views.NonEmptyValidator;
 import org.wikipedia.views.WikiErrorView;
 
 import java.util.Collections;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
@@ -50,12 +47,12 @@ public class LoginActivity extends BaseActivity {
     public static final String EDIT_SESSION_TOKEN = "edit_session_token";
     public static final String ACTION_CREATE_ACCOUNT = "action_create_account";
 
-    @BindView(R.id.login_username_text) TextInputLayout usernameInput;
-    @BindView(R.id.login_password_input) TextInputLayout passwordInput;
-    @BindView(R.id.login_2fa_text) TextInputLayout twoFactorText;
-    @BindView(R.id.view_login_error) WikiErrorView errorView;
-    @BindView(R.id.login_button) Button loginButton;
-    @BindView(R.id.view_progress_bar) ProgressBar progressBar;
+    private TextInputLayout usernameInput;
+    private TextInputLayout passwordInput;
+    private TextInputLayout twoFactorText;
+    private WikiErrorView errorView;
+    private Button loginButton;
+    private ProgressBar progressBar;
 
     @Nullable private String firstStepToken;
     private LoginFunnel funnel;
@@ -78,8 +75,24 @@ public class LoginActivity extends BaseActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
-        ButterKnife.bind(this);
+
+        final ActivityLoginBinding binding = ActivityLoginBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+
+        usernameInput = binding.loginUsernameText;
+        passwordInput = binding.loginPasswordInput;
+        twoFactorText = binding.login2faText;
+        errorView = binding.viewLoginError;
+        loginButton = binding.loginButton;
+        progressBar = binding.viewProgressBar;
+
+        binding.loginButton.setOnClickListener(view -> validateThenLogin());
+        binding.loginCreateAccountButton.setOnClickListener(view -> startCreateAccountActivity());
+        binding.privacyPolicyLink.setOnClickListener(view -> FeedbackUtil.showPrivacyPolicy(this));
+        binding.forgotPasswordLink.setOnClickListener(view -> {
+            PageTitle title = new PageTitle("Special:PasswordReset", WikipediaApp.getInstance().getWikiSite());
+            visitInExternalBrowser(this, Uri.parse(title.getUri()));
+        });
 
         errorView.setBackClickListener((v) -> onBackPressed());
 
@@ -110,23 +123,6 @@ public class LoginActivity extends BaseActivity {
 
         // Assume no login by default
         setResult(RESULT_LOGIN_FAIL);
-    }
-
-    @OnClick(R.id.login_button) void onLoginClick() {
-        validateThenLogin();
-    }
-
-    @OnClick(R.id.login_create_account_button) void onCreateAccountClick() {
-        startCreateAccountActivity();
-    }
-
-    @OnClick(R.id.privacy_policy_link) void onPrivacyPolicyClick() {
-        FeedbackUtil.showPrivacyPolicy(this);
-    }
-
-    @OnClick(R.id.forgot_password_link) void onForgotPasswordClick() {
-        PageTitle title = new PageTitle("Special:PasswordReset", WikipediaApp.getInstance().getWikiSite());
-        visitInExternalBrowser(this, Uri.parse(title.getUri()));
     }
 
     @NonNull private String getText(@NonNull TextInputLayout input) {
