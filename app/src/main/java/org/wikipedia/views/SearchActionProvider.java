@@ -10,10 +10,8 @@ import androidx.appcompat.widget.SearchView;
 import androidx.core.view.ActionProvider;
 
 import org.wikipedia.R;
+import org.wikipedia.databinding.GroupSearchBinding;
 import org.wikipedia.util.DeviceUtil;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
 
 import static org.wikipedia.util.ResourceUtil.getThemedColor;
 
@@ -24,7 +22,7 @@ public class SearchActionProvider extends ActionProvider {
         void onQueryTextFocusChange();
     }
 
-    @BindView(R.id.search_input) CabSearchView searchView;
+    private CabSearchView searchView;
 
     private Context context;
     private String searchHintString;
@@ -44,8 +42,8 @@ public class SearchActionProvider extends ActionProvider {
 
     @Override
     public View onCreateActionView() {
-        View view = View.inflate(context, R.layout.group_search, null);
-        ButterKnife.bind(this, view);
+        final GroupSearchBinding binding = GroupSearchBinding.bind(View.inflate(context, R.layout.group_search, null));
+        searchView = binding.searchInput;
         searchView.setFocusable(true);
         searchView.setIconified(false);
         searchView.setMaxWidth(Integer.MAX_VALUE);
@@ -78,6 +76,6 @@ public class SearchActionProvider extends ActionProvider {
         searchEditPlate.setBackgroundColor(Color.TRANSPARENT);
 
         DeviceUtil.showSoftKeyboard(searchView);
-        return view;
+        return binding.getRoot();
     }
 }
