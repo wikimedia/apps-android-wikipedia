@@ -28,6 +28,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.analytics.LoginFunnel;
+import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.events.LoggedOutInBackgroundEvent;
 import org.wikipedia.feed.FeedFragment;
 import org.wikipedia.feed.image.FeaturedImage;
@@ -461,7 +462,9 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
             Prefs.setShouldShowSuggestedEditsTooltip(false);
             Prefs.setShouldShowImageTagsTooltip(false);
             tabOverlayLayout.pick(NavTab.SUGGESTED_EDITS);
-            suggestedEditsNavTabSnackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.main_tooltip_text_v2), FeedbackUtil.LENGTH_LONG);
+            suggestedEditsNavTabSnackbar = FeedbackUtil.makeSnackbar(requireActivity(), AccountUtil.isLoggedIn()
+                    ? getString(R.string.main_tooltip_text, AccountUtil.getUserName())
+                    : getString(R.string.main_tooltip_text_v2), FeedbackUtil.LENGTH_LONG);
             suggestedEditsNavTabSnackbar.setAction(R.string.main_tooltip_action_button, view -> goToTab(NavTab.SUGGESTED_EDITS));
             suggestedEditsNavTabSnackbar.show();
         } else if (Prefs.shouldShowImageTagsTooltip()) {
