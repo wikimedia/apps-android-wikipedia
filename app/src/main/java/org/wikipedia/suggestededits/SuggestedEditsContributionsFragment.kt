@@ -11,9 +11,9 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.schedulers.Schedulers
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.disposables.CompositeDisposable
+import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_contributions_suggested_edits.*
 import org.apache.commons.lang3.StringUtils
 import org.apache.commons.lang3.time.DateUtils
@@ -241,19 +241,18 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsTypeItem.C
     }
 
     private fun getCorrectFilterObject(): Filter {
-        val count: Int
-        when (editFilterType) {
+        val count = when (editFilterType) {
             EDIT_TYPE_ARTICLE_DESCRIPTION -> {
-                count = SuggestedEditsUserStats.totalDescriptionEdits
+                SuggestedEditsUserStats.totalDescriptionEdits
             }
             EDIT_TYPE_IMAGE_CAPTION -> {
-                count = SuggestedEditsUserStats.totalImageCaptionEdits
+                SuggestedEditsUserStats.totalImageCaptionEdits
             }
             EDIT_TYPE_IMAGE_TAG -> {
-                count = SuggestedEditsUserStats.totalImageTagEdits
+                SuggestedEditsUserStats.totalImageTagEdits
             }
             else -> {
-                count = SuggestedEditsUserStats.totalEdits
+                SuggestedEditsUserStats.totalEdits
             }
         }
         val contributionsCountText = getString(R.string.suggested_edits_contribution_type_title, count, resources.getQuantityString(R.plurals.suggested_edits_contribution, count))
