@@ -20,11 +20,13 @@ import kotlinx.android.synthetic.main.fragment_contributions_suggested_edits.*
 import org.apache.commons.lang3.StringUtils
 import org.apache.commons.lang3.time.DateUtils
 import org.wikipedia.R
+import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
+import org.wikipedia.language.AppLanguageLookUpTable
 import org.wikipedia.suggestededits.Contribution.Companion.ALL_EDIT_TYPES
 import org.wikipedia.suggestededits.Contribution.Companion.EDIT_TYPE_ARTICLE_DESCRIPTION
 import org.wikipedia.suggestededits.Contribution.Companion.EDIT_TYPE_IMAGE_CAPTION
@@ -51,6 +53,8 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
 
     private var editFilterType = ALL_EDIT_TYPES
     private var totalPageViews = 0L
+
+    private val qNumberRegex = """Q(\d+)""".toRegex()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -184,8 +188,9 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
                             imageContributionsContinuation = response.continuation()["uccontinue"]
                             for (userContribution in response.query()!!.userContributions()) {
                                 val strArr = userContribution.comment.split(" ")
-                                var contributionLanguage = ""
+                                var contributionLanguage = WikipediaApp.getInstance().appOrSystemLanguageCode
                                 var editType: Int = -1
+                                var qNumber = ""
 
                                 for (str in strArr) {
                                     if (str.contains("wbsetlabel")) {
@@ -195,10 +200,11 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
                                         }
                                         editType = EDIT_TYPE_IMAGE_CAPTION
                                     } else if (str.contains("wbsetclaim")) {
+                                        qNumber = qNumberRegex.find(userContribution.comment)?.value ?: ""
                                         editType = EDIT_TYPE_IMAGE_TAG
                                     }
                                 }
-                                contributions.add(Contribution("", userContribution.title, "", editType, null,
+                                contributions.add(Contribution(qNumber, userContribution.title, "", editType, null,
                                         DateUtil.iso8601DateParse(userContribution.timestamp), WikiSite.forLanguageCode(contributionLanguage), 0))
 
                             }
@@ -331,25 +337,39 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
                             L.e(t)
                         }))
             } else {
-                disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo(contribution.title, contribution.wikiSite.languageCode())
-                        .subscribeOn(Schedulers.io())
-                        .delaySubscription(250, TimeUnit.MILLISECONDS)
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe({ response ->
-                            val page = response.query()!!.pages()!![0]
+                disposables.add(Observable.zip(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo(contribution.title, contribution.wikiSite.languageCode()).subscribeOn(Schedulers.io()),
+                        if (contribution.qNumber.isEmpty()) Observable.just(contribution.qNumber) else (
+                                ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getWikidataLabels(contribution.qNumber, contribution.wikiSite.languageCode())
+                                        .subscribeOn(Schedulers.io())
+                                        .flatMap { response ->
+                                            var label = contribution.qNumber
+                                            if (response.entities().containsKey(contribution.qNumber)) {
+                                                if (response.entities()[contribution.qNumber]!!.labels().containsKey(contribution.wikiSite.languageCode())) {
+                                                    label = response.entities()[contribution.qNumber]!!.labels()[contribution.wikiSite.languageCode()]!!.value()
+                                                } else if (response.entities()[contribution.qNumber]!!.labels().containsKey(AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE)) {
+                                                    label = response.entities()[contribution.qNumber]!!.labels()[AppLanguageLookUpTable.FALLBACK_LANGUAGE_CODE]!!.value()
+                                                }
+                                            }
+                                            Observable.just(label)
+                                        }),
+                        BiFunction<MwQueryResponse, String, Contribution> { commonsResponse, qLabel ->
+                            val page = commonsResponse.query()!!.pages()!![0]
                             if (page.imageInfo() != null) {
                                 val imageInfo = page.imageInfo()!!
-                                contribution.description = imageInfo.metadata!!.imageDescription()
                                 contribution.imageUrl = imageInfo.thumbUrl
-                                if (contribution.editType == EDIT_TYPE_IMAGE_TAG) {
-                                    //
-                                }
-                                itemView.setImageUrl(contribution.imageUrl)
-                                itemView.setTitle(contribution.description)
+                                contribution.description = imageInfo.metadata!!.imageDescription()
                             }
-                        }, { t ->
-                            L.e(t)
-                        }))
+                            if (contribution.editType == EDIT_TYPE_IMAGE_TAG) {
+                                contribution.description = qLabel
+                            }
+                            contribution
+                        })
+                        .delaySubscription(250, TimeUnit.MILLISECONDS)
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe {
+                            itemView.setTitle(contribution.description)
+                            itemView.setImageUrl(contribution.imageUrl)
+                        })
             }
         }
 
