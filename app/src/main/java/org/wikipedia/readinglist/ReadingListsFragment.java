@@ -169,8 +169,10 @@ public class ReadingListsFragment extends Fragment implements
     }
 
     @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.menu_reading_lists, menu);
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        if (((MainActivity) requireActivity()).isCurrentFragmentSelected(this)) {
+            inflater.inflate(R.menu.menu_reading_lists, menu);
+        }
     }
 
     @Override

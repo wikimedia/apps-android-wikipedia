@@ -3,6 +3,7 @@ package org.wikipedia.suggestededits
 import android.app.Dialog
 import android.content.ClipboardManager
 import android.content.Context
+import android.content.DialogInterface
 import android.content.res.ColorStateList
 import android.graphics.drawable.InsetDrawable
 import android.os.Build
@@ -37,7 +38,8 @@ import kotlin.collections.ArrayList
 
 class SuggestedEditsImageTagDialog : DialogFragment() {
     interface Callback {
-        fun onSelect(item: MwQueryPage.ImageLabel, searchTerm: String)
+        fun onSearchSelect(item: MwQueryPage.ImageLabel)
+        fun onSearchDismiss(searchTerm: String)
     }
 
     private var currentSearchTerm: String = ""
@@ -165,6 +167,11 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
         }
     }
 
+    override fun onDismiss(dialog: DialogInterface) {
+        super.onDismiss(dialog)
+        callback()?.onSearchDismiss(currentSearchTerm)
+    }
+
     private inner class ResultItemHolder internal constructor(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
         fun bindItem(item: MwQueryPage.ImageLabel, position: Int) {
             itemView.findViewById<TextView>(R.id.labelName).text = item.label
@@ -175,7 +182,7 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
 
         override fun onClick(v: View?) {
             val item = v!!.tag as MwQueryPage.ImageLabel
-            callback()!!.onSelect(item, currentSearchTerm)
+            callback()?.onSearchSelect(item)
             dismiss()
         }
     }

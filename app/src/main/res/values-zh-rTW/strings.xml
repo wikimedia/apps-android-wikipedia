@@ -420,6 +420,7 @@
   <string name="reading_list_article_make_offline">讓此條目可於離線閱讀</string>
   <string name="reading_list_add_to_other_list">新增至另一個閱讀清單</string>
   <string name="reading_list_move_to_other_list">移動至別的閱讀清單</string>
+  <string name="reading_list_move_from_to_other_list">從%s移動至別的閱讀清單</string>
   <string name="reading_list_remove_from_list">自%s移除</string>
   <string name="reading_list_remove_from_lists">自閱讀清單移除</string>
   <string name="reading_list_select_item">選擇</string>
@@ -692,12 +693,15 @@
   <string name="suggested_edits_tasks_onboarding_get_started">入門</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">圖片說明（%s）</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">圖片描述（%s）</string>
+  <string name="suggested_edits_image_preview_dialog_file">檔案</string>
   <string name="suggested_edits_image_preview_dialog_artist">藝術家</string>
+  <string name="suggested_edits_image_preview_dialog_tags">標籤</string>
   <string name="suggested_edits_image_preview_dialog_date">日期</string>
   <string name="suggested_edits_image_preview_dialog_source">來源/攝影者</string>
   <string name="suggested_edits_image_preview_dialog_licensing">授權</string>
   <string name="suggested_edits_image_preview_dialog_more_info">更多資訊</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">在維基共享資源上的檔案頁面</string>
+  <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">在維基百科的檔案頁面</string>
   <string name="suggested_edits_article_cta_image_caption">新增圖片說明</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">新增圖片說明（%s）</string>
   <string name="suggested_edits_article_cta_snackbar_action">檢視</string>
@@ -764,6 +768,12 @@
   <string name="suggested_edits_reactivation_notification_title">建議編輯</string>
   <string name="suggested_edits_reactivation_notification_stage_one">感謝編輯維基百科！何不從上次停下的地方繼續？</string>
   <string name="suggested_edits_reactivation_notification_stage_two">有空閒來繼續增進維基百科內容嗎？請查看這些編輯建議。</string>
+  <string name="suggested_edits_rewards_contribution">您在維基百科上使用建議編輯做出了 %d 次貢獻。感謝您！</string>
+  <string name="suggested_edits_rewards_edit_streak">到目前為止，您有連續 %1$d 天每日做出編輯的紀錄。請挑戰讓紀錄繼續延續下去，%2$s！</string>
+  <string name="suggested_edits_rewards_pageviews">您的編輯內容在過去 30 天裡已被 %d 個人觀看過。感謝您，並請繼續加油！</string>
+  <string name="suggested_edits_rewards_edit_quality">您的編輯到目前為止是%s。請繼續加油！我們期待您之後的貢獻。</string>
+  <string name="suggested_edits_rewards_continue_button">繼續</string>
+  <string name="file_page_activity_title">檔案頁面</string>
   <string name="description_edit_revert_subtitle">感謝編輯維基百科！</string>
   <string name="description_edit_revert_intro">我們知道您已盡力了，但有編者檢閱內容有所疑慮而做出還原。您的編輯被回退的原因可能是：</string>
   <string name="description_edit_revert_reason1">您的貢獻並未遵循&lt;a href=\"%1$s\"&gt;指引&lt;/a&gt;之一。</string>
