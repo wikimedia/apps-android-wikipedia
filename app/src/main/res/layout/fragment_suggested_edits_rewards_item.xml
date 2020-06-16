@@ -13,7 +13,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:scaleType="fitCenter"
-        android:contentDescription="@null"/>
+        android:contentDescription="@null"
+        android:hapticFeedbackEnabled="true" />
 
     <TextView
         android:id="@+id/rewardText"
