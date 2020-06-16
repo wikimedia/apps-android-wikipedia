@@ -764,10 +764,16 @@
   <string name="suggested_edits_last_edited">上一次編輯</string>
   <string name="suggested_edits_last_edited_never">從不</string>
   <string name="suggested_edits_task_new">新</string>
+  <string name="suggested_edits_contributions_type">%1$s（%2$s）</string>
   <string name="suggested_edits_cc0_notice">發布後，表示您同意我們的&lt;a href=\"%1$s\"&gt;使用條款&lt;/a&gt;同時依據 &lt;a href=\"%2$s\"&gt;CC0&lt;/a&gt; 授權不做出撤回您所釋出的貢獻。</string>
   <string name="suggested_edits_reactivation_notification_title">建議編輯</string>
   <string name="suggested_edits_reactivation_notification_stage_one">感謝編輯維基百科！何不從上次停下的地方繼續？</string>
   <string name="suggested_edits_reactivation_notification_stage_two">有空閒來繼續增進維基百科內容嗎？請查看這些編輯建議。</string>
+  <string name="suggested_edits_contribution_type_image_tag">圖片標籤</string>
+  <string name="suggested_edits_contributions_screen_title">%s的貢獻</string>
+  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
+  <string name="suggested_edits_contribution_seen_text">過去 30 天內被觀看過 %s 次。</string>
+  <string name="suggested_edits_contribution_date_yesterday_text">昨天</string>
   <string name="suggested_edits_rewards_contribution">您在維基百科上使用建議編輯做出了 %d 次貢獻。感謝您！</string>
   <string name="suggested_edits_rewards_edit_streak">到目前為止，您有連續 %1$d 天每日做出編輯的紀錄。請挑戰讓紀錄繼續延續下去，%2$s！</string>
   <string name="suggested_edits_rewards_pageviews">您的編輯內容在過去 30 天裡已被 %d 個人觀看過。感謝您，並請繼續加油！</string>
