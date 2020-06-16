@@ -158,6 +158,12 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
         return true;
     }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, final Intent data) {
+        getFragment().onActivityResult(requestCode, resultCode, data);
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
     @LayoutRes
     @Override
     protected int getLayout() {

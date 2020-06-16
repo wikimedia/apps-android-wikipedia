@@ -176,9 +176,6 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
                 && data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS) != null) {
             String searchQuery = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS).get(0);
             openSearchActivity(VOICE, searchQuery);
-        } else if (requestCode == ACTIVITY_REQUEST_INITIAL_ONBOARDING
-                && resultCode == Activity.RESULT_OK) {
-            refreshExploreFeed();
         } else if (requestCode == Constants.ACTIVITY_REQUEST_GALLERY
                 && resultCode == GalleryActivity.ACTIVITY_RESULT_PAGE_SELECTED) {
             startActivity(data);
@@ -201,7 +198,8 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
                 startActivity(PageActivity.newIntent(requireContext()));
             }
         } else if ((requestCode == Constants.ACTIVITY_REQUEST_OPEN_SEARCH_ACTIVITY && resultCode == SearchFragment.RESULT_LANG_CHANGED)
-                || (requestCode == Constants.ACTIVITY_REQUEST_SETTINGS && resultCode == SettingsActivity.ACTIVITY_RESULT_LANGUAGE_CHANGED)) {
+                || (requestCode == Constants.ACTIVITY_REQUEST_SETTINGS && resultCode == SettingsActivity.ACTIVITY_RESULT_LANGUAGE_CHANGED)
+                || (requestCode == ACTIVITY_REQUEST_INITIAL_ONBOARDING && resultCode == Activity.RESULT_OK && AccountUtil.isLoggedIn())) {
             refreshExploreFeed();
         } else {
             super.onActivityResult(requestCode, resultCode, data);
