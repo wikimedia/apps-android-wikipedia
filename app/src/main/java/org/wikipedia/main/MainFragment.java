@@ -77,6 +77,7 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
+import static org.wikipedia.Constants.ACTIVITY_REQUEST_INITIAL_ONBOARDING;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_OPEN_SEARCH_ACTIVITY;
 import static org.wikipedia.Constants.InvokeSource.APP_SHORTCUTS;
 import static org.wikipedia.Constants.InvokeSource.FEED;
@@ -175,6 +176,9 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
                 && data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS) != null) {
             String searchQuery = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS).get(0);
             openSearchActivity(VOICE, searchQuery);
+        } else if (requestCode == ACTIVITY_REQUEST_INITIAL_ONBOARDING
+                && resultCode == Activity.RESULT_OK) {
+            refreshExploreFeed();
         } else if (requestCode == Constants.ACTIVITY_REQUEST_GALLERY
                 && resultCode == GalleryActivity.ACTIVITY_RESULT_PAGE_SELECTED) {
             startActivity(data);

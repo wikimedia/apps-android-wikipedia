@@ -83,9 +83,6 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
             // Updating preference so the search multilingual tooltip
             // is not shown again for first time users
             Prefs.setMultilingualSearchTutorialEnabled(false);
-
-            // Use startActivityForResult to avoid preload the Feed contents before finishing the initial onboarding.
-            // The ACTIVITY_REQUEST_INITIAL_ONBOARDING has not been used in any onActivityResult
             startActivityForResult(InitialOnboardingActivity.newIntent(this), ACTIVITY_REQUEST_INITIAL_ONBOARDING);
         }
 
