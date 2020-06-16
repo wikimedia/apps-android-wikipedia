@@ -16,7 +16,7 @@ class DialogTitleWithImage(
         @DrawableRes imageRes: Int,
         private val preserveImageAspect: Boolean
 ) : LinearLayout(context) {
-    
+
     init {
         View.inflate(context, R.layout.view_dialog_title_with_image, this)
         orientation = VERTICAL
