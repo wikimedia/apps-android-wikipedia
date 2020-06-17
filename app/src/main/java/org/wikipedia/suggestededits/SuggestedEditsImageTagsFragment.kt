@@ -333,20 +333,31 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
 
                 val claimObservables = ArrayList<ObservableSource<MwPostResponse>>()
                 val claimComments = ArrayList<String>()
+                val mId = "M" + page!!.pageId()
+                var claimStr = "{\"claims\":["
+                var commentStr = "/* add-depicts: "
                 for (label in acceptedLabels) {
-                    val claimTemplate = "{\"mainsnak\":" +
+                    if (claimStr.length > 16) {
+                        claimStr += ","
+                    }
+                    if (commentStr.length > 20) {
+                        commentStr += ","
+                    }
+                    claimStr += "{\"mainsnak\":" +
                             "{\"snaktype\":\"value\",\"property\":\"P180\"," +
                             "\"datavalue\":{\"value\":" +
                             "{\"entity-type\":\"item\",\"id\":\"${label.wikidataId}\"}," +
                             "\"type\":\"wikibase-entityid\"},\"datatype\":\"wikibase-item\"}," +
                             "\"type\":\"statement\"," +
-                            "\"id\":\"M${page!!.pageId()}\$${UUID.randomUUID()}\"," +
+                            "\"id\":\"${mId}\$${UUID.randomUUID()}\"," +
                             "\"rank\":\"normal\"}"
-
-                    val comment = if (label.isCustom) SuggestedEditsFunnel.SUGGESTED_EDITS_IMAGE_TAG_CUSTOM_COMMENT else SuggestedEditsFunnel.SUGGESTED_EDITS_IMAGE_TAG_AUTO_COMMENT
-                    claimObservables.add(ServiceFactory.get(commonsSite).postSetClaim(claimTemplate, token, comment, null))
-                    claimComments.add(comment)
+                    commentStr += label.wikidataId + "|" + label.label.replace("|", "").replace(",", "")
                 }
+                claimStr += "]}"
+                commentStr += " */"
+
+                claimObservables.add(ServiceFactory.get(commonsSite).postEditEntity(mId, token, claimStr, commentStr, null))
+                claimComments.add(commentStr)
 
                 disposables.add(Observable.zip(claimObservables) { responses ->
                         for (res in responses) {
