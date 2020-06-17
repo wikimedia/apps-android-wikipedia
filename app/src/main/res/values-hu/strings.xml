@@ -10,6 +10,7 @@
 * Fitoschido
 * MeskoBalazs
 * Misibacsi
+* Máté
 * Notramo
 * Patriccck
 * R-Joe
@@ -754,6 +755,7 @@
   <string name="suggested_edits_reactivation_notification_title">Javasolt szerkesztések</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Köszönjük a Wikipédia szerkesztését! Miért nem folytatod, ahol abbahagytad?</string>
   <string name="suggested_edits_reactivation_notification_stage_two">Van egy perced a Wikipédia tökéletesítésére? Nézd meg ezeket a javasolt szerkesztéseket.</string>
+  <string name="suggested_edits_contribution_date_yesterday_text">Tegnap</string>
   <string name="description_edit_revert_subtitle">Köszönjük, hogy szerkesztetted a Wikipédiát!</string>
   <string name="description_edit_revert_intro">Tudjuk, hogy megtetted a tőled telhetőt, de egy másik szerkesztőnek aggályai voltak a szerkesztéseddel kapcsolatban. Többek között az alábbiak miatt vonhatták vissza a szerkesztésedet:</string>
   <string name="description_edit_revert_reason1">nem követted az &lt;a href=\"%1$s\"&gt;irányelveket&lt;/a&gt;</string>

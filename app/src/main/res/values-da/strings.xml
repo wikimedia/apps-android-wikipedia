@@ -615,6 +615,8 @@
   <string name="suggested_edits_contribute">Bidrag</string>
   <string name="suggested_edits_last_edited">Sidst redigeret</string>
   <string name="suggested_edits_last_edited_never">Aldrig</string>
+  <string name="suggested_edits_contribution_date_yesterday_text">I går</string>
+  <string name="suggested_edits_rewards_continue_button">Fortsæt</string>
   <string name="description_edit_revert_subtitle">Tak for din redigering af Wikipedia!</string>
   <string name="description_edit_revert_intro">Vi ved at du har gjort dit bedste, men en af korrekturlæserne havde en indvending. Blandt mulige årsager til at din redigering blev omgjort kan nævnes:</string>
   <string name="description_edit_revert_reason1">dit bidrag fulgte ikke en af &lt;a href=\"%1$s\"&gt;retningslinjerne&lt;/a&gt;.</string>
