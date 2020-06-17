@@ -1,5 +1,7 @@
 package org.wikipedia.suggestededits
 
+import android.icu.text.ListFormatter
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -27,8 +29,8 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.language.AppLanguageLookUpTable
-import org.wikipedia.suggestededits.Contribution.Companion.ALL_EDIT_TYPES
 import org.wikipedia.suggestededits.Contribution.Companion.EDIT_TYPE_ARTICLE_DESCRIPTION
+import org.wikipedia.suggestededits.Contribution.Companion.EDIT_TYPE_GENERIC
 import org.wikipedia.suggestededits.Contribution.Companion.EDIT_TYPE_IMAGE_CAPTION
 import org.wikipedia.suggestededits.Contribution.Companion.EDIT_TYPE_IMAGE_TAG
 import org.wikipedia.util.DateUtil
@@ -51,10 +53,11 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
     private var articleContributionsContinuation: String? = null
     private var imageContributionsContinuation: String? = null
 
-    private var editFilterType = ALL_EDIT_TYPES
+    private var editFilterType = EDIT_TYPE_GENERIC
     private var totalPageViews = 0L
 
     private val qNumberRegex = """Q(\d+)""".toRegex()
+    private val commentRegex = """/\*.*?\*/""".toRegex()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -104,6 +107,8 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
         private const val VIEW_TYPE_DATE = 1
         private const val VIEW_TYPE_ITEM = 2
 
+        private const val DEPICTS_META_STR = "add-depicts:"
+
         fun newInstance(): SuggestedEditsContributionsFragment {
             return SuggestedEditsContributionsFragment()
         }
@@ -141,29 +146,31 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
                     val wikidataContributions = ArrayList<Contribution>()
                     val qLangMap = HashMap<String, HashSet<String>>()
                     articleContributionsContinuation = response.continuation()["uccontinue"]
-                    for (userContribution in response.query()!!.userContributions()) {
-                        var descLang = ""
-                        val strArr = userContribution.comment.split(" ")
-                        for (str in strArr) {
-                            if (str.contains("wbsetdescription")) {
-                                val descArr = str.split("|")
+                    for (contribution in response.query()!!.userContributions()) {
+                        var contributionLanguage = WikipediaApp.getInstance().appOrSystemLanguageCode
+                        var contributionDescription = ""
+                        var editType: Int = EDIT_TYPE_GENERIC
+
+                        val matches = commentRegex.findAll(contribution.comment)
+                        if (matches.any()) {
+                            val metaComment = deCommentString(matches.first().value)
+                            if (matches.first().value.contains("wbsetdescription")) {
+                                val descArr = metaComment.split("|")
                                 if (descArr.size > 1) {
-                                    descLang = descArr[1]
-                                    break
+                                    contributionLanguage = descArr[1]
                                 }
+                                editType = EDIT_TYPE_ARTICLE_DESCRIPTION
+                                contributionDescription = extractDescriptionFromComment(contribution.comment, matches.first().value)
                             }
                         }
-                        if (descLang.isEmpty()) {
-                            continue
-                        }
 
-                        if (!qLangMap.containsKey(userContribution.title)) {
-                            qLangMap[userContribution.title] = HashSet()
+                        if (!qLangMap.containsKey(contribution.title)) {
+                            qLangMap[contribution.title] = HashSet()
                         }
-                        wikidataContributions.add(Contribution(userContribution.title, "", "", EDIT_TYPE_ARTICLE_DESCRIPTION,
-                                null, DateUtil.iso8601DateParse(userContribution.timestamp), WikiSite.forLanguageCode(descLang), 0))
+                        wikidataContributions.add(Contribution(contribution.title, "", contributionDescription, editType,
+                                null, DateUtil.iso8601DateParse(contribution.timestamp), WikiSite.forLanguageCode(contributionLanguage), 0))
 
-                        qLangMap[userContribution.title]!!.add(descLang)
+                        qLangMap[contribution.title]!!.add(contributionLanguage)
                     }
                     ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getWikidataLabelsAndDescriptions(qLangMap.keys.joinToString("|"))
                             .subscribeOn(Schedulers.io())
@@ -173,7 +180,8 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
                                     for (contribution in wikidataContributions) {
                                         if (contribution.qNumber == entityKey) {
                                             contribution.title = entity.labels()[contribution.wikiSite.languageCode()]!!.value()
-                                            contribution.description = entity.descriptions()[contribution.wikiSite.languageCode()]!!.value()
+                                            // if we need the current description of the item:
+                                            //contribution.description = entity.descriptions()[contribution.wikiSite.languageCode()]!!.value()
                                         }
                                     }
                                 }
@@ -186,26 +194,41 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
                         .flatMap { response ->
                             val contributions = ArrayList<Contribution>()
                             imageContributionsContinuation = response.continuation()["uccontinue"]
-                            for (userContribution in response.query()!!.userContributions()) {
-                                val strArr = userContribution.comment.split(" ")
+                            for (contribution in response.query()!!.userContributions()) {
                                 var contributionLanguage = WikipediaApp.getInstance().appOrSystemLanguageCode
-                                var editType: Int = -1
+                                var editType: Int = EDIT_TYPE_GENERIC
+                                var contributionDescription = contribution.comment
                                 var qNumber = ""
 
-                                for (str in strArr) {
-                                    if (str.contains("wbsetlabel")) {
-                                        val descArr = str.split("|")
+                                val matches = commentRegex.findAll(contribution.comment)
+                                if (matches.any()) {
+                                    val metaComment = deCommentString(matches.first().value)
+
+                                    if (metaComment.contains("wbsetlabel")) {
+                                        val descArr = metaComment.split("|")
                                         if (descArr.size > 1) {
                                             contributionLanguage = descArr[1]
                                         }
                                         editType = EDIT_TYPE_IMAGE_CAPTION
-                                    } else if (str.contains("wbsetclaim")) {
-                                        qNumber = qNumberRegex.find(userContribution.comment)?.value ?: ""
+                                        contributionDescription = extractDescriptionFromComment(contribution.comment, matches.first().value)
+                                    } else if (metaComment.contains("wbsetclaim")) {
+                                        contributionDescription = ""
+                                        qNumber = qNumberRegex.find(contribution.comment)?.value ?: ""
+                                        editType = EDIT_TYPE_IMAGE_TAG
+                                    } else if (metaComment.contains("wbeditentity")) {
+                                        if (matches.count() > 1 && matches.elementAt(1).value.contains(DEPICTS_META_STR)) {
+                                            val metaContentStr = deCommentString(matches.elementAt(1).value)
+                                            val map = extractTagsFromComment(metaContentStr)
+                                            if (map.isNotEmpty()) {
+                                                contributionDescription = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) ListFormatter.getInstance().format(map.values) else map.values.joinToString(",")
+                                            }
+                                        }
                                         editType = EDIT_TYPE_IMAGE_TAG
                                     }
                                 }
-                                contributions.add(Contribution(qNumber, userContribution.title, "", editType, null,
-                                        DateUtil.iso8601DateParse(userContribution.timestamp), WikiSite.forLanguageCode(contributionLanguage), 0))
+
+                                contributions.add(Contribution(qNumber, contribution.title, contributionDescription, editType, null,
+                                        DateUtil.iso8601DateParse(contribution.timestamp), WikiSite.forLanguageCode(contributionLanguage), 0))
 
                             }
                             Observable.just(contributions)
@@ -275,6 +298,31 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
             DateUtils.isSameDay(yesterday.time, date) -> getString(R.string.suggested_edits_contribution_date_yesterday_text)
             else -> DateUtil.getFeedCardDateString(date)
         }
+    }
+
+    private fun deCommentString(str: String): String {
+        return if (str.length < 4) str else str.substring(2, str.length - 2).trim()
+    }
+
+    private fun extractDescriptionFromComment(editComment: String, metaComment: String): String {
+        var outStr = editComment.replace(metaComment, "")
+        val hashtagPos = outStr.indexOf(", #suggestededit")
+        if (hashtagPos >= 0) {
+            outStr = outStr.substring(0, hashtagPos)
+        }
+        return outStr.trim()
+    }
+
+    private fun extractTagsFromComment(metaComment: String): HashMap<String, String> {
+        val strArr = metaComment.replace(DEPICTS_META_STR, "").split(",")
+        val outMap = HashMap<String, String>()
+        for (item in strArr) {
+            val itemArr = item.split("|")
+            if (itemArr.size > 1) {
+                outMap[itemArr[0]] = itemArr[1]
+            }
+        }
+        return outMap
     }
 
     private fun showError(t: Throwable) {
@@ -357,9 +405,8 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
                             if (page.imageInfo() != null) {
                                 val imageInfo = page.imageInfo()!!
                                 contribution.imageUrl = imageInfo.thumbUrl
-                                contribution.description = imageInfo.metadata!!.imageDescription()
                             }
-                            if (contribution.editType == EDIT_TYPE_IMAGE_TAG) {
+                            if (contribution.editType == EDIT_TYPE_IMAGE_TAG && qLabel.isNotEmpty()) {
                                 contribution.description = qLabel
                             }
                             contribution

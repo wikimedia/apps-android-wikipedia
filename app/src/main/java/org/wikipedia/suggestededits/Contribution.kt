@@ -17,9 +17,9 @@ class Contribution internal constructor(val qNumber: String, var title: String, 
     }
 
     companion object {
-        const val EDIT_TYPE_ARTICLE_DESCRIPTION = 0
-        const val EDIT_TYPE_IMAGE_CAPTION = 1
-        const val EDIT_TYPE_IMAGE_TAG = 2
-        const val ALL_EDIT_TYPES = 3
+        const val EDIT_TYPE_GENERIC = 0
+        const val EDIT_TYPE_ARTICLE_DESCRIPTION = 1
+        const val EDIT_TYPE_IMAGE_CAPTION = 2
+        const val EDIT_TYPE_IMAGE_TAG = 3
     }
 }
