@@ -153,7 +153,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
                     articleContributionsContinuation = response.continuation()["uccontinue"]
                     for (contribution in response.query()!!.userContributions()) {
                         var contributionLanguage = WikipediaApp.getInstance().appOrSystemLanguageCode
-                        var contributionDescription = ""
+                        var contributionDescription = contribution.comment
                         var editType: Int = EDIT_TYPE_GENERIC
                         var qNumber = ""
 
