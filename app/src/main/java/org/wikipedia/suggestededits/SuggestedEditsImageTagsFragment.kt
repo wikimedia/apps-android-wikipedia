@@ -331,13 +331,15 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                 val mId = "M" + page!!.pageId()
                 var claimStr = "{\"claims\":["
                 var commentStr = "/* add-depicts: "
+                var first = true
                 for (label in acceptedLabels) {
-                    if (claimStr.length > 16) {
+                    if (!first) {
                         claimStr += ","
                     }
-                    if (commentStr.length > 20) {
+                    if (!first) {
                         commentStr += ","
                     }
+                    first = false
                     claimStr += "{\"mainsnak\":" +
                             "{\"snaktype\":\"value\",\"property\":\"P180\"," +
                             "\"datavalue\":{\"value\":" +
