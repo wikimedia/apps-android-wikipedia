@@ -2,7 +2,7 @@ package org.wikipedia.suggestededits
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.rxjava3.disposables.CompositeDisposable
 
 abstract class SuggestedEditsItemFragment : Fragment() {
     val disposables = CompositeDisposable()

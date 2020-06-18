@@ -6,36 +6,29 @@ import org.junit.Test;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.test.MockRetrofitTest;
 
-import io.reactivex.Observable;
-import io.reactivex.observers.TestObserver;
+import io.reactivex.rxjava3.core.Observable;
 
 public class UserExtendedInfoClientTest extends MockRetrofitTest {
 
     @Test public void testRequestSuccess() throws Throwable {
         enqueueFromFile("user_extended_info.json");
-        TestObserver<MwQueryResponse> observer = new TestObserver<>();
-        getObservable().subscribe(observer);
-
         final int id = 24531888;
-        observer.assertComplete().assertNoErrors()
+        getObservable().test().await()
+                .assertComplete().assertNoErrors()
                 .assertValue(result -> result.query().userInfo().id() == id
                         && result.query().getUserResponse("USER").name().equals("USER"));
     }
 
-    @Test public void testRequestResponse404() {
+    @Test public void testRequestResponse404() throws Throwable {
         enqueue404();
-        TestObserver<MwQueryResponse> observer = new TestObserver<>();
-        getObservable().subscribe(observer);
-
-        observer.assertError(Exception.class);
+        getObservable().test().await()
+                .assertError(Exception.class);
     }
 
-    @Test public void testRequestResponseMalformed() {
+    @Test public void testRequestResponseMalformed() throws Throwable {
         enqueueMalformed();
-        TestObserver<MwQueryResponse> observer = new TestObserver<>();
-        getObservable().subscribe(observer);
-
-        observer.assertError(MalformedJsonException.class);
+        getObservable().test().await()
+                .assertError(MalformedJsonException.class);
     }
 
     private Observable<MwQueryResponse> getObservable() {
