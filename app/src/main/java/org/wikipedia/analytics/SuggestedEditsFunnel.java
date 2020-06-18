@@ -160,7 +160,6 @@ public final class SuggestedEditsFunnel extends TimedFunnel {
         helpOpenedCount++;
     }
 
-    // TODO: Hook this up when opening the user's contributions screen.
     public void contributionsOpened() {
         contributionsOpenedCount++;
     }
