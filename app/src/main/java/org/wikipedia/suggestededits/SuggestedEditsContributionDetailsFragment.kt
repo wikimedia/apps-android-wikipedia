@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_contribution_diff_detail.*
 import org.wikipedia.R
@@ -41,10 +42,10 @@ class SuggestedEditsContributionDetailsFragment : Fragment() {
 
     private fun updateTopGradient() {
         if (contribution.sizeDiff < 0) {
-            topView.background = GradientUtil.getPowerGradient(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorError), Gravity.TOP)
+            topView.background = GradientUtil.getPowerGradient(R.color.red90, Gravity.TOP)
             contributionDiffIndicatorLine.setBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.colorError))
             contributionDiffText.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.colorError))
-            (requireActivity() as SuggestedEditsContributionDetailsActivity).updateStatusBarColor(ResourceUtil.getThemedColor(requireContext(), R.attr.colorError))
+            (requireActivity() as SuggestedEditsContributionDetailsActivity).updateStatusBarColor(ContextCompat.getColor(requireActivity(), R.color.red90))
         } else {
             topView.background = GradientUtil.getPowerGradient(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.color_group_57), Gravity.TOP)
             contributionDiffIndicatorLine.setBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.action_mode_green_background))
