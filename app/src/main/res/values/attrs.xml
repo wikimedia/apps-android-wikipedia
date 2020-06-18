@@ -14,6 +14,13 @@
     <attr name="randomizer_dice_icon_color" format="reference" />
     <attr name="page_tab_counts_shape_border" format="reference" />
     <attr name="image_tags_onboarding_image" format="reference"/>
+    <attr name="reward_interstitial_calendar_drawable" format="reference"/>
+    <attr name="reward_interstitial_heart_drawable" format="reference"/>
+    <attr name="reward_interstitial_view_drawable" format="reference"/>
+    <attr name="reward_interstitial_quality_perfect_drawable" format="reference"/>
+    <attr name="reward_interstitial_quality_excellent_drawable" format="reference"/>
+    <attr name="reward_interstitial_quality_very_good_drawable" format="reference"/>
+    <attr name="reward_interstitial_quality_good_drawable" format="reference"/>
 
     <attr name="multi_select_background_color" format="reference" />
     <attr name="searchItemBackground" format="reference" />

@@ -11,6 +11,7 @@
 * Jeluang Terluang
 * Kurniasan
 * Macofe
+* Tofeiku
 -->
 <resources>
   <string name="app_name_prod">Wikipedia</string>
@@ -638,6 +639,9 @@
     <item quantity="other">%d sumbangan dalam apl</item>
   </plurals>
   <string name="suggested_edits_tasks_onboarding_get_started">Memulakan</string>
+  <string name="suggested_edits_image_preview_dialog_file">Fail</string>
+  <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">Laman fail di Wikipedia</string>
+  <string name="file_page_activity_title">Laman fail</string>
   <string name="description_edit_revert_subtitle">Terima kasih kerana menyunting di Wikipedia!</string>
   <string name="description_edit_revert_intro">Kami tahu anda mencuba yang terbaik, tetapi salah satu pengulas mempunyai kebimbangan. Sebab yang mungkin suntingan anda ditukar semula termasuk:</string>
   <string name="description_edit_revert_reason1">sumbangan anda tidak mengikuti salah satu daripada &lt;a href=\"%1$s\"&gt;garis panduan&lt;/a&gt;.</string>

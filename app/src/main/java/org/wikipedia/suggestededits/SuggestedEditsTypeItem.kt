@@ -2,36 +2,30 @@ package org.wikipedia.suggestededits
 
 import android.content.Context
 import android.content.res.ColorStateList
-import android.os.Build
 import android.util.AttributeSet
 import android.view.View
+import android.view.ViewGroup
 import android.widget.LinearLayout
-import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
 import androidx.core.widget.ImageViewCompat
 import kotlinx.android.synthetic.main.item_suggested_edits_type.view.*
 import org.wikipedia.R
-import org.wikipedia.suggestededits.Contribution.Companion.ALL_EDIT_TYPES
+import org.wikipedia.suggestededits.Contribution.Companion.EDIT_TYPE_GENERIC
 import org.wikipedia.util.ResourceUtil
 
 class SuggestedEditsTypeItem constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
-
-    var editType: Int = ALL_EDIT_TYPES
+    private var editType: Int = EDIT_TYPE_GENERIC
     private var callback: Callback? = null
 
     interface Callback {
-        fun onClick(view: SuggestedEditsTypeItem)
+        fun onTypeItemClick(editType: Int)
     }
 
     init {
         View.inflate(context, R.layout.item_suggested_edits_type, this)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            foreground = AppCompatResources.getDrawable(context, ResourceUtil.getThemedAttributeId(context, R.attr.selectableItemBackground))
-        }
+        layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         setOnClickListener {
-            if (callback != null) {
-                callback?.onClick(this)
-            }
+            callback?.onTypeItemClick(editType)
         }
     }
 
