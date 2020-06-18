@@ -770,7 +770,6 @@
   <string name="suggested_edits_last_edited">This refers to the date when the user made their last edit.</string>
   <string name="suggested_edits_last_edited_never">Displayed when the user has never made an edit.</string>
   <string name="suggested_edits_task_new">Quick label shown for tasks that are newly introduced (should be lowercase in languages that support it).\n\nShould be translated as a kind of advertising, referring to somthing like a \"new (feature)\" or a \"new (thing)\".</string>
-  <string name="suggested_edits_contributions_type">Text indicating the type of user edit. %1$s is the typ and %2$s indicates the language</string>
   <string name="suggested_edits_cc0_notice">Disclaimer that specifies the Terms of Use and CC license that applies to publishing these types of edits. Please preserve the %1$s and %2$s parameters, since these will be replaced with URLs.</string>
   <string name="suggested_edits_reactivation_notification_title">Title of notification when the user has not edited for days.</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Text of notification when the user has not edited for days (first stage).</string>
@@ -891,4 +890,5 @@
     <item quantity="one">Text summarizing the user\'s image tag contribution. %d represents the number of tags contributed.</item>
     <item quantity="other">Text summarizing the user\'s image tag contribution. %d represents the number of tags contributed.</item>
   </plurals>
+  <string name="suggested_edits_contribution_current_revision">Text indicating that the user\'s contribution is the most current edit on that file or article.</string>
 </resources>

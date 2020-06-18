@@ -812,6 +812,7 @@
     <string name="suggested_edits_rewards_edit_quality">Your edits so far are %s. Keep going! We look forward to your contributions.</string>
     <string name="suggested_edits_rewards_continue_button">Continue</string>
     <string name="suggested_edits_contribution_type_image_tag">Image tag</string>
+    <string name="suggested_edits_contribution_current_revision">Current revision</string>
     <!-- /Suggested edits -->
 
     <!-- File page -->

@@ -43,7 +43,7 @@ class SuggestedEditsContributionDetailsFragment : Fragment() {
     private fun setUpContributionDetails() {
         contributionContainer.setOnClickListener { startTypeSpecificActivity() }
         contributionDetailText.text = contribution.description
-        revisionText.text = contribution.revisionId.toString()
+        revisionText.text = contribution.revisionText
         contributionTitle.text = contribution.title
         if (contribution.imageUrl!!.isEmpty() || contribution.imageUrl == "null") contributionImage.visibility = GONE else ViewUtil.loadImageWithRoundedCorners(contributionImage, contribution.imageUrl)
         dateTimeDetailView.setLabelAndDetail(getString(R.string.suggested_edits_contribution_date_time_label), DateUtil.getFeedCardDateString(contribution.date) + " / " + DateUtil.get24HrFormatTimeOnlyString(contribution.date), -1)
