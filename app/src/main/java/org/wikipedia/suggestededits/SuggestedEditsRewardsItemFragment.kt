@@ -1,13 +1,18 @@
 package org.wikipedia.suggestededits
 
+import android.media.RingtoneManager
 import android.os.Bundle
+import android.view.HapticFeedbackConstants
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.fragment_suggested_edits_rewards_item.*
 import org.wikipedia.R
 
+
 class SuggestedEditsRewardsItemFragment : SuggestedEditsItemFragment() {
+
+    private var shouldPlaySound = true
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -18,6 +23,23 @@ class SuggestedEditsRewardsItemFragment : SuggestedEditsItemFragment() {
         super.onViewCreated(view, savedInstanceState)
         rewardImage.setImageResource(requireArguments().getInt(ARG_IMAGE_RESOURCE))
         rewardText.text = requireArguments().getString(ARG_TEXT)
+    }
+
+    override fun onResume() {
+        playVibrationAndSound()
+        super.onResume()
+    }
+
+    private fun playVibrationAndSound() {
+        if (shouldPlaySound) {
+            rewardImage.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS)
+            try {
+                RingtoneManager.getRingtone(requireContext(), RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)).play()
+            } catch (exception: Exception) {
+                // ignore
+            }
+            shouldPlaySound = false
+        }
     }
 
     companion object {

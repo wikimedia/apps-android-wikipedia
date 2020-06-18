@@ -11,10 +11,10 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
-import io.reactivex.Observable
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.schedulers.Schedulers
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.disposables.CompositeDisposable
+import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_suggested_edits_cards.*
 import org.wikipedia.Constants.*
 import org.wikipedia.R
@@ -350,29 +350,29 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
                         var shouldLoadPageViews = false
                         if (editorTaskCounts.totalEdits == Prefs.getSuggestedEditsRewardInterstitialContributionOnInitialCount()
                                 || editorTaskCounts.totalEdits % Prefs.getSuggestedEditsRewardInterstitialContributionOnCount() == 0) {
-                            rewardInterstitialImage = R.drawable.ic_illustration_heart
+                            rewardInterstitialImage = R.attr.reward_interstitial_heart_drawable
                             rewardInterstitialText = getString(R.string.suggested_edits_rewards_contribution, editorTaskCounts.totalEdits)
                         } else if (editorTaskCounts.editStreak % Prefs.getSuggestedEditsRewardInterstitialEditStreakOnCount() == 0) {
-                            rewardInterstitialImage = R.drawable.ic_illustration_calendar
+                            rewardInterstitialImage = R.attr.reward_interstitial_calendar_drawable
                             rewardInterstitialText = getString(R.string.suggested_edits_rewards_edit_streak, editorTaskCounts.editStreak, AccountUtil.getUserName())
                         } else if ((Prefs.getLastSuggestedEditsRewardInterstitialEditQualityShown().toInt() == 0
                                         || daysOfLastEditQualityShown == Prefs.getSuggestedEditsRewardInterstitialEditQualityOnDay())
                                 && SuggestedEditsUserStats.getRevertSeverity() <= SuggestedEditsRewardsItemFragment.EDIT_STREAK_MAX_REVERT_SEVERITY) {
                             when (SuggestedEditsUserStats.getRevertSeverity()) {
                                 0 -> {
-                                    rewardInterstitialImage = R.drawable.ic_illustration_quality_perfect
+                                    rewardInterstitialImage = R.attr.reward_interstitial_quality_perfect_drawable
                                     rewardInterstitialText = getString(R.string.suggested_edits_rewards_edit_quality, getString(R.string.suggested_edits_quality_perfect_text))
                                 }
                                 1 -> {
-                                    rewardInterstitialImage = R.drawable.ic_illustration_quality_excellent
+                                    rewardInterstitialImage = R.attr.reward_interstitial_quality_excellent_drawable
                                     rewardInterstitialText = getString(R.string.suggested_edits_rewards_edit_quality, getString(R.string.suggested_edits_quality_excellent_text))
                                 }
                                 2 -> {
-                                    rewardInterstitialImage = R.drawable.ic_illustration_quality_very_good
+                                    rewardInterstitialImage = R.attr.reward_interstitial_quality_very_good_drawable
                                     rewardInterstitialText = getString(R.string.suggested_edits_rewards_edit_quality, getString(R.string.suggested_edits_quality_very_good_text))
                                 }
                                 else -> {
-                                    rewardInterstitialImage = R.drawable.ic_illustration_quality_good
+                                    rewardInterstitialImage = R.attr.reward_interstitial_quality_good_drawable
                                     rewardInterstitialText = getString(R.string.suggested_edits_rewards_edit_quality, getString(R.string.suggested_edits_quality_good_text))
                                 }
                             }
@@ -392,7 +392,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
                     }
                     .subscribe({
                         if (it >= 0) {
-                            rewardInterstitialImage = R.drawable.ic_illustration_views
+                            rewardInterstitialImage = R.attr.reward_interstitial_view_drawable
                             rewardInterstitialText = getString(R.string.suggested_edits_rewards_pageviews, it)
                             Prefs.setLastSuggestedEditsRewardInterstitialPageviewsShown(System.currentTimeMillis())
                         }
@@ -446,7 +446,8 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
                 funnel.logInterstitialShown()
                 Prefs.setSuggestedEditsRewardInterstitialEnabled(false)
                 if (funnel.shouldSeeInterstitial()) {
-                    return SuggestedEditsRewardsItemFragment.newInstance(rewardInterstitialImage, rewardInterstitialText)
+                    return SuggestedEditsRewardsItemFragment
+                            .newInstance(ResourceUtil.getThemedAttributeId(requireContext(), rewardInterstitialImage), rewardInterstitialText)
                 }
             }
             return when (action) {
