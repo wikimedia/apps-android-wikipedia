@@ -181,7 +181,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
                         }
                         wikidataContributions.add(Contribution(qNumber, contribution.title, contributionDescription, editType,
                                 null, DateUtil.iso8601DateParse(contribution.timestamp), WikiSite.forLanguageCode(contributionLanguage), 0,
-                                if (contribution.top) getString(R.string.suggested_edits_contribution_current_revision) else contribution.revid.toString()))
+                                if (contribution.top) getString(R.string.suggested_edits_contribution_current_revision) else contribution.revid.toString(), contribution.sizediff))
                         qLangMap[qNumber]?.add(contributionLanguage)
                     }
                     ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getWikidataLabelsAndDescriptions(qLangMap.keys.joinToString("|"))
@@ -243,9 +243,9 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
                                             }
                                         }
                                     }
-
                                     contributions.add(Contribution(qNumber, contribution.title, contributionDescription, editType, null,
-                                            DateUtil.iso8601DateParse(contribution.timestamp), WikiSite.forLanguageCode(contributionLanguage), 0, if (contribution.top) getString(R.string.suggested_edits_contribution_current_revision) else contribution.revid.toString()))
+                                            DateUtil.iso8601DateParse(contribution.timestamp), WikiSite.forLanguageCode(contributionLanguage), 0,
+                                            if (contribution.top) getString(R.string.suggested_edits_contribution_current_revision) else contribution.revid.toString(), contribution.sizediff))
 
                                 }
                                 Observable.just(contributions)

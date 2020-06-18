@@ -34,13 +34,27 @@ class SuggestedEditsContributionDetailsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        topView.background = GradientUtil.getPowerGradient(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.color_group_57), Gravity.TOP)
         back.setOnClickListener { requireActivity().onBackPressed() }
         contribution = GsonUnmarshaller.unmarshal(Contribution::class.java, requireActivity().intent.getStringExtra(EXTRA_SOURCE_CONTRIBUTION))
         setUpContributionDetails()
     }
 
+    private fun updateTopGradient() {
+        if (contribution.sizeDiff < 0) {
+            topView.background = GradientUtil.getPowerGradient(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorError), Gravity.TOP)
+            contributionDiffIndicatorLine.setBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.colorError))
+            contributionDiffText.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.colorError))
+            (requireActivity() as SuggestedEditsContributionDetailsActivity).updateStatusBarColor(ResourceUtil.getThemedColor(requireContext(), R.attr.colorError))
+        } else {
+            topView.background = GradientUtil.getPowerGradient(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.color_group_57), Gravity.TOP)
+            contributionDiffIndicatorLine.setBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.action_mode_green_background))
+            contributionDiffText.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.action_mode_green_background))
+            (requireActivity() as SuggestedEditsContributionDetailsActivity).updateStatusBarColor(ResourceUtil.getThemedColor(requireContext(), R.attr.color_group_57))
+        }
+    }
+
     private fun setUpContributionDetails() {
+        updateTopGradient()
         contributionContainer.setOnClickListener { startTypeSpecificActivity() }
         contributionDetailText.text = contribution.description
         revisionText.text = contribution.revisionText
