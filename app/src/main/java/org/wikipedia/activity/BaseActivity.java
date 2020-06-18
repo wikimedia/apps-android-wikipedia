@@ -52,9 +52,9 @@ import org.wikipedia.util.PermissionUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.log.L;
 
-import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.disposables.Disposable;
-import io.reactivex.functions.Consumer;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.disposables.Disposable;
+import io.reactivex.rxjava3.functions.Consumer;
 
 import static org.wikipedia.Constants.INTENT_EXTRA_INVOKE_SOURCE;
 import static org.wikipedia.appshortcuts.AppShortcuts.APP_SHORTCUT_ID;
