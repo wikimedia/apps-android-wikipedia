@@ -207,7 +207,7 @@ dependencies {
     // For release builds, this provides a nearly no-op AppWatcher.
     implementation "com.squareup.leakcanary:leakcanary-object-watcher-android:$leakCanaryVersion"
 
-    testImplementation 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.13'
     testImplementation mockitoCore
     testImplementation 'org.robolectric:robolectric:4.3.1'
     testImplementation "com.squareup.okhttp3:okhttp:$okHttpVersion"
