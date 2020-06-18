@@ -372,6 +372,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
         fun bindItem(contribution: Contribution) {
             view.contribution = contribution
             view.setTitle(contribution.description)
+            view.setDiffCountText(contribution.sizeDiff)
             view.setDescription(contribution.title)
             view.setIcon(contribution.editType)
             view.setImageUrl(contribution.imageUrl)
