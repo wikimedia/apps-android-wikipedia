@@ -45,7 +45,7 @@ class SuggestedEditsContributionDetailsFragment : Fragment() {
         contributionDetailText.text = contribution.description
         revisionText.text = contribution.revisionId.toString()
         contributionTitle.text = contribution.title
-        if (contribution.imageUrl.isEmpty() || contribution.imageUrl == "null") contributionImage.visibility = GONE else ViewUtil.loadImageWithRoundedCorners(contributionImage, contribution.imageUrl)
+        if (contribution.imageUrl!!.isEmpty() || contribution.imageUrl == "null") contributionImage.visibility = GONE else ViewUtil.loadImageWithRoundedCorners(contributionImage, contribution.imageUrl)
         dateTimeDetailView.setLabelAndDetail(getString(R.string.suggested_edits_contribution_date_time_label), DateUtil.getFeedCardDateString(contribution.date) + " / " + DateUtil.get24HrFormatTimeOnlyString(contribution.date), -1)
         setTypSpecificData()
     }
@@ -79,7 +79,7 @@ class SuggestedEditsContributionDetailsFragment : Fragment() {
             }
             else -> {
                 contributionCategory.text = getString(R.string.suggested_edits_contribution_image_label)
-                contributionDiffText.text = resources.getQuantityString(R.plurals.suggested_edits_image_tag_contribution_label, contribution.tagCount, contribution.tagCount)
+                contributionDiffText.text = resources.getQuantityString(R.plurals.suggested_edits_image_tag_contribution_label, 1, 1)
                 typeDetailView.setLabelAndDetail(getString(R.string.suggested_edits_contribution_type_label), getString(R.string.suggested_edits_contribution_type_image_tag), R.drawable.ic_image_tag)
                 pageViewsDetailView.setLabelAndDetail()
                 languageDetailView.setLabelAndDetail()

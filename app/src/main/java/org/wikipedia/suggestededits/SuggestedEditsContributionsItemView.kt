@@ -18,7 +18,7 @@ import org.wikipedia.views.ViewUtil
 
 class SuggestedEditsContributionsItemView constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
     interface Callback {
-        fun onClick()
+        fun onClick(context: Context, contribution: Contribution)
     }
 
     var callback: Callback? = null
@@ -35,13 +35,8 @@ class SuggestedEditsContributionsItemView constructor(context: Context, attrs: A
         }
     }
 
-    interface Callback {
-        fun onClick(context: Context, contribution: Contribution)
-    }
-
-    var callback: Callback? = null
     var contribution: Contribution? = null
-  
+
     fun setTitle(contributionTitle: String?) {
         title.text = StringUtil.fromHtml(contributionTitle)
     }

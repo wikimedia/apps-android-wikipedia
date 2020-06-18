@@ -811,6 +811,7 @@
     <string name="suggested_edits_rewards_pageviews">Your edits have been seen by %d people in the last 30 days. Thanks, and keep going!</string>
     <string name="suggested_edits_rewards_edit_quality">Your edits so far are %s. Keep going! We look forward to your contributions.</string>
     <string name="suggested_edits_rewards_continue_button">Continue</string>
+    <string name="suggested_edits_contribution_type_image_tag">Image tag</string>
     <!-- /Suggested edits -->
 
     <!-- File page -->
