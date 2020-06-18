@@ -1,8 +1,10 @@
 package org.wikipedia.dataclient.mwapi
 
+import org.wikipedia.util.DateUtil
+import java.text.ParseException
 import java.util.*
 
-class UserContributions {
+class UserContribution {
     val userid: Int = 0
     val user: String = ""
     val pageid: Int = 0
@@ -10,7 +12,8 @@ class UserContributions {
     val parentid: Long = 0
     val ns: Int = 0
     val title: String = ""
-    val timestamp: String = ""
+    private val timestamp: String = ""
+    private var parsedDate: Date? = null
     val comment: String = ""
     val new: Boolean = false
     val minor: Boolean = false
@@ -18,4 +21,15 @@ class UserContributions {
     val size: Int = 0
     val sizediff: Int = 0
     val tags: List<String> = Collections.emptyList()
+
+    fun date(): Date {
+        if (parsedDate == null) {
+            try {
+                parsedDate = DateUtil.iso8601DateParse(timestamp)
+            } catch (e: ParseException) {
+                // ignore
+            }
+        }
+        return parsedDate!!
+    }
 }

@@ -899,6 +899,7 @@
     <string name="edit_conflict_dialog_ok_button_text">OK</string>
     <string name="reverted_edit_dialog_ok_button_text">OK</string>
     <string name="account_editing_blocked_dialog_cancel_button_text">Cancel</string>
+    <string name="edit_type_all">All contributions</string>
     <!-- /Editing -->
 
     <!-- Content description -->

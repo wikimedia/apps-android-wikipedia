@@ -55,6 +55,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
 
     private var editFilterType = EDIT_TYPE_GENERIC
     private var totalPageViews = 0L
+    private var totalContributionCount = 0
 
     private val qNumberRegex = """Q(\d+)""".toRegex()
     private val commentRegex = """/\*.*?\*/""".toRegex()
@@ -135,6 +136,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
         }
 
         progressBar.visibility = VISIBLE
+        totalContributionCount = 0
         disposables.clear()
 
         if (allContributions.isEmpty()) {
@@ -148,6 +150,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
         else ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getUserContributions(AccountUtil.getUserName()!!, 50, articleContributionsContinuation)
                 .subscribeOn(Schedulers.io())
                 .flatMap { response ->
+                    totalContributionCount += response.query()!!.userInfo()!!.editCount
                     val wikidataContributions = ArrayList<Contribution>()
                     val qLangMap = HashMap<String, HashSet<String>>()
                     articleContributionsContinuation = response.continuation()["uccontinue"]
@@ -178,7 +181,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
                             qLangMap[qNumber] = HashSet()
                         }
                         wikidataContributions.add(Contribution(qNumber, contribution.title, contributionDescription, editType,
-                                null, DateUtil.iso8601DateParse(contribution.timestamp), WikiSite.forLanguageCode(contributionLanguage), 0))
+                                null, contribution.date(), WikiSite.forLanguageCode(contributionLanguage), 0))
 
                         qLangMap[qNumber]?.add(contributionLanguage)
                     }
@@ -202,6 +205,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
                 ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getUserContributions(AccountUtil.getUserName()!!, 200, imageContributionsContinuation)
                         .subscribeOn(Schedulers.io())
                         .flatMap { response ->
+                            totalContributionCount += response.query()!!.userInfo()!!.editCount
                             val contributions = ArrayList<Contribution>()
                             imageContributionsContinuation = response.continuation()["uccontinue"]
                             for (contribution in response.query()!!.userContributions()) {
@@ -242,7 +246,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
                                 }
 
                                 contributions.add(Contribution(qNumber, contribution.title, contributionDescription, editType, null,
-                                        DateUtil.iso8601DateParse(contribution.timestamp), WikiSite.forLanguageCode(contributionLanguage), 0))
+                                        contribution.date(), WikiSite.forLanguageCode(contributionLanguage), 0))
 
                             }
                             Observable.just(contributions)
@@ -349,7 +353,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
     private inner class HeaderViewHolder internal constructor(itemView: SuggestedEditsContributionsHeaderView) : DefaultViewHolder<SuggestedEditsContributionsHeaderView?>(itemView) {
         fun bindItem() {
             view.callback = this@SuggestedEditsContributionsFragment
-            view.updateFilterViewUI(editFilterType)
+            view.updateFilterViewUI(editFilterType, totalContributionCount)
             view.updateTotalPageViews(totalPageViews)
         }
     }

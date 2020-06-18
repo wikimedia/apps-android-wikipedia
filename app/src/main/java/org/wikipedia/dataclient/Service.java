@@ -179,7 +179,7 @@ public interface Service {
     @GET(MW_API_PREFIX + "action=query&meta=authmanagerinfo|tokens&amirequestsfor=create&type=createaccount")
     @NonNull Observable<MwQueryResponse> getAuthManagerInfo();
 
-    @GET(MW_API_PREFIX + "action=query&meta=userinfo&uiprop=groups|blockinfo")
+    @GET(MW_API_PREFIX + "action=query&meta=userinfo&uiprop=groups|blockinfo|editcount|latestcontrib")
     @NonNull Observable<MwQueryResponse> getUserInfo();
 
     @GET(MW_API_PREFIX + "action=query&list=users&usprop=groups|cancreate")
@@ -231,13 +231,13 @@ public interface Service {
                                        @Nullable @Field("captchaid") String captchaId,
                                        @Nullable @Field("captchaword") String captchaWord);
 
-    @GET(MW_API_PREFIX + "action=query&list=usercontribs&ucprop=ids|title|timestamp|comment|size|flags|sizediff|tags")
+    @GET(MW_API_PREFIX + "action=query&list=usercontribs&ucprop=ids|title|timestamp|comment|size|flags|sizediff|tags&meta=userinfo&uiprop=groups|blockinfo|editcount|latestcontrib")
     @NonNull Observable<MwQueryResponse> getUserContributions(@NonNull @Query("ucuser") String username, @Query("uclimit") int maxCount, @Query("uccontinue") String uccontinue);
 
     @GET(MW_API_PREFIX + "action=query&prop=pageviews")
     @NonNull Observable<MwQueryResponse> getPageViewsForTitles(@NonNull @Query("titles") String titles);
 
-    @GET(MW_API_PREFIX + "action=query&meta=wikimediaeditortaskscounts|userinfo&uiprop=blockinfo")
+    @GET(MW_API_PREFIX + "action=query&meta=wikimediaeditortaskscounts|userinfo&uiprop=groups|blockinfo|editcount|latestcontrib")
     @NonNull Observable<MwQueryResponse> getEditorTaskCounts();
 
     @GET(MW_API_PREFIX + "action=query&generator=wikimediaeditortaskssuggestions&prop=pageprops&gwetstask=missingdescriptions&gwetslimit=3")
