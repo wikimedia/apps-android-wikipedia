@@ -20,13 +20,14 @@ import org.wikipedia.readinglist.database.ReadingListPage;
 
 import java.util.List;
 
-import io.reactivex.Completable;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.schedulers.Schedulers;
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.core.Completable;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 
 public class ReadingListBookmarkMenu {
     public interface Callback {
         void onAddRequest(@Nullable ReadingListPage page);
+        void onMoveRequest(@Nullable ReadingListPage page);
         void onDeleted(@Nullable ReadingListPage page);
         void onShare();
     }
@@ -76,6 +77,11 @@ public class ReadingListBookmarkMenu {
         if (listsContainingPage.size() == 1) {
             MenuItem removeItem = menu.getMenu().findItem(R.id.menu_remove_from_lists);
             removeItem.setTitle(context.getString(R.string.reading_list_remove_from_list, listsContainingPage.get(0).title()));
+
+            MenuItem moveItem = menu.getMenu().findItem(R.id.menu_move_from_list_to_another_list);
+            moveItem.setTitle(context.getString(R.string.reading_list_move_from_to_other_list, listsContainingPage.get(0).title()));
+            moveItem.setVisible(true);
+            moveItem.setEnabled(true);
         }
 
         if (existsInAnyList) {
@@ -131,6 +137,12 @@ public class ReadingListBookmarkMenu {
                 case R.id.menu_add_to_other_list:
                     if (callback != null && !isListsContainingPageEmpty()) {
                         callback.onAddRequest(listsContainingPage.get(0).pages().get(0));
+                    }
+                    return true;
+
+                case R.id.menu_move_from_list_to_another_list:
+                    if (callback != null && !isListsContainingPageEmpty()) {
+                        callback.onMoveRequest(listsContainingPage.get(0).pages().get(0));
                     }
                     return true;
 

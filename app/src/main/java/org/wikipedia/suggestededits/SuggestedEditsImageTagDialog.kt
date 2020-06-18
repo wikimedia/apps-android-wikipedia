@@ -3,6 +3,7 @@ package org.wikipedia.suggestededits
 import android.app.Dialog
 import android.content.ClipboardManager
 import android.content.Context
+import android.content.DialogInterface
 import android.content.res.ColorStateList
 import android.graphics.drawable.InsetDrawable
 import android.os.Build
@@ -17,9 +18,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.shape.MaterialShapeDrawable
 import com.google.android.material.shape.ShapeAppearanceModel
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.schedulers.Schedulers
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.disposables.CompositeDisposable
+import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.dialog_image_tag_select.*
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -37,7 +38,8 @@ import kotlin.collections.ArrayList
 
 class SuggestedEditsImageTagDialog : DialogFragment() {
     interface Callback {
-        fun onSelect(item: MwQueryPage.ImageLabel, searchTerm: String)
+        fun onSearchSelect(item: MwQueryPage.ImageLabel)
+        fun onSearchDismiss(searchTerm: String)
     }
 
     private var currentSearchTerm: String = ""
@@ -165,6 +167,11 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
         }
     }
 
+    override fun onDismiss(dialog: DialogInterface) {
+        super.onDismiss(dialog)
+        callback()?.onSearchDismiss(currentSearchTerm)
+    }
+
     private inner class ResultItemHolder internal constructor(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
         fun bindItem(item: MwQueryPage.ImageLabel, position: Int) {
             itemView.findViewById<TextView>(R.id.labelName).text = item.label
@@ -175,7 +182,7 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
 
         override fun onClick(v: View?) {
             val item = v!!.tag as MwQueryPage.ImageLabel
-            callback()!!.onSelect(item, currentSearchTerm)
+            callback()?.onSearchSelect(item)
             dismiss()
         }
     }

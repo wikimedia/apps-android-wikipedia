@@ -114,7 +114,7 @@
   <string name="dialog_message_leaving_edit">Le tue modifiche non sono state ancora pubblicate. Sei proprio sicuro di voler uscire da questa pagina?</string>
   <string name="dialog_message_leaving_edit_leave">Lascia</string>
   <string name="dialog_message_leaving_edit_stay">Rimani</string>
-  <string name="menu_show_toc">Sommario</string>
+  <string name="menu_show_toc">Indice</string>
   <string name="search_no_results_found">Nessun risultato trovato</string>
   <string name="search_reading_list_no_results">Nessun risultato trovato in \"%s\"</string>
   <string name="search_reading_lists_no_results">Nessun risultato trovato negli elenchi di lettura</string>
@@ -172,12 +172,12 @@
   <string name="create_account_password_error">La password non è valida</string>
   <string name="create_account_generic_error">Impossibile creare l\'utenza</string>
   <string name="create_account_next">Successivo</string>
-  <string name="email_recommendation_dialog_title">Creare un\'utenza senza indirizzo email?</string>
-  <string name="email_recommendation_dialog_message">Anche se fornire un indirizzo email è opzionale, è comunque &lt;b&gt;fortemente raccomandato&lt;/b&gt;, perché è necessario per recuperare la tua utenza nel caso tu ti perda la password.</string>
-  <string name="email_recommendation_message">Raccomandato perché è necessaria una email per recuperare l\'account.</string>
+  <string name="email_recommendation_dialog_title">Creare un\'utenza senza indirizzo di posta elettronica?</string>
+  <string name="email_recommendation_dialog_message">Anche se fornire un indirizzo di posta elettronica è opzionale, è comunque &lt;b&gt;fortemente raccomandato&lt;/b&gt;, perché è necessario per recuperare la tua utenza nel caso tu ti perda la password.</string>
+  <string name="email_recommendation_message">Raccomandato perché è necessaria un indirizzo di posta elettronica per recuperare l\'utenza.</string>
   <string name="email_recommendation_dialog_create_without_email_action">Continua senza indirizzo di posta elettronica</string>
   <string name="email_recommendation_dialog_create_with_email_action">Aggiungi un indirizzo di posta elettronica</string>
-  <string name="create_account_button">Crea un\'utenza</string>
+  <string name="create_account_button">Registrati</string>
   <string name="create_account_name_unavailable">Il nome utente \"%s\" non è disponibile. Per favore, scegli un nome differente.</string>
   <string name="create_account_ip_block_message">Siamo spiacenti, il tuo indirizzo IP è al momento bloccato e non puoi creare nuove utenze.</string>
   <string name="create_account_ip_block_help_url">https://it.m.wikipedia.org/wiki/Wikipedia:Politiche_di_blocco_degli_utenti</string>
@@ -211,7 +211,7 @@
   <string name="page_protected_can_not_edit_title">Questa pagina è protetta</string>
   <string name="settings_item_preferences">Impostazioni</string>
   <string name="settings_activity_title">Impostazioni</string>
-  <string name="about_description">Informazioni sull\'app di Wikipedia</string>
+  <string name="about_description">Informazioni sull\'applicazione di Wikipedia</string>
   <string name="privacy_policy_description">Informativa sulla privacy</string>
   <string name="terms_of_use_description">Condizioni d\'uso</string>
   <string name="about_wikipedia_url">https://it.wikipedia.org/wiki/Wikipedia:Sala_stampa/Wikipedia</string>
@@ -224,7 +224,7 @@
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.it</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="about_libraries_heading">Librerie usate</string>
-  <string name="about_contributors_heading">Collaboratori</string>
+  <string name="about_contributors_heading">Contributori</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Pagina del gruppo&lt;/a&gt;</string>
   <string name="about_translators_heading">Traduttori</string>
   <string name="about_translators_translatewiki">Questa applicazione è stata tradotta da traduttori volontari su &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
@@ -283,7 +283,7 @@
   <string name="preference_title_show_images">Mostra immagini</string>
   <string name="preference_summary_show_images">Abilitare o disabilitare il caricamento delle immagini nelle pagine. Deseleziona questa impostazione se la tua connessione Internet è lenta, o se il tuo traffico dati è limitato.</string>
   <string name="preference_title_download_only_over_wifi">Scarica solo tramite Wi-Fi</string>
-  <string name="dialog_title_download_only_over_wifi">Conferma lo scaricamneto utilizzando i dati mobili?</string>
+  <string name="dialog_title_download_only_over_wifi">Conferma lo scaricamento utilizzando i dati mobili?</string>
   <string name="dialog_text_download_only_over_wifi">Hai \"Scarica solo su Wi-Fi\" attivato nelle impostazioni. Vuoi consentire l\'utilizzo del piano dati mobile solo per questo scaricamento?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Consenti</string>
   <string name="read_more_section">Per saperne di più</string>
@@ -434,6 +434,7 @@
   <string name="reading_list_article_make_offline">Rendi questa voce disponibile non in linea</string>
   <string name="reading_list_add_to_other_list">Aggiungi ad un altro elenco di lettura</string>
   <string name="reading_list_move_to_other_list">Sposta ad un altro elenco di lettura</string>
+  <string name="reading_list_move_from_to_other_list">Sposta da %s ad un altro elenco di lettura</string>
   <string name="reading_list_remove_from_list">Rimuovi da %s</string>
   <string name="reading_list_remove_from_lists">Rimuovi dall\'elenco di lettura</string>
   <string name="reading_list_select_item">Seleziona</string>
@@ -704,12 +705,15 @@
   <string name="suggested_edits_tasks_onboarding_get_started">Inizia</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Didascalia immagine (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Descrizione immagine (%s)</string>
+  <string name="suggested_edits_image_preview_dialog_file">File</string>
   <string name="suggested_edits_image_preview_dialog_artist">Artista</string>
+  <string name="suggested_edits_image_preview_dialog_tags">Etichette</string>
   <string name="suggested_edits_image_preview_dialog_date">Data</string>
   <string name="suggested_edits_image_preview_dialog_source">Fonte/Fotografo</string>
   <string name="suggested_edits_image_preview_dialog_licensing">Licenza</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Ulteriori informazioni</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Pagina del file su Wikimedia Commons</string>
+  <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">Pagina dei file su Wikipedia</string>
   <string name="suggested_edits_article_cta_image_caption">Aggiungi didascalia immagine</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Aggiungi didascalia immagine (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Visualizza</string>
@@ -772,10 +776,17 @@
   <string name="suggested_edits_last_edited">Ultima modifica</string>
   <string name="suggested_edits_last_edited_never">Mai</string>
   <string name="suggested_edits_task_new">nuovo</string>
+  <string name="suggested_edits_contributions_type">%1$s (%2$s)</string>
   <string name="suggested_edits_cc0_notice">Pubblicando, accetti le nostre &lt;a href=\"%1$s\"&gt;condizioni d\'uso&lt;/a&gt; e accetti di rilasciare irrevocabilmente il tuo contributo in base alla &lt;a href=\"%2$s\"&gt;licenza CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Modifiche suggerite</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Grazie per aver modificato Wikipedia! Perché non continuare da dove avevi interrotto?</string>
   <string name="suggested_edits_reactivation_notification_stage_two">Hai un minuto per continuare a migliorare Wikipedia? Dai un\'occhiata a questi suggerimenti di modifica.</string>
+  <string name="suggested_edits_contribution_type_image_tag">Etichetta dell\'immagine</string>
+  <string name="suggested_edits_contributions_screen_title">Contributi di %s</string>
+  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
+  <string name="suggested_edits_contribution_date_yesterday_text">Ieri</string>
+  <string name="suggested_edits_rewards_continue_button">Continua</string>
+  <string name="file_page_activity_title">Pagina del file</string>
   <string name="description_edit_revert_subtitle">Grazie per aver modificato Wikipedia!</string>
   <string name="description_edit_revert_intro">Sappiamo che hai fatto del tuo meglio, ma uno dei recensori ha destato preoccupazione. I possibili motivi per cui la tua modifica è stata annullata includono:</string>
   <string name="description_edit_revert_reason1">il tuo contributo non rispetta una delle &lt;a href=\"%1$s\"&gt;linee guida&lt;/a&gt;.</string>

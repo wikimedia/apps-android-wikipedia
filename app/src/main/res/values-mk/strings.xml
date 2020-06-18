@@ -405,6 +405,7 @@
   <string name="reading_list_article_make_offline">Направи ја статијава достапна вонмрежно</string>
   <string name="reading_list_add_to_other_list">Стави во список за читање</string>
   <string name="reading_list_move_to_other_list">Премести во друг список за читање</string>
+  <string name="reading_list_move_from_to_other_list">Премести од %s во друг список за читање</string>
   <string name="reading_list_remove_from_list">Отстрани од %s</string>
   <string name="reading_list_remove_from_lists">Отстрани од списоци за читање</string>
   <string name="reading_list_select_item">Изберете</string>
@@ -677,12 +678,15 @@
   <string name="suggested_edits_tasks_onboarding_get_started">Започни</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Опис на сликата (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Опис на сликата (%s)</string>
+  <string name="suggested_edits_image_preview_dialog_file">Податотека</string>
   <string name="suggested_edits_image_preview_dialog_artist">Уметник</string>
+  <string name="suggested_edits_image_preview_dialog_tags">Ознаки</string>
   <string name="suggested_edits_image_preview_dialog_date">Датум</string>
   <string name="suggested_edits_image_preview_dialog_source">Извор/Фотограф</string>
   <string name="suggested_edits_image_preview_dialog_licensing">Лиценцирање</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Повеќе инфо</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Податотечна страница на Ризницата</string>
+  <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">Податотечна страница на Википедија</string>
   <string name="suggested_edits_article_cta_image_caption">Додај опис на сликата</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Додај опис на сликата (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Преглед</string>
@@ -745,10 +749,22 @@
   <string name="suggested_edits_last_edited">Последно уредување</string>
   <string name="suggested_edits_last_edited_never">Никогаш</string>
   <string name="suggested_edits_task_new">ново</string>
+  <string name="suggested_edits_contributions_type">%1$s (%2$s)</string>
   <string name="suggested_edits_cc0_notice">Објавувајќи, се согласувате со &lt;a href=\"%1$s\"&gt;Условите на употреба&lt;/a&gt; и дека неотповикливо го објавувате овој придонес под лиценцата &lt;a href=\"%2$s\"&gt;CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Предложени уредувања</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Ви благодариме што ја урадувавте Википедија! Зошто не продолжите од кајшто запревте?</string>
   <string name="suggested_edits_reactivation_notification_stage_two">Имате минутка за да ја подобрите Википедија малку повеќе? Погледајте ги овие совети за уредување.</string>
+  <string name="suggested_edits_contribution_type_image_tag">Ознака за слики</string>
+  <string name="suggested_edits_contributions_screen_title">Придонеси на %s</string>
+  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
+  <string name="suggested_edits_contribution_seen_text">Посетена %s пати во изминатите 30 дена.</string>
+  <string name="suggested_edits_contribution_date_yesterday_text">Вчера</string>
+  <string name="suggested_edits_rewards_contribution">Имате %d придонеси на Википедија користејќи „Предложени уредувања“. Ви благодариме!</string>
+  <string name="suggested_edits_rewards_edit_streak">Досега уредувате %1$d последователни денови. Само така, %2$s!</string>
+  <string name="suggested_edits_rewards_pageviews">Вашите уредувања се видени од %d луѓе во последниве 30 дена. Ви благодариме, и само напред!</string>
+  <string name="suggested_edits_rewards_edit_quality">Засега вашите уредувања се со %s квалитет. Само така! Со нетрпение ги очекуваме вашите понатамошни придонеси.</string>
+  <string name="suggested_edits_rewards_continue_button">Продолжи</string>
+  <string name="file_page_activity_title">Податотечна страница</string>
   <string name="description_edit_revert_subtitle">Ви благодариме што ја уредувате Википедија!</string>
   <string name="description_edit_revert_intro">Знаеме дека се трудите да напишете што подобро, но еден од прегледувачите има примедба за уреденото. Веројатни причини за отповиканото уредување се:</string>
   <string name="description_edit_revert_reason1">вашиот придонес крши едно од &lt;a href=\"%1$s\"&gt;напатствијата&lt;/a&gt;.</string>

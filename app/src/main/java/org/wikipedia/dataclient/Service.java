@@ -20,7 +20,7 @@ import org.wikipedia.edit.preview.EditPreview;
 import org.wikipedia.login.LoginClient;
 import org.wikipedia.search.PrefixSearchResponse;
 
-import io.reactivex.Observable;
+import io.reactivex.rxjava3.core.Observable;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -232,7 +232,7 @@ public interface Service {
                                        @Nullable @Field("captchaword") String captchaWord);
 
     @GET(MW_API_PREFIX + "action=query&list=usercontribs&ucprop=ids|title|timestamp|comment|size|flags|sizediff|tags")
-    @NonNull Observable<MwQueryResponse> getUserContributions(@NonNull @Query("ucuser") String username, @Query("uclimit") int maxCount);
+    @NonNull Observable<MwQueryResponse> getUserContributions(@NonNull @Query("ucuser") String username, @Query("uclimit") int maxCount, @Query("uccontinue") String uccontinue);
 
     @GET(MW_API_PREFIX + "action=query&prop=pageviews")
     @NonNull Observable<MwQueryResponse> getPageViewsForTitles(@NonNull @Query("titles") String titles);
@@ -302,6 +302,16 @@ public interface Service {
                                              @Nullable @Field("summary") String summary,
                                              @NonNull @Field("token") String token,
                                              @Nullable @Field("assert") String user);
+
+    @Headers("Cache-Control: no-cache")
+    @POST(MW_API_PREFIX + "action=wbeditentity&errorlang=uselang")
+    @FormUrlEncoded
+    Observable<MwPostResponse> postEditEntity(@NonNull @Field("id") String id,
+                                              @NonNull @Field("token") String token,
+                                              @Nullable @Field("data") String data,
+                                              @Nullable @Field("summary") String summary,
+                                              @Nullable @Field("tags") String tags);
+
 
     @Headers("Cache-Control: no-cache")
     @POST(MW_API_PREFIX + "action=reviewimagelabels")

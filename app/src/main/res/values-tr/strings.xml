@@ -46,7 +46,7 @@
   <string name="search_hint">Vikipedi\'de ara</string>
   <string name="search_hint_voice_search">Ses girişi arama</string>
   <string name="search_hint_search_history">Arama geçmişi</string>
-  <string name="search_hint_search_languages">Bir dilde ara</string>
+  <string name="search_hint_search_languages">Bir dil arayın</string>
   <string name="search_hint_search_my_lists_and_articles">Listelerimde ve makalelerimde ara</string>
   <string name="nav_item_history">Geçmiş</string>
   <string name="nav_item_suggested_edits">Önerilen düzenlemeler</string>
@@ -211,7 +211,7 @@
   <string name="settings_activity_title">Ayarlar</string>
   <string name="about_description">Vikipedi uygulaması hakkında</string>
   <string name="privacy_policy_description">Gizlilik politikası</string>
-  <string name="terms_of_use_description">Kullanım koşulları</string>
+  <string name="terms_of_use_description">Kullanım şartları</string>
   <string name="about_wikipedia_url">https://tr.wikipedia.org/wiki/Vikipedi:Hakkında</string>
   <string name="privacy_policy_url" fuzzy="true">https://meta.wikimedia.org/wiki/Privacy_policy/tr</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/tr#Çevrimdışı_okuma_ve_veri</string>
@@ -433,6 +433,7 @@
   <string name="reading_list_article_make_offline">Bu maddeyi çevrimdışı olarak kullanılabilir yap</string>
   <string name="reading_list_add_to_other_list">Başka bir okuma listesine ekle</string>
   <string name="reading_list_move_to_other_list">Başka bir okuma listesine taşı</string>
+  <string name="reading_list_move_from_to_other_list">%s listesinden başka bir okuma listesine taşı</string>
   <string name="reading_list_remove_from_list">%s listesinden sil</string>
   <string name="reading_list_remove_from_lists">Okuma listelerinden sil</string>
   <string name="reading_list_select_item">Seç</string>
@@ -705,12 +706,15 @@
   <string name="suggested_edits_tasks_onboarding_get_started">Başla</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Resim yazısı (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Resim açıklaması (%s)</string>
+  <string name="suggested_edits_image_preview_dialog_file">Dosya</string>
   <string name="suggested_edits_image_preview_dialog_artist">Sanatçı</string>
+  <string name="suggested_edits_image_preview_dialog_tags">Etiketler</string>
   <string name="suggested_edits_image_preview_dialog_date">Tarih</string>
   <string name="suggested_edits_image_preview_dialog_source">Kaynak/Fotoğrafçı</string>
   <string name="suggested_edits_image_preview_dialog_licensing">Lisanslama</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Daha Fazla Bilgi</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Wikimedia Commons\'taki dosya sayfası</string>
+  <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">Vikipedi\'deki dosya sayfası</string>
   <string name="suggested_edits_article_cta_image_caption">Resim yazısı ekle</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Resim yazısı ekle (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Görüntüle</string>
@@ -777,6 +781,7 @@
   <string name="suggested_edits_reactivation_notification_title">Önerilen düzenlemeler</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Vikipedi\'yi düzenlediğiniz için teşekkürler! Neden kaldığınız yerden devam etmiyorsunuz?</string>
   <string name="suggested_edits_reactivation_notification_stage_two">Vikipedi\'yi geliştirmeye devam etmek için bir dakikanız var mı? Bu düzenleme önerilerine göz atın.</string>
+  <string name="file_page_activity_title">Dosya sayfası</string>
   <string name="description_edit_revert_subtitle">Vikipedi\'yi düzenlediğiniz için teşekkürler!</string>
   <string name="description_edit_revert_intro">Elinizden geleni yaptığınızı biliyoruz ama inceleyenlerden biri, bir sıkıntı gördü. Değişikliğiniz geri alınmasının muhtemel sebepleri şunlar olabilir:</string>
   <string name="description_edit_revert_reason1">katkınız &lt;a href=\"%1$s\"&gt;kurallardan&lt;/a&gt; birine uymuyordu.</string>

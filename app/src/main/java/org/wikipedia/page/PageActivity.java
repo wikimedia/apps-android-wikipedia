@@ -80,8 +80,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
-import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.functions.Consumer;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.functions.Consumer;
 
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_SETTINGS;
 import static org.wikipedia.Constants.INTENT_EXTRA_ACTION;
@@ -471,6 +471,10 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         bottomSheetPresenter.showAddToListDialog(getSupportFragmentManager(), title, source, listDialogDismissListener);
     }
 
+    public void showMoveToListDialog(long sourceReadingListId, @NonNull PageTitle title, @NonNull InvokeSource source) {
+        bottomSheetPresenter.showMoveToListDialog(getSupportFragmentManager(), sourceReadingListId, title, source, listDialogDismissListener);
+    }
+
     // Note: back button first handled in {@link #onOptionsItemSelected()};
     @Override
     public void onBackPressed() {
@@ -545,6 +549,11 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     @Override
     public void onPageAddToReadingList(@NonNull PageTitle title, @NonNull InvokeSource source) {
         showAddToListDialog(title, source);
+    }
+
+    @Override
+    public void onPageMoveToReadingList(long sourceReadingListId, @NonNull PageTitle title, @NonNull InvokeSource source) {
+        showMoveToListDialog(sourceReadingListId, title, source);
     }
 
     @Override

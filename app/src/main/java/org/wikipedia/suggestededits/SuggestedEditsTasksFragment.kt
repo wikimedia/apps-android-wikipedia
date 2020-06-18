@@ -10,8 +10,8 @@ import android.widget.Toast
 import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import io.reactivex.Observable
-import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.disposables.CompositeDisposable
 import kotlinx.android.synthetic.main.fragment_suggested_edits_tasks.*
 import org.wikipedia.Constants
 import org.wikipedia.Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE
@@ -73,7 +73,6 @@ class SuggestedEditsTasksFragment : Fragment() {
         suggestedEditsScrollView.setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener { _, _, scrollY, _, _ ->
             (requireActivity() as MainActivity).updateToolbarElevation(scrollY > 0)
         })
-
         setUpTasks()
         tasksRecyclerView.layoutManager = LinearLayoutManager(context)
         tasksRecyclerView.addItemDecoration(DrawableItemDecoration(requireContext(), R.attr.list_separator_drawable, drawStart = false, drawEnd = false,
@@ -85,7 +84,10 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     private fun onUserStatClicked(view: View) {
         when (view) {
-            contributionsStatsView -> showContributionsStatsViewTooltip()
+            contributionsStatsView -> {
+                showContributionsStatsViewTooltip()
+                startActivity(SuggestedEditsContributionsActivity.newIntent(requireActivity()))
+            }
             editStreakStatsView -> showEditStreakStatsViewTooltip()
             pageViewStatsView -> showPageViewStatsViewTooltip()
             else -> showEditQualityStatsViewTooltip()

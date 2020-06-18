@@ -25,6 +25,7 @@ import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.AddToReadingListDialog;
+import org.wikipedia.readinglist.MoveToReadingListDialog;
 import org.wikipedia.readinglist.ReadingListBookmarkMenu;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.readinglist.database.ReadingListPage;
@@ -33,14 +34,16 @@ import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.PositionAwareFragmentStateAdapter;
 
+import java.util.Collections;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
-import io.reactivex.Observable;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.schedulers.Schedulers;
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.core.Observable;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 
 import static org.wikipedia.Constants.INTENT_EXTRA_INVOKE_SOURCE;
 import static org.wikipedia.Constants.InvokeSource.RANDOM_ACTIVITY;
@@ -134,6 +137,11 @@ public class RandomFragment extends Fragment {
                 }
 
                 @Override
+                public void onMoveRequest(@Nullable ReadingListPage page) {
+                    onMovePageToList(page.listId(), title);
+                }
+
+                @Override
                 public void onDeleted(@Nullable ReadingListPage page) {
                     FeedbackUtil.showMessage(getActivity(),
                             getString(R.string.reading_list_item_deleted, title.getDisplayText()));
@@ -158,6 +166,12 @@ public class RandomFragment extends Fragment {
     public void onAddPageToList(@NonNull PageTitle title) {
         bottomSheetPresenter.show(getChildFragmentManager(),
                 AddToReadingListDialog.newInstance(title,
+                        RANDOM_ACTIVITY, (DialogInterface dialogInterface) -> updateSaveShareButton(title)));
+    }
+
+    public void onMovePageToList(long sourceReadingListId, @NonNull PageTitle title) {
+        bottomSheetPresenter.show(getChildFragmentManager(),
+                MoveToReadingListDialog.newInstance(sourceReadingListId, Collections.singletonList(title),
                         RANDOM_ACTIVITY, (DialogInterface dialogInterface) -> updateSaveShareButton(title)));
     }
 

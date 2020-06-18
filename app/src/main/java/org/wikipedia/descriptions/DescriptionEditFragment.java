@@ -47,10 +47,10 @@ import java.util.concurrent.TimeUnit;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
-import io.reactivex.Observable;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.schedulers.Schedulers;
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.core.Observable;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 
 import static android.app.Activity.RESULT_OK;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT_SUCCESS;
@@ -65,6 +65,7 @@ import static org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLAT
 import static org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION;
 import static org.wikipedia.descriptions.DescriptionEditUtil.ABUSEFILTER_DISALLOWED;
 import static org.wikipedia.descriptions.DescriptionEditUtil.ABUSEFILTER_WARNING;
+import static org.wikipedia.language.AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE;
 import static org.wikipedia.suggestededits.SuggestedEditsCardsActivity.EXTRA_SOURCE_ADDED_CONTRIBUTION;
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 
@@ -314,7 +315,9 @@ public class DescriptionEditFragment extends Fragment {
 
             disposables.add(ServiceFactory.get(WikiSite.forLanguageCode(pageTitle.getWikiSite().languageCode())).getSiteInfo()
                     .flatMap(response -> {
-                        String languageCode = response.query().siteInfo() != null && response.query().siteInfo().lang() != null
+                        String languageCode = response.query().siteInfo() != null
+                                && response.query().siteInfo().lang() != null
+                                && !response.query().siteInfo().lang().equals(CHINESE_LANGUAGE_CODE)
                                 ? response.query().siteInfo().lang() : pageTitle.getWikiSite().languageCode();
                         return getPostObservable(editToken, languageCode);
                     })

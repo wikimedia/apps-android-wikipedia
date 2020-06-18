@@ -23,11 +23,11 @@ import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.ObservableWebView;
 
-import io.reactivex.Completable;
-import io.reactivex.Observable;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.schedulers.Schedulers;
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.core.Completable;
+import io.reactivex.rxjava3.core.Observable;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 
 /**
  * Our  page load strategy, which uses responses from the following to construct the page:
@@ -236,7 +236,9 @@ public class PageFragmentLoadState {
             app.getSessionFunnel().noDescription();
         }
 
-        model.getTitle().setDisplayText(page.getDisplayTitle());
+        if (!model.getTitle().isMainPage()) {
+            model.getTitle().setDisplayText(page.getDisplayTitle());
+        }
 
         leadImagesHandler.loadLeadImage();
 

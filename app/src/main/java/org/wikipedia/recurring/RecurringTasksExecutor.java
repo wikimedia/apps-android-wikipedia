@@ -6,8 +6,8 @@ import org.wikipedia.page.shareafact.SharedImageCleanupTask;
 import org.wikipedia.settings.RemoteConfigRefreshTask;
 import org.wikipedia.util.ReleaseUtil;
 
-import io.reactivex.Completable;
-import io.reactivex.schedulers.Schedulers;
+import io.reactivex.rxjava3.core.Completable;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 
 public class RecurringTasksExecutor {
     private final WikipediaApp app;

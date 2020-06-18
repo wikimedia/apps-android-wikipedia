@@ -1,9 +1,9 @@
 package org.wikipedia.suggestededits
 
-import io.reactivex.Observable
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.functions.BiFunction
-import io.reactivex.schedulers.Schedulers
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.functions.BiFunction
+import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.WikipediaApp
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.Service
@@ -20,6 +20,9 @@ object SuggestedEditsUserStats {
     private const val PAUSE_DURATION_DAYS = 7
 
     var totalEdits: Int = 0
+    var totalDescriptionEdits: Int = 0
+    var totalImageCaptionEdits: Int = 0
+    var totalImageTagEdits: Int = 0
     var totalReverts: Int = 0
 
     fun getEditCountsObservable(): Observable<MwQueryResponse> {
@@ -35,6 +38,9 @@ object SuggestedEditsUserStats {
                     if (!it.query()!!.userInfo()!!.isBlocked) {
                         val editorTaskCounts = it.query()!!.editorTaskCounts()!!
                         totalEdits = editorTaskCounts.totalEdits
+                        totalDescriptionEdits = editorTaskCounts.totalDescriptionEdits
+                        totalImageCaptionEdits = editorTaskCounts.totalImageCaptionEdits
+                        totalImageTagEdits = editorTaskCounts.getTotalDepictsEdits()
                         totalReverts = editorTaskCounts.totalReverts
                         maybePauseAndGetEndDate()
                     }
@@ -43,7 +49,7 @@ object SuggestedEditsUserStats {
 
     fun getPageViewsObservable(): Observable<Long> {
         val qLangMap = HashMap<String, HashSet<String>>()
-        return ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getUserContributions(AccountUtil.getUserName()!!, 10)
+        return ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getUserContributions(AccountUtil.getUserName()!!, 10, null)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .flatMap { response ->

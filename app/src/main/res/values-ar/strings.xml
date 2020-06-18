@@ -380,6 +380,7 @@
   <string name="text_size_percent_default">%s (افتراضي)</string>
   <string name="nav_item_reading_lists">قوائمي</string>
   <string name="reading_list_save_to">حفظ في قائمة القراءة</string>
+  <string name="reading_list_move_to">انتقل إلى قائمة القراءة</string>
   <string name="reading_list_create_new">أنشئ قائمة قراءة جديدة</string>
   <string name="reading_list_title_exists">قائمة القراءة \"%s\" موجودة فعلًا.</string>
   <string name="reading_list_article_added_to_named">أضيف %1$s إلى %2$s.</string>
@@ -405,6 +406,7 @@
   <string name="reading_list_action_menu_remove_all_from_offline">إزالة الكل من عدم الاتصال</string>
   <string name="reading_list_action_menu_save_all_for_offline">حفظ الكل لعدم الاتصال</string>
   <string name="reading_list_action_menu_add_to_another_list">أضف إلى لائحة أخرى</string>
+  <string name="reading_list_action_menu_move_to_another_list">انتقل إلى قائمة أخرى</string>
   <string name="reading_list_name_sample">قائمة قراءاتي</string>
   <string name="reading_list_name_hint">اسم قائمة القراءة</string>
   <string name="reading_list_description_hint">الوصف (اختياري):</string>
@@ -425,6 +427,7 @@
   <string name="reading_list_article_offline">متاح في وضع عدم الاتصال</string>
   <string name="reading_list_article_make_offline">إتاحة هذه المقالة دون اتصال</string>
   <string name="reading_list_add_to_other_list">أضف لقائمة قراءة أخرى</string>
+  <string name="reading_list_move_to_other_list">انتقل إلى قائمة قراءة أخرى</string>
   <string name="reading_list_remove_from_list">إزالة من %s</string>
   <string name="reading_list_remove_from_lists">أزل من قوائم القراءة</string>
   <string name="reading_list_select_item">اختر</string>
@@ -692,7 +695,9 @@
   <string name="suggested_edits_tasks_onboarding_get_started">ابدأ</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">شرح الصورة (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">وصف الصورة (%s)</string>
+  <string name="suggested_edits_image_preview_dialog_file">الملف</string>
   <string name="suggested_edits_image_preview_dialog_artist">الفنان</string>
+  <string name="suggested_edits_image_preview_dialog_tags">الوسوم</string>
   <string name="suggested_edits_image_preview_dialog_date">التاريخ</string>
   <string name="suggested_edits_image_preview_dialog_source">المصدر/المصور</string>
   <string name="suggested_edits_image_preview_dialog_licensing">الترخيص</string>
@@ -763,6 +768,8 @@
   <string name="suggested_edits_cc0_notice">بالنشر، فإنك توافق على &lt;a href=\"%1$s\"&gt;شروط الاستخدام&lt;/a&gt;، ونشر تعديلك بلا رجعة تحت رخصة &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">التعديلات المقترحة</string>
   <string name="suggested_edits_reactivation_notification_stage_two">لديك وقت لمواصلة تحسين ويكيبيديا؟ تحقق من اقتراحات التعديل هذه.</string>
+  <string name="suggested_edits_contribution_date_yesterday_text">أمس</string>
+  <string name="file_page_activity_title">صفحة ملف</string>
   <string name="description_edit_revert_subtitle">شكرا للتحرير في ويكيبيديا!</string>
   <string name="description_edit_revert_intro">نحن نعلم أنك جربت أفضل ما لديك، ولكن كان أحد المراجعين قلقا، من بين الأسباب المحتملة لاسترجاع تعديلك ما يلي:</string>
   <string name="description_edit_revert_reason1">مساهمتك لا تتبع أحد &lt;a href=\"%1$s\"&gt;الإرشادات&lt;/a&gt;.</string>

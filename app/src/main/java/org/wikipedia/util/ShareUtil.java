@@ -26,9 +26,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import io.reactivex.Observable;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.schedulers.Schedulers;
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.core.Observable;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
 
@@ -124,16 +124,13 @@ public final class ShareUtil {
     }
 
     private static void displayOnCatchMessage(Throwable caught, Context context) {
-        Toast.makeText(context,
-                String.format(context.getString(R.string.gallery_share_error),
-                        caught.getLocalizedMessage()), Toast.LENGTH_SHORT).show();
+        Toast.makeText(context, context.getString(R.string.gallery_share_error,
+                caught.getLocalizedMessage()), Toast.LENGTH_SHORT).show();
     }
 
     private static void displayShareErrorMessage(Context context) {
-        Toast.makeText(context,
-                String.format(context.getString(R.string.gallery_share_error),
-                        context.getString(R.string.err_cannot_save_file)),
-                Toast.LENGTH_SHORT).show();
+        Toast.makeText(context, context.getString(R.string.gallery_share_error,
+                context.getString(R.string.err_cannot_save_file)), Toast.LENGTH_SHORT).show();
     }
 
     public static void showUnresolvableIntentMessage(Context context) {
