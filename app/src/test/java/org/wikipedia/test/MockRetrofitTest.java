@@ -16,7 +16,7 @@ import org.wikipedia.json.WikiSiteTypeAdapter;
 import org.wikipedia.page.Namespace;
 
 import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
+import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public abstract class MockRetrofitTest extends MockWebServerTest {
@@ -33,7 +33,7 @@ public abstract class MockRetrofitTest extends MockWebServerTest {
     public void setUp() throws Throwable {
         super.setUp();
         Retrofit retrofit = new Retrofit.Builder()
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create(getGson()))
                 .baseUrl(server().getUrl())
                 .build();

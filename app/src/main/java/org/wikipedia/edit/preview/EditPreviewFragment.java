@@ -45,7 +45,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
 
 import static org.wikipedia.dataclient.RestService.PAGE_HTML_PREVIEW_ENDPOINT;
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
