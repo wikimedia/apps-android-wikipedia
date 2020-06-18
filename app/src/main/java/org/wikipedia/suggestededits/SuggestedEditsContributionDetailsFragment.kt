@@ -58,7 +58,7 @@ class SuggestedEditsContributionDetailsFragment : Fragment() {
         updateTopGradient()
         contributionContainer.setOnClickListener { startTypeSpecificActivity() }
         contributionDetailText.text = contribution.description
-        revisionText.text = contribution.revisionText
+        revisionText.text = if (contribution.top) getString(R.string.suggested_edits_contribution_current_revision) else contribution.revisionId.toString()
         contributionTitle.text = contribution.title
         if (contribution.imageUrl!!.isEmpty() || contribution.imageUrl == "null") contributionImage.visibility = GONE else ViewUtil.loadImageWithRoundedCorners(contributionImage, contribution.imageUrl)
         dateTimeDetailView.setLabelAndDetail(getString(R.string.suggested_edits_contribution_date_time_label), DateUtil.getFeedCardDateString(contribution.date) + " / " + DateUtil.get24HrFormatTimeOnlyString(contribution.date), -1)
@@ -78,7 +78,8 @@ class SuggestedEditsContributionDetailsFragment : Fragment() {
         when (contribution.editType) {
             EDIT_TYPE_ARTICLE_DESCRIPTION -> {
                 contributionCategory.text = getString(R.string.suggested_edits_contribution_article_label)
-                contributionDiffText.text = getString(R.string.suggested_edits_contribution_label, contribution.description.length)
+                contributionDiffText.text = if (contribution.sizeDiff < 0) getString(R.string.suggested_edits_removed_contribution_label, contribution.description.length)
+                else getString(R.string.suggested_edits_added_contribution_label, contribution.description.length)
                 pageViewsDetailView.setLabelAndDetail(getString(R.string.suggested_edits_contribution_views,
                         if (contribution.editType == EDIT_TYPE_ARTICLE_DESCRIPTION) getString(R.string.suggested_edits_contribution_article_label)
                         else getString(R.string.suggested_edits_contribution_image_label)), contribution.pageViews.toString(), R.drawable.ic_trending_up_black_24dp)
@@ -87,7 +88,8 @@ class SuggestedEditsContributionDetailsFragment : Fragment() {
             }
             EDIT_TYPE_IMAGE_CAPTION -> {
                 contributionCategory.text = getString(R.string.suggested_edits_contribution_image_label)
-                contributionDiffText.text = getString(R.string.suggested_edits_contribution_label, contribution.description.length)
+                contributionDiffText.text = if (contribution.sizeDiff < 0) getString(R.string.suggested_edits_removed_contribution_label, contribution.description.length)
+                else getString(R.string.suggested_edits_added_contribution_label, contribution.description.length)
                 pageViewsDetailView.setLabelAndDetail()
                 typeDetailView.setLabelAndDetail(getString(R.string.suggested_edits_contribution_type_label), getString(R.string.description_edit_add_caption_hint), R.drawable.ic_image_caption)
                 languageDetailView.setLabelAndDetail(getString(R.string.suggested_edits_contribution_language_label), WikipediaApp.getInstance().language().getAppLanguageCanonicalName(contribution.wikiSite.languageCode()))
