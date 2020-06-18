@@ -8,10 +8,10 @@ import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
 import com.google.android.material.bottomsheet.BottomSheetBehavior
-import io.reactivex.Observable
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.schedulers.Schedulers
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.disposables.CompositeDisposable
+import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.dialog_image_preview.*
 import org.wikipedia.R
 import org.wikipedia.commons.ImageTagsProvider
@@ -73,9 +73,9 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
 
     private fun loadImageInfo() {
         lateinit var imageTags: Map<String, List<String>>
-        var isFromCommons: Boolean = false
-        var thumbnailWidth: Int = 0
-        var thumbnailHeight: Int = 0
+        var isFromCommons = false
+        var thumbnailWidth = 0
+        var thumbnailHeight = 0
 
         disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo(suggestedEditsSummary.title, suggestedEditsSummary.lang)
                 .subscribeOn(Schedulers.io())

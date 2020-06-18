@@ -10,8 +10,7 @@ import org.wikipedia.test.TestFileUtil;
 
 import java.util.List;
 
-import io.reactivex.Observable;
-import io.reactivex.observers.TestObserver;
+import io.reactivex.rxjava3.core.Observable;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
@@ -22,11 +21,8 @@ public class NotificationClientTest extends MockRetrofitTest {
 
     @Test public void testRequestSuccess() throws Throwable {
         enqueueFromFile("notifications.json");
-        TestObserver<MwQueryResponse> observer = new TestObserver<>();
-
-        getObservable().subscribe(observer);
-
-        observer.assertComplete().assertNoErrors()
+        getObservable().test().await()
+                .assertComplete().assertNoErrors()
                 .assertValue(response -> {
                     List<Notification> notifications = response.query().notifications().list();
                     return notifications.get(0).category().equals(CATEGORY_EDIT_THANK)
@@ -35,13 +31,10 @@ public class NotificationClientTest extends MockRetrofitTest {
                 });
     }
 
-    @Test public void testRequestMalformed() {
+    @Test public void testRequestMalformed() throws Throwable {
         enqueueMalformed();
-        TestObserver<MwQueryResponse> observer = new TestObserver<>();
-
-        getObservable().subscribe(observer);
-
-        observer.assertError(MalformedJsonException.class);
+        getObservable().test().await()
+                .assertError(MalformedJsonException.class);
     }
 
     @Test public void testNotificationReverted() throws Throwable {
@@ -55,11 +48,8 @@ public class NotificationClientTest extends MockRetrofitTest {
 
     @Test public void testNotificationMention() throws Throwable {
         enqueueFromFile("notification_mention.json");
-        TestObserver<MwQueryResponse> observer = new TestObserver<>();
-
-        getObservable().subscribe(observer);
-
-        observer.assertComplete().assertNoErrors()
+        getObservable().test().await()
+                .assertComplete().assertNoErrors()
                 .assertValue(response -> {
                     List<Notification> notifications = response.query().notifications().list();
                     return notifications.get(0).category().startsWith(CATEGORY_MENTION)

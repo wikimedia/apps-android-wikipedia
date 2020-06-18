@@ -8,8 +8,6 @@ import org.wikipedia.dataclient.mwapi.MwQueryPage;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.test.MockRetrofitTest;
 
-import io.reactivex.observers.TestObserver;
-
 public class ImageLicenseFetchClientTest extends MockRetrofitTest {
     private static final WikiSite WIKISITE_TEST = WikiSite.forLanguageCode("test");
     private static final PageTitle PAGE_TITLE_MARK_SELBY =
@@ -18,8 +16,6 @@ public class ImageLicenseFetchClientTest extends MockRetrofitTest {
 
     @Test public void testRequestSuccess() throws Throwable {
         enqueueFromFile("image_license.json");
-        TestObserver<ImageLicense> observer = new TestObserver<>();
-
         getApiService().getImageInfo(PAGE_TITLE_MARK_SELBY.getPrefixedText(), WIKISITE_TEST.languageCode())
                 .map(response -> {
                     // noinspection ConstantConditions
@@ -28,9 +24,8 @@ public class ImageLicenseFetchClientTest extends MockRetrofitTest {
                             ? new ImageLicense(page.imageInfo().getMetadata())
                             : new ImageLicense();
                 })
-                .subscribe(observer);
-
-        observer.assertComplete().assertNoErrors()
+                .test().await()
+                .assertComplete().assertNoErrors()
                 .assertValue(result -> result.getLicenseName().equals("cc-by-sa-4.0")
                         && result.getLicenseShortName().equals("CC BY-SA 4.0")
                         && result.getLicenseUrl().equals("http://creativecommons.org/licenses/by-sa/4.0"));
@@ -38,34 +33,25 @@ public class ImageLicenseFetchClientTest extends MockRetrofitTest {
 
     @Test public void testRequestResponseApiError() throws Throwable {
         enqueueFromFile("api_error.json");
-        TestObserver<ImageLicense> observer = new TestObserver<>();
-
         getApiService().getImageInfo(PAGE_TITLE_MARK_SELBY.getPrefixedText(), WIKISITE_TEST.languageCode())
                 .map(response -> new ImageLicense())
-                .subscribe(observer);
-
-        observer.assertError(Exception.class);
+                .test().await()
+                .assertError(Exception.class);
     }
 
-    @Test public void testRequestResponseFailure() {
+    @Test public void testRequestResponseFailure() throws Throwable {
         enqueue404();
-        TestObserver<ImageLicense> observer = new TestObserver<>();
-
         getApiService().getImageInfo(PAGE_TITLE_MARK_SELBY.getPrefixedText(), WIKISITE_TEST.languageCode())
                 .map(response -> new ImageLicense())
-                .subscribe(observer);
-
-        observer.assertError(Exception.class);
+                .test().await()
+                .assertError(Exception.class);
     }
 
-    @Test public void testRequestResponseMalformed() {
+    @Test public void testRequestResponseMalformed() throws Throwable {
         enqueueMalformed();
-        TestObserver<ImageLicense> observer = new TestObserver<>();
-
         getApiService().getImageInfo(PAGE_TITLE_MARK_SELBY.getPrefixedText(), WIKISITE_TEST.languageCode())
                 .map(response -> new ImageLicense())
-                .subscribe(observer);
-
-        observer.assertError(MalformedJsonException.class);
+                .test().await()
+                .assertError(MalformedJsonException.class);
     }
 }
