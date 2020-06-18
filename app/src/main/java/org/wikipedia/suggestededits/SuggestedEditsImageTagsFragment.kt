@@ -13,8 +13,6 @@ import android.widget.CompoundButton
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.android.material.chip.Chip
-import io.reactivex.Observable
-import io.reactivex.ObservableSource
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_suggested_edits_image_tags_item.*
@@ -28,7 +26,6 @@ import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.dataclient.mwapi.MwPostResponse
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.mwapi.media.MediaHelper
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_IMAGE_TAGS
@@ -331,40 +328,41 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         csrfClient.request(false, object : CsrfTokenClient.Callback {
             override fun success(token: String) {
 
-                val claimObservables = ArrayList<ObservableSource<MwPostResponse>>()
-                val claimComments = ArrayList<String>()
+                val mId = "M" + page!!.pageId()
+                var claimStr = "{\"claims\":["
+                var commentStr = "/* add-depicts: "
+                var first = true
                 for (label in acceptedLabels) {
-                    val claimTemplate = "{\"mainsnak\":" +
+                    if (!first) {
+                        claimStr += ","
+                    }
+                    if (!first) {
+                        commentStr += ","
+                    }
+                    first = false
+                    claimStr += "{\"mainsnak\":" +
                             "{\"snaktype\":\"value\",\"property\":\"P180\"," +
                             "\"datavalue\":{\"value\":" +
                             "{\"entity-type\":\"item\",\"id\":\"${label.wikidataId}\"}," +
                             "\"type\":\"wikibase-entityid\"},\"datatype\":\"wikibase-item\"}," +
                             "\"type\":\"statement\"," +
-                            "\"id\":\"M${page!!.pageId()}\$${UUID.randomUUID()}\"," +
+                            "\"id\":\"${mId}\$${UUID.randomUUID()}\"," +
                             "\"rank\":\"normal\"}"
-
-                    val comment = if (label.isCustom) SuggestedEditsFunnel.SUGGESTED_EDITS_IMAGE_TAG_CUSTOM_COMMENT else SuggestedEditsFunnel.SUGGESTED_EDITS_IMAGE_TAG_AUTO_COMMENT
-                    claimObservables.add(ServiceFactory.get(commonsSite).postSetClaim(claimTemplate, token, comment, null))
-                    claimComments.add(comment)
+                    commentStr += label.wikidataId + "|" + label.label.replace("|", "").replace(",", "")
                 }
+                claimStr += "]}"
+                commentStr += " */"
 
-                disposables.add(Observable.zip(claimObservables) { responses ->
-                        for (res in responses) {
-                            if (res is MwPostResponse) {
-                                if (res.pageInfo != null) {
-                                    funnel?.logSaved(res.pageInfo!!.lastRevId, if (claimComments.isEmpty()) "" else claimComments.removeAt(0))
-                                }
-                            }
-                        }
-                        responses[0]
-                    }
+                disposables.add(ServiceFactory.get(commonsSite).postEditEntity(mId, token, claimStr, commentStr, null)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .doAfterTerminate {
                         publishing = false
                     }
                     .subscribe({
-                        // TODO: check anything else in the response?
+                        if (it.pageInfo != null) {
+                            funnel?.logSaved(it.pageInfo!!.lastRevId, commentStr)
+                        }
                         publishSuccess = true
                         onSuccess()
                     }, { caught ->
