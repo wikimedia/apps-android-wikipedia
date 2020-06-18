@@ -304,6 +304,16 @@ public interface Service {
                                              @Nullable @Field("assert") String user);
 
     @Headers("Cache-Control: no-cache")
+    @POST(MW_API_PREFIX + "action=wbeditentity&errorlang=uselang")
+    @FormUrlEncoded
+    Observable<MwPostResponse> postEditEntity(@NonNull @Field("id") String id,
+                                              @NonNull @Field("token") String token,
+                                              @Nullable @Field("data") String data,
+                                              @Nullable @Field("summary") String summary,
+                                              @Nullable @Field("tags") String tags);
+
+
+    @Headers("Cache-Control: no-cache")
     @POST(MW_API_PREFIX + "action=reviewimagelabels")
     @FormUrlEncoded
     Observable<MwPostResponse> postReviewImageLabels(@NonNull @Field("filename") String fileName,
