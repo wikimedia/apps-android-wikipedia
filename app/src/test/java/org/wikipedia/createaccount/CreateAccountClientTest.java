@@ -7,8 +7,7 @@ import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.mwapi.CreateAccountResponse;
 import org.wikipedia.test.MockRetrofitTest;
 
-import io.reactivex.Observable;
-import io.reactivex.observers.TestObserver;
+import io.reactivex.rxjava3.core.Observable;
 
 public class CreateAccountClientTest extends MockRetrofitTest {
 
@@ -18,36 +17,28 @@ public class CreateAccountClientTest extends MockRetrofitTest {
 
     @Test public void testRequestSuccess() throws Throwable {
         enqueueFromFile("create_account_success.json");
-        TestObserver<CreateAccountResponse> observer = new TestObserver<>();
-        getObservable().subscribe(observer);
-
-        observer.assertComplete().assertNoErrors()
+        getObservable().test().await()
+                .assertComplete().assertNoErrors()
                 .assertValue(result -> result.status().equals("PASS")
                         && result.user().equals("Farb0nucci"));
     }
 
     @Test public void testRequestFailure() throws Throwable {
         enqueueFromFile("create_account_failure.json");
-        TestObserver<CreateAccountResponse> observer = new TestObserver<>();
-        getObservable().subscribe(observer);
-
-        observer.assertComplete().assertNoErrors()
+        getObservable().test().await()
+                .assertComplete().assertNoErrors()
                 .assertValue(result -> result.status().equals("FAIL"));
     }
 
-    @Test public void testRequestResponse404() {
+    @Test public void testRequestResponse404() throws Throwable {
         enqueue404();
-        TestObserver<CreateAccountResponse> observer = new TestObserver<>();
-        getObservable().subscribe(observer);
-
-        observer.assertError(Exception.class);
+        getObservable().test().await()
+                .assertError(Exception.class);
     }
 
-    @Test public void testRequestResponseMalformed() {
+    @Test public void testRequestResponseMalformed() throws Throwable {
         enqueueMalformed();
-        TestObserver<CreateAccountResponse> observer = new TestObserver<>();
-        getObservable().subscribe(observer);
-
-        observer.assertError(MalformedJsonException.class);
+        getObservable().test().await()
+                .assertError(MalformedJsonException.class);
     }
 }

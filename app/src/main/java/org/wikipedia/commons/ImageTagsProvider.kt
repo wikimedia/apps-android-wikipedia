@@ -1,13 +1,12 @@
 package org.wikipedia.commons
 
-import io.reactivex.Observable
-import io.reactivex.schedulers.Schedulers
+import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.wikidata.Claims
 import org.wikipedia.dataclient.wikidata.Entities
-import org.wikipedia.util.log.L
 import java.util.*
 
 object ImageTagsProvider {
