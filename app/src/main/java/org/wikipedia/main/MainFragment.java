@@ -95,6 +95,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     @BindView(R.id.fragment_main_nav_tab_container) FrameLayout navTabContainer;
     @BindView(R.id.fragment_main_nav_tab_layout) NavTabLayout tabLayout;
     @BindView(R.id.fragment_main_nav_tab_overlay_layout) NavTabOverlayLayout tabOverlayLayout;
+    @BindView(R.id.nav_more_container) View moreContainer;
     private Unbinder unbinder;
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
     private MediaDownloadReceiver downloadReceiver = new MediaDownloadReceiver();
@@ -131,6 +132,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         viewPager.setUserInputEnabled(false);
         viewPager.setAdapter(new NavTabFragmentPagerAdapter(this));
         viewPager.registerOnPageChangeCallback(pageChangeCallback);
+        FeedbackUtil.setToolbarButtonLongPressToast(moreContainer);
 
         tabLayout.setOnNavigationItemSelectedListener(item -> {
             if (!navTabAutoSelect && getCurrentFragment() instanceof FeedFragment && item.getOrder() == 0) {

@@ -20,19 +20,19 @@
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
     <LinearLayout
+        android:elevation="6dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:baselineAligned="false"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:background="?attr/nav_tab_background_color">
 
         <FrameLayout
             android:id="@+id/fragment_main_nav_tab_container"
             android:layout_width="0dp"
             android:layout_height="?attr/actionBarSize"
             android:layout_gravity="bottom"
-            android:layout_weight="1"
-            android:background="?attr/nav_tab_background_color"
-            android:elevation="6dp">
+            android:layout_weight="0.8">
 
             <org.wikipedia.navtab.NavTabLayout
                 android:id="@+id/fragment_main_nav_tab_layout"
@@ -50,18 +50,17 @@
             <org.wikipedia.navtab.NavTabOverlayLayout
                 android:id="@+id/fragment_main_nav_tab_overlay_layout"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:elevation="8dp" />
+                android:layout_height="match_parent" />
 
         </FrameLayout>
 
         <LinearLayout
             android:id="@+id/nav_more_container"
-            android:layout_width="80dp"
+            android:layout_width="0dp"
+            android:layout_weight="0.2"
             android:layout_height="match_parent"
-            android:background="?attr/nav_tab_background_color"
-            android:elevation="6dp"
-            android:foreground="?attr/selectableItemBackground"
+            android:contentDescription="@string/nav_item_more"
+            android:background="?attr/selectableItemBackground"
             android:gravity="center_horizontal"
             android:orientation="vertical">
 
