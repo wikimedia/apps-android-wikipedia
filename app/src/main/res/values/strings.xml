@@ -16,6 +16,7 @@
     <string name="search_hint_search_my_lists_and_articles">Search my lists and articles</string>
     <string name="nav_item_history">History</string>
     <string name="nav_item_suggested_edits">Suggested edits</string>
+    <string name="nav_item_more">More</string>
     <string name="error_network_error">Cannot connect to the Internet.</string>
     <string name="page_error_retry">Retry</string>
     <string name="card_offline_error_retry">Retry</string>
@@ -311,7 +312,9 @@
     <string name="page_offline_notice_last_date">You are reading an offline version of this article saved on %s.</string>
     <string name="button_get_directions">Get directions</string>
     <string name="error_no_maps_app">Could not find any apps that provide directions.</string>
+    <string name="preference_title_customize_explore_feed">Explore Feed</string>
     <string name="preference_title_show_link_previews">Show link previews</string>
+    <string name="preference_summary_customize_explore_feed">Customize the Explore feed</string>
     <string name="preference_summary_show_link_previews">Show a quick preview of articles when tapping on links.</string>
     <string name="preference_title_collapse_tables">Collapse tables</string>
     <string name="preference_summary_collapse_tables">Automatically collapse tables in articles, such as infoboxes, references, and notes.</string>
@@ -926,12 +929,9 @@
     <string name="wikitext_reference">Reference</string>
     <string name="wikitext_preview_link">Preview link</string>
 
-    <string name="main_drawer_open">Open</string>
-    <string name="main_drawer_close">Close</string>
-    <string name="main_drawer_content_description">Open main navigation drawer</string>
     <string name="main_drawer_help">Help</string>
     <string name="main_drawer_login">Log in / join Wikipedia</string>
-    <string name="main_tooltip_text">%s, did you know that everyone can edit Wikipedia?</string>
+    <string name="main_tooltip_text">Hi %s, did you know that everyone can edit Wikipedia?</string>
     <string name="main_tooltip_action_button">Get started</string>
     <string name="custom_date_picker_dialog_ok_button_text">OK</string>
     <string name="text_input_dialog_ok_button_text">OK</string>

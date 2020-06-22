@@ -3,6 +3,7 @@
 * Abijeet Patro
 * Arya sarhan
 * Asoxor
+* Cwtiyar
 * Diyariq
 * Kurd
 * Kushared
@@ -622,6 +623,13 @@
   <string name="suggested_edits_last_edited_never">ھەرگیز</string>
   <string name="suggested_edits_task_new">نوێ</string>
   <string name="suggested_edits_cc0_notice">بە بڵاوکردنەوە، تۆ ڕازی دەبیت بە &lt;a href=\"%1$s\"&gt;بەندەکانی  بەکارھێنان&lt;/a&gt;، و بە بڵاوکردنەوەی بەشدارییەکانت لەژێر مۆڵەتی &lt;a href=\"%2$s\"&gt;CC0 license&lt;/a&gt;.</string>
+  <string name="suggested_edits_contribution_language_label">زمان</string>
+  <string name="suggested_edits_contribution_date_time_label">بەروار/کات</string>
+  <string name="suggested_edits_contribution_image_label">پەڕگە</string>
+  <string name="suggested_edits_contribution_article_label">وتار</string>
+  <string name="suggested_edits_contribution_views">%s بینراوە</string>
+  <string name="suggested_edits_contribution_date_yesterday_text">دوێنێ</string>
+  <string name="suggested_edits_rewards_continue_button">بەردەوام بە</string>
   <string name="description_edit_revert_subtitle">سپاس بۆ دەستکاریکردنی ویکیپیدیا!</string>
   <string name="description_edit_revert_intro">دەزانین کە ھەوڵێکی باشت داوە، بەڵام یەکێک لە بەسەرداچوونەوەکەران کێشەیەکی تێبینی کردبوو. لەوانەیە لەبەر ئەم ھۆکارانە دەستکارییەکەت پووچەڵ کرابێتەوە:</string>
   <string name="description_edit_revert_reason1">بەشدارییەکەت یەکێک لە &lt;a href=\"%1$s\"&gt;سیاسەتەکان&lt;/a&gt;ی پێشێل کردووە.</string>
@@ -689,7 +697,7 @@
   <string name="main_drawer_close">داخستن</string>
   <string name="main_drawer_help">یارمەتی</string>
   <string name="main_drawer_login">چوونە ژوورەوە/ ببە ئەندامی ویکیپیدیا</string>
-  <string name="main_tooltip_text">%s، دەتزانی ھەموو کەسێک دەتوانێ دەستکاری ویکیپیدیا بکات؟</string>
+  <string name="main_tooltip_text">سلاو %s، دەتزانی ھەموو کەسێک دەتوانێ دەستکاری ویکیپیدیا بکات؟</string>
   <string name="main_tooltip_action_button">دەست پێ بکە</string>
   <string name="custom_date_picker_dialog_ok_button_text">باشە</string>
   <string name="text_input_dialog_ok_button_text">باشە</string>

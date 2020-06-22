@@ -768,7 +768,11 @@
   <string name="suggested_edits_cc0_notice">بالنشر، فإنك توافق على &lt;a href=\"%1$s\"&gt;شروط الاستخدام&lt;/a&gt;، ونشر تعديلك بلا رجعة تحت رخصة &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">التعديلات المقترحة</string>
   <string name="suggested_edits_reactivation_notification_stage_two">لديك وقت لمواصلة تحسين ويكيبيديا؟ تحقق من اقتراحات التعديل هذه.</string>
+  <string name="suggested_edits_contribution_language_label">اللغة</string>
+  <string name="suggested_edits_contribution_type_label">نوع المساهمة</string>
+  <string name="suggested_edits_contribution_article_label">مقالة</string>
   <string name="suggested_edits_contribution_date_yesterday_text">أمس</string>
+  <string name="suggested_edits_contribution_type_image_tag">وسم صورة</string>
   <string name="file_page_activity_title">صفحة ملف</string>
   <string name="description_edit_revert_subtitle">شكرا للتحرير في ويكيبيديا!</string>
   <string name="description_edit_revert_intro">نحن نعلم أنك جربت أفضل ما لديك، ولكن كان أحد المراجعين قلقا، من بين الأسباب المحتملة لاسترجاع تعديلك ما يلي:</string>
@@ -858,7 +862,7 @@
   <string name="main_drawer_content_description">افتح درج التصفح الرئيسي</string>
   <string name="main_drawer_help">مساعدة</string>
   <string name="main_drawer_login">تسجيل الدخول / الاشتراك في ويكيبيديا</string>
-  <string name="main_tooltip_text">%s، هل تعلم أنه يمكن للجميع تحرير ويكيبيديا؟</string>
+  <string name="main_tooltip_text">مرحبا %s، هل تعلم أنه يمكن للجميع تحرير ويكيبيديا؟</string>
   <string name="main_tooltip_action_button">ابدأ</string>
   <string name="custom_date_picker_dialog_ok_button_text">حسنا</string>
   <string name="text_input_dialog_ok_button_text">حسنا</string>

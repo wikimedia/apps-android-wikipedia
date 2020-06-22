@@ -119,21 +119,6 @@ public final class Prefs {
         setBoolean(R.string.preference_key_show_developer_settings, enabled);
     }
 
-    public static boolean showEditMenuOptionIndicator() {
-        return getBoolean(R.string.preference_key_show_edit_menu_option_indicator, false);
-    }
-
-    public static void setShowEditMenuOptionIndicator(boolean enabled) {
-        setBoolean(R.string.preference_key_show_edit_menu_option_indicator, enabled);
-    }
-    public static boolean showActionFeedIndicator() {
-        return getBoolean(R.string.preference_key_show_action_feed_indicator, false);
-    }
-
-    public static void setShowActionFeedIndicator(boolean enabled) {
-        setBoolean(R.string.preference_key_show_action_feed_indicator, enabled);
-    }
-
     @Nullable
     public static String getMruLanguageCodeCsv() {
         return getString(R.string.preference_key_language_mru, null);
@@ -962,6 +947,10 @@ public final class Prefs {
 
     public static int getSuggestedEditsRewardInterstitialPageviewsOnDay() {
         return getInt(R.string.preference_key_suggested_edits_reward_interstitial_pageviews_on_day, 30);
+    }
+
+    public static boolean isSuggestedEditsRewardInterstitialQAOverride() {
+        return getBoolean(R.string.preference_key_suggested_edits_reward_interstitial_qa_override, false);
     }
 
     private Prefs() { }

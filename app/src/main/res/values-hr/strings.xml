@@ -665,9 +665,10 @@
   <string name="suggested_edits_last_edited">Zadnje uređivanje</string>
   <string name="suggested_edits_last_edited_never">Nikad</string>
   <string name="suggested_edits_task_new">novo</string>
-  <string name="suggested_edits_contribution_type_image_tag">Oznake slike</string>
   <string name="suggested_edits_contributions_screen_title">doprinosi suradnika %s</string>
+  <string name="suggested_edits_contribution_date_time_label">Nadnevak / vrijeme</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Jučer</string>
+  <string name="suggested_edits_contribution_type_image_tag">Oznake slike</string>
   <string name="description_edit_revert_subtitle">Hvala što uređujete Wikipediju!</string>
   <string name="description_edit_revert_history">Ako Vas zanima, pogledajte &lt;a href=\"%1$s\"&gt;povijest izmjena&lt;/a&gt;.</string>
   <string name="description_edit_login_cancel_button_text">Odustani</string>

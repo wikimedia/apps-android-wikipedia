@@ -715,11 +715,10 @@
   <string name="suggested_edits_last_edited">Τελευταία απεξεργασία</string>
   <string name="suggested_edits_last_edited_never">Ποτέ</string>
   <string name="suggested_edits_task_new">νέα</string>
-  <string name="suggested_edits_contributions_type">%1$s (στα %2$s)</string>
   <string name="suggested_edits_reactivation_notification_title">Προτεινόμενες τροποποιήσεις</string>
-  <string name="suggested_edits_contribution_type_image_tag">Ετικέτα εικόνας</string>
   <string name="suggested_edits_contributions_screen_title">Οι συνεισφορές του %s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Χθες</string>
+  <string name="suggested_edits_contribution_type_image_tag">Ετικέτα εικόνας</string>
   <string name="description_edit_revert_subtitle">Ευχαριστούμε που επεξεργάζεστε την Βικιπαίδεια!</string>
   <string name="description_edit_revert_reason2">η συνεισφορά σας έμοιαζε περισσότερο σαν πειραματισμός ή βανδαλισμός.</string>
   <string name="description_edit_revert_history">Εάν ενδιαφέρεστε, δείτε το &lt;a href=\"%1$s\"&gt;ιστορικό επεξεργασιών&lt;/a&gt;.</string>

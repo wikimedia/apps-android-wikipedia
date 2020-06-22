@@ -749,21 +749,31 @@
   <string name="suggested_edits_last_edited">Последно уредување</string>
   <string name="suggested_edits_last_edited_never">Никогаш</string>
   <string name="suggested_edits_task_new">ново</string>
-  <string name="suggested_edits_contributions_type">%1$s (%2$s)</string>
   <string name="suggested_edits_cc0_notice">Објавувајќи, се согласувате со &lt;a href=\"%1$s\"&gt;Условите на употреба&lt;/a&gt; и дека неотповикливо го објавувате овој придонес под лиценцата &lt;a href=\"%2$s\"&gt;CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Предложени уредувања</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Ви благодариме што ја урадувавте Википедија! Зошто не продолжите од кајшто запревте?</string>
   <string name="suggested_edits_reactivation_notification_stage_two">Имате минутка за да ја подобрите Википедија малку повеќе? Погледајте ги овие совети за уредување.</string>
-  <string name="suggested_edits_contribution_type_image_tag">Ознака за слики</string>
   <string name="suggested_edits_contributions_screen_title">Придонеси на %s</string>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
+  <string name="suggested_edits_contribution_language_label">Јазик</string>
+  <string name="suggested_edits_contribution_date_time_label">Датум/време</string>
+  <string name="suggested_edits_contribution_type_label">Вид придонес</string>
+  <string name="suggested_edits_contribution_image_label">Податотека</string>
+  <string name="suggested_edits_contribution_article_label">Статија</string>
+  <string name="suggested_edits_contribution_views">%s посети</string>
+  <string name="suggested_edits_contribution_label">Додадовте %d знаци</string>
   <string name="suggested_edits_contribution_seen_text">Посетена %s пати во изминатите 30 дена.</string>
+  <plurals name="suggested_edits_image_tag_contribution_label">
+    <item quantity="one">Додадовте %d ознака</item>
+    <item quantity="other">Додадовте %d ознаки</item>
+  </plurals>
+  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Вчера</string>
   <string name="suggested_edits_rewards_contribution">Имате %d придонеси на Википедија користејќи „Предложени уредувања“. Ви благодариме!</string>
   <string name="suggested_edits_rewards_edit_streak">Досега уредувате %1$d последователни денови. Само така, %2$s!</string>
   <string name="suggested_edits_rewards_pageviews">Вашите уредувања се видени од %d луѓе во последниве 30 дена. Ви благодариме, и само напред!</string>
   <string name="suggested_edits_rewards_edit_quality">Засега вашите уредувања се со %s квалитет. Само така! Со нетрпение ги очекуваме вашите понатамошни придонеси.</string>
   <string name="suggested_edits_rewards_continue_button">Продолжи</string>
+  <string name="suggested_edits_contribution_type_image_tag">Ознака за слики</string>
   <string name="file_page_activity_title">Податотечна страница</string>
   <string name="description_edit_revert_subtitle">Ви благодариме што ја уредувате Википедија!</string>
   <string name="description_edit_revert_intro">Знаеме дека се трудите да напишете што подобро, но еден од прегледувачите има примедба за уреденото. Веројатни причини за отповиканото уредување се:</string>

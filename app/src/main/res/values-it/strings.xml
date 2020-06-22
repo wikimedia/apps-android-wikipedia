@@ -776,16 +776,22 @@
   <string name="suggested_edits_last_edited">Ultima modifica</string>
   <string name="suggested_edits_last_edited_never">Mai</string>
   <string name="suggested_edits_task_new">nuovo</string>
-  <string name="suggested_edits_contributions_type">%1$s (%2$s)</string>
   <string name="suggested_edits_cc0_notice">Pubblicando, accetti le nostre &lt;a href=\"%1$s\"&gt;condizioni d\'uso&lt;/a&gt; e accetti di rilasciare irrevocabilmente il tuo contributo in base alla &lt;a href=\"%2$s\"&gt;licenza CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Modifiche suggerite</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Grazie per aver modificato Wikipedia! Perché non continuare da dove avevi interrotto?</string>
   <string name="suggested_edits_reactivation_notification_stage_two">Hai un minuto per continuare a migliorare Wikipedia? Dai un\'occhiata a questi suggerimenti di modifica.</string>
-  <string name="suggested_edits_contribution_type_image_tag">Etichetta dell\'immagine</string>
   <string name="suggested_edits_contributions_screen_title">Contributi di %s</string>
+  <string name="suggested_edits_contribution_language_label">Lingua</string>
+  <string name="suggested_edits_contribution_date_time_label">Data/Ora</string>
+  <string name="suggested_edits_contribution_type_label">Tipo di contributo</string>
+  <string name="suggested_edits_contribution_image_label">File</string>
+  <string name="suggested_edits_contribution_article_label">Voce</string>
+  <string name="suggested_edits_contribution_views">%s visualizzazioni</string>
+  <string name="suggested_edits_contribution_label">Hai aggiunto %d caratteri</string>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Ieri</string>
   <string name="suggested_edits_rewards_continue_button">Continua</string>
+  <string name="suggested_edits_contribution_type_image_tag">Etichetta dell\'immagine</string>
   <string name="file_page_activity_title">Pagina del file</string>
   <string name="description_edit_revert_subtitle">Grazie per aver modificato Wikipedia!</string>
   <string name="description_edit_revert_intro">Sappiamo che hai fatto del tuo meglio, ma uno dei recensori ha destato preoccupazione. I possibili motivi per cui la tua modifica è stata annullata includono:</string>
