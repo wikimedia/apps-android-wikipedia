@@ -824,7 +824,7 @@
   <string name="main_drawer_close">بستن</string>
   <string name="main_drawer_help">راهنما</string>
   <string name="main_drawer_login">ورود / پیوستن به ویکیپدیا</string>
-  <string name="main_tooltip_text">%s، آیا می‌دانید که هر کسی می‌تواند ویکی‌پدیا را ویرایش کند؟</string>
+  <string name="main_tooltip_text">سلام %s، آیا می‌دانید که هر کسی می‌تواند ویکی‌پدیا را ویرایش کند؟</string>
   <string name="main_tooltip_action_button">شروع شد</string>
   <string name="custom_date_picker_dialog_ok_button_text">تأیید</string>
   <string name="text_input_dialog_ok_button_text">تأیید</string>
