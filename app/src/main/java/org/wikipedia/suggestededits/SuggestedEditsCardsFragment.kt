@@ -50,6 +50,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
     var action: DescriptionEditActivity.Action = ADD_DESCRIPTION
     var rewardInterstitialImage = -1
     var rewardInterstitialText = ""
+    var rewardInterstitialQACount = 0
 
     private val topTitle: PageTitle?
         get() {
@@ -151,10 +152,10 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
     }
 
     private fun shouldShowRewardInterstitial(): Boolean {
-        return sessionEditCount > 2
+        return (sessionEditCount > 2
                 && Prefs.isSuggestedEditsRewardInterstitialEnabled()
                 && rewardInterstitialImage != -1
-                && rewardInterstitialText.isNotEmpty()
+                && rewardInterstitialText.isNotEmpty()) || Prefs.isSuggestedEditsRewardInterstitialQAOverride()
     }
 
     private fun updateBackButton(pagerPosition: Int) {
@@ -445,6 +446,9 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
                 val funnel = ABTestSuggestedEditsInterstitialFunnel()
                 funnel.logInterstitialShown()
                 Prefs.setSuggestedEditsRewardInterstitialEnabled(false)
+                if (Prefs.isSuggestedEditsRewardInterstitialQAOverride()) {
+                    setUpRewardInterstitialsForQA()
+                }
                 if (funnel.shouldSeeInterstitial()) {
                     return SuggestedEditsRewardsItemFragment
                             .newInstance(ResourceUtil.getThemedAttributeId(requireContext(), rewardInterstitialImage), rewardInterstitialText)
@@ -481,6 +485,45 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
             if (position >= storedOffScreenPagesCount) {
                 (cardsViewPager.adapter as ViewPagerAdapter).removeFragmentAt(position - storedOffScreenPagesCount)
             }
+        }
+    }
+
+    private fun setUpRewardInterstitialsForQA() {
+        when (rewardInterstitialQACount) {
+            0 -> {
+                rewardInterstitialImage = R.attr.reward_interstitial_heart_drawable
+                rewardInterstitialText = getString(R.string.suggested_edits_rewards_contribution, 100)
+            }
+            1 -> {
+                rewardInterstitialImage = R.attr.reward_interstitial_calendar_drawable
+                rewardInterstitialText = getString(R.string.suggested_edits_rewards_edit_streak, 100, AccountUtil.getUserName())
+            }
+            2 -> {
+                rewardInterstitialImage = R.attr.reward_interstitial_quality_perfect_drawable
+                rewardInterstitialText = getString(R.string.suggested_edits_rewards_edit_quality, getString(R.string.suggested_edits_quality_perfect_text))
+            }
+            3 -> {
+                rewardInterstitialImage = R.attr.reward_interstitial_quality_excellent_drawable
+                rewardInterstitialText = getString(R.string.suggested_edits_rewards_edit_quality, getString(R.string.suggested_edits_quality_excellent_text))
+            }
+            4 -> {
+                rewardInterstitialImage = R.attr.reward_interstitial_quality_very_good_drawable
+                rewardInterstitialText = getString(R.string.suggested_edits_rewards_edit_quality, getString(R.string.suggested_edits_quality_very_good_text))
+            }
+            5 -> {
+                rewardInterstitialImage = R.attr.reward_interstitial_quality_good_drawable
+                rewardInterstitialText = getString(R.string.suggested_edits_rewards_edit_quality, getString(R.string.suggested_edits_quality_good_text))
+            }
+            6 -> {
+                rewardInterstitialImage = R.attr.reward_interstitial_view_drawable
+                rewardInterstitialText = getString(R.string.suggested_edits_rewards_pageviews, 100)
+            }
+        }
+
+        if (rewardInterstitialQACount == 6) {
+            rewardInterstitialQACount = 0
+        } else {
+            rewardInterstitialQACount++
         }
     }
 
