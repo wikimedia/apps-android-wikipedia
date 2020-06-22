@@ -715,6 +715,7 @@
   <string name="suggested_edits_image_tags_publishing">게시 중</string>
   <string name="suggested_edits_image_tags_published">게시됨</string>
   <string name="suggested_edits_image_tags_onboarding_title">태그를 지정하면 이미지를 더 쉽게 찾을 수 있습니다.</string>
+  <string name="suggested_edits_image_tags_onboarding_text">이미지 태그를 추가함으로써 위키백과가 문서의 이미지에 사용하는 자유 라이선스 파일 저장소인 위키미디어 공용 에서 이미지를 더 쉽게 검색할 수 있도록 도울 것입니다.</string>
   <string name="suggested_edits_image_tags_onboarding_note">선택한 태그만 이미지에 추가됩니다.</string>
   <string name="suggested_edits_image_tags_snackbar">다른 사람이 더 쉽게 찾을 수 있도록 이미지 태그를 추가합니다.</string>
   <string name="suggested_edits_image_tags_task_detail">이미지를 더 쉽게 찾을 수 있도록 사용자 지정 태그를 추가합니다.</string>
@@ -763,6 +764,14 @@
   <string name="suggested_edits_reactivation_notification_title">편집 제안</string>
   <string name="suggested_edits_reactivation_notification_stage_one">위키백과를 편집해주셔서 감사드립니다! 계속 편집을 진행해보시는 건 어떨까요?</string>
   <string name="suggested_edits_reactivation_notification_stage_two">위키백과를 개선할 자투리 시간이 있나요? 편집 제안을 확인해보세요.</string>
+  <string name="suggested_edits_contribution_language_label">언어</string>
+  <string name="suggested_edits_contribution_date_time_label">날짜 / 시간</string>
+  <string name="suggested_edits_contribution_type_label">기여 유형</string>
+  <string name="suggested_edits_contribution_image_label">파일</string>
+  <string name="suggested_edits_contribution_article_label">문서</string>
+  <string name="suggested_edits_contribution_date_yesterday_text">어제</string>
+  <string name="suggested_edits_rewards_continue_button">계속</string>
+  <string name="suggested_edits_contribution_type_image_tag">이미지 태그</string>
   <string name="file_page_activity_title">파일 문서</string>
   <string name="description_edit_revert_subtitle">위키백과를 편집해 주셔서 감사합니다!</string>
   <string name="description_edit_revert_intro">저희는 당신이 최선의 노력을 다해주신 것을 알고 있습니다만, 검토자들 중 한 명이 걱정하는 부분이 있습니다. 당신의 편집이 되돌려진 잠재적 이유는 다음과 같습니다:</string>
