@@ -180,7 +180,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
                             qLangMap[qNumber] = HashSet()
                         }
                         wikidataContributions.add(Contribution(qNumber, contribution.title, contributionDescription, editType, null, DateUtil.iso8601DateParse(contribution.timestamp),
-                                WikiSite.forLanguageCode(contributionLanguage), 0, contribution.revid, contribution.sizediff, contribution.top))
+                                WikiSite.forLanguageCode(contributionLanguage), 0, contribution.revid, contribution.sizediff, contribution.top, 0))
                         qLangMap[qNumber]?.add(contributionLanguage)
                     }
                     ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getWikidataLabelsAndDescriptions(qLangMap.keys.joinToString("|"))
@@ -210,6 +210,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
                                     var editType: Int = EDIT_TYPE_GENERIC
                                     var contributionDescription = contribution.comment
                                     var qNumber = ""
+                                    var tagCount = 0
 
                                     val matches = commentRegex.findAll(contribution.comment)
                                     if (matches.any()) {
@@ -235,6 +236,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
                                                     val metaContentStr = deCommentString(matches.elementAt(1).value)
                                                     val map = extractTagsFromComment(metaContentStr)
                                                     if (map.isNotEmpty()) {
+                                                        tagCount = map.size
                                                         contributionDescription = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) ListFormatter.getInstance().format(map.values) else map.values.joinToString(",")
                                                     }
                                                 }
@@ -244,7 +246,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
                                     }
                                     contributions.add(Contribution(qNumber, contribution.title, contributionDescription, editType, null,
                                             DateUtil.iso8601DateParse(contribution.timestamp), WikiSite.forLanguageCode(contributionLanguage), 0,
-                                            contribution.revid, contribution.sizediff, contribution.top))
+                                            contribution.revid, contribution.sizediff, contribution.top, tagCount))
                                 }
                                 Observable.just(contributions)
                             },

@@ -96,7 +96,7 @@ class SuggestedEditsContributionDetailsFragment : Fragment() {
             }
             else -> {
                 contributionCategory.text = getString(R.string.suggested_edits_contribution_image_label)
-                contributionDiffText.text = resources.getQuantityString(R.plurals.suggested_edits_image_tag_contribution_label, 1, 1)
+                contributionDiffText.text = resources.getQuantityString(R.plurals.suggested_edits_image_tag_contribution_label, contribution.tagCount, contribution.tagCount)
                 typeDetailView.setLabelAndDetail(getString(R.string.suggested_edits_contribution_type_label), getString(R.string.suggested_edits_contribution_type_image_tag), R.drawable.ic_image_tag)
                 pageViewsDetailView.setLabelAndDetail()
                 languageDetailView.setLabelAndDetail()
