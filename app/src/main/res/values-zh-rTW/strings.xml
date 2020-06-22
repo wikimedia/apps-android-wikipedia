@@ -779,6 +779,7 @@
   <string name="suggested_edits_contribution_seen_text">過去 30 天內被觀看過 %s 次。</string>
   <plurals name="suggested_edits_image_tag_contribution_label">
     <item quantity="one">您已添加 %d 個標籤</item>
+    <item quantity="other">您已添加 %d 個標籤</item>
   </plurals>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">昨天</string>
