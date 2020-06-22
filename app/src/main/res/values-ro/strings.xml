@@ -414,6 +414,7 @@
   <string name="reading_list_article_make_offline">Faceți acest articol disponibil offline</string>
   <string name="reading_list_add_to_other_list">Adăugați la o altă listă de citire</string>
   <string name="reading_list_move_to_other_list">Mută la o altă listă de citire</string>
+  <string name="reading_list_move_from_to_other_list">Mută de la %s la altă listă de citit</string>
   <string name="reading_list_remove_from_list">Eliminați din %s</string>
   <string name="reading_list_remove_from_lists">Eliminați din listele de citire</string>
   <string name="reading_list_select_item">Selectează</string>
@@ -773,6 +774,24 @@
   <string name="suggested_edits_reactivation_notification_title">Modificări sugerate</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Mulțumim pentru editarea Wikipedia! De ce să nu continui de la locul unde ai rămas?</string>
   <string name="suggested_edits_reactivation_notification_stage_two">Aveți un minut pentru a continua îmbunătățirea Wikipedia? Vezi aceste sugestii de editare.</string>
+  <string name="suggested_edits_contributions_screen_title">%s\'s contribuții</string>
+  <string name="suggested_edits_contribution_language_label">Limba</string>
+  <string name="suggested_edits_contribution_date_time_label">Data / Ora</string>
+  <string name="suggested_edits_contribution_type_label">Tip contribuție</string>
+  <string name="suggested_edits_contribution_image_label">Fișier</string>
+  <string name="suggested_edits_contribution_article_label">Articol</string>
+  <string name="suggested_edits_contribution_views">%s vizualizări</string>
+  <string name="suggested_edits_contribution_label">Ai adăugat %d caractere</string>
+  <string name="suggested_edits_contribution_seen_text">Văzut %s ori în ultimele 30 de zile.</string>
+  <plurals name="suggested_edits_image_tag_contribution_label">
+    <item quantity="one">Ai adăugat eticheta %d</item>
+    <item quantity="few">Ai adăugat etichetele %d</item>
+    <item quantity="other">Ai adăugat etichetele %d</item>
+  </plurals>
+  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
+  <string name="suggested_edits_contribution_date_yesterday_text">Ieri</string>
+  <string name="suggested_edits_rewards_contribution">Ați făcut %d contribuții la Wikipedia folosind Modificări sugerate. Mulțumesc!</string>
+  <string name="suggested_edits_rewards_edit_streak">Ați editat în fiecare zi pentru %1$d zile până acum. Continuați șirul, %2$s!</string>
   <string name="file_page_activity_title">Pagina fișer</string>
   <string name="description_edit_revert_subtitle">Mulțumim pentru editarea Wikipedia!</string>
   <string name="description_edit_revert_intro">Știm că ai încercat tot posibilul, dar unul dintre recenzori avea o îndoială. Posibilele motive pentru care modificarea dvs. a fost anulată includ:</string>
