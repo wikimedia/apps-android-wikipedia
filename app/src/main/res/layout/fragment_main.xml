@@ -50,7 +50,8 @@
             <org.wikipedia.navtab.NavTabOverlayLayout
                 android:id="@+id/fragment_main_nav_tab_overlay_layout"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:elevation="8dp"/>
 
         </FrameLayout>
 
@@ -66,20 +67,21 @@
 
             <ImageView
                 android:id="@+id/menu_icon"
-                android:layout_width="60dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:contentDescription="@null"
-                android:paddingTop="10dp"
-                android:tint="?attr/nav_tab_item_color_state"
+                android:layout_marginTop="9.5dp"
+                android:tint="?attr/material_theme_secondary_color"
                 app:srcCompat="@drawable/ic_menu_themed_24dp" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:paddingTop="2dp"
+                android:textAlignment="center"
                 android:text="@string/nav_item_more"
-                android:textColor="?attr/nav_tab_item_color_state"
+                android:textColor="?attr/material_theme_de_emphasised_color"
                 android:textSize="10sp" />
         </LinearLayout>
     </LinearLayout>
