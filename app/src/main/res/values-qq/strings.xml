@@ -879,9 +879,6 @@
   <string name="wikitext_template">Button label for making the selected text into a template.\n{{Identical|Template}}</string>
   <string name="wikitext_reference">Button label for adding a reference at the current cursor position.\n{{Identical|Reference}}</string>
   <string name="wikitext_preview_link">Button label for showing a preview of the link that is at the current cursor position.</string>
-  <string name="main_drawer_open">Main navigation drawer label for the content description of the open drawable resource.</string>
-  <string name="main_drawer_close">Main navigation drawer label for the content description of the close drawable resource.</string>
-  <string name="main_drawer_content_description">Label of content description for the button of opening the main navigation drawer</string>
   <string name="main_drawer_help">Main navigation drawer menu label for accessing the app FAQ.</string>
   <string name="main_drawer_login">Main navigation drawer menu label for logging in or creating an account.</string>
   <string name="main_tooltip_text">Message for the tool tip that shown on the main screen. The %s symbol is replaced with the username.</string>
@@ -890,4 +887,7 @@
   <string name="text_input_dialog_ok_button_text">Positive action button text in pop-up dialog for text input.\n{{Identical|OK}}</string>
   <string name="text_input_dialog_cancel_button_text">Negative action button text in pop-up dialog for text input.\n{{Identical|Cancel}}</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Negative action button text in date picker pop-up dialog.\n{{Identical|Cancel}}</string>
+  <string name="nav_item_more">Navigation menu item label for accessing menu items.</string>
+  <string name="preference_title_customize_explore_feed">Title of the preference for customizing the explore feed.</string>
+  <string name="preference_summary_customize_explore_feed">Description of the preference for customizing the explore feed.</string>
 </resources>
