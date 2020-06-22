@@ -366,9 +366,11 @@
   <string name="text_size_percent_default">%s (predvolená hodnota)</string>
   <string name="nav_item_reading_lists">Moje zoznamy</string>
   <string name="reading_list_save_to">Uložiť do zoznamu na prečítanie</string>
+  <string name="reading_list_move_to">Presunúť do zoznamu na prečítanie</string>
   <string name="reading_list_create_new">Vytvoriť nový</string>
   <string name="reading_list_title_exists">Zoznam na prečítanie s názvom „%s“ už existuje.</string>
   <string name="reading_list_article_added_to_named">%1$s pridané do %2$s.</string>
+  <string name="reading_list_article_moved_to_named">%1$s presunuté do %2$s.</string>
   <string name="reading_list_article_already_exists_message">Všetko je v poriadku! Zoznam %1$s už obsahuje %2$s.</string>
   <string name="reading_list_articles_already_exist_message">Všetko je v poriadku! Zoznam %s už obsahuje všetky články.</string>
   <string name="reading_list_added_view_button">Zobraziť zoznam</string>
@@ -391,6 +393,7 @@
   <string name="reading_list_action_menu_remove_all_from_offline">Odstrániť všetko z offline úložiska</string>
   <string name="reading_list_action_menu_save_all_for_offline">Uložiť všetko offline</string>
   <string name="reading_list_action_menu_add_to_another_list">Pridať do ďalšieho zoznamu</string>
+  <string name="reading_list_action_menu_move_to_another_list">Presunúť do ďalšieho zoznamu</string>
   <string name="reading_list_name_sample">Môj zoznam na prečítanie</string>
   <string name="reading_list_name_hint">Názov zoznamu</string>
   <string name="reading_list_description_hint">Popis (nepovinné)</string>
@@ -411,6 +414,8 @@
   <string name="reading_list_article_offline">Dostupné offline</string>
   <string name="reading_list_article_make_offline">Urobiť dostupným offline</string>
   <string name="reading_list_add_to_other_list">Pridať do ďalšieho zoznamu na prečítanie</string>
+  <string name="reading_list_move_to_other_list">Presunúť do ďalšieho zoznamu na prečítanie</string>
+  <string name="reading_list_move_from_to_other_list">Presunúť %s do iného zoznamu na prečítanie</string>
   <string name="reading_list_remove_from_list">Odstrániť zo zoznamu %s</string>
   <string name="reading_list_remove_from_lists">Odstrániť zo zoznamov na prečítanie</string>
   <string name="reading_list_select_item">Vybrať</string>
@@ -427,6 +432,7 @@
   <string name="reading_lists_confirm_remote_delete_no">Nie</string>
   <string name="reading_list_article_save_in_progress">Článok sa preberá. Keď sa preberanie dokončí, bude dostupný aj bez pripojenia na internet.</string>
   <string name="reading_list_articles_added_to_named">%1$d článkov pridané do %2$s</string>
+  <string name="reading_list_articles_moved_to_named">%1$d článkov presunutých do %2$s</string>
   <string name="reading_list_delete_confirm">Naozaj chcete odstrániť zoznam %s?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Ak chcete povoliť synchronizáciu, prihláste sa</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Prihláste sa, aby ste povolili ukladanie zoznamov na prečítanie na váš účet.</string>
@@ -447,6 +453,7 @@
   <string name="no_user_lists_msg">Vytvorte si zoznamy miest, kam sa chcete vydať, zoznamy obľúbených tém a ďalšie</string>
   <string name="reading_list_saved_list_rename">%1$s (vytvorený používateľom)</string>
   <string name="split_reading_list_message">Zaviedli sme limit %d článkov na zoznam na prečítanie. Existujúce zoznamy prekračujúce tento limit budú rozdelené na viaceré zoznamy.</string>
+  <string name="reading_list_move_article_limit_message">Do tohoto zoznamu už nemôžete presunúť články. Dosiahli ste limit %2$d článkov pre zoznam „%1$s“.</string>
   <string name="reading_list_article_limit_message">Do tohoto zoznamu už nemôžete pridávať články. Dosiahli ste limit %2$d článkov pre zoznam „%1$s“.</string>
   <string name="reading_lists_limit_message">Nemôžete vytvoriť ďalší zoznam. Dosiahli ste limit 100 zoznamov na prečítanie pre 1 účet.</string>
   <string name="feed_reading_lists_sync_onboarding_text">&lt;Strong&gt;Synchronizácia zoznamov na prečítanie&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Zoznamy na prečítanie môžu byť teraz synchronizované naprieč zariadeními. Prihláste sa na svoj účet na Wikipédii a povoľte ukladanie svojich vlastných zoznamov.</string>
@@ -679,12 +686,15 @@
   <string name="suggested_edits_tasks_onboarding_get_started">Začíname</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Titulok obrázku v jazyku %s</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Popis obrázku v jazyku %s</string>
+  <string name="suggested_edits_image_preview_dialog_file">Súbor</string>
   <string name="suggested_edits_image_preview_dialog_artist">Umelec</string>
+  <string name="suggested_edits_image_preview_dialog_tags">Značky</string>
   <string name="suggested_edits_image_preview_dialog_date">Dátum</string>
   <string name="suggested_edits_image_preview_dialog_source">Zdroj/Fotograf</string>
   <string name="suggested_edits_image_preview_dialog_licensing">Licencovanie</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Viac informácií</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Stránka súboru na Wikipédia Commons</string>
+  <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">Stránka súboru na Wikipédii</string>
   <string name="suggested_edits_article_cta_image_caption">Pridať titulok obrázku v jazyku</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Pridať titulok obrázku v jazyku %s</string>
   <string name="suggested_edits_article_cta_snackbar_action">Zobraziť</string>
@@ -752,6 +762,23 @@
   <string name="suggested_edits_reactivation_notification_title">Navrhované úpravy</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Ďakujeme, že upravujete Wikipédiu! Pokojne pokračujte tam, kde ste skončili.</string>
   <string name="suggested_edits_reactivation_notification_stage_two">Máte minútku na pokračovanie zlepšovania Wikipédie? Pozrite si tieto editačné návrhy.</string>
+  <string name="suggested_edits_contributions_screen_title">Príspevky používateľa %s</string>
+  <string name="suggested_edits_contribution_language_label">Jazyk</string>
+  <string name="suggested_edits_contribution_date_time_label">Dátum / Čas</string>
+  <string name="suggested_edits_contribution_type_label">Typ príspevku</string>
+  <string name="suggested_edits_contribution_image_label">Súbor</string>
+  <string name="suggested_edits_contribution_article_label">Článok</string>
+  <string name="suggested_edits_contribution_views">%s zobrazení</string>
+  <string name="suggested_edits_contribution_label">Pridali ste %d znakov</string>
+  <string name="suggested_edits_contribution_seen_text">Videné %s-krát za posledných 30 dní.</string>
+  <string name="suggested_edits_contribution_date_yesterday_text">Včera</string>
+  <string name="suggested_edits_rewards_contribution">Pridali ste %d príspevkov na Wikipédiu cez Navrhované úpravy. Vďaka!</string>
+  <string name="suggested_edits_rewards_edit_streak">Zatiaľ ste upravovali každý deň už %1$d dní. Len tak ďalej, %2$s!</string>
+  <string name="suggested_edits_rewards_pageviews">Vaše úpravy videlo %d ľudí za posledných 30 dní. Vďaka a len tak ďalej!</string>
+  <string name="suggested_edits_rewards_edit_quality">Vaše úpravy sú zatiaľ %s. Len tak ďalej! Tešíme sa na vaše príspevky.</string>
+  <string name="suggested_edits_rewards_continue_button">Pokračovať</string>
+  <string name="suggested_edits_contribution_type_image_tag">Značka obrázku</string>
+  <string name="file_page_activity_title">Stránka súboru</string>
   <string name="description_edit_revert_subtitle">Ďakujeme za úpravu Wikipédie!</string>
   <string name="description_edit_revert_intro">Vieme, že ste sa snažili, no jeden z našich redaktorov vyjadril obavu. Možné dôvody vrátenia vašej úpravy sú:</string>
   <string name="description_edit_revert_reason1">Vaša úprava nespĺňa jednu z &lt;a href=\"%1$s\"&gt;požiadavok&lt;/a&gt;.</string>

@@ -255,7 +255,6 @@
   <string name="suggested_edits_image_caption_summary_title_date">తేదీ</string>
   <string name="suggested_edits_image_preview_dialog_date">తేదీ</string>
   <string name="suggested_edits_image_preview_dialog_more_info">మరింత సమాచారం</string>
-  <string name="suggested_edits_contributions_type">%1$s (%2$s)</string>
   <string name="suggested_edits_contribution_date_yesterday_text">నిన్న</string>
   <string name="suggested_edits_rewards_continue_button">కొనసాగించు</string>
   <string name="description_edit_revert_subtitle">వికీపీడియాలో మార్పుచేర్పులు చేసినందుకు ధన్యవాదాలు!</string>
