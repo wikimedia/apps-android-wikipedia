@@ -42,6 +42,7 @@
 * Rodm23
 * Ryo567
 * Sporeunai
+* Suecarmol
 * Tiberius1701
 * VegaDark
 * Whytheonlyone
@@ -784,10 +785,10 @@
   <string name="suggested_edits_reactivation_notification_stage_one">¡Gracias por editar Wikipedia! ¿Por qué no continúas donde lo dejaste?</string>
   <string name="suggested_edits_reactivation_notification_stage_two">¿Tienes un minuto para seguir mejorando Wikipedia? Echa un vistazo a estas sugerencias de edición.</string>
   <string name="suggested_edits_contribution_type_image_tag">Etiqueta de imagen</string>
-  <string name="suggested_edits_contributions_screen_title">Contribuciones del %s</string>
-  <string name="suggested_edits_contribution_seen_text">Vieron %s veces en los últimos 30 días.</string>
+  <string name="suggested_edits_contributions_screen_title">Contribuciones de %s</string>
+  <string name="suggested_edits_contribution_seen_text">Vistas %s veces en los últimos 30 días.</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Ayer</string>
-  <string name="suggested_edits_rewards_contribution">Has hecho %d contribuciones al Wikipedia usando ediciones sugeridas. Gracias!</string>
+  <string name="suggested_edits_rewards_contribution">Has hecho %d contribuciones al Wikipedia usando ediciones sugeridas. ¡Gracias!</string>
   <string name="suggested_edits_rewards_edit_streak">Has editado todos los días para %1$d días. Mantiene editando, %2$s!</string>
   <string name="suggested_edits_rewards_continue_button">Continuar</string>
   <string name="description_edit_revert_subtitle">¡Gracias por editar Wikipedia!</string>

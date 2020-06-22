@@ -28,8 +28,8 @@ import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 
-import io.reactivex.Observable;
-import io.reactivex.schedulers.Schedulers;
+import io.reactivex.rxjava3.core.Observable;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 
 import static org.wikipedia.page.PageActivity.EXTRA_PAGETITLE;
 import static org.wikipedia.util.UriUtil.decodeURL;

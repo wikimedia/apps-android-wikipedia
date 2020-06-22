@@ -8,6 +8,7 @@ import android.widget.LinearLayout
 import androidx.core.view.ViewCompat
 import kotlinx.android.synthetic.main.item_suggested_edits_contributions.view.*
 import org.wikipedia.R
+
 import org.wikipedia.suggestededits.Contribution.Companion.EDIT_TYPE_IMAGE_CAPTION
 import org.wikipedia.suggestededits.Contribution.Companion.EDIT_TYPE_IMAGE_TAG
 import org.wikipedia.util.DimenUtil
@@ -17,7 +18,7 @@ import org.wikipedia.views.ViewUtil
 
 class SuggestedEditsContributionsItemView constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
     interface Callback {
-        fun onClick()
+        fun onClick(context: Context, contribution: Contribution)
     }
 
     var callback: Callback? = null
@@ -28,9 +29,13 @@ class SuggestedEditsContributionsItemView constructor(context: Context, attrs: A
         ViewCompat.setPaddingRelative(this, DimenUtil.roundedDpToPx(16f), 0, 0, 0)
         background = getContext().getDrawable(ResourceUtil.getThemedAttributeId(getContext(), R.attr.selectableItemBackground))
         setOnClickListener {
-            callback?.onClick()
+            if (callback != null) {
+                callback?.onClick(context, contribution!!)
+            }
         }
     }
+
+    var contribution: Contribution? = null
 
     fun setTitle(contributionTitle: String?) {
         title.text = StringUtil.fromHtml(contributionTitle)

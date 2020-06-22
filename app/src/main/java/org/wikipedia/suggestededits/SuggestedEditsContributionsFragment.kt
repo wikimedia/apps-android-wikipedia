@@ -1,5 +1,6 @@
 package org.wikipedia.suggestededits
 
+import android.content.Context
 import android.icu.text.ListFormatter
 import android.os.Build
 import android.os.Bundle
@@ -13,11 +14,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import io.reactivex.Observable
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.functions.BiFunction
-import io.reactivex.schedulers.Schedulers
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.disposables.CompositeDisposable
+import io.reactivex.rxjava3.functions.BiFunction
+import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_contributions_suggested_edits.*
 import org.apache.commons.lang3.StringUtils
 import org.apache.commons.lang3.time.DateUtils
@@ -33,6 +34,7 @@ import org.wikipedia.suggestededits.Contribution.Companion.EDIT_TYPE_ARTICLE_DES
 import org.wikipedia.suggestededits.Contribution.Companion.EDIT_TYPE_GENERIC
 import org.wikipedia.suggestededits.Contribution.Companion.EDIT_TYPE_IMAGE_CAPTION
 import org.wikipedia.suggestededits.Contribution.Companion.EDIT_TYPE_IMAGE_TAG
+import org.wikipedia.suggestededits.SuggestedEditsContributionsItemView.Callback
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
@@ -181,7 +183,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
                             qLangMap[qNumber] = HashSet()
                         }
                         wikidataContributions.add(Contribution(qNumber, contribution.title, contributionDescription, editType,
-                                null, contribution.date(), WikiSite.forLanguageCode(contributionLanguage), 0))
+                                null, contribution.date(), WikiSite.forLanguageCode(contributionLanguage), 0, contribution.revid))
 
                         qLangMap[qNumber]?.add(contributionLanguage)
                     }
@@ -202,55 +204,54 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
                             }
                 },
                 if (allContributions.isNotEmpty() && imageContributionsContinuation.isNullOrEmpty()) Observable.just(Collections.emptyList<Contribution>()) else
-                ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getUserContributions(AccountUtil.getUserName()!!, 200, imageContributionsContinuation)
-                        .subscribeOn(Schedulers.io())
-                        .flatMap { response ->
-                            totalContributionCount += response.query()!!.userInfo()!!.editCount
-                            val contributions = ArrayList<Contribution>()
-                            imageContributionsContinuation = response.continuation()["uccontinue"]
-                            for (contribution in response.query()!!.userContributions()) {
-                                var contributionLanguage = WikipediaApp.getInstance().appOrSystemLanguageCode
-                                var editType: Int = EDIT_TYPE_GENERIC
-                                var contributionDescription = contribution.comment
-                                var qNumber = ""
+                    ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getUserContributions(AccountUtil.getUserName()!!, 200, imageContributionsContinuation)
+                            .subscribeOn(Schedulers.io())
+                            .flatMap { response ->
+                                totalContributionCount += response.query()!!.userInfo()!!.editCount
+                                val contributions = ArrayList<Contribution>()
+                                imageContributionsContinuation = response.continuation()["uccontinue"]
+                                for (contribution in response.query()!!.userContributions()) {
+                                    var contributionLanguage = WikipediaApp.getInstance().appOrSystemLanguageCode
+                                    var editType: Int = EDIT_TYPE_GENERIC
+                                    var contributionDescription = contribution.comment
+                                    var qNumber = ""
 
-                                val matches = commentRegex.findAll(contribution.comment)
-                                if (matches.any()) {
-                                    val metaComment = deCommentString(matches.first().value)
+                                    val matches = commentRegex.findAll(contribution.comment)
+                                    if (matches.any()) {
+                                        val metaComment = deCommentString(matches.first().value)
 
-                                    when {
-                                        metaComment.contains("wbsetlabel") -> {
-                                            val descArr = metaComment.split("|")
-                                            if (descArr.size > 1) {
-                                                contributionLanguage = descArr[1]
-                                            }
-                                            editType = EDIT_TYPE_IMAGE_CAPTION
-                                            contributionDescription = extractDescriptionFromComment(contribution.comment, matches.first().value)
-                                        }
-                                        metaComment.contains("wbsetclaim") -> {
-                                            contributionDescription = ""
-                                            qNumber = qNumberRegex.find(contribution.comment)?.value ?: ""
-                                            editType = EDIT_TYPE_IMAGE_TAG
-                                        }
-                                        metaComment.contains("wbeditentity") -> {
-                                            if (matches.count() > 1 && matches.elementAt(1).value.contains(DEPICTS_META_STR)) {
-                                                val metaContentStr = deCommentString(matches.elementAt(1).value)
-                                                val map = extractTagsFromComment(metaContentStr)
-                                                if (map.isNotEmpty()) {
-                                                    contributionDescription = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) ListFormatter.getInstance().format(map.values) else map.values.joinToString(",")
+                                        when {
+                                            metaComment.contains("wbsetlabel") -> {
+                                                val descArr = metaComment.split("|")
+                                                if (descArr.size > 1) {
+                                                    contributionLanguage = descArr[1]
                                                 }
                                             }
-                                            editType = EDIT_TYPE_IMAGE_TAG
+                                            metaComment.contains("wbsetclaim") -> {
+                                                contributionDescription = ""
+                                                qNumber = qNumberRegex.find(contribution.comment)?.value
+                                                        ?: ""
+                                                editType = EDIT_TYPE_IMAGE_TAG
+                                            }
+                                            metaComment.contains("wbeditentity") -> {
+                                                if (matches.count() > 1 && matches.elementAt(1).value.contains(DEPICTS_META_STR)) {
+                                                    val metaContentStr = deCommentString(matches.elementAt(1).value)
+                                                    val map = extractTagsFromComment(metaContentStr)
+                                                    if (map.isNotEmpty()) {
+                                                        contributionDescription = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) ListFormatter.getInstance().format(map.values) else map.values.joinToString(",")
+                                                    }
+                                                }
+                                                editType = EDIT_TYPE_IMAGE_TAG
+                                            }
                                         }
                                     }
+
+                                    contributions.add(Contribution(qNumber, contribution.title, contributionDescription, editType, null,
+                                            contribution.date(), WikiSite.forLanguageCode(contributionLanguage), 0, contribution.revid))
+
                                 }
-
-                                contributions.add(Contribution(qNumber, contribution.title, contributionDescription, editType, null,
-                                        contribution.date(), WikiSite.forLanguageCode(contributionLanguage), 0))
-
-                            }
-                            Observable.just(contributions)
-                        },
+                                Observable.just(contributions)
+                            },
                 BiFunction<List<Contribution>, List<Contribution>, List<Contribution>> { wikidataContributions, commonsContributions ->
                     val contributions = ArrayList<Contribution>()
                     contributions.addAll(wikidataContributions)
@@ -373,6 +374,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
     private inner class ContributionItemHolder internal constructor(itemView: SuggestedEditsContributionsItemView) : DefaultViewHolder<SuggestedEditsContributionsItemView?>(itemView) {
         val disposables = CompositeDisposable()
         fun bindItem(contribution: Contribution) {
+            view.contribution = contribution
             view.setTitle(contribution.description)
             view.setDescription(contribution.title)
             view.setIcon(contribution.editType)
@@ -530,8 +532,9 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
         }
     }
 
-    private class ItemCallback : SuggestedEditsContributionsItemView.Callback {
-        override fun onClick() {
+    private class ItemCallback : Callback {
+        override fun onClick(context: Context, contribution: Contribution) {
+            context.startActivity(SuggestedEditsContributionDetailsActivity.newIntent(context, contribution))
         }
     }
 }
