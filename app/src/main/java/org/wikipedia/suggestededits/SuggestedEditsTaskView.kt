@@ -18,8 +18,9 @@ internal class SuggestedEditsTaskView constructor(context: Context, attrs: Attri
     init {
         View.inflate(context, R.layout.view_suggested_edits_task_item, this)
         val params = MarginLayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
-        val margin = DimenUtil.roundedDpToPx(16f)
-        params.setMargins(margin, margin / 2, margin, margin / 2)
+        val marginX = resources.getDimension(R.dimen.activity_horizontal_margin).toInt()
+        val marginY = DimenUtil.roundedDpToPx(8f)
+        params.setMargins(marginX, marginY, marginX, marginY)
         layoutParams = params
         radius = DimenUtil.dpToPx(12f)
         cardElevation = DimenUtil.dpToPx(6f)
