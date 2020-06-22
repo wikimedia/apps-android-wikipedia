@@ -44,7 +44,7 @@
             android:fontFamily="sans-serif"
             android:textColor="?attr/material_theme_secondary_color"
             android:lineSpacingExtra="8sp"
-            android:layout_marginBottom="4dp"/>
+            android:layout_marginBottom="12dp"/>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/actionButton"

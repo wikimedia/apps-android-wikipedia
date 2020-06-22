@@ -819,7 +819,7 @@
     <string name="suggested_edits_rewards_edit_quality">Your edits so far are %s. Keep going! We look forward to your contributions.</string>
     <string name="suggested_edits_rewards_continue_button">Continue</string>
     <string name="suggested_edits_encourage_account_creation_title">Did you know that everyone can edit Wikipedia?</string>
-    <string name="suggested_edits_encourage_account_creation_message">Suggested edits is a new way to edit Wikipedia on Android. It helps you make small but vital contributions to Wikipedia. Our goal is to make editing easier and more accessible for everyone! Log in or join Wikipedia to get started.</string>
+    <string name="suggested_edits_encourage_account_creation_message">Suggested edits is a new way to edit Wikipedia on Android. It helps you make small but vital contributions to Wikipedia.\nOur goal is to make editing easier and more accessible for everyone! Log in or join Wikipedia to get started.</string>
     <string name="suggested_edits_encourage_account_creation_login_button">Log in / join Wikipedia</string>
     <string name="suggested_edits_contribution_type_image_tag">Image tag</string>
     <!-- /Suggested edits -->
