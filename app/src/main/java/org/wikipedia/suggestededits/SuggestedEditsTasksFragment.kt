@@ -337,18 +337,26 @@ class SuggestedEditsTasksFragment : Fragment() {
     }
 
     private fun getEditStreak(contributions: List<UserContribution>): Int {
-
-        // TODO: this is not correct! Will be fixed once we switch to java.time.
-
-        var streak = 0
-        var previousDate = Date()
+        if (contributions.isEmpty()) {
+            return 0
+        }
+        // TODO: This is a bit naive, and should be updated once we switch to java.time.*
+        val calendar = GregorianCalendar()
+        calendar.time = Date()
+        // Start with a calendar that is fixed at the beginning of today's date
+        val baseCal = GregorianCalendar(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH))
+        val dayMillis = TimeUnit.DAYS.toMillis(1)
+        var streak = 1
         for (c in contributions) {
-            if (previousDate.time - c.date().time < TimeUnit.DAYS.toMillis(24)) {
-                streak++
-            } else {
+            if (c.date().time >= baseCal.timeInMillis) {
+                // this contribution was on the same day.
+                continue
+            } else if (c.date().time < (baseCal.timeInMillis - dayMillis)) {
+                // this contribution is more than one day apart, so the streak is broken.
                 break
             }
-            previousDate = c.date()
+            streak++
+            calendar.timeInMillis = calendar.timeInMillis - dayMillis
         }
         return streak
     }
