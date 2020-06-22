@@ -479,6 +479,12 @@
   <string name="suggested_edits_tasks_onboarding_get_started">தொடங்கவும்</string>
   <string name="suggested_edits_last_edited">கடைசியாகத் தொகுக்கப்பட்டது</string>
   <string name="suggested_edits_last_edited_never">எப்போதுமில்லை</string>
+  <string name="suggested_edits_contribution_language_label">மொழி</string>
+  <string name="suggested_edits_contribution_date_time_label">நாள்/நேரம்</string>
+  <string name="suggested_edits_contribution_image_label">கோப்பு</string>
+  <string name="suggested_edits_contribution_views">%s பார்வைகள்</string>
+  <string name="suggested_edits_contribution_date_yesterday_text">நேற்று</string>
+  <string name="suggested_edits_rewards_continue_button">தொடரவும்</string>
   <string name="description_edit_revert_subtitle">விக்கிப்பீடியாவில் தொகுத்ததற்கு நன்றி!!</string>
   <string name="onboarding_skip">தவிர்</string>
   <string name="onboarding_continue">தொடரவும்</string>

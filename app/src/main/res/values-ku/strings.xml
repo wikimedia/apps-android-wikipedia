@@ -222,7 +222,6 @@
   <string name="view_featured_article_footer_saved_button_label">Hat tomarkirin</string>
   <string name="description_edit_save">Biweșîne</string>
   <string name="description_edit_cancel_hint">Betal bike</string>
-  <string name="suggested_edits_contributions_type">%1$s (%2$s)</string>
   <string name="suggested_edits_contribution_seen_text">%s caran hatiye dîtin di 30 rojên dawîn de.</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Doh</string>
   <string name="suggested_edits_rewards_continue_button">Bidomîne</string>
