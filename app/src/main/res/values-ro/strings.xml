@@ -786,7 +786,7 @@
   <plurals name="suggested_edits_image_tag_contribution_label">
     <item quantity="one">Ai adăugat eticheta %d</item>
     <item quantity="few">Ai adăugat etichetele %d</item>
-    <item quantity="other"/>
+    <item quantity="other">Ai adăugat etichetele %d</item>
   </plurals>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Ieri</string>
