@@ -446,7 +446,6 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
                 val funnel = ABTestSuggestedEditsInterstitialFunnel()
                 funnel.logInterstitialShown()
                 Prefs.setSuggestedEditsRewardInterstitialEnabled(false)
-                // TODO: remove after QA is passed
                 if (Prefs.isSuggestedEditsRewardInterstitialQAOverride()) {
                     setUpRewardInterstitialsForQA()
                 }
@@ -489,7 +488,6 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
         }
     }
 
-    // TODO: remove this and related logic after QA is passed.
     private fun setUpRewardInterstitialsForQA() {
         when (rewardInterstitialQACount) {
             0 -> {
