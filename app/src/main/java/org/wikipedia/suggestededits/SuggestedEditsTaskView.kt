@@ -4,23 +4,26 @@ import android.content.Context
 import android.content.res.ColorStateList
 import android.util.AttributeSet
 import android.view.View
-import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.cardview.widget.CardView
 import androidx.core.widget.ImageViewCompat
 import kotlinx.android.synthetic.main.view_suggested_edits_task_item.view.*
 import org.wikipedia.Constants.MIN_LANGUAGES_TO_UNLOCK_TRANSLATION
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
 
-internal class SuggestedEditsTaskView constructor(context: Context, attrs: AttributeSet? = null) : ConstraintLayout(context, attrs) {
+internal class SuggestedEditsTaskView constructor(context: Context, attrs: AttributeSet? = null) : CardView(context, attrs) {
 
     init {
         View.inflate(context, R.layout.view_suggested_edits_task_item, this)
-        layoutParams = LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
-        isClickable = true
-        isFocusable = true
-        setPadding(resources.getDimension(R.dimen.activity_horizontal_margin).toInt(), 0, resources.getDimension(R.dimen.activity_horizontal_margin).toInt(), 0)
-        setBackgroundResource(ResourceUtil.getThemedAttributeId(context, R.attr.selectableItemBackground))
+        val params = MarginLayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
+        val margin = DimenUtil.roundedDpToPx(16f)
+        params.setMargins(margin, margin / 2, margin, margin / 2)
+        layoutParams = params
+        radius = DimenUtil.dpToPx(12f)
+        cardElevation = DimenUtil.dpToPx(6f)
+        setCardBackgroundColor(ResourceUtil.getThemedColor(context, R.attr.paper_color))
     }
 
     private fun updateTranslateActionUI() {
@@ -37,7 +40,7 @@ internal class SuggestedEditsTaskView constructor(context: Context, attrs: Attri
         taskIcon.setImageResource(task.imageDrawable)
         taskTitleNewLabel.visibility = if (task.new) View.VISIBLE else GONE
 
-        this.setOnClickListener {
+        clickContainer.setOnClickListener {
             if (!task.disabled) {
                 callback?.onViewClick(task, false)
             }
