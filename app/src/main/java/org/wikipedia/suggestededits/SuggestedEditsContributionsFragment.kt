@@ -165,7 +165,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
                         val matches = commentRegex.findAll(contribution.comment)
                         if (matches.any()) {
                             val metaComment = deCommentString(matches.first().value)
-                            if (matches.first().value.contains("wbsetdescription")) {
+                            if (metaComment.contains("wbsetdescription")) {
                                 val descArr = metaComment.split("|")
                                 if (descArr.size > 1) {
                                     contributionLanguage = descArr[1]
@@ -226,6 +226,8 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
                                                 if (descArr.size > 1) {
                                                     contributionLanguage = descArr[1]
                                                 }
+                                                editType = EDIT_TYPE_IMAGE_CAPTION
+                                                contributionDescription = extractDescriptionFromComment(contribution.comment, matches.first().value)
                                             }
                                             metaComment.contains("wbsetclaim") -> {
                                                 contributionDescription = ""
