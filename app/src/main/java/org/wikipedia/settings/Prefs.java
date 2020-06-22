@@ -949,5 +949,9 @@ public final class Prefs {
         return getInt(R.string.preference_key_suggested_edits_reward_interstitial_pageviews_on_day, 30);
     }
 
+    public static boolean isSuggestedEditsRewardInterstitialQAOverride() {
+        return getBoolean(R.string.preference_key_suggested_edits_reward_interstitial_qa_override, false);
+    }
+
     private Prefs() { }
 }

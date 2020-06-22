@@ -862,7 +862,7 @@
   <string name="main_drawer_content_description">افتح درج التصفح الرئيسي</string>
   <string name="main_drawer_help">مساعدة</string>
   <string name="main_drawer_login">تسجيل الدخول / الاشتراك في ويكيبيديا</string>
-  <string name="main_tooltip_text">%s، هل تعلم أنه يمكن للجميع تحرير ويكيبيديا؟</string>
+  <string name="main_tooltip_text">مرحبا %s، هل تعلم أنه يمكن للجميع تحرير ويكيبيديا؟</string>
   <string name="main_tooltip_action_button">ابدأ</string>
   <string name="custom_date_picker_dialog_ok_button_text">حسنا</string>
   <string name="text_input_dialog_ok_button_text">حسنا</string>

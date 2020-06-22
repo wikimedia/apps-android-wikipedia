@@ -737,7 +737,7 @@
   <string name="main_drawer_content_description">مک نيويگيشن دراز کوليو</string>
   <string name="main_drawer_help">مدد</string>
   <string name="main_drawer_login">وڪيپيڊيا ۾ داخل ٿيو/ شامل ٿيو</string>
-  <string name="main_tooltip_text">%s، ڇا توھان کي ڄاڻ ھئي تہ ھرڪو وڪيپيڊيا کي سنواري سگھي ٿو؟</string>
+  <string name="main_tooltip_text">سلام %s، ڇا توھان کي ڄاڻ ھئي تہ ھرڪو وڪيپيڊيا کي سنواري سگھي ٿو؟</string>
   <string name="main_tooltip_action_button">شروع ڪريو</string>
   <string name="custom_date_picker_dialog_ok_button_text">ٺيڪ</string>
   <string name="text_input_dialog_ok_button_text">ٺيڪ</string>
