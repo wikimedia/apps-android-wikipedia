@@ -7,67 +7,61 @@
     android:orientation="vertical"
     tools:background="?attr/paper_color">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:id="@+id/main_drawer_account_container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:background="?android:attr/windowBackground"
-        android:paddingStart="4dp"
-        android:paddingEnd="16dp"
-        android:paddingBottom="16dp">
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/color_group_60"
+        android:orientation="horizontal">
 
         <FrameLayout
             android:id="@+id/main_drawer_account_avatar_container"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp"
-            android:gravity="center"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="16dp">
 
             <ImageView
                 android:id="@+id/main_drawer_account_wiki_globe"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 android:contentDescription="@null"
                 app:srcCompat="@drawable/wiki_globe_white_circle" />
 
             <ImageView
                 android:id="@+id/main_drawer_account_avatar"
-                android:layout_width="34dp"
-                android:layout_height="34dp"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 android:contentDescription="@null"
-                app:srcCompat="@drawable/user_avatar" />
+                app:srcCompat="@drawable/ic_baseline_person_24" />
 
         </FrameLayout>
 
         <TextView
             android:id="@+id/main_drawer_account_name"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="24dp"
             android:fontFamily="sans-serif-medium"
             android:textColor="?attr/material_theme_secondary_color"
             android:textSize="14sp"
-            app:layout_constraintBottom_toBottomOf="@+id/main_drawer_account_avatar_container"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/main_drawer_account_avatar_container"
-            app:layout_constraintTop_toTopOf="@+id/main_drawer_account_avatar_container"
+            android:gravity="center_vertical"
             tools:text="Sample account name" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
 
         <Button
             android:id="@+id/main_drawer_login_button"
             style="@style/TransparentButton"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="@string/main_drawer_login"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/main_drawer_account_avatar_container" />
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/main_drawer_login" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/main_drawer_settings_container"
@@ -108,33 +102,6 @@
             android:layout_weight="1"
             android:text="@string/notifications_activity_title" />
     </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/main_drawer_configure_container"
-        style="@style/SideDrawerMenuItem">
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:contentDescription="@null"
-            app:srcCompat="@drawable/ic_tune_black_24dp"
-            app:tint="?attr/material_theme_secondary_color" />
-
-        <TextView
-            style="@android:style/TextAppearance"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_weight="1"
-            android:text="@string/feed_configure_activity_title" />
-    </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="?attr/material_theme_border_color" />
 
     <LinearLayout
         android:id="@+id/main_drawer_donate_container"

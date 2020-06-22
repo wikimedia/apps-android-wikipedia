@@ -770,21 +770,31 @@
   <string name="suggested_edits_last_edited">This refers to the date when the user made their last edit.</string>
   <string name="suggested_edits_last_edited_never">Displayed when the user has never made an edit.</string>
   <string name="suggested_edits_task_new">Quick label shown for tasks that are newly introduced (should be lowercase in languages that support it).\n\nShould be translated as a kind of advertising, referring to somthing like a \"new (feature)\" or a \"new (thing)\".</string>
-  <string name="suggested_edits_contributions_type">Text indicating the type of user edit. %1$s is the typ and %2$s indicates the language</string>
   <string name="suggested_edits_cc0_notice">Disclaimer that specifies the Terms of Use and CC license that applies to publishing these types of edits. Please preserve the %1$s and %2$s parameters, since these will be replaced with URLs.</string>
   <string name="suggested_edits_reactivation_notification_title">Title of notification when the user has not edited for days.</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Text of notification when the user has not edited for days (first stage).</string>
   <string name="suggested_edits_reactivation_notification_stage_two">Text of notification when the user has not edited for days (second stage).</string>
-  <string name="suggested_edits_contribution_type_image_tag">Text indicating that the user edit was an Image tag edit</string>
   <string name="suggested_edits_contributions_screen_title">Contributions screen title text. The %s symbol is replaced with the username.</string>
-  <string name="suggested_edits_contribution_type_title">Contributions filter dropdown item text. %1$d represents the count of the edit type. %2$s is the type of the edit.</string>
+  <string name="suggested_edits_contribution_language_label">Text label indicating that the associated data indicates the language of the user contribution.\n{{identical|Language}}</string>
+  <string name="suggested_edits_contribution_date_time_label">Text label indicating that the associated data indicates the date and time of the user contribution.</string>
+  <string name="suggested_edits_contribution_type_label">Text label indicating that the associated data indicates the type of the user contribution.</string>
+  <string name="suggested_edits_contribution_image_label">Text label that indicates that the contribution is to an image file.\n{{identical|File}}</string>
+  <string name="suggested_edits_contribution_article_label">Text label that indicates that the contribution is to an article.\n{{identical|Article}}</string>
+  <string name="suggested_edits_contribution_views">Text label indicating that the associated data indicates the number of views that the contribution has. %s represents the type of contribution.</string>
+  <string name="suggested_edits_contribution_label">Text summarizing the user\'s contribution to the article or image. %d represents the number of characters contributed.</string>
   <string name="suggested_edits_contribution_seen_text">Contribution detail text about the pageviews. %s represented the times the contribution has been viewed in the past 30 days.</string>
+  <plurals name="suggested_edits_image_tag_contribution_label">
+    <item quantity="one">Text summarizing the user\'s image tag contribution. %d represents the number of tags contributed.</item>
+    <item quantity="other">Text summarizing the user\'s image tag contribution. %d represents the number of tags contributed.</item>
+  </plurals>
+  <string name="suggested_edits_contribution_type_title">Contributions filter dropdown item text. %1$d represents the count of the edit type. %2$s is the type of the edit.</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Text for contributions date to indicate it was contributed yesterday</string>
   <string name="suggested_edits_rewards_contribution">Message shown to a user about the number of contributions the user has made. The %d represents the number of contrubutions.</string>
   <string name="suggested_edits_rewards_edit_streak">Message shown to a user about the length of edit streak the user has made. The %1$d represents the length of edit streak and the %2$s represents the user name.</string>
   <string name="suggested_edits_rewards_pageviews">Message shown to a user about the pageviews the user has earned in a period of time. The %d represents the number of pageviews.</string>
   <string name="suggested_edits_rewards_edit_quality">Message shown to a user about the edit quality status. The %s represents the quality of edits.</string>
   <string name="suggested_edits_rewards_continue_button">Button label to move to the next card of suggested edits.</string>
+  <string name="suggested_edits_contribution_type_image_tag">Text indicating that the user edit was an Image tag edit</string>
   <string name="file_page_activity_title">Title shown at the top of the activity for the file page.</string>
   <string name="description_edit_revert_subtitle">Subtitle in the dialog that informs the user that their edit was reverted.</string>
   <string name="description_edit_revert_intro">Introduction message informing the user that their edit was reverted, and leading into possible reasons for the revert.</string>
@@ -869,9 +879,6 @@
   <string name="wikitext_template">Button label for making the selected text into a template.\n{{Identical|Template}}</string>
   <string name="wikitext_reference">Button label for adding a reference at the current cursor position.\n{{Identical|Reference}}</string>
   <string name="wikitext_preview_link">Button label for showing a preview of the link that is at the current cursor position.</string>
-  <string name="main_drawer_open">Main navigation drawer label for the content description of the open drawable resource.</string>
-  <string name="main_drawer_close">Main navigation drawer label for the content description of the close drawable resource.</string>
-  <string name="main_drawer_content_description">Label of content description for the button of opening the main navigation drawer</string>
   <string name="main_drawer_help">Main navigation drawer menu label for accessing the app FAQ.</string>
   <string name="main_drawer_login">Main navigation drawer menu label for logging in or creating an account.</string>
   <string name="main_tooltip_text">Message for the tool tip that shown on the main screen. The %s symbol is replaced with the username.</string>
@@ -880,15 +887,7 @@
   <string name="text_input_dialog_ok_button_text">Positive action button text in pop-up dialog for text input.\n{{Identical|OK}}</string>
   <string name="text_input_dialog_cancel_button_text">Negative action button text in pop-up dialog for text input.\n{{Identical|Cancel}}</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Negative action button text in date picker pop-up dialog.\n{{Identical|Cancel}}</string>
-  <string name="suggested_edits_contribution_language_label">Text label indicating that the associated data indicates the language of the user contribution.</string>
-  <string name="suggested_edits_contribution_date_time_label">Text label indicating that the associated data indicates the date and time of the user contribution.</string>
-  <string name="suggested_edits_contribution_type_label">Text label indicating that the associated data indicates the type of the user contribution.</string>
-  <string name="suggested_edits_contribution_label">Text summarizing the user\'s contribution to the article or image. %d represents the number of characters contributed.</string>
-  <string name="suggested_edits_contribution_views">Text label indicating that the associated data indicates the number of views that the contribution has. %s represents the type of contribution.</string>
-  <string name="suggested_edits_contribution_image_label">Text label that indicates that the contribution is to an image file.</string>
-  <string name="suggested_edits_contribution_article_label">Text label that indicates that the contribution is to an article.</string>
-  <plurals name="suggested_edits_image_tag_contribution_label">
-    <item quantity="one">Text summarizing the user\'s image tag contribution. %d represents the number of tags contributed.</item>
-    <item quantity="other">Text summarizing the user\'s image tag contribution. %d represents the number of tags contributed.</item>
-  </plurals>
+  <string name="nav_item_more">Navigation menu item label for accessing menu items.</string>
+  <string name="preference_title_customize_explore_feed">Title of the preference for customizing the explore feed.</string>
+  <string name="preference_summary_customize_explore_feed">Description of the preference for customizing the explore feed.</string>
 </resources>
