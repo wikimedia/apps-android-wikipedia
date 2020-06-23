@@ -801,7 +801,7 @@
     <string name="suggested_edits_contribution_image_label">File</string>
     <string name="suggested_edits_contribution_article_label">Article</string>
     <string name="suggested_edits_contribution_views">%s views</string>
-    <string name="suggested_edits_contribution_label">You added %d characters</string>
+    <string name="suggested_edits_added_contribution_label">You added %d characters</string>
     <string name="suggested_edits_contribution_seen_text">Seen %s times in the past 30 days.</string>
     <plurals name="suggested_edits_image_tag_contribution_label">
         <item quantity="one">You added %d tag</item>
@@ -815,6 +815,12 @@
     <string name="suggested_edits_rewards_edit_quality">Your edits so far are %s. Keep going! We look forward to your contributions.</string>
     <string name="suggested_edits_rewards_continue_button">Continue</string>
     <string name="suggested_edits_contribution_type_image_tag">Image tag</string>
+    <string name="suggested_edits_contribution_current_revision">Current revision</string>
+    <string name="suggested_edits_removed_contribution_label">You removed %d characters</string>
+    <plurals name="suggested_edits_contribution_diff_count_text">
+        <item quantity="one">%1$s %2$d character</item>
+        <item quantity="other">%1$s %2$d characters</item>
+    </plurals>
     <!-- /Suggested edits -->
 
     <!-- File page -->
