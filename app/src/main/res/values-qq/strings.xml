@@ -786,6 +786,12 @@
     <item quantity="one">Text summarizing the user\'s image tag contribution. %d represents the number of tags contributed.</item>
     <item quantity="other">Text summarizing the user\'s image tag contribution. %d represents the number of tags contributed.</item>
   </plurals>
+  <string name="suggested_edits_what_is_title">Title for card that introduces Suggested edits.</string>
+  <string name="suggested_edits_what_is_text">Body text for card that introduces Suggested edits.</string>
+  <string name="suggested_edits_learn_more">Button text for navigating to additional information for the user.</string>
+  <string name="suggested_edits_paused_title">Title for card that explains that this feature is currently paused.</string>
+  <string name="suggested_edits_disabled_title">Title for card that explains that this feature is currently disabled.</string>
+  <string name="suggested_edits_ip_blocked_title">Title for card that explains that the IP address of the user is blocked.</string>
   <string name="suggested_edits_contribution_type_title">Contributions filter dropdown item text. %1$d represents the count of the edit type. %2$s is the type of the edit.</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Text for contributions date to indicate it was contributed yesterday</string>
   <string name="suggested_edits_rewards_contribution">Message shown to a user about the number of contributions the user has made. The %d represents the number of contrubutions.</string>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:layout_height="48dp"
     tools:layout_width="wrap_content"
-    tools:parentTag="androidx.cardview.widget.CardView">
+    tools:parentTag="android.widget.FrameLayout">
 
     <ImageView
         android:id="@+id/wikitext_button_image"
