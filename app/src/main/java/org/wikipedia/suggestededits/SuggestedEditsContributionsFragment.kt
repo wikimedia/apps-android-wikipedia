@@ -230,6 +230,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
                                                 qNumber = qNumberRegex.find(contribution.comment)?.value
                                                         ?: ""
                                                 editType = EDIT_TYPE_IMAGE_TAG
+                                                tagCount = 1
                                             }
                                             metaComment.contains("wbeditentity") -> {
                                                 if (matches.count() > 1 && matches.elementAt(1).value.contains(DEPICTS_META_STR)) {

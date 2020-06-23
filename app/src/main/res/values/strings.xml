@@ -824,8 +824,8 @@
     <string name="suggested_edits_contribution_current_revision">Current revision</string>
     <string name="suggested_edits_removed_contribution_label">You removed %d characters</string>
     <plurals name="suggested_edits_contribution_diff_count_text">
-        <item quantity="one">%1$s %2$d character</item>
-        <item quantity="other">%1$s %2$d characters</item>
+        <item quantity="one">%1$s character</item>
+        <item quantity="other">%1$s characters</item>
     </plurals>
     <!-- /Suggested edits -->
 
