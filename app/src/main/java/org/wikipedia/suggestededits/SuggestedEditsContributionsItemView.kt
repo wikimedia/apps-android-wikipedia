@@ -14,6 +14,7 @@ import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.views.ViewUtil
+import kotlin.math.abs
 
 class SuggestedEditsContributionsItemView constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
     interface Callback {
@@ -83,7 +84,7 @@ class SuggestedEditsContributionsItemView constructor(context: Context, attrs: A
             contributionDiffCountText.visibility = GONE
         } else {
             contributionDiffCountText.visibility = VISIBLE
-            contributionDiffCountText.text = resources.getQuantityString(R.plurals.suggested_edits_contribution_diff_count_text, Math.abs(sizeDiff), if (sizeDiff > 0) "+ " else "", sizeDiff)
+            contributionDiffCountText.text = resources.getQuantityString(R.plurals.suggested_edits_contribution_diff_count_text, abs(sizeDiff), if (sizeDiff > 0) "+ " else "", sizeDiff)
             contributionDiffCountText.setTextColor(if (sizeDiff < 0) ResourceUtil.getThemedColor(context, R.attr.colorError)
             else ResourceUtil.getThemedColor(context, R.attr.action_mode_green_background))
         }
