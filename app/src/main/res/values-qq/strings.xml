@@ -886,12 +886,18 @@
   <string name="text_input_dialog_ok_button_text">Positive action button text in pop-up dialog for text input.\n{{Identical|OK}}</string>
   <string name="text_input_dialog_cancel_button_text">Negative action button text in pop-up dialog for text input.\n{{Identical|Cancel}}</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Negative action button text in date picker pop-up dialog.\n{{Identical|Cancel}}</string>
-  <string name="suggested_edits_added_contribution_label">Text summarizing the user\'s contribution to the article or image. %d represents the number of characters contributed.</string>
   <string name="suggested_edits_contribution_current_revision">Text indicating that the user\'s contribution is the most current edit on that file or article.</string>
-  <string name="suggested_edits_removed_contribution_label">Text summarizing the user\'s contribution to the article or image. %d represents the number of characters removed by the contribution.</string>
+  <plurals name="suggested_edits_added_contribution_label">
+    <item quantity="one">Text summarizing the user\'s contribution to the article or image. %d represents the number when only one character is added.</item>
+    <item quantity="other">Text summarizing the user\'s contribution to the article or image. %d represents the number when many characters are added.</item>
+  </plurals>
+  <plurals name="suggested_edits_removed_contribution_label">
+    <item quantity="one">Text summarizing the user\'s contribution to the article or image. %d represents the number when only one character is removed by the contribution.</item>
+    <item quantity="other">Text summarizing the user\'s contribution to the article or image. %d represents the number when many characters are removed by the contribution.</item>
+  </plurals>
   <plurals name="suggested_edits_contribution_diff_count_text">
-    <item quantity="one">Label text indicating the number of characters added or removed by a user contribution. %1$s represents the number</item>
-    <item quantity="other">Label text indicating the number of characters added or removed by a user contribution. %1$s represents the number</item>
+    <item quantity="one">Label text indicating the number of characters added or removed by a user contribution. %1$s represents the number.</item>
+    <item quantity="other">Label text indicating the number of characters added or removed by a user contribution. %1$s represents the number.</item>
   </plurals>
   <string name="nav_item_more">Navigation menu item label for accessing menu items.</string>
   <string name="preference_title_customize_explore_feed">Title of the preference for customizing the explore feed.</string>
