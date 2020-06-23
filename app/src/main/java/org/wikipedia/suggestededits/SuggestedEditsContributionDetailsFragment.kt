@@ -23,6 +23,7 @@ import org.wikipedia.util.DateUtil
 import org.wikipedia.util.GradientUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.views.ViewUtil
+import kotlin.math.abs
 
 class SuggestedEditsContributionDetailsFragment : Fragment() {
     private lateinit var contribution: Contribution
@@ -78,8 +79,8 @@ class SuggestedEditsContributionDetailsFragment : Fragment() {
         when (contribution.editType) {
             EDIT_TYPE_ARTICLE_DESCRIPTION -> {
                 contributionCategory.text = getString(R.string.suggested_edits_contribution_article_label)
-                contributionDiffText.text = if (contribution.sizeDiff < 0) getString(R.string.suggested_edits_removed_contribution_label, contribution.description.length)
-                else getString(R.string.suggested_edits_added_contribution_label, contribution.description.length)
+                contributionDiffText.text = if (contribution.sizeDiff < 0) getString(R.string.suggested_edits_removed_contribution_label, abs(contribution.sizeDiff))
+                else getString(R.string.suggested_edits_added_contribution_label, contribution.sizeDiff)
                 pageViewsDetailView.setLabelAndDetail(getString(R.string.suggested_edits_contribution_views,
                         if (contribution.editType == EDIT_TYPE_ARTICLE_DESCRIPTION) getString(R.string.suggested_edits_contribution_article_label)
                         else getString(R.string.suggested_edits_contribution_image_label)), contribution.pageViews.toString(), R.drawable.ic_trending_up_black_24dp)
@@ -88,8 +89,8 @@ class SuggestedEditsContributionDetailsFragment : Fragment() {
             }
             EDIT_TYPE_IMAGE_CAPTION -> {
                 contributionCategory.text = getString(R.string.suggested_edits_contribution_image_label)
-                contributionDiffText.text = if (contribution.sizeDiff < 0) getString(R.string.suggested_edits_removed_contribution_label, contribution.description.length)
-                else getString(R.string.suggested_edits_added_contribution_label, contribution.description.length)
+                contributionDiffText.text = if (contribution.sizeDiff < 0) getString(R.string.suggested_edits_removed_contribution_label, abs(contribution.sizeDiff))
+                else getString(R.string.suggested_edits_added_contribution_label, contribution.sizeDiff)
                 pageViewsDetailView.setLabelAndDetail()
                 typeDetailView.setLabelAndDetail(getString(R.string.suggested_edits_contribution_type_label), getString(R.string.description_edit_add_caption_hint), R.drawable.ic_image_caption)
                 languageDetailView.setLabelAndDetail(getString(R.string.suggested_edits_contribution_language_label), WikipediaApp.getInstance().language().getAppLanguageCanonicalName(contribution.wikiSite.languageCode()))
