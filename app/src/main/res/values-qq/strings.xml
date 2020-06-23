@@ -785,7 +785,6 @@
   <string name="suggested_edits_contribution_image_label">Text label that indicates that the contribution is to an image file.\n{{identical|File}}</string>
   <string name="suggested_edits_contribution_article_label">Text label that indicates that the contribution is to an article.\n{{identical|Article}}</string>
   <string name="suggested_edits_contribution_views">Text label indicating that the associated data indicates the number of views that the contribution has. %s represents the type of contribution.</string>
-  <string name="suggested_edits_contribution_label">Text summarizing the user\'s contribution to the article or image. %d represents the number of characters contributed.</string>
   <string name="suggested_edits_contribution_seen_text">Contribution detail text about the pageviews. %s represented the times the contribution has been viewed in the past 30 days.</string>
   <plurals name="suggested_edits_image_tag_contribution_label">
     <item quantity="one">Text summarizing the user\'s image tag contribution. %d represents the number of tags contributed.</item>
@@ -892,6 +891,19 @@
   <string name="text_input_dialog_ok_button_text">Positive action button text in pop-up dialog for text input.\n{{Identical|OK}}</string>
   <string name="text_input_dialog_cancel_button_text">Negative action button text in pop-up dialog for text input.\n{{Identical|Cancel}}</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Negative action button text in date picker pop-up dialog.\n{{Identical|Cancel}}</string>
+  <string name="suggested_edits_contribution_current_revision">Text indicating that the user\'s contribution is the most current edit on that file or article.</string>
+  <plurals name="suggested_edits_added_contribution_label">
+    <item quantity="one">Text summarizing the user\'s contribution to the article or image. %d represents the number when only one character is added.</item>
+    <item quantity="other">Text summarizing the user\'s contribution to the article or image. %d represents the number when many characters are added.</item>
+  </plurals>
+  <plurals name="suggested_edits_removed_contribution_label">
+    <item quantity="one">Text summarizing the user\'s contribution to the article or image. %d represents the number when only one character is removed by the contribution.</item>
+    <item quantity="other">Text summarizing the user\'s contribution to the article or image. %d represents the number when many characters are removed by the contribution.</item>
+  </plurals>
+  <plurals name="suggested_edits_contribution_diff_count_text">
+    <item quantity="one">Label text indicating the number of characters added or removed by a user contribution. %1$s represents the number.</item>
+    <item quantity="other">Label text indicating the number of characters added or removed by a user contribution. %1$s represents the number.</item>
+  </plurals>
   <string name="nav_item_more">Navigation menu item label for accessing menu items.</string>
   <string name="preference_title_customize_explore_feed">Title of the preference for customizing the explore feed.</string>
   <string name="preference_summary_customize_explore_feed">Description of the preference for customizing the explore feed.</string>

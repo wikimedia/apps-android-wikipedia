@@ -805,7 +805,6 @@
     <string name="suggested_edits_contribution_image_label">File</string>
     <string name="suggested_edits_contribution_article_label">Article</string>
     <string name="suggested_edits_contribution_views">%s views</string>
-    <string name="suggested_edits_contribution_label">You added %d characters</string>
     <string name="suggested_edits_contribution_seen_text">Seen %s times in the past 30 days.</string>
     <plurals name="suggested_edits_image_tag_contribution_label">
         <item quantity="one">You added %d tag</item>
@@ -822,6 +821,19 @@
     <string name="suggested_edits_encourage_account_creation_message">Suggested edits is a new way to edit Wikipedia on Android. It helps you make small but vital contributions to Wikipedia.\nOur goal is to make editing easier and more accessible for everyone! Log in or join Wikipedia to get started.</string>
     <string name="suggested_edits_encourage_account_creation_login_button">Log in / join Wikipedia</string>
     <string name="suggested_edits_contribution_type_image_tag">Image tag</string>
+    <string name="suggested_edits_contribution_current_revision">Current revision</string>
+    <plurals name="suggested_edits_contribution_diff_count_text">
+        <item quantity="one">%1$s character</item>
+        <item quantity="other">%1$s characters</item>
+    </plurals>
+    <plurals name="suggested_edits_removed_contribution_label">
+        <item quantity="one">You removed %d character</item>
+        <item quantity="other">You removed %d characters</item>
+    </plurals>
+    <plurals name="suggested_edits_added_contribution_label">
+        <item quantity="one">You added %d character</item>
+        <item quantity="other">You added %d characters</item>
+    </plurals>
     <!-- /Suggested edits -->
 
     <!-- File page -->
