@@ -26,8 +26,10 @@
                     android:id="@+id/disabledStatesView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingStart="@dimen/activity_horizontal_margin"
-                    android:paddingEnd="@dimen/activity_horizontal_margin"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="24dp"
                     android:visibility="gone" />
 
                 <org.wikipedia.views.WikiErrorView
@@ -52,10 +54,12 @@
                         android:layout_marginTop="8dp">
 
                         <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/userStatsClickTarget"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:clipChildren="false"
-                            android:clipToPadding="false"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:background="?attr/selectableItemBackground"
                             android:paddingTop="12dp"
                             android:paddingBottom="16dp"
                             android:paddingStart="16dp"
@@ -171,7 +175,78 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="?attr/paper_color" />
-                    
+
+                    <org.wikipedia.views.WikiCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/activity_horizontal_margin"
+                        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginBottom="24dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="16dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textSize="20sp"
+                                android:textStyle="bold"
+                                android:textColor="?attr/material_theme_primary_color"
+                                android:text="@string/suggested_edits_what_is_title"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:textSize="16sp"
+                                android:lineSpacingExtra="8sp"
+                                android:textColor="?attr/material_theme_secondary_color"
+                                android:text="@string/suggested_edits_what_is_text"/>
+
+                            <LinearLayout
+                                android:id="@+id/learnMoreContainer"
+                                android:layout_width="wrap_content"
+                                android:layout_height="32dp"
+                                android:paddingStart="8dp"
+                                android:paddingEnd="12dp"
+                                android:layout_marginTop="16dp"
+                                android:clickable="true"
+                                android:focusable="true"
+                                app:layout_constraintTop_toBottomOf="@id/taskDescription"
+                                app:layout_constraintStart_toStartOf="@id/taskDescription"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                android:background="@drawable/rounded_8dp_corner_base90_fill">
+
+                                <ImageView
+                                    android:id="@+id/add_image"
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_gravity="center_vertical"
+                                    android:contentDescription="@null"
+                                    app:srcCompat="@drawable/ic_open_in_new_black_24px"
+                                    app:tint="?attr/colorAccent" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginStart="4dp"
+                                    android:fontFamily="sans-serif-medium"
+                                    android:text="@string/suggested_edits_learn_more"
+                                    android:textAllCaps="true"
+                                    android:textColor="?attr/colorAccent"
+                                    android:letterSpacing="0.05"
+                                    android:textSize="@dimen/suggested_edits_message_textview_text_size" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </org.wikipedia.views.WikiCardView>
+
                     <!-- TODO: remove. -->
                     <LinearLayout
                         android:layout_width="match_parent"

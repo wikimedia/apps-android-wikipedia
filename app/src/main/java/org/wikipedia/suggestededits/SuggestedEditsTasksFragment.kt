@@ -50,8 +50,14 @@ class SuggestedEditsTasksFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setupTestingButtons()
 
+        userStatsClickTarget.setOnClickListener {
+            startActivity(SuggestedEditsContributionsActivity.newIntent(requireActivity()))
+        }
+
+        contributionsStatsView.setOnClickListener {
+            startActivity(SuggestedEditsContributionsActivity.newIntent(requireActivity()))
+        }
         contributionsStatsView.setImageDrawable(R.drawable.ic_mode_edit_white_24dp)
-        contributionsStatsView.setOnClickListener { onUserStatClicked(contributionsStatsView) }
 
         editStreakStatsView.setDescription(resources.getString(R.string.suggested_edits_edit_streak_label_text))
         editStreakStatsView.setImageDrawable(R.drawable.ic_timer_black_24dp)
@@ -81,10 +87,6 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     private fun onUserStatClicked(view: View) {
         when (view) {
-            contributionsStatsView -> {
-                showContributionsStatsViewTooltip()
-                startActivity(SuggestedEditsContributionsActivity.newIntent(requireActivity()))
-            }
             editStreakStatsView -> showEditStreakStatsViewTooltip()
             pageViewStatsView -> showPageViewStatsViewTooltip()
             else -> showEditQualityStatsViewTooltip()
@@ -96,11 +98,6 @@ class SuggestedEditsTasksFragment : Fragment() {
             currentTooltip!!.cancel()
             currentTooltip = null
         }
-    }
-
-    private fun showContributionsStatsViewTooltip() {
-        hideCurrentTooltip()
-        currentTooltip = FeedbackUtil.showToastOverView(contributionsStatsView, getString(R.string.suggested_edits_contributions_stat_tooltip), Toast.LENGTH_LONG)
     }
 
     private fun showEditStreakStatsViewTooltip() {
