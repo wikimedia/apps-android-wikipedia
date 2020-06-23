@@ -13,11 +13,12 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityOptionsCompat;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.card.MaterialCardView;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -126,7 +127,7 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
             View itemView = LayoutInflater.
                     from(viewGroup.getContext()).
                     inflate(R.layout.item_on_this_day_pages, viewGroup, false);
-            return new OnThisDayPagesViewHolder((Activity) viewGroup.getContext(), (CardView) itemView, wiki, isSingleCard);
+            return new OnThisDayPagesViewHolder((Activity) viewGroup.getContext(), (MaterialCardView) itemView, wiki, isSingleCard);
         }
 
         @Override

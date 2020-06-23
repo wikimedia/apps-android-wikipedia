@@ -563,6 +563,12 @@
   <string name="suggested_edits_last_edited">Lescht Ännerung</string>
   <string name="suggested_edits_last_edited_never">Ni</string>
   <string name="suggested_edits_task_new">nei</string>
+  <string name="suggested_edits_contribution_language_label">Sprooch</string>
+  <string name="suggested_edits_contribution_date_time_label">Datum / Auerzäit</string>
+  <string name="suggested_edits_contribution_image_label">Fichier</string>
+  <string name="suggested_edits_contribution_article_label">Artikel</string>
+  <string name="suggested_edits_contribution_date_yesterday_text">Gëschter</string>
+  <string name="suggested_edits_rewards_continue_button">Virufueren</string>
   <string name="description_edit_revert_subtitle">Merci fir d\'Änneren op Wikipedia!</string>
   <string name="description_edit_revert_reason2">Är Kontributioun gesäit aus wéi en Experiment oder Vandalismus.</string>
   <string name="description_edit_revert_history">Wann Dir interesséiert sidd da kuckt d\'&lt;a href=\"%1$s\"&gt;Lëscht vun de Versiounen&lt;/a&gt;.</string>

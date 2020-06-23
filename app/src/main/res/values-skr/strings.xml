@@ -284,6 +284,10 @@
   <string name="suggested_edits_feed_card_add_image_tags">تصویر ٹیگ شامل کرو</string>
   <string name="suggested_edits_image_tags_search">ٹیگ ڳولو</string>
   <string name="suggested_edits_image_tags_add_tag">ٹیگ شامل کرو</string>
+  <string name="suggested_edits_contribution_language_label">زبان</string>
+  <string name="suggested_edits_contribution_date_time_label">تریخ/ویلا</string>
+  <string name="suggested_edits_contribution_image_label">فائل</string>
+  <string name="suggested_edits_contribution_article_label">مضمون</string>
   <string name="description_edit_login_cancel_button_text">منسوخ</string>
   <string name="size_gb">%.2f جی بی</string>
   <string name="size_mb">%.2f ایم بی</string>

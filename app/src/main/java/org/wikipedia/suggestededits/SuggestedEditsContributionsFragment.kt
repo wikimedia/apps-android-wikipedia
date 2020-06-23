@@ -179,9 +179,8 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
                         if (qNumber.isNotEmpty() && !qLangMap.containsKey(qNumber)) {
                             qLangMap[qNumber] = HashSet()
                         }
-                        wikidataContributions.add(Contribution(qNumber, contribution.title, contributionDescription, editType,
-                                null, DateUtil.iso8601DateParse(contribution.timestamp), WikiSite.forLanguageCode(contributionLanguage), 0, contribution.revid))
-
+                        wikidataContributions.add(Contribution(qNumber, contribution.title, contributionDescription, editType, null, DateUtil.iso8601DateParse(contribution.timestamp),
+                                WikiSite.forLanguageCode(contributionLanguage), 0, contribution.revid, contribution.sizediff, contribution.top, 0))
                         qLangMap[qNumber]?.add(contributionLanguage)
                     }
                     ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getWikidataLabelsAndDescriptions(qLangMap.keys.joinToString("|"))
@@ -211,6 +210,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
                                     var editType: Int = EDIT_TYPE_GENERIC
                                     var contributionDescription = contribution.comment
                                     var qNumber = ""
+                                    var tagCount = 0
 
                                     val matches = commentRegex.findAll(contribution.comment)
                                     if (matches.any()) {
@@ -230,12 +230,14 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
                                                 qNumber = qNumberRegex.find(contribution.comment)?.value
                                                         ?: ""
                                                 editType = EDIT_TYPE_IMAGE_TAG
+                                                tagCount = 1
                                             }
                                             metaComment.contains("wbeditentity") -> {
                                                 if (matches.count() > 1 && matches.elementAt(1).value.contains(DEPICTS_META_STR)) {
                                                     val metaContentStr = deCommentString(matches.elementAt(1).value)
                                                     val map = extractTagsFromComment(metaContentStr)
                                                     if (map.isNotEmpty()) {
+                                                        tagCount = map.size
                                                         contributionDescription = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) ListFormatter.getInstance().format(map.values) else map.values.joinToString(",")
                                                     }
                                                 }
@@ -243,10 +245,9 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
                                             }
                                         }
                                     }
-
                                     contributions.add(Contribution(qNumber, contribution.title, contributionDescription, editType, null,
-                                            DateUtil.iso8601DateParse(contribution.timestamp), WikiSite.forLanguageCode(contributionLanguage), 0, contribution.revid))
-
+                                            DateUtil.iso8601DateParse(contribution.timestamp), WikiSite.forLanguageCode(contributionLanguage), 0,
+                                            contribution.revid, contribution.sizediff, contribution.top, tagCount))
                                 }
                                 Observable.just(contributions)
                             },
@@ -374,6 +375,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
         fun bindItem(contribution: Contribution) {
             view.contribution = contribution
             view.setTitle(contribution.description)
+            view.setDiffCountText(contribution.sizeDiff)
             view.setDescription(contribution.title)
             view.setIcon(contribution.editType)
             view.setImageUrl(contribution.imageUrl)

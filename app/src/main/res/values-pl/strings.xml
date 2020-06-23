@@ -20,6 +20,7 @@
 * Py64
 * Rail
 * Railfail536
+* Rainbow P
 * Rzuwig
 * Stojex
 * Tar Lócesilion
@@ -718,10 +719,16 @@
   <string name="suggested_edits_ip_blocked_message" fuzzy="true">Adres IP, którego używasz jest aktualnie zablokowany i nie możesz z niego wykonywać edycji na Wikipedii. Dowiedz się więcej o blokadach wchodząc w link poniżej.</string>
   <string name="suggested_edits_last_edited">Ostatnia edycja</string>
   <string name="suggested_edits_last_edited_never">Nigdy</string>
-  <string name="suggested_edits_contributions_type">%1$s (%2$s)</string>
   <string name="suggested_edits_reactivation_notification_title">Sugerowane edycje</string>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
+  <string name="suggested_edits_contribution_language_label">Język</string>
+  <string name="suggested_edits_contribution_date_time_label">Data / Czas</string>
+  <string name="suggested_edits_contribution_type_label">Typ kontrybucji</string>
+  <string name="suggested_edits_contribution_image_label">Plik</string>
+  <string name="suggested_edits_contribution_article_label">Artykuł</string>
+  <string name="suggested_edits_contribution_views">%s wyświetleń</string>
+  <string name="suggested_edits_contribution_label">Dodałeś/aś %d znaków</string>
   <string name="suggested_edits_contribution_seen_text">Widziany %s razy w ciągu ostatnich 30 dni.</string>
+  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Wczoraj</string>
   <string name="suggested_edits_rewards_edit_streak">Jak dotąd edytowałeś codziennie przez %1$d dni. Kontynuuj serię, %2$s!</string>
   <string name="suggested_edits_rewards_pageviews">Zmiany zostały obejrzane przez %d osób w ciągu ostatnich 30 dni. Dzięki i kontynuuj!</string>

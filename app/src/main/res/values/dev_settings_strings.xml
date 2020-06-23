@@ -45,6 +45,7 @@
     <string name="preference_developer_suggested_edits_reward_interstitial_edit_streak_on_count">Show the edit streak card on every [number] count.\nDefault is 5</string>
     <string name="preference_developer_suggested_edits_reward_interstitial_edit_quality_on_day">Show the edit quality card on every [number] day.\nDefault is 14</string>
     <string name="preference_developer_suggested_edits_reward_interstitial_pageviews_on_day">Show the pageviews card on every [number] day.\nDefault is 30</string>
+    <string name="preference_developer_suggested_edits_reward_interstitial_QA_override">This will override the existing logic and show the reward interstitial sequentially by swiping to the next card</string>
     <string name="cancel">Cancel</string>
     <string name="ok">OK</string>
 </resources>
