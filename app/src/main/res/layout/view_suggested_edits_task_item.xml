@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:layout_height="wrap_content"
-    tools:parentTag="androidx.cardview.widget.CardView">
+    tools:parentTag="org.wikipedia.views.WikiCardView">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/clickContainer"

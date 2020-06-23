@@ -44,17 +44,12 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <com.google.android.material.card.MaterialCardView
+                    <org.wikipedia.views.WikiCardView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/activity_horizontal_margin"
                         android:layout_marginEnd="@dimen/activity_horizontal_margin"
-                        android:layout_marginTop="8dp"
-                        app:strokeColor="@color/accent30"
-                        app:strokeWidth="1dp"
-                        app:cardElevation="0dp"
-                        app:cardBackgroundColor="?attr/paper_color"
-                        app:cardCornerRadius="12dp">
+                        android:layout_marginTop="8dp">
 
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="match_parent"
@@ -156,7 +151,7 @@
                                 android:textSize="@dimen/suggested_edits_message_textview_text_size" />
 
                         </androidx.constraintlayout.widget.ConstraintLayout>
-                    </com.google.android.material.card.MaterialCardView>
+                    </org.wikipedia.views.WikiCardView>
 
                     <TextView
                         android:id="@+id/contributeSubtitleView"

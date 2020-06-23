@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.res.ColorStateList
 import android.util.AttributeSet
 import android.view.View
-import androidx.cardview.widget.CardView
 import androidx.core.widget.ImageViewCompat
 import kotlinx.android.synthetic.main.view_suggested_edits_task_item.view.*
 import org.wikipedia.Constants.MIN_LANGUAGES_TO_UNLOCK_TRANSLATION
@@ -12,8 +11,9 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
+import org.wikipedia.views.WikiCardView
 
-internal class SuggestedEditsTaskView constructor(context: Context, attrs: AttributeSet? = null) : CardView(context, attrs) {
+internal class SuggestedEditsTaskView constructor(context: Context, attrs: AttributeSet? = null) : WikiCardView(context, attrs) {
 
     init {
         View.inflate(context, R.layout.view_suggested_edits_task_item, this)
@@ -22,9 +22,6 @@ internal class SuggestedEditsTaskView constructor(context: Context, attrs: Attri
         val marginY = DimenUtil.roundedDpToPx(8f)
         params.setMargins(marginX, marginY, marginX, marginY)
         layoutParams = params
-        radius = DimenUtil.dpToPx(12f)
-        cardElevation = DimenUtil.dpToPx(6f)
-        setCardBackgroundColor(ResourceUtil.getThemedColor(context, R.attr.paper_color))
     }
 
     private fun updateTranslateActionUI() {
