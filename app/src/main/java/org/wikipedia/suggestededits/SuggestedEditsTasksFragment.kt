@@ -142,7 +142,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         disposables.add(Observable.zip(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getUserContributions(AccountUtil.getUserName()!!, 10, null).subscribeOn(Schedulers.io()),
                 ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getUserContributions(AccountUtil.getUserName()!!, 10, null).subscribeOn(Schedulers.io()),
                 SuggestedEditsUserStats.getEditCountsObservable(),
-                Function3<MwQueryResponse, MwQueryResponse, MwQueryResponse, MwQueryResponse> { commonsResponse, wikidataResponse, suggestedStatsResponse ->
+                Function3<MwQueryResponse, MwQueryResponse, MwQueryResponse, MwQueryResponse> { commonsResponse, wikidataResponse, _ ->
                     if (wikidataResponse.query()!!.userInfo()!!.isBlocked || commonsResponse.query()!!.userInfo()!!.isBlocked) {
                         isIpBlocked = true
                     }
