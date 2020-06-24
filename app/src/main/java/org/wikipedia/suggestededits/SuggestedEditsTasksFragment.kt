@@ -69,6 +69,10 @@ class SuggestedEditsTasksFragment : Fragment() {
             startActivity(SuggestedEditsContributionsActivity.newIntent(requireActivity()))
         }
 
+        learnMoreButton.setOnClickListener {
+            FeedbackUtil.showAndroidAppEditingFAQ(requireContext())
+        }
+
         contributionsStatsView.setImageDrawable(R.drawable.ic_mode_edit_white_24dp)
 
         editStreakStatsView.setDescription(resources.getString(R.string.suggested_edits_edit_streak_label_text))
