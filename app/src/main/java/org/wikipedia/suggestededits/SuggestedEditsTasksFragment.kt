@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.view.*
 import android.view.View.GONE
 import android.view.View.VISIBLE
-import android.widget.Toast
 import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -39,7 +38,6 @@ class SuggestedEditsTasksFragment : Fragment() {
     private val callback = TaskViewCallback()
 
     private val disposables = CompositeDisposable()
-    private var currentTooltip: Toast? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -54,21 +52,15 @@ class SuggestedEditsTasksFragment : Fragment() {
             startActivity(SuggestedEditsContributionsActivity.newIntent(requireActivity()))
         }
 
-        contributionsStatsView.setOnClickListener {
-            startActivity(SuggestedEditsContributionsActivity.newIntent(requireActivity()))
-        }
         contributionsStatsView.setImageDrawable(R.drawable.ic_mode_edit_white_24dp)
 
         editStreakStatsView.setDescription(resources.getString(R.string.suggested_edits_edit_streak_label_text))
         editStreakStatsView.setImageDrawable(R.drawable.ic_timer_black_24dp)
-        editStreakStatsView.setOnClickListener { onUserStatClicked(editStreakStatsView) }
 
         pageViewStatsView.setDescription(getString(R.string.suggested_edits_pageviews_label_text))
         pageViewStatsView.setImageDrawable(R.drawable.ic_trending_up_black_24dp)
-        pageViewStatsView.setOnClickListener { onUserStatClicked(pageViewStatsView) }
 
         editQualityStatsView.setDescription(getString(R.string.suggested_edits_quality_label_text))
-        editQualityStatsView.setOnClickListener { onUserStatClicked(editQualityStatsView) }
 
         swipeRefreshLayout.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent))
         swipeRefreshLayout.setOnRefreshListener { this.refreshContents() }
@@ -85,39 +77,8 @@ class SuggestedEditsTasksFragment : Fragment() {
         clearContents()
     }
 
-    private fun onUserStatClicked(view: View) {
-        when (view) {
-            editStreakStatsView -> showEditStreakStatsViewTooltip()
-            pageViewStatsView -> showPageViewStatsViewTooltip()
-            else -> showEditQualityStatsViewTooltip()
-        }
-    }
-
-    private fun hideCurrentTooltip() {
-        if (currentTooltip != null) {
-            currentTooltip!!.cancel()
-            currentTooltip = null
-        }
-    }
-
-    private fun showEditStreakStatsViewTooltip() {
-        hideCurrentTooltip()
-        currentTooltip = FeedbackUtil.showToastOverView(editStreakStatsView, getString(R.string.suggested_edits_edit_streak_stat_tooltip), FeedbackUtil.LENGTH_LONG)
-    }
-
-    private fun showPageViewStatsViewTooltip() {
-        hideCurrentTooltip()
-        currentTooltip = FeedbackUtil.showToastOverView(pageViewStatsView, getString(R.string.suggested_edits_page_views_stat_tooltip), Toast.LENGTH_LONG)
-    }
-
-    private fun showEditQualityStatsViewTooltip() {
-        hideCurrentTooltip()
-        currentTooltip = FeedbackUtil.showToastOverView(editQualityStatsView, getString(R.string.suggested_edits_edit_quality_stat_tooltip, SuggestedEditsUserStats.totalReverts), FeedbackUtil.LENGTH_LONG)
-    }
-
     override fun onPause() {
         super.onPause()
-        hideCurrentTooltip()
         SuggestedEditsFunnel.get().pause()
     }
 
@@ -132,11 +93,6 @@ class SuggestedEditsTasksFragment : Fragment() {
         setHasOptionsMenu(true)
     }
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.menu_suggested_edits_tasks, menu)
-        ResourceUtil.setMenuItemTint(requireContext(), menu.findItem(R.id.menu_help), R.attr.colorAccent)
-    }
-
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == ACTIVITY_REQUEST_ADD_A_LANGUAGE) {
@@ -144,16 +100,6 @@ class SuggestedEditsTasksFragment : Fragment() {
         } else if (requestCode == ACTIVITY_REQUEST_IMAGE_TAGS_ONBOARDING && resultCode == Activity.RESULT_OK) {
             Prefs.setShowImageTagsOnboarding(false)
             startActivity(SuggestedEditsCardsActivity.newIntent(requireActivity(), ADD_IMAGE_TAGS))
-        }
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            R.id.menu_help -> {
-                FeedbackUtil.showAndroidAppEditingFAQ(requireContext())
-                super.onOptionsItemSelected(item)
-            }
-            else -> super.onOptionsItemSelected(item)
         }
     }
 
