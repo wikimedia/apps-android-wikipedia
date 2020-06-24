@@ -40,6 +40,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:icon="@drawable/ic_open_in_new_black_24px"
+        app:iconSize="20dp"
         app:iconTint="?attr/colorAccent"/>
 
 </LinearLayout>

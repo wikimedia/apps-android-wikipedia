@@ -304,9 +304,13 @@
 
     <style name="FlatButton" parent="@style/Widget.MaterialComponents.Button.UnelevatedButton">
         <item name="backgroundTint">?attr/color_group_22</item>
-        <item name="cornerRadius">8dp</item>
         <item name="android:textColor">?attr/colorAccent</item>
-        <item name="rippleColor">?attr/color_group_60</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:paddingStart">10dp</item>
+        <item name="android:paddingEnd">10dp</item>
+        <item name="rippleColor">?attr/color_group_59</item>
+        <item name="cornerRadius">8dp</item>
     </style>
 
     <style name="TransparentButton" parent="@style/Widget.MaterialComponents.Button.UnelevatedButton">

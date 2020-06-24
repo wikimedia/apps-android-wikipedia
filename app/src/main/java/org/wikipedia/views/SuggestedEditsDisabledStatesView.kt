@@ -54,6 +54,7 @@ internal class SuggestedEditsDisabledStatesView constructor(context: Context, at
     private fun setDefaultState() {
         imageView.visibility = View.VISIBLE
         actionButton.text = context.getString(R.string.suggested_edits_learn_more_button_text)
+        actionButton.setIconResource(R.drawable.ic_open_in_new_black_24px)
         actionButton.setOnClickListener { UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(R.string.android_app_edit_help_url))) }
     }
 }
