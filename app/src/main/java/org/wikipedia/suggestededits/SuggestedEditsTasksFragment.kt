@@ -32,7 +32,6 @@ import org.wikipedia.util.*
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DefaultRecyclerAdapter
 import org.wikipedia.views.DefaultViewHolder
-import org.wikipedia.views.DrawableItemDecoration
 
 class SuggestedEditsTasksFragment : Fragment() {
     private lateinit var addDescriptionsTask: SuggestedEditsTask
@@ -54,8 +53,14 @@ class SuggestedEditsTasksFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setupTestingButtons()
 
+        userStatsClickTarget.setOnClickListener {
+            startActivity(SuggestedEditsContributionsActivity.newIntent(requireActivity()))
+        }
+
+        contributionsStatsView.setOnClickListener {
+            startActivity(SuggestedEditsContributionsActivity.newIntent(requireActivity()))
+        }
         contributionsStatsView.setImageDrawable(R.drawable.ic_mode_edit_white_24dp)
-        contributionsStatsView.setOnClickListener { onUserStatClicked(contributionsStatsView) }
 
         editStreakStatsView.setDescription(resources.getString(R.string.suggested_edits_edit_streak_label_text))
         editStreakStatsView.setImageDrawable(R.drawable.ic_timer_black_24dp)
@@ -78,8 +83,6 @@ class SuggestedEditsTasksFragment : Fragment() {
         })
         setUpTasks()
         tasksRecyclerView.layoutManager = LinearLayoutManager(context)
-        tasksRecyclerView.addItemDecoration(DrawableItemDecoration(requireContext(), R.attr.list_separator_drawable, drawStart = false, drawEnd = false,
-                horizontalPadding = resources.getDimension(R.dimen.activity_horizontal_margin).toInt()))
         tasksRecyclerView.adapter = RecyclerAdapter(displayedTasks)
 
         clearContents()
@@ -87,10 +90,6 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     private fun onUserStatClicked(view: View) {
         when (view) {
-            contributionsStatsView -> {
-                showContributionsStatsViewTooltip()
-                startActivity(SuggestedEditsContributionsActivity.newIntent(requireActivity()))
-            }
             editStreakStatsView -> showEditStreakStatsViewTooltip()
             pageViewStatsView -> showPageViewStatsViewTooltip()
             else -> showEditQualityStatsViewTooltip()
@@ -102,11 +101,6 @@ class SuggestedEditsTasksFragment : Fragment() {
             currentTooltip!!.cancel()
             currentTooltip = null
         }
-    }
-
-    private fun showContributionsStatsViewTooltip() {
-        hideCurrentTooltip()
-        currentTooltip = FeedbackUtil.showToastOverView(contributionsStatsView, getString(R.string.suggested_edits_contributions_stat_tooltip), Toast.LENGTH_LONG)
     }
 
     private fun showEditStreakStatsViewTooltip() {
@@ -267,23 +261,25 @@ class SuggestedEditsTasksFragment : Fragment() {
         tasksRecyclerView.adapter!!.notifyDataSetChanged()
 
         if (SuggestedEditsUserStats.totalEdits == 0) {
+            userNameView.visibility = GONE
             contributionsStatsView.visibility = GONE
             editQualityStatsView.visibility = GONE
             editStreakStatsView.visibility = GONE
             pageViewStatsView.visibility = GONE
             onboardingImageView.visibility = VISIBLE
-            textViewForMessage.text = StringUtil.fromHtml(getString(R.string.suggested_edits_onboarding_message, AccountUtil.getUserName()))
-            textViewForMessage.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_primary_color))
+            onboardingTextView.visibility = VISIBLE
+            onboardingTextView.text = StringUtil.fromHtml(getString(R.string.suggested_edits_onboarding_message, AccountUtil.getUserName()))
         } else {
+            userNameView.text = AccountUtil.getUserName()
+            userNameView.visibility = VISIBLE
             contributionsStatsView.visibility = VISIBLE
             editQualityStatsView.visibility = VISIBLE
             editStreakStatsView.visibility = VISIBLE
             pageViewStatsView.visibility = VISIBLE
             onboardingImageView.visibility = GONE
+            onboardingTextView.visibility = GONE
             contributionsStatsView.setTitle(SuggestedEditsUserStats.totalEdits.toString())
             contributionsStatsView.setDescription(resources.getQuantityString(R.plurals.suggested_edits_contribution, SuggestedEditsUserStats.totalEdits))
-            textViewForMessage.text = getString(R.string.suggested_edits_encouragement_message, AccountUtil.getUserName())
-            textViewForMessage.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_secondary_color))
         }
 
         swipeRefreshLayout.setBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))

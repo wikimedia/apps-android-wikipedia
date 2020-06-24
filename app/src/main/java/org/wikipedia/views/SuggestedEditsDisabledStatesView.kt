@@ -13,7 +13,7 @@ import org.wikipedia.login.LoginActivity
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
 
-internal class SuggestedEditsDisabledStatesView constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
+internal class SuggestedEditsDisabledStatesView constructor(context: Context, attrs: AttributeSet? = null) : WikiCardView(context, attrs) {
 
     init {
         View.inflate(context, R.layout.view_suggested_edits_disabled_states, this)
@@ -21,30 +21,30 @@ internal class SuggestedEditsDisabledStatesView constructor(context: Context, at
 
     fun setPaused(message: String) {
         setDefaultState()
-        cardTitleView.text = context.getString(R.string.suggested_edits_paused_title)
-        cardContentView.text = StringUtil.fromHtml(message)
+        messageTitleView.text = context.getString(R.string.suggested_edits_paused_title)
+        messageTextView.text = StringUtil.fromHtml(message)
         imageView.setImageResource(R.drawable.ic_suggested_edits_paused)
     }
 
     fun setDisabled(message: String) {
         setDefaultState()
-        cardTitleView.text = context.getString(R.string.suggested_edits_disabled_title)
-        cardContentView.text = StringUtil.fromHtml(message)
+        messageTitleView.text = context.getString(R.string.suggested_edits_disabled_title)
+        messageTextView.text = StringUtil.fromHtml(message)
         imageView.setImageResource(R.drawable.ic_suggested_edits_disabled)
     }
 
     fun setIPBlocked() {
         setDefaultState()
         imageView.visibility = GONE
-        cardTitleView.text = context.getString(R.string.suggested_edits_ip_blocked_title)
-        cardContentView.text = context.getString(R.string.suggested_edits_ip_blocked_message)
+        messageTitleView.text = context.getString(R.string.suggested_edits_ip_blocked_title)
+        messageTextView.text = context.getString(R.string.suggested_edits_ip_blocked_message)
         actionButton.setOnClickListener { UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(R.string.create_account_ip_block_help_url))) }
     }
 
     fun setRequiredLogin() {
         setDefaultState()
-        cardTitleView.text = context.getString(R.string.suggested_edits_encourage_account_creation_title)
-        cardContentView.text = context.getString(R.string.suggested_edits_encourage_account_creation_message)
+        messageTitleView.text = context.getString(R.string.suggested_edits_encourage_account_creation_title)
+        messageTextView.text = context.getString(R.string.suggested_edits_encourage_account_creation_message)
         imageView.setImageResource(R.drawable.ic_require_login_header)
         actionButton.text = context.getString(R.string.suggested_edits_encourage_account_creation_login_button)
         actionButton.icon = null

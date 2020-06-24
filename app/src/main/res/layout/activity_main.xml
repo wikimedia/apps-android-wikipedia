@@ -15,6 +15,7 @@
         android:layout_marginStart="-12dp"
         android:background="?attr/paper_color"
         android:elevation="4dp"
+        app:titleTextAppearance="@style/LargeTextToolbarTitleText"
         app:titleMarginStart="28dp"
         app:titleTextColor="?attr/toolbar_title_color">
 

@@ -742,11 +742,8 @@
   <string name="suggested_edits_edit_streak_stat_tooltip">Tool tip text explaining the edit streak statistics to the user.\n\n\"Suggested edits\" should be translated the same as {{msg-wm|Wikipedia-android-strings-suggested edits tasks activity title}}.</string>
   <string name="suggested_edits_page_views_stat_tooltip">Tool tip text explaining the page views statistics to the user.\n\n\"Suggested edits\" should be translated the same as {{msg-wm|Wikipedia-android-strings-suggested edits tasks activity title}}.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Tool tip text explaining the edit quality statistics to the user. %d represents the number of reverts.</string>
-  <string name="suggested_edits_paused_title">Title of the reason for a short term disabling of editing previleges to the user.</string>
   <string name="suggested_edits_paused_message">Text explaining the reason for a short term disabling of editing previleges to the user. The %1$s symbol will be replaced by the date when editing will be unlocked again, and the %2$s symbol represents the user\'s name.</string>
-  <string name="suggested_edits_disabled_title">Title of the reason for disabling of editing previleges to the user.</string>
   <string name="suggested_edits_disabled_message">Text explaining the reason for disabling of editing previleges to the user. %s represents the user\'s name.</string>
-  <string name="suggested_edits_ip_blocked_title">Title of the reason for ip blocking to the user</string>
   <string name="suggested_edits_ip_blocked_message">Text explaining ip blocking to the user.</string>
   <string name="suggested_edits_editing_tips_link_text">Label text for editing tips and tricks</string>
   <string name="suggested_edits_help_page_link_text">Label text for suggested edits help page</string>
@@ -790,6 +787,12 @@
     <item quantity="one">Text summarizing the user\'s image tag contribution. %d represents the number of tags contributed.</item>
     <item quantity="other">Text summarizing the user\'s image tag contribution. %d represents the number of tags contributed.</item>
   </plurals>
+  <string name="suggested_edits_what_is_title">Title for card that introduces Suggested edits.</string>
+  <string name="suggested_edits_what_is_text">Body text for card that introduces Suggested edits.</string>
+  <string name="suggested_edits_learn_more">Button text for navigating to additional information for the user.</string>
+  <string name="suggested_edits_paused_title">Title for card that explains that this feature is currently paused.</string>
+  <string name="suggested_edits_disabled_title">Title for card that explains that this feature is currently disabled.</string>
+  <string name="suggested_edits_ip_blocked_title">Title for card that explains that the IP address of the user is blocked.</string>
   <string name="suggested_edits_contribution_type_title">Contributions filter dropdown item text. %1$d represents the count of the edit type. %2$s is the type of the edit.</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Text for contributions date to indicate it was contributed yesterday</string>
   <string name="suggested_edits_rewards_contribution">Message shown to a user about the number of contributions the user has made. The %d represents the number of contrubutions.</string>
