@@ -1,6 +1,7 @@
 package org.wikipedia.suggestededits
 
 import android.content.Context
+import android.graphics.drawable.ColorDrawable
 import android.util.AttributeSet
 import android.view.View
 import android.view.ViewGroup
@@ -14,8 +15,8 @@ import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.views.ViewUtil
-import java.lang.Math.abs
 import java.text.DecimalFormat
+import kotlin.math.abs
 
 class SuggestedEditsContributionsItemView constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
     interface Callback {
@@ -73,7 +74,11 @@ class SuggestedEditsContributionsItemView constructor(context: Context, attrs: A
     }
 
     fun setImageUrl(url: String?) {
-        if (url.isNullOrEmpty() || url == "null") {
+        if (url == null) {
+            image.visibility = INVISIBLE
+            return
+        }
+        if (url.isEmpty() || url == "null") {
             image.visibility = GONE
         } else {
             image.visibility = VISIBLE
@@ -81,13 +86,15 @@ class SuggestedEditsContributionsItemView constructor(context: Context, attrs: A
         }
     }
 
-    fun setDiffCountText(sizeDiff: Int) {
-        if (contribution!!.editType == EDIT_TYPE_IMAGE_TAG) {
-            contributionDiffCountText.visibility = GONE
+    fun setDiffCountText(contribution: Contribution) {
+        if (contribution.editType == EDIT_TYPE_IMAGE_TAG) {
+            contributionDiffCountText.visibility = VISIBLE
+            contributionDiffCountText.text = resources.getQuantityString(R.plurals.suggested_edits_tags_diff_count_text, abs(contribution.tagCount), numFormat.format(contribution.tagCount))
+            contributionDiffCountText.setTextColor(ResourceUtil.getThemedColor(context, R.attr.action_mode_green_background))
         } else {
             contributionDiffCountText.visibility = VISIBLE
-            contributionDiffCountText.text = resources.getQuantityString(R.plurals.suggested_edits_contribution_diff_count_text, abs(sizeDiff), numFormat.format(sizeDiff))
-            contributionDiffCountText.setTextColor(if (sizeDiff < 0) ResourceUtil.getThemedColor(context, R.attr.colorError)
+            contributionDiffCountText.text = resources.getQuantityString(R.plurals.suggested_edits_contribution_diff_count_text, abs(contribution.sizeDiff), numFormat.format(contribution.sizeDiff))
+            contributionDiffCountText.setTextColor(if (contribution.sizeDiff < 0) ResourceUtil.getThemedColor(context, R.attr.colorError)
             else ResourceUtil.getThemedColor(context, R.attr.action_mode_green_background))
         }
     }

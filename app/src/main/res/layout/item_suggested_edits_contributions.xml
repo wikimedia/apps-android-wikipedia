@@ -20,7 +20,7 @@
             android:id="@+id/contributionIcon"
             android:layout_width="match_parent"
             android:layout_height="24dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="22dp"
             android:background="?attr/paper_color"
             android:contentDescription="@null"
             app:srcCompat="@drawable/ic_article_description"

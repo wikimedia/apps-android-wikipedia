@@ -16,16 +16,17 @@ open class WikiCardView @JvmOverloads constructor(context: Context, attrs: Attri
 
     init {
         radius = DimenUtil.dpToPx(12f)
-        strokeColor = ResourceUtil.getThemedColor(context, R.attr.color_group_60)
 
         strokeWidth = when (WikipediaApp.getInstance().currentTheme) {
             Theme.DARK -> {
                 DimenUtil.roundedDpToPx(0f)
             }
             Theme.BLACK -> {
+                strokeColor = ContextCompat.getColor(context, R.color.base10)
                 DimenUtil.roundedDpToPx(1f)
             }
             else -> {
+                strokeColor = ContextCompat.getColor(context, R.color.base80)
                 DimenUtil.roundedDpToPx(0.5f)
             }
         }
