@@ -76,10 +76,10 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/revisionLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
-                android:layout_marginBottom="24dp"
                 android:gravity="center_vertical">
 
                 <View
@@ -101,6 +101,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
+                android:layout_marginTop="24dp"
                 android:background="?attr/color_group_60" />
 
             <LinearLayout

@@ -180,7 +180,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
                             qLangMap[qNumber] = HashSet()
                         }
                         wikidataContributions.add(Contribution(qNumber, contribution.title, contributionDescription, editType, null, DateUtil.iso8601DateParse(contribution.timestamp),
-                                WikiSite.forLanguageCode(contributionLanguage), 0, contribution.revid, contribution.sizediff, contribution.top, 0))
+                                WikiSite.forLanguageCode(contributionLanguage), 0, contribution.sizediff, contribution.top, 0))
                         qLangMap[qNumber]?.add(contributionLanguage)
                     }
                     ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getWikidataLabelsAndDescriptions(qLangMap.keys.joinToString("|"))
@@ -245,9 +245,8 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
                                             }
                                         }
                                     }
-                                    contributions.add(Contribution(qNumber, contribution.title, contributionDescription, editType, null,
-                                            DateUtil.iso8601DateParse(contribution.timestamp), WikiSite.forLanguageCode(contributionLanguage), 0,
-                                            contribution.revid, contribution.sizediff, contribution.top, tagCount))
+                                    contributions.add(Contribution(qNumber, contribution.title, contributionDescription, editType, null, DateUtil.iso8601DateParse(contribution.timestamp),
+                                            WikiSite.forLanguageCode(contributionLanguage), 0, contribution.sizediff, contribution.top, tagCount))
                                 }
                                 Observable.just(contributions)
                             },
