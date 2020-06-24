@@ -210,7 +210,7 @@ class SuggestedEditsTasksFragment : Fragment() {
                 }))
     }
 
-    private fun refreshContents() {
+    fun refreshContents() {
         requireActivity().invalidateOptionsMenu()
         fetchUserContributions()
     }
