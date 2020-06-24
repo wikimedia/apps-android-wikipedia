@@ -5,6 +5,7 @@ import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
+import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -60,7 +61,7 @@ class SuggestedEditsContributionDetailsFragment : Fragment() {
         updateTopGradient()
         contributionContainer.setOnClickListener { startTypeSpecificActivity() }
         contributionDetailText.text = contribution.description
-        revisionText.text = if (contribution.top) getString(R.string.suggested_edits_contribution_current_revision) else contribution.revisionId.toString()
+        revisionLayout.visibility = if (contribution.top) VISIBLE else GONE
         contributionTitle.text = contribution.title
         if (contribution.imageUrl.isNullOrEmpty() || contribution.imageUrl == "null") contributionImage.visibility = GONE else ViewUtil.loadImageWithRoundedCorners(contributionImage, contribution.imageUrl)
         dateTimeDetailView.setLabelAndDetail(getString(R.string.suggested_edits_contribution_date_time_label), DateUtil.getFeedCardDateString(contribution.date) + " / " + DateUtil.get24HrFormatTimeOnlyString(contribution.date), -1)
