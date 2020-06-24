@@ -821,6 +821,10 @@
     <string name="suggested_edits_rewards_continue_button">Continue</string>
     <string name="suggested_edits_contribution_type_image_tag">Image tag</string>
     <string name="suggested_edits_contribution_current_revision">Current revision</string>
+    <plurals name="suggested_edits_tags_diff_count_text">
+        <item quantity="one">%1$s tag</item>
+        <item quantity="other">%1$s tags</item>
+    </plurals>
     <plurals name="suggested_edits_contribution_diff_count_text">
         <item quantity="one">%1$s character</item>
         <item quantity="other">%1$s characters</item>

@@ -906,6 +906,10 @@
     <item quantity="one">Label text indicating the number of characters added or removed by a user contribution. %1$s represents the number.</item>
     <item quantity="other">Label text indicating the number of characters added or removed by a user contribution. %1$s represents the number.</item>
   </plurals>
+  <plurals name="suggested_edits_tags_diff_count_text">
+    <item quantity="one">Label text indicating the number of tags added or removed by a user contribution. %1$s represents the number.</item>
+    <item quantity="other">Label text indicating the number of tags added or removed by a user contribution. %1$s represents the number.</item>
+  </plurals>
   <string name="nav_item_more">Navigation menu item label for accessing menu items.</string>
   <string name="preference_title_customize_explore_feed">Title of the preference for customizing the explore feed.</string>
   <string name="preference_summary_customize_explore_feed">Description of the preference for customizing the explore feed.</string>

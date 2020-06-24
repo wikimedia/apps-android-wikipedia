@@ -379,7 +379,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
         fun bindItem(contribution: Contribution) {
             view.contribution = contribution
             view.setTitle(contribution.description)
-            view.setDiffCountText(contribution.sizeDiff)
+            view.setDiffCountText(contribution)
             view.setDescription(contribution.title)
             view.setIcon(contribution.editType)
             view.setImageUrl(contribution.imageUrl)
@@ -429,6 +429,8 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
                             if (page.imageInfo() != null) {
                                 val imageInfo = page.imageInfo()!!
                                 contribution.imageUrl = imageInfo.thumbUrl
+                            } else {
+                                contribution.imageUrl = ""
                             }
                             if (contribution.editType == EDIT_TYPE_IMAGE_TAG && qLabel.isNotEmpty()) {
                                 contribution.description = qLabel
