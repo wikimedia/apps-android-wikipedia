@@ -208,7 +208,7 @@
                                 android:text="@string/suggested_edits_what_is_text"/>
 
                             <LinearLayout
-                                android:id="@+id/learnMoreContainer"
+                                android:id="@+id/learnMoreButton"
                                 android:layout_width="wrap_content"
                                 android:layout_height="32dp"
                                 android:paddingStart="8dp"

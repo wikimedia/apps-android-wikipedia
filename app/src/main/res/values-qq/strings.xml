@@ -877,6 +877,7 @@
   <string name="reverted_edit_dialog_ok_button_text">Acknowledgement button text in warning pop-up dialog for reverted edit.\n{{Identical|OK}}</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">Negative action button text in warning pop-up dialog for accounts for which editing is blocked.\n{{Identical|Cancel}}</string>
   <string name="content_description_for_page_indicator">Label of content description for tutorial page. %1$d will be replaced by the current number of pages and %2$d will be replaced by the total number of pages.</string>
+  <string name="edit_type_all">Selection to show all types of edits.</string>
   <string name="wikitext_bold">Button label for making the selected text bold.</string>
   <string name="wikitext_italic">Button label for making the selected text italic.</string>
   <string name="wikitext_link">Button label for making the selected text into a link.\n{{Identical|Link}}</string>
@@ -906,6 +907,10 @@
   <plurals name="suggested_edits_contribution_diff_count_text">
     <item quantity="one">Label text indicating the number of characters added or removed by a user contribution. %1$s represents the number.</item>
     <item quantity="other">Label text indicating the number of characters added or removed by a user contribution. %1$s represents the number.</item>
+  </plurals>
+  <plurals name="suggested_edits_tags_diff_count_text">
+    <item quantity="one">Label text indicating the number of tags added or removed by a user contribution. %1$s represents the number.</item>
+    <item quantity="other">Label text indicating the number of tags added or removed by a user contribution. %1$s represents the number.</item>
   </plurals>
   <string name="nav_item_more">Navigation menu item label for accessing menu items.</string>
   <string name="preference_title_customize_explore_feed">Title of the preference for customizing the explore feed.</string>

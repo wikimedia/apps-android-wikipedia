@@ -30,8 +30,8 @@ class SuggestedEditsTypeItem constructor(context: Context, attrs: AttributeSet? 
     }
 
     fun setEnabledStateUI() {
-        title.setTextColor(ResourceUtil.getThemedColor(context, R.attr.colorAccent))
-        ImageViewCompat.setImageTintList(image, ColorStateList.valueOf(ContextCompat.getColor(context, ResourceUtil.getThemedAttributeId(context, R.attr.colorAccent))))
+        title.setTextColor(ResourceUtil.getThemedColor(context, R.attr.themed_icon_color))
+        ImageViewCompat.setImageTintList(image, ColorStateList.valueOf(ContextCompat.getColor(context, ResourceUtil.getThemedAttributeId(context, R.attr.themed_icon_color))))
         this.background = ContextCompat.getDrawable(context, R.drawable.rounded_12dp_accent90_fill)
     }
 
