@@ -19,8 +19,8 @@
 
         <ImageView
             android:id="@+id/taskIcon"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:tint="?attr/colorAccent"
