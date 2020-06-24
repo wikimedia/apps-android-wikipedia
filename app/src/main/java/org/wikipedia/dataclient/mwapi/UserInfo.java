@@ -41,10 +41,12 @@ public class UserInfo {
 
     @NonNull public Date getLatestContrib() {
         Date date = new Date(0);
-        try {
-            date = DateUtil.iso8601DateParse(latestcontrib);
-        } catch (ParseException e) {
-            // ignore
+        if (!TextUtils.isEmpty(latestcontrib)) {
+            try {
+                date = DateUtil.iso8601DateParse(latestcontrib);
+            } catch (ParseException e) {
+                // ignore
+            }
         }
         return date;
     }
