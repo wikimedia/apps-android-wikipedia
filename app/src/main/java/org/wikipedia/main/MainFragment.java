@@ -104,7 +104,6 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     private Snackbar suggestedEditsNavTabSnackbar;
     private PageChangeCallback pageChangeCallback = new PageChangeCallback();
     private CompositeDisposable disposables = new CompositeDisposable();
-    private boolean navTabAutoSelect;
 
     // The permissions request API doesn't take a callback, so in the event we have to
     // ask for permission to download a featured image from the feed, we'll have to hold
@@ -136,7 +135,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         FeedbackUtil.setToolbarButtonLongPressToast(moreContainer);
 
         tabLayout.setOnNavigationItemSelectedListener(item -> {
-            if (!navTabAutoSelect && getCurrentFragment() instanceof FeedFragment && item.getOrder() == 0) {
+            if (getCurrentFragment() instanceof FeedFragment && item.getOrder() == 0) {
                 ((FeedFragment) getCurrentFragment()).scrollToTop();
             }
             viewPager.setCurrentItem(item.getOrder(), false);
@@ -167,9 +166,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         downloadReceiver.setCallback(downloadReceiverCallback);
         // reset the last-page-viewed timer
         Prefs.pageLastShown(0);
-        navTabAutoSelect = true;
         resetNavTabLayouts();
-        navTabAutoSelect = false;
     }
 
     @Override public void onDestroyView() {
@@ -473,8 +470,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         resetNavTabLayouts();
     }
 
-    void resetNavTabLayouts() {
-        goToTab(NavTab.of(viewPager.getCurrentItem()));
+    private void resetNavTabLayouts() {
         if (Prefs.shouldShowSuggestedEditsTooltip()) {
             Prefs.setShouldShowSuggestedEditsTooltip(false);
             Prefs.setShouldShowImageTagsTooltip(false);
