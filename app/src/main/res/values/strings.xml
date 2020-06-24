@@ -762,9 +762,9 @@
     <string name="suggested_edits_edit_streak_stat_tooltip">How many days without break you\'ve contributed via Suggested edits. If you haven\'t contributed in a while, it shows your last contribution date.</string>
     <string name="suggested_edits_page_views_stat_tooltip">Total pageviews of items you contributed to in the last 30 days with Suggested edits.</string>
     <string name="suggested_edits_edit_quality_stat_tooltip">Based on how many times one of your contributions was reverted (undone by another editor). Reverted edits: %d.</string>
-    <string name="suggested_edits_paused_message"><![CDATA[<b>Suggested edits is paused until %1$s.</b> Sorry %2$s, some of your recent contributions have been reverted.\n\nLearn how to improve your editing skills on Wikipedia with the link below.]]></string>
-    <string name="suggested_edits_disabled_message"><![CDATA[<b>Suggested edits is disabled.</b> Sorry %s, too many of your recent contributions have been reverted.\n\nLearn what this means with the link below.]]></string>
-    <string name="suggested_edits_ip_blocked_message">It looks like your IP address (or range of IP addresses) is currently blocked from editing Wikipedia. Learn more about what this means by visiting the link below.</string>
+    <string name="suggested_edits_paused_message">Suggested edits is paused until %1$s. Sorry %2$s, some of your recent contributions have been reverted.</string>
+    <string name="suggested_edits_disabled_message">Suggested edits is disabled. Sorry %s, too many of your recent contributions have been reverted.</string>
+    <string name="suggested_edits_ip_blocked_message">It looks like your IP address (or range of IP addresses) is currently blocked from editing Wikipedia.</string>
     <string name="suggested_edits_editing_tips_link_text">Editing tips and tricks</string>
     <string name="suggested_edits_help_page_link_text">Suggested edits help page</string>
     <string name="suggested_edits_edit_streak_label_text">Edit streak</string>
@@ -787,6 +787,12 @@
         <item quantity="one">%d day</item>
         <item quantity="other">%d days</item>
     </plurals>
+    <string name="suggested_edits_what_is_title">What is Suggested edits?</string>
+    <string name="suggested_edits_what_is_text">Suggested edits presents opportunities for small but vital contributions to Wikipedia.</string>
+    <string name="suggested_edits_learn_more">Learn more</string>
+    <string name="suggested_edits_paused_title">Paused</string>
+    <string name="suggested_edits_disabled_title">Disabled</string>
+    <string name="suggested_edits_ip_blocked_title">IP blocked</string>
     <string name="suggested_edits_last_edited">Last edited</string>
     <string name="suggested_edits_last_edited_never">Never</string>
     <string name="suggested_edits_task_new">new</string>
@@ -801,7 +807,6 @@
     <string name="suggested_edits_contribution_image_label">File</string>
     <string name="suggested_edits_contribution_article_label">Article</string>
     <string name="suggested_edits_contribution_views">%s views</string>
-    <string name="suggested_edits_contribution_label">You added %d characters</string>
     <string name="suggested_edits_contribution_seen_text">Seen %s times in the past 30 days.</string>
     <plurals name="suggested_edits_image_tag_contribution_label">
         <item quantity="one">You added %d tag</item>
@@ -815,6 +820,19 @@
     <string name="suggested_edits_rewards_edit_quality">Your edits so far are %s. Keep going! We look forward to your contributions.</string>
     <string name="suggested_edits_rewards_continue_button">Continue</string>
     <string name="suggested_edits_contribution_type_image_tag">Image tag</string>
+    <string name="suggested_edits_contribution_current_revision">Current revision</string>
+    <plurals name="suggested_edits_contribution_diff_count_text">
+        <item quantity="one">%1$s character</item>
+        <item quantity="other">%1$s characters</item>
+    </plurals>
+    <plurals name="suggested_edits_removed_contribution_label">
+        <item quantity="one">You removed %d character</item>
+        <item quantity="other">You removed %d characters</item>
+    </plurals>
+    <plurals name="suggested_edits_added_contribution_label">
+        <item quantity="one">You added %d character</item>
+        <item quantity="other">You added %d characters</item>
+    </plurals>
     <!-- /Suggested edits -->
 
     <!-- File page -->

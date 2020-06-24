@@ -39,6 +39,7 @@
                 android:layout_marginBottom="8dp">
 
                 <View
+                    android:id="@+id/contributionDiffIndicatorLine"
                     android:layout_width="6dp"
                     android:layout_height="match_parent"
                     android:background="?attr/action_mode_green_background" />
