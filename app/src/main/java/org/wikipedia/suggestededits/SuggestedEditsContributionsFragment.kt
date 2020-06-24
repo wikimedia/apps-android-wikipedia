@@ -57,6 +57,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
 
     private var editFilterType = EDIT_TYPE_GENERIC
     private var totalPageViews = 0L
+    private var totalContributionCount = 0
 
     private val qNumberRegex = """Q(\d+)""".toRegex()
     private val commentRegex = """/\*.*?\*/""".toRegex()
@@ -137,6 +138,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
         }
 
         progressBar.visibility = VISIBLE
+        totalContributionCount = 0
         disposables.clear()
 
         if (allContributions.isEmpty()) {
@@ -150,6 +152,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
         else ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getUserContributions(AccountUtil.getUserName()!!, 50, articleContributionsContinuation)
                 .subscribeOn(Schedulers.io())
                 .flatMap { response ->
+                    totalContributionCount += response.query()!!.userInfo()!!.editCount
                     val wikidataContributions = ArrayList<Contribution>()
                     val qLangMap = HashMap<String, HashSet<String>>()
                     articleContributionsContinuation = response.continuation()["uccontinue"]
@@ -162,7 +165,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
                         val matches = commentRegex.findAll(contribution.comment)
                         if (matches.any()) {
                             val metaComment = deCommentString(matches.first().value)
-                            if (matches.first().value.contains("wbsetdescription")) {
+                            if (metaComment.contains("wbsetdescription")) {
                                 val descArr = metaComment.split("|")
                                 if (descArr.size > 1) {
                                     contributionLanguage = descArr[1]
@@ -179,8 +182,9 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
                         if (qNumber.isNotEmpty() && !qLangMap.containsKey(qNumber)) {
                             qLangMap[qNumber] = HashSet()
                         }
-                        wikidataContributions.add(Contribution(qNumber, contribution.title, contributionDescription, editType,
-                                null, DateUtil.iso8601DateParse(contribution.timestamp), WikiSite.forLanguageCode(contributionLanguage), 0, contribution.revid))
+
+                        wikidataContributions.add(Contribution(qNumber, contribution.title, contributionDescription, editType, null, contribution.date(),
+                                WikiSite.forLanguageCode(contributionLanguage), 0, contribution.sizediff, contribution.top, 0))
 
                         qLangMap[qNumber]?.add(contributionLanguage)
                     }
@@ -204,6 +208,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
                     ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getUserContributions(AccountUtil.getUserName()!!, 200, imageContributionsContinuation)
                             .subscribeOn(Schedulers.io())
                             .flatMap { response ->
+                                totalContributionCount += response.query()!!.userInfo()!!.editCount
                                 val contributions = ArrayList<Contribution>()
                                 imageContributionsContinuation = response.continuation()["uccontinue"]
                                 for (contribution in response.query()!!.userContributions()) {
@@ -211,6 +216,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
                                     var editType: Int = EDIT_TYPE_GENERIC
                                     var contributionDescription = contribution.comment
                                     var qNumber = ""
+                                    var tagCount = 0
 
                                     val matches = commentRegex.findAll(contribution.comment)
                                     if (matches.any()) {
@@ -230,12 +236,14 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
                                                 qNumber = qNumberRegex.find(contribution.comment)?.value
                                                         ?: ""
                                                 editType = EDIT_TYPE_IMAGE_TAG
+                                                tagCount = 1
                                             }
                                             metaComment.contains("wbeditentity") -> {
                                                 if (matches.count() > 1 && matches.elementAt(1).value.contains(DEPICTS_META_STR)) {
                                                     val metaContentStr = deCommentString(matches.elementAt(1).value)
                                                     val map = extractTagsFromComment(metaContentStr)
                                                     if (map.isNotEmpty()) {
+                                                        tagCount = map.size
                                                         contributionDescription = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) ListFormatter.getInstance().format(map.values) else map.values.joinToString(",")
                                                     }
                                                 }
@@ -244,9 +252,8 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
                                         }
                                     }
 
-                                    contributions.add(Contribution(qNumber, contribution.title, contributionDescription, editType, null,
-                                            DateUtil.iso8601DateParse(contribution.timestamp), WikiSite.forLanguageCode(contributionLanguage), 0, contribution.revid))
-
+                                    contributions.add(Contribution(qNumber, contribution.title, contributionDescription, editType, null, contribution.date(),
+                                            WikiSite.forLanguageCode(contributionLanguage), 0, contribution.sizediff, contribution.top, tagCount))
                                 }
                                 Observable.just(contributions)
                             },
@@ -352,7 +359,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
     private inner class HeaderViewHolder internal constructor(itemView: SuggestedEditsContributionsHeaderView) : DefaultViewHolder<SuggestedEditsContributionsHeaderView?>(itemView) {
         fun bindItem() {
             view.callback = this@SuggestedEditsContributionsFragment
-            view.updateFilterViewUI(editFilterType)
+            view.updateFilterViewUI(editFilterType, totalContributionCount)
             view.updateTotalPageViews(totalPageViews)
         }
     }
@@ -374,6 +381,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
         fun bindItem(contribution: Contribution) {
             view.contribution = contribution
             view.setTitle(contribution.description)
+            view.setDiffCountText(contribution)
             view.setDescription(contribution.title)
             view.setIcon(contribution.editType)
             view.setImageUrl(contribution.imageUrl)
@@ -423,6 +431,8 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
                             if (page.imageInfo() != null) {
                                 val imageInfo = page.imageInfo()!!
                                 contribution.imageUrl = imageInfo.thumbUrl
+                            } else {
+                                contribution.imageUrl = ""
                             }
                             if (contribution.editType == EDIT_TYPE_IMAGE_TAG && qLabel.isNotEmpty()) {
                                 contribution.description = qLabel

@@ -4,15 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.cardview.widget.CardView
+    <org.wikipedia.views.WikiCardView
         android:id="@+id/card_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="8dp"
-        android:paddingBottom="@dimen/randomizer_card_view_bottom_padding"
-        app:cardBackgroundColor="?attr/paper_color"
-        app:cardUseCompatPadding="true">
+        android:paddingBottom="@dimen/randomizer_card_view_bottom_padding">
 
         <ProgressBar
             android:id="@+id/random_item_progress"
@@ -106,5 +104,5 @@
             </LinearLayout>
 
         </LinearLayout>
-    </androidx.cardview.widget.CardView>
+    </org.wikipedia.views.WikiCardView>
 </FrameLayout>

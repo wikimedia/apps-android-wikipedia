@@ -441,6 +441,7 @@
   <string name="reading_list_article_make_offline">使该条目离线时可用</string>
   <string name="reading_list_add_to_other_list">添加到另一个阅读列表</string>
   <string name="reading_list_move_to_other_list">移动到另一个阅读列表</string>
+  <string name="reading_list_move_from_to_other_list">自%s移动到另一个阅读列表</string>
   <string name="reading_list_remove_from_list">从%s中移除</string>
   <string name="reading_list_remove_from_lists">从阅读列表中移除</string>
   <string name="reading_list_select_item">选择</string>
@@ -788,6 +789,14 @@
   <string name="suggested_edits_reactivation_notification_title">编辑提议</string>
   <string name="suggested_edits_reactivation_notification_stage_one">谢谢您编辑维基百科！要不要继续您之前的编辑？</string>
   <string name="suggested_edits_reactivation_notification_stage_two">有时间继续改进维基百科吗？看看这些编辑建议吧。</string>
+  <string name="suggested_edits_contributions_screen_title">%s的贡献</string>
+  <string name="suggested_edits_contribution_language_label">语言</string>
+  <string name="suggested_edits_contribution_date_time_label">日期 / 时间</string>
+  <string name="suggested_edits_contribution_image_label">文件</string>
+  <string name="suggested_edits_contribution_article_label">条目</string>
+  <string name="suggested_edits_contribution_date_yesterday_text">昨天</string>
+  <string name="suggested_edits_rewards_continue_button">继续</string>
+  <string name="suggested_edits_contribution_type_image_tag">图片标签</string>
   <string name="file_page_activity_title">文件页面</string>
   <string name="description_edit_revert_subtitle">感谢编辑维基百科！</string>
   <string name="description_edit_revert_intro">我们知道您做出了最大的努力，但有位复核者还是回退了您的编辑。您的编辑被回退的原因可能包括：</string>

@@ -5,6 +5,7 @@
 * Chronist
 * Dbrant
 * DraconicDark
+* Druesenfieber
 * Envlh
 * FF11
 * Hikemaniac
@@ -747,6 +748,10 @@
   <string name="suggested_edits_reactivation_notification_title">Vorgeschlagene Bearbeitungen</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Danke für die Bearbeitung von Wikipedia! Warum machen Sie nicht dort weiter, wo Sie aufgehört haben?</string>
   <string name="suggested_edits_reactivation_notification_stage_two">Hast Du eine Minute Zeit, um Wikipedia weiter zu verbessern? Siehe Dich diese Bearbeitungsvorschläge an.</string>
+  <string name="suggested_edits_contribution_language_label">Sprache</string>
+  <string name="suggested_edits_contribution_date_time_label">Datum/Uhrzeit</string>
+  <string name="suggested_edits_contribution_seen_text">In den letzten 30 Tagen %s-mal angesehen.</string>
+  <string name="suggested_edits_contribution_date_yesterday_text">Gestern</string>
   <string name="description_edit_revert_subtitle">Vielen Dank für das Bearbeiten von Wikipedia!</string>
   <string name="description_edit_revert_intro">Wir wissen, dass du dein Bestes gegeben hast, aber einer unserer Prüfer hat Bedenken. Mögliche Gründe, warum deine Bearbeitung rückgängig gemacht wurde:</string>
   <string name="description_edit_revert_reason1">Dein Beitrag folgt keiner der &lt;a href=\"%1$s\"&gt;Richtlinien&lt;/a&gt;.</string>

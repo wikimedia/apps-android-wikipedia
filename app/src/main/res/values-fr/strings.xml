@@ -784,21 +784,31 @@
   <string name="suggested_edits_last_edited">Dernière modification</string>
   <string name="suggested_edits_last_edited_never">Jamais</string>
   <string name="suggested_edits_task_new">nouveau</string>
-  <string name="suggested_edits_contributions_type">%1$s (%2$s)</string>
   <string name="suggested_edits_cc0_notice">En publiant, vous acceptez les &lt;a href=\"%1$s\"&gt;conditions d’utilisation&lt;/a&gt; et de mettre de façon irrévocable cette contribution sous la &lt;a href=\"%2$s\"&gt;licence CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Modifications suggérées</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Merci d\'avoir modifié Wikipédia ! Pourquoi ne pas reprendre là où vous en étiez ?</string>
   <string name="suggested_edits_reactivation_notification_stage_two">Vous avez une minute pour continuer à améliorer Wikipédia ? Consultez ces suggestions de modifications.</string>
-  <string name="suggested_edits_contribution_type_image_tag">Balise d’image</string>
   <string name="suggested_edits_contributions_screen_title">contributions de %s</string>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
+  <string name="suggested_edits_contribution_language_label">Langue</string>
+  <string name="suggested_edits_contribution_date_time_label">Date / Heure</string>
+  <string name="suggested_edits_contribution_type_label">Type de contribution</string>
+  <string name="suggested_edits_contribution_image_label">Fichier</string>
+  <string name="suggested_edits_contribution_article_label">Article</string>
+  <string name="suggested_edits_contribution_views">%s vues</string>
+  <string name="suggested_edits_contribution_label">Vous avez ajouté %d caractères</string>
   <string name="suggested_edits_contribution_seen_text">Vu %s fois dans les 30 derniers jours.</string>
+  <plurals name="suggested_edits_image_tag_contribution_label">
+    <item quantity="one">Vous avez ajouté %d balise</item>
+    <item quantity="other">Vous avez ajouté %d balises</item>
+  </plurals>
+  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Hier</string>
   <string name="suggested_edits_rewards_contribution">Vous avez fait %d contributions à Wikipédia en utilisant les modifications suggérées. Merci !</string>
   <string name="suggested_edits_rewards_edit_streak">Vous avez modifié tous les jours depuis %1$d jusqu’à présent. Continuez la série en cours, %2$s !</string>
   <string name="suggested_edits_rewards_pageviews">Vos modifications ont été vues par %d personnes dans les 30 derniers jours. Merci, et continuez !</string>
   <string name="suggested_edits_rewards_edit_quality">Vos modifications jusqu’à présent sont %s. Continuez ! Nous attendons vos contributions.</string>
   <string name="suggested_edits_rewards_continue_button">Poursuivre</string>
+  <string name="suggested_edits_contribution_type_image_tag">Balise d’image</string>
   <string name="file_page_activity_title">Page du fichier</string>
   <string name="description_edit_revert_subtitle">Merci pour l’édition de Wikipédia !</string>
   <string name="description_edit_revert_intro">Nous savons que vous avez fait de votre mieux, mais un de nos relecteurs a eu un souci. Les raisons possibles de l’annulation de votre modification comprennent :</string>

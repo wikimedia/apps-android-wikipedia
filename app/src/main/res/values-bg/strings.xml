@@ -400,6 +400,7 @@
   <string name="reading_list_article_make_offline">Правене на статията достъпна офлайн</string>
   <string name="reading_list_add_to_other_list">Добавяне в друг списък за четене</string>
   <string name="reading_list_move_to_other_list">Преместване в друг списък за четене</string>
+  <string name="reading_list_move_from_to_other_list">Преместване от %s към друг списък за четене</string>
   <string name="reading_list_remove_from_list">Премахване от %s</string>
   <string name="reading_list_remove_from_lists">Премахване от списъците за четене</string>
   <string name="reading_list_select_item">Избиране</string>
@@ -707,6 +708,14 @@
   <string name="suggested_edits_task_new">ново</string>
   <string name="suggested_edits_cc0_notice">Публикувайки, Вие се съгласявате с &lt;a href=\"%1$s\"&gt;условията за ползване&lt;/a&gt; и безвъзвратно публикувате приносите си под &lt;a href=\"%2$s\"&gt;CC0 лиценз&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Предложения за редактиране</string>
+  <string name="suggested_edits_contribution_language_label">Език</string>
+  <string name="suggested_edits_contribution_date_time_label">Дата / Час</string>
+  <string name="suggested_edits_contribution_type_label">Вид принос</string>
+  <string name="suggested_edits_contribution_image_label">Файл</string>
+  <string name="suggested_edits_contribution_article_label">Статия</string>
+  <string name="suggested_edits_contribution_label">Добавили сте %d символа</string>
+  <string name="suggested_edits_contribution_date_yesterday_text">Вчера</string>
+  <string name="suggested_edits_rewards_continue_button">Продължаване</string>
   <string name="file_page_activity_title">Страница на файла</string>
   <string name="description_edit_revert_subtitle">Благодарим за редактирането на Уикипедия!</string>
   <string name="description_edit_revert_intro">Знаем, че дадохте всичко от себе си, но един от преглеждащите има забележка. Възможните причини за върната редакция включват:</string>

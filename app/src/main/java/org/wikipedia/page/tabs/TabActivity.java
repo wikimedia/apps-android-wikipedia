@@ -252,6 +252,9 @@ public class TabActivity extends BaseActivity {
                 openNewTab();
                 return true;
             case R.id.menu_close_all_tabs:
+                if (app.getTabList().isEmpty()) {
+                    return true;
+                }
                 AlertDialog.Builder alert = new AlertDialog.Builder(this);
                 alert.setMessage(R.string.close_all_tabs_confirm);
                 alert.setPositiveButton(R.string.close_all_tabs_confirm_yes, (dialog, which) -> {

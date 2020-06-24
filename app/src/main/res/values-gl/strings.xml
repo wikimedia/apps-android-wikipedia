@@ -9,6 +9,7 @@
 * Fitoschido
 * Iváns
 * Macofe
+* Sabelaraga
 * Toliño
 * Vivaelcelta
 * Xosecalvo
@@ -690,6 +691,13 @@
   <string name="suggested_edits_quality_okay_text">Aceptar</string>
   <string name="suggested_edits_last_edited">Última edición</string>
   <string name="suggested_edits_last_edited_never">Nunca</string>
+  <string name="suggested_edits_contribution_language_label">Idioma</string>
+  <string name="suggested_edits_contribution_date_time_label">Data / Hora</string>
+  <string name="suggested_edits_contribution_type_label">Tipo de contribución</string>
+  <string name="suggested_edits_contribution_image_label">Arquivo</string>
+  <string name="suggested_edits_contribution_article_label">Artigo</string>
+  <string name="suggested_edits_contribution_views">%s visitas</string>
+  <string name="suggested_edits_contribution_label">Engadiches %d caracteres</string>
   <string name="description_edit_revert_subtitle">Grazas por editar a Wikipediaǃ</string>
   <string name="description_edit_revert_intro">Sabemos que intentou facelo o mellor posible, pero un dos nosos revisores atopou un problema. Posibles razóns polas que a súa edición foi revertida inclúenː</string>
   <string name="description_edit_revert_reason1">a súa contribución non segue unha das &lt;a href=\"%1$s\"&gt;directrices&lt;/a&gt;.</string>

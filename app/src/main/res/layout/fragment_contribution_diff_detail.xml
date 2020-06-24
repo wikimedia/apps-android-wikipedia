@@ -39,6 +39,7 @@
                 android:layout_marginBottom="8dp">
 
                 <View
+                    android:id="@+id/contributionDiffIndicatorLine"
                     android:layout_width="6dp"
                     android:layout_height="match_parent"
                     android:background="?attr/action_mode_green_background" />
@@ -75,10 +76,10 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/revisionLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
-                android:layout_marginBottom="24dp"
                 android:gravity="center_vertical">
 
                 <View
@@ -94,12 +95,14 @@
                     android:lineSpacingExtra="6sp"
                     android:textColor="?attr/material_theme_primary_color"
                     android:textSize="14sp"
+                    android:text="@string/suggested_edits_contribution_current_revision"
                     android:textStyle="italic" />
             </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
+                android:layout_marginTop="24dp"
                 android:background="?attr/color_group_60" />
 
             <LinearLayout

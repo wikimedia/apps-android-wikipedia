@@ -8,8 +8,9 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.card.MaterialCardView;
 
 import org.wikipedia.R;
 import org.wikipedia.dataclient.WikiSite;
@@ -18,7 +19,6 @@ import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.DeviceUtil;
-import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.FaceAndColorDetectImageView;
 
@@ -44,10 +44,9 @@ public class OnThisDayPagesViewHolder extends RecyclerView.ViewHolder {
     private PageSummary selectedPage;
     private final boolean isSingleCard;
 
-    OnThisDayPagesViewHolder(@NonNull Activity activity, @NonNull CardView v, @NonNull WikiSite wiki, boolean isSingleCard) {
+    OnThisDayPagesViewHolder(@NonNull Activity activity, @NonNull MaterialCardView v, @NonNull WikiSite wiki, boolean isSingleCard) {
         super(v);
         ButterKnife.bind(this, v);
-        v.setCardBackgroundColor(ResourceUtil.getThemedColor(v.getContext(), R.attr.paper_color));
         this.wiki = wiki;
         this.isSingleCard = isSingleCard;
         this.activity = activity;

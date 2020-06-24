@@ -775,21 +775,31 @@
   <string name="suggested_edits_last_edited">Última edição</string>
   <string name="suggested_edits_last_edited_never">Nunca</string>
   <string name="suggested_edits_task_new">novo</string>
-  <string name="suggested_edits_contributions_type">%1$s (%2$s)</string>
   <string name="suggested_edits_cc0_notice">Ao publicar, concorda com as &lt;a href=\"%1$s\"&gt;Termos de uso&lt;/a&gt; e em publicar irrevogavelmente a sua contribuição ao abrigo da licença &lt;a href=\"%2$s\"&gt;CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Edições sugeridas</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Obrigado por editar a Wikipédia! Por que não continuar de onde parou?</string>
   <string name="suggested_edits_reactivation_notification_stage_two">Tem um minuto para continuar melhorando a Wikipédia? Confira estas sugestões de edição.</string>
-  <string name="suggested_edits_contribution_type_image_tag">Marcação de imagem</string>
   <string name="suggested_edits_contributions_screen_title">Contribuições de %s</string>
-  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
+  <string name="suggested_edits_contribution_language_label">Idioma</string>
+  <string name="suggested_edits_contribution_date_time_label">Data / Horário</string>
+  <string name="suggested_edits_contribution_type_label">Tipo de contribuição</string>
+  <string name="suggested_edits_contribution_image_label">Arquivo</string>
+  <string name="suggested_edits_contribution_article_label">Artigo</string>
+  <string name="suggested_edits_contribution_views">%s visualizações</string>
+  <string name="suggested_edits_contribution_label">Você adicionou %d caracteres</string>
   <string name="suggested_edits_contribution_seen_text">Visto %s vezes nos últimos 30 dias.</string>
+  <plurals name="suggested_edits_image_tag_contribution_label">
+    <item quantity="one">Você adicionou %d marcação</item>
+    <item quantity="other">Você adicionou %d marcações</item>
+  </plurals>
+  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Ontem</string>
   <string name="suggested_edits_rewards_contribution">Você fez %d contribuições para a Wikipedia usando as edições sugeridas. Obrigado!</string>
   <string name="suggested_edits_rewards_edit_streak">Você editou todos os dias por %1$d dias até o momento. Mantenha a sequência, %2$s!</string>
   <string name="suggested_edits_rewards_pageviews">Suas edições foram vistas por %d pessoas nos últimos 30 dias. Obrigado, e continue!</string>
   <string name="suggested_edits_rewards_edit_quality">Suas edições até agora são %s. Continue! Esperamos suas contribuições.</string>
   <string name="suggested_edits_rewards_continue_button">Continuar</string>
+  <string name="suggested_edits_contribution_type_image_tag">Marcação de imagem</string>
   <string name="file_page_activity_title">Página do arquivo</string>
   <string name="description_edit_revert_subtitle">Obrigado por editar a Wikipédia!</string>
   <string name="description_edit_revert_intro">Sabemos que você tentou o seu melhor, mas um dos revisores tinha uma preocupação. Possíveis razões pelas quais a edição foi revertida inclui</string>

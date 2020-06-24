@@ -20,6 +20,8 @@ public class UserInfo {
     private int id;
     @Nullable private List<String> groups;
     private int blockid;
+    private int editcount;
+    @Nullable private String latestcontrib;
     @Nullable private String blockreason;
     @Nullable private String blockedby;
     @Nullable private String blockedtimestamp;
@@ -31,6 +33,22 @@ public class UserInfo {
 
     @NonNull public Set<String> getGroups() {
         return groups != null ? new ArraySet<>(groups) : Collections.emptySet();
+    }
+
+    public int getEditCount() {
+        return editcount;
+    }
+
+    @NonNull public Date getLatestContrib() {
+        Date date = new Date(0);
+        if (!TextUtils.isEmpty(latestcontrib)) {
+            try {
+                date = DateUtil.iso8601DateParse(latestcontrib);
+            } catch (ParseException e) {
+                // ignore
+            }
+        }
+        return date;
     }
 
     public boolean isBlocked() {
