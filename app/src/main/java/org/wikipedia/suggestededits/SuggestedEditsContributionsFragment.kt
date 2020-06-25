@@ -371,8 +371,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
             view.contribution = contribution
             view.setTitle(contribution.description)
             view.setDiffCountText(contribution)
-            view.setDescription(if (contribution.editType == EDIT_TYPE_IMAGE_TAG || contribution.editType == EDIT_TYPE_IMAGE_CAPTION) StringUtil.removeNamespace(contribution.title)
-            else contribution.title)
+            view.setDescription(StringUtil.removeNamespace(contribution.title))
             view.setIcon(contribution.editType)
             view.setImageUrl(contribution.imageUrl)
             view.setPageViewCountText(contribution.pageViews)
