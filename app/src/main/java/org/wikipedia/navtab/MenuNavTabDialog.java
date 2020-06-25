@@ -65,13 +65,13 @@ public class MenuNavTabDialog extends ExtendedBottomSheetDialogFragment {
             accountAvatar.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.ic_baseline_person_24));
             accountNameView.setText(AccountUtil.getUserName());
             accountNameView.setVisibility(VISIBLE);
-            loginLogoutButton.setText(requireContext().getString(R.string.preference_title_logout));
+            loginLogoutButton.setText(getString(R.string.preference_title_logout));
             loginLogoutButton.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.colorError));
             notificationsContainer.setVisibility(VISIBLE);
         } else {
             accountAvatar.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.ic_login_24px));
             accountNameView.setVisibility(GONE);
-            loginLogoutButton.setText(requireContext().getString(R.string.main_drawer_login));
+            loginLogoutButton.setText(getString(R.string.main_drawer_login));
             loginLogoutButton.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent));
             notificationsContainer.setVisibility(GONE);
         }
@@ -93,7 +93,7 @@ public class MenuNavTabDialog extends ExtendedBottomSheetDialogFragment {
 
     @OnClick(R.id.main_drawer_donate_container) void onDonateClick() {
         UriUtil.visitInExternalBrowser(requireContext(),
-                Uri.parse(requireContext().getString(R.string.donate_url,
+                Uri.parse(getString(R.string.donate_url,
                         BuildConfig.VERSION_NAME, WikipediaApp.getInstance().language().getSystemLanguageCode())));
         dismiss();
     }
@@ -106,8 +106,7 @@ public class MenuNavTabDialog extends ExtendedBottomSheetDialogFragment {
     }
 
     @OnClick(R.id.main_drawer_help_container) void onHelpClick() {
-        UriUtil.visitInExternalBrowser(requireContext(),
-                Uri.parse(getContext().getString(R.string.android_app_faq_url)));
+        UriUtil.visitInExternalBrowser(requireContext(), Uri.parse(getString(R.string.android_app_faq_url)));
         dismiss();
     }
 
