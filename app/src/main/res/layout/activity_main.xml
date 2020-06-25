@@ -21,7 +21,7 @@
 
         <ImageView
             android:id="@+id/single_fragment_toolbar_wordmark"
-            android:layout_width="100dp"
+            android:layout_width="128dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:contentDescription="@null"
