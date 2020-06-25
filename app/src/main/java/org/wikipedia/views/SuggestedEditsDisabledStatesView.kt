@@ -4,11 +4,9 @@ import android.content.Context
 import android.net.Uri
 import android.util.AttributeSet
 import android.view.View
-import android.widget.LinearLayout
 import kotlinx.android.synthetic.main.view_suggested_edits_disabled_states.view.*
 import org.wikipedia.R
 import org.wikipedia.analytics.LoginFunnel.SOURCE_SUGGESTED_EDITS
-import org.wikipedia.createaccount.CreateAccountActivity
 import org.wikipedia.login.LoginActivity
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
@@ -39,6 +37,7 @@ internal class SuggestedEditsDisabledStatesView constructor(context: Context, at
         messageTitleView.text = context.getString(R.string.suggested_edits_ip_blocked_title)
         messageTextView.text = context.getString(R.string.suggested_edits_ip_blocked_message)
         actionButton.setOnClickListener { UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(R.string.create_account_ip_block_help_url))) }
+        setOnClickListener { UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(R.string.create_account_ip_block_help_url))) }
     }
 
     fun setRequiredLogin() {
@@ -49,6 +48,7 @@ internal class SuggestedEditsDisabledStatesView constructor(context: Context, at
         actionButton.text = context.getString(R.string.suggested_edits_encourage_account_creation_login_button)
         actionButton.icon = null
         actionButton.setOnClickListener { context.startActivity(LoginActivity.newIntent(context, SOURCE_SUGGESTED_EDITS)) }
+        setOnClickListener { context.startActivity(LoginActivity.newIntent(context, SOURCE_SUGGESTED_EDITS)) }
     }
 
     private fun setDefaultState() {
@@ -56,5 +56,6 @@ internal class SuggestedEditsDisabledStatesView constructor(context: Context, at
         actionButton.text = context.getString(R.string.suggested_edits_learn_more_button_text)
         actionButton.setIconResource(R.drawable.ic_open_in_new_black_24px)
         actionButton.setOnClickListener { UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(R.string.android_app_edit_help_url))) }
+        setOnClickListener { UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(R.string.android_app_edit_help_url))) }
     }
 }

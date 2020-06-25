@@ -246,6 +246,7 @@
         <activity
             android:name=".suggestededits.SuggestedEditsContributionsActivity"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
+            android:label=""
             android:theme="@style/AppTheme.ActionBar" />
 
         <activity

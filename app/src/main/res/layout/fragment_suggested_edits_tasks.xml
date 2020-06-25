@@ -78,6 +78,7 @@
                                 android:textStyle="bold"/>
                             
                             <ImageView
+                                android:id="@+id/userStatsArrow"
                                 android:layout_width="32dp"
                                 android:layout_height="32dp"
                                 app:layout_constraintTop_toTopOf="parent"
@@ -185,10 +186,14 @@
                         android:layout_marginBottom="24dp">
 
                         <LinearLayout
+                            android:id="@+id/learnMoreCard"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="16dp"
-                            android:orientation="vertical">
+                            android:orientation="vertical"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:background="?attr/selectableItemBackground">
 
                             <TextView
                                 android:layout_width="match_parent"
