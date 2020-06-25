@@ -370,7 +370,8 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
             view.contribution = contribution
             view.setTitle(contribution.description)
             view.setDiffCountText(contribution)
-            view.setDescription(contribution.title)
+            view.setDescription(if (contribution.editType == EDIT_TYPE_IMAGE_TAG || contribution.editType == EDIT_TYPE_IMAGE_CAPTION)
+                contribution.title.replaceFirst("File:", "") else contribution.title)
             view.setIcon(contribution.editType)
             view.setImageUrl(contribution.imageUrl)
             view.setPageViewCountText(contribution.pageViews)

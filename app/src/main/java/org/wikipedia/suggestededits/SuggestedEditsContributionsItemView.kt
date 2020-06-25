@@ -1,7 +1,6 @@
 package org.wikipedia.suggestededits
 
 import android.content.Context
-import android.graphics.drawable.ColorDrawable
 import android.util.AttributeSet
 import android.view.View
 import android.view.ViewGroup
@@ -70,12 +69,8 @@ class SuggestedEditsContributionsItemView constructor(context: Context, attrs: A
     }
 
     fun setImageUrl(url: String?) {
-        if (url == null) {
-            image.visibility = INVISIBLE
-            return
-        }
-        if (url.isEmpty() || url == "null") {
-            image.visibility = GONE
+        if (url == null || url.isEmpty() || url == "null") {
+            image.setImageDrawable(null)
         } else {
             image.visibility = VISIBLE
             ViewUtil.loadImageWithRoundedCorners(image, url)
