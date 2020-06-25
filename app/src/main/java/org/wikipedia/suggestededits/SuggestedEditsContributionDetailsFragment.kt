@@ -24,6 +24,7 @@ import org.wikipedia.suggestededits.SuggestedEditsContributionDetailsActivity.Co
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.GradientUtil
 import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.StringUtil
 import org.wikipedia.views.ViewUtil
 import kotlin.math.abs
 
@@ -60,9 +61,9 @@ class SuggestedEditsContributionDetailsFragment : Fragment() {
     private fun setUpContributionDetails() {
         updateTopGradient()
         contributionContainer.setOnClickListener { startTypeSpecificActivity() }
-        contributionDetailText.text = contribution.description
         revisionLayout.visibility = if (contribution.top) VISIBLE else GONE
         contributionTitle.text = contribution.title
+        contributionDetailText.text = StringUtil.removeNamespace(contribution.title)
         if (contribution.imageUrl.isNullOrEmpty() || contribution.imageUrl == "null") contributionImage.visibility = GONE else ViewUtil.loadImageWithRoundedCorners(contributionImage, contribution.imageUrl)
         dateTimeDetailView.setLabelAndDetail(getString(R.string.suggested_edits_contribution_date_time_label), DateUtil.getFeedCardDateString(contribution.date) + " / " + DateUtil.get24HrFormatTimeOnlyString(contribution.date), -1)
         setTypSpecificData()

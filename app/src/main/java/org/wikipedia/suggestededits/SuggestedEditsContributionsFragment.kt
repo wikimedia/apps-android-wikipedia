@@ -38,6 +38,7 @@ import org.wikipedia.suggestededits.SuggestedEditsContributionsItemView.Callback
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DefaultViewHolder
 import java.util.*
@@ -370,7 +371,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
             view.contribution = contribution
             view.setTitle(contribution.description)
             view.setDiffCountText(contribution)
-            view.setDescription(contribution.title)
+            view.setDescription(StringUtil.removeNamespace(contribution.title))
             view.setIcon(contribution.editType)
             view.setImageUrl(contribution.imageUrl)
             view.setPageViewCountText(contribution.pageViews)

@@ -81,7 +81,7 @@
                 android:layout_width="16dp"
                 android:layout_height="16dp"
                 android:contentDescription="@null"
-                android:tint="?attr/action_mode_green_background"
+                android:tint="?attr/colorAccent"
                 app:srcCompat="@drawable/ic_trending_up_black_24dp" />
 
             <TextView
@@ -90,7 +90,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:lineSpacingExtra="4sp"
-                android:textColor="?attr/action_mode_green_background"
+                android:textColor="?attr/colorAccent"
                 android:textSize="12sp"
                 android:textStyle="bold"
                 tools:text="1,837" />
