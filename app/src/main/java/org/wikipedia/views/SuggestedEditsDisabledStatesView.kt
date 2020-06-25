@@ -4,17 +4,17 @@ import android.content.Context
 import android.net.Uri
 import android.util.AttributeSet
 import android.view.View
-import android.widget.LinearLayout
 import kotlinx.android.synthetic.main.view_suggested_edits_disabled_states.view.*
 import org.wikipedia.R
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
 
-internal class SuggestedEditsDisabledStatesView constructor(context: Context, attrs: AttributeSet? = null) : WikiCardView(context, attrs) {
+internal class SuggestedEditsDisabledStatesView constructor(context: Context, attrs: AttributeSet? = null) : WikiCardView(context, attrs), View.OnClickListener {
 
     init {
         View.inflate(context, R.layout.view_suggested_edits_disabled_states, this)
-        learnMoreContainer.setOnClickListener { UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(learnMoreContainer.tag as Int))) }
+        disabledStateClickArea.setOnClickListener(this)
+        learnMoreContainer.setOnClickListener(this)
     }
 
     fun setPaused(message: String) {
@@ -41,5 +41,9 @@ internal class SuggestedEditsDisabledStatesView constructor(context: Context, at
     private fun setDefaultState() {
         image.visibility = View.VISIBLE
         learnMoreContainer.tag = R.string.android_app_edit_help_url
+    }
+
+    override fun onClick(v: View?) {
+        UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(learnMoreContainer.tag as Int)))
     }
 }
