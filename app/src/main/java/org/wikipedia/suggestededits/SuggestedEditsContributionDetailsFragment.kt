@@ -24,6 +24,7 @@ import org.wikipedia.suggestededits.SuggestedEditsContributionDetailsActivity.Co
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.GradientUtil
 import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.log.L
 import org.wikipedia.views.ViewUtil
 import kotlin.math.abs
 
@@ -45,10 +46,10 @@ class SuggestedEditsContributionDetailsFragment : Fragment() {
 
     private fun updateTopGradient() {
         if (contribution.sizeDiff < 0) {
-            topView.background = GradientUtil.getPowerGradient(R.color.red90, Gravity.TOP)
+            topView.background = GradientUtil.getPowerGradient(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorError), Gravity.TOP)
             contributionDiffIndicatorLine.setBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.colorError))
             contributionDiffText.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.colorError))
-            (requireActivity() as SuggestedEditsContributionDetailsActivity).updateStatusBarColor(ContextCompat.getColor(requireActivity(), R.color.red90))
+            (requireActivity() as SuggestedEditsContributionDetailsActivity).updateStatusBarColor(ResourceUtil.getThemedColor(requireContext(), R.attr.colorError))
         } else {
             topView.background = GradientUtil.getPowerGradient(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.color_group_57), Gravity.TOP)
             contributionDiffIndicatorLine.setBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.action_mode_green_background))
