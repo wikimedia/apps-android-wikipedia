@@ -69,6 +69,9 @@ class SuggestedEditsTasksFragment : Fragment() {
             startActivity(SuggestedEditsContributionsActivity.newIntent(requireActivity()))
         }
 
+        learnMoreCard.setOnClickListener {
+            FeedbackUtil.showAndroidAppEditingFAQ(requireContext())
+        }
         learnMoreButton.setOnClickListener {
             FeedbackUtil.showAndroidAppEditingFAQ(requireContext())
         }
@@ -193,8 +196,9 @@ class SuggestedEditsTasksFragment : Fragment() {
                 }))
     }
 
-    private fun refreshContents() {
+    fun refreshContents() {
         requireActivity().invalidateOptionsMenu()
+        clearContents()
         fetchUserContributions()
     }
 
@@ -231,17 +235,21 @@ class SuggestedEditsTasksFragment : Fragment() {
         }
 
         if (totalContributions == 0) {
+            userStatsClickTarget.isEnabled = false
             userNameView.visibility = GONE
             contributionsStatsView.visibility = GONE
             editQualityStatsView.visibility = GONE
             editStreakStatsView.visibility = GONE
             pageViewStatsView.visibility = GONE
+            userStatsArrow.visibility = GONE
             onboardingImageView.visibility = VISIBLE
             onboardingTextView.visibility = VISIBLE
             onboardingTextView.text = StringUtil.fromHtml(getString(R.string.suggested_edits_onboarding_message, AccountUtil.getUserName()))
         } else {
+            userStatsClickTarget.isEnabled = true
             userNameView.text = AccountUtil.getUserName()
             userNameView.visibility = VISIBLE
+            userStatsArrow.visibility = VISIBLE
             contributionsStatsView.visibility = VISIBLE
             editQualityStatsView.visibility = VISIBLE
             editStreakStatsView.visibility = VISIBLE

@@ -58,6 +58,7 @@ import org.wikipedia.page.tabs.TabActivity;
 import org.wikipedia.random.RandomActivity;
 import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.readinglist.MoveToReadingListDialog;
+import org.wikipedia.readinglist.ReadingListsFragment;
 import org.wikipedia.search.SearchActivity;
 import org.wikipedia.search.SearchFragment;
 import org.wikipedia.settings.AboutActivity;
@@ -191,7 +192,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
             startActivity(data);
         } else if (requestCode == Constants.ACTIVITY_REQUEST_LOGIN
                 && resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
-            refreshExploreFeed();
+            refreshContents();
             if (!Prefs.shouldShowSuggestedEditsTooltip()) {
                 FeedbackUtil.showMessage(this, R.string.login_success_toast);
             }
@@ -208,7 +209,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
             }
         } else if ((requestCode == Constants.ACTIVITY_REQUEST_OPEN_SEARCH_ACTIVITY && resultCode == SearchFragment.RESULT_LANG_CHANGED)
                 || (requestCode == Constants.ACTIVITY_REQUEST_SETTINGS && resultCode == SettingsActivity.ACTIVITY_RESULT_LANGUAGE_CHANGED)) {
-            refreshExploreFeed();
+            refreshContents();
         } else {
             super.onActivityResult(requestCode, resultCode, data);
         }
@@ -458,11 +459,18 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         tabLayout.setSelectedItemId(tabLayout.getMenu().getItem(tab.code()).getItemId());
     }
 
-    private void refreshExploreFeed() {
+    private void refreshContents() {
         Fragment fragment = getCurrentFragment();
         if (fragment instanceof FeedFragment) {
             ((FeedFragment) fragment).refresh();
+        } else if (fragment instanceof ReadingListsFragment) {
+            ((ReadingListsFragment) fragment).updateLists();
+        } else if (fragment instanceof HistoryFragment) {
+            ((HistoryFragment) fragment).refresh();
+        } else if (fragment instanceof  SuggestedEditsTasksFragment) {
+            ((SuggestedEditsTasksFragment) fragment).refreshContents();
         }
+        resetNavTabLayouts();
     }
 
     void resetNavTabLayouts() {
@@ -522,7 +530,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         @Override
         public void accept(Object event) {
             if (event instanceof LoggedOutInBackgroundEvent) {
-                resetNavTabLayouts();
+                refreshContents();
             }
         }
     }
@@ -543,7 +551,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
                             FeedbackUtil.showMessage(requireActivity(), R.string.toast_logout_complete);
                             Prefs.setReadingListsLastSyncTime(null);
                             Prefs.setReadingListSyncEnabled(false);
-                            resetNavTabLayouts();
+                            refreshContents();
                         }).show();
             } else {
                 onLoginRequested();
