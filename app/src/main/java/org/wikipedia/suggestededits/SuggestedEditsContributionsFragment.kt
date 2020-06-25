@@ -109,18 +109,6 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
         createConsolidatedList()
     }
 
-    companion object {
-        private const val VIEW_TYPE_HEADER = 0
-        private const val VIEW_TYPE_DATE = 1
-        private const val VIEW_TYPE_ITEM = 2
-
-        private const val DEPICTS_META_STR = "add-depicts:"
-
-        fun newInstance(): SuggestedEditsContributionsFragment {
-            return SuggestedEditsContributionsFragment()
-        }
-    }
-
     private fun resetAndFetch() {
         allContributions.clear()
         displayedContributions.clear()
@@ -543,6 +531,18 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
     private class ItemCallback : Callback {
         override fun onClick(context: Context, contribution: Contribution) {
             context.startActivity(SuggestedEditsContributionDetailsActivity.newIntent(context, contribution))
+        }
+    }
+
+    companion object {
+        private const val VIEW_TYPE_HEADER = 0
+        private const val VIEW_TYPE_DATE = 1
+        private const val VIEW_TYPE_ITEM = 2
+
+        private const val DEPICTS_META_STR = "add-depicts:"
+
+        fun newInstance(): SuggestedEditsContributionsFragment {
+            return SuggestedEditsContributionsFragment()
         }
     }
 }

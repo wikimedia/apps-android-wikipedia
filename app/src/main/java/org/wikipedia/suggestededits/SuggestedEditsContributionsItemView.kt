@@ -19,12 +19,10 @@ import java.text.DecimalFormat
 import kotlin.math.abs
 
 class SuggestedEditsContributionsItemView constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
-    interface Callback {
-        fun onClick(context: Context, contribution: Contribution)
-    }
 
-    var callback: Callback? = null
     private var numFormat: DecimalFormat = DecimalFormat("+0;-#")
+    var callback: Callback? = null
+    var contribution: Contribution? = null
 
     init {
         View.inflate(context, R.layout.item_suggested_edits_contributions, this)
@@ -32,13 +30,11 @@ class SuggestedEditsContributionsItemView constructor(context: Context, attrs: A
         ViewCompat.setPaddingRelative(this, DimenUtil.roundedDpToPx(16f), 0, 0, 0)
         background = getContext().getDrawable(ResourceUtil.getThemedAttributeId(getContext(), R.attr.selectableItemBackground))
         setOnClickListener {
-            if (callback != null) {
+            if (callback != null && title.text.isNotEmpty()) {
                 callback?.onClick(context, contribution!!)
             }
         }
     }
-
-    var contribution: Contribution? = null
 
     fun setTitle(contributionTitle: String?) {
         title.text = StringUtil.fromHtml(contributionTitle)
@@ -97,5 +93,9 @@ class SuggestedEditsContributionsItemView constructor(context: Context, attrs: A
             contributionDiffCountText.setTextColor(if (contribution.sizeDiff < 0) ResourceUtil.getThemedColor(context, R.attr.colorError)
             else ResourceUtil.getThemedColor(context, R.attr.action_mode_green_background))
         }
+    }
+
+    interface Callback {
+        fun onClick(context: Context, contribution: Contribution)
     }
 }
