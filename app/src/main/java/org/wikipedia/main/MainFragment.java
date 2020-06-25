@@ -12,7 +12,7 @@ import android.speech.RecognizerIntent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -93,7 +93,7 @@ import static org.wikipedia.Constants.InvokeSource.VOICE;
 public class MainFragment extends Fragment implements BackPressedHandler, FeedFragment.Callback,
         HistoryFragment.Callback, LinkPreviewDialog.Callback {
     @BindView(R.id.fragment_main_view_pager) ViewPager2 viewPager;
-    @BindView(R.id.fragment_main_nav_tab_container) FrameLayout navTabContainer;
+    @BindView(R.id.fragment_main_nav_tab_container) LinearLayout navTabContainer;
     @BindView(R.id.fragment_main_nav_tab_layout) NavTabLayout tabLayout;
     @BindView(R.id.fragment_main_nav_tab_overlay_layout) NavTabOverlayLayout tabOverlayLayout;
     @BindView(R.id.nav_more_container) View moreContainer;
