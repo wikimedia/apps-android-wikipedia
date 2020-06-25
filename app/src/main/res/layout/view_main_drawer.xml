@@ -33,16 +33,14 @@
             android:textSize="14sp"
             tools:text="Sample account name" />
 
-        <View
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"/>
-
         <Button
             android:id="@+id/main_drawer_login_button"
             style="@style/TransparentButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
             android:text="@string/main_drawer_login" />
 
     </LinearLayout>
