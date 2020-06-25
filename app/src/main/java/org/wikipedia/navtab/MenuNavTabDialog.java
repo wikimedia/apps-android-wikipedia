@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 
 import org.wikipedia.BuildConfig;
 import org.wikipedia.R;
@@ -38,7 +39,6 @@ public class MenuNavTabDialog extends ExtendedBottomSheetDialogFragment {
     @BindView(R.id.main_drawer_account_name) TextView accountNameView;
     @BindView(R.id.main_drawer_login_button) Button loginLogoutButton;
     @BindView(R.id.main_drawer_account_avatar) ImageView accountAvatar;
-    @BindView(R.id.main_drawer_account_wiki_globe) ImageView accountWikiGlobe;
     @BindView(R.id.main_drawer_notifications_container) ViewGroup notificationsContainer;
     @Nullable Callback callback;
 
@@ -62,19 +62,17 @@ public class MenuNavTabDialog extends ExtendedBottomSheetDialogFragment {
 
     public void updateState() {
         if (AccountUtil.isLoggedIn()) {
+            accountAvatar.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.ic_baseline_person_24));
             accountNameView.setText(AccountUtil.getUserName());
             accountNameView.setVisibility(VISIBLE);
             loginLogoutButton.setText(requireContext().getString(R.string.preference_title_logout));
             loginLogoutButton.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.colorError));
-            accountAvatar.setVisibility(VISIBLE);
-            accountWikiGlobe.setVisibility(GONE);
             notificationsContainer.setVisibility(VISIBLE);
         } else {
+            accountAvatar.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.ic_login_24px));
             accountNameView.setVisibility(GONE);
             loginLogoutButton.setText(requireContext().getString(R.string.main_drawer_login));
             loginLogoutButton.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent));
-            accountAvatar.setVisibility(GONE);
-            accountWikiGlobe.setVisibility(VISIBLE);
             notificationsContainer.setVisibility(GONE);
         }
     }
