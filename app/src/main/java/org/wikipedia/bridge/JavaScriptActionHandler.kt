@@ -14,6 +14,7 @@ import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.DimenUtil.getDensityScalar
 import org.wikipedia.util.DimenUtil.leadImageHeightForDevice
 import org.wikipedia.util.L10nUtil
+import org.wikipedia.util.UriUtil
 import java.util.*
 import java.util.concurrent.TimeUnit
 import kotlin.math.roundToInt
@@ -119,7 +120,7 @@ object JavaScriptActionHandler {
         return "pcs.c1.Footer.add({" +
                 "   platform: \"android\"," +
                 "   clientVersion: \"${BuildConfig.VERSION_NAME}\"," +
-                "   title: \"${model.title!!.prefixedText}\"," +
+                "   title: \"${UriUtil.encodeURL(model.title!!.prefixedText)}\"," +
                 "   menu: {" +
                 "       items: [" +
                                 "pcs.c1.Footer.MenuItemType.lastEdited, " +
