@@ -30,7 +30,7 @@ class SuggestedEditsContributionsItemView constructor(context: Context, attrs: A
         ViewCompat.setPaddingRelative(this, DimenUtil.roundedDpToPx(16f), 0, 0, 0)
         background = getContext().getDrawable(ResourceUtil.getThemedAttributeId(getContext(), R.attr.selectableItemBackground))
         setOnClickListener {
-            if (callback != null) {
+            if (callback != null && title.text.isNotEmpty()) {
                 callback?.onClick(context, contribution!!)
             }
         }
