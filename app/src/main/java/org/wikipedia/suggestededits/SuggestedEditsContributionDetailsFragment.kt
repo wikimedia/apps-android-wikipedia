@@ -24,6 +24,7 @@ import org.wikipedia.suggestededits.SuggestedEditsContributionDetailsActivity.Co
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.GradientUtil
 import org.wikipedia.util.ResourceUtil
+import org.wikipedia.util.StringUtil
 import org.wikipedia.views.ViewUtil
 import kotlin.math.abs
 
@@ -60,7 +61,6 @@ class SuggestedEditsContributionDetailsFragment : Fragment() {
     private fun setUpContributionDetails() {
         updateTopGradient()
         contributionContainer.setOnClickListener { startTypeSpecificActivity() }
-        contributionDetailText.text = contribution.description
         revisionLayout.visibility = if (contribution.top) VISIBLE else GONE
         contributionTitle.text = contribution.title
         if (contribution.imageUrl.isNullOrEmpty() || contribution.imageUrl == "null") contributionImage.visibility = GONE else ViewUtil.loadImageWithRoundedCorners(contributionImage, contribution.imageUrl)
@@ -88,6 +88,7 @@ class SuggestedEditsContributionDetailsFragment : Fragment() {
                         else getString(R.string.suggested_edits_contribution_image_label)), contribution.pageViews.toString(), R.drawable.ic_trending_up_black_24dp)
                 typeDetailView.setLabelAndDetail(getString(R.string.suggested_edits_contribution_type_label), getString(R.string.description_edit_text_hint), R.drawable.ic_article_description)
                 languageDetailView.setLabelAndDetail(getString(R.string.suggested_edits_contribution_language_label), WikipediaApp.getInstance().language().getAppLanguageCanonicalName(contribution.wikiSite.languageCode()))
+                contributionDetailText.text = contribution.description
             }
             EDIT_TYPE_IMAGE_CAPTION -> {
                 contributionCategory.text = getString(R.string.suggested_edits_contribution_image_label)
@@ -96,6 +97,8 @@ class SuggestedEditsContributionDetailsFragment : Fragment() {
                 pageViewsDetailView.setLabelAndDetail()
                 typeDetailView.setLabelAndDetail(getString(R.string.suggested_edits_contribution_type_label), getString(R.string.description_edit_add_caption_hint), R.drawable.ic_image_caption)
                 languageDetailView.setLabelAndDetail(getString(R.string.suggested_edits_contribution_language_label), WikipediaApp.getInstance().language().getAppLanguageCanonicalName(contribution.wikiSite.languageCode()))
+                contributionDetailText.text = if (contribution.editType == EDIT_TYPE_IMAGE_TAG || contribution.editType == EDIT_TYPE_IMAGE_CAPTION) StringUtil.removeNamespace(contribution.title)
+                else contribution.title
             }
             EDIT_TYPE_IMAGE_TAG -> {
                 contributionCategory.text = getString(R.string.suggested_edits_contribution_image_label)
@@ -103,6 +106,8 @@ class SuggestedEditsContributionDetailsFragment : Fragment() {
                 typeDetailView.setLabelAndDetail(getString(R.string.suggested_edits_contribution_type_label), getString(R.string.suggested_edits_contribution_type_image_tag), R.drawable.ic_image_tag)
                 pageViewsDetailView.setLabelAndDetail()
                 languageDetailView.setLabelAndDetail()
+                contributionDetailText.text = if (contribution.editType == EDIT_TYPE_IMAGE_TAG || contribution.editType == EDIT_TYPE_IMAGE_CAPTION) StringUtil.removeNamespace(contribution.title)
+                else contribution.title
             }
             else -> {
                 contributionCategory.text = getString(R.string.suggested_edits_contribution_article_label)
@@ -111,6 +116,7 @@ class SuggestedEditsContributionDetailsFragment : Fragment() {
                 typeDetailView.setLabelAndDetail(getString(R.string.suggested_edits_contribution_type_label), getString(R.string.suggested_edits_contribution_article_label), R.drawable.ic_article_description)
                 pageViewsDetailView.setLabelAndDetail()
                 languageDetailView.setLabelAndDetail()
+                contributionDetailText.text = contribution.description
             }
         }
     }
