@@ -24,6 +24,7 @@ import org.apache.commons.lang3.StringUtils
 import org.apache.commons.lang3.time.DateUtils
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.UserContributionFunnel
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
@@ -96,17 +97,27 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
         }
 
         resetAndFetch()
+
+        UserContributionFunnel.get().logOpen()
     }
 
     override fun onDestroyView() {
         contributionsRecyclerView.adapter = null
         contributionsRecyclerView.clearOnScrollListeners()
         disposables.clear()
+        UserContributionFunnel.reset()
         super.onDestroyView()
     }
 
     override fun onTypeItemClick(editType: Int) {
         editFilterType = editType
+        when (editFilterType) {
+            EDIT_TYPE_ARTICLE_DESCRIPTION -> UserContributionFunnel.get().logFilterDescriptions()
+            EDIT_TYPE_IMAGE_CAPTION -> UserContributionFunnel.get().logFilterCaptions()
+            EDIT_TYPE_IMAGE_TAG -> UserContributionFunnel.get().logFilterTags()
+            else -> UserContributionFunnel.get().logFilterAll()
+        }
+
         createConsolidatedList()
     }
 
@@ -531,6 +542,12 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
 
     private class ItemCallback : Callback {
         override fun onClick(context: Context, contribution: Contribution) {
+            when (contribution.editType) {
+                EDIT_TYPE_ARTICLE_DESCRIPTION -> UserContributionFunnel.get().logViewDescription()
+                EDIT_TYPE_IMAGE_CAPTION -> UserContributionFunnel.get().logViewCaption()
+                EDIT_TYPE_IMAGE_TAG -> UserContributionFunnel.get().logViewTag()
+                else -> UserContributionFunnel.get().logViewMisc()
+            }
             context.startActivity(SuggestedEditsContributionDetailsActivity.newIntent(context, contribution))
         }
     }
