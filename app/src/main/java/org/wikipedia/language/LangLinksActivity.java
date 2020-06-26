@@ -22,6 +22,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.BaseActivity;
+import org.wikipedia.databinding.ActivityLanglinksBinding;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.SiteMatrix;
@@ -42,8 +43,6 @@ import java.util.List;
 import java.util.ListIterator;
 import java.util.Locale;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
@@ -63,10 +62,10 @@ public class LangLinksActivity extends BaseActivity {
     private WikipediaApp app;
     private CompositeDisposable disposables = new CompositeDisposable();
 
-    @BindView(R.id.langlinks_load_progress) View langLinksProgress;
-    @BindView(R.id.langlinks_error) WikiErrorView langLinksError;
-    @BindView(R.id.langlink_empty_view) SearchEmptyView langLinksEmpty;
-    @BindView(R.id.langlinks_recycler) RecyclerView langLinksList;
+    private View langLinksProgress;
+    private WikiErrorView langLinksError;
+    private SearchEmptyView langLinksEmpty;
+    private RecyclerView langLinksList;
 
     private LangLinksAdapter adapter;
     private String currentSearchQuery;
@@ -78,8 +77,15 @@ public class LangLinksActivity extends BaseActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_langlinks);
-        ButterKnife.bind(this);
+
+        final ActivityLanglinksBinding binding = ActivityLanglinksBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+
+        langLinksProgress = binding.langlinksLoadProgress;
+        langLinksError = binding.langlinksError;
+        langLinksEmpty = binding.langlinkEmptyView;
+        langLinksList = binding.langlinksRecycler;
+
         app = WikipediaApp.getInstance();
 
         if (!ACTION_LANGLINKS_FOR_TITLE.equals(getIntent().getAction())) {
