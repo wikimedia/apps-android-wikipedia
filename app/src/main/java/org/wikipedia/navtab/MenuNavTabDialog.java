@@ -1,5 +1,6 @@
 package org.wikipedia.navtab;
 
+import android.content.res.ColorStateList;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
+import androidx.core.widget.ImageViewCompat;
 
 import org.wikipedia.BuildConfig;
 import org.wikipedia.R;
@@ -65,6 +67,7 @@ public class MenuNavTabDialog extends ExtendedBottomSheetDialogFragment {
     public void updateState() {
         if (AccountUtil.isLoggedIn()) {
             accountAvatar.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.ic_baseline_person_24));
+            ImageViewCompat.setImageTintList(accountAvatar, ColorStateList.valueOf(ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_secondary_color)));
             accountNameView.setText(AccountUtil.getUserName());
             accountNameView.setVisibility(VISIBLE);
             loginLogoutButton.setText(getString(R.string.preference_title_logout));
@@ -73,6 +76,7 @@ public class MenuNavTabDialog extends ExtendedBottomSheetDialogFragment {
             notificationsContainer.setVisibility(VISIBLE);
         } else {
             accountAvatar.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.ic_login_24px));
+        ImageViewCompat.setImageTintList(accountAvatar, ColorStateList.valueOf(ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent)));
             accountNameView.setVisibility(GONE);
             loginLogoutButton.setTextAlignment(TEXT_ALIGNMENT_TEXT_START);
             loginLogoutButton.setText(getString(R.string.main_drawer_login));
