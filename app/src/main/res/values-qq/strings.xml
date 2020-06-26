@@ -747,7 +747,6 @@
   <string name="suggested_edits_ip_blocked_message">Text explaining ip blocking to the user.</string>
   <string name="suggested_edits_editing_tips_link_text">Label text for editing tips and tricks</string>
   <string name="suggested_edits_help_page_link_text">Label text for suggested edits help page</string>
-  <string name="suggested_edits_learn_more_button_text">Label text for learning more about the disabled status</string>
   <string name="suggested_edits_edit_streak_label_text">Suggested edits label text for edit streak</string>
   <string name="suggested_edits_pageviews_label_text">Suggested edits label text for pageviews</string>
   <string name="suggested_edits_quality_label_text">Suggested edits label text for edit quality</string>
