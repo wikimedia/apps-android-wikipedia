@@ -69,7 +69,7 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/addButton"
             style="@style/FlatButton.Small"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="8dp"
             android:text="@string/suggested_edits_task_action_text_add"
             app:layout_constraintTop_toBottomOf="@id/taskDescription"
             app:layout_constraintStart_toStartOf="@id/taskDescription"
