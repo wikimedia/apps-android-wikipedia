@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -15,57 +14,48 @@ import androidx.annotation.NonNull;
 import org.wikipedia.BuildConfig;
 import org.wikipedia.R;
 import org.wikipedia.activity.BaseActivity;
+import org.wikipedia.databinding.ActivityAboutBinding;
 import org.wikipedia.richtext.RichTextUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.StringUtil;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-
 import static org.wikipedia.util.DeviceUtil.mailAppExists;
 
 public class AboutActivity extends BaseActivity {
-    @BindView(R.id.about_contributors) TextView contributorsTextView;
-    @BindView(R.id.about_translators) TextView translatorsTextView;
-    @BindView(R.id.activity_about_libraries) TextView librariesTextView;
-    @BindView(R.id.about_app_license) TextView appLicenseTextView;
-    @BindView(R.id.send_feedback_text) Button feedbackTextView;
-    @BindView(R.id.about_wmf) TextView wmfTextView;
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_about);
-        ButterKnife.bind(this);
 
-        contributorsTextView.setText(StringUtil.fromHtml(getString(R.string.about_contributors)));
-        RichTextUtil.removeUnderlinesFromLinks(contributorsTextView);
-        translatorsTextView.setText(StringUtil.fromHtml(getString(R.string.about_translators_translatewiki)));
-        RichTextUtil.removeUnderlinesFromLinks(translatorsTextView);
-        wmfTextView.setText(StringUtil.fromHtml(getString(R.string.about_wmf)));
-        RichTextUtil.removeUnderlinesFromLinks(wmfTextView);
-        appLicenseTextView.setText(StringUtil.fromHtml(getString(R.string.about_app_license)));
-        RichTextUtil.removeUnderlinesFromLinks(appLicenseTextView);
-        ((TextView) findViewById(R.id.about_version_text)).setText(BuildConfig.VERSION_NAME);
-        RichTextUtil.removeUnderlinesFromLinks(librariesTextView);
+        final ActivityAboutBinding binding = ActivityAboutBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
-        findViewById(R.id.about_logo_image).setOnClickListener(new AboutLogoClickListener());
+        binding.sendFeedbackText.setOnClickListener(v -> {
+            Intent intent = new Intent()
+                    .setAction(Intent.ACTION_SENDTO)
+                    .setData(Uri.parse("mailto:android-support@wikimedia.org?subject=Android App "
+                            + BuildConfig.VERSION_NAME + " Feedback"));
+            startActivity(intent);
+        });
+
+        binding.aboutContributors.setText(StringUtil.fromHtml(getString(R.string.about_contributors)));
+        RichTextUtil.removeUnderlinesFromLinks(binding.aboutContributors);
+        binding.aboutTranslators.setText(StringUtil.fromHtml(getString(R.string.about_translators_translatewiki)));
+        RichTextUtil.removeUnderlinesFromLinks(binding.aboutTranslators);
+        binding.aboutWmf.setText(StringUtil.fromHtml(getString(R.string.about_wmf)));
+        RichTextUtil.removeUnderlinesFromLinks(binding.aboutWmf);
+        binding.aboutAppLicense.setText(StringUtil.fromHtml(getString(R.string.about_app_license)));
+        RichTextUtil.removeUnderlinesFromLinks(binding.aboutAppLicense);
+        binding.aboutVersionText.setText(BuildConfig.VERSION_NAME);
+        RichTextUtil.removeUnderlinesFromLinks(binding.activityAboutLibraries);
+
+        binding.aboutLogoImage.setOnClickListener(new AboutLogoClickListener());
 
         //if there's no Email app, hide the Feedback link.
         if (!mailAppExists(this)) {
-            feedbackTextView.setVisibility(View.GONE);
+            binding.sendFeedbackText.setVisibility(View.GONE);
         }
 
         makeEverythingClickable(findViewById(R.id.about_container));
-    }
-
-    @OnClick(R.id.send_feedback_text) void onSendFeedbackClick(View v) {
-        Intent intent = new Intent()
-                .setAction(Intent.ACTION_SENDTO)
-                .setData(Uri.parse("mailto:android-support@wikimedia.org?subject=Android App "
-                        + BuildConfig.VERSION_NAME + " Feedback"));
-        startActivity(intent);
     }
 
     private void makeEverythingClickable(ViewGroup vg) {
