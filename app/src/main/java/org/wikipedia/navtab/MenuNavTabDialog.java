@@ -26,6 +26,8 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 import static android.view.View.GONE;
+import static android.view.View.TEXT_ALIGNMENT_TEXT_START;
+import static android.view.View.TEXT_ALIGNMENT_VIEW_END;
 import static android.view.View.VISIBLE;
 
 public class MenuNavTabDialog extends ExtendedBottomSheetDialogFragment {
@@ -66,11 +68,13 @@ public class MenuNavTabDialog extends ExtendedBottomSheetDialogFragment {
             accountNameView.setText(AccountUtil.getUserName());
             accountNameView.setVisibility(VISIBLE);
             loginLogoutButton.setText(getString(R.string.preference_title_logout));
+            loginLogoutButton.setTextAlignment(TEXT_ALIGNMENT_VIEW_END);
             loginLogoutButton.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.colorError));
             notificationsContainer.setVisibility(VISIBLE);
         } else {
             accountAvatar.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.ic_login_24px));
             accountNameView.setVisibility(GONE);
+            loginLogoutButton.setTextAlignment(TEXT_ALIGNMENT_TEXT_START);
             loginLogoutButton.setText(getString(R.string.main_drawer_login));
             loginLogoutButton.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent));
             notificationsContainer.setVisibility(GONE);
