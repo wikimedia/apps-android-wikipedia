@@ -62,7 +62,7 @@ class SuggestedEditsContributionDetailsFragment : Fragment() {
         updateTopGradient()
         contributionContainer.setOnClickListener { startTypeSpecificActivity() }
         revisionLayout.visibility = if (contribution.top) VISIBLE else GONE
-        contributionTitle.text = contribution.title
+        contributionTitle.text = StringUtil.removeNamespace(contribution.title)
         contributionDetailText.text = StringUtil.removeNamespace(contribution.title)
         if (contribution.imageUrl.isNullOrEmpty() || contribution.imageUrl == "null") contributionImage.visibility = GONE else ViewUtil.loadImageWithRoundedCorners(contributionImage, contribution.imageUrl)
         dateTimeDetailView.setLabelAndDetail(getString(R.string.suggested_edits_contribution_date_time_label), DateUtil.getFeedCardDateString(contribution.date) + " / " + DateUtil.get24HrFormatTimeOnlyString(contribution.date), -1)
