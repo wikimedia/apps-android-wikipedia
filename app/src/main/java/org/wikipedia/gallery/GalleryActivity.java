@@ -22,7 +22,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -35,6 +34,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.BaseActivity;
 import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.auth.AccountUtil;
+import org.wikipedia.databinding.ActivityGalleryBinding;
 import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
@@ -67,11 +67,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-import butterknife.OnLongClick;
-import butterknife.Unbinder;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
@@ -106,24 +101,21 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     @NonNull private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
     @Nullable private PageTitle pageTitle;
 
-    @BindView(R.id.gallery_toolbar_container) ViewGroup toolbarContainer;
-    @BindView(R.id.gallery_toolbar) Toolbar toolbar;
-    @BindView(R.id.gallery_toolbar_gradient) View toolbarGradient;
-    @BindView(R.id.gallery_info_container) ViewGroup infoContainer;
-    @BindView(R.id.gallery_info_gradient) View infoGradient;
-    @BindView(R.id.gallery_progressbar) ProgressBar progressBar;
-    @BindView(R.id.gallery_description_container) View galleryDescriptionContainer;
-    @BindView(R.id.gallery_description_text) TextView descriptionText;
-    @BindView(R.id.gallery_license_icon) ImageView licenseIcon;
-    @BindView(R.id.gallery_license_icon_by) ImageView byIcon;
-    @BindView(R.id.gallery_license_icon_sa) ImageView saIcon;
-    @BindView(R.id.gallery_credit_text) TextView creditText;
-    @BindView(R.id.gallery_item_pager) ViewPager2 galleryPager;
-    @BindView(R.id.view_gallery_error) WikiErrorView errorView;
-    @BindView(R.id.gallery_caption_edit_button) ImageView captionEditButton;
-    @BindView(R.id.gallery_caption_translate_container) View captionTranslateContainer;
-    @BindView(R.id.gallery_caption_translate_button_text) TextView captionTranslateButtonText;
-    @Nullable private Unbinder unbinder;
+    private ActivityGalleryBinding binding;
+    private ViewGroup toolbarContainer;
+    private ViewGroup infoContainer;
+    private ProgressBar progressBar;
+    private View galleryDescriptionContainer;
+    private TextView descriptionText;
+    private ImageView licenseIcon;
+    private ImageView byIcon;
+    private ImageView saIcon;
+    private TextView creditText;
+    private ViewPager2 galleryPager;
+    private WikiErrorView errorView;
+    private ImageView captionEditButton;
+    private View captionTranslateContainer;
+    private TextView captionTranslateButtonText;
     private CompositeDisposable disposables = new CompositeDisposable();
     private Disposable imageCaptionDisposable;
     private long revision;
@@ -177,16 +169,36 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_gallery);
-        unbinder = ButterKnife.bind(this);
 
-        setSupportActionBar(toolbar);
+        binding = ActivityGalleryBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+
+        toolbarContainer = binding.galleryToolbarContainer;
+        infoContainer = binding.galleryInfoContainer;
+        progressBar = binding.galleryProgressBar;
+        galleryDescriptionContainer = binding.galleryDescriptionContainer;
+        descriptionText = binding.galleryDescriptionText;
+        licenseIcon = binding.galleryLicenseIcon;
+        byIcon = binding.galleryLicenseIconBy;
+        saIcon = binding.galleryLicenseIconSa;
+        creditText = binding.galleryCreditText;
+        galleryPager = binding.galleryItemPager;
+        errorView = binding.viewGalleryError;
+        captionEditButton = binding.galleryCaptionEditButton;
+        captionTranslateContainer = binding.galleryCaptionTranslateContainer;
+        captionTranslateButtonText = binding.galleryCaptionTranslateButtonText;
+
+        setOnClickListeners();
+
+        setSupportActionBar(binding.galleryToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("");
         setNavigationBarColor(Color.BLACK);
 
-        toolbarGradient.setBackground(GradientUtil.getPowerGradient(R.color.black26, Gravity.TOP));
-        infoGradient.setBackground(GradientUtil.getPowerGradient(R.color.black38, Gravity.BOTTOM));
+        binding.galleryToolbarGradient.setBackground(GradientUtil.getPowerGradient(R.color.black26,
+                Gravity.TOP));
+        binding.galleryInfoGradient.setBackground(GradientUtil.getPowerGradient(R.color.black38,
+                Gravity.BOTTOM));
         descriptionText.setMovementMethod(linkMovementMethod);
         creditText.setMovementMethod(linkMovementMethod);
 
@@ -252,11 +264,6 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         disposeImageCaptionDisposable();
         galleryPager.unregisterOnPageChangeCallback(pageChangeListener);
         pageChangeListener = null;
-
-        if (unbinder != null) {
-            unbinder.unbind();
-        }
-
         super.onDestroy();
     }
 
@@ -323,76 +330,77 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         }
     }
 
-    @OnClick(R.id.gallery_caption_edit_button) void onEditClick(View v) {
-        GalleryItemFragment item = getCurrentItem();
-        if (item == null || item.getImageTitle() == null || item.getMediaInfo() == null || item.getMediaInfo().getMetadata() == null) {
-            return;
-        }
+    private void setOnClickListeners() {
+        captionEditButton.setOnClickListener(v -> {
+            GalleryItemFragment item = getCurrentItem();
+            if (item == null || item.getImageTitle() == null || item.getMediaInfo() == null || item.getMediaInfo().getMetadata() == null) {
+                return;
+            }
 
-        boolean isProtected = v.getTag() != null && (Boolean) v.getTag();
-        if (isProtected) {
-            new AlertDialog.Builder(this)
-                    .setCancelable(false)
-                    .setTitle(R.string.page_protected_can_not_edit_title)
-                    .setMessage(R.string.page_protected_can_not_edit)
-                    .setPositiveButton(R.string.protected_page_warning_dialog_ok_button_text, null)
-                    .show();
-            return;
-        }
+            boolean isProtected = v.getTag() != null && (Boolean) v.getTag();
+            if (isProtected) {
+                new AlertDialog.Builder(this)
+                        .setCancelable(false)
+                        .setTitle(R.string.page_protected_can_not_edit_title)
+                        .setMessage(R.string.page_protected_can_not_edit)
+                        .setPositiveButton(R.string.protected_page_warning_dialog_ok_button_text, null)
+                        .show();
+                return;
+            }
 
-        PageTitle title = new PageTitle(item.getImageTitle().getPrefixedText(), new WikiSite(Service.COMMONS_URL, sourceWiki.languageCode()));
-        String currentCaption = item.getMediaInfo().getCaptions().get(sourceWiki.languageCode());
-        title.setDescription(currentCaption);
+            PageTitle title = new PageTitle(item.getImageTitle().getPrefixedText(), new WikiSite(Service.COMMONS_URL, sourceWiki.languageCode()));
+            String currentCaption = item.getMediaInfo().getCaptions().get(sourceWiki.languageCode());
+            title.setDescription(currentCaption);
 
-        SuggestedEditsSummary summary = new SuggestedEditsSummary(title.getPrefixedText(), sourceWiki.languageCode(), title,
-                title.getDisplayText(), StringUtils.defaultIfBlank(StringUtil.fromHtml(item.getMediaInfo().getMetadata().imageDescription()).toString(), null),
-                item.getMediaInfo().getThumbUrl());
+            SuggestedEditsSummary summary = new SuggestedEditsSummary(title.getPrefixedText(), sourceWiki.languageCode(), title,
+                    title.getDisplayText(), StringUtils.defaultIfBlank(StringUtil.fromHtml(item.getMediaInfo().getMetadata().imageDescription()).toString(), null),
+                    item.getMediaInfo().getThumbUrl());
 
-        startActivityForResult(DescriptionEditActivity.newIntent(this, title, null, summary, null, ADD_CAPTION, GALLERY_ACTIVITY),
-                ACTIVITY_REQUEST_DESCRIPTION_EDIT);
-    }
+            startActivityForResult(DescriptionEditActivity.newIntent(this, title, null, summary, null, ADD_CAPTION, GALLERY_ACTIVITY),
+                    ACTIVITY_REQUEST_DESCRIPTION_EDIT);
+        });
 
-    @OnClick(R.id.gallery_caption_translate_button) void onTranslateClick(View v) {
-        if (app.language().getAppLanguageCodes().size() < 2) {
-            return;
-        }
+        binding.galleryCaptionTranslateButton.setOnClickListener(v -> {
+            if (app.language().getAppLanguageCodes().size() < 2) {
+                return;
+            }
 
-        GalleryItemFragment item = getCurrentItem();
-        if (item == null || item.getImageTitle() == null || item.getMediaInfo() == null || item.getMediaInfo().getMetadata() == null) {
-            return;
-        }
+            GalleryItemFragment item = getCurrentItem();
+            if (item == null || item.getImageTitle() == null || item.getMediaInfo() == null || item.getMediaInfo().getMetadata() == null) {
+                return;
+            }
 
-        PageTitle sourceTitle = new PageTitle(item.getImageTitle().getPrefixedText(), new WikiSite(Service.COMMONS_URL, sourceWiki.languageCode()));
-        PageTitle targetTitle = new PageTitle(item.getImageTitle().getPrefixedText(), new WikiSite(Service.COMMONS_URL, StringUtils.defaultString(targetLanguageCode, app.language().getAppLanguageCodes().get(1))));
-        String currentCaption = item.getMediaInfo().getCaptions().get(app.getAppOrSystemLanguageCode());
-        if (TextUtils.isEmpty(currentCaption)) {
-            currentCaption = StringUtil.fromHtml(item.getMediaInfo().getMetadata().imageDescription()).toString();
-        }
+            PageTitle sourceTitle = new PageTitle(item.getImageTitle().getPrefixedText(), new WikiSite(Service.COMMONS_URL, sourceWiki.languageCode()));
+            PageTitle targetTitle = new PageTitle(item.getImageTitle().getPrefixedText(), new WikiSite(Service.COMMONS_URL, StringUtils.defaultString(targetLanguageCode, app.language().getAppLanguageCodes().get(1))));
+            String currentCaption = item.getMediaInfo().getCaptions().get(app.getAppOrSystemLanguageCode());
+            if (TextUtils.isEmpty(currentCaption)) {
+                currentCaption = StringUtil.fromHtml(item.getMediaInfo().getMetadata().imageDescription()).toString();
+            }
 
-        SuggestedEditsSummary sourceSummary = new SuggestedEditsSummary(sourceTitle.getPrefixedText(), sourceTitle.getWikiSite().languageCode(), sourceTitle,
-                sourceTitle.getDisplayText(), currentCaption, item.getMediaInfo().getThumbUrl());
+            SuggestedEditsSummary sourceSummary = new SuggestedEditsSummary(sourceTitle.getPrefixedText(), sourceTitle.getWikiSite().languageCode(), sourceTitle,
+                    sourceTitle.getDisplayText(), currentCaption, item.getMediaInfo().getThumbUrl());
 
-        SuggestedEditsSummary targetSummary = new SuggestedEditsSummary(targetTitle.getPrefixedText(), targetTitle.getWikiSite().languageCode(), targetTitle,
-                targetTitle.getDisplayText(), null, item.getMediaInfo().getThumbUrl());
+            SuggestedEditsSummary targetSummary = new SuggestedEditsSummary(targetTitle.getPrefixedText(), targetTitle.getWikiSite().languageCode(), targetTitle,
+                    targetTitle.getDisplayText(), null, item.getMediaInfo().getThumbUrl());
 
-        startActivityForResult(DescriptionEditActivity.newIntent(this, targetTitle, null, sourceSummary, targetSummary,
-                (sourceSummary.getLang().equals(targetSummary.getLang())) ? ADD_CAPTION : TRANSLATE_CAPTION, GALLERY_ACTIVITY),
-                ACTIVITY_REQUEST_DESCRIPTION_EDIT);
-    }
+            startActivityForResult(DescriptionEditActivity.newIntent(this, targetTitle, null, sourceSummary, targetSummary,
+                    (sourceSummary.getLang().equals(targetSummary.getLang())) ? ADD_CAPTION : TRANSLATE_CAPTION, GALLERY_ACTIVITY),
+                    ACTIVITY_REQUEST_DESCRIPTION_EDIT);
+        });
 
-    @OnClick(R.id.gallery_license_container) void onClick(View v) {
-        if (licenseIcon.getContentDescription() == null) {
-            return;
-        }
-        FeedbackUtil.showMessageAsPlainText((Activity) licenseIcon.getContext(), licenseIcon.getContentDescription());
-    }
-
-    @OnLongClick(R.id.gallery_license_container) boolean onLongClick(View v) {
-        String licenseUrl = (String) licenseIcon.getTag();
-        if (!TextUtils.isEmpty(licenseUrl)) {
-            handleExternalLink(GalleryActivity.this, Uri.parse(resolveProtocolRelativeUrl(licenseUrl)));
-        }
-        return true;
+        binding.galleryLicenseContainer.setOnClickListener(v -> {
+            if (licenseIcon.getContentDescription() == null) {
+                return;
+            }
+            FeedbackUtil.showMessageAsPlainText((Activity) licenseIcon.getContext(), licenseIcon.getContentDescription());
+        });
+        binding.galleryLicenseContainer.setOnLongClickListener(v -> {
+            String licenseUrl = (String) licenseIcon.getTag();
+            if (!TextUtils.isEmpty(licenseUrl)) {
+                handleExternalLink(GalleryActivity.this, Uri.parse(resolveProtocolRelativeUrl(licenseUrl)));
+            }
+            return true;
+        });
     }
 
     private void disposeImageCaptionDisposable() {
