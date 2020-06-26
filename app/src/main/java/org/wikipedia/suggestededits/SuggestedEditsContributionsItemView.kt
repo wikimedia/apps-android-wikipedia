@@ -50,7 +50,7 @@ class SuggestedEditsContributionsItemView constructor(context: Context, attrs: A
         } else {
             pageViewImage.visibility = VISIBLE
             pageviewCountText.visibility = VISIBLE
-            pageviewCountText.text = pageViewCount.toString()
+            pageviewCountText.text = context.getString(R.string.suggested_edits_contribution_views, pageViewCount.toString())
         }
     }
 
