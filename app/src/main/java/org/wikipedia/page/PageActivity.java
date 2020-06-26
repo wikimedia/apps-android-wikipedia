@@ -24,7 +24,6 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.FixedDrawerLayout;
@@ -41,6 +40,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.BaseActivity;
 import org.wikipedia.analytics.IntentFunnel;
 import org.wikipedia.analytics.LinkPreviewFunnel;
+import org.wikipedia.databinding.ActivityPageBinding;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.descriptions.DescriptionEditRevertHelpView;
 import org.wikipedia.events.ArticleSavedOrDeletedEvent;
@@ -76,10 +76,6 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-import butterknife.Unbinder;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.functions.Consumer;
 
@@ -114,15 +110,10 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         EXISTING_TAB
     }
 
-    @BindView(R.id.navigation_drawer) FixedDrawerLayout drawerLayout;
-    @BindView(R.id.activity_page_container) FrameLayoutNavMenuTriggerer containerWithNavTrigger;
-    @BindView(R.id.page_progress_bar) ProgressBar progressBar;
-    @BindView(R.id.page_toolbar_container) View toolbarContainerView;
-    @BindView(R.id.page_toolbar) Toolbar toolbar;
-    @BindView(R.id.page_toolbar_button_search) ImageView searchButton;
-    @BindView(R.id.page_toolbar_button_tabs) TabCountsView tabsButton;
-    @BindView(R.id.page_toolbar_button_show_overflow_menu) ImageView overflowButton;
-    @Nullable private Unbinder unbinder;
+    private ProgressBar progressBar;
+    private View toolbarContainerView;
+    private Toolbar toolbar;
+    private TabCountsView tabsButton;
 
     private PageFragment pageFragment;
 
@@ -149,8 +140,31 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
         PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
 
+        final FixedDrawerLayout drawerLayout;
+        final FrameLayoutNavMenuTriggerer containerWithNavTrigger;
+        final ImageView searchButton;
+        final ImageView overflowButton;
         try {
-            setContentView(R.layout.activity_page);
+            final ActivityPageBinding binding = ActivityPageBinding.inflate(getLayoutInflater());
+            setContentView(binding.getRoot());
+
+            drawerLayout = binding.navigationDrawer;
+            containerWithNavTrigger = binding.activityPageContainer;
+            progressBar = binding.pageProgressBar;
+            toolbarContainerView = binding.pageToolbarContainer;
+            toolbar = binding.pageToolbar;
+            searchButton = binding.pageToolbarButtonSearch;
+            tabsButton = binding.pageToolbarButtonTabs;
+            overflowButton = binding.pageToolbarButtonShowOverflowMenu;
+
+            searchButton.setOnClickListener(v -> openSearchActivity());
+            tabsButton.setOnClickListener(v -> {
+                TabActivity.captureFirstTabBitmap(pageFragment.getContainerView());
+                startActivityForResult(TabActivity.newIntentFromPageActivity(this),
+                        Constants.ACTIVITY_REQUEST_BROWSE_TABS);
+            });
+            overflowButton.setOnClickListener(v -> showOverflowMenu(toolbar
+                    .findViewById(R.id.page_toolbar_button_show_overflow_menu)));
         } catch (Exception e) {
             if ((!TextUtils.isEmpty(e.getMessage()) && e.getMessage().toLowerCase().contains("webview"))
                     || (!TextUtils.isEmpty(ThrowableUtil.getInnermostThrowable(e).getMessage())
@@ -165,8 +179,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             }
             throw e;
         }
-
-        unbinder = ButterKnife.bind(this);
 
         disposables.add(app.getBus().subscribe(new EventBusConsumer()));
 
@@ -204,22 +216,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             // then we must have been launched with an Intent, so... handle it!
             handleIntent(getIntent());
         }
-    }
-
-    @OnClick(R.id.page_toolbar_button_search)
-    public void onSearchButtonClicked() {
-        openSearchActivity();
-    }
-
-    @OnClick(R.id.page_toolbar_button_tabs)
-    public void onShowTabsButtonClicked() {
-        TabActivity.captureFirstTabBitmap(pageFragment.getContainerView());
-        startActivityForResult(TabActivity.newIntentFromPageActivity(this), Constants.ACTIVITY_REQUEST_BROWSE_TABS);
-    }
-
-    @OnClick(R.id.page_toolbar_button_show_overflow_menu)
-    public void onShowOverflowMenuButtonClicked() {
-        showOverflowMenu(toolbar.findViewById(R.id.page_toolbar_button_show_overflow_menu));
     }
 
     public void animateTabsButton() {
@@ -729,9 +725,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     @Override
     public void onDestroy() {
-        if (unbinder != null) {
-            unbinder.unbind();
-        }
         disposables.clear();
         Prefs.setHasVisitedArticlePage(true);
         super.onDestroy();
