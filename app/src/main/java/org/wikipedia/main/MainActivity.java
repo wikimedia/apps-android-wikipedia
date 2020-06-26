@@ -27,6 +27,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.SingleFragmentActivity;
 import org.wikipedia.appshortcuts.AppShortcuts;
 import org.wikipedia.auth.AccountUtil;
+import org.wikipedia.databinding.ActivityMainBinding;
 import org.wikipedia.feed.FeedFragment;
 import org.wikipedia.history.HistoryFragment;
 import org.wikipedia.navtab.NavTab;
@@ -45,10 +46,6 @@ import org.wikipedia.views.FrameLayoutNavMenuTriggerer;
 import org.wikipedia.views.ImageZoomHelper;
 import org.wikipedia.views.TabCountsView;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_INITIAL_ONBOARDING;
@@ -56,13 +53,11 @@ import static org.wikipedia.Constants.ACTIVITY_REQUEST_INITIAL_ONBOARDING;
 public class MainActivity extends SingleFragmentActivity<MainFragment>
         implements MainFragment.Callback, FrameLayoutNavMenuTriggerer.Callback {
 
-    @BindView(R.id.navigation_drawer) FixedDrawerLayout drawerLayout;
-    @BindView(R.id.navigation_drawer_view) MainDrawerView drawerView;
-    @BindView(R.id.navigation_drawer_triggerer) FrameLayoutNavMenuTriggerer triggererView;
-    @BindView(R.id.single_fragment_toolbar) Toolbar toolbar;
-    @BindView(R.id.drawer_icon_layout) View drawerIconLayout;
-    @BindView(R.id.drawer_icon_dot) View drawerIconDot;
-    @BindView(R.id.hamburger_and_wordmark_layout) View hamburgerAndWordmarkLayout;
+    private FixedDrawerLayout drawerLayout;
+    private MainDrawerView drawerView;
+    private Toolbar toolbar;
+    private View drawerIconDot;
+    private View hamburgerAndWordmarkLayout;
     private ImageZoomHelper imageZoomHelper;
     @Nullable private ActionMode currentActionMode;
 
@@ -75,7 +70,17 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ButterKnife.bind(this);
+
+        final ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
+
+        drawerLayout = binding.navigationDrawer;
+        drawerView = binding.navigationDrawerView;
+        toolbar = binding.singleFragmentToolbar;
+        drawerIconDot = binding.drawerIconDot;
+        hamburgerAndWordmarkLayout = binding.hamburgerAndWordmarkLayout;
+
+        binding.drawerIconLayout.setOnClickListener(v -> onDrawerOpenClicked());
+
         AppShortcuts.setShortcuts(this);
         imageZoomHelper = new ImageZoomHelper(this);
 
@@ -117,8 +122,8 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
         getToolbar().setNavigationIcon(null);
 
         setUpHomeMenuIcon();
-        FeedbackUtil.setToolbarButtonLongPressToast(drawerIconLayout);
-        triggererView.setCallback(this);
+        FeedbackUtil.setToolbarButtonLongPressToast(binding.drawerIconLayout);
+        binding.navigationDrawerTriggerer.setCallback(this);
     }
 
     @Override
@@ -197,7 +202,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment>
         drawerIconDot.setVisibility(AccountUtil.isLoggedIn() && Prefs.showActionFeedIndicator() ? VISIBLE : GONE);
     }
 
-    @OnClick(R.id.drawer_icon_layout) void onDrawerOpenClicked() {
+    private void onDrawerOpenClicked() {
         drawerLayout.openDrawer(drawerView);
     }
 
