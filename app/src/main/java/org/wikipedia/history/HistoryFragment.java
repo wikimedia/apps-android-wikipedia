@@ -36,6 +36,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.database.DatabaseClient;
 import org.wikipedia.database.contract.PageHistoryContract;
+import org.wikipedia.databinding.FragmentHistoryBinding;
 import org.wikipedia.main.MainActivity;
 import org.wikipedia.main.MainFragment;
 import org.wikipedia.page.PageAvailableOfflineHandler;
@@ -55,10 +56,6 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
-
 import static org.wikipedia.Constants.HISTORY_FRAGMENT_LOADER_ID;
 
 public class HistoryFragment extends Fragment implements BackPressedHandler {
@@ -67,10 +64,10 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
         void onClearHistory();
     }
 
-    private Unbinder unbinder;
-    @BindView(R.id.history_list) RecyclerView historyList;
-    @BindView(R.id.history_empty_container) View historyEmptyView;
-    @BindView(R.id.search_empty_view) SearchEmptyView searchEmptyView;
+    private FragmentHistoryBinding binding;
+    private RecyclerView historyList;
+    private View historyEmptyView;
+    private SearchEmptyView searchEmptyView;
 
     private WikipediaApp app;
 
@@ -96,8 +93,11 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_history, container, false);
-        unbinder = ButterKnife.bind(this, view);
+        binding = FragmentHistoryBinding.inflate(inflater, container, false);
+
+        historyList = binding.historyList;
+        historyEmptyView = binding.historyEmptyContainer;
+        searchEmptyView = binding.searchEmptyView;
 
         searchEmptyView.setEmptyText(R.string.search_history_no_results);
 
@@ -110,7 +110,7 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
         historyList.setAdapter(adapter);
 
         LoaderManager.getInstance(requireActivity()).initLoader(HISTORY_FRAGMENT_LOADER_ID, null, loaderCallback);
-        return view;
+        return binding.getRoot();
     }
 
     @Override
@@ -138,8 +138,7 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
         LoaderManager.getInstance(requireActivity()).destroyLoader(HISTORY_FRAGMENT_LOADER_ID);
         historyList.setAdapter(null);
         adapter.clearList();
-        unbinder.unbind();
-        unbinder = null;
+        binding = null;
         super.onDestroyView();
     }
 
