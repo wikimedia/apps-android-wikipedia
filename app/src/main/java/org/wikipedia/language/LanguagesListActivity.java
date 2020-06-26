@@ -22,6 +22,7 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.BaseActivity;
 import org.wikipedia.analytics.AppLanguageSearchingFunnel;
+import org.wikipedia.databinding.ActivityLanguagesListBinding;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.mwapi.SiteMatrix;
 import org.wikipedia.history.SearchActionModeCallback;
@@ -32,8 +33,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
@@ -46,9 +45,9 @@ import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 public class LanguagesListActivity extends BaseActivity {
     private WikipediaApp app;
 
-    @BindView(R.id.languages_list_load_progress) View progressBar;
-    @BindView(R.id.languages_list_empty_view) SearchEmptyView emptyView;
-    @BindView(R.id.languages_list_recycler) RecyclerView recyclerView;
+    private View progressBar;
+    private SearchEmptyView emptyView;
+    private RecyclerView recyclerView;
 
     private LanguagesListAdapter adapter;
     private String currentSearchQuery;
@@ -65,8 +64,14 @@ public class LanguagesListActivity extends BaseActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_languages_list);
-        ButterKnife.bind(this);
+
+        final ActivityLanguagesListBinding binding = ActivityLanguagesListBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+
+        progressBar = binding.languagesListLoadProgress;
+        emptyView = binding.languagesListEmptyView;
+        recyclerView = binding.languagesListRecycler;
+
         app = WikipediaApp.getInstance();
 
         emptyView.setEmptyText(R.string.langlinks_no_match);
