@@ -48,14 +48,14 @@ internal class SuggestedEditsDisabledStatesView constructor(context: Context, at
         actionButton.text = context.getString(R.string.suggested_edits_encourage_account_creation_login_button)
         actionButton.icon = null
         actionButton.setOnClickListener { context.startActivity(LoginActivity.newIntent(context, SOURCE_SUGGESTED_EDITS)) }
-        setOnClickListener { context.startActivity(LoginActivity.newIntent(context, SOURCE_SUGGESTED_EDITS)) }
+        disabledStateClickArea.setOnClickListener { context.startActivity(LoginActivity.newIntent(context, SOURCE_SUGGESTED_EDITS)) }
     }
 
     private fun setDefaultState() {
         imageView.visibility = View.VISIBLE
-        actionButton.text = context.getString(R.string.suggested_edits_learn_more_button_text)
+        actionButton.text = context.getString(R.string.suggested_edits_learn_more)
         actionButton.setIconResource(R.drawable.ic_open_in_new_black_24px)
         actionButton.setOnClickListener { UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(R.string.android_app_edit_help_url))) }
-        setOnClickListener { UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(R.string.android_app_edit_help_url))) }
+        disabledStateClickArea.setOnClickListener { UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(R.string.android_app_edit_help_url))) }
     }
 }
