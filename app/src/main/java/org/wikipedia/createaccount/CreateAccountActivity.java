@@ -10,7 +10,9 @@ import android.util.Patterns;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -24,6 +26,7 @@ import org.wikipedia.activity.BaseActivity;
 import org.wikipedia.analytics.CreateAccountFunnel;
 import org.wikipedia.captcha.CaptchaHandler;
 import org.wikipedia.captcha.CaptchaResult;
+import org.wikipedia.databinding.ActivityCreateAccountBinding;
 import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
@@ -38,9 +41,6 @@ import org.wikipedia.views.WikiErrorView;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
@@ -66,17 +66,14 @@ public class CreateAccountActivity extends BaseActivity {
 
     private CompositeDisposable disposables = new CompositeDisposable();
 
-    @BindView(R.id.create_account_primary_container) View primaryContainer;
-    @BindView(R.id.create_account_onboarding_container) View onboardingContainer;
-    @BindView(R.id.create_account_username) TextInputLayout usernameInput;
-    @BindView(R.id.create_account_password_input) TextInputLayout passwordInput;
-    @BindView(R.id.create_account_password_repeat) TextInputLayout passwordRepeatInput;
-    @BindView(R.id.create_account_email) TextInputLayout emailInput;
-    @BindView(R.id.create_account_submit_button) Button createAccountButton;
-    @BindView(R.id.view_create_account_error) WikiErrorView errorView;
-    @BindView(R.id.captcha_text) TextInputLayout captchaText;
-    @BindView(R.id.captcha_submit_button) Button createAccountButtonCaptcha;
-    @BindView(R.id.view_progress_bar) ProgressBar progressBar;
+    private TextInputLayout usernameInput;
+    private TextInputLayout passwordInput;
+    private TextInputLayout passwordRepeatInput;
+    private TextInputLayout emailInput;
+    private Button createAccountButton;
+    private WikiErrorView errorView;
+    private Button createAccountButtonCaptcha;
+    private ProgressBar progressBar;
 
     private CaptchaHandler captchaHandler;
     private CreateAccountResult createAccountResult;
@@ -88,8 +85,35 @@ public class CreateAccountActivity extends BaseActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_account);
-        ButterKnife.bind(this);
+
+        final ActivityCreateAccountBinding binding = ActivityCreateAccountBinding
+                .inflate(getLayoutInflater());
+        final FrameLayout root = binding.getRoot();
+        setContentView(root);
+
+        final View primaryContainer = binding.createAccountPrimaryContainer;
+        final View onboardingContainer = root.findViewById(R.id.create_account_onboarding_container);
+        usernameInput = binding.createAccountUsername;
+        passwordInput = binding.createAccountPasswordInput;
+        passwordRepeatInput = binding.createAccountPasswordRepeat;
+        emailInput = binding.createAccountEmail;
+        createAccountButton = binding.createAccountSubmitButton;
+        errorView = binding.viewCreateAccountError;
+        final TextInputLayout captchaText = root.findViewById(R.id.captcha_text);
+        createAccountButtonCaptcha = root.findViewById(R.id.captcha_submit_button);
+        progressBar = binding.viewProgressBar;
+
+        createAccountButtonCaptcha.setOnClickListener(v -> validateThenCreateAccount());
+        createAccountButton.setOnClickListener(v -> validateThenCreateAccount());
+
+        // This assumes that the CreateAccount activity was launched from the Login activity
+        // (since there's currently no other mechanism to invoke CreateAccountActivity),
+        // so finishing this activity will implicitly go back to Login.
+        final Button submitButton = root.findViewById(R.id.create_account_login_button);
+        submitButton.setOnClickListener(v -> finish());
+
+        final TextView privacyPolicy = root.findViewById(R.id.privacy_policy_link);
+        privacyPolicy.setOnClickListener(v -> FeedbackUtil.showPrivacyPolicy(this));
 
         if (ReadingListSyncAdapter.isDisabledByRemoteConfig()) {
             onboardingContainer.setVisibility(View.GONE);
@@ -133,21 +157,6 @@ public class CreateAccountActivity extends BaseActivity {
         }
         // Set default result to failed, so we can override if it did not
         setResult(RESULT_ACCOUNT_NOT_CREATED);
-    }
-
-    @OnClick({R.id.create_account_submit_button, R.id.captcha_submit_button}) void onCreateAccountClick() {
-        validateThenCreateAccount();
-    }
-
-    @OnClick(R.id.create_account_login_button) void onLoginClick() {
-        // This assumes that the CreateAccount activity was launched from the Login activity
-        // (since there's currently no other mechanism to invoke CreateAccountActivity),
-        // so finishing this activity will implicitly go back to Login.
-        finish();
-    }
-
-    @OnClick(R.id.privacy_policy_link) void onPrivacyPolicyClick() {
-        FeedbackUtil.showPrivacyPolicy(this);
     }
 
     @Override
