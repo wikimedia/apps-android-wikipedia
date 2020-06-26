@@ -17,7 +17,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.AppCompatImageView;
-import androidx.appcompat.widget.Toolbar;
 
 import com.google.android.material.snackbar.Snackbar;
 
@@ -26,6 +25,7 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.BaseActivity;
 import org.wikipedia.analytics.TabFunnel;
+import org.wikipedia.databinding.ActivityTabsBinding;
 import org.wikipedia.main.MainActivity;
 import org.wikipedia.navtab.NavTab;
 import org.wikipedia.page.ExclusiveBottomSheetPresenter;
@@ -42,9 +42,6 @@ import org.wikipedia.views.TabCountsView;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 import de.mrapp.android.tabswitcher.Animation;
 import de.mrapp.android.tabswitcher.Tab;
 import de.mrapp.android.tabswitcher.TabSwitcher;
@@ -63,9 +60,8 @@ public class TabActivity extends BaseActivity {
 
     private static final int MAX_CACHED_BMP_SIZE = 800;
 
-    @BindView(R.id.tab_switcher) TabSwitcher tabSwitcher;
-    @BindView(R.id.tab_toolbar) Toolbar tabToolbar;
-    @BindView(R.id.tab_counts_view) TabCountsView tabCountsView;
+    private TabSwitcher tabSwitcher;
+    private TabCountsView tabCountsView;
     private WikipediaApp app;
     private boolean launchedFromPageActivity;
     private TabListener tabListener = new TabListener();
@@ -128,8 +124,15 @@ public class TabActivity extends BaseActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tabs);
-        ButterKnife.bind(this);
+
+        final ActivityTabsBinding binding = ActivityTabsBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+
+        tabSwitcher = binding.tabSwitcher;
+        tabCountsView = binding.tabCountsView;
+
+        tabCountsView.setOnClickListener(v -> onBackPressed());
+
         app = WikipediaApp.getInstance();
         funnel.logEnterList(app.getTabCount());
         tabCountsView.updateTabCount();
@@ -139,7 +142,7 @@ public class TabActivity extends BaseActivity {
 
         setStatusBarColor(ResourceUtil.getThemedColor(this, android.R.attr.colorBackground));
         setNavigationBarColor(ResourceUtil.getThemedColor(this, android.R.attr.colorBackground));
-        setSupportActionBar(tabToolbar);
+        setSupportActionBar(binding.tabToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("");
 
@@ -216,10 +219,6 @@ public class TabActivity extends BaseActivity {
         tabSwitcher.setLogLevel(LogLevel.OFF);
         tabSwitcher.addListener(tabListener);
         tabSwitcher.showSwitcher();
-    }
-
-    @OnClick(R.id.tab_counts_view) void onItemClick(View view) {
-        onBackPressed();
     }
 
     @Override
