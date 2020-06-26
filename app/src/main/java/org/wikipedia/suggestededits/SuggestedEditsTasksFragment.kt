@@ -87,7 +87,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         editQualityStatsView.setDescription(getString(R.string.suggested_edits_quality_label_text))
 
         swipeRefreshLayout.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent))
-        swipeRefreshLayout.setOnRefreshListener { this.refreshContents() }
+        swipeRefreshLayout.setOnRefreshListener { refreshContents() }
 
         errorView.setRetryClickListener { refreshContents() }
 
@@ -136,6 +136,7 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     private fun fetchUserContributions() {
         if (!AccountUtil.isLoggedIn()) {
+            showAccountCreationOrIPBlocked()
             return
         }
 
@@ -189,6 +190,22 @@ class SuggestedEditsTasksFragment : Fragment() {
                     if (!isPausedOrDisabled && !isIpBlocked) {
                         pageViewStatsView.setTitle(it.toString())
                         setFinalUIState()
+                    }
+                }, { t ->
+                    L.e(t)
+                    showError(t)
+                }))
+    }
+
+    private fun showAccountCreationOrIPBlocked() {
+        disposables.add(ServiceFactory.get(WikipediaApp.getInstance().wikiSite).userInfo
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({ response ->
+                    if (response.query()!!.userInfo()!!.isBlocked) {
+                        setIPBlockedStatus()
+                    } else {
+                        setRequiredLoginStatus()
                     }
                 }, { t ->
                     L.e(t)
@@ -270,6 +287,12 @@ class SuggestedEditsTasksFragment : Fragment() {
         disabledStatesView.visibility = VISIBLE
     }
 
+    private fun setRequiredLoginStatus() {
+        clearContents()
+        disabledStatesView.setRequiredLogin()
+        disabledStatesView.visibility = VISIBLE
+    }
+
     private fun maybeSetPausedOrDisabled(): Boolean {
         val pauseEndDate = SuggestedEditsUserStats.maybePauseAndGetEndDate()
 
@@ -347,7 +370,6 @@ class SuggestedEditsTasksFragment : Fragment() {
         displayedTasks.add(addDescriptionsTask)
         displayedTasks.add(addImageCaptionsTask)
     }
-
 
     private inner class TaskViewCallback : SuggestedEditsTaskView.Callback {
         override fun onViewClick(task: SuggestedEditsTask, isTranslate: Boolean) {

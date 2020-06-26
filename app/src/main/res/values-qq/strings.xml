@@ -747,6 +747,7 @@
   <string name="suggested_edits_ip_blocked_message">Text explaining ip blocking to the user.</string>
   <string name="suggested_edits_editing_tips_link_text">Label text for editing tips and tricks</string>
   <string name="suggested_edits_help_page_link_text">Label text for suggested edits help page</string>
+  <string name="suggested_edits_learn_more_button_text">Label text for learning more about the disabled status</string>
   <string name="suggested_edits_edit_streak_label_text">Suggested edits label text for edit streak</string>
   <string name="suggested_edits_pageviews_label_text">Suggested edits label text for pageviews</string>
   <string name="suggested_edits_quality_label_text">Suggested edits label text for edit quality</string>
@@ -799,6 +800,9 @@
   <string name="suggested_edits_rewards_pageviews">Message shown to a user about the pageviews the user has earned in a period of time. The %d represents the number of pageviews.</string>
   <string name="suggested_edits_rewards_edit_quality">Message shown to a user about the edit quality status. The %s represents the quality of edits.</string>
   <string name="suggested_edits_rewards_continue_button">Button label to move to the next card of suggested edits.</string>
+  <string name="suggested_edits_encourage_account_creation_title">Title text of the encourage account creation card.</string>
+  <string name="suggested_edits_encourage_account_creation_message">Content text of the encourage account creation card.</string>
+  <string name="suggested_edits_encourage_account_creation_login_button">Button text of the encourage account creation card log in button.</string>
   <string name="suggested_edits_contribution_type_image_tag">Text indicating that the user edit was an Image tag edit</string>
   <string name="file_page_activity_title">Title shown at the top of the activity for the file page.</string>
   <string name="description_edit_revert_subtitle">Subtitle in the dialog that informs the user that their edit was reverted.</string>
@@ -822,9 +826,6 @@
   <string name="onboarding_analytics_title">Title for a tutorial screen about anonymous usage reports sent by the app.</string>
   <string name="onboarding_analytics_offline_text">Short explanatory text about the benefits of allowing the app to send anonymous usage reports. (Please preserve the anchor tag in its exact form)</string>
   <string name="onboarding_analytics_switch_title">Label for an on-off switch that enables sending anonymous usage reports.</string>
-  <string name="onboarding_create_account_sync">Short explanation of the benefits of creating an account, which is the ability to synchronize your reading lists.</string>
-  <string name="onboarding_create_account_contributions">Short explanation of the benefits of creating an account, which is the ability to keep a record of your edits.</string>
-  <string name="onboarding_create_account_preferences">Short explanation of the benefits of creating an account, which is the ability to save your preferences.</string>
   <string name="onboarding_got_it">Button label for dismissing the current onboarding card.\n{{Identical|Got it}}</string>
   <string name="onboarding_multilingual_secondary_text">Onboarding subtitle text informing the user about the languages found on the device.</string>
   <string name="onboarding_multilingual_add_language_text">Button text to suggest that users can now add more languages of their preference.</string>
@@ -888,6 +889,7 @@
   <string name="main_drawer_help">Main navigation drawer menu label for accessing the app FAQ.</string>
   <string name="main_drawer_login">Main navigation drawer menu label for logging in or creating an account.</string>
   <string name="main_tooltip_text">Message for the tool tip that shown on the main screen. The %s symbol is replaced with the username.</string>
+  <string name="main_tooltip_text_v2">Message for the tool tip that shown on the main screen.</string>
   <string name="main_tooltip_action_button">Button label for the action on tool tip that shown on the main screen.</string>
   <string name="custom_date_picker_dialog_ok_button_text">Positive action button text in date picker pop-up dialog.\n{{Identical|OK}}</string>
   <string name="text_input_dialog_ok_button_text">Positive action button text in pop-up dialog for text input.\n{{Identical|OK}}</string>

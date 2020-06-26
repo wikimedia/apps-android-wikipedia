@@ -11,65 +11,40 @@
     android:orientation="vertical">
 
     <ImageView
-        android:id="@+id/image"
+        android:id="@+id/imageView"
         android:layout_width="match_parent"
-        android:layout_height="92dp"
-        android:layout_marginBottom="20dp"
+        android:layout_height="wrap_content"
         android:contentDescription="@null"
-        app:srcCompat="@drawable/ic_suggested_edits_disabled" />
+        android:layout_marginBottom="16dp" />
 
     <TextView
         android:id="@+id/messageTitleView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:lineSpacingExtra="8sp"
-        android:layout_marginBottom="16dp"
-        android:textColor="?attr/material_theme_primary_color"
+        android:textSize="20sp"
+        android:fontFamily="sans-serif"
         android:textStyle="bold"
-        android:textSize="20sp" />
+        android:textColor="?attr/material_theme_primary_color"
+        android:lineSpacingExtra="8sp"
+        android:layout_marginBottom="12dp"/>
 
     <TextView
         android:id="@+id/messageTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:lineSpacingExtra="8sp"
+        android:textSize="16sp"
+        android:fontFamily="sans-serif"
         android:textColor="?attr/material_theme_secondary_color"
-        android:textSize="16sp" />
+        android:lineSpacingExtra="8sp"
+        android:layout_marginBottom="12dp"/>
 
-    <LinearLayout
-        android:id="@+id/learnMoreContainer"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/actionButton"
+        style="@style/FlatButton"
         android:layout_width="wrap_content"
-        android:layout_height="32dp"
-        android:paddingStart="8dp"
-        android:paddingEnd="12dp"
-        android:layout_marginTop="16dp"
-        android:clickable="true"
-        android:focusable="true"
-        app:layout_constraintTop_toBottomOf="@id/taskDescription"
-        app:layout_constraintStart_toStartOf="@id/taskDescription"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:background="@drawable/rounded_8dp_corner_base90_fill">
-
-        <ImageView
-            android:id="@+id/add_image"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_gravity="center_vertical"
-            android:contentDescription="@null"
-            app:srcCompat="@drawable/ic_open_in_new_black_24px"
-            app:tint="?attr/colorAccent" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="4dp"
-            android:fontFamily="sans-serif-medium"
-            android:text="@string/suggested_edits_learn_more"
-            android:textAllCaps="true"
-            android:textColor="?attr/colorAccent"
-            android:letterSpacing="0.05"
-            android:textSize="@dimen/suggested_edits_message_textview_text_size" />
-    </LinearLayout>
+        android:layout_height="wrap_content"
+        app:icon="@drawable/ic_open_in_new_black_24px"
+        app:iconSize="20dp"
+        app:iconTint="?attr/colorAccent"/>
 
 </LinearLayout>
