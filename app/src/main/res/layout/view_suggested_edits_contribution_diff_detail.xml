@@ -52,6 +52,7 @@
             android:tint="?attr/chart_shade4"
             android:visibility="gone"
             android:layout_gravity="center_vertical"
+            android:layout_marginStart="16dp"
             app:srcCompat="@drawable/ic_trending_up_black_24dp" />
     </LinearLayout>
 </LinearLayout>
