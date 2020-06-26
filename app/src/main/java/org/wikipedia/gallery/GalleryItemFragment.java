@@ -23,6 +23,7 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.commons.FilePageActivity;
+import org.wikipedia.databinding.FragmentGalleryItemBinding;
 import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
@@ -39,9 +40,6 @@ import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.ViewUtil;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
@@ -60,13 +58,13 @@ public class GalleryItemFragment extends Fragment {
         void onShare(@NonNull GalleryItemFragment item, @Nullable Bitmap bitmap, @NonNull String subject, @NonNull PageTitle title);
     }
 
-    @BindView(R.id.gallery_item_progress_bar) ProgressBar progressBar;
-    @BindView(R.id.gallery_video_container) View videoContainer;
-    @BindView(R.id.gallery_video) VideoView videoView;
-    @BindView(R.id.gallery_video_thumbnail) ImageView videoThumbnail;
-    @BindView(R.id.gallery_video_play_button) View videoPlayButton;
-    @BindView(R.id.gallery_image) ImageView imageView;
-    @Nullable private Unbinder unbinder;
+    private FragmentGalleryItemBinding binding;
+    private ProgressBar progressBar;
+    private View videoContainer;
+    private VideoView videoView;
+    private ImageView videoThumbnail;
+    private View videoPlayButton;
+    private ImageView imageView;
     private CompositeDisposable disposables = new CompositeDisposable();
 
     private MediaController mediaController;
@@ -108,15 +106,21 @@ public class GalleryItemFragment extends Fragment {
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_gallery_item, container, false);
-        unbinder = ButterKnife.bind(this, rootView);
+        binding = FragmentGalleryItemBinding.inflate(inflater, container, false);
+
+        progressBar = binding.galleryItemProgressBar;
+        videoContainer = binding.galleryVideoContainer;
+        videoView = binding.galleryVideo;
+        videoThumbnail = binding.galleryVideoThumbnail;
+        videoPlayButton = binding.galleryVideoPlayButton;
+        imageView = binding.galleryImage;
 
         imageView.setOnClickListener(v -> {
             if (isAdded()) {
                 ((GalleryActivity) requireActivity()).toggleControls();
             }
         });
-        return rootView;
+        return binding.getRoot();
     }
 
     @Override
@@ -131,10 +135,7 @@ public class GalleryItemFragment extends Fragment {
         disposables.clear();
         imageView.setOnClickListener(null);
         videoThumbnail.setOnClickListener(null);
-        if (unbinder != null) {
-            unbinder.unbind();
-            unbinder = null;
-        }
+        binding = null;
         super.onDestroyView();
     }
 
