@@ -91,9 +91,8 @@ class SuggestedEditsContributionDetailsFragment : Fragment() {
                 contributionCategory.text = getString(R.string.suggested_edits_contribution_article_label)
                 contributionDiffText.text = if (contribution.sizeDiff < 0) resources.getQuantityString(R.plurals.suggested_edits_removed_contribution_label, abs(contribution.sizeDiff), abs(contribution.sizeDiff))
                 else resources.getQuantityString(R.plurals.suggested_edits_added_contribution_label, contribution.sizeDiff, contribution.sizeDiff)
-                pageViewsDetailView.setLabelAndDetail(getString(R.string.suggested_edits_contribution_views,
-                        if (contribution.editType == EDIT_TYPE_ARTICLE_DESCRIPTION) getString(R.string.suggested_edits_contribution_article_label)
-                        else getString(R.string.suggested_edits_contribution_image_label)), contribution.pageViews.toString(), R.drawable.ic_trending_up_black_24dp)
+                pageViewsDetailView.setLabelAndDetail(getString(R.string.suggested_edits_contribution_views, getString(R.string.suggested_edits_contribution_article_label)),
+                        contribution.pageViews.toString(), R.drawable.ic_trending_up_black_24dp)
                 typeDetailView.setLabelAndDetail(getString(R.string.suggested_edits_contribution_type_label), getString(R.string.description_edit_text_hint), R.drawable.ic_article_description)
                 languageDetailView.setLabelAndDetail(getString(R.string.suggested_edits_contribution_language_label), WikipediaApp.getInstance().language().getAppLanguageCanonicalName(contribution.wikiSite.languageCode()))
             }
