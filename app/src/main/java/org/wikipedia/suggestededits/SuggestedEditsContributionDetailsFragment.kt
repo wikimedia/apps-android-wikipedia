@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_contribution_diff_detail.*
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.UserContributionFunnel
 import org.wikipedia.commons.FilePageActivity
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.json.GsonUnmarshaller
@@ -66,10 +67,16 @@ class SuggestedEditsContributionDetailsFragment : Fragment() {
         contributionDiffDetailText.text = contribution.description
         if (contribution.imageUrl.isNullOrEmpty() || contribution.imageUrl == "null") contributionImage.visibility = GONE else ViewUtil.loadImageWithRoundedCorners(contributionImage, contribution.imageUrl)
         dateTimeDetailView.setLabelAndDetail(getString(R.string.suggested_edits_contribution_date_time_label), DateUtil.getFeedCardDateString(contribution.date) + " / " + DateUtil.get24HrFormatTimeOnlyString(contribution.date), -1)
-        setTypSpecificData()
+        setTypeSpecificData()
     }
 
     private fun startTypeSpecificActivity() {
+        when (contribution.editType) {
+            EDIT_TYPE_ARTICLE_DESCRIPTION -> UserContributionFunnel.get().logNavigateDescription()
+            EDIT_TYPE_IMAGE_CAPTION -> UserContributionFunnel.get().logNavigateCaption()
+            EDIT_TYPE_IMAGE_TAG -> UserContributionFunnel.get().logNavigateTag()
+            else -> UserContributionFunnel.get().logNavigateMisc()
+        }
         if (contribution.editType == EDIT_TYPE_ARTICLE_DESCRIPTION) {
             startActivity(PageActivity.newIntentForNewTab(requireActivity(), HistoryEntry(PageTitle(contribution.title, contribution.wikiSite), HistoryEntry.SOURCE_SUGGESTED_EDITS),
                     PageTitle(contribution.title, contribution.wikiSite)))
@@ -78,7 +85,7 @@ class SuggestedEditsContributionDetailsFragment : Fragment() {
         }
     }
 
-    private fun setTypSpecificData() {
+    private fun setTypeSpecificData() {
         when (contribution.editType) {
             EDIT_TYPE_ARTICLE_DESCRIPTION -> {
                 contributionCategory.text = getString(R.string.suggested_edits_contribution_article_label)
