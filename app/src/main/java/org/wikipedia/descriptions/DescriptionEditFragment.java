@@ -23,6 +23,7 @@ import org.wikipedia.analytics.DescriptionEditFunnel;
 import org.wikipedia.analytics.SuggestedEditsFunnel;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.csrf.CsrfTokenClient;
+import org.wikipedia.databinding.FragmentDescriptionEditBinding;
 import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
@@ -44,9 +45,6 @@ import org.wikipedia.util.log.L;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
@@ -85,8 +83,8 @@ public class DescriptionEditFragment extends Fragment {
     private static final String ARG_SOURCE_SUMMARY = "sourceSummary";
     private static final String ARG_TARGET_SUMMARY = "targetSummary";
 
-    @BindView(R.id.fragment_description_edit_view) DescriptionEditView editView;
-    private Unbinder unbinder;
+    private FragmentDescriptionEditBinding binding;
+    private DescriptionEditView editView;
     private PageTitle pageTitle;
     private SuggestedEditsSummary sourceSummary;
     private SuggestedEditsSummary targetSummary;
@@ -176,21 +174,22 @@ public class DescriptionEditFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        View view = inflater.inflate(R.layout.fragment_description_edit, container, false);
-        unbinder = ButterKnife.bind(this, view);
+
+        binding = FragmentDescriptionEditBinding.inflate(inflater, container, false);
+        editView = binding.fragmentDescriptionEditView;
+
         loadPageSummaryIfNeeded(savedInstanceState);
 
         if (funnel != null) {
             funnel.logReady();
         }
 
-        return view;
+        return binding.getRoot();
     }
 
     @Override public void onDestroyView() {
         editView.setCallback(null);
-        unbinder.unbind();
-        unbinder = null;
+        binding = null;
         super.onDestroyView();
     }
 
