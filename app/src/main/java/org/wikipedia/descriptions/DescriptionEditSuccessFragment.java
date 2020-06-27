@@ -8,16 +8,12 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-import org.wikipedia.R;
 import org.wikipedia.activity.FragmentUtil;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
+import org.wikipedia.databinding.FragmentDescriptionEditSuccessBinding;
 
 public class DescriptionEditSuccessFragment extends Fragment implements DescriptionEditSuccessView.Callback {
-    @BindView(R.id.fragment_description_edit_success_view) DescriptionEditSuccessView successView;
-    private Unbinder unbinder;
+    private FragmentDescriptionEditSuccessBinding binding;
+    private DescriptionEditSuccessView successView;
 
     public interface Callback {
         void onDismissClick();
@@ -29,10 +25,11 @@ public class DescriptionEditSuccessFragment extends Fragment implements Descript
 
     @Override public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        View view = inflater.inflate(R.layout.fragment_description_edit_success, container, false);
-        unbinder = ButterKnife.bind(this, view);
+        binding = FragmentDescriptionEditSuccessBinding.inflate(inflater, container, false);
+        successView = binding.fragmentDescriptionEditSuccessView;
+
         successView.setCallback(this);
-        return view;
+        return binding.getRoot();
     }
 
     @Override public void onDismissClick() {
@@ -43,8 +40,7 @@ public class DescriptionEditSuccessFragment extends Fragment implements Descript
 
     @Override public void onDestroyView() {
         successView.setCallback(null);
-        unbinder.unbind();
-        unbinder = null;
+        binding = null;
         super.onDestroyView();
     }
 
