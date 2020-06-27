@@ -15,21 +15,15 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 
 import org.wikipedia.R;
+import org.wikipedia.databinding.ViewCardHeaderLargeBinding;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.FaceAndColorDetectImageView;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-
 public class CardLargeHeaderView extends ConstraintLayout {
-    @BindView(R.id.view_card_header_large_background)
-    View backgroundView;
-    @BindView(R.id.view_card_header_large_image)
-    FaceAndColorDetectImageView imageView;
-    @BindView(R.id.view_card_header_large_title)
-    TextView titleView;
-    @BindView(R.id.view_card_header_large_subtitle)
-    TextView subtitleView;
+    private View backgroundView;
+    private FaceAndColorDetectImageView imageView;
+    private TextView titleView;
+    private TextView subtitleView;
 
     public CardLargeHeaderView(Context context) {
         super(context);
@@ -48,8 +42,12 @@ public class CardLargeHeaderView extends ConstraintLayout {
 
     private void init() {
         resetBackgroundColor();
-        inflate(getContext(), R.layout.view_card_header_large, this);
-        ButterKnife.bind(this);
+
+        final ViewCardHeaderLargeBinding binding = ViewCardHeaderLargeBinding.bind(this);
+        backgroundView = binding.viewCardHeaderLargeBackground;
+        imageView = binding.viewCardHeaderLargeImage;
+        titleView = binding.viewCardHeaderLargeTitle;
+        subtitleView = binding.viewCardHeaderLargeSubtitle;
     }
 
     @NonNull
