@@ -26,6 +26,7 @@ import org.wikipedia.Constants.InvokeSource;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.OnThisDayFunnel;
+import org.wikipedia.databinding.FragmentOnThisDayBinding;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.history.HistoryEntry;
@@ -46,10 +47,6 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-import butterknife.Unbinder;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
@@ -60,22 +57,22 @@ import static org.wikipedia.feed.onthisday.OnThisDayActivity.AGE;
 import static org.wikipedia.feed.onthisday.OnThisDayActivity.WIKISITE;
 
 public class OnThisDayFragment extends Fragment implements CustomDatePicker.Callback, OnThisDayActionsDialog.Callback{
-    @BindView(R.id.day) TextView dayText;
-    @BindView(R.id.collapsing_toolbar_layout) CollapsingToolbarLayout collapsingToolbarLayout;
-    @BindView(R.id.day_info_text_view) TextView dayInfoTextView;
-    @BindView(R.id.events_recycler) RecyclerView eventsRecycler;
-    @BindView(R.id.on_this_day_progress) ProgressBar progressBar;
-    @BindView(R.id.toolbar) Toolbar toolbar;
-    @BindView(R.id.app_bar) AppBarLayout appBarLayout;
-    @BindView(R.id.on_this_day_error_view) WikiErrorView errorView;
-    @BindView(R.id.indicator_date) TextView indicatorDate;
-    @BindView(R.id.indicator_layout) FrameLayout indicatorLayout;
-    @BindView(R.id.toolbar_day) TextView toolbarDay;
-    @BindView(R.id.drop_down_toolbar) ImageView toolbarDropDown;
+    private FragmentOnThisDayBinding binding;
+    private TextView dayText;
+    private CollapsingToolbarLayout collapsingToolbarLayout;
+    private TextView dayInfoTextView;
+    private RecyclerView eventsRecycler;
+    private ProgressBar progressBar;
+    private Toolbar toolbar;
+    private AppBarLayout appBarLayout;
+    private WikiErrorView errorView;
+    private TextView indicatorDate;
+    private FrameLayout indicatorLayout;
+    private TextView toolbarDay;
+    private ImageView toolbarDropDown;
 
     @Nullable private OnThisDay onThisDay;
     private Calendar date;
-    private Unbinder unbinder;
     @Nullable private OnThisDayFunnel funnel;
     public static final int PADDING1 = 21, PADDING2 = 38, PADDING3 = 21;
     public static final float HALF_ALPHA = 0.5f;
@@ -96,8 +93,36 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_on_this_day, container, false);
-        unbinder = ButterKnife.bind(this, view);
+        binding = FragmentOnThisDayBinding.inflate(inflater, container, false);
+
+        dayText = binding.day;
+        collapsingToolbarLayout = binding.collapsingToolbarLayout;
+        dayInfoTextView = binding.dayInfoTextView;
+        eventsRecycler = binding.eventsRecycler;
+        progressBar = binding.onThisDayProgress;
+        toolbar = binding.toolbar;
+        appBarLayout = binding.appBar;
+        errorView = binding.onThisDayErrorView;
+        indicatorDate = binding.indicatorDate;
+        indicatorLayout = binding.indicatorLayout;
+        toolbarDay = binding.toolbarDay;
+        toolbarDropDown = binding.dropDownToolbar;
+
+        final View.OnClickListener containerClickListener = v -> {
+            CustomDatePicker newFragment = new CustomDatePicker();
+            newFragment.setSelectedDay(date.get(Calendar.MONTH), date.get(Calendar.DATE));
+            newFragment.setCallback(OnThisDayFragment.this);
+            newFragment.show(getParentFragmentManager(), "date picker");
+        };
+        binding.dayContainer.setOnClickListener(containerClickListener);
+        binding.toolbarDayContainer.setOnClickListener(containerClickListener);
+
+        indicatorLayout.setOnClickListener(v -> {
+            onDatePicked(Calendar.getInstance().get(Calendar.MONTH), Calendar.getInstance().get(Calendar.DATE));
+            indicatorLayout.setAlpha(HALF_ALPHA);
+            indicatorLayout.setClickable(false);
+        });
+
         int age = requireActivity().getIntent().getIntExtra(AGE, 0);
         wiki = requireActivity().getIntent().getParcelableExtra(WIKISITE);
         date = DateUtil.getDefaultDateFor(age);
@@ -134,7 +159,7 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
 
         eventsRecycler.setVisibility(View.GONE);
         errorView.setVisibility(View.GONE);
-        return view;
+        return binding.getRoot();
     }
 
     public void onBackPressed() {
@@ -207,8 +232,7 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
             funnel.done(eventsRecycler.getAdapter().getItemCount());
             funnel = null;
         }
-        unbinder.unbind();
-        unbinder = null;
+        binding = null;
         super.onDestroyView();
     }
 
@@ -238,21 +262,6 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
         dayText.setText(DateUtil.getMonthOnlyDateString(date.getTime()));
         appBarLayout.setExpanded(true);
         requestEvents(month, day);
-    }
-
-    @OnClick({R.id.day_container, R.id.toolbar_day_container})
-    public void onCalendarClicked() {
-        CustomDatePicker newFragment = new CustomDatePicker();
-        newFragment.setSelectedDay(date.get(Calendar.MONTH), date.get(Calendar.DATE));
-        newFragment.setCallback(OnThisDayFragment.this);
-        newFragment.show(requireFragmentManager(), "date picker");
-    }
-
-    @OnClick(R.id.indicator_layout)
-    public void onIndicatorLayoutClicked() {
-        onDatePicked(Calendar.getInstance().get(Calendar.MONTH), Calendar.getInstance().get(Calendar.DATE));
-        indicatorLayout.setAlpha(HALF_ALPHA);
-        indicatorLayout.setClickable(false);
     }
 
     @Override
