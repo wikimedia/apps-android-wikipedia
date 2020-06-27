@@ -11,12 +11,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SwitchCompat;
 
-import org.wikipedia.R;
+import org.wikipedia.databinding.ViewReadingListPageActionsBinding;
 import org.wikipedia.util.StringUtil;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 public class ReadingListItemActionsView extends LinearLayout {
     public interface Callback {
@@ -28,11 +24,11 @@ public class ReadingListItemActionsView extends LinearLayout {
         void onDelete();
     }
 
-    @BindView(R.id.reading_list_item_title) TextView titleView;
-    @BindView(R.id.reading_list_item_remove_text) TextView removeTextView;
-    @BindView(R.id.reading_list_item_offline_switch) SwitchCompat offlineSwitchView;
-    @BindView(R.id.reading_list_item_move_to_other) ViewGroup moveItemContainer;
-    @BindView(R.id.reading_list_item_select) ViewGroup selectItemContainer;
+    private TextView titleView;
+    private TextView removeTextView;
+    private SwitchCompat offlineSwitchView;
+    private ViewGroup moveItemContainer;
+    private ViewGroup selectItemContainer;
 
     @Nullable private Callback callback;
 
@@ -63,45 +59,46 @@ public class ReadingListItemActionsView extends LinearLayout {
         this.callback = callback;
     }
 
-    @OnClick(R.id.reading_list_item_offline) void onOfflineClick(View view) {
-        if (callback != null) {
-            callback.onToggleOffline();
-        }
-    }
-
-    @OnClick(R.id.reading_list_item_share) void onShareClick(View view) {
-        if (callback != null) {
-            callback.onShare();
-        }
-    }
-
-    @OnClick(R.id.reading_list_item_add_to_other) void onAddToOtherClick(View view) {
-        if (callback != null) {
-            callback.onAddToOther();
-        }
-    }
-
-    @OnClick(R.id.reading_list_item_move_to_other) void onMoveToOtherClick(View view) {
-        if (callback != null) {
-            callback.onMoveToOther();
-        }
-    }
-
-    @OnClick(R.id.reading_list_item_select) void onSelectClick(View view) {
-        if (callback != null) {
-            callback.onSelect();
-        }
-    }
-
-    @OnClick(R.id.reading_list_item_remove) void onRemoveClick(View view) {
-        if (callback != null) {
-            callback.onDelete();
-        }
-    }
-
     private void init() {
-        inflate(getContext(), R.layout.view_reading_list_page_actions, this);
-        ButterKnife.bind(this);
+        final ViewReadingListPageActionsBinding binding = ViewReadingListPageActionsBinding.bind(this);
+
+        titleView = binding.readingListItemTitle;
+        removeTextView = binding.readingListItemRemoveText;
+        offlineSwitchView = binding.readingListItemOfflineSwitch;
+        moveItemContainer = binding.readingListItemMoveToOther;
+        selectItemContainer = binding.readingListItemSelect;
+
+        binding.readingListItemOffline.setOnClickListener(v -> {
+            if (callback != null) {
+                callback.onToggleOffline();
+            }
+        });
+        binding.readingListItemShare.setOnClickListener(v -> {
+            if (callback != null) {
+                callback.onShare();
+            }
+        });
+        binding.readingListItemAddToOther.setOnClickListener(v -> {
+            if (callback != null) {
+                callback.onAddToOther();
+            }
+        });
+        moveItemContainer.setOnClickListener(v -> {
+            if (callback != null) {
+                callback.onMoveToOther();
+            }
+        });
+        selectItemContainer.setOnClickListener(v -> {
+            if (callback != null) {
+                callback.onSelect();
+            }
+        });
+        binding.readingListItemRemove.setOnClickListener(v -> {
+            if (callback != null) {
+                callback.onDelete();
+            }
+        });
+
         setOrientation(VERTICAL);
     }
 }
