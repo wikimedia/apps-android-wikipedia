@@ -19,6 +19,7 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.NotificationFunnel;
+import org.wikipedia.databinding.ViewNotificationActionsBinding;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.json.GsonUtil;
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment;
@@ -27,34 +28,18 @@ import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-import butterknife.Unbinder;
-
 public class NotificationItemActionsDialog extends ExtendedBottomSheetDialogFragment {
     public interface Callback {
         void onArchive(@NonNull Notification notification);
+
         void onActionPageTitle(@NonNull PageTitle pageTitle);
+
         boolean isShowingArchived();
     }
 
-    @BindView(R.id.notification_item_text) TextView titleView;
-    @BindView(R.id.notification_item_archive_icon) ImageView archiveIconView;
-    @BindView(R.id.notification_item_archive_text) TextView archiveTextView;
-    @BindView(R.id.notification_action_primary) View primaryView;
-    @BindView(R.id.notification_action_primary_icon) AppCompatImageView primaryImageView;
-    @BindView(R.id.notification_action_primary_text) TextView primaryTextView;
-    @BindView(R.id.notification_action_secondary) View secondaryView;
-    @BindView(R.id.notification_action_secondary_icon) AppCompatImageView secondaryImageView;
-    @BindView(R.id.notification_action_secondary_text) TextView secondaryTextView;
-    @BindView(R.id.notification_action_tertiary) View tertiaryView;
-    @BindView(R.id.notification_action_tertiary_icon) AppCompatImageView tertiaryImageView;
-    @BindView(R.id.notification_action_tertiary_text) TextView tertiaryTextView;
+    private ViewNotificationActionsBinding binding;
 
     private static final String ARG_NOTIFICATION = "notification";
-
-    private Unbinder unbinder;
 
     private Notification notification;
     private NotificationLinkHandler linkHandler;
@@ -70,8 +55,38 @@ public class NotificationItemActionsDialog extends ExtendedBottomSheetDialogFrag
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.view_notification_actions, container);
-        unbinder = ButterKnife.bind(this, view);
+        binding = ViewNotificationActionsBinding.inflate(inflater);
+
+        final TextView titleView = binding.notificationItemText;
+        final ImageView archiveIconView = binding.notificationItemArchiveIcon;
+        final TextView archiveTextView = binding.notificationItemArchiveText;
+        final View primaryView = binding.notificationActionPrimary;
+        final AppCompatImageView primaryImageView = binding.notificationActionPrimaryIcon;
+        final TextView primaryTextView = binding.notificationActionPrimaryText;
+        final View secondaryView = binding.notificationActionSecondary;
+        final AppCompatImageView secondaryImageView = binding.notificationActionSecondaryIcon;
+        final TextView secondaryTextView = binding.notificationActionSecondaryText;
+        final View tertiaryView = binding.notificationActionTertiary;
+        final AppCompatImageView tertiaryImageView = binding.notificationActionTertiaryIcon;
+        final TextView tertiaryTextView = binding.notificationActionTertiaryText;
+
+        binding.notificationItemArchive.setOnClickListener(v -> callback().onArchive(notification));
+
+        final View.OnClickListener notificationListener = v -> {
+            Notification.Link link = (Notification.Link) v.getTag();
+            int linkIndex = v.getId() == R.id.notification_action_primary ? 0 : v.getId() == R.id.notification_action_secondary ? 1 : 2;
+            String url = link.getUrl();
+            if (TextUtils.isEmpty(url)) {
+                return;
+            }
+            new NotificationFunnel(WikipediaApp.getInstance(), notification).logAction(linkIndex, link);
+            linkHandler.setWikiSite(new WikiSite(url));
+            linkHandler.onUrlClick(url, null, "");
+        };
+        binding.notificationActionPrimary.setOnClickListener(notificationListener);
+        binding.notificationActionSecondary.setOnClickListener(notificationListener);
+        binding.notificationActionTertiary.setOnClickListener(notificationListener);
+
         notification = GsonUtil.getDefaultGson().fromJson(getArguments().getString(ARG_NOTIFICATION), Notification.class);
         linkHandler = new NotificationLinkHandler(requireContext());
 
@@ -103,35 +118,13 @@ public class NotificationItemActionsDialog extends ExtendedBottomSheetDialogFrag
         archiveIconView.setImageResource(callback().isShowingArchived() ? R.drawable.ic_unarchive_themed_24dp : R.drawable.ic_archive_themed_24dp);
         archiveTextView.setText(callback().isShowingArchived() ? R.string.notifications_mark_unread : R.string.notifications_archive);
 
-        return view;
+        return binding.getRoot();
     }
 
     @Override
     public void onDestroyView() {
-        if (unbinder != null) {
-            unbinder.unbind();
-            unbinder = null;
-        }
+        binding = null;
         super.onDestroyView();
-    }
-
-    @OnClick(R.id.notification_item_archive) void onArchiveClick(View v) {
-        callback().onArchive(notification);
-    }
-
-    @OnClick({R.id.notification_action_primary,
-            R.id.notification_action_secondary,
-            R.id.notification_action_tertiary})
-    void onActionClick(View v) {
-        Notification.Link link = (Notification.Link) v.getTag();
-        int linkIndex = v.getId() == R.id.notification_action_primary ? 0 : v.getId() == R.id.notification_action_secondary ? 1 : 2;
-        String url = link.getUrl();
-        if (TextUtils.isEmpty(url)) {
-            return;
-        }
-        new NotificationFunnel(WikipediaApp.getInstance(), notification).logAction(linkIndex, link);
-        linkHandler.setWikiSite(new WikiSite(url));
-        linkHandler.onUrlClick(url, null, "");
     }
 
     private void setUpViewForLink(View containerView, AppCompatImageView iconView, TextView labelView, @NonNull Notification.Link link) {
@@ -165,7 +158,8 @@ public class NotificationItemActionsDialog extends ExtendedBottomSheetDialogFrag
             // ignore
         }
 
-        @Override public void onMediaLinkClicked(@NonNull PageTitle title) {
+        @Override
+        public void onMediaLinkClicked(@NonNull PageTitle title) {
             // ignore
         }
 
