@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import org.wikipedia.R;
+import org.wikipedia.databinding.FragmentMostReadBinding;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.view.ListCardItemView;
 import org.wikipedia.history.HistoryEntry;
@@ -30,19 +31,14 @@ import org.wikipedia.views.DrawableItemDecoration;
 
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
-
 import static org.wikipedia.Constants.InvokeSource.MOST_READ_ACTIVITY;
 import static org.wikipedia.feed.mostread.MostReadArticlesActivity.MOST_READ_CARD;
 import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
 
 public class MostReadFragment extends Fragment {
-
-    @BindView(R.id.view_most_read_fullscreen_link_card_list) RecyclerView mostReadLinks;
+    private FragmentMostReadBinding binding;
+    private RecyclerView mostReadLinks;
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
-    private Unbinder unbinder;
 
     @NonNull
     public static MostReadFragment newInstance(@NonNull MostReadItemCard card) {
@@ -57,22 +53,22 @@ public class MostReadFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        View view = inflater.inflate(R.layout.fragment_most_read, container, false);
-        unbinder = ButterKnife.bind(this, view);
+        binding = FragmentMostReadBinding.inflate(inflater, container, false);
+        mostReadLinks = binding.viewMostReadFullscreenLinkCardList;
+
         MostReadListCard card = GsonUnmarshaller.unmarshal(MostReadListCard.class, requireActivity().getIntent().getStringExtra(MOST_READ_CARD));
 
         getAppCompatActivity().getSupportActionBar().setTitle(String.format(getString(R.string.top_on_this_day), card.subtitle()));
-        setConditionalLayoutDirection(view, card.wikiSite().languageCode());
+        setConditionalLayoutDirection(binding.getRoot(), card.wikiSite().languageCode());
 
         initRecycler();
         mostReadLinks.setAdapter(new RecyclerAdapter(card.items(), new Callback()));
-        return view;
+        return binding.getRoot();
     }
 
     @Override
     public void onDestroyView() {
-        unbinder.unbind();
-        unbinder = null;
+        binding = null;
         super.onDestroyView();
     }
 
