@@ -15,23 +15,20 @@ import androidx.annotation.StringRes;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.databinding.ViewDescriptionEditRevertHelpBinding;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.StringUtil;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-
 public class DescriptionEditRevertHelpView extends ScrollView {
-    @BindView(R.id.view_description_edit_revert_help_contents) TextView helpText;
-
     public DescriptionEditRevertHelpView(@NonNull Context context, @NonNull String qNumber) {
         super(context);
         init(qNumber);
     }
 
     @SuppressWarnings("checkstyle:magicnumber") private void init(@NonNull String qNumber) {
-        inflate(getContext(), R.layout.view_description_edit_revert_help, this);
-        ButterKnife.bind(this);
+        final ViewDescriptionEditRevertHelpBinding binding = ViewDescriptionEditRevertHelpBinding.bind(this);
+        final TextView helpText = binding.viewDescriptionEditRevertHelpContents;
+
         helpText.setMovementMethod(new LinkMovementMethod());
 
         Spanned helpStr = StringUtil.fromHtml(getString(R.string.description_edit_revert_help_body)
