@@ -3,6 +3,7 @@ package org.wikipedia.feed.featured;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.Uri;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 
@@ -11,6 +12,7 @@ import androidx.annotation.Nullable;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.databinding.ViewCardFeaturedArticleBinding;
 import org.wikipedia.events.ArticleSavedOrDeletedEvent;
 import org.wikipedia.feed.view.ActionFooterView;
 import org.wikipedia.feed.view.CardHeaderView;
@@ -28,9 +30,6 @@ import org.wikipedia.views.FaceAndColorDetectImageView;
 import org.wikipedia.views.GoneIfEmptyTextView;
 import org.wikipedia.views.ImageZoomHelper;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
@@ -38,21 +37,40 @@ import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
 public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticleCard> {
-
-    @BindView(R.id.view_featured_article_card_header) CardHeaderView headerView;
-    @BindView(R.id.view_featured_article_card_footer) ActionFooterView footerView;
-    @BindView(R.id.view_featured_article_card_image_container) View imageContainerView;
-    @BindView(R.id.view_featured_article_card_image) FaceAndColorDetectImageView imageView;
-    @BindView(R.id.view_featured_article_card_article_title) TextView articleTitleView;
-    @BindView(R.id.view_featured_article_card_article_subtitle) GoneIfEmptyTextView articleSubtitleView;
-    @BindView(R.id.view_featured_article_card_extract) TextView extractView;
-    @BindView(R.id.view_featured_article_card_text_container) View textContainerView;
+    private CardHeaderView headerView;
+    private ActionFooterView footerView;
+    private View imageContainerView;
+    private FaceAndColorDetectImageView imageView;
+    private TextView articleTitleView;
+    private GoneIfEmptyTextView articleSubtitleView;
+    private TextView extractView;
+    private View textContainerView;
     private CompositeDisposable disposables = new CompositeDisposable();
 
     public FeaturedArticleCardView(Context context) {
         super(context);
-        inflate(getContext(), R.layout.view_card_featured_article, this);
-        ButterKnife.bind(this);
+
+        final ViewCardFeaturedArticleBinding binding =
+                ViewCardFeaturedArticleBinding.inflate(LayoutInflater.from(context));
+
+        headerView = binding.viewFeaturedArticleCardHeader;
+        footerView = binding.viewFeaturedArticleCardFooter;
+        imageContainerView = binding.viewFeaturedArticleCardImage;
+        imageView = binding.viewFeaturedArticleCardImage;
+        articleTitleView = binding.viewFeaturedArticleCardArticleTitle;
+        articleSubtitleView = binding.viewFeaturedArticleCardArticleSubtitle;
+        extractView = binding.viewFeaturedArticleCardExtract;
+        textContainerView = binding.viewFeaturedArticleCardTextContainer;
+
+        final View.OnClickListener onClickListener = v -> {
+            if (getCallback() != null && getCard() != null) {
+                getCallback().onSelectPage(getCard(),
+                        getCard().historyEntry(HistoryEntry.SOURCE_FEED_FEATURED));
+            }
+        };
+        imageView.setOnClickListener(onClickListener);
+        textContainerView.setOnClickListener(onClickListener);
+
         ImageZoomHelper.setViewZoomable(imageView);
     }
 
@@ -84,14 +102,6 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
     protected void onDetachedFromWindow() {
         disposables.clear();
         super.onDetachedFromWindow();
-    }
-
-    @OnClick({R.id.view_featured_article_card_image, R.id.view_featured_article_card_text_container})
-    void onCardClick() {
-        if (getCallback() != null && getCard() != null) {
-            getCallback().onSelectPage(getCard(),
-                    getCard().historyEntry(HistoryEntry.SOURCE_FEED_FEATURED));
-        }
     }
 
     @Override public void setCallback(@Nullable FeedAdapter.Callback callback) {
