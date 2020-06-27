@@ -9,12 +9,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 
-import org.wikipedia.R;
+import org.wikipedia.databinding.ViewOnboardingBinding;
 import org.wikipedia.page.LinkMovementMethodExt;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 public class OnboardingView extends LinearLayout {
     public interface Callback {
@@ -22,18 +18,34 @@ public class OnboardingView extends LinearLayout {
         void onNegativeAction();
     }
 
-    @BindView(R.id.view_onboarding_title) TextView titleView;
-    @BindView(R.id.view_onboarding_text) TextView textView;
-    @BindView(R.id.view_onboarding_action_positive) Button actionViewPositive;
-    @BindView(R.id.view_onboarding_action_negative) Button actionViewNegative;
+    private TextView titleView;
+    private TextView textView;
+    private Button actionViewPositive;
+    private Button actionViewNegative;
 
     @Nullable private Callback callback;
 
     public OnboardingView(@NonNull Context context) {
         super(context);
         setOrientation(VERTICAL);
-        inflate(context, R.layout.view_onboarding, this);
-        ButterKnife.bind(this);
+
+        final ViewOnboardingBinding binding = ViewOnboardingBinding.bind(this);
+        titleView = binding.viewOnboardingTitle;
+        textView = binding.viewOnboardingText;
+        actionViewPositive = binding.viewOnboardingActionPositive;
+        actionViewNegative = binding.viewOnboardingActionNegative;
+
+        actionViewPositive.setOnClickListener(v -> {
+            if (callback != null) {
+                callback.onPositiveAction();
+            }
+        });
+        actionViewNegative.setOnClickListener(v -> {
+            if (callback != null) {
+                callback.onNegativeAction();
+            }
+        });
+
         textView.setMovementMethod(LinkMovementMethodExt.getInstance());
     }
 
@@ -59,19 +71,5 @@ public class OnboardingView extends LinearLayout {
 
     public void setNegativeAction(@StringRes int id) {
         actionViewNegative.setText(id);
-    }
-
-    @OnClick(R.id.view_onboarding_action_positive)
-    void onPositiveActionClick() {
-        if (callback != null) {
-            callback.onPositiveAction();
-        }
-    }
-
-    @OnClick(R.id.view_onboarding_action_negative)
-    void onNegativeActionClick() {
-        if (callback != null) {
-            callback.onNegativeAction();
-        }
     }
 }
