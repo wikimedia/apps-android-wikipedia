@@ -2,6 +2,7 @@ package org.wikipedia.feed.image;
 
 import android.content.Context;
 import android.net.Uri;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 
@@ -9,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import org.wikipedia.R;
+import org.wikipedia.databinding.ViewCardFeaturedImageBinding;
 import org.wikipedia.feed.view.ActionFooterView;
 import org.wikipedia.feed.view.CardHeaderView;
 import org.wikipedia.feed.view.DefaultFeedCardView;
@@ -16,9 +18,6 @@ import org.wikipedia.feed.view.FeedAdapter;
 import org.wikipedia.richtext.RichTextUtil;
 import org.wikipedia.views.FaceAndColorDetectImageView;
 import org.wikipedia.views.ImageZoomHelper;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
 
@@ -29,15 +28,21 @@ public class FeaturedImageCardView extends DefaultFeedCardView<FeaturedImageCard
         void onFeaturedImageSelected(@NonNull FeaturedImageCard card);
     }
 
-    @BindView(R.id.view_featured_image_card_header) CardHeaderView headerView;
-    @BindView(R.id.view_featured_image_card_footer) ActionFooterView footerView;
-    @BindView(R.id.view_featured_image_card_image) FaceAndColorDetectImageView imageView;
-    @BindView(R.id.featured_image_description_Text) TextView descriptionView;
+    private CardHeaderView headerView;
+    private ActionFooterView footerView;
+    private FaceAndColorDetectImageView imageView;
+    private TextView descriptionView;
 
     public FeaturedImageCardView(Context context) {
         super(context);
-        inflate(getContext(), R.layout.view_card_featured_image, this);
-        ButterKnife.bind(this);
+
+        final ViewCardFeaturedImageBinding binding =
+                ViewCardFeaturedImageBinding.inflate(LayoutInflater.from(context));
+        headerView = binding.viewFeaturedImageCardHeader;
+        footerView = binding.viewFeaturedImageCardFooter;
+        imageView = binding.viewFeaturedImageCardImage;
+        descriptionView = binding.featuredImageDescriptionText;
+
         ImageZoomHelper.setViewZoomable(imageView);
     }
 
