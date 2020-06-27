@@ -22,6 +22,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.FeedFunnel;
+import org.wikipedia.databinding.ViewCardOnThisDayBinding;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.feed.model.CardType;
@@ -40,28 +41,21 @@ import org.wikipedia.views.MarginItemDecoration;
 
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-
 import static org.wikipedia.Constants.InvokeSource.ON_THIS_DAY_ACTIVITY;
 import static org.wikipedia.Constants.InvokeSource.ON_THIS_DAY_CARD_BODY;
 import static org.wikipedia.Constants.InvokeSource.ON_THIS_DAY_CARD_FOOTER;
 
 public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implements OnThisDayActionsDialog.Callback {
-    @BindView(R.id.view_on_this_day_card_header) CardHeaderView headerView;
-    @BindView(R.id.text) TextView descTextView;
-    @BindView(R.id.next_event_years) TextView nextEventYearsTextView;
-    @BindView(R.id.day) TextView dayTextView;
-    @BindView(R.id.year) TextView yearTextView;
-    @BindView(R.id.years_text_background) ImageView yearsInfoBackground;
-    @BindView(R.id.years_text) TextView yearsInfoTextView;
-    @BindView(R.id.year_layout) LinearLayout yearLayout;
-    @BindView(R.id.more_events_layout) LinearLayout moreEventsLayout;
-    @BindView(R.id.pages_recycler) RecyclerView pagesRecycler;
-    @BindView(R.id.gradient_layout) View gradientLayout;
-    @BindView(R.id.radio_image_view) View radio;
-    @BindView(R.id.view_on_this_day_rtl_container) View rtlContainer;
+    private CardHeaderView headerView;
+    private TextView descTextView;
+    private TextView nextEventYearsTextView;
+    private TextView dayTextView;
+    private TextView yearTextView;
+    private ImageView yearsInfoBackground;
+    private TextView yearsInfoTextView;
+    private RecyclerView pagesRecycler;
+    private View gradientLayout;
+    private View rtlContainer;
     private FeedFunnel funnel = new FeedFunnel(WikipediaApp.getInstance());
 
     private int age;
@@ -70,8 +64,36 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
     public OnThisDayCardView(@NonNull Context context) {
         super(context);
         setAllowOverflow(true);
-        inflate(getContext(), R.layout.view_card_on_this_day, this);
-        ButterKnife.bind(this);
+
+        final ViewCardOnThisDayBinding binding = ViewCardOnThisDayBinding.bind(this);
+
+        final LinearLayout root = binding.getRoot();
+        headerView = binding.viewOnThisDayCardHeader;
+        descTextView = root.findViewById(R.id.text);
+        nextEventYearsTextView = binding.nextEventYears;
+        dayTextView = binding.day;
+        yearTextView = root.findViewById(R.id.year);
+        yearsInfoBackground = root.findViewById(R.id.years_text_background);
+        yearsInfoTextView = root.findViewById(R.id.years_text);
+        pagesRecycler = root.findViewById(R.id.pages_recycler);
+        gradientLayout = binding.gradientLayout;
+        rtlContainer = binding.viewOnThisDayRtlContainer;
+
+        binding.viewOnThisDayClickContainer.setOnClickListener(v -> {
+            funnel.cardClicked(CardType.ON_THIS_DAY, getCard().wikiSite().languageCode());
+            ActivityOptionsCompat options = ActivityOptionsCompat.
+                    makeSceneTransitionAnimation((Activity) getContext(), dayTextView, getContext().getString(R.string.transition_on_this_day));
+            getContext().startActivity(OnThisDayActivity.newIntent(getContext(), age, getCard().wikiSite(),
+                    ON_THIS_DAY_CARD_BODY), options.toBundle());
+        });
+        binding.moreEventsLayout.setOnClickListener(v -> {
+            funnel.cardClicked(CardType.ON_THIS_DAY, getCard().wikiSite().languageCode());
+            ActivityOptionsCompat options = ActivityOptionsCompat.
+                    makeSceneTransitionAnimation((Activity) getContext(), dayTextView, getContext().getString(R.string.transition_on_this_day));
+            getContext().startActivity(OnThisDayActivity.newIntent(getContext(), age, getCard().wikiSite(),
+                    ON_THIS_DAY_CARD_FOOTER), options.toBundle());
+        });
+
         initRecycler();
         setGradientAndTextColor();
     }
@@ -172,22 +194,6 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
         setLayoutDirectionByWikiSite(card.wikiSite(), rtlContainer);
         setPagesRecycler(card);
         header(card);
-    }
-
-    @OnClick({R.id.view_on_this_day_click_container}) void onMoreClick() {
-        funnel.cardClicked(CardType.ON_THIS_DAY, getCard().wikiSite().languageCode());
-        ActivityOptionsCompat options = ActivityOptionsCompat.
-                makeSceneTransitionAnimation((Activity) getContext(), dayTextView, getContext().getString(R.string.transition_on_this_day));
-        getContext().startActivity(OnThisDayActivity.newIntent(getContext(), age, getCard().wikiSite(),
-                ON_THIS_DAY_CARD_BODY), options.toBundle());
-    }
-
-    @OnClick({R.id.more_events_layout}) void onMoreFooterClick() {
-        funnel.cardClicked(CardType.ON_THIS_DAY, getCard().wikiSite().languageCode());
-        ActivityOptionsCompat options = ActivityOptionsCompat.
-                makeSceneTransitionAnimation((Activity) getContext(), dayTextView, getContext().getString(R.string.transition_on_this_day));
-        getContext().startActivity(OnThisDayActivity.newIntent(getContext(), age, getCard().wikiSite(),
-                ON_THIS_DAY_CARD_FOOTER), options.toBundle());
     }
 
     private void setPagesRecycler(OnThisDayCard card) {
