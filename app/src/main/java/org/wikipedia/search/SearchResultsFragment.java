@@ -24,6 +24,7 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.SearchFunnel;
+import org.wikipedia.databinding.FragmentSearchResultsBinding;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.history.HistoryEntry;
@@ -37,10 +38,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-import butterknife.Unbinder;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
@@ -68,13 +65,13 @@ public class SearchResultsFragment extends Fragment {
      */
     private static final int NANO_TO_MILLI = 1_000_000;
 
-    @BindView(R.id.search_results_display) View searchResultsDisplay;
-    @BindView(R.id.search_results_container) View searchResultsContainer;
-    @BindView(R.id.search_results_list) ListView searchResultsList;
-    @BindView(R.id.search_error_view) WikiErrorView searchErrorView;
-    @BindView(R.id.search_empty_view) View searchEmptyView;
-    @BindView(R.id.search_suggestion) TextView searchSuggestion;
-    private Unbinder unbinder;
+    private FragmentSearchResultsBinding binding;
+    private View searchResultsDisplay;
+    private View searchResultsContainer;
+    private ListView searchResultsList;
+    private WikiErrorView searchErrorView;
+    private View searchEmptyView;
+    private TextView searchSuggestion;
 
     private final LruCache<String, List<SearchResult>> searchResultsCache = new LruCache<>(MAX_CACHE_SIZE_SEARCH_RESULTS);
     private Handler searchHandler;
@@ -85,8 +82,24 @@ public class SearchResultsFragment extends Fragment {
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_search_results, container, false);
-        unbinder = ButterKnife.bind(this, view);
+        binding = FragmentSearchResultsBinding.inflate(inflater, container, false);
+
+        searchResultsDisplay = binding.searchResultsDisplay;
+        searchResultsContainer = binding.searchResultsContainer;
+        searchResultsList = binding.searchResultsList;
+        searchErrorView = binding.searchErrorView;
+        searchEmptyView = binding.searchEmptyView;
+        searchSuggestion = binding.searchSuggestion;
+
+        searchSuggestion.setOnClickListener(v -> {
+            Callback callback = callback();
+            String suggestion = (String) searchSuggestion.getTag();
+            if (callback != null && suggestion != null) {
+                callback.getFunnel().searchDidYouMean(getSearchLanguageCode());
+                callback.setSearchText(suggestion);
+                startSearch(suggestion, true);
+            }
+        });
 
         SearchResultAdapter adapter = new SearchResultAdapter(inflater);
         searchResultsList.setAdapter(adapter);
@@ -99,7 +112,7 @@ public class SearchResultsFragment extends Fragment {
 
         searchHandler = new Handler(new SearchHandlerCallback());
 
-        return view;
+        return binding.getRoot();
     }
 
     @Override
@@ -112,8 +125,7 @@ public class SearchResultsFragment extends Fragment {
     @Override
     public void onDestroyView() {
         searchErrorView.setRetryClickListener(null);
-        unbinder.unbind();
-        unbinder = null;
+        binding = null;
         disposables.clear();
         super.onDestroyView();
     }
@@ -121,16 +133,6 @@ public class SearchResultsFragment extends Fragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
-    }
-
-    @OnClick(R.id.search_suggestion) void onSuggestionClick(View view) {
-        Callback callback = callback();
-        String suggestion = (String) searchSuggestion.getTag();
-        if (callback != null && suggestion != null) {
-            callback.getFunnel().searchDidYouMean(getSearchLanguageCode());
-            callback.setSearchText(suggestion);
-            startSearch(suggestion, true);
-        }
     }
 
     public void show() {
