@@ -3,6 +3,7 @@ package org.wikipedia.main;
 import android.content.Context;
 import android.net.Uri;
 import android.util.AttributeSet;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -16,12 +17,9 @@ import org.wikipedia.BuildConfig;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.auth.AccountUtil;
+import org.wikipedia.databinding.ViewMainDrawerBinding;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.UriUtil;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 public class MainDrawerView extends ScrollView {
     public interface Callback {
@@ -32,11 +30,11 @@ public class MainDrawerView extends ScrollView {
         void aboutClick();
     }
 
-    @BindView(R.id.main_drawer_account_name) TextView accountNameView;
-    @BindView(R.id.main_drawer_login_button) Button loginLogoutButton;
-    @BindView(R.id.main_drawer_account_avatar) ImageView accountAvatar;
-    @BindView(R.id.main_drawer_account_wiki_globe) ImageView accountWikiGlobe;
-    @BindView(R.id.main_drawer_notifications_container) ViewGroup notificationsContainer;
+    private TextView accountNameView;
+    private Button loginLogoutButton;
+    private ImageView accountAvatar;
+    private ImageView accountWikiGlobe;
+    private ViewGroup notificationsContainer;
     @Nullable Callback callback;
 
     public MainDrawerView(Context context) {
@@ -77,49 +75,44 @@ public class MainDrawerView extends ScrollView {
         }
     }
 
-    @OnClick(R.id.main_drawer_settings_container) void onSettingsClick() {
-        if (callback != null) {
-            callback.settingsClick();
-        }
-    }
-
-    @OnClick(R.id.main_drawer_configure_container) void onConfigureClick() {
-        if (callback != null) {
-            callback.configureFeedClick();
-        }
-    }
-
-    @OnClick(R.id.main_drawer_notifications_container) void onNotificationsClick() {
-        if (callback != null) {
-            callback.notificationsClick();
-        }
-    }
-
-    @OnClick(R.id.main_drawer_donate_container) void onDonateClick() {
-        UriUtil.visitInExternalBrowser(getContext(),
-                Uri.parse(getContext().getString(R.string.donate_url,
-                        BuildConfig.VERSION_NAME, WikipediaApp.getInstance().language().getSystemLanguageCode())));
-    }
-
-    @OnClick(R.id.main_drawer_about_container) void onAboutClick() {
-        if (callback != null) {
-            callback.aboutClick();
-        }
-    }
-
-    @OnClick(R.id.main_drawer_help_container) void onHelpClick() {
-        UriUtil.visitInExternalBrowser(getContext(),
-                Uri.parse(getContext().getString(R.string.android_app_faq_url)));
-    }
-
-    @OnClick(R.id.main_drawer_login_button) void onLoginClick() {
-        if (callback != null) {
-            callback.loginLogoutClick();
-        }
-    }
-
     private void init() {
-        inflate(getContext(), R.layout.view_main_drawer, this);
-        ButterKnife.bind(this);
+        final ViewMainDrawerBinding binding = ViewMainDrawerBinding.inflate(LayoutInflater.from(getContext()));
+
+        accountNameView = binding.mainDrawerAccountName;
+        loginLogoutButton = binding.mainDrawerLoginButton;
+        accountAvatar = binding.mainDrawerAccountAvatar;
+        accountWikiGlobe = binding.mainDrawerAccountWikiGlobe;
+        notificationsContainer = binding.mainDrawerNotificationsContainer;
+
+        binding.mainDrawerSettingsContainer.setOnClickListener(v -> {
+            if (callback != null) {
+                callback.settingsClick();
+            }
+        });
+        binding.mainDrawerConfigureContainer.setOnClickListener(v -> {
+            if (callback != null) {
+                callback.configureFeedClick();
+            }
+        });
+        notificationsContainer.setOnClickListener(v -> {
+            if (callback != null) {
+                callback.notificationsClick();
+            }
+        });
+        binding.mainDrawerDonateContainer.setOnClickListener(v -> UriUtil.visitInExternalBrowser(getContext(),
+                Uri.parse(getContext().getString(R.string.donate_url,
+                        BuildConfig.VERSION_NAME, WikipediaApp.getInstance().language().getSystemLanguageCode()))));
+        binding.mainDrawerAboutContainer.setOnClickListener(v -> {
+            if (callback != null) {
+                callback.aboutClick();
+            }
+        });
+        binding.mainDrawerHelpContainer.setOnClickListener(v -> UriUtil.visitInExternalBrowser(getContext(),
+                Uri.parse(getContext().getString(R.string.android_app_faq_url))));
+        loginLogoutButton.setOnClickListener(v -> {
+            if (callback != null) {
+                callback.loginLogoutClick();
+            }
+        });
     }
 }
