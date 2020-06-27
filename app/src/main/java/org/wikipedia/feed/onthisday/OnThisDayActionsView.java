@@ -2,18 +2,13 @@ package org.wikipedia.feed.onthisday;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import org.wikipedia.R;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
+import org.wikipedia.databinding.ViewOnThisDayPageActionsBinding;
 
 public class OnThisDayActionsView extends LinearLayout{
     public interface Callback {
@@ -21,7 +16,7 @@ public class OnThisDayActionsView extends LinearLayout{
         void onSharePage();
     }
 
-    @BindView(R.id.on_this_day_item_title) TextView titleView;
+    private TextView titleView;
 
     @Nullable
     private Callback callback;
@@ -49,22 +44,21 @@ public class OnThisDayActionsView extends LinearLayout{
         this.callback = callback;
     }
 
-    @OnClick(R.id.on_this_day_item_share) void onShareClick(View view) {
-        if (callback != null) {
-            callback.onSharePage();
-        }
-    }
-
-    @OnClick(R.id.on_this_day_item_add_to_list) void onAddPageToListClick(View view) {
-        if (callback != null) {
-            callback.onAddPageToList();
-        }
-    }
-
     private void init() {
-        inflate(getContext(), R.layout.view_on_this_day_page_actions, this);
-        ButterKnife.bind(this);
+        final ViewOnThisDayPageActionsBinding binding = ViewOnThisDayPageActionsBinding.bind(this);
+
+        titleView = binding.onThisDayItemTitle;
+        binding.onThisDayItemShare.setOnClickListener(v -> {
+            if (callback != null) {
+                callback.onSharePage();
+            }
+        });
+        binding.onThisDayItemAddToList.setOnClickListener(v -> {
+            if (callback != null) {
+                callback.onAddPageToList();
+            }
+        });
+
         setOrientation(VERTICAL);
     }
-
 }
