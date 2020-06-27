@@ -23,11 +23,8 @@ import androidx.core.view.ViewCompat;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.databinding.ViewCardHeaderBinding;
 import org.wikipedia.feed.model.Card;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 public class CardHeaderView extends ConstraintLayout {
     public interface Callback {
@@ -36,11 +33,11 @@ public class CardHeaderView extends ConstraintLayout {
         void onRequestCustomize(@NonNull Card card);
     }
 
-    @BindView(R.id.view_card_header_image) AppCompatImageView imageView;
-    @BindView(R.id.view_card_header_title) TextView titleView;
-    @BindView(R.id.view_card_header_subtitle) TextView subtitleView;
-    @BindView(R.id.view_list_card_header_lang_background) View langCodeBackground;
-    @BindView(R.id.view_list_card_header_lang_code) TextView langCodeView;
+    private AppCompatImageView imageView;
+    private TextView titleView;
+    private TextView subtitleView;
+    private View langCodeBackground;
+    private TextView langCodeView;
     @Nullable private Card card;
     @Nullable private Callback callback;
 
@@ -60,8 +57,22 @@ public class CardHeaderView extends ConstraintLayout {
     }
 
     private void init() {
-        inflate(getContext(), R.layout.view_card_header, this);
-        ButterKnife.bind(this);
+        final ViewCardHeaderBinding binding = ViewCardHeaderBinding.bind(this);
+
+        imageView = binding.viewCardHeaderImage;
+        titleView = binding.viewCardHeaderTitle;
+        subtitleView = binding.viewCardHeaderSubtitle;
+        langCodeBackground = binding.viewListCardHeaderLangBackground;
+        langCodeView = binding.viewListCardHeaderLangCode;
+
+        binding.viewListCardHeaderMenu.setOnClickListener(view -> {
+            PopupMenu menu = new PopupMenu(view.getContext(), view, Gravity.END);
+            menu.getMenuInflater().inflate(R.menu.menu_feed_card_header, menu.getMenu());
+            MenuItem editCardLangItem = menu.getMenu().findItem(R.id.menu_feed_card_edit_card_languages);
+            editCardLangItem.setVisible(card.type().contentType().isPerLanguage());
+            menu.setOnMenuItemClickListener(new CardHeaderMenuClickListener());
+            menu.show();
+        });
     }
 
     @NonNull public CardHeaderView setCard(@NonNull Card card) {
@@ -117,19 +128,6 @@ public class CardHeaderView extends ConstraintLayout {
 
     @VisibleForTesting @Nullable Card getCard() {
         return card;
-    }
-
-    @OnClick(R.id.view_list_card_header_menu) void onMenuClick(View v) {
-        showOverflowMenu(v);
-    }
-
-    private void showOverflowMenu(View anchorView) {
-        PopupMenu menu = new PopupMenu(anchorView.getContext(), anchorView, Gravity.END);
-        menu.getMenuInflater().inflate(R.menu.menu_feed_card_header, menu.getMenu());
-        MenuItem editCardLangItem = menu.getMenu().findItem(R.id.menu_feed_card_edit_card_languages);
-        editCardLangItem.setVisible(card.type().contentType().isPerLanguage());
-        menu.setOnMenuItemClickListener(new CardHeaderMenuClickListener());
-        menu.show();
     }
 
     private class CardHeaderMenuClickListener implements PopupMenu.OnMenuItemClickListener {
