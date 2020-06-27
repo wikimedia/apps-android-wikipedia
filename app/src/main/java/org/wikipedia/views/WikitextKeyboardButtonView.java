@@ -14,17 +14,11 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.content.res.AppCompatResources;
 
 import org.wikipedia.R;
+import org.wikipedia.databinding.ViewWikitextKeyboardButtonBinding;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-
 public class WikitextKeyboardButtonView extends FrameLayout {
-    @BindView(R.id.wikitext_button_text) TextView buttonTextView;
-    @BindView(R.id.wikitext_button_hint) TextView buttonHintView;
-    @BindView(R.id.wikitext_button_image) ImageView buttonImageView;
-
     public WikitextKeyboardButtonView(Context context) {
         super(context);
         init(null, 0);
@@ -41,9 +35,13 @@ public class WikitextKeyboardButtonView extends FrameLayout {
     }
 
     private void init(@Nullable AttributeSet attrs, @AttrRes int defStyleAttr) {
-        inflate(getContext(), R.layout.view_wikitext_keyboard_button, this);
+        final ViewWikitextKeyboardButtonBinding binding = ViewWikitextKeyboardButtonBinding.bind(this);
+
+        final TextView buttonHintView = binding.wikitextButtonHint;
+        final ImageView buttonImageView = binding.wikitextButtonImage;
+        final TextView buttonTextView = binding.wikitextButtonText;
+
         setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-        ButterKnife.bind(this);
         if (attrs != null) {
             TypedArray array = getContext().obtainStyledAttributes(attrs,
                     R.styleable.WikitextKeyboardButtonView, defStyleAttr, 0);
