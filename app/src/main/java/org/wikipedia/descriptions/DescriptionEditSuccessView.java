@@ -7,14 +7,11 @@ import android.widget.FrameLayout;
 import androidx.annotation.Nullable;
 
 import org.wikipedia.R;
+import org.wikipedia.databinding.ViewDescriptionEditSuccessBinding;
 import org.wikipedia.views.AppTextViewWithImages;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-
 public class DescriptionEditSuccessView extends FrameLayout {
-    @BindView(R.id.view_description_edit_success_hint_text) AppTextViewWithImages hintTextView;
+    private AppTextViewWithImages hintTextView;
 
     @Nullable private Callback callback;
 
@@ -42,19 +39,20 @@ public class DescriptionEditSuccessView extends FrameLayout {
     }
 
     private void init() {
-        inflate(getContext(), R.layout.view_description_edit_success, this);
-        ButterKnife.bind(this);
+        final ViewDescriptionEditSuccessBinding binding = ViewDescriptionEditSuccessBinding.bind(this);
+
+        hintTextView = binding.viewDescriptionEditSuccessHintText;
+        binding.viewDescriptionEditSuccessDoneButton.setOnClickListener(v -> {
+            if (callback != null) {
+                callback.onDismissClick();
+            }
+        });
+
         setHintText();
     }
 
     private void setHintText() {
         String editHint = getResources().getString(R.string.description_edit_success_article_edit_hint);
         hintTextView.setTextWithDrawables(editHint, R.drawable.ic_mode_edit_white_24dp);
-    }
-
-    @OnClick(R.id.view_description_edit_success_done_button) void onDismissClick() {
-        if (callback != null) {
-            callback.onDismissClick();
-        }
     }
 }
