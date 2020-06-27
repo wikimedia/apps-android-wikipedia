@@ -16,24 +16,20 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.view.ViewCompat;
 
 import org.wikipedia.R;
+import org.wikipedia.databinding.ViewPageHeaderBinding;
 import org.wikipedia.views.FaceAndColorDetectImageView;
 import org.wikipedia.views.LinearLayoutOverWebView;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.ViewUtil;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-
 import static org.wikipedia.util.DimenUtil.leadImageHeightForDevice;
 import static org.wikipedia.util.GradientUtil.getPowerGradient;
 
 public class PageHeaderView extends LinearLayoutOverWebView implements ObservableWebView.OnScrollChangeListener {
-    @BindView(R.id.view_page_header_image) FaceAndColorDetectImageView image;
-    @BindView(R.id.view_page_header_image_gradient_top) View gradientViewTop;
-    @BindView(R.id.view_page_header_image_gradient_bottom) View gradientViewBottom;
-    @BindView(R.id.call_to_action_container) View callToActionContainer;
-    @BindView(R.id.call_to_action_text) TextView callToActionTextView;
+    private FaceAndColorDetectImageView image;
+    private View gradientViewBottom;
+    private View callToActionContainer;
+    private TextView callToActionTextView;
     @Nullable private Callback callback;
 
     public interface Callback {
@@ -103,18 +99,6 @@ public class PageHeaderView extends LinearLayoutOverWebView implements Observabl
         updateScroll(scrollY);
     }
 
-    @OnClick(R.id.view_page_header_image) void onImageClick() {
-        if (callback != null) {
-            callback.onImageClicked();
-        }
-    }
-
-    @OnClick(R.id.call_to_action_container) void onCallToActionClicked() {
-        if (callback != null) {
-            callback.onCallToActionClicked();
-        }
-    }
-
     @Override
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
         super.onLayout(changed, left, top, right, bottom);
@@ -132,8 +116,25 @@ public class PageHeaderView extends LinearLayoutOverWebView implements Observabl
     }
 
     private void init() {
-        inflate(getContext(), R.layout.view_page_header, this);
-        ButterKnife.bind(this);
+        final ViewPageHeaderBinding binding = ViewPageHeaderBinding.bind(this);
+
+        image = binding.viewPageHeaderImage;
+        View gradientViewTop = binding.viewPageHeaderImageGradientTop;
+        gradientViewBottom = binding.viewPageHeaderImageGradientBottom;
+        callToActionContainer = binding.callToActionContainer;
+        callToActionTextView = binding.callToActionText;
+
+        image.setOnClickListener(v -> {
+            if (callback != null) {
+                callback.onImageClicked();
+            }
+        });
+        callToActionContainer.setOnClickListener(v -> {
+            if (callback != null) {
+                callback.onCallToActionClicked();
+            }
+        });
+
         ViewCompat.setTransitionName(this, getContext().getString(R.string.transition_floating_queue));
         gradientViewTop.setBackground(getPowerGradient(R.color.black38, Gravity.TOP));
         gradientViewBottom.setBackground(getPowerGradient(R.color.black38, Gravity.BOTTOM));
