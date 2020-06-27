@@ -20,7 +20,7 @@
         tools:text="1" />
 
     <CheckBox
-        android:id="@+id/wiki_language_checkbox"
+        android:id="@+id/wiki_language_check_box"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_marginStart="14dp"

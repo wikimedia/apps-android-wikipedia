@@ -16,13 +16,9 @@ import androidx.appcompat.content.res.AppCompatResources;
 
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.R;
+import org.wikipedia.databinding.ItemWikipediaLanguageBinding;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.views.ViewUtil;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnCheckedChanged;
-import butterknife.OnLongClick;
 
 import static org.wikipedia.search.SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER;
 import static org.wikipedia.search.SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER;
@@ -33,11 +29,11 @@ public class WikipediaLanguagesItemView extends LinearLayout {
         void onLongPress(int position);
     }
 
-    @BindView(R.id.wiki_language_order) TextView orderView;
-    @BindView(R.id.wiki_language_checkbox) CheckBox checkBox;
-    @BindView(R.id.wiki_language_title) TextView titleView;
-    @BindView(R.id.wiki_language_code) TextView langCodeView;
-    @BindView(R.id.wiki_language_drag_handle) View dragHandleView;
+    private TextView orderView;
+    private CheckBox checkBox;
+    private TextView titleView;
+    private TextView langCodeView;
+    private View dragHandleView;
     @Nullable private Callback callback;
     private int position;
 
@@ -94,8 +90,27 @@ public class WikipediaLanguagesItemView extends LinearLayout {
     }
 
     private void init() {
-        inflate(getContext(), R.layout.item_wikipedia_language, this);
-        ButterKnife.bind(this);
+        final ItemWikipediaLanguageBinding binding = ItemWikipediaLanguageBinding.bind(this);
+
+        orderView = binding.wikiLanguageOrder;
+        checkBox = binding.wikiLanguageCheckBox;
+        titleView = binding.wikiLanguageTitle;
+        langCodeView = binding.wikiLanguageCode;
+        dragHandleView = binding.wikiLanguageDragHandle;
+
+        binding.getRoot().setOnLongClickListener(v -> {
+            if (callback != null) {
+                callback.onLongPress(position);
+            }
+            return true;
+        });
+        checkBox.setOnCheckedChangeListener((v, isChecked) -> {
+            if (callback != null) {
+                callback.onCheckedChanged(position);
+                updateBackgroundColor();
+            }
+        });
+
         setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT));
         setBackgroundColor(ResourceUtil.getThemedColor(getContext(), R.attr.paper_color));
@@ -108,19 +123,5 @@ public class WikipediaLanguagesItemView extends LinearLayout {
     private void updateBackgroundColor() {
         setBackgroundColor(checkBox.isChecked()
                 ? ResourceUtil.getThemedColor(getContext(), R.attr.multi_select_background_color) : ResourceUtil.getThemedColor(getContext(), R.attr.paper_color));
-    }
-
-    @OnCheckedChanged(R.id.wiki_language_checkbox) void onCheckedChanged() {
-        if (callback != null) {
-            callback.onCheckedChanged(position);
-            updateBackgroundColor();
-        }
-    }
-
-    @OnLongClick boolean onLongClick() {
-        if (callback != null) {
-            callback.onLongPress(position);
-        }
-        return true;
     }
 }
