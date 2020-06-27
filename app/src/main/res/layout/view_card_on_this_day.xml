@@ -94,13 +94,12 @@
         <TextView
             android:id="@+id/next_event_years"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="13dp"
             android:layout_marginTop="2dp"
             android:maxLines="1"
             android:paddingStart="6dp"
             android:paddingTop="1dp"
             android:paddingEnd="6dp"
-            android:paddingBottom="3dp"
             android:textColor="?attr/chart_shade7"
             android:textSize="12sp"
             app:layout_constraintStart_toStartOf="@id/day"
@@ -110,7 +109,6 @@
         <View
             android:layout_width="0dp"
             android:layout_height="0.5dp"
-            android:layout_marginBottom="6dp"
             android:background="?attr/material_theme_border_color"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -122,14 +120,11 @@
         android:id="@+id/more_events_layout"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:layout_marginTop="-6dp"
-        android:background="?attr/paper_color"
+        android:background="?android:attr/selectableItemBackground"
         android:clickable="true"
         android:focusable="true"
-        android:foreground="?attr/selectableItemBackground"
         android:paddingStart="16dp"
-        android:paddingEnd="16dp"
-        app:layout_constraintTop_toBottomOf="@id/view_list_card_list">
+        android:paddingEnd="16dp">
 
         <ImageView
             android:layout_width="wrap_content"
