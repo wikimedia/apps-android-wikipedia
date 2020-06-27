@@ -8,6 +8,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -27,6 +30,7 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.BaseActivity;
 import org.wikipedia.analytics.NotificationFunnel;
+import org.wikipedia.databinding.ActivityNotificationsBinding;
 import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
@@ -56,9 +60,6 @@ import java.util.Map;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
@@ -66,13 +67,12 @@ import io.reactivex.schedulers.Schedulers;
 import static org.wikipedia.util.ResourceUtil.getThemedColor;
 
 public class NotificationActivity extends BaseActivity implements NotificationItemActionsDialog.Callback {
-
-    @BindView(R.id.notifications_refresh_view) SwipeRefreshLayout swipeRefreshLayout;
-    @BindView(R.id.notifications_recycler_view) RecyclerView recyclerView;
-    @BindView(R.id.notifications_progress_bar) View progressBarView;
-    @BindView(R.id.notifications_error_view) WikiErrorView errorView;
-    @BindView(R.id.notifications_empty_container) View emptyContainerView;
-    @BindView(R.id.notifications_view_archived_button) View archivedButtonView;
+    private SwipeRefreshLayout swipeRefreshLayout;
+    private RecyclerView recyclerView;
+    private ProgressBar progressBarView;
+    private WikiErrorView errorView;
+    private LinearLayout emptyContainerView;
+    private Button archivedButtonView;
 
     private List<Notification> notificationList = new ArrayList<>();
     private List<NotificationListItemContainer> notificationContainerList = new ArrayList<>();
@@ -96,8 +96,18 @@ public class NotificationActivity extends BaseActivity implements NotificationIt
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_notifications);
-        ButterKnife.bind(this);
+
+        final ActivityNotificationsBinding binding = ActivityNotificationsBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+
+        swipeRefreshLayout = binding.notificationsRefreshView;
+        recyclerView = binding.notificationsRecyclerView;
+        progressBarView = binding.notificationsProgressBar;
+        errorView = binding.notificationsErrorView;
+        emptyContainerView = binding.notificationsEmptyContainer;
+        archivedButtonView = binding.notificationsViewArchivedButton;
+
+        archivedButtonView.setOnClickListener(this::onViewArchivedClick);
 
         setNavigationBarColor(ResourceUtil.getThemedColor(this, android.R.attr.windowBackground));
 
@@ -176,12 +186,10 @@ public class NotificationActivity extends BaseActivity implements NotificationIt
         super.onBackPressed();
     }
 
-    @OnClick(R.id.notifications_view_archived_button)
     void onViewArchivedClick(View v) {
         displayArchived = true;
         beginUpdateList();
     }
-
 
     private void beginUpdateList() {
         errorView.setVisibility(View.GONE);
