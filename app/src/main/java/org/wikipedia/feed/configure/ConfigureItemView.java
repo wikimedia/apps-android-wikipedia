@@ -2,6 +2,7 @@ package org.wikipedia.feed.configure;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
@@ -16,15 +17,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.databinding.ItemFeedContentTypeBinding;
 import org.wikipedia.feed.FeedContentType;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnCheckedChanged;
-import butterknife.OnClick;
 
 public class ConfigureItemView extends FrameLayout {
     public interface Callback {
@@ -32,12 +29,12 @@ public class ConfigureItemView extends FrameLayout {
         void onLanguagesChanged(FeedContentType contentType);
     }
 
-    @BindView(R.id.feed_content_type_checkbox) SwitchCompat onSwitch;
-    @BindView(R.id.feed_content_type_title) TextView titleView;
-    @BindView(R.id.feed_content_type_subtitle) TextView subtitleView;
-    @BindView(R.id.feed_content_type_drag_handle) View dragHandleView;
-    @BindView(R.id.feed_content_type_lang_list_container) View langListContainer;
-    @BindView(R.id.feed_content_type_lang_list) RecyclerView langRecyclerView;
+    private SwitchCompat onSwitch;
+    private TextView titleView;
+    private TextView subtitleView;
+    private View dragHandleView;
+    private View langListContainer;
+    private RecyclerView langRecyclerView;
     @Nullable private Callback callback;
     private FeedContentType contentType;
     private LanguageItemAdapter adapter;
@@ -81,21 +78,25 @@ public class ConfigureItemView extends FrameLayout {
     }
 
     private void init() {
-        inflate(getContext(), R.layout.item_feed_content_type, this);
-        ButterKnife.bind(this);
+        final ItemFeedContentTypeBinding binding =
+                ItemFeedContentTypeBinding.inflate(LayoutInflater.from(getContext()));
+        onSwitch = binding.feedContentTypeCheckbox;
+        titleView = binding.feedContentTypeTitle;
+        subtitleView = binding.feedContentTypeSubtitle;
+        dragHandleView = binding.feedContentTypeDragHandle;
+        langListContainer = binding.feedContentTypeLangListContainer;
+        langRecyclerView = binding.feedContentTypeLangList;
+
+        onSwitch.setOnCheckedChangeListener(((buttonView, isChecked) -> {
+            if (callback != null) {
+                callback.onCheckedChanged(contentType, isChecked);
+            }
+        }));
+        binding.feedContentTypeLangListClickTarget.setOnClickListener(v -> showLangSelectDialog());
+
         setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT));
         langRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
-    }
-
-    @OnCheckedChanged(R.id.feed_content_type_checkbox) void onCheckedChanged(boolean checked) {
-        if (callback != null) {
-            callback.onCheckedChanged(contentType, checked);
-        }
-    }
-
-    @OnClick(R.id.feed_content_type_lang_list_click_target) void onLangClick(View v) {
-        showLangSelectDialog();
     }
 
     private void showLangSelectDialog() {
