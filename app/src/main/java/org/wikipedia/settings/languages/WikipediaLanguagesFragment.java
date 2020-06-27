@@ -24,6 +24,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.AppLanguageSettingsFunnel;
+import org.wikipedia.databinding.FragmentWikipediaLanguagesBinding;
 import org.wikipedia.language.LanguageSettingsInvokeSource;
 import org.wikipedia.language.LanguagesListActivity;
 import org.wikipedia.util.StringUtil;
@@ -33,10 +34,6 @@ import org.wikipedia.views.MultiSelectActionModeCallback;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
 
 import static android.app.Activity.RESULT_OK;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE;
@@ -48,9 +45,10 @@ public class WikipediaLanguagesFragment extends Fragment implements WikipediaLan
     public static final String ADD_LANGUAGE_INTERACTIONS = "add_language_interactions";
     public static final String SESSION_TOKEN = "session_token";
 
-    @BindView(R.id.wikipedia_languages_recycler) RecyclerView recyclerView;
+    private FragmentWikipediaLanguagesBinding binding;
+    private RecyclerView recyclerView;
+
     private WikipediaApp app;
-    private Unbinder unbinder;
     private ItemTouchHelper itemTouchHelper;
     private List<String> wikipediaLanguages = new ArrayList<>();
     private WikipediaLanguageItemAdapter adapter;
@@ -75,16 +73,17 @@ public class WikipediaLanguagesFragment extends Fragment implements WikipediaLan
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_wikipedia_languages, container, false);
+        binding = FragmentWikipediaLanguagesBinding.inflate(inflater, container, false);
+        recyclerView = binding.wikipediaLanguagesRecycler;
+
         app = WikipediaApp.getInstance();
         invokeSource = requireActivity().getIntent().getStringExtra(INVOKE_SOURCE_EXTRA);
         initialLanguageList = StringUtil.listToJsonArrayString(app.language().getAppLanguageCodes());
         funnel = new AppLanguageSettingsFunnel();
-        unbinder = ButterKnife.bind(this, view);
 
         prepareWikipediaLanguagesList();
         setupRecyclerView();
-        return view;
+        return binding.getRoot();
     }
 
     @Override
@@ -110,8 +109,7 @@ public class WikipediaLanguagesFragment extends Fragment implements WikipediaLan
     public void onDestroyView() {
         funnel.logLanguageSetting(invokeSource, initialLanguageList, StringUtil.listToJsonArrayString(app.language().getAppLanguageCodes()), interactionsCount, isLanguageSearched);
         recyclerView.setAdapter(null);
-        unbinder.unbind();
-        unbinder = null;
+        binding = null;
         super.onDestroyView();
     }
 
