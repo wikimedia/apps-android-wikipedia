@@ -2,6 +2,7 @@ package org.wikipedia.feed.view;
 
 import android.content.Context;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -14,26 +15,36 @@ import androidx.appcompat.widget.PopupMenu;
 import androidx.core.content.ContextCompat;
 
 import org.wikipedia.R;
+import org.wikipedia.databinding.ViewStaticCardBinding;
 import org.wikipedia.feed.model.Card;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-
 public abstract class StaticCardView<T extends Card> extends DefaultFeedCardView<T> {
-    @BindView(R.id.view_static_card_container) View containerView;
-    @BindView(R.id.view_static_card_title) TextView title;
-    @BindView(R.id.view_static_card_subtitle) TextView subtitle;
-    @BindView(R.id.view_static_card_icon) ImageView icon;
-    @BindView(R.id.view_static_card_progress) View progress;
-    @BindView(R.id.view_static_card_action_icon) ImageView actionIcon;
-    @BindView(R.id.view_static_card_action_text) TextView actionText;
+    private View containerView;
+    private TextView title;
+    private TextView subtitle;
+    private ImageView icon;
+    private View progress;
+    private ImageView actionIcon;
+    private TextView actionText;
 
     public StaticCardView(Context context) {
         super(context);
 
-        inflate(getContext(), R.layout.view_static_card, this);
-        ButterKnife.bind(this);
+        final ViewStaticCardBinding binding = ViewStaticCardBinding.inflate(LayoutInflater.from(context));
+
+        containerView = binding.viewStaticCardContainer;
+        title = binding.viewStaticCardTitle;
+        subtitle = binding.viewStaticCardSubtitle;
+        icon = binding.viewStaticCardIcon;
+        progress = binding.viewStaticCardProgress;
+        actionIcon = binding.viewStaticCardActionIcon;
+        actionText = binding.viewStaticCardActionText;
+
+        final View.OnClickListener blankListener = v -> {};
+        containerView.setOnClickListener(blankListener);
+        binding.viewStaticCardActionContainer.setOnClickListener(blankListener);
+        binding.viewStaticCardActionOverflow.setOnClickListener(this::showOverflowMenu);
+
         setProgress(false);
     }
 
@@ -65,16 +76,6 @@ public abstract class StaticCardView<T extends Card> extends DefaultFeedCardView
 
     protected String getString(@StringRes int id) {
         return getResources().getString(id);
-    }
-
-    @OnClick(R.id.view_static_card_action_overflow) void onMenuClick(View v) {
-        showOverflowMenu(v);
-    }
-
-    @OnClick(R.id.view_static_card_container) protected void onContentClick(View v) {
-    }
-
-    @OnClick(R.id.view_static_card_action_container) protected void onActionClick(View v) {
     }
 
     private void showOverflowMenu(View anchorView) {
