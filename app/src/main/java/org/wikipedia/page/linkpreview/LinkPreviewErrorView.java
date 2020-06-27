@@ -11,13 +11,11 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.content.res.AppCompatResources;
 
 import org.wikipedia.R;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
+import org.wikipedia.databinding.ViewLinkPreviewErrorBinding;
 
 public class LinkPreviewErrorView extends LinearLayout {
-    @BindView(R.id.view_link_preview_error_icon) ImageView icon;
-    @BindView(R.id.view_link_preview_error_text) TextView textView;
+    private ImageView icon;
+    private TextView textView;
 
     public interface Callback {
         void onAddToList();
@@ -38,8 +36,10 @@ public class LinkPreviewErrorView extends LinearLayout {
 
     public LinkPreviewErrorView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        inflate(context, R.layout.view_link_preview_error, this);
-        ButterKnife.bind(this);
+        final ViewLinkPreviewErrorBinding binding = ViewLinkPreviewErrorBinding.bind(this);
+
+        icon = binding.viewLinkPreviewErrorIcon;
+        textView = binding.viewLinkPreviewErrorText;
     }
 
     public void setCallback(@Nullable Callback callback) {
