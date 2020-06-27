@@ -30,6 +30,7 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.ReadingListsFunnel;
 import org.wikipedia.auth.AccountUtil;
+import org.wikipedia.databinding.FragmentReadingListsBinding;
 import org.wikipedia.events.ArticleSavedOrDeletedEvent;
 import org.wikipedia.feed.FeedFragment;
 import org.wikipedia.history.HistoryEntry;
@@ -62,9 +63,6 @@ import org.wikipedia.views.SearchEmptyView;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
 import io.reactivex.Completable;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.functions.Consumer;
@@ -80,15 +78,15 @@ import static org.wikipedia.views.CircularProgressBar.MAX_PROGRESS;
 
 public class ReadingListsFragment extends Fragment implements
         SortReadingListsDialog.Callback, ReadingListItemActionsDialog.Callback {
-    private Unbinder unbinder;
-    @BindView(R.id.reading_list_content_container) ViewGroup contentContainer;
-    @BindView(R.id.reading_list_list) RecyclerView readingListView;
-    @BindView(R.id.empty_container) ViewGroup emptyContainer;
-    @BindView(R.id.empty_title) TextView emptyTitle;
-    @BindView(R.id.empty_message) TextView emptyMessage;
-    @BindView(R.id.search_empty_view) SearchEmptyView searchEmptyView;
-    @BindView(R.id.reading_list_onboarding_container) ViewGroup onboardingContainer;
-    @BindView(R.id.reading_list_swipe_refresh) SwipeRefreshLayout swipeRefreshLayout;
+    private FragmentReadingListsBinding binding;
+    private ViewGroup contentContainer;
+    private RecyclerView readingListView;
+    private ViewGroup emptyContainer;
+    private TextView emptyTitle;
+    private TextView emptyMessage;
+    private SearchEmptyView searchEmptyView;
+    private ViewGroup onboardingContainer;
+    private SwipeRefreshLayout swipeRefreshLayout;
 
     private List<Object> displayedLists = new ArrayList<>();
 
@@ -118,8 +116,16 @@ public class ReadingListsFragment extends Fragment implements
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_reading_lists, container, false);
-        unbinder = ButterKnife.bind(this, view);
+        binding = FragmentReadingListsBinding.inflate(inflater, container, false);
+
+        contentContainer = binding.readingListContentContainer;
+        readingListView = binding.readingListList;
+        emptyContainer = binding.emptyContainer;
+        emptyTitle = binding.emptyTitle;
+        emptyMessage = binding.emptyMessage;
+        searchEmptyView = binding.searchEmptyView;
+        onboardingContainer = binding.readingListOnboardingContainer;
+        swipeRefreshLayout = binding.readingListSwipeRefresh;
 
         searchEmptyView.setEmptyText(R.string.search_reading_lists_no_results);
         readingListView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -135,7 +141,7 @@ public class ReadingListsFragment extends Fragment implements
 
         enableLayoutTransition(true);
 
-        return view;
+        return binding.getRoot();
     }
 
     @Override
@@ -148,8 +154,7 @@ public class ReadingListsFragment extends Fragment implements
     public void onDestroyView() {
         disposables.clear();
         readingListView.setAdapter(null);
-        unbinder.unbind();
-        unbinder = null;
+        binding = null;
         super.onDestroyView();
     }
 
