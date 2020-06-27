@@ -18,19 +18,15 @@ import com.google.android.material.tabs.TabLayoutMediator;
 import org.wikipedia.BackPressedHandler;
 import org.wikipedia.R;
 import org.wikipedia.activity.FragmentUtil;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-import butterknife.Unbinder;
+import org.wikipedia.databinding.FragmentOnboardingPagerBinding;
 
 public abstract class OnboardingFragment extends Fragment implements BackPressedHandler {
-    @BindView(R.id.fragment_pager) ViewPager2 viewPager;
-    @BindView(R.id.fragment_onboarding_skip_button) Button skipButton;
-    @BindView(R.id.fragment_onboarding_forward_button) View forwardButton;
-    @BindView(R.id.view_onboarding_page_indicator) TabLayout pageIndicatorView;
-    @BindView(R.id.fragment_onboarding_done_button) Button doneButton;
-    private Unbinder unbinder;
+    private FragmentOnboardingPagerBinding binding;
+    private ViewPager2 viewPager;
+    private Button skipButton;
+    private View forwardButton;
+    private TabLayout pageIndicatorView;
+    private Button doneButton;
     private FragmentStateAdapter adapter;
     private PageChangeCallback pageChangeCallback = new PageChangeCallback();
 
@@ -44,8 +40,26 @@ public abstract class OnboardingFragment extends Fragment implements BackPressed
 
     @Override public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        View view = inflater.inflate(R.layout.fragment_onboarding_pager, container, false);
-        unbinder = ButterKnife.bind(this, view);
+
+        binding = FragmentOnboardingPagerBinding.inflate(inflater, container, false);
+
+        viewPager = binding.fragmentPager;
+        skipButton = binding.fragmentOnboardingSkipButton;
+        forwardButton = binding.fragmentOnboardingForwardButton;
+        pageIndicatorView = binding.viewOnboardingPageIndicator;
+        doneButton = binding.fragmentOnboardingDoneButton;
+
+        final View.OnClickListener buttonClickListener = v -> {
+            if (atLastPage()) {
+                finish();
+            } else {
+                advancePage();
+            }
+        };
+        forwardButton.setOnClickListener(buttonClickListener);
+        doneButton.setOnClickListener(buttonClickListener);
+        skipButton.setOnClickListener(v -> finish());
+
         adapter = getAdapter();
         viewPager.setAdapter(adapter);
         viewPager.registerOnPageChangeCallback(pageChangeCallback);
@@ -55,15 +69,14 @@ public abstract class OnboardingFragment extends Fragment implements BackPressed
         doneButton.setText(getDoneButtonText());
         updateButtonState();
         updatePageIndicatorContentDescription();
-        return view;
+        return binding.getRoot();
     }
 
     @Override public void onDestroyView() {
         viewPager.setAdapter(null);
         viewPager.unregisterOnPageChangeCallback(pageChangeCallback);
         adapter = null;
-        unbinder.unbind();
-        unbinder = null;
+        binding = null;
         super.onDestroyView();
     }
 
@@ -73,18 +86,6 @@ public abstract class OnboardingFragment extends Fragment implements BackPressed
             return true;
         }
         return false;
-    }
-
-    @OnClick({R.id.fragment_onboarding_forward_button, R.id.fragment_onboarding_done_button}) void onForwardClick() {
-        if (atLastPage()) {
-            finish();
-        } else {
-            advancePage();
-        }
-    }
-
-    @OnClick(R.id.fragment_onboarding_skip_button) void onSkipClick() {
-        finish();
     }
 
     void advancePage() {
