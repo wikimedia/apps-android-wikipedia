@@ -19,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.FeedConfigureFunnel;
+import org.wikipedia.databinding.FragmentFeedConfigureBinding;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.feed.FeedContentType;
@@ -33,9 +34,6 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
@@ -43,8 +41,9 @@ import io.reactivex.schedulers.Schedulers;
 import static org.wikipedia.Constants.INTENT_EXTRA_INVOKE_SOURCE;
 
 public class ConfigureFragment extends Fragment implements ConfigureItemView.Callback {
-    @BindView(R.id.content_types_recycler) RecyclerView recyclerView;
-    private Unbinder unbinder;
+    private FragmentFeedConfigureBinding binding;
+    private RecyclerView recyclerView;
+
     private ItemTouchHelper itemTouchHelper;
     private List<FeedContentType> orderedContentTypes = new ArrayList<>();
     @Nullable private FeedConfigureFunnel funnel;
@@ -56,8 +55,9 @@ public class ConfigureFragment extends Fragment implements ConfigureItemView.Cal
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_feed_configure, container, false);
-        unbinder = ButterKnife.bind(this, view);
+        binding = FragmentFeedConfigureBinding.inflate(inflater, container, false);
+        recyclerView = binding.contentTypesRecycler;
+
         setupRecyclerView();
 
         funnel = new FeedConfigureFunnel(WikipediaApp.getInstance(), WikipediaApp.getInstance().getWikiSite(),
@@ -92,7 +92,7 @@ public class ConfigureFragment extends Fragment implements ConfigureItemView.Cal
                     FeedContentType.saveState();
                 }, L::e));
 
-        return view;
+        return binding.getRoot();
     }
 
     private static boolean isLimitedToDomains(@NonNull List<String> domainNames) {
@@ -120,8 +120,7 @@ public class ConfigureFragment extends Fragment implements ConfigureItemView.Cal
     @Override
     public void onDestroyView() {
         disposables.clear();
-        unbinder.unbind();
-        unbinder = null;
+        binding = null;
         if (funnel != null && !orderedContentTypes.isEmpty()) {
             funnel.done(orderedContentTypes);
         }
