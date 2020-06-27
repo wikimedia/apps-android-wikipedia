@@ -14,7 +14,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SearchView;
-import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
@@ -25,6 +24,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.IntentFunnel;
 import org.wikipedia.analytics.SearchFunnel;
 import org.wikipedia.database.contract.SearchHistoryContract;
+import org.wikipedia.databinding.FragmentSearchBinding;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.language.LanguageSettingsInvokeSource;
 import org.wikipedia.page.ExclusiveBottomSheetPresenter;
@@ -44,10 +44,6 @@ import org.wikipedia.views.ViewUtil;
 
 import java.util.Locale;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-import butterknife.Unbinder;
 import io.reactivex.Completable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
@@ -69,14 +65,13 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
     private static final int PANEL_RECENT_SEARCHES = 0;
     private static final int PANEL_SEARCH_RESULTS = 1;
 
-    @BindView(R.id.search_toolbar) Toolbar toolbar;
-    @BindView(R.id.search_cab_view) CabSearchView searchView;
-    @BindView(R.id.search_progress_bar) ProgressBar progressBar;
-    @BindView(R.id.search_lang_button_container) View langButtonContainer;
-    @BindView(R.id.search_lang_button) TextView langButton;
-    @BindView(R.id.search_language_scroll_view) LanguageScrollView languageScrollView;
-    @BindView(R.id.search_language_scroll_view_container) View languageScrollContainer;
-    private Unbinder unbinder;
+    private FragmentSearchBinding binding;
+    private CabSearchView searchView;
+    private ProgressBar progressBar;
+    private View langButtonContainer;
+    private TextView langButton;
+    private LanguageScrollView languageScrollView;
+    private View languageScrollContainer;
     private CompositeDisposable disposables = new CompositeDisposable();
 
     private WikipediaApp app;
@@ -163,8 +158,20 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
     @Override
     public View onCreateView(@NonNull final LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         app = WikipediaApp.getInstance();
-        View view = inflater.inflate(R.layout.fragment_search, container, false);
-        unbinder = ButterKnife.bind(this, view);
+        binding = FragmentSearchBinding.inflate(inflater, container, false);
+
+        searchView = binding.searchCabView;
+        progressBar = binding.searchProgressBar;
+        langButtonContainer = binding.searchLangButtonContainer;
+        langButton = binding.searchLangButton;
+        languageScrollView = binding.searchLanguageScrollView;
+        languageScrollContainer = binding.searchLanguageScrollViewContainer;
+
+        // Give the root container view an empty click handler, so that click events won't
+        // get passed down to any underlying views (e.g. a PageFragment on top of which
+        // this fragment is shown)
+        binding.searchContainer.setOnClickListener(v -> {});
+        langButtonContainer.setOnClickListener(v -> onLangButtonClick());
 
         FragmentManager childFragmentManager = getChildFragmentManager();
         recentSearchesFragment = (RecentSearchesFragment)childFragmentManager.findFragmentById(
@@ -173,10 +180,10 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
         searchResultsFragment = (SearchResultsFragment)childFragmentManager.findFragmentById(
                 R.id.fragment_search_results);
 
-        toolbar.setNavigationOnClickListener((v) -> requireActivity().finish());
+        binding.searchToolbar.setNavigationOnClickListener((v) -> requireActivity().finish());
 
         initSearchView();
-        return view;
+        return binding.getRoot();
     }
 
     @Override
@@ -252,8 +259,7 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
         disposables.clear();
         searchView.setOnCloseListener(null);
         searchView.setOnQueryTextListener(null);
-        unbinder.unbind();
-        unbinder = null;
+        binding = null;
         funnel.searchCancel(searchLanguageCode);
         super.onDestroyView();
     }
@@ -323,13 +329,6 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
         progressBar.setVisibility(enabled ? View.VISIBLE : View.GONE);
     }
 
-    @OnClick(R.id.search_container) void onSearchContainerClick() {
-        // Give the root container view an empty click handler, so that click events won't
-        // get passed down to any underlying views (e.g. a PageFragment on top of which
-        // this fragment is shown)
-    }
-
-    @OnClick(R.id.search_lang_button_container)
     void onLangButtonClick() {
         langBtnClicked = true;
         tempLangCodeHolder = searchLanguageCode;
