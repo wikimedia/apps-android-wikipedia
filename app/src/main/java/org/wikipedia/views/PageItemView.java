@@ -20,6 +20,7 @@ import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
 
 import org.wikipedia.R;
+import org.wikipedia.databinding.ItemPageListEntryBinding;
 import org.wikipedia.readinglist.database.ReadingList;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
@@ -27,11 +28,6 @@ import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.StringUtil;
 
 import java.util.List;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-import butterknife.OnLongClick;
 
 import static org.wikipedia.util.ResourceUtil.getThemedColor;
 
@@ -50,15 +46,15 @@ public class PageItemView<T> extends ConstraintLayout {
         void onListChipClick(@NonNull ReadingList readingList);
     }
 
-    @BindView(R.id.page_list_item_title) TextView titleView;
-    @BindView(R.id.page_list_item_description) TextView descriptionView;
-    @BindView(R.id.page_list_item_image) ImageView imageView;
-    @BindView(R.id.page_list_item_action_secondary) ImageView secondaryActionView;
-    @BindView(R.id.page_list_item_secondary_container) View secondaryContainer;
-    @BindView(R.id.page_list_item_selected_image) View imageSelectedView;
-    @BindView(R.id.page_list_item_circular_progress_bar) CircularProgressBar circularProgressBar;
-    @BindView(R.id.chips_scrollview) View chipsScrollView;
-    @BindView(R.id.reading_lists_chip_group) ChipGroup readingListsChipGroup;
+    private TextView titleView;
+    private TextView descriptionView;
+    private ImageView imageView;
+    private ImageView secondaryActionView;
+    private View secondaryContainer;
+    private View imageSelectedView;
+    private CircularProgressBar circularProgressBar;
+    private View chipsScrollView;
+    private ChipGroup readingListsChipGroup;
 
     @Nullable private Callback<T> callback;
     @Nullable private T item;
@@ -166,34 +162,41 @@ public class PageItemView<T> extends ConstraintLayout {
         StringUtil.boldenKeywordText(titleView, titleView.getText().toString(), searchQuery);
     }
 
-    @OnClick void onClick() {
-        if (callback != null) {
-            callback.onClick(item);
-        }
-    }
-
-    @OnLongClick boolean onLongClick() {
-        if (callback != null) {
-            return callback.onLongClick(item);
-        }
-        return false;
-    }
-
-    @OnClick(R.id.page_list_item_image) void onThumbClick() {
-        if (callback != null) {
-            callback.onThumbClick(item);
-        }
-    }
-
-    @OnClick(R.id.page_list_item_action_secondary) void onSecondaryActionClick() {
-        if (callback != null) {
-            callback.onSecondaryActionClick(item, this);
-        }
-    }
-
     private void init() {
-        inflate(getContext(), R.layout.item_page_list_entry, this);
-        ButterKnife.bind(this);
+        final ItemPageListEntryBinding binding = ItemPageListEntryBinding.bind(this);
+
+        titleView = binding.pageListItemTitle;
+        descriptionView = binding.pageListItemDescription;
+        imageView = binding.pageListItemImage;
+        secondaryActionView = binding.pageListItemActionSecondary;
+        secondaryContainer = binding.pageListItemSecondaryContainer;
+        imageSelectedView = binding.pageListItemSelectedImage;
+        circularProgressBar = binding.pageListItemCircularProgressBar;
+        chipsScrollView = binding.chipsScrollView;
+        readingListsChipGroup = binding.readingListsChipGroup;
+
+        final View root = binding.getRoot();
+        root.setOnClickListener(v -> {
+            if (callback != null) {
+                callback.onClick(item);
+            }
+        });
+        root.setOnLongClickListener(v -> {
+            if (callback != null) {
+                return callback.onLongClick(item);
+            }
+            return false;
+        });
+        imageView.setOnClickListener(v -> {
+            if (callback != null) {
+                callback.onThumbClick(item);
+            }
+        });
+        secondaryActionView.setOnClickListener(v -> {
+            if (callback != null) {
+                callback.onSecondaryActionClick(item, this);
+            }
+        });
 
         setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         final int topBottomPadding = 16;

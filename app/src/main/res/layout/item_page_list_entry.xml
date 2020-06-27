@@ -30,7 +30,7 @@
         app:layout_constraintEnd_toEndOf="@id/page_list_item_title"
         app:layout_constraintStart_toStartOf="@id/page_list_item_title"
         app:layout_constraintTop_toBottomOf="@id/page_list_item_title"
-        app:layout_constraintBottom_toTopOf="@id/chips_scrollview"
+        app:layout_constraintBottom_toTopOf="@id/chips_scroll_view"
         app:layout_constraintVertical_chainStyle="packed"
         tools:text="Lorem ipsum" />
 
@@ -101,7 +101,7 @@
     </FrameLayout>
 
     <HorizontalScrollView
-        android:id="@+id/chips_scrollview"
+        android:id="@+id/chips_scroll_view"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
