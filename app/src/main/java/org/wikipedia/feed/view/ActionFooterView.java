@@ -13,16 +13,13 @@ import androidx.annotation.StringRes;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 
-import org.wikipedia.R;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
+import org.wikipedia.databinding.ViewCardActionFooterBinding;
 
 public class ActionFooterView extends ConstraintLayout {
-    @BindView(R.id.view_card_action_footer_button) View actionButton;
-    @BindView(R.id.view_card_action_footer_button_icon) ImageView actionIcon;
-    @BindView(R.id.view_card_action_footer_button_text) TextView actionText;
-    @BindView(R.id.view_card_action_footer_share_button) View shareButton;
+    private View actionButton;
+    private ImageView actionIcon;
+    private TextView actionText;
+    private View shareButton;
 
     public ActionFooterView(Context context) {
         super(context);
@@ -40,8 +37,12 @@ public class ActionFooterView extends ConstraintLayout {
     }
 
     private void init() {
-        inflate(getContext(), R.layout.view_card_action_footer, this);
-        ButterKnife.bind(this);
+        final ViewCardActionFooterBinding binding = ViewCardActionFooterBinding.bind(this);
+
+        actionButton = binding.viewCardActionFooterButton;
+        actionIcon = binding.viewCardActionFooterButtonIcon;
+        actionText = binding.viewCardActionFooterButtonText;
+        shareButton = binding.viewCardActionFooterShareButton;
     }
 
     public ActionFooterView actionIcon(@DrawableRes int resId) {
