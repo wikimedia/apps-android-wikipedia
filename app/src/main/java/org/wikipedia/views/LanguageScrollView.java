@@ -20,12 +20,9 @@ import com.google.android.material.tabs.TabLayout;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.databinding.ViewLanguageScrollBinding;
 
 import java.util.List;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 import static org.wikipedia.search.SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER;
 import static org.wikipedia.search.SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER;
@@ -37,28 +34,35 @@ public class LanguageScrollView extends ConstraintLayout {
         void onLanguageButtonClicked();
     }
 
-    @BindView(R.id.horizontal_scroll_languages) TabLayout horizontalLanguageScroll;
+    private TabLayout horizontalLanguageScroll;
     private Callback callback;
     private List<String> languageCodes;
 
     public LanguageScrollView(Context context) {
         super(context);
-        init(context);
+        init();
     }
 
     public LanguageScrollView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        init(context);
+        init();
     }
 
     public LanguageScrollView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-        init(context);
+        init();
     }
 
-    private void init(Context context) {
-        inflate(context, R.layout.view_language_scroll, this);
-        ButterKnife.bind(this);
+    private void init() {
+        final ViewLanguageScrollBinding binding = ViewLanguageScrollBinding.bind(this);
+
+        horizontalLanguageScroll = binding.horizontalScrollLanguages;
+        binding.moreLanguages.setOnClickListener(v -> {
+            if (callback != null) {
+                callback.onLanguageButtonClicked();
+            }
+        });
+
         setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
         horizontalLanguageScroll.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
@@ -151,13 +155,6 @@ public class LanguageScrollView extends ConstraintLayout {
         }
         if (backgroundColorTint != null) {
             languageCodeTextView.getBackground().setColorFilter(backgroundColorTint, PorterDuff.Mode.SRC_IN);
-        }
-    }
-
-    @OnClick(R.id.more_languages)
-    void onLangButtonClick() {
-        if (callback != null) {
-            callback.onLanguageButtonClicked();
         }
     }
 
