@@ -11,21 +11,18 @@ import androidx.fragment.app.Fragment;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.databinding.FragmentThemeFittingRoomBinding;
 import org.wikipedia.events.ChangeTextSizeEvent;
 import org.wikipedia.events.WebViewInvalidateEvent;
-import org.wikipedia.views.FaceAndColorDetectImageView;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.functions.Consumer;
 
 public class ThemeFittingRoomFragment extends Fragment {
-    @BindView(R.id.theme_test_image) FaceAndColorDetectImageView testImage;
-    @BindView(R.id.theme_test_title) TextView testTitle;
-    @BindView(R.id.theme_test_text) TextView testText;
-    private Unbinder unbinder;
+    private FragmentThemeFittingRoomBinding binding;
+    private TextView testTitle;
+    private TextView testText;
+
     private CompositeDisposable disposables = new CompositeDisposable();
 
     @NonNull public static ThemeFittingRoomFragment newInstance() {
@@ -34,21 +31,22 @@ public class ThemeFittingRoomFragment extends Fragment {
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_theme_fitting_room, container, false);
-        unbinder = ButterKnife.bind(this, view);
+        binding = FragmentThemeFittingRoomBinding.inflate(inflater, container, false);
+
+        testText = binding.themeTestText;
+        testTitle = binding.themeTestTitle;
 
         disposables.add(WikipediaApp.getInstance().getBus().subscribe(new EventBusConsumer()));
 
-        testImage.loadImage(R.drawable.w_nav_mark);
+        binding.themeTestImage.loadImage(R.drawable.w_nav_mark);
         updateTextSize();
-        return view;
+        return binding.getRoot();
     }
 
     @Override
     public void onDestroyView() {
         disposables.clear();
-        unbinder.unbind();
-        unbinder = null;
+        binding = null;
         super.onDestroyView();
     }
 
