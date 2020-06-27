@@ -15,12 +15,9 @@ import androidx.appcompat.widget.AppCompatImageView;
 import androidx.core.widget.PopupWindowCompat;
 
 import org.wikipedia.R;
+import org.wikipedia.databinding.ViewPageActionOverflowBinding;
 import org.wikipedia.page.tabs.Tab;
 import org.wikipedia.util.FeedbackUtil;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 public class PageActionOverflowView extends FrameLayout {
 
@@ -33,7 +30,7 @@ public class PageActionOverflowView extends FrameLayout {
 
     @Nullable private Callback callback;
     @Nullable private PopupWindow popupWindowHost;
-    @BindView(R.id.page_action_overflow_forward) AppCompatImageView forwardButton;
+    private AppCompatImageView forwardButton;
 
     public PageActionOverflowView(Context context) {
         super(context);
@@ -53,37 +50,40 @@ public class PageActionOverflowView extends FrameLayout {
         forwardButton.setAlpha(forwardButton.isEnabled() ? 1.0f : disabledAlpha);
     }
 
-    @OnClick({R.id.page_action_overflow_forward, R.id.page_action_overflow_feed,
-            R.id.page_action_overflow_history, R.id.page_action_overflow_reading_lists})
-    void onItemClick(View view) {
-        if (popupWindowHost != null) {
-            popupWindowHost.dismiss();
-            popupWindowHost = null;
-        }
-        if (callback == null) {
-            return;
-        }
-        switch (view.getId()) {
-            case R.id.page_action_overflow_forward:
-                callback.forwardClick();
-                break;
-            case R.id.page_action_overflow_feed:
-                callback.feedClick();
-                break;
-            case R.id.page_action_overflow_history:
-                callback.historyClick();
-                break;
-            case R.id.page_action_overflow_reading_lists:
-                callback.readingListsClick();
-                break;
-            default:
-                break;
-        }
-    }
-
     private void init() {
-        inflate(getContext(), R.layout.view_page_action_overflow, this);
-        ButterKnife.bind(this);
+        final ViewPageActionOverflowBinding binding = ViewPageActionOverflowBinding.bind(this);
+
+        forwardButton = binding.pageActionOverflowForward;
+        final View.OnClickListener onClickListener = view -> {
+            if (popupWindowHost != null) {
+                popupWindowHost.dismiss();
+                popupWindowHost = null;
+            }
+            if (callback == null) {
+                return;
+            }
+            switch (view.getId()) {
+                case R.id.page_action_overflow_forward:
+                    callback.forwardClick();
+                    break;
+                case R.id.page_action_overflow_feed:
+                    callback.feedClick();
+                    break;
+                case R.id.page_action_overflow_history:
+                    callback.historyClick();
+                    break;
+                case R.id.page_action_overflow_reading_lists:
+                    callback.readingListsClick();
+                    break;
+                default:
+                    break;
+            }
+        };
+        binding.pageActionOverflowForward.setOnClickListener(onClickListener);
+        binding.pageActionOverflowFeed.setOnClickListener(onClickListener);
+        binding.pageActionOverflowHistory.setOnClickListener(onClickListener);
+        binding.pageActionOverflowReadingLists.setOnClickListener(onClickListener);
+
         FeedbackUtil.setToolbarButtonLongPressToast(forwardButton);
     }
 }
