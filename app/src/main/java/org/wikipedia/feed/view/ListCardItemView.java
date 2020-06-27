@@ -2,7 +2,6 @@ package org.wikipedia.feed.view;
 
 import android.content.Context;
 import android.os.Build;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -14,6 +13,7 @@ import androidx.appcompat.content.res.AppCompatResources;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import org.wikipedia.R;
+import org.wikipedia.databinding.ViewListCardItemBinding;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageAvailableOfflineHandler;
@@ -25,11 +25,6 @@ import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.GoneIfEmptyTextView;
 import org.wikipedia.views.ViewUtil;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-import butterknife.OnLongClick;
-
 public class ListCardItemView extends ConstraintLayout {
 
     public interface Callback {
@@ -40,9 +35,9 @@ public class ListCardItemView extends ConstraintLayout {
         void onSharePage(@NonNull HistoryEntry entry);
     }
 
-    @BindView(R.id.view_list_card_item_image) ImageView imageView;
-    @BindView(R.id.view_list_card_item_title) TextView titleView;
-    @BindView(R.id.view_list_card_item_subtitle) GoneIfEmptyTextView subtitleView;
+    private ImageView imageView;
+    private TextView titleView;
+    private GoneIfEmptyTextView subtitleView;
 
     @Nullable private Card card;
     @Nullable private Callback callback;
@@ -50,9 +45,49 @@ public class ListCardItemView extends ConstraintLayout {
 
     public ListCardItemView(Context context) {
         super(context);
-        inflate(getContext(), R.layout.view_list_card_item, this);
-        ButterKnife.bind(this);
 
+        final ViewListCardItemBinding binding = ViewListCardItemBinding.bind(this);
+        imageView = binding.viewListCardItemImage;
+        titleView = binding.viewListCardItemTitle;
+        subtitleView = binding.viewListCardItemSubtitle;
+
+        setOnClickListener(v -> {
+            if (callback != null && entry != null && card != null) {
+                callback.onSelectPage(card, entry);
+            }
+        });
+        setOnLongClickListener(v -> {
+            new ReadingListBookmarkMenu(v, true, new ReadingListBookmarkMenu.Callback() {
+                @Override
+                public void onAddRequest(@Nullable ReadingListPage page) {
+                    if (getCallback() != null && entry != null) {
+                        getCallback().onAddPageToList(entry);
+                    }
+                }
+
+                @Override
+                public void onMoveRequest(@Nullable ReadingListPage page) {
+                    if (getCallback() != null && entry != null) {
+                        getCallback().onMovePageToList(page.listId(), entry);
+                    }
+                }
+
+                @Override
+                public void onDeleted(@Nullable ReadingListPage page) {
+                    if (getCallback() != null && entry != null) {
+                        getCallback().onRemovePageFromList(entry);
+                    }
+                }
+
+                @Override
+                public void onShare() {
+                    if (getCallback() != null && entry != null) {
+                        getCallback().onSharePage(entry);
+                    }
+                }
+            }).show(entry.getTitle());
+            return false;
+        });
         setFocusable(true);
         setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         final int topBottomPadding = 16;
@@ -80,45 +115,6 @@ public class ListCardItemView extends ConstraintLayout {
         setImage(entry.getTitle().getThumbUrl());
         PageAvailableOfflineHandler.INSTANCE.check(entry.getTitle(), available -> setViewsGreyedOut(!available));
         return this;
-    }
-
-    @OnClick void onClick(View view) {
-        if (callback != null && entry != null && card != null) {
-            callback.onSelectPage(card, entry);
-        }
-    }
-
-    @OnLongClick boolean onLongClick(View view) {
-        new ReadingListBookmarkMenu(view, true, new ReadingListBookmarkMenu.Callback() {
-            @Override
-            public void onAddRequest(@Nullable ReadingListPage page) {
-                if (getCallback() != null && entry != null) {
-                    getCallback().onAddPageToList(entry);
-                }
-            }
-
-            @Override
-            public void onMoveRequest(@Nullable ReadingListPage page) {
-                if (getCallback() != null && entry != null) {
-                    getCallback().onMovePageToList(page.listId(), entry);
-                }
-            }
-
-            @Override
-            public void onDeleted(@Nullable ReadingListPage page) {
-                if (getCallback() != null && entry != null) {
-                    getCallback().onRemovePageFromList(entry);
-                }
-            }
-
-            @Override
-            public void onShare() {
-                if (getCallback() != null && entry != null) {
-                    getCallback().onSharePage(entry);
-                }
-            }
-        }).show(entry.getTitle());
-        return false;
     }
 
     @VisibleForTesting @Nullable Callback getCallback() {
