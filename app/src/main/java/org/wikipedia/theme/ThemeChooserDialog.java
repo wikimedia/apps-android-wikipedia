@@ -22,6 +22,7 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.AppearanceChangeFunnel;
+import org.wikipedia.databinding.DialogThemeChooserBinding;
 import org.wikipedia.events.WebViewInvalidateEvent;
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment;
 import org.wikipedia.page.PageActivity;
@@ -31,29 +32,24 @@ import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.views.DiscreteSeekBar;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnCheckedChanged;
-import butterknife.Unbinder;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.functions.Consumer;
 
 public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
-    @BindView(R.id.buttonDecreaseTextSize) TextView buttonDecreaseTextSize;
-    @BindView(R.id.buttonIncreaseTextSize) TextView buttonIncreaseTextSize;
-    @BindView(R.id.text_size_percent) TextView textSizePercent;
-    @BindView(R.id.text_size_seek_bar) DiscreteSeekBar textSizeSeekBar;
-    @BindView(R.id.button_theme_light) TextView buttonThemeLight;
-    @BindView(R.id.button_theme_dark) TextView buttonThemeDark;
-    @BindView(R.id.button_theme_black) TextView buttonThemeBlack;
-    @BindView(R.id.button_theme_sepia) TextView buttonThemeSepia;
-    @BindView(R.id.button_theme_light_highlight) View buttonThemeLightHighlight;
-    @BindView(R.id.button_theme_dark_highlight) View buttonThemeDarkHighlight;
-    @BindView(R.id.button_theme_black_highlight) View buttonThemeBlackHighlight;
-    @BindView(R.id.button_theme_sepia_highlight) View buttonThemeSepiaHighlight;
-    @BindView(R.id.theme_chooser_dark_mode_dim_images_switch) SwitchCompat dimImagesSwitch;
-    @BindView(R.id.theme_chooser_match_system_theme_switch) SwitchCompat matchSystemThemeSwitch;
-    @BindView(R.id.font_change_progress_bar) ProgressBar fontChangeProgressBar;
+    private DialogThemeChooserBinding binding;
+    private TextView textSizePercent;
+    private DiscreteSeekBar textSizeSeekBar;
+    private TextView buttonThemeLight;
+    private TextView buttonThemeDark;
+    private TextView buttonThemeBlack;
+    private TextView buttonThemeSepia;
+    private View buttonThemeLightHighlight;
+    private View buttonThemeDarkHighlight;
+    private View buttonThemeBlackHighlight;
+    private View buttonThemeSepiaHighlight;
+    private SwitchCompat dimImagesSwitch;
+    private SwitchCompat matchSystemThemeSwitch;
+    private ProgressBar fontChangeProgressBar;
 
     public interface Callback {
         void onToggleDimImages();
@@ -63,7 +59,6 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
     private enum FontSizeAction { INCREASE, DECREASE, RESET }
 
     private WikipediaApp app;
-    private Unbinder unbinder;
     private AppearanceChangeFunnel funnel;
     private CompositeDisposable disposables = new CompositeDisposable();
 
@@ -71,8 +66,61 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.dialog_theme_chooser, container);
-        unbinder = ButterKnife.bind(this, rootView);
+        binding = DialogThemeChooserBinding.inflate(inflater, container, true);
+
+        final TextView buttonDecreaseTextSize = binding.buttonDecreaseTextSize;
+        final TextView buttonIncreaseTextSize = binding.buttonIncreaseTextSize;
+        textSizePercent = binding.textSizePercent;
+        textSizeSeekBar = binding.textSizeSeekBar;
+        buttonThemeLight = binding.buttonThemeLight;
+        buttonThemeDark = binding.buttonThemeDark;
+        buttonThemeBlack = binding.buttonThemeBlack;
+        buttonThemeSepia = binding.buttonThemeSepia;
+        buttonThemeLightHighlight = binding.buttonThemeLightHighlight;
+        buttonThemeDarkHighlight = binding.buttonThemeDarkHighlight;
+        buttonThemeBlackHighlight = binding.buttonThemeBlackHighlight;
+        buttonThemeSepiaHighlight = binding.buttonThemeSepiaHighlight;
+        dimImagesSwitch = binding.themeChooserDarkModeDimImagesSwitch;
+        matchSystemThemeSwitch = binding.themeChooserMatchSystemThemeSwitch;
+        fontChangeProgressBar = binding.fontChangeProgressBar;
+
+        dimImagesSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked == Prefs.shouldDimDarkModeImages()) {
+                return;
+            }
+            Prefs.setDimDarkModeImages(isChecked);
+            if (callback() != null) {
+                // noinspection ConstantConditions
+                callback().onToggleDimImages();
+            }
+        });
+        matchSystemThemeSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked == Prefs.shouldMatchSystemTheme()) {
+                return;
+            }
+            Prefs.setMatchSystemTheme(isChecked);
+            Theme currentTheme = app.getCurrentTheme();
+            if (isMatchingSystemThemeEnabled()) {
+                switch (WikipediaApp.getInstance().getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK) {
+                    case Configuration.UI_MODE_NIGHT_YES:
+                        if (!WikipediaApp.getInstance().getCurrentTheme().isDark()) {
+                            app.setCurrentTheme(!app.unmarshalTheme(Prefs.getPreviousThemeId()).isDark() ? Theme.BLACK : app.unmarshalTheme(Prefs.getPreviousThemeId()));
+                            Prefs.setPreviousThemeId(currentTheme.getMarshallingId());
+                        }
+                        break;
+                    case Configuration.UI_MODE_NIGHT_NO:
+                        if (WikipediaApp.getInstance().getCurrentTheme().isDark()) {
+                            app.setCurrentTheme(app.unmarshalTheme(Prefs.getPreviousThemeId()).isDark() ? Theme.LIGHT : app.unmarshalTheme(Prefs.getPreviousThemeId()));
+                            Prefs.setPreviousThemeId(currentTheme.getMarshallingId());
+                        }
+                        break;
+                    default:
+                        break;
+                }
+            }
+            conditionallyDisableThemeButtons();
+        });
+
         buttonDecreaseTextSize.setOnClickListener(new FontSizeButtonListener(FontSizeAction.DECREASE));
         buttonIncreaseTextSize.setOnClickListener(new FontSizeButtonListener(FontSizeAction.INCREASE));
         FeedbackUtil.setToolbarButtonLongPressToast(buttonDecreaseTextSize, buttonIncreaseTextSize);
@@ -109,7 +157,7 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
         if (!(requireActivity() instanceof PageActivity)) {
             disableBackgroundDim();
         }
-        return rootView;
+        return binding.getRoot();
     }
 
     @Override
@@ -130,7 +178,7 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        unbinder.unbind();
+        binding = null;
     }
 
     @Override
@@ -146,46 +194,6 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
             // noinspection ConstantConditions
             callback().onCancel();
         }
-    }
-
-    @OnCheckedChanged(R.id.theme_chooser_dark_mode_dim_images_switch)
-    void onToggleDimImages(boolean enabled) {
-        if (enabled == Prefs.shouldDimDarkModeImages()) {
-            return;
-        }
-        Prefs.setDimDarkModeImages(enabled);
-        if (callback() != null) {
-            // noinspection ConstantConditions
-            callback().onToggleDimImages();
-        }
-    }
-
-    @OnCheckedChanged(R.id.theme_chooser_match_system_theme_switch)
-    void onToggleMatchSystemTheme(boolean enabled) {
-        if (enabled == Prefs.shouldMatchSystemTheme()) {
-            return;
-        }
-        Prefs.setMatchSystemTheme(enabled);
-        Theme currentTheme = app.getCurrentTheme();
-        if (isMatchingSystemThemeEnabled()) {
-            switch (WikipediaApp.getInstance().getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK) {
-                case Configuration.UI_MODE_NIGHT_YES:
-                    if (!WikipediaApp.getInstance().getCurrentTheme().isDark()) {
-                        app.setCurrentTheme(!app.unmarshalTheme(Prefs.getPreviousThemeId()).isDark() ? Theme.BLACK : app.unmarshalTheme(Prefs.getPreviousThemeId()));
-                        Prefs.setPreviousThemeId(currentTheme.getMarshallingId());
-                    }
-                    break;
-                case Configuration.UI_MODE_NIGHT_NO:
-                    if (WikipediaApp.getInstance().getCurrentTheme().isDark()) {
-                        app.setCurrentTheme(app.unmarshalTheme(Prefs.getPreviousThemeId()).isDark() ? Theme.LIGHT : app.unmarshalTheme(Prefs.getPreviousThemeId()));
-                        Prefs.setPreviousThemeId(currentTheme.getMarshallingId());
-                    }
-                    break;
-                default:
-                    break;
-            }
-        }
-        conditionallyDisableThemeButtons();
     }
 
     @SuppressWarnings("checkstyle:magicnumber")
