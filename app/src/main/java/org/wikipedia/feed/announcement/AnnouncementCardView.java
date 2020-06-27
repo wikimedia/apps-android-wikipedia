@@ -13,15 +13,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import org.wikipedia.R;
+import org.wikipedia.databinding.ViewCardAnnouncementBinding;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.view.DefaultFeedCardView;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.FaceAndColorDetectImageView;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 public class AnnouncementCardView extends DefaultFeedCardView<AnnouncementCard> {
     public interface Callback {
@@ -29,18 +26,43 @@ public class AnnouncementCardView extends DefaultFeedCardView<AnnouncementCard> 
         void onAnnouncementNegativeAction(@NonNull Card card);
     }
 
-    @BindView(R.id.view_announcement_header_image) FaceAndColorDetectImageView headerImageView;
-    @BindView(R.id.view_announcement_text) TextView textView;
-    @BindView(R.id.view_announcement_action_positive) Button actionViewPositive;
-    @BindView(R.id.view_announcement_action_negative) Button actionViewNegative;
-    @BindView(R.id.view_announcement_footer_text) TextView footerTextView;
-    @BindView(R.id.view_announcement_footer_border) View footerBorderView;
+    private FaceAndColorDetectImageView headerImageView;
+    private TextView textView;
+    private Button actionViewPositive;
+    private Button actionViewNegative;
+    private TextView footerTextView;
+    private View footerBorderView;
     @Nullable private Callback callback;
 
     public AnnouncementCardView(@NonNull Context context) {
         super(context);
-        inflate(context, R.layout.view_card_announcement, this);
-        ButterKnife.bind(this);
+        final ViewCardAnnouncementBinding binding = ViewCardAnnouncementBinding.bind(this);
+
+        headerImageView = binding.viewAnnouncementHeaderImage;
+        textView = binding.viewAnnouncementText;
+        actionViewPositive = binding.viewAnnouncementActionPositive;
+        actionViewNegative = binding.viewAnnouncementActionNegative;
+        footerTextView = binding.viewAnnouncementFooterText;
+        footerBorderView = binding.viewAnnouncementFooterBorder;
+
+        actionViewPositive.setOnClickListener(v -> {
+            if (getCard() != null) {
+                if (getCallback() != null) {
+                    getCallback().onAnnouncementPositiveAction(getCard(), getCard().actionUri());
+                } else if (callback != null) {
+                    callback.onAnnouncementPositiveAction(getCard(), getCard().actionUri());
+                }
+            }
+        });
+        actionViewNegative.setOnClickListener(v -> {
+            if (getCard() != null) {
+                if (getCallback() != null) {
+                    getCallback().onAnnouncementNegativeAction(getCard());
+                } else if (callback != null) {
+                    callback.onAnnouncementNegativeAction(getCard());
+                }
+            }
+        });
 
         setNegativeActionVisible(true);
         textView.setMovementMethod(LinkMovementMethod.getInstance());
@@ -94,28 +116,6 @@ public class AnnouncementCardView extends DefaultFeedCardView<AnnouncementCard> 
             setRadius(0);
         } else {
             setStrokeWidth(0);
-        }
-    }
-
-    @OnClick(R.id.view_announcement_action_positive)
-    void onPositiveActionClick() {
-        if (getCard() != null) {
-            if (getCallback() != null) {
-                getCallback().onAnnouncementPositiveAction(getCard(), getCard().actionUri());
-            } else if (callback != null) {
-                callback.onAnnouncementPositiveAction(getCard(), getCard().actionUri());
-            }
-        }
-    }
-
-    @OnClick(R.id.view_announcement_action_negative)
-    void onNegativeActionClick() {
-        if (getCard() != null) {
-            if (getCallback() != null) {
-                getCallback().onAnnouncementNegativeAction(getCard());
-            } else if (callback != null) {
-                callback.onAnnouncementNegativeAction(getCard());
-            }
         }
     }
 
