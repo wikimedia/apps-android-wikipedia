@@ -29,6 +29,7 @@ import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.auth.AccountUtil;
+import org.wikipedia.databinding.FragmentMainBinding;
 import org.wikipedia.events.LoggedOutInBackgroundEvent;
 import org.wikipedia.feed.FeedFragment;
 import org.wikipedia.feed.image.FeaturedImage;
@@ -69,9 +70,6 @@ import org.wikipedia.util.log.L;
 import java.io.File;
 import java.util.concurrent.TimeUnit;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
 import io.reactivex.Completable;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.functions.Consumer;
@@ -86,11 +84,12 @@ import static org.wikipedia.Constants.InvokeSource.VOICE;
 
 public class MainFragment extends Fragment implements BackPressedHandler, FeedFragment.Callback,
         HistoryFragment.Callback, LinkPreviewDialog.Callback {
-    @BindView(R.id.fragment_main_view_pager) ViewPager2 viewPager;
-    @BindView(R.id.fragment_main_nav_tab_container) FrameLayout navTabContainer;
-    @BindView(R.id.fragment_main_nav_tab_layout) NavTabLayout tabLayout;
-    @BindView(R.id.fragment_main_nav_tab_overlay_layout) NavTabOverlayLayout tabOverlayLayout;
-    private Unbinder unbinder;
+    private FragmentMainBinding binding;
+    private ViewPager2 viewPager;
+    private FrameLayout navTabContainer;
+    private NavTabLayout tabLayout;
+    private NavTabOverlayLayout tabOverlayLayout;
+
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
     private MediaDownloadReceiver downloadReceiver = new MediaDownloadReceiver();
     private MediaDownloadReceiverCallback downloadReceiverCallback = new MediaDownloadReceiverCallback();
@@ -119,8 +118,13 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
                                                  @Nullable ViewGroup container,
                                                  @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        View view = inflater.inflate(R.layout.fragment_main, container, false);
-        unbinder = ButterKnife.bind(this, view);
+
+        binding = FragmentMainBinding.inflate(inflater, container, false);
+        viewPager = binding.fragmentMainViewPager;
+        navTabContainer = binding.fragmentMainNavTabContainer;
+        tabLayout = binding.fragmentMainNavTabLayout;
+        tabOverlayLayout = binding.fragmentMainNavTabOverlayLayout;
+
         disposables.add(WikipediaApp.getInstance().getBus().subscribe(new EventBusConsumer()));
 
         viewPager.setUserInputEnabled(false);
@@ -138,7 +142,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         if (savedInstanceState == null) {
             handleIntent(requireActivity().getIntent());
         }
-        return view;
+        return binding.getRoot();
     }
 
     @Override
@@ -162,8 +166,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
 
     @Override public void onDestroyView() {
         viewPager.unregisterOnPageChangeCallback(pageChangeCallback);
-        unbinder.unbind();
-        unbinder = null;
+        binding = null;
         disposables.dispose();
         super.onDestroyView();
     }
