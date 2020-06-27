@@ -7,30 +7,27 @@ import android.widget.Space;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import org.wikipedia.R;
+import org.wikipedia.databinding.ViewCardOfflineBinding;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.view.FeedAdapter;
 import org.wikipedia.feed.view.FeedCardView;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-
 public class OfflineCardView extends LinearLayout implements FeedCardView<Card> {
-    @BindView(R.id.view_card_offline_top_padding) Space padding;
+    private Space padding;
 
     @Nullable private FeedAdapter.Callback callback;
 
     public OfflineCardView(Context context) {
         super(context);
-        inflate(getContext(), R.layout.view_card_offline, this);
-        ButterKnife.bind(this);
-    }
 
-    @OnClick(R.id.view_card_offline_button_retry) void onRetryClick() {
-        if (callback != null) {
-            callback.onRetryFromOffline();
-        }
+        final ViewCardOfflineBinding binding = ViewCardOfflineBinding.bind(this);
+
+        padding = binding.viewCardOfflineTopPadding;
+        binding.viewCardOfflineButtonRetry.setOnClickListener(v -> {
+            if (callback != null) {
+                callback.onRetryFromOffline();
+            }
+        });
     }
 
     @Override public void setCallback(@Nullable FeedAdapter.Callback callback) {
