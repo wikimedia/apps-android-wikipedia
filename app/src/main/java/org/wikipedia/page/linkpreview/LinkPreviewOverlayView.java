@@ -2,17 +2,13 @@ package org.wikipedia.page.linkpreview;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.View;
+import android.view.LayoutInflater;
 import android.widget.Button;
 import android.widget.FrameLayout;
 
 import androidx.annotation.Nullable;
 
-import org.wikipedia.R;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
+import org.wikipedia.databinding.ViewLinkPreviewOverlayBinding;
 
 public class LinkPreviewOverlayView extends FrameLayout {
     public interface Callback {
@@ -21,9 +17,9 @@ public class LinkPreviewOverlayView extends FrameLayout {
         void onTertiaryClick();
     }
 
-    @BindView(R.id.link_preview_primary_button) Button primaryButton;
-    @BindView(R.id.link_preview_secondary_button) Button secondaryButton;
-    @BindView(R.id.link_preview_tertiary_button) Button tertiaryButton;
+    private Button primaryButton;
+    private Button secondaryButton;
+    private Button tertiaryButton;
 
     @Nullable private Callback callback;
 
@@ -62,26 +58,27 @@ public class LinkPreviewOverlayView extends FrameLayout {
         tertiaryButton.setVisibility(show ? VISIBLE : GONE);
     }
 
-    @OnClick(R.id.link_preview_primary_button) void onPrimaryClick(View view) {
-        if (callback != null) {
-            callback.onPrimaryClick();
-        }
-    }
-
-    @OnClick(R.id.link_preview_secondary_button) void onSecondaryClick(View view) {
-        if (callback != null) {
-            callback.onSecondaryClick();
-        }
-    }
-
-    @OnClick(R.id.link_preview_tertiary_button) void onTertiaryClick(View view) {
-        if (callback != null) {
-            callback.onTertiaryClick();
-        }
-    }
-
     private void init() {
-        inflate(getContext(), R.layout.view_link_preview_overlay, this);
-        ButterKnife.bind(this);
+        final ViewLinkPreviewOverlayBinding binding =
+                ViewLinkPreviewOverlayBinding.inflate(LayoutInflater.from(getContext()));
+        primaryButton = binding.linkPreviewPrimaryButton;
+        secondaryButton = binding.linkPreviewSecondaryButton;
+        tertiaryButton = binding.linkPreviewTertiaryButton;
+
+        primaryButton.setOnClickListener(v -> {
+            if (callback != null) {
+                callback.onPrimaryClick();
+            }
+        });
+        secondaryButton.setOnClickListener(v -> {
+            if (callback != null) {
+                callback.onSecondaryClick();
+            }
+        });
+        tertiaryButton.setOnClickListener(v -> {
+            if (callback != null) {
+                callback.onTertiaryClick();
+            }
+        });
     }
 }
