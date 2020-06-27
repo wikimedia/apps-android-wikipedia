@@ -22,14 +22,11 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.BaseActivity;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.createaccount.CreateAccountActivity;
+import org.wikipedia.databinding.ActivityResetPasswordBinding;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.NonEmptyValidator;
 import org.wikipedia.views.WikiErrorView;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 
@@ -38,12 +35,12 @@ public class ResetPasswordActivity extends BaseActivity {
     public static final String LOGIN_USER_NAME = "userName";
     public static final String LOGIN_TOKEN = "token";
 
-    @BindView(R.id.reset_password_input) TextInputLayout passwordInput;
-    @BindView(R.id.reset_password_repeat) TextInputLayout passwordRepeatInput;
-    @BindView(R.id.login_2fa_text) EditText twoFactorText;
-    @BindView(R.id.view_login_error) WikiErrorView errorView;
-    @BindView(R.id.login_button) Button loginButton;
-    @BindView(R.id.view_progress_bar) ProgressBar progressBar;
+    private TextInputLayout passwordInput;
+    private TextInputLayout passwordRepeatInput;
+    private EditText twoFactorText;
+    private WikiErrorView errorView;
+    private Button loginButton;
+    private ProgressBar progressBar;
 
     @Nullable private String firstStepToken;
     private LoginClient loginClient;
@@ -60,8 +57,18 @@ public class ResetPasswordActivity extends BaseActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_reset_password);
-        ButterKnife.bind(this);
+
+        final ActivityResetPasswordBinding binding = ActivityResetPasswordBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+
+        passwordInput = binding.resetPasswordInput;
+        passwordRepeatInput = binding.resetPasswordRepeat;
+        twoFactorText = binding.login2faText;
+        errorView = binding.viewLoginError;
+        loginButton = binding.loginButton;
+        progressBar = binding.viewProgressBar;
+
+        loginButton.setOnClickListener(v -> validateThenLogin());
 
         errorView.setBackClickListener((v) -> onBackPressed());
         errorView.setRetryClickListener((v) -> errorView.setVisibility(View.GONE));
@@ -78,10 +85,6 @@ public class ResetPasswordActivity extends BaseActivity {
 
         userName = getIntent().getStringExtra(LOGIN_USER_NAME);
         firstStepToken = getIntent().getStringExtra(LOGIN_TOKEN);
-    }
-
-    @OnClick(R.id.login_button) void onLoginClick() {
-        validateThenLogin();
     }
 
     private void clearErrors() {
