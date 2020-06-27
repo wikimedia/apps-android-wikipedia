@@ -16,6 +16,7 @@ import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
 import org.wikipedia.R;
+import org.wikipedia.databinding.FragmentReferencesPagerBinding;
 import org.wikipedia.page.LinkHandler;
 import org.wikipedia.page.LinkMovementMethodExt;
 import org.wikipedia.util.DimenUtil;
@@ -24,44 +25,42 @@ import org.wikipedia.util.StringUtil;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-
 import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
 
 /**
  * A dialog that displays the currently clicked reference.
  */
 public class ReferenceDialog extends BottomSheetDialog {
-    @BindView(R.id.reference_pager) ViewPager2 referencesViewPager;
-    @BindView(R.id.page_indicator_view) TabLayout pageIndicatorView;
-    @BindView(R.id.indicator_divider) View pageIndicatorDivider;
-    @BindView(R.id.reference_title_text) TextView titleTextView;
+    private ViewPager2 referencesViewPager;
     private LinkHandler referenceLinkHandler;
 
     public ReferenceDialog(@NonNull Context context, int selectedIndex, List<PageReferences.Reference> adjacentReferences, LinkHandler referenceLinkHandler) {
         super(context);
-        View rootView = LayoutInflater.from(context).inflate(R.layout.fragment_references_pager, null);
-        setContentView(rootView);
-        ButterKnife.bind(this);
+
+        final FragmentReferencesPagerBinding binding = FragmentReferencesPagerBinding.inflate(LayoutInflater.from(context));
+        setContentView(binding.getRoot());
+
+        referencesViewPager = binding.referencePager;
+        final TabLayout pageIndicatorView = binding.pageIndicatorView;
+
         this.referenceLinkHandler = referenceLinkHandler;
 
         if (adjacentReferences.size() == 1) {
             pageIndicatorView.setVisibility(View.GONE);
             ((ViewGroup) pageIndicatorView.getParent()).removeView(pageIndicatorView);
-            pageIndicatorDivider.setVisibility(View.GONE);
+            binding.indicatorDivider.setVisibility(View.GONE);
         } else {
-            BottomSheetBehavior behavior = BottomSheetBehavior.from((View) rootView.getParent());
+            BottomSheetBehavior behavior = BottomSheetBehavior.from((View) binding.getRoot().getParent());
             behavior.setPeekHeight(DimenUtil.getDisplayHeightPx() / 2);
         }
-        titleTextView.setText(getContext().getString(R.string.reference_title, ""));
+        binding.referenceTitleText.setText(getContext().getString(R.string.reference_title, ""));
 
         referencesViewPager.setOffscreenPageLimit(2);
         referencesViewPager.setAdapter(new ReferencesAdapter(adjacentReferences));
         new TabLayoutMediator(pageIndicatorView, referencesViewPager, (tab, position) -> { }).attach();
         referencesViewPager.setCurrentItem(selectedIndex, true);
 
-        setConditionalLayoutDirection(rootView, referenceLinkHandler.getWikiSite().languageCode());
+        setConditionalLayoutDirection(binding.getRoot(), referenceLinkHandler.getWikiSite().languageCode());
     }
 
     @NonNull
