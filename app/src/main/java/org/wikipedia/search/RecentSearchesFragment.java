@@ -22,11 +22,9 @@ import androidx.loader.content.Loader;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.database.contract.SearchHistoryContract;
+import org.wikipedia.databinding.FragmentSearchRecentBinding;
 import org.wikipedia.util.FeedbackUtil;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 import io.reactivex.Completable;
 import io.reactivex.schedulers.Schedulers;
 
@@ -43,18 +41,31 @@ public class RecentSearchesFragment extends Fragment implements LoaderManager.Lo
     private Callback callback;
     private RecentSearchesAdapter adapter;
 
-    @BindView(R.id.recent_searches_list) ListView recentSearchesList;
-    @BindView(R.id.search_empty_container) View searchEmptyView;
-    @BindView(R.id.recent_searches_container) View recentSearchesContainer;
-    @BindView(R.id.recent_searches) View recentSearches;
-    @BindView(R.id.recent_searches_delete_button) ImageView deleteButton;
-    @BindView(R.id.add_languages_button) TextView addLanguagesButton;
-    @BindView(R.id.search_empty_message) TextView emptyViewMessage;
+    private FragmentSearchRecentBinding binding;
+    private ListView recentSearchesList;
+    private View searchEmptyView;
+    private View recentSearchesContainer;
+    private View recentSearches;
+    private TextView addLanguagesButton;
+    private TextView emptyViewMessage;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_search_recent, container, false);
-        ButterKnife.bind(this, rootView);
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        binding = FragmentSearchRecentBinding.inflate(inflater, container, false);
+
+        recentSearchesList = binding.recentSearchesList;
+        searchEmptyView = binding.searchEmptyContainer;
+        recentSearchesContainer = binding.recentSearchesContainer;
+        recentSearches = binding.recentSearches;
+        final ImageView deleteButton = binding.recentSearchesDeleteButton;
+        addLanguagesButton = binding.addLanguagesButton;
+        emptyViewMessage = binding.searchEmptyMessage;
+
+        addLanguagesButton.setOnClickListener(v -> {
+            if (callback != null) {
+                callback.onAddLanguageClicked();
+            }
+        });
 
         deleteButton.setOnClickListener((view) ->
                 new AlertDialog.Builder(requireContext())
@@ -65,7 +76,7 @@ public class RecentSearchesFragment extends Fragment implements LoaderManager.Lo
                         .create().show());
         FeedbackUtil.setToolbarButtonLongPressToast(deleteButton);
 
-        return rootView;
+        return binding.getRoot();
     }
 
     public void show() {
@@ -97,6 +108,7 @@ public class RecentSearchesFragment extends Fragment implements LoaderManager.Lo
     @Override
     public void onDestroyView() {
         LoaderManager.getInstance(this).destroyLoader(RECENT_SEARCHES_FRAGMENT_LOADER_ID);
+        binding = null;
         super.onDestroyView();
     }
 
@@ -137,12 +149,6 @@ public class RecentSearchesFragment extends Fragment implements LoaderManager.Lo
             }
         } else {
             searchEmptyView.setVisibility(View.INVISIBLE);
-        }
-    }
-
-    @OnClick(R.id.add_languages_button) void onAddLangButtonClick() {
-        if (callback != null) {
-            callback.onAddLanguageClicked();
         }
     }
 
