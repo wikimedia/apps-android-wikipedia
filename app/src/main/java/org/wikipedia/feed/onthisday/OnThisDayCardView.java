@@ -13,7 +13,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityOptionsCompat;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -22,6 +21,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.FeedFunnel;
+import org.wikipedia.databinding.ItemOnThisDayPagesBinding;
 import org.wikipedia.databinding.ViewCardOnThisDayBinding;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.page.PageSummary;
@@ -145,10 +145,11 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
 
         @NonNull @Override
         public OnThisDayPagesViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-            View itemView = LayoutInflater.
-                    from(viewGroup.getContext()).
-                    inflate(R.layout.item_on_this_day_pages, viewGroup, false);
-            return new OnThisDayPagesViewHolder((Activity) viewGroup.getContext(), (CardView) itemView, wiki, isSingleCard);
+            final ItemOnThisDayPagesBinding binding =
+                    ItemOnThisDayPagesBinding.inflate(LayoutInflater.from(viewGroup.getContext()),
+                            viewGroup, false);
+            return new OnThisDayPagesViewHolder((Activity) viewGroup.getContext(), binding, wiki,
+                    isSingleCard);
         }
 
         @Override
