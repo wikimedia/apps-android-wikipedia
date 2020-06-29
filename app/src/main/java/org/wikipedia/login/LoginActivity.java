@@ -39,6 +39,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+import static org.wikipedia.analytics.LoginFunnel.SOURCE_SUGGESTED_EDITS;
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
 
@@ -99,6 +100,10 @@ public class LoginActivity extends BaseActivity {
         funnel = new LoginFunnel(WikipediaApp.getInstance());
 
         loginSource = getIntent().getStringExtra(LOGIN_REQUEST_SOURCE);
+
+        if (!TextUtils.isEmpty(loginSource) && loginSource.equals(SOURCE_SUGGESTED_EDITS)) {
+            Prefs.setSuggestedEditsHighestPriorityEnabled(true);
+        }
 
         // always go to account creation before logging in
         startCreateAccountActivity();

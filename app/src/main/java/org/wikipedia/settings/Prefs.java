@@ -18,6 +18,7 @@ import org.wikipedia.page.tabs.Tab;
 import org.wikipedia.theme.Theme;
 import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.ReleaseUtil;
+import org.wikipedia.util.log.L;
 
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -953,5 +954,12 @@ public final class Prefs {
         return getBoolean(R.string.preference_key_suggested_edits_reward_interstitial_qa_override, false);
     }
 
+    public static boolean isSuggestedEditsHighestPriorityEnabled() {
+        return getBoolean(R.string.preference_key_suggested_edits_highest_priority_enabled, false);
+    }
+
+    public static void setSuggestedEditsHighestPriorityEnabled(boolean enabled) {
+        setBoolean(R.string.preference_key_suggested_edits_highest_priority_enabled, enabled);
+    }
     private Prefs() { }
 }

@@ -175,6 +175,8 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         unbinder.unbind();
         unbinder = null;
         disposables.dispose();
+        L.d("MainFragment onDestroyView");
+        Prefs.setSuggestedEditsHighestPriorityEnabled(false);
         super.onDestroyView();
     }
 
@@ -484,7 +486,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         } else if (Prefs.shouldShowImageTagsTooltip()) {
             Prefs.setShouldShowImageTagsTooltip(false);
             tabOverlayLayout.pick(NavTab.SUGGESTED_EDITS);
-            suggestedEditsNavTabSnackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.suggested_edits_image_tags_snackbar), FeedbackUtil.LENGTH_LONG);
+            suggestedEditsNavTabSnackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.suggested_edits_image_tags_snackbar), FeedbackUtil.LENGTH_MEDIUM);
             suggestedEditsNavTabSnackbar.setAction(R.string.main_tooltip_action_button, view -> goToTab(NavTab.SUGGESTED_EDITS));
             suggestedEditsNavTabSnackbar.show();
         }
@@ -545,6 +547,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
                             FeedbackUtil.showMessage(requireActivity(), R.string.toast_logout_complete);
                             Prefs.setReadingListsLastSyncTime(null);
                             Prefs.setReadingListSyncEnabled(false);
+                            Prefs.setSuggestedEditsHighestPriorityEnabled(false);
                             refreshContents();
                         }).show();
             } else {
