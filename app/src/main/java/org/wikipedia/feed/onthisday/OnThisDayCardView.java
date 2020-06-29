@@ -69,7 +69,6 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
 
     public OnThisDayCardView(@NonNull Context context) {
         super(context);
-        setAllowOverflow(true);
         inflate(getContext(), R.layout.view_card_on_this_day, this);
         ButterKnife.bind(this);
         initRecycler();
