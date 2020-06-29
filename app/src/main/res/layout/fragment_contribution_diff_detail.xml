@@ -13,7 +13,7 @@
         <View
             android:id="@+id/topView"
             android:layout_width="match_parent"
-            android:layout_height="300dp" />
+            android:layout_height="340dp" />
 
         <ImageView
             android:id="@+id/back"
