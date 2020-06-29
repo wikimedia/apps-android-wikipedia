@@ -50,6 +50,7 @@
   <string name="search_hint_search_my_lists_and_articles">Listelerimde ve makalelerimde ara</string>
   <string name="nav_item_history">Geçmiş</string>
   <string name="nav_item_suggested_edits">Önerilen düzenlemeler</string>
+  <string name="nav_item_more">Daha fazla</string>
   <string name="error_network_error">İnternete bağlanılamıyor.</string>
   <string name="page_error_retry">Tekrar dene</string>
   <string name="card_offline_error_retry">Tekrar dene</string>
@@ -133,7 +134,7 @@
   <string name="reading_lists_sync_login">Oturum aç</string>
   <string name="create_account_login">Oturum aç</string>
   <string name="menu_login">Oturum aç</string>
-  <string name="login_activity_title">Vikipedi\'ye oturum aç</string>
+  <string name="login_activity_title" fuzzy="true">Vikipedi\'ye oturum aç</string>
   <string name="login_in_progress_dialog_message">Giriş yapılıyor...</string>
   <string name="login_success_toast">Oturum açıldı!</string>
   <string name="reset_password_title">Parolanızı belirleyin</string>
@@ -335,7 +336,9 @@
   <string name="page_offline_notice_last_date">Bu sayfanın %s tarihinde kaydedilmiş bir çevrim dışı sürümünü okuyorsunuz.</string>
   <string name="button_get_directions">Yol tarifi al</string>
   <string name="error_no_maps_app">Tarif verebilecek herhangi bir uygulama bulunamadı.</string>
+  <string name="preference_title_customize_explore_feed">Yayın Akışını Keşfedin</string>
   <string name="preference_title_show_link_previews">Bağlantı ön izlemelerini görüntüle</string>
+  <string name="preference_summary_customize_explore_feed">Keşfedim yayın akışını özelleştirin</string>
   <string name="preference_summary_show_link_previews">Bağlantılara dokununca kısa bir ön izleme görüntülenir.</string>
   <string name="preference_title_collapse_tables">Tabloları daralt</string>
   <string name="preference_summary_collapse_tables">Bilgi kutuları, referanslar ve notlar gibi makalelerdeki tabloları otomatik olarak daralt.</string>
@@ -749,9 +752,9 @@
   <string name="suggested_edits_edit_streak_stat_tooltip">Önerilen düzenlemelerle ara vermeden kaç gün katkıda bulundunuz. Bir süredir katkıda bulunmadıysanız, son katkı tarihinizi gösterir.</string>
   <string name="suggested_edits_page_views_stat_tooltip">Son 30 gün içerisinde katkıda bulunduğunuz öğelerin sayfa görüntüleme sayısı Önerilen düzenlemelerle.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Katkılarınızdan birinin kaç kez geri alındığına bağlı olarak (başka bir düzenleyici tarafından geri alındı). Geri alınan düzenlemeler: %d.</string>
-  <string name="suggested_edits_paused_message">&lt;b&gt; Önerilen düzenlemeler %1$s kadar duraklatıldı.&lt;/b&gt; Maalesef %2$s, en son katkılarınızdan bazıları geri alındı.\n\nVikipedi\'de düzenleme becerilerinizi nasıl geliştireceğinizi aşağıdaki bağlantıdan öğrenin.</string>
-  <string name="suggested_edits_disabled_message">&lt;b&gt;Önerilen düzenlemeler devre dışı bırakıldı.&lt;/b&gt; Maalesef %s, yakın zamanda yaptığınız katkıların çoğu geri alındı.\n\nBunun ne anlama geldiğini aşağıdaki link ile öğrenin.</string>
-  <string name="suggested_edits_ip_blocked_message">IP adresinizin (veya IP adreslerinin aralığının) şu anda Vikipedi\'yi düzenlemesi engellenmiş gibi görünüyor. Bunun ne anlama geldiği hakkında daha fazla bilgi için aşağıdaki bağlantıyı ziyaret edin.</string>
+  <string name="suggested_edits_paused_message">Önerilen düzenlemeler %1$s kadar duraklatıldı. Maalesef %2$s, en son katkılarınızdan bazıları geri alındı.</string>
+  <string name="suggested_edits_disabled_message">Önerilen düzenlemeler devre dışı bırakıldı. Maalesef %s, yakın zamanda yaptığınız katkıların çoğu geri alındı.</string>
+  <string name="suggested_edits_ip_blocked_message">IP adresinizin (veya IP adreslerinin aralığının) şu anda Vikipedi\'yi düzenlemesi engellenmiş gibi görünüyor.</string>
   <string name="suggested_edits_editing_tips_link_text">İpuçlarını ve püf noktalarını düzenleme</string>
   <string name="suggested_edits_help_page_link_text">Önerilen düzenlemeler yardım sayfası</string>
   <string name="suggested_edits_edit_streak_label_text">Çizgiyi düzenle</string>
@@ -774,6 +777,12 @@
     <item quantity="one">%d gün</item>
     <item quantity="other">%d gün</item>
   </plurals>
+  <string name="suggested_edits_what_is_title">Önerilen düzenlemeler nedir?</string>
+  <string name="suggested_edits_what_is_text">Önerilen düzenlemeler, Vikipedi\'ye küçük ama hayati katkılar için fırsatlar sunar.</string>
+  <string name="suggested_edits_learn_more">Daha fazla bilgi</string>
+  <string name="suggested_edits_paused_title">Durduruldu</string>
+  <string name="suggested_edits_disabled_title">Devre dışı</string>
+  <string name="suggested_edits_ip_blocked_title">IP engellendi</string>
   <string name="suggested_edits_last_edited">Son düzenleme</string>
   <string name="suggested_edits_last_edited_never">Asla</string>
   <string name="suggested_edits_task_new">yeni</string>
@@ -788,7 +797,6 @@
   <string name="suggested_edits_contribution_image_label">Dosya</string>
   <string name="suggested_edits_contribution_article_label">Madde</string>
   <string name="suggested_edits_contribution_views">%s görüntüleme</string>
-  <string name="suggested_edits_contribution_label">%d karakter eklediniz</string>
   <string name="suggested_edits_contribution_seen_text">Son 30 gün içinde %s kez görüldü.</string>
   <string name="suggested_edits_image_tag_contribution_label">%d etiket eklediniz</string>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
@@ -799,6 +807,23 @@
   <string name="suggested_edits_rewards_edit_quality">Şu ana kadar yaptığınız düzenlemeler %s. Devam edin! Katkılarınızı bekliyoruz.</string>
   <string name="suggested_edits_rewards_continue_button">Devam et</string>
   <string name="suggested_edits_contribution_type_image_tag">Resim etiketi</string>
+  <string name="suggested_edits_contribution_current_revision">Güncel revizyon</string>
+  <plurals name="suggested_edits_tags_diff_count_text">
+    <item quantity="one">%1$s etiket</item>
+    <item quantity="other">%1$s etiket</item>
+  </plurals>
+  <plurals name="suggested_edits_contribution_diff_count_text">
+    <item quantity="one">%1$s karakter</item>
+    <item quantity="other">%1$s karakter</item>
+  </plurals>
+  <plurals name="suggested_edits_removed_contribution_label">
+    <item quantity="one">%d karakter kaldırdınız</item>
+    <item quantity="other">%d karakter kaldırdınız</item>
+  </plurals>
+  <plurals name="suggested_edits_added_contribution_label">
+    <item quantity="one">%d karakter eklediniz</item>
+    <item quantity="other">%d karakter eklediniz</item>
+  </plurals>
   <string name="file_page_activity_title">Dosya sayfası</string>
   <string name="description_edit_revert_subtitle">Vikipedi\'yi düzenlediğiniz için teşekkürler!</string>
   <string name="description_edit_revert_intro">Elinizden geleni yaptığınızı biliyoruz ama inceleyenlerden biri, bir sıkıntı gördü. Değişikliğiniz geri alınmasının muhtemel sebepleri şunlar olabilir:</string>
@@ -821,9 +846,6 @@
   <string name="onboarding_analytics_title">Anonim veri gönder</string>
   <string name="onboarding_analytics_offline_text">Uygulamayı nasıl kullandığınızı bilmemize izin vererek daha iyi hâle getirmemize yardım edin. Veriler anonim olarak toplanır. &lt;a href=\"#privacy\"&gt;Daha fazla bilgi edinin&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Kullanım verisini gönder</string>
-  <string name="onboarding_create_account_sync">Okuma listelerinizi senkronize edin</string>
-  <string name="onboarding_create_account_contributions">Katkılarınızı takip edin</string>
-  <string name="onboarding_create_account_preferences">Tercihlerinizi kaydedin</string>
   <string name="onboarding_got_it">Anladım</string>
   <string name="onboarding_multilingual_secondary_text">Cihazınızda aşağıdakilerini bulduk:</string>
   <string name="onboarding_multilingual_add_language_text">Dil ekle veya düzenle</string>
@@ -874,6 +896,7 @@
   <string name="edit_conflict_dialog_ok_button_text">Tamam</string>
   <string name="reverted_edit_dialog_ok_button_text">Tamam</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">İptal</string>
+  <string name="edit_type_all">Tüm katkılar</string>
   <string name="content_description_for_page_indicator">Sayfa %1$d %2$d</string>
   <string name="wikitext_bold">Kalın</string>
   <string name="wikitext_italic">Eğik</string>
@@ -883,12 +906,9 @@
   <string name="wikitext_template">Şablon</string>
   <string name="wikitext_reference">Kaynak</string>
   <string name="wikitext_preview_link">Önizleme bağlantısı</string>
-  <string name="main_drawer_open">Aç</string>
-  <string name="main_drawer_close">Kapat</string>
-  <string name="main_drawer_content_description">Ana gezinme çekmecesini aç</string>
   <string name="main_drawer_help">Yardım</string>
   <string name="main_drawer_login">Vikipedi\'ye giriş yapın / kaydolun</string>
-  <string name="main_tooltip_text">%s, herkesin Vikipedi\'yi düzenleyebileceğini biliyor muydun?</string>
+  <string name="main_tooltip_text">Merhaba %s, herkesin Vikipedi\'yi düzenleyebileceğini biliyor muydun?</string>
   <string name="main_tooltip_action_button">Kullanmaya başla</string>
   <string name="custom_date_picker_dialog_ok_button_text">Tamam</string>
   <string name="text_input_dialog_ok_button_text">Tamam</string>

@@ -100,7 +100,7 @@
   <string name="reading_lists_sync_login">Logáil isteach</string>
   <string name="create_account_login">Logáil isteach</string>
   <string name="menu_login">Logáil isteach</string>
-  <string name="login_activity_title">Logáil isteach</string>
+  <string name="login_activity_title" fuzzy="true">Logáil isteach</string>
   <string name="login_in_progress_dialog_message">Tá tú á logáil isteach...</string>
   <string name="login_success_toast" fuzzy="true">D\'éirigh leat logáil isteach!</string>
   <string name="reset_password_title">Socraigh do phasfhocal</string>
@@ -591,9 +591,6 @@
   <string name="onboarding_analytics_title">Seol sonraí anaithnid</string>
   <string name="onboarding_analytics_offline_text">Cuidigh leis an aip a fheabhsú trí muid a chur ar an eolas ar conas mar a úsáideann tú é. Is anaithnid na sonraí a bhailítear. &lt;a href=\"#privacy\"&gt;Foghlaim tuilleadh&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Seol sonraí úsáide</string>
-  <string name="onboarding_create_account_sync">Sioncronaigh do chuid liostaí léitheoireachta</string>
-  <string name="onboarding_create_account_contributions">Coinnigh súil ar do chuid dréachtaí</string>
-  <string name="onboarding_create_account_preferences">Sábháil do chuid sainroghanna</string>
   <string name="onboarding_got_it">Tuigim</string>
   <string name="onboarding_multilingual_secondary_text">D\'aimsíomar na teangacha seo a leanas ar do ghléas:</string>
   <string name="onboarding_multilingual_add_language_text">Cuir teangacha leis nó cuir in eagar iad</string>
@@ -635,8 +632,6 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Ní dhéanfaidh mé é</string>
   <string name="remove_language_dialog_cancel_button_text">Cealaigh</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">Cealaigh</string>
-  <string name="main_drawer_open">Oscail</string>
-  <string name="main_drawer_close">Dún</string>
   <string name="main_drawer_help">Cabhair</string>
   <string name="main_drawer_login">Logáil isteach / cláraigh le Vicipéid</string>
   <string name="text_input_dialog_cancel_button_text">Cealaigh</string>

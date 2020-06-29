@@ -113,7 +113,7 @@
   <string name="reading_lists_sync_login">Đăng nhập</string>
   <string name="create_account_login">Đăng nhập</string>
   <string name="menu_login">Đăng nhập</string>
-  <string name="login_activity_title">Đăng nhập vào Wikipedia</string>
+  <string name="login_activity_title" fuzzy="true">Đăng nhập vào Wikipedia</string>
   <string name="login_in_progress_dialog_message">Đang đăng nhập bạn vào…</string>
   <string name="login_success_toast">Đã đăng nhập!</string>
   <string name="reset_password_title">Đặt mật khẩu</string>
@@ -653,7 +653,7 @@
   <string name="suggested_edits_image_tags_publishing">Đang xuất bản</string>
   <string name="suggested_edits_image_tags_published">Đã xuất bản</string>
   <string name="suggested_edits_contributions_stat_tooltip">Tổng số đóng góp của bạn với Sửa đổi gợi ý.</string>
-  <string name="suggested_edits_ip_blocked_message">Có vẻ như địa chỉ IP (hoặc dãy địa chỉ IP) của bạn hiện đang bị chặn sửa đổi Wikipedia. Tìm hiểu thêm thế có nghĩa là gì bằng cách tới liên kết dưới đây.</string>
+  <string name="suggested_edits_ip_blocked_message" fuzzy="true">Có vẻ như địa chỉ IP (hoặc dãy địa chỉ IP) của bạn hiện đang bị chặn sửa đổi Wikipedia. Tìm hiểu thêm thế có nghĩa là gì bằng cách tới liên kết dưới đây.</string>
   <string name="description_edit_revert_subtitle">Cảm ơn bạn đã sửa đổi Wikipedia.</string>
   <string name="description_edit_revert_intro">Rất tiếc, bạn đã cố gắng sửa đổi một cách chính xác, nhưng một người xem lại đã nhận thấy vấn đề. Họ đã lùi lại sửa đổi của bạn, có thể do một lý do sau:</string>
   <string name="description_edit_revert_reason1">đóng góp của bạn vi phạm một &lt;a href=\"%1$s\"&gt;quy định&lt;/a&gt;.</string>
@@ -675,9 +675,6 @@
   <string name="onboarding_analytics_title">Gửi dữ liệu vô danh</string>
   <string name="onboarding_analytics_offline_text">Giúp cải thiện ứng dụng bằng cách cho chúng tôi biết bạn sử dụng nó như thế nào. Tất cả các dữ liệu được thu tập được vô danh hóa. &lt;a href=\"#privacy\"&gt;Tìm hiểu thêm&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Gửi dữ liệu về cách dùng</string>
-  <string name="onboarding_create_account_sync">Đồng bộ hóa các danh sách đọc</string>
-  <string name="onboarding_create_account_contributions">Theo dõi các đóng góp của bạn</string>
-  <string name="onboarding_create_account_preferences">Lưu tùy chọn của bạn</string>
   <string name="onboarding_got_it">Đã hiểu</string>
   <string name="onboarding_multilingual_secondary_text">Đã tìm thấy các ngôn ngữ sau trên thiết bị của bạn:</string>
   <string name="onboarding_multilingual_add_language_text">Thêm và sửa ngôn ngữ</string>
@@ -734,11 +731,9 @@
   <string name="wikitext_numbered_list">Danh sách đánh số</string>
   <string name="wikitext_template">Bản mẫu</string>
   <string name="wikitext_reference">Tham khảo</string>
-  <string name="main_drawer_open">Mở</string>
-  <string name="main_drawer_close">Đóng</string>
   <string name="main_drawer_help">Trợ giúp</string>
   <string name="main_drawer_login">Đăng nhập/tham gia Wikipedia</string>
-  <string name="main_tooltip_text">%s, bạn có biết rằng bất cứ ai cũng có thể sửa đổi Wikipedia?</string>
+  <string name="main_tooltip_text" fuzzy="true">%s, bạn có biết rằng bất cứ ai cũng có thể sửa đổi Wikipedia?</string>
   <string name="main_tooltip_action_button">Bắt đầu</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_ok_button_text">OK</string>

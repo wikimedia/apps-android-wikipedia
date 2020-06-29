@@ -87,7 +87,7 @@
   <string name="onboarding_card_login">Prijavi me</string>
   <string name="reading_lists_sync_login">Prijavi me</string>
   <string name="menu_login">Prijavi me</string>
-  <string name="login_activity_title">Prijava na Wikipediju</string>
+  <string name="login_activity_title" fuzzy="true">Prijava na Wikipediju</string>
   <string name="login_in_progress_dialog_message">Prijavljujem Vas...</string>
   <string name="login_success_toast">Prijavljeni ste!</string>
   <string name="reset_password_description">Prijavili ste se s privremenom lozinkom. Da biste završili prijavu, ovdje postavite novu.</string>
@@ -484,9 +484,6 @@
   <string name="onboarding_analytics_title">Šalji anonimne podatke</string>
   <string name="onboarding_analytics_offline_text">Pomozite nam da poboljšamo aplikaciju tako što ćete nam slati podatke o tome kako je koristite. Prikupljeni podaci su anonimni. &lt;a href=\"#privacy\"&gt;Detaljnije&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Šalji podatke o upotrebi</string>
-  <string name="onboarding_create_account_sync">Sinhronizirajte spiskove za čitanje</string>
-  <string name="onboarding_create_account_contributions">Pratite doprinose</string>
-  <string name="onboarding_create_account_preferences">Sačuvajte postavke</string>
   <string name="onboarding_got_it">Razumijem</string>
   <string name="onboarding_multilingual_secondary_text">Pronašli smo sljedeće jezike na Vašem uređaju:</string>
   <string name="onboarding_multilingual_add_language_text">Dodaj ili izmijeni jezike</string>

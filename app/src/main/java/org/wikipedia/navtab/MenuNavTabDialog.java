@@ -1,5 +1,6 @@
 package org.wikipedia.navtab;
 
+import android.content.res.ColorStateList;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,6 +12,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
+import androidx.core.widget.ImageViewCompat;
 
 import org.wikipedia.BuildConfig;
 import org.wikipedia.R;
@@ -25,6 +28,8 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 import static android.view.View.GONE;
+import static android.view.View.TEXT_ALIGNMENT_TEXT_START;
+import static android.view.View.TEXT_ALIGNMENT_VIEW_END;
 import static android.view.View.VISIBLE;
 
 public class MenuNavTabDialog extends ExtendedBottomSheetDialogFragment {
@@ -38,7 +43,6 @@ public class MenuNavTabDialog extends ExtendedBottomSheetDialogFragment {
     @BindView(R.id.main_drawer_account_name) TextView accountNameView;
     @BindView(R.id.main_drawer_login_button) Button loginLogoutButton;
     @BindView(R.id.main_drawer_account_avatar) ImageView accountAvatar;
-    @BindView(R.id.main_drawer_account_wiki_globe) ImageView accountWikiGlobe;
     @BindView(R.id.main_drawer_notifications_container) ViewGroup notificationsContainer;
     @Nullable Callback callback;
 
@@ -60,21 +64,28 @@ public class MenuNavTabDialog extends ExtendedBottomSheetDialogFragment {
         updateState();
     }
 
+    @Override public void onDestroyView() {
+        super.onDestroyView();
+        callback = null;
+    }
+
     public void updateState() {
         if (AccountUtil.isLoggedIn()) {
+            accountAvatar.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.ic_baseline_person_24));
+            ImageViewCompat.setImageTintList(accountAvatar, ColorStateList.valueOf(ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_secondary_color)));
             accountNameView.setText(AccountUtil.getUserName());
             accountNameView.setVisibility(VISIBLE);
-            loginLogoutButton.setText(requireContext().getString(R.string.preference_title_logout));
+            loginLogoutButton.setText(getString(R.string.preference_title_logout));
+            loginLogoutButton.setTextAlignment(TEXT_ALIGNMENT_VIEW_END);
             loginLogoutButton.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.colorError));
-            accountAvatar.setVisibility(VISIBLE);
-            accountWikiGlobe.setVisibility(GONE);
             notificationsContainer.setVisibility(VISIBLE);
         } else {
+            accountAvatar.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.ic_login_24px));
+        ImageViewCompat.setImageTintList(accountAvatar, ColorStateList.valueOf(ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent)));
             accountNameView.setVisibility(GONE);
-            loginLogoutButton.setText(requireContext().getString(R.string.main_drawer_login));
+            loginLogoutButton.setTextAlignment(TEXT_ALIGNMENT_TEXT_START);
+            loginLogoutButton.setText(getString(R.string.main_drawer_login));
             loginLogoutButton.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent));
-            accountAvatar.setVisibility(GONE);
-            accountWikiGlobe.setVisibility(VISIBLE);
             notificationsContainer.setVisibility(GONE);
         }
     }
@@ -95,7 +106,7 @@ public class MenuNavTabDialog extends ExtendedBottomSheetDialogFragment {
 
     @OnClick(R.id.main_drawer_donate_container) void onDonateClick() {
         UriUtil.visitInExternalBrowser(requireContext(),
-                Uri.parse(requireContext().getString(R.string.donate_url,
+                Uri.parse(getString(R.string.donate_url,
                         BuildConfig.VERSION_NAME, WikipediaApp.getInstance().language().getSystemLanguageCode())));
         dismiss();
     }
@@ -108,8 +119,7 @@ public class MenuNavTabDialog extends ExtendedBottomSheetDialogFragment {
     }
 
     @OnClick(R.id.main_drawer_help_container) void onHelpClick() {
-        UriUtil.visitInExternalBrowser(requireContext(),
-                Uri.parse(getContext().getString(R.string.android_app_faq_url)));
+        UriUtil.visitInExternalBrowser(requireContext(), Uri.parse(getString(R.string.android_app_faq_url)));
         dismiss();
     }
 

@@ -109,7 +109,7 @@
     <string name="reading_lists_sync_login">Log in</string>
     <string name="create_account_login">Log in</string>
     <string name="menu_login">Log in</string>
-    <string name="login_activity_title">Log in to Wikipedia</string>
+    <string name="login_activity_title">Log in</string>
     <string name="login_in_progress_dialog_message">Logging you in…</string>
     <string name="login_success_toast">Logged in!</string>
     <string name="reset_password_title">Set your password</string>
@@ -819,6 +819,9 @@
     <string name="suggested_edits_rewards_pageviews">Your edits have been seen by %d people in the last 30 days. Thanks, and keep going!</string>
     <string name="suggested_edits_rewards_edit_quality">Your edits so far are %s. Keep going! We look forward to your contributions.</string>
     <string name="suggested_edits_rewards_continue_button">Continue</string>
+    <string name="suggested_edits_encourage_account_creation_title">Did you know that everyone can edit Wikipedia?</string>
+    <string name="suggested_edits_encourage_account_creation_message">Suggested edits is a new way to edit Wikipedia on Android. It helps you make small but vital contributions to Wikipedia.\nOur goal is to make editing easier and more accessible for everyone! Log in or join Wikipedia to get started.</string>
+    <string name="suggested_edits_encourage_account_creation_login_button">Log in / join Wikipedia</string>
     <string name="suggested_edits_contribution_type_image_tag">Image tag</string>
     <string name="suggested_edits_contribution_current_revision">Current revision</string>
     <plurals name="suggested_edits_tags_diff_count_text">
@@ -871,9 +874,6 @@
     <string name="onboarding_analytics_title">Send anonymous data</string>
     <string name="onboarding_analytics_offline_text"><![CDATA[Help make the app better by letting us know how you use it. Data collected is anonymous. <a href="#privacy">Learn more</a>]]></string>
     <string name="onboarding_analytics_switch_title">Send usage data</string>
-    <string name="onboarding_create_account_sync">Sync your reading lists</string>
-    <string name="onboarding_create_account_contributions">Keep track of your contributions</string>
-    <string name="onboarding_create_account_preferences">Save your preferences</string>
     <string name="onboarding_got_it">Got it</string>
     <string name="onboarding_multilingual_secondary_text">We’ve found the following on your device:</string>
     <string name="onboarding_multilingual_add_language_text">Add or edit languages</string>
@@ -955,6 +955,7 @@
     <string name="main_drawer_help">Help</string>
     <string name="main_drawer_login">Log in / join Wikipedia</string>
     <string name="main_tooltip_text">Hi %s, did you know that everyone can edit Wikipedia?</string>
+    <string name="main_tooltip_text_v2">Did you know that everyone can edit Wikipedia?</string>
     <string name="main_tooltip_action_button">Get started</string>
     <string name="custom_date_picker_dialog_ok_button_text">OK</string>
     <string name="text_input_dialog_ok_button_text">OK</string>

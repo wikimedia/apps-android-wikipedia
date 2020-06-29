@@ -11,11 +11,6 @@ class SuggestedEditsContributionsActivity : SingleFragmentActivity<SuggestedEdit
         return SuggestedEditsContributionsFragment.newInstance()
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        supportActionBar?.title = ""
-    }
-
     companion object {
         fun newIntent(context: Context): Intent {
             SuggestedEditsFunnel.get().contributionsOpened()

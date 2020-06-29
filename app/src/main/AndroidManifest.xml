@@ -142,19 +142,19 @@
         <activity
             android:name=".login.LoginActivity"
             android:label="@string/login_activity_title"
-            android:theme="@style/AppTheme.ActionBar"
+            android:theme="@style/AppTheme.ActionBar.LargeTextToolbar"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
         <activity
             android:name=".createaccount.CreateAccountActivity"
-            android:theme="@style/AppTheme.ActionBar"
+            android:theme="@style/AppTheme.ActionBar.LargeTextToolbar"
             android:label="@string/create_account_activity_title"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
         <activity
             android:name=".login.ResetPasswordActivity"
             android:label="@string/reset_password_title"
-            android:theme="@style/AppTheme.ActionBar"
+            android:theme="@style/AppTheme.ActionBar.LargeTextToolbar"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
         <activity
@@ -246,6 +246,7 @@
         <activity
             android:name=".suggestededits.SuggestedEditsContributionsActivity"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
+            android:label=""
             android:theme="@style/AppTheme.ActionBar" />
 
         <activity

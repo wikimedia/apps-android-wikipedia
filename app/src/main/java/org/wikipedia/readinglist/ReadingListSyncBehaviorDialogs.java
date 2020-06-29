@@ -78,8 +78,7 @@ public final class ReadingListSyncBehaviorDialogs {
                 .setView(view)
                 .setPositiveButton(R.string.reading_list_preference_login_or_signup_to_enable_sync_dialog_login,
                         (dialogInterface, i) -> {
-                            Intent loginIntent = LoginActivity.newIntent(activity,
-                                    LoginFunnel.SOURCE_READING_MANUAL_SYNC);
+                            Intent loginIntent = LoginActivity.newIntent(activity, LoginFunnel.SOURCE_READING_MANUAL_SYNC);
 
                             activity.startActivity(loginIntent);
                         })

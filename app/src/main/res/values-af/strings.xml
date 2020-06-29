@@ -77,7 +77,7 @@
   <string name="login_username_hint">Gebruikersnaam</string>
   <string name="login_password_hint">Wagwoord</string>
   <string name="menu_login">Meld aan</string>
-  <string name="login_activity_title">Meld aan by Wikipedia</string>
+  <string name="login_activity_title" fuzzy="true">Meld aan by Wikipedia</string>
   <string name="login_in_progress_dialog_message">Meld u aan…</string>
   <string name="login_success_toast" fuzzy="true">Suksesvolle Aanmelding!</string>
   <string name="reset_password_title">Stel u wagwoord</string>
