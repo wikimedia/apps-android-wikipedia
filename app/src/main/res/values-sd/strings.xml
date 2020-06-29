@@ -103,7 +103,7 @@
   <string name="reading_lists_sync_login">داخل ٿيو</string>
   <string name="create_account_login">داخل ٿيو</string>
   <string name="menu_login">داخل ٿيو</string>
-  <string name="login_activity_title">وڪيپيڊيا ۾ داخل ٿيو</string>
+  <string name="login_activity_title" fuzzy="true">وڪيپيڊيا ۾ داخل ٿيو</string>
   <string name="login_in_progress_dialog_message">توهان کي داخل ڪندي...</string>
   <string name="login_success_toast" fuzzy="true">ڪاميابيءَ سان داخل ٿيل!</string>
   <string name="reset_password_title">پنھنجو ڳجھولفظ طي ڪريو</string>
@@ -672,8 +672,6 @@
   <string name="onboarding_explore_title">کوجڻ جا نوان گس</string>
   <string name="onboarding_analytics_title">نامعلوم ڊيٽا موڪليو</string>
   <string name="onboarding_analytics_switch_title">استعمال جي ڊيٽا موڪليو</string>
-  <string name="onboarding_create_account_contributions">پنھنجين ڀاڱيدارين جو پتو رکو</string>
-  <string name="onboarding_create_account_preferences">پنھنجون ترجيحون سانڍيو</string>
   <string name="onboarding_got_it">سمجھي ويئو</string>
   <string name="onboarding_multilingual_secondary_text">اسان توھان جي اوزار تي ھي لڌيون آھن:</string>
   <string name="onboarding_multilingual_add_language_text">ٻوليون وجھو يا سنواريو</string>
@@ -732,12 +730,9 @@
   <string name="wikitext_template">سانچو</string>
   <string name="wikitext_reference">حوالو</string>
   <string name="wikitext_preview_link">پيش-نگاھ ڳنڍڻو</string>
-  <string name="main_drawer_open">کوليو</string>
-  <string name="main_drawer_close">بند ڪريو</string>
-  <string name="main_drawer_content_description">مک نيويگيشن دراز کوليو</string>
   <string name="main_drawer_help">مدد</string>
   <string name="main_drawer_login">وڪيپيڊيا ۾ داخل ٿيو/ شامل ٿيو</string>
-  <string name="main_tooltip_text">%s، ڇا توھان کي ڄاڻ ھئي تہ ھرڪو وڪيپيڊيا کي سنواري سگھي ٿو؟</string>
+  <string name="main_tooltip_text">سلام %s، ڇا توھان کي ڄاڻ ھئي تہ ھرڪو وڪيپيڊيا کي سنواري سگھي ٿو؟</string>
   <string name="main_tooltip_action_button">شروع ڪريو</string>
   <string name="custom_date_picker_dialog_ok_button_text">ٺيڪ</string>
   <string name="text_input_dialog_ok_button_text">ٺيڪ</string>

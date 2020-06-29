@@ -133,7 +133,7 @@
   <string name="reading_lists_sync_login">ورود</string>
   <string name="create_account_login">ورود</string>
   <string name="menu_login">ورود به سامانه</string>
-  <string name="login_activity_title">ورود به ویکی‌پدیا</string>
+  <string name="login_activity_title" fuzzy="true">ورود به ویکی‌پدیا</string>
   <string name="login_in_progress_dialog_message">در حال وارد شدن به سامانه…</string>
   <string name="login_success_toast">وارد شدید!</string>
   <string name="reset_password_title">تنظیم گذرواژه</string>
@@ -759,9 +759,6 @@
   <string name="onboarding_analytics_title">ارسال اطلاعات ناشناس</string>
   <string name="onboarding_analytics_offline_text">ما را مطلع کنید که چگونه از این برنامه استفاده می کنید تا یاریمان نمایید آن را بهبود بخشیم. جمع آوری داده ها بصورت ناشناس انجام می گیرد. &lt;a href=\"#privacy\"&gt;اطلاعات بیشتر&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">ارسال داده مصرفی</string>
-  <string name="onboarding_create_account_sync">همسازسازی فهرست‌های مطالعه شما</string>
-  <string name="onboarding_create_account_contributions">پیگیری ویرایش‌هایتان</string>
-  <string name="onboarding_create_account_preferences">ذخیره ترجیحاتتان</string>
   <string name="onboarding_got_it">گرفتم</string>
   <string name="onboarding_multilingual_secondary_text">ما مورد زیر را بر روی دستگاه شما یافتیم:</string>
   <string name="onboarding_multilingual_add_language_text">ویرایش یا اضافه کردن زبان</string>
@@ -820,11 +817,9 @@
   <string name="wikitext_template">الگو</string>
   <string name="wikitext_reference">منبع</string>
   <string name="wikitext_preview_link">پیوند پیش‌نمایش</string>
-  <string name="main_drawer_open">باز کن</string>
-  <string name="main_drawer_close">بستن</string>
   <string name="main_drawer_help">راهنما</string>
   <string name="main_drawer_login">ورود / پیوستن به ویکیپدیا</string>
-  <string name="main_tooltip_text">%s، آیا می‌دانید که هر کسی می‌تواند ویکی‌پدیا را ویرایش کند؟</string>
+  <string name="main_tooltip_text" fuzzy="true">سلام %s، آیا می‌دانید که هر کسی می‌تواند ویکی‌پدیا را ویرایش کند؟</string>
   <string name="main_tooltip_action_button">شروع شد</string>
   <string name="custom_date_picker_dialog_ok_button_text">تأیید</string>
   <string name="text_input_dialog_ok_button_text">تأیید</string>

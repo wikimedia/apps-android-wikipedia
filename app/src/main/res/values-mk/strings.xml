@@ -22,6 +22,7 @@
   <string name="search_hint_search_my_lists_and_articles">Пребарај по мои списоци и статии</string>
   <string name="nav_item_history">Историја</string>
   <string name="nav_item_suggested_edits">Предложени уредувања</string>
+  <string name="nav_item_more">Повеќе</string>
   <string name="error_network_error">Не можам да се поврзам со семрежјето.</string>
   <string name="page_error_retry">Повтори</string>
   <string name="card_offline_error_retry">Пробај пак</string>
@@ -105,7 +106,7 @@
   <string name="reading_lists_sync_login">Најава</string>
   <string name="create_account_login">Најава</string>
   <string name="menu_login">Најава</string>
-  <string name="login_activity_title">Најава на Википедија</string>
+  <string name="login_activity_title" fuzzy="true">Најава на Википедија</string>
   <string name="login_in_progress_dialog_message">Ве најавувам…</string>
   <string name="login_success_toast">Се најавивте!</string>
   <string name="reset_password_title">Ставете лозинка</string>
@@ -307,7 +308,9 @@
   <string name="page_offline_notice_last_date">Читате вонмрежна верзија на статијава, зачувана на %s.</string>
   <string name="button_get_directions">Дај насоки</string>
   <string name="error_no_maps_app">Не можев да најдам прилози што даваат насоки.</string>
+  <string name="preference_title_customize_explore_feed">Тековник „Истражи“</string>
   <string name="preference_title_show_link_previews">Прегледи на врски</string>
+  <string name="preference_summary_customize_explore_feed">Прилагоди го тековникот „Истражи“</string>
   <string name="preference_summary_show_link_previews">Дава брз преглед на статијата кога ќе се допре на нејзината врска</string>
   <string name="preference_title_collapse_tables">Склопи табели</string>
   <string name="preference_summary_collapse_tables">Автоматски склопувај ги табелите во статии како со инфокутиите, наводите и белешките.</string>
@@ -721,9 +724,9 @@
   <string name="suggested_edits_edit_streak_stat_tooltip">Колку дена едноподруго сте учествувале со „Предложени уредувања“. Ако немате учествувано подолго време, ќе се прикаже последниот ден на учество.</string>
   <string name="suggested_edits_page_views_stat_tooltip">Вкупно посети на единиците што ги уредуивте со „Предложени уредувања“ во изминатите 30 дена.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Според тоа колку пати се отповикани вашите уредувања (поништени од друг корисник). Отповикани уредувања: %d.</string>
-  <string name="suggested_edits_paused_message">&lt;b&gt;Предложените уредувања се во прекин до %1$s.&lt;/b&gt; За жал, %2$s, некои од вашите скорешни уредувања се отповикани.\n\nДознајте како да си ги подобрите уредувачките вештини на Википедија од страницата подолу.</string>
-  <string name="suggested_edits_disabled_message">&lt;b&gt;Предложените уредувања се оневозможени.&lt;/b&gt; За жал, %s, имате премногу отповикани скорешни уредувања.\n\nДознајте што ова значи од страницата подолу.</string>
-  <string name="suggested_edits_ip_blocked_message">Се чини дека на на вашата IP-адреса (или адресен опсег) ѝ е забрането да уредува на Википедија. Дознајте повеќе за ова на долунаведената страница.</string>
+  <string name="suggested_edits_paused_message">Предложените уредувања се во прекин до %1$s. За жал, %2$s, некои од вашите скорешни уредувања се отповикани.</string>
+  <string name="suggested_edits_disabled_message">Предложените уредувања се оневозможени. За жал, %s, имате премногу отповикани скорешни уредувања.</string>
+  <string name="suggested_edits_ip_blocked_message">Се чини дека на на вашата IP-адреса (или адресен опсег) ѝ е забрането да уредува на Википедија.</string>
   <string name="suggested_edits_editing_tips_link_text">Совети за уредување</string>
   <string name="suggested_edits_help_page_link_text">Помошна страница за предложени уредувања</string>
   <string name="suggested_edits_edit_streak_label_text">Последователни уредувања</string>
@@ -746,6 +749,12 @@
     <item quantity="one">%d ден</item>
     <item quantity="other">%d дена</item>
   </plurals>
+  <string name="suggested_edits_what_is_title">Што се тоа „Предложени уредувања“?</string>
+  <string name="suggested_edits_what_is_text">Предложените уредувања ви даваат можности за мали, но суштински придонеси кон Википедија.</string>
+  <string name="suggested_edits_learn_more">Дознајте повеќе</string>
+  <string name="suggested_edits_paused_title">Паузирано</string>
+  <string name="suggested_edits_disabled_title">Оневозможено</string>
+  <string name="suggested_edits_ip_blocked_title">IP-адресата е блокирана</string>
   <string name="suggested_edits_last_edited">Последно уредување</string>
   <string name="suggested_edits_last_edited_never">Никогаш</string>
   <string name="suggested_edits_task_new">ново</string>
@@ -760,7 +769,6 @@
   <string name="suggested_edits_contribution_image_label">Податотека</string>
   <string name="suggested_edits_contribution_article_label">Статија</string>
   <string name="suggested_edits_contribution_views">%s посети</string>
-  <string name="suggested_edits_contribution_label">Додадовте %d знаци</string>
   <string name="suggested_edits_contribution_seen_text">Посетена %s пати во изминатите 30 дена.</string>
   <plurals name="suggested_edits_image_tag_contribution_label">
     <item quantity="one">Додадовте %d ознака</item>
@@ -774,6 +782,23 @@
   <string name="suggested_edits_rewards_edit_quality">Засега вашите уредувања се со %s квалитет. Само така! Со нетрпение ги очекуваме вашите понатамошни придонеси.</string>
   <string name="suggested_edits_rewards_continue_button">Продолжи</string>
   <string name="suggested_edits_contribution_type_image_tag">Ознака за слики</string>
+  <string name="suggested_edits_contribution_current_revision">Тековна верзија</string>
+  <plurals name="suggested_edits_tags_diff_count_text">
+    <item quantity="one">%1$s ознака</item>
+    <item quantity="other">%1$s ознаки</item>
+  </plurals>
+  <plurals name="suggested_edits_contribution_diff_count_text">
+    <item quantity="one">%1$s знак</item>
+    <item quantity="other">%1$s знаци</item>
+  </plurals>
+  <plurals name="suggested_edits_removed_contribution_label">
+    <item quantity="one">Отстранивте %d знак</item>
+    <item quantity="other">Отстранивте %d знаци</item>
+  </plurals>
+  <plurals name="suggested_edits_added_contribution_label">
+    <item quantity="one">Додадовте %d знак</item>
+    <item quantity="other">Додадовте %d знаци</item>
+  </plurals>
   <string name="file_page_activity_title">Податотечна страница</string>
   <string name="description_edit_revert_subtitle">Ви благодариме што ја уредувате Википедија!</string>
   <string name="description_edit_revert_intro">Знаеме дека се трудите да напишете што подобро, но еден од прегледувачите има примедба за уреденото. Веројатни причини за отповиканото уредување се:</string>
@@ -796,9 +821,6 @@
   <string name="onboarding_analytics_title">Испраќај анонимни податоци</string>
   <string name="onboarding_analytics_offline_text">Помогнете ни да го подобриме прилогот со тоа што ќе добиваме информации како го користите. Насобраните податоци ќе бидат анонимни. &lt;a href=\"#privacy\"&gt;Дознајте повеќе&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Испраќај податоци за употреба</string>
-  <string name="onboarding_create_account_sync">Усогласи списоци за читање</string>
-  <string name="onboarding_create_account_contributions">Бидете во тек со вашите придонеси</string>
-  <string name="onboarding_create_account_preferences">Зачувајете ги вашите поставки</string>
   <string name="onboarding_got_it">Јасно</string>
   <string name="onboarding_multilingual_secondary_text">Го пронајдов следново на вашиот уред:</string>
   <string name="onboarding_multilingual_add_language_text">Додај или измени јазици</string>
@@ -849,6 +871,7 @@
   <string name="edit_conflict_dialog_ok_button_text">ОК</string>
   <string name="reverted_edit_dialog_ok_button_text">ОК</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">Откажи</string>
+  <string name="edit_type_all">Сите придонеси</string>
   <string name="content_description_for_page_indicator">Страница %1$d од %2$d</string>
   <string name="wikitext_bold">Задебелено</string>
   <string name="wikitext_italic">Закосено</string>
@@ -858,12 +881,9 @@
   <string name="wikitext_template">Предлошка</string>
   <string name="wikitext_reference">Навод</string>
   <string name="wikitext_preview_link">Преглед на врската</string>
-  <string name="main_drawer_open">Отвори</string>
-  <string name="main_drawer_close">Затвори</string>
-  <string name="main_drawer_content_description">Отвори прегледник</string>
   <string name="main_drawer_help">Помош</string>
   <string name="main_drawer_login">Најава / придружување на Википедија</string>
-  <string name="main_tooltip_text">%s, дали знаевте дека Википедија може да ја уредува секој?</string>
+  <string name="main_tooltip_text">Здраво, %s. Дали знаевте дека Википедија може да ја уредува секој?</string>
   <string name="main_tooltip_action_button">Започнете</string>
   <string name="custom_date_picker_dialog_ok_button_text">ОК</string>
   <string name="text_input_dialog_ok_button_text">ОК</string>

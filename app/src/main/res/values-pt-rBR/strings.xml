@@ -48,6 +48,7 @@
   <string name="search_hint_search_my_lists_and_articles">Pesquisar minhas listas e artigos</string>
   <string name="nav_item_history">Histórico</string>
   <string name="nav_item_suggested_edits">Edições sugeridas</string>
+  <string name="nav_item_more">Mais</string>
   <string name="error_network_error">Não foi possível conectar-se à Internet.</string>
   <string name="page_error_retry">Atualizar</string>
   <string name="card_offline_error_retry">Tentar novamente</string>
@@ -131,7 +132,7 @@
   <string name="reading_lists_sync_login">Entrar</string>
   <string name="create_account_login">Entrar</string>
   <string name="menu_login">Entrar</string>
-  <string name="login_activity_title">Entrar na Wikipédia</string>
+  <string name="login_activity_title" fuzzy="true">Entrar na Wikipédia</string>
   <string name="login_in_progress_dialog_message">Autenticando…</string>
   <string name="login_success_toast">Entrado(a)!</string>
   <string name="reset_password_title">Defina sua senha</string>
@@ -333,7 +334,9 @@
   <string name="page_offline_notice_last_date">Você está lendo uma versão offline deste artigo salvo em %s.</string>
   <string name="button_get_directions">Obter itinerário</string>
   <string name="error_no_maps_app">Não foi possível encontrar aplicativos que forneceçam rotas.</string>
+  <string name="preference_title_customize_explore_feed">Feed de explorar</string>
   <string name="preference_title_show_link_previews">Mostrar pré-visualização de ligações</string>
+  <string name="preference_summary_customize_explore_feed">Personalizar o feed do Explorar</string>
   <string name="preference_summary_show_link_previews">Mostra uma rápida pré-visualização dos artigos correspondentes ao tocar em ligações.</string>
   <string name="preference_title_collapse_tables">Recolher tabelas</string>
   <string name="preference_summary_collapse_tables">Recolher tabelas automaticamente em artigos, como infoboxes, referências e notas.</string>
@@ -747,9 +750,9 @@
   <string name="suggested_edits_edit_streak_stat_tooltip">Quantos dias sem intervalo você contribuiu por meio das edições sugeridas. Se você não contribui há algum tempo, ele mostra sua última data de contribuição.</string>
   <string name="suggested_edits_page_views_stat_tooltip">Total de visualizações de página dos itens nos quais você contribuiu nos últimos 30 dias com edições sugeridas.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Com base em quantas vezes uma de suas contribuições foi revertida (desfeita por outro editor). Edições revertidas: %d.</string>
-  <string name="suggested_edits_paused_message">&lt;b&gt;As edições sugeridas estão em pausa até %1$s&lt;/b&gt; Desculpa %2$s, algumas de suas contribuições recentes foram revertidas.\n\nAprenda como melhorar suas habilidades de edição na Wikipédia com o link abaixo.</string>
-  <string name="suggested_edits_disabled_message">&lt;b&gt;As edições sugeridas estão desativadas.&lt;/b&gt; Desculpa %s, muitas das suas recentes contribuições foram revertidas.\n\nSaiba o que isso significa no link abaixo.</string>
-  <string name="suggested_edits_ip_blocked_message">Parece que seu endereço IP (ou intervalo de endereços IP) está atualmente bloqueado na edição da Wikipedia. Saiba mais sobre o que isso significa visitando o link abaixo.</string>
+  <string name="suggested_edits_paused_message">&lt;b&gt;As edições sugeridas estão em pausa até %1$s&lt;/b&gt; Desculpa %2$s, algumas de suas contribuições recentes foram revertidas.</string>
+  <string name="suggested_edits_disabled_message">As edições sugeridas estão desativadas.Desculpa %s, muitas das suas recentes contribuições foram revertidas.</string>
+  <string name="suggested_edits_ip_blocked_message">Parece que seu endereço IP (ou intervalo de endereços IP) está atualmente bloqueado na edição da Wikipédia.</string>
   <string name="suggested_edits_editing_tips_link_text">Dicas e truques de edição</string>
   <string name="suggested_edits_help_page_link_text">Página de ajuda das edições sugeridas</string>
   <string name="suggested_edits_edit_streak_label_text">Editar sequência</string>
@@ -772,6 +775,12 @@
     <item quantity="one">%d dia</item>
     <item quantity="other">%d dias</item>
   </plurals>
+  <string name="suggested_edits_what_is_title">O que é edições sugeridas?</string>
+  <string name="suggested_edits_what_is_text">As edições sugeridas apresentam oportunidades para contribuições pequenas, mas vitais, para a Wikipédia.</string>
+  <string name="suggested_edits_learn_more">Saiba mais</string>
+  <string name="suggested_edits_paused_title">Pausado</string>
+  <string name="suggested_edits_disabled_title">Desativado</string>
+  <string name="suggested_edits_ip_blocked_title">IP bloqueado</string>
   <string name="suggested_edits_last_edited">Última edição</string>
   <string name="suggested_edits_last_edited_never">Nunca</string>
   <string name="suggested_edits_task_new">novo</string>
@@ -786,7 +795,6 @@
   <string name="suggested_edits_contribution_image_label">Arquivo</string>
   <string name="suggested_edits_contribution_article_label">Artigo</string>
   <string name="suggested_edits_contribution_views">%s visualizações</string>
-  <string name="suggested_edits_contribution_label">Você adicionou %d caracteres</string>
   <string name="suggested_edits_contribution_seen_text">Visto %s vezes nos últimos 30 dias.</string>
   <plurals name="suggested_edits_image_tag_contribution_label">
     <item quantity="one">Você adicionou %d marcação</item>
@@ -800,6 +808,23 @@
   <string name="suggested_edits_rewards_edit_quality">Suas edições até agora são %s. Continue! Esperamos suas contribuições.</string>
   <string name="suggested_edits_rewards_continue_button">Continuar</string>
   <string name="suggested_edits_contribution_type_image_tag">Marcação de imagem</string>
+  <string name="suggested_edits_contribution_current_revision">Revisão atual</string>
+  <plurals name="suggested_edits_tags_diff_count_text">
+    <item quantity="one">%1$s marcação</item>
+    <item quantity="other">%1$s marcações</item>
+  </plurals>
+  <plurals name="suggested_edits_contribution_diff_count_text">
+    <item quantity="one">%1$s caráter</item>
+    <item quantity="other">%1$s caracteres</item>
+  </plurals>
+  <plurals name="suggested_edits_removed_contribution_label">
+    <item quantity="one">Você removeu %d caractere</item>
+    <item quantity="other">Você removeu %d caracteres</item>
+  </plurals>
+  <plurals name="suggested_edits_added_contribution_label">
+    <item quantity="one">Você adicionou %d caractere</item>
+    <item quantity="other">Você adicionou %d caracteres</item>
+  </plurals>
   <string name="file_page_activity_title">Página do arquivo</string>
   <string name="description_edit_revert_subtitle">Obrigado por editar a Wikipédia!</string>
   <string name="description_edit_revert_intro">Sabemos que você tentou o seu melhor, mas um dos revisores tinha uma preocupação. Possíveis razões pelas quais a edição foi revertida inclui</string>
@@ -822,9 +847,6 @@
   <string name="onboarding_analytics_title">Enviar dados anônimos</string>
   <string name="onboarding_analytics_offline_text">Ajude a melhorar o aplicativo, informando-nos como você o usa. Os dados coletados são anônimos. &lt;a href=\"#privacy\"&gt;Learn more&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Enviar dados de uso</string>
-  <string name="onboarding_create_account_sync">Sincronize suas listas de leitura</string>
-  <string name="onboarding_create_account_contributions">Acompanhe suas contribuições</string>
-  <string name="onboarding_create_account_preferences">Salve suas preferências</string>
   <string name="onboarding_got_it">Entendi</string>
   <string name="onboarding_multilingual_secondary_text">Encontramos as seguintes no seu dispositivo:</string>
   <string name="onboarding_multilingual_add_language_text">Acrescentar ou editar idiomas</string>
@@ -875,6 +897,7 @@
   <string name="edit_conflict_dialog_ok_button_text">OK</string>
   <string name="reverted_edit_dialog_ok_button_text">OK</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">Cancelar</string>
+  <string name="edit_type_all">Todas as contribuições</string>
   <string name="content_description_for_page_indicator">Página %1$d de %2$d</string>
   <string name="wikitext_bold">Negrito</string>
   <string name="wikitext_italic">Itálico</string>
@@ -884,12 +907,9 @@
   <string name="wikitext_template">Predefinição</string>
   <string name="wikitext_reference">Referência</string>
   <string name="wikitext_preview_link">Pré-visualização de Link</string>
-  <string name="main_drawer_open">Abrir</string>
-  <string name="main_drawer_close">Fechar</string>
-  <string name="main_drawer_content_description">Abrir a gaveta de navegação principal</string>
   <string name="main_drawer_help">Ajuda</string>
   <string name="main_drawer_login">Entrar / Juntar na Wikipédia</string>
-  <string name="main_tooltip_text">%s, Você sabia que todos podem editar a Wikipédia?</string>
+  <string name="main_tooltip_text">Olá %s, Você sabia que todos podem editar a Wikipédia?</string>
   <string name="main_tooltip_action_button">Começar</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_ok_button_text">OK</string>

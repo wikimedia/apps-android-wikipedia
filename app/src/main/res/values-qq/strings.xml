@@ -43,6 +43,7 @@
   <string name="search_hint_search_my_lists_and_articles">Hint text for the search box when searching the set of reading lists or pages in a single reading list</string>
   <string name="nav_item_history">Text in navigation sidebar that when tapped leads to the History screen.\n{{Identical|History}}</string>
   <string name="nav_item_suggested_edits">Navigation menu item label for suggested edits.\n\n{{Identical|Suggested edits}}</string>
+  <string name="nav_item_more">Navigation menu item label for accessing menu items.\n{{identical|More}}</string>
   <string name="error_network_error">Error message shown when network cannot be reached when loading a page</string>
   <string name="page_error_retry">Text for button that retries page loading when tapped.\n{{Identical|Retry}}</string>
   <string name="card_offline_error_retry">Text for button that retries loading the offline card in the event of an error while loading.\n{{Identical|Retry}}</string>
@@ -328,7 +329,9 @@
   <string name="page_offline_notice_last_date">Message that tells the user that the current article is loaded from offline storage. The %s symbol is replaced with the date when the article was saved.</string>
   <string name="button_get_directions">Button to obtain directions to the location specified in the link preview.</string>
   <string name="error_no_maps_app">Error displayed when the device does not have any apps installed that are capable of providing directions to a location.</string>
+  <string name="preference_title_customize_explore_feed">Title of the preference for customizing the explore feed.</string>
   <string name="preference_title_show_link_previews">Title of the preference for enabling or disabling link previews.\n\nShown in the preferences screen along with the following:\n* {{msg-wikimedia|Wikipedia-android-strings-preference title show images}}\n* {{msg-wikimedia|Wikipedia-android-strings-preference title language}}\n* {{msg-wikimedia|Wikipedia-android-strings-preference title show link previews}}\n* {{msg-wikimedia|Wikipedia-android-strings-preference title eventlogging opt in}}\n* {{msg-wikimedia|Wikipedia-android-strings-zero warn when leaving}}</string>
+  <string name="preference_summary_customize_explore_feed">Description of the preference for customizing the explore feed.</string>
   <string name="preference_summary_show_link_previews">Description of the preference for enabling or disabling link previews.</string>
   <string name="preference_title_collapse_tables">Title of the preference for enabling or disabling automatic collapsing of infoboxes and other tables.</string>
   <string name="preference_summary_collapse_tables">Description of the preference for enabling or disabling automatic collapsing of infoboxes and other tables.</string>
@@ -767,6 +770,12 @@
     <item quantity="one">Label text to show the length of the edit streak in number of days. %d is for one dat.</item>
     <item quantity="other">Label text to show the length of the edit streak in number of days. %d is for many days</item>
   </plurals>
+  <string name="suggested_edits_what_is_title">Title for card that introduces Suggested edits.</string>
+  <string name="suggested_edits_what_is_text">Body text for card that introduces Suggested edits.</string>
+  <string name="suggested_edits_learn_more">Button text for navigating to additional information for the user.</string>
+  <string name="suggested_edits_paused_title">Title for card that explains that this feature is currently paused.</string>
+  <string name="suggested_edits_disabled_title">Title for card that explains that this feature is currently disabled.</string>
+  <string name="suggested_edits_ip_blocked_title">Title for card that explains that the IP address of the user is blocked.</string>
   <string name="suggested_edits_last_edited">This refers to the date when the user made their last edit.</string>
   <string name="suggested_edits_last_edited_never">Displayed when the user has never made an edit.</string>
   <string name="suggested_edits_task_new">Quick label shown for tasks that are newly introduced (should be lowercase in languages that support it).\n\nShould be translated as a kind of advertising, referring to somthing like a \"new (feature)\" or a \"new (thing)\".</string>
@@ -781,7 +790,6 @@
   <string name="suggested_edits_contribution_image_label">Text label that indicates that the contribution is to an image file.\n{{identical|File}}</string>
   <string name="suggested_edits_contribution_article_label">Text label that indicates that the contribution is to an article.\n{{identical|Article}}</string>
   <string name="suggested_edits_contribution_views">Text label indicating that the associated data indicates the number of views that the contribution has. %s represents the type of contribution.</string>
-  <string name="suggested_edits_contribution_label">Text summarizing the user\'s contribution to the article or image. %d represents the number of characters contributed.</string>
   <string name="suggested_edits_contribution_seen_text">Contribution detail text about the pageviews. %s represented the times the contribution has been viewed in the past 30 days.</string>
   <plurals name="suggested_edits_image_tag_contribution_label">
     <item quantity="one">Text summarizing the user\'s image tag contribution. %d represents the number of tags contributed.</item>
@@ -794,7 +802,27 @@
   <string name="suggested_edits_rewards_pageviews">Message shown to a user about the pageviews the user has earned in a period of time. The %d represents the number of pageviews.</string>
   <string name="suggested_edits_rewards_edit_quality">Message shown to a user about the edit quality status. The %s represents the quality of edits.</string>
   <string name="suggested_edits_rewards_continue_button">Button label to move to the next card of suggested edits.</string>
+  <string name="suggested_edits_encourage_account_creation_title">Title text of the encourage account creation card.</string>
+  <string name="suggested_edits_encourage_account_creation_message">Content text of the encourage account creation card.</string>
+  <string name="suggested_edits_encourage_account_creation_login_button">Button text of the encourage account creation card log in button.</string>
   <string name="suggested_edits_contribution_type_image_tag">Text indicating that the user edit was an Image tag edit</string>
+  <string name="suggested_edits_contribution_current_revision">Text indicating that the user\'s contribution is the most current edit on that file or article.</string>
+  <plurals name="suggested_edits_tags_diff_count_text">
+    <item quantity="one">Label text indicating the number of tags added or removed by a user contribution. %1$s represents the number.</item>
+    <item quantity="other">Label text indicating the number of tags added or removed by a user contribution. %1$s represents the number.</item>
+  </plurals>
+  <plurals name="suggested_edits_contribution_diff_count_text">
+    <item quantity="one">Label text indicating the number of characters added or removed by a user contribution. %1$s represents the number.</item>
+    <item quantity="other">Label text indicating the number of characters added or removed by a user contribution. %1$s represents the number.</item>
+  </plurals>
+  <plurals name="suggested_edits_removed_contribution_label">
+    <item quantity="one">Text summarizing the user\'s contribution to the article or image. %d represents the number when only one character is removed by the contribution.</item>
+    <item quantity="other">Text summarizing the user\'s contribution to the article or image. %d represents the number when many characters are removed by the contribution.</item>
+  </plurals>
+  <plurals name="suggested_edits_added_contribution_label">
+    <item quantity="one">Text summarizing the user\'s contribution to the article or image. %d represents the number when only one character is added.</item>
+    <item quantity="other">Text summarizing the user\'s contribution to the article or image. %d represents the number when many characters are added.</item>
+  </plurals>
   <string name="file_page_activity_title">Title shown at the top of the activity for the file page.</string>
   <string name="description_edit_revert_subtitle">Subtitle in the dialog that informs the user that their edit was reverted.</string>
   <string name="description_edit_revert_intro">Introduction message informing the user that their edit was reverted, and leading into possible reasons for the revert.</string>
@@ -817,9 +845,6 @@
   <string name="onboarding_analytics_title">Title for a tutorial screen about anonymous usage reports sent by the app.</string>
   <string name="onboarding_analytics_offline_text">Short explanatory text about the benefits of allowing the app to send anonymous usage reports. (Please preserve the anchor tag in its exact form)</string>
   <string name="onboarding_analytics_switch_title">Label for an on-off switch that enables sending anonymous usage reports.</string>
-  <string name="onboarding_create_account_sync">Short explanation of the benefits of creating an account, which is the ability to synchronize your reading lists.</string>
-  <string name="onboarding_create_account_contributions">Short explanation of the benefits of creating an account, which is the ability to keep a record of your edits.</string>
-  <string name="onboarding_create_account_preferences">Short explanation of the benefits of creating an account, which is the ability to save your preferences.</string>
   <string name="onboarding_got_it">Button label for dismissing the current onboarding card.\n{{Identical|Got it}}</string>
   <string name="onboarding_multilingual_secondary_text">Onboarding subtitle text informing the user about the languages found on the device.</string>
   <string name="onboarding_multilingual_add_language_text">Button text to suggest that users can now add more languages of their preference.</string>
@@ -870,6 +895,7 @@
   <string name="edit_conflict_dialog_ok_button_text">Acknowledgement button text in warning pop-up dialog for editing conflict.\n{{Identical|OK}}</string>
   <string name="reverted_edit_dialog_ok_button_text">Acknowledgement button text in warning pop-up dialog for reverted edit.\n{{Identical|OK}}</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">Negative action button text in warning pop-up dialog for accounts for which editing is blocked.\n{{Identical|Cancel}}</string>
+  <string name="edit_type_all">Selection to show all types of edits.</string>
   <string name="content_description_for_page_indicator">Label of content description for tutorial page. %1$d will be replaced by the current number of pages and %2$d will be replaced by the total number of pages.</string>
   <string name="wikitext_bold">Button label for making the selected text bold.</string>
   <string name="wikitext_italic">Button label for making the selected text italic.</string>
@@ -879,12 +905,10 @@
   <string name="wikitext_template">Button label for making the selected text into a template.\n{{Identical|Template}}</string>
   <string name="wikitext_reference">Button label for adding a reference at the current cursor position.\n{{Identical|Reference}}</string>
   <string name="wikitext_preview_link">Button label for showing a preview of the link that is at the current cursor position.</string>
-  <string name="main_drawer_open">Main navigation drawer label for the content description of the open drawable resource.</string>
-  <string name="main_drawer_close">Main navigation drawer label for the content description of the close drawable resource.</string>
-  <string name="main_drawer_content_description">Label of content description for the button of opening the main navigation drawer</string>
   <string name="main_drawer_help">Main navigation drawer menu label for accessing the app FAQ.</string>
   <string name="main_drawer_login">Main navigation drawer menu label for logging in or creating an account.</string>
   <string name="main_tooltip_text">Message for the tool tip that shown on the main screen. The %s symbol is replaced with the username.</string>
+  <string name="main_tooltip_text_v2">Message for the tool tip that shown on the main screen.</string>
   <string name="main_tooltip_action_button">Button label for the action on tool tip that shown on the main screen.</string>
   <string name="custom_date_picker_dialog_ok_button_text">Positive action button text in date picker pop-up dialog.\n{{Identical|OK}}</string>
   <string name="text_input_dialog_ok_button_text">Positive action button text in pop-up dialog for text input.\n{{Identical|OK}}</string>

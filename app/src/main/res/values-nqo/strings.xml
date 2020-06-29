@@ -20,6 +20,7 @@
   <string name="search_hint_search_languages">ߞߊ߲ ߘߏ߫ ߢߌߣߌ߲߫</string>
   <string name="search_hint_search_my_lists_and_articles">ߒ ߠߊ߫ ߛߙߍߘߍ ߣߌ߫ ߞߎߡߘߊ ߟߎ߬ ߢߌߣߌ߲߫</string>
   <string name="nav_item_history">ߘߐ߬ߝߐ</string>
+  <string name="nav_item_more">ߡߊߞߊ߬ߝߏ߬ ߜߘߍ ߟߎ߬</string>
   <string name="error_network_error">ߊ߬ ߕߴߛߋ߫ ߜߊ߲߬ߞߎ߲߬ ߠߊ߫ ߓߟߐߟߐ ߟߊ߫</string>
   <string name="page_error_retry">ߌ ߡߊߝߍߣߍ߲߫ ߞߎߘߊߞߍ߫</string>
   <string name="card_offline_error_retry">ߊ߬ ߡߊߝߍߣߍ߲߫ ߕߎ߲߯</string>
@@ -99,7 +100,7 @@
   <string name="reading_lists_sync_login">ߌ ߜߊ߲߬ߞߎ߲߫</string>
   <string name="create_account_login">ߌ ߜߊ߲߬ߞߎ߲߫</string>
   <string name="menu_login">ߌ ߜߊ߲߬ߞߎ߲߫</string>
-  <string name="login_activity_title">ߌ ߜߊ߲߬ߞߎ߲߬ ߥߞߌ-ߔߘߋߞߎ ߟߊ߫</string>
+  <string name="login_activity_title" fuzzy="true">ߌ ߜߊ߲߬ߞߎ߲߬ ߥߞߌ-ߔߘߋߞߎ ߟߊ߫</string>
   <string name="login_in_progress_dialog_message">ߌ ߜߊ߲߬ߞߎ߲߬ߠߌ߲ ߦߴߌ ߘߐ߫...</string>
   <string name="login_success_toast">ߌ ߓߘߴߌ ߜߊ߲߬ߞߎ߲߬߹</string>
   <string name="reset_password_title">ߌ ߟߊ߫ ߕߊ߬ߡߌ߲߬ߞߊ߲ ߠߊߘߏ߲߬</string>
@@ -316,8 +317,13 @@
   <string name="text_size_percent_default">(ߓߐߛߎ߲) %s</string>
   <string name="nav_item_reading_lists">ߒ ߠߊ߫ ߛߙߍߘߍ</string>
   <string name="reading_list_save_to">ߊ߬ ߟߊߞߎ߲߬ߘߎ߫ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߘߐ߫</string>
+  <string name="reading_list_move_to">ߊ߬ ߛߋ߲߬ߓߐ߫ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߘߐ߫</string>
   <string name="reading_list_create_new">ߞߎߘߊ߫ ߛߌ߲ߘߌ߫</string>
   <string name="reading_list_title_exists">ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ %s ߦߋ߫ ߦߋ߲߬ ߞߘߐ߬ߡߊ߲߬.</string>
+  <string name="reading_list_article_added_to_named">%1$s ߟߊߘߏ߲߬ %2$s ߘߐ߫.</string>
+  <string name="reading_list_article_moved_to_named">%1$s ߓߘߊ߫ ߓߐ߫ %2$s ߘߐ߫</string>
+  <string name="reading_list_article_already_exists_message">ߊ߬ ߓߍ߯ ߞߊߢߌ߲߬߹ %1$s ߦߋ߫ %2$s ߘߌ߫ ߞߘߐ߬ߡߊ߲߫.</string>
+  <string name="reading_list_articles_already_exist_message">ߊ߬ ߓߍ߯ ߞߊߢߌ߲߬߹ ߞߎߡߘߊ ߓߍ߯ ߦߋ߫ %s ߘߐ߫ ߞߘߐ߬ߡߊ߲߫.</string>
   <string name="reading_list_added_view_button">ߛߙߍߘߍ ߦߋ߫</string>
   <string name="format_reading_list_statistical_summary_singular">ߦߌߟߡߊ߫ ߁߸  %1$.2f ߝ.ߝ</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d ߦߌߟߡߊ߸ %2$.2f ߝ.ߝ</string>
@@ -338,6 +344,7 @@
   <string name="reading_list_action_menu_remove_all_from_offline">ߊ߬ ߓߍ߯ ߛߋ߲߬ߓߐ߫ ߜߊ߲߬ߞߎ߲߬ߠߌ߲ ߞߐߞߊ߲߬</string>
   <string name="reading_list_action_menu_save_all_for_offline">ߊ߬ ߓߍ߯ ߟߊߞߎ߲߬ߘߎ߫ ߜߊ߲߬ߞߎ߲߬ߠߌ߲ ߞߐߞߊ߲߬</string>
   <string name="reading_list_action_menu_add_to_another_list">ߊ߬ ߟߊߘߏ߲߬ ߛߙߍߘߍ߫ ߜߘߍ߫ ߘߐ߫</string>
+  <string name="reading_list_action_menu_move_to_another_list">ߊ߬ ߟߊߕߊ߯ ߛߙߍߘߍ߫ ߜߘߍ߫ ߘߐ߫</string>
   <string name="reading_list_name_sample">ߒ ߠߊ߫ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ</string>
   <string name="reading_list_name_hint">ߛߙߍߘߍ ߣߌ߲߬ ߕߐ߮</string>
   <string name="reading_list_description_hint">ߞߊ߲߬ߛߓߍߟߌ (ߢߣߊߕߊߟߞߊ)</string>
@@ -358,6 +365,8 @@
   <string name="reading_list_article_offline">ߡߍ߲ ߠߎ߬ ߦߋ߫ ߜߊ߲߬ߞߎ߲߬ߠߌ߲ ߞߐߞߊ߲߬</string>
   <string name="reading_list_article_make_offline">ߦߌߟߡߊ ߣߌ߲߬ ߞߍ߫ ߜߊ߲߬ߞߎ߲߬ߠߌ߲ ߞߐߞߊ߲ߕߊ ߘߏ߫ ߘߌ߫.</string>
   <string name="reading_list_add_to_other_list">ߊ߬ ߟߊߘߏ߲߬ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ߫ ߜߘߍ߫ ߘߐ߫</string>
+  <string name="reading_list_move_to_other_list">ߊ߬ ߟߊߘߏ߲߬ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ߫ ߜߘߍ߫ ߘߐ߫</string>
+  <string name="reading_list_move_from_to_other_list">ߊ߬ ߟߊߓߐ߫ %s ߘߐ߫ ߞߵߊ߬ ߟߊߕߊ߯ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ߫ ߜߘߍ߫ ߘߐ߫</string>
   <string name="reading_list_remove_from_list">ߊ߬ ߛߋ߲߬ߓߐ߫ %s ߘߐ߫</string>
   <string name="reading_list_remove_from_lists">ߊ߬ ߛߋ߲߬ߓߐ߫ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߘߐ߫</string>
   <string name="reading_list_select_item">ߓߊߕߐߡߐ߲ߠߌ߲</string>
@@ -374,6 +383,7 @@
   <string name="reading_lists_confirm_remote_delete_no">ߍ߲߬ߍ߲߫</string>
   <string name="reading_list_article_save_in_progress">ߞߎߡߘߊ ߓߘߊ߫ ߟߊߖߌ߱ ߘߊߡߌ߬ߣߊ߬ ߌ ߞߎ߲߬߸ ߊ߬ ߓߊ߯ ߘߝߊ߫ ߕߎ߬ߡߊ ߡߍ߲߸ ߊ߬ ߘߌ߫ ߞߍ߫ ߜߊ߲߬ߞߎ߲߬ߓߊߟߌߦߊ ߘߐ߫.</string>
   <string name="reading_list_articles_added_to_named">ߦߌߟߡߊ %1$d ߓߘߊ߫ ߓߌ߬ߟߊ߬ %2$s ߘߐ߫</string>
+  <string name="reading_list_articles_moved_to_named">ߦߌߟߡߊ %1$d ߓߘߊ߫ ߓߌ߬ߟߊ߬ %2$s ߘߐ߫</string>
   <string name="reading_list_delete_confirm">ߌ ߟߊ߫ ߣߴߊ߬ ߟߊ߫ ߞߴߌ ߦߴߊ߬ ߝߍ߬ ߞߊ߬ %s ߖߏ߬ߛߌ߬؟</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">ߌ ߜߊ߲߬ߞߎ߲߫ ߞߊ߬ ߕߎ߬ߡߊ߬ߢߐ߲߰ߦߊ ߓߌ߬ߟߵߊ߬ ߟߊ߫</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">ߌ ߜߊ߲߬ߞߎ߲߫ ߛߴߌ ߟߊ߫ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߘߌ߫ ߛߋ߫ ߟߊߞߎ߲߬ߘߎ߬ ߟߴߌ ߟߊ߫ ߖߊ߬ߕߋ߬ߘߊ ߟߊ߫.</string>
@@ -443,12 +453,18 @@
   <string name="notifications_poll_enable_positive">ߊ߬ ߓߌ߬ߟߴߊ߬ ߟߊ߫</string>
   <string name="notifications_poll_enable_negative">ߌߞߘߐߣߌ߲߬ ߕߴߏ ߘߌ߫</string>
   <string name="notifications_mark_unread">ߊ߬ ߞߍ߫ ߞߊ߬ߙߊ߲߬ߓߊߟߌ ߘߌ߫</string>
+  <string name="preference_title_notification_system">ߞߊ߲ߞߋ</string>
+  <string name="preference_summary_notification_system">ߗߋߛߓߍ ߞߊ߬ ߝߘߊ߫ ߞߊ߲ߞߋ ߟߊ߫</string>
   <string name="preference_title_notification_milestone">ߛߊ߯ߘߊ߫ ߣߝߊ߬ߡߊ</string>
   <string name="preference_summary_notification_milestone">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߘߏ߫ ߟߎ߫ ߦߙߌߞߊ ߓߘߊ߫ ߛߋ߫</string>
   <string name="preference_title_notification_thanks">ߌ ߞߎߟߎ߲ߖߋ߫</string>
   <string name="preference_summary_notification_thanks">ߘߏߕߌ߰ ߓߘߴߌ ߞߎ߲ߟߎ߲ߖߋ߫ ߌ ߟߊ߫ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߠߊ߫</string>
   <string name="preference_title_notification_revert">ߞߐߛߊߦߟߌ</string>
   <string name="preference_summary_notification_revert">ߌ ߟߊ߫ ߓߟߏߓߌߟߊߢߐ߲߮ߞߊ߲ ߞߋߟߋ߲߫ ߞߎ߲߬ߠߊߛߊ߬ߦߌ߬ߣߍ߲ ߠߋ߬ ߕߘߍ߬</string>
+  <string name="preference_title_notification_login_fail">ߌ ߜߊ߲߬ߞߎ߲߫</string>
+  <string name="preference_summary_notification_mention">ߘߏߕߌ߰ ߓߘߴߌ ߕߐ߮ ߘߐߕߍ߰ ߞߐߜߍ ߘߐ߫</string>
+  <string name="preference_title_notification_user_talk">ߞߎߡߊߢߐ߲߯ߦߊ߫ ߞߐߜߍ</string>
+  <string name="preference_summary_notification_user_talk">ߗߋߛߓߍ ߞߊ߬ ߝߘߊ߫ ߞߎߡߊߢߐ߲߯ߦߊ߫ ߞߐߜߍ ߟߊ߫</string>
   <string name="view_because_you_read_card_title">ߞߊ߬ߡߊߛߐ߬ߘߐ߲߬ ߌ ߓߘߊ߫ ߘߐ߬ߞߊ߲߬ߠߌ߲ ߞߍ߫</string>
   <string name="view_random_card_title">ߞߎ߲߬ߝߍ߬ߦߊ߬ߣߍ߲</string>
   <string name="view_next_random_article">ߞߎ߲߬ߝߍ߬ ߦߌߟߡߊ߫ ߜߘߍ߫ ߟߊߦߟߍ߬</string>
@@ -494,9 +510,14 @@
   <string name="customize_lang_selection_dialog_cancel_button_text">ߘߐ߬ߛߊ߬ߟߌ</string>
   <string name="feed_lang_selection_dialog_ok_button_text">ߏ߬ߞߍ߫</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">ߊ߬ ߘߐߛߊ߬</string>
+  <string name="feed_accessibility_card_load_more_button">ߘߏߜߘߍ߫ ߟߎ߫ ߟߊߢߎ߲߫</string>
   <string name="description_edit_text_hint">ߦߌߟߡߊ ߞߊ߲߬ߛߓߍߟߌ</string>
+  <string name="description_edit_article_description_label">ߞߎߡߘߊ</string>
   <string name="description_edit_translate_article_description_label_per_language" fuzzy="true">ߦߌߟߡߊ (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">ߦߌߟߡߊ ߞߊ߲߬ߛߓߍߟߌ (%s)</string>
+  <string name="description_edit_add_caption_label">ߖߌ߬ߦߊ߬ߓߍ ߞߊ߲߬ߛߓߍߟߌ</string>
+  <string name="description_edit_add_caption_hint">ߖߌ߬ߦߊ߬ߓߍ ߝߍ߬ߛߓߍߟߌ</string>
+  <string name="description_edit_translate_caption_label_per_language">ߖߌ߬ߦߊ߬ߓߍ ߝߍ߬ߛߓߍߟߌ (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">ߖߌ߬ߦߊ߬ߓߍ ߞߊ߲߬ߛߓߍߟߌ (%s)</string>
   <string name="description_edit_save">ߟߊ߬ߥߊ߲߬ߞߊ߬ߟߌ</string>
   <string name="description_edit_read">ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲</string>
@@ -552,6 +573,7 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text">ߊ߬ ߣߍ߰ߣߍ߲ ߠߋ߬ ߝߏ߫ ߌ ߣߊ߬ ߞߎߡߘߊ %d ߟߎ߫ ߞߊ߲߬ߛߓߍߟߌ ߡߊߦߟߍ߬ߡߊ߲߫ (ߝߛߍ߬ߝߛߍ߬)</string>
   <string name="suggested_edits_task_multilingual_negative">ߒߠߋ ߕߊ߫ ߕߍ߫</string>
   <string name="suggested_edits_task_multilingual_positive">ߞߊ߲ ߠߎ߬ ߟߊߘߏ߲߬</string>
+  <string name="suggested_edits_image_caption_summary_title_file">ߞߐߕߐ߮</string>
   <string name="suggested_edits_image_caption_summary_title_artist">ߞߎ߬ߛߊ߲߬ߧߊ</string>
   <string name="suggested_edits_image_caption_summary_title_author">ߛߓߍߦߟߊ</string>
   <string name="suggested_edits_image_caption_summary_title_source">ߛߎ߲</string>
@@ -567,18 +589,42 @@
   <string name="suggested_edits_tasks_onboarding_get_started">ߟߊ߬ߝߟߐ߬ߟߌ ߘߊߡߌ߬ߣߊ߬</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">ߖߌ߬ߦߊ߬ߓߍ ߝߍ߬ߛߓߍߟߌ (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">ߖߌ߬ߦߊ߬ߓߍ ߞߊ߲߬ߛߓߍߟߌ (%s)</string>
+  <string name="suggested_edits_image_preview_dialog_file">ߞߐߕߐ߮</string>
   <string name="suggested_edits_image_preview_dialog_artist">ߞߎ߬ߛߊ߲߬ߧߊ</string>
+  <string name="suggested_edits_image_preview_dialog_tags">ߘߎ߲ߛߓߍ ߟߎ߬</string>
   <string name="suggested_edits_image_preview_dialog_date">ߕߎ߬ߡߊ߬ߘߊ</string>
   <string name="suggested_edits_image_preview_dialog_source">ߖߌ߬ߦߊ߬ߕߊ߬ߟߊ߲/ߛߎ߲</string>
   <string name="suggested_edits_image_preview_dialog_licensing">ߟߊ߬ߘߌ߬ߢߍ߬ߟߌ ߦߴߌ ߘߐ߫</string>
   <string name="suggested_edits_image_preview_dialog_more_info">ߞߌ߬ߓߊ߬ߙߏ߬ߦߊ߬ ߜߘߍ</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">ߞߐߕߐ߮ ߞߐߜߍ ߡߍ߲ ߠߎ߬ ߦߋ߫ ߥߞߌߔߋߘߌߦߊ߫ ߞߐߡߐ߲ ߞߊ߲߬</string>
+  <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">ߞߐߕߐ߮ ߟߎ߬ ߞߐߜߍ ߥߞߌߔߋߘߌߦߊ ߞߊ߲߬</string>
   <string name="suggested_edits_article_cta_image_caption">ߖߌ߬ߦߊ߬ߓߍ ߝߍ߬ߛߓߍߟߌ ߟߊߘߏ߲߬</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">ߖߌ߬ߦߊ߬ߓߍ ߝߍ߬ߛߓߍߟߌ ߟߊߘߏ߲߬ (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">ߦߌ߬ߘߊ߬ߟߌ</string>
-  <string name="suggested_edits_feed_card_add_image_caption" fuzzy="true">ߝߍ߬ߛߓߍߟߌ ߟߊߘߏ߲߬</string>
-  <string name="suggested_edits_feed_card_translate_image_caption" fuzzy="true">ߝߍ߬ߛߓߍߟߌ ߟߊߘߏ߲߬ (%s)</string>
+  <string name="suggested_edits_feed_card_add_image_caption">ߖߌ߬ߦߊ߬ߓߍ ߝߍ߬ߛߓߍߟߌ ߝߙߊ߬</string>
+  <string name="suggested_edits_feed_card_translate_image_caption">ߖߌ߬ߦߊ߬ߓߍ ߝߍ߬ߛߓߍߟߌ ߟߊߘߏ߲߬ (%s)</string>
+  <string name="suggested_edits_feed_card_add_image_tags">ߖߌ߬ߦߊ߬ߓߍ ߘߎ߲ߛߓߍ ߝߙߊ߬</string>
+  <string name="suggested_edits_task_action_text_add">ߟߊ߬ߘߏ߲߬ߠߌ߲</string>
+  <string name="suggested_edits_task_action_text_translate">ߘߟߊߡߌ߬ߘߊ߬</string>
   <string name="suggested_edits_image_captions">ߖߌ߬ߦߊ߬ߓߍ ߝߍ߬ߛߓߍߟߌ</string>
+  <string name="suggested_edits_image_tags">ߖߌ߬ߦߊ߬ߓߍ ߘߎ߲ߛߓߍ</string>
+  <string name="suggested_edits_image_tags_publishing">ߟߊ߬ߥߊ߲߬ߞߊ߬ߟߌ ߦߴߌ ߘߐ߫...</string>
+  <string name="suggested_edits_image_tags_published">ߊ߬ ߓߘߊ߫ ߟߊߥߊ߲߬ߞߊ߫</string>
+  <string name="suggested_edits_pageviews_label_text">ߞߐߜߍ ߦߋߟߌ</string>
+  <string name="suggested_edits_quality_label_text">ߛߎ߯ߦߊ ߡߊߦߟߍ߬ߡߊ߲߫</string>
+  <string name="suggested_edits_contributions_screen_title">%s ߟߊ߫ ߓߟߏߓߌߟߊߢߐ߲߯ߞߊ߲ ߠߎ߬</string>
+  <string name="suggested_edits_contribution_language_label">ߞߊ߲</string>
+  <string name="suggested_edits_contribution_date_time_label">ߕߎ߬ߡߊ߬ߘߊ/ߕߎ߬ߡߊ߬ߟߊ߲</string>
+  <string name="suggested_edits_contribution_type_label">ߓߟߏߓߌߟߊߢߐ߲߯ߞߊ߲ ߛߎ߯ߦߊ</string>
+  <string name="suggested_edits_contribution_image_label">ߞߐߕߐ߮</string>
+  <string name="suggested_edits_contribution_article_label">ߞߎߡߘߊ</string>
+  <string name="suggested_edits_contribution_views">%s ߦߋߟߌ</string>
+  <string name="suggested_edits_contribution_seen_text">%s ߦߋߟߌ ߦߙߌߞߊ ߕߟߋ߬ ߃߀ ߕߊ߬ߡߌ߲߬ߣߍ߲ ߠߎ߬ ߞߘߐ߫.</string>
+  <string name="suggested_edits_contribution_date_yesterday_text">ߞߎߣߎ߲߬</string>
+  <string name="suggested_edits_rewards_contribution">ߌ ߓߘߊ߫ %d ߛߌ߲ߘߌ߫ ߥߞߌߔߋߘߌߦߊ߫ ߞߊ߲߬ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߛߊ߯ߛߊ߯ߟߌ߫ ߘߐ߫.ߌ ߣߌ߫ ߗߋ߫߹</string>
+  <string name="suggested_edits_rewards_continue_button">ߘߊߓߊ߲ߠߌ߲</string>
+  <string name="suggested_edits_contribution_current_revision">ߕߋ߲߭ߕߋ߲߭ ߟߢߊ߬ߟߌ</string>
+  <string name="file_page_activity_title">ߞߐߕߐ߯ ߞߐߜߍ</string>
   <string name="description_edit_revert_subtitle">ߌ ߞߎߟߎ߲ߖߋ߫ ߥߞߌߔߋߘߌߦߊ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߠߊ߫߹</string>
   <string name="description_edit_revert_reason1">ߌ ߟߊ߫ ߓߟߏߓߌߟߊߢߐ߲߮ߞߊ߲ ߟߎ߬ ߡߊ߫ &lt;a href=\"%1$s\"&gt;guidelines&lt;/a&gt; ߘߏ߫ ߘߐ߫ ߞߋߟߋ߲߫ ߠߊߓߊ߬ߕߏ߬.</string>
   <string name="description_edit_revert_reason2">ߌ ߟߊ߫ ߓߟߏߡߊߜߍ߲ ߞߍ߫ ߣߍ߲߫ ߦߏ߫ ߘߊ߲߬ߕߍ߰ߟߌ߫ ߥߟߊ߫ ߞߏߘߐߕߌߢߍ߫.</string>
@@ -596,8 +642,6 @@
   <string name="onboarding_reading_list_sync_title">ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߕߎ߬ߡߊ߬ߢߐ߲߰ߡߊ</string>
   <string name="onboarding_analytics_title">ߓߟߏߡߟߊ߫ ߕߐ߯ߒߕߊ߲ ߘߏ߫ ߗߋ߫</string>
   <string name="onboarding_analytics_switch_title">ߓߟߏߡߟߊ߫ ߟߊߓߊ߯ߙߕߊ ߗߋ߫</string>
-  <string name="onboarding_create_account_sync">ߌ ߟߊ߫ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߟߎ߬ ߕߎ߬ߡߊ߬ߢߐ߲߰ߦߊ߫</string>
-  <string name="onboarding_create_account_preferences">ߌ ߟߊ߫ ߦߟߌߡߊߛߙߋ ߟߊߞߎ߲߬ߘߎ߬</string>
   <string name="onboarding_got_it">ߊ߬ ߟߊߛߐ߬ߘߐ߲߬</string>
   <string name="onboarding_multilingual_secondary_text">ߊ߲ ߓߘߴߌ ߟߊ߫ ߞߍߟߊ߲ ߠߊߓߊ߬ߕߏ߬ߓߊ߮ ߟߎ߬ ߛߐ߬ߘߐ߲߬:</string>
   <string name="onboarding_multilingual_add_language_text">ߞߊ߲ ߠߎ߬ ߟߊߘߏ߲߬ ߥߟߊ߫ ߞߵߊ߬ߟߎ߬ ߡߊߦߟߍ߬ߡߊ߲߫</string>
@@ -610,6 +654,8 @@
   <string name="more_events_text">ߛߌߦߊߡߊ߲߫ ߜߘߍ߫ ߟߎ߫ ߟߏ߲ ߣߌ߲߬ ߡߊ߬</string>
   <string name="this_year">ߢߌ߬ߣߊ߲߬</string>
   <string name="back_to_top">ߌ ߞߐߛߊ߬ߦߌ߬ ߛߊ߲ߝߍ߬</string>
+  <string name="on_this_day_dialog_next_month">ߞߊߙߏ߫ ߣߊ߬ߕߐ</string>
+  <string name="on_this_day_dialog_previous_month">ߞߊߙߏ߫ ߛߊ߬ߣߍ߲</string>
   <plurals name="diff_years" fuzzy="true">
     <item quantity="one">Last year</item>
     <item quantity="other">%d years ago</item>
@@ -622,8 +668,10 @@
   <string name="wikipedia_languages_remove_text">ߞߊ߲ ߛߋ߲߬ߓߐ߫</string>
   <string name="wikipedia_languages_remove_action_mode_title">ߞߊ߲ ߛߋ߲߬ߓߐ߫</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">ߌ ߕߴߛߋ߫ ߞߊ߲ ߓߍ߯ ߛߋ߲߬ߓߐ߫ ߟߊ߫</string>
+  <string name="wikipedia_languages_remove_warning_dialog_content">ߞߊ߲߫ ߞߋߟߋ߲߫ ߛߎߥߊ߲ߘߌ߫ ߥߞߌߔߋߘߌߦߊ ߞߊ߲߬ ߌ ߘߌ߫ ߢߌߣߌ߲ߠߌ߲ ߣߌ߫ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲ ߞߍ߫ ߡߍ߲ ߘߐ߫.</string>
   <string name="more_language_options">ߡߞߊ߬ߝߏ߬ ߜߘߍ߫ ߟߎ߫</string>
   <string name="add_wikipedia_languages_text">ߥߞߌ-ߔߘߋߞߎ ߞߊ߲ ߠߎ߬ ߟߊߘߏ߲߬</string>
+  <string name="dialog_of_remove_chinese_variants_from_app_lang_title">ߛ߭ߌߣߌ߲ߞߊߞߊ߲ ߓߐ߫ ߌ ߟߊ߫ ߟߥߊ߬ߟߌ߬ߟߊ߲ ߞߊ߲ߦߊ ߟߊ߫؟</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">ߞߊ߲ ߠߎ߬ ߡߊߦߟߍ߬ߡߊ߲߫</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">ߒ߬ߒ߫ ߌ ߞߎߟߎ߲ߖߋ߫</string>
   <string name="remove_language_dialog_cancel_button_text">ߊ߬ ߘߐߛߊ߬</string>
@@ -634,6 +682,8 @@
   <string name="edit_conflict_dialog_ok_button_text">ߏ߬ߞߍ߫</string>
   <string name="reverted_edit_dialog_ok_button_text">ߏ߬ߞߍ߫</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">ߊ߬ ߘߐߛߊ߬</string>
+  <string name="edit_type_all">ߓߟߏߓߌߟߊߢߐ߲߯ߞߊ߲ ߠߎ߬ ߓߍ߯</string>
+  <string name="content_description_for_page_indicator">ߘߐߜߍ߫ %1$d %2$d ߘߐ߫</string>
   <string name="wikitext_bold">ߞߟߏߞߎ߲ߓߊ</string>
   <string name="wikitext_italic">ߛߓߍߘߋ߲߫ ߡߊߖߍ߲߬ߞߍ߬ߣߍ߲</string>
   <string name="wikitext_link">ߛߘߌ߬ߜߋ߲</string>
@@ -641,10 +691,10 @@
   <string name="wikitext_template">ߞߙߊߞߏ</string>
   <string name="wikitext_reference">ߦߟߌߡߊߛߙߋ</string>
   <string name="wikitext_preview_link">ߛߘߌ߬ߜߋ߲ ߢߍߕߊ</string>
-  <string name="main_drawer_open">ߊ߬ ߟߊߞߊ߬</string>
-  <string name="main_drawer_close">ߊ߬ ߘߊߕߎ߲߯</string>
   <string name="main_drawer_help">ߘߍ߬ߡߍ߲߬ߠߌ߲</string>
   <string name="main_drawer_login">ߌ ߜߊ߲߬ߞߎ߲߫/ߌ ߕߐ߮ ߛߓߍ߫ ߥߞߌߔߋߘߌߦߊ ߟߊ߫</string>
+  <string name="main_tooltip_text">ߌ ߣߌ߫ ߕߎ߬ߡߊ߬ %s߸ ߌ ߞߵߊ߬ ߟߐ߲߫ ߓߊ߬ ߡߍ߲ ߦߴߊ߬ ߞߍ߫ ߟߊ߫ ߓߍ߯ ߦߋ߫ ߥߞߌߡߋߘߌߦߊ ߡߊߦߟߍ߬ߡߊ߲߫ ߠߊ߫؟</string>
+  <string name="main_tooltip_action_button">ߊ߬ ߘߊߡߌ߬ߣߊ߬ ߌߞߘߐ߫</string>
   <string name="custom_date_picker_dialog_ok_button_text">ߏ߬ߞߍ߫</string>
   <string name="text_input_dialog_ok_button_text">ߏ߬ߞߍ߫</string>
   <string name="text_input_dialog_cancel_button_text">ߊ߬ ߘߐߛߊ߬</string>

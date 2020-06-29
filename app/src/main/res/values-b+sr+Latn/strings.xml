@@ -100,7 +100,7 @@
   <string name="reading_lists_sync_login">Prijava</string>
   <string name="create_account_login">Prijava</string>
   <string name="menu_login">Prijavi me</string>
-  <string name="login_activity_title">Prijava na Vikipediju</string>
+  <string name="login_activity_title" fuzzy="true">Prijava na Vikipediju</string>
   <string name="login_in_progress_dialog_message">Prijavljujem vas…</string>
   <string name="login_success_toast" fuzzy="true">Uspešno ste prijavljeni.</string>
   <string name="reset_password_title">Postavite lozinku</string>
@@ -711,9 +711,6 @@
   <string name="onboarding_analytics_title">Slanje anonimnih podataka</string>
   <string name="onboarding_analytics_offline_text">Pomozite nam da poboljšamo aplikaciju slanjem informacija o upotrebi. Prikupljeni podaci su anonimni. &lt;a href=\"#privacy\"&gt;Saznajte više&lt;/a&gt;.</string>
   <string name="onboarding_analytics_switch_title">Šalji podatke o upotrebi</string>
-  <string name="onboarding_create_account_sync">Sinhronizujte liste za čitanje</string>
-  <string name="onboarding_create_account_contributions">Budite u toku sa svojim doprinosima</string>
-  <string name="onboarding_create_account_preferences">Sačuvajte svoja podešavanja</string>
   <string name="onboarding_got_it">Razumem</string>
   <string name="onboarding_multilingual_secondary_text">Pronašli smo sledeće na vašem uređaju:</string>
   <string name="onboarding_multilingual_add_language_text">Dodaj ili uredi jezike</string>
@@ -773,12 +770,9 @@
   <string name="wikitext_template">Šablon</string>
   <string name="wikitext_reference">Referenca</string>
   <string name="wikitext_preview_link">Pregled veze</string>
-  <string name="main_drawer_open">Otvori</string>
-  <string name="main_drawer_close">Zatvori</string>
-  <string name="main_drawer_content_description">Otvorite glavnu ladicu za navigaciju</string>
   <string name="main_drawer_help">Pomoć</string>
   <string name="main_drawer_login">Prijavi me / pridruži me Vikipediji</string>
-  <string name="main_tooltip_text">%s, da li ste znali da svako može da uređuje Vikipediju?</string>
+  <string name="main_tooltip_text" fuzzy="true">%s, da li ste znali da svako može da uređuje Vikipediju?</string>
   <string name="main_tooltip_action_button">Počnimo</string>
   <string name="custom_date_picker_dialog_ok_button_text">U redu</string>
   <string name="text_input_dialog_ok_button_text">U redu</string>
