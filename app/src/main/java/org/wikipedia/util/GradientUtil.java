@@ -27,6 +27,13 @@ public final class GradientUtil {
         return drawable;
     }
 
+    public static Drawable getPowerGradientInt(@ColorInt int baseColor, int gravity) {
+        PaintDrawable drawable = new PaintDrawable();
+        drawable.setShape(new RectShape());
+        setPowerGradient(drawable, baseColor, gravity);
+        return drawable;
+    }
+
     /**
      * Create a power gradient by using a compound gradient composed of a series of linear
      * gradients with intermediate color values.

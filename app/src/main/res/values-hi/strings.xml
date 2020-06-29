@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
 * Adithyavr
 * Anamdas
 * Bhatakati aatma
@@ -36,6 +37,7 @@
   <string name="search_hint_search_history">इतिहास खोजें</string>
   <string name="search_hint_search_languages">भाषा के लिए खोजें</string>
   <string name="nav_item_history">इतिहास</string>
+  <string name="nav_item_more">और</string>
   <string name="error_network_error">इंटरनेट से कनेक्ट नहीं किया जा सकता।</string>
   <string name="page_error_retry">पुनः प्रयास करें</string>
   <string name="page_error_back_to_main">वापस जाएँ</string>
@@ -98,7 +100,7 @@
   <string name="login_2fa_hint">द्विस्तरीय प्रमाणीकरण कोड</string>
   <string name="login_2fa_other_workflow_error_msg">द्विस्तरीय प्रमाणीकरण कूट आवश्यक! कृपया मुख्य कार्यकलाप पर वापस जाएँ और अपने 2FA टोकन से लॉगिन कर दोबारा प्रयास करें।</string>
   <string name="menu_login">प्रवेश</string>
-  <string name="login_activity_title">विकिपीडिया में प्रवेश करें</string>
+  <string name="login_activity_title" fuzzy="true">विकिपीडिया में प्रवेश करें</string>
   <string name="login_in_progress_dialog_message">आपको प्रवेश दिया जा रहा है…</string>
   <string name="login_success_toast" fuzzy="true">सफलतापूर्वक प्रविष्ट</string>
   <string name="reset_password_title">अपना पासवर्ड लगाएं</string>
@@ -447,9 +449,6 @@
   <string name="onboarding_reading_list_sync_title" fuzzy="true">सिंक के साथ पढ़ने वाली सूचियां</string>
   <string name="onboarding_analytics_title">अनाम डेटा भेजें</string>
   <string name="onboarding_analytics_switch_title">उपयोग किया गया डेटा भेजें</string>
-  <string name="onboarding_create_account_sync">\nअपनी पठन सूचियों को सिंक करें</string>
-  <string name="onboarding_create_account_contributions">अपने योगदान पर नज़र रखें</string>
-  <string name="onboarding_create_account_preferences">अपनी पसंद रक्षित करें</string>
   <string name="app_shortcuts_random">कोई भी</string>
   <string name="app_shortcuts_continue_reading">पढ़ना जारी रखें</string>
   <string name="app_shortcuts_search">खोजना</string>

@@ -104,7 +104,7 @@
   <string name="reading_lists_sync_login">Kevreañ</string>
   <string name="create_account_login">Kevreañ</string>
   <string name="menu_login">Kevreañ</string>
-  <string name="login_activity_title">Kevreañ ouzh Wikipedia</string>
+  <string name="login_activity_title" fuzzy="true">Kevreañ ouzh Wikipedia</string>
   <string name="login_in_progress_dialog_message">O kevreañ ouzh…</string>
   <string name="login_success_toast">Kevreet oc\'h !</string>
   <string name="reset_password_title">Termeniñ ho ker-tremen</string>
@@ -558,9 +558,6 @@
   <string name="onboarding_analytics_title">Kas roadennoù dizanv</string>
   <string name="onboarding_analytics_offline_text">Sikourit da wellaat an arload ha roit deomp da c\'houzout penaos e vez implijet ganeoc\'h. Dianav eo ar roadennoù adtapet. &lt;a href=\"#privacy\"&gt;Evit gouzout hiroc\'h&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Kas ar roadennoù implijout</string>
-  <string name="onboarding_create_account_sync">Sinkronelaat ho rolloù lenn</string>
-  <string name="onboarding_create_account_contributions">Mirout roudoù eus ho tegasadennoù</string>
-  <string name="onboarding_create_account_preferences">Enrollañ ho penndibaboù</string>
   <string name="onboarding_got_it">Mat eo</string>
   <string name="onboarding_multilingual_secondary_text">An dra-mañ hon eus kavet en hoc\'h ardinvik :</string>
   <string name="onboarding_multilingual_add_language_text">Ouzhpennañ pe kemmañ yezhoù</string>
@@ -590,8 +587,6 @@
   <string name="add_wikipedia_languages_text">Ouzhpennañ yezhoù Wikipedia</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Kemmañ ar yezhoù</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Nann, trugarez</string>
-  <string name="main_drawer_open">Digeriñ</string>
-  <string name="main_drawer_close">Serriñ</string>
   <string name="main_drawer_help">Skoazell</string>
   <string name="main_drawer_login">Kevreañ ouzh/ mont gant Wikipedia</string>
 </resources>

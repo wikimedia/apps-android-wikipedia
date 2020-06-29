@@ -68,77 +68,28 @@
             android:textColor="?attr/material_theme_secondary_color"
             tools:text="Lorem ipsum"/>
 
-        <LinearLayout
-            android:id="@+id/addContainer"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:paddingStart="8dp"
-            android:paddingEnd="12dp"
-            android:layout_marginTop="10dp"
-            android:clickable="true"
-            android:focusable="true"
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/addButton"
+            style="@style/FlatButton.Small"
+            android:text="@string/suggested_edits_task_action_text_add"
+            android:layout_marginTop="4dp"
             app:layout_constraintTop_toBottomOf="@id/taskDescription"
             app:layout_constraintStart_toStartOf="@id/taskDescription"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:background="@drawable/rounded_8dp_corner_base90_fill">
+            app:icon="@drawable/ic_add_gray_white_24dp"
+            app:iconSize="20dp"
+            app:iconTint="?attr/colorAccent"/>
 
-            <ImageView
-                android:id="@+id/add_image"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_gravity="center_vertical"
-                android:contentDescription="@null"
-                app:srcCompat="@drawable/ic_add_gray_white_24dp"
-                app:tint="?attr/colorAccent" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="4dp"
-                android:fontFamily="sans-serif-medium"
-                android:text="@string/suggested_edits_task_action_text_add"
-                android:textAllCaps="true"
-                android:textColor="?attr/colorAccent"
-                android:letterSpacing="0.05"
-                android:textSize="@dimen/suggested_edits_message_textview_text_size" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/translateContainer"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:paddingStart="8dp"
-            android:paddingEnd="12dp"
-            android:clickable="true"
-            android:focusable="true"
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/translateButton"
+            style="@style/FlatButton.Small"
+            android:text="@string/suggested_edits_task_action_text_translate"
             android:layout_marginStart="16dp"
-            app:layout_constraintTop_toTopOf="@id/addContainer"
-            app:layout_constraintStart_toEndOf="@id/addContainer"
-            android:background="@drawable/rounded_8dp_corner_base90_fill">
-
-            <ImageView
-                android:id="@+id/suggestedEditsTranslateImage"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_gravity="center_vertical"
-                android:contentDescription="@null"
-                app:srcCompat="@drawable/ic_translate_white_24dp"
-                app:tint="?attr/colorAccent" />
-
-            <TextView
-                android:id="@+id/suggestedEditsTranslateActionText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="4dp"
-                android:fontFamily="sans-serif-medium"
-                android:text="@string/suggested_edits_task_action_text_translate"
-                android:textAllCaps="true"
-                android:textColor="?attr/colorAccent"
-                android:letterSpacing="0.05"
-                android:textSize="@dimen/suggested_edits_message_textview_text_size" />
-        </LinearLayout>
+            app:layout_constraintTop_toTopOf="@id/addButton"
+            app:layout_constraintStart_toEndOf="@id/addButton"
+            app:icon="@drawable/ic_translate_white_24dp"
+            app:iconSize="20dp"
+            app:iconTint="?attr/colorAccent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </merge>

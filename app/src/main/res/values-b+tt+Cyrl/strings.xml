@@ -87,7 +87,7 @@
   <string name="reading_lists_sync_login">Керү</string>
   <string name="create_account_login">Керү</string>
   <string name="menu_login">Керү</string>
-  <string name="login_activity_title">Википедиягә керү</string>
+  <string name="login_activity_title" fuzzy="true">Википедиягә керү</string>
   <string name="login_in_progress_dialog_message">Керүегез бара…</string>
   <string name="login_success_toast" fuzzy="true">Сез кереп булдыгыз!</string>
   <string name="reset_password_title">Серсүзне язып бирегез</string>
@@ -237,8 +237,6 @@
   <string name="wikitext_bulleted_list">Тамгалы исемлек</string>
   <string name="wikitext_numbered_list">Санлы исемлек</string>
   <string name="wikitext_template">Калып</string>
-  <string name="main_drawer_open">Ачу</string>
-  <string name="main_drawer_close">Ябу</string>
   <string name="main_drawer_help">Белешмә</string>
   <string name="main_drawer_login">Википедиягә керү / кушылу</string>
   <string name="custom_date_picker_dialog_ok_button_text">Ярар</string>

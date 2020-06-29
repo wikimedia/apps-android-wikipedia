@@ -106,7 +106,7 @@
   <string name="reading_lists_sync_login">Mlebu log</string>
   <string name="create_account_login">Mlebu log</string>
   <string name="menu_login">Mlebu log</string>
-  <string name="login_activity_title">Mlebu log Wikipédia</string>
+  <string name="login_activity_title" fuzzy="true">Mlebu log Wikipédia</string>
   <string name="login_in_progress_dialog_message">Lagi mlebu log...</string>
   <string name="login_success_toast">Bisa mlebu log!</string>
   <string name="reset_password_title">Setèl tembung sandimu</string>
@@ -642,9 +642,6 @@
   <string name="onboarding_reading_list_sync_title">Pratélan wacan mawa sinkronisasi</string>
   <string name="onboarding_analytics_title">Kirim dhata anonim</string>
   <string name="onboarding_analytics_switch_title">Kirim dhata pangguna</string>
-  <string name="onboarding_create_account_sync">Sinkronaké pratélan wacané panjenengan</string>
-  <string name="onboarding_create_account_contributions">Lacak pisumbangé panjenengan</string>
-  <string name="onboarding_create_account_preferences">Simpen pilalané panjenengan</string>
   <string name="onboarding_got_it">Mudheng</string>
   <string name="onboarding_multilingual_secondary_text">Awak dhéwé nemu iki ing pirantiné panjenengan:</string>
   <string name="onboarding_multilingual_add_language_text">Wuwuh utawa besut basa</string>
@@ -699,8 +696,6 @@
   <string name="wikitext_template">Cithakan</string>
   <string name="wikitext_reference">Rujukan</string>
   <string name="wikitext_preview_link">Pranala pratuduh</string>
-  <string name="main_drawer_open">Bukak</string>
-  <string name="main_drawer_close">Tutup</string>
   <string name="main_drawer_help">Pitulung</string>
   <string name="main_drawer_login">Mlebu log Wikipédia</string>
   <string name="custom_date_picker_dialog_ok_button_text">YA</string>

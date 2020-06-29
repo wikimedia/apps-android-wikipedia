@@ -357,8 +357,6 @@
   <string name="wikitext_link">Saite</string>
   <string name="wikitext_template">Veidne</string>
   <string name="wikitext_reference">Atsauce</string>
-  <string name="main_drawer_open">Atvērt</string>
-  <string name="main_drawer_close">Aizvērt</string>
   <string name="main_drawer_help">Palīdzība</string>
   <string name="custom_date_picker_dialog_ok_button_text">Labi</string>
   <string name="text_input_dialog_ok_button_text">Labi</string>

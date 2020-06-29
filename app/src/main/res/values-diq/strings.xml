@@ -106,7 +106,7 @@
   <string name="reading_lists_sync_login">Cı kewe</string>
   <string name="create_account_login">Cı kewe</string>
   <string name="menu_login">Cı kewe</string>
-  <string name="login_activity_title">Wikipediya kewe</string>
+  <string name="login_activity_title" fuzzy="true">Wikipediya kewe</string>
   <string name="login_in_progress_dialog_message">Ronıştışo abêno...</string>
   <string name="login_success_toast">Ronıştış abıyayo!</string>
   <string name="reset_password_title">Parolay ho eyar kerê</string>
@@ -524,9 +524,6 @@
   <string name="onboarding_reading_list_sync_title">Senkronizasyonê lista wendışi</string>
   <string name="onboarding_analytics_title">Anonim datay bırışê</string>
   <string name="onboarding_analytics_switch_title">Datay karnayışi bırışê</string>
-  <string name="onboarding_create_account_sync">Lista wanayışanê ho senkronize bıkerê</string>
-  <string name="onboarding_create_account_contributions">İştırakanê ho teqib kerê</string>
-  <string name="onboarding_create_account_preferences">Tercihanê ho qeyd kerê</string>
   <string name="onboarding_got_it">Fahm kerd</string>
   <string name="onboarding_multilingual_secondary_text">Cihazê şıma tede de na cêrêni vinay:</string>
   <string name="onboarding_multilingual_add_language_text">Zıwan cı kerê ya zi bıvurnê</string>
@@ -583,11 +580,9 @@
   <string name="wikitext_template">Şablon</string>
   <string name="wikitext_reference">Çıme</string>
   <string name="wikitext_preview_link">Gırey verqayti</string>
-  <string name="main_drawer_open">Ake</string>
-  <string name="main_drawer_close">Bıqefelne</string>
   <string name="main_drawer_help">Peşti</string>
   <string name="main_drawer_login">Wikipedia rê qeyd bıbê / ronıştış akerê</string>
-  <string name="main_tooltip_text">%s, tı zanê herg kes şeno Wikipediya bıvurno?</string>
+  <string name="main_tooltip_text" fuzzy="true">%s, tı zanê herg kes şeno Wikipediya bıvurno?</string>
   <string name="main_tooltip_action_button">Ravêr serkewtış</string>
   <string name="custom_date_picker_dialog_ok_button_text">TEMAM</string>
   <string name="text_input_dialog_ok_button_text">TEMAM</string>

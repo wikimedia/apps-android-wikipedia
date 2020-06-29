@@ -101,7 +101,7 @@
   <string name="reading_lists_sync_login">लॉग इन</string>
   <string name="create_account_login">लॉग इन</string>
   <string name="menu_login">खाता में प्रवेश</string>
-  <string name="login_activity_title">विकिपीडिया पर खाता में प्रवेश करीं</string>
+  <string name="login_activity_title" fuzzy="true">विकिपीडिया पर खाता में प्रवेश करीं</string>
   <string name="login_in_progress_dialog_message">रउवाँ के खाता में प्रवेश करावल जा रहल बा...</string>
   <string name="login_success_toast" fuzzy="true">खाता में प्रवेश सफल भइल!</string>
   <string name="reset_password_title">आपन पासवर्ड सेट करीं</string>
@@ -305,6 +305,4 @@
   <string name="color_theme_black">पाछे</string>
   <string name="color_theme_sepia">सीपिया</string>
   <string name="color_theme_test_title">सिंपल पाठ</string>
-  <string name="onboarding_create_account_contributions">आपन योगदान के निगरानी रखीं</string>
-  <string name="onboarding_create_account_preferences">आपन पसंदसेटिंग सहेजीं</string>
 </resources>

@@ -117,7 +117,7 @@
   <string name="reading_lists_sync_login">כניסה</string>
   <string name="create_account_login">כניסה</string>
   <string name="menu_login">כניסה לחשבון</string>
-  <string name="login_activity_title">כניסה לוויקיפדיה</string>
+  <string name="login_activity_title" fuzzy="true">כניסה לוויקיפדיה</string>
   <string name="login_in_progress_dialog_message">אנחנו מכניסים אותך לחשבון…</string>
   <string name="login_success_toast">נכנסת לחשבון!</string>
   <string name="reset_password_title">הגדרת הסיסמה שלך</string>
@@ -754,9 +754,9 @@
   <string name="suggested_edits_edit_streak_stat_tooltip">כמה ימים בלי הפסקה תרמת דרך עריכות מוצעות. אם לא תרמת במשך זמן־מה, זה מראה את תאריך התרומה האחרונה שלך.</string>
   <string name="suggested_edits_page_views_stat_tooltip">סך הצגות הדפים שתרמת להם ב־30 הימים האחרונים באמצעות עריכות מוצעות.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">מסתמך על מספר הפעמים שהתרומות שלך בוטלו. תרומות שבוטלו: %d.</string>
-  <string name="suggested_edits_paused_message">&lt;b&gt;עריכות מוצעות הופסקו על %1$s.&lt;/b&gt; מצטערים %2$s, כמה מהתרומות האחרונות שלך בוטלו.\n\nאפשר ללמוד איך לשפר את כישורי העריכה שלך בוויקיפדיה עם הקישור להלן.</string>
-  <string name="suggested_edits_disabled_message">&lt;b&gt;עריכות מוצעות הופסקו.&lt;/b&gt; מצטערים %s, יותר מדי מהתרומות האחרונות שלך בוטלו.\n\nאפשר לקרוא מידע נוסף על מה זה אומר בקישור להלן.</string>
-  <string name="suggested_edits_ip_blocked_message">נראה שכתובת ה־IP שלך (או טווח כתובות ה־IP) חסום כרגע מעריכת ויקיפדית. אפשר לקרוא מידע נוסף על מה זה אומר בקישור להלן.</string>
+  <string name="suggested_edits_paused_message" fuzzy="true">&lt;b&gt;עריכות מוצעות הופסקו על %1$s.&lt;/b&gt; מצטערים %2$s, כמה מהתרומות האחרונות שלך בוטלו.\n\nאפשר ללמוד איך לשפר את כישורי העריכה שלך בוויקיפדיה עם הקישור להלן.</string>
+  <string name="suggested_edits_disabled_message" fuzzy="true">&lt;b&gt;עריכות מוצעות הופסקו.&lt;/b&gt; מצטערים %s, יותר מדי מהתרומות האחרונות שלך בוטלו.\n\nאפשר לקרוא מידע נוסף על מה זה אומר בקישור להלן.</string>
+  <string name="suggested_edits_ip_blocked_message" fuzzy="true">נראה שכתובת ה־IP שלך (או טווח כתובות ה־IP) חסום כרגע מעריכת ויקיפדית. אפשר לקרוא מידע נוסף על מה זה אומר בקישור להלן.</string>
   <string name="suggested_edits_editing_tips_link_text">עצות ותכסיסים לעריכה</string>
   <string name="suggested_edits_help_page_link_text">עמוד עזרה לעריכות מומלצות</string>
   <string name="suggested_edits_edit_streak_label_text">רצף עריכה</string>
@@ -812,9 +812,6 @@
   <string name="onboarding_analytics_title">שליחת נתונים אלמוניים</string>
   <string name="onboarding_analytics_offline_text">עזרו לנו לשפר את היישום על־ידי זה שתאפשרו לנו ללמוד איך אתם משתמשים בו. איסוף הנתונים נעשה באלמוניות. &lt;a href=\"#privacy\"&gt;מידע נוסף&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">שליחת נתוני שימוש</string>
-  <string name="onboarding_create_account_sync">סנכרון רשימות הקריאה שלכם</string>
-  <string name="onboarding_create_account_contributions">מעקב אחר התרומות שלך</string>
-  <string name="onboarding_create_account_preferences">שמירת העדפות</string>
   <string name="onboarding_got_it">הבנתי</string>
   <string name="onboarding_multilingual_secondary_text">מצאנו את השפות הבאות במכשיר שלך:</string>
   <string name="onboarding_multilingual_add_language_text">הוספה או עריכה של השפות</string>
@@ -878,9 +875,6 @@
   <string name="wikitext_template">תבנית</string>
   <string name="wikitext_reference">הערת שוליים</string>
   <string name="wikitext_preview_link">תצוגה מקדימה של קישור</string>
-  <string name="main_drawer_open">פתיחה</string>
-  <string name="main_drawer_close">סגירה</string>
-  <string name="main_drawer_content_description">פתיחת מגירת הניווט הראשית</string>
   <string name="main_drawer_help">עזרה</string>
   <string name="main_drawer_login">כניסה / הצטרפות לוויקיפדיה</string>
   <string name="main_tooltip_text">היי %s, הידעת שכולם יכולים לערוך את ויקיפדיה?</string>

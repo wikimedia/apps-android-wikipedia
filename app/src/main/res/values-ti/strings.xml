@@ -75,7 +75,7 @@
   <string name="reading_lists_sync_login">ብመንነት እተው</string>
   <string name="create_account_login">ብመንነት እተው</string>
   <string name="menu_login">ብመንነት እተው</string>
-  <string name="login_activity_title">ናብ ዊኪፔዲያ ብመንነት እተው</string>
+  <string name="login_activity_title" fuzzy="true">ናብ ዊኪፔዲያ ብመንነት እተው</string>
   <string name="login_in_progress_dialog_message">ብመንነት ይተው ኣሎ...</string>
   <string name="login_success_toast">ብመንነት ኣትዩ ኣሎ</string>
   <string name="reset_password_hint">ሓድሽ ቃለ-ምስጢር</string>
@@ -338,7 +338,6 @@
   <string name="onboarding_skip">ዝለል</string>
   <string name="onboarding_continue">ቀጸለ</string>
   <string name="onboarding_get_started">ኣጀማሪ</string>
-  <string name="onboarding_create_account_preferences">ምርጫታትካ ኣቐምጥ</string>
   <string name="onboarding_got_it">ተረዲኡኒ</string>
   <string name="onboarding_multilingual_add_language_text">ቋንቋታት ወስኽ ወይ ኣተዓራረየ</string>
   <string name="onboarding_welcome_title_v2">ናጻዊ መዝገበ ፍልጠት\n...ካብ 300 ልዕሊ ቋንቋታት</string>
@@ -379,8 +378,6 @@
   <string name="wikitext_link">መጋጠሚ</string>
   <string name="wikitext_template">ሞደል</string>
   <string name="wikitext_preview_link">መጋጠሚ ኣቐዲሙ ረኣየ</string>
-  <string name="main_drawer_open">ከፈት</string>
-  <string name="main_drawer_close">ዕጸው</string>
   <string name="main_drawer_help">ሓገዝ</string>
   <string name="main_tooltip_action_button">ኣጀማሪ</string>
   <string name="custom_date_picker_dialog_ok_button_text">ሕራይ</string>

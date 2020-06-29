@@ -120,7 +120,7 @@
   <string name="reading_lists_sync_login">Anmelden</string>
   <string name="create_account_login">Anmelden</string>
   <string name="menu_login">Anmelden</string>
-  <string name="login_activity_title">Bei Wikipedia anmelden</string>
+  <string name="login_activity_title" fuzzy="true">Bei Wikipedia anmelden</string>
   <string name="login_in_progress_dialog_message">Melde dich an …</string>
   <string name="login_success_toast">Angemeldet!</string>
   <string name="reset_password_title">Dein Passwort festlegen</string>
@@ -716,9 +716,9 @@
   <string name="suggested_edits_edit_streak_stat_tooltip">Anzahl der Tage ohne Pause die Sie mit Vorgeschlagene Bearbeitungen beigetragen haben. Wenn Sie eine Weile nicht beigetragen haben, wird Ihr letztes Beitragsdatum angezeigt.</string>
   <string name="suggested_edits_page_views_stat_tooltip">Totale Seitenaufrufe aller Bearbeitungen, zu denen Sie in den letzten 30 Tagen mit Vorgeschlagenen Bearbeitungen beigetragen haben.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Basiert darauf, wie oft einer Ihrer Beiträge zurückgesetzt wurde (von einem anderen Editor rückgängig gemacht). Zurückgesetzte Änderungen: %d.</string>
-  <string name="suggested_edits_paused_message">&lt;b&gt;Vorgeschlagene Bearbeitungen ist pausiert bis %1$s.&lt;/b&gt; Entschuldigung, %2$s, manche deiner letzten Beiträge wurden rückgängig gemacht.\n\nBenutze den nachfolgenden Link, um herauszufinden, wie du deine Fertigkeiten als Bearbeiter bei Wikipedia verbessern kannst.</string>
-  <string name="suggested_edits_disabled_message">&lt;b&gt;Vorgeschlagene Bearbeitungen ist deaktiviert.&lt;/b&gt; Entschuldigung, %s, zu viele deiner letzten Beiträge wurden rückgängig gemacht.\n\nBenutze den nachfolgenden Link, um herauszufinden, was das bedeutet.</string>
-  <string name="suggested_edits_ip_blocked_message">Es sieht so aus, als ob Ihre IP-Adresse (oder Ihr IP-Adressbereich) derzeit für die Bearbeitung von Wikipedia gesperrt ist. Erfahren Sie mehr darüber was dies bedeutet, indem Sie den untenstehenden Link besuchen.</string>
+  <string name="suggested_edits_paused_message" fuzzy="true">&lt;b&gt;Vorgeschlagene Bearbeitungen ist pausiert bis %1$s.&lt;/b&gt; Entschuldigung, %2$s, manche deiner letzten Beiträge wurden rückgängig gemacht.\n\nBenutze den nachfolgenden Link, um herauszufinden, wie du deine Fertigkeiten als Bearbeiter bei Wikipedia verbessern kannst.</string>
+  <string name="suggested_edits_disabled_message" fuzzy="true">&lt;b&gt;Vorgeschlagene Bearbeitungen ist deaktiviert.&lt;/b&gt; Entschuldigung, %s, zu viele deiner letzten Beiträge wurden rückgängig gemacht.\n\nBenutze den nachfolgenden Link, um herauszufinden, was das bedeutet.</string>
+  <string name="suggested_edits_ip_blocked_message" fuzzy="true">Es sieht so aus, als ob Ihre IP-Adresse (oder Ihr IP-Adressbereich) derzeit für die Bearbeitung von Wikipedia gesperrt ist. Erfahren Sie mehr darüber was dies bedeutet, indem Sie den untenstehenden Link besuchen.</string>
   <string name="suggested_edits_editing_tips_link_text">Tipps und Tricks beim Bearbeiten</string>
   <string name="suggested_edits_help_page_link_text">Hilfeseite für Vorgeschlagene Bearbeitungen</string>
   <string name="suggested_edits_edit_streak_label_text">Aufeinanderfolgende Edits</string>
@@ -773,9 +773,6 @@
   <string name="onboarding_analytics_title">Anonymisierte Daten senden</string>
   <string name="onboarding_analytics_offline_text">Hilf uns dabei, die App zu verbessern, indem du uns wissen lässt, wie du sie nutzt. Die gesammelten Daten sind anonym. &lt;a href=\"#privacy\"&gt;Mehr erfahren&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Nutzungsdaten senden</string>
-  <string name="onboarding_create_account_sync">Synchronisiere deine Leselisten</string>
-  <string name="onboarding_create_account_contributions">Verfolge deine Beiträge</string>
-  <string name="onboarding_create_account_preferences">Speichere deine Einstellungen</string>
   <string name="onboarding_got_it">Verstanden</string>
   <string name="onboarding_multilingual_secondary_text">Wir haben das Folgende auf deinem Gerät gefunden:</string>
   <string name="onboarding_multilingual_add_language_text">Sprachen hinzufügen oder bearbeiten</string>
@@ -835,12 +832,9 @@
   <string name="wikitext_template">Vorlage</string>
   <string name="wikitext_reference">Einzelnachweis</string>
   <string name="wikitext_preview_link">Vorschau des Links anzeigen</string>
-  <string name="main_drawer_open">Öffnen</string>
-  <string name="main_drawer_close">Schließen</string>
-  <string name="main_drawer_content_description">Hauptnavigation öffnen</string>
   <string name="main_drawer_help">Hilfe</string>
   <string name="main_drawer_login">Anmelden / Wikipedia beitreten</string>
-  <string name="main_tooltip_text">%s, wussten Sie das jeder Wikipedia editieren kann?</string>
+  <string name="main_tooltip_text" fuzzy="true">%s, wussten Sie das jeder Wikipedia editieren kann?</string>
   <string name="main_tooltip_action_button">Loslegen</string>
   <string name="custom_date_picker_dialog_ok_button_text">Okay</string>
   <string name="text_input_dialog_ok_button_text">Okay</string>
