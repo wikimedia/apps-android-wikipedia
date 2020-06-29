@@ -795,12 +795,6 @@
     <item quantity="one">Text summarizing the user\'s image tag contribution. %d represents the number of tags contributed.</item>
     <item quantity="other">Text summarizing the user\'s image tag contribution. %d represents the number of tags contributed.</item>
   </plurals>
-  <string name="suggested_edits_what_is_title">Title for card that introduces Suggested edits.</string>
-  <string name="suggested_edits_what_is_text">Body text for card that introduces Suggested edits.</string>
-  <string name="suggested_edits_learn_more">Button text for navigating to additional information for the user.</string>
-  <string name="suggested_edits_paused_title">Title for card that explains that this feature is currently paused.</string>
-  <string name="suggested_edits_disabled_title">Title for card that explains that this feature is currently disabled.</string>
-  <string name="suggested_edits_ip_blocked_title">Title for card that explains that the IP address of the user is blocked.</string>
   <string name="suggested_edits_contribution_type_title">Contributions filter dropdown item text. %1$d represents the count of the edit type. %2$s is the type of the edit.</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Text for contributions date to indicate it was contributed yesterday</string>
   <string name="suggested_edits_rewards_contribution">Message shown to a user about the number of contributions the user has made. The %d represents the number of contrubutions.</string>
@@ -903,7 +897,6 @@
   <string name="account_editing_blocked_dialog_cancel_button_text">Negative action button text in warning pop-up dialog for accounts for which editing is blocked.\n{{Identical|Cancel}}</string>
   <string name="edit_type_all">Selection to show all types of edits.</string>
   <string name="content_description_for_page_indicator">Label of content description for tutorial page. %1$d will be replaced by the current number of pages and %2$d will be replaced by the total number of pages.</string>
-  <string name="edit_type_all">Selection to show all types of edits.</string>
   <string name="wikitext_bold">Button label for making the selected text bold.</string>
   <string name="wikitext_italic">Button label for making the selected text italic.</string>
   <string name="wikitext_link">Button label for making the selected text into a link.\n{{Identical|Link}}</string>
@@ -921,24 +914,4 @@
   <string name="text_input_dialog_ok_button_text">Positive action button text in pop-up dialog for text input.\n{{Identical|OK}}</string>
   <string name="text_input_dialog_cancel_button_text">Negative action button text in pop-up dialog for text input.\n{{Identical|Cancel}}</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Negative action button text in date picker pop-up dialog.\n{{Identical|Cancel}}</string>
-  <string name="suggested_edits_contribution_current_revision">Text indicating that the user\'s contribution is the most current edit on that file or article.</string>
-  <plurals name="suggested_edits_added_contribution_label">
-    <item quantity="one">Text summarizing the user\'s contribution to the article or image. %d represents the number when only one character is added.</item>
-    <item quantity="other">Text summarizing the user\'s contribution to the article or image. %d represents the number when many characters are added.</item>
-  </plurals>
-  <plurals name="suggested_edits_removed_contribution_label">
-    <item quantity="one">Text summarizing the user\'s contribution to the article or image. %d represents the number when only one character is removed by the contribution.</item>
-    <item quantity="other">Text summarizing the user\'s contribution to the article or image. %d represents the number when many characters are removed by the contribution.</item>
-  </plurals>
-  <plurals name="suggested_edits_contribution_diff_count_text">
-    <item quantity="one">Label text indicating the number of characters added or removed by a user contribution. %1$s represents the number.</item>
-    <item quantity="other">Label text indicating the number of characters added or removed by a user contribution. %1$s represents the number.</item>
-  </plurals>
-  <plurals name="suggested_edits_tags_diff_count_text">
-    <item quantity="one">Label text indicating the number of tags added or removed by a user contribution. %1$s represents the number.</item>
-    <item quantity="other">Label text indicating the number of tags added or removed by a user contribution. %1$s represents the number.</item>
-  </plurals>
-  <string name="nav_item_more">Navigation menu item label for accessing menu items.</string>
-  <string name="preference_title_customize_explore_feed">Title of the preference for customizing the explore feed.</string>
-  <string name="preference_summary_customize_explore_feed">Description of the preference for customizing the explore feed.</string>
 </resources>
