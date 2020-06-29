@@ -39,7 +39,7 @@ android {
         applicationId 'org.wikipedia'
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 50322
+        versionCode 50323
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner "org.wikipedia.WikipediaTestRunner"
         vectorDrawables.useSupportLibrary = true
@@ -168,7 +168,6 @@ dependencies {
 
     implementation "com.google.android.material:material:1.1.0"
     implementation "androidx.core:core:1.3.0"
-    implementation "androidx.cardview:cardview:1.0.0"
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     implementation "androidx.fragment:fragment:1.2.5"
     implementation "androidx.palette:palette:1.0.0"

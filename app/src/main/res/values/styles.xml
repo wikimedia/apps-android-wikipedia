@@ -28,6 +28,7 @@
         <item name="materialButtonStyle">@style/Widget.MaterialComponents.Button.TextButton</item>
         <item name="maxActionInlineWidth">@dimen/snackbar_action_inline_max_dimen</item>
         <item name="textInputStyle">@style/TextInputLayoutStyle</item>
+        <item name="android:statusBarColor">@android:color/black</item>
     </style>
 
     <style name="AppTheme" parent="BaseAppTheme">
@@ -165,6 +166,7 @@
 
     <style name="LargeTextToolbarTitleText" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
         <item name="android:textColor">?attr/material_theme_primary_color</item>
+        <item name="android:fontFamily">sans-serif</item>
         <item name="android:textSize">24sp</item>
         <item name="android:textStyle">bold</item>
     </style>
@@ -299,6 +301,27 @@
     <style name="App.Button.White">
         <item name="backgroundTint">@color/color_state_white</item>
         <item name="android:textColor">@color/base30</item>
+    </style>
+
+    <style name="FlatButton" parent="@style/Widget.MaterialComponents.Button.UnelevatedButton">
+        <item name="backgroundTint">?attr/color_group_22</item>
+        <item name="android:textColor">?attr/colorAccent</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:paddingStart">8dp</item>
+        <item name="android:paddingEnd">12dp</item>
+        <item name="rippleColor">?attr/color_group_59</item>
+        <item name="cornerRadius">8dp</item>
+    </style>
+
+    <style name="FlatButton.Small" parent="FlatButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">32dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:letterSpacing">0.05</item>
+        <item name="iconPadding">4dp</item>
     </style>
 
     <style name="TransparentButton" parent="@style/Widget.MaterialComponents.Button.UnelevatedButton">

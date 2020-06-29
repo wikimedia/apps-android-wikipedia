@@ -11,12 +11,9 @@ import org.wikipedia.suggestededits.Contribution.Companion.EDIT_TYPE_IMAGE_CAPTI
 import org.wikipedia.suggestededits.Contribution.Companion.EDIT_TYPE_IMAGE_TAG
 
 class SuggestedEditsContributionsHeaderView constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs), SuggestedEditsTypeItem.Callback {
-    interface Callback {
-        fun onTypeItemClick(editType: Int)
-    }
 
-    var callback: Callback? = null
     private var filterViews = ArrayList<SuggestedEditsTypeItem>()
+    var callback: Callback? = null
 
     init {
         View.inflate(context, R.layout.view_contributions_header, this)
@@ -28,13 +25,17 @@ class SuggestedEditsContributionsHeaderView constructor(context: Context, attrs:
         filterViews.add(imageCaptionsView)
         filterViews.add(imageTagsView)
 
-        allTypesView.setAttributes(getContext().getString(R.string.suggested_edits_tasks_activity_title), R.drawable.ic_mode_edit_themed_24dp, Contribution.EDIT_TYPE_GENERIC, this)
+        allTypesView.setAttributes(getContext().getString(R.string.edit_type_all), R.drawable.ic_mode_edit_themed_24dp, Contribution.EDIT_TYPE_GENERIC, this)
         articleDescriptionView.setAttributes(getContext().getString(R.string.description_edit_tutorial_title_descriptions), R.drawable.ic_article_description, Contribution.EDIT_TYPE_ARTICLE_DESCRIPTION, this)
         imageCaptionsView.setAttributes(getContext().getString(R.string.suggested_edits_image_captions), R.drawable.ic_image_caption, EDIT_TYPE_IMAGE_CAPTION, this)
         imageTagsView.setAttributes(getContext().getString(R.string.suggested_edits_image_tags), R.drawable.ic_image_tag, EDIT_TYPE_IMAGE_TAG, this)
     }
 
-    fun updateFilterViewUI(editType: Int) {
+    override fun onTypeItemClick(editType: Int) {
+        callback?.onTypeItemClick(editType)
+    }
+
+    fun updateFilterViewUI(editType: Int, totalContributions: Int) {
         val view: SuggestedEditsTypeItem
         val count: Int
         when (editType) {
@@ -52,7 +53,7 @@ class SuggestedEditsContributionsHeaderView constructor(context: Context, attrs:
             }
             else -> {
                 view = allTypesView
-                count = SuggestedEditsUserStats.totalEdits
+                count = totalContributions
             }
         }
         contributionsCountText.text = context.getString(R.string.suggested_edits_contribution_type_title, count, resources.getQuantityString(R.plurals.suggested_edits_contribution, count))
@@ -71,7 +72,7 @@ class SuggestedEditsContributionsHeaderView constructor(context: Context, attrs:
         }
     }
 
-    override fun onTypeItemClick(editType: Int) {
-        callback?.onTypeItemClick(editType)
+    interface Callback {
+        fun onTypeItemClick(editType: Int)
     }
 }

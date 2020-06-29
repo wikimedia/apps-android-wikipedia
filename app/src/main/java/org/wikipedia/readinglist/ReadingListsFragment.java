@@ -157,7 +157,6 @@ public class ReadingListsFragment extends Fragment implements
     public void onResume() {
         super.onResume();
         updateLists();
-        maybeShowOnboarding();
     }
 
     @Override
@@ -324,7 +323,7 @@ public class ReadingListsFragment extends Fragment implements
         }
     }
 
-    private void updateLists() {
+    public void updateLists() {
         updateLists(currentSearchQuery, !TextUtils.isEmpty(currentSearchQuery));
     }
 

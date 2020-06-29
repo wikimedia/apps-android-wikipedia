@@ -39,7 +39,7 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
             setLayoutDirectionByWikiSite(WikiSite.forLanguageCode(card.sourceSummary.lang), this)
         }
 
-        cardView.setOnClickListener {
+        cardItemContainer.setOnClickListener {
             if (callback != null) {
                 callback!!.onSuggestedEditsCardClick(this)
             }
