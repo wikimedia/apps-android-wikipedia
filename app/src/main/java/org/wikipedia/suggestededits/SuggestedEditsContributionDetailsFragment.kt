@@ -7,7 +7,7 @@ import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
+import androidx.core.graphics.ColorUtils
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_contribution_diff_detail.*
 import org.wikipedia.R
@@ -46,17 +46,21 @@ class SuggestedEditsContributionDetailsFragment : Fragment() {
     }
 
     private fun updateTopGradient() {
+        val color: Int
+        val headerColor: Int
         if (contribution.sizeDiff < 0) {
-            topView.background = GradientUtil.getPowerGradient(R.color.red90, Gravity.TOP)
-            contributionDiffIndicatorLine.setBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.colorError))
-            contributionDiffText.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.colorError))
-            (requireActivity() as SuggestedEditsContributionDetailsActivity).updateStatusBarColor(ContextCompat.getColor(requireActivity(), R.color.red90))
+            color = ResourceUtil.getThemedColor(requireContext(), R.attr.colorError)
+            headerColor = ColorUtils.compositeColors((if (WikipediaApp.getInstance().currentTheme.isDark) 0x4c000000 else 0x1c000000) or (color and 0xffffff),
+                    ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
         } else {
-            topView.background = GradientUtil.getPowerGradient(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.color_group_57), Gravity.TOP)
-            contributionDiffIndicatorLine.setBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.action_mode_green_background))
-            contributionDiffText.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.action_mode_green_background))
-            (requireActivity() as SuggestedEditsContributionDetailsActivity).updateStatusBarColor(ResourceUtil.getThemedColor(requireContext(), R.attr.color_group_57))
+            color = ResourceUtil.getThemedColor(requireContext(), R.attr.action_mode_green_background)
+            headerColor = ColorUtils.compositeColors((if (WikipediaApp.getInstance().currentTheme.isDark) 0x4c000000 else 0x1c000000) or (color and 0xffffff),
+                    ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
         }
+        topView.background = GradientUtil.getPowerGradientInt(headerColor, Gravity.TOP)
+        contributionDiffIndicatorLine.setBackgroundColor(color)
+        contributionDiffText.setTextColor(color)
+        (requireActivity() as SuggestedEditsContributionDetailsActivity).updateStatusBarColor(headerColor)
     }
 
     private fun setUpContributionDetails() {
