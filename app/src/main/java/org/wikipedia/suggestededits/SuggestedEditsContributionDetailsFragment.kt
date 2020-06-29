@@ -47,16 +47,16 @@ class SuggestedEditsContributionDetailsFragment : Fragment() {
 
     private fun updateTopGradient() {
         val color: Int
-        val headerColor: Int
         if (contribution.sizeDiff < 0) {
             color = ResourceUtil.getThemedColor(requireContext(), R.attr.colorError)
-            headerColor = ColorUtils.compositeColors((if (WikipediaApp.getInstance().currentTheme.isDark) 0x4c000000 else 0x1c000000) or (color and 0xffffff),
-                    ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
         } else {
             color = ResourceUtil.getThemedColor(requireContext(), R.attr.action_mode_green_background)
-            headerColor = ColorUtils.compositeColors((if (WikipediaApp.getInstance().currentTheme.isDark) 0x4c000000 else 0x1c000000) or (color and 0xffffff),
-                    ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
         }
+        // To create the final color value for our gradient, we take the base color (red or green)
+        // and give it a certain amount of transparency, but it needs to be a different transparency
+        // value for light vs. dark theme.
+        val headerColor = ColorUtils.compositeColors(ColorUtils.setAlphaComponent(color, if (WikipediaApp.getInstance().currentTheme.isDark) 0x4c else 0x1c),
+                ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
         topView.background = GradientUtil.getPowerGradientInt(headerColor, Gravity.TOP)
         contributionDiffIndicatorLine.setBackgroundColor(color)
         contributionDiffText.setTextColor(color)
