@@ -87,7 +87,7 @@ public class LoginActivity extends BaseActivity {
         errorView.setRetryClickListener((v) -> errorView.setVisibility(View.GONE));
 
         // Don't allow user to attempt login until they've put in a username and password
-        new NonEmptyValidator((isValid) -> loginButton.setEnabled(isValid), usernameInput, passwordInput);
+        new NonEmptyValidator(loginButton, usernameInput, passwordInput);
 
         passwordInput.getEditText().setOnEditorActionListener((textView, actionId, keyEvent) -> {
             if (actionId == EditorInfo.IME_ACTION_DONE) {
@@ -286,13 +286,13 @@ public class LoginActivity extends BaseActivity {
 
     @Override
     public void onStop() {
-        showProgressBar(false);
+        progressBar.setVisibility(View.GONE);
         loginClient.cancel();
         super.onStop();
     }
 
     @Override
-    protected void onSaveInstanceState(Bundle outState) {
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putBoolean("loginShowing", true);
     }

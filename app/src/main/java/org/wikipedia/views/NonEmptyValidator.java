@@ -2,6 +2,9 @@ package org.wikipedia.views;
 
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.widget.Button;
+
+import androidx.annotation.NonNull;
 
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -10,15 +13,11 @@ import com.google.android.material.textfield.TextInputLayout;
  */
 public class NonEmptyValidator {
     private final TextInputLayout[] textInputs;
-    private final ValidationChangedCallback validationChanged;
+    private final Button actionButton;
 
-    public interface ValidationChangedCallback {
-        void onValidationChanged(boolean isValid);
-    }
-
-    public NonEmptyValidator(ValidationChangedCallback validationChanged, TextInputLayout... textInputs) {
+    public NonEmptyValidator(@NonNull Button actionButton, TextInputLayout... textInputs) {
         this.textInputs = textInputs;
-        this.validationChanged = validationChanged;
+        this.actionButton = actionButton;
 
         TextWatcher triggerWatcher = new TextWatcher() {
             @Override
@@ -49,7 +48,8 @@ public class NonEmptyValidator {
 
         if (isValid != lastIsValidValue) {
             lastIsValidValue = isValid;
-            validationChanged.onValidationChanged(isValid);
+            actionButton.setEnabled(lastIsValidValue);
+            actionButton.setAlpha(lastIsValidValue ? 1.0f : 0.5f);
         }
     }
 }
