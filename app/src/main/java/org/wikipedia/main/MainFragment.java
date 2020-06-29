@@ -170,13 +170,12 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     }
 
     @Override public void onDestroyView() {
+        Prefs.setSuggestedEditsHighestPriorityEnabled(false);
         viewPager.setAdapter(null);
         viewPager.unregisterOnPageChangeCallback(pageChangeCallback);
         unbinder.unbind();
         unbinder = null;
         disposables.dispose();
-        L.d("MainFragment onDestroyView");
-        Prefs.setSuggestedEditsHighestPriorityEnabled(false);
         super.onDestroyView();
     }
 
