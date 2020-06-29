@@ -128,11 +128,12 @@ class SuggestedEditsTasksFragment : Fragment() {
         }
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
+    override fun onDestroyView() {
+        tasksRecyclerView.adapter = null
         disposables.clear()
         SuggestedEditsFunnel.get().log()
         SuggestedEditsFunnel.reset()
+        super.onDestroyView()
     }
 
     private fun fetchUserContributions() {
