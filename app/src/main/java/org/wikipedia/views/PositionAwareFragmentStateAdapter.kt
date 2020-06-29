@@ -7,7 +7,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 
 abstract class PositionAwareFragmentStateAdapter: FragmentStateAdapter {
     private val fragmentManager: FragmentManager
-    constructor(fragment: Fragment): super(fragment) { fragmentManager = fragment.childFragmentManager }
+    constructor(fragment: Fragment): super(fragment.childFragmentManager, fragment.viewLifecycleOwner.lifecycle) { fragmentManager = fragment.childFragmentManager }
     constructor(activity: FragmentActivity): super(activity) { fragmentManager = activity.supportFragmentManager }
 
     fun getFragmentAt(position: Int): Fragment? {

@@ -113,7 +113,7 @@
   <string name="reading_lists_sync_login">Saioa hasi</string>
   <string name="create_account_login">Saioa hasi</string>
   <string name="menu_login">Hasi saioa</string>
-  <string name="login_activity_title">Saioa hasi Wikipedian</string>
+  <string name="login_activity_title" fuzzy="true">Saioa hasi Wikipedian</string>
   <string name="login_in_progress_dialog_message">Saioa hasten…</string>
   <string name="login_success_toast" fuzzy="true">Saio hasiera egina!</string>
   <string name="reset_password_title">Zure pasahitza ezarri</string>
@@ -640,9 +640,6 @@
   <string name="onboarding_analytics_title">Datuak anonimoki bidali</string>
   <string name="onboarding_analytics_offline_text">Lagundu iezaguzu aplikazioa hobetzen zure erabilera azalduz. Bildutako datuak anonimoak izango dira.&lt;a href=\"#offline\"&gt;Gehiago ikasi&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Erabilitako data bidali</string>
-  <string name="onboarding_create_account_sync">Zure irakurketa zerrendak sinkronizatu</string>
-  <string name="onboarding_create_account_contributions">Zure ekarpenen berri jaso</string>
-  <string name="onboarding_create_account_preferences">Zure lehentasunak gorde</string>
   <string name="onboarding_got_it">Ulertuta</string>
   <string name="onboarding_multilingual_secondary_text">Hurrengoak aurkitu ditugu zure gailuan:</string>
   <string name="onboarding_multilingual_add_language_text">Hizkuntzak gehitu ala aldatu</string>
@@ -697,8 +694,6 @@
   <string name="wikitext_template">Txantiloia</string>
   <string name="wikitext_reference">Erreferentzia</string>
   <string name="wikitext_preview_link">Aurreikuspen lotura</string>
-  <string name="main_drawer_open">Ireki</string>
-  <string name="main_drawer_close">Itxi</string>
   <string name="main_drawer_help">Laguntza</string>
   <string name="custom_date_picker_dialog_ok_button_text">Ados</string>
   <string name="text_input_dialog_ok_button_text">Ados</string>

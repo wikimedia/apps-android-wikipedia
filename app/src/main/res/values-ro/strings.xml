@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * Abijeet Patro
+* Carcassonne93
 * Danutz
 * Dbrant
 * Ely en
@@ -114,7 +115,7 @@
   <string name="reading_lists_sync_login">Autentificare</string>
   <string name="create_account_login">Autentificare</string>
   <string name="menu_login">Autentificare</string>
-  <string name="login_activity_title">Autentificare la Wikipedia</string>
+  <string name="login_activity_title">Autentificare</string>
   <string name="login_in_progress_dialog_message">Autentificare în curs…</string>
   <string name="login_success_toast">Autentificat!</string>
   <string name="reset_password_title">Setează parola</string>
@@ -740,9 +741,9 @@
   <string name="suggested_edits_edit_streak_stat_tooltip">Câte zile fără pauză ați contribuit prin Modificări sugerate. Dacă nu ați contribuit într-o perioadă, aceasta arată data ultimei contribuții.</string>
   <string name="suggested_edits_page_views_stat_tooltip">Vizualizări totale de pagini ale articolelor la care ați contribuit în ultimele 30 de zile cu modificări sugerate.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Pe baza de câte ori a fost revenită una dintre contribuțiile dvs. (anulată de un alt editor). Modificări anulate: %d.</string>
-  <string name="suggested_edits_paused_message">&lt;b&gt;Modificările sugerate sunt întrerupte până %1$s.&lt;/b&gt; Scuze %2$s, o parte din contribuțiile dvs. recente au fost anulate.\n\nAflați cum să vă îmbunătățiți abilitățile de editare pe Wikipedia cu linkul de mai jos.</string>
-  <string name="suggested_edits_disabled_message">&lt;b&gt;Editările sugerate sunt dezactivate.&lt;/b&gt; Ne pare rău %s, prea multe contribuții recente au fost anulate.\n\nAflați ce înseamnă asta cu linkul de mai jos.</string>
-  <string name="suggested_edits_ip_blocked_message">Se pare că adresa dvs. IP (sau gama de adrese IP) este în prezent blocată de la editarea Wikipedia. Aflați mai multe despre ce înseamnă acest lucru accesând linkul de mai jos.</string>
+  <string name="suggested_edits_paused_message" fuzzy="true">&lt;b&gt;Modificările sugerate sunt întrerupte până %1$s.&lt;/b&gt; Scuze %2$s, o parte din contribuțiile dvs. recente au fost anulate.\n\nAflați cum să vă îmbunătățiți abilitățile de editare pe Wikipedia cu linkul de mai jos.</string>
+  <string name="suggested_edits_disabled_message" fuzzy="true">&lt;b&gt;Editările sugerate sunt dezactivate.&lt;/b&gt; Ne pare rău %s, prea multe contribuții recente au fost anulate.\n\nAflați ce înseamnă asta cu linkul de mai jos.</string>
+  <string name="suggested_edits_ip_blocked_message" fuzzy="true">Se pare că adresa dvs. IP (sau gama de adrese IP) este în prezent blocată de la editarea Wikipedia. Aflați mai multe despre ce înseamnă acest lucru accesând linkul de mai jos.</string>
   <string name="suggested_edits_editing_tips_link_text">Modificare sfaturi și trucuri</string>
   <string name="suggested_edits_help_page_link_text">Pagina de ajutor pentru modificări sugerate</string>
   <string name="suggested_edits_edit_streak_label_text">Editări neîntrerupte</string>
@@ -767,6 +768,9 @@
     <item quantity="few">%d zile</item>
     <item quantity="other">%d zile</item>
   </plurals>
+  <string name="suggested_edits_learn_more">Învățați mai multe</string>
+  <string name="suggested_edits_disabled_title">Dezactivat</string>
+  <string name="suggested_edits_ip_blocked_title">IP blocat</string>
   <string name="suggested_edits_last_edited">Ultima modificare:</string>
   <string name="suggested_edits_last_edited_never">Niciodată</string>
   <string name="suggested_edits_task_new">nou</string>
@@ -781,7 +785,6 @@
   <string name="suggested_edits_contribution_image_label">Fișier</string>
   <string name="suggested_edits_contribution_article_label">Articol</string>
   <string name="suggested_edits_contribution_views">%s vizualizări</string>
-  <string name="suggested_edits_contribution_label">Ai adăugat %d caractere</string>
   <string name="suggested_edits_contribution_seen_text">Văzut %s ori în ultimele 30 de zile.</string>
   <plurals name="suggested_edits_image_tag_contribution_label">
     <item quantity="one">Ai adăugat eticheta %d</item>
@@ -792,6 +795,7 @@
   <string name="suggested_edits_contribution_date_yesterday_text">Ieri</string>
   <string name="suggested_edits_rewards_contribution">Ați făcut %d contribuții la Wikipedia folosind Modificări sugerate. Mulțumesc!</string>
   <string name="suggested_edits_rewards_edit_streak">Ați editat în fiecare zi pentru %1$d zile până acum. Continuați șirul, %2$s!</string>
+  <string name="suggested_edits_added_contribution_label" fuzzy="true">Ai adăugat %d caractere</string>
   <string name="file_page_activity_title">Pagina fișer</string>
   <string name="description_edit_revert_subtitle">Mulțumim pentru editarea Wikipedia!</string>
   <string name="description_edit_revert_intro">Știm că ai încercat tot posibilul, dar unul dintre recenzori avea o îndoială. Posibilele motive pentru care modificarea dvs. a fost anulată includ:</string>
@@ -814,9 +818,6 @@
   <string name="onboarding_analytics_title">Trimiteți date anonime</string>
   <string name="onboarding_analytics_offline_text">Ajutați la îmbunătățirea aplicației, informându-ne cum o utilizați. Datele colectate sunt anonime. &lt;a href=\"#privacy\"&gt;Aflați mai multe&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Trimiteți date de utilizare</string>
-  <string name="onboarding_create_account_sync">Sincronizați listele de citire</string>
-  <string name="onboarding_create_account_contributions">Urmăriți contribuțiile dvs.</string>
-  <string name="onboarding_create_account_preferences">Salvează preferințele</string>
   <string name="onboarding_got_it">Am înțeles</string>
   <string name="onboarding_multilingual_secondary_text">Am găsit următoarele pe dispozitivul dvs.:</string>
   <string name="onboarding_multilingual_add_language_text">Adăugați sau editați limbi</string>
@@ -869,6 +870,7 @@
   <string name="edit_conflict_dialog_ok_button_text">OK</string>
   <string name="reverted_edit_dialog_ok_button_text">OK</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">Anulează</string>
+  <string name="edit_type_all">Toate contribuțiile</string>
   <string name="content_description_for_page_indicator">Pagina %1$d din %2$d</string>
   <string name="wikitext_bold">Aldin</string>
   <string name="wikitext_italic">Cursiv</string>
@@ -878,12 +880,9 @@
   <string name="wikitext_template">Format</string>
   <string name="wikitext_reference">Referință</string>
   <string name="wikitext_preview_link">Previzualizare legătură</string>
-  <string name="main_drawer_open">Deschis</string>
-  <string name="main_drawer_close">Închis</string>
-  <string name="main_drawer_content_description">Deschide sertarul principal de navigare</string>
   <string name="main_drawer_help">Ajutor</string>
   <string name="main_drawer_login">Autentificare / alăturare Wikipedia</string>
-  <string name="main_tooltip_text">%s, știați că toată lumea poate edita Wikipedia?</string>
+  <string name="main_tooltip_text" fuzzy="true">%s, știați că toată lumea poate edita Wikipedia?</string>
   <string name="main_tooltip_action_button">Începe</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_ok_button_text">OK</string>

@@ -12,7 +12,7 @@ import android.speech.RecognizerIntent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -58,6 +58,7 @@ import org.wikipedia.page.tabs.TabActivity;
 import org.wikipedia.random.RandomActivity;
 import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.readinglist.MoveToReadingListDialog;
+import org.wikipedia.readinglist.ReadingListsFragment;
 import org.wikipedia.search.SearchActivity;
 import org.wikipedia.search.SearchFragment;
 import org.wikipedia.settings.AboutActivity;
@@ -92,7 +93,7 @@ import static org.wikipedia.Constants.InvokeSource.VOICE;
 public class MainFragment extends Fragment implements BackPressedHandler, FeedFragment.Callback,
         HistoryFragment.Callback, LinkPreviewDialog.Callback {
     @BindView(R.id.fragment_main_view_pager) ViewPager2 viewPager;
-    @BindView(R.id.fragment_main_nav_tab_container) FrameLayout navTabContainer;
+    @BindView(R.id.fragment_main_nav_tab_container) LinearLayout navTabContainer;
     @BindView(R.id.fragment_main_nav_tab_layout) NavTabLayout tabLayout;
     @BindView(R.id.fragment_main_nav_tab_overlay_layout) NavTabOverlayLayout tabOverlayLayout;
     @BindView(R.id.nav_more_container) View moreContainer;
@@ -103,7 +104,6 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     private Snackbar suggestedEditsNavTabSnackbar;
     private PageChangeCallback pageChangeCallback = new PageChangeCallback();
     private CompositeDisposable disposables = new CompositeDisposable();
-    private boolean navTabAutoSelect;
 
     // The permissions request API doesn't take a callback, so in the event we have to
     // ask for permission to download a featured image from the feed, we'll have to hold
@@ -135,7 +135,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         FeedbackUtil.setToolbarButtonLongPressToast(moreContainer);
 
         tabLayout.setOnNavigationItemSelectedListener(item -> {
-            if (!navTabAutoSelect && getCurrentFragment() instanceof FeedFragment && item.getOrder() == 0) {
+            if (getCurrentFragment() instanceof FeedFragment && item.getOrder() == 0) {
                 ((FeedFragment) getCurrentFragment()).scrollToTop();
             }
             viewPager.setCurrentItem(item.getOrder(), false);
@@ -166,12 +166,11 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         downloadReceiver.setCallback(downloadReceiverCallback);
         // reset the last-page-viewed timer
         Prefs.pageLastShown(0);
-        navTabAutoSelect = true;
         resetNavTabLayouts();
-        navTabAutoSelect = false;
     }
 
     @Override public void onDestroyView() {
+        viewPager.setAdapter(null);
         viewPager.unregisterOnPageChangeCallback(pageChangeCallback);
         unbinder.unbind();
         unbinder = null;
@@ -191,7 +190,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
             startActivity(data);
         } else if (requestCode == Constants.ACTIVITY_REQUEST_LOGIN
                 && resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
-            refreshExploreFeed();
+            refreshContents();
             if (!Prefs.shouldShowSuggestedEditsTooltip()) {
                 FeedbackUtil.showMessage(this, R.string.login_success_toast);
             }
@@ -208,7 +207,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
             }
         } else if ((requestCode == Constants.ACTIVITY_REQUEST_OPEN_SEARCH_ACTIVITY && resultCode == SearchFragment.RESULT_LANG_CHANGED)
                 || (requestCode == Constants.ACTIVITY_REQUEST_SETTINGS && resultCode == SettingsActivity.ACTIVITY_RESULT_LANGUAGE_CHANGED)) {
-            refreshExploreFeed();
+            refreshContents();
         } else {
             super.onActivityResult(requestCode, resultCode, data);
         }
@@ -458,33 +457,36 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         tabLayout.setSelectedItemId(tabLayout.getMenu().getItem(tab.code()).getItemId());
     }
 
-    private void refreshExploreFeed() {
+    private void refreshContents() {
         Fragment fragment = getCurrentFragment();
         if (fragment instanceof FeedFragment) {
             ((FeedFragment) fragment).refresh();
+        } else if (fragment instanceof ReadingListsFragment) {
+            ((ReadingListsFragment) fragment).updateLists();
+        } else if (fragment instanceof HistoryFragment) {
+            ((HistoryFragment) fragment).refresh();
+        } else if (fragment instanceof  SuggestedEditsTasksFragment) {
+            ((SuggestedEditsTasksFragment) fragment).refreshContents();
         }
+        resetNavTabLayouts();
     }
 
-    void resetNavTabLayouts() {
-        tabLayout.setTabViews();
-        goToTab(NavTab.of(viewPager.getCurrentItem()));
-        if (AccountUtil.isLoggedIn()) {
-            if (Prefs.shouldShowSuggestedEditsTooltip()) {
-                Prefs.setShouldShowSuggestedEditsTooltip(false);
-                Prefs.setShouldShowImageTagsTooltip(false);
-                tabOverlayLayout.pick(NavTab.SUGGESTED_EDITS);
-                suggestedEditsNavTabSnackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.main_tooltip_text, AccountUtil.getUserName()), FeedbackUtil.LENGTH_LONG);
-                suggestedEditsNavTabSnackbar.setAction(R.string.main_tooltip_action_button, view -> goToTab(NavTab.SUGGESTED_EDITS));
-                suggestedEditsNavTabSnackbar.show();
-            } else if (Prefs.shouldShowImageTagsTooltip()) {
-                Prefs.setShouldShowImageTagsTooltip(false);
-                tabOverlayLayout.pick(NavTab.SUGGESTED_EDITS);
-                suggestedEditsNavTabSnackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.suggested_edits_image_tags_snackbar), FeedbackUtil.LENGTH_LONG);
-                suggestedEditsNavTabSnackbar.setAction(R.string.main_tooltip_action_button, view -> goToTab(NavTab.SUGGESTED_EDITS));
-                suggestedEditsNavTabSnackbar.show();
-            }
-        } else {
-            hideNavTabOverlayLayout();
+    private void resetNavTabLayouts() {
+        if (Prefs.shouldShowSuggestedEditsTooltip()) {
+            Prefs.setShouldShowSuggestedEditsTooltip(false);
+            Prefs.setShouldShowImageTagsTooltip(false);
+            tabOverlayLayout.pick(NavTab.SUGGESTED_EDITS);
+            suggestedEditsNavTabSnackbar = FeedbackUtil.makeSnackbar(requireActivity(), AccountUtil.isLoggedIn()
+                    ? getString(R.string.main_tooltip_text, AccountUtil.getUserName())
+                    : getString(R.string.main_tooltip_text_v2), FeedbackUtil.LENGTH_LONG);
+            suggestedEditsNavTabSnackbar.setAction(R.string.main_tooltip_action_button, view -> goToTab(NavTab.SUGGESTED_EDITS));
+            suggestedEditsNavTabSnackbar.show();
+        } else if (Prefs.shouldShowImageTagsTooltip()) {
+            Prefs.setShouldShowImageTagsTooltip(false);
+            tabOverlayLayout.pick(NavTab.SUGGESTED_EDITS);
+            suggestedEditsNavTabSnackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.suggested_edits_image_tags_snackbar), FeedbackUtil.LENGTH_LONG);
+            suggestedEditsNavTabSnackbar.setAction(R.string.main_tooltip_action_button, view -> goToTab(NavTab.SUGGESTED_EDITS));
+            suggestedEditsNavTabSnackbar.show();
         }
     }
 
@@ -522,7 +524,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         @Override
         public void accept(Object event) {
             if (event instanceof LoggedOutInBackgroundEvent) {
-                resetNavTabLayouts();
+                refreshContents();
             }
         }
     }
@@ -543,7 +545,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
                             FeedbackUtil.showMessage(requireActivity(), R.string.toast_logout_complete);
                             Prefs.setReadingListsLastSyncTime(null);
                             Prefs.setReadingListSyncEnabled(false);
-                            resetNavTabLayouts();
+                            refreshContents();
                         }).show();
             } else {
                 onLoginRequested();

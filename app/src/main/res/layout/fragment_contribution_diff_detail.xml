@@ -13,7 +13,7 @@
         <View
             android:id="@+id/topView"
             android:layout_width="match_parent"
-            android:layout_height="300dp" />
+            android:layout_height="340dp" />
 
         <ImageView
             android:id="@+id/back"
@@ -61,7 +61,7 @@
                         android:textStyle="normal" />
 
                     <TextView
-                        android:id="@+id/contributionDetailText"
+                        android:id="@+id/contributionDiffDetailText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:ellipsize="end"
@@ -145,7 +145,8 @@
                         android:id="@+id/contributionImage"
                         android:layout_width="52dp"
                         android:layout_height="52dp"
-                        android:contentDescription="@null" />
+                        android:contentDescription="@null"
+                        android:layout_marginStart="16dp"/>
                 </LinearLayout>
             </LinearLayout>
 

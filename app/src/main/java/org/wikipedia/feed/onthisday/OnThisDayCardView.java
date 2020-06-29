@@ -58,7 +58,6 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
     @BindView(R.id.years_text_background) ImageView yearsInfoBackground;
     @BindView(R.id.years_text) TextView yearsInfoTextView;
     @BindView(R.id.year_layout) LinearLayout yearLayout;
-    @BindView(R.id.more_events_layout) LinearLayout moreEventsLayout;
     @BindView(R.id.pages_recycler) RecyclerView pagesRecycler;
     @BindView(R.id.gradient_layout) View gradientLayout;
     @BindView(R.id.radio_image_view) View radio;
@@ -70,7 +69,6 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
 
     public OnThisDayCardView(@NonNull Context context) {
         super(context);
-        setAllowOverflow(true);
         inflate(getContext(), R.layout.view_card_on_this_day, this);
         ButterKnife.bind(this);
         initRecycler();

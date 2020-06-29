@@ -147,7 +147,7 @@
   <string name="reading_lists_sync_login">\nAcceder</string>
   <string name="create_account_login">\nAcceder</string>
   <string name="menu_login">Acceder</string>
-  <string name="login_activity_title">Acceder a Wikipedia</string>
+  <string name="login_activity_title" fuzzy="true">Acceder a Wikipedia</string>
   <string name="login_in_progress_dialog_message">Accediendo…</string>
   <string name="login_success_toast">Has accedido.</string>
   <string name="reset_password_title">Establecer contraseña</string>
@@ -753,9 +753,9 @@
   <string name="suggested_edits_edit_streak_stat_tooltip">Cuántos días seguidos has contribuido a Ediciones sugeridas. Si hace tiempo que no contribuyes, mostrará la fecha de tu última contribución.</string>
   <string name="suggested_edits_page_views_stat_tooltip">Total de páginas vistas de elementos a los que contribuiste en los últimos 30 días con ediciones sugeridas.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Basado en la cantidad de veces que una de tus contribuciones ha sido revertida (anulado por otro editor). Ediciones revertidas: %d.</string>
-  <string name="suggested_edits_paused_message">&lt;b&gt;Las Ediciones sugeridas están bloqueadas hasta %1$s.&lt;/b&gt; Lo sentimos, %2$s: algunas de tus contribuciones recientes se han revertido.\n\nAprende cómo mejorar tus habilidades de edición en la Wikipedia consultando el enlace inferior.</string>
-  <string name="suggested_edits_disabled_message">&lt;b&gt;Las Ediciones sugeridas están deshabilitadas.&lt;/b&gt; Lo sentimos, %s: muchas de tus contribuciones recientes se han revertido.\n\nConsulta más información en el siguiente enlace.</string>
-  <string name="suggested_edits_ip_blocked_message">Parece que tu dirección IP (o rango de direcciones IP) está actualmente bloqueada para la edición de la Wikipedia. Consulta más información siguiendo el enlace de más abajo.</string>
+  <string name="suggested_edits_paused_message" fuzzy="true">&lt;b&gt;Las Ediciones sugeridas están bloqueadas hasta %1$s.&lt;/b&gt; Lo sentimos, %2$s: algunas de tus contribuciones recientes se han revertido.\n\nAprende cómo mejorar tus habilidades de edición en la Wikipedia consultando el enlace inferior.</string>
+  <string name="suggested_edits_disabled_message" fuzzy="true">&lt;b&gt;Las Ediciones sugeridas están deshabilitadas.&lt;/b&gt; Lo sentimos, %s: muchas de tus contribuciones recientes se han revertido.\n\nConsulta más información en el siguiente enlace.</string>
+  <string name="suggested_edits_ip_blocked_message" fuzzy="true">Parece que tu dirección IP (o rango de direcciones IP) está actualmente bloqueada para la edición de la Wikipedia. Consulta más información siguiendo el enlace de más abajo.</string>
   <string name="suggested_edits_editing_tips_link_text">Trucos y consejos de edición</string>
   <string name="suggested_edits_help_page_link_text">Página de ayuda de ediciones sugeridas</string>
   <string name="suggested_edits_edit_streak_label_text">Editar racha</string>
@@ -818,9 +818,6 @@
   <string name="onboarding_analytics_title">Enviar datos anónimos</string>
   <string name="onboarding_analytics_offline_text">Permite que sepamos cómo utilizas la aplicación para ayudar a mejorarla. Los datos recopilados son anónimos. &lt;a href=\"#privacy\"&gt;Más información&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Enviar datos de uso</string>
-  <string name="onboarding_create_account_sync">Sincronizar tus listas de lectura</string>
-  <string name="onboarding_create_account_contributions">Mantente al tanto de tus aportes</string>
-  <string name="onboarding_create_account_preferences">Guardar tus preferencias</string>
   <string name="onboarding_got_it">Entendido</string>
   <string name="onboarding_multilingual_secondary_text">Encontramos lo siguiente en tu dispositivo:</string>
   <string name="onboarding_multilingual_add_language_text">Añadir o editar idiomas</string>
@@ -880,12 +877,9 @@
   <string name="wikitext_template">Plantilla</string>
   <string name="wikitext_reference">Referencia</string>
   <string name="wikitext_preview_link">Previsualizar enlace</string>
-  <string name="main_drawer_open">Abrir</string>
-  <string name="main_drawer_close">Cerrar</string>
-  <string name="main_drawer_content_description">Abrir el cajón de navegación principal</string>
   <string name="main_drawer_help">Ayuda</string>
   <string name="main_drawer_login">Iniciar sesión / unirse a Wikipedia</string>
-  <string name="main_tooltip_text">%s, ¿sabías que todos pueden editar Wikipedia?</string>
+  <string name="main_tooltip_text" fuzzy="true">%s, ¿sabías que todos pueden editar Wikipedia?</string>
   <string name="main_tooltip_action_button">\nEmpezar</string>
   <string name="custom_date_picker_dialog_ok_button_text">Aceptar</string>
   <string name="text_input_dialog_ok_button_text">Aceptar</string>

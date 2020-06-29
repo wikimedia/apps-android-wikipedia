@@ -106,7 +106,7 @@
   <string name="reading_lists_sync_login">შესვლა</string>
   <string name="create_account_login">შესვლა</string>
   <string name="menu_login">შესვლა</string>
-  <string name="login_activity_title">ვიკიპედიაში შესვლა</string>
+  <string name="login_activity_title" fuzzy="true">ვიკიპედიაში შესვლა</string>
   <string name="login_in_progress_dialog_message">შედიხართ სისტემაში…</string>
   <string name="login_success_toast">შესული!</string>
   <string name="reset_password_title">დააყენეთ პაროლი</string>

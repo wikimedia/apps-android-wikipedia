@@ -21,6 +21,7 @@ import org.wikipedia.Constants.ACTIVITY_REQUEST_IMAGE_TAGS_ONBOARDING
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.SuggestedEditsFunnel
+import org.wikipedia.analytics.UserContributionFunnel
 import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
@@ -69,6 +70,9 @@ class SuggestedEditsTasksFragment : Fragment() {
             startActivity(SuggestedEditsContributionsActivity.newIntent(requireActivity()))
         }
 
+        learnMoreCard.setOnClickListener {
+            FeedbackUtil.showAndroidAppEditingFAQ(requireContext())
+        }
         learnMoreButton.setOnClickListener {
             FeedbackUtil.showAndroidAppEditingFAQ(requireContext())
         }
@@ -84,7 +88,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         editQualityStatsView.setDescription(getString(R.string.suggested_edits_quality_label_text))
 
         swipeRefreshLayout.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent))
-        swipeRefreshLayout.setOnRefreshListener { this.refreshContents() }
+        swipeRefreshLayout.setOnRefreshListener { refreshContents() }
 
         errorView.setRetryClickListener { refreshContents() }
 
@@ -124,15 +128,17 @@ class SuggestedEditsTasksFragment : Fragment() {
         }
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
+    override fun onDestroyView() {
+        tasksRecyclerView.adapter = null
         disposables.clear()
         SuggestedEditsFunnel.get().log()
         SuggestedEditsFunnel.reset()
+        super.onDestroyView()
     }
 
     private fun fetchUserContributions() {
         if (!AccountUtil.isLoggedIn()) {
+            showAccountCreationOrIPBlocked()
             return
         }
 
@@ -193,8 +199,25 @@ class SuggestedEditsTasksFragment : Fragment() {
                 }))
     }
 
-    private fun refreshContents() {
+    private fun showAccountCreationOrIPBlocked() {
+        disposables.add(ServiceFactory.get(WikipediaApp.getInstance().wikiSite).userInfo
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({ response ->
+                    if (response.query()!!.userInfo()!!.isBlocked) {
+                        setIPBlockedStatus()
+                    } else {
+                        setRequiredLoginStatus()
+                    }
+                }, { t ->
+                    L.e(t)
+                    showError(t)
+                }))
+    }
+
+    fun refreshContents() {
         requireActivity().invalidateOptionsMenu()
+        clearContents()
         fetchUserContributions()
     }
 
@@ -231,17 +254,21 @@ class SuggestedEditsTasksFragment : Fragment() {
         }
 
         if (totalContributions == 0) {
+            userStatsClickTarget.isEnabled = false
             userNameView.visibility = GONE
             contributionsStatsView.visibility = GONE
             editQualityStatsView.visibility = GONE
             editStreakStatsView.visibility = GONE
             pageViewStatsView.visibility = GONE
+            userStatsArrow.visibility = GONE
             onboardingImageView.visibility = VISIBLE
             onboardingTextView.visibility = VISIBLE
             onboardingTextView.text = StringUtil.fromHtml(getString(R.string.suggested_edits_onboarding_message, AccountUtil.getUserName()))
         } else {
+            userStatsClickTarget.isEnabled = true
             userNameView.text = AccountUtil.getUserName()
             userNameView.visibility = VISIBLE
+            userStatsArrow.visibility = VISIBLE
             contributionsStatsView.visibility = VISIBLE
             editQualityStatsView.visibility = VISIBLE
             editStreakStatsView.visibility = VISIBLE
@@ -260,6 +287,13 @@ class SuggestedEditsTasksFragment : Fragment() {
         clearContents()
         disabledStatesView.setIPBlocked()
         disabledStatesView.visibility = VISIBLE
+        UserContributionFunnel.get().logIpBlock()
+    }
+
+    private fun setRequiredLoginStatus() {
+        clearContents()
+        disabledStatesView.setRequiredLogin()
+        disabledStatesView.visibility = VISIBLE
     }
 
     private fun maybeSetPausedOrDisabled(): Boolean {
@@ -270,11 +304,13 @@ class SuggestedEditsTasksFragment : Fragment() {
             clearContents()
             disabledStatesView.setDisabled(getString(R.string.suggested_edits_disabled_message, AccountUtil.getUserName()))
             disabledStatesView.visibility = VISIBLE
+            UserContributionFunnel.get().logDisabled()
             return true
         } else if (pauseEndDate != null) {
             clearContents()
             disabledStatesView.setPaused(getString(R.string.suggested_edits_paused_message, DateUtil.getShortDateString(pauseEndDate), AccountUtil.getUserName()))
             disabledStatesView.visibility = VISIBLE
+            UserContributionFunnel.get().logPaused()
             return true
         }
 
@@ -339,7 +375,6 @@ class SuggestedEditsTasksFragment : Fragment() {
         displayedTasks.add(addDescriptionsTask)
         displayedTasks.add(addImageCaptionsTask)
     }
-
 
     private inner class TaskViewCallback : SuggestedEditsTaskView.Callback {
         override fun onViewClick(task: SuggestedEditsTask, isTranslate: Boolean) {

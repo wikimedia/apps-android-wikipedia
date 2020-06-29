@@ -32,11 +32,6 @@ public abstract class DefaultFeedCardView<T extends Card> extends WikiCardView i
         this.callback = callback;
     }
 
-    protected void setAllowOverflow(boolean enabled) {
-        setClipChildren(!enabled);
-        setClipToOutline(!enabled);
-    }
-
     @Nullable protected FeedAdapter.Callback getCallback() {
         return callback;
     }

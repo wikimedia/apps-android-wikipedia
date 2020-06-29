@@ -16,6 +16,7 @@
   <string name="search_hint_search_languages">زبان دی ڳول</string>
   <string name="search_hint_search_my_lists_and_articles">میݙیاں تندیراں تے مضمون ڳولو</string>
   <string name="nav_item_history">تاریخچہ</string>
+  <string name="nav_item_more">ٻئے</string>
   <string name="error_network_error">انٹرنیٹ نال جوڑ نی تھی سڳا</string>
   <string name="page_error_retry">ولدا کوشش کرو</string>
   <string name="card_offline_error_retry">ولدا کوشش کرو</string>
@@ -82,7 +83,7 @@
   <string name="reading_lists_sync_login">لاگ ان تھیوو</string>
   <string name="create_account_login">لاگ ان تھیوو</string>
   <string name="menu_login">لاگ ان تھیوو</string>
-  <string name="login_activity_title">وکی پیڈیا وچ لاگ ان تھیوو</string>
+  <string name="login_activity_title" fuzzy="true">وکی پیڈیا وچ لاگ ان تھیوو</string>
   <string name="login_in_progress_dialog_message">لاگ ان  تھیندے پئے ہو۔۔۔</string>
   <string name="login_success_toast">لاگ ان تھی ڳیا!</string>
   <string name="reset_password_hint">نواں پاس ورڈ</string>
@@ -284,6 +285,8 @@
   <string name="suggested_edits_feed_card_add_image_tags">تصویر ٹیگ شامل کرو</string>
   <string name="suggested_edits_image_tags_search">ٹیگ ڳولو</string>
   <string name="suggested_edits_image_tags_add_tag">ٹیگ شامل کرو</string>
+  <string name="suggested_edits_learn_more">ٻیا سِکھو</string>
+  <string name="suggested_edits_paused_title">جمب ڳیا</string>
   <string name="suggested_edits_contribution_language_label">زبان</string>
   <string name="suggested_edits_contribution_date_time_label">تریخ/ویلا</string>
   <string name="suggested_edits_contribution_image_label">فائل</string>
@@ -326,8 +329,6 @@
   <string name="wikitext_numbered_list">عدد لڳی تندیر</string>
   <string name="wikitext_template">سانچہ</string>
   <string name="wikitext_reference">حوالہ</string>
-  <string name="main_drawer_open">کھولو</string>
-  <string name="main_drawer_close">بند کرو</string>
   <string name="main_drawer_help">مدد</string>
   <string name="custom_date_picker_dialog_ok_button_text">ٹھیک ہے</string>
   <string name="text_input_dialog_ok_button_text">ٹھیک ہے</string>

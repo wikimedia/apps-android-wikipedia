@@ -100,7 +100,7 @@
   <string name="reading_lists_sync_login">လွၵ်ႉဢိၼ်ႇ</string>
   <string name="create_account_login">လွၵ်ႉဢိၼ်ႇ</string>
   <string name="menu_login">လွၵ်ႉဢိၼ်ႇ</string>
-  <string name="login_activity_title">ၶဝ်ႈလွၵ်ႉဢိၼ်ႇၸူး ဝီႇၶီႇၽီးတီးယႃး</string>
+  <string name="login_activity_title" fuzzy="true">ၶဝ်ႈလွၵ်ႉဢိၼ်ႇၸူး ဝီႇၶီႇၽီးတီးယႃး</string>
   <string name="login_in_progress_dialog_message">ၸဝ်ႈၵဝ်ႇ တိုၵ်ႉၶဝ်ႈလွၵ်ႉဢိၼ်ႇယူႇ...</string>
   <string name="login_success_toast" fuzzy="true">ၽွမ်ႉၶဝ်ႈယဝ်ႉ လီငၢမ်း</string>
   <string name="reset_password_title">မၵ်းသႂ်ႇၶေႃႈလပ်ႉၸဝ်ႈၵဝ်ႇ</string>
@@ -650,9 +650,6 @@
   <string name="onboarding_analytics_title">သူင်ႇၶေႃႈမုၼ်းလပ်ႉၸိုဝ်ႈ</string>
   <string name="onboarding_analytics_offline_text">ပၼ်ႁဝ်းၶႃႈႁူႉဝႃႈ ၸဝ်ႈၵဝ်ႇႁဵတ်းႁိုဝ်ၸႂ်ႉၼၼ်ႉၼႆသေ ၸွႆႈထႅမ်ႁဵတ်းသၢင်ႈ ႁႂ်ႈဢႅပ်ႉတိူဝ်းၶႅမ်ႉလိူဝ်။ လွင်ႈၸူႉတုမ်ၶေႃႈမုၼ်းၼႆႉ ပဵၼ်ဢၼ်လပ်ႉၸိုဝ်ႈဝႆႉ။ &lt;a href=\"#privacy\"&gt;လဵပ်ႈႁဵၼ်းလိူဝ်&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">သူင်ႇ ၶေႃႈမုၼ်းလွင်ႈၸႂ်ႉတိုဝ်း</string>
-  <string name="onboarding_create_account_sync">ၶူၼ်းၽဵင်ႇ သဵၼ်ႈမၢႆလူၸဝ်ႈၵဝ်ႇ</string>
-  <string name="onboarding_create_account_contributions">သိုပ်ႇလၢမ်းငိုၼ်ႈ ႁင်း လွင်ႈၶဝ်ႈႁူမ်ႈၸဝ်ႈၵဝ်ႇ</string>
-  <string name="onboarding_create_account_preferences">သိမ်း ငဝ်ႈၵုမ်းပိူင်ၸဝ်ႈၵဝ်ႇ</string>
   <string name="onboarding_got_it">လႆႈယဝ်ႉ</string>
   <string name="onboarding_multilingual_secondary_text">ၼႂ်းၶိူင်ႈၸႂ်ႉၸဝ်ႈၵဝ်ႇၼၼ်ႉ ႁဝ်းၶႃႈလႆႈႁၼ်မႅၼ်ႈၺႃး ၸွမ်းၼင်ႇၽၢႆႇတႂ်ႈၼႆႉ:</string>
   <string name="onboarding_multilingual_add_language_text">ထႅမ်သႂ်ႇ ဢမ်ႇၼၼ် မႄးထတ်းၽႃႇသႃႇၵႂၢမ်း</string>
@@ -708,8 +705,6 @@
   <string name="wikitext_template">ပိူင်</string>
   <string name="wikitext_reference">ၽိုၼ်ဢိင်</string>
   <string name="wikitext_preview_link">တူၺ်းလူင်ႈၼႃး ႁဵင်းၵွင်ႉ</string>
-  <string name="main_drawer_open">ပိုတ်ႇ</string>
-  <string name="main_drawer_close">ႁပ်း</string>
   <string name="main_drawer_help">ၸွႆႈထႅမ်</string>
   <string name="main_drawer_login">လွၵ်ႉဢိၼ်ႇ / သိုပ်ႇၵၢႆႇ ဝီႇၶီႇၽီးတီးယႃး</string>
   <string name="custom_date_picker_dialog_ok_button_text">ဢူဝ်ႇၶေႇ</string>

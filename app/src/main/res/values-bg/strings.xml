@@ -108,7 +108,7 @@
   <string name="reading_lists_sync_login">Влизане</string>
   <string name="create_account_login">Влизане</string>
   <string name="menu_login">Влизане</string>
-  <string name="login_activity_title">Влизане в Уикипедия</string>
+  <string name="login_activity_title" fuzzy="true">Влизане в Уикипедия</string>
   <string name="login_in_progress_dialog_message">Влизане...</string>
   <string name="login_success_toast">Успешно влизане!</string>
   <string name="reset_password_title">Въведете паролата си</string>
@@ -713,9 +713,9 @@
   <string name="suggested_edits_contribution_type_label">Вид принос</string>
   <string name="suggested_edits_contribution_image_label">Файл</string>
   <string name="suggested_edits_contribution_article_label">Статия</string>
-  <string name="suggested_edits_contribution_label">Добавили сте %d символа</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Вчера</string>
   <string name="suggested_edits_rewards_continue_button">Продължаване</string>
+  <string name="suggested_edits_added_contribution_label" fuzzy="true">Добавили сте %d символа</string>
   <string name="file_page_activity_title">Страница на файла</string>
   <string name="description_edit_revert_subtitle">Благодарим за редактирането на Уикипедия!</string>
   <string name="description_edit_revert_intro">Знаем, че дадохте всичко от себе си, но един от преглеждащите има забележка. Възможните причини за върната редакция включват:</string>
@@ -738,9 +738,6 @@
   <string name="onboarding_analytics_title">Изпращане на анонимни данни</string>
   <string name="onboarding_analytics_offline_text">Помогнете да направим приложението по-добро, като ни уведомите как го използвате. Събираните данни са анонимни. &lt;a href=\"#privacy\"&gt;Научете повече&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Изпращане на данни за използване</string>
-  <string name="onboarding_create_account_sync">Синхронизация на списъците Ви за четене</string>
-  <string name="onboarding_create_account_contributions">Бъдете в течение с приносите си</string>
-  <string name="onboarding_create_account_preferences">Съхраняване на предпочитанията</string>
   <string name="onboarding_got_it">Разбрах</string>
   <string name="onboarding_multilingual_secondary_text">Намерено е следното на Вашето устройство:</string>
   <string name="onboarding_multilingual_add_language_text">Добавяне или редактиране на езици</string>
@@ -799,11 +796,9 @@
   <string name="wikitext_template">Шаблон</string>
   <string name="wikitext_reference">Източник</string>
   <string name="wikitext_preview_link">Преглед на връзката</string>
-  <string name="main_drawer_open">Отваряне</string>
-  <string name="main_drawer_close">Затваряне</string>
   <string name="main_drawer_help">Помощ</string>
   <string name="main_drawer_login">Влизане в / присъединяване към Уикипедия</string>
-  <string name="main_tooltip_text">%s, знаехте ли, че всеки може да редактира Уикипедия?</string>
+  <string name="main_tooltip_text" fuzzy="true">%s, знаехте ли, че всеки може да редактира Уикипедия?</string>
   <string name="main_tooltip_action_button">Започване</string>
   <string name="custom_date_picker_dialog_ok_button_text">Добре</string>
   <string name="text_input_dialog_ok_button_text">Добре</string>

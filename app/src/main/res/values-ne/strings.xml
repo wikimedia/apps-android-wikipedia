@@ -108,7 +108,7 @@
   <string name="reading_lists_sync_login">प्रवेश</string>
   <string name="create_account_login">प्रवेश</string>
   <string name="menu_login">प्रवेश</string>
-  <string name="login_activity_title">विकिपिडियामा प्रवेश गर्नुहोस्</string>
+  <string name="login_activity_title" fuzzy="true">विकिपिडियामा प्रवेश गर्नुहोस्</string>
   <string name="login_in_progress_dialog_message">तपाईलाई प्रवेश गराउँदै…</string>
   <string name="login_success_toast" fuzzy="true">सफलतापूर्वक प्रवेश भयो!</string>
   <string name="reset_password_title">तपाईको पासवर्ड लेख्नुहोस्</string>
@@ -568,12 +568,9 @@
   <string name="account_editing_blocked_dialog_cancel_button_text">रद्द गर्नुहोस्</string>
   <string name="wikitext_link">सूत्र</string>
   <string name="wikitext_reference">सन्दर्भ</string>
-  <string name="main_drawer_open">खुल्ला</string>
-  <string name="main_drawer_close">बन्द</string>
-  <string name="main_drawer_content_description">मुख्य नेभिगेसन ड्रयर खोल्नुहोस्</string>
   <string name="main_drawer_help">सहायता</string>
   <string name="main_drawer_login">विकिपिडियामा लग इन/सहभागी हुनुहोस्</string>
-  <string name="main_tooltip_text">%s, जो कसैले पनि विकिपिडिया सम्पादन गर्न सक्नुहुन्छ भन्ने थाह थियो?</string>
+  <string name="main_tooltip_text" fuzzy="true">%s, जो कसैले पनि विकिपिडिया सम्पादन गर्न सक्नुहुन्छ भन्ने थाह थियो?</string>
   <string name="main_tooltip_action_button">सुरु गर्नुहोस्</string>
   <string name="custom_date_picker_dialog_ok_button_text">हुन्छ</string>
   <string name="text_input_dialog_ok_button_text">हुन्छ</string>

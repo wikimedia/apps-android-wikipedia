@@ -118,7 +118,7 @@
   <string name="reading_lists_sync_login">Bejelentkezés</string>
   <string name="create_account_login">Bejelentkezés</string>
   <string name="menu_login">Bejelentkezés</string>
-  <string name="login_activity_title">Bejelentkezés a Wikipédiába</string>
+  <string name="login_activity_title" fuzzy="true">Bejelentkezés a Wikipédiába</string>
   <string name="login_in_progress_dialog_message">Bejelentkezés…</string>
   <string name="login_success_toast">Bejelentkezve!</string>
   <string name="reset_password_title">Jelszó beállítása</string>
@@ -724,9 +724,9 @@
   <string name="suggested_edits_edit_streak_stat_tooltip">Hány napig működtél közre megszakítás nélkül a Javasolt szerkesztésekben. Ha egy ideje már nem működtél közre, akkor az utolsó közreműködés idejét mutatja.</string>
   <string name="suggested_edits_page_views_stat_tooltip">Azon lapok megtekintési száma, amelyekben az elmúlt 30 nap során közreműködtél a Javasolt szerkesztések segítségével.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Az alapján, hogy hányszor volt visszavonva a közreműködések (más szerkesztő által visszaállítva). Visszavont szerkesztések: %d.</string>
-  <string name="suggested_edits_paused_message">&lt;b&gt;A Javasolt szerkesztések felfüggesztésre került eddig: %1$s&lt;/b&gt; Bocsi %2$s, de néhány friss közreműködésed visszavonásra került.</string>
-  <string name="suggested_edits_disabled_message">&lt;b&gt;A Javasolt szerkesztések letiltásra került.&lt;/b&gt; Bocsi %s, túl sok közreműködésed lett visszavonva mostanában.</string>
-  <string name="suggested_edits_ip_blocked_message">Úgí tűni, hogy az IP-címed (vagy egy IP-cím tartomány) jelenleg el van tiltva a Wikipédia szerkesztésétől. Az alábbi hivatkozásra kattintva többet megtudhatsz arról, hogy az mit is jelent pontosan.</string>
+  <string name="suggested_edits_paused_message" fuzzy="true">&lt;b&gt;A Javasolt szerkesztések felfüggesztésre került eddig: %1$s&lt;/b&gt; Bocsi %2$s, de néhány friss közreműködésed visszavonásra került.</string>
+  <string name="suggested_edits_disabled_message" fuzzy="true">&lt;b&gt;A Javasolt szerkesztések letiltásra került.&lt;/b&gt; Bocsi %s, túl sok közreműködésed lett visszavonva mostanában.</string>
+  <string name="suggested_edits_ip_blocked_message" fuzzy="true">Úgí tűni, hogy az IP-címed (vagy egy IP-cím tartomány) jelenleg el van tiltva a Wikipédia szerkesztésétől. Az alábbi hivatkozásra kattintva többet megtudhatsz arról, hogy az mit is jelent pontosan.</string>
   <string name="suggested_edits_editing_tips_link_text">Szerkesztési tippek-trükkök</string>
   <string name="suggested_edits_help_page_link_text">Javasolt szerkesztések súgó oldal</string>
   <string name="suggested_edits_edit_streak_label_text">Szerkesztési széria</string>
@@ -777,9 +777,6 @@
   <string name="onboarding_analytics_title">Névtelen adatok küldése</string>
   <string name="onboarding_analytics_offline_text">Segíts jobbá tenni az alkalmazást a használati adatok megosztásával. A begyűjtött adatok név nélküliek. &lt;a href=\"#privacy\"&gt;Tudj meg többet&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Felhasználási adatok küldése</string>
-  <string name="onboarding_create_account_sync">Szinkronizálja az olvasólistáidat</string>
-  <string name="onboarding_create_account_contributions">Hozzájárulásaid nyomon követése</string>
-  <string name="onboarding_create_account_preferences">Beállítások mentése</string>
   <string name="onboarding_got_it">Értem</string>
   <string name="onboarding_multilingual_secondary_text">A következőket találtuk a készülékeden:</string>
   <string name="onboarding_multilingual_add_language_text">Nyelvek hozzáadása vagy szerkesztése</string>
@@ -839,12 +836,9 @@
   <string name="wikitext_template">Sablon</string>
   <string name="wikitext_reference">Hivatkozás</string>
   <string name="wikitext_preview_link">Link előnézete</string>
-  <string name="main_drawer_open">Megnyit</string>
-  <string name="main_drawer_close">Bezár</string>
-  <string name="main_drawer_content_description">Fő navigációs fiók kinyitása</string>
   <string name="main_drawer_help">Segítség</string>
   <string name="main_drawer_login">Bejelentkezés/regisztrálás a Wikipédiába</string>
-  <string name="main_tooltip_text">%s, tudtad, hogy a Wikipédiát bárki szerkesztheti?</string>
+  <string name="main_tooltip_text" fuzzy="true">%s, tudtad, hogy a Wikipédiát bárki szerkesztheti?</string>
   <string name="main_tooltip_action_button">Kezdés</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_ok_button_text">OK</string>

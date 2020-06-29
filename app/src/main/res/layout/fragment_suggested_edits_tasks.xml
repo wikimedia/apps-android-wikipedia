@@ -78,6 +78,7 @@
                                 android:textStyle="bold"/>
                             
                             <ImageView
+                                android:id="@+id/userStatsArrow"
                                 android:layout_width="32dp"
                                 android:layout_height="32dp"
                                 app:layout_constraintTop_toTopOf="parent"
@@ -185,10 +186,14 @@
                         android:layout_marginBottom="24dp">
 
                         <LinearLayout
+                            android:id="@+id/learnMoreCard"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="16dp"
-                            android:orientation="vertical">
+                            android:orientation="vertical"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:background="?attr/selectableItemBackground">
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -207,41 +212,17 @@
                                 android:textColor="?attr/material_theme_secondary_color"
                                 android:text="@string/suggested_edits_what_is_text"/>
 
-                            <LinearLayout
+                            <com.google.android.material.button.MaterialButton
                                 android:id="@+id/learnMoreButton"
-                                android:layout_width="wrap_content"
-                                android:layout_height="32dp"
-                                android:paddingStart="8dp"
-                                android:paddingEnd="12dp"
-                                android:layout_marginTop="16dp"
-                                android:clickable="true"
-                                android:focusable="true"
+                                style="@style/FlatButton.Small"
+                                android:text="@string/suggested_edits_learn_more"
+                                android:layout_marginTop="14dp"
                                 app:layout_constraintTop_toBottomOf="@id/taskDescription"
                                 app:layout_constraintStart_toStartOf="@id/taskDescription"
                                 app:layout_constraintBottom_toBottomOf="parent"
-                                android:background="@drawable/rounded_8dp_corner_base90_fill">
-
-                                <ImageView
-                                    android:id="@+id/add_image"
-                                    android:layout_width="20dp"
-                                    android:layout_height="20dp"
-                                    android:layout_gravity="center_vertical"
-                                    android:contentDescription="@null"
-                                    app:srcCompat="@drawable/ic_open_in_new_black_24px"
-                                    app:tint="?attr/colorAccent" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center_vertical"
-                                    android:layout_marginStart="4dp"
-                                    android:fontFamily="sans-serif-medium"
-                                    android:text="@string/suggested_edits_learn_more"
-                                    android:textAllCaps="true"
-                                    android:textColor="?attr/colorAccent"
-                                    android:letterSpacing="0.05"
-                                    android:textSize="@dimen/suggested_edits_message_textview_text_size" />
-                            </LinearLayout>
+                                app:icon="@drawable/ic_open_in_new_black_24px"
+                                app:iconSize="20dp"
+                                app:iconTint="?attr/colorAccent"/>
 
                         </LinearLayout>
 
@@ -289,5 +270,6 @@
             android:indeterminateTint="?attr/colorAccent"
             android:progressBackgroundTint="?attr/multi_select_background_color"
             android:layout_marginTop="-6dp" />
+
     </FrameLayout>
 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

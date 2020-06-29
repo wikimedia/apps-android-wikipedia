@@ -88,7 +88,7 @@
   <string name="reading_lists_sync_login">Вуруд</string>
   <string name="create_account_login">Вуруд</string>
   <string name="menu_login">Вуруд</string>
-  <string name="login_activity_title">Вуруд ба Википедия</string>
+  <string name="login_activity_title" fuzzy="true">Вуруд ба Википедия</string>
   <string name="login_in_progress_dialog_message">Дар ҳоли вуруд ба...</string>
   <string name="login_success_toast" fuzzy="true">Вуруд бо муваффақият!</string>
   <string name="reset_password_title">Гузарвожаи худро ворид кунед</string>
@@ -234,8 +234,6 @@
   <string name="wikitext_link">Пайванд</string>
   <string name="wikitext_template">Шаблон</string>
   <string name="wikitext_reference">Эзоҳ</string>
-  <string name="main_drawer_open">Кушодан</string>
-  <string name="main_drawer_close">Пӯшидан</string>
   <string name="main_drawer_login">Вуруд / ҳамроҳшавӣ ба Википедиа</string>
   <string name="custom_date_picker_dialog_ok_button_text">Таъйид</string>
   <string name="text_input_dialog_ok_button_text">Таъйид</string>
