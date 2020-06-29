@@ -27,8 +27,8 @@ internal class SuggestedEditsTaskView constructor(context: Context, attrs: Attri
     private fun updateTranslateActionUI() {
         val color = ResourceUtil.getThemedColor(context, if (WikipediaApp.getInstance().language().appLanguageCodes.size >= MIN_LANGUAGES_TO_UNLOCK_TRANSLATION)
             R.attr.colorAccent else R.attr.material_theme_de_emphasised_color)
-        ImageViewCompat.setImageTintList(suggestedEditsTranslateImage, ColorStateList.valueOf(color))
-        suggestedEditsTranslateActionText.setTextColor(color)
+        translateButton.iconTint = ColorStateList.valueOf(color)
+        translateButton.setTextColor(color)
     }
 
     fun setUpViews(task: SuggestedEditsTask, callback: Callback?) {
@@ -43,17 +43,17 @@ internal class SuggestedEditsTaskView constructor(context: Context, attrs: Attri
                 callback?.onViewClick(task, false)
             }
         }
-        addContainer.setOnClickListener {
+        addButton.setOnClickListener {
             if (!task.disabled) {
                 callback?.onViewClick(task, false)
             }
         }
-        translateContainer.setOnClickListener {
+        translateButton.setOnClickListener {
             if (!task.disabled) {
                 callback?.onViewClick(task, true)
             }
         }
-        translateContainer.visibility = if (task.translatable) View.VISIBLE else GONE
+        translateButton.visibility = if (task.translatable) View.VISIBLE else GONE
     }
 
     interface Callback {
