@@ -170,6 +170,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     }
 
     @Override public void onDestroyView() {
+        viewPager.setAdapter(null);
         viewPager.unregisterOnPageChangeCallback(pageChangeCallback);
         unbinder.unbind();
         unbinder = null;
