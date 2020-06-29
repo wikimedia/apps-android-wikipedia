@@ -113,7 +113,7 @@
   <string name="reading_lists_sync_login">Log på</string>
   <string name="create_account_login">Log på</string>
   <string name="menu_login">Log på</string>
-  <string name="login_activity_title">Log på Wikipedia</string>
+  <string name="login_activity_title">Log ind</string>
   <string name="login_in_progress_dialog_message">Logger dig på…</string>
   <string name="login_success_toast" fuzzy="true">Du er nu logget på!</string>
   <string name="reset_password_title">Sæt din adgangskode</string>
@@ -613,14 +613,22 @@
   <string name="suggested_edits_tasks_onboarding_get_started">Kom i gang</string>
   <string name="suggested_edits_image_preview_dialog_file">Fil</string>
   <string name="suggested_edits_contribute">Bidrag</string>
+  <string name="suggested_edits_learn_more">Lær mere</string>
+  <string name="suggested_edits_paused_title">Sat på pause</string>
+  <string name="suggested_edits_disabled_title">Deaktiveret</string>
+  <string name="suggested_edits_ip_blocked_title">IP-blokeret</string>
   <string name="suggested_edits_last_edited">Sidst redigeret</string>
   <string name="suggested_edits_last_edited_never">Aldrig</string>
   <string name="suggested_edits_contribution_language_label">Sprog</string>
   <string name="suggested_edits_contribution_image_label">Fil</string>
   <string name="suggested_edits_contribution_article_label">Artikel</string>
-  <string name="suggested_edits_contribution_label">Du tilføjede %d tegn</string>
   <string name="suggested_edits_contribution_date_yesterday_text">I går</string>
   <string name="suggested_edits_rewards_continue_button">Fortsæt</string>
+  <string name="suggested_edits_contribution_current_revision">Nuværende version</string>
+  <plurals name="suggested_edits_added_contribution_label">
+    <item quantity="one">Du tilføjede %d tegn</item>
+    <item quantity="other">Du tilføjede %d tegn</item>
+  </plurals>
   <string name="description_edit_revert_subtitle">Tak for din redigering af Wikipedia!</string>
   <string name="description_edit_revert_intro">Vi ved at du har gjort dit bedste, men en af korrekturlæserne havde en indvending. Blandt mulige årsager til at din redigering blev omgjort kan nævnes:</string>
   <string name="description_edit_revert_reason1">dit bidrag fulgte ikke en af &lt;a href=\"%1$s\"&gt;retningslinjerne&lt;/a&gt;.</string>
@@ -642,9 +650,6 @@
   <string name="onboarding_analytics_title">Send anonyme data</string>
   <string name="onboarding_analytics_offline_text">Hjælp med at gøre programmet bedre ved at fortælle os hvordan du bruger den. Data indsamles anonymt. &lt;a href=\"#privacy\"&gt;Lær mere&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Send brugsdata</string>
-  <string name="onboarding_create_account_sync">Synkroniser dine læselister</string>
-  <string name="onboarding_create_account_contributions">Hold styr på dine bidrag</string>
-  <string name="onboarding_create_account_preferences">Gem dine præferencer</string>
   <string name="onboarding_got_it">O.k.</string>
   <string name="onboarding_multilingual_secondary_text">Vi har fundet følgende på din enhed:</string>
   <string name="onboarding_multilingual_add_language_text">Tilføj eller rediger sprog</string>
@@ -694,13 +699,12 @@
   <string name="edit_conflict_dialog_ok_button_text">OK</string>
   <string name="reverted_edit_dialog_ok_button_text">OK</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">Annullér</string>
+  <string name="edit_type_all">Alle bidrag</string>
   <string name="wikitext_bold">Fed</string>
   <string name="wikitext_italic">Kursiv</string>
   <string name="wikitext_numbered_list">Nummereret liste</string>
   <string name="wikitext_template">Skabelon</string>
   <string name="wikitext_reference">Reference</string>
-  <string name="main_drawer_open">Åben</string>
-  <string name="main_drawer_close">Luk</string>
   <string name="main_drawer_help">Hjælp</string>
   <string name="main_drawer_login">Log på / registrer dig på Wikipedia</string>
   <string name="main_tooltip_action_button">Kom i gang</string>

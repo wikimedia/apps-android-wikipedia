@@ -127,7 +127,7 @@
   <string name="reading_lists_sync_login">로그인</string>
   <string name="create_account_login">로그인</string>
   <string name="menu_login">로그인</string>
-  <string name="login_activity_title">위키백과에 로그인</string>
+  <string name="login_activity_title" fuzzy="true">위키백과에 로그인</string>
   <string name="login_in_progress_dialog_message">로그인 중…</string>
   <string name="login_success_toast">로그인했습니다!</string>
   <string name="reset_password_title">비밀번호 설정</string>
@@ -732,9 +732,9 @@
   <string name="suggested_edits_contributions_stat_tooltip">편집 제안을 통한 전체 기여 수입니다.</string>
   <string name="suggested_edits_page_views_stat_tooltip">최근 30일 동안 편집 제안을 통해 수정한 항목들의 총 조회수입니다.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">당신의 편집이 (다른 편집자에 의하여) 몇 번 되돌려졌는지를 기반으로 합니다.\n되돌려진 편집: %d건.</string>
-  <string name="suggested_edits_paused_message">&lt;b&gt;편집 제안이 %1$s까지 일시 중단되었습니다.&lt;/b&gt; %2$s님, 죄송합니다. 최근 기여 중 일부 기여가 되돌려졌습니다.\n\n위키백과에서 편집 실력을 개선하는 방법은 아래의 링크를 통해 알아볼 수 있습니다.</string>
-  <string name="suggested_edits_disabled_message">&lt;b&gt;편집 제안이 비활성화되었습니다.&lt;/b&gt; %s님, 죄송합니다. 최근 기여 중 너무 많은 기여가 되돌려졌습니다.\n\n무슨 의미인지는 아래의 링크를 통해 알아볼 수 있습니다.</string>
-  <string name="suggested_edits_ip_blocked_message">현재 사용 중인 IP(또는 IP의 주소)가 위키피디아를 편집하는 것으로부터 차단 되어있습니다. 아래의 링크를 방문하여 차단에 대해 더 알아보십시오.</string>
+  <string name="suggested_edits_paused_message" fuzzy="true">&lt;b&gt;편집 제안이 %1$s까지 일시 중단되었습니다.&lt;/b&gt; %2$s님, 죄송합니다. 최근 기여 중 일부 기여가 되돌려졌습니다.\n\n위키백과에서 편집 실력을 개선하는 방법은 아래의 링크를 통해 알아볼 수 있습니다.</string>
+  <string name="suggested_edits_disabled_message" fuzzy="true">&lt;b&gt;편집 제안이 비활성화되었습니다.&lt;/b&gt; %s님, 죄송합니다. 최근 기여 중 너무 많은 기여가 되돌려졌습니다.\n\n무슨 의미인지는 아래의 링크를 통해 알아볼 수 있습니다.</string>
+  <string name="suggested_edits_ip_blocked_message" fuzzy="true">현재 사용 중인 IP(또는 IP의 주소)가 위키피디아를 편집하는 것으로부터 차단 되어있습니다. 아래의 링크를 방문하여 차단에 대해 더 알아보십시오.</string>
   <string name="suggested_edits_editing_tips_link_text">편집 팁 및 트릭</string>
   <string name="suggested_edits_help_page_link_text">편집 제안 도움말 문서</string>
   <string name="suggested_edits_edit_streak_label_text">편집 스트리크</string>
@@ -794,9 +794,6 @@
   <string name="onboarding_analytics_title">익명 데이터 보내기</string>
   <string name="onboarding_analytics_offline_text">앱 개선 지원을 위해 앱을 어떻게 사용하는지 알려주세요. 수집된 데이터는 익명으로 처리됩니다. &lt;a href=\"#privacy\"&gt;더 알아보기&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">사용 데이터 보내기</string>
-  <string name="onboarding_create_account_sync">읽기 목록 동기화</string>
-  <string name="onboarding_create_account_contributions">내 기여를 추적합니다</string>
-  <string name="onboarding_create_account_preferences">환경 설정 저장하기</string>
   <string name="onboarding_got_it">알겠습니다</string>
   <string name="onboarding_multilingual_secondary_text">장치에서 다음의 언어를 발견했습니다:</string>
   <string name="onboarding_multilingual_add_language_text">언어 추가 또는 편집</string>
@@ -855,12 +852,9 @@
   <string name="wikitext_template">틀</string>
   <string name="wikitext_reference">각주</string>
   <string name="wikitext_preview_link">이전 링크</string>
-  <string name="main_drawer_open">열기</string>
-  <string name="main_drawer_close">닫기</string>
-  <string name="main_drawer_content_description">주 둘러보기 서랍 열기</string>
   <string name="main_drawer_help">도움말</string>
   <string name="main_drawer_login">위키백과에 로그인 / 가입</string>
-  <string name="main_tooltip_text">%s님, 누구나 위키백과를 편집할 수 있다는 사실을 알고 계셨나요?</string>
+  <string name="main_tooltip_text" fuzzy="true">%s님, 누구나 위키백과를 편집할 수 있다는 사실을 알고 계셨나요?</string>
   <string name="main_tooltip_action_button">시작하기</string>
   <string name="custom_date_picker_dialog_ok_button_text">확인</string>
   <string name="text_input_dialog_ok_button_text">확인</string>

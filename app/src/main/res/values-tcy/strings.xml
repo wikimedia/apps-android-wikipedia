@@ -97,7 +97,7 @@
   <string name="reading_lists_sync_login">ಉಳಗಮನ</string>
   <string name="create_account_login">ಉಳಗಮನ</string>
   <string name="menu_login">ಲಾಗಿನ್ ಆಲೆ</string>
-  <string name="login_activity_title">ವಿಕಿಪೀಡಿಯಾಗ್ ಲಾಗಿನ್ ಆಲೆ</string>
+  <string name="login_activity_title" fuzzy="true">ವಿಕಿಪೀಡಿಯಾಗ್ ಲಾಗಿನ್ ಆಲೆ</string>
   <string name="login_in_progress_dialog_message">ಈರ್ ಲಾಗ್-ಇನ್ ಅವೊಂತುಲ್ಲಾರ್…</string>
   <string name="login_success_toast" fuzzy="true">ಲಾಗ್-ಇನ್ ಆಯಾರ್!</string>
   <string name="reset_password_title">ಪ್ರವೇಸೊ ಪದೊನ್ ಬರೆಲೆ</string>

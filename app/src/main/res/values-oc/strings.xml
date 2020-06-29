@@ -67,7 +67,7 @@
   <string name="login_password_hint">Senhal</string>
   <string name="login_2fa_hint">Còdi d\'autenticación de dos factors</string>
   <string name="menu_login">Connexion</string>
-  <string name="login_activity_title">Se connectar a Wikipèdia</string>
+  <string name="login_activity_title" fuzzy="true">Se connectar a Wikipèdia</string>
   <string name="login_in_progress_dialog_message">Connexion en cors…</string>
   <string name="login_success_toast" fuzzy="true">Connectat amb succès !</string>
   <string name="preference_title_logout">Se desconnectar</string>

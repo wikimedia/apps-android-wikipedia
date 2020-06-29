@@ -104,7 +104,7 @@
   <string name="reading_lists_sync_login">Aniciar sesión</string>
   <string name="create_account_login">Aniciar sesión</string>
   <string name="menu_login">Aniciar sesión</string>
-  <string name="login_activity_title">Aniciar sesión en Wikipedia</string>
+  <string name="login_activity_title" fuzzy="true">Aniciar sesión en Wikipedia</string>
   <string name="login_in_progress_dialog_message">Aniciando sesión en...</string>
   <string name="login_success_toast">¡Aniciasti sesión!</string>
   <string name="reset_password_title">Configurar la contraseña</string>
@@ -710,9 +710,9 @@
   <string name="suggested_edits_edit_streak_stat_tooltip">Cuántos díes siguíos contribuyisti a Ediciones suxeríes. Si va tiempu que nun contribuyes, apaecerá la fecha de la to última contribución.</string>
   <string name="suggested_edits_page_views_stat_tooltip">Total de páxines vistes d\'elementos a los que contribuyisti nos postreros 30 díes con ediciones suxeríes.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Basándose na cantidá de vegaes qu\'una de les tos contribuciones revirtióse (foi anulada por otru editor). Ediciones revertíes: %d.</string>
-  <string name="suggested_edits_paused_message">&lt;b&gt;Les Ediciones suxeríes tán en posa hasta %1$s.&lt;/b&gt; Sentímoslo, %2$s: dalgunes de les tos contribuciones de recién revertiéronse.\n\nDeprende cómo ameyorar les tos habilidaes d\'edición na Wikipedia consultando l\'enllaz d\'abaxo.</string>
-  <string name="suggested_edits_disabled_message">&lt;b&gt;Les ediciones suxeríes tán desactivaes&lt;/b&gt;. Sentímoslo, %s: munches de les tos contribuciones de recién revertiéronse.\n\nConsulta lo que significa nel enllaz d\'abaxo.</string>
-  <string name="suggested_edits_ip_blocked_message">Paez que la to direición IP (o rangu de direiciones IP) anguaño ta bloquiada pa editar la Wikipedia. Consulta lo que significa esto visitando l\'enllaz de más abaxo.</string>
+  <string name="suggested_edits_paused_message" fuzzy="true">&lt;b&gt;Les Ediciones suxeríes tán en posa hasta %1$s.&lt;/b&gt; Sentímoslo, %2$s: dalgunes de les tos contribuciones de recién revertiéronse.\n\nDeprende cómo ameyorar les tos habilidaes d\'edición na Wikipedia consultando l\'enllaz d\'abaxo.</string>
+  <string name="suggested_edits_disabled_message" fuzzy="true">&lt;b&gt;Les ediciones suxeríes tán desactivaes&lt;/b&gt;. Sentímoslo, %s: munches de les tos contribuciones de recién revertiéronse.\n\nConsulta lo que significa nel enllaz d\'abaxo.</string>
+  <string name="suggested_edits_ip_blocked_message" fuzzy="true">Paez que la to direición IP (o rangu de direiciones IP) anguaño ta bloquiada pa editar la Wikipedia. Consulta lo que significa esto visitando l\'enllaz de más abaxo.</string>
   <string name="suggested_edits_editing_tips_link_text">Trucos y conseyos d\'edición</string>
   <string name="suggested_edits_help_page_link_text">Páxina d\'ayuda d\'ediciones suxeríes</string>
   <string name="suggested_edits_pageviews_label_text">Visites a páxines</string>
@@ -761,9 +761,6 @@
   <string name="onboarding_analytics_title">Unviar datos anónimos</string>
   <string name="onboarding_analytics_offline_text">Ayuda a ameyorar l\'aplicación informándonos de como la uses. Los datos recoyíos son anónimos. &lt;a href=\"#privacy\"&gt;Lleer más&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Unviar datos d\'usu</string>
-  <string name="onboarding_create_account_sync">Sincronizar les llistes de llectura</string>
-  <string name="onboarding_create_account_contributions">Siguir el rastru a les tos contribuciones</string>
-  <string name="onboarding_create_account_preferences">Guardar les preferencies</string>
   <string name="onboarding_got_it">Entendílo</string>
   <string name="onboarding_multilingual_secondary_text">Atopamos les siguientes nel to preséu:</string>
   <string name="onboarding_multilingual_add_language_text">Añadir o editar idiomes</string>
@@ -823,12 +820,9 @@
   <string name="wikitext_template">Plantía</string>
   <string name="wikitext_reference">Referencia</string>
   <string name="wikitext_preview_link">Entever enllaz</string>
-  <string name="main_drawer_open">Abrir</string>
-  <string name="main_drawer_close">Zarrar</string>
-  <string name="main_drawer_content_description">Abrir el caxón de navegación principal</string>
   <string name="main_drawer_help">Ayuda</string>
   <string name="main_drawer_login">Aniciar sesión / xunise a Wikipedia</string>
-  <string name="main_tooltip_text">%s, ¿sabíes que toos puen editar Wikipedia?</string>
+  <string name="main_tooltip_text" fuzzy="true">%s, ¿sabíes que toos puen editar Wikipedia?</string>
   <string name="main_tooltip_action_button">Primeros pasos</string>
   <string name="custom_date_picker_dialog_ok_button_text">Aceutar</string>
   <string name="text_input_dialog_ok_button_text">Aceutar</string>

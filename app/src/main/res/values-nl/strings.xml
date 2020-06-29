@@ -131,7 +131,7 @@
   <string name="reading_lists_sync_login">Aanmelden</string>
   <string name="create_account_login">Aanmelden</string>
   <string name="menu_login">Aanmelden</string>
-  <string name="login_activity_title">Aanmelden bij Wikipedia</string>
+  <string name="login_activity_title" fuzzy="true">Aanmelden bij Wikipedia</string>
   <string name="login_in_progress_dialog_message">Bezig met aanmelden…</string>
   <string name="login_success_toast">U bent aangemeld!</string>
   <string name="reset_password_title">Uw wachtwoord instellen</string>
@@ -722,7 +722,7 @@
   <string name="suggested_edits_image_tags_onboarding_title" fuzzy="true">Voeg aan afbeeldingen tags toe om ze gemakkelijker vindbaar te maken voor anderen</string>
   <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">Door voorgestelde tags te bevestigen, kunt u helpen om eenvoudiger te zoeken naar afbeeldingen.\n\nTags worden door de computer voorgesteld, maar moeten door mensen worden gevalideerd om nauwkeurigheid te garanderen.</string>
   <string name="suggested_edits_image_tags_add_tag">Label toevoegen</string>
-  <string name="suggested_edits_ip_blocked_message">Het lijkt erop dat uw IP-adres (of bereik van IP-adressen) momenteel geblokkeerd is van het bewerken van Wikipedia. U kunt meer te weten komen over wat dit betekent door de link hieronder te volgen.</string>
+  <string name="suggested_edits_ip_blocked_message" fuzzy="true">Het lijkt erop dat uw IP-adres (of bereik van IP-adressen) momenteel geblokkeerd is van het bewerken van Wikipedia. U kunt meer te weten komen over wat dit betekent door de link hieronder te volgen.</string>
   <string name="suggested_edits_help_page_link_text">Hulppagina voorgestelde bewerkingen</string>
   <string name="suggested_edits_pageviews_label_text">Paginaweergaven</string>
   <string name="suggested_edits_quality_perfect_text">Perfect</string>
@@ -771,9 +771,6 @@
   <string name="onboarding_analytics_title">Gegevens anoniem versturen</string>
   <string name="onboarding_analytics_offline_text">Help de app te verbeteren door ons te laten weten hoe u hem gebruikt. De verzamelde gegevens zijn anoniem. &lt;a href=\"#privacy\"&gt;Leer meer&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Uw gebruiksgegevens verzenden</string>
-  <string name="onboarding_create_account_sync">Uw leeslijsten synchroniseren</string>
-  <string name="onboarding_create_account_contributions">Blijf op de hoogte van uw bijdragen</string>
-  <string name="onboarding_create_account_preferences">Uw voorkeuren opslaan</string>
   <string name="onboarding_got_it">Begrepen</string>
   <string name="onboarding_multilingual_secondary_text">We hebben het volgende gevonden op uw apparaat:</string>
   <string name="onboarding_multilingual_add_language_text">Voeg talen toe of bewerk deze</string>
@@ -832,11 +829,9 @@
   <string name="wikitext_template">Sjabloon</string>
   <string name="wikitext_reference">Referentie</string>
   <string name="wikitext_preview_link">Voorvertoning koppeling</string>
-  <string name="main_drawer_open">Openen</string>
-  <string name="main_drawer_close">Sluiten</string>
   <string name="main_drawer_help">Hulp</string>
   <string name="main_drawer_login">Log in / aanmelden bij Wikipedia</string>
-  <string name="main_tooltip_text">%s, wist u dat iedereen Wikipedia kan bewerken?</string>
+  <string name="main_tooltip_text" fuzzy="true">%s, wist u dat iedereen Wikipedia kan bewerken?</string>
   <string name="main_tooltip_action_button">Aan de slag</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_ok_button_text">OK</string>

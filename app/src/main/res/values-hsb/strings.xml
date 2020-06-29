@@ -97,7 +97,7 @@
   <string name="reading_lists_sync_login">Přizjewić</string>
   <string name="create_account_login">Přizjewić</string>
   <string name="menu_login">Přizjewić</string>
-  <string name="login_activity_title">We Wikipediji přizjewić</string>
+  <string name="login_activity_title" fuzzy="true">We Wikipediji přizjewić</string>
   <string name="login_in_progress_dialog_message">Přizjewješ so...</string>
   <string name="login_success_toast" fuzzy="true">Přizjewjenje wuspěšne!</string>
   <string name="reset_password_title">Postaj swoje hesło</string>
