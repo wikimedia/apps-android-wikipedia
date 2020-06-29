@@ -7,7 +7,7 @@ import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
+import androidx.core.graphics.ColorUtils
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_contribution_diff_detail.*
 import org.wikipedia.R
@@ -46,17 +46,21 @@ class SuggestedEditsContributionDetailsFragment : Fragment() {
     }
 
     private fun updateTopGradient() {
+        val color: Int
         if (contribution.sizeDiff < 0) {
-            topView.background = GradientUtil.getPowerGradient(R.color.red90, Gravity.TOP)
-            contributionDiffIndicatorLine.setBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.colorError))
-            contributionDiffText.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.colorError))
-            (requireActivity() as SuggestedEditsContributionDetailsActivity).updateStatusBarColor(ContextCompat.getColor(requireActivity(), R.color.red90))
+            color = ResourceUtil.getThemedColor(requireContext(), R.attr.colorError)
         } else {
-            topView.background = GradientUtil.getPowerGradient(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.color_group_57), Gravity.TOP)
-            contributionDiffIndicatorLine.setBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.action_mode_green_background))
-            contributionDiffText.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.action_mode_green_background))
-            (requireActivity() as SuggestedEditsContributionDetailsActivity).updateStatusBarColor(ResourceUtil.getThemedColor(requireContext(), R.attr.color_group_57))
+            color = ResourceUtil.getThemedColor(requireContext(), R.attr.action_mode_green_background)
         }
+        // To create the final color value for our gradient, we take the base color (red or green)
+        // and give it a certain amount of transparency, but it needs to be a different transparency
+        // value for light vs. dark theme.
+        val headerColor = ColorUtils.compositeColors(ColorUtils.setAlphaComponent(color, if (WikipediaApp.getInstance().currentTheme.isDark) 0x4c else 0x1c),
+                ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
+        topView.background = GradientUtil.getPowerGradientInt(headerColor, Gravity.TOP)
+        contributionDiffIndicatorLine.setBackgroundColor(color)
+        contributionDiffText.setTextColor(color)
+        (requireActivity() as SuggestedEditsContributionDetailsActivity).updateStatusBarColor(headerColor)
     }
 
     private fun setUpContributionDetails() {
