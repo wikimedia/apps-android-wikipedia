@@ -58,6 +58,7 @@
   <string name="search_hint_search_my_lists_and_articles">搜索我的列表及条目</string>
   <string name="nav_item_history">历史记录</string>
   <string name="nav_item_suggested_edits">建议编辑</string>
+  <string name="nav_item_more">更多</string>
   <string name="error_network_error">无法连接至互联网。</string>
   <string name="page_error_retry">重试</string>
   <string name="card_offline_error_retry">重试</string>
@@ -141,7 +142,7 @@
   <string name="reading_lists_sync_login">登录</string>
   <string name="create_account_login">登录</string>
   <string name="menu_login">登录</string>
-  <string name="login_activity_title">登录维基百科</string>
+  <string name="login_activity_title" fuzzy="true">登录维基百科</string>
   <string name="login_in_progress_dialog_message">正在登录…</string>
   <string name="login_success_toast">已登录！</string>
   <string name="reset_password_title">重设密码</string>
@@ -757,9 +758,9 @@
   <string name="suggested_edits_edit_streak_stat_tooltip">您通过建议编辑保持了多少天的连续编辑记录。如果您已经有一段时间没有投稿了，会显示您的最后一次贡献日期。</string>
   <string name="suggested_edits_page_views_stat_tooltip">在过去30天内，您通过建议编辑所贡献的项目总浏览量。</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">根据你的一个贡献被回退了多少次（被其他编辑者撤销）。被回退的编辑：%d。</string>
-  <string name="suggested_edits_paused_message">&lt;b&gt;建议编辑已暂停，直到%1$s。&lt;/b&gt;抱歉%2$s，您最近的一些贡献已经被回退了。\n\n通过下面的链接，学习如何提高你在维基百科上的编辑技巧。</string>
-  <string name="suggested_edits_disabled_message">&lt;b&gt;建议编辑已被禁用。&lt;/b&gt;抱歉 %s，您近期的贡献有太多被回退了。\n\n请通过下面的链接了解这意味着什么。</string>
-  <string name="suggested_edits_ip_blocked_message">看样子您目前所使用的IP地址（或地址段）被禁止编辑维基百科。访问以下链接以便了解更多关于封禁的信息。</string>
+  <string name="suggested_edits_paused_message">建议编辑已暂停，直到%1$s。抱歉%2$s，您最近的一些贡献已经被回退了。</string>
+  <string name="suggested_edits_disabled_message" fuzzy="true">&lt;b&gt;建议编辑已被禁用。&lt;/b&gt;抱歉 %s，您近期的贡献有太多被回退了。\n\n请通过下面的链接了解这意味着什么。</string>
+  <string name="suggested_edits_ip_blocked_message">看样子您目前所使用的IP地址（或地址段）被禁止编辑维基百科。</string>
   <string name="suggested_edits_editing_tips_link_text">编辑提示与技巧</string>
   <string name="suggested_edits_help_page_link_text">建议编辑帮助页面</string>
   <string name="suggested_edits_edit_streak_label_text">连续编辑纪录</string>
@@ -782,6 +783,11 @@
     <item quantity="one">%d天</item>
     <item quantity="other">%d天</item>
   </plurals>
+  <string name="suggested_edits_what_is_title">什么是建议编辑？</string>
+  <string name="suggested_edits_learn_more">了解更多</string>
+  <string name="suggested_edits_paused_title">已暂停</string>
+  <string name="suggested_edits_disabled_title">已禁用</string>
+  <string name="suggested_edits_ip_blocked_title">IP被封禁</string>
   <string name="suggested_edits_last_edited">上次编辑</string>
   <string name="suggested_edits_last_edited_never">从不</string>
   <string name="suggested_edits_task_new">新</string>
@@ -797,6 +803,8 @@
   <string name="suggested_edits_contribution_date_yesterday_text">昨天</string>
   <string name="suggested_edits_rewards_continue_button">继续</string>
   <string name="suggested_edits_contribution_type_image_tag">图片标签</string>
+  <string name="suggested_edits_contribution_current_revision">当前版本</string>
+  <string name="suggested_edits_contribution_diff_count_text">%1$s个字符</string>
   <string name="file_page_activity_title">文件页面</string>
   <string name="description_edit_revert_subtitle">感谢编辑维基百科！</string>
   <string name="description_edit_revert_intro">我们知道您做出了最大的努力，但有位复核者还是回退了您的编辑。您的编辑被回退的原因可能包括：</string>
@@ -819,9 +827,6 @@
   <string name="onboarding_analytics_title">发送匿名数据</string>
   <string name="onboarding_analytics_offline_text">通过让我们知道您如何使用它，帮助应用做得更好。数据收集是匿名的。&lt;a href=\"#privacy\"&gt;了解更多&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">发送使用数据</string>
-  <string name="onboarding_create_account_sync">同步您的阅读列表</string>
-  <string name="onboarding_create_account_contributions">保持追踪您的贡献</string>
-  <string name="onboarding_create_account_preferences">保存您的参数设置</string>
   <string name="onboarding_got_it">明白了</string>
   <string name="onboarding_multilingual_secondary_text">我们在您的设备上找到以下语言：</string>
   <string name="onboarding_multilingual_add_language_text">添加或编辑语言</string>
@@ -872,6 +877,7 @@
   <string name="edit_conflict_dialog_ok_button_text">确定</string>
   <string name="reverted_edit_dialog_ok_button_text">确定</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">取消</string>
+  <string name="edit_type_all">所有贡献</string>
   <string name="content_description_for_page_indicator">第%1$d页，共%2$d页</string>
   <string name="wikitext_bold">粗体</string>
   <string name="wikitext_italic">斜体</string>
@@ -881,12 +887,9 @@
   <string name="wikitext_template">模板</string>
   <string name="wikitext_reference">参考文献</string>
   <string name="wikitext_preview_link">预览链接</string>
-  <string name="main_drawer_open">打开</string>
-  <string name="main_drawer_close">关闭</string>
-  <string name="main_drawer_content_description">打开主导航栏</string>
   <string name="main_drawer_help">帮助</string>
   <string name="main_drawer_login">登录/加入维基百科</string>
-  <string name="main_tooltip_text">%s，您知道每个人都可以编辑维基百科吗？</string>
+  <string name="main_tooltip_text">您好，%s，您知道每个人都可以编辑维基百科吗？</string>
   <string name="main_tooltip_action_button">入门</string>
   <string name="custom_date_picker_dialog_ok_button_text">确认</string>
   <string name="text_input_dialog_ok_button_text">确定</string>

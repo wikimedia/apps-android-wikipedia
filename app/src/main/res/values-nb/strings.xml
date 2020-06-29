@@ -115,7 +115,7 @@
   <string name="reading_lists_sync_login">Logg inn</string>
   <string name="create_account_login">Logg inn</string>
   <string name="menu_login">Logg inn</string>
-  <string name="login_activity_title">Logg inn på Wikipedia</string>
+  <string name="login_activity_title" fuzzy="true">Logg inn på Wikipedia</string>
   <string name="login_in_progress_dialog_message">Logger deg inn…</string>
   <string name="login_success_toast">Logget inn!</string>
   <string name="reset_password_title">Endre passord</string>
@@ -698,8 +698,8 @@
   <string name="suggested_edits_edit_streak_stat_tooltip">Antall dager i strekk du har redigert her. Hvis du ikke har bidratt på en stund, vises i stedet datoen for ditt siste bidrag.</string>
   <string name="suggested_edits_page_views_stat_tooltip">Antall sidevisninger de siste 30 dagene for artikler og bilder du har bidratt til.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Basert på hvor mange ganger et av bidragene dine har blitt tilbakestilt (gjort om av en annen bdiragsyter). Tilbakestilte redigeringer: %d.</string>
-  <string name="suggested_edits_paused_message">&lt;b&gt;Redigeringsforslag er deaktivert frem til %1$s.&lt;/b&gt; Beklager %2$s, men noen av dine nylige bidrag har blitt tilbakestilt.\n\nLes om hvordan du kan forbedre redigeringskunnskapene dine på Wikipedia med lenken under.</string>
-  <string name="suggested_edits_disabled_message">&lt;b&gt;Redigeringsforslag er deaktivert.&lt;/b&gt; Beklager %s, for mange av dine nylige bidrag har blitt tilbakestilt.\n\nLes mer om hva det betyr med lenken under.</string>
+  <string name="suggested_edits_paused_message" fuzzy="true">&lt;b&gt;Redigeringsforslag er deaktivert frem til %1$s.&lt;/b&gt; Beklager %2$s, men noen av dine nylige bidrag har blitt tilbakestilt.\n\nLes om hvordan du kan forbedre redigeringskunnskapene dine på Wikipedia med lenken under.</string>
+  <string name="suggested_edits_disabled_message" fuzzy="true">&lt;b&gt;Redigeringsforslag er deaktivert.&lt;/b&gt; Beklager %s, for mange av dine nylige bidrag har blitt tilbakestilt.\n\nLes mer om hva det betyr med lenken under.</string>
   <string name="suggested_edits_editing_tips_link_text">Tips og -triks for redigering</string>
   <string name="suggested_edits_help_page_link_text">Hjelpeside for redigeringsforslag</string>
   <string name="suggested_edits_edit_streak_label_text">Redigeringsstrekk</string>
@@ -749,9 +749,6 @@
   <string name="onboarding_analytics_title">Send anonyme data</string>
   <string name="onboarding_analytics_offline_text">Hjelp med å gjøre appen bedre ved å la oss vite hvordan du bruker den. Data samles inn anonymt. &lt;a href=\"#privacy\"&gt;Finn ut mer&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Send bruksdata</string>
-  <string name="onboarding_create_account_sync">Synkroniser leselistene dine</string>
-  <string name="onboarding_create_account_contributions">Hold oversikt over bidragene dine</string>
-  <string name="onboarding_create_account_preferences">Lagre innstillinger</string>
   <string name="onboarding_got_it">Skjønner</string>
   <string name="onboarding_multilingual_secondary_text">Følgende ble funnet på enheten din:</string>
   <string name="onboarding_multilingual_add_language_text">Legg til eller endre språk</string>
@@ -811,12 +808,9 @@
   <string name="wikitext_template">Mal</string>
   <string name="wikitext_reference">Referanse</string>
   <string name="wikitext_preview_link">Forhåndsvis lenke</string>
-  <string name="main_drawer_open">Åpne</string>
-  <string name="main_drawer_close">Lukk</string>
-  <string name="main_drawer_content_description">Åpne navigasjonsmenyen</string>
   <string name="main_drawer_help">Hjelp</string>
   <string name="main_drawer_login">Logg inn / bli med på Wikipedia</string>
-  <string name="main_tooltip_text">%s, visste du at hvem som helst kan redigere Wikipedia?</string>
+  <string name="main_tooltip_text" fuzzy="true">%s, visste du at hvem som helst kan redigere Wikipedia?</string>
   <string name="main_tooltip_action_button">Kom i gang</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_ok_button_text">OK</string>

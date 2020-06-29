@@ -117,7 +117,7 @@
   <string name="reading_lists_sync_login">প্রবেশ করুন</string>
   <string name="create_account_login">প্রবেশ করুন</string>
   <string name="menu_login">প্রবেশ</string>
-  <string name="login_activity_title">উইকিপিডিয়াতে প্রবেশ করুন</string>
+  <string name="login_activity_title" fuzzy="true">উইকিপিডিয়াতে প্রবেশ করুন</string>
   <string name="login_in_progress_dialog_message">আপনি প্রবেশ করছেন…</string>
   <string name="login_success_toast">প্রবেশ করেছেন!</string>
   <string name="reset_password_title">আপনার পাসওয়ার্ড নির্ধারন করুন</string>
@@ -568,8 +568,6 @@
   <string name="onboarding_maybe_later">সম্ভবত পরে</string>
   <string name="onboarding_explore_title">অন্বেষণ করার নতুন উপায়</string>
   <string name="onboarding_analytics_switch_title">ব্যবহারের উপাত্ত পাঠান</string>
-  <string name="onboarding_create_account_contributions">আপনার অবদান অনুসরণ করুন</string>
-  <string name="onboarding_create_account_preferences">আপনার পছন্দ সংরক্ষণ করে</string>
   <string name="onboarding_got_it">বুঝেছি</string>
   <string name="onboarding_multilingual_secondary_text">আমরা আপনার ডিভাইসে নিম্নলিখিত খুঁজে পেয়েছি:</string>
   <string name="onboarding_multilingual_add_language_text">ভাষা যোগ বা সম্পাদনা করুন</string>
@@ -619,8 +617,6 @@
   <string name="wikitext_bold">গাঢ়</string>
   <string name="wikitext_italic">বাঁকা</string>
   <string name="wikitext_template">টেমপ্লেট</string>
-  <string name="main_drawer_open">খুলুন</string>
-  <string name="main_drawer_close">বন্ধ করুন</string>
   <string name="main_drawer_help">সাহায্য</string>
   <string name="main_drawer_login">উইকিপিডিয়াতে প্রবেশ করুন/যোগ দিন</string>
   <string name="custom_date_picker_dialog_ok_button_text">ঠিক আছে</string>

@@ -112,7 +112,7 @@
   <string name="reading_lists_sync_login">لاگ ان</string>
   <string name="create_account_login">لاگ ان</string>
   <string name="menu_login">داخل ہوں</string>
-  <string name="login_activity_title">ویکیپیڈیا میں داخل ہوں</string>
+  <string name="login_activity_title" fuzzy="true">ویکیپیڈیا میں داخل ہوں</string>
   <string name="login_in_progress_dialog_message">داخل ہو رہے ہیں۔۔۔</string>
   <string name="login_success_toast" fuzzy="true">کامیابی سے داخل ہو گئے!</string>
   <string name="reset_password_title">اپنا پاسورڈ سیٹ کریں</string>
@@ -518,9 +518,6 @@
   <string name="onboarding_reading_list_sync_title" fuzzy="true">مطالعاتی فہرستیں مع مطابقت پزیری</string>
   <string name="onboarding_analytics_title">گمنام ڈیٹا بھیجیں</string>
   <string name="onboarding_analytics_switch_title">استعمال شدہ ڈیٹا بھیجیں</string>
-  <string name="onboarding_create_account_sync">مطالعہ کی فہرستوں کو باہم مطابق کریں</string>
-  <string name="onboarding_create_account_contributions">اپنی شراکتوں پر نظر رکھیں</string>
-  <string name="onboarding_create_account_preferences">اپنی ترجیحات محفوظ کریں</string>
   <string name="onboarding_multilingual_secondary_text">ہمیں آپ کے آلات پر یہ ملا:</string>
   <string name="onboarding_multilingual_add_language_text">زبانیں شامل یا ان میں ترمیم کریں</string>
   <string name="onboarding_welcome_title_v2" fuzzy="true">آزاد دائرۃ المعارف\n…تقریباً 300 زبانوں میں</string>

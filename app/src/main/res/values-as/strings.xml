@@ -103,7 +103,7 @@
   <string name="reading_lists_sync_login">প্ৰৱেশ কৰক</string>
   <string name="create_account_login">প্ৰৱেশ কৰক</string>
   <string name="menu_login">প্ৰৱেশ</string>
-  <string name="login_activity_title">ৱিকিপিডিয়াত প্ৰৱেশ কৰক</string>
+  <string name="login_activity_title" fuzzy="true">ৱিকিপিডিয়াত প্ৰৱেশ কৰক</string>
   <string name="login_in_progress_dialog_message">আপুনি প্ৰৱেশ কৰিছে…</string>
   <string name="login_success_toast" fuzzy="true">প্ৰৱেশ সফল হ\'ল!</string>
   <string name="reset_password_title">আপোনাৰ গুপ্তশব্দ লিখক</string>
@@ -455,8 +455,6 @@
   <string name="onboarding_skip">এৰি যাওক</string>
   <string name="onboarding_continue">অব্যাহত ৰাখক</string>
   <string name="onboarding_get_started">আৰম্ভ কৰক</string>
-  <string name="onboarding_create_account_contributions">আপোনাৰ বৰঙণিৰ হিচাপ ৰাখক</string>
-  <string name="onboarding_create_account_preferences">আপোনাৰ পছন্দসমূহ সাঁচি থওক</string>
   <string name="app_shortcuts_search">সন্ধান কৰক</string>
   <string name="on_this_day_card_title">আজিৰ দিনটোত</string>
   <string name="this_year">এই বছৰ</string>
@@ -494,8 +492,6 @@
   <string name="wikitext_template">সাঁচ</string>
   <string name="wikitext_reference">তথ্যসূত্ৰ</string>
   <string name="wikitext_preview_link">সংযোগ প্ৰাক্‌দৰ্শন কৰক</string>
-  <string name="main_drawer_open">খোলক</string>
-  <string name="main_drawer_close">বন্ধ কৰক</string>
   <string name="main_drawer_help">সহায়</string>
   <string name="main_drawer_login">ৱিকিপিডিয়াত প্ৰৱেশ/যোগদান কৰক</string>
   <string name="custom_date_picker_dialog_ok_button_text">বাৰু</string>

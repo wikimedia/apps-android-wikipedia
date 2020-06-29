@@ -111,7 +111,7 @@
   <string name="reading_lists_sync_login">Log masuk</string>
   <string name="create_account_login">Log masuk</string>
   <string name="menu_login">Log masuk</string>
-  <string name="login_activity_title">Log masuk ke dalam Wikipedia</string>
+  <string name="login_activity_title" fuzzy="true">Log masuk ke dalam Wikipedia</string>
   <string name="login_in_progress_dialog_message">Sedang log masuk…</string>
   <string name="login_success_toast">Sudah log masuk</string>
   <string name="reset_password_title">Tetapkan kata laluan anda</string>
@@ -675,9 +675,6 @@
   <string name="onboarding_analytics_title">Hantar data tanpa nama</string>
   <string name="onboarding_analytics_offline_text">Bantu menjadikan aplikasi lebih baik dengan memberitahu kami bagaimana anda menggunakannya. Data yang dikumpul tidak dikenali. &lt;a href=\"#privacy\"&gt;Ketahui lebih lanjut&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Hantar data penggunaan</string>
-  <string name="onboarding_create_account_sync">Menyegerakkan senarai bacaan Anda</string>
-  <string name="onboarding_create_account_contributions">Jejaki sumbangan anda</string>
-  <string name="onboarding_create_account_preferences">Simpan keutamaan anda</string>
   <string name="onboarding_got_it">Faham</string>
   <string name="onboarding_multilingual_secondary_text">Kami telah menemui bahasa berikut pada peranti anda:</string>
   <string name="onboarding_multilingual_add_language_text">Tambah atau sunting bahasa</string>
@@ -723,8 +720,6 @@
   <string name="wikitext_link">Pautan</string>
   <string name="wikitext_reference">Rujukan</string>
   <string name="wikitext_preview_link">Pralihat pautan</string>
-  <string name="main_drawer_open">Buka</string>
-  <string name="main_drawer_close">Tutup</string>
   <string name="main_drawer_help">Bantuan</string>
   <string name="main_drawer_login">Log masuk / gabung Wikipedia</string>
   <string name="text_input_dialog_cancel_button_text">Batalkan</string>

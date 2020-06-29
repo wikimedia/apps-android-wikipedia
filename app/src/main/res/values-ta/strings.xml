@@ -114,7 +114,7 @@
   <string name="reading_lists_sync_login">புகுபதிகை</string>
   <string name="create_account_login">புகுபதிகை</string>
   <string name="menu_login">புகுபதிகை</string>
-  <string name="login_activity_title">விக்கிப்பீடியாவில் புகுபதிகை செய்</string>
+  <string name="login_activity_title" fuzzy="true">விக்கிப்பீடியாவில் புகுபதிகை செய்</string>
   <string name="login_in_progress_dialog_message">புகுபதிகையாகின்றது…</string>
   <string name="login_success_toast" fuzzy="true">புகுபதிகை வெற்றி</string>
   <string name="reset_password_title">உங்கள் கடவுச்சொல்லை அமைக்கவும்</string>
@@ -496,7 +496,6 @@
   <string name="onboarding_analytics_title">அடையாளமற்ற தரவை அனுப்புக</string>
   <string name="onboarding_analytics_offline_text">நீங்கள் செயலியை எவ்வாறு பயன்படுத்துகிறீர்கள் என்று எங்களுக்கு தெரியபடுத்துவதன் மூலம் அதனை மேம்படுத்த உதவுங்கள். சேகரிக்கப்படும் தரவு அடையாளமற்றது. &lt;a href=\"#privacy\"&gt;மேலும் அறிக&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">பயன்பாட்டு தரவை அனுப்பவும்</string>
-  <string name="onboarding_create_account_preferences">விருப்பங்களை சேமி</string>
   <string name="onboarding_got_it">புரிந்துகொண்டேன்</string>
   <string name="onboarding_multilingual_secondary_text">உங்கள் சாதனத்தில் பின்வரும் மொழிகளை நாங்கள் கண்டறிந்தோம்:</string>
   <string name="onboarding_welcome_title_v2">இலவச கலைக்களஞ்சியம்\n… 300 மொழிகளுக்கும் மேலாக</string>
@@ -525,8 +524,6 @@
   <string name="more_language_options">மேலும்</string>
   <string name="add_wikipedia_languages_text">விக்கிபீடியா மொழிகளைச் சேர்க்கவும்</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">மொழிகளைத் தொகுக்கவும்</string>
-  <string name="main_drawer_open">திறக்கவும்</string>
-  <string name="main_drawer_close">மூடுக</string>
   <string name="main_drawer_help">உதவி</string>
   <string name="main_drawer_login">விக்கிபீடியாவில் புகுபதிக / இணைக</string>
 </resources>

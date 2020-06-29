@@ -94,7 +94,7 @@
   <string name="reading_lists_sync_login">Մտնել</string>
   <string name="create_account_login">Մտնել</string>
   <string name="menu_login">Մուտք գործել</string>
-  <string name="login_activity_title">Մուտք գործել Վիքիպեդիա</string>
+  <string name="login_activity_title" fuzzy="true">Մուտք գործել Վիքիպեդիա</string>
   <string name="login_success_toast" fuzzy="true">Հաջող մուտք</string>
   <string name="reset_password_hint">Նոր գաղտնաբառ</string>
   <string name="preference_title_logout">Դուրս գալ</string>
@@ -310,8 +310,6 @@
   <string name="wikitext_numbered_list">Համարակալած ցանկ</string>
   <string name="wikitext_template">Կաղապար</string>
   <string name="wikitext_reference">Ծանոթագրություն</string>
-  <string name="main_drawer_open">Բացել</string>
-  <string name="main_drawer_close">Փակել</string>
   <string name="main_drawer_help">Օգնություն</string>
   <string name="custom_date_picker_dialog_ok_button_text">Լավ</string>
   <string name="text_input_dialog_ok_button_text">Լավ</string>

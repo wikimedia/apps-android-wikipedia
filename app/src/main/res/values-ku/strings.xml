@@ -84,7 +84,7 @@
   <string name="login_2fa_hint">Koda Pejirandina Nasnameyê ya Du-faktorî</string>
   <string name="login_2fa_other_workflow_error_msg">Pejirandina nasnameyê ya du-faktorî hewce ye! Xêra xwe vegere fealiyeta esas û bi kilîda xwe ya 2FA\'yê têkeve, paşê dîsa bicerribîne.</string>
   <string name="menu_login">Têkeve</string>
-  <string name="login_activity_title">Têkeve Wîkîpediyayê</string>
+  <string name="login_activity_title" fuzzy="true">Têkeve Wîkîpediyayê</string>
   <string name="login_in_progress_dialog_message">Niha têdikeve...</string>
   <string name="login_success_toast" fuzzy="true">Têketin serkeftî bû!</string>
   <string name="reset_password_title">Şîfreya xwe eyar bike</string>

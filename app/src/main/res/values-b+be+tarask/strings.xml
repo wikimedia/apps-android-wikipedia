@@ -97,7 +97,7 @@
   <string name="reading_lists_sync_login">Увайсьці</string>
   <string name="create_account_login">Увайсьці</string>
   <string name="menu_login">Увайсьці</string>
-  <string name="login_activity_title">Увайсьці ў Вікіпэдыю</string>
+  <string name="login_activity_title" fuzzy="true">Увайсьці ў Вікіпэдыю</string>
   <string name="login_in_progress_dialog_message">Уваход у сыстэму…</string>
   <string name="login_success_toast">Увайшлі ў сыстэму!</string>
   <string name="reset_password_title">Задайце пароль</string>
