@@ -112,7 +112,7 @@
   <string name="reading_lists_sync_login">เข้าสู่ระบบ</string>
   <string name="create_account_login">เข้าสู่ระบบ</string>
   <string name="menu_login">เข้าสู่ระบบ</string>
-  <string name="login_activity_title">เข้าสู่ระบบวิกิพีเดีย</string>
+  <string name="login_activity_title" fuzzy="true">เข้าสู่ระบบวิกิพีเดีย</string>
   <string name="login_in_progress_dialog_message">กำลังเข้าสู่ระบบ…</string>
   <string name="login_success_toast" fuzzy="true">เข้าสู่ระบบสำเร็จ!</string>
   <string name="reset_password_title">ตั้งรหัสผ่านของคุณ</string>

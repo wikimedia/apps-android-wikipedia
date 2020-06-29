@@ -104,7 +104,7 @@
   <string name="reading_lists_sync_login">Prisijungti</string>
   <string name="create_account_login">Prisijungti</string>
   <string name="menu_login">Prisijungti</string>
-  <string name="login_activity_title">Prisijungti prie Vikipedijos</string>
+  <string name="login_activity_title" fuzzy="true">Prisijungti prie Vikipedijos</string>
   <string name="login_in_progress_dialog_message">Jūs jungiatės…</string>
   <string name="login_success_toast" fuzzy="true">Sėkmingai prisijungėte!</string>
   <string name="reset_password_title">Nustatykite slaptažodį</string>

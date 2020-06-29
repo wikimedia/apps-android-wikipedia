@@ -52,6 +52,7 @@
   <string name="search_hint_search_my_lists_and_articles">Cerca nei miei elenchi e voci</string>
   <string name="nav_item_history">Cronologia</string>
   <string name="nav_item_suggested_edits">Modifiche suggerite</string>
+  <string name="nav_item_more">Altro</string>
   <string name="error_network_error">Non è possibile connettersi ad Internet.</string>
   <string name="page_error_retry">Riprova</string>
   <string name="card_offline_error_retry">Riprova</string>
@@ -135,7 +136,7 @@
   <string name="reading_lists_sync_login">Entra</string>
   <string name="create_account_login">Entra</string>
   <string name="menu_login">Entra</string>
-  <string name="login_activity_title">Accedi a Wikipedia</string>
+  <string name="login_activity_title">Entra</string>
   <string name="login_in_progress_dialog_message">Accesso in corso…</string>
   <string name="login_success_toast">Accesso effettuato!</string>
   <string name="reset_password_title">Imposta la tua password</string>
@@ -336,7 +337,9 @@
   <string name="page_offline_notice_last_date">Stai leggendo una versione di questa voce in assenza di connessione salvata il %s</string>
   <string name="button_get_directions">Ottieni indicazioni</string>
   <string name="error_no_maps_app">Impossibile trovare delle applicazioni che forniscono indicazioni.</string>
+  <string name="preference_title_customize_explore_feed">Esplora i feed</string>
   <string name="preference_title_show_link_previews">Mostra anteprime collegamenti</string>
+  <string name="preference_summary_customize_explore_feed">Personalizza il feed Esplora</string>
   <string name="preference_summary_show_link_previews">Mostra una piccola anteprima delle voci quando si preme sui collegamenti.</string>
   <string name="preference_title_collapse_tables">Comprimi tabelle</string>
   <string name="preference_summary_collapse_tables">Comprimi automaticamente le tabelle nelle voci, ad esempio caselle di informazioni, riferimenti e note.</string>
@@ -451,6 +454,7 @@
   <string name="reading_lists_confirm_remote_delete_no">No</string>
   <string name="reading_list_article_save_in_progress">La voce è in fase di scaricamento e sarà disponibile offline al termine.</string>
   <string name="reading_list_articles_added_to_named">Aggiunte %1$d voci a %2$s</string>
+  <string name="reading_list_articles_moved_to_named">Spostate %1$d voci in %2$s</string>
   <string name="reading_list_delete_confirm">Sei sicuro di voler cancellare %s?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Accedi per abilitare la sincronizzazione</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Accedi per consentire il salvataggio degli elenchi di lettura sulla tua utenza.</string>
@@ -471,6 +475,7 @@
   <string name="no_user_lists_msg">Crea elenchi per luoghi in cui viaggiare, argomenti preferiti e molto altro ancora</string>
   <string name="reading_list_saved_list_rename">%1$s (creato dall\'utente)</string>
   <string name="split_reading_list_message">C\'è un limite di %d voci per elenco di lettura. Gli elenchi esistenti con più di questo limite sono stati suddivisi in più elenchi.</string>
+  <string name="reading_list_move_article_limit_message">Impossibile aggiungere a questo elenco. Hai raggiunto il limite di %2$d voci per elenco per \"%1$s\".</string>
   <string name="reading_list_article_limit_message">Impossibile aggiungere a questo elenco. Hai raggiunto il limite di %2$d voci per elenco per \"%1$s\".</string>
   <string name="reading_lists_limit_message">Impossibile creare un altro elenco. Hai raggiunto il limite di 100 elenchi di lettura per utenza.</string>
   <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Sincronizza gli elenchi di lettura&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Gli elenchi di lettura ora possono essere sincronizzati su tutti i dispositivi. Accedi con la tua utenza di Wikipedia e consenti di salvare i tuoi elenchi.</string>
@@ -748,9 +753,9 @@
   <string name="suggested_edits_edit_streak_stat_tooltip">Quanti giorni senza interruzione hai contribuito tramite le modifiche suggerite. Se non hai contribuito per un po\', mostrerà la data del tuo ultimo contributo.</string>
   <string name="suggested_edits_page_views_stat_tooltip">Totale pagine visualizzate delle voci a cui hai contribuito negli ultimi 30 giorni con modifiche suggerite.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">In base a quante volte uno dei tuoi contributi è stato ripristinato (annullato da un altro editore). Modifiche ripristinate: %d.</string>
-  <string name="suggested_edits_paused_message">&lt;b&gt;Le modifiche suggerite vengono sospese fino al %1$s.&lt;/b&gt; Siamo spiacenti %2$s, alcuni dei tuoi contributi recenti sono stati ripristinati.\n\nScopri come migliorare le tue abilità di modifica su Wikipedia con il collegamento qui sotto.</string>
-  <string name="suggested_edits_disabled_message">&lt;b&gt;Le modifiche suggerite sono disabilitate.&lt;/b&gt; Siamo spiacenti %s, troppi dei tuoi contributi recenti sono stati ripristinati.\n\nScopri cosa significa con il collegamento qui sotto.</string>
-  <string name="suggested_edits_ip_blocked_message">Sembra che il tuo indirizzo IP (o intervallo di indirizzi IP) sia attualmente bloccato dalla modifica di Wikipedia. Trovi altre informazioni su cosa significa visitando il collegamento qui sotto.</string>
+  <string name="suggested_edits_paused_message">Le modifiche suggerite vengono sospese fino al %1$s. Siamo spiacenti %2$s, alcuni dei tuoi contributi recenti sono stati annullati.</string>
+  <string name="suggested_edits_disabled_message">Le modifiche suggerite sono disabilitate. Siamo spiacenti %s, troppi dei tuoi contributi recenti sono stati annullati.</string>
+  <string name="suggested_edits_ip_blocked_message">Sembra che il tuo indirizzo IP (o intervallo di indirizzi IP) sia attualmente bloccato dalla modifica di Wikipedia.</string>
   <string name="suggested_edits_editing_tips_link_text">Suggerimenti e trucchi per la modifica</string>
   <string name="suggested_edits_help_page_link_text">Pagina di aiuto per le modifiche suggerite</string>
   <string name="suggested_edits_edit_streak_label_text">Modifica sequenza</string>
@@ -773,6 +778,12 @@
     <item quantity="one">%d giorno</item>
     <item quantity="other">%d giorni</item>
   </plurals>
+  <string name="suggested_edits_what_is_title">Che cos\'è Modifiche suggerite?</string>
+  <string name="suggested_edits_what_is_text">Le Modifiche suggerite offrono opportunità per piccoli ma importanti contributi a Wikipedia.</string>
+  <string name="suggested_edits_learn_more">Ulteriori informazioni</string>
+  <string name="suggested_edits_paused_title">In pausa</string>
+  <string name="suggested_edits_disabled_title">Disattivato</string>
+  <string name="suggested_edits_ip_blocked_title">IP bloccato</string>
   <string name="suggested_edits_last_edited">Ultima modifica</string>
   <string name="suggested_edits_last_edited_never">Mai</string>
   <string name="suggested_edits_task_new">nuovo</string>
@@ -787,11 +798,34 @@
   <string name="suggested_edits_contribution_image_label">File</string>
   <string name="suggested_edits_contribution_article_label">Voce</string>
   <string name="suggested_edits_contribution_views">%s visualizzazioni</string>
-  <string name="suggested_edits_contribution_label">Hai aggiunto %d caratteri</string>
+  <string name="suggested_edits_contribution_seen_text">%s visite negli ultimi 30 giorni.</string>
+  <plurals name="suggested_edits_image_tag_contribution_label">
+    <item quantity="one">Hai aggiunto %d etichetta</item>
+    <item quantity="other">Hai aggiunto %d etichette</item>
+  </plurals>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Ieri</string>
   <string name="suggested_edits_rewards_continue_button">Continua</string>
+  <string name="suggested_edits_encourage_account_creation_title">Sapevi che tutti possono modificare Wikipedia?</string>
+  <string name="suggested_edits_encourage_account_creation_login_button">Entra / unisciti a Wikipedia</string>
   <string name="suggested_edits_contribution_type_image_tag">Etichetta dell\'immagine</string>
+  <string name="suggested_edits_contribution_current_revision">Versione attuale</string>
+  <plurals name="suggested_edits_tags_diff_count_text">
+    <item quantity="one">%1$s etichetta</item>
+    <item quantity="other">%1$s etichette</item>
+  </plurals>
+  <plurals name="suggested_edits_contribution_diff_count_text">
+    <item quantity="one">%1$s carattere</item>
+    <item quantity="other">%1$s caratteri</item>
+  </plurals>
+  <plurals name="suggested_edits_removed_contribution_label">
+    <item quantity="one">Hai rimosso %d carattere</item>
+    <item quantity="other">Hai rimosso %d caratteri</item>
+  </plurals>
+  <plurals name="suggested_edits_added_contribution_label">
+    <item quantity="one">Hai aggiunto %d carattere</item>
+    <item quantity="other">Hai aggiunto %d caratteri</item>
+  </plurals>
   <string name="file_page_activity_title">Pagina del file</string>
   <string name="description_edit_revert_subtitle">Grazie per aver modificato Wikipedia!</string>
   <string name="description_edit_revert_intro">Sappiamo che hai fatto del tuo meglio, ma uno dei recensori ha destato preoccupazione. I possibili motivi per cui la tua modifica è stata annullata includono:</string>
@@ -814,9 +848,6 @@
   <string name="onboarding_analytics_title">Invia dati anonimi</string>
   <string name="onboarding_analytics_offline_text">Contribuisci a migliorare l\'applicazione facendoci sapere come la usi. I dati raccolti sono anonimi. &lt;a href=\"#privacy\"&gt;Ulteriori informazioni&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Invia dati di utilizzo</string>
-  <string name="onboarding_create_account_sync">Sincronizza i tuoi elenchi di lettura</string>
-  <string name="onboarding_create_account_contributions">Tieni traccia dei tuoi contributi</string>
-  <string name="onboarding_create_account_preferences">Salva le tue preferenze</string>
   <string name="onboarding_got_it">Capito</string>
   <string name="onboarding_multilingual_secondary_text">Abbiamo trovato quanto segue sul tuo dispositivo:</string>
   <string name="onboarding_multilingual_add_language_text">Aggiungi o modifica lingue</string>
@@ -867,6 +898,7 @@
   <string name="edit_conflict_dialog_ok_button_text">OK</string>
   <string name="reverted_edit_dialog_ok_button_text">OK</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">Annulla</string>
+  <string name="edit_type_all">Tutti i contributi</string>
   <string name="content_description_for_page_indicator">Pagina %1$d di %2$d</string>
   <string name="wikitext_bold">Grassetto</string>
   <string name="wikitext_italic">Corsivo</string>
@@ -876,12 +908,10 @@
   <string name="wikitext_template">Template</string>
   <string name="wikitext_reference">Riferimento</string>
   <string name="wikitext_preview_link">Anteprima collegamento</string>
-  <string name="main_drawer_open">Apri</string>
-  <string name="main_drawer_close">Chiudi</string>
-  <string name="main_drawer_content_description">Apri il menu di navigazione principale</string>
   <string name="main_drawer_help">Aiuto</string>
   <string name="main_drawer_login">Entra / unisciti a Wikipedia</string>
-  <string name="main_tooltip_text">%s, sapevi che tutti possono modificare Wikipedia?</string>
+  <string name="main_tooltip_text">Ciao %s, sapevi che tutti possono modificare Wikipedia?</string>
+  <string name="main_tooltip_text_v2">Sapevi che tutti possono modificare Wikipedia?</string>
   <string name="main_tooltip_action_button">Inizia</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_ok_button_text">OK</string>

@@ -101,7 +101,7 @@
   <string name="reading_lists_sync_login">ਦਾਖਲ ਹੋਵੋ</string>
   <string name="create_account_login">ਦਾਖਲ ਹੋਵੋ</string>
   <string name="menu_login">ਦਾਖ਼ਲ ਹੋਵੋ</string>
-  <string name="login_activity_title">ਵਿਕੀਪੀਡੀਆ \'ਚ ਦਾਖ਼ਲ ਹੋਵੋ</string>
+  <string name="login_activity_title" fuzzy="true">ਵਿਕੀਪੀਡੀਆ \'ਚ ਦਾਖ਼ਲ ਹੋਵੋ</string>
   <string name="login_in_progress_dialog_message">ਦਾਖ਼ਲ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ…</string>
   <string name="login_success_toast">ਦਾਖਲ ਹੋਏ!</string>
   <string name="reset_password_title">ਆਪਣਾ ਪਾਸਵਰਡ ਸੈੱਟ ਕਰੋ</string>

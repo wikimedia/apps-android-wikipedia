@@ -46,6 +46,7 @@
   <string name="search_hint_search_my_lists_and_articles">البحث في قوائمي ومقالاتي</string>
   <string name="nav_item_history">التاريخ</string>
   <string name="nav_item_suggested_edits">التعديلات المقترحة</string>
+  <string name="nav_item_more">المزيد</string>
   <string name="error_network_error">لا يوجد اتصال بالإنترنت.</string>
   <string name="page_error_retry">إعادة المحاولة</string>
   <string name="card_offline_error_retry">إعادة المحاولة</string>
@@ -129,7 +130,7 @@
   <string name="reading_lists_sync_login">تسجيل الدخول</string>
   <string name="create_account_login">تسجيل الدخول</string>
   <string name="menu_login">تسجيل الدخول</string>
-  <string name="login_activity_title">تسجيل الدخول إلى ويكيبيديا</string>
+  <string name="login_activity_title" fuzzy="true">تسجيل الدخول إلى ويكيبيديا</string>
   <string name="login_in_progress_dialog_message">جارٍ تسجيل دخولك…</string>
   <string name="login_success_toast">تم تسجيل الدخول!</string>
   <string name="reset_password_title">تعيين كلمة مرورك</string>
@@ -737,9 +738,9 @@
   <string name="suggested_edits_edit_streak_stat_tooltip">كم يوم بدون انقطاع ساهمت به عبر التعديلات المقترحة، إذا لم تكن قد ساهمت في فترة من الوقت، فسوف يعرض تاريخ آخر مساهمة لك.</string>
   <string name="suggested_edits_page_views_stat_tooltip">إجمالي مشاهدات الصفحة للعناصر التي ساهمت بها في آخر 30 يوما مع التعديلات المقترحة.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">بناءً على عدد المرات التي تم فيها إرجاع إحدى مساهماتك (التراجع عن طريق محرر آخر)، التعديلات التي تم إرجاعها:%d.</string>
-  <string name="suggested_edits_paused_message">&lt;b&gt;تم إيقاف التعديلات المقترحة مؤقتا حتى %1$s.&lt;/b&gt;عذرا %2$s، تم إرجاع بعض مساهماتك الأخيرة.\n\nتعرف على كيفية تحسين مهارات التحرير على ويكيبيديا من خلال الرابط أدناه.</string>
-  <string name="suggested_edits_disabled_message">&lt;b&gt;تم تعطيل التعديلات المقترحة.&lt;/ b&gt; آسف %s، تم إرجاع الكثير من مساهماتك الأخيرة.\n\nتعرف على ما يعنيه هذا من خلال الرابط أدناه.</string>
-  <string name="suggested_edits_ip_blocked_message">يبدو أن عنوان الآيبي (أو نطاق عناوين الآيبي) الخاص بك ممنوع حاليا من تحرير ويكيبيديا، تعرف على المزيد حول معنى ذلك من خلال زيارة الرابط أدناه.</string>
+  <string name="suggested_edits_paused_message" fuzzy="true">&lt;b&gt;تم إيقاف التعديلات المقترحة مؤقتا حتى %1$s.&lt;/b&gt;عذرا %2$s، تم إرجاع بعض مساهماتك الأخيرة.\n\nتعرف على كيفية تحسين مهارات التحرير على ويكيبيديا من خلال الرابط أدناه.</string>
+  <string name="suggested_edits_disabled_message" fuzzy="true">&lt;b&gt;تم تعطيل التعديلات المقترحة.&lt;/ b&gt; آسف %s، تم إرجاع الكثير من مساهماتك الأخيرة.\n\nتعرف على ما يعنيه هذا من خلال الرابط أدناه.</string>
+  <string name="suggested_edits_ip_blocked_message" fuzzy="true">يبدو أن عنوان الآيبي (أو نطاق عناوين الآيبي) الخاص بك ممنوع حاليا من تحرير ويكيبيديا، تعرف على المزيد حول معنى ذلك من خلال زيارة الرابط أدناه.</string>
   <string name="suggested_edits_editing_tips_link_text">نصائح وحيل التحرير</string>
   <string name="suggested_edits_help_page_link_text">صفحة مساعدة التعديلات المقترحة</string>
   <string name="suggested_edits_edit_streak_label_text">خط التحرير</string>
@@ -762,6 +763,8 @@
     <item quantity="one">%d يوم</item>
     <item quantity="other">%d أيام</item>
   </plurals>
+  <string name="suggested_edits_learn_more">معرفة المزيد</string>
+  <string name="suggested_edits_paused_title">إيقاف مؤقت</string>
   <string name="suggested_edits_last_edited">آخر تعديل</string>
   <string name="suggested_edits_last_edited_never">أبدا</string>
   <string name="suggested_edits_task_new">جديد</string>
@@ -795,9 +798,6 @@
   <string name="onboarding_analytics_title">إرسال بيانات مجهولة المصدر</string>
   <string name="onboarding_analytics_offline_text">ساعد في تحسين التطبيق بالسماح لنا بمعرفة كيفية استخدامه، البيانات التي تُجمع ستكون مجهولة، &lt;a href=\"#privacy\"&gt;اعرف المزيد&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">إرسال بيانات الاستخدام</string>
-  <string name="onboarding_create_account_sync">زامن قوائم قراءاتك</string>
-  <string name="onboarding_create_account_contributions">تتبع مساهماتك</string>
-  <string name="onboarding_create_account_preferences">حفظ تفضيلاتك</string>
   <string name="onboarding_got_it">فهمت</string>
   <string name="onboarding_multilingual_secondary_text">لقد وجدنا ما يلي على جهازك:</string>
   <string name="onboarding_multilingual_add_language_text">أضف أو عدل اللغات</string>
@@ -848,6 +848,7 @@
   <string name="edit_conflict_dialog_ok_button_text">حسنا</string>
   <string name="reverted_edit_dialog_ok_button_text">حسنا</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">إلغاء</string>
+  <string name="edit_type_all">كل المساهمات</string>
   <string name="content_description_for_page_indicator">الصفحة %1$d من %2$d</string>
   <string name="wikitext_bold">غليظ</string>
   <string name="wikitext_italic">مائل</string>
@@ -857,9 +858,6 @@
   <string name="wikitext_template">قالب</string>
   <string name="wikitext_reference">مرجع</string>
   <string name="wikitext_preview_link">معاينة الرابط</string>
-  <string name="main_drawer_open">مفتوح</string>
-  <string name="main_drawer_close">إغلاق</string>
-  <string name="main_drawer_content_description">افتح درج التصفح الرئيسي</string>
   <string name="main_drawer_help">مساعدة</string>
   <string name="main_drawer_login">تسجيل الدخول / الاشتراك في ويكيبيديا</string>
   <string name="main_tooltip_text">مرحبا %s، هل تعلم أنه يمكن للجميع تحرير ويكيبيديا؟</string>

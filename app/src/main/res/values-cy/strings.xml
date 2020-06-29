@@ -102,7 +102,7 @@
   <string name="reading_lists_sync_login">Mewngofnodi</string>
   <string name="create_account_login">Mewngofnodi</string>
   <string name="menu_login">Mewngofnodi</string>
-  <string name="login_activity_title">Mewngofnodi i Wicipedia</string>
+  <string name="login_activity_title" fuzzy="true">Mewngofnodi i Wicipedia</string>
   <string name="login_in_progress_dialog_message">Yn eich logio i fewn…</string>
   <string name="login_success_toast" fuzzy="true">Llwyddodd y mewngofnodi!</string>
   <string name="reset_password_title">Gosodwch eich cyfrinair</string>

@@ -124,7 +124,7 @@
   <string name="reading_lists_sync_login">Masuk log</string>
   <string name="create_account_login">Masuk</string>
   <string name="menu_login">Masuk log</string>
-  <string name="login_activity_title">Masuk log Wikipedia</string>
+  <string name="login_activity_title" fuzzy="true">Masuk log Wikipedia</string>
   <string name="login_in_progress_dialog_message">Sedang masuk log…</string>
   <string name="login_success_toast">Berhasil masuk log!</string>
   <string name="reset_password_title">Setel kata sandi Anda</string>
@@ -727,8 +727,8 @@
   <string name="suggested_edits_contributions_stat_tooltip">Jumlah total kontribusi Anda dengan Penyuntingan yang disarankan.</string>
   <string name="suggested_edits_edit_streak_stat_tooltip">Berapa hari tanpa istirahat Anda berkontribusi melalui Penyuntingan yang disarankan. Jika Anda belum berkontribusi untuk sementara waktu, ini menunjukkan tanggal kontribusi terakhir Anda.</string>
   <string name="suggested_edits_page_views_stat_tooltip">Total tampilan halaman item yang Anda berkontribusi dalam 30 hari terakhir dengan Penyuntingan yang disarankan.</string>
-  <string name="suggested_edits_paused_message">&lt;b&gt;Penyuntingan yang disarankan terjeda hingga %1$s.&lt;/b&gt; Maaf %2$s, beberapa kontribusi terbaru Anda telah dibalikkan.\n\nKetahui cara untuk memperbaiki kemampuan penyuntingan Anda di Wikipedia dengan pranala di bawah.</string>
-  <string name="suggested_edits_ip_blocked_message">Sepertinya alamat IP Anda (atau jangkauan alamat IP) saat ini terblokir untuk menyunting Wikipedia. Ketahui lebih lanjut dengan mengunjungi pranala di bawah ini.</string>
+  <string name="suggested_edits_paused_message" fuzzy="true">&lt;b&gt;Penyuntingan yang disarankan terjeda hingga %1$s.&lt;/b&gt; Maaf %2$s, beberapa kontribusi terbaru Anda telah dibalikkan.\n\nKetahui cara untuk memperbaiki kemampuan penyuntingan Anda di Wikipedia dengan pranala di bawah.</string>
+  <string name="suggested_edits_ip_blocked_message" fuzzy="true">Sepertinya alamat IP Anda (atau jangkauan alamat IP) saat ini terblokir untuk menyunting Wikipedia. Ketahui lebih lanjut dengan mengunjungi pranala di bawah ini.</string>
   <string name="suggested_edits_help_page_link_text">Halaman bantuan suntingan yang disarankan</string>
   <string name="suggested_edits_pageviews_label_text">Kunjungan halaman</string>
   <string name="suggested_edits_quality_label_text">Kualitas suntingan</string>
@@ -769,9 +769,6 @@
   <string name="onboarding_analytics_title">Kirim data anonim</string>
   <string name="onboarding_analytics_offline_text">Bantu membuat aplikasi lebih baik dengan memberi tahu kami bagaimana Anda menggunakannya. Data yang dikumpulkan bersifat anonim. &lt;a href=\"#privacy\"&gt;Pelajari lebih lanjut&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Kirim data penggunaan</string>
-  <string name="onboarding_create_account_sync">Sinkronkan daftar bacaan Anda</string>
-  <string name="onboarding_create_account_contributions">Catat kontribusi Anda</string>
-  <string name="onboarding_create_account_preferences">Simpan preferensi Anda</string>
   <string name="onboarding_got_it">Mengerti</string>
   <string name="onboarding_multilingual_secondary_text">Kami telah menemukan bahasa berikut di perangkat Anda:</string>
   <string name="onboarding_multilingual_add_language_text">Tambah atau sunting bahasa</string>
@@ -830,11 +827,9 @@
   <string name="wikitext_template">Templat</string>
   <string name="wikitext_reference">Referensi</string>
   <string name="wikitext_preview_link">Pranala pratayang</string>
-  <string name="main_drawer_open">Buka</string>
-  <string name="main_drawer_close">Tutup</string>
   <string name="main_drawer_help">Bantuan</string>
   <string name="main_drawer_login">Masuk log / gabung ke Wikipedia</string>
-  <string name="main_tooltip_text">Tahukah %s, bahwa semua orang dapat menyunting Wikipedia?</string>
+  <string name="main_tooltip_text" fuzzy="true">Tahukah %s, bahwa semua orang dapat menyunting Wikipedia?</string>
   <string name="main_tooltip_action_button">Memulai</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_ok_button_text">OK</string>

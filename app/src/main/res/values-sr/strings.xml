@@ -115,7 +115,7 @@
   <string name="reading_lists_sync_login">Пријава</string>
   <string name="create_account_login">Пријава</string>
   <string name="menu_login">Пријави ме</string>
-  <string name="login_activity_title">Пријава на Википедију</string>
+  <string name="login_activity_title" fuzzy="true">Пријава на Википедију</string>
   <string name="login_in_progress_dialog_message">Пријављујем вас…</string>
   <string name="login_success_toast">Успешно сте се пријавили!</string>
   <string name="reset_password_title">Поставите лозинку</string>
@@ -744,9 +744,6 @@
   <string name="onboarding_analytics_title">Слање анонимних података</string>
   <string name="onboarding_analytics_offline_text">Помозите нам да побољшамо апликацију слањем информација о употреби. Прикупљени подаци су анонимни. &lt;a href=\"#privacy\"&gt;Сазнајте више&lt;/a&gt;.</string>
   <string name="onboarding_analytics_switch_title">Шаљи податке о употреби</string>
-  <string name="onboarding_create_account_sync">Синхронизујте листе за читање</string>
-  <string name="onboarding_create_account_contributions">Будите у току са својим доприносима</string>
-  <string name="onboarding_create_account_preferences">Сачувајте своја подешавања</string>
   <string name="onboarding_got_it">Разумем</string>
   <string name="onboarding_multilingual_secondary_text">Пронашли смо следеће на вашем уређају:</string>
   <string name="onboarding_multilingual_add_language_text">Додај или уреди језике</string>
@@ -806,12 +803,9 @@
   <string name="wikitext_template">Шаблон</string>
   <string name="wikitext_reference">Референца</string>
   <string name="wikitext_preview_link">Преглед везе</string>
-  <string name="main_drawer_open">Отвори</string>
-  <string name="main_drawer_close">Затвори</string>
-  <string name="main_drawer_content_description">Отворите главну ладицу за навигацију</string>
   <string name="main_drawer_help">Помоћ</string>
   <string name="main_drawer_login">Пријави ме / придружи ме Википедији</string>
-  <string name="main_tooltip_text">%s, да ли сте знали да свако може да уређује Википедију?</string>
+  <string name="main_tooltip_text" fuzzy="true">%s, да ли сте знали да свако може да уређује Википедију?</string>
   <string name="main_tooltip_action_button">Почнимо</string>
   <string name="custom_date_picker_dialog_ok_button_text">У реду</string>
   <string name="text_input_dialog_ok_button_text">У реду</string>

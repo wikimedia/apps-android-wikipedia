@@ -101,7 +101,7 @@
   <string name="reading_lists_sync_login">Enirar</string>
   <string name="create_account_login">Enirar</string>
   <string name="menu_login">Enirar</string>
-  <string name="login_activity_title">Enirar Wikipedio</string>
+  <string name="login_activity_title" fuzzy="true">Enirar Wikipedio</string>
   <string name="login_in_progress_dialog_message">Konektanta tu en...</string>
   <string name="login_success_toast">Konekto sucesoza!</string>
   <string name="reset_password_title">Enirez vua pasovorto</string>
