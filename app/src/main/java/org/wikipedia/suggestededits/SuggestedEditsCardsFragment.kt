@@ -214,6 +214,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
     override fun onDestroyView() {
         disposables.clear()
         cardsViewPager.unregisterOnPageChangeCallback(viewPagerListener)
+        cardsViewPager.adapter = null
         super.onDestroyView()
     }
 
