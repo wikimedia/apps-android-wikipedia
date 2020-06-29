@@ -60,6 +60,7 @@ public final class Constants {
     public static final int MAX_READING_LISTS_LIMIT = 100;
 
     public static final int MIN_LANGUAGES_TO_UNLOCK_TRANSLATION = 2;
+    public static final int SCROLL_DIRECTION_UP = -1;
 
     public enum InvokeSource {
         CONTEXT_MENU("contextMenu"),

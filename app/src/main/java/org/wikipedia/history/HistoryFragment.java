@@ -60,6 +60,7 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 import static org.wikipedia.Constants.HISTORY_FRAGMENT_LOADER_ID;
+import static org.wikipedia.Constants.SCROLL_DIRECTION_UP;
 
 public class HistoryFragment extends Fragment implements BackPressedHandler {
     public interface Callback {
@@ -110,7 +111,18 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
         historyList.setAdapter(adapter);
 
         LoaderManager.getInstance(requireActivity()).initLoader(HISTORY_FRAGMENT_LOADER_ID, null, loaderCallback);
+        setUpScrollListener();
         return view;
+    }
+
+    private void setUpScrollListener() {
+        historyList.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                ((MainActivity) requireActivity()).updateToolbarElevation(historyList.canScrollVertically(SCROLL_DIRECTION_UP));
+            }
+        });
     }
 
     @Override
