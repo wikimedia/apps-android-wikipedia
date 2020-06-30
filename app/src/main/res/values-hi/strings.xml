@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
 * Adithyavr
 * Anamdas
 * Bhatakati aatma
@@ -23,6 +24,7 @@
 * Wikiuser13
 * YmKavishwar
 * आलोक
+* गोपाल
 * चक्रपाणी
 * संजीव कुमार
 -->
@@ -35,6 +37,7 @@
   <string name="search_hint_search_history">इतिहास खोजें</string>
   <string name="search_hint_search_languages">भाषा के लिए खोजें</string>
   <string name="nav_item_history">इतिहास</string>
+  <string name="nav_item_more">और</string>
   <string name="error_network_error">इंटरनेट से कनेक्ट नहीं किया जा सकता।</string>
   <string name="page_error_retry">पुनः प्रयास करें</string>
   <string name="page_error_back_to_main">वापस जाएँ</string>
@@ -58,9 +61,7 @@
   <string name="menu_long_press_open_page">खोलें</string>
   <string name="menu_long_press_open_in_new_tab">नये टैब में खोलें</string>
   <string name="menu_long_press_copy_page">लिंक एड्रेस को कॉपी करें</string>
-  <string name="menu_text_select_copy">कॉपी</string>
   <string name="menu_text_select_define">परिभाषित करें</string>
-  <string name="menu_text_select_share">साझा करें</string>
   <string name="menu_text_select_edit_here">यहाँ सम्पादित करें</string>
   <string name="last_updated_text">%s को अन्तिम अपडेट किया गया।</string>
   <string name="talk_page_link_text">वार्ता पृष्ठ देखें</string>
@@ -99,9 +100,9 @@
   <string name="login_2fa_hint">द्विस्तरीय प्रमाणीकरण कोड</string>
   <string name="login_2fa_other_workflow_error_msg">द्विस्तरीय प्रमाणीकरण कूट आवश्यक! कृपया मुख्य कार्यकलाप पर वापस जाएँ और अपने 2FA टोकन से लॉगिन कर दोबारा प्रयास करें।</string>
   <string name="menu_login">प्रवेश</string>
-  <string name="login_activity_title">विकिपीडिया में प्रवेश करें</string>
+  <string name="login_activity_title" fuzzy="true">विकिपीडिया में प्रवेश करें</string>
   <string name="login_in_progress_dialog_message">आपको प्रवेश दिया जा रहा है…</string>
-  <string name="login_success_toast">सफलतापूर्वक प्रविष्ट</string>
+  <string name="login_success_toast" fuzzy="true">सफलतापूर्वक प्रविष्ट</string>
   <string name="reset_password_title">अपना पासवर्ड लगाएं</string>
   <string name="reset_password_description">अपने एक अस्थाई पासवर्ड से लॉगिन किया। लॉगिन को पूरा करने के लिए यहाँ एक नया पासवर्ड जोड़ें।</string>
   <string name="reset_password_hint">नया पासवर्ड</string>
@@ -239,15 +240,11 @@
   <string name="gallery_menu_share">साझा करें</string>
   <string name="gallery_share_error">%s चित्र को साझा नहीं किया जा सका</string>
   <string name="gallery_save_progress">फ़ाइल को डाउनलोड किया जा रहा है…</string>
-  <string name="gallery_save_success">फ़ाइल को सफलतापूर्वक सहेज लिया गया है।</string>
+  <string name="gallery_save_success" fuzzy="true">फ़ाइल को सफलतापूर्वक सहेज लिया गया है।</string>
   <string name="gallery_error_video_failed">वीडियो को चलाया नहीं जा सका।</string>
   <string name="gallery_save_image_write_permission_rationale">चित्रों को सहेजने के लिए आपके यंत्र भंडारण पर लिखने की अनुमति की आवश्यकता है।</string>
   <string name="err_cannot_save_file">फ़ाइल को सहेजा नहीं जा सकता</string>
-  <string name="snippet_share_intro">\@Wikipedia पर \"%1$s\": %2$s</string>
   <string name="expand_refs">फ़ैलाने के लिये दबाएं</string>
-  <string name="share_snippet_button">चित्र की तरह साझा करें</string>
-  <string name="share_normal_button">टेक्स्ट की तरह साझा करें</string>
-  <string name="snippet_share_preview_image_desc">चित्र को प्रीव्यू करें</string>
   <string name="cc_logo">क्रिएटिव कॉमन्स लाइसेंस</string>
   <string name="captcha_image">कैप्चा चित्र</string>
   <string name="gallery_fair_use_license">उचित प्रयोग</string>
@@ -313,8 +310,6 @@
   <string name="reading_list_save_to">पढ़ने वाली सूची में जोड़ें</string>
   <string name="reading_list_create_new">नयी बनायें</string>
   <string name="reading_list_title_exists">पढ़ने वाली सूची \"%s\" पहले से है।</string>
-  <string name="reading_list_added_to_named">%s में जोड़ा गया।</string>
-  <string name="reading_list_already_exists">यह लेख पहले से ही उस सूची में है।</string>
   <string name="reading_list_added_view_button">सूची देखें</string>
   <string name="format_reading_list_statistical_summary_singular">1 लेख, %1$.2f मेगाबाइट</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d लेख, %2$.2f मेगाबाइट</string>
@@ -361,8 +356,7 @@
   <string name="reading_lists_confirm_remote_delete_yes">हाँ</string>
   <string name="reading_lists_confirm_remote_delete_no">नहीं</string>
   <string name="reading_list_article_save_in_progress">लेख का अधोभारण हो रहा है, और यह ऑफलाइन उपलब्ध होगा जब यह पूरा हो जाएगा।</string>
-  <string name="reading_list_already_contains_selection">चुनी गयी सूची में चयनित पृष्ठ पहले से ही समाहित हैं।</string>
-  <string name="reading_list_added_articles_list_titled">%2$s में %1$d आलेख जोड़े गए</string>
+  <string name="reading_list_articles_added_to_named">%2$s में %1$d आलेख जोड़े गए</string>
   <string name="reading_list_delete_confirm" fuzzy="true">क्या आप  \"%s\" को मिटाने हेतु निश्चित हैं?</string>
   <string name="reading_list_turned_sync_off_dialog_ok">ठीक है</string>
   <string name="reading_list_turned_sync_off_dialog_settings">सेटिंग्स</string>
@@ -438,6 +432,9 @@
   <string name="description_edit_tutorial_promise">शुरू करने से, मैं यह वादा करता हूँ कि इस सुविधा का दुरुपयोग नहीं करूँगा(गी)।</string>
   <string name="suggested_edits_snackbar_survey_text">आपका संपादन अनुभव कैसा रहा? कृपया कुछ समय निकालकर इन-ऐप संपादन के बारे में सर्वेक्षण भरें।</string>
   <string name="suggested_edits_snackbar_survey_action_text">सर्वेक्षण करें</string>
+  <string name="suggested_edits_reactivation_notification_title">सुझाए गए संपादन</string>
+  <string name="suggested_edits_reactivation_notification_stage_one">विकिपीडिया के संपादन के लिए धन्यवाद!  जहाँ आपने छोड़ा था, उसी स्थान से फिर शुरू करें?</string>
+  <string name="suggested_edits_reactivation_notification_stage_two">क्या विकिपीडिया में सुधार जारी रखने के लिए आपके पास एक मिनट है?  इन संपादन सुझावों को देखें।</string>
   <string name="description_edit_revert_subtitle">विकिपीडिया में संपादन के लिए धन्यवाद!</string>
   <string name="description_edit_revert_intro">हम जानते हैं अपने अपना अधिकतम प्रयास किया लेकिन समीक्षक में से एक को चिंता है।\nआपके संपादन को वापस किये जाने के संभावित कारण हैं:</string>
   <string name="description_edit_revert_reason1">आपके योगदान द्वारा &lt;a href=\"%1$s\"&gt;निर्देशों&lt;/a&gt; में से एक का पालन नहीं किया गया।</string>
@@ -452,9 +449,6 @@
   <string name="onboarding_reading_list_sync_title" fuzzy="true">सिंक के साथ पढ़ने वाली सूचियां</string>
   <string name="onboarding_analytics_title">अनाम डेटा भेजें</string>
   <string name="onboarding_analytics_switch_title">उपयोग किया गया डेटा भेजें</string>
-  <string name="onboarding_create_account_sync">\nअपनी पठन सूचियों को सिंक करें</string>
-  <string name="onboarding_create_account_contributions">अपने योगदान पर नज़र रखें</string>
-  <string name="onboarding_create_account_preferences">अपनी पसंद रक्षित करें</string>
   <string name="app_shortcuts_random">कोई भी</string>
   <string name="app_shortcuts_continue_reading">पढ़ना जारी रखें</string>
   <string name="app_shortcuts_search">खोजना</string>

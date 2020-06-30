@@ -10,6 +10,7 @@ import androidx.annotation.Nullable;
 import com.google.gson.annotations.SerializedName;
 
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.language.AppLanguageLookUpTable;
 import org.wikipedia.settings.SiteInfoClient;
 import org.wikipedia.util.StringUtil;
 
@@ -136,15 +137,22 @@ public class PageTitle implements Parcelable {
             text = SiteInfoClient.getMainPageForLang(wiki.languageCode());
         }
 
-        String[] fragParts = text.split("#", -1);
-        text = fragParts[0];
-        if (fragParts.length > 1) {
-            this.fragment = decodeURL(fragParts[1]).replace(" ", "_");
+        // Remove any URL parameters (?...) from the title
+        String[] parts = text.split("\\?", -1);
+        if (parts.length > 1 && parts[1].contains("=")) {
+            text = parts[0];
+        }
+
+        // Split off any fragment (#...) from the title
+        parts = text.split("#", -1);
+        text = parts[0];
+        if (parts.length > 1) {
+            this.fragment = decodeURL(parts[1]).replace(" ", "_");
         } else {
             this.fragment = null;
         }
 
-        String[] parts = text.split(":", -1);
+        parts = text.split(":", -1);
         if (parts.length > 1) {
             String namespaceOrLanguage = parts[0];
             if (Arrays.asList(Locale.getISOLanguages()).contains(namespaceOrLanguage)) {
@@ -236,6 +244,10 @@ public class PageTitle implements Parcelable {
         return getUriForDomain(getWikiSite().authority());
     }
 
+    public String getMobileUri() {
+        return getUriForDomain(getWikiSite().authority().replace(".wikipedia.org", ".m.wikipedia.org"));
+    }
+
     public String getUriForAction(String action) {
         try {
             return String.format(
@@ -325,9 +337,10 @@ public class PageTitle implements Parcelable {
     private String getUriForDomain(String domain) {
         try {
             return String.format(
-                    "%1$s://%2$s/wiki/%3$s%4$s",
+                    "%1$s://%2$s/%3$s/%4$s%5$s",
                     getWikiSite().scheme(),
                     domain,
+                    domain.startsWith(AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE) ? getWikiSite().languageCode() : "wiki",
                     URLEncoder.encode(getPrefixedText(), "utf-8"),
                     (this.fragment != null && this.fragment.length() > 0) ? ("#" + this.fragment) : ""
             );

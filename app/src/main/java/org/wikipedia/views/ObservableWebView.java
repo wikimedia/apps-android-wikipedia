@@ -2,9 +2,7 @@ package org.wikipedia.views;
 
 import android.content.Context;
 import android.graphics.Canvas;
-import android.os.SystemClock;
 import android.util.AttributeSet;
-import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.ViewConfiguration;
 import android.webkit.WebView;
@@ -25,7 +23,6 @@ public class ObservableWebView extends WebView {
     private List<OnUpOrCancelMotionEventListener> onUpOrCancelMotionEventListeners;
     private List<OnContentHeightChangedListener> onContentHeightChangedListeners;
     private OnFastScrollListener onFastScrollListener;
-    private OnEdgeSwipeListener onEdgeSwipeListener;
 
     private int contentHeight = 0;
     private float touchStartX;
@@ -34,8 +31,7 @@ public class ObservableWebView extends WebView {
 
     private long lastScrollTime;
     private int totalAmountScrolled;
-    private boolean edgeSwipePending;
-
+    private int drawEventsWhileSwiping;
 
     /**
     * Threshold (in pixels) of continuous scrolling, to be considered "fast" scrolling.
@@ -48,8 +44,6 @@ public class ObservableWebView extends WebView {
     */
     private static final int MAX_HUMAN_SCROLL = (int) (500 * DimenUtil.getDensityScalar());
 
-    private static final int EDGE_SWIPE_THRESHOLD = (int) (16 * DimenUtil.getDensityScalar());
-
     /**
      * Maximum amount of time that needs to elapse before the previous scroll amount
      * is "forgotten." That is, if the user scrolls once, then scrolls again within this
@@ -57,6 +51,8 @@ public class ObservableWebView extends WebView {
      * a possible "fast" scroll.
      */
     private static final int MAX_MILLIS_BETWEEN_SCROLLS = 500;
+
+    private static final int SWIPE_DRAW_TOLERANCE = 4;
 
     public void addOnClickListener(OnClickListener onClickListener) {
         onClickListeners.add(onClickListener);
@@ -78,14 +74,6 @@ public class ObservableWebView extends WebView {
         onContentHeightChangedListeners.add(onContentHeightChangedListener);
     }
 
-    public void setOnFastScrollListener(OnFastScrollListener onFastScrollListener) {
-        this.onFastScrollListener = onFastScrollListener;
-    }
-
-    public void setOnEdgeSwipeListener(OnEdgeSwipeListener onEdgeSwipeListener) {
-        this.onEdgeSwipeListener = onEdgeSwipeListener;
-    }
-
     public void clearAllListeners() {
         onClickListeners.clear();
         onScrollChangeListeners.clear();
@@ -93,8 +81,6 @@ public class ObservableWebView extends WebView {
         onUpOrCancelMotionEventListeners.clear();
         onContentHeightChangedListeners.clear();
         onFastScrollListener = null;
-        // To stop the music when left the article
-        loadUrl("about:blank");
     }
 
     public interface OnClickListener {
@@ -119,19 +105,6 @@ public class ObservableWebView extends WebView {
 
     public interface OnFastScrollListener {
         void onFastScroll();
-    }
-
-    public interface OnEdgeSwipeListener {
-        void onEdgeSwipe(boolean direction);
-    }
-
-    public void copyToClipboard() {
-        // Simulate a Ctrl-C key press, which copies the current selection to the clipboard.
-        // Seems to work across all APIs.
-        dispatchKeyEvent(new KeyEvent(SystemClock.uptimeMillis(), SystemClock.uptimeMillis(),
-                KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_C, 0, KeyEvent.META_CTRL_ON));
-        dispatchKeyEvent(new KeyEvent(SystemClock.uptimeMillis(), SystemClock.uptimeMillis(),
-                KeyEvent.ACTION_UP, KeyEvent.KEYCODE_C, 0, KeyEvent.META_CTRL_ON));
     }
 
     public ObservableWebView(Context context) {
@@ -189,23 +162,7 @@ public class ObservableWebView extends WebView {
                 }
                 touchStartX = event.getX();
                 touchStartY = event.getY();
-                edgeSwipePending = (touchStartX > (getWidth() - EDGE_SWIPE_THRESHOLD))
-                        || (touchStartX < EDGE_SWIPE_THRESHOLD);
-                break;
-            case MotionEvent.ACTION_MOVE:
-                if (edgeSwipePending) {
-                    if (event.getX() - touchStartX > EDGE_SWIPE_THRESHOLD) {
-                        edgeSwipePending = false;
-                        if (onEdgeSwipeListener != null) {
-                            onEdgeSwipeListener.onEdgeSwipe(true);
-                        }
-                    } else if (touchStartX - event.getX() > EDGE_SWIPE_THRESHOLD) {
-                        edgeSwipePending = false;
-                        if (onEdgeSwipeListener != null) {
-                            onEdgeSwipeListener.onEdgeSwipe(false);
-                        }
-                    }
-                }
+                drawEventsWhileSwiping = 0;
                 break;
             case MotionEvent.ACTION_UP:
                 if (Math.abs(event.getX() - touchStartX) <= touchSlop
@@ -216,10 +173,12 @@ public class ObservableWebView extends WebView {
                         }
                     }
                 }
+                drawEventsWhileSwiping = 0;
             case MotionEvent.ACTION_CANCEL:
                 for (OnUpOrCancelMotionEventListener listener : onUpOrCancelMotionEventListeners) {
                     listener.onUpOrCancelMotionEvent();
                 }
+                drawEventsWhileSwiping = 0;
                 break;
             default:
                 break;
@@ -233,6 +192,12 @@ public class ObservableWebView extends WebView {
         if (isInEditMode()) {
             return;
         }
+
+        drawEventsWhileSwiping++;
+        if (drawEventsWhileSwiping > SWIPE_DRAW_TOLERANCE) {
+            FrameLayoutNavMenuTriggerer.setChildViewScrolled();
+        }
+
         if (contentHeight != getContentHeight()) {
             contentHeight = getContentHeight();
             for (OnContentHeightChangedListener listener : onContentHeightChangedListeners) {

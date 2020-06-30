@@ -94,12 +94,6 @@ public class StringUtilTest {
     }
 
     @Test
-    public void testSanitizeText() {
-        assertThat(StringUtil.sanitizeText(" [1]  test"), is("test"));
-        assertThat(StringUtil.sanitizeText(" [1]  (;test )"), is("(test )"));
-    }
-
-    @Test
     public void testRemoveStyleTags() {
         assertThat(StringUtil.removeStyleTags("Lorem <style data=\"123\">test</style> <i>ipsum</i>"), is("Lorem  <i>ipsum</i>"));
     }

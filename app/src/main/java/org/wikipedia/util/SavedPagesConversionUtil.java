@@ -27,9 +27,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import io.reactivex.Completable;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.schedulers.Schedulers;
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.core.Completable;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 import okio.ByteString;
 
 import static org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory.CACHE_DIR_NAME;
@@ -140,8 +140,8 @@ public final class SavedPagesConversionUtil {
         String baseUrl = CURRENT_PAGE.wiki().url();
         String title = CURRENT_PAGE.apiTitle();
 
-        String leadSectionUrl = UriUtil.encodeOkHttpUrl(ServiceFactory.getRestBasePath(CURRENT_PAGE.wiki()) + LEAD_SECTION_ENDPOINT, title);
-        String remainingSectionsUrl = UriUtil.encodeOkHttpUrl(ServiceFactory.getRestBasePath(CURRENT_PAGE.wiki()) + REMAINING_SECTIONS_ENDPOINT, title);
+        String leadSectionUrl = ServiceFactory.getRestBasePath(CURRENT_PAGE.wiki()) + LEAD_SECTION_ENDPOINT + UriUtil.encodeURL(title);
+        String remainingSectionsUrl = ServiceFactory.getRestBasePath(CURRENT_PAGE.wiki()) + REMAINING_SECTIONS_ENDPOINT + UriUtil.encodeURL(title);
 
         // Do the cache files exist for this page?
         File offlineCacheDir = new File(WikipediaApp.getInstance().getFilesDir(), CACHE_DIR_NAME);
@@ -217,7 +217,7 @@ public final class SavedPagesConversionUtil {
 
             String title = CURRENT_PAGE.apiTitle();
 
-            String summaryUrl = UriUtil.encodeOkHttpUrl(ServiceFactory.getRestBasePath(CURRENT_PAGE.wiki()) + "page/summary/", title);
+            String summaryUrl = ServiceFactory.getRestBasePath(CURRENT_PAGE.wiki()) + "page/summary/" + UriUtil.encodeURL(title);
             String date = DateUtil.getHttpLastModifiedDate(new Date());
             try {
                 date = DateUtil.getHttpLastModifiedDate(DateUtil.iso8601DateParse(pageLead.getLastModified()));
@@ -232,7 +232,7 @@ public final class SavedPagesConversionUtil {
     }
 
     private static void storeConvertedHtml(String html) {
-        String mobileHtmlUrl = UriUtil.encodeOkHttpUrl(ServiceFactory.getRestBasePath(CURRENT_PAGE.wiki()) + RestService.PAGE_HTML_ENDPOINT, CURRENT_PAGE.apiTitle());
+        String mobileHtmlUrl = ServiceFactory.getRestBasePath(CURRENT_PAGE.wiki()) + RestService.PAGE_HTML_ENDPOINT + UriUtil.encodeURL(CURRENT_PAGE.apiTitle());
 
         OfflineCacheInterceptor.createCacheItemFor(CURRENT_PAGE, mobileHtmlUrl, html, "text/html", DateUtil.getHttpLastModifiedDate(new Date()));
     }

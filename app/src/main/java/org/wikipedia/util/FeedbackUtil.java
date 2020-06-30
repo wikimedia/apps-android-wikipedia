@@ -3,6 +3,7 @@ package org.wikipedia.util;
 import android.app.Activity;
 import android.content.Context;
 import android.net.Uri;
+import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -102,6 +103,25 @@ public final class FeedbackUtil {
     public static void showAndroidAppEditingFAQ(Context context, @StringRes int urlStr) {
         SuggestedEditsFunnel.get().helpOpened();
         visitInExternalBrowser(context, Uri.parse(context.getString(urlStr)));
+    }
+
+    public static void showProtectionStatusMessage(@NonNull Activity activity, @Nullable String status) {
+        if (TextUtils.isEmpty(status)) {
+            return;
+        }
+        String message;
+        switch (status) {
+            case "sysop":
+                message = activity.getString(R.string.page_protected_sysop);
+                break;
+            case "autoconfirmed":
+                message = activity.getString(R.string.page_protected_autoconfirmed);
+                break;
+            default:
+                message = activity.getString(R.string.page_protected_other, status);
+                break;
+        }
+        showMessage(activity, message);
     }
 
     public static void setToolbarButtonLongPressToast(View... views) {

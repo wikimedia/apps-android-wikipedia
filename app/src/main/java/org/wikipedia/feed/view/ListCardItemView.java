@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Build;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -11,8 +12,6 @@ import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.constraintlayout.widget.ConstraintLayout;
-
-import com.facebook.drawee.view.SimpleDraweeView;
 
 import org.wikipedia.R;
 import org.wikipedia.feed.model.Card;
@@ -36,11 +35,12 @@ public class ListCardItemView extends ConstraintLayout {
     public interface Callback {
         void onSelectPage(@NonNull Card card, @NonNull HistoryEntry entry);
         void onAddPageToList(@NonNull HistoryEntry entry);
+        void onMovePageToList(long sourceReadingListId, @NonNull HistoryEntry entry);
         void onRemovePageFromList(@NonNull HistoryEntry entry);
         void onSharePage(@NonNull HistoryEntry entry);
     }
 
-    @BindView(R.id.view_list_card_item_image) SimpleDraweeView imageView;
+    @BindView(R.id.view_list_card_item_image) ImageView imageView;
     @BindView(R.id.view_list_card_item_title) TextView titleView;
     @BindView(R.id.view_list_card_item_subtitle) GoneIfEmptyTextView subtitleView;
 
@@ -53,6 +53,7 @@ public class ListCardItemView extends ConstraintLayout {
         inflate(getContext(), R.layout.view_list_card_item, this);
         ButterKnife.bind(this);
 
+        setFocusable(true);
         setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         final int topBottomPadding = 16;
         setPadding(0, DimenUtil.roundedDpToPx(topBottomPadding), 0, DimenUtil.roundedDpToPx(topBottomPadding));
@@ -97,6 +98,13 @@ public class ListCardItemView extends ConstraintLayout {
             }
 
             @Override
+            public void onMoveRequest(@Nullable ReadingListPage page) {
+                if (getCallback() != null && entry != null) {
+                    getCallback().onMovePageToList(page.listId(), entry);
+                }
+            }
+
+            @Override
             public void onDeleted(@Nullable ReadingListPage page) {
                 if (getCallback() != null && entry != null) {
                     getCallback().onRemovePageFromList(entry);
@@ -126,7 +134,7 @@ public class ListCardItemView extends ConstraintLayout {
             imageView.setVisibility(GONE);
         } else {
             imageView.setVisibility(VISIBLE);
-            ViewUtil.loadImageUrlInto(imageView, url);
+            ViewUtil.loadImageWithRoundedCorners(imageView, url);
         }
     }
 

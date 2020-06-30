@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_gravity="bottom">
+    android:orientation="vertical">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -25,6 +24,7 @@
                 android:layout_height="wrap_content"
                 android:background="?attr/selectableItemBackground"
                 android:clickable="true"
+                android:focusable="true"
                 android:minHeight="64dp"
                 android:paddingTop="4dp"
                 android:paddingBottom="4dp">
@@ -37,7 +37,7 @@
                     android:contentDescription="@null"
                     android:padding="12dp"
                     android:scaleY="-1"
-                    android:tint="?attr/main_toolbar_icon_color"
+                    android:tint="?attr/toolbar_icon_color"
                     app:srcCompat="@drawable/ic_keyboard_arrow_up_black_24dp" />
 
                 <TextView
@@ -56,16 +56,8 @@
                     tools:text="Lorem ipsum" />
             </LinearLayout>
 
-            <org.wikipedia.views.FaceAndColorDetectImageView
-                android:id="@+id/galleryImage"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:contentDescription="@null"
-                app:actualImageScaleType="fitCenter"
-                app:viewAspectRatio="1.33" />
-
-            <LinearLayout
-                android:id="@+id/detailsHolder"
+            <org.wikipedia.commons.FilePageView
+                android:id="@+id/filePageView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical" />
@@ -89,4 +81,4 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center" />
 
-</FrameLayout>
+</LinearLayout>

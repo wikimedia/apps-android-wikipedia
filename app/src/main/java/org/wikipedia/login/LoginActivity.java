@@ -17,6 +17,7 @@ import androidx.annotation.Nullable;
 
 import com.google.android.material.textfield.TextInputLayout;
 
+import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -47,7 +48,6 @@ public class LoginActivity extends BaseActivity {
 
     public static final String LOGIN_REQUEST_SOURCE = "login_request_source";
     public static final String EDIT_SESSION_TOKEN = "edit_session_token";
-    public static final String ACTION_CREATE_ACCOUNT = "action_create_account";
 
     @BindView(R.id.login_username_text) TextInputLayout usernameInput;
     @BindView(R.id.login_password_input) TextInputLayout passwordInput;
@@ -61,13 +61,14 @@ public class LoginActivity extends BaseActivity {
     private String loginSource;
     private LoginClient loginClient = new LoginClient();
     private LoginCallback loginCallback = new LoginCallback();
-    private boolean wentStraightToCreateAccount;
+    private boolean shouldLogLogin = true;
 
     public static Intent newIntent(@NonNull Context context, @NonNull String source) {
         return newIntent(context, source, null);
     }
 
-    public static Intent newIntent(@NonNull Context context, @NonNull String source,
+    public static Intent newIntent(@NonNull Context context,
+                                   @NonNull String source,
                                    @Nullable String token) {
         return new Intent(context, LoginActivity.class)
                 .putExtra(LOGIN_REQUEST_SOURCE, source)
@@ -99,13 +100,8 @@ public class LoginActivity extends BaseActivity {
 
         loginSource = getIntent().getStringExtra(LOGIN_REQUEST_SOURCE);
 
-        if (getIntent().getBooleanExtra(ACTION_CREATE_ACCOUNT, false)) {
-            wentStraightToCreateAccount = true;
-            startCreateAccountActivity();
-        } else if (savedInstanceState == null) {
-            // Only send the login start log event if the activity is created for the first time
-            logLoginStart();
-        }
+        // always go to account creation before logging in
+        startCreateAccountActivity();
 
         // Assume no login by default
         setResult(RESULT_LOGIN_FAIL);
@@ -128,8 +124,8 @@ public class LoginActivity extends BaseActivity {
         visitInExternalBrowser(this, Uri.parse(title.getUri()));
     }
 
-    @NonNull private CharSequence getText(@NonNull TextInputLayout input) {
-        return input.getEditText() != null ? input.getEditText().getText() : "";
+    @NonNull private String getText(@NonNull TextInputLayout input) {
+        return StringUtils.defaultString(input.getEditText() != null && input.getEditText().getText() != null ? input.getEditText().getText().toString() : "");
     }
 
     private void clearErrors() {
@@ -148,13 +144,16 @@ public class LoginActivity extends BaseActivity {
     }
 
     private void logLoginStart() {
-        if (loginSource.equals(LoginFunnel.SOURCE_EDIT)) {
-            funnel.logStart(
-                    LoginFunnel.SOURCE_EDIT,
-                    getIntent().getStringExtra(EDIT_SESSION_TOKEN)
-            );
-        } else {
-            funnel.logStart(loginSource);
+        if (shouldLogLogin) {
+            if (loginSource.equals(LoginFunnel.SOURCE_EDIT)) {
+                funnel.logStart(
+                        LoginFunnel.SOURCE_EDIT,
+                        getIntent().getStringExtra(EDIT_SESSION_TOKEN)
+                );
+            } else {
+                funnel.logStart(loginSource);
+            }
+            shouldLogLogin = false;
         }
     }
 
@@ -186,9 +185,7 @@ public class LoginActivity extends BaseActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == Constants.ACTIVITY_REQUEST_CREATE_ACCOUNT) {
-            if (wentStraightToCreateAccount) {
-                logLoginStart();
-            }
+            logLoginStart();
             if (resultCode == CreateAccountActivity.RESULT_ACCOUNT_CREATED) {
                 usernameInput.getEditText().setText(data.getStringExtra(CreateAccountActivity.CREATE_ACCOUNT_RESULT_USERNAME));
                 passwordInput.getEditText().setText(data.getStringExtra(CreateAccountActivity.CREATE_ACCOUNT_RESULT_PASSWORD));
@@ -196,6 +193,8 @@ public class LoginActivity extends BaseActivity {
                 FeedbackUtil.showMessage(this,
                         R.string.create_account_account_created_toast);
                 doLogin();
+            } else if (resultCode == CreateAccountActivity.RESULT_ACCOUNT_NOT_CREATED) {
+                finish();
             } else {
                 funnel.logCreateAccountFailure();
             }
@@ -206,9 +205,9 @@ public class LoginActivity extends BaseActivity {
     }
 
     private void doLogin() {
-        final String username = getText(usernameInput).toString();
-        final String password = getText(passwordInput).toString();
-        final String twoFactorCode = getText(twoFactorText).toString();
+        final String username = getText(usernameInput);
+        final String password = getText(passwordInput);
+        final String twoFactorCode = getText(twoFactorText);
 
         showProgressBar(true);
 
@@ -243,7 +242,7 @@ public class LoginActivity extends BaseActivity {
         }
 
         @Override
-        public void twoFactorPrompt(@NonNull Throwable caught, @Nullable String token) {
+        public void twoFactorPrompt(@NonNull Throwable caught, @NonNull String token) {
             showProgressBar(false);
             firstStepToken = token;
             twoFactorText.setVisibility(View.VISIBLE);
@@ -254,7 +253,7 @@ public class LoginActivity extends BaseActivity {
         @Override
         public void passwordResetPrompt(@Nullable String token) {
             startActivityForResult(ResetPasswordActivity.newIntent(LoginActivity.this,
-                    getText(usernameInput).toString(), token), Constants.ACTIVITY_REQUEST_RESET_PASSWORD);
+                    getText(usernameInput), token), Constants.ACTIVITY_REQUEST_RESET_PASSWORD);
         }
 
         @Override

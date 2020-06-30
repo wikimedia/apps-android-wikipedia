@@ -2,6 +2,7 @@ package org.wikipedia.page;
 
 import androidx.annotation.Nullable;
 
+import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.readinglist.database.ReadingListPage;
 
@@ -75,7 +76,11 @@ public class PageViewModel {
         return forceNetwork;
     }
 
+    public boolean shouldLoadAsMobileWeb() {
+        return title != null && title.isMainPage();
+    }
+
     public CacheControl getCacheControl() {
-        return shouldForceNetwork() ? CacheControl.FORCE_NETWORK : new CacheControl.Builder().build();
+        return shouldForceNetwork() ? OkHttpConnectionFactory.CACHE_CONTROL_FORCE_NETWORK : OkHttpConnectionFactory.CACHE_CONTROL_NONE;
     }
 }

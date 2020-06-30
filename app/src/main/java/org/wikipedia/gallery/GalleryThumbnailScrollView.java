@@ -8,13 +8,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.facebook.drawee.view.SimpleDraweeView;
 
 import org.wikipedia.R;
 import org.wikipedia.dataclient.mwapi.MwQueryPage;
@@ -56,7 +55,7 @@ public class GalleryThumbnailScrollView extends RecyclerView {
     }
 
     private class GalleryItemHolder extends ViewHolder implements OnClickListener, OnTouchListener {
-        private final SimpleDraweeView mImageView;
+        private final ImageView mImageView;
         private MwQueryPage mGalleryItem;
 
         GalleryItemHolder(View itemView) {
@@ -66,9 +65,10 @@ public class GalleryThumbnailScrollView extends RecyclerView {
 
         public void bindItem(MwQueryPage item) {
             mGalleryItem = item;
+            mImageView.setFocusable(true);
             mImageView.setOnClickListener(this);
             mImageView.setOnTouchListener(this);
-            ViewUtil.loadImageUrlInto(mImageView, mGalleryItem.imageInfo().getThumbUrl());
+            ViewUtil.loadImage(mImageView, mGalleryItem.imageInfo().getThumbUrl());
         }
 
         @Override

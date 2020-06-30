@@ -26,6 +26,7 @@ import butterknife.OnClick;
 import static org.wikipedia.util.DeviceUtil.mailAppExists;
 
 public class AboutActivity extends BaseActivity {
+    @BindView(R.id.about_contributors) TextView contributorsTextView;
     @BindView(R.id.about_translators) TextView translatorsTextView;
     @BindView(R.id.activity_about_libraries) TextView librariesTextView;
     @BindView(R.id.about_app_license) TextView appLicenseTextView;
@@ -38,6 +39,8 @@ public class AboutActivity extends BaseActivity {
         setContentView(R.layout.activity_about);
         ButterKnife.bind(this);
 
+        contributorsTextView.setText(StringUtil.fromHtml(getString(R.string.about_contributors)));
+        RichTextUtil.removeUnderlinesFromLinks(contributorsTextView);
         translatorsTextView.setText(StringUtil.fromHtml(getString(R.string.about_translators_translatewiki)));
         RichTextUtil.removeUnderlinesFromLinks(translatorsTextView);
         wmfTextView.setText(StringUtil.fromHtml(getString(R.string.about_wmf)));
@@ -60,7 +63,7 @@ public class AboutActivity extends BaseActivity {
     @OnClick(R.id.send_feedback_text) void onSendFeedbackClick(View v) {
         Intent intent = new Intent()
                 .setAction(Intent.ACTION_SENDTO)
-                .setData(Uri.parse("mailto:mobile-android-wikipedia@wikimedia.org?subject=Android App "
+                .setData(Uri.parse("mailto:android-support@wikimedia.org?subject=Android App "
                         + BuildConfig.VERSION_NAME + " Feedback"));
         startActivity(intent);
     }

@@ -5,6 +5,7 @@
 * Neriman2003
 * Toghrul Rahimli
 * Verman1
+* Vesely35
 * Wertuose
 -->
 <resources>
@@ -55,10 +56,7 @@
   <string name="menu_long_press_open_page">Aç</string>
   <string name="menu_long_press_open_in_new_tab">Səhifəni yeni pəncərədə aç</string>
   <string name="menu_long_press_copy_page">Səhifənin ünvanını kopyala</string>
-  <string name="menu_text_select_copy">Kopyala</string>
   <string name="menu_text_select_define">Dəqiqləşdirmək</string>
-  <string name="menu_text_select_share">Paylaş</string>
-  <string name="share">Paylaş</string>
   <string name="on_this_day_page_share">Paylaş</string>
   <string name="reading_list_page_share">Paylaş</string>
   <string name="menu_text_select_edit_here">Burada redaktə edin</string>
@@ -105,9 +103,9 @@
   <string name="reading_lists_sync_login">Daxil ol</string>
   <string name="create_account_login">Daxil ol</string>
   <string name="menu_login">Daxil ol</string>
-  <string name="login_activity_title">Vikipediyaya daxil olun</string>
+  <string name="login_activity_title" fuzzy="true">Vikipediyaya daxil olun</string>
   <string name="login_in_progress_dialog_message">Daxil olursunuz...</string>
-  <string name="login_success_toast">Uğurla daxil olundu!</string>
+  <string name="login_success_toast" fuzzy="true">Uğurla daxil olundu!</string>
   <string name="reset_password_title">Şifrə təyin et</string>
   <string name="reset_password_description">Siz müvəqqəti parol ilə daxil oldunuz. \nDaxil olmağı bitirmək üçün buraya yeni bir parol yazmalısınız:</string>
   <string name="reset_password_hint">Yeni şifrə</string>
@@ -284,4 +282,31 @@
   <string name="reading_list_split_dialog_ok_button_text">OK</string>
   <string name="notification_syncing_cancel_button">İmtina</string>
   <string name="preference_title_notification_thanks">Təşəkkür</string>
+  <string name="suggested_edits_paused_message">Təklif olunan düzəlişlər %1$s-ə qədər fasilə verilir. Bağışlayın %2$s, son töhfələriniz geri qaytarıldı.</string>
+  <string name="suggested_edits_disabled_message">Təklif olunan düzəlişlər deaktiv edilmişdir. Üzr istəyirik %s, son töhfələrinizin çoxu geri qaytarıldı.</string>
+  <string name="suggested_edits_ip_blocked_message">IP adresiniz Vikipediyanı redaktə etmək üçün bloklanıb.</string>
+  <string name="suggested_edits_what_is_title">Təklif olunan düzəlişlər nədir?</string>
+  <string name="suggested_edits_what_is_text">Təklif olunan düzəlişlər Vikipediyaya kiçik, lakin həyati əhəmiyyətli töhfələr üçün imkanlar təqdim edir.</string>
+  <string name="suggested_edits_learn_more">Daha ətraflı öyrən</string>
+  <string name="suggested_edits_paused_title">Durdu</string>
+  <string name="suggested_edits_disabled_title">Bloklandı</string>
+  <string name="suggested_edits_ip_blocked_title">IP bloklandı</string>
+  <string name="suggested_edits_contribution_current_revision">Cari düzəliş</string>
+  <plurals name="suggested_edits_tags_diff_count_text">
+    <item quantity="one">%1$s etiket</item>
+    <item quantity="other">%1$s etiketlər</item>
+  </plurals>
+  <plurals name="suggested_edits_contribution_diff_count_text">
+    <item quantity="one">%1$s simvol</item>
+    <item quantity="other">%1$s simvollar</item>
+  </plurals>
+  <plurals name="suggested_edits_removed_contribution_label">
+    <item quantity="one">%d simvolunu sildiniz</item>
+    <item quantity="other">%d simvollerini sildiniz</item>
+  </plurals>
+  <plurals name="suggested_edits_added_contribution_label">
+    <item quantity="one">%d simvolunu əlavə etdiniz</item>
+    <item quantity="other">%d simvollarını əlavə etdiniz</item>
+  </plurals>
+  <string name="edit_type_all">Bütün töhfələr</string>
 </resources>

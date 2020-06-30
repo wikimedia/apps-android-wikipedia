@@ -61,10 +61,7 @@
   <string name="menu_long_press_open_page">खोल्नुहोस्</string>
   <string name="menu_long_press_open_in_new_tab">नयाँ ट्याबमा खोल्नुहोस्</string>
   <string name="menu_long_press_copy_page">सूत्रकाे ठेगाना प्रतिलिपि गर्नुहोस्</string>
-  <string name="menu_text_select_copy">प्रतिलिपि गर्नुहोस्</string>
   <string name="menu_text_select_define">परिभाषित गर्नुहोस्</string>
-  <string name="menu_text_select_share">आदान-प्रदान गर्नुहोस्</string>
-  <string name="share">आदान-प्रदान गर्नुहोस्</string>
   <string name="on_this_day_page_share">आदान-प्रदान गर्नुहोस्</string>
   <string name="reading_list_page_share">आदान-प्रदान गर्नुहोस्</string>
   <string name="menu_text_select_edit_here">यहाँ सम्पादन गर्नुहोस्</string>
@@ -111,9 +108,9 @@
   <string name="reading_lists_sync_login">प्रवेश</string>
   <string name="create_account_login">प्रवेश</string>
   <string name="menu_login">प्रवेश</string>
-  <string name="login_activity_title">विकिपिडियामा प्रवेश गर्नुहोस्</string>
+  <string name="login_activity_title" fuzzy="true">विकिपिडियामा प्रवेश गर्नुहोस्</string>
   <string name="login_in_progress_dialog_message">तपाईलाई प्रवेश गराउँदै…</string>
-  <string name="login_success_toast">सफलतापूर्वक प्रवेश भयो!</string>
+  <string name="login_success_toast" fuzzy="true">सफलतापूर्वक प्रवेश भयो!</string>
   <string name="reset_password_title">तपाईको पासवर्ड लेख्नुहोस्</string>
   <string name="reset_password_description">तपाई अस्थायी पासवर्ड प्रयोग गरेर प्रवेश गर्नु भएको छ। प्रवेश पूरा गर्न आफ्नो पासवर्ड राख्नुहाेस् ।</string>
   <string name="reset_password_hint">नयाँ पासवर्ड</string>
@@ -167,7 +164,7 @@
   <string name="preference_title_sync_reading_lists_from_account">अध्ययन सूची समक्रमण गर्दै</string>
   <string name="preference_title_download_reading_list_articles">अध्ययन सूचिका लेखहरू डाउनलोड गर्दै</string>
   <string name="preference_summary_sync_reading_lists">अध्ययन सूची विकिपिडियामा सङ्ग्रह गरेर विभिन्न उपकरणहरूमा समक्रमण गर्नुहोस्</string>
-  <string name="preference_summary_sync_reading_lists_from_account">अध्ययन सूची विकिपिडिया खाता \"%s\" मा सङ्ग्रह गरेर विभिन्न उपकरणहरूमा समक्रमण गर्नुहोस् \</string>
+  <string name="preference_summary_sync_reading_lists_from_account">अध्ययन सूची विकिपिडिया खाता \"%s\" मा सङ्ग्रह गरेर विभिन्न उपकरणहरूमा समक्रमण गर्नुहोस् \\</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">\"%s\" बाट समक्रमण गरिएको अध्ययन सूची हटाउने?</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_text">यसले पहिले समक्रमण गरिएको अध्ययन सूचीलाई रिमोट भण्डारणबाट हटाउने छ। सबै समक्रमण गरिएको सूचीहरू तपाईको खाता \"%s\" बाट हटाउने हो?</string>
   <string name="preferences_privacy_settings_heading">गोपनीयता</string>
@@ -255,15 +252,11 @@
   <string name="gallery_menu_share">आदान-प्रदान गर्नुहोस्</string>
   <string name="gallery_share_error">निम्न छवि आदान-प्रदान गर्न सकिएन: %s</string>
   <string name="gallery_save_progress">फाइल डाउनलोड गर्दै…</string>
-  <string name="gallery_save_success">फाइल सफलतापूर्वक सङ्ग्रह गरियो।</string>
+  <string name="gallery_save_success" fuzzy="true">फाइल सफलतापूर्वक सङ्ग्रह गरियो।</string>
   <string name="gallery_error_video_failed">भिडियो चलाउन सकिएन।</string>
   <string name="gallery_add_image_caption_button">तस्विर शीर्षक थप्नुहोस्</string>
   <string name="err_cannot_save_file">फाइल सुरक्षित गर्न सकिएन</string>
-  <string name="snippet_share_intro">\@Wikipedia मा \"%1$s\": %2$s</string>
   <string name="expand_refs">विस्तृत गर्न ट्याप गर्नुहोस्</string>
-  <string name="share_snippet_button">चित्रको रूपमा आदान-प्रदान गर्नुहोस्</string>
-  <string name="share_normal_button">अक्षरको रूपमा आदान-प्रदान गर्नुहोस्</string>
-  <string name="snippet_share_preview_image_desc">चित्रको पूर्वावलोकन</string>
   <string name="cc_logo">Creative Commons इजाजतपत्र</string>
   <string name="captcha_image">Captcha छवि</string>
   <string name="gallery_fair_use_license">उचित उपयोग</string>
@@ -323,8 +316,6 @@
   <string name="nav_item_reading_lists">मेरा सूचीहरू</string>
   <string name="reading_list_save_to">अध्ययन सूचीमा सुरक्षित गर्नुहोस्</string>
   <string name="reading_list_create_new">नयाँ सिर्जना गर्नुहोस्</string>
-  <string name="reading_list_added_to_named">%s मा थप गरियो।</string>
-  <string name="reading_list_already_exists">यो लेख पहिलेदेखि नै त्यो सूचीमा छ।</string>
   <string name="reading_list_added_view_button">सूची हेर्नुहोस्</string>
   <string name="format_reading_list_statistical_summary_singular">१ लेख, %1$.2f एमबी</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d लेखहरू, %2$.2f एमबी</string>
@@ -577,12 +568,9 @@
   <string name="account_editing_blocked_dialog_cancel_button_text">रद्द गर्नुहोस्</string>
   <string name="wikitext_link">सूत्र</string>
   <string name="wikitext_reference">सन्दर्भ</string>
-  <string name="main_drawer_open">खुल्ला</string>
-  <string name="main_drawer_close">बन्द</string>
-  <string name="main_drawer_content_description">मुख्य नेभिगेसन ड्रयर खोल्नुहोस्</string>
   <string name="main_drawer_help">सहायता</string>
   <string name="main_drawer_login">विकिपिडियामा लग इन/सहभागी हुनुहोस्</string>
-  <string name="main_tooltip_text">%s, जो कसैले पनि विकिपिडिया सम्पादन गर्न सक्नुहुन्छ भन्ने थाह थियो?</string>
+  <string name="main_tooltip_text" fuzzy="true">%s, जो कसैले पनि विकिपिडिया सम्पादन गर्न सक्नुहुन्छ भन्ने थाह थियो?</string>
   <string name="main_tooltip_action_button">सुरु गर्नुहोस्</string>
   <string name="custom_date_picker_dialog_ok_button_text">हुन्छ</string>
   <string name="text_input_dialog_ok_button_text">हुन्छ</string>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * Bsitzmann
+* Pichnat Thong
 * Sovichet
 * Y.snsqr
 * គីមស៊្រុន
@@ -42,9 +43,7 @@
   <string name="menu_long_press_open_page">បើក</string>
   <string name="menu_long_press_open_in_new_tab">បើកក្នុងថេបថ្មី</string>
   <string name="menu_long_press_copy_page">ចម្លងអាសយដ្ឋានតំណភ្ជាប់</string>
-  <string name="menu_text_select_copy">ចម្លង</string>
   <string name="menu_text_select_define">មើលនិយមន័យ</string>
-  <string name="menu_text_select_share">ចែកចាយ</string>
   <string name="menu_text_select_edit_here">កែប្រែនៅទីនេះ</string>
   <string name="last_updated_text">បន្ទាន់សម័យចុង​ក្រោយ​នៅ %s</string>
   <string name="talk_page_link_text">មើលទំព័រពិភាក្សា</string>
@@ -83,9 +82,9 @@
   <string name="login_password_hint">ពាក្យ​សម្ងាត់</string>
   <string name="login_2fa_hint">លេខកូដបញ្ជាក់ទទួលស្គាល់២តង់</string>
   <string name="menu_login">កត់ឈ្មោះចូល</string>
-  <string name="login_activity_title">កត់ឈ្មោះចូល​ទៅ​ក្នុងវិគីភីឌា</string>
+  <string name="login_activity_title" fuzzy="true">កត់ឈ្មោះចូល​ទៅ​ក្នុងវិគីភីឌា</string>
   <string name="login_in_progress_dialog_message">កំពុង​កត់ឈ្មោះ​ចូល…</string>
-  <string name="login_success_toast">កត់ឈ្មោះចូល​បាន​សម្រេច!</string>
+  <string name="login_success_toast" fuzzy="true">កត់ឈ្មោះចូល​បាន​សម្រេច!</string>
   <string name="reset_password_title">កំណត់ពាក្យសម្ងាត់របស់អ្នក</string>
   <string name="reset_password_description">អ្នកបានកត់ឈ្មោះចូលដោយប្រើពាក្យសម្ងាត់បណ្ដោះអាសន្ន។ កំណត់ពាក្យសម្ងាត់ថ្មីនៅទីនេះដើម្បីបញ្ចប់ការកត់ឈ្មោះចូល។</string>
   <string name="reset_password_hint">ពាក្យសម្ងាត់ថ្មី</string>
@@ -199,13 +198,10 @@
   <string name="gallery_menu_share">ចែកចាយ</string>
   <string name="gallery_share_error">មិនអាចចែកចាយរូបភាព៖ %s</string>
   <string name="gallery_save_progress">កំពុងទាញយកឯកសារ…</string>
-  <string name="gallery_save_success">ឯកសាររក្សាទុកបានសម្រេច។</string>
+  <string name="gallery_save_success" fuzzy="true">ឯកសាររក្សាទុកបានសម្រេច។</string>
   <string name="gallery_error_video_failed">មិនអាចចាក់វីដេអូ។</string>
   <string name="err_cannot_save_file">មិនអាចរក្សាទុកឯកសារ</string>
   <string name="expand_refs">ចុចដើម្បីពង្រីក</string>
-  <string name="share_snippet_button">ចែកចាយជារូបភាព</string>
-  <string name="share_normal_button">ចែកចាយជាអត្ថបទ</string>
-  <string name="snippet_share_preview_image_desc">មើលរូបភាពជាមុន</string>
   <string name="cc_logo">អាជ្ញាប័ណ្ណ Creative Commons</string>
   <string name="captcha_image">រូបភាព Captcha</string>
   <string name="menu_new_tab">ថេបថ្មី</string>
@@ -251,8 +247,6 @@
   <string name="reading_list_save_to">រក្សាទុកក្នុងបញ្ជីអំណាន</string>
   <string name="reading_list_create_new">បង្កើតថ្មី</string>
   <string name="reading_list_title_exists">បញ្ជីអំណាន \"%s\" មានរួចហើយ។</string>
-  <string name="reading_list_added_to_named">បន្ថែមទៅ %s។</string>
-  <string name="reading_list_already_exists">អត្ថបទនេះមាននៅក្នុងបញ្ជីនោះហើយ។</string>
   <string name="reading_list_added_view_button">មើលបញ្ជី</string>
   <string name="reading_list_sort">តម្រៀប</string>
   <string name="reading_list_sort_ellipsis">តម្រៀបតាម...</string>
@@ -335,10 +329,35 @@
   <string name="description_edit_success_done">រួចរាល់</string>
   <string name="description_edit_success_did_you_know">តើអ្នកដឹងទេ?</string>
   <string name="description_edit_tutorial_button_label_start_editing">ចាប់ផ្ដើមកែប្រែ</string>
+  <string name="suggested_edits_paused_message">កំណែប្រែដែលបានណែនាំត្រូវបានផ្អាក លុះត្រា%1$s។ សូមអភ័យទោស %2$s វិភាគទានថ្មីៗរបស់អ្នកត្រូវបានត្រលប់ដើមវិញ។</string>
+  <string name="suggested_edits_disabled_message">កំណែប្រែដែលបានណែនាំត្រូវបានបញ្ជាបិទ។ សូមអភ័យទោស %s វិភាគទានថ្មីៗរបស់អ្នកជាច្រើនពេកត្រូវបានត្រលប់ដើមវិញ។</string>
+  <string name="suggested_edits_ip_blocked_message">មើលទៅអាសយដ្ឋាន IP របស់អ្នក (ឬវង់នៃអាសយដ្ឋាន IP) ត្រូវបានឃាត់ឃាំងពីការកែប្រែវីគីភីឌា។</string>
+  <string name="suggested_edits_what_is_title">អ្វីជាកំណែប្រែដែលបានណែនាំ?</string>
+  <string name="suggested_edits_what_is_text">កំណែប្រែដែលបានណែនាំជូននូវឱកាសសម្រាប់ការរួមចំណែកតូចតែសំខាន់ដល់វីគីភីឌា។</string>
+  <string name="suggested_edits_learn_more">ស្វែងយល់បន្ថែម</string>
+  <string name="suggested_edits_paused_title">បានផ្អាក</string>
+  <string name="suggested_edits_disabled_title">បានបញ្ជាបិទ</string>
+  <string name="suggested_edits_ip_blocked_title">IP ត្រូវបានឃាត់ឃាំង</string>
+  <string name="suggested_edits_contribution_current_revision">បម្លាស់ប្តូរចុងក្រោយ</string>
+  <plurals name="suggested_edits_tags_diff_count_text">
+    <item quantity="one">ស្លាក %1$s</item>
+    <item quantity="other">ស្លាក %1$s</item>
+  </plurals>
+  <plurals name="suggested_edits_contribution_diff_count_text">
+    <item quantity="one">តួ %1$s</item>
+    <item quantity="other">តួ %1$s</item>
+  </plurals>
+  <plurals name="suggested_edits_removed_contribution_label">
+    <item quantity="one">អ្នកបានដកចេញនូវតួ %d</item>
+    <item quantity="other">អ្នកបានដកចេញនូវតួ %d</item>
+  </plurals>
+  <plurals name="suggested_edits_added_contribution_label">
+    <item quantity="one">អ្នកបានបន្ថែមតួ %d</item>
+    <item quantity="other">អ្នកបានបន្ថែមតួ %d</item>
+  </plurals>
   <string name="onboarding_skip">រំលង</string>
   <string name="onboarding_continue">បន្ត</string>
   <string name="onboarding_get_started">ចាប់ផ្ដើមប្រើ</string>
-  <string name="onboarding_create_account_preferences">រក្សាទុកចំណង់ចំណូលចិត្តរបស់អ្នក</string>
   <string name="onboarding_got_it">យល់ហើយ</string>
   <string name="app_shortcuts_random">ចៃដន្យ</string>
   <string name="app_shortcuts_continue_reading">អានបន្ត</string>
@@ -369,8 +388,7 @@
   <string name="more_language_options">បន្ថែមទៀត</string>
   <string name="add_wikipedia_languages_text">បន្ថែមភាសាវិគីភីឌា</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">ទេ, អរគុណហើយ</string>
-  <string name="main_drawer_open">បើក</string>
-  <string name="main_drawer_close">បិទ</string>
+  <string name="edit_type_all">វិភាគទានទាំងអស់</string>
   <string name="main_drawer_help">ជំនួយ</string>
   <string name="main_drawer_login">កត់ឈ្មោះចូល / ចូលរួមជាមួយវិគីភីឌា</string>
 </resources>

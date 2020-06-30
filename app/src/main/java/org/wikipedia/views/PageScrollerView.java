@@ -7,23 +7,17 @@ import android.view.MotionEvent;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatImageView;
 
-import org.wikipedia.util.DimenUtil;
-
 public class PageScrollerView extends AppCompatImageView {
     public interface Callback {
         void onClick();
         void onScrollStart();
         void onScrollStop();
         void onVerticalScroll(float dy);
-        void onSwipeOut();
     }
 
-    private static final float SLIDE_OUT_SLOP_WIDTH = 64f * DimenUtil.getDensityScalar();
     private static final int CLICK_MILLIS = 250;
 
     private boolean dragging;
-    private float startX;
-    private float startY;
     private float prevX;
     private float prevY;
     private long startMillis;
@@ -49,10 +43,8 @@ public class PageScrollerView extends AppCompatImageView {
     public boolean onTouchEvent(MotionEvent event) {
         switch (event.getActionMasked()) {
             case MotionEvent.ACTION_DOWN:
-                startX = event.getRawX();
-                startY = event.getRawY();
-                prevX = startX;
-                prevY = startY;
+                prevX = event.getRawX();
+                prevY = event.getRawY();
                 if (!dragging) {
                     dragging = true;
                     if (callback != null) {

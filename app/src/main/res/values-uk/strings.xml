@@ -69,10 +69,7 @@
   <string name="menu_long_press_open_page">Відкрити</string>
   <string name="menu_long_press_open_in_new_tab">Відкрити у новій вкладці</string>
   <string name="menu_long_press_copy_page">Копіювати адресу посилання</string>
-  <string name="menu_text_select_copy">Скопіювати</string>
   <string name="menu_text_select_define">Визначення</string>
-  <string name="menu_text_select_share">Поділитися</string>
-  <string name="share">Поширити</string>
   <string name="on_this_day_page_share">Поділитися</string>
   <string name="reading_list_page_share">Поділитися</string>
   <string name="menu_text_select_edit_here">Редагувати тут</string>
@@ -120,9 +117,9 @@
   <string name="reading_lists_sync_login">Увійти до системи</string>
   <string name="create_account_login">Увійти до системи</string>
   <string name="menu_login">Увійти</string>
-  <string name="login_activity_title">Вхід у Вікіпедію</string>
+  <string name="login_activity_title" fuzzy="true">Вхід у Вікіпедію</string>
   <string name="login_in_progress_dialog_message">Входимо до системи…</string>
-  <string name="login_success_toast">Ви успішно ввійшли!</string>
+  <string name="login_success_toast">Ви ввійшли!</string>
   <string name="reset_password_title">Встановіть пароль</string>
   <string name="reset_password_description">Ви увійшли в систему за допомогою тимчасового пароля. Щоб завершити вхід, встановіть новий пароль тут.</string>
   <string name="reset_password_hint">Новий пароль</string>
@@ -211,6 +208,7 @@
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/uk#Теги_зображень</string>
   <string name="about_libraries_heading">Використовувані бібліотеки</string>
   <string name="about_contributors_heading">Співавтори</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Сторінка команди&lt;/a&gt;</string>
   <string name="about_translators_heading">Перекладачі</string>
   <string name="about_translators_translatewiki">Цей додаток переклали добровольці на &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Ліцензія</string>
@@ -271,7 +269,7 @@
   <string name="dialog_title_download_only_over_wifi">Підтвердити завантаження через мобільні дані?</string>
   <string name="dialog_text_download_only_over_wifi">У Ваших налаштуваннях увімкнено «Завантаження лише через Wi-Fi». Чи хочете Ви дозволити використання Вашого плану мобільних даних для здійснення лише цього завантаження?</string>
   <string name="dialog_title_download_only_over_wifi_allow">Дозволити</string>
-  <string name="read_more_section">Читати більше</string>
+  <string name="read_more_section">Пов\'язані сторінки</string>
   <string name="about_article_section">Про цю статтю</string>
   <string name="menu_gallery_visit_page">Перейти на сторінку файлу</string>
   <string name="gallery_error_draw_failed">Не вдалось відтворити зображення.</string>
@@ -279,17 +277,13 @@
   <string name="gallery_menu_share">Поділитися</string>
   <string name="gallery_share_error">Не вдалось поділитися зображенням: %s</string>
   <string name="gallery_save_progress">Завантаження файлу…</string>
-  <string name="gallery_save_success">Файл успішно збережено!</string>
+  <string name="gallery_save_success">Файл збережено.</string>
   <string name="gallery_error_video_failed">Не вдалось відтворити відео.</string>
   <string name="gallery_save_image_write_permission_rationale">Для збереження зображень потрібен дозвіл на запис у сховищі вашого пристрою.</string>
   <string name="gallery_add_image_caption_button">Додати підпис зображення</string>
   <string name="gallery_add_image_caption_in_language_button">Додати підпис зображення (%s)</string>
   <string name="err_cannot_save_file">Не вдається зберегти файл</string>
-  <string name="snippet_share_intro">\"%1$s\" на сайті @Wikipedia: %2$s</string>
   <string name="expand_refs">Торкніться, щоб розкрити</string>
-  <string name="share_snippet_button">Поділитися як зображенням</string>
-  <string name="share_normal_button">Поділитися як текстом</string>
-  <string name="snippet_share_preview_image_desc">Попередній перегляд зображення</string>
   <string name="cc_logo">Ліцензія Creative Commons</string>
   <string name="captcha_image">Зображення captcha</string>
   <string name="gallery_fair_use_license">Добросовісне використання</string>
@@ -350,6 +344,7 @@
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Підлаштовано під вигляд системи</string>
   <string name="page_footer_license_text">Вміст доступний на умовах $1, якщо не вказано інше</string>
   <string name="empty_tab_title">Нова вкладка</string>
+  <string name="menu_save_all_tabs">Зберегти всі вкладки</string>
   <string name="crash_report_activity_title">Помилка програми</string>
   <string name="crash_report_relaunch_or_quit">Перепрошуємо, у додатку Вікіпедії сталася помилка і його було закрито.\n\nХочете почати спочатку чи вийти?</string>
   <string name="crash_report_relaunch">Почати спочатку</string>
@@ -375,8 +370,9 @@
   <string name="reading_list_save_to">Зберегти до списку для читання</string>
   <string name="reading_list_create_new">Створити новий</string>
   <string name="reading_list_title_exists">Читальний список «%s» вже існує.</string>
-  <string name="reading_list_added_to_named">Додано до %s.</string>
-  <string name="reading_list_already_exists">Ця стаття вже є в цьому списку.</string>
+  <string name="reading_list_article_added_to_named">Додано %1$s до %2$s.</string>
+  <string name="reading_list_article_already_exists_message">Усе добре! %1$s вже містить %2$s.</string>
+  <string name="reading_list_articles_already_exist_message">Усе добре! %s уже містить всі статті.</string>
   <string name="reading_list_added_view_button">Перегляд списку</string>
   <string name="format_reading_list_statistical_summary_singular">1 стаття, %1$.2f Mб</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d статті, %2$.2f Mб</string>
@@ -432,8 +428,7 @@
   <string name="reading_lists_confirm_remote_delete_yes">Так</string>
   <string name="reading_lists_confirm_remote_delete_no">Ні</string>
   <string name="reading_list_article_save_in_progress">Стаття завантажується, вона буде доступна в автономному режимі по завершенню.</string>
-  <string name="reading_list_already_contains_selection">У списку вже є всі вибрані Вами сторінки.</string>
-  <string name="reading_list_added_articles_list_titled">Додано статті (%1$d) до %2$s</string>
+  <string name="reading_list_articles_added_to_named">Додано статті (%1$d) до %2$s</string>
   <string name="reading_list_delete_confirm">Ви дійсно хочете вилучити %s?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Увійдіть, щоб увімкнути синхронізацію</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Увійдіть, щоб дозволити зберігати Ваші списки для читання у Вашому обліковому записі.</string>
@@ -473,7 +468,7 @@
     <item quantity="many">Ці статті більше не будуть доступні автономно.</item>
     <item quantity="other">Ці статті більше не будуть доступні автономно.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync">Списки читання успішно синхронізовані</string>
+  <string name="reading_list_toast_last_sync">Списки читання синхронізовані</string>
   <string name="reading_list_menu_last_sync">Остання синхронізація: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">Гаразд</string>
   <string name="reading_list_delete_dialog_ok_button_text">Гаразд</string>
@@ -731,10 +726,10 @@
   <string name="suggested_edits_image_tags_publishing">Публікація</string>
   <string name="suggested_edits_image_tags_published">Опубліковано</string>
   <string name="suggested_edits_image_tags_onboarding_title">Додавання тегів до зображень полегшує їх пошук.</string>
-  <string name="suggested_edits_image_tags_onboarding_text">Додаючи теги до зображень, ви допоможете полегшити пошук таких зображень на Вікісховищі — сховищі зображень під вільними ліцензіями, яке Вікіпедія використовує для додавання зображень до своїх статей.\n\nМи автоматично запропонували деякі теги, а також ви можете додати свої власні.</string>
+  <string name="suggested_edits_image_tags_onboarding_text">Додаючи теги до зображень, ви полегшите їх пошук у Вікісховищі, де зберігаються зображення під вільними ліцензіями, і які, в свою чергу, використовуються у Вікіпедії для ілюстрації статей.</string>
   <string name="suggested_edits_image_tags_onboarding_note">До зображень буде додано лише ті теги, які ви затвердите.</string>
   <string name="suggested_edits_image_tags_snackbar">Додавайте теги до зображень, щоб полегшити їх пошук для інших користувачів.</string>
-  <string name="suggested_edits_image_tags_task_detail">Додавайте теги до зображень, щоб полегшити їх пошук для інших користувачів. Виберіть із-поміж запропонованих тегів, або додайте власні.</string>
+  <string name="suggested_edits_image_tags_task_detail">Додавайте теги до зображення, щоб його було легше знайти.</string>
   <string name="suggested_edits_image_tags_choose">Додайте чи виберіть відповідні теги</string>
   <string name="suggested_edits_image_tags_published_list">Опубліковані теги</string>
   <string name="suggested_edits_image_tags_search">Пошук тегів</string>
@@ -744,15 +739,15 @@
   <string name="suggested_edits_image_zoom_tooltip">Розтягніть, щоб збільшити зображення.</string>
   <string name="suggested_edits_encouragement_message">%s, дякуємо за ваші правки! Нижче ви можете знайти більше шляхів зробити внесок у Вікіпедію.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Вітаємо %s&lt;/b&gt;! Чи знаєте ви, що будь-хто може редагувати Вікіпедію? Нижче ви знайдете цікаві способи її покращення. Приємного редагування!</string>
-  <string name="suggested_edits_image_captions_task_detail">Підписи зображень допомагають читачам зрозуміти значення та контекст зображень.</string>
-  <string name="suggested_edits_add_descriptions_task_detail">Описи статей допомагають читачам зрозуміти предмет статті з першого погляду, підсумовуючи вміст статті.</string>
+  <string name="suggested_edits_image_captions_task_detail">Опишіть зображення, щоб допомогти читачам зрозуміти його значення та контекст.</string>
+  <string name="suggested_edits_add_descriptions_task_detail">Підсумуйте вміст статті, щоб допомогти читачам зрозуміти предмет статті з першого погляду.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Кількість ваших редагувань з Пропонованих.</string>
   <string name="suggested_edits_edit_streak_stat_tooltip">Скільки днів поспіль ви робили внесок через список пропонованих редагувань. Якщо ви довго не робили внесок, то показується дата останнього внеску.</string>
   <string name="suggested_edits_page_views_stat_tooltip">Кількість переглядів сторінок, які ви редагували з \"Пропонованих\" останні 30 днів.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Засновано на тому, скільки разів ваші редагування було скасовано (іншим редактором). Кількість таких редагувань: %d.</string>
-  <string name="suggested_edits_paused_message">&lt;b&gt;Пропоновані редагування було тимчасово відключено до %1$s.&lt;/b&gt; Перепрошуємо %2$s, але деякі з ваших останніх редагувань було скасовано.\n\nДізнайтесь, як покращити якість ваших редагувань у Вікіпедії, за посиланням нижче.</string>
-  <string name="suggested_edits_disabled_message">&lt;b&gt;Пропоновані редагування було відключено.&lt;/b&gt; Перепрошуємо %s, але забагато з ваших останніх редагувань було скасовано.\n\nДізнайтесь, що це означає, за посиланням нижче.</string>
-  <string name="suggested_edits_ip_blocked_message">Схоже, що IP-адреса, якою ви користуєтесь (або діапазон IP-адрес), наразі заблокована для редагування у Вікіпедії. Що це означає, ви може дізнатися з посилання нижче.</string>
+  <string name="suggested_edits_paused_message" fuzzy="true">&lt;b&gt;Пропоновані редагування було тимчасово відключено до %1$s.&lt;/b&gt; Перепрошуємо %2$s, але деякі з ваших останніх редагувань було скасовано.\n\nДізнайтесь, як покращити якість ваших редагувань у Вікіпедії, за посиланням нижче.</string>
+  <string name="suggested_edits_disabled_message" fuzzy="true">&lt;b&gt;Пропоновані редагування було відключено.&lt;/b&gt; Перепрошуємо %s, але забагато з ваших останніх редагувань було скасовано.\n\nДізнайтесь, що це означає, за посиланням нижче.</string>
+  <string name="suggested_edits_ip_blocked_message" fuzzy="true">Схоже, що IP-адреса, якою ви користуєтесь (або діапазон IP-адрес), наразі заблокована для редагування у Вікіпедії. Що це означає, ви може дізнатися з посилання нижче.</string>
   <string name="suggested_edits_editing_tips_link_text">Редагування порад</string>
   <string name="suggested_edits_help_page_link_text">Довідка з \"Пропонованих редагуваннь\"</string>
   <string name="suggested_edits_edit_streak_label_text">Страйк редагувань</string>
@@ -766,6 +761,7 @@
   <string name="suggested_edits_quality_sufficient_text">Достатньо</string>
   <string name="suggested_edits_quality_poor_text">Не дуже</string>
   <string name="suggested_edits_quality_bad_text">Погано</string>
+  <string name="suggested_edits_contribute">Внесок</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">Редагування</item>
     <item quantity="few">Редагування</item>
@@ -782,6 +778,9 @@
   <string name="suggested_edits_last_edited_never">Ніколи</string>
   <string name="suggested_edits_task_new">нове</string>
   <string name="suggested_edits_cc0_notice">Публікуючи, ви погоджуєтеся з &lt;a href=\"%1$s\"&gt;Умовами користування&lt;/a&gt;, а також даєте невідкличну згоду на публікацію цього внеску на умовах &lt;a href=\"%2$s\"&gt;ліцензії CC0&lt;/a&gt;.</string>
+  <string name="suggested_edits_reactivation_notification_title">Пропоновані редагування</string>
+  <string name="suggested_edits_reactivation_notification_stage_one">Дякуємо за редагування Вікіпедії! Продовжимо з того моменту, як вийшли?</string>
+  <string name="suggested_edits_reactivation_notification_stage_two">Маєте хвилинку, щоб поліпшити вікіпедію? Тут є декілька правок до перегляду...</string>
   <string name="description_edit_revert_subtitle">Дякуємо за редагування Вікіпедії!</string>
   <string name="description_edit_revert_intro">Ми знаємо, що Ви старались як могли, але в одного з перевіряльників виникли сумніви. Ймовірні причини скасування Вашого редагування:</string>
   <string name="description_edit_revert_reason1">Ваше редагування не відповідало одній з &lt;a href=\"%1$s\"&gt;настанов&lt;/a&gt;.</string>
@@ -803,9 +802,6 @@
   <string name="onboarding_analytics_title">Надіслати анонімні дані</string>
   <string name="onboarding_analytics_offline_text">Допоможіть нам покращити додаток, повідомляючи, як ви його використовуєте. Зібрані дані анонімні. &lt;a href=\"#privacy\"&gt;Дізнатись більше&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Надсилати дані використання</string>
-  <string name="onboarding_create_account_sync">Синхронізувати свої читальні списки</string>
-  <string name="onboarding_create_account_contributions">Слідкувати за своїм внеском</string>
-  <string name="onboarding_create_account_preferences">Зберігати налаштування</string>
   <string name="onboarding_got_it">Зрозуміло</string>
   <string name="onboarding_multilingual_secondary_text">Ми знайшли такі мови на Вашому пристрої:</string>
   <string name="onboarding_multilingual_add_language_text">Додати або редагувати мови</string>
@@ -869,12 +865,9 @@
   <string name="wikitext_template">Шаблон</string>
   <string name="wikitext_reference">Примітка</string>
   <string name="wikitext_preview_link">Попередній перегляд посилання</string>
-  <string name="main_drawer_open">Відкрити</string>
-  <string name="main_drawer_close">Закрити</string>
-  <string name="main_drawer_content_description">Відкрити основное меню</string>
   <string name="main_drawer_help">Допомога</string>
   <string name="main_drawer_login">Увійти до Вікіпедії</string>
-  <string name="main_tooltip_text">%s, чи знаєте ви, що будь-хто може редагувати Вікіпедію?</string>
+  <string name="main_tooltip_text" fuzzy="true">%s, чи знаєте ви, що будь-хто може редагувати Вікіпедію?</string>
   <string name="main_tooltip_action_button">Розпочати</string>
   <string name="custom_date_picker_dialog_ok_button_text">Гаразд</string>
   <string name="text_input_dialog_ok_button_text">Гаразд</string>

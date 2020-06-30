@@ -3,8 +3,6 @@ package org.wikipedia.page;
 import androidx.annotation.NonNull;
 
 import org.apache.commons.lang3.StringUtils;
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.wikipedia.json.GsonUtil;
 
 import java.util.Arrays;
@@ -16,35 +14,14 @@ import static org.apache.commons.lang3.StringUtils.defaultString;
  * Gson POJO for one section of a page.
  */
 public class Section {
-
     private int id;
-    private int level = 1;
+    private int level;
     private String anchor;
     private String text;
     private String title;
 
     public static List<Section> fromJson(String json) {
         return Arrays.asList(GsonUtil.getDefaultGson().fromJson(json, Section[].class));
-    }
-
-    // TODO: can we get rid of this? It's not efficient to
-    public static Section fromJson(JSONObject json) {
-        return GsonUtil.getDefaultGson().fromJson(json.toString(), Section.class);
-    }
-
-    // TODO: get rid of this; problem is how to interop Gson and org.json.JSONObject
-    // We're using this to send the section over the JS bridge
-    public JSONObject toJSON() {
-        try {
-            JSONObject data = new JSONObject();
-            data.put("id", id);
-            data.put("level", level);
-            data.put("anchor", anchor);
-            data.put("text", text);
-            return data;
-        } catch (JSONException e) {
-            throw new RuntimeException(e);
-        }
     }
 
     /** Default constructor used by Gson deserialization. Good for setting default values. */
@@ -83,6 +60,7 @@ public class Section {
         return result;
     }
 
+    @NonNull
     @Override
     public String toString() {
         return "Section{"

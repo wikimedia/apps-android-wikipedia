@@ -64,10 +64,7 @@
   <string name="menu_long_press_open_page">کھولیں</string>
   <string name="menu_long_press_open_in_new_tab">نئے ٹیب میں کھولیں</string>
   <string name="menu_long_press_copy_page">ربط کا پتہ نقل کریں</string>
-  <string name="menu_text_select_copy">نقل کریں</string>
   <string name="menu_text_select_define">تشریح کریں</string>
-  <string name="menu_text_select_share">دوسروں کو بھیجیں</string>
-  <string name="share">اشتراک کریں</string>
   <string name="on_this_day_page_share">اشتراک کریں</string>
   <string name="reading_list_page_share">اشتراک کریں</string>
   <string name="menu_text_select_edit_here">یہاں ترمیم کریں</string>
@@ -115,9 +112,9 @@
   <string name="reading_lists_sync_login">لاگ ان</string>
   <string name="create_account_login">لاگ ان</string>
   <string name="menu_login">داخل ہوں</string>
-  <string name="login_activity_title">ویکیپیڈیا میں داخل ہوں</string>
+  <string name="login_activity_title" fuzzy="true">ویکیپیڈیا میں داخل ہوں</string>
   <string name="login_in_progress_dialog_message">داخل ہو رہے ہیں۔۔۔</string>
-  <string name="login_success_toast">کامیابی سے داخل ہو گئے!</string>
+  <string name="login_success_toast" fuzzy="true">کامیابی سے داخل ہو گئے!</string>
   <string name="reset_password_title">اپنا پاسورڈ سیٹ کریں</string>
   <string name="reset_password_description">آپ ایک عارضی پاسورڈ سے لاگ ان ہیں۔ لاگ ان کو مکمل کرنے کے لیے براہ مہربانی یہاں ایک نیا پاسورڈ سیٹ کریں۔</string>
   <string name="reset_password_hint">نیا پاسورڈ</string>
@@ -264,17 +261,13 @@
   <string name="gallery_menu_share">دوسروں کو بھیجیں</string>
   <string name="gallery_share_error">تصویر دوسروں کو بھیجی نہیں جا سکی: %s</string>
   <string name="gallery_save_progress">ملف کا ڈاؤنلوڈ جاری ہے …</string>
-  <string name="gallery_save_success">ملف  کامیابی سے محفوظ ہو گیا۔</string>
+  <string name="gallery_save_success" fuzzy="true">ملف  کامیابی سے محفوظ ہو گیا۔</string>
   <string name="gallery_error_video_failed">ویڈیو کو چلایا نہیں جا سکا۔</string>
   <string name="gallery_save_image_write_permission_rationale">اپنے آلے پر تصاویر کو محفوظ کرنے کے لیے اجازت کی ضرورت ہے۔</string>
   <string name="gallery_add_image_caption_button">تصویر کی وضاحت درج کریں</string>
   <string name="gallery_add_image_caption_in_language_button">تصویر کی وضاحت درج کریں (%s)</string>
   <string name="err_cannot_save_file">ملف کو محفوظ نہیں کرسکتے</string>
-  <string name="snippet_share_intro">\"%1$s\" @Wikipedia: \"%2$s\" پر</string>
   <string name="expand_refs">پھیلانے کے لیے کلک کیجیے</string>
-  <string name="share_snippet_button">تصویر کے طور پر دوسروں کو بھیجیں</string>
-  <string name="share_normal_button">متن کے طور پر دوسروں کو بھیجیں</string>
-  <string name="snippet_share_preview_image_desc">تصویر کی نمائش</string>
   <string name="cc_logo">کریئیٹیو کامنز اجازت نامہ</string>
   <string name="captcha_image">کیپچا تصویر</string>
   <string name="gallery_fair_use_license">منصفانہ استعمال</string>
@@ -352,8 +345,6 @@
   <string name="reading_list_save_to">فہرست مطالعہ میں محفوظ کریں</string>
   <string name="reading_list_create_new">نیا بنائیں</string>
   <string name="reading_list_title_exists">«%s» کے عنوان سے فہرست مطالعہ موجود ہے۔</string>
-  <string name="reading_list_added_to_named">%s میں شامل کیا گیا۔</string>
-  <string name="reading_list_already_exists">یہ مضمون پہلے سے ہی ‫اُس‬ فہرست ميں ہے۔</string>
   <string name="reading_list_added_view_button">فہرست دیکھیں</string>
   <string name="format_reading_list_statistical_summary_singular">ایک مضمون، %1$.2f ایم بی</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d مضمون، %2$.2f ایم بی</string>
@@ -400,8 +391,7 @@
   <string name="reading_lists_confirm_remote_delete_yes">ہاں</string>
   <string name="reading_lists_confirm_remote_delete_no">نہیں</string>
   <string name="reading_list_article_save_in_progress">یہ مضمون ڈاؤنلوڈ ہو رہا ہے، مکمل ہونے کے بعد یہ آف لائن دستیاب ہوگا۔</string>
-  <string name="reading_list_already_contains_selection">منتخب فہرست میں تمام منتخب صفحات موجود ہیں۔</string>
-  <string name="reading_list_added_articles_list_titled">%2$s میں %1$d مضامین شامل کیے گئے</string>
+  <string name="reading_list_articles_added_to_named">%2$s میں %1$d مضامین شامل کیے گئے</string>
   <string name="reading_list_delete_confirm">کیا آپ یقینی طور پر اس کو مطالعہ کی فہرست سے %s حذف کرنا چاہتے ہیں؟</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">منسوخ</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">داخل ہوں</string>
@@ -528,9 +518,6 @@
   <string name="onboarding_reading_list_sync_title" fuzzy="true">مطالعاتی فہرستیں مع مطابقت پزیری</string>
   <string name="onboarding_analytics_title">گمنام ڈیٹا بھیجیں</string>
   <string name="onboarding_analytics_switch_title">استعمال شدہ ڈیٹا بھیجیں</string>
-  <string name="onboarding_create_account_sync">مطالعہ کی فہرستوں کو باہم مطابق کریں</string>
-  <string name="onboarding_create_account_contributions">اپنی شراکتوں پر نظر رکھیں</string>
-  <string name="onboarding_create_account_preferences">اپنی ترجیحات محفوظ کریں</string>
   <string name="onboarding_multilingual_secondary_text">ہمیں آپ کے آلات پر یہ ملا:</string>
   <string name="onboarding_multilingual_add_language_text">زبانیں شامل یا ان میں ترمیم کریں</string>
   <string name="onboarding_welcome_title_v2" fuzzy="true">آزاد دائرۃ المعارف\n…تقریباً 300 زبانوں میں</string>

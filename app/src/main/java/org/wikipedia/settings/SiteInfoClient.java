@@ -16,8 +16,8 @@ import org.wikipedia.util.log.L;
 import java.util.HashMap;
 import java.util.Map;
 
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.schedulers.Schedulers;
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 
 public final class SiteInfoClient {
     private static Map<String, SiteInfo> SITE_INFO_MAP = new HashMap<>();

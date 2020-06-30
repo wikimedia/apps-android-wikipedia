@@ -3,6 +3,7 @@
 * Abijeet Patro
 * Alex00728
 * Bluemersen
+* Codenstory
 * Dbrant
 * Doyoon1995
 * Eduardo Addad de Oliveira
@@ -18,11 +19,13 @@
 * Nuevo Paso
 * Revi
 * SeoJeongHo
-* Tursetic
 * Twotwo2019
 * Ykhwong
 * Ysjbserver
+* YuzaTea
 * 고솜
+* 그냥기여자
+* 밝은소년
 * 밥풀떼기
 * 아라
 -->
@@ -47,7 +50,7 @@
   <string name="storage_access_error_retry">다시 시도</string>
   <string name="article_load_error_retry">다시 시도</string>
   <string name="offline_load_error_retry">다시 시도</string>
-  <string name="page_error_back_to_main">뒤로 가기</string>
+  <string name="page_error_back_to_main">돌아가기</string>
   <string name="error_back">돌아가기</string>
   <string name="menu_clear_all_history">방문 기록 지우기</string>
   <string name="history_item_deleted">%s 문서가 역사에서 제거되었습니다</string>
@@ -76,10 +79,7 @@
   <string name="menu_long_press_open_page">열기</string>
   <string name="menu_long_press_open_in_new_tab">새 탭에 링크 열기</string>
   <string name="menu_long_press_copy_page">링크 주소 복사</string>
-  <string name="menu_text_select_copy">복사</string>
   <string name="menu_text_select_define">정의</string>
-  <string name="menu_text_select_share">공유</string>
-  <string name="share">공유</string>
   <string name="on_this_day_page_share">공유</string>
   <string name="reading_list_page_share">공유</string>
   <string name="menu_text_select_edit_here">여기를 편집</string>
@@ -91,7 +91,7 @@
   <string name="language_count_link_text">%d개의 다른 언어로 읽을 수 있음</string>
   <string name="content_license_cc_by_sa">크리에이티브 커먼즈 저작자표시-동일조건변경허락 3.0</string>
   <string name="edit_save_action_license_logged_in">게시를 하면, &lt;a href=\"%1$s\"&gt;이용 약관&lt;/a&gt;에 동의하고 &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; 라이선스에 따라 기여를 영구히 배포하는 데 동의한다는 것을 의미합니다.</string>
-  <string name="edit_save_action_license_anon">게시를 하면, &lt;a href=\"%1$s\"&gt;이용 약관&lt;/a&gt;에 동의하고 &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; 라이선스에 따라 기여를 영구히 배포하는 데 동의한다는 것을 의미합니다. 편집에 당신이 쓴 기기의 IP 주소가 남습니다. &lt;a href=\"https://#login\"&gt;로그인&lt;/a&gt;하면, 개인 정보를 더 보호할 수 있습니다.</string>
+  <string name="edit_save_action_license_anon">게시를 하면, &lt;a href=\"%1$s\"&gt;이용 약관&lt;/a&gt;에 동의하고 &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; 라이선스에 따라 기여를 영구히 배포하는 데 동의한다는 것을 의미합니다. 편집에 당신이 쓴 기기의 IP 주소가 남습니다. &lt;a href=\"https://#login\"&gt;로그인&lt;/a&gt;하면, 개인정보를 더 보호할 수 있습니다.</string>
   <string name="preference_title_language">위키백과 언어</string>
   <string name="langlinks_filter_hint">검색</string>
   <string name="langlinks_empty">이 문서는 다른 언어로 읽을 수 없습니다.</string>
@@ -127,9 +127,9 @@
   <string name="reading_lists_sync_login">로그인</string>
   <string name="create_account_login">로그인</string>
   <string name="menu_login">로그인</string>
-  <string name="login_activity_title">위키백과에 로그인</string>
+  <string name="login_activity_title" fuzzy="true">위키백과에 로그인</string>
   <string name="login_in_progress_dialog_message">로그인 중…</string>
-  <string name="login_success_toast">로그인에 성공했습니다!</string>
+  <string name="login_success_toast">로그인했습니다!</string>
   <string name="reset_password_title">비밀번호 설정</string>
   <string name="reset_password_description">임시 비밀번호로 로그인하였습니다. 로그인을 마치려면 여기에 새로운 비밀번호를 설정하십시오.</string>
   <string name="reset_password_hint">새 비밀번호</string>
@@ -204,7 +204,7 @@
   <string name="settings_item_preferences">설정</string>
   <string name="settings_activity_title">설정</string>
   <string name="about_description">위키백과 앱 정보</string>
-  <string name="privacy_policy_description">개인정보 정책</string>
+  <string name="privacy_policy_description">개인정보보호정책</string>
   <string name="terms_of_use_description">이용 약관</string>
   <string name="about_wikipedia_url">https://ko.wikipedia.org/wiki/위키백과:소개</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ko#오프라인 읽기 및 데이터</string>
@@ -216,6 +216,7 @@
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">사용된 라이브러리</string>
   <string name="about_contributors_heading">기여자</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;팀 페이지&lt;/a&gt;</string>
   <string name="about_translators_heading">번역자</string>
   <string name="about_translators_translatewiki">이 앱은 &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;의 자원 번역자가 번역했습니다.</string>
   <string name="about_app_license_heading">라이선스</string>
@@ -284,17 +285,13 @@
   <string name="gallery_menu_share">공유</string>
   <string name="gallery_share_error">그림을 공유할 수 없습니다: %s</string>
   <string name="gallery_save_progress">파일을 내려받고 있습니다…</string>
-  <string name="gallery_save_success">파일 저장에 성공했습니다.</string>
+  <string name="gallery_save_success">파일을 저장했습니다.</string>
   <string name="gallery_error_video_failed">동영상을 재생할 수 없습니다.</string>
   <string name="gallery_save_image_write_permission_rationale">장치에서 저장소의 쓰기 권한은 그림 저장에 필요합니다.</string>
   <string name="gallery_add_image_caption_button">이미지 캡션 추가</string>
   <string name="gallery_add_image_caption_in_language_button">이미지 설명 추가 (%s)</string>
   <string name="err_cannot_save_file">파일을 저장할 수 없음</string>
-  <string name="snippet_share_intro">\@Wikipedia의 \"%1$s\": %2$s</string>
   <string name="expand_refs">펼치려면 탭</string>
-  <string name="share_snippet_button">그림 공유하기</string>
-  <string name="share_normal_button">텍스트 공유하기</string>
-  <string name="snippet_share_preview_image_desc">그림 미리 보기</string>
   <string name="cc_logo">크리에이티브 커먼즈 라이선스</string>
   <string name="captcha_image">보안 영상</string>
   <string name="gallery_fair_use_license">공정 이용</string>
@@ -355,6 +352,7 @@
   <string name="theme_chooser_dialog_match_system_theme_switch_label">시스템 테마에 동기화</string>
   <string name="page_footer_license_text">별도로 명시하지 않은 경우, 내용은 $1에 따라 사용할 수 있습니다</string>
   <string name="empty_tab_title">새 탭</string>
+  <string name="menu_save_all_tabs">모든 탭 저장</string>
   <string name="crash_report_activity_title">애플리케이션 오류</string>
   <string name="crash_report_relaunch_or_quit">죄송합니다,  위키백과 앱이 오류가 발생하여 종료되었습니다.\n\n다시 시작하거나 나가시겠습니까?</string>
   <string name="crash_report_relaunch">다시 시작</string>
@@ -378,10 +376,13 @@
   <string name="text_size_percent_default">%s (기본값)</string>
   <string name="nav_item_reading_lists">내 목록</string>
   <string name="reading_list_save_to">읽기 목록에 저장</string>
+  <string name="reading_list_move_to">읽기 목록으로 이동</string>
   <string name="reading_list_create_new">새로 만들기</string>
   <string name="reading_list_title_exists">\"%s\" 읽기 목록이 이미 존재합니다.</string>
-  <string name="reading_list_added_to_named">%s에 추가했습니다.</string>
-  <string name="reading_list_already_exists">이 문서는 목록에 이미 있습니다.</string>
+  <string name="reading_list_article_added_to_named">%1$s 문서를 %2$s에 추가했습니다.</string>
+  <string name="reading_list_article_moved_to_named">%1$s 문서를 %2$s(으)로 이동했습니다.</string>
+  <string name="reading_list_article_already_exists_message">좋습니다! %1$s은(는) 이미 %2$s 문서를 포함하고 있습니다.</string>
+  <string name="reading_list_articles_already_exist_message">좋습니다! %s은(는) 이미 모든 문서를 포함하고 있습니다.</string>
   <string name="reading_list_added_view_button">목록 보기</string>
   <string name="format_reading_list_statistical_summary_singular">1개의 문서, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d개의 문서, %2$.2f MB</string>
@@ -402,6 +403,7 @@
   <string name="reading_list_action_menu_remove_all_from_offline">오프라인에서 모두 제거</string>
   <string name="reading_list_action_menu_save_all_for_offline">오프라인을 위해 모두 저장</string>
   <string name="reading_list_action_menu_add_to_another_list">다른 목록에 추가</string>
+  <string name="reading_list_action_menu_move_to_another_list">다른 목록으로 이동</string>
   <string name="reading_list_name_sample">내 읽기 목록</string>
   <string name="reading_list_name_hint">이 목록의 이름</string>
   <string name="reading_list_description_hint">설명 (선택 사항)</string>
@@ -422,6 +424,7 @@
   <string name="reading_list_article_offline">오프라인에서 읽을 수 있음</string>
   <string name="reading_list_article_make_offline">이 글을 오프라인에서 읽을 수 있게 하기</string>
   <string name="reading_list_add_to_other_list">다른 읽기 목록에 추가하기</string>
+  <string name="reading_list_move_to_other_list">다른 읽기 목록으로 이동시키기</string>
   <string name="reading_list_remove_from_list">%s에서 제거하기</string>
   <string name="reading_list_remove_from_lists">읽기 목록에서 제거하기</string>
   <string name="reading_list_select_item">선택</string>
@@ -437,8 +440,8 @@
   <string name="reading_lists_confirm_remote_delete_yes">예</string>
   <string name="reading_lists_confirm_remote_delete_no">아니오</string>
   <string name="reading_list_article_save_in_progress">이 문서는 다운로드 중이며, 완료되면 오프라인 상태에서 읽을 수 있습니다.</string>
-  <string name="reading_list_already_contains_selection">선택된 목록은 선택된 모든 문서를 이미 포함하고 있습니다.</string>
-  <string name="reading_list_added_articles_list_titled">%1$d개의 문서가 %2$s에 추가되었습니다</string>
+  <string name="reading_list_articles_added_to_named">%1$d개의 문서가 %2$s에 추가되었습니다</string>
+  <string name="reading_list_articles_moved_to_named">%1$d개의 문서가 %2$s에 이동되었습니다</string>
   <string name="reading_list_delete_confirm">%s 목록을 삭제하시겠습니까?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">동기화를 사용하려면 로그인하세요</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">읽기 목록을 계정에 저장할 수 있게 하려면 로그인하십시오.</string>
@@ -459,6 +462,7 @@
   <string name="no_user_lists_msg">여행 갈 장소, 좋아하는 주제들, 그외의 원하는 용도의 목록을 만드세요</string>
   <string name="reading_list_saved_list_rename">%1$s (사용자가 생성함)</string>
   <string name="split_reading_list_message">읽기 목록 하나 당 문서 %d개의 제한이 있습니다. 이 제한을 초과하는 목록이 있다면 여러 개 목록으로 분할되게 됩니다.</string>
+  <string name="reading_list_move_article_limit_message">이 목록으로 이동할 수 없습니다. \"%1$s\"에 대해 목록 당 %2$d개의 문서 제한에 도달했습니다.</string>
   <string name="reading_list_article_limit_message">이 목록에 추가할 수 없습니다. \"%1$s\"에 대해 목록 당 %2$d개 문서 제한에 도달했습니다.</string>
   <string name="reading_lists_limit_message">다른 목록을 만들 수 없습니다. 계정 당 100개 읽기 목록 제한에 도달했습니다.</string>
   <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;읽기 목록 동기화&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;지금 읽기 목록을 여러 장치 간에 동기화할 수 있습니다. 위키백과 계정으로 로그인하면 목록을 저장할 수 있습니다.</string>
@@ -474,7 +478,7 @@
     <item quantity="one">이 글은 더 이상 오프라인에서 읽을 수 없습니다.</item>
     <item quantity="other">이 글들은 더 이상 오프라인에서 읽을 수 없습니다.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync">읽기 목록 동기화 성공</string>
+  <string name="reading_list_toast_last_sync">읽기 목록을 동기화했습니다</string>
   <string name="reading_list_menu_last_sync">마지막 동기시간: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">확인</string>
   <string name="reading_list_delete_dialog_ok_button_text">확인</string>
@@ -546,10 +550,10 @@
   <string name="preference_title_notification_user_talk">토론 문서</string>
   <string name="preference_summary_notification_user_talk">토크 페이지의 메시지</string>
   <string name="view_because_you_read_card_title">읽었던 글 관련 추천</string>
-  <string name="view_random_card_title">임의 문서 보기</string>
+  <string name="view_random_card_title">임의의 문서 보기</string>
   <string name="view_random_card_subtitle">카드를 넘겨 위키백과에서 임의의 문서를 읽어보세요.</string>
   <string name="view_random_card_action">주사위 던지기</string>
-  <string name="view_next_random_article">다른 임의 문서 불러오기</string>
+  <string name="view_next_random_article">무작위로 다른 문서 불러오기</string>
   <string name="view_main_page_card_title">오늘의 위키백과</string>
   <string name="view_main_page_card_subtitle">%s의 대문</string>
   <string name="view_main_page_card_action">대문 문서 보기</string>
@@ -629,6 +633,7 @@
   <string name="description_edit_success_saved_in_lang_snackbar">문서 설명을 게시했습니다! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">이미지 설명이 게시되었습니다!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">이미지 설명이 게시되었습니다! (%s)</string>
+  <string name="description_edit_success_saved_image_tags_snackbar">이미지 태그가 저장되었습니다!</string>
   <string name="description_edit_success_encouragement">방금 모두를 위해 위키백과를 개선해주셨습니다</string>
   <string name="description_edit_success_done">완료</string>
   <string name="description_edit_success_did_you_know">알고 계십니까?</string>
@@ -686,12 +691,15 @@
   <string name="suggested_edits_tasks_onboarding_get_started">시작하기</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">이미지 캡션 (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">이미지 설명 (%s)</string>
+  <string name="suggested_edits_image_preview_dialog_file">파일</string>
   <string name="suggested_edits_image_preview_dialog_artist">아티스트</string>
+  <string name="suggested_edits_image_preview_dialog_tags">태그</string>
   <string name="suggested_edits_image_preview_dialog_date">날짜</string>
   <string name="suggested_edits_image_preview_dialog_source">출처/촬영자</string>
   <string name="suggested_edits_image_preview_dialog_licensing">라이선스</string>
   <string name="suggested_edits_image_preview_dialog_more_info">자세한 정보</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">위키미디어 공용의 파일 문서</string>
+  <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">위키백과의 파일 문서</string>
   <string name="suggested_edits_article_cta_image_caption">이미지 캡션 추가</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">이미지 캡션 추가 (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">보기</string>
@@ -707,22 +715,29 @@
   <string name="suggested_edits_image_tags_publishing">게시 중</string>
   <string name="suggested_edits_image_tags_published">게시됨</string>
   <string name="suggested_edits_image_tags_onboarding_title">태그를 지정하면 이미지를 더 쉽게 찾을 수 있습니다.</string>
+  <string name="suggested_edits_image_tags_onboarding_text">이미지 태그를 추가함으로써 위키백과가 문서의 이미지에 사용하는 자유 라이선스 파일 저장소인 위키미디어 공용 에서 이미지를 더 쉽게 검색할 수 있도록 도울 것입니다.</string>
   <string name="suggested_edits_image_tags_onboarding_note">선택한 태그만 이미지에 추가됩니다.</string>
   <string name="suggested_edits_image_tags_snackbar">다른 사람이 더 쉽게 찾을 수 있도록 이미지 태그를 추가합니다.</string>
-  <string name="suggested_edits_image_tags_task_detail" fuzzy="true">다른 사람이 더 쉽게 찾을 수 있도록 이미지를 태그합니다. 컴퓨터가 제안하지만 확인이 필요합니다.</string>
+  <string name="suggested_edits_image_tags_task_detail">이미지를 더 쉽게 찾을 수 있도록 사용자 지정 태그를 추가합니다.</string>
   <string name="suggested_edits_image_tags_choose">일치하는 태그 추가 또는 선택</string>
   <string name="suggested_edits_image_tags_published_list">게시된 태그</string>
+  <string name="suggested_edits_image_tags_search">태그 검색</string>
   <string name="suggested_edits_image_tags_select_title">이 이미지의 태그를 선택하지 않았습니다</string>
   <string name="suggested_edits_image_tags_select_text">선택하는 태그만 이미지에 추가됩니다. 선택되지 않은 태그는 거부로 표시됩니다. 모든 태그를 거부하시겠습니까?</string>
   <string name="suggested_edits_image_tags_add_tag">태그 추가</string>
   <string name="suggested_edits_encouragement_message">%s님, 편집에 감사드립니다. 위키백과에 기여할 수 있는 더 많은 방법이 아래에 있습니다.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;%s님, 안녕하세요.&lt;/b&gt; 누구든지 위키백과를 편집할 수 있다는 사실을 알고 계셨나요? 위키백과의 발전에 도움을 주는 재밌는 방법이 아래에 있습니다. 즐거운 편집 되십시오!</string>
+  <string name="suggested_edits_image_captions_task_detail">이미지 설명은 독자가 그림의 의미나 맥락을 파악하는 데 도움을 줍니다.</string>
+  <string name="suggested_edits_add_descriptions_task_detail">문서 설명은 독자들이 한눈에 주제를 파악할 수 있도록 글을 요약합니다.</string>
   <string name="suggested_edits_contributions_stat_tooltip">편집 제안을 통한 전체 기여 수입니다.</string>
-  <string name="suggested_edits_paused_message">&lt;b&gt;편집 제안이 %1$s까지 일시 중단되었습니다.&lt;/b&gt; %2$s님, 죄송합니다. 최근 기여 중 일부 기여가 되돌려졌습니다.\n\n위키백과에서 편집 실력을 개선하는 방법은 아래의 링크를 통해 알아볼 수 있습니다.</string>
-  <string name="suggested_edits_disabled_message">&lt;b&gt;편집 제안이 비활성화되었습니다.&lt;/b&gt; %s님, 죄송합니다. 최근 기여 중 너무 많은 기여가 되돌려졌습니다.\n\n무슨 의미인지는 아래의 링크를 통해 알아볼 수 있습니다.</string>
-  <string name="suggested_edits_ip_blocked_message">현재 사용 중인 IP(또는 IP의 주소)가 위키피디아를 편집하는 것으로부터 차단 되어있습니다. 아래의 링크를 방문하여 차단에 대해 더 알아보십시오.</string>
+  <string name="suggested_edits_page_views_stat_tooltip">최근 30일 동안 편집 제안을 통해 수정한 항목들의 총 조회수입니다.</string>
+  <string name="suggested_edits_edit_quality_stat_tooltip">당신의 편집이 (다른 편집자에 의하여) 몇 번 되돌려졌는지를 기반으로 합니다.\n되돌려진 편집: %d건.</string>
+  <string name="suggested_edits_paused_message" fuzzy="true">&lt;b&gt;편집 제안이 %1$s까지 일시 중단되었습니다.&lt;/b&gt; %2$s님, 죄송합니다. 최근 기여 중 일부 기여가 되돌려졌습니다.\n\n위키백과에서 편집 실력을 개선하는 방법은 아래의 링크를 통해 알아볼 수 있습니다.</string>
+  <string name="suggested_edits_disabled_message" fuzzy="true">&lt;b&gt;편집 제안이 비활성화되었습니다.&lt;/b&gt; %s님, 죄송합니다. 최근 기여 중 너무 많은 기여가 되돌려졌습니다.\n\n무슨 의미인지는 아래의 링크를 통해 알아볼 수 있습니다.</string>
+  <string name="suggested_edits_ip_blocked_message" fuzzy="true">현재 사용 중인 IP(또는 IP의 주소)가 위키피디아를 편집하는 것으로부터 차단 되어있습니다. 아래의 링크를 방문하여 차단에 대해 더 알아보십시오.</string>
   <string name="suggested_edits_editing_tips_link_text">편집 팁 및 트릭</string>
   <string name="suggested_edits_help_page_link_text">편집 제안 도움말 문서</string>
+  <string name="suggested_edits_edit_streak_label_text">편집 스트리크</string>
   <string name="suggested_edits_pageviews_label_text">조회 수</string>
   <string name="suggested_edits_quality_label_text">편집 품질</string>
   <string name="suggested_edits_quality_perfect_text">완벽함</string>
@@ -733,6 +748,7 @@
   <string name="suggested_edits_quality_sufficient_text">충분함</string>
   <string name="suggested_edits_quality_poor_text">낮음</string>
   <string name="suggested_edits_quality_bad_text">나쁨</string>
+  <string name="suggested_edits_contribute">기여</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">기여</item>
     <item quantity="other">기여</item>
@@ -743,6 +759,20 @@
   </plurals>
   <string name="suggested_edits_last_edited">최근 편집</string>
   <string name="suggested_edits_last_edited_never">편집 없음</string>
+  <string name="suggested_edits_task_new">새로운</string>
+  <string name="suggested_edits_cc0_notice">편집을 게시하면,  &lt;a href=\"%1$s\"&gt;이용 규약&lt;/a&gt; 에 동의하고 기여한 내용을 &lt;a href=\"%2$s\"&gt;CC0 라이선스&lt;/a&gt;로 배포하는 데 동의하는 것으로 간주합니다. 이 동의는 철회할 수 없습니다.</string>
+  <string name="suggested_edits_reactivation_notification_title">편집 제안</string>
+  <string name="suggested_edits_reactivation_notification_stage_one">위키백과를 편집해주셔서 감사드립니다! 계속 편집을 진행해보시는 건 어떨까요?</string>
+  <string name="suggested_edits_reactivation_notification_stage_two">위키백과를 개선할 자투리 시간이 있나요? 편집 제안을 확인해보세요.</string>
+  <string name="suggested_edits_contribution_language_label">언어</string>
+  <string name="suggested_edits_contribution_date_time_label">날짜 / 시간</string>
+  <string name="suggested_edits_contribution_type_label">기여 유형</string>
+  <string name="suggested_edits_contribution_image_label">파일</string>
+  <string name="suggested_edits_contribution_article_label">문서</string>
+  <string name="suggested_edits_contribution_date_yesterday_text">어제</string>
+  <string name="suggested_edits_rewards_continue_button">계속</string>
+  <string name="suggested_edits_contribution_type_image_tag">이미지 태그</string>
+  <string name="file_page_activity_title">파일 문서</string>
   <string name="description_edit_revert_subtitle">위키백과를 편집해 주셔서 감사합니다!</string>
   <string name="description_edit_revert_intro">저희는 당신이 최선의 노력을 다해주신 것을 알고 있습니다만, 검토자들 중 한 명이 걱정하는 부분이 있습니다. 당신의 편집이 되돌려진 잠재적 이유는 다음과 같습니다:</string>
   <string name="description_edit_revert_reason1">당신의 기여는 &lt;a href=\"%1$s\"&gt;지침들&lt;/a&gt; 가운데 하나를 준수하지 않았습니다.</string>
@@ -764,9 +794,6 @@
   <string name="onboarding_analytics_title">익명 데이터 보내기</string>
   <string name="onboarding_analytics_offline_text">앱 개선 지원을 위해 앱을 어떻게 사용하는지 알려주세요. 수집된 데이터는 익명으로 처리됩니다. &lt;a href=\"#privacy\"&gt;더 알아보기&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">사용 데이터 보내기</string>
-  <string name="onboarding_create_account_sync">읽기 목록 동기화</string>
-  <string name="onboarding_create_account_contributions">내 기여를 추적합니다</string>
-  <string name="onboarding_create_account_preferences">환경 설정 저장하기</string>
   <string name="onboarding_got_it">알겠습니다</string>
   <string name="onboarding_multilingual_secondary_text">장치에서 다음의 언어를 발견했습니다:</string>
   <string name="onboarding_multilingual_add_language_text">언어 추가 또는 편집</string>
@@ -825,12 +852,9 @@
   <string name="wikitext_template">틀</string>
   <string name="wikitext_reference">각주</string>
   <string name="wikitext_preview_link">이전 링크</string>
-  <string name="main_drawer_open">열기</string>
-  <string name="main_drawer_close">닫기</string>
-  <string name="main_drawer_content_description">주 둘러보기 서랍 열기</string>
   <string name="main_drawer_help">도움말</string>
   <string name="main_drawer_login">위키백과에 로그인 / 가입</string>
-  <string name="main_tooltip_text">%s님, 누구나 위키백과를 편집할 수 있다는 사실을 알고 계셨나요?</string>
+  <string name="main_tooltip_text" fuzzy="true">%s님, 누구나 위키백과를 편집할 수 있다는 사실을 알고 계셨나요?</string>
   <string name="main_tooltip_action_button">시작하기</string>
   <string name="custom_date_picker_dialog_ok_button_text">확인</string>
   <string name="text_input_dialog_ok_button_text">확인</string>

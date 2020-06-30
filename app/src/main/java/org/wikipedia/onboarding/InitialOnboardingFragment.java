@@ -65,18 +65,24 @@ public class InitialOnboardingFragment extends OnboardingFragment implements Onb
 
     @Override
     public void onLinkClick(@NonNull OnboardingPageView view, @NonNull String url) {
-        if (url.equals("#login")) {
-            startActivityForResult(LoginActivity
-                            .newIntent(requireContext(), LoginFunnel.SOURCE_ONBOARDING),
-                    Constants.ACTIVITY_REQUEST_LOGIN);
-        } else if (url.equals("#privacy")) {
-            FeedbackUtil.showPrivacyPolicy(getContext());
-        } else if (url.equals("#about")) {
-            FeedbackUtil.showAboutWikipedia(getContext());
-        } else if (url.equals("#offline")) {
-            FeedbackUtil.showOfflineReadingAndData(getContext());
-        } else {
-            handleExternalLink(getActivity(), Uri.parse(url));
+        switch (url) {
+            case "#login":
+                startActivityForResult(LoginActivity
+                                .newIntent(requireContext(), LoginFunnel.SOURCE_ONBOARDING),
+                        Constants.ACTIVITY_REQUEST_LOGIN);
+                break;
+            case "#privacy":
+                FeedbackUtil.showPrivacyPolicy(getContext());
+                break;
+            case "#about":
+                FeedbackUtil.showAboutWikipedia(getContext());
+                break;
+            case "#offline":
+                FeedbackUtil.showOfflineReadingAndData(getContext());
+                break;
+            default:
+                handleExternalLink(getActivity(), Uri.parse(url));
+                break;
         }
     }
 
@@ -90,11 +96,11 @@ public class InitialOnboardingFragment extends OnboardingFragment implements Onb
     public void onResume() {
         super.onResume();
         if (onboardingPageView != null) {
-            onboardingPageView.refresh();
+            onboardingPageView.refreshLanguageList();
         }
     }
 
-    private class OnboardingPagerAdapter extends FragmentStateAdapter {
+    private static class OnboardingPagerAdapter extends FragmentStateAdapter {
         OnboardingPagerAdapter(@NonNull Fragment fragment) {
             super(fragment);
         }

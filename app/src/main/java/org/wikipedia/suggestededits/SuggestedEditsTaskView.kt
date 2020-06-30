@@ -4,30 +4,31 @@ import android.content.Context
 import android.content.res.ColorStateList
 import android.util.AttributeSet
 import android.view.View
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.widget.ImageViewCompat
 import kotlinx.android.synthetic.main.view_suggested_edits_task_item.view.*
 import org.wikipedia.Constants.MIN_LANGUAGES_TO_UNLOCK_TRANSLATION
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
+import org.wikipedia.views.WikiCardView
 
-internal class SuggestedEditsTaskView constructor(context: Context, attrs: AttributeSet? = null) : ConstraintLayout(context, attrs) {
+internal class SuggestedEditsTaskView constructor(context: Context, attrs: AttributeSet? = null) : WikiCardView(context, attrs) {
 
     init {
         View.inflate(context, R.layout.view_suggested_edits_task_item, this)
-        layoutParams = LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
-        isClickable = true
-        isFocusable = true
-        setPadding(resources.getDimension(R.dimen.activity_horizontal_margin).toInt(), 0, resources.getDimension(R.dimen.activity_horizontal_margin).toInt(), 0)
-        setBackgroundResource(ResourceUtil.getThemedAttributeId(context, R.attr.selectableItemBackground))
+        val params = MarginLayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
+        val marginX = resources.getDimension(R.dimen.activity_horizontal_margin).toInt()
+        val marginY = DimenUtil.roundedDpToPx(8f)
+        params.setMargins(marginX, marginY, marginX, marginY)
+        layoutParams = params
     }
 
     private fun updateTranslateActionUI() {
         val color = ResourceUtil.getThemedColor(context, if (WikipediaApp.getInstance().language().appLanguageCodes.size >= MIN_LANGUAGES_TO_UNLOCK_TRANSLATION)
             R.attr.colorAccent else R.attr.material_theme_de_emphasised_color)
-        ImageViewCompat.setImageTintList(suggestedEditsTranslateImage, ColorStateList.valueOf(color))
-        suggestedEditsTranslateActionText.setTextColor(color)
+        translateButton.iconTint = ColorStateList.valueOf(color)
+        translateButton.setTextColor(color)
     }
 
     fun setUpViews(task: SuggestedEditsTask, callback: Callback?) {
@@ -37,22 +38,22 @@ internal class SuggestedEditsTaskView constructor(context: Context, attrs: Attri
         taskIcon.setImageResource(task.imageDrawable)
         taskTitleNewLabel.visibility = if (task.new) View.VISIBLE else GONE
 
-        this.setOnClickListener {
+        clickContainer.setOnClickListener {
             if (!task.disabled) {
                 callback?.onViewClick(task, false)
             }
         }
-        addContainer.setOnClickListener {
+        addButton.setOnClickListener {
             if (!task.disabled) {
                 callback?.onViewClick(task, false)
             }
         }
-        translateContainer.setOnClickListener {
+        translateButton.setOnClickListener {
             if (!task.disabled) {
                 callback?.onViewClick(task, true)
             }
         }
-        translateContainer.visibility = if (task.translatable) View.VISIBLE else GONE
+        translateButton.visibility = if (task.translatable) View.VISIBLE else GONE
     }
 
     interface Callback {

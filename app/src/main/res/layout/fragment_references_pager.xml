@@ -15,23 +15,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:padding="3dp"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="12dp"
-                app:srcCompat="@drawable/ic_oojs_reference"
-                app:tint="?attr/material_theme_de_emphasised_color"
-                android:contentDescription="@null"/>
-
             <org.wikipedia.views.AppTextView
                 android:id="@+id/reference_title_text"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:fontFamily="sans-serif-medium"
                 android:gravity="center_vertical"
-                android:paddingStart="8dp"
+                android:paddingStart="16dp"
                 android:paddingEnd="8dp"
                 android:textColor="?android:textColorPrimary"
                 android:textSize="16sp"

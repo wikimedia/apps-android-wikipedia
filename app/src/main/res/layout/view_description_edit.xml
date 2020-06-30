@@ -27,6 +27,7 @@
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:clickable="true"
                 android:contentDescription="@string/description_edit_cancel_hint"
+                android:focusable="true"
                 android:padding="12dp"
                 app:srcCompat="@drawable/ic_arrow_back_themed_24dp" />
 
@@ -40,7 +41,7 @@
                 android:fontFamily="sans-serif-medium"
                 android:maxLines="1"
                 android:text="@string/description_edit_edit_description"
-                android:textColor="?attr/main_toolbar_title_color"
+                android:textColor="?attr/toolbar_title_color"
                 android:textSize="20sp"
                 android:padding="16dp" />
 
@@ -52,6 +53,7 @@
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:clickable="true"
                 android:contentDescription="@string/description_edit_help_title"
+                android:focusable="true"
                 android:padding="12dp"
                 app:srcCompat="@drawable/ic_info_outline_black_24dp"
                 app:tint="?attr/material_theme_secondary_color" />
@@ -61,10 +63,11 @@
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_gravity="center_vertical"
-                android:background="?attr/selectableItemBackgroundBorderless"
                 android:layout_marginEnd="4dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
                 android:clickable="true"
                 android:contentDescription="@string/description_edit_save"
+                android:focusable="true"
                 android:padding="12dp"
                 app:srcCompat="@drawable/ic_check_black_24dp" />
 
@@ -180,6 +183,7 @@
                                 android:inputType="textMultiLine"
                                 android:drawableEnd="@drawable/ic_spacer_24dp"
                                 android:lineSpacingExtra="6sp"
+                                android:maxLength="@integer/description_max_chars"
                                 android:textSize="16sp">
 
                                 <requestFocus />
@@ -196,6 +200,7 @@
                             android:background="?attr/selectableItemBackgroundBorderless"
                             android:clickable="true"
                             android:contentDescription="@string/description_edit_help_title"
+                            android:focusable="true"
                             android:padding="12dp"
                             app:srcCompat="@drawable/ic_mic_black_24dp"
                             app:tint="?attr/material_theme_de_emphasised_color" />

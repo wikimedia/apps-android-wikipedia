@@ -26,9 +26,7 @@
   <string name="menu_long_press_open_page">उद्घाट्यताम्</string>
   <string name="menu_long_press_open_in_new_tab">नवीनं प्लवनकुड्मलम् उद्घाटयतु</string>
   <string name="menu_long_press_copy_page">परिसन्धि-सङ्केतस्य प्रतिकृतिं करोतु</string>
-  <string name="menu_text_select_copy">प्रतिकृतिः</string>
   <string name="menu_text_select_define">परिभाष्यताम्</string>
-  <string name="menu_text_select_share">वितरतु</string>
   <string name="menu_text_select_edit_here">अत्र सम्पाद्यताम्</string>
   <string name="last_updated_text">%s अन्तिमम् अद्यतनम् अभवत्</string>
   <string name="talk_page_link_text" fuzzy="true">सम्भाषणम्</string>
@@ -157,11 +155,7 @@
   <string name="gallery_error_video_failed">चलच्चित्रम् आरब्धुं न शक्तम् ।</string>
   <string name="gallery_save_image_write_permission_rationale" fuzzy="true">चित्राणि सङ्ग्रहे रक्षयितुं भवतः/भवत्याः सङ्ग्रहाकस्य अनुमतिः आवश्यकी । कृपया पुनः प्रयत्नं कृत्वा अनुमतिं ददातु ।</string>
   <string name="err_cannot_save_file">सञ्चिकारक्षणम् असफलम्</string>
-  <string name="snippet_share_intro">\@Wikipedia उपरि \"%1$s\": %2$s</string>
   <string name="expand_refs">विस्तारयितुं नुद्यताम्</string>
-  <string name="share_snippet_button">चित्ररूपेण वितरतु</string>
-  <string name="share_normal_button">पाठरूपेण वितरतु</string>
-  <string name="snippet_share_preview_image_desc">चित्रस्य प्राग्दृश्यम्</string>
   <string name="cc_logo">क्रिएटिव् कॉमन्स्-अधिकारः</string>
   <string name="captcha_image">संभेपूस्वसाट्यूप चित्रम्</string>
   <string name="gallery_fair_use_license">उचितोपयोगः</string>

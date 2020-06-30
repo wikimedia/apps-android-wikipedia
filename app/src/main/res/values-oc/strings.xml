@@ -37,9 +37,7 @@
   <string name="menu_long_press_open_page">Dobrir</string>
   <string name="menu_long_press_open_in_new_tab">Dobrir dins un onglet novèl</string>
   <string name="menu_long_press_copy_page">Copiar l\'adreça del ligam</string>
-  <string name="menu_text_select_copy">Copiar</string>
   <string name="menu_text_select_define">Definir</string>
-  <string name="menu_text_select_share">Partejar</string>
   <string name="menu_text_select_edit_here">Editar aiçí</string>
   <string name="last_updated_text">Darrièra modificacion lo %s</string>
   <string name="talk_page_link_text">Veire la pagina de discussion</string>
@@ -69,9 +67,9 @@
   <string name="login_password_hint">Senhal</string>
   <string name="login_2fa_hint">Còdi d\'autenticación de dos factors</string>
   <string name="menu_login">Connexion</string>
-  <string name="login_activity_title">Se connectar a Wikipèdia</string>
+  <string name="login_activity_title" fuzzy="true">Se connectar a Wikipèdia</string>
   <string name="login_in_progress_dialog_message">Connexion en cors…</string>
-  <string name="login_success_toast">Connectat amb succès !</string>
+  <string name="login_success_toast" fuzzy="true">Connectat amb succès !</string>
   <string name="preference_title_logout">Se desconnectar</string>
   <string name="toast_logout_complete">Desconnectat</string>
   <string name="history_empty_title">Cap d\'articles pas legits recentament</string>
@@ -161,14 +159,10 @@
   <string name="gallery_menu_share">Partejar</string>
   <string name="gallery_share_error">Impossible de partejar l’imatge : %s</string>
   <string name="gallery_save_progress">Telecargament del fichièr...</string>
-  <string name="gallery_save_success">Fichièr enregistrat corrèctament.</string>
+  <string name="gallery_save_success" fuzzy="true">Fichièr enregistrat corrèctament.</string>
   <string name="gallery_error_video_failed">Impossible de jogar la vidèo.</string>
   <string name="err_cannot_save_file">Impossible d’enregistrar lo fichièr</string>
-  <string name="snippet_share_intro">Fait interessant sus @Wikipedia %1$s : %2$s</string>
   <string name="expand_refs">Tustar per desvolopar</string>
-  <string name="share_snippet_button">Partejar coma imatge</string>
-  <string name="share_normal_button">Partejar coma tèxte</string>
-  <string name="snippet_share_preview_image_desc">Apercebut de l’imatge</string>
   <string name="cc_logo">Licéncia Creative Commons</string>
   <string name="captcha_image">Imatge Captcha</string>
   <string name="gallery_fair_use_license">Utilizacion normala</string>
@@ -207,8 +201,6 @@
   <string name="reading_list_save_to">Enregistrar dins la lista de lectura</string>
   <string name="reading_list_create_new">Crear un novèl</string>
   <string name="reading_list_title_exists">La lista de lectura «%s» existís ja.</string>
-  <string name="reading_list_added_to_named">Apondut a %s.</string>
-  <string name="reading_list_already_exists">Aqueste article fa ja partida d\'aquesta lista.</string>
   <string name="reading_list_added_view_button">Afichar la lista</string>
   <string name="reading_list_sort">Triar</string>
   <string name="reading_list_sort_by_name">Triar per nom</string>

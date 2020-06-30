@@ -59,10 +59,7 @@
   <string name="menu_long_press_open_page">Арый</string>
   <string name="menu_long_press_open_in_new_tab">Саҥа кыбытыкка арый</string>
   <string name="menu_long_press_copy_page">Сигэ аадырыһын хатылаа</string>
-  <string name="menu_text_select_copy">Хатылаа</string>
   <string name="menu_text_select_define">Быһаарыыта</string>
-  <string name="menu_text_select_share">Тарҕат</string>
-  <string name="share">Тарҕат</string>
   <string name="on_this_day_page_share">Тарҕат</string>
   <string name="reading_list_page_share">Тарҕатыы</string>
   <string name="menu_text_select_edit_here">Маны көннөр</string>
@@ -110,9 +107,9 @@
   <string name="reading_lists_sync_login">Киирии</string>
   <string name="create_account_login">Киир</string>
   <string name="menu_login">Киирии</string>
-  <string name="login_activity_title">Бикипиэдьийэҕэ киирии</string>
+  <string name="login_activity_title" fuzzy="true">Бикипиэдьийэҕэ киирии</string>
   <string name="login_in_progress_dialog_message">Киирии...</string>
-  <string name="login_success_toast">Этэҥҥэ киирдиҥ!</string>
+  <string name="login_success_toast" fuzzy="true">Этэҥҥэ киирдиҥ!</string>
   <string name="reset_password_title">Аһарыккын суруй</string>
   <string name="reset_password_description">Быстах кэмҥэ туттуллар аһарыгынан киирдиҥ.\nТүмүктүүргэ саҥа аһарыгы суруйуохтааххын.</string>
   <string name="reset_password_hint">Саҥа аһарык</string>
@@ -266,17 +263,13 @@
   <string name="gallery_menu_share">Тарҕат</string>
   <string name="gallery_share_error">Ойууну тарҕатар табыллыбата: %s</string>
   <string name="gallery_save_progress">Билэни хачайдаа...</string>
-  <string name="gallery_save_success">Ойуу сөпкө харалынна.</string>
+  <string name="gallery_save_success" fuzzy="true">Ойуу сөпкө харалынна.</string>
   <string name="gallery_error_video_failed">Видеону көрдөрөр табыллыбата.</string>
   <string name="gallery_save_image_write_permission_rationale">Ойуулары хаалларарга ҕааддьытыҥ долоҕойугар суруйар көҥүл биэриэхтэххин.</string>
   <string name="gallery_add_image_caption_button">Ойуу туһунан суруйарга</string>
   <string name="gallery_add_image_caption_in_language_button">Ойуу туһунан суруйарга (%s)</string>
   <string name="err_cannot_save_file">Билэни харайар табыллыбата</string>
-  <string name="snippet_share_intro">«%1$s» @Wikipedia-ҕа: %2$s</string>
   <string name="expand_refs">Тэнитэргэ баттаа</string>
-  <string name="share_snippet_button">Ойуу курдук тарҕат</string>
-  <string name="share_normal_button">Тиэкис быһыытынан тарҕат</string>
-  <string name="snippet_share_preview_image_desc">Ойууну эрдэ көрүү</string>
   <string name="cc_logo">Creative Commons лиссиэнсийэ</string>
   <string name="captcha_image">Капча-ойуу</string>
   <string name="gallery_fair_use_license">Сиэрдээх туһаныы</string>
@@ -360,8 +353,6 @@
   <string name="reading_list_save_to">Ааҕар тиһиликкэ киллэр</string>
   <string name="reading_list_create_new">Саҥаны ай</string>
   <string name="reading_list_title_exists">Аҕыы испииһэгэ «%s» хайыы-үйэ баар эбит.</string>
-  <string name="reading_list_added_to_named">Манна %s эбилиннэ.</string>
-  <string name="reading_list_already_exists">Бу ыстатыйа урут угуллубут эбит.</string>
   <string name="reading_list_added_view_button">Тиһилиги көрүү</string>
   <string name="format_reading_list_statistical_summary_singular">1 ыстатыйа %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d ыстатыйа, %2$.2f MB</string>
@@ -417,8 +408,7 @@
   <string name="reading_lists_confirm_remote_delete_yes">Сөп</string>
   <string name="reading_lists_confirm_remote_delete_no">Суох</string>
   <string name="reading_list_article_save_in_progress">Сирэй хачайданан бүттэҕинэ ситимэ да суох көрүөххэ сөп буолуо.</string>
-  <string name="reading_list_already_contains_selection">Талбыт ыстатыйаҥ испииһэккэ хайыы-үйэ баар эбит.</string>
-  <string name="reading_list_added_articles_list_titled">%1$d ыстатыйаны манна киллэр: %2$s</string>
+  <string name="reading_list_articles_added_to_named">%1$d ыстатыйаны манна киллэр: %2$s</string>
   <string name="reading_list_delete_confirm">Маны чахчы сотоору гынаҕын дуо %s?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Тэҥниири холбуурга бэлиэ-ааккынан киир</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Киирдэххинэ ааҕыыҥ испииһэгэ ааккын кытта ситимнэһиэ.</string>
@@ -454,7 +444,7 @@
     <item quantity="one">Бу ыстатыйа ситимэ суох ааҕыллыбат буолла.</item>
     <item quantity="other">Бу ыстатыйалар ситимэ суох ааҕыллыбат буоллулар.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync">Ааҕыы испииһэктэрэ тэҥнэннилэр</string>
+  <string name="reading_list_toast_last_sync" fuzzy="true">Ааҕыы испииһэктэрэ тэҥнэннилэр</string>
   <string name="reading_list_menu_last_sync">Тиһэх тэҥнээһин: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">Сөп</string>
   <string name="reading_list_delete_dialog_ok_button_text">Сөп</string>
@@ -698,9 +688,6 @@
   <string name="onboarding_reading_list_sync_title" fuzzy="true">Синхроннаах ааҕыы испииһэгэ</string>
   <string name="onboarding_analytics_title">Ааты эппэккэ ыытыы</string>
   <string name="onboarding_analytics_switch_title">Ыытарга</string>
-  <string name="onboarding_create_account_sync">Ааҕыы испииһэгин хардары-таары тэҥнээһин (синхроннааһын)</string>
-  <string name="onboarding_create_account_contributions">Суруйбуккун кэтээн көрүү</string>
-  <string name="onboarding_create_account_preferences">Бэйэ туруорууларын бигэргэтии</string>
   <string name="onboarding_got_it">Бу өйдөнөр</string>
   <string name="onboarding_multilingual_secondary_text">Эн тэрилгэр маннык тыллар көһүннүлэр:</string>
   <string name="onboarding_multilingual_add_language_text">Тылы эп биитэр сот</string>
@@ -758,12 +745,9 @@
   <string name="wikitext_template">Халыып</string>
   <string name="wikitext_reference">Быһаарыы</string>
   <string name="wikitext_preview_link">Сигэни көрүү</string>
-  <string name="main_drawer_open">Арый</string>
-  <string name="main_drawer_close">Сап</string>
-  <string name="main_drawer_content_description">Сүрүн талбаны арый</string>
   <string name="main_drawer_help">Көмө</string>
   <string name="main_drawer_login">Бикипиэдьийэҕэ киирии / бэлиэтэнии</string>
-  <string name="main_tooltip_text">%s, Бикипиэдьийэни ким баҕарар уларытыан сөбүн билэр этиҥ дуо?</string>
+  <string name="main_tooltip_text" fuzzy="true">%s, Бикипиэдьийэни ким баҕарар уларытыан сөбүн билэр этиҥ дуо?</string>
   <string name="main_tooltip_action_button">Саҕалыырга</string>
   <string name="custom_date_picker_dialog_ok_button_text">Сөп</string>
   <string name="text_input_dialog_ok_button_text">Сөп</string>

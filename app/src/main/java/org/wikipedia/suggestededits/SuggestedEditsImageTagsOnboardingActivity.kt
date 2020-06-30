@@ -13,19 +13,11 @@ class SuggestedEditsImageTagsOnboardingActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setStatusBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color))
-        setNavigationBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color))
         setContentView(R.layout.activity_suggested_edits_tags_onboarding)
         onboarding_done_button.setOnClickListener {
             setResult(Activity.RESULT_OK)
             finish()
         }
-    }
-
-    override fun onStart() {
-        super.onStart()
-        setSupportActionBar(onboarding_toolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
     companion object {

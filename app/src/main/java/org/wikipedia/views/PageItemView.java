@@ -16,7 +16,6 @@ import androidx.appcompat.content.res.AppCompatResources;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.widget.TextViewCompat;
 
-import com.facebook.drawee.view.SimpleDraweeView;
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
 
@@ -53,7 +52,7 @@ public class PageItemView<T> extends ConstraintLayout {
 
     @BindView(R.id.page_list_item_title) TextView titleView;
     @BindView(R.id.page_list_item_description) TextView descriptionView;
-    @BindView(R.id.page_list_item_image) SimpleDraweeView imageView;
+    @BindView(R.id.page_list_item_image) ImageView imageView;
     @BindView(R.id.page_list_item_action_secondary) ImageView secondaryActionView;
     @BindView(R.id.page_list_item_secondary_container) View secondaryContainer;
     @BindView(R.id.page_list_item_selected_image) View imageSelectedView;
@@ -203,6 +202,7 @@ public class PageItemView<T> extends ConstraintLayout {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             setForeground(AppCompatResources.getDrawable(getContext(), ResourceUtil.getThemedAttributeId(getContext(), R.attr.selectableItemBackground)));
         }
+        setFocusable(true);
 
         FeedbackUtil.setToolbarButtonLongPressToast(secondaryActionView);
     }
@@ -214,7 +214,7 @@ public class PageItemView<T> extends ConstraintLayout {
             setBackgroundColor(getThemedColor(getContext(), R.attr.multi_select_background_color));
         } else {
             imageView.setVisibility(TextUtils.isEmpty(imageUrl) ? GONE : VISIBLE);
-            ViewUtil.loadImageUrlInto(imageView, imageUrl);
+            ViewUtil.loadImageWithRoundedCorners(imageView, imageUrl);
             imageSelectedView.setVisibility(GONE);
             setBackgroundColor(getThemedColor(getContext(), R.attr.paper_color));
         }

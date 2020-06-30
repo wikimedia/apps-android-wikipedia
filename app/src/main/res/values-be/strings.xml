@@ -41,9 +41,7 @@
   <string name="menu_long_press_open_page">Адкрыць</string>
   <string name="menu_long_press_open_in_new_tab">Адкрыць у новай укладцы</string>
   <string name="menu_long_press_copy_page">Скапіяваць адрас спасылкі</string>
-  <string name="menu_text_select_copy">Капіраваць</string>
   <string name="menu_text_select_define">Вызначыць</string>
-  <string name="menu_text_select_share">Падзяліцца</string>
   <string name="menu_text_select_edit_here">Правіць тут</string>
   <string name="last_updated_text">Апошняе абнаўленне %s</string>
   <string name="talk_page_link_text" fuzzy="true">Размовы</string>
@@ -77,9 +75,9 @@
   <string name="login_2fa_hint">Код двухфактарнай аўтэнтыфікацыі</string>
   <string name="login_2fa_other_workflow_error_msg">Патрабуецца двухфакторная аўтэнтыфікацыя! Калі ласка, вярніцеся да асноўнай дзейнасці і ўвайсці ў сістэму з дапамогай вашага 2FA-токена, а затым паўтарыце спробу.</string>
   <string name="menu_login">Увайсці</string>
-  <string name="login_activity_title">Увайсці ў Вікіпедыю</string>
+  <string name="login_activity_title" fuzzy="true">Увайсці ў Вікіпедыю</string>
   <string name="login_in_progress_dialog_message">Уваход у сістэму…</string>
-  <string name="login_success_toast">Паспяховы ўваход у сістэму!</string>
+  <string name="login_success_toast" fuzzy="true">Паспяховы ўваход у сістэму!</string>
   <string name="preference_title_logout">Выйсці</string>
   <string name="toast_logout_complete">Вы выйшлі</string>
   <string name="history_empty_title">Няма нядаўна прагледжаных артыкулаў</string>
@@ -186,15 +184,11 @@
   <string name="gallery_menu_share">Падзяліцца</string>
   <string name="gallery_share_error">Не атрымалася падзяліцца выявай: %s</string>
   <string name="gallery_save_progress">Спампаванне файлу…</string>
-  <string name="gallery_save_success">Файл паспяхова захаваны.</string>
+  <string name="gallery_save_success" fuzzy="true">Файл паспяхова захаваны.</string>
   <string name="gallery_error_video_failed">Немагчыма прайграць відэа.</string>
   <string name="gallery_save_image_write_permission_rationale">Для захавання выяваў патрабуецца дазвол на запіс у сховішча Вашай прылады.</string>
   <string name="err_cannot_save_file">Немагчыма захаваць файл</string>
-  <string name="snippet_share_intro">\"%1$s\" на сайце @Wikipedia: %2$s</string>
   <string name="expand_refs">Націсніце, каб разгарнуць</string>
-  <string name="share_snippet_button">Падзяліцца як выявай</string>
-  <string name="share_normal_button">Падзяліцца як тэкстам</string>
-  <string name="snippet_share_preview_image_desc">Папярэдні прагляд выявы</string>
   <string name="cc_logo">Ліцэнзія Creative Commons</string>
   <string name="captcha_image">Капча-выява</string>
   <string name="gallery_fair_use_license">Добрасумленнае выкарыстанне</string>
@@ -240,8 +234,6 @@
   <string name="color_theme_dark">Цёмная</string>
   <string name="nav_item_reading_lists">Мае спісы</string>
   <string name="reading_list_create_new">Стварыць новы</string>
-  <string name="reading_list_added_to_named">Дададзена ў %s.</string>
-  <string name="reading_list_already_exists">Гэтая артыкул ўжо знаходзіцца ў гэтым спісе.</string>
   <string name="reading_list_added_view_button">Прагляд спіса</string>
   <string name="reading_list_sort">Сартаваць</string>
   <string name="reading_list_sort_by_name">Сартаваць паводле назвы</string>
@@ -260,4 +252,7 @@
   <string name="description_edit_save">Апублікаваць</string>
   <string name="description_edit_add_description" fuzzy="true">Дадаць апісанне</string>
   <string name="description_edit_success_done">Гатова</string>
+  <string name="suggested_edits_image_preview_dialog_file" fuzzy="true">Назва файла</string>
+  <string name="suggested_edits_image_preview_dialog_tags">Тэгі</string>
+  <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">Назва файла ў Вікіпедыі</string>
 </resources>

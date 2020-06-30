@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<org.wikipedia.views.WikiCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/reading_lists_overflow_card_container"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginTop="-2dp"
     android:layout_marginEnd="2dp"
-    app:cardBackgroundColor="?attr/paper_color"
-    app:cardElevation="8dp"
     app:cardUseCompatPadding="true">
 
     <LinearLayout
@@ -39,6 +37,7 @@
             style="@style/OverflowMenuItem"
             android:background="?android:attr/selectableItemBackground"
             android:clickable="true"
+            android:focusable="true"
             android:gravity="center_vertical"
             android:minHeight="48dp"
             android:orientation="vertical"
@@ -65,4 +64,4 @@
 
     </LinearLayout>
 
-</androidx.cardview.widget.CardView>
+</org.wikipedia.views.WikiCardView>

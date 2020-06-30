@@ -17,6 +17,7 @@ public class LoginFunnel extends Funnel {
     public static final String SOURCE_SETTINGS = "settings";
     public static final String SOURCE_READING_MANUAL_SYNC = "reading_lists_manual_sync";
     public static final String SOURCE_LOGOUT_BACKGROUND = "logout_background";
+    public static final String SOURCE_SUGGESTED_EDITS = "suggestededits";
 
     public LoginFunnel(WikipediaApp app) {
         super(app, SCHEMA_NAME, REVISION);

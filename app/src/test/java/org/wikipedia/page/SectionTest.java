@@ -21,10 +21,4 @@ import static org.hamcrest.Matchers.is;
         section = new Section(1, 0, "Heading", "Heading", "Content");
         assertThat(section.isLead(), is(false));
     }
-
-    @Test public void testJSONSerialization() {
-        Section parentSection = new Section(1, 1, null, null, "Hi there!");
-
-        assertThat(parentSection, is(Section.fromJson(parentSection.toJSON())));
-    }
 }

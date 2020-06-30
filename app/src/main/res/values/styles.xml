@@ -28,6 +28,7 @@
         <item name="materialButtonStyle">@style/Widget.MaterialComponents.Button.TextButton</item>
         <item name="maxActionInlineWidth">@dimen/snackbar_action_inline_max_dimen</item>
         <item name="textInputStyle">@style/TextInputLayoutStyle</item>
+        <item name="android:statusBarColor">@android:color/black</item>
     </style>
 
     <style name="AppTheme" parent="BaseAppTheme">
@@ -54,9 +55,14 @@
         <item name="windowActionModeOverlay">false</item>
     </style>
 
-    <style name="AppTheme.ActionBar.SuggestedEdits">
+    <style name="AppTheme.ActionBar.LargeTextToolbar">
         <item name="actionBarTheme">@style/PageToolbarTheme</item>
-        <item name="actionBarStyle">@style/SuggestedEditsToolbarStyle</item>
+        <item name="actionBarStyle">@style/LargeTextToolbarStyle</item>
+    </style>
+
+    <style name="AppTheme.ActionBar.NoElevation">
+        <item name="actionBarTheme">@style/PageToolbarTheme</item>
+        <item name="actionBarStyle">@style/NoElevationToolbarStyle</item>
     </style>
 
     <style name="AppTheme.ActionBar.Page">
@@ -100,24 +106,24 @@
     </style>
 
     <style name="ToolbarTheme" parent="@style/ThemeOverlay.MaterialComponents.ActionBar">
-        <item name="colorControlNormal">?attr/main_toolbar_icon_color</item>
+        <item name="colorControlNormal">?attr/toolbar_icon_color</item>
     </style>
 
     <style name="PageToolbarTheme" parent="@style/ThemeOverlay.MaterialComponents.ActionBar">
-        <item name="colorControlNormal">?attr/page_toolbar_icon_color</item>
+        <item name="colorControlNormal">?attr/toolbar_icon_color</item>
         <item name="colorControlActivated">?android:attr/textColorTertiary</item>
         <item name="colorControlHighlight">?android:attr/textColorTertiary</item>
     </style>
 
     <style name="TabToolbarTheme" parent="@style/ThemeOverlay.MaterialComponents.ActionBar">
-        <item name="colorControlNormal">?attr/main_toolbar_icon_color</item>
-        <item name="colorControlActivated">?attr/main_toolbar_icon_color</item>
-        <item name="colorControlHighlight">?attr/main_toolbar_icon_color</item>
+        <item name="colorControlNormal">?attr/toolbar_icon_color</item>
+        <item name="colorControlActivated">?attr/toolbar_icon_color</item>
+        <item name="colorControlHighlight">?attr/toolbar_icon_color</item>
         <item name="navigationIcon">@drawable/ic_add_gray_themed_24dp</item>
     </style>
 
     <style name="ToolbarStyle" parent="@style/Widget.AppCompat.ActionBar">
-        <item name="background">?attr/main_toolbar_color</item>
+        <item name="background">?attr/paper_color</item>
         <item name="navigationIcon">?attr/homeAsUpIndicator</item>
         <item name="elevation">4dp</item>
         <item name="titleTextStyle">@style/ToolBarTitleText</item>
@@ -127,7 +133,13 @@
         <item name="titleTextStyle">@style/PageToolbarTitleText</item>
     </style>
 
-    <style name="SuggestedEditsToolbarStyle" parent="PageToolbarStyle">
+    <style name="LargeTextToolbarStyle" parent="ToolbarStyle">
+        <item name="titleTextStyle">@style/LargeTextToolbarTitleText</item>
+        <item name="background">?attr/paper_color</item>
+        <item name="elevation">0dp</item>
+    </style>
+
+    <style name="NoElevationToolbarStyle" parent="PageToolbarStyle">
         <item name="background">?attr/paper_color</item>
         <item name="elevation">0dp</item>
     </style>
@@ -145,11 +157,18 @@
     </style>
 
     <style name="ToolBarTitleText" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
-        <item name="android:textColor">?attr/main_toolbar_title_color</item>
+        <item name="android:textColor">?attr/toolbar_title_color</item>
     </style>
 
     <style name="PageToolbarTitleText" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
         <item name="android:textColor">?attr/primary_text_color</item>
+    </style>
+
+    <style name="LargeTextToolbarTitleText" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textColor">?attr/material_theme_primary_color</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
     <style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
@@ -157,34 +176,34 @@
     </style>
 
     <style name="ActionModeStyle" parent="@style/Widget.AppCompat.ActionMode">
-        <item name="background">?attr/main_toolbar_color</item>
-        <item name="backgroundSplit">?attr/main_toolbar_color</item>
+        <item name="background">?attr/paper_color</item>
+        <item name="backgroundSplit">?attr/paper_color</item>
         <item name="titleTextStyle">@style/ActionModeTitleStyle</item>
         <item name="subtitleTextStyle">@style/ActionModeSubtitleStyle</item>
     </style>
 
     <style name="PageActionModeStyle" parent="@style/Widget.AppCompat.ActionMode">
-        <item name="background">?attr/main_toolbar_color</item>
-        <item name="backgroundSplit">?attr/main_toolbar_color</item>
+        <item name="background">?attr/paper_color</item>
+        <item name="backgroundSplit">?attr/paper_color</item>
         <item name="titleTextStyle">@style/PageActionModeTitleStyle</item>
         <item name="subtitleTextStyle">@style/PageActionModeSubtitleStyle</item>
         <item name="android:elevation">4dp</item>
     </style>
 
     <style name="ActionModeTitleStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionMode.Title">
-        <item name="android:textColor">?attr/main_toolbar_title_color</item>
+        <item name="android:textColor">?attr/toolbar_title_color</item>
     </style>
 
     <style name="ActionModeSubtitleStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionMode.Subtitle">
-        <item name="android:textColor">?attr/main_toolbar_title_color</item>
+        <item name="android:textColor">?attr/toolbar_title_color</item>
     </style>
 
     <style name="PageActionModeTitleStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionMode.Title">
-        <item name="android:textColor">?attr/page_toolbar_icon_color</item>
+        <item name="android:textColor">?attr/toolbar_icon_color</item>
     </style>
 
     <style name="PageActionModeSubtitleStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionMode.Subtitle">
-        <item name="android:textColor">?attr/page_toolbar_icon_color</item>
+        <item name="android:textColor">?attr/toolbar_icon_color</item>
     </style>
 
     <style name="SearchViewStyle" parent="@style/Widget.AppCompat.SearchView">
@@ -195,7 +214,7 @@
 
     <style name="SearchViewEditTextStyle" parent="@style/Widget.AppCompat.AutoCompleteTextView">
         <item name="android:textCursorDrawable">@drawable/custom_cursor</item>
-        <item name="android:textColor">?attr/main_toolbar_icon_color</item>
+        <item name="android:textColor">?attr/toolbar_icon_color</item>
     </style>
 
     <style name="PageSearchViewStyle" parent="@style/Widget.AppCompat.SearchView">
@@ -205,13 +224,13 @@
     </style>
 
     <style name="PageSearchViewEditTextStyle" parent="SearchViewEditTextStyle">
-        <item name="android:textColor">?attr/page_toolbar_icon_color</item>
-        <item name="android:textColorHint">?attr/page_toolbar_icon_color</item>
+        <item name="android:textColor">?attr/toolbar_icon_color</item>
+        <item name="android:textColorHint">?attr/toolbar_icon_color</item>
     </style>
 
     <style name="LanguagesListSearchViewEditTextStyle" parent="SearchViewEditTextStyle">
         <item name="android:textColor">?attr/primary_text_color</item>
-        <item name="android:textColorHint">?attr/page_toolbar_icon_color</item>
+        <item name="android:textColorHint">?attr/toolbar_icon_color</item>
     </style>
 
     <style name="ListView" parent="@style/Widget.AppCompat.ListView">
@@ -264,6 +283,7 @@
         <item name="backgroundTint">@color/color_state_green</item>
         <item name="android:textColor">@android:color/white</item>
         <item name="android:textAlignment">center</item>
+        <item name="android:focusable">true</item>
     </style>
 
     <style name="App.Button.Blue">
@@ -283,11 +303,33 @@
         <item name="android:textColor">@color/base30</item>
     </style>
 
+    <style name="FlatButton" parent="@style/Widget.MaterialComponents.Button.UnelevatedButton">
+        <item name="backgroundTint">?attr/color_group_22</item>
+        <item name="android:textColor">?attr/colorAccent</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:paddingStart">8dp</item>
+        <item name="android:paddingEnd">12dp</item>
+        <item name="rippleColor">?attr/color_group_59</item>
+        <item name="cornerRadius">8dp</item>
+    </style>
+
+    <style name="FlatButton.Small" parent="FlatButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">32dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:letterSpacing">0.05</item>
+        <item name="iconPadding">4dp</item>
+    </style>
+
     <style name="TransparentButton" parent="@style/Widget.MaterialComponents.Button.UnelevatedButton">
         <item name="android:textAlignment">center</item>
         <item name="android:backgroundTint">@android:color/transparent</item>
         <item name="backgroundTint">@android:color/transparent</item>
         <item name="android:foreground">?android:selectableItemBackground</item>
+        <item name="android:focusable">true</item>
     </style>
 
     <style name="OnboardingSwitch">
@@ -336,36 +378,14 @@
         <item name="android:maxLength">11</item>
     </style>
 
-    <style name="SimpleDraweeViewPlaceholder">
-        <item name="actualImageScaleType">centerCrop</item>
-        <item name="failureImage">?android:colorBackground</item>
-        <item name="fadeDuration">0</item>
-        <item name="backgroundImage">?android:colorBackground</item>
+    <style name="ImageViewDefault">
+        <item name="android:scaleType">centerCrop</item>
+        <item name="android:contentDescription">@null</item>
     </style>
 
-    <style name="SimpleDraweeViewPlaceholder.SuggestedEdits">
-        <item name="placeholderImage">?attr/material_theme_border_color</item>
-        <item name="failureImage">?attr/material_theme_border_color</item>
-        <item name="backgroundImage">@android:color/transparent</item>
-    </style>
-
-    <style name="SimpleDraweeViewPlaceholder.SuggestedEdits.Review">
-        <item name="placeholderImage">@android:color/black</item>
-        <item name="failureImage">@android:color/black</item>
-        <item name="backgroundImage">@android:color/black</item>
-    </style>
-
-    <style name="SimpleDraweeViewPlaceholder.ReadingListThumbnail">
+    <style name="ImageViewDefault.ReadingListThumbnail">
         <item name="android:layout_width">28dp</item>
         <item name="android:layout_height">28dp</item>
-        <item name="android:contentDescription">@null</item>
-        <item name="placeholderImage">?android:colorBackground</item>
-        <item name="failureImage">?android:colorBackground</item>
-        <item name="roundedCornerRadius">2dp</item>
-        <item name="roundTopLeft">false</item>
-        <item name="roundTopRight">false</item>
-        <item name="roundBottomLeft">false</item>
-        <item name="roundBottomRight">false</item>
     </style>
 
     <style name="CounterOverflowTextAppearance" parent="@style/TextAppearance.Design.Counter.Overflow">
@@ -427,7 +447,7 @@
     </style>
 
     <style name="TextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
-        <item name="boxBackgroundColor">?attr/main_toolbar_color</item>
+        <item name="boxBackgroundColor">?attr/color_group_22</item>
         <item name="android:textColorHint">?attr/material_theme_de_emphasised_color</item>
         <item name="hintTextColor">?attr/colorAccent</item>
         <item name="helperTextTextColor">?attr/material_theme_de_emphasised_color</item>

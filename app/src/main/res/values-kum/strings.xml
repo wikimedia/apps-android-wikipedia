@@ -42,9 +42,6 @@
   <string name="menu_page_share">Байланывну пайлашмакъ</string>
   <string name="menu_long_press_open_page">Ачмакъ</string>
   <string name="menu_long_press_copy_page">Байланывну ерлешимин кёплемек</string>
-  <string name="menu_text_select_copy">Кёплемек</string>
-  <string name="menu_text_select_share">Пайлашмакъ</string>
-  <string name="share">Пайлашмакъ</string>
   <string name="on_this_day_page_share">Пайлашмакъ</string>
   <string name="reading_list_page_share">Пайлашмакъ</string>
   <string name="menu_text_select_edit_here">Мунда тюзлемек</string>
@@ -77,9 +74,9 @@
   <string name="reading_lists_sync_login">Гирмек</string>
   <string name="create_account_login">Гирмек</string>
   <string name="menu_login">Гирмек</string>
-  <string name="login_activity_title">Википедиягъа гирмек</string>
+  <string name="login_activity_title" fuzzy="true">Википедиягъа гирмек</string>
   <string name="login_in_progress_dialog_message">Системге гирмек…</string>
-  <string name="login_success_toast">Бажарывлу гирив болду!</string>
+  <string name="login_success_toast" fuzzy="true">Бажарывлу гирив болду!</string>
   <string name="reset_password_title">Чечилингни бер</string>
   <string name="reset_password_hint">Янгы чечил</string>
   <string name="reset_password_button">Сакълап гирмек</string>
@@ -138,12 +135,9 @@
   <string name="gallery_error_draw_failed">Суратны чыгъарма бажарылмады.</string>
   <string name="gallery_menu_share">Пайлашмакъ</string>
   <string name="gallery_save_progress">Саплам эндирив…</string>
-  <string name="gallery_save_success">Саплам тюзевлю сакълангъан.</string>
+  <string name="gallery_save_success" fuzzy="true">Саплам тюзевлю сакълангъан.</string>
   <string name="err_cannot_save_file">Саплам сакъланмай</string>
   <string name="expand_refs">Генглешдирмек учун бас</string>
-  <string name="share_snippet_button">Суратдай пайлашмакъ</string>
-  <string name="share_normal_button">Метиндей пайлашмакъ</string>
-  <string name="snippet_share_preview_image_desc"> Суратгъа ингкъарав</string>
   <string name="captcha_image">Капча сурат</string>
   <string name="gallery_fair_use_license">Намуслу пайдаланыв</string>
   <string name="gallery_uploader_unknown">Юклеген белгисиз</string>
@@ -247,7 +241,5 @@
   <string name="wikitext_numbered_list">Нёмюрленген тизме</string>
   <string name="wikitext_template">Къалип</string>
   <string name="wikitext_preview_link">Ингкъарав байланыв</string>
-  <string name="main_drawer_open">Ачмакъ</string>
-  <string name="main_drawer_close">Япмакъ</string>
   <string name="main_drawer_help">Кёмек</string>
 </resources>

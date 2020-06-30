@@ -1,18 +1,15 @@
 package org.wikipedia.gallery;
 
 import android.graphics.Bitmap;
-import android.graphics.Color;
-import android.graphics.drawable.Animatable;
-import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.MediaController;
 import android.widget.ProgressBar;
 import android.widget.VideoView;
@@ -21,18 +18,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.facebook.drawee.backends.pipeline.Fresco;
-import com.facebook.drawee.controller.BaseControllerListener;
-import com.facebook.drawee.drawable.ScalingUtils;
-import com.facebook.drawee.generic.GenericDraweeHierarchy;
-import com.facebook.drawee.generic.GenericDraweeHierarchyBuilder;
-import com.facebook.drawee.view.SimpleDraweeView;
-import com.facebook.samples.zoomable.DoubleTapGestureListener;
-
 import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
+import org.wikipedia.commons.FilePageActivity;
 import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
@@ -47,15 +37,15 @@ import org.wikipedia.util.ImageUrlUtil;
 import org.wikipedia.util.PermissionUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
-import org.wikipedia.views.ZoomableDraweeViewWithBackground;
+import org.wikipedia.views.ViewUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
-import io.reactivex.Observable;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.schedulers.Schedulers;
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.core.Observable;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 
 import static org.wikipedia.Constants.PREFERRED_GALLERY_IMAGE_SIZE;
 import static org.wikipedia.util.PermissionUtil.hasWriteExternalStoragePermission;
@@ -73,9 +63,9 @@ public class GalleryItemFragment extends Fragment {
     @BindView(R.id.gallery_item_progress_bar) ProgressBar progressBar;
     @BindView(R.id.gallery_video_container) View videoContainer;
     @BindView(R.id.gallery_video) VideoView videoView;
-    @BindView(R.id.gallery_video_thumbnail) SimpleDraweeView videoThumbnail;
+    @BindView(R.id.gallery_video_thumbnail) ImageView videoThumbnail;
     @BindView(R.id.gallery_video_play_button) View videoPlayButton;
-    @BindView(R.id.gallery_image) ZoomableDraweeViewWithBackground imageView;
+    @BindView(R.id.gallery_image) ImageView imageView;
     @Nullable private Unbinder unbinder;
     private CompositeDisposable disposables = new CompositeDisposable();
 
@@ -121,21 +111,11 @@ public class GalleryItemFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_gallery_item, container, false);
         unbinder = ButterKnife.bind(this, rootView);
 
-        imageView.setTapListener(new DoubleTapGestureListener(imageView) {
-            @Override
-            public boolean onSingleTapConfirmed(MotionEvent e) {
-                if (isAdded()) {
-                    ((GalleryActivity) requireActivity()).toggleControls();
-                }
-                return true;
+        imageView.setOnClickListener(v -> {
+            if (isAdded()) {
+                ((GalleryActivity) requireActivity()).toggleControls();
             }
         });
-
-        GenericDraweeHierarchy hierarchy = new GenericDraweeHierarchyBuilder(getResources())
-                .setActualImageScaleType(ScalingUtils.ScaleType.FIT_CENTER)
-                .setPlaceholderImage(new ColorDrawable(Color.BLACK))
-                .build();
-        imageView.setHierarchy(hierarchy);
         return rootView;
     }
 
@@ -149,9 +129,7 @@ public class GalleryItemFragment extends Fragment {
     @Override
     public void onDestroyView() {
         disposables.clear();
-        imageView.setController(null);
         imageView.setOnClickListener(null);
-        videoThumbnail.setController(null);
         videoThumbnail.setOnClickListener(null);
         if (unbinder != null) {
             unbinder.unbind();
@@ -193,7 +171,7 @@ public class GalleryItemFragment extends Fragment {
         switch (item.getItemId()) {
             case R.id.menu_gallery_visit_page:
                 if (mediaInfo != null && imageTitle != null) {
-                    ((GalleryActivity) requireActivity()).finishWithPageResult(imageTitle);
+                    startActivity(FilePageActivity.newIntent(requireContext(), imageTitle));
                 }
                 return true;
             case R.id.menu_gallery_save:
@@ -309,21 +287,7 @@ public class GalleryItemFragment extends Fragment {
         } else {
             // show the video thumbnail while the video loads...
             videoThumbnail.setVisibility(View.VISIBLE);
-            videoThumbnail.setController(Fresco.newDraweeControllerBuilder()
-                    .setUri(mediaInfo.getThumbUrl())
-                    .setAutoPlayAnimations(true)
-                    .setControllerListener(new BaseControllerListener<com.facebook.imagepipeline.image.ImageInfo>() {
-                        @Override
-                        public void onFinalImageSet(String id, com.facebook.imagepipeline.image.ImageInfo imageInfo, Animatable animatable) {
-                            updateProgressBar(false);
-                        }
-
-                        @Override
-                        public void onFailure(String id, Throwable throwable) {
-                            updateProgressBar(false);
-                        }
-                    })
-                    .build());
+            ViewUtil.loadImage(videoThumbnail, mediaInfo.getThumbUrl());
         }
         videoThumbnail.setOnClickListener(videoThumbnailClickListener);
     }
@@ -333,28 +297,8 @@ public class GalleryItemFragment extends Fragment {
         L.v("Loading image from url: " + url);
 
         updateProgressBar(true);
-        imageView.setDrawBackground(false);
-        imageView.setController(Fresco.newDraweeControllerBuilder()
-                .setUri(url)
-                .setAutoPlayAnimations(true)
-                .setControllerListener(new BaseControllerListener<com.facebook.imagepipeline.image.ImageInfo>() {
-                    @Override
-                    public void onFinalImageSet(String id, com.facebook.imagepipeline.image.ImageInfo imageInfo, Animatable animatable) {
-                        if (mediaInfo != null && !mediaInfo.getMimeType().contains("jpeg")) {
-                            imageView.setDrawBackground(true);
-                        }
-                        updateProgressBar(false);
-                        requireActivity().invalidateOptionsMenu();
-                    }
-
-                    @Override
-                    public void onFailure(String id, Throwable throwable) {
-                        updateProgressBar(false);
-                        FeedbackUtil.showMessage(getActivity(), R.string.gallery_error_draw_failed);
-                        L.d(throwable);
-                    }
-                })
-                .build());
+        ViewUtil.loadImageWithWhiteBackground(imageView, url);
+        // TODO: show error if loading failed.
     }
 
     private void shareImage() {
@@ -371,7 +315,7 @@ public class GalleryItemFragment extends Fragment {
                     callback().onShare(GalleryItemFragment.this, bitmap, getShareSubject(), imageTitle);
                 }
             }
-        }.get();
+        }.get(requireContext());
     }
 
     @Override

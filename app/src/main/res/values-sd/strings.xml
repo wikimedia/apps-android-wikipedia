@@ -57,10 +57,7 @@
   <string name="menu_long_press_open_page">کوليو</string>
   <string name="menu_long_press_open_in_new_tab">نئين ٽيب ۾ کوليو</string>
   <string name="menu_long_press_copy_page">ڳنڍڻو نقل ڪريو</string>
-  <string name="menu_text_select_copy">نقل ڪريو</string>
   <string name="menu_text_select_define">وصف ٻڌايو</string>
-  <string name="menu_text_select_share">ونڊيو</string>
-  <string name="share">ونڊيو</string>
   <string name="on_this_day_page_share">ونڊيو</string>
   <string name="reading_list_page_share">ونڊيو</string>
   <string name="menu_text_select_edit_here">ھتي سنواريو</string>
@@ -106,9 +103,9 @@
   <string name="reading_lists_sync_login">داخل ٿيو</string>
   <string name="create_account_login">داخل ٿيو</string>
   <string name="menu_login">داخل ٿيو</string>
-  <string name="login_activity_title">وڪيپيڊيا ۾ داخل ٿيو</string>
+  <string name="login_activity_title" fuzzy="true">وڪيپيڊيا ۾ داخل ٿيو</string>
   <string name="login_in_progress_dialog_message">توهان کي داخل ڪندي...</string>
-  <string name="login_success_toast">ڪاميابيءَ سان داخل ٿيل!</string>
+  <string name="login_success_toast" fuzzy="true">ڪاميابيءَ سان داخل ٿيل!</string>
   <string name="reset_password_title">پنھنجو ڳجھولفظ طي ڪريو</string>
   <string name="reset_password_description">توھان ھڪ عارضي ڳجھي-لفظ سان داخل ٿيا. داخل ٿيڻ کي مڪمل ڪرڻ لاءِ پنھننو ھڪ نئون ڳجھولفظ ترتيب ڪريو.</string>
   <string name="reset_password_hint">نئون ڳجھولفظ</string>
@@ -252,17 +249,13 @@
   <string name="gallery_menu_share">ونڊيو</string>
   <string name="gallery_share_error">ونڊجي نہ سگھيو عڪس: %s</string>
   <string name="gallery_save_progress">فائيل ڊائونلوڊ ڪندي…</string>
-  <string name="gallery_save_success">فائيل ڪاميابيءَ سان سانڍجي ويو.</string>
+  <string name="gallery_save_success" fuzzy="true">فائيل ڪاميابيءَ سان سانڍجي ويو.</string>
   <string name="gallery_error_video_failed">وڊيو هلائي نہ سگھيو.</string>
   <string name="gallery_save_image_write_permission_rationale">تصويرون سانڍڻ لاءِ توھان ڊوائيس جي سنڀار تي ڪم ڪرڻ جي اجازت گھربل آھي.</string>
   <string name="gallery_add_image_caption_button">عڪس جو عنوان وجھو</string>
   <string name="gallery_add_image_caption_in_language_button">عڪس جو عنوان وجھو (%s)</string>
   <string name="err_cannot_save_file">فائيل سانڍي نٿو سگھجي</string>
-  <string name="snippet_share_intro">\"%1$s\" @Wikipedia تي: %2$s</string>
   <string name="expand_refs">وڏو ڪرڻ لاءِ ڪلڪ ڪريو</string>
-  <string name="share_snippet_button">بطور عڪس ونڊيو</string>
-  <string name="share_normal_button">بطور ٽيڪسٽ ونڊيو</string>
-  <string name="snippet_share_preview_image_desc">عڪس تي نگاھ وجھو</string>
   <string name="cc_logo">ڪريئيٽو ڪامنز اجازتنامو</string>
   <string name="captcha_image">ڪيپچا عڪس</string>
   <string name="gallery_fair_use_license">واجب استعمال</string>
@@ -340,8 +333,6 @@
   <string name="reading_list_save_to">پڙھڻ جي فھرست ۾ سانڍيو</string>
   <string name="reading_list_create_new">نئين سرجيو</string>
   <string name="reading_list_title_exists">پڙھڻ جي فھرست \"%s\" اڳ ئي وجود رکي ٿي.</string>
-  <string name="reading_list_added_to_named">%s ۾ شامل ڪئي.</string>
-  <string name="reading_list_already_exists">ھي مضمون اڳ ئي ان فھرست ۾ آھي.</string>
   <string name="reading_list_added_view_button">فھرست ڏسو</string>
   <string name="format_reading_list_statistical_summary_singular">1 مضمون، %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d مضمونَ %2$.2f MB</string>
@@ -391,8 +382,7 @@
   <string name="reading_lists_confirm_remote_delete_yes">ھا</string>
   <string name="reading_lists_confirm_remote_delete_no">نہ</string>
   <string name="reading_list_article_save_in_progress">ھي مضمون لاٿو پيو وڃي، ۽ اھو مڪمل ٿيڻ کانپوءِ آفلائين موجود ھوندو.</string>
-  <string name="reading_list_already_contains_selection">چونڊيل فھرست اڳ ئي چونڊيل صفحا رکي ٿي.</string>
-  <string name="reading_list_added_articles_list_titled">%1$d مضمونن کي %2$s کي ۾ وڌو ويو</string>
+  <string name="reading_list_articles_added_to_named">%1$d مضمونن کي %2$s کي ۾ وڌو ويو</string>
   <string name="reading_list_delete_confirm">ڇا توھان کي پڪ آھي تہ توھان %s ڊاھڻ ٿا چاھيو؟</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">پڙھڻ جي فھرست کي پنھنجي کاتي ۾ سانڍڻ لاءِ داخل ٿيو.</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">رد</string>
@@ -638,8 +628,8 @@
   <string name="suggested_edits_image_captions" fuzzy="true">عڪسن جا عنوان</string>
   <string name="suggested_edits_encouragement_message">%s، توھان جي سنوارن لاءِ مھرباني. ھيٺ توھان وڪيپيڊيا ۾ ڀاڱيداري ڪرڻ جا وڌيڪ طريقا ڏسي سگھو ٿا.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;سلام %s&lt;/b&gt;، ڇا توھان کي ڄاڻ ھئي تہ ھرڪوئي وڪيپيڊيا کي سنواري سگھي ٿو؟ ھيٺ توھان وڪيپيڊيا کي بھتر بڻائڻ جا طريقا ڏسي سگھو ٿا. خوشگوار سنوارڪاري!</string>
-  <string name="suggested_edits_image_captions_task_detail">عڪس عنوان ڪنھن عڪس کي بيان ڪن ٿا تہ جيئن پڙھندڙ کي ان جي معنيٰ ۽ مفھوم سمجھڻ ۾ مدد ٿي.</string>
-  <string name="suggested_edits_add_descriptions_task_detail">مضمون تشريحون ڪنھن مضمون جو تت ڪن ٿيون تہ جيئن پڙھندڙ کي موضوع کي يڪدم سمجھڻ ۾ مدد ٿي.</string>
+  <string name="suggested_edits_image_captions_task_detail" fuzzy="true">عڪس عنوان ڪنھن عڪس کي بيان ڪن ٿا تہ جيئن پڙھندڙ کي ان جي معنيٰ ۽ مفھوم سمجھڻ ۾ مدد ٿي.</string>
+  <string name="suggested_edits_add_descriptions_task_detail" fuzzy="true">مضمون تشريحون ڪنھن مضمون جو تت ڪن ٿيون تہ جيئن پڙھندڙ کي موضوع کي يڪدم سمجھڻ ۾ مدد ٿي.</string>
   <string name="suggested_edits_contributions_stat_tooltip">صلاح-ڏنل سنوارن سان توھان جي سمورين ڀاڱيدارين جو انگ.</string>
   <string name="suggested_edits_edit_streak_stat_tooltip">بغير وقفي جيڪي ڏينھن توھان صلاح-ڏنل سنوارون استعمال ڪندي ڀاڱيداري ڪئي آھي. جيڪڏھن توھان ڪجھ وقت ڀاڱيداري ناھي ڪئي، تہ اھو توھان جي آخري ڀاڱيداريءَ جي تاريخ ڏيکاري ٿو.</string>
   <string name="suggested_edits_page_views_stat_tooltip">گذريل 30 ڏينھن ۾ صلاح-ڏنل سنوارن سان ڪيل شين جون ڪل صفحي-ڏيٺون.</string>
@@ -682,8 +672,6 @@
   <string name="onboarding_explore_title">کوجڻ جا نوان گس</string>
   <string name="onboarding_analytics_title">نامعلوم ڊيٽا موڪليو</string>
   <string name="onboarding_analytics_switch_title">استعمال جي ڊيٽا موڪليو</string>
-  <string name="onboarding_create_account_contributions">پنھنجين ڀاڱيدارين جو پتو رکو</string>
-  <string name="onboarding_create_account_preferences">پنھنجون ترجيحون سانڍيو</string>
   <string name="onboarding_got_it">سمجھي ويئو</string>
   <string name="onboarding_multilingual_secondary_text">اسان توھان جي اوزار تي ھي لڌيون آھن:</string>
   <string name="onboarding_multilingual_add_language_text">ٻوليون وجھو يا سنواريو</string>
@@ -742,12 +730,9 @@
   <string name="wikitext_template">سانچو</string>
   <string name="wikitext_reference">حوالو</string>
   <string name="wikitext_preview_link">پيش-نگاھ ڳنڍڻو</string>
-  <string name="main_drawer_open">کوليو</string>
-  <string name="main_drawer_close">بند ڪريو</string>
-  <string name="main_drawer_content_description">مک نيويگيشن دراز کوليو</string>
   <string name="main_drawer_help">مدد</string>
   <string name="main_drawer_login">وڪيپيڊيا ۾ داخل ٿيو/ شامل ٿيو</string>
-  <string name="main_tooltip_text">%s، ڇا توھان کي ڄاڻ ھئي تہ ھرڪو وڪيپيڊيا کي سنواري سگھي ٿو؟</string>
+  <string name="main_tooltip_text">سلام %s، ڇا توھان کي ڄاڻ ھئي تہ ھرڪو وڪيپيڊيا کي سنواري سگھي ٿو؟</string>
   <string name="main_tooltip_action_button">شروع ڪريو</string>
   <string name="custom_date_picker_dialog_ok_button_text">ٺيڪ</string>
   <string name="text_input_dialog_ok_button_text">ٺيڪ</string>

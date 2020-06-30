@@ -23,10 +23,10 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
-import io.reactivex.Observable;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.schedulers.Schedulers;
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.core.Observable;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 
 /**
  * Responsible for making login related requests to the server.
@@ -35,7 +35,7 @@ public class LoginClient {
     private CompositeDisposable disposables = new CompositeDisposable();
     public interface LoginCallback {
         void success(@NonNull LoginResult result);
-        void twoFactorPrompt(@NonNull Throwable caught, @Nullable String token);
+        void twoFactorPrompt(@NonNull Throwable caught, @NonNull String token);
         void passwordResetPrompt(@Nullable String token);
         void error(@NonNull Throwable caught);
     }

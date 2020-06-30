@@ -20,6 +20,7 @@ import org.wikipedia.dataclient.RestService;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.json.GsonUtil;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.page.PageViewModel;
 import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
 
@@ -40,7 +41,8 @@ public class CommunicationBridge {
     private final Map<String, List<JSEventListener>> eventListeners;
     private final CommunicationBridgeListener communicationBridgeListener;
 
-    private boolean isDOMReady;
+    private boolean isMetadataReady;
+    private boolean isPcsReady;
     private final List<String> pendingJSMessages = new ArrayList<>();
     private final Map<String, ValueCallback<String>> pendingEvals = new HashMap<>();
 
@@ -50,7 +52,8 @@ public class CommunicationBridge {
 
     public interface CommunicationBridgeListener {
         WebView getWebView();
-        PageTitle getPageTitle();
+        PageViewModel getModel();
+        boolean isPreview();
     }
 
     @SuppressLint({"AddJavascriptInterface", "SetJavaScriptEnabled"})
@@ -64,18 +67,35 @@ public class CommunicationBridge {
         eventListeners = new HashMap<>();
     }
 
-    public void onPageFinished() {
-        isDOMReady = true;
+    public void onPcsReady() {
+        isPcsReady = true;
         flushMessages();
     }
 
+    public void loadBlankPage() {
+        communicationBridgeListener.getWebView().loadUrl("about:blank");
+    }
+
+    public void onMetadataReady() {
+        isMetadataReady = true;
+        flushMessages();
+    }
+
+    public boolean isLoading() {
+        return !(isMetadataReady && isPcsReady);
+    }
+
     public void resetHtml(@NonNull PageTitle pageTitle) {
-        isDOMReady = false;
+        isPcsReady = false;
+        isMetadataReady = false;
         pendingJSMessages.clear();
         pendingEvals.clear();
-        communicationBridgeListener.getWebView().loadUrl(UriUtil
-                .encodeOkHttpUrl(ServiceFactory.getRestBasePath(pageTitle.getWikiSite()) + RestService.PAGE_HTML_ENDPOINT,
-                        pageTitle.getPrefixedText()));
+        if (communicationBridgeListener.getModel().shouldLoadAsMobileWeb()) {
+            communicationBridgeListener.getWebView().loadUrl(pageTitle.getMobileUri());
+        } else {
+            communicationBridgeListener.getWebView().loadUrl(ServiceFactory.getRestBasePath(pageTitle.getWikiSite())
+                    + RestService.PAGE_HTML_ENDPOINT + UriUtil.encodeURL(pageTitle.getPrefixedText()));
+        }
     }
 
     public void cleanup() {
@@ -86,6 +106,10 @@ public class CommunicationBridge {
             incomingMessageHandler.removeCallbacksAndMessages(null);
             incomingMessageHandler = null;
         }
+        communicationBridgeListener.getWebView().setWebViewClient(null);
+        communicationBridgeListener.getWebView().removeJavascriptInterface("pcsClient");
+        // Explicitly load a blank page into the WebView, to stop playback of any media.
+        loadBlankPage();
     }
 
     public void addListener(String type, JSEventListener listener) {
@@ -109,8 +133,12 @@ public class CommunicationBridge {
         flushMessages();
     }
 
+    public void evaluateImmediate(@NonNull String js, ValueCallback<String> callback) {
+        communicationBridgeListener.getWebView().evaluateJavascript(js, callback);
+    }
+
     private void flushMessages() {
-        if (!isDOMReady) {
+        if (!isPcsReady || !isMetadataReady) {
             return;
         }
         for (String jsString : pendingJSMessages) {
@@ -132,15 +160,20 @@ public class CommunicationBridge {
                 L.e("No such message type registered: " + message.getAction());
                 return false;
             }
-            List<JSEventListener> listeners = eventListeners.get(message.getAction());
-            for (JSEventListener listener : listeners) {
-                listener.onMessage(message.getAction(), message.getData());
+            try {
+                List<JSEventListener> listeners = eventListeners.get(message.getAction());
+                for (JSEventListener listener : listeners) {
+                    listener.onMessage(message.getAction(), message.getData());
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                L.logRemoteError(e);
             }
             return false;
         }
     });
 
-    private class CommunicatingChrome extends WebChromeClient {
+    private static class CommunicatingChrome extends WebChromeClient {
         @Override
         public boolean onConsoleMessage(@NonNull ConsoleMessage consoleMessage) {
             L.d(consoleMessage.sourceId() + ":" + consoleMessage.lineNumber() + " - " + consoleMessage.message());
@@ -166,12 +199,13 @@ public class CommunicationBridge {
 
         @JavascriptInterface
         public synchronized String getSetupSettings() {
-            return JavaScriptActionHandler.setUp(communicationBridgeListener.getPageTitle());
+            return JavaScriptActionHandler.setUp(communicationBridgeListener.getWebView().getContext(),
+                    communicationBridgeListener.getModel().getTitle(), communicationBridgeListener.isPreview());
         }
     }
 
     @SuppressWarnings("unused")
-    private class BridgeMessage {
+    private static class BridgeMessage {
         @Nullable private String action;
         @Nullable private JsonObject data;
 

@@ -18,14 +18,12 @@ import org.wikipedia.feed.view.DefaultFeedCardView;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.FaceAndColorDetectImageView;
-import org.wikipedia.views.ItemTouchHelperSwipeAdapter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class AnnouncementCardView extends DefaultFeedCardView<AnnouncementCard>
-        implements ItemTouchHelperSwipeAdapter.SwipeableView {
+public class AnnouncementCardView extends DefaultFeedCardView<AnnouncementCard> {
     public interface Callback {
         void onAnnouncementPositiveAction(@NonNull Card card, @NonNull Uri uri);
         void onAnnouncementNegativeAction(@NonNull Card card);
@@ -45,7 +43,8 @@ public class AnnouncementCardView extends DefaultFeedCardView<AnnouncementCard>
         ButterKnife.bind(this);
 
         setNegativeActionVisible(true);
-        footerTextView.setMovementMethod(new LinkMovementMethod());
+        textView.setMovementMethod(LinkMovementMethod.getInstance());
+        footerTextView.setMovementMethod(LinkMovementMethod.getInstance());
     }
 
     @Override public void setCard(@NonNull AnnouncementCard card) {
@@ -92,9 +91,6 @@ public class AnnouncementCardView extends DefaultFeedCardView<AnnouncementCard>
         if (card.hasBorder()) {
             setStrokeColor(getResources().getColor(R.color.red30));
             setStrokeWidth(10);
-            setRadius(0);
-        } else {
-            setStrokeWidth(0);
         }
     }
 

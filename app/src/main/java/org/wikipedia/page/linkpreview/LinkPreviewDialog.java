@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -15,8 +16,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.PopupMenu;
-
-import com.facebook.drawee.view.SimpleDraweeView;
 
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.Constants;
@@ -43,12 +42,12 @@ import org.wikipedia.views.ViewUtil;
 import java.util.ArrayList;
 import java.util.List;
 
-import io.reactivex.Observable;
-import io.reactivex.ObservableSource;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.functions.Function;
-import io.reactivex.schedulers.Schedulers;
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.core.Observable;
+import io.reactivex.rxjava3.core.ObservableSource;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.functions.Function;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 
 import static org.wikipedia.settings.Prefs.isImageDownloadEnabled;
 import static org.wikipedia.util.L10nUtil.getStringForArticleLanguage;
@@ -65,7 +64,6 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
 
     private static final String ARG_ENTRY = "entry";
     private static final String ARG_LOCATION = "location";
-    private static final String ARG_FULL_WIDTH = "fullWidth";
 
     private boolean navigateSuccess = false;
 
@@ -74,7 +72,7 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
     private LinkPreviewErrorView errorContainer;
     private ProgressBar progressBar;
     private TextView extractText;
-    private SimpleDraweeView thumbnailView;
+    private ImageView thumbnailView;
     private GalleryThumbnailScrollView thumbnailGallery;
     private LinkPreviewOverlayView overlayView;
     private TextView titleText;
@@ -88,20 +86,15 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
     private LinkPreviewFunnel funnel;
     private CompositeDisposable disposables = new CompositeDisposable();
 
-    public static LinkPreviewDialog newInstance(@NonNull HistoryEntry entry, @Nullable Location location, boolean fullWidth) {
+    public static LinkPreviewDialog newInstance(@NonNull HistoryEntry entry, @Nullable Location location) {
         LinkPreviewDialog dialog = new LinkPreviewDialog();
         Bundle args = new Bundle();
         args.putParcelable(ARG_ENTRY, entry);
         if (location != null) {
             args.putParcelable(ARG_LOCATION, location);
         }
-        args.putBoolean(ARG_FULL_WIDTH, fullWidth);
         dialog.setArguments(args);
         return dialog;
-    }
-
-    public static LinkPreviewDialog newInstance(@NonNull HistoryEntry entry, @Nullable Location location) {
-        return newInstance(entry, location, false);
     }
 
     @Override
@@ -110,10 +103,6 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
         historyEntry = getArguments().getParcelable(ARG_ENTRY);
         pageTitle = historyEntry.getTitle();
         location = getArguments().getParcelable(ARG_LOCATION);
-
-        if (getArguments().getBoolean(ARG_FULL_WIDTH)) {
-            enableFullWidthDialog();
-        }
 
         View rootView = inflater.inflate(R.layout.dialog_link_preview, container);
         dialogContainer = rootView.findViewById(R.id.dialog_link_preview_container);
@@ -222,13 +211,7 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
                     funnel.setPageId(summary.getPageId());
                     pageTitle.setThumbUrl(summary.getThumbnailUrl());
                     revision = summary.getRevision();
-                    // TODO: Remove this logic once Parsoid starts supporting language variants.
-                    if (pageTitle.getWikiSite().languageCode().equals(pageTitle.getWikiSite().subdomain())) {
-                        titleText.setText(StringUtil.fromHtml(summary.getDisplayTitle()));
-                    } else {
-                        titleText.setText(StringUtil.fromHtml(pageTitle.getDisplayText()));
-                    }
-
+                    titleText.setText(StringUtil.fromHtml(summary.getDisplayTitle()));
                     // TODO: remove after the restbase endpoint supports ZH variants
                     pageTitle.setText(StringUtil.removeNamespace(summary.getApiTitle()));
                     showPreview(new LinkPreviewContents(summary, pageTitle.getWikiSite()));
@@ -305,7 +288,7 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
         String thumbnailImageUrl = contents.getTitle().getThumbUrl();
         if (thumbnailImageUrl != null) {
             thumbnailView.setVisibility(View.VISIBLE);
-            ViewUtil.loadImageUrlInto(thumbnailView, thumbnailImageUrl);
+            ViewUtil.loadImage(thumbnailView, thumbnailImageUrl);
         }
         if (overlayView != null) {
             overlayView.setPrimaryButtonText(getStringForArticleLanguage(pageTitle,

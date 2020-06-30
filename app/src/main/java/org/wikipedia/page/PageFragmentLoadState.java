@@ -5,7 +5,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.bridge.CommunicationBridge;
@@ -24,12 +23,11 @@ import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.ObservableWebView;
 
-import io.reactivex.Completable;
-import io.reactivex.Observable;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.schedulers.Schedulers;
-import okhttp3.CacheControl;
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.core.Completable;
+import io.reactivex.rxjava3.core.Observable;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 
 /**
  * Our  page load strategy, which uses responses from the following to construct the page:
@@ -46,8 +44,6 @@ public class PageFragmentLoadState {
     private interface ErrorCallback {
         void call(@NonNull Throwable error);
     }
-
-    private boolean loading;
 
     @NonNull private Tab currentTab = new Tab();
 
@@ -83,24 +79,8 @@ public class PageFragmentLoadState {
             // update the topmost entry in the backstack, before we start overwriting things.
             updateCurrentBackStackItem();
             currentTab.pushBackStackItem(new PageBackStackItem(model.getTitleOriginal(), model.getCurEntry()));
-
-            if (currentTab.getBackStack().size() > 1 && currentTab.getBackStack().get(0).getTitle().getText().equals(Constants.EMPTY_PAGE_TITLE)) {
-                currentTab.getBackStack().remove(0);
-            }
         }
-
-        loading = true;
-
         pageLoadCheckReadingLists();
-    }
-
-    public boolean isLoading() {
-        return loading;
-    }
-
-    public void onPageFinished() {
-        bridge.onPageFinished();
-        loading = false;
     }
 
     public void loadFromBackStack() {
@@ -163,17 +143,12 @@ public class PageFragmentLoadState {
         fragment.setToolbarFadeEnabled(leadImagesHandler.isLeadImageEnabled());
     }
 
-    public boolean isFirstPage() {
-        return currentTab.getBackStack().size() <= 1 && !webView.canGoBack();
-    }
-
     protected void commonSectionFetchOnCatch(@NonNull Throwable caught) {
         if (!fragment.isAdded()) {
             return;
         }
         ErrorCallback callback = networkErrorCallback;
         networkErrorCallback = null;
-        loading = false;
         fragment.requireActivity().invalidateOptionsMenu();
         if (callback != null) {
             callback.call(caught);
@@ -200,7 +175,6 @@ public class PageFragmentLoadState {
         if (!fragment.isAdded()) {
             return;
         }
-        loading = true;
         fragment.requireActivity().invalidateOptionsMenu();
         if (fragment.callback() != null) {
             fragment.callback().onPageUpdateProgressBar(true, true, 0);
@@ -209,7 +183,7 @@ public class PageFragmentLoadState {
         app.getSessionFunnel().leadSectionFetchStart();
 
         disposables.add(ServiceFactory.getRest(model.getTitle().getWikiSite())
-                .getSummaryResponse(model.getTitle().getPrefixedText(), null, model.shouldForceNetwork() ? CacheControl.FORCE_NETWORK.toString() : null,
+                .getSummaryResponse(model.getTitle().getPrefixedText(), null, model.getCacheControl().toString(),
                         model.shouldSaveOffline() ? OfflineCacheInterceptor.SAVE_HEADER_SAVE : null,
                         model.getTitle().getWikiSite().languageCode(), UriUtil.encodeURL(model.getTitle().getPrefixedText()))
                 .subscribeOn(Schedulers.io())
@@ -220,8 +194,7 @@ public class PageFragmentLoadState {
                             } else {
                                 throw new RuntimeException("Summary response was invalid.");
                             }
-                            if ((pageSummaryResponse.raw().cacheResponse() != null && pageSummaryResponse.raw().networkResponse() == null)
-                                    || OfflineCacheInterceptor.SAVE_HEADER_SAVE.equals(pageSummaryResponse.headers().get(OfflineCacheInterceptor.SAVE_HEADER))) {
+                            if (OfflineCacheInterceptor.SAVE_HEADER_SAVE.equals(pageSummaryResponse.headers().get(OfflineCacheInterceptor.SAVE_HEADER))) {
                                 showPageOfflineMessage(pageSummaryResponse.raw().header("date", ""));
                             }
                             fragment.onPageMetadataLoaded();
@@ -263,7 +236,9 @@ public class PageFragmentLoadState {
             app.getSessionFunnel().noDescription();
         }
 
-        model.getTitle().setDisplayText(page.getDisplayTitle());
+        if (!model.getTitle().isMainPage()) {
+            model.getTitle().setDisplayText(page.getDisplayTitle());
+        }
 
         leadImagesHandler.loadLeadImage();
 

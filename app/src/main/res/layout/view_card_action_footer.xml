@@ -12,6 +12,7 @@
         android:layout_height="match_parent"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:clickable="true"
+        android:focusable="true"
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
         app:layout_constraintStart_toStartOf="parent">
@@ -44,6 +45,7 @@
         android:layout_height="48dp"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:clickable="true"
+        android:focusable="true"
         android:contentDescription="@string/share_via"
         android:paddingStart="16dp"
         android:paddingTop="12dp"

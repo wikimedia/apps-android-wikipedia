@@ -1,6 +1,6 @@
 package org.wikipedia.edit.preview;
 
-import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.res.AssetManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
@@ -17,11 +17,14 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
+import com.google.gson.JsonObject;
+
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.EditFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
 import org.wikipedia.bridge.CommunicationBridge.CommunicationBridgeListener;
+import org.wikipedia.bridge.JavaScriptActionHandler;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.okhttp.OkHttpWebViewClient;
@@ -42,7 +45,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
 
 import static org.wikipedia.dataclient.RestService.PAGE_HTML_PREVIEW_ENDPOINT;
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
@@ -51,14 +54,10 @@ import static org.wikipedia.util.UriUtil.handleExternalLink;
 public class EditPreviewFragment extends Fragment implements CommunicationBridgeListener {
     private ObservableWebView webview;
     private ScrollView previewContainer;
-    private EditSectionActivity parentActivity;
-
-    private ViewGroup editSummaryTagsContainer;
-
-    private String previewHTML;
 
     private PageViewModel model = new PageViewModel();
     private CommunicationBridge bridge;
+    private EditLinkHandler linkHandler;
 
     private List<EditSummaryTag> summaryTags;
     private EditSummaryTag otherTag;
@@ -67,41 +66,16 @@ public class EditPreviewFragment extends Fragment implements CommunicationBridge
     private CompositeDisposable disposables = new CompositeDisposable();
 
     @Override
-    @SuppressLint({"AddJavascriptInterface", "SetJavaScriptEnabled"})
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View parent = inflater.inflate(R.layout.fragment_preview_edit, container, false);
         webview = parent.findViewById(R.id.edit_preview_webview);
         previewContainer = parent.findViewById(R.id.edit_preview_container);
-        editSummaryTagsContainer = parent.findViewById(R.id.edit_summary_tags_container);
+        ViewGroup editSummaryTagsContainer = parent.findViewById(R.id.edit_summary_tags_container);
         bridge = new CommunicationBridge(this);
-        webview.getSettings().setJavaScriptEnabled(true);
-        webview.setWebViewClient(new OkHttpWebViewClient() {
-            @NonNull @Override public PageViewModel getModel() {
-                return model;
-            }
+        linkHandler = new EditLinkHandler(requireActivity());
+        initWebView();
 
-            @Override public void onPageFinished(WebView view, String url) {
-                super.onPageFinished(view, url);
-                parentActivity.showProgressBar(false);
-                parentActivity.supportInvalidateOptionsMenu();
-                //Save the html received from the the wikitext to mobile-html transform, to use in the savedInstanceState
-                view.evaluateJavascript(
-                        "(function() { return (document.documentElement.outerHTML); })();",
-                        html -> {
-                            previewHTML = html;
-                        });
-            }
-        });
-
-        return parent;
-    }
-
-    @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-
-        parentActivity = (EditSectionActivity)getActivity();
-        PageTitle pageTitle = parentActivity.getPageTitle();
+        PageTitle pageTitle = ((EditSectionActivity)requireActivity()).getPageTitle();
         model.setTitle(pageTitle);
         model.setTitleOriginal(pageTitle);
         model.setCurEntry(new HistoryEntry(pageTitle, HistoryEntry.SOURCE_INTERNAL_LINK));
@@ -156,7 +130,7 @@ public class EditPreviewFragment extends Fragment implements CommunicationBridge
             if (otherTag.getSelected()) {
                 otherTag.setSelected(false);
             } else {
-                parentActivity.showCustomSummary();
+                ((EditSectionActivity)requireActivity()).showCustomSummary();
             }
         });
 
@@ -170,7 +144,6 @@ public class EditPreviewFragment extends Fragment implements CommunicationBridge
         }
 
         if (savedInstanceState != null) {
-
             for (int i = 0; i < summaryTags.size(); i++) {
                 summaryTags.get(i).setSelected(savedInstanceState.getBoolean("summaryTag" + i, false));
             }
@@ -178,27 +151,15 @@ public class EditPreviewFragment extends Fragment implements CommunicationBridge
                 otherTag.setSelected(true);
                 otherTag.setText(savedInstanceState.getString("otherTag"));
             }
-
-            previewHTML = savedInstanceState.getString("previewHTML");
-            boolean isActive = savedInstanceState.getBoolean("isActive");
-            previewContainer.setVisibility(isActive ? View.VISIBLE : View.GONE);
-            if (isActive) {
-                displayPreviewHtml(previewHTML);
-            }
         }
-    }
-
-    private void displayPreviewHtml(String previewHTML) {
-        webview.loadData(previewHTML, "text/html", "UTF-8");
-        setUpWebView();
+        previewContainer.setVisibility(View.GONE);
+        return parent;
     }
 
     public void setCustomSummary(String summary) {
         otherTag.setText(summary.length() > 0 ? summary : getString(R.string.edit_summary_tag_other));
         otherTag.setSelected(summary.length() > 0);
     }
-
-    private boolean isWebViewSetup = false;
 
     /**
      * Fetches preview html from the modified wikitext text, and shows (fades in) the Preview fragment,
@@ -209,77 +170,52 @@ public class EditPreviewFragment extends Fragment implements CommunicationBridge
      */
     public void showPreview(final PageTitle title, final String wikiText) {
         hideSoftKeyboard(requireActivity());
-        parentActivity.showProgressBar(true);
-        String url = UriUtil.encodeOkHttpUrl(ServiceFactory.getRestBasePath(model.getTitle().getWikiSite()) + PAGE_HTML_PREVIEW_ENDPOINT, title.getPrefixedText());
-        String postData;
-        postData = "wikitext=" + UriUtil.encodeURL(wikiText);
+        ((EditSectionActivity)requireActivity()).showProgressBar(true);
+
+        String url = ServiceFactory.getRestBasePath(model.getTitle().getWikiSite()) + PAGE_HTML_PREVIEW_ENDPOINT + UriUtil.encodeURL(title.getPrefixedText());
+        String postData = "wikitext=" + UriUtil.encodeURL(wikiText);
         webview.postUrl(url, postData.getBytes());
 
-        setUpWebView();
+        ViewAnimations.fadeIn(previewContainer, () -> requireActivity().invalidateOptionsMenu());
+        ViewAnimations.fadeOut(requireActivity().findViewById(R.id.edit_section_container));
     }
 
-    private void setUpWebView() {
-        if (!isWebViewSetup) {
-            isWebViewSetup = true;
+    private void initWebView() {
+        webview.setWebViewClient(new OkHttpWebViewClient() {
+            @NonNull @Override public PageViewModel getModel() {
+                return model;
+            }
 
-            bridge.addListener("link", new LinkHandler(requireActivity()) {
-                @Override
-                public void onPageLinkClicked(@NonNull String href, @NonNull String linkText) {
-                    // TODO: also need to handle references, issues, disambig, ... in preview eventually
+            @NonNull @Override public LinkHandler getLinkHandler() {
+                return linkHandler;
+            }
+
+            @Override public void onPageFinished(WebView view, String url) {
+                super.onPageFinished(view, url);
+                if (!isAdded()) {
+                    return;
                 }
-
-                @Override
-                public void onInternalLinkClicked(@NonNull final PageTitle title) {
-                    showLeavingEditDialogue(() -> startActivity(PageActivity.newIntentForCurrentTab(getContext(),
-                            new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK), title)));
-                }
-
-                @Override
-                public void onExternalLinkClicked(@NonNull final Uri uri) {
-                    showLeavingEditDialogue(() -> handleExternalLink(getContext(), uri));
-                }
-
-                @Override public void onSVGLinkClicked(@NonNull String href) {
-                    // ignore
-                }
-
-                /**
-                 * Shows the user a dialogue asking them if they really meant to leave the edit
-                 * workflow, and warning them that their changes have not yet been saved.
-                 * @param runnable The runnable that is run if the user chooses to leave.
-                 */
-                private void showLeavingEditDialogue(final Runnable runnable) {
-                    //Ask the user if they really meant to leave the edit workflow
-                    final AlertDialog leavingEditDialog = new AlertDialog.Builder(requireActivity())
-                            .setMessage(R.string.dialog_message_leaving_edit)
-                            .setPositiveButton(R.string.dialog_message_leaving_edit_leave, (dialog, which) -> {
-                                //They meant to leave; close dialogue and run specified action
-                                dialog.dismiss();
-                                runnable.run();
-                            })
-                            .setNegativeButton(R.string.dialog_message_leaving_edit_stay, null)
-                            .create();
-                    leavingEditDialog.show();
-                }
-
-                @Override
-                public WikiSite getWikiSite() {
-                    return parentActivity.getPageTitle().getWikiSite();
-                }
-            });
-            bridge.addListener("image", (messageType, messagePayload) -> {
-                // TODO: do something when an image is clicked in Preview.
-            });
-            bridge.addListener("media", (messageType, messagePayload) -> {
-                // TODO: do something when a video is clicked in Preview.
-            });
-            bridge.addListener("reference", (messageType, messagePayload) -> {
-                // TODO: do something when a reference is clicked in Preview.
-            });
-        }
-
-        ViewAnimations.fadeIn(previewContainer, () -> parentActivity.supportInvalidateOptionsMenu());
-        ViewAnimations.fadeOut(requireActivity().findViewById(R.id.edit_section_container));
+                ((EditSectionActivity)requireActivity()).showProgressBar(false);
+                requireActivity().invalidateOptionsMenu();
+                bridge.execute(JavaScriptActionHandler.setTopMargin(0));
+            }
+        });
+        bridge.addListener("setup", (String messageType, JsonObject messagePayload) -> {
+            // ignore
+        });
+        bridge.addListener("final_setup", (String messageType, JsonObject messagePayload) -> {
+            // ignore
+        });
+        bridge.addListener("link", linkHandler);
+        bridge.addListener("image", (messageType, messagePayload) -> {
+            // TODO: do something when an image is clicked in Preview.
+        });
+        bridge.addListener("media", (messageType, messagePayload) -> {
+            // TODO: do something when a video is clicked in Preview.
+        });
+        bridge.addListener("reference", (messageType, messagePayload) -> {
+            // TODO: do something when a reference is clicked in Preview.
+        });
     }
 
     /**
@@ -314,6 +250,7 @@ public class EditPreviewFragment extends Fragment implements CommunicationBridge
         if (webview != null) {
             webview.clearAllListeners();
             ((ViewGroup) webview.getParent()).removeView(webview);
+            bridge.cleanup();
             webview = null;
         }
         super.onDestroyView();
@@ -333,7 +270,7 @@ public class EditPreviewFragment extends Fragment implements CommunicationBridge
      */
     public void hide() {
         View editSectionContainer = requireActivity().findViewById(R.id.edit_section_container);
-        ViewAnimations.crossFade(previewContainer, editSectionContainer, () -> parentActivity.supportInvalidateOptionsMenu());
+        ViewAnimations.crossFade(previewContainer, editSectionContainer, () -> requireActivity().invalidateOptionsMenu());
     }
 
     public boolean isActive() {
@@ -343,8 +280,6 @@ public class EditPreviewFragment extends Fragment implements CommunicationBridge
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putString("previewHTML", previewHTML);
-        outState.putBoolean("isActive", isActive());
         for (int i = 0; i < summaryTags.size(); i++) {
             outState.putBoolean("summaryTag" + i, summaryTags.get(i).getSelected());
         }
@@ -359,7 +294,64 @@ public class EditPreviewFragment extends Fragment implements CommunicationBridge
     }
 
     @Override
-    public PageTitle getPageTitle() {
-        return model.getTitle();
+    public PageViewModel getModel() {
+        return model;
+    }
+
+    @Override
+    public boolean isPreview() {
+        return true;
+    }
+
+    private class EditLinkHandler extends LinkHandler {
+        EditLinkHandler(@NonNull Context context) {
+            super(context);
+        }
+
+        @Override
+        public void onPageLinkClicked(@NonNull String href, @NonNull String linkText) {
+            // TODO: also need to handle references, issues, disambig, ... in preview eventually
+        }
+
+        @Override
+        public void onInternalLinkClicked(@NonNull final PageTitle title) {
+            showLeavingEditDialogue(() -> startActivity(PageActivity.newIntentForCurrentTab(getContext(),
+                    new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK), title)));
+        }
+
+        @Override
+        public void onExternalLinkClicked(@NonNull final Uri uri) {
+            showLeavingEditDialogue(() -> handleExternalLink(getContext(), uri));
+        }
+
+        @Override
+        public void onMediaLinkClicked(@NonNull PageTitle title) {
+            // ignore
+        }
+
+        /**
+         * Shows the user a dialogue asking them if they really meant to leave the edit
+         * workflow, and warning them that their changes have not yet been saved.
+         *
+         * @param runnable The runnable that is run if the user chooses to leave.
+         */
+        private void showLeavingEditDialogue(final Runnable runnable) {
+            //Ask the user if they really meant to leave the edit workflow
+            final AlertDialog leavingEditDialog = new AlertDialog.Builder(requireActivity())
+                    .setMessage(R.string.dialog_message_leaving_edit)
+                    .setPositiveButton(R.string.dialog_message_leaving_edit_leave, (dialog, which) -> {
+                        //They meant to leave; close dialogue and run specified action
+                        dialog.dismiss();
+                        runnable.run();
+                    })
+                    .setNegativeButton(R.string.dialog_message_leaving_edit_stay, null)
+                    .create();
+            leavingEditDialog.show();
+        }
+
+        @Override
+        public WikiSite getWikiSite() {
+            return model.getTitle().getWikiSite();
+        }
     }
 }

@@ -3,15 +3,12 @@ package org.wikipedia.feed.view;
 import android.content.Context;
 import android.util.AttributeSet;
 
-import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import org.wikipedia.R;
 import org.wikipedia.views.AutoFitRecyclerView;
 import org.wikipedia.views.HeaderMarginItemDecoration;
-import org.wikipedia.views.ItemTouchHelperSwipeAdapter;
 import org.wikipedia.views.MarginItemDecoration;
 
 import static org.wikipedia.util.DimenUtil.getDimension;
@@ -19,7 +16,6 @@ import static org.wikipedia.util.DimenUtil.roundedDpToPx;
 
 public class FeedView extends AutoFitRecyclerView {
     private StaggeredGridLayoutManager recyclerLayoutManager;
-    @Nullable private ItemTouchHelper itemTouchHelper;
 
     public FeedView(Context context) {
         super(context);
@@ -34,18 +30,6 @@ public class FeedView extends AutoFitRecyclerView {
     public FeedView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init();
-    }
-
-    public void setCallback(@Nullable ItemTouchHelperSwipeAdapter.Callback callback) {
-        if (itemTouchHelper != null) {
-            itemTouchHelper.attachToRecyclerView(null);
-            itemTouchHelper = null;
-        }
-
-        if (callback != null) {
-            itemTouchHelper = new ItemTouchHelper(new ItemTouchHelperSwipeAdapter(callback));
-            itemTouchHelper.attachToRecyclerView(this);
-        }
     }
 
     public int getFirstVisibleItemPosition() {

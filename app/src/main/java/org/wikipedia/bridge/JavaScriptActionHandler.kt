@@ -14,7 +14,8 @@ import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.DimenUtil.getDensityScalar
 import org.wikipedia.util.DimenUtil.leadImageHeightForDevice
 import org.wikipedia.util.L10nUtil
-import org.wikipedia.util.L10nUtil.formatDateRelative
+import java.util.*
+import java.util.concurrent.TimeUnit
 import kotlin.math.roundToInt
 
 object JavaScriptActionHandler {
@@ -58,25 +59,28 @@ object JavaScriptActionHandler {
         val anchor = if (anchorLink.contains("#")) anchorLink.substring(anchorLink.indexOf("#") + 1) else anchorLink
         return "var el = document.getElementById('$anchor');" +
                 "window.scrollTo(0, el.offsetTop - (screen.height / 2));" +
-                "setTimeout(function(){ el.style.backgroundColor='#ee0';" +
+                "setTimeout(function(){ el.style.backgroundColor='#fc3';" +
                 "    setTimeout(function(){ el.style.backgroundColor=null; }, 500);" +
                 "}, 250);"
     }
 
     @JvmStatic
-    fun prepareToScrollTo(anchorLink: String, options: String): String {
-        return "pcs.c1.Page.prepareForScrollToAnchor(\"${anchorLink}\", ${options} )"
+    fun prepareToScrollTo(anchorLink: String, highlight: Boolean): String {
+        return "pcs.c1.Page.prepareForScrollToAnchor(\"${anchorLink.replace("\"", "\\\"")}\", { highlight: $highlight } )"
     }
 
     @JvmStatic
-    fun setUp(title: PageTitle): String {
+    fun setUp(context: Context, title: PageTitle, isPreview: Boolean): String {
         val app: WikipediaApp = WikipediaApp.getInstance()
-        val topActionBarHeight = (app.resources.getDimensionPixelSize(R.dimen.lead_no_image_top_offset_dp) / getDensityScalar()).roundToInt()
+        val topActionBarHeight = if (isPreview) 0 else (app.resources.getDimensionPixelSize(R.dimen.lead_no_image_top_offset_dp) / getDensityScalar()).roundToInt()
         val res = L10nUtil.getStringsForArticleLanguage(title, intArrayOf(R.string.description_edit_add_description,
                 R.string.table_infobox, R.string.table_other, R.string.table_close))
+        val leadImageHeight = if (isPreview) 0 else
+            (if (DimenUtil.isLandscape(context) || !Prefs.isImageDownloadEnabled()) 0 else (leadImageHeightForDevice(context) / getDensityScalar()).roundToInt() - topActionBarHeight)
+        val topMargin = topActionBarHeight + 16
 
         return String.format("{" +
-                "   \"platform\": \"pcs.c1.Platforms.ANDROID\"," +
+                "   \"platform\": \"android\"," +
                 "   \"clientVersion\": \"${BuildConfig.VERSION_NAME}\"," +
                 "   \"l10n\": {" +
                 "       \"addTitleDescription\": \"${res[R.string.description_edit_add_description]}\"," +
@@ -92,7 +96,7 @@ object JavaScriptActionHandler {
                 "   \"textSizeAdjustmentPercentage\": \"100%%\"," +
                 "   \"loadImages\": ${Prefs.isImageDownloadEnabled()}," +
                 "   \"userGroups\": \"${AccountUtil.getGroups()}\"" +
-                "}", topActionBarHeight + 16, 16, 48, 16, (leadImageHeightForDevice() / getDensityScalar()).roundToInt() - topActionBarHeight)
+                "}", topMargin, 16, 48, 16, leadImageHeight)
     }
 
     @JvmStatic
@@ -105,47 +109,41 @@ object JavaScriptActionHandler {
         if (model.page == null) {
             return ""
         }
-        val lastModifiedDate = formatDateRelative(model.page!!.pageProperties.lastModified)
         val showTalkLink = !(model.page!!.title.namespace() === Namespace.TALK)
         val showMapLink = model.page!!.pageProperties.geo != null
-        val res = L10nUtil.getStringsForArticleLanguage(model.title, intArrayOf(R.string.read_more_section,
-                R.string.page_similar_titles, R.string.about_article_section,
-                R.string.edit_history_link_text, R.string.last_updated_text, R.string.page_footer_license_text,
-                R.string.talk_page_link_text, R.string.page_view_in_browser, R.string.content_license_cc_by_sa,
-                R.string.map_view_link_text, R.string.reference_list_title))
+        val editedDaysAgo = TimeUnit.MILLISECONDS.toDays(Date().time - model.page!!.pageProperties.lastModified.time)
 
         // TODO: page-library also supports showing disambiguation ("similar pages") links and
         // "page issues". We should be mindful that they exist, even if we don't want them for now.
         val baseURL = ServiceFactory.getRestBasePath(model.title?.wikiSite!!).trimEnd('/')
         return "pcs.c1.Footer.add({" +
-                "   platform: pcs.c1.Platforms.ANDROID," +
-                "   clientVersion: '${BuildConfig.VERSION_NAME}'," +
-                "   title: '${model.title!!.prefixedText}'," +
+                "   platform: \"android\"," +
+                "   clientVersion: \"${BuildConfig.VERSION_NAME}\"," +
+                "   title: \"${model.title!!.prefixedText}\"," +
                 "   menu: {" +
                 "       items: [" +
                                 "pcs.c1.Footer.MenuItemType.lastEdited, " +
                                 (if (showTalkLink) "pcs.c1.Footer.MenuItemType.talkPage, " else "") +
                                 (if (showMapLink) "pcs.c1.Footer.MenuItemType.coordinate, " else "") +
                 "               pcs.c1.Footer.MenuItemType.referenceList " +
-                "              ]" +
+                "              ]," +
+                "       fragment: \"pcs-menu\"," +
+                "       editedDaysAgo: $editedDaysAgo" +
                 "   }," +
-                "   l10n: {" +
-                "           'readMoreHeading': '${res[R.string.read_more_section]}'," +
-                "           'menuDisambiguationTitle': '${res[R.string.page_similar_titles]}'," +
-                "           'menuHeading': '${res[R.string.about_article_section]}'," +
-                "           'menuLastEditedSubtitle': '${res[R.string.edit_history_link_text]}'," +
-                "           'menuLastEditedTitle': '${String.format(res[R.string.last_updated_text], lastModifiedDate)}'," +
-                "           'licenseString': '${res[R.string.page_footer_license_text]}'," +
-                "           'menuTalkPageTitle': '${res[R.string.talk_page_link_text]}'," +
-                "           'viewInBrowserString': '${res[R.string.page_view_in_browser]}'," +
-                "           'licenseSubstitutionString': '${res[R.string.content_license_cc_by_sa]}'," +
-                "           'menuCoordinateTitle': '${res[R.string.map_view_link_text]}'," +
-                "           'menuReferenceListTitle': '${res[R.string.reference_list_title]}'" +
-                "       }," +
                 "   readMore: { " +
                 "       itemCount: 3," +
-                "       baseURL: '${baseURL}'" +
+                "       baseURL: \"${baseURL}\"," +
+                "       fragment: \"pcs-read-more\"" +
                 "   }" +
                 "})"
+    }
+
+    @JvmStatic
+    fun mobileWebChromeShim(): String {
+        return "(function() {" +
+                "let style = document.createElement('style');" +
+                "style.innerHTML = '.header-chrome { visibility: hidden; } #page-secondary-actions { display: none; } .mw-footer { margin-bottom: 48px; }';" +
+                "document.head.appendChild(style);" +
+                "})();"
     }
 }

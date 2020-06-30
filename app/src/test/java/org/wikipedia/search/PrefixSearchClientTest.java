@@ -6,8 +6,7 @@ import org.junit.Test;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.test.MockRetrofitTest;
 
-import io.reactivex.Observable;
-import io.reactivex.observers.TestObserver;
+import io.reactivex.rxjava3.core.Observable;
 
 public class PrefixSearchClientTest extends MockRetrofitTest {
     private static final WikiSite TESTWIKI = new WikiSite("test.wikimedia.org");
@@ -27,43 +26,33 @@ public class PrefixSearchClientTest extends MockRetrofitTest {
 
     @Test public void testRequestSuccess() throws Throwable {
         enqueueFromFile("prefix_search_results.json");
-        TestObserver<SearchResults> observer = new TestObserver<>();
-        getObservable().subscribe(observer);
-
-        observer.assertComplete().assertNoErrors()
+        getObservable().test().await()
+                .assertComplete().assertNoErrors()
                 .assertValue(result -> result.getResults().get(0).getPageTitle().getDisplayText().equals("Narthecium"));
     }
 
     @Test public void testRequestSuccessNoResults() throws Throwable {
         enqueueFromFile("prefix_search_results_empty.json");
-        TestObserver<SearchResults> observer = new TestObserver<>();
-        getObservable().subscribe(observer);
-
-        observer.assertComplete().assertNoErrors()
+        getObservable().test().await()
+                .assertComplete().assertNoErrors()
                 .assertValue(result -> result.getResults().isEmpty());
     }
 
     @Test public void testRequestResponseApiError() throws Throwable {
         enqueueFromFile("api_error.json");
-        TestObserver<SearchResults> observer = new TestObserver<>();
-        getObservable().subscribe(observer);
-
-        observer.assertError(Exception.class);
+        getObservable().test().await()
+                .assertError(Exception.class);
     }
 
-    @Test public void testRequestResponseFailure() {
+    @Test public void testRequestResponseFailure() throws Throwable {
         enqueue404();
-        TestObserver<SearchResults> observer = new TestObserver<>();
-        getObservable().subscribe(observer);
-
-        observer.assertError(Exception.class);
+        getObservable().test().await()
+                .assertError(Exception.class);
     }
 
-    @Test public void testRequestResponseMalformed() {
+    @Test public void testRequestResponseMalformed() throws Throwable {
         enqueueMalformed();
-        TestObserver<SearchResults> observer = new TestObserver<>();
-        getObservable().subscribe(observer);
-
-        observer.assertError(MalformedJsonException.class);
+        getObservable().test().await()
+                .assertError(MalformedJsonException.class);
     }
 }

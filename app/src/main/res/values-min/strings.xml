@@ -52,10 +52,7 @@
   <string name="menu_long_press_open_page">Bukak</string>
   <string name="menu_long_press_open_in_new_tab">Bukak di tab baru</string>
   <string name="menu_long_press_copy_page">Salin alamaik pautan</string>
-  <string name="menu_text_select_copy">Salin</string>
   <string name="menu_text_select_define">Artikan</string>
-  <string name="menu_text_select_share">Bagikan</string>
-  <string name="share">Bagikan</string>
   <string name="on_this_day_page_share">Bagikan</string>
   <string name="reading_list_page_share">Bagikan</string>
   <string name="menu_text_select_edit_here">Suntiang di siko</string>
@@ -104,7 +101,7 @@
   <string name="menu_login">Masuak log</string>
   <string name="login_activity_title">Masuak log ka Wikipedia</string>
   <string name="login_in_progress_dialog_message">Tangah masuak log…</string>
-  <string name="login_success_toast">Barasil masuak log!</string>
+  <string name="login_success_toast" fuzzy="true">Barasil masuak log!</string>
   <string name="reset_password_title">Masuakan kato sandi</string>
   <string name="reset_password_description">Sanak masuak log jo kode samantaro nan disurelkan. Untuak manyalasaian masuak log, atua ulang kato sandi baru di siko:</string>
   <string name="reset_password_hint">Kato sandi baru</string>
@@ -208,7 +205,7 @@
   <string name="read_more_section">Baco salanjuiknyo</string>
   <string name="gallery_menu_share">Bagikan</string>
   <string name="gallery_save_progress">Mangunduah berkas…</string>
-  <string name="gallery_save_success">Berkas barasil disimpan.</string>
+  <string name="gallery_save_success" fuzzy="true">Berkas barasil disimpan.</string>
   <string name="gallery_error_video_failed">Indak dapek mamuta video.</string>
   <string name="gallery_fair_use_license">Panggunoan wajar</string>
   <string name="close_all_tabs_confirm_yes">Yo</string>

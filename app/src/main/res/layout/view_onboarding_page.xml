@@ -4,26 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:layout_height="match_parent"
     tools:layout_width="match_parent"
-    tools:orientation="vertical"
-    tools:parentTag="android.widget.LinearLayout">
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.15" />
+    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/bottomOffset">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.85"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <ImageView
-                android:id="@+id/view_onboarding_page_image_centered"
+                android:id="@+id/imageViewCentered"
                 android:layout_width="160dp"
                 android:layout_height="160dp"
                 android:layout_gravity="center_horizontal"
@@ -41,7 +36,7 @@
                 android:paddingEnd="@dimen/activity_horizontal_margin">
 
                 <org.wikipedia.views.AppTextView
-                    android:id="@+id/view_onboarding_page_primary_text"
+                    android:id="@+id/primaryTextView"
                     style="@style/TextViewCentered"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -53,7 +48,8 @@
                     tools:text="Lorem ipsum" />
 
                 <org.wikipedia.views.AppTextView
-                    android:id="@+id/view_onboarding_page_secondary_text"
+                    android:id="@+id/secondaryTextView"
+                    style="@style/TextViewCentered"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
@@ -64,14 +60,14 @@
                     tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit." />
 
                 <include
-                    android:id="@+id/options_layout"
+                    android:id="@+id/languageListContainer"
                     layout="@layout/view_onboarding_language_list"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:visibility="gone" />
 
                 <LinearLayout
-                    android:id="@+id/view_onboarding_page_switch_container"
+                    android:id="@+id/switchContainer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="6dp"
@@ -84,7 +80,7 @@
                         android:background="?attr/chart_shade5" />
 
                     <androidx.appcompat.widget.SwitchCompat
-                        android:id="@+id/view_onboarding_page_switch"
+                        android:id="@+id/switchView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
@@ -93,6 +89,7 @@
                         android:layout_marginBottom="8dp"
                         android:textColor="?attr/material_theme_primary_color"
                         app:theme="@style/OnboardingSwitch"
+                        android:focusable="true"
                         tools:text="Lorem ipsum" />
 
                     <View
@@ -101,8 +98,9 @@
                         android:background="?attr/chart_shade5" />
                 </LinearLayout>
 
-                <TextView
-                    android:id="@+id/view_onboarding_page_tertiary_text"
+                <org.wikipedia.views.GoneIfEmptyTextView
+                    android:id="@+id/tertiaryTextView"
+                    style="@style/TextViewCentered"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="40dp"
@@ -114,9 +112,12 @@
             </LinearLayout>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
+
     <!-- Bottom control offset -->
     <View
+        android:id="@+id/bottomOffset"
         android:layout_width="match_parent"
-        android:layout_height="48dp" />
+        android:layout_height="48dp"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </merge>

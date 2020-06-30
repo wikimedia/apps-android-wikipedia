@@ -1,10 +1,12 @@
 package org.wikipedia.dataclient.mwapi;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Collections;
 import java.util.Map;
 
 public class MwQueryResponse extends MwResponse {
@@ -19,8 +21,8 @@ public class MwQueryResponse extends MwResponse {
         return batchComplete;
     }
 
-    @Nullable public Map<String, String> continuation() {
-        return continuation;
+    @NonNull public Map<String, String> continuation() {
+        return continuation != null ? continuation : Collections.emptyMap();
     }
 
     @Nullable public MwQueryResult query() {

@@ -19,12 +19,12 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center" />
 
-        <com.facebook.drawee.view.SimpleDraweeView
+        <ImageView
             android:id="@+id/gallery_video_thumbnail"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:contentDescription="@null"
-            app:actualImageScaleType="fitCenter" />
+            android:scaleType="fitCenter" />
 
         <ImageView
             android:id="@+id/gallery_video_play_button"
@@ -35,13 +35,13 @@
             app:srcCompat="@drawable/ic_play_circle" />
     </FrameLayout>
 
-    <org.wikipedia.views.ZoomableDraweeViewWithBackground
+    <com.github.chrisbanes.photoview.PhotoView
         android:id="@+id/gallery_image"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:contentDescription="@null"
         android:visibility="gone"
-        app:actualImageScaleType="fitCenter" />
+        android:scaleType="fitCenter" />
 
     <ProgressBar
         android:id="@+id/gallery_item_progress_bar"

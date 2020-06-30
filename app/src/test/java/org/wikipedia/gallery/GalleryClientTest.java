@@ -7,8 +7,7 @@ import org.wikipedia.test.MockRetrofitTest;
 
 import java.util.List;
 
-import io.reactivex.Observable;
-import io.reactivex.observers.TestObserver;
+import io.reactivex.rxjava3.core.Observable;
 
 public class GalleryClientTest extends MockRetrofitTest {
     private static final String RAW_JSON_FILE = "gallery.json";
@@ -17,11 +16,8 @@ public class GalleryClientTest extends MockRetrofitTest {
     @SuppressWarnings("checkstyle:magicnumber")
     public void testRequestAllSuccess() throws Throwable {
         enqueueFromFile(RAW_JSON_FILE);
-
-        TestObserver<MediaList> observer = new TestObserver<>();
-        getObservable().subscribe(observer);
-
-        observer.assertComplete().assertNoErrors()
+        getObservable().test().await()
+                .assertComplete().assertNoErrors()
                 .assertValue(gallery -> gallery.getItems("image").size() == 1
                         && gallery.getItems("video").size() == 1);
     }
@@ -29,11 +25,8 @@ public class GalleryClientTest extends MockRetrofitTest {
     @Test
     public void testRequestImageSuccess() throws Throwable {
         enqueueFromFile(RAW_JSON_FILE);
-
-        TestObserver<MediaList> observer = new TestObserver<>();
-        getObservable().subscribe(observer);
-
-        observer.assertComplete().assertNoErrors()
+        getObservable().test().await()
+                .assertComplete().assertNoErrors()
                 .assertValue(gallery -> {
                     List<MediaListItem> result = gallery.getItems("image");
                     return result.size() == 1
@@ -47,11 +40,8 @@ public class GalleryClientTest extends MockRetrofitTest {
     @SuppressWarnings("checkstyle:magicnumber")
     public void testRequestVideoSuccess() throws Throwable {
         enqueueFromFile(RAW_JSON_FILE);
-
-        TestObserver<MediaList> observer = new TestObserver<>();
-        getObservable().subscribe(observer);
-
-        observer.assertComplete().assertNoErrors()
+        getObservable().test().await()
+                .assertComplete().assertNoErrors()
                 .assertValue(gallery -> {
                     List<MediaListItem> result = gallery.getItems("video");
                     return result.get(0).getType().equals("video")
@@ -60,18 +50,16 @@ public class GalleryClientTest extends MockRetrofitTest {
                 });
     }
 
-    @Test public void testRequestResponseFailure() {
+    @Test public void testRequestResponseFailure() throws Throwable {
         enqueue404();
-        TestObserver<MediaList> observer = new TestObserver<>();
-        getObservable().subscribe(observer);
-        observer.assertError(Exception.class);
+        getObservable().test().await()
+                .assertError(Exception.class);
     }
 
-    @Test public void testRequestResponseMalformed() {
+    @Test public void testRequestResponseMalformed() throws Throwable {
         enqueueMalformed();
-        TestObserver<MediaList> observer = new TestObserver<>();
-        getObservable().subscribe(observer);
-        observer.assertError(MalformedJsonException.class);
+        getObservable().test().await()
+                .assertError(MalformedJsonException.class);
     }
 
     private Observable<MediaList> getObservable() {

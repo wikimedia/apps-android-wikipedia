@@ -42,9 +42,7 @@
   <string name="menu_long_press_open_page">उघडा</string>
   <string name="menu_long_press_open_in_new_tab">नविन कळीत उघडा</string>
   <string name="menu_long_press_copy_page">दुव्याचा पत्ता उतरवा.</string>
-  <string name="menu_text_select_copy">नक्कल करा</string>
   <string name="menu_text_select_define">व्याख्या करा</string>
-  <string name="menu_text_select_share">वाटा</string>
   <string name="menu_text_select_edit_here">येथे संपादन करा</string>
   <string name="last_updated_text">शेवटचे अद्यतन %s</string>
   <string name="talk_page_link_text" fuzzy="true">चर्चा</string>
@@ -81,9 +79,9 @@
   <string name="login_2fa_hint">दोन पातळ्यांवर वैधता करणारा संकेत</string>
   <string name="login_2fa_other_workflow_error_msg">दोन पातळ्यांवर वैधता तपासणे आवश्यक !  मुख्य क्रियेवर परत जाऊन तुमच्या 2FA टोकनानी पुऩा सनोंद प्रवेश करा, आणि मग पुऩा प्रयत्न करा.</string>
   <string name="menu_login">सनोंद-प्रवेश करा</string>
-  <string name="login_activity_title">विकिपीडियात सनोंद-प्रवेश करा</string>
+  <string name="login_activity_title" fuzzy="true">विकिपीडियात सनोंद-प्रवेश करा</string>
   <string name="login_in_progress_dialog_message">तुमचा प्रवेश नोंदवत आहे…</string>
-  <string name="login_success_toast">यशस्वीरित्या सनोंद प्रवेशित!</string>
+  <string name="login_success_toast" fuzzy="true">यशस्वीरित्या सनोंद प्रवेशित!</string>
   <string name="preference_title_logout">बाहेर पडा</string>
   <string name="toast_logout_complete">सनोंद-निर्गमित</string>
   <string name="history_empty_title">अलीकडील पाने येथे नाहीत!</string>
@@ -202,15 +200,11 @@
   <string name="gallery_menu_share">सहभाग करा</string>
   <string name="gallery_share_error">चित्र सहभागी करु शकलो नाही:%s</string>
   <string name="gallery_save_progress">संचिका अधिभारण करीत आहे…</string>
-  <string name="gallery_save_success">संचिका यशस्वीरित्या जतन केली.</string>
+  <string name="gallery_save_success" fuzzy="true">संचिका यशस्वीरित्या जतन केली.</string>
   <string name="gallery_error_video_failed">व्हिडिओ चालवता आला नाही.</string>
   <string name="gallery_save_image_write_permission_rationale">चित्रे जतन करण्यास, आपल्या उपकरणावर, भांडार-लेखन परवानगी आवश्यक आहे.</string>
   <string name="err_cannot_save_file">संचिका जतन करता येत नाही.</string>
-  <string name="snippet_share_intro">\"%1$s\" @Wikipedia वर: %2$s</string>
   <string name="expand_refs">विस्तार करण्यास टिचकी मारा</string>
-  <string name="share_snippet_button">वित्र म्हणुन सहभाग करा</string>
-  <string name="share_normal_button">मजकूर म्हणून सहभाग करा</string>
-  <string name="snippet_share_preview_image_desc">चित्र झलक दाखवा</string>
   <string name="cc_logo">क्रियेटीव्ह कॉमन्स परवाना</string>
   <string name="captcha_image">कॅप्चा चित्र</string>
   <string name="gallery_fair_use_license">उचीत वापर</string>
@@ -272,8 +266,6 @@
   <string name="nav_item_reading_lists">माझ्या याद्या</string>
   <string name="reading_list_save_to">वाचन यादीत जतन करा</string>
   <string name="reading_list_create_new">नवीन तयार करा</string>
-  <string name="reading_list_added_to_named">%s ला जोडले.</string>
-  <string name="reading_list_already_exists">हा लेख यादीत पूर्वीच आहे.</string>
   <string name="reading_list_added_view_button">यादी बघा</string>
   <string name="reading_list_sort">निवडा</string>
   <string name="reading_list_sort_by_name">नावानुसार निवडा</string>

@@ -31,16 +31,15 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <org.wikipedia.views.FaceAndColorDetectImageView
+        <ImageView
             android:id="@+id/imageView"
-            style="@style/SimpleDraweeViewPlaceholder.SuggestedEdits"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintHeight_percent="0.65"
             android:layout_marginTop="64dp"
-            app:actualImageScaleType="fitCenter"
-            app:fadeDuration="0" />
+            android:scaleType="fitCenter"
+            android:contentDescription="@null"/>
 
         <TextView
             android:id="@+id/imageCaption"

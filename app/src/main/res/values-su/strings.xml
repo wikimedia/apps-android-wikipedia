@@ -52,10 +52,7 @@
   <string name="menu_long_press_open_page">Buka</string>
   <string name="menu_long_press_open_in_new_tab">Buka na tab anyar</string>
   <string name="menu_long_press_copy_page">Tiron alamat tutumbu</string>
-  <string name="menu_text_select_copy">Tiron</string>
   <string name="menu_text_select_define">Hartikeun</string>
-  <string name="menu_text_select_share">Bagikeun</string>
-  <string name="share">Bagikeun</string>
   <string name="on_this_day_page_share">Bagikeun</string>
   <string name="reading_list_page_share">Bagikeun</string>
   <string name="menu_text_select_edit_here">Édit didieu</string>
@@ -101,9 +98,9 @@
   <string name="reading_lists_sync_login">Asup log</string>
   <string name="create_account_login">Asup log</string>
   <string name="menu_login">Asup log</string>
-  <string name="login_activity_title">Asup log ka Wikipédia</string>
+  <string name="login_activity_title" fuzzy="true">Asup log ka Wikipédia</string>
   <string name="login_in_progress_dialog_message">Keur asup log...</string>
-  <string name="login_success_toast">Asup log ngahasil!</string>
+  <string name="login_success_toast" fuzzy="true">Asup log ngahasil!</string>
   <string name="reset_password_title">Atur kecap sandi anjeun</string>
   <string name="reset_password_description">Anjeun asup log migunakeun sandi saheulaanan. Pikeun nganggeuskeun asup log, jieun kecap sandi anyar di dieu.</string>
   <string name="reset_password_hint">Sandi anyar</string>
@@ -251,15 +248,11 @@
   <string name="gallery_menu_share">Bagikeun</string>
   <string name="gallery_share_error">Teu bisa ngabagikeun gambar: %s</string>
   <string name="gallery_save_progress">Keur ngundeur berkas</string>
-  <string name="gallery_save_success">Nyimpen berkas ngahasil</string>
+  <string name="gallery_save_success" fuzzy="true">Nyimpen berkas ngahasil</string>
   <string name="gallery_error_video_failed">Teu bisa maénkeun vidio.</string>
   <string name="gallery_save_image_write_permission_rationale">Idin pikeun nulis kana panyimpenan dina parangkat anjeun dibutuhkeun, pikeun nyimpen gambar.</string>
   <string name="err_cannot_save_file">Teu bisa nyimpen berkas</string>
-  <string name="snippet_share_intro">\"%1$s\" na @Wikipedia: %2$s</string>
   <string name="expand_refs">Toél pikeun ngalegakeun</string>
-  <string name="share_snippet_button">Bagikeun minangka gambar</string>
-  <string name="share_normal_button">Bagikeun minangka téks</string>
-  <string name="snippet_share_preview_image_desc">Pramidang gambar</string>
   <string name="cc_logo">Lisénsi Creative Commons</string>
   <string name="captcha_image">Gambar Captcha</string>
   <string name="gallery_fair_use_license">Pamakéan wajar</string>
@@ -326,8 +319,6 @@
   <string name="reading_list_save_to">Simpen kana daptar bacaan</string>
   <string name="reading_list_create_new">Jieun anyar</string>
   <string name="reading_list_title_exists">Daptar bacaan \"%s\" geus aya.</string>
-  <string name="reading_list_added_to_named">Ditambahkeun kana %s.</string>
-  <string name="reading_list_already_exists">Ieu artikel geus aya na daptar tadi.</string>
   <string name="reading_list_added_view_button">Tempo daptar</string>
   <string name="format_reading_list_statistical_summary_singular">1 artikel, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d artikel, %2$.2f MB</string>
@@ -377,8 +368,7 @@
   <string name="reading_lists_confirm_remote_delete_yes">Nya</string>
   <string name="reading_lists_confirm_remote_delete_no">Teu</string>
   <string name="reading_list_article_save_in_progress">Artikel keur diundeur, sarta bakal nyangkaruk sacara oflén nalika geus bérés.</string>
-  <string name="reading_list_already_contains_selection">Daptar nu dipilih geus aya eusian sakabéh kaca nu dipilih.</string>
-  <string name="reading_list_added_articles_list_titled">%1$d ditambahkeun ka %2$s</string>
+  <string name="reading_list_articles_added_to_named">%1$d ditambahkeun ka %2$s</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Asup log pikeun ngahurungkeun singkronan</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Bolay</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Asup log</string>
@@ -402,7 +392,7 @@
     <item quantity="one">Ieu artikel teu sayaga deui sacara oflén.</item>
     <item quantity="other">Ieu artikel-artikel teu sayaga deui sacara oflén.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync">Daptar bacaan ngahasil disingkronkeun</string>
+  <string name="reading_list_toast_last_sync" fuzzy="true">Daptar bacaan ngahasil disingkronkeun</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">OKÉH</string>
   <string name="reading_list_delete_dialog_ok_button_text">OKÉH</string>
   <string name="reading_list_remove_from_list_dialog_cancel_button_text">Bolay</string>
@@ -518,9 +508,6 @@
   <string name="onboarding_reading_list_sync_title" fuzzy="true">Daptar bacaan kalawan singkronisasi</string>
   <string name="onboarding_analytics_title">Kirim data anonim</string>
   <string name="onboarding_analytics_switch_title">Kirim data pamakéan</string>
-  <string name="onboarding_create_account_sync">Singkronkeun daptar bacaan anjeun</string>
-  <string name="onboarding_create_account_contributions">Catet kontribusi anjeun</string>
-  <string name="onboarding_create_account_preferences">Simpen préferénsi anjeun</string>
   <string name="app_shortcuts_random">Acak</string>
   <string name="app_shortcuts_continue_reading">Tuluykeun Maca</string>
   <string name="app_shortcuts_search">Paluruh</string>

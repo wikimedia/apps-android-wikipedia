@@ -59,6 +59,8 @@
             android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="@null"
             android:visibility="gone"
+            android:clickable="true"
+            android:focusable="true"
             app:srcCompat="@drawable/ic_download_circle_gray_24dp"
             tools:visibility="visible" />
 
@@ -73,15 +75,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <com.facebook.drawee.view.SimpleDraweeView
+        <ImageView
             android:id="@+id/page_list_item_image"
-            style="@style/SimpleDraweeViewPlaceholder"
+            style="@style/ImageViewDefault"
             android:layout_width="@dimen/view_list_card_item_image"
             android:layout_height="@dimen/view_list_card_item_image"
             android:layout_marginEnd="@dimen/list_item_horizontal_padding"
-            app:roundedCornerRadius="2dp" />
+            android:clickable="true"
+            android:focusable="true" />
 
-        <androidx.appcompat.widget.AppCompatImageView
+        <ImageView
             android:id="@+id/page_list_item_selected_image"
             android:layout_width="@dimen/view_list_card_item_image"
             android:layout_height="@dimen/view_list_card_item_image"

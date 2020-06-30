@@ -38,8 +38,6 @@
   <string name="menu_long_press_open_page">తెరువు</string>
   <string name="menu_long_press_open_in_new_tab">కొత్త ట్యాబులో తెరువు</string>
   <string name="menu_long_press_copy_page">లంకె చిరునామాను కాపీచెయ్యి</string>
-  <string name="menu_text_select_copy">కాపీచేయి</string>
-  <string name="menu_text_select_share">పంచుకోండి</string>
   <string name="last_updated_text">చివరి మార్పు %s</string>
   <string name="talk_page_link_text">చర్చా పేజీ చూడండి</string>
   <string name="edit_save_action_license_logged_in" fuzzy="true">భద్రపర్చడం ద్వారా &lt;a href=\"%1$s\"&gt;వాడుక షరతుల&lt;/a&gt;కు అనుగుణంగా ఉంటాననీ, నా రచనలన్నిటినీ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; లైసెన్స్ కింద విడుదల చేస్తున్నాననీ అంగీకరిస్తున్నాను.</string>
@@ -69,9 +67,9 @@
   <string name="login_password_hint">సంకేతపదం</string>
   <string name="account_creation_password_hint">సంకేతపదం</string>
   <string name="menu_login">లాగినవండి</string>
-  <string name="login_activity_title">వికీపీడియాలోకి లాగినవండి</string>
+  <string name="login_activity_title" fuzzy="true">వికీపీడియాలోకి లాగినవండి</string>
   <string name="login_in_progress_dialog_message">మిమల్ని లాగిన్ చేస్తున్నాము…</string>
-  <string name="login_success_toast">లాగిన్ విజయవంతం!</string>
+  <string name="login_success_toast" fuzzy="true">లాగిన్ విజయవంతం!</string>
   <string name="reset_password_hint">కొత్త సంకేతపదం</string>
   <string name="preference_title_logout">నిష్క్రమించండి</string>
   <string name="toast_logout_complete">బయటకు వచ్చేసారు</string>
@@ -182,11 +180,7 @@
   <string name="gallery_save_success" fuzzy="true">బొమ్మ విజయవంతంగా భద్రపరచబడింది.</string>
   <string name="gallery_error_video_failed">దృశ్యకాన్ని ప్రదర్శించలేకపోతున్నాము.</string>
   <string name="err_cannot_save_file">ద్దస్త్రాన్ని భద్రపరచలేము</string>
-  <string name="snippet_share_intro">\@Wikipedia పై \"%1$s\" : %2$s</string>
   <string name="expand_refs">పెద్దది చేసేందుకు ట్యాప్ చెయ్యి</string>
-  <string name="share_snippet_button">బొమ్మగా పంచుకో</string>
-  <string name="share_normal_button">పాఠ్యంగా పంచుకో</string>
-  <string name="snippet_share_preview_image_desc">బొమ్మను మునుజూపు చూడు</string>
   <string name="cc_logo">క్రియేటివ్ కామన్స్ లైసెన్స్</string>
   <string name="captcha_image">కాప్చా బొమ్మ</string>
   <string name="gallery_fair_use_license">సముచితోపయోగం</string>
@@ -261,6 +255,9 @@
   <string name="suggested_edits_image_caption_summary_title_date">తేదీ</string>
   <string name="suggested_edits_image_preview_dialog_date">తేదీ</string>
   <string name="suggested_edits_image_preview_dialog_more_info">మరింత సమాచారం</string>
+  <string name="suggested_edits_learn_more">మరింత తెలుసుకోండి</string>
+  <string name="suggested_edits_contribution_date_yesterday_text">నిన్న</string>
+  <string name="suggested_edits_rewards_continue_button">కొనసాగించు</string>
   <string name="description_edit_revert_subtitle">వికీపీడియాలో మార్పుచేర్పులు చేసినందుకు ధన్యవాదాలు!</string>
   <string name="description_edit_login_cancel_button_text">రద్దుచేయి</string>
   <string name="onboarding_continue">కొనసాగించు</string>

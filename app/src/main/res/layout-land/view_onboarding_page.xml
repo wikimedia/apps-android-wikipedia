@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    tools:layout_height="match_parent"
+    tools:layout_width="match_parent"
+    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:baselineAligned="false">
+        android:baselineAligned="false"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/bottomOffset">
 
         <FrameLayout
             android:layout_width="0dp"
@@ -18,7 +19,7 @@
             android:layout_weight="1">
 
             <ImageView
-                android:id="@+id/view_onboarding_page_image_centered"
+                android:id="@+id/imageViewCentered"
                 android:layout_width="160dp"
                 android:layout_height="160dp"
                 android:layout_gravity="center"
@@ -44,8 +45,8 @@
                 android:paddingTop="24dp">
 
                 <org.wikipedia.views.AppTextView
-                    android:id="@+id/view_onboarding_page_primary_text"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/primaryTextView"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="6dp"
                     android:fontFamily="sans-serif-medium"
@@ -55,7 +56,8 @@
                     tools:text="Lorem ipsum" />
 
                 <org.wikipedia.views.AppTextView
-                    android:id="@+id/view_onboarding_page_secondary_text"
+                    android:id="@+id/secondaryTextView"
+                    style="@style/TextViewCentered"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="12dp"
@@ -66,14 +68,14 @@
                     tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit." />
 
                 <include
-                    android:id="@+id/options_layout"
+                    android:id="@+id/languageListContainer"
                     layout="@layout/view_onboarding_language_list"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:visibility="gone"/>
 
                 <LinearLayout
-                    android:id="@+id/view_onboarding_page_switch_container"
+                    android:id="@+id/switchContainer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
@@ -86,7 +88,7 @@
                         android:background="?attr/chart_shade5" />
 
                     <androidx.appcompat.widget.SwitchCompat
-                        android:id="@+id/view_onboarding_page_switch"
+                        android:id="@+id/switchView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="8dp"
@@ -95,6 +97,7 @@
                         android:layout_marginTop="8dp"
                         android:textColor="?attr/material_theme_primary_color"
                         app:theme="@style/OnboardingSwitch"
+                        android:focusable="true"
                         tools:text="Lorem ipsum" />
 
                     <View
@@ -105,8 +108,9 @@
             </LinearLayout>
 
             <org.wikipedia.views.GoneIfEmptyTextView
-                android:id="@+id/view_onboarding_page_tertiary_text"
-                android:layout_width="wrap_content"
+                android:id="@+id/tertiaryTextView"
+                style="@style/TextViewCentered"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
@@ -117,10 +121,11 @@
         </LinearLayout>
     </LinearLayout>
 
-
     <!-- Bottom control offset -->
     <View
+        android:id="@+id/bottomOffset"
         android:layout_width="match_parent"
-        android:layout_height="48dp" />
+        android:layout_height="48dp"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
-</LinearLayout>
+</merge>

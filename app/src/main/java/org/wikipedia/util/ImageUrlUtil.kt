@@ -14,7 +14,7 @@ object ImageUrlUtil {
     @JvmStatic
     fun getUrlForSize(original: String, size: Int): String {
         val matcher = WIDTH_IN_IMAGE_URL_REGEX.matcher(original)
-        return if (matcher.find() && matcher.group(1).toInt() > size) {
+        return if (matcher.find() && matcher.group(1)!!.toInt() > size) {
             matcher.replaceAll("/${size}px-")
         } else {
             original
@@ -24,7 +24,7 @@ object ImageUrlUtil {
     @JvmStatic
     fun getUrlForPreferredSize(original: String, size: Int): String {
         val matcher = WIDTH_IN_IMAGE_URL_REGEX.matcher(original)
-        return if (matcher.find() && matcher.group(1).toInt() != size) {
+        return if (matcher.find() && matcher.group(1)!!.toInt() != size) {
             matcher.replaceAll("/${size}px-")
         } else {
             original

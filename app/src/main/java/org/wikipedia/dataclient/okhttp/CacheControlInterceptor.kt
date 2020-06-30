@@ -2,25 +2,27 @@ package org.wikipedia.dataclient.okhttp
 
 import okhttp3.Interceptor
 import okhttp3.Response
-import java.util.concurrent.TimeUnit
 
 /**
- * This intercepts the Cache-Control header that is received from the server and manipulates it
- * to work with our caching policy:  All network responses that aren't explicitly marked as no-cache
- * shall be cached for seven (7) days. This will allow the app to temporarily operate offline more
- * seamlessly by taking advantage of more cached data.
+ * This interceptor applies to RESPONSES after they are received from the network, but before
+ * they are written to cache. The goal is to manipulate the headers so that the responses would
+ * be readable from cache conditionally based on the app state, instead of based on what the
+ * server dictates.
  */
 internal class CacheControlInterceptor : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         val rsp = chain.proceed(chain.request())
         val builder = rsp.newBuilder()
-        val noCache = (chain.request().header("Cache-Control") != null
-                && chain.request().header("Cache-Control")!!.contains("no-cache"))
 
-        if (!noCache) {
-            //Override the Cache-Control header with a max-stale directive in order to cache all responses
-            val maxStaleDays = 7
-            builder.header("Cache-Control", "max-stale=" + TimeUnit.DAYS.toSeconds(maxStaleDays.toLong()))
+        if (rsp.cacheControl.mustRevalidate) {
+            // Override the Cache-Control header with just a max-age directive.
+            // Usually the server gives us a "must-revalidate" directive, which forces us to attempt
+            // revalidating from the network even when we're offline, which will cause offline access
+            // of cached data to fail. This effectively strips away "must-revalidate" so that all
+            // cached data will be available offline, given that we provide a "max-stale" directive
+            // when requesting it.
+            builder.header("Cache-Control", "max-age="
+                    + (if (rsp.cacheControl.maxAgeSeconds > 0) rsp.cacheControl.maxAgeSeconds else 0))
         }
 
         // If we're saving the current response to the offline cache, then strip away the Vary header.
