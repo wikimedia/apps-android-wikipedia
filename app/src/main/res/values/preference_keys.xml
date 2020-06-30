@@ -113,8 +113,6 @@
     <string name="preference_key_suggested_edits_override_reverts">suggestedEditsOverrideReverts</string>
     <string name="preference_key_suggested_edits_reactivation_pass_stage_one">suggestedEditsReactivationPassStageOne</string>
     <string name="preference_key_suggested_edits_reactivation_test">suggestedEditsReactivationTest</string>
-    <string name="preference_key_pcs_to_mobilehtml_conversion_attempts">pcsToMobileHtmlConversionAttempts</string>
-    <string name="preference_key_pcs_to_mobilehtml_conversion_complete">pcsToMobileHtmlConversionComplete</string>
     <string name="preference_key_image_tags_onboarding_shown">imageTagsOnboardingShown</string>
     <string name="preference_key_install_referrer_attempts">installReferrerAttempts</string>
     <string name="preference_key_temporary_wikitext_storage">temporaryWikitextStorage</string>
