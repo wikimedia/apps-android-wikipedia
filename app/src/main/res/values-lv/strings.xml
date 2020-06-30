@@ -49,9 +49,6 @@
   <string name="menu_long_press_open_page">Atvērt</string>
   <string name="menu_long_press_open_in_new_tab">Atvērt jaunā cilnē</string>
   <string name="menu_long_press_copy_page">Kopēt saites adresi</string>
-  <string name="menu_text_select_copy">Kopēt</string>
-  <string name="menu_text_select_share">Dalīties</string>
-  <string name="share">Dalīties</string>
   <string name="on_this_day_page_share">Dalīties</string>
   <string name="reading_list_page_share">Dalīties</string>
   <string name="menu_text_select_edit_here">Labot šeit</string>
@@ -84,7 +81,7 @@
   <string name="account_creation_password_hint">Parole</string>
   <string name="login_2fa_hint">Divpakāpju autentifikācijas kods</string>
   <string name="menu_login">Pieslēgties</string>
-  <string name="login_success_toast">Pieslēgšanās veiksmīga!</string>
+  <string name="login_success_toast" fuzzy="true">Pieslēgšanās veiksmīga!</string>
   <string name="reset_password_hint">Jaunā parole</string>
   <string name="reset_password_button">Saglabāt un ieiet</string>
   <string name="preference_title_logout">Iziet</string>
@@ -169,11 +166,8 @@
   <string name="license_title">Licence %s</string>
   <string name="gallery_menu_share">Dalīties</string>
   <string name="gallery_save_progress">Lejuplādē failu...</string>
-  <string name="gallery_save_success">Fails saglabāts veiksmīgi.</string>
+  <string name="gallery_save_success" fuzzy="true">Fails saglabāts veiksmīgi.</string>
   <string name="err_cannot_save_file">Nevar saglabāt failu</string>
-  <string name="share_snippet_button">Kopīgot kā attēlu</string>
-  <string name="share_normal_button">Kopīgot kā tekstu</string>
-  <string name="snippet_share_preview_image_desc">Attēla pirmskats</string>
   <string name="captcha_image">Captcha attēls</string>
   <string name="gallery_uploader_unknown">Augšupielādētājs nav zināms</string>
   <string name="menu_new_tab">Jauna cilne</string>
@@ -220,7 +214,6 @@
   <string name="text_size_decrease">Samazināt teksta izmēru</string>
   <string name="nav_item_reading_lists">Mani saraksti</string>
   <string name="reading_list_create_new">Izveidot jaunu</string>
-  <string name="reading_list_added_to_named">Pievienots %s.</string>
   <string name="reading_list_added_view_button">Skatīt sarakstu</string>
   <string name="format_reading_list_statistical_summary_singular">1 raksts, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d raksti, %2$.2f MB</string>
@@ -364,8 +357,6 @@
   <string name="wikitext_link">Saite</string>
   <string name="wikitext_template">Veidne</string>
   <string name="wikitext_reference">Atsauce</string>
-  <string name="main_drawer_open">Atvērt</string>
-  <string name="main_drawer_close">Aizvērt</string>
   <string name="main_drawer_help">Palīdzība</string>
   <string name="custom_date_picker_dialog_ok_button_text">Labi</string>
   <string name="text_input_dialog_ok_button_text">Labi</string>

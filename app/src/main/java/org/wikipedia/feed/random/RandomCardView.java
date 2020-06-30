@@ -15,9 +15,9 @@ import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.readinglist.database.ReadingListPage;
 
-import io.reactivex.Observable;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.schedulers.Schedulers;
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.core.Observable;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 
 public class RandomCardView extends StaticCardView<RandomCard> {
     public interface Callback {
@@ -58,16 +58,14 @@ public class RandomCardView extends StaticCardView<RandomCard> {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .map(pageSummary -> new PageTitle(null, pageSummary.getApiTitle(), WikipediaApp.getInstance().getWikiSite()))
-                .onErrorResumeNext(throwable -> {
-                    return Observable.fromCallable(() -> {
-                                ReadingListPage page = ReadingListDbHelper.instance().getRandomPage();
-                                if (page == null) {
-                                    throw (Exception) throwable;
-                                }
-                                return ReadingListPage.toPageTitle(page);
+                .onErrorResumeNext(throwable -> Observable.fromCallable(() -> {
+                            ReadingListPage page = ReadingListDbHelper.instance().getRandomPage();
+                            if (page == null) {
+                                throw (Exception) throwable;
                             }
-                    );
-                })
+                            return ReadingListPage.toPageTitle(page);
+                        }
+                ))
                 .doAfterTerminate(() -> setProgress(false))
                 .subscribe(pageTitle -> {
                     if (getCallback() != null && getCard() != null) {

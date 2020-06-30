@@ -66,10 +66,7 @@
   <string name="menu_long_press_open_page">Åbn</string>
   <string name="menu_long_press_open_in_new_tab">Åbn i ny fane</string>
   <string name="menu_long_press_copy_page">Kopier link-adresse</string>
-  <string name="menu_text_select_copy">Kopier</string>
   <string name="menu_text_select_define">Definer</string>
-  <string name="menu_text_select_share">Del</string>
-  <string name="share">Del</string>
   <string name="on_this_day_page_share">Del</string>
   <string name="reading_list_page_share">Del</string>
   <string name="menu_text_select_edit_here">Rediger her</string>
@@ -116,9 +113,9 @@
   <string name="reading_lists_sync_login">Log på</string>
   <string name="create_account_login">Log på</string>
   <string name="menu_login">Log på</string>
-  <string name="login_activity_title">Log på Wikipedia</string>
+  <string name="login_activity_title">Log ind</string>
   <string name="login_in_progress_dialog_message">Logger dig på…</string>
-  <string name="login_success_toast">Du er nu logget på!</string>
+  <string name="login_success_toast" fuzzy="true">Du er nu logget på!</string>
   <string name="reset_password_title">Sæt din adgangskode</string>
   <string name="reset_password_description">Du loggede på med en midlertidig kode. For at afslutte indlogning, angiv venligst din nye adgangskode her.</string>
   <string name="reset_password_hint">Ny adgangskode</string>
@@ -270,15 +267,11 @@
   <string name="gallery_menu_share">Del</string>
   <string name="gallery_share_error">Kunne ikke dele billedet: %s</string>
   <string name="gallery_save_progress">Henter fil…</string>
-  <string name="gallery_save_success">Filen er gemt.</string>
+  <string name="gallery_save_success" fuzzy="true">Filen er gemt.</string>
   <string name="gallery_error_video_failed">Kan ikke afspille video.</string>
   <string name="gallery_save_image_write_permission_rationale">Tilladelse til lagring på din enhed er påkrævet for at gemme billeder.</string>
   <string name="err_cannot_save_file">Kan ikke gemme filen</string>
-  <string name="snippet_share_intro">»%1$s« på @Wikipedia: %2$s</string>
   <string name="expand_refs">Tryk for at udvide</string>
-  <string name="share_snippet_button">Del som billede</string>
-  <string name="share_normal_button">Del som tekst</string>
-  <string name="snippet_share_preview_image_desc">Forhåndsvis billede</string>
   <string name="cc_logo">Creative Commons-licens</string>
   <string name="captcha_image">Captcha-billede</string>
   <string name="gallery_fair_use_license">Fair use</string>
@@ -358,8 +351,7 @@
   <string name="reading_list_save_to">Gem til læseliste</string>
   <string name="reading_list_create_new">Opret ny</string>
   <string name="reading_list_title_exists">Læselisten »%s« findes allerede.</string>
-  <string name="reading_list_added_to_named">Tilføjet til %s.</string>
-  <string name="reading_list_already_exists">Denne artikel er allerede på den liste.</string>
+  <string name="reading_list_article_added_to_named">Tilføjede %1$s til %2$s.</string>
   <string name="reading_list_added_view_button">Vis liste</string>
   <string name="format_reading_list_statistical_summary_singular">1 artikel, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d artikler, %2$.2f MB</string>
@@ -415,8 +407,7 @@
   <string name="reading_lists_confirm_remote_delete_yes">Ja</string>
   <string name="reading_lists_confirm_remote_delete_no">Nej</string>
   <string name="reading_list_article_save_in_progress">Artiklen hentes og vil være tilgængelig lokalt når færdig.</string>
-  <string name="reading_list_already_contains_selection">Den valgte liste indeholder allerede alle de valgte sider.</string>
-  <string name="reading_list_added_articles_list_titled">Tilføjede %1$d artikler til %2$s</string>
+  <string name="reading_list_articles_added_to_named">Tilføjede %1$d artikler til %2$s</string>
   <string name="reading_list_delete_confirm">Er du sikker på, at du ønsker at slette %s?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Log ind for at aktivere synkronsering</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Log ind for at tillade at dine læselister gemmes på din konto.</string>
@@ -452,7 +443,7 @@
     <item quantity="one">Denne artikel vil ikke længere være tilgængelig lokalt.</item>
     <item quantity="other">Disse artikler vil ikke længere være tilgængelige lokalt.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync">Læselisterne blev synkroniseret</string>
+  <string name="reading_list_toast_last_sync" fuzzy="true">Læselisterne blev synkroniseret</string>
   <string name="reading_list_menu_last_sync">Sidste synkronosering: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">OK</string>
   <string name="reading_list_delete_dialog_ok_button_text">OK</string>
@@ -620,8 +611,24 @@
   <string name="suggested_edits_image_caption_summary_title_date">Dato</string>
   <string name="suggested_edits_feed_card_title">Foreslåede redigeringer</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Kom i gang</string>
+  <string name="suggested_edits_image_preview_dialog_file">Fil</string>
+  <string name="suggested_edits_contribute">Bidrag</string>
+  <string name="suggested_edits_learn_more">Lær mere</string>
+  <string name="suggested_edits_paused_title">Sat på pause</string>
+  <string name="suggested_edits_disabled_title">Deaktiveret</string>
+  <string name="suggested_edits_ip_blocked_title">IP-blokeret</string>
   <string name="suggested_edits_last_edited">Sidst redigeret</string>
   <string name="suggested_edits_last_edited_never">Aldrig</string>
+  <string name="suggested_edits_contribution_language_label">Sprog</string>
+  <string name="suggested_edits_contribution_image_label">Fil</string>
+  <string name="suggested_edits_contribution_article_label">Artikel</string>
+  <string name="suggested_edits_contribution_date_yesterday_text">I går</string>
+  <string name="suggested_edits_rewards_continue_button">Fortsæt</string>
+  <string name="suggested_edits_contribution_current_revision">Nuværende version</string>
+  <plurals name="suggested_edits_added_contribution_label">
+    <item quantity="one">Du tilføjede %d tegn</item>
+    <item quantity="other">Du tilføjede %d tegn</item>
+  </plurals>
   <string name="description_edit_revert_subtitle">Tak for din redigering af Wikipedia!</string>
   <string name="description_edit_revert_intro">Vi ved at du har gjort dit bedste, men en af korrekturlæserne havde en indvending. Blandt mulige årsager til at din redigering blev omgjort kan nævnes:</string>
   <string name="description_edit_revert_reason1">dit bidrag fulgte ikke en af &lt;a href=\"%1$s\"&gt;retningslinjerne&lt;/a&gt;.</string>
@@ -643,9 +650,6 @@
   <string name="onboarding_analytics_title">Send anonyme data</string>
   <string name="onboarding_analytics_offline_text">Hjælp med at gøre programmet bedre ved at fortælle os hvordan du bruger den. Data indsamles anonymt. &lt;a href=\"#privacy\"&gt;Lær mere&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Send brugsdata</string>
-  <string name="onboarding_create_account_sync">Synkroniser dine læselister</string>
-  <string name="onboarding_create_account_contributions">Hold styr på dine bidrag</string>
-  <string name="onboarding_create_account_preferences">Gem dine præferencer</string>
   <string name="onboarding_got_it">O.k.</string>
   <string name="onboarding_multilingual_secondary_text">Vi har fundet følgende på din enhed:</string>
   <string name="onboarding_multilingual_add_language_text">Tilføj eller rediger sprog</string>
@@ -695,13 +699,12 @@
   <string name="edit_conflict_dialog_ok_button_text">OK</string>
   <string name="reverted_edit_dialog_ok_button_text">OK</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">Annullér</string>
+  <string name="edit_type_all">Alle bidrag</string>
   <string name="wikitext_bold">Fed</string>
   <string name="wikitext_italic">Kursiv</string>
   <string name="wikitext_numbered_list">Nummereret liste</string>
   <string name="wikitext_template">Skabelon</string>
   <string name="wikitext_reference">Reference</string>
-  <string name="main_drawer_open">Åben</string>
-  <string name="main_drawer_close">Luk</string>
   <string name="main_drawer_help">Hjælp</string>
   <string name="main_drawer_login">Log på / registrer dig på Wikipedia</string>
   <string name="main_tooltip_action_button">Kom i gang</string>

@@ -53,10 +53,7 @@
   <string name="menu_long_press_open_page">Oscail</string>
   <string name="menu_long_press_open_in_new_tab">Oscail i dtáb nua</string>
   <string name="menu_long_press_copy_page">Cóipeáil seoladh an naisc</string>
-  <string name="menu_text_select_copy">Cóipeáil</string>
   <string name="menu_text_select_define">Sainmhínigh</string>
-  <string name="menu_text_select_share">Comhroinn</string>
-  <string name="share">Comhroinn</string>
   <string name="on_this_day_page_share">Comhroinn</string>
   <string name="reading_list_page_share">Comhroinn</string>
   <string name="menu_text_select_edit_here">Cuir in eagar anseo</string>
@@ -103,9 +100,9 @@
   <string name="reading_lists_sync_login">Logáil isteach</string>
   <string name="create_account_login">Logáil isteach</string>
   <string name="menu_login">Logáil isteach</string>
-  <string name="login_activity_title">Logáil isteach</string>
+  <string name="login_activity_title" fuzzy="true">Logáil isteach</string>
   <string name="login_in_progress_dialog_message">Tá tú á logáil isteach...</string>
-  <string name="login_success_toast">D\'éirigh leat logáil isteach!</string>
+  <string name="login_success_toast" fuzzy="true">D\'éirigh leat logáil isteach!</string>
   <string name="reset_password_title">Socraigh do phasfhocal</string>
   <string name="reset_password_description">Logáil tú isteach le pasfhocal sealadach. Socraigh do phasfhocal nua anseo leis an logáil isteach a chur i gcrích.</string>
   <string name="reset_password_hint">Pasfhocal nua</string>
@@ -249,15 +246,11 @@
   <string name="gallery_menu_share">Comhroinn</string>
   <string name="gallery_share_error">Níorbh fhéidir íomhá a roinnt: %s</string>
   <string name="gallery_save_progress">Ag íoslódáil comhaid...</string>
-  <string name="gallery_save_success">D\'éirigh le comhad a sábháil.</string>
+  <string name="gallery_save_success" fuzzy="true">D\'éirigh le comhad a sábháil.</string>
   <string name="gallery_error_video_failed">Níorbh fhéidir an físeán a sheinm.</string>
   <string name="gallery_save_image_write_permission_rationale">Le híomhánna a shábháil, éilítear cead sonraí a chur i stóras ar do ghléas.</string>
   <string name="err_cannot_save_file">Ní féidir an comhad a shábháil</string>
-  <string name="snippet_share_intro">\"%1$s\" ar @Wikipedia: %2$s</string>
   <string name="expand_refs">Tapáil le fairsingiú</string>
-  <string name="share_snippet_button">Comhroinn mar íomhá</string>
-  <string name="share_normal_button">Comhroinn mar théacs</string>
-  <string name="snippet_share_preview_image_desc">Tabhair réamhamharc ar íomhá</string>
   <string name="cc_logo">Ceadúnas Creative Commons</string>
   <string name="captcha_image">Íomhá captcha</string>
   <string name="gallery_fair_use_license">Úsáid chóir</string>
@@ -335,8 +328,6 @@
   <string name="reading_list_save_to">Sábháil ar liosta léitheoireachta</string>
   <string name="reading_list_create_new">Cruthaigh nua</string>
   <string name="reading_list_title_exists">Tá liosta \"%s\" ann cheana féin.</string>
-  <string name="reading_list_added_to_named">Cuireadh ar %s é.</string>
-  <string name="reading_list_already_exists">Tá an t-alt seo ar an liosta sin cheana féin.</string>
   <string name="reading_list_added_view_button">Féach ar liosta</string>
   <string name="format_reading_list_statistical_summary_singular">1 alt amháin, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d alt, %2$.2f MB</string>
@@ -389,8 +380,7 @@
   <string name="reading_lists_confirm_remote_delete_yes">Bain</string>
   <string name="reading_lists_confirm_remote_delete_no">Ná bain</string>
   <string name="reading_list_article_save_in_progress">Tá an t-alt á íoslódáil, agus beidh sé ar fáil as líne nuair a bheidh sé críochnaithe.</string>
-  <string name="reading_list_already_contains_selection">Tá na leathanaigh roghnaithe go léir le fáil sa liosta roghnaithe cheana féin.</string>
-  <string name="reading_list_added_articles_list_titled">Cuireadh %1$d alt le %2$s</string>
+  <string name="reading_list_articles_added_to_named">Cuireadh %1$d alt le %2$s</string>
   <string name="reading_list_delete_confirm">An bhfuil tú cinnte gur mhaith leat %s a scriosadh?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Logáil isteach le sioncronú a chumasú</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Logáil isteach le ceadú go sábhálfar do chuid liostaí léitheoireachta chuig do chuntas.</string>
@@ -425,7 +415,7 @@
     <item quantity="one">Ní bheidh an t-alt seo ar fáil as líne a thuilleadh.</item>
     <item quantity="other">Ní bheidh na hailt seo ar fáil as líne a thuilleadh.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync">D\'éirigh le liostaí léitheoireachta a shioncrónú</string>
+  <string name="reading_list_toast_last_sync" fuzzy="true">D\'éirigh le liostaí léitheoireachta a shioncrónú</string>
   <string name="reading_list_menu_last_sync">Sioncronú is deireanaí: %s</string>
   <string name="reading_list_remove_from_list_dialog_cancel_button_text">Cealaigh</string>
   <string name="reading_list_delete_dialog_cancel_button_text">Cealaigh</string>
@@ -601,9 +591,6 @@
   <string name="onboarding_analytics_title">Seol sonraí anaithnid</string>
   <string name="onboarding_analytics_offline_text">Cuidigh leis an aip a fheabhsú trí muid a chur ar an eolas ar conas mar a úsáideann tú é. Is anaithnid na sonraí a bhailítear. &lt;a href=\"#privacy\"&gt;Foghlaim tuilleadh&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Seol sonraí úsáide</string>
-  <string name="onboarding_create_account_sync">Sioncronaigh do chuid liostaí léitheoireachta</string>
-  <string name="onboarding_create_account_contributions">Coinnigh súil ar do chuid dréachtaí</string>
-  <string name="onboarding_create_account_preferences">Sábháil do chuid sainroghanna</string>
   <string name="onboarding_got_it">Tuigim</string>
   <string name="onboarding_multilingual_secondary_text">D\'aimsíomar na teangacha seo a leanas ar do ghléas:</string>
   <string name="onboarding_multilingual_add_language_text">Cuir teangacha leis nó cuir in eagar iad</string>
@@ -645,8 +632,6 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Ní dhéanfaidh mé é</string>
   <string name="remove_language_dialog_cancel_button_text">Cealaigh</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">Cealaigh</string>
-  <string name="main_drawer_open">Oscail</string>
-  <string name="main_drawer_close">Dún</string>
   <string name="main_drawer_help">Cabhair</string>
   <string name="main_drawer_login">Logáil isteach / cláraigh le Vicipéid</string>
   <string name="text_input_dialog_cancel_button_text">Cealaigh</string>

@@ -125,11 +125,7 @@
   <string name="gallery_save_success" fuzzy="true">Hmanthlak a khon khawh cang.</string>
   <string name="gallery_error_video_failed">Video a langh kholo.</string>
   <string name="err_cannot_save_file">File a khong kholo</string>
-  <string name="snippet_share_intro">\@Wikipedia ah \"%1$s\": %2$s</string>
   <string name="expand_refs">Kauh ding in hmet</string>
-  <string name="share_snippet_button">Hmanthlak hrawmh ding</string>
-  <string name="share_normal_button">Biafang hrawmh ding</string>
-  <string name="snippet_share_preview_image_desc">Hmanthlak zohchunnak</string>
   <string name="cc_logo">Creative Commons license</string>
   <string name="captcha_image">Captcha hmanthlak</string>
   <string name="gallery_fair_use_license">Rikhiah hmannak nawl</string>

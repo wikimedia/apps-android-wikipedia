@@ -18,7 +18,7 @@ import org.wikipedia.suggestededits.provider.SuggestedEditItem;
 import java.util.List;
 import java.util.Map;
 
-import io.reactivex.Observable;
+import io.reactivex.rxjava3.core.Observable;
 import retrofit2.Call;
 import retrofit2.Response;
 import retrofit2.http.Body;

@@ -17,19 +17,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
-        <FrameLayout
-            android:id="@+id/page_empty_container"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="?attr/paper_color"
-            android:visibility="gone"
-            tools:visibility="visible">
-        </FrameLayout>
-
         <org.wikipedia.page.leadimages.PageHeaderView
             android:id="@+id/page_header_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="16dp"
             android:visibility="gone" />
 
         <org.wikipedia.views.WikiErrorView

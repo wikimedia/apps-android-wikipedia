@@ -55,10 +55,7 @@
   <string name="menu_long_press_open_page">തുറക്കുക</string>
   <string name="menu_long_press_open_in_new_tab">പുതിയ ടാബിൽ തുറക്കുക</string>
   <string name="menu_long_press_copy_page">കണ്ണിയുടെ വിലാസം പകർത്തുക</string>
-  <string name="menu_text_select_copy">പകർത്തുക</string>
   <string name="menu_text_select_define">ശുദ്ധീകരിച്ചെടുക്കുക</string>
-  <string name="menu_text_select_share">പങ്കുവയ്ക്കുക</string>
-  <string name="share">പങ്കുവയ്ക്കുക</string>
   <string name="on_this_day_page_share">പങ്കുവയ്ക്കുക</string>
   <string name="reading_list_page_share">പങ്കുവയ്ക്കുക</string>
   <string name="menu_text_select_edit_here">ഇവിടെ തിരുത്തുക</string>
@@ -103,9 +100,9 @@
   <string name="reading_lists_sync_login">പ്രവേശിക്കുക</string>
   <string name="create_account_login">പ്രവേശിക്കുക</string>
   <string name="menu_login">പ്രവേശിക്കുക</string>
-  <string name="login_activity_title">വിക്കിപീഡിയയിൽ പ്രവേശിക്കുക</string>
+  <string name="login_activity_title" fuzzy="true">വിക്കിപീഡിയയിൽ പ്രവേശിക്കുക</string>
   <string name="login_in_progress_dialog_message">താങ്കളെ പ്രവേശിപ്പിക്കുന്നു…</string>
-  <string name="login_success_toast">പ്രവേശനം വിജയകരം!</string>
+  <string name="login_success_toast" fuzzy="true">പ്രവേശനം വിജയകരം!</string>
   <string name="reset_password_title">താങ്കളുടെ രഹസ്യവാക്ക് സജ്ജീകരിക്കുക</string>
   <string name="reset_password_description">താൽക്കാലിക രഹസ്യവാക്ക് ഉപയോഗിച്ചാണ് താങ്കൾ പ്രവേശിച്ചിരിക്കുന്നത്.\nപ്രവേശനം പൂർത്തിയാക്കാൻ, ഇവിടെ പുതിയ രഹസ്യവാക്ക് സജ്ജമാക്കുക:</string>
   <string name="reset_password_hint">പുതിയ രഹസ്യവാക്ക്</string>
@@ -236,8 +233,6 @@
   <string name="gallery_save_progress">പ്രമാണം ഡൗൺലോഡ് ചെയ്യുന്നു...</string>
   <string name="gallery_error_video_failed">വീഡിയോ പ്രവർത്തിപ്പിക്കാൻ കഴിഞ്ഞില്ല.</string>
   <string name="err_cannot_save_file">പ്രമാണം സേവ് ചെയ്യാനാകില്ല</string>
-  <string name="share_snippet_button">ചിത്രമായി പങ്കുവയ്ക്കുക</string>
-  <string name="share_normal_button">എഴുത്തായി പങ്കുവയ്ക്കുക</string>
   <string name="cc_logo">ക്രീയേറ്റീവ് കോമൺസ് അനുമതിപത്രം</string>
   <string name="captcha_image">ക്യാപ്ച ചിത്രം</string>
   <string name="gallery_fair_use_license">ന്യായോപയോഗം</string>
@@ -299,8 +294,6 @@
   <string name="nav_item_reading_lists">എന്റെ പട്ടികകൾ</string>
   <string name="reading_list_save_to">വായന പട്ടികയിലേക്ക് ചേർക്കുക</string>
   <string name="reading_list_create_new">പുതിയത് സൃഷ്ടിക്കുക</string>
-  <string name="reading_list_added_to_named">%s പട്ടികയിലേക്ക് ചേർക്കുക</string>
-  <string name="reading_list_already_exists">ഈ ലേഖനം പട്ടികയിൽ നേരത്തേയുണ്ട്.</string>
   <string name="reading_list_added_view_button">പട്ടിക കാണുക</string>
   <string name="reading_list_sort">ക്രമീകരിക്കുക</string>
   <string name="reading_list_sort_ellipsis">ഇങ്ങനെ ക്രമപ്പെടുത്തുക...</string>
@@ -472,8 +465,6 @@
   <string name="onboarding_continue">തുടരുക</string>
   <string name="onboarding_get_started">തുടക്കം കുറിക്കുക</string>
   <string name="onboarding_maybe_later">പിന്നീട് ആലോചിക്കാം</string>
-  <string name="onboarding_create_account_sync">വായനാ പട്ടികകൾ ഏകോപിപ്പിക്കുക</string>
-  <string name="onboarding_create_account_preferences">താങ്കളുടെ ക്രമീകരണങ്ങൾ സേവ് ചെയ്യുക</string>
   <string name="onboarding_got_it">മനസ്സിലായി</string>
   <string name="onboarding_multilingual_add_language_text">ഭാഷകൾ ചേർക്കുകയോ തിരുത്തുകയോ ചെയ്യുക</string>
   <string name="app_shortcuts_random">ക്രമരഹിതം</string>
@@ -510,8 +501,6 @@
   <string name="wikitext_template">ഫലകം</string>
   <string name="wikitext_reference">അവലംബം</string>
   <string name="wikitext_preview_link">അവലോകന കണ്ണി</string>
-  <string name="main_drawer_open">തുറക്കുക</string>
-  <string name="main_drawer_close">അടയ്ക്കുക</string>
   <string name="main_drawer_help">സഹായം</string>
   <string name="main_drawer_login">പ്രവേശിക്കുക/വിക്കിപീഡിയയിൽ ചേരുക</string>
   <string name="custom_date_picker_dialog_ok_button_text">ശരി</string>

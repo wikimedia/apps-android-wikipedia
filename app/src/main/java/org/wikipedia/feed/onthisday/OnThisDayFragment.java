@@ -31,7 +31,6 @@ import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.readinglist.AddToReadingListDialog;
-import org.wikipedia.util.AnimationUtil;
 import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.ResourceUtil;
@@ -51,9 +50,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.schedulers.Schedulers;
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 
 import static org.wikipedia.Constants.INTENT_EXTRA_INVOKE_SOURCE;
 import static org.wikipedia.Constants.InvokeSource.ON_THIS_DAY_ACTIVITY;
@@ -98,7 +97,6 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_on_this_day, container, false);
-        AnimationUtil.setSharedElementTransitions(requireActivity());
         unbinder = ButterKnife.bind(this, view);
         int age = requireActivity().getIntent().getIntExtra(AGE, 0);
         wiki = requireActivity().getIntent().getParcelableExtra(WIKISITE);
@@ -121,7 +119,7 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
                 }
                 updateContents(age);
                 ValueAnimator colorAnimation = ValueAnimator.ofObject(new ArgbEvaluator(), dayText.getCurrentTextColor(),
-                        ResourceUtil.getThemedColor(requireContext(), R.attr.main_toolbar_title_color));
+                        ResourceUtil.getThemedColor(requireContext(), R.attr.toolbar_title_color));
                 colorAnimation.addUpdateListener(animator -> {
                     if (dayText != null) {
                         dayText.setTextColor((Integer) animator.getAnimatedValue());
@@ -130,7 +128,7 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
                 colorAnimation.start();
             }, animDelay);
         } else {
-            dayText.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.main_toolbar_title_color));
+            dayText.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.toolbar_title_color));
             updateContents(age);
         }
 
@@ -179,7 +177,7 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
         getAppCompatActivity().setSupportActionBar(toolbar);
         getAppCompatActivity().getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getAppCompatActivity().getSupportActionBar().setTitle("");
-        collapsingToolbarLayout.setCollapsedTitleTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.main_toolbar_title_color));
+        collapsingToolbarLayout.setCollapsedTitleTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.toolbar_title_color));
         dayText.setText(DateUtil.getMonthOnlyDateString(date.getTime()));
         indicatorLayout.setAlpha((date.get(Calendar.MONTH) == Calendar.getInstance().get(Calendar.MONTH) && date.get(Calendar.DATE) == Calendar.getInstance().get(Calendar.DATE)) ? HALF_ALPHA : 1.0f);
         indicatorDate.setText(String.format(Locale.getDefault(), "%d", Calendar.getInstance().get(Calendar.DATE)));

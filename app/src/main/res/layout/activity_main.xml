@@ -1,84 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<org.wikipedia.views.WikiDrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/navigation_drawer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_gravity="start"
+    android:orientation="vertical"
     tools:context=".main.MainActivity">
 
-    <FrameLayout
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/single_fragment_toolbar"
+        style="@style/ToolbarStyle"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="?attr/actionBarSize"
+        android:layout_marginStart="-12dp"
+        android:background="?attr/paper_color"
+        android:elevation="4dp"
+        app:titleTextAppearance="@style/LargeTextToolbarTitleText"
+        app:titleMarginStart="28dp"
+        app:titleTextColor="?attr/toolbar_title_color">
 
-        <FrameLayout
-            android:id="@+id/fragment_container"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+        <ImageView
+            android:id="@+id/single_fragment_toolbar_wordmark"
+            android:layout_width="128dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:contentDescription="@null"
+            app:srcCompat="@drawable/feed_header_wordmark"
+            app:tint="?attr/toolbar_title_color" />
+    </androidx.appcompat.widget.Toolbar>
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/single_fragment_toolbar"
-            style="@style/ToolbarStyle"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/main_toolbar_color"
-            android:elevation="4dp"
-            android:layout_marginStart="-12dp"
-            app:titleTextColor="?attr/main_toolbar_title_color"
-            app:titleMarginStart="28dp">
-
-            <LinearLayout
-                android:id="@+id/hamburger_and_wordmark_layout"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <FrameLayout
-                    android:id="@+id/drawer_icon_layout"
-                    android:layout_width="48dp"
-                    android:layout_height="match_parent"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    android:contentDescription="@string/main_drawer_content_description">
-
-                    <ImageView
-                        android:id="@+id/drawer_icon_menu"
-                        android:layout_width="24dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:contentDescription="@string/main_drawer_content_description"
-                        app:srcCompat="@drawable/ic_menu_themed_24dp" />
-
-                    <ImageView
-                        android:id="@+id/drawer_icon_dot"
-                        android:layout_width="8dp"
-                        android:layout_height="8dp"
-                        android:layout_gravity="center"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginBottom="8dp"
-                        android:contentDescription="@null"
-                        android:tint="?attr/colorAccent"
-                        android:visibility="gone"
-                        app:srcCompat="@drawable/shape_circle" />
-                </FrameLayout>
-
-                <ImageView
-                    android:id="@+id/single_fragment_toolbar_wordmark"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:contentDescription="@null"
-                    app:srcCompat="@drawable/feed_header_wordmark"
-                    app:tint="?attr/main_toolbar_title_color" />
-            </LinearLayout>
-        </androidx.appcompat.widget.Toolbar>
-    </FrameLayout>
-
-    <org.wikipedia.main.MainDrawerView
-        android:id="@+id/navigation_drawer_view"
-        android:layout_width="288dp"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:background="?attr/paper_color"/>
-</org.wikipedia.views.WikiDrawerLayout>
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+</LinearLayout>

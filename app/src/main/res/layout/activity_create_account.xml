@@ -20,8 +20,6 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <include layout="@layout/inflate_create_account_onboarding" />
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -115,15 +113,37 @@
                         android:enabled="false"
                         android:text="@string/create_account_next" />
 
-                    <TextView
-                        android:id="@+id/privacy_policy_link"
-                        android:layout_width="wrap_content"
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:background="?attr/material_theme_border_color" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="bottom|center_horizontal"
-                        android:clickable="true"
-                        android:padding="8dp"
-                        android:text="@string/privacy_policy_description"
-                        android:textColor="?attr/colorAccent" />
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical"
+                        android:paddingTop="16dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/create_account_already_have"
+                            android:textColor="?attr/material_theme_secondary_color" />
+
+                        <Button
+                            android:id="@+id/create_account_login_button"
+                            style="@style/FlatButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/create_account_login"
+                            android:textColor="?attr/colorAccent" />
+
+                    </LinearLayout>
+
+                    <include layout="@layout/inflate_login_and_account_creation_footer" />
 
                 </LinearLayout>
             </LinearLayout>

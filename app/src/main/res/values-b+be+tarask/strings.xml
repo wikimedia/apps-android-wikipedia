@@ -52,10 +52,7 @@
   <string name="menu_long_press_open_page">Адкрыць</string>
   <string name="menu_long_press_open_in_new_tab">Адкрыць у новай укладцы</string>
   <string name="menu_long_press_copy_page">Скапіяваць адрас спасылкі</string>
-  <string name="menu_text_select_copy">Капіяваць</string>
   <string name="menu_text_select_define">Вызначэньне</string>
-  <string name="menu_text_select_share">Падзяліцца</string>
-  <string name="share">Падзяліцца</string>
   <string name="on_this_day_page_share">Падзяліцца</string>
   <string name="reading_list_page_share">Падзяліцца</string>
   <string name="menu_text_select_edit_here">Рэдагаваць тут</string>
@@ -100,9 +97,9 @@
   <string name="reading_lists_sync_login">Увайсьці</string>
   <string name="create_account_login">Увайсьці</string>
   <string name="menu_login">Увайсьці</string>
-  <string name="login_activity_title">Увайсьці ў Вікіпэдыю</string>
+  <string name="login_activity_title" fuzzy="true">Увайсьці ў Вікіпэдыю</string>
   <string name="login_in_progress_dialog_message">Уваход у сыстэму…</string>
-  <string name="login_success_toast">Пасьпяховы ўваход у сыстэму!</string>
+  <string name="login_success_toast">Увайшлі ў сыстэму!</string>
   <string name="reset_password_title">Задайце пароль</string>
   <string name="reset_password_hint">Новы пароль</string>
   <string name="preference_title_logout">Выйсьці</string>
@@ -196,15 +193,11 @@
   <string name="gallery_menu_share">Падзяліцца</string>
   <string name="gallery_share_error">Не атрымалася падзяліцца выявай: %s</string>
   <string name="gallery_save_progress">Загрузка файлу…</string>
-  <string name="gallery_save_success">Файл захаваны пасьпяхова.</string>
+  <string name="gallery_save_success">Файл захаваны.</string>
   <string name="gallery_error_video_failed">Не атрымалася прайграць відэа.</string>
   <string name="gallery_save_image_write_permission_rationale">Для захаваньня выяваў неабходны дазвол на запіс у сховішча вашай прылады.</string>
   <string name="err_cannot_save_file">Немагчыма захаваць файл</string>
-  <string name="snippet_share_intro">«%1$s» на сайце @Wikipedia: %2$s</string>
   <string name="expand_refs">Націсьніце каб развярнуць</string>
-  <string name="share_snippet_button">Падзяліцца як выявай</string>
-  <string name="share_normal_button">Падзяліцца як тэкстам</string>
-  <string name="snippet_share_preview_image_desc">Папярэдні прагляд выявы</string>
   <string name="cc_logo">Ліцэнзія Creative Commons</string>
   <string name="captcha_image">Выява сaptcha</string>
   <string name="gallery_fair_use_license">Добрасумленнае выкарыстаньне</string>

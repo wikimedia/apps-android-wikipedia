@@ -14,13 +14,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatDelegate;
 
-import com.facebook.drawee.backends.pipeline.Fresco;
-import com.facebook.imagepipeline.core.ImagePipelineConfig;
-import com.facebook.imagepipeline.nativecode.ImagePipelineNativeLoader;
 import com.microsoft.appcenter.AppCenter;
 import com.microsoft.appcenter.crashes.Crashes;
 
 import org.wikipedia.analytics.FunnelManager;
+import org.wikipedia.analytics.InstallReferrerListener;
 import org.wikipedia.analytics.SessionFunnel;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.concurrency.RxBus;
@@ -31,9 +29,6 @@ import org.wikipedia.database.DatabaseClient;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.SharedPreferenceCookieManager;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.dataclient.fresco.DisabledCache;
-import org.wikipedia.dataclient.okhttp.CacheableOkHttpNetworkFetcher;
-import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory;
 import org.wikipedia.edit.summaries.EditSummary;
 import org.wikipedia.events.ChangeTextSizeEvent;
 import org.wikipedia.events.ThemeChangeEvent;
@@ -62,10 +57,10 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.UUID;
 
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.internal.functions.Functions;
-import io.reactivex.plugins.RxJavaPlugins;
-import io.reactivex.schedulers.Schedulers;
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.internal.functions.Functions;
+import io.reactivex.rxjava3.plugins.RxJavaPlugins;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 import leakcanary.AppWatcher;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
@@ -189,28 +184,14 @@ public class WikipediaApp extends Application {
 
         enableWebViewDebugging();
 
-        ImagePipelineConfig.Builder config = ImagePipelineConfig.newBuilder(this)
-                .setNetworkFetcher(new CacheableOkHttpNetworkFetcher(OkHttpConnectionFactory.getClient()))
-                .setFileCacheFactory(DisabledCache.factory());
-        try {
-            Fresco.initialize(this, config.build());
-            ImagePipelineNativeLoader.load();
-        } catch (UnsatisfiedLinkError e) {
-            L.e(e);
-            Fresco.shutDown();
-            config.experiment().setNativeCodeDisabled(true);
-            Fresco.initialize(this, config.build());
-        } catch (Exception e) {
-            L.e(e);
-            // TODO: Remove when we're able to initialize Fresco in test builds.
-        }
-
         registerActivityLifecycleCallbacks(activityLifecycleHandler);
 
         // Kick the notification receiver, in case it hasn't yet been started by the system.
         NotificationPollBroadcastReceiver.startPollTask(this);
 
         SavedPagesConversionUtil.maybeRunOneTimeSavedPagesConversion();
+
+        InstallReferrerListener.newInstance(this);
     }
 
     public int getVersionCode() {

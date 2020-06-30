@@ -22,9 +22,7 @@
   <string name="menu_long_press_open_page">Avua</string>
   <string name="menu_long_press_open_in_new_tab">Avua uvves välilehtes</string>
   <string name="menu_long_press_copy_page">Kopiiruiče linkin adressi</string>
-  <string name="menu_text_select_copy">Kopiiruiče</string>
   <string name="menu_text_select_define">Merkičys</string>
-  <string name="menu_text_select_share">Jua</string>
   <string name="menu_text_select_edit_here">Kohendele täs</string>
   <string name="last_updated_text">Jälgimäine päivitys %s</string>
   <string name="talk_page_link_text">Pagin</string>

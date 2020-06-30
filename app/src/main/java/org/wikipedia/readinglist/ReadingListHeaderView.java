@@ -82,7 +82,7 @@ public class ReadingListHeaderView extends FrameLayout {
 
     private void clearThumbnails() {
         for (FaceAndColorDetectImageView imageView : imageViews) {
-            ViewUtil.loadImageUrlInto(imageView, null);
+            ViewUtil.loadImage(imageView, null);
         }
     }
 
@@ -109,6 +109,6 @@ public class ReadingListHeaderView extends FrameLayout {
     }
 
     private void loadThumbnail(@NonNull FaceAndColorDetectImageView view, @Nullable String url) {
-        ViewUtil.loadImageUrlInto(view, url);
+        ViewUtil.loadImage(view, url);
     }
 }

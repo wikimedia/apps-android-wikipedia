@@ -28,6 +28,7 @@
   <string name="search_hint_search_languages">ค้นหาภาษา</string>
   <string name="search_hint_search_my_lists_and_articles">ค้นหารายชื่อและบทความที่บันทึกใว้</string>
   <string name="nav_item_history">ประวัติ</string>
+  <string name="nav_item_suggested_edits">แนะนำการแก้ไข</string>
   <string name="error_network_error">ไม่สามารถเชื่อมต่อเครือข่ายอินเตอร์เน็ตได้</string>
   <string name="page_error_retry">ลองใหม่</string>
   <string name="card_offline_error_retry">ลองใหม่</string>
@@ -63,10 +64,7 @@
   <string name="menu_long_press_open_page">เปิด</string>
   <string name="menu_long_press_open_in_new_tab">เปิดในหน้าต่างใหม่</string>
   <string name="menu_long_press_copy_page">คัดลอกที่อยู่ลิงก์</string>
-  <string name="menu_text_select_copy">คัดลอก</string>
   <string name="menu_text_select_define">นิยาม</string>
-  <string name="menu_text_select_share">แบ่งปัน</string>
-  <string name="share">แบ่งปัน</string>
   <string name="on_this_day_page_share">แบ่งปัน</string>
   <string name="reading_list_page_share">แบ่งปัน</string>
   <string name="menu_text_select_edit_here">แก้ไขตรงนี้</string>
@@ -76,6 +74,7 @@
   <string name="map_view_link_text">ดูบนแผนที่</string>
   <string name="other_languages_indication_text">อ่านในภาษาอื่น</string>
   <string name="language_count_link_text">มีให้ใช้ในอีก %d ภาษา</string>
+  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in">ในการเผยแพร่หน้านี้ คุณได้ยอมรับ &lt;a href=\"%1$s\"&gt;นโยบายในการใช้งาน&lt;/a&gt; และเผยแพร่สิ่งที่คุณแก้ไขอย่างถาวรภายใต้ &lt;a href=\"%2$s\"&gt;สัญญาอนุญาต CC BY-SA 3.0&lt;/a&gt;</string>
   <string name="edit_save_action_license_anon">ในการเผยแพร่หน้านี้ คุณได้ยอมรับ &lt;a href=\"%1$s\"&gt;นโยบายในการใช้งาน&lt;/a&gt; และเผยแพร่สิ่งที่คุณแก้ไขอย่างถาวรภายใต้ &lt;a href=\"%2$s\"&gt;สัญญาอนุญาต CC BY-SA 3.0&lt;/a&gt;\nการแก้ไขจะถูกส่งผ่านที่อยู่ไอพีของอุปกรณ์ของคุณ คุณจะมีความเป็นส่วนตัวมากขึ้นถ้าคุณ &lt;a href=\"https://#login\"&gt;ลงชื่อเข้าใช้&lt;/a&gt;</string>
   <string name="preference_title_language">ภาษาของวิกิพีเดีย</string>
@@ -113,9 +112,9 @@
   <string name="reading_lists_sync_login">เข้าสู่ระบบ</string>
   <string name="create_account_login">เข้าสู่ระบบ</string>
   <string name="menu_login">เข้าสู่ระบบ</string>
-  <string name="login_activity_title">เข้าสู่ระบบวิกิพีเดีย</string>
+  <string name="login_activity_title" fuzzy="true">เข้าสู่ระบบวิกิพีเดีย</string>
   <string name="login_in_progress_dialog_message">กำลังเข้าสู่ระบบ…</string>
-  <string name="login_success_toast">เข้าสู่ระบบสำเร็จ!</string>
+  <string name="login_success_toast" fuzzy="true">เข้าสู่ระบบสำเร็จ!</string>
   <string name="reset_password_title">ตั้งรหัสผ่านของคุณ</string>
   <string name="reset_password_description">คุณเข้าสู่ระบบด้วยรหัสผ่านชั่วคราว คุณต้องตั้งรหัสผ่านใหม่ที่นี่เพื่อให้การเข้าสู่ระบบเสร็จสมบูรณ์</string>
   <string name="reset_password_hint">รหัสผ่านใหม่</string>
@@ -177,7 +176,7 @@
   <string name="preference_title_eventlogging_opt_in">ส่งรายงานการใช้</string>
   <string name="preference_summary_eventlogging_opt_in">อนุญาตให้ Wikimedia เก็บข้อมูลการใช้แอพลิเคชั่นของคุณเพื่อการพัฒนาที่ดีขึ้น</string>
   <string name="preference_title_auto_upload_crash_reports">ส่งรายงานความผิดพลาด</string>
-  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">อนุญาตให้แอพลิเคชั่นส่งรายงานความผิดพลาดไปยัง HockeyApp และผู้ให้บริการโดยอัตโนมัติ เพื่อให้เราทราบถึงปัญหาและแก้ไขข้อผิดพลาดได้เร็วขึ้น</string>
+  <string name="preference_summary_auto_upload_crash_reports">อนุญาติให้แอปพลิเคชันส่งรายงานข้อผิดพลาดที่อาจเกิดขึ้นไปยังบริการของบุคคลที่สามโดยอัตโนมัติ และให้พวกเขามามารถตรวจสอบข้อผิดพลาดและแก้ไขปัญหาได้รวดเร็วและง่ายดายยิ่งขึ้น</string>
   <string name="editing_error_spamblacklist">คุณได้เพิ่มโดเมนเว็บไซต์ต้องห้ามในรายชื่อต้องห้ามของเรา (%s) กรุณาลบมันและลองอีกครั้ง</string>
   <string name="history_search_list_hint">ประวัติการค้นหา</string>
   <string name="error_can_not_process_link">ไม่สามารถแสดงลิงก์นี้ได้</string>
@@ -192,10 +191,13 @@
   <string name="about_description">เกี่ยวกับแอปวิกิพีเดีย</string>
   <string name="privacy_policy_description">นโยบายความเป็นส่วนตัว</string>
   <string name="terms_of_use_description">ข้อตกลงในการใช้</string>
-  <string name="about_wikipedia_url" fuzzy="true">https://th.m.wikipedia.org/wiki/Wikipedia:About</string>
+  <string name="about_wikipedia_url">https://th.wikipedia.org/wiki/วิกิพีเดีย:เกี่ยวกับ</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ?uselang=th#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ?uselang=th</string>
   <string name="android_app_request_an_account_url">https://en.m.wikipedia.org/wiki/Special:UserLogin/signup</string>
+  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.th</string>
+  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.th</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/th</string>
   <string name="about_contributors_heading">ผู้ม่ส่วนร่วม</string>
   <string name="about_translators_heading">ผู้แปล</string>
   <string name="about_app_license_heading">สัญญาอนุญาต</string>
@@ -233,14 +235,11 @@
   <string name="gallery_menu_share">แบ่งปัน</string>
   <string name="gallery_share_error">ไม่สามารถแบ่งปันรูปภาพ: %s</string>
   <string name="gallery_save_progress">กำลังดาวน์โหลดไฟล์...</string>
-  <string name="gallery_save_success">บันทึกไฟล์เสร็จสมบูรณ์</string>
+  <string name="gallery_save_success" fuzzy="true">บันทึกไฟล์เสร็จสมบูรณ์</string>
   <string name="gallery_error_video_failed">ไม่สามารถเล่นวีดีโอได้</string>
   <string name="gallery_save_image_write_permission_rationale" fuzzy="true">ต้องการการยินยอมให้เขียนข้อมูลลงในที่จัดเก็บบนอุปกรณ์ของคุณ เพื่อบันทึกภาพ กรุณาลองอีกครั้ง และยินยอมการอนุญาต</string>
   <string name="err_cannot_save_file">ไม่สามารถบันทึกไฟล์</string>
-  <string name="snippet_share_intro">\"%1$s\" บน @Wikipedia: %2$s</string>
   <string name="expand_refs">แตะเพื่อขยาย</string>
-  <string name="share_snippet_button">แบ่งปันเป็นรูปภาพ</string>
-  <string name="share_normal_button">แบ่งปันเป็นข้อความ</string>
   <string name="gallery_uploader_unknown">ไม่ทราบผู้อัปโหลด</string>
   <string name="menu_new_tab">เปิดแท็บใหม่</string>
   <string name="menu_close_all_tabs">ปิดแท็บทั้งหมด</string>
@@ -272,8 +271,6 @@
   <string name="reading_list_save_to">บันทึกลงในรายการอ่าน</string>
   <string name="reading_list_create_new">สร้างใหม่</string>
   <string name="reading_list_title_exists">รายการอ่าน \"%s\" มีอยู่แล้ว</string>
-  <string name="reading_list_added_to_named">เพิ่มไปยัง%s</string>
-  <string name="reading_list_already_exists">บทความนี้มีอยู่ในรายการอยู่แล้ว</string>
   <string name="reading_list_added_view_button">ดูรายการ</string>
   <string name="reading_list_sort">เรียงลำดับ</string>
   <string name="reading_list_sort_by_name">เรียงตามชื่อ</string>

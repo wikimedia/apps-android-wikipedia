@@ -9,7 +9,7 @@
 
     <org.wikipedia.views.FaceAndColorDetectImageView
         android:id="@+id/view_announcement_header_image"
-        style="@style/SimpleDraweeViewPlaceholder"
+        style="@style/ImageViewDefault"
         android:layout_width="match_parent"
         android:layout_height="160dp"
         android:contentDescription="@null" />

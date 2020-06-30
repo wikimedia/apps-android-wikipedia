@@ -12,8 +12,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-import io.reactivex.Observable;
-import io.reactivex.observers.TestObserver;
+import io.reactivex.rxjava3.core.Observable;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
@@ -45,26 +44,22 @@ public class AnnouncementClientTest extends MockRetrofitTest {
     @SuppressWarnings("checkstyle:magicnumber")
     public void testRequestSuccess() throws Throwable {
         enqueueFromFile(ANNOUNCEMENT_JSON_FILE);
-
-        TestObserver<AnnouncementList> observer = new TestObserver<>();
-        getObservable().subscribe(observer);
-
-        observer.assertComplete().assertNoErrors()
+        getObservable().test().await()
+                .assertComplete()
+                .assertNoErrors()
                 .assertValue(list -> list.items().size() == 8);
     }
 
-    @Test public void testRequestMalformed() {
+    @Test public void testRequestMalformed() throws Throwable {
         enqueueMalformed();
-        TestObserver<AnnouncementList> observer = new TestObserver<>();
-        getObservable().subscribe(observer);
-        observer.assertError(MalformedJsonException.class);
+        getObservable().test().await()
+                .assertError(MalformedJsonException.class);
     }
 
-    @Test public void testRequestNotFound() {
+    @Test public void testRequestNotFound() throws Throwable {
         enqueue404();
-        TestObserver<AnnouncementList> observer = new TestObserver<>();
-        getObservable().subscribe(observer);
-        observer.assertError(Exception.class);
+        getObservable().test().await()
+                .assertError(Exception.class);
     }
 
     @Test public void testFundraisingParams() {

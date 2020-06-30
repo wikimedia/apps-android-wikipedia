@@ -1,10 +1,9 @@
 package org.wikipedia.suggestededits
 
-import io.reactivex.Observable
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.functions.BiFunction
-import io.reactivex.schedulers.Schedulers
-import org.wikipedia.WikipediaApp
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.schedulers.Schedulers
+import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -19,23 +18,108 @@ object SuggestedEditsUserStats {
     private const val PAUSE_DURATION_DAYS = 7
 
     var totalEdits: Int = 0
+    var totalDescriptionEdits: Int = 0
+    var totalImageCaptionEdits: Int = 0
+    var totalImageTagEdits: Int = 0
     var totalReverts: Int = 0
 
     fun getEditCountsObservable(): Observable<MwQueryResponse> {
-        return Observable.zip(ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).editorTaskCounts, ServiceFactory.get(WikipediaApp.getInstance().wikiSite).editorTaskCounts,
-                BiFunction<MwQueryResponse, MwQueryResponse, MwQueryResponse> { wikidataResponse, homeWikiResponse ->
-                    // If the user is blocked on their home wiki, then boil up that response, otherwise
-                    // pass back the Wikidata response, which will be checked for blocking anyway.
-                    if (homeWikiResponse.query()!!.userInfo()!!.isBlocked) homeWikiResponse else wikidataResponse
-                })
+        return ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).editorTaskCounts
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnNext {
                     if (!it.query()!!.userInfo()!!.isBlocked) {
                         val editorTaskCounts = it.query()!!.editorTaskCounts()!!
                         totalEdits = editorTaskCounts.totalEdits
+                        totalDescriptionEdits = editorTaskCounts.totalDescriptionEdits
+                        totalImageCaptionEdits = editorTaskCounts.totalImageCaptionEdits
+                        totalImageTagEdits = editorTaskCounts.totalDepictsEdits
                         totalReverts = editorTaskCounts.totalReverts
                         maybePauseAndGetEndDate()
+                    }
+                }
+    }
+
+    fun getPageViewsObservable(): Observable<Long> {
+        return ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getUserContributions(AccountUtil.getUserName()!!, 10, null)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .flatMap { response ->
+                    getPageViewsObservable(response)
+                }
+    }
+
+    fun getPageViewsObservable(response: MwQueryResponse): Observable<Long> {
+        val qLangMap = HashMap<String, HashSet<String>>()
+
+        for (userContribution in response.query()!!.userContributions()) {
+            var descLang = ""
+            val strArr = userContribution.comment.split(" ")
+            for (str in strArr) {
+                if (str.contains("wbsetdescription")) {
+                    val descArr = str.split("|")
+                    if (descArr.size > 1) {
+                        descLang = descArr[1]
+                        break
+                    }
+                }
+            }
+            if (descLang.isEmpty()) {
+                continue
+            }
+
+            if (!qLangMap.containsKey(userContribution.title)) {
+                qLangMap[userContribution.title] = HashSet()
+            }
+            qLangMap[userContribution.title]!!.add(descLang)
+        }
+
+        return ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getWikidataLabelsAndDescriptions(qLangMap.keys.joinToString("|"))
+                .subscribeOn(Schedulers.io())
+                .flatMap {
+                    if (it.entities().isEmpty()) {
+                        return@flatMap Observable.just(0L)
+                    }
+                    val langArticleMap = HashMap<String, ArrayList<String>>()
+                    for (entityKey in it.entities().keys) {
+                        val entity = it.entities()[entityKey]!!
+                        for (qKey in qLangMap.keys) {
+                            if (qKey == entityKey) {
+                                for (lang in qLangMap[qKey]!!) {
+                                    val dbName = WikiSite.forLanguageCode(lang).dbName()
+                                    if (entity.sitelinks().containsKey(dbName)) {
+                                        if (!langArticleMap.containsKey(lang)) {
+                                            langArticleMap[lang] = ArrayList()
+                                        }
+                                        langArticleMap[lang]!!.add(entity.sitelinks()[dbName]!!.title)
+                                    }
+                                }
+                                break
+                            }
+                        }
+                    }
+
+                    val observableList = ArrayList<Observable<MwQueryResponse>>()
+
+                    for (lang in langArticleMap.keys) {
+                        val site = WikiSite.forLanguageCode(lang)
+                        observableList.add(ServiceFactory.get(site).getPageViewsForTitles(langArticleMap[lang]!!.joinToString("|"))
+                                .subscribeOn(Schedulers.io())
+                                .observeOn(AndroidSchedulers.mainThread()))
+                    }
+
+                    Observable.zip(observableList) { resultList ->
+                        var totalPageViews = 0L
+                        for (result in resultList) {
+                            if (result is MwQueryResponse && result.query() != null) {
+                                for (page in result.query()!!.pages()!!) {
+                                    for (day in page.pageViewsMap.values) {
+                                        totalPageViews += day ?: 0
+                                    }
+                                }
+                            }
+                        }
+                        totalPageViews
                     }
                 }
     }

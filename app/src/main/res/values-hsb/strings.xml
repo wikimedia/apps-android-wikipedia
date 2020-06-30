@@ -53,10 +53,7 @@
   <string name="menu_long_press_open_page">Wočinić</string>
   <string name="menu_long_press_open_in_new_tab">W nowym rajtarku wočinić</string>
   <string name="menu_long_press_copy_page">Adresu wotkaza kopěrować</string>
-  <string name="menu_text_select_copy">Kopěrować</string>
   <string name="menu_text_select_define">Definować</string>
-  <string name="menu_text_select_share">Dźělić</string>
-  <string name="share">Dźělić</string>
   <string name="on_this_day_page_share">Dźělić</string>
   <string name="reading_list_page_share">Dźělić</string>
   <string name="menu_text_select_edit_here">Tule wobdźěłać</string>
@@ -100,9 +97,9 @@
   <string name="reading_lists_sync_login">Přizjewić</string>
   <string name="create_account_login">Přizjewić</string>
   <string name="menu_login">Přizjewić</string>
-  <string name="login_activity_title">We Wikipediji přizjewić</string>
+  <string name="login_activity_title" fuzzy="true">We Wikipediji přizjewić</string>
   <string name="login_in_progress_dialog_message">Přizjewješ so...</string>
-  <string name="login_success_toast">Přizjewjenje wuspěšne!</string>
+  <string name="login_success_toast" fuzzy="true">Přizjewjenje wuspěšne!</string>
   <string name="reset_password_title">Postaj swoje hesło</string>
   <string name="reset_password_description">Sy so z nachwilnym hesłom přizjewił(a). Zo by wotzamknył(a) přizjewjenje, postaj prošu tule swoje nowe hesło.</string>
   <string name="reset_password_hint">Nowe hesło</string>
@@ -254,17 +251,13 @@
   <string name="gallery_menu_share">Dźělić</string>
   <string name="gallery_share_error">Wobraz njeda so dźělić: %s</string>
   <string name="gallery_save_progress">Sćahnu dataju...</string>
-  <string name="gallery_save_success">Dataja wuspěšnje składowana.</string>
+  <string name="gallery_save_success" fuzzy="true">Dataja wuspěšnje składowana.</string>
   <string name="gallery_error_video_failed">Widejo njeda so wothrawać.</string>
   <string name="gallery_save_image_write_permission_rationale">Trjebam dowolnosć za składowanje wobrazow na twojim aparaće.</string>
   <string name="gallery_add_image_caption_button">Wobrazowy wopis dodać</string>
   <string name="gallery_add_image_caption_in_language_button">Wobrazowy wopis dodać (%s)</string>
   <string name="err_cannot_save_file">Dataja njeda so składować</string>
-  <string name="snippet_share_intro">\"%1$s\" na @Wikipedia: %2$s</string>
   <string name="expand_refs">Tłóč za wjace wobsaha</string>
-  <string name="share_snippet_button">Jako wobraz dźělić</string>
-  <string name="share_normal_button">Jako tekst dźělić</string>
-  <string name="snippet_share_preview_image_desc">Přehlad wobraza</string>
   <string name="cc_logo">Licenca Creative Commons</string>
   <string name="captcha_image">Captcha-wobraz</string>
   <string name="gallery_fair_use_license">Fair Use</string>
@@ -341,8 +334,6 @@
   <string name="reading_list_save_to">K čitanskej lisćinje přidać</string>
   <string name="reading_list_create_new">Nowu wutworić</string>
   <string name="reading_list_title_exists">Čitanska lisćina „%s“ hižo eksistuje.</string>
-  <string name="reading_list_added_to_named">Přidate k %s.</string>
-  <string name="reading_list_already_exists">Nastawk steji hižo na tutej lisćinje.</string>
   <string name="reading_list_added_view_button">Lisćinu sej wobhladać</string>
   <string name="format_reading_list_statistical_summary_singular">Jedyn nastawk, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d nastawkow, %2$.2f MB</string>
@@ -394,8 +385,7 @@
   <string name="reading_lists_confirm_remote_delete_yes">Haj</string>
   <string name="reading_lists_confirm_remote_delete_no">Ně</string>
   <string name="reading_list_article_save_in_progress">Tutón nastawk so tuchwilu sćehnje a budźe offline přistupny, ručež je sćehnjene wotzamknjene.</string>
-  <string name="reading_list_already_contains_selection">Wubrana lisćina wobsahuje hižo wšě wubrane strony.</string>
-  <string name="reading_list_added_articles_list_titled">%1$d nastawkow přidate k %2$s</string>
+  <string name="reading_list_articles_added_to_named">%1$d nastawkow přidate k %2$s</string>
   <string name="reading_list_delete_confirm">Chceš %s woprawdźe zhašeć?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Přizjew so, zo by synchronizowanje zmóžnił(a)</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Přizjew so, zo by składowanje twojich čitanskich lisćinow w twojim konće dowolił.</string>
@@ -428,7 +418,7 @@
     <item quantity="one">Tutón nastawk njeje hižo offline přistupny.</item>
     <item quantity="other">Tutej nastawkaj njejstej hižo offline přistupnej.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync">Čitanske lisćiny wuspěšnje synchronizowane</string>
+  <string name="reading_list_toast_last_sync" fuzzy="true">Čitanske lisćiny wuspěšnje synchronizowane</string>
   <string name="reading_list_menu_last_sync">Poslednja synchronizacija: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">W porjadku</string>
   <string name="reading_list_delete_dialog_ok_button_text">W porjadku</string>

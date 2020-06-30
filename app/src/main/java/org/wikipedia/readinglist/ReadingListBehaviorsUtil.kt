@@ -15,7 +15,7 @@ import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
-import org.wikipedia.views.CircularProgressBar.MIN_PROGRESS
+import org.wikipedia.views.CircularProgressBar.Companion.MIN_PROGRESS
 import java.util.*
 
 
@@ -40,18 +40,8 @@ object ReadingListBehaviorsUtil {
     private val scope = CoroutineScope(Dispatchers.Main)
     private val exceptionHandler = CoroutineExceptionHandler { _, exception -> L.w(exception) }
 
-    fun getListsContainPage(readingListPage: ReadingListPage): List<ReadingList> {
-        val lists = mutableListOf<ReadingList>()
-        allReadingLists.forEach { list ->
-            list.pages().forEach addToList@{ page ->
-                if (page.title() == readingListPage.title()) {
-                    lists.add(list)
-                    return@addToList
-                }
-            }
-        }
-        return lists
-    }
+    fun getListsContainPage(readingListPage: ReadingListPage) =
+            allReadingLists.filter { list -> list.pages().asSequence().any { it.title() == readingListPage.title() } }
 
     fun savePagesForOffline(activity: Activity, selectedPages: List<ReadingListPage>, callback: Callback) {
         if (Prefs.isDownloadOnlyOverWiFiEnabled() && !DeviceUtil.isOnWiFi()) {
@@ -152,8 +142,8 @@ object ReadingListBehaviorsUtil {
         }
         FeedbackUtil
                 .makeSnackbar(activity,
-                        String.format(activity.getString(
-                                if (lists.size == 1) R.string.reading_list_item_deleted else R.string.reading_lists_item_deleted), page.title()),
+                        activity.getString(
+                                if (lists.size == 1) R.string.reading_list_item_deleted else R.string.reading_lists_item_deleted, page.title()),
                         FeedbackUtil.LENGTH_DEFAULT)
                 .setAction(R.string.reading_list_item_delete_undo) {
                     ReadingListDbHelper.instance().addPageToLists(lists, page, true)
@@ -167,8 +157,8 @@ object ReadingListBehaviorsUtil {
         }
         FeedbackUtil
                 .makeSnackbar(activity,
-                        String.format(activity.getString(
-                                if (pages.size == 1) R.string.reading_list_item_deleted else R.string.reading_list_items_deleted),
+                        activity.getString(
+                                if (pages.size == 1) R.string.reading_list_item_deleted else R.string.reading_list_items_deleted,
                                 if (pages.size == 1) pages[0].title() else pages.size),
                         FeedbackUtil.LENGTH_DEFAULT)
                 .setAction(R.string.reading_list_item_delete_undo) {
@@ -187,7 +177,7 @@ object ReadingListBehaviorsUtil {
             return
         }
         FeedbackUtil
-                .makeSnackbar(activity, String.format(activity.getString(R.string.reading_list_deleted), readingList.title()), FeedbackUtil.LENGTH_DEFAULT)
+                .makeSnackbar(activity, activity.getString(R.string.reading_list_deleted, readingList.title()), FeedbackUtil.LENGTH_DEFAULT)
                 .setAction(R.string.reading_list_item_delete_undo) {
                     val newList = ReadingListDbHelper.instance().createList(readingList.title(), readingList.description())
                     val newPages = ArrayList<ReadingListPage>()

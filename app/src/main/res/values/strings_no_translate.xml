@@ -62,7 +62,7 @@
 
     <!-- Miscellaneous -->
     <string name="text_size_percent">%d%%</string>
-    <string name="onboarding_option_string">%s.\t\t%s</string>
+    <string name="onboarding_option_string">%1$s.\t\t%2$s</string>
     <string name="language_data">multilingual</string>
     <string name="add_square_brackets_to_string">[%s]</string>
     <string name="empty" />

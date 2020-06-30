@@ -82,9 +82,9 @@ public class WikiErrorView extends LinearLayout {
         if (errorType.hasFooterText()) {
             footerLayout.setVisibility(VISIBLE);
             footerText.setText(resources.getString(errorType.footerText()));
-        } else if (errorType == ErrorType.GENERIC && caught != null) {
+        } else if (caught != null) {
             footerLayout.setVisibility(VISIBLE);
-            footerText.setText(caught.getLocalizedMessage());
+            footerText.setText(caught.getMessage());
         } else {
             footerLayout.setVisibility(GONE);
         }

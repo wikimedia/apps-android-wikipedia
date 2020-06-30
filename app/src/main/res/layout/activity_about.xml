@@ -60,12 +60,13 @@
                 android:textSize="16sp" />
 
             <org.wikipedia.views.AppTextView
+                android:id="@+id/about_contributors"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:layoutDirection="ltr"
                 android:lineSpacingExtra="6sp"
-                android:text="@string/contributors_list"
+                android:text="@string/about_contributors"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="?attr/material_theme_secondary_color"
                 android:textIsSelectable="true" />

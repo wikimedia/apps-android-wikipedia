@@ -50,10 +50,7 @@
   <string name="menu_long_press_open_page">ತೋಜಾಲೇ</string>
   <string name="menu_long_press_open_in_new_tab">ಪೊಸ ಪಟ್ಟಿಡ್ ತೋಜಾಲೇ</string>
   <string name="menu_long_press_copy_page">ಕೊಂಡಿದ ವಿಳಾಸೊನು ನಕಲ್ ಮಲ್ಪುಲೆ</string>
-  <string name="menu_text_select_copy">ನಕಲ್ ಮಲ್ಪುಲೆ</string>
   <string name="menu_text_select_define">ದಾದಂದು ತೇರಿಪಾವೊಡಾ</string>
-  <string name="menu_text_select_share">ಪಟ್ಟ್‌ಲೆ</string>
-  <string name="share">ಪಟ್ಟ್‌ಲೆ</string>
   <string name="on_this_day_page_share">ಪಟ್ಟುಲೆ</string>
   <string name="reading_list_page_share">ಪಟ್ಟುಲೆ</string>
   <string name="menu_text_select_edit_here">ಮುಲ್ಪ ಸಂಪೊಲಿಪುಲೆ</string>
@@ -100,9 +97,9 @@
   <string name="reading_lists_sync_login">ಉಳಗಮನ</string>
   <string name="create_account_login">ಉಳಗಮನ</string>
   <string name="menu_login">ಲಾಗಿನ್ ಆಲೆ</string>
-  <string name="login_activity_title">ವಿಕಿಪೀಡಿಯಾಗ್ ಲಾಗಿನ್ ಆಲೆ</string>
+  <string name="login_activity_title" fuzzy="true">ವಿಕಿಪೀಡಿಯಾಗ್ ಲಾಗಿನ್ ಆಲೆ</string>
   <string name="login_in_progress_dialog_message">ಈರ್ ಲಾಗ್-ಇನ್ ಅವೊಂತುಲ್ಲಾರ್…</string>
-  <string name="login_success_toast">ಲಾಗ್-ಇನ್ ಆಯಾರ್!</string>
+  <string name="login_success_toast" fuzzy="true">ಲಾಗ್-ಇನ್ ಆಯಾರ್!</string>
   <string name="reset_password_title">ಪ್ರವೇಸೊ ಪದೊನ್ ಬರೆಲೆ</string>
   <string name="reset_password_description">ಇರ್ ತಾತ್ಕಾಲಿಕೊ ಪಾಸ್ವರ್ಡ್ ನೊಟ್ಟ್‌ಗ್ ಲಾಗ್ ಇನ್ ಮಾಲ್ಪುಲೆ. ಲಾಗಿಂಗ್‌ನ್ ಪೂರ್ಣ ಮಾಲ್ಪುಯಾರ, ದಯ ಮಾಲ್ತ್ ಇರೆನಾ ಪೊಸ ಪಾಸ್ವರ್ಡ್‌ನ್ ಮುಲ್ಪ ಸರಿ ಮಾಲ್ಪುಲೆ.</string>
   <string name="reset_password_hint">ಪೊಸ ಪ್ರವೇಸೊಪದ</string>
@@ -208,14 +205,10 @@
   <string name="gallery_error_draw_failed">ಇಂಚಿನಾ ಚಿತ್ರ ಇಜ್ಜಿ</string>
   <string name="gallery_menu_share">ಪಟ್ಟುಕಾ</string>
   <string name="gallery_save_progress">ಫೈಲ್ ಡೌನ್ಲೋಡ್ ಅವೊನ್ತುಂಡು...</string>
-  <string name="gallery_save_success">ಫೈಲ್ ಒರಿಪಾಂಡ್.</string>
+  <string name="gallery_save_success" fuzzy="true">ಫೈಲ್ ಒರಿಪಾಂಡ್.</string>
   <string name="gallery_error_video_failed">ವಿಡಿಯೋ</string>
   <string name="err_cannot_save_file">ಫೈಲ್ ಒರಿಪಾಯಿಜೀ</string>
-  <string name="snippet_share_intro">\"%1$s\" on @Wikipedia: %2$s</string>
   <string name="expand_refs">ಪಟ್ಟಿ ತೂಯರ ಉತ್ತುಲೇ</string>
-  <string name="share_snippet_button">ಪಟ ಅತ್ ಪಟ್ಟುಕಾ</string>
-  <string name="share_normal_button">ಪದೋ ಅತ್ ಪಟ್ಟುಕಾ</string>
-  <string name="snippet_share_preview_image_desc">ಪಟತಾ ಮುನ್ನೋಟ</string>
   <string name="captcha_image">Captcha ಪಟೊ</string>
   <string name="menu_new_tab">ಪೊಸ ಟ್ಯಾಬ್</string>
   <string name="menu_close_all_tabs">ಮಾಂತ ಕಂಡಿಲೆನ್ ಮುಚ್ಚಿಲೆ</string>
@@ -245,8 +238,6 @@
   <string name="nav_item_reading_lists">ಎನ್ನ ಓದುನ  ಲಿಸ್ಟ್</string>
   <string name="reading_list_save_to">ಓದಿನ ಲಿಸ್ಟ್ನ್ ಒರಿಪಾಲೇ</string>
   <string name="reading_list_create_new">ಪೊಸತ್ ಮಾನ್ಪುಲೇ</string>
-  <string name="reading_list_added_to_named">ನೆಕ್ ಸೇರ್ಸತುಂಡು %s</string>
-  <string name="reading_list_already_exists">ಲೇಕನೋ ಈ ಲಿಸ್ಟ್ ಡ್ ದುಂಬೆ ಉಂಡು</string>
   <string name="reading_list_added_view_button">ಪಟ್ಟಿ ತುಲೇ</string>
   <string name="format_reading_list_statistical_summary_singular">1 article, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d articles, %2$.2f MB</string>

@@ -69,10 +69,7 @@
   <string name="menu_long_press_open_page">פתיחה</string>
   <string name="menu_long_press_open_in_new_tab">פתיחת קישור בלשונית חדשה</string>
   <string name="menu_long_press_copy_page">העתקת כתובת הקישור</string>
-  <string name="menu_text_select_copy">העתקה</string>
   <string name="menu_text_select_define">הגדרה</string>
-  <string name="menu_text_select_share">שיתוף</string>
-  <string name="share">שיתוף</string>
   <string name="on_this_day_page_share">שיתוף</string>
   <string name="reading_list_page_share">שיתוף</string>
   <string name="menu_text_select_edit_here">לערוך כאן</string>
@@ -120,9 +117,9 @@
   <string name="reading_lists_sync_login">כניסה</string>
   <string name="create_account_login">כניסה</string>
   <string name="menu_login">כניסה לחשבון</string>
-  <string name="login_activity_title">כניסה לוויקיפדיה</string>
+  <string name="login_activity_title" fuzzy="true">כניסה לוויקיפדיה</string>
   <string name="login_in_progress_dialog_message">אנחנו מכניסים אותך לחשבון…</string>
-  <string name="login_success_toast">הכניסה לחשבון הצליחה!</string>
+  <string name="login_success_toast">נכנסת לחשבון!</string>
   <string name="reset_password_title">הגדרת הסיסמה שלך</string>
   <string name="reset_password_description">נכנסת לחשבון עם סיסמה זמנית. כדי לסיים את הכניסה, יש להגדיר את הסיסמה החדשה כאן.</string>
   <string name="reset_password_hint">סיסמה חדשה</string>
@@ -208,8 +205,10 @@
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.he</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.he</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/he</string>
+  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/he#Image_tags</string>
   <string name="about_libraries_heading">ספריות בשימוש</string>
   <string name="about_contributors_heading">תורמים</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;דף הצוות&lt;/a&gt;</string>
   <string name="about_translators_heading">מתרגמים</string>
   <string name="about_translators_translatewiki">היישום הזה תורגם על־ידי מתרגמים מתנדבים באתר &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">רישיון</string>
@@ -244,7 +243,7 @@
   <string name="abusefilter_title_warn">ייתכן שזאת עריכה בלתי־מועילה. האם באמת לפרסם אותה?</string>
   <string name="abusefilter_title_disallow">לא ניתן לפרסם את העריכה הזאת. נא לחזור ולשנות אותה.</string>
   <string name="abusefilter_text_warn">מסנן אוטומטי זיהה שהעריכה הזאת עלולה להיות בלתי־מועילה. ייתכן שהיא מכילה אחד מהבאים:&lt;br /&gt;&lt;br /&gt;· הקלדה באותיות גדולות&lt;br /&gt;· מחיקת כל הטקסט או זיבול&lt;br /&gt;· תמונות או קישורים חיצוניים שאינם שייכים&lt;br /&gt;· אותיות שחוזרות על עצמן</string>
-  <string name="abusefilter_text_disallow">מסנן אוטומטי זיהה שהעריכה הזאת עלולה להיות בלתי־מועילה או משחיתה.&lt;br /&gt;&lt;br /&gt;ויקיפדיה היא אנציקלופדיה ורק תוכן מאוזן ובעל חשיבות שייך מתאים לכאן.</string>
+  <string name="abusefilter_text_disallow">מסנן אוטומטי זיהה שהעריכה הזאת עלולה להיות בלתי־מועילה או משחיתה.&lt;br /&gt;&lt;br /&gt;ויקיפדיה היא אנציקלופדיה ורק תוכן מאוזן ובעל חשיבות שייך לכאן.</string>
   <string name="text_size_select">גודל גופן</string>
   <string name="page_similar_titles">דפים דומים</string>
   <string name="search_did_you_mean">האם התכוונת לחפש \"%s\"?</string>
@@ -278,17 +277,13 @@
   <string name="gallery_menu_share">שיתוף</string>
   <string name="gallery_share_error">לא היה ניתן לשתף את התמונה: %s</string>
   <string name="gallery_save_progress">הורדת קובץ…</string>
-  <string name="gallery_save_success">הקובץ נשמר בהצלחה.</string>
+  <string name="gallery_save_success">הקובץ נשמר.</string>
   <string name="gallery_error_video_failed">לא היה אפשר לנגן את הסרטון.</string>
   <string name="gallery_save_image_write_permission_rationale">הרשאה לכתוב לאחסון במכשיר שלך דרושה לשמירת תמונות.</string>
   <string name="gallery_add_image_caption_button">הוספת כיתוב לתמונה</string>
   <string name="gallery_add_image_caption_in_language_button">הוספת כיתוב תמונה (%s)</string>
   <string name="err_cannot_save_file">לא ניתן לשמור קובץ</string>
-  <string name="snippet_share_intro">\"%1$s\" בוויקיפדיה @Wikipedia: %2$s</string>
   <string name="expand_refs">יש ללחוץ להרחבה</string>
-  <string name="share_snippet_button">שיתוף בתור תמונה</string>
-  <string name="share_normal_button">שיתוף בתור טקסט</string>
-  <string name="snippet_share_preview_image_desc">תצוגה מקדימה של תמונה</string>
   <string name="cc_logo">רישיון קריאייטיב קומונז</string>
   <string name="captcha_image">תמונת אישור</string>
   <string name="gallery_fair_use_license">שימוש הוגן</string>
@@ -349,6 +344,7 @@
   <string name="theme_chooser_dialog_match_system_theme_switch_label">התאמה לערכת העיצוב של המערכת</string>
   <string name="page_footer_license_text">התוכן זמין לפי תנאי $1 אלא אם צוין אחרת</string>
   <string name="empty_tab_title">לשונית חדשה</string>
+  <string name="menu_save_all_tabs">שמירת כל הלשוניות</string>
   <string name="crash_report_activity_title">שגיאת יישום</string>
   <string name="crash_report_relaunch_or_quit">אנחנו מצטערים, ביישום ויקיפדיה אירעה שגיאה והוא נעצר.\n\nהאם להתחיל מהתחלה או לצאת?</string>
   <string name="crash_report_relaunch">להתחיל מהתחלה</string>
@@ -372,10 +368,13 @@
   <string name="text_size_percent_default">%s (ברירת מחדל)</string>
   <string name="nav_item_reading_lists">רשימות</string>
   <string name="reading_list_save_to">לשמור לרשימת קריאה</string>
+  <string name="reading_list_move_to">העברה לרשימת קריאה</string>
   <string name="reading_list_create_new">ליצור חדשה</string>
   <string name="reading_list_title_exists">רשימת הקריאה \"%s\" כבר קיימת.</string>
-  <string name="reading_list_added_to_named">נוסף לרשימה %s.</string>
-  <string name="reading_list_already_exists">הערך הזה כבר ברשימה.</string>
+  <string name="reading_list_article_added_to_named">הערך %1$s נוסף לרשימה %2$s.</string>
+  <string name="reading_list_article_moved_to_named">הערך %1$s הועבר לרשימה %2$s.</string>
+  <string name="reading_list_article_already_exists_message">הכול טוב! הרשימה %1$s כבר מכילה את הערך %2$s.</string>
+  <string name="reading_list_articles_already_exist_message">הכול טוב! הרשימה %s כבר מכילה את כל הערכים.</string>
   <string name="reading_list_added_view_button">הצגת הרשימה</string>
   <string name="format_reading_list_statistical_summary_singular">ערך אחד %1$.2f מ\"ב</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d ערכים %2$.2f מ\"ב</string>
@@ -396,6 +395,7 @@
   <string name="reading_list_action_menu_remove_all_from_offline">להסיר הכול מקריאה לא מקוונת</string>
   <string name="reading_list_action_menu_save_all_for_offline">לשמור הכול לקריאה לא מקוונת</string>
   <string name="reading_list_action_menu_add_to_another_list">הוספה לרשימה אחרת</string>
+  <string name="reading_list_action_menu_move_to_another_list">העברה לרשימה אחרת</string>
   <string name="reading_list_name_sample">רשימת הקריאה שלי</string>
   <string name="reading_list_name_hint">שם הרשימה הזאת</string>
   <string name="reading_list_description_hint">תיאור (לא חובה)</string>
@@ -416,6 +416,7 @@
   <string name="reading_list_article_offline">זמין ללא חיבור לרשת</string>
   <string name="reading_list_article_make_offline">לגרום לערך הזה להיות זמין ללא חיבור לרשת</string>
   <string name="reading_list_add_to_other_list">הוספה לרשימת קריאה אחרת</string>
+  <string name="reading_list_move_to_other_list">העברה לרשימת קריאה אחרת</string>
   <string name="reading_list_remove_from_list">הסרה מהרשימה %s</string>
   <string name="reading_list_remove_from_lists">הסרה מרשימות קריאה</string>
   <string name="reading_list_select_item">בחירה</string>
@@ -431,8 +432,8 @@
   <string name="reading_lists_confirm_remote_delete_yes">כן</string>
   <string name="reading_lists_confirm_remote_delete_no">לא</string>
   <string name="reading_list_article_save_in_progress">הורדת הערך מתבצעת, והוא יהיה זמין ללא חיבור לרשת כשהיא תושלם.</string>
-  <string name="reading_list_already_contains_selection">הרשימה שנבחרה כבר מכילה את כל הדפים שנבחרו.</string>
-  <string name="reading_list_added_articles_list_titled">נוספו %1$d ערכים לרשימה %2$s</string>
+  <string name="reading_list_articles_added_to_named">נוספו %1$d ערכים לרשימה %2$s</string>
+  <string name="reading_list_articles_moved_to_named">הועברו %1$d ערכים לרשימה %2$s</string>
   <string name="reading_list_delete_confirm">למחוק את %s?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">נא להיכנס לשם הפעלת הסנכרון</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">נא להיכנס כדי לאפשר את השמירה של רשימות הקריאה שלך לחשבון שלך.</string>
@@ -453,7 +454,8 @@
   <string name="no_user_lists_msg">צרו רשימות למקומות שביקרתם בהם, נושאים שאתם אוהבים, ועוד</string>
   <string name="reading_list_saved_list_rename">%1$s (נוצרה על־ידי המשתמש)</string>
   <string name="split_reading_list_message">יש מגבלה של %d ערכים לרשימת קריאה. רשימות קיימות שחורגות מהמגבלה הזאת פוצלו לרשימות מרובות.</string>
-  <string name="reading_list_article_limit_message">אי־אפשר להוסיף לרשימה הזאת הגעת למגבלה של %2$d ערכים ברשימה \"%1$s\".</string>
+  <string name="reading_list_move_article_limit_message">אי־אפשר להעביר לרשימה הזאת. הגעת למגבלה של %2$d ערכים ברשימה \"%1$s\".</string>
+  <string name="reading_list_article_limit_message">אי־אפשר להוסיף לרשימה הזאת. הגעת למגבלה של %2$d ערכים ברשימה \"%1$s\".</string>
   <string name="reading_lists_limit_message">לא ניתן ליצור עוד רשימה. הגעת למגבלה של 100 רשימות קריאה לחשבון.</string>
   <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;סנכרון רשימות קריאה&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;עכשיו אפשר לסנכרן רשימות קריאה במכשירים שונים. נא להיכנס לחשבון הוויקיפדיה שלך ולאפשר לשמור את הרשימות שלך.</string>
   <string name="reading_lists_menu_create_list">יצירת רשימה חדשה</string>
@@ -472,7 +474,7 @@
     <item quantity="many">הערכים האלה לא יהיו עוד זמינים ללא חיבור לרשת.</item>
     <item quantity="other">הערכים האלה לא יהיו עוד זמינים ללא חיבור לרשת.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync">רשימות הקריאה סונכרנו בהצלחה</string>
+  <string name="reading_list_toast_last_sync">רשימות הקריאה סונכרנו</string>
   <string name="reading_list_menu_last_sync">סנכרון אחרון: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">אישור</string>
   <string name="reading_list_delete_dialog_ok_button_text">אישור</string>
@@ -489,28 +491,40 @@
   <string name="notification_syncing_cancel_button">ביטול</string>
   <string name="notification_syncing_reading_list_channel_description">התקדמות סנכרון רשימות קריאה</string>
   <string name="notification_many_unread">יש לך %d התראות שלא נקראו</string>
-  <plurals name="notification_channel_name" fuzzy="true">
+  <plurals name="notification_channel_name">
     <item quantity="one">מתבצעת הורדה של ערך</item>
+    <item quantity="two">מתבצעת הורדה של ערכים</item>
+    <item quantity="many">מתבצעת הורדה של ערכים</item>
     <item quantity="other">מתבצעת הורדה של ערכים</item>
   </plurals>
-  <plurals name="notification_syncing_title" fuzzy="true">
-    <item quantity="one">מתבצעת הורדה של %1$d אחד…</item>
+  <plurals name="notification_syncing_title">
+    <item quantity="one">מתבצעת הורדה של ערך אחד…</item>
+    <item quantity="two">מתבצעת הורדה של %1$d ערכים…</item>
+    <item quantity="many">מתבצעת הורדה של %1$d ערכים…</item>
     <item quantity="other">מתבצעת הורדה של %1$d ערכים…</item>
   </plurals>
-  <plurals name="notification_syncing_description" fuzzy="true">
-    <item quantity="one">נשאר %1$d אחד</item>
+  <plurals name="notification_syncing_description">
+    <item quantity="one">נשאר ערך אחד</item>
+    <item quantity="two">נשארו %1$d ערכים</item>
+    <item quantity="many">נשארו %1$d ערכים</item>
     <item quantity="other">נשארו %1$d ערכים</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_channel_name" fuzzy="true">
+  <plurals name="notification_syncing_reading_list_channel_name">
     <item quantity="one">סנכרון רשימת קריאה</item>
+    <item quantity="two">סנכרון רשימות קריאה</item>
+    <item quantity="many">סנכרון רשימות קריאה</item>
     <item quantity="other">סנכרון רשימות קריאה</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_title" fuzzy="true">
-    <item quantity="one">מתבצע סנכרון של %1$d אחת…</item>
+  <plurals name="notification_syncing_reading_list_title">
+    <item quantity="one">מתבצע סנכרון של רשימה אחת…</item>
+    <item quantity="two">מתבצע סנכרון של %1$d רשימות…</item>
+    <item quantity="many">מתבצע סנכרון של %1$d רשימות…</item>
     <item quantity="other">מתבצע סנכרון של %1$d רשימות…</item>
   </plurals>
-  <plurals name="notification_syncing_reading_list_description" fuzzy="true">
-    <item quantity="one">נשארה %1$d אחת</item>
+  <plurals name="notification_syncing_reading_list_description">
+    <item quantity="one">נשארה רשימה אחת</item>
+    <item quantity="two">נשארו %1$d רשימות</item>
+    <item quantity="many">נשארו %1$d רשימות</item>
     <item quantity="other">נשארו %1$d רשימות</item>
   </plurals>
   <string name="notification_echo_channel_description">הודעות ויקיפדיה</string>
@@ -521,8 +535,10 @@
   <string name="notifications_view_archived">הצגת ארכיון</string>
   <string name="notifications_prefs">העדפות הודעות</string>
   <string name="notifications_archive">לסמן שההודעה נקראה ולשמור בארכיון</string>
-  <plurals name="notification_archive_message" fuzzy="true">
+  <plurals name="notification_archive_message">
     <item quantity="one">ההודעה נשלחה לארכיון</item>
+    <item quantity="two">%d הודעות נשלחו לארכיון</item>
+    <item quantity="many">%d הודעות נשלחו לארכיון</item>
     <item quantity="other">%d הודעות נשלחו לארכיון</item>
   </plurals>
   <string name="notifications_poll_enable_title">הפעלת הודעות</string>
@@ -568,8 +584,10 @@
   <string name="most_read_list_card_title">נושאים חמים</string>
   <string name="view_static_card_icon_content_description">סמל כרטיס</string>
   <string name="view_card_news_title">בחדשות</string>
-  <plurals name="view_continue_reading_card_subtitle" fuzzy="true">
+  <plurals name="view_continue_reading_card_subtitle">
     <item quantity="one">אתמול</item>
+    <item quantity="two">שלשום</item>
+    <item quantity="many">לפני %d ימים</item>
     <item quantity="other">לפני %d ימים</item>
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">היום</string>
@@ -681,8 +699,10 @@
   <string name="suggested_edits_image_caption_summary_title_source">מקור</string>
   <string name="suggested_edits_image_caption_summary_title_license">רישיון</string>
   <string name="suggested_edits_image_caption_summary_title_date">תאריך</string>
-  <plurals name="suggested_edits_contribution_count" fuzzy="true">
+  <plurals name="suggested_edits_contribution_count">
     <item quantity="one">תרומה אחת</item>
+    <item quantity="two">%d תרומות</item>
+    <item quantity="many">%d תרומות</item>
     <item quantity="other">%d תרומות</item>
   </plurals>
   <string name="suggested_edits_feed_card_title">עריכות מוצעות</string>
@@ -691,12 +711,15 @@
   <string name="suggested_edits_tasks_onboarding_get_started">מדריך למתחילים</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">כיתוב התמונה (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">תיאור התמונה (%s)</string>
+  <string name="suggested_edits_image_preview_dialog_file">קובץ</string>
   <string name="suggested_edits_image_preview_dialog_artist">יוצר</string>
+  <string name="suggested_edits_image_preview_dialog_tags">תגיות</string>
   <string name="suggested_edits_image_preview_dialog_date">תאריך</string>
   <string name="suggested_edits_image_preview_dialog_source">מקור/צלם</string>
   <string name="suggested_edits_image_preview_dialog_licensing">רישיון</string>
   <string name="suggested_edits_image_preview_dialog_more_info">מידע נוסף</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">דף הקובץ בוויקישיתוף</string>
+  <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">דף קובץ בוויקיפדיה</string>
   <string name="suggested_edits_article_cta_image_caption">הוספת כיתוב לתמונה</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">הוספת כיתוב לתמונה (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">הצגה</string>
@@ -712,10 +735,10 @@
   <string name="suggested_edits_image_tags_publishing">מתפרסם</string>
   <string name="suggested_edits_image_tags_published">פורסם</string>
   <string name="suggested_edits_image_tags_onboarding_title">תיוג תמונות עוזר לאחרים למצוא אותן.</string>
-  <string name="suggested_edits_image_tags_onboarding_text">אימות התגים יעזור לאחרים למצוא אותן בוויקישיתוף, מאגר התמונות החופשיות שוויקיפדיה משתמשת בו לתמונות בערכים שלה.\n\nהצענו כמה תגים באופן אוטומטי, ובאפשרותך להוסיף תגים משלך.</string>
+  <string name="suggested_edits_image_tags_onboarding_text">אימות התגים יעזור לאחרים למצוא אותן בוויקישיתוף, מאגר התמונות החופשיות שוויקיפדיה משתמשת בו לתמונות בערכים שלה.</string>
   <string name="suggested_edits_image_tags_onboarding_note">רק תגים שאישרת יוּספו לתמונות.</string>
   <string name="suggested_edits_image_tags_snackbar">תייגו תמונות כדי שלאחרים יהיה קל יותר למצוא אותן</string>
-  <string name="suggested_edits_image_tags_task_detail">תייגו תמונות כדי שלאחרים יהיה קל יותר למצוא אותן. בחרו מתוך התגים המוצעים או הוסיפו תגים משלכם.</string>
+  <string name="suggested_edits_image_tags_task_detail">הוספת תגויות שונות לתמונות כדי שלאחרים יהיה קל יותר למצוא אותן.</string>
   <string name="suggested_edits_image_tags_choose">נא לבחור או להוסיף תגים תואמים</string>
   <string name="suggested_edits_image_tags_published_list">תגים שפורסמו</string>
   <string name="suggested_edits_image_tags_search">חיפוש תגים</string>
@@ -725,15 +748,15 @@
   <string name="suggested_edits_image_zoom_tooltip">אפשר לקרב את התמונה הזאת בשתי אצבעות.</string>
   <string name="suggested_edits_encouragement_message">%s, תודה על תרומתך. בהמשך הדף ניתן למצוא דרכים נוספות לתרום לוויקיפדיה.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;היי %s&lt;/b&gt;, ידעת שלכל אחד יש אפשרות לערוך את ויקיפדיה? להלן שיטות מהנות לסייע בשיפור ויקיפדיה. עריכה מהנה!</string>
-  <string name="suggested_edits_image_captions_task_detail">כותרות התמונות מתארות תמונה כדי לסייע לקוראים להבין את המשמעות וההקשר.</string>
-  <string name="suggested_edits_add_descriptions_task_detail">תיאורי ערכים מסכמים את הערך כדי לעזור לקוראים להבין את הנושא במבט אחד.</string>
+  <string name="suggested_edits_image_captions_task_detail">נא לתאר את התמונה כדי לסייע לקוראים להבין את המשמעות וההקשר.</string>
+  <string name="suggested_edits_add_descriptions_task_detail">נא לסכם את הערך כדי לעזור לקוראים להבין את הנושא במבט אחד.</string>
   <string name="suggested_edits_contributions_stat_tooltip">המספר הכולל של התרומות שלך באמצעות עריכות מוצעות.</string>
   <string name="suggested_edits_edit_streak_stat_tooltip">כמה ימים בלי הפסקה תרמת דרך עריכות מוצעות. אם לא תרמת במשך זמן־מה, זה מראה את תאריך התרומה האחרונה שלך.</string>
   <string name="suggested_edits_page_views_stat_tooltip">סך הצגות הדפים שתרמת להם ב־30 הימים האחרונים באמצעות עריכות מוצעות.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">מסתמך על מספר הפעמים שהתרומות שלך בוטלו. תרומות שבוטלו: %d.</string>
-  <string name="suggested_edits_paused_message">&lt;b&gt;עריכות מוצעות הופסקו על %1$s.&lt;/b&gt; מצטערים %2$s, כמה מהתרומות האחרונות שלך בוטלו.\n\nאפשר ללמוד איך לשפר את כישורי העריכה שלך בוויקיפדיה עם הקישור להלן.</string>
-  <string name="suggested_edits_disabled_message">&lt;b&gt;עריכות מוצעות הופסקו.&lt;/b&gt; מצטערים %s, יותר מדי מהתרומות האחרונות שלך בוטלו.\n\nאפשר לקרוא מידע נוסף על מה זה אומר בקישור להלן.</string>
-  <string name="suggested_edits_ip_blocked_message">נראה שכתובת ה־IP שלך (או טווח כתובות ה־IP) חסום כרגע מעריכת ויקיפדית. אפשר לקרוא מידע נוסף על מה זה אומר בקישור להלן.</string>
+  <string name="suggested_edits_paused_message" fuzzy="true">&lt;b&gt;עריכות מוצעות הופסקו על %1$s.&lt;/b&gt; מצטערים %2$s, כמה מהתרומות האחרונות שלך בוטלו.\n\nאפשר ללמוד איך לשפר את כישורי העריכה שלך בוויקיפדיה עם הקישור להלן.</string>
+  <string name="suggested_edits_disabled_message" fuzzy="true">&lt;b&gt;עריכות מוצעות הופסקו.&lt;/b&gt; מצטערים %s, יותר מדי מהתרומות האחרונות שלך בוטלו.\n\nאפשר לקרוא מידע נוסף על מה זה אומר בקישור להלן.</string>
+  <string name="suggested_edits_ip_blocked_message" fuzzy="true">נראה שכתובת ה־IP שלך (או טווח כתובות ה־IP) חסום כרגע מעריכת ויקיפדית. אפשר לקרוא מידע נוסף על מה זה אומר בקישור להלן.</string>
   <string name="suggested_edits_editing_tips_link_text">עצות ותכסיסים לעריכה</string>
   <string name="suggested_edits_help_page_link_text">עמוד עזרה לעריכות מומלצות</string>
   <string name="suggested_edits_edit_streak_label_text">רצף עריכה</string>
@@ -747,19 +770,27 @@
   <string name="suggested_edits_quality_sufficient_text">ככה ככה</string>
   <string name="suggested_edits_quality_poor_text">ירודה</string>
   <string name="suggested_edits_quality_bad_text">גרועה</string>
-  <plurals name="suggested_edits_contribution" fuzzy="true">
+  <string name="suggested_edits_contribute">לתרום</string>
+  <plurals name="suggested_edits_contribution">
     <item quantity="one">תרומה</item>
+    <item quantity="two">תרומות</item>
+    <item quantity="many">תרומות</item>
     <item quantity="other">תרומות</item>
   </plurals>
-  <plurals name="suggested_edits_edit_streak_detail_text" fuzzy="true">
+  <plurals name="suggested_edits_edit_streak_detail_text">
     <item quantity="one">יום אחד</item>
     <item quantity="two">יומיים</item>
+    <item quantity="many">%d ימים</item>
     <item quantity="other">%d ימים</item>
   </plurals>
   <string name="suggested_edits_last_edited">עריכה אחרונה</string>
   <string name="suggested_edits_last_edited_never">לעולם לא</string>
   <string name="suggested_edits_task_new">חדשה</string>
   <string name="suggested_edits_cc0_notice">הפרסום מהווה את הסכמתך הבלתי־חוזרת ל&lt;a href=\"%1$s\"&gt;תנאי השימוש&lt;/a&gt; ולשחרור של התרומה הזאת לפי &lt;a href=\"%2$s\"&gt;רישיון CC0&lt;/a&gt;.</string>
+  <string name="suggested_edits_reactivation_notification_title">עריכות מוצעות</string>
+  <string name="suggested_edits_reactivation_notification_stage_one">תודה על עריכת ויקיפדיה! מדוע לא להמשיך היכן שהפסקת?</string>
+  <string name="suggested_edits_reactivation_notification_stage_two">יש לך דקה להמשיך לשפר את ויקיפדיה? תציץ בהצעות העריכה האלו.</string>
+  <string name="file_page_activity_title">דף קובץ</string>
   <string name="description_edit_revert_subtitle">תודה על עריכת ויקיפדיה!</string>
   <string name="description_edit_revert_intro">אנחנו יודעים שניסית היטב, אבל לאחד מהסוקרים היה חשד. סיבות אפשריות לכך שהעריכה שלך בוטלה:</string>
   <string name="description_edit_revert_reason1">התרומה שלך הייתה מנוגדת ל&lt;a href=\"%1$s\"&gt;הוראות&lt;/a&gt;.</string>
@@ -781,9 +812,6 @@
   <string name="onboarding_analytics_title">שליחת נתונים אלמוניים</string>
   <string name="onboarding_analytics_offline_text">עזרו לנו לשפר את היישום על־ידי זה שתאפשרו לנו ללמוד איך אתם משתמשים בו. איסוף הנתונים נעשה באלמוניות. &lt;a href=\"#privacy\"&gt;מידע נוסף&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">שליחת נתוני שימוש</string>
-  <string name="onboarding_create_account_sync">סנכרון רשימות הקריאה שלכם</string>
-  <string name="onboarding_create_account_contributions">מעקב אחר התרומות שלך</string>
-  <string name="onboarding_create_account_preferences">שמירת העדפות</string>
   <string name="onboarding_got_it">הבנתי</string>
   <string name="onboarding_multilingual_secondary_text">מצאנו את השפות הבאות במכשיר שלך:</string>
   <string name="onboarding_multilingual_add_language_text">הוספה או עריכה של השפות</string>
@@ -801,9 +829,11 @@
   <string name="on_this_day_dialog_next_month">החודש הבא</string>
   <string name="on_this_day_dialog_previous_month">החודש הקודם</string>
   <string name="on_this_day_open_date_picker">פתיחת בוחר התאריך</string>
-  <plurals name="diff_years" fuzzy="true">
+  <plurals name="diff_years">
     <item quantity="one">שנה שעברה</item>
-    <item quantity="other">שנתיים %d</item>
+    <item quantity="two">לפני שנתיים</item>
+    <item quantity="many">לפני %d שנים</item>
+    <item quantity="other">לפני %d שנים</item>
   </plurals>
   <string name="languages_list_activity_title">הוספת שפה</string>
   <string name="languages_list_suggested_text">מוצעות</string>
@@ -813,8 +843,10 @@
   <string name="wikipedia_languages_add_language_text">הוספת שפה</string>
   <string name="wikipedia_languages_remove_text">הסרת שפה</string>
   <string name="wikipedia_languages_remove_action_mode_title">הסרת שפה</string>
-  <plurals name="wikipedia_languages_remove_dialog_title" fuzzy="true">
+  <plurals name="wikipedia_languages_remove_dialog_title">
     <item quantity="one">להסיר את השפה שנבחרה?</item>
+    <item quantity="two">להסיר את השפות שנבחרו?</item>
+    <item quantity="many">להסיר את השפות שנבחרו?</item>
     <item quantity="other">להסיר את השפות שנבחרו?</item>
   </plurals>
   <string name="wikipedia_languages_remove_dialog_content">בהזנת הגילוי וכן במסנני החיפוש המהירים, יוצג רק תוכן בשפות הוויקיפדיה שמופיעות ברשימה.</string>
@@ -843,12 +875,9 @@
   <string name="wikitext_template">תבנית</string>
   <string name="wikitext_reference">הערת שוליים</string>
   <string name="wikitext_preview_link">תצוגה מקדימה של קישור</string>
-  <string name="main_drawer_open">פתיחה</string>
-  <string name="main_drawer_close">סגירה</string>
-  <string name="main_drawer_content_description">פתיחת מגירת הניווט הראשית</string>
   <string name="main_drawer_help">עזרה</string>
   <string name="main_drawer_login">כניסה / הצטרפות לוויקיפדיה</string>
-  <string name="main_tooltip_text">%s, הידעת שכולם יכולים לערוך את ויקיפדיה?</string>
+  <string name="main_tooltip_text">היי %s, הידעת שכולם יכולים לערוך את ויקיפדיה?</string>
   <string name="main_tooltip_action_button">להתחיל</string>
   <string name="custom_date_picker_dialog_ok_button_text">אישור</string>
   <string name="text_input_dialog_ok_button_text">אישור</string>

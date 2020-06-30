@@ -65,8 +65,7 @@
         <activity
             android:name=".main.MainActivity"
             android:windowSoftInputMode="adjustResize"
-            android:theme="@style/AppTheme.Splash"
-            android:launchMode="singleTask">
+            android:theme="@style/AppTheme.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -133,7 +132,8 @@
         <activity
             android:name=".suggestededits.SuggestedEditsCardsActivity"
             android:launchMode="singleTask"
-            android:theme="@style/AppTheme.ActionBar.SuggestedEdits" />
+            android:windowSoftInputMode="adjustPan"
+            android:theme="@style/AppTheme.ActionBar.NoElevation" />
         <activity
             android:name=".edit.EditSectionActivity"
             android:theme="@style/AppTheme.ActionBar.Page"
@@ -142,19 +142,19 @@
         <activity
             android:name=".login.LoginActivity"
             android:label="@string/login_activity_title"
-            android:theme="@style/AppTheme.ActionBar"
+            android:theme="@style/AppTheme.ActionBar.LargeTextToolbar"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
         <activity
             android:name=".createaccount.CreateAccountActivity"
-            android:theme="@style/AppTheme.ActionBar"
+            android:theme="@style/AppTheme.ActionBar.LargeTextToolbar"
             android:label="@string/create_account_activity_title"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
         <activity
             android:name=".login.ResetPasswordActivity"
             android:label="@string/reset_password_title"
-            android:theme="@style/AppTheme.ActionBar"
+            android:theme="@style/AppTheme.ActionBar.LargeTextToolbar"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
         <activity
@@ -240,11 +240,26 @@
         <activity android:name=".suggestededits.SuggestedEditsImageTagsOnboardingActivity" />
 
         <activity android:name=".watchlist.WatchlistActivity"
-            android:theme="@style/AppTheme.ActionBar.SuggestedEdits"/>
+            android:theme="@style/AppTheme.ActionBar"/>
 
         <activity
             android:name=".suggestededits.SuggestedEditsFeedCardImageTagActivity"
-            android:theme="@style/AppTheme.ActionBar.SuggestedEdits" />
+            android:theme="@style/AppTheme.ActionBar.NoElevation" />
+
+        <activity
+            android:name=".suggestededits.SuggestedEditsContributionsActivity"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
+            android:label=""
+            android:theme="@style/AppTheme.ActionBar" />
+
+        <activity
+            android:name=".suggestededits.SuggestedEditsContributionDetailsActivity"
+            android:theme="@style/AppTheme.Page" />
+
+         <activity
+            android:name=".commons.FilePageActivity"
+            android:label=""
+            android:theme="@style/AppTheme.ActionBar.NoElevation"/>
 
         <provider
             android:authorities="${applicationId}"
@@ -292,19 +307,6 @@
             <meta-data
                 android:name="android.appwidget.provider"
                 android:resource="@xml/widget_featured_page" />
-        </receiver>
-
-        <!--
-        This is a receiver that receives an intent from the Play Store app upon first launch
-        after the app is installed, if the original link that led the user to the Play Store
-        for installing the app contained a "referrer" query parameter. This is why the receiver
-        needs to be exported.
-        -->
-        <receiver android:name=".analytics.InstallReceiver">
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-                <action android:name="com.android.vending.INSTALL_REFERRER" />
-            </intent-filter>
         </receiver>
 
         <receiver android:name=".notifications.NotificationPollBroadcastReceiver">

@@ -55,10 +55,7 @@
   <string name="menu_long_press_open_page">Odpri</string>
   <string name="menu_long_press_open_in_new_tab">Odpri v novem zavihku</string>
   <string name="menu_long_press_copy_page">Kopiraj naslov povezave</string>
-  <string name="menu_text_select_copy">Kopiraj</string>
   <string name="menu_text_select_define">Definiraj</string>
-  <string name="menu_text_select_share">Deli</string>
-  <string name="share">Deli</string>
   <string name="on_this_day_page_share">Deli</string>
   <string name="reading_list_page_share">Deli</string>
   <string name="menu_text_select_edit_here">Uredi tukaj</string>
@@ -100,9 +97,9 @@
   <string name="reading_lists_sync_login">Prijava</string>
   <string name="create_account_login">Prijava</string>
   <string name="menu_login">Prijava</string>
-  <string name="login_activity_title">Prijava v Wikipedijo</string>
+  <string name="login_activity_title" fuzzy="true">Prijava v Wikipedijo</string>
   <string name="login_in_progress_dialog_message">Prijavljanje...</string>
-  <string name="login_success_toast">Prijava uspešna!</string>
+  <string name="login_success_toast" fuzzy="true">Prijava uspešna!</string>
   <string name="reset_password_title">Nastavite svoje geslo</string>
   <string name="reset_password_hint">Novo geslo</string>
   <string name="reset_password_button">Shrani in prijavi me</string>
@@ -318,7 +315,6 @@
   <string name="onboarding_maybe_later">Morda kasneje</string>
   <string name="onboarding_analytics_title">Pošiljaj anonimne podatke</string>
   <string name="onboarding_analytics_switch_title">Pošiljaj podatke o uporabi</string>
-  <string name="onboarding_create_account_preferences">Shrani svoje nastavitve</string>
   <string name="onboarding_got_it">Razumem</string>
   <string name="onboarding_multilingual_add_language_text">Dodaj ali uredi jezike</string>
   <string name="app_shortcuts_random">Naključno</string>
@@ -354,8 +350,6 @@
   <string name="wikitext_numbered_list">Oštevilčen seznam</string>
   <string name="wikitext_template">Predloga</string>
   <string name="wikitext_reference">Sklic</string>
-  <string name="main_drawer_open">Odpri</string>
-  <string name="main_drawer_close">Zapri</string>
   <string name="main_drawer_help">Pomoč</string>
   <string name="custom_date_picker_dialog_ok_button_text">V redu</string>
   <string name="text_input_dialog_ok_button_text">V redu</string>

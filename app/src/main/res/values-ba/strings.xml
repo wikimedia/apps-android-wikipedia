@@ -38,9 +38,7 @@
   <string name="menu_long_press_open_page">Асырға</string>
   <string name="menu_long_press_open_in_new_tab">Битте яңы ҡушылмала асырға</string>
   <string name="menu_long_press_copy_page">Һылтанма адресын күсереп алырға</string>
-  <string name="menu_text_select_copy">Күсермәһен алырға</string>
   <string name="menu_text_select_define">Билдәләү</string>
-  <string name="menu_text_select_share">Уртаҡлашырға</string>
   <string name="menu_text_select_edit_here">Бында төҙәтергә</string>
   <string name="last_updated_text">Һуңғы яңыртыу %s</string>
   <string name="talk_page_link_text" fuzzy="true">Әңгәмә</string>
@@ -166,11 +164,7 @@
   <string name="gallery_error_video_failed">Видеоны күрһәтеп булмай</string>
   <string name="gallery_save_image_write_permission_rationale" fuzzy="true">Һүрәтте һаҡлау өсөн һеҙҙең ҡорамалдың һаҡлағысына яҙҙырырға рөхсәт талап ителә. Тағы бер тапҡыр ҡабатлап ҡарағыҙ һәм һоралған рөхсәт бирегеҙ</string>
   <string name="err_cannot_save_file">\nФайлды һаҡлап булмай</string>
-  <string name="snippet_share_intro">«%1$s» @Wikipedia сайтында: %2$s</string>
   <string name="expand_refs">Асыр өсөн баҫығыҙ</string>
-  <string name="share_snippet_button">Һүрәтләмәһе менән  уртаҡлашығыҙ</string>
-  <string name="share_normal_button">Текст кеүек уртаҡлашығыҙ</string>
-  <string name="snippet_share_preview_image_desc">Һүрәтте алдан ҡарау</string>
   <string name="cc_logo">Creative Commons лицензияһы</string>
   <string name="captcha_image">Капча-һүрәте</string>
   <string name="gallery_fair_use_license">Намыҫлы файҙаланыу</string>
@@ -204,8 +198,6 @@
   <string name="nav_item_reading_lists" fuzzy="true">Уҡыу өсөн исемлектәр</string>
   <string name="reading_list_save_to">Уҡыу исемлегенә һаҡларға</string>
   <string name="reading_list_create_new">Яңыны төҙөргә</string>
-  <string name="reading_list_added_to_named">%s өҫтәлде.</string>
-  <string name="reading_list_already_exists">Был исемлектә мәҡәлә бар инде.</string>
   <string name="reading_list_added_view_button">Исемлекте ҡарау</string>
   <string name="reading_list_sort">Сортҡа айырыу</string>
   <string name="reading_list_sort_by_name">Исем буйынса айырыу</string>

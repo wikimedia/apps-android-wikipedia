@@ -8,7 +8,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.database.DatabaseClient;
 import org.wikipedia.database.contract.PageHistoryContract;
 
-import io.reactivex.functions.Action;
+import io.reactivex.rxjava3.functions.Action;
 
 /**
  * Save the history entry for the specified page.

@@ -1,26 +1,20 @@
 package org.wikipedia.captcha;
 
 import android.app.Activity;
-import android.graphics.ColorMatrixColorFilter;
-import android.graphics.drawable.Animatable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.facebook.drawee.backends.pipeline.Fresco;
-import com.facebook.drawee.controller.BaseControllerListener;
-import com.facebook.drawee.view.SimpleDraweeView;
-import com.facebook.imagepipeline.image.ImageInfo;
 import com.google.android.material.textfield.TextInputLayout;
 
 import org.wikipedia.R;
-import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.page.LinkMovementMethodExt;
@@ -28,16 +22,17 @@ import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.ViewAnimations;
+import org.wikipedia.views.ViewUtil;
 
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.schedulers.Schedulers;
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 
 public class CaptchaHandler {
     private final Activity activity;
     private final View captchaContainer;
     private final View captchaProgress;
-    private final SimpleDraweeView captchaImage;
+    private final ImageView captchaImage;
     private final EditText captchaText;
     private final WikiSite wiki;
     private final View primaryView;
@@ -143,30 +138,8 @@ public class CaptchaHandler {
         }
         // In case there was a captcha attempt before
         captchaText.setText("");
-        captchaImage.setController(Fresco.newDraweeControllerBuilder()
-                .setUri(captchaResult.getCaptchaUrl(wiki))
-                .setAutoPlayAnimations(true)
-                .setControllerListener(new BaseControllerListener<ImageInfo>() {
-                    @Override
-                    public void onFinalImageSet(String id, ImageInfo imageInfo, Animatable animatable) {
-                        ((AppCompatActivity)activity).getSupportActionBar().setTitle(R.string.title_captcha);
 
-                        // for our Dark theme, show a "negative image" of the captcha!
-                        final int maxColorVal = 255;
-                        if (WikipediaApp.getInstance().getCurrentTheme().isDark()) {
-                            float[] colorMatrixNegative = {
-                                    -1.0f, 0, 0, 0, maxColorVal, //red
-                                    0, -1.0f, 0, 0, maxColorVal, //green
-                                    0, 0, -1.0f, 0, maxColorVal, //blue
-                                    0, 0, 0, 1.0f, 0 //alpha
-                            };
-                            captchaImage.getDrawable().setColorFilter(new ColorMatrixColorFilter(colorMatrixNegative));
-                        } else {
-                            captchaImage.getDrawable().clearColorFilter();
-                        }
-                    }
-                })
-                .build());
+        ViewUtil.loadImage(captchaImage, captchaResult.getCaptchaUrl(wiki), false, true);
     }
 
     public void hideCaptcha() {

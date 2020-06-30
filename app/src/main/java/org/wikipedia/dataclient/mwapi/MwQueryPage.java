@@ -6,6 +6,7 @@ import androidx.annotation.Nullable;
 import com.google.gson.annotations.SerializedName;
 
 import org.apache.commons.lang3.StringUtils;
+import org.wikipedia.dataclient.page.Protection;
 import org.wikipedia.gallery.ImageInfo;
 import org.wikipedia.model.BaseModel;
 import org.wikipedia.page.Namespace;
@@ -22,11 +23,13 @@ public class MwQueryPage extends BaseModel {
     private int pageid;
     private int ns;
     private int index;
+    private long lastrevid;
     @Nullable private String title;
     @Nullable private List<LangLink> langlinks;
     @Nullable private List<Revision> revisions;
     @Nullable private List<Coordinates> coordinates;
     @Nullable private List<Category> categories;
+    @Nullable private List<Protection> protection;
     @Nullable private PageProps pageprops;
     @Nullable private String extract;
     @Nullable private Thumbnail thumbnail;
@@ -34,12 +37,14 @@ public class MwQueryPage extends BaseModel {
     @SerializedName("descriptionsource") @Nullable private String descriptionSource;
     @SerializedName("imageinfo") @Nullable private List<ImageInfo> imageInfo;
     @SerializedName("videoinfo") @Nullable private List<ImageInfo> videoInfo;
+    @Nullable private String imagerepository;
     @Nullable private String redirectFrom;
     @Nullable private String convertedFrom;
     @Nullable private String convertedTo;
     @Nullable private Map<String, String> varianttitles;
     @SerializedName("pageviews") @Nullable private Map<String, Long> pageViewsMap;
     @SerializedName("imagelabels") @Nullable private List<ImageLabel> imageLabels;
+
 
     @NonNull public String title() {
         return StringUtils.defaultString(title);
@@ -57,12 +62,16 @@ public class MwQueryPage extends BaseModel {
         return langlinks;
     }
 
-    @Nullable public List<Revision> revisions() {
-        return revisions;
+    @NonNull public List<Revision> revisions() {
+        return revisions != null ? revisions : Collections.emptyList();
     }
 
     @Nullable public List<Category> categories() {
         return categories;
+    }
+
+    @NonNull public List<Protection> protection() {
+        return protection == null ? Collections.emptyList() : protection;
     }
 
     @Nullable public List<Coordinates> coordinates() {
@@ -143,11 +152,25 @@ public class MwQueryPage extends BaseModel {
         return imageLabels != null ? imageLabels : Collections.emptyList();
     }
 
+    public boolean isImageShared() {
+        return StringUtils.defaultString(imagerepository).equals("shared");
+    }
+
+    public long getLastRevId() {
+        return lastrevid;
+    }
+
     public static class Revision {
+        private long revid;
+        private long parentid;
+        private boolean minor;
+        @Nullable private String user;
         @SerializedName("contentformat") @Nullable private String contentFormat;
         @SerializedName("contentmodel") @Nullable private String contentModel;
         @SerializedName("timestamp") @Nullable private String timeStamp;
         @Nullable private String content;
+        @Nullable private String comment;
+        @Nullable private Map<String, RevisionSlot> slots;
 
         @NonNull public String content() {
             return StringUtils.defaultString(content);
@@ -155,6 +178,20 @@ public class MwQueryPage extends BaseModel {
 
         @NonNull public String timeStamp() {
             return StringUtils.defaultString(timeStamp);
+        }
+
+        @NonNull public String getContentFromSlot(@NonNull String slot) {
+            return slots != null && slots.containsKey(slot) ? slots.get(slot).getContent() : "";
+        }
+    }
+
+    public static class RevisionSlot {
+        @Nullable private String contentmodel;
+        @Nullable private String contentformat;
+        @Nullable private String content;
+
+        @NonNull public String getContent() {
+            return StringUtils.defaultString(content);
         }
     }
 
@@ -228,10 +265,12 @@ public class MwQueryPage extends BaseModel {
 
     public static class ImageLabel {
         @SerializedName("wikidata_id") @Nullable private String wikidataId;
+        @Nullable private Confidence confidence;
         @Nullable private String state;
         @Nullable private String label;
         @Nullable private String description;
         private boolean selected;
+        private boolean custom;
 
         public ImageLabel() {
         }
@@ -240,6 +279,7 @@ public class MwQueryPage extends BaseModel {
             this.wikidataId = wikidataId;
             this.label = label;
             this.description = description;
+            custom = true;
         }
 
         @NonNull public String getWikidataId() {
@@ -265,5 +305,23 @@ public class MwQueryPage extends BaseModel {
         public void setSelected(boolean selected) {
             this.selected = selected;
         }
+
+        public boolean isCustom() {
+            return custom;
+        }
+
+        public float getConfidenceScore() {
+            return confidence == null ? 0 : confidence.getGoogle();
+        }
     }
+
+    public static class Confidence {
+        private float google;
+
+        public float getGoogle() {
+            return google;
+        }
+    }
+
+
 }

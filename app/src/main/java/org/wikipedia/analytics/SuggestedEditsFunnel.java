@@ -2,6 +2,10 @@ package org.wikipedia.analytics;
 
 import androidx.annotation.NonNull;
 
+import com.google.gson.JsonElement;
+import com.google.gson.JsonNull;
+import com.google.gson.JsonSerializationContext;
+import com.google.gson.JsonSerializer;
 import com.google.gson.annotations.SerializedName;
 
 import org.json.JSONObject;
@@ -10,12 +14,14 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.descriptions.DescriptionEditActivity.Action;
 import org.wikipedia.json.GsonUtil;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.wikipedia.Constants.InvokeSource.SUGGESTED_EDITS;
 import static org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_CAPTION;
 import static org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_DESCRIPTION;
+import static org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_IMAGE_TAGS;
 import static org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_CAPTION;
 import static org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION;
 
@@ -30,6 +36,8 @@ public final class SuggestedEditsFunnel extends TimedFunnel {
 
     public static final String SUGGESTED_EDITS_ADD_COMMENT = "#suggestededit-add " + SUGGESTED_EDITS_UI_VERSION;
     public static final String SUGGESTED_EDITS_TRANSLATE_COMMENT = "#suggestededit-translate " + SUGGESTED_EDITS_UI_VERSION;
+    public static final String SUGGESTED_EDITS_IMAGE_TAG_AUTO_COMMENT = "#suggestededit-imgtag-auto " + SUGGESTED_EDITS_UI_VERSION;
+    public static final String SUGGESTED_EDITS_IMAGE_TAG_CUSTOM_COMMENT = "#suggestededit-imgtag-custom " + SUGGESTED_EDITS_UI_VERSION;
 
     private InvokeSource invokeSource;
     private String parentSessionToken;
@@ -78,6 +86,8 @@ public final class SuggestedEditsFunnel extends TimedFunnel {
             statsCollection.addCaptionStats.impressions++;
         } else if (action == TRANSLATE_CAPTION) {
             statsCollection.translateCaptionStats.impressions++;
+        } else if (action == ADD_IMAGE_TAGS) {
+            statsCollection.imageTagStats.impressions++;
         }
     }
 
@@ -127,6 +137,8 @@ public final class SuggestedEditsFunnel extends TimedFunnel {
             statsCollection.addCaptionStats.successes++;
         } else if (action == TRANSLATE_CAPTION) {
             statsCollection.translateCaptionStats.successes++;
+        } else if (action == ADD_IMAGE_TAGS) {
+            statsCollection.imageTagStats.successes++;
         }
     }
 
@@ -139,6 +151,8 @@ public final class SuggestedEditsFunnel extends TimedFunnel {
             statsCollection.addCaptionStats.failures++;
         } else if (action == TRANSLATE_CAPTION) {
             statsCollection.translateCaptionStats.failures++;
+        } else if (action == ADD_IMAGE_TAGS) {
+            statsCollection.imageTagStats.failures++;
         }
     }
 
@@ -152,27 +166,41 @@ public final class SuggestedEditsFunnel extends TimedFunnel {
 
     public void log() {
         log(
-                "edit_tasks", GsonUtil.getDefaultGson().toJson(statsCollection),
+                "edit_tasks", GsonUtil.getDefaultGson().newBuilder()
+                        .registerTypeAdapter(SuggestedEditStats.class, new SuggestedEditsStatsTypeAdapter())
+                        .create().toJson(statsCollection),
                 "help_opened", helpOpenedCount,
                 "scorecard_opened", contributionsOpenedCount,
                 "source", (invokeSource.getName())
         );
     }
 
+    private static class SuggestedEditsStatsTypeAdapter implements JsonSerializer<SuggestedEditStats> {
+        @Override
+        public JsonElement serialize(SuggestedEditStats src, Type typeOfSrc, JsonSerializationContext context) {
+            return src.isEmpty() ? JsonNull.INSTANCE : GsonUtil.getDefaultGson().toJsonTree(src, typeOfSrc);
+        }
+    }
+
     private static class SuggestedEditStatsCollection {
-        @SerializedName("add-description") private SuggestedEditStats addDescriptionStats = new SuggestedEditStats();
-        @SerializedName("translate-description") private SuggestedEditStats translateDescriptionStats = new SuggestedEditStats();
-        @SerializedName("add-caption") private SuggestedEditStats addCaptionStats = new SuggestedEditStats();
-        @SerializedName("translate-caption") private SuggestedEditStats translateCaptionStats = new SuggestedEditStats();
+        @SerializedName("a-d") private SuggestedEditStats addDescriptionStats = new SuggestedEditStats();
+        @SerializedName("t-d") private SuggestedEditStats translateDescriptionStats = new SuggestedEditStats();
+        @SerializedName("a-c") private SuggestedEditStats addCaptionStats = new SuggestedEditStats();
+        @SerializedName("t-c") private SuggestedEditStats translateCaptionStats = new SuggestedEditStats();
+        @SerializedName("i-t") private SuggestedEditStats imageTagStats = new SuggestedEditStats();
     }
 
     @SuppressWarnings("unused")
     private static class SuggestedEditStats {
-        private int impressions;
-        private int clicks;
-        @SerializedName("suggestions_clicked") private int suggestionsClicked;
-        private int cancels;
-        private int successes;
-        private int failures;
+        @SerializedName("imp") private int impressions;
+        @SerializedName("clk") private int clicks;
+        @SerializedName("sg") private int suggestionsClicked;
+        @SerializedName("cxl")private int cancels;
+        @SerializedName("suc") private int successes;
+        @SerializedName("fl") private int failures;
+
+        public boolean isEmpty() {
+            return impressions == 0 && clicks == 0 && suggestionsClicked == 0 && cancels == 0 && successes == 0 && failures == 0;
+        }
     }
 }

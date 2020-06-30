@@ -4,16 +4,12 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
 import android.app.Activity;
-import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.Rect;
-import android.graphics.drawable.BitmapDrawable;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-
-import androidx.core.view.ViewCompat;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -31,7 +27,6 @@ public class ImageZoomHelper {
     private ViewGroup parentOfZoomableView;
     private ViewGroup.LayoutParams zoomableViewLP;
     private FrameLayout.LayoutParams zoomableViewFrameLP;
-    private View placeholderView;
     private int viewIndex;
     private View darkView;
     private double originalDistance;
@@ -93,30 +88,9 @@ public class ImageZoomHelper {
                     zoomableViewFrameLP.leftMargin = originalXY[0];
                     zoomableViewFrameLP.topMargin = originalXY[1];
 
-                    // this view will hold the zoomableView's position temporarily
-                    placeholderView = new View(activity);
-
-                    // setting placeholderView's background to zoomableView's drawingCache
-                    // this avoids flickering when adding/removing views
-                    zoomableView.setDrawingCacheEnabled(true);
-
-                    ViewCompat.setBackground(placeholderView, new BitmapDrawable(
-                            activity.getResources(), Bitmap.createBitmap(zoomableView.getDrawingCache())));
-
-                    // placeholderView takes the place of zoomableView temporarily
-                    parentOfZoomableView.addView(placeholderView, zoomableViewLP);
-
                     // zoomableView has to be removed from parent view before being added to its new parent
                     parentOfZoomableView.removeView(zoomableView);
                     frameLayout.addView(zoomableView, zoomableViewFrameLP);
-
-                    // using a post to remove placeholder's drawing cache
-                    zoomableView.post(() -> {
-                        if (decorView != null) {
-                            ViewCompat.setBackground(placeholderView, null);
-                            zoomableView.setDrawingCacheEnabled(false);
-                        }
-                    });
 
                     // Pointer variables to store the original touch positions
                     MotionEvent.PointerCoords pointerCoords1 = new MotionEvent.PointerCoords();
@@ -259,29 +233,15 @@ public class ImageZoomHelper {
      */
     private void dismissDialogAndViews() {
         sendZoomEventToListeners(zoomableView, false);
-
         if (zoomableView != null) {
             zoomableView.setVisibility(View.VISIBLE);
-            zoomableView.setDrawingCacheEnabled(true);
-
-            ViewCompat.setBackground(placeholderView, new BitmapDrawable(zoomableView.getResources(),
-                    Bitmap.createBitmap(zoomableView.getDrawingCache())));
-
             ViewGroup parent = (ViewGroup) zoomableView.getParent();
             parent.removeView(zoomableView);
             this.parentOfZoomableView.addView(zoomableView, viewIndex, zoomableViewLP);
-            this.parentOfZoomableView.removeView(placeholderView);
-            final View finalZoomView = zoomableView;
-            zoomableView.setDrawingCacheEnabled(false);
-            decorView = null;
-            darkView = null;
-            resetOriginalViewAfterZoom();
-            finalZoomView.invalidate();
-        } else {
-            decorView = null;
-            darkView = null;
-            resetOriginalViewAfterZoom();
         }
+        decorView = null;
+        darkView = null;
+        resetOriginalViewAfterZoom();
         isAnimatingDismiss = false;
     }
 
@@ -373,8 +333,8 @@ public class ImageZoomHelper {
         view.setTag(getIntTag(view) | FLAG_ZOOMABLE);
     }
 
-    public static void setZoomEnabled(View view, boolean enabled) {
-        view.setTag(enabled ? getIntTag(view) | FLAG_UNZOOMABLE : getIntTag(view) & ~FLAG_UNZOOMABLE);
+    public static void clearViewZoomable(View view) {
+        view.setTag(getIntTag(view) & ~FLAG_ZOOMABLE);
     }
 
     public interface OnZoomListener {

@@ -56,10 +56,7 @@
   <string name="menu_long_press_open_page">খোলক</string>
   <string name="menu_long_press_open_in_new_tab">নতুন টেবত খোলক</string>
   <string name="menu_long_press_copy_page">লিংক ঠিকনা প্ৰতিলিপি কৰক</string>
-  <string name="menu_text_select_copy">প্ৰতিলিপি</string>
   <string name="menu_text_select_define">সংজ্ঞা</string>
-  <string name="menu_text_select_share">ভাগবতৰা কৰক</string>
-  <string name="share">শ্বেয়াৰ কৰক</string>
   <string name="on_this_day_page_share">শ্বেয়াৰ কৰক</string>
   <string name="reading_list_page_share">শ্বেয়াৰ কৰক</string>
   <string name="menu_text_select_edit_here">ইয়াত সম্পাদনা কৰক</string>
@@ -106,9 +103,9 @@
   <string name="reading_lists_sync_login">প্ৰৱেশ কৰক</string>
   <string name="create_account_login">প্ৰৱেশ কৰক</string>
   <string name="menu_login">প্ৰৱেশ</string>
-  <string name="login_activity_title">ৱিকিপিডিয়াত প্ৰৱেশ কৰক</string>
+  <string name="login_activity_title" fuzzy="true">ৱিকিপিডিয়াত প্ৰৱেশ কৰক</string>
   <string name="login_in_progress_dialog_message">আপুনি প্ৰৱেশ কৰিছে…</string>
-  <string name="login_success_toast">প্ৰৱেশ সফল হ\'ল!</string>
+  <string name="login_success_toast" fuzzy="true">প্ৰৱেশ সফল হ\'ল!</string>
   <string name="reset_password_title">আপোনাৰ গুপ্তশব্দ লিখক</string>
   <string name="reset_password_description">আপুনি এটা অস্থায়ী গুপ্তশব্দৰে প্ৰৱেশ কৰিছে। প্ৰৱেশ সম্পূৰ্ণ কৰিবলৈ আপুনি ইয়াত এটা নতুন গুপ্তশব্দ নিৰ্ধাৰণ কৰিব লাগিব।</string>
   <string name="reset_password_hint">নতুন গুপ্তশব্দ</string>
@@ -260,16 +257,12 @@
   <string name="gallery_menu_share">শ্বেয়াৰ কৰক</string>
   <string name="gallery_share_error">ছবিখন শ্বেয়াৰ কৰিব পৰা নগ\'ল: %s</string>
   <string name="gallery_save_progress">ফাইল ডাউনল\'ড হৈ আছে...</string>
-  <string name="gallery_save_success">ফাইল সফলতাৰে সঞ্চিত হ\'ল।</string>
+  <string name="gallery_save_success" fuzzy="true">ফাইল সফলতাৰে সঞ্চিত হ\'ল।</string>
   <string name="gallery_error_video_failed">ভিডিঅ\'টো চলাব পৰা নগ\'ল।</string>
   <string name="gallery_save_image_write_permission_rationale">ছবি সাঁচিবৰ বাবে আপোনাৰ সঁজুলিৰ সংগ্ৰহস্থলত লিখাৰ অনুমতিৰ প্ৰয়োজন।</string>
   <string name="gallery_add_image_caption_in_language_button">ছবিৰ শিৰোনাম যোগ কৰক (%s)</string>
   <string name="err_cannot_save_file">ফাইল সাঁচিব পৰা নগ\'ল</string>
-  <string name="snippet_share_intro">\@Wikipedia ত \"%1$s\": %2$s</string>
   <string name="expand_refs">বহলাবলৈ টেপ্‌ কৰক</string>
-  <string name="share_snippet_button">ছবি হিচাপে শ্বেয়াৰ কৰক</string>
-  <string name="share_normal_button">পাঠ্য হিচাপে শ্বেয়াৰ কৰক</string>
-  <string name="snippet_share_preview_image_desc">ছবিৰ প্ৰাক্‌দৰ্শন কৰক</string>
   <string name="cc_logo">ক্ৰিয়েটিভ কমন্স লাইচেন্স</string>
   <string name="captcha_image">কেপ্‌চা ছবি</string>
   <string name="gallery_fair_use_license">ভাল ব্যৱহাৰ</string>
@@ -331,8 +324,6 @@
   <string name="reading_list_save_to">পঢ়া তালিকাত সাঁচি থওক</string>
   <string name="reading_list_create_new">নতুন সৃষ্টি কৰক</string>
   <string name="reading_list_title_exists">পঢ়াৰ তালিকা \"%s\" ইতিমধ্যে বিদ্যমান।</string>
-  <string name="reading_list_added_to_named">%s-ত যোগ কৰা হৈছে।</string>
-  <string name="reading_list_already_exists">এই প্ৰবন্ধটো ইতিমধ্যে সেই তালিকাত আছে।</string>
   <string name="reading_list_added_view_button">তালিকা চাওক</string>
   <string name="format_reading_list_statistical_summary_singular">১টা প্ৰবন্ধ, %1$.2f মেগাবাইট</string>
   <string name="format_reading_list_statistical_summary_plural">%1$dটা প্ৰবন্ধ, %2$.2f মেগাবাইট</string>
@@ -464,8 +455,6 @@
   <string name="onboarding_skip">এৰি যাওক</string>
   <string name="onboarding_continue">অব্যাহত ৰাখক</string>
   <string name="onboarding_get_started">আৰম্ভ কৰক</string>
-  <string name="onboarding_create_account_contributions">আপোনাৰ বৰঙণিৰ হিচাপ ৰাখক</string>
-  <string name="onboarding_create_account_preferences">আপোনাৰ পছন্দসমূহ সাঁচি থওক</string>
   <string name="app_shortcuts_search">সন্ধান কৰক</string>
   <string name="on_this_day_card_title">আজিৰ দিনটোত</string>
   <string name="this_year">এই বছৰ</string>
@@ -503,8 +492,6 @@
   <string name="wikitext_template">সাঁচ</string>
   <string name="wikitext_reference">তথ্যসূত্ৰ</string>
   <string name="wikitext_preview_link">সংযোগ প্ৰাক্‌দৰ্শন কৰক</string>
-  <string name="main_drawer_open">খোলক</string>
-  <string name="main_drawer_close">বন্ধ কৰক</string>
   <string name="main_drawer_help">সহায়</string>
   <string name="main_drawer_login">ৱিকিপিডিয়াত প্ৰৱেশ/যোগদান কৰক</string>
   <string name="custom_date_picker_dialog_ok_button_text">বাৰু</string>

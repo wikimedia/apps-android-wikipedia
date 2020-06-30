@@ -49,10 +49,7 @@
   <string name="menu_long_press_open_page">Ачу</string>
   <string name="menu_long_press_open_in_new_tab">Битне яңа өстәмәдә ачу</string>
   <string name="menu_long_press_copy_page">Сылтама адресыннан күчермә алу</string>
-  <string name="menu_text_select_copy">Күчермә алу</string>
   <string name="menu_text_select_define">Билгеләү</string>
-  <string name="menu_text_select_share">Уртаклашу</string>
-  <string name="share">Уртаклашу</string>
   <string name="on_this_day_page_share">Уртаклашу</string>
   <string name="reading_list_page_share">Уртаклашу</string>
   <string name="menu_text_select_edit_here">Биредә үзгәртү</string>
@@ -90,9 +87,9 @@
   <string name="reading_lists_sync_login">Керү</string>
   <string name="create_account_login">Керү</string>
   <string name="menu_login">Керү</string>
-  <string name="login_activity_title">Википедиягә керү</string>
+  <string name="login_activity_title" fuzzy="true">Википедиягә керү</string>
   <string name="login_in_progress_dialog_message">Керүегез бара…</string>
-  <string name="login_success_toast">Сез кереп булдыгыз!</string>
+  <string name="login_success_toast" fuzzy="true">Сез кереп булдыгыз!</string>
   <string name="reset_password_title">Серсүзне язып бирегез</string>
   <string name="reset_password_description">Сез вакытлы серсүз белән кердегез. Керүегезне төгәлләү өчен биредә яңа серсүзегезне язып бирегез әле.</string>
   <string name="reset_password_hint">Яңа серсүз</string>
@@ -146,9 +143,6 @@
   <string name="gallery_menu_share">Уртаклашу</string>
   <string name="gallery_save_progress">Файл күчереп алына…</string>
   <string name="gallery_add_image_caption_button">Сурәт язмасын өстәү</string>
-  <string name="share_snippet_button">Сурәтне уртаклашу</string>
-  <string name="share_normal_button">Текстны уртаклашу</string>
-  <string name="snippet_share_preview_image_desc">Сурәтне алдан карау</string>
   <string name="cc_logo">Creative Commons рөхсәтнамәсе</string>
   <string name="captcha_image">Captcha сурәте</string>
   <string name="close_all_tabs_confirm_yes">Әйе</string>
@@ -243,8 +237,6 @@
   <string name="wikitext_bulleted_list">Тамгалы исемлек</string>
   <string name="wikitext_numbered_list">Санлы исемлек</string>
   <string name="wikitext_template">Калып</string>
-  <string name="main_drawer_open">Ачу</string>
-  <string name="main_drawer_close">Ябу</string>
   <string name="main_drawer_help">Белешмә</string>
   <string name="main_drawer_login">Википедиягә керү / кушылу</string>
   <string name="custom_date_picker_dialog_ok_button_text">Ярар</string>

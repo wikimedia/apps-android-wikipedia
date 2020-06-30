@@ -130,6 +130,10 @@ public final class DateUtil {
         return getDateStringWithSkeletonPattern(iso8601DateParse(dateStr), "d MMM yyyy HH:mm");
     }
 
+    public static String get24HrFormatTimeOnlyString(@NonNull Date date) {
+        return getDateStringWithSkeletonPattern(date, "kk:mm");
+    }
+
     @NonNull public static String yearToStringWithEra(int year) {
         Calendar cal = new GregorianCalendar(year, 1, 1);
         return getDateStringWithSkeletonPattern(cal.getTime(), year < 0 ? "y GG" : "y");

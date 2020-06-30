@@ -1,12 +1,11 @@
 package org.wikipedia.dataclient.mwapi.media
 
+import io.reactivex.rxjava3.core.Observable
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 
 import java.util.HashMap
-
-import io.reactivex.Observable
 
 object MediaHelper {
     private const val COMMONS_DB_NAME = "commonswiki"

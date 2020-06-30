@@ -4,7 +4,6 @@ import android.animation.ArgbEvaluator;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,8 +29,6 @@ public class PageToolbarHideHandler extends ViewHideHandler {
     @NonNull private Drawable toolbarBackground;
 
     @ColorInt private int themedIconColor;
-    @ColorInt private int baseStatusBarColor;
-    @ColorInt private int themedStatusBarColor;
 
     private int toolbarHeight;
 
@@ -41,9 +38,7 @@ public class PageToolbarHideHandler extends ViewHideHandler {
         this.pageFragment = pageFragment;
         this.toolbar = toolbar;
         this.toolbarBackground = hideableView.getBackground().mutate();
-        themedIconColor = getThemedColor(toolbar.getContext(), R.attr.page_toolbar_icon_color);
-        baseStatusBarColor = getThemedColor(toolbar.getContext(), R.attr.page_expanded_status_bar_color);
-        themedStatusBarColor = getThemedColor(toolbar.getContext(), R.attr.page_status_bar_color);
+        themedIconColor = getThemedColor(toolbar.getContext(), R.attr.toolbar_icon_color);
         toolbarHeight = DimenUtil.getToolbarHeightPx(pageFragment.requireContext());
         tabsButton.updateTabCount();
     }
@@ -59,13 +54,9 @@ public class PageToolbarHideHandler extends ViewHideHandler {
 
     @Override
     protected void onScrolled(int oldScrollY, int scrollY) {
-        int opacity = fadeEnabled && scrollY < (DimenUtil.leadImageHeightForDevice() - toolbarHeight) ? 0 : FULL_OPACITY;
+        int opacity = fadeEnabled && scrollY < (DimenUtil.leadImageHeightForDevice(pageFragment.requireContext()) - toolbarHeight) ? 0 : FULL_OPACITY;
         toolbarBackground.setAlpha(opacity);
         updateChildIconTint(toolbar, opacity);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            pageFragment.requireActivity().getWindow()
-                    .setStatusBarColor(calculateStatusBarTintForOpacity(opacity));
-        }
     }
 
     private void updateChildIconTint(@NonNull ViewGroup viewGroup, float opacity) {
@@ -93,11 +84,5 @@ public class PageToolbarHideHandler extends ViewHideHandler {
     private int calculateIconTintForOpacity(float opacity) {
         return (Integer) argbEvaluator.evaluate(opacity / FULL_OPACITY, Color.WHITE,
                 themedIconColor);
-    }
-
-    @ColorInt
-    private int calculateStatusBarTintForOpacity(float opacity) {
-        return (Integer) argbEvaluator.evaluate(opacity / FULL_OPACITY, baseStatusBarColor,
-                themedStatusBarColor);
     }
 }

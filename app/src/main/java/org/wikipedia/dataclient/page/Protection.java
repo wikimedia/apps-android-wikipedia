@@ -12,6 +12,9 @@ import java.util.Set;
 /** Protection settings for a page */
 public class Protection {
     @Nullable private String edit;
+    @Nullable private String type;
+    @Nullable private String level;
+    @Nullable private String expiry;
 
     public String getFirstAllowedEditorRole() {
         return StringUtils.defaultString(edit);
@@ -24,5 +27,20 @@ public class Protection {
             roleSet.add(edit);
         }
         return Collections.unmodifiableSet(roleSet);
+    }
+
+    @NonNull
+    public String getType() {
+        return StringUtils.defaultString(type);
+    }
+
+    @NonNull
+    public String getLevel() {
+        return StringUtils.defaultString(level);
+    }
+
+    @NonNull
+    public String getExpiry() {
+        return StringUtils.defaultString(expiry);
     }
 }

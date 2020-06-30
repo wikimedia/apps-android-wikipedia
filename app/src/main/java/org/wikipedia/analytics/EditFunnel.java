@@ -34,7 +34,16 @@ public class EditFunnel extends Funnel {
         );
     }
 
-    public void logSaved(int revID) {
+
+    public void logSaved(long revID, String source) {
+        log(
+                "action", "saved",
+                "revID", revID,
+                "source", source
+        );
+    }
+
+    public void logSaved(long revID) {
         log(
                 "action", "saved",
                 "revID", revID

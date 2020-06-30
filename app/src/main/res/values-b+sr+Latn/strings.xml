@@ -53,10 +53,7 @@
   <string name="menu_long_press_open_page">Otvori</string>
   <string name="menu_long_press_open_in_new_tab">Otvori u novoj kartici</string>
   <string name="menu_long_press_copy_page">Kopiraj adresu linka</string>
-  <string name="menu_text_select_copy">Kopiraj</string>
   <string name="menu_text_select_define">Definiši</string>
-  <string name="menu_text_select_share">Deli</string>
-  <string name="share">Deli</string>
   <string name="on_this_day_page_share">Deli</string>
   <string name="reading_list_page_share">Deli</string>
   <string name="menu_text_select_edit_here">Uredi ovde</string>
@@ -103,9 +100,9 @@
   <string name="reading_lists_sync_login">Prijava</string>
   <string name="create_account_login">Prijava</string>
   <string name="menu_login">Prijavi me</string>
-  <string name="login_activity_title">Prijava na Vikipediju</string>
+  <string name="login_activity_title" fuzzy="true">Prijava na Vikipediju</string>
   <string name="login_in_progress_dialog_message">Prijavljujem vas…</string>
-  <string name="login_success_toast">Uspešno ste prijavljeni.</string>
+  <string name="login_success_toast" fuzzy="true">Uspešno ste prijavljeni.</string>
   <string name="reset_password_title">Postavite lozinku</string>
   <string name="reset_password_description">Prijavili ste se sa privremenom lozinkom. Da biste završili prijavu, ovde postavite novu.</string>
   <string name="reset_password_hint">Nova lozinka</string>
@@ -261,17 +258,13 @@
   <string name="gallery_menu_share">Deli</string>
   <string name="gallery_share_error">Nije moguće deliti sliku: %s</string>
   <string name="gallery_save_progress">Preuzimanje datoteke…</string>
-  <string name="gallery_save_success">Datoteka je uspešno sačuvana.</string>
+  <string name="gallery_save_success" fuzzy="true">Datoteka je uspešno sačuvana.</string>
   <string name="gallery_error_video_failed">Nije moguće reprodukovati video.</string>
   <string name="gallery_save_image_write_permission_rationale">Potrebna je dozvola za pisanje na memorijski prostor uređaja da biste čuvali slike.</string>
   <string name="gallery_add_image_caption_button">Dodaj opis slike</string>
   <string name="gallery_add_image_caption_in_language_button">Dodaj opis slike (%s)</string>
   <string name="err_cannot_save_file">Nije moguće sačuvati datoteku</string>
-  <string name="snippet_share_intro">„%1$s” na @Wikipedia: %2$s</string>
   <string name="expand_refs">Dodirnite da biste proširili</string>
-  <string name="share_snippet_button">Deli kao sliku</string>
-  <string name="share_normal_button">Deli kao tekst</string>
-  <string name="snippet_share_preview_image_desc">Pregled slike</string>
   <string name="cc_logo">Licenca Creative Commons</string>
   <string name="captcha_image">CAPTCHA slika</string>
   <string name="gallery_fair_use_license">Pošteno korišćenje</string>
@@ -353,8 +346,6 @@
   <string name="reading_list_save_to">Sačuvaj na listu za čitanje</string>
   <string name="reading_list_create_new">Napravi novi</string>
   <string name="reading_list_title_exists">Lista za čitanje „%s” već postoji.</string>
-  <string name="reading_list_added_to_named">Dodato na listu „%s”.</string>
-  <string name="reading_list_already_exists">Ovaj članak se već nalazi na toj listi.</string>
   <string name="reading_list_added_view_button">Prikaži listu</string>
   <string name="format_reading_list_statistical_summary_singular">1 članak, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d članaka, %2$.2f MB</string>
@@ -410,8 +401,7 @@
   <string name="reading_lists_confirm_remote_delete_yes">Da</string>
   <string name="reading_lists_confirm_remote_delete_no">Ne</string>
   <string name="reading_list_article_save_in_progress">Članak se preuzima. Po završetku preuzimanja će biti dostupan oflajn.</string>
-  <string name="reading_list_already_contains_selection">Odabrana lista već sadrži sve izabrane stranice.</string>
-  <string name="reading_list_added_articles_list_titled">Na listu „%2$s” su dodati članci (%1$d)</string>
+  <string name="reading_list_articles_added_to_named">Na listu „%2$s” su dodati članci (%1$d)</string>
   <string name="reading_list_delete_confirm">Želite li zaista da izbrišete „%s”?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Prijavite se da biste omogućili sinhronizaciju</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Prijavite se da biste sačuvali liste za čitanje na vaš nalog.</string>
@@ -447,7 +437,7 @@
     <item quantity="one">Ovaj članak više neće biti dostupan oflajn.</item>
     <item quantity="other">Ovi članci više neće biti dostupni oflajn.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync">Liste za čitanje su uspešno sinhronizovane</string>
+  <string name="reading_list_toast_last_sync" fuzzy="true">Liste za čitanje su uspešno sinhronizovane</string>
   <string name="reading_list_menu_last_sync">Poslednja sinhronizacija: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">U redu</string>
   <string name="reading_list_delete_dialog_ok_button_text">U redu</string>
@@ -721,9 +711,6 @@
   <string name="onboarding_analytics_title">Slanje anonimnih podataka</string>
   <string name="onboarding_analytics_offline_text">Pomozite nam da poboljšamo aplikaciju slanjem informacija o upotrebi. Prikupljeni podaci su anonimni. &lt;a href=\"#privacy\"&gt;Saznajte više&lt;/a&gt;.</string>
   <string name="onboarding_analytics_switch_title">Šalji podatke o upotrebi</string>
-  <string name="onboarding_create_account_sync">Sinhronizujte liste za čitanje</string>
-  <string name="onboarding_create_account_contributions">Budite u toku sa svojim doprinosima</string>
-  <string name="onboarding_create_account_preferences">Sačuvajte svoja podešavanja</string>
   <string name="onboarding_got_it">Razumem</string>
   <string name="onboarding_multilingual_secondary_text">Pronašli smo sledeće na vašem uređaju:</string>
   <string name="onboarding_multilingual_add_language_text">Dodaj ili uredi jezike</string>
@@ -783,12 +770,9 @@
   <string name="wikitext_template">Šablon</string>
   <string name="wikitext_reference">Referenca</string>
   <string name="wikitext_preview_link">Pregled veze</string>
-  <string name="main_drawer_open">Otvori</string>
-  <string name="main_drawer_close">Zatvori</string>
-  <string name="main_drawer_content_description">Otvorite glavnu ladicu za navigaciju</string>
   <string name="main_drawer_help">Pomoć</string>
   <string name="main_drawer_login">Prijavi me / pridruži me Vikipediji</string>
-  <string name="main_tooltip_text">%s, da li ste znali da svako može da uređuje Vikipediju?</string>
+  <string name="main_tooltip_text" fuzzy="true">%s, da li ste znali da svako može da uređuje Vikipediju?</string>
   <string name="main_tooltip_action_button">Počnimo</string>
   <string name="custom_date_picker_dialog_ok_button_text">U redu</string>
   <string name="text_input_dialog_ok_button_text">U redu</string>

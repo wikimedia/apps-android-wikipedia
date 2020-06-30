@@ -10,7 +10,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import androidx.annotation.IntRange;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
@@ -86,7 +85,6 @@ import static org.wikipedia.language.AppLanguageLookUpTable.TRADITIONAL_CHINESE_
 public class FeedFragment extends Fragment implements BackPressedHandler {
     @BindView(R.id.feed_swipe_refresh_layout) SwipeRefreshLayout swipeRefreshLayout;
     @BindView(R.id.fragment_feed_feed) FeedView feedView;
-    @BindView(R.id.fragment_feed_header) View feedHeader;
     @BindView(R.id.fragment_feed_empty_container) View emptyContainer;
     private Unbinder unbinder;
     private FeedAdapter<?> feedAdapter;
@@ -104,6 +102,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         void onFeedSelectPage(HistoryEntry entry);
         void onFeedSelectPageFromExistingTab(HistoryEntry entry);
         void onFeedAddPageToList(HistoryEntry entry);
+        void onFeedMovePageToList(long sourceReadingList, HistoryEntry entry);
         void onFeedRemovePageFromList(HistoryEntry entry);
         void onFeedSharePage(HistoryEntry entry);
         void onFeedNewsItemSelected(NewsItemCard card, HorizontalScrollingListCardItemView view);
@@ -138,7 +137,6 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         unbinder = ButterKnife.bind(this, view);
         feedAdapter = new FeedAdapter<>(coordinator, feedCallback);
         feedView.setAdapter(feedAdapter);
-        feedView.setCallback(feedCallback);
         feedView.addOnScrollListener(feedScrollListener);
 
         swipeRefreshLayout.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent));
@@ -178,7 +176,6 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
             }
         });
 
-        feedHeader.setBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.main_toolbar_color));
         if (getCallback() != null) {
             getCallback().updateToolbarElevation(shouldElevateToolbar());
         }
@@ -219,6 +216,9 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         showRemoveChineseVariantPrompt();
         funnel.enter();
 
+        // Explicitly invalidate the feed adapter, since it occasionally crashes the StaggeredGridLayout
+        // on certain devices. (TODO: investigate further)
+        feedAdapter.notifyDataSetChanged();
     }
 
     @Override
@@ -279,7 +279,6 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         coordinator.setFeedUpdateListener(null);
         swipeRefreshLayout.setOnRefreshListener(null);
         feedView.removeOnScrollListener(feedScrollListener);
-        feedView.setCallback((FeedAdapter.Callback) null);
         feedView.setAdapter(null);
         feedAdapter = null;
         unbinder.unbind();
@@ -414,6 +413,13 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         }
 
         @Override
+        public void onMovePageToList(long sourceReadingList, @NonNull HistoryEntry entry) {
+            if (getCallback() != null) {
+                getCallback().onFeedMovePageToList(sourceReadingList, entry);
+            }
+        }
+
+        @Override
         public void onRemovePageFromList(@NonNull HistoryEntry entry) {
             if (getCallback() != null) {
                 getCallback().onFeedRemovePageFromList(entry);
@@ -460,11 +466,6 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         @Override
         public void onRequestCustomize(@NonNull Card card) {
             showConfigureActivity(card.type().code());
-        }
-
-        @Override
-        public void onSwiped(@IntRange(from = 0) int itemPos) {
-            onRequestDismissCard(coordinator.getCards().get(itemPos));
         }
 
         @Override
@@ -563,11 +564,6 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         @Override
         public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
             super.onScrolled(recyclerView, dx, dy);
-            int yOffset = feedView.computeVerticalScrollOffset() * 2;
-            if (yOffset <= feedHeader.getHeight()
-                    || feedHeader.getTranslationY() > -feedHeader.getHeight()) {
-                feedHeader.setTranslationY(-yOffset);
-            }
             boolean shouldShowSearchIcon = feedView.getFirstVisibleItemPosition() != 0;
             if (shouldShowSearchIcon != searchIconVisible) {
                 searchIconVisible = shouldShowSearchIcon;

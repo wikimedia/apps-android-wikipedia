@@ -9,6 +9,7 @@
 * Fitoschido
 * Iváns
 * Macofe
+* Sabelaraga
 * Toliño
 * Vivaelcelta
 * Xosecalvo
@@ -63,10 +64,7 @@
   <string name="menu_long_press_open_page">Abrir</string>
   <string name="menu_long_press_open_in_new_tab">Abrir a ligazón nunha nova lapela</string>
   <string name="menu_long_press_copy_page">Copiar o enderezo da ligazón</string>
-  <string name="menu_text_select_copy">Copiar</string>
   <string name="menu_text_select_define">Definir</string>
-  <string name="menu_text_select_share">Compartir</string>
-  <string name="share">Compartir</string>
   <string name="on_this_day_page_share">Compartir</string>
   <string name="reading_list_page_share">Compartir</string>
   <string name="menu_text_select_edit_here">Editar aquí</string>
@@ -114,9 +112,9 @@
   <string name="reading_lists_sync_login">Acceder ao sistema</string>
   <string name="create_account_login">Acceder ao sistema</string>
   <string name="menu_login">Acceder ó sistema</string>
-  <string name="login_activity_title">Iniciar sesión na Wikipedia</string>
+  <string name="login_activity_title" fuzzy="true">Iniciar sesión na Wikipedia</string>
   <string name="login_in_progress_dialog_message">Accedendo ao sistema…</string>
-  <string name="login_success_toast">Accedeu correctamente!</string>
+  <string name="login_success_toast" fuzzy="true">Accedeu correctamente!</string>
   <string name="reset_password_title">Definir o seu contrasinal</string>
   <string name="reset_password_description">Accedeu con contrasinal temporal. Para completar o seu acceso, por favor, estableza un novo contrasinal.</string>
   <string name="reset_password_hint">Novo contrasinal</string>
@@ -272,17 +270,13 @@
   <string name="gallery_menu_share">Compartir</string>
   <string name="gallery_share_error">Non se puido compartir a imaxe: %s</string>
   <string name="gallery_save_progress">Descargando ficheiro…</string>
-  <string name="gallery_save_success">O ficheiro gardouse correctamente.</string>
+  <string name="gallery_save_success" fuzzy="true">O ficheiro gardouse correctamente.</string>
   <string name="gallery_error_video_failed">Non se puido reproducir o vídeo.</string>
   <string name="gallery_save_image_write_permission_rationale">É necesario o permiso de escritura no seu dispositivo para gardar imaxes.</string>
   <string name="gallery_add_image_caption_button">Engadir lenda de imaxe</string>
   <string name="gallery_add_image_caption_in_language_button">Engadir lenda de imaxe (%s)</string>
   <string name="err_cannot_save_file">Non se pode gardar o ficheiro</string>
-  <string name="snippet_share_intro">\"%1$s\" en @Wikipedia: %2$s</string>
   <string name="expand_refs">Toque para ampliar</string>
-  <string name="share_snippet_button">Compartir como imaxe</string>
-  <string name="share_normal_button">Compartir como texto</string>
-  <string name="snippet_share_preview_image_desc">Vista previa da imaxe</string>
   <string name="cc_logo">Licenza Creative Commons</string>
   <string name="captcha_image">Imaxe Captcha</string>
   <string name="gallery_fair_use_license">Uso lexítimo</string>
@@ -366,8 +360,6 @@
   <string name="reading_list_save_to">Gardar en lista de lectura</string>
   <string name="reading_list_create_new">Crear nova</string>
   <string name="reading_list_title_exists">A lista de lectura \"%s\" xa existe.</string>
-  <string name="reading_list_added_to_named">Engadido a %s.</string>
-  <string name="reading_list_already_exists">Este artigo xa está nesa lista.</string>
   <string name="reading_list_added_view_button">Ver lista</string>
   <string name="format_reading_list_statistical_summary_singular">1 artigo, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d artigos, %2$.2f MB</string>
@@ -423,8 +415,7 @@
   <string name="reading_lists_confirm_remote_delete_yes">Si</string>
   <string name="reading_lists_confirm_remote_delete_no">Non</string>
   <string name="reading_list_article_save_in_progress">O artigo está sendo descargado, e estará dispoñible sen conexión cando se remate.</string>
-  <string name="reading_list_already_contains_selection">A lista escollida xa contén tódalas páxinas seleccionadas.</string>
-  <string name="reading_list_added_articles_list_titled">Engadidos %1$d artigos a %2$s</string>
+  <string name="reading_list_articles_added_to_named">Engadidos %1$d artigos a %2$s</string>
   <string name="reading_list_delete_confirm">Está seguro de que quere eliminar %s?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Acceda para activar a sincronización</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Acceda para permitir que as súas listas de lectura se garden na súa conta.</string>
@@ -460,7 +451,7 @@
     <item quantity="one">Este artigo xa non estará dispoñible sen conexión.</item>
     <item quantity="other">Estes artigos xa non estarán dispoñibles sen conexión.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync">As listas de lectura foron sincronizadas correctamente</string>
+  <string name="reading_list_toast_last_sync" fuzzy="true">As listas de lectura foron sincronizadas correctamente</string>
   <string name="reading_list_menu_last_sync">Última sincronización: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">OK</string>
   <string name="reading_list_delete_dialog_ok_button_text">OK</string>
@@ -700,6 +691,13 @@
   <string name="suggested_edits_quality_okay_text">Aceptar</string>
   <string name="suggested_edits_last_edited">Última edición</string>
   <string name="suggested_edits_last_edited_never">Nunca</string>
+  <string name="suggested_edits_contribution_language_label">Idioma</string>
+  <string name="suggested_edits_contribution_date_time_label">Data / Hora</string>
+  <string name="suggested_edits_contribution_type_label">Tipo de contribución</string>
+  <string name="suggested_edits_contribution_image_label">Arquivo</string>
+  <string name="suggested_edits_contribution_article_label">Artigo</string>
+  <string name="suggested_edits_contribution_views">%s visitas</string>
+  <string name="suggested_edits_added_contribution_label" fuzzy="true">Engadiches %d caracteres</string>
   <string name="description_edit_revert_subtitle">Grazas por editar a Wikipediaǃ</string>
   <string name="description_edit_revert_intro">Sabemos que intentou facelo o mellor posible, pero un dos nosos revisores atopou un problema. Posibles razóns polas que a súa edición foi revertida inclúenː</string>
   <string name="description_edit_revert_reason1">a súa contribución non segue unha das &lt;a href=\"%1$s\"&gt;directrices&lt;/a&gt;.</string>
@@ -721,9 +719,6 @@
   <string name="onboarding_analytics_title">Enviar os datos de maneira anónima</string>
   <string name="onboarding_analytics_offline_text">Permita que saibamos como utiliza a aplicación para axudar a mellorala. Os datos recompilados son anónimos. &lt;a href=\"#privacy\"&gt;Máis información&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Envíar datos de uso</string>
-  <string name="onboarding_create_account_sync">Sincronizar as listas de lectura</string>
-  <string name="onboarding_create_account_contributions">Vixiar as túas contribucións</string>
-  <string name="onboarding_create_account_preferences">Gardar as preferencias</string>
   <string name="onboarding_got_it">Entendido</string>
   <string name="onboarding_multilingual_secondary_text">Atopamos o seguinte no seu dispositivoː</string>
   <string name="onboarding_multilingual_add_language_text">Engadir ou editar linguas</string>
@@ -782,12 +777,9 @@
   <string name="wikitext_template">Modelo</string>
   <string name="wikitext_reference">Referencia</string>
   <string name="wikitext_preview_link">Vista previa de ligazón</string>
-  <string name="main_drawer_open">Abrir</string>
-  <string name="main_drawer_close">Pechar</string>
-  <string name="main_drawer_content_description">Abrir o panel principal de navegación</string>
   <string name="main_drawer_help">Axuda</string>
   <string name="main_drawer_login">Acceder / unirse á Wikipedia</string>
-  <string name="main_tooltip_text">%s, sabía que todo o mundo pode editar a Wikipedia?</string>
+  <string name="main_tooltip_text" fuzzy="true">%s, sabía que todo o mundo pode editar a Wikipedia?</string>
   <string name="main_tooltip_action_button">Comezar</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_ok_button_text">OK</string>

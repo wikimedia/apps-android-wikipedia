@@ -38,11 +38,6 @@
     <dimen name="leadImageWidth">640dp</dimen>
     <item type="dimen" format="float" name="articleHeaderViewScreenHeightRatio">0.4</item>
 
-
-    <dimen name="drawer_drag_margin">16dp</dimen>
-
-    <!-- Default maximum width of bottom sheets. -->
-    <dimen name="bottomSheetMaxWidth">480dp</dimen>
     <!-- Default height with which bottom sheets peek out from the bottom -->
     <dimen name="bottomSheetPeekHeight">320dp</dimen>
     <dimen name="themeChooserSheetPeekHeight">420dp</dimen>
@@ -78,7 +73,7 @@
     <integer name="article_engagement_threshold_sec">30</integer>
 
     <!-- Description editing -->
-    <integer name="description_max_chars">90</integer>
+    <integer name="description_max_chars">250</integer>
     <integer name="description_max_anon_edits">5</integer>
 
     <!-- Notifications -->
@@ -111,9 +106,9 @@
     <dimen name="snackbar_action_inline_max_dimen">128dp</dimen>
 
     <!-- Suggested Edits -->
-    <dimen name="suggested_edits_icon_size">32dp</dimen>
-    <dimen name="suggested_edits_icon_background_size">26dp</dimen>
-    <dimen name="suggested_edits_icon_title_text_size">18sp</dimen>
+    <dimen name="suggested_edits_icon_size">28dp</dimen>
+    <dimen name="suggested_edits_icon_background_size">23dp</dimen>
+    <dimen name="suggested_edits_icon_title_text_size">16sp</dimen>
     <dimen name="suggested_edits_title_margin_start">14dp</dimen>
     <dimen name="suggested_edits_message_textview_text_size">14sp</dimen>
     <dimen name="suggested_edits_top_illustration_height">92dp</dimen>

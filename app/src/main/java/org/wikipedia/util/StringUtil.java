@@ -143,15 +143,6 @@ public final class StringUtil {
         return text.replaceAll("<cite.*?>", "").replaceAll("</cite>", "");
     }
 
-    public static String sanitizeText(@NonNull String selectedText) {
-        return selectedText.replaceAll("\\[\\d+\\]", "") // [1]
-                // https://en.wikipedia.org/wiki/Phonetic_symbols_in_Unicode
-                .replaceAll("\\s*/[^/]+/;?\\s*", "")
-                .replaceAll("\\(\\s*;\\s*", "\\(") // (; -> (    hacky way for IPA remnants
-                .replaceAll("\\s{2,}", " ")
-                .trim();
-    }
-
     // Compare two strings based on their normalized form, using the Unicode Normalization Form C.
     // This should be used when comparing or verifying strings that will be exchanged between
     // different platforms (iOS, desktop, etc) that may encode strings using inconsistent

@@ -54,10 +54,7 @@
   <string name="menu_long_press_open_page">खोलीं</string>
   <string name="menu_long_press_open_in_new_tab">नया टैब में खोलीं</string>
   <string name="menu_long_press_copy_page">कड़ी के पता कॉपी करीं</string>
-  <string name="menu_text_select_copy">कॉपी</string>
   <string name="menu_text_select_define">परिभाषित करीं</string>
-  <string name="menu_text_select_share">साझा करीं</string>
-  <string name="share">साझा करीं</string>
   <string name="on_this_day_page_share">साझा करीं</string>
   <string name="reading_list_page_share">साझा करीं</string>
   <string name="menu_text_select_edit_here">संपादन इहाँ करीं</string>
@@ -104,9 +101,9 @@
   <string name="reading_lists_sync_login">लॉग इन</string>
   <string name="create_account_login">लॉग इन</string>
   <string name="menu_login">खाता में प्रवेश</string>
-  <string name="login_activity_title">विकिपीडिया पर खाता में प्रवेश करीं</string>
+  <string name="login_activity_title" fuzzy="true">विकिपीडिया पर खाता में प्रवेश करीं</string>
   <string name="login_in_progress_dialog_message">रउवाँ के खाता में प्रवेश करावल जा रहल बा...</string>
-  <string name="login_success_toast">खाता में प्रवेश सफल भइल!</string>
+  <string name="login_success_toast" fuzzy="true">खाता में प्रवेश सफल भइल!</string>
   <string name="reset_password_title">आपन पासवर्ड सेट करीं</string>
   <string name="reset_password_description">आप टंपरौरी पासवर्ड से लॉग इन बाड़ीं। लॉग इन पूरा करे खाती हेइजा नाया पासवर्ड सेट करीं।</string>
   <string name="reset_password_hint">नाया पासवर्ड</string>
@@ -255,16 +252,12 @@
   <string name="gallery_menu_share">साझा करीं</string>
   <string name="gallery_share_error">चित्र %s शेयर ना हो पावल</string>
   <string name="gallery_save_progress">फाइल डाउनलोड होता...</string>
-  <string name="gallery_save_success">फाइल सहेजल सफल।</string>
+  <string name="gallery_save_success" fuzzy="true">फाइल सहेजल सफल।</string>
   <string name="gallery_error_video_failed">बीडियो प्ले ना हो पावल।</string>
   <string name="gallery_save_image_write_permission_rationale">इमेज सहेजे खाती आपके डिवाइस पर राइट करे के परमीशन चाहीं।</string>
   <string name="gallery_add_image_caption_in_language_button">फोटो कैप्शन (%s) जोड़ीं</string>
   <string name="err_cannot_save_file">फाइल ना सहेजा पाई</string>
-  <string name="snippet_share_intro">\"%1$s\" on @Wikipedia: %2$s</string>
   <string name="expand_refs">बड़ करे खाती टैप करीं</string>
-  <string name="share_snippet_button">इमेज के रूप में साझा करीं</string>
-  <string name="share_normal_button">पाठ के रूप में साझा करीं</string>
-  <string name="snippet_share_preview_image_desc">इमेज के झलक</string>
   <string name="cc_logo">क्रिएटिव कॉमंस लाइसेंस</string>
   <string name="captcha_image">कैप्चा फोटो</string>
   <string name="gallery_fair_use_license">उचित उपयोग</string>
@@ -312,6 +305,4 @@
   <string name="color_theme_black">पाछे</string>
   <string name="color_theme_sepia">सीपिया</string>
   <string name="color_theme_test_title">सिंपल पाठ</string>
-  <string name="onboarding_create_account_contributions">आपन योगदान के निगरानी रखीं</string>
-  <string name="onboarding_create_account_preferences">आपन पसंदसेटिंग सहेजीं</string>
 </resources>

@@ -6,58 +6,83 @@
 * Dawid Deutschland
 * Giorgi Balakhadze
 * MIKHEIL
+* Mehman97
 -->
 <resources>
   <string name="app_name_prod">ვიკიპედია</string>
   <string name="app_name_beta">ვიკიპედია ბეტა</string>
   <string name="app_name_alpha">ვიკიპედია ალფა</string>
   <string name="wikimedia">ვიკიმედია</string>
+  <string name="nav_item_back">უკან</string>
+  <string name="page_tabs_back">უკან</string>
+  <string name="nav_item_forward">წინ</string>
   <string name="search_hint">ძიება ვიკიპედიაზე</string>
+  <string name="search_hint_voice_search">ხმოვანი ძიება</string>
   <string name="search_hint_search_history">ისტორიის ძებნა</string>
+  <string name="search_hint_search_languages">ენის ძებნა</string>
+  <string name="search_hint_search_my_lists_and_articles">ჩემი სიისა და სტატიების ძიება</string>
   <string name="nav_item_history">ისტორია</string>
+  <string name="nav_item_suggested_edits">შემოთავაზებული რედაქტირებები</string>
   <string name="error_network_error">ინტერნეტთან დაკავშირება ვერ ხერხდება.</string>
   <string name="page_error_retry">გამეორება</string>
+  <string name="card_offline_error_retry">გამეორება</string>
+  <string name="storage_access_error_retry">გამეორება</string>
+  <string name="article_load_error_retry">გამეორება</string>
+  <string name="offline_load_error_retry">გამეორება</string>
   <string name="page_error_back_to_main">უკან</string>
+  <string name="error_back">უკან დაბრუნება</string>
   <string name="menu_clear_all_history">ისტორიის გასუფთავება</string>
   <string name="history_item_deleted">%s წაიშალა ისტორიიდან</string>
   <string name="history_items_deleted">%d სტატია წაიშალა ისტორიიდან</string>
   <string name="history_item_delete_undo">დაბრუნება</string>
+  <string name="notification_archive_undo">გაუქმება</string>
+  <string name="app_settings">აპლიკაციის პარამეტრები</string>
   <string name="dialog_title_clear_history">დათვალიერების ისტორიის გასუფთავება</string>
   <string name="dialog_message_clear_history">ეს გაასუფთავებს თქვენი ძებნის ისტორიას და დახურავს გახსნილ გვერდებს. დარწმუნებული ხართ?</string>
   <string name="dialog_message_clear_history_yes">დიახ</string>
   <string name="dialog_message_clear_history_no">არა</string>
   <string name="share_via">გაზიარების სახე</string>
+  <string name="image_share_via">გაზიარება</string>
   <string name="search_redirect_from">გადამისამართებულია %s-დან</string>
   <string name="menu_page_show_tabs">ჩანართების ჩვენება</string>
   <string name="menu_page_other_languages">ენის შეცვლა</string>
   <string name="menu_page_find_in_page">გვერდში ძიება</string>
+  <string name="edit_section_find_in_page">გვერდზე ძიება</string>
   <string name="menu_page_font_and_theme">ფონტი და თემა</string>
   <string name="menu_page_add_to_list">საკითხავ სიაში დამატება</string>
+  <string name="feed_card_add_to_list">საკითხავ სიაში დამატება</string>
   <string name="menu_page_share">ბმულის გაზიარება</string>
+  <string name="menu_page_open_a_new_tab">ახალ ჩანართში გახსნა</string>
+  <string name="menu_page_reading_lists">საკითხავი სია</string>
+  <string name="menu_page_recently_viewed">ბოლოს ნანახი</string>
   <string name="menu_long_press_open_page">გახსნა</string>
   <string name="menu_long_press_open_in_new_tab">ახალ ჩანართში გახსნა</string>
   <string name="menu_long_press_copy_page">ბმულის მისამართის დაკოპირება</string>
-  <string name="menu_text_select_copy">კოპირება</string>
   <string name="menu_text_select_define">განსაზღვრა</string>
-  <string name="menu_text_select_share">გაზიარება</string>
+  <string name="on_this_day_page_share">გაზიარება</string>
+  <string name="reading_list_page_share">გაზიარება</string>
   <string name="menu_text_select_edit_here">დაარედაქტირე აქ</string>
   <string name="last_updated_text">ბოლოს განახლდა %s</string>
-  <string name="talk_page_link_text" fuzzy="true">განხილვა</string>
+  <string name="talk_page_link_text">განხილვის გვერდის ნახვა</string>
+  <string name="edit_history_link_text">რედაქტირების ისტორიის ნახვა</string>
   <string name="map_view_link_text">რუკაზე ნახვა</string>
+  <string name="other_languages_indication_text">სხვა ენაზე წაკითხვა</string>
   <string name="language_count_link_text">ხელმისაწვდომია %d სხვა ენაზე</string>
-  <string name="edit_save_action_license_logged_in" fuzzy="true">შენახვით, თქვენ ეთანხმებით &lt;a href=\"%1$s\"&gt;გამოყენების პირობებს&lt;/a&gt; და თქვენს მიერ დაწერილი ტექსტის &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ლიცენზიით გაშვებას.</string>
-  <string name="edit_save_action_license_anon" fuzzy="true">შენახვით, თქვენ ეთანხმებით &lt;a href=\"%1$s\"&gt;გამოყენების პირობებს&lt;/a&gt; და თქვენს მიერ დაწერილი ტექსტის &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ლიცენზიით გაშვებას. რედაქტირების ავტორად დაფიქსირდება თქვენი მოწყობილობის IP-მისამართი. რეკომენდებულია &lt;a href=\"https://#login\"&gt;ავტორიზაციის&lt;/a&gt; გავლა მეტი დაცულობისათვის.</string>
-  <string name="preference_title_language" fuzzy="true">ვიკიპედიის ენები</string>
+  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
+  <string name="edit_save_action_license_logged_in">გამოქვეყნებით, თქვენ ეთანხმებით &lt;a href=\"%1$s\"&gt;გამოყენების პირობებს&lt;/a&gt; და თქვენს მიერ დაწერილი ტექსტის &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ლიცენზიით გაშვებას.</string>
+  <string name="edit_save_action_license_anon">გამოქვეყნებით, თქვენ ეთანხმებით &lt;a href=\"%1$s\"&gt;გამოყენების პირობებს&lt;/a&gt; და თქვენს მიერ დაწერილი ტექსტის &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ლიცენზიით გაშვებას. რედაქტირების ავტორად დაფიქსირდება თქვენი მოწყობილობის IP-მისამართი. რეკომენდებულია &lt;a href=\"https://#login\"&gt;ავტორიზაციის&lt;/a&gt; გავლა მეტი დაცულობისათვის.</string>
+  <string name="preference_title_language">ვიკიპედიის ენები</string>
   <string name="langlinks_filter_hint">ძიება</string>
   <string name="langlinks_empty">ეს გვერდი მიუწვდომელია სხვა ენებზე</string>
-  <string name="langlinks_no_match" fuzzy="true">თქვენს მოთხოვნაზე არც ერთი ენა არ მოიძებნა.</string>
+  <string name="langlinks_no_match">ენები ვერ მოიძებნა</string>
   <string name="langlinks_activity_title">სხვა ენები</string>
+  <string name="langlinks_your_wikipedia_languages">თქვენი ვიკიპედიის ენები</string>
   <string name="menu_save_changes">ცვლილებების გამოქვეყნება</string>
   <string name="edit_saved_successfully">ცვლილება გამოქვეყნდა!</string>
   <string name="dialog_message_edit_failed">ცვლილება ვერ მოხერხდა!</string>
   <string name="dialog_message_edit_failed_retry">გამეორება</string>
   <string name="dialog_message_edit_failed_cancel">გაუქმება</string>
-  <string name="dialog_message_leaving_edit" fuzzy="true">თქვენი მიერ განხორციელებული ცვლილებები ჯერ კიდევ არ არის შენახული. დარწმუნებული ხართ რომ გსურთ ამ გვერდის დატოვება?</string>
+  <string name="dialog_message_leaving_edit">თქვენი მიერ განხორციელებული ცვლილებები ჯერ არ გამოქვეყნებულა. დარწმუნებული ხართ რომ გსურთ ამ გვერდის დატოვება?</string>
   <string name="dialog_message_leaving_edit_leave">დატოვება</string>
   <string name="dialog_message_leaving_edit_stay">დარჩენა</string>
   <string name="menu_show_toc">სარჩევი</string>
@@ -66,20 +91,36 @@
   <string name="search_reading_lists_no_results">საკითხავ სიაში შედეგები ვერ მოიძებნა</string>
   <string name="search_history_no_results">ისტორიაში შედეგები ვერ მოიძებნა</string>
   <string name="edit_section_captcha_message">ავტომატური სპამისგან დასაცავად, გთხოვთ შეიყვანეთ ქვემოთ მოცემული სიტყვები</string>
+  <string name="edit_section_captcha_request_an_account_message">სურათს ვერ ხედავთ? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;მოითხოვეთ ანგარიში&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">გაიმეორეთ ზემოთ მოცემული სიტყვები</string>
   <string name="title_captcha">შეიყვანეთ CAPTCHA</string>
   <string name="edit_section_captcha_reload">დააჭირეთ CAPTCHA-ს გადასატვირთად</string>
   <string name="nav_item_login">ვიკიპედიაში შესვლა</string>
   <string name="login_username_hint">მომხმარებლის სახელი</string>
   <string name="login_password_hint">პაროლი</string>
+  <string name="account_creation_password_hint">პაროლი</string>
   <string name="login_2fa_hint">ორფაქტორიანი ავთენტიფიკაციის კოდი</string>
   <string name="login_2fa_other_workflow_error_msg">საჭიროა ორფაქტორიანი ავთენტიფიკაცია! გთხოვთ დაუბრუნდეთ ძირითად საქმიანობას და სისტემაში თქვენი 2FA ტოკენის დახმარებით შეხვიდეთ, ხოლო შემდეგ სცადეთ თავიდან.</string>
+  <string name="onboarding_card_login">შესვლა</string>
+  <string name="page_editing_login">შესვლა</string>
+  <string name="reading_lists_sync_login">შესვლა</string>
+  <string name="create_account_login">შესვლა</string>
   <string name="menu_login">შესვლა</string>
-  <string name="login_activity_title">ვიკიპედიაში შესვლა</string>
+  <string name="login_activity_title" fuzzy="true">ვიკიპედიაში შესვლა</string>
   <string name="login_in_progress_dialog_message">შედიხართ სისტემაში…</string>
-  <string name="login_success_toast">შესვლა წარმატებით განხორციელდა!</string>
+  <string name="login_success_toast">შესული!</string>
+  <string name="reset_password_title">დააყენეთ პაროლი</string>
+  <string name="reset_password_description">თქვენ შესული ხართ დროებითი პაროლის დახმარებით. სისტემაში შესვლის დასრულებისთვის, აუცილებელია აქ ახალი პაროლის დაყენება.</string>
+  <string name="reset_password_hint">ახალი პაროლი</string>
+  <string name="reset_password_button">დამახსოვრება და შესვლა</string>
   <string name="preference_title_logout">გასვლა</string>
   <string name="toast_logout_complete">გამოსული.</string>
+  <string name="logout_prompt">ეს თქვენ ყველა შესული მოწყობილობიდან გამოგიყვანთ. ნამდვილად, გსურთ გაგრძელება?</string>
+  <string name="logout_dialog_cancel_button_text">გაუქმება</string>
+  <string name="logged_out_in_background_title">გამოხვედით სისტემიდან</string>
+  <string name="logged_out_in_background_dialog">თქვენ გამოხვედით ვიკიპედიიდან. კვლავ გსურთ შესვლა?</string>
+  <string name="logged_out_in_background_login">შესვლა</string>
+  <string name="logged_out_in_background_cancel">გაუქმება</string>
   <string name="history_empty_title">ბოლოს ნანახი გვერდები არაა</string>
   <string name="history_empty_message">აკონტროლეთ რაც უკვე წაიკითხეთ.</string>
   <string name="search_empty_message">მოძებნეთ და წაიკითხეთ თავისუფალ ენციკლოპედიაში თქვენს მშობლიურ ენაზე</string>
@@ -100,11 +141,23 @@
   <string name="create_account_password_error">პაროლი არასწორია</string>
   <string name="create_account_generic_error">ანგარიშის შექმნა ვერ მოხერხდა</string>
   <string name="create_account_next">შემდეგი</string>
+  <string name="email_recommendation_dialog_title">გსურთ შექმნათ ანგარიში ელ-ფოსტის გარეშე?</string>
+  <string name="email_recommendation_dialog_create_without_email_action">ელ-ფოსტის გარეშე გაგრძელება</string>
+  <string name="email_recommendation_dialog_create_with_email_action">დაამატეთ ელ-ფოსტის მისამართი</string>
   <string name="create_account_button">ანგარიშის შექმნა</string>
+  <string name="create_account_name_unavailable">მომხმარებლის სახელი \"%s\" ხელმიუწვდომელია. გთხოვთ აირჩიოთ სხვა სახელი.</string>
+  <string name="create_account_ip_block_message">ბოდიში, თქვენი IP მისამართი ამ დროისთვის დაბლოკილია ახალი ანგარიშის შექმნისთვის.</string>
+  <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
+  <string name="create_account_ip_block_details">დეტალები</string>
   <string name="preferences_general_heading">მთავარი</string>
   <string name="wikipedia_app_faq">ვიკიპედიის აპლიკაციის ხდშ</string>
   <string name="send_feedback">შეაფასეთ აპლიკაცია</string>
   <string name="create_account_account_created_toast">ანგარიში შექმნილია!</string>
+  <string name="preferences_heading_syncing">სინქრონიზაცია</string>
+  <string name="preferences_heading_data_usage">Მონაცემების გამოყენება</string>
+  <string name="preferences_heading_experimental">ექსპერიმენტალური</string>
+  <string name="preference_title_sync_reading_lists_from_account">საკითხავი სიის სინქრონიზაცია</string>
+  <string name="preference_title_download_reading_list_articles">საკითხავის სტატიების სიის ჩამოტვირთვა</string>
   <string name="preferences_privacy_settings_heading">უსაფრთხოება</string>
   <string name="preference_title_eventlogging_opt_in">გამოყენების ანგარიშის გაგზავნა</string>
   <string name="preference_summary_eventlogging_opt_in">ნება მიეცი ვიკიმედიას მოაგროვოს ინფორმაცია თუ როგორ იყენებ ამ აპლიკაციას, რათა ის უკეთესი გახადოს</string>
@@ -178,15 +231,11 @@
   <string name="gallery_menu_share">გაზიარება</string>
   <string name="gallery_share_error">სურათის გაზიარება შეუძლებელია: %s</string>
   <string name="gallery_save_progress">ფაილის ჩამოტვირთვა…</string>
-  <string name="gallery_save_success">ფაილი წარმატებით შეინახა.</string>
+  <string name="gallery_save_success" fuzzy="true">ფაილი წარმატებით შეინახა.</string>
   <string name="gallery_error_video_failed">ამ ვიდეოს გახსნა ვერ მოხერხდა.</string>
   <string name="gallery_save_image_write_permission_rationale">თქვენი მოწყობილობის მეხსიერებაში ჩასაწერად საჭიროა სურათების შენახვა.</string>
   <string name="err_cannot_save_file">ფაილი ვერ შეინახა</string>
-  <string name="snippet_share_intro">„%1$s“ საიტზე @Wikipedia: %2$s</string>
   <string name="expand_refs">გადიდებისათვის დააჭირეთ</string>
-  <string name="share_snippet_button">სურათად გაზიარება</string>
-  <string name="share_normal_button">ტექსტად გაზიარება</string>
-  <string name="snippet_share_preview_image_desc">სურათის წინასწარ გადახედვა</string>
   <string name="cc_logo">Creative Commons ლიცენზია</string>
   <string name="captcha_image">Captcha-ს სურათი</string>
   <string name="gallery_fair_use_license">კეთილსინდისიერი გამოყენება</string>
@@ -227,12 +276,13 @@
   <string name="article_menu_bar_bookmark">ამ სტატიის საკითხავ სიაში დამატება</string>
   <string name="article_menu_bar_share">სტატიის ბმულის გაზიარება</string>
   <string name="article_header_edit_hint">რედაქტირება</string>
-  <string name="article_header_edit_description" fuzzy="true">სათაურის აღწერილობის რედაქტირება</string>
+  <string name="article_header_edit_description">სტატიის აღწერის რედაქტირება</string>
   <string name="article_header_edit_lead_section">შესავლის რედაქტირება</string>
   <string name="color_theme_select">თემა</string>
   <string name="color_theme_light">ნათელი</string>
   <string name="color_theme_dark">ბნელი</string>
   <string name="color_theme_black">შავი</string>
+  <string name="color_theme_sepia">სეპია</string>
   <string name="color_theme_test_title">ტექსტის ნიმუში</string>
   <string name="preference_title_app_theme">აპლიკაციის თემა</string>
   <string name="text_size_percent_default">%s (საწყისად)</string>
@@ -240,18 +290,19 @@
   <string name="reading_list_save_to">საკითხავ სიაში შენახვა</string>
   <string name="reading_list_create_new">ახლის შექმნა</string>
   <string name="reading_list_title_exists">საკითხავი სია „%s“ უკვე არსებობს.</string>
-  <string name="reading_list_added_to_named">დაემატა %s-ში.</string>
-  <string name="reading_list_already_exists">ეს სტატია უკვე ამ სიაშია.</string>
   <string name="reading_list_added_view_button">სიის ხილვა</string>
   <string name="format_reading_list_statistical_summary_singular">1 სტატია, %1$.2f მბ</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d სტატია, %2$.2f მბ</string>
   <string name="reading_list_sort">სორტირება</string>
+  <string name="reading_list_sort_ellipsis">დალაგება...</string>
   <string name="reading_list_sort_by_name">დალაგება სახელის მიხედვით</string>
   <string name="reading_list_sort_by_name_desc">სახელით დალაგება (უკანა)</string>
-  <string name="reading_list_sort_by_recent" fuzzy="true">დალაგება ყველაზე ბოლოების მიხედვით</string>
-  <string name="reading_list_sort_by_recent_desc" fuzzy="true">დალაგება შედარებით ბოლოების მიხედვით</string>
+  <string name="reading_list_sort_by_recent">დალაგება დამატების თარიღით (უახლესით)</string>
+  <string name="reading_list_sort_by_recent_desc">დალაგება დამატების თარიღით (უძველესით)</string>
+  <string name="reading_list_sort_by_created">დალაგება შექმნის თარიღით (უახლესით)</string>
+  <string name="reading_list_sort_by_created_desc">დალაგება შექმნის თარიღით (უძველესით)</string>
   <string name="reading_list_menu_delete">სიის წაშლა</string>
-  <string name="reading_list_menu_rename" fuzzy="true">გადარქმევა</string>
+  <string name="reading_list_menu_rename">სახელის/აღწერის შეცვლა</string>
   <string name="reading_list_name_sample">ჩემი წასაკითხთა სია</string>
   <string name="reading_list_name_hint">ამ სიის სახელი</string>
   <string name="reading_list_description_hint">აღწერა</string>
@@ -268,8 +319,23 @@
   <string name="reading_list_remove_from_lists">საკითხავი სიიდან ამოღება</string>
   <string name="reading_lists_confirm_remote_delete_yes">დიახ</string>
   <string name="reading_lists_confirm_remote_delete_no">არა</string>
-  <string name="reading_list_delete_confirm" fuzzy="true">დარწმუნებული ხართ, რომ გსურთ წასაკითხთა ამ %s სიის წაშლა?</string>
+  <string name="reading_list_delete_confirm">დარწმუნებული ხართ, რომ გსურთ წაშალოთ %s?</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">გაუქმება</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_login">შესვლა</string>
+  <string name="reading_list_turned_sync_off_dialog_ok">კარგი</string>
+  <string name="reading_list_turned_sync_off_dialog_settings">პარამეტრები</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">არა, გმადლობთ</string>
   <string name="default_reading_list_name">შენახულია</string>
+  <string name="reading_lists_menu_create_list">ახალი სიის შექმნა</string>
+  <string name="reading_lists_menu_sort_by">დალაგება</string>
+  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">შესვლა / რეგისტრაცია</string>
+  <string name="reading_list_remove_list_dialog_ok_button_text">კარგი</string>
+  <string name="reading_list_delete_dialog_ok_button_text">კარგი</string>
+  <string name="reading_list_remove_from_list_dialog_cancel_button_text">გაუქმება</string>
+  <string name="reading_list_delete_dialog_cancel_button_text">გაუქმება</string>
+  <string name="reading_list_remove_from_offline_cancel_button_text">გაუქმება</string>
+  <string name="reading_list_download_using_mobile_data_cancel_button_text">გაუქმება</string>
+  <string name="reading_list_split_dialog_ok_button_text">კარგი</string>
   <string name="user_option_sync_label">კონფიგურაცია</string>
   <string name="notification_reverted_title">გაუქმებული რედაქტირება</string>
   <string name="notification_channel_description">ჩამოტვირთვის პროგრესი</string>

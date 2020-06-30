@@ -22,9 +22,7 @@
   <string name="menu_long_press_open_page">Hap</string>
   <string name="menu_long_press_open_in_new_tab">Hape në një skedë të re</string>
   <string name="menu_long_press_copy_page">Kopjo adresën e lidhjes</string>
-  <string name="menu_text_select_copy">Kopjo</string>
   <string name="menu_text_select_define">Përcaktoje</string>
-  <string name="menu_text_select_share">Shpërndaje</string>
   <string name="menu_text_select_edit_here">Redakto këtu</string>
   <string name="last_updated_text">Përditësim i fundit %s</string>
     <string name="edit_save_action_license_logged_in">Duke e ruajtur, ju pajtoheni me &lt;a href=\"%1$s\"&gt;Kushtet e Përdorimit&lt;/a&gt;, dhe e lëshoni kontributin tuaj në mënyrë të pakthyeshme nën licencën &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>

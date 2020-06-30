@@ -87,9 +87,5 @@
   <string name="gallery_menu_share">Gawa</string>
   <string name="gallery_share_error">Haingeshiriki picha: %s</string>
   <string name="err_cannot_save_file">Haiwezi kuhifadhi faili</string>
-  <string name="snippet_share_intro">\"%1$s\" katika @Wikipedia: %2$s</string>
-  <string name="share_snippet_button">Shiriki kama picha</string>
-  <string name="share_normal_button">Shiriki kama maandiko</string>
-  <string name="snippet_share_preview_image_desc">Tazama hakikisho la picha</string>
   <string name="cc_logo">Leseni ya Creative Commons</string>
 </resources>

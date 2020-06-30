@@ -25,9 +25,7 @@
   <string name="menu_long_press_open_page">پرانيستل</string>
   <string name="menu_long_press_open_in_new_tab">تړنه په نوې کړکۍ کې پرانيستل</string>
   <string name="menu_long_press_copy_page">د تړنې پته لمېسل</string>
-  <string name="menu_text_select_copy">لمېسل</string>
   <string name="menu_text_select_define">تعريفول</string>
-  <string name="menu_text_select_share">شريکول</string>
   <string name="menu_text_select_edit_here">دلته سمول</string>
   <string name="last_updated_text">وروستئ هممهالېدنه %s</string>
   <string name="talk_page_link_text" fuzzy="true">خبرې اترې</string>
@@ -121,10 +119,6 @@
   <string name="gallery_save_success">دوتنه برياليتوب سره خوندي شوه.</string>
   <string name="gallery_error_video_failed">ويډيو و نه غږول شوه.</string>
   <string name="err_cannot_save_file">دوتنه د خوندي کولو وړ نه ده</string>
-  <string name="snippet_share_intro">\"%1$s\" په @Wikipedia: %2$s</string>
-  <string name="share_snippet_button">د انځور په توگه شريکول</string>
-  <string name="share_normal_button">د متن په توگه شريکول</string>
-  <string name="snippet_share_preview_image_desc">انځور مخليدنه</string>
   <string name="cc_logo">کريټيف کامنز منښتليک</string>
   <string name="captcha_image">کېپچا انځور</string>
   <string name="gallery_fair_use_license">منصفانه کارېدنه</string>

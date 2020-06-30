@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * Abijeet Patro
+* Dovud
 * Ibrahim
 * TajikMaterialist
 * ToJack
@@ -51,9 +52,6 @@
   <string name="menu_long_press_open_page">Кушодан</string>
   <string name="menu_long_press_open_in_new_tab">Кушодан дар баргаи нав</string>
   <string name="menu_long_press_copy_page">Нусхбардории нишонаи пайванд</string>
-  <string name="menu_text_select_copy">Нусхабардорӣ</string>
-  <string name="menu_text_select_share">Паҳнкунӣ</string>
-  <string name="share">Паҳнкунӣ</string>
   <string name="on_this_day_page_share">Паҳнкунӣ</string>
   <string name="reading_list_page_share">Паҳнкунӣ</string>
   <string name="menu_text_select_edit_here">Вироиши инҷо</string>
@@ -90,9 +88,9 @@
   <string name="reading_lists_sync_login">Вуруд</string>
   <string name="create_account_login">Вуруд</string>
   <string name="menu_login">Вуруд</string>
-  <string name="login_activity_title">Вуруд ба Википедия</string>
+  <string name="login_activity_title" fuzzy="true">Вуруд ба Википедия</string>
   <string name="login_in_progress_dialog_message">Дар ҳоли вуруд ба...</string>
-  <string name="login_success_toast">Вуруд бо муваффақият!</string>
+  <string name="login_success_toast" fuzzy="true">Вуруд бо муваффақият!</string>
   <string name="reset_password_title">Гузарвожаи худро ворид кунед</string>
   <string name="reset_password_hint">Калимаи нави убур:</string>
   <string name="reset_password_button">Захира ва вуруд</string>
@@ -135,17 +133,25 @@
   <string name="page_similar_titles">Саҳифаҳои монанд</string>
   <string name="search_recent_header">Ҷусторҳои охир:</string>
   <string name="button_clear_all_recent_searches">Тозакунии ҷусторҳои охир</string>
+  <string name="clear_recent_searches_confirm_yes">Ҳо</string>
+  <string name="clear_recent_searches_confirm_no">Не</string>
   <string name="table_other">Маълумоти бештар</string>
   <string name="table_close">Пӯшиш</string>
   <string name="widget_name_featured_page">Саҳифаи барҷастаи Википедия</string>
   <string name="widget_title_featured_page">Саҳифаи барҷастаи рӯз</string>
   <string name="widget_name_search">Ҷустори Википедия</string>
   <string name="dialog_close_description">Пӯшиш</string>
+  <string name="preference_title_show_images">Намоиши расмҳо</string>
+  <string name="dialog_title_download_only_over_wifi_allow">Иҷозат</string>
+  <string name="read_more_section">Мутолиаи бештар</string>
+  <string name="about_article_section">Дар бораи ин мақола</string>
   <string name="gallery_menu_share">Паҳнкунӣ</string>
+  <string name="gallery_save_success">Файл захира шуд.</string>
   <string name="close_all_tabs_confirm_yes">Бале</string>
   <string name="close_all_tabs_confirm_no">На</string>
   <string name="button_continue_to_article">Мутолиаи мақола</string>
   <string name="nav_item_donate">Дастгирии Википедия</string>
+  <string name="reference_list_title">Танзимот</string>
   <string name="page_footer_license_text">Муҳтаво таҳти $1 дар дастрас аст, магар ин ки ғайри он баён гардад.</string>
   <string name="article_header_edit_hint">Вироиш...</string>
   <string name="article_header_edit_description">Иловаи тавзеҳоти мақола</string>
@@ -154,7 +160,10 @@
   <string name="color_theme_dark">Торик</string>
   <string name="color_theme_black">Сиёҳ</string>
   <string name="color_theme_sepia">Сепия</string>
+  <string name="reading_list_move_to">Ба феҳрист барои хондан</string>
   <string name="reading_list_create_new">Эҷоди нави</string>
+  <string name="reading_list_article_moved_to_named">Аз %1$s ба %2$s кӯчонида шуд.</string>
+  <string name="reading_list_action_menu_move_to_another_list">Ба дигар феҳрист гузаштан</string>
   <string name="reading_lists_onboarding_for_example">Намунаи</string>
   <string name="reading_list_select_item">Интихоб кунед</string>
   <string name="reading_lists_confirm_remote_delete_yes">Бале</string>
@@ -225,8 +234,6 @@
   <string name="wikitext_link">Пайванд</string>
   <string name="wikitext_template">Шаблон</string>
   <string name="wikitext_reference">Эзоҳ</string>
-  <string name="main_drawer_open">Кушодан</string>
-  <string name="main_drawer_close">Пӯшидан</string>
   <string name="main_drawer_login">Вуруд / ҳамроҳшавӣ ба Википедиа</string>
   <string name="custom_date_picker_dialog_ok_button_text">Таъйид</string>
   <string name="text_input_dialog_ok_button_text">Таъйид</string>

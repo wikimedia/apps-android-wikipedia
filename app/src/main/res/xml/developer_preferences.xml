@@ -314,6 +314,64 @@
             android:key="@string/preference_key_suggested_edits_override_reverts"
             android:title="@string/preference_key_suggested_edits_override_reverts" />
 
+        <SwitchPreferenceCompat
+            android:key="@string/preference_key_suggested_edits_reactivation_test"
+            android:title="@string/preference_key_suggested_edits_reactivation_test"
+            android:summary="Change the 3 or 7 days editor reactivation rules to minutes"/>
+
+        <SwitchPreferenceCompat
+            android:key="@string/preference_key_suggested_edits_reactivation_pass_stage_one"
+            android:title="@string/preference_key_suggested_edits_reactivation_pass_stage_one"
+            android:summary="The first local notification for editor reactivation has shown."/>
+
+        <Preference
+            android:key="@string/preferences_developer_suggested_edits_reactivation_notification_stage_one"
+            android:title="@string/preferences_developer_suggested_edits_reactivation_notification_stage_one"/>
+
+        <Preference
+            android:key="@string/preferences_developer_suggested_edits_reactivation_notification_stage_two"
+            android:title="@string/preferences_developer_suggested_edits_reactivation_notification_stage_two"/>
+
+        <org.wikipedia.settings.LongPreference
+            style="@style/LongPreference"
+            android:key="@string/preference_key_suggested_edits_reward_interstitial_last_edit_quality_shown"
+            android:title="@string/preference_developer_suggested_edits_reward_interstitial_last_edit_quality_shown" />
+
+        <org.wikipedia.settings.LongPreference
+            style="@style/LongPreference"
+            android:key="@string/preference_key_suggested_edits_reward_interstitial_last_pageviews_shown"
+            android:title="@string/preference_developer_suggested_edits_reward_interstitial_last_pageviews_shown" />
+
+        <org.wikipedia.settings.IntPreference
+            style="@style/IntPreference"
+            android:key="@string/preference_key_suggested_edits_reward_interstitial_contribution_on_initial_count"
+            android:title="@string/preference_developer_suggested_edits_reward_interstitial_contribution_on_initial_count" />
+
+        <org.wikipedia.settings.IntPreference
+            style="@style/IntPreference"
+            android:key="@string/preference_key_suggested_edits_reward_interstitial_contribution_on_count"
+            android:title="@string/preference_developer_suggested_edits_reward_interstitial_contribution_on_count" />
+
+        <org.wikipedia.settings.IntPreference
+            style="@style/IntPreference"
+            android:key="@string/preference_key_suggested_edits_reward_interstitial_edit_streak_on_count"
+            android:title="@string/preference_developer_suggested_edits_reward_interstitial_edit_streak_on_count" />
+
+        <org.wikipedia.settings.IntPreference
+            style="@style/IntPreference"
+            android:key="@string/preference_key_suggested_edits_reward_interstitial_edit_quality_on_day"
+            android:title="@string/preference_developer_suggested_edits_reward_interstitial_edit_quality_on_day" />
+
+        <org.wikipedia.settings.IntPreference
+            style="@style/IntPreference"
+            android:key="@string/preference_key_suggested_edits_reward_interstitial_pageviews_on_day"
+            android:title="@string/preference_developer_suggested_edits_reward_interstitial_pageviews_on_day" />
+
+        <SwitchPreferenceCompat
+            android:key="@string/preference_key_suggested_edits_reward_interstitial_qa_override"
+            android:title="@string/preference_key_suggested_edits_reward_interstitial_qa_override"
+            android:summary="@string/preference_developer_suggested_edits_reward_interstitial_QA_override"
+            android:defaultValue="false" />
     </PreferenceCategory>
 
 </androidx.preference.PreferenceScreen>

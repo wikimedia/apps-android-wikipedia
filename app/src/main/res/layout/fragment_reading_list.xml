@@ -5,7 +5,8 @@
     android:id="@+id/fragment_reading_list_coordinator"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true">
+    android:fitsSystemWindows="true"
+    android:background="?attr/paper_color">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/reading_list_app_bar"
@@ -18,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
-            app:contentScrim="?attr/main_toolbar_color"
+            app:contentScrim="?attr/paper_color"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
             <org.wikipedia.readinglist.ReadingListHeaderView

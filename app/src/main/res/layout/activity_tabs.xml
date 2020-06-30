@@ -12,7 +12,7 @@
         android:layout_marginTop="?attr/actionBarSize"
         android:background="?android:attr/colorBackground"
         app:layoutPolicy="auto"
-        app:tabBackgroundColor="?attr/main_toolbar_color"
+        app:tabBackgroundColor="?attr/paper_color"
         app:tabContentBackgroundColor="?attr/paper_color" />
 
     <androidx.appcompat.widget.Toolbar

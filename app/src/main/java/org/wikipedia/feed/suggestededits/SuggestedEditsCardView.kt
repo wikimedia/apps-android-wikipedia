@@ -3,7 +3,6 @@ package org.wikipedia.feed.suggestededits
 import android.content.Context
 import android.net.Uri
 import android.view.View
-import io.reactivex.annotations.NonNull
 import kotlinx.android.synthetic.main.view_suggested_edit_card.view.*
 import org.wikipedia.Constants
 import org.wikipedia.R
@@ -14,9 +13,8 @@ import org.wikipedia.feed.view.DefaultFeedCardView
 import org.wikipedia.feed.view.FeedAdapter
 import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.StringUtil
-import org.wikipedia.views.ItemTouchHelperSwipeAdapter
 
-class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEditsCard>(context), ItemTouchHelperSwipeAdapter.SwipeableView, SuggestedEditsFeedClient.Callback {
+class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEditsCard>(context), SuggestedEditsFeedClient.Callback {
     interface Callback {
         fun onSuggestedEditsCardClick(view: SuggestedEditsCardView)
     }
@@ -33,7 +31,7 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
         return card!!.action == TRANSLATE_DESCRIPTION || card!!.action == TRANSLATE_CAPTION
     }
 
-    override fun setCard(@NonNull card: SuggestedEditsCard) {
+    override fun setCard(card: SuggestedEditsCard) {
         super.setCard(card)
         this.card = card
 
@@ -41,7 +39,7 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
             setLayoutDirectionByWikiSite(WikiSite.forLanguageCode(card.sourceSummary.lang), this)
         }
 
-        cardView.setOnClickListener {
+        cardItemContainer.setOnClickListener {
             if (callback != null) {
                 callback!!.onSuggestedEditsCardClick(this)
             }

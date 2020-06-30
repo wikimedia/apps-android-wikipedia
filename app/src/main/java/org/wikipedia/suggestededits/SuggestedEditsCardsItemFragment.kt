@@ -7,8 +7,8 @@ import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_suggested_edits_cards_item.*
 import kotlinx.android.synthetic.main.view_image_detail_horizontal.view.*
 import org.wikipedia.R
@@ -42,7 +42,6 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
         super.onViewCreated(view, savedInstanceState)
         setConditionalLayoutDirection(viewArticleContainer, parent().langFromCode)
 
-        viewArticleImage.setLegacyVisibilityHandlingEnabled(true)
         viewArticleImage.setOnClickListener {
             if (Prefs.shouldShowImageZoomTooltip()) {
                 Prefs.setShouldShowImageZoomTooltip(false)
@@ -85,8 +84,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
                                     source.displayTitle,
                                     source.description,
                                     source.thumbnailUrl,
-                                    source.extractHtml,
-                                    null, null, null
+                                    source.extractHtml
                             )
 
                             targetSummary = SuggestedEditsSummary(
@@ -96,8 +94,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
                                     target.displayTitle,
                                     target.description,
                                     target.thumbnailUrl,
-                                    target.extractHtml,
-                                    null, null, null
+                                    target.extractHtml
                             )
                             updateContents()
                         }, { this.setErrorState(it) })!!)
@@ -108,7 +105,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .flatMap { title ->
-                            ServiceFactory.get(WikiSite.forLanguageCode(parent().langFromCode)).getImageInfo(title, parent().langFromCode)
+                            ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo(title, parent().langFromCode)
                                     .subscribeOn(Schedulers.io())
                                     .observeOn(AndroidSchedulers.mainThread())
                         }
@@ -148,7 +145,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
                         .observeOn(AndroidSchedulers.mainThread())
                         .flatMap { pair ->
                             fileCaption = pair.first
-                            ServiceFactory.get(WikiSite.forLanguageCode(parent().langFromCode)).getImageInfo(pair.second, parent().langFromCode)
+                            ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo(pair.second, parent().langFromCode)
                                     .subscribeOn(Schedulers.io())
                                     .observeOn(AndroidSchedulers.mainThread())
                         }
@@ -200,13 +197,12 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
                         .subscribe({ pageSummary ->
                             sourceSummary = SuggestedEditsSummary(
                                     pageSummary.apiTitle,
-                                    pageSummary.lang,
-                                    pageSummary.getPageTitle(WikiSite.forLanguageCode(pageSummary.lang)),
+                                    parent().langFromCode,
+                                    pageSummary.getPageTitle(WikiSite.forLanguageCode(parent().langFromCode)),
                                     pageSummary.displayTitle,
                                     pageSummary.description,
                                     pageSummary.thumbnailUrl,
-                                    pageSummary.extractHtml,
-                                    null, null, null
+                                    pageSummary.extractHtml
                             )
                             updateContents()
                         }, { this.setErrorState(it) }))

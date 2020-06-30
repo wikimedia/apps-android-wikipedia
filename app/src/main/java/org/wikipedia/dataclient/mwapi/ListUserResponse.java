@@ -17,28 +17,27 @@ public class ListUserResponse {
     @SerializedName("name") @Nullable private String name;
     private long userid;
     @Nullable private List<String> groups;
+    private boolean missing;
     private boolean cancreate;
-    @Nullable private List<UserResponseCreateError> cancreateerror;
+    @Nullable private List<MwServiceError> cancreateerror;
 
-    @Nullable public String name() {
-        return name;
+    @NonNull public String name() {
+        return StringUtils.defaultString(name);
     }
 
     public boolean canCreate() {
         return cancreate;
     }
 
-    @NonNull public Set<String> getGroups() {
-        return groups != null ? new ArraySet<>(groups) : Collections.emptySet();
+    public boolean isBlocked() {
+        return getError().contains("block");
     }
 
-    public static class UserResponseCreateError {
-        @Nullable private String message;
-        @Nullable private String code;
-        @Nullable private String type;
+    @NonNull public String getError() {
+        return cancreateerror != null && !cancreateerror.isEmpty() ? cancreateerror.get(0).getTitle() : "";
+    }
 
-        @NonNull public String message() {
-            return StringUtils.defaultString(message);
-        }
+    @NonNull public Set<String> getGroups() {
+        return groups != null ? new ArraySet<>(groups) : Collections.emptySet();
     }
 }

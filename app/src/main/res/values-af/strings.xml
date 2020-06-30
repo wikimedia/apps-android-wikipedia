@@ -40,9 +40,7 @@
   <string name="menu_long_press_open_page">Maak oop</string>
   <string name="menu_long_press_open_in_new_tab">Open in nuwe oortjie</string>
   <string name="menu_long_press_copy_page">Kopieer skakelligging</string>
-  <string name="menu_text_select_copy">Kopieer</string>
   <string name="menu_text_select_define">Definieer</string>
-  <string name="menu_text_select_share">Deel</string>
   <string name="menu_text_select_edit_here">Wysig hier</string>
   <string name="last_updated_text">Laas opgedateer %s</string>
   <string name="talk_page_link_text">Bekyk besprekingsblad</string>
@@ -79,9 +77,9 @@
   <string name="login_username_hint">Gebruikersnaam</string>
   <string name="login_password_hint">Wagwoord</string>
   <string name="menu_login">Meld aan</string>
-  <string name="login_activity_title">Meld aan by Wikipedia</string>
+  <string name="login_activity_title" fuzzy="true">Meld aan by Wikipedia</string>
   <string name="login_in_progress_dialog_message">Meld u aan…</string>
-  <string name="login_success_toast">Suksesvolle Aanmelding!</string>
+  <string name="login_success_toast" fuzzy="true">Suksesvolle Aanmelding!</string>
   <string name="reset_password_title">Stel u wagwoord</string>
   <string name="reset_password_description">U het met \'n tydelike wagwoord aangemeld. Om klaar aan te meld, stel die nuwe wagwoord hier.</string>
   <string name="reset_password_hint">Nuwe wagwoord</string>
@@ -208,14 +206,10 @@
   <string name="gallery_menu_share">Deel</string>
   <string name="gallery_share_error">Kon nie beeld deel nie: %s</string>
   <string name="gallery_save_progress">Laai lêer af…</string>
-  <string name="gallery_save_success">Lêer suksesvol bewaar.</string>
+  <string name="gallery_save_success" fuzzy="true">Lêer suksesvol bewaar.</string>
   <string name="gallery_error_video_failed">Kon nie die video speel nie.</string>
   <string name="err_cannot_save_file">Kan nie die lêer stoor nie</string>
-  <string name="snippet_share_intro">\"%1$s\" op @Wikipedia: %2$s</string>
   <string name="expand_refs">Kliek om uit te brei</string>
-  <string name="share_snippet_button">Deel as beeld</string>
-  <string name="share_normal_button">Deel as teks</string>
-  <string name="snippet_share_preview_image_desc">Beeldvoorskou</string>
   <string name="cc_logo">Creative Commons-lisensie</string>
   <string name="captcha_image">Captcha beeld</string>
   <string name="gallery_fair_use_license">Billike gebruik</string>
@@ -269,8 +263,6 @@
   <string name="reading_list_save_to">Bewaar in leeslys</string>
   <string name="reading_list_create_new">Skep nuwe</string>
   <string name="reading_list_title_exists">Leeslys “%s” bestaan reeds.</string>
-  <string name="reading_list_added_to_named">Tot %s toegevoeg.</string>
-  <string name="reading_list_already_exists">Hierdie artikel is reeds in daardie lys.</string>
   <string name="reading_list_added_view_button">Bekyk lys</string>
   <string name="format_reading_list_statistical_summary_singular">1 bladsy, %1$.2f MG</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d bladsye, %2$.2f MG</string>

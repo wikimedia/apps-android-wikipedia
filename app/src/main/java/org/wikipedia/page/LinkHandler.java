@@ -17,7 +17,6 @@ import org.wikipedia.util.log.L;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.wikipedia.util.UriUtil.decodeURL;
 import static org.wikipedia.util.UriUtil.handleExternalLink;
 
 /**
@@ -37,14 +36,14 @@ public abstract class LinkHandler implements CommunicationBridge.JSEventListener
 
     public abstract void onInternalLinkClicked(@NonNull PageTitle title);
 
-    public abstract void onSVGLinkClicked(@NonNull String href);
+    public abstract void onMediaLinkClicked(@NonNull PageTitle title);
 
     public abstract WikiSite getWikiSite();
 
     // message from JS bridge:
     @Override
     public void onMessage(String messageType, JsonObject messagePayload) {
-        String href = decodeURL(messagePayload.get("href").getAsString());
+        String href = UriUtil.decodeURL(messagePayload.get("href").getAsString());
         onUrlClick(href, messagePayload.has("title") ? messagePayload.get("title").getAsString() : null,
                 messagePayload.has("text") ? messagePayload.get("text").getAsString() : "");
     }
@@ -75,6 +74,7 @@ public abstract class LinkHandler implements CommunicationBridge.JSEventListener
         for (String scheme : KNOWN_SCHEMES) {
             if (href.startsWith(scheme + ":")) {
                 knownScheme = true;
+                break;
             }
         }
         if (!knownScheme) {
@@ -104,15 +104,11 @@ public abstract class LinkHandler implements CommunicationBridge.JSEventListener
             PageTitle title = TextUtils.isEmpty(titleString)
                     ? site.titleForInternalLink(uri.getPath())
                     : PageTitle.withSeparateFragment(titleString, uri.getFragment(), site);
-            if (title.isFilePage() && title.getPrefixedText().endsWith(".svg")) {
-                onSVGLinkClicked(href);
+            if (title.isFilePage()) {
+                onMediaLinkClicked(title);
             } else {
                 onInternalLinkClicked(title);
             }
-        } else if (!TextUtils.isEmpty(titleString) && UriUtil.isValidOfflinePageLink(uri)) {
-            WikiSite site = new WikiSite(uri);
-            PageTitle title = PageTitle.withSeparateFragment(titleString, uri.getFragment(), site);
-            onInternalLinkClicked(title);
         } else if (!TextUtils.isEmpty(uri.getAuthority()) && WikiSite.supportedAuthority(uri.getAuthority())
                 && !TextUtils.isEmpty(uri.getFragment())) {
             onPageLinkClicked(uri.getFragment(), linkText);

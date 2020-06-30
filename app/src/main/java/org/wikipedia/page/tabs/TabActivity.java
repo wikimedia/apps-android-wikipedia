@@ -172,7 +172,6 @@ public class TabActivity extends BaseActivity {
 
                 PageTitle title = app.getTabList().get(tabIndex).getBackStackPositionTitle();
                 titleText.setText(StringUtil.fromHtml(title.getDisplayText()));
-                titleText.setVisibility(title.getDisplayText().equals(Constants.EMPTY_PAGE_TITLE) ? View.GONE : View.VISIBLE);
 
                 if (TextUtils.isEmpty(title.getDescription())) {
                     descriptionText.setVisibility(View.GONE);
@@ -203,12 +202,7 @@ public class TabActivity extends BaseActivity {
             if (app.getTabList().get(tabIndex).getBackStack().isEmpty()) {
                 continue;
             }
-
-            String title = app.getTabList().get(tabIndex).getBackStackPositionTitle().getDisplayText();
-            if (title.equals(Constants.EMPTY_PAGE_TITLE)) {
-                title = getString(R.string.empty_tab_title);
-            }
-            Tab tab = new Tab(StringUtil.fromHtml(title));
+            Tab tab = new Tab(StringUtil.fromHtml(app.getTabList().get(tabIndex).getBackStackPositionTitle().getDisplayText()));
             tab.setIcon(R.drawable.ic_image_black_24dp);
             tab.setIconTint(ResourceUtil.getThemedColor(this, R.attr.material_theme_secondary_color));
             tab.setTitleTextColor(ResourceUtil.getThemedColor(this, R.attr.material_theme_secondary_color));
@@ -258,6 +252,9 @@ public class TabActivity extends BaseActivity {
                 openNewTab();
                 return true;
             case R.id.menu_close_all_tabs:
+                if (app.getTabList().isEmpty()) {
+                    return true;
+                }
                 AlertDialog.Builder alert = new AlertDialog.Builder(this);
                 alert.setMessage(R.string.close_all_tabs_confirm);
                 alert.setPositiveButton(R.string.close_all_tabs_confirm_yes, (dialog, which) -> {
@@ -320,9 +317,7 @@ public class TabActivity extends BaseActivity {
         if (appTab.getBackStackPositionTitle() == null) {
             return;
         }
-        Snackbar snackbar = FeedbackUtil.makeSnackbar(this, appTab.getBackStackPositionTitle().getDisplayText().equals(Constants.EMPTY_PAGE_TITLE)
-                ? getString(R.string.unnamed_tab_closed)
-                : getString(R.string.tab_item_closed, appTab.getBackStackPositionTitle().getDisplayText()), FeedbackUtil.LENGTH_DEFAULT);
+        Snackbar snackbar = FeedbackUtil.makeSnackbar(this, getString(R.string.tab_item_closed, appTab.getBackStackPositionTitle().getDisplayText()), FeedbackUtil.LENGTH_DEFAULT);
         snackbar.setAction(R.string.reading_list_item_delete_undo, v -> {
             app.getTabList().add(appTabIndex, appTab);
             tabSwitcher.addTab(tab, index);

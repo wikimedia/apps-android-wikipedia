@@ -12,6 +12,7 @@ import org.wikipedia.R;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment;
 import org.wikipedia.readinglist.database.ReadingList;
+import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.util.ResourceUtil;
 
@@ -19,11 +20,12 @@ import java.util.List;
 
 public class ReadingListItemActionsDialog extends ExtendedBottomSheetDialogFragment {
     public interface Callback {
-        void onToggleItemOffline(@NonNull ReadingListPage page);
-        void onShareItem(@NonNull ReadingListPage page);
-        void onAddItemToOther(@NonNull ReadingListPage page);
-        void onSelectItem(@NonNull ReadingListPage page);
-        void onDeleteItem(@NonNull ReadingListPage page);
+        void onToggleItemOffline(long pageId);
+        void onShareItem(long pageId);
+        void onAddItemToOther(long pageId);
+        void onMoveItemToOther(long pageId);
+        void onSelectItem(long pageId);
+        void onDeleteItem(long pageId);
     }
 
     private static final String ARG_READING_LIST_NAME = "readingListName";
@@ -36,12 +38,12 @@ public class ReadingListItemActionsDialog extends ExtendedBottomSheetDialogFragm
     private ItemActionsCallback itemActionsCallback = new ItemActionsCallback();
 
     @NonNull
-    public static ReadingListItemActionsDialog newInstance(@NonNull List<ReadingList> lists, @NonNull ReadingListPage page, boolean hasActionMode) {
+    public static ReadingListItemActionsDialog newInstance(@NonNull List<ReadingList> lists, long pageID, boolean hasActionMode) {
         ReadingListItemActionsDialog instance = new ReadingListItemActionsDialog();
         Bundle args = new Bundle();
         args.putString(ARG_READING_LIST_NAME, lists.get(0).title());
         args.putInt(ARG_READING_LIST_SIZE, lists.size());
-        args.putSerializable(ARG_READING_LIST_PAGE, page);
+        args.putLong(ARG_READING_LIST_PAGE, pageID);
         args.putBoolean(ARG_READING_LIST_HAS_ACTION_MODE, hasActionMode);
         instance.setArguments(args);
         return instance;
@@ -53,11 +55,13 @@ public class ReadingListItemActionsDialog extends ExtendedBottomSheetDialogFragm
         actionsView = new ReadingListItemActionsView(getContext());
         actionsView.setBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color));
         actionsView.setCallback(itemActionsCallback);
-        readingListPage = (ReadingListPage) getArguments().getSerializable(ARG_READING_LIST_PAGE);
-        String removeFromListText = getArguments().getInt(ARG_READING_LIST_SIZE) == 1
-                ? getString(R.string.reading_list_remove_from_list, getArguments().getString(ARG_READING_LIST_NAME))
-                : getString(R.string.reading_list_remove_from_lists);
-        actionsView.setState(readingListPage.title(), removeFromListText, readingListPage.offline(), getArguments().getBoolean(ARG_READING_LIST_HAS_ACTION_MODE));
+        readingListPage = ReadingListDbHelper.instance().getPageById(getArguments().getLong(ARG_READING_LIST_PAGE));
+        if (readingListPage != null) {
+            String removeFromListText = getArguments().getInt(ARG_READING_LIST_SIZE) == 1
+                    ? getString(R.string.reading_list_remove_from_list, getArguments().getString(ARG_READING_LIST_NAME))
+                    : getString(R.string.reading_list_remove_from_lists);
+            actionsView.setState(readingListPage.title(), removeFromListText, readingListPage.offline(), getArguments().getBoolean(ARG_READING_LIST_HAS_ACTION_MODE));
+        }
         return actionsView;
     }
 
@@ -73,7 +77,7 @@ public class ReadingListItemActionsDialog extends ExtendedBottomSheetDialogFragm
         public void onToggleOffline() {
             dismiss();
             if (callback() != null) {
-                callback().onToggleItemOffline(readingListPage);
+                callback().onToggleItemOffline(readingListPage.id());
             }
         }
 
@@ -81,7 +85,7 @@ public class ReadingListItemActionsDialog extends ExtendedBottomSheetDialogFragm
         public void onShare() {
             dismiss();
             if (callback() != null) {
-                callback().onShareItem(readingListPage);
+                callback().onShareItem(readingListPage.id());
             }
         }
 
@@ -89,7 +93,15 @@ public class ReadingListItemActionsDialog extends ExtendedBottomSheetDialogFragm
         public void onAddToOther() {
             dismiss();
             if (callback() != null) {
-                callback().onAddItemToOther(readingListPage);
+                callback().onAddItemToOther(readingListPage.id());
+            }
+        }
+
+        @Override
+        public void onMoveToOther() {
+            dismiss();
+            if (callback() != null) {
+                callback().onMoveItemToOther(readingListPage.id());
             }
         }
 
@@ -97,7 +109,7 @@ public class ReadingListItemActionsDialog extends ExtendedBottomSheetDialogFragm
         public void onSelect() {
             dismiss();
             if (callback() != null) {
-                callback().onSelectItem(readingListPage);
+                callback().onSelectItem(readingListPage.id());
             }
         }
 
@@ -105,7 +117,7 @@ public class ReadingListItemActionsDialog extends ExtendedBottomSheetDialogFragm
         public void onDelete() {
             dismiss();
             if (callback() != null) {
-                callback().onDeleteItem(readingListPage);
+                callback().onDeleteItem(readingListPage.id());
             }
         }
     }

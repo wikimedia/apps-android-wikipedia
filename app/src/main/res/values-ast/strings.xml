@@ -56,10 +56,7 @@
   <string name="menu_long_press_open_page">Abrir</string>
   <string name="menu_long_press_open_in_new_tab">Abrir n\'una llingüeta nueva</string>
   <string name="menu_long_press_copy_page">Copiar la direición del enllaz</string>
-  <string name="menu_text_select_copy">Copiar</string>
   <string name="menu_text_select_define">Definir</string>
-  <string name="menu_text_select_share">Compartir</string>
-  <string name="share">Compartir</string>
   <string name="on_this_day_page_share">Compartir</string>
   <string name="reading_list_page_share">Compartir</string>
   <string name="menu_text_select_edit_here">Editar equí</string>
@@ -107,9 +104,9 @@
   <string name="reading_lists_sync_login">Aniciar sesión</string>
   <string name="create_account_login">Aniciar sesión</string>
   <string name="menu_login">Aniciar sesión</string>
-  <string name="login_activity_title">Aniciar sesión en Wikipedia</string>
+  <string name="login_activity_title" fuzzy="true">Aniciar sesión en Wikipedia</string>
   <string name="login_in_progress_dialog_message">Aniciando sesión en...</string>
-  <string name="login_success_toast">Aniciasti sesión correutamente</string>
+  <string name="login_success_toast">¡Aniciasti sesión!</string>
   <string name="reset_password_title">Configurar la contraseña</string>
   <string name="reset_password_description">Aniciasti sesión con una contraseña temporal. Pa terminar d\'aniciar sesión, configura equí una contraseña nueva.</string>
   <string name="reset_password_hint">Contraseña nueva</string>
@@ -186,7 +183,7 @@
   <string name="about_description">Tocante a la app de Wikipedia</string>
   <string name="privacy_policy_description">Política d\'intimidá</string>
   <string name="terms_of_use_description">Condiciones d\'usu</string>
-  <string name="about_wikipedia_url" fuzzy="true">https://ast.m.wikipedia.org/wiki/Wikipedia:Tocante_a</string>
+  <string name="about_wikipedia_url">https://ast.wikipedia.org/wiki/Wikipedia:Tocante_a</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
@@ -198,6 +195,7 @@
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Bbiblioteques utilizaes</string>
   <string name="about_contributors_heading">Collaboradores</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Páxina del equipu&lt;/a&gt;</string>
   <string name="about_translators_heading">Traductores</string>
   <string name="about_translators_translatewiki">Esta aplicación traduxéronla traductores voluntarios en &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Llicencia</string>
@@ -266,17 +264,13 @@
   <string name="gallery_menu_share">Compartir</string>
   <string name="gallery_share_error">Nun pudo compartise la imaxe: %s</string>
   <string name="gallery_save_progress">Descargando ficheru…</string>
-  <string name="gallery_save_success">Ficheru guardáu correutamente.</string>
+  <string name="gallery_save_success">Guardóse\'l ficheru.</string>
   <string name="gallery_error_video_failed">Nun pudo reproducise\'l videu.</string>
   <string name="gallery_save_image_write_permission_rationale">Ríquese permisu d\'escritura nel almacenamientu del preséu pa guardar imaxes.</string>
   <string name="gallery_add_image_caption_button">Añadir un pie d\'imaxe</string>
   <string name="gallery_add_image_caption_in_language_button">Añadir un pie d\'imaxe (%s)</string>
   <string name="err_cannot_save_file">Nun pudo guardase\'l ficheru</string>
-  <string name="snippet_share_intro">«%1$s» en @Wikipedia: %2$s</string>
   <string name="expand_refs">Toca pa espander</string>
-  <string name="share_snippet_button">Compartir como imaxe</string>
-  <string name="share_normal_button">Compartir como testu</string>
-  <string name="snippet_share_preview_image_desc">Vista previa de la imaxe</string>
   <string name="cc_logo">Llicencia de Creative Commons</string>
   <string name="captcha_image">Imaxe Captcha</string>
   <string name="gallery_fair_use_license">Usu llexítimu</string>
@@ -289,6 +283,7 @@
   <string name="close_all_tabs_confirm_yes">Sí</string>
   <string name="close_all_tabs_confirm_no">Non</string>
   <string name="button_close_tab">Zarrar llingüeta</string>
+  <string name="unnamed_tab_closed">Llingüeta zarrada.</string>
   <string name="tab_item_closed">Zarróse %s.</string>
   <string name="all_tab_items_closed">Zarráronse toles llingüetes.</string>
   <string name="tool_tip_bookmark_icon_title">Añadir a llista de llectura</string>
@@ -336,6 +331,7 @@
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Casar col tema del sistema</string>
   <string name="page_footer_license_text">El conteníu ta disponible baxo los términos de la $1 si nun s\'indica otra cosa</string>
   <string name="empty_tab_title">Llingüeta nueva</string>
+  <string name="menu_save_all_tabs">Guardar toles llingüetes</string>
   <string name="crash_report_activity_title">Error de l\'aplicación:</string>
   <string name="crash_report_relaunch_or_quit">Sentímoslo, la app de Wikipedia esperimentó un error y terminóse.\n\n¿Quies volver a arrancar o colar?</string>
   <string name="crash_report_relaunch">Volver a arrancar</string>
@@ -361,8 +357,9 @@
   <string name="reading_list_save_to">Guardar na llista de llectura</string>
   <string name="reading_list_create_new">Crear una nueva</string>
   <string name="reading_list_title_exists">La llista de llectura «%s» yá esiste.</string>
-  <string name="reading_list_added_to_named">Añadíu a %s.</string>
-  <string name="reading_list_already_exists">Esti artículu yá ta nesa llista.</string>
+  <string name="reading_list_article_added_to_named">Añadióse %1$s a %2$s.</string>
+  <string name="reading_list_article_already_exists_message">¡Too correuto! %1$s yá contien %2$s.</string>
+  <string name="reading_list_articles_already_exist_message">¡Too correuto! %s yá contien tolos artículos.</string>
   <string name="reading_list_added_view_button">Ver llista</string>
   <string name="format_reading_list_statistical_summary_singular">1 artículu, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d artículos, %2$.2f MB</string>
@@ -418,8 +415,7 @@
   <string name="reading_lists_confirm_remote_delete_yes">Sí</string>
   <string name="reading_lists_confirm_remote_delete_no">Non</string>
   <string name="reading_list_article_save_in_progress">L\'artículu ta descargándose, y tará disponible sin conexón cuando se complete.</string>
-  <string name="reading_list_already_contains_selection">La llista escoyida yá contien toles páxines seleicionaes.</string>
-  <string name="reading_list_added_articles_list_titled">Añadiéronse %1$d artículos a %2$s</string>
+  <string name="reading_list_articles_added_to_named">Añadiéronse %1$d artículos a %2$s</string>
   <string name="reading_list_delete_confirm">¿Tas seguru de que quies desaniciar %s?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Anicia sesión p\'activar la sincronización</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Anicia sesión pa permitir guardar les llistes de llectura na to cuenta.</string>
@@ -455,7 +451,7 @@
     <item quantity="one">Esti artículu yá nun tará disponible sin conexón.</item>
     <item quantity="other">Estos artículos yá nun tarán disponibles sin conexón.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync">Les llistes de llectura sincronizáronse correutamente</string>
+  <string name="reading_list_toast_last_sync">Sincronizáronse les llistes de llectura</string>
   <string name="reading_list_menu_last_sync">Última sincronización: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">Aceutar</string>
   <string name="reading_list_delete_dialog_ok_button_text">Aceutar</string>
@@ -616,6 +612,7 @@
   <string name="description_edit_success_saved_in_lang_snackbar">Espublizóse la descripción d\'artículu (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Espublizóse\'l pie d\'imaxe</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Espublizóse\'l pie d\'imaxe (%s)</string>
+  <string name="description_edit_success_saved_image_tags_snackbar">Espublizaes les etiquetes d\'imaxe</string>
   <string name="description_edit_success_encouragement">Acabes d\'ameyorar Wikipedia pa toos</string>
   <string name="description_edit_success_done">Fecho</string>
   <string name="description_edit_success_did_you_know">¿Sabíeslo?</string>
@@ -684,6 +681,7 @@
   <string name="suggested_edits_article_cta_snackbar_action">Ver</string>
   <string name="suggested_edits_feed_card_add_image_caption">Añadir un pie d\'imaxe</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Añadir un pie d\'imaxe (%s)</string>
+  <string name="suggested_edits_feed_card_add_image_tags">Amestar etiquetes d\'imaxe</string>
   <string name="suggested_edits_snackbar_survey_text">¿Qué tal foi la to esperiencia editando? Por favor, dedica un momentu a contestar la encuesta sobro la edición na aplicación.</string>
   <string name="suggested_edits_snackbar_survey_action_text">Contestar la encuesta</string>
   <string name="suggested_edits_task_action_text_add">Amestar</string>
@@ -693,7 +691,55 @@
   <string name="suggested_edits_image_tags_publishing">Espublizando</string>
   <string name="suggested_edits_image_tags_published">Espublizaes</string>
   <string name="suggested_edits_image_tags_onboarding_title">Etiquetar les imáxenes failes más fáciles d\'alcontrar.</string>
-  <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">Les imáxenes siguientes tienen etiquetes suxeríes por un ordenador, y precísase que les valide un humanu pa garantizar la so exactitú.\n\nAl confirmar les etiquetes, ayudes a que sía más fácil buscales en Commons, el depósitu d\'imáxenes de llicencia llibre que Wikipedia usa pa les imáxenes de los artículos.</string>
+  <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">Al amestar etiquetes d\'imaxe, ayudes a que sía más fácil buscales en Commons, el depósitu d\'imáxenes de llicencia llibre que Wikipedia usa pa les imáxenes de los artículos.\n\nSuxerimos automáticamente delles etiquetes, y tamién pues amestar les tuyes propies.</string>
+  <string name="suggested_edits_image_tags_onboarding_note">Solo les etiquetes qu\'escueyas van añadise a les imáxenes.</string>
+  <string name="suggested_edits_image_tags_snackbar">Etiqueta les imáxenes pa facilitar la so busca.</string>
+  <string name="suggested_edits_image_tags_task_detail" fuzzy="true">Etiqueta les imáxenes pa facilitar que les alcuentren. Seleiciona dende les etiquetes suxeríes o amiesta les tuyes propies.</string>
+  <string name="suggested_edits_image_tags_choose">Añadir o escoyer etiquetes que casen</string>
+  <string name="suggested_edits_image_tags_published_list">Etiquetes publicaes</string>
+  <string name="suggested_edits_image_tags_search">Buscar etiquetes</string>
+  <string name="suggested_edits_image_tags_select_title">Nun escoyisti nenguna etiqueta pa esta imaxe.</string>
+  <string name="suggested_edits_image_tags_select_text">Solo les etiquetes qu\'escueyas van añadise a les imáxenes. Les etiquetes ensin escoyer van marcase como refugaes. ¿Tas seguro de que quies marcar toles etiquetes como refugaes?</string>
+  <string name="suggested_edits_image_tags_add_tag">Añadir etiqueta</string>
+  <string name="suggested_edits_image_zoom_tooltip">Plizca p\'ampliar esta imaxe.</string>
+  <string name="suggested_edits_encouragement_message">%s, gracies poles tos ediciones. Más abaxo pues alcontrar otres formes de collaborar con Wikipedia.</string>
+  <string name="suggested_edits_onboarding_message">&lt;b&gt;Bones, %s&lt;/b&gt;. ¿Sabíes que tol mundu pue editar Wikipedia? Más abaxo pues alcontrar formes divertíes d\'ayudar a ameyorar la Wikipedia. ¡Feliz edición!</string>
+  <string name="suggested_edits_image_captions_task_detail" fuzzy="true">Los pies d\'imaxe describen una imaxe p\'ayudar los llectores a entender el so significáu y contestu.</string>
+  <string name="suggested_edits_add_descriptions_task_detail" fuzzy="true">Les descripciones d\'artículos resumen un artículu p\'ayudar a que los llectores puedan enterase de la tema del artículu d\'una güeyada.</string>
+  <string name="suggested_edits_contributions_stat_tooltip">El númberu total de les tos contribuciones con Ediciones suxeríes.</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip">Cuántos díes siguíos contribuyisti a Ediciones suxeríes. Si va tiempu que nun contribuyes, apaecerá la fecha de la to última contribución.</string>
+  <string name="suggested_edits_page_views_stat_tooltip">Total de páxines vistes d\'elementos a los que contribuyisti nos postreros 30 díes con ediciones suxeríes.</string>
+  <string name="suggested_edits_edit_quality_stat_tooltip">Basándose na cantidá de vegaes qu\'una de les tos contribuciones revirtióse (foi anulada por otru editor). Ediciones revertíes: %d.</string>
+  <string name="suggested_edits_paused_message" fuzzy="true">&lt;b&gt;Les Ediciones suxeríes tán en posa hasta %1$s.&lt;/b&gt; Sentímoslo, %2$s: dalgunes de les tos contribuciones de recién revertiéronse.\n\nDeprende cómo ameyorar les tos habilidaes d\'edición na Wikipedia consultando l\'enllaz d\'abaxo.</string>
+  <string name="suggested_edits_disabled_message" fuzzy="true">&lt;b&gt;Les ediciones suxeríes tán desactivaes&lt;/b&gt;. Sentímoslo, %s: munches de les tos contribuciones de recién revertiéronse.\n\nConsulta lo que significa nel enllaz d\'abaxo.</string>
+  <string name="suggested_edits_ip_blocked_message" fuzzy="true">Paez que la to direición IP (o rangu de direiciones IP) anguaño ta bloquiada pa editar la Wikipedia. Consulta lo que significa esto visitando l\'enllaz de más abaxo.</string>
+  <string name="suggested_edits_editing_tips_link_text">Trucos y conseyos d\'edición</string>
+  <string name="suggested_edits_help_page_link_text">Páxina d\'ayuda d\'ediciones suxeríes</string>
+  <string name="suggested_edits_pageviews_label_text">Visites a páxines</string>
+  <string name="suggested_edits_quality_label_text">Calidá d\'ediciones</string>
+  <string name="suggested_edits_quality_perfect_text">Perfeuta</string>
+  <string name="suggested_edits_quality_excellent_text">Escelente</string>
+  <string name="suggested_edits_quality_very_good_text">Bien bona</string>
+  <string name="suggested_edits_quality_good_text">Bona</string>
+  <string name="suggested_edits_quality_okay_text">Aceptable</string>
+  <string name="suggested_edits_quality_sufficient_text">Suficiente</string>
+  <string name="suggested_edits_quality_poor_text">Probe</string>
+  <string name="suggested_edits_quality_bad_text">Mala</string>
+  <plurals name="suggested_edits_contribution">
+    <item quantity="one">Contribución</item>
+    <item quantity="other">Contribuciones</item>
+  </plurals>
+  <plurals name="suggested_edits_edit_streak_detail_text">
+    <item quantity="one">%d día</item>
+    <item quantity="other">%d díes</item>
+  </plurals>
+  <string name="suggested_edits_last_edited">Última edición</string>
+  <string name="suggested_edits_last_edited_never">Nunca</string>
+  <string name="suggested_edits_task_new">nueva</string>
+  <string name="suggested_edits_cc0_notice">Al publicar, aceutes les &lt;a href=\"%1$s\"&gt;Condiciones d\'usu&lt;/a&gt;, y lliberar ensin torgues les tos collaboraciones baxo los términos de la &lt;a href=\"%2$s\"&gt;llicencia CC0&lt;/a&gt;.</string>
+  <string name="suggested_edits_reactivation_notification_title">Ediciones suxeríes</string>
+  <string name="suggested_edits_reactivation_notification_stage_one">¡Gracies por editar Wikipedia! ¿Cómo nun sigues onde lo dexasti?</string>
+  <string name="suggested_edits_reactivation_notification_stage_two">¿Tienes un minutu pa siguir ameyorando Wikipedia? Revisa estes suxerencies d\'edición.</string>
   <string name="description_edit_revert_subtitle">¡Gracies por editar Wikipedia!</string>
   <string name="description_edit_revert_intro">Sabemos que tentasti faelo lo meyor posible, pero unu de los revisores tuvo una esmolición. Les posibles razones poles que se revertió la edición incluyen:</string>
   <string name="description_edit_revert_reason1">la to contribución nun siguió dalgunes de les &lt;a href=\"%1$s\"&gt;directrices&lt;/a&gt;.</string>
@@ -715,9 +761,6 @@
   <string name="onboarding_analytics_title">Unviar datos anónimos</string>
   <string name="onboarding_analytics_offline_text">Ayuda a ameyorar l\'aplicación informándonos de como la uses. Los datos recoyíos son anónimos. &lt;a href=\"#privacy\"&gt;Lleer más&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Unviar datos d\'usu</string>
-  <string name="onboarding_create_account_sync">Sincronizar les llistes de llectura</string>
-  <string name="onboarding_create_account_contributions">Siguir el rastru a les tos contribuciones</string>
-  <string name="onboarding_create_account_preferences">Guardar les preferencies</string>
   <string name="onboarding_got_it">Entendílo</string>
   <string name="onboarding_multilingual_secondary_text">Atopamos les siguientes nel to preséu:</string>
   <string name="onboarding_multilingual_add_language_text">Añadir o editar idiomes</string>
@@ -732,6 +775,9 @@
   <string name="events_count_text">%1$s acontecimientos ente %2$s y %3$d</string>
   <string name="this_year">Anguaño</string>
   <string name="back_to_top">Volver al entamu</string>
+  <string name="on_this_day_dialog_next_month">Próximu mes</string>
+  <string name="on_this_day_dialog_previous_month">Mes anterior</string>
+  <string name="on_this_day_open_date_picker">Abrir selector de fecha</string>
   <plurals name="diff_years">
     <item quantity="one">L\'añu pasáu</item>
     <item quantity="other">Fai %d años</item>
@@ -765,6 +811,7 @@
   <string name="edit_conflict_dialog_ok_button_text">Aceutar</string>
   <string name="reverted_edit_dialog_ok_button_text">Aceutar</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">Encaboxar</string>
+  <string name="content_description_for_page_indicator">Páxina %1$d de %2$d</string>
   <string name="wikitext_bold">Negrina</string>
   <string name="wikitext_italic">Cursiva</string>
   <string name="wikitext_link">Enllaz</string>
@@ -773,10 +820,10 @@
   <string name="wikitext_template">Plantía</string>
   <string name="wikitext_reference">Referencia</string>
   <string name="wikitext_preview_link">Entever enllaz</string>
-  <string name="main_drawer_open">Abrir</string>
-  <string name="main_drawer_close">Zarrar</string>
   <string name="main_drawer_help">Ayuda</string>
   <string name="main_drawer_login">Aniciar sesión / xunise a Wikipedia</string>
+  <string name="main_tooltip_text" fuzzy="true">%s, ¿sabíes que toos puen editar Wikipedia?</string>
+  <string name="main_tooltip_action_button">Primeros pasos</string>
   <string name="custom_date_picker_dialog_ok_button_text">Aceutar</string>
   <string name="text_input_dialog_ok_button_text">Aceutar</string>
   <string name="text_input_dialog_cancel_button_text">Encaboxar</string>

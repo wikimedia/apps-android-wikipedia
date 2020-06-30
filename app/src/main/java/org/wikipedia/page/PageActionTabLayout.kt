@@ -18,6 +18,7 @@ class PageActionTabLayout constructor(context: Context, attrs: AttributeSet? = n
             val tab = getChildAt(i)
             if (tab.tag != null) {
                 val tabPosition = Integer.valueOf((tab.tag as String))
+                tab.isFocusable = true
                 tab.setOnClickListener { v: View? ->
                     if (isEnabled(v!!)) {
                         PageActionTab.of(tabPosition).select(pageActionTabsCallback)

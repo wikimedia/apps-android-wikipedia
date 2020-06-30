@@ -12,6 +12,7 @@
 * Orikrin1998
 * Remux
 * Robin van der Vliet
+* SHaran (WMF)
 * Surfo
 * YvesNevelsteen
 -->
@@ -34,7 +35,7 @@
   <string name="storage_access_error_retry">Reprovi</string>
   <string name="article_load_error_retry">Reprovi</string>
   <string name="offline_load_error_retry">Reprovi</string>
-  <string name="page_error_back_to_main">Reen</string>
+  <string name="page_error_back_to_main">Reveni</string>
   <string name="error_back">Reveni</string>
   <string name="menu_clear_all_history">Malplenigi historion</string>
   <string name="history_item_deleted">%s estas forigita de historio</string>
@@ -63,10 +64,7 @@
   <string name="menu_long_press_open_page">Malfermi</string>
   <string name="menu_long_press_open_in_new_tab">Malfermi en nova langeto</string>
   <string name="menu_long_press_copy_page">Kopii ligilan adreson</string>
-  <string name="menu_text_select_copy">Kopii</string>
   <string name="menu_text_select_define">Difini</string>
-  <string name="menu_text_select_share">Konigi</string>
-  <string name="share">Kunhavigi</string>
   <string name="on_this_day_page_share">Kunhavigi</string>
   <string name="reading_list_page_share">Kunhavigi</string>
   <string name="menu_text_select_edit_here">Redakti ĉi tie</string>
@@ -113,9 +111,9 @@
   <string name="reading_lists_sync_login">Ensaluti</string>
   <string name="create_account_login">Ensaluti</string>
   <string name="menu_login">Ensaluti</string>
-  <string name="login_activity_title">Ensaluti en Vikipedion</string>
+  <string name="login_activity_title" fuzzy="true">Ensaluti en Vikipedion</string>
   <string name="login_in_progress_dialog_message">Ensalutante…</string>
-  <string name="login_success_toast">Ensaluto sukcesis!</string>
+  <string name="login_success_toast" fuzzy="true">Ensaluto sukcesis!</string>
   <string name="reset_password_title">Ŝanĝu vian pasvorton</string>
   <string name="reset_password_description">Vi ensalutis per provizora pasvorto. Por fini vian ensalutadon, agordu novan pasvorton ĉi tie.</string>
   <string name="reset_password_hint">Nova pasvorto</string>
@@ -269,16 +267,12 @@
   <string name="gallery_menu_share">Konigi</string>
   <string name="gallery_share_error">Ne eblis konigi la bildon: %s</string>
   <string name="gallery_save_progress">Elŝutado de dosiero…</string>
-  <string name="gallery_save_success">Dosiero sukcese konservita.</string>
+  <string name="gallery_save_success" fuzzy="true">Dosiero sukcese konservita.</string>
   <string name="gallery_error_video_failed">Ne eblis ludi la filmeton.</string>
   <string name="gallery_save_image_write_permission_rationale">Savi bildon bezonas permeson skribi al konservejo de via aparato.</string>
   <string name="gallery_add_image_caption_in_language_button">Aldoni titolon al bildo (je %s)</string>
   <string name="err_cannot_save_file">Ne eblis konservi la dosieron</string>
-  <string name="snippet_share_intro">\"%1$s\" ĉe @Wikipedia: %2$s</string>
   <string name="expand_refs">Tuŝetu por etendi</string>
-  <string name="share_snippet_button">Konigi kiel bildo</string>
-  <string name="share_normal_button">Konigi kiel teksto</string>
-  <string name="snippet_share_preview_image_desc">Antaŭrigardo de la bildo</string>
   <string name="cc_logo">Krea komunaĵa permesilo</string>
   <string name="captcha_image">Captcha-bildo</string>
   <string name="gallery_fair_use_license">Justa uzo</string>
@@ -358,8 +352,6 @@
   <string name="reading_list_save_to">Konservi al legolisto</string>
   <string name="reading_list_create_new">Krei novan</string>
   <string name="reading_list_title_exists">Legolisto \"%s\" jam ekzistas.</string>
-  <string name="reading_list_added_to_named">Aldonita al %s.</string>
-  <string name="reading_list_already_exists">Ĉi tiu artikolo estas jam en tiu listo.</string>
   <string name="reading_list_added_view_button">Montri liston</string>
   <string name="format_reading_list_statistical_summary_singular">1 artikolo, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d artikoloj, %2$.2f MB</string>
@@ -415,8 +407,7 @@
   <string name="reading_lists_confirm_remote_delete_yes">Jes</string>
   <string name="reading_lists_confirm_remote_delete_no">Ne</string>
   <string name="reading_list_article_save_in_progress">La artikolo estas elŝutata, kaj ĝi estos havebla kiam la elŝutado estos kompleta.</string>
-  <string name="reading_list_already_contains_selection">La elektita listo jam enhavas ĉiujn elektitajn paĝojn.</string>
-  <string name="reading_list_added_articles_list_titled">Aldoniĝis %1$d artikoloj al %2$s</string>
+  <string name="reading_list_articles_added_to_named">Aldoniĝis %1$d artikoloj al %2$s</string>
   <string name="reading_list_delete_confirm">Ĉu vi certas, ke vi volas forigi %s?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Ensalutu por ebligi sinkronigadon</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Ensalutu por ebligi ke viaj legolistoj estu konservitaj al via konto.</string>
@@ -452,7 +443,7 @@
     <item quantity="one">Ĉi tiu artikolo estas ne plu havebla eksterrete.</item>
     <item quantity="other">Ĉi tiuj artikoloj estas ne plu haveblaj eksterrete.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync">Sukcese sinkronigis legolistojn</string>
+  <string name="reading_list_toast_last_sync" fuzzy="true">Sukcese sinkronigis legolistojn</string>
   <string name="reading_list_menu_last_sync">Lasta sinkronigo: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">Bone</string>
   <string name="reading_list_delete_dialog_ok_button_text">Bone</string>
@@ -661,6 +652,12 @@
   <string name="suggested_edits_article_cta_snackbar_action">Vidi</string>
   <string name="suggested_edits_feed_card_add_image_caption" fuzzy="true">Aldoni titolon</string>
   <string name="suggested_edits_feed_card_translate_image_caption" fuzzy="true">Aldoni titolon (je %s)</string>
+  <string name="suggested_edits_contribute">Kontribui</string>
+  <string name="suggested_edits_rewards_contribution" fuzzy="true">Vi faris %d kontribuojn al Vikipedio uzante sugestitajn redaktojn. Dankon!</string>
+  <string name="suggested_edits_rewards_edit_streak">Vi redaktis ĉiun tagon dum %1$d tagoj ĝin nun. Tenu la daŭron, %2$s!</string>
+  <string name="suggested_edits_rewards_pageviews">Viaj redaktoj estis viditaj de %d homoj en la lasta 30 tagoj. Dankon Kaj daŭrigu!</string>
+  <string name="suggested_edits_rewards_edit_quality">Viaj redaktoj ĝis nun estas %s. Daŭrigu! Ni atendas viajn kontribuojn</string>
+  <string name="suggested_edits_rewards_continue_button">Daŭrigi</string>
   <string name="description_edit_revert_subtitle">Dankon pro tio ke vi redaktas Vikipedion!</string>
   <string name="description_edit_revert_intro">Ni scias ke vi provis vian plej bonan, sed unu el la reviziantoj esprimis sian dubon.\n\nEblaj kialoj ke via redakto estas malfarita inkluzivas:</string>
   <string name="description_edit_revert_reason1">via kontribuo ne akordis kun unu el la &lt;a href=\"%1$s\"&gt;gvidnormoj&lt;/a&gt;.</string>
@@ -682,9 +679,6 @@
   <string name="onboarding_analytics_title">Sendi anoniman datenon</string>
   <string name="onboarding_analytics_offline_text">Helpu plibonigi la aplikaĵon per sciigi nin pri kiel vi uzas ĝin. La kolektota dateno estos anonima. &lt;a href=\"#privacy\"&gt;Lerni plu&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Sendi datenon pri uzado</string>
-  <string name="onboarding_create_account_sync">Sinkronigi viajn legolistojn</string>
-  <string name="onboarding_create_account_contributions">Spuri viajn kontribuojn</string>
-  <string name="onboarding_create_account_preferences">Konservi viajn preferojn</string>
   <string name="onboarding_got_it">Komprenite</string>
   <string name="onboarding_multilingual_secondary_text">Ni trovis la sekvajn sur via aparato:</string>
   <string name="onboarding_multilingual_add_language_text">Aldoni aŭ redakti lingvojn</string>
@@ -737,8 +731,6 @@
   <string name="wikitext_template">Ŝablono</string>
   <string name="wikitext_reference">Referenco</string>
   <string name="wikitext_preview_link">Antaŭrigardi ligilon</string>
-  <string name="main_drawer_open">Malfermi</string>
-  <string name="main_drawer_close">Fermi</string>
   <string name="main_drawer_help">Helpo</string>
   <string name="main_drawer_login">Ensaluti en / aliĝi al Vikipedio</string>
   <string name="custom_date_picker_dialog_ok_button_text">Bone</string>

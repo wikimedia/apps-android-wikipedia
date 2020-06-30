@@ -4,8 +4,8 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class EditSuccessResult extends EditResult {
-    private final int revID;
-    public EditSuccessResult(int revID) {
+    private final long revID;
+    public EditSuccessResult(long revID) {
         super("Success");
         this.revID = revID;
     }
@@ -15,7 +15,7 @@ public class EditSuccessResult extends EditResult {
         revID = in.readInt();
     }
 
-    public int getRevID() {
+    public long getRevID() {
         return revID;
     }
 

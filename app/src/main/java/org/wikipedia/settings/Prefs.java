@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 
 import com.google.gson.reflect.TypeToken;
 
+import org.wikipedia.BuildConfig;
 import org.wikipedia.R;
 import org.wikipedia.analytics.SessionData;
 import org.wikipedia.analytics.SessionFunnel;
@@ -44,6 +45,7 @@ import static org.wikipedia.settings.PrefsIoUtil.setLong;
 import static org.wikipedia.settings.PrefsIoUtil.setString;
 
 /** Shared preferences utility for convenient POJO access. */
+@SuppressWarnings("checkstyle:magicnumber")
 public final class Prefs {
     @Nullable
     public static String getAppChannel() {
@@ -115,21 +117,6 @@ public final class Prefs {
 
     public static void setShowDeveloperSettingsEnabled(boolean enabled) {
         setBoolean(R.string.preference_key_show_developer_settings, enabled);
-    }
-
-    public static boolean showEditMenuOptionIndicator() {
-        return getBoolean(R.string.preference_key_show_edit_menu_option_indicator, false);
-    }
-
-    public static void setShowEditMenuOptionIndicator(boolean enabled) {
-        setBoolean(R.string.preference_key_show_edit_menu_option_indicator, enabled);
-    }
-    public static boolean showActionFeedIndicator() {
-        return getBoolean(R.string.preference_key_show_action_feed_indicator, false);
-    }
-
-    public static void setShowActionFeedIndicator(boolean enabled) {
-        setBoolean(R.string.preference_key_show_action_feed_indicator, enabled);
     }
 
     @Nullable
@@ -266,7 +253,7 @@ public final class Prefs {
     @NonNull
     public static String getRestbaseUriFormat() {
         return defaultIfBlank(getString(R.string.preference_key_restbase_uri_format, null),
-                "%1$s://%2$s/api/rest_v1/");
+                BuildConfig.DEFAULT_RESTBASE_URI_FORMAT);
     }
 
     @NonNull
@@ -372,6 +359,10 @@ public final class Prefs {
 
     public static void setLastDescriptionEditTime(long time) {
         setLong(R.string.preference_key_last_description_edit_time, time);
+    }
+
+    public static long getLastDescriptionEditTime() {
+        return getLong(R.string.preference_key_last_description_edit_time, 0);
     }
 
     public static int getTotalAnonDescriptionsEdited() {
@@ -799,7 +790,7 @@ public final class Prefs {
     }
 
     public static boolean shouldMatchSystemTheme() {
-        return getBoolean(R.string.preference_key_match_system_theme, false);
+        return getBoolean(R.string.preference_key_match_system_theme, true);
     }
 
     public static void setMatchSystemTheme(boolean enabled) {
@@ -858,6 +849,14 @@ public final class Prefs {
         setInt(R.string.preference_key_pcs_to_mobilehtml_conversion_attempts, attempts);
     }
 
+    public static int getInstallReferrerAttempts() {
+        return getInt(R.string.preference_key_install_referrer_attempts, 0);
+    }
+
+    public static void setInstallReferrerAttempts(int attempts) {
+        setInt(R.string.preference_key_install_referrer_attempts, attempts);
+    }
+
     public static boolean shouldShowImageTagsOnboarding() {
         return getBoolean(R.string.preference_key_image_tags_onboarding_shown, true);
     }
@@ -880,6 +879,78 @@ public final class Prefs {
 
     public static void setSuggestedEditsImageTagsNew(boolean enabled) {
         setBoolean(R.string.preference_key_suggested_edits_image_tags_new, enabled);
+    }
+
+    public static boolean isSuggestedEditsReactivationPassStageOne() {
+        return getBoolean(R.string.preference_key_suggested_edits_reactivation_pass_stage_one, true);
+    }
+
+    public static void setSuggestedEditsReactivationPassStageOne(boolean pass) {
+        setBoolean(R.string.preference_key_suggested_edits_reactivation_pass_stage_one, pass);
+    }
+
+    public static void storeTemporaryWikitext(@Nullable String wikitext) {
+        setString(R.string.preference_key_temporary_wikitext_storage, wikitext);
+    }
+
+    public static String getTemporaryWikitext() {
+        return getString(R.string.preference_key_temporary_wikitext_storage, "");
+    }
+
+    public static boolean isSuggestedEditsReactivationTestEnabled() {
+        return getBoolean(R.string.preference_key_suggested_edits_reactivation_test, false);
+    }
+
+    public static void setSuggestedEditsReactivationTestEnabled(boolean enabled) {
+        setBoolean(R.string.preference_key_suggested_edits_reactivation_test, enabled);
+    }
+
+    public static boolean isSuggestedEditsRewardInterstitialEnabled() {
+        return getBoolean(R.string.preference_key_suggested_edits_reward_interstitial_enabled, false);
+    }
+
+    public static void setSuggestedEditsRewardInterstitialEnabled(boolean enabled) {
+        setBoolean(R.string.preference_key_suggested_edits_reward_interstitial_enabled, enabled);
+    }
+
+    public static long getLastSuggestedEditsRewardInterstitialEditQualityShown() {
+        return getLong(R.string.preference_key_suggested_edits_reward_interstitial_last_edit_quality_shown, 0);
+    }
+
+    public static void setLastSuggestedEditsRewardInterstitialEditQualityShown(long time) {
+        setLong(R.string.preference_key_suggested_edits_reward_interstitial_last_edit_quality_shown, time);
+    }
+
+    public static long getLastSuggestedEditsRewardInterstitialPageviewsShown() {
+        return getLong(R.string.preference_key_suggested_edits_reward_interstitial_last_pageviews_shown, 0);
+    }
+
+    public static void setLastSuggestedEditsRewardInterstitialPageviewsShown(long time) {
+        setLong(R.string.preference_key_suggested_edits_reward_interstitial_last_pageviews_shown, time);
+    }
+
+    public static int getSuggestedEditsRewardInterstitialContributionOnInitialCount() {
+        return getInt(R.string.preference_key_suggested_edits_reward_interstitial_contribution_on_initial_count, 5);
+    }
+
+    public static int getSuggestedEditsRewardInterstitialContributionOnCount() {
+        return getInt(R.string.preference_key_suggested_edits_reward_interstitial_contribution_on_count, 50);
+    }
+
+    public static int getSuggestedEditsRewardInterstitialEditStreakOnCount() {
+        return getInt(R.string.preference_key_suggested_edits_reward_interstitial_edit_streak_on_count, 5);
+    }
+
+    public static int getSuggestedEditsRewardInterstitialEditQualityOnDay() {
+        return getInt(R.string.preference_key_suggested_edits_reward_interstitial_edit_quality_on_day, 14);
+    }
+
+    public static int getSuggestedEditsRewardInterstitialPageviewsOnDay() {
+        return getInt(R.string.preference_key_suggested_edits_reward_interstitial_pageviews_on_day, 30);
+    }
+
+    public static boolean isSuggestedEditsRewardInterstitialQAOverride() {
+        return getBoolean(R.string.preference_key_suggested_edits_reward_interstitial_qa_override, false);
     }
 
     private Prefs() { }

@@ -16,6 +16,7 @@
   <string name="search_hint_search_languages">زبان دی ڳول</string>
   <string name="search_hint_search_my_lists_and_articles">میݙیاں تندیراں تے مضمون ڳولو</string>
   <string name="nav_item_history">تاریخچہ</string>
+  <string name="nav_item_more">ٻئے</string>
   <string name="error_network_error">انٹرنیٹ نال جوڑ نی تھی سڳا</string>
   <string name="page_error_retry">ولدا کوشش کرو</string>
   <string name="card_offline_error_retry">ولدا کوشش کرو</string>
@@ -45,10 +46,7 @@
   <string name="menu_long_press_open_page">کھولو</string>
   <string name="menu_long_press_open_in_new_tab">نویں ٹیب وچ کھولو</string>
   <string name="menu_long_press_copy_page">لنک دا پتہ نقل کرو</string>
-  <string name="menu_text_select_copy">نقل کرو</string>
   <string name="menu_text_select_define">تعریف کرو</string>
-  <string name="menu_text_select_share">شیئر</string>
-  <string name="share">شیئر</string>
   <string name="on_this_day_page_share">شیئر</string>
   <string name="reading_list_page_share">شیئر</string>
   <string name="menu_text_select_edit_here">اتھ تبدیلی کرو</string>
@@ -85,9 +83,9 @@
   <string name="reading_lists_sync_login">لاگ ان تھیوو</string>
   <string name="create_account_login">لاگ ان تھیوو</string>
   <string name="menu_login">لاگ ان تھیوو</string>
-  <string name="login_activity_title">وکی پیڈیا وچ لاگ ان تھیوو</string>
+  <string name="login_activity_title" fuzzy="true">وکی پیڈیا وچ لاگ ان تھیوو</string>
   <string name="login_in_progress_dialog_message">لاگ ان  تھیندے پئے ہو۔۔۔</string>
-  <string name="login_success_toast">کامیابی نال لاگ ان تھی ڳئے</string>
+  <string name="login_success_toast">لاگ ان تھی ڳیا!</string>
   <string name="reset_password_hint">نواں پاس ورڈ</string>
   <string name="reset_password_button">محفوظ کرو تے لا ان تھیوو</string>
   <string name="preference_title_logout">لاگ آؤٹ</string>
@@ -127,7 +125,7 @@
   <string name="about_description">وکی پیڈیا ایپ دے بارے</string>
   <string name="privacy_policy_description">رازداری پالیسی</string>
   <string name="terms_of_use_description">ورتݨ شرطاں</string>
-  <string name="about_contributors_heading">شراکتاں</string>
+  <string name="about_contributors_heading">ونڳاراں</string>
   <string name="about_translators_heading">مترجمین</string>
   <string name="about_translators_translatewiki">اس ایپ دا &lt;a href=\"https://translatewiki.net\"&gt;ٹرانسللیٹ وکی ڈاٹ نیٹ&lt;/a&gt; دے رضاکار مترجمین ولوں ترجمہ کیتا ڳیا ہے۔</string>
   <string name="about_app_license_heading">اجازہ</string>
@@ -170,10 +168,8 @@
   <string name="license_title">%s کیتے لائیسنس</string>
   <string name="gallery_menu_share">شیئر</string>
   <string name="gallery_save_progress">فائل ݙاؤن لوڈ کریندا پئے۔۔۔</string>
-  <string name="gallery_save_success">فائل کامیابی نال محفوظ تھی ڳئی۔</string>
+  <string name="gallery_save_success">فائل محفوظ تھی ڳئی۔</string>
   <string name="gallery_error_video_failed">ویڈیو کوں کائنی چلایا ون٘ڄ سڳدا۔</string>
-  <string name="share_normal_button">عبارت دے طور تے سانجھی کرو</string>
-  <string name="snippet_share_preview_image_desc">تصویر دی پہلے نمائش</string>
   <string name="cc_logo">کریئیٹیو کامنز اجازہ</string>
   <string name="captcha_image">کیپچا تصویر</string>
   <string name="gallery_fair_use_license">مناسب استعمال</string>
@@ -289,6 +285,12 @@
   <string name="suggested_edits_feed_card_add_image_tags">تصویر ٹیگ شامل کرو</string>
   <string name="suggested_edits_image_tags_search">ٹیگ ڳولو</string>
   <string name="suggested_edits_image_tags_add_tag">ٹیگ شامل کرو</string>
+  <string name="suggested_edits_learn_more">ٻیا سِکھو</string>
+  <string name="suggested_edits_paused_title">جمب ڳیا</string>
+  <string name="suggested_edits_contribution_language_label">زبان</string>
+  <string name="suggested_edits_contribution_date_time_label">تریخ/ویلا</string>
+  <string name="suggested_edits_contribution_image_label">فائل</string>
+  <string name="suggested_edits_contribution_article_label">مضمون</string>
   <string name="description_edit_login_cancel_button_text">منسوخ</string>
   <string name="size_gb">%.2f جی بی</string>
   <string name="size_mb">%.2f ایم بی</string>
@@ -327,8 +329,6 @@
   <string name="wikitext_numbered_list">عدد لڳی تندیر</string>
   <string name="wikitext_template">سانچہ</string>
   <string name="wikitext_reference">حوالہ</string>
-  <string name="main_drawer_open">کھولو</string>
-  <string name="main_drawer_close">بند کرو</string>
   <string name="main_drawer_help">مدد</string>
   <string name="custom_date_picker_dialog_ok_button_text">ٹھیک ہے</string>
   <string name="text_input_dialog_ok_button_text">ٹھیک ہے</string>
