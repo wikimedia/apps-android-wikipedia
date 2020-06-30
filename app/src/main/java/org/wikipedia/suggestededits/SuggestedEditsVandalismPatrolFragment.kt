@@ -9,12 +9,10 @@ import android.text.style.BackgroundColorSpan
 import android.text.style.StrikethroughSpan
 import android.view.*
 import android.view.View.*
-import android.widget.CompoundButton
 import androidx.appcompat.app.AlertDialog
 import com.google.android.material.animation.ArgbEvaluatorCompat
-import com.google.android.material.chip.Chip
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_suggested_edits_vandalism_item.*
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -22,7 +20,6 @@ import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.mwapi.MwQueryResult
 import org.wikipedia.dataclient.restbase.DiffResponse
 import org.wikipedia.settings.Prefs
@@ -31,17 +28,14 @@ import org.wikipedia.util.*
 import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
 import org.wikipedia.util.log.L
 import java.lang.Exception
-import kotlin.collections.ArrayList
 
-class SuggestedEditsVandalismPatrolFragment : SuggestedEditsItemFragment(), CompoundButton.OnCheckedChangeListener, SuggestedEditsImageTagDialog.Callback {
+class SuggestedEditsVandalismPatrolFragment : SuggestedEditsItemFragment() {
     var publishing: Boolean = false
     var publishSuccess: Boolean = false
     private var csrfClient: CsrfTokenClient = CsrfTokenClient(WikiSite(Service.COMMONS_URL))
 
     private var candidate: MwQueryResult.RecentChange? = null
     private var diff: DiffResponse? = null
-
-    private val tagList: MutableList<MwQueryPage.ImageLabel> = ArrayList()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -206,94 +200,12 @@ class SuggestedEditsVandalismPatrolFragment : SuggestedEditsItemFragment(), Comp
         }
     }
 
-    override fun onCheckedChanged(button: CompoundButton?, isChecked: Boolean) {
-        val chip = button as Chip
-        if (chip.isChecked) {
-            chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.color_group_55))
-            chip.setChipStrokeColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.color_group_56))
-            chip.isChipIconVisible = false
-        } else {
-            chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.chip_background_color))
-            chip.setChipStrokeColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.chip_background_color))
-            chip.isChipIconVisible = true
-        }
-        if (chip.tag != null) {
-            (chip.tag as MwQueryPage.ImageLabel).isSelected = chip.isChecked
-        }
-
-        parent().updateActionButton()
-    }
-
-    override fun onSelect(item: MwQueryPage.ImageLabel, searchTerm: String) {
-        item.isSelected = true
-        tagList.add(0, item)
-        updateContents()
-    }
-
     override fun publish() {
         if (publishing || publishSuccess) {
             return
         }
 
         parent().nextPage(this)
-
-        /*
-
-        // -- point of no return --
-
-        publishing = true
-        publishSuccess = false
-
-        publishProgressText.setText(R.string.suggested_edits_image_tags_publishing)
-        publishProgressCheck.visibility = GONE
-        publishOverlayContainer.visibility = VISIBLE
-        publishProgressBarComplete.visibility = GONE
-        publishProgressBar.visibility = VISIBLE
-
-        val commonsSite = WikiSite(Service.COMMONS_URL)
-
-        csrfClient.request(false, object : CsrfTokenClient.Callback {
-            override fun success(token: String) {
-
-                disposables.add(ServiceFactory.get(commonsSite).postReviewImageLabels("title", token, "")
-                        .flatMap { response ->
-
-                            /*
-                            if (claimObservables.size > 0) {
-                                Observable.zip(claimObservables) { responses ->
-                                    responses[0]
-                                }
-                            } else {
-                                Observable.just(response)
-                            }
-                            */
-
-                            Observable.just(response)
-
-                        }
-                        .subscribeOn(Schedulers.io())
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .doAfterTerminate {
-                            publishing = false
-                        }
-                        .subscribe({ response ->
-                            // TODO: check anything else in the response?
-                            publishSuccess = true
-                            onSuccess()
-                        }, { caught ->
-                            onError(caught)
-                        }))
-            }
-
-            override fun failure(caught: Throwable) {
-                onError(caught)
-            }
-
-            override fun twoFactorPrompt() {
-                onError(LoginFailedException(resources.getString(R.string.login_2fa_other_workflow_error_msg)))
-            }
-        })
-        */
     }
 
     private fun onSuccess() {
