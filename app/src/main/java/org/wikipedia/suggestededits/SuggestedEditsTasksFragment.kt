@@ -382,11 +382,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         addImageTagsTask.primaryActionText = getString(R.string.suggested_edits_task_action_text_add)
         addDescriptionsTask.imageDrawable = R.drawable.ic_article_description
 
-        // TODO: remove condition when ready
-        if (ReleaseUtil.isPreBetaRelease()) {
-            displayedTasks.add(vandalismPatrolTask)
-        }
-
+        displayedTasks.add(vandalismPatrolTask)
         displayedTasks.add(addImageTagsTask)
         displayedTasks.add(addDescriptionsTask)
         displayedTasks.add(addImageCaptionsTask)
