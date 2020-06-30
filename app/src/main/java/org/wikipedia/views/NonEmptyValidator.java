@@ -40,6 +40,8 @@ public class NonEmptyValidator {
     }
 
     private boolean lastIsValidValue = false;
+
+    @SuppressWarnings("checkstyle:magicnumber")
     private void revalidate() {
         boolean isValid = true;
         for (TextInputLayout t : textInputs) {
