@@ -18,7 +18,6 @@ import org.wikipedia.page.tabs.Tab;
 import org.wikipedia.theme.Theme;
 import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.ReleaseUtil;
-import org.wikipedia.util.log.L;
 
 import java.text.ParseException;
 import java.util.ArrayList;
