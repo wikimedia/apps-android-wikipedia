@@ -69,7 +69,7 @@ class SuggestedEditsContributionsItemView constructor(context: Context, attrs: A
     }
 
     fun setImageUrl(url: String?) {
-        if (url == null || url.isEmpty() || url == "null") {
+        if (url.isNullOrEmpty() || url == "null") {
             image.setImageDrawable(null)
         } else {
             image.visibility = VISIBLE
