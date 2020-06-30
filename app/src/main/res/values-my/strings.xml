@@ -11,6 +11,7 @@
 * Parabaik
 * Rul1902
 * Talnet
+* Teitei Para
 * ZawMin
 * ديفيد
 -->
@@ -29,6 +30,7 @@
   <string name="search_hint_search_my_lists_and_articles">မိမိ၏စာရင်းနှင့်ဆောင်းပါးများကို ရှာဖွေရန်</string>
   <string name="nav_item_history">မှတ်တမ်း</string>
   <string name="nav_item_suggested_edits">အကြံပြုထားသော ပြင်ဆင်မှုများ</string>
+  <string name="nav_item_more">ပို၍</string>
   <string name="error_network_error">အင်တာနက်သို့ ချိတ်ဆက်နိုင်ခြင်း မရှိပါ။</string>
   <string name="page_error_retry">ပြန်လုပ်</string>
   <string name="card_offline_error_retry">ပြန်လုပ်</string>
@@ -110,7 +112,7 @@
   <string name="reading_lists_sync_login">အကောင့်ဝင်ရန်</string>
   <string name="create_account_login">အကောင့်ဝင်ရန်</string>
   <string name="menu_login">အကောင့်ဝင်ရန်</string>
-  <string name="login_activity_title">ဝီကီပီးဒီးယားသို့ လော့ဂ်အင် ဝင်ရောက်ရန်</string>
+  <string name="login_activity_title" fuzzy="true">ဝီကီပီးဒီးယားသို့ လော့ဂ်အင် ဝင်ရောက်ရန်</string>
   <string name="login_in_progress_dialog_message">လော့ဂ်အင်ဝင်နေသည် …</string>
   <string name="login_success_toast" fuzzy="true">လော့ဂ်အင်ဝင်ခြင်း အောင်မြင်သည်!</string>
   <string name="reset_password_title">သင်၏ စကားဝှက်ကို သတ်မှတ်ပါ</string>
@@ -671,9 +673,11 @@
   <string name="suggested_edits_image_captions">ရုပ်ပုံ ပုံစာများ</string>
   <string name="suggested_edits_image_tags_publishing">လွှင့်တင်နေသည်</string>
   <string name="suggested_edits_image_tags_published">လွှင့်တင်ခဲ့သော</string>
-  <string name="suggested_edits_add_descriptions_task_detail">ခေါင်းစဉ်ဖော်ပြချက်များသည် ဆောင်းပါးတစ်ခုကို အကျဉ်းချုပ်ဖော်ပြပေးပြီး တချက်ကြည့်ရုံဖြင့် အကြောင်းအရာကို စာဖတ်သူများ နားလည်စေရန် ကူညီပေးသည်။</string>
+  <string name="suggested_edits_add_descriptions_task_detail" fuzzy="true">ခေါင်းစဉ်ဖော်ပြချက်များသည် ဆောင်းပါးတစ်ခုကို အကျဉ်းချုပ်ဖော်ပြပေးပြီး တချက်ကြည့်ရုံဖြင့် အကြောင်းအရာကို စာဖတ်သူများ နားလည်စေရန် ကူညီပေးသည်။</string>
   <string name="suggested_edits_contributions_stat_tooltip">အကြံပြုထားသောတည်းဖြတ်မှုများနှင့် သင်၏စုစုပေါင်းပံ့ပိုးမှုများ အရေအတွက်</string>
-  <string name="suggested_edits_ip_blocked_message">သင်၏အိုင်ပီလိပ်စာ (သို့မဟုတ် အိုင်ပီလိပ်စာများ အတိုင်းအတာ) သည် ဝီကီပီးဒီးယား တည်းဖြတ်ခြင်းမှ လတ်တလော ပိတ်ပင်ခံထားရပုံရှိသည်။ ယင်းအကြောင်း အောက်ပါလင့်ခ်တွင် အလည်သွား၍ ပိုမိုလေ့လာပါ။</string>
+  <string name="suggested_edits_paused_message">အကြံပြုထားသော ပြင်ဆင်မှုများကို %1$s အထိ ခေတ္တရပ်နားလိုက်ပါတယ်။ %2$s ဝမ်းနည်းပါတယ်။ သင့်ရဲ့အချို့သော မကြာသေးမီကပံ့ပိုးမှာမျာဟာ ပြန်သွားခဲ့ရတယ်။</string>
+  <string name="suggested_edits_disabled_message">အကြံပြုတည်းဖြတ်မှုများကိုပိတ်ထားသည်။ %s ဝမ်းနည်းပါသည်။ သင်၏လတ်တလောပံ့ပိုးမှုများကိုပြန်လည်ရုပ်သိမ်းပြီးပါပြီ</string>
+  <string name="suggested_edits_ip_blocked_message">သင်၏အိုင်ပီလိပ်စာ (သို့မဟုတ် အိုင်ပီလိပ်စာများ၏ အတိုင်းအတာ) သည် ဝီကီပီးဒီးယား တည်းဖြတ်ခြင်းမှ လတ်တလော ပိတ်ပင်ခံထားရပုံရှိသည်။ ယင်းအကြောင်း အောက်ပါလင့်ခ်တွင် အလည်သွား၍ ပိုမိုလေ့လာပါ။</string>
   <string name="suggested_edits_editing_tips_link_text">တည်းဖြတ်ခြင်း နည်းလမ်းများ</string>
   <string name="suggested_edits_help_page_link_text">အကြံပြုထားသော တည်းဖြတ်မှုများ အကူညီစာမျက်နှာ</string>
   <string name="suggested_edits_pageviews_label_text">စာမျက်နှာကြည့်ရှုနှုန်း</string>
@@ -694,10 +698,18 @@
     <item quantity="one">%d ရက်</item>
     <item quantity="other">%d ရက်</item>
   </plurals>
+  <string name="suggested_edits_what_is_title">အကြံပြုထားတဲ့ ပြင်ဆင်မှုတွေက ဘာတွေလဲ?</string>
+  <string name="suggested_edits_what_is_text">အကြံပြုတည်းဖြတ်မှုများသည်ဝီကီပီးဒီးယားအတွက်အရေးပါသော်လည်းအရေးကြီးသောပံ့ပိုးမှုများအတွက်အခွင့်အလမ်းများကိုတင်ပြသည်။</string>
+  <string name="suggested_edits_learn_more">ပိုမို လေ့လာရန်</string>
+  <string name="suggested_edits_paused_title">ခေတ္တရပ်ပြီး</string>
+  <string name="suggested_edits_disabled_title">ပိတ်ထားသည်</string>
+  <string name="suggested_edits_ip_blocked_title">အိုင်ပီ ပိတ်ဆို့ထားသည်</string>
   <string name="suggested_edits_last_edited">နောက်ဆုံး တည်းဖြတ်ခဲ့သည်</string>
   <string name="suggested_edits_last_edited_never">ဘယ်သောအခါမျှ</string>
   <string name="suggested_edits_task_new">အသစ်</string>
   <string name="suggested_edits_cc0_notice">ထုတ်ဝေလိုက်ခြင်းအားဖြင့် သင်သည် &lt;a href=\"%1$s\"&gt;သုံးစွဲမှု သဘောတူညီချက်&lt;/a&gt;အား &lt;a href=\"%2$s\"&gt;CC0 လိုင်စင်&lt;/a&gt;ဖြင့် ဖြန့်ချိမည်ဖြစ်ကြောင်း သဘောတူပြီးဖြစ်ရမည်။</string>
+  <string name="suggested_edits_contribution_current_revision">လက်ရှိဗားရှင်း</string>
+  <string name="suggested_edits_contribution_diff_count_text">{{ဗဟုဝုစ်ကိန်း|တစ်=%1$s သွင်ပြင်လက္ခဏာ|%1$s သွင်ပြင်လက္ခဏာများ}}</string>
   <string name="description_edit_revert_subtitle">ဝီကီပီဒီးယား တည်းဖြတ်မှုအတွက် ကျေးဇူးတင်ပါသည်</string>
   <string name="description_edit_revert_intro">သင် အကောင်းဆုံးကြိုးစားခဲ့မှန်း ကျွန်ုပ်တို့ သိရှိပါသည်၊ သို့သော် ပြန်လည်စစ်ဆေးသူများထဲက တစ်ယောက်တွင် စိုးရိမ်မှုတစ်ခု ရှိခဲ့သည်။ သင်၏တည်းဖြတ်မှုကို နောက်ပြန်ပြင်လိုက်သည့် ဖြစ်နိုင်ခြေရှိသော အကြောင်းပြချက်တွင်:</string>
   <string name="description_edit_revert_reason1">သင်၏ပံပိုးမှုသည် &lt;a href=\"%1$s\"&gt;လမ်းညွှန်များ&lt;/a&gt;များထဲကတစ်ခုနှင့် မကိုက်ညီပါ။</string>
@@ -719,9 +731,6 @@
   <string name="onboarding_analytics_title">အမည်မသိဒေတာကို ပို့ရန်</string>
   <string name="onboarding_analytics_offline_text">သင် မည်ကဲ့သို့အသုံးချသည်ကို ကျွန်ုပ်တို့အားပြောပြပြီး ဆော့ဝဲလ်ကို ပိုမိုကောင်းမွန်လာအောင် ကူညီပါ။ ဒေတာစုဆောင်းခြင်းမှာ အမည်မသိစနစ်ဖြစ်သည်။ &lt;a href=\"#privacy\"&gt;ပိုမိုလေ့လာရန်&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">အသုံးပြုဒေတာကို ပို့ရန်</string>
-  <string name="onboarding_create_account_sync">သင်၏စာဖတ်စာရင်းများကို sync လုပ်ရန်</string>
-  <string name="onboarding_create_account_contributions">သင်၏ ပံ့ပိုးမှုများကို ခြေရာခံလိုက်ရန်</string>
-  <string name="onboarding_create_account_preferences">သင်၏ ရွေးချယ်စရာများကို သိမ်းရန်</string>
   <string name="onboarding_got_it">ရပြီဟေ့</string>
   <string name="onboarding_multilingual_secondary_text">သင်၏စက်ပစ္စည်းပေါ်တွင် အောက်ပါများကို တွေ့ရှိပါသည်:</string>
   <string name="onboarding_multilingual_add_language_text">ဘာသာစကားများ ပေါင်းထည့်/တည်းဖြတ်</string>
@@ -769,6 +778,7 @@
   <string name="edit_conflict_dialog_ok_button_text">အိုကေ</string>
   <string name="reverted_edit_dialog_ok_button_text">အိုကေ</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">မလုပ်တော့ပါ</string>
+  <string name="edit_type_all">ပံ့ပိုးထားမှုများ အားလုံး</string>
   <string name="content_description_for_page_indicator">စာမျက်နှာ %2$d ၏ %1$d</string>
   <string name="wikitext_bold">အထူ</string>
   <string name="wikitext_italic">အစောင်း</string>
@@ -776,11 +786,9 @@
   <string name="wikitext_template">တမ်းပလိတ်</string>
   <string name="wikitext_reference">ရည်ညွှန်း</string>
   <string name="wikitext_preview_link">အကြိုမြင်ကွင်း လင့်ခ်</string>
-  <string name="main_drawer_open">ဖွင့်ပါ</string>
-  <string name="main_drawer_close">ပိတ်ရန်</string>
   <string name="main_drawer_help">အကူအညီ</string>
   <string name="main_drawer_login">ဝီကီပီးဒီးယားသို့ လော့ဂ်အင် / ပါဝင်ရန်</string>
-  <string name="main_tooltip_text">%s, ဝီကီပီးဒီးယားကို လူတိုင်း တည်းဖြတ်နိုင်တယ်ဆိုတာ သင် သိပါသလား</string>
+  <string name="main_tooltip_text">ဟိုင်း %s၊ ဝီကီပီးဒီးယားကို လူတိုင်းတည်းဖြတ်နိုင်တယ်ဆိုတာ သင်သိပါသလား</string>
   <string name="main_tooltip_action_button">စတင်ပါ</string>
   <string name="custom_date_picker_dialog_ok_button_text">အိုကေ</string>
   <string name="text_input_dialog_ok_button_text">အိုကေ</string>

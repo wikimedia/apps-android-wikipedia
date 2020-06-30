@@ -32,9 +32,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
-import io.reactivex.Completable;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.schedulers.Schedulers;
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.core.Completable;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 
 import static org.wikipedia.Constants.INTENT_EXTRA_GO_TO_SE_TAB;
 
@@ -77,11 +77,18 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
 
     public static void startPollTask(@NonNull Context context) {
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        alarmManager.setInexactRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP,
-                SystemClock.elapsedRealtime(),
-                TimeUnit.MINUTES.toMillis(context.getResources().getInteger(R.integer.notification_poll_interval_minutes)
-                        / (Prefs.isSuggestedEditsReactivationTestEnabled() && !ReleaseUtil.isDevRelease() ? 10 : 1)),
-                getAlarmPendingIntent(context));
+        try {
+            alarmManager.setInexactRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP,
+                    SystemClock.elapsedRealtime(),
+                    TimeUnit.MINUTES.toMillis(context.getResources().getInteger(R.integer.notification_poll_interval_minutes)
+                            / (Prefs.isSuggestedEditsReactivationTestEnabled() && !ReleaseUtil.isDevRelease() ? 10 : 1)),
+                    getAlarmPendingIntent(context));
+        } catch (Exception e) {
+            // There seems to be a Samsung-specific issue where it doesn't update the existing
+            // alarm correctly and adds it as a new one, and eventually hits the limit of 500
+            // concurrent alarms, causing a crash.
+            L.logRemoteErrorIfProd(e);
+        }
     }
 
     public static void stopPollTask(@NonNull Context context) {
@@ -274,6 +281,6 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
         NotificationPresenter.showNotification(context, NotificationPresenter.getDefaultBuilder(context), 0,
                 context.getString(R.string.suggested_edits_reactivation_notification_title),
                 context.getString(description), context.getString(description),
-                R.drawable.ic_mode_edit_white_24dp, R.color.accent50, intent);
+                R.drawable.ic_mode_edit_white_24dp, R.color.accent50, false, intent);
     }
 }

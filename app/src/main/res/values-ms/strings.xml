@@ -7,9 +7,11 @@
 * CyberTroopers
 * Dbrant
 * Envlh
+* Izing
 * Jeluang Terluang
 * Kurniasan
 * Macofe
+* Tofeiku
 -->
 <resources>
   <string name="app_name_prod">Wikipedia</string>
@@ -109,9 +111,9 @@
   <string name="reading_lists_sync_login">Log masuk</string>
   <string name="create_account_login">Log masuk</string>
   <string name="menu_login">Log masuk</string>
-  <string name="login_activity_title">Log masuk ke dalam Wikipedia</string>
+  <string name="login_activity_title" fuzzy="true">Log masuk ke dalam Wikipedia</string>
   <string name="login_in_progress_dialog_message">Sedang log masuk…</string>
-  <string name="login_success_toast" fuzzy="true">Berjaya log masuk!</string>
+  <string name="login_success_toast">Sudah log masuk</string>
   <string name="reset_password_title">Tetapkan kata laluan anda</string>
   <string name="reset_password_description">Anda log masuk dengan kata laluan sementara. Untuk menyelesaikan log masuk, sila tetapkan kata laluan baru anda di sini.</string>
   <string name="reset_password_hint">Kata laluan baru</string>
@@ -266,7 +268,7 @@
   <string name="gallery_menu_share">Kongsi</string>
   <string name="gallery_share_error">Imej tidak dapat dikongsikan: %s</string>
   <string name="gallery_save_progress">Memuat turun fail...</string>
-  <string name="gallery_save_success" fuzzy="true">Fail berjaya disimpan.</string>
+  <string name="gallery_save_success">Fail berjaya disimpan.</string>
   <string name="gallery_error_video_failed">Video tidak dapat ditayangkan.</string>
   <string name="gallery_save_image_write_permission_rationale">Kebenaran untuk menulis kepada storan pada peranti anda diperlukan untuk menyimpan gambar.</string>
   <string name="gallery_add_image_caption_button">Tambah kapsyen gambar</string>
@@ -619,6 +621,7 @@
   <string name="suggested_edits_review_description" fuzzy="true">Kaji penerangan tajuk</string>
   <string name="suggested_edits_add_description_button">Tambah penerangan</string>
   <string name="suggested_edits_my_contributions">Sumbangan saya</string>
+  <string name="suggested_edits_menu_info">Maklumat</string>
   <string name="suggested_edits_tasks_activity_title" fuzzy="true">Tugas editor aplikasi</string>
   <string name="suggested_edits_task_add_description_title" fuzzy="true">Tambah penerangan tajuk</string>
   <string name="suggested_edits_task_add_description_description">Sumbangan kepada rencana tanpa penerangan tajuk</string>
@@ -632,11 +635,26 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text" fuzzy="true">Dikunci sehingga anda telah menyunting %d penerangan tajuk</string>
   <string name="suggested_edits_task_multilingual_negative">Bukan untuk saya</string>
   <string name="suggested_edits_task_multilingual_positive">Tambahkan bahasa</string>
+  <string name="suggested_edits_image_caption_summary_title_file">Fail</string>
+  <string name="suggested_edits_image_caption_summary_title_source">Sumber</string>
+  <string name="suggested_edits_image_caption_summary_title_license">Lesen</string>
+  <string name="suggested_edits_image_caption_summary_title_date">Tarikh</string>
   <plurals name="suggested_edits_contribution_count">
     <item quantity="one">sumbangan dalam apl</item>
     <item quantity="other">%d sumbangan dalam apl</item>
   </plurals>
   <string name="suggested_edits_tasks_onboarding_get_started">Memulakan</string>
+  <string name="suggested_edits_image_preview_dialog_file">Fail</string>
+  <string name="suggested_edits_image_preview_dialog_date">Tarikh</string>
+  <string name="suggested_edits_image_preview_dialog_licensing">Perlesenan</string>
+  <string name="suggested_edits_image_preview_dialog_file_page_link_text">Laman fail di Wikimedia Commons</string>
+  <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">Laman fail di Wikipedia</string>
+  <string name="suggested_edits_task_action_text_add">Tambah</string>
+  <string name="suggested_edits_task_action_text_translate">Terjemah</string>
+  <string name="suggested_edits_image_tags_publishing">Menerbit</string>
+  <string name="suggested_edits_image_tags_published">Diterbit</string>
+  <string name="suggested_edits_last_edited_never">Tidak pernah</string>
+  <string name="file_page_activity_title">Laman fail</string>
   <string name="description_edit_revert_subtitle">Terima kasih kerana menyunting di Wikipedia!</string>
   <string name="description_edit_revert_intro">Kami tahu anda mencuba yang terbaik, tetapi salah satu pengulas mempunyai kebimbangan. Sebab yang mungkin suntingan anda ditukar semula termasuk:</string>
   <string name="description_edit_revert_reason1">sumbangan anda tidak mengikuti salah satu daripada &lt;a href=\"%1$s\"&gt;garis panduan&lt;/a&gt;.</string>
@@ -657,9 +675,6 @@
   <string name="onboarding_analytics_title">Hantar data tanpa nama</string>
   <string name="onboarding_analytics_offline_text">Bantu menjadikan aplikasi lebih baik dengan memberitahu kami bagaimana anda menggunakannya. Data yang dikumpul tidak dikenali. &lt;a href=\"#privacy\"&gt;Ketahui lebih lanjut&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Hantar data penggunaan</string>
-  <string name="onboarding_create_account_sync">Menyegerakkan senarai bacaan Anda</string>
-  <string name="onboarding_create_account_contributions">Jejaki sumbangan anda</string>
-  <string name="onboarding_create_account_preferences">Simpan keutamaan anda</string>
   <string name="onboarding_got_it">Faham</string>
   <string name="onboarding_multilingual_secondary_text">Kami telah menemui bahasa berikut pada peranti anda:</string>
   <string name="onboarding_multilingual_add_language_text">Tambah atau sunting bahasa</string>
@@ -674,6 +689,8 @@
   <string name="events_count_text">%1$s peristiwa dari %2$s–%3$d</string>
   <string name="this_year">Tahun ini</string>
   <string name="back_to_top">Kembali ke atas</string>
+  <string name="on_this_day_dialog_next_month">Bulan seterusnya</string>
+  <string name="on_this_day_dialog_previous_month">Bulan sebelumnya</string>
   <plurals name="diff_years">
     <item quantity="one">Tahun lalu</item>
     <item quantity="other">%d tahun lepas</item>
@@ -699,8 +716,12 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Anda kini mempunyai kedua-dua varian Cina Tradisional dan Sederhana yang ditetapkan dalam bahasa apl anda. Kemas kini tetapan apl aplikasi anda?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Sunting bahasa</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Tak apalah</string>
-  <string name="main_drawer_open">Buka</string>
-  <string name="main_drawer_close">Tutup</string>
+  <string name="account_editing_blocked_dialog_cancel_button_text">Batalkan</string>
+  <string name="wikitext_link">Pautan</string>
+  <string name="wikitext_reference">Rujukan</string>
+  <string name="wikitext_preview_link">Pralihat pautan</string>
   <string name="main_drawer_help">Bantuan</string>
   <string name="main_drawer_login">Log masuk / gabung Wikipedia</string>
+  <string name="text_input_dialog_cancel_button_text">Batalkan</string>
+  <string name="custom_date_picker_dialog_cancel_button_text">Batalkan</string>
 </resources>

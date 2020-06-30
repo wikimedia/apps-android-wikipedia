@@ -19,6 +19,7 @@
   <string name="search_hint_search_languages">No enger Sprooch sichen</string>
   <string name="nav_item_history">Versiounen</string>
   <string name="nav_item_suggested_edits">Proposéiert Ännerungen</string>
+  <string name="nav_item_more">Méi</string>
   <string name="error_network_error">Kann net mam Internet verbannen.</string>
   <string name="page_error_retry">Nach eng Kéier probéieren</string>
   <string name="card_offline_error_retry">Nach eng Kéier probéieren</string>
@@ -98,7 +99,7 @@
   <string name="reading_lists_sync_login">Aloggen</string>
   <string name="create_account_login">Aloggen</string>
   <string name="menu_login">Aloggen</string>
-  <string name="login_activity_title">Op Wikipedia aloggen</string>
+  <string name="login_activity_title" fuzzy="true">Op Wikipedia aloggen</string>
   <string name="login_in_progress_dialog_message">Dir gitt ageloggt…</string>
   <string name="login_success_toast">Ageloggt!</string>
   <string name="reset_password_title">Leet Äert Passwuert fest</string>
@@ -309,8 +310,10 @@
   <string name="text_size_percent_default">%s (Standard)</string>
   <string name="nav_item_reading_lists">Meng Lëschten</string>
   <string name="reading_list_save_to">Op d\'Lieslëscht setzen</string>
+  <string name="reading_list_move_to">Op d\'Lieslëscht réckelen</string>
   <string name="reading_list_create_new">Neier uleeën</string>
   <string name="reading_list_title_exists">D\'Lieslëscht \"%s\" gëtt et schonn.</string>
+  <string name="reading_list_article_moved_to_named">%1$s geréckelt op %2$s .</string>
   <string name="reading_list_added_view_button">Lëscht weisen</string>
   <string name="format_reading_list_statistical_summary_singular">Een Artikel, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d Artikelen, %2$.2f MB</string>
@@ -327,6 +330,7 @@
   <string name="reading_list_action_menu_remove_all_from_offline">All aus dem offline eraushuelen</string>
   <string name="reading_list_action_menu_save_all_for_offline">All fir offline späicheren</string>
   <string name="reading_list_action_menu_add_to_another_list">Op eng aner Lëscht derbäisetzen</string>
+  <string name="reading_list_action_menu_move_to_another_list">Op eng aner Lëscht réckelen</string>
   <string name="reading_list_name_sample">Meng Lieslëscht</string>
   <string name="reading_list_name_hint">Numm vun dëser Lëscht</string>
   <string name="reading_list_description_hint">Beschreiwung (fakultativ):</string>
@@ -347,6 +351,7 @@
   <string name="reading_list_article_offline">Offline disponibel</string>
   <string name="reading_list_article_make_offline">Dësen Artikel offline disponibel maachen</string>
   <string name="reading_list_add_to_other_list">Op eng aner Lieslëscht derbäisetzen</string>
+  <string name="reading_list_move_to_other_list">Op eng aner Lieslëscht réckelen</string>
   <string name="reading_list_remove_from_list">Vu(n) %s erofhuelen</string>
   <string name="reading_list_remove_from_lists">Vu Lieslëschten erofhuelen</string>
   <string name="reading_list_select_item">Eraussichen</string>
@@ -541,6 +546,7 @@
   <string name="suggested_edits_image_caption_summary_title_date">Datum</string>
   <string name="suggested_edits_feed_card_title">Proposéiert Ännerungen</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Fir unzefänken</string>
+  <string name="suggested_edits_image_preview_dialog_file">Fichier</string>
   <string name="suggested_edits_image_preview_dialog_artist">Kënschtler</string>
   <string name="suggested_edits_image_preview_dialog_date">Datum</string>
   <string name="suggested_edits_image_preview_dialog_source">Quell/Fotograf</string>
@@ -555,9 +561,20 @@
   <string name="suggested_edits_image_tags_onboarding_title">D\'Markéiere vu Biller mécht et méi einfach fir se erëmzefannen.</string>
   <string name="suggested_edits_image_tags_add_tag">Markéierung derbäisetzen</string>
   <string name="suggested_edits_quality_perfect_text">Perfekt</string>
+  <string name="suggested_edits_learn_more">Fir méi ze wëssen</string>
+  <string name="suggested_edits_paused_title">Ënnerbrach</string>
+  <string name="suggested_edits_disabled_title">Desaktivéiert</string>
+  <string name="suggested_edits_ip_blocked_title">IP gespaart</string>
   <string name="suggested_edits_last_edited">Lescht Ännerung</string>
   <string name="suggested_edits_last_edited_never">Ni</string>
   <string name="suggested_edits_task_new">nei</string>
+  <string name="suggested_edits_contribution_language_label">Sprooch</string>
+  <string name="suggested_edits_contribution_date_time_label">Datum / Auerzäit</string>
+  <string name="suggested_edits_contribution_image_label">Fichier</string>
+  <string name="suggested_edits_contribution_article_label">Artikel</string>
+  <string name="suggested_edits_contribution_date_yesterday_text">Gëschter</string>
+  <string name="suggested_edits_rewards_continue_button">Virufueren</string>
+  <string name="suggested_edits_contribution_current_revision">Aktuell Versioun</string>
   <string name="description_edit_revert_subtitle">Merci fir d\'Änneren op Wikipedia!</string>
   <string name="description_edit_revert_reason2">Är Kontributioun gesäit aus wéi en Experiment oder Vandalismus.</string>
   <string name="description_edit_revert_history">Wann Dir interesséiert sidd da kuckt d\'&lt;a href=\"%1$s\"&gt;Lëscht vun de Versiounen&lt;/a&gt;.</string>
@@ -570,8 +587,6 @@
   <string name="onboarding_maybe_later">Vläicht méi spéit</string>
   <string name="onboarding_reading_list_sync_title">Lieslëschte mat Synchronisatioun</string>
   <string name="onboarding_analytics_title">Anonymiséiert Donnéeë schécken</string>
-  <string name="onboarding_create_account_sync">Synchroniséiert Är Lieslëschten</string>
-  <string name="onboarding_create_account_preferences">Späichert Är Astellungen</string>
   <string name="onboarding_got_it">Verstan</string>
   <string name="onboarding_multilingual_secondary_text">Mir hunn dëst op Ärem Apparat fonnt:</string>
   <string name="onboarding_multilingual_add_language_text">Sproochen änneren oder derbäisetzen</string>
@@ -618,6 +633,7 @@
   <string name="edit_conflict_dialog_ok_button_text">OK</string>
   <string name="reverted_edit_dialog_ok_button_text">OK</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">Ofbriechen</string>
+  <string name="edit_type_all">All Kontributiounen</string>
   <string name="content_description_for_page_indicator">Säit %1$d vu(n) %2$d</string>
   <string name="wikitext_bold">Fett</string>
   <string name="wikitext_italic">Kursiv</string>
@@ -625,8 +641,6 @@
   <string name="wikitext_numbered_list">Nummeréiert Lëscht</string>
   <string name="wikitext_template">Schabloun</string>
   <string name="wikitext_reference">Referenz</string>
-  <string name="main_drawer_open">Opmaachen</string>
-  <string name="main_drawer_close">Zoumaachen</string>
   <string name="main_drawer_help">Hëllef</string>
   <string name="main_tooltip_action_button">Fir unzefänken</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>

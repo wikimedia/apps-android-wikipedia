@@ -31,11 +31,11 @@ import org.wikipedia.views.ImageZoomHelper;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import io.reactivex.Observable;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.functions.Consumer;
-import io.reactivex.schedulers.Schedulers;
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.core.Observable;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.functions.Consumer;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 
 public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticleCard> {
 
@@ -181,6 +181,13 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
                     public void onAddRequest(@Nullable ReadingListPage page) {
                         if (getCallback() != null && getCard() != null) {
                             getCallback().onAddPageToList(getCard().historyEntry(HistoryEntry.SOURCE_FEED_FEATURED));
+                        }
+                    }
+
+                    @Override
+                    public void onMoveRequest(@Nullable ReadingListPage page) {
+                        if (getCallback() != null && getCard() != null) {
+                            getCallback().onMovePageToList(page.listId(), getCard().historyEntry(HistoryEntry.SOURCE_FEED_FEATURED));
                         }
                     }
 

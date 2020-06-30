@@ -9,8 +9,11 @@ import android.view.View.VISIBLE
 import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import io.reactivex.Observable
-import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.disposables.CompositeDisposable
+import io.reactivex.rxjava3.functions.Function3
+import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_suggested_edits_tasks.*
 import org.wikipedia.Constants
 import org.wikipedia.Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE
@@ -18,7 +21,13 @@ import org.wikipedia.Constants.ACTIVITY_REQUEST_IMAGE_TAGS_ONBOARDING
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.SuggestedEditsFunnel
+import org.wikipedia.analytics.UserContributionFunnel
 import org.wikipedia.auth.AccountUtil
+import org.wikipedia.dataclient.Service
+import org.wikipedia.dataclient.ServiceFactory
+import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.mwapi.MwQueryResponse
+import org.wikipedia.dataclient.mwapi.UserContribution
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
 import org.wikipedia.language.LanguageSettingsInvokeSource
 import org.wikipedia.main.MainActivity
@@ -28,6 +37,9 @@ import org.wikipedia.util.*
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DefaultRecyclerAdapter
 import org.wikipedia.views.DefaultViewHolder
+import java.util.*
+import java.util.concurrent.TimeUnit
+import kotlin.collections.ArrayList
 
 class SuggestedEditsTasksFragment : Fragment() {
     private lateinit var addDescriptionsTask: SuggestedEditsTask
@@ -37,7 +49,14 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     private val displayedTasks = ArrayList<SuggestedEditsTask>()
     private val callback = TaskViewCallback()
+
     private val disposables = CompositeDisposable()
+    private var isIpBlocked = false
+    private var isPausedOrDisabled = false
+    private var totalContributions = 0
+    private var latestEditDate = Date()
+    private var latestEditStreak = 0
+    private var revertSeverity = 0
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -48,8 +67,15 @@ class SuggestedEditsTasksFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setupTestingButtons()
 
-        contributionsCard.setOnClickListener {
-            // TODO
+        userStatsClickTarget.setOnClickListener {
+            startActivity(SuggestedEditsContributionsActivity.newIntent(requireActivity()))
+        }
+
+        learnMoreCard.setOnClickListener {
+            FeedbackUtil.showAndroidAppEditingFAQ(requireContext())
+        }
+        learnMoreButton.setOnClickListener {
+            FeedbackUtil.showAndroidAppEditingFAQ(requireContext())
         }
 
         contributionsStatsView.setImageDrawable(R.drawable.ic_mode_edit_white_24dp)
@@ -63,14 +89,13 @@ class SuggestedEditsTasksFragment : Fragment() {
         editQualityStatsView.setDescription(getString(R.string.suggested_edits_quality_label_text))
 
         swipeRefreshLayout.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent))
-        swipeRefreshLayout.setOnRefreshListener { this.refreshContents() }
+        swipeRefreshLayout.setOnRefreshListener { refreshContents() }
 
         errorView.setRetryClickListener { refreshContents() }
 
         suggestedEditsScrollView.setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener { _, _, scrollY, _, _ ->
             (requireActivity() as MainActivity).updateToolbarElevation(scrollY > 0)
         })
-
         setUpTasks()
         tasksRecyclerView.layoutManager = LinearLayoutManager(context)
         tasksRecyclerView.adapter = RecyclerAdapter(displayedTasks)
@@ -94,11 +119,6 @@ class SuggestedEditsTasksFragment : Fragment() {
         setHasOptionsMenu(true)
     }
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.menu_suggested_edits_tasks, menu)
-        ResourceUtil.setMenuItemTint(requireContext(), menu.findItem(R.id.menu_help), R.attr.material_theme_secondary_color)
-    }
-
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == ACTIVITY_REQUEST_ADD_A_LANGUAGE) {
@@ -109,62 +129,68 @@ class SuggestedEditsTasksFragment : Fragment() {
         }
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            R.id.menu_help -> {
-                FeedbackUtil.showAndroidAppEditingFAQ(requireContext())
-                super.onOptionsItemSelected(item)
-            }
-            else -> super.onOptionsItemSelected(item)
-        }
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
+    override fun onDestroyView() {
+        tasksRecyclerView.adapter = null
         disposables.clear()
         SuggestedEditsFunnel.get().log()
         SuggestedEditsFunnel.reset()
+        super.onDestroyView()
     }
 
     private fun fetchUserContributions() {
         if (!AccountUtil.isLoggedIn()) {
+            showAccountCreationOrIPBlocked()
             return
         }
 
+        isIpBlocked = false
+        isPausedOrDisabled = false
+        totalContributions = 0
+        latestEditStreak = 0
+        revertSeverity = 0
         progressBar.visibility = VISIBLE
-        disposables.add(SuggestedEditsUserStats.getEditCountsObservable()
-                .map { response ->
-                    var shouldLoadPageViews = false
-                    if (response.query()!!.userInfo()!!.isBlocked) {
 
-                        setIPBlockedStatus()
-
-                    } else if (!maybeSetPausedOrDisabled()) {
-                        val editorTaskCounts = response.query()!!.editorTaskCounts()!!
-
-                        editQualityStatsView.setGoodnessState(SuggestedEditsUserStats.getRevertSeverity())
-
-                        if (editorTaskCounts.editStreak < 2) {
-                            editStreakStatsView.setTitle(if (editorTaskCounts.lastEditDate.time > 0) DateUtil.getMDYDateString(editorTaskCounts.lastEditDate) else resources.getString(R.string.suggested_edits_last_edited_never))
-                            editStreakStatsView.setDescription(resources.getString(R.string.suggested_edits_last_edited))
-                        } else {
-                            editStreakStatsView.setTitle(resources.getQuantityString(R.plurals.suggested_edits_edit_streak_detail_text,
-                                    editorTaskCounts.editStreak, editorTaskCounts.editStreak))
-                            editStreakStatsView.setDescription(resources.getString(R.string.suggested_edits_edit_streak_label_text))
-                        }
-                        shouldLoadPageViews = true
+        disposables.add(Observable.zip(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getUserContributions(AccountUtil.getUserName()!!, 10, null).subscribeOn(Schedulers.io()),
+                ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getUserContributions(AccountUtil.getUserName()!!, 10, null).subscribeOn(Schedulers.io()),
+                SuggestedEditsUserStats.getEditCountsObservable(),
+                Function3<MwQueryResponse, MwQueryResponse, MwQueryResponse, MwQueryResponse> { commonsResponse, wikidataResponse, _ ->
+                    if (wikidataResponse.query()!!.userInfo()!!.isBlocked || commonsResponse.query()!!.userInfo()!!.isBlocked) {
+                        isIpBlocked = true
                     }
-                    shouldLoadPageViews
+
+                    totalContributions += wikidataResponse.query()!!.userInfo()!!.editCount
+                    totalContributions += commonsResponse.query()!!.userInfo()!!.editCount
+
+                    latestEditDate = wikidataResponse.query()!!.userInfo()!!.latestContrib
+                    if (commonsResponse.query()!!.userInfo()!!.latestContrib.after(latestEditDate)) {
+                        latestEditDate = commonsResponse.query()!!.userInfo()!!.latestContrib
+                    }
+
+                    if (maybeSetPausedOrDisabled()) {
+                        isPausedOrDisabled = true
+                    }
+
+                    val contributions = ArrayList<UserContribution>()
+                    contributions.addAll(wikidataResponse.query()!!.userContributions())
+                    contributions.addAll(commonsResponse.query()!!.userContributions())
+                    contributions.sortWith(Comparator { o2, o1 -> ( o1.date().compareTo(o2.date())) })
+
+                    latestEditStreak = getEditStreak(contributions)
+
+                    revertSeverity = SuggestedEditsUserStats.getRevertSeverity()
+                    wikidataResponse
+                })
+                .flatMap { response ->
+                    SuggestedEditsUserStats.getPageViewsObservable(response)
                 }
-                .flatMap {
-                    if (it) {
-                        SuggestedEditsUserStats.getPageViewsObservable()
-                    } else {
-                        Observable.just((-1).toLong())
+                .observeOn(AndroidSchedulers.mainThread())
+                .doAfterTerminate {
+                    if (isIpBlocked) {
+                        setIPBlockedStatus()
                     }
                 }
                 .subscribe({
-                    if (it >= 0) {
+                    if (!isPausedOrDisabled && !isIpBlocked) {
                         pageViewStatsView.setTitle(it.toString())
                         setFinalUIState()
                     }
@@ -172,11 +198,27 @@ class SuggestedEditsTasksFragment : Fragment() {
                     L.e(t)
                     showError(t)
                 }))
-
     }
 
-    private fun refreshContents() {
+    private fun showAccountCreationOrIPBlocked() {
+        disposables.add(ServiceFactory.get(WikipediaApp.getInstance().wikiSite).userInfo
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({ response ->
+                    if (response.query()!!.userInfo()!!.isBlocked) {
+                        setIPBlockedStatus()
+                    } else {
+                        setRequiredLoginStatus()
+                    }
+                }, { t ->
+                    L.e(t)
+                    showError(t)
+                }))
+    }
+
+    fun refreshContents() {
         requireActivity().invalidateOptionsMenu()
+        clearContents()
         fetchUserContributions()
     }
 
@@ -201,29 +243,41 @@ class SuggestedEditsTasksFragment : Fragment() {
 
         addImageTagsTask.new = Prefs.isSuggestedEditsImageTagsNew()
         tasksRecyclerView.adapter!!.notifyDataSetChanged()
+        editQualityStatsView.setGoodnessState(revertSeverity)
 
-        if (SuggestedEditsUserStats.totalEdits == 0) {
+        if (latestEditStreak < 2) {
+            editStreakStatsView.setTitle(if (latestEditDate.time > 0) DateUtil.getMDYDateString(latestEditDate) else resources.getString(R.string.suggested_edits_last_edited_never))
+            editStreakStatsView.setDescription(resources.getString(R.string.suggested_edits_last_edited))
+        } else {
+            editStreakStatsView.setTitle(resources.getQuantityString(R.plurals.suggested_edits_edit_streak_detail_text,
+                    latestEditStreak, latestEditStreak))
+            editStreakStatsView.setDescription(resources.getString(R.string.suggested_edits_edit_streak_label_text))
+        }
+
+        if (totalContributions == 0) {
+            userStatsClickTarget.isEnabled = false
+            userNameView.visibility = GONE
             contributionsStatsView.visibility = GONE
             editQualityStatsView.visibility = GONE
             editStreakStatsView.visibility = GONE
             pageViewStatsView.visibility = GONE
-            userNameText.visibility = GONE
-            profileArrowImage.visibility = GONE
+            userStatsArrow.visibility = GONE
             onboardingImageView.visibility = VISIBLE
-            onboardingMessage.text = StringUtil.fromHtml(getString(R.string.suggested_edits_onboarding_message, AccountUtil.getUserName()))
-            onboardingMessage.visibility = VISIBLE
+            onboardingTextView.visibility = VISIBLE
+            onboardingTextView.text = StringUtil.fromHtml(getString(R.string.suggested_edits_onboarding_message, AccountUtil.getUserName()))
         } else {
+            userStatsClickTarget.isEnabled = true
+            userNameView.text = AccountUtil.getUserName()
+            userNameView.visibility = VISIBLE
+            userStatsArrow.visibility = VISIBLE
             contributionsStatsView.visibility = VISIBLE
             editQualityStatsView.visibility = VISIBLE
             editStreakStatsView.visibility = VISIBLE
             pageViewStatsView.visibility = VISIBLE
             onboardingImageView.visibility = GONE
-            onboardingMessage.visibility = GONE
-            userNameText.text = AccountUtil.getUserName()
-            userNameText.visibility = VISIBLE
-            profileArrowImage.visibility = VISIBLE
-            contributionsStatsView.setTitle(SuggestedEditsUserStats.totalEdits.toString())
-            contributionsStatsView.setDescription(resources.getQuantityString(R.plurals.suggested_edits_contribution, SuggestedEditsUserStats.totalEdits))
+            onboardingTextView.visibility = GONE
+            contributionsStatsView.setTitle(totalContributions.toString())
+            contributionsStatsView.setDescription(resources.getQuantityString(R.plurals.suggested_edits_contribution, totalContributions))
         }
 
         swipeRefreshLayout.setBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
@@ -233,6 +287,13 @@ class SuggestedEditsTasksFragment : Fragment() {
     private fun setIPBlockedStatus() {
         clearContents()
         disabledStatesView.setIPBlocked()
+        disabledStatesView.visibility = VISIBLE
+        UserContributionFunnel.get().logIpBlock()
+    }
+
+    private fun setRequiredLoginStatus() {
+        clearContents()
+        disabledStatesView.setRequiredLogin()
         disabledStatesView.visibility = VISIBLE
     }
 
@@ -244,16 +305,43 @@ class SuggestedEditsTasksFragment : Fragment() {
             clearContents()
             disabledStatesView.setDisabled(getString(R.string.suggested_edits_disabled_message, AccountUtil.getUserName()))
             disabledStatesView.visibility = VISIBLE
+            UserContributionFunnel.get().logDisabled()
             return true
         } else if (pauseEndDate != null) {
             clearContents()
             disabledStatesView.setPaused(getString(R.string.suggested_edits_paused_message, DateUtil.getShortDateString(pauseEndDate), AccountUtil.getUserName()))
             disabledStatesView.visibility = VISIBLE
+            UserContributionFunnel.get().logPaused()
             return true
         }
 
         disabledStatesView.visibility = GONE
         return false
+    }
+
+    private fun getEditStreak(contributions: List<UserContribution>): Int {
+        if (contributions.isEmpty()) {
+            return 0
+        }
+        // TODO: This is a bit naive, and should be updated once we switch to java.time.*
+        val calendar = GregorianCalendar()
+        calendar.time = Date()
+        // Start with a calendar that is fixed at the beginning of today's date
+        val baseCal = GregorianCalendar(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH))
+        val dayMillis = TimeUnit.DAYS.toMillis(1)
+        var streak = 1
+        for (c in contributions) {
+            if (c.date().time >= baseCal.timeInMillis) {
+                // this contribution was on the same day.
+                continue
+            } else if (c.date().time < (baseCal.timeInMillis - dayMillis)) {
+                // this contribution is more than one day apart, so the streak is broken.
+                break
+            }
+            streak++
+            calendar.timeInMillis = calendar.timeInMillis - dayMillis
+        }
+        return streak
     }
 
     private fun setupTestingButtons() {
@@ -262,7 +350,7 @@ class SuggestedEditsTasksFragment : Fragment() {
             showOnboardingMessage.visibility = GONE
         }
         showIPBlockedMessage.setOnClickListener { setIPBlockedStatus() }
-        showOnboardingMessage.setOnClickListener { SuggestedEditsUserStats.totalEdits = 0; setFinalUIState() }
+        showOnboardingMessage.setOnClickListener { totalContributions = 0; setFinalUIState() }
     }
 
     private fun setUpTasks() {
@@ -297,13 +385,12 @@ class SuggestedEditsTasksFragment : Fragment() {
         // TODO: remove condition when ready
         if (ReleaseUtil.isPreBetaRelease()) {
             displayedTasks.add(vandalismPatrolTask)
-            displayedTasks.add(addImageTagsTask)
         }
 
+        displayedTasks.add(addImageTagsTask)
         displayedTasks.add(addDescriptionsTask)
         displayedTasks.add(addImageCaptionsTask)
     }
-
 
     private inner class TaskViewCallback : SuggestedEditsTaskView.Callback {
         override fun onViewClick(task: SuggestedEditsTask, isTranslate: Boolean) {

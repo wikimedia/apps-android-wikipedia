@@ -76,7 +76,7 @@
   <string name="edit_saved_successfully">Modifiko publikigita!</string>
   <string name="dialog_message_edit_failed">Modifiko faliis!</string>
   <string name="dialog_message_edit_failed_retry">Riprobar</string>
-  <string name="dialog_message_edit_failed_cancel">Nihiligar</string>
+  <string name="dialog_message_edit_failed_cancel">Nuligar</string>
   <string name="dialog_message_leaving_edit">Tua modifikuri ankore ne konservesis. Ka tu fakte deziras livar ica pagino?</string>
   <string name="dialog_message_leaving_edit_leave">Livar</string>
   <string name="dialog_message_leaving_edit_stay">Durar</string>
@@ -101,7 +101,7 @@
   <string name="reading_lists_sync_login">Enirar</string>
   <string name="create_account_login">Enirar</string>
   <string name="menu_login">Enirar</string>
-  <string name="login_activity_title">Enirar Wikipedio</string>
+  <string name="login_activity_title" fuzzy="true">Enirar Wikipedio</string>
   <string name="login_in_progress_dialog_message">Konektanta tu en...</string>
   <string name="login_success_toast">Konekto sucesoza!</string>
   <string name="reset_password_title">Enirez vua pasovorto</string>
@@ -282,9 +282,11 @@
   <string name="text_size_percent_default">%s (Default)</string>
   <string name="nav_item_reading_lists">Mea listi</string>
   <string name="reading_list_save_to">Adjuntez a la lektebla listo</string>
+  <string name="reading_list_move_to">Movar a lektebla listo</string>
   <string name="reading_list_create_new">Krear nova</string>
   <string name="reading_list_title_exists">Lektebla listo \"%s\" ja existas.</string>
   <string name="reading_list_article_added_to_named">Adjuntita %1$s a(d) %2$s.</string>
+  <string name="reading_list_article_moved_to_named">Transferita de %1$s a %2$s.</string>
   <string name="reading_list_article_already_exists_message">Bone! %1$s anke kontenas %2$s.</string>
   <string name="reading_list_articles_already_exist_message">Bone! %s ja kontenas omna artikli.</string>
   <string name="reading_list_added_view_button">Vidar listo</string>
@@ -313,7 +315,7 @@
   <string name="reading_lists_confirm_remote_delete_yes">Yes</string>
   <string name="reading_lists_confirm_remote_delete_no">No</string>
   <string name="reading_lists_menu_sort_by">Ordinar segun</string>
-  <string name="notification_syncing_cancel_button">Nihiligar</string>
+  <string name="notification_syncing_cancel_button">Nuligar</string>
   <string name="view_featured_image_card_download">Deskargar</string>
   <string name="menu_feed_overflow_label">Plusa selekti</string>
   <string name="view_continue_reading_card_subtitle_today">cadie</string>
@@ -338,6 +340,7 @@
   <string name="suggested_edits_image_caption_summary_title_license">Licenco</string>
   <string name="suggested_edits_feed_card_add_description_button">Adjuntez deskripto dil artiklo</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Por komencar</string>
+  <string name="suggested_edits_image_preview_dialog_file">Arkivo</string>
   <string name="suggested_edits_image_preview_dialog_artist">Artisto</string>
   <string name="suggested_edits_image_preview_dialog_date">Dato</string>
   <string name="suggested_edits_image_preview_dialog_source">Fonto/Fotografisto</string>
@@ -354,6 +357,7 @@
   <string name="suggested_edits_task_new">nova</string>
   <string name="onboarding_continue">Durar</string>
   <string name="onboarding_welcome_title_v2">La libera Enciklopedio\n…en plua kam 300 lingui</string>
+  <string name="app_shortcuts_search">Serchez</string>
   <string name="this_year">Cayare</string>
   <string name="languages_list_all_text">Omna lingui</string>
   <string name="text_input_dialog_cancel_button_text">Nuligar</string>

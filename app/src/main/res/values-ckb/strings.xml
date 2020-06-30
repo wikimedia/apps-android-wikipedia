@@ -3,6 +3,7 @@
 * Abijeet Patro
 * Arya sarhan
 * Asoxor
+* Cwtiyar
 * Diyariq
 * Kurd
 * Kushared
@@ -109,9 +110,9 @@
   <string name="reading_lists_sync_login">بچۆ ژوورەوە</string>
   <string name="create_account_login">بچۆ ژوورەوە</string>
   <string name="menu_login">بچۆ ژوورەوە</string>
-  <string name="login_activity_title">چوونە ژوورەوە بۆ ویکیپیدیا</string>
+  <string name="login_activity_title" fuzzy="true">چوونە ژوورەوە بۆ ویکیپیدیا</string>
   <string name="login_in_progress_dialog_message">چوونە ژوورەوە...</string>
-  <string name="login_success_toast" fuzzy="true">بەسەرکەوتوویی چووە ژوورەوە!</string>
+  <string name="login_success_toast">بەسەرکەوتوویی چووە ژوورەوە!</string>
   <string name="reset_password_title">تێپەڕوشەکەت بنووسە</string>
   <string name="reset_password_description">تۆ بە تێپەڕوشەیەکی کاتیی ھاتوویتە ژوورەوە. بۆ تەواوکردنی چوونە ژوورەوە تێپەڕوشەیەکی نوێ لێرە دابنێ.</string>
   <string name="reset_password_hint">تێپەڕوشەی نوێ</string>
@@ -622,6 +623,13 @@
   <string name="suggested_edits_last_edited_never">ھەرگیز</string>
   <string name="suggested_edits_task_new">نوێ</string>
   <string name="suggested_edits_cc0_notice">بە بڵاوکردنەوە، تۆ ڕازی دەبیت بە &lt;a href=\"%1$s\"&gt;بەندەکانی  بەکارھێنان&lt;/a&gt;، و بە بڵاوکردنەوەی بەشدارییەکانت لەژێر مۆڵەتی &lt;a href=\"%2$s\"&gt;CC0 license&lt;/a&gt;.</string>
+  <string name="suggested_edits_contribution_language_label">زمان</string>
+  <string name="suggested_edits_contribution_date_time_label">بەروار/کات</string>
+  <string name="suggested_edits_contribution_image_label">پەڕگە</string>
+  <string name="suggested_edits_contribution_article_label">وتار</string>
+  <string name="suggested_edits_contribution_views">%s بینراوە</string>
+  <string name="suggested_edits_contribution_date_yesterday_text">دوێنێ</string>
+  <string name="suggested_edits_rewards_continue_button">بەردەوام بە</string>
   <string name="description_edit_revert_subtitle">سپاس بۆ دەستکاریکردنی ویکیپیدیا!</string>
   <string name="description_edit_revert_intro">دەزانین کە ھەوڵێکی باشت داوە، بەڵام یەکێک لە بەسەرداچوونەوەکەران کێشەیەکی تێبینی کردبوو. لەوانەیە لەبەر ئەم ھۆکارانە دەستکارییەکەت پووچەڵ کرابێتەوە:</string>
   <string name="description_edit_revert_reason1">بەشدارییەکەت یەکێک لە &lt;a href=\"%1$s\"&gt;سیاسەتەکان&lt;/a&gt;ی پێشێل کردووە.</string>
@@ -637,7 +645,6 @@
   <string name="onboarding_explore_title">شێوازی نوێ بۆ دۆزینەوە</string>
   <string name="onboarding_analytics_title">داتای نەناسراوە بنێرە</string>
   <string name="onboarding_analytics_switch_title">داتای بەکارھێنان بنێرە</string>
-  <string name="onboarding_create_account_preferences">ھەڵبژاردنەکانت پاشەکەوت بکە</string>
   <string name="onboarding_got_it">تێگەیشتم</string>
   <string name="onboarding_multilingual_add_language_text">زیادکردن یان دەستکاری زمانەکان</string>
   <string name="onboarding_welcome_title_v2">ئینسایکڵۆپیدیایەکی ئازادە\n... زیاتر لە ٣٠٠ زمان</string>
@@ -685,11 +692,9 @@
   <string name="wikitext_template">داڕێژە</string>
   <string name="wikitext_reference">سەرچاوە</string>
   <string name="wikitext_preview_link">بینینی بەستەر</string>
-  <string name="main_drawer_open">کردنەوە</string>
-  <string name="main_drawer_close">داخستن</string>
   <string name="main_drawer_help">یارمەتی</string>
   <string name="main_drawer_login">چوونە ژوورەوە/ ببە ئەندامی ویکیپیدیا</string>
-  <string name="main_tooltip_text">%s، دەتزانی ھەموو کەسێک دەتوانێ دەستکاری ویکیپیدیا بکات؟</string>
+  <string name="main_tooltip_text" fuzzy="true">سلاو %s، دەتزانی ھەموو کەسێک دەتوانێ دەستکاری ویکیپیدیا بکات؟</string>
   <string name="main_tooltip_action_button">دەست پێ بکە</string>
   <string name="custom_date_picker_dialog_ok_button_text">باشە</string>
   <string name="text_input_dialog_ok_button_text">باشە</string>

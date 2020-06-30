@@ -74,7 +74,7 @@
   <string name="reading_lists_sync_login">Гирмек</string>
   <string name="create_account_login">Гирмек</string>
   <string name="menu_login">Гирмек</string>
-  <string name="login_activity_title">Википедиягъа гирмек</string>
+  <string name="login_activity_title" fuzzy="true">Википедиягъа гирмек</string>
   <string name="login_in_progress_dialog_message">Системге гирмек…</string>
   <string name="login_success_toast" fuzzy="true">Бажарывлу гирив болду!</string>
   <string name="reset_password_title">Чечилингни бер</string>
@@ -241,7 +241,5 @@
   <string name="wikitext_numbered_list">Нёмюрленген тизме</string>
   <string name="wikitext_template">Къалип</string>
   <string name="wikitext_preview_link">Ингкъарав байланыв</string>
-  <string name="main_drawer_open">Ачмакъ</string>
-  <string name="main_drawer_close">Япмакъ</string>
   <string name="main_drawer_help">Кёмек</string>
 </resources>

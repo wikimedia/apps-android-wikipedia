@@ -42,12 +42,12 @@ import org.wikipedia.views.ViewUtil;
 import java.util.ArrayList;
 import java.util.List;
 
-import io.reactivex.Observable;
-import io.reactivex.ObservableSource;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.functions.Function;
-import io.reactivex.schedulers.Schedulers;
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.core.Observable;
+import io.reactivex.rxjava3.core.ObservableSource;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.functions.Function;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 
 import static org.wikipedia.settings.Prefs.isImageDownloadEnabled;
 import static org.wikipedia.util.L10nUtil.getStringForArticleLanguage;
@@ -64,7 +64,6 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
 
     private static final String ARG_ENTRY = "entry";
     private static final String ARG_LOCATION = "location";
-    private static final String ARG_FULL_WIDTH = "fullWidth";
 
     private boolean navigateSuccess = false;
 
@@ -87,20 +86,15 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
     private LinkPreviewFunnel funnel;
     private CompositeDisposable disposables = new CompositeDisposable();
 
-    public static LinkPreviewDialog newInstance(@NonNull HistoryEntry entry, @Nullable Location location, boolean fullWidth) {
+    public static LinkPreviewDialog newInstance(@NonNull HistoryEntry entry, @Nullable Location location) {
         LinkPreviewDialog dialog = new LinkPreviewDialog();
         Bundle args = new Bundle();
         args.putParcelable(ARG_ENTRY, entry);
         if (location != null) {
             args.putParcelable(ARG_LOCATION, location);
         }
-        args.putBoolean(ARG_FULL_WIDTH, fullWidth);
         dialog.setArguments(args);
         return dialog;
-    }
-
-    public static LinkPreviewDialog newInstance(@NonNull HistoryEntry entry, @Nullable Location location) {
-        return newInstance(entry, location, false);
     }
 
     @Override
@@ -109,10 +103,6 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
         historyEntry = getArguments().getParcelable(ARG_ENTRY);
         pageTitle = historyEntry.getTitle();
         location = getArguments().getParcelable(ARG_LOCATION);
-
-        if (getArguments().getBoolean(ARG_FULL_WIDTH)) {
-            enableFullWidthDialog();
-        }
 
         View rootView = inflater.inflate(R.layout.dialog_link_preview, container);
         dialogContainer = rootView.findViewById(R.id.dialog_link_preview_container);

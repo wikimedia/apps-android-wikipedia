@@ -20,6 +20,7 @@
 * Py64
 * Rail
 * Railfail536
+* Rainbow P
 * Rzuwig
 * Stojex
 * Tar Lócesilion
@@ -27,6 +28,7 @@
 * Thoji
 * Vesihiisi
 * WTM
+* WaldiSt
 * Warchlak
 * Wojtas
 * Woytecr
@@ -47,6 +49,7 @@
   <string name="search_hint_search_my_lists_and_articles">Przeszukaj moje listy i artykuły</string>
   <string name="nav_item_history">Historia</string>
   <string name="nav_item_suggested_edits">Sugerowane edycje</string>
+  <string name="nav_item_more">Więcej</string>
   <string name="error_network_error">Nie można połączyć z internetem.</string>
   <string name="page_error_retry">Ponów próbę</string>
   <string name="card_offline_error_retry">Ponów próbę</string>
@@ -130,7 +133,7 @@
   <string name="reading_lists_sync_login">Zaloguj się</string>
   <string name="create_account_login">Zaloguj się</string>
   <string name="menu_login">Zaloguj się</string>
-  <string name="login_activity_title">Zaloguj się do Wikipedii</string>
+  <string name="login_activity_title">Zaloguj się</string>
   <string name="login_in_progress_dialog_message">Logowanie…</string>
   <string name="login_success_toast">Zalogowano!</string>
   <string name="reset_password_title">Wpisz swoje hasło</string>
@@ -307,6 +310,7 @@
   <string name="close_all_tabs_confirm_yes">Tak</string>
   <string name="close_all_tabs_confirm_no">Nie</string>
   <string name="button_close_tab">Zamknij kartę</string>
+  <string name="unnamed_tab_closed">Karta zamknięta</string>
   <string name="tab_item_closed">Zamknięto %s.</string>
   <string name="all_tab_items_closed">Zamknięto wszystkie karty.</string>
   <string name="tool_tip_bookmark_icon_title">Dodaj do listy czytanych</string>
@@ -329,7 +333,9 @@
   <string name="page_offline_notice_last_date">Czytasz wersję offline tego artykułu zapisaną %s.</string>
   <string name="button_get_directions">Wyznacz trasę</string>
   <string name="error_no_maps_app">Nie udało się znaleźć aplikacji do nawigacji.</string>
+  <string name="preference_title_customize_explore_feed">Kanał Eksploruj</string>
   <string name="preference_title_show_link_previews">Pokaż podgląd linków</string>
+  <string name="preference_summary_customize_explore_feed">Dostosuj kanał Eksploruj</string>
   <string name="preference_summary_show_link_previews">Pokaż szybki podgląd artykułów po kliknięciu na linki.</string>
   <string name="preference_title_collapse_tables">Zwiń tabele</string>
   <string name="preference_summary_collapse_tables">Automatyczne zwinięcie w artykułach tabel, takich jak infoboksy, odnośniki i uwagi.</string>
@@ -354,6 +360,7 @@
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Dopasuj do motywu systemowego</string>
   <string name="page_footer_license_text">O ile nie zaznaczono inaczej, treść dostępna jest na licencji $1</string>
   <string name="empty_tab_title">Nowa karta</string>
+  <string name="menu_save_all_tabs">Zapisz wszystkie karty</string>
   <string name="crash_report_activity_title">Błąd aplikacji</string>
   <string name="crash_report_relaunch_or_quit">Niestety, w aplikacji Wikipedii wystąpił błąd, w wyniku czego została ona zamknięta.\n\nChcesz ponownie ją uruchomić czy zamknąć?</string>
   <string name="crash_report_relaunch">Zacznij od początku</string>
@@ -377,8 +384,11 @@
   <string name="text_size_percent_default">%s (domyślnie)</string>
   <string name="nav_item_reading_lists">Moje listy</string>
   <string name="reading_list_save_to">Zapisz do przeczytania</string>
+  <string name="reading_list_move_to">Przejdź do listy lektur</string>
   <string name="reading_list_create_new">Utwórz nową</string>
   <string name="reading_list_title_exists">Lista \"%s\" już istnieje.</string>
+  <string name="reading_list_article_added_to_named">Dodano %1$s do %2$s.</string>
+  <string name="reading_list_article_moved_to_named">Przeniesiono  %1$s do %2$s.</string>
   <string name="reading_list_added_view_button">Zobacz listę</string>
   <string name="format_reading_list_statistical_summary_singular">1 artykuł, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d artykułów, %2$.2f MB</string>
@@ -399,6 +409,7 @@
   <string name="reading_list_action_menu_remove_all_from_offline">Usuń wszystko z zapisanych na później</string>
   <string name="reading_list_action_menu_save_all_for_offline">Zapisz wszystkie pozycje na później</string>
   <string name="reading_list_action_menu_add_to_another_list">Dodaj do innej listy</string>
+  <string name="reading_list_action_menu_move_to_another_list">Przejdź na inną listę</string>
   <string name="reading_list_name_sample">Moja lista</string>
   <string name="reading_list_name_hint">Nazwa tej listy</string>
   <string name="reading_list_description_hint">Opis (opcjonalnie)</string>
@@ -419,6 +430,7 @@
   <string name="reading_list_article_offline">Dostępne offline</string>
   <string name="reading_list_article_make_offline">Artykuł będzie dostępny offline</string>
   <string name="reading_list_add_to_other_list">Dodaj do innej listy czytanych</string>
+  <string name="reading_list_move_to_other_list">Przejdź do innej listy do czytania</string>
   <string name="reading_list_remove_from_list">Usuń z %s</string>
   <string name="reading_list_remove_from_lists">Usuń z listy czytanych</string>
   <string name="reading_list_select_item">Wybierz</string>
@@ -687,6 +699,7 @@
   <string name="suggested_edits_tasks_onboarding_get_started">Rozpocznij</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Podpis obrazka (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Podpis obrazka (%s)</string>
+  <string name="suggested_edits_image_preview_dialog_file">Plik</string>
   <string name="suggested_edits_image_preview_dialog_artist">Artysta</string>
   <string name="suggested_edits_image_preview_dialog_date">Data</string>
   <string name="suggested_edits_image_preview_dialog_source">Źródło/Fotograf</string>
@@ -703,13 +716,28 @@
   <string name="suggested_edits_task_action_text_add">Dodaj</string>
   <string name="suggested_edits_task_action_text_translate">Tłumacz</string>
   <string name="suggested_edits_encouragement_message">%s, dziękujemy za twoje edycje. Poniżej możesz znaleźć więcej sposobów aby rozwijać Wikipedię.</string>
-  <string name="suggested_edits_image_captions_task_detail">Opisy obrazów pomagają czytelnikom w zrozumieniu ich znaczenia i kontekstu.</string>
-  <string name="suggested_edits_add_descriptions_task_detail">Opisy tytułów podsumowują artykuł, aby pomóc czytelnikom w zrozumieniu tematu na pierwszy rzut oka.</string>
+  <string name="suggested_edits_image_captions_task_detail" fuzzy="true">Opisy obrazów pomagają czytelnikom w zrozumieniu ich znaczenia i kontekstu.</string>
+  <string name="suggested_edits_add_descriptions_task_detail" fuzzy="true">Opisy tytułów podsumowują artykuł, aby pomóc czytelnikom w zrozumieniu tematu na pierwszy rzut oka.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip" fuzzy="true">W oparciu o ilość wycofanych edycji twojego autorstwa. Wycofane edycje: %d.</string>
   <string name="suggested_edits_ip_blocked_message" fuzzy="true">Adres IP, którego używasz jest aktualnie zablokowany i nie możesz z niego wykonywać edycji na Wikipedii. Dowiedz się więcej o blokadach wchodząc w link poniżej.</string>
   <string name="suggested_edits_last_edited">Ostatnia edycja</string>
   <string name="suggested_edits_last_edited_never">Nigdy</string>
   <string name="suggested_edits_reactivation_notification_title">Sugerowane edycje</string>
+  <string name="suggested_edits_contribution_language_label">Język</string>
+  <string name="suggested_edits_contribution_date_time_label">Data / Czas</string>
+  <string name="suggested_edits_contribution_type_label">Typ kontrybucji</string>
+  <string name="suggested_edits_contribution_image_label">Plik</string>
+  <string name="suggested_edits_contribution_article_label">Artykuł</string>
+  <string name="suggested_edits_contribution_views">%s wyświetleń</string>
+  <string name="suggested_edits_contribution_seen_text">Widziany %s razy w ciągu ostatnich 30 dni.</string>
+  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
+  <string name="suggested_edits_contribution_date_yesterday_text">Wczoraj</string>
+  <string name="suggested_edits_rewards_edit_streak">Jak dotąd edytowałeś codziennie przez %1$d dni. Kontynuuj serię, %2$s!</string>
+  <string name="suggested_edits_rewards_pageviews">Zmiany zostały obejrzane przez %d osób w ciągu ostatnich 30 dni. Dzięki i kontynuuj!</string>
+  <string name="suggested_edits_rewards_edit_quality">Dotychczasowe modyfikacje to %s. Tak trzymaj! Czekamy na Twój wkład.</string>
+  <string name="suggested_edits_rewards_continue_button">Kontynuuj</string>
+  <string name="suggested_edits_added_contribution_label" fuzzy="true">Dodałeś/aś %d znaków</string>
+  <string name="file_page_activity_title">Strona pliku</string>
   <string name="description_edit_revert_subtitle">Dziękujemy za edytowanie Wikipedii!</string>
   <string name="description_edit_revert_intro">Wiemy, że starałeś się jak najlepiej, ale jeden z recenzentów miał obawy. Możliwe przyczyny cofnięcia edycji obejmują:</string>
   <string name="description_edit_revert_reason1">Twój wkład nie był zgodny z jedną z &lt;a href=\"%1$s\"&gt; wytycznych &lt;/a&gt;.</string>
@@ -731,9 +759,6 @@
   <string name="onboarding_analytics_title">Wyślij anonimowo dane</string>
   <string name="onboarding_analytics_offline_text">Pomóż ulepszyć aplikację, informując nas, jak z niej korzystasz. Zebrane dane są anonimowe. &lt;a href=\"#privacy\"&gt; Dowiedz się więcej &lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Wyślij używane dane</string>
-  <string name="onboarding_create_account_sync">Zsynchronizuj swoje listy czytania</string>
-  <string name="onboarding_create_account_contributions">Śledź swój wkład</string>
-  <string name="onboarding_create_account_preferences">Zapisz swoje preferencje</string>
   <string name="onboarding_got_it">Wszystko jasne</string>
   <string name="onboarding_multilingual_secondary_text">Znaleźliśmy następujące na twoim urządzeniu:</string>
   <string name="onboarding_multilingual_add_language_text">Dodaj lub edytuj języki</string>
@@ -793,12 +818,9 @@
   <string name="wikitext_template">Szablon</string>
   <string name="wikitext_reference">Przypis</string>
   <string name="wikitext_preview_link">Zobacz link</string>
-  <string name="main_drawer_open">Otwórz</string>
-  <string name="main_drawer_close">Zamknij</string>
-  <string name="main_drawer_content_description">Otwórz główną szufladę nawigacji</string>
   <string name="main_drawer_help">Pomoc</string>
   <string name="main_drawer_login">Zaloguj się / dołącz do Wikipedii</string>
-  <string name="main_tooltip_text">%s, czy wiesz, że każdy może edytować Wikipedię?</string>
+  <string name="main_tooltip_text">Cześć %s, czy wiesz, że każdy może edytować Wikipedię?</string>
   <string name="main_tooltip_action_button">Rozpocznij</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_ok_button_text">OK</string>

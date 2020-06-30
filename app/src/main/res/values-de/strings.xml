@@ -4,6 +4,8 @@
 * Abijeet Patro
 * Chronist
 * Dbrant
+* DraconicDark
+* Druesenfieber
 * Envlh
 * FF11
 * Hikemaniac
@@ -118,7 +120,7 @@
   <string name="reading_lists_sync_login">Anmelden</string>
   <string name="create_account_login">Anmelden</string>
   <string name="menu_login">Anmelden</string>
-  <string name="login_activity_title">Bei Wikipedia anmelden</string>
+  <string name="login_activity_title" fuzzy="true">Bei Wikipedia anmelden</string>
   <string name="login_in_progress_dialog_message">Melde dich an …</string>
   <string name="login_success_toast">Angemeldet!</string>
   <string name="reset_password_title">Dein Passwort festlegen</string>
@@ -197,7 +199,7 @@
   <string name="about_description">Über die Wikipedia-App</string>
   <string name="privacy_policy_description">Datenschutzrichtlinie</string>
   <string name="terms_of_use_description">Nutzungsbedingungen</string>
-  <string name="about_wikipedia_url" fuzzy="true">https://de.m.wikipedia.org/wiki/Wikipedia:Über_Wikipedia</string>
+  <string name="about_wikipedia_url">https://de.wikipedia.org/wiki/Wikipedia:Über_Wikipedia</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy/de</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/de</string>
@@ -206,8 +208,10 @@
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.de</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.de</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/de#Bild-Schlagworte</string>
   <string name="about_libraries_heading">Verwendete Bibliotheken</string>
   <string name="about_contributors_heading">Mitwirkende</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Team-Seite&lt;/a&gt;</string>
   <string name="about_translators_heading">Übersetzer</string>
   <string name="about_translators_translatewiki">Diese App wurde von freiwilligen Übersetzern auf &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt; übersetzt.</string>
   <string name="about_app_license_heading">Lizenz</string>
@@ -706,15 +710,15 @@
   <string name="suggested_edits_image_tags_add_tag" fuzzy="true">Tag hinzufügen...</string>
   <string name="suggested_edits_encouragement_message" fuzzy="true">%s, danke für Ihre Edits. Unten finden Sie weitere Möglichkeiten, um zu Wikipedia beizutragen.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Hallo %s&lt;/b&gt;, haben Sie gewusst das jeder Wikipedia editieren kann? Unten finden Sie spannende Möglichkeiten um Wikipedia zu verbessern. Viel Spass beim Editieren!</string>
-  <string name="suggested_edits_image_captions_task_detail">Bildunterschriften beschreiben ein Bild, sodass Leser die Bedeutung und Kontext des Bildes besser verstehen können.</string>
-  <string name="suggested_edits_add_descriptions_task_detail">Artikelbeschreibungen fassen einen Artikel zusammen, damit Leser das Thema auf den ersten Blick besser verstehen.</string>
+  <string name="suggested_edits_image_captions_task_detail" fuzzy="true">Bildunterschriften beschreiben ein Bild, sodass Leser die Bedeutung und Kontext des Bildes besser verstehen können.</string>
+  <string name="suggested_edits_add_descriptions_task_detail" fuzzy="true">Artikelbeschreibungen fassen einen Artikel zusammen, damit Leser das Thema auf den ersten Blick besser verstehen.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Ihre Gesamtzahl der Beiträge mit Vorgeschlagenen Bearbeitungen.</string>
   <string name="suggested_edits_edit_streak_stat_tooltip">Anzahl der Tage ohne Pause die Sie mit Vorgeschlagene Bearbeitungen beigetragen haben. Wenn Sie eine Weile nicht beigetragen haben, wird Ihr letztes Beitragsdatum angezeigt.</string>
   <string name="suggested_edits_page_views_stat_tooltip">Totale Seitenaufrufe aller Bearbeitungen, zu denen Sie in den letzten 30 Tagen mit Vorgeschlagenen Bearbeitungen beigetragen haben.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Basiert darauf, wie oft einer Ihrer Beiträge zurückgesetzt wurde (von einem anderen Editor rückgängig gemacht). Zurückgesetzte Änderungen: %d.</string>
-  <string name="suggested_edits_paused_message">&lt;b&gt;Vorgeschlagene Bearbeitungen ist pausiert bis %1$s.&lt;/b&gt; Entschuldigung, %2$s, manche deiner letzten Beiträge wurden rückgängig gemacht.\n\nBenutze den nachfolgenden Link, um herauszufinden, wie du deine Fertigkeiten als Bearbeiter bei Wikipedia verbessern kannst.</string>
-  <string name="suggested_edits_disabled_message">&lt;b&gt;Vorgeschlagene Bearbeitungen ist deaktiviert.&lt;/b&gt; Entschuldigung, %s, zu viele deiner letzten Beiträge wurden rückgängig gemacht.\n\nBenutze den nachfolgenden Link, um herauszufinden, was das bedeutet.</string>
-  <string name="suggested_edits_ip_blocked_message">Es sieht so aus, als ob Ihre IP-Adresse (oder Ihr IP-Adressbereich) derzeit für die Bearbeitung von Wikipedia gesperrt ist. Erfahren Sie mehr darüber was dies bedeutet, indem Sie den untenstehenden Link besuchen.</string>
+  <string name="suggested_edits_paused_message" fuzzy="true">&lt;b&gt;Vorgeschlagene Bearbeitungen ist pausiert bis %1$s.&lt;/b&gt; Entschuldigung, %2$s, manche deiner letzten Beiträge wurden rückgängig gemacht.\n\nBenutze den nachfolgenden Link, um herauszufinden, wie du deine Fertigkeiten als Bearbeiter bei Wikipedia verbessern kannst.</string>
+  <string name="suggested_edits_disabled_message" fuzzy="true">&lt;b&gt;Vorgeschlagene Bearbeitungen ist deaktiviert.&lt;/b&gt; Entschuldigung, %s, zu viele deiner letzten Beiträge wurden rückgängig gemacht.\n\nBenutze den nachfolgenden Link, um herauszufinden, was das bedeutet.</string>
+  <string name="suggested_edits_ip_blocked_message" fuzzy="true">Es sieht so aus, als ob Ihre IP-Adresse (oder Ihr IP-Adressbereich) derzeit für die Bearbeitung von Wikipedia gesperrt ist. Erfahren Sie mehr darüber was dies bedeutet, indem Sie den untenstehenden Link besuchen.</string>
   <string name="suggested_edits_editing_tips_link_text">Tipps und Tricks beim Bearbeiten</string>
   <string name="suggested_edits_help_page_link_text">Hilfeseite für Vorgeschlagene Bearbeitungen</string>
   <string name="suggested_edits_edit_streak_label_text">Aufeinanderfolgende Edits</string>
@@ -741,6 +745,13 @@
   <string name="suggested_edits_last_edited_never">Nie</string>
   <string name="suggested_edits_task_new">neu</string>
   <string name="suggested_edits_cc0_notice">Durch die Veröffentlichung stimmen Sie den &lt;a href=\"%1$s\"&gt; Nutzungsbedingungen&lt;/a&gt; zu und geben diesen Beitrag unwiderruflich unter der &lt;a href=\"%2$s\"&gt; CC0-Lizenz &lt;/a&gt; frei.</string>
+  <string name="suggested_edits_reactivation_notification_title">Vorgeschlagene Bearbeitungen</string>
+  <string name="suggested_edits_reactivation_notification_stage_one">Danke für die Bearbeitung von Wikipedia! Warum machen Sie nicht dort weiter, wo Sie aufgehört haben?</string>
+  <string name="suggested_edits_reactivation_notification_stage_two">Hast Du eine Minute Zeit, um Wikipedia weiter zu verbessern? Siehe Dich diese Bearbeitungsvorschläge an.</string>
+  <string name="suggested_edits_contribution_language_label">Sprache</string>
+  <string name="suggested_edits_contribution_date_time_label">Datum/Uhrzeit</string>
+  <string name="suggested_edits_contribution_seen_text">In den letzten 30 Tagen %s-mal angesehen.</string>
+  <string name="suggested_edits_contribution_date_yesterday_text">Gestern</string>
   <string name="description_edit_revert_subtitle">Vielen Dank für das Bearbeiten von Wikipedia!</string>
   <string name="description_edit_revert_intro">Wir wissen, dass du dein Bestes gegeben hast, aber einer unserer Prüfer hat Bedenken. Mögliche Gründe, warum deine Bearbeitung rückgängig gemacht wurde:</string>
   <string name="description_edit_revert_reason1">Dein Beitrag folgt keiner der &lt;a href=\"%1$s\"&gt;Richtlinien&lt;/a&gt;.</string>
@@ -762,9 +773,6 @@
   <string name="onboarding_analytics_title">Anonymisierte Daten senden</string>
   <string name="onboarding_analytics_offline_text">Hilf uns dabei, die App zu verbessern, indem du uns wissen lässt, wie du sie nutzt. Die gesammelten Daten sind anonym. &lt;a href=\"#privacy\"&gt;Mehr erfahren&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Nutzungsdaten senden</string>
-  <string name="onboarding_create_account_sync">Synchronisiere deine Leselisten</string>
-  <string name="onboarding_create_account_contributions">Verfolge deine Beiträge</string>
-  <string name="onboarding_create_account_preferences">Speichere deine Einstellungen</string>
   <string name="onboarding_got_it">Verstanden</string>
   <string name="onboarding_multilingual_secondary_text">Wir haben das Folgende auf deinem Gerät gefunden:</string>
   <string name="onboarding_multilingual_add_language_text">Sprachen hinzufügen oder bearbeiten</string>
@@ -824,12 +832,9 @@
   <string name="wikitext_template">Vorlage</string>
   <string name="wikitext_reference">Einzelnachweis</string>
   <string name="wikitext_preview_link">Vorschau des Links anzeigen</string>
-  <string name="main_drawer_open">Öffnen</string>
-  <string name="main_drawer_close">Schließen</string>
-  <string name="main_drawer_content_description">Hauptnavigation öffnen</string>
   <string name="main_drawer_help">Hilfe</string>
   <string name="main_drawer_login">Anmelden / Wikipedia beitreten</string>
-  <string name="main_tooltip_text">%s, wussten Sie das jeder Wikipedia editieren kann?</string>
+  <string name="main_tooltip_text" fuzzy="true">%s, wussten Sie das jeder Wikipedia editieren kann?</string>
   <string name="main_tooltip_action_button">Loslegen</string>
   <string name="custom_date_picker_dialog_ok_button_text">Okay</string>
   <string name="text_input_dialog_ok_button_text">Okay</string>

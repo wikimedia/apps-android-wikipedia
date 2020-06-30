@@ -11,6 +11,7 @@ import org.wikipedia.dataclient.mwapi.MwParseResponse;
 import org.wikipedia.dataclient.mwapi.MwPostResponse;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.mwapi.SiteMatrix;
+import org.wikipedia.dataclient.wikidata.Claims;
 import org.wikipedia.dataclient.wikidata.Entities;
 import org.wikipedia.dataclient.wikidata.EntityPostResponse;
 import org.wikipedia.dataclient.wikidata.Search;
@@ -19,7 +20,7 @@ import org.wikipedia.edit.preview.EditPreview;
 import org.wikipedia.login.LoginClient;
 import org.wikipedia.search.PrefixSearchResponse;
 
-import io.reactivex.Observable;
+import io.reactivex.rxjava3.core.Observable;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -91,6 +92,9 @@ public interface Service {
     @NonNull Observable<MwQueryResponse> getVideoInfo(@NonNull @Query("titles") String titles,
                                                       @NonNull @Query("viextmetadatalanguage") String lang);
 
+    @GET(MW_API_PREFIX + "action=query&meta=userinfo&prop=info&inprop=protection&uiprop=groups")
+    @NonNull Observable<MwQueryResponse> getProtectionInfo(@NonNull @Query("titles") String titles);
+
     @GET(MW_API_PREFIX + "action=sitematrix&smtype=language&smlangprop=code|name|localname&maxage=" + SITE_INFO_MAXAGE + "&smaxage=" + SITE_INFO_MAXAGE)
     @NonNull Observable<SiteMatrix> getSiteMatrix();
 
@@ -105,11 +109,6 @@ public interface Service {
     @NonNull Observable<MwQueryResponse> getRandomWithPageProps();
 
     @Headers("Cache-Control: no-cache")
-    @GET(MW_API_PREFIX + "action=query&generator=random&redirects=1&grnnamespace=6&grnlimit=50"
-            + "&prop=description|imageinfo&iiprop=timestamp|user|url|mime&iiurlwidth=" + PREFERRED_THUMB_SIZE)
-    @NonNull Observable<MwQueryResponse> getRandomWithImageInfo();
-
-    @Headers("Cache-Control: no-cache")
     @GET(MW_API_PREFIX + "action=query&generator=random&redirects=1&grnnamespace=6&grnlimit=100&prop=imagelabels")
     @NonNull Observable<MwQueryResponse> getRandomWithImageLabels();
 
@@ -119,6 +118,10 @@ public interface Service {
     @GET(MW_API_PREFIX + "action=query&list=categorymembers&cmlimit=500")
     @NonNull Observable<MwQueryResponse> getCategoryMembers(@NonNull @Query("cmtitle") String title,
                                                             @Nullable @Query("cmcontinue") String continueStr);
+
+    @Headers("Cache-Control: no-cache")
+    @GET(MW_API_PREFIX + "action=query&generator=random&redirects=1&grnnamespace=6&grnlimit=10&prop=description|imageinfo|revisions&rvprop=ids|timestamp|flags|comment|user|content&rvslots=mediainfo&iiprop=timestamp|user|url|mime|extmetadata&iiurlwidth=" + PREFERRED_THUMB_SIZE)
+    @NonNull Observable<MwQueryResponse> getRandomWithImageInfo();
 
     @GET(MW_API_PREFIX + "action=query&generator=unreviewedimagelabels&guillimit=10&prop=imagelabels|imageinfo&iiprop=timestamp|user|url|mime|extmetadata&iiurlwidth=" + PREFERRED_THUMB_SIZE)
     @NonNull Observable<MwQueryResponse> getImagesWithUnreviewedLabels(@NonNull @Query("uselang") String lang);
@@ -179,7 +182,7 @@ public interface Service {
     @GET(MW_API_PREFIX + "action=query&meta=authmanagerinfo|tokens&amirequestsfor=create&type=createaccount")
     @NonNull Observable<MwQueryResponse> getAuthManagerInfo();
 
-    @GET(MW_API_PREFIX + "action=query&meta=userinfo&uiprop=groups|blockinfo")
+    @GET(MW_API_PREFIX + "action=query&meta=userinfo&uiprop=groups|blockinfo|editcount|latestcontrib")
     @NonNull Observable<MwQueryResponse> getUserInfo();
 
     @GET(MW_API_PREFIX + "action=query&list=users&usprop=groups|cancreate")
@@ -231,13 +234,13 @@ public interface Service {
                                        @Nullable @Field("captchaid") String captchaId,
                                        @Nullable @Field("captchaword") String captchaWord);
 
-    @GET(MW_API_PREFIX + "action=query&list=usercontribs&ucprop=ids|title|timestamp|comment|size|flags|sizediff|tags")
-    @NonNull Observable<MwQueryResponse> getUserContributions(@NonNull @Query("ucuser") String username, @Query("uclimit") int maxCount);
+    @GET(MW_API_PREFIX + "action=query&list=usercontribs&ucprop=ids|title|timestamp|comment|size|flags|sizediff|tags&meta=userinfo&uiprop=groups|blockinfo|editcount|latestcontrib")
+    @NonNull Observable<MwQueryResponse> getUserContributions(@NonNull @Query("ucuser") String username, @Query("uclimit") int maxCount, @Query("uccontinue") String uccontinue);
 
     @GET(MW_API_PREFIX + "action=query&prop=pageviews")
     @NonNull Observable<MwQueryResponse> getPageViewsForTitles(@NonNull @Query("titles") String titles);
 
-    @GET(MW_API_PREFIX + "action=query&meta=wikimediaeditortaskscounts|userinfo&uiprop=blockinfo")
+    @GET(MW_API_PREFIX + "action=query&meta=wikimediaeditortaskscounts|userinfo&uiprop=groups|blockinfo|editcount|latestcontrib")
     @NonNull Observable<MwQueryResponse> getEditorTaskCounts();
 
     @GET(MW_API_PREFIX + "action=query&generator=wikimediaeditortaskssuggestions&prop=pageprops&gwetstask=missingdescriptions&gwetslimit=3")
@@ -260,8 +263,11 @@ public interface Service {
                                                @Query("uselang") @NonNull String resultLang);
 
     @GET(MW_API_PREFIX + "action=wbgetentities&props=labels&languagefallback=1")
-    @NonNull Call<Entities> getWikidataLabels(@Query("ids") @NonNull String idList,
-                                              @Query("languages") @NonNull String langList);
+    @NonNull Observable<Entities> getWikidataLabels(@Query("ids") @NonNull String idList,
+                                                    @Query("languages") @NonNull String langList);
+
+    @GET(MW_API_PREFIX + "action=wbgetclaims")
+    @NonNull Observable<Claims> getClaims(@Query("entity") @NonNull String entity);
 
     @GET(MW_API_PREFIX + "action=wbgetentities&props=descriptions|labels|sitelinks")
     @NonNull Observable<Entities> getWikidataLabelsAndDescriptions(@Query("ids") @NonNull String idList);
@@ -299,6 +305,16 @@ public interface Service {
                                              @Nullable @Field("summary") String summary,
                                              @NonNull @Field("token") String token,
                                              @Nullable @Field("assert") String user);
+
+    @Headers("Cache-Control: no-cache")
+    @POST(MW_API_PREFIX + "action=wbeditentity&errorlang=uselang")
+    @FormUrlEncoded
+    Observable<MwPostResponse> postEditEntity(@NonNull @Field("id") String id,
+                                              @NonNull @Field("token") String token,
+                                              @Nullable @Field("data") String data,
+                                              @Nullable @Field("summary") String summary,
+                                              @Nullable @Field("tags") String tags);
+
 
     @Headers("Cache-Control: no-cache")
     @POST(MW_API_PREFIX + "action=reviewimagelabels")

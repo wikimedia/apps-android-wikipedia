@@ -6,6 +6,7 @@ import androidx.annotation.Nullable;
 import com.google.gson.annotations.SerializedName;
 
 import org.apache.commons.lang3.StringUtils;
+import org.wikipedia.dataclient.page.Protection;
 import org.wikipedia.gallery.ImageInfo;
 import org.wikipedia.model.BaseModel;
 import org.wikipedia.page.Namespace;
@@ -28,6 +29,7 @@ public class MwQueryPage extends BaseModel {
     @Nullable private List<Revision> revisions;
     @Nullable private List<Coordinates> coordinates;
     @Nullable private List<Category> categories;
+    @Nullable private List<Protection> protection;
     @Nullable private PageProps pageprops;
     @Nullable private String extract;
     @Nullable private Thumbnail thumbnail;
@@ -42,6 +44,7 @@ public class MwQueryPage extends BaseModel {
     @Nullable private Map<String, String> varianttitles;
     @SerializedName("pageviews") @Nullable private Map<String, Long> pageViewsMap;
     @SerializedName("imagelabels") @Nullable private List<ImageLabel> imageLabels;
+
 
     @NonNull public String title() {
         return StringUtils.defaultString(title);
@@ -59,12 +62,16 @@ public class MwQueryPage extends BaseModel {
         return langlinks;
     }
 
-    @Nullable public List<Revision> revisions() {
-        return revisions;
+    @NonNull public List<Revision> revisions() {
+        return revisions != null ? revisions : Collections.emptyList();
     }
 
     @Nullable public List<Category> categories() {
         return categories;
+    }
+
+    @NonNull public List<Protection> protection() {
+        return protection == null ? Collections.emptyList() : protection;
     }
 
     @Nullable public List<Coordinates> coordinates() {
@@ -145,7 +152,7 @@ public class MwQueryPage extends BaseModel {
         return imageLabels != null ? imageLabels : Collections.emptyList();
     }
 
-    public boolean isImageFromCommons() {
+    public boolean isImageShared() {
         return StringUtils.defaultString(imagerepository).equals("shared");
     }
 
@@ -154,10 +161,16 @@ public class MwQueryPage extends BaseModel {
     }
 
     public static class Revision {
+        private long revid;
+        private long parentid;
+        private boolean minor;
+        @Nullable private String user;
         @SerializedName("contentformat") @Nullable private String contentFormat;
         @SerializedName("contentmodel") @Nullable private String contentModel;
         @SerializedName("timestamp") @Nullable private String timeStamp;
         @Nullable private String content;
+        @Nullable private String comment;
+        @Nullable private Map<String, RevisionSlot> slots;
 
         @NonNull public String content() {
             return StringUtils.defaultString(content);
@@ -165,6 +178,20 @@ public class MwQueryPage extends BaseModel {
 
         @NonNull public String timeStamp() {
             return StringUtils.defaultString(timeStamp);
+        }
+
+        @NonNull public String getContentFromSlot(@NonNull String slot) {
+            return slots != null && slots.containsKey(slot) ? slots.get(slot).getContent() : "";
+        }
+    }
+
+    public static class RevisionSlot {
+        @Nullable private String contentmodel;
+        @Nullable private String contentformat;
+        @Nullable private String content;
+
+        @NonNull public String getContent() {
+            return StringUtils.defaultString(content);
         }
     }
 
@@ -295,4 +322,6 @@ public class MwQueryPage extends BaseModel {
             return google;
         }
     }
+
+
 }

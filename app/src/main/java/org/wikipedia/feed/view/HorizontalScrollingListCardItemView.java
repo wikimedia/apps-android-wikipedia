@@ -7,17 +7,16 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.cardview.widget.CardView;
 
 import org.wikipedia.R;
 import org.wikipedia.richtext.RichTextUtil;
-import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.views.FaceAndColorDetectImageView;
+import org.wikipedia.views.WikiCardView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class HorizontalScrollingListCardItemView extends CardView {
+public class HorizontalScrollingListCardItemView extends WikiCardView {
     @BindView(R.id.horizontal_scroll_list_item_image) FaceAndColorDetectImageView imageView;
     @BindView(R.id.horizontal_scroll_list_item_text) TextView textView;
     @Nullable private FeedAdapter.Callback callback;
@@ -25,7 +24,6 @@ public class HorizontalScrollingListCardItemView extends CardView {
     public HorizontalScrollingListCardItemView(@NonNull Context context) {
         super(context);
         inflate(getContext(), R.layout.view_horizontal_scroll_list_item_card, this);
-        setCardBackgroundColor(ResourceUtil.getThemedColor(context, R.attr.paper_color));
         ButterKnife.bind(this);
         setFocusable(true);
     }

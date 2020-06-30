@@ -15,6 +15,7 @@ import org.wikipedia.database.contract.ReadingListPageContract;
 import org.wikipedia.events.ArticleSavedOrDeletedEvent;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter;
+import org.wikipedia.readinglist.sync.ReadingListSyncEvent;
 import org.wikipedia.savedpages.SavedPageSyncService;
 import org.wikipedia.util.log.L;
 
@@ -217,33 +218,67 @@ public class ReadingListDbHelper {
         SavedPageSyncService.enqueue();
     }
 
-    public int addPagesToListIfNotExist(@NonNull ReadingList list, @NonNull List<PageTitle> titles) {
+    public List<String> addPagesToListIfNotExist(@NonNull ReadingList list, @NonNull List<PageTitle> titles) {
         SQLiteDatabase db = getWritableDatabase();
         db.beginTransaction();
-        int numAdded = 0;
+        List<String> addedTitles = new ArrayList<>();
         try {
             for (PageTitle title : titles) {
                 if (getPageByTitle(db, list, title) != null) {
                     continue;
                 }
                 addPageToList(db, list, title);
-                numAdded++;
+                addedTitles.add(title.getDisplayText());
             }
             db.setTransactionSuccessful();
         } finally {
             db.endTransaction();
         }
-        if (numAdded > 0) {
+        if (!addedTitles.isEmpty()) {
             SavedPageSyncService.enqueue();
             ReadingListSyncAdapter.manualSync();
         }
-        return numAdded;
+        return addedTitles;
+    }
+
+    public List<String> movePagesToListAndDeleteSourcePages(@NonNull ReadingList sourceList, @NonNull ReadingList destList, @NonNull List<PageTitle> titles) {
+        SQLiteDatabase db = getWritableDatabase();
+        db.beginTransaction();
+        List<String> movedTitles = new ArrayList<>();
+        try {
+            for (PageTitle title : titles) {
+                movePageToList(db, sourceList, destList, title);
+                movedTitles.add(title.getDisplayText());
+            }
+            db.setTransactionSuccessful();
+        } finally {
+            db.endTransaction();
+        }
+        if (!movedTitles.isEmpty()) {
+            SavedPageSyncService.enqueue();
+            ReadingListSyncAdapter.manualSync();
+        }
+        return movedTitles;
     }
 
     private void addPageToList(SQLiteDatabase db, @NonNull ReadingList list, @NonNull PageTitle title) {
         ReadingListPage protoPage = new ReadingListPage(title);
         insertPageInDb(db, list, protoPage);
         WikipediaApp.getInstance().getBus().post(new ArticleSavedOrDeletedEvent(true, protoPage));
+    }
+
+    private void movePageToList(SQLiteDatabase db, @NonNull ReadingList sourceList, @NonNull ReadingList destList, @NonNull PageTitle title) {
+        if (sourceList.id() == destList.id()) {
+            return;
+        }
+        ReadingListPage sourceReadingListPage = getPageByTitle(db, sourceList, title);
+        if (sourceReadingListPage != null) {
+            if (getPageByTitle(db, destList, title) == null) {
+                addPageToList(db, destList, title);
+            }
+            markPagesForDeletion(sourceList, Collections.singletonList(sourceReadingListPage));
+            WikipediaApp.getInstance().getBus().post(new ReadingListSyncEvent());
+        }
     }
 
     public void markPagesForDeletion(@NonNull ReadingList list, @NonNull List<ReadingListPage> pages) {
@@ -641,7 +676,7 @@ public class ReadingListDbHelper {
     }
 
     @Nullable
-    public ReadingList getFullListById(long id) {
+    public ReadingList getListById(long id, boolean populatePages) {
         SQLiteDatabase db = getReadableDatabase();
         ReadingList list = null;
         try (Cursor cursor = db.query(ReadingListContract.TABLE, null,
@@ -654,7 +689,9 @@ public class ReadingListDbHelper {
         if (list == null) {
             return null;
         }
-        populateListPages(db, list);
+        if (populatePages) {
+            populateListPages(db, list);
+        }
         return list;
     }
 

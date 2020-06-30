@@ -34,6 +34,7 @@
   <string name="search_hint_search_my_lists_and_articles">Sök i mina listor och artiklar</string>
   <string name="nav_item_history">Historik</string>
   <string name="nav_item_suggested_edits">Redigeringsförslag</string>
+  <string name="nav_item_more">Fler</string>
   <string name="error_network_error">Kan inte ansluta till Internet.</string>
   <string name="page_error_retry">Försök igen</string>
   <string name="card_offline_error_retry">Försök igen</string>
@@ -117,7 +118,7 @@
   <string name="reading_lists_sync_login">Logga in</string>
   <string name="create_account_login">Logga in</string>
   <string name="menu_login">Logga in</string>
-  <string name="login_activity_title">Logga in på Wikipedia</string>
+  <string name="login_activity_title" fuzzy="true">Logga in på Wikipedia</string>
   <string name="login_in_progress_dialog_message">Loggar in dig…</string>
   <string name="login_success_toast">Inloggningen lyckades!</string>
   <string name="reset_password_title">Ändra ditt lösenord</string>
@@ -319,7 +320,9 @@
   <string name="page_offline_notice_last_date">Du läser en offlineversion av denna artikel som sparades den %s.</string>
   <string name="button_get_directions">Få vägbeskrivningar</string>
   <string name="error_no_maps_app">Kunde inte hitta några appar som kan ge vägbeskrivningar.</string>
+  <string name="preference_title_customize_explore_feed">Utforskarflöde</string>
   <string name="preference_title_show_link_previews">Visa förhandsvisning för länkar</string>
+  <string name="preference_summary_customize_explore_feed">Anpassa utforskarflödet</string>
   <string name="preference_summary_show_link_previews">Visar en kort förhandsvisning av artiklar när du trycker på länkar.</string>
   <string name="preference_title_collapse_tables">Stäng tabeller</string>
   <string name="preference_summary_collapse_tables">Stänger automatiskt tabeller i artiklar, som inforutor, referenser och anmärkningar.</string>
@@ -368,9 +371,11 @@
   <string name="text_size_percent_default">%s (standard)</string>
   <string name="nav_item_reading_lists">Mina listor</string>
   <string name="reading_list_save_to">Spara i läslista</string>
+  <string name="reading_list_move_to">Flytta till läslista</string>
   <string name="reading_list_create_new">Skapa ny</string>
   <string name="reading_list_title_exists">Läslistan \"%s\" finns redan.</string>
   <string name="reading_list_article_added_to_named">Lade till %1$s i %2$s.</string>
+  <string name="reading_list_article_moved_to_named">Flyttade %1$s till %2$s.</string>
   <string name="reading_list_article_already_exists_message">%1$s innehåller redan %2$s.</string>
   <string name="reading_list_articles_already_exist_message">%s innehåller redan alla artiklar.</string>
   <string name="reading_list_added_view_button">Visa lista</string>
@@ -393,6 +398,7 @@
   <string name="reading_list_action_menu_remove_all_from_offline">Ta bort alla från offline</string>
   <string name="reading_list_action_menu_save_all_for_offline">Spara alla för offline</string>
   <string name="reading_list_action_menu_add_to_another_list">Lägg till i en annan lista</string>
+  <string name="reading_list_action_menu_move_to_another_list">Flytta till en annan lista</string>
   <string name="reading_list_name_sample">Min läslista</string>
   <string name="reading_list_name_hint">Namn på denna lista</string>
   <string name="reading_list_description_hint">Beskrivning (valfri)</string>
@@ -413,6 +419,8 @@
   <string name="reading_list_article_offline">Tillgänglig offline</string>
   <string name="reading_list_article_make_offline">Gör denna artikel tillgänglig offline</string>
   <string name="reading_list_add_to_other_list">Lägg till i en annan läslista</string>
+  <string name="reading_list_move_to_other_list">Flytta till en annan läslista</string>
+  <string name="reading_list_move_from_to_other_list">Flytta från %s till en annan läslista</string>
   <string name="reading_list_remove_from_list">Ta bort från %s</string>
   <string name="reading_list_remove_from_lists">Ta bort från läslistor</string>
   <string name="reading_list_select_item">Markera</string>
@@ -429,6 +437,7 @@
   <string name="reading_lists_confirm_remote_delete_no">Nej</string>
   <string name="reading_list_article_save_in_progress">Artikeln laddas ned och kommer att vara tillgänglig offline när den är färdig.</string>
   <string name="reading_list_articles_added_to_named">Lade till %1$d artiklar i %2$s</string>
+  <string name="reading_list_articles_moved_to_named">Flyttade %1$d artiklar till %2$s</string>
   <string name="reading_list_delete_confirm">Är du säker på att du vill radera %s?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Logga in för att aktivera synkronisering</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Logga in för att tillåta att dina läslistor sparas till ditt konto.</string>
@@ -449,6 +458,7 @@
   <string name="no_user_lists_msg">Skapa listor för platser att åka till, favoritämnen och mycket mer</string>
   <string name="reading_list_saved_list_rename">%1$s (skapad av användare)</string>
   <string name="split_reading_list_message">Det finns en gräns på %d artiklar per läslista. Befintliga listor med fler än denna gräns har delats upp i flera listor.</string>
+  <string name="reading_list_move_article_limit_message">Kan inte flytta till denna lista. Du har nått gränsen på %2$d artiklar per lista för \"%1$s\".</string>
   <string name="reading_list_article_limit_message">Kan inte lägga till i denna lista. Du har nått gränsen på %2$d artiklar per lista för \"%1$s\".</string>
   <string name="reading_lists_limit_message">Kan inte skapa en till lista. Du har nått gränsen på 100 läslistor per konto.</string>
   <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Synkronisera läslistor&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Läslistor kan nu synkroniseras över enheter. Logga in till ditt Wikipedia-konto och tillåt dina listor att sparas.</string>
@@ -683,12 +693,15 @@
   <string name="suggested_edits_tasks_onboarding_get_started">Kom igång</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Bildtexter (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Bildbeskrivning (%s)</string>
+  <string name="suggested_edits_image_preview_dialog_file">Fil</string>
   <string name="suggested_edits_image_preview_dialog_artist">Konstnär</string>
+  <string name="suggested_edits_image_preview_dialog_tags">Taggar</string>
   <string name="suggested_edits_image_preview_dialog_date">Datum</string>
   <string name="suggested_edits_image_preview_dialog_source">Källa/fotograf</string>
   <string name="suggested_edits_image_preview_dialog_licensing">Licensiering</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Mer info</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Filsida på Wikimedia Commons</string>
+  <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">Filsida på Wikipedia</string>
   <string name="suggested_edits_article_cta_image_caption">Lägg till bildtext</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Lägg till bildtext (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Visa</string>
@@ -704,10 +717,10 @@
   <string name="suggested_edits_image_tags_publishing">Publicerar</string>
   <string name="suggested_edits_image_tags_published">Publicerades</string>
   <string name="suggested_edits_image_tags_onboarding_title">Bildtaggar gör dem lättare att hitta.</string>
-  <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">Genom att lägga till bildtaggar hjälper du till att göra det lättare att söka efter bilder på Commons, den frilicenserade bildarkivet som Wikipedia använder för bilder i sina artiklar.\n\nVi har automatiskt skapat förslag på några taggar och du kan också lägga till egna.</string>
+  <string name="suggested_edits_image_tags_onboarding_text">Genom att lägga till bildtaggar hjälper du till att göra det lättare att söka efter dem på Commons, det frilicenserade bildarkivet som Wikipedia använder för bilder i sina artiklar.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Endast taggar som du väljer kommer att läggas till i bilder.</string>
   <string name="suggested_edits_image_tags_snackbar">Lägg till bildtaggar för att göra det lättare för andra att hitta bilderna.</string>
-  <string name="suggested_edits_image_tags_task_detail" fuzzy="true">Tagga bilder för att göra dem enklare att hitta. Välj bland de föreslagna taggarna eller lägg till egna.</string>
+  <string name="suggested_edits_image_tags_task_detail">Lägg till anpassade taggar på en bild för att göra den enklare att hitta.</string>
   <string name="suggested_edits_image_tags_choose">Lägg till eller välj lämpliga taggar</string>
   <string name="suggested_edits_image_tags_published_list">Publicerade taggar</string>
   <string name="suggested_edits_image_tags_search">Sök taggar</string>
@@ -717,15 +730,15 @@
   <string name="suggested_edits_image_zoom_tooltip">Nyp för att zooma denna bild.</string>
   <string name="suggested_edits_encouragement_message">Tack för dina redigeringar, %s. Nedan kan du hitta fler sätt att bidra på Wikipedia.</string>
   <string name="suggested_edits_onboarding_message">Hej %s, visste du att alla kan redigera på Wikipedia? Nedan kan du hitta roliga sätt att hjälpa till att förbättra Wikipedia. Lycka till med redigeringen!</string>
-  <string name="suggested_edits_image_captions_task_detail">Bildtexter beskriver en bild för att hjälpa läsare förstå dess betydelse och sammanhang.</string>
-  <string name="suggested_edits_add_descriptions_task_detail">Titelbeskrivningar sammanfattar en artikel för att hjälpa läsare förstå ämnet på ett ögonblick.</string>
+  <string name="suggested_edits_image_captions_task_detail">Beskriv en bild för att hjälpa läsare förstå dess betydelse och sammanhang.</string>
+  <string name="suggested_edits_add_descriptions_task_detail">Sammanfatta en artikel för att hjälpa läsare förstå ämnet på ett ögonblick.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Ditt totala antal bidrag med redigeringsförslag.</string>
   <string name="suggested_edits_edit_streak_stat_tooltip">Antal dagar i rad du har bidragit via redigeringsförslag. Om du inte har bidragit på ett tag kommer datumet för ditt senaste bidrag visas.</string>
   <string name="suggested_edits_page_views_stat_tooltip">Sidvisningar för objekt du har bidragit till de senaste 30 dagarna med redigeringsförslag.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Baserat på hur många gånger ett av dina bidrag har återställts (blivit ogjord av en annan redigerare). Återställda redigeringar: %d.</string>
-  <string name="suggested_edits_paused_message">&lt;b&gt;Redigeringsförslag pausas t.o.m. %1$s.&lt;/b&gt; Förlåt, %2$s. Några av dina senaste bidrag har återställts.\n\nLäs om hur du kan förbättra dina redigeringskunskaper på Wikipedia med länken nedan.</string>
-  <string name="suggested_edits_disabled_message">&lt;b&gt;Redigeringsförslag har inaktiverats.&lt;/b&gt; Förlåt, %s. Alltför många av dina senaste bidrag har återställts.\n\nLäs om vad detta innebär med länken nedan.</string>
-  <string name="suggested_edits_ip_blocked_message">Det ser ut som att din IP-adress (eller IP-intervall) är för tillfället blockerad från att redigera på Wikipedia. Läs mer om vad detta innebär via länken nedan.</string>
+  <string name="suggested_edits_paused_message">Redigeringsförslag pausas t.o.m. %1$s. Förlåt, %2$s. Några av dina senaste bidrag har återställts.</string>
+  <string name="suggested_edits_disabled_message">Redigeringsförslag har inaktiverats. Förlåt, %s. Alltför många av dina senaste bidrag har återställts.</string>
+  <string name="suggested_edits_ip_blocked_message">Det ser ut som att din IP-adress (eller IP-intervall) är för tillfället blockerad från att redigera på Wikipedia.</string>
   <string name="suggested_edits_editing_tips_link_text">Tips och tricks för att redigera</string>
   <string name="suggested_edits_help_page_link_text">Hjälpsida för redigeringsförslag</string>
   <string name="suggested_edits_edit_streak_label_text">Redigeringar i rad</string>
@@ -748,6 +761,12 @@
     <item quantity="one">%d dag</item>
     <item quantity="other">%d dagar</item>
   </plurals>
+  <string name="suggested_edits_what_is_title">Vad är redigeringsförslag?</string>
+  <string name="suggested_edits_what_is_text">Redigeringsförslag erbjuder möjligheten att göra mindre men viktiga bidrag på Wikipedia.</string>
+  <string name="suggested_edits_learn_more">Läs mer</string>
+  <string name="suggested_edits_paused_title">Pausad</string>
+  <string name="suggested_edits_disabled_title">Inaktiverad</string>
+  <string name="suggested_edits_ip_blocked_title">Blockerad IP-adress</string>
   <string name="suggested_edits_last_edited">Redigerade senast</string>
   <string name="suggested_edits_last_edited_never">Aldrig</string>
   <string name="suggested_edits_task_new">ny</string>
@@ -755,6 +774,44 @@
   <string name="suggested_edits_reactivation_notification_title">Redigeringsförslag</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Tack för att du redigerar på Wikipedia! Varför inte fortsätta där du slutade sist?</string>
   <string name="suggested_edits_reactivation_notification_stage_two">Har du en minut över för att förbättra Wikipedia? Titta på dessa redigeringsförslag.</string>
+  <string name="suggested_edits_contributions_screen_title">%ss bidrag</string>
+  <string name="suggested_edits_contribution_language_label">Språk</string>
+  <string name="suggested_edits_contribution_date_time_label">Datum / Tid</string>
+  <string name="suggested_edits_contribution_type_label">Bidragstyp</string>
+  <string name="suggested_edits_contribution_image_label">Fil</string>
+  <string name="suggested_edits_contribution_article_label">Artikel</string>
+  <string name="suggested_edits_contribution_views">%s visningar</string>
+  <string name="suggested_edits_contribution_seen_text">Har setts %s gånger under de senaste 30 dagarna.</string>
+  <plurals name="suggested_edits_image_tag_contribution_label">
+    <item quantity="one">Du lade till %d tagg</item>
+    <item quantity="other">Du lade till %d taggar</item>
+  </plurals>
+  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
+  <string name="suggested_edits_contribution_date_yesterday_text">Igår</string>
+  <string name="suggested_edits_rewards_contribution">Du har gjort %d bidrag på Wikipedia med redigeringsförslag. Tack!</string>
+  <string name="suggested_edits_rewards_edit_streak">Du har redigerat varje dag %1$d dagar i rad. Fortsätt med det, %2$s!</string>
+  <string name="suggested_edits_rewards_pageviews">Dina redigeringar har setts av %d personer under de senaste 30 dagarna. Tack och fortsätt med det!</string>
+  <string name="suggested_edits_rewards_edit_quality">Dina redigeringar är så länge %s. Fortsätt med det! Vi ser fram emot dina bidrag.</string>
+  <string name="suggested_edits_rewards_continue_button">Fortsätt</string>
+  <string name="suggested_edits_contribution_type_image_tag">Bildtagg</string>
+  <string name="suggested_edits_contribution_current_revision">Nuvarande version</string>
+  <plurals name="suggested_edits_tags_diff_count_text">
+    <item quantity="one">%1$s tagg</item>
+    <item quantity="other">%1$s taggar</item>
+  </plurals>
+  <plurals name="suggested_edits_contribution_diff_count_text">
+    <item quantity="one">%1$s tecken</item>
+    <item quantity="other">%1$s tecken</item>
+  </plurals>
+  <plurals name="suggested_edits_removed_contribution_label">
+    <item quantity="one">Du tog bort %d tecken</item>
+    <item quantity="other">Du tog bort %d tecken</item>
+  </plurals>
+  <plurals name="suggested_edits_added_contribution_label">
+    <item quantity="one">Du lade till %d tecken</item>
+    <item quantity="other">Du lade till %d tecken</item>
+  </plurals>
+  <string name="file_page_activity_title">Filsida</string>
   <string name="description_edit_revert_subtitle">Tack för att du redigerar på Wikipedia!</string>
   <string name="description_edit_revert_intro">Vi vet att du försökte ditt bästa men en av korrekturläsarna hade en invändning. Möjliga anledningar till att din redigering gjordes om inkluderar:</string>
   <string name="description_edit_revert_reason1">ditt bidrag följde inte ett av &lt;a href=\"%1$s\"&gt;riktlinjerna&lt;/a&gt;.</string>
@@ -776,9 +833,6 @@
   <string name="onboarding_analytics_title">Skicka anonym data</string>
   <string name="onboarding_analytics_offline_text">Hjälp till att göra appen bättre genom att låta oss veta hur du använder den. Data som samlas in är anonym. &lt;a href=\"#privacy\"&gt;Läs mer&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Skicka användningsdata</string>
-  <string name="onboarding_create_account_sync">Synkronisera dina läslistor</string>
-  <string name="onboarding_create_account_contributions">Håll koll på dina bidrag</string>
-  <string name="onboarding_create_account_preferences">Spara dina inställningar</string>
   <string name="onboarding_got_it">Jag förstår</string>
   <string name="onboarding_multilingual_secondary_text">Vi har hittat följande på din enhet:</string>
   <string name="onboarding_multilingual_add_language_text">Lägg till eller redigera språk</string>
@@ -829,6 +883,7 @@
   <string name="edit_conflict_dialog_ok_button_text">OK</string>
   <string name="reverted_edit_dialog_ok_button_text">OK</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">Avbryt</string>
+  <string name="edit_type_all">Alla bidrag</string>
   <string name="content_description_for_page_indicator">Sida %1$d av %2$d</string>
   <string name="wikitext_bold">Fet</string>
   <string name="wikitext_italic">Kursiv</string>
@@ -838,12 +893,9 @@
   <string name="wikitext_template">Mall</string>
   <string name="wikitext_reference">Referens</string>
   <string name="wikitext_preview_link">Förhandsvisa länk</string>
-  <string name="main_drawer_open">Öppna</string>
-  <string name="main_drawer_close">Stäng</string>
-  <string name="main_drawer_content_description">Öppna huvudnavigeringsmenyn</string>
   <string name="main_drawer_help">Hjälp</string>
   <string name="main_drawer_login">Logga in / skapa konto på Wikipedia</string>
-  <string name="main_tooltip_text">%s, visste du att alla kan redigera Wikipedia?</string>
+  <string name="main_tooltip_text">Hej, %s. Visste du att alla kan redigera på Wikipedia?</string>
   <string name="main_tooltip_action_button">Kom igång</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_ok_button_text">OK</string>

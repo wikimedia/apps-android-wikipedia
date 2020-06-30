@@ -117,7 +117,7 @@
   <string name="reading_lists_sync_login">Увійти до системи</string>
   <string name="create_account_login">Увійти до системи</string>
   <string name="menu_login">Увійти</string>
-  <string name="login_activity_title">Вхід у Вікіпедію</string>
+  <string name="login_activity_title" fuzzy="true">Вхід у Вікіпедію</string>
   <string name="login_in_progress_dialog_message">Входимо до системи…</string>
   <string name="login_success_toast">Ви ввійшли!</string>
   <string name="reset_password_title">Встановіть пароль</string>
@@ -726,10 +726,10 @@
   <string name="suggested_edits_image_tags_publishing">Публікація</string>
   <string name="suggested_edits_image_tags_published">Опубліковано</string>
   <string name="suggested_edits_image_tags_onboarding_title">Додавання тегів до зображень полегшує їх пошук.</string>
-  <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">Додаючи теги до зображень, ви допоможете полегшити пошук таких зображень на Вікісховищі — сховищі зображень під вільними ліцензіями, яке Вікіпедія використовує для додавання зображень до своїх статей.\n\nМи автоматично запропонували деякі теги, а також ви можете додати свої власні.</string>
+  <string name="suggested_edits_image_tags_onboarding_text">Додаючи теги до зображень, ви полегшите їх пошук у Вікісховищі, де зберігаються зображення під вільними ліцензіями, і які, в свою чергу, використовуються у Вікіпедії для ілюстрації статей.</string>
   <string name="suggested_edits_image_tags_onboarding_note">До зображень буде додано лише ті теги, які ви затвердите.</string>
   <string name="suggested_edits_image_tags_snackbar">Додавайте теги до зображень, щоб полегшити їх пошук для інших користувачів.</string>
-  <string name="suggested_edits_image_tags_task_detail" fuzzy="true">Додавайте теги до зображень, щоб полегшити їх пошук для інших користувачів. Виберіть із-поміж запропонованих тегів, або додайте власні.</string>
+  <string name="suggested_edits_image_tags_task_detail">Додавайте теги до зображення, щоб його було легше знайти.</string>
   <string name="suggested_edits_image_tags_choose">Додайте чи виберіть відповідні теги</string>
   <string name="suggested_edits_image_tags_published_list">Опубліковані теги</string>
   <string name="suggested_edits_image_tags_search">Пошук тегів</string>
@@ -739,15 +739,15 @@
   <string name="suggested_edits_image_zoom_tooltip">Розтягніть, щоб збільшити зображення.</string>
   <string name="suggested_edits_encouragement_message">%s, дякуємо за ваші правки! Нижче ви можете знайти більше шляхів зробити внесок у Вікіпедію.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Вітаємо %s&lt;/b&gt;! Чи знаєте ви, що будь-хто може редагувати Вікіпедію? Нижче ви знайдете цікаві способи її покращення. Приємного редагування!</string>
-  <string name="suggested_edits_image_captions_task_detail">Підписи зображень допомагають читачам зрозуміти значення та контекст зображень.</string>
-  <string name="suggested_edits_add_descriptions_task_detail">Описи статей допомагають читачам зрозуміти предмет статті з першого погляду, підсумовуючи вміст статті.</string>
+  <string name="suggested_edits_image_captions_task_detail">Опишіть зображення, щоб допомогти читачам зрозуміти його значення та контекст.</string>
+  <string name="suggested_edits_add_descriptions_task_detail">Підсумуйте вміст статті, щоб допомогти читачам зрозуміти предмет статті з першого погляду.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Кількість ваших редагувань з Пропонованих.</string>
   <string name="suggested_edits_edit_streak_stat_tooltip">Скільки днів поспіль ви робили внесок через список пропонованих редагувань. Якщо ви довго не робили внесок, то показується дата останнього внеску.</string>
   <string name="suggested_edits_page_views_stat_tooltip">Кількість переглядів сторінок, які ви редагували з \"Пропонованих\" останні 30 днів.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Засновано на тому, скільки разів ваші редагування було скасовано (іншим редактором). Кількість таких редагувань: %d.</string>
-  <string name="suggested_edits_paused_message">&lt;b&gt;Пропоновані редагування було тимчасово відключено до %1$s.&lt;/b&gt; Перепрошуємо %2$s, але деякі з ваших останніх редагувань було скасовано.\n\nДізнайтесь, як покращити якість ваших редагувань у Вікіпедії, за посиланням нижче.</string>
-  <string name="suggested_edits_disabled_message">&lt;b&gt;Пропоновані редагування було відключено.&lt;/b&gt; Перепрошуємо %s, але забагато з ваших останніх редагувань було скасовано.\n\nДізнайтесь, що це означає, за посиланням нижче.</string>
-  <string name="suggested_edits_ip_blocked_message">Схоже, що IP-адреса, якою ви користуєтесь (або діапазон IP-адрес), наразі заблокована для редагування у Вікіпедії. Що це означає, ви може дізнатися з посилання нижче.</string>
+  <string name="suggested_edits_paused_message" fuzzy="true">&lt;b&gt;Пропоновані редагування було тимчасово відключено до %1$s.&lt;/b&gt; Перепрошуємо %2$s, але деякі з ваших останніх редагувань було скасовано.\n\nДізнайтесь, як покращити якість ваших редагувань у Вікіпедії, за посиланням нижче.</string>
+  <string name="suggested_edits_disabled_message" fuzzy="true">&lt;b&gt;Пропоновані редагування було відключено.&lt;/b&gt; Перепрошуємо %s, але забагато з ваших останніх редагувань було скасовано.\n\nДізнайтесь, що це означає, за посиланням нижче.</string>
+  <string name="suggested_edits_ip_blocked_message" fuzzy="true">Схоже, що IP-адреса, якою ви користуєтесь (або діапазон IP-адрес), наразі заблокована для редагування у Вікіпедії. Що це означає, ви може дізнатися з посилання нижче.</string>
   <string name="suggested_edits_editing_tips_link_text">Редагування порад</string>
   <string name="suggested_edits_help_page_link_text">Довідка з \"Пропонованих редагуваннь\"</string>
   <string name="suggested_edits_edit_streak_label_text">Страйк редагувань</string>
@@ -761,6 +761,7 @@
   <string name="suggested_edits_quality_sufficient_text">Достатньо</string>
   <string name="suggested_edits_quality_poor_text">Не дуже</string>
   <string name="suggested_edits_quality_bad_text">Погано</string>
+  <string name="suggested_edits_contribute">Внесок</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">Редагування</item>
     <item quantity="few">Редагування</item>
@@ -801,9 +802,6 @@
   <string name="onboarding_analytics_title">Надіслати анонімні дані</string>
   <string name="onboarding_analytics_offline_text">Допоможіть нам покращити додаток, повідомляючи, як ви його використовуєте. Зібрані дані анонімні. &lt;a href=\"#privacy\"&gt;Дізнатись більше&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Надсилати дані використання</string>
-  <string name="onboarding_create_account_sync">Синхронізувати свої читальні списки</string>
-  <string name="onboarding_create_account_contributions">Слідкувати за своїм внеском</string>
-  <string name="onboarding_create_account_preferences">Зберігати налаштування</string>
   <string name="onboarding_got_it">Зрозуміло</string>
   <string name="onboarding_multilingual_secondary_text">Ми знайшли такі мови на Вашому пристрої:</string>
   <string name="onboarding_multilingual_add_language_text">Додати або редагувати мови</string>
@@ -867,12 +865,9 @@
   <string name="wikitext_template">Шаблон</string>
   <string name="wikitext_reference">Примітка</string>
   <string name="wikitext_preview_link">Попередній перегляд посилання</string>
-  <string name="main_drawer_open">Відкрити</string>
-  <string name="main_drawer_close">Закрити</string>
-  <string name="main_drawer_content_description">Відкрити основное меню</string>
   <string name="main_drawer_help">Допомога</string>
   <string name="main_drawer_login">Увійти до Вікіпедії</string>
-  <string name="main_tooltip_text">%s, чи знаєте ви, що будь-хто може редагувати Вікіпедію?</string>
+  <string name="main_tooltip_text" fuzzy="true">%s, чи знаєте ви, що будь-хто може редагувати Вікіпедію?</string>
   <string name="main_tooltip_action_button">Розпочати</string>
   <string name="custom_date_picker_dialog_ok_button_text">Гаразд</string>
   <string name="text_input_dialog_ok_button_text">Гаразд</string>

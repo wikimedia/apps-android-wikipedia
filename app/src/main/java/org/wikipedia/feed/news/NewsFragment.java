@@ -30,6 +30,7 @@ import org.wikipedia.json.GsonUnmarshaller;
 import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.readinglist.AddToReadingListDialog;
+import org.wikipedia.readinglist.MoveToReadingListDialog;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.GradientUtil;
@@ -164,6 +165,12 @@ public class NewsFragment extends Fragment {
         public void onAddPageToList(@NonNull HistoryEntry entry) {
             bottomSheetPresenter.show(getChildFragmentManager(),
                     AddToReadingListDialog.newInstance(entry.getTitle(), NEWS_ACTIVITY));
+        }
+
+        @Override
+        public void onMovePageToList(long sourceReadingListId, @NonNull HistoryEntry entry) {
+            bottomSheetPresenter.show(getChildFragmentManager(),
+                    MoveToReadingListDialog.newInstance(sourceReadingListId, entry.getTitle(), NEWS_ACTIVITY));
         }
 
         @Override

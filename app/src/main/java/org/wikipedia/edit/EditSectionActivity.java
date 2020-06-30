@@ -63,9 +63,9 @@ import java.util.concurrent.TimeUnit;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.schedulers.Schedulers;
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 import retrofit2.Call;
 
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
@@ -244,9 +244,9 @@ public class EditSectionActivity extends BaseActivity {
 
     private void updateEditLicenseText() {
         TextView editLicenseText = findViewById(R.id.edit_section_license_text);
-        editLicenseText.setText(StringUtil.fromHtml(String.format(getString(AccountUtil.isLoggedIn()
+        editLicenseText.setText(StringUtil.fromHtml(getString(AccountUtil.isLoggedIn()
                         ? R.string.edit_save_action_license_logged_in
-                        : R.string.edit_save_action_license_anon),
+                        : R.string.edit_save_action_license_anon,
                 getString(R.string.terms_of_use_url),
                 getString(R.string.cc_by_sa_3_url))));
 
@@ -661,20 +661,8 @@ public class EditSectionActivity extends BaseActivity {
         ViewAnimations.crossFade(progressBar, sectionContainer);
         scrollToHighlight(textToHighlight);
 
-        if (pageProps != null && !TextUtils.isEmpty(pageProps.getEditProtectionStatus())) {
-            String message;
-            switch (pageProps.getEditProtectionStatus()) {
-                case "sysop":
-                    message = getString(R.string.page_protected_sysop);
-                    break;
-                case "autoconfirmed":
-                    message = getString(R.string.page_protected_autoconfirmed);
-                    break;
-                default:
-                    message = getString(R.string.page_protected_other, pageProps.getEditProtectionStatus());
-                    break;
-            }
-            FeedbackUtil.showMessage(this, message);
+        if (pageProps != null) {
+            FeedbackUtil.showProtectionStatusMessage(this, pageProps.getEditProtectionStatus());
         }
     }
 

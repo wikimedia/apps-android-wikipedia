@@ -22,6 +22,7 @@ import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
+import org.wikipedia.commons.FilePageActivity;
 import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
@@ -35,17 +36,16 @@ import org.wikipedia.util.FileUtil;
 import org.wikipedia.util.ImageUrlUtil;
 import org.wikipedia.util.PermissionUtil;
 import org.wikipedia.util.StringUtil;
-import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.ViewUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
-import io.reactivex.Observable;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.schedulers.Schedulers;
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.core.Observable;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 
 import static org.wikipedia.Constants.PREFERRED_GALLERY_IMAGE_SIZE;
 import static org.wikipedia.util.PermissionUtil.hasWriteExternalStoragePermission;
@@ -171,9 +171,7 @@ public class GalleryItemFragment extends Fragment {
         switch (item.getItemId()) {
             case R.id.menu_gallery_visit_page:
                 if (mediaInfo != null && imageTitle != null) {
-                    UriUtil.visitInExternalBrowser(requireActivity(), Uri.parse(imageTitle.getUri()));
-                    // TODO: load the page within the app once it's supported.
-                    //((GalleryActivity) requireActivity()).finishWithPageResult(imageTitle);
+                    startActivity(FilePageActivity.newIntent(requireContext(), imageTitle));
                 }
                 return true;
             case R.id.menu_gallery_save:
@@ -299,7 +297,7 @@ public class GalleryItemFragment extends Fragment {
         L.v("Loading image from url: " + url);
 
         updateProgressBar(true);
-        ViewUtil.loadImage(imageView, url);
+        ViewUtil.loadImageWithWhiteBackground(imageView, url);
         // TODO: show error if loading failed.
     }
 

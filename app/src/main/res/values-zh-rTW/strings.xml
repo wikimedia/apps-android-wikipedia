@@ -19,6 +19,7 @@
 * Willy1018
 * Wwycheuk
 * Xiplus
+* 沈澄心
 * 漢黑玉
 * 烈羽
 -->
@@ -37,6 +38,7 @@
   <string name="search_hint_search_my_lists_and_articles">搜尋我的清單與條目</string>
   <string name="nav_item_history">歷史</string>
   <string name="nav_item_suggested_edits">建議編輯</string>
+  <string name="nav_item_more">更多</string>
   <string name="error_network_error">無法連上網際網路。</string>
   <string name="page_error_retry">重試</string>
   <string name="card_offline_error_retry">重試</string>
@@ -120,7 +122,7 @@
   <string name="reading_lists_sync_login">登入</string>
   <string name="create_account_login">登入</string>
   <string name="menu_login">登入</string>
-  <string name="login_activity_title">登入維基百科</string>
+  <string name="login_activity_title" fuzzy="true">登入維基百科</string>
   <string name="login_in_progress_dialog_message">正在登入…</string>
   <string name="login_success_toast">已登入！</string>
   <string name="reset_password_title">設定您的密碼</string>
@@ -322,7 +324,9 @@
   <string name="page_offline_notice_last_date">您正閱讀此條目儲存於 %s 的離線版本。</string>
   <string name="button_get_directions">取得路線</string>
   <string name="error_no_maps_app">無法找到任何提供路線的應用程式。</string>
+  <string name="preference_title_customize_explore_feed">探索摘要</string>
   <string name="preference_title_show_link_previews">顯示連結預覽</string>
+  <string name="preference_summary_customize_explore_feed">自訂探索摘要</string>
   <string name="preference_summary_show_link_previews">在輕觸連結時，顯示條目的快速預覽。</string>
   <string name="preference_title_collapse_tables">折疊表格</string>
   <string name="preference_summary_collapse_tables">自動折疊在條目裡的表格，例如像是資訊框、參考資料、註解等等。</string>
@@ -371,9 +375,11 @@
   <string name="text_size_percent_default">%s（預設）</string>
   <string name="nav_item_reading_lists">我的清單</string>
   <string name="reading_list_save_to">儲存至閱讀清單</string>
+  <string name="reading_list_move_to">移動至閱讀清單</string>
   <string name="reading_list_create_new">建立新的</string>
   <string name="reading_list_title_exists">已有名為「%s」的閱讀清單。</string>
   <string name="reading_list_article_added_to_named">已新增%1$s到%2$s。</string>
+  <string name="reading_list_article_moved_to_named">已移動%1$s到%2$s。</string>
   <string name="reading_list_article_already_exists_message">一切完成！%1$s已包含%2$s。</string>
   <string name="reading_list_articles_already_exist_message">一切完成！%s已包含所有條目。</string>
   <string name="reading_list_added_view_button">檢視清單</string>
@@ -396,6 +402,7 @@
   <string name="reading_list_action_menu_remove_all_from_offline">全部從離線移除</string>
   <string name="reading_list_action_menu_save_all_for_offline">全部儲存用於離線使用</string>
   <string name="reading_list_action_menu_add_to_another_list">添加至另一個清單</string>
+  <string name="reading_list_action_menu_move_to_another_list">移動至別的清單</string>
   <string name="reading_list_name_sample">我的閱讀清單</string>
   <string name="reading_list_name_hint">此清單的名稱</string>
   <string name="reading_list_description_hint">描述（可選）</string>
@@ -416,6 +423,8 @@
   <string name="reading_list_article_offline">可於離線時閱讀</string>
   <string name="reading_list_article_make_offline">讓此條目可於離線閱讀</string>
   <string name="reading_list_add_to_other_list">新增至另一個閱讀清單</string>
+  <string name="reading_list_move_to_other_list">移動至別的閱讀清單</string>
+  <string name="reading_list_move_from_to_other_list">從%s移動至別的閱讀清單</string>
   <string name="reading_list_remove_from_list">自%s移除</string>
   <string name="reading_list_remove_from_lists">自閱讀清單移除</string>
   <string name="reading_list_select_item">選擇</string>
@@ -432,6 +441,7 @@
   <string name="reading_lists_confirm_remote_delete_no">否</string>
   <string name="reading_list_article_save_in_progress">條目下載進行中，完成之後可用於離線狀態下。</string>
   <string name="reading_list_articles_added_to_named">已添加 %1$d 個條目至%2$s</string>
+  <string name="reading_list_articles_moved_to_named">已移動 %1$d 個條目至%2$s</string>
   <string name="reading_list_delete_confirm">你確定要刪除%s？</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">登入來啟用同步</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">登入來允許您的閱讀清單可儲存至您的帳號裡。</string>
@@ -452,6 +462,7 @@
   <string name="no_user_lists_msg">建立前往旅行的地點、喜愛的主題，以及更多其它事物的清單</string>
   <string name="reading_list_saved_list_rename">%1$s（使用者已建立）</string>
   <string name="split_reading_list_message">在各閱讀清單裡含有 %d 個條目的上限限制。現有清單在超過此限制時，會被拆分成多個清單。</string>
+  <string name="reading_list_move_article_limit_message">無法添加至此清單。您已達到在「%1$s」方面各清單的最多 %2$d 個條目上限。</string>
   <string name="reading_list_article_limit_message">無法添加至此清單。您已達到在「%1$s」方面各清單的最多 %2$d 個條目上限。</string>
   <string name="reading_lists_limit_message">無法建立其它清單。您已達到各使用者的最多 100 個閱讀清單上限。</string>
   <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;同步閱讀清單&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;閱讀清單現已具有跨裝置同步的功能。登入您的維基百科帳號，來允許儲存您的清單。</string>
@@ -686,18 +697,21 @@
   <string name="suggested_edits_tasks_onboarding_get_started">入門</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">圖片說明（%s）</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">圖片描述（%s）</string>
+  <string name="suggested_edits_image_preview_dialog_file">檔案</string>
   <string name="suggested_edits_image_preview_dialog_artist">藝術家</string>
+  <string name="suggested_edits_image_preview_dialog_tags">標籤</string>
   <string name="suggested_edits_image_preview_dialog_date">日期</string>
   <string name="suggested_edits_image_preview_dialog_source">來源/攝影者</string>
   <string name="suggested_edits_image_preview_dialog_licensing">授權</string>
   <string name="suggested_edits_image_preview_dialog_more_info">更多資訊</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">在維基共享資源上的檔案頁面</string>
+  <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">在維基百科的檔案頁面</string>
   <string name="suggested_edits_article_cta_image_caption">新增圖片說明</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">新增圖片說明（%s）</string>
   <string name="suggested_edits_article_cta_snackbar_action">檢視</string>
   <string name="suggested_edits_feed_card_add_image_caption">新增圖片說明</string>
   <string name="suggested_edits_feed_card_translate_image_caption">新增圖片說明（%s）</string>
-  <string name="suggested_edits_feed_card_add_image_tags">添加圖像標記</string>
+  <string name="suggested_edits_feed_card_add_image_tags">添加圖像標籤</string>
   <string name="suggested_edits_snackbar_survey_text">您的編輯體驗如何？請花些許時間來填寫有關應用程式內編輯的調查。</string>
   <string name="suggested_edits_snackbar_survey_action_text">參加調查</string>
   <string name="suggested_edits_task_action_text_add">新增</string>
@@ -707,11 +721,11 @@
   <string name="suggested_edits_image_tags_publishing">發布中</string>
   <string name="suggested_edits_image_tags_published">已發布</string>
   <string name="suggested_edits_image_tags_onboarding_title">標記圖片來讓它們能更容易被找到。</string>
-  <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">透過確認標籤，您可以協助圖片在維基共享資源上能更容易被搜尋到，維基共享資源是讓維基百科能使用圖片在條目裡的自由許可圖片儲存庫。\n\n我們已自動建議出一些標籤，另外您也可以新增您自己的標籤。</string>
+  <string name="suggested_edits_image_tags_onboarding_text">透過確認標籤，您可以協助圖片在維基共享資源上能更容易被搜尋到，維基共享資源是讓維基百科能使用圖片在條目裡的自由許可圖片儲存庫。</string>
   <string name="suggested_edits_image_tags_onboarding_note">僅添加您挑選的標籤到圖片上。</string>
   <string name="suggested_edits_image_tags_snackbar">添加圖片標籤來讓它們能更容易被其他人找到</string>
-  <string name="suggested_edits_image_tags_task_detail" fuzzy="true">標記圖片來讓它們能更容易被找到。請從建議的標籤裡選擇，或是新增您自己的標籤。</string>
-  <string name="suggested_edits_image_tags_choose">新增或挑選符合的標記</string>
+  <string name="suggested_edits_image_tags_task_detail">添加自定義的標籤到圖片，來讓它能更容易被找到。</string>
+  <string name="suggested_edits_image_tags_choose">新增或挑選符合的標籤</string>
   <string name="suggested_edits_image_tags_published_list">已發布標籤</string>
   <string name="suggested_edits_image_tags_search">搜尋標籤</string>
   <string name="suggested_edits_image_tags_select_title">您尚未對此圖片選擇任何標籤</string>
@@ -720,15 +734,15 @@
   <string name="suggested_edits_image_zoom_tooltip">做出夾捏的動作來縮放此圖片。</string>
   <string name="suggested_edits_encouragement_message">%s，感謝您所做的編輯。在下方您可以找出更多貢獻維基百科的方式。</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;嗨，%s&lt;/b&gt;：您知道維基百科是每個人都可編輯的嗎？您可以在下方找到協助改善維基百科的有趣方式，來快樂地編輯吧！</string>
-  <string name="suggested_edits_image_captions_task_detail">圖片說明可描述圖片來幫助讀者了解含意與脈絡。</string>
-  <string name="suggested_edits_add_descriptions_task_detail">標題描述能概括條目，幫助讀者清楚了解主題。</string>
+  <string name="suggested_edits_image_captions_task_detail">描述圖片來幫助讀者了解含意與脈絡。</string>
+  <string name="suggested_edits_add_descriptions_task_detail">概括條目來幫助讀者一目瞭然主題內容。</string>
   <string name="suggested_edits_contributions_stat_tooltip">您的建議編輯總數。</string>
   <string name="suggested_edits_edit_streak_stat_tooltip">您透過建議編輯做出貢獻的連續天數。如果您已有一段時間未貢獻，則顯示最後貢獻日期。</string>
   <string name="suggested_edits_page_views_stat_tooltip">在過去 30 天內，您以建議編輯對項目做出貢獻的頁面總瀏覽次數。</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">基於您的編輯裡有多少次被回退（被其他編輯者撤銷）。回退編輯數：%d。</string>
-  <string name="suggested_edits_paused_message">&lt;b&gt;建議編輯被暫停至 %1$s。&lt;/b&gt;很抱歉，%2$s，您最近有太多編輯被回退。\n\n請透過下方連結來了解如何增進您的維基百科編輯技能。</string>
-  <string name="suggested_edits_disabled_message">&lt;b&gt;建議編輯已停用。&lt;/b&gt;很抱歉，%s，您最近有太多編輯被回退。\n\n請透過下方連結來了解此情況代表的含意。</string>
-  <string name="suggested_edits_ip_blocked_message">您現在使用的 IP 被封鎖而無法編輯維基百科，請參訪以下連結來了解更多關於封鎖的資訊。</string>
+  <string name="suggested_edits_paused_message">建議編輯被暫停至 %1$s。很抱歉，%2$s，您最近有太多編輯被回退。</string>
+  <string name="suggested_edits_disabled_message">建議編輯已停用。很抱歉，%s，您最近有太多編輯被回退。</string>
+  <string name="suggested_edits_ip_blocked_message">您現在使用的 IP 位址（或 IP 位址範圍）被封鎖而無法編輯維基百科。</string>
   <string name="suggested_edits_editing_tips_link_text">編輯提示與技巧</string>
   <string name="suggested_edits_help_page_link_text">建議編輯說明頁面</string>
   <string name="suggested_edits_edit_streak_label_text">連續編輯紀錄</string>
@@ -751,6 +765,12 @@
     <item quantity="one">%d 天</item>
     <item quantity="other">%d 天</item>
   </plurals>
+  <string name="suggested_edits_what_is_title">什麼是建議編輯？</string>
+  <string name="suggested_edits_what_is_text">建議編輯提供了微小；但對於維基百科是至關重要貢獻的機會。</string>
+  <string name="suggested_edits_learn_more">瞭解更多</string>
+  <string name="suggested_edits_paused_title">已暫停</string>
+  <string name="suggested_edits_disabled_title">已停用</string>
+  <string name="suggested_edits_ip_blocked_title">IP 已封鎖</string>
   <string name="suggested_edits_last_edited">上一次編輯</string>
   <string name="suggested_edits_last_edited_never">從不</string>
   <string name="suggested_edits_task_new">新</string>
@@ -758,6 +778,41 @@
   <string name="suggested_edits_reactivation_notification_title">建議編輯</string>
   <string name="suggested_edits_reactivation_notification_stage_one">感謝編輯維基百科！何不從上次停下的地方繼續？</string>
   <string name="suggested_edits_reactivation_notification_stage_two">有空閒來繼續增進維基百科內容嗎？請查看這些編輯建議。</string>
+  <string name="suggested_edits_contributions_screen_title">%s的貢獻</string>
+  <string name="suggested_edits_contribution_language_label">語言</string>
+  <string name="suggested_edits_contribution_date_time_label">日期/時間</string>
+  <string name="suggested_edits_contribution_type_label">貢獻類型</string>
+  <string name="suggested_edits_contribution_image_label">檔案</string>
+  <string name="suggested_edits_contribution_article_label">條目</string>
+  <string name="suggested_edits_contribution_views">%s檢視數</string>
+  <string name="suggested_edits_contribution_seen_text">過去 30 天內被觀看過 %s 次。</string>
+  <plurals name="suggested_edits_image_tag_contribution_label">
+    <item quantity="one">您已添加 %d 個標籤</item>
+    <item quantity="other">您已添加 %d 個標籤</item>
+  </plurals>
+  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
+  <string name="suggested_edits_contribution_date_yesterday_text">昨天</string>
+  <string name="suggested_edits_rewards_contribution">您在維基百科上使用建議編輯做出了 %d 次貢獻。感謝您！</string>
+  <string name="suggested_edits_rewards_edit_streak">到目前為止，您有連續 %1$d 天每日做出編輯的紀錄。請挑戰讓紀錄繼續延續下去，%2$s！</string>
+  <string name="suggested_edits_rewards_pageviews">您的編輯內容在過去 30 天裡已被 %d 個人觀看過。感謝您，並請繼續加油！</string>
+  <string name="suggested_edits_rewards_edit_quality">您的編輯到目前為止是%s。請繼續加油！我們期待您之後的貢獻。</string>
+  <string name="suggested_edits_rewards_continue_button">繼續</string>
+  <string name="suggested_edits_contribution_type_image_tag">圖片標籤</string>
+  <string name="suggested_edits_contribution_current_revision">目前版本</string>
+  <plurals name="suggested_edits_tags_diff_count_text">
+    <item quantity="one">%1$s 個標籤</item>
+    <item quantity="other">%1$s 個標籤</item>
+  </plurals>
+  <string name="suggested_edits_contribution_diff_count_text">%1$s個字元</string>
+  <plurals name="suggested_edits_removed_contribution_label">
+    <item quantity="one">您已移除 %d 個字元</item>
+    <item quantity="other">您已移除 %d 個字元</item>
+  </plurals>
+  <plurals name="suggested_edits_added_contribution_label">
+    <item quantity="one">您已添加 %d 個字元</item>
+    <item quantity="other">您已添加 %d 個字元</item>
+  </plurals>
+  <string name="file_page_activity_title">檔案頁面</string>
   <string name="description_edit_revert_subtitle">感謝編輯維基百科！</string>
   <string name="description_edit_revert_intro">我們知道您已盡力了，但有編者檢閱內容有所疑慮而做出還原。您的編輯被回退的原因可能是：</string>
   <string name="description_edit_revert_reason1">您的貢獻並未遵循&lt;a href=\"%1$s\"&gt;指引&lt;/a&gt;之一。</string>
@@ -779,9 +834,6 @@
   <string name="onboarding_analytics_title">寄送匿名資料</string>
   <string name="onboarding_analytics_offline_text">請讓我們了解您是如何使用它，以讓應用程式能變得更好，另外資料收集都是採用匿名方式的。&lt;a href=\"#privacy\"&gt;了解更多&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">傳送使用情況資料</string>
-  <string name="onboarding_create_account_sync">同步您的閱讀清單</string>
-  <string name="onboarding_create_account_contributions">保持追蹤您的貢獻</string>
-  <string name="onboarding_create_account_preferences">儲存您的偏好設定</string>
   <string name="onboarding_got_it">了解</string>
   <string name="onboarding_multilingual_secondary_text">我們在您的裝置上找到以下語言：</string>
   <string name="onboarding_multilingual_add_language_text">添加或編輯語言</string>
@@ -832,6 +884,7 @@
   <string name="edit_conflict_dialog_ok_button_text">確認</string>
   <string name="reverted_edit_dialog_ok_button_text">確認</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">取消</string>
+  <string name="edit_type_all">所有貢獻</string>
   <string name="content_description_for_page_indicator">%1$d / %2$d 頁</string>
   <string name="wikitext_bold">粗體</string>
   <string name="wikitext_italic">斜體</string>
@@ -841,12 +894,9 @@
   <string name="wikitext_template">模板</string>
   <string name="wikitext_reference">參考資料</string>
   <string name="wikitext_preview_link">預覽連結</string>
-  <string name="main_drawer_open">開啟</string>
-  <string name="main_drawer_close">關閉</string>
-  <string name="main_drawer_content_description">開啟主導航選單</string>
   <string name="main_drawer_help">說明</string>
   <string name="main_drawer_login">登入/加入維基百科</string>
-  <string name="main_tooltip_text">%s，您知道維基百科是每個人都可編輯的嗎？</string>
+  <string name="main_tooltip_text">嗨 %s，您知道維基百科是每個人都可編輯的嗎？</string>
   <string name="main_tooltip_action_button">入門</string>
   <string name="custom_date_picker_dialog_ok_button_text">確認</string>
   <string name="text_input_dialog_ok_button_text">確認</string>

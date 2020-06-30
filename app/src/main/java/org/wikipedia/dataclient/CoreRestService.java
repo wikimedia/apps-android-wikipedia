@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 
 import org.wikipedia.dataclient.restbase.DiffResponse;
 
-import io.reactivex.Observable;
+import io.reactivex.rxjava3.core.Observable;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
 

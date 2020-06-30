@@ -13,7 +13,6 @@ import androidx.core.widget.ImageViewCompat
 import kotlinx.android.synthetic.main.view_image_title_description.view.*
 import org.wikipedia.R
 import org.wikipedia.util.DimenUtil
-import org.wikipedia.util.ResourceUtil
 
 internal class ImageTitleDescriptionView constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
 

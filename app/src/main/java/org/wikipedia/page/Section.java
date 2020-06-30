@@ -3,7 +3,6 @@ package org.wikipedia.page;
 import androidx.annotation.NonNull;
 
 import org.apache.commons.lang3.StringUtils;
-import org.jetbrains.annotations.NotNull;
 import org.wikipedia.json.GsonUtil;
 
 import java.util.Arrays;
@@ -61,7 +60,7 @@ public class Section {
         return result;
     }
 
-    @NotNull
+    @NonNull
     @Override
     public String toString() {
         return "Section{"

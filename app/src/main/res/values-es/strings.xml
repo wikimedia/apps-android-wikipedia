@@ -15,6 +15,7 @@
 * Eloy
 * Envlh
 * Fitoschido
+* Geryescalier
 * Hal9000wopr
 * Harvest
 * Ihojose
@@ -41,8 +42,10 @@
 * Rodm23
 * Ryo567
 * Sporeunai
+* Suecarmol
 * Tiberius1701
 * VegaDark
+* Whytheonlyone
 * Wifidel
 * Yllelder
 -->
@@ -144,7 +147,7 @@
   <string name="reading_lists_sync_login">\nAcceder</string>
   <string name="create_account_login">\nAcceder</string>
   <string name="menu_login">Acceder</string>
-  <string name="login_activity_title">Acceder a Wikipedia</string>
+  <string name="login_activity_title" fuzzy="true">Acceder a Wikipedia</string>
   <string name="login_in_progress_dialog_message">Accediendo…</string>
   <string name="login_success_toast">Has accedido.</string>
   <string name="reset_password_title">Establecer contraseña</string>
@@ -234,6 +237,7 @@
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/es</string>
   <string name="about_libraries_heading">Bibliotecas utilizadas</string>
   <string name="about_contributors_heading">Colaboradores</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt; Página del equipo &lt;/a&gt;</string>
   <string name="about_translators_heading">Traductores</string>
   <string name="about_translators_translatewiki">Esta aplicación fue traducida por traductores voluntarios en &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licencia</string>
@@ -393,8 +397,12 @@
   <string name="text_size_percent_default">%s (predeterminado)</string>
   <string name="nav_item_reading_lists">Mis listas</string>
   <string name="reading_list_save_to">Guardar en lista de lectura</string>
+  <string name="reading_list_move_to">Trasladar a una lista de lectura</string>
   <string name="reading_list_create_new">Crear una nueva</string>
   <string name="reading_list_title_exists">La lista de lectura «%s» ya existe.</string>
+  <string name="reading_list_article_added_to_named">Se agregó %1$s a %2$s.</string>
+  <string name="reading_list_article_already_exists_message">¡Todo bien! %1$s ya contiene %2$s.</string>
+  <string name="reading_list_articles_already_exist_message">¡Todo bien! %s ya contiene todos los artículos.</string>
   <string name="reading_list_added_view_button">Ver lista</string>
   <string name="format_reading_list_statistical_summary_singular">1 artículo, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d artículos, %2$.2f MB</string>
@@ -647,6 +655,7 @@
   <string name="description_edit_success_saved_in_lang_snackbar">¡Descripción de artículo publicada! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Se publicó la leyenda de la imagen.</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Se publicó el pie de foto (%s)</string>
+  <string name="description_edit_success_saved_image_tags_snackbar">¡Etiquetas de imagen(es) publicadas!</string>
   <string name="description_edit_success_encouragement">Acabas de mejorar Wikipedia para todos</string>
   <string name="description_edit_success_done">Hecho</string>
   <string name="description_edit_success_did_you_know">¿Sabías?</string>
@@ -725,10 +734,10 @@
   <string name="suggested_edits_image_tags_publishing">Publicando</string>
   <string name="suggested_edits_image_tags_published">Publicado</string>
   <string name="suggested_edits_image_tags_onboarding_title">Etiquetar las imágenes facilita poderlas encontrar.</string>
-  <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">Al confirmar las etiquetas sugeridas contribuyes a que sea más fácil encontrar las imágenes.\n\nLas etiquetas son generadas automáticamente pero es necesario que sean validadas por humanos para garantizar su exactitud.</string>
+  <string name="suggested_edits_image_tags_onboarding_text">Al agregar etiquetas de imagen, ayudará a facilitar la búsqueda de imágenes en Commons, el repositorio de imágenes de licencia gratuita que Wikipedia utiliza para las imágenes en sus artículos.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Solo las etiquetas que elijas se añadirán a las imágenes.</string>
   <string name="suggested_edits_image_tags_snackbar">Etiqueta las imágenes para facilitar su búsqueda.</string>
-  <string name="suggested_edits_image_tags_task_detail" fuzzy="true">Etiqueta imágenes para que el resto las encuentre más fácilmente. Son sugeridas por computadora, pero deben ser validados.</string>
+  <string name="suggested_edits_image_tags_task_detail" fuzzy="true">Etiquete las imágenes para que sean más fáciles de encontrar.</string>
   <string name="suggested_edits_image_tags_choose">Añadir o elegir etiquetas correspondientes</string>
   <string name="suggested_edits_image_tags_published_list">Etiquetas publicadas</string>
   <string name="suggested_edits_image_tags_search">Buscar etiquetas</string>
@@ -738,15 +747,15 @@
   <string name="suggested_edits_image_zoom_tooltip">Para ampliar esta imagen, utiliza dos dedos.</string>
   <string name="suggested_edits_encouragement_message">%s, gracias por tus ediciones. Más abajo puedes encontrar otras formas de contribuir con la Wikipedia.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Hola, %s&lt;/b&gt;. ¿Sabías que todo el mundo puede editar Wikipedia? Más abajo puedes encontrar formas divertidas de ayudar a mejorar la Wikipedia. ¡Feliz edición!</string>
-  <string name="suggested_edits_image_captions_task_detail">Los pies de foto describen una imagen para ayudar al lector a comprender su significado y contexto.</string>
-  <string name="suggested_edits_add_descriptions_task_detail">Las descripciones de los artículos resumen el mismo para ayudar a los lectores a entender el tema de un vistazo.</string>
+  <string name="suggested_edits_image_captions_task_detail" fuzzy="true">Los pies de foto describen una imagen para ayudar al lector a comprender su significado y contexto.</string>
+  <string name="suggested_edits_add_descriptions_task_detail" fuzzy="true">Las descripciones de los artículos resumen el mismo para ayudar a los lectores a entender el tema de un vistazo.</string>
   <string name="suggested_edits_contributions_stat_tooltip">El número total de tus contribuciones con Ediciones sugeridas.</string>
   <string name="suggested_edits_edit_streak_stat_tooltip">Cuántos días seguidos has contribuido a Ediciones sugeridas. Si hace tiempo que no contribuyes, mostrará la fecha de tu última contribución.</string>
   <string name="suggested_edits_page_views_stat_tooltip">Total de páginas vistas de elementos a los que contribuiste en los últimos 30 días con ediciones sugeridas.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Basado en la cantidad de veces que una de tus contribuciones ha sido revertida (anulado por otro editor). Ediciones revertidas: %d.</string>
-  <string name="suggested_edits_paused_message">&lt;b&gt;Las Ediciones sugeridas están bloqueadas hasta %1$s.&lt;/b&gt; Lo sentimos, %2$s: algunas de tus contribuciones recientes se han revertido.\n\nAprende cómo mejorar tus habilidades de edición en la Wikipedia consultando el enlace inferior.</string>
-  <string name="suggested_edits_disabled_message">&lt;b&gt;Las Ediciones sugeridas están deshabilitadas.&lt;/b&gt; Lo sentimos, %s: muchas de tus contribuciones recientes se han revertido.\n\nConsulta más información en el siguiente enlace.</string>
-  <string name="suggested_edits_ip_blocked_message">Parece que tu dirección IP (o rango de direcciones IP) está actualmente bloqueada para la edición de la Wikipedia. Consulta más información siguiendo el enlace de más abajo.</string>
+  <string name="suggested_edits_paused_message" fuzzy="true">&lt;b&gt;Las Ediciones sugeridas están bloqueadas hasta %1$s.&lt;/b&gt; Lo sentimos, %2$s: algunas de tus contribuciones recientes se han revertido.\n\nAprende cómo mejorar tus habilidades de edición en la Wikipedia consultando el enlace inferior.</string>
+  <string name="suggested_edits_disabled_message" fuzzy="true">&lt;b&gt;Las Ediciones sugeridas están deshabilitadas.&lt;/b&gt; Lo sentimos, %s: muchas de tus contribuciones recientes se han revertido.\n\nConsulta más información en el siguiente enlace.</string>
+  <string name="suggested_edits_ip_blocked_message" fuzzy="true">Parece que tu dirección IP (o rango de direcciones IP) está actualmente bloqueada para la edición de la Wikipedia. Consulta más información siguiendo el enlace de más abajo.</string>
   <string name="suggested_edits_editing_tips_link_text">Trucos y consejos de edición</string>
   <string name="suggested_edits_help_page_link_text">Página de ayuda de ediciones sugeridas</string>
   <string name="suggested_edits_edit_streak_label_text">Editar racha</string>
@@ -760,6 +769,7 @@
   <string name="suggested_edits_quality_sufficient_text">Suficiente</string>
   <string name="suggested_edits_quality_poor_text">Deficiente</string>
   <string name="suggested_edits_quality_bad_text">Mala</string>
+  <string name="suggested_edits_contribute">Contribuir</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">Contribución</item>
     <item quantity="other">Contribuciones</item>
@@ -774,6 +784,19 @@
   <string name="suggested_edits_cc0_notice">Al publicar, aceptas los &lt;a href=\"%1$s\"&gt;Términos de uso&lt;/a&gt; y a liberar irrevocablemente tus contribuciones bajo los términos de la &lt;a href=\"%2$s\"&gt;licencia&lt;/a&gt;</string>
   <string name="suggested_edits_reactivation_notification_title">Ediciones sugeridas</string>
   <string name="suggested_edits_reactivation_notification_stage_one">¡Gracias por editar Wikipedia! ¿Por qué no continúas donde lo dejaste?</string>
+  <string name="suggested_edits_reactivation_notification_stage_two">¿Tienes un minuto para seguir mejorando Wikipedia? Echa un vistazo a estas sugerencias de edición.</string>
+  <string name="suggested_edits_contributions_screen_title">Contribuciones de %s</string>
+  <string name="suggested_edits_contribution_language_label">Idioma</string>
+  <string name="suggested_edits_contribution_date_time_label">Fecha y hora</string>
+  <string name="suggested_edits_contribution_type_label">Tipo de contribución</string>
+  <string name="suggested_edits_contribution_image_label">Archivo</string>
+  <string name="suggested_edits_contribution_article_label">Artículo</string>
+  <string name="suggested_edits_contribution_seen_text">Hubo %s visitas en los últimos 30 días.</string>
+  <string name="suggested_edits_contribution_date_yesterday_text">Ayer</string>
+  <string name="suggested_edits_rewards_contribution">Has hecho %d contribuciones al Wikipedia usando ediciones sugeridas. ¡Gracias!</string>
+  <string name="suggested_edits_rewards_edit_streak">Has editado todos los días para %1$d días. Mantiene editando, %2$s!</string>
+  <string name="suggested_edits_rewards_continue_button">Continuar</string>
+  <string name="suggested_edits_contribution_type_image_tag">Etiqueta de imagen</string>
   <string name="description_edit_revert_subtitle">¡Gracias por editar Wikipedia!</string>
   <string name="description_edit_revert_intro">Sabemos intentaste hacer lo mejor, pero uno de los revisores tuvo una preocupación. Posibles razones por las que tu edición se revirtió incluyen:</string>
   <string name="description_edit_revert_reason1">tu contribución no siguió algunas de las &lt;a href=\"%1$s\"&gt;directrices&lt;/a&gt;.</string>
@@ -795,9 +818,6 @@
   <string name="onboarding_analytics_title">Enviar datos anónimos</string>
   <string name="onboarding_analytics_offline_text">Permite que sepamos cómo utilizas la aplicación para ayudar a mejorarla. Los datos recopilados son anónimos. &lt;a href=\"#privacy\"&gt;Más información&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Enviar datos de uso</string>
-  <string name="onboarding_create_account_sync">Sincronizar tus listas de lectura</string>
-  <string name="onboarding_create_account_contributions">Mantente al tanto de tus aportes</string>
-  <string name="onboarding_create_account_preferences">Guardar tus preferencias</string>
   <string name="onboarding_got_it">Entendido</string>
   <string name="onboarding_multilingual_secondary_text">Encontramos lo siguiente en tu dispositivo:</string>
   <string name="onboarding_multilingual_add_language_text">Añadir o editar idiomas</string>
@@ -857,12 +877,9 @@
   <string name="wikitext_template">Plantilla</string>
   <string name="wikitext_reference">Referencia</string>
   <string name="wikitext_preview_link">Previsualizar enlace</string>
-  <string name="main_drawer_open">Abrir</string>
-  <string name="main_drawer_close">Cerrar</string>
-  <string name="main_drawer_content_description">Abrir el cajón de navegación principal</string>
   <string name="main_drawer_help">Ayuda</string>
   <string name="main_drawer_login">Iniciar sesión / unirse a Wikipedia</string>
-  <string name="main_tooltip_text">%s, ¿sabías que todos pueden editar Wikipedia?</string>
+  <string name="main_tooltip_text" fuzzy="true">%s, ¿sabías que todos pueden editar Wikipedia?</string>
   <string name="main_tooltip_action_button">\nEmpezar</string>
   <string name="custom_date_picker_dialog_ok_button_text">Aceptar</string>
   <string name="text_input_dialog_ok_button_text">Aceptar</string>

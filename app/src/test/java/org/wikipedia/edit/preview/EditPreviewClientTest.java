@@ -6,8 +6,7 @@ import org.junit.Test;
 import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.test.MockRetrofitTest;
 
-import io.reactivex.Observable;
-import io.reactivex.observers.TestObserver;
+import io.reactivex.rxjava3.core.Observable;
 
 public class EditPreviewClientTest extends MockRetrofitTest {
 
@@ -15,30 +14,21 @@ public class EditPreviewClientTest extends MockRetrofitTest {
         String expected = "<div class=\"mf-section-0\" id=\"mf-section-0\"><p>\\o/\\n\\ntest12\\n\\n3</p>\n\n\n\n\n</div>";
 
         enqueueFromFile("edit_preview.json");
-        TestObserver<EditPreview> observer = new TestObserver<>();
-
-        getObservable().subscribe(observer);
-
-        observer.assertComplete().assertNoErrors()
+        getObservable().test().await()
+                .assertComplete().assertNoErrors()
                 .assertValue(response -> response.result().equals(expected));
     }
 
     @Test public void testRequestResponseApiError() throws Throwable {
         enqueueFromFile("api_error.json");
-        TestObserver<EditPreview> observer = new TestObserver<>();
-
-        getObservable().subscribe(observer);
-
-        observer.assertError(MwException.class);
+        getObservable().test().await()
+                .assertError(MwException.class);
     }
 
-    @Test public void testRequestResponseMalformed() {
+    @Test public void testRequestResponseMalformed() throws Throwable {
         enqueueMalformed();
-        TestObserver<EditPreview> observer = new TestObserver<>();
-
-        getObservable().subscribe(observer);
-
-        observer.assertError(MalformedJsonException.class);
+        getObservable().test().await()
+                .assertError(MalformedJsonException.class);
     }
 
     private Observable<EditPreview> getObservable() {

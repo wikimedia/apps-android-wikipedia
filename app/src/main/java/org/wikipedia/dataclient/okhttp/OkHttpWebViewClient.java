@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.page.LinkHandler;
 import org.wikipedia.page.PageViewModel;
 import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
@@ -45,6 +46,18 @@ public abstract class OkHttpWebViewClient extends WebViewClient {
     private static final String PCS_JS = "/data/javascript/mobile/pcs";
 
     @NonNull public abstract PageViewModel getModel();
+    @NonNull public abstract LinkHandler getLinkHandler();
+
+    @Override
+    public boolean shouldOverrideUrlLoading(WebView view, String url) {
+        if (getModel().shouldLoadAsMobileWeb()) {
+            // If the page was loaded as Mobile Web, then pass all link clicks through
+            // to our own link handler.
+            getLinkHandler().onUrlClick(UriUtil.decodeURL(url), null, "");
+            return true;
+        }
+        return false;
+    }
 
     @SuppressWarnings("checkstyle:magicnumber")
     @Override public WebResourceResponse shouldInterceptRequest(WebView view,
@@ -103,7 +116,7 @@ public abstract class OkHttpWebViewClient extends WebViewClient {
             }
             //------------------
 
-            String reasonCode = TextUtils.isEmpty(e.getMessage()) ? "Unknown error" : e.getMessage();
+            String reasonCode = TextUtils.isEmpty(e.getMessage()) ? "Unknown error" : UriUtil.encodeURL(e.getMessage());
             if (e instanceof HttpStatusException) {
                 response = new WebResourceResponse(null, null, ((HttpStatusException) e).code(), reasonCode, null, null);
             } else {

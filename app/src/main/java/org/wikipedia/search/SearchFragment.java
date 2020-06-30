@@ -48,10 +48,10 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
-import io.reactivex.Completable;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.schedulers.Schedulers;
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.core.Completable;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 
 import static org.apache.commons.lang3.StringUtils.isBlank;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE_FROM_SEARCH;
@@ -116,13 +116,7 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
     private final SearchView.OnQueryTextListener searchQueryListener = new SearchView.OnQueryTextListener() {
         @Override
         public boolean onQueryTextSubmit(String queryText) {
-            PageTitle firstResult = null;
-            if (getActivePanel() == PANEL_SEARCH_RESULTS) {
-                firstResult = searchResultsFragment.getFirstResult();
-            }
-            if (firstResult != null) {
-                navigateToTitle(firstResult, false, 0);
-            }
+            DeviceUtil.hideSoftKeyboard(requireActivity());
             return true;
         }
 
@@ -383,7 +377,6 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
         isSearchActive = true;
 
         searchView.setIconified(false);
-        searchView.requestFocusFromTouch();
         // if we already have a previous search query, then put it into the SearchView, and it will
         // automatically trigger the showing of the corresponding search results.
         if (isValidQuery(query)) {

@@ -98,7 +98,7 @@
   <string name="reading_lists_sync_login">Asup log</string>
   <string name="create_account_login">Asup log</string>
   <string name="menu_login">Asup log</string>
-  <string name="login_activity_title">Asup log ka Wikipédia</string>
+  <string name="login_activity_title" fuzzy="true">Asup log ka Wikipédia</string>
   <string name="login_in_progress_dialog_message">Keur asup log...</string>
   <string name="login_success_toast" fuzzy="true">Asup log ngahasil!</string>
   <string name="reset_password_title">Atur kecap sandi anjeun</string>
@@ -508,9 +508,6 @@
   <string name="onboarding_reading_list_sync_title" fuzzy="true">Daptar bacaan kalawan singkronisasi</string>
   <string name="onboarding_analytics_title">Kirim data anonim</string>
   <string name="onboarding_analytics_switch_title">Kirim data pamakéan</string>
-  <string name="onboarding_create_account_sync">Singkronkeun daptar bacaan anjeun</string>
-  <string name="onboarding_create_account_contributions">Catet kontribusi anjeun</string>
-  <string name="onboarding_create_account_preferences">Simpen préferénsi anjeun</string>
   <string name="app_shortcuts_random">Acak</string>
   <string name="app_shortcuts_continue_reading">Tuluykeun Maca</string>
   <string name="app_shortcuts_search">Paluruh</string>

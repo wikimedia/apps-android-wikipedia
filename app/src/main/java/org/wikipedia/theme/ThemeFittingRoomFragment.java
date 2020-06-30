@@ -18,8 +18,8 @@ import org.wikipedia.views.FaceAndColorDetectImageView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
-import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.functions.Consumer;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.functions.Consumer;
 
 public class ThemeFittingRoomFragment extends Fragment {
     @BindView(R.id.theme_test_image) FaceAndColorDetectImageView testImage;

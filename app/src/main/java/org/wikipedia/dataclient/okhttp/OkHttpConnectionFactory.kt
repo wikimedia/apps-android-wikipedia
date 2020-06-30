@@ -31,6 +31,7 @@ object OkHttpConnectionFactory {
                 .addInterceptor(DefaultMaxStaleRequestInterceptor())
                 .addInterceptor(OfflineCacheInterceptor())
                 .addInterceptor(TestStubInterceptor())
+                .addInterceptor(TitleEncodeInterceptor())
                 .build()
     }
 }

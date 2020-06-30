@@ -9,6 +9,7 @@ import com.google.gson.annotations.SerializedName;
 
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.dataclient.page.Protection;
 import org.wikipedia.json.GsonUtil;
 import org.wikipedia.json.PostProcessingTypeAdapter;
 import org.wikipedia.model.BaseModel;
@@ -36,8 +37,8 @@ public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapte
     @Nullable private Map<String, Notification.UnreadNotificationWikiItem> unreadnotificationpages;
     @SerializedName("general") @Nullable private SiteInfo generalSiteInfo;
     @SerializedName("wikimediaeditortaskscounts") @Nullable private EditorTaskCounts editorTaskCounts;
-    @SerializedName("usercontribs") @Nullable private List<UserContributions> userContributions;
     @SerializedName("recentchanges") @Nullable private List<RecentChange> recentChanges;
+    @SerializedName("usercontribs") @Nullable private List<UserContribution> userContributions;
 
     @Nullable public List<MwQueryPage> pages() {
         return pages;
@@ -123,12 +124,24 @@ public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapte
         return editorTaskCounts;
     }
 
-    @NonNull public List<UserContributions> userContributions() {
+    @NonNull public List<UserContribution> userContributions() {
         return userContributions != null ? userContributions : Collections.emptyList();
     }
 
     @NonNull public List<RecentChange> getRecentChanges() {
         return recentChanges != null ? recentChanges : Collections.emptyList();
+    }
+
+    public boolean isEditProtected() {
+        if (firstPage() == null || userInfo() == null) {
+            return false;
+        }
+        for (Protection protection : firstPage().protection()) {
+            if (protection.getType().equals("edit") && !userInfo().getGroups().contains(protection.getLevel())) {
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override

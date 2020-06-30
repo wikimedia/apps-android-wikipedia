@@ -13,10 +13,10 @@ import android.widget.CompoundButton
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.android.material.chip.Chip
-import io.reactivex.Observable
-import io.reactivex.ObservableSource
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.core.ObservableSource
+import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_suggested_edits_image_tags_item.*
 import org.wikipedia.Constants
 import org.wikipedia.R
@@ -28,7 +28,6 @@ import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.dataclient.mwapi.MwPostResponse
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.mwapi.media.MediaHelper
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_IMAGE_TAGS
@@ -184,18 +183,31 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         val typeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
         tagsChipGroup.removeAllViews()
 
-        // add an artificial chip for adding a custom tag
-        addChip(null, typeface)
+        if (!publishSuccess) {
+            // add an artificial chip for adding a custom tag
+            addChip(null, typeface)
+        }
 
         for (label in tagList) {
-            addChip(label, typeface)
+            val chip = addChip(label, typeface)
+            chip.isChecked = label.isSelected
+            if (publishSuccess) {
+                chip.isEnabled = false
+                if (chip.isChecked) {
+                    chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.color_group_57))
+                    chip.setChipStrokeColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.color_group_58))
+                } else {
+                    chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.chip_background_color))
+                    chip.setChipStrokeColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.chip_background_color))
+                }
+            }
         }
 
         updateLicenseTextShown()
         callback().updateActionButton()
     }
 
-    private fun addChip(label: MwQueryPage.ImageLabel?, typeface: Typeface) {
+    private fun addChip(label: MwQueryPage.ImageLabel?, typeface: Typeface): Chip {
         val chip = Chip(requireContext())
         chip.text = label?.label ?: getString(R.string.suggested_edits_image_tags_add_tag)
         chip.textAlignment = TEXT_ALIGNMENT_CENTER
@@ -225,6 +237,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         chip.layoutParams = params
 
         tagsChipGroup.addView(chip)
+        return chip
     }
 
     companion object {
@@ -262,8 +275,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         callback().updateActionButton()
     }
 
-    override fun onSelect(item: MwQueryPage.ImageLabel, searchTerm: String) {
-        lastSearchTerm = searchTerm
+    override fun onSearchSelect(item: MwQueryPage.ImageLabel) {
         var exists = false
         for (tag in tagList) {
             if (tag.wikidataId == item.wikidataId) {
@@ -279,6 +291,10 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         updateTagChips()
     }
 
+    override fun onSearchDismiss(searchTerm: String) {
+        lastSearchTerm = searchTerm
+    }
+
     override fun publish() {
         if (publishing || publishSuccess || tagsChipGroup.childCount == 0) {
             return
@@ -288,6 +304,8 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         for (label in tagList) {
             if (label.isSelected) {
                 acceptedLabels.add(label)
+            } else {
+                tagList.remove(label)
             }
         }
         if (acceptedLabels.isEmpty()) {
@@ -312,45 +330,47 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         csrfClient.request(false, object : CsrfTokenClient.Callback {
             override fun success(token: String) {
 
-                val claimObservables = ArrayList<ObservableSource<MwPostResponse>>()
-                val claimComments = ArrayList<String>()
+                val mId = "M" + page!!.pageId()
+                var claimStr = "{\"claims\":["
+                var commentStr = "/* add-depicts: "
+                var first = true
                 for (label in acceptedLabels) {
-                    val claimTemplate = "{\"mainsnak\":" +
+                    if (!first) {
+                        claimStr += ","
+                    }
+                    if (!first) {
+                        commentStr += ","
+                    }
+                    first = false
+                    claimStr += "{\"mainsnak\":" +
                             "{\"snaktype\":\"value\",\"property\":\"P180\"," +
                             "\"datavalue\":{\"value\":" +
                             "{\"entity-type\":\"item\",\"id\":\"${label.wikidataId}\"}," +
                             "\"type\":\"wikibase-entityid\"},\"datatype\":\"wikibase-item\"}," +
                             "\"type\":\"statement\"," +
-                            "\"id\":\"M${page!!.pageId()}\$${UUID.randomUUID()}\"," +
+                            "\"id\":\"${mId}\$${UUID.randomUUID()}\"," +
                             "\"rank\":\"normal\"}"
-
-                    val comment = if (label.isCustom) SuggestedEditsFunnel.SUGGESTED_EDITS_IMAGE_TAG_CUSTOM_COMMENT else SuggestedEditsFunnel.SUGGESTED_EDITS_IMAGE_TAG_AUTO_COMMENT
-                    claimObservables.add(ServiceFactory.get(commonsSite).postSetClaim(claimTemplate, token, comment, null))
-                    claimComments.add(comment)
+                    commentStr += label.wikidataId + "|" + label.label.replace("|", "").replace(",", "")
                 }
+                claimStr += "]}"
+                commentStr += " */"
 
-                disposables.add(Observable.zip(claimObservables) { responses ->
-                    for (res in responses) {
-                        if (res is MwPostResponse) {
-                            if (res.pageInfo != null) {
-                                funnel?.logSaved(res.pageInfo!!.lastRevId, if (claimComments.isEmpty()) "" else claimComments.removeAt(0))
-                            }
-                        }
+                disposables.add(ServiceFactory.get(commonsSite).postEditEntity(mId, token, claimStr, commentStr, null)
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .doAfterTerminate {
+                        publishing = false
                     }
-                    responses[0]
-                }
-                        .subscribeOn(Schedulers.io())
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .doAfterTerminate {
-                            publishing = false
+                    .subscribe({
+                        if (it.pageInfo != null) {
+                            funnel?.logSaved(it.pageInfo!!.lastRevId, commentStr)
                         }
-                        .subscribe({ _ ->
-                            // TODO: check anything else in the response?
-                            publishSuccess = true
-                            onSuccess()
-                        }, { caught ->
-                            onError(caught)
-                        }))
+                        publishSuccess = true
+                        onSuccess()
+                    }, { caught ->
+                        onError(caught)
+                    })
+                )
             }
 
             override fun failure(caught: Throwable) {
@@ -391,16 +411,10 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
 
         publishProgressBar.postDelayed({
             if (isAdded) {
-                
-                for (i in 0 until tagsChipGroup.childCount) {
-                    val chip = tagsChipGroup.getChildAt(i) as Chip
-                    chip.isEnabled = false
-                }
                 updateLicenseTextShown()
-
                 publishOverlayContainer.visibility = GONE
                 callback().nextPage(this)
-                setPublishedState()
+                updateTagChips()
             }
         }, duration * 3)
     }
@@ -411,19 +425,6 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         funnel?.logError(caught.localizedMessage)
         publishOverlayContainer.visibility = GONE
         FeedbackUtil.showError(requireActivity(), caught)
-    }
-
-    private fun setPublishedState() {
-        for (i in 0 until tagsChipGroup.childCount) {
-            val chip = tagsChipGroup.getChildAt(i) as Chip
-            if (chip.isChecked) {
-                chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.color_group_57))
-                chip.setChipStrokeColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.color_group_58))
-            } else {
-                chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.chip_background_color))
-                chip.setChipStrokeColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.chip_background_color))
-            }
-        }
     }
 
     private fun playSuccessVibration() {

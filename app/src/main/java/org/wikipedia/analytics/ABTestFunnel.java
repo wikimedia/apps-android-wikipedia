@@ -2,6 +2,7 @@ package org.wikipedia.analytics;
 
 import androidx.annotation.NonNull;
 
+import org.json.JSONObject;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.settings.PrefsIoUtil;
 
@@ -37,6 +38,8 @@ public class ABTestFunnel extends Funnel {
         }
         return group % abTestGroupCount;
     }
+
+    @Override protected void preprocessSessionToken(@NonNull JSONObject eventData) { }
 
     void logGroupEvent(@NonNull String groupEventId) {
         log(

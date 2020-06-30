@@ -69,12 +69,12 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
-import io.reactivex.Completable;
-import io.reactivex.Observable;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.functions.Consumer;
-import io.reactivex.schedulers.Schedulers;
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.core.Completable;
+import io.reactivex.rxjava3.core.Observable;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.functions.Consumer;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
@@ -302,7 +302,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
     }
 
     private void updateReadingListData() {
-        disposables.add(Observable.fromCallable(() -> ReadingListDbHelper.instance().getFullListById(readingListId))
+        disposables.add(Observable.fromCallable(() -> ReadingListDbHelper.instance().getListById(readingListId, true))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(list -> {
@@ -466,6 +466,19 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         }
     }
 
+    private void moveSelectedPagesToList() {
+        List<ReadingListPage> selectedPages = getSelectedPages();
+        if (!selectedPages.isEmpty()) {
+            List<PageTitle> titles = new ArrayList<>();
+            for (ReadingListPage page : selectedPages) {
+                titles.add(ReadingListPage.toPageTitle(page));
+            }
+            bottomSheetPresenter.show(getChildFragmentManager(),
+                    MoveToReadingListDialog.newInstance(readingListId, titles, READING_LIST_ACTIVITY));
+            update();
+        }
+    }
+
     private void delete() {
         ReadingListBehaviorsUtil.INSTANCE.deleteReadingList(requireActivity(), readingList, true, () -> {
             startActivity(MainActivity.newIntent(requireActivity())
@@ -503,6 +516,17 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         }
         bottomSheetPresenter.show(getChildFragmentManager(),
                 AddToReadingListDialog.newInstance(ReadingListPage.toPageTitle(page),
+                        READING_LIST_ACTIVITY));
+    }
+
+    @Override
+    public void onMoveItemToOther(long pageId) {
+        ReadingListPage page = getPageById(pageId);
+        if (page == null) {
+            return;
+        }
+        bottomSheetPresenter.show(getChildFragmentManager(),
+                MoveToReadingListDialog.newInstance(readingListId, ReadingListPage.toPageTitle(page),
                         READING_LIST_ACTIVITY));
     }
 
@@ -920,6 +944,10 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
                     return true;
                 case R.id.menu_add_to_another_list:
                     addSelectedPagesToList();
+                    finishActionMode();
+                    return true;
+                case R.id.menu_move_to_another_list:
+                    moveSelectedPagesToList();
                     finishActionMode();
                     return true;
                 default:

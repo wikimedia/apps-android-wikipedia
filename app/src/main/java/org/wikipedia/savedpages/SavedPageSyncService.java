@@ -39,9 +39,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import io.reactivex.Completable;
-import io.reactivex.Observable;
-import io.reactivex.schedulers.Schedulers;
+import io.reactivex.rxjava3.core.Completable;
+import io.reactivex.rxjava3.core.Observable;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 import okhttp3.Request;
 import okhttp3.Response;
 import okio.Buffer;
@@ -290,9 +290,8 @@ public class SavedPageSyncService extends JobIntentService {
     }
 
     private Observable<okhttp3.Response> reqMobileHTML(@NonNull PageTitle pageTitle) {
-        Request request = makeUrlRequest(pageTitle.getWikiSite(),
-                UriUtil.encodeOkHttpUrl(ServiceFactory.getRestBasePath(pageTitle.getWikiSite()) + RestService.PAGE_HTML_ENDPOINT,
-                        pageTitle.getPrefixedText()), pageTitle).build();
+        Request request = makeUrlRequest(pageTitle.getWikiSite(), ServiceFactory.getRestBasePath(pageTitle.getWikiSite())
+                + RestService.PAGE_HTML_ENDPOINT + UriUtil.encodeURL(pageTitle.getPrefixedText()), pageTitle).build();
 
         return Observable.create(emitter -> {
             try {

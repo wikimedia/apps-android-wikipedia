@@ -107,7 +107,7 @@
   <string name="reading_lists_sync_login">Киирии</string>
   <string name="create_account_login">Киир</string>
   <string name="menu_login">Киирии</string>
-  <string name="login_activity_title">Бикипиэдьийэҕэ киирии</string>
+  <string name="login_activity_title" fuzzy="true">Бикипиэдьийэҕэ киирии</string>
   <string name="login_in_progress_dialog_message">Киирии...</string>
   <string name="login_success_toast" fuzzy="true">Этэҥҥэ киирдиҥ!</string>
   <string name="reset_password_title">Аһарыккын суруй</string>
@@ -688,9 +688,6 @@
   <string name="onboarding_reading_list_sync_title" fuzzy="true">Синхроннаах ааҕыы испииһэгэ</string>
   <string name="onboarding_analytics_title">Ааты эппэккэ ыытыы</string>
   <string name="onboarding_analytics_switch_title">Ыытарга</string>
-  <string name="onboarding_create_account_sync">Ааҕыы испииһэгин хардары-таары тэҥнээһин (синхроннааһын)</string>
-  <string name="onboarding_create_account_contributions">Суруйбуккун кэтээн көрүү</string>
-  <string name="onboarding_create_account_preferences">Бэйэ туруорууларын бигэргэтии</string>
   <string name="onboarding_got_it">Бу өйдөнөр</string>
   <string name="onboarding_multilingual_secondary_text">Эн тэрилгэр маннык тыллар көһүннүлэр:</string>
   <string name="onboarding_multilingual_add_language_text">Тылы эп биитэр сот</string>
@@ -748,12 +745,9 @@
   <string name="wikitext_template">Халыып</string>
   <string name="wikitext_reference">Быһаарыы</string>
   <string name="wikitext_preview_link">Сигэни көрүү</string>
-  <string name="main_drawer_open">Арый</string>
-  <string name="main_drawer_close">Сап</string>
-  <string name="main_drawer_content_description">Сүрүн талбаны арый</string>
   <string name="main_drawer_help">Көмө</string>
   <string name="main_drawer_login">Бикипиэдьийэҕэ киирии / бэлиэтэнии</string>
-  <string name="main_tooltip_text">%s, Бикипиэдьийэни ким баҕарар уларытыан сөбүн билэр этиҥ дуо?</string>
+  <string name="main_tooltip_text" fuzzy="true">%s, Бикипиэдьийэни ким баҕарар уларытыан сөбүн билэр этиҥ дуо?</string>
   <string name="main_tooltip_action_button">Саҕалыырга</string>
   <string name="custom_date_picker_dialog_ok_button_text">Сөп</string>
   <string name="text_input_dialog_ok_button_text">Сөп</string>

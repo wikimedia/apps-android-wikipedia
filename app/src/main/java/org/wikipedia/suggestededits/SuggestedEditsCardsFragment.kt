@@ -2,8 +2,6 @@ package org.wikipedia.suggestededits
 
 import android.app.Activity.RESULT_OK
 import android.content.Intent
-import android.content.res.ColorStateList
-import android.graphics.Color
 import android.graphics.drawable.Animatable
 import android.os.Bundle
 import android.view.*
@@ -11,17 +9,19 @@ import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import androidx.core.widget.ImageViewCompat
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.schedulers.Schedulers
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.disposables.CompositeDisposable
+import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_suggested_edits_cards.*
 import org.wikipedia.Constants.*
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.analytics.ABTestSuggestedEditsInterstitialFunnel
 import org.wikipedia.analytics.SuggestedEditsFunnel
+import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.mwapi.SiteMatrix
@@ -34,6 +34,7 @@ import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.PositionAwareFragmentStateAdapter
+import java.util.concurrent.TimeUnit
 
 class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.Callback {
     private val viewPagerListener = ViewPagerListener()
@@ -43,9 +44,13 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
     private var languageList: MutableList<String> = mutableListOf()
     private var swappingLanguageSpinners: Boolean = false
     private var resettingViewPager: Boolean = false
+    private var sessionEditCount = 0
     var langFromCode: String = app.language().appLanguageCode
     var langToCode: String = if (app.language().appLanguageCodes.size == 1) "" else app.language().appLanguageCodes[1]
     var action: DescriptionEditActivity.Action = ADD_DESCRIPTION
+    var rewardInterstitialImage = -1
+    var rewardInterstitialText = ""
+    var rewardInterstitialQACount = 0
 
     private val topTitle: PageTitle?
         get() {
@@ -72,6 +77,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
         retainInstance = true
         action = arguments?.getSerializable(INTENT_EXTRA_ACTION) as DescriptionEditActivity.Action
 
+        Prefs.setSuggestedEditsRewardInterstitialEnabled(true)
         // Record the first impression, since the ViewPager doesn't send an event for the first topmost item.
         SuggestedEditsFunnel.get().impression(action)
     }
@@ -145,6 +151,13 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
         }
     }
 
+    private fun shouldShowRewardInterstitial(): Boolean {
+        return (sessionEditCount > 2
+                && Prefs.isSuggestedEditsRewardInterstitialEnabled()
+                && rewardInterstitialImage != -1
+                && rewardInterstitialText.isNotEmpty()) || Prefs.isSuggestedEditsRewardInterstitialQAOverride()
+    }
+
     private fun updateBackButton(pagerPosition: Int) {
         backButton.isClickable = pagerPosition != 0
         backButton.alpha = if (pagerPosition == 0) 0.31f else 1f
@@ -167,17 +180,16 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
                 if (!isAddedContributionEmpty) child.showAddedContributionView(child.addedContribution)
             }
             addContributionImage!!.setImageDrawable(requireContext().getDrawable(if (isAddedContributionEmpty) R.drawable.ic_add_gray_white_24dp else R.drawable.ic_mode_edit_white_24dp))
-            ImageViewCompat.setImageTintList(addContributionImage, ColorStateList.valueOf(if (child.publishOutlined()) ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent) else Color.WHITE))
 
-            addContributionButton.setBackgroundResource(if (child.publishOutlined()) R.drawable.button_shape_border_light else R.drawable.button_shape_add_reading_list)
-            addContributionText?.setTextColor(if (child.publishOutlined()) ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent) else Color.WHITE)
+            addContributionButton.setBackgroundResource(R.drawable.button_shape_add_reading_list)
             addContributionButton.isEnabled = child.publishEnabled()
             addContributionButton.alpha = if (child.publishEnabled()) 1f else 0.5f
-        } else if (action == ADD_IMAGE_TAGS) {
-            addContributionButton.setBackgroundResource(R.drawable.button_shape_border_light)
         }
 
-        if (action == VANDALISM_PATROL) {
+        if (child != null && child is SuggestedEditsRewardsItemFragment) {
+            addContributionText?.text = getString(R.string.suggested_edits_rewards_continue_button)
+            addContributionImage.visibility = GONE
+        } else if (action == VANDALISM_PATROL) {
             if (addContributionText == null) {
                 // implying landscape mode, where addContributionText doesn't exist.
                 addContributionImage.visibility = VISIBLE
@@ -186,18 +198,13 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
                 addContributionText?.text = getString(R.string.suggested_edits_vandalism_patrol_skip)
                 addContributionImage.visibility = GONE
             }
-        } else if (action == ADD_IMAGE_TAGS) {
+        }else if (action == ADD_IMAGE_TAGS) {
             if (addContributionText == null) {
                 // implying landscape mode, where addContributionText doesn't exist.
                 addContributionImage.visibility = VISIBLE
                 addContributionImage.setImageResource(R.drawable.ic_check_black_24dp)
             } else {
                 addContributionText?.text = getString(R.string.description_edit_save)
-                if (child != null) {
-                    addContributionText?.setTextColor(if (child.publishOutlined()) ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent) else Color.WHITE)
-                } else {
-                    addContributionText?.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent))
-                }
                 addContributionImage.visibility = GONE
             }
         } else if (action == TRANSLATE_DESCRIPTION || action == TRANSLATE_CAPTION) {
@@ -216,6 +223,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
     override fun onDestroyView() {
         disposables.clear()
         cardsViewPager.unregisterOnPageChangeCallback(viewPagerListener)
+        cardsViewPager.adapter = null
         super.onDestroyView()
     }
 
@@ -242,6 +250,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
                     }
             )
             nextPage(null)
+            fetchUserInfoForNextInterstitialState()
         }
     }
 
@@ -262,8 +271,11 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
     }
 
     fun onSelectPage() {
-        if ((action == ADD_IMAGE_TAGS || action == VANDALISM_PATROL) && topBaseChild() != null) {
+        if (topBaseChild() is SuggestedEditsRewardsItemFragment) {
+            nextPage(null)
+        } else if ((action == ADD_IMAGE_TAGS || action == VANDALISM_PATROL) && topBaseChild() != null) {
             topBaseChild()!!.publish()
+            fetchUserInfoForNextInterstitialState()
         } else if (topTitle != null) {
             startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), topTitle!!, null, topChild()!!.sourceSummary, topChild()!!.targetSummary,
                     action, InvokeSource.SUGGESTED_EDITS), ACTIVITY_REQUEST_DESCRIPTION_EDIT)
@@ -337,6 +349,70 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
         wikiToLanguageSpinner.setSelection(app.language().appLanguageCodes.indexOf(langToCode))
     }
 
+    private fun fetchUserInfoForNextInterstitialState() {
+        sessionEditCount++
+        if (rewardInterstitialImage == -1 && rewardInterstitialText.isEmpty()) {
+            // Need to preload the user contribution in case we miss the latest data
+            disposables.add(SuggestedEditsUserStats.getEditCountsObservable()
+                    .map { response ->
+                        val editorTaskCounts = response.query()!!.editorTaskCounts()!!
+                        val daysOfLastEditQualityShown = TimeUnit.MILLISECONDS.toDays(System.currentTimeMillis() - Prefs.getLastSuggestedEditsRewardInterstitialEditQualityShown()).toInt()
+                        val daysOfLastPageviewsShown = TimeUnit.MILLISECONDS.toDays(System.currentTimeMillis() - Prefs.getLastSuggestedEditsRewardInterstitialPageviewsShown()).toInt()
+                        var shouldLoadPageViews = false
+                        if (editorTaskCounts.totalEdits == Prefs.getSuggestedEditsRewardInterstitialContributionOnInitialCount()
+                                || editorTaskCounts.totalEdits % Prefs.getSuggestedEditsRewardInterstitialContributionOnCount() == 0) {
+                            rewardInterstitialImage = R.attr.reward_interstitial_heart_drawable
+                            rewardInterstitialText = getString(R.string.suggested_edits_rewards_contribution, editorTaskCounts.totalEdits)
+                        } else if (editorTaskCounts.editStreak % Prefs.getSuggestedEditsRewardInterstitialEditStreakOnCount() == 0) {
+                            rewardInterstitialImage = R.attr.reward_interstitial_calendar_drawable
+                            rewardInterstitialText = getString(R.string.suggested_edits_rewards_edit_streak, editorTaskCounts.editStreak, AccountUtil.getUserName())
+                        } else if ((Prefs.getLastSuggestedEditsRewardInterstitialEditQualityShown().toInt() == 0
+                                        || daysOfLastEditQualityShown == Prefs.getSuggestedEditsRewardInterstitialEditQualityOnDay())
+                                && SuggestedEditsUserStats.getRevertSeverity() <= SuggestedEditsRewardsItemFragment.EDIT_STREAK_MAX_REVERT_SEVERITY) {
+                            when (SuggestedEditsUserStats.getRevertSeverity()) {
+                                0 -> {
+                                    rewardInterstitialImage = R.attr.reward_interstitial_quality_perfect_drawable
+                                    rewardInterstitialText = getString(R.string.suggested_edits_rewards_edit_quality, getString(R.string.suggested_edits_quality_perfect_text))
+                                }
+                                1 -> {
+                                    rewardInterstitialImage = R.attr.reward_interstitial_quality_excellent_drawable
+                                    rewardInterstitialText = getString(R.string.suggested_edits_rewards_edit_quality, getString(R.string.suggested_edits_quality_excellent_text))
+                                }
+                                2 -> {
+                                    rewardInterstitialImage = R.attr.reward_interstitial_quality_very_good_drawable
+                                    rewardInterstitialText = getString(R.string.suggested_edits_rewards_edit_quality, getString(R.string.suggested_edits_quality_very_good_text))
+                                }
+                                else -> {
+                                    rewardInterstitialImage = R.attr.reward_interstitial_quality_good_drawable
+                                    rewardInterstitialText = getString(R.string.suggested_edits_rewards_edit_quality, getString(R.string.suggested_edits_quality_good_text))
+                                }
+                            }
+                            Prefs.setLastSuggestedEditsRewardInterstitialEditQualityShown(System.currentTimeMillis())
+                        } else if (Prefs.getLastSuggestedEditsRewardInterstitialPageviewsShown().toInt() == 0
+                                || daysOfLastPageviewsShown == Prefs.getSuggestedEditsRewardInterstitialPageviewsOnDay()) {
+                            shouldLoadPageViews = true
+                        }
+                        shouldLoadPageViews
+                    }
+                    .flatMap {
+                        if (it) {
+                            SuggestedEditsUserStats.getPageViewsObservable()
+                        } else {
+                            Observable.just(-1L)
+                        }
+                    }
+                    .subscribe({
+                        if (it >= 0) {
+                            rewardInterstitialImage = R.attr.reward_interstitial_view_drawable
+                            rewardInterstitialText = getString(R.string.suggested_edits_rewards_pageviews, it)
+                            Prefs.setLastSuggestedEditsRewardInterstitialPageviewsShown(System.currentTimeMillis())
+                        }
+                    }, { t ->
+                        L.e(t)
+                    }))
+        }
+    }
+
     private inner class OnFromSpinnerItemSelectedListener : AdapterView.OnItemSelectedListener {
         override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
             if (langToCode == app.language().appLanguageCodes[position]) {
@@ -374,14 +450,31 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
         override fun getItemCount(): Int {
             return Integer.MAX_VALUE
         }
-
         override fun createFragment(position: Int): Fragment {
-            return if (action == ADD_IMAGE_TAGS)
-                SuggestedEditsImageTagsFragment.newInstance()
-            else if (action == VANDALISM_PATROL)
-                SuggestedEditsVandalismPatrolFragment.newInstance()
-            else
-                SuggestedEditsCardsItemFragment.newInstance()
+
+            if (shouldShowRewardInterstitial()) {
+                val funnel = ABTestSuggestedEditsInterstitialFunnel()
+                funnel.logInterstitialShown()
+                Prefs.setSuggestedEditsRewardInterstitialEnabled(false)
+                if (Prefs.isSuggestedEditsRewardInterstitialQAOverride()) {
+                    setUpRewardInterstitialsForQA()
+                }
+                if (funnel.shouldSeeInterstitial()) {
+                    return SuggestedEditsRewardsItemFragment
+                            .newInstance(ResourceUtil.getThemedAttributeId(requireContext(), rewardInterstitialImage), rewardInterstitialText)
+                }
+            }
+            return when (action) {
+                VANDALISM_PATROL -> {
+                    SuggestedEditsVandalismPatrolFragment.newInstance()
+                }
+                ADD_IMAGE_TAGS -> {
+                    SuggestedEditsImageTagsFragment.newInstance()
+                }
+                else -> {
+                    SuggestedEditsCardsItemFragment.newInstance()
+                }
+            }
         }
     }
 
@@ -405,6 +498,45 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
             if (position >= storedOffScreenPagesCount) {
                 (cardsViewPager.adapter as ViewPagerAdapter).removeFragmentAt(position - storedOffScreenPagesCount)
             }
+        }
+    }
+
+    private fun setUpRewardInterstitialsForQA() {
+        when (rewardInterstitialQACount) {
+            0 -> {
+                rewardInterstitialImage = R.attr.reward_interstitial_heart_drawable
+                rewardInterstitialText = getString(R.string.suggested_edits_rewards_contribution, 100)
+            }
+            1 -> {
+                rewardInterstitialImage = R.attr.reward_interstitial_calendar_drawable
+                rewardInterstitialText = getString(R.string.suggested_edits_rewards_edit_streak, 100, AccountUtil.getUserName())
+            }
+            2 -> {
+                rewardInterstitialImage = R.attr.reward_interstitial_quality_perfect_drawable
+                rewardInterstitialText = getString(R.string.suggested_edits_rewards_edit_quality, getString(R.string.suggested_edits_quality_perfect_text))
+            }
+            3 -> {
+                rewardInterstitialImage = R.attr.reward_interstitial_quality_excellent_drawable
+                rewardInterstitialText = getString(R.string.suggested_edits_rewards_edit_quality, getString(R.string.suggested_edits_quality_excellent_text))
+            }
+            4 -> {
+                rewardInterstitialImage = R.attr.reward_interstitial_quality_very_good_drawable
+                rewardInterstitialText = getString(R.string.suggested_edits_rewards_edit_quality, getString(R.string.suggested_edits_quality_very_good_text))
+            }
+            5 -> {
+                rewardInterstitialImage = R.attr.reward_interstitial_quality_good_drawable
+                rewardInterstitialText = getString(R.string.suggested_edits_rewards_edit_quality, getString(R.string.suggested_edits_quality_good_text))
+            }
+            6 -> {
+                rewardInterstitialImage = R.attr.reward_interstitial_view_drawable
+                rewardInterstitialText = getString(R.string.suggested_edits_rewards_pageviews, 100)
+            }
+        }
+
+        if (rewardInterstitialQACount == 6) {
+            rewardInterstitialQACount = 0
+        } else {
+            rewardInterstitialQACount++
         }
     }
 

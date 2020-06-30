@@ -67,7 +67,7 @@
   <string name="login_password_hint">సంకేతపదం</string>
   <string name="account_creation_password_hint">సంకేతపదం</string>
   <string name="menu_login">లాగినవండి</string>
-  <string name="login_activity_title">వికీపీడియాలోకి లాగినవండి</string>
+  <string name="login_activity_title" fuzzy="true">వికీపీడియాలోకి లాగినవండి</string>
   <string name="login_in_progress_dialog_message">మిమల్ని లాగిన్ చేస్తున్నాము…</string>
   <string name="login_success_toast" fuzzy="true">లాగిన్ విజయవంతం!</string>
   <string name="reset_password_hint">కొత్త సంకేతపదం</string>
@@ -255,6 +255,9 @@
   <string name="suggested_edits_image_caption_summary_title_date">తేదీ</string>
   <string name="suggested_edits_image_preview_dialog_date">తేదీ</string>
   <string name="suggested_edits_image_preview_dialog_more_info">మరింత సమాచారం</string>
+  <string name="suggested_edits_learn_more">మరింత తెలుసుకోండి</string>
+  <string name="suggested_edits_contribution_date_yesterday_text">నిన్న</string>
+  <string name="suggested_edits_rewards_continue_button">కొనసాగించు</string>
   <string name="description_edit_revert_subtitle">వికీపీడియాలో మార్పుచేర్పులు చేసినందుకు ధన్యవాదాలు!</string>
   <string name="description_edit_login_cancel_button_text">రద్దుచేయి</string>
   <string name="onboarding_continue">కొనసాగించు</string>

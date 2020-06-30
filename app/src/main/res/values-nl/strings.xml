@@ -42,6 +42,7 @@
   <string name="page_tabs_back">Terug</string>
   <string name="nav_item_forward">Volgende</string>
   <string name="search_hint">In Wikipedia zoeken</string>
+  <string name="search_hint_voice_search">Zoeken met steminvoer</string>
   <string name="search_hint_search_history">Zoekgeschiedenis</string>
   <string name="search_hint_search_languages">Zoeken naar een taal</string>
   <string name="search_hint_search_my_lists_and_articles">Doorzoek mijn lijsten en artikelen</string>
@@ -130,7 +131,7 @@
   <string name="reading_lists_sync_login">Aanmelden</string>
   <string name="create_account_login">Aanmelden</string>
   <string name="menu_login">Aanmelden</string>
-  <string name="login_activity_title">Aanmelden bij Wikipedia</string>
+  <string name="login_activity_title" fuzzy="true">Aanmelden bij Wikipedia</string>
   <string name="login_in_progress_dialog_message">Bezig met aanmelden…</string>
   <string name="login_success_toast">U bent aangemeld!</string>
   <string name="reset_password_title">Uw wachtwoord instellen</string>
@@ -209,7 +210,7 @@
   <string name="about_description">Over de Wikipedia-app</string>
   <string name="privacy_policy_description">Privacybeleid</string>
   <string name="terms_of_use_description">Gebruiksvoorwaarden</string>
-  <string name="about_wikipedia_url" fuzzy="true">https://en.m.wikipedia.org/wiki/Wikipedia:About</string>
+  <string name="about_wikipedia_url">https://en.wikipedia.org/wiki/Wikipedia:About</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
@@ -220,6 +221,7 @@
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="about_libraries_heading">Gebruikte bibliotheken</string>
   <string name="about_contributors_heading">Bijdragers</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Team pagina&lt;/a&gt;</string>
   <string name="about_translators_heading">Vertalers</string>
   <string name="about_translators_translatewiki">Deze app is vertaald door vrijwillige vertalers van &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licentie</string>
@@ -378,9 +380,11 @@
   <string name="text_size_percent_default">%s (standaard)</string>
   <string name="nav_item_reading_lists">Mijn lijsten</string>
   <string name="reading_list_save_to">Naar leeslijst opslaan</string>
+  <string name="reading_list_move_to">Naar leeslijst verplaatsen</string>
   <string name="reading_list_create_new">Nieuwe aanmaken</string>
   <string name="reading_list_title_exists">Leeslijst “%s” bestaan reeds.</string>
   <string name="reading_list_article_added_to_named">Toegevoegd %1$s tot %2$s.</string>
+  <string name="reading_list_article_moved_to_named">%1$s naar %2$s verplaatst.</string>
   <string name="reading_list_article_already_exists_message">Perfect! %1$s bevat al %2$s.</string>
   <string name="reading_list_articles_already_exist_message">Perfect! %s bevat al alle artikels.</string>
   <string name="reading_list_added_view_button">Lijst bekijken</string>
@@ -403,6 +407,7 @@
   <string name="reading_list_action_menu_remove_all_from_offline">Alle uit offline verwijderen</string>
   <string name="reading_list_action_menu_save_all_for_offline">Allemaal voor offline opslaan</string>
   <string name="reading_list_action_menu_add_to_another_list">Aan andere lijst toevoegen</string>
+  <string name="reading_list_action_menu_move_to_another_list">Naar een andere lijst verplaatsen</string>
   <string name="reading_list_name_sample">Mijn leeslijst</string>
   <string name="reading_list_name_hint">Naam van deze lijst</string>
   <string name="reading_list_description_hint">Beschrijving (optioneel)</string>
@@ -423,6 +428,7 @@
   <string name="reading_list_article_offline">Offline beschikbaar</string>
   <string name="reading_list_article_make_offline">Maak deze pagina offline beschikbaar</string>
   <string name="reading_list_add_to_other_list">Aan andere leeslijst toevoegen</string>
+  <string name="reading_list_move_to_other_list">Naar een andere leeslijst verplaatsen</string>
   <string name="reading_list_remove_from_list">Uit %s verwijderen</string>
   <string name="reading_list_remove_from_lists">Uit leeslijsten verwijderen</string>
   <string name="reading_list_select_item">Selecteren</string>
@@ -439,6 +445,7 @@
   <string name="reading_lists_confirm_remote_delete_no">Nee</string>
   <string name="reading_list_article_save_in_progress">Deze pagina wordt gedownload en zal offline beschikbaar zijn na afloop.</string>
   <string name="reading_list_articles_added_to_named">%1$d pagina\'s aan %2$s toegevoegd</string>
+  <string name="reading_list_articles_moved_to_named">%1$d artikelen naar %2$s verplaatst</string>
   <string name="reading_list_delete_confirm">Weet u zeker dat u %s wilt verwijderen?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Aanmelden om synchronisatie te activeren</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Meld u zich aan om leeslijsten op te slaan in uw account</string>
@@ -459,6 +466,7 @@
   <string name="no_user_lists_msg">Maak lijsten met te bezoeken plaatsen, favoriete onderwerpen en zoveel meer</string>
   <string name="reading_list_saved_list_rename">%1$s (aangemaakt door gebruiker)</string>
   <string name="split_reading_list_message">Er is een limiet van %d per leeslijst. Bestaande lijsten met meer artikelen dan deze limiet zijn opgesplitst in meerdere lijsten.</string>
+  <string name="reading_list_move_article_limit_message">U kunt deze lijst niet verplaatsen. U hebt de limiet van %2$d artikelen per lijst voor \"%1$s\" bereikt.</string>
   <string name="reading_list_article_limit_message">Toevoegen aan deze lijst niet mogelijk. U heeft de limiet van %2$d artikelen per lijst bereikt voor \"%1$s\".</string>
   <string name="reading_lists_limit_message">Kan geen nieuwe lijst aanmaken. U heeft de limiet van 100 leeslijsten per account bereikt.</string>
   <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Synchroniseer leeslijsten&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Leeslijsten kunnen nu op verschillende apparaten worden gesynchroniseerd. Log in op uw Wikipedia-account en laat uw lijsten opslaan.</string>
@@ -648,6 +656,7 @@
   <string name="suggested_edits_translate_descriptions">Artikelbeschrijvingen vertalen</string>
   <string name="suggested_edits_add_image_captions">Afbeeldingsbijschriften toevoegen</string>
   <string name="suggested_edits_translate_image_captions">Afbeeldingsbijschriften vertalen</string>
+  <string name="suggested_edits_tag_images">Afbeeldingen labelen</string>
   <string name="suggested_edits_review_description">Review Artikelbeschrijving</string>
   <string name="suggested_edits_add_description_button">Beschrijving toevoegen</string>
   <string name="suggested_edits_edit_description_button">Beschrijving bewerken</string>
@@ -688,26 +697,32 @@
   <string name="suggested_edits_tasks_onboarding_get_started">Aan de slag</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Afbeeldingsbijschrift (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Afbeeldingsbeschrijving (%s)</string>
+  <string name="suggested_edits_image_preview_dialog_file">Bestand</string>
   <string name="suggested_edits_image_preview_dialog_artist">Artiest</string>
+  <string name="suggested_edits_image_preview_dialog_tags">Label</string>
   <string name="suggested_edits_image_preview_dialog_date">Datum</string>
   <string name="suggested_edits_image_preview_dialog_source">Bron/fotograaf</string>
   <string name="suggested_edits_image_preview_dialog_licensing">Licentie</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Meer info</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Bestandspagina op Wikimedia Commons</string>
+  <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">Bestandspagina op Wikipedia</string>
   <string name="suggested_edits_article_cta_image_caption">Afbeeldingsbijschrift toevoegen</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Afbeeldingsbijschrift toevoegen (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Weergeven</string>
   <string name="suggested_edits_feed_card_add_image_caption">Afbeeldingsbijschrift toevoegen</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Afbeeldingsbijschrift toevoegen (%s)</string>
+  <string name="suggested_edits_feed_card_add_image_tags">Afbeeldingslabels toevoegen</string>
   <string name="suggested_edits_snackbar_survey_action_text">Vragenlijst invullen</string>
   <string name="suggested_edits_task_action_text_add">Toevoegen</string>
   <string name="suggested_edits_task_action_text_translate">Vertalen</string>
   <string name="suggested_edits_image_captions">Afbeeldingsbijschriften</string>
+  <string name="suggested_edits_image_tags">Afbeeldingslabels</string>
   <string name="suggested_edits_image_tags_publishing">Publiceren</string>
   <string name="suggested_edits_image_tags_published">Gepubliceerd</string>
   <string name="suggested_edits_image_tags_onboarding_title" fuzzy="true">Voeg aan afbeeldingen tags toe om ze gemakkelijker vindbaar te maken voor anderen</string>
   <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">Door voorgestelde tags te bevestigen, kunt u helpen om eenvoudiger te zoeken naar afbeeldingen.\n\nTags worden door de computer voorgesteld, maar moeten door mensen worden gevalideerd om nauwkeurigheid te garanderen.</string>
-  <string name="suggested_edits_ip_blocked_message">Het lijkt erop dat uw IP-adres (of bereik van IP-adressen) momenteel geblokkeerd is van het bewerken van Wikipedia. U kunt meer te weten komen over wat dit betekent door de link hieronder te volgen.</string>
+  <string name="suggested_edits_image_tags_add_tag">Label toevoegen</string>
+  <string name="suggested_edits_ip_blocked_message" fuzzy="true">Het lijkt erop dat uw IP-adres (of bereik van IP-adressen) momenteel geblokkeerd is van het bewerken van Wikipedia. U kunt meer te weten komen over wat dit betekent door de link hieronder te volgen.</string>
   <string name="suggested_edits_help_page_link_text">Hulppagina voorgestelde bewerkingen</string>
   <string name="suggested_edits_pageviews_label_text">Paginaweergaven</string>
   <string name="suggested_edits_quality_perfect_text">Perfect</string>
@@ -732,6 +747,9 @@
   <string name="suggested_edits_task_new">nieuw</string>
   <string name="suggested_edits_cc0_notice">Door te publiceren gaat u akkoord met de &lt;a href=\"%1$s\"&gt;gebruiksvoorwaarden&lt;/a&gt; en het onherroepelijk vrijgeven van deze bijdrage onder de &lt;a href=\"%2$s\"&gt;CC0 licentie&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Voorgestelde bewerkingen</string>
+  <string name="suggested_edits_contribution_date_yesterday_text">Gisteren</string>
+  <string name="suggested_edits_rewards_continue_button">Doorgaan</string>
+  <string name="file_page_activity_title">Bestandspagina</string>
   <string name="description_edit_revert_subtitle">Bedankt voor het bewerken van Wikipedia!</string>
   <string name="description_edit_revert_intro">Wij weten dat u uw best gedaan hebt, maar een van de beoordelaars zag een punt van zorg. Mogelijke redenen waarom uw bewerking is teruggedraaid, zijn:</string>
   <string name="description_edit_revert_reason1">uw bijdrage valt niet onder één van de &lt;a href=\"%1$s\"&gt;richtlijnen&lt;/a&gt;.</string>
@@ -753,9 +771,6 @@
   <string name="onboarding_analytics_title">Gegevens anoniem versturen</string>
   <string name="onboarding_analytics_offline_text">Help de app te verbeteren door ons te laten weten hoe u hem gebruikt. De verzamelde gegevens zijn anoniem. &lt;a href=\"#privacy\"&gt;Leer meer&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Uw gebruiksgegevens verzenden</string>
-  <string name="onboarding_create_account_sync">Uw leeslijsten synchroniseren</string>
-  <string name="onboarding_create_account_contributions">Blijf op de hoogte van uw bijdragen</string>
-  <string name="onboarding_create_account_preferences">Uw voorkeuren opslaan</string>
   <string name="onboarding_got_it">Begrepen</string>
   <string name="onboarding_multilingual_secondary_text">We hebben het volgende gevonden op uw apparaat:</string>
   <string name="onboarding_multilingual_add_language_text">Voeg talen toe of bewerk deze</string>
@@ -814,11 +829,9 @@
   <string name="wikitext_template">Sjabloon</string>
   <string name="wikitext_reference">Referentie</string>
   <string name="wikitext_preview_link">Voorvertoning koppeling</string>
-  <string name="main_drawer_open">Openen</string>
-  <string name="main_drawer_close">Sluiten</string>
   <string name="main_drawer_help">Hulp</string>
   <string name="main_drawer_login">Log in / aanmelden bij Wikipedia</string>
-  <string name="main_tooltip_text">%s, wist u dat iedereen Wikipedia kan bewerken?</string>
+  <string name="main_tooltip_text" fuzzy="true">%s, wist u dat iedereen Wikipedia kan bewerken?</string>
   <string name="main_tooltip_action_button">Aan de slag</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_ok_button_text">OK</string>

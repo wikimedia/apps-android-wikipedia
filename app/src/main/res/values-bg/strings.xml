@@ -108,9 +108,9 @@
   <string name="reading_lists_sync_login">Влизане</string>
   <string name="create_account_login">Влизане</string>
   <string name="menu_login">Влизане</string>
-  <string name="login_activity_title">Влизане в Уикипедия</string>
+  <string name="login_activity_title" fuzzy="true">Влизане в Уикипедия</string>
   <string name="login_in_progress_dialog_message">Влизане...</string>
-  <string name="login_success_toast" fuzzy="true">Успешно влизане!</string>
+  <string name="login_success_toast">Успешно влизане!</string>
   <string name="reset_password_title">Въведете паролата си</string>
   <string name="reset_password_description">Влязохте с временна парола. За да завършите влизането, моля, въведете нова парола тук.</string>
   <string name="reset_password_hint">Нова парола</string>
@@ -187,7 +187,7 @@
   <string name="about_description">Относно приложението Уикипедия.</string>
   <string name="privacy_policy_description">Защита на личните данни</string>
   <string name="terms_of_use_description">Условия за ползване</string>
-  <string name="about_wikipedia_url" fuzzy="true">https://bg.m.wikipedia.org/wiki/Уикипедия:За_Уикипедия</string>
+  <string name="about_wikipedia_url">https://bg.wikipedia.org/wiki/Уикипедия:За_Уикипедия</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
@@ -196,6 +196,7 @@
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="about_libraries_heading">Използвани библиотеки</string>
   <string name="about_contributors_heading">Сътрудници</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Страница на екипа&lt;/a&gt;</string>
   <string name="about_translators_heading">Преводачи</string>
   <string name="about_translators_translatewiki">Това приложение е преведено от доброволните преводачи на &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Лиценз</string>
@@ -264,7 +265,7 @@
   <string name="gallery_menu_share">Споделяне</string>
   <string name="gallery_share_error">Изображението не може да бъде споделено: %s</string>
   <string name="gallery_save_progress">Изтегляне на файла...</string>
-  <string name="gallery_save_success" fuzzy="true">Файлът е записан успешно.</string>
+  <string name="gallery_save_success">Файлът е записан.</string>
   <string name="gallery_error_video_failed">Видеото не може да бъде възпроизведено.</string>
   <string name="gallery_save_image_write_permission_rationale">Нужно е разрешение за записване в паметта на устройството, за да се запази изображение.</string>
   <string name="gallery_add_image_caption_button">Добавяне на надпис към изображението</string>
@@ -283,6 +284,7 @@
   <string name="close_all_tabs_confirm_yes">Да</string>
   <string name="close_all_tabs_confirm_no">Не</string>
   <string name="button_close_tab">Затваряне на раздела</string>
+  <string name="unnamed_tab_closed">Разделът е затворен.</string>
   <string name="tab_item_closed">%s затворена.</string>
   <string name="all_tab_items_closed">Всички табове са затворени.</string>
   <string name="tool_tip_bookmark_icon_title">Добавяне към списък за четене</string>
@@ -327,6 +329,7 @@
   <string name="preference_summary_prefer_offline_content">Пестете мобилни данни, като зареждате статии, които са налични в офлайн режим, вместо да зареждате последната им версия.</string>
   <string name="page_footer_license_text">Съдържанието е достъпно под $1, освен ако не е посочено друго</string>
   <string name="empty_tab_title">Нов раздел</string>
+  <string name="menu_save_all_tabs">Запазване на всички раздели</string>
   <string name="crash_report_activity_title">Грешка в приложението</string>
   <string name="crash_report_relaunch_or_quit">За съжаление, приложението на Уикипедия претърпя срив и бе спряно.\n\nБихте ли желали да започнете отначало или да излезете?</string>
   <string name="crash_report_relaunch">Започване отначало</string>
@@ -350,8 +353,11 @@
   <string name="text_size_percent_default">%s (по подразбиране)</string>
   <string name="nav_item_reading_lists">Моите списъци</string>
   <string name="reading_list_save_to">Добавяне в списъка за четене</string>
+  <string name="reading_list_move_to">Преместване в списък за четене</string>
   <string name="reading_list_create_new">Създаване на нов</string>
   <string name="reading_list_title_exists">Списъкът за четене „%s“ вече съществува.</string>
+  <string name="reading_list_article_added_to_named">%1$s е добавена към %2$s.</string>
+  <string name="reading_list_article_moved_to_named">%1$s е преместена в %2$s.</string>
   <string name="reading_list_added_view_button">Преглед на списъка</string>
   <string name="format_reading_list_statistical_summary_singular">1 статия, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d статии, %2$.2f MB</string>
@@ -372,6 +378,7 @@
   <string name="reading_list_action_menu_remove_all_from_offline">Премахване на всички от офлайн</string>
   <string name="reading_list_action_menu_save_all_for_offline">Запазване на всички за офлайн</string>
   <string name="reading_list_action_menu_add_to_another_list">Добавяне в друг списък</string>
+  <string name="reading_list_action_menu_move_to_another_list">Преместване в друг списък</string>
   <string name="reading_list_name_sample">Моят списък за четене</string>
   <string name="reading_list_name_hint">Име на този списък</string>
   <string name="reading_list_description_hint">Описание (незадължително)</string>
@@ -392,6 +399,8 @@
   <string name="reading_list_article_offline">Наличен офлайн</string>
   <string name="reading_list_article_make_offline">Правене на статията достъпна офлайн</string>
   <string name="reading_list_add_to_other_list">Добавяне в друг списък за четене</string>
+  <string name="reading_list_move_to_other_list">Преместване в друг списък за четене</string>
+  <string name="reading_list_move_from_to_other_list">Преместване от %s към друг списък за четене</string>
   <string name="reading_list_remove_from_list">Премахване от %s</string>
   <string name="reading_list_remove_from_lists">Премахване от списъците за четене</string>
   <string name="reading_list_select_item">Избиране</string>
@@ -408,6 +417,7 @@
   <string name="reading_lists_confirm_remote_delete_no">Не</string>
   <string name="reading_list_article_save_in_progress">Статията се изтегля и ще бъде налична офлайн, когато е готова.</string>
   <string name="reading_list_articles_added_to_named">Добавени %1$d статии в %2$s</string>
+  <string name="reading_list_articles_moved_to_named">Преместени са %1$d статии в %2$s</string>
   <string name="reading_list_delete_confirm">Сигурни ли сте, че искате да изтриете %s?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Влезте, за да включите синхронизиране</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Влезте, за да позволите съхранението на списъци за четене в сметката си.</string>
@@ -443,7 +453,7 @@
     <item quantity="one">Тази статия вече не е налична в офлайн режим.</item>
     <item quantity="other">Тези статии вече не са налични в офлайн режим.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync" fuzzy="true">Списъците за четене са синхронизирани успешно</string>
+  <string name="reading_list_toast_last_sync">Списъците за четене са синхронизирани</string>
   <string name="reading_list_menu_last_sync">Последно синхронизиране: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">Добре</string>
   <string name="reading_list_delete_dialog_ok_button_text">Добре</string>
@@ -556,7 +566,7 @@
   <string name="feed_configure_menu_reset">Нулиране на изгледа по подразбиране</string>
   <string name="feed_configure_menu_select_all">Показване на всички</string>
   <string name="feed_configure_menu_deselect_all">Скриване на всички</string>
-  <string name="feed_configure_language_warning">Имайте предвид, че не всички видове карти са достъпни на всички езици в Уикипедия. Редактирайте избраните си езици в Настройки.</string>
+  <string name="feed_configure_language_warning">Имайте предвид, че не всички видове карти са достъпни на всички езици в Уикипедия. Редактирайте избраните езици в Настройки.</string>
   <string name="feed_item_type_news">Статии за текущи събития</string>
   <string name="feed_item_type_on_this_day">Събития в историята на този ден</string>
   <string name="feed_item_type_because_you_read">Предложения, базирани на скоро четена статия от историята Ви</string>
@@ -566,7 +576,7 @@
   <string name="feed_item_type_main_page">Начална страница на Уикипедия с дневно избрано съдържание</string>
   <string name="feed_item_type_randomizer">Генериране на произволни статии за четене</string>
   <string name="feed_item_type_suggested_edits">Предложения за добавяне на съдържание към Уикипедия</string>
-  <string name="feed_empty_message">Няма нищо във вашата хранилка за Откриване</string>
+  <string name="feed_empty_message">Няма нищо във Вашата хранилка за Откриване</string>
   <string name="feed_configure_onboarding_action">Персонализиране</string>
   <string name="customize_lang_selection_dialog_ok_button_text">Добре</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Отказ</string>
@@ -635,36 +645,44 @@
   <string name="suggested_edits_task_translate_caption_title">Превод на описания на картини</string>
   <string name="suggested_edits_task_translate_caption_description">Превод на описания на други езици</string>
   <string name="suggested_edits_task_multilingual_title">Повече задачи за многоезични редактори</string>
-  <string name="suggested_edits_task_multilingual_description">Има задачи за превод на расположение, ако четете и пишете на Уикипедия на повече от един език.</string>
+  <string name="suggested_edits_task_multilingual_description">Има налични задачи за превод, ако четете и пишете на повече от един език на Уикипедия.</string>
   <string name="suggested_edits_task_image_caption_edit_disable_text">Заключено, докато не редактирате поне %d описания на изображения</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text">Заключено, докато не редактирате %d описания на статии (проверени)</string>
-  <string name="suggested_edits_task_multilingual_negative">Не за мен</string>
+  <string name="suggested_edits_task_multilingual_negative">Не е за мен</string>
   <string name="suggested_edits_task_multilingual_positive">Добавяне на езици</string>
+  <string name="suggested_edits_image_caption_summary_title_file">Файл</string>
+  <string name="suggested_edits_image_caption_summary_title_artist">Създател</string>
   <string name="suggested_edits_image_caption_summary_title_author">Автор</string>
   <string name="suggested_edits_image_caption_summary_title_source">Източник</string>
   <string name="suggested_edits_image_caption_summary_title_license">Лиценз</string>
   <string name="suggested_edits_image_caption_summary_title_date">Дата</string>
   <plurals name="suggested_edits_contribution_count">
-    <item quantity="one">1 принос</item>
-    <item quantity="other">%d приноса</item>
+    <item quantity="one">1 редакция</item>
+    <item quantity="other">%d редакции</item>
   </plurals>
   <string name="suggested_edits_feed_card_title">Предложения за редактиране</string>
   <string name="suggested_edits_feed_card_add_description_button">Добавяне на описание на статията</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Добавяне на описание на статията (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Започване</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Описание на изображението (%s)</string>
+  <string name="suggested_edits_image_preview_dialog_file">Файл</string>
+  <string name="suggested_edits_image_preview_dialog_artist">Създател</string>
   <string name="suggested_edits_image_preview_dialog_date">Дата</string>
   <string name="suggested_edits_image_preview_dialog_source">Източник/Фотограф</string>
+  <string name="suggested_edits_image_preview_dialog_licensing">Лиценз</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Повече информация</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Страница на файла в Общомедия</string>
   <string name="suggested_edits_article_cta_snackbar_action">Преглед</string>
   <string name="suggested_edits_snackbar_survey_action_text">Попълнете анкета</string>
   <string name="suggested_edits_task_action_text_add">Добавяне</string>
   <string name="suggested_edits_task_action_text_translate">Превод</string>
-  <string name="suggested_edits_image_captions" fuzzy="true">Описания на изображения</string>
+  <string name="suggested_edits_image_captions">Описания на изображения</string>
+  <string name="suggested_edits_image_tags_publishing">Публикуване</string>
+  <string name="suggested_edits_image_tags_published">Публикувано</string>
   <string name="suggested_edits_encouragement_message">%s, благодарим Ви за вашите редакции. По-долу може да намерите още начини как да допринасяте за Уикипедия.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Здравейте, %s&lt;/b&gt;, знаехте ли, че всеки може да редактира Уикипедия? Надолу може да намерите развлекателни начини, за да помогнете в подобряването на Уикипедия. Приятно редактиране!</string>
-  <string name="suggested_edits_image_captions_task_detail">Описанията на изображенията помагат на читателя да разбере значението и контекста на изображението.</string>
+  <string name="suggested_edits_image_captions_task_detail">Опишете изображение, за да помогнете на читателите да разберат смисъла и контекста му.</string>
+  <string name="suggested_edits_add_descriptions_task_detail">Обобщава статията, за да помогне на читателите да добият представа за темата.</string>
   <string name="suggested_edits_editing_tips_link_text">Съвети и трикове за редактирането</string>
   <string name="suggested_edits_pageviews_label_text">Преглеждания</string>
   <string name="suggested_edits_quality_label_text">Качество на редакциите</string>
@@ -676,6 +694,7 @@
   <string name="suggested_edits_quality_sufficient_text">Достатъчно</string>
   <string name="suggested_edits_quality_poor_text">Ниско</string>
   <string name="suggested_edits_quality_bad_text">Лошо</string>
+  <string name="suggested_edits_contribute">Допринасяне</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">Принос</item>
     <item quantity="other">Приноси</item>
@@ -686,7 +705,18 @@
   </plurals>
   <string name="suggested_edits_last_edited">Последна редакция</string>
   <string name="suggested_edits_last_edited_never">Никога</string>
+  <string name="suggested_edits_task_new">ново</string>
   <string name="suggested_edits_cc0_notice">Публикувайки, Вие се съгласявате с &lt;a href=\"%1$s\"&gt;условията за ползване&lt;/a&gt; и безвъзвратно публикувате приносите си под &lt;a href=\"%2$s\"&gt;CC0 лиценз&lt;/a&gt;.</string>
+  <string name="suggested_edits_reactivation_notification_title">Предложения за редактиране</string>
+  <string name="suggested_edits_contribution_language_label">Език</string>
+  <string name="suggested_edits_contribution_date_time_label">Дата / Час</string>
+  <string name="suggested_edits_contribution_type_label">Вид принос</string>
+  <string name="suggested_edits_contribution_image_label">Файл</string>
+  <string name="suggested_edits_contribution_article_label">Статия</string>
+  <string name="suggested_edits_contribution_date_yesterday_text">Вчера</string>
+  <string name="suggested_edits_rewards_continue_button">Продължаване</string>
+  <string name="suggested_edits_added_contribution_label" fuzzy="true">Добавили сте %d символа</string>
+  <string name="file_page_activity_title">Страница на файла</string>
   <string name="description_edit_revert_subtitle">Благодарим за редактирането на Уикипедия!</string>
   <string name="description_edit_revert_intro">Знаем, че дадохте всичко от себе си, но един от преглеждащите има забележка. Възможните причини за върната редакция включват:</string>
   <string name="description_edit_revert_reason1">вашият принос е в разрез с едно от &lt;a href=\"%1$s\"&gt;напътствията за описания&lt;/a&gt;.</string>
@@ -708,9 +738,6 @@
   <string name="onboarding_analytics_title">Изпращане на анонимни данни</string>
   <string name="onboarding_analytics_offline_text">Помогнете да направим приложението по-добро, като ни уведомите как го използвате. Събираните данни са анонимни. &lt;a href=\"#privacy\"&gt;Научете повече&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Изпращане на данни за използване</string>
-  <string name="onboarding_create_account_sync">Синхронизация на списъците Ви за четене</string>
-  <string name="onboarding_create_account_contributions">Бъдете в течение с приносите си</string>
-  <string name="onboarding_create_account_preferences">Съхраняване на предпочитанията</string>
   <string name="onboarding_got_it">Разбрах</string>
   <string name="onboarding_multilingual_secondary_text">Намерено е следното на Вашето устройство:</string>
   <string name="onboarding_multilingual_add_language_text">Добавяне или редактиране на езици</string>
@@ -769,11 +796,9 @@
   <string name="wikitext_template">Шаблон</string>
   <string name="wikitext_reference">Източник</string>
   <string name="wikitext_preview_link">Преглед на връзката</string>
-  <string name="main_drawer_open">Отваряне</string>
-  <string name="main_drawer_close">Затваряне</string>
   <string name="main_drawer_help">Помощ</string>
   <string name="main_drawer_login">Влизане в / присъединяване към Уикипедия</string>
-  <string name="main_tooltip_text">%s, знаехте ли, че всеки може да редактира Уикипедия?</string>
+  <string name="main_tooltip_text" fuzzy="true">%s, знаехте ли, че всеки може да редактира Уикипедия?</string>
   <string name="main_tooltip_action_button">Започване</string>
   <string name="custom_date_picker_dialog_ok_button_text">Добре</string>
   <string name="text_input_dialog_ok_button_text">Добре</string>

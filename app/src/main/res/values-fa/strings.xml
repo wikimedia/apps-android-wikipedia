@@ -21,6 +21,7 @@
 * Kourosh
 * Ladsgroup
 * Leyth
+* Mahdy Saffar
 * Mardetanha
 * Mehdi
 * Mjbmr
@@ -31,6 +32,7 @@
 * Pirehelokan
 * Reza1615
 * Sahehco
+* Sunfyre
 * Yoosef Pooranvary
 * الناز
 -->
@@ -131,7 +133,7 @@
   <string name="reading_lists_sync_login">ورود</string>
   <string name="create_account_login">ورود</string>
   <string name="menu_login">ورود به سامانه</string>
-  <string name="login_activity_title">ورود به ویکی‌پدیا</string>
+  <string name="login_activity_title" fuzzy="true">ورود به ویکی‌پدیا</string>
   <string name="login_in_progress_dialog_message">در حال وارد شدن به سامانه…</string>
   <string name="login_success_toast">وارد شدید!</string>
   <string name="reset_password_title">تنظیم گذرواژه</string>
@@ -210,7 +212,7 @@
   <string name="about_description">دربارهٔ نرم‌افزار ویکی‌پدیا</string>
   <string name="privacy_policy_description">سیاست حفظ حریم خصوصی</string>
   <string name="terms_of_use_description">شرایط استفاده</string>
-  <string name="about_wikipedia_url" fuzzy="true">https://fa.m.wikipedia.org/wiki/ویکی‌پدیا:آشنایی_با_دانشنامه</string>
+  <string name="about_wikipedia_url">https://fa.wikipedia.org/wiki/ویکی‌پدیا:آشنایی_با_دانشنامه</string>
   <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/it/Lettura_e_dati_offline</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
@@ -292,6 +294,7 @@
   <string name="gallery_save_success">پرونده ذخیره شد.</string>
   <string name="gallery_error_video_failed">امکان پخش ویدئو وجود ندارد.</string>
   <string name="gallery_save_image_write_permission_rationale">برای ذخیره تصاویر نیازمند اجازه ذخیره بر روی دستگاهتان است.</string>
+  <string name="gallery_add_image_caption_button">افزودن توضیح تصویر</string>
   <string name="gallery_add_image_caption_in_language_button">افزودن توضیح تصویر (%s)</string>
   <string name="err_cannot_save_file">امکان ذخیره پرونده وجود ندارد</string>
   <string name="expand_refs">برای بازشدن صفحه را لمس کنید</string>
@@ -350,6 +353,7 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">گم نورکردن تصویر (در حالت تیره)</string>
   <string name="preference_title_prefer_offline_content">محتوای آفلاین را ترجیح بده</string>
   <string name="preference_summary_prefer_offline_content">با نشان دادن محتوای آفلاین به جای گرفتن آخرین نسخه می‌توانید در مصرف داده صرفه‌جویی کنید</string>
+  <string name="page_footer_license_text">محتوا تحت $1 در دسترس است، مگر اینکه خلافش ذکر شده‌باشد.</string>
   <string name="empty_tab_title">برگهٔ جدید</string>
   <string name="menu_save_all_tabs">ذخیرهٔ همهٔ برگه‌ها</string>
   <string name="crash_report_activity_title">خطای برنامه</string>
@@ -541,7 +545,10 @@
   <string name="preference_title_notification_revert">واگردانی</string>
   <string name="preference_summary_notification_revert">یکی از مشارکت‌های شما برگردانده شده است</string>
   <string name="preference_title_notification_login_fail">ورود</string>
+  <string name="preference_title_notification_mention">اشاره کردن</string>
+  <string name="preference_summary_notification_mention">شخصی در صفحه‌ای به شما اشاره کرده‌است</string>
   <string name="preference_title_notification_user_talk">صفحهٔ بحث</string>
+  <string name="preference_summary_notification_user_talk">پیام‌های صفحه‌های بحث</string>
   <string name="view_because_you_read_card_title">چون شما مطالعه می‌کنید</string>
   <string name="view_random_card_title">تصادفی</string>
   <string name="view_random_card_subtitle">زدن بر روی مقالات تصادفی برای خواندن ویکی‌پدیا.</string>
@@ -598,6 +605,11 @@
   <string name="feed_accessibility_card_load_more_button">بارگیری بیشتر</string>
   <string name="description_edit_text_hint">توضیحات مقاله</string>
   <string name="description_edit_article_description_label">مقاله</string>
+  <string name="description_edit_translate_article_description_label_per_language">توضیحات مقاله (%s)</string>
+  <string name="description_edit_translate_article_description_hint_per_language">توضیحات مقاله (%s)</string>
+  <string name="description_edit_add_caption_label">توضیحات تصویر</string>
+  <string name="description_edit_add_caption_hint">توضیح تصویر</string>
+  <string name="description_edit_translate_caption_label_per_language">توضیح تصویر (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">توضیح تصویر (%s)</string>
   <string name="description_edit_save">منتشر</string>
   <string name="description_edit_read">خواندن</string>
@@ -614,11 +626,13 @@
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">ممنون برای علاقه ادامه‌دارتان در ویرایش توضیحات مقاله! لطفاً برای ویرایش‌های بیشتر، با حساب ویکی‌پدیا وارد سامانه شوید.</string>
   <string name="description_edit_license_notice">با تغییر توضیحات عنوان، با &lt;a href=\"%1$s\"&gt;شرایط استفاده&lt;/a&gt; و انتشار جبران‌ناپذیر مشارکت‌هایم تحت مجوز &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; موافقت می‌کنم.</string>
+  <string name="description_edit_helper_text_lowercase_warning">معمولاً با حرف کوچک آغاز می‌شود</string>
   <string name="description_edit_success_saved">توضیحات مقاله منتشر شد!</string>
   <string name="description_edit_success_saved_snackbar">توضیحات مقاله منتشر شد!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">توضیحات مقاله منتشر شد! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">عنوان تصویر منتشر شد!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">توضیحات تصویر منتشر شد!(%s)</string>
+  <string name="description_edit_success_saved_image_tags_snackbar">برچسب تصویر منتشر شد!</string>
   <string name="description_edit_success_encouragement">شما ویکی‌پدیا را برای همه بهتر کردید</string>
   <string name="description_edit_success_done">انجام شد</string>
   <string name="description_edit_success_did_you_know">آیا می‌دانستید که؟</string>
@@ -633,6 +647,7 @@
   <string name="suggested_edits_translate_descriptions">ترجمه توضیحات مقاله</string>
   <string name="suggested_edits_add_image_captions">افزودن عنوان تصویر</string>
   <string name="suggested_edits_translate_image_captions">ترجمه عنوان تصویر</string>
+  <string name="suggested_edits_tag_images">برچسب‌گذاری تصویرها</string>
   <string name="suggested_edits_review_description">مرور توضیحات مقاله</string>
   <string name="suggested_edits_add_description_button">افزدون توضیحات</string>
   <string name="suggested_edits_edit_description_button">ویرایش توضیحات</string>
@@ -655,7 +670,7 @@
   <string name="suggested_edits_task_translate_caption_description">ترجمه توضیحات تصویر به زبان های دیگر</string>
   <string name="suggested_edits_task_multilingual_title">وظایف بیشتر برای ویرایشگران چندزبانه</string>
   <string name="suggested_edits_task_multilingual_description">اگر می‌توانید بیش از یک زبان ویکی‌پدیا را بخوانید و بنویسید، امکان ترجمه وجود دارد.</string>
-  <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">تا زمانی که %d  ویرایش تائید شده‌داشته باشید، قفل‌شده‌است</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text">تا زمانی که %d توضیح تصویر را ویرایش کنید، قفل‌شده‌است</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text" fuzzy="true">تا زمانی که %d  ویرایش تائید شده‌داشته باشید، قفل‌شده‌است</string>
   <string name="suggested_edits_task_multilingual_negative">برای شما نیست</string>
   <string name="suggested_edits_task_multilingual_positive">افزودن زبان</string>
@@ -673,23 +688,35 @@
   <string name="suggested_edits_feed_card_add_description_button">افزودن توضیح مقاله</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">افزودن توضیحات مقاله (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">شروع شد</string>
+  <string name="suggested_edits_image_preview_dialog_caption_in_language_title">توضیح تصویر (%s)</string>
   <string name="suggested_edits_image_preview_dialog_artist">نام هنرمند</string>
   <string name="suggested_edits_image_preview_dialog_date">تاریخ</string>
   <string name="suggested_edits_image_preview_dialog_source">منبع/عکاس</string>
   <string name="suggested_edits_image_preview_dialog_licensing">اجازه‌نامه</string>
   <string name="suggested_edits_image_preview_dialog_more_info">اطلاعات بیشتر</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">صفحهٔ این پرونده در ویکی‌انبار</string>
+  <string name="suggested_edits_article_cta_image_caption">افزودن توضیح تصویر</string>
+  <string name="suggested_edits_article_cta_image_caption_in_language">افزودن زیرنویس تصویر (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">نمایش</string>
   <string name="suggested_edits_feed_card_add_image_caption">افزودن زیرنویس تصویر</string>
   <string name="suggested_edits_feed_card_translate_image_caption">افزودن زیرنویس تصویر (%s)</string>
+  <string name="suggested_edits_feed_card_add_image_tags">افزودن برچسب‌های تصویر</string>
+  <string name="suggested_edits_snackbar_survey_action_text">شرکت در آمارگیری</string>
   <string name="suggested_edits_task_action_text_add">افزودن</string>
   <string name="suggested_edits_task_action_text_translate">ترجمه</string>
+  <string name="suggested_edits_image_captions">توضیح تصویر</string>
+  <string name="suggested_edits_image_tags">برچسب‌های تصویر</string>
   <string name="suggested_edits_image_tags_publishing">در حال انتشار</string>
   <string name="suggested_edits_image_tags_published">منتشر شد</string>
+  <string name="suggested_edits_image_tags_onboarding_title">برچسب‌گذاری تصویرها یافتن‌شان را آسان‌تر می‌سازد.</string>
+  <string name="suggested_edits_image_tags_onboarding_note">تنها برچسب‌هایی که انتخاب کنید به تصاوی افزوده خواهد شد</string>
+  <string name="suggested_edits_image_tags_task_detail" fuzzy="true">تصویرها را برچسب‌گذاری کنید تا یافتن‌شان آسان‌تر شود.</string>
+  <string name="suggested_edits_image_tags_published_list">برچسب‌های منتشر شده</string>
   <string name="suggested_edits_image_tags_search">جستجوی برچسب‌ها</string>
+  <string name="suggested_edits_image_tags_select_title">شما هیچ برچسبی برای این تصویر انتخاب نکرده‌اید</string>
   <string name="suggested_edits_image_tags_add_tag">افزودن برچسب</string>
   <string name="suggested_edits_pageviews_label_text">بازدیدهای صفحه</string>
-  <string name="suggested_edits_quality_label_text">ویرایش کیفیت</string>
+  <string name="suggested_edits_quality_label_text">کیفیت ویرایش</string>
   <string name="suggested_edits_quality_perfect_text">کامل و دقیق</string>
   <string name="suggested_edits_quality_excellent_text">عالی</string>
   <string name="suggested_edits_quality_very_good_text">بسیار خوب</string>
@@ -732,9 +759,6 @@
   <string name="onboarding_analytics_title">ارسال اطلاعات ناشناس</string>
   <string name="onboarding_analytics_offline_text">ما را مطلع کنید که چگونه از این برنامه استفاده می کنید تا یاریمان نمایید آن را بهبود بخشیم. جمع آوری داده ها بصورت ناشناس انجام می گیرد. &lt;a href=\"#privacy\"&gt;اطلاعات بیشتر&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">ارسال داده مصرفی</string>
-  <string name="onboarding_create_account_sync">همسازسازی فهرست‌های مطالعه شما</string>
-  <string name="onboarding_create_account_contributions">پیگیری ویرایش‌هایتان</string>
-  <string name="onboarding_create_account_preferences">ذخیره ترجیحاتتان</string>
   <string name="onboarding_got_it">گرفتم</string>
   <string name="onboarding_multilingual_secondary_text">ما مورد زیر را بر روی دستگاه شما یافتیم:</string>
   <string name="onboarding_multilingual_add_language_text">ویرایش یا اضافه کردن زبان</string>
@@ -793,11 +817,10 @@
   <string name="wikitext_template">الگو</string>
   <string name="wikitext_reference">منبع</string>
   <string name="wikitext_preview_link">پیوند پیش‌نمایش</string>
-  <string name="main_drawer_open">باز کن</string>
-  <string name="main_drawer_close">بستن</string>
   <string name="main_drawer_help">راهنما</string>
   <string name="main_drawer_login">ورود / پیوستن به ویکیپدیا</string>
-  <string name="main_tooltip_text">%s، آیا می‌دانید که هر کسی می‌تواند ویکی‌پدیا را ویرایش کند؟</string>
+  <string name="main_tooltip_text" fuzzy="true">سلام %s، آیا می‌دانید که هر کسی می‌تواند ویکی‌پدیا را ویرایش کند؟</string>
+  <string name="main_tooltip_action_button">شروع شد</string>
   <string name="custom_date_picker_dialog_ok_button_text">تأیید</string>
   <string name="text_input_dialog_ok_button_text">تأیید</string>
   <string name="text_input_dialog_cancel_button_text">لغو</string>

@@ -75,7 +75,7 @@
   <string name="login_2fa_hint">Код двухфактарнай аўтэнтыфікацыі</string>
   <string name="login_2fa_other_workflow_error_msg">Патрабуецца двухфакторная аўтэнтыфікацыя! Калі ласка, вярніцеся да асноўнай дзейнасці і ўвайсці ў сістэму з дапамогай вашага 2FA-токена, а затым паўтарыце спробу.</string>
   <string name="menu_login">Увайсці</string>
-  <string name="login_activity_title">Увайсці ў Вікіпедыю</string>
+  <string name="login_activity_title" fuzzy="true">Увайсці ў Вікіпедыю</string>
   <string name="login_in_progress_dialog_message">Уваход у сістэму…</string>
   <string name="login_success_toast" fuzzy="true">Паспяховы ўваход у сістэму!</string>
   <string name="preference_title_logout">Выйсці</string>
@@ -252,4 +252,7 @@
   <string name="description_edit_save">Апублікаваць</string>
   <string name="description_edit_add_description" fuzzy="true">Дадаць апісанне</string>
   <string name="description_edit_success_done">Гатова</string>
+  <string name="suggested_edits_image_preview_dialog_file" fuzzy="true">Назва файла</string>
+  <string name="suggested_edits_image_preview_dialog_tags">Тэгі</string>
+  <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">Назва файла ў Вікіпедыі</string>
 </resources>

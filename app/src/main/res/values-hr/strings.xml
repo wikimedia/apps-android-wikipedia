@@ -109,7 +109,7 @@
   <string name="reading_lists_sync_login">Prijava</string>
   <string name="create_account_login">Prijava</string>
   <string name="menu_login">Prijavite se</string>
-  <string name="login_activity_title">Prijavite se na Wikipediju</string>
+  <string name="login_activity_title">Prijavite se</string>
   <string name="login_in_progress_dialog_message">Ulaz u sustav…</string>
   <string name="login_success_toast">Prijavili ste se!</string>
   <string name="reset_password_title">Postavite zaporku</string>
@@ -351,8 +351,10 @@
   <string name="text_size_percent_default">%s (zadano)</string>
   <string name="nav_item_reading_lists">Moji popisi</string>
   <string name="reading_list_save_to">Dodaj na popis za čitanje</string>
+  <string name="reading_list_move_to">Premjesti na popis za čitanje</string>
   <string name="reading_list_create_new">Stvori novi</string>
   <string name="reading_list_title_exists">Popis za čitanje „%s” već postoji.</string>
+  <string name="reading_list_article_moved_to_named">Premješten %1$s na %2$s.</string>
   <string name="reading_list_article_already_exists_message">Sve je u redu! %1$s već sadrži %2$s.</string>
   <string name="reading_list_added_view_button">Prikaz popisa</string>
   <string name="format_reading_list_statistical_summary_singular">1 članak, %1$.2f MB</string>
@@ -371,6 +373,7 @@
   <string name="reading_list_action_menu_remove_all_from_offline">Ukloni sve iz izvanmrežne pohrane</string>
   <string name="reading_list_action_menu_save_all_for_offline">Spremi sve u izvanmrežnu pohranu</string>
   <string name="reading_list_action_menu_add_to_another_list">Dodaj na drugi popis</string>
+  <string name="reading_list_action_menu_move_to_another_list">Premjesti na drugi popis</string>
   <string name="reading_list_name_sample">Moj popis za čitanje</string>
   <string name="reading_list_name_hint">Naziv ovog popisa</string>
   <string name="reading_list_description_hint">Opis (nije obavezno)</string>
@@ -611,6 +614,7 @@
   <string name="suggested_edits_tasks_onboarding_get_started">Krenimo</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Natpis slike (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Opis slike (%s)</string>
+  <string name="suggested_edits_image_preview_dialog_file">Datoteka</string>
   <string name="suggested_edits_image_preview_dialog_artist">Umjetnik</string>
   <string name="suggested_edits_image_preview_dialog_date">Datum</string>
   <string name="suggested_edits_image_preview_dialog_source">Izvor/fotograf</string>
@@ -639,7 +643,8 @@
   <string name="suggested_edits_image_tags_add_tag">Dodaj oznaku</string>
   <string name="suggested_edits_encouragement_message">%s, hvala Vam na vašim doprinosima. Niže možete saznati na koje sve još načine možete doprinijeti Wikipediji.</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Pozdrav, %s&lt;/b&gt;, jeste li znali da svatko može uređivati Wikipediju? Niže su navedeni zabavni načini na koje možete pomoći u poboljšanju Wikipedije. Ugodno uređivanje!</string>
-  <string name="suggested_edits_image_captions_task_detail">Opisi slika čitateljima pomažu u razumijevanju njihovog značenja i konteksta.</string>
+  <string name="suggested_edits_image_captions_task_detail" fuzzy="true">Opisi slika čitateljima pomažu u razumijevanju njihovog značenja i konteksta.</string>
+  <string name="suggested_edits_ip_blocked_message">Izgleda kao da je Vaša IP-adresa (ili opseg IP-adresa) trenutačno blokirana od uređivanja Wikipedije.</string>
   <string name="suggested_edits_pageviews_label_text">Pregledi stranica</string>
   <string name="suggested_edits_quality_label_text">Kvaliteta uređivanja</string>
   <string name="suggested_edits_quality_perfect_text">Savršeno</string>
@@ -658,9 +663,17 @@
     <item quantity="one">%d dan</item>
     <item quantity="other">%d day</item>
   </plurals>
+  <string name="suggested_edits_ip_blocked_title">IP-adresa je blokirana</string>
   <string name="suggested_edits_last_edited">Zadnje uređivanje</string>
   <string name="suggested_edits_last_edited_never">Nikad</string>
   <string name="suggested_edits_task_new">novo</string>
+  <string name="suggested_edits_contributions_screen_title">doprinosi suradnika %s</string>
+  <string name="suggested_edits_contribution_date_time_label">Nadnevak / vrijeme</string>
+  <string name="suggested_edits_contribution_date_yesterday_text">Jučer</string>
+  <string name="suggested_edits_encourage_account_creation_title">Jeste li znali kako svi mogu uređivati Wikipediju?</string>
+  <string name="suggested_edits_encourage_account_creation_login_button">Prijavi se / pridruži se Wikipediji</string>
+  <string name="suggested_edits_contribution_type_image_tag">Oznake slike</string>
+  <string name="suggested_edits_contribution_current_revision">Trenutačna inačica</string>
   <string name="description_edit_revert_subtitle">Hvala što uređujete Wikipediju!</string>
   <string name="description_edit_revert_history">Ako Vas zanima, pogledajte &lt;a href=\"%1$s\"&gt;povijest izmjena&lt;/a&gt;.</string>
   <string name="description_edit_login_cancel_button_text">Odustani</string>
@@ -675,9 +688,6 @@
   <string name="onboarding_analytics_title">Šalji anonimne podatke</string>
   <string name="onboarding_analytics_offline_text">Pomozite nam da poboljšamo aplikaciju slanjem podataka o tome kako je koristite. Prikupljeni su podatci anonimni. &lt;a href=\"#privacy\"&gt;Saznajte više&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Šalji podatke o korištenju</string>
-  <string name="onboarding_create_account_sync">Sinkronizirajte Vaše popise za čitanje</string>
-  <string name="onboarding_create_account_contributions">Pratite svoje doprinose</string>
-  <string name="onboarding_create_account_preferences">Spremite svoje postavke</string>
   <string name="onboarding_got_it">Shvaćam</string>
   <string name="onboarding_multilingual_secondary_text">Pronašli smo sljedeće na Vašem uređaju:</string>
   <string name="onboarding_multilingual_add_language_text">Dodaj ili uredi jezike</string>
@@ -723,6 +733,7 @@
   <string name="edit_conflict_dialog_ok_button_text">U redu</string>
   <string name="reverted_edit_dialog_ok_button_text">U redu</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">Odustani</string>
+  <string name="edit_type_all">Svi doprinosi</string>
   <string name="content_description_for_page_indicator">Stranica %1$d od %2$d</string>
   <string name="wikitext_bold">Podebljano</string>
   <string name="wikitext_italic">Kurziv</string>
@@ -732,11 +743,10 @@
   <string name="wikitext_template">Predložak</string>
   <string name="wikitext_reference">Izvor</string>
   <string name="wikitext_preview_link">Pretpregled poveznice</string>
-  <string name="main_drawer_open">Otvori</string>
-  <string name="main_drawer_close">Zatvori</string>
   <string name="main_drawer_help">Pomoć</string>
   <string name="main_drawer_login">Prijavite se na Wikipediju / pridružite se Wikipediji</string>
-  <string name="main_tooltip_text">%s, jeste li znali da svatko može uređivati Wikipediju?</string>
+  <string name="main_tooltip_text" fuzzy="true">%s, jeste li znali da svatko može uređivati Wikipediju?</string>
+  <string name="main_tooltip_text_v2">Jeste li znali kako svi mogu uređivati Wikipediju?</string>
   <string name="main_tooltip_action_button">Krenimo</string>
   <string name="custom_date_picker_dialog_ok_button_text">U redu</string>
   <string name="text_input_dialog_ok_button_text">U redu</string>

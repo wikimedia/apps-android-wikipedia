@@ -5,7 +5,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.bridge.CommunicationBridge;
@@ -24,11 +23,11 @@ import org.wikipedia.util.UriUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.ObservableWebView;
 
-import io.reactivex.Completable;
-import io.reactivex.Observable;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.schedulers.Schedulers;
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.core.Completable;
+import io.reactivex.rxjava3.core.Observable;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 
 /**
  * Our  page load strategy, which uses responses from the following to construct the page:
@@ -80,10 +79,6 @@ public class PageFragmentLoadState {
             // update the topmost entry in the backstack, before we start overwriting things.
             updateCurrentBackStackItem();
             currentTab.pushBackStackItem(new PageBackStackItem(model.getTitleOriginal(), model.getCurEntry()));
-
-            if (currentTab.getBackStack().size() > 1 && currentTab.getBackStack().get(0).getTitle().getText().equals(Constants.EMPTY_PAGE_TITLE)) {
-                currentTab.getBackStack().remove(0);
-            }
         }
         pageLoadCheckReadingLists();
     }
@@ -241,7 +236,9 @@ public class PageFragmentLoadState {
             app.getSessionFunnel().noDescription();
         }
 
-        model.getTitle().setDisplayText(page.getDisplayTitle());
+        if (!model.getTitle().isMainPage()) {
+            model.getTitle().setDisplayText(page.getDisplayTitle());
+        }
 
         leadImagesHandler.loadLeadImage();
 

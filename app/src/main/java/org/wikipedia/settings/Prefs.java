@@ -45,6 +45,7 @@ import static org.wikipedia.settings.PrefsIoUtil.setLong;
 import static org.wikipedia.settings.PrefsIoUtil.setString;
 
 /** Shared preferences utility for convenient POJO access. */
+@SuppressWarnings("checkstyle:magicnumber")
 public final class Prefs {
     @Nullable
     public static String getAppChannel() {
@@ -116,21 +117,6 @@ public final class Prefs {
 
     public static void setShowDeveloperSettingsEnabled(boolean enabled) {
         setBoolean(R.string.preference_key_show_developer_settings, enabled);
-    }
-
-    public static boolean showEditMenuOptionIndicator() {
-        return getBoolean(R.string.preference_key_show_edit_menu_option_indicator, false);
-    }
-
-    public static void setShowEditMenuOptionIndicator(boolean enabled) {
-        setBoolean(R.string.preference_key_show_edit_menu_option_indicator, enabled);
-    }
-    public static boolean showActionFeedIndicator() {
-        return getBoolean(R.string.preference_key_show_action_feed_indicator, false);
-    }
-
-    public static void setShowActionFeedIndicator(boolean enabled) {
-        setBoolean(R.string.preference_key_show_action_feed_indicator, enabled);
     }
 
     @Nullable
@@ -755,7 +741,7 @@ public final class Prefs {
     }
 
     public static boolean shouldShowImageTagsTooltip() {
-        return ReleaseUtil.isPreProdRelease() && getBoolean(R.string.preference_key_show_image_tags_tooltip, true);
+        return getBoolean(R.string.preference_key_show_image_tags_tooltip, true);
     }
 
     public static void setShouldShowImageTagsTooltip(boolean enabled) {
@@ -917,6 +903,54 @@ public final class Prefs {
 
     public static void setSuggestedEditsReactivationTestEnabled(boolean enabled) {
         setBoolean(R.string.preference_key_suggested_edits_reactivation_test, enabled);
+    }
+
+    public static boolean isSuggestedEditsRewardInterstitialEnabled() {
+        return getBoolean(R.string.preference_key_suggested_edits_reward_interstitial_enabled, false);
+    }
+
+    public static void setSuggestedEditsRewardInterstitialEnabled(boolean enabled) {
+        setBoolean(R.string.preference_key_suggested_edits_reward_interstitial_enabled, enabled);
+    }
+
+    public static long getLastSuggestedEditsRewardInterstitialEditQualityShown() {
+        return getLong(R.string.preference_key_suggested_edits_reward_interstitial_last_edit_quality_shown, 0);
+    }
+
+    public static void setLastSuggestedEditsRewardInterstitialEditQualityShown(long time) {
+        setLong(R.string.preference_key_suggested_edits_reward_interstitial_last_edit_quality_shown, time);
+    }
+
+    public static long getLastSuggestedEditsRewardInterstitialPageviewsShown() {
+        return getLong(R.string.preference_key_suggested_edits_reward_interstitial_last_pageviews_shown, 0);
+    }
+
+    public static void setLastSuggestedEditsRewardInterstitialPageviewsShown(long time) {
+        setLong(R.string.preference_key_suggested_edits_reward_interstitial_last_pageviews_shown, time);
+    }
+
+    public static int getSuggestedEditsRewardInterstitialContributionOnInitialCount() {
+        return getInt(R.string.preference_key_suggested_edits_reward_interstitial_contribution_on_initial_count, 5);
+    }
+
+    public static int getSuggestedEditsRewardInterstitialContributionOnCount() {
+        return getInt(R.string.preference_key_suggested_edits_reward_interstitial_contribution_on_count, 50);
+    }
+
+    public static int getSuggestedEditsRewardInterstitialEditStreakOnCount() {
+        return getInt(R.string.preference_key_suggested_edits_reward_interstitial_edit_streak_on_count, 5);
+    }
+
+    public static int getSuggestedEditsRewardInterstitialEditQualityOnDay() {
+        return getInt(R.string.preference_key_suggested_edits_reward_interstitial_edit_quality_on_day, 14);
+    }
+
+    public static int getSuggestedEditsRewardInterstitialPageviewsOnDay() {
+        return getInt(R.string.preference_key_suggested_edits_reward_interstitial_pageviews_on_day, 30);
+    }
+
+    public static boolean isSuggestedEditsRewardInterstitialQAOverride() {
+        return getBoolean(R.string.preference_key_suggested_edits_reward_interstitial_qa_override, false);
     }
 
     private Prefs() { }

@@ -16,11 +16,17 @@
   <string name="nav_item_suggested_edits">Predložene izmjene</string>
   <string name="error_network_error">Ne mogu se povezati na internet.</string>
   <string name="page_error_retry">Pokušaj ponovo</string>
+  <string name="card_offline_error_retry">Pokušaj ponovo</string>
+  <string name="storage_access_error_retry">Pokušaj ponovo</string>
+  <string name="article_load_error_retry">Pokušaj ponovo</string>
+  <string name="offline_load_error_retry">Pokušaj ponovo</string>
   <string name="page_error_back_to_main">Nazad</string>
+  <string name="error_back">Nazad</string>
   <string name="menu_clear_all_history">Očisti historiju</string>
   <string name="history_item_deleted">Članak \"%s\" uklonjen je iz historije</string>
   <string name="history_items_deleted">%d članaka uklonjeno iz historije</string>
   <string name="history_item_delete_undo">Vrati</string>
+  <string name="notification_archive_undo">Poništi</string>
   <string name="app_settings">Postavke aplikacije</string>
   <string name="dialog_title_clear_history">Čišćenje historije pregledavanja</string>
   <string name="dialog_message_clear_history">Obrisat ćete svu historiju pregledavanja i zatvoriti sve otvorene kartice. Jeste li sigurni?</string>
@@ -34,6 +40,7 @@
   <string name="menu_page_font_and_theme">Font i tema</string>
   <string name="menu_page_add_to_list">Dodaj na spisak za čitanje</string>
   <string name="menu_page_share">Podijeli link</string>
+  <string name="menu_page_open_a_new_tab">Otvori novu karticu</string>
   <string name="menu_long_press_open_page">Otvori</string>
   <string name="menu_long_press_open_in_new_tab">Otvori u novoj kartici</string>
   <string name="menu_long_press_copy_page">Kopiraj adresu linka</string>
@@ -80,12 +87,17 @@
   <string name="onboarding_card_login">Prijavi me</string>
   <string name="reading_lists_sync_login">Prijavi me</string>
   <string name="menu_login">Prijavi me</string>
-  <string name="login_activity_title">Prijava na Wikipediju</string>
+  <string name="login_activity_title" fuzzy="true">Prijava na Wikipediju</string>
   <string name="login_in_progress_dialog_message">Prijavljujem Vas...</string>
-  <string name="login_success_toast" fuzzy="true">Uspješno ste prijavljeni!</string>
+  <string name="login_success_toast">Prijavljeni ste!</string>
+  <string name="reset_password_description">Prijavili ste se s privremenom lozinkom. Da biste završili prijavu, ovdje postavite novu.</string>
+  <string name="reset_password_hint">Nova lozinka</string>
+  <string name="reset_password_button">Sačuvaj i prijavi me</string>
   <string name="preference_title_logout">Odjavi me</string>
   <string name="toast_logout_complete">Odjavljeni ste</string>
+  <string name="logout_prompt">Ovo će Vas odjaviti sa svih uređaja na kojima ste trenutno prijavljeni. Želite li nastaviti?</string>
   <string name="logout_dialog_cancel_button_text">Otkaži</string>
+  <string name="logged_out_in_background_dialog">Odjavljeni ste s Wikipedije. Želite li se ponovo prijaviti?</string>
   <string name="logged_out_in_background_cancel">Otkaži</string>
   <string name="history_empty_title">Nema nedavno posjećenih članaka</string>
   <string name="history_empty_message">Ovdje pratite sve što ste čitali.</string>
@@ -107,8 +119,11 @@
   <string name="create_account_password_error">Lozinka nije ispravna</string>
   <string name="create_account_generic_error">Nije moguće napraviti korisnički račun</string>
   <string name="create_account_next">Sljedeće</string>
+  <string name="email_recommendation_dialog_create_without_email_action">Nastavi bez e-pošte</string>
   <string name="create_account_button">Napravi korisnički račun</string>
   <string name="create_account_name_unavailable">Korisničko ime \"%s\" nije dostupno. Izaberite drugo.</string>
+  <string name="create_account_ip_block_message">Vašoj IP-adresi trenutno je zabranjeno stvaranje novih računa.</string>
+  <string name="create_account_ip_block_details">Detalji</string>
   <string name="preferences_general_heading">Općenito</string>
   <string name="wikipedia_app_faq">ČPP o aplikaciji</string>
   <string name="send_feedback">Pošalji povratne informacije</string>
@@ -196,6 +211,7 @@
   <string name="dialog_close_description">Zatvori</string>
   <string name="preference_title_show_images">Prikaži slike</string>
   <string name="preference_summary_show_images">Uključite ili isključite učitavanje slika na stranicama. Isključite ovu opciju ako Vam je internetska veza spora ili ako Vam je podatkovni paket ograničen.</string>
+  <string name="preference_title_download_only_over_wifi">Preuzimaj samo preko Wi-Fi-a</string>
   <string name="read_more_section">Također pogledajte</string>
   <string name="about_article_section">O članku</string>
   <string name="menu_gallery_visit_page">Idi na stranicu datoteke</string>
@@ -204,7 +220,7 @@
   <string name="gallery_menu_share">Podijeli</string>
   <string name="gallery_share_error">Ne mogu podijeliti sliku: %s</string>
   <string name="gallery_save_progress">Preuzimam datoteku...</string>
-  <string name="gallery_save_success" fuzzy="true">Datoteka je uspješno sačuvana.</string>
+  <string name="gallery_save_success">Datoteka je sačuvana.</string>
   <string name="gallery_error_video_failed">Ne mogu reproducirati videozapis.</string>
   <string name="gallery_save_image_write_permission_rationale">Potrebna je dozvola za čuvanje slika na Vaš uređaj.</string>
   <string name="err_cannot_save_file">Ne mogu sačuvati datoteku</string>
@@ -226,6 +242,7 @@
   <string name="address_copied">Adresa kopirana u međuspremnik.</string>
   <string name="text_copied">Tekst kopiran u međuspremnik.</string>
   <string name="button_continue_to_article">Pročitaj članak</string>
+  <string name="button_continue_to_disambiguation">Prikaži slične stranice</string>
   <string name="button_add_to_reading_list">Dodaj na spisak za čitanje</string>
   <string name="page_offline_notice_cannot_load_while_offline">Članak se ne može učitati dok ste van mreže.</string>
   <string name="page_offline_notice_add_to_reading_list">Savjet: Dodajte članak na spisak za čitanje i bit će preuzet čim se ponovo povežete.</string>
@@ -247,7 +264,9 @@
   <string name="error_page_does_not_exist">Ova stranica ne postoji</string>
   <string name="view_wiki_error_message_offline">Ne mogu se povezati na internet</string>
   <string name="reference_title">Referenca %s</string>
+  <string name="reference_list_title">Reference</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Zatamnjenje slike (u tamnoj temi)</string>
+  <string name="menu_save_all_tabs">Sačuvaj sve kartice</string>
   <string name="crash_report_activity_title">Greška u aplikaciji</string>
   <string name="crash_report_relaunch_or_quit">Žao nam je. Došlo je do greške u aplikaciji Wikipedia i prekinula je s radom.\n\nŽelite li je ponovo pokrenuti ili je zatvoriti?</string>
   <string name="crash_report_relaunch">Ponovo pokreni</string>
@@ -261,10 +280,13 @@
   <string name="color_theme_light">Svijetla</string>
   <string name="color_theme_dark">Tamna</string>
   <string name="color_theme_black">Crna</string>
+  <string name="color_theme_sepia">Sepija</string>
   <string name="color_theme_test_title">Primjer teksta</string>
   <string name="color_theme_test_text">Prevucite klizač da biste izmijenili veličinu teksta u člancima koje čitate. Da biste je izmijenili u ostatku aplikacije, promijenite veličinu fonta u postavkama sistema.</string>
   <string name="preference_title_app_theme">Tema aplikacije</string>
   <string name="preference_summary_color_theme">Mijenja izgled aplikacije prebacivanjem na tamnu temu</string>
+  <string name="text_size_increase">Povećaj veličinu teksta</string>
+  <string name="text_size_decrease">Smanji veličinu teksta</string>
   <string name="text_size_percent_default">%s (predodređeno)</string>
   <string name="nav_item_reading_lists">Moji spiskovi</string>
   <string name="reading_list_save_to">Sačuvaj na spisak za čitanje</string>
@@ -340,8 +362,11 @@
     <item quantity="other">Članci više neće biti dostupni van mreže.</item>
   </plurals>
   <string name="reading_list_remove_list_dialog_ok_button_text">U redu</string>
+  <string name="reading_list_delete_dialog_ok_button_text">U redu</string>
   <string name="reading_list_remove_from_list_dialog_cancel_button_text">Otkaži</string>
+  <string name="reading_list_delete_dialog_cancel_button_text">Otkaži</string>
   <string name="reading_list_remove_from_offline_cancel_button_text">Otkaži</string>
+  <string name="reading_list_download_using_mobile_data_cancel_button_text">Otkaži</string>
   <string name="reading_list_split_dialog_ok_button_text">U redu</string>
   <string name="user_option_sync_label">Postavke</string>
   <string name="notification_reverted_title">Vraćena izmjena</string>
@@ -395,9 +420,11 @@
   <string name="view_continue_reading_card_subtitle_today">danas</string>
   <string name="view_continue_reading_card_subtitle_read_date">Pročitano %s</string>
   <string name="view_announcement_card_negative_action">Ne, hvala</string>
+  <string name="onboarding_negative_action">Ne, hvala</string>
   <string name="view_offline_card_text">Sadržaj se ne može učitati dok ste van mreže.</string>
   <string name="view_featured_article_card_title">Odabrani članak</string>
   <string name="view_featured_article_footer_save_button_label">Sačuvaj</string>
+  <string name="view_static_card_save_button_label">Sačuvaj</string>
   <string name="view_featured_article_footer_saved_button_label">Sačuvano</string>
   <string name="feed_configure_activity_title">Prilagodi stranicu</string>
   <string name="feed_configure_menu_reset">Vrati predodređeni izgled</string>
@@ -457,9 +484,6 @@
   <string name="onboarding_analytics_title">Šalji anonimne podatke</string>
   <string name="onboarding_analytics_offline_text">Pomozite nam da poboljšamo aplikaciju tako što ćete nam slati podatke o tome kako je koristite. Prikupljeni podaci su anonimni. &lt;a href=\"#privacy\"&gt;Detaljnije&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Šalji podatke o upotrebi</string>
-  <string name="onboarding_create_account_sync">Sinhronizirajte spiskove za čitanje</string>
-  <string name="onboarding_create_account_contributions">Pratite doprinose</string>
-  <string name="onboarding_create_account_preferences">Sačuvajte postavke</string>
   <string name="onboarding_got_it">Razumijem</string>
   <string name="onboarding_multilingual_secondary_text">Pronašli smo sljedeće jezike na Vašem uređaju:</string>
   <string name="onboarding_multilingual_add_language_text">Dodaj ili izmijeni jezike</string>

@@ -132,7 +132,8 @@
         <activity
             android:name=".suggestededits.SuggestedEditsCardsActivity"
             android:launchMode="singleTask"
-            android:theme="@style/AppTheme.ActionBar.SuggestedEdits" />
+            android:windowSoftInputMode="adjustPan"
+            android:theme="@style/AppTheme.ActionBar.NoElevation" />
         <activity
             android:name=".edit.EditSectionActivity"
             android:theme="@style/AppTheme.ActionBar.Page"
@@ -141,19 +142,19 @@
         <activity
             android:name=".login.LoginActivity"
             android:label="@string/login_activity_title"
-            android:theme="@style/AppTheme.ActionBar"
+            android:theme="@style/AppTheme.ActionBar.LargeTextToolbar"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
         <activity
             android:name=".createaccount.CreateAccountActivity"
-            android:theme="@style/AppTheme.ActionBar"
+            android:theme="@style/AppTheme.ActionBar.LargeTextToolbar"
             android:label="@string/create_account_activity_title"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
         <activity
             android:name=".login.ResetPasswordActivity"
             android:label="@string/reset_password_title"
-            android:theme="@style/AppTheme.ActionBar"
+            android:theme="@style/AppTheme.ActionBar.LargeTextToolbar"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
         <activity
@@ -240,7 +241,22 @@
 
         <activity
             android:name=".suggestededits.SuggestedEditsFeedCardImageTagActivity"
-            android:theme="@style/AppTheme.ActionBar.SuggestedEdits" />
+            android:theme="@style/AppTheme.ActionBar.NoElevation" />
+
+        <activity
+            android:name=".suggestededits.SuggestedEditsContributionsActivity"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
+            android:label=""
+            android:theme="@style/AppTheme.ActionBar" />
+
+        <activity
+            android:name=".suggestededits.SuggestedEditsContributionDetailsActivity"
+            android:theme="@style/AppTheme.Page" />
+
+         <activity
+            android:name=".commons.FilePageActivity"
+            android:label=""
+            android:theme="@style/AppTheme.ActionBar.NoElevation"/>
 
         <provider
             android:authorities="${applicationId}"

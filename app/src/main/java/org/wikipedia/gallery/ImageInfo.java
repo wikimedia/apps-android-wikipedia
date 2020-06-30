@@ -67,6 +67,14 @@ public class ImageInfo implements Serializable {
         return height;
     }
 
+    public int getThumbHeight() {
+        return thumbHeight;
+    }
+
+    public int getThumbWidth() {
+        return thumbWidth;
+    }
+
     @NonNull public String getMimeType() {
         return StringUtils.defaultString(mimeType, "*/*");
     }

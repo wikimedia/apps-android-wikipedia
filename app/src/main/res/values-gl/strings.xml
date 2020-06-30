@@ -9,6 +9,7 @@
 * Fitoschido
 * Iváns
 * Macofe
+* Sabelaraga
 * Toliño
 * Vivaelcelta
 * Xosecalvo
@@ -111,7 +112,7 @@
   <string name="reading_lists_sync_login">Acceder ao sistema</string>
   <string name="create_account_login">Acceder ao sistema</string>
   <string name="menu_login">Acceder ó sistema</string>
-  <string name="login_activity_title">Iniciar sesión na Wikipedia</string>
+  <string name="login_activity_title" fuzzy="true">Iniciar sesión na Wikipedia</string>
   <string name="login_in_progress_dialog_message">Accedendo ao sistema…</string>
   <string name="login_success_toast" fuzzy="true">Accedeu correctamente!</string>
   <string name="reset_password_title">Definir o seu contrasinal</string>
@@ -690,6 +691,13 @@
   <string name="suggested_edits_quality_okay_text">Aceptar</string>
   <string name="suggested_edits_last_edited">Última edición</string>
   <string name="suggested_edits_last_edited_never">Nunca</string>
+  <string name="suggested_edits_contribution_language_label">Idioma</string>
+  <string name="suggested_edits_contribution_date_time_label">Data / Hora</string>
+  <string name="suggested_edits_contribution_type_label">Tipo de contribución</string>
+  <string name="suggested_edits_contribution_image_label">Arquivo</string>
+  <string name="suggested_edits_contribution_article_label">Artigo</string>
+  <string name="suggested_edits_contribution_views">%s visitas</string>
+  <string name="suggested_edits_added_contribution_label" fuzzy="true">Engadiches %d caracteres</string>
   <string name="description_edit_revert_subtitle">Grazas por editar a Wikipediaǃ</string>
   <string name="description_edit_revert_intro">Sabemos que intentou facelo o mellor posible, pero un dos nosos revisores atopou un problema. Posibles razóns polas que a súa edición foi revertida inclúenː</string>
   <string name="description_edit_revert_reason1">a súa contribución non segue unha das &lt;a href=\"%1$s\"&gt;directrices&lt;/a&gt;.</string>
@@ -711,9 +719,6 @@
   <string name="onboarding_analytics_title">Enviar os datos de maneira anónima</string>
   <string name="onboarding_analytics_offline_text">Permita que saibamos como utiliza a aplicación para axudar a mellorala. Os datos recompilados son anónimos. &lt;a href=\"#privacy\"&gt;Máis información&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Envíar datos de uso</string>
-  <string name="onboarding_create_account_sync">Sincronizar as listas de lectura</string>
-  <string name="onboarding_create_account_contributions">Vixiar as túas contribucións</string>
-  <string name="onboarding_create_account_preferences">Gardar as preferencias</string>
   <string name="onboarding_got_it">Entendido</string>
   <string name="onboarding_multilingual_secondary_text">Atopamos o seguinte no seu dispositivoː</string>
   <string name="onboarding_multilingual_add_language_text">Engadir ou editar linguas</string>
@@ -772,12 +777,9 @@
   <string name="wikitext_template">Modelo</string>
   <string name="wikitext_reference">Referencia</string>
   <string name="wikitext_preview_link">Vista previa de ligazón</string>
-  <string name="main_drawer_open">Abrir</string>
-  <string name="main_drawer_close">Pechar</string>
-  <string name="main_drawer_content_description">Abrir o panel principal de navegación</string>
   <string name="main_drawer_help">Axuda</string>
   <string name="main_drawer_login">Acceder / unirse á Wikipedia</string>
-  <string name="main_tooltip_text">%s, sabía que todo o mundo pode editar a Wikipedia?</string>
+  <string name="main_tooltip_text" fuzzy="true">%s, sabía que todo o mundo pode editar a Wikipedia?</string>
   <string name="main_tooltip_action_button">Comezar</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_ok_button_text">OK</string>

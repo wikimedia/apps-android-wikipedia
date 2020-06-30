@@ -41,9 +41,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.schedulers.Schedulers;
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 
 import static org.apache.commons.lang3.StringUtils.isBlank;
 import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
@@ -272,7 +272,7 @@ public class SearchResultsFragment extends Fragment {
     private void handleSuggestion(@Nullable String suggestion) {
         if (suggestion != null) {
             searchSuggestion.setText(StringUtil.fromHtml("<u>"
-                    + String.format(getString(R.string.search_did_you_mean), suggestion)
+                    + getString(R.string.search_did_you_mean, suggestion)
                     + "</u>"));
             searchSuggestion.setTag(suggestion);
             searchSuggestion.setVisibility(View.VISIBLE);
@@ -500,7 +500,7 @@ public class SearchResultsFragment extends Fragment {
             } else {
                 redirectText.setVisibility(View.VISIBLE);
                 redirectArrow.setVisibility(View.VISIBLE);
-                redirectText.setText(String.format(getString(R.string.search_redirect_from), result.getRedirectFrom()));
+                redirectText.setText(getString(R.string.search_redirect_from, result.getRedirectFrom()));
                 descriptionText.setVisibility(View.GONE);
             }
 

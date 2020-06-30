@@ -17,6 +17,7 @@
 * Runequest77
 * S2KTS
 * Shirayuki
+* Siglite3
 * Suchichi02
 * Sujiniku
 * Suyama
@@ -122,14 +123,14 @@
   <string name="login_username_hint">利用者名</string>
   <string name="login_password_hint">パスワード</string>
   <string name="account_creation_password_hint">パスワード</string>
-  <string name="login_2fa_hint">2段階認証コード</string>
+  <string name="login_2fa_hint">二要素認証コード</string>
   <string name="login_2fa_other_workflow_error_msg">2段階認証が必要です!　メイン画面に戻り2段階認証のトークンを使ってログインしてから、リトライしてください。</string>
   <string name="onboarding_card_login">ログイン</string>
   <string name="page_editing_login">ログイン</string>
   <string name="reading_lists_sync_login">ログイン</string>
   <string name="create_account_login">ログイン</string>
   <string name="menu_login">ログイン</string>
-  <string name="login_activity_title">ウィキペディアにログイン</string>
+  <string name="login_activity_title" fuzzy="true">ウィキペディアにログイン</string>
   <string name="login_in_progress_dialog_message">ログイン中…</string>
   <string name="login_success_toast">ログインしました!</string>
   <string name="reset_password_title">パスワードを設定する</string>
@@ -435,7 +436,7 @@
   <string name="reading_lists_sync_reminder_text">あとで読むリストに保存された記事を、あなたのウィキペディアアカウントで同期することができるようになりました。&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ja#Synced_reading_lists\"&gt;さらに詳しく&lt;/a&gt;</string>
   <string name="reading_lists_login_reminder_text_with_link">あとで読むリストはデバイスをまたいで同期できるようになりました。ウィキペディアアカウントにログインして、あなたのリストを保存しましょう。&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ja#Synced_reading_lists\"&gt;さらに詳しく&lt;/a&gt;</string>
   <string name="reading_lists_sync_reminder_action">同期を有効にする</string>
-  <string name="reading_list_login_reminder_title">リーディングリストを同期する</string>
+  <string name="reading_list_login_reminder_title">あとで読むリストを同期する</string>
   <string name="reading_lists_login_reminder_text">あとで読むリストはデバイス間で同期できるようになりました。ウィキペディアのアカウントにログインして、リストの保存を許可してください。</string>
   <string name="reading_lists_confirm_remote_delete_yes">はい</string>
   <string name="reading_lists_confirm_remote_delete_no">いいえ</string>
@@ -650,6 +651,7 @@
   <string name="suggested_edits_translate_descriptions">記事の説明を翻訳</string>
   <string name="suggested_edits_add_image_captions">画像キャプションを追加する</string>
   <string name="suggested_edits_translate_image_captions">画像キャプションを翻訳</string>
+  <string name="suggested_edits_tag_images">画像にタグを付ける</string>
   <string name="suggested_edits_review_description">記事の説明を確認</string>
   <string name="suggested_edits_add_description_button">説明を追加</string>
   <string name="suggested_edits_edit_description_button">説明を編集</string>
@@ -708,12 +710,23 @@
   <string name="suggested_edits_task_action_text_add">追加</string>
   <string name="suggested_edits_task_action_text_translate">翻訳</string>
   <string name="suggested_edits_image_captions">画像キャプション</string>
+  <string name="suggested_edits_image_tags">画像タグ</string>
+  <string name="suggested_edits_image_tags_publishing">公開中</string>
+  <string name="suggested_edits_image_tags_published">公開されました</string>
+  <string name="suggested_edits_image_tags_onboarding_text">画像にタグを追加すると、画像がコモンズで検索にヒットしやすくなります。コモンズは、ウィキペディアが記事に使用する画像をまとめたフリーライセンスの画像保存庫です。</string>
+  <string name="suggested_edits_image_tags_onboarding_note">あなたが確認したタグのみ画像に追加されます。</string>
+  <string name="suggested_edits_image_tags_snackbar">画像タグを追加して、他の利用者が探しやすくなります。</string>
+  <string name="suggested_edits_image_tags_task_detail">画像がもっと見つかりやすくなるよう、固有のタグを追加してください。</string>
+  <string name="suggested_edits_image_tags_search">タグを検索</string>
+  <string name="suggested_edits_image_tags_select_title">この画像のタグを選択していません</string>
+  <string name="suggested_edits_image_tags_select_text">あなたが確認したタグのみ画像に追加されます。選択されていないタグは拒否としてマークされます。すべてのタグを拒否としてマークしますか?</string>
   <string name="suggested_edits_encouragement_message">%sさん、編集ありがとうございます。ウィキペディアに貢献できるいろんなやり方を以下でご紹介します。</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;%sさん&lt;/b&gt;、ウィキペディアは誰でも編集できることをご存知ですか？　ウィキペディアをより良くする楽しみ方を以下でご紹介します。良い編集を！</string>
-  <string name="suggested_edits_image_captions_task_detail">画像キャプションは、読者が意味と文脈を理解する手助けとなるよう、画像について説明します。</string>
-  <string name="suggested_edits_add_descriptions_task_detail">記事の説明は、読者が一目でその主題を理解するのに役立つように要約します。</string>
+  <string name="suggested_edits_image_captions_task_detail" fuzzy="true">画像キャプションは、読者が意味と文脈を理解する手助けとなるよう、画像について説明します。</string>
+  <string name="suggested_edits_add_descriptions_task_detail" fuzzy="true">記事の説明は、読者が一目でその主題を理解するのに役立つように要約します。</string>
   <string name="suggested_edits_contributions_stat_tooltip">編集提案の投稿回数</string>
-  <string name="suggested_edits_disabled_message">&lt;b&gt;編集提案は無効にされました。&lt;/ b&gt;申し訳ありませんが、%sさんの最近の投稿で巻き戻されたものが多すぎました。\n\n以下のリンクでどういう意味か理解しましょう。</string>
+  <string name="suggested_edits_disabled_message" fuzzy="true">&lt;b&gt;編集提案は無効にされました。&lt;/ b&gt;申し訳ありませんが、%sさんの最近の投稿で巻き戻されたものが多すぎました。\n\n以下のリンクでどういう意味か理解しましょう。</string>
+  <string name="suggested_edits_editing_tips_link_text">編集のヒントとコツ</string>
   <string name="suggested_edits_help_page_link_text">編集提案のヘルプページ</string>
   <string name="suggested_edits_pageviews_label_text">ページビュー</string>
   <string name="suggested_edits_quality_label_text">編集の品質</string>
@@ -725,10 +738,22 @@
   <string name="suggested_edits_quality_sufficient_text">最低限</string>
   <string name="suggested_edits_quality_poor_text">よくない</string>
   <string name="suggested_edits_quality_bad_text">悪い</string>
+  <string name="suggested_edits_contribute">投稿</string>
+  <plurals name="suggested_edits_contribution">
+    <item quantity="one">貢献</item>
+    <item quantity="other">貢献</item>
+  </plurals>
+  <plurals name="suggested_edits_edit_streak_detail_text">
+    <item quantity="one">%d 日</item>
+    <item quantity="other">%d 日</item>
+  </plurals>
   <string name="suggested_edits_last_edited">最終編集:</string>
   <string name="suggested_edits_last_edited_never">なし</string>
   <string name="suggested_edits_task_new">新規</string>
   <string name="suggested_edits_cc0_notice">公開すると、&lt;a href=\"%1$s\"&gt;利用規約&lt;/a&gt;に同意し、&lt;a href=\"%2$s\"&gt;CC0ライセンス&lt;/a&gt;の下でコンテンツ再利用を許諾することになります。これは撤回できません。</string>
+  <string name="suggested_edits_reactivation_notification_title">提案された編集</string>
+  <string name="suggested_edits_contribution_language_label">言語</string>
+  <string name="suggested_edits_contribution_date_time_label">日付 / 時刻</string>
   <string name="description_edit_revert_subtitle">ウィキペディアを編集していただきありがとうございます！</string>
   <string name="description_edit_revert_intro">あなたがベストを尽くそうとしたのはよく分かりますが、レビュアーは懸念を持ったようです。あなたの編集が差し戻された理由としては、以下のような可能性があります。</string>
   <string name="description_edit_revert_reason1">あなたの投稿が&lt;a href=\"%1$s\"&gt;ガイドライン&lt;/a&gt;に沿っていなかった。</string>
@@ -750,9 +775,6 @@
   <string name="onboarding_analytics_title">匿名データを送信</string>
   <string name="onboarding_analytics_offline_text">アプリの使い方を教えて機能の向上にご協力ください。収集されるデータは匿名です。 &lt;a href=\"#privacy\"&gt;詳細&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">使用データを送信</string>
-  <string name="onboarding_create_account_sync">あなたのリーディングリストを同期させる</string>
-  <string name="onboarding_create_account_contributions">貢献を追跡して見てください</string>
-  <string name="onboarding_create_account_preferences">設定を保存する</string>
   <string name="onboarding_got_it">了解!</string>
   <string name="onboarding_multilingual_secondary_text">お使いの端末で次の言語が見つかりました：</string>
   <string name="onboarding_multilingual_add_language_text">言語の追加または編集</string>
@@ -811,11 +833,9 @@
   <string name="wikitext_template">テンプレート</string>
   <string name="wikitext_reference">参考資料</string>
   <string name="wikitext_preview_link">リンクをプレビュー</string>
-  <string name="main_drawer_open">開く</string>
-  <string name="main_drawer_close">閉じる</string>
   <string name="main_drawer_help">ヘルプ</string>
   <string name="main_drawer_login">ログイン / ウィキペディアに参加する</string>
-  <string name="main_tooltip_text">%sさん、ウィキペディアは誰もが編集できることをご存知ですか？</string>
+  <string name="main_tooltip_text" fuzzy="true">%sさん、ウィキペディアは誰もが編集できることをご存知ですか？</string>
   <string name="main_tooltip_action_button">始める</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_ok_button_text">OK</string>

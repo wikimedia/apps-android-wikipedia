@@ -39,7 +39,7 @@ android {
         applicationId 'org.wikipedia'
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 50316
+        versionCode 50324
         testApplicationId 'org.wikipedia.test'
         testInstrumentationRunner "org.wikipedia.WikipediaTestRunner"
         vectorDrawables.useSupportLibrary = true
@@ -129,10 +129,6 @@ android {
 
     packagingOptions {
         exclude 'META-INF/services/javax.annotation.processing.Processor' // required by Butter Knife
-
-        // For Espresso testing libraries. See http://stackoverflow.com/q/33800924/970346.
-        exclude 'META-INF/maven/com.google.guava/guava/pom.xml'
-        exclude 'META-INF/maven/com.google.guava/guava/pom.properties'
     }
 
     testOptions {
@@ -158,31 +154,29 @@ dependencies {
     // use http://gradleplease.appspot.com/ or http://search.maven.org/.
     // Debug with ./gradlew -q app:dependencies --configuration compile
 
-    String okHttpVersion = '4.3.1'
-    String retrofitVersion = '2.6.0'
+    String okHttpVersion = '4.7.2'
+    String retrofitVersion = '2.9.0'
     String glideVersion = '4.11.0'
     String butterknifeVersion = '10.2.0'
-    String espressoVersion = '3.1.1'
     String mockitoCore = 'org.mockito:mockito-core:1.9.5'
     String leakCanaryVersion = '2.2'
-    String kotlinCoroutinesVersion = '1.2.1'
+    String kotlinCoroutinesVersion = '1.3.0'
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinCoroutinesVersion"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlinCoroutinesVersion"
 
     implementation "com.google.android.material:material:1.1.0"
-    implementation "androidx.core:core:1.2.0"
-    implementation "androidx.cardview:cardview:1.0.0"
+    implementation "androidx.core:core:1.3.0"
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    implementation "androidx.fragment:fragment:1.2.4"
+    implementation "androidx.fragment:fragment:1.2.5"
     implementation "androidx.palette:palette:1.0.0"
     implementation "androidx.preference:preference:1.1.1"
     implementation "androidx.recyclerview:recyclerview:1.1.0"
     implementation "androidx.viewpager2:viewpager2:1.0.0"
     implementation 'com.google.android:flexbox:2.0.1'
     implementation 'com.android.installreferrer:installreferrer:1.1.2'
-    implementation 'androidx.drawerlayout:drawerlayout:1.1.0-beta01'
+    implementation 'androidx.drawerlayout:drawerlayout:1.1.0-rc01'
 
     implementation ('com.github.michael-rapp:chrome-like-tab-switcher:0.4.6') {
         exclude group: 'org.jetbrains'
@@ -192,13 +186,13 @@ dependencies {
     implementation "com.github.bumptech.glide:okhttp3-integration:$glideVersion"
     annotationProcessor "com.github.bumptech.glide:compiler:$glideVersion"
 
-    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation 'com.google.code.gson:gson:2.8.6'
     implementation "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
     implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
-    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
-    implementation "io.reactivex.rxjava2:rxjava:2.2.14"
-    implementation "io.reactivex.rxjava2:rxandroid:2.1.1"
+    implementation "com.squareup.retrofit2:adapter-rxjava3:$retrofitVersion"
+    implementation "io.reactivex.rxjava3:rxjava:3.0.4"
+    implementation "io.reactivex.rxjava3:rxandroid:3.0.0"
     implementation 'com.getkeepsafe.taptargetview:taptargetview:1.12.0'
     implementation "com.jakewharton:butterknife:$butterknifeVersion"
     implementation 'com.microsoft.appcenter:appcenter-crashes:3.1.0'
@@ -212,7 +206,7 @@ dependencies {
     // For release builds, this provides a nearly no-op AppWatcher.
     implementation "com.squareup.leakcanary:leakcanary-object-watcher-android:$leakCanaryVersion"
 
-    testImplementation 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.13'
     testImplementation mockitoCore
     testImplementation 'org.robolectric:robolectric:4.3.1'
     testImplementation "com.squareup.okhttp3:okhttp:$okHttpVersion"
@@ -226,9 +220,6 @@ dependencies {
 
     androidTestImplementation "androidx.test:rules:1.2.0" // JUnit Rules
     androidTestImplementation "androidx.test:runner:1.2.0" // Android JUnit Runner
-    androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVersion"
-    androidTestImplementation "androidx.test.espresso:espresso-contrib:$espressoVersion"
-
 }
 
 private setSigningConfigKey(config, Properties props) {
