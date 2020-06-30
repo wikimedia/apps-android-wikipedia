@@ -21,7 +21,7 @@
             android:layout_height="?attr/actionBarSize"
             android:contentDescription="@null"
             android:padding="16dp"
-            android:tint="?attr/toolbar_title_color"
+            android:tint="?attr/material_theme_primary_color"
             app:srcCompat="@drawable/ic_arrow_back_themed_24dp" />
 
         <LinearLayout
