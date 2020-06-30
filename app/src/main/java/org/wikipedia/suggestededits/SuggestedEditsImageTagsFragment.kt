@@ -14,8 +14,6 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.android.material.chip.Chip
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.core.Observable
-import io.reactivex.rxjava3.core.ObservableSource
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_suggested_edits_image_tags_item.*
 import org.wikipedia.Constants
@@ -90,14 +88,14 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         publishProgressCheck.imageTintList = colorStateList
         publishProgressText.setTextColor(colorStateList)
 
-        tagsLicenseText.text = StringUtil.fromHtml(getString(R.string.suggested_edits_cc0_notice,
+        tagsLicenseText.text = StringUtil.fromHtml(getString(R.string.edits_cc0_notice,
                 getString(R.string.terms_of_use_url), getString(R.string.cc_0_url)))
         tagsLicenseText.movementMethod = LinkMovementMethodExt.getInstance()
 
         imageView.setOnClickListener {
             if (Prefs.shouldShowImageZoomTooltip()) {
                 Prefs.setShouldShowImageZoomTooltip(false)
-                FeedbackUtil.showToastOverView(imageView, getString(R.string.suggested_edits_image_zoom_tooltip), Toast.LENGTH_LONG)
+                FeedbackUtil.showToastOverView(imageView, getString(R.string.edits_image_zoom_tooltip), Toast.LENGTH_LONG)
             }
         }
 
@@ -209,7 +207,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
 
     private fun addChip(label: MwQueryPage.ImageLabel?, typeface: Typeface): Chip {
         val chip = Chip(requireContext())
-        chip.text = label?.label ?: getString(R.string.suggested_edits_image_tags_add_tag)
+        chip.text = label?.label ?: getString(R.string.edits_image_tags_add_tag)
         chip.textAlignment = TEXT_ALIGNMENT_CENTER
         chip.setChipBackgroundColorResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.chip_background_color))
         chip.chipStrokeWidth = DimenUtil.dpToPx(1f)
@@ -319,7 +317,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
 
         funnel?.logSaveAttempt()
 
-        publishProgressText.setText(R.string.suggested_edits_image_tags_publishing)
+        publishProgressText.setText(R.string.edits_image_tags_publishing)
         publishProgressCheck.visibility = GONE
         publishOverlayContainer.visibility = VISIBLE
         publishProgressBarComplete.visibility = GONE
@@ -398,7 +396,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         publishProgressBarComplete.animate()
                 .alpha(1f)
                 .withEndAction {
-                    publishProgressText.setText(R.string.suggested_edits_image_tags_published)
+                    publishProgressText.setText(R.string.edits_image_tags_published)
                     playSuccessVibration()
                 }
                 .duration = duration / 2
@@ -435,7 +433,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         when {
             publishSuccess -> {
                 tagsLicenseText.visibility = GONE
-                tagsHintText.setText(R.string.suggested_edits_image_tags_published_list)
+                tagsHintText.setText(R.string.edits_image_tags_published_list)
                 tagsHintText.visibility = VISIBLE
             }
             atLeastOneTagChecked() -> {

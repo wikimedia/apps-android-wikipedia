@@ -252,7 +252,7 @@
   <string name="description_edit_save">Апублікаваць</string>
   <string name="description_edit_add_description" fuzzy="true">Дадаць апісанне</string>
   <string name="description_edit_success_done">Гатова</string>
-  <string name="suggested_edits_image_preview_dialog_file" fuzzy="true">Назва файла</string>
-  <string name="suggested_edits_image_preview_dialog_tags">Тэгі</string>
-  <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">Назва файла ў Вікіпедыі</string>
+  <string name="edits_image_preview_dialog_file" fuzzy="true">Назва файла</string>
+  <string name="edits_image_preview_dialog_tags">Тэгі</string>
+  <string name="edits_image_preview_dialog_file_page_wikipedia_link_text">Назва файла ў Вікіпедыі</string>
 </resources>

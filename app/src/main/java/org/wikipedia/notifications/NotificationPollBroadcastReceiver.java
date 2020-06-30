@@ -264,14 +264,14 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
             ABTestEditorRetentionNotificationFunnel funnel = new ABTestEditorRetentionNotificationFunnel();
             funnel.logNotificationStage1();
             if (funnel.shouldSeeNotification()) {
-                showSuggestedEditsLocalNotification(context, R.string.suggested_edits_reactivation_notification_stage_one);
+                showSuggestedEditsLocalNotification(context, R.string.edits_reactivation_notification_stage_one);
             }
         } else if (days >= SECOND_EDITOR_REACTIVATION_NOTIFICATION_SHOW_ON_DAY && Prefs.isSuggestedEditsReactivationPassStageOne()) {
             Prefs.setSuggestedEditsReactivationPassStageOne(false);
             ABTestEditorRetentionNotificationFunnel funnel = new ABTestEditorRetentionNotificationFunnel();
             funnel.logNotificationStage2();
             if (funnel.shouldSeeNotification()) {
-                showSuggestedEditsLocalNotification(context, R.string.suggested_edits_reactivation_notification_stage_two);
+                showSuggestedEditsLocalNotification(context, R.string.edits_reactivation_notification_stage_two);
             }
         }
     }
@@ -279,7 +279,7 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
     public static void showSuggestedEditsLocalNotification(@NonNull Context context, @StringRes int description) {
         Intent intent = MainActivity.newIntent(context).putExtra(INTENT_EXTRA_GO_TO_SE_TAB, true);
         NotificationPresenter.showNotification(context, NotificationPresenter.getDefaultBuilder(context), 0,
-                context.getString(R.string.suggested_edits_reactivation_notification_title),
+                context.getString(R.string.edits_reactivation_notification_title),
                 context.getString(description), context.getString(description),
                 R.drawable.ic_mode_edit_white_24dp, R.color.accent50, false, intent);
     }

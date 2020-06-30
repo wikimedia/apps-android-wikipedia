@@ -28,7 +28,7 @@
   <string name="search_hint_search_languages">زبان تلاش کریں</string>
   <string name="search_hint_search_my_lists_and_articles">میری فہرستوں اور مضامین میں تلاش کریں</string>
   <string name="nav_item_history">تاریخچہ</string>
-  <string name="nav_item_suggested_edits">ترمیم کے لیے تجاویز</string>
+  <string name="nav_item_edits">ترمیم کے لیے تجاویز</string>
   <string name="error_network_error">انٹرنیٹ سے رابطہ نہیں ہو سکا۔</string>
   <string name="page_error_retry">دوبارہ کوشش کریں</string>
   <string name="card_offline_error_retry">دوبارہ کوشش کریں</string>
@@ -193,7 +193,7 @@
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">مستعمل کتب خانے</string>
   <string name="about_contributors_heading">مشارکت کنندگان</string>
   <string name="about_translators_heading">مترجمین</string>

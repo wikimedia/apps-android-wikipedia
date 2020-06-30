@@ -19,7 +19,7 @@
   <string name="search_hint_search_languages">Chwilio am iaith</string>
   <string name="search_hint_search_my_lists_and_articles">Chwiliwch fy rhestrau ac erthyglau</string>
   <string name="nav_item_history">Hanes</string>
-  <string name="nav_item_suggested_edits">Golygiadau a awgrymir</string>
+  <string name="nav_item_edits">Golygiadau a awgrymir</string>
   <string name="error_network_error">Ni ellir cysylltu â\'r rhyngrwyd.</string>
   <string name="page_error_retry">Ailgeisiwch</string>
   <string name="card_offline_error_retry">Ailgeisio</string>

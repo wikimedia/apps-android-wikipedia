@@ -45,7 +45,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
         viewArticleImage.setOnClickListener {
             if (Prefs.shouldShowImageZoomTooltip()) {
                 Prefs.setShouldShowImageZoomTooltip(false)
-                FeedbackUtil.showMessage(requireActivity(), R.string.suggested_edits_image_zoom_tooltip)
+                FeedbackUtil.showMessage(requireActivity(), R.string.edits_image_zoom_tooltip)
             }
         }
 
@@ -271,14 +271,14 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
         val descriptionText = when {
             addedContribution.isNotEmpty() -> addedContribution
             sourceSummary!!.description!!.isNotEmpty() -> sourceSummary!!.description!!
-            else -> getString(R.string.suggested_edits_no_description)
+            else -> getString(R.string.edits_no_description)
         }
 
         viewArticleSubtitle.text = StringUtil.strip(StringUtil.removeHTMLTags(descriptionText))
         viewImageFileName.setDetailText(StringUtil.removeNamespace(sourceSummary!!.displayTitle!!))
 
         if (!sourceSummary!!.user.isNullOrEmpty()) {
-            viewImageArtist.titleText.text = getString(R.string.suggested_edits_image_caption_summary_title_author)
+            viewImageArtist.titleText.text = getString(R.string.edits_image_caption_summary_title_author)
             viewImageArtist.setDetailText(sourceSummary!!.user)
         } else {
             viewImageArtist.titleText.text = StringUtil.removeHTMLTags(sourceSummary!!.metadata!!.artist())

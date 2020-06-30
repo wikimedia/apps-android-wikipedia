@@ -135,31 +135,31 @@
                             android:id="@+id/viewImageFileName"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            app:title="@string/suggested_edits_image_caption_summary_title_file" />
+                            app:title="@string/edits_image_caption_summary_title_file" />
 
                         <org.wikipedia.views.ImageDetailHorizontalView
                             android:id="@+id/viewImageArtist"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            app:title="@string/suggested_edits_image_caption_summary_title_artist" />
+                            app:title="@string/edits_image_caption_summary_title_artist" />
 
                         <org.wikipedia.views.ImageDetailHorizontalView
                             android:id="@+id/viewImageDate"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            app:title="@string/suggested_edits_image_caption_summary_title_date"/>
+                            app:title="@string/edits_image_caption_summary_title_date"/>
 
                         <org.wikipedia.views.ImageDetailHorizontalView
                             android:id="@+id/viewImageSource"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            app:title="@string/suggested_edits_image_caption_summary_title_source" />
+                            app:title="@string/edits_image_caption_summary_title_source" />
 
                         <org.wikipedia.views.ImageDetailHorizontalView
                             android:id="@+id/viewImageLicense"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            app:title="@string/suggested_edits_image_caption_summary_title_license" />
+                            app:title="@string/edits_image_caption_summary_title_license" />
 
                     </LinearLayout>
                 </FrameLayout>

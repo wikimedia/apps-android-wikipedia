@@ -484,7 +484,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         } else if (Prefs.shouldShowImageTagsTooltip()) {
             Prefs.setShouldShowImageTagsTooltip(false);
             tabOverlayLayout.pick(NavTab.SUGGESTED_EDITS);
-            suggestedEditsNavTabSnackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.suggested_edits_image_tags_snackbar), FeedbackUtil.LENGTH_LONG);
+            suggestedEditsNavTabSnackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.edits_image_tags_snackbar), FeedbackUtil.LENGTH_LONG);
             suggestedEditsNavTabSnackbar.setAction(R.string.main_tooltip_action_button, view -> goToTab(NavTab.SUGGESTED_EDITS));
             suggestedEditsNavTabSnackbar.show();
         }

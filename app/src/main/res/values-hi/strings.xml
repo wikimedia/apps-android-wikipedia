@@ -430,11 +430,11 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">एक लाइन, दो से बारह शब्दों की उपयुक्त है</string>
   <string name="description_edit_tutorial_button_label_start_editing">संपादन शुरू करें</string>
   <string name="description_edit_tutorial_promise">शुरू करने से, मैं यह वादा करता हूँ कि इस सुविधा का दुरुपयोग नहीं करूँगा(गी)।</string>
-  <string name="suggested_edits_snackbar_survey_text">आपका संपादन अनुभव कैसा रहा? कृपया कुछ समय निकालकर इन-ऐप संपादन के बारे में सर्वेक्षण भरें।</string>
-  <string name="suggested_edits_snackbar_survey_action_text">सर्वेक्षण करें</string>
-  <string name="suggested_edits_reactivation_notification_title">सुझाए गए संपादन</string>
-  <string name="suggested_edits_reactivation_notification_stage_one">विकिपीडिया के संपादन के लिए धन्यवाद!  जहाँ आपने छोड़ा था, उसी स्थान से फिर शुरू करें?</string>
-  <string name="suggested_edits_reactivation_notification_stage_two">क्या विकिपीडिया में सुधार जारी रखने के लिए आपके पास एक मिनट है?  इन संपादन सुझावों को देखें।</string>
+  <string name="edits_snackbar_survey_text">आपका संपादन अनुभव कैसा रहा? कृपया कुछ समय निकालकर इन-ऐप संपादन के बारे में सर्वेक्षण भरें।</string>
+  <string name="edits_snackbar_survey_action_text">सर्वेक्षण करें</string>
+  <string name="edits_reactivation_notification_title">सुझाए गए संपादन</string>
+  <string name="edits_reactivation_notification_stage_one">विकिपीडिया के संपादन के लिए धन्यवाद!  जहाँ आपने छोड़ा था, उसी स्थान से फिर शुरू करें?</string>
+  <string name="edits_reactivation_notification_stage_two">क्या विकिपीडिया में सुधार जारी रखने के लिए आपके पास एक मिनट है?  इन संपादन सुझावों को देखें।</string>
   <string name="description_edit_revert_subtitle">विकिपीडिया में संपादन के लिए धन्यवाद!</string>
   <string name="description_edit_revert_intro">हम जानते हैं अपने अपना अधिकतम प्रयास किया लेकिन समीक्षक में से एक को चिंता है।\nआपके संपादन को वापस किये जाने के संभावित कारण हैं:</string>
   <string name="description_edit_revert_reason1">आपके योगदान द्वारा &lt;a href=\"%1$s\"&gt;निर्देशों&lt;/a&gt; में से एक का पालन नहीं किया गया।</string>

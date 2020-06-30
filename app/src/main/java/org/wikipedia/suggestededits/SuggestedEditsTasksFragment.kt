@@ -79,13 +79,13 @@ class SuggestedEditsTasksFragment : Fragment() {
 
         contributionsStatsView.setImageDrawable(R.drawable.ic_mode_edit_white_24dp)
 
-        editStreakStatsView.setDescription(resources.getString(R.string.suggested_edits_edit_streak_label_text))
+        editStreakStatsView.setDescription(resources.getString(R.string.edits_edit_streak_label_text))
         editStreakStatsView.setImageDrawable(R.drawable.ic_timer_black_24dp)
 
-        pageViewStatsView.setDescription(getString(R.string.suggested_edits_pageviews_label_text))
+        pageViewStatsView.setDescription(getString(R.string.edits_pageviews_label_text))
         pageViewStatsView.setImageDrawable(R.drawable.ic_trending_up_black_24dp)
 
-        editQualityStatsView.setDescription(getString(R.string.suggested_edits_quality_label_text))
+        editQualityStatsView.setDescription(getString(R.string.edits_quality_label_text))
 
         swipeRefreshLayout.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent))
         swipeRefreshLayout.setOnRefreshListener { refreshContents() }
@@ -245,12 +245,12 @@ class SuggestedEditsTasksFragment : Fragment() {
         editQualityStatsView.setGoodnessState(revertSeverity)
 
         if (latestEditStreak < 2) {
-            editStreakStatsView.setTitle(if (latestEditDate.time > 0) DateUtil.getMDYDateString(latestEditDate) else resources.getString(R.string.suggested_edits_last_edited_never))
-            editStreakStatsView.setDescription(resources.getString(R.string.suggested_edits_last_edited))
+            editStreakStatsView.setTitle(if (latestEditDate.time > 0) DateUtil.getMDYDateString(latestEditDate) else resources.getString(R.string.edits_last_edited_never))
+            editStreakStatsView.setDescription(resources.getString(R.string.edits_last_edited))
         } else {
-            editStreakStatsView.setTitle(resources.getQuantityString(R.plurals.suggested_edits_edit_streak_detail_text,
+            editStreakStatsView.setTitle(resources.getQuantityString(R.plurals.edits_edit_streak_detail_text,
                     latestEditStreak, latestEditStreak))
-            editStreakStatsView.setDescription(resources.getString(R.string.suggested_edits_edit_streak_label_text))
+            editStreakStatsView.setDescription(resources.getString(R.string.edits_edit_streak_label_text))
         }
 
         if (totalContributions == 0) {
@@ -263,7 +263,7 @@ class SuggestedEditsTasksFragment : Fragment() {
             userStatsArrow.visibility = GONE
             onboardingImageView.visibility = VISIBLE
             onboardingTextView.visibility = VISIBLE
-            onboardingTextView.text = StringUtil.fromHtml(getString(R.string.suggested_edits_onboarding_message, AccountUtil.getUserName()))
+            onboardingTextView.text = StringUtil.fromHtml(getString(R.string.edits_onboarding_message, AccountUtil.getUserName()))
         } else {
             userStatsClickTarget.isEnabled = true
             userNameView.text = AccountUtil.getUserName()
@@ -276,7 +276,7 @@ class SuggestedEditsTasksFragment : Fragment() {
             onboardingImageView.visibility = GONE
             onboardingTextView.visibility = GONE
             contributionsStatsView.setTitle(totalContributions.toString())
-            contributionsStatsView.setDescription(resources.getQuantityString(R.plurals.suggested_edits_contribution, totalContributions))
+            contributionsStatsView.setDescription(resources.getQuantityString(R.plurals.edits_contribution, totalContributions))
         }
 
         swipeRefreshLayout.setBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
@@ -302,13 +302,13 @@ class SuggestedEditsTasksFragment : Fragment() {
         if (SuggestedEditsUserStats.isDisabled()) {
             // Disable the whole feature.
             clearContents()
-            disabledStatesView.setDisabled(getString(R.string.suggested_edits_disabled_message, AccountUtil.getUserName()))
+            disabledStatesView.setDisabled(getString(R.string.edits_disabled_message, AccountUtil.getUserName()))
             disabledStatesView.visibility = VISIBLE
             UserContributionFunnel.get().logDisabled()
             return true
         } else if (pauseEndDate != null) {
             clearContents()
-            disabledStatesView.setPaused(getString(R.string.suggested_edits_paused_message, DateUtil.getShortDateString(pauseEndDate), AccountUtil.getUserName()))
+            disabledStatesView.setPaused(getString(R.string.edits_paused_message, DateUtil.getShortDateString(pauseEndDate), AccountUtil.getUserName()))
             disabledStatesView.visibility = VISIBLE
             UserContributionFunnel.get().logPaused()
             return true
@@ -356,19 +356,19 @@ class SuggestedEditsTasksFragment : Fragment() {
         displayedTasks.clear()
 
         addImageTagsTask = SuggestedEditsTask()
-        addImageTagsTask.title = getString(R.string.suggested_edits_image_tags)
-        addImageTagsTask.description = getString(R.string.suggested_edits_image_tags_task_detail)
+        addImageTagsTask.title = getString(R.string.edits_image_tags)
+        addImageTagsTask.description = getString(R.string.edits_image_tags_task_detail)
         addImageTagsTask.imageDrawable = R.drawable.ic_image_tag
         addImageTagsTask.translatable = false
 
         addImageCaptionsTask = SuggestedEditsTask()
-        addImageCaptionsTask.title = getString(R.string.suggested_edits_image_captions)
-        addImageCaptionsTask.description = getString(R.string.suggested_edits_image_captions_task_detail)
+        addImageCaptionsTask.title = getString(R.string.edits_image_captions)
+        addImageCaptionsTask.description = getString(R.string.edits_image_captions_task_detail)
         addImageCaptionsTask.imageDrawable = R.drawable.ic_image_caption
 
         addDescriptionsTask = SuggestedEditsTask()
         addDescriptionsTask.title = getString(R.string.description_edit_tutorial_title_descriptions)
-        addDescriptionsTask.description = getString(R.string.suggested_edits_add_descriptions_task_detail)
+        addDescriptionsTask.description = getString(R.string.edits_add_descriptions_task_detail)
         addDescriptionsTask.imageDrawable = R.drawable.ic_article_description
 
         displayedTasks.add(addImageTagsTask)

@@ -166,7 +166,7 @@
                         android:layout_marginBottom="8dp"
                         android:layout_marginStart="@dimen/activity_horizontal_margin"
                         android:layout_marginEnd="@dimen/activity_horizontal_margin"
-                        android:text="@string/suggested_edits_contribute"
+                        android:text="@string/edits_suggested_edits_label"
                         android:textColor="?attr/material_theme_primary_color"
                         android:textSize="20sp"
                         android:textStyle="bold"/>
@@ -201,7 +201,7 @@
                                 android:textSize="20sp"
                                 android:textStyle="bold"
                                 android:textColor="?attr/material_theme_primary_color"
-                                android:text="@string/suggested_edits_what_is_title"/>
+                                android:text="@string/edits_what_is_title"/>
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -210,12 +210,12 @@
                                 android:textSize="16sp"
                                 android:lineSpacingExtra="8sp"
                                 android:textColor="?attr/material_theme_secondary_color"
-                                android:text="@string/suggested_edits_what_is_text"/>
+                                android:text="@string/edits_what_is_text"/>
 
                             <com.google.android.material.button.MaterialButton
                                 android:id="@+id/learnMoreButton"
                                 style="@style/FlatButton.Small"
-                                android:text="@string/suggested_edits_learn_more"
+                                android:text="@string/edits_learn_more"
                                 android:layout_marginTop="14dp"
                                 app:layout_constraintTop_toBottomOf="@id/taskDescription"
                                 app:layout_constraintStart_toStartOf="@id/taskDescription"

@@ -51,7 +51,7 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
 
         if (showFilename) {
             filenameView.visibility = View.VISIBLE
-            filenameView.titleText.text = context.getString(R.string.suggested_edits_image_preview_dialog_file)
+            filenameView.titleText.text = context.getString(R.string.edits_image_preview_dialog_file)
             filenameView.titleText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16f)
             filenameView.contentText.text = StringUtil.removeNamespace(summary.displayTitle!!)
             filenameView.contentText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 24f)
@@ -61,22 +61,22 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
         detailsContainer.removeAllViews()
         if ((action == DescriptionEditActivity.Action.ADD_CAPTION || action == null) && summary.pageTitle.description.isNullOrEmpty()) {
             // Show the image description when a structured caption does not exist.
-            addDetail(context.getString(R.string.suggested_edits_image_preview_dialog_description_in_language_title, getProperLanguageLocalizedName(summary, imageFromCommons)),
+            addDetail(context.getString(R.string.edits_image_preview_dialog_description_in_language_title, getProperLanguageLocalizedName(summary, imageFromCommons)),
                     summary.description, if (showEditButton) editButtonOnClickListener(summary) else null)
         } else {
-            addDetail(context.getString(R.string.suggested_edits_image_preview_dialog_caption_in_language_title, getProperLanguageLocalizedName(summary, imageFromCommons)),
+            addDetail(context.getString(R.string.edits_image_preview_dialog_caption_in_language_title, getProperLanguageLocalizedName(summary, imageFromCommons)),
                     if (summary.pageTitle.description.isNullOrEmpty()) summary.description
                     else summary.pageTitle.description, if (showEditButton) editButtonOnClickListener(summary) else null)
         }
-        addDetail(context.getString(R.string.suggested_edits_image_preview_dialog_artist), summary.metadata!!.artist())
-        addDetail(context.getString(R.string.suggested_edits_image_preview_dialog_tags), getImageTags(imageTags, summary.lang))
-        addDetail(context.getString(R.string.suggested_edits_image_preview_dialog_date), summary.metadata!!.dateTime())
-        addDetail(context.getString(R.string.suggested_edits_image_preview_dialog_source), summary.metadata!!.credit())
-        addDetail(true, context.getString(R.string.suggested_edits_image_preview_dialog_licensing), summary.metadata!!.licenseShortName(), summary.metadata!!.licenseUrl())
+        addDetail(context.getString(R.string.edits_image_preview_dialog_artist), summary.metadata!!.artist())
+        addDetail(context.getString(R.string.edits_image_preview_dialog_tags), getImageTags(imageTags, summary.lang))
+        addDetail(context.getString(R.string.edits_image_preview_dialog_date), summary.metadata!!.dateTime())
+        addDetail(context.getString(R.string.edits_image_preview_dialog_source), summary.metadata!!.credit())
+        addDetail(true, context.getString(R.string.edits_image_preview_dialog_licensing), summary.metadata!!.licenseShortName(), summary.metadata!!.licenseUrl())
         if (imageFromCommons) {
-            addDetail(false, context.getString(R.string.suggested_edits_image_preview_dialog_more_info), context.getString(R.string.suggested_edits_image_preview_dialog_file_page_link_text), context.getString(R.string.suggested_edits_image_file_page_commons_link, summary.title))
+            addDetail(false, context.getString(R.string.edits_image_preview_dialog_more_info), context.getString(R.string.edits_image_preview_dialog_file_page_link_text), context.getString(R.string.suggested_edits_image_file_page_commons_link, summary.title))
         } else {
-            addDetail(false, context.getString(R.string.suggested_edits_image_preview_dialog_more_info), context.getString(R.string.suggested_edits_image_preview_dialog_file_page_wikipedia_link_text), summary.pageTitle.uri)
+            addDetail(false, context.getString(R.string.edits_image_preview_dialog_more_info), context.getString(R.string.edits_image_preview_dialog_file_page_wikipedia_link_text), summary.pageTitle.uri)
         }
         requestLayout()
     }

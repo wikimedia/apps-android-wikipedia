@@ -76,7 +76,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
-                android:text="@string/suggested_edits_image_tags_choose"
+                android:text="@string/edits_image_tags_choose"
                 android:textStyle="italic"
                 android:textColor="?attr/color_group_59"/>
 
@@ -155,7 +155,7 @@
             android:textAllCaps="true"
             android:fontFamily="sans-serif-medium"
             android:letterSpacing="0.06"
-            android:text="@string/suggested_edits_image_tags_publishing"/>
+            android:text="@string/edits_image_tags_publishing"/>
 
     </FrameLayout>
 

@@ -5,7 +5,7 @@
     tools:ignore="AlwaysShowAction">
     <item
         android:id="@+id/menu_help"
-        android:title="@string/suggested_edits_menu_info"
+        android:title="@string/edits_menu_info"
         android:icon="@drawable/ic_info_outline_themed_24dp"
         app:showAsAction="ifRoom" />
 </menu>

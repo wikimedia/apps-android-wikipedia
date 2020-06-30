@@ -18,7 +18,7 @@
   <string name="search_hint_search_history">Meklēšanas vēsture</string>
   <string name="search_hint_search_languages">Meklēt valodu</string>
   <string name="nav_item_history">Vēsture</string>
-  <string name="nav_item_suggested_edits">Ieteiktie labojumi</string>
+  <string name="nav_item_edits">Ieteiktie labojumi</string>
   <string name="error_network_error">Nevar izveidot savienojumu ar Internetu.</string>
   <string name="page_error_retry">Mēģināt vēlreiz</string>
   <string name="card_offline_error_retry">Mēģināt vēlreiz</string>
@@ -309,22 +309,22 @@
   <string name="description_edit_success_done">Gatavs</string>
   <string name="description_edit_success_did_you_know">Vai tu zināji?</string>
   <string name="description_edit_tutorial_button_label_start_editing">Sākt labošanu</string>
-  <string name="suggested_edits_translate_descriptions" fuzzy="true">Tulkot aprakstus</string>
-  <string name="suggested_edits_add_translation_button" fuzzy="true">Pievienot tulkojumu</string>
-  <string name="suggested_edits_edit_translation_button" fuzzy="true">Labot tulkojumu</string>
-  <string name="suggested_edits_my_contributions">Mans devums</string>
-  <string name="suggested_edits_task_add_description_title" fuzzy="true">Pievienot aprakstus</string>
-  <string name="suggested_edits_task_multilingual_positive">Pievienot valodas</string>
-  <string name="suggested_edits_image_caption_summary_title_file">Fails</string>
-  <string name="suggested_edits_image_caption_summary_title_author">Autors</string>
-  <string name="suggested_edits_image_caption_summary_title_source">Avots</string>
-  <string name="suggested_edits_image_caption_summary_title_license">Licence</string>
-  <string name="suggested_edits_image_caption_summary_title_date">Datums</string>
-  <string name="suggested_edits_feed_card_title">Ieteiktie labojumi</string>
-  <string name="suggested_edits_image_preview_dialog_date">Datums</string>
-  <string name="suggested_edits_image_preview_dialog_licensing">Licencēšana</string>
-  <string name="suggested_edits_last_edited">Pēdējais labojums</string>
-  <string name="suggested_edits_last_edited_never">Nekad</string>
+  <string name="edits_translate_descriptions" fuzzy="true">Tulkot aprakstus</string>
+  <string name="edits_add_translation_button" fuzzy="true">Pievienot tulkojumu</string>
+  <string name="edits_edit_translation_button" fuzzy="true">Labot tulkojumu</string>
+  <string name="edits_my_contributions">Mans devums</string>
+  <string name="edits_task_add_description_title" fuzzy="true">Pievienot aprakstus</string>
+  <string name="edits_task_multilingual_positive">Pievienot valodas</string>
+  <string name="edits_image_caption_summary_title_file">Fails</string>
+  <string name="edits_image_caption_summary_title_author">Autors</string>
+  <string name="edits_image_caption_summary_title_source">Avots</string>
+  <string name="edits_image_caption_summary_title_license">Licence</string>
+  <string name="edits_image_caption_summary_title_date">Datums</string>
+  <string name="edits_feed_card_title">Ieteiktie labojumi</string>
+  <string name="edits_image_preview_dialog_date">Datums</string>
+  <string name="edits_image_preview_dialog_licensing">Licencēšana</string>
+  <string name="edits_last_edited">Pēdējais labojums</string>
+  <string name="edits_last_edited_never">Nekad</string>
   <string name="description_edit_login_cancel_button_text">Atcelt</string>
   <string name="onboarding_skip">Izlaist</string>
   <string name="onboarding_continue">Turpināt</string>

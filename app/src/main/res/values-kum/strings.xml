@@ -207,11 +207,11 @@
   <string name="description_edit_success_done">Гьазир</string>
   <string name="description_edit_success_did_you_know">Билемисен?</string>
   <string name="description_edit_tutorial_button_label_start_editing">Тюзлеп башламакъ</string>
-  <string name="suggested_edits_menu_info">Маълумат</string>
-  <string name="suggested_edits_task_add_description_title" fuzzy="true">Тасвир къошмакъ</string>
-  <string name="suggested_edits_task_multilingual_negative">Магъа тюгюл</string>
-  <string name="suggested_edits_task_multilingual_positive">Тиллер къошмакъ</string>
-  <string name="suggested_edits_tasks_onboarding_get_started">Башламакъ</string>
+  <string name="edits_menu_info">Маълумат</string>
+  <string name="edits_task_add_description_title" fuzzy="true">Тасвир къошмакъ</string>
+  <string name="edits_task_multilingual_negative">Магъа тюгюл</string>
+  <string name="edits_task_multilingual_positive">Тиллер къошмакъ</string>
+  <string name="edits_tasks_onboarding_get_started">Башламакъ</string>
   <string name="size_gb">%.2f ГБ</string>
   <string name="size_mb">%.2f МБ</string>
   <string name="onboarding_continue">Давамламакъ</string>

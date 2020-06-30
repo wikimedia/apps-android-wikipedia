@@ -298,7 +298,7 @@
   <string name="description_edit_help_about_wikidata">ವಿಕಿಡಾಟ ತಾ ಬಗ್ಗೆ</string>
   <string name="description_edit_success_done">ಆಂಡ್</string>
   <string name="description_edit_success_did_you_know">ಈರೆಗ್ ತೆರಿದ್‍ಂಡಾ?</string>
-  <string name="suggested_edits_tasks_onboarding_get_started">ಸುರು ಮಲ್ಪುಲೆ</string>
+  <string name="edits_tasks_onboarding_get_started">ಸುರು ಮಲ್ಪುಲೆ</string>
   <string name="size_gb">%.2f GB</string>
   <string name="size_mb">%.2f MB</string>
   <string name="onboarding_skip">ಬುಡ್ಲೆ</string>

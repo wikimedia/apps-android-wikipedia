@@ -26,7 +26,7 @@
   <string name="search_hint_search_languages">Pretraga jezika</string>
   <string name="search_hint_search_my_lists_and_articles">Pretraga mojih popisa i članaka</string>
   <string name="nav_item_history">Povijest</string>
-  <string name="nav_item_suggested_edits">Predložena uređivanja</string>
+  <string name="nav_item_edits">Predložena uređivanja</string>
   <string name="error_network_error">Nije moguće spojiti se na internet.</string>
   <string name="page_error_retry">Pokušaj ponovo</string>
   <string name="card_offline_error_retry">Pokušaj ponovo</string>
@@ -526,7 +526,7 @@
   <string name="feed_item_type_featured_image">Dnevne izabrane slike s Wikimedijinoga Zajedničkog poslužitelja</string>
   <string name="feed_item_type_main_page">Glavna stranica Wikipedije s dnevnim izabranim sadržajem</string>
   <string name="feed_item_type_randomizer">Generiranje slučajnih članaka za čitanje</string>
-  <string name="feed_item_type_suggested_edits">Prijedlozi za dodavanje sadržaja na Wikipediji</string>
+  <string name="feed_item_type_edits">Prijedlozi za dodavanje sadržaja na Wikipediji</string>
   <string name="feed_configure_onboarding_action">Prilagodi</string>
   <string name="customize_lang_selection_dialog_ok_button_text">U redu</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">Odustani</string>
@@ -571,109 +571,109 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealno jedan redak, od dvije do dvanaest riječi</string>
   <string name="description_edit_tutorial_button_label_start_editing">Počnite uređivati</string>
   <string name="description_edit_tutorial_promise">Kada počnem, obećavam da neću zloupotrijebiti ovu mogućnost.</string>
-  <string name="suggested_edits_add_descriptions">Dodaj opise članaka</string>
-  <string name="suggested_edits_translate_descriptions">Prevedi opise članaka</string>
-  <string name="suggested_edits_add_image_captions">Dodaj opise slika</string>
-  <string name="suggested_edits_translate_image_captions">Prevedi opise slika</string>
-  <string name="suggested_edits_tag_images">Označavanje slika</string>
-  <string name="suggested_edits_review_description">Pregledaj opis članka</string>
-  <string name="suggested_edits_add_description_button">Dodaj opis</string>
-  <string name="suggested_edits_edit_description_button">Uredi opis</string>
-  <string name="suggested_edits_add_translation_button">Dodaj prijevod</string>
-  <string name="suggested_edits_edit_translation_button">Uredi prijevod</string>
-  <string name="suggested_edits_add_caption_button">Dodaj opis</string>
-  <string name="suggested_edits_edit_caption_button">Uredi opis</string>
-  <string name="suggested_edits_review_image_caption">Pregledaj opis slike</string>
-  <string name="suggested_edits_my_contributions">Moji doprinosi</string>
-  <string name="suggested_edits_no_description">Ova datoteka nema opis</string>
-  <string name="suggested_edits_license_notice">Dodavanjem opisa članka pristajem na &lt;a href=\"%1$s\"&gt;uvjete korištenja&lt;/a&gt; i neopozivo objavljujem svoje doprinose pod licencijom &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
-  <string name="suggested_edits_image_caption_license_notice">Dodavanjem natpisa slike pristajem na &lt;a href=\"%1$s\"&gt;uvjete korištenja&lt;/a&gt; i neopozivo objavljujem svoje doprinose pod licencijom &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
-  <string name="suggested_edits_menu_info">Informacije</string>
-  <string name="suggested_edits_tasks_activity_title">Predložena uređivanja</string>
-  <string name="suggested_edits_task_add_description_title">Dodaj opise članka</string>
-  <string name="suggested_edits_task_add_description_description">Doprinesite člancima bez opisa</string>
-  <string name="suggested_edits_task_image_caption_title">Dodajte natpis slike</string>
-  <string name="suggested_edits_task_image_caption_description">Dodajte kratke natpise slikama</string>
-  <string name="suggested_edits_task_translate_caption_title">Prevedi opise slika</string>
-  <string name="suggested_edits_task_translate_caption_description">Prevedi opise na druge jezike</string>
-  <string name="suggested_edits_task_image_caption_edit_disable_text">Zaključano dok ne uredite %d natpisa slika</string>
-  <string name="suggested_edits_task_multilingual_negative">Nije za mene</string>
-  <string name="suggested_edits_task_multilingual_positive">Dodaj jezike</string>
-  <string name="suggested_edits_image_caption_summary_title_file">Datoteka</string>
-  <string name="suggested_edits_image_caption_summary_title_artist">Umjetnik</string>
-  <string name="suggested_edits_image_caption_summary_title_author">Autor</string>
-  <string name="suggested_edits_image_caption_summary_title_source">Izvor</string>
-  <string name="suggested_edits_image_caption_summary_title_license">Licencija</string>
-  <string name="suggested_edits_image_caption_summary_title_date">Datum</string>
-  <plurals name="suggested_edits_contribution_count" fuzzy="true">
+  <string name="edits_add_descriptions">Dodaj opise članaka</string>
+  <string name="edits_translate_descriptions">Prevedi opise članaka</string>
+  <string name="edits_add_image_captions">Dodaj opise slika</string>
+  <string name="edits_translate_image_captions">Prevedi opise slika</string>
+  <string name="edits_tag_images">Označavanje slika</string>
+  <string name="edits_review_description">Pregledaj opis članka</string>
+  <string name="edits_add_description_button">Dodaj opis</string>
+  <string name="edits_edit_description_button">Uredi opis</string>
+  <string name="edits_add_translation_button">Dodaj prijevod</string>
+  <string name="edits_edit_translation_button">Uredi prijevod</string>
+  <string name="edits_add_caption_button">Dodaj opis</string>
+  <string name="edits_edit_caption_button">Uredi opis</string>
+  <string name="edits_review_image_caption">Pregledaj opis slike</string>
+  <string name="edits_my_contributions">Moji doprinosi</string>
+  <string name="edits_no_description">Ova datoteka nema opis</string>
+  <string name="edits_license_notice">Dodavanjem opisa članka pristajem na &lt;a href=\"%1$s\"&gt;uvjete korištenja&lt;/a&gt; i neopozivo objavljujem svoje doprinose pod licencijom &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="edits_image_caption_license_notice">Dodavanjem natpisa slike pristajem na &lt;a href=\"%1$s\"&gt;uvjete korištenja&lt;/a&gt; i neopozivo objavljujem svoje doprinose pod licencijom &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="edits_menu_info">Informacije</string>
+  <string name="edits_tasks_activity_title">Predložena uređivanja</string>
+  <string name="edits_task_add_description_title">Dodaj opise članka</string>
+  <string name="edits_task_add_description_description">Doprinesite člancima bez opisa</string>
+  <string name="edits_task_image_caption_title">Dodajte natpis slike</string>
+  <string name="edits_task_image_caption_description">Dodajte kratke natpise slikama</string>
+  <string name="edits_task_translate_caption_title">Prevedi opise slika</string>
+  <string name="edits_task_translate_caption_description">Prevedi opise na druge jezike</string>
+  <string name="edits_task_image_caption_edit_disable_text">Zaključano dok ne uredite %d natpisa slika</string>
+  <string name="edits_task_multilingual_negative">Nije za mene</string>
+  <string name="edits_task_multilingual_positive">Dodaj jezike</string>
+  <string name="edits_image_caption_summary_title_file">Datoteka</string>
+  <string name="edits_image_caption_summary_title_artist">Umjetnik</string>
+  <string name="edits_image_caption_summary_title_author">Autor</string>
+  <string name="edits_image_caption_summary_title_source">Izvor</string>
+  <string name="edits_image_caption_summary_title_license">Licencija</string>
+  <string name="edits_image_caption_summary_title_date">Datum</string>
+  <plurals name="edits_contribution_count" fuzzy="true">
     <item quantity="one">jedan doprinos</item>
     <item quantity="other">%d doprinos</item>
   </plurals>
-  <string name="suggested_edits_feed_card_title">Predložene izmjene</string>
-  <string name="suggested_edits_feed_card_add_description_button">Dodaj opis članka</string>
-  <string name="suggested_edits_tasks_onboarding_get_started">Krenimo</string>
-  <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Natpis slike (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_description_in_language_title">Opis slike (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_file">Datoteka</string>
-  <string name="suggested_edits_image_preview_dialog_artist">Umjetnik</string>
-  <string name="suggested_edits_image_preview_dialog_date">Datum</string>
-  <string name="suggested_edits_image_preview_dialog_source">Izvor/fotograf</string>
-  <string name="suggested_edits_image_preview_dialog_licensing">Licenciranje</string>
-  <string name="suggested_edits_image_preview_dialog_more_info">Više informacija</string>
-  <string name="suggested_edits_image_preview_dialog_file_page_link_text">Stranica datoteke na Wikimedijinom Zajedničkom poslužitelju</string>
-  <string name="suggested_edits_article_cta_image_caption">Dodaj opis slike</string>
-  <string name="suggested_edits_article_cta_image_caption_in_language">Dodaj opis slike (%s)</string>
-  <string name="suggested_edits_article_cta_snackbar_action">Prikaži</string>
-  <string name="suggested_edits_feed_card_add_image_caption">Dodaj opis slike</string>
-  <string name="suggested_edits_feed_card_translate_image_caption">Dodaj opis slike (%s)</string>
-  <string name="suggested_edits_snackbar_survey_text">Kako biste procijenili svoje iskustvo uređivanja? Molimo, izdvojite trenutak da biste ispunili anketu o uređivanju u aplikaciji.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Ispuni anketu</string>
-  <string name="suggested_edits_task_action_text_add">Dodaj</string>
-  <string name="suggested_edits_task_action_text_translate">Prevedi</string>
-  <string name="suggested_edits_image_tags">Oznake za slike</string>
-  <string name="suggested_edits_image_tags_publishing">Objavljivanje</string>
-  <string name="suggested_edits_image_tags_published">Objavljeno</string>
-  <string name="suggested_edits_image_tags_onboarding_title">Dodavanjem oznaka slikama one se lakše mogu pronaći.</string>
-  <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">Dodavanjem oznaka slikama pomoći ćete ostalim osobama u traženju slika na Zajedničkom poslužitelju, skladištu datoteka slobodne licencije kojim se Wikipedija služi za postavljanje slika u članke.\n\nAutomatski smo predložili neke oznake, a možete dodati i vlastite.</string>
-  <string name="suggested_edits_image_tags_onboarding_note">Slikama će biti dodane samo one oznake koje izaberete.</string>
-  <string name="suggested_edits_image_tags_snackbar">Slikama dodajte oznake kako bi ih ostali lakše mogli naći.</string>
-  <string name="suggested_edits_image_tags_task_detail" fuzzy="true">Slikama dodajte oznake kako bi ih se lakše moglo naći. Izaberite neke od predloženih oznaka ili dodajte vlastite.</string>
-  <string name="suggested_edits_image_tags_select_title">Niste odabrali nijednu oznaku za ovu sliku</string>
-  <string name="suggested_edits_image_tags_select_text">Samo će oznake koje izaberete biti dodane slikama. Oznake koje ne izaberete bit će odbačene. Jeste li sigurni da želite odbaciti sve oznake?</string>
-  <string name="suggested_edits_image_tags_add_tag">Dodaj oznaku</string>
-  <string name="suggested_edits_encouragement_message">%s, hvala Vam na vašim doprinosima. Niže možete saznati na koje sve još načine možete doprinijeti Wikipediji.</string>
-  <string name="suggested_edits_onboarding_message">&lt;b&gt;Pozdrav, %s&lt;/b&gt;, jeste li znali da svatko može uređivati Wikipediju? Niže su navedeni zabavni načini na koje možete pomoći u poboljšanju Wikipedije. Ugodno uređivanje!</string>
-  <string name="suggested_edits_image_captions_task_detail" fuzzy="true">Opisi slika čitateljima pomažu u razumijevanju njihovog značenja i konteksta.</string>
-  <string name="suggested_edits_ip_blocked_message">Izgleda kao da je Vaša IP-adresa (ili opseg IP-adresa) trenutačno blokirana od uređivanja Wikipedije.</string>
-  <string name="suggested_edits_pageviews_label_text">Pregledi stranica</string>
-  <string name="suggested_edits_quality_label_text">Kvaliteta uređivanja</string>
-  <string name="suggested_edits_quality_perfect_text">Savršeno</string>
-  <string name="suggested_edits_quality_excellent_text">Odlično</string>
-  <string name="suggested_edits_quality_very_good_text">Vrlo dobro</string>
-  <string name="suggested_edits_quality_good_text">Dobro</string>
-  <string name="suggested_edits_quality_okay_text">U redu</string>
-  <string name="suggested_edits_quality_sufficient_text">Dovoljno</string>
-  <string name="suggested_edits_quality_poor_text">Slabo</string>
-  <string name="suggested_edits_quality_bad_text">Loše</string>
-  <plurals name="suggested_edits_contribution" fuzzy="true">
+  <string name="edits_feed_card_title">Predložene izmjene</string>
+  <string name="edits_feed_card_add_description_button">Dodaj opis članka</string>
+  <string name="edits_tasks_onboarding_get_started">Krenimo</string>
+  <string name="edits_image_preview_dialog_caption_in_language_title">Natpis slike (%s)</string>
+  <string name="edits_image_preview_dialog_description_in_language_title">Opis slike (%s)</string>
+  <string name="edits_image_preview_dialog_file">Datoteka</string>
+  <string name="edits_image_preview_dialog_artist">Umjetnik</string>
+  <string name="edits_image_preview_dialog_date">Datum</string>
+  <string name="edits_image_preview_dialog_source">Izvor/fotograf</string>
+  <string name="edits_image_preview_dialog_licensing">Licenciranje</string>
+  <string name="edits_image_preview_dialog_more_info">Više informacija</string>
+  <string name="edits_image_preview_dialog_file_page_link_text">Stranica datoteke na Wikimedijinom Zajedničkom poslužitelju</string>
+  <string name="edits_article_cta_image_caption">Dodaj opis slike</string>
+  <string name="edits_article_cta_image_caption_in_language">Dodaj opis slike (%s)</string>
+  <string name="edits_article_cta_snackbar_action">Prikaži</string>
+  <string name="edits_feed_card_add_image_caption">Dodaj opis slike</string>
+  <string name="edits_feed_card_translate_image_caption">Dodaj opis slike (%s)</string>
+  <string name="edits_snackbar_survey_text">Kako biste procijenili svoje iskustvo uređivanja? Molimo, izdvojite trenutak da biste ispunili anketu o uređivanju u aplikaciji.</string>
+  <string name="edits_snackbar_survey_action_text">Ispuni anketu</string>
+  <string name="edits_task_action_text_add">Dodaj</string>
+  <string name="edits_task_action_text_translate">Prevedi</string>
+  <string name="edits_image_tags">Oznake za slike</string>
+  <string name="edits_image_tags_publishing">Objavljivanje</string>
+  <string name="edits_image_tags_published">Objavljeno</string>
+  <string name="edits_image_tags_onboarding_title">Dodavanjem oznaka slikama one se lakše mogu pronaći.</string>
+  <string name="edits_image_tags_onboarding_text" fuzzy="true">Dodavanjem oznaka slikama pomoći ćete ostalim osobama u traženju slika na Zajedničkom poslužitelju, skladištu datoteka slobodne licencije kojim se Wikipedija služi za postavljanje slika u članke.\n\nAutomatski smo predložili neke oznake, a možete dodati i vlastite.</string>
+  <string name="edits_image_tags_onboarding_note">Slikama će biti dodane samo one oznake koje izaberete.</string>
+  <string name="edits_image_tags_snackbar">Slikama dodajte oznake kako bi ih ostali lakše mogli naći.</string>
+  <string name="edits_image_tags_task_detail" fuzzy="true">Slikama dodajte oznake kako bi ih se lakše moglo naći. Izaberite neke od predloženih oznaka ili dodajte vlastite.</string>
+  <string name="edits_image_tags_select_title">Niste odabrali nijednu oznaku za ovu sliku</string>
+  <string name="edits_image_tags_select_text">Samo će oznake koje izaberete biti dodane slikama. Oznake koje ne izaberete bit će odbačene. Jeste li sigurni da želite odbaciti sve oznake?</string>
+  <string name="edits_image_tags_add_tag">Dodaj oznaku</string>
+  <string name="edits_encouragement_message">%s, hvala Vam na vašim doprinosima. Niže možete saznati na koje sve još načine možete doprinijeti Wikipediji.</string>
+  <string name="edits_onboarding_message">&lt;b&gt;Pozdrav, %s&lt;/b&gt;, jeste li znali da svatko može uređivati Wikipediju? Niže su navedeni zabavni načini na koje možete pomoći u poboljšanju Wikipedije. Ugodno uređivanje!</string>
+  <string name="edits_image_captions_task_detail" fuzzy="true">Opisi slika čitateljima pomažu u razumijevanju njihovog značenja i konteksta.</string>
+  <string name="edits_ip_blocked_message">Izgleda kao da je Vaša IP-adresa (ili opseg IP-adresa) trenutačno blokirana od uređivanja Wikipedije.</string>
+  <string name="edits_pageviews_label_text">Pregledi stranica</string>
+  <string name="edits_quality_label_text">Kvaliteta uređivanja</string>
+  <string name="edits_quality_perfect_text">Savršeno</string>
+  <string name="edits_quality_excellent_text">Odlično</string>
+  <string name="edits_quality_very_good_text">Vrlo dobro</string>
+  <string name="edits_quality_good_text">Dobro</string>
+  <string name="edits_quality_okay_text">U redu</string>
+  <string name="edits_quality_sufficient_text">Dovoljno</string>
+  <string name="edits_quality_poor_text">Slabo</string>
+  <string name="edits_quality_bad_text">Loše</string>
+  <plurals name="edits_contribution" fuzzy="true">
     <item quantity="one">Doprinos</item>
     <item quantity="other">Doprinosi</item>
   </plurals>
-  <plurals name="suggested_edits_edit_streak_detail_text" fuzzy="true">
+  <plurals name="edits_edit_streak_detail_text" fuzzy="true">
     <item quantity="one">%d dan</item>
     <item quantity="other">%d day</item>
   </plurals>
-  <string name="suggested_edits_ip_blocked_title">IP-adresa je blokirana</string>
-  <string name="suggested_edits_last_edited">Zadnje uređivanje</string>
-  <string name="suggested_edits_last_edited_never">Nikad</string>
-  <string name="suggested_edits_task_new">novo</string>
-  <string name="suggested_edits_contributions_screen_title">doprinosi suradnika %s</string>
-  <string name="suggested_edits_contribution_date_time_label">Nadnevak / vrijeme</string>
-  <string name="suggested_edits_contribution_date_yesterday_text">Jučer</string>
-  <string name="suggested_edits_encourage_account_creation_title">Jeste li znali kako svi mogu uređivati Wikipediju?</string>
-  <string name="suggested_edits_encourage_account_creation_login_button">Prijavi se / pridruži se Wikipediji</string>
-  <string name="suggested_edits_contribution_type_image_tag">Oznake slike</string>
-  <string name="suggested_edits_contribution_current_revision">Trenutačna inačica</string>
+  <string name="edits_ip_blocked_title">IP-adresa je blokirana</string>
+  <string name="edits_last_edited">Zadnje uređivanje</string>
+  <string name="edits_last_edited_never">Nikad</string>
+  <string name="edits_task_new">novo</string>
+  <string name="edits_contributions_screen_title">doprinosi suradnika %s</string>
+  <string name="edits_contribution_date_time_label">Nadnevak / vrijeme</string>
+  <string name="edits_contribution_date_yesterday_text">Jučer</string>
+  <string name="edits_encourage_account_creation_title">Jeste li znali kako svi mogu uređivati Wikipediju?</string>
+  <string name="edits_encourage_account_creation_login_button">Prijavi se / pridruži se Wikipediji</string>
+  <string name="edits_contribution_type_image_tag">Oznake slike</string>
+  <string name="edits_contribution_current_revision">Trenutačna inačica</string>
   <string name="description_edit_revert_subtitle">Hvala što uređujete Wikipediju!</string>
   <string name="description_edit_revert_history">Ako Vas zanima, pogledajte &lt;a href=\"%1$s\"&gt;povijest izmjena&lt;/a&gt;.</string>
   <string name="description_edit_login_cancel_button_text">Odustani</string>

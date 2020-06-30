@@ -45,7 +45,7 @@
   <string name="search_hint_search_languages">بحث عن لغة</string>
   <string name="search_hint_search_my_lists_and_articles">البحث في قوائمي ومقالاتي</string>
   <string name="nav_item_history">التاريخ</string>
-  <string name="nav_item_suggested_edits">التعديلات المقترحة</string>
+  <string name="nav_item_edits">التعديلات المقترحة</string>
   <string name="nav_item_more">المزيد</string>
   <string name="error_network_error">لا يوجد اتصال بالإنترنت.</string>
   <string name="page_error_retry">إعادة المحاولة</string>
@@ -218,7 +218,7 @@
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="edits_image_tags_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="about_libraries_heading">المكتبات المستخدمة</string>
   <string name="about_contributors_heading">المساهمون</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;صفحة الفريق&lt;/a&gt;</string>
@@ -599,7 +599,7 @@
   <string name="feed_item_type_featured_image">صورة يومية مختارة من ويكيميديا ​​كومنز</string>
   <string name="feed_item_type_main_page">الصفحة الرئيسية لويكيبيديا مع المحتوى اليومي المختار</string>
   <string name="feed_item_type_randomizer">توليد مقالات عشوائية للقراءة</string>
-  <string name="feed_item_type_suggested_edits">اقتراحات لإضافة محتوى إلى ويكيبيديا</string>
+  <string name="feed_item_type_edits">اقتراحات لإضافة محتوى إلى ويكيبيديا</string>
   <string name="feed_empty_message">لا يوجد شيء في خلاصة استكشافك</string>
   <string name="feed_configure_onboarding_action">تخصيص</string>
   <string name="customize_lang_selection_dialog_ok_button_text">حسنا</string>
@@ -649,133 +649,133 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">بشكلٍ مثالي سطر واحد يكفي، ما بين كلمتين إلى اثنتا عشرة كلمة</string>
   <string name="description_edit_tutorial_button_label_start_editing">ابدأ التعديل</string>
   <string name="description_edit_tutorial_promise">ببدئي، أنا أعد بعدم إساءة استخدام هذه الميزة.</string>
-  <string name="suggested_edits_add_descriptions">إضافة وصف المقالة</string>
-  <string name="suggested_edits_translate_descriptions">ترجمة أوصاف المقالات</string>
-  <string name="suggested_edits_add_image_captions">إضافة تعليقات الصور</string>
-  <string name="suggested_edits_translate_image_captions">ترجمة تعليقات الصور</string>
-  <string name="suggested_edits_tag_images">ضع وسمًا على الصور</string>
-  <string name="suggested_edits_review_description">مراجعة وصف المقالة</string>
-  <string name="suggested_edits_add_description_button">أضف وصفا</string>
-  <string name="suggested_edits_edit_description_button">تحرير الوصف</string>
-  <string name="suggested_edits_add_translation_button">إضافة ترجمة</string>
-  <string name="suggested_edits_edit_translation_button">تحرير الترجمة</string>
-  <string name="suggested_edits_add_caption_button">إضافة شرح</string>
-  <string name="suggested_edits_edit_caption_button">عدل الشرح</string>
-  <string name="suggested_edits_review_image_caption">مراجعة تعليقات الصور</string>
-  <string name="suggested_edits_my_contributions">مساهماتي</string>
-  <string name="suggested_edits_no_description">هذا الملف لا يحتوي على وصف</string>
-  <string name="suggested_edits_license_notice">بإضافة الوصف، أوافق على &lt;a href=\"%1$s\"&gt;شروط الاستخدام&lt;/a&gt; وإطلاق مساهماتي بشكل لا رجعة فيه بموجب ترخيص &lt;a href=\"%2$s\"&gt;المشاع الإبداعي CC0&lt;/a&gt;.</string>
-  <string name="suggested_edits_image_caption_license_notice">بإضافة تعليق الصورة، أوافق على &lt;a href=\"%1$s\"&gt;Tشروط الاستخدام&lt;/a&gt; وإطلاق مساهماتي بشكل لا رجعة فيه بموجب ترخيص &lt;a href=\"%2$s\"&gt;المشاع الإبداعي CC0&lt;/a&gt;.</string>
-  <string name="suggested_edits_menu_info">معلومات</string>
-  <string name="suggested_edits_tasks_activity_title">التعديلات المقترحة</string>
-  <string name="suggested_edits_task_add_description_title">إضافة أوصاف المقالات</string>
-  <string name="suggested_edits_task_add_description_description">ساهم في المقالات التي تفتقد للوصوف</string>
-  <string name="suggested_edits_task_image_caption_title">إضافة تعليقات الصور</string>
-  <string name="suggested_edits_task_image_caption_description">أضف تعليقا قصيرا مفقودا للصور</string>
-  <string name="suggested_edits_task_translate_caption_title">ترجمة تعليقات الصور</string>
-  <string name="suggested_edits_task_translate_caption_description">ترجمة التعليقات إلى لغات أخرى</string>
-  <string name="suggested_edits_task_multilingual_title">مهام أكثر للمحررين متعددي اللغات</string>
-  <string name="suggested_edits_task_multilingual_description">مهام الترجمة متاحة إذا كنت تقرأ وتكتب في أكثر من لغة ويكيبيديا واحدة.</string>
-  <string name="suggested_edits_task_image_caption_edit_disable_text">مغلق حتى تقوم بتحرير %d تعليق توضيحي للصور</string>
-  <string name="suggested_edits_task_translate_description_edit_disable_text">تم الإغلاق حتى قمت بتحرير أوصاف %d مقالات (تم التحقق)</string>
-  <string name="suggested_edits_task_multilingual_negative">ليس لي</string>
-  <string name="suggested_edits_task_multilingual_positive">أضف لغات</string>
-  <string name="suggested_edits_image_caption_summary_title_file">الملف</string>
-  <string name="suggested_edits_image_caption_summary_title_artist">الفنان</string>
-  <string name="suggested_edits_image_caption_summary_title_author">المؤلف</string>
-  <string name="suggested_edits_image_caption_summary_title_source">المصدر</string>
-  <string name="suggested_edits_image_caption_summary_title_license">الترخيص</string>
-  <string name="suggested_edits_image_caption_summary_title_date">التاريخ</string>
-  <plurals name="suggested_edits_contribution_count" fuzzy="true">
+  <string name="edits_add_descriptions">إضافة وصف المقالة</string>
+  <string name="edits_translate_descriptions">ترجمة أوصاف المقالات</string>
+  <string name="edits_add_image_captions">إضافة تعليقات الصور</string>
+  <string name="edits_translate_image_captions">ترجمة تعليقات الصور</string>
+  <string name="edits_tag_images">ضع وسمًا على الصور</string>
+  <string name="edits_review_description">مراجعة وصف المقالة</string>
+  <string name="edits_add_description_button">أضف وصفا</string>
+  <string name="edits_edit_description_button">تحرير الوصف</string>
+  <string name="edits_add_translation_button">إضافة ترجمة</string>
+  <string name="edits_edit_translation_button">تحرير الترجمة</string>
+  <string name="edits_add_caption_button">إضافة شرح</string>
+  <string name="edits_edit_caption_button">عدل الشرح</string>
+  <string name="edits_review_image_caption">مراجعة تعليقات الصور</string>
+  <string name="edits_my_contributions">مساهماتي</string>
+  <string name="edits_no_description">هذا الملف لا يحتوي على وصف</string>
+  <string name="edits_license_notice">بإضافة الوصف، أوافق على &lt;a href=\"%1$s\"&gt;شروط الاستخدام&lt;/a&gt; وإطلاق مساهماتي بشكل لا رجعة فيه بموجب ترخيص &lt;a href=\"%2$s\"&gt;المشاع الإبداعي CC0&lt;/a&gt;.</string>
+  <string name="edits_image_caption_license_notice">بإضافة تعليق الصورة، أوافق على &lt;a href=\"%1$s\"&gt;Tشروط الاستخدام&lt;/a&gt; وإطلاق مساهماتي بشكل لا رجعة فيه بموجب ترخيص &lt;a href=\"%2$s\"&gt;المشاع الإبداعي CC0&lt;/a&gt;.</string>
+  <string name="edits_menu_info">معلومات</string>
+  <string name="edits_tasks_activity_title">التعديلات المقترحة</string>
+  <string name="edits_task_add_description_title">إضافة أوصاف المقالات</string>
+  <string name="edits_task_add_description_description">ساهم في المقالات التي تفتقد للوصوف</string>
+  <string name="edits_task_image_caption_title">إضافة تعليقات الصور</string>
+  <string name="edits_task_image_caption_description">أضف تعليقا قصيرا مفقودا للصور</string>
+  <string name="edits_task_translate_caption_title">ترجمة تعليقات الصور</string>
+  <string name="edits_task_translate_caption_description">ترجمة التعليقات إلى لغات أخرى</string>
+  <string name="edits_task_multilingual_title">مهام أكثر للمحررين متعددي اللغات</string>
+  <string name="edits_task_multilingual_description">مهام الترجمة متاحة إذا كنت تقرأ وتكتب في أكثر من لغة ويكيبيديا واحدة.</string>
+  <string name="edits_task_image_caption_edit_disable_text">مغلق حتى تقوم بتحرير %d تعليق توضيحي للصور</string>
+  <string name="edits_task_translate_description_edit_disable_text">تم الإغلاق حتى قمت بتحرير أوصاف %d مقالات (تم التحقق)</string>
+  <string name="edits_task_multilingual_negative">ليس لي</string>
+  <string name="edits_task_multilingual_positive">أضف لغات</string>
+  <string name="edits_image_caption_summary_title_file">الملف</string>
+  <string name="edits_image_caption_summary_title_artist">الفنان</string>
+  <string name="edits_image_caption_summary_title_author">المؤلف</string>
+  <string name="edits_image_caption_summary_title_source">المصدر</string>
+  <string name="edits_image_caption_summary_title_license">الترخيص</string>
+  <string name="edits_image_caption_summary_title_date">التاريخ</string>
+  <plurals name="edits_contribution_count" fuzzy="true">
     <item quantity="one">مساهمة</item>
     <item quantity="other">%d مساهمات</item>
   </plurals>
-  <string name="suggested_edits_feed_card_title">التعديلات المقترحة</string>
-  <string name="suggested_edits_feed_card_add_description_button">إضافة وصف المقالة</string>
-  <string name="suggested_edits_feed_card_add_translation_in_language_button">إضافة وصف المقالة (%s)</string>
-  <string name="suggested_edits_tasks_onboarding_get_started">ابدأ</string>
-  <string name="suggested_edits_image_preview_dialog_caption_in_language_title">شرح الصورة (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_description_in_language_title">وصف الصورة (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_file">الملف</string>
-  <string name="suggested_edits_image_preview_dialog_artist">الفنان</string>
-  <string name="suggested_edits_image_preview_dialog_tags">الوسوم</string>
-  <string name="suggested_edits_image_preview_dialog_date">التاريخ</string>
-  <string name="suggested_edits_image_preview_dialog_source">المصدر/المصور</string>
-  <string name="suggested_edits_image_preview_dialog_licensing">الترخيص</string>
-  <string name="suggested_edits_image_preview_dialog_more_info">المزيد من المعلومات</string>
-  <string name="suggested_edits_image_preview_dialog_file_page_link_text">صفحة الملف على ويكيميديا ​​كومنز</string>
-  <string name="suggested_edits_article_cta_image_caption">إضافة شرح الصورة</string>
-  <string name="suggested_edits_article_cta_image_caption_in_language">إضافة شرح الصورة (%s)</string>
-  <string name="suggested_edits_article_cta_snackbar_action">عرض</string>
-  <string name="suggested_edits_feed_card_add_image_caption">إضافة شرح الصورة</string>
-  <string name="suggested_edits_feed_card_translate_image_caption">إضافة تعليق الصورة (%s)</string>
-  <string name="suggested_edits_feed_card_add_image_tags">أضف وسومًا للصور</string>
-  <string name="suggested_edits_snackbar_survey_text">كيف كانت تجربة التحرير الخاصة بك؟ يُرجَى قضاء بعض الوقت لملء الاستبيان حول التعديل داخل التطبيق.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">المشاركة في استبيان</string>
-  <string name="suggested_edits_task_action_text_add">إضافة</string>
-  <string name="suggested_edits_task_action_text_translate">ترجمة</string>
-  <string name="suggested_edits_image_captions">تعليقات الصورة</string>
-  <string name="suggested_edits_image_tags">أوسمة الصورة</string>
-  <string name="suggested_edits_image_tags_publishing">نشر</string>
-  <string name="suggested_edits_image_tags_published">تم النشر</string>
-  <string name="suggested_edits_image_tags_onboarding_title">يسهل وسم الصور العثور عليها.</string>
-  <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">لقد اقترحنا تلقائيًا بعض الأوسمة، ويمكنك أيضًا إضافة الأوسمة الخاصة بك.</string>
-  <string name="suggested_edits_image_tags_onboarding_note">ستتم إضافة الأوسمة التي توافق عليها فقط إلى الصور.</string>
-  <string name="suggested_edits_image_tags_snackbar">أضف أوسمة على الصور لتُسهل على الآخرين العثور عليها.</string>
-  <string name="suggested_edits_image_tags_task_detail" fuzzy="true">ضع وسمًا على الصور لتسهيل العثور عليها. اختر من الأوسمة المقترحة أو أضف الأوسمة الخاصة بك.</string>
-  <string name="suggested_edits_image_tags_choose">أضف أو اختر الأوسمة المطابقة</string>
-  <string name="suggested_edits_image_tags_published_list">وسوم منشورة</string>
-  <string name="suggested_edits_image_tags_search">علامات البحث</string>
-  <string name="suggested_edits_image_tags_select_title">لم تقم بتحديد أي علامات لهذه الصورة</string>
-  <string name="suggested_edits_image_tags_select_text">ستتم إضافة الأوسمة التي تختارها فقط إلى الصور. سيتم تمييز الأوسمة التي لم يتم تحديدها على أنها مرفوضة. هل أنت متأكد أنك تريد وضع علامة على جميع الأوسمة على أنها مرفوضة؟</string>
-  <string name="suggested_edits_image_tags_add_tag">إضافة وسم</string>
-  <string name="suggested_edits_image_zoom_tooltip">ضم الاصبعين لتكبير هذه الصورة.</string>
-  <string name="suggested_edits_encouragement_message">%s، شكرا على تعديلاتك، يمكنك العثور أدناه على المزيد من الطرق للمساهمة في ويكيبيديا.</string>
-  <string name="suggested_edits_onboarding_message">&lt;b&gt;مرحبا %s&lt;/b&gt;، هل تعلم أنه يمكن للجميع تحرير ويكيبيديا؟ يمكنك العثور أدناه على طرق ممتعة للمساعدة في تحسين ويكيبيديا. تحرير سعيد!</string>
-  <string name="suggested_edits_image_captions_task_detail" fuzzy="true">تصف التعليقات التوضيحية صورة لمساعدة القراء على فهم معناها وسياقها.</string>
-  <string name="suggested_edits_add_descriptions_task_detail" fuzzy="true">تلخص أوصاف المقالات مقالة لمساعدة القراء على فهم الموضوع في لمحة.</string>
-  <string name="suggested_edits_contributions_stat_tooltip">إجمالي عدد المساهمات مع التعديلات المقترحة.</string>
-  <string name="suggested_edits_edit_streak_stat_tooltip">كم يوم بدون انقطاع ساهمت به عبر التعديلات المقترحة، إذا لم تكن قد ساهمت في فترة من الوقت، فسوف يعرض تاريخ آخر مساهمة لك.</string>
-  <string name="suggested_edits_page_views_stat_tooltip">إجمالي مشاهدات الصفحة للعناصر التي ساهمت بها في آخر 30 يوما مع التعديلات المقترحة.</string>
-  <string name="suggested_edits_edit_quality_stat_tooltip">بناءً على عدد المرات التي تم فيها إرجاع إحدى مساهماتك (التراجع عن طريق محرر آخر)، التعديلات التي تم إرجاعها:%d.</string>
-  <string name="suggested_edits_paused_message" fuzzy="true">&lt;b&gt;تم إيقاف التعديلات المقترحة مؤقتا حتى %1$s.&lt;/b&gt;عذرا %2$s، تم إرجاع بعض مساهماتك الأخيرة.\n\nتعرف على كيفية تحسين مهارات التحرير على ويكيبيديا من خلال الرابط أدناه.</string>
-  <string name="suggested_edits_disabled_message" fuzzy="true">&lt;b&gt;تم تعطيل التعديلات المقترحة.&lt;/ b&gt; آسف %s، تم إرجاع الكثير من مساهماتك الأخيرة.\n\nتعرف على ما يعنيه هذا من خلال الرابط أدناه.</string>
-  <string name="suggested_edits_ip_blocked_message" fuzzy="true">يبدو أن عنوان الآيبي (أو نطاق عناوين الآيبي) الخاص بك ممنوع حاليا من تحرير ويكيبيديا، تعرف على المزيد حول معنى ذلك من خلال زيارة الرابط أدناه.</string>
-  <string name="suggested_edits_editing_tips_link_text">نصائح وحيل التحرير</string>
-  <string name="suggested_edits_help_page_link_text">صفحة مساعدة التعديلات المقترحة</string>
-  <string name="suggested_edits_edit_streak_label_text">خط التحرير</string>
-  <string name="suggested_edits_pageviews_label_text">مشاهدات الصفحة</string>
-  <string name="suggested_edits_quality_label_text">جودة التحرير</string>
-  <string name="suggested_edits_quality_perfect_text">مثالي</string>
-  <string name="suggested_edits_quality_excellent_text">ممتاز</string>
-  <string name="suggested_edits_quality_very_good_text">جيد جدا</string>
-  <string name="suggested_edits_quality_good_text">جيد</string>
-  <string name="suggested_edits_quality_okay_text">حسنا</string>
-  <string name="suggested_edits_quality_sufficient_text">كافٍ</string>
-  <string name="suggested_edits_quality_poor_text">فقير</string>
-  <string name="suggested_edits_quality_bad_text">سيء</string>
-  <string name="suggested_edits_contribute">ساهم</string>
-  <plurals name="suggested_edits_contribution" fuzzy="true">
+  <string name="edits_feed_card_title">التعديلات المقترحة</string>
+  <string name="edits_feed_card_add_description_button">إضافة وصف المقالة</string>
+  <string name="edits_feed_card_add_translation_in_language_button">إضافة وصف المقالة (%s)</string>
+  <string name="edits_tasks_onboarding_get_started">ابدأ</string>
+  <string name="edits_image_preview_dialog_caption_in_language_title">شرح الصورة (%s)</string>
+  <string name="edits_image_preview_dialog_description_in_language_title">وصف الصورة (%s)</string>
+  <string name="edits_image_preview_dialog_file">الملف</string>
+  <string name="edits_image_preview_dialog_artist">الفنان</string>
+  <string name="edits_image_preview_dialog_tags">الوسوم</string>
+  <string name="edits_image_preview_dialog_date">التاريخ</string>
+  <string name="edits_image_preview_dialog_source">المصدر/المصور</string>
+  <string name="edits_image_preview_dialog_licensing">الترخيص</string>
+  <string name="edits_image_preview_dialog_more_info">المزيد من المعلومات</string>
+  <string name="edits_image_preview_dialog_file_page_link_text">صفحة الملف على ويكيميديا ​​كومنز</string>
+  <string name="edits_article_cta_image_caption">إضافة شرح الصورة</string>
+  <string name="edits_article_cta_image_caption_in_language">إضافة شرح الصورة (%s)</string>
+  <string name="edits_article_cta_snackbar_action">عرض</string>
+  <string name="edits_feed_card_add_image_caption">إضافة شرح الصورة</string>
+  <string name="edits_feed_card_translate_image_caption">إضافة تعليق الصورة (%s)</string>
+  <string name="edits_feed_card_add_image_tags">أضف وسومًا للصور</string>
+  <string name="edits_snackbar_survey_text">كيف كانت تجربة التحرير الخاصة بك؟ يُرجَى قضاء بعض الوقت لملء الاستبيان حول التعديل داخل التطبيق.</string>
+  <string name="edits_snackbar_survey_action_text">المشاركة في استبيان</string>
+  <string name="edits_task_action_text_add">إضافة</string>
+  <string name="edits_task_action_text_translate">ترجمة</string>
+  <string name="edits_image_captions">تعليقات الصورة</string>
+  <string name="edits_image_tags">أوسمة الصورة</string>
+  <string name="edits_image_tags_publishing">نشر</string>
+  <string name="edits_image_tags_published">تم النشر</string>
+  <string name="edits_image_tags_onboarding_title">يسهل وسم الصور العثور عليها.</string>
+  <string name="edits_image_tags_onboarding_text" fuzzy="true">لقد اقترحنا تلقائيًا بعض الأوسمة، ويمكنك أيضًا إضافة الأوسمة الخاصة بك.</string>
+  <string name="edits_image_tags_onboarding_note">ستتم إضافة الأوسمة التي توافق عليها فقط إلى الصور.</string>
+  <string name="edits_image_tags_snackbar">أضف أوسمة على الصور لتُسهل على الآخرين العثور عليها.</string>
+  <string name="edits_image_tags_task_detail" fuzzy="true">ضع وسمًا على الصور لتسهيل العثور عليها. اختر من الأوسمة المقترحة أو أضف الأوسمة الخاصة بك.</string>
+  <string name="edits_image_tags_choose">أضف أو اختر الأوسمة المطابقة</string>
+  <string name="edits_image_tags_published_list">وسوم منشورة</string>
+  <string name="edits_image_tags_search">علامات البحث</string>
+  <string name="edits_image_tags_select_title">لم تقم بتحديد أي علامات لهذه الصورة</string>
+  <string name="edits_image_tags_select_text">ستتم إضافة الأوسمة التي تختارها فقط إلى الصور. سيتم تمييز الأوسمة التي لم يتم تحديدها على أنها مرفوضة. هل أنت متأكد أنك تريد وضع علامة على جميع الأوسمة على أنها مرفوضة؟</string>
+  <string name="edits_image_tags_add_tag">إضافة وسم</string>
+  <string name="edits_image_zoom_tooltip">ضم الاصبعين لتكبير هذه الصورة.</string>
+  <string name="edits_encouragement_message">%s، شكرا على تعديلاتك، يمكنك العثور أدناه على المزيد من الطرق للمساهمة في ويكيبيديا.</string>
+  <string name="edits_onboarding_message">&lt;b&gt;مرحبا %s&lt;/b&gt;، هل تعلم أنه يمكن للجميع تحرير ويكيبيديا؟ يمكنك العثور أدناه على طرق ممتعة للمساعدة في تحسين ويكيبيديا. تحرير سعيد!</string>
+  <string name="edits_image_captions_task_detail" fuzzy="true">تصف التعليقات التوضيحية صورة لمساعدة القراء على فهم معناها وسياقها.</string>
+  <string name="edits_add_descriptions_task_detail" fuzzy="true">تلخص أوصاف المقالات مقالة لمساعدة القراء على فهم الموضوع في لمحة.</string>
+  <string name="edits_contributions_stat_tooltip">إجمالي عدد المساهمات مع التعديلات المقترحة.</string>
+  <string name="edits_edit_streak_stat_tooltip">كم يوم بدون انقطاع ساهمت به عبر التعديلات المقترحة، إذا لم تكن قد ساهمت في فترة من الوقت، فسوف يعرض تاريخ آخر مساهمة لك.</string>
+  <string name="edits_page_views_stat_tooltip">إجمالي مشاهدات الصفحة للعناصر التي ساهمت بها في آخر 30 يوما مع التعديلات المقترحة.</string>
+  <string name="edits_edit_quality_stat_tooltip">بناءً على عدد المرات التي تم فيها إرجاع إحدى مساهماتك (التراجع عن طريق محرر آخر)، التعديلات التي تم إرجاعها:%d.</string>
+  <string name="edits_paused_message" fuzzy="true">&lt;b&gt;تم إيقاف التعديلات المقترحة مؤقتا حتى %1$s.&lt;/b&gt;عذرا %2$s، تم إرجاع بعض مساهماتك الأخيرة.\n\nتعرف على كيفية تحسين مهارات التحرير على ويكيبيديا من خلال الرابط أدناه.</string>
+  <string name="edits_disabled_message" fuzzy="true">&lt;b&gt;تم تعطيل التعديلات المقترحة.&lt;/ b&gt; آسف %s، تم إرجاع الكثير من مساهماتك الأخيرة.\n\nتعرف على ما يعنيه هذا من خلال الرابط أدناه.</string>
+  <string name="edits_ip_blocked_message" fuzzy="true">يبدو أن عنوان الآيبي (أو نطاق عناوين الآيبي) الخاص بك ممنوع حاليا من تحرير ويكيبيديا، تعرف على المزيد حول معنى ذلك من خلال زيارة الرابط أدناه.</string>
+  <string name="edits_editing_tips_link_text">نصائح وحيل التحرير</string>
+  <string name="edits_help_page_link_text">صفحة مساعدة التعديلات المقترحة</string>
+  <string name="edits_edit_streak_label_text">خط التحرير</string>
+  <string name="edits_pageviews_label_text">مشاهدات الصفحة</string>
+  <string name="edits_quality_label_text">جودة التحرير</string>
+  <string name="edits_quality_perfect_text">مثالي</string>
+  <string name="edits_quality_excellent_text">ممتاز</string>
+  <string name="edits_quality_very_good_text">جيد جدا</string>
+  <string name="edits_quality_good_text">جيد</string>
+  <string name="edits_quality_okay_text">حسنا</string>
+  <string name="edits_quality_sufficient_text">كافٍ</string>
+  <string name="edits_quality_poor_text">فقير</string>
+  <string name="edits_quality_bad_text">سيء</string>
+  <string name="edits_contribute">ساهم</string>
+  <plurals name="edits_contribution" fuzzy="true">
     <item quantity="one">مساهمة</item>
     <item quantity="other">مساهمات</item>
   </plurals>
-  <plurals name="suggested_edits_edit_streak_detail_text" fuzzy="true">
+  <plurals name="edits_edit_streak_detail_text" fuzzy="true">
     <item quantity="one">%d يوم</item>
     <item quantity="other">%d أيام</item>
   </plurals>
-  <string name="suggested_edits_learn_more">معرفة المزيد</string>
-  <string name="suggested_edits_paused_title">إيقاف مؤقت</string>
-  <string name="suggested_edits_last_edited">آخر تعديل</string>
-  <string name="suggested_edits_last_edited_never">أبدا</string>
-  <string name="suggested_edits_task_new">جديد</string>
-  <string name="suggested_edits_cc0_notice">بالنشر، فإنك توافق على &lt;a href=\"%1$s\"&gt;شروط الاستخدام&lt;/a&gt;، ونشر تعديلك بلا رجعة تحت رخصة &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
-  <string name="suggested_edits_reactivation_notification_title">التعديلات المقترحة</string>
-  <string name="suggested_edits_reactivation_notification_stage_two">لديك وقت لمواصلة تحسين ويكيبيديا؟ تحقق من اقتراحات التعديل هذه.</string>
-  <string name="suggested_edits_contribution_language_label">اللغة</string>
-  <string name="suggested_edits_contribution_type_label">نوع المساهمة</string>
-  <string name="suggested_edits_contribution_article_label">مقالة</string>
-  <string name="suggested_edits_contribution_date_yesterday_text">أمس</string>
-  <string name="suggested_edits_contribution_type_image_tag">وسم صورة</string>
+  <string name="edits_learn_more">معرفة المزيد</string>
+  <string name="edits_paused_title">إيقاف مؤقت</string>
+  <string name="edits_last_edited">آخر تعديل</string>
+  <string name="edits_last_edited_never">أبدا</string>
+  <string name="edits_task_new">جديد</string>
+  <string name="edits_cc0_notice">بالنشر، فإنك توافق على &lt;a href=\"%1$s\"&gt;شروط الاستخدام&lt;/a&gt;، ونشر تعديلك بلا رجعة تحت رخصة &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+  <string name="edits_reactivation_notification_title">التعديلات المقترحة</string>
+  <string name="edits_reactivation_notification_stage_two">لديك وقت لمواصلة تحسين ويكيبيديا؟ تحقق من اقتراحات التعديل هذه.</string>
+  <string name="edits_contribution_language_label">اللغة</string>
+  <string name="edits_contribution_type_label">نوع المساهمة</string>
+  <string name="edits_contribution_article_label">مقالة</string>
+  <string name="edits_contribution_date_yesterday_text">أمس</string>
+  <string name="edits_contribution_type_image_tag">وسم صورة</string>
   <string name="file_page_activity_title">صفحة ملف</string>
   <string name="description_edit_revert_subtitle">شكرا للتحرير في ويكيبيديا!</string>
   <string name="description_edit_revert_intro">نحن نعلم أنك جربت أفضل ما لديك، ولكن كان أحد المراجعين قلقا، من بين الأسباب المحتملة لاسترجاع تعديلك ما يلي:</string>

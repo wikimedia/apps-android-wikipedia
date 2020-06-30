@@ -28,7 +28,7 @@
   <string name="search_hint_search_languages">ค้นหาภาษา</string>
   <string name="search_hint_search_my_lists_and_articles">ค้นหารายชื่อและบทความที่บันทึกใว้</string>
   <string name="nav_item_history">ประวัติ</string>
-  <string name="nav_item_suggested_edits">แนะนำการแก้ไข</string>
+  <string name="nav_item_edits">แนะนำการแก้ไข</string>
   <string name="error_network_error">ไม่สามารถเชื่อมต่อเครือข่ายอินเตอร์เน็ตได้</string>
   <string name="page_error_retry">ลองใหม่</string>
   <string name="card_offline_error_retry">ลองใหม่</string>
@@ -306,13 +306,13 @@
   <string name="description_edit_translate_description" fuzzy="true">แปลคำอธิบายชื่อเรื่อง</string>
   <string name="description_edit_add_image_caption">เติมคำบรรยายภาพ</string>
   <string name="description_edit_success_saved_image_caption_snackbar" fuzzy="true">คำบรรยายภาพถูกพิมแล้ว</string>
-  <string name="suggested_edits_translate_image_captions">แปลคำบรรยายภาพ</string>
-  <string name="suggested_edits_task_translate_caption_title">แปลคำบรรยายภาพ</string>
-  <string name="suggested_edits_task_translate_caption_description">แปลคำบรรยายเป็นภาษาอื่น</string>
-  <string name="suggested_edits_task_translate_description_edit_disable_text" fuzzy="true">ล็อกไว้จนกว่าคุณจะได้แก้ไข %d คำอธิบายหัวข้อ</string>
-  <string name="suggested_edits_image_caption_summary_title_artist">ศิลปิน</string>
-  <string name="suggested_edits_image_caption_summary_title_author">คนเขียน</string>
-  <string name="suggested_edits_image_caption_summary_title_source">จุดกำเนิด</string>
+  <string name="edits_translate_image_captions">แปลคำบรรยายภาพ</string>
+  <string name="edits_task_translate_caption_title">แปลคำบรรยายภาพ</string>
+  <string name="edits_task_translate_caption_description">แปลคำบรรยายเป็นภาษาอื่น</string>
+  <string name="edits_task_translate_description_edit_disable_text" fuzzy="true">ล็อกไว้จนกว่าคุณจะได้แก้ไข %d คำอธิบายหัวข้อ</string>
+  <string name="edits_image_caption_summary_title_artist">ศิลปิน</string>
+  <string name="edits_image_caption_summary_title_author">คนเขียน</string>
+  <string name="edits_image_caption_summary_title_source">จุดกำเนิด</string>
   <string name="onboarding_skip">ข้าม</string>
   <string name="onboarding_explore_title">วิธีใหม่ในการสำรวจ</string>
   <string name="onboarding_analytics_title">ส่งข้อมูลแบบไม่ระบุตัวตน</string>

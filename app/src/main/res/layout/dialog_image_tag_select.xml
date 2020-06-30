@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:imeOptions="flagNoExtractUi"
-            android:hint="@string/suggested_edits_image_tags_search"
+            android:hint="@string/edits_image_tags_search"
             android:textSize="14sp"
             android:textColor="?attr/material_theme_primary_color"
             android:background="@null"

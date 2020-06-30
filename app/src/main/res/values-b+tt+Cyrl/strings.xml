@@ -207,14 +207,14 @@
   <string name="description_edit_cancel_hint">Кире алырга</string>
   <string name="description_edit_success_done">Тәмам</string>
   <string name="description_edit_success_did_you_know">Сез белдегезмә?</string>
-  <string name="suggested_edits_image_caption_summary_title_date">Дата</string>
-  <plurals name="suggested_edits_contribution_count">
+  <string name="edits_image_caption_summary_title_date">Дата</string>
+  <plurals name="edits_contribution_count">
     <item quantity="one">бер генә төзәтмә</item>
     <item quantity="other">%d төзәтмә</item>
   </plurals>
-  <string name="suggested_edits_article_cta_image_caption">Сурәт язмасын өстәү</string>
-  <string name="suggested_edits_article_cta_image_caption_in_language">Сурәт язмасын өстәү (%s)</string>
-  <string name="suggested_edits_last_edited_never">Һичкайчан</string>
+  <string name="edits_article_cta_image_caption">Сурәт язмасын өстәү</string>
+  <string name="edits_article_cta_image_caption_in_language">Сурәт язмасын өстәү (%s)</string>
+  <string name="edits_last_edited_never">Һичкайчан</string>
   <string name="app_shortcuts_search">Эзләү</string>
   <string name="wikipedia_languages_your_languages_text">Телләрегез</string>
   <string name="wikipedia_languages_add_language_text">Тел өстәү</string>

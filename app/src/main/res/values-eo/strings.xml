@@ -554,7 +554,7 @@
   <string name="feed_item_type_featured_image">Hodiaŭa elstara bildo ĉe Vikimedia Komunejo</string>
   <string name="feed_item_type_main_page">Ĉefpaĝo de Vikipedio kun ĉiutaga elstara enhavo</string>
   <string name="feed_item_type_randomizer">Elekti hazardajn artikolojn por legado</string>
-  <string name="feed_item_type_suggested_edits">Sugestoj pri aldoninda enhavo por Vikipedio</string>
+  <string name="feed_item_type_edits">Sugestoj pri aldoninda enhavo por Vikipedio</string>
   <string name="feed_empty_message">Estas nenio en via Esploro-fluo.</string>
   <string name="feed_configure_onboarding_action">Tajlori</string>
   <string name="customize_lang_selection_dialog_ok_button_text">Bone</string>
@@ -596,68 +596,68 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Ideale unu linio, inter du kaj dek du vortoj</string>
   <string name="description_edit_tutorial_button_label_start_editing">Ekredakti</string>
   <string name="description_edit_tutorial_promise">Ekante, mi promesas ne misuzi ĉi tiun eblon</string>
-  <string name="suggested_edits_add_descriptions">Aldoni priskribojn al artikoloj</string>
-  <string name="suggested_edits_translate_descriptions">Traduki priskribojn de artikoloj</string>
-  <string name="suggested_edits_add_image_captions">Aldoni titolojn al bildoj</string>
-  <string name="suggested_edits_translate_image_captions">Traduki titolojn de bildoj</string>
-  <string name="suggested_edits_review_description">Revizii priskribon de artikolo</string>
-  <string name="suggested_edits_add_description_button">Aldoni priskribon</string>
-  <string name="suggested_edits_edit_description_button">Redakti priskribon</string>
-  <string name="suggested_edits_add_translation_button">Aldoni tradukon</string>
-  <string name="suggested_edits_edit_translation_button">Redakti tradukon</string>
-  <string name="suggested_edits_add_caption_button">Aldoni titolon al bildo</string>
-  <string name="suggested_edits_edit_caption_button">Redakti titolon de bildo</string>
-  <string name="suggested_edits_review_image_caption">Revizii titolon de bildo</string>
-  <string name="suggested_edits_my_contributions">Miaj kontribuoj</string>
-  <string name="suggested_edits_no_description">Mankas priskribo pri ĉi tiu dosiero</string>
-  <string name="suggested_edits_license_notice">Per aldonado de la priskribo, mi konsentas al la &lt;a href=\"%1$s\"&gt;Kondiĉoj de Uzado&lt;/a&gt; kaj al la nerevokebla eldono de miaj kontribuoj laŭ la permesilo &lt;a href=\"%2$s\"&gt;Krea Komunaĵo CC0&lt;/a&gt;.</string>
-  <string name="suggested_edits_image_caption_license_notice">Per aldonado de la titolo de la bildo, mi konsentas al la &lt;a href=\"%1$s\"&gt;Kondiĉoj de Uzado&lt;/a&gt; kaj al la nerevokebla eldono de miaj kontribuoj laŭ la permesilo &lt;a href=\"%2$s\"&gt;Krea Komunaĵo CC0&lt;/a&gt;.</string>
-  <string name="suggested_edits_menu_info">Informo</string>
-  <string name="suggested_edits_tasks_activity_title">Sugestataj redaktoj</string>
-  <string name="suggested_edits_task_add_description_title">Aldoni priskribojn al artikoloj</string>
-  <string name="suggested_edits_task_add_description_description">Kontribui al artikloj sen priskriboj</string>
-  <string name="suggested_edits_task_image_caption_title">Titoli bildojn</string>
-  <string name="suggested_edits_task_image_caption_description">Aldoni mankantajn mallongajn titolojn al bildoj</string>
-  <string name="suggested_edits_task_translate_caption_title">Traduki titolon de bildo</string>
-  <string name="suggested_edits_task_translate_caption_description">Traduki titolon de bildo en aliajn lingvojn</string>
-  <string name="suggested_edits_task_multilingual_title">Pli da taskoj por plurlingvaj redaktanoj</string>
-  <string name="suggested_edits_task_multilingual_description">Tradukaj taskoj estas haveblaj se vi legas kaj skribas plurajn Vikipediajn lingvojn.</string>
-  <string name="suggested_edits_task_image_caption_edit_disable_text">Ŝlosita ĝis kiam vi redaktos %d titolojn de bildoj</string>
-  <string name="suggested_edits_task_translate_description_edit_disable_text">Ŝlosita ĝis kiam vi redaktos %d priskribojn (konfirmitajn)</string>
-  <string name="suggested_edits_task_multilingual_negative">Ne por mi</string>
-  <string name="suggested_edits_task_multilingual_positive">Aldoni lingvojn</string>
-  <string name="suggested_edits_image_caption_summary_title_artist">Kreito de arto</string>
-  <string name="suggested_edits_image_caption_summary_title_author">Aŭtoro</string>
-  <string name="suggested_edits_image_caption_summary_title_source">Fonto</string>
-  <string name="suggested_edits_image_caption_summary_title_license">Permesilo</string>
-  <string name="suggested_edits_image_caption_summary_title_date">Dato</string>
-  <plurals name="suggested_edits_contribution_count">
+  <string name="edits_add_descriptions">Aldoni priskribojn al artikoloj</string>
+  <string name="edits_translate_descriptions">Traduki priskribojn de artikoloj</string>
+  <string name="edits_add_image_captions">Aldoni titolojn al bildoj</string>
+  <string name="edits_translate_image_captions">Traduki titolojn de bildoj</string>
+  <string name="edits_review_description">Revizii priskribon de artikolo</string>
+  <string name="edits_add_description_button">Aldoni priskribon</string>
+  <string name="edits_edit_description_button">Redakti priskribon</string>
+  <string name="edits_add_translation_button">Aldoni tradukon</string>
+  <string name="edits_edit_translation_button">Redakti tradukon</string>
+  <string name="edits_add_caption_button">Aldoni titolon al bildo</string>
+  <string name="edits_edit_caption_button">Redakti titolon de bildo</string>
+  <string name="edits_review_image_caption">Revizii titolon de bildo</string>
+  <string name="edits_my_contributions">Miaj kontribuoj</string>
+  <string name="edits_no_description">Mankas priskribo pri ĉi tiu dosiero</string>
+  <string name="edits_license_notice">Per aldonado de la priskribo, mi konsentas al la &lt;a href=\"%1$s\"&gt;Kondiĉoj de Uzado&lt;/a&gt; kaj al la nerevokebla eldono de miaj kontribuoj laŭ la permesilo &lt;a href=\"%2$s\"&gt;Krea Komunaĵo CC0&lt;/a&gt;.</string>
+  <string name="edits_image_caption_license_notice">Per aldonado de la titolo de la bildo, mi konsentas al la &lt;a href=\"%1$s\"&gt;Kondiĉoj de Uzado&lt;/a&gt; kaj al la nerevokebla eldono de miaj kontribuoj laŭ la permesilo &lt;a href=\"%2$s\"&gt;Krea Komunaĵo CC0&lt;/a&gt;.</string>
+  <string name="edits_menu_info">Informo</string>
+  <string name="edits_tasks_activity_title">Sugestataj redaktoj</string>
+  <string name="edits_task_add_description_title">Aldoni priskribojn al artikoloj</string>
+  <string name="edits_task_add_description_description">Kontribui al artikloj sen priskriboj</string>
+  <string name="edits_task_image_caption_title">Titoli bildojn</string>
+  <string name="edits_task_image_caption_description">Aldoni mankantajn mallongajn titolojn al bildoj</string>
+  <string name="edits_task_translate_caption_title">Traduki titolon de bildo</string>
+  <string name="edits_task_translate_caption_description">Traduki titolon de bildo en aliajn lingvojn</string>
+  <string name="edits_task_multilingual_title">Pli da taskoj por plurlingvaj redaktanoj</string>
+  <string name="edits_task_multilingual_description">Tradukaj taskoj estas haveblaj se vi legas kaj skribas plurajn Vikipediajn lingvojn.</string>
+  <string name="edits_task_image_caption_edit_disable_text">Ŝlosita ĝis kiam vi redaktos %d titolojn de bildoj</string>
+  <string name="edits_task_translate_description_edit_disable_text">Ŝlosita ĝis kiam vi redaktos %d priskribojn (konfirmitajn)</string>
+  <string name="edits_task_multilingual_negative">Ne por mi</string>
+  <string name="edits_task_multilingual_positive">Aldoni lingvojn</string>
+  <string name="edits_image_caption_summary_title_artist">Kreito de arto</string>
+  <string name="edits_image_caption_summary_title_author">Aŭtoro</string>
+  <string name="edits_image_caption_summary_title_source">Fonto</string>
+  <string name="edits_image_caption_summary_title_license">Permesilo</string>
+  <string name="edits_image_caption_summary_title_date">Dato</string>
+  <plurals name="edits_contribution_count">
     <item quantity="one">1 kontribuo</item>
     <item quantity="other">%d kontribuoj</item>
   </plurals>
-  <string name="suggested_edits_feed_card_title">Sugestataj redaktoj</string>
-  <string name="suggested_edits_feed_card_add_description_button">Aldoni priskribon de artikolo</string>
-  <string name="suggested_edits_feed_card_add_translation_in_language_button">Aldoni priskribon al artikolo (je %s)</string>
-  <string name="suggested_edits_tasks_onboarding_get_started">Komenci</string>
-  <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Titolo de bildo (je %s)</string>
-  <string name="suggested_edits_image_preview_dialog_description_in_language_title">Priskribo de bildo (je %s)</string>
-  <string name="suggested_edits_image_preview_dialog_artist">Kreito de arto</string>
-  <string name="suggested_edits_image_preview_dialog_date">Dato</string>
-  <string name="suggested_edits_image_preview_dialog_source">Fonto/Fotisto</string>
-  <string name="suggested_edits_image_preview_dialog_licensing">Permesilo</string>
-  <string name="suggested_edits_image_preview_dialog_more_info">Pli da Informo</string>
-  <string name="suggested_edits_image_preview_dialog_file_page_link_text">Paĝo de dosiero ĉe Vikimedia Komunejo</string>
-  <string name="suggested_edits_article_cta_image_caption">Aldoni titolon al bildo</string>
-  <string name="suggested_edits_article_cta_image_caption_in_language">Aldoni titolon al bildo (je %s)</string>
-  <string name="suggested_edits_article_cta_snackbar_action">Vidi</string>
-  <string name="suggested_edits_feed_card_add_image_caption" fuzzy="true">Aldoni titolon</string>
-  <string name="suggested_edits_feed_card_translate_image_caption" fuzzy="true">Aldoni titolon (je %s)</string>
-  <string name="suggested_edits_contribute">Kontribui</string>
-  <string name="suggested_edits_rewards_contribution" fuzzy="true">Vi faris %d kontribuojn al Vikipedio uzante sugestitajn redaktojn. Dankon!</string>
-  <string name="suggested_edits_rewards_edit_streak">Vi redaktis ĉiun tagon dum %1$d tagoj ĝin nun. Tenu la daŭron, %2$s!</string>
-  <string name="suggested_edits_rewards_pageviews">Viaj redaktoj estis viditaj de %d homoj en la lasta 30 tagoj. Dankon Kaj daŭrigu!</string>
-  <string name="suggested_edits_rewards_edit_quality">Viaj redaktoj ĝis nun estas %s. Daŭrigu! Ni atendas viajn kontribuojn</string>
-  <string name="suggested_edits_rewards_continue_button">Daŭrigi</string>
+  <string name="edits_feed_card_title">Sugestataj redaktoj</string>
+  <string name="edits_feed_card_add_description_button">Aldoni priskribon de artikolo</string>
+  <string name="edits_feed_card_add_translation_in_language_button">Aldoni priskribon al artikolo (je %s)</string>
+  <string name="edits_tasks_onboarding_get_started">Komenci</string>
+  <string name="edits_image_preview_dialog_caption_in_language_title">Titolo de bildo (je %s)</string>
+  <string name="edits_image_preview_dialog_description_in_language_title">Priskribo de bildo (je %s)</string>
+  <string name="edits_image_preview_dialog_artist">Kreito de arto</string>
+  <string name="edits_image_preview_dialog_date">Dato</string>
+  <string name="edits_image_preview_dialog_source">Fonto/Fotisto</string>
+  <string name="edits_image_preview_dialog_licensing">Permesilo</string>
+  <string name="edits_image_preview_dialog_more_info">Pli da Informo</string>
+  <string name="edits_image_preview_dialog_file_page_link_text">Paĝo de dosiero ĉe Vikimedia Komunejo</string>
+  <string name="edits_article_cta_image_caption">Aldoni titolon al bildo</string>
+  <string name="edits_article_cta_image_caption_in_language">Aldoni titolon al bildo (je %s)</string>
+  <string name="edits_article_cta_snackbar_action">Vidi</string>
+  <string name="edits_feed_card_add_image_caption" fuzzy="true">Aldoni titolon</string>
+  <string name="edits_feed_card_translate_image_caption" fuzzy="true">Aldoni titolon (je %s)</string>
+  <string name="edits_contribute">Kontribui</string>
+  <string name="edits_rewards_contribution" fuzzy="true">Vi faris %d kontribuojn al Vikipedio uzante sugestitajn redaktojn. Dankon!</string>
+  <string name="edits_rewards_edit_streak">Vi redaktis ĉiun tagon dum %1$d tagoj ĝin nun. Tenu la daŭron, %2$s!</string>
+  <string name="edits_rewards_pageviews">Viaj redaktoj estis viditaj de %d homoj en la lasta 30 tagoj. Dankon Kaj daŭrigu!</string>
+  <string name="edits_rewards_edit_quality">Viaj redaktoj ĝis nun estas %s. Daŭrigu! Ni atendas viajn kontribuojn</string>
+  <string name="edits_rewards_continue_button">Daŭrigi</string>
   <string name="description_edit_revert_subtitle">Dankon pro tio ke vi redaktas Vikipedion!</string>
   <string name="description_edit_revert_intro">Ni scias ke vi provis vian plej bonan, sed unu el la reviziantoj esprimis sian dubon.\n\nEblaj kialoj ke via redakto estas malfarita inkluzivas:</string>
   <string name="description_edit_revert_reason1">via kontribuo ne akordis kun unu el la &lt;a href=\"%1$s\"&gt;gvidnormoj&lt;/a&gt;.</string>

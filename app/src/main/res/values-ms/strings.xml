@@ -27,7 +27,7 @@
   <string name="search_hint_search_languages">Cari bahasa</string>
   <string name="search_hint_search_my_lists_and_articles">Cari senarai dan rencana saya</string>
   <string name="nav_item_history">Sejarah</string>
-  <string name="nav_item_suggested_edits">Penyuntingan yang disarankan</string>
+  <string name="nav_item_edits">Penyuntingan yang disarankan</string>
   <string name="error_network_error">Tidak dapat bersambung dengan Internet.</string>
   <string name="page_error_retry">Cuba lagi</string>
   <string name="card_offline_error_retry">Cuba lagi</string>
@@ -574,7 +574,7 @@
   <string name="feed_item_type_featured_image">Imej pilihan harian dari Wikimedia Commons</string>
   <string name="feed_item_type_main_page">Halaman utama Wikipedia dengan kandungan pilihan harian</string>
   <string name="feed_item_type_randomizer">Menjana rencana rawak untuk dibaca</string>
-  <string name="feed_item_type_suggested_edits">Cadangan untuk menambah kandungan ke Wikipedia</string>
+  <string name="feed_item_type_edits">Cadangan untuk menambah kandungan ke Wikipedia</string>
   <string name="feed_empty_message">Tiada apa-apa pada suapan Jelajah anda</string>
   <string name="feed_configure_onboarding_action">Ubah suai</string>
   <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
@@ -617,43 +617,43 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Sebaik-baiknya satu baris, antara dua hingga dua belas perkataan</string>
   <string name="description_edit_tutorial_button_label_start_editing">Mula menyunting</string>
   <string name="description_edit_tutorial_promise">Dengan bermula, saya berjanji tidak akan menyalahgunakan ciri ini.</string>
-  <string name="suggested_edits_add_descriptions" fuzzy="true">Tambah penerangan tajuk</string>
-  <string name="suggested_edits_review_description" fuzzy="true">Kaji penerangan tajuk</string>
-  <string name="suggested_edits_add_description_button">Tambah penerangan</string>
-  <string name="suggested_edits_my_contributions">Sumbangan saya</string>
-  <string name="suggested_edits_menu_info">Maklumat</string>
-  <string name="suggested_edits_tasks_activity_title" fuzzy="true">Tugas editor aplikasi</string>
-  <string name="suggested_edits_task_add_description_title" fuzzy="true">Tambah penerangan tajuk</string>
-  <string name="suggested_edits_task_add_description_description">Sumbangan kepada rencana tanpa penerangan tajuk</string>
-  <string name="suggested_edits_task_image_caption_title" fuzzy="true">Keterangan imej</string>
-  <string name="suggested_edits_task_image_caption_description" fuzzy="true">Tambah kapsyen ke imej</string>
-  <string name="suggested_edits_task_translate_caption_title">Terjemahkan kapsyen imej</string>
-  <string name="suggested_edits_task_translate_caption_description">Terjemahkan kapsyen ke bahasa lain</string>
-  <string name="suggested_edits_task_multilingual_title">Lebih banyak tugas untuk editor berbilang bahasa</string>
-  <string name="suggested_edits_task_multilingual_description">Tugas penterjemahan tersedia jika anda membaca dan menulis dalam lebih dari satu bahasa Wikipedia.</string>
-  <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">Dikunci sehingga anda telah membuat %d suntingan dalam aplikasinya yang disahkan</string>
-  <string name="suggested_edits_task_translate_description_edit_disable_text" fuzzy="true">Dikunci sehingga anda telah menyunting %d penerangan tajuk</string>
-  <string name="suggested_edits_task_multilingual_negative">Bukan untuk saya</string>
-  <string name="suggested_edits_task_multilingual_positive">Tambahkan bahasa</string>
-  <string name="suggested_edits_image_caption_summary_title_file">Fail</string>
-  <string name="suggested_edits_image_caption_summary_title_source">Sumber</string>
-  <string name="suggested_edits_image_caption_summary_title_license">Lesen</string>
-  <string name="suggested_edits_image_caption_summary_title_date">Tarikh</string>
-  <plurals name="suggested_edits_contribution_count">
+  <string name="edits_add_descriptions" fuzzy="true">Tambah penerangan tajuk</string>
+  <string name="edits_review_description" fuzzy="true">Kaji penerangan tajuk</string>
+  <string name="edits_add_description_button">Tambah penerangan</string>
+  <string name="edits_my_contributions">Sumbangan saya</string>
+  <string name="edits_menu_info">Maklumat</string>
+  <string name="edits_tasks_activity_title" fuzzy="true">Tugas editor aplikasi</string>
+  <string name="edits_task_add_description_title" fuzzy="true">Tambah penerangan tajuk</string>
+  <string name="edits_task_add_description_description">Sumbangan kepada rencana tanpa penerangan tajuk</string>
+  <string name="edits_task_image_caption_title" fuzzy="true">Keterangan imej</string>
+  <string name="edits_task_image_caption_description" fuzzy="true">Tambah kapsyen ke imej</string>
+  <string name="edits_task_translate_caption_title">Terjemahkan kapsyen imej</string>
+  <string name="edits_task_translate_caption_description">Terjemahkan kapsyen ke bahasa lain</string>
+  <string name="edits_task_multilingual_title">Lebih banyak tugas untuk editor berbilang bahasa</string>
+  <string name="edits_task_multilingual_description">Tugas penterjemahan tersedia jika anda membaca dan menulis dalam lebih dari satu bahasa Wikipedia.</string>
+  <string name="edits_task_image_caption_edit_disable_text" fuzzy="true">Dikunci sehingga anda telah membuat %d suntingan dalam aplikasinya yang disahkan</string>
+  <string name="edits_task_translate_description_edit_disable_text" fuzzy="true">Dikunci sehingga anda telah menyunting %d penerangan tajuk</string>
+  <string name="edits_task_multilingual_negative">Bukan untuk saya</string>
+  <string name="edits_task_multilingual_positive">Tambahkan bahasa</string>
+  <string name="edits_image_caption_summary_title_file">Fail</string>
+  <string name="edits_image_caption_summary_title_source">Sumber</string>
+  <string name="edits_image_caption_summary_title_license">Lesen</string>
+  <string name="edits_image_caption_summary_title_date">Tarikh</string>
+  <plurals name="edits_contribution_count">
     <item quantity="one">sumbangan dalam apl</item>
     <item quantity="other">%d sumbangan dalam apl</item>
   </plurals>
-  <string name="suggested_edits_tasks_onboarding_get_started">Memulakan</string>
-  <string name="suggested_edits_image_preview_dialog_file">Fail</string>
-  <string name="suggested_edits_image_preview_dialog_date">Tarikh</string>
-  <string name="suggested_edits_image_preview_dialog_licensing">Perlesenan</string>
-  <string name="suggested_edits_image_preview_dialog_file_page_link_text">Laman fail di Wikimedia Commons</string>
-  <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">Laman fail di Wikipedia</string>
-  <string name="suggested_edits_task_action_text_add">Tambah</string>
-  <string name="suggested_edits_task_action_text_translate">Terjemah</string>
-  <string name="suggested_edits_image_tags_publishing">Menerbit</string>
-  <string name="suggested_edits_image_tags_published">Diterbit</string>
-  <string name="suggested_edits_last_edited_never">Tidak pernah</string>
+  <string name="edits_tasks_onboarding_get_started">Memulakan</string>
+  <string name="edits_image_preview_dialog_file">Fail</string>
+  <string name="edits_image_preview_dialog_date">Tarikh</string>
+  <string name="edits_image_preview_dialog_licensing">Perlesenan</string>
+  <string name="edits_image_preview_dialog_file_page_link_text">Laman fail di Wikimedia Commons</string>
+  <string name="edits_image_preview_dialog_file_page_wikipedia_link_text">Laman fail di Wikipedia</string>
+  <string name="edits_task_action_text_add">Tambah</string>
+  <string name="edits_task_action_text_translate">Terjemah</string>
+  <string name="edits_image_tags_publishing">Menerbit</string>
+  <string name="edits_image_tags_published">Diterbit</string>
+  <string name="edits_last_edited_never">Tidak pernah</string>
   <string name="file_page_activity_title">Laman fail</string>
   <string name="description_edit_revert_subtitle">Terima kasih kerana menyunting di Wikipedia!</string>
   <string name="description_edit_revert_intro">Kami tahu anda mencuba yang terbaik, tetapi salah satu pengulas mempunyai kebimbangan. Sebab yang mungkin suntingan anda ditukar semula termasuk:</string>

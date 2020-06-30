@@ -551,25 +551,25 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Líne amháin dá bhféadfaí é, idir aon fhocal amháin agus dhá fhocal déag</string>
   <string name="description_edit_tutorial_button_label_start_editing">Cuir in eagar</string>
   <string name="description_edit_tutorial_promise">Agus mé ag tosú, geallaim nach mbainfidh mé mí-úsáid as an ngné seo.</string>
-  <string name="suggested_edits_add_descriptions" fuzzy="true">Cuir sainchuntais theideal leis</string>
-  <string name="suggested_edits_review_description" fuzzy="true">Athbhreithnigh sainchuntas teidil</string>
-  <string name="suggested_edits_add_description_button">Cuir sainchuntas leis</string>
-  <string name="suggested_edits_tasks_activity_title" fuzzy="true">Tascanna d\'eagarthóirí aipe</string>
-  <string name="suggested_edits_task_add_description_title" fuzzy="true">Cuir sainchuntais theideal leis</string>
-  <string name="suggested_edits_task_image_caption_title" fuzzy="true">Fotheidil íomhánna</string>
-  <string name="suggested_edits_task_image_caption_description" fuzzy="true">Cuir fotheidil le híomhánna</string>
-  <string name="suggested_edits_task_multilingual_title">Tuilleadh tascanna d\'eagarthóirí ilteangacha</string>
-  <string name="suggested_edits_task_multilingual_negative">Ní domsa é</string>
-  <string name="suggested_edits_task_multilingual_positive">Cuir teangacha leis</string>
-  <string name="suggested_edits_image_caption_summary_title_license">Ceadúnas</string>
-  <string name="suggested_edits_image_caption_summary_title_date">Dáta</string>
-  <plurals name="suggested_edits_contribution_count" fuzzy="true">
+  <string name="edits_add_descriptions" fuzzy="true">Cuir sainchuntais theideal leis</string>
+  <string name="edits_review_description" fuzzy="true">Athbhreithnigh sainchuntas teidil</string>
+  <string name="edits_add_description_button">Cuir sainchuntas leis</string>
+  <string name="edits_tasks_activity_title" fuzzy="true">Tascanna d\'eagarthóirí aipe</string>
+  <string name="edits_task_add_description_title" fuzzy="true">Cuir sainchuntais theideal leis</string>
+  <string name="edits_task_image_caption_title" fuzzy="true">Fotheidil íomhánna</string>
+  <string name="edits_task_image_caption_description" fuzzy="true">Cuir fotheidil le híomhánna</string>
+  <string name="edits_task_multilingual_title">Tuilleadh tascanna d\'eagarthóirí ilteangacha</string>
+  <string name="edits_task_multilingual_negative">Ní domsa é</string>
+  <string name="edits_task_multilingual_positive">Cuir teangacha leis</string>
+  <string name="edits_image_caption_summary_title_license">Ceadúnas</string>
+  <string name="edits_image_caption_summary_title_date">Dáta</string>
+  <plurals name="edits_contribution_count" fuzzy="true">
     <item quantity="one">dréacht san aip</item>
     <item quantity="other">%d dréachtaí san aip</item>
   </plurals>
-  <string name="suggested_edits_image_preview_dialog_source">Foinse/Grianghrafadóir</string>
-  <string name="suggested_edits_image_preview_dialog_licensing">Ceadúnú</string>
-  <string name="suggested_edits_task_action_text_translate">Aistrigh</string>
+  <string name="edits_image_preview_dialog_source">Foinse/Grianghrafadóir</string>
+  <string name="edits_image_preview_dialog_licensing">Ceadúnú</string>
+  <string name="edits_task_action_text_translate">Aistrigh</string>
   <string name="description_edit_revert_subtitle">Go raibh maith agat as Vicipéid a chur in eagar!</string>
   <string name="description_edit_revert_intro">Tá súil againn go rinne tó do dhícheall, ach bhí imní ar cheann de na léirmheastóirí. Is féidir gurb iad seo a leanas i measc na bhfáthanna a filleadh d\'athrú ar an mbunleagan:</string>
   <string name="description_edit_revert_reason1">níor chloígh do chuid ábhair le ceann de na &lt;a href=\"%1$s\"&gt;treoirlínte&lt;/a&gt;.</string>

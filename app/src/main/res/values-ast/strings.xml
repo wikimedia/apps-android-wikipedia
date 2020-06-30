@@ -20,7 +20,7 @@
   <string name="search_hint_search_languages">Buscar una llingua</string>
   <string name="search_hint_search_my_lists_and_articles">Buscar nes mios llistes y artículos</string>
   <string name="nav_item_history">Historial</string>
-  <string name="nav_item_suggested_edits">Ediciones suxeríes</string>
+  <string name="nav_item_edits">Ediciones suxeríes</string>
   <string name="error_network_error">Nun pudo conectase a Internet.</string>
   <string name="page_error_retry">Reintentar</string>
   <string name="card_offline_error_retry">Reintentar</string>
@@ -192,7 +192,7 @@
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Bbiblioteques utilizaes</string>
   <string name="about_contributors_heading">Collaboradores</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Páxina del equipu&lt;/a&gt;</string>
@@ -573,7 +573,7 @@
   <string name="feed_item_type_featured_image">Imaxe destacada del día en Wikimedia Commons</string>
   <string name="feed_item_type_main_page">Páxina principal de Wikipedia col conteníu destacáu del día</string>
   <string name="feed_item_type_randomizer">Xenerar artículos al debalu pa lleer</string>
-  <string name="feed_item_type_suggested_edits">Suxerencies p\'añadir conteníu a Wikipedia</string>
+  <string name="feed_item_type_edits">Suxerencies p\'añadir conteníu a Wikipedia</string>
   <string name="feed_empty_message">Nun hai nada na canal Esplorar</string>
   <string name="feed_configure_onboarding_action">Personalizar</string>
   <string name="customize_lang_selection_dialog_ok_button_text">Aceutar</string>
@@ -623,123 +623,123 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealmente, una llinia; ente dos y doce palabres</string>
   <string name="description_edit_tutorial_button_label_start_editing">Principiar a editar</string>
   <string name="description_edit_tutorial_promise">Al empezar, prometo a nun faer mal usu d\'esta carauterística.</string>
-  <string name="suggested_edits_add_descriptions">Amestar descripciones d\'artículos</string>
-  <string name="suggested_edits_translate_descriptions">Traducir descripciones d\'artículos</string>
-  <string name="suggested_edits_add_image_captions">Añadir pies d\'imaxe</string>
-  <string name="suggested_edits_translate_image_captions">Traducir pies d\'imaxe</string>
-  <string name="suggested_edits_tag_images">Etiquetar imáxenes</string>
-  <string name="suggested_edits_review_description">Revisar descripción del artículu</string>
-  <string name="suggested_edits_add_description_button">Amestar descripción</string>
-  <string name="suggested_edits_edit_description_button">Editar la descripción</string>
-  <string name="suggested_edits_add_translation_button">Amestar traducción</string>
-  <string name="suggested_edits_edit_translation_button">Editar traducción</string>
-  <string name="suggested_edits_add_caption_button">Añadir un pie</string>
-  <string name="suggested_edits_edit_caption_button">Editar pie</string>
-  <string name="suggested_edits_review_image_caption">Revisar un pie d\'imaxe</string>
-  <string name="suggested_edits_my_contributions">Les mios contribuciones</string>
-  <string name="suggested_edits_no_description">Esti ficheru nun tien descripción</string>
-  <string name="suggested_edits_license_notice">Al añadir la descripción, acepto les &lt;a href=\"%1$s\"&gt;Condiciones d\'usu&lt;/a&gt; y lliberar ensin torgues les mios contribuciones baxo los términos de la llicencia &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
-  <string name="suggested_edits_image_caption_license_notice">Al añadir el pie d\'imaxe, acepto les &lt;a href=\"%1$s\"&gt;Condiciones d\'usu&lt;/a&gt; y lliberar ensin torgues les mios contribuciones baxo los términos de la llicencia &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
-  <string name="suggested_edits_menu_info">Información</string>
-  <string name="suggested_edits_tasks_activity_title">Ediciones suxeríes</string>
-  <string name="suggested_edits_task_add_description_title">Amestar descripciones d\'artículos</string>
-  <string name="suggested_edits_task_add_description_description">Contribuir a artículos ensin descripciones</string>
-  <string name="suggested_edits_task_image_caption_title">Añadir pies d\'imaxe</string>
-  <string name="suggested_edits_task_image_caption_description">Añadir pies curtios que falten a imaxes</string>
-  <string name="suggested_edits_task_translate_caption_title">Traducir pies d\'imaxe</string>
-  <string name="suggested_edits_task_translate_caption_description">Traducir los pies a otres llingües</string>
-  <string name="suggested_edits_task_multilingual_title">Más xeres para editores plurillingües</string>
-  <string name="suggested_edits_task_multilingual_description">Les xeres de traducción tán disponibles si llees y escribes en más d\'un idioma de Wikipedia.</string>
-  <string name="suggested_edits_task_image_caption_edit_disable_text">Bloquiao hasta que tengas editaos %d pies d\'imaxe</string>
-  <string name="suggested_edits_task_translate_description_edit_disable_text">Bloquiao hasta que tengas editaes %d descripciones d\'artículos (comprobaes)</string>
-  <string name="suggested_edits_task_multilingual_negative">Nun ye pa min</string>
-  <string name="suggested_edits_task_multilingual_positive">Amestar llingües</string>
-  <string name="suggested_edits_image_caption_summary_title_file">Ficheru</string>
-  <string name="suggested_edits_image_caption_summary_title_artist">Artista</string>
-  <string name="suggested_edits_image_caption_summary_title_author">Autor</string>
-  <string name="suggested_edits_image_caption_summary_title_source">Orixe</string>
-  <string name="suggested_edits_image_caption_summary_title_license">Llicencia</string>
-  <string name="suggested_edits_image_caption_summary_title_date">Data</string>
-  <plurals name="suggested_edits_contribution_count">
+  <string name="edits_add_descriptions">Amestar descripciones d\'artículos</string>
+  <string name="edits_translate_descriptions">Traducir descripciones d\'artículos</string>
+  <string name="edits_add_image_captions">Añadir pies d\'imaxe</string>
+  <string name="edits_translate_image_captions">Traducir pies d\'imaxe</string>
+  <string name="edits_tag_images">Etiquetar imáxenes</string>
+  <string name="edits_review_description">Revisar descripción del artículu</string>
+  <string name="edits_add_description_button">Amestar descripción</string>
+  <string name="edits_edit_description_button">Editar la descripción</string>
+  <string name="edits_add_translation_button">Amestar traducción</string>
+  <string name="edits_edit_translation_button">Editar traducción</string>
+  <string name="edits_add_caption_button">Añadir un pie</string>
+  <string name="edits_edit_caption_button">Editar pie</string>
+  <string name="edits_review_image_caption">Revisar un pie d\'imaxe</string>
+  <string name="edits_my_contributions">Les mios contribuciones</string>
+  <string name="edits_no_description">Esti ficheru nun tien descripción</string>
+  <string name="edits_license_notice">Al añadir la descripción, acepto les &lt;a href=\"%1$s\"&gt;Condiciones d\'usu&lt;/a&gt; y lliberar ensin torgues les mios contribuciones baxo los términos de la llicencia &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="edits_image_caption_license_notice">Al añadir el pie d\'imaxe, acepto les &lt;a href=\"%1$s\"&gt;Condiciones d\'usu&lt;/a&gt; y lliberar ensin torgues les mios contribuciones baxo los términos de la llicencia &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="edits_menu_info">Información</string>
+  <string name="edits_tasks_activity_title">Ediciones suxeríes</string>
+  <string name="edits_task_add_description_title">Amestar descripciones d\'artículos</string>
+  <string name="edits_task_add_description_description">Contribuir a artículos ensin descripciones</string>
+  <string name="edits_task_image_caption_title">Añadir pies d\'imaxe</string>
+  <string name="edits_task_image_caption_description">Añadir pies curtios que falten a imaxes</string>
+  <string name="edits_task_translate_caption_title">Traducir pies d\'imaxe</string>
+  <string name="edits_task_translate_caption_description">Traducir los pies a otres llingües</string>
+  <string name="edits_task_multilingual_title">Más xeres para editores plurillingües</string>
+  <string name="edits_task_multilingual_description">Les xeres de traducción tán disponibles si llees y escribes en más d\'un idioma de Wikipedia.</string>
+  <string name="edits_task_image_caption_edit_disable_text">Bloquiao hasta que tengas editaos %d pies d\'imaxe</string>
+  <string name="edits_task_translate_description_edit_disable_text">Bloquiao hasta que tengas editaes %d descripciones d\'artículos (comprobaes)</string>
+  <string name="edits_task_multilingual_negative">Nun ye pa min</string>
+  <string name="edits_task_multilingual_positive">Amestar llingües</string>
+  <string name="edits_image_caption_summary_title_file">Ficheru</string>
+  <string name="edits_image_caption_summary_title_artist">Artista</string>
+  <string name="edits_image_caption_summary_title_author">Autor</string>
+  <string name="edits_image_caption_summary_title_source">Orixe</string>
+  <string name="edits_image_caption_summary_title_license">Llicencia</string>
+  <string name="edits_image_caption_summary_title_date">Data</string>
+  <plurals name="edits_contribution_count">
     <item quantity="one">1 contribución</item>
     <item quantity="other">%d contribuciones</item>
   </plurals>
-  <string name="suggested_edits_feed_card_title">Ediciones suxeríes</string>
-  <string name="suggested_edits_feed_card_add_description_button">Amestar descripción del artículu</string>
-  <string name="suggested_edits_feed_card_add_translation_in_language_button">Amestar descripción del artículu (%s)</string>
-  <string name="suggested_edits_tasks_onboarding_get_started">Primeros pasos</string>
-  <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Pie d\'imaxe (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_description_in_language_title">Descripción de la imaxe (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_artist">Artista</string>
-  <string name="suggested_edits_image_preview_dialog_date">Data</string>
-  <string name="suggested_edits_image_preview_dialog_source">Fonte/Fotógrafu</string>
-  <string name="suggested_edits_image_preview_dialog_licensing">Llicencia</string>
-  <string name="suggested_edits_image_preview_dialog_more_info">Más información</string>
-  <string name="suggested_edits_image_preview_dialog_file_page_link_text">Páxina del ficheru en Wikimedia Commons</string>
-  <string name="suggested_edits_article_cta_image_caption">Añadir un pie d\'imaxe</string>
-  <string name="suggested_edits_article_cta_image_caption_in_language">Añadir un pie d\'imaxe (%s)</string>
-  <string name="suggested_edits_article_cta_snackbar_action">Ver</string>
-  <string name="suggested_edits_feed_card_add_image_caption">Añadir un pie d\'imaxe</string>
-  <string name="suggested_edits_feed_card_translate_image_caption">Añadir un pie d\'imaxe (%s)</string>
-  <string name="suggested_edits_feed_card_add_image_tags">Amestar etiquetes d\'imaxe</string>
-  <string name="suggested_edits_snackbar_survey_text">¿Qué tal foi la to esperiencia editando? Por favor, dedica un momentu a contestar la encuesta sobro la edición na aplicación.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Contestar la encuesta</string>
-  <string name="suggested_edits_task_action_text_add">Amestar</string>
-  <string name="suggested_edits_task_action_text_translate">Traducir</string>
-  <string name="suggested_edits_image_captions">Pies d\'imáxenes</string>
-  <string name="suggested_edits_image_tags">Etiquetes d\'imáxenes</string>
-  <string name="suggested_edits_image_tags_publishing">Espublizando</string>
-  <string name="suggested_edits_image_tags_published">Espublizaes</string>
-  <string name="suggested_edits_image_tags_onboarding_title">Etiquetar les imáxenes failes más fáciles d\'alcontrar.</string>
-  <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">Al amestar etiquetes d\'imaxe, ayudes a que sía más fácil buscales en Commons, el depósitu d\'imáxenes de llicencia llibre que Wikipedia usa pa les imáxenes de los artículos.\n\nSuxerimos automáticamente delles etiquetes, y tamién pues amestar les tuyes propies.</string>
-  <string name="suggested_edits_image_tags_onboarding_note">Solo les etiquetes qu\'escueyas van añadise a les imáxenes.</string>
-  <string name="suggested_edits_image_tags_snackbar">Etiqueta les imáxenes pa facilitar la so busca.</string>
-  <string name="suggested_edits_image_tags_task_detail" fuzzy="true">Etiqueta les imáxenes pa facilitar que les alcuentren. Seleiciona dende les etiquetes suxeríes o amiesta les tuyes propies.</string>
-  <string name="suggested_edits_image_tags_choose">Añadir o escoyer etiquetes que casen</string>
-  <string name="suggested_edits_image_tags_published_list">Etiquetes publicaes</string>
-  <string name="suggested_edits_image_tags_search">Buscar etiquetes</string>
-  <string name="suggested_edits_image_tags_select_title">Nun escoyisti nenguna etiqueta pa esta imaxe.</string>
-  <string name="suggested_edits_image_tags_select_text">Solo les etiquetes qu\'escueyas van añadise a les imáxenes. Les etiquetes ensin escoyer van marcase como refugaes. ¿Tas seguro de que quies marcar toles etiquetes como refugaes?</string>
-  <string name="suggested_edits_image_tags_add_tag">Añadir etiqueta</string>
-  <string name="suggested_edits_image_zoom_tooltip">Plizca p\'ampliar esta imaxe.</string>
-  <string name="suggested_edits_encouragement_message">%s, gracies poles tos ediciones. Más abaxo pues alcontrar otres formes de collaborar con Wikipedia.</string>
-  <string name="suggested_edits_onboarding_message">&lt;b&gt;Bones, %s&lt;/b&gt;. ¿Sabíes que tol mundu pue editar Wikipedia? Más abaxo pues alcontrar formes divertíes d\'ayudar a ameyorar la Wikipedia. ¡Feliz edición!</string>
-  <string name="suggested_edits_image_captions_task_detail" fuzzy="true">Los pies d\'imaxe describen una imaxe p\'ayudar los llectores a entender el so significáu y contestu.</string>
-  <string name="suggested_edits_add_descriptions_task_detail" fuzzy="true">Les descripciones d\'artículos resumen un artículu p\'ayudar a que los llectores puedan enterase de la tema del artículu d\'una güeyada.</string>
-  <string name="suggested_edits_contributions_stat_tooltip">El númberu total de les tos contribuciones con Ediciones suxeríes.</string>
-  <string name="suggested_edits_edit_streak_stat_tooltip">Cuántos díes siguíos contribuyisti a Ediciones suxeríes. Si va tiempu que nun contribuyes, apaecerá la fecha de la to última contribución.</string>
-  <string name="suggested_edits_page_views_stat_tooltip">Total de páxines vistes d\'elementos a los que contribuyisti nos postreros 30 díes con ediciones suxeríes.</string>
-  <string name="suggested_edits_edit_quality_stat_tooltip">Basándose na cantidá de vegaes qu\'una de les tos contribuciones revirtióse (foi anulada por otru editor). Ediciones revertíes: %d.</string>
-  <string name="suggested_edits_paused_message" fuzzy="true">&lt;b&gt;Les Ediciones suxeríes tán en posa hasta %1$s.&lt;/b&gt; Sentímoslo, %2$s: dalgunes de les tos contribuciones de recién revertiéronse.\n\nDeprende cómo ameyorar les tos habilidaes d\'edición na Wikipedia consultando l\'enllaz d\'abaxo.</string>
-  <string name="suggested_edits_disabled_message" fuzzy="true">&lt;b&gt;Les ediciones suxeríes tán desactivaes&lt;/b&gt;. Sentímoslo, %s: munches de les tos contribuciones de recién revertiéronse.\n\nConsulta lo que significa nel enllaz d\'abaxo.</string>
-  <string name="suggested_edits_ip_blocked_message" fuzzy="true">Paez que la to direición IP (o rangu de direiciones IP) anguaño ta bloquiada pa editar la Wikipedia. Consulta lo que significa esto visitando l\'enllaz de más abaxo.</string>
-  <string name="suggested_edits_editing_tips_link_text">Trucos y conseyos d\'edición</string>
-  <string name="suggested_edits_help_page_link_text">Páxina d\'ayuda d\'ediciones suxeríes</string>
-  <string name="suggested_edits_pageviews_label_text">Visites a páxines</string>
-  <string name="suggested_edits_quality_label_text">Calidá d\'ediciones</string>
-  <string name="suggested_edits_quality_perfect_text">Perfeuta</string>
-  <string name="suggested_edits_quality_excellent_text">Escelente</string>
-  <string name="suggested_edits_quality_very_good_text">Bien bona</string>
-  <string name="suggested_edits_quality_good_text">Bona</string>
-  <string name="suggested_edits_quality_okay_text">Aceptable</string>
-  <string name="suggested_edits_quality_sufficient_text">Suficiente</string>
-  <string name="suggested_edits_quality_poor_text">Probe</string>
-  <string name="suggested_edits_quality_bad_text">Mala</string>
-  <plurals name="suggested_edits_contribution">
+  <string name="edits_feed_card_title">Ediciones suxeríes</string>
+  <string name="edits_feed_card_add_description_button">Amestar descripción del artículu</string>
+  <string name="edits_feed_card_add_translation_in_language_button">Amestar descripción del artículu (%s)</string>
+  <string name="edits_tasks_onboarding_get_started">Primeros pasos</string>
+  <string name="edits_image_preview_dialog_caption_in_language_title">Pie d\'imaxe (%s)</string>
+  <string name="edits_image_preview_dialog_description_in_language_title">Descripción de la imaxe (%s)</string>
+  <string name="edits_image_preview_dialog_artist">Artista</string>
+  <string name="edits_image_preview_dialog_date">Data</string>
+  <string name="edits_image_preview_dialog_source">Fonte/Fotógrafu</string>
+  <string name="edits_image_preview_dialog_licensing">Llicencia</string>
+  <string name="edits_image_preview_dialog_more_info">Más información</string>
+  <string name="edits_image_preview_dialog_file_page_link_text">Páxina del ficheru en Wikimedia Commons</string>
+  <string name="edits_article_cta_image_caption">Añadir un pie d\'imaxe</string>
+  <string name="edits_article_cta_image_caption_in_language">Añadir un pie d\'imaxe (%s)</string>
+  <string name="edits_article_cta_snackbar_action">Ver</string>
+  <string name="edits_feed_card_add_image_caption">Añadir un pie d\'imaxe</string>
+  <string name="edits_feed_card_translate_image_caption">Añadir un pie d\'imaxe (%s)</string>
+  <string name="edits_feed_card_add_image_tags">Amestar etiquetes d\'imaxe</string>
+  <string name="edits_snackbar_survey_text">¿Qué tal foi la to esperiencia editando? Por favor, dedica un momentu a contestar la encuesta sobro la edición na aplicación.</string>
+  <string name="edits_snackbar_survey_action_text">Contestar la encuesta</string>
+  <string name="edits_task_action_text_add">Amestar</string>
+  <string name="edits_task_action_text_translate">Traducir</string>
+  <string name="edits_image_captions">Pies d\'imáxenes</string>
+  <string name="edits_image_tags">Etiquetes d\'imáxenes</string>
+  <string name="edits_image_tags_publishing">Espublizando</string>
+  <string name="edits_image_tags_published">Espublizaes</string>
+  <string name="edits_image_tags_onboarding_title">Etiquetar les imáxenes failes más fáciles d\'alcontrar.</string>
+  <string name="edits_image_tags_onboarding_text" fuzzy="true">Al amestar etiquetes d\'imaxe, ayudes a que sía más fácil buscales en Commons, el depósitu d\'imáxenes de llicencia llibre que Wikipedia usa pa les imáxenes de los artículos.\n\nSuxerimos automáticamente delles etiquetes, y tamién pues amestar les tuyes propies.</string>
+  <string name="edits_image_tags_onboarding_note">Solo les etiquetes qu\'escueyas van añadise a les imáxenes.</string>
+  <string name="edits_image_tags_snackbar">Etiqueta les imáxenes pa facilitar la so busca.</string>
+  <string name="edits_image_tags_task_detail" fuzzy="true">Etiqueta les imáxenes pa facilitar que les alcuentren. Seleiciona dende les etiquetes suxeríes o amiesta les tuyes propies.</string>
+  <string name="edits_image_tags_choose">Añadir o escoyer etiquetes que casen</string>
+  <string name="edits_image_tags_published_list">Etiquetes publicaes</string>
+  <string name="edits_image_tags_search">Buscar etiquetes</string>
+  <string name="edits_image_tags_select_title">Nun escoyisti nenguna etiqueta pa esta imaxe.</string>
+  <string name="edits_image_tags_select_text">Solo les etiquetes qu\'escueyas van añadise a les imáxenes. Les etiquetes ensin escoyer van marcase como refugaes. ¿Tas seguro de que quies marcar toles etiquetes como refugaes?</string>
+  <string name="edits_image_tags_add_tag">Añadir etiqueta</string>
+  <string name="edits_image_zoom_tooltip">Plizca p\'ampliar esta imaxe.</string>
+  <string name="edits_encouragement_message">%s, gracies poles tos ediciones. Más abaxo pues alcontrar otres formes de collaborar con Wikipedia.</string>
+  <string name="edits_onboarding_message">&lt;b&gt;Bones, %s&lt;/b&gt;. ¿Sabíes que tol mundu pue editar Wikipedia? Más abaxo pues alcontrar formes divertíes d\'ayudar a ameyorar la Wikipedia. ¡Feliz edición!</string>
+  <string name="edits_image_captions_task_detail" fuzzy="true">Los pies d\'imaxe describen una imaxe p\'ayudar los llectores a entender el so significáu y contestu.</string>
+  <string name="edits_add_descriptions_task_detail" fuzzy="true">Les descripciones d\'artículos resumen un artículu p\'ayudar a que los llectores puedan enterase de la tema del artículu d\'una güeyada.</string>
+  <string name="edits_contributions_stat_tooltip">El númberu total de les tos contribuciones con Ediciones suxeríes.</string>
+  <string name="edits_edit_streak_stat_tooltip">Cuántos díes siguíos contribuyisti a Ediciones suxeríes. Si va tiempu que nun contribuyes, apaecerá la fecha de la to última contribución.</string>
+  <string name="edits_page_views_stat_tooltip">Total de páxines vistes d\'elementos a los que contribuyisti nos postreros 30 díes con ediciones suxeríes.</string>
+  <string name="edits_edit_quality_stat_tooltip">Basándose na cantidá de vegaes qu\'una de les tos contribuciones revirtióse (foi anulada por otru editor). Ediciones revertíes: %d.</string>
+  <string name="edits_paused_message" fuzzy="true">&lt;b&gt;Les Ediciones suxeríes tán en posa hasta %1$s.&lt;/b&gt; Sentímoslo, %2$s: dalgunes de les tos contribuciones de recién revertiéronse.\n\nDeprende cómo ameyorar les tos habilidaes d\'edición na Wikipedia consultando l\'enllaz d\'abaxo.</string>
+  <string name="edits_disabled_message" fuzzy="true">&lt;b&gt;Les ediciones suxeríes tán desactivaes&lt;/b&gt;. Sentímoslo, %s: munches de les tos contribuciones de recién revertiéronse.\n\nConsulta lo que significa nel enllaz d\'abaxo.</string>
+  <string name="edits_ip_blocked_message" fuzzy="true">Paez que la to direición IP (o rangu de direiciones IP) anguaño ta bloquiada pa editar la Wikipedia. Consulta lo que significa esto visitando l\'enllaz de más abaxo.</string>
+  <string name="edits_editing_tips_link_text">Trucos y conseyos d\'edición</string>
+  <string name="edits_help_page_link_text">Páxina d\'ayuda d\'ediciones suxeríes</string>
+  <string name="edits_pageviews_label_text">Visites a páxines</string>
+  <string name="edits_quality_label_text">Calidá d\'ediciones</string>
+  <string name="edits_quality_perfect_text">Perfeuta</string>
+  <string name="edits_quality_excellent_text">Escelente</string>
+  <string name="edits_quality_very_good_text">Bien bona</string>
+  <string name="edits_quality_good_text">Bona</string>
+  <string name="edits_quality_okay_text">Aceptable</string>
+  <string name="edits_quality_sufficient_text">Suficiente</string>
+  <string name="edits_quality_poor_text">Probe</string>
+  <string name="edits_quality_bad_text">Mala</string>
+  <plurals name="edits_contribution">
     <item quantity="one">Contribución</item>
     <item quantity="other">Contribuciones</item>
   </plurals>
-  <plurals name="suggested_edits_edit_streak_detail_text">
+  <plurals name="edits_edit_streak_detail_text">
     <item quantity="one">%d día</item>
     <item quantity="other">%d díes</item>
   </plurals>
-  <string name="suggested_edits_last_edited">Última edición</string>
-  <string name="suggested_edits_last_edited_never">Nunca</string>
-  <string name="suggested_edits_task_new">nueva</string>
-  <string name="suggested_edits_cc0_notice">Al publicar, aceutes les &lt;a href=\"%1$s\"&gt;Condiciones d\'usu&lt;/a&gt;, y lliberar ensin torgues les tos collaboraciones baxo los términos de la &lt;a href=\"%2$s\"&gt;llicencia CC0&lt;/a&gt;.</string>
-  <string name="suggested_edits_reactivation_notification_title">Ediciones suxeríes</string>
-  <string name="suggested_edits_reactivation_notification_stage_one">¡Gracies por editar Wikipedia! ¿Cómo nun sigues onde lo dexasti?</string>
-  <string name="suggested_edits_reactivation_notification_stage_two">¿Tienes un minutu pa siguir ameyorando Wikipedia? Revisa estes suxerencies d\'edición.</string>
+  <string name="edits_last_edited">Última edición</string>
+  <string name="edits_last_edited_never">Nunca</string>
+  <string name="edits_task_new">nueva</string>
+  <string name="edits_cc0_notice">Al publicar, aceutes les &lt;a href=\"%1$s\"&gt;Condiciones d\'usu&lt;/a&gt;, y lliberar ensin torgues les tos collaboraciones baxo los términos de la &lt;a href=\"%2$s\"&gt;llicencia CC0&lt;/a&gt;.</string>
+  <string name="edits_reactivation_notification_title">Ediciones suxeríes</string>
+  <string name="edits_reactivation_notification_stage_one">¡Gracies por editar Wikipedia! ¿Cómo nun sigues onde lo dexasti?</string>
+  <string name="edits_reactivation_notification_stage_two">¿Tienes un minutu pa siguir ameyorando Wikipedia? Revisa estes suxerencies d\'edición.</string>
   <string name="description_edit_revert_subtitle">¡Gracies por editar Wikipedia!</string>
   <string name="description_edit_revert_intro">Sabemos que tentasti faelo lo meyor posible, pero unu de los revisores tuvo una esmolición. Les posibles razones poles que se revertió la edición incluyen:</string>
   <string name="description_edit_revert_reason1">la to contribución nun siguió dalgunes de les &lt;a href=\"%1$s\"&gt;directrices&lt;/a&gt;.</string>

@@ -721,7 +721,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             FeedbackUtil.makeSnackbar(this, data.getSerializableExtra(INTENT_EXTRA_ACTION) == ADD_CAPTION
                     ? getString(R.string.description_edit_success_saved_image_caption_snackbar)
                     : getString(R.string.description_edit_success_saved_image_caption_in_lang_snackbar, app.language().getAppLanguageLocalizedName(editLanguage)), FeedbackUtil.LENGTH_DEFAULT)
-                    .setAction(R.string.suggested_edits_article_cta_snackbar_action, v -> pageFragment.openImageInGallery(editLanguage)).show();
+                    .setAction(R.string.edits_article_cta_snackbar_action, v -> pageFragment.openImageInGallery(editLanguage)).show();
         } else {
             super.onActivityResult(requestCode, resultCode, data);
         }

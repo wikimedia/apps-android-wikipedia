@@ -50,7 +50,7 @@ class SuggestedEditsContributionsItemView constructor(context: Context, attrs: A
         } else {
             pageViewImage.visibility = VISIBLE
             pageviewCountText.visibility = VISIBLE
-            pageviewCountText.text = context.getString(R.string.suggested_edits_contribution_views, pageViewCount.toString())
+            pageviewCountText.text = context.getString(R.string.edits_contribution_views, pageViewCount.toString())
         }
     }
 
@@ -80,11 +80,11 @@ class SuggestedEditsContributionsItemView constructor(context: Context, attrs: A
     fun setDiffCountText(contribution: Contribution) {
         if (contribution.editType == EDIT_TYPE_IMAGE_TAG) {
             contributionDiffCountText.visibility = VISIBLE
-            contributionDiffCountText.text = resources.getQuantityString(R.plurals.suggested_edits_tags_diff_count_text, abs(contribution.tagCount), numFormat.format(contribution.tagCount))
+            contributionDiffCountText.text = resources.getQuantityString(R.plurals.edits_tags_diff_count_text, abs(contribution.tagCount), numFormat.format(contribution.tagCount))
             contributionDiffCountText.setTextColor(ResourceUtil.getThemedColor(context, R.attr.action_mode_green_background))
         } else {
             contributionDiffCountText.visibility = VISIBLE
-            contributionDiffCountText.text = resources.getQuantityString(R.plurals.suggested_edits_contribution_diff_count_text, abs(contribution.sizeDiff), numFormat.format(contribution.sizeDiff))
+            contributionDiffCountText.text = resources.getQuantityString(R.plurals.edits_contribution_diff_count_text, abs(contribution.sizeDiff), numFormat.format(contribution.sizeDiff))
             contributionDiffCountText.setTextColor(if (contribution.sizeDiff < 0) ResourceUtil.getThemedColor(context, R.attr.colorError)
             else ResourceUtil.getThemedColor(context, R.attr.action_mode_green_background))
         }

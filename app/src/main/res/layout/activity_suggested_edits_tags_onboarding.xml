@@ -11,9 +11,9 @@
         android:layout_height="match_parent"
         app:centeredImage="?attr/image_tags_onboarding_image"
         app:imageSize="160dp"
-        app:primaryText="@string/suggested_edits_image_tags_onboarding_title"
-        app:secondaryText="@string/suggested_edits_image_tags_onboarding_text"
-        app:tertiaryText="@string/suggested_edits_image_tags_onboarding_note"/>
+        app:primaryText="@string/edits_image_tags_onboarding_title"
+        app:secondaryText="@string/edits_image_tags_onboarding_text"
+        app:tertiaryText="@string/edits_image_tags_onboarding_note"/>
 
     <LinearLayout
         android:layout_width="match_parent"

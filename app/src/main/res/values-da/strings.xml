@@ -588,44 +588,44 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Helst én linje, mellem to og tolv ord</string>
   <string name="description_edit_tutorial_button_label_start_editing">Begynd at redigere</string>
   <string name="description_edit_tutorial_promise">Ved at begynde lover jeg ikke at misbruge denne funktion.</string>
-  <string name="suggested_edits_add_descriptions">Tilføj artikelbeskrivelser</string>
-  <string name="suggested_edits_translate_descriptions">Oversæt artikelbeskrivelser</string>
-  <string name="suggested_edits_review_description" fuzzy="true">Korrekturlæs beskrivelse</string>
-  <string name="suggested_edits_add_description_button">Tilføj beskrivelse</string>
-  <string name="suggested_edits_edit_description_button">Rediger beskrivelse</string>
-  <string name="suggested_edits_add_translation_button">Tilføj oversættelse</string>
-  <string name="suggested_edits_edit_translation_button" fuzzy="true">Redigér oversættelse</string>
-  <string name="suggested_edits_my_contributions">Mine bidrag</string>
-  <string name="suggested_edits_no_description">Denne fil har ingen beskrivelse</string>
-  <string name="suggested_edits_tasks_activity_title">Foreslåede redigeringer</string>
-  <string name="suggested_edits_task_add_description_title" fuzzy="true">Tilføj beskrivelser</string>
-  <string name="suggested_edits_task_add_description_description">Bidrag til artikler uden beskrivelser</string>
-  <string name="suggested_edits_task_image_caption_title">Tilføj billedtekst</string>
-  <string name="suggested_edits_task_image_caption_description" fuzzy="true">Tilføj billedtekster til billeder</string>
-  <string name="suggested_edits_task_multilingual_title">Flere opgaver til flersprogede bidragsydere</string>
-  <string name="suggested_edits_task_multilingual_description">Oversættelsesopgaver er tilgængelige, hvis du læser og skriver på mere end et Wikipedia-sprog.</string>
-  <string name="suggested_edits_task_multilingual_negative">Ikke noget for mig</string>
-  <string name="suggested_edits_task_multilingual_positive">Tilføj sprog</string>
-  <string name="suggested_edits_image_caption_summary_title_source">Kilde</string>
-  <string name="suggested_edits_image_caption_summary_title_license">Licens</string>
-  <string name="suggested_edits_image_caption_summary_title_date">Dato</string>
-  <string name="suggested_edits_feed_card_title">Foreslåede redigeringer</string>
-  <string name="suggested_edits_tasks_onboarding_get_started">Kom i gang</string>
-  <string name="suggested_edits_image_preview_dialog_file">Fil</string>
-  <string name="suggested_edits_contribute">Bidrag</string>
-  <string name="suggested_edits_learn_more">Lær mere</string>
-  <string name="suggested_edits_paused_title">Sat på pause</string>
-  <string name="suggested_edits_disabled_title">Deaktiveret</string>
-  <string name="suggested_edits_ip_blocked_title">IP-blokeret</string>
-  <string name="suggested_edits_last_edited">Sidst redigeret</string>
-  <string name="suggested_edits_last_edited_never">Aldrig</string>
-  <string name="suggested_edits_contribution_language_label">Sprog</string>
-  <string name="suggested_edits_contribution_image_label">Fil</string>
-  <string name="suggested_edits_contribution_article_label">Artikel</string>
-  <string name="suggested_edits_contribution_date_yesterday_text">I går</string>
-  <string name="suggested_edits_rewards_continue_button">Fortsæt</string>
-  <string name="suggested_edits_contribution_current_revision">Nuværende version</string>
-  <plurals name="suggested_edits_added_contribution_label">
+  <string name="edits_add_descriptions">Tilføj artikelbeskrivelser</string>
+  <string name="edits_translate_descriptions">Oversæt artikelbeskrivelser</string>
+  <string name="edits_review_description" fuzzy="true">Korrekturlæs beskrivelse</string>
+  <string name="edits_add_description_button">Tilføj beskrivelse</string>
+  <string name="edits_edit_description_button">Rediger beskrivelse</string>
+  <string name="edits_add_translation_button">Tilføj oversættelse</string>
+  <string name="edits_edit_translation_button" fuzzy="true">Redigér oversættelse</string>
+  <string name="edits_my_contributions">Mine bidrag</string>
+  <string name="edits_no_description">Denne fil har ingen beskrivelse</string>
+  <string name="edits_tasks_activity_title">Foreslåede redigeringer</string>
+  <string name="edits_task_add_description_title" fuzzy="true">Tilføj beskrivelser</string>
+  <string name="edits_task_add_description_description">Bidrag til artikler uden beskrivelser</string>
+  <string name="edits_task_image_caption_title">Tilføj billedtekst</string>
+  <string name="edits_task_image_caption_description" fuzzy="true">Tilføj billedtekster til billeder</string>
+  <string name="edits_task_multilingual_title">Flere opgaver til flersprogede bidragsydere</string>
+  <string name="edits_task_multilingual_description">Oversættelsesopgaver er tilgængelige, hvis du læser og skriver på mere end et Wikipedia-sprog.</string>
+  <string name="edits_task_multilingual_negative">Ikke noget for mig</string>
+  <string name="edits_task_multilingual_positive">Tilføj sprog</string>
+  <string name="edits_image_caption_summary_title_source">Kilde</string>
+  <string name="edits_image_caption_summary_title_license">Licens</string>
+  <string name="edits_image_caption_summary_title_date">Dato</string>
+  <string name="edits_feed_card_title">Foreslåede redigeringer</string>
+  <string name="edits_tasks_onboarding_get_started">Kom i gang</string>
+  <string name="edits_image_preview_dialog_file">Fil</string>
+  <string name="edits_contribute">Bidrag</string>
+  <string name="edits_learn_more">Lær mere</string>
+  <string name="edits_paused_title">Sat på pause</string>
+  <string name="edits_disabled_title">Deaktiveret</string>
+  <string name="edits_ip_blocked_title">IP-blokeret</string>
+  <string name="edits_last_edited">Sidst redigeret</string>
+  <string name="edits_last_edited_never">Aldrig</string>
+  <string name="edits_contribution_language_label">Sprog</string>
+  <string name="edits_contribution_image_label">Fil</string>
+  <string name="edits_contribution_article_label">Artikel</string>
+  <string name="edits_contribution_date_yesterday_text">I går</string>
+  <string name="edits_rewards_continue_button">Fortsæt</string>
+  <string name="edits_contribution_current_revision">Nuværende version</string>
+  <plurals name="edits_added_contribution_label">
     <item quantity="one">Du tilføjede %d tegn</item>
     <item quantity="other">Du tilføjede %d tegn</item>
   </plurals>

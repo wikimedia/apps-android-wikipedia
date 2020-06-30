@@ -333,28 +333,28 @@
   <string name="description_edit_help_about_wikidata">Pri Wikidonaji</string>
   <string name="description_edit_success_did_you_know">Ka tu savis?</string>
   <string name="description_edit_tutorial_button_label_start_editing">Komencar redaktar</string>
-  <string name="suggested_edits_add_image_captions">Adjuntez informi pri l\'imaji</string>
-  <string name="suggested_edits_image_caption_license_notice">Se vu kliktos \"save\" (salvar), vu tacite aceptos la &lt;a href=\"%1$s\"&gt;termi pri uzado&lt;/a&gt;, e nerevokeble liberigos vua kontributadi sub la permiso &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
-  <string name="suggested_edits_image_caption_summary_title_author">Autoro</string>
-  <string name="suggested_edits_image_caption_summary_title_source">Fonto</string>
-  <string name="suggested_edits_image_caption_summary_title_license">Licenco</string>
-  <string name="suggested_edits_feed_card_add_description_button">Adjuntez deskripto dil artiklo</string>
-  <string name="suggested_edits_tasks_onboarding_get_started">Por komencar</string>
-  <string name="suggested_edits_image_preview_dialog_file">Arkivo</string>
-  <string name="suggested_edits_image_preview_dialog_artist">Artisto</string>
-  <string name="suggested_edits_image_preview_dialog_date">Dato</string>
-  <string name="suggested_edits_image_preview_dialog_source">Fonto/Fotografisto</string>
-  <string name="suggested_edits_image_preview_dialog_licensing">Licencizo</string>
-  <string name="suggested_edits_image_preview_dialog_more_info" fuzzy="true">Plusa informi</string>
-  <string name="suggested_edits_image_preview_dialog_file_page_link_text">Pagino dil arkivo che Wikimedia Commons</string>
-  <string name="suggested_edits_article_cta_snackbar_action">Videz</string>
-  <string name="suggested_edits_feed_card_add_image_caption" fuzzy="true">Adjuntez expliko</string>
-  <string name="suggested_edits_feed_card_translate_image_caption" fuzzy="true">Adjuntez expliko (%s)</string>
-  <string name="suggested_edits_image_captions">Deskripto-texti por imaji</string>
-  <string name="suggested_edits_image_tags">Deskripto dil imaji</string>
-  <string name="suggested_edits_image_tags_published">Publikigita</string>
-  <string name="suggested_edits_image_tags_onboarding_title" fuzzy="true">Pozez etiketi en l\'imaji, pro ke altri povos trovar li facile</string>
-  <string name="suggested_edits_task_new">nova</string>
+  <string name="edits_add_image_captions">Adjuntez informi pri l\'imaji</string>
+  <string name="edits_image_caption_license_notice">Se vu kliktos \"save\" (salvar), vu tacite aceptos la &lt;a href=\"%1$s\"&gt;termi pri uzado&lt;/a&gt;, e nerevokeble liberigos vua kontributadi sub la permiso &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="edits_image_caption_summary_title_author">Autoro</string>
+  <string name="edits_image_caption_summary_title_source">Fonto</string>
+  <string name="edits_image_caption_summary_title_license">Licenco</string>
+  <string name="edits_feed_card_add_description_button">Adjuntez deskripto dil artiklo</string>
+  <string name="edits_tasks_onboarding_get_started">Por komencar</string>
+  <string name="edits_image_preview_dialog_file">Arkivo</string>
+  <string name="edits_image_preview_dialog_artist">Artisto</string>
+  <string name="edits_image_preview_dialog_date">Dato</string>
+  <string name="edits_image_preview_dialog_source">Fonto/Fotografisto</string>
+  <string name="edits_image_preview_dialog_licensing">Licencizo</string>
+  <string name="edits_image_preview_dialog_more_info" fuzzy="true">Plusa informi</string>
+  <string name="edits_image_preview_dialog_file_page_link_text">Pagino dil arkivo che Wikimedia Commons</string>
+  <string name="edits_article_cta_snackbar_action">Videz</string>
+  <string name="edits_feed_card_add_image_caption" fuzzy="true">Adjuntez expliko</string>
+  <string name="edits_feed_card_translate_image_caption" fuzzy="true">Adjuntez expliko (%s)</string>
+  <string name="edits_image_captions">Deskripto-texti por imaji</string>
+  <string name="edits_image_tags">Deskripto dil imaji</string>
+  <string name="edits_image_tags_published">Publikigita</string>
+  <string name="edits_image_tags_onboarding_title" fuzzy="true">Pozez etiketi en l\'imaji, pro ke altri povos trovar li facile</string>
+  <string name="edits_task_new">nova</string>
   <string name="onboarding_continue">Durar</string>
   <string name="onboarding_welcome_title_v2">La libera Enciklopedio\n…en plua kam 300 lingui</string>
   <string name="app_shortcuts_search">Serchez</string>

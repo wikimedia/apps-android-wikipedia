@@ -27,8 +27,8 @@ class SuggestedEditsContributionsHeaderView constructor(context: Context, attrs:
 
         allTypesView.setAttributes(getContext().getString(R.string.edit_type_all), R.drawable.ic_mode_edit_themed_24dp, Contribution.EDIT_TYPE_GENERIC, this)
         articleDescriptionView.setAttributes(getContext().getString(R.string.description_edit_tutorial_title_descriptions), R.drawable.ic_article_description, Contribution.EDIT_TYPE_ARTICLE_DESCRIPTION, this)
-        imageCaptionsView.setAttributes(getContext().getString(R.string.suggested_edits_image_captions), R.drawable.ic_image_caption, EDIT_TYPE_IMAGE_CAPTION, this)
-        imageTagsView.setAttributes(getContext().getString(R.string.suggested_edits_image_tags), R.drawable.ic_image_tag, EDIT_TYPE_IMAGE_TAG, this)
+        imageCaptionsView.setAttributes(getContext().getString(R.string.edits_image_captions), R.drawable.ic_image_caption, EDIT_TYPE_IMAGE_CAPTION, this)
+        imageTagsView.setAttributes(getContext().getString(R.string.edits_image_tags), R.drawable.ic_image_tag, EDIT_TYPE_IMAGE_TAG, this)
     }
 
     override fun onTypeItemClick(editType: Int) {
@@ -56,7 +56,7 @@ class SuggestedEditsContributionsHeaderView constructor(context: Context, attrs:
                 count = totalContributions
             }
         }
-        contributionsCountText.text = context.getString(R.string.suggested_edits_contribution_type_title, count, resources.getQuantityString(R.plurals.suggested_edits_contribution, count))
+        contributionsCountText.text = context.getString(R.string.edits_contribution_type_title, count, resources.getQuantityString(R.plurals.edits_contribution, count))
         for (filterView in filterViews) {
             if (filterView == view) {
                 filterView.setEnabledStateUI()
@@ -68,7 +68,7 @@ class SuggestedEditsContributionsHeaderView constructor(context: Context, attrs:
 
     fun updateTotalPageViews(pageViews: Long) {
         if (pageViews > 0) {
-            contributionsSeenText.text = context.getString(R.string.suggested_edits_contribution_seen_text, pageViews.toString())
+            contributionsSeenText.text = context.getString(R.string.edits_contribution_seen_text, pageViews.toString())
         }
     }
 

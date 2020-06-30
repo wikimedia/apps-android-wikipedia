@@ -491,8 +491,8 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Alusna mah sabaris, antara dua nepi ka dua welas kecap</string>
   <string name="description_edit_tutorial_button_label_start_editing">Mimitian ngédit</string>
   <string name="description_edit_tutorial_promise">Ku ngamimitianna, kuring jangji moal nyalahgunakeun ieu fitur.</string>
-  <string name="suggested_edits_add_descriptions" fuzzy="true">Tambah pedaran</string>
-  <string name="suggested_edits_translate_descriptions" fuzzy="true">Tarjamahkeun pedaran</string>
+  <string name="edits_add_descriptions" fuzzy="true">Tambah pedaran</string>
+  <string name="edits_translate_descriptions" fuzzy="true">Tarjamahkeun pedaran</string>
   <string name="description_edit_revert_subtitle">Hatur nuhun tos ngédit di Wikipédia!</string>
   <string name="description_edit_revert_intro">Kami nyaho anjeun nyoba nu panghadéna, ngan salah sahiji pamariksa mibanda kakhawatiran. Kamungkinan alesan éditan anjeun geus dibalikkeun ngawengku:</string>
   <string name="description_edit_revert_reason1">kontribusi anjeun teu numutkeun kana salah sahiji &lt;a href=\"%1$s\"&gt;palanggeran&lt;/a&gt;.</string>

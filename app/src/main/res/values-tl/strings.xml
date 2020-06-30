@@ -210,6 +210,6 @@
   <string name="view_main_page_card_action">Tingnan ang unang pahina</string>
   <string name="view_featured_image_card_title">Larawan sa araw na ito</string>
   <string name="feed_featured_image_share_subject">Napiling larawan mula sa Wikimedia Commons</string>
-  <string name="suggested_edits_article_cta_snackbar_action">Tingnan</string>
+  <string name="edits_article_cta_snackbar_action">Tingnan</string>
   <string name="more_language_options">Mga karagdagan</string>
 </resources>

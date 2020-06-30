@@ -51,7 +51,7 @@
             android:textSize="14sp"
             android:textColor="@color/green50"
             android:textStyle="bold"
-            android:text="@string/suggested_edits_task_new"/>
+            android:text="@string/edits_task_new"/>
 
         <TextView
             android:id="@+id/taskDescription"
@@ -70,7 +70,7 @@
             android:id="@+id/addButton"
             style="@style/FlatButton.Small"
             android:layout_marginTop="8dp"
-            android:text="@string/suggested_edits_task_action_text_add"
+            android:text="@string/edits_task_action_text_add"
             app:layout_constraintTop_toBottomOf="@id/taskDescription"
             app:layout_constraintStart_toStartOf="@id/taskDescription"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -82,7 +82,7 @@
             android:id="@+id/translateButton"
             style="@style/FlatButton.Small"
             android:layout_marginStart="16dp"
-            android:text="@string/suggested_edits_task_action_text_translate"
+            android:text="@string/edits_task_action_text_translate"
             app:layout_constraintTop_toTopOf="@id/addButton"
             app:layout_constraintStart_toEndOf="@id/addButton"
             app:icon="@drawable/ic_translate_white_24dp"

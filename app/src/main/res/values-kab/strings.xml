@@ -21,7 +21,7 @@
   <string name="search_hint_search_languages">Nadi γef akk tutlayin</string>
   <string name="search_hint_search_my_lists_and_articles">Nadi deg tibdarin-iw d yimagraden-iw</string>
   <string name="nav_item_history">Amazray</string>
-  <string name="nav_item_suggested_edits">Asnirem yettwasumren</string>
+  <string name="nav_item_edits">Asnirem yettwasumren</string>
   <string name="error_network_error">Ur izmir ara ad yeqqen ar Internet.</string>
   <string name="page_error_retry">Ɛref̣ tikelt-nniḍen</string>
   <string name="card_offline_error_retry">Ɛreḍ tikkelt-nniḍen</string>
@@ -190,7 +190,7 @@
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Timkaṛḍiyin yettwasqedcen</string>
   <string name="about_contributors_heading">Imttekkiyen</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Team page&lt;/a&gt;</string>
@@ -561,16 +561,16 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Ma twalaḍ axiṛ, yiwen n izirig, gar sin ar mraw sin n wawalen</string>
   <string name="description_edit_tutorial_button_label_start_editing">Bdu taẓrigt</string>
   <string name="description_edit_tutorial_promise">S beddu, adweɛdeɣ ur sṭuqquteɣ ara yir aseqdec n tmahilt-agi.</string>
-  <string name="suggested_edits_add_descriptions">Iglamen n yimagraden</string>
-  <string name="suggested_edits_translate_descriptions">Suqqel iglamen n yimagraden</string>
-  <string name="suggested_edits_add_image_captions">Rnu tineffusin n tugniwin</string>
-  <string name="suggested_edits_translate_image_captions">Suqqel tineffusin n tugniwin</string>
-  <string name="suggested_edits_tag_images">Creḍ tugniwin</string>
-  <string name="suggested_edits_add_description_button">Rnu aglam</string>
-  <string name="suggested_edits_edit_description_button">Ẓreg aglam</string>
-  <string name="suggested_edits_add_translation_button">Rnu tasuqqilt</string>
-  <string name="suggested_edits_edit_translation_button">Ẓreg tasuqqilt</string>
-  <string name="suggested_edits_add_caption_button">Rnu taneffust</string>
+  <string name="edits_add_descriptions">Iglamen n yimagraden</string>
+  <string name="edits_translate_descriptions">Suqqel iglamen n yimagraden</string>
+  <string name="edits_add_image_captions">Rnu tineffusin n tugniwin</string>
+  <string name="edits_translate_image_captions">Suqqel tineffusin n tugniwin</string>
+  <string name="edits_tag_images">Creḍ tugniwin</string>
+  <string name="edits_add_description_button">Rnu aglam</string>
+  <string name="edits_edit_description_button">Ẓreg aglam</string>
+  <string name="edits_add_translation_button">Rnu tasuqqilt</string>
+  <string name="edits_edit_translation_button">Ẓreg tasuqqilt</string>
+  <string name="edits_add_caption_button">Rnu taneffust</string>
   <string name="description_edit_revert_subtitle">Tanemmirt ɣef teẓrigt Wikipedia!</string>
   <string name="description_edit_revert_intro">Neẓra d akken txeddmeḍ ayen tzemreḍ, acu kan yiwen seg imeɣriyen-nneɣ yufa-d ugur. D ayen i d-yewwin asefsex n usnifel-ik. Hatan wacuɣeṛ:</string>
   <string name="description_edit_revert_reason1">attekki-ik ur yedfiṛ ara yiwen seg &lt;a href=\"%1$s\"&gt;imniren&lt;/a&gt;.</string>

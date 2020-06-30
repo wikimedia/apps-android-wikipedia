@@ -25,7 +25,7 @@
   <string name="search_hint_search_languages">Ieškoti kalbos</string>
   <string name="search_hint_search_my_lists_and_articles">Ieškoti tarp mano sąrašų ir straipsnių</string>
   <string name="nav_item_history">Istorija</string>
-  <string name="nav_item_suggested_edits">Siūlomi keitimai</string>
+  <string name="nav_item_edits">Siūlomi keitimai</string>
   <string name="error_network_error">Negalite prisijungti prie Interneto.</string>
   <string name="page_error_retry">Bandykite dar kartą</string>
   <string name="card_offline_error_retry">Bandyti dar kartą</string>
@@ -369,10 +369,10 @@
   <string name="description_edit_success_done">Atlikta</string>
   <string name="description_edit_success_did_you_know">Ar žinote?</string>
   <string name="description_edit_tutorial_button_label_start_editing">Pradėti redagavimą</string>
-  <string name="suggested_edits_article_cta_snackbar_action">Žiūrėti</string>
-  <string name="suggested_edits_quality_perfect_text">Puiku</string>
-  <string name="suggested_edits_last_edited">Paskutinis pakeitimas</string>
-  <string name="suggested_edits_last_edited_never">Niekada</string>
+  <string name="edits_article_cta_snackbar_action">Žiūrėti</string>
+  <string name="edits_quality_perfect_text">Puiku</string>
+  <string name="edits_last_edited">Paskutinis pakeitimas</string>
+  <string name="edits_last_edited_never">Niekada</string>
   <string name="onboarding_skip">Praleisti</string>
   <string name="onboarding_continue">Tęsti</string>
   <string name="onboarding_get_started">Pradėti</string>

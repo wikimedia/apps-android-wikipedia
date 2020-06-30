@@ -121,9 +121,9 @@ public class DescriptionEditView extends LinearLayout {
     private int getHeaderTextRes(boolean inReview) {
         if (inReview) {
             if (action == ADD_CAPTION || action == TRANSLATE_CAPTION) {
-                return R.string.suggested_edits_review_image_caption;
+                return R.string.edits_review_image_caption;
             } else {
-                return R.string.suggested_edits_review_description;
+                return R.string.edits_review_description;
             }
         }
 

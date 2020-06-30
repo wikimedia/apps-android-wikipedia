@@ -134,7 +134,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
         return when (item.itemId) {
             R.id.menu_help -> {
                 if (action == ADD_IMAGE_TAGS) {
-                    FeedbackUtil.showAndroidAppEditingFAQ(requireContext(), R.string.suggested_edits_image_tags_help_url)
+                    FeedbackUtil.showAndroidAppEditingFAQ(requireContext(), R.string.edits_image_tags_help_url)
                 } else {
                     FeedbackUtil.showAndroidAppEditingFAQ(requireContext())
                 }
@@ -187,7 +187,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
         }
 
         if (child != null && child is SuggestedEditsRewardsItemFragment) {
-            addContributionText?.text = getString(R.string.suggested_edits_rewards_continue_button)
+            addContributionText?.text = getString(R.string.edits_rewards_continue_button)
             addContributionImage.visibility = GONE
         } else if (action == ADD_IMAGE_TAGS) {
             if (addContributionText == null) {
@@ -199,14 +199,14 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
                 addContributionImage.visibility = GONE
             }
         } else if (action == TRANSLATE_DESCRIPTION || action == TRANSLATE_CAPTION) {
-            addContributionText?.text = getString(if (isAddedContributionEmpty) R.string.suggested_edits_add_translation_button else R.string.suggested_edits_edit_translation_button)
+            addContributionText?.text = getString(if (isAddedContributionEmpty) R.string.edits_add_translation_button else R.string.edits_edit_translation_button)
             addContributionImage.visibility = VISIBLE
         } else if (addContributionText != null) {
             addContributionImage.visibility = VISIBLE
             if (action == ADD_CAPTION) {
-                addContributionText?.text = getString(if (isAddedContributionEmpty) R.string.suggested_edits_add_caption_button else R.string.suggested_edits_edit_caption_button)
+                addContributionText?.text = getString(if (isAddedContributionEmpty) R.string.edits_add_caption_button else R.string.edits_edit_caption_button)
             } else {
-                addContributionText?.text = getString(if (isAddedContributionEmpty) R.string.suggested_edits_add_description_button else R.string.suggested_edits_edit_description_button)
+                addContributionText?.text = getString(if (isAddedContributionEmpty) R.string.edits_add_description_button else R.string.edits_edit_description_button)
             }
         }
     }
@@ -353,29 +353,29 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
                         if (editorTaskCounts.totalEdits == Prefs.getSuggestedEditsRewardInterstitialContributionOnInitialCount()
                                 || editorTaskCounts.totalEdits % Prefs.getSuggestedEditsRewardInterstitialContributionOnCount() == 0) {
                             rewardInterstitialImage = R.attr.reward_interstitial_heart_drawable
-                            rewardInterstitialText = getString(R.string.suggested_edits_rewards_contribution, editorTaskCounts.totalEdits)
+                            rewardInterstitialText = getString(R.string.edits_rewards_contribution, editorTaskCounts.totalEdits)
                         } else if (editorTaskCounts.editStreak % Prefs.getSuggestedEditsRewardInterstitialEditStreakOnCount() == 0) {
                             rewardInterstitialImage = R.attr.reward_interstitial_calendar_drawable
-                            rewardInterstitialText = getString(R.string.suggested_edits_rewards_edit_streak, editorTaskCounts.editStreak, AccountUtil.getUserName())
+                            rewardInterstitialText = getString(R.string.edits_rewards_edit_streak, editorTaskCounts.editStreak, AccountUtil.getUserName())
                         } else if ((Prefs.getLastSuggestedEditsRewardInterstitialEditQualityShown().toInt() == 0
                                         || daysOfLastEditQualityShown == Prefs.getSuggestedEditsRewardInterstitialEditQualityOnDay())
                                 && SuggestedEditsUserStats.getRevertSeverity() <= SuggestedEditsRewardsItemFragment.EDIT_STREAK_MAX_REVERT_SEVERITY) {
                             when (SuggestedEditsUserStats.getRevertSeverity()) {
                                 0 -> {
                                     rewardInterstitialImage = R.attr.reward_interstitial_quality_perfect_drawable
-                                    rewardInterstitialText = getString(R.string.suggested_edits_rewards_edit_quality, getString(R.string.suggested_edits_quality_perfect_text))
+                                    rewardInterstitialText = getString(R.string.edits_rewards_edit_quality, getString(R.string.edits_quality_perfect_text))
                                 }
                                 1 -> {
                                     rewardInterstitialImage = R.attr.reward_interstitial_quality_excellent_drawable
-                                    rewardInterstitialText = getString(R.string.suggested_edits_rewards_edit_quality, getString(R.string.suggested_edits_quality_excellent_text))
+                                    rewardInterstitialText = getString(R.string.edits_rewards_edit_quality, getString(R.string.edits_quality_excellent_text))
                                 }
                                 2 -> {
                                     rewardInterstitialImage = R.attr.reward_interstitial_quality_very_good_drawable
-                                    rewardInterstitialText = getString(R.string.suggested_edits_rewards_edit_quality, getString(R.string.suggested_edits_quality_very_good_text))
+                                    rewardInterstitialText = getString(R.string.edits_rewards_edit_quality, getString(R.string.edits_quality_very_good_text))
                                 }
                                 else -> {
                                     rewardInterstitialImage = R.attr.reward_interstitial_quality_good_drawable
-                                    rewardInterstitialText = getString(R.string.suggested_edits_rewards_edit_quality, getString(R.string.suggested_edits_quality_good_text))
+                                    rewardInterstitialText = getString(R.string.edits_rewards_edit_quality, getString(R.string.edits_quality_good_text))
                                 }
                             }
                             Prefs.setLastSuggestedEditsRewardInterstitialEditQualityShown(System.currentTimeMillis())
@@ -395,7 +395,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
                     .subscribe({
                         if (it >= 0) {
                             rewardInterstitialImage = R.attr.reward_interstitial_view_drawable
-                            rewardInterstitialText = getString(R.string.suggested_edits_rewards_pageviews, it)
+                            rewardInterstitialText = getString(R.string.edits_rewards_pageviews, it)
                             Prefs.setLastSuggestedEditsRewardInterstitialPageviewsShown(System.currentTimeMillis())
                         }
                     }, { t ->
@@ -493,31 +493,31 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
         when (rewardInterstitialQACount) {
             0 -> {
                 rewardInterstitialImage = R.attr.reward_interstitial_heart_drawable
-                rewardInterstitialText = getString(R.string.suggested_edits_rewards_contribution, 100)
+                rewardInterstitialText = getString(R.string.edits_rewards_contribution, 100)
             }
             1 -> {
                 rewardInterstitialImage = R.attr.reward_interstitial_calendar_drawable
-                rewardInterstitialText = getString(R.string.suggested_edits_rewards_edit_streak, 100, AccountUtil.getUserName())
+                rewardInterstitialText = getString(R.string.edits_rewards_edit_streak, 100, AccountUtil.getUserName())
             }
             2 -> {
                 rewardInterstitialImage = R.attr.reward_interstitial_quality_perfect_drawable
-                rewardInterstitialText = getString(R.string.suggested_edits_rewards_edit_quality, getString(R.string.suggested_edits_quality_perfect_text))
+                rewardInterstitialText = getString(R.string.edits_rewards_edit_quality, getString(R.string.edits_quality_perfect_text))
             }
             3 -> {
                 rewardInterstitialImage = R.attr.reward_interstitial_quality_excellent_drawable
-                rewardInterstitialText = getString(R.string.suggested_edits_rewards_edit_quality, getString(R.string.suggested_edits_quality_excellent_text))
+                rewardInterstitialText = getString(R.string.edits_rewards_edit_quality, getString(R.string.edits_quality_excellent_text))
             }
             4 -> {
                 rewardInterstitialImage = R.attr.reward_interstitial_quality_very_good_drawable
-                rewardInterstitialText = getString(R.string.suggested_edits_rewards_edit_quality, getString(R.string.suggested_edits_quality_very_good_text))
+                rewardInterstitialText = getString(R.string.edits_rewards_edit_quality, getString(R.string.edits_quality_very_good_text))
             }
             5 -> {
                 rewardInterstitialImage = R.attr.reward_interstitial_quality_good_drawable
-                rewardInterstitialText = getString(R.string.suggested_edits_rewards_edit_quality, getString(R.string.suggested_edits_quality_good_text))
+                rewardInterstitialText = getString(R.string.edits_rewards_edit_quality, getString(R.string.edits_quality_good_text))
             }
             6 -> {
                 rewardInterstitialImage = R.attr.reward_interstitial_view_drawable
-                rewardInterstitialText = getString(R.string.suggested_edits_rewards_pageviews, 100)
+                rewardInterstitialText = getString(R.string.edits_rewards_pageviews, 100)
             }
         }
 

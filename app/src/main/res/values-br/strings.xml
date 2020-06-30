@@ -524,23 +524,23 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">D\'ar gwellañ ul linenn, etre daou ha daouzek ger.</string>
   <string name="description_edit_tutorial_button_label_start_editing">Kregiñ da aozañ</string>
   <string name="description_edit_tutorial_promise">Stagañ a ran ganti ha reiñ a ran ma ger da chom hep drougimplij an arc\'hwel-mañ</string>
-  <string name="suggested_edits_task_add_description_title" fuzzy="true">Ouzhpennañ deskvrivadur an titl</string>
-  <string name="suggested_edits_task_add_description_description">Sikour d\'ar pennadoù hep deskrivadurioù titl</string>
-  <string name="suggested_edits_task_image_caption_title" fuzzy="true">Lakaat un alc\'hwez d\'ar skeudennoù</string>
-  <string name="suggested_edits_task_image_caption_description" fuzzy="true">Ouzhpennañ alc\'hwezioù d\'ar skeudennoù</string>
-  <string name="suggested_edits_task_translate_caption_description">Treiñ alc\'hwezioù e yezhoù all</string>
-  <string name="suggested_edits_task_multilingual_title">Muioc\'h a drevelloù evit an embannerien liesyezhek</string>
-  <string name="suggested_edits_task_multilingual_description">An trevelloù treiñ a c\'haller kaout ma lennit ha ma skrivit en ouzhpenn ur yezh eus Wikipedia.</string>
-  <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">Prennit betek m\'ho po lakaet %d kemm da wiriañ en arload</string>
-  <string name="suggested_edits_task_translate_description_edit_disable_text" fuzzy="true">Prennit keit ha ma n\'ho po ket kemmet %d deskrivadur eus an titloù</string>
-  <string name="suggested_edits_task_multilingual_negative">Ket evidon</string>
-  <string name="suggested_edits_task_multilingual_positive">Ouzhpennañ yezhoù</string>
-  <string name="suggested_edits_tasks_onboarding_get_started">Kregiñ</string>
-  <string name="suggested_edits_image_tags_add_tag">Ouzhpennañ un dikedenn</string>
-  <string name="suggested_edits_contribute">Kemer perzh</string>
-  <string name="suggested_edits_reactivation_notification_title">Kemmoù kinniget</string>
-  <string name="suggested_edits_reactivation_notification_stage_one">Trugare vras deoc\'h da gemer perzh e Wikipedia ! Perak ne gendalc\'hfec\'h ket el lec\'h m\'emaoc\'h chomet a-sav ?</string>
-  <string name="suggested_edits_reactivation_notification_stage_two">Pemp munud zo ganeoc\'h evit reiñ dorn da wellaat Wikipedia ? Taolit ur sell ouzh ar c\'hinnig kemmoù-mañ.</string>
+  <string name="edits_task_add_description_title" fuzzy="true">Ouzhpennañ deskvrivadur an titl</string>
+  <string name="edits_task_add_description_description">Sikour d\'ar pennadoù hep deskrivadurioù titl</string>
+  <string name="edits_task_image_caption_title" fuzzy="true">Lakaat un alc\'hwez d\'ar skeudennoù</string>
+  <string name="edits_task_image_caption_description" fuzzy="true">Ouzhpennañ alc\'hwezioù d\'ar skeudennoù</string>
+  <string name="edits_task_translate_caption_description">Treiñ alc\'hwezioù e yezhoù all</string>
+  <string name="edits_task_multilingual_title">Muioc\'h a drevelloù evit an embannerien liesyezhek</string>
+  <string name="edits_task_multilingual_description">An trevelloù treiñ a c\'haller kaout ma lennit ha ma skrivit en ouzhpenn ur yezh eus Wikipedia.</string>
+  <string name="edits_task_image_caption_edit_disable_text" fuzzy="true">Prennit betek m\'ho po lakaet %d kemm da wiriañ en arload</string>
+  <string name="edits_task_translate_description_edit_disable_text" fuzzy="true">Prennit keit ha ma n\'ho po ket kemmet %d deskrivadur eus an titloù</string>
+  <string name="edits_task_multilingual_negative">Ket evidon</string>
+  <string name="edits_task_multilingual_positive">Ouzhpennañ yezhoù</string>
+  <string name="edits_tasks_onboarding_get_started">Kregiñ</string>
+  <string name="edits_image_tags_add_tag">Ouzhpennañ un dikedenn</string>
+  <string name="edits_contribute">Kemer perzh</string>
+  <string name="edits_reactivation_notification_title">Kemmoù kinniget</string>
+  <string name="edits_reactivation_notification_stage_one">Trugare vras deoc\'h da gemer perzh e Wikipedia ! Perak ne gendalc\'hfec\'h ket el lec\'h m\'emaoc\'h chomet a-sav ?</string>
+  <string name="edits_reactivation_notification_stage_two">Pemp munud zo ganeoc\'h evit reiñ dorn da wellaat Wikipedia ? Taolit ur sell ouzh ar c\'hinnig kemmoù-mañ.</string>
   <string name="description_edit_revert_subtitle">Trugarez evit kemer perzh e Wikipedia !</string>
   <string name="description_edit_revert_intro">Gouzout a reomp hoc\'h eus graet eus ho kwellañ, met un tamm bec\'h zo bet gant unan eus hon adlennerien. Nullet eo bet ho tegasadenn evit an abegoù-mañ moarvat :</string>
   <string name="description_edit_revert_reason1">Ne zoujfe ket ho tegasadenn da unan eus &lt;a href=\"%1$s\"&gt;sturiadoù&lt;/a&gt;.</string>

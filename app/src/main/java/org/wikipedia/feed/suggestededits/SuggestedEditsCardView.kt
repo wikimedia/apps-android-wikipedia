@@ -70,13 +70,13 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
         divider.visibility = View.GONE
         viewArticleImage.loadImage(Uri.parse(ImageUrlUtil.getUrlForPreferredSize(card!!.page!!.imageInfo()!!.thumbUrl, Constants.PREFERRED_CARD_THUMBNAIL_SIZE)))
         viewArticleTitle.visibility = View.GONE
-        callToActionText.text = context.getString(R.string.suggested_edits_feed_card_add_image_tags)
+        callToActionText.text = context.getString(R.string.edits_feed_card_add_image_tags)
     }
 
     private fun showAddDescriptionUI() {
         viewArticleTitle.visibility = View.VISIBLE
         viewArticleTitle.text = StringUtil.fromHtml(card!!.sourceSummary!!.displayTitle!!)
-        callToActionText.text = if (card!!.action == TRANSLATE_DESCRIPTION) context.getString(R.string.suggested_edits_feed_card_add_translation_in_language_button, app.language().getAppLanguageCanonicalName(card!!.targetSummary!!.lang)) else context.getString(R.string.suggested_edits_feed_card_add_description_button)
+        callToActionText.text = if (card!!.action == TRANSLATE_DESCRIPTION) context.getString(R.string.edits_feed_card_add_translation_in_language_button, app.language().getAppLanguageCanonicalName(card!!.targetSummary!!.lang)) else context.getString(R.string.edits_feed_card_add_description_button)
         showImageOrExtract()
     }
 
@@ -95,7 +95,7 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
         divider.visibility = View.GONE
         viewArticleImage.loadImage(Uri.parse(card!!.sourceSummary!!.thumbnailUrl))
         viewArticleTitle.text = StringUtil.removeNamespace(card!!.sourceSummary!!.displayTitle!!)
-        callToActionText.text = if (card!!.action == TRANSLATE_CAPTION) context.getString(R.string.suggested_edits_feed_card_translate_image_caption, app.language().getAppLanguageCanonicalName(card!!.targetSummary!!.lang)) else context.getString(R.string.suggested_edits_feed_card_add_image_caption)
+        callToActionText.text = if (card!!.action == TRANSLATE_CAPTION) context.getString(R.string.edits_feed_card_translate_image_caption, app.language().getAppLanguageCanonicalName(card!!.targetSummary!!.lang)) else context.getString(R.string.edits_feed_card_add_image_caption)
     }
 
     private fun showTranslateImageCaptionUI() {

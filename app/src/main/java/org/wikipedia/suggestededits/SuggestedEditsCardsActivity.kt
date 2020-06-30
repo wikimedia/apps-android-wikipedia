@@ -10,7 +10,6 @@ import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.descriptions.DescriptionEditActivity.Action
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
 import org.wikipedia.suggestededits.SuggestedEditsCardsFragment.Companion.newInstance
-import org.wikipedia.util.ResourceUtil
 import org.wikipedia.views.ImageZoomHelper
 import java.lang.Exception
 
@@ -39,18 +38,18 @@ class SuggestedEditsCardsActivity : SingleFragmentActivity<SuggestedEditsCardsFr
     private fun getActionBarTitleRes(action: Action): Int {
         return when(action) {
             TRANSLATE_DESCRIPTION -> {
-                R.string.suggested_edits_translate_descriptions
+                R.string.edits_translate_descriptions
             }
             ADD_CAPTION -> {
-                R.string.suggested_edits_add_image_captions
+                R.string.edits_add_image_captions
             }
             TRANSLATE_CAPTION -> {
-                R.string.suggested_edits_translate_image_captions
+                R.string.edits_translate_image_captions
             }
             ADD_IMAGE_TAGS -> {
-                R.string.suggested_edits_tag_images
+                R.string.edits_tag_images
             }
-            else -> R.string.suggested_edits_add_descriptions
+            else -> R.string.edits_add_descriptions
         }
     }
 

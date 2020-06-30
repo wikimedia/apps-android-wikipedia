@@ -319,7 +319,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
         yesterday.add(Calendar.DAY_OF_YEAR, -1)
         return when {
             DateUtils.isSameDay(Calendar.getInstance().time, date) -> StringUtils.capitalize(getString(R.string.view_continue_reading_card_subtitle_today))
-            DateUtils.isSameDay(yesterday.time, date) -> getString(R.string.suggested_edits_contribution_date_yesterday_text)
+            DateUtils.isSameDay(yesterday.time, date) -> getString(R.string.edits_contribution_date_yesterday_text)
             else -> DateUtil.getFeedCardDateString(date)
         }
     }

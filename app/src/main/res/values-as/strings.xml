@@ -423,31 +423,31 @@
   <string name="description_edit_tutorial_title_descriptions" fuzzy="true">শিৰোনামৰ বিৱৰণ</string>
   <string name="description_edit_tutorial_keep_it_short">সংক্ষিপ্ত ৰাখক</string>
   <string name="description_edit_tutorial_button_label_start_editing">সম্পাদনা আৰম্ভ কৰক</string>
-  <string name="suggested_edits_my_contributions">মোৰ বৰঙণিসমূহ</string>
-  <string name="suggested_edits_task_multilingual_negative">মোৰ বাবে নহয়</string>
-  <string name="suggested_edits_task_multilingual_positive">ভাষা সংযোগ কৰক</string>
-  <string name="suggested_edits_image_caption_summary_title_artist">শিল্পী</string>
-  <string name="suggested_edits_image_caption_summary_title_author">স্ৰষ্টা</string>
-  <string name="suggested_edits_image_caption_summary_title_source">উৎস</string>
-  <string name="suggested_edits_image_caption_summary_title_license">অনুজ্ঞাপত্ৰ</string>
-  <string name="suggested_edits_image_caption_summary_title_date">তাৰিখ</string>
-  <string name="suggested_edits_feed_card_title">পৰামৰ্শকৃত সম্পাদনা</string>
-  <string name="suggested_edits_feed_card_add_description_button">প্ৰবন্ধৰ বিৱৰণ যোগ কৰক</string>
-  <string name="suggested_edits_feed_card_add_translation_in_language_button">প্ৰবন্ধৰ বিৱৰণ যোগ কৰক (%s)</string>
-  <string name="suggested_edits_tasks_onboarding_get_started">আৰম্ভ কৰক</string>
-  <string name="suggested_edits_image_preview_dialog_caption_in_language_title">ছবিৰ শিৰোনাম (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_description_in_language_title">ছবিৰ বিৱৰণ (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_artist">শিল্পী</string>
-  <string name="suggested_edits_image_preview_dialog_date">তাৰিখ</string>
-  <string name="suggested_edits_image_preview_dialog_source">উৎস/আলোকচিত্ৰশিল্পী</string>
-  <string name="suggested_edits_image_preview_dialog_licensing">অনুজ্ঞাপত্ৰ</string>
-  <string name="suggested_edits_image_preview_dialog_more_info">অধিক তথ্য</string>
-  <string name="suggested_edits_image_preview_dialog_file_page_link_text">ৱিকিমিডিয়া কমন্সৰ নথি পৃষ্ঠা</string>
-  <string name="suggested_edits_article_cta_image_caption">ছবিৰ শিৰোনাম যোগ কৰক</string>
-  <string name="suggested_edits_article_cta_image_caption_in_language">ছবিৰ শিৰোনাম যোগ কৰক (%s)</string>
-  <string name="suggested_edits_article_cta_snackbar_action">চাওক</string>
-  <string name="suggested_edits_feed_card_add_image_caption" fuzzy="true">শিৰোনাম যোগ কৰক</string>
-  <string name="suggested_edits_feed_card_translate_image_caption" fuzzy="true">শিৰোনাম যোগ কৰক (%s)</string>
+  <string name="edits_my_contributions">মোৰ বৰঙণিসমূহ</string>
+  <string name="edits_task_multilingual_negative">মোৰ বাবে নহয়</string>
+  <string name="edits_task_multilingual_positive">ভাষা সংযোগ কৰক</string>
+  <string name="edits_image_caption_summary_title_artist">শিল্পী</string>
+  <string name="edits_image_caption_summary_title_author">স্ৰষ্টা</string>
+  <string name="edits_image_caption_summary_title_source">উৎস</string>
+  <string name="edits_image_caption_summary_title_license">অনুজ্ঞাপত্ৰ</string>
+  <string name="edits_image_caption_summary_title_date">তাৰিখ</string>
+  <string name="edits_feed_card_title">পৰামৰ্শকৃত সম্পাদনা</string>
+  <string name="edits_feed_card_add_description_button">প্ৰবন্ধৰ বিৱৰণ যোগ কৰক</string>
+  <string name="edits_feed_card_add_translation_in_language_button">প্ৰবন্ধৰ বিৱৰণ যোগ কৰক (%s)</string>
+  <string name="edits_tasks_onboarding_get_started">আৰম্ভ কৰক</string>
+  <string name="edits_image_preview_dialog_caption_in_language_title">ছবিৰ শিৰোনাম (%s)</string>
+  <string name="edits_image_preview_dialog_description_in_language_title">ছবিৰ বিৱৰণ (%s)</string>
+  <string name="edits_image_preview_dialog_artist">শিল্পী</string>
+  <string name="edits_image_preview_dialog_date">তাৰিখ</string>
+  <string name="edits_image_preview_dialog_source">উৎস/আলোকচিত্ৰশিল্পী</string>
+  <string name="edits_image_preview_dialog_licensing">অনুজ্ঞাপত্ৰ</string>
+  <string name="edits_image_preview_dialog_more_info">অধিক তথ্য</string>
+  <string name="edits_image_preview_dialog_file_page_link_text">ৱিকিমিডিয়া কমন্সৰ নথি পৃষ্ঠা</string>
+  <string name="edits_article_cta_image_caption">ছবিৰ শিৰোনাম যোগ কৰক</string>
+  <string name="edits_article_cta_image_caption_in_language">ছবিৰ শিৰোনাম যোগ কৰক (%s)</string>
+  <string name="edits_article_cta_snackbar_action">চাওক</string>
+  <string name="edits_feed_card_add_image_caption" fuzzy="true">শিৰোনাম যোগ কৰক</string>
+  <string name="edits_feed_card_translate_image_caption" fuzzy="true">শিৰোনাম যোগ কৰক (%s)</string>
   <string name="description_edit_revert_subtitle">ৱিকিপিডিয়া সম্পাদনা কৰাৰ বাবে ধন্যবাদ!</string>
   <string name="description_edit_revert_intro">আমি বুজিছোঁ যে আপুনি অশেষ চেষ্টা কৰিলে, কিন্তু এজন পৰ্যবেক্ষকে এট আপত্তি দৰ্শাইছে। আপোনাৰ সম্পাদনা বাতিল কৰাৰ সম্ভাব্য কাৰণ হ\'ব পাৰে:</string>
   <string name="description_edit_revert_reason1">আপোনাৰ অৱদানে &lt;a href=\"%1$s\"&gt;নীতিসমূহ&lt;/a&gt; অনুসৰণ কৰা নাই।</string>

@@ -35,7 +35,7 @@
   <string name="search_hint_search_languages">Pesquisar uma língua</string>
   <string name="search_hint_search_my_lists_and_articles">Pesquisar as minhas listas e artigos</string>
   <string name="nav_item_history">Histórico</string>
-  <string name="nav_item_suggested_edits">Edições sugeridas</string>
+  <string name="nav_item_edits">Edições sugeridas</string>
   <string name="error_network_error">Não foi possível ligar à Internet.</string>
   <string name="page_error_retry">Tentar novamente</string>
   <string name="card_offline_error_retry">Tentar novamente</string>
@@ -207,7 +207,7 @@
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.pt</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.pt</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
+  <string name="edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Bibliotecas usadas</string>
   <string name="about_contributors_heading">Contribuidores</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Página da equipa&lt;/a&gt;</string>
@@ -585,7 +585,7 @@
   <string name="feed_item_type_featured_image">Imagem destacada do dia na wiki Wikimedia Commons</string>
   <string name="feed_item_type_main_page">Página principal da Wikipédia com o conteúdo destacado diário</string>
   <string name="feed_item_type_randomizer">Gerar artigos aleatórios para ler</string>
-  <string name="feed_item_type_suggested_edits">Sugestões de adição de conteúdo à Wikipédia</string>
+  <string name="feed_item_type_edits">Sugestões de adição de conteúdo à Wikipédia</string>
   <string name="feed_empty_message">Não há nada no seu feed Explorar</string>
   <string name="feed_configure_onboarding_action">Personalizar</string>
   <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
@@ -634,121 +634,121 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealmente uma linha, entre duas e doze palavras</string>
   <string name="description_edit_tutorial_button_label_start_editing">Começar a editar</string>
   <string name="description_edit_tutorial_promise">Ao começar, prometo não utilizar esta funcionalidade de forma abusiva.</string>
-  <string name="suggested_edits_add_descriptions">Adicionar descrições de artigos</string>
-  <string name="suggested_edits_translate_descriptions">Traduzir descrições de artigos</string>
-  <string name="suggested_edits_add_image_captions">Adicionar legendas a imagens</string>
-  <string name="suggested_edits_translate_image_captions">Traduzir legendas de imagens</string>
-  <string name="suggested_edits_tag_images">Etiquetar imagens</string>
-  <string name="suggested_edits_review_description">Rever descrição do artigo</string>
-  <string name="suggested_edits_add_description_button">Adicionar descrição</string>
-  <string name="suggested_edits_edit_description_button">Editar descrição</string>
-  <string name="suggested_edits_add_translation_button">Adicionar tradução</string>
-  <string name="suggested_edits_edit_translation_button">Editar tradução</string>
-  <string name="suggested_edits_add_caption_button">Adicionar legenda</string>
-  <string name="suggested_edits_edit_caption_button">Editar legenda</string>
-  <string name="suggested_edits_review_image_caption">Rever legenda da imagem</string>
-  <string name="suggested_edits_my_contributions">As minhas contribuições</string>
-  <string name="suggested_edits_no_description">Este ficheiro não tem uma descrição</string>
-  <string name="suggested_edits_license_notice">Ao adicionar a descrição, concordo com as &lt;a href=\"%1$s\"&gt;Condições de utilização&lt;/a&gt; e em publicar irrevogavelmente as minhas contribuições ao abrigo da licença &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
-  <string name="suggested_edits_image_caption_license_notice">Ao adicionar a legenda da imagem, concordo com as &lt;a href=\"%1$s\"&gt;Condições de utilização&lt;/a&gt; e em publicar irrevogavelmente as minhas contribuições ao abrigo da licença &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
-  <string name="suggested_edits_menu_info">Informação</string>
-  <string name="suggested_edits_tasks_activity_title">Edições sugeridas</string>
-  <string name="suggested_edits_task_add_description_title">Adicionar descrições de artigos</string>
-  <string name="suggested_edits_task_add_description_description">Contribuir para os artigos a que falta a descrição</string>
-  <string name="suggested_edits_task_image_caption_title">Adicionar legendas a imagens</string>
-  <string name="suggested_edits_task_image_caption_description">Adicionar legendas curtas em falta às imagens</string>
-  <string name="suggested_edits_task_translate_caption_title">Traduzir legendas de imagem</string>
-  <string name="suggested_edits_task_translate_caption_description">Traduzir legendas para outras línguas</string>
-  <string name="suggested_edits_task_multilingual_title">Mais tarefas para editores multilingues</string>
-  <string name="suggested_edits_task_multilingual_description">Há tarefas de tradução disponíveis se lê e escreve em mais do que uma língua da Wikipédia.</string>
-  <string name="suggested_edits_task_image_caption_edit_disable_text">Trancadas até ter editado %d legendas de imagens</string>
-  <string name="suggested_edits_task_translate_description_edit_disable_text">Trancada até ter editado %d descrições de artigos (verificadas)</string>
-  <string name="suggested_edits_task_multilingual_negative">Não é para mim</string>
-  <string name="suggested_edits_task_multilingual_positive">Adicionar línguas</string>
-  <string name="suggested_edits_image_caption_summary_title_file">Ficheiro</string>
-  <string name="suggested_edits_image_caption_summary_title_artist">Artista</string>
-  <string name="suggested_edits_image_caption_summary_title_author">Autor</string>
-  <string name="suggested_edits_image_caption_summary_title_source">Fonte</string>
-  <string name="suggested_edits_image_caption_summary_title_license">Licença</string>
-  <string name="suggested_edits_image_caption_summary_title_date">Data</string>
-  <plurals name="suggested_edits_contribution_count">
+  <string name="edits_add_descriptions">Adicionar descrições de artigos</string>
+  <string name="edits_translate_descriptions">Traduzir descrições de artigos</string>
+  <string name="edits_add_image_captions">Adicionar legendas a imagens</string>
+  <string name="edits_translate_image_captions">Traduzir legendas de imagens</string>
+  <string name="edits_tag_images">Etiquetar imagens</string>
+  <string name="edits_review_description">Rever descrição do artigo</string>
+  <string name="edits_add_description_button">Adicionar descrição</string>
+  <string name="edits_edit_description_button">Editar descrição</string>
+  <string name="edits_add_translation_button">Adicionar tradução</string>
+  <string name="edits_edit_translation_button">Editar tradução</string>
+  <string name="edits_add_caption_button">Adicionar legenda</string>
+  <string name="edits_edit_caption_button">Editar legenda</string>
+  <string name="edits_review_image_caption">Rever legenda da imagem</string>
+  <string name="edits_my_contributions">As minhas contribuições</string>
+  <string name="edits_no_description">Este ficheiro não tem uma descrição</string>
+  <string name="edits_license_notice">Ao adicionar a descrição, concordo com as &lt;a href=\"%1$s\"&gt;Condições de utilização&lt;/a&gt; e em publicar irrevogavelmente as minhas contribuições ao abrigo da licença &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="edits_image_caption_license_notice">Ao adicionar a legenda da imagem, concordo com as &lt;a href=\"%1$s\"&gt;Condições de utilização&lt;/a&gt; e em publicar irrevogavelmente as minhas contribuições ao abrigo da licença &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="edits_menu_info">Informação</string>
+  <string name="edits_tasks_activity_title">Edições sugeridas</string>
+  <string name="edits_task_add_description_title">Adicionar descrições de artigos</string>
+  <string name="edits_task_add_description_description">Contribuir para os artigos a que falta a descrição</string>
+  <string name="edits_task_image_caption_title">Adicionar legendas a imagens</string>
+  <string name="edits_task_image_caption_description">Adicionar legendas curtas em falta às imagens</string>
+  <string name="edits_task_translate_caption_title">Traduzir legendas de imagem</string>
+  <string name="edits_task_translate_caption_description">Traduzir legendas para outras línguas</string>
+  <string name="edits_task_multilingual_title">Mais tarefas para editores multilingues</string>
+  <string name="edits_task_multilingual_description">Há tarefas de tradução disponíveis se lê e escreve em mais do que uma língua da Wikipédia.</string>
+  <string name="edits_task_image_caption_edit_disable_text">Trancadas até ter editado %d legendas de imagens</string>
+  <string name="edits_task_translate_description_edit_disable_text">Trancada até ter editado %d descrições de artigos (verificadas)</string>
+  <string name="edits_task_multilingual_negative">Não é para mim</string>
+  <string name="edits_task_multilingual_positive">Adicionar línguas</string>
+  <string name="edits_image_caption_summary_title_file">Ficheiro</string>
+  <string name="edits_image_caption_summary_title_artist">Artista</string>
+  <string name="edits_image_caption_summary_title_author">Autor</string>
+  <string name="edits_image_caption_summary_title_source">Fonte</string>
+  <string name="edits_image_caption_summary_title_license">Licença</string>
+  <string name="edits_image_caption_summary_title_date">Data</string>
+  <plurals name="edits_contribution_count">
     <item quantity="one">1 contribuição</item>
     <item quantity="other">%d contribuições</item>
   </plurals>
-  <string name="suggested_edits_feed_card_title">Edições sugeridas</string>
-  <string name="suggested_edits_feed_card_add_description_button">Adicionar descrição do artigo</string>
-  <string name="suggested_edits_feed_card_add_translation_in_language_button">Adicionar descrição do artigo (%s)</string>
-  <string name="suggested_edits_tasks_onboarding_get_started">Começar</string>
-  <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Legenda da imagem (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_description_in_language_title">Descrição da imagem (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_artist">Artista</string>
-  <string name="suggested_edits_image_preview_dialog_date">Data</string>
-  <string name="suggested_edits_image_preview_dialog_source">Fonte/Fotógrafo</string>
-  <string name="suggested_edits_image_preview_dialog_licensing">Licenciamento</string>
-  <string name="suggested_edits_image_preview_dialog_more_info">Mais informações</string>
-  <string name="suggested_edits_image_preview_dialog_file_page_link_text">Página do ficheiro na wiki Wikimedia Commons</string>
-  <string name="suggested_edits_article_cta_image_caption">Adicionar legenda à imagem</string>
-  <string name="suggested_edits_article_cta_image_caption_in_language">Adicionar legenda à imagem (%s)</string>
-  <string name="suggested_edits_article_cta_snackbar_action">Ver</string>
-  <string name="suggested_edits_feed_card_add_image_caption">Adicionar legenda à imagem</string>
-  <string name="suggested_edits_feed_card_translate_image_caption">Adicionar legenda à imagem (%s)</string>
-  <string name="suggested_edits_snackbar_survey_text">Como foi a sua experiência de edição? Dedique um momento a preencher o inquérito sobre edição com a aplicação, por favor.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Participar no inquérito</string>
-  <string name="suggested_edits_task_action_text_add">Adicionar</string>
-  <string name="suggested_edits_task_action_text_translate">Traduzir</string>
-  <string name="suggested_edits_image_captions">Legendas de imagens</string>
-  <string name="suggested_edits_image_tags">Etiquetas de imagens</string>
-  <string name="suggested_edits_image_tags_publishing">A publicar</string>
-  <string name="suggested_edits_image_tags_published">Publicadas</string>
-  <string name="suggested_edits_image_tags_onboarding_title">Etiquetar as imagens facilita a sua procura.</string>
-  <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">Ao adicionar etiquetas de imagem, irá ajudar a facilitar a pesquisa na Commons, o repositório de imagens de licença gratuita que a Wikipedia utiliza para as imagens nos seus artigos.\n\nNós sugerimos automaticamente algumas etiquetas, e também pode adicionar as suas.</string>
-  <string name="suggested_edits_image_tags_onboarding_note">Só as etiquetas que escolher serão adicionadas às imagens.</string>
-  <string name="suggested_edits_image_tags_snackbar">Adicione etiquetas de imagens para que outros as encontrem facilmente.</string>
-  <string name="suggested_edits_image_tags_task_detail" fuzzy="true">Etiquete as imagens para facilitar a sua procura. Selecione das etiquetas sugeridas ou adicione as suas.</string>
-  <string name="suggested_edits_image_tags_choose">Adicionar ou escolher etiquetas coincidentes</string>
-  <string name="suggested_edits_image_tags_published_list">Etiquetas publicadas</string>
-  <string name="suggested_edits_image_tags_search">Pesquisar etiquetas</string>
-  <string name="suggested_edits_image_tags_select_title">Não selecionou nenhuma etiqueta para esta imagem</string>
-  <string name="suggested_edits_image_tags_select_text">Só as etiquetas que escolher serão adicionadas às imagens. As etiquetas que não selecionar serão marcadas como tendo sido rejeitadas. Tem a certeza de que quer marcar todas as etiquetas como rejeitadas?</string>
-  <string name="suggested_edits_image_tags_add_tag">Adicionar etiqueta</string>
-  <string name="suggested_edits_image_zoom_tooltip">Junte/separe dois dedos para ampliar/afastar esta imagem.</string>
-  <string name="suggested_edits_encouragement_message">%s, obrigado pelas suas edições. Pode encontrar abaixo outras formas de contribuir para a Wikipédia.</string>
-  <string name="suggested_edits_onboarding_message">&lt;/b&gt;Olá %s&lt;/b&gt;, sabia que qualquer pessoa pode editar a Wikipédia? Encontra abaixo algumas formas divertidas de ajudar a melhorar a Wikipédia. Divirta-se a editar!</string>
-  <string name="suggested_edits_image_captions_task_detail" fuzzy="true">As legendas de imagens descrevem uma imagem para ajudar os leitores a entenderem o seu significado e contexto.</string>
-  <string name="suggested_edits_add_descriptions_task_detail" fuzzy="true">As descrições de artigos resumem um artigo para ajudar os leitores a compreenderem imediatamente o assunto.</string>
-  <string name="suggested_edits_contributions_stat_tooltip">O seu número total de contribuições com \"Edições sugeridas\"</string>
-  <string name="suggested_edits_edit_streak_stat_tooltip">Durante quantos dias consecutivos contribuiu usando \"Edições sugeridas\". Se não contribui há algum tempo, mostra a data da última contribuição.</string>
-  <string name="suggested_edits_page_views_stat_tooltip">Total de visitas às páginas para as quais contribuiu nos últimos 30 dias com \"Edições sugeridas\"</string>
-  <string name="suggested_edits_edit_quality_stat_tooltip">Com base no número de vezes que uma das suas contribuições foi revertida (desfeita por outro editor). Edições revertidas: %d.</string>
-  <string name="suggested_edits_paused_message" fuzzy="true">&lt;b&gt;\"Edições sugeridas\" está interrompida até %1$s.&lt;/b&gt; Desculpe, %2$s, mas algumas das suas contribuições recentes foram revertidas.\n\nAprenda a melhorar o seu talento como editor da Wikipédia na hiperligação abaixo.</string>
-  <string name="suggested_edits_disabled_message" fuzzy="true">&lt;b&gt;\"Edições sugeridas\" está desativada.&lt;/b&gt; Desculpe, %s, foram revertidas demasiadas das suas contribuições recentes.\n\nSaiba o que isto significa na hiperligação abaixo.</string>
-  <string name="suggested_edits_ip_blocked_message" fuzzy="true">Parece que o seu endereço IP (ou gama de endereços IP) está atualmente bloqueado, impedindo a edição da Wikipédia. Saiba mais sobre o que isto significa, visitando a hiperligação abaixo.</string>
-  <string name="suggested_edits_editing_tips_link_text">Dicas e truques de edição</string>
-  <string name="suggested_edits_help_page_link_text">Página de ajuda de \"Edições sugeridas\"</string>
-  <string name="suggested_edits_edit_streak_label_text">Edições consecutivas</string>
-  <string name="suggested_edits_pageviews_label_text">Visitas de páginas</string>
-  <string name="suggested_edits_quality_label_text">Qualidade das edições</string>
-  <string name="suggested_edits_quality_perfect_text">Perfeita</string>
-  <string name="suggested_edits_quality_excellent_text">Excelente</string>
-  <string name="suggested_edits_quality_very_good_text">Muito boa</string>
-  <string name="suggested_edits_quality_good_text">Boa</string>
-  <string name="suggested_edits_quality_okay_text">Aceitável</string>
-  <string name="suggested_edits_quality_sufficient_text">Suficiente</string>
-  <string name="suggested_edits_quality_poor_text">Pobre</string>
-  <string name="suggested_edits_quality_bad_text">Má</string>
-  <plurals name="suggested_edits_contribution">
+  <string name="edits_feed_card_title">Edições sugeridas</string>
+  <string name="edits_feed_card_add_description_button">Adicionar descrição do artigo</string>
+  <string name="edits_feed_card_add_translation_in_language_button">Adicionar descrição do artigo (%s)</string>
+  <string name="edits_tasks_onboarding_get_started">Começar</string>
+  <string name="edits_image_preview_dialog_caption_in_language_title">Legenda da imagem (%s)</string>
+  <string name="edits_image_preview_dialog_description_in_language_title">Descrição da imagem (%s)</string>
+  <string name="edits_image_preview_dialog_artist">Artista</string>
+  <string name="edits_image_preview_dialog_date">Data</string>
+  <string name="edits_image_preview_dialog_source">Fonte/Fotógrafo</string>
+  <string name="edits_image_preview_dialog_licensing">Licenciamento</string>
+  <string name="edits_image_preview_dialog_more_info">Mais informações</string>
+  <string name="edits_image_preview_dialog_file_page_link_text">Página do ficheiro na wiki Wikimedia Commons</string>
+  <string name="edits_article_cta_image_caption">Adicionar legenda à imagem</string>
+  <string name="edits_article_cta_image_caption_in_language">Adicionar legenda à imagem (%s)</string>
+  <string name="edits_article_cta_snackbar_action">Ver</string>
+  <string name="edits_feed_card_add_image_caption">Adicionar legenda à imagem</string>
+  <string name="edits_feed_card_translate_image_caption">Adicionar legenda à imagem (%s)</string>
+  <string name="edits_snackbar_survey_text">Como foi a sua experiência de edição? Dedique um momento a preencher o inquérito sobre edição com a aplicação, por favor.</string>
+  <string name="edits_snackbar_survey_action_text">Participar no inquérito</string>
+  <string name="edits_task_action_text_add">Adicionar</string>
+  <string name="edits_task_action_text_translate">Traduzir</string>
+  <string name="edits_image_captions">Legendas de imagens</string>
+  <string name="edits_image_tags">Etiquetas de imagens</string>
+  <string name="edits_image_tags_publishing">A publicar</string>
+  <string name="edits_image_tags_published">Publicadas</string>
+  <string name="edits_image_tags_onboarding_title">Etiquetar as imagens facilita a sua procura.</string>
+  <string name="edits_image_tags_onboarding_text" fuzzy="true">Ao adicionar etiquetas de imagem, irá ajudar a facilitar a pesquisa na Commons, o repositório de imagens de licença gratuita que a Wikipedia utiliza para as imagens nos seus artigos.\n\nNós sugerimos automaticamente algumas etiquetas, e também pode adicionar as suas.</string>
+  <string name="edits_image_tags_onboarding_note">Só as etiquetas que escolher serão adicionadas às imagens.</string>
+  <string name="edits_image_tags_snackbar">Adicione etiquetas de imagens para que outros as encontrem facilmente.</string>
+  <string name="edits_image_tags_task_detail" fuzzy="true">Etiquete as imagens para facilitar a sua procura. Selecione das etiquetas sugeridas ou adicione as suas.</string>
+  <string name="edits_image_tags_choose">Adicionar ou escolher etiquetas coincidentes</string>
+  <string name="edits_image_tags_published_list">Etiquetas publicadas</string>
+  <string name="edits_image_tags_search">Pesquisar etiquetas</string>
+  <string name="edits_image_tags_select_title">Não selecionou nenhuma etiqueta para esta imagem</string>
+  <string name="edits_image_tags_select_text">Só as etiquetas que escolher serão adicionadas às imagens. As etiquetas que não selecionar serão marcadas como tendo sido rejeitadas. Tem a certeza de que quer marcar todas as etiquetas como rejeitadas?</string>
+  <string name="edits_image_tags_add_tag">Adicionar etiqueta</string>
+  <string name="edits_image_zoom_tooltip">Junte/separe dois dedos para ampliar/afastar esta imagem.</string>
+  <string name="edits_encouragement_message">%s, obrigado pelas suas edições. Pode encontrar abaixo outras formas de contribuir para a Wikipédia.</string>
+  <string name="edits_onboarding_message">&lt;/b&gt;Olá %s&lt;/b&gt;, sabia que qualquer pessoa pode editar a Wikipédia? Encontra abaixo algumas formas divertidas de ajudar a melhorar a Wikipédia. Divirta-se a editar!</string>
+  <string name="edits_image_captions_task_detail" fuzzy="true">As legendas de imagens descrevem uma imagem para ajudar os leitores a entenderem o seu significado e contexto.</string>
+  <string name="edits_add_descriptions_task_detail" fuzzy="true">As descrições de artigos resumem um artigo para ajudar os leitores a compreenderem imediatamente o assunto.</string>
+  <string name="edits_contributions_stat_tooltip">O seu número total de contribuições com \"Edições sugeridas\"</string>
+  <string name="edits_edit_streak_stat_tooltip">Durante quantos dias consecutivos contribuiu usando \"Edições sugeridas\". Se não contribui há algum tempo, mostra a data da última contribuição.</string>
+  <string name="edits_page_views_stat_tooltip">Total de visitas às páginas para as quais contribuiu nos últimos 30 dias com \"Edições sugeridas\"</string>
+  <string name="edits_edit_quality_stat_tooltip">Com base no número de vezes que uma das suas contribuições foi revertida (desfeita por outro editor). Edições revertidas: %d.</string>
+  <string name="edits_paused_message" fuzzy="true">&lt;b&gt;\"Edições sugeridas\" está interrompida até %1$s.&lt;/b&gt; Desculpe, %2$s, mas algumas das suas contribuições recentes foram revertidas.\n\nAprenda a melhorar o seu talento como editor da Wikipédia na hiperligação abaixo.</string>
+  <string name="edits_disabled_message" fuzzy="true">&lt;b&gt;\"Edições sugeridas\" está desativada.&lt;/b&gt; Desculpe, %s, foram revertidas demasiadas das suas contribuições recentes.\n\nSaiba o que isto significa na hiperligação abaixo.</string>
+  <string name="edits_ip_blocked_message" fuzzy="true">Parece que o seu endereço IP (ou gama de endereços IP) está atualmente bloqueado, impedindo a edição da Wikipédia. Saiba mais sobre o que isto significa, visitando a hiperligação abaixo.</string>
+  <string name="edits_editing_tips_link_text">Dicas e truques de edição</string>
+  <string name="edits_help_page_link_text">Página de ajuda de \"Edições sugeridas\"</string>
+  <string name="edits_edit_streak_label_text">Edições consecutivas</string>
+  <string name="edits_pageviews_label_text">Visitas de páginas</string>
+  <string name="edits_quality_label_text">Qualidade das edições</string>
+  <string name="edits_quality_perfect_text">Perfeita</string>
+  <string name="edits_quality_excellent_text">Excelente</string>
+  <string name="edits_quality_very_good_text">Muito boa</string>
+  <string name="edits_quality_good_text">Boa</string>
+  <string name="edits_quality_okay_text">Aceitável</string>
+  <string name="edits_quality_sufficient_text">Suficiente</string>
+  <string name="edits_quality_poor_text">Pobre</string>
+  <string name="edits_quality_bad_text">Má</string>
+  <plurals name="edits_contribution">
     <item quantity="one">Contribuição</item>
     <item quantity="other">Contribuições</item>
   </plurals>
-  <plurals name="suggested_edits_edit_streak_detail_text">
+  <plurals name="edits_edit_streak_detail_text">
     <item quantity="one">%d dia</item>
     <item quantity="other">%d dias</item>
   </plurals>
-  <string name="suggested_edits_last_edited">Última edição</string>
-  <string name="suggested_edits_last_edited_never">Nunca</string>
-  <string name="suggested_edits_task_new">nova</string>
-  <string name="suggested_edits_cc0_notice">Ao publicar, concorda com as &lt;a href=\"%1$s\"&gt;condições de utilização&lt;/a&gt; e em publicar irrevogavelmente esta contribuição ao abrigo da &lt;a href=\"%2$s\"&gt;licença CC0&lt;/a&gt;.</string>
-  <string name="suggested_edits_reactivation_notification_title">Edições sugeridas</string>
+  <string name="edits_last_edited">Última edição</string>
+  <string name="edits_last_edited_never">Nunca</string>
+  <string name="edits_task_new">nova</string>
+  <string name="edits_cc0_notice">Ao publicar, concorda com as &lt;a href=\"%1$s\"&gt;condições de utilização&lt;/a&gt; e em publicar irrevogavelmente esta contribuição ao abrigo da &lt;a href=\"%2$s\"&gt;licença CC0&lt;/a&gt;.</string>
+  <string name="edits_reactivation_notification_title">Edições sugeridas</string>
   <string name="description_edit_revert_subtitle">Obrigado por editar a Wikipédia!</string>
   <string name="description_edit_revert_intro">Sabemos que tentou fazer o melhor, mas um dos revisores teve uma preocupação. As possíveis razões pelas quais a sua edição foi desfeita incluem:</string>
   <string name="description_edit_revert_reason1">a sua contribuição não seguiu uma das &lt;a href=\"%1$s\"&gt;diretrizes&lt;/a&gt;.</string>

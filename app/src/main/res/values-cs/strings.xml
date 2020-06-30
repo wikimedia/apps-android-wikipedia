@@ -37,7 +37,7 @@
   <string name="search_hint_search_languages">Hledat jazyk</string>
   <string name="search_hint_search_my_lists_and_articles">Vyhledávat v mých seznamech a článcích</string>
   <string name="nav_item_history">Historie</string>
-  <string name="nav_item_suggested_edits">Navrhování editací</string>
+  <string name="nav_item_edits">Navrhování editací</string>
   <string name="nav_item_more">Více</string>
   <string name="error_network_error">Nejste připojeni k internetu.</string>
   <string name="page_error_retry">Znovu</string>
@@ -210,7 +210,7 @@
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.cs</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.cs</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/cs</string>
-  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/cs#Image_tags</string>
+  <string name="edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/cs#Image_tags</string>
   <string name="about_libraries_heading">Použité knihovny</string>
   <string name="about_contributors_heading">Přispěvatelé</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Team/Android\"&gt;Stránka produkčního týmu&lt;/a&gt;</string>
@@ -603,7 +603,7 @@
   <string name="feed_item_type_featured_image">Denní doporučený obrázek z Wikimedia Commons</string>
   <string name="feed_item_type_main_page">Hlavní strana Wikipedie s každodenním obsahem</string>
   <string name="feed_item_type_randomizer">Vygenerujte si náhodný článek k přečtení</string>
-  <string name="feed_item_type_suggested_edits">Návrhy na přidávání obsahu do Wikipedie</string>
+  <string name="feed_item_type_edits">Návrhy na přidávání obsahu do Wikipedie</string>
   <string name="feed_empty_message">Nic není ve vašem kanále Objevit</string>
   <string name="feed_configure_onboarding_action">Přizpůsobit</string>
   <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
@@ -652,132 +652,132 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">V ideálním případě jeden řádek o dvou až dvanácti slovech</string>
   <string name="description_edit_tutorial_button_label_start_editing">Začít editovat</string>
   <string name="description_edit_tutorial_promise">Tímto slibuji, že této funkce nezneužiji.</string>
-  <string name="suggested_edits_add_descriptions">Přidat popisy článků</string>
-  <string name="suggested_edits_translate_descriptions">Přeložit popisy článků</string>
-  <string name="suggested_edits_add_image_captions">Přidat titulky obrázků</string>
-  <string name="suggested_edits_translate_image_captions">Přeložit titulky obrázků</string>
-  <string name="suggested_edits_tag_images">Označit obrázky</string>
-  <string name="suggested_edits_review_description">Náhled popisu článku</string>
-  <string name="suggested_edits_add_description_button">Přidat popis</string>
-  <string name="suggested_edits_edit_description_button">Editovat popis</string>
-  <string name="suggested_edits_add_translation_button">Přidat překlad</string>
-  <string name="suggested_edits_edit_translation_button">Editovat překlad</string>
-  <string name="suggested_edits_add_caption_button">Přidat popis</string>
-  <string name="suggested_edits_edit_caption_button">Editovat popis</string>
-  <string name="suggested_edits_review_image_caption">Náhled titulku obrázku</string>
-  <string name="suggested_edits_my_contributions">Moje příspěvky</string>
-  <string name="suggested_edits_no_description">Tento soubor zatím nemá popis</string>
-  <string name="suggested_edits_license_notice">Přidáním popisu souhlasím s &lt;a href=\"%1$s\"&gt;Podmínkami užití&lt;/a&gt; a neodvolatelně souhlasím s podmínkami licence &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
-  <string name="suggested_edits_image_caption_license_notice">Přidáním titulku obrázku souhlasím s &lt;a href=\"%1$s\"&gt;Podmínkami užití&lt;/a&gt; a neodvolatelně souhlasím s podmínkami licence &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
-  <string name="suggested_edits_menu_info">Informace</string>
-  <string name="suggested_edits_tasks_activity_title">Navrhování editací</string>
-  <string name="suggested_edits_task_add_description_title">Přidat popisy článků</string>
-  <string name="suggested_edits_task_add_description_description">Přispět článkům bez popisu</string>
-  <string name="suggested_edits_task_image_caption_title">Přidat titulky obrázků</string>
-  <string name="suggested_edits_task_image_caption_description">Přidat chybějící krátké titulky k obrázkům</string>
-  <string name="suggested_edits_task_translate_caption_title">Přeložit popisy obrázků</string>
-  <string name="suggested_edits_task_translate_caption_description">Přeložit popisy obrázků do jiných jazyků</string>
-  <string name="suggested_edits_task_multilingual_title">Více úkolů pro vícejazyčné editory</string>
-  <string name="suggested_edits_task_multilingual_description">Tipy k překladu budou k dispozici, pokud čtete a píšete ve více než jednom jazyce Wikipedie.</string>
-  <string name="suggested_edits_task_image_caption_edit_disable_text">Zamknuto, dokud needitujete %d titulky obrázků</string>
-  <string name="suggested_edits_task_translate_description_edit_disable_text">Zamčeno, dokud nevytvoříte %d ověřené popisy článků</string>
-  <string name="suggested_edits_task_multilingual_negative">Ne, děkuji</string>
-  <string name="suggested_edits_task_multilingual_positive">Přidat jazyky</string>
-  <string name="suggested_edits_image_caption_summary_title_file">Soubor</string>
-  <string name="suggested_edits_image_caption_summary_title_artist">Umělec</string>
-  <string name="suggested_edits_image_caption_summary_title_author">Autor</string>
-  <string name="suggested_edits_image_caption_summary_title_source">Zdroj</string>
-  <string name="suggested_edits_image_caption_summary_title_license">Licence</string>
-  <string name="suggested_edits_image_caption_summary_title_date">Datum</string>
-  <plurals name="suggested_edits_contribution_count" fuzzy="true">
+  <string name="edits_add_descriptions">Přidat popisy článků</string>
+  <string name="edits_translate_descriptions">Přeložit popisy článků</string>
+  <string name="edits_add_image_captions">Přidat titulky obrázků</string>
+  <string name="edits_translate_image_captions">Přeložit titulky obrázků</string>
+  <string name="edits_tag_images">Označit obrázky</string>
+  <string name="edits_review_description">Náhled popisu článku</string>
+  <string name="edits_add_description_button">Přidat popis</string>
+  <string name="edits_edit_description_button">Editovat popis</string>
+  <string name="edits_add_translation_button">Přidat překlad</string>
+  <string name="edits_edit_translation_button">Editovat překlad</string>
+  <string name="edits_add_caption_button">Přidat popis</string>
+  <string name="edits_edit_caption_button">Editovat popis</string>
+  <string name="edits_review_image_caption">Náhled titulku obrázku</string>
+  <string name="edits_my_contributions">Moje příspěvky</string>
+  <string name="edits_no_description">Tento soubor zatím nemá popis</string>
+  <string name="edits_license_notice">Přidáním popisu souhlasím s &lt;a href=\"%1$s\"&gt;Podmínkami užití&lt;/a&gt; a neodvolatelně souhlasím s podmínkami licence &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="edits_image_caption_license_notice">Přidáním titulku obrázku souhlasím s &lt;a href=\"%1$s\"&gt;Podmínkami užití&lt;/a&gt; a neodvolatelně souhlasím s podmínkami licence &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
+  <string name="edits_menu_info">Informace</string>
+  <string name="edits_tasks_activity_title">Navrhování editací</string>
+  <string name="edits_task_add_description_title">Přidat popisy článků</string>
+  <string name="edits_task_add_description_description">Přispět článkům bez popisu</string>
+  <string name="edits_task_image_caption_title">Přidat titulky obrázků</string>
+  <string name="edits_task_image_caption_description">Přidat chybějící krátké titulky k obrázkům</string>
+  <string name="edits_task_translate_caption_title">Přeložit popisy obrázků</string>
+  <string name="edits_task_translate_caption_description">Přeložit popisy obrázků do jiných jazyků</string>
+  <string name="edits_task_multilingual_title">Více úkolů pro vícejazyčné editory</string>
+  <string name="edits_task_multilingual_description">Tipy k překladu budou k dispozici, pokud čtete a píšete ve více než jednom jazyce Wikipedie.</string>
+  <string name="edits_task_image_caption_edit_disable_text">Zamknuto, dokud needitujete %d titulky obrázků</string>
+  <string name="edits_task_translate_description_edit_disable_text">Zamčeno, dokud nevytvoříte %d ověřené popisy článků</string>
+  <string name="edits_task_multilingual_negative">Ne, děkuji</string>
+  <string name="edits_task_multilingual_positive">Přidat jazyky</string>
+  <string name="edits_image_caption_summary_title_file">Soubor</string>
+  <string name="edits_image_caption_summary_title_artist">Umělec</string>
+  <string name="edits_image_caption_summary_title_author">Autor</string>
+  <string name="edits_image_caption_summary_title_source">Zdroj</string>
+  <string name="edits_image_caption_summary_title_license">Licence</string>
+  <string name="edits_image_caption_summary_title_date">Datum</string>
+  <plurals name="edits_contribution_count" fuzzy="true">
     <item quantity="one">1 příspěvek</item>
     <item quantity="few">%d příspěvky</item>
     <item quantity="other">%d příspěvků</item>
   </plurals>
-  <string name="suggested_edits_feed_card_title">Navrhování editací</string>
-  <string name="suggested_edits_feed_card_add_description_button">Přidat popis článku</string>
-  <string name="suggested_edits_feed_card_add_translation_in_language_button">Přidat popis článku (v jazyce %s)</string>
-  <string name="suggested_edits_tasks_onboarding_get_started">Začít</string>
-  <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Titulek obrázku (v jazyce %s)</string>
-  <string name="suggested_edits_image_preview_dialog_description_in_language_title">Popis obrázku (v jazyce %s)</string>
-  <string name="suggested_edits_image_preview_dialog_file">Soubor</string>
-  <string name="suggested_edits_image_preview_dialog_artist">Umělec</string>
-  <string name="suggested_edits_image_preview_dialog_tags">Značky</string>
-  <string name="suggested_edits_image_preview_dialog_date">Datum</string>
-  <string name="suggested_edits_image_preview_dialog_source">Zdroj/Fotograf</string>
-  <string name="suggested_edits_image_preview_dialog_licensing">Licencování</string>
-  <string name="suggested_edits_image_preview_dialog_more_info">Více informací</string>
-  <string name="suggested_edits_image_preview_dialog_file_page_link_text">Stránka souboru na Wikimedia Commons</string>
-  <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">Stránka souboru na Wikipedii</string>
-  <string name="suggested_edits_article_cta_image_caption">Přidat titulek obrázku</string>
-  <string name="suggested_edits_article_cta_image_caption_in_language">Přidat titulek obrázku (%s)</string>
-  <string name="suggested_edits_article_cta_snackbar_action">Zobrazit</string>
-  <string name="suggested_edits_feed_card_add_image_caption">Přidat titulek obrázku</string>
-  <string name="suggested_edits_feed_card_translate_image_caption">Přidat titulek obrázku (%s)</string>
-  <string name="suggested_edits_feed_card_add_image_tags">Přidat značky obrázků</string>
-  <string name="suggested_edits_snackbar_survey_text">Jak se vám editovalo? Věnujte prosím chvíli vyplnění dotazníku k editování v aplikaci.</string>
-  <string name="suggested_edits_snackbar_survey_action_text">Vyplnit dotazník</string>
-  <string name="suggested_edits_task_action_text_add">Přidat</string>
-  <string name="suggested_edits_task_action_text_translate">Přeložit</string>
-  <string name="suggested_edits_image_captions">Titulky obrázků</string>
-  <string name="suggested_edits_image_tags">Značky obrázků</string>
-  <string name="suggested_edits_image_tags_publishing">Zveřejňuje se</string>
-  <string name="suggested_edits_image_tags_published">Zveřejněno</string>
-  <string name="suggested_edits_image_tags_onboarding_title">Označte obrázky, aby je ostatní mohli snáze najít.</string>
-  <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">Potvrzením navrhovaných značek můžete pomoci, aby byly obrázky snáze vyhledatelné.\n\nZnačky jsou navrhované počítačem, ale musí být ověřeny člověkem pro zajištění přesnosti.</string>
-  <string name="suggested_edits_image_tags_onboarding_note">Pouze značky, které vyberete, budou přidány k obrázkům.</string>
-  <string name="suggested_edits_image_tags_snackbar">Přidejte značky obrázkům, aby je ostatní mohli snáze najít.</string>
-  <string name="suggested_edits_image_tags_task_detail">Označte obrázky, aby je ostatní mohli snáze najít. Vyberte z navrhovaných značek nebo přidejte vlastní.\nPřidejte vlastní značky, aby bylo možné obrázek snáze najít.</string>
-  <string name="suggested_edits_image_tags_choose">Vyberte nebo přidejte shodující se značky</string>
-  <string name="suggested_edits_image_tags_published_list">Zveřejněné značky</string>
-  <string name="suggested_edits_image_tags_search">Vyhledávat značky</string>
-  <string name="suggested_edits_image_tags_select_title">Pro tento obrázek jste nevybrali žádné značky</string>
-  <string name="suggested_edits_image_tags_select_text">Jen značky, které vyberete, budou přidány k obrázkům. Značky, které nejsou vybrané, budou označeny jako odmítnuté. Jste si jisti, že chcete všechny značky označit jako odmítnuté?</string>
-  <string name="suggested_edits_image_tags_add_tag">Přidat značku</string>
-  <string name="suggested_edits_image_zoom_tooltip">Roztáhnutím dvou prstů zvětšíte obrázek.</string>
-  <string name="suggested_edits_encouragement_message">Uživateli %s, děkujeme za vaše úpravy. Níže naleznete další způsoby, jak přispívat na Wikipedii.</string>
-  <string name="suggested_edits_onboarding_message">&lt;b&gt;Dobrý den, uživateli %s&lt;/b&gt;, věděli jste, že editovat Wikipedii může každý? Níže naleznete zábavné způsoby, jak pomoci vylepšit Wikipedii. Přejeme šťastné editování!</string>
-  <string name="suggested_edits_image_captions_task_detail">Popište obrázek, abyste čtenářům pomohli pochopit jeho význam a kontext.</string>
-  <string name="suggested_edits_add_descriptions_task_detail">Shrňte článek a pomozte čtenářům snáze pochopit téma článku.</string>
-  <string name="suggested_edits_contributions_stat_tooltip">Váš celkový počet příspěvků s Navrhováním editací.</string>
-  <string name="suggested_edits_edit_streak_stat_tooltip">Kolik dní bez přestávky jste přispívali přes Navrhování editací. Pokud jste nějakou dobu nepřispívali, zobrazuje datum vašeho posledního příspěvku.</string>
-  <string name="suggested_edits_page_views_stat_tooltip">Celkový počet zobrazení položek, k nimž jste za posledních 30 dní přispěli pomocí Navrhování editací.</string>
-  <string name="suggested_edits_edit_quality_stat_tooltip">Na základě toho, kolikrát byly vaše příspěvky zrušeny jinými uživateli. Vrácené editace: %d.</string>
-  <string name="suggested_edits_paused_message" fuzzy="true">&lt;b&gt;Navrhování editací je pozastaveno do %1$s.&lt;/b&gt; Litujeme, uživateli %2$s, některé vaše nedávné příspěvky byly zrušeny.\n\nNa níže uvedeném odkazu se dozvíte, jak zlepšit své editační schopnosti na Wikipedii.</string>
-  <string name="suggested_edits_disabled_message" fuzzy="true">&lt;b&gt;Navrhování editací je vypnuto.&lt;/b&gt; Litujeme, uživateli %s, velké množství vašich nedávných příspěvků bylo zrušeno.\n\nPřečtěte si, co to znamená, pomocí odkazu níže.</string>
-  <string name="suggested_edits_ip_blocked_message" fuzzy="true">IP adrese (nebo rozsahu IP adres), kterou používáte, je blokována editace Wikipedie. Další informace o tom, co to znamená, naleznete na níže uvedeném odkazu.</string>
-  <string name="suggested_edits_editing_tips_link_text">Editační tipy a triky</string>
-  <string name="suggested_edits_help_page_link_text">Nápověda Navrhování editací</string>
-  <string name="suggested_edits_edit_streak_label_text">Editací v řadě</string>
-  <string name="suggested_edits_pageviews_label_text">Návštěvnost stránek</string>
-  <string name="suggested_edits_quality_label_text">Kvalita editací</string>
-  <string name="suggested_edits_quality_perfect_text">Perfektní</string>
-  <string name="suggested_edits_quality_excellent_text">Vynikající</string>
-  <string name="suggested_edits_quality_very_good_text">Velmi dobrý</string>
-  <string name="suggested_edits_quality_good_text">Dobrý</string>
-  <string name="suggested_edits_quality_okay_text">Chvalitebný</string>
-  <string name="suggested_edits_quality_sufficient_text">Dostatečný</string>
-  <string name="suggested_edits_quality_poor_text">Špatný</string>
-  <string name="suggested_edits_quality_bad_text">Mizerný</string>
-  <plurals name="suggested_edits_contribution" fuzzy="true">
+  <string name="edits_feed_card_title">Navrhování editací</string>
+  <string name="edits_feed_card_add_description_button">Přidat popis článku</string>
+  <string name="edits_feed_card_add_translation_in_language_button">Přidat popis článku (v jazyce %s)</string>
+  <string name="edits_tasks_onboarding_get_started">Začít</string>
+  <string name="edits_image_preview_dialog_caption_in_language_title">Titulek obrázku (v jazyce %s)</string>
+  <string name="edits_image_preview_dialog_description_in_language_title">Popis obrázku (v jazyce %s)</string>
+  <string name="edits_image_preview_dialog_file">Soubor</string>
+  <string name="edits_image_preview_dialog_artist">Umělec</string>
+  <string name="edits_image_preview_dialog_tags">Značky</string>
+  <string name="edits_image_preview_dialog_date">Datum</string>
+  <string name="edits_image_preview_dialog_source">Zdroj/Fotograf</string>
+  <string name="edits_image_preview_dialog_licensing">Licencování</string>
+  <string name="edits_image_preview_dialog_more_info">Více informací</string>
+  <string name="edits_image_preview_dialog_file_page_link_text">Stránka souboru na Wikimedia Commons</string>
+  <string name="edits_image_preview_dialog_file_page_wikipedia_link_text">Stránka souboru na Wikipedii</string>
+  <string name="edits_article_cta_image_caption">Přidat titulek obrázku</string>
+  <string name="edits_article_cta_image_caption_in_language">Přidat titulek obrázku (%s)</string>
+  <string name="edits_article_cta_snackbar_action">Zobrazit</string>
+  <string name="edits_feed_card_add_image_caption">Přidat titulek obrázku</string>
+  <string name="edits_feed_card_translate_image_caption">Přidat titulek obrázku (%s)</string>
+  <string name="edits_feed_card_add_image_tags">Přidat značky obrázků</string>
+  <string name="edits_snackbar_survey_text">Jak se vám editovalo? Věnujte prosím chvíli vyplnění dotazníku k editování v aplikaci.</string>
+  <string name="edits_snackbar_survey_action_text">Vyplnit dotazník</string>
+  <string name="edits_task_action_text_add">Přidat</string>
+  <string name="edits_task_action_text_translate">Přeložit</string>
+  <string name="edits_image_captions">Titulky obrázků</string>
+  <string name="edits_image_tags">Značky obrázků</string>
+  <string name="edits_image_tags_publishing">Zveřejňuje se</string>
+  <string name="edits_image_tags_published">Zveřejněno</string>
+  <string name="edits_image_tags_onboarding_title">Označte obrázky, aby je ostatní mohli snáze najít.</string>
+  <string name="edits_image_tags_onboarding_text" fuzzy="true">Potvrzením navrhovaných značek můžete pomoci, aby byly obrázky snáze vyhledatelné.\n\nZnačky jsou navrhované počítačem, ale musí být ověřeny člověkem pro zajištění přesnosti.</string>
+  <string name="edits_image_tags_onboarding_note">Pouze značky, které vyberete, budou přidány k obrázkům.</string>
+  <string name="edits_image_tags_snackbar">Přidejte značky obrázkům, aby je ostatní mohli snáze najít.</string>
+  <string name="edits_image_tags_task_detail">Označte obrázky, aby je ostatní mohli snáze najít. Vyberte z navrhovaných značek nebo přidejte vlastní.\nPřidejte vlastní značky, aby bylo možné obrázek snáze najít.</string>
+  <string name="edits_image_tags_choose">Vyberte nebo přidejte shodující se značky</string>
+  <string name="edits_image_tags_published_list">Zveřejněné značky</string>
+  <string name="edits_image_tags_search">Vyhledávat značky</string>
+  <string name="edits_image_tags_select_title">Pro tento obrázek jste nevybrali žádné značky</string>
+  <string name="edits_image_tags_select_text">Jen značky, které vyberete, budou přidány k obrázkům. Značky, které nejsou vybrané, budou označeny jako odmítnuté. Jste si jisti, že chcete všechny značky označit jako odmítnuté?</string>
+  <string name="edits_image_tags_add_tag">Přidat značku</string>
+  <string name="edits_image_zoom_tooltip">Roztáhnutím dvou prstů zvětšíte obrázek.</string>
+  <string name="edits_encouragement_message">Uživateli %s, děkujeme za vaše úpravy. Níže naleznete další způsoby, jak přispívat na Wikipedii.</string>
+  <string name="edits_onboarding_message">&lt;b&gt;Dobrý den, uživateli %s&lt;/b&gt;, věděli jste, že editovat Wikipedii může každý? Níže naleznete zábavné způsoby, jak pomoci vylepšit Wikipedii. Přejeme šťastné editování!</string>
+  <string name="edits_image_captions_task_detail">Popište obrázek, abyste čtenářům pomohli pochopit jeho význam a kontext.</string>
+  <string name="edits_add_descriptions_task_detail">Shrňte článek a pomozte čtenářům snáze pochopit téma článku.</string>
+  <string name="edits_contributions_stat_tooltip">Váš celkový počet příspěvků s Navrhováním editací.</string>
+  <string name="edits_edit_streak_stat_tooltip">Kolik dní bez přestávky jste přispívali přes Navrhování editací. Pokud jste nějakou dobu nepřispívali, zobrazuje datum vašeho posledního příspěvku.</string>
+  <string name="edits_page_views_stat_tooltip">Celkový počet zobrazení položek, k nimž jste za posledních 30 dní přispěli pomocí Navrhování editací.</string>
+  <string name="edits_edit_quality_stat_tooltip">Na základě toho, kolikrát byly vaše příspěvky zrušeny jinými uživateli. Vrácené editace: %d.</string>
+  <string name="edits_paused_message" fuzzy="true">&lt;b&gt;Navrhování editací je pozastaveno do %1$s.&lt;/b&gt; Litujeme, uživateli %2$s, některé vaše nedávné příspěvky byly zrušeny.\n\nNa níže uvedeném odkazu se dozvíte, jak zlepšit své editační schopnosti na Wikipedii.</string>
+  <string name="edits_disabled_message" fuzzy="true">&lt;b&gt;Navrhování editací je vypnuto.&lt;/b&gt; Litujeme, uživateli %s, velké množství vašich nedávných příspěvků bylo zrušeno.\n\nPřečtěte si, co to znamená, pomocí odkazu níže.</string>
+  <string name="edits_ip_blocked_message" fuzzy="true">IP adrese (nebo rozsahu IP adres), kterou používáte, je blokována editace Wikipedie. Další informace o tom, co to znamená, naleznete na níže uvedeném odkazu.</string>
+  <string name="edits_editing_tips_link_text">Editační tipy a triky</string>
+  <string name="edits_help_page_link_text">Nápověda Navrhování editací</string>
+  <string name="edits_edit_streak_label_text">Editací v řadě</string>
+  <string name="edits_pageviews_label_text">Návštěvnost stránek</string>
+  <string name="edits_quality_label_text">Kvalita editací</string>
+  <string name="edits_quality_perfect_text">Perfektní</string>
+  <string name="edits_quality_excellent_text">Vynikající</string>
+  <string name="edits_quality_very_good_text">Velmi dobrý</string>
+  <string name="edits_quality_good_text">Dobrý</string>
+  <string name="edits_quality_okay_text">Chvalitebný</string>
+  <string name="edits_quality_sufficient_text">Dostatečný</string>
+  <string name="edits_quality_poor_text">Špatný</string>
+  <string name="edits_quality_bad_text">Mizerný</string>
+  <plurals name="edits_contribution" fuzzy="true">
     <item quantity="one">Příspěvek</item>
     <item quantity="other">Příspěvky</item>
   </plurals>
-  <plurals name="suggested_edits_edit_streak_detail_text" fuzzy="true">
+  <plurals name="edits_edit_streak_detail_text" fuzzy="true">
     <item quantity="one">%d den</item>
     <item quantity="few">%d dny</item>
     <item quantity="other">%d dní</item>
   </plurals>
-  <string name="suggested_edits_what_is_title">Co je to Navrhování editací?</string>
-  <string name="suggested_edits_what_is_text">Navrhování editací umožňují příležitosti pro malé, ale zásadní příspěvky na Wikipedii.</string>
-  <string name="suggested_edits_paused_title">Pozastaveno</string>
-  <string name="suggested_edits_disabled_title">Vypnuto</string>
-  <string name="suggested_edits_ip_blocked_title">Zablokovaná IP</string>
-  <string name="suggested_edits_last_edited">Poslední editace</string>
-  <string name="suggested_edits_last_edited_never">Nikdy</string>
-  <string name="suggested_edits_task_new">nové</string>
-  <string name="suggested_edits_cc0_notice">Zveřejněním souhlasíte s &lt;a href=\"%1$s\"&gt;podmínkami použití&lt;/a&gt; a neodvolatelně také souhlasíte se zveřejněním tohoto příspěvku pod &lt;a href=\"%2$s\"&gt;licencí CC0&lt;/a&gt;.</string>
-  <string name="suggested_edits_reactivation_notification_title">Navrhování editací</string>
+  <string name="edits_what_is_title">Co je to Navrhování editací?</string>
+  <string name="edits_what_is_text">Navrhování editací umožňují příležitosti pro malé, ale zásadní příspěvky na Wikipedii.</string>
+  <string name="edits_paused_title">Pozastaveno</string>
+  <string name="edits_disabled_title">Vypnuto</string>
+  <string name="edits_ip_blocked_title">Zablokovaná IP</string>
+  <string name="edits_last_edited">Poslední editace</string>
+  <string name="edits_last_edited_never">Nikdy</string>
+  <string name="edits_task_new">nové</string>
+  <string name="edits_cc0_notice">Zveřejněním souhlasíte s &lt;a href=\"%1$s\"&gt;podmínkami použití&lt;/a&gt; a neodvolatelně také souhlasíte se zveřejněním tohoto příspěvku pod &lt;a href=\"%2$s\"&gt;licencí CC0&lt;/a&gt;.</string>
+  <string name="edits_reactivation_notification_title">Navrhování editací</string>
   <string name="description_edit_revert_subtitle">Děkujeme za editaci Wikipedie!</string>
   <string name="description_edit_revert_intro">Víme, že jste se snažili o to nejlepší, ale jeden z wikipedistů měl obavy. Možné důvody vrácení vaší editace jsou:</string>
   <string name="description_edit_revert_reason1">váš příspěvek nedodržel některé z &lt;a href=\"%1$s\"&gt;pravidel&lt;/a&gt;.</string>
