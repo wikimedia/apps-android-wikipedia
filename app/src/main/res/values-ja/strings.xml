@@ -728,7 +728,6 @@
   <string name="suggested_edits_disabled_message" fuzzy="true">&lt;b&gt;編集提案は無効にされました。&lt;/ b&gt;申し訳ありませんが、%sさんの最近の投稿で巻き戻されたものが多すぎました。\n\n以下のリンクでどういう意味か理解しましょう。</string>
   <string name="suggested_edits_editing_tips_link_text">編集のヒントとコツ</string>
   <string name="suggested_edits_help_page_link_text">編集提案のヘルプページ</string>
-  <string name="suggested_edits_pageviews_label_text">ページビュー</string>
   <string name="suggested_edits_quality_label_text">編集の品質</string>
   <string name="suggested_edits_quality_perfect_text">完璧</string>
   <string name="suggested_edits_quality_excellent_text">すばらしい</string>
