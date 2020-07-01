@@ -730,7 +730,6 @@
   <string name="suggested_edits_paused_message" fuzzy="true">&lt;b&gt;Penyuntingan yang disarankan terjeda hingga %1$s.&lt;/b&gt; Maaf %2$s, beberapa kontribusi terbaru Anda telah dibalikkan.\n\nKetahui cara untuk memperbaiki kemampuan penyuntingan Anda di Wikipedia dengan pranala di bawah.</string>
   <string name="suggested_edits_ip_blocked_message" fuzzy="true">Sepertinya alamat IP Anda (atau jangkauan alamat IP) saat ini terblokir untuk menyunting Wikipedia. Ketahui lebih lanjut dengan mengunjungi pranala di bawah ini.</string>
   <string name="suggested_edits_help_page_link_text">Halaman bantuan suntingan yang disarankan</string>
-  <string name="suggested_edits_pageviews_label_text">Kunjungan halaman</string>
   <string name="suggested_edits_quality_label_text">Kualitas suntingan</string>
   <string name="suggested_edits_quality_perfect_text">Sempurna</string>
   <string name="suggested_edits_quality_excellent_text">Luar biasa</string>
