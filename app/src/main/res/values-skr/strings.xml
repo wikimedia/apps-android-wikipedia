@@ -289,7 +289,6 @@
   <string name="suggested_edits_paused_title">جمب ڳیا</string>
   <string name="suggested_edits_contribution_language_label">زبان</string>
   <string name="suggested_edits_contribution_date_time_label">تریخ/ویلا</string>
-  <string name="suggested_edits_contribution_image_label">فائل</string>
   <string name="suggested_edits_contribution_article_label">مضمون</string>
   <string name="description_edit_login_cancel_button_text">منسوخ</string>
   <string name="size_gb">%.2f جی بی</string>

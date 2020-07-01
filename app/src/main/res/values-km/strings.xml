@@ -338,7 +338,6 @@
   <string name="suggested_edits_paused_title">បានផ្អាក</string>
   <string name="suggested_edits_disabled_title">បានបញ្ជាបិទ</string>
   <string name="suggested_edits_ip_blocked_title">IP ត្រូវបានឃាត់ឃាំង</string>
-  <string name="suggested_edits_contribution_current_revision">បម្លាស់ប្តូរចុងក្រោយ</string>
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="one">ស្លាក %1$s</item>
     <item quantity="other">ស្លាក %1$s</item>
