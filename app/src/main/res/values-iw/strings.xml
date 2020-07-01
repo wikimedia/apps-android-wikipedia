@@ -760,7 +760,6 @@
   <string name="suggested_edits_editing_tips_link_text">עצות ותכסיסים לעריכה</string>
   <string name="suggested_edits_help_page_link_text">עמוד עזרה לעריכות מומלצות</string>
   <string name="suggested_edits_edit_streak_label_text">רצף עריכה</string>
-  <string name="suggested_edits_pageviews_label_text">צפיות בדף</string>
   <string name="suggested_edits_quality_label_text">איכות עריכה</string>
   <string name="suggested_edits_quality_perfect_text">מושלמת</string>
   <string name="suggested_edits_quality_excellent_text">מעולה</string>

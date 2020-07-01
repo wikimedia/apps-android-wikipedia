@@ -684,7 +684,6 @@
   <string name="suggested_edits_image_captions_task_detail">Опишете изображение, за да помогнете на читателите да разберат смисъла и контекста му.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Обобщава статията, за да помогне на читателите да добият представа за темата.</string>
   <string name="suggested_edits_editing_tips_link_text">Съвети и трикове за редактирането</string>
-  <string name="suggested_edits_pageviews_label_text">Преглеждания</string>
   <string name="suggested_edits_quality_label_text">Качество на редакциите</string>
   <string name="suggested_edits_quality_perfect_text">Съвършено</string>
   <string name="suggested_edits_quality_excellent_text">Отлично</string>
