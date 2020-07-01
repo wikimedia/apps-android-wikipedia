@@ -3,9 +3,11 @@ package org.wikipedia.suggestededits
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.view.*
+import android.view.LayoutInflater
+import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
+import android.view.ViewGroup
 import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -82,7 +84,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         editStreakStatsView.setDescription(resources.getString(R.string.edits_edit_streak_label_text))
         editStreakStatsView.setImageDrawable(R.drawable.ic_timer_black_24dp)
 
-        pageViewStatsView.setDescription(getString(R.string.edits_pageviews_label_text))
+        pageViewStatsView.setDescription(getString(R.string.suggested_edits_views_label_text))
         pageViewStatsView.setImageDrawable(R.drawable.ic_trending_up_black_24dp)
 
         editQualityStatsView.setDescription(getString(R.string.edits_quality_label_text))
