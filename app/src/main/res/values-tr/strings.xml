@@ -745,7 +745,6 @@
   <string name="suggested_edits_image_tags_add_tag">Etiket ekle</string>
   <string name="suggested_edits_image_zoom_tooltip">Bu resmi yakınlaştırmak için sıkıştırın.</string>
   <string name="suggested_edits_encouragement_message">%s, düzenlemeleriniz için teşekkürler. Aşağıda Vikipedi\'ye katkıda bulunmak için daha fazla yol bulabilirsiniz.</string>
-  <string name="suggested_edits_onboarding_message">&lt;b&gt;Merhaba %s&lt;/b&gt;, Herkesin Vikipedi\'yi düzenleyebileceğini biliyor muydun? Aşağıda Vikipedi\'yi iyileştirmeye yardımcı olacak eğlenceli yollar bulabilirsiniz. Mutlu düzenlemeler!</string>
   <string name="suggested_edits_image_captions_task_detail">Okuyucuların anlamını ve içeriğini anlamalarına yardımcı olmak için bir resim tanımlayın.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Okuyucuların konuyu bir bakışta anlamalarına yardımcı olacak bir maddeyi özetleyin.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Önerilen düzenlemelerle toplam katkı sayınız.</string>

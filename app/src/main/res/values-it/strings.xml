@@ -746,7 +746,6 @@
   <string name="suggested_edits_image_tags_add_tag">Aggiungi etichetta</string>
   <string name="suggested_edits_image_zoom_tooltip">Pizzica per ingrandire l\'immagine.</string>
   <string name="suggested_edits_encouragement_message">%s, grazie per le tue modifiche. Di seguito puoi trovare altri modi per contribuire a Wikipedia.</string>
-  <string name="suggested_edits_onboarding_message">&lt;b&gt;Ciao %s&lt;/b&gt;, sapevi che tutti possono modificare Wikipedia? Di seguito puoi trovare modi divertenti per migliorare Wikipedia. Buona modifica!</string>
   <string name="suggested_edits_image_captions_task_detail">Descrivi un\'immagine per aiutare i lettori a comprenderne il significato e il contesto.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Riassumi una voce per aiutare i lettori a comprenderne l\'argomento a colpo d\'occhio.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Il numero totale di contributi con modifiche suggerite.</string>

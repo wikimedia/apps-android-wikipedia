@@ -721,7 +721,6 @@
   <string name="suggested_edits_image_tags_select_title">この画像のタグを選択していません</string>
   <string name="suggested_edits_image_tags_select_text">あなたが確認したタグのみ画像に追加されます。選択されていないタグは拒否としてマークされます。すべてのタグを拒否としてマークしますか?</string>
   <string name="suggested_edits_encouragement_message">%sさん、編集ありがとうございます。ウィキペディアに貢献できるいろんなやり方を以下でご紹介します。</string>
-  <string name="suggested_edits_onboarding_message">&lt;b&gt;%sさん&lt;/b&gt;、ウィキペディアは誰でも編集できることをご存知ですか？　ウィキペディアをより良くする楽しみ方を以下でご紹介します。良い編集を！</string>
   <string name="suggested_edits_image_captions_task_detail" fuzzy="true">画像キャプションは、読者が意味と文脈を理解する手助けとなるよう、画像について説明します。</string>
   <string name="suggested_edits_add_descriptions_task_detail" fuzzy="true">記事の説明は、読者が一目でその主題を理解するのに役立つように要約します。</string>
   <string name="suggested_edits_contributions_stat_tooltip">編集提案の投稿回数</string>

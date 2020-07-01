@@ -746,7 +746,6 @@
   <string name="suggested_edits_image_tags_add_tag">Añadir etiqueta</string>
   <string name="suggested_edits_image_zoom_tooltip">Para ampliar esta imagen, utiliza dos dedos.</string>
   <string name="suggested_edits_encouragement_message">%s, gracias por tus ediciones. Más abajo puedes encontrar otras formas de contribuir con la Wikipedia.</string>
-  <string name="suggested_edits_onboarding_message">&lt;b&gt;Hola, %s&lt;/b&gt;. ¿Sabías que todo el mundo puede editar Wikipedia? Más abajo puedes encontrar formas divertidas de ayudar a mejorar la Wikipedia. ¡Feliz edición!</string>
   <string name="suggested_edits_image_captions_task_detail" fuzzy="true">Los pies de foto describen una imagen para ayudar al lector a comprender su significado y contexto.</string>
   <string name="suggested_edits_add_descriptions_task_detail" fuzzy="true">Las descripciones de los artículos resumen el mismo para ayudar a los lectores a entender el tema de un vistazo.</string>
   <string name="suggested_edits_contributions_stat_tooltip">El número total de tus contribuciones con Ediciones sugeridas.</string>

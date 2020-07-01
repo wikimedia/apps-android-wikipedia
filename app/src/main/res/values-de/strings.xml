@@ -709,7 +709,6 @@
   <string name="suggested_edits_image_tags_select_text">Nur die von Ihnen ausgewählten Tags werden zu Bildern hinzugefügt. Nicht ausgewählte Tags werden als abgelehnt markiert. Möchten Sie wirklich alle Tags als abgelehnt markieren?</string>
   <string name="suggested_edits_image_tags_add_tag" fuzzy="true">Tag hinzufügen...</string>
   <string name="suggested_edits_encouragement_message" fuzzy="true">%s, danke für Ihre Edits. Unten finden Sie weitere Möglichkeiten, um zu Wikipedia beizutragen.</string>
-  <string name="suggested_edits_onboarding_message">&lt;b&gt;Hallo %s&lt;/b&gt;, haben Sie gewusst das jeder Wikipedia editieren kann? Unten finden Sie spannende Möglichkeiten um Wikipedia zu verbessern. Viel Spass beim Editieren!</string>
   <string name="suggested_edits_image_captions_task_detail" fuzzy="true">Bildunterschriften beschreiben ein Bild, sodass Leser die Bedeutung und Kontext des Bildes besser verstehen können.</string>
   <string name="suggested_edits_add_descriptions_task_detail" fuzzy="true">Artikelbeschreibungen fassen einen Artikel zusammen, damit Leser das Thema auf den ersten Blick besser verstehen.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Ihre Gesamtzahl der Beiträge mit Vorgeschlagenen Bearbeitungen.</string>
