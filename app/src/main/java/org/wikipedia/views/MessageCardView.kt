@@ -4,17 +4,43 @@ import android.content.Context
 import android.net.Uri
 import android.util.AttributeSet
 import android.view.View
-import kotlinx.android.synthetic.main.view_suggested_edits_disabled_states.view.*
+import kotlinx.android.synthetic.main.view_message_card.view.*
 import org.wikipedia.R
 import org.wikipedia.analytics.LoginFunnel.SOURCE_SUGGESTED_EDITS
 import org.wikipedia.login.LoginActivity
+import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
 
-internal class SuggestedEditsDisabledStatesView constructor(context: Context, attrs: AttributeSet? = null) : WikiCardView(context, attrs) {
+internal class MessageCardView constructor(context: Context, attrs: AttributeSet? = null) : WikiCardView(context, attrs) {
 
     init {
-        View.inflate(context, R.layout.view_suggested_edits_disabled_states, this)
+        View.inflate(context, R.layout.view_message_card, this)
+    }
+
+    fun setMessageTitle(title: String) {
+        messageTitleView.text = title
+    }
+
+    fun setMessageText(text: String) {
+        messageTextView.text = text
+    }
+
+    fun setImageSource(imageSource: Int) {
+        if (imageSource < 0) {
+            imageView.visibility = View.GONE
+        } else {
+            imageView.visibility = View.VISIBLE
+            imageView.setImageResource(imageSource)
+        }
+    }
+
+    fun setButton(text: String, listener: OnClickListener, applyListenerToContainer: Boolean) {
+        actionButton.text = text
+        actionButton.setOnClickListener(listener)
+        if (applyListenerToContainer) {
+            containerClickArea.setOnClickListener(listener)
+        }
     }
 
     fun setPaused(message: String) {
@@ -41,14 +67,13 @@ internal class SuggestedEditsDisabledStatesView constructor(context: Context, at
     }
 
     fun setRequiredLogin() {
-        setDefaultState()
+        imageView.visibility = View.VISIBLE
         messageTitleView.text = context.getString(R.string.suggested_edits_encourage_account_creation_title)
         messageTextView.text = context.getString(R.string.suggested_edits_encourage_account_creation_message)
         imageView.setImageResource(R.drawable.ic_require_login_header)
         actionButton.text = context.getString(R.string.suggested_edits_encourage_account_creation_login_button)
-        actionButton.icon = null
         actionButton.setOnClickListener { context.startActivity(LoginActivity.newIntent(context, SOURCE_SUGGESTED_EDITS)) }
-        disabledStateClickArea.setOnClickListener { context.startActivity(LoginActivity.newIntent(context, SOURCE_SUGGESTED_EDITS)) }
+        containerClickArea.setOnClickListener { context.startActivity(LoginActivity.newIntent(context, SOURCE_SUGGESTED_EDITS)) }
     }
 
     private fun setDefaultState() {
@@ -56,6 +81,6 @@ internal class SuggestedEditsDisabledStatesView constructor(context: Context, at
         actionButton.text = context.getString(R.string.suggested_edits_learn_more)
         actionButton.setIconResource(R.drawable.ic_open_in_new_black_24px)
         actionButton.setOnClickListener { UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(R.string.android_app_edit_help_url))) }
-        disabledStateClickArea.setOnClickListener { UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(R.string.android_app_edit_help_url))) }
+        containerClickArea.setOnClickListener { UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(R.string.android_app_edit_help_url))) }
     }
 }

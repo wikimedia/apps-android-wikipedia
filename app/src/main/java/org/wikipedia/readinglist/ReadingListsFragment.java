@@ -10,15 +10,12 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.view.ActionMode;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -36,7 +33,6 @@ import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.history.SearchActionModeCallback;
 import org.wikipedia.main.MainActivity;
 import org.wikipedia.main.MainFragment;
-import org.wikipedia.onboarding.OnboardingView;
 import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageAvailableOfflineHandler;
@@ -50,11 +46,13 @@ import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.DefaultViewHolder;
 import org.wikipedia.views.DrawableItemDecoration;
+import org.wikipedia.views.MessageCardView;
 import org.wikipedia.views.PageItemView;
 import org.wikipedia.views.ReadingListsOverflowView;
 import org.wikipedia.views.SearchEmptyView;
@@ -83,11 +81,8 @@ public class ReadingListsFragment extends Fragment implements
     private Unbinder unbinder;
     @BindView(R.id.reading_list_content_container) ViewGroup contentContainer;
     @BindView(R.id.reading_list_list) RecyclerView readingListView;
-    @BindView(R.id.empty_container) ViewGroup emptyContainer;
-    @BindView(R.id.empty_title) TextView emptyTitle;
-    @BindView(R.id.empty_message) TextView emptyMessage;
     @BindView(R.id.search_empty_view) SearchEmptyView searchEmptyView;
-    @BindView(R.id.reading_list_onboarding_container) ViewGroup onboardingContainer;
+    @BindView(R.id.onboarding_view) MessageCardView onboardingView;
     @BindView(R.id.reading_list_swipe_refresh) SwipeRefreshLayout swipeRefreshLayout;
 
     private List<Object> displayedLists = new ArrayList<>();
@@ -314,12 +309,8 @@ public class ReadingListsFragment extends Fragment implements
     private void enableLayoutTransition(boolean enable) {
         if (enable) {
             contentContainer.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
-            emptyContainer.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
-            ((ViewGroup) emptyContainer.getChildAt(0)).getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
         } else {
             contentContainer.getLayoutTransition().disableTransitionType(LayoutTransition.CHANGING);
-            emptyContainer.getLayoutTransition().disableTransitionType(LayoutTransition.CHANGING);
-            ((ViewGroup) emptyContainer.getChildAt(0)).getLayoutTransition().disableTransitionType(LayoutTransition.CHANGING);
         }
     }
 
@@ -392,36 +383,10 @@ public class ReadingListsFragment extends Fragment implements
     private void updateEmptyState(@Nullable String searchQuery) {
         if (TextUtils.isEmpty(searchQuery)) {
             searchEmptyView.setVisibility(View.GONE);
-            if (displayedLists.size() == 1) {
-                setEmptyContainerVisibility(true);
-                setUpEmptyContainer();
-            }
-            setEmptyContainerVisibility(displayedLists.size() == 1);
         } else {
             searchEmptyView.setVisibility(displayedLists.isEmpty() ? View.VISIBLE : View.GONE);
-            setEmptyContainerVisibility(false);
         }
         contentContainer.setVisibility(displayedLists.isEmpty() ? View.GONE : View.VISIBLE);
-    }
-
-    private void setEmptyContainerVisibility(boolean visible) {
-        if (visible) {
-            emptyContainer.setVisibility(View.VISIBLE);
-            requireActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
-        } else {
-            emptyContainer.setVisibility(View.GONE);
-            DeviceUtil.setWindowSoftInputModeResizable(requireActivity());
-        }
-    }
-
-    private void setUpEmptyContainer() {
-        if (displayedLists.get(0) instanceof ReadingList && !((ReadingList) displayedLists.get(0)).pages().isEmpty()) {
-            emptyTitle.setText(getString(R.string.no_user_lists_title));
-            emptyMessage.setText(getString(R.string.no_user_lists_msg));
-        } else {
-            emptyTitle.setText(getString(R.string.saved_list_empty_title));
-            emptyMessage.setText(getString(R.string.reading_lists_empty_message));
-        }
     }
 
     @Override
@@ -727,58 +692,29 @@ public class ReadingListsFragment extends Fragment implements
     }
 
     private void maybeShowOnboarding() {
-        onboardingContainer.removeAllViews();
-
+        onboardingView.setVisibility(View.GONE);
         if (AccountUtil.isLoggedIn() && !Prefs.isReadingListSyncEnabled()
                 && Prefs.isReadingListSyncReminderEnabled()
                 && !ReadingListSyncAdapter.isDisabledByRemoteConfig()) {
-            OnboardingView onboardingView = new OnboardingView(requireContext());
-            onboardingView.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.base20));
-            onboardingView.setTitle(R.string.reading_lists_sync_reminder_title);
-            onboardingView.setText(StringUtil.fromHtml(getString(R.string.reading_lists_sync_reminder_text)));
-            onboardingView.setPositiveAction(R.string.reading_lists_sync_reminder_action);
-            onboardingContainer.addView(onboardingView);
-            onboardingView.setCallback(new SyncReminderOnboardingCallback());
+            onboardingView.setMessageTitle(getString((R.string.reading_lists_sync_reminder_title)));
+            onboardingView.setMessageText(StringUtil.fromHtml(getString(R.string.reading_lists_sync_reminder_text)).toString());
+            onboardingView.setImageSource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.sync_reading_list_prompt_drawable));
+            onboardingView.setButton(requireContext().getString(R.string.reading_lists_sync_reminder_action),
+                    view -> ReadingListSyncAdapter.setSyncEnabledWithSetup(), true);
+            onboardingView.setVisibility(View.VISIBLE);
 
         } else if (!AccountUtil.isLoggedIn() && Prefs.isReadingListLoginReminderEnabled()
                 && !ReadingListSyncAdapter.isDisabledByRemoteConfig()) {
-            OnboardingView onboardingView = new OnboardingView(requireContext());
-            onboardingView.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.base20));
-            onboardingView.setTitle(R.string.reading_list_login_reminder_title);
-            onboardingView.setText(R.string.reading_lists_login_reminder_text);
-            onboardingView.setNegativeAction(R.string.reading_lists_onboarding_got_it);
-            onboardingView.setPositiveAction(R.string.reading_lists_sync_login);
-            onboardingContainer.addView(onboardingView);
-            onboardingView.setCallback(new LoginReminderOnboardingCallback());
-        }
-    }
-
-    private class SyncReminderOnboardingCallback implements OnboardingView.Callback {
-        @Override
-        public void onPositiveAction() {
-            ReadingListSyncAdapter.setSyncEnabledWithSetup();
-            maybeShowOnboarding();
-        }
-
-        @Override
-        public void onNegativeAction() {
-            Prefs.setReadingListSyncReminderEnabled(false);
-            maybeShowOnboarding();
-        }
-    }
-
-    private class LoginReminderOnboardingCallback implements OnboardingView.Callback {
-        @Override
-        public void onPositiveAction() {
-            if (getParentFragment() instanceof FeedFragment.Callback) {
-                ((FeedFragment.Callback) getParentFragment()).onLoginRequested();
-            }
-        }
-
-        @Override
-        public void onNegativeAction() {
-            Prefs.setReadingListLoginReminderEnabled(false);
-            maybeShowOnboarding();
+            onboardingView.setMessageTitle(getString((R.string.reading_list_login_reminder_title)));
+            onboardingView.setMessageText(getString(R.string.reading_lists_login_reminder_text));
+            onboardingView.setImageSource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.sync_reading_list_prompt_drawable));
+            onboardingView.setButton(requireContext().getString(R.string.reading_lists_login_button),
+                    view -> {
+                        if (getParentFragment() instanceof FeedFragment.Callback) {
+                            ((FeedFragment.Callback) getParentFragment()).onLoginRequested();
+                        }
+                    }, true);
+            onboardingView.setVisibility(View.VISIBLE);
         }
     }
 }

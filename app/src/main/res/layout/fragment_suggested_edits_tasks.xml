@@ -22,7 +22,7 @@
                 android:layout_height="wrap_content"
                 android:focusableInTouchMode="true">
 
-                <org.wikipedia.views.SuggestedEditsDisabledStatesView
+                <org.wikipedia.views.MessageCardView
                     android:id="@+id/disabledStatesView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
