@@ -701,7 +701,6 @@
   <string name="edits_image_tags_add_tag">Додај ознаку</string>
   <string name="edits_editing_tips_link_text">Савети и трикови за уређивање</string>
   <string name="edits_help_page_link_text">Страница помоћи за предложене измене</string>
-  <string name="edits_pageviews_label_text">Прикази страница</string>
   <string name="edits_quality_label_text">Квалитет измена</string>
   <string name="edits_quality_perfect_text">Савршено</string>
   <string name="edits_quality_excellent_text">Одлично</string>

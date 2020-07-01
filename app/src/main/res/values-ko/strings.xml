@@ -738,7 +738,6 @@
   <string name="edits_editing_tips_link_text">편집 팁 및 트릭</string>
   <string name="edits_help_page_link_text">편집 제안 도움말 문서</string>
   <string name="edits_edit_streak_label_text">편집 스트리크</string>
-  <string name="edits_pageviews_label_text">조회 수</string>
   <string name="edits_quality_label_text">편집 품질</string>
   <string name="edits_quality_perfect_text">완벽함</string>
   <string name="edits_quality_excellent_text">우수함</string>

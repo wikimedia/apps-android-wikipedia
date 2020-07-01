@@ -757,12 +757,12 @@
     <string name="edits_onboarding_message"><![CDATA[<b>Hi %s\</b>, did you know that everyone can edit Wikipedia? Below you can find fun ways to help improve Wikipedia. Happy editing!]]></string>
     <string name="edits_image_captions_task_detail">Describe an image to help readers understand its meaning and context.</string>
     <string name="edits_add_descriptions_task_detail">Summarize an article to help readers understand the subject at a glance.</string>
-    <string name="edits_paused_message">Editing is paused until %1$s. Sorry %2$s, some of your recent contributions have been reverted.</string>
-    <string name="edits_disabled_message">Editing is disabled. Sorry %s, too many of your recent contributions have been reverted.</string>
+    <string name="edits_paused_message">Suggested edits is paused until %1$s. Sorry %2$s, some of your recent contributions have been reverted.</string>
+    <string name="edits_disabled_message">Suggested edits is disabled. Sorry %s, too many of your recent contributions have been reverted.</string>
     <string name="edits_ip_blocked_message">It looks like your IP address (or range of IP addresses) is currently blocked from editing Wikipedia.</string>
     <string name="edits_editing_tips_link_text">Editing tips and tricks</string>
     <string name="edits_edit_streak_label_text">Edit streak</string>
-    <string name="edits_pageviews_label_text">Pageviews</string>
+    <string name="edits_views_label_text">Views</string>
     <string name="edits_quality_label_text">Edit quality</string>
     <string name="edits_quality_perfect_text">Perfect</string>
     <string name="edits_quality_excellent_text">Excellent</string>

@@ -724,7 +724,6 @@
   <string name="edits_image_tags_add_tag">Label toevoegen</string>
   <string name="edits_ip_blocked_message" fuzzy="true">Het lijkt erop dat uw IP-adres (of bereik van IP-adressen) momenteel geblokkeerd is van het bewerken van Wikipedia. U kunt meer te weten komen over wat dit betekent door de link hieronder te volgen.</string>
   <string name="edits_help_page_link_text">Hulppagina voorgestelde bewerkingen</string>
-  <string name="edits_pageviews_label_text">Paginaweergaven</string>
   <string name="edits_quality_perfect_text">Perfect</string>
   <string name="edits_quality_excellent_text">Uitstekend</string>
   <string name="edits_quality_very_good_text">Erg goed</string>

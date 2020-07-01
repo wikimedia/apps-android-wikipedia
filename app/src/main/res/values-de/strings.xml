@@ -722,7 +722,6 @@
   <string name="edits_editing_tips_link_text">Tipps und Tricks beim Bearbeiten</string>
   <string name="edits_help_page_link_text">Hilfeseite für Vorgeschlagene Bearbeitungen</string>
   <string name="edits_edit_streak_label_text">Aufeinanderfolgende Edits</string>
-  <string name="edits_pageviews_label_text">Seitenaufrufe</string>
   <string name="edits_quality_label_text">Bearbeitungsqualität</string>
   <string name="edits_quality_perfect_text">Perfekt</string>
   <string name="edits_quality_excellent_text">Exzellent</string>

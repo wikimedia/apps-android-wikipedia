@@ -763,7 +763,6 @@
   <string name="edits_disabled_message">Предлагаемые правки выключены. Уважаемый %s, к сожалению, слишком многие из ваших последних изменений были отменены.</string>
   <string name="edits_ip_blocked_message">Судя по всему ваш IP-адрес (или диапазон IP-адресов) в данный момент заблокирован для внесения правок в Википедию.</string>
   <string name="edits_editing_tips_link_text">Советы и рекомендации по редактированию</string>
-  <string name="edits_pageviews_label_text">Просмотры страниц</string>
   <string name="edits_quality_label_text">Качество правки</string>
   <string name="edits_quality_perfect_text">Превосходная</string>
   <string name="edits_quality_excellent_text">Отличная</string>

@@ -745,7 +745,6 @@
   <string name="edits_ip_blocked_message">Text explaining ip blocking to the user.</string>
   <string name="edits_editing_tips_link_text">Label text for editing tips and tricks</string>
   <string name="edits_edit_streak_label_text">Suggested edits label text for edit streak</string>
-  <string name="edits_pageviews_label_text">Suggested edits label text for pageviews</string>
   <string name="edits_quality_label_text">Suggested edits label text for edit quality</string>
   <string name="edits_quality_perfect_text">Suggested edits label text indicating that the edit quality of the user is perfect</string>
   <string name="edits_quality_excellent_text">Suggested edits label text indicating that the edit quality of the user is excellent</string>

@@ -700,7 +700,6 @@
   <string name="edits_ip_blocked_message">Φαίνεται ότι η διεύθυνση IP σας (ή το εύρος των διευθύνσεων IP) έχει αποκλειστεί από την επεξεργασία της Βικιπίδεια.</string>
   <string name="edits_editing_tips_link_text">Συμβουλές και κόλπα επεξεργασίας</string>
   <string name="edits_edit_streak_label_text">Συνεχόμενη επεξεργασία</string>
-  <string name="edits_pageviews_label_text">Προβολές σελίδας</string>
   <string name="edits_quality_label_text">Ποιότητας επεξεργασίας</string>
   <string name="edits_quality_perfect_text">Τέλεια</string>
   <string name="edits_quality_excellent_text">Καταπληκτική</string>
