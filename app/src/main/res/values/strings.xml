@@ -804,7 +804,7 @@
     <string name="suggested_edits_contribution_language_label">Language</string>
     <string name="suggested_edits_contribution_date_time_label">Date / Time</string>
     <string name="suggested_edits_contribution_type_label">Contribution type</string>
-    <string name="suggested_edits_contribution_image_label">File</string>
+    <string name="suggested_edits_contribution_image_label">Image</string>
     <string name="suggested_edits_contribution_article_label">Article</string>
     <string name="suggested_edits_contribution_views">%s views</string>
     <string name="suggested_edits_contribution_seen_text">Seen %s times in the past 30 days.</string>
