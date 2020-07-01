@@ -797,12 +797,10 @@
   <string name="edits_rewards_edit_quality">您的編輯到目前為止是%s。請繼續加油！我們期待您之後的貢獻。</string>
   <string name="edits_rewards_continue_button">繼續</string>
   <string name="edits_contribution_type_image_tag">圖片標籤</string>
-  <string name="edits_contribution_current_revision">目前版本</string>
   <plurals name="edits_tags_diff_count_text">
     <item quantity="one">%1$s 個標籤</item>
     <item quantity="other">%1$s 個標籤</item>
   </plurals>
-  <string name="suggested_edits_contribution_diff_count_text">%1$s個字元</string>
   <plurals name="edits_removed_contribution_label">
     <item quantity="one">您已移除 %d 個字元</item>
     <item quantity="other">您已移除 %d 個字元</item>

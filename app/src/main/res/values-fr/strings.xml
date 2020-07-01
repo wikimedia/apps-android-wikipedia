@@ -819,7 +819,6 @@
   <string name="edits_encourage_account_creation_title">Savez-vous que tout le monde peut modifier Wikipédia ?</string>
   <string name="edits_encourage_account_creation_login_button">Se connecter / rejoindre Wikiipédia</string>
   <string name="edits_contribution_type_image_tag">Balise d’image</string>
-  <string name="edits_contribution_current_revision">Version actuelle</string>
   <plurals name="edits_tags_diff_count_text">
     <item quantity="one">%1$s balise</item>
     <item quantity="other">%1$s balises</item>

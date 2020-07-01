@@ -802,8 +802,6 @@
   <string name="edits_contribution_date_yesterday_text">昨天</string>
   <string name="edits_rewards_continue_button">继续</string>
   <string name="edits_contribution_type_image_tag">图片标签</string>
-  <string name="edits_contribution_current_revision">当前版本</string>
-  <string name="suggested_edits_contribution_diff_count_text">%1$s个字符</string>
   <string name="file_page_activity_title">文件页面</string>
   <string name="description_edit_revert_subtitle">感谢编辑维基百科！</string>
   <string name="description_edit_revert_intro">我们知道您做出了最大的努力，但有位复核者还是回退了您的编辑。您的编辑被回退的原因可能包括：</string>

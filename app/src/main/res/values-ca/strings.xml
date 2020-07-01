@@ -792,7 +792,6 @@
   <string name="edits_rewards_edit_quality">Heu fet fins ara %s edicions. Endavant! Esperem les vostres contribucions.</string>
   <string name="edits_rewards_continue_button">Continua</string>
   <string name="edits_contribution_type_image_tag">Etiqueta d\'imatge</string>
-  <string name="edits_contribution_current_revision">Revisió actual</string>
   <plurals name="edits_tags_diff_count_text">
     <item quantity="one">%1$s etiqueta</item>
     <item quantity="other">%1$s etiquetes</item>

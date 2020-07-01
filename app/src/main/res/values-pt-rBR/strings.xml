@@ -807,7 +807,6 @@
   <string name="edits_rewards_edit_quality">Suas edições até agora são %s. Continue! Esperamos suas contribuições.</string>
   <string name="edits_rewards_continue_button">Continuar</string>
   <string name="edits_contribution_type_image_tag">Marcação de imagem</string>
-  <string name="edits_contribution_current_revision">Revisão atual</string>
   <plurals name="edits_tags_diff_count_text">
     <item quantity="one">%1$s marcação</item>
     <item quantity="other">%1$s marcações</item>

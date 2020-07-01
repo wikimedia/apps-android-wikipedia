@@ -291,7 +291,6 @@
   <string name="edits_paused_title">Durdu</string>
   <string name="edits_disabled_title">Bloklandı</string>
   <string name="edits_ip_blocked_title">IP bloklandı</string>
-  <string name="edits_contribution_current_revision">Cari düzəliş</string>
   <plurals name="edits_tags_diff_count_text">
     <item quantity="one">%1$s etiket</item>
     <item quantity="other">%1$s etiketlər</item>

@@ -806,7 +806,6 @@
   <string name="edits_rewards_edit_quality">Şu ana kadar yaptığınız düzenlemeler %s. Devam edin! Katkılarınızı bekliyoruz.</string>
   <string name="edits_rewards_continue_button">Devam et</string>
   <string name="edits_contribution_type_image_tag">Resim etiketi</string>
-  <string name="edits_contribution_current_revision">Güncel revizyon</string>
   <plurals name="edits_tags_diff_count_text">
     <item quantity="one">%1$s etiket</item>
     <item quantity="other">%1$s etiket</item>

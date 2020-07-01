@@ -725,7 +725,6 @@
   <string name="edits_contributions_screen_title">Οι συνεισφορές του %s</string>
   <string name="edits_contribution_date_yesterday_text">Χθες</string>
   <string name="edits_contribution_type_image_tag">Ετικέτα εικόνας</string>
-  <string name="edits_contribution_current_revision">Τρέχουσα αναθεώρηση</string>
   <plurals name="edits_tags_diff_count_text">
     <item quantity="one">%1$s ετικέτα</item>
     <item quantity="other">%1$s ετικέτες</item>
