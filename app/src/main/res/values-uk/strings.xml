@@ -751,7 +751,6 @@
   <string name="suggested_edits_editing_tips_link_text">Редагування порад</string>
   <string name="suggested_edits_help_page_link_text">Довідка з \"Пропонованих редагуваннь\"</string>
   <string name="suggested_edits_edit_streak_label_text">Страйк редагувань</string>
-  <string name="suggested_edits_pageviews_label_text">Переглядів сторінок</string>
   <string name="suggested_edits_quality_label_text">Якість редагувань</string>
   <string name="suggested_edits_quality_perfect_text">Ідеально</string>
   <string name="suggested_edits_quality_excellent_text">Відмінно</string>

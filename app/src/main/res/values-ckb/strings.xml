@@ -603,7 +603,6 @@
   <string name="suggested_edits_image_tags_search">گەڕانی تاگەکان</string>
   <string name="suggested_edits_image_tags_add_tag">زیادکردنی تاگ</string>
   <string name="suggested_edits_help_page_link_text">دەستکاریە پێشنیارکاوەکان پەڕەی یارمەتی</string>
-  <string name="suggested_edits_pageviews_label_text">بینینەکانی پەڕە</string>
   <string name="suggested_edits_quality_label_text">دەستکاری جۆر</string>
   <string name="suggested_edits_quality_perfect_text">تەواو</string>
   <string name="suggested_edits_quality_excellent_text">نایاب</string>
