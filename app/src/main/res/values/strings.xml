@@ -754,7 +754,7 @@
     <string name="edits_image_tags_add_tag">Add tag</string>
     <string name="edits_image_zoom_tooltip">Pinch to zoom this image.</string>
     <string name="edits_encouragement_message">%s\, thanks for your edits. Below you can find more ways to contribute to Wikipedia.</string>
-    <string name="edits_onboarding_message"><![CDATA[<b>Hi %s\</b>, did you know that everyone can edit Wikipedia? Below you can find fun ways to help improve Wikipedia. Happy editing!]]></string>
+    <string name="edits_onboarding_message"><![CDATA[<b>Hi %s\</b>, below you can find some quick and easy ways to help improve Wikipedia. You\'ll see the difference you\'re making as soon as you get started. Happy editing!]]></string>
     <string name="edits_image_captions_task_detail">Describe an image to help readers understand its meaning and context.</string>
     <string name="edits_add_descriptions_task_detail">Summarize an article to help readers understand the subject at a glance.</string>
     <string name="edits_paused_message">Suggested edits is paused until %1$s. Sorry %2$s, some of your recent contributions have been reverted.</string>
@@ -797,7 +797,7 @@
     <string name="edits_contribution_language_label">Language</string>
     <string name="edits_contribution_date_time_label">Date / Time</string>
     <string name="edits_contribution_type_label">Contribution type</string>
-    <string name="edits_contribution_image_label">File</string>
+    <string name="edits_contribution_image_label">Image</string>
     <string name="edits_contribution_article_label">Article</string>
     <string name="edits_contribution_views">%s views</string>
     <string name="edits_contribution_seen_text">Seen %s times in the past 30 days.</string>
@@ -816,7 +816,7 @@
     <string name="edits_encourage_account_creation_message">Edits on Android presents new ways to edit Wikipedia. It helps you make small but vital contributions to Wikipedia.\nOur goal is to make editing easier and more accessible for everyone! Log in or join Wikipedia to get started.</string>
     <string name="edits_encourage_account_creation_login_button">Log in / join Wikipedia</string>
     <string name="edits_contribution_type_image_tag">Image tag</string>
-    <string name="edits_contribution_current_revision">Current revision</string>
+    <string name="edits_contribution_current_revision_text">Your edit is currently live on Wikipedia</string>
     <plurals name="edits_tags_diff_count_text">
         <item quantity="one">%1$s tag</item>
         <item quantity="other">%1$s tags</item>

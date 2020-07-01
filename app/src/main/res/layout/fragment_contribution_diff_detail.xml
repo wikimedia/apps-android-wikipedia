@@ -95,7 +95,7 @@
                     android:lineSpacingExtra="6sp"
                     android:textColor="?attr/material_theme_primary_color"
                     android:textSize="14sp"
-                    android:text="@string/edits_contribution_current_revision"
+                    android:text="@string/edits_contribution_current_revision_text"
                     android:textStyle="italic" />
             </LinearLayout>
 
