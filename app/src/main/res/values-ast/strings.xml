@@ -714,7 +714,6 @@
   <string name="suggested_edits_ip_blocked_message" fuzzy="true">Paez que la to direición IP (o rangu de direiciones IP) anguaño ta bloquiada pa editar la Wikipedia. Consulta lo que significa esto visitando l\'enllaz de más abaxo.</string>
   <string name="suggested_edits_editing_tips_link_text">Trucos y conseyos d\'edición</string>
   <string name="suggested_edits_help_page_link_text">Páxina d\'ayuda d\'ediciones suxeríes</string>
-  <string name="suggested_edits_pageviews_label_text">Visites a páxines</string>
   <string name="suggested_edits_quality_label_text">Calidá d\'ediciones</string>
   <string name="suggested_edits_quality_perfect_text">Perfeuta</string>
   <string name="suggested_edits_quality_excellent_text">Escelente</string>

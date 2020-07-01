@@ -729,7 +729,6 @@
   <string name="suggested_edits_editing_tips_link_text">Szerkesztési tippek-trükkök</string>
   <string name="suggested_edits_help_page_link_text">Javasolt szerkesztések súgó oldal</string>
   <string name="suggested_edits_edit_streak_label_text">Szerkesztési széria</string>
-  <string name="suggested_edits_pageviews_label_text">Megtekintések</string>
   <string name="suggested_edits_quality_label_text">Szerkesztési minőség</string>
   <string name="suggested_edits_quality_perfect_text">Tökéletes</string>
   <string name="suggested_edits_quality_excellent_text">Kiváló</string>

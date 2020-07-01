@@ -768,7 +768,7 @@
     <string name="suggested_edits_editing_tips_link_text">Editing tips and tricks</string>
     <string name="suggested_edits_help_page_link_text">Suggested edits help page</string>
     <string name="suggested_edits_edit_streak_label_text">Edit streak</string>
-    <string name="suggested_edits_pageviews_label_text">Pageviews</string>
+    <string name="suggested_edits_views_label_text">Views</string>
     <string name="suggested_edits_quality_label_text">Edit quality</string>
     <string name="suggested_edits_quality_perfect_text">Perfect</string>
     <string name="suggested_edits_quality_excellent_text">Excellent</string>

@@ -743,7 +743,6 @@
   <string name="suggested_edits_editing_tips_link_text">نصائح وحيل التحرير</string>
   <string name="suggested_edits_help_page_link_text">صفحة مساعدة التعديلات المقترحة</string>
   <string name="suggested_edits_edit_streak_label_text">خط التحرير</string>
-  <string name="suggested_edits_pageviews_label_text">مشاهدات الصفحة</string>
   <string name="suggested_edits_quality_label_text">جودة التحرير</string>
   <string name="suggested_edits_quality_perfect_text">مثالي</string>
   <string name="suggested_edits_quality_excellent_text">ممتاز</string>

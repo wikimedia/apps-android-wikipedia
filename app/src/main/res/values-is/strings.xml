@@ -716,7 +716,6 @@
   <string name="suggested_edits_editing_tips_link_text">Ábendingar og góð ráð við breytingar</string>
   <string name="suggested_edits_help_page_link_text">Hjálparsíða fyrir tillögur að breytingum</string>
   <string name="suggested_edits_edit_streak_label_text">Breytingaruna</string>
-  <string name="suggested_edits_pageviews_label_text">Síðuflettingar</string>
   <string name="suggested_edits_quality_label_text">Gæði breytinga</string>
   <string name="suggested_edits_quality_perfect_text">Fullkomið</string>
   <string name="suggested_edits_quality_excellent_text">Frábært</string>

@@ -713,7 +713,6 @@
   <string name="suggested_edits_image_captions_task_detail">Kuvaile kuvan sisältöä auttaaksesi lukijoita ymmärtämään sen merkitys ja asiayhteys.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Tiivistä artikkeli auttaaksesi lukijoita ymmärtämään aihe nopeasti.</string>
   <string name="suggested_edits_editing_tips_link_text">Muokkausvinkkejä</string>
-  <string name="suggested_edits_pageviews_label_text">Sivun näyttökerrat</string>
   <string name="suggested_edits_quality_label_text">Muokkauksen laatu</string>
   <string name="suggested_edits_quality_perfect_text">Täydellinen</string>
   <string name="suggested_edits_quality_excellent_text">Erinomainen</string>

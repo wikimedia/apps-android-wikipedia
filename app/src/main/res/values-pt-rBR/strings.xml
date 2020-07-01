@@ -755,7 +755,6 @@
   <string name="suggested_edits_editing_tips_link_text">Dicas e truques de edição</string>
   <string name="suggested_edits_help_page_link_text">Página de ajuda das edições sugeridas</string>
   <string name="suggested_edits_edit_streak_label_text">Editar sequência</string>
-  <string name="suggested_edits_pageviews_label_text">Visualizações de página</string>
   <string name="suggested_edits_quality_label_text">Editar qualidade</string>
   <string name="suggested_edits_quality_perfect_text">Perfeito</string>
   <string name="suggested_edits_quality_excellent_text">Excelente</string>

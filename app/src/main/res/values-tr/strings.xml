@@ -757,7 +757,6 @@
   <string name="suggested_edits_editing_tips_link_text">İpuçlarını ve püf noktalarını düzenleme</string>
   <string name="suggested_edits_help_page_link_text">Önerilen düzenlemeler yardım sayfası</string>
   <string name="suggested_edits_edit_streak_label_text">Çizgiyi düzenle</string>
-  <string name="suggested_edits_pageviews_label_text">Sayfa gösterimleri</string>
   <string name="suggested_edits_quality_label_text">Kaliteyi düzenle</string>
   <string name="suggested_edits_quality_perfect_text">Mükemmel</string>
   <string name="suggested_edits_quality_excellent_text">Mükemmel</string>
