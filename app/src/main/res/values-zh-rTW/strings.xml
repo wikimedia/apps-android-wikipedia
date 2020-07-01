@@ -781,7 +781,6 @@
   <string name="suggested_edits_contribution_language_label">語言</string>
   <string name="suggested_edits_contribution_date_time_label">日期/時間</string>
   <string name="suggested_edits_contribution_type_label">貢獻類型</string>
-  <string name="suggested_edits_contribution_image_label">檔案</string>
   <string name="suggested_edits_contribution_article_label">條目</string>
   <string name="suggested_edits_contribution_views">%s檢視數</string>
   <string name="suggested_edits_contribution_seen_text">過去 30 天內被觀看過 %s 次。</string>

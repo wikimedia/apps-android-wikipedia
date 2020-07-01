@@ -777,7 +777,6 @@
   <string name="suggested_edits_contribution_language_label">Språk</string>
   <string name="suggested_edits_contribution_date_time_label">Datum / Tid</string>
   <string name="suggested_edits_contribution_type_label">Bidragstyp</string>
-  <string name="suggested_edits_contribution_image_label">Fil</string>
   <string name="suggested_edits_contribution_article_label">Artikel</string>
   <string name="suggested_edits_contribution_views">%s visningar</string>
   <string name="suggested_edits_contribution_seen_text">Har setts %s gånger under de senaste 30 dagarna.</string>

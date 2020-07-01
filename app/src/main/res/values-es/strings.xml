@@ -788,7 +788,6 @@
   <string name="suggested_edits_contribution_language_label">Idioma</string>
   <string name="suggested_edits_contribution_date_time_label">Fecha y hora</string>
   <string name="suggested_edits_contribution_type_label">Tipo de contribución</string>
-  <string name="suggested_edits_contribution_image_label">Archivo</string>
   <string name="suggested_edits_contribution_article_label">Artículo</string>
   <string name="suggested_edits_contribution_seen_text">Hubo %s visitas en los últimos 30 días.</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Ayer</string>

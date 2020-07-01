@@ -797,7 +797,6 @@
   <string name="suggested_edits_contributions_screen_title">%s的贡献</string>
   <string name="suggested_edits_contribution_language_label">语言</string>
   <string name="suggested_edits_contribution_date_time_label">日期 / 时间</string>
-  <string name="suggested_edits_contribution_image_label">文件</string>
   <string name="suggested_edits_contribution_article_label">条目</string>
   <string name="suggested_edits_contribution_date_yesterday_text">昨天</string>
   <string name="suggested_edits_rewards_continue_button">继续</string>

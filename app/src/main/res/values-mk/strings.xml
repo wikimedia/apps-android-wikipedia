@@ -765,7 +765,6 @@
   <string name="suggested_edits_contribution_language_label">Јазик</string>
   <string name="suggested_edits_contribution_date_time_label">Датум/време</string>
   <string name="suggested_edits_contribution_type_label">Вид придонес</string>
-  <string name="suggested_edits_contribution_image_label">Податотека</string>
   <string name="suggested_edits_contribution_article_label">Статија</string>
   <string name="suggested_edits_contribution_views">%s посети</string>
   <string name="suggested_edits_contribution_seen_text">Посетена %s пати во изминатите 30 дена.</string>

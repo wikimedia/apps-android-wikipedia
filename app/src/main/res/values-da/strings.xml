@@ -620,7 +620,6 @@
   <string name="suggested_edits_last_edited">Sidst redigeret</string>
   <string name="suggested_edits_last_edited_never">Aldrig</string>
   <string name="suggested_edits_contribution_language_label">Sprog</string>
-  <string name="suggested_edits_contribution_image_label">Fil</string>
   <string name="suggested_edits_contribution_article_label">Artikel</string>
   <string name="suggested_edits_contribution_date_yesterday_text">I går</string>
   <string name="suggested_edits_rewards_continue_button">Fortsæt</string>

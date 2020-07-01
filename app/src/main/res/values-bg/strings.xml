@@ -710,7 +710,6 @@
   <string name="suggested_edits_contribution_language_label">Език</string>
   <string name="suggested_edits_contribution_date_time_label">Дата / Час</string>
   <string name="suggested_edits_contribution_type_label">Вид принос</string>
-  <string name="suggested_edits_contribution_image_label">Файл</string>
   <string name="suggested_edits_contribution_article_label">Статия</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Вчера</string>
   <string name="suggested_edits_rewards_continue_button">Продължаване</string>

@@ -791,7 +791,6 @@
   <string name="suggested_edits_contribution_language_label">Idioma</string>
   <string name="suggested_edits_contribution_date_time_label">Data / Horário</string>
   <string name="suggested_edits_contribution_type_label">Tipo de contribuição</string>
-  <string name="suggested_edits_contribution_image_label">Arquivo</string>
   <string name="suggested_edits_contribution_article_label">Artigo</string>
   <string name="suggested_edits_contribution_views">%s visualizações</string>
   <string name="suggested_edits_contribution_seen_text">Visto %s vezes nos últimos 30 dias.</string>

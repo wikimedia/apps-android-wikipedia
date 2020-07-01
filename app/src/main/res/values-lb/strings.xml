@@ -570,7 +570,6 @@
   <string name="suggested_edits_task_new">nei</string>
   <string name="suggested_edits_contribution_language_label">Sprooch</string>
   <string name="suggested_edits_contribution_date_time_label">Datum / Auerzäit</string>
-  <string name="suggested_edits_contribution_image_label">Fichier</string>
   <string name="suggested_edits_contribution_article_label">Artikel</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Gëschter</string>
   <string name="suggested_edits_rewards_continue_button">Virufueren</string>

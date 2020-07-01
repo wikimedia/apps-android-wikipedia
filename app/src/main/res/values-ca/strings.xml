@@ -776,7 +776,6 @@
   <string name="suggested_edits_contribution_language_label">Llengua</string>
   <string name="suggested_edits_contribution_date_time_label">Data/Hora</string>
   <string name="suggested_edits_contribution_type_label">Tipus de contribució</string>
-  <string name="suggested_edits_contribution_image_label">Fitxer</string>
   <string name="suggested_edits_contribution_article_label">Article</string>
   <string name="suggested_edits_contribution_views">%s visualitzacions</string>
   <string name="suggested_edits_contribution_seen_text">Vist %s vegades els darrers 30 dies.</string>

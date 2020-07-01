@@ -765,7 +765,6 @@
   <string name="suggested_edits_contribution_language_label">Jazyk</string>
   <string name="suggested_edits_contribution_date_time_label">Dátum / Čas</string>
   <string name="suggested_edits_contribution_type_label">Typ príspevku</string>
-  <string name="suggested_edits_contribution_image_label">Súbor</string>
   <string name="suggested_edits_contribution_article_label">Článok</string>
   <string name="suggested_edits_contribution_views">%s zobrazení</string>
   <string name="suggested_edits_contribution_seen_text">Videné %s-krát za posledných 30 dní.</string>

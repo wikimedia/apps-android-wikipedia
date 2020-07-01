@@ -693,7 +693,6 @@
   <string name="suggested_edits_contribution_language_label">Idioma</string>
   <string name="suggested_edits_contribution_date_time_label">Data / Hora</string>
   <string name="suggested_edits_contribution_type_label">Tipo de contribución</string>
-  <string name="suggested_edits_contribution_image_label">Arquivo</string>
   <string name="suggested_edits_contribution_article_label">Artigo</string>
   <string name="suggested_edits_contribution_views">%s visitas</string>
   <string name="suggested_edits_added_contribution_label" fuzzy="true">Engadiches %d caracteres</string>

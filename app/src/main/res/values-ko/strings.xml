@@ -766,7 +766,6 @@
   <string name="suggested_edits_contribution_language_label">언어</string>
   <string name="suggested_edits_contribution_date_time_label">날짜 / 시간</string>
   <string name="suggested_edits_contribution_type_label">기여 유형</string>
-  <string name="suggested_edits_contribution_image_label">파일</string>
   <string name="suggested_edits_contribution_article_label">문서</string>
   <string name="suggested_edits_contribution_date_yesterday_text">어제</string>
   <string name="suggested_edits_rewards_continue_button">계속</string>

@@ -739,7 +739,6 @@
   <string name="suggested_edits_contribution_language_label">Kieli</string>
   <string name="suggested_edits_contribution_date_time_label">Päiväys / Aika</string>
   <string name="suggested_edits_contribution_type_label">Muokkaustyyppi</string>
-  <string name="suggested_edits_contribution_image_label">Tiedosto</string>
   <string name="suggested_edits_contribution_article_label">Artikkeli</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Eilen</string>
   <string name="suggested_edits_rewards_continue_button">Jatka</string>

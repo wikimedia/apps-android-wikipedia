@@ -793,7 +793,6 @@
   <string name="suggested_edits_contribution_language_label">Dil</string>
   <string name="suggested_edits_contribution_date_time_label">Tarih / Zaman</string>
   <string name="suggested_edits_contribution_type_label">Katkı türü</string>
-  <string name="suggested_edits_contribution_image_label">Dosya</string>
   <string name="suggested_edits_contribution_article_label">Madde</string>
   <string name="suggested_edits_contribution_views">%s görüntüleme</string>
   <string name="suggested_edits_contribution_seen_text">Son 30 gün içinde %s kez görüldü.</string>

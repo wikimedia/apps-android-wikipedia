@@ -799,7 +799,6 @@
   <string name="suggested_edits_contribution_language_label">Язык</string>
   <string name="suggested_edits_contribution_date_time_label">Дата/время</string>
   <string name="suggested_edits_contribution_type_label">Тип вклада</string>
-  <string name="suggested_edits_contribution_image_label">Файл</string>
   <string name="suggested_edits_contribution_article_label">Статьи</string>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Вчера</string>
