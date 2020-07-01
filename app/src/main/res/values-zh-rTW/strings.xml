@@ -798,7 +798,6 @@
   <string name="suggested_edits_rewards_edit_quality">您的編輯到目前為止是%s。請繼續加油！我們期待您之後的貢獻。</string>
   <string name="suggested_edits_rewards_continue_button">繼續</string>
   <string name="suggested_edits_contribution_type_image_tag">圖片標籤</string>
-  <string name="suggested_edits_contribution_current_revision">目前版本</string>
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="one">%1$s 個標籤</item>
     <item quantity="other">%1$s 個標籤</item>

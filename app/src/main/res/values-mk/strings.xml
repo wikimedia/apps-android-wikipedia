@@ -782,7 +782,6 @@
   <string name="suggested_edits_rewards_edit_quality">Засега вашите уредувања се со %s квалитет. Само така! Со нетрпение ги очекуваме вашите понатамошни придонеси.</string>
   <string name="suggested_edits_rewards_continue_button">Продолжи</string>
   <string name="suggested_edits_contribution_type_image_tag">Ознака за слики</string>
-  <string name="suggested_edits_contribution_current_revision">Тековна верзија</string>
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="one">%1$s ознака</item>
     <item quantity="other">%1$s ознаки</item>
