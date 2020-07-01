@@ -16,8 +16,7 @@
         android:background="?attr/paper_color"
         android:elevation="4dp"
         app:titleTextAppearance="@style/LargeTextToolbarTitleText"
-        app:titleMarginStart="28dp"
-        app:titleTextColor="?attr/toolbar_title_color">
+        app:titleMarginStart="28dp">
 
         <ImageView
             android:id="@+id/single_fragment_toolbar_wordmark"
@@ -26,7 +25,7 @@
             android:layout_marginStart="32dp"
             android:contentDescription="@null"
             app:srcCompat="@drawable/feed_header_wordmark"
-            app:tint="?attr/toolbar_title_color" />
+            app:tint="?attr/material_theme_primary_color" />
     </androidx.appcompat.widget.Toolbar>
 
     <FrameLayout
