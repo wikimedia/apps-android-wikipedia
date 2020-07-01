@@ -19,7 +19,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.FeedConfigureFunnel;
-import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.feed.FeedContentType;
@@ -174,10 +173,6 @@ public class ConfigureFragment extends Fragment implements ConfigureItemView.Cal
         while (i.hasNext()) {
             FeedContentType feedContentType = i.next();
             if (!feedContentType.showInConfig()) {
-                i.remove();
-                continue;
-            }
-            if (!AccountUtil.isLoggedIn() && feedContentType == FeedContentType.SUGGESTED_EDITS) {
                 i.remove();
                 continue;
             }

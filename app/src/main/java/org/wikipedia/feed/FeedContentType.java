@@ -88,7 +88,7 @@ public enum FeedContentType implements EnumCode {
             return isEnabled() ? new BecauseYouReadClient() : null;
         }
     },
-    SUGGESTED_EDITS(9, R.string.suggested_edits_feed_card_title, R.string.feed_item_type_suggested_edits, false) {
+    SUGGESTED_EDITS(9, R.string.suggested_edits_feed_card_title, R.string.feed_item_type_suggested_edits, false, AccountUtil.isLoggedIn()) {
         @Nullable
         @Override
         public FeedClient newClient(AggregatedFeedContentClient aggregatedClient, int age) {
