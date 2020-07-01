@@ -721,7 +721,6 @@
   <string name="suggested_edits_image_tags_select_text">Hanya tag yang Anda pilih yang akan ditambahkan ke gambar. Tag yang tidak dipilih akan ditandai sebagai ditolak. Yakin ingin menandai semua tag sebagai ditolak?</string>
   <string name="suggested_edits_image_tags_add_tag">Tambahkan tag</string>
   <string name="suggested_edits_encouragement_message">Terima kasih atas suntingan Anda, %s. Di bawah ini Anda dapat menemukan lebih banyak cara untuk berkontribusi ke Wikipedia.</string>
-  <string name="suggested_edits_onboarding_message">&lt;b&gt;Hai %s&lt;/b&gt;, tahukah Anda bahwa semua orang dapat menyunting Wikipedia? Di bawah ini Anda dapat menemukan cara yang menyenangkan untuk membantu meningkatkan Wikipedia. Selamat menyunting!</string>
   <string name="suggested_edits_image_captions_task_detail" fuzzy="true">Keterangan gambar menggambarkan suatu gambar untuk membantu pembaca memahami makna dan konteksnya.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Rangkum sebuah artikel untuk membantu pembaca memahami subjek secara sekilas.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Jumlah total kontribusi Anda dengan Penyuntingan yang disarankan.</string>
