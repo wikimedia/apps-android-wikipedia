@@ -40,7 +40,6 @@
         <item name="button_highlight_border_shape">@drawable/button_shape_border_light</item>
 
         <!-- Overrides of our own custom color attributes -->
-        <item name="toolbar_title_color">@android:color/white</item>
         <item name="toolbar_icon_color">@android:color/white</item>
         <item name="themed_icon_color">@android:color/white</item>
         <item name="nav_tab_background_color">@color/base18</item>
