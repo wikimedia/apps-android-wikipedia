@@ -730,7 +730,6 @@
   <string name="suggested_edits_editing_tips_link_text">Совети за уредување</string>
   <string name="suggested_edits_help_page_link_text">Помошна страница за предложени уредувања</string>
   <string name="suggested_edits_edit_streak_label_text">Последователни уредувања</string>
-  <string name="suggested_edits_pageviews_label_text">Посети</string>
   <string name="suggested_edits_quality_label_text">Квалитет на уредувањата</string>
   <string name="suggested_edits_quality_perfect_text">Совршен</string>
   <string name="suggested_edits_quality_excellent_text">Одличен</string>

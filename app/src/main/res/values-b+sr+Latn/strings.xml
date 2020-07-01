@@ -670,7 +670,6 @@
   <string name="suggested_edits_image_captions" fuzzy="true">Natpisi slika</string>
   <string name="suggested_edits_editing_tips_link_text">Saveti i trikovi za uređivanje</string>
   <string name="suggested_edits_help_page_link_text">Stranica za pomoć za predložene izmene</string>
-  <string name="suggested_edits_pageviews_label_text">Pregledi stranica</string>
   <string name="suggested_edits_quality_label_text">Kvalitet izmena</string>
   <string name="suggested_edits_quality_perfect_text">Savršeno</string>
   <string name="suggested_edits_quality_excellent_text">Odlično</string>
