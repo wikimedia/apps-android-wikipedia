@@ -825,22 +825,6 @@ public final class Prefs {
         return getInt(R.string.preference_key_suggested_edits_override_reverts, 0);
     }
 
-    public static boolean isOfflinePcsToMobileHtmlConversionComplete() {
-        return getBoolean(R.string.preference_key_pcs_to_mobilehtml_conversion_complete, false);
-    }
-
-    public static void setOfflinePcsToMobileHtmlConversionComplete(boolean conversionComplete) {
-        setBoolean(R.string.preference_key_pcs_to_mobilehtml_conversion_complete, conversionComplete);
-    }
-
-    public static int getOfflinePcsToMobileHtmlConversionAttempts() {
-        return getInt(R.string.preference_key_pcs_to_mobilehtml_conversion_attempts, 0);
-    }
-
-    public static void setOfflinePcsToMobileHtmlConversionAttempts(int attempts) {
-        setInt(R.string.preference_key_pcs_to_mobilehtml_conversion_attempts, attempts);
-    }
-
     public static int getInstallReferrerAttempts() {
         return getInt(R.string.preference_key_install_referrer_attempts, 0);
     }
