@@ -734,7 +734,6 @@
   <string name="suggested_edits_image_tags_add_tag">Adaugă etichetă:</string>
   <string name="suggested_edits_image_zoom_tooltip">Prindeți pentru a mări această imagine.</string>
   <string name="suggested_edits_encouragement_message">%s, mulțumim pentru modificări. Mai jos puteți găsi mai multe modalități de a contribui la Wikipedia.</string>
-  <string name="suggested_edits_onboarding_message">&lt;b&gt;Bună%s&lt;/b&gt;, știați că toată lumea poate edita Wikipedia? Mai jos puteți găsi modalități distractive de a ajuta la îmbunătățirea Wikipedia. Editare fericită!</string>
   <string name="suggested_edits_image_captions_task_detail">Descrieți o imagine pentru a ajuta cititorii să înțeleagă sensul și contextul acesteia.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Rezumați un articol pentru a ajuta cititorii să înțeleagă subiectul dintr-o privire.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Numărul total de contribuții cu Modificări sugerate.</string>
@@ -781,7 +780,6 @@
   <string name="suggested_edits_contribution_language_label">Limba</string>
   <string name="suggested_edits_contribution_date_time_label">Data / Ora</string>
   <string name="suggested_edits_contribution_type_label">Tip contribuție</string>
-  <string name="suggested_edits_contribution_image_label">Fișier</string>
   <string name="suggested_edits_contribution_article_label">Articol</string>
   <string name="suggested_edits_contribution_views">%s vizualizări</string>
   <string name="suggested_edits_contribution_seen_text">Văzut %s ori în ultimele 30 de zile.</string>
