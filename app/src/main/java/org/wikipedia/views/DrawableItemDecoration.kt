@@ -32,14 +32,12 @@ class DrawableItemDecoration @JvmOverloads constructor(context: Context, @AttrRe
         if (parent.childCount == 0) {
             return
         }
-        if (parent.childCount == 1) {
-            draw(canvas, bounds(parent, parent.getChildAt(0), false))
-            return
-        }
+
         val end = parent.childCount - 1
         for (i in (if (drawStart) 0 else 1) until end) {
             draw(canvas, bounds(parent, parent.getChildAt(i), true))
         }
+        draw(canvas, bounds(parent, parent.getChildAt(end), parent.childCount != 1))
         if (drawEnd) {
             draw(canvas, bounds(parent, parent.getChildAt(end), false))
         }
