@@ -184,7 +184,7 @@ public class DescriptionEditView extends LinearLayout {
             toolbarContainer.setBackgroundResource(enabled ? android.R.color.black : ResourceUtil.getThemedAttributeId(getContext(), R.attr.paper_color));
             saveButton.setColorFilter(enabled ? whiteRes : ResourceUtil.getThemedColor(getContext(), R.attr.themed_icon_color), PorterDuff.Mode.SRC_IN);
             cancelButton.setColorFilter(enabled ? whiteRes : ResourceUtil.getThemedColor(getContext(), R.attr.toolbar_icon_color), PorterDuff.Mode.SRC_IN);
-            headerText.setTextColor(enabled ? whiteRes : ResourceUtil.getThemedColor(getContext(), R.attr.toolbar_title_color));
+            headerText.setTextColor(enabled ? whiteRes : ResourceUtil.getThemedColor(getContext(), R.attr.material_theme_primary_color));
             ((DescriptionEditActivity) activity).updateStatusBarColor(enabled ? Color.BLACK : ResourceUtil.getThemedColor(getContext(), R.attr.paper_color));
             DeviceUtil.updateStatusBarTheme(activity, null, enabled);
             ((DescriptionEditActivity) activity).updateNavigationBarColor(enabled ? Color.BLACK : ResourceUtil.getThemedColor(getContext(), R.attr.paper_color));
