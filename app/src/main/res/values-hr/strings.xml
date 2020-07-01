@@ -609,7 +609,7 @@
     <item quantity="one">jedan doprinos</item>
     <item quantity="other">%d doprinos</item>
   </plurals>
-  <string name="edits_feed_card_title">Predložene izmjene</string>
+  <string name="feed_card_title_suggested_edits">Predložene izmjene</string>
   <string name="edits_feed_card_add_description_button">Dodaj opis članka</string>
   <string name="edits_tasks_onboarding_get_started">Krenimo</string>
   <string name="edits_image_preview_dialog_caption_in_language_title">Natpis slike (%s)</string>

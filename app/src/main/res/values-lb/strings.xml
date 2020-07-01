@@ -544,7 +544,7 @@
   <string name="edits_image_caption_summary_title_source">Quell</string>
   <string name="edits_image_caption_summary_title_license">Lizenz</string>
   <string name="edits_image_caption_summary_title_date">Datum</string>
-  <string name="edits_feed_card_title">Proposéiert Ännerungen</string>
+  <string name="feed_card_title_suggested_edits">Proposéiert Ännerungen</string>
   <string name="edits_tasks_onboarding_get_started">Fir unzefänken</string>
   <string name="edits_image_preview_dialog_file">Fichier</string>
   <string name="edits_image_preview_dialog_artist">Kënschtler</string>

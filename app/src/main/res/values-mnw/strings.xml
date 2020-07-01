@@ -670,7 +670,7 @@
     <item quantity="one">1 အရာမကၠောန်ဗဒှ်</item>
     <item quantity="other">%d အရာမကၠောန်ဗဒှ်ဂမၠိုင်</item>
   </plurals>
-  <string name="edits_feed_card_title">အရာပလေဝ်ဒါန် မအာတ်မိက်</string>
+  <string name="feed_card_title_suggested_edits">အရာပလေဝ်ဒါန် မအာတ်မိက်</string>
   <string name="edits_feed_card_add_description_button">စုတ် ပရူပရာ လိက်ပရေင်</string>
   <string name="edits_feed_card_add_translation_in_language_button">စုတ် ပရူပရာ လိက်ပရေင် (%s)</string>
   <string name="edits_tasks_onboarding_get_started">စကၠောန်ရ</string>

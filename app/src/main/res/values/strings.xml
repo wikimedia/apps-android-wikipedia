@@ -712,7 +712,7 @@
         <item quantity="one">1 contribution</item>
         <item quantity="other">%d contributions</item>
     </plurals>
-    <string name="edits_feed_card_title">Edits</string>
+    <string name="feed_card_title_suggested_edits">Suggested edits</string>
     <string name="edits_feed_card_add_description_button">Add article description</string>
     <string name="edits_feed_card_add_translation_in_language_button">Add article description (%s)</string>
     <string name="edits_tasks_onboarding_get_started">Get started</string>

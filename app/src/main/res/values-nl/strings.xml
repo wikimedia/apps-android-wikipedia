@@ -691,7 +691,7 @@
     <item quantity="one">in-app contribution</item>
     <item quantity="other">%d bijdragen in app</item>
   </plurals>
-  <string name="edits_feed_card_title">Voorgestelde bewerkingen</string>
+  <string name="feed_card_title_suggested_edits">Voorgestelde bewerkingen</string>
   <string name="edits_feed_card_add_description_button">Artikelbeschrijving toevoegen</string>
   <string name="edits_feed_card_add_translation_in_language_button">Artikelbeschrijving toevoegen (%s)</string>
   <string name="edits_tasks_onboarding_get_started">Aan de slag</string>

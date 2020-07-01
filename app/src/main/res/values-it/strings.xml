@@ -704,7 +704,7 @@
     <item quantity="one">1 contributo</item>
     <item quantity="other">%d contributi</item>
   </plurals>
-  <string name="edits_feed_card_title">Modifiche suggerite</string>
+  <string name="feed_card_title_suggested_edits">Modifiche suggerite</string>
   <string name="edits_feed_card_add_description_button">Aggiungi una descrizione della voce</string>
   <string name="edits_feed_card_add_translation_in_language_button">Aggiungi descrizione della voce (%s)</string>
   <string name="edits_tasks_onboarding_get_started">Inizia</string>

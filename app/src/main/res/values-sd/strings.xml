@@ -604,7 +604,7 @@
     <item quantity="one">1 ڀاڱيداري</item>
     <item quantity="other">%d ڀاڱيداريون</item>
   </plurals>
-  <string name="edits_feed_card_title">صلاح-ڏنل سنوارون</string>
+  <string name="feed_card_title_suggested_edits">صلاح-ڏنل سنوارون</string>
   <string name="edits_feed_card_add_description_button">مضمون جي تشريح وجھو</string>
   <string name="edits_feed_card_add_translation_in_language_button">مضمون جي تشريح وجھو (%s)</string>
   <string name="edits_tasks_onboarding_get_started">شروع ڪريو</string>

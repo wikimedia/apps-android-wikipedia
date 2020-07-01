@@ -699,7 +699,7 @@
     <item quantity="many">%d редагувань</item>
     <item quantity="other">%d редагувань</item>
   </plurals>
-  <string name="edits_feed_card_title">Пропоновані редагування</string>
+  <string name="feed_card_title_suggested_edits">Пропоновані редагування</string>
   <string name="edits_feed_card_add_description_button">Додати опис статті</string>
   <string name="edits_feed_card_add_translation_in_language_button">Додати опис статті (%s)</string>
   <string name="edits_tasks_onboarding_get_started">Розпочати</string>

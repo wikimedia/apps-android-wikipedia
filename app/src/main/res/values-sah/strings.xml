@@ -642,7 +642,7 @@
     <item quantity="one">уларытыы</item>
     <item quantity="other">%d уларытыылар</item>
   </plurals>
-  <string name="edits_feed_card_title">Уларытар туһунан этиилэр</string>
+  <string name="feed_card_title_suggested_edits">Уларытар туһунан этиилэр</string>
   <string name="edits_feed_card_add_description_button">Ыстатыйаҕа быһаарыы эбии</string>
   <string name="edits_feed_card_add_translation_in_language_button">Кылгас быһаарыыны эбии (%s)</string>
   <string name="edits_tasks_onboarding_get_started">Саҕалыырга</string>

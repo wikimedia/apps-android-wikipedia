@@ -680,7 +680,7 @@
     <item quantity="one">príspevok v aplikácii</item>
     <item quantity="other">%d príspevky v aplikácii</item>
   </plurals>
-  <string name="edits_feed_card_title">Navrhované úpravy</string>
+  <string name="feed_card_title_suggested_edits">Navrhované úpravy</string>
   <string name="edits_feed_card_add_description_button">Pridať popis článku</string>
   <string name="edits_feed_card_add_translation_in_language_button">Pridať popis článku v jazyku %s</string>
   <string name="edits_tasks_onboarding_get_started">Začíname</string>

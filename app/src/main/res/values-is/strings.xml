@@ -665,7 +665,7 @@
     <item quantity="one">1 framlag</item>
     <item quantity="other">%d framlög</item>
   </plurals>
-  <string name="edits_feed_card_title">Tillögur að breytingum</string>
+  <string name="feed_card_title_suggested_edits">Tillögur að breytingum</string>
   <string name="edits_feed_card_add_description_button">Bæta við lýsingu á grein</string>
   <string name="edits_feed_card_add_translation_in_language_button">Bæta við lýsingu á grein (%s)</string>
   <string name="edits_tasks_onboarding_get_started">Komast í gang</string>

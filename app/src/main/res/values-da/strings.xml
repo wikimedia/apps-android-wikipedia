@@ -609,7 +609,7 @@
   <string name="edits_image_caption_summary_title_source">Kilde</string>
   <string name="edits_image_caption_summary_title_license">Licens</string>
   <string name="edits_image_caption_summary_title_date">Dato</string>
-  <string name="edits_feed_card_title">Foreslåede redigeringer</string>
+  <string name="feed_card_title_suggested_edits">Foreslåede redigeringer</string>
   <string name="edits_tasks_onboarding_get_started">Kom i gang</string>
   <string name="edits_image_preview_dialog_file">Fil</string>
   <string name="edits_contribute">Bidrag</string>

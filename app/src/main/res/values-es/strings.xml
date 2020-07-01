@@ -707,7 +707,7 @@
     <item quantity="one">contribución desde la aplicación</item>
     <item quantity="other">%d contribuciones desde la aplicación</item>
   </plurals>
-  <string name="edits_feed_card_title">Ediciones sugeridas</string>
+  <string name="feed_card_title_suggested_edits">Ediciones sugeridas</string>
   <string name="edits_feed_card_add_description_button">Añadir descripción de artículo</string>
   <string name="edits_feed_card_add_translation_in_language_button">Añadir descripción de imagen (%s)</string>
   <string name="edits_tasks_onboarding_get_started">\nEmpezar</string>

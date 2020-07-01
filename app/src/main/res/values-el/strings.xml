@@ -658,7 +658,7 @@
   <string name="edits_image_caption_summary_title_source">Πηγή</string>
   <string name="edits_image_caption_summary_title_license">Άδεια</string>
   <string name="edits_image_caption_summary_title_date">Ημερομηνία</string>
-  <string name="edits_feed_card_title">Προτεινόμενες τροποποιήσεις</string>
+  <string name="feed_card_title_suggested_edits">Προτεινόμενες τροποποιήσεις</string>
   <string name="edits_feed_card_add_description_button">Προσθήκη περιγραφής άρθρου</string>
   <string name="edits_feed_card_add_translation_in_language_button">Προσθήκη περιγραφής άρθρου (στα %s)</string>
   <string name="edits_tasks_onboarding_get_started">Ξεκινήστε</string>

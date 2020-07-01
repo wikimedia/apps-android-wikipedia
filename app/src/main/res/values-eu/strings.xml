@@ -596,7 +596,7 @@
     <item quantity="one">aldaketa bat</item>
     <item quantity="other">%d aldaketa</item>
   </plurals>
-  <string name="edits_feed_card_title">Gomendatutako aldaketak</string>
+  <string name="feed_card_title_suggested_edits">Gomendatutako aldaketak</string>
   <string name="edits_feed_card_add_description_button">Gehitu artikuluaren deskribapena</string>
   <string name="edits_feed_card_add_translation_in_language_button">Gehitu artikuluen deskribapena (%s)</string>
   <string name="edits_tasks_onboarding_get_started">Hasi</string>

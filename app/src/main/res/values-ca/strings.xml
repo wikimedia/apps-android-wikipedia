@@ -686,7 +686,7 @@
     <item quantity="one">1 contribució</item>
     <item quantity="other">%d contribucions</item>
   </plurals>
-  <string name="edits_feed_card_title">Edicions suggerides</string>
+  <string name="feed_card_title_suggested_edits">Edicions suggerides</string>
   <string name="edits_feed_card_add_description_button">Afegeix una descripció a l\'article</string>
   <string name="edits_feed_card_add_translation_in_language_button">Afegeix una descripció de l\'article (%s)</string>
   <string name="edits_tasks_onboarding_get_started">Primers passos</string>

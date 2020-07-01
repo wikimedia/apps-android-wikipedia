@@ -684,7 +684,7 @@
     <item quantity="one">۱ مشارکت</item>
     <item quantity="other">%d مشارکت</item>
   </plurals>
-  <string name="edits_feed_card_title">ویرایش‌های پیشنهادی</string>
+  <string name="feed_card_title_suggested_edits">ویرایش‌های پیشنهادی</string>
   <string name="edits_feed_card_add_description_button">افزودن توضیح مقاله</string>
   <string name="edits_feed_card_add_translation_in_language_button">افزودن توضیحات مقاله (%s)</string>
   <string name="edits_tasks_onboarding_get_started">شروع شد</string>

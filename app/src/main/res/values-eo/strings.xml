@@ -635,7 +635,7 @@
     <item quantity="one">1 kontribuo</item>
     <item quantity="other">%d kontribuoj</item>
   </plurals>
-  <string name="edits_feed_card_title">Sugestataj redaktoj</string>
+  <string name="feed_card_title_suggested_edits">Sugestataj redaktoj</string>
   <string name="edits_feed_card_add_description_button">Aldoni priskribon de artikolo</string>
   <string name="edits_feed_card_add_translation_in_language_button">Aldoni priskribon al artikolo (je %s)</string>
   <string name="edits_tasks_onboarding_get_started">Komenci</string>

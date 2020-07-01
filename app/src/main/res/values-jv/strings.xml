@@ -606,7 +606,7 @@
     <item quantity="one">1 pasumbang</item>
     <item quantity="other">%d pasumbang</item>
   </plurals>
-  <string name="edits_feed_card_title">Besutan kang kaprayogakaké</string>
+  <string name="feed_card_title_suggested_edits">Besutan kang kaprayogakaké</string>
   <string name="edits_feed_card_add_description_button">Wuwuh wedharaning artikel</string>
   <string name="edits_feed_card_add_translation_in_language_button">Wuwuh wedharaning artikel (%s)</string>
   <string name="edits_tasks_onboarding_get_started">Miwiti</string>

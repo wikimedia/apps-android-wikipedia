@@ -489,7 +489,7 @@
     <item quantity="one">1 याेगदान</item>
     <item quantity="other">%d याेगदानहरू</item>
   </plurals>
-  <string name="edits_feed_card_title">सुझाइएका सम्पादनहरू</string>
+  <string name="feed_card_title_suggested_edits">सुझाइएका सम्पादनहरू</string>
   <string name="edits_feed_card_add_description_button">लेख वर्णन थप्नुहोस्</string>
   <string name="edits_feed_card_add_translation_in_language_button">लेखमा विवरण थप्नुहोस् %s</string>
   <string name="edits_tasks_onboarding_get_started">सुरु गर्नुहोस्</string>

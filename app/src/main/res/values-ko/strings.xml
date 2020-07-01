@@ -685,7 +685,7 @@
     <item quantity="one">1개 기여</item>
     <item quantity="other">%d개 기여</item>
   </plurals>
-  <string name="edits_feed_card_title">편집 제안</string>
+  <string name="feed_card_title_suggested_edits">편집 제안</string>
   <string name="edits_feed_card_add_description_button">문서 설명 추가</string>
   <string name="edits_feed_card_add_translation_in_language_button">문서 설명 추가 (%s)</string>
   <string name="edits_tasks_onboarding_get_started">시작하기</string>

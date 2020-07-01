@@ -576,7 +576,7 @@
   <string name="edits_image_caption_summary_title_source">سەرچاوە</string>
   <string name="edits_image_caption_summary_title_license">مۆڵەت</string>
   <string name="edits_image_caption_summary_title_date">ڕێکەوت</string>
-  <string name="edits_feed_card_title">دەستکاری پێشنیارکراوەکان</string>
+  <string name="feed_card_title_suggested_edits">دەستکاری پێشنیارکراوەکان</string>
   <string name="edits_feed_card_add_description_button">زیادکردنی وەسفی وتار</string>
   <string name="edits_feed_card_add_translation_in_language_button">زیادکردنی وەسفی وتار (%s)</string>
   <string name="edits_tasks_onboarding_get_started">دەست پێ بکە</string>

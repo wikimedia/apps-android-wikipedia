@@ -694,7 +694,7 @@
     <item quantity="few">%d příspěvky</item>
     <item quantity="other">%d příspěvků</item>
   </plurals>
-  <string name="edits_feed_card_title">Navrhování editací</string>
+  <string name="feed_card_title_suggested_edits">Navrhování editací</string>
   <string name="edits_feed_card_add_description_button">Přidat popis článku</string>
   <string name="edits_feed_card_add_translation_in_language_button">Přidat popis článku (v jazyce %s)</string>
   <string name="edits_tasks_onboarding_get_started">Začít</string>

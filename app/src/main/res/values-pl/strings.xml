@@ -693,7 +693,7 @@
     <item quantity="one">1 wkład</item>
     <item quantity="other">%d wkładów</item>
   </plurals>
-  <string name="edits_feed_card_title">Sugerowane edycje</string>
+  <string name="feed_card_title_suggested_edits">Sugerowane edycje</string>
   <string name="edits_feed_card_add_description_button">Dodaj opis artykułu</string>
   <string name="edits_feed_card_add_translation_in_language_button">Dodaj opisy artykułów (%s)</string>
   <string name="edits_tasks_onboarding_get_started">Rozpocznij</string>

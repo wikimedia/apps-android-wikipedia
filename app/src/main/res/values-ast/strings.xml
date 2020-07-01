@@ -664,7 +664,7 @@
     <item quantity="one">1 contribución</item>
     <item quantity="other">%d contribuciones</item>
   </plurals>
-  <string name="edits_feed_card_title">Ediciones suxeríes</string>
+  <string name="feed_card_title_suggested_edits">Ediciones suxeríes</string>
   <string name="edits_feed_card_add_description_button">Amestar descripción del artículu</string>
   <string name="edits_feed_card_add_translation_in_language_button">Amestar descripción del artículu (%s)</string>
   <string name="edits_tasks_onboarding_get_started">Primeros pasos</string>

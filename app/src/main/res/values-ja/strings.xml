@@ -688,7 +688,7 @@
     <item quantity="one">1 件の貢献</item>
     <item quantity="other">%d 件の貢献</item>
   </plurals>
-  <string name="edits_feed_card_title">編集提案</string>
+  <string name="feed_card_title_suggested_edits">編集提案</string>
   <string name="edits_feed_card_add_description_button">記事の説明を追加</string>
   <string name="edits_feed_card_add_translation_in_language_button">記事の説明を追加 (%s)</string>
   <string name="edits_tasks_onboarding_get_started">始める</string>

@@ -467,7 +467,7 @@
   <string name="description_edit_tutorial_button_label_start_editing">Počni uređivati</string>
   <string name="description_edit_tutorial_promise">Počevši obećavam da neću zloupotrijebiti ovu mogućnost.</string>
   <string name="edits_tasks_activity_title">Predložene izmjene</string>
-  <string name="edits_feed_card_title">Predložene izmjene</string>
+  <string name="feed_card_title_suggested_edits">Predložene izmjene</string>
   <string name="description_edit_revert_subtitle">Hvala Vam na uređivanju Wikipedije!</string>
   <string name="description_edit_revert_intro">Znamo da ste dali sve od sebe, ali je jedan od pregledavača procijenio da Vašu izmjenu ne možemo prihvatiti. Evo nekoliko mogućih razloga zašto je Vaša izmjena vraćena:</string>
   <string name="description_edit_revert_reason1">Vaš doprinos nije slijedio jednu od &lt;a href=\"%1$s\"&gt;smjernica&lt;/a&gt;.</string>

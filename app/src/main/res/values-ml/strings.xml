@@ -445,7 +445,7 @@
   <string name="edits_image_caption_summary_title_author">രചയിതാവ്</string>
   <string name="edits_image_caption_summary_title_source">സ്രോതസ്സ്</string>
   <string name="edits_image_caption_summary_title_date">തീയതി</string>
-  <string name="edits_feed_card_title">നിർദ്ദേശിച്ച തിരുത്തലുകൾ</string>
+  <string name="feed_card_title_suggested_edits">നിർദ്ദേശിച്ച തിരുത്തലുകൾ</string>
   <string name="edits_feed_card_add_description_button">ലേഖനത്തിന്റെ വിവരണം ചേർക്കുക</string>
   <string name="edits_feed_card_add_translation_in_language_button">ലേഖനത്തിന് വിവരണം ചേർക്കുക (%s)</string>
   <string name="edits_tasks_onboarding_get_started">തുടക്കം കുറിക്കുക</string>

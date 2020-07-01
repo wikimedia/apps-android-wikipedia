@@ -711,7 +711,7 @@
     <item quantity="one">1 contribution</item>
     <item quantity="other">%d contributions</item>
   </plurals>
-  <string name="edits_feed_card_title">Modifications suggérées</string>
+  <string name="feed_card_title_suggested_edits">Modifications suggérées</string>
   <string name="edits_feed_card_add_description_button">Ajouter une description d’article</string>
   <string name="edits_feed_card_add_translation_in_language_button">Ajouter une description à l’article (%s)</string>
   <string name="edits_tasks_onboarding_get_started">Démarrer</string>

@@ -320,7 +320,7 @@
   <string name="edits_image_caption_summary_title_source">Avots</string>
   <string name="edits_image_caption_summary_title_license">Licence</string>
   <string name="edits_image_caption_summary_title_date">Datums</string>
-  <string name="edits_feed_card_title">Ieteiktie labojumi</string>
+  <string name="feed_card_title_suggested_edits">Ieteiktie labojumi</string>
   <string name="edits_image_preview_dialog_date">Datums</string>
   <string name="edits_image_preview_dialog_licensing">Licencēšana</string>
   <string name="edits_last_edited">Pēdējais labojums</string>

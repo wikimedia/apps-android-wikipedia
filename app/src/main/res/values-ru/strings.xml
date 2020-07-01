@@ -721,7 +721,7 @@
     <item quantity="many">%d правок</item>
     <item quantity="other">%d правок</item>
   </plurals>
-  <string name="edits_feed_card_title">Предложения отредактировать</string>
+  <string name="feed_card_title_suggested_edits">Предложения отредактировать</string>
   <string name="edits_feed_card_add_description_button">Добавление описания статей</string>
   <string name="edits_feed_card_add_translation_in_language_button">Добавление описания статей (%s)</string>
   <string name="edits_tasks_onboarding_get_started">Начать</string>

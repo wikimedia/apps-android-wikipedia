@@ -661,7 +661,7 @@
     <item quantity="one">1 contribución</item>
     <item quantity="other">%d contribucións</item>
   </plurals>
-  <string name="edits_feed_card_title">Edicións suxeridas</string>
+  <string name="feed_card_title_suggested_edits">Edicións suxeridas</string>
   <string name="edits_feed_card_add_description_button">Engadir descrición de artigo</string>
   <string name="edits_feed_card_add_translation_in_language_button">Engadir descrición de imaxe (%s)</string>
   <string name="edits_tasks_onboarding_get_started">Comezar</string>

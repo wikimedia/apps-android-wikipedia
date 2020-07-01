@@ -703,7 +703,7 @@
     <item quantity="one">1 katkı</item>
     <item quantity="other">%d katkı</item>
   </plurals>
-  <string name="edits_feed_card_title">Önerilen düzenlemeler</string>
+  <string name="feed_card_title_suggested_edits">Önerilen düzenlemeler</string>
   <string name="edits_feed_card_add_description_button">Madde açıklaması ekle</string>
   <string name="edits_feed_card_add_translation_in_language_button">Madde açıklaması ekle (%s)</string>
   <string name="edits_tasks_onboarding_get_started">Başla</string>

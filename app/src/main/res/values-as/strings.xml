@@ -431,7 +431,7 @@
   <string name="edits_image_caption_summary_title_source">উৎস</string>
   <string name="edits_image_caption_summary_title_license">অনুজ্ঞাপত্ৰ</string>
   <string name="edits_image_caption_summary_title_date">তাৰিখ</string>
-  <string name="edits_feed_card_title">পৰামৰ্শকৃত সম্পাদনা</string>
+  <string name="feed_card_title_suggested_edits">পৰামৰ্শকৃত সম্পাদনা</string>
   <string name="edits_feed_card_add_description_button">প্ৰবন্ধৰ বিৱৰণ যোগ কৰক</string>
   <string name="edits_feed_card_add_translation_in_language_button">প্ৰবন্ধৰ বিৱৰণ যোগ কৰক (%s)</string>
   <string name="edits_tasks_onboarding_get_started">আৰম্ভ কৰক</string>

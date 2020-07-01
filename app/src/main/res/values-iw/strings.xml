@@ -705,7 +705,7 @@
     <item quantity="many">%d תרומות</item>
     <item quantity="other">%d תרומות</item>
   </plurals>
-  <string name="edits_feed_card_title">עריכות מוצעות</string>
+  <string name="feed_card_title_suggested_edits">עריכות מוצעות</string>
   <string name="edits_feed_card_add_description_button">הוספת תיאור ערך</string>
   <string name="edits_feed_card_add_translation_in_language_button">הוספת תיאור ערך (%s)</string>
   <string name="edits_tasks_onboarding_get_started">מדריך למתחילים</string>
