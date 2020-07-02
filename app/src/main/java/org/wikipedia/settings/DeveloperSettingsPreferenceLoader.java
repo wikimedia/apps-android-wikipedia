@@ -20,7 +20,7 @@ import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.database.ReadingList;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.readinglist.database.ReadingListPage;
-import org.wikipedia.suggestededits.provider.MissingDescriptionProvider;
+import org.wikipedia.edits.provider.MissingDescriptionProvider;
 import org.wikipedia.util.StringUtil;
 
 import java.util.ArrayList;

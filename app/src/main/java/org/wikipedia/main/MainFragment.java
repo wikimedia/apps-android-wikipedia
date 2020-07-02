@@ -64,7 +64,7 @@ import org.wikipedia.search.SearchFragment;
 import org.wikipedia.settings.AboutActivity;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SettingsActivity;
-import org.wikipedia.suggestededits.SuggestedEditsTasksFragment;
+import org.wikipedia.edits.EditsTasksFragment;
 import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.PermissionUtil;
@@ -249,7 +249,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
                 && intent.getIntExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.EXPLORE.code()) == NavTab.EXPLORE.code())) {
             goToTab(NavTab.of(intent.getIntExtra(Constants.INTENT_EXTRA_GO_TO_MAIN_TAB, NavTab.EXPLORE.code())));
         } else if (intent.hasExtra(Constants.INTENT_EXTRA_GO_TO_SE_TAB)) {
-            goToTab(NavTab.of(intent.getIntExtra(Constants.INTENT_EXTRA_GO_TO_SE_TAB, NavTab.SUGGESTED_EDITS.code())));
+            goToTab(NavTab.of(intent.getIntExtra(Constants.INTENT_EXTRA_GO_TO_SE_TAB, NavTab.EDITS.code())));
         } else if (lastPageViewedWithin(1) && !intent.hasExtra(Constants.INTENT_RETURN_TO_MAIN) && WikipediaApp.getInstance().getTabCount() > 0) {
             startActivity(PageActivity.newIntent(requireContext()));
         }
@@ -358,7 +358,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
 
     public void requestUpdateToolbarElevation() {
         Fragment fragment = getCurrentFragment();
-        updateToolbarElevation(!(fragment instanceof FeedFragment || fragment instanceof SuggestedEditsTasksFragment) || (fragment instanceof FeedFragment && ((FeedFragment) fragment).shouldElevateToolbar()));
+        updateToolbarElevation(!(fragment instanceof FeedFragment || fragment instanceof EditsTasksFragment) || (fragment instanceof FeedFragment && ((FeedFragment) fragment).shouldElevateToolbar()));
     }
 
     @Override
@@ -465,8 +465,8 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
             ((ReadingListsFragment) fragment).updateLists();
         } else if (fragment instanceof HistoryFragment) {
             ((HistoryFragment) fragment).refresh();
-        } else if (fragment instanceof  SuggestedEditsTasksFragment) {
-            ((SuggestedEditsTasksFragment) fragment).refreshContents();
+        } else if (fragment instanceof EditsTasksFragment) {
+            ((EditsTasksFragment) fragment).refreshContents();
         }
         resetNavTabLayouts();
     }
@@ -475,17 +475,17 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         if (Prefs.shouldShowSuggestedEditsTooltip()) {
             Prefs.setShouldShowSuggestedEditsTooltip(false);
             Prefs.setShouldShowImageTagsTooltip(false);
-            tabOverlayLayout.pick(NavTab.SUGGESTED_EDITS);
+            tabOverlayLayout.pick(NavTab.EDITS);
             suggestedEditsNavTabSnackbar = FeedbackUtil.makeSnackbar(requireActivity(), AccountUtil.isLoggedIn()
                     ? getString(R.string.main_tooltip_text, AccountUtil.getUserName())
                     : getString(R.string.main_tooltip_text_v2), FeedbackUtil.LENGTH_LONG);
-            suggestedEditsNavTabSnackbar.setAction(R.string.main_tooltip_action_button, view -> goToTab(NavTab.SUGGESTED_EDITS));
+            suggestedEditsNavTabSnackbar.setAction(R.string.main_tooltip_action_button, view -> goToTab(NavTab.EDITS));
             suggestedEditsNavTabSnackbar.show();
         } else if (Prefs.shouldShowImageTagsTooltip()) {
             Prefs.setShouldShowImageTagsTooltip(false);
-            tabOverlayLayout.pick(NavTab.SUGGESTED_EDITS);
+            tabOverlayLayout.pick(NavTab.EDITS);
             suggestedEditsNavTabSnackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.edits_image_tags_snackbar), FeedbackUtil.LENGTH_LONG);
-            suggestedEditsNavTabSnackbar.setAction(R.string.main_tooltip_action_button, view -> goToTab(NavTab.SUGGESTED_EDITS));
+            suggestedEditsNavTabSnackbar.setAction(R.string.main_tooltip_action_button, view -> goToTab(NavTab.EDITS));
             suggestedEditsNavTabSnackbar.show();
         }
     }

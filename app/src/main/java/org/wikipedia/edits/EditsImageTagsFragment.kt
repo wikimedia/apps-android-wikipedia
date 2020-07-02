@@ -1,4 +1,4 @@
-package org.wikipedia.suggestededits
+package org.wikipedia.edits
 
 import android.content.res.ColorStateList
 import android.graphics.Color
@@ -33,7 +33,7 @@ import org.wikipedia.login.LoginClient.LoginFailedException
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
-import org.wikipedia.suggestededits.provider.MissingDescriptionProvider
+import org.wikipedia.edits.provider.MissingDescriptionProvider
 import org.wikipedia.util.*
 import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
 import org.wikipedia.util.log.L
@@ -42,7 +42,7 @@ import org.wikipedia.views.ViewUtil
 import java.util.*
 import kotlin.collections.ArrayList
 
-class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundButton.OnCheckedChangeListener, OnClickListener, SuggestedEditsImageTagDialog.Callback {
+class EditsImageTagsFragment : EditsItemFragment(), CompoundButton.OnCheckedChangeListener, OnClickListener, EditsImageTagDialog.Callback {
     interface Callback {
         fun getLangCode(): String
         fun getSinglePage(): MwQueryPage?
@@ -239,8 +239,8 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
     }
 
     companion object {
-        fun newInstance(): SuggestedEditsItemFragment {
-            return SuggestedEditsImageTagsFragment()
+        fun newInstance(): EditsItemFragment {
+            return EditsImageTagsFragment()
         }
     }
 
@@ -250,7 +250,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
             // they clicked the chip to add a new tag, so cancel out the check changing...
             chip.isChecked = !chip.isChecked
             // and launch the selection dialog for the custom tag.
-            SuggestedEditsImageTagDialog.newInstance(wasCaptionLongClicked, lastSearchTerm).show(childFragmentManager, null)
+            EditsImageTagDialog.newInstance(wasCaptionLongClicked, lastSearchTerm).show(childFragmentManager, null)
         }
     }
 

@@ -1,4 +1,4 @@
-package org.wikipedia.suggestededits.provider
+package org.wikipedia.edits.provider
 
 import com.google.gson.annotations.SerializedName
 import org.wikipedia.dataclient.wikidata.Entities

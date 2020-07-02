@@ -1,10 +1,10 @@
-package org.wikipedia.suggestededits
+package org.wikipedia.edits
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 
-abstract class SuggestedEditsItemFragment : Fragment() {
+abstract class EditsItemFragment : Fragment() {
     val disposables = CompositeDisposable()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,8 +17,8 @@ abstract class SuggestedEditsItemFragment : Fragment() {
         disposables.clear()
     }
 
-    fun parent(): SuggestedEditsCardsFragment {
-        return requireActivity().supportFragmentManager.fragments[0] as SuggestedEditsCardsFragment
+    fun parent(): EditsCardsFragment {
+        return requireActivity().supportFragmentManager.fragments[0] as EditsCardsFragment
     }
 
     open fun publishEnabled(): Boolean { return true }

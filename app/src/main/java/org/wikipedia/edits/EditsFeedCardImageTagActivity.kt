@@ -1,4 +1,4 @@
-package org.wikipedia.suggestededits
+package org.wikipedia.edits
 
 import android.content.Context
 import android.content.Intent
@@ -19,10 +19,10 @@ import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.views.ImageZoomHelper
 
-class SuggestedEditsFeedCardImageTagActivity : BaseActivity(), SuggestedEditsImageTagsFragment.Callback {
+class EditsFeedCardImageTagActivity : BaseActivity(), EditsImageTagsFragment.Callback {
 
     private lateinit var imageZoomHelper: ImageZoomHelper
-    private var suggestedEditsImageTagsFragment: SuggestedEditsImageTagsFragment? = null
+    private var suggestedEditsImageTagsFragment: EditsImageTagsFragment? = null
     var action: DescriptionEditActivity.Action = DescriptionEditActivity.Action.ADD_IMAGE_TAGS
     var page: MwQueryPage? = null
 
@@ -33,7 +33,7 @@ class SuggestedEditsFeedCardImageTagActivity : BaseActivity(), SuggestedEditsIma
         supportActionBar!!.title = getString(R.string.edits_tag_images)
         imageZoomHelper = ImageZoomHelper(this)
         setContentView(R.layout.activity_suggested_edits_feed_card_image_tags)
-        suggestedEditsImageTagsFragment = supportFragmentManager.findFragmentById(R.id.imageTagFragment) as SuggestedEditsImageTagsFragment?
+        suggestedEditsImageTagsFragment = supportFragmentManager.findFragmentById(R.id.imageTagFragment) as EditsImageTagsFragment?
         addContributionButton.setOnClickListener { suggestedEditsImageTagsFragment!!.publish() }
         addContributionLandscapeImage.setOnClickListener { suggestedEditsImageTagsFragment!!.publish() }
     }
@@ -82,7 +82,7 @@ class SuggestedEditsFeedCardImageTagActivity : BaseActivity(), SuggestedEditsIma
         private const val ARG_PAGE = "imageTagPage"
 
         fun newIntent(context: Context, page: MwQueryPage): Intent {
-            return Intent(context, SuggestedEditsFeedCardImageTagActivity::class.java).putExtra(ARG_PAGE, GsonMarshaller.marshal(page))
+            return Intent(context, EditsFeedCardImageTagActivity::class.java).putExtra(ARG_PAGE, GsonMarshaller.marshal(page))
         }
     }
 }

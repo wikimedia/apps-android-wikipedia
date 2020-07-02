@@ -20,7 +20,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.richtext.RichTextUtil
-import org.wikipedia.suggestededits.SuggestedEditsSummary
+import org.wikipedia.edits.EditsSummary
 import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
@@ -37,7 +37,7 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
         layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
     }
 
-    fun setup(summary: SuggestedEditsSummary,
+    fun setup(summary: EditsSummary,
               imageTags: Map<String, List<String>>,
               containerWidth: Int,
               thumbWidth: Int,
@@ -89,7 +89,7 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
         }
     }
 
-    private fun getProperLanguageLocalizedName(summary: SuggestedEditsSummary, imageFromCommons: Boolean): String? {
+    private fun getProperLanguageLocalizedName(summary: EditsSummary, imageFromCommons: Boolean): String? {
         var appLanguageLocalizedName = WikipediaApp.getInstance().language().getAppLanguageLocalizedName(summary.lang)
         if (!imageFromCommons || summary.lang == "commons") {
             // the getAppLanguageLocalizedName() will return "null" when it receiving "commons"
@@ -98,13 +98,13 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
         return appLanguageLocalizedName
     }
 
-    private fun loadImage(summary: SuggestedEditsSummary, containerWidth: Int, thumbWidth: Int, thumbHeight: Int) {
+    private fun loadImage(summary: EditsSummary, containerWidth: Int, thumbWidth: Int, thumbHeight: Int) {
         ImageZoomHelper.setViewZoomable(imageView)
         ViewUtil.loadImage(imageView, ImageUrlUtil.getUrlForPreferredSize(summary.thumbnailUrl!!, Constants.PREFERRED_GALLERY_IMAGE_SIZE))
         imageViewPlaceholder.layoutParams = LayoutParams(containerWidth, adjustImagePlaceholderHeight(containerWidth.toFloat(), thumbWidth.toFloat(), thumbHeight.toFloat()))
     }
 
-    private fun editButtonOnClickListener(summary: SuggestedEditsSummary): OnClickListener {
+    private fun editButtonOnClickListener(summary: EditsSummary): OnClickListener {
         return OnClickListener {
             startActivity(context, DescriptionEditActivity.newIntent(context,
                     summary.pageTitle, null, summary, null,

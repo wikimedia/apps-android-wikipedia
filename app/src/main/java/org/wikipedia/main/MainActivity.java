@@ -26,7 +26,7 @@ import org.wikipedia.onboarding.InitialOnboardingActivity;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.tabs.TabActivity;
 import org.wikipedia.settings.Prefs;
-import org.wikipedia.suggestededits.SuggestedEditsTasksFragment;
+import org.wikipedia.edits.EditsTasksFragment;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
@@ -90,7 +90,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment> implement
     public boolean onPrepareOptionsMenu(Menu menu) {
         getFragment().requestUpdateToolbarElevation();
         MenuItem tabsItem = menu.findItem(R.id.menu_tabs);
-        if (WikipediaApp.getInstance().getTabCount() < 1 || (getFragment().getCurrentFragment() instanceof SuggestedEditsTasksFragment)) {
+        if (WikipediaApp.getInstance().getTabCount() < 1 || (getFragment().getCurrentFragment() instanceof EditsTasksFragment)) {
             tabsItem.setVisible(false);
         } else {
             tabsItem.setVisible(true);
@@ -132,7 +132,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment> implement
                 ((HistoryFragment) getFragment().getCurrentFragment()).refresh();
             }
 
-            if (tab.equals(NavTab.SUGGESTED_EDITS)) {
+            if (tab.equals(NavTab.EDITS)) {
                 getFragment().hideNavTabOverlayLayout();
             }
 

@@ -1,4 +1,4 @@
-package org.wikipedia.suggestededits
+package org.wikipedia.edits
 
 import android.app.Dialog
 import android.content.ClipboardManager
@@ -36,7 +36,7 @@ import org.wikipedia.util.log.L
 import java.util.*
 import kotlin.collections.ArrayList
 
-class SuggestedEditsImageTagDialog : DialogFragment() {
+class EditsImageTagDialog : DialogFragment() {
     interface Callback {
         fun onSearchSelect(item: MwQueryPage.ImageLabel)
         fun onSearchDismiss(searchTerm: String)
@@ -213,8 +213,8 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
     }
 
     companion object {
-        fun newInstance(useClipboardText: Boolean, lastText: String): SuggestedEditsImageTagDialog {
-            val dialog = SuggestedEditsImageTagDialog()
+        fun newInstance(useClipboardText: Boolean, lastText: String): EditsImageTagDialog {
+            val dialog = EditsImageTagDialog()
             val args = Bundle()
             args.putBoolean("useClipboardText", useClipboardText)
             args.putString("lastText", lastText)

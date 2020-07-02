@@ -13,7 +13,7 @@ import org.wikipedia.feed.configure.FeedAvailability;
 import org.wikipedia.feed.onthisday.OnThisDay;
 import org.wikipedia.gallery.MediaList;
 import org.wikipedia.readinglist.sync.SyncedReadingLists;
-import org.wikipedia.suggestededits.provider.SuggestedEditItem;
+import org.wikipedia.edits.provider.SuggestedEditItem;
 
 import java.util.List;
 import java.util.Map;

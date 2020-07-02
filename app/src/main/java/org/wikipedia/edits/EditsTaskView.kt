@@ -1,10 +1,9 @@
-package org.wikipedia.suggestededits
+package org.wikipedia.edits
 
 import android.content.Context
 import android.content.res.ColorStateList
 import android.util.AttributeSet
 import android.view.View
-import androidx.core.widget.ImageViewCompat
 import kotlinx.android.synthetic.main.view_suggested_edits_task_item.view.*
 import org.wikipedia.Constants.MIN_LANGUAGES_TO_UNLOCK_TRANSLATION
 import org.wikipedia.R
@@ -13,7 +12,7 @@ import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.views.WikiCardView
 
-internal class SuggestedEditsTaskView constructor(context: Context, attrs: AttributeSet? = null) : WikiCardView(context, attrs) {
+internal class EditsTaskView constructor(context: Context, attrs: AttributeSet? = null) : WikiCardView(context, attrs) {
 
     init {
         View.inflate(context, R.layout.view_suggested_edits_task_item, this)
@@ -31,7 +30,7 @@ internal class SuggestedEditsTaskView constructor(context: Context, attrs: Attri
         translateButton.setTextColor(color)
     }
 
-    fun setUpViews(task: SuggestedEditsTask, callback: Callback?) {
+    fun setUpViews(task: EditsTask, callback: Callback?) {
         updateTranslateActionUI()
         taskTitle.text = task.title
         taskDescription.text = task.description
@@ -57,6 +56,6 @@ internal class SuggestedEditsTaskView constructor(context: Context, attrs: Attri
     }
 
     interface Callback {
-        fun onViewClick(task: SuggestedEditsTask, isTranslate: Boolean)
+        fun onViewClick(task: EditsTask, isTranslate: Boolean)
     }
 }

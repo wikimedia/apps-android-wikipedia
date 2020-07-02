@@ -53,8 +53,8 @@ import org.wikipedia.readinglist.sync.ReadingListSyncAdapter;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity;
-import org.wikipedia.suggestededits.SuggestedEditsFeedCardImageTagActivity;
-import org.wikipedia.suggestededits.SuggestedEditsImageTagsOnboardingActivity;
+import org.wikipedia.edits.EditsFeedCardImageTagActivity;
+import org.wikipedia.edits.EditsImageTagsOnboardingActivity;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.ThrowableUtil;
@@ -262,7 +262,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         }
         DescriptionEditActivity.Action action = suggestedEditsCardView.getCard().getAction();
         if (action == ADD_IMAGE_TAGS) {
-            startActivityForResult(SuggestedEditsFeedCardImageTagActivity.Companion.newIntent(requireActivity(), suggestedEditsCardView.getCard().getPage()), ACTIVITY_REQUEST_DESCRIPTION_EDIT);
+            startActivityForResult(EditsFeedCardImageTagActivity.Companion.newIntent(requireActivity(), suggestedEditsCardView.getCard().getPage()), ACTIVITY_REQUEST_DESCRIPTION_EDIT);
             return;
         }
         PageTitle pageTitle = (action == TRANSLATE_DESCRIPTION || action == TRANSLATE_CAPTION)
@@ -552,7 +552,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
             suggestedEditsCardView = view;
             if (view.getCard().getAction() == ADD_IMAGE_TAGS && Prefs.shouldShowImageTagsOnboarding()) {
                 Prefs.setShowImageTagsOnboarding(false);
-                startActivityForResult(SuggestedEditsImageTagsOnboardingActivity.Companion.newIntent(requireContext()),
+                startActivityForResult(EditsImageTagsOnboardingActivity.Companion.newIntent(requireContext()),
                         ACTIVITY_REQUEST_SUGGESTED_EDITS_ONBOARDING);
             } else {
                 startDescriptionEditScreen();

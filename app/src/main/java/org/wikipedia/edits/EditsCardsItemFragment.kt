@@ -1,4 +1,4 @@
-package org.wikipedia.suggestededits
+package org.wikipedia.edits
 
 import android.net.Uri
 import android.os.Bundle
@@ -19,7 +19,7 @@ import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
-import org.wikipedia.suggestededits.provider.MissingDescriptionProvider
+import org.wikipedia.edits.provider.MissingDescriptionProvider
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
@@ -27,9 +27,9 @@ import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ImageZoomHelper
 
-class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
-    var sourceSummary: SuggestedEditsSummary? = null
-    var targetSummary: SuggestedEditsSummary? = null
+class EditsCardsItemFragment : EditsItemFragment() {
+    var sourceSummary: EditsSummary? = null
+    var targetSummary: EditsSummary? = null
     var addedContribution: String = ""
         internal set
 
@@ -77,7 +77,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
                             val source = pair.second
                             val target = pair.first
 
-                            sourceSummary = SuggestedEditsSummary(
+                            sourceSummary = EditsSummary(
                                     source.apiTitle,
                                     source.lang,
                                     source.getPageTitle(WikiSite.forLanguageCode(parent().langFromCode)),
@@ -87,7 +87,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
                                     source.extractHtml
                             )
 
-                            targetSummary = SuggestedEditsSummary(
+                            targetSummary = EditsSummary(
                                     target.apiTitle,
                                     target.lang,
                                     target.getPageTitle(WikiSite.forLanguageCode(parent().langToCode)),
@@ -115,7 +115,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
                                 val imageInfo = page.imageInfo()!!
                                 val title = if (imageInfo.commonsUrl.isEmpty()) page.title() else WikiSite(Service.COMMONS_URL).titleForUri(Uri.parse(imageInfo.commonsUrl)).prefixedText
 
-                                sourceSummary = SuggestedEditsSummary(
+                                sourceSummary = EditsSummary(
                                         title,
                                         parent().langFromCode,
                                         PageTitle(
@@ -155,7 +155,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
                                 val imageInfo = page.imageInfo()!!
                                 val title = if (imageInfo.commonsUrl.isEmpty()) page.title() else WikiSite(Service.COMMONS_URL).titleForUri(Uri.parse(imageInfo.commonsUrl)).prefixedText
 
-                                sourceSummary = SuggestedEditsSummary(
+                                sourceSummary = EditsSummary(
                                         title,
                                         parent().langFromCode,
                                         PageTitle(
@@ -195,7 +195,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe({ pageSummary ->
-                            sourceSummary = SuggestedEditsSummary(
+                            sourceSummary = EditsSummary(
                                     pageSummary.apiTitle,
                                     parent().langFromCode,
                                     pageSummary.getPageTitle(WikiSite.forLanguageCode(parent().langFromCode)),
@@ -293,8 +293,8 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
     }
 
     companion object {
-        fun newInstance(): SuggestedEditsItemFragment {
-            return SuggestedEditsCardsItemFragment()
+        fun newInstance(): EditsItemFragment {
+            return EditsCardsItemFragment()
         }
     }
 }
