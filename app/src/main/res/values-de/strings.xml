@@ -36,7 +36,6 @@
   <string name="search_hint_search_languages">Nach einer Sprache suchen</string>
   <string name="search_hint_search_my_lists_and_articles">Meine Listen und Artikel durchsuchen</string>
   <string name="nav_item_history">Verlauf</string>
-  <string name="nav_item_suggested_edits">Vorgeschlagene Bearbeitungen</string>
   <string name="error_network_error">Kann nicht mit dem Internet verbinden.</string>
   <string name="page_error_retry">Erneut versuchen</string>
   <string name="card_offline_error_retry">Wiederholen</string>

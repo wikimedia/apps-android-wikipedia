@@ -15,7 +15,7 @@
     <string name="search_hint_search_languages">Search for a language</string>
     <string name="search_hint_search_my_lists_and_articles">Search my lists and articles</string>
     <string name="nav_item_history">History</string>
-    <string name="nav_item_suggested_edits">Suggested edits</string>
+    <string name="nav_item_suggested_edits">Edits</string>
     <string name="nav_item_more">More</string>
     <string name="error_network_error">Cannot connect to the Internet.</string>
     <string name="page_error_retry">Retry</string>

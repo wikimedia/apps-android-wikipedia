@@ -57,7 +57,6 @@
   <string name="search_hint_search_languages">Rechercher une langue</string>
   <string name="search_hint_search_my_lists_and_articles">Rechercher dans mes listes et articles</string>
   <string name="nav_item_history">Historique</string>
-  <string name="nav_item_suggested_edits">Modifications suggérées</string>
   <string name="nav_item_more">Plus</string>
   <string name="error_network_error">Impossible de se connecter à Internet.</string>
   <string name="page_error_retry">Réessayer</string>

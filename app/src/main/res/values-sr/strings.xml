@@ -31,7 +31,6 @@
   <string name="search_hint_search_languages">Претражите језике</string>
   <string name="search_hint_search_my_lists_and_articles">Претражи моје спискове и чланкове</string>
   <string name="nav_item_history">Историја</string>
-  <string name="nav_item_suggested_edits">Предложене измене</string>
   <string name="error_network_error">Није могуће повезати се са интернетом.</string>
   <string name="page_error_retry">Покушај поново</string>
   <string name="card_offline_error_retry">Покушај поново</string>

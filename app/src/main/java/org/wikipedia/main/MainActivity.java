@@ -132,7 +132,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment> implement
                 ((HistoryFragment) getFragment().getCurrentFragment()).refresh();
             }
 
-            if (tab.equals(NavTab.SUGGESTED_EDITS)) {
+            if (tab.equals(NavTab.EDITS)) {
                 getFragment().hideNavTabOverlayLayout();
             }
 

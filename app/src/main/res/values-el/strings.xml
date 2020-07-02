@@ -29,7 +29,6 @@
   <string name="search_hint_search_languages">Αναζήτηση για γλώσσα</string>
   <string name="search_hint_search_my_lists_and_articles">Αναζήτηση στις λίστες και τα άρθρα μου</string>
   <string name="nav_item_history">Ιστορικό</string>
-  <string name="nav_item_suggested_edits">Προτεινόμενες τροποποιήσεις</string>
   <string name="nav_item_more">Περισσότερα</string>
   <string name="error_network_error">Δεν υπάρχει σύνδεση με το Διαδίκτυο.</string>
   <string name="page_error_retry">Ξαναπροσπαθήστε</string>

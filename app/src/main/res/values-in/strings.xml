@@ -40,7 +40,6 @@
   <string name="search_hint_search_languages">Cari bahasa</string>
   <string name="search_hint_search_my_lists_and_articles">Cari daftar dan artikel saya</string>
   <string name="nav_item_history">Riwayat</string>
-  <string name="nav_item_suggested_edits">Penyuntingan yang disarankan</string>
   <string name="error_network_error">Tidak dapat terhubung ke internet</string>
   <string name="page_error_retry">Coba lagi</string>
   <string name="card_offline_error_retry">Coba lagi</string>

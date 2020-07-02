@@ -29,7 +29,6 @@
   <string name="search_hint_search_languages">Hizkuntza bat bilatu</string>
   <string name="search_hint_search_my_lists_and_articles">Bilatu nire zerrendatan eta artikuluetan</string>
   <string name="nav_item_history">Historia</string>
-  <string name="nav_item_suggested_edits">Gomendatutako aldaketak</string>
   <string name="error_network_error">Ezin izan da Internetera konektatu.</string>
   <string name="page_error_retry">Saiatu berriro</string>
   <string name="card_offline_error_retry">Berriz saiatu</string>

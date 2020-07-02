@@ -49,7 +49,6 @@
   <string name="search_hint_search_languages">Bir dil arayın</string>
   <string name="search_hint_search_my_lists_and_articles">Listelerimde ve makalelerimde ara</string>
   <string name="nav_item_history">Geçmiş</string>
-  <string name="nav_item_suggested_edits">Önerilen düzenlemeler</string>
   <string name="nav_item_more">Daha fazla</string>
   <string name="error_network_error">İnternete bağlanılamıyor.</string>
   <string name="page_error_retry">Tekrar dene</string>
