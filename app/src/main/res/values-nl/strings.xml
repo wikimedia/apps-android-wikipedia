@@ -668,7 +668,6 @@
   <string name="suggested_edits_no_description">Dit bestand heeft geen beschrijving</string>
   <string name="suggested_edits_license_notice">Bij toevoegen van de beschrijving gaat u akkoord met de &lt;a href=\"%1$s\"&gt;gebruiksvoorwaarden&lt;/a&gt; en het onherroepelijk vrijgeven van uw bijdragen onder de &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;-licentie.</string>
   <string name="suggested_edits_menu_info">Informatie</string>
-  <string name="suggested_edits_tasks_activity_title">Voorgestelde bewerkingen</string>
   <string name="suggested_edits_task_add_description_title">Artikelbeschrijvingen toevoegen</string>
   <string name="suggested_edits_task_add_description_description">Bijdragen aan artikels zonder beschrijvingen</string>
   <string name="suggested_edits_task_image_caption_title">Afbeeldingsbijschriften toevoegen</string>

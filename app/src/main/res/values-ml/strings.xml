@@ -431,7 +431,6 @@
   <string name="suggested_edits_my_contributions">എന്റെ സംഭാവനകൾ</string>
   <string name="suggested_edits_no_description">ഈ പ്രമാണത്തിന് വിവരണമില്ല</string>
   <string name="suggested_edits_menu_info">വിവരം</string>
-  <string name="suggested_edits_tasks_activity_title">നിർദ്ദേശിച്ച തിരുത്തലുകൾ</string>
   <string name="suggested_edits_task_add_description_title">ലേഖനത്തിന് വിവരണങ്ങൾ ചേർക്കുക</string>
   <string name="suggested_edits_task_add_description_description">തലക്കെട്ട് വിവരണങ്ങൾ ഇല്ലാതെ ലേഖനങ്ങളിലേക്ക് സംഭാവന ചെയ്യുക</string>
   <string name="suggested_edits_task_image_caption_title">ചിത്രത്തിന് തലവാചകം ചേർക്കുക</string>

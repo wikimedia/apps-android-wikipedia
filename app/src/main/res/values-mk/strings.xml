@@ -652,7 +652,6 @@
   <string name="suggested_edits_license_notice">Додавајќи го описот, се согласувам со &lt;a href=\"%1$s\"&gt;Условите на употреба&lt;/a&gt; и дека неотповикливо ги објавувам моите придонеси под лиценцата &lt;a href=\"%2$s\"&gt;Криејтив комонс CC0&lt;/a&gt;</string>
   <string name="suggested_edits_image_caption_license_notice">Додавајќи го описот на сликата, се согласувам со &lt;a href=\"%1$s\"&gt;Условите на употреба&lt;/a&gt; и дека неотповикливо ги објавувам моите придонеси под лиценцата &lt;a href=\"%2$s\"&gt;Криејтив комонс CC0&lt;/a&gt;</string>
   <string name="suggested_edits_menu_info">Инфо</string>
-  <string name="suggested_edits_tasks_activity_title">Предложени уредувања</string>
   <string name="suggested_edits_task_add_description_title">Додај описи на статии</string>
   <string name="suggested_edits_task_add_description_description">Придонесувајте со статии без описи</string>
   <string name="suggested_edits_task_image_caption_title">Додај описи на слики</string>

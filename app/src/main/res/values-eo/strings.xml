@@ -613,7 +613,6 @@
   <string name="suggested_edits_license_notice">Per aldonado de la priskribo, mi konsentas al la &lt;a href=\"%1$s\"&gt;Kondiĉoj de Uzado&lt;/a&gt; kaj al la nerevokebla eldono de miaj kontribuoj laŭ la permesilo &lt;a href=\"%2$s\"&gt;Krea Komunaĵo CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_image_caption_license_notice">Per aldonado de la titolo de la bildo, mi konsentas al la &lt;a href=\"%1$s\"&gt;Kondiĉoj de Uzado&lt;/a&gt; kaj al la nerevokebla eldono de miaj kontribuoj laŭ la permesilo &lt;a href=\"%2$s\"&gt;Krea Komunaĵo CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Informo</string>
-  <string name="suggested_edits_tasks_activity_title">Sugestataj redaktoj</string>
   <string name="suggested_edits_task_add_description_title">Aldoni priskribojn al artikoloj</string>
   <string name="suggested_edits_task_add_description_description">Kontribui al artikloj sen priskriboj</string>
   <string name="suggested_edits_task_image_caption_title">Titoli bildojn</string>

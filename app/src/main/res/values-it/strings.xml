@@ -681,7 +681,6 @@
   <string name="suggested_edits_license_notice">Aggiungendo la descrizione, accetti le nostre &lt;a href=\"%1$s\"&gt;condizioni d\'uso&lt;/a&gt; e accetti di rilasciare irrevocabilmente il tuo contributo in base alla licenza &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_image_caption_license_notice">Aggiungendo la didascalia all\'immagine, accetti le nostre &lt;a href=\"%1$s\"&gt;condizioni d\'uso&lt;/a&gt; e accetti di rilasciare irrevocabilmente il tuo contributo in base alla licenza &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Informazioni</string>
-  <string name="suggested_edits_tasks_activity_title">Modifiche suggerite</string>
   <string name="suggested_edits_task_add_description_title">Aggiungi descrizioni della voce</string>
   <string name="suggested_edits_task_add_description_description">Contribuire alle voci senza descrizioni</string>
   <string name="suggested_edits_task_image_caption_title">Aggiungi didascalie immagini</string>

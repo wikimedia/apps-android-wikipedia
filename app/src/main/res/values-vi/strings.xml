@@ -622,7 +622,6 @@
   <string name="suggested_edits_translate_descriptions">Dịch mô tả bài viết</string>
   <string name="suggested_edits_add_image_captions">Thêm chú thích hình ảnh</string>
   <string name="suggested_edits_translate_image_captions">Dịch chú thích hình ảnh</string>
-  <string name="suggested_edits_tasks_activity_title">Sửa đổi gợi ý</string>
   <string name="suggested_edits_task_multilingual_positive">Thêm ngôn ngữ</string>
   <string name="suggested_edits_image_caption_summary_title_file">Tập tin</string>
   <string name="suggested_edits_image_caption_summary_title_source">Nguồn</string>

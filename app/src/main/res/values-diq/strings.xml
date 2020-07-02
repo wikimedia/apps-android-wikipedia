@@ -461,7 +461,6 @@
   <string name="suggested_edits_license_notice">Şınastey vurnayışiya\"&lt;a href=\"%1$s\"&gt;Şertanê karkerdışi &lt;/a&gt;\"u iştıraka peyser megêriya weziyet de lisansê &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; çapnayışi qebul kena.</string>
   <string name="suggested_edits_image_caption_license_notice">Bınnuştey resimi vurnayışiya \"&lt;a href=\"%1$s\"&gt;Şertanê karkerdışi&lt;/a&gt;\" u iştıraka peyser megêriya weziyet de lisansê &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; çapnayışi qebul kena.</string>
   <string name="suggested_edits_menu_info">Melumat</string>
-  <string name="suggested_edits_tasks_activity_title">Wesıbnaye vurnayışi</string>
   <string name="suggested_edits_task_add_description_title">Şınasnayışê meqaley cı kerê</string>
   <string name="suggested_edits_task_image_caption_title">Bınnuştey resimi cı kerê</string>
   <string name="suggested_edits_task_multilingual_negative">Seba mı nê</string>

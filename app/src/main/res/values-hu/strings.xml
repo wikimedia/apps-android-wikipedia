@@ -655,7 +655,6 @@
   <string name="suggested_edits_license_notice">A leírás hozzáadásával elfogadom a &lt;a href=\"%1$s\"&gt;felhasználási feltételeket&lt;/a&gt; és visszavonhatatlanul &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; licenc alá helyezem a szerkesztéseimet.</string>
   <string name="suggested_edits_image_caption_license_notice">A képaláírás hozzáadásával elfogadom a &lt;a href=\"%1$s\"&gt;felhasználási feltételeket&lt;/a&gt; és visszavonhatatlanul &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; licenc alá helyezem a szerkesztéseimet.</string>
   <string name="suggested_edits_menu_info">Információ</string>
-  <string name="suggested_edits_tasks_activity_title">Javasolt szerkesztések</string>
   <string name="suggested_edits_task_add_description_title">Szócikkleírások hozzáadása</string>
   <string name="suggested_edits_task_add_description_description">Működj közre a címleírások nélküli cikkeknél</string>
   <string name="suggested_edits_task_image_caption_title">Képaláírások hozzáadása</string>

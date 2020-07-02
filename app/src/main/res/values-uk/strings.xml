@@ -674,7 +674,6 @@
   <string name="suggested_edits_license_notice">Додаючи описи, я погоджуюсь з &lt;a href=\"%1$s\"&gt;Умовами використання&lt;/a&gt; та на невідкличну публікацію моїх редагувань за умовами ліцензії &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_image_caption_license_notice">Додаючи підписи зображень, я погоджуюсь з &lt;a href=\"%1$s\"&gt;Умовами використання&lt;/a&gt; та на невідкличну публікацію моїх редагувань за умовами ліцензії &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Інфо</string>
-  <string name="suggested_edits_tasks_activity_title">Пропоновані редагування</string>
   <string name="suggested_edits_task_add_description_title">Додавання описів статей</string>
   <string name="suggested_edits_task_add_description_description">Додати інформацію до статей без описів</string>
   <string name="suggested_edits_task_image_caption_title">Додавання підписів зображень</string>

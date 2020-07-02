@@ -690,7 +690,6 @@
     <string name="suggested_edits_license_notice"><![CDATA[By adding the description, I agree to the <a href="%1$s">Terms of Use</a> and to irrevocably release my contributions under the <a href="%2$s">Creative Commons CC0</a> license.]]></string>
     <string name="suggested_edits_image_caption_license_notice"><![CDATA[By adding the image caption, I agree to the <a href="%1$s">Terms of Use</a> and to irrevocably release my contributions under the <a href="%2$s">Creative Commons CC0</a> license.]]></string>
     <string name="suggested_edits_menu_info">Info</string>
-    <string name="suggested_edits_tasks_activity_title">Suggested edits</string>
     <string name="suggested_edits_task_add_description_title">Add article descriptions</string>
     <string name="suggested_edits_task_add_description_description">Contribute to articles without descriptions</string>
     <string name="suggested_edits_task_image_caption_title">Add image captions</string>
