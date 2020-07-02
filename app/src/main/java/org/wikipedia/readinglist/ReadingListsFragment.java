@@ -337,7 +337,7 @@ public class ReadingListsFragment extends Fragment implements
     }
 
     private void updateLists(@Nullable final String searchQuery, boolean forcedRefresh) {
-        maybeShowOnboarding();
+        maybeShowOnboarding(searchQuery);
         ReadingListBehaviorsUtil.INSTANCE.searchListsAndPages(searchQuery, lists -> {
             DiffUtil.DiffResult result = DiffUtil.calculateDiff(new DiffUtil.Callback() {
                 @Override
@@ -378,7 +378,8 @@ public class ReadingListsFragment extends Fragment implements
                     && !currentSearchQuery.equals(searchQuery));
 
             // if the default list is empty, then removes it.
-            if (lists.size() == 1 && ((ReadingList) lists.get(0)).pages().size() == 0) {
+            if (lists.size() == 1 && ((ReadingList) lists.get(0)).isDefault()
+                    && ((ReadingList) lists.get(0)).pages().isEmpty()) {
                 lists.remove(0);
             }
 
@@ -407,15 +408,11 @@ public class ReadingListsFragment extends Fragment implements
     private void updateEmptyState(@Nullable String searchQuery) {
         if (TextUtils.isEmpty(searchQuery)) {
             searchEmptyView.setVisibility(View.GONE);
-            if (displayedLists.size() == 1) {
-                setEmptyContainerVisibility(true);
-                setUpEmptyContainer();
-            }
+            setUpEmptyContainer();
             setEmptyContainerVisibility(displayedLists.isEmpty() && onboardingView.getVisibility() == View.GONE);
         } else {
             searchEmptyView.setVisibility(displayedLists.isEmpty() ? View.VISIBLE : View.GONE);
             setEmptyContainerVisibility(false);
-            contentContainer.setVisibility(displayedLists.isEmpty() ? View.GONE : View.VISIBLE);
         }
     }
 
@@ -430,7 +427,10 @@ public class ReadingListsFragment extends Fragment implements
     }
 
     private void setUpEmptyContainer() {
-        if (displayedLists.get(0) instanceof ReadingList && !((ReadingList) displayedLists.get(0)).pages().isEmpty()) {
+        if (displayedLists.size() == 1
+                && displayedLists.get(0) instanceof ReadingList
+                && ((ReadingList) displayedLists.get(0)).isDefault()
+                && !((ReadingList) displayedLists.get(0)).pages().isEmpty()) {
             emptyTitle.setText(getString(R.string.no_user_lists_title));
             emptyMessage.setText(getString(R.string.no_user_lists_msg));
         } else {
@@ -680,6 +680,7 @@ public class ReadingListsFragment extends Fragment implements
             actionMode = mode;
             // searching delay will let the animation cannot catch the update of list items, and will cause crashes
             enableLayoutTransition(false);
+            onboardingView.setVisibility(View.GONE);
             return super.onCreateActionMode(mode, menu);
         }
 
@@ -741,8 +742,11 @@ public class ReadingListsFragment extends Fragment implements
         }
     }
 
-    private void maybeShowOnboarding() {
+    private void maybeShowOnboarding(@Nullable String searchQuery) {
         onboardingView.setVisibility(View.GONE);
+        if (!TextUtils.isEmpty(searchQuery)) {
+            return;
+        }
         if (AccountUtil.isLoggedIn() && !Prefs.isReadingListSyncEnabled()
                 && Prefs.isReadingListSyncReminderEnabled()
                 && !ReadingListSyncAdapter.isDisabledByRemoteConfig()) {
@@ -752,7 +756,6 @@ public class ReadingListsFragment extends Fragment implements
             onboardingView.setButton(requireContext().getString(R.string.reading_lists_sync_reminder_action),
                     view -> ReadingListSyncAdapter.setSyncEnabledWithSetup(), true);
             onboardingView.setVisibility(View.VISIBLE);
-
         } else if (!AccountUtil.isLoggedIn() && Prefs.isReadingListLoginReminderEnabled()
                 && !ReadingListSyncAdapter.isDisabledByRemoteConfig()) {
             onboardingView.setMessageTitle(getString((R.string.reading_list_login_reminder_title)));

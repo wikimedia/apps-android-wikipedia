@@ -8,7 +8,8 @@
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -44,7 +45,6 @@
                 android:id="@+id/empty_container"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:fillViewport="true"
                 android:animateLayoutChanges="true"
                 android:gravity="center"
                 android:layout_gravity="center"
@@ -72,7 +72,8 @@
                 android:id="@+id/search_empty_view"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:fillViewport="true"/>
+                android:layout_gravity="center"
+                android:gravity="center"/>
 
         </FrameLayout>
     </androidx.core.widget.NestedScrollView>
