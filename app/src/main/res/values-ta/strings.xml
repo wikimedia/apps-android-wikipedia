@@ -481,7 +481,6 @@
   <string name="suggested_edits_last_edited_never">எப்போதுமில்லை</string>
   <string name="suggested_edits_contribution_language_label">மொழி</string>
   <string name="suggested_edits_contribution_date_time_label">நாள்/நேரம்</string>
-  <string name="suggested_edits_contribution_image_label">கோப்பு</string>
   <string name="suggested_edits_contribution_views">%s பார்வைகள்</string>
   <string name="suggested_edits_contribution_date_yesterday_text">நேற்று</string>
   <string name="suggested_edits_rewards_continue_button">தொடரவும்</string>
