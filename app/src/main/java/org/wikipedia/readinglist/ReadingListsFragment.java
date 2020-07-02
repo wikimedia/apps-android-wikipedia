@@ -10,6 +10,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -81,6 +83,9 @@ public class ReadingListsFragment extends Fragment implements
     private Unbinder unbinder;
     @BindView(R.id.reading_list_content_container) ViewGroup contentContainer;
     @BindView(R.id.reading_list_list) RecyclerView readingListView;
+    @BindView(R.id.empty_container) ViewGroup emptyContainer;
+    @BindView(R.id.empty_title) TextView emptyTitle;
+    @BindView(R.id.empty_message) TextView emptyMessage;
     @BindView(R.id.search_empty_view) SearchEmptyView searchEmptyView;
     @BindView(R.id.onboarding_view) MessageCardView onboardingView;
     @BindView(R.id.reading_list_swipe_refresh) SwipeRefreshLayout swipeRefreshLayout;
@@ -309,8 +314,10 @@ public class ReadingListsFragment extends Fragment implements
     private void enableLayoutTransition(boolean enable) {
         if (enable) {
             contentContainer.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
+            emptyContainer.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
         } else {
             contentContainer.getLayoutTransition().disableTransitionType(LayoutTransition.CHANGING);
+            emptyContainer.getLayoutTransition().disableTransitionType(LayoutTransition.CHANGING);
         }
     }
 
@@ -358,6 +365,12 @@ public class ReadingListsFragment extends Fragment implements
                     || (!TextUtils.isEmpty(currentSearchQuery)
                     && !TextUtils.isEmpty(searchQuery)
                     && !currentSearchQuery.equals(searchQuery));
+
+            // if the default list is empty, then removes it.
+            if (lists.size() == 1 && ((ReadingList) lists.get(0)).pages().size() == 0) {
+                lists.remove(0);
+            }
+
             displayedLists = lists;
             if (invalidateAll) {
                 adapter.notifyDataSetChanged();
@@ -383,10 +396,36 @@ public class ReadingListsFragment extends Fragment implements
     private void updateEmptyState(@Nullable String searchQuery) {
         if (TextUtils.isEmpty(searchQuery)) {
             searchEmptyView.setVisibility(View.GONE);
+            if (displayedLists.size() == 1) {
+                setEmptyContainerVisibility(true);
+                setUpEmptyContainer();
+            }
+            setEmptyContainerVisibility(displayedLists.isEmpty() && onboardingView.getVisibility() == View.GONE);
         } else {
             searchEmptyView.setVisibility(displayedLists.isEmpty() ? View.VISIBLE : View.GONE);
+            setEmptyContainerVisibility(false);
+            contentContainer.setVisibility(displayedLists.isEmpty() ? View.GONE : View.VISIBLE);
         }
-        contentContainer.setVisibility(displayedLists.isEmpty() ? View.GONE : View.VISIBLE);
+    }
+
+    private void setEmptyContainerVisibility(boolean visible) {
+        if (visible) {
+            emptyContainer.setVisibility(View.VISIBLE);
+            requireActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
+        } else {
+            emptyContainer.setVisibility(View.GONE);
+            DeviceUtil.setWindowSoftInputModeResizable(requireActivity());
+        }
+    }
+
+    private void setUpEmptyContainer() {
+        if (displayedLists.get(0) instanceof ReadingList && !((ReadingList) displayedLists.get(0)).pages().isEmpty()) {
+            emptyTitle.setText(getString(R.string.no_user_lists_title));
+            emptyMessage.setText(getString(R.string.no_user_lists_msg));
+        } else {
+            emptyTitle.setText(getString(R.string.saved_list_empty_title));
+            emptyMessage.setText(getString(R.string.reading_lists_empty_message));
+        }
     }
 
     @Override

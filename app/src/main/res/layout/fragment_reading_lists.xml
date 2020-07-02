@@ -7,13 +7,13 @@
     android:layout_height="wrap_content">
 
     <androidx.core.widget.NestedScrollView
-        android:id="@+id/suggestedEditsScrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:fillViewport="true">
 
             <LinearLayout
                 android:id="@+id/reading_list_content_container"
@@ -40,14 +40,39 @@
 
             </LinearLayout>
 
+            <LinearLayout
+                android:id="@+id/empty_container"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:fillViewport="true"
+                android:animateLayoutChanges="true"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/empty_title"
+                    style="@style/MaterialLargePrimaryTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:text="@string/saved_list_empty_title" />
+
+                <TextView
+                    android:id="@+id/empty_message"
+                    style="@style/MaterialMediumSecondaryCaption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/reading_lists_empty_message" />
+            </LinearLayout>
+
             <org.wikipedia.views.SearchEmptyView
                 android:id="@+id/search_empty_view"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:layout_height="match_parent"
+                android:fillViewport="true"/>
 
         </FrameLayout>
     </androidx.core.widget.NestedScrollView>
