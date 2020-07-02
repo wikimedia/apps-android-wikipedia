@@ -289,6 +289,10 @@
         <item name="backgroundTint">@color/color_state_blue</item>
     </style>
 
+    <style name="App.Button.Blue.NonDisabled">
+        <item name="backgroundTint">@color/color_state_blue_non_disable</item>
+    </style>
+
     <style name="App.Button.Gray">
         <item name="backgroundTint">@color/color_state_gray</item>
     </style>

@@ -691,7 +691,6 @@
   <string name="suggested_edits_image_tags_published">Publisert</string>
   <string name="suggested_edits_image_zoom_tooltip">Dra to fingre fra hverandre for å zoome i bildet.</string>
   <string name="suggested_edits_encouragement_message">Takk for redigeringene dine, %s. Under finner du flere måter du kan bidra med på Wikipedia.</string>
-  <string name="suggested_edits_onboarding_message">&lt;b&gt;Hei %s&lt;/b&gt;, vet du at hvem som helst kan redigere Wikipedia? Under finner du flere morsomme måter du kan bidra på. Lykke til!</string>
   <string name="suggested_edits_image_captions_task_detail" fuzzy="true">Bildetekster beskriver et bilde for å hjelpe lesere å forstå bildets motiv og kontekst.</string>
   <string name="suggested_edits_add_descriptions_task_detail" fuzzy="true">Artikkelbeskrivelser oppsummerer en artikkel for å hjelpe lesere å raskt forstå hva den handler om</string>
   <string name="suggested_edits_contributions_stat_tooltip">Antall bidrag du totalt har gjort her.</string>

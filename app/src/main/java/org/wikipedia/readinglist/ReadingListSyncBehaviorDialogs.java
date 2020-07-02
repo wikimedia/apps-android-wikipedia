@@ -39,7 +39,7 @@ public final class ReadingListSyncBehaviorDialogs {
     }
 
     public static void promptEnableSyncDialog(@NonNull Activity activity) {
-        if (!Prefs.shouldShowReadingListSyncEnablePrompt()) {
+        if (!Prefs.shouldShowReadingListSyncEnablePrompt() || Prefs.isSuggestedEditsHighestPriorityEnabled()) {
             return;
         }
         View view = activity.getLayoutInflater().inflate(R.layout.dialog_with_checkbox, null);

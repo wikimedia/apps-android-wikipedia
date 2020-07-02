@@ -726,7 +726,6 @@
   <string name="suggested_edits_contribution_language_label">Język</string>
   <string name="suggested_edits_contribution_date_time_label">Data / Czas</string>
   <string name="suggested_edits_contribution_type_label">Typ kontrybucji</string>
-  <string name="suggested_edits_contribution_image_label">Plik</string>
   <string name="suggested_edits_contribution_article_label">Artykuł</string>
   <string name="suggested_edits_contribution_views">%s wyświetleń</string>
   <string name="suggested_edits_contribution_seen_text">Widziany %s razy w ciągu ostatnich 30 dni.</string>
