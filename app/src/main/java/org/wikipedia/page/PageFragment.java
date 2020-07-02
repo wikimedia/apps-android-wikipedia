@@ -348,6 +348,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         webView.clearAllListeners();
         ((ViewGroup) webView.getParent()).removeView(webView);
         webView = null;
+        Prefs.setSuggestedEditsHighestPriorityEnabled(false);
         super.onDestroyView();
     }
 

@@ -36,7 +36,9 @@ class DrawableItemDecoration @JvmOverloads constructor(context: Context, @AttrRe
         for (i in (if (drawStart) 0 else 1) until end) {
             draw(canvas, bounds(parent, parent.getChildAt(i), true))
         }
-        draw(canvas, bounds(parent, parent.getChildAt(end), true))
+        if (drawStart || parent.childCount > 1) {
+            draw(canvas, bounds(parent, parent.getChildAt(end), true))
+        }
         if (drawEnd) {
             draw(canvas, bounds(parent, parent.getChildAt(end), false))
         }

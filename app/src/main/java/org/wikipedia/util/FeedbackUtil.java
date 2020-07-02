@@ -35,7 +35,8 @@ import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
 
 public final class FeedbackUtil {
     public static final int LENGTH_DEFAULT = (int) TimeUnit.SECONDS.toMillis(5);
-    public static final int LENGTH_LONG = (int) TimeUnit.SECONDS.toMillis(8);
+    public static final int LENGTH_MEDIUM = (int) TimeUnit.SECONDS.toMillis(8);
+    public static final int LENGTH_LONG = (int) TimeUnit.SECONDS.toMillis(15);
     private static final int SNACKBAR_MAX_LINES = 10;
     private static View.OnLongClickListener TOOLBAR_LONG_CLICK_LISTENER = (v) -> {
         showToastOverView(v, v.getContentDescription(), LENGTH_DEFAULT);

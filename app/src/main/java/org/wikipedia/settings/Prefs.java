@@ -925,5 +925,12 @@ public final class Prefs {
         return getBoolean(R.string.preference_key_suggested_edits_reward_interstitial_qa_override, false);
     }
 
+    public static boolean isSuggestedEditsHighestPriorityEnabled() {
+        return getBoolean(R.string.preference_key_suggested_edits_highest_priority_enabled, false);
+    }
+
+    public static void setSuggestedEditsHighestPriorityEnabled(boolean enabled) {
+        setBoolean(R.string.preference_key_suggested_edits_highest_priority_enabled, enabled);
+    }
     private Prefs() { }
 }

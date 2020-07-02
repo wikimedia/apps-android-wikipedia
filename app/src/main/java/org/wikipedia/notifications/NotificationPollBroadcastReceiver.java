@@ -170,7 +170,7 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
     }
 
     private void onNotificationsComplete(@NonNull final Context context, @NonNull List<Notification> notifications) {
-        if (notifications.isEmpty()) {
+        if (notifications.isEmpty() || Prefs.isSuggestedEditsHighestPriorityEnabled()) {
             return;
         }
         boolean locallyKnownModified = false;

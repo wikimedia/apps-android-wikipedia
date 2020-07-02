@@ -124,4 +124,5 @@
     <string name="preference_key_suggested_edits_reward_interstitial_edit_quality_on_day">SERewardInterstitialEditQualityOnDay</string>
     <string name="preference_key_suggested_edits_reward_interstitial_pageviews_on_day">SERewardInterstitialPageviewsOnDay</string>
     <string name="preference_key_suggested_edits_reward_interstitial_qa_override">SERewardInterstitialQAOverride</string>
+    <string name="preference_key_suggested_edits_highest_priority_enabled">SEHighestPriorityEnabled</string>
 </resources>

@@ -170,6 +170,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     }
 
     @Override public void onDestroyView() {
+        Prefs.setSuggestedEditsHighestPriorityEnabled(false);
         viewPager.setAdapter(null);
         viewPager.unregisterOnPageChangeCallback(pageChangeCallback);
         unbinder.unbind();
@@ -545,6 +546,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
                             FeedbackUtil.showMessage(requireActivity(), R.string.toast_logout_complete);
                             Prefs.setReadingListsLastSyncTime(null);
                             Prefs.setReadingListSyncEnabled(false);
+                            Prefs.setSuggestedEditsHighestPriorityEnabled(false);
                             refreshContents();
                         }).show();
             } else {
