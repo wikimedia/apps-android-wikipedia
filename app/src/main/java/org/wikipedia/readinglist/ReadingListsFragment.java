@@ -104,6 +104,7 @@ public class ReadingListsFragment extends Fragment implements
     private OverflowCallback overflowCallback = new OverflowCallback();
     private String currentSearchQuery;
     private static final int SAVE_COUNT_LIMIT = 3;
+    private static final int SHOW_ONBOARDING_VISIT_COUNT = 2;
     public static final int ARTICLE_ITEM_IMAGE_DIMENSION = 57;
 
     @NonNull public static ReadingListsFragment newInstance() {
@@ -757,10 +758,12 @@ public class ReadingListsFragment extends Fragment implements
                     view -> ReadingListSyncAdapter.setSyncEnabledWithSetup(), true);
             onboardingView.setVisibility(View.VISIBLE);
         } else if (!AccountUtil.isLoggedIn() && Prefs.isReadingListLoginReminderEnabled()
+                && Prefs.getReadingListsVisitCount() < SHOW_ONBOARDING_VISIT_COUNT
                 && !ReadingListSyncAdapter.isDisabledByRemoteConfig()) {
             onboardingView.setMessageTitle(getString((R.string.reading_list_login_reminder_title)));
             onboardingView.setMessageText(getString(R.string.reading_lists_login_reminder_text));
-            onboardingView.setImageSource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.sync_reading_list_prompt_drawable));
+            onboardingView.setImageSource(Prefs.getReadingListsVisitCount() == 0
+                    ? ResourceUtil.getThemedAttributeId(requireContext(), R.attr.sync_reading_list_prompt_drawable) : -1);
             onboardingView.setButton(requireContext().getString(R.string.reading_lists_login_button),
                     view -> {
                         if (getParentFragment() instanceof FeedFragment.Callback) {
@@ -768,6 +771,7 @@ public class ReadingListsFragment extends Fragment implements
                         }
                     }, true);
             onboardingView.setVisibility(View.VISIBLE);
+            Prefs.incrementReadingListsVisitCount();
         }
     }
 }
