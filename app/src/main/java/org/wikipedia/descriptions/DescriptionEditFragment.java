@@ -30,13 +30,13 @@ import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.mwapi.MwServiceError;
 import org.wikipedia.dataclient.wikidata.EntityPostResponse;
 import org.wikipedia.descriptions.DescriptionEditActivity.Action;
+import org.wikipedia.edits.EditsSummary;
+import org.wikipedia.edits.EditsSurvey;
 import org.wikipedia.json.GsonMarshaller;
 import org.wikipedia.json.GsonUnmarshaller;
 import org.wikipedia.login.LoginClient.LoginFailedException;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.settings.Prefs;
-import org.wikipedia.edits.EditsSummary;
-import org.wikipedia.edits.EditsSurvey;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
@@ -65,8 +65,8 @@ import static org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLAT
 import static org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION;
 import static org.wikipedia.descriptions.DescriptionEditUtil.ABUSEFILTER_DISALLOWED;
 import static org.wikipedia.descriptions.DescriptionEditUtil.ABUSEFILTER_WARNING;
-import static org.wikipedia.language.AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE;
 import static org.wikipedia.edits.EditsCardsActivity.EXTRA_SOURCE_ADDED_CONTRIBUTION;
+import static org.wikipedia.language.AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE;
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 
 public class DescriptionEditFragment extends Fragment {
