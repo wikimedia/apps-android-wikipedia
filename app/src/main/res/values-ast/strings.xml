@@ -703,7 +703,7 @@
   <string name="suggested_edits_image_tags_add_tag">Añadir etiqueta</string>
   <string name="suggested_edits_image_zoom_tooltip">Plizca p\'ampliar esta imaxe.</string>
   <string name="suggested_edits_encouragement_message">%s, gracies poles tos ediciones. Más abaxo pues alcontrar otres formes de collaborar con Wikipedia.</string>
-  <string name="suggested_edits_onboarding_message">&lt;b&gt;Bones, %s&lt;/b&gt;. ¿Sabíes que tol mundu pue editar Wikipedia? Más abaxo pues alcontrar formes divertíes d\'ayudar a ameyorar la Wikipedia. ¡Feliz edición!</string>
+  <string name="suggested_edits_onboarding_message" fuzzy="true">&lt;b&gt;Bones, %s&lt;/b&gt;. ¿Sabíes que tol mundu pue editar Wikipedia? Más abaxo pues alcontrar formes divertíes d\'ayudar a ameyorar la Wikipedia. ¡Feliz edición!</string>
   <string name="suggested_edits_image_captions_task_detail" fuzzy="true">Los pies d\'imaxe describen una imaxe p\'ayudar los llectores a entender el so significáu y contestu.</string>
   <string name="suggested_edits_add_descriptions_task_detail" fuzzy="true">Les descripciones d\'artículos resumen un artículu p\'ayudar a que los llectores puedan enterase de la tema del artículu d\'una güeyada.</string>
   <string name="suggested_edits_contributions_stat_tooltip">El númberu total de les tos contribuciones con Ediciones suxeríes.</string>
@@ -715,7 +715,7 @@
   <string name="suggested_edits_ip_blocked_message" fuzzy="true">Paez que la to direición IP (o rangu de direiciones IP) anguaño ta bloquiada pa editar la Wikipedia. Consulta lo que significa esto visitando l\'enllaz de más abaxo.</string>
   <string name="suggested_edits_editing_tips_link_text">Trucos y conseyos d\'edición</string>
   <string name="suggested_edits_help_page_link_text">Páxina d\'ayuda d\'ediciones suxeríes</string>
-  <string name="suggested_edits_pageviews_label_text">Visites a páxines</string>
+  <string name="suggested_edits_views_label_text" fuzzy="true">Visites a páxines</string>
   <string name="suggested_edits_quality_label_text">Calidá d\'ediciones</string>
   <string name="suggested_edits_quality_perfect_text">Perfeuta</string>
   <string name="suggested_edits_quality_excellent_text">Escelente</string>

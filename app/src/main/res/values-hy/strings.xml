@@ -273,7 +273,7 @@
   <string name="suggested_edits_last_edited_never">Երբեք</string>
   <string name="suggested_edits_task_new">նոր</string>
   <string name="suggested_edits_contribution_language_label">Լեզու</string>
-  <string name="suggested_edits_contribution_image_label">Նիշք</string>
+  <string name="suggested_edits_contribution_image_label" fuzzy="true">Նիշք</string>
   <string name="suggested_edits_contribution_article_label">Հոդված</string>
   <string name="description_edit_login_cancel_button_text">Չեղարկել</string>
   <string name="onboarding_skip">Բաց թողնել</string>

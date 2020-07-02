@@ -715,7 +715,7 @@
   <string name="suggested_edits_image_tags_search">جستجوی برچسب‌ها</string>
   <string name="suggested_edits_image_tags_select_title">شما هیچ برچسبی برای این تصویر انتخاب نکرده‌اید</string>
   <string name="suggested_edits_image_tags_add_tag">افزودن برچسب</string>
-  <string name="suggested_edits_pageviews_label_text">بازدیدهای صفحه</string>
+  <string name="suggested_edits_views_label_text" fuzzy="true">بازدیدهای صفحه</string>
   <string name="suggested_edits_quality_label_text">کیفیت ویرایش</string>
   <string name="suggested_edits_quality_perfect_text">کامل و دقیق</string>
   <string name="suggested_edits_quality_excellent_text">عالی</string>

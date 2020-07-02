@@ -694,13 +694,13 @@
   <string name="suggested_edits_image_tags_select_text">Μόνο ετικέτες που επιλέγετε θα προστεθούν στις εικόνες. Αυτές που δεν έχουν επιλεγεί θα επισημανθούν ως απορριφθείσες. Είστε βέβαιοι ότι θέλετε να επισημάνετε όλες τις ετικέτες ως απορριφθείσες;</string>
   <string name="suggested_edits_image_tags_add_tag">Προσθήκη ετικέτας</string>
   <string name="suggested_edits_encouragement_message">%s, σας ευχαριστούμε για τις τροποποιήσεις σας. Παρακάτω μπορείτε να βρείτε περισσότερους τρόπους για να συνεισφέρετε στη Βικιπαίδεια.</string>
-  <string name="suggested_edits_onboarding_message">&lt;b&gt;Γειά σας %s&lt;/b&gt;, ξέρατε ότι όλοι μπορούν να επεξεργαστούν τη Βικιπαίδεια; Παρακάτω μπορείτε να βρείτε διασκεδαστικούς τρόπους για να βελτιώσετε τη Βικιπαίδεια. Καλή επεξεργασία!</string>
+  <string name="suggested_edits_onboarding_message" fuzzy="true">&lt;b&gt;Γειά σας %s&lt;/b&gt;, ξέρατε ότι όλοι μπορούν να επεξεργαστούν τη Βικιπαίδεια; Παρακάτω μπορείτε να βρείτε διασκεδαστικούς τρόπους για να βελτιώσετε τη Βικιπαίδεια. Καλή επεξεργασία!</string>
   <string name="suggested_edits_image_captions_task_detail">Περιγράψτε μια εικόνα για να βοηθήσετε τους αναγνώστες να κατανοήσουν τη σημασία και το περιεχόμενό της.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Συνοψίστε ένα άρθρο για να βοηθήσετε τους αναγνώστες να κατανοήσουν το θέμα με μια ματιά.</string>
   <string name="suggested_edits_ip_blocked_message">Φαίνεται ότι η διεύθυνση IP σας (ή το εύρος των διευθύνσεων IP) έχει αποκλειστεί από την επεξεργασία της Βικιπίδεια.</string>
   <string name="suggested_edits_editing_tips_link_text">Συμβουλές και κόλπα επεξεργασίας</string>
   <string name="suggested_edits_edit_streak_label_text">Συνεχόμενη επεξεργασία</string>
-  <string name="suggested_edits_pageviews_label_text">Προβολές σελίδας</string>
+  <string name="suggested_edits_views_label_text" fuzzy="true">Προβολές σελίδας</string>
   <string name="suggested_edits_quality_label_text">Ποιότητας επεξεργασίας</string>
   <string name="suggested_edits_quality_perfect_text">Τέλεια</string>
   <string name="suggested_edits_quality_excellent_text">Καταπληκτική</string>
@@ -726,7 +726,7 @@
   <string name="suggested_edits_contributions_screen_title">Οι συνεισφορές του %s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Χθες</string>
   <string name="suggested_edits_contribution_type_image_tag">Ετικέτα εικόνας</string>
-  <string name="suggested_edits_contribution_current_revision">Τρέχουσα αναθεώρηση</string>
+  <string name="suggested_edits_contribution_current_revision_text" fuzzy="true">Τρέχουσα αναθεώρηση</string>
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="one">%1$s ετικέτα</item>
     <item quantity="other">%1$s ετικέτες</item>

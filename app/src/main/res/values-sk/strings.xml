@@ -722,7 +722,7 @@
   <string name="suggested_edits_image_tags_add_tag">Pridať značku</string>
   <string name="suggested_edits_image_zoom_tooltip">Roztiahnutím dvoch prstov zväčšíte obrázok.</string>
   <string name="suggested_edits_encouragement_message">%s, ďakujeme za vaše úpravy. Nižšie nájdete ďalšie spôsoby, ako prispievať na Wikipédiu.</string>
-  <string name="suggested_edits_onboarding_message">&lt;b&gt;Dobrý deň %s&lt;/b&gt;, vedeli ste, že každý môže upravovať Wikipédiu? Nižšie nájdete zábavné spôsoby, ako pomôcť zlepšiť Wikipédiu. Prajeme šťastné upravovanie!</string>
+  <string name="suggested_edits_onboarding_message" fuzzy="true">&lt;b&gt;Dobrý deň %s&lt;/b&gt;, vedeli ste, že každý môže upravovať Wikipédiu? Nižšie nájdete zábavné spôsoby, ako pomôcť zlepšiť Wikipédiu. Prajeme šťastné upravovanie!</string>
   <string name="suggested_edits_image_captions_task_detail">Popíšte obrázok, aby ste čitateľom pomohli pochopiť jeho význam a kontext.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Zhrňte článok a pomôžte čitateľom ihneď pochopiť predmet článku.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Váš celkový počet príspevkov s Navrhovanými úpravami.</string>
@@ -735,7 +735,7 @@
   <string name="suggested_edits_editing_tips_link_text">Editačné tipy a triky</string>
   <string name="suggested_edits_help_page_link_text">Nápoveda Navrhovaných úprav</string>
   <string name="suggested_edits_edit_streak_label_text">Úprav v sérii</string>
-  <string name="suggested_edits_pageviews_label_text">Návštevnosť stránok</string>
+  <string name="suggested_edits_views_label_text" fuzzy="true">Návštevnosť stránok</string>
   <string name="suggested_edits_quality_label_text">Kvalita úprav</string>
   <string name="suggested_edits_quality_perfect_text">Perfektná</string>
   <string name="suggested_edits_quality_excellent_text">Vynikajúca</string>
@@ -766,7 +766,7 @@
   <string name="suggested_edits_contribution_language_label">Jazyk</string>
   <string name="suggested_edits_contribution_date_time_label">Dátum / Čas</string>
   <string name="suggested_edits_contribution_type_label">Typ príspevku</string>
-  <string name="suggested_edits_contribution_image_label">Súbor</string>
+  <string name="suggested_edits_contribution_image_label" fuzzy="true">Súbor</string>
   <string name="suggested_edits_contribution_article_label">Článok</string>
   <string name="suggested_edits_contribution_views">%s zobrazení</string>
   <string name="suggested_edits_contribution_seen_text">Videné %s-krát za posledných 30 dní.</string>

@@ -134,7 +134,7 @@
   <string name="reading_lists_sync_login">Oturum aç</string>
   <string name="create_account_login">Oturum aç</string>
   <string name="menu_login">Oturum aç</string>
-  <string name="login_activity_title" fuzzy="true">Vikipedi\'ye oturum aç</string>
+  <string name="login_activity_title">Oturum aç</string>
   <string name="login_in_progress_dialog_message">Giriş yapılıyor...</string>
   <string name="login_success_toast">Oturum açıldı!</string>
   <string name="reset_password_title">Parolanızı belirleyin</string>
@@ -282,7 +282,7 @@
   <string name="dialog_close_description">Kapat</string>
   <string name="preference_title_show_images">Resimleri göster</string>
   <string name="preference_summary_show_images">Sayfalardaki resimlerin yüklenmesini etkinleştirin veya devre dışı bırakın. İnternet bağlantınız yavaş ya da veri paketiniz sınırlı ise bu seçeneği işaretlemeyin.</string>
-  <string name="preference_title_download_only_over_wifi">Sadece Wi-Fi ile indir</string>
+  <string name="preference_title_download_only_over_wifi">Yalnızca Wi-Fi ile indir</string>
   <string name="dialog_title_download_only_over_wifi">Mobil veri ile indirmeyi onaylıyor musunuz?</string>
   <string name="dialog_text_download_only_over_wifi">Ayarlarda \"Sadece Wi-Fi ile indir\" seçtiniz. Sadece bu indirme için mobil verinizi kullanmaya izin vermek istiyor musunuz?</string>
   <string name="dialog_title_download_only_over_wifi_allow">İzin ver</string>
@@ -306,7 +306,7 @@
   <string name="gallery_fair_use_license">Adil kullanım</string>
   <string name="gallery_uploader_unknown">Yükleyen bilinmiyor</string>
   <string name="gallery_not_available_offline_snackbar">Galeri görünümü çevrimdışı kullanılamaz.</string>
-  <string name="gallery_not_available_offline_snackbar_dismiss">Reddet</string>
+  <string name="gallery_not_available_offline_snackbar_dismiss">Kapat</string>
   <string name="menu_new_tab">Yeni sekme</string>
   <string name="menu_close_all_tabs">Tüm sekmeleri kapat</string>
   <string name="close_all_tabs_confirm">Tüm sekmeleri kapatmak istediğinizden emin misiniz?</string>
@@ -745,7 +745,7 @@
   <string name="suggested_edits_image_tags_add_tag">Etiket ekle</string>
   <string name="suggested_edits_image_zoom_tooltip">Bu resmi yakınlaştırmak için sıkıştırın.</string>
   <string name="suggested_edits_encouragement_message">%s, düzenlemeleriniz için teşekkürler. Aşağıda Vikipedi\'ye katkıda bulunmak için daha fazla yol bulabilirsiniz.</string>
-  <string name="suggested_edits_onboarding_message">&lt;b&gt;Merhaba %s&lt;/b&gt;, Herkesin Vikipedi\'yi düzenleyebileceğini biliyor muydun? Aşağıda Vikipedi\'yi iyileştirmeye yardımcı olacak eğlenceli yollar bulabilirsiniz. Mutlu düzenlemeler!</string>
+  <string name="suggested_edits_onboarding_message" fuzzy="true">&lt;b&gt;Merhaba %s&lt;/b&gt;, Herkesin Vikipedi\'yi düzenleyebileceğini biliyor muydun? Aşağıda Vikipedi\'yi iyileştirmeye yardımcı olacak eğlenceli yollar bulabilirsiniz. Mutlu düzenlemeler!</string>
   <string name="suggested_edits_image_captions_task_detail">Okuyucuların anlamını ve içeriğini anlamalarına yardımcı olmak için bir resim tanımlayın.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Okuyucuların konuyu bir bakışta anlamalarına yardımcı olacak bir maddeyi özetleyin.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Önerilen düzenlemelerle toplam katkı sayınız.</string>
@@ -758,7 +758,7 @@
   <string name="suggested_edits_editing_tips_link_text">İpuçlarını ve püf noktalarını düzenleme</string>
   <string name="suggested_edits_help_page_link_text">Önerilen düzenlemeler yardım sayfası</string>
   <string name="suggested_edits_edit_streak_label_text">Çizgiyi düzenle</string>
-  <string name="suggested_edits_pageviews_label_text">Sayfa gösterimleri</string>
+  <string name="suggested_edits_views_label_text" fuzzy="true">Sayfa gösterimleri</string>
   <string name="suggested_edits_quality_label_text">Kaliteyi düzenle</string>
   <string name="suggested_edits_quality_perfect_text">Mükemmel</string>
   <string name="suggested_edits_quality_excellent_text">Mükemmel</string>
@@ -794,7 +794,7 @@
   <string name="suggested_edits_contribution_language_label">Dil</string>
   <string name="suggested_edits_contribution_date_time_label">Tarih / Zaman</string>
   <string name="suggested_edits_contribution_type_label">Katkı türü</string>
-  <string name="suggested_edits_contribution_image_label">Dosya</string>
+  <string name="suggested_edits_contribution_image_label" fuzzy="true">Dosya</string>
   <string name="suggested_edits_contribution_article_label">Madde</string>
   <string name="suggested_edits_contribution_views">%s görüntüleme</string>
   <string name="suggested_edits_contribution_seen_text">Son 30 gün içinde %s kez görüldü.</string>
@@ -806,8 +806,11 @@
   <string name="suggested_edits_rewards_pageviews">Düzenlemeleriniz son 30 gün içinde %d kişi tarafından görüldü. Teşekkürler ve devam et!</string>
   <string name="suggested_edits_rewards_edit_quality">Şu ana kadar yaptığınız düzenlemeler %s. Devam edin! Katkılarınızı bekliyoruz.</string>
   <string name="suggested_edits_rewards_continue_button">Devam et</string>
+  <string name="suggested_edits_encourage_account_creation_title">Herkesin Vikipedi\'yi düzenleyebileceğini biliyor muydunuz?</string>
+  <string name="suggested_edits_encourage_account_creation_message">Önerilen düzenlemeler, Android\'de Vikipedi\'yi düzenlemenin yeni bir yoludur. Vikipedi\'ye küçük ancak hayati katkılar yapmanıza yardımcı olur.\nAmacımız, düzenlemeyi herkes için daha kolay ve daha erişilebilir hale getirmektir! Başlamak için oturum açın veya Vikipedi\'ye katılın.</string>
+  <string name="suggested_edits_encourage_account_creation_login_button">Vikipedi\'ye oturum açın / katılın</string>
   <string name="suggested_edits_contribution_type_image_tag">Resim etiketi</string>
-  <string name="suggested_edits_contribution_current_revision">Güncel revizyon</string>
+  <string name="suggested_edits_contribution_current_revision_text" fuzzy="true">Güncel revizyon</string>
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="one">%1$s etiket</item>
     <item quantity="other">%1$s etiket</item>
@@ -909,6 +912,7 @@
   <string name="main_drawer_help">Yardım</string>
   <string name="main_drawer_login">Vikipedi\'ye giriş yapın / kaydolun</string>
   <string name="main_tooltip_text">Merhaba %s, herkesin Vikipedi\'yi düzenleyebileceğini biliyor muydun?</string>
+  <string name="main_tooltip_text_v2">Herkesin Vikipedi\'yi düzenleyebileceğini biliyor muydunuz?</string>
   <string name="main_tooltip_action_button">Kullanmaya başla</string>
   <string name="custom_date_picker_dialog_ok_button_text">Tamam</string>
   <string name="text_input_dialog_ok_button_text">Tamam</string>

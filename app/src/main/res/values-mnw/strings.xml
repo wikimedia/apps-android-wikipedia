@@ -712,7 +712,7 @@
   <string name="suggested_edits_image_tags_add_tag">စုတ် အစာမ်</string>
   <string name="suggested_edits_image_zoom_tooltip">ဇြောမ်ဗဵုကြပ်ပ် ဗီုရုပ်ဏအ်</string>
   <string name="suggested_edits_encouragement_message">%s, တင်ဂုန် သွက်မၞးမပလေဝ်ဒါန်လဝ်ရ။ သၟဝ်ဝွံ နဲကဲ ဗီုဂွံ ကၠောန်ဗဒှ် သွက်ဝဳကဳပဳဒဳယာ ဂှ် မၞးဆက်ဂၠာဲကေတ် ဂွံမာန်ရ။</string>
-  <string name="suggested_edits_onboarding_message">&lt;b&gt;မ္ၚဵုရအဴ %s&lt;/b&gt;, ဇၟာပ်ညးအဲဂှ် လုပ်ပလေဝ်ဒါန် ဝဳကဳပဳဒဳယာ ဂွံဒၟံင်ဂှ် မၞးတီဒၟံင်ရဟာ? သၟဝ်ဝွံ နဲကဲ သွက်ဂွံပခိုဟ်ပတိုန် ဝဳကဳပဳဒဳယာ နွံဗွဲမဂၠိုင်ဂှ် မၞးဆဵုကေတ်မာန်ရ။ ဗွဲမမိပ်မြဟ် ပလေဝ်ဒါန်အာညိ!</string>
+  <string name="suggested_edits_onboarding_message" fuzzy="true">&lt;b&gt;မ္ၚဵုရအဴ %s&lt;/b&gt;, ဇၟာပ်ညးအဲဂှ် လုပ်ပလေဝ်ဒါန် ဝဳကဳပဳဒဳယာ ဂွံဒၟံင်ဂှ် မၞးတီဒၟံင်ရဟာ? သၟဝ်ဝွံ နဲကဲ သွက်ဂွံပခိုဟ်ပတိုန် ဝဳကဳပဳဒဳယာ နွံဗွဲမဂၠိုင်ဂှ် မၞးဆဵုကေတ်မာန်ရ။ ဗွဲမမိပ်မြဟ် ပလေဝ်ဒါန်အာညိ!</string>
   <string name="suggested_edits_image_captions_task_detail">ကဵုယၟု က္ဍိုပ်လိက် ဗီုရုပ် သွက်ညးဗွဟ်လိက်တအ် ဂွံတီကၠိုဟ် ပရူပရာဗီုရုပ်တအ်ဂှ်။</string>
   <string name="suggested_edits_add_descriptions_task_detail">သကေမ် လိက်ပရေင်ဂၠေအ်ဂၠေအ်ဂှ် ပကဵု ညံင်ညးဗွဟ်လိက်တအ် ဂွံတီကၠိုဟ် လိက်ပရေင်ဂှ် ပရူကဏ္ဍမုရောရ။</string>
   <string name="suggested_edits_contributions_stat_tooltip">လၟိဟ် မၞးမခၞံကၠောန်လဝ် နကဵု ပလေဝ်ဒါန် မကဵုကသပ် သီုဖအိုတ်။</string>
@@ -725,7 +725,7 @@
   <string name="suggested_edits_editing_tips_link_text">နဲကဲ ပလေဝ်ဒါန်ဂမၠိုင်</string>
   <string name="suggested_edits_help_page_link_text">မုက်လိက်အရီုအဗင် မဆေင်ကဵု အရာပလေဝ်ဒါန် မအာတ်မိက်</string>
   <string name="suggested_edits_edit_streak_label_text">ပလေဝ်ဒါန် ခရက်တၟး</string>
-  <string name="suggested_edits_pageviews_label_text">လၟိဟ်ဗဗဵုမုက်လိက်</string>
+  <string name="suggested_edits_views_label_text" fuzzy="true">လၟိဟ်ဗဗဵုမုက်လိက်</string>
   <string name="suggested_edits_quality_label_text">ဍာ်ဒကေဝ် ပလေဝ်ဒါန်</string>
   <string name="suggested_edits_quality_perfect_text">ခိုဟ်</string>
   <string name="suggested_edits_quality_excellent_text">ခိုဟ်ဗွဲမလောန်</string>

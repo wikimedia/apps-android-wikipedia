@@ -642,10 +642,10 @@
   <string name="suggested_edits_image_tags_select_text">Samo će oznake koje izaberete biti dodane slikama. Oznake koje ne izaberete bit će odbačene. Jeste li sigurni da želite odbaciti sve oznake?</string>
   <string name="suggested_edits_image_tags_add_tag">Dodaj oznaku</string>
   <string name="suggested_edits_encouragement_message">%s, hvala Vam na vašim doprinosima. Niže možete saznati na koje sve još načine možete doprinijeti Wikipediji.</string>
-  <string name="suggested_edits_onboarding_message">&lt;b&gt;Pozdrav, %s&lt;/b&gt;, jeste li znali da svatko može uređivati Wikipediju? Niže su navedeni zabavni načini na koje možete pomoći u poboljšanju Wikipedije. Ugodno uređivanje!</string>
+  <string name="suggested_edits_onboarding_message" fuzzy="true">&lt;b&gt;Pozdrav, %s&lt;/b&gt;, jeste li znali da svatko može uređivati Wikipediju? Niže su navedeni zabavni načini na koje možete pomoći u poboljšanju Wikipedije. Ugodno uređivanje!</string>
   <string name="suggested_edits_image_captions_task_detail" fuzzy="true">Opisi slika čitateljima pomažu u razumijevanju njihovog značenja i konteksta.</string>
   <string name="suggested_edits_ip_blocked_message">Izgleda kao da je Vaša IP-adresa (ili opseg IP-adresa) trenutačno blokirana od uređivanja Wikipedije.</string>
-  <string name="suggested_edits_pageviews_label_text">Pregledi stranica</string>
+  <string name="suggested_edits_views_label_text" fuzzy="true">Pregledi stranica</string>
   <string name="suggested_edits_quality_label_text">Kvaliteta uređivanja</string>
   <string name="suggested_edits_quality_perfect_text">Savršeno</string>
   <string name="suggested_edits_quality_excellent_text">Odlično</string>
@@ -673,7 +673,7 @@
   <string name="suggested_edits_encourage_account_creation_title">Jeste li znali kako svi mogu uređivati Wikipediju?</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Prijavi se / pridruži se Wikipediji</string>
   <string name="suggested_edits_contribution_type_image_tag">Oznake slike</string>
-  <string name="suggested_edits_contribution_current_revision">Trenutačna inačica</string>
+  <string name="suggested_edits_contribution_current_revision_text" fuzzy="true">Trenutačna inačica</string>
   <string name="description_edit_revert_subtitle">Hvala što uređujete Wikipediju!</string>
   <string name="description_edit_revert_history">Ako Vas zanima, pogledajte &lt;a href=\"%1$s\"&gt;povijest izmjena&lt;/a&gt;.</string>
   <string name="description_edit_login_cancel_button_text">Odustani</string>
@@ -745,7 +745,7 @@
   <string name="wikitext_preview_link">Pretpregled poveznice</string>
   <string name="main_drawer_help">Pomoć</string>
   <string name="main_drawer_login">Prijavite se na Wikipediju / pridružite se Wikipediji</string>
-  <string name="main_tooltip_text" fuzzy="true">%s, jeste li znali da svatko može uređivati Wikipediju?</string>
+  <string name="main_tooltip_text">Pozdrav, %s, jeste li znali da svatko može uređivati Wikipediju?</string>
   <string name="main_tooltip_text_v2">Jeste li znali kako svi mogu uređivati Wikipediju?</string>
   <string name="main_tooltip_action_button">Krenimo</string>
   <string name="custom_date_picker_dialog_ok_button_text">U redu</string>

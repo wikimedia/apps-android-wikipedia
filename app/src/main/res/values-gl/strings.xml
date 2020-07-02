@@ -686,7 +686,7 @@
   <string name="suggested_edits_image_tags_publishing">Publicando</string>
   <string name="suggested_edits_image_tags_published">Publicado</string>
   <string name="suggested_edits_encouragement_message" fuzzy="true">%s, grazas polas súas edicións, Abaixo pode atopar máis formas de contribuír á Wikipedia</string>
-  <string name="suggested_edits_onboarding_message">&lt;/b&gt;Ola %s&lt;/b&gt;, sabe que calquera persoa pode editar a Wikipedia? Atope abaixo algunhas formas divertidas de axudar a mellorar a Wikipedia. Divírtase editandoǃ</string>
+  <string name="suggested_edits_onboarding_message" fuzzy="true">&lt;/b&gt;Ola %s&lt;/b&gt;, sabe que calquera persoa pode editar a Wikipedia? Atope abaixo algunhas formas divertidas de axudar a mellorar a Wikipedia. Divírtase editandoǃ</string>
   <string name="suggested_edits_quality_good_text">Boa</string>
   <string name="suggested_edits_quality_okay_text">Aceptar</string>
   <string name="suggested_edits_last_edited">Última edición</string>
@@ -694,7 +694,7 @@
   <string name="suggested_edits_contribution_language_label">Idioma</string>
   <string name="suggested_edits_contribution_date_time_label">Data / Hora</string>
   <string name="suggested_edits_contribution_type_label">Tipo de contribución</string>
-  <string name="suggested_edits_contribution_image_label">Arquivo</string>
+  <string name="suggested_edits_contribution_image_label" fuzzy="true">Arquivo</string>
   <string name="suggested_edits_contribution_article_label">Artigo</string>
   <string name="suggested_edits_contribution_views">%s visitas</string>
   <string name="suggested_edits_added_contribution_label" fuzzy="true">Engadiches %d caracteres</string>

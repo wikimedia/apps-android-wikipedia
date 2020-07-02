@@ -132,7 +132,7 @@
   <string name="reading_lists_sync_login">Entrar</string>
   <string name="create_account_login">Entrar</string>
   <string name="menu_login">Entrar</string>
-  <string name="login_activity_title" fuzzy="true">Entrar na Wikipédia</string>
+  <string name="login_activity_title">Entrar</string>
   <string name="login_in_progress_dialog_message">Autenticando…</string>
   <string name="login_success_toast">Entrado(a)!</string>
   <string name="reset_password_title">Defina sua senha</string>
@@ -743,7 +743,7 @@
   <string name="suggested_edits_image_tags_add_tag">Adicionar marcação</string>
   <string name="suggested_edits_image_zoom_tooltip">Aperte para ampliar esta imagem.</string>
   <string name="suggested_edits_encouragement_message">%s, obrigado por suas edições. Abaixo, você encontra mais maneiras de contribuir com a Wikipédia.</string>
-  <string name="suggested_edits_onboarding_message">&lt;/b&gt;Olá %s&lt;/b&gt;, você sabia que todos podem editar a Wikipédia? Abaixo, você encontrará maneiras divertidas de ajudar a melhorar a Wikipedia. Edição feliz!</string>
+  <string name="suggested_edits_onboarding_message" fuzzy="true">&lt;/b&gt;Olá %s&lt;/b&gt;, você sabia que todos podem editar a Wikipédia? Abaixo, você encontrará maneiras divertidas de ajudar a melhorar a Wikipedia. Edição feliz!</string>
   <string name="suggested_edits_image_captions_task_detail">Descreva uma imagem para ajudar os leitores a entender seu significado e contexto.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Resuma um artigo para ajudar os leitores a entender rapidamente o assunto.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Seu número total de contribuições com edições sugeridas.</string>
@@ -756,7 +756,7 @@
   <string name="suggested_edits_editing_tips_link_text">Dicas e truques de edição</string>
   <string name="suggested_edits_help_page_link_text">Página de ajuda das edições sugeridas</string>
   <string name="suggested_edits_edit_streak_label_text">Editar sequência</string>
-  <string name="suggested_edits_pageviews_label_text">Visualizações de página</string>
+  <string name="suggested_edits_views_label_text" fuzzy="true">Visualizações de página</string>
   <string name="suggested_edits_quality_label_text">Editar qualidade</string>
   <string name="suggested_edits_quality_perfect_text">Perfeito</string>
   <string name="suggested_edits_quality_excellent_text">Excelente</string>
@@ -792,7 +792,7 @@
   <string name="suggested_edits_contribution_language_label">Idioma</string>
   <string name="suggested_edits_contribution_date_time_label">Data / Horário</string>
   <string name="suggested_edits_contribution_type_label">Tipo de contribuição</string>
-  <string name="suggested_edits_contribution_image_label">Arquivo</string>
+  <string name="suggested_edits_contribution_image_label" fuzzy="true">Arquivo</string>
   <string name="suggested_edits_contribution_article_label">Artigo</string>
   <string name="suggested_edits_contribution_views">%s visualizações</string>
   <string name="suggested_edits_contribution_seen_text">Visto %s vezes nos últimos 30 dias.</string>
@@ -807,8 +807,11 @@
   <string name="suggested_edits_rewards_pageviews">Suas edições foram vistas por %d pessoas nos últimos 30 dias. Obrigado, e continue!</string>
   <string name="suggested_edits_rewards_edit_quality">Suas edições até agora são %s. Continue! Esperamos suas contribuições.</string>
   <string name="suggested_edits_rewards_continue_button">Continuar</string>
+  <string name="suggested_edits_encourage_account_creation_title">Você sabia que todos podem editar a Wikipédia?</string>
+  <string name="suggested_edits_encourage_account_creation_message">As edições sugeridas são uma nova maneira de editar a Wikipédia no Android. Ajuda você a fazer contribuições pequenas, mas vitais, para a Wikipédia.\nNosso objetivo é tornar a edição mais fácil e mais acessível para todos! Entre ou participe da Wikipédia para começar.</string>
+  <string name="suggested_edits_encourage_account_creation_login_button">Entrar / Juntar na Wikipédia</string>
   <string name="suggested_edits_contribution_type_image_tag">Marcação de imagem</string>
-  <string name="suggested_edits_contribution_current_revision">Revisão atual</string>
+  <string name="suggested_edits_contribution_current_revision_text" fuzzy="true">Revisão atual</string>
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="one">%1$s marcação</item>
     <item quantity="other">%1$s marcações</item>
@@ -910,6 +913,7 @@
   <string name="main_drawer_help">Ajuda</string>
   <string name="main_drawer_login">Entrar / Juntar na Wikipédia</string>
   <string name="main_tooltip_text">Olá %s, Você sabia que todos podem editar a Wikipédia?</string>
+  <string name="main_tooltip_text_v2">Você sabia que todos podem editar a Wikipédia?</string>
   <string name="main_tooltip_action_button">Começar</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_ok_button_text">OK</string>
