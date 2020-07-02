@@ -7,13 +7,13 @@ import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor;
 import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.dataclient.restbase.RbDefinition;
 import org.wikipedia.dataclient.restbase.RbRelatedPages;
+import org.wikipedia.edits.provider.EditItem;
 import org.wikipedia.feed.aggregated.AggregatedFeedContent;
 import org.wikipedia.feed.announcement.AnnouncementList;
 import org.wikipedia.feed.configure.FeedAvailability;
 import org.wikipedia.feed.onthisday.OnThisDay;
 import org.wikipedia.gallery.MediaList;
 import org.wikipedia.readinglist.sync.SyncedReadingLists;
-import org.wikipedia.suggestededits.provider.SuggestedEditItem;
 
 import java.util.List;
 import java.util.Map;
@@ -181,22 +181,22 @@ public interface RestService {
     @Headers("Cache-Control: no-cache")
     @GET("data/recommendation/caption/addition/{lang}")
     @NonNull
-    Observable<List<SuggestedEditItem>> getImagesWithoutCaptions(@NonNull @Path("lang") String lang);
+    Observable<List<EditItem>> getImagesWithoutCaptions(@NonNull @Path("lang") String lang);
 
     @Headers("Cache-Control: no-cache")
     @GET("data/recommendation/caption/translation/from/{fromLang}/to/{toLang}")
     @NonNull
-    Observable<List<SuggestedEditItem>> getImagesWithTranslatableCaptions(@NonNull @Path("fromLang") String fromLang,
-                                                                          @NonNull @Path("toLang") String toLang);
+    Observable<List<EditItem>> getImagesWithTranslatableCaptions(@NonNull @Path("fromLang") String fromLang,
+                                                                 @NonNull @Path("toLang") String toLang);
     @Headers("Cache-Control: no-cache")
     @GET("data/recommendation/description/addition/{lang}")
     @NonNull
-    Observable<List<SuggestedEditItem>> getArticlesWithoutDescriptions(@NonNull @Path("lang") String lang);
+    Observable<List<EditItem>> getArticlesWithoutDescriptions(@NonNull @Path("lang") String lang);
 
     @Headers("Cache-Control: no-cache")
     @GET("data/recommendation/description/translation/from/{fromLang}/to/{toLang}")
     @NonNull
-    Observable<List<SuggestedEditItem>> getArticlesWithTranslatableDescriptions(@NonNull @Path("fromLang") String fromLang,
-                                                                                @NonNull @Path("toLang") String toLang);
+    Observable<List<EditItem>> getArticlesWithTranslatableDescriptions(@NonNull @Path("fromLang") String fromLang,
+                                                                       @NonNull @Path("toLang") String toLang);
 
 }

@@ -9,7 +9,7 @@ import org.wikipedia.R
 import org.wikipedia.descriptions.DescriptionEditLicenseView.Companion.ARG_NOTICE_ARTICLE_DESCRIPTION
 import org.wikipedia.descriptions.DescriptionEditLicenseView.Companion.ARG_NOTICE_DEFAULT
 import org.wikipedia.descriptions.DescriptionEditLicenseView.Companion.ARG_NOTICE_IMAGE_CAPTION
-import org.wikipedia.suggestededits.SuggestedEditsSummary
+import org.wikipedia.edits.EditsSummary
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.StringUtil
 
@@ -31,7 +31,7 @@ class DescriptionEditReviewView constructor(context: Context, attrs: AttributeSe
         visibility = GONE
     }
 
-    fun setSummary(summary: SuggestedEditsSummary, description: String, captionReview: Boolean) {
+    fun setSummary(summary: EditsSummary, description: String, captionReview: Boolean) {
         L10nUtil.setConditionalLayoutDirection(this, summary.lang)
         if (captionReview) {
             setGalleryReviewView(summary, description)
@@ -42,7 +42,7 @@ class DescriptionEditReviewView constructor(context: Context, attrs: AttributeSe
         }
     }
 
-    private fun setDescriptionReviewView(summary: SuggestedEditsSummary, description: String) {
+    private fun setDescriptionReviewView(summary: EditsSummary, description: String) {
         galleryContainer.visibility = GONE
         articleTitle!!.text = StringUtil.fromHtml(summary.displayTitle)
         articleSubtitle!!.text = description
@@ -58,7 +58,7 @@ class DescriptionEditReviewView constructor(context: Context, attrs: AttributeSe
         }
     }
 
-    private fun setGalleryReviewView(summary: SuggestedEditsSummary, description: String) {
+    private fun setGalleryReviewView(summary: EditsSummary, description: String) {
         articleContainer.visibility = GONE
         indicatorDivider.visibility = GONE
         galleryDescriptionText.text = StringUtil.fromHtml(description)

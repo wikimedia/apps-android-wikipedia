@@ -1,4 +1,4 @@
-package org.wikipedia.suggestededits
+package org.wikipedia.edits
 
 import android.media.RingtoneManager
 import android.os.Bundle
@@ -10,7 +10,7 @@ import kotlinx.android.synthetic.main.fragment_suggested_edits_rewards_item.*
 import org.wikipedia.R
 
 
-class SuggestedEditsRewardsItemFragment : SuggestedEditsItemFragment() {
+class EditsRewardsItemFragment : EditsItemFragment() {
 
     private var shouldPlaySound = true
 
@@ -47,8 +47,8 @@ class SuggestedEditsRewardsItemFragment : SuggestedEditsItemFragment() {
         private const val ARG_TEXT = "text"
         const val EDIT_STREAK_MAX_REVERT_SEVERITY = 3
 
-        fun newInstance(imageResource: Int, text: String): SuggestedEditsItemFragment {
-            val fragment = SuggestedEditsRewardsItemFragment()
+        fun newInstance(imageResource: Int, text: String): EditsItemFragment {
+            val fragment = EditsRewardsItemFragment()
             val arguments = Bundle()
             arguments.putInt(ARG_IMAGE_RESOURCE, imageResource)
             arguments.putString(ARG_TEXT, text)

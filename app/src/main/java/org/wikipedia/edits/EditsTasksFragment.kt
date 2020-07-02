@@ -1,11 +1,13 @@
-package org.wikipedia.suggestededits
+package org.wikipedia.edits
 
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.view.*
+import android.view.LayoutInflater
+import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
+import android.view.ViewGroup
 import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -41,12 +43,12 @@ import java.util.*
 import java.util.concurrent.TimeUnit
 import kotlin.collections.ArrayList
 
-class SuggestedEditsTasksFragment : Fragment() {
-    private lateinit var addDescriptionsTask: SuggestedEditsTask
-    private lateinit var addImageCaptionsTask: SuggestedEditsTask
-    private lateinit var addImageTagsTask: SuggestedEditsTask
+class EditsTasksFragment : Fragment() {
+    private lateinit var addDescriptionsTask: EditsTask
+    private lateinit var addImageCaptionsTask: EditsTask
+    private lateinit var addImageTagsTask: EditsTask
 
-    private val displayedTasks = ArrayList<SuggestedEditsTask>()
+    private val displayedTasks = ArrayList<EditsTask>()
     private val callback = TaskViewCallback()
 
     private val disposables = CompositeDisposable()
@@ -67,7 +69,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         setupTestingButtons()
 
         userStatsClickTarget.setOnClickListener {
-            startActivity(SuggestedEditsContributionsActivity.newIntent(requireActivity()))
+            startActivity(EditsContributionsActivity.newIntent(requireActivity()))
         }
 
         learnMoreCard.setOnClickListener {
@@ -124,7 +126,7 @@ class SuggestedEditsTasksFragment : Fragment() {
             tasksRecyclerView.adapter!!.notifyDataSetChanged()
         } else if (requestCode == ACTIVITY_REQUEST_IMAGE_TAGS_ONBOARDING && resultCode == Activity.RESULT_OK) {
             Prefs.setShowImageTagsOnboarding(false)
-            startActivity(SuggestedEditsCardsActivity.newIntent(requireActivity(), ADD_IMAGE_TAGS))
+            startActivity(EditsCardsActivity.newIntent(requireActivity(), ADD_IMAGE_TAGS))
         }
     }
 
@@ -151,7 +153,7 @@ class SuggestedEditsTasksFragment : Fragment() {
 
         disposables.add(Observable.zip(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getUserContributions(AccountUtil.getUserName()!!, 10, null).subscribeOn(Schedulers.io()),
                 ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getUserContributions(AccountUtil.getUserName()!!, 10, null).subscribeOn(Schedulers.io()),
-                SuggestedEditsUserStats.getEditCountsObservable(),
+                EditsUserStats.getEditCountsObservable(),
                 Function3<MwQueryResponse, MwQueryResponse, MwQueryResponse, MwQueryResponse> { commonsResponse, wikidataResponse, _ ->
                     if (wikidataResponse.query()!!.userInfo()!!.isBlocked || commonsResponse.query()!!.userInfo()!!.isBlocked) {
                         isIpBlocked = true
@@ -172,15 +174,15 @@ class SuggestedEditsTasksFragment : Fragment() {
                     val contributions = ArrayList<UserContribution>()
                     contributions.addAll(wikidataResponse.query()!!.userContributions())
                     contributions.addAll(commonsResponse.query()!!.userContributions())
-                    contributions.sortWith(Comparator { o2, o1 -> ( o1.date().compareTo(o2.date())) })
+                    contributions.sortWith(Comparator { o2, o1 -> (o1.date().compareTo(o2.date())) })
 
                     latestEditStreak = getEditStreak(contributions)
 
-                    revertSeverity = SuggestedEditsUserStats.getRevertSeverity()
+                    revertSeverity = EditsUserStats.getRevertSeverity()
                     wikidataResponse
                 })
                 .flatMap { response ->
-                    SuggestedEditsUserStats.getPageViewsObservable(response)
+                    EditsUserStats.getPageViewsObservable(response)
                 }
                 .observeOn(AndroidSchedulers.mainThread())
                 .doAfterTerminate {
@@ -297,9 +299,9 @@ class SuggestedEditsTasksFragment : Fragment() {
     }
 
     private fun maybeSetPausedOrDisabled(): Boolean {
-        val pauseEndDate = SuggestedEditsUserStats.maybePauseAndGetEndDate()
+        val pauseEndDate = EditsUserStats.maybePauseAndGetEndDate()
 
-        if (SuggestedEditsUserStats.isDisabled()) {
+        if (EditsUserStats.isDisabled()) {
             // Disable the whole feature.
             clearContents()
             disabledStatesView.setDisabled(getString(R.string.suggested_edits_disabled_message, AccountUtil.getUserName()))
@@ -355,18 +357,18 @@ class SuggestedEditsTasksFragment : Fragment() {
     private fun setUpTasks() {
         displayedTasks.clear()
 
-        addImageTagsTask = SuggestedEditsTask()
+        addImageTagsTask = EditsTask()
         addImageTagsTask.title = getString(R.string.suggested_edits_image_tags)
         addImageTagsTask.description = getString(R.string.suggested_edits_image_tags_task_detail)
         addImageTagsTask.imageDrawable = R.drawable.ic_image_tag
         addImageTagsTask.translatable = false
 
-        addImageCaptionsTask = SuggestedEditsTask()
+        addImageCaptionsTask = EditsTask()
         addImageCaptionsTask.title = getString(R.string.suggested_edits_image_captions)
         addImageCaptionsTask.description = getString(R.string.suggested_edits_image_captions_task_detail)
         addImageCaptionsTask.imageDrawable = R.drawable.ic_image_caption
 
-        addDescriptionsTask = SuggestedEditsTask()
+        addDescriptionsTask = EditsTask()
         addDescriptionsTask.title = getString(R.string.description_edit_tutorial_title_descriptions)
         addDescriptionsTask.description = getString(R.string.suggested_edits_add_descriptions_task_detail)
         addDescriptionsTask.imageDrawable = R.drawable.ic_article_description
@@ -376,21 +378,21 @@ class SuggestedEditsTasksFragment : Fragment() {
         displayedTasks.add(addImageCaptionsTask)
     }
 
-    private inner class TaskViewCallback : SuggestedEditsTaskView.Callback {
-        override fun onViewClick(task: SuggestedEditsTask, isTranslate: Boolean) {
+    private inner class TaskViewCallback : EditsTaskView.Callback {
+        override fun onViewClick(task: EditsTask, isTranslate: Boolean) {
             if (WikipediaApp.getInstance().language().appLanguageCodes.size < Constants.MIN_LANGUAGES_TO_UNLOCK_TRANSLATION && isTranslate) {
                 showLanguagesActivity(LanguageSettingsInvokeSource.SUGGESTED_EDITS.text())
                 return
             }
             if (task == addDescriptionsTask) {
-                startActivity(SuggestedEditsCardsActivity.newIntent(requireActivity(), if (isTranslate) TRANSLATE_DESCRIPTION else ADD_DESCRIPTION))
+                startActivity(EditsCardsActivity.newIntent(requireActivity(), if (isTranslate) TRANSLATE_DESCRIPTION else ADD_DESCRIPTION))
             } else if (task == addImageCaptionsTask) {
-                startActivity(SuggestedEditsCardsActivity.newIntent(requireActivity(), if (isTranslate) TRANSLATE_CAPTION else ADD_CAPTION))
+                startActivity(EditsCardsActivity.newIntent(requireActivity(), if (isTranslate) TRANSLATE_CAPTION else ADD_CAPTION))
             } else if (task == addImageTagsTask) {
                 if (Prefs.shouldShowImageTagsOnboarding()) {
-                    startActivityForResult(SuggestedEditsImageTagsOnboardingActivity.newIntent(requireContext()), ACTIVITY_REQUEST_IMAGE_TAGS_ONBOARDING)
+                    startActivityForResult(EditsImageTagsOnboardingActivity.newIntent(requireContext()), ACTIVITY_REQUEST_IMAGE_TAGS_ONBOARDING)
                 } else {
-                    startActivity(SuggestedEditsCardsActivity.newIntent(requireActivity(), ADD_IMAGE_TAGS))
+                    startActivity(EditsCardsActivity.newIntent(requireActivity(), ADD_IMAGE_TAGS))
                 }
             }
         }
@@ -401,19 +403,19 @@ class SuggestedEditsTasksFragment : Fragment() {
         startActivityForResult(intent, ACTIVITY_REQUEST_ADD_A_LANGUAGE)
     }
 
-    internal inner class RecyclerAdapter(tasks: List<SuggestedEditsTask>) : DefaultRecyclerAdapter<SuggestedEditsTask, SuggestedEditsTaskView>(tasks) {
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DefaultViewHolder<SuggestedEditsTaskView> {
-            return DefaultViewHolder(SuggestedEditsTaskView(parent.context))
+    internal inner class RecyclerAdapter(tasks: List<EditsTask>) : DefaultRecyclerAdapter<EditsTask, EditsTaskView>(tasks) {
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DefaultViewHolder<EditsTaskView> {
+            return DefaultViewHolder(EditsTaskView(parent.context))
         }
 
-        override fun onBindViewHolder(holder: DefaultViewHolder<SuggestedEditsTaskView>, i: Int) {
+        override fun onBindViewHolder(holder: DefaultViewHolder<EditsTaskView>, i: Int) {
             holder.view.setUpViews(items()[i], callback)
         }
     }
 
     companion object {
-        fun newInstance(): SuggestedEditsTasksFragment {
-            return SuggestedEditsTasksFragment()
+        fun newInstance(): EditsTasksFragment {
+            return EditsTasksFragment()
         }
     }
 }

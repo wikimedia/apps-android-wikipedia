@@ -1,4 +1,4 @@
-package org.wikipedia.suggestededits
+package org.wikipedia.edits
 
 import android.content.res.ColorStateList
 import android.graphics.Color
@@ -14,8 +14,6 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.android.material.chip.Chip
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.core.Observable
-import io.reactivex.rxjava3.core.ObservableSource
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_suggested_edits_image_tags_item.*
 import org.wikipedia.Constants
@@ -31,11 +29,11 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.mwapi.media.MediaHelper
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_IMAGE_TAGS
+import org.wikipedia.edits.provider.MissingDescriptionProvider
 import org.wikipedia.login.LoginClient.LoginFailedException
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
-import org.wikipedia.suggestededits.provider.MissingDescriptionProvider
 import org.wikipedia.util.*
 import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
 import org.wikipedia.util.log.L
@@ -44,7 +42,7 @@ import org.wikipedia.views.ViewUtil
 import java.util.*
 import kotlin.collections.ArrayList
 
-class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundButton.OnCheckedChangeListener, OnClickListener, SuggestedEditsImageTagDialog.Callback {
+class EditsImageTagsFragment : EditsItemFragment(), CompoundButton.OnCheckedChangeListener, OnClickListener, EditsImageTagDialog.Callback {
     interface Callback {
         fun getLangCode(): String
         fun getSinglePage(): MwQueryPage?
@@ -241,8 +239,8 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
     }
 
     companion object {
-        fun newInstance(): SuggestedEditsItemFragment {
-            return SuggestedEditsImageTagsFragment()
+        fun newInstance(): EditsItemFragment {
+            return EditsImageTagsFragment()
         }
     }
 
@@ -252,7 +250,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
             // they clicked the chip to add a new tag, so cancel out the check changing...
             chip.isChecked = !chip.isChecked
             // and launch the selection dialog for the custom tag.
-            SuggestedEditsImageTagDialog.newInstance(wasCaptionLongClicked, lastSearchTerm).show(childFragmentManager, null)
+            EditsImageTagDialog.newInstance(wasCaptionLongClicked, lastSearchTerm).show(childFragmentManager, null)
         }
     }
 
@@ -356,20 +354,20 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                 commentStr += " */"
 
                 disposables.add(ServiceFactory.get(commonsSite).postEditEntity(mId, token, claimStr, commentStr, null)
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .doAfterTerminate {
-                        publishing = false
-                    }
-                    .subscribe({
-                        if (it.pageInfo != null) {
-                            funnel?.logSaved(it.pageInfo!!.lastRevId, commentStr)
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .doAfterTerminate {
+                            publishing = false
                         }
-                        publishSuccess = true
-                        onSuccess()
-                    }, { caught ->
-                        onError(caught)
-                    })
+                        .subscribe({
+                            if (it.pageInfo != null) {
+                                funnel?.logSaved(it.pageInfo!!.lastRevId, commentStr)
+                            }
+                            publishSuccess = true
+                            onSuccess()
+                        }, { caught ->
+                            onError(caught)
+                        })
                 )
             }
 

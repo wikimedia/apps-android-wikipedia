@@ -30,6 +30,7 @@ import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.auth.AccountUtil;
+import org.wikipedia.edits.EditsTasksFragment;
 import org.wikipedia.events.LoggedOutInBackgroundEvent;
 import org.wikipedia.feed.FeedFragment;
 import org.wikipedia.feed.image.FeaturedImage;
@@ -64,7 +65,6 @@ import org.wikipedia.search.SearchFragment;
 import org.wikipedia.settings.AboutActivity;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SettingsActivity;
-import org.wikipedia.suggestededits.SuggestedEditsTasksFragment;
 import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.PermissionUtil;
@@ -466,8 +466,8 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
             ((ReadingListsFragment) fragment).updateLists();
         } else if (fragment instanceof HistoryFragment) {
             ((HistoryFragment) fragment).refresh();
-        } else if (fragment instanceof  SuggestedEditsTasksFragment) {
-            ((SuggestedEditsTasksFragment) fragment).refreshContents();
+        } else if (fragment instanceof EditsTasksFragment) {
+            ((EditsTasksFragment) fragment).refreshContents();
         }
         resetNavTabLayouts();
     }

@@ -20,12 +20,12 @@ import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.media.MediaHelper;
 import org.wikipedia.descriptions.DescriptionEditActivity;
+import org.wikipedia.edits.EditsSummary;
 import org.wikipedia.gallery.GalleryActivity;
 import org.wikipedia.gallery.ImageInfo;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageFragment;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.suggestededits.SuggestedEditsSummary;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
@@ -58,8 +58,8 @@ public class LeadImagesHandler {
 
     private int displayHeightDp;
 
-    @Nullable private SuggestedEditsSummary callToActionSourceSummary;
-    @Nullable private SuggestedEditsSummary callToActionTargetSummary;
+    @Nullable private EditsSummary callToActionSourceSummary;
+    @Nullable private EditsSummary callToActionTargetSummary;
     private boolean callToActionIsTranslation;
     private CompositeDisposable disposables = new CompositeDisposable();
 
@@ -144,7 +144,7 @@ public class LeadImagesHandler {
 
                     if (!pair.first.containsKey(getTitle().getWikiSite().languageCode())) {
                         pageHeaderView.setUpCallToAction(app.getResources().getString(R.string.suggested_edits_article_cta_image_caption));
-                        callToActionSourceSummary = new SuggestedEditsSummary(captionSourcePageTitle.getPrefixedText(), getTitle().getWikiSite().languageCode(), captionSourcePageTitle,
+                        callToActionSourceSummary = new EditsSummary(captionSourcePageTitle.getPrefixedText(), getTitle().getWikiSite().languageCode(), captionSourcePageTitle,
                                 captionSourcePageTitle.getDisplayText(), StringUtils.defaultIfBlank(StringUtil.fromHtml(imageInfo.getMetadata().imageDescription()).toString(), null),
                                 imageInfo.getThumbUrl());
 
@@ -157,10 +157,10 @@ public class LeadImagesHandler {
                                 PageTitle captionTargetPageTitle = new PageTitle(imageTitle, new WikiSite(Service.COMMONS_URL, lang));
                                 String currentCaption = pair.first.get(getTitle().getWikiSite().languageCode());
                                 captionSourcePageTitle.setDescription(currentCaption);
-                                callToActionSourceSummary = new SuggestedEditsSummary(captionSourcePageTitle.getPrefixedText(), captionSourcePageTitle.getWikiSite().languageCode(), captionSourcePageTitle,
+                                callToActionSourceSummary = new EditsSummary(captionSourcePageTitle.getPrefixedText(), captionSourcePageTitle.getWikiSite().languageCode(), captionSourcePageTitle,
                                         captionSourcePageTitle.getDisplayText(), currentCaption, getLeadImageUrl());
 
-                                callToActionTargetSummary = new SuggestedEditsSummary(captionTargetPageTitle.getPrefixedText(), captionTargetPageTitle.getWikiSite().languageCode(), captionTargetPageTitle,
+                                callToActionTargetSummary = new EditsSummary(captionTargetPageTitle.getPrefixedText(), captionTargetPageTitle.getWikiSite().languageCode(), captionTargetPageTitle,
                                         captionTargetPageTitle.getDisplayText(), null, getLeadImageUrl());
                                 pageHeaderView.setUpCallToAction(app.getResources().getString(R.string.suggested_edits_article_cta_image_caption_in_language, app.language().getAppLanguageLocalizedName(lang)));
                                 break;

@@ -1,4 +1,4 @@
-package org.wikipedia.suggestededits;
+package org.wikipedia.edits;
 
 import android.app.Activity;
 import android.net.Uri;
@@ -16,7 +16,7 @@ import org.wikipedia.util.UriUtil;
 
 import static org.wikipedia.settings.Prefs.setShouldShowSuggestedEditsSurvey;
 
-public final class SuggestedEditsSurvey {
+public final class EditsSurvey {
     private static final int VALID_SUGGESTED_EDITS_COUNT_FOR_SURVEY = 3;
 
     public static void maybeRunSurvey(@NonNull Activity activity) {
@@ -44,6 +44,6 @@ public final class SuggestedEditsSurvey {
                 Uri.parse(WikipediaApp.getInstance().getString(R.string.suggested_edits_survey_url)));
     }
 
-    private SuggestedEditsSurvey() {
+    private EditsSurvey() {
     }
 }

@@ -1,4 +1,4 @@
-package org.wikipedia.suggestededits
+package org.wikipedia.edits
 
 import android.app.Activity.RESULT_OK
 import android.content.Intent
@@ -27,16 +27,16 @@ import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.mwapi.SiteMatrix
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
+import org.wikipedia.edits.EditsCardsActivity.Companion.EXTRA_SOURCE_ADDED_CONTRIBUTION
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
-import org.wikipedia.suggestededits.SuggestedEditsCardsActivity.Companion.EXTRA_SOURCE_ADDED_CONTRIBUTION
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.PositionAwareFragmentStateAdapter
 import java.util.concurrent.TimeUnit
 
-class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.Callback {
+class EditsCardsFragment : Fragment(), EditsImageTagsFragment.Callback {
     private val viewPagerListener = ViewPagerListener()
     private val disposables = CompositeDisposable()
     private val app = WikipediaApp.getInstance()
@@ -64,12 +64,12 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
             }
         }
 
-    private fun topBaseChild(): SuggestedEditsItemFragment? {
-            return (cardsViewPager.adapter as ViewPagerAdapter?)?.getFragmentAt(cardsViewPager.currentItem) as SuggestedEditsItemFragment?
-        }
+    private fun topBaseChild(): EditsItemFragment? {
+        return (cardsViewPager.adapter as ViewPagerAdapter?)?.getFragmentAt(cardsViewPager.currentItem) as EditsItemFragment?
+    }
 
-    private fun topChild(): SuggestedEditsCardsItemFragment? {
-        return (cardsViewPager.adapter as ViewPagerAdapter?)?.getFragmentAt(cardsViewPager.currentItem) as SuggestedEditsCardsItemFragment?
+    private fun topChild(): EditsCardsItemFragment? {
+        return (cardsViewPager.adapter as ViewPagerAdapter?)?.getFragmentAt(cardsViewPager.currentItem) as EditsCardsItemFragment?
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -147,7 +147,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
     private fun maybeShowOnboarding() {
         if (action == ADD_IMAGE_TAGS && Prefs.shouldShowImageTagsOnboarding()) {
             Prefs.setShowImageTagsOnboarding(false)
-            startActivity(SuggestedEditsImageTagsOnboardingActivity.newIntent(requireContext()))
+            startActivity(EditsImageTagsOnboardingActivity.newIntent(requireContext()))
         }
     }
 
@@ -175,7 +175,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
         val child = topBaseChild()
         var isAddedContributionEmpty = true
         if (child != null) {
-            if (child is SuggestedEditsCardsItemFragment) {
+            if (child is EditsCardsItemFragment) {
                 isAddedContributionEmpty = child.addedContribution.isEmpty()
                 if (!isAddedContributionEmpty) child.showAddedContributionView(child.addedContribution)
             }
@@ -186,7 +186,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
             addContributionButton.alpha = if (child.publishEnabled()) 1f else 0.5f
         }
 
-        if (child != null && child is SuggestedEditsRewardsItemFragment) {
+        if (child != null && child is EditsRewardsItemFragment) {
             addContributionText?.text = getString(R.string.suggested_edits_rewards_continue_button)
             addContributionImage.visibility = GONE
         } else if (action == ADD_IMAGE_TAGS) {
@@ -262,7 +262,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
     }
 
     fun onSelectPage() {
-        if (topBaseChild() is SuggestedEditsRewardsItemFragment) {
+        if (topBaseChild() is EditsRewardsItemFragment) {
             nextPage(null)
         } else if (action == ADD_IMAGE_TAGS && topBaseChild() != null) {
             topBaseChild()!!.publish()
@@ -344,7 +344,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
         sessionEditCount++
         if (rewardInterstitialImage == -1 && rewardInterstitialText.isEmpty()) {
             // Need to preload the user contribution in case we miss the latest data
-            disposables.add(SuggestedEditsUserStats.getEditCountsObservable()
+            disposables.add(EditsUserStats.getEditCountsObservable()
                     .map { response ->
                         val editorTaskCounts = response.query()!!.editorTaskCounts()!!
                         val daysOfLastEditQualityShown = TimeUnit.MILLISECONDS.toDays(System.currentTimeMillis() - Prefs.getLastSuggestedEditsRewardInterstitialEditQualityShown()).toInt()
@@ -359,8 +359,8 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
                             rewardInterstitialText = getString(R.string.suggested_edits_rewards_edit_streak, editorTaskCounts.editStreak, AccountUtil.getUserName())
                         } else if ((Prefs.getLastSuggestedEditsRewardInterstitialEditQualityShown().toInt() == 0
                                         || daysOfLastEditQualityShown == Prefs.getSuggestedEditsRewardInterstitialEditQualityOnDay())
-                                && SuggestedEditsUserStats.getRevertSeverity() <= SuggestedEditsRewardsItemFragment.EDIT_STREAK_MAX_REVERT_SEVERITY) {
-                            when (SuggestedEditsUserStats.getRevertSeverity()) {
+                                && EditsUserStats.getRevertSeverity() <= EditsRewardsItemFragment.EDIT_STREAK_MAX_REVERT_SEVERITY) {
+                            when (EditsUserStats.getRevertSeverity()) {
                                 0 -> {
                                     rewardInterstitialImage = R.attr.reward_interstitial_quality_perfect_drawable
                                     rewardInterstitialText = getString(R.string.suggested_edits_rewards_edit_quality, getString(R.string.suggested_edits_quality_perfect_text))
@@ -387,7 +387,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
                     }
                     .flatMap {
                         if (it) {
-                            SuggestedEditsUserStats.getPageViewsObservable()
+                            EditsUserStats.getPageViewsObservable()
                         } else {
                             Observable.just(-1L)
                         }
@@ -433,11 +433,12 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
                 updateBackButton(0)
             }
         }
+
         override fun onNothingSelected(parent: AdapterView<*>) {
         }
     }
 
-    private inner class ViewPagerAdapter constructor(fragment: Fragment): PositionAwareFragmentStateAdapter(fragment) {
+    private inner class ViewPagerAdapter constructor(fragment: Fragment) : PositionAwareFragmentStateAdapter(fragment) {
         override fun getItemCount(): Int {
             return Integer.MAX_VALUE
         }
@@ -451,16 +452,16 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
                     setUpRewardInterstitialsForQA()
                 }
                 if (funnel.shouldSeeInterstitial()) {
-                    return SuggestedEditsRewardsItemFragment
+                    return EditsRewardsItemFragment
                             .newInstance(ResourceUtil.getThemedAttributeId(requireContext(), rewardInterstitialImage), rewardInterstitialText)
                 }
             }
             return when (action) {
                 ADD_IMAGE_TAGS -> {
-                    SuggestedEditsImageTagsFragment.newInstance()
+                    EditsImageTagsFragment.newInstance()
                 }
                 else -> {
-                    SuggestedEditsCardsItemFragment.newInstance()
+                    EditsCardsItemFragment.newInstance()
                 }
             }
         }
@@ -529,8 +530,8 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
     }
 
     companion object {
-        fun newInstance(action: DescriptionEditActivity.Action): SuggestedEditsCardsFragment {
-            val addTitleDescriptionsFragment = SuggestedEditsCardsFragment()
+        fun newInstance(action: DescriptionEditActivity.Action): EditsCardsFragment {
+            val addTitleDescriptionsFragment = EditsCardsFragment()
             val args = Bundle()
             args.putSerializable(INTENT_EXTRA_ACTION, action)
             addTitleDescriptionsFragment.arguments = args

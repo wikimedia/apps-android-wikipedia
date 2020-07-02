@@ -30,13 +30,13 @@ import org.wikipedia.dataclient.mwapi.MwException;
 import org.wikipedia.dataclient.mwapi.MwServiceError;
 import org.wikipedia.dataclient.wikidata.EntityPostResponse;
 import org.wikipedia.descriptions.DescriptionEditActivity.Action;
+import org.wikipedia.edits.EditsSummary;
+import org.wikipedia.edits.EditsSurvey;
 import org.wikipedia.json.GsonMarshaller;
 import org.wikipedia.json.GsonUnmarshaller;
 import org.wikipedia.login.LoginClient.LoginFailedException;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.settings.Prefs;
-import org.wikipedia.suggestededits.SuggestedEditsSummary;
-import org.wikipedia.suggestededits.SuggestedEditsSurvey;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
@@ -65,8 +65,8 @@ import static org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLAT
 import static org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION;
 import static org.wikipedia.descriptions.DescriptionEditUtil.ABUSEFILTER_DISALLOWED;
 import static org.wikipedia.descriptions.DescriptionEditUtil.ABUSEFILTER_WARNING;
+import static org.wikipedia.edits.EditsCardsActivity.EXTRA_SOURCE_ADDED_CONTRIBUTION;
 import static org.wikipedia.language.AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE;
-import static org.wikipedia.suggestededits.SuggestedEditsCardsActivity.EXTRA_SOURCE_ADDED_CONTRIBUTION;
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 
 public class DescriptionEditFragment extends Fragment {
@@ -88,8 +88,8 @@ public class DescriptionEditFragment extends Fragment {
     @BindView(R.id.fragment_description_edit_view) DescriptionEditView editView;
     private Unbinder unbinder;
     private PageTitle pageTitle;
-    private SuggestedEditsSummary sourceSummary;
-    private SuggestedEditsSummary targetSummary;
+    private EditsSummary sourceSummary;
+    private EditsSummary targetSummary;
     @Nullable private String highlightText;
     @Nullable private CsrfTokenClient csrfClient;
     @Nullable private DescriptionEditFunnel funnel;
@@ -104,7 +104,7 @@ public class DescriptionEditFragment extends Fragment {
             }
 
             if (invokeSource == SUGGESTED_EDITS) {
-                SuggestedEditsSurvey.onEditSuccess();
+                EditsSurvey.onEditSuccess();
             }
 
             Prefs.setLastDescriptionEditTime(new Date().getTime());
@@ -161,11 +161,11 @@ public class DescriptionEditFragment extends Fragment {
         invokeSource = (InvokeSource) getArguments().getSerializable(ARG_INVOKE_SOURCE);
 
         if (getArguments().getString(ARG_SOURCE_SUMMARY) != null) {
-            sourceSummary = GsonUnmarshaller.unmarshal(SuggestedEditsSummary.class, getArguments().getString(ARG_SOURCE_SUMMARY));
+            sourceSummary = GsonUnmarshaller.unmarshal(EditsSummary.class, getArguments().getString(ARG_SOURCE_SUMMARY));
         }
 
         if (getArguments().getString(ARG_TARGET_SUMMARY) != null) {
-            targetSummary = GsonUnmarshaller.unmarshal(SuggestedEditsSummary.class, getArguments().getString(ARG_TARGET_SUMMARY));
+            targetSummary = GsonUnmarshaller.unmarshal(EditsSummary.class, getArguments().getString(ARG_TARGET_SUMMARY));
         }
 
         funnel = new DescriptionEditFunnel(WikipediaApp.getInstance(), pageTitle, type, invokeSource);

@@ -23,11 +23,11 @@ import com.google.android.material.snackbar.Snackbar;
 
 import org.wikipedia.R;
 import org.wikipedia.analytics.SuggestedEditsFunnel;
+import org.wikipedia.edits.EditsCardsActivity;
 import org.wikipedia.main.MainActivity;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.random.RandomActivity;
 import org.wikipedia.readinglist.ReadingListActivity;
-import org.wikipedia.suggestededits.SuggestedEditsCardsActivity;
 
 import java.util.concurrent.TimeUnit;
 
@@ -182,7 +182,7 @@ public final class FeedbackUtil {
             return activity.findViewById(R.id.random_coordinator_layout);
         } else if (activity instanceof ReadingListActivity) {
             return activity.findViewById(R.id.fragment_reading_list_coordinator);
-        } else if (activity instanceof SuggestedEditsCardsActivity) {
+        } else if (activity instanceof EditsCardsActivity) {
             return activity.findViewById(R.id.suggestedEditsCardsCoordinator);
         } else {
             return activity.findViewById(android.R.id.content);

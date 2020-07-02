@@ -22,7 +22,7 @@ import org.wikipedia.descriptions.DescriptionEditActivity.Action
 import org.wikipedia.json.GsonMarshaller
 import org.wikipedia.json.GsonUnmarshaller
 import org.wikipedia.page.ExtendedBottomSheetDialogFragment
-import org.wikipedia.suggestededits.SuggestedEditsSummary
+import org.wikipedia.edits.EditsSummary
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
 import org.wikipedia.util.StringUtil
@@ -30,15 +30,15 @@ import org.wikipedia.util.log.L
 
 class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.OnDismissListener {
 
-    private lateinit var suggestedEditsSummary: SuggestedEditsSummary
+    private lateinit var editsSummary: EditsSummary
     private lateinit var action: Action
     private val disposables = CompositeDisposable()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         val rootView = inflater.inflate(R.layout.dialog_image_preview, container)
-        suggestedEditsSummary = GsonUnmarshaller.unmarshal(SuggestedEditsSummary::class.java, requireArguments().getString(ARG_SUMMARY))
+        editsSummary = GsonUnmarshaller.unmarshal(EditsSummary::class.java, requireArguments().getString(ARG_SUMMARY))
         action = requireArguments().getSerializable(ARG_ACTION) as Action
-        setConditionalLayoutDirection(rootView, suggestedEditsSummary.lang)
+        setConditionalLayoutDirection(rootView, editsSummary.lang)
         return rootView
     }
 
@@ -52,7 +52,7 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
         super.onViewCreated(view, savedInstanceState)
         progressBar!!.visibility = VISIBLE
         toolbarView.setOnClickListener { dismiss() }
-        titleText!!.text = StringUtil.removeHTMLTags(StringUtil.removeNamespace(suggestedEditsSummary.displayTitle!!))
+        titleText!!.text = StringUtil.removeHTMLTags(StringUtil.removeNamespace(editsSummary.displayTitle!!))
         loadImageInfo()
     }
 
@@ -77,12 +77,12 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
         var thumbnailWidth = 0
         var thumbnailHeight = 0
 
-        disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo(suggestedEditsSummary.title, suggestedEditsSummary.lang)
+        disposables.add(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo(editsSummary.title, editsSummary.lang)
                 .subscribeOn(Schedulers.io())
                 .flatMap {
                     if (it.query()!!.pages()!![0].imageInfo() == null) {
                         // If file page originally comes from *.wikipedia.org (i.e. movie posters), it will not have imageInfo and pageId.
-                        ServiceFactory.get(suggestedEditsSummary.pageTitle.wikiSite).getImageInfo(suggestedEditsSummary.title, suggestedEditsSummary.lang)
+                        ServiceFactory.get(editsSummary.pageTitle.wikiSite).getImageInfo(editsSummary.title, editsSummary.lang)
                     } else {
                         // Fetch API from commons.wikimedia.org and check whether if it is not a "shared" image.
                         isFromCommons = !it.query()!!.pages()!![0].isImageShared
@@ -93,20 +93,20 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
                     val page = response.query()!!.pages()!![0]
                     if (page.imageInfo() != null) {
                         val imageInfo = page.imageInfo()!!
-                        suggestedEditsSummary.timestamp = imageInfo.timestamp
-                        suggestedEditsSummary.user = imageInfo.user
-                        suggestedEditsSummary.metadata = imageInfo.metadata
+                        editsSummary.timestamp = imageInfo.timestamp
+                        editsSummary.user = imageInfo.user
+                        editsSummary.metadata = imageInfo.metadata
                         thumbnailWidth = imageInfo.thumbWidth
                         thumbnailHeight = imageInfo.thumbHeight
                     }
-                    ImageTagsProvider.getImageTagsObservable(page.pageId(), suggestedEditsSummary.lang)
+                    ImageTagsProvider.getImageTagsObservable(page.pageId(), editsSummary.lang)
                 }
                 .observeOn(AndroidSchedulers.mainThread())
                 .doAfterTerminate {
                     filePageView.visibility = VISIBLE
                     progressBar.visibility = GONE
                     filePageView.setup(
-                            suggestedEditsSummary,
+                            editsSummary,
                             imageTags,
                             dialogDetailContainer.width,
                             thumbnailWidth, thumbnailHeight,
@@ -126,10 +126,10 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
         private const val ARG_SUMMARY = "summary"
         private const val ARG_ACTION = "action"
 
-        fun newInstance(suggestedEditsSummary: SuggestedEditsSummary, action: Action): ImagePreviewDialog {
+        fun newInstance(editsSummary: EditsSummary, action: Action): ImagePreviewDialog {
             val dialog = ImagePreviewDialog()
             val args = Bundle()
-            args.putString(ARG_SUMMARY, GsonMarshaller.marshal(suggestedEditsSummary))
+            args.putString(ARG_SUMMARY, GsonMarshaller.marshal(editsSummary))
             args.putSerializable(ARG_ACTION, action)
             dialog.arguments = args
             return dialog

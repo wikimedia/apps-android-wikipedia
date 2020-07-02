@@ -1,4 +1,4 @@
-package org.wikipedia.suggestededits.provider
+package org.wikipedia.edits.provider
 
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.functions.BiFunction
@@ -12,21 +12,21 @@ import java.util.*
 import java.util.concurrent.Semaphore
 
 object MissingDescriptionProvider {
-    private val mutex : Semaphore = Semaphore(1)
+    private val mutex: Semaphore = Semaphore(1)
 
-    private val articlesWithMissingDescriptionCache : Stack<String> = Stack()
-    private var articlesWithMissingDescriptionCacheLang : String = ""
-    private val articlesWithTranslatableDescriptionCache : Stack<Pair<PageTitle, PageTitle>> = Stack()
-    private var articlesWithTranslatableDescriptionCacheFromLang : String = ""
-    private var articlesWithTranslatableDescriptionCacheToLang : String = ""
+    private val articlesWithMissingDescriptionCache: Stack<String> = Stack()
+    private var articlesWithMissingDescriptionCacheLang: String = ""
+    private val articlesWithTranslatableDescriptionCache: Stack<Pair<PageTitle, PageTitle>> = Stack()
+    private var articlesWithTranslatableDescriptionCacheFromLang: String = ""
+    private var articlesWithTranslatableDescriptionCacheToLang: String = ""
 
-    private val imagesWithMissingCaptionsCache : Stack<String> = Stack()
-    private var imagesWithMissingCaptionsCacheLang : String = ""
-    private val imagesWithTranslatableCaptionCache : Stack<Pair<String, String>> = Stack()
-    private var imagesWithTranslatableCaptionCacheFromLang : String = ""
-    private var imagesWithTranslatableCaptionCacheToLang : String = ""
+    private val imagesWithMissingCaptionsCache: Stack<String> = Stack()
+    private var imagesWithMissingCaptionsCacheLang: String = ""
+    private val imagesWithTranslatableCaptionCache: Stack<Pair<String, String>> = Stack()
+    private var imagesWithTranslatableCaptionCacheFromLang: String = ""
+    private var imagesWithTranslatableCaptionCacheToLang: String = ""
 
-    private val imagesWithMissingTagsCache : Stack<MwQueryPage> = Stack()
+    private val imagesWithMissingTagsCache: Stack<MwQueryPage> = Stack()
 
     // TODO: add a maximum-retry limit -- it's currently infinite, or until disposed.
 

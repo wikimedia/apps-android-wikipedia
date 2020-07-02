@@ -7,7 +7,7 @@ import org.wikipedia.history.HistoryFragment
 import org.wikipedia.model.EnumCode
 import org.wikipedia.model.EnumCodeMap
 import org.wikipedia.readinglist.ReadingListsFragment
-import org.wikipedia.suggestededits.SuggestedEditsTasksFragment
+import org.wikipedia.edits.EditsTasksFragment
 
 enum class NavTab constructor(private val text: Int, private val icon: Int) : EnumCode {
     EXPLORE(R.string.nav_item_feed, R.drawable.ic_globe) {
@@ -27,7 +27,7 @@ enum class NavTab constructor(private val text: Int, private val icon: Int) : En
     },
     EDITS(R.string.nav_item_suggested_edits, R.drawable.ic_mode_edit_themed_24dp) {
         override fun newInstance(): Fragment {
-            return SuggestedEditsTasksFragment.newInstance()
+            return EditsTasksFragment.newInstance()
         }
     };
 

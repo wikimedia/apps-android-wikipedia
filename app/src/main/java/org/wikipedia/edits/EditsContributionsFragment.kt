@@ -1,4 +1,4 @@
-package org.wikipedia.suggestededits
+package org.wikipedia.edits
 
 import android.content.Context
 import android.icu.text.ListFormatter
@@ -30,12 +30,12 @@ import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
+import org.wikipedia.edits.Contribution.Companion.EDIT_TYPE_ARTICLE_DESCRIPTION
+import org.wikipedia.edits.Contribution.Companion.EDIT_TYPE_GENERIC
+import org.wikipedia.edits.Contribution.Companion.EDIT_TYPE_IMAGE_CAPTION
+import org.wikipedia.edits.Contribution.Companion.EDIT_TYPE_IMAGE_TAG
+import org.wikipedia.edits.EditsContributionsItemView.Callback
 import org.wikipedia.language.AppLanguageLookUpTable
-import org.wikipedia.suggestededits.Contribution.Companion.EDIT_TYPE_ARTICLE_DESCRIPTION
-import org.wikipedia.suggestededits.Contribution.Companion.EDIT_TYPE_GENERIC
-import org.wikipedia.suggestededits.Contribution.Companion.EDIT_TYPE_IMAGE_CAPTION
-import org.wikipedia.suggestededits.Contribution.Companion.EDIT_TYPE_IMAGE_TAG
-import org.wikipedia.suggestededits.SuggestedEditsContributionsItemView.Callback
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
@@ -47,7 +47,7 @@ import java.util.concurrent.TimeUnit
 import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
 
-class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributionsHeaderView.Callback {
+class EditsContributionsFragment : Fragment(), EditsContributionsHeaderView.Callback {
     private val adapter: ContributionsEntryItemAdapter = ContributionsEntryItemAdapter()
 
     private var allContributions = ArrayList<Contribution>()
@@ -142,7 +142,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
         disposables.clear()
 
         if (allContributions.isEmpty()) {
-            disposables.add(SuggestedEditsUserStats.getPageViewsObservable().subscribe {
+            disposables.add(EditsUserStats.getPageViewsObservable().subscribe {
                 totalPageViews = it
                 adapter.notifyDataSetChanged()
             })
@@ -356,9 +356,9 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
         errorView.visibility = VISIBLE
     }
 
-    private inner class HeaderViewHolder internal constructor(itemView: SuggestedEditsContributionsHeaderView) : DefaultViewHolder<SuggestedEditsContributionsHeaderView?>(itemView) {
+    private inner class HeaderViewHolder internal constructor(itemView: EditsContributionsHeaderView) : DefaultViewHolder<EditsContributionsHeaderView?>(itemView) {
         fun bindItem() {
-            view.callback = this@SuggestedEditsContributionsFragment
+            view.callback = this@EditsContributionsFragment
             view.updateFilterViewUI(editFilterType, totalContributionCount)
             view.updateTotalPageViews(totalPageViews)
         }
@@ -376,7 +376,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
         }
     }
 
-    private inner class ContributionItemHolder internal constructor(itemView: SuggestedEditsContributionsItemView) : DefaultViewHolder<SuggestedEditsContributionsItemView?>(itemView) {
+    private inner class ContributionItemHolder internal constructor(itemView: EditsContributionsItemView) : DefaultViewHolder<EditsContributionsItemView?>(itemView) {
         val disposables = CompositeDisposable()
         fun bindItem(contribution: Contribution) {
             view.contribution = contribution
@@ -398,7 +398,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
             disposables.clear()
         }
 
-        private fun getContributionDetails(itemView: SuggestedEditsContributionsItemView, contribution: Contribution) {
+        private fun getContributionDetails(itemView: EditsContributionsItemView, contribution: Contribution) {
             if (contribution.editType == EDIT_TYPE_ARTICLE_DESCRIPTION && contribution.title.isNotEmpty() && !contribution.title.matches(qNumberRegex)) {
                 disposables.add(ServiceFactory.getRest(contribution.wikiSite).getSummary(null, contribution.title)
                         .subscribeOn(Schedulers.io())
@@ -448,7 +448,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
             }
         }
 
-        private fun getPageViews(view: SuggestedEditsContributionsItemView, contribution: Contribution) {
+        private fun getPageViews(view: EditsContributionsItemView, contribution: Contribution) {
             if (contribution.editType != EDIT_TYPE_ARTICLE_DESCRIPTION || contribution.title.matches(qNumberRegex)) {
                 view.setPageViewCountText(0)
                 return
@@ -494,14 +494,14 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DefaultViewHolder<*> {
             return when (viewType) {
                 VIEW_TYPE_HEADER -> {
-                    HeaderViewHolder(SuggestedEditsContributionsHeaderView(parent.context))
+                    HeaderViewHolder(EditsContributionsHeaderView(parent.context))
                 }
                 VIEW_TYPE_DATE -> {
                     val view = LayoutInflater.from(parent.context).inflate(R.layout.view_section_header, parent, false)
                     DateViewHolder(view)
                 }
                 else -> {
-                    ContributionItemHolder(SuggestedEditsContributionsItemView(parent.context))
+                    ContributionItemHolder(EditsContributionsItemView(parent.context))
                 }
             }
         }
@@ -548,7 +548,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
                 EDIT_TYPE_IMAGE_TAG -> UserContributionFunnel.get().logViewTag()
                 else -> UserContributionFunnel.get().logViewMisc()
             }
-            context.startActivity(SuggestedEditsContributionDetailsActivity.newIntent(context, contribution))
+            context.startActivity(EditsContributionDetailsActivity.newIntent(context, contribution))
         }
     }
 
@@ -559,8 +559,8 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
 
         private const val DEPICTS_META_STR = "add-depicts:"
 
-        fun newInstance(): SuggestedEditsContributionsFragment {
-            return SuggestedEditsContributionsFragment()
+        fun newInstance(): EditsContributionsFragment {
+            return EditsContributionsFragment()
         }
     }
 }

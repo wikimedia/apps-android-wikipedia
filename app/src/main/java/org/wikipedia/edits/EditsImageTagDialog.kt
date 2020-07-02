@@ -1,4 +1,4 @@
-package org.wikipedia.suggestededits
+package org.wikipedia.edits
 
 import android.app.Dialog
 import android.content.ClipboardManager
@@ -36,7 +36,7 @@ import org.wikipedia.util.log.L
 import java.util.*
 import kotlin.collections.ArrayList
 
-class SuggestedEditsImageTagDialog : DialogFragment() {
+class EditsImageTagDialog : DialogFragment() {
     interface Callback {
         fun onSearchSelect(item: MwQueryPage.ImageLabel)
         fun onSearchDismiss(searchTerm: String)
@@ -117,7 +117,7 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
     }
 
     private inner class SearchTextWatcher : TextWatcher {
-        override fun beforeTextChanged(text: CharSequence, i: Int, i1: Int, i2: Int) { }
+        override fun beforeTextChanged(text: CharSequence, i: Int, i1: Int, i2: Int) {}
 
         override fun onTextChanged(text: CharSequence, i: Int, i1: Int, i2: Int) {
             currentSearchTerm = text.toString()
@@ -125,7 +125,7 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
             imageTagsSearchText.postDelayed(searchRunnable, 500)
         }
 
-        override fun afterTextChanged(editable: Editable) { }
+        override fun afterTextChanged(editable: Editable) {}
     }
 
     private fun requestResults(searchTerm: String) {
@@ -213,8 +213,8 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
     }
 
     companion object {
-        fun newInstance(useClipboardText: Boolean, lastText: String): SuggestedEditsImageTagDialog {
-            val dialog = SuggestedEditsImageTagDialog()
+        fun newInstance(useClipboardText: Boolean, lastText: String): EditsImageTagDialog {
+            val dialog = EditsImageTagDialog()
             val args = Bundle()
             args.putBoolean("useClipboardText", useClipboardText)
             args.putString("lastText", lastText)

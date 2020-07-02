@@ -1,4 +1,4 @@
-package org.wikipedia.suggestededits
+package org.wikipedia.edits
 
 import org.wikipedia.dataclient.WikiSite
 import java.util.*

@@ -10,6 +10,7 @@ import androidx.annotation.Nullable;
 import org.wikipedia.R;
 import org.wikipedia.activity.SingleFragmentActivity;
 import org.wikipedia.analytics.SuggestedEditsFunnel;
+import org.wikipedia.edits.EditsSummary;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.json.GsonMarshaller;
 import org.wikipedia.json.GsonUnmarshaller;
@@ -18,7 +19,6 @@ import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.linkpreview.LinkPreviewDialog;
 import org.wikipedia.readinglist.AddToReadingListDialog;
-import org.wikipedia.suggestededits.SuggestedEditsSummary;
 import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ShareUtil;
@@ -55,8 +55,8 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
     public static Intent newIntent(@NonNull Context context,
                                    @NonNull PageTitle title,
                                    @Nullable String highlightText,
-                                   @Nullable SuggestedEditsSummary sourceSummary,
-                                   @Nullable SuggestedEditsSummary targetSummary,
+                                   @Nullable EditsSummary sourceSummary,
+                                   @Nullable EditsSummary targetSummary,
                                    @NonNull Action action,
                                    @NonNull InvokeSource invokeSource) {
         return new Intent(context, DescriptionEditActivity.class)
@@ -76,12 +76,12 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
 
     @Override
     public void onBottomBarContainerClicked(@NonNull Action action) {
-        SuggestedEditsSummary summary;
+        EditsSummary summary;
 
         if (action == TRANSLATE_DESCRIPTION) {
-            summary = GsonUnmarshaller.unmarshal(SuggestedEditsSummary.class, getIntent().getStringExtra(EXTRA_TARGET_SUMMARY));
+            summary = GsonUnmarshaller.unmarshal(EditsSummary.class, getIntent().getStringExtra(EXTRA_TARGET_SUMMARY));
         } else {
-            summary = GsonUnmarshaller.unmarshal(SuggestedEditsSummary.class, getIntent().getStringExtra(EXTRA_SOURCE_SUMMARY));
+            summary = GsonUnmarshaller.unmarshal(EditsSummary.class, getIntent().getStringExtra(EXTRA_SOURCE_SUMMARY));
         }
 
         if (action == ADD_CAPTION || action == TRANSLATE_CAPTION) {

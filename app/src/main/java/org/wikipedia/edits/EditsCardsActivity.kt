@@ -1,4 +1,4 @@
-package org.wikipedia.suggestededits
+package org.wikipedia.edits
 
 import android.content.Context
 import android.content.Intent
@@ -9,12 +9,10 @@ import org.wikipedia.R
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.descriptions.DescriptionEditActivity.Action
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
-import org.wikipedia.suggestededits.SuggestedEditsCardsFragment.Companion.newInstance
-import org.wikipedia.util.ResourceUtil
+import org.wikipedia.edits.EditsCardsFragment.Companion.newInstance
 import org.wikipedia.views.ImageZoomHelper
-import java.lang.Exception
 
-class SuggestedEditsCardsActivity : SingleFragmentActivity<SuggestedEditsCardsFragment>() {
+class EditsCardsActivity : SingleFragmentActivity<EditsCardsFragment>() {
 
     private lateinit var imageZoomHelper: ImageZoomHelper
 
@@ -25,19 +23,20 @@ class SuggestedEditsCardsActivity : SingleFragmentActivity<SuggestedEditsCardsFr
         imageZoomHelper = ImageZoomHelper(this)
     }
 
-    override fun createFragment(): SuggestedEditsCardsFragment {
+    override fun createFragment(): EditsCardsFragment {
         return newInstance(intent.getSerializableExtra(INTENT_EXTRA_ACTION) as Action)
     }
 
     override fun dispatchTouchEvent(event: MotionEvent?): Boolean {
         try {
             return imageZoomHelper.onDispatchTouchEvent(event) || super.dispatchTouchEvent(event)
-        } catch (e: Exception) { }
+        } catch (e: Exception) {
+        }
         return false
     }
 
     private fun getActionBarTitleRes(action: Action): Int {
-        return when(action) {
+        return when (action) {
             TRANSLATE_DESCRIPTION -> {
                 R.string.suggested_edits_translate_descriptions
             }
@@ -58,7 +57,7 @@ class SuggestedEditsCardsActivity : SingleFragmentActivity<SuggestedEditsCardsFr
         const val EXTRA_SOURCE_ADDED_CONTRIBUTION = "addedContribution"
 
         fun newIntent(context: Context, action: Action): Intent {
-            return Intent(context, SuggestedEditsCardsActivity::class.java).putExtra(INTENT_EXTRA_ACTION, action)
+            return Intent(context, EditsCardsActivity::class.java).putExtra(INTENT_EXTRA_ACTION, action)
         }
     }
 }
