@@ -736,7 +736,6 @@
   <string name="suggested_edits_quality_sufficient_text">Доволен</string>
   <string name="suggested_edits_quality_poor_text">Слаб</string>
   <string name="suggested_edits_quality_bad_text">Лош</string>
-  <string name="suggested_edits_contribute">Придонесете</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">Придонес</item>
     <item quantity="other">Придонеси</item>
