@@ -573,7 +573,6 @@
   <string name="description_edit_tutorial_button_label_start_editing">Aldatzen hasi</string>
   <string name="description_edit_tutorial_promise">Hasteko, zin dagit ezarpen hau ez dudala gehiegikeriz erabiliko.</string>
   <string name="suggested_edits_menu_info">Info</string>
-  <string name="suggested_edits_tasks_activity_title">Gomendatutako aldaketak</string>
   <string name="suggested_edits_task_add_description_title">Gehitu artikuluen deskribapenak</string>
   <string name="suggested_edits_task_add_description_description">Deskribapenik ez dute artikuluetan lagundu</string>
   <string name="suggested_edits_task_image_caption_title">Gehitu irudi oineko testuak</string>

@@ -642,7 +642,6 @@
   <string name="suggested_edits_license_notice">Με την προσθήκη περιγραφής, αποδέχομαι τους &lt;a href=\"%1$s\"&gt;Όρους Χρήσης&lt;/a&gt; και αποδεσμεύσω αμετάκλητα τις συνεισφορές μου σύμφωνα με την άδεια&lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_image_caption_license_notice">Με την προσθήκη λεζάντας στην εικόνα, αποδέχομαι τους &lt;a href=\"%1$s\"&gt;Όρους Χρήσης&lt;/a&gt; και αποδεσμεύσω αμετάκλητα τις συνεισφορές μου σύμφωνα με την άδεια&lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Πληροφορίες</string>
-  <string name="suggested_edits_tasks_activity_title">Προτεινόμενες τροποποιήσεις</string>
   <string name="suggested_edits_task_add_description_title">Προσθήκη περιγραφών άρθρου</string>
   <string name="suggested_edits_task_add_description_description">Συνεισφέρετε σε άρθρα χωρίς περιγραφές</string>
   <string name="suggested_edits_task_image_caption_title">Προσθήκη λεζαντών εικόνας</string>

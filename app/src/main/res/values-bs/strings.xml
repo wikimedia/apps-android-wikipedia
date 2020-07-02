@@ -466,7 +466,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealno da bude 1 red, od 2 do 12 riječi</string>
   <string name="description_edit_tutorial_button_label_start_editing">Počni uređivati</string>
   <string name="description_edit_tutorial_promise">Počevši obećavam da neću zloupotrijebiti ovu mogućnost.</string>
-  <string name="suggested_edits_tasks_activity_title">Predložene izmjene</string>
   <string name="suggested_edits_feed_card_title">Predložene izmjene</string>
   <string name="description_edit_revert_subtitle">Hvala Vam na uređivanju Wikipedije!</string>
   <string name="description_edit_revert_intro">Znamo da ste dali sve od sebe, ali je jedan od pregledavača procijenio da Vašu izmjenu ne možemo prihvatiti. Evo nekoliko mogućih razloga zašto je Vaša izmjena vraćena:</string>

@@ -668,7 +668,6 @@
   <string name="suggested_edits_license_notice">透過添加描述，我同意&lt;a href=\"%1$s\"&gt;使用條款&lt;/a&gt;，且依據&lt;a href=\"%2$s\"&gt;創用CC0&lt;/a&gt;許可協議不撤回我所釋出的個人貢獻。</string>
   <string name="suggested_edits_image_caption_license_notice">透過添加圖片說明，我同意&lt;a href=\"%1$s\"&gt;使用條款&lt;/a&gt;，且依據&lt;a href=\"%2$s\"&gt;創用CC0&lt;/a&gt;許可協議不撤回我所釋出的個人貢獻。</string>
   <string name="suggested_edits_menu_info">資訊</string>
-  <string name="suggested_edits_tasks_activity_title">建議編輯</string>
   <string name="suggested_edits_task_add_description_title">新增條目描述</string>
   <string name="suggested_edits_task_add_description_description">不帶描述來貢獻條目</string>
   <string name="suggested_edits_task_image_caption_title">新增語言說明</string>

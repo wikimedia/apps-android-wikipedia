@@ -673,7 +673,6 @@
   <string name="suggested_edits_license_notice">Disclaimer that specifies the Terms of Use and CC license that applies to add descriptions. Please preserve the %1$s and %2$s parameters, since these will be replaced with URLs.</string>
   <string name="suggested_edits_image_caption_license_notice">Disclaimer that specifies the Terms of Use and CC license that applies to add image captions. Please preserve the %1$s and %2$s parameters, since these will be replaced with URLs.</string>
   <string name="suggested_edits_menu_info">Suggested edits menu label for accessing the editing FAQ.\n{{Identical|Info}}</string>
-  <string name="suggested_edits_tasks_activity_title">Title shown at the top of the activity for unlocking suggested edits.\n\n{{Identical|Suggested edits}}</string>
   <string name="suggested_edits_task_add_description_title">Article description task heading.</string>
   <string name="suggested_edits_task_add_description_description">Article description task explanation given to user.</string>
   <string name="suggested_edits_task_image_caption_title">Image caption tasks heading.</string>

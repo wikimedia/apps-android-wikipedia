@@ -597,7 +597,6 @@
   <string name="suggested_edits_edit_translation_button" fuzzy="true">Redigér oversættelse</string>
   <string name="suggested_edits_my_contributions">Mine bidrag</string>
   <string name="suggested_edits_no_description">Denne fil har ingen beskrivelse</string>
-  <string name="suggested_edits_tasks_activity_title">Foreslåede redigeringer</string>
   <string name="suggested_edits_task_add_description_title" fuzzy="true">Tilføj beskrivelser</string>
   <string name="suggested_edits_task_add_description_description">Bidrag til artikler uden beskrivelser</string>
   <string name="suggested_edits_task_image_caption_title">Tilføj billedtekst</string>

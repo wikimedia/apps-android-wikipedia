@@ -665,7 +665,6 @@
   <string name="suggested_edits_license_notice">この記事の説明を追加すると、&lt;a href=\"%1$s\"&gt;利用規約&lt;/a&gt;に同意し、&lt;a href=\"%2$s\"&gt;クリエイティブ・コモンズ CC0&lt;/a&gt;ライセンスのもとで公開することになります。これは取り消せません。</string>
   <string name="suggested_edits_image_caption_license_notice">この画像キャプションを追加すると、&lt;a href=\"%1$s\"&gt;利用規約&lt;/a&gt;に同意し、&lt;a href=\"%2$s\"&gt;クリエイティブ・コモンズ CC0&lt;/a&gt;ライセンスのもとで公開することになります。これは取り消せません。</string>
   <string name="suggested_edits_menu_info">情報</string>
-  <string name="suggested_edits_tasks_activity_title">編集提案</string>
   <string name="suggested_edits_task_add_description_title">記事の説明を追加</string>
   <string name="suggested_edits_task_add_description_description">説明が未記入の記事に着手する</string>
   <string name="suggested_edits_task_image_caption_title">画像キャプションを追加</string>

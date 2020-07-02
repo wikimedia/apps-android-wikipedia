@@ -629,7 +629,6 @@
   <string name="suggested_edits_license_notice">ဖော်ပြချက်ကို ပေါင်းထည့်ခြင်းအားဖြင့် ကျုန်ုပ်သည် &lt;a href=\"%1$s\"&gt;သုံးစွဲမှု သဘောတူညီချက်&lt;/a&gt;အား သဘောတူပြီးဖြစ်ပြီး ကျုန်ုပ်၏ ပံ့ပိုးမှုများကို &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; လိုင်စင်ဖြင့် ဖြန့်ချိမည်ဖြစ်ကြောင်း သဘောတူပါသည်။</string>
   <string name="suggested_edits_image_caption_license_notice">ရုပ်ပုံစာသားကို ပေါင်းထည့်ခြင်းအားဖြင့် ကျုန်ုပ်သည် &lt;a href=\"%1$s\"&gt;သုံးစွဲမှု သဘောတူညီချက်&lt;/a&gt;အား သဘောတူပြီးဖြစ်ပြီး ကျုန်ုပ်၏ ပံ့ပိုးမှုများကို &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; လိုင်စင်ဖြင့် ဖြန့်ချိမည်ဖြစ်ကြောင်း သဘောတူပါသည်။</string>
   <string name="suggested_edits_menu_info">အချက်အလက်</string>
-  <string name="suggested_edits_tasks_activity_title">အကြံပြုထားသော ပြင်ဆင်မှုများ</string>
   <string name="suggested_edits_task_add_description_title">ဆောင်းပါးဖော်ပြချက်များ ထည့်ပေါင်းရန်</string>
   <string name="suggested_edits_task_add_description_description">ဖော်ပြချက်မပါဘဲ ဆောင်းပါးများတွင် ပံ့ပိုးမည်</string>
   <string name="suggested_edits_task_image_caption_title">ရုပ်ပုံ ပုံစာများ ပေါင်းထည့်ရန်</string>
