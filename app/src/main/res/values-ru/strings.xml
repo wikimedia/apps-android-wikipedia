@@ -763,7 +763,6 @@
   <string name="suggested_edits_disabled_message">Предлагаемые правки выключены. Уважаемый %s, к сожалению, слишком многие из ваших последних изменений были отменены.</string>
   <string name="suggested_edits_ip_blocked_message">Судя по всему ваш IP-адрес (или диапазон IP-адресов) в данный момент заблокирован для внесения правок в Википедию.</string>
   <string name="suggested_edits_editing_tips_link_text">Советы и рекомендации по редактированию</string>
-  <string name="suggested_edits_pageviews_label_text">Просмотры страниц</string>
   <string name="suggested_edits_quality_label_text">Качество правки</string>
   <string name="suggested_edits_quality_perfect_text">Превосходная</string>
   <string name="suggested_edits_quality_excellent_text">Отличная</string>
@@ -799,12 +798,10 @@
   <string name="suggested_edits_contribution_language_label">Язык</string>
   <string name="suggested_edits_contribution_date_time_label">Дата/время</string>
   <string name="suggested_edits_contribution_type_label">Тип вклада</string>
-  <string name="suggested_edits_contribution_image_label">Файл</string>
   <string name="suggested_edits_contribution_article_label">Статьи</string>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Вчера</string>
   <string name="suggested_edits_rewards_continue_button">Продолжить</string>
-  <string name="suggested_edits_contribution_current_revision">Текущая версия</string>
   <string name="file_page_activity_title">Страница файла</string>
   <string name="description_edit_revert_subtitle">Спасибо за редактирование Википедии!</string>
   <string name="description_edit_revert_intro">Мы знаем, что вы старались, но один из участников заметил что-то некорректное. Возможные причины, почему ваша правка была отменена:</string>

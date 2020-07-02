@@ -731,7 +731,6 @@
   <string name="suggested_edits_image_tags_add_tag">إضافة وسم</string>
   <string name="suggested_edits_image_zoom_tooltip">ضم الاصبعين لتكبير هذه الصورة.</string>
   <string name="suggested_edits_encouragement_message">%s، شكرا على تعديلاتك، يمكنك العثور أدناه على المزيد من الطرق للمساهمة في ويكيبيديا.</string>
-  <string name="suggested_edits_onboarding_message">&lt;b&gt;مرحبا %s&lt;/b&gt;، هل تعلم أنه يمكن للجميع تحرير ويكيبيديا؟ يمكنك العثور أدناه على طرق ممتعة للمساعدة في تحسين ويكيبيديا. تحرير سعيد!</string>
   <string name="suggested_edits_image_captions_task_detail" fuzzy="true">تصف التعليقات التوضيحية صورة لمساعدة القراء على فهم معناها وسياقها.</string>
   <string name="suggested_edits_add_descriptions_task_detail" fuzzy="true">تلخص أوصاف المقالات مقالة لمساعدة القراء على فهم الموضوع في لمحة.</string>
   <string name="suggested_edits_contributions_stat_tooltip">إجمالي عدد المساهمات مع التعديلات المقترحة.</string>
@@ -744,7 +743,6 @@
   <string name="suggested_edits_editing_tips_link_text">نصائح وحيل التحرير</string>
   <string name="suggested_edits_help_page_link_text">صفحة مساعدة التعديلات المقترحة</string>
   <string name="suggested_edits_edit_streak_label_text">خط التحرير</string>
-  <string name="suggested_edits_pageviews_label_text">مشاهدات الصفحة</string>
   <string name="suggested_edits_quality_label_text">جودة التحرير</string>
   <string name="suggested_edits_quality_perfect_text">مثالي</string>
   <string name="suggested_edits_quality_excellent_text">ممتاز</string>

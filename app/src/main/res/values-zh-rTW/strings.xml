@@ -733,7 +733,6 @@
   <string name="suggested_edits_image_tags_add_tag">新增標籤</string>
   <string name="suggested_edits_image_zoom_tooltip">做出夾捏的動作來縮放此圖片。</string>
   <string name="suggested_edits_encouragement_message">%s，感謝您所做的編輯。在下方您可以找出更多貢獻維基百科的方式。</string>
-  <string name="suggested_edits_onboarding_message">&lt;b&gt;嗨，%s&lt;/b&gt;：您知道維基百科是每個人都可編輯的嗎？您可以在下方找到協助改善維基百科的有趣方式，來快樂地編輯吧！</string>
   <string name="suggested_edits_image_captions_task_detail">描述圖片來幫助讀者了解含意與脈絡。</string>
   <string name="suggested_edits_add_descriptions_task_detail">概括條目來幫助讀者一目瞭然主題內容。</string>
   <string name="suggested_edits_contributions_stat_tooltip">您的建議編輯總數。</string>
@@ -746,7 +745,6 @@
   <string name="suggested_edits_editing_tips_link_text">編輯提示與技巧</string>
   <string name="suggested_edits_help_page_link_text">建議編輯說明頁面</string>
   <string name="suggested_edits_edit_streak_label_text">連續編輯紀錄</string>
-  <string name="suggested_edits_pageviews_label_text">頁面瀏覽次數</string>
   <string name="suggested_edits_quality_label_text">編輯品質</string>
   <string name="suggested_edits_quality_perfect_text">完美</string>
   <string name="suggested_edits_quality_excellent_text">傑出</string>
@@ -782,7 +780,6 @@
   <string name="suggested_edits_contribution_language_label">語言</string>
   <string name="suggested_edits_contribution_date_time_label">日期/時間</string>
   <string name="suggested_edits_contribution_type_label">貢獻類型</string>
-  <string name="suggested_edits_contribution_image_label">檔案</string>
   <string name="suggested_edits_contribution_article_label">條目</string>
   <string name="suggested_edits_contribution_views">%s檢視數</string>
   <string name="suggested_edits_contribution_seen_text">過去 30 天內被觀看過 %s 次。</string>
@@ -798,7 +795,6 @@
   <string name="suggested_edits_rewards_edit_quality">您的編輯到目前為止是%s。請繼續加油！我們期待您之後的貢獻。</string>
   <string name="suggested_edits_rewards_continue_button">繼續</string>
   <string name="suggested_edits_contribution_type_image_tag">圖片標籤</string>
-  <string name="suggested_edits_contribution_current_revision">目前版本</string>
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="one">%1$s 個標籤</item>
     <item quantity="other">%1$s 個標籤</item>

@@ -729,7 +729,6 @@
   <string name="suggested_edits_image_tags_add_tag">Lägg till tagg</string>
   <string name="suggested_edits_image_zoom_tooltip">Nyp för att zooma denna bild.</string>
   <string name="suggested_edits_encouragement_message">Tack för dina redigeringar, %s. Nedan kan du hitta fler sätt att bidra på Wikipedia.</string>
-  <string name="suggested_edits_onboarding_message">Hej %s, visste du att alla kan redigera på Wikipedia? Nedan kan du hitta roliga sätt att hjälpa till att förbättra Wikipedia. Lycka till med redigeringen!</string>
   <string name="suggested_edits_image_captions_task_detail">Beskriv en bild för att hjälpa läsare förstå dess betydelse och sammanhang.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Sammanfatta en artikel för att hjälpa läsare förstå ämnet på ett ögonblick.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Ditt totala antal bidrag med redigeringsförslag.</string>
@@ -742,7 +741,6 @@
   <string name="suggested_edits_editing_tips_link_text">Tips och tricks för att redigera</string>
   <string name="suggested_edits_help_page_link_text">Hjälpsida för redigeringsförslag</string>
   <string name="suggested_edits_edit_streak_label_text">Redigeringar i rad</string>
-  <string name="suggested_edits_pageviews_label_text">Sidvisningar</string>
   <string name="suggested_edits_quality_label_text">Redigeringskvalitet</string>
   <string name="suggested_edits_quality_perfect_text">Perfekt</string>
   <string name="suggested_edits_quality_excellent_text">Utmärkt</string>
@@ -778,7 +776,6 @@
   <string name="suggested_edits_contribution_language_label">Språk</string>
   <string name="suggested_edits_contribution_date_time_label">Datum / Tid</string>
   <string name="suggested_edits_contribution_type_label">Bidragstyp</string>
-  <string name="suggested_edits_contribution_image_label">Fil</string>
   <string name="suggested_edits_contribution_article_label">Artikel</string>
   <string name="suggested_edits_contribution_views">%s visningar</string>
   <string name="suggested_edits_contribution_seen_text">Har setts %s gånger under de senaste 30 dagarna.</string>
@@ -794,7 +791,6 @@
   <string name="suggested_edits_rewards_edit_quality">Dina redigeringar är så länge %s. Fortsätt med det! Vi ser fram emot dina bidrag.</string>
   <string name="suggested_edits_rewards_continue_button">Fortsätt</string>
   <string name="suggested_edits_contribution_type_image_tag">Bildtagg</string>
-  <string name="suggested_edits_contribution_current_revision">Nuvarande version</string>
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="one">%1$s tagg</item>
     <item quantity="other">%1$s taggar</item>

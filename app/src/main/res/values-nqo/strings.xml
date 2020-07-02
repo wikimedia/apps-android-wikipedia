@@ -610,20 +610,17 @@
   <string name="suggested_edits_image_tags">ߖߌ߬ߦߊ߬ߓߍ ߘߎ߲ߛߓߍ</string>
   <string name="suggested_edits_image_tags_publishing">ߟߊ߬ߥߊ߲߬ߞߊ߬ߟߌ ߦߴߌ ߘߐ߫...</string>
   <string name="suggested_edits_image_tags_published">ߊ߬ ߓߘߊ߫ ߟߊߥߊ߲߬ߞߊ߫</string>
-  <string name="suggested_edits_pageviews_label_text">ߞߐߜߍ ߦߋߟߌ</string>
   <string name="suggested_edits_quality_label_text">ߛߎ߯ߦߊ ߡߊߦߟߍ߬ߡߊ߲߫</string>
   <string name="suggested_edits_contributions_screen_title">%s ߟߊ߫ ߓߟߏߓߌߟߊߢߐ߲߯ߞߊ߲ ߠߎ߬</string>
   <string name="suggested_edits_contribution_language_label">ߞߊ߲</string>
   <string name="suggested_edits_contribution_date_time_label">ߕߎ߬ߡߊ߬ߘߊ/ߕߎ߬ߡߊ߬ߟߊ߲</string>
   <string name="suggested_edits_contribution_type_label">ߓߟߏߓߌߟߊߢߐ߲߯ߞߊ߲ ߛߎ߯ߦߊ</string>
-  <string name="suggested_edits_contribution_image_label">ߞߐߕߐ߮</string>
   <string name="suggested_edits_contribution_article_label">ߞߎߡߘߊ</string>
   <string name="suggested_edits_contribution_views">%s ߦߋߟߌ</string>
   <string name="suggested_edits_contribution_seen_text">%s ߦߋߟߌ ߦߙߌߞߊ ߕߟߋ߬ ߃߀ ߕߊ߬ߡߌ߲߬ߣߍ߲ ߠߎ߬ ߞߘߐ߫.</string>
   <string name="suggested_edits_contribution_date_yesterday_text">ߞߎߣߎ߲߬</string>
   <string name="suggested_edits_rewards_contribution">ߌ ߓߘߊ߫ %d ߛߌ߲ߘߌ߫ ߥߞߌߔߋߘߌߦߊ߫ ߞߊ߲߬ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߛߊ߯ߛߊ߯ߟߌ߫ ߘߐ߫.ߌ ߣߌ߫ ߗߋ߫߹</string>
   <string name="suggested_edits_rewards_continue_button">ߘߊߓߊ߲ߠߌ߲</string>
-  <string name="suggested_edits_contribution_current_revision">ߕߋ߲߭ߕߋ߲߭ ߟߢߊ߬ߟߌ</string>
   <string name="file_page_activity_title">ߞߐߕߐ߯ ߞߐߜߍ</string>
   <string name="description_edit_revert_subtitle">ߌ ߞߎߟߎ߲ߖߋ߫ ߥߞߌߔߋߘߌߦߊ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߠߊ߫߹</string>
   <string name="description_edit_revert_reason1">ߌ ߟߊ߫ ߓߟߏߓߌߟߊߢߐ߲߮ߞߊ߲ ߟߎ߬ ߡߊ߫ &lt;a href=\"%1$s\"&gt;guidelines&lt;/a&gt; ߘߏ߫ ߘߐ߫ ߞߋߟߋ߲߫ ߠߊߓߊ߬ߕߏ߬.</string>

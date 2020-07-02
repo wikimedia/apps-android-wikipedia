@@ -736,7 +736,6 @@
   <string name="suggested_edits_image_tags_add_tag">Přidat značku</string>
   <string name="suggested_edits_image_zoom_tooltip">Roztáhnutím dvou prstů zvětšíte obrázek.</string>
   <string name="suggested_edits_encouragement_message">Uživateli %s, děkujeme za vaše úpravy. Níže naleznete další způsoby, jak přispívat na Wikipedii.</string>
-  <string name="suggested_edits_onboarding_message">&lt;b&gt;Dobrý den, uživateli %s&lt;/b&gt;, věděli jste, že editovat Wikipedii může každý? Níže naleznete zábavné způsoby, jak pomoci vylepšit Wikipedii. Přejeme šťastné editování!</string>
   <string name="suggested_edits_image_captions_task_detail">Popište obrázek, abyste čtenářům pomohli pochopit jeho význam a kontext.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Shrňte článek a pomozte čtenářům snáze pochopit téma článku.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Váš celkový počet příspěvků s Navrhováním editací.</string>
@@ -749,7 +748,6 @@
   <string name="suggested_edits_editing_tips_link_text">Editační tipy a triky</string>
   <string name="suggested_edits_help_page_link_text">Nápověda Navrhování editací</string>
   <string name="suggested_edits_edit_streak_label_text">Editací v řadě</string>
-  <string name="suggested_edits_pageviews_label_text">Návštěvnost stránek</string>
   <string name="suggested_edits_quality_label_text">Kvalita editací</string>
   <string name="suggested_edits_quality_perfect_text">Perfektní</string>
   <string name="suggested_edits_quality_excellent_text">Vynikající</string>

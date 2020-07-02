@@ -726,7 +726,6 @@
   <string name="suggested_edits_image_tags_select_text">선택하는 태그만 이미지에 추가됩니다. 선택되지 않은 태그는 거부로 표시됩니다. 모든 태그를 거부하시겠습니까?</string>
   <string name="suggested_edits_image_tags_add_tag">태그 추가</string>
   <string name="suggested_edits_encouragement_message">%s님, 편집에 감사드립니다. 위키백과에 기여할 수 있는 더 많은 방법이 아래에 있습니다.</string>
-  <string name="suggested_edits_onboarding_message">&lt;b&gt;%s님, 안녕하세요.&lt;/b&gt; 누구든지 위키백과를 편집할 수 있다는 사실을 알고 계셨나요? 위키백과의 발전에 도움을 주는 재밌는 방법이 아래에 있습니다. 즐거운 편집 되십시오!</string>
   <string name="suggested_edits_image_captions_task_detail">이미지 설명은 독자가 그림의 의미나 맥락을 파악하는 데 도움을 줍니다.</string>
   <string name="suggested_edits_add_descriptions_task_detail">문서 설명은 독자들이 한눈에 주제를 파악할 수 있도록 글을 요약합니다.</string>
   <string name="suggested_edits_contributions_stat_tooltip">편집 제안을 통한 전체 기여 수입니다.</string>
@@ -738,7 +737,6 @@
   <string name="suggested_edits_editing_tips_link_text">편집 팁 및 트릭</string>
   <string name="suggested_edits_help_page_link_text">편집 제안 도움말 문서</string>
   <string name="suggested_edits_edit_streak_label_text">편집 스트리크</string>
-  <string name="suggested_edits_pageviews_label_text">조회 수</string>
   <string name="suggested_edits_quality_label_text">편집 품질</string>
   <string name="suggested_edits_quality_perfect_text">완벽함</string>
   <string name="suggested_edits_quality_excellent_text">우수함</string>
@@ -767,7 +765,6 @@
   <string name="suggested_edits_contribution_language_label">언어</string>
   <string name="suggested_edits_contribution_date_time_label">날짜 / 시간</string>
   <string name="suggested_edits_contribution_type_label">기여 유형</string>
-  <string name="suggested_edits_contribution_image_label">파일</string>
   <string name="suggested_edits_contribution_article_label">문서</string>
   <string name="suggested_edits_contribution_date_yesterday_text">어제</string>
   <string name="suggested_edits_rewards_continue_button">계속</string>
