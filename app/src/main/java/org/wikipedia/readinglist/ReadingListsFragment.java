@@ -71,7 +71,6 @@ import io.reactivex.rxjava3.functions.Consumer;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
 import static org.wikipedia.Constants.InvokeSource.READING_LIST_ACTIVITY;
-import static org.wikipedia.Constants.SCROLL_DIRECTION_UP;
 import static org.wikipedia.readinglist.database.ReadingList.SORT_BY_NAME_ASC;
 import static org.wikipedia.readinglist.database.ReadingList.SORT_BY_NAME_DESC;
 import static org.wikipedia.readinglist.database.ReadingList.SORT_BY_RECENT_ASC;
@@ -144,7 +143,7 @@ public class ReadingListsFragment extends Fragment implements
             @Override
             public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
-                ((MainActivity) requireActivity()).updateToolbarElevation(readingListView.canScrollVertically(SCROLL_DIRECTION_UP));
+                ((MainActivity) requireActivity()).updateToolbarElevation(readingListView.computeVerticalScrollOffset() != 0);
             }
         });
     }
@@ -159,6 +158,7 @@ public class ReadingListsFragment extends Fragment implements
     public void onDestroyView() {
         disposables.clear();
         readingListView.setAdapter(null);
+        readingListView.clearOnScrollListeners();
         unbinder.unbind();
         unbinder = null;
         super.onDestroyView();
