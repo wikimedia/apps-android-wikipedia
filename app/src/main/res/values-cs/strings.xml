@@ -37,7 +37,6 @@
   <string name="search_hint_search_languages">Hledat jazyk</string>
   <string name="search_hint_search_my_lists_and_articles">Vyhledávat v mých seznamech a článcích</string>
   <string name="nav_item_history">Historie</string>
-  <string name="nav_item_suggested_edits">Navrhování editací</string>
   <string name="nav_item_more">Více</string>
   <string name="error_network_error">Nejste připojeni k internetu.</string>
   <string name="page_error_retry">Znovu</string>

@@ -49,7 +49,6 @@
   <string name="search_hint_search_languages">جستجوی یک زبان</string>
   <string name="search_hint_search_my_lists_and_articles">جستجو در فهرست‌ها و مقاله‌های من</string>
   <string name="nav_item_history">تاریخچه</string>
-  <string name="nav_item_suggested_edits">ویرایش‌های پیشنهادی</string>
   <string name="error_network_error">امکان اتصال به اینترنت وجود ندارد.</string>
   <string name="page_error_retry">تلاش دوباره</string>
   <string name="card_offline_error_retry">تلاش دوباره</string>

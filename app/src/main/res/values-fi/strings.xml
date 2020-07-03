@@ -37,7 +37,6 @@
   <string name="search_hint_search_languages">Etsi kieltä</string>
   <string name="search_hint_search_my_lists_and_articles">Hae omia listoja ja artikkeleita</string>
   <string name="nav_item_history">Historia</string>
-  <string name="nav_item_suggested_edits">Ehdotetut muokkaukset</string>
   <string name="nav_item_more">Lisää</string>
   <string name="error_network_error">Internet-yhteyden muodostaminen epäonnistui.</string>
   <string name="page_error_retry">Yritä uudelleen</string>

@@ -35,7 +35,6 @@
   <string name="search_hint_search_languages">Pesquisar uma língua</string>
   <string name="search_hint_search_my_lists_and_articles">Pesquisar as minhas listas e artigos</string>
   <string name="nav_item_history">Histórico</string>
-  <string name="nav_item_suggested_edits">Edições sugeridas</string>
   <string name="error_network_error">Não foi possível ligar à Internet.</string>
   <string name="page_error_retry">Tentar novamente</string>
   <string name="card_offline_error_retry">Tentar novamente</string>

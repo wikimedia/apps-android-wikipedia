@@ -31,7 +31,6 @@
   <string name="search_hint_search_languages">Hľadať jazyk</string>
   <string name="search_hint_search_my_lists_and_articles">Vyhľadávať v mojich zoznamoch a článkoch</string>
   <string name="nav_item_history">História</string>
-  <string name="nav_item_suggested_edits">Navrhované úpravy</string>
   <string name="error_network_error">Nie ste pripojení na internet.</string>
   <string name="page_error_retry">Zopakovať</string>
   <string name="card_offline_error_retry">Zopakovať</string>

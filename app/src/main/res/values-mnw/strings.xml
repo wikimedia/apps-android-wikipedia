@@ -19,7 +19,6 @@
   <string name="search_hint_search_languages">ဂၠာဲ သွက် အရေဝ်ဘာသာ မွဲ</string>
   <string name="search_hint_search_my_lists_and_articles">ဂၠာဲ စရင်အဲ ကေုာံ လိက်ပရေင်ဂမၠိုင်</string>
   <string name="nav_item_history">အရာမဗှ်လဝ်တုဲ</string>
-  <string name="nav_item_suggested_edits">အရာပလေဝ်ဒါန် မအာတ်မိက်</string>
   <string name="nav_item_more">ဆက်ဗှ်</string>
   <string name="error_network_error">ဆက် ကဵု အေန်တာနေတ် ဟွံဂွံ</string>
   <string name="page_error_retry">ကလေင်ကၠောန်</string>

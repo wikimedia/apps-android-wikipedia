@@ -21,7 +21,6 @@
   <string name="search_hint_search_languages">ڪنھن ٻوليءَ لاءِ ڳوليو</string>
   <string name="search_hint_search_my_lists_and_articles">منھنجون فھرستون ۽ مضمون ڳوليو</string>
   <string name="nav_item_history">سوانح</string>
-  <string name="nav_item_suggested_edits">صلاح-ڏنل تبديليون</string>
   <string name="error_network_error">انٽرنيٽ سان ڳنڍي نٿو سگھي.</string>
   <string name="page_error_retry">ٻيهر ڪوشش ڪريو</string>
   <string name="card_offline_error_retry">ٻيهر ڪوشش ڪريو</string>

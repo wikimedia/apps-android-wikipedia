@@ -21,7 +21,6 @@
   <string name="search_hint_search_languages">Leita eftir tungumáli</string>
   <string name="search_hint_search_my_lists_and_articles">Leita í listunum mínum og greinum</string>
   <string name="nav_item_history">Ferilskrá</string>
-  <string name="nav_item_suggested_edits">Tillögur að breytingum</string>
   <string name="error_network_error">Næ ekki að tengjast netinu</string>
   <string name="page_error_retry">Reyna aftur</string>
   <string name="card_offline_error_retry">Reyna aftur</string>

@@ -34,7 +34,6 @@
   <string name="search_hint_search_languages">Cerca una llengua</string>
   <string name="search_hint_search_my_lists_and_articles">Cerca les meves llistes i articles</string>
   <string name="nav_item_history">Historial</string>
-  <string name="nav_item_suggested_edits">Edicions suggerides</string>
   <string name="nav_item_more">Més</string>
   <string name="error_network_error">No pot connectar-se a Internet.</string>
   <string name="page_error_retry">Torna a provar</string>

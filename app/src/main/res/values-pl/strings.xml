@@ -48,7 +48,6 @@
   <string name="search_hint_search_languages">Szukaj języka</string>
   <string name="search_hint_search_my_lists_and_articles">Przeszukaj moje listy i artykuły</string>
   <string name="nav_item_history">Historia</string>
-  <string name="nav_item_suggested_edits">Sugerowane edycje</string>
   <string name="nav_item_more">Więcej</string>
   <string name="error_network_error">Nie można połączyć z internetem.</string>
   <string name="page_error_retry">Ponów próbę</string>

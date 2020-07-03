@@ -33,7 +33,6 @@
   <string name="search_hint_search_languages">Sök efter ett språk</string>
   <string name="search_hint_search_my_lists_and_articles">Sök i mina listor och artiklar</string>
   <string name="nav_item_history">Historik</string>
-  <string name="nav_item_suggested_edits">Redigeringsförslag</string>
   <string name="nav_item_more">Fler</string>
   <string name="error_network_error">Kan inte ansluta till Internet.</string>
   <string name="page_error_retry">Försök igen</string>

@@ -37,7 +37,6 @@
   <string name="search_hint_search_languages">搜尋語言</string>
   <string name="search_hint_search_my_lists_and_articles">搜尋我的清單與條目</string>
   <string name="nav_item_history">歷史</string>
-  <string name="nav_item_suggested_edits">建議編輯</string>
   <string name="nav_item_more">更多</string>
   <string name="error_network_error">無法連上網際網路。</string>
   <string name="page_error_retry">重試</string>

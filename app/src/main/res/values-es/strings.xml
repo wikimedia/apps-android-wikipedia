@@ -63,7 +63,6 @@
   <string name="search_hint_search_languages">Buscar un idioma</string>
   <string name="search_hint_search_my_lists_and_articles">Buscar en mis listas y artículos</string>
   <string name="nav_item_history">Historial</string>
-  <string name="nav_item_suggested_edits">Ediciones sugeridas</string>
   <string name="error_network_error">No se pudo conectar a Internet.</string>
   <string name="page_error_retry">Reintentar</string>
   <string name="card_offline_error_retry">Reintentar</string>

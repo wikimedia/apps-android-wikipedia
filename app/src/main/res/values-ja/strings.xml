@@ -46,7 +46,6 @@
   <string name="search_hint_search_languages">言語を検索</string>
   <string name="search_hint_search_my_lists_and_articles">あとで読むリストと記事を検索</string>
   <string name="nav_item_history">履歴</string>
-  <string name="nav_item_suggested_edits">提案された編集</string>
   <string name="error_network_error">インターネットに接続できません。</string>
   <string name="page_error_retry">再試行</string>
   <string name="card_offline_error_retry">再試行</string>
