@@ -21,7 +21,7 @@
             android:layout_height="?attr/actionBarSize"
             android:contentDescription="@null"
             android:padding="16dp"
-            android:tint="?attr/toolbar_title_color"
+            android:tint="?attr/material_theme_primary_color"
             app:srcCompat="@drawable/ic_arrow_back_themed_24dp" />
 
         <LinearLayout
@@ -95,7 +95,7 @@
                     android:lineSpacingExtra="6sp"
                     android:textColor="?attr/material_theme_primary_color"
                     android:textSize="14sp"
-                    android:text="@string/suggested_edits_contribution_current_revision"
+                    android:text="@string/suggested_edits_contribution_current_revision_text"
                     android:textStyle="italic" />
             </LinearLayout>
 

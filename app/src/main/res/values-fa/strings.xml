@@ -49,7 +49,6 @@
   <string name="search_hint_search_languages">جستجوی یک زبان</string>
   <string name="search_hint_search_my_lists_and_articles">جستجو در فهرست‌ها و مقاله‌های من</string>
   <string name="nav_item_history">تاریخچه</string>
-  <string name="nav_item_suggested_edits">ویرایش‌های پیشنهادی</string>
   <string name="error_network_error">امکان اتصال به اینترنت وجود ندارد.</string>
   <string name="page_error_retry">تلاش دوباره</string>
   <string name="card_offline_error_retry">تلاش دوباره</string>
@@ -661,7 +660,6 @@
   <string name="suggested_edits_license_notice">با افزودن توضیحات، موافق &lt;a href=\"%1$s\"&gt;نحوه استفاده&lt;/a&gt; و منتشر کردن ویرایش‌های من تحت مجوز &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; هستم.</string>
   <string name="suggested_edits_image_caption_license_notice">با افزودن توضیحات تصویر، موافق &lt;a href=\"%1$s\"&gt;نحوه استفاده&lt;/a&gt; و منتشر کردن ویرایش‌های من تحت مجوز &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; هستم.</string>
   <string name="suggested_edits_menu_info">اطلاعات</string>
-  <string name="suggested_edits_tasks_activity_title">ویرایش‌های پیشنهادی</string>
   <string name="suggested_edits_task_add_description_title">افزودن توضیحات مقاله</string>
   <string name="suggested_edits_task_add_description_description">مشارکت در مقالات بدون توضیحات</string>
   <string name="suggested_edits_task_image_caption_title">افزودن زیرنویس تصویر</string>
@@ -715,7 +713,6 @@
   <string name="suggested_edits_image_tags_search">جستجوی برچسب‌ها</string>
   <string name="suggested_edits_image_tags_select_title">شما هیچ برچسبی برای این تصویر انتخاب نکرده‌اید</string>
   <string name="suggested_edits_image_tags_add_tag">افزودن برچسب</string>
-  <string name="suggested_edits_pageviews_label_text">بازدیدهای صفحه</string>
   <string name="suggested_edits_quality_label_text">کیفیت ویرایش</string>
   <string name="suggested_edits_quality_perfect_text">کامل و دقیق</string>
   <string name="suggested_edits_quality_excellent_text">عالی</string>

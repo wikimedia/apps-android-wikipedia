@@ -82,7 +82,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         editStreakStatsView.setDescription(resources.getString(R.string.suggested_edits_edit_streak_label_text))
         editStreakStatsView.setImageDrawable(R.drawable.ic_timer_black_24dp)
 
-        pageViewStatsView.setDescription(getString(R.string.suggested_edits_pageviews_label_text))
+        pageViewStatsView.setDescription(getString(R.string.suggested_edits_views_label_text))
         pageViewStatsView.setImageDrawable(R.drawable.ic_trending_up_black_24dp)
 
         editQualityStatsView.setDescription(getString(R.string.suggested_edits_quality_label_text))

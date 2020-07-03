@@ -34,7 +34,6 @@
   <string name="search_hint_search_languages">Cerca una llengua</string>
   <string name="search_hint_search_my_lists_and_articles">Cerca les meves llistes i articles</string>
   <string name="nav_item_history">Historial</string>
-  <string name="nav_item_suggested_edits">Edicions suggerides</string>
   <string name="nav_item_more">Més</string>
   <string name="error_network_error">No pot connectar-se a Internet.</string>
   <string name="page_error_retry">Torna a provar</string>
@@ -663,7 +662,6 @@
   <string name="suggested_edits_license_notice">En afegir la descripció, estic d\'acord amb els &lt;a href=\"%1$s\"&gt;termes d\'ús&lt;/a&gt; i allibero irrevocablement les meves contribucions sota la llicència &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_image_caption_license_notice">En afegir la llegenda de la imatge, estic d\'acord amb els &lt;a href=\"%1$s\"&gt;termes d\'ús&lt;/a&gt; i alliberar irrevocablement les contribucions sota la llicència &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Informació</string>
-  <string name="suggested_edits_tasks_activity_title">Edicions suggerides</string>
   <string name="suggested_edits_task_add_description_title">Afegeix descripcions d\'article</string>
   <string name="suggested_edits_task_add_description_description">Contribuïu a articles sense descripcions</string>
   <string name="suggested_edits_task_image_caption_title">Addició de llegendes a les imatges</string>
@@ -728,7 +726,6 @@
   <string name="suggested_edits_image_tags_add_tag">Afegeix una etiqueta</string>
   <string name="suggested_edits_image_zoom_tooltip">Utilitza els dits per a fer zoom de la imatge.</string>
   <string name="suggested_edits_encouragement_message">%s, gràcies per les vostres edicions. A continuació podeu trobar més formes de contribuir a la Viquipèdia.</string>
-  <string name="suggested_edits_onboarding_message">&lt;b&gt;Hola %s&lt;/b&gt;, sabíeu que tothom pot contribuir a la Viquipèdia? A continuació podeu trobar formes divertides per a ajudar a millorar-la. Gaudiu-ne editant-hi!</string>
   <string name="suggested_edits_image_captions_task_detail">Descriure una imatge ajuda als lectors a entendre el seu significat i context.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Resumir un article ajuda als lectors a entendre la temàtica d\'un primer cop d\'ull.</string>
   <string name="suggested_edits_contributions_stat_tooltip">El vostre nombre total de contribucions des de les edicions suggerides.</string>
@@ -741,7 +738,6 @@
   <string name="suggested_edits_editing_tips_link_text">Consells i trucs d\'edició</string>
   <string name="suggested_edits_help_page_link_text">Pàgina d\'ajuda de les edicions suggerides</string>
   <string name="suggested_edits_edit_streak_label_text">Modifica la marca</string>
-  <string name="suggested_edits_pageviews_label_text">Pàgines vistes</string>
   <string name="suggested_edits_quality_label_text">Qualitat d\'edició</string>
   <string name="suggested_edits_quality_perfect_text">Perfecte</string>
   <string name="suggested_edits_quality_excellent_text">Excel·lent</string>
@@ -777,7 +773,6 @@
   <string name="suggested_edits_contribution_language_label">Llengua</string>
   <string name="suggested_edits_contribution_date_time_label">Data/Hora</string>
   <string name="suggested_edits_contribution_type_label">Tipus de contribució</string>
-  <string name="suggested_edits_contribution_image_label">Fitxer</string>
   <string name="suggested_edits_contribution_article_label">Article</string>
   <string name="suggested_edits_contribution_views">%s visualitzacions</string>
   <string name="suggested_edits_contribution_seen_text">Vist %s vegades els darrers 30 dies.</string>
@@ -793,7 +788,6 @@
   <string name="suggested_edits_rewards_edit_quality">Heu fet fins ara %s edicions. Endavant! Esperem les vostres contribucions.</string>
   <string name="suggested_edits_rewards_continue_button">Continua</string>
   <string name="suggested_edits_contribution_type_image_tag">Etiqueta d\'imatge</string>
-  <string name="suggested_edits_contribution_current_revision">Revisió actual</string>
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="one">%1$s etiqueta</item>
     <item quantity="other">%1$s etiquetes</item>

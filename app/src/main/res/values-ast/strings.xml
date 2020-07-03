@@ -20,7 +20,6 @@
   <string name="search_hint_search_languages">Buscar una llingua</string>
   <string name="search_hint_search_my_lists_and_articles">Buscar nes mios llistes y artículos</string>
   <string name="nav_item_history">Historial</string>
-  <string name="nav_item_suggested_edits">Ediciones suxeríes</string>
   <string name="error_network_error">Nun pudo conectase a Internet.</string>
   <string name="page_error_retry">Reintentar</string>
   <string name="card_offline_error_retry">Reintentar</string>
@@ -641,7 +640,6 @@
   <string name="suggested_edits_license_notice">Al añadir la descripción, acepto les &lt;a href=\"%1$s\"&gt;Condiciones d\'usu&lt;/a&gt; y lliberar ensin torgues les mios contribuciones baxo los términos de la llicencia &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_image_caption_license_notice">Al añadir el pie d\'imaxe, acepto les &lt;a href=\"%1$s\"&gt;Condiciones d\'usu&lt;/a&gt; y lliberar ensin torgues les mios contribuciones baxo los términos de la llicencia &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Información</string>
-  <string name="suggested_edits_tasks_activity_title">Ediciones suxeríes</string>
   <string name="suggested_edits_task_add_description_title">Amestar descripciones d\'artículos</string>
   <string name="suggested_edits_task_add_description_description">Contribuir a artículos ensin descripciones</string>
   <string name="suggested_edits_task_image_caption_title">Añadir pies d\'imaxe</string>
@@ -703,7 +701,6 @@
   <string name="suggested_edits_image_tags_add_tag">Añadir etiqueta</string>
   <string name="suggested_edits_image_zoom_tooltip">Plizca p\'ampliar esta imaxe.</string>
   <string name="suggested_edits_encouragement_message">%s, gracies poles tos ediciones. Más abaxo pues alcontrar otres formes de collaborar con Wikipedia.</string>
-  <string name="suggested_edits_onboarding_message">&lt;b&gt;Bones, %s&lt;/b&gt;. ¿Sabíes que tol mundu pue editar Wikipedia? Más abaxo pues alcontrar formes divertíes d\'ayudar a ameyorar la Wikipedia. ¡Feliz edición!</string>
   <string name="suggested_edits_image_captions_task_detail" fuzzy="true">Los pies d\'imaxe describen una imaxe p\'ayudar los llectores a entender el so significáu y contestu.</string>
   <string name="suggested_edits_add_descriptions_task_detail" fuzzy="true">Les descripciones d\'artículos resumen un artículu p\'ayudar a que los llectores puedan enterase de la tema del artículu d\'una güeyada.</string>
   <string name="suggested_edits_contributions_stat_tooltip">El númberu total de les tos contribuciones con Ediciones suxeríes.</string>
@@ -715,7 +712,6 @@
   <string name="suggested_edits_ip_blocked_message" fuzzy="true">Paez que la to direición IP (o rangu de direiciones IP) anguaño ta bloquiada pa editar la Wikipedia. Consulta lo que significa esto visitando l\'enllaz de más abaxo.</string>
   <string name="suggested_edits_editing_tips_link_text">Trucos y conseyos d\'edición</string>
   <string name="suggested_edits_help_page_link_text">Páxina d\'ayuda d\'ediciones suxeríes</string>
-  <string name="suggested_edits_pageviews_label_text">Visites a páxines</string>
   <string name="suggested_edits_quality_label_text">Calidá d\'ediciones</string>
   <string name="suggested_edits_quality_perfect_text">Perfeuta</string>
   <string name="suggested_edits_quality_excellent_text">Escelente</string>

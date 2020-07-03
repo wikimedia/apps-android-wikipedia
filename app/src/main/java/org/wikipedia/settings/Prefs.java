@@ -289,14 +289,6 @@ public final class Prefs {
         setBoolean(R.string.preference_key_reading_list_tutorial_enabled, enabled);
     }
 
-    public static boolean isTocTutorialEnabled() {
-        return getBoolean(R.string.preference_key_toc_tutorial_enabled, true);
-    }
-
-    public static void setTocTutorialEnabled(boolean enabled) {
-        setBoolean(R.string.preference_key_toc_tutorial_enabled, enabled);
-    }
-
     public static boolean isImageDownloadEnabled() {
         return getBoolean(R.string.preference_key_show_images, true);
     }
@@ -833,22 +825,6 @@ public final class Prefs {
         return getInt(R.string.preference_key_suggested_edits_override_reverts, 0);
     }
 
-    public static boolean isOfflinePcsToMobileHtmlConversionComplete() {
-        return getBoolean(R.string.preference_key_pcs_to_mobilehtml_conversion_complete, false);
-    }
-
-    public static void setOfflinePcsToMobileHtmlConversionComplete(boolean conversionComplete) {
-        setBoolean(R.string.preference_key_pcs_to_mobilehtml_conversion_complete, conversionComplete);
-    }
-
-    public static int getOfflinePcsToMobileHtmlConversionAttempts() {
-        return getInt(R.string.preference_key_pcs_to_mobilehtml_conversion_attempts, 0);
-    }
-
-    public static void setOfflinePcsToMobileHtmlConversionAttempts(int attempts) {
-        setInt(R.string.preference_key_pcs_to_mobilehtml_conversion_attempts, attempts);
-    }
-
     public static int getInstallReferrerAttempts() {
         return getInt(R.string.preference_key_install_referrer_attempts, 0);
     }
@@ -901,10 +877,6 @@ public final class Prefs {
         return getBoolean(R.string.preference_key_suggested_edits_reactivation_test, false);
     }
 
-    public static void setSuggestedEditsReactivationTestEnabled(boolean enabled) {
-        setBoolean(R.string.preference_key_suggested_edits_reactivation_test, enabled);
-    }
-
     public static boolean isSuggestedEditsRewardInterstitialEnabled() {
         return getBoolean(R.string.preference_key_suggested_edits_reward_interstitial_enabled, false);
     }
@@ -953,5 +925,12 @@ public final class Prefs {
         return getBoolean(R.string.preference_key_suggested_edits_reward_interstitial_qa_override, false);
     }
 
+    public static boolean isSuggestedEditsHighestPriorityEnabled() {
+        return getBoolean(R.string.preference_key_suggested_edits_highest_priority_enabled, false);
+    }
+
+    public static void setSuggestedEditsHighestPriorityEnabled(boolean enabled) {
+        setBoolean(R.string.preference_key_suggested_edits_highest_priority_enabled, enabled);
+    }
     private Prefs() { }
 }

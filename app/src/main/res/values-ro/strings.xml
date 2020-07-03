@@ -31,7 +31,6 @@
   <string name="search_hint_search_languages">Caută o limbă</string>
   <string name="search_hint_search_my_lists_and_articles">Căutați listele și articolele mele</string>
   <string name="nav_item_history">Istoric</string>
-  <string name="nav_item_suggested_edits">Modificări sugerate</string>
   <string name="error_network_error">Imposibil de conectat la internet.</string>
   <string name="page_error_retry">Reîncercare</string>
   <string name="card_offline_error_retry">Reîncercare</string>
@@ -668,7 +667,6 @@
   <string name="suggested_edits_license_notice">Prin adăugarea descrierii, sunt de acord cu &lt;a href=\"%1$s\"&gt;Termenii de utilizare&lt;/a&gt; și îmi eliberez irevocabil contribuțiile în cadrul licenței &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_image_caption_license_notice">Prin adăugarea legendei de imagine, sunt de acord cu &lt;a href=\"%1$s\"&gt;Termenii de utilizare&lt;/a&gt; și îmi eliberez irevocabil contribuțiile în conformitate cu licența &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Info</string>
-  <string name="suggested_edits_tasks_activity_title">Modificări sugerate</string>
   <string name="suggested_edits_task_add_description_title">Adăugați descrieri de articole</string>
   <string name="suggested_edits_task_add_description_description">Contribuie la articole fără descrieri</string>
   <string name="suggested_edits_task_image_caption_title">Adaugă descriere la imagini</string>
@@ -734,7 +732,6 @@
   <string name="suggested_edits_image_tags_add_tag">Adaugă etichetă:</string>
   <string name="suggested_edits_image_zoom_tooltip">Prindeți pentru a mări această imagine.</string>
   <string name="suggested_edits_encouragement_message">%s, mulțumim pentru modificări. Mai jos puteți găsi mai multe modalități de a contribui la Wikipedia.</string>
-  <string name="suggested_edits_onboarding_message">&lt;b&gt;Bună%s&lt;/b&gt;, știați că toată lumea poate edita Wikipedia? Mai jos puteți găsi modalități distractive de a ajuta la îmbunătățirea Wikipedia. Editare fericită!</string>
   <string name="suggested_edits_image_captions_task_detail">Descrieți o imagine pentru a ajuta cititorii să înțeleagă sensul și contextul acesteia.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Rezumați un articol pentru a ajuta cititorii să înțeleagă subiectul dintr-o privire.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Numărul total de contribuții cu Modificări sugerate.</string>
@@ -747,7 +744,6 @@
   <string name="suggested_edits_editing_tips_link_text">Modificare sfaturi și trucuri</string>
   <string name="suggested_edits_help_page_link_text">Pagina de ajutor pentru modificări sugerate</string>
   <string name="suggested_edits_edit_streak_label_text">Editări neîntrerupte</string>
-  <string name="suggested_edits_pageviews_label_text">Vizualizări de pagină</string>
   <string name="suggested_edits_quality_label_text">Calitatea modificărilor</string>
   <string name="suggested_edits_quality_perfect_text">Perfect</string>
   <string name="suggested_edits_quality_excellent_text">Excelent</string>
@@ -782,7 +778,6 @@
   <string name="suggested_edits_contribution_language_label">Limba</string>
   <string name="suggested_edits_contribution_date_time_label">Data / Ora</string>
   <string name="suggested_edits_contribution_type_label">Tip contribuție</string>
-  <string name="suggested_edits_contribution_image_label">Fișier</string>
   <string name="suggested_edits_contribution_article_label">Articol</string>
   <string name="suggested_edits_contribution_views">%s vizualizări</string>
   <string name="suggested_edits_contribution_seen_text">Văzut %s ori în ultimele 30 de zile.</string>

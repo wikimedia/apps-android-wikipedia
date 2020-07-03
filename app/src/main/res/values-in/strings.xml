@@ -40,7 +40,6 @@
   <string name="search_hint_search_languages">Cari bahasa</string>
   <string name="search_hint_search_my_lists_and_articles">Cari daftar dan artikel saya</string>
   <string name="nav_item_history">Riwayat</string>
-  <string name="nav_item_suggested_edits">Penyuntingan yang disarankan</string>
   <string name="error_network_error">Tidak dapat terhubung ke internet</string>
   <string name="page_error_retry">Coba lagi</string>
   <string name="card_offline_error_retry">Coba lagi</string>
@@ -660,7 +659,6 @@
   <string name="suggested_edits_license_notice">Dengan menambah deskripsi, saya setuju terhadap &lt;a href=\"%1$s\"&gt;Ketentuan Penggunaan&lt;/a&gt; dan melepas kontribusi saya di bawah lisensi &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_image_caption_license_notice">Dengan menambah takarir gambar, saya setuju terhadap &lt;a href=\"%1$s\"&gt;Ketentuan Penggunaan&lt;/a&gt; dan melepas kontribusi saya di bawah lisensi &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Info</string>
-  <string name="suggested_edits_tasks_activity_title">Penyuntingan yang disarankan</string>
   <string name="suggested_edits_task_add_description_title">Tambahkan deskripsi artikel</string>
   <string name="suggested_edits_task_add_description_description">Menyumbang ke artikel tanpa deskripsi judul</string>
   <string name="suggested_edits_task_image_caption_title">Tambahkan takarir gambar</string>
@@ -721,7 +719,6 @@
   <string name="suggested_edits_image_tags_select_text">Hanya tag yang Anda pilih yang akan ditambahkan ke gambar. Tag yang tidak dipilih akan ditandai sebagai ditolak. Yakin ingin menandai semua tag sebagai ditolak?</string>
   <string name="suggested_edits_image_tags_add_tag">Tambahkan tag</string>
   <string name="suggested_edits_encouragement_message">Terima kasih atas suntingan Anda, %s. Di bawah ini Anda dapat menemukan lebih banyak cara untuk berkontribusi ke Wikipedia.</string>
-  <string name="suggested_edits_onboarding_message">&lt;b&gt;Hai %s&lt;/b&gt;, tahukah Anda bahwa semua orang dapat menyunting Wikipedia? Di bawah ini Anda dapat menemukan cara yang menyenangkan untuk membantu meningkatkan Wikipedia. Selamat menyunting!</string>
   <string name="suggested_edits_image_captions_task_detail" fuzzy="true">Keterangan gambar menggambarkan suatu gambar untuk membantu pembaca memahami makna dan konteksnya.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Rangkum sebuah artikel untuk membantu pembaca memahami subjek secara sekilas.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Jumlah total kontribusi Anda dengan Penyuntingan yang disarankan.</string>
@@ -730,7 +727,6 @@
   <string name="suggested_edits_paused_message" fuzzy="true">&lt;b&gt;Penyuntingan yang disarankan terjeda hingga %1$s.&lt;/b&gt; Maaf %2$s, beberapa kontribusi terbaru Anda telah dibalikkan.\n\nKetahui cara untuk memperbaiki kemampuan penyuntingan Anda di Wikipedia dengan pranala di bawah.</string>
   <string name="suggested_edits_ip_blocked_message" fuzzy="true">Sepertinya alamat IP Anda (atau jangkauan alamat IP) saat ini terblokir untuk menyunting Wikipedia. Ketahui lebih lanjut dengan mengunjungi pranala di bawah ini.</string>
   <string name="suggested_edits_help_page_link_text">Halaman bantuan suntingan yang disarankan</string>
-  <string name="suggested_edits_pageviews_label_text">Kunjungan halaman</string>
   <string name="suggested_edits_quality_label_text">Kualitas suntingan</string>
   <string name="suggested_edits_quality_perfect_text">Sempurna</string>
   <string name="suggested_edits_quality_excellent_text">Luar biasa</string>
