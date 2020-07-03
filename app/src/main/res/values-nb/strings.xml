@@ -31,7 +31,6 @@
   <string name="search_hint_search_languages">Søk etter språk</string>
   <string name="search_hint_search_my_lists_and_articles">Søk i listene og artiklene mine</string>
   <string name="nav_item_history">Logg</string>
-  <string name="nav_item_suggested_edits">Redigeringsforslag</string>
   <string name="error_network_error">Kan ikke koble til internett.</string>
   <string name="page_error_retry">Prøv igjen</string>
   <string name="card_offline_error_retry">Prøv igjen</string>
@@ -644,7 +643,6 @@
   <string name="suggested_edits_license_notice">Ved å legge til en beskrivelse, godtar jeg &lt;a href=\"%1$s\"&gt;bruksvilkårene&lt;/a&gt; og samtykker til å ugjenkallelig slippe bidragene mine under &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;-lisensen.</string>
   <string name="suggested_edits_image_caption_license_notice">Ved å legge til en bildetekst, godtar jeg &lt;a href=\"%1$s\"&gt;bruksvilkårene&lt;/a&gt; og samtykker til å ugjenkallelig slippe bidragene mine under &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;-lisensen.</string>
   <string name="suggested_edits_menu_info">Info</string>
-  <string name="suggested_edits_tasks_activity_title">Redigeringsforslag</string>
   <string name="suggested_edits_task_add_description_title">Legg til artikkelbeskrivelser</string>
   <string name="suggested_edits_task_add_description_description">Bidra til artikler uten tittelbeskrivelser</string>
   <string name="suggested_edits_task_image_caption_title">Legg til bildetekster</string>
@@ -691,7 +689,6 @@
   <string name="suggested_edits_image_tags_published">Publisert</string>
   <string name="suggested_edits_image_zoom_tooltip">Dra to fingre fra hverandre for å zoome i bildet.</string>
   <string name="suggested_edits_encouragement_message">Takk for redigeringene dine, %s. Under finner du flere måter du kan bidra med på Wikipedia.</string>
-  <string name="suggested_edits_onboarding_message">&lt;b&gt;Hei %s&lt;/b&gt;, vet du at hvem som helst kan redigere Wikipedia? Under finner du flere morsomme måter du kan bidra på. Lykke til!</string>
   <string name="suggested_edits_image_captions_task_detail" fuzzy="true">Bildetekster beskriver et bilde for å hjelpe lesere å forstå bildets motiv og kontekst.</string>
   <string name="suggested_edits_add_descriptions_task_detail" fuzzy="true">Artikkelbeskrivelser oppsummerer en artikkel for å hjelpe lesere å raskt forstå hva den handler om</string>
   <string name="suggested_edits_contributions_stat_tooltip">Antall bidrag du totalt har gjort her.</string>
@@ -703,7 +700,6 @@
   <string name="suggested_edits_editing_tips_link_text">Tips og -triks for redigering</string>
   <string name="suggested_edits_help_page_link_text">Hjelpeside for redigeringsforslag</string>
   <string name="suggested_edits_edit_streak_label_text">Redigeringsstrekk</string>
-  <string name="suggested_edits_pageviews_label_text">Sidevisninger</string>
   <string name="suggested_edits_quality_label_text">Redigeringskvalitet</string>
   <string name="suggested_edits_quality_perfect_text">Perfekt</string>
   <string name="suggested_edits_quality_excellent_text">Glimrende</string>

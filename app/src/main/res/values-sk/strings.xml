@@ -31,7 +31,6 @@
   <string name="search_hint_search_languages">Hľadať jazyk</string>
   <string name="search_hint_search_my_lists_and_articles">Vyhľadávať v mojich zoznamoch a článkoch</string>
   <string name="nav_item_history">História</string>
-  <string name="nav_item_suggested_edits">Navrhované úpravy</string>
   <string name="error_network_error">Nie ste pripojení na internet.</string>
   <string name="page_error_retry">Zopakovať</string>
   <string name="card_offline_error_retry">Zopakovať</string>
@@ -657,7 +656,6 @@
   <string name="suggested_edits_license_notice">Pridaním popisu súhlasím s &lt;a href=\"%1$s\"&gt;Podmienkami používania&lt;/a&gt; a neodvolateľne súhlasím s podmienkami licencie &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_image_caption_license_notice">Pridaním titulku obrázku súhlasím s &lt;a href=\"%1$s\"&gt;Podmienkami používania&lt;/a&gt; a neodvolateľne súhlasím s podmienkami licencie &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Informácie</string>
-  <string name="suggested_edits_tasks_activity_title">Navrhované úpravy</string>
   <string name="suggested_edits_task_add_description_title">Pridať popis článku</string>
   <string name="suggested_edits_task_add_description_description">Prispieť článkom bez popisu</string>
   <string name="suggested_edits_task_image_caption_title">Pridať titulky obrázkov</string>
@@ -722,7 +720,6 @@
   <string name="suggested_edits_image_tags_add_tag">Pridať značku</string>
   <string name="suggested_edits_image_zoom_tooltip">Roztiahnutím dvoch prstov zväčšíte obrázok.</string>
   <string name="suggested_edits_encouragement_message">%s, ďakujeme za vaše úpravy. Nižšie nájdete ďalšie spôsoby, ako prispievať na Wikipédiu.</string>
-  <string name="suggested_edits_onboarding_message">&lt;b&gt;Dobrý deň %s&lt;/b&gt;, vedeli ste, že každý môže upravovať Wikipédiu? Nižšie nájdete zábavné spôsoby, ako pomôcť zlepšiť Wikipédiu. Prajeme šťastné upravovanie!</string>
   <string name="suggested_edits_image_captions_task_detail">Popíšte obrázok, aby ste čitateľom pomohli pochopiť jeho význam a kontext.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Zhrňte článok a pomôžte čitateľom ihneď pochopiť predmet článku.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Váš celkový počet príspevkov s Navrhovanými úpravami.</string>
@@ -735,7 +732,6 @@
   <string name="suggested_edits_editing_tips_link_text">Editačné tipy a triky</string>
   <string name="suggested_edits_help_page_link_text">Nápoveda Navrhovaných úprav</string>
   <string name="suggested_edits_edit_streak_label_text">Úprav v sérii</string>
-  <string name="suggested_edits_pageviews_label_text">Návštevnosť stránok</string>
   <string name="suggested_edits_quality_label_text">Kvalita úprav</string>
   <string name="suggested_edits_quality_perfect_text">Perfektná</string>
   <string name="suggested_edits_quality_excellent_text">Vynikajúca</string>
@@ -766,7 +762,6 @@
   <string name="suggested_edits_contribution_language_label">Jazyk</string>
   <string name="suggested_edits_contribution_date_time_label">Dátum / Čas</string>
   <string name="suggested_edits_contribution_type_label">Typ príspevku</string>
-  <string name="suggested_edits_contribution_image_label">Súbor</string>
   <string name="suggested_edits_contribution_article_label">Článok</string>
   <string name="suggested_edits_contribution_views">%s zobrazení</string>
   <string name="suggested_edits_contribution_seen_text">Videné %s-krát za posledných 30 dní.</string>

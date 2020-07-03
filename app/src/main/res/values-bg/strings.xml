@@ -24,7 +24,6 @@
   <string name="search_hint_search_languages">Търсене на език</string>
   <string name="search_hint_search_my_lists_and_articles">Търсене в моите списъци и статии</string>
   <string name="nav_item_history">История</string>
-  <string name="nav_item_suggested_edits">Предложени редакции</string>
   <string name="error_network_error">Няма връзка с интернет.</string>
   <string name="page_error_retry">Опитайте отново</string>
   <string name="card_offline_error_retry">Повторен опит</string>
@@ -637,7 +636,6 @@
   <string name="suggested_edits_my_contributions">Моите приноси</string>
   <string name="suggested_edits_no_description">Този файл няма описание</string>
   <string name="suggested_edits_menu_info">Информация</string>
-  <string name="suggested_edits_tasks_activity_title">Предложение за редактиране</string>
   <string name="suggested_edits_task_add_description_title">Добавяне описания на статии</string>
   <string name="suggested_edits_task_add_description_description">Допринесете към статии без описания</string>
   <string name="suggested_edits_task_image_caption_title">Добавяне описания на изображения</string>
@@ -680,11 +678,9 @@
   <string name="suggested_edits_image_tags_publishing">Публикуване</string>
   <string name="suggested_edits_image_tags_published">Публикувано</string>
   <string name="suggested_edits_encouragement_message">%s, благодарим Ви за вашите редакции. По-долу може да намерите още начини как да допринасяте за Уикипедия.</string>
-  <string name="suggested_edits_onboarding_message">&lt;b&gt;Здравейте, %s&lt;/b&gt;, знаехте ли, че всеки може да редактира Уикипедия? Надолу може да намерите развлекателни начини, за да помогнете в подобряването на Уикипедия. Приятно редактиране!</string>
   <string name="suggested_edits_image_captions_task_detail">Опишете изображение, за да помогнете на читателите да разберат смисъла и контекста му.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Обобщава статията, за да помогне на читателите да добият представа за темата.</string>
   <string name="suggested_edits_editing_tips_link_text">Съвети и трикове за редактирането</string>
-  <string name="suggested_edits_pageviews_label_text">Преглеждания</string>
   <string name="suggested_edits_quality_label_text">Качество на редакциите</string>
   <string name="suggested_edits_quality_perfect_text">Съвършено</string>
   <string name="suggested_edits_quality_excellent_text">Отлично</string>
@@ -711,7 +707,6 @@
   <string name="suggested_edits_contribution_language_label">Език</string>
   <string name="suggested_edits_contribution_date_time_label">Дата / Час</string>
   <string name="suggested_edits_contribution_type_label">Вид принос</string>
-  <string name="suggested_edits_contribution_image_label">Файл</string>
   <string name="suggested_edits_contribution_article_label">Статия</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Вчера</string>
   <string name="suggested_edits_rewards_continue_button">Продължаване</string>

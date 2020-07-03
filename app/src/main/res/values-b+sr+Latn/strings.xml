@@ -17,7 +17,6 @@
   <string name="search_hint_search_languages">Pretražite jezike</string>
   <string name="search_hint_search_my_lists_and_articles">Pretraži moje spiskove i člankove</string>
   <string name="nav_item_history">Istorija</string>
-  <string name="nav_item_suggested_edits">Predložene izmene</string>
   <string name="error_network_error">Nije moguće povezati se sa internetom.</string>
   <string name="page_error_retry">Pokušaj ponovo</string>
   <string name="card_offline_error_retry">Pokušaj ponovo</string>
@@ -624,7 +623,6 @@
   <string name="suggested_edits_license_notice">Dodavanjem opisa članka, slažete se sa &lt;a href=\"%1$s\"&gt;uslovima korišćenja&lt;/a&gt; i prihvatate neopozivo objavljivanje svojih doprinosa pod licencom &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_image_caption_license_notice">Dodavanjem natpisa slike, slažete se sa &lt;a href=\"%1$s\"&gt;uslovima korišćenja&lt;/a&gt; i prihvatate neopozivo objavljivanje svojih doprinosa pod licencom &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Informacije</string>
-  <string name="suggested_edits_tasks_activity_title">Predložene izmene</string>
   <string name="suggested_edits_task_add_description_title">Dodavanje opisa članaka</string>
   <string name="suggested_edits_task_add_description_description">Doprinosi člancima bez opisa</string>
   <string name="suggested_edits_task_image_caption_title">Dodaj natpise slika</string>
@@ -670,7 +668,6 @@
   <string name="suggested_edits_image_captions" fuzzy="true">Natpisi slika</string>
   <string name="suggested_edits_editing_tips_link_text">Saveti i trikovi za uređivanje</string>
   <string name="suggested_edits_help_page_link_text">Stranica za pomoć za predložene izmene</string>
-  <string name="suggested_edits_pageviews_label_text">Pregledi stranica</string>
   <string name="suggested_edits_quality_label_text">Kvalitet izmena</string>
   <string name="suggested_edits_quality_perfect_text">Savršeno</string>
   <string name="suggested_edits_quality_excellent_text">Odlično</string>

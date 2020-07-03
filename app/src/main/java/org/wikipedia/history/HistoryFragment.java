@@ -110,7 +110,18 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
         historyList.setAdapter(adapter);
 
         LoaderManager.getInstance(requireActivity()).initLoader(HISTORY_FRAGMENT_LOADER_ID, null, loaderCallback);
+        setUpScrollListener();
         return view;
+    }
+
+    private void setUpScrollListener() {
+        historyList.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                ((MainActivity) requireActivity()).updateToolbarElevation(historyList.computeVerticalScrollOffset() != 0);
+            }
+        });
     }
 
     @Override
@@ -137,6 +148,7 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
     public void onDestroyView() {
         LoaderManager.getInstance(requireActivity()).destroyLoader(HISTORY_FRAGMENT_LOADER_ID);
         historyList.setAdapter(null);
+        historyList.clearOnScrollListeners();
         adapter.clearList();
         unbinder.unbind();
         unbinder = null;

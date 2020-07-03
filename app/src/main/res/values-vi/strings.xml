@@ -29,7 +29,6 @@
   <string name="search_hint_search_languages">Tìm một ngôn ngữ</string>
   <string name="search_hint_search_my_lists_and_articles">Tìm kiếm danh sách và bài viết của tôi</string>
   <string name="nav_item_history">Lịch sử</string>
-  <string name="nav_item_suggested_edits">Sửa đổi gợi ý</string>
   <string name="error_network_error">Không thể kết nối với Internet.</string>
   <string name="page_error_retry">Thử lại</string>
   <string name="card_offline_error_retry">Thử lại</string>
@@ -622,7 +621,6 @@
   <string name="suggested_edits_translate_descriptions">Dịch mô tả bài viết</string>
   <string name="suggested_edits_add_image_captions">Thêm chú thích hình ảnh</string>
   <string name="suggested_edits_translate_image_captions">Dịch chú thích hình ảnh</string>
-  <string name="suggested_edits_tasks_activity_title">Sửa đổi gợi ý</string>
   <string name="suggested_edits_task_multilingual_positive">Thêm ngôn ngữ</string>
   <string name="suggested_edits_image_caption_summary_title_file">Tập tin</string>
   <string name="suggested_edits_image_caption_summary_title_source">Nguồn</string>

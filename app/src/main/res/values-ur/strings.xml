@@ -28,7 +28,6 @@
   <string name="search_hint_search_languages">زبان تلاش کریں</string>
   <string name="search_hint_search_my_lists_and_articles">میری فہرستوں اور مضامین میں تلاش کریں</string>
   <string name="nav_item_history">تاریخچہ</string>
-  <string name="nav_item_suggested_edits">ترمیم کے لیے تجاویز</string>
   <string name="error_network_error">انٹرنیٹ سے رابطہ نہیں ہو سکا۔</string>
   <string name="page_error_retry">دوبارہ کوشش کریں</string>
   <string name="card_offline_error_retry">دوبارہ کوشش کریں</string>

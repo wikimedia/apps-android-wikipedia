@@ -22,7 +22,6 @@
   <string name="search_hint_search_languages">ენის ძებნა</string>
   <string name="search_hint_search_my_lists_and_articles">ჩემი სიისა და სტატიების ძიება</string>
   <string name="nav_item_history">ისტორია</string>
-  <string name="nav_item_suggested_edits">შემოთავაზებული რედაქტირებები</string>
   <string name="error_network_error">ინტერნეტთან დაკავშირება ვერ ხერხდება.</string>
   <string name="page_error_retry">გამეორება</string>
   <string name="card_offline_error_retry">გამეორება</string>

@@ -598,7 +598,6 @@
   <string name="suggested_edits_license_notice">ၸွမ်းၼင်ႇထႅမ်သႂ်ႇ ၶေႃႈသပ်းလႅင်းၼၼ်ႉလႄႈ ၵဝ်ႇၶႃႈၽွမ်ႉၸွမ်း &lt;a href=\"%1$s\"&gt;ၶေႃႈၵႂၢမ်း လွင်ႈၸႂ်ႉတိုဝ်း&lt;/a&gt; လႄႈ ၶႃႈႁဝ်းဢဝ် လွင်ႈၶဝ်ႈႁူမ်ႈၵဝ်ၶႃႈ ပိုၼ်ဢွၵ်ႇၶၢတ်ႇၶၢတ်ႇ ၸွမ်းၼင်ႇ  ဝႂ်ၶႂၢင်း&lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; ၼၼ်ႉၶႃႈ။</string>
   <string name="suggested_edits_image_caption_license_notice">ၸွမ်းၼင်ႇ ထႅမ်သႂ်ႇ ႁူဝ်ၶေႃႈၶႅပ်းႁၢင်ႈၼၼ်ႉလႄႈ ၵဝ်ႇၶႃႈၽွမ်ႉၸွမ်း &lt;a href=\"%1$s\"&gt;ၶေႃႈၵႂၢမ်း လွင်ႈၸႂ်ႉတိုဝ်း&lt;/a&gt; လႄႈ ၶႃႈႁဝ်းဢဝ် လွင်ႈၶဝ်ႈႁူမ်ႈၵဝ်ၶႃႈ ပိုၼ်ဢွၵ်ႇၶၢတ်ႇၶၢတ်ႇ ၸွမ်းၼင်ႇ  ဝႂ်ၶႂၢင်း&lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; ၼၼ်ႉၶႃႈ။</string>
   <string name="suggested_edits_menu_info">လွၼ်ႉၶၢဝ်ႇ</string>
-  <string name="suggested_edits_tasks_activity_title">လွင်ႈမႄးထတ်း ဢၼ်ၶႆႈၸႂ်ဝႆႉ</string>
   <string name="suggested_edits_task_add_description_title">ထႅမ်သႂ်ႇ ၶေႃႈသပ်းလႅင်း</string>
   <string name="suggested_edits_task_add_description_description">ဢမ်ႇပႃးၶေႃႈသပ်းလႅင်းသေ ၶဝ်ႈႁူမ်ႈတင်း ပွင်ႈၵႂၢမ်း</string>
   <string name="suggested_edits_task_image_caption_title" fuzzy="true">သႂ်ႇႁူဝ်ၶေႃႈ ၶႅပ်းႁၢင်ႈ</string>

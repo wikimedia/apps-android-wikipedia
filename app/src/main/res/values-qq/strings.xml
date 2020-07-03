@@ -673,7 +673,6 @@
   <string name="suggested_edits_license_notice">Disclaimer that specifies the Terms of Use and CC license that applies to add descriptions. Please preserve the %1$s and %2$s parameters, since these will be replaced with URLs.</string>
   <string name="suggested_edits_image_caption_license_notice">Disclaimer that specifies the Terms of Use and CC license that applies to add image captions. Please preserve the %1$s and %2$s parameters, since these will be replaced with URLs.</string>
   <string name="suggested_edits_menu_info">Suggested edits menu label for accessing the editing FAQ.\n{{Identical|Info}}</string>
-  <string name="suggested_edits_tasks_activity_title">Title shown at the top of the activity for unlocking suggested edits.\n\n{{Identical|Suggested edits}}</string>
   <string name="suggested_edits_task_add_description_title">Article description task heading.</string>
   <string name="suggested_edits_task_add_description_description">Article description task explanation given to user.</string>
   <string name="suggested_edits_task_image_caption_title">Image caption tasks heading.</string>
@@ -751,7 +750,6 @@
   <string name="suggested_edits_editing_tips_link_text">Label text for editing tips and tricks</string>
   <string name="suggested_edits_help_page_link_text">Label text for suggested edits help page</string>
   <string name="suggested_edits_edit_streak_label_text">Suggested edits label text for edit streak</string>
-  <string name="suggested_edits_pageviews_label_text">Suggested edits label text for pageviews</string>
   <string name="suggested_edits_quality_label_text">Suggested edits label text for edit quality</string>
   <string name="suggested_edits_quality_perfect_text">Suggested edits label text indicating that the edit quality of the user is perfect</string>
   <string name="suggested_edits_quality_excellent_text">Suggested edits label text indicating that the edit quality of the user is excellent</string>
@@ -806,7 +804,6 @@
   <string name="suggested_edits_encourage_account_creation_message">Content text of the encourage account creation card.</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Button text of the encourage account creation card log in button.</string>
   <string name="suggested_edits_contribution_type_image_tag">Text indicating that the user edit was an Image tag edit</string>
-  <string name="suggested_edits_contribution_current_revision">Text indicating that the user\'s contribution is the most current edit on that file or article.</string>
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="one">Label text indicating the number of tags added or removed by a user contribution. %1$s represents the number.</item>
     <item quantity="other">Label text indicating the number of tags added or removed by a user contribution. %1$s represents the number.</item>
@@ -914,4 +911,6 @@
   <string name="text_input_dialog_ok_button_text">Positive action button text in pop-up dialog for text input.\n{{Identical|OK}}</string>
   <string name="text_input_dialog_cancel_button_text">Negative action button text in pop-up dialog for text input.\n{{Identical|Cancel}}</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Negative action button text in date picker pop-up dialog.\n{{Identical|Cancel}}</string>
+  <string name="suggested_edits_contribution_current_revision_text">Text indicating that the user\'s edit was the most recent one on a givven image or article</string>
+  <string name="suggested_edits_views_label_text">Suggested edits label text for pageviews</string>
 </resources>

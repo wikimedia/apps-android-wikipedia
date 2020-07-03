@@ -26,7 +26,6 @@
   <string name="search_hint_search_languages">گەڕان بەدوای زمانێکدا</string>
   <string name="search_hint_search_my_lists_and_articles">گەڕان لەنێو وتار و پێڕستەکانم</string>
   <string name="nav_item_history">مێژوو</string>
-  <string name="nav_item_suggested_edits">دەستکاری پێشنیارکراوەکان</string>
   <string name="error_network_error">ناتوانرێت ئینتەرنێت بھێندرێت.</string>
   <string name="page_error_retry">ھەوڵداناوە</string>
   <string name="card_offline_error_retry">ھەوڵداناوە</string>
@@ -563,7 +562,6 @@
   <string name="suggested_edits_my_contributions">بەشدارییەکانم</string>
   <string name="suggested_edits_no_description">ئەم پەڕگەیە وەسفی نییە</string>
   <string name="suggested_edits_menu_info">زانیاری</string>
-  <string name="suggested_edits_tasks_activity_title">دەستکاری پێشنیارکراوەکان</string>
   <string name="suggested_edits_task_add_description_title">زیادکردنی وەسفی وتار</string>
   <string name="suggested_edits_task_image_caption_title">زیادکردنی شرۆڤەی وێنە</string>
   <string name="suggested_edits_task_translate_caption_title">وەرگێڕانی شرۆڤەی وێنە</string>
@@ -603,7 +601,6 @@
   <string name="suggested_edits_image_tags_search">گەڕانی تاگەکان</string>
   <string name="suggested_edits_image_tags_add_tag">زیادکردنی تاگ</string>
   <string name="suggested_edits_help_page_link_text">دەستکاریە پێشنیارکاوەکان پەڕەی یارمەتی</string>
-  <string name="suggested_edits_pageviews_label_text">بینینەکانی پەڕە</string>
   <string name="suggested_edits_quality_label_text">دەستکاری جۆر</string>
   <string name="suggested_edits_quality_perfect_text">تەواو</string>
   <string name="suggested_edits_quality_excellent_text">نایاب</string>
@@ -625,7 +622,6 @@
   <string name="suggested_edits_cc0_notice">بە بڵاوکردنەوە، تۆ ڕازی دەبیت بە &lt;a href=\"%1$s\"&gt;بەندەکانی  بەکارھێنان&lt;/a&gt;، و بە بڵاوکردنەوەی بەشدارییەکانت لەژێر مۆڵەتی &lt;a href=\"%2$s\"&gt;CC0 license&lt;/a&gt;.</string>
   <string name="suggested_edits_contribution_language_label">زمان</string>
   <string name="suggested_edits_contribution_date_time_label">بەروار/کات</string>
-  <string name="suggested_edits_contribution_image_label">پەڕگە</string>
   <string name="suggested_edits_contribution_article_label">وتار</string>
   <string name="suggested_edits_contribution_views">%s بینراوە</string>
   <string name="suggested_edits_contribution_date_yesterday_text">دوێنێ</string>

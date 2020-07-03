@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <attr name="toolbar_title_color" format="reference"/>
     <attr name="toolbar_icon_color" format="reference"/>
     <attr name="themed_icon_color" format="reference"/>
     <attr name="edit_improve_tag_selected_drawable" format="reference" />

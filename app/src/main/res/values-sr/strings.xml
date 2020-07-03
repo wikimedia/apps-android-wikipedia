@@ -31,7 +31,6 @@
   <string name="search_hint_search_languages">Претражите језике</string>
   <string name="search_hint_search_my_lists_and_articles">Претражи моје спискове и чланкове</string>
   <string name="nav_item_history">Историја</string>
-  <string name="nav_item_suggested_edits">Предложене измене</string>
   <string name="error_network_error">Није могуће повезати се са интернетом.</string>
   <string name="page_error_retry">Покушај поново</string>
   <string name="card_offline_error_retry">Покушај поново</string>
@@ -646,7 +645,6 @@
   <string name="suggested_edits_license_notice">Додавањем описа чланка, слажете се са &lt;a href=\"%1$s\"&gt;условима коришћења&lt;/a&gt; и прихватате неопозиво објављивање својих доприноса под лиценцом &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_image_caption_license_notice">Додавањем натписа слике, слажете се са &lt;a href=\"%1$s\"&gt;условима коришћења&lt;/a&gt; и прихватате неопозиво објављивање својих доприноса под лиценцом &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Информације</string>
-  <string name="suggested_edits_tasks_activity_title">Предложене измене</string>
   <string name="suggested_edits_task_add_description_title">Додавање описа чланака</string>
   <string name="suggested_edits_task_add_description_description">Доприноси чланцима без описа</string>
   <string name="suggested_edits_task_image_caption_title">Додај натписе слика</string>
@@ -701,7 +699,6 @@
   <string name="suggested_edits_image_tags_add_tag">Додај ознаку</string>
   <string name="suggested_edits_editing_tips_link_text">Савети и трикови за уређивање</string>
   <string name="suggested_edits_help_page_link_text">Страница помоћи за предложене измене</string>
-  <string name="suggested_edits_pageviews_label_text">Прикази страница</string>
   <string name="suggested_edits_quality_label_text">Квалитет измена</string>
   <string name="suggested_edits_quality_perfect_text">Савршено</string>
   <string name="suggested_edits_quality_excellent_text">Одлично</string>
