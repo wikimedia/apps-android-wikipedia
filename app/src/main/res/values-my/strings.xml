@@ -29,7 +29,6 @@
   <string name="search_hint_search_languages">ဘာသာစကားတစ်ခုအတွက် ရှာဖွေရန်</string>
   <string name="search_hint_search_my_lists_and_articles">မိမိ၏စာရင်းနှင့်ဆောင်းပါးများကို ရှာဖွေရန်</string>
   <string name="nav_item_history">မှတ်တမ်း</string>
-  <string name="nav_item_suggested_edits">အကြံပြုထားသော ပြင်ဆင်မှုများ</string>
   <string name="nav_item_more">ပို၍</string>
   <string name="error_network_error">အင်တာနက်သို့ ချိတ်ဆက်နိုင်ခြင်း မရှိပါ။</string>
   <string name="page_error_retry">ပြန်လုပ်</string>

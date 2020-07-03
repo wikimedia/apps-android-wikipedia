@@ -57,7 +57,6 @@
   <string name="search_hint_search_languages">搜索一种语言</string>
   <string name="search_hint_search_my_lists_and_articles">搜索我的列表及条目</string>
   <string name="nav_item_history">历史记录</string>
-  <string name="nav_item_suggested_edits">建议编辑</string>
   <string name="nav_item_more">更多</string>
   <string name="error_network_error">无法连接至互联网。</string>
   <string name="page_error_retry">重试</string>

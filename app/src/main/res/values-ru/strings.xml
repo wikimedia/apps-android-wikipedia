@@ -68,7 +68,6 @@
   <string name="search_hint_search_languages">Поиск языка</string>
   <string name="search_hint_search_my_lists_and_articles">Поиск в списках для чтения</string>
   <string name="nav_item_history">История</string>
-  <string name="nav_item_suggested_edits">Предложенные правки</string>
   <string name="nav_item_more">Ещё</string>
   <string name="error_network_error">Не удаётся подключиться к интернету.</string>
   <string name="page_error_retry">Повторить</string>

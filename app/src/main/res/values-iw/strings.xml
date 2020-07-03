@@ -33,7 +33,6 @@
   <string name="search_hint_search_languages">חיפוש שפה</string>
   <string name="search_hint_search_my_lists_and_articles">חיפוש ברשימות ובערכים</string>
   <string name="nav_item_history">היסטוריה</string>
-  <string name="nav_item_suggested_edits">עריכות מוצעות</string>
   <string name="error_network_error">לא ניתן להתחבר לאינטרנט.</string>
   <string name="page_error_retry">ניסיון נוסף</string>
   <string name="card_offline_error_retry">ניסיון חוזר</string>

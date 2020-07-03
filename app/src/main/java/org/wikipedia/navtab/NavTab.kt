@@ -25,7 +25,7 @@ enum class NavTab constructor(private val text: Int, private val icon: Int) : En
             return HistoryFragment.newInstance()
         }
     },
-    SUGGESTED_EDITS(R.string.nav_item_suggested_edits, R.drawable.ic_mode_edit_themed_24dp) {
+    EDITS(R.string.nav_item_suggested_edits, R.drawable.ic_mode_edit_themed_24dp) {
         override fun newInstance(): Fragment {
             return SuggestedEditsTasksFragment.newInstance()
         }

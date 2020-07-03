@@ -45,7 +45,6 @@
   <string name="search_hint_search_languages">بحث عن لغة</string>
   <string name="search_hint_search_my_lists_and_articles">البحث في قوائمي ومقالاتي</string>
   <string name="nav_item_history">التاريخ</string>
-  <string name="nav_item_suggested_edits">التعديلات المقترحة</string>
   <string name="nav_item_more">المزيد</string>
   <string name="error_network_error">لا يوجد اتصال بالإنترنت.</string>
   <string name="page_error_retry">إعادة المحاولة</string>

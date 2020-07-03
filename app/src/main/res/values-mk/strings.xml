@@ -21,7 +21,6 @@
   <string name="search_hint_search_languages">Пребарување јазик</string>
   <string name="search_hint_search_my_lists_and_articles">Пребарај по мои списоци и статии</string>
   <string name="nav_item_history">Историја</string>
-  <string name="nav_item_suggested_edits">Предложени уредувања</string>
   <string name="nav_item_more">Повеќе</string>
   <string name="error_network_error">Не можам да се поврзам со семрежјето.</string>
   <string name="page_error_retry">Повтори</string>

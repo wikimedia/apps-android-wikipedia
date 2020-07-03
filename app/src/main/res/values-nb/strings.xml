@@ -31,7 +31,6 @@
   <string name="search_hint_search_languages">Søk etter språk</string>
   <string name="search_hint_search_my_lists_and_articles">Søk i listene og artiklene mine</string>
   <string name="nav_item_history">Logg</string>
-  <string name="nav_item_suggested_edits">Redigeringsforslag</string>
   <string name="error_network_error">Kan ikke koble til internett.</string>
   <string name="page_error_retry">Prøv igjen</string>
   <string name="card_offline_error_retry">Prøv igjen</string>

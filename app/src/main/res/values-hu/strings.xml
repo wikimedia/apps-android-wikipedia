@@ -34,7 +34,6 @@
   <string name="search_hint_search_languages">Nyelv keresése</string>
   <string name="search_hint_search_my_lists_and_articles">Listáim és szócikkeim keresése</string>
   <string name="nav_item_history">Előzmények</string>
-  <string name="nav_item_suggested_edits">Ajánlott szerkesztések</string>
   <string name="error_network_error">Nem sikerült csatlakozni az internethez.</string>
   <string name="page_error_retry">Újra</string>
   <string name="card_offline_error_retry">Újra</string>

@@ -33,7 +33,6 @@
   <string name="search_hint_search_languages">একটি ভাষার জন্য অনুসন্ধান করুন</string>
   <string name="search_hint_search_my_lists_and_articles">আমার তালিকা এবং নিবন্ধে সন্ধান করুন</string>
   <string name="nav_item_history">ইতিহাস</string>
-  <string name="nav_item_suggested_edits">পরামর্শকৃত সম্পাদনা</string>
   <string name="error_network_error">ইন্টারনেটের সাথে সংযোগ করা যাবে না।</string>
   <string name="page_error_retry">পুনঃচেষ্টা করুন</string>
   <string name="card_offline_error_retry">পুনঃচেষ্টা করুন</string>

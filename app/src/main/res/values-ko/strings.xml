@@ -43,7 +43,6 @@
   <string name="search_hint_search_languages">언어 검색</string>
   <string name="search_hint_search_my_lists_and_articles">내 목록 및 문서 검색</string>
   <string name="nav_item_history">방문 기록</string>
-  <string name="nav_item_suggested_edits">편집 제안</string>
   <string name="error_network_error">인터넷에 연결할 수 없습니다.</string>
   <string name="page_error_retry">다시 시도</string>
   <string name="card_offline_error_retry">다시 시도</string>

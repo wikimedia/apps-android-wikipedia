@@ -29,7 +29,6 @@
   <string name="search_hint_search_languages">Tìm một ngôn ngữ</string>
   <string name="search_hint_search_my_lists_and_articles">Tìm kiếm danh sách và bài viết của tôi</string>
   <string name="nav_item_history">Lịch sử</string>
-  <string name="nav_item_suggested_edits">Sửa đổi gợi ý</string>
   <string name="error_network_error">Không thể kết nối với Internet.</string>
   <string name="page_error_retry">Thử lại</string>
   <string name="card_offline_error_retry">Thử lại</string>
