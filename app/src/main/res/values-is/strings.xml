@@ -642,7 +642,6 @@
   <string name="suggested_edits_license_notice">Með því að bæta við lýsingu, samþykki ég &lt;a href=\"%1$s\"&gt;notkunarskilmálana&lt;/a&gt; og að ég gefi óafturkræft út framlög mín með &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; notkunarleyfi.</string>
   <string name="suggested_edits_image_caption_license_notice">Með því að bæta við myndatextanum, samþykki ég &lt;a href=\"%1$s\"&gt;notkunarskilmálana&lt;/a&gt; og að ég gefi óafturkræft út framlög mín með &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; notkunarleyfi.</string>
   <string name="suggested_edits_menu_info">Upplýsingar</string>
-  <string name="suggested_edits_tasks_activity_title">Tillögur að breytingum</string>
   <string name="suggested_edits_task_add_description_title">Bæta við lýsingum á greinar</string>
   <string name="suggested_edits_task_add_description_description">Leggðu þitt af mörkum í greinum án lýsingar</string>
   <string name="suggested_edits_task_image_caption_title">Bæta við myndatextum</string>

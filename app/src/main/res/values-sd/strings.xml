@@ -582,7 +582,6 @@
   <string name="suggested_edits_license_notice">تشريح وجھڻ سان، مان &lt;a href=\"%1$s\"&gt;استعمال جي شرطن&lt;/a&gt; ۽ بغير رد ڪئي پنھنجون ڀاڱيداريون &lt;a href=\"%2$s\"&gt;ڪريئيٽو ڪامنز سيسي0&lt;/a&gt; اجازتنامي ھيٺ ڏيڻ لاءِ راضي آھيان.</string>
   <string name="suggested_edits_image_caption_license_notice">عڪسن جا عنوان وجھڻ سان، مان &lt;a href=\"%1$s\"&gt;استعمال جي شرطن&lt;/a&gt; ۽ بغير رد ڪندي پنھنجون ڀاڱيداريون &lt;a href=\"%2$s\"&gt;ڪريئيٽو ڪامنز سيسي0&lt;/a&gt; اجازتنامي ھيٺ جاري ڪرڻ لاءِ راضي آھيان.</string>
   <string name="suggested_edits_menu_info">ڄاڻ</string>
-  <string name="suggested_edits_tasks_activity_title">صلاح-ڏنل سنوارون</string>
   <string name="suggested_edits_task_add_description_title">مضمون جو تشريحون وجھو</string>
   <string name="suggested_edits_task_add_description_description">مضمونن ۾ بغير تشريحن جي ڀاڱيداري ڪريو</string>
   <string name="suggested_edits_task_image_caption_title">عڪس جا عنوان وجھو</string>

@@ -589,7 +589,6 @@
   <string name="suggested_edits_license_notice">Dodavanjem opisa članka pristajem na &lt;a href=\"%1$s\"&gt;uvjete korištenja&lt;/a&gt; i neopozivo objavljujem svoje doprinose pod licencijom &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_image_caption_license_notice">Dodavanjem natpisa slike pristajem na &lt;a href=\"%1$s\"&gt;uvjete korištenja&lt;/a&gt; i neopozivo objavljujem svoje doprinose pod licencijom &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Informacije</string>
-  <string name="suggested_edits_tasks_activity_title">Predložena uređivanja</string>
   <string name="suggested_edits_task_add_description_title">Dodaj opise članka</string>
   <string name="suggested_edits_task_add_description_description">Doprinesite člancima bez opisa</string>
   <string name="suggested_edits_task_image_caption_title">Dodajte natpis slike</string>

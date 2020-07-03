@@ -664,7 +664,6 @@
   <string name="suggested_edits_license_notice">Genom att lägga till beskrivningen samtycker jag till &lt;a href=\"%1$s\"&gt;användarvillkoren&lt;/a&gt; och till att oåterkalleligt släppa mina bidrag under licensen &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_image_caption_license_notice">Genom att lägga till bildtexten samtycker jag till &lt;a href=\"%1$s\"&gt;användarvillkoren&lt;/a&gt; och till att oåterkalleligt släppa mina bidrag under licensen &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Information</string>
-  <string name="suggested_edits_tasks_activity_title">Redigeringsförslag</string>
   <string name="suggested_edits_task_add_description_title">Lägg till beskrivningar</string>
   <string name="suggested_edits_task_add_description_description">Bidra på artiklar utan beskrivningar</string>
   <string name="suggested_edits_task_image_caption_title">Lägg till bildtexter</string>

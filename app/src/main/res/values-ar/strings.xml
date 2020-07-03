@@ -667,7 +667,6 @@
   <string name="suggested_edits_license_notice">بإضافة الوصف، أوافق على &lt;a href=\"%1$s\"&gt;شروط الاستخدام&lt;/a&gt; وإطلاق مساهماتي بشكل لا رجعة فيه بموجب ترخيص &lt;a href=\"%2$s\"&gt;المشاع الإبداعي CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_image_caption_license_notice">بإضافة تعليق الصورة، أوافق على &lt;a href=\"%1$s\"&gt;Tشروط الاستخدام&lt;/a&gt; وإطلاق مساهماتي بشكل لا رجعة فيه بموجب ترخيص &lt;a href=\"%2$s\"&gt;المشاع الإبداعي CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">معلومات</string>
-  <string name="suggested_edits_tasks_activity_title">التعديلات المقترحة</string>
   <string name="suggested_edits_task_add_description_title">إضافة أوصاف المقالات</string>
   <string name="suggested_edits_task_add_description_description">ساهم في المقالات التي تفتقد للوصوف</string>
   <string name="suggested_edits_task_image_caption_title">إضافة تعليقات الصور</string>

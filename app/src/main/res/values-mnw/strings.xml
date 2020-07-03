@@ -647,7 +647,6 @@
   <string name="suggested_edits_license_notice">နကဵု မစုတ်ပၠုပ် တင်ဗမံက်ထ္ၜးဂှ်၊ အဲတုပ်စိုတ် ကု&lt;a href=\"%1$s\"&gt;Terms of Use&lt;/a&gt;သွက်ဂဝံ တြးပတိတ် အရာမကၠောန်ဗဒှ်လဝ်အဲ နကဵုအခေါင်&lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;လာင်ဇြေန်ရ။</string>
   <string name="suggested_edits_image_caption_license_notice">နကဵု မစုတ်ပၠုပ် က္ဍိုပ်လိက် ဗီုရုပ်ဂှ်၊ အဲတုပ်စိုတ် ကု&lt;a href=\"%1$s\"&gt;Terms of Use&lt;/a&gt; သွက်ဂွံ တြးပတိတ် အရာအဲမကၠောန်လဝ် နကဵု လာင်ဇြေန် &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;</string>
   <string name="suggested_edits_menu_info">တၚ်နၚ်</string>
-  <string name="suggested_edits_tasks_activity_title">အရာပလေဝ်ဒါန် မအာတ်မိက်</string>
   <string name="suggested_edits_task_add_description_title">စုတ် ပရူပရာ လိက်ပရေင်</string>
   <string name="suggested_edits_task_add_description_description">တြးပ္တိတ် လိက်ပရေင် သက်ကု က္ဍိုပ်လိက်</string>
   <string name="suggested_edits_task_image_caption_title">စုတ် ပရူပရာ ဗီုရုပ်</string>

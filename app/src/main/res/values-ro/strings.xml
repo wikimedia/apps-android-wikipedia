@@ -668,7 +668,6 @@
   <string name="suggested_edits_license_notice">Prin adăugarea descrierii, sunt de acord cu &lt;a href=\"%1$s\"&gt;Termenii de utilizare&lt;/a&gt; și îmi eliberez irevocabil contribuțiile în cadrul licenței &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_image_caption_license_notice">Prin adăugarea legendei de imagine, sunt de acord cu &lt;a href=\"%1$s\"&gt;Termenii de utilizare&lt;/a&gt; și îmi eliberez irevocabil contribuțiile în conformitate cu licența &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Info</string>
-  <string name="suggested_edits_tasks_activity_title">Modificări sugerate</string>
   <string name="suggested_edits_task_add_description_title">Adăugați descrieri de articole</string>
   <string name="suggested_edits_task_add_description_description">Contribuie la articole fără descrieri</string>
   <string name="suggested_edits_task_image_caption_title">Adaugă descriere la imagini</string>

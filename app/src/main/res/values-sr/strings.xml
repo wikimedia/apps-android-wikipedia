@@ -646,7 +646,6 @@
   <string name="suggested_edits_license_notice">Додавањем описа чланка, слажете се са &lt;a href=\"%1$s\"&gt;условима коришћења&lt;/a&gt; и прихватате неопозиво објављивање својих доприноса под лиценцом &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_image_caption_license_notice">Додавањем натписа слике, слажете се са &lt;a href=\"%1$s\"&gt;условима коришћења&lt;/a&gt; и прихватате неопозиво објављивање својих доприноса под лиценцом &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Информације</string>
-  <string name="suggested_edits_tasks_activity_title">Предложене измене</string>
   <string name="suggested_edits_task_add_description_title">Додавање описа чланака</string>
   <string name="suggested_edits_task_add_description_description">Доприноси чланцима без описа</string>
   <string name="suggested_edits_task_image_caption_title">Додај натписе слика</string>

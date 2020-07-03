@@ -662,7 +662,6 @@
   <string name="suggested_edits_license_notice">설명을 추가함으로써, &lt;a href=\"%1$s\"&gt;이용 약관&lt;/a&gt;에 동의하며 내 기여를 &lt;a href=\"%2$s\"&gt;크리에이티브 커먼즈 CC0&lt;/a&gt; 라이선스로 배포하는 것을 동의합니다.</string>
   <string name="suggested_edits_image_caption_license_notice">이미지 캡션을 추가함으로써, 나는 &lt;a href=\"%1$s\"&gt;이용 약관&lt;/a&gt;에 동의하고, 나의 기여를 비가역적으로 &lt;a href=\"%2$s\"&gt;크리에이티브 커먼즈 CC0&lt;/a&gt; 라이선스에 따라 배포하는 데 동의합니다.</string>
   <string name="suggested_edits_menu_info">정보</string>
-  <string name="suggested_edits_tasks_activity_title">편집 제안</string>
   <string name="suggested_edits_task_add_description_title">문서 설명 추가</string>
   <string name="suggested_edits_task_add_description_description">설명 없이 문서에 기여</string>
   <string name="suggested_edits_task_image_caption_title">이미지 설명 추가</string>

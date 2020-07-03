@@ -684,7 +684,6 @@
   <string name="suggested_edits_license_notice">Al cambiar la descripción, aceptas los &lt;a href=\"%1$s\"&gt;Términos de uso&lt;/a&gt; y liberar irrevocablemente tus contribuciones bajo los términos de la licencia &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_image_caption_license_notice">Al añadir pie de foto, acepto los &lt;a href=\"%1$s\"&gt;Términos de uso&lt;/a&gt; y a liberar irrevocablemente mis contribuciones bajo los términos de la licencia &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Información</string>
-  <string name="suggested_edits_tasks_activity_title">Ediciones sugeridas</string>
   <string name="suggested_edits_task_add_description_title">Añade descripciones de artículos</string>
   <string name="suggested_edits_task_add_description_description">Contribuye a artículos sin descripciones de título</string>
   <string name="suggested_edits_task_image_caption_title">Adición de leyendas a imágenes</string>

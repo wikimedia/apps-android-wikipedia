@@ -680,7 +680,6 @@
   <string name="suggested_edits_license_notice">Tanımı değiştirerek \"&lt;a href=\"%1$s\"&gt;Kullanım Şartları&lt;/a&gt;\"nı ve katkılarımı geri dönülemez şekilde &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; lisansıyla yayımlamayı kabul ediyorum.</string>
   <string name="suggested_edits_image_caption_license_notice">Resim altyazısını değiştirerek \"&lt;a href=\"%1$s\"&gt;Kullanım Şartları&lt;/a&gt;\"nı ve katkılarımı geri dönülemez şekilde &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; lisansıyla yayımlamayı kabul ediyorum.</string>
   <string name="suggested_edits_menu_info">Bilgi</string>
-  <string name="suggested_edits_tasks_activity_title">Önerilen düzenlemeler</string>
   <string name="suggested_edits_task_add_description_title">Madde açıklaması ekle</string>
   <string name="suggested_edits_task_add_description_description">Tanımı olmayan sayfalara katkı yap</string>
   <string name="suggested_edits_task_image_caption_title">Resim yazısı ekle</string>

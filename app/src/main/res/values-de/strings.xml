@@ -651,7 +651,6 @@
   <string name="suggested_edits_license_notice">Durch Hinzufügen der Artikelbeschreibung stimme ich den &lt;a href=\"%1$s\"&gt;Nutzungsbedingungen&lt;/a&gt; und der unwiderruflichen Veröffentlichung meiner Beiträge unter der Lizenz &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; zu.</string>
   <string name="suggested_edits_image_caption_license_notice">Durch Ändern der Bildunterschrift stimme ich den &lt;a href=\"%1$s\"&gt;Nutzungsbedingungen&lt;/a&gt; und der unwiderruflichen Veröffentlichung meiner Beiträge unter der &lt;a href=\"%2$s\"&gt;Creative-Commons-Lizenz CC0&lt;/a&gt; zu.</string>
   <string name="suggested_edits_menu_info">Information</string>
-  <string name="suggested_edits_tasks_activity_title">Vorgeschlagene Bearbeitungen</string>
   <string name="suggested_edits_task_add_description_title">Artikelbeschreibungen hinzufügen</string>
   <string name="suggested_edits_task_add_description_description">Zu Artikeln ohne Beschreibungen beitragen</string>
   <string name="suggested_edits_task_image_caption_title">Bildunterschriften hinzufügen</string>

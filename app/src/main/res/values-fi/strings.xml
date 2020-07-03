@@ -653,7 +653,6 @@
   <string name="suggested_edits_license_notice">Lisäämällä kuvauksen, hyväksyn &lt;a href=\"%1$s\"&gt;käyttöehdot&lt;/a&gt; ja peruuttamattomasti julkaisen muokkaukseni &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; -lisenssillä.</string>
   <string name="suggested_edits_image_caption_license_notice">Lisäämällä kuvan kuvatekstin hyväksyn &lt;a href=\"%1$s\"&gt;käyttöehdot&lt;/a&gt; ja peruuttamattomasti julkaisen muokkaukseni &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; -lisenssillä.</string>
   <string name="suggested_edits_menu_info">Tiedot</string>
-  <string name="suggested_edits_tasks_activity_title">Ehdotetut muokkaukset</string>
   <string name="suggested_edits_task_add_description_title">Lisää artikkelin kuvaukset</string>
   <string name="suggested_edits_task_image_caption_title">Lisää kuvatekstit</string>
   <string name="suggested_edits_task_image_caption_description">Lisää puuttuvia lyhyitä kuvatekstejä kuviin</string>
