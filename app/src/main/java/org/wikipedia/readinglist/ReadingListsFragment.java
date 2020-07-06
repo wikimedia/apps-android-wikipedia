@@ -753,8 +753,8 @@ public class ReadingListsFragment extends Fragment implements
                 && !ReadingListSyncAdapter.isDisabledByRemoteConfig()) {
             onboardingView.setMessageTitle(getString((R.string.reading_lists_sync_reminder_title)));
             onboardingView.setMessageText(StringUtil.fromHtml(getString(R.string.reading_lists_sync_reminder_text)).toString());
-            onboardingView.setImageSource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.sync_reading_list_prompt_drawable));
-            onboardingView.setButton(requireContext().getString(R.string.reading_lists_sync_reminder_action),
+            onboardingView.setImageResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.sync_reading_list_prompt_drawable), true);
+            onboardingView.setButton(R.string.reading_lists_sync_reminder_action,
                     view -> ReadingListSyncAdapter.setSyncEnabledWithSetup(), true);
             onboardingView.setVisibility(View.VISIBLE);
         } else if (!AccountUtil.isLoggedIn() && Prefs.isReadingListLoginReminderEnabled()
@@ -762,9 +762,8 @@ public class ReadingListsFragment extends Fragment implements
                 && !ReadingListSyncAdapter.isDisabledByRemoteConfig()) {
             onboardingView.setMessageTitle(getString((R.string.reading_list_login_reminder_title)));
             onboardingView.setMessageText(getString(R.string.reading_lists_login_reminder_text));
-            onboardingView.setImageSource(Prefs.getReadingListsVisitCount() == 0
-                    ? ResourceUtil.getThemedAttributeId(requireContext(), R.attr.sync_reading_list_prompt_drawable) : -1);
-            onboardingView.setButton(requireContext().getString(R.string.reading_lists_login_button),
+            onboardingView.setImageResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.sync_reading_list_prompt_drawable), Prefs.getReadingListsVisitCount() == 0);
+            onboardingView.setButton(R.string.reading_lists_login_button,
                     view -> {
                         if (getParentFragment() instanceof FeedFragment.Callback) {
                             ((FeedFragment.Callback) getParentFragment()).onLoginRequested();

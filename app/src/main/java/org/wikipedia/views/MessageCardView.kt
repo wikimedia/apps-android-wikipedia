@@ -4,6 +4,8 @@ import android.content.Context
 import android.net.Uri
 import android.util.AttributeSet
 import android.view.View
+import androidx.annotation.DrawableRes
+import androidx.annotation.StringRes
 import kotlinx.android.synthetic.main.view_message_card.view.*
 import org.wikipedia.R
 import org.wikipedia.analytics.LoginFunnel.SOURCE_SUGGESTED_EDITS
@@ -26,17 +28,17 @@ internal class MessageCardView constructor(context: Context, attrs: AttributeSet
         messageTextView.text = text
     }
 
-    fun setImageSource(imageSource: Int) {
-        if (imageSource < 0) {
-            imageView.visibility = View.GONE
-        } else {
+    fun setImageResource(@DrawableRes imageResource: Int, visible: Boolean) {
+        if (visible) {
             imageView.visibility = View.VISIBLE
-            imageView.setImageResource(imageSource)
+            imageView.setImageResource(imageResource)
+        } else {
+            imageView.visibility = View.GONE
         }
     }
 
-    fun setButton(text: String, listener: OnClickListener, applyListenerToContainer: Boolean) {
-        actionButton.text = text
+    fun setButton(@StringRes stringRes: Int, listener: OnClickListener, applyListenerToContainer: Boolean) {
+        actionButton.text = context.getString(stringRes)
         actionButton.setOnClickListener(listener)
         if (applyListenerToContainer) {
             containerClickArea.setOnClickListener(listener)
