@@ -36,10 +36,22 @@
         android:lineSpacingExtra="8sp"
         android:layout_marginBottom="12dp"/>
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/actionButton"
-        style="@style/FlatButton.Small"
-        app:iconSize="20dp"
-        app:iconTint="?attr/colorAccent"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/positiveButton"
+            style="@style/FlatButton.Small"
+            app:iconSize="20dp"
+            app:iconTint="?attr/colorAccent"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/negativeButton"
+            style="@style/FlatButton.Small.Transparent"
+            android:layout_marginStart="8dp"
+            android:visibility="gone"/>
+
+    </LinearLayout>
 
 </LinearLayout>

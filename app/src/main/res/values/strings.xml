@@ -437,6 +437,7 @@
     <string name="reading_list_login_reminder_title">Sync reading lists</string>
     <string name="reading_lists_login_reminder_text">Reading lists can now be synced across devices. Log in to your Wikipedia account and allow your lists to be saved.</string>
     <string name="reading_lists_login_button">Log in / join Wikipedia</string>
+    <string name="reading_lists_ignore_button">Not now</string>
     <string name="reading_lists_confirm_remote_delete_yes">Yes</string>
     <string name="reading_lists_confirm_remote_delete_no">No</string>
     <string name="reading_list_article_save_in_progress">The article is being downloaded, and it will be available offline when complete.</string>

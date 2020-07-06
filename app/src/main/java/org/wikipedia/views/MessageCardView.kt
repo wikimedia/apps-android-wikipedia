@@ -10,7 +10,6 @@ import kotlinx.android.synthetic.main.view_message_card.view.*
 import org.wikipedia.R
 import org.wikipedia.analytics.LoginFunnel.SOURCE_SUGGESTED_EDITS
 import org.wikipedia.login.LoginActivity
-import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
 
@@ -37,9 +36,18 @@ internal class MessageCardView constructor(context: Context, attrs: AttributeSet
         }
     }
 
-    fun setButton(@StringRes stringRes: Int, listener: OnClickListener, applyListenerToContainer: Boolean) {
-        actionButton.text = context.getString(stringRes)
-        actionButton.setOnClickListener(listener)
+    fun setPositiveButton(@StringRes stringRes: Int, listener: OnClickListener, applyListenerToContainer: Boolean) {
+        positiveButton.text = context.getString(stringRes)
+        positiveButton.setOnClickListener(listener)
+        if (applyListenerToContainer) {
+            containerClickArea.setOnClickListener(listener)
+        }
+    }
+
+    fun setNegativeButton(@StringRes stringRes: Int, listener: OnClickListener, applyListenerToContainer: Boolean) {
+        negativeButton.text = context.getString(stringRes)
+        negativeButton.setOnClickListener(listener)
+        negativeButton.visibility = View.VISIBLE
         if (applyListenerToContainer) {
             containerClickArea.setOnClickListener(listener)
         }
@@ -64,7 +72,7 @@ internal class MessageCardView constructor(context: Context, attrs: AttributeSet
         imageView.visibility = GONE
         messageTitleView.text = context.getString(R.string.suggested_edits_ip_blocked_title)
         messageTextView.text = context.getString(R.string.suggested_edits_ip_blocked_message)
-        actionButton.setOnClickListener { UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(R.string.create_account_ip_block_help_url))) }
+        positiveButton.setOnClickListener { UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(R.string.create_account_ip_block_help_url))) }
         setOnClickListener { UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(R.string.create_account_ip_block_help_url))) }
     }
 
@@ -73,16 +81,16 @@ internal class MessageCardView constructor(context: Context, attrs: AttributeSet
         messageTitleView.text = context.getString(R.string.suggested_edits_encourage_account_creation_title)
         messageTextView.text = context.getString(R.string.suggested_edits_encourage_account_creation_message)
         imageView.setImageResource(R.drawable.ic_require_login_header)
-        actionButton.text = context.getString(R.string.suggested_edits_encourage_account_creation_login_button)
-        actionButton.setOnClickListener { context.startActivity(LoginActivity.newIntent(context, SOURCE_SUGGESTED_EDITS)) }
+        positiveButton.text = context.getString(R.string.suggested_edits_encourage_account_creation_login_button)
+        positiveButton.setOnClickListener { context.startActivity(LoginActivity.newIntent(context, SOURCE_SUGGESTED_EDITS)) }
         containerClickArea.setOnClickListener { context.startActivity(LoginActivity.newIntent(context, SOURCE_SUGGESTED_EDITS)) }
     }
 
     private fun setDefaultState() {
         imageView.visibility = View.VISIBLE
-        actionButton.text = context.getString(R.string.suggested_edits_learn_more)
-        actionButton.setIconResource(R.drawable.ic_open_in_new_black_24px)
-        actionButton.setOnClickListener { UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(R.string.android_app_edit_help_url))) }
+        positiveButton.text = context.getString(R.string.suggested_edits_learn_more)
+        positiveButton.setIconResource(R.drawable.ic_open_in_new_black_24px)
+        positiveButton.setOnClickListener { UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(R.string.android_app_edit_help_url))) }
         containerClickArea.setOnClickListener { UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(R.string.android_app_edit_help_url))) }
     }
 }

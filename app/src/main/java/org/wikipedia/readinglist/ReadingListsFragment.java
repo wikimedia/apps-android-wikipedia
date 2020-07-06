@@ -135,7 +135,7 @@ public class ReadingListsFragment extends Fragment implements
         }
 
         enableLayoutTransition(true);
-
+        Prefs.incrementReadingListsVisitCount();
         return view;
     }
 
@@ -754,8 +754,12 @@ public class ReadingListsFragment extends Fragment implements
             onboardingView.setMessageTitle(getString((R.string.reading_lists_sync_reminder_title)));
             onboardingView.setMessageText(StringUtil.fromHtml(getString(R.string.reading_lists_sync_reminder_text)).toString());
             onboardingView.setImageResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.sync_reading_list_prompt_drawable), true);
-            onboardingView.setButton(R.string.reading_lists_sync_reminder_action,
+            onboardingView.setPositiveButton(R.string.reading_lists_sync_reminder_action,
                     view -> ReadingListSyncAdapter.setSyncEnabledWithSetup(), true);
+            onboardingView.setNegativeButton(R.string.reading_lists_ignore_button, view -> {
+                onboardingView.setVisibility(View.GONE);
+                Prefs.setReadingListSyncReminderEnabled(false);
+            }, false);
             onboardingView.setVisibility(View.VISIBLE);
         } else if (!AccountUtil.isLoggedIn() && Prefs.isReadingListLoginReminderEnabled()
                 && Prefs.getReadingListsVisitCount() < SHOW_ONBOARDING_VISIT_COUNT
@@ -763,14 +767,19 @@ public class ReadingListsFragment extends Fragment implements
             onboardingView.setMessageTitle(getString((R.string.reading_list_login_reminder_title)));
             onboardingView.setMessageText(getString(R.string.reading_lists_login_reminder_text));
             onboardingView.setImageResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.sync_reading_list_prompt_drawable), Prefs.getReadingListsVisitCount() == 0);
-            onboardingView.setButton(R.string.reading_lists_login_button,
+            onboardingView.setPositiveButton(R.string.reading_lists_login_button,
                     view -> {
                         if (getParentFragment() instanceof FeedFragment.Callback) {
                             ((FeedFragment.Callback) getParentFragment()).onLoginRequested();
                         }
                     }, true);
+
+            onboardingView.setNegativeButton(R.string.reading_lists_ignore_button, view -> {
+                onboardingView.setVisibility(View.GONE);
+                Prefs.setReadingListLoginReminderEnabled(false);
+                updateEmptyState(null);
+            }, false);
             onboardingView.setVisibility(View.VISIBLE);
-            Prefs.incrementReadingListsVisitCount();
         }
     }
 }
