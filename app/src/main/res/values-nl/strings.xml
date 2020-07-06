@@ -47,7 +47,8 @@
   <string name="search_hint_search_languages">Zoeken naar een taal</string>
   <string name="search_hint_search_my_lists_and_articles">Doorzoek mijn lijsten en artikelen</string>
   <string name="nav_item_history">Geschiedenis</string>
-  <string name="nav_item_suggested_edits">Voorgestelde bewerkingen</string>
+  <string name="nav_item_suggested_edits" fuzzy="true">Voorgestelde bewerkingen</string>
+  <string name="nav_item_more">Meer</string>
   <string name="error_network_error">Er is geen verbinding met het internet.</string>
   <string name="page_error_retry">Opnieuw proberen</string>
   <string name="card_offline_error_retry">Opnieuw proberen</string>
@@ -131,7 +132,7 @@
   <string name="reading_lists_sync_login">Aanmelden</string>
   <string name="create_account_login">Aanmelden</string>
   <string name="menu_login">Aanmelden</string>
-  <string name="login_activity_title" fuzzy="true">Aanmelden bij Wikipedia</string>
+  <string name="login_activity_title">Aanmelden</string>
   <string name="login_in_progress_dialog_message">Bezig met aanmelden…</string>
   <string name="login_success_toast">U bent aangemeld!</string>
   <string name="reset_password_title">Uw wachtwoord instellen</string>
@@ -668,7 +669,6 @@
   <string name="suggested_edits_no_description">Dit bestand heeft geen beschrijving</string>
   <string name="suggested_edits_license_notice">Bij toevoegen van de beschrijving gaat u akkoord met de &lt;a href=\"%1$s\"&gt;gebruiksvoorwaarden&lt;/a&gt; en het onherroepelijk vrijgeven van uw bijdragen onder de &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;-licentie.</string>
   <string name="suggested_edits_menu_info">Informatie</string>
-  <string name="suggested_edits_tasks_activity_title">Voorgestelde bewerkingen</string>
   <string name="suggested_edits_task_add_description_title">Artikelbeschrijvingen toevoegen</string>
   <string name="suggested_edits_task_add_description_description">Bijdragen aan artikels zonder beschrijvingen</string>
   <string name="suggested_edits_task_image_caption_title">Afbeeldingsbijschriften toevoegen</string>
@@ -724,7 +724,8 @@
   <string name="suggested_edits_image_tags_add_tag">Label toevoegen</string>
   <string name="suggested_edits_ip_blocked_message" fuzzy="true">Het lijkt erop dat uw IP-adres (of bereik van IP-adressen) momenteel geblokkeerd is van het bewerken van Wikipedia. U kunt meer te weten komen over wat dit betekent door de link hieronder te volgen.</string>
   <string name="suggested_edits_help_page_link_text">Hulppagina voorgestelde bewerkingen</string>
-  <string name="suggested_edits_views_label_text" fuzzy="true">Paginaweergaven</string>
+  <string name="suggested_edits_views_label_text">Weergaven</string>
+  <string name="suggested_edits_quality_label_text">Bewerkingskwaliteit</string>
   <string name="suggested_edits_quality_perfect_text">Perfect</string>
   <string name="suggested_edits_quality_excellent_text">Uitstekend</string>
   <string name="suggested_edits_quality_very_good_text">Erg goed</string>
@@ -742,13 +743,30 @@
     <item quantity="one">%d dag</item>
     <item quantity="other">%d dagen</item>
   </plurals>
+  <string name="suggested_edits_learn_more">Meer lezen</string>
+  <string name="suggested_edits_paused_title">Gepauzeerd</string>
+  <string name="suggested_edits_disabled_title">Uitgeschakeld</string>
   <string name="suggested_edits_last_edited">Laatste bewerking:</string>
   <string name="suggested_edits_last_edited_never">Nooit</string>
   <string name="suggested_edits_task_new">nieuw</string>
   <string name="suggested_edits_cc0_notice">Door te publiceren gaat u akkoord met de &lt;a href=\"%1$s\"&gt;gebruiksvoorwaarden&lt;/a&gt; en het onherroepelijk vrijgeven van deze bijdrage onder de &lt;a href=\"%2$s\"&gt;CC0 licentie&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Voorgestelde bewerkingen</string>
+  <string name="suggested_edits_contribution_language_label">Taal</string>
+  <string name="suggested_edits_contribution_image_label">Afbeelding</string>
+  <plurals name="suggested_edits_image_tag_contribution_label">
+    <item quantity="one">U heb %d label toegevoegd</item>
+    <item quantity="other">U hebt %d labels toegevoegd</item>
+  </plurals>
   <string name="suggested_edits_contribution_date_yesterday_text">Gisteren</string>
   <string name="suggested_edits_rewards_continue_button">Doorgaan</string>
+  <plurals name="suggested_edits_tags_diff_count_text">
+    <item quantity="one">%1$s label</item>
+    <item quantity="other">%1$s labels</item>
+  </plurals>
+  <plurals name="suggested_edits_contribution_diff_count_text">
+    <item quantity="one">%1$s teken</item>
+    <item quantity="other">%1$s tekens</item>
+  </plurals>
   <string name="file_page_activity_title">Bestandspagina</string>
   <string name="description_edit_revert_subtitle">Bedankt voor het bewerken van Wikipedia!</string>
   <string name="description_edit_revert_intro">Wij weten dat u uw best gedaan hebt, maar een van de beoordelaars zag een punt van zorg. Mogelijke redenen waarom uw bewerking is teruggedraaid, zijn:</string>
@@ -820,6 +838,7 @@
   <string name="edit_conflict_dialog_ok_button_text">OK</string>
   <string name="reverted_edit_dialog_ok_button_text">OK</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">Annuleren</string>
+  <string name="edit_type_all">Alle bijdragen</string>
   <string name="content_description_for_page_indicator">Pagina %1$d van %2$d</string>
   <string name="wikitext_bold">Vet</string>
   <string name="wikitext_italic">Cursief</string>
@@ -831,7 +850,8 @@
   <string name="wikitext_preview_link">Voorvertoning koppeling</string>
   <string name="main_drawer_help">Hulp</string>
   <string name="main_drawer_login">Log in / aanmelden bij Wikipedia</string>
-  <string name="main_tooltip_text" fuzzy="true">%s, wist u dat iedereen Wikipedia kan bewerken?</string>
+  <string name="main_tooltip_text">Hoi %s, wist u dat iedereen Wikipedia kan bewerken?</string>
+  <string name="main_tooltip_text_v2">Wist u dat iedereen Wikipedia kan bewerken?</string>
   <string name="main_tooltip_action_button">Aan de slag</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_ok_button_text">OK</string>

@@ -24,7 +24,7 @@
   <string name="search_hint_search_languages">Nê zıwani de cı geyre</string>
   <string name="search_hint_search_my_lists_and_articles">Meqaleyan û listanê mı cı geyre</string>
   <string name="nav_item_history">Tarix</string>
-  <string name="nav_item_suggested_edits">Vurnayışê wesıbnayey</string>
+  <string name="nav_item_suggested_edits" fuzzy="true">Vurnayışê wesıbnayey</string>
   <string name="error_network_error">Şıma nêvawyayê internet.</string>
   <string name="page_error_retry">Anciya bıcerrebne</string>
   <string name="card_offline_error_retry">Anciya bıcerrebne</string>
@@ -461,7 +461,6 @@
   <string name="suggested_edits_license_notice">Şınastey vurnayışiya\"&lt;a href=\"%1$s\"&gt;Şertanê karkerdışi &lt;/a&gt;\"u iştıraka peyser megêriya weziyet de lisansê &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; çapnayışi qebul kena.</string>
   <string name="suggested_edits_image_caption_license_notice">Bınnuştey resimi vurnayışiya \"&lt;a href=\"%1$s\"&gt;Şertanê karkerdışi&lt;/a&gt;\" u iştıraka peyser megêriya weziyet de lisansê &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; çapnayışi qebul kena.</string>
   <string name="suggested_edits_menu_info">Melumat</string>
-  <string name="suggested_edits_tasks_activity_title">Wesıbnaye vurnayışi</string>
   <string name="suggested_edits_task_add_description_title">Şınasnayışê meqaley cı kerê</string>
   <string name="suggested_edits_task_image_caption_title">Bınnuştey resimi cı kerê</string>
   <string name="suggested_edits_task_multilingual_negative">Seba mı nê</string>

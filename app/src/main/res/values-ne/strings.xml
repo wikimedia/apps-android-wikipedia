@@ -25,7 +25,7 @@
   <string name="search_hint_search_languages">कुनै भाषाको लागि खोजी गर्नुहोस्</string>
   <string name="search_hint_search_my_lists_and_articles">मेरा सूचीहरू र लेखहरू खोज्नुहोस्</string>
   <string name="nav_item_history">इतिहास</string>
-  <string name="nav_item_suggested_edits">सुझाइएका सम्पादनहरू</string>
+  <string name="nav_item_suggested_edits" fuzzy="true">सुझाइएका सम्पादनहरू</string>
   <string name="nav_item_more">थप</string>
   <string name="error_network_error">इन्टरनेटमा जडान हुन सकेन।</string>
   <string name="page_error_retry">पुनः प्रयास गर्नुहोस्</string>
@@ -486,7 +486,6 @@
   <string name="suggested_edits_edit_translation_button">अनुवाद सम्पादन गर्नुहाेस्</string>
   <string name="suggested_edits_my_contributions">मेरा योगदानहरू</string>
   <string name="suggested_edits_menu_info">जानकारी</string>
-  <string name="suggested_edits_tasks_activity_title">सुझाइएका सम्पादनहरू</string>
   <string name="suggested_edits_task_add_description_title">शीर्षकमा विवरण थप्नुहोस्</string>
   <string name="suggested_edits_task_multilingual_positive">भाषाहरू थप गर्नुहोस्</string>
   <string name="suggested_edits_image_caption_summary_title_file">फाइल</string>

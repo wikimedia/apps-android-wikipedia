@@ -47,7 +47,7 @@
   <string name="search_hint_search_languages">Procurar um idioma</string>
   <string name="search_hint_search_my_lists_and_articles">Pesquisar minhas listas e artigos</string>
   <string name="nav_item_history">Histórico</string>
-  <string name="nav_item_suggested_edits">Edições sugeridas</string>
+  <string name="nav_item_suggested_edits" fuzzy="true">Edições sugeridas</string>
   <string name="nav_item_more">Mais</string>
   <string name="error_network_error">Não foi possível conectar-se à Internet.</string>
   <string name="page_error_retry">Atualizar</string>
@@ -678,7 +678,6 @@
   <string name="suggested_edits_license_notice">Adicionando a descrição, eu concordo com o &lt;a href=\"%1$s\"&gt;Termos de uso&lt;/a&gt; e liberar irrevogavelmente minhas contribuições sob a licença &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_image_caption_license_notice">Ao adicionar a legenda da imagem, concordo com as &lt;a href=\"%1$s\"&gt;termo de uso&lt;/a&gt; e em publicar irrevogavelmente as minhas contribuições ao abrigo da licença &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Informação</string>
-  <string name="suggested_edits_tasks_activity_title">Edições sugeridas</string>
   <string name="suggested_edits_task_add_description_title">Adicionar descrições de artigos</string>
   <string name="suggested_edits_task_add_description_description">Contribuir para artigos sem descrições</string>
   <string name="suggested_edits_task_image_caption_title">Adicionar legendas a imagens</string>
@@ -743,7 +742,7 @@
   <string name="suggested_edits_image_tags_add_tag">Adicionar marcação</string>
   <string name="suggested_edits_image_zoom_tooltip">Aperte para ampliar esta imagem.</string>
   <string name="suggested_edits_encouragement_message">%s, obrigado por suas edições. Abaixo, você encontra mais maneiras de contribuir com a Wikipédia.</string>
-  <string name="suggested_edits_onboarding_message" fuzzy="true">&lt;/b&gt;Olá %s&lt;/b&gt;, você sabia que todos podem editar a Wikipédia? Abaixo, você encontrará maneiras divertidas de ajudar a melhorar a Wikipedia. Edição feliz!</string>
+  <string name="suggested_edits_onboarding_message">&lt;/b&gt;Olá %s&lt;/b&gt;, abaixo, você pode encontrar maneiras rápidas e fáceis de ajudar a melhorar a Wikipédia. Você verá a diferença que está fazendo assim que começa. Edição feliz!</string>
   <string name="suggested_edits_image_captions_task_detail">Descreva uma imagem para ajudar os leitores a entender seu significado e contexto.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Resuma um artigo para ajudar os leitores a entender rapidamente o assunto.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Seu número total de contribuições com edições sugeridas.</string>
@@ -756,7 +755,7 @@
   <string name="suggested_edits_editing_tips_link_text">Dicas e truques de edição</string>
   <string name="suggested_edits_help_page_link_text">Página de ajuda das edições sugeridas</string>
   <string name="suggested_edits_edit_streak_label_text">Editar sequência</string>
-  <string name="suggested_edits_views_label_text" fuzzy="true">Visualizações de página</string>
+  <string name="suggested_edits_views_label_text">Visualizações</string>
   <string name="suggested_edits_quality_label_text">Editar qualidade</string>
   <string name="suggested_edits_quality_perfect_text">Perfeito</string>
   <string name="suggested_edits_quality_excellent_text">Excelente</string>
@@ -792,7 +791,7 @@
   <string name="suggested_edits_contribution_language_label">Idioma</string>
   <string name="suggested_edits_contribution_date_time_label">Data / Horário</string>
   <string name="suggested_edits_contribution_type_label">Tipo de contribuição</string>
-  <string name="suggested_edits_contribution_image_label" fuzzy="true">Arquivo</string>
+  <string name="suggested_edits_contribution_image_label">Imagem</string>
   <string name="suggested_edits_contribution_article_label">Artigo</string>
   <string name="suggested_edits_contribution_views">%s visualizações</string>
   <string name="suggested_edits_contribution_seen_text">Visto %s vezes nos últimos 30 dias.</string>
@@ -811,7 +810,7 @@
   <string name="suggested_edits_encourage_account_creation_message">As edições sugeridas são uma nova maneira de editar a Wikipédia no Android. Ajuda você a fazer contribuições pequenas, mas vitais, para a Wikipédia.\nNosso objetivo é tornar a edição mais fácil e mais acessível para todos! Entre ou participe da Wikipédia para começar.</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Entrar / Juntar na Wikipédia</string>
   <string name="suggested_edits_contribution_type_image_tag">Marcação de imagem</string>
-  <string name="suggested_edits_contribution_current_revision_text" fuzzy="true">Revisão atual</string>
+  <string name="suggested_edits_contribution_current_revision_text">Sua edição está atualmente ao vivo na Wikipédia</string>
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="one">%1$s marcação</item>
     <item quantity="other">%1$s marcações</item>

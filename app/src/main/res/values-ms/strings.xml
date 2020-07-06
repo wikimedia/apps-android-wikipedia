@@ -27,7 +27,7 @@
   <string name="search_hint_search_languages">Cari bahasa</string>
   <string name="search_hint_search_my_lists_and_articles">Cari senarai dan rencana saya</string>
   <string name="nav_item_history">Sejarah</string>
-  <string name="nav_item_suggested_edits">Penyuntingan yang disarankan</string>
+  <string name="nav_item_suggested_edits" fuzzy="true">Penyuntingan yang disarankan</string>
   <string name="error_network_error">Tidak dapat bersambung dengan Internet.</string>
   <string name="page_error_retry">Cuba lagi</string>
   <string name="card_offline_error_retry">Cuba lagi</string>
@@ -634,7 +634,6 @@
   <string name="suggested_edits_add_description_button">Tambah penerangan</string>
   <string name="suggested_edits_my_contributions">Sumbangan saya</string>
   <string name="suggested_edits_menu_info">Maklumat</string>
-  <string name="suggested_edits_tasks_activity_title" fuzzy="true">Tugas editor aplikasi</string>
   <string name="suggested_edits_task_add_description_title" fuzzy="true">Tambah penerangan tajuk</string>
   <string name="suggested_edits_task_add_description_description">Sumbangan kepada rencana tanpa penerangan tajuk</string>
   <string name="suggested_edits_task_image_caption_title" fuzzy="true">Keterangan imej</string>

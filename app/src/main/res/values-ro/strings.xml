@@ -31,7 +31,7 @@
   <string name="search_hint_search_languages">Caută o limbă</string>
   <string name="search_hint_search_my_lists_and_articles">Căutați listele și articolele mele</string>
   <string name="nav_item_history">Istoric</string>
-  <string name="nav_item_suggested_edits">Modificări sugerate</string>
+  <string name="nav_item_suggested_edits" fuzzy="true">Modificări sugerate</string>
   <string name="error_network_error">Imposibil de conectat la internet.</string>
   <string name="page_error_retry">Reîncercare</string>
   <string name="card_offline_error_retry">Reîncercare</string>
@@ -668,7 +668,6 @@
   <string name="suggested_edits_license_notice">Prin adăugarea descrierii, sunt de acord cu &lt;a href=\"%1$s\"&gt;Termenii de utilizare&lt;/a&gt; și îmi eliberez irevocabil contribuțiile în cadrul licenței &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_image_caption_license_notice">Prin adăugarea legendei de imagine, sunt de acord cu &lt;a href=\"%1$s\"&gt;Termenii de utilizare&lt;/a&gt; și îmi eliberez irevocabil contribuțiile în conformitate cu licența &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Info</string>
-  <string name="suggested_edits_tasks_activity_title">Modificări sugerate</string>
   <string name="suggested_edits_task_add_description_title">Adăugați descrieri de articole</string>
   <string name="suggested_edits_task_add_description_description">Contribuie la articole fără descrieri</string>
   <string name="suggested_edits_task_image_caption_title">Adaugă descriere la imagini</string>

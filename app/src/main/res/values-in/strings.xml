@@ -40,7 +40,7 @@
   <string name="search_hint_search_languages">Cari bahasa</string>
   <string name="search_hint_search_my_lists_and_articles">Cari daftar dan artikel saya</string>
   <string name="nav_item_history">Riwayat</string>
-  <string name="nav_item_suggested_edits">Penyuntingan yang disarankan</string>
+  <string name="nav_item_suggested_edits" fuzzy="true">Penyuntingan yang disarankan</string>
   <string name="nav_item_more">Selebihnya</string>
   <string name="error_network_error">Tidak dapat terhubung ke internet</string>
   <string name="page_error_retry">Coba lagi</string>
@@ -668,7 +668,6 @@
   <string name="suggested_edits_license_notice">Dengan menambah deskripsi, saya setuju terhadap &lt;a href=\"%1$s\"&gt;Ketentuan Penggunaan&lt;/a&gt; dan melepas kontribusi saya di bawah lisensi &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_image_caption_license_notice">Dengan menambah takarir gambar, saya setuju terhadap &lt;a href=\"%1$s\"&gt;Ketentuan Penggunaan&lt;/a&gt; dan melepas kontribusi saya di bawah lisensi &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Info</string>
-  <string name="suggested_edits_tasks_activity_title">Penyuntingan yang disarankan</string>
   <string name="suggested_edits_task_add_description_title">Tambahkan deskripsi artikel</string>
   <string name="suggested_edits_task_add_description_description">Menyumbang ke artikel tanpa deskripsi judul</string>
   <string name="suggested_edits_task_image_caption_title">Tambahkan takarir gambar</string>

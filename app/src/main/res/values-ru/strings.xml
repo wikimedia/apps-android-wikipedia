@@ -26,6 +26,7 @@
 * Katunchik
 * Mailman
 * MaxBioHazard
+* Monirec
 * Mouse21
 * Movses
 * Nitch
@@ -68,7 +69,7 @@
   <string name="search_hint_search_languages">Поиск языка</string>
   <string name="search_hint_search_my_lists_and_articles">Поиск в списках для чтения</string>
   <string name="nav_item_history">История</string>
-  <string name="nav_item_suggested_edits">Предложенные правки</string>
+  <string name="nav_item_suggested_edits" fuzzy="true">Предложенные правки</string>
   <string name="nav_item_more">Ещё</string>
   <string name="error_network_error">Не удаётся подключиться к интернету.</string>
   <string name="page_error_retry">Повторить</string>
@@ -696,7 +697,6 @@
   <string name="suggested_edits_license_notice">Добавляя краткое описание, вы соглашаетесь с &lt;a href=\"%1$s\"&gt;Условиями использования&lt;/a&gt;, а также соглашаетесь на безотзывную публикацию по лицензии &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_image_caption_license_notice">Добавляя описание изображения, я соглашаюсь с &lt;a href=\"%1$s\"&gt;Условиями использования&lt;/a&gt;, а также соглашаюсь на безотзывную публикацию моего вклада по лицензии &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Информация</string>
-  <string name="suggested_edits_tasks_activity_title">Предложение отредактировать</string>
   <string name="suggested_edits_task_add_description_title">Добавление описания статей</string>
   <string name="suggested_edits_task_add_description_description">Поучаствовать в добавлении кратких описаний</string>
   <string name="suggested_edits_task_image_caption_title">Добавление описания изображений</string>
@@ -799,7 +799,7 @@
   <string name="suggested_edits_contribution_language_label">Язык</string>
   <string name="suggested_edits_contribution_date_time_label">Дата/время</string>
   <string name="suggested_edits_contribution_type_label">Тип вклада</string>
-  <string name="suggested_edits_contribution_image_label" fuzzy="true">Файл</string>
+  <string name="suggested_edits_contribution_image_label">Изображение</string>
   <string name="suggested_edits_contribution_article_label">Статьи</string>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Вчера</string>

@@ -33,7 +33,7 @@
   <string name="search_hint_search_languages">Пошук мови</string>
   <string name="search_hint_search_my_lists_and_articles">Пошук у читальних списках</string>
   <string name="nav_item_history">Історія</string>
-  <string name="nav_item_suggested_edits">Пропоновані редагування</string>
+  <string name="nav_item_suggested_edits" fuzzy="true">Пропоновані редагування</string>
   <string name="error_network_error">Не вдається підключитися до інтернету.</string>
   <string name="page_error_retry">Повторити</string>
   <string name="card_offline_error_retry">Повторити</string>
@@ -674,7 +674,6 @@
   <string name="suggested_edits_license_notice">Додаючи описи, я погоджуюсь з &lt;a href=\"%1$s\"&gt;Умовами використання&lt;/a&gt; та на невідкличну публікацію моїх редагувань за умовами ліцензії &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_image_caption_license_notice">Додаючи підписи зображень, я погоджуюсь з &lt;a href=\"%1$s\"&gt;Умовами використання&lt;/a&gt; та на невідкличну публікацію моїх редагувань за умовами ліцензії &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Інфо</string>
-  <string name="suggested_edits_tasks_activity_title">Пропоновані редагування</string>
   <string name="suggested_edits_task_add_description_title">Додавання описів статей</string>
   <string name="suggested_edits_task_add_description_description">Додати інформацію до статей без описів</string>
   <string name="suggested_edits_task_image_caption_title">Додавання підписів зображень</string>

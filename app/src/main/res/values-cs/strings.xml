@@ -37,7 +37,7 @@
   <string name="search_hint_search_languages">Hledat jazyk</string>
   <string name="search_hint_search_my_lists_and_articles">Vyhledávat v mých seznamech a článcích</string>
   <string name="nav_item_history">Historie</string>
-  <string name="nav_item_suggested_edits">Navrhování editací</string>
+  <string name="nav_item_suggested_edits" fuzzy="true">Navrhování editací</string>
   <string name="nav_item_more">Více</string>
   <string name="error_network_error">Nejste připojeni k internetu.</string>
   <string name="page_error_retry">Znovu</string>
@@ -670,7 +670,6 @@
   <string name="suggested_edits_license_notice">Přidáním popisu souhlasím s &lt;a href=\"%1$s\"&gt;Podmínkami užití&lt;/a&gt; a neodvolatelně souhlasím s podmínkami licence &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_image_caption_license_notice">Přidáním titulku obrázku souhlasím s &lt;a href=\"%1$s\"&gt;Podmínkami užití&lt;/a&gt; a neodvolatelně souhlasím s podmínkami licence &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Informace</string>
-  <string name="suggested_edits_tasks_activity_title">Navrhování editací</string>
   <string name="suggested_edits_task_add_description_title">Přidat popisy článků</string>
   <string name="suggested_edits_task_add_description_description">Přispět článkům bez popisu</string>
   <string name="suggested_edits_task_image_caption_title">Přidat titulky obrázků</string>

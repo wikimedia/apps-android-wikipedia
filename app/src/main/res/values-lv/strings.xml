@@ -18,7 +18,7 @@
   <string name="search_hint_search_history">Meklēšanas vēsture</string>
   <string name="search_hint_search_languages">Meklēt valodu</string>
   <string name="nav_item_history">Vēsture</string>
-  <string name="nav_item_suggested_edits">Ieteiktie labojumi</string>
+  <string name="nav_item_suggested_edits" fuzzy="true">Ieteiktie labojumi</string>
   <string name="error_network_error">Nevar izveidot savienojumu ar Internetu.</string>
   <string name="page_error_retry">Mēģināt vēlreiz</string>
   <string name="card_offline_error_retry">Mēģināt vēlreiz</string>

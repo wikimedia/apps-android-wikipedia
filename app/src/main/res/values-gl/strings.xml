@@ -28,7 +28,7 @@
   <string name="search_hint_search_languages">Procurar unha lingua</string>
   <string name="search_hint_search_my_lists_and_articles">Procurar as miñas listas e artigos</string>
   <string name="nav_item_history">Historial</string>
-  <string name="nav_item_suggested_edits">Edicións suxeridas</string>
+  <string name="nav_item_suggested_edits" fuzzy="true">Edicións suxeridas</string>
   <string name="error_network_error">Non se puido conectar a Internet.</string>
   <string name="page_error_retry">Reintentar</string>
   <string name="card_offline_error_retry">Reintentar</string>
@@ -638,7 +638,6 @@
   <string name="suggested_edits_license_notice">Ó cambiar a descrición, acepto os &lt;a href=\"%1$s\"&gt;Termos de uso&lt;/a&gt; e liberar irrevocablemente as miñas contribucións baixo os termos da licenza &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_image_caption_license_notice">Ó engadir a lenda da imaxe, concordo cos &lt;a href=\"%1$s\"&gt;Termos de uso&lt;/a&gt; e liberar irrevocablemente as miñas contribucións baixo os termos da licenza &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Información</string>
-  <string name="suggested_edits_tasks_activity_title">Edicións suxeridas</string>
   <string name="suggested_edits_task_add_description_title">Engadir descricións de artigos</string>
   <string name="suggested_edits_task_add_description_description">Contribuír ós artigos sen descricións</string>
   <string name="suggested_edits_task_image_caption_title">Engadir lendas ás imaxes</string>

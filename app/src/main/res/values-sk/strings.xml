@@ -31,7 +31,7 @@
   <string name="search_hint_search_languages">Hľadať jazyk</string>
   <string name="search_hint_search_my_lists_and_articles">Vyhľadávať v mojich zoznamoch a článkoch</string>
   <string name="nav_item_history">História</string>
-  <string name="nav_item_suggested_edits">Navrhované úpravy</string>
+  <string name="nav_item_suggested_edits" fuzzy="true">Navrhované úpravy</string>
   <string name="error_network_error">Nie ste pripojení na internet.</string>
   <string name="page_error_retry">Zopakovať</string>
   <string name="card_offline_error_retry">Zopakovať</string>
@@ -657,7 +657,6 @@
   <string name="suggested_edits_license_notice">Pridaním popisu súhlasím s &lt;a href=\"%1$s\"&gt;Podmienkami používania&lt;/a&gt; a neodvolateľne súhlasím s podmienkami licencie &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_image_caption_license_notice">Pridaním titulku obrázku súhlasím s &lt;a href=\"%1$s\"&gt;Podmienkami používania&lt;/a&gt; a neodvolateľne súhlasím s podmienkami licencie &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Informácie</string>
-  <string name="suggested_edits_tasks_activity_title">Navrhované úpravy</string>
   <string name="suggested_edits_task_add_description_title">Pridať popis článku</string>
   <string name="suggested_edits_task_add_description_description">Prispieť článkom bez popisu</string>
   <string name="suggested_edits_task_image_caption_title">Pridať titulky obrázkov</string>

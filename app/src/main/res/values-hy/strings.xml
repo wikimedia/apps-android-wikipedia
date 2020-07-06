@@ -21,7 +21,7 @@
   <string name="search_hint_search_languages">Լեզվի որոնում</string>
   <string name="search_hint_search_my_lists_and_articles">Որոնել իմ ցանկերում և հոդվածներում</string>
   <string name="nav_item_history">Պատմություն</string>
-  <string name="nav_item_suggested_edits">Առաջարկվող խմբագրումներ</string>
+  <string name="nav_item_suggested_edits" fuzzy="true">Առաջարկվող խմբագրումներ</string>
   <string name="error_network_error">Չի հաջողվում միանալ համացանցին</string>
   <string name="page_error_retry">Կրկին փորձել</string>
   <string name="card_offline_error_retry">Կրկին փորձել</string>

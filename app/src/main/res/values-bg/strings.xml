@@ -24,7 +24,7 @@
   <string name="search_hint_search_languages">Търсене на език</string>
   <string name="search_hint_search_my_lists_and_articles">Търсене в моите списъци и статии</string>
   <string name="nav_item_history">История</string>
-  <string name="nav_item_suggested_edits">Предложени редакции</string>
+  <string name="nav_item_suggested_edits" fuzzy="true">Предложени редакции</string>
   <string name="error_network_error">Няма връзка с интернет.</string>
   <string name="page_error_retry">Опитайте отново</string>
   <string name="card_offline_error_retry">Повторен опит</string>
@@ -638,7 +638,6 @@
   <string name="suggested_edits_my_contributions">Моите приноси</string>
   <string name="suggested_edits_no_description">Този файл няма описание</string>
   <string name="suggested_edits_menu_info">Информация</string>
-  <string name="suggested_edits_tasks_activity_title">Предложение за редактиране</string>
   <string name="suggested_edits_task_add_description_title">Добавяне описания на статии</string>
   <string name="suggested_edits_task_add_description_description">Допринесете към статии без описания</string>
   <string name="suggested_edits_task_image_caption_title">Добавяне описания на изображения</string>

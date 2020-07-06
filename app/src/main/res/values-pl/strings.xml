@@ -23,6 +23,7 @@
 * Rainbow P
 * Rzuwig
 * Stojex
+* Strebski
 * Tar Lócesilion
 * The Polish
 * Thoji
@@ -48,7 +49,7 @@
   <string name="search_hint_search_languages">Szukaj języka</string>
   <string name="search_hint_search_my_lists_and_articles">Przeszukaj moje listy i artykuły</string>
   <string name="nav_item_history">Historia</string>
-  <string name="nav_item_suggested_edits">Sugerowane edycje</string>
+  <string name="nav_item_suggested_edits" fuzzy="true">Sugerowane edycje</string>
   <string name="nav_item_more">Więcej</string>
   <string name="error_network_error">Nie można połączyć z internetem.</string>
   <string name="page_error_retry">Ponów próbę</string>
@@ -221,8 +222,10 @@
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.pl</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.pl</string>
   <string name="android_app_edit_help_url">https://www.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Użyte biblioteki</string>
   <string name="about_contributors_heading">Autorzy</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Strona zespołu&lt;/a&gt;</string>
   <string name="about_translators_heading">Tłumacze</string>
   <string name="about_translators_translatewiki">Ta aplikacja została przetłumaczona przez tłumaczy wolontariuszy korzystających z &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licencja</string>
@@ -389,6 +392,8 @@
   <string name="reading_list_title_exists">Lista \"%s\" już istnieje.</string>
   <string name="reading_list_article_added_to_named">Dodano %1$s do %2$s.</string>
   <string name="reading_list_article_moved_to_named">Przeniesiono  %1$s do %2$s.</string>
+  <string name="reading_list_article_already_exists_message">Wszystko dobrze! %1$s zawiera teraz %2$s.</string>
+  <string name="reading_list_articles_already_exist_message">Wszystko dobrze! %s zawiera teraz wszystkie artykuły.</string>
   <string name="reading_list_added_view_button">Zobacz listę</string>
   <string name="format_reading_list_statistical_summary_singular">1 artykuł, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d artykułów, %2$.2f MB</string>
@@ -447,6 +452,7 @@
   <string name="reading_lists_confirm_remote_delete_no">Nie</string>
   <string name="reading_list_article_save_in_progress">Artykuł jest w trakcie pobierania i będzie dostępny w trybie offline, gdy pobieranie się zakończy.</string>
   <string name="reading_list_articles_added_to_named">Dodano %1$d artykułów do %2$s</string>
+  <string name="reading_list_articles_moved_to_named">Przeniesiono %1$d artykułow do %2$s</string>
   <string name="reading_list_delete_confirm">Czy na pewno chcesz usunąć „%s”?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Zaloguj się, aby włączyć synchronizację</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Zaloguj się, aby umożliwić zapisywanie list na swoim koncie.</string>
@@ -643,6 +649,7 @@
   <string name="description_edit_success_saved_in_lang_snackbar">Opis artykułu opublikowany! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Podpis pod zdjęciem opublikowany!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Podpis pod zdjęciem opublikowany! (%s)</string>
+  <string name="description_edit_success_saved_image_tags_snackbar">Opublikowano znacznik(i) obrazu!</string>
   <string name="description_edit_success_encouragement">Właśnie sprawiłeś, że Wikipedia jest lepsza dla wszystkich</string>
   <string name="description_edit_success_done">Gotowe</string>
   <string name="description_edit_success_did_you_know">Czy wiesz, że?</string>
@@ -657,6 +664,7 @@
   <string name="suggested_edits_translate_descriptions">Przetłumacz opisy artykułów</string>
   <string name="suggested_edits_add_image_captions">Dodaj podpisy obrazu</string>
   <string name="suggested_edits_translate_image_captions">Przetłumacz podpisy do obrazu</string>
+  <string name="suggested_edits_tag_images">Dodaj znaczniki do obrazów</string>
   <string name="suggested_edits_review_description">Sprawdź opis artykułu</string>
   <string name="suggested_edits_add_description_button">Dodaj opis</string>
   <string name="suggested_edits_edit_description_button">Edytuj opis</string>
@@ -670,7 +678,6 @@
   <string name="suggested_edits_license_notice">Dodając opis, wyrażam zgodę na &lt;a href=\"%1$s\"&gt; Warunki korzystania &lt;/a&gt; i nieodwołalnie udostępniam moje artykuły na podstawie licencji &lt;a href=\"%2$s\"&gt; Creative Commons CC0 &lt;/a&gt;.</string>
   <string name="suggested_edits_image_caption_license_notice">Dodając opis obrazu, wyrażam zgodę na &lt;a href=\"%1$s\"&gt; Warunki korzystania &lt;/a&gt; i nieodwołalnie udostępniam moje artykuły na podstawie licencji &lt;a href=\"%2$s\"&gt; Creative Commons CC0 &lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Informacje</string>
-  <string name="suggested_edits_tasks_activity_title">Sugerowane edycje</string>
   <string name="suggested_edits_task_add_description_title">Dodaj opisy artykułów</string>
   <string name="suggested_edits_task_add_description_description">Wkład w artykuły bez opisów</string>
   <string name="suggested_edits_task_image_caption_title">Dodaj podpisy obrazu</string>
@@ -689,9 +696,11 @@
   <string name="suggested_edits_image_caption_summary_title_source">Źródło</string>
   <string name="suggested_edits_image_caption_summary_title_license">Licencja</string>
   <string name="suggested_edits_image_caption_summary_title_date">Data</string>
-  <plurals name="suggested_edits_contribution_count" fuzzy="true">
+  <plurals name="suggested_edits_contribution_count">
     <item quantity="one">1 wkład</item>
-    <item quantity="other">%d wkładów</item>
+    <item quantity="few">%d wkłady</item>
+    <item quantity="many">%d wkładów</item>
+    <item quantity="other"/>
   </plurals>
   <string name="suggested_edits_feed_card_title">Sugerowane edycje</string>
   <string name="suggested_edits_feed_card_add_description_button">Dodaj opis artykułu</string>
@@ -701,32 +710,61 @@
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Podpis obrazka (%s)</string>
   <string name="suggested_edits_image_preview_dialog_file">Plik</string>
   <string name="suggested_edits_image_preview_dialog_artist">Artysta</string>
+  <string name="suggested_edits_image_preview_dialog_tags">Znaczniki</string>
   <string name="suggested_edits_image_preview_dialog_date">Data</string>
   <string name="suggested_edits_image_preview_dialog_source">Źródło/Fotograf</string>
   <string name="suggested_edits_image_preview_dialog_licensing">Licencja</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Więcej informacji</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Strona pliku na Wikimedia Commons</string>
+  <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">Strona pliku na Wikipedii</string>
   <string name="suggested_edits_article_cta_image_caption">Dodaj podpis obrazu</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Dodaj podpis obrazu (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Zobacz</string>
   <string name="suggested_edits_feed_card_add_image_caption">Dodaj podpis obrazu</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Dodaj podpis obrazu (%s)</string>
+  <string name="suggested_edits_feed_card_add_image_tags">Dodaj znaczniki do obrazu</string>
   <string name="suggested_edits_snackbar_survey_text">Jak oceniasz swoje doświadczenie związane z edytowaniem? Poświęć chwilę aby wypełnić tę ankietę na temat edytowania w aplikacji.</string>
   <string name="suggested_edits_snackbar_survey_action_text">Wypełnij ankietę</string>
   <string name="suggested_edits_task_action_text_add">Dodaj</string>
   <string name="suggested_edits_task_action_text_translate">Tłumacz</string>
+  <string name="suggested_edits_image_captions">Podpisy obrazów</string>
+  <string name="suggested_edits_image_tags">Znaczniki obrazu</string>
+  <string name="suggested_edits_image_tags_publishing">Publikowanie</string>
+  <string name="suggested_edits_image_tags_published">Opublikowano</string>
+  <string name="suggested_edits_image_tags_onboarding_title">Obrazy z nadanymi znacznikami są łatwiejsze do odnalezienia.</string>
+  <string name="suggested_edits_image_tags_choose">Dodaj lub wybierz pasujące znaczniki</string>
+  <string name="suggested_edits_image_tags_published_list">Opublikowane znaczniki</string>
+  <string name="suggested_edits_image_tags_search">Wyszukaj znaczniki</string>
+  <string name="suggested_edits_image_tags_select_title">Nie wybrano żadnego znacznika dla tego obrazu</string>
+  <string name="suggested_edits_image_tags_add_tag">Dodaj znacznik</string>
   <string name="suggested_edits_encouragement_message">%s, dziękujemy za twoje edycje. Poniżej możesz znaleźć więcej sposobów aby rozwijać Wikipedię.</string>
   <string name="suggested_edits_image_captions_task_detail" fuzzy="true">Opisy obrazów pomagają czytelnikom w zrozumieniu ich znaczenia i kontekstu.</string>
   <string name="suggested_edits_add_descriptions_task_detail" fuzzy="true">Opisy tytułów podsumowują artykuł, aby pomóc czytelnikom w zrozumieniu tematu na pierwszy rzut oka.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip" fuzzy="true">W oparciu o ilość wycofanych edycji twojego autorstwa. Wycofane edycje: %d.</string>
   <string name="suggested_edits_ip_blocked_message" fuzzy="true">Adres IP, którego używasz jest aktualnie zablokowany i nie możesz z niego wykonywać edycji na Wikipedii. Dowiedz się więcej o blokadach wchodząc w link poniżej.</string>
+  <string name="suggested_edits_quality_label_text">Edycja jakości</string>
+  <string name="suggested_edits_quality_perfect_text">Idealna</string>
+  <string name="suggested_edits_quality_excellent_text">Wyśmienita</string>
+  <string name="suggested_edits_quality_very_good_text">Bardzo dobra</string>
+  <string name="suggested_edits_quality_good_text">Dobra</string>
+  <string name="suggested_edits_quality_okay_text">W porządku</string>
+  <string name="suggested_edits_quality_sufficient_text">Wystarczająca</string>
+  <string name="suggested_edits_quality_poor_text">Słaba</string>
+  <string name="suggested_edits_quality_bad_text">Zła</string>
+  <string name="suggested_edits_what_is_title">Czym są sugerowane edycje?</string>
+  <string name="suggested_edits_learn_more">Dowiedz się więcej</string>
+  <string name="suggested_edits_paused_title">Wstrzymane</string>
+  <string name="suggested_edits_disabled_title">Wyłączone</string>
+  <string name="suggested_edits_ip_blocked_title">Adres IP zablokowany</string>
   <string name="suggested_edits_last_edited">Ostatnia edycja</string>
   <string name="suggested_edits_last_edited_never">Nigdy</string>
+  <string name="suggested_edits_task_new">nowe</string>
   <string name="suggested_edits_reactivation_notification_title">Sugerowane edycje</string>
+  <string name="suggested_edits_contributions_screen_title">%s wsparć</string>
   <string name="suggested_edits_contribution_language_label">Język</string>
   <string name="suggested_edits_contribution_date_time_label">Data / Czas</string>
   <string name="suggested_edits_contribution_type_label">Typ kontrybucji</string>
-  <string name="suggested_edits_contribution_image_label" fuzzy="true">Plik</string>
+  <string name="suggested_edits_contribution_image_label">Obraz</string>
   <string name="suggested_edits_contribution_article_label">Artykuł</string>
   <string name="suggested_edits_contribution_views">%s wyświetleń</string>
   <string name="suggested_edits_contribution_seen_text">Widziany %s razy w ciągu ostatnich 30 dni.</string>
@@ -736,6 +774,8 @@
   <string name="suggested_edits_rewards_pageviews">Zmiany zostały obejrzane przez %d osób w ciągu ostatnich 30 dni. Dzięki i kontynuuj!</string>
   <string name="suggested_edits_rewards_edit_quality">Dotychczasowe modyfikacje to %s. Tak trzymaj! Czekamy na Twój wkład.</string>
   <string name="suggested_edits_rewards_continue_button">Kontynuuj</string>
+  <string name="suggested_edits_encourage_account_creation_login_button">Zaloguj się / Dołącz do Wikipedii</string>
+  <string name="suggested_edits_contribution_type_image_tag">Znacznik obrazu</string>
   <string name="suggested_edits_added_contribution_label" fuzzy="true">Dodałeś/aś %d znaków</string>
   <string name="file_page_activity_title">Strona pliku</string>
   <string name="description_edit_revert_subtitle">Dziękujemy za edytowanie Wikipedii!</string>

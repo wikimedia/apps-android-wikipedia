@@ -26,7 +26,8 @@
   <string name="search_hint_search_languages">گەڕان بەدوای زمانێکدا</string>
   <string name="search_hint_search_my_lists_and_articles">گەڕان لەنێو وتار و پێڕستەکانم</string>
   <string name="nav_item_history">مێژوو</string>
-  <string name="nav_item_suggested_edits">دەستکاری پێشنیارکراوەکان</string>
+  <string name="nav_item_suggested_edits" fuzzy="true">دەستکاری پێشنیارکراوەکان</string>
+  <string name="nav_item_more">زیاتر</string>
   <string name="error_network_error">ناتوانرێت ئینتەرنێت بھێندرێت.</string>
   <string name="page_error_retry">ھەوڵداناوە</string>
   <string name="card_offline_error_retry">ھەوڵداناوە</string>
@@ -110,7 +111,7 @@
   <string name="reading_lists_sync_login">بچۆ ژوورەوە</string>
   <string name="create_account_login">بچۆ ژوورەوە</string>
   <string name="menu_login">بچۆ ژوورەوە</string>
-  <string name="login_activity_title" fuzzy="true">چوونە ژوورەوە بۆ ویکیپیدیا</string>
+  <string name="login_activity_title">بچۆ ژوورەوە</string>
   <string name="login_in_progress_dialog_message">چوونە ژوورەوە...</string>
   <string name="login_success_toast">بەسەرکەوتوویی چووە ژوورەوە!</string>
   <string name="reset_password_title">تێپەڕوشەکەت بنووسە</string>
@@ -184,11 +185,11 @@
   <string name="about_description">دەربارەی نەرمەواڵەی ویکیپیدیا</string>
   <string name="privacy_policy_description">سیاسەتی تایبەتێتی</string>
   <string name="terms_of_use_description">مەرجەکانی بەکارھێنان</string>
-  <string name="about_wikipedia_url" fuzzy="true">https://ckb.m.wikipedia.org/wiki/ویکیپیدیا:سەبارەت</string>
-  <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/سیاسەتی تایبەتێتی</string>
+  <string name="about_wikipedia_url">https://ckb.wikipedia.org/wiki/ویکیپیدیا:سەبارەت</string>
+  <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/سیاسەتی تایبەتێتی</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
-  <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
+  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
@@ -263,7 +264,7 @@
   <string name="gallery_menu_share">هاوبەشکردن</string>
   <string name="gallery_share_error">نەتوانرا وێنە ھاوبەش بکرێت: %s</string>
   <string name="gallery_save_progress">داگرتنی پەڕگە...</string>
-  <string name="gallery_save_success" fuzzy="true">پەڕگەکە سەرکەوتووانە پاشەکەوت کرا.</string>
+  <string name="gallery_save_success">پەڕگەکە پاشەکەوت کرا.</string>
   <string name="gallery_error_video_failed">نەتوانرا ڤیدیۆکە بخوێنێتەوە.</string>
   <string name="gallery_save_image_write_permission_rationale">پێویستە ڕێگە بە نەرمەواڵەکە بدەیت بۆ وەرگرتنی زانیارییەکانی خەزێنەکەت بۆ پاشەکەوتکردنی وێنەکان.</string>
   <string name="gallery_add_image_caption_button">زیادکردنی شرۆڤەی وێنە</string>
@@ -563,7 +564,6 @@
   <string name="suggested_edits_my_contributions">بەشدارییەکانم</string>
   <string name="suggested_edits_no_description">ئەم پەڕگەیە وەسفی نییە</string>
   <string name="suggested_edits_menu_info">زانیاری</string>
-  <string name="suggested_edits_tasks_activity_title">دەستکاری پێشنیارکراوەکان</string>
   <string name="suggested_edits_task_add_description_title">زیادکردنی وەسفی وتار</string>
   <string name="suggested_edits_task_image_caption_title">زیادکردنی شرۆڤەی وێنە</string>
   <string name="suggested_edits_task_translate_caption_title">وەرگێڕانی شرۆڤەی وێنە</string>
@@ -586,7 +586,7 @@
   <string name="suggested_edits_image_preview_dialog_date">ڕێکەوت</string>
   <string name="suggested_edits_image_preview_dialog_source">سەرچاوە/وێنەگر</string>
   <string name="suggested_edits_image_preview_dialog_licensing">مۆڵەتنامە</string>
-  <string name="suggested_edits_image_preview_dialog_more_info">زانیاری زیاتر</string>
+  <string name="suggested_edits_image_preview_dialog_more_info">زانیاریی زیاتر</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">پەڕگەی پەڕە لە ویکیمدیا کۆمنز</string>
   <string name="suggested_edits_article_cta_image_caption">زیادکردنی شرۆڤەی وێنە</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">زیادکردنی شرۆڤەی وێنە (%s)</string>
@@ -603,7 +603,7 @@
   <string name="suggested_edits_image_tags_search">گەڕانی تاگەکان</string>
   <string name="suggested_edits_image_tags_add_tag">زیادکردنی تاگ</string>
   <string name="suggested_edits_help_page_link_text">دەستکاریە پێشنیارکاوەکان پەڕەی یارمەتی</string>
-  <string name="suggested_edits_views_label_text" fuzzy="true">بینینەکانی پەڕە</string>
+  <string name="suggested_edits_views_label_text">بینینەکان</string>
   <string name="suggested_edits_quality_label_text">دەستکاری جۆر</string>
   <string name="suggested_edits_quality_perfect_text">تەواو</string>
   <string name="suggested_edits_quality_excellent_text">نایاب</string>
@@ -619,13 +619,14 @@
     <item quantity="one">%d ڕۆژ</item>
     <item quantity="other">%d ڕۆژ</item>
   </plurals>
+  <string name="suggested_edits_learn_more">زیاتر بزانە</string>
   <string name="suggested_edits_last_edited">کۆتا دەستکاری</string>
   <string name="suggested_edits_last_edited_never">ھەرگیز</string>
   <string name="suggested_edits_task_new">نوێ</string>
   <string name="suggested_edits_cc0_notice">بە بڵاوکردنەوە، تۆ ڕازی دەبیت بە &lt;a href=\"%1$s\"&gt;بەندەکانی  بەکارھێنان&lt;/a&gt;، و بە بڵاوکردنەوەی بەشدارییەکانت لەژێر مۆڵەتی &lt;a href=\"%2$s\"&gt;CC0 license&lt;/a&gt;.</string>
   <string name="suggested_edits_contribution_language_label">زمان</string>
   <string name="suggested_edits_contribution_date_time_label">بەروار/کات</string>
-  <string name="suggested_edits_contribution_image_label" fuzzy="true">پەڕگە</string>
+  <string name="suggested_edits_contribution_image_label">وێنە</string>
   <string name="suggested_edits_contribution_article_label">وتار</string>
   <string name="suggested_edits_contribution_views">%s بینراوە</string>
   <string name="suggested_edits_contribution_date_yesterday_text">دوێنێ</string>
@@ -694,7 +695,7 @@
   <string name="wikitext_preview_link">بینینی بەستەر</string>
   <string name="main_drawer_help">یارمەتی</string>
   <string name="main_drawer_login">چوونە ژوورەوە/ ببە ئەندامی ویکیپیدیا</string>
-  <string name="main_tooltip_text" fuzzy="true">سلاو %s، دەتزانی ھەموو کەسێک دەتوانێ دەستکاری ویکیپیدیا بکات؟</string>
+  <string name="main_tooltip_text">%s، دەتزانی ھەموو کەسێک دەتوانێ دەستکاری ویکیپیدیا بکات؟</string>
   <string name="main_tooltip_action_button">دەست پێ بکە</string>
   <string name="custom_date_picker_dialog_ok_button_text">باشە</string>
   <string name="text_input_dialog_ok_button_text">باشە</string>

@@ -46,7 +46,7 @@
   <string name="search_hint_search_languages">言語を検索</string>
   <string name="search_hint_search_my_lists_and_articles">あとで読むリストと記事を検索</string>
   <string name="nav_item_history">履歴</string>
-  <string name="nav_item_suggested_edits">提案された編集</string>
+  <string name="nav_item_suggested_edits" fuzzy="true">提案された編集</string>
   <string name="nav_item_more">もっと見る</string>
   <string name="error_network_error">インターネットに接続できません。</string>
   <string name="page_error_retry">再試行</string>
@@ -676,7 +676,6 @@
   <string name="suggested_edits_license_notice">この記事の説明を追加すると、&lt;a href=\"%1$s\"&gt;利用規約&lt;/a&gt;に同意し、&lt;a href=\"%2$s\"&gt;クリエイティブ・コモンズ CC0&lt;/a&gt;ライセンスのもとで公開することになります。これは取り消せません。</string>
   <string name="suggested_edits_image_caption_license_notice">この画像キャプションを追加すると、&lt;a href=\"%1$s\"&gt;利用規約&lt;/a&gt;に同意し、&lt;a href=\"%2$s\"&gt;クリエイティブ・コモンズ CC0&lt;/a&gt;ライセンスのもとで公開することになります。これは取り消せません。</string>
   <string name="suggested_edits_menu_info">情報</string>
-  <string name="suggested_edits_tasks_activity_title">編集提案</string>
   <string name="suggested_edits_task_add_description_title">記事の説明を追加</string>
   <string name="suggested_edits_task_add_description_description">説明が未記入の記事に着手する</string>
   <string name="suggested_edits_task_image_caption_title">画像キャプションを追加</string>
@@ -718,6 +717,7 @@
   <string name="suggested_edits_article_cta_snackbar_action">表示</string>
   <string name="suggested_edits_feed_card_add_image_caption">画像キャプションを追加</string>
   <string name="suggested_edits_feed_card_translate_image_caption">画像キャプションを追加 (%s)</string>
+  <string name="suggested_edits_feed_card_add_image_tags">画像タグ使用</string>
   <string name="suggested_edits_snackbar_survey_text">編集を経験してみていかがでしたか？ アプリを使った編集について、アンケートに回答をお願いします。</string>
   <string name="suggested_edits_snackbar_survey_action_text">アンケートに参加</string>
   <string name="suggested_edits_task_action_text_add">追加</string>
@@ -733,6 +733,7 @@
   <string name="suggested_edits_image_tags_search">タグを検索</string>
   <string name="suggested_edits_image_tags_select_title">この画像のタグを選択していません</string>
   <string name="suggested_edits_image_tags_select_text">あなたが確認したタグのみ画像に追加されます。選択されていないタグは拒否としてマークされます。すべてのタグを拒否としてマークしますか?</string>
+  <string name="suggested_edits_image_tags_add_tag">タグを追加</string>
   <string name="suggested_edits_encouragement_message">%sさん、編集ありがとうございます。ウィキペディアに貢献できるいろんなやり方を以下でご紹介します。</string>
   <string name="suggested_edits_onboarding_message" fuzzy="true">&lt;b&gt;%sさん&lt;/b&gt;、ウィキペディアは誰でも編集できることをご存知ですか？　ウィキペディアをより良くする楽しみ方を以下でご紹介します。良い編集を！</string>
   <string name="suggested_edits_image_captions_task_detail">読者が意味と文脈を理解できるように、画像について説明してください。</string>
@@ -761,6 +762,8 @@
     <item quantity="one">%d 日</item>
     <item quantity="other">%d 日</item>
   </plurals>
+  <string name="suggested_edits_learn_more">詳細</string>
+  <string name="suggested_edits_ip_blocked_title">IPブロック済み</string>
   <string name="suggested_edits_last_edited">最終編集:</string>
   <string name="suggested_edits_last_edited_never">なし</string>
   <string name="suggested_edits_task_new">新規</string>
