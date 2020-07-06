@@ -66,7 +66,7 @@ public class ResetPasswordActivity extends BaseActivity {
         errorView.setBackClickListener((v) -> onBackPressed());
         errorView.setRetryClickListener((v) -> errorView.setVisibility(View.GONE));
 
-        new NonEmptyValidator((isValid) -> loginButton.setEnabled(isValid), passwordInput, passwordRepeatInput);
+        new NonEmptyValidator(loginButton, passwordInput, passwordRepeatInput);
 
         passwordInput.getEditText().setOnEditorActionListener((textView, actionId, keyEvent) -> {
             if (actionId == EditorInfo.IME_ACTION_DONE) {

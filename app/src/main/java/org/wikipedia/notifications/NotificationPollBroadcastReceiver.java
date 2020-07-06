@@ -87,7 +87,7 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
             // There seems to be a Samsung-specific issue where it doesn't update the existing
             // alarm correctly and adds it as a new one, and eventually hits the limit of 500
             // concurrent alarms, causing a crash.
-            L.logRemoteErrorIfProd(e);
+            L.e(e);
         }
     }
 
@@ -170,7 +170,7 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
     }
 
     private void onNotificationsComplete(@NonNull final Context context, @NonNull List<Notification> notifications) {
-        if (notifications.isEmpty()) {
+        if (notifications.isEmpty() || Prefs.isSuggestedEditsHighestPriorityEnabled()) {
             return;
         }
         boolean locallyKnownModified = false;

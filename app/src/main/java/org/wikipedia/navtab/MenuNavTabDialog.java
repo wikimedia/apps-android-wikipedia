@@ -64,6 +64,11 @@ public class MenuNavTabDialog extends ExtendedBottomSheetDialogFragment {
         updateState();
     }
 
+    @Override public void onDestroyView() {
+        super.onDestroyView();
+        callback = null;
+    }
+
     public void updateState() {
         if (AccountUtil.isLoggedIn()) {
             accountAvatar.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.ic_baseline_person_24));

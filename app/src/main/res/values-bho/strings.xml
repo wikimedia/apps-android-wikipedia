@@ -18,7 +18,6 @@
   <string name="search_hint_search_languages">भाषा खोजल जाय</string>
   <string name="search_hint_search_my_lists_and_articles">हमार लिस्ट आ लेख में खोजीं</string>
   <string name="nav_item_history">इतिहास</string>
-  <string name="nav_item_suggested_edits" fuzzy="true">सुझावित संपादन</string>
   <string name="error_network_error">इंटरनेट से कनेक्शन नइखे हो पावत।</string>
   <string name="page_error_retry">दुबारा कोसिस करीं</string>
   <string name="card_offline_error_retry">दुबारा कोसिस करीं</string>

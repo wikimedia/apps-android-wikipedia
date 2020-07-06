@@ -100,10 +100,10 @@ public class CreateAccountActivity extends BaseActivity {
                 primaryContainer, getString(R.string.create_account_activity_title), getString(R.string.create_account_button));
 
         // Don't allow user to submit registration unless they've put in a username and password
-        new NonEmptyValidator((isValid) -> createAccountButton.setEnabled(isValid), usernameInput, passwordInput);
+        new NonEmptyValidator(createAccountButton, usernameInput, passwordInput);
 
         // Don't allow user to continue when they're shown a captcha until they fill it in
-        new NonEmptyValidator((isValid) -> createAccountButtonCaptcha.setEnabled(isValid), captchaText);
+        new NonEmptyValidator(createAccountButtonCaptcha, captchaText);
 
         // Add listener so that when the user taps enter, it submits the captcha
         captchaText.setOnKeyListener((v, keyCode, event) -> {
