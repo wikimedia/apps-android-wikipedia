@@ -42,8 +42,7 @@
 
     <style name="AppTheme.Page">
         <item name="actionModeStyle">@style/PageActionModeStyle</item>
-        <item name="searchViewStyle">@style/PageSearchViewStyle</item>
-        <item name="autoCompleteTextViewStyle">@style/PageSearchViewEditTextStyle</item>
+        <item name="autoCompleteTextViewStyle">@style/SearchViewEditTextStyle</item>
         <item name="actionOverflowButtonStyle">@style/ActionButtonOverflow</item>
         <item name="actionModeCloseButtonStyle">@style/ActionModeCloseButtonStyle</item>
     </style>
@@ -53,30 +52,6 @@
         <item name="windowActionBar">true</item>
         <item name="windowActionBarOverlay">false</item>
         <item name="windowActionModeOverlay">false</item>
-    </style>
-
-    <style name="AppTheme.ActionBar.LargeTextToolbar">
-        <item name="actionBarTheme">@style/PageToolbarTheme</item>
-        <item name="actionBarStyle">@style/LargeTextToolbarStyle</item>
-    </style>
-
-    <style name="AppTheme.ActionBar.NoElevation">
-        <item name="actionBarTheme">@style/PageToolbarTheme</item>
-        <item name="actionBarStyle">@style/NoElevationToolbarStyle</item>
-    </style>
-
-    <style name="AppTheme.ActionBar.Page">
-        <item name="actionBarTheme">@style/PageToolbarTheme</item>
-        <item name="actionBarStyle">@style/PageToolbarStyle</item>
-        <item name="autoCompleteTextViewStyle">@style/PageSearchViewEditTextStyle</item>
-        <item name="actionModeCloseButtonStyle">@style/ActionModeCloseButtonStyle</item>
-    </style>
-
-    <style name="AppTheme.ActionBar.LanguagesList">
-        <item name="actionBarTheme">@style/PageToolbarTheme</item>
-        <item name="actionBarStyle">@style/PageToolbarStyle</item>
-        <item name="actionModeStyle">@style/PageActionModeStyle</item>
-        <item name="autoCompleteTextViewStyle">@style/LanguagesListSearchViewEditTextStyle</item>
     </style>
 
     <style name="ActionModeCloseButtonStyle">
@@ -109,12 +84,6 @@
         <item name="colorControlNormal">?attr/toolbar_icon_color</item>
     </style>
 
-    <style name="PageToolbarTheme" parent="@style/ThemeOverlay.MaterialComponents.ActionBar">
-        <item name="colorControlNormal">?attr/toolbar_icon_color</item>
-        <item name="colorControlActivated">?android:attr/textColorTertiary</item>
-        <item name="colorControlHighlight">?android:attr/textColorTertiary</item>
-    </style>
-
     <style name="TabToolbarTheme" parent="@style/ThemeOverlay.MaterialComponents.ActionBar">
         <item name="colorControlNormal">?attr/toolbar_icon_color</item>
         <item name="colorControlActivated">?attr/toolbar_icon_color</item>
@@ -125,23 +94,8 @@
     <style name="ToolbarStyle" parent="@style/Widget.AppCompat.ActionBar">
         <item name="background">?attr/paper_color</item>
         <item name="navigationIcon">?attr/homeAsUpIndicator</item>
-        <item name="elevation">4dp</item>
+        <item name="elevation">0dp</item>
         <item name="titleTextStyle">@style/ToolBarTitleText</item>
-    </style>
-
-    <style name="PageToolbarStyle" parent="ToolbarStyle">
-        <item name="titleTextStyle">@style/PageToolbarTitleText</item>
-    </style>
-
-    <style name="LargeTextToolbarStyle" parent="ToolbarStyle">
-        <item name="titleTextStyle">@style/LargeTextToolbarTitleText</item>
-        <item name="background">?attr/paper_color</item>
-        <item name="elevation">0dp</item>
-    </style>
-
-    <style name="NoElevationToolbarStyle" parent="PageToolbarStyle">
-        <item name="background">?attr/paper_color</item>
-        <item name="elevation">0dp</item>
     </style>
 
     <style name="ToolbarPopupTheme" parent="ThemeOverlay.MaterialComponents">
@@ -158,13 +112,6 @@
 
     <style name="ToolBarTitleText" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
         <item name="android:textColor">?attr/material_theme_primary_color</item>
-    </style>
-
-    <style name="PageToolbarTitleText" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
-        <item name="android:textColor">?attr/primary_text_color</item>
-    </style>
-
-    <style name="LargeTextToolbarTitleText" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:textSize">24sp</item>
         <item name="android:textStyle">bold</item>
@@ -213,21 +160,6 @@
 
     <style name="SearchViewEditTextStyle" parent="@style/Widget.AppCompat.AutoCompleteTextView">
         <item name="android:textCursorDrawable">@drawable/custom_cursor</item>
-        <item name="android:textColor">?attr/toolbar_icon_color</item>
-    </style>
-
-    <style name="PageSearchViewStyle" parent="@style/Widget.AppCompat.SearchView">
-        <item name="closeIcon">@drawable/ic_close_themed_24dp</item>
-        <item name="searchIcon">@drawable/ic_search_themed_24dp</item>
-        <item name="searchHintIcon">@drawable/ic_search_themed_24dp</item>
-    </style>
-
-    <style name="PageSearchViewEditTextStyle" parent="SearchViewEditTextStyle">
-        <item name="android:textColor">?attr/toolbar_icon_color</item>
-        <item name="android:textColorHint">?attr/toolbar_icon_color</item>
-    </style>
-
-    <style name="LanguagesListSearchViewEditTextStyle" parent="SearchViewEditTextStyle">
         <item name="android:textColor">?attr/primary_text_color</item>
         <item name="android:textColorHint">?attr/toolbar_icon_color</item>
     </style>
