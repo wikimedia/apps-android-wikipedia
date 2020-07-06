@@ -14,8 +14,6 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.android.material.chip.Chip
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.core.Observable
-import io.reactivex.rxjava3.core.ObservableSource
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_suggested_edits_image_tags_item.*
 import org.wikipedia.Constants
@@ -301,11 +299,13 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         }
 
         val acceptedLabels = ArrayList<MwQueryPage.ImageLabel>()
-        for (label in tagList) {
-            if (label.isSelected) {
-                acceptedLabels.add(label)
+        val iterator = tagList.iterator()
+        while (iterator.hasNext()) {
+            val tag = iterator.next()
+            if (tag.isSelected) {
+                acceptedLabels.add(tag)
             } else {
-                tagList.remove(label)
+                iterator.remove()
             }
         }
         if (acceptedLabels.isEmpty()) {
