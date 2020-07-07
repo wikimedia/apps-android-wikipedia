@@ -299,11 +299,13 @@ class EditsImageTagsFragment : EditsItemFragment(), CompoundButton.OnCheckedChan
         }
 
         val acceptedLabels = ArrayList<MwQueryPage.ImageLabel>()
-        for (label in tagList) {
-            if (label.isSelected) {
-                acceptedLabels.add(label)
+        val iterator = tagList.iterator()
+        while (iterator.hasNext()) {
+            val tag = iterator.next()
+            if (tag.isSelected) {
+                acceptedLabels.add(tag)
             } else {
-                tagList.remove(label)
+                iterator.remove()
             }
         }
         if (acceptedLabels.isEmpty()) {
