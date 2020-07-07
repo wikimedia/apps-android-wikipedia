@@ -20,6 +20,7 @@
     <attr name="reward_interstitial_quality_excellent_drawable" format="reference"/>
     <attr name="reward_interstitial_quality_very_good_drawable" format="reference"/>
     <attr name="reward_interstitial_quality_good_drawable" format="reference"/>
+    <attr name="sync_reading_list_prompt_drawable" format="reference"/>
 
     <attr name="multi_select_background_color" format="reference" />
     <attr name="searchItemBackground" format="reference" />
