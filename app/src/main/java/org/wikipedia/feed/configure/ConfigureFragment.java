@@ -31,6 +31,7 @@ import org.wikipedia.views.DrawableItemDecoration;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 
@@ -167,8 +168,7 @@ public class ConfigureFragment extends Fragment implements ConfigureItemView.Cal
     private void prepareContentTypeList() {
         orderedContentTypes.clear();
         orderedContentTypes.addAll(Arrays.asList(FeedContentType.values()));
-        Collections.sort(orderedContentTypes, (FeedContentType a, FeedContentType b)
-                -> a.getOrder().compareTo(b.getOrder()));
+        Collections.sort(orderedContentTypes, Comparator.comparing(FeedContentType::getOrder));
         // Remove items for which there are no available languages
         List<String> appLanguages = WikipediaApp.getInstance().language().getAppLanguageCodes();
         Iterator<FeedContentType> i = orderedContentTypes.iterator();

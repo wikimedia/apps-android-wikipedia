@@ -12,6 +12,7 @@ import org.wikipedia.WikipediaApp;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class ReadingList implements Serializable {
@@ -91,10 +92,10 @@ public class ReadingList implements Serializable {
         this.description = description;
     }
 
-    public long mtime() {
+    public long getMTime() {
         return mtime;
     }
-    public void mtime(long mtime) {
+    public void setMTime(long mtime) {
         this.mtime = mtime;
     }
 
@@ -137,16 +138,16 @@ public class ReadingList implements Serializable {
     public static void sort(ReadingList list, int sortMode) {
         switch (sortMode) {
             case SORT_BY_NAME_ASC:
-                Collections.sort(list.pages(), (lhs, rhs) -> lhs.accentAndCaseInvariantTitle().compareTo(rhs.accentAndCaseInvariantTitle()));
+                Collections.sort(list.pages(), Comparator.comparing(ReadingListPage::accentAndCaseInvariantTitle));
                 break;
             case SORT_BY_NAME_DESC:
-                Collections.sort(list.pages(), (lhs, rhs) -> rhs.accentAndCaseInvariantTitle().compareTo(lhs.accentAndCaseInvariantTitle()));
+                Collections.sort(list.pages(), Comparator.comparing(ReadingListPage::accentAndCaseInvariantTitle).reversed());
                 break;
             case SORT_BY_RECENT_ASC:
-                Collections.sort(list.pages(), (lhs, rhs) -> ((Long) lhs.mtime()).compareTo(rhs.mtime()));
+                Collections.sort(list.pages(), Comparator.comparingLong(ReadingListPage::getMTime));
                 break;
             case SORT_BY_RECENT_DESC:
-                Collections.sort(list.pages(), (lhs, rhs) -> ((Long) rhs.mtime()).compareTo(lhs.mtime()));
+                Collections.sort(list.pages(), Comparator.comparingLong(ReadingListPage::getMTime).reversed());
                 break;
             default:
                 break;
@@ -156,16 +157,16 @@ public class ReadingList implements Serializable {
     public static void sort(List<ReadingList> lists, int sortMode) {
         switch (sortMode) {
             case SORT_BY_NAME_ASC:
-                Collections.sort(lists, (lhs, rhs) -> lhs.accentAndCaseInvariantTitle().compareTo(rhs.accentAndCaseInvariantTitle()));
+                Collections.sort(lists, Comparator.comparing(ReadingList::accentAndCaseInvariantTitle));
                 break;
             case SORT_BY_NAME_DESC:
-                Collections.sort(lists, (lhs, rhs) -> rhs.accentAndCaseInvariantTitle().compareTo(lhs.accentAndCaseInvariantTitle()));
+                Collections.sort(lists, Comparator.comparing(ReadingList::accentAndCaseInvariantTitle).reversed());
                 break;
             case SORT_BY_RECENT_ASC:
-                Collections.sort(lists, (lhs, rhs) -> ((Long) rhs.mtime()).compareTo(lhs.mtime()));
+                Collections.sort(lists, Comparator.comparingLong(ReadingList::getMTime));
                 break;
             case SORT_BY_RECENT_DESC:
-                Collections.sort(lists, (lhs, rhs) -> ((Long) lhs.mtime()).compareTo(rhs.mtime()));
+                Collections.sort(lists, Comparator.comparingLong(ReadingList::getMTime).reversed());
                 break;
             default:
                 break;
@@ -207,7 +208,7 @@ public class ReadingList implements Serializable {
             case SORT_BY_RECENT_ASC:
                 Collections.sort(lists, (lhs, rhs) -> {
                     if (lhs instanceof ReadingList && rhs instanceof ReadingList) {
-                        return Long.compare(((ReadingList) rhs).mtime(), ((ReadingList) lhs).mtime());
+                        return Long.compare(((ReadingList) rhs).getMTime(), ((ReadingList) lhs).getMTime());
                     } else {
                         return 0;
                     }
@@ -216,7 +217,7 @@ public class ReadingList implements Serializable {
             case SORT_BY_RECENT_DESC:
                 Collections.sort(lists, (lhs, rhs) -> {
                     if (lhs instanceof ReadingList && rhs instanceof ReadingList) {
-                        return Long.compare(((ReadingList) lhs).mtime(), ((ReadingList) rhs).mtime());
+                        return Long.compare(((ReadingList) lhs).getMTime(), ((ReadingList) rhs).getMTime());
                     } else {
                         return 0;
                     }

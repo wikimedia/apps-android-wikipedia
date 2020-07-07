@@ -17,6 +17,7 @@ import org.wikipedia.feed.searchbar.SearchClient;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
@@ -47,8 +48,7 @@ public class FeedCoordinator extends FeedCoordinatorBase {
 
         List<FeedContentType> orderedContentTypes = new ArrayList<>();
         orderedContentTypes.addAll(Arrays.asList(FeedContentType.values()));
-        Collections.sort(orderedContentTypes, (FeedContentType a, FeedContentType b)
-                -> a.getOrder().compareTo(b.getOrder()));
+        Collections.sort(orderedContentTypes, Comparator.comparing(FeedContentType::getOrder));
 
         for (FeedContentType contentType : orderedContentTypes) {
             addPendingClient(contentType.newClient(aggregatedClient, age));
