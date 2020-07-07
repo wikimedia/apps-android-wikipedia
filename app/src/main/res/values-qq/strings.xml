@@ -442,6 +442,8 @@
   <string name="reading_lists_sync_reminder_action">Button text for turning on synchronizing of reading lists.</string>
   <string name="reading_list_login_reminder_title">Title for a tutorial card that reminds the user that logging in will enable syncing of reading lists.</string>
   <string name="reading_lists_login_reminder_text">Text for a tutorial card that reminds the user that logging in will enable syncing of reading lists.</string>
+  <string name="reading_lists_login_button">Button text of the encourage account creation card log in button.</string>
+  <string name="reading_lists_ignore_button">Button text of dismissing the encourage account creation card button.</string>
   <string name="reading_lists_confirm_remote_delete_yes">Affirmative answer to confirm that remotely stored reading list data used for syncing across devices should be deleted.\n{{Identical|Yes}}</string>
   <string name="reading_lists_confirm_remote_delete_no">Negative answer to confirm that remotely stored reading list data used for syncing across devices should be deleted.\n{{Identical|No}}</string>
   <string name="reading_list_article_save_in_progress">Message shown when the article is in the process of being downloaded, and is not yet available for offline access.</string>
