@@ -31,6 +31,7 @@
   <string name="search_hint_search_languages">Søk etter språk</string>
   <string name="search_hint_search_my_lists_and_articles">Søk i listene og artiklene mine</string>
   <string name="nav_item_history">Logg</string>
+  <string name="nav_item_suggested_edits" fuzzy="true">Redigeringsforslag</string>
   <string name="error_network_error">Kan ikke koble til internett.</string>
   <string name="page_error_retry">Prøv igjen</string>
   <string name="card_offline_error_retry">Prøv igjen</string>
@@ -114,7 +115,7 @@
   <string name="reading_lists_sync_login">Logg inn</string>
   <string name="create_account_login">Logg inn</string>
   <string name="menu_login">Logg inn</string>
-  <string name="login_activity_title" fuzzy="true">Logg inn på Wikipedia</string>
+  <string name="login_activity_title">Logg inn</string>
   <string name="login_in_progress_dialog_message">Logger deg inn…</string>
   <string name="login_success_toast">Logget inn!</string>
   <string name="reset_password_title">Endre passord</string>
@@ -523,13 +524,15 @@
   <string name="preference_summary_notification_poll">La appen bruke data for å sjekke nye varsler i bakgrunnen.</string>
   <string name="preference_category_notification_types">Varsler i appen</string>
   <string name="preference_title_notification_system">System</string>
+  <string name="preference_summary_notification_system">Meldinger fra systemet</string>
   <string name="preference_title_notification_milestone">Milepæl</string>
   <string name="preference_summary_notification_milestone">Et bestemt antall redigeringer har blitt nådd</string>
   <string name="preference_title_notification_thanks">Takk</string>
   <string name="preference_summary_notification_thanks">Noen takket deg for en redigering</string>
   <string name="preference_title_notification_revert">Tilbakestilling</string>
   <string name="preference_summary_notification_revert">Et av bidragene dine ble tilbakestilt</string>
-  <string name="preference_title_notification_login_fail">Logg inn</string>
+  <string name="preference_title_notification_login_fail">Innlogging</string>
+  <string name="preference_summary_notification_login_fail">Innloggingsaktivitetene dine</string>
   <string name="preference_title_notification_mention">Nevning</string>
   <string name="preference_summary_notification_mention">Noen nevnte deg på en side</string>
   <string name="preference_title_notification_user_talk">Diskusjonsside</string>
@@ -579,6 +582,7 @@
   <string name="feed_item_type_featured_image">Dagens utvalgte bilde fra Wikimedia Commons</string>
   <string name="feed_item_type_main_page">Hovedsiden til Wikipedia med dagens fremhevede innhold</string>
   <string name="feed_item_type_randomizer">Tilfeldig utvalgte artikler</string>
+  <string name="feed_item_type_suggested_edits">Forslag om å legge til innhold på Wikipedia</string>
   <string name="feed_empty_message">Det er ingenting her</string>
   <string name="feed_configure_onboarding_action">Tilpass</string>
   <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
@@ -586,6 +590,7 @@
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Tilpass utforskingssiden&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Du kan tilpasse og prioritere hvilke typer innhold som skal vises.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">OK</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Avbryt</string>
+  <string name="feed_accessibility_card_text">Du har nådd bunnen av utforskersiden.</string>
   <string name="feed_accessibility_card_load_more_button">Last inn mer</string>
   <string name="description_edit_text_hint">Artikkelbeskrivelse</string>
   <string name="description_edit_article_description_label">Artikkel</string>
@@ -616,6 +621,7 @@
   <string name="description_edit_success_saved_in_lang_snackbar">Artikkelbeskrivelse publisert! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Bildetekst publisert!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Bildetekst publisert! (%s)</string>
+  <string name="description_edit_success_saved_image_tags_snackbar">Bildetagg(er) publisert!</string>
   <string name="description_edit_success_encouragement">Du har akkurat bidratt til å gjøre Wikipedia litt bedre for alle</string>
   <string name="description_edit_success_done">Ferdig</string>
   <string name="description_edit_success_did_you_know">Visste du at?</string>
@@ -656,7 +662,7 @@
   <string name="suggested_edits_task_multilingual_negative">Passer ikke for meg</string>
   <string name="suggested_edits_task_multilingual_positive">Legg til språk</string>
   <string name="suggested_edits_image_caption_summary_title_file">Fil</string>
-  <string name="suggested_edits_image_caption_summary_title_artist">Kunstner</string>
+  <string name="suggested_edits_image_caption_summary_title_artist">Skaper/frembringer</string>
   <string name="suggested_edits_image_caption_summary_title_author">Opphavsperson</string>
   <string name="suggested_edits_image_caption_summary_title_source">Kilde</string>
   <string name="suggested_edits_image_caption_summary_title_license">Lisens</string>
@@ -671,17 +677,20 @@
   <string name="suggested_edits_tasks_onboarding_get_started">Kom i gang</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Bildetekst (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Beskrivelse av bildet (%s)</string>
+  <string name="suggested_edits_image_preview_dialog_file">Fil</string>
   <string name="suggested_edits_image_preview_dialog_artist">Kunstner</string>
   <string name="suggested_edits_image_preview_dialog_date">Dato</string>
   <string name="suggested_edits_image_preview_dialog_source">Kilde/fotograf</string>
   <string name="suggested_edits_image_preview_dialog_licensing">Lisensiering</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Mer info</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Filside på Wikimedia Commons</string>
+  <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">Filside på Wikipedia</string>
   <string name="suggested_edits_article_cta_image_caption">Legg til bildetekst</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Legg til bildetekst (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Vis</string>
   <string name="suggested_edits_feed_card_add_image_caption">Legg til bildetekst</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Legg til bildetekst (%s)</string>
+  <string name="suggested_edits_snackbar_survey_action_text">Delta i undersøkelsen</string>
   <string name="suggested_edits_task_action_text_add">Legg til</string>
   <string name="suggested_edits_task_action_text_translate">Oversett</string>
   <string name="suggested_edits_image_captions">Bildetekster</string>
@@ -689,17 +698,20 @@
   <string name="suggested_edits_image_tags_published">Publisert</string>
   <string name="suggested_edits_image_zoom_tooltip">Dra to fingre fra hverandre for å zoome i bildet.</string>
   <string name="suggested_edits_encouragement_message">Takk for redigeringene dine, %s. Under finner du flere måter du kan bidra med på Wikipedia.</string>
-  <string name="suggested_edits_image_captions_task_detail" fuzzy="true">Bildetekster beskriver et bilde for å hjelpe lesere å forstå bildets motiv og kontekst.</string>
-  <string name="suggested_edits_add_descriptions_task_detail" fuzzy="true">Artikkelbeskrivelser oppsummerer en artikkel for å hjelpe lesere å raskt forstå hva den handler om</string>
-  <string name="suggested_edits_contributions_stat_tooltip">Antall bidrag du totalt har gjort her.</string>
+  <string name="suggested_edits_onboarding_message">&lt;b&gt;Hei %s&lt;/b&gt;, under finner du noen raske og enkle måter du kan forbedre Wikipedia på. Prøv dem gjerne ut!</string>
+  <string name="suggested_edits_image_captions_task_detail">Beskriv et bilde for å hjelpe lesere å forstå bildets motiv og kontekst.</string>
+  <string name="suggested_edits_add_descriptions_task_detail">Oppsummer en artikkel for å hjelpe lesere å raskt forstå hva den handler om.</string>
+  <string name="suggested_edits_contributions_stat_tooltip">Totalt antall bidrag du har gjort her.</string>
   <string name="suggested_edits_edit_streak_stat_tooltip">Antall dager i strekk du har redigert her. Hvis du ikke har bidratt på en stund, vises i stedet datoen for ditt siste bidrag.</string>
   <string name="suggested_edits_page_views_stat_tooltip">Antall sidevisninger de siste 30 dagene for artikler og bilder du har bidratt til.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Basert på hvor mange ganger et av bidragene dine har blitt tilbakestilt (gjort om av en annen bdiragsyter). Tilbakestilte redigeringer: %d.</string>
-  <string name="suggested_edits_paused_message" fuzzy="true">&lt;b&gt;Redigeringsforslag er deaktivert frem til %1$s.&lt;/b&gt; Beklager %2$s, men noen av dine nylige bidrag har blitt tilbakestilt.\n\nLes om hvordan du kan forbedre redigeringskunnskapene dine på Wikipedia med lenken under.</string>
-  <string name="suggested_edits_disabled_message" fuzzy="true">&lt;b&gt;Redigeringsforslag er deaktivert.&lt;/b&gt; Beklager %s, for mange av dine nylige bidrag har blitt tilbakestilt.\n\nLes mer om hva det betyr med lenken under.</string>
+  <string name="suggested_edits_paused_message">Redigeringsforslag er deaktivert frem til %1$s. Beklager %2$s, men noen av de siste bidragene dine har blitt tilbakestilt.</string>
+  <string name="suggested_edits_disabled_message">Redigeringsforslag er deaktivert. Beklager %s, for mange av de siste bidragene dine har blitt tilbakestilt.</string>
+  <string name="suggested_edits_ip_blocked_message">Det ser ut som IP-adressen din er blokkert fra å rdeigere Wikipedia, eller befinner seg i et blokkert intervall.</string>
   <string name="suggested_edits_editing_tips_link_text">Tips og -triks for redigering</string>
   <string name="suggested_edits_help_page_link_text">Hjelpeside for redigeringsforslag</string>
   <string name="suggested_edits_edit_streak_label_text">Redigeringsstrekk</string>
+  <string name="suggested_edits_views_label_text">Visninger</string>
   <string name="suggested_edits_quality_label_text">Redigeringskvalitet</string>
   <string name="suggested_edits_quality_perfect_text">Perfekt</string>
   <string name="suggested_edits_quality_excellent_text">Glimrende</string>
@@ -717,6 +729,12 @@
     <item quantity="one">%d dag</item>
     <item quantity="other">%d dager</item>
   </plurals>
+  <string name="suggested_edits_what_is_title">Hva er Redigeringsforslag?</string>
+  <string name="suggested_edits_what_is_text">Redigeringsforslag tilbyr muligheter for å gjøre små, men viktige bidrag til Wikipedia.</string>
+  <string name="suggested_edits_learn_more">Les mer</string>
+  <string name="suggested_edits_paused_title">Satt på pause</string>
+  <string name="suggested_edits_disabled_title">Deaktivert</string>
+  <string name="suggested_edits_ip_blocked_title">IP blokkert</string>
   <string name="suggested_edits_last_edited">Sist redigert</string>
   <string name="suggested_edits_last_edited_never">Aldri</string>
   <string name="suggested_edits_task_new">ny</string>
@@ -724,6 +742,37 @@
   <string name="suggested_edits_reactivation_notification_title">Redigeringsforslag</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Takk for at du redigerer Wikipedia! Hvorfor ikke fortsette der du slapp?</string>
   <string name="suggested_edits_reactivation_notification_stage_two">Har du et minutt til overs for å forbedre Wikipedia? Se på disse forslagene til hva du kan gjøre.</string>
+  <string name="suggested_edits_contributions_screen_title">%ss bidrag</string>
+  <string name="suggested_edits_contribution_language_label">Språk</string>
+  <string name="suggested_edits_contribution_date_time_label">Dato / Tid</string>
+  <string name="suggested_edits_contribution_type_label">Type bidrag</string>
+  <string name="suggested_edits_contribution_image_label">Bilde</string>
+  <string name="suggested_edits_contribution_article_label">Artikkel</string>
+  <string name="suggested_edits_contribution_views">%s visninger</string>
+  <string name="suggested_edits_contribution_seen_text">Sett %s ganger de siste 30 dagene.</string>
+  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
+  <string name="suggested_edits_contribution_date_yesterday_text">I går</string>
+  <string name="suggested_edits_rewards_contribution">Du har gjort %d bidrag til Wikipedia fra Redigeringsforslag. Takk!</string>
+  <string name="suggested_edits_rewards_edit_streak">Du har redigert hver dag de siste  %1$d dagene. Bra jobba, %2$s!</string>
+  <string name="suggested_edits_rewards_pageviews">Redigeringene dine har blitt sett av %d personer de siste 30 dagene. Lykke til videre med redigeringen!</string>
+  <string name="suggested_edits_rewards_continue_button">Fortsett</string>
+  <string name="suggested_edits_encourage_account_creation_title">Visste du at hvem som helst kan redigere Wikipedia?</string>
+  <string name="suggested_edits_encourage_account_creation_message">Redigeringsforslag er en ny måte å redigere Wikipedia på fra Android. Den hjelper deg å å gjøre små, men viktige bidrag til Wikipedia.\nMålet vårt er å gjøre redigering enklere og mer tilgjengelig for alle! Logg inn eller registrer deg på Wikipedia for å komme i gang.</string>
+  <string name="suggested_edits_encourage_account_creation_login_button">Logg inn / registrer deg på Wikipedia</string>
+  <string name="suggested_edits_contribution_current_revision_text">Endringen din er nå publisert på Wikipedia</string>
+  <plurals name="suggested_edits_contribution_diff_count_text">
+    <item quantity="one">%1$s tegn</item>
+    <item quantity="other">%1$s tegn</item>
+  </plurals>
+  <plurals name="suggested_edits_removed_contribution_label">
+    <item quantity="one">Du fjernet %d tegn</item>
+    <item quantity="other">Du fjernet %d tegn</item>
+  </plurals>
+  <plurals name="suggested_edits_added_contribution_label">
+    <item quantity="one">Du la til %d tegn</item>
+    <item quantity="other">Du la til %d tegn</item>
+  </plurals>
+  <string name="file_page_activity_title">Filside</string>
   <string name="description_edit_revert_subtitle">Takk for at du redigerer Wikipedia!</string>
   <string name="description_edit_revert_intro">Vi forstår at du forsøkte ditt beste, men en av korrekturleserne hadde en innvending. Noen mulige årsaker til at redigeringen din ble tilbakestilt kan være:</string>
   <string name="description_edit_revert_reason1">bidraget var ikke i tråd med en av &lt;a href=\"%1$s\"&gt;retningslinjene&lt;/a&gt;.</string>
@@ -795,6 +844,7 @@
   <string name="edit_conflict_dialog_ok_button_text">OK</string>
   <string name="reverted_edit_dialog_ok_button_text">OK</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">Avbryt</string>
+  <string name="edit_type_all">Alle bidrag</string>
   <string name="content_description_for_page_indicator">Side %1$d av %2$d</string>
   <string name="wikitext_bold">Fet</string>
   <string name="wikitext_italic">Kursiv</string>
@@ -806,7 +856,8 @@
   <string name="wikitext_preview_link">Forhåndsvis lenke</string>
   <string name="main_drawer_help">Hjelp</string>
   <string name="main_drawer_login">Logg inn / bli med på Wikipedia</string>
-  <string name="main_tooltip_text" fuzzy="true">%s, visste du at hvem som helst kan redigere Wikipedia?</string>
+  <string name="main_tooltip_text">Hei %s, visste du at hvem som helst kan redigere Wikipedia?</string>
+  <string name="main_tooltip_text_v2">Visste du at hvem som helst kan redigere Wikipedia?</string>
   <string name="main_tooltip_action_button">Kom i gang</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_ok_button_text">OK</string>

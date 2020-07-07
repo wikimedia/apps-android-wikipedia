@@ -27,6 +27,7 @@
         <item name="colorError">@color/red75</item>
 
         <!-- Overrides of base Android styles with color sub-definitions -->
+        <item name="actionOverflowMenuStyle">@style/Widget.AppCompat.PopupMenu.Overflow</item>
         <item name="popupMenuStyle">@style/PopupMenuDark</item>
         <item name="dialogTheme">@style/DialogDark</item>
         <item name="bottomSheetDialogTheme">@style/BottomSheetDialogDark</item>

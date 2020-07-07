@@ -473,6 +473,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     }
 
     private void resetNavTabLayouts() {
+        goToTab(NavTab.of(viewPager.getCurrentItem()));
         if (Prefs.shouldShowSuggestedEditsTooltip()) {
             Prefs.setShouldShowSuggestedEditsTooltip(false);
             Prefs.setShouldShowImageTagsTooltip(false);

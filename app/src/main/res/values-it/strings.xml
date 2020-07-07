@@ -51,6 +51,7 @@
   <string name="search_hint_search_languages">Cerca una lingua</string>
   <string name="search_hint_search_my_lists_and_articles">Cerca nei miei elenchi e voci</string>
   <string name="nav_item_history">Cronologia</string>
+  <string name="nav_item_suggested_edits" fuzzy="true">Modifiche suggerite</string>
   <string name="nav_item_more">Altro</string>
   <string name="error_network_error">Non è possibile connettersi ad Internet.</string>
   <string name="page_error_retry">Riprova</string>
@@ -744,6 +745,7 @@
   <string name="suggested_edits_image_tags_add_tag">Aggiungi etichetta</string>
   <string name="suggested_edits_image_zoom_tooltip">Pizzica per ingrandire l\'immagine.</string>
   <string name="suggested_edits_encouragement_message">%s, grazie per le tue modifiche. Di seguito puoi trovare altri modi per contribuire a Wikipedia.</string>
+  <string name="suggested_edits_onboarding_message">&lt;b&gt;Ciao %s&lt;/b&gt;, qui sotto puoi scoprire dei modi veloci e semplici per migliorare Wikipedia. Vedrai subito come anche tu fai la differenza, immediatamente dopo aver iniziato. Buone modifiche!</string>
   <string name="suggested_edits_image_captions_task_detail">Descrivi un\'immagine per aiutare i lettori a comprenderne il significato e il contesto.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Riassumi una voce per aiutare i lettori a comprenderne l\'argomento a colpo d\'occhio.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Il numero totale di contributi con modifiche suggerite.</string>
@@ -756,6 +758,7 @@
   <string name="suggested_edits_editing_tips_link_text">Suggerimenti e trucchi per la modifica</string>
   <string name="suggested_edits_help_page_link_text">Pagina di aiuto per le modifiche suggerite</string>
   <string name="suggested_edits_edit_streak_label_text">Modifica sequenza</string>
+  <string name="suggested_edits_views_label_text">Visualizzazioni</string>
   <string name="suggested_edits_quality_label_text">Qualità di modifica</string>
   <string name="suggested_edits_quality_perfect_text">Perfetto</string>
   <string name="suggested_edits_quality_excellent_text">Eccellente</string>
@@ -790,6 +793,7 @@
   <string name="suggested_edits_contribution_language_label">Lingua</string>
   <string name="suggested_edits_contribution_date_time_label">Data/Ora</string>
   <string name="suggested_edits_contribution_type_label">Tipo di contributo</string>
+  <string name="suggested_edits_contribution_image_label">Immagine</string>
   <string name="suggested_edits_contribution_article_label">Voce</string>
   <string name="suggested_edits_contribution_views">%s visualizzazioni</string>
   <string name="suggested_edits_contribution_seen_text">%s visite negli ultimi 30 giorni.</string>
@@ -803,6 +807,7 @@
   <string name="suggested_edits_encourage_account_creation_title">Sapevi che tutti possono modificare Wikipedia?</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Entra / unisciti a Wikipedia</string>
   <string name="suggested_edits_contribution_type_image_tag">Etichetta dell\'immagine</string>
+  <string name="suggested_edits_contribution_current_revision_text">La tua modifica è attualmente online su Wikipedia</string>
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="one">%1$s etichetta</item>
     <item quantity="other">%1$s etichette</item>

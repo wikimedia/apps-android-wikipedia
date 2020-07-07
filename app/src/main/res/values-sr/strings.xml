@@ -31,6 +31,7 @@
   <string name="search_hint_search_languages">Претражите језике</string>
   <string name="search_hint_search_my_lists_and_articles">Претражи моје спискове и чланкове</string>
   <string name="nav_item_history">Историја</string>
+  <string name="nav_item_suggested_edits" fuzzy="true">Предложене измене</string>
   <string name="error_network_error">Није могуће повезати се са интернетом.</string>
   <string name="page_error_retry">Покушај поново</string>
   <string name="card_offline_error_retry">Покушај поново</string>
@@ -114,7 +115,7 @@
   <string name="reading_lists_sync_login">Пријава</string>
   <string name="create_account_login">Пријава</string>
   <string name="menu_login">Пријави ме</string>
-  <string name="login_activity_title" fuzzy="true">Пријава на Википедију</string>
+  <string name="login_activity_title">Пријава</string>
   <string name="login_in_progress_dialog_message">Пријављујем вас…</string>
   <string name="login_success_toast">Успешно сте се пријавили!</string>
   <string name="reset_password_title">Поставите лозинку</string>
@@ -699,6 +700,7 @@
   <string name="suggested_edits_image_tags_add_tag">Додај ознаку</string>
   <string name="suggested_edits_editing_tips_link_text">Савети и трикови за уређивање</string>
   <string name="suggested_edits_help_page_link_text">Страница помоћи за предложене измене</string>
+  <string name="suggested_edits_views_label_text">Прикази</string>
   <string name="suggested_edits_quality_label_text">Квалитет измена</string>
   <string name="suggested_edits_quality_perfect_text">Савршено</string>
   <string name="suggested_edits_quality_excellent_text">Одлично</string>
@@ -716,9 +718,18 @@
     <item quantity="one">%d дан</item>
     <item quantity="other">%d дани</item>
   </plurals>
+  <string name="suggested_edits_what_is_title">Шта су „Предложене измене”?</string>
+  <string name="suggested_edits_learn_more">Детаљније</string>
+  <string name="suggested_edits_paused_title">Паузирано</string>
+  <string name="suggested_edits_disabled_title">Онемогућено</string>
+  <string name="suggested_edits_ip_blocked_title">IP адреса је блокирана</string>
   <string name="suggested_edits_last_edited">Последњи пут уређено</string>
   <string name="suggested_edits_last_edited_never">Никад</string>
   <string name="suggested_edits_task_new">ново</string>
+  <string name="suggested_edits_contribution_image_label">Слика</string>
+  <string name="suggested_edits_encourage_account_creation_title">Јесте ли знали да свако може да уређује Википедију?</string>
+  <string name="suggested_edits_encourage_account_creation_login_button">Пријави ме / придружи ме Википедији</string>
+  <string name="suggested_edits_contribution_current_revision_text" fuzzy="true">Тренутна верзија</string>
   <string name="description_edit_revert_subtitle">Хвала вам што уређујете Википедију.</string>
   <string name="description_edit_revert_intro">Знамо да сте дали све од себе, али један од патролера има примедбу. Могући разлози због чега је ваша измена поништена:</string>
   <string name="description_edit_revert_reason1">ваша измена није била у складу са неком од &lt;a href=\"%1$s\"&gt;смерница&lt;/a&gt;.</string>
@@ -790,6 +801,7 @@
   <string name="edit_conflict_dialog_ok_button_text">У реду</string>
   <string name="reverted_edit_dialog_ok_button_text">У реду</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">Откажи</string>
+  <string name="edit_type_all">Сви доприноси</string>
   <string name="content_description_for_page_indicator">Страница %1$d од %2$d</string>
   <string name="wikitext_bold">Подебљано</string>
   <string name="wikitext_italic">Искошено</string>
@@ -801,7 +813,8 @@
   <string name="wikitext_preview_link">Преглед везе</string>
   <string name="main_drawer_help">Помоћ</string>
   <string name="main_drawer_login">Пријави ме / придружи ме Википедији</string>
-  <string name="main_tooltip_text" fuzzy="true">%s, да ли сте знали да свако може да уређује Википедију?</string>
+  <string name="main_tooltip_text">Здраво, %s! Јесте ли знали да свако може да уређује Википедију?</string>
+  <string name="main_tooltip_text_v2">Јесте ли знали да свако може да уређује Википедију?</string>
   <string name="main_tooltip_action_button">Почнимо</string>
   <string name="custom_date_picker_dialog_ok_button_text">У реду</string>
   <string name="text_input_dialog_ok_button_text">У реду</string>
