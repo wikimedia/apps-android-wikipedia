@@ -20,7 +20,6 @@ import org.wikipedia.csrf.CsrfTokenClient;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.events.ReadingListsEnableDialogEvent;
 import org.wikipedia.events.ReadingListsEnabledStatusEvent;
-import org.wikipedia.events.ReadingListsMergeLocalDialogEvent;
 import org.wikipedia.events.ReadingListsNoLongerSyncedEvent;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.database.ReadingList;
@@ -87,7 +86,7 @@ public class ReadingListSyncAdapter extends AbstractThreadedSyncAdapter {
         Set<String> ids = new HashSet<>();
         for (ReadingListPage page : pages) {
             if (page.remoteId() > 0) {
-                ids.add(Long.toString(list.remoteId()) + ":" + Long.toString(page.remoteId()));
+                ids.add(list.remoteId() + ":" + page.remoteId());
             }
         }
         if (!ids.isEmpty()) {
@@ -131,7 +130,6 @@ public class ReadingListSyncAdapter extends AbstractThreadedSyncAdapter {
         if (isDisabledByRemoteConfig()
                 || !AccountUtil.isLoggedIn()
                 || !(Prefs.isReadingListSyncEnabled()
-                || Prefs.shouldShowReadingListSyncMergePrompt()
                 || Prefs.isReadingListsRemoteDeletePending())) {
             L.d("Skipping sync of reading lists.");
 
@@ -180,31 +178,8 @@ public class ReadingListSyncAdapter extends AbstractThreadedSyncAdapter {
                 return;
             } else if (Prefs.isReadingListsRemoteSetupPending()) {
                 // ...Or are we scheduled for setup?
-                if (client.setup(getCsrfToken(wiki, csrfToken))) {
-                    // Set up for the first time, which means that we don't need to ask whether
-                    // the user wants to merge local lists.
-                    Prefs.shouldShowReadingListSyncMergePrompt(false);
-                }
+                client.setup(getCsrfToken(wiki, csrfToken));
                 Prefs.setReadingListsRemoteSetupPending(false);
-            }
-
-            if (Prefs.shouldShowReadingListSyncMergePrompt()) {
-                Prefs.shouldShowReadingListSyncMergePrompt(false);
-                for (ReadingList list : allLocalLists) {
-                    for (ReadingListPage page : list.pages()) {
-                        if (page.remoteId() <= 0) {
-                            // At least one page in our collection is not synced.
-                            // We therefore need to ask the user if we want to merge unsynced pages
-                            // with the remote collection, or delete them.
-                            // However, let's issue a request to the changes endpoint, so that
-                            // it can throw an exception if lists are not set up for the user.
-                            client.getChangesSince(DateUtil.iso8601DateFormat(new Date()));
-                            // Exception wasn't thrown, so post the bus event.
-                            WikipediaApp.getInstance().getBus().post(new ReadingListsMergeLocalDialogEvent());
-                            return;
-                        }
-                    }
-                }
             }
 
             //-----------------------------------------------
@@ -560,8 +535,10 @@ public class ReadingListSyncAdapter extends AbstractThreadedSyncAdapter {
 
             if (shouldSendSyncEvent) {
                 SavedPageSyncService.sendSyncEvent();
-                WikipediaApp.getInstance().getMainThreadHandler().post(()
-                        -> Toast.makeText(WikipediaApp.getInstance(), R.string.reading_list_toast_last_sync, Toast.LENGTH_SHORT).show());
+                if (!Prefs.isSuggestedEditsHighestPriorityEnabled()) {
+                    WikipediaApp.getInstance().getMainThreadHandler().post(()
+                            -> Toast.makeText(WikipediaApp.getInstance(), R.string.reading_list_toast_last_sync, Toast.LENGTH_SHORT).show());
+                }
             }
             if ((shouldRetry || shouldRetryWithForce) && !extras.containsKey(SYNC_EXTRAS_RETRYING)) {
                 Bundle b = new Bundle();
@@ -660,6 +637,6 @@ public class ReadingListSyncAdapter extends AbstractThreadedSyncAdapter {
 
     private RemoteReadingListEntry remoteEntryFromLocalPage(@NonNull ReadingListPage localPage) {
         PageTitle title = ReadingListPage.toPageTitle(localPage);
-        return new RemoteReadingListEntry(title.getWikiSite().scheme() + "://" + title.getWikiSite().desktopAuthority(), title.getPrefixedText());
+        return new RemoteReadingListEntry(title.getWikiSite().scheme() + "://" + title.getWikiSite().authority(), title.getPrefixedText());
     }
 }

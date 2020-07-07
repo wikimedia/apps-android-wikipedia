@@ -33,7 +33,7 @@ public class PageContainerLongPressHandler implements LongPressHandler.OverflowM
 
     @Override
     public void onCopyLink(PageTitle title) {
-        copyLink(title.getCanonicalUri());
+        copyLink(title.getUri());
         showCopySuccessMessage();
     }
 
@@ -55,7 +55,7 @@ public class PageContainerLongPressHandler implements LongPressHandler.OverflowM
     @Nullable
     @Override
     public String getReferrer() {
-        return fragment.getTitle() != null ? fragment.getTitle().getCanonicalUri() : null;
+        return fragment.getTitle() != null ? fragment.getTitle().getUri() : null;
     }
 
     private void copyLink(String url) {

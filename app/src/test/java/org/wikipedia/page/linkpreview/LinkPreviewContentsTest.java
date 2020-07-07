@@ -8,7 +8,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.RobolectricTestRunner;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.dataclient.restbase.page.RbPageSummary;
+import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.json.GsonUnmarshaller;
 import org.wikipedia.test.TestFileUtil;
 
@@ -20,11 +20,11 @@ public class LinkPreviewContentsTest {
     private static final int EXPECTED_SUPS = 3;
 
     private static WikiSite TEST = WikiSite.forLanguageCode("test");
-    private RbPageSummary rbPageSummary;
+    private PageSummary rbPageSummary;
 
     @Before public void setUp() throws Throwable {
         String json = TestFileUtil.readRawFile("rb_page_summary_valid.json");
-        rbPageSummary = GsonUnmarshaller.unmarshal(RbPageSummary.class, json);
+        rbPageSummary = GsonUnmarshaller.unmarshal(PageSummary.class, json);
     }
 
     @Test public void testExtractHasSuperscripts() {

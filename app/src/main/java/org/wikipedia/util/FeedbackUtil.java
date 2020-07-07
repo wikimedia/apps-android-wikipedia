@@ -3,8 +3,11 @@ package org.wikipedia.util;
 import android.app.Activity;
 import android.content.Context;
 import android.net.Uri;
+import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
+import android.util.TypedValue;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -32,10 +35,11 @@ import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
 
 public final class FeedbackUtil {
     public static final int LENGTH_DEFAULT = (int) TimeUnit.SECONDS.toMillis(5);
-    public static final int LENGTH_LONG = (int) TimeUnit.SECONDS.toMillis(10);
+    public static final int LENGTH_MEDIUM = (int) TimeUnit.SECONDS.toMillis(8);
+    public static final int LENGTH_LONG = (int) TimeUnit.SECONDS.toMillis(15);
     private static final int SNACKBAR_MAX_LINES = 10;
     private static View.OnLongClickListener TOOLBAR_LONG_CLICK_LISTENER = (v) -> {
-        showToolbarButtonToast(v);
+        showToastOverView(v, v.getContentDescription(), LENGTH_DEFAULT);
         return true;
     };
 
@@ -94,8 +98,31 @@ public final class FeedbackUtil {
     }
 
     public static void showAndroidAppEditingFAQ(Context context) {
+        showAndroidAppEditingFAQ(context, R.string.android_app_edit_help_url);
+    }
+
+    public static void showAndroidAppEditingFAQ(Context context, @StringRes int urlStr) {
         SuggestedEditsFunnel.get().helpOpened();
-        visitInExternalBrowser(context, Uri.parse(context.getString(R.string.android_app_edit_help_url)));
+        visitInExternalBrowser(context, Uri.parse(context.getString(urlStr)));
+    }
+
+    public static void showProtectionStatusMessage(@NonNull Activity activity, @Nullable String status) {
+        if (TextUtils.isEmpty(status)) {
+            return;
+        }
+        String message;
+        switch (status) {
+            case "sysop":
+                message = activity.getString(R.string.page_protected_sysop);
+                break;
+            case "autoconfirmed":
+                message = activity.getString(R.string.page_protected_autoconfirmed);
+                break;
+            default:
+                message = activity.getString(R.string.page_protected_other, status);
+                break;
+        }
+        showMessage(activity, message);
     }
 
     public static void setToolbarButtonLongPressToast(View... views) {
@@ -120,9 +147,11 @@ public final class FeedbackUtil {
     }
 
     public static Snackbar makeSnackbar(Activity activity, CharSequence text, int duration) {
+        final float snackbarLineSpacing = 5.0f;
         View view = findBestView(activity);
         Snackbar snackbar = Snackbar.make(view, StringUtil.fromHtml(text.toString()), duration);
         TextView textView = snackbar.getView().findViewById(R.id.snackbar_text);
+        textView.setLineSpacing(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, snackbarLineSpacing, activity.getResources().getDisplayMetrics()), 1.0f);
         textView.setMaxLines(SNACKBAR_MAX_LINES);
         textView.setMovementMethod(LinkMovementMethod.getInstance());
         TextView actionView = snackbar.getView().findViewById(R.id.snackbar_action);
@@ -130,12 +159,18 @@ public final class FeedbackUtil {
         return snackbar;
     }
 
-    private static void showToolbarButtonToast(View view) {
-        Toast toast = Toast.makeText(view.getContext(), view.getContentDescription(), Toast.LENGTH_SHORT);
+    public static Toast showToastOverView(View view, CharSequence text, int duration) {
+        Toast toast = Toast.makeText(view.getContext(), text, duration);
+        View v = LayoutInflater.from(view.getContext()).inflate(R.layout.abc_tooltip, null);
+        TextView message = v.findViewById(R.id.message);
+        message.setText(text);
+        message.setMaxLines(Integer.MAX_VALUE);
+        toast.setView(v);
         int[] location = new int[2];
         view.getLocationOnScreen(location);
         toast.setGravity(Gravity.TOP | Gravity.START, location[0], location[1]);
         toast.show();
+        return toast;
     }
 
     private static View findBestView(Activity activity) {

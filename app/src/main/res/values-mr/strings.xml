@@ -42,19 +42,13 @@
   <string name="menu_long_press_open_page">उघडा</string>
   <string name="menu_long_press_open_in_new_tab">नविन कळीत उघडा</string>
   <string name="menu_long_press_copy_page">दुव्याचा पत्ता उतरवा.</string>
-  <string name="menu_text_select_copy">नक्कल करा</string>
   <string name="menu_text_select_define">व्याख्या करा</string>
-  <string name="menu_text_select_share">वाटा</string>
   <string name="menu_text_select_edit_here">येथे संपादन करा</string>
-  <string name="nav_item_nearby">जवळपास</string>
-  <string name="nearby_zoom_to_location">नकाशावर एका ठिकाणी झूम करा</string>
-  <string name="nearby_osm_license">&amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt; योगदान</string>
   <string name="last_updated_text">शेवटचे अद्यतन %s</string>
   <string name="talk_page_link_text" fuzzy="true">चर्चा</string>
   <string name="edit_history_link_text" fuzzy="true">संपादनांचा इतिहास</string>
   <string name="map_view_link_text">नकाशावर बघा</string>
   <string name="language_count_link_text">%d इतर भाषेत उपलब्ध आहे</string>
-  <string name="content_license_html">जेथे जेथे विशेषत्वाने नोंदविलेले नाही तेथील आशय हा &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; या परवान्यांतर्गत उपलब्ध आहे असे समजावे.</string>
   <string name="edit_save_action_license_logged_in" fuzzy="true">हा मजकूर जतन करण्याच्या कृतीने,&lt;a href=\"%1$s\"&gt;विकिमिडिया फाउंडेशनच्या \'वापरण्याच्या अटी\' आपण मान्य करीत आहात&lt;/a&gt;, व आपले योगदान आपण \'न परताव्याच्या अटींच्या\' अधिन राहून &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; या परवान्यांतर्गत मुक्त करीत आहात.</string>
   <string name="edit_save_action_license_anon" fuzzy="true">हा मजकूर जतन करण्याच्या कृतीने,&lt;a href=\"%1$s\"&gt;विकिमिडिया फाउंडेशनच्या \'वापरण्याच्या अटी\' आपण मान्य करीत आहात&lt;/a&gt;, व आपले योगदान आपण \'न परताव्याच्या अटींच्या\' अधिन राहून &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; या परवान्यांतर्गत मुक्त करीत आहात.आपली संपादने ही आपल्या उपकरणाच्या अंकपत्त्याच्या अंगिभूत राहतील.जर आपण &lt;a href=\"https://#login\"&gt;सनोंद प्रवेश घेतला तर&lt;/a&gt;,आपणास अधिक गुप्तता मिळू शकेल.</string>
   <string name="preference_title_language" fuzzy="true">विकिपीडिया भाषा</string>
@@ -85,9 +79,9 @@
   <string name="login_2fa_hint">दोन पातळ्यांवर वैधता करणारा संकेत</string>
   <string name="login_2fa_other_workflow_error_msg">दोन पातळ्यांवर वैधता तपासणे आवश्यक !  मुख्य क्रियेवर परत जाऊन तुमच्या 2FA टोकनानी पुऩा सनोंद प्रवेश करा, आणि मग पुऩा प्रयत्न करा.</string>
   <string name="menu_login">सनोंद-प्रवेश करा</string>
-  <string name="login_activity_title">विकिपीडियात सनोंद-प्रवेश करा</string>
+  <string name="login_activity_title" fuzzy="true">विकिपीडियात सनोंद-प्रवेश करा</string>
   <string name="login_in_progress_dialog_message">तुमचा प्रवेश नोंदवत आहे…</string>
-  <string name="login_success_toast">यशस्वीरित्या सनोंद प्रवेशित!</string>
+  <string name="login_success_toast" fuzzy="true">यशस्वीरित्या सनोंद प्रवेशित!</string>
   <string name="preference_title_logout">बाहेर पडा</string>
   <string name="toast_logout_complete">सनोंद-निर्गमित</string>
   <string name="history_empty_title">अलीकडील पाने येथे नाहीत!</string>
@@ -141,7 +135,7 @@
   <string name="about_description">विकिपीडिया अॅपविषयी</string>
   <string name="privacy_policy_description">गुप्तता नीती</string>
   <string name="terms_of_use_description">वापराच्या अटी</string>
-  <string name="about_wikipedia_url">https://en.m.wikipedia.org/wiki/Wikipedia:About</string>
+  <string name="about_wikipedia_url" fuzzy="true">https://en.m.wikipedia.org/wiki/Wikipedia:About</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
@@ -206,15 +200,11 @@
   <string name="gallery_menu_share">सहभाग करा</string>
   <string name="gallery_share_error">चित्र सहभागी करु शकलो नाही:%s</string>
   <string name="gallery_save_progress">संचिका अधिभारण करीत आहे…</string>
-  <string name="gallery_save_success">संचिका यशस्वीरित्या जतन केली.</string>
+  <string name="gallery_save_success" fuzzy="true">संचिका यशस्वीरित्या जतन केली.</string>
   <string name="gallery_error_video_failed">व्हिडिओ चालवता आला नाही.</string>
   <string name="gallery_save_image_write_permission_rationale">चित्रे जतन करण्यास, आपल्या उपकरणावर, भांडार-लेखन परवानगी आवश्यक आहे.</string>
   <string name="err_cannot_save_file">संचिका जतन करता येत नाही.</string>
-  <string name="snippet_share_intro">\"%1$s\" @Wikipedia वर: %2$s</string>
   <string name="expand_refs">विस्तार करण्यास टिचकी मारा</string>
-  <string name="share_snippet_button">वित्र म्हणुन सहभाग करा</string>
-  <string name="share_normal_button">मजकूर म्हणून सहभाग करा</string>
-  <string name="snippet_share_preview_image_desc">चित्र झलक दाखवा</string>
   <string name="cc_logo">क्रियेटीव्ह कॉमन्स परवाना</string>
   <string name="captcha_image">कॅप्चा चित्र</string>
   <string name="gallery_fair_use_license">उचीत वापर</string>
@@ -225,7 +215,6 @@
   <string name="close_all_tabs_confirm_yes">होय</string>
   <string name="close_all_tabs_confirm_no">नाही</string>
   <string name="button_close_tab">कळ बंद करा</string>
-  <string name="tool_tip_share">एखादे आवडते तथ्य प्रकाशझोतात आणल्यावर, त्यास आपल्या आवडत्या नेटवर्कवर सहभाग करण्याच्या प्रयत्न करा.</string>
   <string name="page_view_in_browser">न्याहाळकात पान बघा</string>
   <string name="error_response_malformed">विदागारापासून प्राप्त झालेला प्रतिसाद योग्यरितीने प्रारुपित झाला नाही.</string>
   <string name="error_unknown">एक अज्ञात चूक समोर आली.</string>
@@ -257,10 +246,6 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">चित्र फ़िकट करा (गडद थिम)</string>
   <string name="preference_title_prefer_offline_content">ऑफलाइन मजकूर निवडा</string>
   <string name="preference_summary_prefer_offline_content">लेख ऑफलाइन साठवून ठेवा जेणेकरून त्याच लेखांना परत नव्याने उतरवून घेताला लागणारा डेटा वाचेल आणि आपला डेटाचा वापर कमी होईल.</string>
-  <string name="crash_report_dialog_title">माफ करा, मागील वेळी अॅप्स कोसळले होते</string>
-  <string name="crash_report_dialog_dont_send_button">पुढे जा</string>
-  <string name="crash_report_dialog_always_send_button">नेहमी पाठवा</string>
-  <string name="crash_report_dialog_send_button">पाठवा</string>
   <string name="crash_report_activity_title">अनुप्रयोग त्रुटी</string>
   <string name="crash_report_relaunch_or_quit">माफ करा, विकिपीडिया अॅपमध्ये दोष निर्माण झाला आहे म्हणून ते बंद केले गेले.\n\nआपणास ते पुन्हा सुरु करावयाचे आहे कि माघार घ्यायची आहे?</string>
   <string name="crash_report_relaunch">पुन्हा सुरु करा</string>
@@ -281,8 +266,6 @@
   <string name="nav_item_reading_lists">माझ्या याद्या</string>
   <string name="reading_list_save_to">वाचन यादीत जतन करा</string>
   <string name="reading_list_create_new">नवीन तयार करा</string>
-  <string name="reading_list_added_to_named">%s ला जोडले.</string>
-  <string name="reading_list_already_exists">हा लेख यादीत पूर्वीच आहे.</string>
   <string name="reading_list_added_view_button">यादी बघा</string>
   <string name="reading_list_sort">निवडा</string>
   <string name="reading_list_sort_by_name">नावानुसार निवडा</string>

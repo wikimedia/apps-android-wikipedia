@@ -20,8 +20,6 @@ import androidx.appcompat.widget.PopupMenu;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.widget.TextViewCompat;
 
-import com.facebook.drawee.view.SimpleDraweeView;
-
 import org.wikipedia.R;
 import org.wikipedia.readinglist.database.ReadingList;
 import org.wikipedia.readinglist.database.ReadingListPage;
@@ -57,7 +55,7 @@ public class ReadingListItemView extends ConstraintLayout {
 
     @BindView(R.id.default_list_empty_image) ImageView defaultListEmptyView;
     @BindView(R.id.item_overflow_menu) View overflowView;
-    @BindViews({R.id.item_image_1, R.id.item_image_2, R.id.item_image_3, R.id.item_image_4}) List<SimpleDraweeView> imageViews;
+    @BindViews({R.id.item_image_1, R.id.item_image_2, R.id.item_image_3, R.id.item_image_4}) List<ImageView> imageViews;
 
     @Nullable private Callback callback;
     @Nullable private ReadingList readingList;
@@ -158,6 +156,7 @@ public class ReadingListItemView extends ConstraintLayout {
             setForeground(AppCompatResources.getDrawable(getContext(), ResourceUtil.getThemedAttributeId(getContext(), R.attr.selectableItemBackground)));
         }
         setClickable(true);
+        setFocusable(true);
         clearThumbnails();
     }
 
@@ -183,9 +182,8 @@ public class ReadingListItemView extends ConstraintLayout {
     }
 
     private void clearThumbnails() {
-        for (SimpleDraweeView view : imageViews) {
-            ViewUtil.loadImageUrlInto(view, null);
-            view.getHierarchy().setFailureImage(null);
+        for (ImageView view : imageViews) {
+            ViewUtil.loadImage(view, null);
         }
     }
 
@@ -213,8 +211,8 @@ public class ReadingListItemView extends ConstraintLayout {
         }
     }
 
-    private void loadThumbnail(@NonNull SimpleDraweeView view, @Nullable String url) {
-        ViewUtil.loadImageUrlInto(view, url);
+    private void loadThumbnail(@NonNull ImageView view, @Nullable String url) {
+        ViewUtil.loadImage(view, url);
     }
 
     @NonNull private String buildStatisticalSummaryText(@NonNull ReadingList readingList) {

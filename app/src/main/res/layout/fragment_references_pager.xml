@@ -1,31 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
-
-    <org.wikipedia.views.WrapContentViewPager
-        android:id="@+id/reference_pager"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:focusableInTouchMode="true">
 
-    <View
-        android:id="@+id/indicator_divider"
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:background="?attr/material_theme_border_color" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <com.rd.PageIndicatorView
-        android:id="@+id/pageIndicatorView"
-        android:layout_width="wrap_content"
-        android:layout_height="56dp"
-        android:layout_gravity="center_horizontal"
-        android:paddingTop="24dp"
-        app:piv_radius="4dp"
-        app:piv_rtl_mode="auto"
-        app:piv_selectedColor="?attr/material_theme_primary_color"
-        app:piv_unselectedColor="?attr/material_theme_border_color"
-        app:piv_viewPager="@id/reference_pager" />
+            <org.wikipedia.views.AppTextView
+                android:id="@+id/reference_title_text"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center_vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="8dp"
+                android:textColor="?android:textColorPrimary"
+                android:textSize="16sp"
+                tools:text="Reference" />
 
-</LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:background="?attr/material_theme_border_color" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/reference_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <View
+            android:id="@+id/indicator_divider"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:background="?attr/material_theme_border_color" />
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/page_indicator_view"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_gravity="center"
+            app:tabIndicator="@null"
+            app:tabPaddingStart="8dp"
+            app:tabPaddingEnd="8dp"
+            app:tabBackground="@drawable/shape_tab_dot"
+            app:tabGravity="center" />
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

@@ -37,6 +37,10 @@ public class CsrfTokenClient {
     @Nullable private Call<MwQueryResponse> csrfTokenCall;
     @NonNull private LoginClient loginClient = new LoginClient();
 
+    public CsrfTokenClient(@NonNull WikiSite site) {
+        this(site, site);
+    }
+
     public CsrfTokenClient(@NonNull WikiSite csrfWikiSite, @NonNull WikiSite loginWikiSite) {
         this.csrfWikiSite = csrfWikiSite;
         this.loginWikiSite = loginWikiSite;
@@ -122,7 +126,7 @@ public class CsrfTokenClient {
                     }
 
                     @Override
-                    public void twoFactorPrompt(@NonNull Throwable caught, @Nullable String token) {
+                    public void twoFactorPrompt(@NonNull Throwable caught, @NonNull String token) {
                         callback.twoFactorPrompt();
                     }
 

@@ -1,7 +1,5 @@
 package org.wikipedia.util;
 
-import android.os.Build;
-import android.text.Html;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
@@ -14,6 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.IntRange;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.text.HtmlCompat;
 
 import com.google.gson.Gson;
 
@@ -63,8 +62,13 @@ public final class StringUtil {
             byte[] messageDigest = digest.digest();
 
             final int maxByteVal = 0xFF;
+            String bstr;
             for (byte b : messageDigest) {
-                hexStr.append(Integer.toHexString(maxByteVal & b));
+                bstr = Integer.toHexString(maxByteVal & b);
+                if (bstr.length() == 1) {
+                    hexStr.append("0");
+                }
+                hexStr.append(bstr);
             }
         } catch (NoSuchAlgorithmException e) {
             throw new RuntimeException(e);
@@ -130,13 +134,12 @@ public final class StringUtil {
         return fromHtml(text).toString();
     }
 
-    public static String sanitizeText(@NonNull String selectedText) {
-        return selectedText.replaceAll("\\[\\d+\\]", "") // [1]
-                // https://en.wikipedia.org/wiki/Phonetic_symbols_in_Unicode
-                .replaceAll("\\s*/[^/]+/;?\\s*", "")
-                .replaceAll("\\(\\s*;\\s*", "\\(") // (; -> (    hacky way for IPA remnants
-                .replaceAll("\\s{2,}", " ")
-                .trim();
+    public static String removeStyleTags(@NonNull String text) {
+        return text.replaceAll("<style.*?</style>", "");
+    }
+
+    public static String removeCiteMarkup(@NonNull String text) {
+        return text.replaceAll("<cite.*?>", "").replaceAll("</cite>", "");
     }
 
     // Compare two strings based on their normalized form, using the Unicode Normalization Form C.
@@ -167,12 +170,7 @@ public final class StringUtil {
         source = source.replaceAll("&#8206;", "\u200E")
                 .replaceAll("&#8207;", "\u200F")
                 .replaceAll("&amp;", "&");
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            return Html.fromHtml(source, Html.FROM_HTML_MODE_LEGACY);
-        } else {
-            //noinspection deprecation
-            return Html.fromHtml(source);
-        }
+        return HtmlCompat.fromHtml(source, HtmlCompat.FROM_HTML_MODE_LEGACY);
     }
 
     @NonNull

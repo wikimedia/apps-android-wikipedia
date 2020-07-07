@@ -12,6 +12,12 @@ public class PageBackStackItem extends BaseModel {
     private int scrollY;
 
     public PageBackStackItem(@NonNull PageTitle title, @NonNull HistoryEntry historyEntry) {
+
+        // TODO: remove this crash probe upon fixing
+        if (title == null || historyEntry == null) {
+            throw new IllegalArgumentException("Nonnull parameter is in fact null.");
+        }
+
         this.title = title;
         this.historyEntry = historyEntry;
     }
@@ -19,6 +25,10 @@ public class PageBackStackItem extends BaseModel {
     @NonNull
     public PageTitle getTitle() {
         return title;
+    }
+
+    public void setTitle(@NonNull PageTitle title) {
+        this.title = title;
     }
 
     @NonNull

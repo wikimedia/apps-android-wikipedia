@@ -165,6 +165,10 @@ public class NotificationItemActionsDialog extends ExtendedBottomSheetDialogFrag
             // ignore
         }
 
+        @Override public void onMediaLinkClicked(@NonNull PageTitle title) {
+            // ignore
+        }
+
         @Override
         public void onInternalLinkClicked(@NonNull PageTitle title) {
             callback().onActionPageTitle(title);

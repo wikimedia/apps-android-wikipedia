@@ -10,7 +10,7 @@ import androidx.annotation.VisibleForTesting;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.dataclient.restbase.page.RbPageSummary;
+import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.feed.model.CardType;
 import org.wikipedia.feed.model.ListCard;
 import org.wikipedia.util.DateUtil;
@@ -40,10 +40,10 @@ public class MostReadListCard extends ListCard<MostReadItemCard> {
     }
 
     @NonNull @VisibleForTesting
-    public static List<MostReadItemCard> toItems(@NonNull List<RbPageSummary> articles,
+    public static List<MostReadItemCard> toItems(@NonNull List<PageSummary> articles,
                                           @NonNull WikiSite wiki) {
         List<MostReadItemCard> cards = new ArrayList<>();
-        for (RbPageSummary article : articles) {
+        for (PageSummary article : articles) {
             cards.add(new MostReadItemCard(article, wiki));
         }
         return cards;

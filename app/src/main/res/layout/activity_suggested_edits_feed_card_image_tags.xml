@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/paper_color"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/imageTagFragment"
+            android:name="org.wikipedia.suggestededits.SuggestedEditsImageTagsFragment"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            tools:layout="@layout/fragment_suggested_edits_image_tags_item" />
+
+        <ImageView
+            android:id="@+id/addContributionLandscapeImage"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="24dp"
+            android:background="@drawable/button_shape_add_reading_list"
+            android:contentDescription="@null"
+            android:padding="4dp"
+            android:tint="@color/base100"
+            android:visibility="gone"
+            app:srcCompat="@drawable/ic_check_black_24dp" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/addContributionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="44dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/button_shape_add_reading_list"
+        android:backgroundTint="?attr/colorAccent">
+
+        <TextView
+            android:id="@+id/addContributionText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:fontFamily="sans-serif-medium"
+            android:letterSpacing="0.04"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:text="@string/description_edit_save"
+            android:textAllCaps="true"
+            android:textColor="@color/base100"
+            android:textSize="14sp" />
+    </FrameLayout>
+
+</LinearLayout>

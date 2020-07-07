@@ -17,7 +17,7 @@
         android:orientation="vertical"
         android:visibility="gone" />
 
-    <com.duolingo.open.rtlviewpager.RtlViewPager
+    <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/gallery_item_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
@@ -36,8 +36,7 @@
                 android:id="@+id/gallery_toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/black26"
-                android:theme="@style/ToolbarTheme" />
+                android:background="@color/black26" />
 
             <View
                 android:id="@+id/gallery_toolbar_gradient"
@@ -151,25 +150,56 @@
         </FrameLayout>
 
         <LinearLayout
-            android:id="@+id/license_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/black38"
-            android:gravity="center_vertical"
             android:paddingStart="@dimen/activity_horizontal_margin"
             android:paddingTop="16dp"
             android:paddingEnd="@dimen/activity_horizontal_margin"
             android:paddingBottom="16dp">
 
-            <include layout="@layout/view_license_icons_layout" />
+            <LinearLayout
+                android:id="@+id/gallery_license_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/gallery_license_icon"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:contentDescription="@null"
+                    app:tint="@color/white70"
+                    tools:src="@drawable/ic_license_cc" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/gallery_license_icon_by"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_marginStart="4dp"
+                    android:contentDescription="@null"
+                    android:visibility="gone"
+                    app:tint="@color/white70"
+                    tools:src="@drawable/ic_license_by" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/gallery_license_icon_sa"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_marginStart="4dp"
+                    android:contentDescription="@null"
+                    android:visibility="gone"
+                    app:tint="@color/white70"
+                    tools:src="@drawable/ic_license_sharealike" />
+            </LinearLayout>
 
             <org.wikipedia.views.AppTextView
                 android:id="@+id/gallery_credit_text"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:ellipsize="end"
                 android:maxLines="2"
-                android:paddingStart="8dp"
+                android:layout_marginStart="8dp"
                 android:textColor="@color/white70"
                 android:textColorLink="@color/white70"
                 android:textIsSelectable="true"

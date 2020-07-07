@@ -1,11 +1,9 @@
 package org.wikipedia.crash;
 
 import android.content.Intent;
-import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 
-import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.SingleFragmentActivity;
 
 public class CrashReportActivity extends SingleFragmentActivity<CrashReportFragment>
@@ -13,12 +11,6 @@ public class CrashReportActivity extends SingleFragmentActivity<CrashReportFragm
     @Override
     protected CrashReportFragment createFragment() {
         return CrashReportFragment.newInstance();
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        WikipediaApp.getInstance().checkCrashes(this);
     }
 
     @Override

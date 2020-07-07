@@ -1,6 +1,6 @@
 package org.wikipedia.readinglist;
 
-import android.content.Context;
+import android.app.Activity;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -17,12 +17,12 @@ public final class ReadingListTitleDialog {
         void onSuccess(@NonNull String text, @NonNull String description);
     }
 
-    public static TextInputDialog readingListTitleDialog(@NonNull Context context,
+    public static TextInputDialog readingListTitleDialog(@NonNull Activity activity,
                                                          @NonNull final String title,
                                                          @Nullable final String description,
                                                          @NonNull final List<String> otherTitles,
                                                          @Nullable final Callback callback) {
-        return TextInputDialog.newInstance(context, true,
+        return TextInputDialog.newInstance(activity, true,
                 new TextInputDialog.Callback() {
                     @Override
                     public void onShow(@NonNull TextInputDialog dialog) {

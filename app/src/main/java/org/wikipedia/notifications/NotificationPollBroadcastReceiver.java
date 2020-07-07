@@ -10,16 +10,20 @@ import android.os.SystemClock;
 import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.StringRes;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.analytics.ABTestEditorRetentionNotificationFunnel;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.csrf.CsrfTokenClient;
 import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwException;
+import org.wikipedia.main.MainActivity;
 import org.wikipedia.settings.Prefs;
+import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.log.L;
 
 import java.util.ArrayList;
@@ -28,13 +32,17 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
-import io.reactivex.Completable;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.schedulers.Schedulers;
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.core.Completable;
+import io.reactivex.rxjava3.schedulers.Schedulers;
+
+import static org.wikipedia.Constants.INTENT_EXTRA_GO_TO_SE_TAB;
 
 public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
     public static final String ACTION_POLL = "action_notification_poll";
     private static final int MAX_LOCALLY_KNOWN_NOTIFICATIONS = 32;
+    private static final int FIRST_EDITOR_REACTIVATION_NOTIFICATION_SHOW_ON_DAY = 3;
+    private static final int SECOND_EDITOR_REACTIVATION_NOTIFICATION_SHOW_ON_DAY = 7;
 
     private Map<String, WikiSite> dbNameWikiSiteMap = new HashMap<>();
     private Map<String, String> dbNameWikiNameMap = new HashMap<>();
@@ -43,17 +51,22 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         if (TextUtils.equals(intent.getAction(), Intent.ACTION_BOOT_COMPLETED)) {
-            if (Prefs.notificationPollEnabled()) {
-                startPollTask(context);
-            } else {
-                stopPollTask(context);
-            }
+            // To test the BOOT_COMPLETED intent:
+            // `adb shell am broadcast -a android.intent.action.BOOT_COMPLETED`
+
+            // Update our channel name, if needed.
+            L.v("channel=" + ReleaseUtil.getChannel(context));
+
+            startPollTask(context);
         } else if (TextUtils.equals(intent.getAction(), ACTION_POLL)) {
-            if (!Prefs.notificationPollEnabled()) {
-                stopPollTask(context);
+
+            if (!AccountUtil.isLoggedIn()) {
                 return;
             }
-            if (!AccountUtil.isLoggedIn()) {
+
+            maybeShowLocalNotificationForEditorReactivation(context);
+
+            if (!Prefs.notificationPollEnabled()) {
                 return;
             }
 
@@ -64,10 +77,18 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
 
     public static void startPollTask(@NonNull Context context) {
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        alarmManager.setInexactRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP,
-                SystemClock.elapsedRealtime(),
-                TimeUnit.MINUTES.toMillis(context.getResources().getInteger(R.integer.notification_poll_interval_minutes)),
-                getAlarmPendingIntent(context));
+        try {
+            alarmManager.setInexactRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP,
+                    SystemClock.elapsedRealtime(),
+                    TimeUnit.MINUTES.toMillis(context.getResources().getInteger(R.integer.notification_poll_interval_minutes)
+                            / (Prefs.isSuggestedEditsReactivationTestEnabled() && !ReleaseUtil.isDevRelease() ? 10 : 1)),
+                    getAlarmPendingIntent(context));
+        } catch (Exception e) {
+            // There seems to be a Samsung-specific issue where it doesn't update the existing
+            // alarm correctly and adds it as a new one, and eventually hits the limit of 500
+            // concurrent alarms, causing a crash.
+            L.e(e);
+        }
     }
 
     public static void stopPollTask(@NonNull Context context) {
@@ -121,7 +142,7 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
     @SuppressLint("CheckResult")
     private void retrieveNotifications(@NonNull final Context context) {
         dbNameWikiSiteMap.clear();
-        dbNameWikiSiteMap.clear();
+        dbNameWikiNameMap.clear();
         ServiceFactory.get(new WikiSite(Service.COMMONS_URL)).getUnreadNotificationWikis()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -149,11 +170,12 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
     }
 
     private void onNotificationsComplete(@NonNull final Context context, @NonNull List<Notification> notifications) {
-        if (notifications.isEmpty()) {
+        if (notifications.isEmpty() || Prefs.isSuggestedEditsHighestPriorityEnabled()) {
             return;
         }
         boolean locallyKnownModified = false;
         List<Notification> knownNotifications = new ArrayList<>();
+        List<Notification> notificationsToDisplay = new ArrayList<>();
 
         for (final Notification n : notifications) {
             knownNotifications.add(n);
@@ -164,20 +186,26 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
             if (locallyKnownNotifications.size() > MAX_LOCALLY_KNOWN_NOTIFICATIONS) {
                 locallyKnownNotifications.remove(0);
             }
+            notificationsToDisplay.add(n);
             locallyKnownModified = true;
+        }
 
-            // TODO: remove these conditions when the time is right.
-            if ((n.category().startsWith(Notification.CATEGORY_SYSTEM) && Prefs.notificationWelcomeEnabled())
-                    || (n.category().equals(Notification.CATEGORY_EDIT_THANK) && Prefs.notificationThanksEnabled())
-                    || (n.category().equals(Notification.CATEGORY_THANK_YOU_EDIT) && Prefs.notificationMilestoneEnabled())
-                    || (n.category().equals(Notification.CATEGORY_REVERTED) && Prefs.notificationRevertEnabled())
-                    || (n.category().equals(Notification.CATEGORY_EDIT_USER_TALK) && Prefs.notificationUserTalkEnabled())
-                    || (n.category().equals(Notification.CATEGORY_LOGIN_FAIL) && Prefs.notificationLoginFailEnabled())
-                    || (n.category().startsWith(Notification.CATEGORY_MENTION) && Prefs.notificationMentionEnabled())
-                    || Prefs.showAllNotifications()) {
+        if (notificationsToDisplay.size() > 2) {
+            NotificationPresenter.showMultipleUnread(context, notificationsToDisplay.size());
+        } else {
+            for (final Notification n : notificationsToDisplay) {
+                // TODO: remove these conditions when the time is right.
+                if ((n.category().startsWith(Notification.CATEGORY_SYSTEM) && Prefs.notificationWelcomeEnabled())
+                        || (n.category().equals(Notification.CATEGORY_EDIT_THANK) && Prefs.notificationThanksEnabled())
+                        || (n.category().equals(Notification.CATEGORY_THANK_YOU_EDIT) && Prefs.notificationMilestoneEnabled())
+                        || (n.category().equals(Notification.CATEGORY_REVERTED) && Prefs.notificationRevertEnabled())
+                        || (n.category().equals(Notification.CATEGORY_EDIT_USER_TALK) && Prefs.notificationUserTalkEnabled())
+                        || (n.category().equals(Notification.CATEGORY_LOGIN_FAIL) && Prefs.notificationLoginFailEnabled())
+                        || (n.category().startsWith(Notification.CATEGORY_MENTION) && Prefs.notificationMentionEnabled())
+                        || Prefs.showAllNotifications()) {
 
-                NotificationPresenter.showNotification(context, n, dbNameWikiNameMap.containsKey(n.wiki()) ? dbNameWikiNameMap.get(n.wiki()) : n.wiki());
-
+                    NotificationPresenter.showNotification(context, n, dbNameWikiNameMap.containsKey(n.wiki()) ? dbNameWikiNameMap.get(n.wiki()) : n.wiki());
+                }
             }
         }
 
@@ -219,5 +247,40 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
                         .subscribe(response -> { }, L::e);
             }
         });
+    }
+
+    private void maybeShowLocalNotificationForEditorReactivation(@NonNull Context context) {
+        if (Prefs.getLastDescriptionEditTime() == 0
+                || WikipediaApp.getInstance().isAnyActivityResumed()) {
+            return;
+        }
+        long days = TimeUnit.MILLISECONDS.toDays(System.currentTimeMillis() - Prefs.getLastDescriptionEditTime());
+        if (Prefs.isSuggestedEditsReactivationTestEnabled()) {
+            days = TimeUnit.MILLISECONDS.toMinutes(System.currentTimeMillis() - Prefs.getLastDescriptionEditTime());
+        }
+        if (days >= FIRST_EDITOR_REACTIVATION_NOTIFICATION_SHOW_ON_DAY && days < SECOND_EDITOR_REACTIVATION_NOTIFICATION_SHOW_ON_DAY
+                && !Prefs.isSuggestedEditsReactivationPassStageOne()) {
+            Prefs.setSuggestedEditsReactivationPassStageOne(true);
+            ABTestEditorRetentionNotificationFunnel funnel = new ABTestEditorRetentionNotificationFunnel();
+            funnel.logNotificationStage1();
+            if (funnel.shouldSeeNotification()) {
+                showSuggestedEditsLocalNotification(context, R.string.suggested_edits_reactivation_notification_stage_one);
+            }
+        } else if (days >= SECOND_EDITOR_REACTIVATION_NOTIFICATION_SHOW_ON_DAY && Prefs.isSuggestedEditsReactivationPassStageOne()) {
+            Prefs.setSuggestedEditsReactivationPassStageOne(false);
+            ABTestEditorRetentionNotificationFunnel funnel = new ABTestEditorRetentionNotificationFunnel();
+            funnel.logNotificationStage2();
+            if (funnel.shouldSeeNotification()) {
+                showSuggestedEditsLocalNotification(context, R.string.suggested_edits_reactivation_notification_stage_two);
+            }
+        }
+    }
+
+    public static void showSuggestedEditsLocalNotification(@NonNull Context context, @StringRes int description) {
+        Intent intent = MainActivity.newIntent(context).putExtra(INTENT_EXTRA_GO_TO_SE_TAB, true);
+        NotificationPresenter.showNotification(context, NotificationPresenter.getDefaultBuilder(context), 0,
+                context.getString(R.string.suggested_edits_reactivation_notification_title),
+                context.getString(description), context.getString(description),
+                R.drawable.ic_mode_edit_white_24dp, R.color.accent50, false, intent);
     }
 }

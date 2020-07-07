@@ -42,13 +42,9 @@
   <string name="menu_page_share">Байланывну пайлашмакъ</string>
   <string name="menu_long_press_open_page">Ачмакъ</string>
   <string name="menu_long_press_copy_page">Байланывну ерлешимин кёплемек</string>
-  <string name="menu_text_select_copy">Кёплемек</string>
-  <string name="menu_text_select_share">Пайлашмакъ</string>
-  <string name="share">Пайлашмакъ</string>
   <string name="on_this_day_page_share">Пайлашмакъ</string>
   <string name="reading_list_page_share">Пайлашмакъ</string>
   <string name="menu_text_select_edit_here">Мунда тюзлемек</string>
-  <string name="nav_item_nearby">Ювукъда</string>
   <string name="last_updated_text">Ахырынчы янгыртыв %s</string>
   <string name="talk_page_link_text">Сёйлешив сагьифагъа къарамакъ</string>
   <string name="edit_history_link_text">Тюзлев тарихге къарамакъ</string>
@@ -78,9 +74,9 @@
   <string name="reading_lists_sync_login">Гирмек</string>
   <string name="create_account_login">Гирмек</string>
   <string name="menu_login">Гирмек</string>
-  <string name="login_activity_title">Википедиягъа гирмек</string>
+  <string name="login_activity_title" fuzzy="true">Википедиягъа гирмек</string>
   <string name="login_in_progress_dialog_message">Системге гирмек…</string>
-  <string name="login_success_toast">Бажарывлу гирив болду!</string>
+  <string name="login_success_toast" fuzzy="true">Бажарывлу гирив болду!</string>
   <string name="reset_password_title">Чечилингни бер</string>
   <string name="reset_password_hint">Янгы чечил</string>
   <string name="reset_password_button">Сакълап гирмек</string>
@@ -139,12 +135,9 @@
   <string name="gallery_error_draw_failed">Суратны чыгъарма бажарылмады.</string>
   <string name="gallery_menu_share">Пайлашмакъ</string>
   <string name="gallery_save_progress">Саплам эндирив…</string>
-  <string name="gallery_save_success">Саплам тюзевлю сакълангъан.</string>
+  <string name="gallery_save_success" fuzzy="true">Саплам тюзевлю сакълангъан.</string>
   <string name="err_cannot_save_file">Саплам сакъланмай</string>
   <string name="expand_refs">Генглешдирмек учун бас</string>
-  <string name="share_snippet_button">Суратдай пайлашмакъ</string>
-  <string name="share_normal_button">Метиндей пайлашмакъ</string>
-  <string name="snippet_share_preview_image_desc"> Суратгъа ингкъарав</string>
   <string name="captcha_image">Капча сурат</string>
   <string name="gallery_fair_use_license">Намуслу пайдаланыв</string>
   <string name="gallery_uploader_unknown">Юклеген белгисиз</string>
@@ -160,8 +153,6 @@
   <string name="multi_select_items_selected">%d сайлангъан</string>
   <string name="error_message_generic">Хата болду</string>
   <string name="view_link_preview_error_button_dismiss">Япмакъ</string>
-  <string name="crash_report_dialog_always_send_button">Гьаманда йибермек</string>
-  <string name="crash_report_dialog_send_button">Йибермек</string>
   <string name="crash_report_relaunch">Такрар ишлетмек</string>
   <string name="crash_report_quit">Чыкъмакъ</string>
   <string name="article_header_edit_hint">Тюзлемек…</string>
@@ -216,12 +207,8 @@
   <string name="description_edit_success_done">Гьазир</string>
   <string name="description_edit_success_did_you_know">Билемисен?</string>
   <string name="description_edit_tutorial_button_label_start_editing">Тюзлеп башламакъ</string>
-  <string name="suggested_edits_unlock_dialog_no" fuzzy="true">Балики сонгра</string>
-  <string name="suggested_edits_unlock_dialog_yes">Гетдик</string>
-  <string name="suggested_edits_unlock_notification_button">Гетдик</string>
   <string name="suggested_edits_menu_info">Маълумат</string>
   <string name="suggested_edits_task_add_description_title" fuzzy="true">Тасвир къошмакъ</string>
-  <string name="suggested_edits_task_translation_title" fuzzy="true">Тасвирлени гёчюрювлери</string>
   <string name="suggested_edits_task_multilingual_negative">Магъа тюгюл</string>
   <string name="suggested_edits_task_multilingual_positive">Тиллер къошмакъ</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Башламакъ</string>
@@ -254,7 +241,5 @@
   <string name="wikitext_numbered_list">Нёмюрленген тизме</string>
   <string name="wikitext_template">Къалип</string>
   <string name="wikitext_preview_link">Ингкъарав байланыв</string>
-  <string name="main_drawer_open">Ачмакъ</string>
-  <string name="main_drawer_close">Япмакъ</string>
   <string name="main_drawer_help">Кёмек</string>
 </resources>

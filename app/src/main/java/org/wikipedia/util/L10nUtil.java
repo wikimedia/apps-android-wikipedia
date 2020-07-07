@@ -9,12 +9,8 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
 
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.bridge.CommunicationBridge;
-import org.wikipedia.language.LanguageUtil;
 import org.wikipedia.page.PageTitle;
 
 import java.util.Arrays;
@@ -45,8 +41,8 @@ public final class L10nUtil {
      * Ensure that this is always sorted alphabetically.
      */
     private static final String[] RTL_LANGS = {
-            "ar", "arc", "arz", "bcc", "bqi", "ckb", "dv", "fa", "glk", "he",
-            "khw", "ks", "mzn", "pnb", "ps", "sd", "ug", "ur", "yi"
+            "ar", "arc", "arz", "azb", "bcc", "bqi", "ckb", "dv", "fa", "glk", "he",
+            "khw", "ks", "lrc", "mzn", "nqo", "pnb", "ps", "sd", "ug", "ur", "yi"
     };
 
     /**
@@ -59,31 +55,6 @@ public final class L10nUtil {
         return Arrays.binarySearch(RTL_LANGS, lang, null) >= 0;
     }
 
-    /**
-     * Set up directionality for both UI and content elements in a webview.
-     *
-     * @param contentLang The Content language to use to set directionality. Wiki Language code.
-     * @param uiLocale The UI language to use to set directionality. Java language code.
-     * @param bridge The CommunicationBridge to use to communicate with the WebView
-     */
-    public static void setupDirectionality(String contentLang, Locale uiLocale, CommunicationBridge bridge) {
-        JSONObject payload = new JSONObject();
-        try {
-            if (isLangRTL(contentLang)) {
-                payload.put("contentDirection", "rtl");
-            } else {
-                payload.put("contentDirection", "ltr");
-            }
-            if (isLangRTL(LanguageUtil.localeToWikiLanguageCode(uiLocale))) {
-                payload.put("uiDirection", "rtl");
-            } else {
-                payload.put("uiDirection", "ltr");
-            }
-        } catch (JSONException e) {
-            throw new RuntimeException(e);
-        }
-        bridge.sendMessage("setDirectionality", payload);
-    }
 
     /**
      * Sets text direction (RTL / LTR) for given view based on given lang.
@@ -230,20 +201,6 @@ public final class L10nUtil {
         } else {
             config.setLocale(desiredLocale);
         }
-    }
-
-    // TODO: remove this if we can get correct language counts from server
-    public static int getUpdatedLanguageCountIfNeeded(String getLanguageCode, int originalLanguageCount) {
-
-        int updatedLanguageCount = originalLanguageCount;
-
-        if (getLanguageCode.equals(CHINESE_LANGUAGE_CODE)) {
-            updatedLanguageCount = updatedLanguageCount + 2; // for both Traditional and Simplified
-        } else if (getLanguageCode.equals(TRADITIONAL_CHINESE_LANGUAGE_CODE) || getLanguageCode.equals(SIMPLIFIED_CHINESE_LANGUAGE_CODE)) {
-            updatedLanguageCount = updatedLanguageCount + 1;
-        }
-
-        return updatedLanguageCount;
     }
 
     private L10nUtil() {

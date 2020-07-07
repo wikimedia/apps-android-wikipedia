@@ -14,10 +14,8 @@
   <string name="menu_page_find_in_page">Бул барактан табуу</string>
   <string name="menu_page_font_and_theme">Жазуу түрүн жана жасалганы өзгөртүү</string>
   <string name="menu_page_share" fuzzy="true">Бөлүшүү</string>
-  <string name="nav_item_nearby">Жакынкы</string>
   <string name="last_updated_text">Акыркы жаңылоо: %s</string>
-  <string name="content_license_html">Камтылма (башка нерсе көрсөтүлгөн эмес болсо) &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; негизинде жеткиликтүү</string>
-  <string name="edit_save_action_license_logged_in">Өзгөртүүлөрдү сактоо менен бирге, сиз &lt;a href=\"%1$s\"&gt;колдонуу шарттары&lt;/a&gt; менен, ошондой эле &lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt; лицензиясы боюнча irrevocably release шарттарына макул экендигиңизди билдиресиз.</string>
+    <string name="edit_save_action_license_logged_in">Өзгөртүүлөрдү сактоо менен бирге, сиз &lt;a href=\"%1$s\"&gt;колдонуу шарттары&lt;/a&gt; менен, ошондой эле &lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt; лицензиясы боюнча irrevocably release шарттарына макул экендигиңизди билдиресиз.</string>
   <string name="preference_title_language">Уикипедия тили</string>
     <string name="langlinks_filter_hint">Издөө</string>
   <string name="langlinks_empty">Бул барак башка тилдерде жеткиликтүү эмес.</string>

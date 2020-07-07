@@ -8,7 +8,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.database.DatabaseClient;
 import org.wikipedia.database.contract.PageHistoryContract;
 
-import io.reactivex.functions.Action;
+import io.reactivex.rxjava3.functions.Action;
 
 /**
  * Save the history entry for the specified page.
@@ -32,10 +32,10 @@ public class UpdateHistoryTask implements Action {
 
     private int getPreviousTimeSpent(@NonNull DatabaseClient<HistoryEntry> client) {
         int timeSpent = 0;
-        String selection = ":siteCol == ? and :langCol == ? and :titleCol == ?"
+        String selection = ":siteCol == ? and :langCol == ? and :apiTitleCol == ?"
                 .replaceAll(":siteCol", PageHistoryContract.Page.SITE.qualifiedName())
                 .replaceAll(":langCol", PageHistoryContract.Page.LANG.qualifiedName())
-                .replaceAll(":titleCol", PageHistoryContract.Page.TITLE.qualifiedName());
+                .replaceAll(":apiTitleCol", PageHistoryContract.Page.API_TITLE.qualifiedName());
         String[] selectionArgs = new String[]{entry.getTitle().getWikiSite().authority(),
                 entry.getTitle().getWikiSite().languageCode(),
                 entry.getTitle().getText()};

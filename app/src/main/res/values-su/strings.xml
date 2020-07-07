@@ -52,23 +52,16 @@
   <string name="menu_long_press_open_page">Buka</string>
   <string name="menu_long_press_open_in_new_tab">Buka na tab anyar</string>
   <string name="menu_long_press_copy_page">Tiron alamat tutumbu</string>
-  <string name="menu_text_select_copy">Tiron</string>
   <string name="menu_text_select_define">Hartikeun</string>
-  <string name="menu_text_select_share">Bagikeun</string>
-  <string name="share">Bagikeun</string>
   <string name="on_this_day_page_share">Bagikeun</string>
   <string name="reading_list_page_share">Bagikeun</string>
   <string name="menu_text_select_edit_here">Édit didieu</string>
-  <string name="nav_item_nearby">Sabudeureun</string>
-  <string name="nearby_zoom_to_location">Zum kana lokasi na péta</string>
-  <string name="nearby_osm_license">&amp;copy; &amp;nbsp;kontributor &lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt;</string>
   <string name="last_updated_text">Ayaran panungtung %s</string>
   <string name="talk_page_link_text">Tempo kaca obrolan</string>
   <string name="edit_history_link_text">Tempo jujutan édit</string>
   <string name="map_view_link_text">Tempo dina péta</string>
   <string name="other_languages_indication_text">Baca dina basa séjén</string>
   <string name="language_count_link_text">Nyangkaruk dina %d$1 basa séjén</string>
-  <string name="content_license_html">Eusi ditangtayungan ku &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; iwal mun disebutkeun séjén</string>
   <string name="edit_save_action_license_logged_in">Ku medalkeunna, anjeun sapuk kana &lt;a href=\"%1$s\"&gt;Katangtuan Pamakéan&lt;/a&gt;, sarta ngaleupaskeun kontribusi anjeun di handapeun  lisénsi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon" fuzzy="true">Ku nyimpenna, anjeun satuju kana &lt;a href=\"%1$s\"&gt;Katangtuan Pamakéan&lt;/a&gt;, sarta ngaleupaskeun kontribusi anjeun di handapeun lisénsi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Éditan ditumbukeun ka alamat IP pakakas. Mun anjeun &lt;a href=\"https://#login\"&gt;asup log&lt;/a&gt;, anjeun bakal meunang privasi leuwih.</string>
   <string name="preference_title_language">Basa-basa Wikipédia</string>
@@ -105,9 +98,9 @@
   <string name="reading_lists_sync_login">Asup log</string>
   <string name="create_account_login">Asup log</string>
   <string name="menu_login">Asup log</string>
-  <string name="login_activity_title">Asup log ka Wikipédia</string>
+  <string name="login_activity_title" fuzzy="true">Asup log ka Wikipédia</string>
   <string name="login_in_progress_dialog_message">Keur asup log...</string>
-  <string name="login_success_toast">Asup log ngahasil!</string>
+  <string name="login_success_toast" fuzzy="true">Asup log ngahasil!</string>
   <string name="reset_password_title">Atur kecap sandi anjeun</string>
   <string name="reset_password_description">Anjeun asup log migunakeun sandi saheulaanan. Pikeun nganggeuskeun asup log, jieun kecap sandi anyar di dieu.</string>
   <string name="reset_password_hint">Sandi anyar</string>
@@ -166,7 +159,7 @@
   <string name="preference_title_eventlogging_opt_in">Kirim laporan pamakéan</string>
   <string name="preference_summary_eventlogging_opt_in">Heugbaékeun Wikimédia pikeun ngumpulkeun info ngeunaan cara anjeun migunakeun aplikasi sangkan aplikasi jadi leuwih hadé</string>
   <string name="preference_title_auto_upload_crash_reports">Kirim laporan karuksakan</string>
-  <string name="preference_summary_auto_upload_crash_reports">Idinan aplikasi pikeun ngirimkeun laporan karuksakan ka HockeyApp / panyadia layanan pihak katilu sacara otomatis sangkan kami bisa ngariksa karuksakanna sarta ngoméan kasalahan leuwih gancang sarta leuwih gampang.</string>
+  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Idinan aplikasi pikeun ngirimkeun laporan karuksakan ka HockeyApp / panyadia layanan pihak katilu sacara otomatis sangkan kami bisa ngariksa karuksakanna sarta ngoméan kasalahan leuwih gancang sarta leuwih gampang.</string>
   <string name="editing_error_spamblacklist">Tutumbu ka domain nu dipeunpeuk (%s) kadéték. Pék hapus sarta cobaan deui.</string>
   <string name="history_search_list_hint">Jujutan pamaluruhan</string>
   <string name="error_can_not_process_link">Teu bisa midangkeun ieu tutumbu</string>
@@ -181,7 +174,7 @@
   <string name="about_description">Ngeunaan aplikasi Wikipédia</string>
   <string name="privacy_policy_description">Kawijakan privasi</string>
   <string name="terms_of_use_description">Katangtuan pamakéan</string>
-  <string name="about_wikipedia_url">https://su.m.wikipedia.org/wiki/Wikipedia:Ngeunaan</string>
+  <string name="about_wikipedia_url" fuzzy="true">https://su.m.wikipedia.org/wiki/Wikipedia:Ngeunaan</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.su</string>
@@ -255,15 +248,11 @@
   <string name="gallery_menu_share">Bagikeun</string>
   <string name="gallery_share_error">Teu bisa ngabagikeun gambar: %s</string>
   <string name="gallery_save_progress">Keur ngundeur berkas</string>
-  <string name="gallery_save_success">Nyimpen berkas ngahasil</string>
+  <string name="gallery_save_success" fuzzy="true">Nyimpen berkas ngahasil</string>
   <string name="gallery_error_video_failed">Teu bisa maénkeun vidio.</string>
   <string name="gallery_save_image_write_permission_rationale">Idin pikeun nulis kana panyimpenan dina parangkat anjeun dibutuhkeun, pikeun nyimpen gambar.</string>
   <string name="err_cannot_save_file">Teu bisa nyimpen berkas</string>
-  <string name="snippet_share_intro">\"%1$s\" na @Wikipedia: %2$s</string>
   <string name="expand_refs">Toél pikeun ngalegakeun</string>
-  <string name="share_snippet_button">Bagikeun minangka gambar</string>
-  <string name="share_normal_button">Bagikeun minangka téks</string>
-  <string name="snippet_share_preview_image_desc">Pramidang gambar</string>
   <string name="cc_logo">Lisénsi Creative Commons</string>
   <string name="captcha_image">Gambar Captcha</string>
   <string name="gallery_fair_use_license">Pamakéan wajar</string>
@@ -276,7 +265,6 @@
   <string name="button_close_tab">Tutup tab</string>
   <string name="tab_item_closed">%s ditutup.</string>
   <string name="tool_tip_bookmark_icon_title">Tambah ka daptar bacaan</string>
-  <string name="tool_tip_share">Sanggeus nyorot hiji fakta nu pitajieun, pék bagikeun gera di jaringan karesep anjeun!</string>
   <string name="page_view_in_browser">Tempo kaca na panyungsi</string>
   <string name="error_response_malformed">Respon ti sérver teu diformat kalawan bener.</string>
   <string name="error_unknown">Aya éror anu teu kanyahoan.</string>
@@ -308,11 +296,6 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Pamoékan gambar (dina téma Poék)</string>
   <string name="preference_title_prefer_offline_content">Resep kénéh kontén oflén</string>
   <string name="preference_summary_prefer_offline_content">Ngirit pamakéan data ku cara muat artikel nu sayaga sacara oflén tinimbang muat vérsi anyar artikel</string>
-  <string name="crash_report_dialog_title">Hampura, aplikasi eureun sorangan bieu téh</string>
-  <string name="crash_report_dialog_text">Ari anjeun hayang ngirimkeun laporan karuksakan ka HockeyApp / panyadia layanan pihak katilu sangkan Wikimédia bisa mariksa karuksakan anjeun sarta ngoméan kasalahan nu disumebabkeunna?</string>
-  <string name="crash_report_dialog_dont_send_button">Liwatkeun</string>
-  <string name="crash_report_dialog_always_send_button">Kirim terus</string>
-  <string name="crash_report_dialog_send_button">Kirim</string>
   <string name="crash_report_activity_title">Kasalahan aplikasi</string>
   <string name="crash_report_relaunch_or_quit">Kumaha atuh? Rék dibalikan deui atawa kaluar baé?</string>
   <string name="crash_report_relaunch">Balikan deui</string>
@@ -336,8 +319,6 @@
   <string name="reading_list_save_to">Simpen kana daptar bacaan</string>
   <string name="reading_list_create_new">Jieun anyar</string>
   <string name="reading_list_title_exists">Daptar bacaan \"%s\" geus aya.</string>
-  <string name="reading_list_added_to_named">Ditambahkeun kana %s.</string>
-  <string name="reading_list_already_exists">Ieu artikel geus aya na daptar tadi.</string>
   <string name="reading_list_added_view_button">Tempo daptar</string>
   <string name="format_reading_list_statistical_summary_singular">1 artikel, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d artikel, %2$.2f MB</string>
@@ -387,8 +368,7 @@
   <string name="reading_lists_confirm_remote_delete_yes">Nya</string>
   <string name="reading_lists_confirm_remote_delete_no">Teu</string>
   <string name="reading_list_article_save_in_progress">Artikel keur diundeur, sarta bakal nyangkaruk sacara oflén nalika geus bérés.</string>
-  <string name="reading_list_already_contains_selection">Daptar nu dipilih geus aya eusian sakabéh kaca nu dipilih.</string>
-  <string name="reading_list_added_articles_list_titled">%1$d ditambahkeun ka %2$s</string>
+  <string name="reading_list_articles_added_to_named">%1$d ditambahkeun ka %2$s</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Asup log pikeun ngahurungkeun singkronan</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">Bolay</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_login">Asup log</string>
@@ -398,12 +378,6 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Ulah midangkeun ieu deui</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Hurungkeun singkronan</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Teu nuhun</string>
-  <string name="reading_list_login_option_reminder_dialog_title">Daptar bacaan artikel kapanggih</string>
-  <string name="reading_list_login_option_reminder_dialog_yes">Nya, tambahkeun kabéh ka daptar bacaan kuring</string>
-  <string name="reading_list_login_option_reminder_dialog_no">Teu, pupus artikel</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">Engkeun artikel kasimpen di app?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">Nya, engkeun artikel dina daptar</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">Teu, pupus artikel tina daptar</string>
   <string name="default_reading_list_name">Disimpen</string>
   <string name="no_user_lists_title">Atur artikel kana daptar</string>
   <string name="reading_lists_menu_create_list">Jieun daptar anyar</string>
@@ -418,7 +392,7 @@
     <item quantity="one">Ieu artikel teu sayaga deui sacara oflén.</item>
     <item quantity="other">Ieu artikel-artikel teu sayaga deui sacara oflén.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync">Daptar bacaan ngahasil disingkronkeun</string>
+  <string name="reading_list_toast_last_sync" fuzzy="true">Daptar bacaan ngahasil disingkronkeun</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">OKÉH</string>
   <string name="reading_list_delete_dialog_ok_button_text">OKÉH</string>
   <string name="reading_list_remove_from_list_dialog_cancel_button_text">Bolay</string>
@@ -534,9 +508,6 @@
   <string name="onboarding_reading_list_sync_title" fuzzy="true">Daptar bacaan kalawan singkronisasi</string>
   <string name="onboarding_analytics_title">Kirim data anonim</string>
   <string name="onboarding_analytics_switch_title">Kirim data pamakéan</string>
-  <string name="onboarding_create_account_sync">Singkronkeun daptar bacaan anjeun</string>
-  <string name="onboarding_create_account_contributions">Catet kontribusi anjeun</string>
-  <string name="onboarding_create_account_preferences">Simpen préferénsi anjeun</string>
   <string name="app_shortcuts_random">Acak</string>
   <string name="app_shortcuts_continue_reading">Tuluykeun Maca</string>
   <string name="app_shortcuts_search">Paluruh</string>

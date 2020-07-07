@@ -67,9 +67,9 @@ public class NotificationWithProgressBar {
         }
 
         builderIcon = getNotificationIcon();
-        builderTitle = String.format(context.getResources().getQuantityString(getNotificationTitle(), total), total);
+        builderTitle = context.getResources().getQuantityString(getNotificationTitle(), total, total);
         builderInfo = (int) MathUtil.percentage(progress, total) + "%";
-        builderDescription = String.format(context.getResources().getQuantityString(getNotificationDescription(), total - progress), total - progress);
+        builderDescription = context.getResources().getQuantityString(getNotificationDescription(), total - progress, total - progress);
 
         builder.setSmallIcon(builderIcon)
                 .setLargeIcon(BitmapFactory.decodeResource(context.getResources(), builderIcon))

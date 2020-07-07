@@ -12,6 +12,7 @@
 * Orikrin1998
 * Remux
 * Robin van der Vliet
+* SHaran (WMF)
 * Surfo
 * YvesNevelsteen
 -->
@@ -34,7 +35,7 @@
   <string name="storage_access_error_retry">Reprovi</string>
   <string name="article_load_error_retry">Reprovi</string>
   <string name="offline_load_error_retry">Reprovi</string>
-  <string name="page_error_back_to_main">Reen</string>
+  <string name="page_error_back_to_main">Reveni</string>
   <string name="error_back">Reveni</string>
   <string name="menu_clear_all_history">Malplenigi historion</string>
   <string name="history_item_deleted">%s estas forigita de historio</string>
@@ -63,23 +64,16 @@
   <string name="menu_long_press_open_page">Malfermi</string>
   <string name="menu_long_press_open_in_new_tab">Malfermi en nova langeto</string>
   <string name="menu_long_press_copy_page">Kopii ligilan adreson</string>
-  <string name="menu_text_select_copy">Kopii</string>
   <string name="menu_text_select_define">Difini</string>
-  <string name="menu_text_select_share">Konigi</string>
-  <string name="share">Kunhavigi</string>
   <string name="on_this_day_page_share">Kunhavigi</string>
   <string name="reading_list_page_share">Kunhavigi</string>
   <string name="menu_text_select_edit_here">Redakti ĉi tie</string>
-  <string name="nav_item_nearby">Ĉirkaŭe</string>
-  <string name="nearby_zoom_to_location">Zomi al loko en la mapo</string>
-  <string name="nearby_osm_license">&amp;copy; &amp;nbsp;Kontribuantoj de &lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt;</string>
   <string name="last_updated_text">Lasta ĝisdatigo %s</string>
   <string name="talk_page_link_text">Montri diskutpaĝon</string>
   <string name="edit_history_link_text">Montri redakto-historion</string>
   <string name="map_view_link_text">Montri sur mapo</string>
   <string name="other_languages_indication_text">Legi en alia lingvo</string>
   <string name="language_count_link_text">Disponebla en %d aliaj lingvoj</string>
-  <string name="content_license_html">La enhavo disponeblas laŭ la permesilo  &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; krom se alia permesilo estas indikita.</string>
   <string name="edit_save_action_license_logged_in">Per publikigo vi akceptas la &lt;a href=\"%1$s\"&gt;uzokondiĉojn&lt;/a&gt; kaj definitive liberigas vian kontribuon laŭ la permesilo &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Konservante, vi konsentas kun la &lt;a href=\"%1$s\"&gt;Uzkondiĉoj&lt;/a&gt;, kaj ne-malfareble liberigas viajn kontribuojn sub la permesilo &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Redaktoj estos atribuitaj al la IP-adreso de via aparato. Se vi &lt;a href=\"https://#login\"&gt;ensalutos&lt;/a&gt;, vi havos pli da privateco.</string>
   <string name="preference_title_language">Vikipediaj lingvoj</string>
@@ -117,9 +111,9 @@
   <string name="reading_lists_sync_login">Ensaluti</string>
   <string name="create_account_login">Ensaluti</string>
   <string name="menu_login">Ensaluti</string>
-  <string name="login_activity_title">Ensaluti en Vikipedion</string>
+  <string name="login_activity_title" fuzzy="true">Ensaluti en Vikipedion</string>
   <string name="login_in_progress_dialog_message">Ensalutante…</string>
-  <string name="login_success_toast">Ensaluto sukcesis!</string>
+  <string name="login_success_toast" fuzzy="true">Ensaluto sukcesis!</string>
   <string name="reset_password_title">Ŝanĝu vian pasvorton</string>
   <string name="reset_password_description">Vi ensalutis per provizora pasvorto. Por fini vian ensalutadon, agordu novan pasvorton ĉi tie.</string>
   <string name="reset_password_hint">Nova pasvorto</string>
@@ -181,7 +175,7 @@
   <string name="preference_title_eventlogging_opt_in">Sendi raportojn pri uzado</string>
   <string name="preference_summary_eventlogging_opt_in">Permesi al Vikipedio kolekti informon pri kiel vi uzas la aplikaĵon por helpi ĝin plibonigi</string>
   <string name="preference_title_auto_upload_crash_reports">Sendi prikraŝajn raportojn</string>
-  <string name="preference_summary_auto_upload_crash_reports">Permesi la aplikaĵon sendi prikraŝajn raportojn al HockeyApp /  ekstera servo-provizanto aŭtomate por ke ni povu revizii vian kraŝon kaj ripari la cimon pli rapide kaj pli facile.</string>
+  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Permesi la aplikaĵon sendi prikraŝajn raportojn al HockeyApp /  ekstera servo-provizanto aŭtomate por ke ni povu revizii vian kraŝon kaj ripari la cimon pli rapide kaj pli facile.</string>
   <string name="editing_error_spamblacklist">Ligilo al blokitaj retadresoj detektitaj (%s). Bonvole forigu ilin kaj reprovu.</string>
   <string name="history_search_list_hint">Serĉi historion</string>
   <string name="error_can_not_process_link">Ne eblas montri ĉi tiun ligilon</string>
@@ -196,7 +190,7 @@
   <string name="about_description">Pri la Vikipedia aplikaĵo</string>
   <string name="privacy_policy_description">Politiko pri privateco</string>
   <string name="terms_of_use_description">Uzkondiĉoj</string>
-  <string name="about_wikipedia_url">https://en.m.wikipedia.org/wiki/Wikipedia:About</string>
+  <string name="about_wikipedia_url" fuzzy="true">https://en.m.wikipedia.org/wiki/Wikipedia:About</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
@@ -273,16 +267,12 @@
   <string name="gallery_menu_share">Konigi</string>
   <string name="gallery_share_error">Ne eblis konigi la bildon: %s</string>
   <string name="gallery_save_progress">Elŝutado de dosiero…</string>
-  <string name="gallery_save_success">Dosiero sukcese konservita.</string>
+  <string name="gallery_save_success" fuzzy="true">Dosiero sukcese konservita.</string>
   <string name="gallery_error_video_failed">Ne eblis ludi la filmeton.</string>
   <string name="gallery_save_image_write_permission_rationale">Savi bildon bezonas permeson skribi al konservejo de via aparato.</string>
   <string name="gallery_add_image_caption_in_language_button">Aldoni titolon al bildo (je %s)</string>
   <string name="err_cannot_save_file">Ne eblis konservi la dosieron</string>
-  <string name="snippet_share_intro">\"%1$s\" ĉe @Wikipedia: %2$s</string>
   <string name="expand_refs">Tuŝetu por etendi</string>
-  <string name="share_snippet_button">Konigi kiel bildo</string>
-  <string name="share_normal_button">Konigi kiel teksto</string>
-  <string name="snippet_share_preview_image_desc">Antaŭrigardo de la bildo</string>
   <string name="cc_logo">Krea komunaĵa permesilo</string>
   <string name="captcha_image">Captcha-bildo</string>
   <string name="gallery_fair_use_license">Justa uzo</string>
@@ -299,7 +289,6 @@
   <string name="all_tab_items_closed">Ĉiuj langetoj estis fermitaj.</string>
   <string name="tool_tip_bookmark_icon_title">Aldoni al legolisto</string>
   <string name="tool_tip_bookmark_icon_text">Frapetu la ikonon de la legosigno por konservi la artikolon en legoliston.</string>
-  <string name="tool_tip_share">Post emfazado de interesa fakto, provu diskonigi ĝin per viaj preferataj retoj!</string>
   <string name="page_view_in_browser">Montri paĝon per retumilo</string>
   <string name="tool_tip_toc_title">Enhavtabelo rapida aliro</string>
   <string name="tool_tip_toc_text">Nun vi povas ŝovumi maldekstren por malfermi la enhavotabelon, kaj frapeti-treni la ruluma butonon por rapide salti al paragrafoj de artikolo.</string>
@@ -338,11 +327,6 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">Malheligo de bildoj (en Malhela etoso)</string>
   <string name="preference_title_prefer_offline_content">Preferi eksterretan enhavon</string>
   <string name="preference_summary_prefer_offline_content">Konservi datenan uzadon per ŝarĝado de artikoloj haveblaj senkonekte, anstataŭ de la plej aktualaj versioj</string>
-  <string name="crash_report_dialog_title">Pardonon, la aplikaĵo kraŝis pasintfoje</string>
-  <string name="crash_report_dialog_text">Ĉu volas sendi raporton pri fiasko al HockeyApp / triapartia servoprovizanto, tiel ke Vikimedio povas ekzameni vian fiaskon kaj ripari la cimon kaŭzinta ĝin?</string>
-  <string name="crash_report_dialog_dont_send_button">Preterpasi</string>
-  <string name="crash_report_dialog_always_send_button">Ĉiam sendi</string>
-  <string name="crash_report_dialog_send_button">Sendi</string>
   <string name="crash_report_activity_title">Aplikaĵa eraro</string>
   <string name="crash_report_relaunch_or_quit">Domaĝe, eraro okazis kaj la aplikaĵo Vikipedio fiaskis.\n\nĈu restarti aŭ ĉesi?</string>
   <string name="crash_report_relaunch">Rekomenci</string>
@@ -368,8 +352,6 @@
   <string name="reading_list_save_to">Konservi al legolisto</string>
   <string name="reading_list_create_new">Krei novan</string>
   <string name="reading_list_title_exists">Legolisto \"%s\" jam ekzistas.</string>
-  <string name="reading_list_added_to_named">Aldonita al %s.</string>
-  <string name="reading_list_already_exists">Ĉi tiu artikolo estas jam en tiu listo.</string>
   <string name="reading_list_added_view_button">Montri liston</string>
   <string name="format_reading_list_statistical_summary_singular">1 artikolo, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d artikoloj, %2$.2f MB</string>
@@ -425,8 +407,7 @@
   <string name="reading_lists_confirm_remote_delete_yes">Jes</string>
   <string name="reading_lists_confirm_remote_delete_no">Ne</string>
   <string name="reading_list_article_save_in_progress">La artikolo estas elŝutata, kaj ĝi estos havebla kiam la elŝutado estos kompleta.</string>
-  <string name="reading_list_already_contains_selection">La elektita listo jam enhavas ĉiujn elektitajn paĝojn.</string>
-  <string name="reading_list_added_articles_list_titled">Aldoniĝis %1$d artikoloj al %2$s</string>
+  <string name="reading_list_articles_added_to_named">Aldoniĝis %1$d artikoloj al %2$s</string>
   <string name="reading_list_delete_confirm">Ĉu vi certas, ke vi volas forigi %s?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Ensalutu por ebligi sinkronigadon</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Ensalutu por ebligi ke viaj legolistoj estu konservitaj al via konto.</string>
@@ -441,14 +422,6 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Ne plu montri ĉi tion</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Ŝalti sinkronigadon</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Ne, dankon</string>
-  <string name="reading_list_login_option_reminder_dialog_title">Trovis legolistajn artikolojn</string>
-  <string name="reading_list_login_option_reminder_dialog_text">Artikoloj konserviĝis en la legoliston dum vi estis elŝutita. Ĉu vi volas aldoni ilin al la legolistoj de via konto?</string>
-  <string name="reading_list_login_option_reminder_dialog_yes">Jes, aldonu ilin al miaj legolistoj</string>
-  <string name="reading_list_login_option_reminder_dialog_no">Ne, forigu la artikolojn</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">Ĉu konservi konservitajn artikolojn en la aplikaĵo?</string>
-  <string name="reading_list_logout_option_reminder_dialog_text">Estas artikoloj nuntempe konservitaj en legolistoj. Ĉu vi volas gardi ilin tie post kiam vi elsalutos?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">Jes, gardi artikolojn en listoj</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">Ne, forigi artikolojn de listoj</string>
   <string name="default_reading_list_name">Konservitaj</string>
   <string name="default_reading_list_description">Defaŭlta listo por viaj konservitaj artikoloj</string>
   <string name="no_user_lists_title">Organizi artikolojn en listoj</string>
@@ -470,7 +443,7 @@
     <item quantity="one">Ĉi tiu artikolo estas ne plu havebla eksterrete.</item>
     <item quantity="other">Ĉi tiuj artikoloj estas ne plu haveblaj eksterrete.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync">Sukcese sinkronigis legolistojn</string>
+  <string name="reading_list_toast_last_sync" fuzzy="true">Sukcese sinkronigis legolistojn</string>
   <string name="reading_list_menu_last_sync">Lasta sinkronigo: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">Bone</string>
   <string name="reading_list_delete_dialog_ok_button_text">Bone</string>
@@ -486,10 +459,10 @@
   <string name="notification_syncing_resume_button">Daŭrigi</string>
   <string name="notification_syncing_cancel_button">Nuligi</string>
   <string name="notification_syncing_reading_list_channel_description">Progreso de sinkronigado de Legolistoj</string>
-  <plurals name="notification_channel_name">
+  <plurals name="notification_channel_name" fuzzy="true">
     <item quantity="other">unu=Elŝutanta artikolon</item>
   </plurals>
-  <plurals name="notification_syncing_title">
+  <plurals name="notification_syncing_title" fuzzy="true">
     <item quantity="other">unu=Elŝutanta %1$d artikolon…</item>
   </plurals>
   <plurals name="notification_syncing_description">
@@ -590,9 +563,8 @@
   <string name="feed_lang_selection_dialog_ok_button_text">Bone</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Nuligi</string>
   <string name="description_edit_text_hint">Priskribo de artikolo</string>
-  <string name="description_edit_article_description_label_per_language">Artikolo (je %s)</string>
+  <string name="description_edit_translate_article_description_label_per_language" fuzzy="true">Artikolo (je %s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Priskribo de artikolo (je %s)</string>
-  <string name="description_edit_add_caption_label_per_language">Priskribo de bildo (je %s)</string>
   <string name="description_edit_translate_caption_hint_per_language">Titoloj de bildo (je %s)</string>
   <string name="description_edit_save">Publikigi</string>
   <string name="description_edit_read">Legi</string>
@@ -638,34 +610,11 @@
   <string name="suggested_edits_review_image_caption">Revizii titolon de bildo</string>
   <string name="suggested_edits_my_contributions">Miaj kontribuoj</string>
   <string name="suggested_edits_no_description">Mankas priskribo pri ĉi tiu dosiero</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_title">Vi malŝlosis la taskon \"Aldoni priskribojn al artikoloj\"</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_message">Dankon pro viaj kontribuoj. Ĉar vi bonege redaktas, ni kompilis liston de artikoloj malhavantaj priskribojn. Ĉu vi povas helpi nin per plibonigado de Vikipedio?</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_title">Vi liberigis la taskon \"Traduki priskribojn de artikoloj\"</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_message">Gratulon pro viaj multaj kontribuoj; ni estas impresitaj! Vi uzas la aplikaĵon en pluraj lingvoj; tial ni kompilis liston de artikoloj bezonantaj tradukojn de priskriboj. Ĉu vi povas daŭre helpi nin per plibonigado de Vikipedio?</string>
-  <string name="suggested_edits_unlock_dialog_no">Eble poste</string>
-  <string name="suggested_edits_unlock_dialog_yes">Jes, ek</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_title">Vi liberigis la taskon \"Aldoni priskribojn al artikoloj\"</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_title">Vi liberigis \"Traduki priskribojn de artikoloj\"</string>
-  <string name="suggested_edits_unlock_notification_text">Sugestataj redaktoj</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_big_text">Sugestataj redaktoj\n\nDankon pro viaj kontribuoj. Ĉar vi bonege redaktas, ni kompilis liston de artikoloj malhavantaj priskribojn. Ĉu vi povas helpi nin per plibonigado de Vikipedio?</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_big_text">Sugestataj redaktoj\n\nGratulon pro viaj multaj kontribuoj; ni estas impresitaj! Vi uzas la aplikaĵon en pluraj lingvoj; tial ni kompilis liston de artikoloj bezonantaj tradukojn de priskriboj. Ĉu vi povas daŭre helpi nin per plibonigado de Vikipedio?</string>
-  <string name="suggested_edits_unlock_notification_button">Jes, ek</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_title">Vi liberigis la taskon \"Titoli bildojn\"</string>
-  <string name="suggested_edits_unlock_add_captions_notification_title">Vi liberigis la taskon \"Aldoni priskribojn\"</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_message">Sugestataj redaktoj\n\nDankon pro viaj redaktoj pri bildaj titoloj! Ĉar ŝajnas al ni ke titolado de bildoj plaĉas al vi, ni kompilis liston de artikoloj malhavantaj titolojn. Ĉu vi povas helpi nin per plibonigado de Vikipedio?</string>
-  <string name="suggested_edits_unlock_add_captions_notification_big_text">Sugestataj redaktoj\n\nDankon pro viaj redaktoj pri bildaj titoloj! Ĉar ŝajnas al ni ke titolado de bildoj plaĉas al vi, ni kompilis liston de artikoloj malhavantaj titolojn. Ĉu vi povas helpi nin per plibonigado de Vikipedio?</string>
-  <string name="suggested_edits_unlock_translate_captions_dialog_title">Vi liberigis la taskon \"Traduki titolon de bildo\"</string>
-  <string name="suggested_edits_unlock_translate_captions_notification_title">Vi liberigis la taskon \"Traduki titolon de bildo\"</string>
-  <string name="suggested_edits_unlock_translate_captions_dialog_message">Sugestataj redaktoj\n\nGratulon pro viaj multaj redaktoj pri bildaj titoloj - ni miras! Vi uzas la aplikaĵon en pluraj lingvoj; tial ni kompilis liston de artikoloj bezonantaj tradukojn de priskriboj. Ĉu vi povas daŭre helpi nin per plibonigado de Vikipedio?</string>
-  <string name="suggested_edits_unlock_translate_captions_notification_big_text">Sugestataj redaktoj\n\nGratulon pro viaj multaj redaktoj pri bildaj titoloj - ni miras! Vi uzas la aplikaĵon en pluraj lingvoj; tial ni kompilis liston de artikoloj bezonantaj tradukojn de priskriboj. Ĉu vi povas daŭre helpi nin per plibonigado de Vikipedio?</string>
   <string name="suggested_edits_license_notice">Per aldonado de la priskribo, mi konsentas al la &lt;a href=\"%1$s\"&gt;Kondiĉoj de Uzado&lt;/a&gt; kaj al la nerevokebla eldono de miaj kontribuoj laŭ la permesilo &lt;a href=\"%2$s\"&gt;Krea Komunaĵo CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_image_caption_license_notice">Per aldonado de la titolo de la bildo, mi konsentas al la &lt;a href=\"%1$s\"&gt;Kondiĉoj de Uzado&lt;/a&gt; kaj al la nerevokebla eldono de miaj kontribuoj laŭ la permesilo &lt;a href=\"%2$s\"&gt;Krea Komunaĵo CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_menu_info">Informo</string>
-  <string name="suggested_edits_tasks_activity_title">Sugestataj redaktoj</string>
   <string name="suggested_edits_task_add_description_title">Aldoni priskribojn al artikoloj</string>
   <string name="suggested_edits_task_add_description_description">Kontribui al artikloj sen priskriboj</string>
-  <string name="suggested_edits_task_translation_title">Traduki priskribojn de artikoloj</string>
-  <string name="suggested_edits_task_translation_description">Traduki priskribojn tra artikolaj lingvoj.</string>
   <string name="suggested_edits_task_image_caption_title">Titoli bildojn</string>
   <string name="suggested_edits_task_image_caption_description">Aldoni mankantajn mallongajn titolojn al bildoj</string>
   <string name="suggested_edits_task_translate_caption_title">Traduki titolon de bildo</string>
@@ -686,8 +635,8 @@
     <item quantity="other">%d kontribuoj</item>
   </plurals>
   <string name="suggested_edits_feed_card_title">Sugestataj redaktoj</string>
+  <string name="suggested_edits_feed_card_add_description_button">Aldoni priskribon de artikolo</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Aldoni priskribon al artikolo (je %s)</string>
-  <string name="suggested_edits_tutorial_message">Bonvenon al la nova hejmo por rapida redaktado en la Vikipedia aplikaĵo. Ni valoras viajn kontribuojn. Feliĉan redaktadon!</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Komenci</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Titolo de bildo (je %s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Priskribo de bildo (je %s)</string>
@@ -697,11 +646,16 @@
   <string name="suggested_edits_image_preview_dialog_licensing">Permesilo</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Pli da Informo</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Paĝo de dosiero ĉe Vikimedia Komunejo</string>
-  <string name="suggested_edits_article_cta_image_caption">Aldoni titolon al bildo (je %s)</string>
+  <string name="suggested_edits_article_cta_image_caption">Aldoni titolon al bildo</string>
+  <string name="suggested_edits_article_cta_image_caption_in_language">Aldoni titolon al bildo (je %s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Vidi</string>
-  <string name="suggested_edits_feed_card_add_image_caption">Aldoni titolon</string>
-  <string name="suggested_edits_feed_card_translate_image_caption">Aldoni titolon (je %s)</string>
-  <string name="suggested_edits_feed_card_add_description_button">Aldoni priskribon de artikolo</string>
+  <string name="suggested_edits_feed_card_add_image_caption" fuzzy="true">Aldoni titolon</string>
+  <string name="suggested_edits_feed_card_translate_image_caption" fuzzy="true">Aldoni titolon (je %s)</string>
+  <string name="suggested_edits_rewards_contribution" fuzzy="true">Vi faris %d kontribuojn al Vikipedio uzante sugestitajn redaktojn. Dankon!</string>
+  <string name="suggested_edits_rewards_edit_streak">Vi redaktis ĉiun tagon dum %1$d tagoj ĝin nun. Tenu la daŭron, %2$s!</string>
+  <string name="suggested_edits_rewards_pageviews">Viaj redaktoj estis viditaj de %d homoj en la lasta 30 tagoj. Dankon Kaj daŭrigu!</string>
+  <string name="suggested_edits_rewards_edit_quality">Viaj redaktoj ĝis nun estas %s. Daŭrigu! Ni atendas viajn kontribuojn</string>
+  <string name="suggested_edits_rewards_continue_button">Daŭrigi</string>
   <string name="description_edit_revert_subtitle">Dankon pro tio ke vi redaktas Vikipedion!</string>
   <string name="description_edit_revert_intro">Ni scias ke vi provis vian plej bonan, sed unu el la reviziantoj esprimis sian dubon.\n\nEblaj kialoj ke via redakto estas malfarita inkluzivas:</string>
   <string name="description_edit_revert_reason1">via kontribuo ne akordis kun unu el la &lt;a href=\"%1$s\"&gt;gvidnormoj&lt;/a&gt;.</string>
@@ -723,9 +677,6 @@
   <string name="onboarding_analytics_title">Sendi anoniman datenon</string>
   <string name="onboarding_analytics_offline_text">Helpu plibonigi la aplikaĵon per sciigi nin pri kiel vi uzas ĝin. La kolektota dateno estos anonima. &lt;a href=\"#privacy\"&gt;Lerni plu&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Sendi datenon pri uzado</string>
-  <string name="onboarding_create_account_sync">Sinkronigi viajn legolistojn</string>
-  <string name="onboarding_create_account_contributions">Spuri viajn kontribuojn</string>
-  <string name="onboarding_create_account_preferences">Konservi viajn preferojn</string>
   <string name="onboarding_got_it">Komprenite</string>
   <string name="onboarding_multilingual_secondary_text">Ni trovis la sekvajn sur via aparato:</string>
   <string name="onboarding_multilingual_add_language_text">Aldoni aŭ redakti lingvojn</string>
@@ -740,7 +691,7 @@
   <string name="events_count_text">%1$s eventoj dum %2$s–%3$d</string>
   <string name="this_year">Ĉi-jare</string>
   <string name="back_to_top">Reen al la supro</string>
-  <string name="diff_years">{{PLURALA|unu=Pasintjare|Antaŭ %d jaroj}}</string>
+  <string name="diff_years" fuzzy="true">{{PLURALA|unu=Pasintjare|Antaŭ %d jaroj}}</string>
   <string name="languages_list_activity_title">Aldoni lingvon</string>
   <string name="languages_list_suggested_text">Proponataj</string>
   <string name="languages_list_all_text">Ĉiuj lingvoj</string>
@@ -778,8 +729,6 @@
   <string name="wikitext_template">Ŝablono</string>
   <string name="wikitext_reference">Referenco</string>
   <string name="wikitext_preview_link">Antaŭrigardi ligilon</string>
-  <string name="main_drawer_open">Malfermi</string>
-  <string name="main_drawer_close">Fermi</string>
   <string name="main_drawer_help">Helpo</string>
   <string name="main_drawer_login">Ensaluti en / aliĝi al Vikipedio</string>
   <string name="custom_date_picker_dialog_ok_button_text">Bone</string>

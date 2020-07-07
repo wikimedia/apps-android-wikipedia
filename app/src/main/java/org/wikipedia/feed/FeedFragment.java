@@ -10,7 +10,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import androidx.annotation.IntRange;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
@@ -48,13 +47,14 @@ import org.wikipedia.feed.view.FeedView;
 import org.wikipedia.feed.view.HorizontalScrollingListCardItemView;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.language.LanguageSettingsInvokeSource;
-import org.wikipedia.onboarding.SuggestedEditsOnboardingActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.random.RandomActivity;
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity;
+import org.wikipedia.suggestededits.SuggestedEditsFeedCardImageTagActivity;
+import org.wikipedia.suggestededits.SuggestedEditsImageTagsOnboardingActivity;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.ThrowableUtil;
@@ -75,16 +75,16 @@ import static org.wikipedia.Constants.ACTIVITY_REQUEST_FEED_CONFIGURE;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_SETTINGS;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_SUGGESTED_EDITS_ONBOARDING;
 import static org.wikipedia.Constants.InvokeSource.FEED;
-import static org.wikipedia.Constants.InvokeSource.FEED_CARD_SUGGESTED_EDITS_ADD_DESC;
-import static org.wikipedia.Constants.InvokeSource.FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC;
-import static org.wikipedia.Constants.InvokeSource.FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION;
+import static org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_DESCRIPTION;
+import static org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_IMAGE_TAGS;
+import static org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_CAPTION;
+import static org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION;
 import static org.wikipedia.language.AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE;
 import static org.wikipedia.language.AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE;
 
 public class FeedFragment extends Fragment implements BackPressedHandler {
     @BindView(R.id.feed_swipe_refresh_layout) SwipeRefreshLayout swipeRefreshLayout;
     @BindView(R.id.fragment_feed_feed) FeedView feedView;
-    @BindView(R.id.fragment_feed_header) View feedHeader;
     @BindView(R.id.fragment_feed_empty_container) View emptyContainer;
     private Unbinder unbinder;
     private FeedAdapter<?> feedAdapter;
@@ -94,7 +94,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
     private final FeedAdapter.Callback feedCallback = new FeedCallback();
     private FeedScrollListener feedScrollListener = new FeedScrollListener();
     private boolean searchIconVisible;
-    private SuggestedEditsCardView suggestedEditsCardView;
+    @Nullable private SuggestedEditsCardView suggestedEditsCardView;
 
     public interface Callback {
         void onFeedSearchRequested();
@@ -102,6 +102,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         void onFeedSelectPage(HistoryEntry entry);
         void onFeedSelectPageFromExistingTab(HistoryEntry entry);
         void onFeedAddPageToList(HistoryEntry entry);
+        void onFeedMovePageToList(long sourceReadingList, HistoryEntry entry);
         void onFeedRemovePageFromList(HistoryEntry entry);
         void onFeedSharePage(HistoryEntry entry);
         void onFeedNewsItemSelected(NewsItemCard card, HorizontalScrollingListCardItemView view);
@@ -136,7 +137,6 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         unbinder = ButterKnife.bind(this, view);
         feedAdapter = new FeedAdapter<>(coordinator, feedCallback);
         feedView.setAdapter(feedAdapter);
-        feedView.setCallback(feedCallback);
         feedView.addOnScrollListener(feedScrollListener);
 
         swipeRefreshLayout.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent));
@@ -176,7 +176,6 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
             }
         });
 
-        feedHeader.setBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.main_toolbar_color));
         if (getCallback() != null) {
             getCallback().updateToolbarElevation(shouldElevateToolbar());
         }
@@ -217,6 +216,9 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         showRemoveChineseVariantPrompt();
         funnel.enter();
 
+        // Explicitly invalidate the feed adapter, since it occasionally crashes the StaggeredGridLayout
+        // on certain devices. (TODO: investigate further)
+        feedAdapter.notifyDataSetChanged();
     }
 
     @Override
@@ -241,14 +243,12 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
             SuggestedEditsFunnel.reset();
             if (resultCode == RESULT_OK) {
                 boolean isTranslation;
-                if (suggestedEditsCardView != null) {
+                if (suggestedEditsCardView != null && suggestedEditsCardView.getCard() != null) {
                     suggestedEditsCardView.refreshCardContent();
                     isTranslation = suggestedEditsCardView.isTranslation();
-                    if (suggestedEditsCardView.getCard() != null && !Prefs.shouldShowSuggestedEditsSurvey()) {
-                        FeedbackUtil.showMessage(this, isTranslation && app.language().getAppLanguageCodes().size() > 1
-                                ? getString(suggestedEditsCardView.getCard().getInvokeSource() == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC ? R.string.description_edit_success_saved_in_lang_snackbar : R.string.description_edit_success_saved_image_caption_in_lang_snackbar, app.language().getAppLanguageLocalizedName(app.language().getAppLanguageCodes().get(1)))
-                                : getString(suggestedEditsCardView.getCard().getInvokeSource() == FEED_CARD_SUGGESTED_EDITS_ADD_DESC ? R.string.description_edit_success_saved_snackbar : R.string.description_edit_success_saved_image_caption_snackbar));
-                    }
+                    FeedbackUtil.showMessage(this, isTranslation && app.language().getAppLanguageCodes().size() > 1
+                            ? getString(suggestedEditsCardView.getCard().getAction() == TRANSLATE_DESCRIPTION ? R.string.description_edit_success_saved_in_lang_snackbar : R.string.description_edit_success_saved_image_caption_in_lang_snackbar, app.language().getAppLanguageLocalizedName(app.language().getAppLanguageCodes().get(1)))
+                            : getString(suggestedEditsCardView.getCard().getAction() == ADD_DESCRIPTION ? R.string.description_edit_success_saved_snackbar : (suggestedEditsCardView.getCard().getAction() == ADD_IMAGE_TAGS) ? R.string.description_edit_success_saved_image_tags_snackbar : R.string.description_edit_success_saved_image_caption_snackbar));
                 }
             }
         } else if (requestCode == ACTIVITY_REQUEST_SUGGESTED_EDITS_ONBOARDING && resultCode == RESULT_OK) {
@@ -257,27 +257,21 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
     }
 
     private void startDescriptionEditScreen() {
-        Constants.InvokeSource invokeSource = suggestedEditsCardView.getCard().getInvokeSource();
-        PageTitle pageTitle = (invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_DESC || invokeSource == FEED_CARD_SUGGESTED_EDITS_TRANSLATE_IMAGE_CAPTION)
+        if (suggestedEditsCardView == null) {
+            return;
+        }
+        DescriptionEditActivity.Action action = suggestedEditsCardView.getCard().getAction();
+        if (action == ADD_IMAGE_TAGS) {
+            startActivityForResult(SuggestedEditsFeedCardImageTagActivity.Companion.newIntent(requireActivity(), suggestedEditsCardView.getCard().getPage()), ACTIVITY_REQUEST_DESCRIPTION_EDIT);
+            return;
+        }
+        PageTitle pageTitle = (action == TRANSLATE_DESCRIPTION || action == TRANSLATE_CAPTION)
                 ? suggestedEditsCardView.getCard().getTargetSummary().getPageTitle()
                 : suggestedEditsCardView.getCard().getSourceSummary().getPageTitle();
         startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), pageTitle, null,
                 suggestedEditsCardView.getCard().getSourceSummary(), suggestedEditsCardView.getCard().getTargetSummary(),
-                suggestedEditsCardView.getCard().getInvokeSource()),
+                action, FEED),
                 ACTIVITY_REQUEST_DESCRIPTION_EDIT);
-    }
-
-    @Override
-    public void setUserVisibleHint(boolean visible) {
-        super.setUserVisibleHint(visible);
-        if (!isAdded()) {
-            return;
-        }
-        if (visible) {
-            funnel.enter();
-        } else {
-            funnel.exit();
-        }
     }
 
     @Override
@@ -285,7 +279,6 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         coordinator.setFeedUpdateListener(null);
         swipeRefreshLayout.setOnRefreshListener(null);
         feedView.removeOnScrollListener(feedScrollListener);
-        feedView.setCallback((FeedAdapter.Callback) null);
         feedView.setAdapter(null);
         feedAdapter = null;
         unbinder.unbind();
@@ -296,7 +289,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        app.getRefWatcher().watch(this);
+        coordinator.reset();
     }
 
     @Override
@@ -420,6 +413,13 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         }
 
         @Override
+        public void onMovePageToList(long sourceReadingList, @NonNull HistoryEntry entry) {
+            if (getCallback() != null) {
+                getCallback().onFeedMovePageToList(sourceReadingList, entry);
+            }
+        }
+
+        @Override
         public void onRemovePageFromList(@NonNull HistoryEntry entry) {
             if (getCallback() != null) {
                 getCallback().onFeedRemovePageFromList(entry);
@@ -466,11 +466,6 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         @Override
         public void onRequestCustomize(@NonNull Card card) {
             showConfigureActivity(card.type().code());
-        }
-
-        @Override
-        public void onSwiped(@IntRange(from = 0) int itemPos) {
-            onRequestDismissCard(coordinator.getCards().get(itemPos));
         }
 
         @Override
@@ -553,9 +548,11 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
 
         @Override
         public void onSuggestedEditsCardClick(@NonNull SuggestedEditsCardView view) {
+            funnel.cardClicked(view.getCard().type(), getCardLanguageCode(view.getCard()));
             suggestedEditsCardView = view;
-            if (Prefs.showEditTaskOnboarding()) {
-                startActivityForResult(SuggestedEditsOnboardingActivity.Companion.newIntent(requireContext(), FEED_CARD_SUGGESTED_EDITS_ADD_DESC),
+            if (view.getCard().getAction() == ADD_IMAGE_TAGS && Prefs.shouldShowImageTagsOnboarding()) {
+                Prefs.setShowImageTagsOnboarding(false);
+                startActivityForResult(SuggestedEditsImageTagsOnboardingActivity.Companion.newIntent(requireContext()),
                         ACTIVITY_REQUEST_SUGGESTED_EDITS_ONBOARDING);
             } else {
                 startDescriptionEditScreen();
@@ -567,11 +564,6 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         @Override
         public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
             super.onScrolled(recyclerView, dx, dy);
-            int yOffset = feedView.computeVerticalScrollOffset() * 2;
-            if (yOffset <= feedHeader.getHeight()
-                    || feedHeader.getTranslationY() > -feedHeader.getHeight()) {
-                feedHeader.setTranslationY(-yOffset);
-            }
             boolean shouldShowSearchIcon = feedView.getFirstVisibleItemPosition() != 0;
             if (shouldShowSearchIcon != searchIconVisible) {
                 searchIconVisible = shouldShowSearchIcon;

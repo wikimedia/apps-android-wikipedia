@@ -1,13 +1,15 @@
 language: android
 jdk:
 - oraclejdk8
-dist: trusty
+dist: xenial
 android:
   components:
-  - platform-tools
   - tools
-  - build-tools-28.0.3
-  - android-28
+  - android-29
+  - build-tools-29.0.3
+before_install:
+  - yes | sdkmanager "tools"
+  - yes | sdkmanager --licenses
 before_script:
 - chmod +x gradlew scripts/tag-latest.sh
 branches:

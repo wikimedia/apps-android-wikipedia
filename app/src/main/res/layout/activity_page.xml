@@ -1,79 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.FixedDrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_page_container"
+    android:id="@+id/navigation_drawer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/base10">
+    android:layout_gravity="end"
+    tools:context=".page.PageActivity">
 
-    <fragment
-        android:id="@+id/page_fragment"
-        android:name="org.wikipedia.page.PageFragment"
+    <org.wikipedia.views.FrameLayoutNavMenuTriggerer
+        android:id="@+id/activity_page_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout="@layout/fragment_page"
-        tools:layout="@layout/fragment_page" />
+        android:layout_height="match_parent">
 
-    <FrameLayout
-        android:id="@+id/page_toolbar_container"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?attr/page_toolbar_color"
-        android:elevation="4dp">
-
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/page_toolbar"
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/page_fragment"
+            android:name="org.wikipedia.page.PageFragment"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:theme="@style/PageToolbarTheme"
-            app:titleTextColor="?attr/page_toolbar_icon_color">
+            android:layout_height="match_parent"
+            tools:layout="@layout/fragment_page" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical|end">
-
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/page_toolbar_button_search"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    android:contentDescription="@string/search_hint"
-                    android:paddingStart="12dp"
-                    android:paddingEnd="12dp"
-                    app:srcCompat="@drawable/ic_search_themed_24dp"
-                    app:tint="?attr/page_toolbar_icon_color" />
-
-                <org.wikipedia.views.TabCountsView
-                    android:id="@+id/page_toolbar_button_tabs"
-                    android:layout_width="48dp"
-                    android:layout_height="match_parent"
-                    android:contentDescription="@string/menu_page_show_tabs"></org.wikipedia.views.TabCountsView>
-
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/page_toolbar_button_show_overflow_menu"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    android:contentDescription="@string/menu_feed_overflow_label"
-                    android:paddingStart="12dp"
-                    android:paddingEnd="12dp"
-                    app:srcCompat="@drawable/ic_more_vert_themed_24dp"
-                    app:tint="?attr/page_toolbar_icon_color" />
-            </LinearLayout>
-        </androidx.appcompat.widget.Toolbar>
-
-        <ProgressBar
-            android:id="@+id/page_progress_bar"
-            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        <FrameLayout
+            android:id="@+id/page_toolbar_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="top"
-            android:layout_marginTop="-7dp"
-            android:max="10000" />
+            android:background="?attr/paper_color"
+            android:elevation="4dp">
 
-    </FrameLayout>
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/page_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:theme="@style/PageToolbarTheme"
+                app:titleTextColor="?attr/toolbar_icon_color">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical|end">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/page_toolbar_button_search"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:contentDescription="@string/search_hint"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="12dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        app:srcCompat="@drawable/ic_search_themed_24dp"
+                        app:tint="?attr/toolbar_icon_color" />
+
+                    <org.wikipedia.views.TabCountsView
+                        android:id="@+id/page_toolbar_button_tabs"
+                        android:layout_width="48dp"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/menu_page_show_tabs" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/page_toolbar_button_show_overflow_menu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:contentDescription="@string/menu_feed_overflow_label"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="12dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        app:srcCompat="@drawable/ic_more_vert_themed_24dp"
+                        app:tint="?attr/toolbar_icon_color" />
+                </LinearLayout>
+            </androidx.appcompat.widget.Toolbar>
+
+            <ProgressBar
+                android:id="@+id/page_progress_bar"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:layout_marginTop="-7dp"
+                android:max="10000" />
+
+        </FrameLayout>
+
+    </org.wikipedia.views.FrameLayoutNavMenuTriggerer>
 
     <FrameLayout
         android:id="@+id/toc_container"
@@ -81,9 +92,6 @@
         android:layout_height="match_parent"
         android:layout_gravity="end"
         android:background="?android:colorBackground"
-        android:elevation="6dp"
-        android:visibility="gone"
-        tools:background="@color/base80"
         tools:visibility="visible">
 
         <org.wikipedia.views.SwipeableListView
@@ -108,20 +116,20 @@
             android:layerType="software"
             android:src="@drawable/toc_dotted_line" />
 
+        <org.wikipedia.views.PageScrollerView
+            android:id="@+id/page_scroller_button"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="end"
+            android:background="@drawable/shape_circle"
+            android:clickable="true"
+            android:elevation="8dp"
+            android:focusable="true"
+            android:scaleType="center"
+            app:backgroundTint="?attr/toc_scroller_button_color"
+            app:srcCompat="@drawable/ic_unfold_more_black_24dp"
+            app:tint="?attr/colorAccent" />
+
     </FrameLayout>
 
-    <org.wikipedia.views.PageScrollerView
-        android:id="@+id/page_scroller_button"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_gravity="end"
-        android:background="@drawable/shape_circle"
-        android:clickable="true"
-        android:elevation="8dp"
-        android:focusable="true"
-        android:scaleType="center"
-        app:backgroundTint="?attr/toc_scroller_button_color"
-        app:srcCompat="@drawable/ic_unfold_more_black_24dp"
-        app:tint="?attr/colorAccent" />
-
-</FrameLayout>
+</androidx.drawerlayout.widget.FixedDrawerLayout>

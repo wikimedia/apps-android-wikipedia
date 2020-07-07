@@ -13,10 +13,8 @@
   <string name="menu_page_other_languages" fuzzy="true">Aqra f\'lingwa oħra</string>
   <string name="menu_page_find_in_page">Sib fil-paġna</string>
   <string name="menu_page_share" fuzzy="true">Aqsam</string>
-  <string name="nav_item_nearby">Fil-qrib</string>
   <string name="last_updated_text">L-aħħar aġġornament %s</string>
-  <string name="content_license_html">Il-kontenut huwa disponibbli abbażi tas-&lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; sakemm mhuwiex speċifikat mod ieħor.</string>
-  <string name="edit_save_action_license_logged_in">Billi tissejvja, qiegħed taqbel mat-&lt;a href=\"%1$s\"&gt;Termini t\'Użu&lt;/a&gt;, u li irrevokabbilment tirrilaxxa l-kontribuzzjonijiet taħt il-liċenzja &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+    <string name="edit_save_action_license_logged_in">Billi tissejvja, qiegħed taqbel mat-&lt;a href=\"%1$s\"&gt;Termini t\'Użu&lt;/a&gt;, u li irrevokabbilment tirrilaxxa l-kontribuzzjonijiet taħt il-liċenzja &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Billi tissejvja, qiegħed taqbel mat-&lt;a href=\"%1$s\"&gt;Termini t\'Użu&lt;/a&gt;, u li irrevokabbilment tirrilaxxa l-kontribuzzjonijiet taħt il-liċenzja &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Il-modifiki se jiġu attribwiti għall-indirizz IP ta\' dan l-apparat. Jekk &lt;a href=\"https://#login\"&gt;tidħol fil-kont&lt;/a&gt;, int ikollok aktar privatezza.</string>
   <string name="preference_title_language">Lingwa tal-Wikipedija</string>
     <string name="langlinks_filter_hint">Fittex</string>
@@ -95,8 +93,6 @@
   <string name="gallery_menu_share">Aqsam</string>
   <string name="gallery_share_error">L-istampa ma setgħetx tiġi mxerrda: %s</string>
   <string name="expand_refs">Agħfas biex tkabbar</string>
-  <string name="share_snippet_button">Xerred l-istampa</string>
-  <string name="share_normal_button">Xerred it-test</string>
   <string name="cc_logo">Liċenzja Creative Commons</string>
   <string name="captcha_image">Stampa captcha</string>
   <string name="gallery_fair_use_license">Użu ġust</string>

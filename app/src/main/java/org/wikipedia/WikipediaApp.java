@@ -1,7 +1,6 @@
 package org.wikipedia;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.app.Application;
 import android.content.IntentFilter;
 import android.net.ConnectivityManager;
@@ -15,25 +14,21 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatDelegate;
 
-import com.facebook.drawee.backends.pipeline.Fresco;
-import com.facebook.imagepipeline.core.ImagePipelineConfig;
-import com.squareup.leakcanary.LeakCanary;
-import com.squareup.leakcanary.RefWatcher;
+import com.microsoft.appcenter.AppCenter;
+import com.microsoft.appcenter.crashes.Crashes;
 
 import org.wikipedia.analytics.FunnelManager;
+import org.wikipedia.analytics.InstallReferrerListener;
 import org.wikipedia.analytics.SessionFunnel;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.concurrency.RxBus;
 import org.wikipedia.connectivity.NetworkConnectivityReceiver;
-import org.wikipedia.crash.hockeyapp.HockeyAppCrashReporter;
+import org.wikipedia.crash.AppCenterCrashesListener;
 import org.wikipedia.database.Database;
 import org.wikipedia.database.DatabaseClient;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.SharedPreferenceCookieManager;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.dataclient.fresco.DisabledCache;
-import org.wikipedia.dataclient.okhttp.CacheableOkHttpNetworkFetcher;
-import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory;
 import org.wikipedia.edit.summaries.EditSummary;
 import org.wikipedia.events.ChangeTextSizeEvent;
 import org.wikipedia.events.ThemeChangeEvent;
@@ -61,10 +56,11 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.UUID;
 
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.internal.functions.Functions;
-import io.reactivex.plugins.RxJavaPlugins;
-import io.reactivex.schedulers.Schedulers;
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.internal.functions.Functions;
+import io.reactivex.rxjava3.plugins.RxJavaPlugins;
+import io.reactivex.rxjava3.schedulers.Schedulers;
+import leakcanary.AppWatcher;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.wikipedia.settings.Prefs.getTextSizeMultiplier;
@@ -83,8 +79,7 @@ public class WikipediaApp extends Application {
     private Database database;
     private String userAgent;
     private WikiSite wiki;
-    private HockeyAppCrashReporter crashReporter;
-    private RefWatcher refWatcher;
+    private AppCenterCrashesListener crashListener;
     private RxBus bus;
     private Theme currentTheme = Theme.getFallback();
     private List<Tab> tabList = new ArrayList<>();
@@ -101,10 +96,6 @@ public class WikipediaApp extends Application {
 
     public SessionFunnel getSessionFunnel() {
         return sessionFunnel;
-    }
-
-    public RefWatcher getRefWatcher() {
-        return refWatcher;
     }
 
     public RxBus getBus() {
@@ -158,7 +149,15 @@ public class WikipediaApp extends Application {
 
         initExceptionHandling();
 
-        refWatcher = Prefs.isMemoryLeakTestEnabled() ? LeakCanary.install(this) : RefWatcher.DISABLED;
+        if (Prefs.isMemoryLeakTestEnabled()) {
+            AppWatcher.setConfig(new AppWatcher.Config.Builder(AppWatcher.getConfig())
+                    .enabled(true)
+                    .watchActivities(true)
+                    .watchFragments(true)
+                    .build());
+        } else {
+            AppWatcher.setConfig(new AppWatcher.Config.Builder(AppWatcher.getConfig()).enabled(false).build());
+        }
 
         // See Javadocs and http://developer.android.com/tools/support-library/index.html#rev23-4-0
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
@@ -171,7 +170,7 @@ public class WikipediaApp extends Application {
         bus = new RxBus();
 
         ViewAnimations.init(getResources());
-        currentTheme = unmarshalCurrentTheme();
+        currentTheme = unmarshalTheme(Prefs.getCurrentThemeId());
 
         appLanguageState = new AppLanguageState(this);
         updateCrashReportProps();
@@ -184,21 +183,12 @@ public class WikipediaApp extends Application {
 
         enableWebViewDebugging();
 
-        ImagePipelineConfig config = ImagePipelineConfig.newBuilder(this)
-                .setNetworkFetcher(new CacheableOkHttpNetworkFetcher(OkHttpConnectionFactory.getClient()))
-                .setFileCacheFactory(DisabledCache.factory())
-                .build();
-        try {
-            Fresco.initialize(this, config);
-        } catch (Exception e) {
-            L.e(e);
-            // TODO: Remove when we're able to initialize Fresco in test builds.
-        }
-
         registerActivityLifecycleCallbacks(activityLifecycleHandler);
 
         // Kick the notification receiver, in case it hasn't yet been started by the system.
         NotificationPollBroadcastReceiver.startPollTask(this);
+
+        InstallReferrerListener.newInstance(this);
     }
 
     public int getVersionCode() {
@@ -212,10 +202,12 @@ public class WikipediaApp extends Application {
         if (userAgent == null) {
             String channel = getChannel(this);
             channel = channel.equals("") ? channel : " ".concat(channel);
-            userAgent = String.format("WikipediaApp/%s (Android %s; %s)%s",
+            userAgent = String.format("WikipediaApp/%s (Android %s; %s; %s Build/%s)%s",
                     BuildConfig.VERSION_NAME,
                     Build.VERSION.RELEASE,
                     getString(R.string.device_type),
+                    Build.MODEL,
+                    Build.ID,
                     channel
             );
         }
@@ -292,7 +284,7 @@ public class WikipediaApp extends Application {
     public void setCurrentTheme(@NonNull Theme theme) {
         if (theme != currentTheme) {
             currentTheme = theme;
-            Prefs.setThemeId(currentTheme.getMarshallingId());
+            Prefs.setCurrentThemeId(currentTheme.getMarshallingId());
             bus.post(new ThemeChangeEvent());
         }
     }
@@ -315,14 +307,12 @@ public class WikipediaApp extends Application {
 
     public void putCrashReportProperty(String key, String value) {
         if (!ReleaseUtil.isPreBetaRelease()) {
-            crashReporter.putReportProperty(key, value);
+            crashListener.putReportProperty(key, value);
         }
     }
 
-    public void checkCrashes(@NonNull Activity activity) {
-        if (!ReleaseUtil.isPreBetaRelease()) {
-            crashReporter.checkCrashes(activity);
-        }
+    public void logCrashManually(@NonNull Throwable throwable) {
+        crashListener.logCrashManually(throwable);
     }
 
     public Handler getMainThreadHandler() {
@@ -385,15 +375,17 @@ public class WikipediaApp extends Application {
     }
 
     private void initExceptionHandling() {
-        // HockeyApp exception handling interferes with the test runner, so enable it only for beta and stable releases
+        // AppCenter exception handling interferes with the test runner, so enable it only for beta and stable releases
         if (!ReleaseUtil.isPreBetaRelease()) {
-            crashReporter = new HockeyAppCrashReporter(getString(R.string.hockeyapp_app_id), consentAccessor());
-            L.setRemoteLogger(crashReporter);
+            crashListener = new AppCenterCrashesListener();
+            Crashes.setListener(crashListener);
+            AppCenter.start(this, getString(R.string.appcenter_id), Crashes.class);
+            Crashes.setEnabled(Prefs.isCrashReportAutoUploadEnabled());
         }
     }
 
     private void updateCrashReportProps() {
-        // HockeyApp exception handling interferes with the test runner, so enable it only for beta and stable releases
+        // AppCenter exception handling interferes with the test runner, so enable it only for beta and stable releases
         if (!ReleaseUtil.isPreBetaRelease()) {
             putCrashReportProperty("locale", Locale.getDefault().toString());
             if (appLanguageState != null) {
@@ -403,21 +395,16 @@ public class WikipediaApp extends Application {
         }
     }
 
-    private HockeyAppCrashReporter.AutoUploadConsentAccessor consentAccessor() {
-        return Prefs::isCrashReportAutoUploadEnabled;
-    }
-
     private void enableWebViewDebugging() {
         if (BuildConfig.DEBUG) {
             WebView.setWebContentsDebuggingEnabled(true);
         }
     }
 
-    private Theme unmarshalCurrentTheme() {
-        int id = Prefs.getThemeId();
-        Theme result = Theme.ofMarshallingId(id);
+    public Theme unmarshalTheme(int themeId) {
+        Theme result = Theme.ofMarshallingId(themeId);
         if (result == null) {
-            L.d("Theme id=" + id + " is invalid, using fallback.");
+            L.d("Theme id=" + themeId + " is invalid, using fallback.");
             result = Theme.getFallback();
         }
         return result;

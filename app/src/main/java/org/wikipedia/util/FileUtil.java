@@ -16,10 +16,10 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 public final class FileUtil {
-    public static final int JPEG_QUALITY = 85;
+    private static final int JPEG_QUALITY = 85;
     private static final int KILOBYTE = 1000;
 
-    public static File writeToFile(ByteArrayOutputStream bytes, File destinationFile) throws IOException {
+    static File writeToFile(ByteArrayOutputStream bytes, File destinationFile) throws IOException {
         FileOutputStream fo = new FileOutputStream(destinationFile);
         try {
             fo.write(bytes.toByteArray());
@@ -30,7 +30,7 @@ public final class FileUtil {
         return destinationFile;
     }
 
-    public static ByteArrayOutputStream compressBmpToJpg(Bitmap bitmap) {
+    static ByteArrayOutputStream compressBmpToJpg(Bitmap bitmap) {
         ByteArrayOutputStream bytes = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.JPEG, JPEG_QUALITY, bytes);
         return bytes;
@@ -42,16 +42,13 @@ public final class FileUtil {
      * @throws IOException
      */
     public static String readFile(final InputStream inputStream) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
-        try {
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
             StringBuilder stringBuilder = new StringBuilder();
             String readStr;
             while ((readStr = reader.readLine()) != null) {
                 stringBuilder.append(readStr).append('\n');
             }
             return stringBuilder.toString();
-        } finally {
-            reader.close();
         }
     }
 
@@ -81,11 +78,11 @@ public final class FileUtil {
     }
 
 
-    public static float bytesToGB(long bytes) {
+    private static float bytesToGB(long bytes) {
         return (float) bytes / KILOBYTE / KILOBYTE / KILOBYTE;
     }
 
-    public static float bytesToMB(long bytes) {
+    private static float bytesToMB(long bytes) {
         return (float) bytes / KILOBYTE / KILOBYTE;
     }
 

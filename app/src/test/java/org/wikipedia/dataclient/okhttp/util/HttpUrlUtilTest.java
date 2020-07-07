@@ -17,7 +17,7 @@ import static org.hamcrest.Matchers.is;
     }
 
     @Test public void testIsRestBaseLabs() {
-        HttpUrl url = HttpUrl.parse("http://appservice.wmflabs.org/test.wikipedia.org/v1/");
+        HttpUrl url = HttpUrl.parse("https://mobileapps.wmflabs.org/test.wikipedia.org/v1/");
         assertThat(HttpUrlUtil.isRestBase(url), is(true));
     }
 

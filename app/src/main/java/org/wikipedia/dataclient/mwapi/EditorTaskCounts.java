@@ -8,19 +8,22 @@ import com.google.gson.JsonElement;
 import com.google.gson.annotations.SerializedName;
 
 import org.wikipedia.json.GsonUtil;
+import org.wikipedia.settings.Prefs;
+import org.wikipedia.util.DateUtil;
 
+import java.text.ParseException;
 import java.util.Collections;
-import java.util.List;
+import java.util.Date;
 import java.util.Map;
 
 @SuppressWarnings("unused")
 public class EditorTaskCounts {
     @Nullable private JsonElement counts;
-    @Nullable @SerializedName("targets_passed") private JsonElement targetsPassed;
-    @Nullable private JsonElement targets;
+    @Nullable @SerializedName("revert_counts") private JsonElement revertCounts;
+    @Nullable @SerializedName("edit_streak") private JsonElement editStreak;
 
     @NonNull
-    public Map<String, Integer> getDescriptionEditsPerLanguage() {
+    private Map<String, Integer> getDescriptionEditsPerLanguage() {
         Map<String, Integer> editsPerLanguage = null;
         if (counts != null && !(counts instanceof JsonArray)) {
             editsPerLanguage = GsonUtil.getDefaultGson().fromJson(counts, Counts.class).appDescriptionEdits;
@@ -29,43 +32,7 @@ public class EditorTaskCounts {
     }
 
     @NonNull
-    public List<Integer> getDescriptionEditTargetsPassed() {
-        List<Integer> passedList = null;
-        if (targetsPassed != null && !(targetsPassed instanceof JsonArray)) {
-            passedList = GsonUtil.getDefaultGson().fromJson(targetsPassed, Targets.class).appDescriptionEdits;
-        }
-        return passedList == null ? Collections.emptyList() : passedList;
-    }
-
-    public int getDescriptionEditTargetsPassedCount() {
-        List<Integer> targetList = getDescriptionEditTargets();
-        List<Integer> passedList = getDescriptionEditTargetsPassed();
-        int maxPassed = 0;
-        for (int passed : passedList) {
-            if (passed > maxPassed) {
-                maxPassed = passed;
-            }
-        }
-        int count = 0;
-        for (int target : targetList) {
-            if (maxPassed >= target) {
-                count++;
-            }
-        }
-        return count;
-    }
-
-    @NonNull
-    public List<Integer> getDescriptionEditTargets() {
-        List<Integer> targetList = null;
-        if (targets != null && !(targets instanceof JsonArray)) {
-            targetList = GsonUtil.getDefaultGson().fromJson(targets, Targets.class).appDescriptionEdits;
-        }
-        return targetList == null ? Collections.emptyList() : targetList;
-    }
-
-    @NonNull
-    public Map<String, Integer> getCaptionEditsPerLanguage() {
+    private Map<String, Integer> getCaptionEditsPerLanguage() {
         Map<String, Integer> editsPerLanguage = null;
         if (counts != null && !(counts instanceof JsonArray)) {
             editsPerLanguage = GsonUtil.getDefaultGson().fromJson(counts, Counts.class).appCaptionEdits;
@@ -73,49 +40,117 @@ public class EditorTaskCounts {
         return editsPerLanguage == null ? Collections.emptyMap() : editsPerLanguage;
     }
 
+    public int getTotalDepictsEdits() {
+        Map<String, Integer> editsPerLanguage = null;
+        if (counts != null && !(counts instanceof JsonArray)) {
+            editsPerLanguage = GsonUtil.getDefaultGson().fromJson(counts, Counts.class).appDepictsEdits;
+        }
+        return editsPerLanguage == null ? 0 : editsPerLanguage.get("*") == null ? 0 : editsPerLanguage.get("*");
+    }
+
+    public int getTotalEdits() {
+        int totalEdits = 0;
+        for (int count : getDescriptionEditsPerLanguage().values()) {
+            totalEdits += count;
+        }
+        for (int count : getCaptionEditsPerLanguage().values()) {
+            totalEdits += count;
+        }
+        totalEdits += getTotalDepictsEdits();
+        if (Prefs.shouldOverrideSuggestedEditCounts()) {
+            totalEdits = Prefs.getOverrideSuggestedEditCount();
+        }
+        return totalEdits;
+    }
+
+    public int getTotalDescriptionEdits() {
+        int totalEdits = 0;
+        for (int count : getDescriptionEditsPerLanguage().values()) {
+            totalEdits += count;
+        }
+        return totalEdits;
+    }
+
+    public int getTotalImageCaptionEdits() {
+        int totalEdits = 0;
+        for (int count : getCaptionEditsPerLanguage().values()) {
+            totalEdits += count;
+        }
+        return totalEdits;
+    }
+
     @NonNull
-    public List<Integer> getCaptionEditTargetsPassed() {
-        List<Integer> passedList = null;
-        if (targetsPassed != null && !(targetsPassed instanceof JsonArray)) {
-            passedList = GsonUtil.getDefaultGson().fromJson(targetsPassed, Targets.class).appCaptionEdits;
+    private Map<String, Integer> getDescriptionRevertsPerLanguage() {
+        Map<String, Integer> revertsPerLanguage = null;
+        if (revertCounts != null && !(revertCounts instanceof JsonArray)) {
+            revertsPerLanguage = GsonUtil.getDefaultGson().fromJson(revertCounts, Counts.class).appDescriptionEdits;
         }
-        return passedList == null ? Collections.emptyList() : passedList;
-    }
-
-    public int getCaptionEditTargetsPassedCount() {
-        List<Integer> targetList = getCaptionEditTargets();
-        List<Integer> passedList = getCaptionEditTargetsPassed();
-        int maxPassed = 0;
-        for (int passed : passedList) {
-            if (passed > maxPassed) {
-                maxPassed = passed;
-            }
-        }
-        int count = 0;
-        for (int target : targetList) {
-            if (maxPassed >= target) {
-                count++;
-            }
-        }
-        return count;
+        return revertsPerLanguage == null ? Collections.emptyMap() : revertsPerLanguage;
     }
 
     @NonNull
-    public List<Integer> getCaptionEditTargets() {
-        List<Integer> targetList = null;
-        if (targets != null && !(targets instanceof JsonArray)) {
-            targetList = GsonUtil.getDefaultGson().fromJson(targets, Targets.class).appCaptionEdits;
+    private Map<String, Integer> getCaptionRevertsPerLanguage() {
+        Map<String, Integer> revertsPerLanguage = null;
+        if (revertCounts != null && !(revertCounts instanceof JsonArray)) {
+            revertsPerLanguage = GsonUtil.getDefaultGson().fromJson(revertCounts, Counts.class).appCaptionEdits;
         }
-        return targetList == null ? Collections.emptyList() : targetList;
+        return revertsPerLanguage == null ? Collections.emptyMap() : revertsPerLanguage;
     }
 
-    public class Counts {
+    private int getTotalDepictsReverts() {
+        Map<String, Integer> revertsPerLanguage = null;
+        if (revertCounts != null && !(revertCounts instanceof JsonArray)) {
+            revertsPerLanguage = GsonUtil.getDefaultGson().fromJson(revertCounts, Counts.class).appDepictsEdits;
+        }
+        return revertsPerLanguage == null ? 0 : revertsPerLanguage.get("*") == null ? 0 : revertsPerLanguage.get("*");
+    }
+
+    public int getTotalReverts() {
+        int totalReverts = 0;
+        for (int count : getDescriptionRevertsPerLanguage().values()) {
+            totalReverts += count;
+        }
+        for (int count : getCaptionRevertsPerLanguage().values()) {
+            totalReverts += count;
+        }
+        totalReverts += getTotalDepictsReverts();
+        if (Prefs.shouldOverrideSuggestedEditCounts()) {
+            totalReverts = Prefs.getOverrideSuggestedRevertCount();
+        }
+        return totalReverts;
+    }
+
+    public int getEditStreak() {
+        if (editStreak == null || (editStreak instanceof JsonArray)) {
+            return 0;
+        }
+        EditStreak streak = GsonUtil.getDefaultGson().fromJson(editStreak, EditStreak.class);
+        return streak.length;
+    }
+
+    @NonNull
+    public Date getLastEditDate() {
+        Date date = new Date(0);
+        if (editStreak == null || (editStreak instanceof JsonArray)) {
+            return date;
+        }
+        EditStreak streak = GsonUtil.getDefaultGson().fromJson(editStreak, EditStreak.class);
+        try {
+            date = DateUtil.dbDateParse(streak.lastEditTime);
+        } catch (ParseException e) {
+            // ignore
+        }
+        return date;
+    }
+
+    public static class Counts {
         @Nullable @SerializedName("app_description_edits") private Map<String, Integer> appDescriptionEdits;
         @Nullable @SerializedName("app_caption_edits") private Map<String, Integer> appCaptionEdits;
+        @Nullable @SerializedName("app_depicts_edits") private Map<String, Integer> appDepictsEdits;
     }
 
-    public class Targets {
-        @Nullable @SerializedName("app_description_edits") private List<Integer> appDescriptionEdits;
-        @Nullable @SerializedName("app_caption_edits") private List<Integer> appCaptionEdits;
+    private static class EditStreak {
+        private int length;
+        @Nullable @SerializedName("last_edit_time") private String lastEditTime;
     }
 }

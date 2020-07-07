@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
 * Eleassar
 * Franga2000
 * HairyFotr
@@ -54,22 +55,16 @@
   <string name="menu_long_press_open_page">Odpri</string>
   <string name="menu_long_press_open_in_new_tab">Odpri v novem zavihku</string>
   <string name="menu_long_press_copy_page">Kopiraj naslov povezave</string>
-  <string name="menu_text_select_copy">Kopiraj</string>
   <string name="menu_text_select_define">Definiraj</string>
-  <string name="menu_text_select_share">Deli</string>
-  <string name="share">Deli</string>
   <string name="on_this_day_page_share">Deli</string>
   <string name="reading_list_page_share">Deli</string>
   <string name="menu_text_select_edit_here">Uredi tukaj</string>
-  <string name="nav_item_nearby">Blizu</string>
-  <string name="nearby_zoom_to_location">Približaj k lokaciji na zemplevidu</string>
   <string name="last_updated_text">Nazadnje posodobljeno %s</string>
   <string name="talk_page_link_text">Poglej pogovorno stran</string>
   <string name="edit_history_link_text">Poglej zgodovino urejanj</string>
   <string name="map_view_link_text">Poglej na karti</string>
   <string name="other_languages_indication_text">Preberite v drugem jeziku</string>
   <string name="language_count_link_text">Na voljo v %d jezikih</string>
-  <string name="content_license_html">Vsebina je dostopna pod licenco &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;, razen če je drugače navedeno</string>
   <string name="preference_title_language">Jeziki Wikipedije</string>
   <string name="langlinks_filter_hint">Iskanje</string>
   <string name="langlinks_empty">Ta stran ni na voljo v drugih jezikih.</string>
@@ -88,7 +83,7 @@
   <string name="search_no_results_found">Ni rezultatov</string>
   <string name="search_reading_list_no_results">Ni rezultatov v \"%s\"</string>
   <string name="search_reading_lists_no_results">Nič nisem našel v seznamu za branje</string>
-  <string name="search_history_no_results">Nič nisem našel v zgodovini</string>
+  <string name="search_history_no_results">V zgodovini ni bilo mogoče najti ničesar</string>
   <string name="edit_section_captcha_hint">Ponovite zgornje besede</string>
   <string name="title_captcha">Vnesite CAPTCHA</string>
   <string name="edit_section_captcha_reload">Tapnite CAPTCHA za ponovno nalaganje</string>
@@ -102,9 +97,9 @@
   <string name="reading_lists_sync_login">Prijava</string>
   <string name="create_account_login">Prijava</string>
   <string name="menu_login">Prijava</string>
-  <string name="login_activity_title">Prijava v Wikipedijo</string>
+  <string name="login_activity_title" fuzzy="true">Prijava v Wikipedijo</string>
   <string name="login_in_progress_dialog_message">Prijavljanje...</string>
-  <string name="login_success_toast">Prijava uspešna!</string>
+  <string name="login_success_toast" fuzzy="true">Prijava uspešna!</string>
   <string name="reset_password_title">Nastavite svoje geslo</string>
   <string name="reset_password_hint">Novo geslo</string>
   <string name="reset_password_button">Shrani in prijavi me</string>
@@ -202,8 +197,6 @@
   <string name="view_link_preview_error_button_dismiss">Skrij</string>
   <string name="error_page_does_not_exist">Ta stran ne obstaja</string>
   <string name="reference_title">Sklic %s</string>
-  <string name="crash_report_dialog_dont_send_button">Preskoči</string>
-  <string name="crash_report_dialog_send_button">Pošlji</string>
   <string name="crash_report_quit">Izhod</string>
   <string name="article_header_edit_hint">Uredi...</string>
   <string name="color_theme_select">Tema</string>
@@ -286,7 +279,7 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">Prekliči</string>
   <string name="feed_accessibility_card_load_more_button">Naloži več</string>
   <string name="description_edit_text_hint">Opis članka</string>
-  <string name="description_edit_article_description_label_per_language">Članek (%s)</string>
+  <string name="description_edit_translate_article_description_label_per_language" fuzzy="true">Članek (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">Opis članka (%s)</string>
   <string name="description_edit_save">Objavi</string>
   <string name="description_edit_read">Preberi</string>
@@ -306,7 +299,6 @@
   <string name="suggested_edits_edit_caption_button">Uredi napis</string>
   <string name="suggested_edits_review_image_caption">Pregled napisa slike</string>
   <string name="suggested_edits_my_contributions">Moji prispevki</string>
-  <string name="suggested_edits_unlock_dialog_no">Morda kasneje</string>
   <string name="suggested_edits_menu_info">Informacije</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Umetnik/izdelovalec</string>
   <string name="suggested_edits_image_caption_summary_title_author">Avtor</string>
@@ -323,7 +315,6 @@
   <string name="onboarding_maybe_later">Morda kasneje</string>
   <string name="onboarding_analytics_title">Pošiljaj anonimne podatke</string>
   <string name="onboarding_analytics_switch_title">Pošiljaj podatke o uporabi</string>
-  <string name="onboarding_create_account_preferences">Shrani svoje nastavitve</string>
   <string name="onboarding_got_it">Razumem</string>
   <string name="onboarding_multilingual_add_language_text">Dodaj ali uredi jezike</string>
   <string name="app_shortcuts_random">Naključno</string>
@@ -359,8 +350,6 @@
   <string name="wikitext_numbered_list">Oštevilčen seznam</string>
   <string name="wikitext_template">Predloga</string>
   <string name="wikitext_reference">Sklic</string>
-  <string name="main_drawer_open">Odpri</string>
-  <string name="main_drawer_close">Zapri</string>
   <string name="main_drawer_help">Pomoč</string>
   <string name="custom_date_picker_dialog_ok_button_text">V redu</string>
   <string name="text_input_dialog_ok_button_text">V redu</string>

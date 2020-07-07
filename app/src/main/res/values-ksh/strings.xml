@@ -28,15 +28,10 @@
   <string name="menu_long_press_open_page">Opmaache</string>
   <string name="menu_long_press_open_in_new_tab">Em neuje Rigger opmaache</string>
   <string name="menu_long_press_copy_page">Donn dä URL vun dämm Lėngk kopėėere</string>
-  <string name="menu_text_select_copy">Koppehre</string>
-  <string name="menu_text_select_share">Wigger jävve</string>
   <string name="menu_text_select_edit_here">Dat Änndere</string>
-  <string name="nav_item_nearby">En de Nöhde</string>
-  <string name="nearby_zoom_to_location">Donn obb ene Plaz en dä Kaat zoome.</string>
   <string name="last_updated_text">Läzte Änderong %s</string>
   <string name="talk_page_link_text" fuzzy="true">Klaaf</string>
-  <string name="content_license_html" fuzzy="true">Dä Ennhald es ze hann onger dälezänz &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ußer woh jädd anders schteiht.</string>
-  <string name="edit_save_action_license_logged_in" fuzzy="true">Mem Affchpeijschere schtemms De ddä &lt;a href=\"%1$s\"&gt;Bedengonge för et Benöze&lt;/a&gt; zoh un deijhß ohne Müjjeleschkeijt för ene Widerohf Dine Beijdrahch onger der &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; Lezänz öffentlesch maache.</string>
+    <string name="edit_save_action_license_logged_in" fuzzy="true">Mem Affchpeijschere schtemms De ddä &lt;a href=\"%1$s\"&gt;Bedengonge för et Benöze&lt;/a&gt; zoh un deijhß ohne Müjjeleschkeijt för ene Widerohf Dine Beijdrahch onger der &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; Lezänz öffentlesch maache.</string>
   <string name="preference_title_language" fuzzy="true">Dä Wikkipehdija ier Schprohch</string>
   <string name="langlinks_filter_hint">Söhke</string>
   <string name="langlinks_empty">Di Sigg es nit in ander Schprohche ze han.</string>
@@ -148,9 +143,6 @@
   <string name="gallery_save_success">Di Datteij es jeseschert</string>
   <string name="gallery_error_video_failed">mer kunnte dä viddejo nit schpelle.</string>
   <string name="err_cannot_save_file">Mer munnte di Dattei nit faßhallde.</string>
-  <string name="snippet_share_intro">\"%1$s\" op de @Wikkipehdija: %2$s</string>
-  <string name="share_snippet_button">Wigger jävve als Beld</string>
-  <string name="share_normal_button">Wigger jävve als Täx</string>
   <string name="cc_logo">De Creative Commons-Lezänz</string>
   <string name="captcha_image">KAPTSCHA-Belld</string>
   <string name="gallery_uploader_unknown">Onbikannt, wä dat huhjelahde hät</string>
@@ -164,12 +156,7 @@
   <string name="preference_summary_show_link_previews">Donn ene koote Vöraff_Aanseesch vuun Sigge zeje, wam_mer op Lengks tipp.</string>
   <string name="nav_item_donate">Ongerschtöz de Wikkipehdija!</string>
   <string name="error_voice_search_not_available">Schahd, Schtemme ze äkänne es nit müjjelesch.</string>
-  <string name="crash_report_dialog_title">Schahd, die  Äpp es et läz affjeschmiert.</string>
-  <string name="crash_report_dialog_text" fuzzy="true">Wells De enne Bereesch övver dä Fähler aan de HockeyApp  udder ene äxtärne Deens scheke, esu dat mer beij Wikkimehdija Dinge Affbroch ongersöhke un dä Fähler repparehre kann, dä do henger schtisch?</string>
-  <string name="crash_report_dialog_dont_send_button">Övverjonn</string>
-  <string name="crash_report_dialog_always_send_button">Emmer Affscheke</string>
-  <string name="crash_report_dialog_send_button">Avschecke</string>
-  <string name="crash_report_activity_title">Fähler em Projramm</string>
+    <string name="crash_report_activity_title">Fähler em Projramm</string>
   <string name="crash_report_relaunch_or_quit">Schahd, De Wikkipehdija-Äpp es obb ene Fähler jeloufe un wood afjebroche.\n\nWells De se neu aanfange udder ophühre?</string>
   <string name="crash_report_relaunch">Neu aanfange</string>
   <string name="crash_report_quit">Ophühre</string>
@@ -180,8 +167,6 @@
   <string name="nav_item_reading_lists" fuzzy="true">Leßte zom lässe</string>
   <string name="reading_list_save_to">Donn op ming Leß zom Lässe</string>
   <string name="reading_list_create_new">Maach en neue Leß op</string>
-  <string name="reading_list_added_to_named">Op di Leß %s jedonn.</string>
-  <string name="reading_list_already_exists">Dat heh es ald en dä Leß.</string>
   <string name="reading_list_added_view_button">De Leß belohre</string>
   <string name="reading_list_sort">Zottehre</string>
   <string name="reading_list_sort_by_name">Nohm Nahme</string>

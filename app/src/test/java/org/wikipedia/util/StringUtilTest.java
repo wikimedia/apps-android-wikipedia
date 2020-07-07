@@ -50,7 +50,9 @@ public class StringUtilTest {
 
     @Test
     public void testMd5string() {
-        assertThat(StringUtil.md5string("test"), is("98f6bcd4621d373cade4e832627b4f6"));
+        assertThat(StringUtil.md5string("test"), is("098f6bcd4621d373cade4e832627b4f6"));
+        assertThat(StringUtil.md5string("https://en.wikipedia.org/api/rest_v1/page/mobile-html/Earth"),
+                is("0f28e0cfe175f17806979dff54cc7ea6"));
     }
 
     @Test
@@ -92,8 +94,12 @@ public class StringUtilTest {
     }
 
     @Test
-    public void testSanitizeText() {
-        assertThat(StringUtil.sanitizeText(" [1]  test"), is("test"));
-        assertThat(StringUtil.sanitizeText(" [1]  (;test )"), is("(test )"));
+    public void testRemoveStyleTags() {
+        assertThat(StringUtil.removeStyleTags("Lorem <style data=\"123\">test</style> <i>ipsum</i>"), is("Lorem  <i>ipsum</i>"));
+    }
+
+    @Test
+    public void testRemoveCiteMarkup() {
+        assertThat(StringUtil.removeCiteMarkup("Lorem <cite data=\"123\">test</cite> <i>ipsum</i>"), is("Lorem test <i>ipsum</i>"));
     }
 }

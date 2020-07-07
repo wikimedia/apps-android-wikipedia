@@ -9,7 +9,6 @@
   <string name="page_error_back_to_main">Duubatti deebi\'i</string>
   <string name="menu_clear_all_history">Seenaa balleessi</string>
     <string name="menu_page_share" fuzzy="true">Hiri</string>
-  <string name="nav_item_nearby">Dhihoo</string>
     <string name="langlinks_filter_hint">Barbaadi</string>
   <string name="langlinks_activity_title">Afaan biraa</string>
   <string name="menu_save_changes">Jijjiirama olkaayi</string>
@@ -71,6 +70,5 @@
   <string name="gallery_save_progress">Faayilii naqachaa jira…</string>
   <string name="gallery_save_success">Faayiliin olkaawwame.</string>
   <string name="err_cannot_save_file">Faayilii olkaawuu hindandeenye</string>
-  <string name="snippet_share_preview_image_desc">Suura durargi.</string>
   <string name="gallery_uploader_unknown">Ol fe\'aan hin beekkamu.</string>
 </resources>

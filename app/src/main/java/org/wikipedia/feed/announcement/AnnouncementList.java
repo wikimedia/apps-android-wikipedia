@@ -14,7 +14,7 @@ public class AnnouncementList extends BaseModel {
     @SuppressWarnings("unused") @SerializedName("announce") @NonNull private List<Announcement> items = Collections.emptyList();
 
     @NonNull
-    List<Announcement> items() {
+    public List<Announcement> items() {
         return items;
     }
 

@@ -10,10 +10,8 @@
   <string name="menu_clear_all_history">Cakhumh hloh ding</string>
   <string name="dialog_title_clear_history" fuzzy="true">Na kawlnak pawl na hlo lai maw?</string>
   <string name="share_via">in hrawmh</string>
-  <string name="nav_item_nearby">Pawngkam</string>
   <string name="last_updated_text">Hnubik tharchuah %s</string>
-  <string name="content_license_html" fuzzy="true">Hi kong hi an chim lo asicun &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ah zoh khawh a si.</string>
-  <string name="edit_save_action_license_logged_in">Na khonnak thawng in atanglei hi hmanding ah na lungtling. &lt;a href=\"%1$s\"&gt; Na tuahmi pawl cu hi license tangah chuah na lungtling.\n&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;</string>
+    <string name="edit_save_action_license_logged_in">Na khonnak thawng in atanglei hi hmanding ah na lungtling. &lt;a href=\"%1$s\"&gt; Na tuahmi pawl cu hi license tangah chuah na lungtling.\n&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;</string>
   <string name="edit_save_action_license_anon">Na khonnak thawngin atanglei pawl hi na lungtling..&lt;a href=\"%1$s\"&gt;Terms of Use&lt;/a&gt; Na tuahmi pawl cu hi license ning chuah a si lai. Na IP address kha kan lak lai. &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; Achung na luh asicun &lt;a href=\"https://#login\"&gt;log in&lt;/a&gt;, na him deuh lai dakaw.</string>
   <string name="preference_title_language">Wikipedia holh pawl</string>
     <string name="langlinks_filter_hint">Kawlnak</string>
@@ -127,19 +125,14 @@
   <string name="gallery_save_success" fuzzy="true">Hmanthlak a khon khawh cang.</string>
   <string name="gallery_error_video_failed">Video a langh kholo.</string>
   <string name="err_cannot_save_file">File a khong kholo</string>
-  <string name="snippet_share_intro">\@Wikipedia ah \"%1$s\": %2$s</string>
   <string name="expand_refs">Kauh ding in hmet</string>
-  <string name="share_snippet_button">Hmanthlak hrawmh ding</string>
-  <string name="share_normal_button">Biafang hrawmh ding</string>
-  <string name="snippet_share_preview_image_desc">Hmanthlak zohchunnak</string>
   <string name="cc_logo">Creative Commons license</string>
   <string name="captcha_image">Captcha hmanthlak</string>
   <string name="gallery_fair_use_license">Rikhiah hmannak nawl</string>
   <string name="gallery_uploader_unknown">Atartu hngalh a si lo</string>
   <string name="menu_new_tab">Adang in hung</string>
   <string name="button_close_tab">Khar ding</string>
-    <string name="tool_tip_share">Na thim khawh asicun, na duhnak paoh ah hrawmh!</string>
-  <string name="page_view_in_browser">Cahmai browser ah zoh ding</string>
+    <string name="page_view_in_browser">Cahmai browser ah zoh ding</string>
   <string name="error_response_malformed">Server bialehnak cu thate in a thleng lo.</string>
   <string name="error_unknown">Palhnak pakhat khat a um.</string>
   <string name="format_error_server_message">Cakuat: \"%s\"</string>

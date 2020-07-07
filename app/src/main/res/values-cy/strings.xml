@@ -14,15 +14,18 @@
   <string name="page_tabs_back">Yn ôl</string>
   <string name="nav_item_forward">Ymlaen</string>
   <string name="search_hint">Chwilio Wicipedia</string>
+  <string name="search_hint_voice_search">Chwilio gyda llais</string>
   <string name="search_hint_search_history">Chwilio\'r hanes</string>
   <string name="search_hint_search_languages">Chwilio am iaith</string>
   <string name="search_hint_search_my_lists_and_articles">Chwiliwch fy rhestrau ac erthyglau</string>
   <string name="nav_item_history">Hanes</string>
+  <string name="nav_item_suggested_edits" fuzzy="true">Golygiadau a awgrymir</string>
   <string name="error_network_error">Ni ellir cysylltu â\'r rhyngrwyd.</string>
   <string name="page_error_retry">Ailgeisiwch</string>
   <string name="card_offline_error_retry">Ailgeisio</string>
   <string name="storage_access_error_retry">Ailgeisio</string>
   <string name="article_load_error_retry">Ailgeisio</string>
+  <string name="offline_load_error_retry">Ailgeisio</string>
   <string name="page_error_back_to_main">Ewch yn ôl</string>
   <string name="error_back">Yn ôl</string>
   <string name="menu_clear_all_history">Clirio\'r hanes</string>
@@ -52,23 +55,16 @@
   <string name="menu_long_press_open_page">Agor</string>
   <string name="menu_long_press_open_in_new_tab">Agor mewn tab newydd</string>
   <string name="menu_long_press_copy_page">Copio cyfeiriad y ddolen</string>
-  <string name="menu_text_select_copy">Copio</string>
   <string name="menu_text_select_define">Diffiniwch</string>
-  <string name="menu_text_select_share">Rhannu</string>
-  <string name="share">Rhannu</string>
   <string name="on_this_day_page_share">Rhannu</string>
   <string name="reading_list_page_share">Rhannu</string>
   <string name="menu_text_select_edit_here">Golygwch yma</string>
-  <string name="nav_item_nearby">Gerllaw</string>
-  <string name="nearby_zoom_to_location">Swmiwch i\'r lleoliad ar y map</string>
-  <string name="nearby_osm_license">&amp;copy; &amp;nbsp;cyfranwyr&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt;</string>
   <string name="last_updated_text">Diweddarwyd ddiwethaf%s</string>
   <string name="talk_page_link_text">Gweld tudalen sgwrs</string>
   <string name="edit_history_link_text">Gweld hanes golygu</string>
   <string name="map_view_link_text">Gweld ar fap</string>
   <string name="other_languages_indication_text">Darllen mewn iaith arall</string>
   <string name="language_count_link_text">Ar gael mewn %d ieithoedd eraill</string>
-  <string name="content_license_html">Mae\'r cynnwys ar gael dan &lt;a href=\"%1$s\"&gt;CC BY-SA 4.0&lt;/a&gt; oni nodir fel arall</string>
   <string name="edit_save_action_license_logged_in">Drwy arbed, rydych yn cytuno i &lt;a href=\"%1$s\"&gt;Dermau\'r Defnydd&lt;/a&gt;, ac i ryddhau eich cyfraniad mewn modd di-droi\'n-ôl ar drwydded &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Drwy arbed, rydych yn cytuno i &lt;a href=\"%1$s\"&gt;Dermau Defnyddio&lt;/a&gt;, ac yn rhyddhau, yn ddi-droi\'n ol, eich cyfraniadau dan drwydded &lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt;. Bydd y golygiadau\'n cael eu tadogi i gyfeiriad IP eich dyfais. Ond os ydych yn &lt;a href=\"https://#login\"&gt;mewngofnodi&lt;/a&gt;, bydd eich golygiadau\'n breifat.</string>
   <string name="preference_title_language">Ieithoedd Wicipedia</string>
@@ -91,6 +87,7 @@
   <string name="search_reading_lists_no_results">Ni chafwyd canlyniadau yn y rhestr ddarllen</string>
   <string name="search_history_no_results">Ni chafwyd canlyniadau yn yr hanes</string>
   <string name="edit_section_captcha_message">I helpu i ddiogelu rhag sbam awtomataidd, rhowch y geiriau sy\' n ymddangos isod</string>
+  <string name="edit_section_captcha_request_an_account_message">Methu gweld y ddelwedd yma? &lt;a href=\"https://en.wikipedia.org/wiki/Wikipedia:Request_an_account\"&gt;Gwnewch gais am gyfrif&lt;/a&gt;</string>
   <string name="edit_section_captcha_hint">Ailadrodd geiriau oddi uchod</string>
   <string name="title_captcha">Teipiwch y captcha</string>
   <string name="edit_section_captcha_reload">Tapiwch captcha i ail-lwytho</string>
@@ -105,19 +102,33 @@
   <string name="reading_lists_sync_login">Mewngofnodi</string>
   <string name="create_account_login">Mewngofnodi</string>
   <string name="menu_login">Mewngofnodi</string>
-  <string name="login_activity_title">Mewngofnodi i Wicipedia</string>
+  <string name="login_activity_title" fuzzy="true">Mewngofnodi i Wicipedia</string>
   <string name="login_in_progress_dialog_message">Yn eich logio i fewn…</string>
-  <string name="login_success_toast">Llwyddodd y mewngofnodi!</string>
+  <string name="login_success_toast" fuzzy="true">Llwyddodd y mewngofnodi!</string>
   <string name="reset_password_title">Gosodwch eich cyfrinair</string>
   <string name="reset_password_description">Rydych wedi mewngofnodi gyda chyfrinair dros dro. I gwbwlhau mewngofnodi, mae\'n rhaid i chi ailosod eich cyfrinair yma.</string>
   <string name="reset_password_hint">Cyfrinair newydd</string>
+  <string name="reset_password_button">Cadw a mewngofnodi</string>
   <string name="preference_title_logout">Allgofnodi</string>
   <string name="toast_logout_complete">Wedi allgofnodi</string>
+  <string name="logout_prompt">Mi wneith hyn eich allgofnodi o bob dyfais perthnasol. Am barhau?</string>
+  <string name="logout_dialog_cancel_button_text">Canslo</string>
+  <string name="logged_out_in_background_title">Wedi allgofnodi</string>
+  <string name="logged_out_in_background_dialog">Rydych wedi allgofnodi o Wicipedia. Da chi awydd mewngofnodi eto?</string>
+  <string name="logged_out_in_background_login">Mewngofodi</string>
+  <string name="logged_out_in_background_cancel">Canslo</string>
   <string name="history_empty_title">Does yr un dalen diweddar yma!</string>
   <string name="history_empty_message">Traciwch yr hyn rydych wedi\'i ddarllen, yma.</string>
+  <string name="history_offline_articles_toast">Efallai na fydd pob erthygl yn yr adran \'hanes\' i\'w canfod tra\'ch bod all-lein.</string>
+  <string name="search_empty_message">Chwiliwch a darllenwch y gwyddoniadur yn eich dewis iaith!</string>
+  <string name="search_empty_message_multilingual_upgrade">Chwiliwch am Wicipedia mewn iaith arall</string>
   <string name="delete_selected_items">Diewch yr eitemau a ddewisiwyd</string>
   <string name="wp_stylized">&lt;big&gt;W&lt;/big&gt;ICIPEDI&lt;big&gt;A&lt;/big&gt;</string>
   <string name="create_account_username_hint">Enw defnyddiwr</string>
+  <string name="login_dont_have_account">Heb gyfrif?</string>
+  <string name="login_join_wikipedia">Ymunwch â Wicipedia</string>
+  <string name="login_forgot_password">Wedi anghofio eich cyfrinair?</string>
+  <string name="create_account_already_have">Mae gen ti gyfri?</string>
   <string name="create_account_activity_title">Crëwch gyfrif</string>
   <string name="dialog_create_account_checking_progress">Wrthi\' n dilysu</string>
   <string name="create_account_email_hint">E-bost (dewisol)</string>
@@ -125,13 +136,20 @@
   <string name="create_account_passwords_mismatch_error">Mae\'r cyfrineiriau\'n wahanol</string>
   <string name="create_account_email_error">Cyfeiriad e-bost annilys</string>
   <string name="create_account_username_error">Cymeriad/llythrennau/rhifolion annilys yn eich defnydd-enw (\'\'username\'\')</string>
+  <string name="create_account_password_error">Mae\'r cyfrinair yn anghymwys</string>
   <string name="create_account_generic_error">Ni lwyddwyd i greu\'r cyfrif</string>
   <string name="create_account_next">Nesaf</string>
+  <string name="email_recommendation_dialog_title">Creu cyfrif heb gyfeiriad ebost?</string>
+  <string name="email_recommendation_dialog_create_without_email_action">Parhau heb ebost?</string>
+  <string name="email_recommendation_dialog_create_with_email_action">Ychwanegu ebost</string>
   <string name="create_account_button">Creu cyfrif</string>
+  <string name="create_account_ip_block_details">Manylion</string>
   <string name="preferences_general_heading">Cyffredinol</string>
   <string name="wikipedia_app_faq">Ap FAQ Wicipedia</string>
   <string name="send_feedback">Anfon adborth am yr ap</string>
   <string name="create_account_account_created_toast">Wedi creu cyfrif!</string>
+  <string name="preferences_heading_data_usage">Defnydd data</string>
+  <string name="preferences_heading_experimental">Arbrofol</string>
   <string name="preferences_privacy_settings_heading">Preifatrwydd</string>
   <string name="preference_title_eventlogging_opt_in">Danfon adroddiad am y defnydd</string>
   <string name="preference_summary_eventlogging_opt_in">Caniatau i Wicipedia gasglu gwybodaeth am sut rydych yn defnyddio\'r ap, er mwyn ei wella</string>
@@ -156,7 +174,7 @@
   <string name="about_translators_heading">Cyfieithwyr</string>
   <string name="about_translators_translatewiki">Cyfieithwyd gan &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Trwydded</string>
-  <string name="about_wmf" fuzzy="true">Un o gynnyrch &lt;a href=\"https://wikimediafoundation.org/\"&gt;Sefydliad Wicimedia&lt;/a&gt;</string>
+  <string name="about_wmf">Cynnyrch gan &lt;a href=\"https://wikimediafoundation.org/\"&gt;Sefydliad Wicimedia&lt;/a&gt;</string>
   <string name="about_activity_title">Amdanom</string>
   <string name="edit_abandon_confirm">Mae\'r dudalen wedi cael ei newid. Ydych chi\'n siwr eich bod chi am ymadael heb roi eich newidiadau ar gadw?</string>
   <string name="user_blocked_from_editing_title">Wedi ei flocio</string>
@@ -166,6 +184,10 @@
   <string name="edit_next">Nesaf</string>
   <string name="edit_done">Cyhoeddi</string>
   <string name="edit_preview">Rhagolwg</string>
+  <string name="edit_undo">Dadwneud</string>
+  <string name="edit_redo">Ailwneud</string>
+  <string name="edit_zoom_in">Swmiwch i fewn</string>
+  <string name="edit_zoom_out">Swmiwch allan</string>
   <string name="edit_summary_tag_typo">Cywirwyd y camdeipio</string>
   <string name="edit_summary_tag_grammar">Cywirwyd y gramadeg</string>
   <string name="edit_summary_tag_links">Ychwanegwyd cysylltau</string>
@@ -200,23 +222,21 @@
   <string name="gallery_menu_share">Rhannu</string>
   <string name="gallery_share_error">Methwyd a rhannu delwedd: %s</string>
   <string name="gallery_save_progress">Wrthi\'n lawrlwytho...</string>
-  <string name="gallery_save_success">Arbedwyd y ffeil yn llwyddiannus.</string>
+  <string name="gallery_save_success" fuzzy="true">Arbedwyd y ffeil yn llwyddiannus.</string>
   <string name="gallery_error_video_failed">Methwyd a chwarae\'r fideo.</string>
+  <string name="gallery_add_image_caption_button">Ychwanga gapsiwn i\'r ddelwedd</string>
+  <string name="gallery_add_image_caption_in_language_button">Ychwanega gapsiwn (%s)</string>
   <string name="err_cannot_save_file">Methwyd ag arbed y ffeil</string>
-  <string name="snippet_share_intro">\"%1$s\" ar @Wicipedia: %2$s</string>
   <string name="expand_refs">Tapiwch i\'w chwyddo</string>
-  <string name="share_snippet_button">Rhannwch ddelwedd</string>
-  <string name="share_normal_button">Rhannwch fel testun</string>
-  <string name="snippet_share_preview_image_desc">Rhagweld y ddelwedd</string>
   <string name="cc_logo">Trwydded Comin Creu (\'\'Creative Commons\'\')</string>
   <string name="captcha_image">Delwedd Captcha</string>
   <string name="gallery_fair_use_license">Defnydd teg</string>
   <string name="gallery_uploader_unknown">Uwchlwythwr anhysbys</string>
+  <string name="gallery_not_available_offline_snackbar">Nid yw\'r galeri ar gael pan rydych all-lein.</string>
   <string name="menu_new_tab">Tab newydd</string>
   <string name="menu_close_all_tabs">Ceuwch y tabiau</string>
   <string name="close_all_tabs_confirm">Ydych chi\'n siwr eich bod am gau\'r holl dabiau?</string>
   <string name="button_close_tab">Cau\'r tab</string>
-  <string name="tool_tip_share">Wedi i chi ei amlygu (\'\'highlight\'\'), beth am ei rannu?</string>
   <string name="page_view_in_browser">Gweld y ddalen mewn porwr</string>
   <string name="error_response_malformed">Ymateb annilys gan y gweinydd.</string>
   <string name="error_unknown">Cafwyd gwall am ryw reswm.</string>
@@ -233,9 +253,6 @@
   <string name="enable_location_service">Rhoi ar waith</string>
   <string name="error_webview_updating">Ceisiwch eto nes ymlaen.</string>
   <string name="multi_select_items_selected">Dewisiwyd %d</string>
-  <string name="crash_report_dialog_dont_send_button">Ymlaen i\'r nesaf</string>
-  <string name="crash_report_dialog_always_send_button">Danfon pob tro</string>
-  <string name="crash_report_dialog_send_button">Danfon</string>
   <string name="crash_report_activity_title">Gwall</string>
   <string name="crash_report_relaunch_or_quit">Cafwyd nam. Ymddiheurwn am hyn.\n\nCychwyn eto neu roi\'r gorau iddi?</string>
   <string name="crash_report_relaunch">Cychwyn eto</string>
@@ -243,23 +260,29 @@
   <string name="article_menu_bar_bookmark">Ychwanegwch yr erthygl hon i\'ch rhestr ddarllen</string>
   <string name="article_menu_bar_share">Rhannwch ddolen yr erthygl hon</string>
   <string name="article_header_edit_hint">Golygu...</string>
-  <string name="article_header_edit_description" fuzzy="true">Golygu disgrifiad y teitl</string>
+  <string name="article_header_edit_description">Golygu disgrifiad o\'r erthygl</string>
   <string name="article_header_edit_lead_section">Golygu\'r rhan gyntaf</string>
   <string name="color_theme_select">Thema</string>
   <string name="color_theme_light">Golau</string>
   <string name="color_theme_dark">Tywyll</string>
+  <string name="color_theme_black">Du</string>
+  <string name="color_theme_sepia">Sepia</string>
+  <string name="color_theme_test_title">Testun (sampl)</string>
   <string name="nav_item_reading_lists">Fy rhestrau</string>
   <string name="reading_list_save_to">Arbed i\'ch rhestr ddarllen</string>
   <string name="reading_list_create_new">Creu o\'r newydd</string>
   <string name="reading_list_title_exists">Mae \"%s\" yn bodoli\'n barod</string>
-  <string name="reading_list_added_to_named">Ychwanegwyd at %s.</string>
-  <string name="reading_list_already_exists">Mae\'r erthygl hon ar y rhestr yn barod.</string>
   <string name="reading_list_added_view_button">Gweld y rhestr</string>
   <string name="reading_list_sort">Didioli (sortio)</string>
   <string name="reading_list_sort_by_name">Sortio yn ôl yr enw</string>
   <string name="reading_list_sort_by_name_desc">Sortio yn ôl yr enw (z-a)</string>
-  <string name="reading_list_sort_by_recent" fuzzy="true">Sortio yn ôl amser (diweddaraf yn gyntaf)</string>
-  <string name="reading_list_sort_by_recent_desc" fuzzy="true">Sortio yn ôl amser (hen rai yn gyntaf)</string>
+  <string name="reading_list_sort_by_recent">Sortio yn ôl amser (diweddaraf)</string>
+  <string name="reading_list_sort_by_recent_desc">Sortio yn ôl amser (hen)</string>
+  <string name="reading_list_sort_by_created">Sortio yn ôl dyddiad creu (newydd)</string>
+  <string name="reading_list_sort_by_created_desc">Sortio yn ôl dyddiad creu (hen)</string>
+  <string name="reading_list_menu_delete">Dileu\'r rhestr</string>
+  <string name="reading_list_name_sample">Fy rhestr ddarllen</string>
+  <string name="reading_list_name_hint">Enw ar y rhestr</string>
   <string name="saved_list_empty_title">Dim rhestrau darllen eto</string>
   <string name="reading_lists_onboarding_got_it">Rwy\'n deall</string>
   <string name="user_option_sync_label">Dewisiadau</string>

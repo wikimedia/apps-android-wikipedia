@@ -21,7 +21,7 @@ public final class FileAliasData {
 
     @SuppressWarnings({"checkstyle:methodlength", "SpellCheckingInspection"})
     private static Map<String, String> newMap() {
-        final int size = 296;
+        final int size = 302;
         Map<String, String> map = new HashMap<>(size);
         map.put("ab", "Афаил");
         map.put("ace", "Beureukaih");
@@ -43,6 +43,7 @@ public final class FileAliasData {
         map.put("az", "Şəkil");
         map.put("azb", "فایل");
         map.put("ba", "Файл");
+        map.put("ban", "Berkas");
         map.put("bar", "Datei");
         map.put("bat-smg", "Abruozdielis");
         map.put("bcl", "Ladawan");
@@ -108,12 +109,14 @@ public final class FileAliasData {
         map.put("ga", "Íomhá");
         map.put("gag", "Dosye");
         map.put("gan", "文檔");
+        map.put("gcr", "Fiché");
         map.put("gd", "Faidhle");
         map.put("gl", "Ficheiro");
         map.put("glk", "فاىل");
         map.put("gn", "Ta'ãnga");
         map.put("gom", "फायल");
         map.put("gor", "Berkas");
+        map.put("got", "𐍆𐌴𐌹𐌻𐌰");
         map.put("gu", "ચિત્ર");
         map.put("gv", "Coadan");
         map.put("ha", "File");
@@ -189,12 +192,13 @@ public final class FileAliasData {
         map.put("mk", "Податотека");
         map.put("ml", "പ്രമാണം");
         map.put("mn", "Файл");
+        map.put("mnw", "ဝှာင်");
         map.put("mr", "चित्र");
         map.put("mrj", "Файл");
         map.put("ms", "Fail");
         map.put("mt", "Stampa");
         map.put("mwl", "Fexeiro");
-        map.put("my", "File");
+        map.put("my", "ဖိုင်");
         map.put("myv", "Артовкс");
         map.put("mzn", "پرونده");
         map.put("na", "File");
@@ -208,6 +212,7 @@ public final class FileAliasData {
         map.put("nn", "Fil");
         map.put("nb", "Fil");
         map.put("nov", "File");
+        map.put("nqo", "ߞߐߕߐ߮");
         map.put("nrm", "Fichier");
         map.put("nso", "Seswantšho");
         map.put("nv", "Eʼelyaaígíí");
@@ -270,6 +275,7 @@ public final class FileAliasData {
         map.put("sv", "Fil");
         map.put("sw", "Picha");
         map.put("szl", "Plik");
+        map.put("szy", "tangan");
         map.put("ta", "படிமம்");
         map.put("tcy", "ಫೈಲ್");
         map.put("te", "దస్త్రం");

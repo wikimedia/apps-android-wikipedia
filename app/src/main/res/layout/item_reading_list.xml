@@ -9,40 +9,36 @@
     tools:paddingTop="16dp"
     tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
 
-    <com.facebook.drawee.view.SimpleDraweeView
+    <ImageView
         android:id="@+id/item_image_1"
-        style="@style/SimpleDraweeViewPlaceholder.ReadingListThumbnail"
+        style="@style/ImageViewDefault.ReadingListThumbnail"
         android:layout_marginEnd="0.5dp"
         app:layout_constraintEnd_toStartOf="@+id/item_image_2"
-        app:layout_constraintTop_toTopOf="parent"
-        app:roundTopLeft="true" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <com.facebook.drawee.view.SimpleDraweeView
+    <ImageView
         android:id="@+id/item_image_2"
-        style="@style/SimpleDraweeViewPlaceholder.ReadingListThumbnail"
+        style="@style/ImageViewDefault.ReadingListThumbnail"
         android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:roundTopRight="true" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <com.facebook.drawee.view.SimpleDraweeView
+    <ImageView
         android:id="@+id/item_image_3"
-        style="@style/SimpleDraweeViewPlaceholder.ReadingListThumbnail"
+        style="@style/ImageViewDefault.ReadingListThumbnail"
         android:layout_marginTop="0.5dp"
         app:layout_constraintEnd_toStartOf="@+id/item_image_4"
         app:layout_constraintStart_toStartOf="@+id/item_image_1"
-        app:layout_constraintTop_toBottomOf="@+id/item_image_1"
-        app:roundBottomLeft="true" />
+        app:layout_constraintTop_toBottomOf="@+id/item_image_1" />
 
-    <com.facebook.drawee.view.SimpleDraweeView
+    <ImageView
         android:id="@+id/item_image_4"
-        style="@style/SimpleDraweeViewPlaceholder.ReadingListThumbnail"
+        style="@style/ImageViewDefault.ReadingListThumbnail"
         android:layout_marginStart="0.5dp"
         android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/item_image_3"
-        app:layout_constraintTop_toTopOf="@+id/item_image_3"
-        app:roundBottomRight="true" />
+        app:layout_constraintTop_toTopOf="@+id/item_image_3" />
 
     <ImageView
         android:id="@+id/default_list_empty_image"

@@ -55,23 +55,16 @@
   <string name="menu_long_press_open_page">തുറക്കുക</string>
   <string name="menu_long_press_open_in_new_tab">പുതിയ ടാബിൽ തുറക്കുക</string>
   <string name="menu_long_press_copy_page">കണ്ണിയുടെ വിലാസം പകർത്തുക</string>
-  <string name="menu_text_select_copy">പകർത്തുക</string>
   <string name="menu_text_select_define">ശുദ്ധീകരിച്ചെടുക്കുക</string>
-  <string name="menu_text_select_share">പങ്കുവയ്ക്കുക</string>
-  <string name="share">പങ്കുവയ്ക്കുക</string>
   <string name="on_this_day_page_share">പങ്കുവയ്ക്കുക</string>
   <string name="reading_list_page_share">പങ്കുവയ്ക്കുക</string>
   <string name="menu_text_select_edit_here">ഇവിടെ തിരുത്തുക</string>
-  <string name="nav_item_nearby">സമീപസ്ഥം</string>
-  <string name="nearby_zoom_to_location">ഭൂപടത്തിൽ കാണുന്ന സ്ഥലത്തേക്ക് വലുതാക്കുക.</string>
-  <string name="nearby_osm_license">&amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;ഓപ്പൺസ്ട്രീറ്റ്‌മാപ്പ്&lt;/a&gt; സംഭാവകർ</string>
   <string name="last_updated_text">അവസാനം പുതുക്കിയത്: %s</string>
   <string name="talk_page_link_text">സംവാദത്താൾ കാണുക</string>
   <string name="edit_history_link_text">നാൾവഴി കാണുക</string>
   <string name="map_view_link_text">ഭൂപടത്തിൽ കാണുക</string>
   <string name="other_languages_indication_text">മറ്റൊരു ഭാഷയിൽ വായിക്കുക</string>
   <string name="language_count_link_text">%d മറ്റ് ഭാഷകളിൽ ലഭ്യമാണ്</string>
-  <string name="content_license_html">മറ്റ് വിധത്തിൽ അടയാളപ്പെടുത്താത്ത പക്ഷം ഉള്ളടക്കം, &lt;a href=\"%1$s\"&gt;സി.സി. ബൈ-എസ്.എ. 3.0&lt;/a&gt; പ്രകാരം ലഭ്യം.</string>
   <string name="edit_save_action_license_logged_in">പ്രസിദ്ധീകരിക്കുമ്പോൾ, \n&lt;a href=\"%1$s\"&gt;ഉപയോഗ നിബന്ധനകൾ&lt;/a&gt; പാലിക്കുമെന്നും, താങ്കൾ താങ്കളുടെ സംഭാവനകൾ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; പ്രകാരമാണ് പ്രസിദ്ധീകരിക്കുന്നതെന്നും സമ്മതിക്കുന്നുണ്ട്.</string>
   <string name="edit_save_action_license_anon">പ്രസിദ്ധീകരിക്കുമ്പോൾ, &lt;a href=\"%1$s\"&gt;ഉപയോഗനിബന്ധനകളും&lt;/a&gt;, താങ്കളുടെ സംഭാവനകൾ പിന്നീട് മാറ്റം വരുത്താൻ പറ്റാത്ത വിധം &lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt; അനുമതിയിലാണ് ഉള്ളതെന്നും താങ്കൾ അംഗീകരിക്കുന്നുണ്ട്. തിരുത്തുകൾ താങ്കളുടെ ഉപകരണത്തിന്റെ ഐ.പി. വിലാസത്തിലേക്ക് ചേർക്കുന്നതാണ്. താങ്കൾ &lt;a href=\"https://#login\"&gt;പ്രവേശിക്കുകയാണെങ്കിൽ&lt;/a&gt;, താങ്കൾക്ക് കൂടുതൽ സ്വകാര്യത ലഭിക്കുന്നതാണ്.</string>
   <string name="preference_title_language">വിക്കിപീഡിയ ഭാഷകൾ</string>
@@ -107,9 +100,9 @@
   <string name="reading_lists_sync_login">പ്രവേശിക്കുക</string>
   <string name="create_account_login">പ്രവേശിക്കുക</string>
   <string name="menu_login">പ്രവേശിക്കുക</string>
-  <string name="login_activity_title">വിക്കിപീഡിയയിൽ പ്രവേശിക്കുക</string>
+  <string name="login_activity_title" fuzzy="true">വിക്കിപീഡിയയിൽ പ്രവേശിക്കുക</string>
   <string name="login_in_progress_dialog_message">താങ്കളെ പ്രവേശിപ്പിക്കുന്നു…</string>
-  <string name="login_success_toast">പ്രവേശനം വിജയകരം!</string>
+  <string name="login_success_toast" fuzzy="true">പ്രവേശനം വിജയകരം!</string>
   <string name="reset_password_title">താങ്കളുടെ രഹസ്യവാക്ക് സജ്ജീകരിക്കുക</string>
   <string name="reset_password_description">താൽക്കാലിക രഹസ്യവാക്ക് ഉപയോഗിച്ചാണ് താങ്കൾ പ്രവേശിച്ചിരിക്കുന്നത്.\nപ്രവേശനം പൂർത്തിയാക്കാൻ, ഇവിടെ പുതിയ രഹസ്യവാക്ക് സജ്ജമാക്കുക:</string>
   <string name="reset_password_hint">പുതിയ രഹസ്യവാക്ക്</string>
@@ -175,7 +168,7 @@
   <string name="about_description">വിക്കിപീഡിയ ആപിന്റെ വിവരണം</string>
   <string name="privacy_policy_description">സ്വകാര്യതാനയം</string>
   <string name="terms_of_use_description">ഉപയോഗനിബന്ധനകൾ</string>
-  <string name="about_wikipedia_url">https://ml.m.wikipedia.org/wiki/വിക്കിപീഡിയ:വിവരണം</string>
+  <string name="about_wikipedia_url" fuzzy="true">https://ml.m.wikipedia.org/wiki/വിക്കിപീഡിയ:വിവരണം</string>
   <string name="about_libraries_heading">ഉപയോഗിച്ചിട്ടുള്ള ലൈബ്രറികൾ</string>
   <string name="about_contributors_heading">സംഭാവന ചെയ്തവർ</string>
   <string name="about_translators_heading">വിവർത്തകർ</string>
@@ -240,8 +233,6 @@
   <string name="gallery_save_progress">പ്രമാണം ഡൗൺലോഡ് ചെയ്യുന്നു...</string>
   <string name="gallery_error_video_failed">വീഡിയോ പ്രവർത്തിപ്പിക്കാൻ കഴിഞ്ഞില്ല.</string>
   <string name="err_cannot_save_file">പ്രമാണം സേവ് ചെയ്യാനാകില്ല</string>
-  <string name="share_snippet_button">ചിത്രമായി പങ്കുവയ്ക്കുക</string>
-  <string name="share_normal_button">എഴുത്തായി പങ്കുവയ്ക്കുക</string>
   <string name="cc_logo">ക്രീയേറ്റീവ് കോമൺസ് അനുമതിപത്രം</string>
   <string name="captcha_image">ക്യാപ്ച ചിത്രം</string>
   <string name="gallery_fair_use_license">ന്യായോപയോഗം</string>
@@ -281,9 +272,6 @@
   <string name="view_wiki_error_message_offline">ഇന്റർനെറ്റുമായി ബന്ധപ്പെടാൻ കഴിയുന്നില്ല.</string>
   <string name="reference_title">അവലംബം %s</string>
   <string name="preference_title_prefer_offline_content">ഓഫ്‍ലൈൻ ഉള്ളടക്കം പരിഗണിക്കുക</string>
-  <string name="crash_report_dialog_dont_send_button">മറികടക്കുക</string>
-  <string name="crash_report_dialog_always_send_button">എല്ലായ്പ്പോഴും അയക്കുക</string>
-  <string name="crash_report_dialog_send_button">അയക്കൂ</string>
   <string name="crash_report_activity_title">ആപ്ലിക്കേഷൻ പിഴവ്</string>
   <string name="crash_report_relaunch_or_quit">ഞങ്ങളോട് ക്ഷമിക്കൂ, വിക്കിപീഡിയ ആപ്പ് ഒരു പിഴവ് അഭിമുഖീകരിച്ചതിനാൽ നിർത്തേണ്ടി വന്നു.\n\nപുതിയതായി തുടങ്ങാൻ താങ്കൾ ആഗ്രഹിക്കുന്നുണ്ടോ, അതോ നിർത്തുകയാണോ?</string>
   <string name="crash_report_relaunch">വീണ്ടും തുടങ്ങുക</string>
@@ -306,8 +294,6 @@
   <string name="nav_item_reading_lists">എന്റെ പട്ടികകൾ</string>
   <string name="reading_list_save_to">വായന പട്ടികയിലേക്ക് ചേർക്കുക</string>
   <string name="reading_list_create_new">പുതിയത് സൃഷ്ടിക്കുക</string>
-  <string name="reading_list_added_to_named">%s പട്ടികയിലേക്ക് ചേർക്കുക</string>
-  <string name="reading_list_already_exists">ഈ ലേഖനം പട്ടികയിൽ നേരത്തേയുണ്ട്.</string>
   <string name="reading_list_added_view_button">പട്ടിക കാണുക</string>
   <string name="reading_list_sort">ക്രമീകരിക്കുക</string>
   <string name="reading_list_sort_ellipsis">ഇങ്ങനെ ക്രമപ്പെടുത്തുക...</string>
@@ -343,12 +329,6 @@
   <string name="reading_list_turned_sync_off_dialog_settings">സജ്ജീകരണങ്ങൾ</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">ഏകോപനം പ്രവർത്തന സജ്ജമാക്കുക</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">വേണ്ട, നന്ദി</string>
-  <string name="reading_list_login_option_reminder_dialog_title">വായനാ പട്ടികയിലെ ലേഖനങ്ങൾ കണ്ടെത്തി</string>
-  <string name="reading_list_login_option_reminder_dialog_yes">വേണം, എന്റെ വായനാ പട്ടികകളിലേക്ക് അവ ചേർക്കുക</string>
-  <string name="reading_list_login_option_reminder_dialog_no">വേണ്ട, ലേഖനങ്ങൾ ഒഴിവാക്കുക</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">ശേഖരിച്ച ലേഖനങ്ങൾ ആപ്പിൽ വെക്കണോ?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">വേണം, ലേഖനങ്ങൾ പട്ടികകളിൽ വെക്കുക</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">വേണ്ട, പട്ടികകളിൽ നിന്നും ലേഖനങ്ങൾ ഒഴിവാക്കുക</string>
   <string name="default_reading_list_name">സേവ് ചെയ്തിരിക്കുന്നു</string>
   <string name="reading_lists_menu_create_list">പുതിയ പട്ടിക സൃഷ്ടിക്കുക</string>
   <string name="reading_lists_menu_sort_by">ഇങ്ങനെ ക്രമപ്പെടുത്തുക:</string>
@@ -412,9 +392,8 @@
   <string name="feed_lang_selection_dialog_cancel_button_text">റദ്ദാക്കുക</string>
   <string name="feed_accessibility_card_load_more_button">കൂടുതൽ എടുക്കുക</string>
   <string name="description_edit_text_hint">ലേഖനനത്തിന്റെ വിവരണം</string>
-  <string name="description_edit_article_description_label_per_language">ലേഖനം (%s)</string>
+  <string name="description_edit_translate_article_description_label_per_language" fuzzy="true">ലേഖനം (%s)</string>
   <string name="description_edit_translate_article_description_hint_per_language">ലേഖനത്തിന്റെ വിവരണം (%s)</string>
-  <string name="description_edit_add_caption_label_per_language">ചിത്രത്തിന്റെ വിവരണം (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">ചിത്രത്തിന്റെ തലവാചകം (%s)</string>
   <string name="description_edit_save">പ്രസിദ്ധീകരിക്കുക</string>
   <string name="description_edit_read">വായിക്കുക</string>
@@ -451,14 +430,9 @@
   <string name="suggested_edits_review_image_caption">തലവാചകം അവലോകനം ചെയ്യുക</string>
   <string name="suggested_edits_my_contributions">എന്റെ സംഭാവനകൾ</string>
   <string name="suggested_edits_no_description">ഈ പ്രമാണത്തിന് വിവരണമില്ല</string>
-  <string name="suggested_edits_unlock_dialog_no">പിന്നീട് ആലോചിക്കാം</string>
-  <string name="suggested_edits_unlock_notification_text">നിർദ്ദേശിച്ച തിരുത്തലുകൾ</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_big_text">നിർദ്ദേശിച്ച തിരുത്തലുകൾ\n\nതാങ്കളുടെ എല്ലാ സംഭാവനകൾക്കും നന്ദി. താങ്കൾ തിരുത്തലിൽ വളരെ നല്ല ആളായതിനാൽ ഞങ്ങൾ വിവരണങ്ങൾ ചേർത്തിട്ടില്ലാത്ത ലേഖനങ്ങളുടെ പട്ടിക സൃഷ്ടിച്ചിട്ടുണ്ട്. താങ്കൾക്ക് വിക്കിപീഡിയ മെച്ചപ്പെടുത്താൻ ഞങ്ങളെ സഹായിക്കാമോ?</string>
   <string name="suggested_edits_menu_info">വിവരം</string>
-  <string name="suggested_edits_tasks_activity_title">നിർദ്ദേശിച്ച തിരുത്തലുകൾ</string>
   <string name="suggested_edits_task_add_description_title">ലേഖനത്തിന് വിവരണങ്ങൾ ചേർക്കുക</string>
   <string name="suggested_edits_task_add_description_description">തലക്കെട്ട് വിവരണങ്ങൾ ഇല്ലാതെ ലേഖനങ്ങളിലേക്ക് സംഭാവന ചെയ്യുക</string>
-  <string name="suggested_edits_task_translation_title">ലേഖനത്തിന്റെ വിവരണങ്ങൾ തർജ്ജമ ചെയ്യുക</string>
   <string name="suggested_edits_task_image_caption_title">ചിത്രത്തിന് തലവാചകം ചേർക്കുക</string>
   <string name="suggested_edits_task_image_caption_description" fuzzy="true">ചിത്രങ്ങളിലേക്ക് അടിക്കുറിപ്പുകൾ ചേർക്കുക</string>
   <string name="suggested_edits_task_translate_caption_title">ചിത്രത്തിന്റെ തലവാചകം തർജ്ജമ ചെയ്യുക</string>
@@ -471,6 +445,7 @@
   <string name="suggested_edits_image_caption_summary_title_source">സ്രോതസ്സ്</string>
   <string name="suggested_edits_image_caption_summary_title_date">തീയതി</string>
   <string name="suggested_edits_feed_card_title">നിർദ്ദേശിച്ച തിരുത്തലുകൾ</string>
+  <string name="suggested_edits_feed_card_add_description_button">ലേഖനത്തിന്റെ വിവരണം ചേർക്കുക</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">ലേഖനത്തിന് വിവരണം ചേർക്കുക (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">തുടക്കം കുറിക്കുക</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">ചിത്രത്തിന്റെ തലവാചകം (%s)</string>
@@ -478,19 +453,17 @@
   <string name="suggested_edits_image_preview_dialog_artist">കലാകാരൻ</string>
   <string name="suggested_edits_image_preview_dialog_date">തീയതി</string>
   <string name="suggested_edits_image_preview_dialog_more_info">കൂടുതൽ വിവരങ്ങൾ</string>
-  <string name="suggested_edits_article_cta_image_caption">ചിത്രത്തിന് തലവാചകം ചേർക്കുക (%s)</string>
+  <string name="suggested_edits_article_cta_image_caption">ചിത്രത്തിന് തലവാചകം ചേർക്കുക</string>
+  <string name="suggested_edits_article_cta_image_caption_in_language">ചിത്രത്തിന് തലവാചകം ചേർക്കുക (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">കാണുക</string>
-  <string name="suggested_edits_feed_card_add_image_caption">തലവാചകം ചേർക്കുക</string>
-  <string name="suggested_edits_feed_card_translate_image_caption">തലവാചകം ചേർക്കുക (%s)</string>
-  <string name="suggested_edits_feed_card_add_description_button">ലേഖനത്തിന്റെ വിവരണം ചേർക്കുക</string>
+  <string name="suggested_edits_feed_card_add_image_caption" fuzzy="true">തലവാചകം ചേർക്കുക</string>
+  <string name="suggested_edits_feed_card_translate_image_caption" fuzzy="true">തലവാചകം ചേർക്കുക (%s)</string>
   <string name="description_edit_revert_subtitle">വിക്കിപീഡിയ തിരുത്തുന്നതിന് നന്ദി!</string>
   <string name="description_edit_login_cancel_button_text">റദ്ദാക്കുക</string>
   <string name="onboarding_skip">മറികടക്കുക</string>
   <string name="onboarding_continue">തുടരുക</string>
   <string name="onboarding_get_started">തുടക്കം കുറിക്കുക</string>
   <string name="onboarding_maybe_later">പിന്നീട് ആലോചിക്കാം</string>
-  <string name="onboarding_create_account_sync">വായനാ പട്ടികകൾ ഏകോപിപ്പിക്കുക</string>
-  <string name="onboarding_create_account_preferences">താങ്കളുടെ ക്രമീകരണങ്ങൾ സേവ് ചെയ്യുക</string>
   <string name="onboarding_got_it">മനസ്സിലായി</string>
   <string name="onboarding_multilingual_add_language_text">ഭാഷകൾ ചേർക്കുകയോ തിരുത്തുകയോ ചെയ്യുക</string>
   <string name="app_shortcuts_random">ക്രമരഹിതം</string>
@@ -527,8 +500,6 @@
   <string name="wikitext_template">ഫലകം</string>
   <string name="wikitext_reference">അവലംബം</string>
   <string name="wikitext_preview_link">അവലോകന കണ്ണി</string>
-  <string name="main_drawer_open">തുറക്കുക</string>
-  <string name="main_drawer_close">അടയ്ക്കുക</string>
   <string name="main_drawer_help">സഹായം</string>
   <string name="main_drawer_login">പ്രവേശിക്കുക/വിക്കിപീഡിയയിൽ ചേരുക</string>
   <string name="custom_date_picker_dialog_ok_button_text">ശരി</string>

@@ -28,6 +28,10 @@
 -dontwarn okio.**
 # --- /OkHttp + Okio ---
 
+# Glide
+-keep public class * extends com.bumptech.glide.module.AppGlideModule
+-keep class com.bumptech.glide.GeneratedAppGlideModuleImpl
+
 # --- Gson ---
 # https://github.com/google/gson/blob/master/examples/android-proguard-example/proguard.cfg
 

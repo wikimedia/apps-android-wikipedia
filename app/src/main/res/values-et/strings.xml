@@ -13,8 +13,7 @@
   <string name="menu_page_find_in_page">Otsi lehelt</string>
   <string name="menu_page_share">Jaga linki</string>
   <string name="last_updated_text">Viimati uuendatud %s</string>
-  <string name="content_license_html">Sisu on kasutatav vastavalt litsentsile &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;, kui ei ole märgitud teisiti.</string>
-  <string name="preference_title_language">Vikipeedia keel</string>
+    <string name="preference_title_language">Vikipeedia keel</string>
     <string name="langlinks_filter_hint">Otsi</string>
   <string name="langlinks_empty">See lehekülg ei ole teistes keeltes saadaval</string>
   <string name="langlinks_activity_title">Teised keeled</string>

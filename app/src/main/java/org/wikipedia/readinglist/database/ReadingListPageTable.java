@@ -18,6 +18,7 @@ import java.util.List;
 
 public class ReadingListPageTable extends DatabaseTable<ReadingListPage> {
     private static final int DB_VER_INTRODUCED = 18;
+    private static final int DB_VER_API_TITLE_ADDED = 19;
 
     public ReadingListPageTable() {
         super(ReadingListPageContract.TABLE, ReadingListPageContract.URI);
@@ -28,7 +29,8 @@ public class ReadingListPageTable extends DatabaseTable<ReadingListPage> {
         String site = ReadingListPageContract.Col.SITE.val(cursor);
         ReadingListPage page = new ReadingListPage(lang == null ? new WikiSite(site) : new WikiSite(site, lang),
                 ReadingListPageContract.Col.NAMESPACE.val(cursor),
-                ReadingListPageContract.Col.TITLE.val(cursor),
+                ReadingListPageContract.Col.DISPLAY_TITLE.val(cursor),
+                ReadingListPageContract.Col.API_TITLE.val(cursor),
                 ReadingListPageContract.Col.LISTID.val(cursor));
         page.id(ReadingListPageContract.Col.ID.val(cursor));
         page.description(ReadingListPageContract.Col.DESCRIPTION.val(cursor));
@@ -40,6 +42,7 @@ public class ReadingListPageTable extends DatabaseTable<ReadingListPage> {
         page.status(ReadingListPageContract.Col.STATUS.val(cursor));
         page.sizeBytes(ReadingListPageContract.Col.SIZEBYTES.val(cursor));
         page.remoteId(ReadingListPageContract.Col.REMOTEID.val(cursor));
+        page.lang(ReadingListPageContract.Col.LANG.val(cursor));
         return page;
     }
 
@@ -52,7 +55,7 @@ public class ReadingListPageTable extends DatabaseTable<ReadingListPage> {
                 cols.add(ReadingListPageContract.Col.SITE);
                 cols.add(ReadingListPageContract.Col.LANG);
                 cols.add(ReadingListPageContract.Col.NAMESPACE);
-                cols.add(ReadingListPageContract.Col.TITLE);
+                cols.add(ReadingListPageContract.Col.DISPLAY_TITLE);
                 cols.add(ReadingListPageContract.Col.MTIME);
                 cols.add(ReadingListPageContract.Col.ATIME);
                 cols.add(ReadingListPageContract.Col.THUMBNAIL_URL);
@@ -63,6 +66,8 @@ public class ReadingListPageTable extends DatabaseTable<ReadingListPage> {
                 cols.add(ReadingListPageContract.Col.SIZEBYTES);
                 cols.add(ReadingListPageContract.Col.REMOTEID);
                 return cols.toArray(new Column<?>[cols.size()]);
+            case DB_VER_API_TITLE_ADDED:
+                return new Column<?>[] {ReadingListPageContract.Col.API_TITLE};
             default:
                 return super.getColumnsAdded(version);
         }
@@ -84,7 +89,8 @@ public class ReadingListPageTable extends DatabaseTable<ReadingListPage> {
         contentValues.put(ReadingListPageContract.Col.SITE.getName(), row.wiki().authority());
         contentValues.put(ReadingListPageContract.Col.LANG.getName(), row.wiki().languageCode());
         contentValues.put(ReadingListPageContract.Col.NAMESPACE.getName(), row.namespace().code());
-        contentValues.put(ReadingListPageContract.Col.TITLE.getName(), row.title());
+        contentValues.put(ReadingListPageContract.Col.DISPLAY_TITLE.getName(), row.title());
+        contentValues.put(ReadingListPageContract.Col.API_TITLE.getName(), row.apiTitle());
         contentValues.put(ReadingListPageContract.Col.MTIME.getName(), row.mtime());
         contentValues.put(ReadingListPageContract.Col.ATIME.getName(), row.atime());
         contentValues.put(ReadingListPageContract.Col.THUMBNAIL_URL.getName(), row.thumbUrl());
@@ -123,7 +129,7 @@ public class ReadingListPageTable extends DatabaseTable<ReadingListPage> {
     private void renameListsWithIdenticalNameAsDefault(SQLiteDatabase db, List<ReadingList> lists) {
         for (ReadingList list : lists) {
             if (list.dbTitle().equalsIgnoreCase(WikipediaApp.getInstance().getString(R.string.default_reading_list_name))) {
-                list.title(String.format(WikipediaApp.getInstance().getString(R.string.reading_list_saved_list_rename), list.dbTitle()));
+                list.title(WikipediaApp.getInstance().getString(R.string.reading_list_saved_list_rename, list.dbTitle()));
                 ReadingListDbHelper.instance().updateList(db, list, false);
             }
         }

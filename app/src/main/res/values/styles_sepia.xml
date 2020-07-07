@@ -9,15 +9,8 @@
 
         <item name="colorError">@color/red30</item>
 
-        <item name="colorPrimary">@color/kraft</item>
         <item name="android:textColorSecondary">@color/masi</item>
         <item name="android:textColorTertiary">@color/base30</item>
-
-        <item name="main_toolbar_color">@color/papyrus</item>
-        <item name="main_status_bar_color">@color/papyrus</item>
-        <item name="page_status_bar_color">@color/papyrus</item>
-        <item name="page_expanded_status_bar_color">@color/papyrus</item>
-        <item name="page_toolbar_color">@color/papyrus</item>
 
         <item name="section_title_color">@color/masi</item>
         <item name="secondary_text_color">@color/masi</item>
@@ -26,7 +19,11 @@
         <item name="toc_scroller_button_color">@color/parchment</item>
         <item name="button_background_color">@color/parchment</item>
         <item name="tab_placeholder_text_color">@color/amate</item>
-
+        <item name="color_group_22">@color/papyrus</item>
+        <item name="color_group_53">@color/amate</item>
+        <item name="color_group_54">@color/amate</item>
+        <item name="color_group_59">@color/masi</item>
+        <item name="color_group_60">@color/amate</item>
 
         <item name="chart_shade5">@color/kraft</item>
         <item name="green_highlight_color">@color/green50</item>

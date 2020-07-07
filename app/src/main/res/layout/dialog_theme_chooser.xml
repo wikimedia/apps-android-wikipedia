@@ -57,6 +57,7 @@
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:clickable="true"
                 android:contentDescription="@string/text_size_decrease"
+                android:focusable="true"
                 android:gravity="center_horizontal|bottom"
                 android:paddingBottom="4dp"
                 android:text="T"
@@ -85,6 +86,7 @@
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:clickable="true"
                 android:contentDescription="@string/text_size_increase"
+                android:focusable="true"
                 android:gravity="center_horizontal|bottom"
                 android:paddingBottom="2dp"
                 android:text="T"
@@ -109,6 +111,15 @@
             android:fontFamily="sans-serif-medium"
             android:text="@string/color_theme_select"
             android:textColor="?attr/section_title_color" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/theme_chooser_match_system_theme_switch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center_vertical"
+            android:text="@string/theme_chooser_dialog_match_system_theme_switch_label"
+            android:textColor="?attr/primary_text_color" />
 
         <LinearLayout
             android:layout_width="300dp"

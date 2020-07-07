@@ -13,11 +13,8 @@
   <string name="menu_page_font_and_theme">Кечяр а, шрифт а хийцар</string>
   <string name="menu_page_share" fuzzy="true">Екха</string>
   <string name="menu_long_press_open_page" fuzzy="true">Хьажорг схьаелла</string>
-  <string name="menu_text_select_copy">Копиян</string>
   <string name="menu_text_select_define">Къастам</string>
-  <string name="nav_item_nearby">Уллехь</string>
   <string name="last_updated_text">ТӀаьххьарлера карлаяккхар: %s</string>
-  <string name="content_license_html">Чулацам тӀекхочуш бу &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; (кхиниг билгалйина яцахь)</string>
   <string name="preference_title_language" fuzzy="true">Мотт</string>
     <string name="langlinks_filter_hint">Лахар</string>
   <string name="langlinks_no_match">Хьан дехарца меттанаш цакарий</string>
@@ -75,8 +72,6 @@
   <string name="gallery_error_draw_failed">Сурт гучудаккха цаделира</string>
   <string name="license_title">Лицензин йоза %s библиотекина</string>
   <string name="gallery_error_video_failed">Видео йолаялита цаелира.</string>
-  <string name="crash_report_dialog_dont_send_button">ТӀехйовлийта</string>
-  <string name="crash_report_dialog_send_button">ДӀадахьийта</string>
-  <string name="crash_report_relaunch">Юху доладан</string>
+    <string name="crash_report_relaunch">Юху доладан</string>
   <string name="crash_report_quit">АрагӀо</string>
 </resources>

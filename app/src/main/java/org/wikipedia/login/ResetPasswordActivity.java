@@ -16,6 +16,7 @@ import androidx.annotation.Nullable;
 
 import com.google.android.material.textfield.TextInputLayout;
 
+import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.BaseActivity;
@@ -65,7 +66,7 @@ public class ResetPasswordActivity extends BaseActivity {
         errorView.setBackClickListener((v) -> onBackPressed());
         errorView.setRetryClickListener((v) -> errorView.setVisibility(View.GONE));
 
-        new NonEmptyValidator((isValid) -> loginButton.setEnabled(isValid), passwordInput, passwordRepeatInput);
+        new NonEmptyValidator(loginButton, passwordInput, passwordRepeatInput);
 
         passwordInput.getEditText().setOnEditorActionListener((textView, actionId, keyEvent) -> {
             if (actionId == EditorInfo.IME_ACTION_DONE) {
@@ -109,13 +110,13 @@ public class ResetPasswordActivity extends BaseActivity {
         doLogin();
     }
 
-    @NonNull private CharSequence getText(@NonNull TextInputLayout input) {
-        return input.getEditText() != null ? input.getEditText().getText() : "";
+    @NonNull private String getText(@NonNull TextInputLayout input) {
+        return StringUtils.defaultString(input.getEditText() != null && input.getEditText().getText() != null ? input.getEditText().getText().toString() : "");
     }
 
     private void doLogin() {
-        String password = getText(passwordInput).toString();
-        String retypedPassword = getText(passwordRepeatInput).toString();
+        String password = getText(passwordInput);
+        String retypedPassword = getText(passwordRepeatInput);
         String twoFactorCode = twoFactorText.getText().toString();
 
         showProgressBar(true);

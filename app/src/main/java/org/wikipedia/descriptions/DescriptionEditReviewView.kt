@@ -13,8 +13,7 @@ import org.wikipedia.suggestededits.SuggestedEditsSummary
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.StringUtil
 
-class DescriptionEditReviewView @JvmOverloads constructor(
-        context: Context, attrs: AttributeSet? = null, defStyle: Int = 0) : ConstraintLayout(context, attrs, defStyle) {
+class DescriptionEditReviewView constructor(context: Context, attrs: AttributeSet? = null) : ConstraintLayout(context, attrs) {
 
     init {
         inflate(context, R.layout.view_description_edit_review, this)
@@ -46,7 +45,7 @@ class DescriptionEditReviewView @JvmOverloads constructor(
     private fun setDescriptionReviewView(summary: SuggestedEditsSummary, description: String) {
         galleryContainer.visibility = GONE
         articleTitle!!.text = StringUtil.fromHtml(summary.displayTitle)
-        articleSubtitle!!.text = description.capitalize()
+        articleSubtitle!!.text = description
         articleExtract!!.text = StringUtil.fromHtml(summary.extractHtml)
 
         if (summary.thumbnailUrl.isNullOrBlank()) {

@@ -34,15 +34,10 @@
   <string name="menu_long_press_open_page">Aperir</string>
   <string name="menu_long_press_open_in_new_tab">Aperir in un nove scheda</string>
   <string name="menu_long_press_copy_page">Copiar le adresse del ligamine</string>
-  <string name="menu_text_select_copy">Copiar</string>
   <string name="menu_text_select_define">Definir</string>
-  <string name="menu_text_select_share">Divider</string>
   <string name="menu_text_select_edit_here">Modificar hic</string>
-  <string name="nav_item_nearby">A proximitate</string>
-  <string name="nearby_zoom_to_location">Facer zoom a un loco sur le carta</string>
   <string name="last_updated_text">Ultime actualisation %s</string>
-  <string name="content_license_html">Content is available under &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; unless otherwise noted</string>
-  <string name="edit_save_action_license_logged_in" fuzzy="true">By saving, you agree to the &lt;a href=\"%1$s\"&gt;Terms of Use&lt;/a&gt;, and to irrevocably release your contributions under the &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; license.</string>
+    <string name="edit_save_action_license_logged_in" fuzzy="true">By saving, you agree to the &lt;a href=\"%1$s\"&gt;Terms of Use&lt;/a&gt;, and to irrevocably release your contributions under the &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; license.</string>
   <string name="edit_save_action_license_anon" fuzzy="true">By saving, you agree to the &lt;a href=\"%1$s\"&gt;Terms of Use&lt;/a&gt;, and to irrevocably release your contributions under the &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; license. Edits will be attributed to the IP address of your device. If you &lt;a href=\"https://#login\"&gt;log in&lt;/a&gt;, you will have more privacy.</string>
   <string name="preference_title_language" fuzzy="true">Lingua de Wikipedia</string>
   <string name="langlinks_filter_hint">Cercar</string>
@@ -133,11 +128,7 @@
   <string name="gallery_share_error">Non poteva divider imagine: %s</string>
   <string name="gallery_save_success">File salveguardate correctemente.</string>
   <string name="err_cannot_save_file">Impossibile salveguardar le file</string>
-  <string name="snippet_share_intro">\"%1$s\" sur @Wikipedia: %2$s</string>
   <string name="expand_refs">Tocca pro displicar</string>
-  <string name="share_snippet_button">Divider como imagine</string>
-  <string name="share_normal_button">Divider como texto</string>
-  <string name="snippet_share_preview_image_desc">Previsualisar imagine</string>
   <string name="cc_logo">Licentia Creative Commons</string>
   <string name="captcha_image">Imagine CAPTCHA</string>
   <string name="page_view_in_browser">Vider le pagina in le navigator</string>

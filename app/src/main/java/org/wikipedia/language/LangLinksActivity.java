@@ -30,10 +30,10 @@ import org.wikipedia.history.SearchActionModeCallback;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.settings.SiteInfoClient;
+import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.SearchEmptyView;
 import org.wikipedia.views.ViewAnimations;
-import org.wikipedia.views.ViewUtil;
 import org.wikipedia.views.WikiErrorView;
 
 import java.util.ArrayList;
@@ -44,9 +44,9 @@ import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.schedulers.Schedulers;
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
@@ -56,8 +56,6 @@ public class LangLinksActivity extends BaseActivity {
 
     public static final String ACTION_LANGLINKS_FOR_TITLE = "org.wikipedia.langlinks_for_title";
     public static final String EXTRA_PAGETITLE = "org.wikipedia.pagetitle";
-
-    private static final String GOTHIC_LANGUAGE_CODE = "got";
 
     private List<PageTitle> languageEntries;
     private PageTitle title;
@@ -140,7 +138,6 @@ public class LangLinksActivity extends BaseActivity {
         @Override
         public boolean onCreateActionMode(ActionMode mode, Menu menu) {
             actionMode = mode;
-            ViewUtil.finishActionModeWhenTappingOnView(langLinksList, actionMode);
             return super.onCreateActionMode(mode, menu);
         }
 
@@ -170,11 +167,6 @@ public class LangLinksActivity extends BaseActivity {
         @Override
         protected String getSearchHintString() {
             return getResources().getString(R.string.langlinks_filter_hint);
-        }
-
-        @Override
-        protected boolean finishActionModeIfKeyboardHiding() {
-            return false;
         }
 
         @Override
@@ -227,7 +219,7 @@ public class LangLinksActivity extends BaseActivity {
 
     private void fetchLangLinks() {
         if (languageEntries == null) {
-            disposables.add(ServiceFactory.get(title.getWikiSite()).getLangLinks(title.getConvertedText())
+            disposables.add(ServiceFactory.get(title.getWikiSite()).getLangLinks(title.getPrefixedText())
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(response -> {
@@ -251,14 +243,11 @@ public class LangLinksActivity extends BaseActivity {
             PageTitle link = it.next();
             String languageCode = link.getWikiSite().languageCode();
 
-            if (GOTHIC_LANGUAGE_CODE.equals(languageCode)) {
-                // Remove Gothic since it causes Android to segfault.
-                it.remove();
-            } else if ("be-x-old".equals(languageCode)) {
+            if (AppLanguageLookUpTable.BELARUSIAN_LEGACY_LANGUAGE_CODE.equals(languageCode)) {
                 // Replace legacy name of тарашкевіца language with the correct name.
                 // TODO: Can probably be removed when T111853 is resolved.
                 it.remove();
-                it.add(new PageTitle(link.getText(), WikiSite.forLanguageCode("be-tarask")));
+                it.add(new PageTitle(link.getText(), WikiSite.forLanguageCode(AppLanguageLookUpTable.BELARUSIAN_TARASK_LANGUAGE_CODE)));
             } else if (AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE.equals(languageCode)) {
                 // Replace Chinese with Simplified and Traditional dialects.
                 haveChineseEntry = true;
@@ -266,7 +255,7 @@ public class LangLinksActivity extends BaseActivity {
                 for (String dialect : Arrays.asList(AppLanguageLookUpTable.SIMPLIFIED_CHINESE_LANGUAGE_CODE,
                         AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE)) {
 
-                    it.add(new PageTitle((title.isMainPage()) ? SiteInfoClient.getMainPageForLang(dialect) : link.getConvertedText(),
+                    it.add(new PageTitle((title.isMainPage()) ? SiteInfoClient.getMainPageForLang(dialect) : link.getPrefixedText(),
                             WikiSite.forLanguageCode(dialect)));
                 }
             }
@@ -301,7 +290,7 @@ public class LangLinksActivity extends BaseActivity {
             for (String languageCode : chineseLanguageCodes) {
                 if (!title.getWikiSite().languageCode().contains(languageCode)) {
                     PageTitle pageTitle = new PageTitle((title.isMainPage()) ? SiteInfoClient.getMainPageForLang(languageCode) : title.getDisplayText(), WikiSite.forLanguageCode(languageCode));
-                    pageTitle.setConvertedText(title.getConvertedText());
+                    pageTitle.setText(StringUtil.removeNamespace(title.getPrefixedText()));
                     languageEntries.add(pageTitle);
                 }
             }

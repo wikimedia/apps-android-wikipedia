@@ -12,7 +12,7 @@
     <color name="base18">#43464a</color> <!-- AAA: "Mesosphere gray" -->
     <color name="base14">#2e3136</color> <!-- AAA: "Thermosphere gray" -->
     <color name="base12">#27292d</color> <!-- AAA: "Exosphere gray" -->
-    <color name="base10">#222</color> <!-- W AAA: Copy color, Buttons / widgets text -->
+    <color name="base10">#202122</color> <!-- W AAA: Copy color, Buttons / widgets text -->
     <color name="base4">#101418</color> <!-- W AAA: "Pitch black" -->
     <color name="base0">#000</color> <!-- W AAA: Emphasized copy color, Active button widgets text -->
 
@@ -22,8 +22,7 @@
     <color name="accent50">#36c</color> <!-- W AA Progressive: Primary buttons, Links, Page accents, Focus outlines -->
     <color name="accent30">#2a4b8d</color> <!-- W AAA: Active buttons, Active links -->
     <color name="accent20">#223966</color>
-    <color name="accent16">#1A3060</color> <!-- W AAA: "Midnight blue" -->
-    <color name="accent10">#132347</color>
+    <color name="red90">#FFe7e6</color>
     <color name="red75">#FF6E6E</color> <!-- Destructive text (error messages, red links) -->
     <color name="red50">#d33</color> <!-- Foundation Red: B&W AA Destructive: Destructive actions, Buttons and links, Alerts -->
     <color name="red30">#b32424</color>
@@ -31,6 +30,7 @@
     <!-- Supplementary -->
     <color name="green50">#00af89</color> <!-- Foundation Green: B AA: Secondary link highlight, Positive messages -->
     <color name="green30">#14866d</color> <!-- W AA: -->
+    <color name="green90">#d5fdf4</color> <!-- W AA: -->
     <color name="yellow90">#fef6e7</color>
     <color name="yellow50">#fc3</color> <!-- Foundation Yellow: B AAA: Warning messages -->
 
@@ -42,8 +42,6 @@
     <color name="papyrus">#f0e6d6</color>
     <color name="kraft">#cbc8c1</color>
     <color name="masi">#646059</color>
-    <color name="osage">#ff9500</color>
-    <color name="osage_translucent">#80ff9500</color>
     <color name="parchment">#f8f1e3</color>
     <color name="dawn">#F2EBE1</color>
 

@@ -7,7 +7,7 @@
     android:background="?attr/paper_color"
     android:orientation="vertical">
 
-    <com.duolingo.open.rtlviewpager.RtlViewPager
+    <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/fragment_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
@@ -36,17 +36,17 @@
                 android:text="@string/onboarding_skip"
                 android:textColor="?attr/secondary_text_color" />
 
-            <com.rd.PageIndicatorView
+            <com.google.android.material.tabs.TabLayout
                 android:id="@+id/view_onboarding_page_indicator"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:focusable="true"
-                app:piv_radius="4dp"
-                app:piv_rtl_mode="auto"
-                app:piv_selectedColor="?attr/colorAccent"
-                app:piv_unselectedColor="?attr/chart_shade5"
-                app:piv_viewPager="@id/fragment_pager" />
+                android:background="@android:color/transparent"
+                app:tabIndicator="@null"
+                app:tabPaddingStart="8dp"
+                app:tabPaddingEnd="8dp"
+                app:tabBackground="@drawable/shape_tab_dot"
+                app:tabGravity="center" />
 
             <FrameLayout
                 android:layout_width="wrap_content"
@@ -60,6 +60,7 @@
                     android:layout_gravity="end|center_vertical"
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:clickable="true"
+                    android:focusable="true"
                     android:contentDescription="@string/onboarding_continue"
                     android:scaleType="center"
                     android:tint="?attr/colorAccent"

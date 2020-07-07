@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.edit.summaries.EditSummary;
 import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.offline.OfflineObjectTable;
 import org.wikipedia.pageimages.PageImage;
 import org.wikipedia.readinglist.database.ReadingList;
 import org.wikipedia.readinglist.database.ReadingListPage;
@@ -15,16 +16,16 @@ import org.wikipedia.util.log.L;
 
 public class Database extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "wikipedia.db";
-    private static final int DATABASE_VERSION = 18;
+    private static final int DATABASE_VERSION = 20;
 
     private final DatabaseTable<?>[] databaseTables = {
             HistoryEntry.DATABASE_TABLE,
             PageImage.DATABASE_TABLE,
             RecentSearch.DATABASE_TABLE,
             EditSummary.DATABASE_TABLE,
-
             ReadingList.DATABASE_TABLE,
-            ReadingListPage.DATABASE_TABLE
+            ReadingListPage.DATABASE_TABLE,
+            OfflineObjectTable.DATABASE_TABLE
     };
 
     public Database(Context context) {

@@ -11,20 +11,25 @@
         android:layout_height="@dimen/view_card_header_height"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <org.wikipedia.views.FaceAndColorDetectImageView
-        android:id="@+id/view_featured_article_card_image"
-        style="@style/SimpleDraweeViewPlaceholder"
+    <FrameLayout
+        android:id="@+id/view_featured_article_card_image_container"
         android:layout_width="match_parent"
-        android:layout_height="192dp"
-        app:actualImageScaleType="focusCrop"
-        app:layout_constraintTop_toBottomOf="@id/view_featured_article_card_header" />
+        android:layout_height="193dp"
+        app:layout_constraintTop_toBottomOf="@id/view_featured_article_card_header">
 
-    <View
-        android:id="@+id/view_featured_article_card_divider"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="?attr/material_theme_border_color"
-        app:layout_constraintTop_toBottomOf="@id/view_featured_article_card_image" />
+        <org.wikipedia.views.FaceAndColorDetectImageView
+            android:id="@+id/view_featured_article_card_image"
+            style="@style/ImageViewDefault"
+            android:layout_width="match_parent"
+            android:layout_height="192dp"
+            android:contentDescription="@null"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_gravity="bottom"
+            android:background="?attr/material_theme_border_color" />
+    </FrameLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/view_featured_article_card_text_container"
@@ -32,9 +37,10 @@
         android:layout_height="wrap_content"
         android:background="?attr/selectableItemBackground"
         android:clickable="true"
+        android:focusable="true"
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
-        app:layout_constraintTop_toBottomOf="@id/view_featured_article_card_divider">
+        app:layout_constraintTop_toBottomOf="@id/view_featured_article_card_image_container">
 
         <TextView
             android:id="@+id/view_featured_article_card_article_title"

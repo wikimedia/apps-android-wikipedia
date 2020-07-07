@@ -6,7 +6,6 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.model.CardType;
 import org.wikipedia.page.PageTitle;
@@ -30,7 +29,7 @@ public class BecauseYouReadItemCard extends Card {
 
     @Nullable
     @Override public String subtitle() {
-        return StringUtils.capitalize(title.getDescription());
+        return title.getDescription();
     }
 
     @Nullable

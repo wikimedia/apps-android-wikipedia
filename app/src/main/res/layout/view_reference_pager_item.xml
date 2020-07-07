@@ -3,48 +3,32 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:layout_height="match_parent"
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp"
+    android:paddingTop="16dp"
+    android:paddingBottom="16dp">
 
     <org.wikipedia.views.AppTextView
-        android:id="@+id/reference_title_text"
-        android:layout_width="match_parent"
-        android:layout_height="54dp"
-        android:fontFamily="sans-serif-medium"
-        android:gravity="center_vertical"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"
-        android:textColor="?android:textColorPrimary"
-        android:textSize="16sp"
-        tools:text="Reference [1]" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:background="?attr/material_theme_border_color" />
-
-    <ScrollView
-        android:layout_width="match_parent"
+        android:id="@+id/reference_id"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:scrollbars="vertical">
+        android:minWidth="24dp"
+        android:textColor="?android:textColorPrimary"
+        android:textIsSelectable="true"
+        android:textSize="16sp"
+        tools:text="1." />
 
-        <org.wikipedia.views.AppTextView
-            android:id="@+id/reference_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:fontFamily="sans-serif"
-            android:lineSpacingMultiplier="1.4"
-            android:paddingTop="16dp"
-            android:paddingBottom="16dp"
-            android:textColor="?android:textColorPrimary"
-            android:textIsSelectable="true"
-            android:textSize="16sp"
-            tools:text="Reference text" />
-
-    </ScrollView>
+    <org.wikipedia.views.AppTextView
+        android:id="@+id/reference_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginStart="8dp"
+        android:lineSpacingMultiplier="1.4"
+        android:textColor="?android:textColorPrimary"
+        android:textIsSelectable="true"
+        android:textSize="16sp"
+        tools:text="Reference text" />
 
 </LinearLayout>

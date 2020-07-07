@@ -9,6 +9,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -34,13 +35,13 @@ public class MediaDownloadReceiver extends BroadcastReceiver {
         this.callback = callback;
     }
 
-    public static void download(@NonNull Context context, @NonNull FeaturedImage featuredImage) {
+    public void download(@NonNull Context context, @NonNull FeaturedImage featuredImage) {
         String filename = FileUtil.sanitizeFileName(featuredImage.title());
         String targetDirectory = Environment.DIRECTORY_PICTURES;
         performDownloadRequest(context, Uri.parse(featuredImage.getOriginal().getSource()), targetDirectory, filename, null);
     }
 
-    public static void download(@NonNull Context context, @NonNull PageTitle imageTitle, @NonNull ImageInfo mediaInfo) {
+    public void download(@NonNull Context context, @NonNull PageTitle imageTitle, @NonNull ImageInfo mediaInfo) {
         String saveFilename = FileUtil.sanitizeFileName(trimFileNamespace(imageTitle.getDisplayText()));
         String fileUrl = mediaInfo.getOriginalUrl();
         String targetDirectoryType;
@@ -57,7 +58,7 @@ public class MediaDownloadReceiver extends BroadcastReceiver {
         performDownloadRequest(context, Uri.parse(fileUrl), targetDirectoryType, saveFilename, mediaInfo.getMimeType());
     }
 
-    private static void performDownloadRequest(@NonNull Context context, @NonNull Uri uri,
+    private void performDownloadRequest(@NonNull Context context, @NonNull Uri uri,
                                         @NonNull String targetDirectoryType,
                                         @NonNull String targetFileName, @Nullable String mimeType) {
         final String targetSubfolderName = WikipediaApp.getInstance().getString(R.string.app_name);
@@ -87,8 +88,7 @@ public class MediaDownloadReceiver extends BroadcastReceiver {
             DownloadManager.Query query = new DownloadManager.Query();
             query.setFilterById(downloadId);
             DownloadManager downloadManager = (DownloadManager) context.getSystemService(Context.DOWNLOAD_SERVICE);
-            Cursor c = downloadManager.query(query);
-            try {
+            try (Cursor c = downloadManager.query(query)) {
                 if (c.moveToFirst()) {
                     int statusIndex = c.getColumnIndexOrThrow(DownloadManager.COLUMN_STATUS);
                     int pathIndex = c.getColumnIndexOrThrow(DownloadManager.COLUMN_LOCAL_URI);
@@ -101,8 +101,6 @@ public class MediaDownloadReceiver extends BroadcastReceiver {
                                 c.getString(mimeIndex));
                     }
                 }
-            } finally {
-                c.close();
             }
         }
     }
@@ -111,9 +109,10 @@ public class MediaDownloadReceiver extends BroadcastReceiver {
         return filename.startsWith(FILE_NAMESPACE) ? filename.substring(FILE_NAMESPACE.length()) : filename;
     }
 
-    private void notifyContentResolver(@NonNull Context context, @NonNull String path, @NonNull String mimeType) {
+    // TODO: Research whether this whole call is necessary anymore.
+    private void notifyContentResolver(@NonNull Context context, @Nullable String path, @NonNull String mimeType) {
         ContentValues values = new ContentValues();
-        Uri contentUri;
+        Uri contentUri = null;
         if (FileUtil.isVideo(mimeType)) {
             values.put(MediaStore.Video.Media.DATA, path);
             values.put(MediaStore.Video.Media.MIME_TYPE, mimeType);
@@ -122,11 +121,17 @@ public class MediaDownloadReceiver extends BroadcastReceiver {
             values.put(MediaStore.Audio.Media.DATA, path);
             values.put(MediaStore.Audio.Media.MIME_TYPE, mimeType);
             contentUri = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;
-        } else {
+        } else if (!TextUtils.isEmpty(path)) {
             values.put(MediaStore.Images.Media.DATA, path);
             values.put(MediaStore.Images.Media.MIME_TYPE, mimeType);
             contentUri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
         }
-        context.getContentResolver().insert(contentUri, values);
+        if (contentUri != null) {
+            try {
+                context.getContentResolver().insert(contentUri, values);
+            } catch (Exception e) {
+                // ignore
+            }
+        }
     }
 }

@@ -51,6 +51,10 @@ public class AnnouncementCard extends Card {
         return announcement.hasImageUrl();
     }
 
+    boolean hasBorder() {
+        return announcement.hasBorder();
+    }
+
     @NonNull @Override public Uri image() {
         return Uri.parse(announcement.imageUrl());
     }

@@ -44,20 +44,14 @@
   <string name="menu_long_press_open_page">Veke</string>
   <string name="menu_long_press_open_in_new_tab">Di hilpêkînek nû de veke</string>
   <string name="menu_long_press_copy_page">Navnîşana girêdanê kopî bike</string>
-  <string name="menu_text_select_copy">Kopî bike</string>
   <string name="menu_text_select_define">Tarîf bike</string>
-  <string name="menu_text_select_share">Parve bike</string>
   <string name="menu_text_select_edit_here">Vê derê biguherîne</string>
-  <string name="nav_item_nearby">Yên nêzîk</string>
-  <string name="nearby_zoom_to_location">Di nexşeyê de zûm bike ser cihekÎ</string>
-  <string name="nearby_osm_license">&amp;copy; &amp;nbsp;Beşdarên &lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMapê&lt;/a&gt;</string>
   <string name="last_updated_text">Nûkirina dawîn: %s</string>
   <string name="talk_page_link_text">Rûpela gotûbêjê bibîne</string>
   <string name="edit_history_link_text">Dîroka sererastkirinê bibîne</string>
   <string name="map_view_link_text">Ser nexşeyek bibîne</string>
   <string name="other_languages_indication_text">Bi zimanekî din bixwîne</string>
   <string name="language_count_link_text">Bi %d zimanên din jî berdest e</string>
-  <string name="content_license_html">Naverok di bin lîsansa &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; de berdest e heta ku eksa wê bê gotin</string>
   <string name="edit_save_action_license_logged_in">Bi weşandinê, tu &lt;a href=\"%1$s\"&gt;Şertên Bikaranînê&lt;/a&gt; qebûl dikî, û bi awayekî paşveneger beşdariyên xwe di bin lîsansa &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; de belav dikî.</string>
   <string name="edit_save_action_license_anon">Bi weşandinê, tu &lt;a href=\"%1$s\"&gt;Şertên Bikaranînê&lt;/a&gt; qebûl dikî, û bi awayekî paşveneger beşdariyên xwe di bin lîsansa &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; de belav dikî. Sererastkirin wê bi adrêsa te ya IPyê ya cîhaza te re bêne girêdan. Eger &lt;a href=\"https://#login\"&gt;têkevî&lt;/a&gt;, wê veşaritîya te zêdetir bê muhafezekirin.</string>
   <string name="preference_title_language">Zimanên Wîkîpediyayê</string>
@@ -90,9 +84,9 @@
   <string name="login_2fa_hint">Koda Pejirandina Nasnameyê ya Du-faktorî</string>
   <string name="login_2fa_other_workflow_error_msg">Pejirandina nasnameyê ya du-faktorî hewce ye! Xêra xwe vegere fealiyeta esas û bi kilîda xwe ya 2FA\'yê têkeve, paşê dîsa bicerribîne.</string>
   <string name="menu_login">Têkeve</string>
-  <string name="login_activity_title">Têkeve Wîkîpediyayê</string>
+  <string name="login_activity_title" fuzzy="true">Têkeve Wîkîpediyayê</string>
   <string name="login_in_progress_dialog_message">Niha têdikeve...</string>
-  <string name="login_success_toast">Têketin serkeftî bû!</string>
+  <string name="login_success_toast" fuzzy="true">Têketin serkeftî bû!</string>
   <string name="reset_password_title">Şîfreya xwe eyar bike</string>
   <string name="reset_password_description">Te bi şîfreyek demkî têket. Ji bo ku çalakiya têketinê temam bikî, xêra xwe şîfreya xwe ya nû li vir binivîse.</string>
   <string name="reset_password_hint">Şîfreya nû</string>
@@ -173,10 +167,8 @@
   <string name="preference_title_show_images">Wêneyan nîşan bide</string>
   <string name="read_more_section">Zêdetir bixwîne</string>
   <string name="gallery_menu_share">Parve bike</string>
-  <string name="gallery_save_success">Pel bi awayekî serkeftî hate tomarkirin.</string>
+  <string name="gallery_save_success" fuzzy="true">Pel bi awayekî serkeftî hate tomarkirin.</string>
   <string name="err_cannot_save_file">Dosye nikare bê tomarkirin</string>
-  <string name="share_snippet_button">Wek wêne parve bike</string>
-  <string name="share_normal_button">Wek nivîs parve bike</string>
   <string name="cc_logo">Lîsansa Creative Commonsê</string>
   <string name="gallery_fair_use_license">Bikaranîna dadmend</string>
   <string name="gallery_uploader_unknown">Barker nenas e</string>
@@ -190,8 +182,6 @@
   <string name="nav_item_donate">Piştgiriyê bide Wîkîpediyayê</string>
   <string name="enable_location_service">Çalak bike</string>
   <string name="location_permissions_enable_action">Veke</string>
-  <string name="crash_report_dialog_dont_send_button">Derbaske</string>
-  <string name="crash_report_dialog_send_button">Bişîne</string>
   <string name="crash_report_activity_title">Çewtiya sepanê</string>
   <string name="crash_report_relaunch">Cardin dest pê bike</string>
   <string name="crash_report_quit">Derkeve</string>
@@ -201,8 +191,6 @@
   <string name="nav_item_reading_lists">Lîsteyên min</string>
   <string name="reading_list_save_to">Li lîsteya xwendinê qeyd bike</string>
   <string name="reading_list_create_new">Yekê nû çêke</string>
-  <string name="reading_list_added_to_named">Li %s hate îlawekirin.</string>
-  <string name="reading_list_already_exists">Ev gotar jixwe di vê lîsteyê de ye.</string>
   <string name="reading_list_added_view_button">Lîsteyê bibîne</string>
   <string name="reading_list_sort_by_name">Li gorî nav rêz bike</string>
   <string name="reading_list_menu_delete">Lîsteyê jê bibe</string>
@@ -234,13 +222,9 @@
   <string name="view_featured_article_footer_saved_button_label">Hat tomarkirin</string>
   <string name="description_edit_save">Biweșîne</string>
   <string name="description_edit_cancel_hint">Betal bike</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_title">Hûn karûbarên \"kapîteyên wêneyên wêneyan zêde bikin\"</string>
-  <string name="suggested_edits_unlock_add_captions_notification_title">Tu vekirî ye \"kelepên wêneyan zêde bike\"</string>
-  <string name="suggested_edits_unlock_add_captions_dialog_message" fuzzy="true">Ji bo hemû beşdariya spas! Ji ber ku em difikirin we dixwazî wekî kapîteyên ji bo wêneyan zêde bike, me lîsteya wêneyên ku ji bendeyên winda ne. Ma ji we re Wîkîpediya çêtir bike?</string>
-  <string name="suggested_edits_unlock_add_captions_notification_big_text" fuzzy="true">Ji bo hemû beşdariya spas! Ji ber ku em difikirin we dixwazî wekî kapîteyên ji bo wêneyan zêde bike, me lîsteya wêneyên ku ji bendeyên winda ne. Ma ji we re Wîkîpediya çêtir bike?</string>
-  <string name="suggested_edits_unlock_translate_captions_dialog_title">Hûn karûbarên \"kapîteyên wêneyên wêneyên bişkojk\" vekirî ne</string>
-  <string name="suggested_edits_unlock_translate_captions_dialog_message" fuzzy="true">Spas, ji bo hemû beşdariyên te! Tu sepanê di gelek zimanan de bi kar tînî, lewma em lîsteyeke wêneyên ku wergerandina sernavan ji bo wan pêwîst e berhev kirin. Gelo tu yê berdewam bî alîkirkina me, da ku em Wîkîpediyayê çêtir bikin?</string>
-  <string name="suggested_edits_unlock_translate_captions_notification_big_text" fuzzy="true">Ji bo hemû beşdariya spas! Hûn di gelek zimanan de bi kar tîne ziman, da ku em hewceyek lîsteyek pêdivî ye ku hewceyê wergeran çêbikin. Ma hûn berdewam bikin ku alîkariya me bi Wîkîpediyayê çêtir bikin?</string>
+  <string name="suggested_edits_contribution_seen_text">%s caran hatiye dîtin di 30 rojên dawîn de.</string>
+  <string name="suggested_edits_contribution_date_yesterday_text">Doh</string>
+  <string name="suggested_edits_rewards_continue_button">Bidomîne</string>
   <string name="languages_list_activity_title">Zimaneke lê zêde bike</string>
   <string name="wikipedia_languages_title">Zimanên Wîkîpediyayê</string>
   <string name="wikipedia_languages_your_languages_text">Zimanên te</string>

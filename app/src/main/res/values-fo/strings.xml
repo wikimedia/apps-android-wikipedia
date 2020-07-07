@@ -12,10 +12,8 @@
     <string name="share_via">Deil via</string>
   <string name="menu_page_other_languages" fuzzy="true">Les á øðrum málum</string>
   <string name="menu_page_share" fuzzy="true">Deil</string>
-  <string name="nav_item_nearby">Nærindis</string>
   <string name="last_updated_text">Seinast dagført %s</string>
-  <string name="content_license_html">Innihaldið er tøkt undir &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; um ikki annað er viðmerkt</string>
-  <string name="preference_title_language">Wikipediamál</string>
+    <string name="preference_title_language">Wikipediamál</string>
     <string name="langlinks_filter_hint">Leita</string>
   <string name="langlinks_empty">Henda síðan er ikki tøk á øðrum málum.</string>
   <string name="langlinks_activity_title">Onnur mál</string>

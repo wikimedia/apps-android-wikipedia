@@ -1,11 +1,10 @@
 package org.wikipedia.page;
 
 import android.app.SearchManager;
-import android.appwidget.AppWidgetManager;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -13,6 +12,7 @@ import android.os.Looper;
 import android.text.TextUtils;
 import android.text.format.DateUtils;
 import android.view.ActionMode;
+import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -27,6 +27,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.Toolbar;
+import androidx.drawerlayout.widget.FixedDrawerLayout;
 import androidx.preference.PreferenceManager;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
@@ -55,15 +56,15 @@ import org.wikipedia.page.tabs.TabActivity;
 import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.search.SearchActivity;
 import org.wikipedia.settings.Prefs;
-import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.theme.ThemeChooserDialog;
-import org.wikipedia.util.AnimationUtil;
 import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.ThrowableUtil;
+import org.wikipedia.views.FrameLayoutNavMenuTriggerer;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.PageActionOverflowView;
 import org.wikipedia.views.TabCountsView;
@@ -71,6 +72,7 @@ import org.wikipedia.views.ViewUtil;
 import org.wikipedia.widgets.WidgetProviderFeaturedPage;
 import org.wikipedia.wiktionary.WiktionaryDialog;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -78,18 +80,21 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
-import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.functions.Consumer;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.functions.Consumer;
 
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_SETTINGS;
+import static org.wikipedia.Constants.INTENT_EXTRA_ACTION;
 import static org.wikipedia.Constants.InvokeSource.LINK_PREVIEW_MENU;
 import static org.wikipedia.Constants.InvokeSource.TOOLBAR;
+import static org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_CAPTION;
 import static org.wikipedia.settings.Prefs.isLinkPreviewEnabled;
+import static org.wikipedia.settings.SettingsActivity.ACTIVITY_RESULT_LANGUAGE_CHANGED;
 import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
 
 public class PageActivity extends BaseActivity implements PageFragment.Callback,
-        LinkPreviewDialog.Callback, ThemeChooserDialog.Callback,
-        WiktionaryDialog.Callback {
+        LinkPreviewDialog.Callback, ThemeChooserDialog.Callback, WiktionaryDialog.Callback,
+        FrameLayoutNavMenuTriggerer.Callback {
     public static final String ACTION_LOAD_IN_NEW_TAB = "org.wikipedia.load_in_new_tab";
     public static final String ACTION_LOAD_IN_CURRENT_TAB = "org.wikipedia.load_in_current_tab";
     public static final String ACTION_LOAD_IN_CURRENT_TAB_SQUASH = "org.wikipedia.load_in_current_tab_squash";
@@ -109,6 +114,8 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         EXISTING_TAB
     }
 
+    @BindView(R.id.navigation_drawer) FixedDrawerLayout drawerLayout;
+    @BindView(R.id.activity_page_container) FrameLayoutNavMenuTriggerer containerWithNavTrigger;
     @BindView(R.id.page_progress_bar) ProgressBar progressBar;
     @BindView(R.id.page_toolbar_container) View toolbarContainerView;
     @BindView(R.id.page_toolbar) Toolbar toolbar;
@@ -139,8 +146,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         app = (WikipediaApp) getApplicationContext();
-        app.checkCrashes(this);
-        AnimationUtil.setSharedElementTransitions(this);
 
         PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
 
@@ -177,10 +182,13 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
         toolbarHideHandler = new PageToolbarHideHandler(pageFragment, toolbarContainerView, toolbar, tabsButton);
 
+        drawerLayout.setScrimColor(Color.TRANSPARENT);
+        containerWithNavTrigger.setCallback(this);
+
         boolean languageChanged = false;
         if (savedInstanceState != null) {
             if (savedInstanceState.getBoolean("isSearching")) {
-                openSearchActivity(TOOLBAR, null);
+                openSearchActivity();
             }
             String language = savedInstanceState.getString(LANGUAGE_CODE_BUNDLE_KEY);
             languageChanged = !app.getAppOrSystemLanguageCode().equals(language);
@@ -200,7 +208,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     @OnClick(R.id.page_toolbar_button_search)
     public void onSearchButtonClicked() {
-        openSearchActivity(TOOLBAR, null);
+        openSearchActivity();
     }
 
     @OnClick(R.id.page_toolbar_button_tabs)
@@ -218,14 +226,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         Animation anim = AnimationUtils.loadAnimation(this, R.anim.tab_list_zoom_enter);
         tabsButton.startAnimation(anim);
         tabsButton.updateTabCount();
-    }
-
-    private void finishActionMode() {
-        Set<ActionMode> actionModesToFinish = new HashSet<>(currentActionModes);
-        for (ActionMode mode : actionModesToFinish) {
-            mode.finish();
-        }
-        currentActionModes.clear();
     }
 
     public void hideSoftKeyboard() {
@@ -256,9 +256,10 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     }
 
     @Override
-    public boolean onSearchRequested() {
-        openSearchActivity(TOOLBAR, null);
-        return true;
+    public void onNavMenuSwipeRequest(int gravity) {
+        if (!isCabOpen() && gravity == Gravity.END) {
+            pageFragment.getTocHandler().show();
+        }
     }
 
     private void goToMainTab(@NonNull NavTab tab) {
@@ -270,7 +271,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     }
 
     /** @return True if the contextual action bar is open. */
-    public boolean isCabOpen() {
+    private boolean isCabOpen() {
         return !currentActionModes.isEmpty();
     }
 
@@ -329,8 +330,13 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     private void handleIntent(@NonNull Intent intent) {
         if (Intent.ACTION_VIEW.equals(intent.getAction()) && intent.getData() != null) {
-            WikiSite wiki = new WikiSite(intent.getData());
-            PageTitle title = wiki.titleForUri(intent.getData());
+            Uri uri = intent.getData();
+            if (ReleaseUtil.isProdRelease() && uri.getScheme() != null && uri.getScheme().equals("http")) {
+                // For external links, ensure that they're using https.
+                uri = uri.buildUpon().scheme(WikiSite.DEFAULT_SCHEME).build();
+            }
+            WikiSite wiki = new WikiSite(uri);
+            PageTitle title = wiki.titleForUri(uri);
             HistoryEntry historyEntry = new HistoryEntry(title,
                     intent.hasExtra(Constants.INTENT_EXTRA_VIEW_FROM_NOTIFICATION)
                             ? HistoryEntry.SOURCE_NOTIFICATION_SYSTEM : HistoryEntry.SOURCE_EXTERNAL_LINK);
@@ -340,7 +346,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
                 historyEntry.setReferrer(intent.getExtras().get(Intent.EXTRA_REFERRER).toString());
             }
             if (title.isSpecial()) {
-                visitInExternalBrowser(this, intent.getData());
+                visitInExternalBrowser(this, uri);
                 finish();
                 return;
             }
@@ -424,7 +430,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         app.putCrashReportProperty("title", title.toString());
 
         if (title.isSpecial()) {
-            visitInExternalBrowser(this, Uri.parse(title.getMobileUri()));
+            visitInExternalBrowser(this, Uri.parse(title.getUri()));
             return;
         }
 
@@ -435,7 +441,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             // Close the link preview, if one is open.
             hideLinkPreview();
 
-            pageFragment.closeFindInPage();
+            onPageCloseActionMode();
             if (position == TabPosition.CURRENT_TAB) {
                 pageFragment.loadPage(title, entry, true, false);
             } else if (position == TabPosition.CURRENT_TAB_SQUASH) {
@@ -451,10 +457,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         });
     }
 
-    /**
-     * Go directly to the Main Page of the current Wiki, optionally allowing state loss of the
-     * fragment manager. Useful for when this function is called from an AsyncTask result.
-     */
     public void loadMainPage(TabPosition position) {
         PageTitle title = MainPageClient.getMainPageTitle();
         HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_MAIN_PAGE);
@@ -469,11 +471,15 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         bottomSheetPresenter.showAddToListDialog(getSupportFragmentManager(), title, source, listDialogDismissListener);
     }
 
+    public void showMoveToListDialog(long sourceReadingListId, @NonNull PageTitle title, @NonNull InvokeSource source) {
+        bottomSheetPresenter.showMoveToListDialog(getSupportFragmentManager(), sourceReadingListId, title, source, listDialogDismissListener);
+    }
+
     // Note: back button first handled in {@link #onOptionsItemSelected()};
     @Override
     public void onBackPressed() {
         if (isCabOpen()) {
-            finishActionMode();
+            onPageCloseActionMode();
             return;
         }
 
@@ -546,6 +552,11 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     }
 
     @Override
+    public void onPageMoveToReadingList(long sourceReadingListId, @NonNull PageTitle title, @NonNull InvokeSource source) {
+        showMoveToListDialog(sourceReadingListId, title, source);
+    }
+
+    @Override
     public void onPageRemoveFromReadingLists(@NonNull PageTitle title) {
         if (!pageFragment.isAdded()) {
             return;
@@ -581,13 +592,22 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     }
 
     @Override
+    public void onPageCloseActionMode() {
+        Set<ActionMode> actionModesToFinish = new HashSet<>(currentActionModes);
+        for (ActionMode mode : actionModesToFinish) {
+            mode.finish();
+        }
+        currentActionModes.clear();
+    }
+
+    @Override
     public void onLinkPreviewLoadPage(@NonNull PageTitle title, @NonNull HistoryEntry entry, boolean inNewTab) {
         loadPage(title, entry, inNewTab ? TabPosition.NEW_TAB_BACKGROUND : TabPosition.CURRENT_TAB);
     }
 
     @Override
     public void onLinkPreviewCopyLink(@NonNull PageTitle title) {
-        copyLink(title.getCanonicalUri());
+        copyLink(title.getUri());
         showCopySuccessMessage();
     }
 
@@ -650,24 +670,20 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         public void historyClick() {
             goToMainTab(NavTab.HISTORY);
         }
-
-        @Override
-        public void nearbyClick() {
-            goToMainTab(NavTab.NEARBY);
-        }
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         app.resetWikiSite();
+        Prefs.storeTemporaryWikitext(null);
     }
 
     @Override
     public void onPause() {
         if (isCabOpen()) {
             // Explicitly close any current ActionMode (see T147191)
-            finishActionMode();
+            onPageCloseActionMode();
         }
         super.onPause();
     }
@@ -680,7 +696,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, final Intent data) {
-        if (settingsActivityRequested(requestCode)) {
+        if (requestCode == ACTIVITY_REQUEST_SETTINGS) {
             handleSettingsActivityResult(resultCode);
         } else if (newArticleLanguageSelected(requestCode, resultCode) || galleryPageSelected(requestCode, resultCode)) {
             toolbarContainerView.post(() -> handleIntent(data));
@@ -702,7 +718,8 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
                 && resultCode == RESULT_OK) {
             pageFragment.refreshPage();
             String editLanguage = StringUtils.defaultString(pageFragment.getLeadImageEditLang(), app.language().getAppLanguageCode());
-            FeedbackUtil.makeSnackbar(this, TextUtils.isEmpty(pageFragment.getLeadImageEditLang()) ? getString(R.string.description_edit_success_saved_image_caption_snackbar)
+            FeedbackUtil.makeSnackbar(this, data.getSerializableExtra(INTENT_EXTRA_ACTION) == ADD_CAPTION
+                    ? getString(R.string.description_edit_success_saved_image_caption_snackbar)
                     : getString(R.string.description_edit_success_saved_image_caption_in_lang_snackbar, app.language().getAppLanguageLocalizedName(editLanguage)), FeedbackUtil.LENGTH_DEFAULT)
                     .setAction(R.string.suggested_edits_article_cta_snackbar_action, v -> pageFragment.openImageInGallery(editLanguage)).show();
         } else {
@@ -716,6 +733,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             unbinder.unbind();
         }
         disposables.clear();
+        Prefs.setHasVisitedArticlePage(true);
         super.onDestroy();
     }
 
@@ -723,13 +741,30 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     public void onActionModeStarted(ActionMode mode) {
         super.onActionModeStarted(mode);
         if (!isCabOpen() && mode.getTag() == null) {
-            Menu menu = mode.getMenu();
-            menu.clear();
-            mode.getMenuInflater().inflate(R.menu.menu_text_select, menu);
+            modifyMenu(mode);
             ViewUtil.setCloseButtonInActionMode(pageFragment.requireContext(), mode);
             pageFragment.onActionModeShown(mode);
         }
         currentActionModes.add(mode);
+    }
+
+    private void modifyMenu(ActionMode mode) {
+        Menu menu = mode.getMenu();
+        ArrayList<MenuItem> menuItemsList = new ArrayList<>();
+
+        for (int i = 0; i < menu.size(); i++) {
+            String title = menu.getItem(i).getTitle().toString();
+            if (!title.contains(getString(R.string.search_hint))
+                    && !(title.contains(getString(R.string.menu_text_select_define)) && pageFragment.getShareHandler().shouldEnableWiktionaryDialog())) {
+                menuItemsList.add(menu.getItem(i));
+            }
+        }
+
+        menu.clear();
+        mode.getMenuInflater().inflate(R.menu.menu_text_select, menu);
+        for (MenuItem menuItem : menuItemsList) {
+            menu.add(menuItem.getGroupId(), menuItem.getItemId(), Menu.NONE, menuItem.getTitle()).setIntent(menuItem.getIntent()).setIcon(menuItem.getIcon());
+        }
     }
 
     @Override
@@ -745,13 +780,17 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     }
 
     private void handleSettingsActivityResult(int resultCode) {
-        if (languageChanged(resultCode)) {
+        if (resultCode == ACTIVITY_RESULT_LANGUAGE_CHANGED) {
             loadNewLanguageMainPage();
         }
     }
 
-    private boolean settingsActivityRequested(int requestCode) {
-        return requestCode == ACTIVITY_REQUEST_SETTINGS;
+    private void loadNewLanguageMainPage() {
+        Handler uiThread = new Handler(Looper.getMainLooper());
+        uiThread.postDelayed(() -> {
+            loadMainPage(TabPosition.EXISTING_TAB);
+            WidgetProviderFeaturedPage.forceUpdateWidget(getApplicationContext());
+        }, DateUtils.SECOND_IN_MILLIS);
     }
 
     private boolean newArticleLanguageSelected(int requestCode, int resultCode) {
@@ -766,35 +805,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         return requestCode == Constants.ACTIVITY_REQUEST_GALLERY && resultCode == GalleryActivity.ACTIVITY_RESULT_IMAGE_CAPTION_ADDED;
     }
 
-    private boolean languageChanged(int resultCode) {
-        return resultCode == SettingsActivity.ACTIVITY_RESULT_LANGUAGE_CHANGED;
-    }
-
-    /**
-     * Reload the main page in the new language, after delaying for one second in order to:
-     * (1) Make sure that onStart in MainActivity gets called, thus registering the activity for the bus.
-     * (2) Ensure a smooth transition, which is very jarring without a delay.
-     */
-    private void loadNewLanguageMainPage() {
-        Handler uiThread = new Handler(Looper.getMainLooper());
-        uiThread.postDelayed(() -> {
-            loadMainPage(TabPosition.EXISTING_TAB);
-            updateFeaturedPageWidget();
-        }, DateUtils.SECOND_IN_MILLIS);
-    }
-
-    /**
-     * Update any instances of our Featured Page widget, since it will change with the currently selected language.
-     */
-    private void updateFeaturedPageWidget() {
-        Intent widgetIntent = new Intent(this, WidgetProviderFeaturedPage.class);
-        widgetIntent.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
-        int[] ids = AppWidgetManager.getInstance(getApplication()).getAppWidgetIds(
-                new ComponentName(this, WidgetProviderFeaturedPage.class));
-        widgetIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, ids);
-        sendBroadcast(widgetIntent);
-    }
-
     private void showDescriptionEditRevertDialog(@NonNull String qNumber) {
         new AlertDialog.Builder(this)
                 .setTitle(R.string.notification_reverted_title)
@@ -804,8 +814,8 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
                 .show();
     }
 
-    private void openSearchActivity(@NonNull InvokeSource source, @Nullable String query) {
-        Intent intent = SearchActivity.newIntent(this, source, query);
+    private void openSearchActivity() {
+        Intent intent = SearchActivity.newIntent(this, TOOLBAR, null);
         startActivity(intent);
     }
 

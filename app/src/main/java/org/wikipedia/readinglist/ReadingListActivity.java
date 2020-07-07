@@ -9,8 +9,10 @@ import android.view.WindowManager;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import org.wikipedia.R;
 import org.wikipedia.activity.SingleFragmentActivity;
 import org.wikipedia.readinglist.database.ReadingList;
+import org.wikipedia.util.ResourceUtil;
 
 public class ReadingListActivity extends SingleFragmentActivity<ReadingListFragment> {
     protected static final String EXTRA_READING_LIST_ID = "readingListId";
@@ -30,5 +32,9 @@ public class ReadingListActivity extends SingleFragmentActivity<ReadingListFragm
     @Override
     public ReadingListFragment createFragment() {
         return ReadingListFragment.newInstance(getIntent().getLongExtra(EXTRA_READING_LIST_ID, 0));
+    }
+
+    public void updateNavigationBarColor() {
+        setNavigationBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color));
     }
 }

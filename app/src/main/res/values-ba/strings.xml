@@ -38,16 +38,11 @@
   <string name="menu_long_press_open_page">Асырға</string>
   <string name="menu_long_press_open_in_new_tab">Битте яңы ҡушылмала асырға</string>
   <string name="menu_long_press_copy_page">Һылтанма адресын күсереп алырға</string>
-  <string name="menu_text_select_copy">Күсермәһен алырға</string>
   <string name="menu_text_select_define">Билдәләү</string>
-  <string name="menu_text_select_share">Уртаҡлашырға</string>
   <string name="menu_text_select_edit_here">Бында төҙәтергә</string>
-  <string name="nav_item_nearby">Эргәлә</string>
-  <string name="nearby_zoom_to_location">Картала урынды күрһәтергә</string>
   <string name="last_updated_text">Һуңғы яңыртыу %s</string>
   <string name="talk_page_link_text" fuzzy="true">Әңгәмә</string>
-  <string name="content_license_html">Эстәлек &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; лицензияһына ярашлы ҡулланыла</string>
-  <string name="edit_save_action_license_logged_in" fuzzy="true">Үҙгәртеүҙәрҙе һаҡлап, һеҙ &lt;a href=\"%1$s\" &gt;&lt;/a&gt;, шулай уҡ ошо лицензия буйынса, кире алынмай торған баҫтырыуға ризалыҡ бирәһегеҙ&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+    <string name="edit_save_action_license_logged_in" fuzzy="true">Үҙгәртеүҙәрҙе һаҡлап, һеҙ &lt;a href=\"%1$s\" &gt;&lt;/a&gt;, шулай уҡ ошо лицензия буйынса, кире алынмай торған баҫтырыуға ризалыҡ бирәһегеҙ&lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon" fuzzy="true">Үҙгәрештәрҙе һаҡлап, һеҙ &lt;a href=\"%1$s\"&gt; &lt;/a&gt; менән килешәһегеҙ, шулай уҡ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; лицензияһы буйынса баҫманы кире таптырып алмаҫҡа ризалашаһығыҙ. Төҙәтмәләр һеҙҙең ҡоролманың IP-адресына бәйләнәсәк. Әгәр ҙә &lt;a href=\"https://#login\"&gt;танылһағыҙ&lt;/a&gt;, сер һаҡлауҙың юғары кимәле менән ҡуллана алаһығыҙ.</string>
   <string name="preference_title_language" fuzzy="true">Википедия теле</string>
   <string name="langlinks_filter_hint">Эҙләү</string>
@@ -98,7 +93,7 @@
   <string name="preference_title_eventlogging_opt_in">Файҙаланыу тураһында отчет ебәреү</string>
   <string name="preference_summary_eventlogging_opt_in">Викимедиаға һеҙҙең ҡушымтаны нисек файҙаланыуығыҙ тураһында мәғлүмәт бирергә рөхсәт итеү. Был уны тағы ла яҡшыраҡ итергә мөмкинселек бирәсәк</string>
   <string name="preference_title_auto_upload_crash_reports">Өҙөклөк тураһында отчет ебәрергә</string>
-  <string name="preference_summary_auto_upload_crash_reports">Беҙгә авария тураһындағы мәғлүмәтте ҡарап сығыу өсөн, HockeyApp/ сит сервис-провайдерҙа хаталар тураһындағы отчеттарҙы автоматик ебәреүҙе рөхсәт итергәме? Был хаталарҙы тиҙ һәм еңел төҙәтергә ярҙам итә.</string>
+  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Беҙгә авария тураһындағы мәғлүмәтте ҡарап сығыу өсөн, HockeyApp/ сит сервис-провайдерҙа хаталар тураһындағы отчеттарҙы автоматик ебәреүҙе рөхсәт итергәме? Был хаталарҙы тиҙ һәм еңел төҙәтергә ярҙам итә.</string>
   <string name="editing_error_spamblacklist">Бикләнгән домендарға (%s) һылтанмалар барлығы асыҡланды. Уларҙы юҡ итегеҙ һәм яңынан эшләп ҡарағыҙ.</string>
   <string name="history_search_list_hint">Эҙләү тарихы</string>
   <string name="error_can_not_process_link">Был һылтанманы күрһәтеп булманы</string>
@@ -169,18 +164,13 @@
   <string name="gallery_error_video_failed">Видеоны күрһәтеп булмай</string>
   <string name="gallery_save_image_write_permission_rationale" fuzzy="true">Һүрәтте һаҡлау өсөн һеҙҙең ҡорамалдың һаҡлағысына яҙҙырырға рөхсәт талап ителә. Тағы бер тапҡыр ҡабатлап ҡарағыҙ һәм һоралған рөхсәт бирегеҙ</string>
   <string name="err_cannot_save_file">\nФайлды һаҡлап булмай</string>
-  <string name="snippet_share_intro">«%1$s» @Wikipedia сайтында: %2$s</string>
   <string name="expand_refs">Асыр өсөн баҫығыҙ</string>
-  <string name="share_snippet_button">Һүрәтләмәһе менән  уртаҡлашығыҙ</string>
-  <string name="share_normal_button">Текст кеүек уртаҡлашығыҙ</string>
-  <string name="snippet_share_preview_image_desc">Һүрәтте алдан ҡарау</string>
   <string name="cc_logo">Creative Commons лицензияһы</string>
   <string name="captcha_image">Капча-һүрәте</string>
   <string name="gallery_fair_use_license">Намыҫлы файҙаланыу</string>
   <string name="gallery_uploader_unknown">Күсерелгән файл билдәһеҙ</string>
   <string name="menu_new_tab">Яңы ҡушымта</string>
   <string name="button_close_tab">Ҡушымтаны ябыу</string>
-  <string name="tool_tip_share">Ҡыҙыҡлы фактты билдәләгәндән һуң, уның менән яратҡан социаль селтәрҙәрегеҙҙә уртаҡлашығыҙ</string>
   <string name="page_view_in_browser">Браузерҙа битте ҡарау</string>
   <string name="error_response_malformed">Серверҙың яуабы корректһыҙ форматланған</string>
   <string name="error_unknown">Билдәһеҙ хата барлыҡҡа килде.</string>
@@ -194,11 +184,6 @@
   <string name="preference_summary_show_link_previews">Һылтанмаға баҫып, мәҡәләне алдан тиҙ ҡарауҙы күрһәтергә</string>
   <string name="nav_item_donate">Википедияға ярҙам итергә</string>
   <string name="error_voice_search_not_available">Ҡыҙғанысҡа ҡаршы, телмәрҙе таныу мөмкин түгел.</string>
-  <string name="crash_report_dialog_title">Үкенескә ҡаршы, үткән юлы ҡушымта \"төшкән\"</string>
-  <string name="crash_report_dialog_text">Викимедия авария тураһында мәғлүмәт бирһен һәм уны булдырған хатаны төҙәтһен өсөн Һеҙ HockeyApp ят сервис-провайдерға хата тураһында отчет ебәрергә теләйһегеҙ?</string>
-  <string name="crash_report_dialog_dont_send_button">Үткәреп ебәрергә</string>
-  <string name="crash_report_dialog_always_send_button">Һәр саҡ ебәрергә</string>
-  <string name="crash_report_dialog_send_button">Ебәрергә</string>
   <string name="crash_report_activity_title">Ҡушымта хатаһы</string>
   <string name="crash_report_relaunch_or_quit">Һеҙ яңынан башларға йәки сығырға теләйһегеҙме?</string>
   <string name="crash_report_relaunch">Яңынан ебәреү</string>
@@ -213,8 +198,6 @@
   <string name="nav_item_reading_lists" fuzzy="true">Уҡыу өсөн исемлектәр</string>
   <string name="reading_list_save_to">Уҡыу исемлегенә һаҡларға</string>
   <string name="reading_list_create_new">Яңыны төҙөргә</string>
-  <string name="reading_list_added_to_named">%s өҫтәлде.</string>
-  <string name="reading_list_already_exists">Был исемлектә мәҡәлә бар инде.</string>
   <string name="reading_list_added_view_button">Исемлекте ҡарау</string>
   <string name="reading_list_sort">Сортҡа айырыу</string>
   <string name="reading_list_sort_by_name">Исем буйынса айырыу</string>

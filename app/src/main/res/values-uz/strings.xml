@@ -14,7 +14,6 @@
   <string name="menu_page_find_in_page">Sahifadan topish</string>
   <string name="menu_page_font_and_theme">Shrift va mavzu</string>
   <string name="menu_page_share" fuzzy="true">Bo\'lishish</string>
-  <string name="nav_item_nearby">Yaqin atrofda</string>
   <string name="last_updated_text">%sda oxirgi bor yangilangan</string>
   <string name="preference_title_language">Vikipedia tili</string>
     <string name="langlinks_filter_hint">Izlash</string>

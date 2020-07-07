@@ -13,9 +13,9 @@
         android:background="?attr/chart_shade5" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/options_list"
+        android:id="@+id/languagesList"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="100dp"
         android:layout_marginStart="@dimen/activity_horizontal_margin"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="@dimen/activity_horizontal_margin"
@@ -28,10 +28,12 @@
         android:background="?attr/chart_shade5" />
 
     <LinearLayout
-        android:id="@+id/add_lang_container"
+        android:id="@+id/addLangContainer"
         android:layout_width="match_parent"
         android:layout_height="36dp"
         android:layout_marginStart="8dp"
+        android:clickable="true"
+        android:focusable="true"
         android:background="?attr/selectableItemBackground"
         android:gravity="center_vertical">
 

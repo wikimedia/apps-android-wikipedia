@@ -26,9 +26,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import io.reactivex.Observable;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.schedulers.Schedulers;
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.core.Observable;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
 
@@ -41,13 +41,13 @@ public final class ShareUtil {
      * Share some text and subject (title) as plain text using an activity chooser,
      * so that the user can choose the app with which to share the content.
      */
-    public static void shareText(final Context context, final String subject, final String text) {
+    private static void shareText(final Context context, final String subject, final String text) {
         Intent shareIntent = new Intent(Intent.ACTION_SEND);
         shareIntent.putExtra(Intent.EXTRA_SUBJECT, subject);
         shareIntent.putExtra(Intent.EXTRA_TEXT, text);
         shareIntent.setType("text/plain");
-        Intent chooserIntent = createChooserIntent(shareIntent,
-                context.getString(R.string.share_via), context);
+
+        Intent chooserIntent = Intent.createChooser(shareIntent, context.getString(R.string.share_via));
         if (chooserIntent == null) {
             showUnresolvableIntentMessage(context);
         } else {
@@ -56,7 +56,7 @@ public final class ShareUtil {
     }
 
     public static void shareText(final Context context, final PageTitle title) {
-        shareText(context, title.getDisplayText(), UriUtil.getUrlWithProvenance(context, title, R.string.prov_share_link));
+        shareText(context, StringUtil.fromHtml(title.getDisplayText()).toString(), UriUtil.getUrlWithProvenance(context, title, R.string.prov_share_link));
     }
 
     /**
@@ -95,7 +95,10 @@ public final class ShareUtil {
     }
 
 
-    private static Uri getUriFromFile(@NonNull Context context, @NonNull File file) {
+    private static Uri getUriFromFile(@NonNull Context context, @Nullable File file) {
+        if (file == null) {
+            return null;
+        }
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
                 ? FileProvider.getUriForFile(context, FILE_PROVIDER_AUTHORITY, file)
                 : Uri.parse(FILE_PREFIX + file.getAbsolutePath());
@@ -121,16 +124,13 @@ public final class ShareUtil {
     }
 
     private static void displayOnCatchMessage(Throwable caught, Context context) {
-        Toast.makeText(context,
-                String.format(context.getString(R.string.gallery_share_error),
-                        caught.getLocalizedMessage()), Toast.LENGTH_SHORT).show();
+        Toast.makeText(context, context.getString(R.string.gallery_share_error,
+                caught.getLocalizedMessage()), Toast.LENGTH_SHORT).show();
     }
 
     private static void displayShareErrorMessage(Context context) {
-        Toast.makeText(context,
-                String.format(context.getString(R.string.gallery_share_error),
-                        context.getString(R.string.err_cannot_save_file)),
-                Toast.LENGTH_SHORT).show();
+        Toast.makeText(context, context.getString(R.string.gallery_share_error,
+                context.getString(R.string.err_cannot_save_file)), Toast.LENGTH_SHORT).show();
     }
 
     public static void showUnresolvableIntentMessage(Context context) {
@@ -167,33 +167,30 @@ public final class ShareUtil {
         return fileName;
     }
 
-    @Nullable
-    public static Intent createChooserIntent(@NonNull Intent targetIntent,
-                                             @Nullable CharSequence chooserTitle,
-                                             @NonNull Context context) {
-        List<Intent> intents = queryIntents(context, targetIntent, APP_PACKAGE_REGEX);
-
+    @NonNull
+    static Intent createChooserIntent(@NonNull Intent targetIntent, @NonNull Context context) {
+        Intent chooser = Intent.createChooser(targetIntent, null);
+        List<Intent> intents = queryIntents(context, targetIntent, false);
         if (intents.isEmpty()) {
-            return null;
+            // This implies that the Wikipedia app itself has been chosen as the default handler
+            // for our links, so we need to explicitly build a chooser that contains other activities.
+            intents = queryIntents(context, targetIntent, true);
+            if (!intents.isEmpty()) {
+                chooser.putExtra(Intent.EXTRA_INITIAL_INTENTS, intents.toArray(new Parcelable[intents.size()]));
+            }
         }
-
-        Intent bestIntent = Intent.createChooser(intents.remove(0), chooserTitle);
-        bestIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, intents.toArray(new Parcelable[intents.size()]));
-        return bestIntent;
+        return chooser;
     }
 
-    private static List<Intent> queryIntents(@NonNull Context context,
-                                            @NonNull Intent targetIntent,
-                                            String packageNameBlacklistRegex) {
+    private static List<Intent> queryIntents(@NonNull Context context, @NonNull Intent targetIntent, boolean replaceUri) {
         List<Intent> intents = new ArrayList<>();
-        Intent queryIntent = new Intent(targetIntent);
-        if (targetIntent.getAction().equals(Intent.ACTION_VIEW)) {
-            // To avoid using the Wikipedia app externally opens the wikipedia.org links,
-            // we can put a non-wikipedia link for intent choose to fetch browser apps list, and use the list for our "true" external links
+        Intent queryIntent = targetIntent;
+        if (replaceUri) {
+            queryIntent = new Intent(targetIntent);
             queryIntent.setData(Uri.parse("https://example.com/"));
         }
         for (ResolveInfo intentActivity : context.getPackageManager().queryIntentActivities(queryIntent, 0)) {
-            if (!isIntentActivityBlacklisted(intentActivity, packageNameBlacklistRegex)) {
+            if (!isIntentActivityBlacklisted(intentActivity, APP_PACKAGE_REGEX)) {
                 intents.add(buildLabeledIntent(targetIntent, intentActivity));
             }
         }

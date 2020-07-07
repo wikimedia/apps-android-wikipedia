@@ -10,9 +10,7 @@ import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
 import org.wikipedia.util.StringUtil
 import org.wikipedia.views.ViewUtil
 
-
-class DescriptionEditBottomBarView @JvmOverloads constructor(
-        context: Context, attrs: AttributeSet? = null, defStyle: Int = 0) : ConstraintLayout(context, attrs, defStyle) {
+class DescriptionEditBottomBarView constructor(context: Context, attrs: AttributeSet? = null) : ConstraintLayout(context, attrs) {
 
     init {
         inflate(context, R.layout.view_description_edit_read_article_bar, this)
@@ -34,7 +32,7 @@ class DescriptionEditBottomBarView @JvmOverloads constructor(
             viewImageThumbnail.visibility = GONE
         } else {
             viewImageThumbnail.visibility = VISIBLE
-            ViewUtil.loadImageUrlInto(viewImageThumbnail, summary.thumbnailUrl)
+            ViewUtil.loadImage(viewImageThumbnail, summary.thumbnailUrl)
         }
         show()
     }

@@ -3,44 +3,36 @@ package org.wikipedia.random;
 import com.google.gson.stream.MalformedJsonException;
 
 import org.junit.Test;
-import org.wikipedia.dataclient.restbase.page.RbPageSummary;
+import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.test.MockRetrofitTest;
 
-import io.reactivex.Observable;
-import io.reactivex.observers.TestObserver;
+import io.reactivex.rxjava3.core.Observable;
 
 public class RandomSummaryClientTest extends MockRetrofitTest {
 
     @Test
     public void testRequestEligible() throws Throwable {
         enqueueFromFile("rb_page_summary_valid.json");
-
-        TestObserver<RbPageSummary> observer = new TestObserver<>();
-        getObservable().subscribe(observer);
-
-        observer.assertComplete().assertNoErrors()
+        getObservable().test().await()
+                .assertComplete().assertNoErrors()
                 .assertValue(summary -> summary != null
                         && summary.getDisplayTitle().equals("Fermat's Last Theorem")
                         && summary.getDescription().equals("theorem in number theory"));
     }
 
-    @Test public void testRequestMalformed() {
+    @Test public void testRequestMalformed() throws Throwable {
         enqueueMalformed();
-
-        TestObserver<RbPageSummary> observer = new TestObserver<>();
-        getObservable().subscribe(observer);
-        observer.assertError(MalformedJsonException.class);
+        getObservable().test().await()
+                .assertError(MalformedJsonException.class);
     }
 
-    @Test public void testRequestFailure() {
+    @Test public void testRequestFailure() throws Throwable {
         enqueue404();
-
-        TestObserver<RbPageSummary> observer = new TestObserver<>();
-        getObservable().subscribe(observer);
-        observer.assertError(Exception.class);
+        getObservable().test().await()
+                .assertError(Exception.class);
     }
 
-    private Observable<RbPageSummary> getObservable() {
+    private Observable<PageSummary> getObservable() {
         return getRestService().getRandomSummary();
     }
 }

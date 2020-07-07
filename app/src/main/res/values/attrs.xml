@@ -1,13 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <attr name="main_toolbar_color" format="reference"/>
-    <attr name="main_status_bar_color" format="reference"/>
-    <attr name="main_toolbar_title_color" format="reference"/>
-    <attr name="main_toolbar_icon_color" format="reference"/>
-    <attr name="page_status_bar_color" format="reference"/>
-    <attr name="page_expanded_status_bar_color" format="reference"/>
-    <attr name="page_toolbar_color" format="reference"/>
-    <attr name="page_toolbar_icon_color" format="reference"/>
+    <attr name="toolbar_icon_color" format="reference"/>
     <attr name="themed_icon_color" format="reference"/>
     <attr name="edit_improve_tag_selected_drawable" format="reference" />
     <attr name="edit_improve_tag_unselected_drawable" format="reference" />
@@ -19,6 +12,14 @@
     <attr name="button_highlight_border_shape" format="reference" />
     <attr name="randomizer_dice_icon_color" format="reference" />
     <attr name="page_tab_counts_shape_border" format="reference" />
+    <attr name="image_tags_onboarding_image" format="reference"/>
+    <attr name="reward_interstitial_calendar_drawable" format="reference"/>
+    <attr name="reward_interstitial_heart_drawable" format="reference"/>
+    <attr name="reward_interstitial_view_drawable" format="reference"/>
+    <attr name="reward_interstitial_quality_perfect_drawable" format="reference"/>
+    <attr name="reward_interstitial_quality_excellent_drawable" format="reference"/>
+    <attr name="reward_interstitial_quality_very_good_drawable" format="reference"/>
+    <attr name="reward_interstitial_quality_good_drawable" format="reference"/>
 
     <attr name="multi_select_background_color" format="reference" />
     <attr name="searchItemBackground" format="reference" />
@@ -45,7 +46,18 @@
     <attr name="chip_background_color" format="color"/>
     <attr name="chip_text_color" format="color"/>
     <attr name="suggestions_background_color" format="color"/>
+    <attr name="color_group_22" format="reference"/>
     <attr name="color_group_52" format="color"/>
+    <attr name="color_group_53" format="color"/>
+    <attr name="color_group_54" format="color"/>
+    <attr name="color_group_55" format="color"/>
+    <attr name="color_group_56" format="color"/>
+    <attr name="color_group_57" format="color"/>
+    <attr name="color_group_58" format="color"/>
+    <attr name="color_group_59" format="color"/>
+    <attr name="color_group_60" format="color"/>
+    <attr name="color_group_61" format="color"/>
+    <attr name="action_mode_green_background" format="color"/>
 
     <declare-styleable name="AutoFitRecyclerView">
         <attr name="minColumnWidth" format="dimension" />

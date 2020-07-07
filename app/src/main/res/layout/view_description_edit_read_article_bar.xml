@@ -25,7 +25,7 @@
         android:padding="@dimen/bottom_toolbar_item_padding"
         android:layout_marginTop="4dp"
         android:layout_marginBottom="4dp"
-        android:tint="?attr/main_toolbar_icon_color"
+        android:tint="?attr/toolbar_icon_color"
         app:layout_constraintTop_toBottomOf="@+id/viewDivider"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -49,9 +49,9 @@
         app:layout_constraintTop_toBottomOf="@+id/viewDivider"
         app:layout_constraintHorizontal_weight="1" />
 
-    <com.facebook.drawee.view.SimpleDraweeView
+    <ImageView
         android:id="@+id/viewImageThumbnail"
-        style="@style/SimpleDraweeViewPlaceholder"
+        style="@style/ImageViewDefault"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_gravity="center"
@@ -61,6 +61,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/viewArticleTitle"
         app:layout_constraintTop_toBottomOf="@+id/viewDivider"
-        app:layout_constraintVertical_weight="1" />
+        app:layout_constraintVertical_weight="1"
+        android:contentDescription="@null"/>
 
 </merge>

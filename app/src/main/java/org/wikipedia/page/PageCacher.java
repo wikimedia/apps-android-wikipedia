@@ -5,49 +5,31 @@ import android.annotation.SuppressLint;
 import androidx.annotation.NonNull;
 
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.dataclient.page.PageClient;
-import org.wikipedia.dataclient.page.PageClientFactory;
-import org.wikipedia.dataclient.page.PageLead;
-import org.wikipedia.dataclient.page.PageRemaining;
+import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.util.log.L;
 
-import io.reactivex.Observable;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.schedulers.Schedulers;
-import retrofit2.Response;
-
-import static org.wikipedia.util.DimenUtil.calculateLeadImageWidth;
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 
 final class PageCacher {
 
     @SuppressLint("CheckResult")
     static void loadIntoCache(@NonNull PageTitle title) {
         L.d("Loading page into cache: " + title.getPrefixedText());
-        PageClient client = PageClientFactory.create(title.getWikiSite(), title.namespace());
-        Observable.zip(leadReq(client, title), remainingReq(client, title), (leadRsp, sectionsRsp) -> leadRsp)
+
+        ServiceFactory.getRest(title.getWikiSite())
+                .getSummaryResponse(title.getPrefixedText(), null, null, null, null, null)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(leadRsp -> {
+                .subscribe(summaryRsp -> {
                     for (int i = WikipediaApp.getInstance().getTabCount() - 1; i >= 0; i--) {
                         PageTitle pageTitle = WikipediaApp.getInstance().getTabList().get(i).getBackStackPositionTitle();
                         if (pageTitle.equals(title)) {
-                            pageTitle.setThumbUrl(leadRsp.body().getThumbUrl());
+                            pageTitle.setThumbUrl(summaryRsp.body().getThumbnailUrl());
                             break;
                         }
                     }
                 }, L::e);
-    }
-
-    @NonNull
-    private static Observable<Response<PageLead>> leadReq(@NonNull PageClient client, @NonNull PageTitle title) {
-        return client.lead(title.getWikiSite(), null, null, null, title.getPrefixedText(),
-                calculateLeadImageWidth());
-    }
-
-    @NonNull
-    private static Observable<Response<PageRemaining>> remainingReq(@NonNull PageClient client,
-                                                    @NonNull PageTitle title) {
-        return client.sections(title.getWikiSite(), null, null, title.getPrefixedText());
     }
 
     private PageCacher() { }

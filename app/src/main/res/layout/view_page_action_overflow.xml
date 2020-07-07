@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<org.wikipedia.views.WikiCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/page_action_overflow_card_container"
     android:layout_width="wrap_content"
@@ -37,7 +37,7 @@
                 android:paddingStart="12dp"
                 android:paddingEnd="12dp"
                 app:srcCompat="@drawable/ic_arrow_forward_black_24dp"
-                app:tint="?attr/page_toolbar_icon_color" />
+                app:tint="?attr/toolbar_icon_color" />
 
         </LinearLayout>
 
@@ -64,13 +64,8 @@
                 style="@style/OverflowMenuItem"
                 android:text="@string/nav_item_history" />
 
-            <TextView
-                android:id="@+id/page_action_overflow_nearby"
-                style="@style/OverflowMenuItem"
-                android:text="@string/nav_item_nearby" />
-
         </LinearLayout>
 
     </LinearLayout>
 
-</androidx.cardview.widget.CardView>
+</org.wikipedia.views.WikiCardView>

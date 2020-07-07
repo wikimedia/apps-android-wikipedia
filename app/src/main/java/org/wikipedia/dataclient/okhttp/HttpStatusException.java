@@ -1,5 +1,7 @@
 package org.wikipedia.dataclient.okhttp;
 
+import android.text.TextUtils;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
@@ -14,6 +16,7 @@ import okhttp3.Response;
 public class HttpStatusException extends IOException {
     private final int code;
     private final String url;
+    @Nullable private String message;
     @Nullable private ServiceError serviceError;
 
     public HttpStatusException(@NonNull Response rsp) {
@@ -29,10 +32,10 @@ public class HttpStatusException extends IOException {
         }
     }
 
-    public HttpStatusException(@Nullable ServiceError error) {
-        serviceError = error;
-        code = 0;
-        url = "";
+    public HttpStatusException(int code, @NonNull String url, @Nullable String message) {
+        this.code = code;
+        this.url = url;
+        this.message = message;
     }
 
     public int code() {
@@ -45,10 +48,14 @@ public class HttpStatusException extends IOException {
 
     @Override
     public String getMessage() {
-        String str = "Code: " + Integer.toString(code) + ", URL: " + url;
-        if (serviceError != null) {
-            str += ", title: " + serviceError.getTitle() + ", detail: " + serviceError.getDetails();
+        if (!TextUtils.isEmpty(message)) {
+            return message;
+        } else {
+            String str = "Code: " + code + ", URL: " + url;
+            if (serviceError != null) {
+                str += ", title: " + serviceError.getTitle() + ", detail: " + serviceError.getDetails();
+            }
+            return str;
         }
-        return str;
     }
 }

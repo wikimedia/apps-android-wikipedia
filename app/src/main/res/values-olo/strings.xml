@@ -22,16 +22,11 @@
   <string name="menu_long_press_open_page">Avua</string>
   <string name="menu_long_press_open_in_new_tab">Avua uvves välilehtes</string>
   <string name="menu_long_press_copy_page">Kopiiruiče linkin adressi</string>
-  <string name="menu_text_select_copy">Kopiiruiče</string>
   <string name="menu_text_select_define">Merkičys</string>
-  <string name="menu_text_select_share">Jua</string>
   <string name="menu_text_select_edit_here">Kohendele täs</string>
-  <string name="nav_item_nearby">Vieres</string>
-  <string name="nearby_zoom_to_location">Suurenda da ozuta tarkembi sijaičendu</string>
   <string name="last_updated_text">Jälgimäine päivitys %s</string>
   <string name="talk_page_link_text">Pagin</string>
-  <string name="content_license_html">Sizäldö on lugiettavannu &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; -luvan ual gu toizin ei olle ilmoitettu</string>
-  <string name="edit_save_action_license_logged_in">Tallendajen hyväksyt &lt;a href=\"%1$s\"&gt;käyttöehtot&lt;/a&gt; da peruuttamattomasti piästät kohendukset ilmah &lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt; -lizenzien ehtoloin mugah.</string>
+    <string name="edit_save_action_license_logged_in">Tallendajen hyväksyt &lt;a href=\"%1$s\"&gt;käyttöehtot&lt;/a&gt; da peruuttamattomasti piästät kohendukset ilmah &lt;a href=\"%2$s\"&gt;CC-BY-SA 3.0&lt;/a&gt; -lizenzien ehtoloin mugah.</string>
   <string name="preference_title_language">Wikipedien kieli</string>
     <string name="langlinks_filter_hint">Eči</string>
   <string name="langlinks_empty">Tädä sivuu ei ole toizil kielil</string>

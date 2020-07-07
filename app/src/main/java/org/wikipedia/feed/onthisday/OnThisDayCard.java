@@ -6,7 +6,7 @@ import androidx.annotation.Nullable;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.dataclient.restbase.page.RbPageSummary;
+import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.feed.model.CardType;
 import org.wikipedia.feed.model.WikiSiteCard;
 import org.wikipedia.feed.view.FeedAdapter;
@@ -76,7 +76,7 @@ public class OnThisDayCard extends WikiSiteCard {
         return nextYear;
     }
 
-    @Nullable public List<RbPageSummary> pages() {
+    @Nullable public List<PageSummary> pages() {
         return eventShownOnCard.pages();
     }
 

@@ -3,11 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:clipChildren="false"
+    android:clipToPadding="false">
 
     <org.wikipedia.views.FaceAndColorDetectImageView
         android:id="@+id/view_announcement_header_image"
-        style="@style/SimpleDraweeViewPlaceholder"
+        style="@style/ImageViewDefault"
         android:layout_width="match_parent"
         android:layout_height="160dp"
         android:contentDescription="@null" />
@@ -31,7 +33,9 @@
         android:layout_gravity="end"
         android:layout_marginBottom="12dp"
         android:paddingStart="16dp"
-        android:paddingEnd="16dp">
+        android:paddingEnd="16dp"
+        android:clipToPadding="false"
+        android:clipChildren="false">
 
         <Button
             android:id="@+id/view_announcement_action_negative"
@@ -53,7 +57,9 @@
         android:id="@+id/view_announcement_footer_border"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="?attr/material_theme_border_color" />
+        android:background="?attr/chip_background_color"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp" />
 
     <TextView
         android:id="@+id/view_announcement_footer_text"

@@ -31,7 +31,6 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 
-import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -62,7 +61,6 @@ import org.wikipedia.views.MultiSelectActionModeCallback;
 import org.wikipedia.views.PageItemView;
 import org.wikipedia.views.SearchEmptyView;
 import org.wikipedia.views.SwipeableItemTouchHelperCallback;
-import org.wikipedia.views.ViewUtil;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -71,12 +69,12 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
-import io.reactivex.Completable;
-import io.reactivex.Observable;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.functions.Consumer;
-import io.reactivex.schedulers.Schedulers;
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.core.Completable;
+import io.reactivex.rxjava3.core.Observable;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.functions.Consumer;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
@@ -143,9 +141,9 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
 
         DeviceUtil.updateStatusBarTheme(requireActivity(), toolbar, true);
         appBarLayout.addOnOffsetChangedListener(appBarListener);
-        toolBarLayout.setCollapsedTitleTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.main_toolbar_icon_color));
+        toolBarLayout.setCollapsedTitleTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.toolbar_icon_color));
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            toolBarLayout.setStatusBarScrimColor(ResourceUtil.getThemedColor(requireContext(), R.attr.main_status_bar_color));
+            toolBarLayout.setStatusBarScrimColor(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color));
         }
 
         touchCallback = new SwipeableItemTouchHelperCallback(requireContext());
@@ -155,7 +153,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
         ((SimpleItemAnimator) recyclerView.getItemAnimator()).setSupportsChangeAnimations(false);
-        recyclerView.addItemDecoration(new DrawableItemDecoration(requireContext(), R.attr.list_separator_drawable, false));
+        recyclerView.addItemDecoration(new DrawableItemDecoration(requireContext(), R.attr.list_separator_drawable, true, false));
 
         headerView = new ReadingListItemView(getContext());
         headerView.setCallback(headerCallback);
@@ -218,9 +216,9 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         MenuItem searchItem = menu.findItem(R.id.menu_search_lists);
         MenuItem sortOptionsItem = menu.findItem(R.id.menu_sort_options);
         searchItem.getIcon().setColorFilter(toolbarExpanded ? getResources().getColor(android.R.color.white)
-                : ResourceUtil.getThemedColor(requireContext(), R.attr.main_toolbar_icon_color), PorterDuff.Mode.SRC_IN);
+                : ResourceUtil.getThemedColor(requireContext(), R.attr.toolbar_icon_color), PorterDuff.Mode.SRC_IN);
         sortOptionsItem.getIcon().setColorFilter(toolbarExpanded ? getResources().getColor(android.R.color.white)
-                : ResourceUtil.getThemedColor(requireContext(), R.attr.main_toolbar_icon_color), PorterDuff.Mode.SRC_IN);
+                : ResourceUtil.getThemedColor(requireContext(), R.attr.toolbar_icon_color), PorterDuff.Mode.SRC_IN);
 
         if (readingList != null && readingList.isDefault()) {
             if (menu.findItem(R.id.menu_reading_list_rename) != null) {
@@ -304,7 +302,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
     }
 
     private void updateReadingListData() {
-        disposables.add(Observable.fromCallable(() -> ReadingListDbHelper.instance().getFullListById(readingListId))
+        disposables.add(Observable.fromCallable(() -> ReadingListDbHelper.instance().getListById(readingListId, true))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(list -> {
@@ -468,6 +466,19 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         }
     }
 
+    private void moveSelectedPagesToList() {
+        List<ReadingListPage> selectedPages = getSelectedPages();
+        if (!selectedPages.isEmpty()) {
+            List<PageTitle> titles = new ArrayList<>();
+            for (ReadingListPage page : selectedPages) {
+                titles.add(ReadingListPage.toPageTitle(page));
+            }
+            bottomSheetPresenter.show(getChildFragmentManager(),
+                    MoveToReadingListDialog.newInstance(readingListId, titles, READING_LIST_ACTIVITY));
+            update();
+        }
+    }
+
     private void delete() {
         ReadingListBehaviorsUtil.INSTANCE.deleteReadingList(requireActivity(), readingList, true, () -> {
             startActivity(MainActivity.newIntent(requireActivity())
@@ -477,7 +488,11 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
     }
 
     @Override
-    public void onToggleItemOffline(@NonNull ReadingListPage page) {
+    public void onToggleItemOffline(long pageId) {
+        ReadingListPage page = getPageById(pageId);
+        if (page == null) {
+            return;
+        }
         ReadingListBehaviorsUtil.INSTANCE.togglePageOffline(requireActivity(), page, () -> {
             adapter.notifyDataSetChanged();
             update();
@@ -485,19 +500,42 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
     }
 
     @Override
-    public void onShareItem(@NonNull ReadingListPage page) {
+    public void onShareItem(long pageId) {
+        ReadingListPage page = getPageById(pageId);
+        if (page == null) {
+            return;
+        }
         ShareUtil.shareText(getContext(), ReadingListPage.toPageTitle(page));
     }
 
     @Override
-    public void onAddItemToOther(@NonNull ReadingListPage page) {
+    public void onAddItemToOther(long pageId) {
+        ReadingListPage page = getPageById(pageId);
+        if (page == null) {
+            return;
+        }
         bottomSheetPresenter.show(getChildFragmentManager(),
                 AddToReadingListDialog.newInstance(ReadingListPage.toPageTitle(page),
                         READING_LIST_ACTIVITY));
     }
 
     @Override
-    public void onSelectItem(@NonNull ReadingListPage page) {
+    public void onMoveItemToOther(long pageId) {
+        ReadingListPage page = getPageById(pageId);
+        if (page == null) {
+            return;
+        }
+        bottomSheetPresenter.show(getChildFragmentManager(),
+                MoveToReadingListDialog.newInstance(readingListId, ReadingListPage.toPageTitle(page),
+                        READING_LIST_ACTIVITY));
+    }
+
+    @Override
+    public void onSelectItem(long pageId) {
+        ReadingListPage page = getPageById(pageId);
+        if (page == null) {
+            return;
+        }
         if (actionMode == null || MultiSelectCallback.is(actionMode)) {
             beginMultiSelect();
             toggleSelectPage(page);
@@ -505,13 +543,29 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
     }
 
     @Override
-    public void onDeleteItem(@NonNull ReadingListPage page) {
+    public void onDeleteItem(long pageId) {
+        ReadingListPage page = getPageById(pageId);
+        if (page == null) {
+            return;
+        }
         List<ReadingList> listsContainPage = TextUtils.isEmpty(currentSearchQuery) ? Collections.singletonList(readingList) : ReadingListBehaviorsUtil.INSTANCE.getListsContainPage(page);
         ReadingListBehaviorsUtil.INSTANCE.deletePages(requireActivity(), listsContainPage, page, this::updateReadingListData, () -> {
             // TODO: need to verify the log of delete item since this action will delete multiple items in the same time.
             funnel.logDeleteItem(readingList, 0);
             update();
         });
+    }
+
+    @Nullable
+    private ReadingListPage getPageById(long id) {
+        if (readingList != null) {
+            for (ReadingListPage page : readingList.pages()) {
+                if (page.id() == id) {
+                    return page;
+                }
+            }
+        }
+        return null;
     }
 
     private class AppBarListener implements AppBarLayout.OnOffsetChangedListener {
@@ -532,6 +586,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
             DeviceUtil.updateStatusBarTheme(requireActivity(), toolbar,
                     actionMode == null && (appBarLayout.getTotalScrollRange() + verticalOffset) > appBarLayout.getTotalScrollRange() / 2);
 
+            ((ReadingListActivity) requireActivity()).updateNavigationBarColor();
             // prevent swiping when collapsing the view
             swipeRefreshLayout.setEnabled(verticalOffset == 0);
         }
@@ -567,7 +622,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
             this.page = page;
             getView().setItem(page);
             getView().setTitle(page.title());
-            getView().setDescription(StringUtils.capitalize(page.description()));
+            getView().setDescription(page.description());
             getView().setImageUrl(page.thumbUrl());
             getView().setSelected(page.selected());
             getView().setSecondaryActionIcon(page.saving() ? R.drawable.ic_download_in_progress : R.drawable.ic_download_circle_gray_24dp,
@@ -772,7 +827,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
             }
             bottomSheetPresenter.show(getChildFragmentManager(),
                     ReadingListItemActionsDialog.newInstance(TextUtils.isEmpty(currentSearchQuery)
-                            ? Collections.singletonList(readingList) : ReadingListBehaviorsUtil.INSTANCE.getListsContainPage(page), page, actionMode != null));
+                            ? Collections.singletonList(readingList) : ReadingListBehaviorsUtil.INSTANCE.getListsContainPage(page), page.id(), actionMode != null));
             return true;
         }
 
@@ -788,7 +843,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
             }
             bottomSheetPresenter.show(getChildFragmentManager(),
                     ReadingListItemActionsDialog.newInstance(TextUtils.isEmpty(currentSearchQuery)
-                            ? Collections.singletonList(readingList) : ReadingListBehaviorsUtil.INSTANCE.getListsContainPage(page), page, actionMode != null));
+                            ? Collections.singletonList(readingList) : ReadingListBehaviorsUtil.INSTANCE.getListsContainPage(page), page.id(), actionMode != null));
         }
 
         @Override
@@ -820,7 +875,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         DeviceUtil.updateStatusBarTheme(requireActivity(), toolbar, toolbarExpanded && !inActionMode);
         requireActivity().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         requireActivity().getWindow().setStatusBarColor(!inActionMode
-                ? Color.TRANSPARENT : ResourceUtil.getThemedColor(requireActivity(), R.attr.main_status_bar_color));
+                ? Color.TRANSPARENT : ResourceUtil.getThemedColor(requireActivity(), R.attr.paper_color));
     }
 
     private class SearchCallback extends SearchActionModeCallback {
@@ -830,7 +885,6 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
             recyclerView.stopScroll();
             appBarLayout.setExpanded(false, false);
             setStatusBarActionMode(true);
-            ViewUtil.finishActionModeWhenTappingOnView(getView(), actionMode);
             return super.onCreateActionMode(mode, menu);
         }
 
@@ -851,11 +905,6 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         @Override
         protected String getSearchHintString() {
             return getString(R.string.search_hint_search_my_lists_and_articles);
-        }
-
-        @Override
-        protected boolean finishActionModeIfKeyboardHiding() {
-            return true;
         }
 
         @Override
@@ -895,6 +944,10 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
                     return true;
                 case R.id.menu_add_to_another_list:
                     addSelectedPagesToList();
+                    finishActionMode();
+                    return true;
+                case R.id.menu_move_to_another_list:
+                    moveSelectedPagesToList();
                     finishActionMode();
                     return true;
                 default:

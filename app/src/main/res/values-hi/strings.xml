@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
 * Adithyavr
 * Anamdas
 * Bhatakati aatma
@@ -22,6 +23,8 @@
 * Vishwanath
 * Wikiuser13
 * YmKavishwar
+* आलोक
+* गोपाल
 * चक्रपाणी
 * संजीव कुमार
 -->
@@ -34,6 +37,7 @@
   <string name="search_hint_search_history">इतिहास खोजें</string>
   <string name="search_hint_search_languages">भाषा के लिए खोजें</string>
   <string name="nav_item_history">इतिहास</string>
+  <string name="nav_item_more">और</string>
   <string name="error_network_error">इंटरनेट से कनेक्ट नहीं किया जा सकता।</string>
   <string name="page_error_retry">पुनः प्रयास करें</string>
   <string name="page_error_back_to_main">वापस जाएँ</string>
@@ -57,20 +61,14 @@
   <string name="menu_long_press_open_page">खोलें</string>
   <string name="menu_long_press_open_in_new_tab">नये टैब में खोलें</string>
   <string name="menu_long_press_copy_page">लिंक एड्रेस को कॉपी करें</string>
-  <string name="menu_text_select_copy">कॉपी</string>
   <string name="menu_text_select_define">परिभाषित करें</string>
-  <string name="menu_text_select_share">साझा करें</string>
   <string name="menu_text_select_edit_here">यहाँ सम्पादित करें</string>
-  <string name="nav_item_nearby">निकट</string>
-  <string name="nearby_zoom_to_location">नक़्शे पर किसी स्थान तक ज़ूम करें</string>
-  <string name="nearby_osm_license">&amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt; योगदानकर्ता</string>
   <string name="last_updated_text">%s को अन्तिम अपडेट किया गया।</string>
   <string name="talk_page_link_text">वार्ता पृष्ठ देखें</string>
   <string name="edit_history_link_text">सम्पादन इतिहास देखें</string>
   <string name="map_view_link_text">नक्शे पर देखें</string>
   <string name="other_languages_indication_text">किसी अन्य भाषा में पढ़ें</string>
   <string name="language_count_link_text">%d अन्य भाषाओं में उपलब्ध</string>
-  <string name="content_license_html">सामग्री &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; के अंतर्गत उपलब्ध है जबतक अलग से उल्लेख न किया गया हो</string>
   <string name="edit_save_action_license_logged_in" fuzzy="true">इसे सहेजते हुये आप &lt;a href=\"%1$s\"&gt;उपयोग की शर्तों&lt;/a&gt; से सहमत हैं और अपने योगदान को &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; लाइसेंस के अन्तर्गत अपरिवर्तनीय रूप प्रकाशित कर रहे हैं।</string>
   <string name="edit_save_action_license_anon" fuzzy="true">इसको सहेजते हुये आप &lt;a href=\"%1$s\"&gt;उपयोग की शर्तों&lt;/a&gt; से सहमत हैं और अपने योगदानों को अपरिवर्तनीय रूप से लाइसेंस &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; के अन्तर्गत प्रकाशित कर रहे हैं। इस सम्पादन का श्रेय आपके यंत्र के आई॰पी॰ पते को दिया जायेगा। यदि आप &lt;a href=\"https://#login\"&gt; लॉग इन&lt;/a&gt; करते हैं तो आपके पास अधिक प्राइवेसी होगी।</string>
   <string name="preference_title_language">विकिपीडिया भाषा</string>
@@ -102,9 +100,9 @@
   <string name="login_2fa_hint">द्विस्तरीय प्रमाणीकरण कोड</string>
   <string name="login_2fa_other_workflow_error_msg">द्विस्तरीय प्रमाणीकरण कूट आवश्यक! कृपया मुख्य कार्यकलाप पर वापस जाएँ और अपने 2FA टोकन से लॉगिन कर दोबारा प्रयास करें।</string>
   <string name="menu_login">प्रवेश</string>
-  <string name="login_activity_title">विकिपीडिया में प्रवेश करें</string>
+  <string name="login_activity_title" fuzzy="true">विकिपीडिया में प्रवेश करें</string>
   <string name="login_in_progress_dialog_message">आपको प्रवेश दिया जा रहा है…</string>
-  <string name="login_success_toast">सफलतापूर्वक प्रविष्ट</string>
+  <string name="login_success_toast" fuzzy="true">सफलतापूर्वक प्रविष्ट</string>
   <string name="reset_password_title">अपना पासवर्ड लगाएं</string>
   <string name="reset_password_description">अपने एक अस्थाई पासवर्ड से लॉगिन किया। लॉगिन को पूरा करने के लिए यहाँ एक नया पासवर्ड जोड़ें।</string>
   <string name="reset_password_hint">नया पासवर्ड</string>
@@ -153,7 +151,7 @@
   <string name="preference_title_eventlogging_opt_in">उपयोग रिपोर्ट भेजें</string>
   <string name="preference_summary_eventlogging_opt_in">विकिमीडिया को जानकारी इकट्ठा करने की अनुमति दें कि आप कैसे एप को प्रयोग करते हैं ताकि एप को बेहतर बनाया जा सके</string>
   <string name="preference_title_auto_upload_crash_reports">क्रैश रिपोर्ट भेजें</string>
-  <string name="preference_summary_auto_upload_crash_reports">एप को क्रैश रिपोर्ट हॉकीएप/एक थर्ड-पार्टी सर्विस को अपने आप भेजने की अनुमति दें ताकि हम तेज़ी से व आसानी से आपके क्रैश को देख कर उसे फिक्स कर सकें।</string>
+  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">एप को क्रैश रिपोर्ट हॉकीएप/एक थर्ड-पार्टी सर्विस को अपने आप भेजने की अनुमति दें ताकि हम तेज़ी से व आसानी से आपके क्रैश को देख कर उसे फिक्स कर सकें।</string>
   <string name="editing_error_spamblacklist">प्रतिबंधित डोमेन (%s) के लिंक पाये गए हैं। कृपया इन्हें हटायें और पुनः प्रयास करें।</string>
   <string name="history_search_list_hint">इतिहास खोजें</string>
   <string name="error_can_not_process_link">यह लिंक दिखाया नहीं जा सका</string>
@@ -168,7 +166,7 @@
   <string name="about_description">विकिपीडिया एप के बारे में</string>
   <string name="privacy_policy_description">गोपनीयता नीति</string>
   <string name="terms_of_use_description">उपयोग की शर्तें</string>
-  <string name="about_wikipedia_url">https://en.m.wikipedia.org/wiki/Wikipedia:About</string>
+  <string name="about_wikipedia_url" fuzzy="true">https://en.m.wikipedia.org/wiki/Wikipedia:About</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
@@ -242,15 +240,11 @@
   <string name="gallery_menu_share">साझा करें</string>
   <string name="gallery_share_error">%s चित्र को साझा नहीं किया जा सका</string>
   <string name="gallery_save_progress">फ़ाइल को डाउनलोड किया जा रहा है…</string>
-  <string name="gallery_save_success">फ़ाइल को सफलतापूर्वक सहेज लिया गया है।</string>
+  <string name="gallery_save_success" fuzzy="true">फ़ाइल को सफलतापूर्वक सहेज लिया गया है।</string>
   <string name="gallery_error_video_failed">वीडियो को चलाया नहीं जा सका।</string>
   <string name="gallery_save_image_write_permission_rationale">चित्रों को सहेजने के लिए आपके यंत्र भंडारण पर लिखने की अनुमति की आवश्यकता है।</string>
   <string name="err_cannot_save_file">फ़ाइल को सहेजा नहीं जा सकता</string>
-  <string name="snippet_share_intro">\@Wikipedia पर \"%1$s\": %2$s</string>
   <string name="expand_refs">फ़ैलाने के लिये दबाएं</string>
-  <string name="share_snippet_button">चित्र की तरह साझा करें</string>
-  <string name="share_normal_button">टेक्स्ट की तरह साझा करें</string>
-  <string name="snippet_share_preview_image_desc">चित्र को प्रीव्यू करें</string>
   <string name="cc_logo">क्रिएटिव कॉमन्स लाइसेंस</string>
   <string name="captcha_image">कैप्चा चित्र</string>
   <string name="gallery_fair_use_license">उचित प्रयोग</string>
@@ -261,7 +255,6 @@
   <string name="close_all_tabs_confirm_yes">हाँ</string>
   <string name="close_all_tabs_confirm_no">नहीं</string>
   <string name="button_close_tab">टैब बंद करें</string>
-  <string name="tool_tip_share">किसी रोचक तथ्य को हाईलाइट करने के बाद उसे अपने पसंदीदा नेटवर्क पर साझा करने की कोशिश करें!</string>
   <string name="page_view_in_browser">पेज को ब्राउज़र में देखें</string>
   <string name="tool_tip_lang_button">आप अब एप में एक से अधिक विकिपीडिया भाषाओं में खोज और पढ़ सकते हैं।</string>
   <string name="error_response_malformed">सर्वर से सही रूप से प्रारूप प्राप्त नहीं हुआ।</string>
@@ -294,11 +287,6 @@
   <string name="theme_chooser_dialog_image_dimming_switch_label">कम चित्र चमक (डार्क थीम में)</string>
   <string name="preference_title_prefer_offline_content">ऑफलाइन प्रकरण को प्राथमिकता</string>
   <string name="preference_summary_prefer_offline_content">किसी आलेख के नवीनतम संस्करण को हमेशा लोड करने के बजाय ऑफ़लाइन उपलब्ध लेखों को लोड करके डेटा उपयोग को बचाएं</string>
-  <string name="crash_report_dialog_title">क्षमा करें, आखिरी बार एप क्रैश हो गयी थी।</string>
-  <string name="crash_report_dialog_text">क्या आप HockeyApp/ एक थर्ड-पार्टी सर्विस प्रोवाइडर को क्रैश रिपोर्ट भेजना चाहते हैं ताकि विकिमीडिया आपके क्रैश को जाँच कर कर सके और उस कमी को सही कर सके?</string>
-  <string name="crash_report_dialog_dont_send_button">छोड़ें</string>
-  <string name="crash_report_dialog_always_send_button">हमेशा भेजें</string>
-  <string name="crash_report_dialog_send_button">भेजें</string>
   <string name="crash_report_activity_title">अनुप्रयोग त्रुटि</string>
   <string name="crash_report_relaunch_or_quit">हमें खेद है कि किसी त्रुटि को अनुभव करने के कारणवश विकिपीडिया एप को बंद कर दिया गया। \n\nक्या आप फिर से शुरू या बंद करना चाहते हैं?</string>
   <string name="crash_report_relaunch">फिर से शुरू करें</string>
@@ -322,8 +310,6 @@
   <string name="reading_list_save_to">पढ़ने वाली सूची में जोड़ें</string>
   <string name="reading_list_create_new">नयी बनायें</string>
   <string name="reading_list_title_exists">पढ़ने वाली सूची \"%s\" पहले से है।</string>
-  <string name="reading_list_added_to_named">%s में जोड़ा गया।</string>
-  <string name="reading_list_already_exists">यह लेख पहले से ही उस सूची में है।</string>
   <string name="reading_list_added_view_button">सूची देखें</string>
   <string name="format_reading_list_statistical_summary_singular">1 लेख, %1$.2f मेगाबाइट</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d लेख, %2$.2f मेगाबाइट</string>
@@ -370,18 +356,11 @@
   <string name="reading_lists_confirm_remote_delete_yes">हाँ</string>
   <string name="reading_lists_confirm_remote_delete_no">नहीं</string>
   <string name="reading_list_article_save_in_progress">लेख का अधोभारण हो रहा है, और यह ऑफलाइन उपलब्ध होगा जब यह पूरा हो जाएगा।</string>
-  <string name="reading_list_already_contains_selection">चुनी गयी सूची में चयनित पृष्ठ पहले से ही समाहित हैं।</string>
-  <string name="reading_list_added_articles_list_titled">%2$s में %1$d आलेख जोड़े गए</string>
+  <string name="reading_list_articles_added_to_named">%2$s में %1$d आलेख जोड़े गए</string>
   <string name="reading_list_delete_confirm" fuzzy="true">क्या आप  \"%s\" को मिटाने हेतु निश्चित हैं?</string>
   <string name="reading_list_turned_sync_off_dialog_ok">ठीक है</string>
   <string name="reading_list_turned_sync_off_dialog_settings">सेटिंग्स</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_title">पठन सूची को सिंक करना चालू करें?</string>
-  <string name="reading_list_login_option_reminder_dialog_text">जब आप लॉगआउट थे, इस पढ़ने की सूची में कुछ लेख बचा दिये गये थे। क्या आप इन्हें अपने खाते की पढ़ने की सूचियों में डालना चाहते हैं?</string>
-  <string name="reading_list_login_option_reminder_dialog_no">नहीं, लेख हटा दें</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">ऐप में सहेजे गए लेखों को रखें?</string>
-  <string name="reading_list_logout_option_reminder_dialog_text">कई लेख पढ़ने की सूचियों में सहेजे हुए हैं। क्या आप लाॅगआउट होने पर इन्हें रखना चाहते हैं?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">हाँ, सूचियों में आलेख रखें</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">नहीं, सूचियों से लेख हटाएं</string>
   <plurals name="reading_list_article_offline_message">
     <item quantity="one">यह लेख अब ऑफलाइन उपलब्ध होगा।</item>
     <item quantity="other">These articles will now be available offline.</item>
@@ -453,10 +432,13 @@
   <string name="description_edit_tutorial_promise">शुरू करने से, मैं यह वादा करता हूँ कि इस सुविधा का दुरुपयोग नहीं करूँगा(गी)।</string>
   <string name="suggested_edits_snackbar_survey_text">आपका संपादन अनुभव कैसा रहा? कृपया कुछ समय निकालकर इन-ऐप संपादन के बारे में सर्वेक्षण भरें।</string>
   <string name="suggested_edits_snackbar_survey_action_text">सर्वेक्षण करें</string>
+  <string name="suggested_edits_reactivation_notification_title">सुझाए गए संपादन</string>
+  <string name="suggested_edits_reactivation_notification_stage_one">विकिपीडिया के संपादन के लिए धन्यवाद!  जहाँ आपने छोड़ा था, उसी स्थान से फिर शुरू करें?</string>
+  <string name="suggested_edits_reactivation_notification_stage_two">क्या विकिपीडिया में सुधार जारी रखने के लिए आपके पास एक मिनट है?  इन संपादन सुझावों को देखें।</string>
   <string name="description_edit_revert_subtitle">विकिपीडिया में संपादन के लिए धन्यवाद!</string>
   <string name="description_edit_revert_intro">हम जानते हैं अपने अपना अधिकतम प्रयास किया लेकिन समीक्षक में से एक को चिंता है।\nआपके संपादन को वापस किये जाने के संभावित कारण हैं:</string>
   <string name="description_edit_revert_reason1">आपके योगदान द्वारा &lt;a href=\"%1$s\"&gt;निर्देशों&lt;/a&gt; में से एक का पालन नहीं किया गया।</string>
-  <string name="description_edit_revert_reason2">आपका संपादन एक परिक्षण या बर्बरता जैसा लगा।</string>
+  <string name="description_edit_revert_reason2">आपका संपादन एक परीक्षण या बर्बरता जैसा लगा।</string>
   <string name="description_edit_revert_history">अगर आप इच्छुक हैं,&lt;a href=\"%1$s\"&gt;सम्पादनों का इतिहास&lt;/a&gt; देखें।</string>
   <string name="offline_read_permission_rationale">ऑफ़लाइन विचरण के लिए आपके यंत्र पर संग्रहण का उपयोग करने की अनुमति आवश्यक है।</string>
   <string name="onboarding_skip">छोड़ें</string>
@@ -467,9 +449,6 @@
   <string name="onboarding_reading_list_sync_title" fuzzy="true">सिंक के साथ पढ़ने वाली सूचियां</string>
   <string name="onboarding_analytics_title">अनाम डेटा भेजें</string>
   <string name="onboarding_analytics_switch_title">उपयोग किया गया डेटा भेजें</string>
-  <string name="onboarding_create_account_sync">\nअपनी पठन सूचियों को सिंक करें</string>
-  <string name="onboarding_create_account_contributions">अपने योगदान पर नज़र रखें</string>
-  <string name="onboarding_create_account_preferences">अपनी पसंद रक्षित करें</string>
   <string name="app_shortcuts_random">कोई भी</string>
   <string name="app_shortcuts_continue_reading">पढ़ना जारी रखें</string>
   <string name="app_shortcuts_search">खोजना</string>

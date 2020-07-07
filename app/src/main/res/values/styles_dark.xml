@@ -27,6 +27,7 @@
         <item name="colorError">@color/red75</item>
 
         <!-- Overrides of base Android styles with color sub-definitions -->
+        <item name="actionOverflowMenuStyle">@style/Widget.AppCompat.PopupMenu.Overflow</item>
         <item name="popupMenuStyle">@style/PopupMenuDark</item>
         <item name="dialogTheme">@style/DialogDark</item>
         <item name="bottomSheetDialogTheme">@style/BottomSheetDialogDark</item>
@@ -40,14 +41,7 @@
         <item name="button_highlight_border_shape">@drawable/button_shape_border_light</item>
 
         <!-- Overrides of our own custom color attributes -->
-        <item name="main_toolbar_color">@color/base18</item>
-        <item name="main_status_bar_color">@color/base18</item>
-        <item name="main_toolbar_title_color">@android:color/white</item>
-        <item name="main_toolbar_icon_color">@android:color/white</item>
-        <item name="page_status_bar_color">@color/base18</item>
-        <item name="page_expanded_status_bar_color">@color/base18</item>
-        <item name="page_toolbar_color">@color/base18</item>
-        <item name="page_toolbar_icon_color">@color/base100</item>
+        <item name="toolbar_icon_color">@android:color/white</item>
         <item name="themed_icon_color">@android:color/white</item>
         <item name="nav_tab_background_color">@color/base18</item>
         <item name="nav_tab_item_color_state">@color/color_state_nav_tab_dark</item>
@@ -75,11 +69,30 @@
         <item name="tab_placeholder_text_color">@color/base10</item>
         <item name="chip_background_color">@color/base20</item>
         <item name="chip_text_color">@color/base80</item>
+        <item name="action_mode_green_background">@color/green50</item>
+        <item name="image_tags_onboarding_image">@drawable/ic_image_tags_onboarding_dark</item>
+        <item name="reward_interstitial_calendar_drawable">@drawable/ic_illustration_calendar_dark</item>
+        <item name="reward_interstitial_heart_drawable">@drawable/ic_illustration_heart_dark</item>
+        <item name="reward_interstitial_view_drawable">@drawable/ic_illustration_views_dark</item>
+        <item name="reward_interstitial_quality_perfect_drawable">@drawable/ic_illustration_quality_perfect_dark</item>
+        <item name="reward_interstitial_quality_excellent_drawable">@drawable/ic_illustration_quality_excellent_dark</item>
+        <item name="reward_interstitial_quality_very_good_drawable">@drawable/ic_illustration_quality_very_good_dark</item>
+        <item name="reward_interstitial_quality_good_drawable">@drawable/ic_illustration_quality_good_dark</item>
 
         <!-- Background for cards, lists, and controls -->
         <item name="paper_color">@color/base14</item>
         <item name="suggestions_background_color">@color/base12</item>
+        <item name="color_group_22">@color/base18</item>
         <item name="color_group_52">@color/accent75</item>
+        <item name="color_group_53">@color/accent30</item>
+        <item name="color_group_54">@color/base14</item>
+        <item name="color_group_55">@color/accent20</item>
+        <item name="color_group_56">@color/accent50</item>
+        <item name="color_group_57">@color/green30</item>
+        <item name="color_group_58">@color/green50</item>
+        <item name="color_group_59">@color/base50</item>
+        <item name="color_group_60">@color/base20</item>
+        <item name="color_group_61">@color/base30</item>
 
     </style>
 

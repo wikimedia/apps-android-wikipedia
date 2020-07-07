@@ -14,8 +14,9 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.text.TextUtils;
 import android.view.MenuItem;
+import android.view.View;
 
-import androidx.annotation.ColorRes;
+import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
@@ -34,11 +35,11 @@ import org.wikipedia.crash.CrashReportActivity;
 import org.wikipedia.events.LoggedOutInBackgroundEvent;
 import org.wikipedia.events.NetworkConnectEvent;
 import org.wikipedia.events.ReadingListsEnableDialogEvent;
-import org.wikipedia.events.ReadingListsMergeLocalDialogEvent;
 import org.wikipedia.events.ReadingListsNoLongerSyncedEvent;
 import org.wikipedia.events.SplitLargeListsEvent;
 import org.wikipedia.events.ThemeChangeEvent;
 import org.wikipedia.login.LoginActivity;
+import org.wikipedia.notifications.NotificationPollBroadcastReceiver;
 import org.wikipedia.readinglist.ReadingListSyncBehaviorDialogs;
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter;
 import org.wikipedia.recurring.RecurringTasksExecutor;
@@ -48,11 +49,12 @@ import org.wikipedia.settings.SiteInfoClient;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.PermissionUtil;
+import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.log.L;
 
-import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.disposables.Disposable;
-import io.reactivex.functions.Consumer;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.disposables.Disposable;
+import io.reactivex.rxjava3.functions.Consumer;
 
 import static org.wikipedia.Constants.INTENT_EXTRA_INVOKE_SOURCE;
 import static org.wikipedia.appshortcuts.AppShortcuts.APP_SHORTCUT_ID;
@@ -87,6 +89,8 @@ public abstract class BaseActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 
+        NotificationPollBroadcastReceiver.startPollTask(WikipediaApp.getInstance());
+
         // Conditionally execute all recurring tasks
         new RecurringTasksExecutor(WikipediaApp.getInstance()).run();
 
@@ -100,6 +104,9 @@ public abstract class BaseActivity extends AppCompatActivity {
         registerReceiver(networkStateReceiver, filter);
 
         DeviceUtil.setLightSystemUiVisibility(this);
+
+        setStatusBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color));
+        setNavigationBarColor(ResourceUtil.getThemedColor(this, R.attr.paper_color));
 
         maybeShowLoggedOutInBackgroundDialog();
     }
@@ -177,9 +184,18 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
     }
 
-    protected void setStatusBarColor(@ColorRes int color) {
+    protected void setStatusBarColor(@ColorInt int color) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            getWindow().setStatusBarColor(ContextCompat.getColor(this, color));
+            getWindow().setStatusBarColor(color);
+        }
+    }
+
+    protected void setNavigationBarColor(@ColorInt int color) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            boolean isDarkThemeOrDarkBackground = WikipediaApp.getInstance().getCurrentTheme().isDark()
+                    || color == ContextCompat.getColor(this, android.R.color.black);
+            getWindow().setNavigationBarColor(color);
+            getWindow().getDecorView().setSystemUiVisibility(isDarkThemeOrDarkBackground ? 0 : View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR | getWindow().getDecorView().getSystemUiVisibility());
         }
     }
 
@@ -291,8 +307,6 @@ public abstract class BaseActivity extends AppCompatActivity {
                         .show();
             } else if (event instanceof ReadingListsNoLongerSyncedEvent) {
                 ReadingListSyncBehaviorDialogs.detectedRemoteTornDownDialog(BaseActivity.this);
-            } else if (event instanceof ReadingListsMergeLocalDialogEvent) {
-                ReadingListSyncBehaviorDialogs.mergeExistingListsOnLoginDialog(BaseActivity.this);
             } else if (event instanceof ReadingListsEnableDialogEvent) {
                 ReadingListSyncBehaviorDialogs.promptEnableSyncDialog(BaseActivity.this);
             } else if (event instanceof LoggedOutInBackgroundEvent) {

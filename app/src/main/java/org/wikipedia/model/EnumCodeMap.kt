@@ -15,7 +15,7 @@ class EnumCodeMap<T>(enumeration: Class<T>) where T : Enum<T>, T : EnumCode {
 
     private fun codeToEnumMap(enumeration: Class<T>): SparseArray<T> {
         val ret = SparseArray<T>()
-        for (value in enumeration.enumConstants) {
+        for (value in enumeration.enumConstants!!) {
             ret.put(value.code(), value)
         }
         return ret

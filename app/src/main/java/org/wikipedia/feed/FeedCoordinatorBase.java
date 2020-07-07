@@ -7,6 +7,10 @@ import androidx.annotation.Nullable;
 
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.feed.accessibility.AccessibilityCard;
+import org.wikipedia.feed.aggregated.AggregatedFeedContentClient;
+import org.wikipedia.feed.announcement.AnnouncementClient;
+import org.wikipedia.feed.announcement.FundraisingCard;
+import org.wikipedia.feed.becauseyouread.BecauseYouReadClient;
 import org.wikipedia.feed.dataclient.FeedClient;
 import org.wikipedia.feed.dayheader.DayHeaderCard;
 import org.wikipedia.feed.featured.FeaturedArticleCard;
@@ -18,6 +22,7 @@ import org.wikipedia.feed.news.NewsListCard;
 import org.wikipedia.feed.offline.OfflineCard;
 import org.wikipedia.feed.onthisday.OnThisDayCard;
 import org.wikipedia.feed.progress.ProgressCard;
+import org.wikipedia.feed.suggestededits.SuggestedEditsFeedClient;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.ThrowableUtil;
@@ -94,7 +99,7 @@ public abstract class FeedCoordinatorBase {
         this.wiki = wiki;
 
         if (cards.size() == 0) {
-            insertCard(progressCard, 0);
+            requestProgressCard();
         }
 
         if (DeviceUtil.isAccessibilityEnabled()) {
@@ -171,6 +176,9 @@ public abstract class FeedCoordinatorBase {
         if (!pendingClients.isEmpty()) {
             pendingClients.remove(0);
         }
+        if (!(getLastCard() instanceof ProgressCard) && shouldShowProgressCard(pendingClients.get(0))) {
+            requestProgressCard();
+        }
         requestCard(wiki);
     }
 
@@ -188,6 +196,12 @@ public abstract class FeedCoordinatorBase {
 
     private Card getLastCard() {
         return cards.size() > 1 ? cards.get(cards.size() - 1) : null;
+    }
+
+    private void requestProgressCard() {
+        if (!(getLastCard() instanceof ProgressCard)) {
+            appendCard(new ProgressCard());
+        }
     }
 
     private void removeProgressCard() {
@@ -283,6 +297,14 @@ public abstract class FeedCoordinatorBase {
     private boolean isDailyCardType(@NonNull Card card) {
         return card instanceof NewsListCard || card instanceof OnThisDayCard
                 || card instanceof MostReadListCard || card instanceof FeaturedArticleCard
-                || card instanceof FeaturedImageCard;
+                || card instanceof FeaturedImageCard
+                || card instanceof FundraisingCard;
+    }
+
+    private boolean shouldShowProgressCard(@NonNull FeedClient pendingClient) {
+        return pendingClient instanceof SuggestedEditsFeedClient
+                || pendingClient instanceof AggregatedFeedContentClient
+                || pendingClient instanceof AnnouncementClient
+                || pendingClient instanceof BecauseYouReadClient;
     }
 }

@@ -3,9 +3,9 @@ package org.wikipedia.gallery;
 import android.view.View;
 
 import androidx.annotation.NonNull;
-import androidx.viewpager.widget.ViewPager;
+import androidx.viewpager2.widget.ViewPager2;
 
-public class GalleryPagerTransformer implements ViewPager.PageTransformer {
+public class GalleryPagerTransformer implements ViewPager2.PageTransformer {
     private static final float MIN_SCALE = 0.9f;
 
     @Override

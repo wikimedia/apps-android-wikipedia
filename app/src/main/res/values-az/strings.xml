@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* AZISS
+* Abijeet Patro
 * Masalli qasimli
 * Neriman2003
 * Toghrul Rahimli
+* Verman1
+* Vesely35
 * Wertuose
 -->
 <resources>
@@ -53,23 +57,16 @@
   <string name="menu_long_press_open_page">Aç</string>
   <string name="menu_long_press_open_in_new_tab">Səhifəni yeni pəncərədə aç</string>
   <string name="menu_long_press_copy_page">Səhifənin ünvanını kopyala</string>
-  <string name="menu_text_select_copy">Kopyala</string>
   <string name="menu_text_select_define">Dəqiqləşdirmək</string>
-  <string name="menu_text_select_share">Paylaş</string>
-  <string name="share">Paylaş</string>
   <string name="on_this_day_page_share">Paylaş</string>
   <string name="reading_list_page_share">Paylaş</string>
   <string name="menu_text_select_edit_here">Burada redaktə edin</string>
-  <string name="nav_item_nearby">Yaxınlıqdakılar</string>
-  <string name="nearby_zoom_to_location">Xəritə üzərində bir yeri böyüt</string>
-  <string name="nearby_osm_license">&amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt; OpenStreetMap&lt;/a&gt;contributors</string>
   <string name="last_updated_text">Son yeniləndi %s</string>
   <string name="talk_page_link_text">Müzakirə səhifəsini göstər</string>
   <string name="edit_history_link_text">Redaktə tarixçəsini göstər</string>
   <string name="map_view_link_text">Xəritədə göstər</string>
   <string name="other_languages_indication_text">Başqa dillərdə oxuyun</string>
   <string name="language_count_link_text">%d digər dillərdə mövcuddur</string>
-  <string name="content_license_html">Məzmun başqa cür qeyd edilmədiyi halda &lt;a href=\"%1$s\"&gt; CC BY-SA 3.0 &lt;/a&gt; altında mövcuddur</string>
   <string name="edit_save_action_license_logged_in">Yayımlarkən &lt;a href=\"%1$s\"&gt; İstifadə şərtləri &lt;/a&gt; ilə razılaşırsınız və &lt;a href=\"%2$s\"&gt; CC BY-SA 3.0 lizensiyası altında töhfələrinizi sərbəst buraxırsınız</string>
   <string name="edit_save_action_license_anon">Yayımlayarkən &lt;a href=\"%1$s\"&gt; İstifadə şərtləri &lt;/a&gt; ilə razılaşırsınız və &lt;a href=\"%2$s\"&gt; CC BY-SA 3.0 lizensiyası altında töhfələrinizi sərbəst buraxırsınız.Redaktələr cihazınızın IP ünvanına aid edilir. &lt;a href=\"https://#login\"&gt; Əgər daxil olmuşsunuzsa &lt;/a&gt;, daha çox gizlilik olacaq.</string>
   <string name="preference_title_language">Vikipediya dilləri</string>
@@ -107,9 +104,9 @@
   <string name="reading_lists_sync_login">Daxil ol</string>
   <string name="create_account_login">Daxil ol</string>
   <string name="menu_login">Daxil ol</string>
-  <string name="login_activity_title">Vikipediyaya daxil olun</string>
+  <string name="login_activity_title" fuzzy="true">Vikipediyaya daxil olun</string>
   <string name="login_in_progress_dialog_message">Daxil olursunuz...</string>
-  <string name="login_success_toast">Uğurla daxil olundu!</string>
+  <string name="login_success_toast" fuzzy="true">Uğurla daxil olundu!</string>
   <string name="reset_password_title">Şifrə təyin et</string>
   <string name="reset_password_description">Siz müvəqqəti parol ilə daxil oldunuz. \nDaxil olmağı bitirmək üçün buraya yeni bir parol yazmalısınız:</string>
   <string name="reset_password_hint">Yeni şifrə</string>
@@ -171,7 +168,7 @@
   <string name="preference_title_eventlogging_opt_in">İstifadə hesabatlarını göndərin</string>
   <string name="preference_summary_eventlogging_opt_in">Vikimediaya tətbiqin daha yaxşı tətbiq edilməsi üçün necə istifadə etdiyinə dair məlumat toplamaq imkanı verin</string>
   <string name="preference_title_auto_upload_crash_reports">Çökmə hesabatları göndərin</string>
-  <string name="preference_summary_auto_upload_crash_reports">Proqram sizin çökmə hesabatını nəzərdən keçirə bilər. Səhvləri daha tez və asanlıqla düzəldə bilərik: Bunun üçün HockeyApp /üçüncü tərəf xidmət provayderi üçün çökmə hesabatları göndərməsinə icazə verin.</string>
+  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Proqram sizin çökmə hesabatını nəzərdən keçirə bilər. Səhvləri daha tez və asanlıqla düzəldə bilərik: Bunun üçün HockeyApp /üçüncü tərəf xidmət provayderi üçün çökmə hesabatları göndərməsinə icazə verin.</string>
   <string name="editing_error_spamblacklist">Bloklanmış domenlərə aid linklər (%s) aşkarlandı. Lütfən onları çıxarın və yenidən cəhd edin.</string>
   <string name="history_search_list_hint">Tarixçədə axtar</string>
   <string name="error_can_not_process_link">Bu linki göstərilə bilmədi</string>
@@ -186,7 +183,7 @@
   <string name="about_description">Vikipediya proqramı haqqında</string>
   <string name="privacy_policy_description">Məxfilik siyasəti</string>
   <string name="terms_of_use_description">İstifadə şərtləri</string>
-  <string name="about_wikipedia_url">https://en.m.wikipedia.org/wiki/Wikipedia:About</string>
+  <string name="about_wikipedia_url">https://az.m.wikipedia.org/wiki/Vikipediya:Haqqında</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
@@ -250,6 +247,67 @@
   <string name="alpha_update_notification_text">Yükləmək üçün vurun</string>
   <string name="dialog_close_description">Bağla</string>
   <string name="preference_title_show_images">Şəkilləri göstər</string>
+  <string name="dialog_title_download_only_over_wifi_allow">İzin ver</string>
+  <string name="read_more_section">Əlaqəli məqalələr</string>
+  <string name="about_article_section">Bu məqalə haqqında</string>
+  <string name="close_all_tabs_confirm_yes">Bəli</string>
+  <string name="close_all_tabs_confirm_no">Xeyr</string>
+  <string name="color_theme_light">İşıqlı</string>
+  <string name="color_theme_dark">Qaranlıq</string>
+  <string name="color_theme_black">Qara</string>
+  <string name="color_theme_sepia">Sepiya</string>
+  <string name="color_theme_test_title">Nümunə üçün mətn</string>
+  <string name="nav_item_reading_lists">Mənim siyahılarıım</string>
+  <string name="reading_list_save_to">Oxuma siyahısına əlavə et</string>
+  <string name="reading_list_create_new">Yenisini yarat</string>
+  <string name="reading_list_added_view_button">Siyahıya bax</string>
+  <string name="reading_list_menu_delete">Siyahını sil</string>
+  <string name="reading_list_item_delete_undo">Geri qaytar</string>
+  <string name="reading_lists_onboarding_for_example">Nümunə üçün</string>
+  <string name="reading_list_select_item">Seç</string>
+  <string name="reading_lists_confirm_remote_delete_yes">Bəli</string>
+  <string name="reading_lists_confirm_remote_delete_no">Xeyr</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_cancel">İmtina</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_login">Daxil ol</string>
+  <string name="reading_list_turned_sync_off_dialog_ok">OK</string>
+  <string name="reading_list_turned_sync_off_dialog_settings">Nizamlamalar</string>
+  <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Yox, təşəkkür</string>
   <string name="default_reading_list_name">Saxlanıldı</string>
   <string name="default_reading_list_description">Saxlanan məqalələriniz üçün standart siyahı</string>
+  <string name="reading_list_remove_list_dialog_ok_button_text">OK</string>
+  <string name="reading_list_delete_dialog_ok_button_text">OK</string>
+  <string name="reading_list_remove_from_list_dialog_cancel_button_text">İmtina</string>
+  <string name="reading_list_delete_dialog_cancel_button_text">İmtina</string>
+  <string name="reading_list_remove_from_offline_cancel_button_text">İmtina</string>
+  <string name="reading_list_download_using_mobile_data_cancel_button_text">İmtina</string>
+  <string name="reading_list_split_dialog_ok_button_text">OK</string>
+  <string name="notification_syncing_cancel_button">İmtina</string>
+  <string name="preference_title_notification_thanks">Təşəkkür</string>
+  <string name="suggested_edits_paused_message">Təklif olunan düzəlişlər %1$s-ə qədər fasilə verilir. Bağışlayın %2$s, son töhfələriniz geri qaytarıldı.</string>
+  <string name="suggested_edits_disabled_message">Təklif olunan düzəlişlər deaktiv edilmişdir. Üzr istəyirik %s, son töhfələrinizin çoxu geri qaytarıldı.</string>
+  <string name="suggested_edits_ip_blocked_message">IP adresiniz Vikipediyanı redaktə etmək üçün bloklanıb.</string>
+  <string name="suggested_edits_what_is_title">Təklif olunan düzəlişlər nədir?</string>
+  <string name="suggested_edits_what_is_text">Təklif olunan düzəlişlər Vikipediyaya kiçik, lakin həyati əhəmiyyətli töhfələr üçün imkanlar təqdim edir.</string>
+  <string name="suggested_edits_learn_more">Daha ətraflı öyrən</string>
+  <string name="suggested_edits_paused_title">Durdu</string>
+  <string name="suggested_edits_disabled_title">Bloklandı</string>
+  <string name="suggested_edits_ip_blocked_title">IP bloklandı</string>
+  <string name="suggested_edits_contribution_current_revision_text" fuzzy="true">Cari düzəliş</string>
+  <plurals name="suggested_edits_tags_diff_count_text">
+    <item quantity="one">%1$s etiket</item>
+    <item quantity="other">%1$s etiketlər</item>
+  </plurals>
+  <plurals name="suggested_edits_contribution_diff_count_text">
+    <item quantity="one">%1$s simvol</item>
+    <item quantity="other">%1$s simvollar</item>
+  </plurals>
+  <plurals name="suggested_edits_removed_contribution_label">
+    <item quantity="one">%d simvolunu sildiniz</item>
+    <item quantity="other">%d simvollerini sildiniz</item>
+  </plurals>
+  <plurals name="suggested_edits_added_contribution_label">
+    <item quantity="one">%d simvolunu əlavə etdiniz</item>
+    <item quantity="other">%d simvollarını əlavə etdiniz</item>
+  </plurals>
+  <string name="edit_type_all">Bütün töhfələr</string>
 </resources>

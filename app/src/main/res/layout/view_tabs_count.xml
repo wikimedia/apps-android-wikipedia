@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/tabs_count_text"
+        android:id="@+id/tabsCountText"
         android:layout_width="18dp"
         android:layout_height="18dp"
         android:layout_gravity="center"
@@ -15,7 +15,7 @@
         android:fontFamily="sans-serif-medium"
         android:gravity="center"
         android:textAlignment="center"
-        android:textColor="?attr/page_toolbar_icon_color"
+        android:textColor="?attr/toolbar_icon_color"
         android:textSize="12sp"
         tools:text="3" />
 </merge>

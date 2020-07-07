@@ -12,12 +12,10 @@ import org.wikipedia.feed.view.ListCardView;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.views.DefaultViewHolder;
-import org.wikipedia.views.ItemTouchHelperSwipeAdapter;
 
 import java.util.List;
 
-public class MostReadCardView extends ListCardView<MostReadListCard>
-        implements ItemTouchHelperSwipeAdapter.SwipeableView {
+public class MostReadCardView extends ListCardView<MostReadListCard> {
     private static final int EVENTS_SHOWN = 5;
     private MostReadListCard card;
     public MostReadCardView(Context context) {

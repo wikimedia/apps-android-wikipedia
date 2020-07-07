@@ -22,15 +22,10 @@
   <string name="menu_long_press_open_page">Hap</string>
   <string name="menu_long_press_open_in_new_tab">Hape në një skedë të re</string>
   <string name="menu_long_press_copy_page">Kopjo adresën e lidhjes</string>
-  <string name="menu_text_select_copy">Kopjo</string>
   <string name="menu_text_select_define">Përcaktoje</string>
-  <string name="menu_text_select_share">Shpërndaje</string>
   <string name="menu_text_select_edit_here">Redakto këtu</string>
-  <string name="nav_item_nearby">Pranë</string>
-  <string name="nearby_zoom_to_location">Afro te një vendndodhje në hartë</string>
   <string name="last_updated_text">Përditësim i fundit %s</string>
-  <string name="content_license_html">Përmbajtja është nën disponim, &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; përveç rasteve kur tregohet ndryshe</string>
-  <string name="edit_save_action_license_logged_in">Duke e ruajtur, ju pajtoheni me &lt;a href=\"%1$s\"&gt;Kushtet e Përdorimit&lt;/a&gt;, dhe e lëshoni kontributin tuaj në mënyrë të pakthyeshme nën licencën &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+    <string name="edit_save_action_license_logged_in">Duke e ruajtur, ju pajtoheni me &lt;a href=\"%1$s\"&gt;Kushtet e Përdorimit&lt;/a&gt;, dhe e lëshoni kontributin tuaj në mënyrë të pakthyeshme nën licencën &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Duke e ruajtur, ju pajtoheni me &lt;a href=\"%1$s\"&gt;Kushtet e Përdorimit&lt;/a&gt;, dhe e lëshoni kontributin tuaj në mënyrë të pakthyeshme nën licencën &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Redaktimet do t\'i atribuohen IP adresës të pajisjes tuaj. Nëse ju &lt;a href=\"https://#login\"&gt;kyçeni&lt;/a&gt;, do të keni më shumë privatësi.</string>
   <string name="preference_title_language">Gjuha e Wikipedias</string>
     <string name="langlinks_filter_hint">Kërko</string>
@@ -90,7 +85,4 @@
   <string name="error_voice_search_not_available">Na vjen keq, njohja e zërit nuk është në dispozicion.</string>
   <string name="location_service_disabled">Shërbimet e vendndodhjes janë të çaktivizuara.</string>
   <string name="enable_location_service">Aktivizo</string>
-  <string name="crash_report_dialog_dont_send_button">Kapërce</string>
-  <string name="crash_report_dialog_always_send_button">Gjithmonë dërgo</string>
-  <string name="crash_report_dialog_send_button">Dërgo</string>
 </resources>

@@ -56,23 +56,16 @@
   <string name="menu_long_press_open_page">খোলক</string>
   <string name="menu_long_press_open_in_new_tab">নতুন টেবত খোলক</string>
   <string name="menu_long_press_copy_page">লিংক ঠিকনা প্ৰতিলিপি কৰক</string>
-  <string name="menu_text_select_copy">প্ৰতিলিপি</string>
   <string name="menu_text_select_define">সংজ্ঞা</string>
-  <string name="menu_text_select_share">ভাগবতৰা কৰক</string>
-  <string name="share">শ্বেয়াৰ কৰক</string>
   <string name="on_this_day_page_share">শ্বেয়াৰ কৰক</string>
   <string name="reading_list_page_share">শ্বেয়াৰ কৰক</string>
   <string name="menu_text_select_edit_here">ইয়াত সম্পাদনা কৰক</string>
-  <string name="nav_item_nearby">কাষৰীয়া</string>
-  <string name="nearby_zoom_to_location">মানচিত্ৰত এটা অৱস্থান ডাঙৰকৈ চাওক</string>
-  <string name="nearby_osm_license">&amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;অ\'পেনস্ত্ৰীটমেপ&lt;/a&gt; অৱদানকাৰীসকল</string>
   <string name="last_updated_text">%s তাৰিখে সৰ্বশেষ আপডে\'ট</string>
   <string name="talk_page_link_text">আলোচনা পৃষ্ঠা চাওক</string>
   <string name="edit_history_link_text">সম্পাদনা ইতিহাস চাওক</string>
   <string name="map_view_link_text">এখন মানচিত্ৰত চাওক</string>
   <string name="other_languages_indication_text">আন এটা ভাষাত পঢ়ক</string>
   <string name="language_count_link_text">আন %d ভাষাত উপলব্ধ</string>
-  <string name="content_license_html">আন একো উল্লেখ নকৰিলে এই সমল &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;ৰ আওতাত উপলব্ধ</string>
   <string name="edit_save_action_license_logged_in">প্ৰকাশ কৰি আপুনি &lt;a href=\"%1$s\"&gt;ব্যৱহাৰৰ চৰ্তাৱলী&lt;/a&gt;ত সন্মতি প্ৰকাশ কৰিছে, আৰু অপৰিৱৰ্তনীয়ভাৱে আপোনাৰ বৰঙণি &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; অনুজ্ঞাপত্ৰৰ আধাৰত মুকলি কৰিছে।</string>
   <string name="edit_save_action_license_anon">সাঁচি থওঁতে আপুনি &lt;a href=\"%1$s\"&gt;ব্যৱহাৰৰ চৰ্তাৱলী&lt;/a&gt;ত সন্মতি প্ৰকাশ কৰিছে, আৰু অপৰিৱৰ্তনীয়ভাৱে আপোনাৰ বৰঙণি &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; অনুজ্ঞাপত্ৰৰ আধাৰত মুকলি কৰিছে। সম্পাদনাসমূহ আপোনাৰ সঁজুলিৰ আই পি ঠিকনাৰ লগত যুক্ত কৰা হ\'ব। আপুনি &lt;a href=\"https://#login\"&gt;লগ্‌ ইন&lt;/a&gt; কৰিলে অধিক গোপনীয়তা লাভ কৰিব।</string>
   <string name="preference_title_language">ৱিকিপিডিয়াৰ ভাষাসমূহ</string>
@@ -110,9 +103,9 @@
   <string name="reading_lists_sync_login">প্ৰৱেশ কৰক</string>
   <string name="create_account_login">প্ৰৱেশ কৰক</string>
   <string name="menu_login">প্ৰৱেশ</string>
-  <string name="login_activity_title">ৱিকিপিডিয়াত প্ৰৱেশ কৰক</string>
+  <string name="login_activity_title" fuzzy="true">ৱিকিপিডিয়াত প্ৰৱেশ কৰক</string>
   <string name="login_in_progress_dialog_message">আপুনি প্ৰৱেশ কৰিছে…</string>
-  <string name="login_success_toast">প্ৰৱেশ সফল হ\'ল!</string>
+  <string name="login_success_toast" fuzzy="true">প্ৰৱেশ সফল হ\'ল!</string>
   <string name="reset_password_title">আপোনাৰ গুপ্তশব্দ লিখক</string>
   <string name="reset_password_description">আপুনি এটা অস্থায়ী গুপ্তশব্দৰে প্ৰৱেশ কৰিছে। প্ৰৱেশ সম্পূৰ্ণ কৰিবলৈ আপুনি ইয়াত এটা নতুন গুপ্তশব্দ নিৰ্ধাৰণ কৰিব লাগিব।</string>
   <string name="reset_password_hint">নতুন গুপ্তশব্দ</string>
@@ -173,7 +166,7 @@
   <string name="preference_title_eventlogging_opt_in">ব্যৱহাৰৰ প্ৰতিবেদন পঠিয়াওক</string>
   <string name="preference_summary_eventlogging_opt_in">এপ্‌টো উন্নত কৰিবৰ বাবে আপুনি এই এপ্‌ কেনেকৈ ব্যৱহাৰ কৰে জানিবলৈ ৱিকিমিডিয়াক তথ্য সংগ্ৰহৰ অনুমতি দিয়ক</string>
   <string name="preference_title_auto_upload_crash_reports">ক্ৰেশ্ব প্ৰতিবেদন পঠিয়াওক</string>
-  <string name="preference_summary_auto_upload_crash_reports">এপ্‌টোক স্বয়ংক্ৰিয়ভাৱে তৃতীয় পক্ষৰ সেৱা প্ৰদানকাৰী HockeyAppলৈ ত্ৰুটি প্ৰতিবেদন পঠিয়াবলৈ অনুমতি দিয়ক যাতে আমি সোনকালে আপোনাৰ ত্ৰুটি পৰীক্ষা কৰি বাগ্‌ ঠিক কৰিব পাৰোঁ।</string>
+  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">এপ্‌টোক স্বয়ংক্ৰিয়ভাৱে তৃতীয় পক্ষৰ সেৱা প্ৰদানকাৰী HockeyAppলৈ ত্ৰুটি প্ৰতিবেদন পঠিয়াবলৈ অনুমতি দিয়ক যাতে আমি সোনকালে আপোনাৰ ত্ৰুটি পৰীক্ষা কৰি বাগ্‌ ঠিক কৰিব পাৰোঁ।</string>
   <string name="editing_error_spamblacklist">অৱৰুদ্ধ ডমেইনৰ সংযোগ (%s) চিনাক্ত কৰা হৈছে। অনুগ্ৰহ কৰি সেইবোৰ আঁতৰাওক আৰু পুনৰ চেষ্টা কৰক।</string>
   <string name="history_search_list_hint">ইতিহাস সন্ধান কৰক</string>
   <string name="error_can_not_process_link">এই সংযোগ দেখুৱাব পৰা নগ\'ল</string>
@@ -188,7 +181,7 @@
   <string name="about_description">ৱিকিপিডিয়া এপ্‌টোৰ বিষয়ে</string>
   <string name="privacy_policy_description">গোপনীয়তা নীতি</string>
   <string name="terms_of_use_description">ব্যৱহাৰৰ চৰ্তাৱলী</string>
-  <string name="about_wikipedia_url">https://en.m.wikipedia.org/wiki/Wikipedia:About</string>
+  <string name="about_wikipedia_url" fuzzy="true">https://en.m.wikipedia.org/wiki/Wikipedia:About</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://as.wikipedia.org/wiki/ৱিকিপিডিয়া:এটা একাউণ্ট অনুৰোধ কৰক</string>
@@ -264,16 +257,12 @@
   <string name="gallery_menu_share">শ্বেয়াৰ কৰক</string>
   <string name="gallery_share_error">ছবিখন শ্বেয়াৰ কৰিব পৰা নগ\'ল: %s</string>
   <string name="gallery_save_progress">ফাইল ডাউনল\'ড হৈ আছে...</string>
-  <string name="gallery_save_success">ফাইল সফলতাৰে সঞ্চিত হ\'ল।</string>
+  <string name="gallery_save_success" fuzzy="true">ফাইল সফলতাৰে সঞ্চিত হ\'ল।</string>
   <string name="gallery_error_video_failed">ভিডিঅ\'টো চলাব পৰা নগ\'ল।</string>
   <string name="gallery_save_image_write_permission_rationale">ছবি সাঁচিবৰ বাবে আপোনাৰ সঁজুলিৰ সংগ্ৰহস্থলত লিখাৰ অনুমতিৰ প্ৰয়োজন।</string>
   <string name="gallery_add_image_caption_in_language_button">ছবিৰ শিৰোনাম যোগ কৰক (%s)</string>
   <string name="err_cannot_save_file">ফাইল সাঁচিব পৰা নগ\'ল</string>
-  <string name="snippet_share_intro">\@Wikipedia ত \"%1$s\": %2$s</string>
   <string name="expand_refs">বহলাবলৈ টেপ্‌ কৰক</string>
-  <string name="share_snippet_button">ছবি হিচাপে শ্বেয়াৰ কৰক</string>
-  <string name="share_normal_button">পাঠ্য হিচাপে শ্বেয়াৰ কৰক</string>
-  <string name="snippet_share_preview_image_desc">ছবিৰ প্ৰাক্‌দৰ্শন কৰক</string>
   <string name="cc_logo">ক্ৰিয়েটিভ কমন্স লাইচেন্স</string>
   <string name="captcha_image">কেপ্‌চা ছবি</string>
   <string name="gallery_fair_use_license">ভাল ব্যৱহাৰ</string>
@@ -287,7 +276,6 @@
   <string name="all_tab_items_closed">সকলো টেব্‌ বন্ধ কৰা হ\'ল</string>
   <string name="tool_tip_bookmark_icon_title">পঢ়া তালিকাত যোগ দিয়ক</string>
   <string name="tool_tip_bookmark_icon_text">বুক্‌মাৰ্ক চিহ্নটো চুই কোনো প্ৰবন্ধ এক পাঠ্য তালিকাত যোগ দিয়ক</string>
-  <string name="tool_tip_share">এটা আগ্ৰহজনক তথ্য নিৰ্বাচন কৰাৰ পাছত ইয়াক আপোনাৰ পছন্দৰ নে\'টৱৰ্কত শ্বেয়াৰ কৰিবলৈ চেষ্টা কৰক!</string>
   <string name="page_view_in_browser">পৃষ্ঠাটো ব্ৰাউজাৰত চাওক</string>
   <string name="error_unknown">এটা অজ্ঞাত ত্ৰুটি হৈছে।</string>
   <string name="format_error_server_message">বাৰ্তা: \"%s\"</string>
@@ -314,10 +302,6 @@
   <string name="error_page_does_not_exist">এই নামৰ কোনো পৃষ্ঠা নাই</string>
   <string name="view_wiki_error_message_offline">ইণ্টাৰনেটৰ লগত সংযোগ কৰিব পৰা নাই</string>
   <string name="reference_title">তথ্যসূত্ৰ %s</string>
-  <string name="crash_report_dialog_title">দুঃখিত, যোৱাবাৰত এপ্লিকেচন বিধ্বস্ক হৈছিল</string>
-  <string name="crash_report_dialog_dont_send_button">এৰি যাওক</string>
-  <string name="crash_report_dialog_always_send_button">সদায়ে পঠিয়াওক</string>
-  <string name="crash_report_dialog_send_button">পঠিয়াওক</string>
   <string name="crash_report_activity_title">এপ্লিকেচন ক্ৰুতি</string>
   <string name="crash_report_relaunch_or_quit">আপুনি পুণৰাম্ভ অথবা ত্যাগ কৰিব বিচাৰিছে নেকি?</string>
   <string name="crash_report_relaunch">পুনৰাম্ভ কৰক</string>
@@ -340,8 +324,6 @@
   <string name="reading_list_save_to">পঢ়া তালিকাত সাঁচি থওক</string>
   <string name="reading_list_create_new">নতুন সৃষ্টি কৰক</string>
   <string name="reading_list_title_exists">পঢ়াৰ তালিকা \"%s\" ইতিমধ্যে বিদ্যমান।</string>
-  <string name="reading_list_added_to_named">%s-ত যোগ কৰা হৈছে।</string>
-  <string name="reading_list_already_exists">এই প্ৰবন্ধটো ইতিমধ্যে সেই তালিকাত আছে।</string>
   <string name="reading_list_added_view_button">তালিকা চাওক</string>
   <string name="format_reading_list_statistical_summary_singular">১টা প্ৰবন্ধ, %1$.2f মেগাবাইট</string>
   <string name="format_reading_list_statistical_summary_plural">%1$dটা প্ৰবন্ধ, %2$.2f মেগাবাইট</string>
@@ -450,6 +432,7 @@
   <string name="suggested_edits_image_caption_summary_title_license">অনুজ্ঞাপত্ৰ</string>
   <string name="suggested_edits_image_caption_summary_title_date">তাৰিখ</string>
   <string name="suggested_edits_feed_card_title">পৰামৰ্শকৃত সম্পাদনা</string>
+  <string name="suggested_edits_feed_card_add_description_button">প্ৰবন্ধৰ বিৱৰণ যোগ কৰক</string>
   <string name="suggested_edits_feed_card_add_translation_in_language_button">প্ৰবন্ধৰ বিৱৰণ যোগ কৰক (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">আৰম্ভ কৰক</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">ছবিৰ শিৰোনাম (%s)</string>
@@ -460,11 +443,11 @@
   <string name="suggested_edits_image_preview_dialog_licensing">অনুজ্ঞাপত্ৰ</string>
   <string name="suggested_edits_image_preview_dialog_more_info">অধিক তথ্য</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">ৱিকিমিডিয়া কমন্সৰ নথি পৃষ্ঠা</string>
-  <string name="suggested_edits_article_cta_image_caption">ছবিৰ শিৰোনাম যোগ কৰক (%s)</string>
+  <string name="suggested_edits_article_cta_image_caption">ছবিৰ শিৰোনাম যোগ কৰক</string>
+  <string name="suggested_edits_article_cta_image_caption_in_language">ছবিৰ শিৰোনাম যোগ কৰক (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">চাওক</string>
-  <string name="suggested_edits_feed_card_add_image_caption">শিৰোনাম যোগ কৰক</string>
-  <string name="suggested_edits_feed_card_translate_image_caption">শিৰোনাম যোগ কৰক (%s)</string>
-  <string name="suggested_edits_feed_card_add_description_button">প্ৰবন্ধৰ বিৱৰণ যোগ কৰক</string>
+  <string name="suggested_edits_feed_card_add_image_caption" fuzzy="true">শিৰোনাম যোগ কৰক</string>
+  <string name="suggested_edits_feed_card_translate_image_caption" fuzzy="true">শিৰোনাম যোগ কৰক (%s)</string>
   <string name="description_edit_revert_subtitle">ৱিকিপিডিয়া সম্পাদনা কৰাৰ বাবে ধন্যবাদ!</string>
   <string name="description_edit_revert_intro">আমি বুজিছোঁ যে আপুনি অশেষ চেষ্টা কৰিলে, কিন্তু এজন পৰ্যবেক্ষকে এট আপত্তি দৰ্শাইছে। আপোনাৰ সম্পাদনা বাতিল কৰাৰ সম্ভাব্য কাৰণ হ\'ব পাৰে:</string>
   <string name="description_edit_revert_reason1">আপোনাৰ অৱদানে &lt;a href=\"%1$s\"&gt;নীতিসমূহ&lt;/a&gt; অনুসৰণ কৰা নাই।</string>
@@ -472,8 +455,6 @@
   <string name="onboarding_skip">এৰি যাওক</string>
   <string name="onboarding_continue">অব্যাহত ৰাখক</string>
   <string name="onboarding_get_started">আৰম্ভ কৰক</string>
-  <string name="onboarding_create_account_contributions">আপোনাৰ বৰঙণিৰ হিচাপ ৰাখক</string>
-  <string name="onboarding_create_account_preferences">আপোনাৰ পছন্দসমূহ সাঁচি থওক</string>
   <string name="app_shortcuts_search">সন্ধান কৰক</string>
   <string name="on_this_day_card_title">আজিৰ দিনটোত</string>
   <string name="this_year">এই বছৰ</string>
@@ -511,8 +492,6 @@
   <string name="wikitext_template">সাঁচ</string>
   <string name="wikitext_reference">তথ্যসূত্ৰ</string>
   <string name="wikitext_preview_link">সংযোগ প্ৰাক্‌দৰ্শন কৰক</string>
-  <string name="main_drawer_open">খোলক</string>
-  <string name="main_drawer_close">বন্ধ কৰক</string>
   <string name="main_drawer_help">সহায়</string>
   <string name="main_drawer_login">ৱিকিপিডিয়াত প্ৰৱেশ/যোগদান কৰক</string>
   <string name="custom_date_picker_dialog_ok_button_text">বাৰু</string>

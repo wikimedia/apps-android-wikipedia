@@ -15,7 +15,7 @@ import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
-import org.wikipedia.views.CircularProgressBar.MIN_PROGRESS
+import org.wikipedia.views.CircularProgressBar.Companion.MIN_PROGRESS
 import java.util.*
 
 
@@ -40,18 +40,8 @@ object ReadingListBehaviorsUtil {
     private val scope = CoroutineScope(Dispatchers.Main)
     private val exceptionHandler = CoroutineExceptionHandler { _, exception -> L.w(exception) }
 
-    fun getListsContainPage(readingListPage: ReadingListPage): List<ReadingList> {
-        val lists = mutableListOf<ReadingList>()
-        allReadingLists.forEach { list ->
-            list.pages().forEach addToList@{ page ->
-                if (page.title() == readingListPage.title()) {
-                    lists.add(list)
-                    return@addToList
-                }
-            }
-        }
-        return lists
-    }
+    fun getListsContainPage(readingListPage: ReadingListPage) =
+            allReadingLists.filter { list -> list.pages().asSequence().any { it.title() == readingListPage.title() } }
 
     fun savePagesForOffline(activity: Activity, selectedPages: List<ReadingListPage>, callback: Callback) {
         if (Prefs.isDownloadOnlyOverWiFiEnabled() && !DeviceUtil.isOnWiFi()) {
@@ -88,15 +78,15 @@ object ReadingListBehaviorsUtil {
             return
         }
         if (showDialog) {
-            val alert = AlertDialog.Builder(activity)
-            alert.setMessage(activity.getString(R.string.reading_list_delete_confirm, readingList.title()))
-            alert.setPositiveButton(R.string.reading_list_delete_dialog_ok_button_text) { _, _ ->
-                ReadingListDbHelper.instance().deleteList(readingList)
-                ReadingListDbHelper.instance().markPagesForDeletion(readingList, readingList.pages(), false)
-                callback.onCompleted()
-            }
-            alert.setNegativeButton(R.string.reading_list_delete_dialog_cancel_button_text, null)
-            alert.create().show()
+            AlertDialog.Builder(activity)
+                    .setMessage(activity.getString(R.string.reading_list_delete_confirm, readingList.title()))
+                    .setPositiveButton(R.string.reading_list_delete_dialog_ok_button_text) { _, _ ->
+                        ReadingListDbHelper.instance().deleteList(readingList)
+                        ReadingListDbHelper.instance().markPagesForDeletion(readingList, readingList.pages(), false)
+                        callback.onCompleted() }
+                    .setNegativeButton(R.string.reading_list_delete_dialog_cancel_button_text, null)
+                    .create()
+                    .show()
         } else {
             ReadingListDbHelper.instance().deleteList(readingList)
             ReadingListDbHelper.instance().markPagesForDeletion(readingList, readingList.pages(), false)
@@ -150,59 +140,54 @@ object ReadingListBehaviorsUtil {
         if (lists == null) {
             return
         }
-        val snackbar = FeedbackUtil.makeSnackbar(
-                activity,
-                String.format(activity.getString(
-                        if (lists.size == 1) R.string.reading_list_item_deleted else R.string.reading_lists_item_deleted), page.title()),
-                FeedbackUtil.LENGTH_DEFAULT
-        )
-        snackbar.setAction(R.string.reading_list_item_delete_undo) {
-            ReadingListDbHelper.instance().addPageToLists(lists, page, true)
-            callback.onUndoDeleteClicked()
-        }
-        snackbar.show()
+        FeedbackUtil
+                .makeSnackbar(activity,
+                        activity.getString(
+                                if (lists.size == 1) R.string.reading_list_item_deleted else R.string.reading_lists_item_deleted, page.title()),
+                        FeedbackUtil.LENGTH_DEFAULT)
+                .setAction(R.string.reading_list_item_delete_undo) {
+                    ReadingListDbHelper.instance().addPageToLists(lists, page, true)
+                    callback.onUndoDeleteClicked() }
+                .show()
     }
 
     fun showDeletePagesUndoSnackbar(activity: Activity, readingList: ReadingList?, pages: List<ReadingListPage>, callback: SnackbarCallback) {
         if (readingList == null) {
             return
         }
-        val snackbar = FeedbackUtil.makeSnackbar(
-                activity,
-                String.format(activity.getString(
-                        if (pages.size == 1) R.string.reading_list_item_deleted else R.string.reading_list_items_deleted),
-                        if (pages.size == 1) pages[0].title() else pages.size),
-                FeedbackUtil.LENGTH_DEFAULT
-        )
-        snackbar.setAction(R.string.reading_list_item_delete_undo) {
-            val newPages = ArrayList<ReadingListPage>()
-            for (page in pages) {
-                newPages.add(ReadingListPage(ReadingListPage.toPageTitle(page)))
-            }
-            ReadingListDbHelper.instance().addPagesToList(readingList, newPages, true)
-            readingList.pages().addAll(newPages)
-            callback.onUndoDeleteClicked()
-        }
-        snackbar.show()
+        FeedbackUtil
+                .makeSnackbar(activity,
+                        activity.getString(
+                                if (pages.size == 1) R.string.reading_list_item_deleted else R.string.reading_list_items_deleted,
+                                if (pages.size == 1) pages[0].title() else pages.size),
+                        FeedbackUtil.LENGTH_DEFAULT)
+                .setAction(R.string.reading_list_item_delete_undo) {
+                    val newPages = ArrayList<ReadingListPage>()
+                    for (page in pages) {
+                        newPages.add(ReadingListPage(ReadingListPage.toPageTitle(page)))
+                    }
+                    ReadingListDbHelper.instance().addPagesToList(readingList, newPages, true)
+                    readingList.pages().addAll(newPages)
+                    callback.onUndoDeleteClicked() }
+                .show()
     }
 
     fun showDeleteListUndoSnackbar(activity: Activity, readingList: ReadingList?, callback: SnackbarCallback) {
         if (readingList == null) {
             return
         }
-        val snackbar = FeedbackUtil.makeSnackbar(activity, String.format(activity.getString(R.string.reading_list_deleted), readingList.title()), FeedbackUtil.LENGTH_DEFAULT)
-
-        snackbar.setAction(R.string.reading_list_item_delete_undo) {
-            val newList = ReadingListDbHelper.instance().createList(readingList.title(), readingList.description())
-            val newPages = ArrayList<ReadingListPage>()
-            for (page in readingList.pages()) {
-                newPages.add(ReadingListPage(ReadingListPage.toPageTitle(page)))
-            }
-            ReadingListDbHelper.instance().addPagesToList(newList, newPages, true)
-            callback.onUndoDeleteClicked()
-        }
-
-        snackbar.show()
+        FeedbackUtil
+                .makeSnackbar(activity, activity.getString(R.string.reading_list_deleted, readingList.title()), FeedbackUtil.LENGTH_DEFAULT)
+                .setAction(R.string.reading_list_item_delete_undo) {
+                    val newList = ReadingListDbHelper.instance().createList(readingList.title(), readingList.description())
+                    val newPages = ArrayList<ReadingListPage>()
+                    for (page in readingList.pages()) {
+                        newPages.add(ReadingListPage(ReadingListPage.toPageTitle(page)))
+                    }
+                    ReadingListDbHelper.instance().addPagesToList(newList, newPages, true)
+                    callback.onUndoDeleteClicked()
+                }
+                .show()
     }
 
     fun togglePageOffline(activity: Activity, page: ReadingListPage?, callback: Callback) {
@@ -300,10 +285,10 @@ object ReadingListBehaviorsUtil {
             return result
         }
 
-        val normalizedQuery = StringUtils.stripAccents(searchQuery)?.toLowerCase()
+        val normalizedQuery = StringUtils.stripAccents(searchQuery).toLowerCase(Locale.getDefault())
         var lastListItemIndex = 0
         lists.forEach { list ->
-            if (StringUtils.stripAccents(list.title()).toLowerCase().contains(normalizedQuery!!)) {
+            if (StringUtils.stripAccents(list.title()).toLowerCase(Locale.getDefault()).contains(normalizedQuery)) {
                 result.add(lastListItemIndex++, list)
             }
             list.pages().forEach { page ->

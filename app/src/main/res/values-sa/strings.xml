@@ -26,16 +26,11 @@
   <string name="menu_long_press_open_page">उद्घाट्यताम्</string>
   <string name="menu_long_press_open_in_new_tab">नवीनं प्लवनकुड्मलम् उद्घाटयतु</string>
   <string name="menu_long_press_copy_page">परिसन्धि-सङ्केतस्य प्रतिकृतिं करोतु</string>
-  <string name="menu_text_select_copy">प्रतिकृतिः</string>
   <string name="menu_text_select_define">परिभाष्यताम्</string>
-  <string name="menu_text_select_share">वितरतु</string>
   <string name="menu_text_select_edit_here">अत्र सम्पाद्यताम्</string>
-  <string name="nav_item_nearby">निकटे</string>
-  <string name="nearby_zoom_to_location">भूपटे स्थानं दृष्टुं सर्पकं क्रियताम्</string>
   <string name="last_updated_text">%s अन्तिमम् अद्यतनम् अभवत्</string>
   <string name="talk_page_link_text" fuzzy="true">सम्भाषणम्</string>
-  <string name="content_license_html" fuzzy="true">अन्तर्विषयः &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; इत्यत्र उपलब्धः अस्ति, अन्यथा लिखतु</string>
-  <string name="edit_save_action_license_logged_in" fuzzy="true">रक्षणेन सह, भवान्/भवती &lt;a href=\"%1$s\"&gt;उपयोगनियामानां&lt;/a&gt; समर्थनं करोति । तथा च अपरिवर्तनीयरूपेण योगदानं भवान्/भवती &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; अन्तर्गतं प्रकाशयति ।</string>
+    <string name="edit_save_action_license_logged_in" fuzzy="true">रक्षणेन सह, भवान्/भवती &lt;a href=\"%1$s\"&gt;उपयोगनियामानां&lt;/a&gt; समर्थनं करोति । तथा च अपरिवर्तनीयरूपेण योगदानं भवान्/भवती &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; अन्तर्गतं प्रकाशयति ।</string>
   <string name="edit_save_action_license_anon" fuzzy="true">रक्षणेन सह भवान्/भवती &lt;a href=\"%1$s\"&gt;उपयोगनियामानां&lt;/a&gt; समर्थनं करोति । तथा च अपरिवर्तनीयरूपेण योगदानं भवान्/भवती &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; अन्तर्गतं प्रकाशयति ।\nसम्पादनस्य कृते भवतां यन्त्रस्य सार्वसङ्केतः आधारत्वेन परिगण्यते । यदि भवान्/भवती &lt;a href=\"https://#login\"&gt;प्रविशति&lt;/a&gt;, तर्हि अधिकगोपनीयतां प्राप्नोति ।</string>
   <string name="preference_title_language" fuzzy="true">विकिपीडिया भाषा</string>
   <string name="langlinks_filter_hint">अन्विष्यताम्</string>
@@ -160,19 +155,14 @@
   <string name="gallery_error_video_failed">चलच्चित्रम् आरब्धुं न शक्तम् ।</string>
   <string name="gallery_save_image_write_permission_rationale" fuzzy="true">चित्राणि सङ्ग्रहे रक्षयितुं भवतः/भवत्याः सङ्ग्रहाकस्य अनुमतिः आवश्यकी । कृपया पुनः प्रयत्नं कृत्वा अनुमतिं ददातु ।</string>
   <string name="err_cannot_save_file">सञ्चिकारक्षणम् असफलम्</string>
-  <string name="snippet_share_intro">\@Wikipedia उपरि \"%1$s\": %2$s</string>
   <string name="expand_refs">विस्तारयितुं नुद्यताम्</string>
-  <string name="share_snippet_button">चित्ररूपेण वितरतु</string>
-  <string name="share_normal_button">पाठरूपेण वितरतु</string>
-  <string name="snippet_share_preview_image_desc">चित्रस्य प्राग्दृश्यम्</string>
   <string name="cc_logo">क्रिएटिव् कॉमन्स्-अधिकारः</string>
   <string name="captcha_image">संभेपूस्वसाट्यूप चित्रम्</string>
   <string name="gallery_fair_use_license">उचितोपयोगः</string>
   <string name="gallery_uploader_unknown">अज्ञातः उपारोहकः</string>
   <string name="menu_new_tab">नवीनं प्लवनम्</string>
   <string name="button_close_tab">प्लवनं पिदधातु</string>
-  <string name="tool_tip_share">उद्वर्णोत्तरं कमपि रोचकतथ्यं स्वेष्टजालकृतिषु वितरयितुं प्रयत्यताम् !</string>
-  <string name="page_view_in_browser">गवेषके पृष्ठं दृश्यताम्</string>
+    <string name="page_view_in_browser">गवेषके पृष्ठं दृश्यताम्</string>
   <string name="error_response_malformed">वितरकात् प्राप्तं प्रत्युत्तरं योग्यतया प्रारूपितं नास्ति ।</string>
   <string name="error_unknown">कश्चन अज्ञातः दोषः जातः ।</string>
   <string name="format_error_server_message">सन्देशः : \"%s\"</string>
@@ -182,12 +172,7 @@
   <string name="preference_title_show_link_previews">परिसन्धेः प्राग्दृश्यानि दर्श्यन्ताम्</string>
   <string name="preference_summary_show_link_previews">यदा परिसन्धौ नुद्यते, तदा लेखानां त्वरितप्राग्दृश्यं दर्श्यताम् ।</string>
   <string name="nav_item_donate">विकिपीडिया समर्थ्यताम्</string>
-  <string name="crash_report_dialog_title">क्षम्यताम्, अन्तिमसमये अनुप्रयोगः ध्वस्तः अभवत्</string>
-  <string name="crash_report_dialog_text">किं भवान्/भवती अनुप्रयोगस्य ध्वंसवृत्तान्तं HockeyApp इत्यत्र उत तृतीयपक्षप्रदात्रे प्रेषयितुम् इच्छति, येन वयं समीक्षां कृत्वा भवतः/भवत्याः ध्वंसमत्कुणं सारल्येन समीकर्तुं शक्नुम ?</string>
-  <string name="crash_report_dialog_dont_send_button">प्लवनम्</string>
-  <string name="crash_report_dialog_always_send_button">सर्वदा प्रेष्यताम्</string>
-  <string name="crash_report_dialog_send_button">प्रेषयतु</string>
-  <string name="crash_report_activity_title">आवेदने दोषः</string>
+    <string name="crash_report_activity_title">आवेदने दोषः</string>
   <string name="crash_report_relaunch_or_quit">भवान्/भवती आरब्धुम् उत त्यक्तुम् इच्छति ?</string>
   <string name="crash_report_relaunch">प्रारभ्यताम्</string>
   <string name="crash_report_quit">त्यजतु</string>

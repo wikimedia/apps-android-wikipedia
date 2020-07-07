@@ -23,16 +23,11 @@
   <string name="menu_long_press_open_page">ଖୋଲିବେ</string>
   <string name="menu_long_press_open_in_new_tab">ନୂଆ ଟ୍ୟାବରେ ଖୋଲନ୍ତୁ</string>
   <string name="menu_long_press_copy_page">ଲିଙ୍କ ଠିକଣା କପିକରନ୍ତୁ</string>
-  <string name="menu_text_select_copy">କପି</string>
   <string name="menu_text_select_define">ବଖାଣନ୍ତୁ</string>
-  <string name="menu_text_select_share">ବିତରଣ କରନ୍ତୁ</string>
   <string name="menu_text_select_edit_here">ଏଠାରେ ସମ୍ପାଦନା କରନ୍ତୁ</string>
-  <string name="nav_item_nearby">ପାଖାପାଖି</string>
-  <string name="nearby_zoom_to_location">ମ୍ୟାପରେ ଏକ ଅବସ୍ଥାନ ପାଇଁ ଜୁମ କରନ୍ତୁ</string>
   <string name="last_updated_text">%s ରେ ଶେଷଥର ଅପଡେଟ ହୋଇଥିଲା</string>
   <string name="talk_page_link_text">ଆଲୋଚନା</string>
-  <string name="content_license_html" fuzzy="true">ଅଲଗା କିଛି ଦର୍ଶିଯାଇନଥିଲେ ବିଷୟବସ୍ତୁ &lt;a class=\"external\" rel=\"nofollow\" href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;ରେ ଉପଲବ୍ଧ</string>
-  <string name="preference_title_language">ଉଇକିପିଡ଼ିଆ ଭାଷା</string>
+    <string name="preference_title_language">ଉଇକିପିଡ଼ିଆ ଭାଷା</string>
     <string name="langlinks_filter_hint">ଖୋଜନ୍ତୁ</string>
   <string name="langlinks_empty">ଏହି ପୃଷ୍ଠାଟି ଅନ୍ୟ ଭାଷାରେ ଉପଲବ୍ଧ ନାହିଁ</string>
   <string name="langlinks_no_match">ଆପଣ ଖୋଜୁଥିବା ଭାଷା ମିଳିଲା ନାହିଁ ।</string>

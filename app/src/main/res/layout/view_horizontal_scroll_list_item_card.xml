@@ -8,16 +8,15 @@
 
     <org.wikipedia.views.FaceAndColorDetectImageView
         android:id="@+id/horizontal_scroll_list_item_image"
-        style="@style/SimpleDraweeViewPlaceholder"
         android:layout_width="match_parent"
         android:layout_height="96dp"
-        android:transitionName="@string/transition_news_item"
-        app:actualImageScaleType="focusCrop" />
+        android:transitionName="@string/transition_news_item" />
 
     <TextView
         android:id="@+id/horizontal_scroll_list_item_text"
         android:layout_width="match_parent"
-        android:layout_height="112dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:layout_marginStart="16dp"
         android:layout_marginTop="13dp"
         android:layout_marginEnd="16dp"

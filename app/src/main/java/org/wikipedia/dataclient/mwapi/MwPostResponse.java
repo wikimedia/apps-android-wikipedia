@@ -2,9 +2,11 @@ package org.wikipedia.dataclient.mwapi;
 
 import androidx.annotation.Nullable;
 
+@SuppressWarnings("unused")
 public class MwPostResponse extends MwResponse {
-    @Nullable @SuppressWarnings("unused") private String options;
-    @SuppressWarnings("unused") private int success;
+    @Nullable private MwQueryPage pageinfo;
+    @Nullable private String options;
+    private int success;
 
     public boolean success(@Nullable String result) {
         return "success".equals(result);
@@ -16,6 +18,10 @@ public class MwPostResponse extends MwResponse {
 
     public int getSuccessVal() {
         return success;
+    }
+
+    @Nullable public MwQueryPage getPageInfo() {
+        return pageinfo;
     }
 }
 

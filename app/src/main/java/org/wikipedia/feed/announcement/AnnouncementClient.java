@@ -9,7 +9,6 @@ import androidx.annotation.VisibleForTesting;
 
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.auth.AccountUtil;
-import org.wikipedia.dataclient.RestService;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.feed.FeedCoordinator;
@@ -24,72 +23,37 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import retrofit2.Call;
-import retrofit2.Response;
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.schedulers.Schedulers;
+
+import static org.wikipedia.feed.announcement.Announcement.PLACEMENT_FEED;
 
 public class AnnouncementClient implements FeedClient {
     private static final String PLATFORM_CODE = "AndroidApp";
     private static final String PLATFORM_CODE_NEW = "AndroidAppV2";
 
-    @Nullable private Call<AnnouncementList> call;
+    private CompositeDisposable disposables = new CompositeDisposable();
 
     @Override
     public void request(@NonNull Context context, @NonNull WikiSite wiki, int age, @NonNull Callback cb) {
         cancel();
-        call = request(ServiceFactory.getRest(wiki));
-        call.enqueue(new CallbackAdapter(cb, true));
+        disposables.add(ServiceFactory.getRest(wiki).getAnnouncements()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(list -> FeedCoordinator.postCardsToCallback(cb, new ArrayList<>(buildCards(list.items()))), throwable -> {
+                    L.v(throwable);
+                    cb.error(throwable);
+                }));
     }
 
     @Override
     public void cancel() {
-        if (call == null) {
-            return;
-        }
-        call.cancel();
-        call = null;
+        disposables.clear();
     }
 
     @VisibleForTesting
-    @NonNull
-    Call<AnnouncementList> request(@NonNull RestService service) {
-        return service.getAnnouncements();
-    }
-
-    @VisibleForTesting
-    static class CallbackAdapter implements retrofit2.Callback<AnnouncementList> {
-        @NonNull private final Callback cb;
-        private final boolean postDelayed;
-
-        CallbackAdapter(@NonNull Callback cb, boolean postDelayed) {
-            this.cb = cb;
-            this.postDelayed = postDelayed;
-        }
-
-        @Override public void onResponse(@NonNull Call<AnnouncementList> call,
-                                         @NonNull Response<AnnouncementList> response) {
-            List<Card> cards = new ArrayList<>();
-            AnnouncementList content = response.body();
-            if (content != null) {
-                cards.addAll(buildCards(content.items()));
-            }
-            if (postDelayed) {
-                FeedCoordinator.postCardsToCallback(cb, cards);
-            } else {
-                cb.success(cards);
-            }
-        }
-
-        @Override public void onFailure(@NonNull Call<AnnouncementList> call, @NonNull Throwable caught) {
-            if (call.isCanceled()) {
-                return;
-            }
-            L.v(caught);
-            cb.error(caught);
-        }
-    }
-
-    @VisibleForTesting
-    static List<Card> buildCards(@NonNull List<Announcement> announcements) {
+    private static List<Card> buildCards(@NonNull List<Announcement> announcements) {
         List<Card> cards = new ArrayList<>();
         String country = GeoUtil.getGeoIPCountry();
         Date now = new Date();
@@ -100,7 +64,9 @@ public class AnnouncementClient implements FeedClient {
                         cards.add(new SurveyCard(announcement));
                         break;
                     case Announcement.FUNDRAISING:
-                        cards.add(new FundraisingCard(announcement));
+                        if (announcement.placement().equals(PLACEMENT_FEED)) {
+                            cards.add(new FundraisingCard(announcement));
+                        }
                         break;
                     default:
                         cards.add(new AnnouncementCard(announcement));
@@ -111,19 +77,15 @@ public class AnnouncementClient implements FeedClient {
         return cards;
     }
 
-    @VisibleForTesting
-    static boolean shouldShow(@Nullable Announcement announcement,
+    public static boolean shouldShow(@Nullable Announcement announcement,
                               @Nullable String country,
                               @NonNull Date date) {
-        if (announcement == null
-                || !(announcement.platforms().contains(PLATFORM_CODE) || announcement.platforms().contains(PLATFORM_CODE_NEW))
-                || !matchesCountryCode(announcement, country)
-                || !matchesDate(announcement, date)
-                || !matchesVersionCodes(announcement.minVersion(), announcement.maxVersion())
-                || !matchesConditions(announcement)) {
-            return false;
-        }
-        return true;
+        return announcement != null
+                && (announcement.platforms().contains(PLATFORM_CODE) || announcement.platforms().contains(PLATFORM_CODE_NEW))
+                && matchesCountryCode(announcement, country)
+                && matchesDate(announcement, date)
+                && matchesVersionCodes(announcement.minVersion(), announcement.maxVersion())
+                && matchesConditions(announcement);
     }
 
     private static boolean matchesCountryCode(@NonNull Announcement announcement, String country) {
@@ -134,10 +96,7 @@ public class AnnouncementClient implements FeedClient {
         if (TextUtils.isEmpty(country)) {
             return false;
         }
-        if (!announcement.countries().contains(country)) {
-            return false;
-        }
-        return true;
+        return announcement.countries().contains(country);
     }
 
     private static boolean matchesDate(@NonNull Announcement announcement, Date date) {
@@ -147,10 +106,7 @@ public class AnnouncementClient implements FeedClient {
         if (announcement.startTime() != null && announcement.startTime().after(date)) {
             return false;
         }
-        if (announcement.endTime() != null && announcement.endTime().before(date)) {
-            return false;
-        }
-        return true;
+        return announcement.endTime() == null || !announcement.endTime().before(date);
     }
 
     private static boolean matchesConditions(@NonNull Announcement announcement) {
@@ -160,10 +116,7 @@ public class AnnouncementClient implements FeedClient {
         if (announcement.loggedIn() != null && (announcement.loggedIn() != AccountUtil.isLoggedIn())) {
             return false;
         }
-        if (announcement.readingListSyncEnabled() != null && (announcement.readingListSyncEnabled() != Prefs.isReadingListSyncEnabled())) {
-            return false;
-        }
-        return true;
+        return announcement.readingListSyncEnabled() == null || (announcement.readingListSyncEnabled() == Prefs.isReadingListSyncEnabled());
     }
 
     private static boolean matchesVersionCodes(@Nullable String minVersion, @Nullable String maxVersion) {

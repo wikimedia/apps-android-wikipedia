@@ -5,7 +5,6 @@ import android.text.format.DateUtils;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.settings.Prefs;
-import org.wikipedia.settings.RbSwitch;
 import org.wikipedia.util.StringUtil;
 
 public class SessionFunnel extends Funnel {
@@ -17,11 +16,10 @@ public class SessionFunnel extends Funnel {
     public static final int MIN_SESSION_TIMEOUT = 1;
 
     private static final String SCHEMA_NAME = "MobileWikiAppSessions";
-    private static final int REVISION = 18948969;
+    private static final int REVISION = 19851683;
 
     private SessionData sessionData;
     private long leadSectionStartTime;
-    private long restSectionsStartTime;
 
     public SessionFunnel(WikipediaApp app) {
         super(app, SCHEMA_NAME, REVISION);
@@ -80,14 +78,6 @@ public class SessionFunnel extends Funnel {
         sessionData.addLeadLatency(System.currentTimeMillis() - leadSectionStartTime);
     }
 
-    public void restSectionsFetchStart() {
-        restSectionsStartTime = System.currentTimeMillis();
-    }
-
-    public void restSectionsFetchEnd() {
-        sessionData.addRestLatency(System.currentTimeMillis() - restSectionsStartTime);
-    }
-
     private boolean hasTimedOut() {
         return System.currentTimeMillis() - sessionData.getLastTouchTime()
                 > Prefs.getSessionTimeout() * DateUtils.MINUTE_IN_MILLIS;
@@ -104,16 +94,13 @@ public class SessionFunnel extends Funnel {
                 "fromExternal", sessionData.getPagesFromExternal(),
                 "fromHistory", sessionData.getPagesFromHistory(),
                 "fromReadingList", sessionData.getPagesFromReadingList(),
-                "fromNearby", sessionData.getPagesFromNearby(),
-                "fromDisambig", sessionData.getPagesFromDisambig(),
                 "fromBack", sessionData.getPagesFromBack(),
                 "noDescription", sessionData.getPagesWithNoDescription(),
                 "fromSuggestedEdits", sessionData.getPagesFromSuggestedEdits(),
                 "totalPages", sessionData.getTotalPages(),
-                "leadLatency", sessionData.getLeadLatency(),
-                "restLatency", sessionData.getRestLatency(),
+                "pageLoadLatency", sessionData.getLeadLatency(),
                 "languages", StringUtil.listToJsonArrayString(getApp().language().getAppLanguageCodes()),
-                "apiMode", RbSwitch.INSTANCE.isRestBaseEnabled() ? 1 : 0
+                "apiMode", 1
         );
     }
 }

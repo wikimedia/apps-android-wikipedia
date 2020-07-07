@@ -26,22 +26,22 @@ import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.FaceAndColorDetectImageView;
 import org.wikipedia.views.GoneIfEmptyTextView;
-import org.wikipedia.views.ItemTouchHelperSwipeAdapter;
+import org.wikipedia.views.ImageZoomHelper;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import io.reactivex.Observable;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.functions.Consumer;
-import io.reactivex.schedulers.Schedulers;
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.core.Observable;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.functions.Consumer;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 
-public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticleCard>
-        implements ItemTouchHelperSwipeAdapter.SwipeableView {
+public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticleCard> {
 
     @BindView(R.id.view_featured_article_card_header) CardHeaderView headerView;
     @BindView(R.id.view_featured_article_card_footer) ActionFooterView footerView;
+    @BindView(R.id.view_featured_article_card_image_container) View imageContainerView;
     @BindView(R.id.view_featured_article_card_image) FaceAndColorDetectImageView imageView;
     @BindView(R.id.view_featured_article_card_article_title) TextView articleTitleView;
     @BindView(R.id.view_featured_article_card_article_subtitle) GoneIfEmptyTextView articleSubtitleView;
@@ -53,6 +53,7 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
         super(context);
         inflate(getContext(), R.layout.view_card_featured_article, this);
         ButterKnife.bind(this);
+        ImageZoomHelper.setViewZoomable(imageView);
     }
 
     public void setCard(@NonNull FeaturedArticleCard card) {
@@ -99,7 +100,7 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
     }
 
     private void articleTitle(@NonNull String articleTitle) {
-        articleTitleView.setText(articleTitle);
+        articleTitleView.setText(StringUtil.fromHtml(articleTitle));
     }
 
     private void articleSubtitle(@Nullable String articleSubtitle) {
@@ -151,9 +152,9 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
 
     private void image(@Nullable Uri uri) {
         if (uri == null) {
-            imageView.setVisibility(GONE);
+            imageContainerView.setVisibility(GONE);
         } else {
-            imageView.setVisibility(VISIBLE);
+            imageContainerView.setVisibility(VISIBLE);
             imageView.loadImage(uri);
         }
     }
@@ -180,6 +181,13 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
                     public void onAddRequest(@Nullable ReadingListPage page) {
                         if (getCallback() != null && getCard() != null) {
                             getCallback().onAddPageToList(getCard().historyEntry(HistoryEntry.SOURCE_FEED_FEATURED));
+                        }
+                    }
+
+                    @Override
+                    public void onMoveRequest(@Nullable ReadingListPage page) {
+                        if (getCallback() != null && getCard() != null) {
+                            getCallback().onMovePageToList(page.listId(), getCard().historyEntry(HistoryEntry.SOURCE_FEED_FEATURED));
                         }
                     }
 

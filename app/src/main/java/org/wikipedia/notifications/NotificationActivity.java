@@ -59,9 +59,9 @@ import java.util.concurrent.TimeUnit;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.schedulers.Schedulers;
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 
 import static org.wikipedia.util.ResourceUtil.getThemedColor;
 
@@ -98,6 +98,8 @@ public class NotificationActivity extends BaseActivity implements NotificationIt
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notifications);
         ButterKnife.bind(this);
+
+        setNavigationBarColor(ResourceUtil.getThemedColor(this, android.R.attr.windowBackground));
 
         errorView.setRetryClickListener((v) -> beginUpdateList());
         errorView.setBackClickListener((v) -> onBackPressed());
@@ -646,11 +648,6 @@ public class NotificationActivity extends BaseActivity implements NotificationIt
         @Override
         protected String getSearchHintString() {
             return getString(R.string.notifications_search);
-        }
-
-        @Override
-        protected boolean finishActionModeIfKeyboardHiding() {
-            return true;
         }
 
         @Override

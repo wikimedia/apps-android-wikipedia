@@ -9,6 +9,7 @@
 * Geonuch
 * Horus
 * Karit
+* Korrawit
 * Nkrctp
 * Octahedron80
 * Patsagorn Y.
@@ -26,9 +27,11 @@
   <string name="search_hint_voice_search">ค้นหาโดยใช้เสียง</string>
   <string name="search_hint_search_history">ค้นหาประวัติ</string>
   <string name="search_hint_search_languages">ค้นหาภาษา</string>
-  <string name="search_hint_search_my_lists_and_articles">ค้นหารายชื่อและบทความที่บันทึกใว้</string>
+  <string name="search_hint_search_my_lists_and_articles">ค้นหารายการและบทความที่บันทึกใว้</string>
   <string name="nav_item_history">ประวัติ</string>
-  <string name="error_network_error">ไม่สามารถเชื่อมต่อเครือข่ายอินเตอร์เน็ตได้</string>
+  <string name="nav_item_suggested_edits" fuzzy="true">แนะนำการแก้ไข</string>
+  <string name="nav_item_more">เพิ่มเติม</string>
+  <string name="error_network_error">ไม่สามารถเชื่อมต่ออินเทอร์เน็ตได้</string>
   <string name="page_error_retry">ลองใหม่</string>
   <string name="card_offline_error_retry">ลองใหม่</string>
   <string name="storage_access_error_retry">ลองใหม่</string>
@@ -43,7 +46,7 @@
   <string name="notification_archive_undo">เลิกทำ</string>
   <string name="app_settings">การตั้งค่าแอป</string>
   <string name="dialog_title_clear_history">ล้างประวัติการเข้าชม</string>
-  <string name="dialog_message_clear_history">การกระทำนี้จะลบประวัติการใช้งานของคุณทั้งหมด และปิดหน้าต่างปัจจุบัน คุณแน่ใจหรือไม่?</string>
+  <string name="dialog_message_clear_history">การกระทำนี้จะลบประวัติการใช้งานของคุณทั้งหมด และปิดแท็บปัจจุบัน คุณแน่ใจหรือไม่?</string>
   <string name="dialog_message_clear_history_yes">ใช่</string>
   <string name="dialog_message_clear_history_no">ไม่</string>
   <string name="share_via">แบ่งปันผ่าน</string>
@@ -53,7 +56,7 @@
   <string name="menu_page_other_languages">เปลี่ยนภาษา</string>
   <string name="menu_page_find_in_page">ค้นหาในหน้า</string>
   <string name="edit_section_find_in_page">ค้นหาในหน้า</string>
-  <string name="menu_page_font_and_theme">แบบอักษรและธีม</string>
+  <string name="menu_page_font_and_theme">แบบอักษรและชุดตกแต่ง</string>
   <string name="menu_page_add_to_list">เพิ่มในรายการอ่าน</string>
   <string name="feed_card_add_to_list">เพิ่มในรายการอ่าน</string>
   <string name="menu_page_share">แบ่งปันลิงก์</string>
@@ -61,25 +64,19 @@
   <string name="menu_page_reading_lists">รายการอ่าน</string>
   <string name="menu_page_recently_viewed">ดูล่าสุด</string>
   <string name="menu_long_press_open_page">เปิด</string>
-  <string name="menu_long_press_open_in_new_tab">เปิดในหน้าต่างใหม่</string>
+  <string name="menu_long_press_open_in_new_tab">เปิดในแท็บใหม่</string>
   <string name="menu_long_press_copy_page">คัดลอกที่อยู่ลิงก์</string>
-  <string name="menu_text_select_copy">คัดลอก</string>
   <string name="menu_text_select_define">นิยาม</string>
-  <string name="menu_text_select_share">แบ่งปัน</string>
-  <string name="share">แบ่งปัน</string>
   <string name="on_this_day_page_share">แบ่งปัน</string>
   <string name="reading_list_page_share">แบ่งปัน</string>
   <string name="menu_text_select_edit_here">แก้ไขตรงนี้</string>
-  <string name="nav_item_nearby">ใกล้เคียง</string>
-  <string name="nearby_zoom_to_location">ขยายไปยังตำแหน่งในแผนที่</string>
-  <string name="nearby_osm_license">&amp;copy; &amp;nbsp;การมีส่วนร่วมใน&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;แผนที่ 360°&lt;/a&gt;</string>
   <string name="last_updated_text">ปรับปรุงครั้งล่าสุดเมื่อ %s</string>
   <string name="talk_page_link_text">ดูหน้าคุย</string>
   <string name="edit_history_link_text">ดูประวัติการแก้ไข</string>
   <string name="map_view_link_text">ดูบนแผนที่</string>
   <string name="other_languages_indication_text">อ่านในภาษาอื่น</string>
-  <string name="language_count_link_text">มีให้ใช้ในอีก %d ภาษา</string>
-  <string name="content_license_html">เนื้อหาอนุญาตให้เผยแพร่ภายใต้ &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; เว้นแต่ระบุไว้เป็นอย่างอื่น</string>
+  <string name="language_count_link_text">มีให้อ่านในอีก %d ภาษา</string>
+  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in">ในการเผยแพร่หน้านี้ คุณได้ยอมรับ &lt;a href=\"%1$s\"&gt;นโยบายในการใช้งาน&lt;/a&gt; และเผยแพร่สิ่งที่คุณแก้ไขอย่างถาวรภายใต้ &lt;a href=\"%2$s\"&gt;สัญญาอนุญาต CC BY-SA 3.0&lt;/a&gt;</string>
   <string name="edit_save_action_license_anon">ในการเผยแพร่หน้านี้ คุณได้ยอมรับ &lt;a href=\"%1$s\"&gt;นโยบายในการใช้งาน&lt;/a&gt; และเผยแพร่สิ่งที่คุณแก้ไขอย่างถาวรภายใต้ &lt;a href=\"%2$s\"&gt;สัญญาอนุญาต CC BY-SA 3.0&lt;/a&gt;\nการแก้ไขจะถูกส่งผ่านที่อยู่ไอพีของอุปกรณ์ของคุณ คุณจะมีความเป็นส่วนตัวมากขึ้นถ้าคุณ &lt;a href=\"https://#login\"&gt;ลงชื่อเข้าใช้&lt;/a&gt;</string>
   <string name="preference_title_language">ภาษาของวิกิพีเดีย</string>
@@ -93,7 +90,7 @@
   <string name="dialog_message_edit_failed">การแก้ไขล้มเหลว!</string>
   <string name="dialog_message_edit_failed_retry">ลองใหม่</string>
   <string name="dialog_message_edit_failed_cancel">ยกเลิก</string>
-  <string name="dialog_message_leaving_edit">การเปลี่ยนแปลงของคุณยังไม่ได้ถูกเผยแพร่ คุณแน่ใจหรือไม่ว่าต้องการออกจากหน้านี้</string>
+  <string name="dialog_message_leaving_edit">การเปลี่ยนแปลงของคุณยังไม่ได้ถูกเผยแพร่ คุณแน่ใจหรือไม่ว่าต้องการออกจากหน้านี้?</string>
   <string name="dialog_message_leaving_edit_leave">ออก</string>
   <string name="dialog_message_leaving_edit_stay">อยู่ต่อ</string>
   <string name="menu_show_toc">สารบัญ</string>
@@ -117,7 +114,7 @@
   <string name="reading_lists_sync_login">เข้าสู่ระบบ</string>
   <string name="create_account_login">เข้าสู่ระบบ</string>
   <string name="menu_login">เข้าสู่ระบบ</string>
-  <string name="login_activity_title">เข้าสู่ระบบวิกิพีเดีย</string>
+  <string name="login_activity_title">เข้าสู่ระบบ</string>
   <string name="login_in_progress_dialog_message">กำลังเข้าสู่ระบบ…</string>
   <string name="login_success_toast">เข้าสู่ระบบสำเร็จ!</string>
   <string name="reset_password_title">ตั้งรหัสผ่านของคุณ</string>
@@ -126,7 +123,7 @@
   <string name="reset_password_button">บันทึกและเข้าสู่ระบบ</string>
   <string name="preference_title_logout">ลงชื่อออก</string>
   <string name="toast_logout_complete">ออกจากระบบแล้ว</string>
-  <string name="logout_prompt">การกระทำนี้จะออกจากระบบในทุกอุปกรณ์ที่คุณเคยเช้าสู่ระบบใว้ ต้องการทำต่อหรือใหม่?</string>
+  <string name="logout_prompt">การกระทำนี้จะทำให้อุปกรณ์อื่นที่เข้าสู่ระบบไว้ออกจากระบบทั้งหมด ต้องการทำต่อหรือไม่?</string>
   <string name="logout_dialog_cancel_button_text">ยกเลิก</string>
   <string name="logged_out_in_background_title">ออกจากระบบแล้ว</string>
   <string name="logged_out_in_background_dialog">คุณเพิ่งจะออกจากระบบจากวิกิพีเดีย คุณต้องการจะเข้าสู่ระบบอีกครั้งหรือไม่?</string>
@@ -136,13 +133,13 @@
   <string name="history_empty_message">ติดตามสิ่งที่คุณได้อ่านที่นี่</string>
   <string name="history_offline_articles_toast">บางบทความในประวัติอาจดูไม่ได้ขณะออฟไลน์</string>
   <string name="search_empty_message">ค้นหาและอ่านสารานุกรมเสรีในภาษาของคุณ</string>
-  <string name="search_empty_message_multilingual_upgrade">ค้นหาวิกิพีเดียในภาษาเพิ่มเติม</string>
+  <string name="search_empty_message_multilingual_upgrade">ค้นหาวิกิพีเดียในภาษาอื่น</string>
   <string name="delete_selected_items">ลบรายการที่เลือก</string>
   <string name="wp_stylized">&lt;big&gt;วิ&lt;/big&gt;กิพีเดี&lt;big&gt;ย&lt;/big&gt;</string>
   <string name="create_account_username_hint">ชื่อผู้ใช้</string>
-  <string name="login_dont_have_account">ไม่มีบัญชีหรือ</string>
+  <string name="login_dont_have_account">ไม่มีบัญชี?</string>
   <string name="login_join_wikipedia">เข้าร่วมกับวิกิพีเดีย</string>
-  <string name="login_forgot_password">ลืมรหัสผ่านหรือ</string>
+  <string name="login_forgot_password">ลืมรหัสผ่าน</string>
   <string name="create_account_already_have">มีบัญชีแล้วใช่ไหม</string>
   <string name="create_account_activity_title">สร้างบัญชี</string>
   <string name="dialog_create_account_checking_progress">กำลังยืนยัน</string>
@@ -154,13 +151,13 @@
   <string name="create_account_password_error">รหัสผ่านไม่ถูกต้อง</string>
   <string name="create_account_generic_error">ไม่สามารถสร้างบัญชีได้</string>
   <string name="create_account_next">ถัดไป</string>
-  <string name="email_recommendation_dialog_title">สร้างผู้ใช้โดยไม่มีที่อยู่อีเมลหรือไม่?</string>
+  <string name="email_recommendation_dialog_title">สร้างบัญชีโดยไม่มีที่อยู่อีเมลหรือไม่?</string>
   <string name="email_recommendation_dialog_message">ถึงแม้ว่าจะไม่บังคับป้อนที่อยู่อีเมล แต่เรา&lt;b&gt;ขอแนะนำอย่างยิ่ง&lt;/b&gt; เนื่องจากหากคุณลืมรหัสผ่าน คุณก็สามารถใช้อีเมลเพื่อกู้คืนบัญชีได้</string>
   <string name="email_recommendation_message">แนะนำเนื่องจากจำเป็นต้องใช้ที่อยู่อีเมลเพื่อกู้คืนบัญชี</string>
   <string name="email_recommendation_dialog_create_without_email_action">ดำเนินการต่อโดยไม่มีอีเมล</string>
   <string name="email_recommendation_dialog_create_with_email_action">เพิ่มที่อยู่อีเมล</string>
   <string name="create_account_button">สร้างบัญชี</string>
-  <string name="create_account_name_unavailable">ชื่อผู้ใช้ \"%s\" ไม่พร้อมใช้งานในขณะนี้ กรุณาเลือกชื่ออื่น</string>
+  <string name="create_account_name_unavailable">ไม่สามารถใช้ชื่อผู้ใช้ \"%s\" ได้ กรุณาเลือกชื่ออื่น</string>
   <string name="create_account_ip_block_message">ขออภัย ที่อยู่ไอพีของคุณในตอนนี้ถูกบล็อคจากการสร้างบัญชีใหม่</string>
   <string name="create_account_ip_block_help_url">https://en.wikipedia.org/wiki/Help:I_have_been_blocked</string>
   <string name="create_account_ip_block_details">รายละเอียด</string>
@@ -168,40 +165,46 @@
   <string name="wikipedia_app_faq">คำถามที่พบบ่อยเกี่ยวกับแอปวิกิพีเดีย</string>
   <string name="send_feedback">ส่งคำติชมแอป</string>
   <string name="create_account_account_created_toast">สร้างบัญชีแล้ว!</string>
-  <string name="preferences_heading_syncing">กำลังรับข้อมูล</string>
+  <string name="preferences_heading_syncing">การซิงค์ข้อมูล</string>
   <string name="preferences_heading_data_usage">การใช้ข้อมูลมือถือ</string>
-  <string name="preferences_heading_experimental">ประสบการณ์</string>
-  <string name="preference_title_sync_reading_lists_from_account">กำลังรับรายการอ่านล่าสุด</string>
-  <string name="preference_title_download_reading_list_articles">บันทึกรายการอ่าน</string>
-  <string name="preference_summary_sync_reading_lists">รับข้อมูลรายการอ่านข้ามอุปกรณ์โดยการบันทึกไปที่บัญชีของคุณ</string>
-  <string name="preference_summary_sync_reading_lists_from_account">รับข้อมูลรายการอ่านข้ามอุปกรณ์โดยการบันทึกไปที่บัญชี \"%s\"</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_title">ลบการดึงข้อมูลรายชื่อบทความจาก\"%s\"หรือไม่</string>
-  <string name="preference_dialog_of_turning_off_reading_list_sync_text">การกระทำนี้จะเป็นการลบข้อมูลทั้งหมดที่ดึงมาจากการอ่านครั้งก่อน แน่ใจหรือไม่ว่าคุณต้องการจะลบรสยการเหล่านี้จากบัญชีของคุณ \"%s\"?</string>
+  <string name="preferences_heading_experimental">ทดลอง</string>
+  <string name="preference_title_sync_reading_lists_from_account">ซิงค์รายการอ่านล่าสุด</string>
+  <string name="preference_title_download_reading_list_articles">ดาวน์โหลดบทความในรายการอ่าน</string>
+  <string name="preference_summary_sync_reading_lists">ซิงค์รายการอ่านในแต่ละอุปกรณ์ด้วยการบันทึกลงในบัญชีวิกิพีเดียของคุณ</string>
+  <string name="preference_summary_sync_reading_lists_from_account">ซิงค์รายการอ่านในแต่ละอุปกรณ์ด้วยการบันทึกลงในบัญชีวิกิพีเดีย \"%s\"</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_title">ลบรายการอ่านที่ซิงค์จาก \"%s\" หรือไม่?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">การกระทำนี้จะลบรายการอ่านที่ซิงค์มาทั้งหมดออกจากที่เก็บข้อมูลระยะไกล แน่ใจหรือไม่ว่าจะลบรายการอ่านทั้งหมดออกจากบัญชีของคุณ \"%s\"?</string>
   <string name="preferences_privacy_settings_heading">ความเป็นส่วนตัว</string>
   <string name="preference_title_eventlogging_opt_in">ส่งรายงานการใช้</string>
-  <string name="preference_summary_eventlogging_opt_in">อนุญาตให้ Wikimedia เก็บข้อมูลการใช้แอพลิเคชั่นของคุณเพื่อการพัฒนาที่ดีขึ้น</string>
-  <string name="preference_title_auto_upload_crash_reports">ส่งรายงานความผิดพลาด</string>
-  <string name="preference_summary_auto_upload_crash_reports">อนุญาตให้แอพลิเคชั่นส่งรายงานความผิดพลาดไปยัง HockeyApp และผู้ให้บริการโดยอัตโนมัติ เพื่อให้เราทราบถึงปัญหาและแก้ไขข้อผิดพลาดได้เร็วขึ้น</string>
-  <string name="editing_error_spamblacklist">คุณได้เพิ่มโดเมนเว็บไซต์ต้องห้ามในรายชื่อต้องห้ามของเรา (%s) กรุณาลบมันและลองอีกครั้ง</string>
-  <string name="history_search_list_hint">ประวัติการค้นหา</string>
+  <string name="preference_summary_eventlogging_opt_in">อนุญาตให้วิกิมีเดียเก็บข้อมูลการใช้แอปของคุณเพื่อพัฒนาแอปให้ดีขึ้น</string>
+  <string name="preference_title_auto_upload_crash_reports">ส่งรายงานข้อขัดข้อง</string>
+  <string name="preference_summary_auto_upload_crash_reports">อนุญาตให้แอปส่งรายงานข้อขัดข้องไปยังบริการของบุคคลที่สามโดยอัตโนมัติ เพื่อเราจะได้ตรวจสอบและแก้ไขปัญหาได้รวดเร็วและง่ายดายยิ่งขึ้น</string>
+  <string name="editing_error_spamblacklist">ตรวจพบลิงก์ไปยังโดเมนที่ถูกปิดกั้น (%s) กรุณาลบและลองอีกครั้ง</string>
+  <string name="history_search_list_hint">ค้นหาประวัติ</string>
   <string name="error_can_not_process_link">ไม่สามารถแสดงลิงก์นี้ได้</string>
-  <string name="page_protected_autoconfirmed">หน้านี้ถูกล็อกแบบกึ่งล็อก</string>
-  <string name="page_protected_sysop">หน้านี้ถูกล็อกแบบสมบูรณ์</string>
+  <string name="page_protected_autoconfirmed">หน้านี้ถูกกึ่งป้องกัน</string>
+  <string name="page_protected_sysop">หน้านี้ถูกป้องกันสมบูรณ์</string>
   <string name="page_protected_other">หน้านี้ถูกป้องกันในระดับ: %s</string>
-  <string name="page_protected_can_not_edit">ตอนนี้คุณไม่มีสิทธิ์พอที่จะแก้ไขในตอนนี้</string>
-  <string name="page_protected_can_not_edit_anon">ขออภัย หน้านี้จำเป็นต้องเข้าสู่ระบบเพื่อแก้ไขในขณะนี้</string>
+  <string name="page_protected_can_not_edit">ขออภัย ปัจจุบันบัญชีของคุณไม่มีสิทธิ์เพียงพอที่จะแก้ไขหน้านี้</string>
+  <string name="page_protected_can_not_edit_anon">ขออภัย ปัจจุบันหน้านี้จำเป็นต้องเข้าสู่ระบบเพื่อแก้ไข</string>
   <string name="page_protected_can_not_edit_title">หน้านี้ถูกป้องกัน</string>
   <string name="settings_item_preferences">ตั้งค่า</string>
-  <string name="settings_activity_title">ตั้งค่า</string>
+  <string name="settings_activity_title">การตั้งค่า</string>
   <string name="about_description">เกี่ยวกับแอปวิกิพีเดีย</string>
   <string name="privacy_policy_description">นโยบายความเป็นส่วนตัว</string>
-  <string name="terms_of_use_description">ข้อตกลงในการใช้</string>
-  <string name="about_wikipedia_url">https://th.m.wikipedia.org/wiki/Wikipedia:About</string>
+  <string name="terms_of_use_description">ข้อกำหนดการใช้งาน</string>
+  <string name="about_wikipedia_url">https://th.wikipedia.org/wiki/วิกิพีเดีย:เกี่ยวกับ</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ?uselang=th#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ?uselang=th</string>
-  <string name="android_app_request_an_account_url">https://en.m.wikipedia.org/wiki/Special:UserLogin/signup</string>
-  <string name="about_contributors_heading">ผู้ม่ส่วนร่วม</string>
+  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
+  <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.th</string>
+  <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.th</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/th</string>
+  <string name="about_libraries_heading">ไลบรารีที่ใช้งาน</string>
+  <string name="about_contributors_heading">ผู้มีส่วนร่วม</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;เพจของทีม&lt;/a&gt;</string>
   <string name="about_translators_heading">ผู้แปล</string>
+  <string name="about_translators_translatewiki">แอปนี้แปลโดยผู้แปลอาสาสมัครจาก &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;</string>
   <string name="about_app_license_heading">สัญญาอนุญาต</string>
   <string name="about_wmf">ผลิตภัณฑ์ของ&lt;a href=\"https://wikimediafoundation.org/\"&gt;มูลนิธิวิกิมีเดีย&lt;/a&gt;</string>
   <string name="about_activity_title">เกี่ยวกับ</string>
@@ -237,14 +240,11 @@
   <string name="gallery_menu_share">แบ่งปัน</string>
   <string name="gallery_share_error">ไม่สามารถแบ่งปันรูปภาพ: %s</string>
   <string name="gallery_save_progress">กำลังดาวน์โหลดไฟล์...</string>
-  <string name="gallery_save_success">บันทึกไฟล์เสร็จสมบูรณ์</string>
+  <string name="gallery_save_success">บันทึกไฟล์แล้ว</string>
   <string name="gallery_error_video_failed">ไม่สามารถเล่นวีดีโอได้</string>
-  <string name="gallery_save_image_write_permission_rationale" fuzzy="true">ต้องการการยินยอมให้เขียนข้อมูลลงในที่จัดเก็บบนอุปกรณ์ของคุณ เพื่อบันทึกภาพ กรุณาลองอีกครั้ง และยินยอมการอนุญาต</string>
-  <string name="err_cannot_save_file">ไม่สามารถบันทึกไฟล์</string>
-  <string name="snippet_share_intro">\"%1$s\" บน @Wikipedia: %2$s</string>
+  <string name="gallery_save_image_write_permission_rationale">การบันทึกรูปภาพต้องใช้สิทธิอนุญาตให้เขียนลงในที่เก็บข้อมูลในอุปกรณ์ของคุณ</string>
+  <string name="err_cannot_save_file">ไม่สามารถบันทึกไฟล์ได้</string>
   <string name="expand_refs">แตะเพื่อขยาย</string>
-  <string name="share_snippet_button">แบ่งปันเป็นรูปภาพ</string>
-  <string name="share_normal_button">แบ่งปันเป็นข้อความ</string>
   <string name="gallery_uploader_unknown">ไม่ทราบผู้อัปโหลด</string>
   <string name="menu_new_tab">เปิดแท็บใหม่</string>
   <string name="menu_close_all_tabs">ปิดแท็บทั้งหมด</string>
@@ -266,9 +266,6 @@
   <string name="error_voice_search_not_available">ขออภัย การรับรองเสียงไม่พร้อมให้บริการ</string>
   <string name="location_service_disabled">บริการที่ตั้งถูกปิดใช้งาน</string>
   <string name="enable_location_service">เปิดใช้งาน</string>
-  <string name="crash_report_dialog_dont_send_button">ข้าม</string>
-  <string name="crash_report_dialog_always_send_button">ส่งเสมอ</string>
-  <string name="crash_report_dialog_send_button">ส่ง</string>
   <string name="crash_report_activity_title">แอพพลิเคชันเกิดข้อผิดพลาด</string>
   <string name="crash_report_quit">ออก</string>
   <string name="article_menu_bar_bookmark">เพิ่มบทความนี้ลงไปยังรายการอ่าน</string>
@@ -279,8 +276,6 @@
   <string name="reading_list_save_to">บันทึกลงในรายการอ่าน</string>
   <string name="reading_list_create_new">สร้างใหม่</string>
   <string name="reading_list_title_exists">รายการอ่าน \"%s\" มีอยู่แล้ว</string>
-  <string name="reading_list_added_to_named">เพิ่มไปยัง%s</string>
-  <string name="reading_list_already_exists">บทความนี้มีอยู่ในรายการอยู่แล้ว</string>
   <string name="reading_list_added_view_button">ดูรายการ</string>
   <string name="reading_list_sort">เรียงลำดับ</string>
   <string name="reading_list_sort_by_name">เรียงตามชื่อ</string>
@@ -301,7 +296,7 @@
   <string name="reading_list_confirm_remove_article_from_offline_message">%s จะไม่พร้อมใช้งานแบบออฟไลน์อีกต่อไปสำหรับรายการอ่านทั้งหมด:</string>
   <string name="reading_list_login_reminder_title">ซิงค์รายการอ่าน</string>
   <string name="reading_list_delete_confirm">คุณแน่ใจว่าต้องการลบ %s หรือไม่</string>
-  <string name="reading_list_preference_login_to_enable_sync_dialog_login">ลงชื่อเข้า</string>
+  <string name="reading_list_preference_login_to_enable_sync_dialog_login">เข้าสู่ระบบ</string>
   <string name="user_option_sync_label">การตั้งค่า</string>
   <string name="preference_title_notification_thanks">ขอบคุณ</string>
   <string name="view_main_page_card_title">วันนี้บนวิกิพีเดีย</string>
@@ -317,16 +312,12 @@
   <string name="description_edit_add_image_caption">เติมคำบรรยายภาพ</string>
   <string name="description_edit_success_saved_image_caption_snackbar" fuzzy="true">คำบรรยายภาพถูกพิมแล้ว</string>
   <string name="suggested_edits_translate_image_captions">แปลคำบรรยายภาพ</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_title" fuzzy="true">การแปลคำอธิบายหัวข้อได้รับการปลดล็อกแล้ว !</string>
-  <string name="suggested_edits_task_translation_title" fuzzy="true">แปลคำอธิบายหัวข้อ</string>
-  <string name="suggested_edits_task_translation_description">แปลคำอธิบายหัวข้อเป็นภาษาอื่น</string>
   <string name="suggested_edits_task_translate_caption_title">แปลคำบรรยายภาพ</string>
   <string name="suggested_edits_task_translate_caption_description">แปลคำบรรยายเป็นภาษาอื่น</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text" fuzzy="true">ล็อกไว้จนกว่าคุณจะได้แก้ไข %d คำอธิบายหัวข้อ</string>
   <string name="suggested_edits_image_caption_summary_title_artist">ศิลปิน</string>
   <string name="suggested_edits_image_caption_summary_title_author">คนเขียน</string>
   <string name="suggested_edits_image_caption_summary_title_source">จุดกำเนิด</string>
-  <string name="suggested_edits_tutorial_message">ยินดีต้อนรับสู่บ้านใหม่สำหรับการแก้ไขในแอปบนวิกิพีเดีย ที่นี่เราจะแนะนำโอกาสในการเพิ่มเนื้อหาที่อาจเป็นที่สนใจแก่คุณ การช่วยเหลือของคุณได้รับการชื่นชมมาก ขอให้มีความสุขในการแก้ไข !</string>
   <string name="onboarding_skip">ข้าม</string>
   <string name="onboarding_explore_title">วิธีใหม่ในการสำรวจ</string>
   <string name="onboarding_analytics_title">ส่งข้อมูลแบบไม่ระบุตัวตน</string>

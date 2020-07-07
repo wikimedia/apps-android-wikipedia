@@ -12,8 +12,7 @@
   <string name="menu_page_find_in_page">Hwehwɛ wɔ krataa yi mu</string>
   <string name="menu_page_share" fuzzy="true">Kyekyɛ</string>
   <string name="last_updated_text">Wo nkyerɛase %s</string>
-  <string name="content_license_html">Saa nkrataa yi nyinaa hyɛ &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ase, ɛte saa a, wɔbɛka ade foforo</string>
-  <string name="preference_title_language">Wikipedia kasa</string>
+    <string name="preference_title_language">Wikipedia kasa</string>
     <string name="langlinks_filter_hint">Hwehwɛ</string>
   <string name="langlinks_empty">Saa krataa yi nni kasa a worehwehwɛ no mu</string>
   <string name="langlinks_activity_title">Kasa ahorow</string>

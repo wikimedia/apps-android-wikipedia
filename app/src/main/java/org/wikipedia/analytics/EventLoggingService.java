@@ -4,13 +4,14 @@ import android.annotation.SuppressLint;
 import android.net.Uri;
 
 import org.json.JSONObject;
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.crash.RemoteLogException;
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory;
 import org.wikipedia.util.ReleaseUtil;
 import org.wikipedia.util.log.L;
 
-import io.reactivex.Completable;
-import io.reactivex.schedulers.Schedulers;
+import io.reactivex.rxjava3.core.Completable;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 
@@ -38,8 +39,8 @@ public final class EventLoggingService {
      */
     @SuppressLint("CheckResult")
     public void log(JSONObject event) {
-        if (!isEventLoggingEnabled()) {
-            // Do not send events if the user opted out of EventLogging
+        if (!isEventLoggingEnabled() || !WikipediaApp.getInstance().isOnline()) {
+            // Do not send events if the user opted out of EventLogging or the device is offline.
             return;
         }
 

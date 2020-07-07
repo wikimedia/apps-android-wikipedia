@@ -3,34 +3,70 @@ package org.wikipedia.views;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.text.TextUtils;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.view.ActionMode;
 
-import com.facebook.drawee.backends.pipeline.Fresco;
-import com.facebook.drawee.view.SimpleDraweeView;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.RequestBuilder;
+import com.bumptech.glide.load.MultiTransformation;
+import com.bumptech.glide.load.resource.bitmap.CenterCrop;
+import com.bumptech.glide.load.resource.bitmap.DownsampleStrategy;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 
 import org.wikipedia.R;
+import org.wikipedia.util.DimenUtil;
+import org.wikipedia.util.ResourceUtil;
+import org.wikipedia.util.WhiteBackgroundTransformation;
 
 import java.util.Locale;
 
 import static org.wikipedia.settings.Prefs.isImageDownloadEnabled;
 
 public final class ViewUtil {
-    public static void loadImageUrlInto(@NonNull SimpleDraweeView drawee, @Nullable String url) {
-        drawee.setController(Fresco.newDraweeControllerBuilder()
-                .setUri(isImageDownloadEnabled() && !TextUtils.isEmpty(url) ? Uri.parse(url) : null)
-                .setAutoPlayAnimations(true)
-                .build());
+    private static MultiTransformation<Bitmap> CENTER_CROP_ROUNDED_CORNERS = new MultiTransformation<>(new CenterCrop(), new RoundedCorners(DimenUtil.roundedDpToPx(2)));
+
+    public static void loadImageWithRoundedCorners(@NonNull ImageView view, @Nullable String url) {
+        loadImage(view, url, true, false);
+    }
+
+    public static void loadImage(@NonNull ImageView view, @Nullable String url) {
+        loadImage(view, url, false, false);
+    }
+
+    public static void loadImage(@NonNull ImageView view, @Nullable String url, boolean roundedCorners, boolean force) {
+        Drawable placeholder = getPlaceholderDrawable(view.getContext());
+        RequestBuilder<Drawable> builder = Glide.with(view)
+                .load((isImageDownloadEnabled() || force) && !TextUtils.isEmpty(url) ? Uri.parse(url) : null)
+                .placeholder(placeholder)
+                .downsample(DownsampleStrategy.CENTER_INSIDE)
+                .error(placeholder);
+        if (roundedCorners) {
+            builder = builder.transform(CENTER_CROP_ROUNDED_CORNERS);
+        }
+        builder.into(view);
+    }
+
+    public static void loadImageWithWhiteBackground(@NonNull ImageView view, @Nullable String url) {
+        Drawable placeholder = getPlaceholderDrawable(view.getContext());
+        Glide.with(view)
+                .load(!TextUtils.isEmpty(url) ? Uri.parse(url) : null)
+                .placeholder(placeholder)
+                .error(placeholder)
+                .downsample(DownsampleStrategy.CENTER_INSIDE)
+                .transform(new WhiteBackgroundTransformation())
+                .into(view);
+    }
+
+    static Drawable getPlaceholderDrawable(@NonNull Context context) {
+        return new ColorDrawable(ResourceUtil.getThemedColor(context, R.attr.material_theme_border_color));
     }
 
     public static void setCloseButtonInActionMode(@NonNull Context context, @NonNull android.view.ActionMode actionMode) {
@@ -46,51 +82,6 @@ public final class ViewUtil {
         Canvas canvas = new Canvas(returnedBitmap);
         view.draw(canvas);
         return returnedBitmap;
-    }
-
-    @Nullable public static ViewGroup parent(@NonNull View view) {
-        return view.getParent() instanceof ViewGroup ? (ViewGroup) view.getParent() : null;
-    }
-
-    public static void remove(@NonNull View view) {
-        ViewManager parent = parent(view);
-        if (parent != null) {
-            parent.removeView(view);
-        }
-    }
-
-    /** Replace the current View with a new View by copying the ID and LayoutParams (by reference). */
-    public static void replace(@NonNull View current, @NonNull View next) {
-        ViewGroup parent = parent(current);
-        if (parent == null || parent(next) != null) {
-            String msg = "Parent of current View must be nonnull; parent of next View must be null.";
-            throw new IllegalStateException(msg);
-        }
-
-        next.setId(current.getId());
-        next.setLayoutParams(current.getLayoutParams());
-
-        int index = parent.indexOfChild(current);
-        remove(current);
-        parent.addView(next, index);
-    }
-
-    public static void finishActionModeWhenTappingOnView(@NonNull View view, @Nullable ActionMode actionMode) {
-        view.setOnTouchListener((v, event) -> {
-            switch (event.getActionMasked()) {
-                case MotionEvent.ACTION_DOWN:
-                    if (actionMode != null) {
-                        actionMode.finish();
-                    }
-                    break;
-                case MotionEvent.ACTION_UP:
-                    v.performClick();
-                    break;
-                default:
-                    break;
-            }
-            return false;
-        });
     }
 
     public static void formatLangButton(@NonNull TextView langButton, @NonNull String langCode,

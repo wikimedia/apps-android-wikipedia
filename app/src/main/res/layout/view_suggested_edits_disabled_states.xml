@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/disabledStateClickArea"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:background="?attr/selectableItemBackground"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:contentDescription="@null"
+        android:layout_marginBottom="16dp" />
+
+    <TextView
+        android:id="@+id/messageTitleView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="?attr/material_theme_primary_color"
+        android:lineSpacingExtra="8sp"
+        android:layout_marginBottom="12dp"/>
+
+    <TextView
+        android:id="@+id/messageTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="?attr/material_theme_secondary_color"
+        android:lineSpacingExtra="8sp"
+        android:layout_marginBottom="12dp"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/actionButton"
+        style="@style/FlatButton.Small"
+        app:icon="@drawable/ic_open_in_new_black_24px"
+        app:iconSize="20dp"
+        app:iconTint="?attr/colorAccent"/>
+
+</LinearLayout>

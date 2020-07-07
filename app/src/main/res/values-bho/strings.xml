@@ -13,6 +13,7 @@
   <string name="page_tabs_back">पाछे</string>
   <string name="nav_item_forward">आगे</string>
   <string name="search_hint">विकिपीडिया में खोजीं</string>
+  <string name="search_hint_voice_search">आवाज इनपुट से खोज करीं</string>
   <string name="search_hint_search_history">खोज इतिहास</string>
   <string name="search_hint_search_languages">भाषा खोजल जाय</string>
   <string name="search_hint_search_my_lists_and_articles">हमार लिस्ट आ लेख में खोजीं</string>
@@ -52,23 +53,16 @@
   <string name="menu_long_press_open_page">खोलीं</string>
   <string name="menu_long_press_open_in_new_tab">नया टैब में खोलीं</string>
   <string name="menu_long_press_copy_page">कड़ी के पता कॉपी करीं</string>
-  <string name="menu_text_select_copy">कॉपी</string>
   <string name="menu_text_select_define">परिभाषित करीं</string>
-  <string name="menu_text_select_share">साझा करीं</string>
-  <string name="share">साझा करीं</string>
   <string name="on_this_day_page_share">साझा करीं</string>
   <string name="reading_list_page_share">साझा करीं</string>
   <string name="menu_text_select_edit_here">संपादन इहाँ करीं</string>
-  <string name="nav_item_nearby">आसपास</string>
-  <string name="nearby_zoom_to_location">नक्सा के कौनों जगह पर जूम करीं</string>
-  <string name="nearby_osm_license">&amp;copy; &amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;ओपनस्ट्रीटमैप&lt;/a&gt; योगदान</string>
   <string name="last_updated_text">%s पर अंतिम अपडेट भइल रहल</string>
   <string name="talk_page_link_text">बातचीत पन्ना देखीं</string>
   <string name="edit_history_link_text">संपादन इतिहास देखीं</string>
   <string name="map_view_link_text">नक्सा पर देखीं</string>
   <string name="other_languages_indication_text">दुसरी भाषा में पढ़ीं</string>
   <string name="language_count_link_text">अउरी %d भाषा में मौजूद</string>
-  <string name="content_license_html">सामग्री &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; के तहत उपलब्ध बा अगर कुछ अन्य जानकारी न बतावल गइल होखे</string>
   <string name="edit_save_action_license_logged_in">प्रकाशित करे के मतलब बा की आप &lt;a href=\"%1$s\"&gt;इस्तेमाल के शर्त&lt;/a&gt; से सनमत बानी, &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; लाइसेंस के तहत आपन योगदान रिलीज करत बानी, ई रिलीज वापस ना लिहल जा सके ला।</string>
   <string name="edit_save_action_license_anon">प्रकाशित करे के मतलब बा, आप &lt;a href=\"%1$s\"&gt;इस्तेमाल के शर्त&lt;/a&gt; से सनमत बानी, आ आपन योगदान &lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt; लाइसेंस के तहत रिलीज करत बानी, ई रिलीज वापस ना लिहल जा सकत बा। संपादन के श्रेय आपके डिवाइस के आइपी के दिहल जाई। अगर आप &lt;a href=\"https://#login\"&gt;खाता में प्रवेश&lt;/a&gt; करत बानी तब ढेर प्राइवेसी रही।</string>
   <string name="preference_title_language">विकिपीडिया भाषासभ</string>
@@ -106,9 +100,9 @@
   <string name="reading_lists_sync_login">लॉग इन</string>
   <string name="create_account_login">लॉग इन</string>
   <string name="menu_login">खाता में प्रवेश</string>
-  <string name="login_activity_title">विकिपीडिया पर खाता में प्रवेश करीं</string>
+  <string name="login_activity_title" fuzzy="true">विकिपीडिया पर खाता में प्रवेश करीं</string>
   <string name="login_in_progress_dialog_message">रउवाँ के खाता में प्रवेश करावल जा रहल बा...</string>
-  <string name="login_success_toast">खाता में प्रवेश सफल भइल!</string>
+  <string name="login_success_toast" fuzzy="true">खाता में प्रवेश सफल भइल!</string>
   <string name="reset_password_title">आपन पासवर्ड सेट करीं</string>
   <string name="reset_password_description">आप टंपरौरी पासवर्ड से लॉग इन बाड़ीं। लॉग इन पूरा करे खाती हेइजा नाया पासवर्ड सेट करीं।</string>
   <string name="reset_password_hint">नाया पासवर्ड</string>
@@ -165,11 +159,12 @@
   <string name="preference_summary_sync_reading_lists">अलग-अलग डिवाइस सभ पर के रीडिंग लिस्ट सभ के अपना विकिपीडिया खाता में सहेज के सिंक करीं</string>
   <string name="preference_summary_sync_reading_lists_from_account">अलग-अलग डिवाइस सभ पर के रीडिंग लिस्ट सभ के अपना विकिपीडिया खाता \"%s\" में सहेज के सिंक करीं</string>
   <string name="preference_dialog_of_turning_off_reading_list_sync_title">\"%s\" से सिंक कइल पढ़ाई लिस्ट हटावल जाय?</string>
+  <string name="preference_dialog_of_turning_off_reading_list_sync_text">ई सगरी पहिले के सिंक भइल रीडिंग लिस्ट के दूर मौजूद स्टोरेज से डिलीट कइ देई। राउर खाता \"%s\" से साथे सिंक सगरी लिस्ट हटावल जाय?</string>
   <string name="preferences_privacy_settings_heading">प्राइवेसी</string>
   <string name="preference_title_eventlogging_opt_in">इस्तेमाल के रपट भेजीं</string>
   <string name="preference_summary_eventlogging_opt_in">आप एह एप के कइसे इस्तेमाल करीं ले एकरे बारे में जानकारी एकट्ठा करे खातिर विकिमीडिया के अनुमती देईं जवना से एप के अउरी बेहतर बनावल जा सके</string>
   <string name="preference_title_auto_upload_crash_reports">क्रैश रपट भेजीं</string>
-  <string name="preference_summary_auto_upload_crash_reports">क्रैश रपट सभ के ऑटोमेटिक रूप से HockeyApp / एगो तीसरहा पार्टी के सर्विस प्रदाता, के भेजे के अनुमती देईं जवना से हमनी के राउर क्रैश के समीक्षा क सकीं जा आ बग के जल्दी से आ सहजता से फिक्स कइल जा सके।</string>
+  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">क्रैश रपट सभ के ऑटोमेटिक रूप से HockeyApp / एगो तीसरहा पार्टी के सर्विस प्रदाता, के भेजे के अनुमती देईं जवना से हमनी के राउर क्रैश के समीक्षा क सकीं जा आ बग के जल्दी से आ सहजता से फिक्स कइल जा सके।</string>
   <string name="editing_error_spamblacklist">ब्लॉक डोमेन (%s) से जुड़ल कड़ी मिलल बा। इनहन के हटाईं आ दोबारा कोसिस करीं।</string>
   <string name="history_search_list_hint">खोज इतिहास</string>
   <string name="error_can_not_process_link">ई कड़ी ना देखावल जा सकल</string>
@@ -184,7 +179,7 @@
   <string name="about_description">विकिपीडिया एप के बारे में</string>
   <string name="privacy_policy_description">गोपनीयता नीति</string>
   <string name="terms_of_use_description">उपयोग के शर्त</string>
-  <string name="about_wikipedia_url">https://bh.m.wikipedia.org/wiki/विकिपीडिया:बारे में</string>
+  <string name="about_wikipedia_url" fuzzy="true">https://bh.m.wikipedia.org/wiki/विकिपीडिया:बारे में</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
@@ -219,6 +214,7 @@
   <string name="edit_summary_tag_other">अन्य</string>
   <string name="edit_summary_tag_other_hint">अउरो कौनों तरीका से आप एह पन्ना के बेहतर बनवलीं</string>
   <string name="edit_conflict_title">संपादन अंतर्बिरोध</string>
+  <string name="edit_conflict_message">एह पन्ना पर पहिलहीं कौनों दूसर प्रयोगकर्ता द्वारा बदलाव कइल गइल बा, ई राउर संपादन के साथे कान्फ्लिक्ट करत बा। आपन संपादन कॉपी करीं, वापिस लवट के पन्ना रिफ्रेश करीं, तब दोबारा कोसिस करीं।</string>
   <string name="find_next">अगिला खोजीं</string>
   <string name="find_previous">पछिला खोजीं</string>
   <string name="find_first_occurence">ई पहिला बदलाव परिणाम बा</string>
@@ -244,6 +240,8 @@
   <string name="alpha_update_notification_text">डाउनलोड करे खातिर टैप करीं</string>
   <string name="dialog_close_description">बंद करीं</string>
   <string name="preference_title_show_images">चित्र देखीं</string>
+  <string name="preference_title_download_only_over_wifi">खाली भर वाइ-फाई पर डाउनलोड करीं</string>
+  <string name="dialog_title_download_only_over_wifi">मोबाइल डेटा के इस्तेमाल से डाउनलोड कन्फर्म करीं?</string>
   <string name="dialog_title_download_only_over_wifi_allow">एलाऊ करीं</string>
   <string name="read_more_section">अउरी पढ़ीं</string>
   <string name="about_article_section">एह लेख के बारे में</string>
@@ -253,16 +251,12 @@
   <string name="gallery_menu_share">साझा करीं</string>
   <string name="gallery_share_error">चित्र %s शेयर ना हो पावल</string>
   <string name="gallery_save_progress">फाइल डाउनलोड होता...</string>
-  <string name="gallery_save_success">फाइल सहेजल सफल।</string>
+  <string name="gallery_save_success" fuzzy="true">फाइल सहेजल सफल।</string>
   <string name="gallery_error_video_failed">बीडियो प्ले ना हो पावल।</string>
   <string name="gallery_save_image_write_permission_rationale">इमेज सहेजे खाती आपके डिवाइस पर राइट करे के परमीशन चाहीं।</string>
   <string name="gallery_add_image_caption_in_language_button">फोटो कैप्शन (%s) जोड़ीं</string>
   <string name="err_cannot_save_file">फाइल ना सहेजा पाई</string>
-  <string name="snippet_share_intro">\"%1$s\" on @Wikipedia: %2$s</string>
   <string name="expand_refs">बड़ करे खाती टैप करीं</string>
-  <string name="share_snippet_button">इमेज के रूप में साझा करीं</string>
-  <string name="share_normal_button">पाठ के रूप में साझा करीं</string>
-  <string name="snippet_share_preview_image_desc">इमेज के झलक</string>
   <string name="cc_logo">क्रिएटिव कॉमंस लाइसेंस</string>
   <string name="captcha_image">कैप्चा फोटो</string>
   <string name="gallery_fair_use_license">उचित उपयोग</string>
@@ -278,6 +272,36 @@
   <string name="tab_item_closed">%s बंद भइल।</string>
   <string name="all_tab_items_closed">सगरी टैब बंद भइलें।</string>
   <string name="tool_tip_bookmark_icon_title">पढ़ाई सूची में जोड़ीं</string>
-  <string name="onboarding_create_account_contributions">आपन योगदान के निगरानी रखीं</string>
-  <string name="onboarding_create_account_preferences">आपन पसंदसेटिंग सहेजीं</string>
+  <string name="page_view_in_browser">पन्ना के ब्राउजर में देखल जाय</string>
+  <string name="tool_tip_toc_title">बिसयसूची ले तुरंत पहुँच</string>
+  <string name="error_unknown">कौनों नामालुम खारबी हो गइल।</string>
+  <string name="format_error_server_message">सनेसा: \"%s\"</string>
+  <string name="address_copied">पता के क्लिपबोर्ड में कॉपी कइल गइल।</string>
+  <string name="text_copied">पाठ के क्लिपबोर्ड पर कॉपी कइल गइल।</string>
+  <string name="button_continue_to_article">लेख पढ़ल जाय</string>
+  <string name="button_continue_to_disambiguation">अइसने अउरी पन्ना देखल जाय</string>
+  <string name="button_add_to_reading_list">पढ़ाई सूची में जोड़ीं</string>
+  <string name="page_offline_notice_cannot_load_while_offline">ऑफलाइन रहले पर लेख ना लोड हो पाई।</string>
+  <string name="preference_title_collapse_tables">सारणी सभ के बंद करीं</string>
+  <string name="nav_item_donate">विकिपीडिया के सपोर्ट करीं</string>
+  <string name="error_voice_search_not_available">सॉरी, आवाज पहिचानल उपलब्ध नइखे।</string>
+  <string name="location_service_disabled">लोकेशन सुबिधा सभ बंद बाटे।</string>
+  <string name="enable_location_service">चालू करीं</string>
+  <string name="location_permissions_enable_action">चालू करीं</string>
+  <string name="view_link_preview_error_button_dismiss">रद्द करीं</string>
+  <string name="error_page_does_not_exist">ई पन्ना मौजूद नइखे।</string>
+  <string name="view_wiki_error_message_offline">इंटरनेट से कनेक्शन नइखे हो पावत।</string>
+  <string name="crash_report_activity_title">एप्लीकेशन खराबी</string>
+  <string name="crash_report_quit">छोड़ के हटीं</string>
+  <string name="article_menu_bar_bookmark">एह लेख के पढ़ाई सूची में जोड़ीं</string>
+  <string name="article_menu_bar_share">लेख के लिंक शेयर करीं</string>
+  <string name="article_header_edit_hint">संपादन...</string>
+  <string name="article_header_edit_description">लेख के बिबरन संपादित करीं</string>
+  <string name="article_header_edit_lead_section">भूमिका संपादित करीं</string>
+  <string name="color_theme_select">थीम</string>
+  <string name="color_theme_light">लाइट</string>
+  <string name="color_theme_dark">डार्क</string>
+  <string name="color_theme_black">पाछे</string>
+  <string name="color_theme_sepia">सीपिया</string>
+  <string name="color_theme_test_title">सिंपल पाठ</string>
 </resources>

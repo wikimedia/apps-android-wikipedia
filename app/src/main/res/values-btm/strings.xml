@@ -35,21 +35,15 @@
   <string name="menu_long_press_open_page">Bukak</string>
   <string name="menu_long_press_open_in_new_tab">Bukak i tab baru</string>
   <string name="menu_long_press_copy_page">Salin alaman pranala</string>
-  <string name="menu_text_select_copy">Salin</string>
   <string name="menu_text_select_define">Artion</string>
-  <string name="menu_text_select_share">Bagion</string>
   <string name="menu_text_select_edit_here">Edit ison</string>
-  <string name="nav_item_nearby">Sakitar</string>
-  <string name="nearby_zoom_to_location">Pajodang tu lokasi i peta</string>
-  <string name="nearby_osm_license">&amp;copy; &amp;nbsp;kontributor&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt;</string>
   <string name="last_updated_text">Parpudi ipature %s</string>
   <string name="talk_page_link_text">Ligin alaman parkobaran</string>
   <string name="edit_history_link_text">Ligin riwayat tulisan</string>
   <string name="map_view_link_text">Ligin i peta</string>
   <string name="other_languages_indication_text">Baca i saro nalain</string>
   <string name="language_count_link_text">Tarsadio i %d saro nalain</string>
-  <string name="content_license_html">Isi tarsadio itoru &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; salain dot naidokon nalain</string>
-  <string name="edit_save_action_license_logged_in" fuzzy="true">Dohot manyimpan, amu mangoloi tu &lt;a href=\"%1$s\"&gt;Katontuan pamakean&lt;/a&gt;, dot palua naibaenmuyu itoru lisensi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
+    <string name="edit_save_action_license_logged_in" fuzzy="true">Dohot manyimpan, amu mangoloi tu &lt;a href=\"%1$s\"&gt;Katontuan pamakean&lt;/a&gt;, dot palua naibaenmuyu itoru lisensi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon" fuzzy="true">Dohot manyimpan, Amu olo tu &lt;a href=\"%1$s\"&gt;Katontuan Panggunaan&lt;/a&gt;, dot palua kontribusi Muyu i toru lisensi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Suntingan angkan isambungkon tu alamat IP perangkat. Molo Amu &lt;a href=\"https://#login\"&gt;masuk log&lt;/a&gt;, Amu nangkan puna lobi privasi.</string>
   <string name="preference_title_language">Saro-saro Wikipedia</string>
   <string name="langlinks_filter_hint">Jalaki</string>

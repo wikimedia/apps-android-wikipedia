@@ -13,8 +13,6 @@
     -->
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <!-- HockeyApp places a maxSdkVersion on the WRITE_EXTERNAL_STORAGE permission,
-     therefore we need to replace it with our own tag with no version restrictions. -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" tools:node="replace" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
@@ -34,11 +32,6 @@
     <!-- For being able to receive notifications upon boot -->
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
-    <!-- For Nearby feature -->
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-feature android:name="android.hardware.location" android:required="false" />
-    <uses-feature android:name="android.hardware.location.gps" android:required="false" />
-    <uses-feature android:name="android.hardware.location.network" android:required="false" />
     <uses-feature android:name="android.hardware.wifi" tools:node="replace" android:required="false"  />
 
     <!-- For keeping the device awake while performing background tasks, such as syncing offline articles. -->
@@ -68,14 +61,11 @@
         Set "value" to "Google Play" for Google Play Store.
         -->
         <meta-data android:name="@string/preference_key_app_channel" android:value="@string/channel" />
-        <meta-data android:name="net.hockeyapp.android.appIdentifier"
-            android:value="@string/hockeyapp_app_id" />
 
         <activity
             android:name=".main.MainActivity"
             android:windowSoftInputMode="adjustResize"
-            android:theme="@style/AppTheme.Splash"
-            android:launchMode="singleTask">
+            android:theme="@style/AppTheme.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -142,8 +132,8 @@
         <activity
             android:name=".suggestededits.SuggestedEditsCardsActivity"
             android:launchMode="singleTask"
-            android:theme="@style/AppTheme.ActionBar.SuggestedEdits"
-            android:parentActivityName=".suggestededits.SuggestedEditsTasksActivity"/>
+            android:windowSoftInputMode="adjustPan"
+            android:theme="@style/AppTheme.ActionBar.NoElevation" />
         <activity
             android:name=".edit.EditSectionActivity"
             android:theme="@style/AppTheme.ActionBar.Page"
@@ -152,19 +142,19 @@
         <activity
             android:name=".login.LoginActivity"
             android:label="@string/login_activity_title"
-            android:theme="@style/AppTheme.ActionBar"
+            android:theme="@style/AppTheme.ActionBar.LargeTextToolbar"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
         <activity
             android:name=".createaccount.CreateAccountActivity"
-            android:theme="@style/AppTheme.ActionBar"
+            android:theme="@style/AppTheme.ActionBar.LargeTextToolbar"
             android:label="@string/create_account_activity_title"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
         <activity
             android:name=".login.ResetPasswordActivity"
             android:label="@string/reset_password_title"
-            android:theme="@style/AppTheme.ActionBar"
+            android:theme="@style/AppTheme.ActionBar.LargeTextToolbar"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
         <activity
@@ -247,12 +237,26 @@
             android:name=".page.tabs.TabActivity"
             android:theme="@style/AppTheme" />
 
-        <activity android:name=".onboarding.SuggestedEditsOnboardingActivity" />
+        <activity android:name=".suggestededits.SuggestedEditsImageTagsOnboardingActivity" />
+
+        <activity
+            android:name=".suggestededits.SuggestedEditsFeedCardImageTagActivity"
+            android:theme="@style/AppTheme.ActionBar.NoElevation" />
 
         <activity
             android:name=".suggestededits.SuggestedEditsContributionsActivity"
-            android:label="@string/suggested_edits_my_contributions"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
+            android:label=""
             android:theme="@style/AppTheme.ActionBar" />
+
+        <activity
+            android:name=".suggestededits.SuggestedEditsContributionDetailsActivity"
+            android:theme="@style/AppTheme.Page" />
+
+         <activity
+            android:name=".commons.FilePageActivity"
+            android:label=""
+            android:theme="@style/AppTheme.ActionBar.NoElevation"/>
 
         <provider
             android:authorities="${applicationId}"
@@ -300,19 +304,6 @@
             <meta-data
                 android:name="android.appwidget.provider"
                 android:resource="@xml/widget_featured_page" />
-        </receiver>
-
-        <!--
-        This is a receiver that receives an intent from the Play Store app upon first launch
-        after the app is installed, if the original link that led the user to the Play Store
-        for installing the app contained a "referrer" query parameter. This is why the receiver
-        needs to be exported.
-        -->
-        <receiver android:name=".analytics.InstallReceiver">
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-                <action android:name="com.android.vending.INSTALL_REFERRER" />
-            </intent-filter>
         </receiver>
 
         <receiver android:name=".notifications.NotificationPollBroadcastReceiver">

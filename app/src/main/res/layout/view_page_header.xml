@@ -8,18 +8,15 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true">
 
         <org.wikipedia.views.FaceAndColorDetectImageView
             android:id="@+id/view_page_header_image"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:contentDescription="@null"
-            app:actualImageScaleType="focusCrop"
-            app:backgroundImage="?android:colorBackground"
-            app:failureImage="?lead_image_drawable"
-            app:failureImageScaleType="centerCrop"
-            app:placeholderImageScaleType="centerCrop" />
+            android:background="?android:colorBackground" />
 
         <View
             android:id="@+id/view_page_header_image_gradient_top"
@@ -36,6 +33,7 @@
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_gravity="bottom"
+            android:focusable="true"
             android:background="?attr/selectableItemBackground"
             android:gravity="center_vertical"
             android:paddingStart="12dp"

@@ -5,6 +5,7 @@
 * Envlh
 * Gorgich
 * Liashko
+* Maksim L.
 * Mechanizatar
 * SimondR
 * Unomano
@@ -40,16 +41,10 @@
   <string name="menu_long_press_open_page">Адкрыць</string>
   <string name="menu_long_press_open_in_new_tab">Адкрыць у новай укладцы</string>
   <string name="menu_long_press_copy_page">Скапіяваць адрас спасылкі</string>
-  <string name="menu_text_select_copy">Капіраваць</string>
   <string name="menu_text_select_define">Вызначыць</string>
-  <string name="menu_text_select_share">Падзяліцца</string>
   <string name="menu_text_select_edit_here">Правіць тут</string>
-  <string name="nav_item_nearby">Паблізу</string>
-  <string name="nearby_zoom_to_location">Пазначыць месцазнаходжанне на карце</string>
-  <string name="nearby_osm_license">&amp;copy; &amp;nbsp;Удзельнікі &lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt;</string>
   <string name="last_updated_text">Апошняе абнаўленне %s</string>
   <string name="talk_page_link_text" fuzzy="true">Размовы</string>
-  <string name="content_license_html">Змесціва даступна ў адпаведнасці з &lt;a class=\"external\" rel=\"nofollow\" href=\"%1$s\"&gt;CC-BY-SA 3.0&lt;/a&gt;, калі не пазначана іншае</string>
   <string name="edit_save_action_license_logged_in" fuzzy="true">Захоўваючы змены, вы згаджаецеся з &lt;a href=\"%1$s\"&gt;Ўмовамі выкарыстання&lt;/a&gt;, а таксама згаджаецеся на няадзыўныя публікацыю па ліцэнзіі &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon" fuzzy="true">Захоўваючы змены, вы згаджаецеся з &lt;a href=\"%1$s\"&gt;умовамі выкарыстання&lt;/a&gt;, а таксама згаджаецеся на няадзыўную публікацыю па ліцэнзіі &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Праўкі будуць прывязаныя ў IP-адрасу вашай прылады. Калі Вы &lt;a href=\"https://#login\"&gt;аўтарызуйцеся&lt;/a&gt;, то зможаце атрымаць больш высокі ўзровень прыватнасці.</string>
   <string name="preference_title_language" fuzzy="true">Мова Вікіпедыі</string>
@@ -80,9 +75,9 @@
   <string name="login_2fa_hint">Код двухфактарнай аўтэнтыфікацыі</string>
   <string name="login_2fa_other_workflow_error_msg">Патрабуецца двухфакторная аўтэнтыфікацыя! Калі ласка, вярніцеся да асноўнай дзейнасці і ўвайсці ў сістэму з дапамогай вашага 2FA-токена, а затым паўтарыце спробу.</string>
   <string name="menu_login">Увайсці</string>
-  <string name="login_activity_title">Увайсці ў Вікіпедыю</string>
+  <string name="login_activity_title" fuzzy="true">Увайсці ў Вікіпедыю</string>
   <string name="login_in_progress_dialog_message">Уваход у сістэму…</string>
-  <string name="login_success_toast">Паспяховы ўваход у сістэму!</string>
+  <string name="login_success_toast" fuzzy="true">Паспяховы ўваход у сістэму!</string>
   <string name="preference_title_logout">Выйсці</string>
   <string name="toast_logout_complete">Вы выйшлі</string>
   <string name="history_empty_title">Няма нядаўна прагледжаных артыкулаў</string>
@@ -102,7 +97,7 @@
   <string name="create_account_passwords_mismatch_error">Паролі не супадаюць</string>
   <string name="create_account_email_error">Няслушны адрас электроннай пошты</string>
   <string name="create_account_username_error">Недапушчальныя сімвалы ў імені ўдзельніка</string>
-  <string name="create_account_password_error">Некарэктны пароль</string>
+  <string name="create_account_password_error">Недапушчальны пароль</string>
   <string name="create_account_generic_error">Немагчыма стварыць рахунак</string>
   <string name="create_account_next">Далей</string>
   <string name="create_account_button">Стварыць уліковы запіс</string>
@@ -115,7 +110,7 @@
   <string name="preference_title_eventlogging_opt_in">Адпраўляць справаздачы аб выкарыстанні</string>
   <string name="preference_summary_eventlogging_opt_in">Дазвольце Вікімэдыі збіраць інфармацыю аб тым, як вы выкарыстоўваеце прыкладанне, каб зрабіць дадатак лепш</string>
   <string name="preference_title_auto_upload_crash_reports">Дасылаць справаздачы аб збоях</string>
-  <string name="preference_summary_auto_upload_crash_reports">Дазволіць Вікімедыя збіраць інфармацыю пра тое, як Вы выкарыстоўваеце дадатак. Гэта дазволіць зрабіць яго лепш.</string>
+  <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Дазволіць Вікімедыя збіраць інфармацыю пра тое, як Вы выкарыстоўваеце дадатак. Гэта дазволіць зрабіць яго лепш.</string>
   <string name="editing_error_spamblacklist">Выяўленыя спасылкі на заблакаваныя дамены (%s). Калі ласка, выдаліце іх і паспрабуйце зноў.</string>
   <string name="history_search_list_hint">Гісторыя пошуку</string>
   <string name="error_can_not_process_link">Не магчыма адлюстраваць гэтую спасылку</string>
@@ -189,15 +184,11 @@
   <string name="gallery_menu_share">Падзяліцца</string>
   <string name="gallery_share_error">Не атрымалася падзяліцца выявай: %s</string>
   <string name="gallery_save_progress">Спампаванне файлу…</string>
-  <string name="gallery_save_success">Файл паспяхова захаваны.</string>
+  <string name="gallery_save_success" fuzzy="true">Файл паспяхова захаваны.</string>
   <string name="gallery_error_video_failed">Немагчыма прайграць відэа.</string>
   <string name="gallery_save_image_write_permission_rationale">Для захавання выяваў патрабуецца дазвол на запіс у сховішча Вашай прылады.</string>
   <string name="err_cannot_save_file">Немагчыма захаваць файл</string>
-  <string name="snippet_share_intro">\"%1$s\" на сайце @Wikipedia: %2$s</string>
   <string name="expand_refs">Націсніце, каб разгарнуць</string>
-  <string name="share_snippet_button">Падзяліцца як выявай</string>
-  <string name="share_normal_button">Падзяліцца як тэкстам</string>
-  <string name="snippet_share_preview_image_desc">Папярэдні прагляд выявы</string>
   <string name="cc_logo">Ліцэнзія Creative Commons</string>
   <string name="captcha_image">Капча-выява</string>
   <string name="gallery_fair_use_license">Добрасумленнае выкарыстанне</string>
@@ -208,7 +199,6 @@
   <string name="close_all_tabs_confirm_yes">Так</string>
   <string name="close_all_tabs_confirm_no">Не</string>
   <string name="button_close_tab">Зачыніць ўкладку</string>
-  <string name="tool_tip_share">Пасля вылучэння цікавага факту, паспрабуйце падзяліцца ім у вашых любімых соц. сетках!</string>
   <string name="page_view_in_browser">Прагляд старонкі ў браўзэры</string>
   <string name="error_response_malformed">Адказ сервера быў некарэктна адфарматаваны.</string>
   <string name="error_unknown">Адбылася невядомая памылка.</string>
@@ -238,16 +228,12 @@
   <string name="error_page_does_not_exist">Няма такой старонкі</string>
   <string name="view_wiki_error_message_offline">Немагчыма падлучыцца да Інтэрнэту</string>
   <string name="reference_title">Заўвага %s</string>
-  <string name="crash_report_dialog_dont_send_button">Прапусціць</string>
-  <string name="crash_report_dialog_send_button">Даслаць</string>
   <string name="crash_report_quit">Выхад</string>
   <string name="color_theme_select">Тэма</string>
   <string name="color_theme_light">Светлая</string>
   <string name="color_theme_dark">Цёмная</string>
   <string name="nav_item_reading_lists">Мае спісы</string>
   <string name="reading_list_create_new">Стварыць новы</string>
-  <string name="reading_list_added_to_named">Дададзена ў %s.</string>
-  <string name="reading_list_already_exists">Гэтая артыкул ўжо знаходзіцца ў гэтым спісе.</string>
   <string name="reading_list_added_view_button">Прагляд спіса</string>
   <string name="reading_list_sort">Сартаваць</string>
   <string name="reading_list_sort_by_name">Сартаваць паводле назвы</string>
@@ -266,4 +252,7 @@
   <string name="description_edit_save">Апублікаваць</string>
   <string name="description_edit_add_description" fuzzy="true">Дадаць апісанне</string>
   <string name="description_edit_success_done">Гатова</string>
+  <string name="suggested_edits_image_preview_dialog_file" fuzzy="true">Назва файла</string>
+  <string name="suggested_edits_image_preview_dialog_tags">Тэгі</string>
+  <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">Назва файла ў Вікіпедыі</string>
 </resources>

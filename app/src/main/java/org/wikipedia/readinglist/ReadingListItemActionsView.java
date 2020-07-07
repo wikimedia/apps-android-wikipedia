@@ -12,6 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SwitchCompat;
 
 import org.wikipedia.R;
+import org.wikipedia.util.StringUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -22,6 +23,7 @@ public class ReadingListItemActionsView extends LinearLayout {
         void onToggleOffline();
         void onShare();
         void onAddToOther();
+        void onMoveToOther();
         void onSelect();
         void onDelete();
     }
@@ -29,6 +31,7 @@ public class ReadingListItemActionsView extends LinearLayout {
     @BindView(R.id.reading_list_item_title) TextView titleView;
     @BindView(R.id.reading_list_item_remove_text) TextView removeTextView;
     @BindView(R.id.reading_list_item_offline_switch) SwitchCompat offlineSwitchView;
+    @BindView(R.id.reading_list_item_move_to_other) ViewGroup moveItemContainer;
     @BindView(R.id.reading_list_item_select) ViewGroup selectItemContainer;
 
     @Nullable private Callback callback;
@@ -50,9 +53,10 @@ public class ReadingListItemActionsView extends LinearLayout {
 
     public void setState(@NonNull String pageTitle, @NonNull String removeFromListText, boolean offline, boolean hasActionMode) {
         offlineSwitchView.setChecked(offline);
-        titleView.setText(pageTitle);
+        titleView.setText(StringUtil.fromHtml(pageTitle));
         removeTextView.setText(removeFromListText);
         selectItemContainer.setVisibility(hasActionMode ? View.GONE : View.VISIBLE);
+        moveItemContainer.setVisibility(hasActionMode ? View.GONE : View.VISIBLE);
     }
 
     public void setCallback(@Nullable Callback callback) {
@@ -74,6 +78,12 @@ public class ReadingListItemActionsView extends LinearLayout {
     @OnClick(R.id.reading_list_item_add_to_other) void onAddToOtherClick(View view) {
         if (callback != null) {
             callback.onAddToOther();
+        }
+    }
+
+    @OnClick(R.id.reading_list_item_move_to_other) void onMoveToOtherClick(View view) {
+        if (callback != null) {
+            callback.onMoveToOther();
         }
     }
 

@@ -4,11 +4,11 @@
     android:id="@+id/random_coordinator_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/main_toolbar_color"
+    android:background="?attr/paper_color"
     android:transitionName="@string/transition_random_activity"
     android:orientation="vertical">
 
-    <androidx.viewpager.widget.ViewPagerWithVelocity
+    <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/random_item_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -51,7 +51,7 @@
                 app:borderWidth="0dp"
                 app:elevation="4dp"
                 app:srcCompat="@drawable/animated_dice"
-                android:tint="?attr/randomizer_dice_icon_color"/>
+                app:tint="?attr/randomizer_dice_icon_color"/>
 
             <ImageView
                 android:id="@+id/random_save_button"

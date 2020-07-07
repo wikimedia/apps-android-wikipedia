@@ -3,8 +3,7 @@ package org.wikipedia.feed.onthisday;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import org.apache.commons.lang3.StringUtils;
-import org.wikipedia.dataclient.restbase.page.RbPageSummary;
+import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.json.annotations.Required;
 import org.wikipedia.util.StringUtil;
 
@@ -46,13 +45,13 @@ public class OnThisDay {
     public static class Event {
         @SuppressWarnings("unused,NullableProblems") @Required @NonNull private String text;
         @SuppressWarnings("unused") private int year;
-        @SuppressWarnings("unused,NullableProblems") @Required @NonNull private List<RbPageSummary> pages;
+        @SuppressWarnings("unused,NullableProblems") @Required @NonNull private List<PageSummary> pages;
 
         @NonNull
         public CharSequence text() {
             List<String> pageTitles = new ArrayList<>();
-            for (RbPageSummary page : pages) {
-                pageTitles.add((StringUtil.fromHtml(StringUtils.defaultString(page.getNormalizedTitle()))).toString());
+            for (PageSummary page : pages) {
+                pageTitles.add((StringUtil.fromHtml(page.getDisplayTitle())).toString());
             }
             return StringUtil.boldenSubstrings(text, pageTitles);
         }
@@ -62,7 +61,7 @@ public class OnThisDay {
         }
 
         @Nullable
-        public List<RbPageSummary> pages() {
+        public List<PageSummary> pages() {
             Iterator iterator = pages.iterator();
             while ((iterator.hasNext())) {
                 if (iterator.next() == null) {

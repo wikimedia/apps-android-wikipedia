@@ -17,6 +17,7 @@ import androidx.appcompat.app.AlertDialog;
 
 import com.google.android.material.textfield.TextInputLayout;
 
+import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.BaseActivity;
@@ -27,7 +28,7 @@ import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.ListUserResponse;
-import org.wikipedia.readinglist.sync.ReadingListSyncAdapter;
+import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
@@ -40,9 +41,9 @@ import java.util.regex.Pattern;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.schedulers.Schedulers;
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
@@ -50,13 +51,14 @@ import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
 public class CreateAccountActivity extends BaseActivity {
     public static final int RESULT_ACCOUNT_CREATED = 1;
     public static final int RESULT_ACCOUNT_NOT_CREATED = 2;
+    public static final int RESULT_ACCOUNT_LOGIN = 3;
 
     public static final String LOGIN_REQUEST_SOURCE = "login_request_source";
     public static final String LOGIN_SESSION_TOKEN = "login_session_token";
     public static final String CREATE_ACCOUNT_RESULT_USERNAME = "username";
     public static final String CREATE_ACCOUNT_RESULT_PASSWORD = "password";
 
-    public static final Pattern USERNAME_PATTERN = Pattern.compile("[^#<>\\[\\]|{}\\/@]*");
+    public static final Pattern USERNAME_PATTERN = Pattern.compile("[^#<>\\[\\]|{}/@]*");
     private static final int PASSWORD_MIN_LENGTH = 6;
 
     public enum ValidateResult {
@@ -66,7 +68,6 @@ public class CreateAccountActivity extends BaseActivity {
     private CompositeDisposable disposables = new CompositeDisposable();
 
     @BindView(R.id.create_account_primary_container) View primaryContainer;
-    @BindView(R.id.create_account_onboarding_container) View onboardingContainer;
     @BindView(R.id.create_account_username) TextInputLayout usernameInput;
     @BindView(R.id.create_account_password_input) TextInputLayout passwordInput;
     @BindView(R.id.create_account_password_repeat) TextInputLayout passwordRepeatInput;
@@ -90,10 +91,6 @@ public class CreateAccountActivity extends BaseActivity {
         setContentView(R.layout.activity_create_account);
         ButterKnife.bind(this);
 
-        if (ReadingListSyncAdapter.isDisabledByRemoteConfig()) {
-            onboardingContainer.setVisibility(View.GONE);
-        }
-
         errorView.setBackClickListener((v) -> onBackPressed());
         errorView.setRetryClickListener((v) -> errorView.setVisibility(View.GONE));
 
@@ -103,10 +100,10 @@ public class CreateAccountActivity extends BaseActivity {
                 primaryContainer, getString(R.string.create_account_activity_title), getString(R.string.create_account_button));
 
         // Don't allow user to submit registration unless they've put in a username and password
-        new NonEmptyValidator((isValid) -> createAccountButton.setEnabled(isValid), usernameInput, passwordInput);
+        new NonEmptyValidator(createAccountButton, usernameInput, passwordInput);
 
         // Don't allow user to continue when they're shown a captcha until they fill it in
-        new NonEmptyValidator((isValid) -> createAccountButtonCaptcha.setEnabled(isValid), captchaText);
+        new NonEmptyValidator(createAccountButtonCaptcha, captchaText);
 
         // Add listener so that when the user taps enter, it submits the captcha
         captchaText.setOnKeyListener((v, keyCode, event) -> {
@@ -123,8 +120,7 @@ public class CreateAccountActivity extends BaseActivity {
             createAccountResult = savedInstanceState.getParcelable("result");
         }
 
-        funnel = new CreateAccountFunnel(WikipediaApp.getInstance(),
-                getIntent().getStringExtra(LOGIN_REQUEST_SOURCE));
+        funnel = new CreateAccountFunnel(WikipediaApp.getInstance(), getIntent().getStringExtra(LOGIN_REQUEST_SOURCE));
 
         // Only send the editing start log event if the activity is created for the first time
         if (savedInstanceState == null) {
@@ -142,6 +138,7 @@ public class CreateAccountActivity extends BaseActivity {
         // This assumes that the CreateAccount activity was launched from the Login activity
         // (since there's currently no other mechanism to invoke CreateAccountActivity),
         // so finishing this activity will implicitly go back to Login.
+        setResult(RESULT_ACCOUNT_LOGIN);
         finish();
     }
 
@@ -149,8 +146,13 @@ public class CreateAccountActivity extends BaseActivity {
         FeedbackUtil.showPrivacyPolicy(this);
     }
 
+    @OnClick(R.id.forgot_password_link) void onForgotPasswordClick() {
+        PageTitle title = new PageTitle("Special:PasswordReset", WikipediaApp.getInstance().getWikiSite());
+        visitInExternalBrowser(this, Uri.parse(title.getUri()));
+    }
+
     @Override
-    protected void onSaveInstanceState(Bundle outState) {
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putParcelable("result", createAccountResult);
     }
@@ -192,13 +194,13 @@ public class CreateAccountActivity extends BaseActivity {
 
         String email = null;
         if (getText(emailInput).length() != 0) {
-            email = getText(emailInput).toString();
+            email = getText(emailInput);
         }
-        String password = getText(passwordInput).toString();
-        String repeat = getText(passwordRepeatInput).toString();
+        String password = getText(passwordInput);
+        String repeat = getText(passwordRepeatInput);
 
 
-        disposables.add(ServiceFactory.get(wiki).postCreateAccount(getText(usernameInput).toString(), password, repeat, token, Service.WIKIPEDIA_URL,
+        disposables.add(ServiceFactory.get(wiki).postCreateAccount(getText(usernameInput), password, repeat, token, Service.WIKIPEDIA_URL,
                 email,
                 captchaHandler.isActive() ? captchaHandler.captchaId() : "null",
                 captchaHandler.isActive() ? captchaHandler.captchaWord() : "null")
@@ -282,13 +284,9 @@ public class CreateAccountActivity extends BaseActivity {
                         .setTitle(R.string.email_recommendation_dialog_title)
                         .setMessage(StringUtil.fromHtml(getResources().getString(R.string.email_recommendation_dialog_message)))
                         .setPositiveButton(R.string.email_recommendation_dialog_create_without_email_action,
-                                (dialogInterface, i) -> {
-                                    createAccount();
-                                })
+                                (dialogInterface, i) -> createAccount())
                         .setNegativeButton(R.string.email_recommendation_dialog_create_with_email_action,
-                                (dialogInterface, i) -> {
-                                    emailInput.requestFocus();
-                                })
+                                (dialogInterface, i) -> emailInput.requestFocus())
                         .show();
                 break;
 
@@ -326,14 +324,14 @@ public class CreateAccountActivity extends BaseActivity {
         return ValidateResult.SUCCESS;
     }
 
-    @NonNull private CharSequence getText(@NonNull TextInputLayout input) {
-        return input.getEditText() != null ? input.getEditText().getText() : "";
+    @NonNull private String getText(@NonNull TextInputLayout input) {
+        return StringUtils.defaultString(input.getEditText() != null && input.getEditText().getText() != null ? input.getEditText().getText().toString() : "");
     }
 
     private void finishWithUserResult(@NonNull CreateAccountSuccessResult result) {
         Intent resultIntent = new Intent();
         resultIntent.putExtra(CREATE_ACCOUNT_RESULT_USERNAME, result.getUsername());
-        resultIntent.putExtra(CREATE_ACCOUNT_RESULT_PASSWORD, getText(passwordInput).toString());
+        resultIntent.putExtra(CREATE_ACCOUNT_RESULT_PASSWORD, getText(passwordInput));
         setResult(RESULT_ACCOUNT_CREATED, resultIntent);
 
         createAccountResult = result;
@@ -389,9 +387,10 @@ public class CreateAccountActivity extends BaseActivity {
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(response -> {
                         ListUserResponse user = response.query().getUserResponse(userName);
-                        if (user.canCreate()) {
-                            usernameInput.setErrorEnabled(false);
-                        } else {
+                        usernameInput.setErrorEnabled(false);
+                        if (user.isBlocked()) {
+                            handleAccountCreationError(user.getError());
+                        } else if (!user.canCreate()) {
                             usernameInput.setError(getString(R.string.create_account_name_unavailable, userName));
                         }
                     }, L::e));

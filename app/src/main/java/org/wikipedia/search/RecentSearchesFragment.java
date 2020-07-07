@@ -27,8 +27,8 @@ import org.wikipedia.util.FeedbackUtil;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import io.reactivex.Completable;
-import io.reactivex.schedulers.Schedulers;
+import io.reactivex.rxjava3.core.Completable;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 
 import static org.wikipedia.Constants.RECENT_SEARCHES_FRAGMENT_LOADER_ID;
 

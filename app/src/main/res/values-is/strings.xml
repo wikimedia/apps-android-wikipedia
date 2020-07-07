@@ -16,10 +16,12 @@
   <string name="page_tabs_back">Til baka</string>
   <string name="nav_item_forward">Áfram</string>
   <string name="search_hint">Leita á Wikipedia</string>
+  <string name="search_hint_voice_search">Leit með raddskipunum</string>
   <string name="search_hint_search_history">Leitarferill</string>
   <string name="search_hint_search_languages">Leita eftir tungumáli</string>
   <string name="search_hint_search_my_lists_and_articles">Leita í listunum mínum og greinum</string>
   <string name="nav_item_history">Ferilskrá</string>
+  <string name="nav_item_suggested_edits" fuzzy="true">Tillögur að breytingum</string>
   <string name="error_network_error">Næ ekki að tengjast netinu</string>
   <string name="page_error_retry">Reyna aftur</string>
   <string name="card_offline_error_retry">Reyna aftur</string>
@@ -55,23 +57,17 @@
   <string name="menu_long_press_open_page">Opna</string>
   <string name="menu_long_press_open_in_new_tab">Opna í nýjum flipa</string>
   <string name="menu_long_press_copy_page">Afrita vistfang tengils</string>
-  <string name="menu_text_select_copy">Afrita</string>
   <string name="menu_text_select_define">Skilgreina</string>
-  <string name="menu_text_select_share">Deila</string>
-  <string name="share">Deila</string>
   <string name="on_this_day_page_share">Deila</string>
   <string name="reading_list_page_share">Deila</string>
   <string name="menu_text_select_edit_here">Breyta hér</string>
-  <string name="nav_item_nearby">Í nágrenninu</string>
-  <string name="nearby_zoom_to_location">Renna inn að staðsetningu á kortinu</string>
-  <string name="nearby_osm_license">&amp;copy; &amp;nbsp;þáttakendur&amp;nbsp;í&amp;nbsp;&lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt;</string>
   <string name="last_updated_text">Síðast uppfært %s</string>
   <string name="talk_page_link_text">Skoða spjallsíðu</string>
   <string name="edit_history_link_text">Skoða breytingaskrá</string>
   <string name="map_view_link_text">Skoða á korti</string>
   <string name="other_languages_indication_text">Lesa á öðru tungumáli</string>
   <string name="language_count_link_text">Aðgengilegt á %d öðrum tungumálum</string>
-  <string name="content_license_html">Efni má nota samkvæmt &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; nema annað komi fram</string>
+  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in">Með því að vista samþykkir þú &lt;a href=\"%1$s\"&gt;notkunarskilmálana&lt;/a&gt;, og að þú gefir ævinlega út framlög þín með &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; leyfinu.</string>
   <string name="edit_save_action_license_anon">Með því að birta þetta samþykkir þú &lt;a href=\"%1$s\"&gt;notkunarskilmálana&lt;/a&gt;, og að þú gefir út framlög þín með &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; notkunarleyfinu. Breytingar verða tengdar IP-vistfangi tækisins þíns. Ef þú &lt;a href=\"https://#login\"&gt;skráir þig inn&lt;/a&gt;, mun gagnaleynd þín aukast.</string>
   <string name="preference_title_language">Tungumál Wikipediu</string>
@@ -109,18 +105,19 @@
   <string name="reading_lists_sync_login">Skrá inn</string>
   <string name="create_account_login">Skrá inn</string>
   <string name="menu_login">Skrá inn</string>
-  <string name="login_activity_title">Skrá inn á Wikipedia</string>
+  <string name="login_activity_title" fuzzy="true">Skrá inn á Wikipedia</string>
   <string name="login_in_progress_dialog_message">Skráir þig inn…</string>
-  <string name="login_success_toast">Sending tókst!</string>
+  <string name="login_success_toast">Innskráning tókst!</string>
   <string name="reset_password_title">Stilltu lykilorðið þitt</string>
   <string name="reset_password_description">Þú skráðir þig inn með bráðabirgðalykilorði. Til að klára að skrá þig inn, verður þú að velja nýtt lykilorð hér.</string>
   <string name="reset_password_hint">Nýtt lykilorð</string>
   <string name="reset_password_button">Vista og skrá inn</string>
   <string name="preference_title_logout">Skrá út</string>
   <string name="toast_logout_complete">Skráður út</string>
-  <string name="logout_prompt" fuzzy="true">Ertu viss að þú viljir skrá þig út?</string>
+  <string name="logout_prompt">Þetta mun skrá þig út af öllum þeim tækjum þar sem þú ert núna skráð/ur inn. Ertu viss að þú viljir skrá þig út?</string>
   <string name="logout_dialog_cancel_button_text">Hætta við</string>
   <string name="logged_out_in_background_title">Skráður út</string>
+  <string name="logged_out_in_background_dialog">Þú hefur verið skráð/ur út af Wikipedia. Myndirðu vilja skrá þig aftur inn?</string>
   <string name="logged_out_in_background_login">Skrá inn</string>
   <string name="logged_out_in_background_cancel">Hætta við</string>
   <string name="history_empty_title">Engar nýlega lesnar greinar</string>
@@ -172,7 +169,7 @@
   <string name="preference_title_eventlogging_opt_in">Senda notkunarskýrslur</string>
   <string name="preference_summary_eventlogging_opt_in">Leyfa Wikimedia til að safna upplýsingum um hvernig þú notar forritið svo hægt sé að gera það betra</string>
   <string name="preference_title_auto_upload_crash_reports">Senda hrunskýrslur</string>
-  <string name="preference_summary_auto_upload_crash_reports">Leyfa forritinu að senda tilkynningar um hrun til HockeyApp eða annarar slíkrar utanaðkomandi þjónustu þannig að Wikimedia geti skoðað hvað fór úrskeiðis og lagað villur fljótt og vel.</string>
+  <string name="preference_summary_auto_upload_crash_reports">Leyfa forritinu að senda tilkynningar um hrun sjálfkrafa til utanaðkomandi þjónustu þannig að við getum skoðað hvað fór úrskeiðis og lagað villur fljótt og vel.</string>
   <string name="editing_error_spamblacklist">Fann tengla á útilokuð lén (%s). Fjarlægðu þá og reyndu aftur.</string>
   <string name="history_search_list_hint">Leitarferill</string>
   <string name="error_can_not_process_link">Gat ekki birt þennan tengil</string>
@@ -187,17 +184,19 @@
   <string name="about_description">Um Wikipedia-appið</string>
   <string name="privacy_policy_description">Meðferð persónuupplýsinga</string>
   <string name="terms_of_use_description">Notkunarskilmálar</string>
-  <string name="about_wikipedia_url">https://en.m.wikipedia.org/wiki/Wikipedia:About</string>
-  <string name="privacy_policy_url">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
+  <string name="about_wikipedia_url">https://is.m.wikipedia.org/wiki/Wikipedia:Um_verkefnið</string>
+  <string name="privacy_policy_url">https://foundation.wikimedia.org/wiki/Privacy_policy</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ</string>
-  <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
+  <string name="terms_of_use_url">https://foundation.wikimedia.org/wiki/Terms_of_Use</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">notuð aðgerðasöfn</string>
   <string name="about_contributors_heading">framlög frá</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Síða teymisins&lt;/a&gt;</string>
   <string name="about_translators_heading">þýðendur</string>
   <string name="about_translators_translatewiki">Þetta forrit/app var þýtt af sjálfboðaliðum á &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Notkunarleyfi</string>
@@ -266,30 +265,30 @@
   <string name="gallery_menu_share">Deila</string>
   <string name="gallery_share_error">Gat ekki deilt myndinni: %s</string>
   <string name="gallery_save_progress">Sæki skrá…</string>
-  <string name="gallery_save_success">Tókst að vista skrána.</string>
+  <string name="gallery_save_success">Skrá vistuð.</string>
   <string name="gallery_error_video_failed">Tókst ekki að spila myndskeiðið.</string>
   <string name="gallery_save_image_write_permission_rationale">Til að vista myndir er nauðsynlegt að hafa heimild til að skrifa í gagnageymslu tækisins.</string>
+  <string name="gallery_add_image_caption_button">Bæta við myndatexta</string>
+  <string name="gallery_add_image_caption_in_language_button">Bæta við myndatexta (%s)</string>
   <string name="err_cannot_save_file">Gat ekki vistað skrá</string>
-  <string name="snippet_share_intro">\"%1$s\" á @Wikipedia: %2$s</string>
   <string name="expand_refs">Banka til að stækka</string>
-  <string name="share_snippet_button">Deila sem mynd</string>
-  <string name="share_normal_button">Deila sem texta</string>
-  <string name="snippet_share_preview_image_desc">Forskoða mynd</string>
   <string name="cc_logo">Creative Commons notkunarleyfi</string>
   <string name="captcha_image">Captcha-mynd</string>
   <string name="gallery_fair_use_license">Sanngjörn notkun</string>
   <string name="gallery_uploader_unknown">Sendandi óþekktur</string>
+  <string name="gallery_not_available_offline_snackbar">Myndasafnssýnin er ekki tiltæk í ónettengdum ham.</string>
+  <string name="gallery_not_available_offline_snackbar_dismiss">Hunsa</string>
   <string name="menu_new_tab">Nýr flipi</string>
   <string name="menu_close_all_tabs">Loka öllum flipum</string>
   <string name="close_all_tabs_confirm">Ertu viss að þú viljir loka öllum flipum?</string>
   <string name="close_all_tabs_confirm_yes">Já</string>
   <string name="close_all_tabs_confirm_no">Nei</string>
   <string name="button_close_tab">Loka flipa</string>
+  <string name="unnamed_tab_closed">Flipa lokað.</string>
   <string name="tab_item_closed">%s lokað.</string>
   <string name="all_tab_items_closed">Allir flipar lokaðir.</string>
   <string name="tool_tip_bookmark_icon_title">Bæta á leslista</string>
   <string name="tool_tip_bookmark_icon_text">Ýttu á bókamerkjatáknmyndina til að vista þessa grein á leslista.</string>
-  <string name="tool_tip_share">Þegar áhugavert atriði hefur verið ljómað, prófaðu að deila því á uppáhalds-netinu þínu!</string>
   <string name="page_view_in_browser">Opna síðu í vafra</string>
   <string name="tool_tip_toc_title">Flýtiaðgangur í efnisyfirlit</string>
   <string name="tool_tip_toc_text">Þú getur núna strokið til vinstri til að opna efnisyfirlitið, eins geturðu ýtt og dregið á þessum skrunhnappi til að hoppa fljótt á milli einstakra efnishluta greinar.</string>
@@ -324,15 +323,16 @@
   <string name="view_link_preview_error_button_dismiss">Vísa frá</string>
   <string name="error_page_does_not_exist">Þessi síða er ekki til</string>
   <string name="view_wiki_error_message_offline">Næ ekki að tengjast netinu</string>
+  <string name="view_wiki_error_message_timeout">Náði ekki að tengjast Wikipedia. Athugaðu internettenginguna eða reyndu aftur síðar</string>
   <string name="reference_title">Heimild %s</string>
+  <string name="reference_list_title">Tilvísanir</string>
   <string name="theme_chooser_dialog_image_dimming_switch_label">Dekking mynda (í dökku þema)</string>
   <string name="preference_title_prefer_offline_content">Kjósa helst efni án nettengingar</string>
   <string name="preference_summary_prefer_offline_content">Sparaðu gagnamagn með því að hlaða inn greinum sem tiltækar eru án nettengingar fremur en að hlaða alltaf inn nýjustu útgáfu greina</string>
-  <string name="crash_report_dialog_title">Því miður, appið hrundi síðast</string>
-  <string name="crash_report_dialog_text">Viltu senda tilkynningu um hrunið til HockeyApp eða annarar slíkrar utanaðkomandi þjónustu þannig að Wikimedia geti skoðað hvað fór úrskeiðis?</string>
-  <string name="crash_report_dialog_dont_send_button">Sleppa</string>
-  <string name="crash_report_dialog_always_send_button">Alltaf senda</string>
-  <string name="crash_report_dialog_send_button">Senda</string>
+  <string name="theme_chooser_dialog_match_system_theme_switch_label">Samsvara þema kerfis</string>
+  <string name="page_footer_license_text">Efni má nota samkvæmt $1 nema annað komi fram</string>
+  <string name="empty_tab_title">Nýr flipi</string>
+  <string name="menu_save_all_tabs">Vista alla flipa</string>
   <string name="crash_report_activity_title">Villa í forriti</string>
   <string name="crash_report_relaunch_or_quit">Því miður, Wikipedia-appið varð fyrir villu og vað þessvegna lokað.\n\nViltu byrja aftur eða hætta alveg?</string>
   <string name="crash_report_relaunch">Byrja aftur</string>
@@ -358,8 +358,9 @@
   <string name="reading_list_save_to">Vista í leslista</string>
   <string name="reading_list_create_new">Búa til nýjan</string>
   <string name="reading_list_title_exists">Leslistinn „%s“ er þegar til.</string>
-  <string name="reading_list_added_to_named">Bætt við %s.</string>
-  <string name="reading_list_already_exists">Þessi grein er nú þegar á listanum.</string>
+  <string name="reading_list_article_added_to_named">Bætti %1$s við %2$s.</string>
+  <string name="reading_list_article_already_exists_message">Allt í þessu fína! %1$s inniheldur þegar %2$s.</string>
+  <string name="reading_list_articles_already_exist_message">Allt í þessu fína! %s inniheldur þegar allar greinar.</string>
   <string name="reading_list_added_view_button">Skoða lista</string>
   <string name="format_reading_list_statistical_summary_singular">1 grein, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d greinar, %2$.2f MB</string>
@@ -415,8 +416,7 @@
   <string name="reading_lists_confirm_remote_delete_yes">Já</string>
   <string name="reading_lists_confirm_remote_delete_no">Nei</string>
   <string name="reading_list_article_save_in_progress">Verið er að sækja þessa grein og verður hún tiltæk án nettengingar þegar því er lokið.</string>
-  <string name="reading_list_already_contains_selection">Valinn listi inniheldur nú þegar allar völdu síðurnar.</string>
-  <string name="reading_list_added_articles_list_titled">Bætti %1$d greinum við %2$s</string>
+  <string name="reading_list_articles_added_to_named">Bætti %1$d greinum við %2$s</string>
   <string name="reading_list_delete_confirm">Ertu viss um að þú viljir eyða %s?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Skráðu inn til að virkja samstillingu</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Skráðu þig inn til að leyfa vistun leslista inn á aðganginn þinn.</string>
@@ -431,14 +431,6 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_do_not_show">Ekki sýna þessi skilaboð aftur</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">Virkja samstillingu</string>
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">Nei, takk</string>
-  <string name="reading_list_login_option_reminder_dialog_title">Greinar á leslista fundust</string>
-  <string name="reading_list_login_option_reminder_dialog_text">Greinar voru vistaðar á leslistann á meðan þú varst ekki skráð/ur inn. Myndirðu vilja bæta þeim við leslista á notandaaðgangnum þínum?</string>
-  <string name="reading_list_login_option_reminder_dialog_yes">Já, bæta þeim á leslistana mína</string>
-  <string name="reading_list_login_option_reminder_dialog_no">Nei, eyða greinum</string>
-  <string name="reading_list_logout_option_reminder_dialog_title">Halda vistuðum greinum í forritinu?</string>
-  <string name="reading_list_logout_option_reminder_dialog_text">Það eru greinar sem vistaðar hafa verið á leslista. Myndirðu vilja halda þeim eftir að þú skráir þig út?</string>
-  <string name="reading_list_logout_option_reminder_dialog_yes">Já, halda greinum í listum</string>
-  <string name="reading_list_logout_option_reminder_dialog_no">Nei, eyða greinum af listum</string>
   <string name="default_reading_list_name">Vistað</string>
   <string name="default_reading_list_description">Sjálfgefinn listi fyrir vistuðu greinarnar þínar</string>
   <string name="no_user_lists_title">Skipuleggja greinar í lista</string>
@@ -460,7 +452,7 @@
     <item quantity="one">Þessi grein verður ekki lengur tiltæk án nettengingar.</item>
     <item quantity="other">Þessar greinar verða ekki lengur tiltækar án nettengingar.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync">Það tókst að samstilla leslista</string>
+  <string name="reading_list_toast_last_sync">Leslistar samstilltir</string>
   <string name="reading_list_menu_last_sync">Síðasta samstilling: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">Í lagi</string>
   <string name="reading_list_delete_dialog_ok_button_text">Í lagi</string>
@@ -476,6 +468,7 @@
   <string name="notification_syncing_resume_button">Halda áfram</string>
   <string name="notification_syncing_cancel_button">Hætta við</string>
   <string name="notification_syncing_reading_list_channel_description">Framvinda samstillingar leslista</string>
+  <string name="notification_many_unread">Þú átt %d ólesnar tilkynningar</string>
   <plurals name="notification_channel_name">
     <item quantity="one">Sæki grein</item>
     <item quantity="other">Sæki greinar</item>
@@ -522,12 +515,20 @@
   <string name="preference_title_notification_poll">Tilkynningar kannana</string>
   <string name="preference_summary_notification_poll">Leyfa forritinu að nota farsímagagnasamband til að athuga með tilkynningar í bakgrunni.</string>
   <string name="preference_category_notification_types">Tegundir tilkynninga innan forrits</string>
+  <string name="preference_title_notification_system">Kerfi</string>
+  <string name="preference_summary_notification_system">Skilaboð frá kerfi</string>
   <string name="preference_title_notification_milestone">Vegalengdarsteinn</string>
   <string name="preference_summary_notification_milestone">Þú hefur náð ákveðnum fjölda breytinga</string>
   <string name="preference_title_notification_thanks">Þakkir</string>
   <string name="preference_summary_notification_thanks">Einhver þakkar þér fyrir breytingu</string>
   <string name="preference_title_notification_revert">Afturkalla</string>
   <string name="preference_summary_notification_revert">Ein breyting frá þér var afturkölluð</string>
+  <string name="preference_title_notification_login_fail">Innskráning</string>
+  <string name="preference_summary_notification_login_fail">Virkni þín í innskráningu</string>
+  <string name="preference_title_notification_mention">Minnst á</string>
+  <string name="preference_summary_notification_mention">Einhver minntist á þig á síðu</string>
+  <string name="preference_title_notification_user_talk">Spjallsíða</string>
+  <string name="preference_summary_notification_user_talk">Skilaboð frá spjallsíðum</string>
   <string name="view_because_you_read_card_title">Því þú last</string>
   <string name="view_random_card_title">Slembið</string>
   <string name="view_random_card_subtitle">Flettu í gegnum handahófsvaldar greinar af Wikipedia.</string>
@@ -573,6 +574,7 @@
   <string name="feed_item_type_featured_image">Forsíðumynd dagsins frá Wikimedia Commons</string>
   <string name="feed_item_type_main_page">Aðalsíða Wikipedia með úrvalsefni dagsins</string>
   <string name="feed_item_type_randomizer">Útbúðu handahófsvaldar greinar til að lesa</string>
+  <string name="feed_item_type_suggested_edits">Tillögur að efni til að bæta við Wikipedia</string>
   <string name="feed_empty_message">Það er ekkert á \'Uppgötva\'-streyminu þínu</string>
   <string name="feed_configure_onboarding_action">Sérsníða</string>
   <string name="customize_lang_selection_dialog_ok_button_text">Í lagi</string>
@@ -580,13 +582,21 @@
   <string name="feed_configure_onboarding_text">&lt;strong&gt;Sérsníddu \'Uppgötva\'-streymið þitt&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Núna geturðu valið hvað eigi að birta í streyminu þínu auk þess að forgangsraða eftirlætistegundum efnis.</string>
   <string name="feed_lang_selection_dialog_ok_button_text">Í lagi</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">Hætta við</string>
+  <string name="feed_accessibility_card_text">Þú hefur náð á enda streymis.</string>
+  <string name="feed_accessibility_card_load_more_button">Hlaða inn meiru</string>
   <string name="description_edit_text_hint">Lýsing á grein</string>
+  <string name="description_edit_article_description_label">Grein</string>
+  <string name="description_edit_translate_article_description_label_per_language">Lýsing á grein (%s)</string>
+  <string name="description_edit_translate_article_description_hint_per_language">Lýsing á grein (%s)</string>
+  <string name="description_edit_add_caption_label">Lýsing á mynd</string>
+  <string name="description_edit_add_caption_hint">Myndatexti</string>
+  <string name="description_edit_translate_caption_label_per_language">Myndatexti (%s)</string>
   <string name="description_edit_translate_caption_hint_per_language">Myndatextar (%s)</string>
   <string name="description_edit_save">Birta</string>
   <string name="description_edit_read">Lesa</string>
   <string name="description_edit_add_description">Bæta við lýsingu á grein</string>
   <string name="description_edit_translate_description">Þýða lýsingu á grein</string>
-  <string name="description_edit_edit_description" fuzzy="true">Breyta lýsingu</string>
+  <string name="description_edit_edit_description">Breyta lýsingu á grein</string>
   <string name="description_edit_add_image_caption">Bæta við myndatexta</string>
   <string name="description_edit_edit_image_caption">Breyta myndatexta</string>
   <string name="description_edit_translate_image_caption">Þýða myndatexta</string>
@@ -597,11 +607,13 @@
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit">Takk fyrir viðvarandi áhuga þinn á að vinna með lýsingar greina. Til að gera fleiri breytingar, ættirðu að skrá þig inn á Wikipedia notandaaðganginn þinn.</string>
   <string name="description_edit_license_notice">Með því að breyta lýsingu á þessari grein, samþykkir þú &lt;a href=\"%1$s\"&gt;notkunarskilmálana&lt;/a&gt; og að þú gefir óafturkræft út framlög þín með &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; notkunarleyfi.</string>
+  <string name="description_edit_helper_text_lowercase_warning">byrjar yfirleitt með litlum bókstaf</string>
   <string name="description_edit_success_saved">Lýsing greinar birt!</string>
   <string name="description_edit_success_saved_snackbar">Lýsing geinar birt!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Lýsing geinar birt! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Myndatexti birtur!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Myndatexti birtur! (%s)</string>
+  <string name="description_edit_success_saved_image_tags_snackbar">Myndamerki birt!</string>
   <string name="description_edit_success_encouragement">Þú varst að gera Wikipedia betri fyrir alla</string>
   <string name="description_edit_success_done">Lokið</string>
   <string name="description_edit_success_did_you_know">Vissir þú það?</string>
@@ -616,6 +628,7 @@
   <string name="suggested_edits_translate_descriptions">Þýða lýsingar á greinar</string>
   <string name="suggested_edits_add_image_captions">Bæta við myndatextum</string>
   <string name="suggested_edits_translate_image_captions">Þýða myndatexta</string>
+  <string name="suggested_edits_tag_images">Merkja myndir</string>
   <string name="suggested_edits_review_description">Yfirfara lýsingu á grein</string>
   <string name="suggested_edits_add_description_button">Bæta við lýsingu</string>
   <string name="suggested_edits_edit_description_button">Breyta lýsingu</string>
@@ -625,36 +638,23 @@
   <string name="suggested_edits_edit_caption_button">Breyta myndatexta</string>
   <string name="suggested_edits_review_image_caption">Yfirfara myndatexta</string>
   <string name="suggested_edits_my_contributions">Framlögin mín</string>
-  <string name="suggested_edits_no_description" fuzzy="true">Engin lýsing</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_title" fuzzy="true">\"Bæta við lýsingum\" hefur verið aflæst</string>
-  <string name="suggested_edits_unlock_add_descriptions_dialog_message" fuzzy="true">Við höfum tekið eftir að þú ert oft að breyta efni, þannig að við höfum tekið saman lista yfir greinar sem vantar lýsingar, svo þú getir haldið áfram að leggja þitt af mörkum!</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_title" fuzzy="true">Þú aflæstir \"Þýða lýsingar\" verkinu</string>
-  <string name="suggested_edits_unlock_translate_descriptions_dialog_message" fuzzy="true">Til hamingju með 50. framlagið þitt, við erum full aðdáunar! Við höfum tekið eftir að þú notar forritið á mörgum tungumálum, þannig að við höfum tekið saman lista yfir greinar sem vantar þýðingar á lýsingum, svo þú getir haldið áfram að leggja þitt af mörkum!</string>
-  <string name="suggested_edits_unlock_dialog_no">Kannski síðar</string>
-  <string name="suggested_edits_unlock_dialog_yes">Já, í gang með þetta</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_title" fuzzy="true">Þú aflæstir \"Bæta við lýsingum\"</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_title" fuzzy="true">Þú aflæstir \"Þýða lýsingar\"</string>
-  <string name="suggested_edits_unlock_notification_text">Tillögur að breytingum</string>
-  <string name="suggested_edits_unlock_add_descriptions_notification_big_text" fuzzy="true">Tillögur að breytingum\n\nTil hamingju með þriðja framlagið þitt. Við höfum tekið eftir að þú ert fær í að breyta efni, þannig að við höfum tekið saman lista yfir greinar sem vantar lýsingar, svo þú getir haldið áfram að leggja þitt af mörkum!</string>
-  <string name="suggested_edits_unlock_translate_descriptions_notification_big_text" fuzzy="true">Tillögur að breytingum\n\nTil hamingju með 50. framlagið þitt, við erum full aðdáunar! Við höfum tekið eftir að þú notar forritið á mörgum tungumálum, þannig að við höfum tekið saman lista yfir greinar sem vantar þýðingar á lýsingum, svo þú getir haldið áfram að leggja þitt af mörkum!</string>
-  <string name="suggested_edits_unlock_notification_button">Já, í gang með þetta</string>
-  <string name="suggested_edits_license_notice" fuzzy="true">Með því að breyta lýsingu á þessum titli, samþykki ég &lt;a href=\"%1$s\"&gt;notkunarskilmálana&lt;/a&gt; og að ég gefi óafturkræft út framlög mín með &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; notkunarleyfi.</string>
+  <string name="suggested_edits_no_description">Þessi skrá er ekki með neina lýsingu</string>
+  <string name="suggested_edits_license_notice">Með því að bæta við lýsingu, samþykki ég &lt;a href=\"%1$s\"&gt;notkunarskilmálana&lt;/a&gt; og að ég gefi óafturkræft út framlög mín með &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; notkunarleyfi.</string>
+  <string name="suggested_edits_image_caption_license_notice">Með því að bæta við myndatextanum, samþykki ég &lt;a href=\"%1$s\"&gt;notkunarskilmálana&lt;/a&gt; og að ég gefi óafturkræft út framlög mín með &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; notkunarleyfi.</string>
   <string name="suggested_edits_menu_info">Upplýsingar</string>
-  <string name="suggested_edits_tasks_activity_title" fuzzy="true">Verkefni fyrir ritstýringu</string>
-  <string name="suggested_edits_task_add_description_title" fuzzy="true">Bæta við lýsingum</string>
+  <string name="suggested_edits_task_add_description_title">Bæta við lýsingum á greinar</string>
   <string name="suggested_edits_task_add_description_description">Leggðu þitt af mörkum í greinum án lýsingar</string>
-  <string name="suggested_edits_task_translation_title" fuzzy="true">Þýða lýsingar</string>
-  <string name="suggested_edits_task_translation_description">Þýða lýsingar yfir á önnur tungumál.</string>
-  <string name="suggested_edits_task_image_caption_title" fuzzy="true">Setja myndatexta</string>
-  <string name="suggested_edits_task_image_caption_description" fuzzy="true">Bæta texta við myndir</string>
+  <string name="suggested_edits_task_image_caption_title">Bæta við myndatextum</string>
+  <string name="suggested_edits_task_image_caption_description">Bæta stuttum textalýsingum sem vantar við myndir</string>
   <string name="suggested_edits_task_translate_caption_title">Þýða myndatexta</string>
   <string name="suggested_edits_task_translate_caption_description">Þýða myndatexta yfir á önnur tungumál</string>
   <string name="suggested_edits_task_multilingual_title">Fleiri verkefni fyrir margtyngda ritara</string>
   <string name="suggested_edits_task_multilingual_description">Þýðingaverkefni eru tiltæk ef þú lest og skrifar á fleiri en einu Wikipedia-tungumáli.</string>
-  <string name="suggested_edits_task_image_caption_edit_disable_text" fuzzy="true">Læst þangað til þú hefur gert %d yfirfarnar breytingar</string>
-  <string name="suggested_edits_task_translate_description_edit_disable_text" fuzzy="true">Læst þangað til þú hefur gert %d yfirfarnar breytingar</string>
+  <string name="suggested_edits_task_image_caption_edit_disable_text">Læst þangað til þú hefur gert %d myndatexta</string>
+  <string name="suggested_edits_task_translate_description_edit_disable_text">Læst þangað til þú hefur gert %d breytingar á lýsingum greina (yfirfarnar)</string>
   <string name="suggested_edits_task_multilingual_negative">Ekkert fyrir mig</string>
   <string name="suggested_edits_task_multilingual_positive">Bæta við tungumálum</string>
+  <string name="suggested_edits_image_caption_summary_title_file">Skrá</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Listamaður</string>
   <string name="suggested_edits_image_caption_summary_title_author">Höfundur</string>
   <string name="suggested_edits_image_caption_summary_title_source">Uppruni</string>
@@ -665,13 +665,79 @@
     <item quantity="other">%d framlög</item>
   </plurals>
   <string name="suggested_edits_feed_card_title">Tillögur að breytingum</string>
-  <string name="suggested_edits_tutorial_message">Velkomin í nýju miðstöðina fyrir flýtibreytingar í Wikipedia-forritinu. Við kunnum vel að meta öll þín framlög. Skemmtu þér vel!</string>
+  <string name="suggested_edits_feed_card_add_description_button">Bæta við lýsingu á grein</string>
+  <string name="suggested_edits_feed_card_add_translation_in_language_button">Bæta við lýsingu á grein (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Komast í gang</string>
+  <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Myndatexti (%s)</string>
+  <string name="suggested_edits_image_preview_dialog_description_in_language_title">Lýsing á mynd (%s)</string>
   <string name="suggested_edits_image_preview_dialog_artist">Listamaður</string>
   <string name="suggested_edits_image_preview_dialog_date">Dagsetning</string>
   <string name="suggested_edits_image_preview_dialog_source">Heimild/Ljósmyndari</string>
   <string name="suggested_edits_image_preview_dialog_licensing">Notkunarleyfi</string>
-  <string name="suggested_edits_image_preview_dialog_more_info" fuzzy="true">Frekari upplýsingar</string>
+  <string name="suggested_edits_image_preview_dialog_more_info">Frekari upplýsingar</string>
+  <string name="suggested_edits_image_preview_dialog_file_page_link_text">Síða skrárinnar á Wikimedia Commons</string>
+  <string name="suggested_edits_article_cta_image_caption">Bæta við myndatexta</string>
+  <string name="suggested_edits_article_cta_image_caption_in_language">Bæta við myndatexta (%s)</string>
+  <string name="suggested_edits_article_cta_snackbar_action">Skoða</string>
+  <string name="suggested_edits_feed_card_add_image_caption">Bæta við myndatexta</string>
+  <string name="suggested_edits_feed_card_translate_image_caption">Bæta við myndatexta (%s)</string>
+  <string name="suggested_edits_feed_card_add_image_tags">Bæta við merkjum á myndir</string>
+  <string name="suggested_edits_snackbar_survey_text">Hvernig fannst þér vinnan við breytingar? Taktu þér smástund við að fylla út könnun á notkun forritsins við breytingar.</string>
+  <string name="suggested_edits_snackbar_survey_action_text">Taktu þátt í könnun</string>
+  <string name="suggested_edits_task_action_text_add">Bæta við</string>
+  <string name="suggested_edits_task_action_text_translate">Þýða</string>
+  <string name="suggested_edits_image_captions">Myndatextar</string>
+  <string name="suggested_edits_image_tags">Merki mynda</string>
+  <string name="suggested_edits_image_tags_publishing">Birting</string>
+  <string name="suggested_edits_image_tags_published">Birt</string>
+  <string name="suggested_edits_image_tags_onboarding_title">Að merkja myndir gerir mun auðveldara að finna þær.</string>
+  <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">Með því að bæta við merkjum á myndir gerir mun auðveldara að finna þær á Commons, myndasafninu með frjálsum notkunarleyfum sem Wikipedia notar fyrir myndir í greinum sínum.\n\nSjálfvirkt er stungið upp á nokkrum merkjum en þú getur líka bætt við þínum eigin merkjum.</string>
+  <string name="suggested_edits_image_tags_onboarding_note">Einungis merki sem þú velur verður bætt á myndir.</string>
+  <string name="suggested_edits_image_tags_snackbar">Að bæta við merkjum á myndir gerir öðrum mun auðveldara að finna þær.</string>
+  <string name="suggested_edits_image_tags_task_detail" fuzzy="true">Að merkja myndir gerir mun auðveldara að finna þær. Veldu úr tillögum að merkjum eða bættu við þínum eigin merkjum.</string>
+  <string name="suggested_edits_image_tags_choose">Bættu við eða veldu samsvarandi merki</string>
+  <string name="suggested_edits_image_tags_published_list">Birt merki</string>
+  <string name="suggested_edits_image_tags_search">Leita að merkjum</string>
+  <string name="suggested_edits_image_tags_select_title">Þú hefur ekki valið nein merki fyrir þessa mynd</string>
+  <string name="suggested_edits_image_tags_select_text">Einungis merki sem þú velur verður bætt á myndir. Merki sem ekki eru valin verða skráð sem hafnað. Ertu viss um að þú viljir skrá öll merki sem hafnað?</string>
+  <string name="suggested_edits_image_tags_add_tag">Bæta við merki</string>
+  <string name="suggested_edits_image_zoom_tooltip">Klíptu til að renna að þessari mynd.</string>
+  <string name="suggested_edits_encouragement_message">%s, takk fyrir breytingarnar þínar. Hér fyrir neðan geturðu séð fleiri leiðir til að leggja þitt af mörkum til Wikipedia.</string>
+  <string name="suggested_edits_onboarding_message" fuzzy="true">&lt;b&gt;Hæ %s&lt;/b&gt;, issir þú að allir geta breytt efni á Wikipedia? Hér fyrir neðan geturðu séð ýmsar skemmtilegar leiðir til að bæta Wikipedia. Skemmtu þér vel!</string>
+  <string name="suggested_edits_image_captions_task_detail" fuzzy="true">Myndatextar lýsa myndum til að hjálpa notendum að skilja meiningu og samhengi myndanna.</string>
+  <string name="suggested_edits_add_descriptions_task_detail" fuzzy="true">Lýsingar á greinum draga saman efni greinar í örfáum orðum til að hjálpa lesendum að skilja umfjöllunarefnið í fljótu bragði.</string>
+  <string name="suggested_edits_contributions_stat_tooltip">Heildarfjöldi breytinga sem þú hefur gert út frá tillögum að breytingum.</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip">Hve marga daga í röð þú hefur gert breytingar út frá tillögum að breytingum. Ef þú hefur ekki nýtt þér þetta í einhvern tíma, þá birtist dagsetningin þegar þú gerðir það síðast.</string>
+  <string name="suggested_edits_page_views_stat_tooltip">Heildarfjöldi síðuflettinga á atriði sem þú hefur gert síðustu 30 daga út frá tillögum að breytingum.</string>
+  <string name="suggested_edits_edit_quality_stat_tooltip">Byggt á því hversu oft eitthvað atriði frá þér hefur verið afturkallað (tekið til baka af öðrum þáttakanda). Afturkallaðar breytingar: %d.</string>
+  <string name="suggested_edits_paused_message" fuzzy="true">&lt;b&gt;Tillögur að breytingum eru í dvala til %1$s.&lt;/b&gt; Því miður %2$s, sumt af því sem þú hefur unnið við hefur verið afturkallað.\n\nÞú getur lært meira til að bæta vinnuna þína á Wikipedia með því að fylgja tenglinum hér fyrir neðan.</string>
+  <string name="suggested_edits_disabled_message" fuzzy="true">&lt;b&gt;Tillögur að breytingum eru ekki virkar.&lt;/b&gt; Því miður %s, of margt af því sem þú hefur unnið við hefur verið afturkallað.\n\nÞú getur séð hvað þetta þýðir með því að fylgja tenglinum hér fyrir neðan.</string>
+  <string name="suggested_edits_ip_blocked_message" fuzzy="true">Það lítur út fyrir að IP-vistfangið þitt (eða svið af IP-vistföngum) sé í augnablikinu útilokað frá því að gera breytingar á Wikipedia. Þú getur séð hvað þetta þýðir með því að fylgja tenglinum hér fyrir neðan.</string>
+  <string name="suggested_edits_editing_tips_link_text">Ábendingar og góð ráð við breytingar</string>
+  <string name="suggested_edits_help_page_link_text">Hjálparsíða fyrir tillögur að breytingum</string>
+  <string name="suggested_edits_edit_streak_label_text">Breytingaruna</string>
+  <string name="suggested_edits_views_label_text" fuzzy="true">Síðuflettingar</string>
+  <string name="suggested_edits_quality_label_text">Gæði breytinga</string>
+  <string name="suggested_edits_quality_perfect_text">Fullkomið</string>
+  <string name="suggested_edits_quality_excellent_text">Frábært</string>
+  <string name="suggested_edits_quality_very_good_text">Mjög gott</string>
+  <string name="suggested_edits_quality_good_text">Gott</string>
+  <string name="suggested_edits_quality_okay_text">Í lagi</string>
+  <string name="suggested_edits_quality_sufficient_text">Viðunandi</string>
+  <string name="suggested_edits_quality_poor_text">Lélegt</string>
+  <string name="suggested_edits_quality_bad_text">Slæmt</string>
+  <plurals name="suggested_edits_contribution">
+    <item quantity="one">Framlag</item>
+    <item quantity="other">Framlög</item>
+  </plurals>
+  <plurals name="suggested_edits_edit_streak_detail_text">
+    <item quantity="one">%d dagur</item>
+    <item quantity="other">%d dagar</item>
+  </plurals>
+  <string name="suggested_edits_last_edited">Síðast breytt</string>
+  <string name="suggested_edits_last_edited_never">Aldrei</string>
+  <string name="suggested_edits_task_new">nýtt</string>
+  <string name="suggested_edits_cc0_notice">Með því að vista samþykkir þú &lt;a href=\"%1$s\"&gt;notkunarskilmálana&lt;/a&gt; og að þú gefir framlag þitt ævinlega út með &lt;a href=\"%2$s\"&gt;CC0 notkunarleyfinu&lt;/a&gt;.</string>
   <string name="description_edit_revert_subtitle">Takk fyrir framlag þitt til Wikipedia!</string>
   <string name="description_edit_revert_intro">Við vitum að þú reyndir þitt besta, en einn í yfirlestrarhópnum var í vafa. Hugsanlegar ástæður fyrir því að breytingunni þinni var hafnað, gætu meðal annars verið:</string>
   <string name="description_edit_revert_reason1">framlagið þitt fylgdi ekki einhverju atriðanna í &lt;a href=\"%1$s\"&gt;leiðbeiningunum&lt;/a&gt;.</string>
@@ -689,13 +755,10 @@
   <string name="onboarding_explore_title">Nýjar leiðir til að kanna heiminn</string>
   <string name="onboarding_explore_text">Hentu þér út í djúpu Wikipedia-laugina með \'Uppgötva\'-streymi sem er uppfært í sífellu. &lt;br/&gt;Þú getur &lt;b&gt;sérsniðið&lt;/b&gt; streymið eftir áhugamálum þínum – hvort sem það er til að læra um sögulega atburði í &lt;b&gt;Á þessum degi&lt;/b&gt;, eða með því að taka áhættuna í &lt;b&gt;Slembið&lt;/b&gt;.</string>
   <string name="onboarding_reading_list_sync_title">Leslistar með samstillingu</string>
-  <string name="onboarding_reading_list_sync_text_v2">Þú getur búið til leslista úr greinum til að lesa þær síðar, jafnvel án nettengingar. &lt;br/&gt;Skráðu þig inn á Wikipedia-notandaaðganginn þinn til að samstilla leslistana þína. &lt;a href=\"#login\"&gt;Skráðu þig á Wikipedia&lt;/a&gt; \</string>
+  <string name="onboarding_reading_list_sync_text_v2">Þú getur búið til leslista úr greinum til að lesa þær síðar, jafnvel án nettengingar. &lt;br/&gt;Skráðu þig inn á Wikipedia-notandaaðganginn þinn til að samstilla leslistana þína. &lt;a href=\"#login\"&gt;Skráðu þig á Wikipedia&lt;/a&gt; \\</string>
   <string name="onboarding_analytics_title">Senda nafnlaus gögn</string>
   <string name="onboarding_analytics_offline_text">Hjálpaðu okkur að bæta forritið með því að leyfa okkur að sjá hvernig þú notar það. Gögnum er safnað án persónuauðkenna. &lt;a href=\"#privacy\"&gt;Vita meira&lt;/a&gt;</string>
   <string name="onboarding_analytics_switch_title">Senda upplýsingar um notkun</string>
-  <string name="onboarding_create_account_sync">Samstilltu leslistana þína</string>
-  <string name="onboarding_create_account_contributions">Halda utan um framlögin þín</string>
-  <string name="onboarding_create_account_preferences">Vista kjörstillingarnar þínar</string>
   <string name="onboarding_got_it">Náði því</string>
   <string name="onboarding_multilingual_secondary_text">Við fundum eftirtalin tungumál á tækinu þínu:</string>
   <string name="onboarding_multilingual_add_language_text">Bæta við eða breyta tungumálum</string>
@@ -710,6 +773,9 @@
   <string name="events_count_text">%1$s atburðir frá %2$s–%3$d</string>
   <string name="this_year">Á þessu ári</string>
   <string name="back_to_top">Aftur efst</string>
+  <string name="on_this_day_dialog_next_month">Næsti mánuður</string>
+  <string name="on_this_day_dialog_previous_month">Fyrri mánuður</string>
+  <string name="on_this_day_open_date_picker">Opna dagsetningaval</string>
   <plurals name="diff_years">
     <item quantity="one">Á síðasta ári</item>
     <item quantity="other">Fyrir %d árum síðan</item>
@@ -743,6 +809,7 @@
   <string name="edit_conflict_dialog_ok_button_text">Í lagi</string>
   <string name="reverted_edit_dialog_ok_button_text">Í lagi</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">Hætta við</string>
+  <string name="content_description_for_page_indicator">Síða %1$d af %2$d</string>
   <string name="wikitext_bold">Feitletrað</string>
   <string name="wikitext_italic">Skáletrað</string>
   <string name="wikitext_link">Tengill</string>
@@ -751,10 +818,10 @@
   <string name="wikitext_template">Sniðmát</string>
   <string name="wikitext_reference">Tilvísun</string>
   <string name="wikitext_preview_link">Forskoða tengil</string>
-  <string name="main_drawer_open">Opna</string>
-  <string name="main_drawer_close">Loka</string>
   <string name="main_drawer_help">Hjálp</string>
   <string name="main_drawer_login">Skrá inn / nýskrá á Wikipedia</string>
+  <string name="main_tooltip_text" fuzzy="true">%s, vissir þú að allir geta breytt efni á Wikipedia?</string>
+  <string name="main_tooltip_action_button">Komast í gang</string>
   <string name="custom_date_picker_dialog_ok_button_text">Í lagi</string>
   <string name="text_input_dialog_ok_button_text">Í lagi</string>
   <string name="text_input_dialog_cancel_button_text">Hætta við</string>

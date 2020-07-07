@@ -18,21 +18,18 @@ import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.ServiceFactory;
-import org.wikipedia.dataclient.page.PageClient;
-import org.wikipedia.dataclient.page.PageClientFactory;
-import org.wikipedia.dataclient.page.PageLead;
-import org.wikipedia.dataclient.restbase.page.RbPageSummary;
+import org.wikipedia.dataclient.mwapi.MwParseResponse;
+import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.feed.model.UtcDate;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.staticdata.MainPageNameData;
 import org.wikipedia.util.DateUtil;
-import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 
-import io.reactivex.Observable;
-import io.reactivex.schedulers.Schedulers;
+import io.reactivex.rxjava3.core.Observable;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 
 import static org.wikipedia.page.PageActivity.EXTRA_PAGETITLE;
 import static org.wikipedia.util.UriUtil.decodeURL;
@@ -87,8 +84,6 @@ public class WidgetProviderFeaturedPage extends AppWidgetProvider {
         });
     }
 
-
-
     @SuppressLint("CheckResult")
     private void getFeaturedArticleInformation(final Callback cb) {
         WikipediaApp app = WikipediaApp.getInstance();
@@ -105,26 +100,25 @@ public class WidgetProviderFeaturedPage extends AppWidgetProvider {
                         return Observable.just(response.tfa());
                     } else {
                         // TODO: this logic can be removed if the feed API can return the featured article for all languages.
-                        return getApiService(mainPageTitle)
-                                .lead(mainPageTitle.getWikiSite(), null, null, null, mainPageTitle.getPrefixedText(),
-                                        DimenUtil.calculateLeadImageWidth());
+                        return ServiceFactory.get(mainPageTitle.getWikiSite()).parseTextForMainPage(mainPageTitle.getPrefixedText());
                     }
                 })
                 .subscribeOn(Schedulers.io())
-                .subscribe(response -> {
-                    CharSequence widgetText = mainPageTitle.getText();
-                    PageTitle pageTitle = mainPageTitle;
-                    if (response instanceof retrofit2.Response) {
-                        PageLead lead = (PageLead) ((retrofit2.Response) response).body();
+                .flatMap(response -> {
+                    if (response instanceof MwParseResponse) {
                         L.d("Downloaded page " + mainPageTitle.getDisplayText());
-                        widgetText = findFeaturedArticleTitle(lead.getLeadSectionContent());
-                    } else if (response instanceof RbPageSummary) {
-                        widgetText = StringUtil.fromHtml(((RbPageSummary) response).getDisplayTitle());
-                        pageTitle = ((RbPageSummary) response).getPageTitle(app.getWikiSite());
+                        return ServiceFactory.getRest(WikipediaApp.getInstance().getWikiSite()).getSummary(null, findFeaturedArticleTitle(((MwParseResponse) response).getText()));
                     }
-
+                    return Observable.just(response);
+                })
+                .subscribe(response -> {
+                    CharSequence widgetText = StringUtil.fromHtml(((PageSummary) response).getDisplayTitle());
+                    PageTitle pageTitle = ((PageSummary) response).getPageTitle(app.getWikiSite());
                     cb.onFeaturedArticleReceived(pageTitle, widgetText);
-                }, L::e);
+                }, throwable -> {
+                    cb.onFeaturedArticleReceived(mainPageTitle, mainPageTitle.getDisplayText());
+                    L.e(throwable);
+                });
     }
 
     private String findFeaturedArticleTitle(String pageLeadContent) {
@@ -148,10 +142,6 @@ public class WidgetProviderFeaturedPage extends AppWidgetProvider {
             }
         }
         return titleText;
-    }
-
-    private PageClient getApiService(PageTitle title) {
-        return PageClientFactory.create(title.getWikiSite(), title.namespace());
     }
 
     private interface Callback {

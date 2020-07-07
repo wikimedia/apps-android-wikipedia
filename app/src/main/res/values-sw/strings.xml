@@ -13,10 +13,8 @@
   <string name="menu_page_other_languages" fuzzy="true">Soma katika lugha zingine</string>
   <string name="menu_page_find_in_page">Tafuta katika ukurasa</string>
   <string name="menu_page_share" fuzzy="true">Gawa</string>
-  <string name="nav_item_nearby">Karibu</string>
   <string name="last_updated_text">Ilisasishwa mwisho %s</string>
-  <string name="content_license_html">Inapatikana katika &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;  isipokuwa pale imetajwa</string>
-  <string name="preference_title_language">Lugha ya Wikipedia</string>
+    <string name="preference_title_language">Lugha ya Wikipedia</string>
     <string name="langlinks_filter_hint">Tafuta</string>
   <string name="langlinks_empty">Ukurasa huu haupatikani katika lugha zingine.</string>
   <string name="langlinks_activity_title">Lugha zingine</string>
@@ -89,9 +87,5 @@
   <string name="gallery_menu_share">Gawa</string>
   <string name="gallery_share_error">Haingeshiriki picha: %s</string>
   <string name="err_cannot_save_file">Haiwezi kuhifadhi faili</string>
-  <string name="snippet_share_intro">\"%1$s\" katika @Wikipedia: %2$s</string>
-  <string name="share_snippet_button">Shiriki kama picha</string>
-  <string name="share_normal_button">Shiriki kama maandiko</string>
-  <string name="snippet_share_preview_image_desc">Tazama hakikisho la picha</string>
   <string name="cc_logo">Leseni ya Creative Commons</string>
 </resources>

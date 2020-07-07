@@ -1,5 +1,6 @@
 package org.wikipedia.edit.preview;
 
+import android.content.Context;
 import android.content.res.AssetManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
@@ -9,18 +10,21 @@ import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.ScrollView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.google.gson.JsonObject;
+
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.EditFunnel;
 import org.wikipedia.bridge.CommunicationBridge;
+import org.wikipedia.bridge.CommunicationBridge.CommunicationBridgeListener;
+import org.wikipedia.bridge.JavaScriptActionHandler;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.okhttp.OkHttpWebViewClient;
@@ -31,10 +35,9 @@ import org.wikipedia.page.LinkHandler;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.PageViewModel;
-import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.ConfigurationCompat;
 import org.wikipedia.util.L10nUtil;
-import org.wikipedia.util.log.L;
+import org.wikipedia.util.UriUtil;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.ViewAnimations;
 
@@ -42,25 +45,19 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.schedulers.Schedulers;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
 
+import static org.wikipedia.dataclient.RestService.PAGE_HTML_PREVIEW_ENDPOINT;
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
-import static org.wikipedia.util.ResourceUtil.getThemedColor;
 import static org.wikipedia.util.UriUtil.handleExternalLink;
 
-public class EditPreviewFragment extends Fragment {
+public class EditPreviewFragment extends Fragment implements CommunicationBridgeListener {
     private ObservableWebView webview;
     private ScrollView previewContainer;
-    private EditSectionActivity parentActivity;
-
-    private ViewGroup editSummaryTagsContainer;
-
-    private String previewHTML;
 
     private PageViewModel model = new PageViewModel();
     private CommunicationBridge bridge;
+    private EditLinkHandler linkHandler;
 
     private List<EditSummaryTag> summaryTags;
     private EditSummaryTag otherTag;
@@ -73,27 +70,15 @@ public class EditPreviewFragment extends Fragment {
         View parent = inflater.inflate(R.layout.fragment_preview_edit, container, false);
         webview = parent.findViewById(R.id.edit_preview_webview);
         previewContainer = parent.findViewById(R.id.edit_preview_container);
-        editSummaryTagsContainer = parent.findViewById(R.id.edit_summary_tags_container);
-        bridge = new CommunicationBridge(webview, requireActivity());
-        webview.setWebViewClient(new OkHttpWebViewClient() {
-            @NonNull @Override public PageViewModel getModel() {
-                return model;
-            }
-        });
+        ViewGroup editSummaryTagsContainer = parent.findViewById(R.id.edit_summary_tags_container);
+        bridge = new CommunicationBridge(this);
+        linkHandler = new EditLinkHandler(requireActivity());
+        initWebView();
 
-        return parent;
-    }
-
-    @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-
-        parentActivity = (EditSectionActivity)getActivity();
-        PageTitle pageTitle = parentActivity.getPageTitle();
+        PageTitle pageTitle = ((EditSectionActivity)requireActivity()).getPageTitle();
         model.setTitle(pageTitle);
         model.setTitleOriginal(pageTitle);
         model.setCurEntry(new HistoryEntry(pageTitle, HistoryEntry.SOURCE_INTERNAL_LINK));
-        bridge.resetHtml("preview.html", pageTitle.getWikiSite().url(), getThemedColor(requireActivity(), R.attr.paper_color));
         funnel = WikipediaApp.getInstance().getFunnelManager().getEditFunnel(pageTitle);
 
         /*
@@ -111,7 +96,8 @@ public class EditPreviewFragment extends Fragment {
         Locale newLocale = new Locale(pageTitle.getWikiSite().languageCode());
         Configuration config = new Configuration(oldResources.getConfiguration());
         Resources tempResources = getResources();
-        if (!oldLocale.getLanguage().equals(newLocale.getLanguage()) && !newLocale.getLanguage().equals("test")) {
+        boolean hasSameLocale = oldLocale.getLanguage().equals(newLocale.getLanguage());
+        if (!hasSameLocale && !newLocale.getLanguage().equals("test")) {
             L10nUtil.setDesiredLocale(config, newLocale);
             tempResources = new Resources(assets, metrics, config);
         }
@@ -144,7 +130,7 @@ public class EditPreviewFragment extends Fragment {
             if (otherTag.getSelected()) {
                 otherTag.setSelected(false);
             } else {
-                parentActivity.showCustomSummary();
+                ((EditSectionActivity)requireActivity()).showCustomSummary();
             }
         });
 
@@ -152,13 +138,12 @@ public class EditPreviewFragment extends Fragment {
         Reset AssetManager to its original state, by creating a new Resources object
         with the original Locale (from above)
          */
-        if (!oldLocale.getLanguage().equals(newLocale.getLanguage())) {
+        if (!hasSameLocale) {
             config.setLocale(oldLocale);
             new Resources(assets, metrics, config);
         }
 
         if (savedInstanceState != null) {
-
             for (int i = 0; i < summaryTags.size(); i++) {
                 summaryTags.get(i).setSelected(savedInstanceState.getBoolean("summaryTag" + i, false));
             }
@@ -166,14 +151,9 @@ public class EditPreviewFragment extends Fragment {
                 otherTag.setSelected(true);
                 otherTag.setText(savedInstanceState.getString("otherTag"));
             }
-
-            previewHTML = savedInstanceState.getString("previewHTML");
-            boolean isActive = savedInstanceState.getBoolean("isActive");
-            previewContainer.setVisibility(isActive ? View.VISIBLE : View.GONE);
-            if (isActive) {
-                displayPreview(previewHTML);
-            }
         }
+        previewContainer.setVisibility(View.GONE);
+        return parent;
     }
 
     public void setCustomSummary(String summary) {
@@ -181,82 +161,8 @@ public class EditPreviewFragment extends Fragment {
         otherTag.setSelected(summary.length() > 0);
     }
 
-    private boolean isWebViewSetup = false;
-
-    private void displayPreview(final String html) {
-        if (!isWebViewSetup) {
-            isWebViewSetup = true;
-            L10nUtil.setupDirectionality(parentActivity.getPageTitle().getWikiSite().languageCode(), Locale.getDefault(), bridge);
-
-            bridge.addListener("linkClicked", new LinkHandler(requireActivity()) {
-                @Override
-                public void onPageLinkClicked(@NonNull String href, @NonNull String linkText) {
-                    // TODO: also need to handle references, issues, disambig, ... in preview eventually
-                }
-
-                @Override
-                public void onInternalLinkClicked(@NonNull final PageTitle title) {
-                    showLeavingEditDialogue(() -> startActivity(PageActivity.newIntentForCurrentTab(getContext(),
-                            new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK), title)));
-                }
-
-                @Override
-                public void onExternalLinkClicked(@NonNull final Uri uri) {
-                    showLeavingEditDialogue(() -> handleExternalLink(getContext(), uri));
-                }
-
-                /**
-                 * Shows the user a dialogue asking them if they really meant to leave the edit
-                 * workflow, and warning them that their changes have not yet been saved.
-                 * @param runnable The runnable that is run if the user chooses to leave.
-                 */
-                private void showLeavingEditDialogue(final Runnable runnable) {
-                    //Ask the user if they really meant to leave the edit workflow
-                    final AlertDialog leavingEditDialog = new AlertDialog.Builder(requireActivity())
-                            .setMessage(R.string.dialog_message_leaving_edit)
-                            .setPositiveButton(R.string.dialog_message_leaving_edit_leave, (dialog, which) -> {
-                                //They meant to leave; close dialogue and run specified action
-                                dialog.dismiss();
-                                runnable.run();
-                            })
-                            .setNegativeButton(R.string.dialog_message_leaving_edit_stay, null)
-                            .create();
-                    leavingEditDialog.show();
-                }
-
-                @Override
-                public WikiSite getWikiSite() {
-                    return parentActivity.getPageTitle().getWikiSite();
-                }
-            });
-            bridge.addListener("imageClicked", (messageType, messagePayload) -> {
-                // TODO: do something when an image is clicked in Preview.
-            });
-            bridge.addListener("mediaClicked", (messageType, messagePayload) -> {
-                // TODO: do something when a video is clicked in Preview.
-            });
-            bridge.addListener("referenceClicked", (messageType, messagePayload) -> {
-                // TODO: do something when a reference is clicked in Preview.
-            });
-        }
-
-        ViewAnimations.fadeIn(previewContainer, () -> parentActivity.supportInvalidateOptionsMenu());
-        ViewAnimations.fadeOut(requireActivity().findViewById(R.id.edit_section_container));
-
-        JSONObject payload = new JSONObject();
-        try {
-            payload.put("html", html);
-            payload.put("siteBaseUrl", parentActivity.getPageTitle().getWikiSite().url());
-            payload.put("theme", WikipediaApp.getInstance().getCurrentTheme().getMarshallingId());
-            payload.put("dimImages", Prefs.shouldDimDarkModeImages());
-        } catch (JSONException e) {
-            throw new RuntimeException(e);
-        }
-        bridge.sendMessage("displayPreviewHTML", payload);
-    }
-
     /**
-     * Fetches a preview of the modified text, and shows (fades in) the Preview fragment,
+     * Fetches preview html from the modified wikitext text, and shows (fades in) the Preview fragment,
      * which includes edit summary tags. When the fade-in completes, the state of the
      * actionbar button(s) is updated, and the preview is shown.
      * @param title The PageTitle associated with the text being modified.
@@ -264,20 +170,52 @@ public class EditPreviewFragment extends Fragment {
      */
     public void showPreview(final PageTitle title, final String wikiText) {
         hideSoftKeyboard(requireActivity());
-        parentActivity.showProgressBar(true);
+        ((EditSectionActivity)requireActivity()).showProgressBar(true);
 
-        disposables.add(ServiceFactory.get(parentActivity.getPageTitle().getWikiSite()).postEditPreview(title.getPrefixedText(), wikiText)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .doAfterTerminate(() -> parentActivity.showProgressBar(false))
-                .subscribe(response -> {
-                    displayPreview(response.result());
-                    previewHTML = response.result();
-                    parentActivity.supportInvalidateOptionsMenu();
-                }, throwable -> {
-                    parentActivity.showError(throwable);
-                    L.e(throwable);
-                }));
+        String url = ServiceFactory.getRestBasePath(model.getTitle().getWikiSite()) + PAGE_HTML_PREVIEW_ENDPOINT + UriUtil.encodeURL(title.getPrefixedText());
+        String postData = "wikitext=" + UriUtil.encodeURL(wikiText);
+        webview.postUrl(url, postData.getBytes());
+
+        ViewAnimations.fadeIn(previewContainer, () -> requireActivity().invalidateOptionsMenu());
+        ViewAnimations.fadeOut(requireActivity().findViewById(R.id.edit_section_container));
+    }
+
+    private void initWebView() {
+        webview.setWebViewClient(new OkHttpWebViewClient() {
+            @NonNull @Override public PageViewModel getModel() {
+                return model;
+            }
+
+            @NonNull @Override public LinkHandler getLinkHandler() {
+                return linkHandler;
+            }
+
+            @Override public void onPageFinished(WebView view, String url) {
+                super.onPageFinished(view, url);
+                if (!isAdded()) {
+                    return;
+                }
+                ((EditSectionActivity)requireActivity()).showProgressBar(false);
+                requireActivity().invalidateOptionsMenu();
+                bridge.execute(JavaScriptActionHandler.setTopMargin(0));
+            }
+        });
+        bridge.addListener("setup", (String messageType, JsonObject messagePayload) -> {
+            // ignore
+        });
+        bridge.addListener("final_setup", (String messageType, JsonObject messagePayload) -> {
+            // ignore
+        });
+        bridge.addListener("link", linkHandler);
+        bridge.addListener("image", (messageType, messagePayload) -> {
+            // TODO: do something when an image is clicked in Preview.
+        });
+        bridge.addListener("media", (messageType, messagePayload) -> {
+            // TODO: do something when a video is clicked in Preview.
+        });
+        bridge.addListener("reference", (messageType, messagePayload) -> {
+            // TODO: do something when a reference is clicked in Preview.
+        });
     }
 
     /**
@@ -287,23 +225,23 @@ public class EditPreviewFragment extends Fragment {
      * they will be separated by commas.
      */
     public String getSummary() {
-        String summaryStr = "";
+        StringBuilder summaryStr = new StringBuilder();
         for (EditSummaryTag tag : summaryTags) {
             if (!tag.getSelected()) {
                 continue;
             }
             if (summaryStr.length() > 0) {
-                summaryStr += ", ";
+                summaryStr.append(", ");
             }
-            summaryStr += tag;
+            summaryStr.append(tag);
         }
         if (otherTag.getSelected()) {
             if (summaryStr.length() > 0) {
-                summaryStr += ", ";
+                summaryStr.append(", ");
             }
-            summaryStr += otherTag;
+            summaryStr.append(otherTag);
         }
-        return summaryStr;
+        return summaryStr.toString();
     }
 
     @Override
@@ -312,6 +250,7 @@ public class EditPreviewFragment extends Fragment {
         if (webview != null) {
             webview.clearAllListeners();
             ((ViewGroup) webview.getParent()).removeView(webview);
+            bridge.cleanup();
             webview = null;
         }
         super.onDestroyView();
@@ -331,7 +270,7 @@ public class EditPreviewFragment extends Fragment {
      */
     public void hide() {
         View editSectionContainer = requireActivity().findViewById(R.id.edit_section_container);
-        ViewAnimations.crossFade(previewContainer, editSectionContainer, () -> parentActivity.supportInvalidateOptionsMenu());
+        ViewAnimations.crossFade(previewContainer, editSectionContainer, () -> requireActivity().invalidateOptionsMenu());
     }
 
     public boolean isActive() {
@@ -341,13 +280,78 @@ public class EditPreviewFragment extends Fragment {
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putString("previewHTML", previewHTML);
-        outState.putBoolean("isActive", isActive());
         for (int i = 0; i < summaryTags.size(); i++) {
             outState.putBoolean("summaryTag" + i, summaryTags.get(i).getSelected());
         }
         if (otherTag.getSelected()) {
             outState.putString("otherTag", otherTag.toString());
+        }
+    }
+
+    @Override
+    public WebView getWebView() {
+        return webview;
+    }
+
+    @Override
+    public PageViewModel getModel() {
+        return model;
+    }
+
+    @Override
+    public boolean isPreview() {
+        return true;
+    }
+
+    private class EditLinkHandler extends LinkHandler {
+        EditLinkHandler(@NonNull Context context) {
+            super(context);
+        }
+
+        @Override
+        public void onPageLinkClicked(@NonNull String href, @NonNull String linkText) {
+            // TODO: also need to handle references, issues, disambig, ... in preview eventually
+        }
+
+        @Override
+        public void onInternalLinkClicked(@NonNull final PageTitle title) {
+            showLeavingEditDialogue(() -> startActivity(PageActivity.newIntentForCurrentTab(getContext(),
+                    new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK), title)));
+        }
+
+        @Override
+        public void onExternalLinkClicked(@NonNull final Uri uri) {
+            showLeavingEditDialogue(() -> handleExternalLink(getContext(), uri));
+        }
+
+        @Override
+        public void onMediaLinkClicked(@NonNull PageTitle title) {
+            // ignore
+        }
+
+        /**
+         * Shows the user a dialogue asking them if they really meant to leave the edit
+         * workflow, and warning them that their changes have not yet been saved.
+         *
+         * @param runnable The runnable that is run if the user chooses to leave.
+         */
+        private void showLeavingEditDialogue(final Runnable runnable) {
+            //Ask the user if they really meant to leave the edit workflow
+            final AlertDialog leavingEditDialog = new AlertDialog.Builder(requireActivity())
+                    .setMessage(R.string.dialog_message_leaving_edit)
+                    .setPositiveButton(R.string.dialog_message_leaving_edit_leave, (dialog, which) -> {
+                        //They meant to leave; close dialogue and run specified action
+                        dialog.dismiss();
+                        runnable.run();
+                    })
+                    .setNegativeButton(R.string.dialog_message_leaving_edit_stay, null)
+                    .create();
+            leavingEditDialog.show();
+        }
+
+        @Override
+        public WikiSite getWikiSite() {
+            return model.getTitle().getWikiSite();
         }
     }
 }

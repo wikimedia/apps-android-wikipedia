@@ -7,8 +7,7 @@ import android.view.MotionEvent
 import android.widget.ListView
 import kotlin.math.abs
 
-class SwipeableListView @JvmOverloads constructor(
-        context: Context, attrs: AttributeSet? = null, defStyle: Int = 0) : ListView(context, attrs, defStyle) {
+class SwipeableListView constructor(context: Context, attrs: AttributeSet? = null) : ListView(context, attrs) {
 
     var listener: OnSwipeOutListener? = null
     var rtl: Boolean = false

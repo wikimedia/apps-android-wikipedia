@@ -34,7 +34,9 @@ public final class UriUtil {
      */
     @NonNull public static String decodeURL(@NonNull String url) {
         try {
-            return URLDecoder.decode(url, "UTF-8");
+            // Force decoding of plus sign, since the built-in decode() function will replace
+            // plus sign with space.
+            return URLDecoder.decode(url.replace("+", "%2B"), "UTF-8");
         } catch (IllegalArgumentException e) {
             // Swallow IllegalArgumentException (can happen with malformed encoding), and just
             // return the original string.
@@ -47,7 +49,9 @@ public final class UriUtil {
 
     @NonNull public static String encodeURL(@NonNull String url) {
         try {
-            return URLEncoder.encode(url, "UTF-8");
+            // Before returning, explicitly convert plus signs to encoded spaces, since URLEncoder
+            // does that for some reason.
+            return URLEncoder.encode(url, "UTF-8").replace("+", "%20");
         } catch (UnsupportedEncodingException e) {
             throw new RuntimeException(e);
         }
@@ -60,20 +64,15 @@ public final class UriUtil {
      * @param context Context of the calling app
      * @param uri URI to open in an external browser
      */
-    public static void visitInExternalBrowser(final Context context, Uri uri) {
-        Intent targetIntent = new Intent(Intent.ACTION_VIEW, uri);
-        Intent chooserIntent = ShareUtil.createChooserIntent(targetIntent, null, context);
-        if (chooserIntent == null) {
-            try {
-                context.startActivity(targetIntent);
-            } catch (ActivityNotFoundException e) {
-                // This means that there was no way to handle this link.
-                // We will just show a toast now. FIXME: Make this more visible?
-                ShareUtil.showUnresolvableIntentMessage(context);
-            }
-        } else {
+    public static void visitInExternalBrowser(@NonNull final Context context, @NonNull Uri uri) {
+        Intent chooserIntent = ShareUtil.createChooserIntent(new Intent(Intent.ACTION_VIEW, uri), context);
+        try {
             chooserIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             context.startActivity(chooserIntent);
+        } catch (ActivityNotFoundException e) {
+            // This means that there was no way to handle this link.
+            // We will just show a toast now. FIXME: Make this more visible?
+            ShareUtil.showUnresolvableIntentMessage(context);
         }
     }
 
@@ -104,18 +103,8 @@ public final class UriUtil {
         return (!TextUtils.isEmpty(uri.getAuthority())
                 && uri.getAuthority().endsWith("wikipedia.org")
                 && !TextUtils.isEmpty(uri.getPath())
-                && uri.getPath().startsWith("/wiki"));
-    }
-
-    /*
-    Links in a ZIM file are of the form "[Title].html", instead of "/wiki/[Title]", which is what
-    isValidPageLink() expects.  This necessitates a slightly different way to check for validity.
-    */
-    public static boolean isValidOfflinePageLink(@NonNull Uri uri) {
-        return (!TextUtils.isEmpty(uri.getAuthority())
-                && uri.getAuthority().endsWith("wikipedia.org")
-                && !TextUtils.isEmpty(uri.getPath())
-                && uri.getPath().endsWith(".html"));
+                && uri.getPath().startsWith("/wiki"))
+                && (uri.getFragment() == null || !uri.getFragment().startsWith("cite"));
     }
 
     public static void handleExternalLink(final Context context, final Uri uri) {
@@ -124,7 +113,7 @@ public final class UriUtil {
 
     public static String getUrlWithProvenance(Context context, PageTitle title,
                                               @StringRes int provId) {
-        return title.getCanonicalUri() + "?wprov=" + context.getString(provId);
+        return title.getUri() + "?wprov=" + context.getString(provId);
     }
 
     /**
@@ -168,7 +157,5 @@ public final class UriUtil {
         return Uri.parse(link).getFragment();
     }
 
-    private UriUtil() {
-
-    }
+    private UriUtil() { }
 }

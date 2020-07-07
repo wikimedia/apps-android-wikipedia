@@ -38,6 +38,7 @@ public class FindInPageActionProvider extends ActionProvider {
 
     private Context context;
     private FindInPageListener listener;
+    private boolean enableLastOccurrenceSearchFlag;
     private boolean lastOccurrenceSearchFlag;
     private boolean isFirstOccurrence;
     private boolean isLastOccurrence;
@@ -59,7 +60,6 @@ public class FindInPageActionProvider extends ActionProvider {
         setFindInPageChevronsEnabled(false);
         searchView.setQueryHint(context.getString(R.string.menu_page_find_in_page));
         searchView.setFocusable(true);
-        searchView.requestFocusFromTouch();
         searchView.setOnQueryTextListener(searchQueryListener);
         searchView.setIconified(false);
         searchView.setMaxWidth(Integer.MAX_VALUE);
@@ -83,6 +83,10 @@ public class FindInPageActionProvider extends ActionProvider {
         searchView.setQuery(searchQuery, true);
     }
 
+    public void setEnableLastOccurrenceSearchFlag(boolean enable) {
+        enableLastOccurrenceSearchFlag = enable;
+    }
+
     public void setMatchesResults(int activeMatchOrdinal, int numberOfMatches) {
         if (numberOfMatches > 0) {
             findInPageMatch.setText(context.getString(R.string.find_in_page_result,
@@ -98,10 +102,10 @@ public class FindInPageActionProvider extends ActionProvider {
             isFirstOccurrence = false;
             isLastOccurrence = false;
         }
-        if (lastOccurrenceSearchFlag) {
+        if (enableLastOccurrenceSearchFlag && lastOccurrenceSearchFlag) {
             // Go one occurrence back from the first one so it shows the last one.
-            listener.onFindPrevClicked();
             lastOccurrenceSearchFlag = false;
+            listener.onFindPrevClicked();
         }
         findInPageMatch.setVisibility(View.VISIBLE);
     }

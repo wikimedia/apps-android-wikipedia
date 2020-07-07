@@ -16,7 +16,6 @@ import androidx.appcompat.content.res.AppCompatResources;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.widget.TextViewCompat;
 
-import com.facebook.drawee.view.SimpleDraweeView;
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
 
@@ -53,11 +52,10 @@ public class PageItemView<T> extends ConstraintLayout {
 
     @BindView(R.id.page_list_item_title) TextView titleView;
     @BindView(R.id.page_list_item_description) TextView descriptionView;
-    @BindView(R.id.page_list_item_image) SimpleDraweeView imageView;
+    @BindView(R.id.page_list_item_image) ImageView imageView;
     @BindView(R.id.page_list_item_action_secondary) ImageView secondaryActionView;
     @BindView(R.id.page_list_item_secondary_container) View secondaryContainer;
     @BindView(R.id.page_list_item_selected_image) View imageSelectedView;
-    @BindView(R.id.page_list_header_text) GoneIfEmptyTextView headerView;
     @BindView(R.id.page_list_item_circular_progress_bar) CircularProgressBar circularProgressBar;
     @BindView(R.id.chips_scrollview) View chipsScrollView;
     @BindView(R.id.reading_lists_chip_group) ChipGroup readingListsChipGroup;
@@ -80,8 +78,8 @@ public class PageItemView<T> extends ConstraintLayout {
         this.callback = callback;
     }
 
-    public void setTitle(@Nullable CharSequence text) {
-        titleView.setText(text);
+    public void setTitle(@Nullable String text) {
+        titleView.setText(StringUtil.fromHtml(text));
     }
 
     public void setTitleMaxLines(int linesCount) {
@@ -125,10 +123,6 @@ public class PageItemView<T> extends ConstraintLayout {
 
     public void setSecondaryActionHint(@StringRes int id) {
         secondaryActionView.setContentDescription(getContext().getString(id));
-    }
-
-    public void setHeaderText(@Nullable CharSequence text) {
-        headerView.setText(text);
     }
 
     public void setSelected(boolean selected) {
@@ -208,6 +202,7 @@ public class PageItemView<T> extends ConstraintLayout {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             setForeground(AppCompatResources.getDrawable(getContext(), ResourceUtil.getThemedAttributeId(getContext(), R.attr.selectableItemBackground)));
         }
+        setFocusable(true);
 
         FeedbackUtil.setToolbarButtonLongPressToast(secondaryActionView);
     }
@@ -219,7 +214,7 @@ public class PageItemView<T> extends ConstraintLayout {
             setBackgroundColor(getThemedColor(getContext(), R.attr.multi_select_background_color));
         } else {
             imageView.setVisibility(TextUtils.isEmpty(imageUrl) ? GONE : VISIBLE);
-            ViewUtil.loadImageUrlInto(imageView, imageUrl);
+            ViewUtil.loadImageWithRoundedCorners(imageView, imageUrl);
             imageSelectedView.setVisibility(GONE);
             setBackgroundColor(getThemedColor(getContext(), R.attr.paper_color));
         }

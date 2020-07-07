@@ -19,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.FeedConfigureFunnel;
+import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.feed.FeedContentType;
@@ -36,9 +37,9 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.schedulers.Schedulers;
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 
 import static org.wikipedia.Constants.INTENT_EXTRA_INVOKE_SOURCE;
 
@@ -173,6 +174,10 @@ public class ConfigureFragment extends Fragment implements ConfigureItemView.Cal
         while (i.hasNext()) {
             FeedContentType feedContentType = i.next();
             if (!feedContentType.showInConfig()) {
+                i.remove();
+                continue;
+            }
+            if (!AccountUtil.isLoggedIn() && feedContentType == FeedContentType.SUGGESTED_EDITS) {
                 i.remove();
                 continue;
             }

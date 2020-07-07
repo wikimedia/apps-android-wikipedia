@@ -20,13 +20,9 @@ NORWEGIAN_BOKMAL_LANG = "nb"
 
 # Wikis that cause problems and hence we pretend
 # do not exist.
-# - "got" -> Gothic runes wiki. The name of got in got
-#   contains characters outside the Unicode BMP. Android
-#   hard crashes on these. Let's ignore these fellas
-#   for now.
 # - "mo" -> Moldovan, which automatically redirects to Romanian (ro),
 #   which already exists in our list.
-OSTRICH_WIKIS = [u"got", "mo"]
+OSTRICH_WIKIS = ["mo"]
 
 
 # Represents a single wiki, along with arbitrary properties of that wiki

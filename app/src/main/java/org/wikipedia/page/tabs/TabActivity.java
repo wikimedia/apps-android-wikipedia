@@ -28,11 +28,14 @@ import org.wikipedia.activity.BaseActivity;
 import org.wikipedia.analytics.TabFunnel;
 import org.wikipedia.main.MainActivity;
 import org.wikipedia.navtab.NavTab;
+import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
+import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.TabCountsView;
 
@@ -49,6 +52,7 @@ import de.mrapp.android.tabswitcher.TabSwitcherDecorator;
 import de.mrapp.android.tabswitcher.TabSwitcherListener;
 import de.mrapp.android.util.logging.LogLevel;
 
+import static org.wikipedia.Constants.InvokeSource.TABS_ACTIVITY;
 import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
 
 public class TabActivity extends BaseActivity {
@@ -68,6 +72,7 @@ public class TabActivity extends BaseActivity {
     private TabFunnel funnel = new TabFunnel();
     private boolean cancelled = true;
     private long tabUpdatedTimeMillis;
+    private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
 
     @Nullable private static Bitmap FIRST_TAB_BITMAP;
 
@@ -132,11 +137,13 @@ public class TabActivity extends BaseActivity {
 
         FeedbackUtil.setToolbarButtonLongPressToast(tabCountsView);
 
-        setStatusBarColor(ResourceUtil.getThemedAttributeId(this, android.R.attr.colorBackground));
+        setStatusBarColor(ResourceUtil.getThemedColor(this, android.R.attr.colorBackground));
+        setNavigationBarColor(ResourceUtil.getThemedColor(this, android.R.attr.colorBackground));
         setSupportActionBar(tabToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("");
 
+        tabSwitcher.setPreserveState(false);
         tabSwitcher.setDecorator(new TabSwitcherDecorator() {
             @NonNull
             @Override
@@ -164,7 +171,8 @@ public class TabActivity extends BaseActivity {
                 TextView descriptionText = view.findViewById(R.id.tab_article_description);
 
                 PageTitle title = app.getTabList().get(tabIndex).getBackStackPositionTitle();
-                titleText.setText(title.getDisplayText());
+                titleText.setText(StringUtil.fromHtml(title.getDisplayText()));
+
                 if (TextUtils.isEmpty(title.getDescription())) {
                     descriptionText.setVisibility(View.GONE);
                 } else {
@@ -194,7 +202,7 @@ public class TabActivity extends BaseActivity {
             if (app.getTabList().get(tabIndex).getBackStack().isEmpty()) {
                 continue;
             }
-            Tab tab = new Tab(app.getTabList().get(tabIndex).getBackStackPositionTitle().getDisplayText());
+            Tab tab = new Tab(StringUtil.fromHtml(app.getTabList().get(tabIndex).getBackStackPositionTitle().getDisplayText()));
             tab.setIcon(R.drawable.ic_image_black_24dp);
             tab.setIconTint(ResourceUtil.getThemedColor(this, R.attr.material_theme_secondary_color));
             tab.setTitleTextColor(ResourceUtil.getThemedColor(this, R.attr.material_theme_secondary_color));
@@ -244,6 +252,9 @@ public class TabActivity extends BaseActivity {
                 openNewTab();
                 return true;
             case R.id.menu_close_all_tabs:
+                if (app.getTabList().isEmpty()) {
+                    return true;
+                }
                 AlertDialog.Builder alert = new AlertDialog.Builder(this);
                 alert.setMessage(R.string.close_all_tabs_confirm);
                 alert.setPositiveButton(R.string.close_all_tabs_confirm_yes, (dialog, which) -> {
@@ -252,6 +263,11 @@ public class TabActivity extends BaseActivity {
                 });
                 alert.setNegativeButton(R.string.close_all_tabs_confirm_no, null);
                 alert.create().show();
+                return true;
+            case R.id.menu_save_all_tabs:
+                if (!app.getTabList().isEmpty()) {
+                    saveTabsToList();
+                }
                 return true;
             case R.id.menu_explore:
                 goToMainTab(NavTab.EXPLORE);
@@ -262,13 +278,20 @@ public class TabActivity extends BaseActivity {
             case R.id.menu_history:
                 goToMainTab(NavTab.HISTORY);
                 return true;
-            case R.id.menu_nearby:
-                goToMainTab(NavTab.NEARBY);
-                return true;
             default:
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void saveTabsToList() {
+        List<org.wikipedia.page.tabs.Tab> tabsList = app.getTabList();
+        List<PageTitle> titlesList = new ArrayList<>();
+        for (org.wikipedia.page.tabs.Tab tab : tabsList) {
+            titlesList.add(tab.getBackStackPositionTitle());
+        }
+        bottomSheetPresenter.show(getSupportFragmentManager(),
+                AddToReadingListDialog.newInstance(titlesList, TABS_ACTIVITY));
     }
 
     private boolean topTabLeadImageEnabled() {

@@ -19,6 +19,7 @@
   <string name="nav_item_forward">ముందుకు</string>
   <string name="search_hint">వికీపీడియాలో వెతకండి</string>
   <string name="nav_item_history">చరిత్ర</string>
+  <string name="nav_item_more">మరిన్ని</string>
   <string name="error_network_error">అంతర్జాలానికి అనుసంధానం కాలేకపోయాం.</string>
   <string name="page_error_retry">మళ్ళీ ప్రయత్నించు</string>
   <string name="card_offline_error_retry">మళ్ళీ ప్రయత్నించు</string>
@@ -31,19 +32,16 @@
   <string name="dialog_message_clear_history_no">కాదు</string>
   <string name="share_via">దీని ద్వారా పంచుకోండి:</string>
   <string name="menu_page_show_tabs">ట్యాబులను చూపించు</string>
-  <string name="menu_page_other_languages">భాషను ఎంచుకోండి</string>
+  <string name="menu_page_other_languages">భాషను మార్చు</string>
   <string name="menu_page_find_in_page">పుటలో వెతకండి</string>
-  <string name="menu_page_font_and_theme">ఖతి మరియు అలంకారం</string>
+  <string name="menu_page_font_and_theme">ఖతి, అలంకారం</string>
   <string name="menu_page_share">లంకెను పంచుకోండి</string>
+  <string name="menu_page_recently_viewed">ఇటీవల చూసినవి</string>
   <string name="menu_long_press_open_page">తెరువు</string>
   <string name="menu_long_press_open_in_new_tab">కొత్త ట్యాబులో తెరువు</string>
   <string name="menu_long_press_copy_page">లంకె చిరునామాను కాపీచెయ్యి</string>
-  <string name="menu_text_select_copy">కాపీచేయి</string>
-  <string name="menu_text_select_share">పంచుకోండి</string>
-  <string name="nav_item_nearby">దగ్గరలో</string>
-  <string name="last_updated_text">%s కి ఆఖరుగా తాజాపరచబడింది</string>
+  <string name="last_updated_text">చివరి మార్పు %s</string>
   <string name="talk_page_link_text">చర్చా పేజీ చూడండి</string>
-  <string name="content_license_html" fuzzy="true">విడిగా చెప్పందే, పాఠ్యం &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; లైసెన్స్ కు అనుగుణంగా లభ్యం</string>
   <string name="edit_save_action_license_logged_in" fuzzy="true">భద్రపర్చడం ద్వారా &lt;a href=\"%1$s\"&gt;వాడుక షరతుల&lt;/a&gt;కు అనుగుణంగా ఉంటాననీ, నా రచనలన్నిటినీ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; లైసెన్స్ కింద విడుదల చేస్తున్నాననీ అంగీకరిస్తున్నాను.</string>
   <string name="edit_save_action_license_anon" fuzzy="true">భద్రపరచటంతో, మీరు  &lt;a href=\"%1$s\"&gt;వాడుకా నిభందనల&lt;/a&gt;ని అంగీకరిస్తున్నారు, మరియు ఖండీతంగా మీ రచనలని &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; లైసెన్స్ ద్వారా వదులుతున్నారు. సవరణలు మీ ఐపి చిరునామాకి ఆపాదించబడతాయి. మీరు &lt;a href=\"https://#login\"&gt;లాగిన్&lt;/a&gt; అయితే, మీకు ఎక్కువ గోప్యత ఉంటుంది.</string>
   <string name="preference_title_language">వికీపీడియా భాషలు</string>
@@ -54,7 +52,7 @@
   <string name="langlinks_your_wikipedia_languages">మీ వికీపీడియా భాషలు</string>
   <string name="menu_save_changes">మార్పులను ప్రచురించు</string>
   <string name="edit_saved_successfully">దిద్దుబాటు ప్రచురించబడింది!</string>
-  <string name="dialog_message_edit_failed">సవరణ విఫలమయ్యింది!</string>
+  <string name="dialog_message_edit_failed">దిద్దుబాటు విఫలమయ్యింది!</string>
   <string name="dialog_message_edit_failed_retry">మళ్ళీ ప్రయత్నించు</string>
   <string name="dialog_message_edit_failed_cancel">రద్దుచేయి</string>
   <string name="dialog_message_leaving_edit" fuzzy="true">మీ మార్పులు ఇంకా భద్రపరచబడలేదు. మీరు ఈ పేజిని ఖచ్చితంగా వదిలేయాలని అనుకుంటున్నారా?</string>
@@ -62,7 +60,7 @@
   <string name="dialog_message_leaving_edit_stay">ఉండండి</string>
   <string name="menu_show_toc">విషయ సూచిక</string>
   <string name="search_no_results_found">ఫలితాలేమీ దొరకలేదు</string>
-  <string name="edit_section_captcha_message">స్వయంచాలక స్పామ్ నుండి రక్షిణకి, దయచేసి ఈ క్రింద కనిపించే పదాలు నమోదుచేయండి</string>
+  <string name="edit_section_captcha_message">స్వయంచాలక స్పామ్ నుండి రక్షణకు, దయచేసి ఈ క్రింద కనిపించే పదాలును నమోదుచేయండి</string>
   <string name="edit_section_captcha_hint">పైన నుండి పదాలు పునరావృతం చేయండి</string>
   <string name="title_captcha">కాప్చాని నమొదు చెయ్యండి</string>
   <string name="edit_section_captcha_reload">మళ్లీ లోడ్ చేయడానికి కాప్చాని నొక్కండి</string>
@@ -71,9 +69,9 @@
   <string name="login_password_hint">సంకేతపదం</string>
   <string name="account_creation_password_hint">సంకేతపదం</string>
   <string name="menu_login">లాగినవండి</string>
-  <string name="login_activity_title">వికీపీడియాలోకి లాగినవండి</string>
+  <string name="login_activity_title">ప్రవేశించండి</string>
   <string name="login_in_progress_dialog_message">మిమల్ని లాగిన్ చేస్తున్నాము…</string>
-  <string name="login_success_toast">లాగిన్ విజయవంతం!</string>
+  <string name="login_success_toast">ప్రవేశించారు!</string>
   <string name="reset_password_hint">కొత్త సంకేతపదం</string>
   <string name="preference_title_logout">నిష్క్రమించండి</string>
   <string name="toast_logout_complete">బయటకు వచ్చేసారు</string>
@@ -81,6 +79,7 @@
   <string name="logged_out_in_background_cancel">రద్దుచేయి</string>
   <string name="history_empty_title">ఇటీవల చూసిన వ్యాసాలు ఏమీలేవు</string>
   <string name="history_empty_message" fuzzy="true">మీరు బహుశా వాటిని అన్నిటిని తొలగించి ఉంటారు. తదుపరి సమయం\nమీరు ఒక పేజీకి వెళ్ళినప్పుడు మీరు ఇక్కడ నుండి తిరిగి పొందవచ్చు.</string>
+  <string name="delete_selected_items">ఎంచుకున్న అంశాలను తొలగించు</string>
   <string name="wp_stylized">&lt;big&gt;వి&lt;/big&gt;కీపీడి&lt;big&gt;యా&lt;/big&gt;</string>
   <string name="create_account_username_hint">వాడుకరి పేరు</string>
   <string name="login_dont_have_account">ఖాతా లేదా?</string>
@@ -101,7 +100,7 @@
   <string name="create_account_button">ఖాతా సృష్టించండి</string>
   <string name="create_account_ip_block_details">వివరాలు</string>
   <string name="preferences_general_heading">సాధారణం</string>
-  <string name="wikipedia_app_faq">వికీపీడియా సున్నా ఎఫ్ఎక్యూ</string>
+  <string name="wikipedia_app_faq">వికీపీడియా ఉపకరణ ప్రశ్నలు</string>
   <string name="send_feedback">అనువర్తనం గురించి ఫిర్యాదులు/సలహాలు పంపించండి</string>
   <string name="create_account_account_created_toast">ఖాతా సృష్టించబడింది!</string>
   <string name="preferences_heading_data_usage">డేటా వాడుక</string>
@@ -184,27 +183,29 @@
   <string name="gallery_save_success" fuzzy="true">బొమ్మ విజయవంతంగా భద్రపరచబడింది.</string>
   <string name="gallery_error_video_failed">దృశ్యకాన్ని ప్రదర్శించలేకపోతున్నాము.</string>
   <string name="err_cannot_save_file">ద్దస్త్రాన్ని భద్రపరచలేము</string>
-  <string name="snippet_share_intro">\@Wikipedia పై \"%1$s\" : %2$s</string>
   <string name="expand_refs">పెద్దది చేసేందుకు ట్యాప్ చెయ్యి</string>
-  <string name="share_snippet_button">బొమ్మగా పంచుకో</string>
-  <string name="share_normal_button">పాఠ్యంగా పంచుకో</string>
-  <string name="snippet_share_preview_image_desc">బొమ్మను మునుజూపు చూడు</string>
   <string name="cc_logo">క్రియేటివ్ కామన్స్ లైసెన్స్</string>
   <string name="captcha_image">కాప్చా బొమ్మ</string>
   <string name="gallery_fair_use_license">సముచితోపయోగం</string>
   <string name="gallery_uploader_unknown">ఎక్కించినవారెవరో తెలీదు</string>
   <string name="menu_new_tab">కొత్త ట్యాబు</string>
   <string name="menu_close_all_tabs">అన్ని ట్యాబులను మూసివేయి</string>
+  <string name="close_all_tabs_confirm">మీరు నిజంగానే అన్ని ట్యాబులను మూసివేయాలనుకుంటున్నారా?</string>
+  <string name="close_all_tabs_confirm_yes">అవును</string>
+  <string name="close_all_tabs_confirm_no">కాదు</string>
   <string name="button_close_tab">ట్యాబును మూసివేయి</string>
-  <string name="tool_tip_share">ఆసక్తికరమైన విషయాన్నీ హైలైట్ చేసిన తర్వాత మీకు ఇష్టమైన నెట్వర్క్లలకి పంచుకోండి.</string>
+  <string name="unnamed_tab_closed">ట్యాబు మూసివేయబడింది.</string>
+  <string name="tab_item_closed">%s మూసివేయబడింది.</string>
+  <string name="all_tab_items_closed">ట్యాబులన్నీ మూసివేయబడ్డాయి.</string>
   <string name="page_view_in_browser">విహారిణిలో తెరువు</string>
   <string name="error_response_malformed">సర్వర్ నుండి వచ్చిన స్పందన సరైన రీతిలో లేదు.</string>
   <string name="error_unknown">ఏదో తెలియని లోపం సంభవించింది.</string>
   <string name="format_error_server_message">సందేశం: \"%s\"</string>
+  <string name="button_continue_to_disambiguation">ఇటువంటి పేజీలను చూడండి</string>
+  <string name="link_preview_disambiguation_description">ఈ శీర్షిక ఒకటికంటే ఎక్కువ పేజీలకు చెందుతుంది:</string>
   <string name="button_get_directions">నిర్దేశాలను పొందండి</string>
   <string name="nav_item_donate">వికీపీడియాకి తోడ్పడండి</string>
-  <string name="crash_report_dialog_dont_send_button">దాటవేయి</string>
-  <string name="crash_report_dialog_send_button">పంపించు</string>
+  <string name="empty_tab_title">కొత్త ట్యాబు</string>
   <string name="color_theme_select">నేపథ్యం</string>
   <string name="color_theme_light">తేలికైన</string>
   <string name="color_theme_dark">చీకటి</string>
@@ -252,6 +253,8 @@
   <string name="feed_lang_selection_dialog_ok_button_text">సరే</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">రద్దుచేయి</string>
   <string name="description_edit_text_hint">వ్యాస వివరణ</string>
+  <string name="description_edit_article_description_label">వ్యాసం</string>
+  <string name="description_edit_add_caption_label">బొమ్మ వివరణ</string>
   <string name="description_edit_save">ప్రచురించు</string>
   <string name="description_edit_edit_description" fuzzy="true">వివరణను మార్చు</string>
   <string name="description_edit_cancel_hint">రద్దుచేయి</string>
@@ -259,13 +262,25 @@
   <string name="description_edit_success_saved" fuzzy="true">వివరణ భద్రమయ్యింది!</string>
   <string name="description_edit_success_done">పూర్తయ్యింది</string>
   <string name="description_edit_success_did_you_know">మీకు తెలుసా?</string>
-  <string name="description_edit_tutorial_title_descriptions" fuzzy="true">శీర్షిక వివరణలు</string>
+  <string name="description_edit_tutorial_title_descriptions">వ్యాస వివరణలు</string>
+  <string name="suggested_edits_my_contributions">నా మార్పులు</string>
   <string name="suggested_edits_menu_info">సమాచారం</string>
   <string name="suggested_edits_task_multilingual_positive">భాషలను చేర్చు</string>
   <string name="suggested_edits_image_caption_summary_title_license">లైసెన్సు</string>
   <string name="suggested_edits_image_caption_summary_title_date">తేదీ</string>
   <string name="suggested_edits_image_preview_dialog_date">తేదీ</string>
   <string name="suggested_edits_image_preview_dialog_more_info">మరింత సమాచారం</string>
+  <plurals name="suggested_edits_edit_streak_detail_text">
+    <item quantity="one">%d రోజు</item>
+    <item quantity="other">%d రోజులు</item>
+  </plurals>
+  <string name="suggested_edits_learn_more">మరింత తెలుసుకోండి</string>
+  <string name="suggested_edits_contribution_language_label">భాష</string>
+  <string name="suggested_edits_contribution_date_time_label">తేదీ / సమయం</string>
+  <string name="suggested_edits_contribution_article_label">వ్యాసం</string>
+  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
+  <string name="suggested_edits_contribution_date_yesterday_text">నిన్న</string>
+  <string name="suggested_edits_rewards_continue_button">కొనసాగించు</string>
   <string name="description_edit_revert_subtitle">వికీపీడియాలో మార్పుచేర్పులు చేసినందుకు ధన్యవాదాలు!</string>
   <string name="description_edit_login_cancel_button_text">రద్దుచేయి</string>
   <string name="onboarding_continue">కొనసాగించు</string>
@@ -277,11 +292,14 @@
   <string name="on_this_day_card_title">ఈ రోజున</string>
   <string name="this_year">ఈ సంవత్సరం</string>
   <string name="back_to_top">తిరిగి పైకి</string>
+  <string name="on_this_day_dialog_next_month">వచ్చే నెల</string>
+  <string name="on_this_day_dialog_previous_month">పోయిన నెల</string>
   <plurals name="diff_years">
     <item quantity="one">పోయిన సంవత్సరం</item>
     <item quantity="other">%d సంవత్సరాల క్రితం</item>
   </plurals>
   <string name="languages_list_all_text">భాషలన్నీ</string>
+  <string name="wikipedia_languages_title">వికీపీడియా భాషలు</string>
   <string name="wikipedia_languages_your_languages_text">మీ భాషలు</string>
   <string name="more_language_options">మరిన్ని</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">వద్దులే</string>

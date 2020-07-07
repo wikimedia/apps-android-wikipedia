@@ -18,28 +18,33 @@ import java.util.List;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
 
+@SuppressWarnings("unused")
 public class Announcement extends BaseModel {
     public static final String SURVEY = "survey";
     public static final String FUNDRAISING = "fundraising";
+    public static final String PLACEMENT_FEED = "feed";
+    public static final String PLACEMENT_ARTICLE = "article";
 
-    @SuppressWarnings("unused,NullableProblems") @Required @NonNull private String id;
-    @SuppressWarnings("unused,NullableProblems") @Required @NonNull private String type;
-    @SuppressWarnings("unused,NullableProblems") @SerializedName("start_time") @Required @NonNull private String startTime;
-    @SuppressWarnings("unused,NullableProblems") @SerializedName("end_time") @Required @NonNull private String endTime;
-    @SuppressWarnings("unused") @NonNull private List<String> platforms = Collections.emptyList();
-    @SuppressWarnings("unused") @NonNull private List<String> countries = Collections.emptyList();
-    @SuppressWarnings("unused") @SerializedName("caption_HTML") @Nullable private String footerCaption;
-    @SuppressWarnings("unused") @SerializedName("image_url") @Nullable private String imageUrl;
-    @SuppressWarnings("unused") @SerializedName("image_height") @Nullable private String imageHeight;
-    @SuppressWarnings("unused") @SerializedName("logged_in") @Nullable private Boolean loggedIn;
-    @SuppressWarnings("unused") @SerializedName("reading_list_sync_enabled") @Nullable private Boolean readingListSyncEnabled;
-    @SuppressWarnings("unused") @Nullable private Boolean beta;
-    @SuppressWarnings("unused") @SerializedName("min_version") @Nullable private String minVersion;
-    @SuppressWarnings("unused") @SerializedName("max_version") @Nullable private String maxVersion;
+    @SuppressWarnings("NullableProblems") @Required @NonNull private String id;
+    @SuppressWarnings("NullableProblems") @Required @NonNull private String type;
+    @SuppressWarnings("NullableProblems") @SerializedName("start_time") @Required @NonNull private String startTime;
+    @SuppressWarnings("NullableProblems") @SerializedName("end_time") @Required @NonNull private String endTime;
+    @NonNull private List<String> platforms = Collections.emptyList();
+    @NonNull private List<String> countries = Collections.emptyList();
+    @SerializedName("caption_HTML") @Nullable private String footerCaption;
+    @SerializedName("image_url") @Nullable private String imageUrl;
+    @SerializedName("image_height") @Nullable private String imageHeight;
+    @SerializedName("logged_in") @Nullable private Boolean loggedIn;
+    @SerializedName("reading_list_sync_enabled") @Nullable private Boolean readingListSyncEnabled;
+    @Nullable private Boolean beta;
+    @Nullable private Boolean border;
+    @Nullable private String placement;
+    @SerializedName("min_version") @Nullable private String minVersion;
+    @SerializedName("max_version") @Nullable private String maxVersion;
 
-    @SuppressWarnings("unused,NullableProblems") @Required @NonNull private String text;
-    @SuppressWarnings("unused") @Nullable private Action action;
-    @SuppressWarnings("unused") @SerializedName("negative_text") @Nullable private String negativeText;
+    @SuppressWarnings("NullableProblems") @Required @NonNull private String text;
+    @Nullable private Action action;
+    @SerializedName("negative_text") @Nullable private String negativeText;
 
     public Announcement() { }
 
@@ -52,15 +57,18 @@ public class Announcement extends BaseModel {
         this.negativeText = negativeText;
     }
 
-    @NonNull String id() {
+    @NonNull
+    public String id() {
         return id;
     }
 
-    @NonNull String type() {
+    @NonNull
+    public String type() {
         return type;
     }
 
-    @Nullable Date startTime() {
+    @Nullable
+    public Date startTime() {
         try {
             return DateUtil.iso8601DateParse(startTime);
         } catch (ParseException e) {
@@ -134,6 +142,15 @@ public class Announcement extends BaseModel {
 
     @Nullable Boolean beta() {
         return beta;
+    }
+
+    @NonNull
+    public String placement() {
+        return defaultString(placement, PLACEMENT_FEED);
+    }
+
+    boolean hasBorder() {
+        return border != null && border;
     }
 
     @Nullable String minVersion() {

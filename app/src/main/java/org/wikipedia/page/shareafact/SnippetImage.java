@@ -55,7 +55,7 @@ public final class SnippetImage {
      * just use a black background.
      */
     public static Bitmap getSnippetImage(@NonNull Context context, @Nullable Bitmap leadImageBitmap,
-                                         @NonNull String title, @Nullable String description,
+                                         @NonNull CharSequence title, @Nullable String description,
                                          @NonNull CharSequence textSnippet,
                                          @NonNull ImageLicense license) {
         Bitmap resultBitmap = drawBackground(leadImageBitmap, license);
@@ -169,7 +169,7 @@ public final class SnippetImage {
         return top;
     }
 
-    private static void drawTitle(@NonNull Canvas canvas, @NonNull String title, int top,
+    private static void drawTitle(@NonNull Canvas canvas, @NonNull CharSequence title, int top,
                                   boolean isArticleRTL) {
         final int marginBottom = 0;
         final int maxHeight = 70;

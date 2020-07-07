@@ -7,8 +7,7 @@ import com.google.gson.annotations.SerializedName;
 
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.gallery.ImageInfo;
-import org.wikipedia.gallery.VideoInfo;
+import org.wikipedia.dataclient.page.Protection;
 import org.wikipedia.json.PostProcessingTypeAdapter;
 import org.wikipedia.model.BaseModel;
 import org.wikipedia.notifications.Notification;
@@ -16,7 +15,7 @@ import org.wikipedia.page.PageTitle;
 import org.wikipedia.settings.SiteInfo;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -35,6 +34,7 @@ public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapte
     @Nullable private Map<String, Notification.UnreadNotificationWikiItem> unreadnotificationpages;
     @SerializedName("general") @Nullable private SiteInfo generalSiteInfo;
     @SerializedName("wikimediaeditortaskscounts") @Nullable private EditorTaskCounts editorTaskCounts;
+    @SerializedName("usercontribs") @Nullable private List<UserContribution> userContributions;
 
     @Nullable public List<MwQueryPage> pages() {
         return pages;
@@ -99,30 +99,6 @@ public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapte
         return null;
     }
 
-    @NonNull public Map<String, ImageInfo> images() {
-        Map<String, ImageInfo> result = new HashMap<>();
-        if (pages != null) {
-            for (MwQueryPage page : pages) {
-                if (page.imageInfo() != null) {
-                    result.put(page.title(), page.imageInfo());
-                }
-            }
-        }
-        return result;
-    }
-
-    @NonNull public Map<String, VideoInfo> videos() {
-        Map<String, VideoInfo> result = new HashMap<>();
-        if (pages != null) {
-            for (MwQueryPage page : pages) {
-                if (page.videoInfo() != null) {
-                    result.put(page.title(), page.videoInfo());
-                }
-            }
-        }
-        return result;
-    }
-
     @NonNull public List<PageTitle> langLinks() {
         List<PageTitle> result = new ArrayList<>();
         if (pages == null || pages.isEmpty() || pages.get(0).langLinks() == null) {
@@ -136,25 +112,28 @@ public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapte
         return result;
     }
 
-    @NonNull public List<NearbyPage> nearbyPages(@NonNull WikiSite wiki) {
-        List<NearbyPage> result = new ArrayList<>();
-        if (pages != null) {
-            for (MwQueryPage page : pages) {
-                NearbyPage nearbyPage = new NearbyPage(page, wiki);
-                if (nearbyPage.getLocation() != null) {
-                    result.add(nearbyPage);
-                }
-            }
-        }
-        return result;
-    }
-
     @Nullable public SiteInfo siteInfo() {
         return generalSiteInfo;
     }
 
     @Nullable public EditorTaskCounts editorTaskCounts() {
         return editorTaskCounts;
+    }
+
+    @NonNull public List<UserContribution> userContributions() {
+        return userContributions != null ? userContributions : Collections.emptyList();
+    }
+
+    public boolean isEditProtected() {
+        if (firstPage() == null || userInfo() == null) {
+            return false;
+        }
+        for (Protection protection : firstPage().protection()) {
+            if (protection.getType().equals("edit") && !userInfo().getGroups().contains(protection.getLevel())) {
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override
@@ -185,9 +164,7 @@ public class MwQueryResult extends BaseModel implements PostProcessingTypeAdapte
         if (converted == null || pages == null) {
             return;
         }
-        // noinspection ConstantConditions
         for (MwQueryResult.ConvertedTitle convertedTitle : converted) {
-            // noinspection ConstantConditions
             for (MwQueryPage page : pages) {
                 if (page.title().equals(convertedTitle.to())) {
                     page.convertedFrom(convertedTitle.from());

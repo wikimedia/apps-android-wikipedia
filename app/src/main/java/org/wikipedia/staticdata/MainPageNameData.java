@@ -21,7 +21,7 @@ public final class MainPageNameData {
 
     @SuppressWarnings({"checkstyle:methodlength", "SpellCheckingInspection"})
     private static Map<String, String> newMap() {
-        final int size = 296;
+        final int size = 302;
         Map<String, String> map = new HashMap<>(size);
         map.put("ab", "Ихадоу адаҟьа");
         map.put("ace", "Ôn Keue");
@@ -43,6 +43,7 @@ public final class MainPageNameData {
         map.put("az", "Ana Səhifə");
         map.put("azb", "آنا صفحه");
         map.put("ba", "Баш бит");
+        map.put("ban", "Kaca Utama");
         map.put("bar", "Hoamseitn");
         map.put("bat-smg", "Pėrms poslapis");
         map.put("bcl", "Panginot na Pahina");
@@ -108,12 +109,14 @@ public final class MainPageNameData {
         map.put("ga", "Príomhleathanach");
         map.put("gag", "Baş yaprak");
         map.put("gan", "封面");
+        map.put("gcr", "Paj Prensipal");
         map.put("gd", "Prìomh-Dhuilleag");
         map.put("gl", "Portada");
         map.put("glk", "گتˇ ولگ");
         map.put("gn", "Ape");
         map.put("gom", "मुखेल पान");
         map.put("gor", "Halaman Bungaliyo");
+        map.put("got", "𐌰𐌽𐌰𐍃𐍄𐍉𐌳𐌴𐌹𐌽𐌹𐌻𐌰𐌿𐍆𐍃");
         map.put("gu", "મુખપૃષ્ઠ");
         map.put("gv", "Ard-ghuillag");
         map.put("ha", "Babban shafi");
@@ -132,7 +135,7 @@ public final class MainPageNameData {
         map.put("id", "Halaman Utama");
         map.put("ie", "Principal págine");
         map.put("ig", "Ihu m̀bụ");
-        map.put("ik", "Makpiġaaq Kanna");
+        map.put("ik", "Aimaaġvik");
         map.put("ilo", "Umuna a Panid");
         map.put("inh", "Керттера оагӀув");
         map.put("io", "Frontispico");
@@ -189,6 +192,7 @@ public final class MainPageNameData {
         map.put("mk", "Главна страница");
         map.put("ml", "പ്രധാന താൾ");
         map.put("mn", "Нүүр хуудас");
+        map.put("mnw", "မုက်လိက်တမ်");
         map.put("mr", "मुखपृष्ठ");
         map.put("mrj", "Тӹнг ӹлӹштӓш");
         map.put("ms", "Laman Utama");
@@ -208,6 +212,7 @@ public final class MainPageNameData {
         map.put("nn", "Hovudside");
         map.put("nb", "Portal:Forside");
         map.put("nov", "Chefi pagine");
+        map.put("nqo", "ߓߏ߬ߟߏ߲߬ߘߊ");
         map.put("nrm", "Page dé garde");
         map.put("nso", "Letlakala la pele");
         map.put("nv", "Íiyisíí Naaltsoos");
@@ -270,6 +275,7 @@ public final class MainPageNameData {
         map.put("sv", "Portal:Huvudsida");
         map.put("sw", "Mwanzo");
         map.put("szl", "Przodniŏ zajta");
+        map.put("szy", "saayaway a belih");
         map.put("ta", "முதற் பக்கம்");
         map.put("tcy", "ಮುಖ್ಯ ಪುಟ");
         map.put("te", "మొదటి పేజీ");

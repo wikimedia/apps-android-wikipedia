@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<org.wikipedia.views.SwipeRefreshLayoutWithScroll xmlns:android="http://schemas.android.com/apk/res/android"
+<org.wikipedia.views.SwipeRefreshLayoutWithScroll
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/page_refresh_container"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="?attr/paper_color">
+    android:layout_height="match_parent">
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/page_contents_container"
@@ -18,18 +20,8 @@
         <org.wikipedia.page.leadimages.PageHeaderView
             android:id="@+id/page_header_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="16dp"
             android:visibility="gone" />
-
-
-        <org.wikipedia.page.bottomcontent.BottomContentView
-            android:id="@+id/page_bottom_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:layout_marginTop="-368dp"
-            android:layout_marginBottom="@dimen/bottom_toolbar_height"
-            android:orientation="vertical" />
 
         <org.wikipedia.views.WikiErrorView
             android:id="@+id/page_error"

@@ -52,23 +52,16 @@
   <string name="menu_long_press_open_page">Адкрыць</string>
   <string name="menu_long_press_open_in_new_tab">Адкрыць у новай укладцы</string>
   <string name="menu_long_press_copy_page">Скапіяваць адрас спасылкі</string>
-  <string name="menu_text_select_copy">Капіяваць</string>
   <string name="menu_text_select_define">Вызначэньне</string>
-  <string name="menu_text_select_share">Падзяліцца</string>
-  <string name="share">Падзяліцца</string>
   <string name="on_this_day_page_share">Падзяліцца</string>
   <string name="reading_list_page_share">Падзяліцца</string>
   <string name="menu_text_select_edit_here">Рэдагаваць тут</string>
-  <string name="nav_item_nearby">Побач</string>
-  <string name="nearby_zoom_to_location">Перайсьці да месца на мапе</string>
-  <string name="nearby_osm_license">&amp;copy; &amp;nbsp;Удзельнікі &lt;a href=\"https://www.openstreetmap.org/copyright/\"&gt;OpenStreetMap&lt;/a&gt;</string>
   <string name="last_updated_text">Апошняе абнаўленьне %s</string>
   <string name="talk_page_link_text">Паказаць старонку абмеркаваньня</string>
   <string name="edit_history_link_text">Паказаць гісторыю рэдагаваньняў</string>
   <string name="map_view_link_text">Паказаць на мапе</string>
   <string name="other_languages_indication_text">Чытаць іншай мовай</string>
   <string name="language_count_link_text">Даступна %d іншымі мовамі</string>
-  <string name="content_license_html">Зьмест даступны згодна ўмоваў ліцэнзіі &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt;, калі не пазначанае іншае</string>
   <string name="edit_save_action_license_logged_in">Пры публікацыі зьменаў вы пагаджаецеся з &lt;a href=\"%1$s\"&gt;умовамі карыстаньня&lt;/a&gt;, а таксама на безадзыўную публікацыю на ўмовах ліцэнзіі &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;.</string>
   <string name="edit_save_action_license_anon">Пры публікацыі зьменаў вы пагаджаецеся з &lt;a href=\"%1$s\"&gt;умовамі карыстаньня&lt;/a&gt;, а таксама на безадзыўную публікацыю на ўмовах ліцэнзіі &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt;. Рэдагаваньні будуць прывязаныя да IP-адрасу вашай прылады. Калі вы &lt;a href=\"https://#login\"&gt;ўвойдзеце ў сыстэму&lt;/a&gt;, то зможаце мець больш высокі ўзровень прыватнасьці.</string>
   <string name="preference_title_language">Мовы Вікіпэдыі</string>
@@ -99,14 +92,21 @@
   <string name="login_password_hint">Пароль</string>
   <string name="login_2fa_hint">Код двухфактарнай аўтэнтыфікацыі</string>
   <string name="login_2fa_other_workflow_error_msg">Неабходная двухфактарная аўтэнтыфікацыя! Калі ласка, вярніцеся да асноўнай дзейнасьці і ўвайдзіце са сваім ключом 2FA, пасьля чаго паўтарыце спробу.</string>
+  <string name="onboarding_card_login">Увайсьці</string>
+  <string name="page_editing_login">Увайсьці</string>
+  <string name="reading_lists_sync_login">Увайсьці</string>
+  <string name="create_account_login">Увайсьці</string>
   <string name="menu_login">Увайсьці</string>
-  <string name="login_activity_title">Увайсьці ў Вікіпэдыю</string>
+  <string name="login_activity_title" fuzzy="true">Увайсьці ў Вікіпэдыю</string>
   <string name="login_in_progress_dialog_message">Уваход у сыстэму…</string>
-  <string name="login_success_toast">Пасьпяховы ўваход у сыстэму!</string>
+  <string name="login_success_toast">Увайшлі ў сыстэму!</string>
   <string name="reset_password_title">Задайце пароль</string>
   <string name="reset_password_hint">Новы пароль</string>
   <string name="preference_title_logout">Выйсьці</string>
   <string name="toast_logout_complete">Вы выйшлі з сыстэмы</string>
+  <string name="logout_dialog_cancel_button_text">Скасаваць</string>
+  <string name="logged_out_in_background_login">Увайсьці</string>
+  <string name="logged_out_in_background_cancel">Скасаваць</string>
   <string name="history_empty_title">Няма нядаўна прагледжаных артыкулаў</string>
   <string name="history_empty_message">Сачыце тут за тым, што вы ўжо чыталі.</string>
   <string name="wp_stylized">&lt;big&gt;В&lt;/big&gt;ІКІПЭДЫ&lt;big&gt;A&lt;/big&gt;</string>
@@ -128,7 +128,7 @@
   <string name="preference_title_eventlogging_opt_in">Адпраўляць справаздачы пра карыстаньне</string>
   <string name="preference_summary_eventlogging_opt_in">Дазволіць Вікімэдыя зьбіраць інфармацыю пра тое як Вы выкарыстоўваеце дастасаваньне каб яго палепшыць</string>
   <string name="preference_title_auto_upload_crash_reports">Дасылаць справаздачы пра памылкі</string>
-  <string name="preference_summary_auto_upload_crash_reports">Дазволіць аўтаматычна дасылаць паведамленьні пра памылкі ў HockeyApp / пабочны сэрвіс-правайдэр, каб мы маглі праглядаць зьвесткі пра памылку, што дазволіць нам хутчэй выправіць яе.</string>
+  <string name="preference_summary_auto_upload_crash_reports">Дазволіць аўтаматычна дасылаць паведамленьні пра памылкі ў пабочны сэрвіс-правайдэр, каб мы маглі праглядаць зьвесткі пра памылку, што дазволіць нам хутчэй выправіць яе.</string>
   <string name="editing_error_spamblacklist">Выяўленыя спасылкі на заблякаваныя дамэны (%s). Калі ласка, выдаліце іх і праспрабуйце зноў.</string>
   <string name="history_search_list_hint">Гісторыя пошуку</string>
   <string name="error_can_not_process_link">Не атрымалася адлюстраваць гэтую спасылку</string>
@@ -193,22 +193,17 @@
   <string name="gallery_menu_share">Падзяліцца</string>
   <string name="gallery_share_error">Не атрымалася падзяліцца выявай: %s</string>
   <string name="gallery_save_progress">Загрузка файлу…</string>
-  <string name="gallery_save_success">Файл захаваны пасьпяхова.</string>
+  <string name="gallery_save_success">Файл захаваны.</string>
   <string name="gallery_error_video_failed">Не атрымалася прайграць відэа.</string>
   <string name="gallery_save_image_write_permission_rationale">Для захаваньня выяваў неабходны дазвол на запіс у сховішча вашай прылады.</string>
   <string name="err_cannot_save_file">Немагчыма захаваць файл</string>
-  <string name="snippet_share_intro">«%1$s» на сайце @Wikipedia: %2$s</string>
   <string name="expand_refs">Націсьніце каб развярнуць</string>
-  <string name="share_snippet_button">Падзяліцца як выявай</string>
-  <string name="share_normal_button">Падзяліцца як тэкстам</string>
-  <string name="snippet_share_preview_image_desc">Папярэдні прагляд выявы</string>
   <string name="cc_logo">Ліцэнзія Creative Commons</string>
   <string name="captcha_image">Выява сaptcha</string>
   <string name="gallery_fair_use_license">Добрасумленнае выкарыстаньне</string>
   <string name="gallery_uploader_unknown">Загрузіў невядомы</string>
   <string name="menu_new_tab">Новая ўкладка</string>
   <string name="button_close_tab">Закрыць укладку</string>
-  <string name="tool_tip_share">Пасья выдзяленьня цікавага факту, паспрабуйце падзяліцца ім ў Вашых улюблёных сацыяльных сетках!</string>
   <string name="page_view_in_browser">Праглядзець старонку ў браўзэры</string>
   <string name="error_response_malformed">Адказ з сэрвэра ня быў карэктна адфарматаваны.</string>
   <string name="error_unknown">Узьнікла невядомая памылка.</string>
@@ -221,11 +216,6 @@
   <string name="preference_title_show_link_previews">Паказваць вытрымкі па спасылках</string>
   <string name="preference_summary_show_link_previews">Паказваць хуткі выгляд артыкулаў пры доўгім націсканьні на спасылку.</string>
   <string name="nav_item_donate">Падтрымаць Вікіпэдыю</string>
-  <string name="crash_report_dialog_title">Выбачайце, праграма спынілася мінулым разам</string>
-  <string name="crash_report_dialog_text">Вы хацелі б адаслаць справаздачу пра крах у HockeyApp / да староньняга правайдару паслуг, каб Вікімэдыя магла праглядзець Вашую інфармацыю і выправіць памылку, якая выклікала крах?</string>
-  <string name="crash_report_dialog_dont_send_button">Прапусьціць</string>
-  <string name="crash_report_dialog_always_send_button">Заўсёды дасылаць</string>
-  <string name="crash_report_dialog_send_button">Даслаць</string>
   <string name="crash_report_activity_title">Памылка праграмы</string>
   <string name="crash_report_relaunch_or_quit">На жаль, у прыкладаньні Вікіпэдыі адбылася памылка, і яно было закрытае.\n\nХочаце пачаць ізноў ці выйсьці?</string>
   <string name="crash_report_relaunch">Перазапусьціць</string>

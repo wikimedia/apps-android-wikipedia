@@ -111,6 +111,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
+        android:focusable="true"
         android:background="?android:attr/selectableItemBackground">
 
         <androidx.appcompat.widget.AppCompatImageView

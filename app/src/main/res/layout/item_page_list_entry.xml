@@ -6,24 +6,6 @@
     tools:layout_width="match_parent"
     tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
 
-    <!-- TODO: this probably shouldn't be part of an item cell since it has to do with a collection
-               of cells and nothing to do with an individual. This manifests visually when the cell
-               is interacted with and the additional spacing is exposed. -->
-    <org.wikipedia.views.GoneIfEmptyTextView
-        android:id="@+id/page_list_header_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingStart="@dimen/list_item_horizontal_padding"
-        android:paddingEnd="@dimen/list_item_horizontal_padding"
-        android:paddingBottom="16dp"
-        android:textColor="?attr/section_title_color"
-        android:visibility="gone"
-        app:layout_constraintBottom_toTopOf="@id/page_list_item_title"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed"
-        tools:text="Header text"
-        tools:visibility="visible" />
-
     <TextView
         android:id="@+id/page_list_item_title"
         style="@style/MaterialListTitle"
@@ -34,7 +16,7 @@
         app:layout_constraintBottom_toTopOf="@id/page_list_item_description"
         app:layout_constraintEnd_toStartOf="@+id/page_list_item_secondary_container"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/page_list_header_text"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed"
         tools:text="Lorem ipsum" />
 
@@ -77,6 +59,8 @@
             android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="@null"
             android:visibility="gone"
+            android:clickable="true"
+            android:focusable="true"
             app:srcCompat="@drawable/ic_download_circle_gray_24dp"
             tools:visibility="visible" />
 
@@ -89,17 +73,18 @@
         android:minHeight="@dimen/view_list_card_item_image"
         android:layout_gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/page_list_header_text">
+        app:layout_constraintTop_toTopOf="parent">
 
-        <com.facebook.drawee.view.SimpleDraweeView
+        <ImageView
             android:id="@+id/page_list_item_image"
-            style="@style/SimpleDraweeViewPlaceholder"
+            style="@style/ImageViewDefault"
             android:layout_width="@dimen/view_list_card_item_image"
             android:layout_height="@dimen/view_list_card_item_image"
             android:layout_marginEnd="@dimen/list_item_horizontal_padding"
-            app:roundedCornerRadius="2dp" />
+            android:clickable="true"
+            android:focusable="true" />
 
-        <androidx.appcompat.widget.AppCompatImageView
+        <ImageView
             android:id="@+id/page_list_item_selected_image"
             android:layout_width="@dimen/view_list_card_item_image"
             android:layout_height="@dimen/view_list_card_item_image"

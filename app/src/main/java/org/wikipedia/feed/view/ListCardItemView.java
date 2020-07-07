@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Build;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -12,9 +13,6 @@ import androidx.annotation.VisibleForTesting;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-import com.facebook.drawee.view.SimpleDraweeView;
-
-import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.R;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.history.HistoryEntry;
@@ -23,6 +21,7 @@ import org.wikipedia.readinglist.ReadingListBookmarkMenu;
 import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.ResourceUtil;
+import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.GoneIfEmptyTextView;
 import org.wikipedia.views.ViewUtil;
 
@@ -36,11 +35,12 @@ public class ListCardItemView extends ConstraintLayout {
     public interface Callback {
         void onSelectPage(@NonNull Card card, @NonNull HistoryEntry entry);
         void onAddPageToList(@NonNull HistoryEntry entry);
+        void onMovePageToList(long sourceReadingListId, @NonNull HistoryEntry entry);
         void onRemovePageFromList(@NonNull HistoryEntry entry);
         void onSharePage(@NonNull HistoryEntry entry);
     }
 
-    @BindView(R.id.view_list_card_item_image) SimpleDraweeView imageView;
+    @BindView(R.id.view_list_card_item_image) ImageView imageView;
     @BindView(R.id.view_list_card_item_title) TextView titleView;
     @BindView(R.id.view_list_card_item_subtitle) GoneIfEmptyTextView subtitleView;
 
@@ -53,6 +53,7 @@ public class ListCardItemView extends ConstraintLayout {
         inflate(getContext(), R.layout.view_list_card_item, this);
         ButterKnife.bind(this);
 
+        setFocusable(true);
         setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         final int topBottomPadding = 16;
         setPadding(0, DimenUtil.roundedDpToPx(topBottomPadding), 0, DimenUtil.roundedDpToPx(topBottomPadding));
@@ -74,7 +75,7 @@ public class ListCardItemView extends ConstraintLayout {
 
     @NonNull public ListCardItemView setHistoryEntry(@NonNull HistoryEntry entry) {
         this.entry = entry;
-        setTitle(entry.getTitle().getDisplayText());
+        setTitle(StringUtil.fromHtml(entry.getTitle().getDisplayText()));
         setSubtitle(entry.getTitle().getDescription());
         setImage(entry.getTitle().getThumbUrl());
         PageAvailableOfflineHandler.INSTANCE.check(entry.getTitle(), available -> setViewsGreyedOut(!available));
@@ -93,6 +94,13 @@ public class ListCardItemView extends ConstraintLayout {
             public void onAddRequest(@Nullable ReadingListPage page) {
                 if (getCallback() != null && entry != null) {
                     getCallback().onAddPageToList(entry);
+                }
+            }
+
+            @Override
+            public void onMoveRequest(@Nullable ReadingListPage page) {
+                if (getCallback() != null && entry != null) {
+                    getCallback().onMovePageToList(page.listId(), entry);
                 }
             }
 
@@ -126,7 +134,7 @@ public class ListCardItemView extends ConstraintLayout {
             imageView.setVisibility(GONE);
         } else {
             imageView.setVisibility(VISIBLE);
-            ViewUtil.loadImageUrlInto(imageView, url);
+            ViewUtil.loadImageWithRoundedCorners(imageView, url);
         }
     }
 
@@ -135,7 +143,7 @@ public class ListCardItemView extends ConstraintLayout {
     }
 
     @VisibleForTesting void setSubtitle(@Nullable CharSequence text) {
-        subtitleView.setText(text != null ? StringUtils.capitalize(text.toString()) : null);
+        subtitleView.setText(text);
     }
 
     @SuppressWarnings("checkstyle:magicnumber")

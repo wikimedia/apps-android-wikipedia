@@ -3,14 +3,13 @@ package org.wikipedia.search;
 import com.google.gson.stream.MalformedJsonException;
 
 import org.junit.Test;
+import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.dataclient.restbase.RbRelatedPages;
-import org.wikipedia.dataclient.restbase.page.RbPageSummary;
 import org.wikipedia.test.MockRetrofitTest;
 
 import java.util.List;
 
-import io.reactivex.Observable;
-import io.reactivex.observers.TestObserver;
+import io.reactivex.rxjava3.core.Observable;
 
 public class RelatedPagesSearchClientTest extends MockRetrofitTest {
     private static final String RAW_JSON_FILE = "related_pages_search_results.json";
@@ -19,11 +18,8 @@ public class RelatedPagesSearchClientTest extends MockRetrofitTest {
     @SuppressWarnings("checkstyle:magicnumber")
     public void testRequestSuccessWithNoLimit() throws Throwable {
         enqueueFromFile(RAW_JSON_FILE);
-
-        TestObserver<List<RbPageSummary>> observer = new TestObserver<>();
-        getObservable().subscribe(observer);
-
-        observer.assertComplete().assertNoErrors()
+        getObservable().test().await()
+                .assertComplete().assertNoErrors()
                 .assertValue(result -> result.size() == 5
                         && result.get(4).getThumbnailUrl().equals("https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Vizsla_r%C3%A1h%C3%BAz_a_vadra.jpg/320px-Vizsla_r%C3%A1h%C3%BAz_a_vadra.jpg")
                         && result.get(4).getDisplayTitle().equals("Dog intelligence")
@@ -34,13 +30,10 @@ public class RelatedPagesSearchClientTest extends MockRetrofitTest {
     @SuppressWarnings("checkstyle:magicnumber")
     public void testRequestSuccessWithLimit() throws Throwable {
         enqueueFromFile(RAW_JSON_FILE);
-
-        TestObserver<List<RbPageSummary>> observer = new TestObserver<>();
         getRestService().getRelatedPages("foo")
                 .map(response -> response.getPages(3))
-                .subscribe(observer);
-
-        observer.assertComplete().assertNoErrors()
+                .test().await()
+                .assertComplete().assertNoErrors()
                 .assertValue(result -> result.size() == 3
                         && result.get(0).getThumbnailUrl().equals("https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/European_grey_wolf_in_Prague_zoo.jpg/291px-European_grey_wolf_in_Prague_zoo.jpg")
                         && result.get(0).getDisplayTitle().equals("Wolf")
@@ -49,33 +42,25 @@ public class RelatedPagesSearchClientTest extends MockRetrofitTest {
 
     @Test public void testRequestResponseApiError() throws Throwable {
         enqueueFromFile("api_error.json");
-
-        TestObserver<List<RbPageSummary>> observer = new TestObserver<>();
-        getObservable().subscribe(observer);
-
-        observer.assertError(Exception.class);
+        getObservable().test().await()
+                .assertError(Exception.class);
     }
 
-    @Test public void testRequestResponseFailure() {
+    @Test public void testRequestResponseFailure() throws Throwable {
         enqueue404();
-
-        TestObserver<List<RbPageSummary>> observer = new TestObserver<>();
         getRestService().getRelatedPages("foo")
                 .map(RbRelatedPages::getPages)
-                .subscribe(observer);
-
-        observer.assertError(Exception.class);
+                .test().await()
+                .assertError(Exception.class);
     }
 
-    @Test public void testRequestResponseMalformed() {
+    @Test public void testRequestResponseMalformed() throws Throwable {
         enqueueMalformed();
-        TestObserver<List<RbPageSummary>> observer = new TestObserver<>();
-        getObservable().subscribe(observer);
-
-        observer.assertError(MalformedJsonException.class);
+        getObservable().test().await()
+                .assertError(MalformedJsonException.class);
     }
 
-    private Observable<List<RbPageSummary>> getObservable() {
+    private Observable<List<PageSummary>> getObservable() {
         return getRestService().getRelatedPages("foo").map(RbRelatedPages::getPages);
     }
 }

@@ -12,8 +12,7 @@
         android:id="@+id/view_description_edit_toolbar_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/main_toolbar_color"
-        android:elevation="6dp">
+        android:background="?attr/paper_color">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -28,6 +27,7 @@
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:clickable="true"
                 android:contentDescription="@string/description_edit_cancel_hint"
+                android:focusable="true"
                 android:padding="12dp"
                 app:srcCompat="@drawable/ic_arrow_back_themed_24dp" />
 
@@ -41,7 +41,7 @@
                 android:fontFamily="sans-serif-medium"
                 android:maxLines="1"
                 android:text="@string/description_edit_edit_description"
-                android:textColor="?attr/main_toolbar_title_color"
+                android:textColor="?attr/material_theme_primary_color"
                 android:textSize="20sp"
                 android:padding="16dp" />
 
@@ -53,6 +53,7 @@
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:clickable="true"
                 android:contentDescription="@string/description_edit_help_title"
+                android:focusable="true"
                 android:padding="12dp"
                 app:srcCompat="@drawable/ic_info_outline_black_24dp"
                 app:tint="?attr/material_theme_secondary_color" />
@@ -62,12 +63,12 @@
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_gravity="center_vertical"
-                android:background="?attr/selectableItemBackgroundBorderless"
                 android:layout_marginEnd="4dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
                 android:clickable="true"
                 android:contentDescription="@string/description_edit_save"
+                android:focusable="true"
                 android:padding="12dp"
-                android:tint="?attr/themed_icon_color"
                 app:srcCompat="@drawable/ic_check_black_24dp" />
 
         </LinearLayout>
@@ -122,11 +123,12 @@
                         android:layout_height="wrap_content"
                         android:background="?attr/selectableItemBackground"
                         android:orientation="vertical"
-                        android:paddingStart="@dimen/list_item_horizontal_padding"
+                        android:paddingStart="28dp"
                         android:paddingTop="15dp"
-                        android:paddingEnd="@dimen/list_item_horizontal_padding"
+                        android:paddingEnd="28dp"
                         android:visibility="gone"
-                        app:layout_constraintTop_toTopOf="parent">
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:visibility="visible">
 
                         <TextView
                             android:id="@+id/view_description_edit_page_summary_label"
@@ -141,21 +143,15 @@
                             android:id="@+id/view_description_edit_page_summary"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
+                            android:layout_marginTop="2dp"
+                            android:layout_marginBottom="8dp"
                             android:ellipsize="end"
                             android:gravity="start"
                             android:lineSpacingExtra="6sp"
                             android:maxLines="4"
                             android:textColor="?attr/material_theme_primary_color"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
                             tools:text="Lorem ipsum" />
-
-                        <View
-                            android:layout_width="@dimen/divider_width_for_article"
-                            android:layout_height="1dp"
-                            android:layout_marginTop="19dp"
-                            android:layout_marginBottom="2dp"
-                            android:background="?attr/material_theme_border_color" />
 
                     </LinearLayout>
 
@@ -164,18 +160,17 @@
                         android:layout_height="wrap_content"
                         android:paddingTop="7dp"
                         android:paddingBottom="7dp">
-                        <!-- todo: this class has a lot of ViewGroups. TextInputLayout (a subclass of LinearLayout)
-                                   adds another. try to collapse this group into others. the same change should
-                                   probably be attempted for other TextInputLayout usages -->
+
                         <com.google.android.material.textfield.TextInputLayout
                             android:id="@+id/view_description_edit_text_layout"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="12dp"
+                            android:layout_marginStart="16dp"
                             android:layout_marginTop="8dp"
-                            android:layout_marginEnd="12dp"
+                            android:layout_marginEnd="16dp"
                             android:gravity="start"
                             android:textAlignment="viewStart"
+                            android:hint="@string/description_edit_text_hint"
                             app:counterEnabled="true"
                             app:counterMaxLength="@integer/description_max_chars"
                             app:counterOverflowTextAppearance="@style/CounterOverflowTextAppearance">
@@ -184,10 +179,11 @@
                                 android:id="@+id/view_description_edit_text"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:hint="@string/description_edit_text_hint"
-                                android:imeOptions="actionDone"
+                                android:imeOptions="flagNoExtractUi|actionDone"
                                 android:inputType="textMultiLine"
                                 android:drawableEnd="@drawable/ic_spacer_24dp"
+                                android:lineSpacingExtra="6sp"
+                                android:maxLength="@integer/description_max_chars"
                                 android:textSize="16sp">
 
                                 <requestFocus />
@@ -199,14 +195,15 @@
                             android:layout_width="48dp"
                             android:layout_height="48dp"
                             android:layout_gravity="end"
-                            android:layout_marginTop="12dp"
-                            android:layout_marginEnd="8dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginEnd="16dp"
                             android:background="?attr/selectableItemBackgroundBorderless"
                             android:clickable="true"
                             android:contentDescription="@string/description_edit_help_title"
+                            android:focusable="true"
                             android:padding="12dp"
                             app:srcCompat="@drawable/ic_mic_black_24dp"
-                            app:tint="?attr/material_theme_secondary_color" />
+                            app:tint="?attr/material_theme_de_emphasised_color" />
 
                     </FrameLayout>
                 </LinearLayout>

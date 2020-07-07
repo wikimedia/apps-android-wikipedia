@@ -5,15 +5,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/recent_searches_container"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="?android:windowBackground">
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:id="@+id/search_empty_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
-        android:background="?android:windowBackground"
         android:gravity="center"
         android:orientation="vertical"
         android:visibility="gone">
@@ -41,6 +39,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:clickable="true"
+            android:focusable="true"
             android:text="@string/add_wikipedia_languages_text"
             android:textColor="?attr/secondary_text_color"
             app:backgroundTint="?attr/button_background_color"
@@ -78,6 +78,7 @@
                 android:layout_height="48dp"
                 android:layout_gravity="end"
                 android:clickable="true"
+                android:focusable="true"
                 android:contentDescription="@string/button_clear_all_recent_searches"
                 android:foreground="?attr/actionBarItemBackground"
                 android:longClickable="true"

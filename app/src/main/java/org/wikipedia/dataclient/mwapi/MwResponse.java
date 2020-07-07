@@ -17,6 +17,12 @@ public abstract class MwResponse extends BaseModel implements PostProcessingType
     @Override
     public void postProcess() {
         if (errors != null && !errors.isEmpty()) {
+            for (MwServiceError error : errors) {
+                // prioritize "blocked" errors over others.
+                if (error.getTitle().contains("blocked")) {
+                    throw new MwException(error);
+                }
+            }
             throw new MwException(errors.get(0));
         }
     }

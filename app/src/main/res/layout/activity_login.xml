@@ -18,30 +18,6 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="?android:windowBackground"
-                android:gravity="center_horizontal"
-                android:orientation="vertical"
-                android:paddingTop="8dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/login_dont_have_account"
-                    android:textColor="?attr/material_theme_primary_color" />
-
-                <Button
-                    android:id="@+id/login_create_account_button"
-                    style="@style/TransparentButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/login_join_wikipedia"
-                    android:textColor="?attr/colorAccent" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:clipToPadding="false"
                 android:orientation="vertical"
@@ -83,7 +59,8 @@
                     android:id="@+id/login_2fa_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/login_2fa_hint">
+                    android:hint="@string/login_2fa_hint"
+                    android:visibility="gone">
 
                     <org.wikipedia.views.PlainPasteEditText
                         style="?android:textAppearanceMedium"
@@ -91,51 +68,50 @@
                         android:layout_height="wrap_content"
                         android:imeOptions="flagNoExtractUi"
                         android:inputType="textVisiblePassword|textNoSuggestions"
-                        android:maxLines="1"
-                        android:visibility="gone" />
+                        android:maxLines="1" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <Button
                     android:id="@+id/login_button"
-                    style="@style/App.Button.Blue"
+                    style="@style/App.Button.Blue.NonDisabled"
                     android:layout_width="match_parent"
                     android:layout_marginStart="0dp"
                     android:layout_marginEnd="0dp"
                     android:enabled="false"
+                    android:alpha="0.5"
                     android:text="@string/menu_login" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="?attr/material_theme_border_color" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:gravity="center_horizontal">
-
-                    <TextView
-                        android:id="@+id/forgot_password_link"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:clickable="true"
-                        android:text="@string/login_forgot_password"
-                        android:textColor="?attr/colorAccent" />
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:paddingTop="16dp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:paddingStart="8dp"
-                        android:paddingEnd="8dp"
-                        android:text="•"
-                        tools:ignore="HardcodedText" />
+                        android:text="@string/login_dont_have_account"
+                        android:textColor="?attr/material_theme_secondary_color" />
 
-                    <TextView
-                        android:id="@+id/privacy_policy_link"
-                        android:layout_width="wrap_content"
+                    <Button
+                        android:id="@+id/login_create_account_button"
+                        style="@style/FlatButton"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:clickable="true"
-                        android:text="@string/privacy_policy_description"
+                        android:text="@string/login_join_wikipedia"
                         android:textColor="?attr/colorAccent" />
 
                 </LinearLayout>
+
+                <include layout="@layout/inflate_login_and_account_creation_footer" />
 
             </LinearLayout>
 

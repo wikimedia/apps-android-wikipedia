@@ -33,12 +33,8 @@
   <string name="menu_long_press_open_page">Sokafana</string>
   <string name="menu_long_press_open_in_new_tab">Hanokatra rohy anaty sasa-joro vaovao</string>
   <string name="menu_long_press_copy_page">Handika ny adiresin-drohy</string>
-  <string name="menu_text_select_copy">Dikaina</string>
   <string name="menu_text_select_define">Faritana</string>
-  <string name="menu_text_select_share">Zaraina</string>
   <string name="menu_text_select_edit_here">Ovaina eto</string>
-  <string name="nav_item_nearby">Eto akaiky</string>
-  <string name="nearby_zoom_to_location">Hi-zoom amin\'ny toerana eo amin\'ny sarintany</string>
   <string name="last_updated_text">Nohavaozina farany ny %s</string>
   <string name="talk_page_link_text">Hijery ny pejin-dresaka</string>
   <string name="edit_history_link_text">Hijery ny tantaram-pejy</string>
@@ -74,7 +70,7 @@
   <string name="menu_login">Hiditra</string>
   <string name="login_activity_title">Hiditra amin\'i Wikipedia</string>
   <string name="login_in_progress_dialog_message">Mampiditra anao....</string>
-  <string name="login_success_toast">Tafiditra!</string>
+  <string name="login_success_toast" fuzzy="true">Tafiditra!</string>
   <string name="reset_password_title">Forony ny tenimiafinao</string>
   <string name="reset_password_hint">Tenimiafina vaovao</string>
   <string name="reset_password_button">Tehirizina ary hiditra</string>
@@ -167,14 +163,10 @@
   <string name="gallery_menu_share">Zaraina</string>
   <string name="gallery_share_error">Tsy afaka mizara ny sary: %s</string>
   <string name="gallery_save_progress">Mampidina ny rakitra...</string>
-  <string name="gallery_save_success">Voatahiry soa aman-tsara ny rakitra.</string>
+  <string name="gallery_save_success" fuzzy="true">Voatahiry soa aman-tsara ny rakitra.</string>
   <string name="gallery_error_video_failed">Tsy afaka namaky ilay videô.</string>
   <string name="err_cannot_save_file">Tsy afaka nitahiry ilay sary</string>
-  <string name="snippet_share_intro">%1$s eo amin\'i @Wikipedia: %2$s</string>
   <string name="expand_refs">Kitiho mba hanitatra</string>
-  <string name="share_snippet_button">Zaraina ho sary</string>
-  <string name="share_normal_button">Zaraina ho soratra</string>
-  <string name="snippet_share_preview_image_desc">Topi-mason-tsary</string>
   <string name="cc_logo">Fahazoan-dalana Creative Commons</string>
   <string name="captcha_image">Sary CAPTCHA</string>
   <string name="gallery_fair_use_license">Fair use</string>
@@ -191,9 +183,6 @@
   <string name="button_continue_to_article">Hamaky ny lahatsoratra</string>
   <string name="button_add_to_reading_list">Ampiana amin\'ny lisi-pamakiana</string>
   <string name="page_offline_notice_cannot_load_while_offline">Tsy afaka alaina ilay lahatsoratra rehefa tsy misy fifandraisana.</string>
-  <string name="crash_report_dialog_dont_send_button">Dinganina</string>
-  <string name="crash_report_dialog_always_send_button">Alefa foana</string>
-  <string name="crash_report_dialog_send_button">Alefa</string>
   <string name="crash_report_activity_title">Hadisoam-pampiharana</string>
   <string name="crash_report_relaunch">Averina indray</string>
   <string name="crash_report_quit">Hiala</string>
@@ -214,8 +203,6 @@
   <string name="reading_list_save_to">Tehirizina ao amin\'ny lisi-pamakiana</string>
   <string name="reading_list_create_new">Hamorona vaovao</string>
   <string name="reading_list_title_exists">Efa misy ny lisi-pamakiana \"%s\".</string>
-  <string name="reading_list_added_to_named">Nampiana tamin\'i %s.</string>
-  <string name="reading_list_already_exists">Efa ao amin\'ilay lisitra ity lahatsoratra ity.</string>
   <string name="reading_list_added_view_button">Hijery lisitra</string>
   <string name="format_reading_list_statistical_summary_singular">Lahatsoratra iray, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">Lahatosratra %1$d, %2$.2f MB</string>

@@ -18,9 +18,6 @@
   <string name="menu_long_press_open_page">විවෘත කරන්න</string>
   <string name="menu_long_press_open_in_new_tab">නව ටැබයක විවෘත කරන්න</string>
   <string name="menu_long_press_copy_page">සබැඳි ලිපිනය පිටපත් කරන්න</string>
-  <string name="menu_text_select_copy">පිටපත් කරන්න</string>
-  <string name="menu_text_select_share">හුවමාරු කරන්න</string>
-  <string name="nav_item_nearby">අවට</string>
   <string name="last_updated_text">අවසන් යාවත්කාලීන කිරීම %s</string>
   <string name="preference_title_language">විකිපීඩියා භාෂාව</string>
     <string name="langlinks_filter_hint">සොයන්න</string>

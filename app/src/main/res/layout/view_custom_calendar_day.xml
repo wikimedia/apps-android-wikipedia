@@ -11,6 +11,7 @@
         android:layout_height="match_parent"
         android:tint="?attr/colorAccent"
         android:visibility="gone"
+        android:contentDescription="@null"
         app:srcCompat="@drawable/shape_circle" />
 
     <TextView
@@ -21,5 +22,6 @@
         android:fontFamily="sans-serif"
         android:textColor="?attr/primary_text_color"
         android:textSize="12sp"
-        android:textStyle="normal" />
+        android:textStyle="normal"
+        android:background="?android:selectableItemBackgroundBorderless" />
 </FrameLayout>

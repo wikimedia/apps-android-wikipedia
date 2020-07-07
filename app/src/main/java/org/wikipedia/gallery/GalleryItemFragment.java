@@ -1,16 +1,15 @@
 package org.wikipedia.gallery;
 
 import android.graphics.Bitmap;
-import android.graphics.drawable.Animatable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.MediaController;
 import android.widget.ProgressBar;
 import android.widget.VideoView;
@@ -19,21 +18,15 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.facebook.drawee.backends.pipeline.Fresco;
-import com.facebook.drawee.controller.BaseControllerListener;
-import com.facebook.drawee.drawable.ScalingUtils;
-import com.facebook.drawee.generic.GenericDraweeHierarchy;
-import com.facebook.drawee.generic.GenericDraweeHierarchyBuilder;
-import com.facebook.drawee.view.SimpleDraweeView;
-import com.facebook.samples.zoomable.DoubleTapGestureListener;
-
 import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
+import org.wikipedia.commons.FilePageActivity;
 import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.page.Namespace;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.DeviceUtil;
@@ -44,14 +37,15 @@ import org.wikipedia.util.ImageUrlUtil;
 import org.wikipedia.util.PermissionUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
-import org.wikipedia.views.ZoomableDraweeViewWithBackground;
+import org.wikipedia.views.ViewUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.schedulers.Schedulers;
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.core.Observable;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 
 import static org.wikipedia.Constants.PREFERRED_GALLERY_IMAGE_SIZE;
 import static org.wikipedia.util.PermissionUtil.hasWriteExternalStoragePermission;
@@ -69,26 +63,24 @@ public class GalleryItemFragment extends Fragment {
     @BindView(R.id.gallery_item_progress_bar) ProgressBar progressBar;
     @BindView(R.id.gallery_video_container) View videoContainer;
     @BindView(R.id.gallery_video) VideoView videoView;
-    @BindView(R.id.gallery_video_thumbnail) SimpleDraweeView videoThumbnail;
+    @BindView(R.id.gallery_video_thumbnail) ImageView videoThumbnail;
     @BindView(R.id.gallery_video_play_button) View videoPlayButton;
-    @BindView(R.id.gallery_image) ZoomableDraweeViewWithBackground imageView;
+    @BindView(R.id.gallery_image) ImageView imageView;
     @Nullable private Unbinder unbinder;
     private CompositeDisposable disposables = new CompositeDisposable();
 
     private MediaController mediaController;
 
-    @NonNull private WikipediaApp app = WikipediaApp.getInstance();
-    @Nullable private GalleryActivity parentActivity;
     @Nullable private PageTitle pageTitle;
     @Nullable private MediaListItem mediaListItem;
 
     @Nullable private PageTitle imageTitle;
-    @Nullable public PageTitle getImageTitle() {
+    @Nullable PageTitle getImageTitle() {
         return imageTitle;
     }
 
     @Nullable private ImageInfo mediaInfo;
-    @Nullable public ImageInfo getMediaInfo() {
+    @Nullable ImageInfo getMediaInfo() {
         return mediaInfo;
     }
 
@@ -119,20 +111,11 @@ public class GalleryItemFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_gallery_item, container, false);
         unbinder = ButterKnife.bind(this, rootView);
 
-        imageView.setTapListener(new DoubleTapGestureListener(imageView) {
-            @Override
-            public boolean onSingleTapConfirmed(MotionEvent e) {
-                if (isAdded()) {
-                    parentActivity.toggleControls();
-                }
-                return true;
+        imageView.setOnClickListener(v -> {
+            if (isAdded()) {
+                ((GalleryActivity) requireActivity()).toggleControls();
             }
         });
-
-        GenericDraweeHierarchy hierarchy = new GenericDraweeHierarchyBuilder(getResources())
-                .setActualImageScaleType(ScalingUtils.ScaleType.FIT_CENTER)
-                .build();
-        imageView.setHierarchy(hierarchy);
         return rootView;
     }
 
@@ -140,17 +123,13 @@ public class GalleryItemFragment extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         setHasOptionsMenu(true);
-        parentActivity = (GalleryActivity) getActivity();
-
         loadMedia();
     }
 
     @Override
     public void onDestroyView() {
         disposables.clear();
-        imageView.setController(null);
         imageView.setOnClickListener(null);
-        videoThumbnail.setController(null);
         videoThumbnail.setOnClickListener(null);
         if (unbinder != null) {
             unbinder.unbind();
@@ -159,18 +138,23 @@ public class GalleryItemFragment extends Fragment {
         super.onDestroyView();
     }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+        if (mediaController != null) {
+            if (videoView.isPlaying()) {
+                videoView.pause();
+            }
+            mediaController.hide();
+        }
+    }
+
     private void updateProgressBar(boolean visible) {
         progressBar.setVisibility(visible ? View.VISIBLE : View.GONE);
     }
 
     @Override
-    public void onDestroy() {
-        super.onDestroy();
-        app.getRefWatcher().watch(this);
-    }
-
-    @Override
-    public void onPrepareOptionsMenu(Menu menu) {
+    public void onPrepareOptionsMenu(@NonNull Menu menu) {
         super.onPrepareOptionsMenu(menu);
         if (!isAdded()) {
             return;
@@ -186,8 +170,8 @@ public class GalleryItemFragment extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_gallery_visit_page:
-                if (mediaInfo != null) {
-                    parentActivity.finishWithPageResult(imageTitle);
+                if (mediaInfo != null && imageTitle != null) {
+                    startActivity(FilePageActivity.newIntent(requireContext(), imageTitle));
                 }
                 return true;
             case R.id.menu_gallery_save:
@@ -202,36 +186,8 @@ public class GalleryItemFragment extends Fragment {
         return super.onOptionsItemSelected(item);
     }
 
-    /**
-     * Notifies this fragment that the current position of its containing ViewPager has changed.
-     *
-     * @param fragmentPosition This fragment's position in the ViewPager.
-     * @param pagerPosition    The pager's current position that is displayed to the user.
-     */
-    public void onUpdatePosition(int fragmentPosition, int pagerPosition) {
-        if (!isAdded()) {
-            return;
-        }
-        if (fragmentPosition != pagerPosition) {
-            // update stuff if our position is not "current" within the ViewPager...
-            if (mediaController != null) {
-                if (videoView.isPlaying()) {
-                    videoView.pause();
-                }
-                mediaController.hide();
-            }
-        } else {
-            // update stuff if our position is "current"
-            if (mediaController != null) {
-                if (!videoView.isPlaying()) {
-                    videoView.start();
-                }
-            }
-        }
-    }
-
     private void handleImageSaveRequest() {
-        if (!(hasWriteExternalStoragePermission(this.getActivity()))) {
+        if (!(hasWriteExternalStoragePermission(requireActivity()))) {
             requestWriteExternalStoragePermission();
         } else {
             saveImage();
@@ -247,17 +203,20 @@ public class GalleryItemFragment extends Fragment {
      * Load the actual media associated with our gallery item into the UI.
      */
     private void loadMedia() {
+        if (pageTitle == null || mediaListItem == null) {
+            return;
+        }
         updateProgressBar(true);
-        disposables.add(ServiceFactory.get(pageTitle.getWikiSite()).getMediaInfo(mediaListItem.getTitle())
+        disposables.add(getMediaInfoDisposable(mediaListItem.getTitle(), WikipediaApp.getInstance().getAppOrSystemLanguageCode())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doAfterTerminate(() -> {
                     updateProgressBar(false);
-                    parentActivity.supportInvalidateOptionsMenu();
-                    parentActivity.layOutGalleryDescription();
+                    requireActivity().invalidateOptionsMenu();
+                    ((GalleryActivity) requireActivity()).layOutGalleryDescription();
                 })
                 .subscribe(response -> {
-                    mediaInfo = response.query().firstPage().videoInfo();
+                    mediaInfo = response.query().firstPage().imageInfo();
                     if (FileUtil.isVideo(mediaListItem.getType())) {
                         loadVideo();
                     } else {
@@ -267,6 +226,14 @@ public class GalleryItemFragment extends Fragment {
                     FeedbackUtil.showMessage(getActivity(), R.string.gallery_error_draw_failed);
                     L.d(throwable);
                 }));
+    }
+
+    private Observable<MwQueryResponse> getMediaInfoDisposable(String title, String lang) {
+        if (FileUtil.isVideo(mediaListItem.getType())) {
+            return ServiceFactory.get(pageTitle.getWikiSite()).getVideoInfo(title, lang);
+        } else {
+            return ServiceFactory.get(pageTitle.getWikiSite()).getImageInfo(title, lang);
+        }
     }
 
     private View.OnClickListener videoThumbnailClickListener = new View.OnClickListener() {
@@ -280,7 +247,7 @@ public class GalleryItemFragment extends Fragment {
             loading = true;
             L.d("Loading video from url: " + mediaInfo.getBestDerivative().getSrc());
             videoView.setVisibility(View.VISIBLE);
-            mediaController = new MediaController(parentActivity);
+            mediaController = new MediaController(requireActivity());
             if (!DeviceUtil.isNavigationBarShowing()) {
                 mediaController.setPadding(0, 0, 0, (int) DimenUtil.dpToPx(DimenUtil.getNavigationBarHeight(requireContext())));
             }
@@ -289,7 +256,7 @@ public class GalleryItemFragment extends Fragment {
             videoView.setOnPreparedListener((mp) -> {
                 updateProgressBar(false);
                 // ...update the parent activity, which will trigger us to start playing!
-                parentActivity.layOutGalleryDescription();
+                ((GalleryActivity) requireActivity()).layOutGalleryDescription();
                 // hide the video thumbnail, since we're about to start playback
                 videoThumbnail.setVisibility(View.GONE);
                 videoPlayButton.setVisibility(View.GONE);
@@ -315,26 +282,12 @@ public class GalleryItemFragment extends Fragment {
         videoContainer.setVisibility(View.VISIBLE);
         videoPlayButton.setVisibility(View.VISIBLE);
         videoView.setVisibility(View.GONE);
-        if (TextUtils.isEmpty(mediaInfo.getThumbUrl())) {
+        if (mediaInfo == null || TextUtils.isEmpty(mediaInfo.getThumbUrl())) {
             videoThumbnail.setVisibility(View.GONE);
         } else {
             // show the video thumbnail while the video loads...
             videoThumbnail.setVisibility(View.VISIBLE);
-            videoThumbnail.setController(Fresco.newDraweeControllerBuilder()
-                    .setUri(mediaInfo.getThumbUrl())
-                    .setAutoPlayAnimations(true)
-                    .setControllerListener(new BaseControllerListener<com.facebook.imagepipeline.image.ImageInfo>() {
-                        @Override
-                        public void onFinalImageSet(String id, com.facebook.imagepipeline.image.ImageInfo imageInfo, Animatable animatable) {
-                            updateProgressBar(false);
-                        }
-
-                        @Override
-                        public void onFailure(String id, Throwable throwable) {
-                            updateProgressBar(false);
-                        }
-                    })
-                    .build());
+            ViewUtil.loadImage(videoThumbnail, mediaInfo.getThumbUrl());
         }
         videoThumbnail.setOnClickListener(videoThumbnailClickListener);
     }
@@ -344,26 +297,8 @@ public class GalleryItemFragment extends Fragment {
         L.v("Loading image from url: " + url);
 
         updateProgressBar(true);
-        imageView.setDrawBackground(false);
-        imageView.setController(Fresco.newDraweeControllerBuilder()
-                .setUri(url)
-                .setAutoPlayAnimations(true)
-                .setControllerListener(new BaseControllerListener<com.facebook.imagepipeline.image.ImageInfo>() {
-                    @Override
-                    public void onFinalImageSet(String id, com.facebook.imagepipeline.image.ImageInfo imageInfo, Animatable animatable) {
-                        imageView.setDrawBackground(true);
-                        updateProgressBar(false);
-                        parentActivity.supportInvalidateOptionsMenu();
-                    }
-
-                    @Override
-                    public void onFailure(String id, Throwable throwable) {
-                        updateProgressBar(false);
-                        FeedbackUtil.showMessage(getActivity(), R.string.gallery_error_draw_failed);
-                        L.d(throwable);
-                    }
-                })
-                .build());
+        ViewUtil.loadImageWithWhiteBackground(imageView, url);
+        // TODO: show error if loading failed.
     }
 
     private void shareImage() {
@@ -376,29 +311,27 @@ public class GalleryItemFragment extends Fragment {
                 if (!isAdded()) {
                     return;
                 }
-                if (callback() != null) {
+                if (callback() != null && getShareSubject() != null && imageTitle != null) {
                     callback().onShare(GalleryItemFragment.this, bitmap, getShareSubject(), imageTitle);
                 }
             }
-        }.get();
+        }.get(requireContext());
     }
 
     @Override
     public void onRequestPermissionsResult(int requestCode,
                                            @NonNull String[] permissions,
                                            @NonNull int[] grantResults) {
-        switch (requestCode) {
-            case Constants.ACTIVITY_REQUEST_WRITE_EXTERNAL_STORAGE_PERMISSION:
-                if (PermissionUtil.isPermitted(grantResults)) {
-                    saveImage();
-                } else {
-                    L.e("Write permission was denied by user");
-                    FeedbackUtil.showMessage(getActivity(),
-                            R.string.gallery_save_image_write_permission_rationale);
-                }
-                break;
-            default:
-                throw new RuntimeException("unexpected permission request code " + requestCode);
+        if (requestCode == Constants.ACTIVITY_REQUEST_WRITE_EXTERNAL_STORAGE_PERMISSION) {
+            if (PermissionUtil.isPermitted(grantResults)) {
+                saveImage();
+            } else {
+                L.e("Write permission was denied by user");
+                FeedbackUtil.showMessage(getActivity(),
+                        R.string.gallery_save_image_write_permission_rationale);
+            }
+        } else {
+            throw new RuntimeException("unexpected permission request code " + requestCode);
         }
     }
 

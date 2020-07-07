@@ -11,11 +11,10 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.events.ReadingListsEnableSyncStatusEvent;
 import org.wikipedia.events.ReadingListsEnabledStatusEvent;
-import org.wikipedia.events.ReadingListsMergeLocalDialogEvent;
 import org.wikipedia.events.ReadingListsNoLongerSyncedEvent;
 
-import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.functions.Consumer;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.functions.Consumer;
 
 public class SettingsFragment extends PreferenceLoaderFragment {
     public static SettingsFragment newInstance() {
@@ -104,9 +103,7 @@ public class SettingsFragment extends PreferenceLoaderFragment {
     private class EventBusConsumer implements Consumer<Object> {
         @Override
         public void accept(Object event) {
-            if (event instanceof ReadingListsMergeLocalDialogEvent) {
-                setReadingListSyncPref(true);
-            } else if (event instanceof ReadingListsEnabledStatusEvent) {
+            if (event instanceof ReadingListsEnabledStatusEvent) {
                 setReadingListSyncPref(true);
             } else if (event instanceof ReadingListsNoLongerSyncedEvent) {
                 setReadingListSyncPref(false);

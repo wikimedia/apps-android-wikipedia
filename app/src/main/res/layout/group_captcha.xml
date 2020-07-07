@@ -36,15 +36,15 @@
         android:paddingTop="16dp"
         android:paddingBottom="16dp">
 
-        <com.facebook.drawee.view.SimpleDraweeView
+        <ImageView
             android:id="@+id/captcha_image"
-            style="@style/SimpleDraweeViewPlaceholder"
+            style="@style/ImageViewDefault"
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:layout_gravity="center_horizontal"
             android:contentDescription="@string/captcha_image"
-            app:backgroundImage="?attr/paper_color"
-            app:actualImageScaleType="fitCenter" />
+            android:background="?attr/paper_color"
+            android:scaleType="fitCenter" />
 
         <ProgressBar
             android:id="@+id/captcha_image_progress"
@@ -87,11 +87,12 @@
 
     <Button
         android:id="@+id/captcha_submit_button"
-        style="@style/App.Button.Blue"
+        style="@style/App.Button.Blue.NonDisabled"
         android:layout_width="match_parent"
         android:layout_marginStart="0dp"
         android:layout_marginEnd="0dp"
         android:enabled="false"
+        android:alpha="0.5"
         android:text="@string/create_account_button"
         android:visibility="gone"
         tools:visibility="visible" />

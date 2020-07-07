@@ -33,6 +33,10 @@ public class ImageInfo implements Serializable {
     @Nullable private String timestamp;
     @Nullable private List<Derivative> derivatives;
     @Nullable private Map<String, String> captions;
+    // Fields specific to video files:
+    @Nullable private List<String> codecs;
+    @Nullable private String name;
+    @Nullable @SerializedName("short_name") private String shortName;
 
     @NonNull public Map<String, String> getCaptions() {
         return captions != null ? captions : Collections.emptyMap();
@@ -61,6 +65,14 @@ public class ImageInfo implements Serializable {
 
     public int getHeight() {
         return height;
+    }
+
+    public int getThumbHeight() {
+        return thumbHeight;
+    }
+
+    public int getThumbWidth() {
+        return thumbWidth;
     }
 
     @NonNull public String getMimeType() {

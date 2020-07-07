@@ -18,13 +18,14 @@ public final class PageHistoryContract {
         LongColumn ID = new LongColumn(TABLE, BaseColumns._ID, "integer primary key");
         StrColumn SITE = new StrColumn(TABLE, "site", "string");
         StrColumn LANG = new StrColumn(TABLE, "lang", "text");
-        StrColumn TITLE = new StrColumn(TABLE, "title", "string");
+        StrColumn API_TITLE = new StrColumn(TABLE, "title", "string");
+        StrColumn DISPLAY_TITLE = new StrColumn(TABLE, "displayTitle", "string");
         StrColumn NAMESPACE = new StrColumn(TABLE, "namespace", "string");
         DateColumn TIMESTAMP = new DateColumn(TABLE, "timestamp", "integer");
         IntColumn SOURCE = new IntColumn(TABLE, "source", "integer");
         IntColumn TIME_SPENT = new IntColumn(TABLE, "timeSpent", "integer"); // seconds
 
-        String[] SELECTION = DbUtil.qualifiedNames(SITE, LANG, NAMESPACE, TITLE);
+        String[] SELECTION = DbUtil.qualifiedNames(SITE, LANG, NAMESPACE, API_TITLE);
     }
 
     public interface Page extends Col {
@@ -36,12 +37,16 @@ public final class PageHistoryContract {
     }
 
     public interface PageWithImage extends Page {
-        String TABLES = (":tbl left outer join :pageImagesTbl "
-                      + "on (:tbl.site = :pageImagesTbl.site and :tbl.title = :pageImagesTbl.title)")
+        String TABLES = (":tbl LEFT OUTER JOIN :pageImagesTbl "
+                      + "ON (:tbl.site = :pageImagesTbl.site "
+                      + "AND :tbl.apiTitle = :pageImagesTbl.apiTitle "
+                      + "AND :tbl.lang = :pageImagesTbl.lang )")
                 .replaceAll(":tbl.site", SITE.qualifiedName())
                 .replaceAll(":pageImagesTbl.site", PageImageHistoryContract.Col.SITE.qualifiedName())
-                .replaceAll(":tbl.title", TITLE.qualifiedName())
-                .replaceAll(":pageImagesTbl.title", PageImageHistoryContract.Col.TITLE.qualifiedName())
+                .replaceAll(":tbl.apiTitle", API_TITLE.qualifiedName())
+                .replaceAll(":pageImagesTbl.apiTitle", PageImageHistoryContract.Col.API_TITLE.qualifiedName())
+                .replaceAll(":tbl.lang", LANG.qualifiedName())
+                .replaceAll(":pageImagesTbl.lang", PageImageHistoryContract.Col.LANG.qualifiedName())
                 .replaceAll(":tbl", PageHistoryContract.TABLE)
                 .replaceAll(":pageImagesTbl", PageImageHistoryContract.TABLE);
 
@@ -50,7 +55,7 @@ public final class PageHistoryContract {
 
         StrColumn IMAGE_NAME = PageImageHistoryContract.Col.IMAGE_NAME;
 
-        String[] PROJECTION = DbUtil.qualifiedNames(ID, SITE, LANG, TITLE, NAMESPACE, TIMESTAMP,
+        String[] PROJECTION = DbUtil.qualifiedNames(ID, SITE, LANG, API_TITLE, DISPLAY_TITLE, NAMESPACE, TIMESTAMP,
                 SOURCE, TIME_SPENT, IMAGE_NAME);
     }
 

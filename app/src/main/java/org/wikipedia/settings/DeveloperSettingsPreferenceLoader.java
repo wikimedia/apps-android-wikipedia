@@ -1,5 +1,6 @@
 package org.wikipedia.settings;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.text.TextUtils;
 
@@ -11,9 +12,9 @@ import androidx.preference.TwoStatePreference;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
-import org.wikipedia.crash.RemoteLogException;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.notifications.NotificationPollBroadcastReceiver;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.database.ReadingList;
@@ -21,38 +22,18 @@ import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.suggestededits.provider.MissingDescriptionProvider;
 import org.wikipedia.util.StringUtil;
-import org.wikipedia.util.log.L;
-import org.wikipedia.views.DialogTitleWithImage;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.schedulers.Schedulers;
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 
 class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
     private static final String TEXT_OF_TEST_READING_LIST = "Test reading list";
     private static final String TEXT_OF_READING_LIST = "Reading list";
 
     @NonNull private final Context context;
-
-    @NonNull private final Preference.OnPreferenceChangeListener setRestBaseManuallyChangeListener
-            = new Preference.OnPreferenceChangeListener() {
-        /**
-         * Called when the useRestBaseSetManually preference has been changed by the user. This is
-         * called before the state of the Preference is about to be updated and
-         * before the state is persisted.
-         *
-         * @param preference The changed Preference.
-         * @param newValue   The new value of the Preference.
-         * @return True to update the state of the Preference with the new value.
-         */
-        @Override
-        public boolean onPreferenceChange(Preference preference, Object newValue) {
-            setUseRestBasePreference((Boolean) newValue);
-            return true;
-        }
-    };
 
     @NonNull private final Preference.OnPreferenceChangeListener setMediaWikiBaseUriChangeListener
             = new Preference.OnPreferenceChangeListener() {
@@ -95,23 +76,16 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
         this.context = fragment.requireActivity();
     }
 
+    @SuppressLint("CheckResult")
     @SuppressWarnings("checkstyle:methodlength")
     @Override
     public void loadPreferences() {
         loadPreferences(R.xml.developer_preferences);
-        setUpRestBaseCheckboxes();
         setUpMediaWikiSettings();
 
         findPreference(context.getString(R.string.preferences_developer_crash_key))
                 .setOnPreferenceClickListener(preference -> {
                     throw new TestException("User tested crash functionality.");
-                });
-
-        findPreference(R.string.preference_key_remote_log)
-                .setOnPreferenceChangeListener((preference, newValue) -> {
-                    L.logRemoteError(new RemoteLogException(newValue.toString()));
-                    WikipediaApp.getInstance().checkCrashes(getActivity());
-                    return true;
                 });
 
         findPreference(R.string.preference_key_add_articles)
@@ -120,7 +94,7 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
                         return true;
                     }
 
-                    int numberOfArticles = Integer.valueOf(newValue.toString().trim());
+                    int numberOfArticles = Integer.parseInt(newValue.toString().trim());
                     createTestReadingList(TEXT_OF_TEST_READING_LIST, 1, numberOfArticles);
 
                     return true;
@@ -132,7 +106,7 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
                         return true;
                     }
 
-                    int numOfLists = Integer.valueOf(newValue.toString().trim());
+                    int numOfLists = Integer.parseInt(newValue.toString().trim());
                     createTestReadingList(TEXT_OF_READING_LIST, numOfLists, 10);
 
                     return true;
@@ -143,7 +117,7 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
                     if (newValue.toString().trim().equals("") || newValue.toString().trim().equals("0")) {
                         return true;
                     }
-                    int numOfLists = Integer.valueOf(newValue.toString().trim());
+                    int numOfLists = Integer.parseInt(newValue.toString().trim());
                     deleteTestReadingList(TEXT_OF_READING_LIST, numOfLists);
                     return true;
                 });
@@ -152,14 +126,14 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
                     if (newValue.toString().trim().equals("") || newValue.toString().trim().equals("0")) {
                         return true;
                     }
-                    int numOfLists = Integer.valueOf(newValue.toString().trim());
+                    int numOfLists = Integer.parseInt(newValue.toString().trim());
                     deleteTestReadingList(TEXT_OF_TEST_READING_LIST, numOfLists);
                     return true;
                 });
 
         findPreference(R.string.preference_key_add_malformed_reading_list_page)
                 .setOnPreferenceChangeListener((preference, newValue) -> {
-                    int numberOfArticles = TextUtils.isEmpty(newValue.toString()) ? 1 :  Integer.valueOf(newValue.toString().trim());
+                    int numberOfArticles = TextUtils.isEmpty(newValue.toString()) ? 1 :  Integer.parseInt(newValue.toString().trim());
                     List<ReadingListPage> pages = new ArrayList<>();
                     for (int i = 0; i < numberOfArticles; i++) {
                         PageTitle pageTitle = new PageTitle("Malformed page " + i, WikiSite.forLanguageCode("foo"));
@@ -178,7 +152,7 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
                                             .setTitle(StringUtil.fromHtml(summary.getDisplayTitle()))
                                             .setMessage(StringUtil.fromHtml(summary.getExtract()))
                                             .setPositiveButton("Go", (dialog, which) -> {
-                                                PageTitle title = new PageTitle(summary.getNormalizedTitle(), WikipediaApp.getInstance().getWikiSite());
+                                                PageTitle title = new PageTitle(summary.getApiTitle(), WikipediaApp.getInstance().getWikiSite());
                                                 getActivity().startActivity(PageActivity.newIntentForNewTab(getActivity(), new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK), title));
                                             })
                                             .setNegativeButton(R.string.cancel, null)
@@ -200,7 +174,7 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
                                             .setTitle(StringUtil.fromHtml(pair.getSecond().getDisplayTitle()))
                                             .setMessage(StringUtil.fromHtml(pair.getSecond().getDescription()))
                                             .setPositiveButton("Go", (dialog, which) -> {
-                                                PageTitle title = new PageTitle(pair.getSecond().getNormalizedTitle(), WikiSite.forLanguageCode(WikipediaApp.getInstance().language().getAppLanguageCodes().get(1)));
+                                                PageTitle title = new PageTitle(pair.getSecond().getApiTitle(), WikiSite.forLanguageCode(WikipediaApp.getInstance().language().getAppLanguageCodes().get(1)));
                                                 getActivity().startActivity(PageActivity.newIntentForNewTab(getActivity(), new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK), title));
                                             })
                                             .setNegativeButton(R.string.cancel, null)
@@ -212,41 +186,32 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
                     return true;
                 });
 
-        findPreference(context.getString(R.string.preference_key_dialog_with_image_test))
+        findPreference(context.getString(R.string.preferences_developer_announcement_reset_shown_dialogs_key)).setSummary(context.getString(R.string.preferences_developer_announcement_reset_shown_dialogs_summary, Prefs.getAnnouncementShownDialogs().size()));
+        findPreference(context.getString(R.string.preferences_developer_announcement_reset_shown_dialogs_key))
                 .setOnPreferenceClickListener(preference -> {
-                    new AlertDialog.Builder(getActivity())
-                            .setCustomTitle(new DialogTitleWithImage(getActivity(), R.string.suggested_edits_unlock_add_descriptions_dialog_title, R.drawable.ic_unlock_illustration_add, true))
-                            .setMessage(R.string.suggested_edits_unlock_add_descriptions_dialog_message)
-                            .setPositiveButton(R.string.suggested_edits_unlock_dialog_yes, null)
-                            .setNegativeButton(R.string.suggested_edits_unlock_dialog_no, null)
-                            .show();
+                    Prefs.resetAnnouncementShownDialogs();
+                    loadPreferences();
                     return true;
                 });
-    }
 
-    private void setUpRestBaseCheckboxes() {
-        TwoStatePreference manualPreference = (TwoStatePreference) findPreference(getManualKey());
-        manualPreference.setOnPreferenceChangeListener(setRestBaseManuallyChangeListener);
-        setUseRestBasePreference(manualPreference.isChecked());
-    }
+        findPreference(R.string.preference_key_suggested_edits_reactivation_test)
+                .setOnPreferenceChangeListener((preference, newValue) -> {
+                    NotificationPollBroadcastReceiver.stopPollTask(getActivity());
+                    NotificationPollBroadcastReceiver.startPollTask(getActivity());
+                    return true;
+                });
 
-    private String getManualKey() {
-        return context.getString(R.string.preference_key_use_restbase_manual);
-    }
+        findPreference(context.getString(R.string.preferences_developer_suggested_edits_reactivation_notification_stage_one))
+                .setOnPreferenceClickListener(preference -> {
+                    NotificationPollBroadcastReceiver.showSuggestedEditsLocalNotification(getActivity(), R.string.suggested_edits_reactivation_notification_stage_one);
+                    return true;
+                });
 
-    private void setUseRestBasePreference(boolean manualMode) {
-        RbSwitch.INSTANCE.update();
-        TwoStatePreference useRestBasePref = getUseRestBasePreference();
-        useRestBasePref.setEnabled(manualMode);
-        useRestBasePref.setChecked(RbSwitch.INSTANCE.isRestBaseEnabled());
-    }
-
-    private TwoStatePreference getUseRestBasePreference() {
-        return (TwoStatePreference) findPreference(getUseRestBaseKey());
-    }
-
-    private String getUseRestBaseKey() {
-        return context.getString(R.string.preference_key_use_restbase);
+        findPreference(context.getString(R.string.preferences_developer_suggested_edits_reactivation_notification_stage_two))
+                .setOnPreferenceClickListener(preference -> {
+                    NotificationPollBroadcastReceiver.showSuggestedEditsLocalNotification(getActivity(), R.string.suggested_edits_reactivation_notification_stage_two);
+                    return true;
+                });
     }
 
     private void setUpMediaWikiSettings() {
@@ -269,7 +234,7 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
             ReadingList lastReadingList = lists.get(i);
             if (lastReadingList.title().contains(listName)) {
                 String trimmedListTitle = lastReadingList.title().substring(listName.length()).trim();
-                index = (trimmedListTitle.isEmpty()) ? index : (Integer.valueOf(trimmedListTitle) > index ? Integer.valueOf(trimmedListTitle) : index);
+                index = trimmedListTitle.isEmpty() ? index : Math.max(Integer.parseInt(trimmedListTitle), index);
                 break;
             }
         }

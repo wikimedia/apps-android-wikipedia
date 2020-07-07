@@ -30,16 +30,11 @@
   <string name="menu_page_share">რცხიშ გობჟინაფა</string>
   <string name="menu_long_press_open_page">გონწყუმა</string>
   <string name="menu_long_press_copy_page">რცხიშ მიოწურაფუშ კოპირაფა</string>
-  <string name="menu_text_select_copy">კოპირაფა</string>
   <string name="menu_text_select_define">გოთანჯუა</string>
-  <string name="menu_text_select_share">გობჟინაფა</string>
   <string name="menu_text_select_edit_here">დარედაქტირით თაქ</string>
-  <string name="nav_item_nearby">გოხოლუას</string>
-  <string name="nearby_zoom_to_location">აბანიშ მეხოლაფა რუკას</string>
   <string name="last_updated_text">ბოლოს გეახალჷ %s</string>
   <string name="talk_page_link_text" fuzzy="true">სხუნუა</string>
-  <string name="content_license_html">დინოხი იფაჩუ &lt;a href=\"%1$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ლიცენზიათ, შხვა მუთუნ ვარე მეწურაფილი ვარდა ეშანილი-და</string>
-  <string name="edit_save_action_license_logged_in">ხასჷლაშ ჩულათ, თქვა დჷთმოჸუნთჷ&lt;a href=\"%1$s\"&gt;გჷმორინაფაშ პიჯალეფს&lt;/a&gt; დო თქვანიშით ჭარილი ტექსტიშ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ლიცენზიათ გოტებას.</string>
+    <string name="edit_save_action_license_logged_in">ხასჷლაშ ჩულათ, თქვა დჷთმოჸუნთჷ&lt;a href=\"%1$s\"&gt;გჷმორინაფაშ პიჯალეფს&lt;/a&gt; დო თქვანიშით ჭარილი ტექსტიშ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ლიცენზიათ გოტებას.</string>
   <string name="edit_save_action_license_anon">ხასჷლაშ ჩუალათ, თქვა დთმოჸუნთ &lt;a href=\"%1$s\"&gt;გჷმორინაფაშ პიჯალეფს&lt;/a&gt; დო თქვანიშით ჭარილი ტექსტიშ &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; ლიცენზიათ გოტებას. რედაქტირაფაშ ავტორო დეფიქსირებუ თქვანი მონწყილობაშ IP-მიოწურაფუ. რეკომენდებული რე &lt;a href=\"https://#login\"&gt;ავტორიზაციაშ&lt;/a&gt; მუკულა უმოსი თხილუანობაშო.</string>
   <string name="preference_title_language">ვიკიპედიაშ ნინეფი</string>
     <string name="langlinks_filter_hint">გორუა</string>
