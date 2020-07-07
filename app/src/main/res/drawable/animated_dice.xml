@@ -12,7 +12,7 @@
             <path
                 android:name="path_5"
                 android:pathData="M 2.75 0 L 21.25 0 C 22.769 0 24 1.231 24 2.75 L 24 21.25 C 24 22.769 22.769 24 21.25 24 L 2.75 24 C 1.231 24 0 22.769 0 21.25 L 0 2.75 C 0 1.231 1.231 0 2.75 0 Z M 6 20 C 4.893 20 4 19.107 4 18 C 4 16.893 4.893 16 6 16 C 7.107 16 8 16.893 8 18 C 8 19.107 7.107 20 6 20 Z M 6 8 C 4.893 8 4 7.107 4 6 C 4 4.893 4.893 4 6 4 C 7.107 4 8 4.893 8 6 C 8 7.107 7.107 8 6 8 Z M 12 14 C 10.893 14 10 13.107 10 12 C 10 10.893 10.893 10 12 10 C 13.107 10 14 10.893 14 12 C 14 13.107 13.107 14 12 14 Z M 18 20 C 16.893 20 16 19.107 16 18 C 16 16.893 16.893 16 18 16 C 19.107 16 20 16.893 20 18 C 20 19.107 19.107 20 18 20 Z M 18 8 C 16.893 8 16 7.107 16 6 C 16 4.893 16.893 4 18 4 C 19.107 4 20 4.893 20 6 C 20 7.107 19.107 8 18 8 Z"
-                android:fillColor="@color/accent50"
+                android:fillColor="#3366cc"
                 android:strokeWidth="1"
                 android:fillType="evenOdd"/>
         </vector>
@@ -70,16 +70,16 @@
                 <objectAnimator
                     android:propertyName="fillColor"
                     android:duration="100"
-                    android:valueFrom="@color/accent50"
-                    android:valueTo="@color/accent30"
+                    android:valueFrom="#3366cc"
+                    android:valueTo="#2a4b8d"
                     android:valueType="colorType"
                     android:interpolator="@android:interpolator/fast_out_slow_in"/>
                 <objectAnimator
                     android:propertyName="fillColor"
                     android:startOffset="375"
                     android:duration="125"
-                    android:valueFrom="@color/accent30"
-                    android:valueTo="@color/accent50"
+                    android:valueFrom="#2a4b8d"
+                    android:valueTo="#3366cc"
                     android:valueType="colorType"
                     android:interpolator="@android:interpolator/fast_out_slow_in"/>
             </set>
