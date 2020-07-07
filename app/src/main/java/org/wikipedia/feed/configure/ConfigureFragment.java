@@ -32,7 +32,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.Iterator;
 import java.util.List;
 
 import butterknife.BindView;
@@ -171,32 +170,12 @@ public class ConfigureFragment extends Fragment implements ConfigureItemView.Cal
         Collections.sort(orderedContentTypes, Comparator.comparing(FeedContentType::getOrder));
         // Remove items for which there are no available languages
         List<String> appLanguages = WikipediaApp.getInstance().language().getAppLanguageCodes();
-        Iterator<FeedContentType> i = orderedContentTypes.iterator();
-        while (i.hasNext()) {
-            FeedContentType feedContentType = i.next();
-            if (!feedContentType.showInConfig()) {
-                i.remove();
-                continue;
-            }
-            if (!AccountUtil.isLoggedIn() && feedContentType == FeedContentType.SUGGESTED_EDITS) {
-                i.remove();
-                continue;
-            }
+        orderedContentTypes.removeIf(feedContentType -> {
             List<String> supportedLanguages = feedContentType.getLangCodesSupported();
-            if (supportedLanguages.isEmpty()) {
-                continue;
-            }
-            boolean atLeastOneSupported = false;
-            for (String lang : appLanguages) {
-                if (supportedLanguages.contains(lang)) {
-                    atLeastOneSupported = true;
-                    break;
-                }
-            }
-            if (!atLeastOneSupported) {
-                i.remove();
-            }
-        }
+            return !feedContentType.showInConfig()
+                    || (!AccountUtil.isLoggedIn() && feedContentType == FeedContentType.SUGGESTED_EDITS)
+                    || (!supportedLanguages.isEmpty() && appLanguages.stream().noneMatch(supportedLanguages::contains));
+        });
         recyclerView.getAdapter().notifyDataSetChanged();
     }
 
