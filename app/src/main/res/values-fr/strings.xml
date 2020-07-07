@@ -772,7 +772,6 @@
   <string name="suggested_edits_quality_sufficient_text">Suffisant</string>
   <string name="suggested_edits_quality_poor_text">Faible</string>
   <string name="suggested_edits_quality_bad_text">Mauvais</string>
-  <string name="suggested_edits_contribute">Contribuer</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">Contribution</item>
     <item quantity="other">Contributions</item>

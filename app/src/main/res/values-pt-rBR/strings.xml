@@ -762,7 +762,6 @@
   <string name="suggested_edits_quality_sufficient_text">Suficiente</string>
   <string name="suggested_edits_quality_poor_text">Péssima</string>
   <string name="suggested_edits_quality_bad_text">Ruim</string>
-  <string name="suggested_edits_contribute">Contribuir</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">Contribuição</item>
     <item quantity="other">Contribuições</item>

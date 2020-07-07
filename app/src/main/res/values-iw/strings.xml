@@ -766,7 +766,6 @@
   <string name="suggested_edits_quality_sufficient_text">ככה ככה</string>
   <string name="suggested_edits_quality_poor_text">ירודה</string>
   <string name="suggested_edits_quality_bad_text">גרועה</string>
-  <string name="suggested_edits_contribute">לתרום</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">תרומה</item>
     <item quantity="two">תרומות</item>
