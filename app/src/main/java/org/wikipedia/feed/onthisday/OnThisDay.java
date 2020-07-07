@@ -10,8 +10,8 @@ import org.wikipedia.util.StringUtil;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
 
 public class OnThisDay {
 
@@ -63,12 +63,7 @@ public class OnThisDay {
 
         @Nullable
         public List<PageSummary> pages() {
-            Iterator iterator = pages.iterator();
-            while ((iterator.hasNext())) {
-                if (iterator.next() == null) {
-                    iterator.remove();
-                }
-            }
+            pages.removeIf(Objects::isNull);
             return pages;
         }
     }

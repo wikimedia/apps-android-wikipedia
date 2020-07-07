@@ -87,13 +87,7 @@ public final class SharedPreferenceCookieManager implements CookieJar {
 
             List<Cookie> cookieList = cookieJar.get(domainSpec);
             if (cookie.expiresAt() < System.currentTimeMillis() || "deleted".equals(cookie.value())) {
-                Iterator<Cookie> i = cookieList.iterator();
-                while (i.hasNext()) {
-                    if (i.next().name().equals(cookie.name())) {
-                        i.remove();
-                        cookieJarModified = true;
-                    }
-                }
+                cookieJarModified = cookieList.removeIf(cookie1 -> cookie1.name().equals(cookie.name()));
             } else {
                 Iterator<Cookie> i = cookieList.iterator();
                 boolean exists = false;
