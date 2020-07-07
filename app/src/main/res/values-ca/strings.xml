@@ -34,6 +34,7 @@
   <string name="search_hint_search_languages">Cerca una llengua</string>
   <string name="search_hint_search_my_lists_and_articles">Cerca les meves llistes i articles</string>
   <string name="nav_item_history">Historial</string>
+  <string name="nav_item_suggested_edits" fuzzy="true">Edicions suggerides</string>
   <string name="nav_item_more">Més</string>
   <string name="error_network_error">No pot connectar-se a Internet.</string>
   <string name="page_error_retry">Torna a provar</string>
@@ -118,7 +119,7 @@
   <string name="reading_lists_sync_login">Inicia una sessió</string>
   <string name="create_account_login">Inicia una sessió</string>
   <string name="menu_login">Inicia la sessió</string>
-  <string name="login_activity_title" fuzzy="true">Inicia sessió a la Viquipèdia</string>
+  <string name="login_activity_title">Inicia una sessió</string>
   <string name="login_in_progress_dialog_message">S’està iniciant la sessió…</string>
   <string name="login_success_toast">S’ha iniciat la sessió.</string>
   <string name="reset_password_title">Definiu una contrasenya</string>
@@ -726,6 +727,7 @@
   <string name="suggested_edits_image_tags_add_tag">Afegeix una etiqueta</string>
   <string name="suggested_edits_image_zoom_tooltip">Utilitza els dits per a fer zoom de la imatge.</string>
   <string name="suggested_edits_encouragement_message">%s, gràcies per les vostres edicions. A continuació podeu trobar més formes de contribuir a la Viquipèdia.</string>
+  <string name="suggested_edits_onboarding_message" fuzzy="true">&lt;b&gt;Hola %s&lt;/b&gt;, sabíeu que tothom pot contribuir a la Viquipèdia? A continuació podeu trobar formes divertides per a ajudar a millorar-la. Gaudiu-ne editant-hi!</string>
   <string name="suggested_edits_image_captions_task_detail">Descriure una imatge ajuda als lectors a entendre el seu significat i context.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Resumir un article ajuda als lectors a entendre la temàtica d\'un primer cop d\'ull.</string>
   <string name="suggested_edits_contributions_stat_tooltip">El vostre nombre total de contribucions des de les edicions suggerides.</string>
@@ -738,6 +740,7 @@
   <string name="suggested_edits_editing_tips_link_text">Consells i trucs d\'edició</string>
   <string name="suggested_edits_help_page_link_text">Pàgina d\'ajuda de les edicions suggerides</string>
   <string name="suggested_edits_edit_streak_label_text">Modifica la marca</string>
+  <string name="suggested_edits_views_label_text">Visualitzacions</string>
   <string name="suggested_edits_quality_label_text">Qualitat d\'edició</string>
   <string name="suggested_edits_quality_perfect_text">Perfecte</string>
   <string name="suggested_edits_quality_excellent_text">Excel·lent</string>
@@ -772,6 +775,7 @@
   <string name="suggested_edits_contribution_language_label">Llengua</string>
   <string name="suggested_edits_contribution_date_time_label">Data/Hora</string>
   <string name="suggested_edits_contribution_type_label">Tipus de contribució</string>
+  <string name="suggested_edits_contribution_image_label">Imatge</string>
   <string name="suggested_edits_contribution_article_label">Article</string>
   <string name="suggested_edits_contribution_views">%s visualitzacions</string>
   <string name="suggested_edits_contribution_seen_text">Vist %s vegades els darrers 30 dies.</string>
@@ -786,7 +790,10 @@
   <string name="suggested_edits_rewards_pageviews">%d persones han vist les vostres edicions els darrers 30 dies. Gràcies i endavant!</string>
   <string name="suggested_edits_rewards_edit_quality">Heu fet fins ara %s edicions. Endavant! Esperem les vostres contribucions.</string>
   <string name="suggested_edits_rewards_continue_button">Continua</string>
+  <string name="suggested_edits_encourage_account_creation_title">Sabíeu que tothom pot editar la Viquipèdia?</string>
+  <string name="suggested_edits_encourage_account_creation_login_button">Inicia una sessió / uniu-vos a la Viquipèdia</string>
   <string name="suggested_edits_contribution_type_image_tag">Etiqueta d\'imatge</string>
+  <string name="suggested_edits_contribution_current_revision_text">La vostra edició ja és a la Viquipèdia</string>
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="one">%1$s etiqueta</item>
     <item quantity="other">%1$s etiquetes</item>
@@ -888,6 +895,7 @@
   <string name="main_drawer_help">Ajuda</string>
   <string name="main_drawer_login">Inicia una sessió / uniu-vos a la Viquipèdia</string>
   <string name="main_tooltip_text">Hola %s, sabíeu que tothom pot editar la Viquipèdia?</string>
+  <string name="main_tooltip_text_v2">Sabíeu que tothom pot editar la Viquipèdia?</string>
   <string name="main_tooltip_action_button">Primers passos</string>
   <string name="custom_date_picker_dialog_ok_button_text">D’acord</string>
   <string name="text_input_dialog_ok_button_text">D’acord</string>
