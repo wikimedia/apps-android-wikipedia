@@ -366,7 +366,7 @@
   <string name="reading_list_title_exists">Senarai bacaan \"%s\" telah wujud.</string>
   <string name="reading_list_article_added_to_named">Menambah %1$s ke %2$s</string>
   <string name="reading_list_article_moved_to_named">Memindahkan %1$s ke %2$s</string>
-  <string name="reading_list_article_already_exists_message">Semua baik! %1$s% sudah mengandungi %2$s.</string>
+  <string name="reading_list_article_already_exists_message">Semua baik! %1$s sudah mengandungi %2$s.</string>
   <string name="reading_list_articles_already_exist_message">Semua baik! %s sudah mengandungi semua rencana.</string>
   <string name="reading_list_added_view_button">Lihat senarai</string>
   <string name="format_reading_list_statistical_summary_singular">1 rencana, %1$.2f MB</string>
