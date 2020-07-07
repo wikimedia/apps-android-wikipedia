@@ -710,7 +710,6 @@
   <string name="suggested_edits_quality_sufficient_text">Довољно</string>
   <string name="suggested_edits_quality_poor_text">Слабо</string>
   <string name="suggested_edits_quality_bad_text">Лоше</string>
-  <string name="suggested_edits_contribute">Допринесите</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">Допринос</item>
     <item quantity="other">Доприноси</item>

@@ -694,7 +694,6 @@
   <string name="suggested_edits_quality_sufficient_text">Достатъчно</string>
   <string name="suggested_edits_quality_poor_text">Ниско</string>
   <string name="suggested_edits_quality_bad_text">Лошо</string>
-  <string name="suggested_edits_contribute">Допринасяне</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">Принос</item>
     <item quantity="other">Приноси</item>

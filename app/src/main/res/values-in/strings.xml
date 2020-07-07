@@ -754,7 +754,6 @@
   <string name="suggested_edits_quality_sufficient_text">Cukup</string>
   <string name="suggested_edits_quality_poor_text">Kurang</string>
   <string name="suggested_edits_quality_bad_text">Buruk</string>
-  <string name="suggested_edits_contribute">Berkontribusi</string>
   <string name="suggested_edits_contribution">Kontribusi</string>
   <string name="suggested_edits_edit_streak_detail_text">%d hari</string>
   <string name="suggested_edits_what_is_title">Apa itu saran penyuntingan?</string>

@@ -724,7 +724,6 @@
   <string name="suggested_edits_quality_sufficient_text">کافی</string>
   <string name="suggested_edits_quality_poor_text">ضعیف</string>
   <string name="suggested_edits_quality_bad_text">بد</string>
-  <string name="suggested_edits_contribute">مشارکت</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">مشارکت</item>
     <item quantity="other">مشارکت‌ها</item>

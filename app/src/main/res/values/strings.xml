@@ -777,7 +777,7 @@
     <string name="suggested_edits_quality_sufficient_text">Sufficient</string>
     <string name="suggested_edits_quality_poor_text">Poor</string>
     <string name="suggested_edits_quality_bad_text">Bad</string>
-    <string name="suggested_edits_contribute">Contribute</string>
+    <string name="suggested_edits_label">Suggested edits</string>
     <plurals name="suggested_edits_contribution">
         <item quantity="one">Contribution</item>
         <item quantity="other">Contributions</item>

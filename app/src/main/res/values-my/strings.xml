@@ -717,7 +717,6 @@
   <string name="suggested_edits_quality_sufficient_text">လုံလောက်</string>
   <string name="suggested_edits_quality_poor_text">ညံ့ဖျင်း</string>
   <string name="suggested_edits_quality_bad_text">ဆိုးဝါး</string>
-  <string name="suggested_edits_contribute">ပံ့ပိုးရန်</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">1 ပံ့ပိုးမှု</item>
     <item quantity="other">ပံ့ပိုးမှုများ</item>

@@ -753,7 +753,6 @@
   <string name="suggested_edits_quality_sufficient_text">最低限</string>
   <string name="suggested_edits_quality_poor_text">よくない</string>
   <string name="suggested_edits_quality_bad_text">悪い</string>
-  <string name="suggested_edits_contribute">投稿</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">貢献</item>
     <item quantity="other">貢献</item>

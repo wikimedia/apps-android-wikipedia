@@ -768,7 +768,6 @@
   <string name="suggested_edits_quality_sufficient_text">Sufficiente</string>
   <string name="suggested_edits_quality_poor_text">Povero</string>
   <string name="suggested_edits_quality_bad_text">Male</string>
-  <string name="suggested_edits_contribute">Contribuisci</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">Contributo</item>
     <item quantity="other">Contributi</item>

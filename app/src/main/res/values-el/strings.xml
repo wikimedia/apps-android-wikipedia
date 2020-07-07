@@ -709,7 +709,6 @@
   <string name="suggested_edits_quality_sufficient_text">Επαρκή</string>
   <string name="suggested_edits_quality_poor_text">Φτωχή</string>
   <string name="suggested_edits_quality_bad_text">Κακή</string>
-  <string name="suggested_edits_contribute">Συνεισφέρετε</string>
   <plurals name="suggested_edits_edit_streak_detail_text">
     <item quantity="one">%d ημέρα</item>
     <item quantity="other">%d ημέρες</item>

@@ -734,7 +734,6 @@
   <string name="suggested_edits_quality_sufficient_text">Voldoende</string>
   <string name="suggested_edits_quality_poor_text">Teleurstellend</string>
   <string name="suggested_edits_quality_bad_text">Slecht</string>
-  <string name="suggested_edits_contribute">Bijdragen</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">Bijdrage</item>
     <item quantity="other">Bijdragen</item>

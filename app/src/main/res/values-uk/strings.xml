@@ -760,7 +760,6 @@
   <string name="suggested_edits_quality_sufficient_text">Достатньо</string>
   <string name="suggested_edits_quality_poor_text">Не дуже</string>
   <string name="suggested_edits_quality_bad_text">Погано</string>
-  <string name="suggested_edits_contribute">Внесок</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">Редагування</item>
     <item quantity="few">Редагування</item>

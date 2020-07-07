@@ -732,7 +732,6 @@
   <string name="suggested_edits_quality_sufficient_text">Genügend</string>
   <string name="suggested_edits_quality_poor_text">Gering</string>
   <string name="suggested_edits_quality_bad_text">Schlecht</string>
-  <string name="suggested_edits_contribute">Beitragen</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">Beitrag</item>
     <item quantity="other">Beiträge</item>

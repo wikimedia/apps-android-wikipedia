@@ -750,7 +750,6 @@
   <string name="suggested_edits_quality_sufficient_text">Suficient</string>
   <string name="suggested_edits_quality_poor_text">Pobra</string>
   <string name="suggested_edits_quality_bad_text">Dolenta</string>
-  <string name="suggested_edits_contribute">Contribuïu-hi</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">Contribució</item>
     <item quantity="other">Contribucions</item>

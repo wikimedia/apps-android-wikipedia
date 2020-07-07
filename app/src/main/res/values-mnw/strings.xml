@@ -734,7 +734,6 @@
   <string name="suggested_edits_quality_sufficient_text">တြပ်စိုတ်</string>
   <string name="suggested_edits_quality_poor_text">ဍိုန်လျ</string>
   <string name="suggested_edits_quality_bad_text">ပရေအ်</string>
-  <string name="suggested_edits_contribute">မထံက်ပၚ်</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">အရာမကၠောန်ဗဒှ်</item>
     <item quantity="other">အရာမကၠောန်ဗဒှ်ဂမၠိုင်</item>

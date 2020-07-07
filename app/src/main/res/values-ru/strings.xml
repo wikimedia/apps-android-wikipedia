@@ -773,7 +773,6 @@
   <string name="suggested_edits_quality_sufficient_text">Удовлетворительная</string>
   <string name="suggested_edits_quality_poor_text">Плохая</string>
   <string name="suggested_edits_quality_bad_text">Плохо</string>
-  <string name="suggested_edits_contribute">Вклад</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">Вклад</item>
     <item quantity="few">Вклад</item>

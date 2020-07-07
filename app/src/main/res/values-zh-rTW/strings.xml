@@ -755,7 +755,6 @@
   <string name="suggested_edits_quality_sufficient_text">尚可</string>
   <string name="suggested_edits_quality_poor_text">粗劣</string>
   <string name="suggested_edits_quality_bad_text">糟糕</string>
-  <string name="suggested_edits_contribute">貢獻</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">貢獻</item>
     <item quantity="other">貢獻</item>
