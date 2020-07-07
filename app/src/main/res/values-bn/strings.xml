@@ -33,6 +33,8 @@
   <string name="search_hint_search_languages">একটি ভাষার জন্য অনুসন্ধান করুন</string>
   <string name="search_hint_search_my_lists_and_articles">আমার তালিকা এবং নিবন্ধে সন্ধান করুন</string>
   <string name="nav_item_history">ইতিহাস</string>
+  <string name="nav_item_suggested_edits" fuzzy="true">পরামর্শকৃত সম্পাদনা</string>
+  <string name="nav_item_more">আরও</string>
   <string name="error_network_error">ইন্টারনেটের সাথে সংযোগ করা যাবে না।</string>
   <string name="page_error_retry">পুনঃচেষ্টা করুন</string>
   <string name="card_offline_error_retry">পুনঃচেষ্টা করুন</string>
@@ -116,7 +118,7 @@
   <string name="reading_lists_sync_login">প্রবেশ করুন</string>
   <string name="create_account_login">প্রবেশ করুন</string>
   <string name="menu_login">প্রবেশ</string>
-  <string name="login_activity_title" fuzzy="true">উইকিপিডিয়াতে প্রবেশ করুন</string>
+  <string name="login_activity_title">প্রবেশ করুন</string>
   <string name="login_in_progress_dialog_message">আপনি প্রবেশ করছেন…</string>
   <string name="login_success_toast">প্রবেশ করেছেন!</string>
   <string name="reset_password_title">আপনার পাসওয়ার্ড নির্ধারন করুন</string>
@@ -548,12 +550,21 @@
   <string name="suggested_edits_snackbar_survey_text">আপনার সম্পাদনার অভিজ্ঞতা কেমন ছিল? অ্যাপ্লিকেশন সম্পাদনা সম্পর্কে এই জরিপে দয়া করে অংশ নিন।</string>
   <string name="suggested_edits_snackbar_survey_action_text">জরিপে অংশ নিন</string>
   <string name="suggested_edits_task_action_text_translate">অনুবাদ করুন</string>
+  <string name="suggested_edits_views_label_text">টি পরিদর্শন</string>
+  <string name="suggested_edits_learn_more">আরও জানুন</string>
+  <string name="suggested_edits_ip_blocked_title">আইপি বাধাপ্রাপ্ত</string>
   <string name="suggested_edits_last_edited_never">কখনো না</string>
   <string name="suggested_edits_task_new">নতুন</string>
   <string name="suggested_edits_reactivation_notification_title">পরামর্শকৃত সম্পাদনা</string>
   <string name="suggested_edits_contribution_language_label">ভাষা</string>
   <string name="suggested_edits_contribution_date_time_label">তারিখ / সময়</string>
+  <string name="suggested_edits_contribution_image_label">চিত্র</string>
   <string name="suggested_edits_contribution_article_label">নিবন্ধ</string>
+  <string name="suggested_edits_encourage_account_creation_login_button">উইকিপিডিয়াতে প্রবেশ করুন / যোগ দিন</string>
+  <plurals name="suggested_edits_contribution_diff_count_text">
+    <item quantity="one">%1$sটি অক্ষর</item>
+    <item quantity="other">%1$sটি অক্ষর</item>
+  </plurals>
   <string name="description_edit_revert_subtitle">উইকিপিডিয়ায় সম্পাদনা করার জন্য ধন্যবাদ!</string>
   <string name="description_edit_revert_reason1">আপনার অবদান &lt;a href=\"%1$s\"&gt;নীতিমালা&lt;/a&gt; অনুসরণ করেনি।</string>
   <string name="description_edit_revert_reason2">আপনার অবদান পরীক্ষামূলক বা ধ্বংসপ্রবণতামূলক বলে মনে হচ্ছে।</string>
@@ -612,6 +623,7 @@
   <string name="edit_conflict_dialog_ok_button_text">ঠিক আছে</string>
   <string name="reverted_edit_dialog_ok_button_text">ঠিক আছে</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">বাতিল</string>
+  <string name="edit_type_all">সকল অবদান</string>
   <string name="content_description_for_page_indicator">পাতা %2$d-এর %1$d</string>
   <string name="wikitext_bold">গাঢ়</string>
   <string name="wikitext_italic">বাঁকা</string>
