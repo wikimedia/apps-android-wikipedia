@@ -9,6 +9,7 @@ import org.wikipedia.util.StringUtil;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 
@@ -38,7 +39,7 @@ public class OnThisDay {
         if (holidays != null) {
             allEvents.addAll(holidays);
         }
-        Collections.sort(allEvents, (e1, e2) -> Integer.compare(e2.year(), e1.year()));
+        Collections.sort(allEvents, Comparator.comparingInt(Event::year).reversed());
         return allEvents;
     }
 

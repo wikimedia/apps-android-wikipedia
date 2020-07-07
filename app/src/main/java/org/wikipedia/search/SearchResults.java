@@ -8,6 +8,7 @@ import org.wikipedia.dataclient.mwapi.MwQueryPage;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 
@@ -48,7 +49,7 @@ public class SearchResults {
         List<SearchResult> searchResults = new ArrayList<>();
 
         // Sort the array based on the "index" property
-        Collections.sort(pages, (a, b) -> ((Integer) a.index()).compareTo(b.index()));
+        Collections.sort(pages, Comparator.comparingInt(MwQueryPage::index));
 
         for (MwQueryPage page : pages) {
             searchResults.add(new SearchResult(page, wiki));

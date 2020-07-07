@@ -122,10 +122,10 @@ public class ReadingListPage {
         this.thumbUrl = thumbUrl;
     }
 
-    public long mtime() {
+    public long getMTime() {
         return mtime;
     }
-    public void mtime(long mtime) {
+    public void setMTime(long mtime) {
         this.mtime = mtime;
     }
 

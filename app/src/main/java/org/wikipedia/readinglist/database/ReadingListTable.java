@@ -24,7 +24,7 @@ public class ReadingListTable extends DatabaseTable<ReadingList> {
                 ReadingListContract.Col.DESCRIPTION.val(cursor));
         list.id(ReadingListContract.Col.ID.val(cursor));
         list.atime(ReadingListContract.Col.ATIME.val(cursor));
-        list.mtime(ReadingListContract.Col.MTIME.val(cursor));
+        list.setMTime(ReadingListContract.Col.MTIME.val(cursor));
         list.sizeBytes(ReadingListContract.Col.SIZEBYTES.val(cursor));
         list.dirty(ReadingListContract.Col.DIRTY.val(cursor) != 0);
         list.remoteId(ReadingListContract.Col.REMOTEID.val(cursor));
@@ -52,7 +52,7 @@ public class ReadingListTable extends DatabaseTable<ReadingList> {
     @Override protected ContentValues toContentValues(@NonNull ReadingList row) {
         ContentValues contentValues = new ContentValues();
         contentValues.put(ReadingListContract.Col.TITLE.getName(), row.dbTitle());
-        contentValues.put(ReadingListContract.Col.MTIME.getName(), row.mtime());
+        contentValues.put(ReadingListContract.Col.MTIME.getName(), row.getMTime());
         contentValues.put(ReadingListContract.Col.ATIME.getName(), row.atime());
         contentValues.put(ReadingListContract.Col.DESCRIPTION.getName(), row.description());
         contentValues.put(ReadingListContract.Col.SIZEBYTES.getName(), row.sizeBytes());

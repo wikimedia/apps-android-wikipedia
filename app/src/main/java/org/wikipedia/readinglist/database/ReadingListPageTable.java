@@ -36,7 +36,7 @@ public class ReadingListPageTable extends DatabaseTable<ReadingListPage> {
         page.description(ReadingListPageContract.Col.DESCRIPTION.val(cursor));
         page.thumbUrl(ReadingListPageContract.Col.THUMBNAIL_URL.val(cursor));
         page.atime(ReadingListPageContract.Col.ATIME.val(cursor));
-        page.mtime(ReadingListPageContract.Col.MTIME.val(cursor));
+        page.setMTime(ReadingListPageContract.Col.MTIME.val(cursor));
         page.revId(ReadingListPageContract.Col.REVID.val(cursor));
         page.offline(ReadingListPageContract.Col.OFFLINE.val(cursor) != 0);
         page.status(ReadingListPageContract.Col.STATUS.val(cursor));
@@ -91,7 +91,7 @@ public class ReadingListPageTable extends DatabaseTable<ReadingListPage> {
         contentValues.put(ReadingListPageContract.Col.NAMESPACE.getName(), row.namespace().code());
         contentValues.put(ReadingListPageContract.Col.DISPLAY_TITLE.getName(), row.title());
         contentValues.put(ReadingListPageContract.Col.API_TITLE.getName(), row.apiTitle());
-        contentValues.put(ReadingListPageContract.Col.MTIME.getName(), row.mtime());
+        contentValues.put(ReadingListPageContract.Col.MTIME.getName(), row.getMTime());
         contentValues.put(ReadingListPageContract.Col.ATIME.getName(), row.atime());
         contentValues.put(ReadingListPageContract.Col.THUMBNAIL_URL.getName(), row.thumbUrl());
         contentValues.put(ReadingListPageContract.Col.DESCRIPTION.getName(), row.description());

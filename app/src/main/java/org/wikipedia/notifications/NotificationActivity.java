@@ -50,6 +50,7 @@ import org.wikipedia.views.WikiErrorView;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -264,7 +265,7 @@ public class NotificationActivity extends BaseActivity implements NotificationIt
 
     private void postprocessAndDisplay() {
         // Sort them by descending date...
-        Collections.sort(notificationList, (n1, n2) -> n2.getTimestamp().compareTo(n1.getTimestamp()));
+        Collections.sort(notificationList, Comparator.comparing(Notification::getTimestamp).reversed());
 
         // Build the container list, and punctuate it by date granularity, while also applying the
         // current search query.
