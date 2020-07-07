@@ -96,6 +96,7 @@
         <item name="navigationIcon">?attr/homeAsUpIndicator</item>
         <item name="elevation">0dp</item>
         <item name="titleTextStyle">@style/ToolBarTitleText</item>
+        <item name="titleTextAppearance">@style/ToolBarTitleText</item>
     </style>
 
     <style name="ToolbarPopupTheme" parent="ThemeOverlay.MaterialComponents">
