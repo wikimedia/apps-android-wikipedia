@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * AZISS
+* Abijeet Patro
 * Masalli qasimli
 * Neriman2003
 * Toghrul Rahimli
@@ -291,6 +292,7 @@
   <string name="suggested_edits_paused_title">Durdu</string>
   <string name="suggested_edits_disabled_title">Bloklandı</string>
   <string name="suggested_edits_ip_blocked_title">IP bloklandı</string>
+  <string name="suggested_edits_contribution_current_revision_text" fuzzy="true">Cari düzəliş</string>
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="one">%1$s etiket</item>
     <item quantity="other">%1$s etiketlər</item>

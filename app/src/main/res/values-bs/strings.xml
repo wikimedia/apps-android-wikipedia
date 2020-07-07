@@ -13,6 +13,7 @@
   <string name="search_hint_search_history">Pretraži historiju</string>
   <string name="search_hint_search_languages">Pronađi jezik</string>
   <string name="nav_item_history">Historija</string>
+  <string name="nav_item_suggested_edits" fuzzy="true">Predložene izmjene</string>
   <string name="error_network_error">Ne mogu se povezati na internet.</string>
   <string name="page_error_retry">Pokušaj ponovo</string>
   <string name="card_offline_error_retry">Pokušaj ponovo</string>
