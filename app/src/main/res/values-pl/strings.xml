@@ -700,7 +700,7 @@
     <item quantity="one">1 wkład</item>
     <item quantity="few">%d wkłady</item>
     <item quantity="many">%d wkładów</item>
-    <item quantity="other"/>
+    <item quantity="other">%d wkładów</item>
   </plurals>
   <string name="suggested_edits_feed_card_title">Sugerowane edycje</string>
   <string name="suggested_edits_feed_card_add_description_button">Dodaj opis artykułu</string>
