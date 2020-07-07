@@ -741,7 +741,6 @@
   <string name="suggested_edits_quality_sufficient_text">Dostatočná</string>
   <string name="suggested_edits_quality_poor_text">Zlá</string>
   <string name="suggested_edits_quality_bad_text">Mizerná</string>
-  <string name="suggested_edits_contribute">Prispejte</string>
   <plurals name="suggested_edits_contribution" fuzzy="true">
     <item quantity="one">Príspevok</item>
     <item quantity="other">Príspevky</item>

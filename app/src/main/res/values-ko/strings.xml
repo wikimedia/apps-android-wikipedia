@@ -744,7 +744,6 @@
   <string name="suggested_edits_quality_sufficient_text">충분함</string>
   <string name="suggested_edits_quality_poor_text">낮음</string>
   <string name="suggested_edits_quality_bad_text">나쁨</string>
-  <string name="suggested_edits_contribute">기여</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">기여</item>
     <item quantity="other">기여</item>
