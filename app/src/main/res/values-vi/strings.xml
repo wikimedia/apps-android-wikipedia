@@ -29,6 +29,7 @@
   <string name="search_hint_search_languages">Tìm một ngôn ngữ</string>
   <string name="search_hint_search_my_lists_and_articles">Tìm kiếm danh sách và bài viết của tôi</string>
   <string name="nav_item_history">Lịch sử</string>
+  <string name="nav_item_suggested_edits" fuzzy="true">Sửa đổi gợi ý</string>
   <string name="error_network_error">Không thể kết nối với Internet.</string>
   <string name="page_error_retry">Thử lại</string>
   <string name="card_offline_error_retry">Thử lại</string>
@@ -652,6 +653,9 @@
   <string name="suggested_edits_image_tags_published">Đã xuất bản</string>
   <string name="suggested_edits_contributions_stat_tooltip">Tổng số đóng góp của bạn với Sửa đổi gợi ý.</string>
   <string name="suggested_edits_ip_blocked_message" fuzzy="true">Có vẻ như địa chỉ IP (hoặc dãy địa chỉ IP) của bạn hiện đang bị chặn sửa đổi Wikipedia. Tìm hiểu thêm thế có nghĩa là gì bằng cách tới liên kết dưới đây.</string>
+  <string name="suggested_edits_views_label_text">Lượt xem</string>
+  <string name="suggested_edits_contribution_image_label">Hình ảnh</string>
+  <string name="suggested_edits_contribution_current_revision_text">Chỉnh sửa của bạn đang ở trên Wikipedia</string>
   <string name="description_edit_revert_subtitle">Cảm ơn bạn đã sửa đổi Wikipedia.</string>
   <string name="description_edit_revert_intro">Rất tiếc, bạn đã cố gắng sửa đổi một cách chính xác, nhưng một người xem lại đã nhận thấy vấn đề. Họ đã lùi lại sửa đổi của bạn, có thể do một lý do sau:</string>
   <string name="description_edit_revert_reason1">đóng góp của bạn vi phạm một &lt;a href=\"%1$s\"&gt;quy định&lt;/a&gt;.</string>
