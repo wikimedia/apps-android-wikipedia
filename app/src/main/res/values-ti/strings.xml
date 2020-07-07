@@ -321,7 +321,6 @@
   <string name="suggested_edits_quality_sufficient_text">ብቑዕ</string>
   <string name="suggested_edits_quality_poor_text">ድኻ</string>
   <string name="suggested_edits_quality_bad_text">ሕማቕ</string>
-  <string name="suggested_edits_contribute">ኣበርከተ</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">ኣበርክቶ</item>
     <item quantity="other">ኣበርክቶታት</item>

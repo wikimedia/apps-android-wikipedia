@@ -748,7 +748,6 @@
   <string name="suggested_edits_quality_sufficient_text">Acceptabel</string>
   <string name="suggested_edits_quality_poor_text">Usel</string>
   <string name="suggested_edits_quality_bad_text">Dålig</string>
-  <string name="suggested_edits_contribute">Bidra</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">Bidrag</item>
     <item quantity="other">Bidrag</item>
