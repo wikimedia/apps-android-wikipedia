@@ -6,9 +6,13 @@ import android.os.Bundle
 import android.view.*
 import android.view.View.GONE
 import android.view.View.VISIBLE
+import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.skydoves.balloon.*
+import com.skydoves.balloon.Balloon.*
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -41,7 +45,7 @@ import java.util.*
 import java.util.concurrent.TimeUnit
 import kotlin.collections.ArrayList
 
-class SuggestedEditsTasksFragment : Fragment() {
+class SuggestedEditsTasksFragment : Fragment(), OnBalloonClickListener{
     private lateinit var addDescriptionsTask: SuggestedEditsTask
     private lateinit var addImageCaptionsTask: SuggestedEditsTask
     private lateinit var addImageTagsTask: SuggestedEditsTask
@@ -98,8 +102,30 @@ class SuggestedEditsTasksFragment : Fragment() {
         setUpTasks()
         tasksRecyclerView.layoutManager = LinearLayoutManager(context)
         tasksRecyclerView.adapter = RecyclerAdapter(displayedTasks)
+        setUpTooltips()
 
         clearContents()
+    }
+
+    private fun setUpTooltips() {
+        val balloon = createBalloon(requireContext()) {
+            setArrowSize(10)
+            setWidthRatio(1.0f)
+            setHeight(65)
+            setArrowPosition(0.7f)
+            setCornerRadius(4f)
+            setAlpha(0.9f)
+            setText("Edit quality.")
+            setTextColorResource(R.color.chip_text_color_light)
+            setTextIsHtml(true)
+            setIconDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.ic_baseline_person_24))
+            setBackgroundColorResource(R.color.accent30)
+            setOnBalloonClickListener { Toast.makeText(context, "clicked", Toast.LENGTH_SHORT).show() }
+            setBalloonAnimation(BalloonAnimation.FADE)
+            setLifecycleOwner(lifecycleOwner)
+        }
+        editQualityStatsView.showAlignTop(balloon)
+
     }
 
     override fun onPause() {
@@ -415,5 +441,9 @@ class SuggestedEditsTasksFragment : Fragment() {
         fun newInstance(): SuggestedEditsTasksFragment {
             return SuggestedEditsTasksFragment()
         }
+    }
+
+    override fun onBalloonClick(view: View) {
+        TODO("Not yet implemented")
     }
 }
