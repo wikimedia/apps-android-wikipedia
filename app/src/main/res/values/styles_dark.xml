@@ -78,6 +78,7 @@
         <item name="reward_interstitial_quality_excellent_drawable">@drawable/ic_illustration_quality_excellent_dark</item>
         <item name="reward_interstitial_quality_very_good_drawable">@drawable/ic_illustration_quality_very_good_dark</item>
         <item name="reward_interstitial_quality_good_drawable">@drawable/ic_illustration_quality_good_dark</item>
+        <item name="sync_reading_list_prompt_drawable">@drawable/ic_sync_illustration_dark</item>
 
         <!-- Background for cards, lists, and controls -->
         <item name="paper_color">@color/base14</item>
