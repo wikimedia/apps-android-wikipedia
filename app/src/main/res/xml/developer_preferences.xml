@@ -201,10 +201,6 @@
             android:key="@string/preference_key_feed_customize_onboarding_card_enabled"
             android:title="@string/preference_key_feed_customize_onboarding_card_enabled" />
 
-        <SwitchPreferenceCompat
-            android:key="@string/preference_key_feed_readinglists_sync_onboarding_card_enabled"
-            android:title="@string/preference_key_feed_readinglists_sync_onboarding_card_enabled" />
-
         <org.wikipedia.settings.EditTextAutoSummarizePreference
             style="@style/DataStringPreference"
             android:key="@string/preference_key_feed_hidden_cards"

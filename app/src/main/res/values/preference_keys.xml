@@ -72,7 +72,6 @@
     <string name="preference_key_feed_cards_lang_supported">feedCardsLangSupported</string>
     <string name="preference_key_feed_cards_lang_disabled">feedCardsLangDisabled</string>
     <string name="preference_key_feed_customize_onboarding_card_enabled">feedCustomizeOnboardingCardEnabled</string>
-    <string name="preference_key_feed_readinglists_sync_onboarding_card_enabled">feedReadingListsSyncOnboardingCardEnabled</string>
     <string name="preference_key_add_articles">addArticles</string>
     <string name="preference_key_add_reading_lists">addReadingLists</string>
     <string name="preference_key_delete_reading_lists">deleteReadingLists</string>
