@@ -932,5 +932,14 @@ public final class Prefs {
     public static void setSuggestedEditsHighestPriorityEnabled(boolean enabled) {
         setBoolean(R.string.preference_key_suggested_edits_highest_priority_enabled, enabled);
     }
+
+    public static void incrementReadingListsVisitCount() {
+        setInt(R.string.preference_key_reading_lists_visit_count, getReadingListsVisitCount() + 1);
+    }
+
+    public static int getReadingListsVisitCount() {
+        return getInt(R.string.preference_key_reading_lists_visit_count, 0);
+    }
+
     private Prefs() { }
 }

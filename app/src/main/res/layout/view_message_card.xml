@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/disabledStateClickArea"
+    android:id="@+id/containerClickArea"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="16dp"
@@ -36,11 +36,22 @@
         android:lineSpacingExtra="8sp"
         android:layout_marginBottom="12dp"/>
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/actionButton"
-        style="@style/FlatButton.Small"
-        app:icon="@drawable/ic_open_in_new_black_24px"
-        app:iconSize="20dp"
-        app:iconTint="?attr/colorAccent"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/positiveButton"
+            style="@style/FlatButton.Small"
+            app:iconSize="20dp"
+            app:iconTint="?attr/colorAccent"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/negativeButton"
+            style="@style/FlatButton.Small.Transparent"
+            android:layout_marginStart="8dp"
+            android:visibility="gone"/>
+
+    </LinearLayout>
 
 </LinearLayout>

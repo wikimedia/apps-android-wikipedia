@@ -26,6 +26,8 @@
   <string name="search_hint_search_languages">Pretraga jezika</string>
   <string name="search_hint_search_my_lists_and_articles">Pretraga mojih popisa i članaka</string>
   <string name="nav_item_history">Povijest</string>
+  <string name="nav_item_suggested_edits" fuzzy="true">Predložena uređivanja</string>
+  <string name="nav_item_more">Više</string>
   <string name="error_network_error">Nije moguće spojiti se na internet.</string>
   <string name="page_error_retry">Pokušaj ponovo</string>
   <string name="card_offline_error_retry">Pokušaj ponovo</string>
@@ -196,6 +198,7 @@
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
   <string name="about_libraries_heading">Korištene biblioteke</string>
   <string name="about_contributors_heading">Doprinositelji</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Timska stranica&lt;/a&gt;</string>
   <string name="about_translators_heading">Prevoditelji</string>
   <string name="about_translators_translatewiki">Ovu aplikaciju preveli su su prevoditelji volonteri na projektu &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">Licencija</string>
@@ -287,6 +290,7 @@
   <string name="tab_item_closed">Članak %s zatvoren.</string>
   <string name="all_tab_items_closed">Sve kartice su zatvorene.</string>
   <string name="tool_tip_bookmark_icon_title">Dodaj na popis za čitanje</string>
+  <string name="tool_tip_bookmark_icon_text">Dodirnite sličicu dočitnice da biste sačuvali članak na popis za čitanje.</string>
   <string name="page_view_in_browser">Pogledaj stranicu u pregledniku</string>
   <string name="tool_tip_toc_title">Brzi pristup tablici sadržaja</string>
   <string name="tool_tip_lang_button">U Wikipedijinoj aplikaciji sad možete pretraživati i čitati članke na više jezika.\n\nDodirnite ikonu da biste dodali još jezika.</string>
@@ -315,6 +319,7 @@
   <string name="location_permissions_enable_prompt">Dozvolite pristup lokacijskim uslugama da biste vidjeli mjesta u blizini.</string>
   <string name="location_permissions_enable_action">Uključi</string>
   <string name="error_webview_updating">Sustav WebView za Android trenutačno se ažurira. Pokušajte ponovno za koji trenutak.</string>
+  <string name="multi_select_items_selected">Izabrano: %d</string>
   <string name="error_message_generic">Dogodila se pogreška</string>
   <string name="view_link_preview_error_button_dismiss">Odbaci</string>
   <string name="error_page_does_not_exist">Ova stranica ne postoji</string>
@@ -328,6 +333,7 @@
   <string name="theme_chooser_dialog_match_system_theme_switch_label">Prilagodi temi sustava</string>
   <string name="page_footer_license_text">Sadržaj je dostupan pod $1 (osim ako nije drugačije navedeno)</string>
   <string name="empty_tab_title">Nova kartica</string>
+  <string name="menu_save_all_tabs">Sačuvaj sve kartice</string>
   <string name="crash_report_activity_title">Pogreška aplikacije</string>
   <string name="crash_report_relaunch_or_quit">Žao nam je, ali aplikacija Wikipedija je prekinuta.\n\nŽelite li početi ponovno ili prekinuti?</string>
   <string name="crash_report_relaunch">Počni ponovno</string>
@@ -355,8 +361,10 @@
   <string name="reading_list_title_exists">Popis za čitanje „%s” već postoji.</string>
   <string name="reading_list_article_moved_to_named">Premješten %1$s na %2$s.</string>
   <string name="reading_list_article_already_exists_message">Sve je u redu! %1$s već sadrži %2$s.</string>
+  <string name="reading_list_articles_already_exist_message">Sve je u redu! %s već sadrži sve članke.</string>
   <string name="reading_list_added_view_button">Prikaz popisa</string>
   <string name="format_reading_list_statistical_summary_singular">1 članak, %1$.2f MB</string>
+  <string name="format_reading_list_statistical_summary_plural">%1$d čl., %2$.2f MB</string>
   <string name="reading_list_sort">Poredaj</string>
   <string name="reading_list_sort_ellipsis">Poredaj...</string>
   <string name="reading_list_sort_by_name">Poredaj po nazivu</string>
@@ -437,18 +445,21 @@
   <string name="notification_syncing_resume_button">Nastavi</string>
   <string name="notification_syncing_cancel_button">Odustani</string>
   <string name="notification_syncing_reading_list_channel_description">Napredak sinkronizacije popisa za čitanje</string>
+  <string name="notification_many_unread">Imate nepročitanih obavijesti (%d)</string>
   <plurals name="notification_channel_name">
     <item quantity="one">Preuzimanje članka</item>
     <item quantity="few">Preuzimanje nekoliko članaka</item>
     <item quantity="other">Preuzimanje članaka</item>
   </plurals>
-  <plurals name="notification_syncing_title" fuzzy="true">
+  <plurals name="notification_syncing_title">
     <item quantity="one">Preuzimanje %1$d članka…</item>
-    <item quantity="other">Preuzimanje %1$d članka…</item>
+    <item quantity="few">Preuzimanje %1$d članka…</item>
+    <item quantity="other">Preuzimanje %1$d članaka…</item>
   </plurals>
-  <plurals name="notification_syncing_description" fuzzy="true">
+  <plurals name="notification_syncing_description">
     <item quantity="one">Preostao je %1$d članak</item>
-    <item quantity="other">Preostala su %1$d članka</item>
+    <item quantity="few">Preostala su %1$d članka</item>
+    <item quantity="other">Preostalo je %1$d članaka</item>
   </plurals>
   <string name="notification_echo_channel_description">Obavijesti Wikipedije</string>
   <string name="notifications_activity_title">Obavijesti</string>
@@ -465,6 +476,7 @@
   <string name="notifications_view_archived_button_text">Prikaži arhivirane obavijesti</string>
   <string name="notification_preferences_title">Postavke obavijesti</string>
   <string name="notifications_mark_unread">Označi kao nepročitano</string>
+  <string name="preference_title_notification_poll">Obavijesti o glasovanjima</string>
   <string name="preference_summary_notification_poll">Dozvolite aplikaciji da koristi podatke radi provjere jesu li dostupne nove obavijesti.</string>
   <string name="preference_category_notification_types">Vrste obavijesti unutar aplikacije</string>
   <string name="preference_title_notification_system">Sustav</string>
@@ -603,31 +615,37 @@
   <string name="suggested_edits_image_caption_summary_title_source">Izvor</string>
   <string name="suggested_edits_image_caption_summary_title_license">Licencija</string>
   <string name="suggested_edits_image_caption_summary_title_date">Datum</string>
-  <plurals name="suggested_edits_contribution_count" fuzzy="true">
+  <plurals name="suggested_edits_contribution_count">
     <item quantity="one">jedan doprinos</item>
-    <item quantity="other">%d doprinos</item>
+    <item quantity="few">%d doprinos(a)</item>
+    <item quantity="other">%d doprinosa</item>
   </plurals>
   <string name="suggested_edits_feed_card_title">Predložene izmjene</string>
   <string name="suggested_edits_feed_card_add_description_button">Dodaj opis članka</string>
+  <string name="suggested_edits_feed_card_add_translation_in_language_button">Dodaj opis članka (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Krenimo</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Natpis slike (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Opis slike (%s)</string>
   <string name="suggested_edits_image_preview_dialog_file">Datoteka</string>
   <string name="suggested_edits_image_preview_dialog_artist">Umjetnik</string>
+  <string name="suggested_edits_image_preview_dialog_tags">Oznake</string>
   <string name="suggested_edits_image_preview_dialog_date">Datum</string>
   <string name="suggested_edits_image_preview_dialog_source">Izvor/fotograf</string>
   <string name="suggested_edits_image_preview_dialog_licensing">Licenciranje</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Više informacija</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Stranica datoteke na Wikimedijinom Zajedničkom poslužitelju</string>
+  <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">Stranica s opisom datoteke na Wikipediji</string>
   <string name="suggested_edits_article_cta_image_caption">Dodaj opis slike</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Dodaj opis slike (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Prikaži</string>
   <string name="suggested_edits_feed_card_add_image_caption">Dodaj opis slike</string>
   <string name="suggested_edits_feed_card_translate_image_caption">Dodaj opis slike (%s)</string>
+  <string name="suggested_edits_feed_card_add_image_tags">Dodaj oznake za sliku</string>
   <string name="suggested_edits_snackbar_survey_text">Kako biste procijenili svoje iskustvo uređivanja? Molimo, izdvojite trenutak da biste ispunili anketu o uređivanju u aplikaciji.</string>
   <string name="suggested_edits_snackbar_survey_action_text">Ispuni anketu</string>
   <string name="suggested_edits_task_action_text_add">Dodaj</string>
   <string name="suggested_edits_task_action_text_translate">Prevedi</string>
+  <string name="suggested_edits_image_captions">Opisi slike</string>
   <string name="suggested_edits_image_tags">Oznake za slike</string>
   <string name="suggested_edits_image_tags_publishing">Objavljivanje</string>
   <string name="suggested_edits_image_tags_published">Objavljeno</string>
@@ -640,8 +658,10 @@
   <string name="suggested_edits_image_tags_select_text">Samo će oznake koje izaberete biti dodane slikama. Oznake koje ne izaberete bit će odbačene. Jeste li sigurni da želite odbaciti sve oznake?</string>
   <string name="suggested_edits_image_tags_add_tag">Dodaj oznaku</string>
   <string name="suggested_edits_encouragement_message">%s, hvala Vam na vašim doprinosima. Niže možete saznati na koje sve još načine možete doprinijeti Wikipediji.</string>
+  <string name="suggested_edits_onboarding_message">&lt;strong&gt;Pozdrav, %s&lt;/strong&gt;, niže su navedeni neki brzi i jednostavni načini na koje možete pomoći u poboljšanju Wikipedije. Primijetit ćete Vaša dostignuća čim počnete s radom. Ugodno uređivanje!</string>
   <string name="suggested_edits_image_captions_task_detail" fuzzy="true">Opisi slika čitateljima pomažu u razumijevanju njihovog značenja i konteksta.</string>
   <string name="suggested_edits_ip_blocked_message">Izgleda kao da je Vaša IP-adresa (ili opseg IP-adresa) trenutačno blokirana od uređivanja Wikipedije.</string>
+  <string name="suggested_edits_views_label_text">Pregledi stranica</string>
   <string name="suggested_edits_quality_label_text">Kvaliteta uređivanja</string>
   <string name="suggested_edits_quality_perfect_text">Savršeno</string>
   <string name="suggested_edits_quality_excellent_text">Odlično</string>
@@ -665,10 +685,12 @@
   <string name="suggested_edits_task_new">novo</string>
   <string name="suggested_edits_contributions_screen_title">doprinosi suradnika %s</string>
   <string name="suggested_edits_contribution_date_time_label">Nadnevak / vrijeme</string>
+  <string name="suggested_edits_contribution_image_label">Slika</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Jučer</string>
   <string name="suggested_edits_encourage_account_creation_title">Jeste li znali kako svi mogu uređivati Wikipediju?</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Prijavi se / pridruži se Wikipediji</string>
   <string name="suggested_edits_contribution_type_image_tag">Oznake slike</string>
+  <string name="suggested_edits_contribution_current_revision_text">Vaše uređivanje trenutačno je najnovija inačica sadržaja na Wikipediji</string>
   <string name="description_edit_revert_subtitle">Hvala što uređujete Wikipediju!</string>
   <string name="description_edit_revert_history">Ako Vas zanima, pogledajte &lt;a href=\"%1$s\"&gt;povijest izmjena&lt;/a&gt;.</string>
   <string name="description_edit_login_cancel_button_text">Odustani</string>
@@ -740,7 +762,7 @@
   <string name="wikitext_preview_link">Pretpregled poveznice</string>
   <string name="main_drawer_help">Pomoć</string>
   <string name="main_drawer_login">Prijavite se na Wikipediju / pridružite se Wikipediji</string>
-  <string name="main_tooltip_text" fuzzy="true">%s, jeste li znali da svatko može uređivati Wikipediju?</string>
+  <string name="main_tooltip_text">Pozdrav, %s, jeste li znali da svatko može uređivati Wikipediju?</string>
   <string name="main_tooltip_text_v2">Jeste li znali kako svi mogu uređivati Wikipediju?</string>
   <string name="main_tooltip_action_button">Krenimo</string>
   <string name="custom_date_picker_dialog_ok_button_text">U redu</string>

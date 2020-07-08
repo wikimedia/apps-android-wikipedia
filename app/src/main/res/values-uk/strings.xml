@@ -33,6 +33,7 @@
   <string name="search_hint_search_languages">Пошук мови</string>
   <string name="search_hint_search_my_lists_and_articles">Пошук у читальних списках</string>
   <string name="nav_item_history">Історія</string>
+  <string name="nav_item_suggested_edits" fuzzy="true">Пропоновані редагування</string>
   <string name="error_network_error">Не вдається підключитися до інтернету.</string>
   <string name="page_error_retry">Повторити</string>
   <string name="card_offline_error_retry">Повторити</string>
@@ -736,6 +737,7 @@
   <string name="suggested_edits_image_tags_add_tag">Додати тег</string>
   <string name="suggested_edits_image_zoom_tooltip">Розтягніть, щоб збільшити зображення.</string>
   <string name="suggested_edits_encouragement_message">%s, дякуємо за ваші правки! Нижче ви можете знайти більше шляхів зробити внесок у Вікіпедію.</string>
+  <string name="suggested_edits_onboarding_message" fuzzy="true">&lt;b&gt;Вітаємо %s&lt;/b&gt;! Чи знаєте ви, що будь-хто може редагувати Вікіпедію? Нижче ви знайдете цікаві способи її покращення. Приємного редагування!</string>
   <string name="suggested_edits_image_captions_task_detail">Опишіть зображення, щоб допомогти читачам зрозуміти його значення та контекст.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Підсумуйте вміст статті, щоб допомогти читачам зрозуміти предмет статті з першого погляду.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Кількість ваших редагувань з Пропонованих.</string>
@@ -748,6 +750,7 @@
   <string name="suggested_edits_editing_tips_link_text">Редагування порад</string>
   <string name="suggested_edits_help_page_link_text">Довідка з \"Пропонованих редагуваннь\"</string>
   <string name="suggested_edits_edit_streak_label_text">Страйк редагувань</string>
+  <string name="suggested_edits_views_label_text" fuzzy="true">Переглядів сторінок</string>
   <string name="suggested_edits_quality_label_text">Якість редагувань</string>
   <string name="suggested_edits_quality_perfect_text">Ідеально</string>
   <string name="suggested_edits_quality_excellent_text">Відмінно</string>
@@ -757,7 +760,6 @@
   <string name="suggested_edits_quality_sufficient_text">Достатньо</string>
   <string name="suggested_edits_quality_poor_text">Не дуже</string>
   <string name="suggested_edits_quality_bad_text">Погано</string>
-  <string name="suggested_edits_contribute">Внесок</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">Редагування</item>
     <item quantity="few">Редагування</item>

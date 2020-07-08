@@ -35,6 +35,7 @@
   <string name="search_hint_search_languages">Pesquisar uma língua</string>
   <string name="search_hint_search_my_lists_and_articles">Pesquisar as minhas listas e artigos</string>
   <string name="nav_item_history">Histórico</string>
+  <string name="nav_item_suggested_edits" fuzzy="true">Edições sugeridas</string>
   <string name="error_network_error">Não foi possível ligar à Internet.</string>
   <string name="page_error_retry">Tentar novamente</string>
   <string name="card_offline_error_retry">Tentar novamente</string>
@@ -711,6 +712,7 @@
   <string name="suggested_edits_image_tags_add_tag">Adicionar etiqueta</string>
   <string name="suggested_edits_image_zoom_tooltip">Junte/separe dois dedos para ampliar/afastar esta imagem.</string>
   <string name="suggested_edits_encouragement_message">%s, obrigado pelas suas edições. Pode encontrar abaixo outras formas de contribuir para a Wikipédia.</string>
+  <string name="suggested_edits_onboarding_message" fuzzy="true">&lt;/b&gt;Olá %s&lt;/b&gt;, sabia que qualquer pessoa pode editar a Wikipédia? Encontra abaixo algumas formas divertidas de ajudar a melhorar a Wikipédia. Divirta-se a editar!</string>
   <string name="suggested_edits_image_captions_task_detail" fuzzy="true">As legendas de imagens descrevem uma imagem para ajudar os leitores a entenderem o seu significado e contexto.</string>
   <string name="suggested_edits_add_descriptions_task_detail" fuzzy="true">As descrições de artigos resumem um artigo para ajudar os leitores a compreenderem imediatamente o assunto.</string>
   <string name="suggested_edits_contributions_stat_tooltip">O seu número total de contribuições com \"Edições sugeridas\"</string>
@@ -723,6 +725,7 @@
   <string name="suggested_edits_editing_tips_link_text">Dicas e truques de edição</string>
   <string name="suggested_edits_help_page_link_text">Página de ajuda de \"Edições sugeridas\"</string>
   <string name="suggested_edits_edit_streak_label_text">Edições consecutivas</string>
+  <string name="suggested_edits_views_label_text" fuzzy="true">Visitas de páginas</string>
   <string name="suggested_edits_quality_label_text">Qualidade das edições</string>
   <string name="suggested_edits_quality_perfect_text">Perfeita</string>
   <string name="suggested_edits_quality_excellent_text">Excelente</string>

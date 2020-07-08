@@ -33,6 +33,8 @@
   <string name="search_hint_search_languages">חיפוש שפה</string>
   <string name="search_hint_search_my_lists_and_articles">חיפוש ברשימות ובערכים</string>
   <string name="nav_item_history">היסטוריה</string>
+  <string name="nav_item_suggested_edits" fuzzy="true">עריכות מוצעות</string>
+  <string name="nav_item_more">עוד</string>
   <string name="error_network_error">לא ניתן להתחבר לאינטרנט.</string>
   <string name="page_error_retry">ניסיון נוסף</string>
   <string name="card_offline_error_retry">ניסיון חוזר</string>
@@ -116,7 +118,7 @@
   <string name="reading_lists_sync_login">כניסה</string>
   <string name="create_account_login">כניסה</string>
   <string name="menu_login">כניסה לחשבון</string>
-  <string name="login_activity_title" fuzzy="true">כניסה לוויקיפדיה</string>
+  <string name="login_activity_title">כניסה לחשבון</string>
   <string name="login_in_progress_dialog_message">אנחנו מכניסים אותך לחשבון…</string>
   <string name="login_success_toast">נכנסת לחשבון!</string>
   <string name="reset_password_title">הגדרת הסיסמה שלך</string>
@@ -745,18 +747,20 @@
   <string name="suggested_edits_image_tags_add_tag">להוסיף תג</string>
   <string name="suggested_edits_image_zoom_tooltip">אפשר לקרב את התמונה הזאת בשתי אצבעות.</string>
   <string name="suggested_edits_encouragement_message">%s, תודה על תרומתך. בהמשך הדף ניתן למצוא דרכים נוספות לתרום לוויקיפדיה.</string>
+  <string name="suggested_edits_onboarding_message" fuzzy="true">&lt;b&gt;היי %s&lt;/b&gt;, ידעת שלכל אחד יש אפשרות לערוך את ויקיפדיה? להלן שיטות מהנות לסייע בשיפור ויקיפדיה. עריכה מהנה!</string>
   <string name="suggested_edits_image_captions_task_detail">נא לתאר את התמונה כדי לסייע לקוראים להבין את המשמעות וההקשר.</string>
   <string name="suggested_edits_add_descriptions_task_detail">נא לסכם את הערך כדי לעזור לקוראים להבין את הנושא במבט אחד.</string>
   <string name="suggested_edits_contributions_stat_tooltip">המספר הכולל של התרומות שלך באמצעות עריכות מוצעות.</string>
   <string name="suggested_edits_edit_streak_stat_tooltip">כמה ימים בלי הפסקה תרמת דרך עריכות מוצעות. אם לא תרמת במשך זמן־מה, זה מראה את תאריך התרומה האחרונה שלך.</string>
   <string name="suggested_edits_page_views_stat_tooltip">סך הצגות הדפים שתרמת להם ב־30 הימים האחרונים באמצעות עריכות מוצעות.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">מסתמך על מספר הפעמים שהתרומות שלך בוטלו. תרומות שבוטלו: %d.</string>
-  <string name="suggested_edits_paused_message" fuzzy="true">&lt;b&gt;עריכות מוצעות הופסקו על %1$s.&lt;/b&gt; מצטערים %2$s, כמה מהתרומות האחרונות שלך בוטלו.\n\nאפשר ללמוד איך לשפר את כישורי העריכה שלך בוויקיפדיה עם הקישור להלן.</string>
-  <string name="suggested_edits_disabled_message" fuzzy="true">&lt;b&gt;עריכות מוצעות הופסקו.&lt;/b&gt; מצטערים %s, יותר מדי מהתרומות האחרונות שלך בוטלו.\n\nאפשר לקרוא מידע נוסף על מה זה אומר בקישור להלן.</string>
-  <string name="suggested_edits_ip_blocked_message" fuzzy="true">נראה שכתובת ה־IP שלך (או טווח כתובות ה־IP) חסום כרגע מעריכת ויקיפדית. אפשר לקרוא מידע נוסף על מה זה אומר בקישור להלן.</string>
+  <string name="suggested_edits_paused_message">עריכות מוצעות הופסקו עד %1$s. מצטערים %2$s, כמה מהתרומות האחרונות שלך בוטלו.</string>
+  <string name="suggested_edits_disabled_message">עריכות מוצעות הופסקו. מצטערים %s, יותר מדי מהתרומות האחרונות שלך בוטלו.</string>
+  <string name="suggested_edits_ip_blocked_message">נראה שכתובת ה־IP שלך (או טווח כתובות ה־IP) חסומה כרגע מעריכת ויקיפדיה.</string>
   <string name="suggested_edits_editing_tips_link_text">עצות ותכסיסים לעריכה</string>
   <string name="suggested_edits_help_page_link_text">עמוד עזרה לעריכות מומלצות</string>
   <string name="suggested_edits_edit_streak_label_text">רצף עריכה</string>
+  <string name="suggested_edits_views_label_text">צפיות</string>
   <string name="suggested_edits_quality_label_text">איכות עריכה</string>
   <string name="suggested_edits_quality_perfect_text">מושלמת</string>
   <string name="suggested_edits_quality_excellent_text">מעולה</string>
@@ -766,7 +770,6 @@
   <string name="suggested_edits_quality_sufficient_text">ככה ככה</string>
   <string name="suggested_edits_quality_poor_text">ירודה</string>
   <string name="suggested_edits_quality_bad_text">גרועה</string>
-  <string name="suggested_edits_contribute">לתרום</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">תרומה</item>
     <item quantity="two">תרומות</item>
@@ -779,6 +782,8 @@
     <item quantity="many">%d ימים</item>
     <item quantity="other">%d ימים</item>
   </plurals>
+  <string name="suggested_edits_what_is_title">מה זה ’עריכות מוצעות?’</string>
+  <string name="suggested_edits_disabled_title">מבוטל</string>
   <string name="suggested_edits_last_edited">עריכה אחרונה</string>
   <string name="suggested_edits_last_edited_never">לעולם לא</string>
   <string name="suggested_edits_task_new">חדשה</string>
@@ -786,6 +791,20 @@
   <string name="suggested_edits_reactivation_notification_title">עריכות מוצעות</string>
   <string name="suggested_edits_reactivation_notification_stage_one">תודה על עריכת ויקיפדיה! מדוע לא להמשיך היכן שהפסקת?</string>
   <string name="suggested_edits_reactivation_notification_stage_two">יש לך דקה להמשיך לשפר את ויקיפדיה? תציץ בהצעות העריכה האלו.</string>
+  <string name="suggested_edits_contributions_screen_title">התרומות של %s</string>
+  <string name="suggested_edits_contribution_language_label">שפה</string>
+  <string name="suggested_edits_contribution_date_time_label">תאריך/שעה</string>
+  <string name="suggested_edits_contribution_type_label">סוג התרומה</string>
+  <string name="suggested_edits_contribution_image_label">תמונה</string>
+  <string name="suggested_edits_contribution_article_label">ערך</string>
+  <string name="suggested_edits_contribution_views">%s צפיות</string>
+  <string name="suggested_edits_contribution_seen_text">נצפה %s פעמים ב־30 הימים האחרונים.</string>
+  <string name="suggested_edits_contribution_date_yesterday_text">אתמול</string>
+  <string name="suggested_edits_rewards_contribution">ביצעת %d תרומות לוויקיפדיה באמצעות ’עריכות מוצעות’. תודה!</string>
+  <string name="suggested_edits_encourage_account_creation_title">הידעת שכולם יכולים לערוך את ויקיפדיה?</string>
+  <string name="suggested_edits_encourage_account_creation_message">’עריכות מוצעות’ היא דרך חדשה לערוך את ויקיפדיה באנדרואיד. היא מסייעת בביצוע תרומות קטנות, אך חיוניות, לוויקיפדיה.\nהמטרה שלנו היא להפוך את העריכה בוויקיפדיה לקלה יותר ולנגישה יותר לכולם! יש להיכנס לחשבון או להצטרף לוויקיפדיה על מנת להתחיל.</string>
+  <string name="suggested_edits_encourage_account_creation_login_button">כניסה / הצטרפות לוויקיפדיה</string>
+  <string name="suggested_edits_contribution_current_revision_text">העריכה שלך פורסמה כעת בוויקיפדיה</string>
   <string name="file_page_activity_title">דף קובץ</string>
   <string name="description_edit_revert_subtitle">תודה על עריכת ויקיפדיה!</string>
   <string name="description_edit_revert_intro">אנחנו יודעים שניסית היטב, אבל לאחד מהסוקרים היה חשד. סיבות אפשריות לכך שהעריכה שלך בוטלה:</string>
@@ -862,6 +881,7 @@
   <string name="edit_conflict_dialog_ok_button_text">אישור</string>
   <string name="reverted_edit_dialog_ok_button_text">אישור</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">ביטול</string>
+  <string name="edit_type_all">כל התרומות</string>
   <string name="content_description_for_page_indicator">דף %1$d מתוך %2$d</string>
   <string name="wikitext_bold">בולט</string>
   <string name="wikitext_italic">נטוי</string>
@@ -874,6 +894,7 @@
   <string name="main_drawer_help">עזרה</string>
   <string name="main_drawer_login">כניסה / הצטרפות לוויקיפדיה</string>
   <string name="main_tooltip_text">היי %s, הידעת שכולם יכולים לערוך את ויקיפדיה?</string>
+  <string name="main_tooltip_text_v2">הידעת שכולם יכולים לערוך את ויקיפדיה?</string>
   <string name="main_tooltip_action_button">להתחיל</string>
   <string name="custom_date_picker_dialog_ok_button_text">אישור</string>
   <string name="text_input_dialog_ok_button_text">אישור</string>

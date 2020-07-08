@@ -45,6 +45,7 @@
   <string name="search_hint_search_languages">بحث عن لغة</string>
   <string name="search_hint_search_my_lists_and_articles">البحث في قوائمي ومقالاتي</string>
   <string name="nav_item_history">التاريخ</string>
+  <string name="nav_item_suggested_edits" fuzzy="true">التعديلات المقترحة</string>
   <string name="nav_item_more">المزيد</string>
   <string name="error_network_error">لا يوجد اتصال بالإنترنت.</string>
   <string name="page_error_retry">إعادة المحاولة</string>
@@ -729,6 +730,7 @@
   <string name="suggested_edits_image_tags_add_tag">إضافة وسم</string>
   <string name="suggested_edits_image_zoom_tooltip">ضم الاصبعين لتكبير هذه الصورة.</string>
   <string name="suggested_edits_encouragement_message">%s، شكرا على تعديلاتك، يمكنك العثور أدناه على المزيد من الطرق للمساهمة في ويكيبيديا.</string>
+  <string name="suggested_edits_onboarding_message" fuzzy="true">&lt;b&gt;مرحبا %s&lt;/b&gt;، هل تعلم أنه يمكن للجميع تحرير ويكيبيديا؟ يمكنك العثور أدناه على طرق ممتعة للمساعدة في تحسين ويكيبيديا. تحرير سعيد!</string>
   <string name="suggested_edits_image_captions_task_detail" fuzzy="true">تصف التعليقات التوضيحية صورة لمساعدة القراء على فهم معناها وسياقها.</string>
   <string name="suggested_edits_add_descriptions_task_detail" fuzzy="true">تلخص أوصاف المقالات مقالة لمساعدة القراء على فهم الموضوع في لمحة.</string>
   <string name="suggested_edits_contributions_stat_tooltip">إجمالي عدد المساهمات مع التعديلات المقترحة.</string>
@@ -741,6 +743,7 @@
   <string name="suggested_edits_editing_tips_link_text">نصائح وحيل التحرير</string>
   <string name="suggested_edits_help_page_link_text">صفحة مساعدة التعديلات المقترحة</string>
   <string name="suggested_edits_edit_streak_label_text">خط التحرير</string>
+  <string name="suggested_edits_views_label_text" fuzzy="true">مشاهدات الصفحة</string>
   <string name="suggested_edits_quality_label_text">جودة التحرير</string>
   <string name="suggested_edits_quality_perfect_text">مثالي</string>
   <string name="suggested_edits_quality_excellent_text">ممتاز</string>
@@ -750,7 +753,6 @@
   <string name="suggested_edits_quality_sufficient_text">كافٍ</string>
   <string name="suggested_edits_quality_poor_text">فقير</string>
   <string name="suggested_edits_quality_bad_text">سيء</string>
-  <string name="suggested_edits_contribute">ساهم</string>
   <plurals name="suggested_edits_contribution" fuzzy="true">
     <item quantity="one">مساهمة</item>
     <item quantity="other">مساهمات</item>
@@ -769,9 +771,11 @@
   <string name="suggested_edits_reactivation_notification_stage_two">لديك وقت لمواصلة تحسين ويكيبيديا؟ تحقق من اقتراحات التعديل هذه.</string>
   <string name="suggested_edits_contribution_language_label">اللغة</string>
   <string name="suggested_edits_contribution_type_label">نوع المساهمة</string>
+  <string name="suggested_edits_contribution_image_label">صورة</string>
   <string name="suggested_edits_contribution_article_label">مقالة</string>
   <string name="suggested_edits_contribution_date_yesterday_text">أمس</string>
   <string name="suggested_edits_contribution_type_image_tag">وسم صورة</string>
+  <string name="suggested_edits_contribution_current_revision_text">أضيف تعديلك إلى ويكيبيديا</string>
   <string name="file_page_activity_title">صفحة ملف</string>
   <string name="description_edit_revert_subtitle">شكرا للتحرير في ويكيبيديا!</string>
   <string name="description_edit_revert_intro">نحن نعلم أنك جربت أفضل ما لديك، ولكن كان أحد المراجعين قلقا، من بين الأسباب المحتملة لاسترجاع تعديلك ما يلي:</string>
