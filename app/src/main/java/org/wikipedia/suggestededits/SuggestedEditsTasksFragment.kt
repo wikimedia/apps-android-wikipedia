@@ -2,6 +2,7 @@ package org.wikipedia.suggestededits
 
 import android.app.Activity
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.view.*
 import android.view.View.GONE
@@ -110,21 +111,53 @@ class SuggestedEditsTasksFragment : Fragment(), OnBalloonClickListener{
     private fun setUpTooltips() {
         val balloon = createBalloon(requireContext()) {
             setArrowSize(10)
-            setWidthRatio(1.0f)
+            setWidthRatio(0.5f)
             setHeight(65)
             setArrowPosition(0.7f)
             setCornerRadius(4f)
             setAlpha(0.9f)
             setText("Edit quality.")
+            setTextColorResource(R.color.base100)
+            setTextIsHtml(true)
+            setIconDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.ic_baseline_person_24))
+            setBackgroundColorResource(R.color.accent30)
+            setBalloonAnimation(BalloonAnimation.FADE)
+            setLifecycleOwner(lifecycleOwner)
+        }
+        val balloon1 = createBalloon(requireContext()) {
+            setArrowSize(10)
+            setWidthRatio(0.5f)
+            setHeight(65)
+            setArrowPosition(0.7f)
+            setCornerRadius(4f)
+            setAlpha(0.9f)
+            setText("EditStreakStatsView")
             setTextColorResource(R.color.chip_text_color_light)
             setTextIsHtml(true)
             setIconDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.ic_baseline_person_24))
             setBackgroundColorResource(R.color.accent30)
-            setOnBalloonClickListener { Toast.makeText(context, "clicked", Toast.LENGTH_SHORT).show() }
+            setBalloonAnimation(BalloonAnimation.FADE)
+            setLifecycleOwner(lifecycleOwner)
+        }
+        val balloon2 = createBalloon(requireContext()) {
+            setArrowSize(10)
+            setWidthRatio(0.5f)
+            setHeight(65)
+            setArrowPosition(0.7f)
+            setCornerRadius(4f)
+            setAlpha(0.9f)
+            setText("ContributionsStatsView")
+            setTextColorResource(R.color.base100)
+            setTextIsHtml(true)
+            setIconDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.ic_baseline_person_24))
+            setBackgroundColorResource(R.color.accent30)
             setBalloonAnimation(BalloonAnimation.FADE)
             setLifecycleOwner(lifecycleOwner)
         }
         editQualityStatsView.showAlignTop(balloon)
+        balloon
+                .relayShowAlignBottom(balloon1, editStreakStatsView) // relay to customListBalloon
+                .relayShowAlignTop(balloon2, contributionsStatsView, 130, 0) // relay to customProfileBalloon
 
     }
 
