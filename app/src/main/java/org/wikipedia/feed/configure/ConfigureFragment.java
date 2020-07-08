@@ -27,6 +27,7 @@ import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.DefaultViewHolder;
 import org.wikipedia.views.DrawableItemDecoration;
+import org.wikipedia.views.ViewUtil;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -93,6 +94,7 @@ public class ConfigureFragment extends Fragment implements ConfigureItemView.Cal
                     FeedContentType.saveState();
                 }, L::e));
 
+        ViewUtil.setActionBarElevation(recyclerView, (ConfigureActivity) requireActivity());
         return view;
     }
 

@@ -23,6 +23,8 @@ import org.wikipedia.suggestededits.SuggestedEditsSummary
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
+import org.wikipedia.views.ViewUtil
+import java.io.File
 
 class FilePageFragment : Fragment() {
     private lateinit var pageTitle: PageTitle
@@ -48,6 +50,7 @@ class FilePageFragment : Fragment() {
         }
         errorView.setBackClickListener { requireActivity().finish() }
         loadImageInfo()
+        ViewUtil.setActionBarElevation(scrollView, activity as FilePageActivity)
     }
 
     override fun onDestroyView() {

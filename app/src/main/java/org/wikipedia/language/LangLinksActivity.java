@@ -34,6 +34,7 @@ import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.SearchEmptyView;
 import org.wikipedia.views.ViewAnimations;
+import org.wikipedia.views.ViewUtil;
 import org.wikipedia.views.WikiErrorView;
 
 import java.util.ArrayList;
@@ -98,6 +99,8 @@ public class LangLinksActivity extends BaseActivity {
             ViewAnimations.crossFade(langLinksError, langLinksProgress);
             fetchLangLinks();
         });
+
+        ViewUtil.setActionBarElevation(langLinksList, this);
     }
 
     @Override

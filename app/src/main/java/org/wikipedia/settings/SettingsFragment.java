@@ -5,6 +5,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+import androidx.annotation.NonNull;
 import androidx.preference.SwitchPreferenceCompat;
 
 import org.wikipedia.R;
@@ -12,6 +13,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.events.ReadingListsEnableSyncStatusEvent;
 import org.wikipedia.events.ReadingListsEnabledStatusEvent;
 import org.wikipedia.events.ReadingListsNoLongerSyncedEvent;
+import org.wikipedia.views.ViewUtil;
 
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.functions.Consumer;
@@ -47,6 +49,7 @@ public class SettingsFragment extends PreferenceLoaderFragment {
     public void loadPreferences() {
         preferenceLoader = new SettingsPreferenceLoader(this);
         preferenceLoader.loadPreferences();
+        ViewUtil.setActionBarElevation(getListView(), (SettingsActivity) requireActivity());
     }
 
     @Override
@@ -59,17 +62,17 @@ public class SettingsFragment extends PreferenceLoaderFragment {
             preferenceLoader.updateSyncReadingListsPrefSummary();
             preferenceLoader.updateLanguagePrefSummary();
         });
-        getActivity().invalidateOptionsMenu();
+        requireActivity().invalidateOptionsMenu();
     }
 
     @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.menu_settings, menu);
     }
 
     @Override
-    public void onPrepareOptionsMenu(Menu menu) {
+    public void onPrepareOptionsMenu(@NonNull Menu menu) {
         super.onPrepareOptionsMenu(menu);
         prepareDeveloperSettingsMenuItem(menu);
     }

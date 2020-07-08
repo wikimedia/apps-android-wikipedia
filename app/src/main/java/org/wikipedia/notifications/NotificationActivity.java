@@ -45,6 +45,7 @@ import org.wikipedia.util.log.L;
 import org.wikipedia.views.DrawableItemDecoration;
 import org.wikipedia.views.MultiSelectActionModeCallback;
 import org.wikipedia.views.SwipeableItemTouchHelperCallback;
+import org.wikipedia.views.ViewUtil;
 import org.wikipedia.views.WikiErrorView;
 
 import java.util.ArrayList;
@@ -122,6 +123,7 @@ public class NotificationActivity extends BaseActivity implements NotificationIt
         beginUpdateList();
 
         NotificationSettingsActivity.promptEnablePollDialog(this);
+        ViewUtil.setActionBarElevation(recyclerView, this);
     }
 
     @Override

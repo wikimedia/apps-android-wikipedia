@@ -48,6 +48,7 @@ import org.wikipedia.views.MultiSelectActionModeCallback;
 import org.wikipedia.views.PageItemView;
 import org.wikipedia.views.SearchEmptyView;
 import org.wikipedia.views.SwipeableItemTouchHelperCallback;
+import org.wikipedia.views.ViewUtil;
 
 import java.text.DateFormat;
 import java.util.ArrayList;
@@ -110,18 +111,8 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
         historyList.setAdapter(adapter);
 
         LoaderManager.getInstance(requireActivity()).initLoader(HISTORY_FRAGMENT_LOADER_ID, null, loaderCallback);
-        setUpScrollListener();
+        ViewUtil.setActionBarElevation(historyList, (MainActivity) requireActivity());
         return view;
-    }
-
-    private void setUpScrollListener() {
-        historyList.addOnScrollListener(new RecyclerView.OnScrollListener() {
-            @Override
-            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
-                super.onScrolled(recyclerView, dx, dy);
-                ((MainActivity) requireActivity()).updateToolbarElevation(historyList.computeVerticalScrollOffset() != 0);
-            }
-        });
     }
 
     @Override
