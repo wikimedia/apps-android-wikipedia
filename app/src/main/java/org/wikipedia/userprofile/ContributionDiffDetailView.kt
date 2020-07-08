@@ -1,4 +1,4 @@
-package org.wikipedia.suggestededits
+package org.wikipedia.userprofile
 
 import android.content.Context
 import android.util.AttributeSet
@@ -8,7 +8,7 @@ import androidx.annotation.DrawableRes
 import kotlinx.android.synthetic.main.view_suggested_edits_contribution_diff_detail.view.*
 import org.wikipedia.R
 
-class EditsDiffDetailView constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
+class ContributionDiffDetailView constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
 
     init {
         LayoutInflater.from(context)
