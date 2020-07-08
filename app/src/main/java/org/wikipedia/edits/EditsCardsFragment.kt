@@ -179,9 +179,7 @@ class EditsCardsFragment : Fragment(), EditsImageTagsFragment.Callback {
                 isAddedContributionEmpty = child.addedContribution.isEmpty()
                 if (!isAddedContributionEmpty) child.showAddedContributionView(child.addedContribution)
             }
-            addContributionImage!!.setImageDrawable(requireContext().getDrawable(if (isAddedContributionEmpty) R.drawable.ic_add_gray_white_24dp else R.drawable.ic_mode_edit_white_24dp))
-
-            addContributionButton.setBackgroundResource(R.drawable.button_shape_add_reading_list)
+            addContributionButton.setIconResource((if (isAddedContributionEmpty) R.drawable.ic_add_gray_white_24dp else R.drawable.ic_mode_edit_white_24dp))
             addContributionButton.isEnabled = child.publishEnabled()
             addContributionButton.alpha = if (child.publishEnabled()) 1f else 0.5f
         }
@@ -190,23 +188,21 @@ class EditsCardsFragment : Fragment(), EditsImageTagsFragment.Callback {
             addContributionText?.text = getString(R.string.suggested_edits_rewards_continue_button)
             addContributionImage.visibility = GONE
         } else if (action == ADD_IMAGE_TAGS) {
-            if (addContributionText == null) {
+            if (addContributionButton.tag == "landscape") {
                 // implying landscape mode, where addContributionText doesn't exist.
-                addContributionImage.visibility = VISIBLE
-                addContributionImage.setImageResource(R.drawable.ic_check_black_24dp)
+                addContributionButton.text = null
+                addContributionButton.setIconResource(R.drawable.ic_check_black_24dp)
             } else {
-                addContributionText?.text = getString(R.string.description_edit_save)
-                addContributionImage.visibility = GONE
+                addContributionButton.text = getString(R.string.description_edit_save)
+                addContributionButton.icon = null
             }
         } else if (action == TRANSLATE_DESCRIPTION || action == TRANSLATE_CAPTION) {
-            addContributionText?.text = getString(if (isAddedContributionEmpty) R.string.suggested_edits_add_translation_button else R.string.suggested_edits_edit_translation_button)
-            addContributionImage.visibility = VISIBLE
-        } else if (addContributionText != null) {
-            addContributionImage.visibility = VISIBLE
+            addContributionButton.text = getString(if (isAddedContributionEmpty) R.string.suggested_edits_add_translation_button else R.string.suggested_edits_edit_translation_button)
+        } else if (addContributionButton.tag == "portrait") {
             if (action == ADD_CAPTION) {
-                addContributionText?.text = getString(if (isAddedContributionEmpty) R.string.suggested_edits_add_caption_button else R.string.suggested_edits_edit_caption_button)
+                addContributionButton.text = getString(if (isAddedContributionEmpty) R.string.suggested_edits_add_caption_button else R.string.suggested_edits_edit_caption_button)
             } else {
-                addContributionText?.text = getString(if (isAddedContributionEmpty) R.string.suggested_edits_add_description_button else R.string.suggested_edits_edit_description_button)
+                addContributionButton.text = getString(if (isAddedContributionEmpty) R.string.suggested_edits_add_description_button else R.string.suggested_edits_edit_description_button)
             }
         }
     }

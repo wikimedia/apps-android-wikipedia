@@ -1,7 +1,6 @@
 package org.wikipedia.feed.mostread;
 
 import android.net.Uri;
-import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -39,13 +38,6 @@ public class MostReadItemCard extends Card {
     }
 
     @NonNull public PageTitle pageTitle() {
-        PageTitle title = new PageTitle(page.getApiTitle(), wiki);
-        if (page.getThumbnailUrl() != null) {
-            title.setThumbUrl(page.getThumbnailUrl());
-        }
-        if (!TextUtils.isEmpty(page.getDescription())) {
-            title.setDescription(page.getDescription());
-        }
-        return title;
+        return page.getPageTitle(wiki);
     }
 }
