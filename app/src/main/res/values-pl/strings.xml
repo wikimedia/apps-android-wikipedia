@@ -475,7 +475,6 @@
   <string name="split_reading_list_message">Istnieje limit %d artykułów na listę. Istniejące listy, których liczba przekracza ten limit, zostały podzielone na wiele list.</string>
   <string name="reading_list_article_limit_message">Nie można dodać tego do tej listy. Osiągnąłeś limit %2$d artykułów na listę dla \"%1$s\".</string>
   <string name="reading_lists_limit_message">Nie można utworzyć kolejnej listy. Osiągnąłeś limit 100 list dla tego konta.</string>
-  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Sync reading lists&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Odczytywanie list może być teraz synchronizowane pomiędzy urządzeniami. Zaloguj się do swojego konta w Wikipedii i pozwól, aby Twoje listy były zapisywane.</string>
   <string name="reading_lists_menu_create_list">Utwórz nową listę</string>
   <string name="reading_lists_menu_sort_by">Sortuj według</string>
   <string name="reading_lists_refresh_sync_option">Odśwież synchronizację</string>

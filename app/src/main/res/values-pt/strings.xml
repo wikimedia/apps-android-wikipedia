@@ -450,7 +450,6 @@
   <string name="split_reading_list_message">Há um limite de %d artigos por cada lista de leitura. As listas existentes com um valor acima deste limite foram divididas em várias listas.</string>
   <string name="reading_list_article_limit_message">Não foi possível acrescentar a esta lista. Atingiu o limite máximo de %2$d artigos por lista para \"%1$s\".</string>
   <string name="reading_lists_limit_message">Não foi possível criar outra lista. Atingiu o limite máximo de 100 listas de leitura por conta.</string>
-  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Sincronização das listas de leitura&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;As listas de leitura podem agora ser sincronizadas em todos os dispositivos. Entre com a sua conta da Wikipédia e clique em permitir para que as suas listas sejam guardadas.</string>
   <string name="reading_lists_menu_create_list">Criar lista nova</string>
   <string name="reading_lists_menu_sort_by">Ordenar por</string>
   <string name="reading_lists_refresh_sync_option">Atualizar sincronização</string>

@@ -486,7 +486,6 @@
   <string name="reading_list_move_article_limit_message">Impossible d’ajouter à cette liste. Vous avez atteint la limite de %2$d articles par liste pour « %1$s ».</string>
   <string name="reading_list_article_limit_message">Impossible d’ajouter à cette liste. Vous avez atteint la limite de %2$d articles par liste pour « %1$s ».</string>
   <string name="reading_lists_limit_message">Impossible de créer une autre liste. Vous avez atteint la limite de 100 listes de lecture par compte.</string>
-  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Synchroniser les listes de lecture&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Les listes de lecture peuvent maintenant être synchronisées entre appareils. Connectez-vous à votre compte Wikipédia et permettez à vos listes d’être enregistrées.</string>
   <string name="reading_lists_menu_create_list">Créer une nouvelle liste</string>
   <string name="reading_lists_menu_sort_by">Trier par</string>
   <string name="reading_lists_refresh_sync_option">Rafraîchir la synchronisation</string>

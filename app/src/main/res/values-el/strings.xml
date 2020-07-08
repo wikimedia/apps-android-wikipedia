@@ -450,7 +450,6 @@
   <string name="reading_list_move_article_limit_message">Δεν είναι δυνατή η μετακίνηση σε αυτή τη λίστα. Έχετε φτάσει το όριο του %2$d άρθρων ανά λίστα για \"%1$s\".</string>
   <string name="reading_list_article_limit_message">Δεν είναι δυνατή η προσθήκη σε αυτή τη λίστα. Έχετε φτάσει το όριο του %2$d άρθρων ανά λίστα για \"%1$s\".</string>
   <string name="reading_lists_limit_message">Δεν μπορείτε να δημιουργήσετε άλλη λίστα. Έχετε φτάσει το όριο των 100 λιστών ανάγνωσης ανά λογαριασμό.</string>
-  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Συγχρονισμός λιστών ανάγνωσης&lt;/strong&gt;&lt;br/&gt;&lt;br/&gt;Οι λίστες ανάγνωσης μπορούν πλέον να συγχρονιστούν μεταξύ συσκευών. Συνδεθείτε στον λογαριασμό σας στη Βικιπαίδεια και επιτρέψτε την αποθήκευση των λιστών σας.</string>
   <string name="reading_lists_menu_create_list">Δημιουργία νέας λίστας</string>
   <string name="reading_lists_menu_sort_by">Ταξινόμηση κατά</string>
   <string name="reading_lists_refresh_sync_option">Ανανέωση συγχρονισμού</string>

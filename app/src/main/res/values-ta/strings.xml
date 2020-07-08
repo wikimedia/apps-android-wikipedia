@@ -379,7 +379,6 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_enable_syncing">ஒருங்குநிகழ்வை இயலச்செய்</string>
   <string name="default_reading_list_name">சேமிக்கப்பட்டவை</string>
   <string name="default_reading_list_description">உங்கள் சேமிப்பு கட்டுரைகளுக்கான இயல்பு பட்டியல்</string>
-  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;படிப்பு பட்டியல்களை ஒருங்குநிகழ் செய்க&lt;strong&gt;&lt;br /&gt;&lt;br /&gt;இப்பொழுது படிப்பு பட்டியல்களை சாதனங்களுக்கு இடையே ஒருங்குநிகழ் செய்யலாம். உங்கள் வீக்கிபீடியா கணக்கிற்குள் புகுபதிகை செய்ததும் உங்கள் பட்டியல்களை சேமிக்க அனுமதியுங்கள்.</string>
   <string name="reading_lists_menu_create_list">புதிய பட்டியலை உருவாக்குக</string>
   <string name="reading_lists_menu_sort_by">வரிசைப்படுத்து</string>
   <plurals name="reading_list_article_not_offline_message">

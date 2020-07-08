@@ -40,17 +40,6 @@ public class OnboardingClient implements FeedClient {
         //            cards.add(card);
         //        }
 
-        card = new ReadingListsSyncOnboardingCard(new Announcement(
-                "readingListssyncCard",
-                context.getString(R.string.feed_reading_lists_sync_onboarding_text),
-                "https://upload.wikimedia.org/wikipedia/commons/5/53/Reading_list_sync_image.png",
-                new Announcement.Action(context.getString(R.string.onboarding_card_login), UriUtil.LOCAL_URL_LOGIN),
-                context.getString(R.string.onboarding_got_it)));
-
-        if (card.shouldShow()) {
-            cards.add(card);
-        }
-
         card = new CustomizeOnboardingCard(new Announcement(
                 "customizeOnboardingCard1",
                 context.getString(R.string.feed_configure_onboarding_text),

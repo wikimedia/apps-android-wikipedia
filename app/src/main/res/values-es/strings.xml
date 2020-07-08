@@ -490,7 +490,6 @@
   <string name="reading_list_move_article_limit_message">No se puede mover a esta lista.  Has alcanzado el límite de %2$d artículos por lista para «%1$s».</string>
   <string name="reading_list_article_limit_message">No se pueden añadir elementos a esta lista. Se alcanzó el límite de %2$d artículos por lista para «%1$s».</string>
   <string name="reading_lists_limit_message">No se puede crear otra lista. Se alcanzó el límite de 100 listas de lectura por cuenta.</string>
-  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Sincronizar listas de lectura&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Las listas de lectura ahora pueden ser sincronizadas entre dispositivos. Inicia sesión en tu cuenta de Wikipedia y permita guardar tus listas.</string>
   <string name="reading_lists_menu_create_list">Crear lista nueva</string>
   <string name="reading_lists_menu_sort_by">Ordenar por</string>
   <string name="reading_lists_refresh_sync_option">Recargar sincronización</string>

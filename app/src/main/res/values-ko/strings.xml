@@ -465,7 +465,6 @@
   <string name="reading_list_move_article_limit_message">이 목록으로 이동할 수 없습니다. \"%1$s\"에 대해 목록 당 %2$d개의 문서 제한에 도달했습니다.</string>
   <string name="reading_list_article_limit_message">이 목록에 추가할 수 없습니다. \"%1$s\"에 대해 목록 당 %2$d개 문서 제한에 도달했습니다.</string>
   <string name="reading_lists_limit_message">다른 목록을 만들 수 없습니다. 계정 당 100개 읽기 목록 제한에 도달했습니다.</string>
-  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;읽기 목록 동기화&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;지금 읽기 목록을 여러 장치 간에 동기화할 수 있습니다. 위키백과 계정으로 로그인하면 목록을 저장할 수 있습니다.</string>
   <string name="reading_lists_menu_create_list">새 목록 만들기</string>
   <string name="reading_lists_menu_sort_by">정렬 기준</string>
   <string name="reading_lists_refresh_sync_option">동기화 새로 고침</string>
