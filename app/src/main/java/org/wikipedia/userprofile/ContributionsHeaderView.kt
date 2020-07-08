@@ -10,7 +10,6 @@ import org.wikipedia.R
 import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_IMAGE_CAPTION
 import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_IMAGE_TAG
 import org.wikipedia.suggestededits.EditsTypeItemView
-import org.wikipedia.suggestededits.EditsUserStats
 
 class ContributionsHeaderView constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs), EditsTypeItemView.Callback {
 
@@ -43,15 +42,15 @@ class ContributionsHeaderView constructor(context: Context, attrs: AttributeSet?
         when (editType) {
             Contribution.EDIT_TYPE_ARTICLE_DESCRIPTION -> {
                 view = articleDescriptionView
-                count = EditsUserStats.totalDescriptionEdits
+                count = UserContributionsStats.totalDescriptionEdits
             }
             EDIT_TYPE_IMAGE_CAPTION -> {
                 view = imageCaptionsView
-                count = EditsUserStats.totalImageCaptionEdits
+                count = UserContributionsStats.totalImageCaptionEdits
             }
             EDIT_TYPE_IMAGE_TAG -> {
                 view = imageTagsView
-                count = EditsUserStats.totalImageTagEdits
+                count = UserContributionsStats.totalImageTagEdits
             }
             else -> {
                 view = allTypesView

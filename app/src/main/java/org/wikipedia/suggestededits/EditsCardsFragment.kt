@@ -30,6 +30,7 @@ import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
 import org.wikipedia.suggestededits.SuggestionsActivity.Companion.EXTRA_SOURCE_ADDED_CONTRIBUTION
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
+import org.wikipedia.userprofile.UserContributionsStats
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
@@ -340,7 +341,7 @@ class EditsCardsFragment : Fragment(), EditsImageTagsFragment.Callback {
         sessionEditCount++
         if (rewardInterstitialImage == -1 && rewardInterstitialText.isEmpty()) {
             // Need to preload the user contribution in case we miss the latest data
-            disposables.add(EditsUserStats.getEditCountsObservable()
+            disposables.add(UserContributionsStats.getEditCountsObservable()
                     .map { response ->
                         val editorTaskCounts = response.query()!!.editorTaskCounts()!!
                         val daysOfLastEditQualityShown = TimeUnit.MILLISECONDS.toDays(System.currentTimeMillis() - Prefs.getLastSuggestedEditsRewardInterstitialEditQualityShown()).toInt()
@@ -355,8 +356,8 @@ class EditsCardsFragment : Fragment(), EditsImageTagsFragment.Callback {
                             rewardInterstitialText = getString(R.string.suggested_edits_rewards_edit_streak, editorTaskCounts.editStreak, AccountUtil.getUserName())
                         } else if ((Prefs.getLastSuggestedEditsRewardInterstitialEditQualityShown().toInt() == 0
                                         || daysOfLastEditQualityShown == Prefs.getSuggestedEditsRewardInterstitialEditQualityOnDay())
-                                && EditsUserStats.getRevertSeverity() <= EditsRewardsItemFragment.EDIT_STREAK_MAX_REVERT_SEVERITY) {
-                            when (EditsUserStats.getRevertSeverity()) {
+                                && UserContributionsStats.getRevertSeverity() <= EditsRewardsItemFragment.EDIT_STREAK_MAX_REVERT_SEVERITY) {
+                            when (UserContributionsStats.getRevertSeverity()) {
                                 0 -> {
                                     rewardInterstitialImage = R.attr.reward_interstitial_quality_perfect_drawable
                                     rewardInterstitialText = getString(R.string.suggested_edits_rewards_edit_quality, getString(R.string.suggested_edits_quality_perfect_text))
@@ -383,7 +384,7 @@ class EditsCardsFragment : Fragment(), EditsImageTagsFragment.Callback {
                     }
                     .flatMap {
                         if (it) {
-                            EditsUserStats.getPageViewsObservable()
+                            UserContributionsStats.getPageViewsObservable()
                         } else {
                             Observable.just(-1L)
                         }

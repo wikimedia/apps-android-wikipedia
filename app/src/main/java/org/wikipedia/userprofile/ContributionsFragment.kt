@@ -36,7 +36,6 @@ import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_IMAGE_CAPTION
 import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_IMAGE_TAG
 import org.wikipedia.userprofile.ContributionsItemView.Callback
 import org.wikipedia.language.AppLanguageLookUpTable
-import org.wikipedia.suggestededits.EditsUserStats
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
@@ -143,7 +142,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
         disposables.clear()
 
         if (allContributions.isEmpty()) {
-            disposables.add(EditsUserStats.getPageViewsObservable().subscribe {
+            disposables.add(UserContributionsStats.getPageViewsObservable().subscribe {
                 totalPageViews = it
                 adapter.notifyDataSetChanged()
             })

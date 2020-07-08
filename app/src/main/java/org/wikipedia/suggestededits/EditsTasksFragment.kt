@@ -36,6 +36,7 @@ import org.wikipedia.main.MainActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.userprofile.ContributionsActivity
+import org.wikipedia.userprofile.UserContributionsStats
 import org.wikipedia.util.*
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DefaultRecyclerAdapter
@@ -154,7 +155,7 @@ class EditsTasksFragment : Fragment() {
 
         disposables.add(Observable.zip(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getUserContributions(AccountUtil.getUserName()!!, 10, null).subscribeOn(Schedulers.io()),
                 ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getUserContributions(AccountUtil.getUserName()!!, 10, null).subscribeOn(Schedulers.io()),
-                EditsUserStats.getEditCountsObservable(),
+                UserContributionsStats.getEditCountsObservable(),
                 Function3<MwQueryResponse, MwQueryResponse, MwQueryResponse, MwQueryResponse> { commonsResponse, wikidataResponse, _ ->
                     if (wikidataResponse.query()!!.userInfo()!!.isBlocked || commonsResponse.query()!!.userInfo()!!.isBlocked) {
                         isIpBlocked = true
@@ -179,11 +180,11 @@ class EditsTasksFragment : Fragment() {
 
                     latestEditStreak = getEditStreak(contributions)
 
-                    revertSeverity = EditsUserStats.getRevertSeverity()
+                    revertSeverity = UserContributionsStats.getRevertSeverity()
                     wikidataResponse
                 })
                 .flatMap { response ->
-                    EditsUserStats.getPageViewsObservable(response)
+                    UserContributionsStats.getPageViewsObservable(response)
                 }
                 .observeOn(AndroidSchedulers.mainThread())
                 .doAfterTerminate {
@@ -300,9 +301,9 @@ class EditsTasksFragment : Fragment() {
     }
 
     private fun maybeSetPausedOrDisabled(): Boolean {
-        val pauseEndDate = EditsUserStats.maybePauseAndGetEndDate()
+        val pauseEndDate = UserContributionsStats.maybePauseAndGetEndDate()
 
-        if (EditsUserStats.isDisabled()) {
+        if (UserContributionsStats.isDisabled()) {
             // Disable the whole feature.
             clearContents()
             disabledStatesView.setDisabled(getString(R.string.suggested_edits_disabled_message, AccountUtil.getUserName()))
