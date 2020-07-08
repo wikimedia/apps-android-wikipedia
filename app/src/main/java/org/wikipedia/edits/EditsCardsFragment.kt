@@ -185,8 +185,8 @@ class EditsCardsFragment : Fragment(), EditsImageTagsFragment.Callback {
         }
 
         if (child != null && child is EditsRewardsItemFragment) {
-            addContributionText?.text = getString(R.string.suggested_edits_rewards_continue_button)
-            addContributionImage.visibility = GONE
+            addContributionButton.text = getString(R.string.suggested_edits_rewards_continue_button)
+            addContributionButton.icon = null
         } else if (action == ADD_IMAGE_TAGS) {
             if (addContributionButton.tag == "landscape") {
                 // implying landscape mode, where addContributionText doesn't exist.
