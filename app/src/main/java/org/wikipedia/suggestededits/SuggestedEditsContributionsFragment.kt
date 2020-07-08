@@ -42,6 +42,7 @@ import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DefaultViewHolder
+import org.wikipedia.views.ViewUtil
 import java.util.*
 import java.util.concurrent.TimeUnit
 import kotlin.collections.ArrayList
@@ -75,17 +76,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
         contributionsRecyclerView.layoutManager = LinearLayoutManager(context)
         contributionsRecyclerView.adapter = adapter
 
-        contributionsRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
-            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-                val scrollY = recyclerView.computeVerticalScrollOffset()
-                val activity = requireActivity() as AppCompatActivity
-                if (scrollY == 0 && activity.supportActionBar?.elevation != 0f) {
-                    activity.supportActionBar?.elevation = 0f
-                } else if (scrollY != 0 && activity.supportActionBar?.elevation == 0f) {
-                    activity.supportActionBar?.elevation = DimenUtil.dpToPx(DimenUtil.getDimension(R.dimen.toolbar_default_elevation))
-                }
-            }
-        })
+        ViewUtil.setActionBarElevation(contributionsRecyclerView, activity as SuggestedEditsContributionsActivity)
 
         swipeRefreshLayout.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent))
         swipeRefreshLayout.setOnRefreshListener {

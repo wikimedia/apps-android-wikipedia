@@ -29,6 +29,7 @@ import org.wikipedia.language.LanguagesListActivity;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.DefaultViewHolder;
 import org.wikipedia.views.MultiSelectActionModeCallback;
+import org.wikipedia.views.ViewUtil;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -84,6 +85,7 @@ public class WikipediaLanguagesFragment extends Fragment implements WikipediaLan
 
         prepareWikipediaLanguagesList();
         setupRecyclerView();
+        ViewUtil.setActionBarElevation(recyclerView, (WikipediaLanguagesActivity) requireActivity());
         return view;
     }
 

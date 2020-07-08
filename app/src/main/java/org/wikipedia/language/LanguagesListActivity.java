@@ -27,6 +27,7 @@ import org.wikipedia.dataclient.mwapi.SiteMatrix;
 import org.wikipedia.history.SearchActionModeCallback;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.SearchEmptyView;
+import org.wikipedia.views.ViewUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -80,6 +81,8 @@ public class LanguagesListActivity extends BaseActivity {
         searchActionModeCallback = new LanguagesListActivity.LanguageSearchCallback();
         searchingFunnel = new AppLanguageSearchingFunnel(getIntent().getStringExtra(SESSION_TOKEN));
         requestLanguages();
+
+        ViewUtil.setActionBarElevation(recyclerView, this);
     }
 
     @Override

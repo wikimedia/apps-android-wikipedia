@@ -113,7 +113,6 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
 
     public interface Callback {
         void onTabChanged(@NonNull NavTab tab);
-        void updateToolbarElevation(boolean elevate);
     }
 
     public static MainFragment newInstance() {
@@ -351,18 +350,6 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     public Bundle getTransitionAnimationBundle(@NonNull PageTitle pageTitle) {
         // TODO: add future transition animations.
         return null;
-    }
-
-    @Override
-    public void updateToolbarElevation(boolean elevate) {
-        if (callback() != null) {
-            callback().updateToolbarElevation(elevate);
-        }
-    }
-
-    public void requestUpdateToolbarElevation() {
-        Fragment fragment = getCurrentFragment();
-        updateToolbarElevation((fragment instanceof FeedFragment && ((FeedFragment) fragment).shouldElevateToolbar()));
     }
 
     @Override

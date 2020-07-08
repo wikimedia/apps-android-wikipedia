@@ -37,6 +37,7 @@ import org.wikipedia.util.*
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DefaultRecyclerAdapter
 import org.wikipedia.views.DefaultViewHolder
+import org.wikipedia.views.ViewUtil
 import java.util.*
 import java.util.concurrent.TimeUnit
 import kotlin.collections.ArrayList
@@ -91,10 +92,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         swipeRefreshLayout.setOnRefreshListener { refreshContents() }
 
         errorView.setRetryClickListener { refreshContents() }
-
-        suggestedEditsScrollView.setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener { _, _, scrollY, _, _ ->
-            (requireActivity() as MainActivity).updateToolbarElevation(scrollY > 0)
-        })
+        ViewUtil.setActionBarElevation(suggestedEditsScrollView, activity as MainActivity)
         setUpTasks()
         tasksRecyclerView.layoutManager = LinearLayoutManager(context)
         tasksRecyclerView.adapter = RecyclerAdapter(displayedTasks)

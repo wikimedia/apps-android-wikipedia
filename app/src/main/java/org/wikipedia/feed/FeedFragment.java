@@ -47,6 +47,7 @@ import org.wikipedia.feed.view.FeedView;
 import org.wikipedia.feed.view.HorizontalScrollingListCardItemView;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.language.LanguageSettingsInvokeSource;
+import org.wikipedia.main.MainActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.random.RandomActivity;
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter;
@@ -59,6 +60,7 @@ import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.ThrowableUtil;
 import org.wikipedia.util.UriUtil;
+import org.wikipedia.views.ViewUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -110,7 +112,6 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         void onFeedDownloadImage(FeaturedImage image);
         void onFeaturedImageSelected(FeaturedImageCard card);
         void onLoginRequested();
-        void updateToolbarElevation(boolean elevate);
     }
 
     @NonNull public static FeedFragment newInstance() {
@@ -176,10 +177,6 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
             }
         });
 
-        if (getCallback() != null) {
-            getCallback().updateToolbarElevation(shouldElevateToolbar());
-        }
-
         ReadingListSyncAdapter.manualSync();
         Prefs.incrementExploreFeedVisitCount();
         return view;
@@ -198,10 +195,6 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
                     .show();
         }
         Prefs.shouldShowRemoveChineseVariantPrompt(false);
-    }
-
-    public boolean shouldElevateToolbar() {
-        return searchIconVisible;
     }
 
     @Override
@@ -563,16 +556,14 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
 
     private class FeedScrollListener extends RecyclerView.OnScrollListener {
         @Override
-        public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+        public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
             super.onScrolled(recyclerView, dx, dy);
             boolean shouldShowSearchIcon = feedView.getFirstVisibleItemPosition() != 0;
             if (shouldShowSearchIcon != searchIconVisible) {
                 searchIconVisible = shouldShowSearchIcon;
                 requireActivity().invalidateOptionsMenu();
-                if (getCallback() != null) {
-                    getCallback().updateToolbarElevation(shouldElevateToolbar());
-                }
             }
+            ViewUtil.enableElevation(((MainActivity) requireActivity()).getSupportActionBar(), recyclerView.computeVerticalScrollOffset() != 0);
         }
     }
 

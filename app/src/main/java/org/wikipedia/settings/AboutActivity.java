@@ -8,6 +8,7 @@ import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -18,6 +19,7 @@ import org.wikipedia.activity.BaseActivity;
 import org.wikipedia.richtext.RichTextUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.StringUtil;
+import org.wikipedia.views.ViewUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -26,6 +28,7 @@ import butterknife.OnClick;
 import static org.wikipedia.util.DeviceUtil.mailAppExists;
 
 public class AboutActivity extends BaseActivity {
+    @BindView(R.id.about_scrollview) ScrollView aboutScrollView;
     @BindView(R.id.about_contributors) TextView contributorsTextView;
     @BindView(R.id.about_translators) TextView translatorsTextView;
     @BindView(R.id.activity_about_libraries) TextView librariesTextView;
@@ -58,6 +61,7 @@ public class AboutActivity extends BaseActivity {
         }
 
         makeEverythingClickable(findViewById(R.id.about_container));
+        ViewUtil.setActionBarElevation(aboutScrollView, this);
     }
 
     @OnClick(R.id.send_feedback_text) void onSendFeedbackClick(View v) {

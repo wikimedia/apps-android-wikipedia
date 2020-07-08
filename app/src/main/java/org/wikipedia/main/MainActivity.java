@@ -27,7 +27,6 @@ import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.tabs.TabActivity;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.suggestededits.SuggestedEditsTasksFragment;
-import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.views.ImageZoomHelper;
@@ -88,7 +87,6 @@ public class MainActivity extends SingleFragmentActivity<MainFragment> implement
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
-        getFragment().requestUpdateToolbarElevation();
         MenuItem tabsItem = menu.findItem(R.id.menu_tabs);
         if (WikipediaApp.getInstance().getTabCount() < 1 || (getFragment().getCurrentFragment() instanceof SuggestedEditsTasksFragment)) {
             tabsItem.setVisible(false);
@@ -140,7 +138,6 @@ public class MainActivity extends SingleFragmentActivity<MainFragment> implement
             toolbar.setTitle(tab.text());
             controlNavTabInFragment = true;
         }
-        getFragment().requestUpdateToolbarElevation();
     }
 
     @Override
@@ -155,15 +152,6 @@ public class MainActivity extends SingleFragmentActivity<MainFragment> implement
     public void onSupportActionModeFinished(@NonNull ActionMode mode) {
         super.onSupportActionModeFinished(mode);
         getFragment().setBottomNavVisible(true);
-    }
-
-    @Override
-    public void updateToolbarElevation(boolean elevate) {
-        if (elevate) {
-            setToolbarElevationDefault();
-        } else {
-            clearToolbarElevation();
-        }
     }
 
     @Override
@@ -202,13 +190,5 @@ public class MainActivity extends SingleFragmentActivity<MainFragment> implement
 
     public boolean isCurrentFragmentSelected(@NonNull Fragment fragment) {
         return getFragment().getCurrentFragment() == fragment;
-    }
-
-    protected void setToolbarElevationDefault() {
-        getToolbar().setElevation(DimenUtil.dpToPx(DimenUtil.getDimension(R.dimen.toolbar_default_elevation)));
-    }
-
-    protected void clearToolbarElevation() {
-        getToolbar().setElevation(0f);
     }
 }

@@ -58,6 +58,7 @@ import org.wikipedia.views.MessageCardView;
 import org.wikipedia.views.PageItemView;
 import org.wikipedia.views.ReadingListsOverflowView;
 import org.wikipedia.views.SearchEmptyView;
+import org.wikipedia.views.ViewUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -126,27 +127,16 @@ public class ReadingListsFragment extends Fragment implements
         readingListView.setLayoutManager(new LinearLayoutManager(getContext()));
         readingListView.setAdapter(adapter);
         readingListView.addItemDecoration(new DrawableItemDecoration(requireContext(), R.attr.list_separator_drawable, false, true));
-        setUpScrollListener();
         disposables.add(WikipediaApp.getInstance().getBus().subscribe(new EventBusConsumer()));
         swipeRefreshLayout.setColorSchemeResources(getThemedAttributeId(requireContext(), R.attr.colorAccent));
         swipeRefreshLayout.setOnRefreshListener(() -> refreshSync(ReadingListsFragment.this, swipeRefreshLayout));
         if (ReadingListSyncAdapter.isDisabledByRemoteConfig()) {
             swipeRefreshLayout.setEnabled(false);
         }
-
         enableLayoutTransition(true);
+        ViewUtil.setActionBarElevation(readingListView, (MainActivity) requireActivity());
         Prefs.incrementReadingListsVisitCount();
         return view;
-    }
-
-    private void setUpScrollListener() {
-        readingListView.addOnScrollListener(new RecyclerView.OnScrollListener() {
-            @Override
-            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
-                super.onScrolled(recyclerView, dx, dy);
-                ((MainActivity) requireActivity()).updateToolbarElevation(readingListView.computeVerticalScrollOffset() != 0);
-            }
-        });
     }
 
     @Override
