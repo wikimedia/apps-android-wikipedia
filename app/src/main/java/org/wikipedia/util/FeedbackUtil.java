@@ -23,11 +23,11 @@ import com.google.android.material.snackbar.Snackbar;
 
 import org.wikipedia.R;
 import org.wikipedia.analytics.SuggestedEditsFunnel;
-import org.wikipedia.suggestededits.SuggestionsActivity;
 import org.wikipedia.main.MainActivity;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.random.RandomActivity;
 import org.wikipedia.readinglist.ReadingListActivity;
+import org.wikipedia.suggestededits.SuggestionsActivity;
 
 import java.util.concurrent.TimeUnit;
 
