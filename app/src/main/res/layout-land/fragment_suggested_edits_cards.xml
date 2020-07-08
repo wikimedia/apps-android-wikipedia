@@ -115,32 +115,27 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"/>
 
-            <LinearLayout
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/addContributionButton"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
-                android:background="@drawable/button_shape_gray"
                 android:backgroundTint="?attr/colorAccent"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:elevation="4dp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="@null"
+                android:tag="landscape"
+                app:cornerRadius="2dp"
+                app:rippleColor="?attr/color_group_56"
+                app:iconPadding="0dp"
+                app:iconGravity="textStart"
+                app:iconTint="@color/base100"
+                app:icon="@drawable/ic_add_gray_white_24dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <ImageView
-                    android:id="@+id/addContributionImage"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:padding="12dp"
-                    android:contentDescription="@null"
-                    android:tint="@color/base100"
-                    app:srcCompat="@drawable/ic_add_gray_white_24dp" />
-            </LinearLayout>
+                app:layout_constraintTop_toTopOf="parent"/>
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/nextButton"
