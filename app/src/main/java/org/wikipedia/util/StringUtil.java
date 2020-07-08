@@ -1,7 +1,5 @@
 package org.wikipedia.util;
 
-import android.os.Build;
-import android.text.Html;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
@@ -14,6 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.IntRange;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.text.HtmlCompat;
 
 import com.google.gson.Gson;
 
@@ -171,12 +170,7 @@ public final class StringUtil {
         source = source.replaceAll("&#8206;", "\u200E")
                 .replaceAll("&#8207;", "\u200F")
                 .replaceAll("&amp;", "&");
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            return Html.fromHtml(source, Html.FROM_HTML_MODE_LEGACY);
-        } else {
-            //noinspection deprecation
-            return Html.fromHtml(source);
-        }
+        return HtmlCompat.fromHtml(source, HtmlCompat.FROM_HTML_MODE_LEGACY);
     }
 
     @NonNull

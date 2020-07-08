@@ -23,6 +23,7 @@
   <string name="search_hint_search_languages">ਭਾਸ਼ਾ ਖੋਜੋ</string>
   <string name="search_hint_search_my_lists_and_articles">ਮੇਰੀਆਂ ਸੂਚੀਆਂ ਅਤੇ ਲੇਖ ਖੋਜੋ</string>
   <string name="nav_item_history">ਅਤੀਤ</string>
+  <string name="nav_item_suggested_edits" fuzzy="true">ਸੁਝਾਈਆਂ ਸੋਧਾਂ</string>
   <string name="error_network_error">ਨੈੱਟਵਰਕ ਮੌਜੂਦ ਨਹੀਂ ਹੈ।</string>
   <string name="page_error_retry">ਮੁੜ-ਕੋਸ਼ਿਸ਼ ਕਰੋ</string>
   <string name="card_offline_error_retry">ਮੁੜ-ਕੋਸ਼ਿਸ਼ ਕਰੋ</string>

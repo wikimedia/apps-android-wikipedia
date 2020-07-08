@@ -57,6 +57,7 @@
   <string name="search_hint_search_languages">搜索一种语言</string>
   <string name="search_hint_search_my_lists_and_articles">搜索我的列表及条目</string>
   <string name="nav_item_history">历史记录</string>
+  <string name="nav_item_suggested_edits" fuzzy="true">建议编辑</string>
   <string name="nav_item_more">更多</string>
   <string name="error_network_error">无法连接至互联网。</string>
   <string name="page_error_retry">重试</string>
@@ -141,7 +142,7 @@
   <string name="reading_lists_sync_login">登录</string>
   <string name="create_account_login">登录</string>
   <string name="menu_login">登录</string>
-  <string name="login_activity_title" fuzzy="true">登录维基百科</string>
+  <string name="login_activity_title">登录</string>
   <string name="login_in_progress_dialog_message">正在登录…</string>
   <string name="login_success_toast">已登录！</string>
   <string name="reset_password_title">重设密码</string>
@@ -749,6 +750,7 @@
   <string name="suggested_edits_image_tags_add_tag">添加标签</string>
   <string name="suggested_edits_image_zoom_tooltip">缩放此图像。</string>
   <string name="suggested_edits_encouragement_message">%s，感谢您的编辑。下面您可以找到更多的方法来为维基百科做贡献。</string>
+  <string name="suggested_edits_onboarding_message">&lt;b&gt;您好 %s阁下&lt;/b&gt;，下面，您可以找到一些快速又简单的方法来帮助改进维基百科。你一开始就会看到你做出的更改。祝您编辑顺利!</string>
   <string name="suggested_edits_image_captions_task_detail">描述图片以帮助读者理解图像的含义和上下文。</string>
   <string name="suggested_edits_add_descriptions_task_detail">总结条目以帮助读者一目了然地了解主题。</string>
   <string name="suggested_edits_contributions_stat_tooltip">您的贡献总数和建议编辑。</string>
@@ -756,11 +758,12 @@
   <string name="suggested_edits_page_views_stat_tooltip">在过去30天内，您通过建议编辑所贡献的项目总浏览量。</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">根据你的一个贡献被回退了多少次（被其他编辑者撤销）。被回退的编辑：%d。</string>
   <string name="suggested_edits_paused_message">建议编辑已暂停，直到%1$s。抱歉%2$s，您最近的一些贡献已经被回退了。</string>
-  <string name="suggested_edits_disabled_message" fuzzy="true">&lt;b&gt;建议编辑已被禁用。&lt;/b&gt;抱歉 %s，您近期的贡献有太多被回退了。\n\n请通过下面的链接了解这意味着什么。</string>
+  <string name="suggested_edits_disabled_message">建议编辑已被禁用。抱歉 %s，您近期的贡献有太多被回退了。</string>
   <string name="suggested_edits_ip_blocked_message">看样子您目前所使用的IP地址（或地址段）被禁止编辑维基百科。</string>
   <string name="suggested_edits_editing_tips_link_text">编辑提示与技巧</string>
   <string name="suggested_edits_help_page_link_text">建议编辑帮助页面</string>
   <string name="suggested_edits_edit_streak_label_text">连续编辑纪录</string>
+  <string name="suggested_edits_views_label_text">访问量</string>
   <string name="suggested_edits_quality_label_text">编辑质量</string>
   <string name="suggested_edits_quality_perfect_text">完美</string>
   <string name="suggested_edits_quality_excellent_text">优秀</string>
@@ -770,7 +773,6 @@
   <string name="suggested_edits_quality_sufficient_text">尚可</string>
   <string name="suggested_edits_quality_poor_text">较差</string>
   <string name="suggested_edits_quality_bad_text">糟糕</string>
-  <string name="suggested_edits_contribute">贡献</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">贡献</item>
     <item quantity="other">贡献</item>
@@ -794,10 +796,13 @@
   <string name="suggested_edits_contributions_screen_title">%s的贡献</string>
   <string name="suggested_edits_contribution_language_label">语言</string>
   <string name="suggested_edits_contribution_date_time_label">日期 / 时间</string>
+  <string name="suggested_edits_contribution_image_label">图片</string>
   <string name="suggested_edits_contribution_article_label">条目</string>
   <string name="suggested_edits_contribution_date_yesterday_text">昨天</string>
   <string name="suggested_edits_rewards_continue_button">继续</string>
+  <string name="suggested_edits_encourage_account_creation_login_button">登录/加入维基百科</string>
   <string name="suggested_edits_contribution_type_image_tag">图片标签</string>
+  <string name="suggested_edits_contribution_current_revision_text">你的编辑现已在维基百科</string>
   <string name="suggested_edits_contribution_diff_count_text">%1$s个字符</string>
   <string name="file_page_activity_title">文件页面</string>
   <string name="description_edit_revert_subtitle">感谢编辑维基百科！</string>
@@ -884,6 +889,7 @@
   <string name="main_drawer_help">帮助</string>
   <string name="main_drawer_login">登录/加入维基百科</string>
   <string name="main_tooltip_text">您好，%s，您知道每个人都可以编辑维基百科吗？</string>
+  <string name="main_tooltip_text_v2">您知道每个人都可以编辑维基百科吗？</string>
   <string name="main_tooltip_action_button">入门</string>
   <string name="custom_date_picker_dialog_ok_button_text">确认</string>
   <string name="text_input_dialog_ok_button_text">确定</string>

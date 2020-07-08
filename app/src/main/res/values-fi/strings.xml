@@ -37,6 +37,7 @@
   <string name="search_hint_search_languages">Etsi kieltä</string>
   <string name="search_hint_search_my_lists_and_articles">Hae omia listoja ja artikkeleita</string>
   <string name="nav_item_history">Historia</string>
+  <string name="nav_item_suggested_edits" fuzzy="true">Ehdotetut muokkaukset</string>
   <string name="nav_item_more">Lisää</string>
   <string name="error_network_error">Internet-yhteyden muodostaminen epäonnistui.</string>
   <string name="page_error_retry">Yritä uudelleen</string>
@@ -83,6 +84,7 @@
   <string name="map_view_link_text">Tarkastele kartalla</string>
   <string name="other_languages_indication_text">Lue toisella kielellä</string>
   <string name="language_count_link_text">Saatavilla %d muulla kielellä</string>
+  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in">Julkaisemalla hyväksyt &lt;a href=\"%1$s\"&gt;käyttöehdot&lt;/a&gt; ja peruuttamattomasti julkaiset muokkauksesi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; -lisenssin ehtojen mukaisesti.</string>
   <string name="edit_save_action_license_anon">Julkaisemalla hyväksyt &lt;a href=\"%1$s\"&gt;käyttöehdot&lt;/a&gt; ja peruuttamattomasti julkaiset muokkauksesi &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; -lisenssin ehtojen mukaisesti. Muokkauksesi yhdistetään laitteesi IP-osoitteeseen. Mikäli &lt;a href=\"https://#login\"&gt;kirjaudut sisään&lt;/a&gt;, tietosuojasi paranee.</string>
   <string name="preference_title_language">Wikipedian kielet</string>
@@ -120,7 +122,7 @@
   <string name="reading_lists_sync_login">Kirjaudu sisään</string>
   <string name="create_account_login">Kirjaudu sisään</string>
   <string name="menu_login">Kirjaudu sisään</string>
-  <string name="login_activity_title" fuzzy="true">Kirjaudu Wikipediaan</string>
+  <string name="login_activity_title">Kirjaudu</string>
   <string name="login_in_progress_dialog_message">Kirjaudutaan…</string>
   <string name="login_success_toast">Kirjautuminen onnistui!</string>
   <string name="reset_password_title">Aseta salasanasi</string>
@@ -395,6 +397,7 @@
   <string name="reading_list_action_menu_remove_all_from_offline">Poista kaikki offlinesta</string>
   <string name="reading_list_action_menu_save_all_for_offline">Tallenna kaikki offlineen</string>
   <string name="reading_list_action_menu_add_to_another_list">Lisää toiseen listaan</string>
+  <string name="reading_list_action_menu_move_to_another_list">Siirrä toiseen listaan</string>
   <string name="reading_list_name_sample">Oma lukulista</string>
   <string name="reading_list_name_hint">Listan nimi</string>
   <string name="reading_list_description_hint">Kuvaus (ei pakollinen)</string>
@@ -415,6 +418,7 @@
   <string name="reading_list_article_offline">Saatavilla ilman verkkoyhteyttä</string>
   <string name="reading_list_article_make_offline">Tee tämä artikkeli käytettäväksi offline-tilassa</string>
   <string name="reading_list_add_to_other_list">Lisää toiseen lukulistaan</string>
+  <string name="reading_list_move_to_other_list">Siirrä toiseen lukulistaan</string>
   <string name="reading_list_remove_from_list">Poista lukulistasta %s</string>
   <string name="reading_list_remove_from_lists">Poista lukulistoista</string>
   <string name="reading_list_select_item">Valitse</string>
@@ -431,6 +435,7 @@
   <string name="reading_lists_confirm_remote_delete_no">Ei</string>
   <string name="reading_list_article_save_in_progress">Artikkelia ladataan ja se tulee käytettäväksi offline-tilassa kun lataus on valmis.</string>
   <string name="reading_list_articles_added_to_named">Lisättiin %1$d artikkelia listaan %2$s</string>
+  <string name="reading_list_articles_moved_to_named">Siirrettiin %1$d artikkelia listaan %2$s</string>
   <string name="reading_list_delete_confirm">Haluatko varmasti poistaa %s?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Kirjaudu sisään ottaaksesi synkronoinnin käyttöön</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Kirjaudu sisään salliaksesi lukulistojesi tallentamisen tunnuksellesi.</string>
@@ -466,7 +471,7 @@
     <item quantity="one">Tämä artikkeli ei ole enää käytettävissä offline-tilassa.</item>
     <item quantity="other">Nämä artikkelit eivät enää ole käytettävissä offline-tilassa.</item>
   </plurals>
-  <string name="reading_list_toast_last_sync" fuzzy="true">Lukulistat synkronoitu onnistuneesti</string>
+  <string name="reading_list_toast_last_sync">Lukulistat synkronoitu</string>
   <string name="reading_list_menu_last_sync">Viimeksi synkronoitu: %s</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">OK</string>
   <string name="reading_list_delete_dialog_ok_button_text">OK</string>
@@ -482,6 +487,7 @@
   <string name="notification_syncing_resume_button">Jatka</string>
   <string name="notification_syncing_cancel_button">Peruuta</string>
   <string name="notification_syncing_reading_list_channel_description">Lukulistojen synkronoinnin edistyminen</string>
+  <string name="notification_many_unread">Sinulla on %d lukematonta ilmoitusta</string>
   <plurals name="notification_channel_name">
     <item quantity="one">Ladataan artikkelia</item>
     <item quantity="other">Ladataan artikkeleita</item>
@@ -708,9 +714,11 @@
   <string name="suggested_edits_image_tags_select_title">Et ole valinnut tälle kuvalle merkintöjä</string>
   <string name="suggested_edits_image_tags_add_tag">Lisää merkintä</string>
   <string name="suggested_edits_encouragement_message">%s, kiitos muokkauksistasi. Alempaa löydät lisää tapoja parantaa Wikipediaa.</string>
+  <string name="suggested_edits_onboarding_message" fuzzy="true">&lt;b&gt;Hei %s&lt;/b&gt;, tiesitkö, että kuka tahansa voi muokata Wikipediaa? Alempaa löydät hauskoja tapoja parantaa Wikipediaa. Hyviä muokkaushetkiä!</string>
   <string name="suggested_edits_image_captions_task_detail">Kuvaile kuvan sisältöä auttaaksesi lukijoita ymmärtämään sen merkitys ja asiayhteys.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Tiivistä artikkeli auttaaksesi lukijoita ymmärtämään aihe nopeasti.</string>
   <string name="suggested_edits_editing_tips_link_text">Muokkausvinkkejä</string>
+  <string name="suggested_edits_views_label_text">Näyttökerrat</string>
   <string name="suggested_edits_quality_label_text">Muokkauksen laatu</string>
   <string name="suggested_edits_quality_perfect_text">Täydellinen</string>
   <string name="suggested_edits_quality_excellent_text">Erinomainen</string>
@@ -736,10 +744,13 @@
   <string name="suggested_edits_contribution_language_label">Kieli</string>
   <string name="suggested_edits_contribution_date_time_label">Päiväys / Aika</string>
   <string name="suggested_edits_contribution_type_label">Muokkaustyyppi</string>
+  <string name="suggested_edits_contribution_image_label">Kuva</string>
   <string name="suggested_edits_contribution_article_label">Artikkeli</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Eilen</string>
   <string name="suggested_edits_rewards_continue_button">Jatka</string>
+  <string name="suggested_edits_encourage_account_creation_login_button">Kirjaudu sisään / liity Wikipediaan</string>
   <string name="suggested_edits_contribution_type_image_tag">Kuvamerkintä</string>
+  <string name="suggested_edits_contribution_current_revision_text" fuzzy="true">Nykyinen versio</string>
   <string name="file_page_activity_title">Tiedostosivu</string>
   <string name="description_edit_revert_subtitle">Kiitos Wikipedian muokkaamisesta!</string>
   <string name="description_edit_revert_intro">Tiedämme sinun yrittäneen parhaasi, mutta eräällä arvioijalla oli huolenaihe. Mahdolliset syyt muokkauksesi palauttamiselle ovat:</string>

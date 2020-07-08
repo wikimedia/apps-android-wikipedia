@@ -21,6 +21,7 @@
   <string name="search_hint_search_languages">Լեզվի որոնում</string>
   <string name="search_hint_search_my_lists_and_articles">Որոնել իմ ցանկերում և հոդվածներում</string>
   <string name="nav_item_history">Պատմություն</string>
+  <string name="nav_item_suggested_edits" fuzzy="true">Առաջարկվող խմբագրումներ</string>
   <string name="error_network_error">Չի հաջողվում միանալ համացանցին</string>
   <string name="page_error_retry">Կրկին փորձել</string>
   <string name="card_offline_error_retry">Կրկին փորձել</string>
@@ -272,6 +273,7 @@
   <string name="suggested_edits_last_edited_never">Երբեք</string>
   <string name="suggested_edits_task_new">նոր</string>
   <string name="suggested_edits_contribution_language_label">Լեզու</string>
+  <string name="suggested_edits_contribution_image_label" fuzzy="true">Նիշք</string>
   <string name="suggested_edits_contribution_article_label">Հոդված</string>
   <string name="description_edit_login_cancel_button_text">Չեղարկել</string>
   <string name="onboarding_skip">Բաց թողնել</string>

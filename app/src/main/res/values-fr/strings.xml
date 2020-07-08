@@ -16,6 +16,7 @@
 * Envlh
 * Eric.LEWIN
 * Fitoschido
+* Golmore
 * Gomoko
 * Great11
 * Hydros
@@ -57,6 +58,7 @@
   <string name="search_hint_search_languages">Rechercher une langue</string>
   <string name="search_hint_search_my_lists_and_articles">Rechercher dans mes listes et articles</string>
   <string name="nav_item_history">Historique</string>
+  <string name="nav_item_suggested_edits">Modifications</string>
   <string name="nav_item_more">Plus</string>
   <string name="error_network_error">Impossible de se connecter à Internet.</string>
   <string name="page_error_retry">Réessayer</string>
@@ -763,6 +765,7 @@
   <string name="suggested_edits_editing_tips_link_text">Modifier les trucs et astuces</string>
   <string name="suggested_edits_help_page_link_text">Page d’aide des Modifications suggérées</string>
   <string name="suggested_edits_edit_streak_label_text">Modifier la trace</string>
+  <string name="suggested_edits_views_label_text">Vues</string>
   <string name="suggested_edits_quality_label_text">Qualité d’édition</string>
   <string name="suggested_edits_quality_perfect_text">Parfait</string>
   <string name="suggested_edits_quality_excellent_text">Excellent</string>
@@ -772,7 +775,6 @@
   <string name="suggested_edits_quality_sufficient_text">Suffisant</string>
   <string name="suggested_edits_quality_poor_text">Faible</string>
   <string name="suggested_edits_quality_bad_text">Mauvais</string>
-  <string name="suggested_edits_contribute">Contribuer</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">Contribution</item>
     <item quantity="other">Contributions</item>
@@ -798,6 +800,7 @@
   <string name="suggested_edits_contribution_language_label">Langue</string>
   <string name="suggested_edits_contribution_date_time_label">Date / Heure</string>
   <string name="suggested_edits_contribution_type_label">Type de contribution</string>
+  <string name="suggested_edits_contribution_image_label">Image</string>
   <string name="suggested_edits_contribution_article_label">Article</string>
   <string name="suggested_edits_contribution_views">%s vues</string>
   <string name="suggested_edits_contribution_seen_text">Vu %s fois dans les 30 derniers jours.</string>
@@ -816,6 +819,7 @@
   <string name="suggested_edits_encourage_account_creation_message">Modifications suggérées est une nouvelle façon de modifier Wikipédia sur Android. Il aide à faire de petites contributions vitales à Wikipédia. Notre but est de rendre les modifications plus faciles et plus accessibles à tout le monde ! Connectez-vous ou rejoignez Wikipédia pour démarrer.</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Se connecter / rejoindre Wikiipédia</string>
   <string name="suggested_edits_contribution_type_image_tag">Balise d’image</string>
+  <string name="suggested_edits_contribution_current_revision_text">Votre édition est actuelle sur Wikipédia</string>
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="one">%1$s balise</item>
     <item quantity="other">%1$s balises</item>
