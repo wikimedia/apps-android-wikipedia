@@ -1,19 +1,19 @@
-package org.wikipedia.edits
+package org.wikipedia.userprofile
 
 import android.content.Context
 import android.content.Intent
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.analytics.SuggestedEditsFunnel
 
-class EditsContributionsActivity : SingleFragmentActivity<EditsContributionsFragment>() {
-    public override fun createFragment(): EditsContributionsFragment {
-        return EditsContributionsFragment.newInstance()
+class ContributionsActivity : SingleFragmentActivity<ContributionsFragment>() {
+    public override fun createFragment(): ContributionsFragment {
+        return ContributionsFragment.newInstance()
     }
 
     companion object {
         fun newIntent(context: Context): Intent {
             SuggestedEditsFunnel.get().contributionsOpened()
-            return Intent(context, EditsContributionsActivity::class.java)
+            return Intent(context, ContributionsActivity::class.java)
         }
     }
 }

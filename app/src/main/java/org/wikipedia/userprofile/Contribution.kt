@@ -1,4 +1,4 @@
-package org.wikipedia.edits
+package org.wikipedia.userprofile
 
 import org.wikipedia.dataclient.WikiSite
 import java.util.*

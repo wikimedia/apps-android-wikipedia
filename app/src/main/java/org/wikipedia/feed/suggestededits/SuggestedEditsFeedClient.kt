@@ -16,9 +16,9 @@ import org.wikipedia.feed.dataclient.FeedClient
 import org.wikipedia.feed.model.Card
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
-import org.wikipedia.edits.EditsSummary
-import org.wikipedia.edits.EditsUserStats
-import org.wikipedia.edits.provider.MissingDescriptionProvider
+import org.wikipedia.suggestededits.PageSummaryForEdit
+import org.wikipedia.suggestededits.EditsUserStats
+import org.wikipedia.suggestededits.provider.MissingDescriptionProvider
 import org.wikipedia.util.StringUtil
 import java.util.*
 
@@ -55,8 +55,8 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
         disposables.clear()
     }
 
-    private fun toSuggestedEditsCard(wiki: WikiSite, sourceSummary: EditsSummary?, targetSummary: EditsSummary?, page: MwQueryPage?): SuggestedEditsCard {
-        return SuggestedEditsCard(wiki, action, sourceSummary, targetSummary, page, age)
+    private fun toSuggestedEditsCard(wiki: WikiSite, sourceSummaryForEdit: PageSummaryForEdit?, targetSummaryForEdit: PageSummaryForEdit?, page: MwQueryPage?): SuggestedEditsCard {
+        return SuggestedEditsCard(wiki, action, sourceSummaryForEdit, targetSummaryForEdit, page, age)
     }
 
     fun fetchSuggestedEditForType(cb: FeedClient.Callback?, callback: Callback?) {
@@ -90,7 +90,7 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ pageSummary ->
-                    val sourceSummary = EditsSummary(
+                    val sourceSummary = PageSummaryForEdit(
                             pageSummary.apiTitle,
                             langFromCode,
                             pageSummary.getPageTitle(WikiSite.forLanguageCode(langFromCode)),
@@ -124,7 +124,7 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
                     val source = pair.second
                     val target = pair.first
 
-                    val sourceSummary = EditsSummary(
+                    val sourceSummary = PageSummaryForEdit(
                             source.apiTitle,
                             langFromCode,
                             source.getPageTitle(WikiSite.forLanguageCode(langFromCode)),
@@ -134,7 +134,7 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
                             source.extractHtml
                     )
 
-                    val targetSummary = EditsSummary(
+                    val targetSummary = PageSummaryForEdit(
                             target.apiTitle,
                             langToCode,
                             target.getPageTitle(WikiSite.forLanguageCode(langToCode)),
@@ -168,7 +168,7 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
                         val title = page.title()
                         val imageInfo = page.imageInfo()!!
 
-                        val sourceSummary = EditsSummary(
+                        val sourceSummary = PageSummaryForEdit(
                                 title,
                                 langFromCode,
                                 PageTitle(
@@ -218,7 +218,7 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
                         val title = page.title()
                         val imageInfo = page.imageInfo()!!
 
-                        val sourceSummary = EditsSummary(
+                        val sourceSummary = PageSummaryForEdit(
                                 title,
                                 langFromCode,
                                 PageTitle(

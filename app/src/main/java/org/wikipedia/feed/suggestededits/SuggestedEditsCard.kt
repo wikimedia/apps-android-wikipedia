@@ -9,14 +9,14 @@ import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.descriptions.DescriptionEditActivity.Action
 import org.wikipedia.feed.model.CardType
 import org.wikipedia.feed.model.WikiSiteCard
-import org.wikipedia.edits.EditsSummary
+import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.util.DateUtil
 
 class SuggestedEditsCard(
         wiki: WikiSite,
         val action: Action,
-        val sourceSummary: EditsSummary?,
-        val targetSummary: EditsSummary?,
+        val sourceSummaryForEdit: PageSummaryForEdit?,
+        val targetSummaryForEdit: PageSummaryForEdit?,
         val page: MwQueryPage?,
         val age: Int
 ) : WikiSiteCard(wiki) {

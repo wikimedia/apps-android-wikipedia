@@ -1,4 +1,4 @@
-package org.wikipedia.edits
+package org.wikipedia.userprofile
 
 import android.content.Context
 import android.util.AttributeSet
@@ -7,12 +7,14 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import kotlinx.android.synthetic.main.view_contributions_header.view.*
 import org.wikipedia.R
-import org.wikipedia.edits.Contribution.Companion.EDIT_TYPE_IMAGE_CAPTION
-import org.wikipedia.edits.Contribution.Companion.EDIT_TYPE_IMAGE_TAG
+import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_IMAGE_CAPTION
+import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_IMAGE_TAG
+import org.wikipedia.suggestededits.EditsTypeItemView
+import org.wikipedia.suggestededits.EditsUserStats
 
-class EditsContributionsHeaderView constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs), EditsTypeItem.Callback {
+class ContributionsHeaderView constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs), EditsTypeItemView.Callback {
 
-    private var filterViews = ArrayList<EditsTypeItem>()
+    private var filterViews = ArrayList<EditsTypeItemView>()
     var callback: Callback? = null
 
     init {
@@ -36,7 +38,7 @@ class EditsContributionsHeaderView constructor(context: Context, attrs: Attribut
     }
 
     fun updateFilterViewUI(editType: Int, totalContributions: Int) {
-        val view: EditsTypeItem
+        val view: EditsTypeItemView
         val count: Int
         when (editType) {
             Contribution.EDIT_TYPE_ARTICLE_DESCRIPTION -> {

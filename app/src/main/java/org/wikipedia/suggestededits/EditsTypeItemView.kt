@@ -1,4 +1,4 @@
-package org.wikipedia.edits
+package org.wikipedia.suggestededits
 
 import android.content.Context
 import android.content.res.ColorStateList
@@ -10,10 +10,10 @@ import androidx.core.content.ContextCompat
 import androidx.core.widget.ImageViewCompat
 import kotlinx.android.synthetic.main.item_suggested_edits_type.view.*
 import org.wikipedia.R
-import org.wikipedia.edits.Contribution.Companion.EDIT_TYPE_GENERIC
+import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_GENERIC
 import org.wikipedia.util.ResourceUtil
 
-class EditsTypeItem constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
+class EditsTypeItemView constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
     private var editType: Int = EDIT_TYPE_GENERIC
     private var callback: Callback? = null
 

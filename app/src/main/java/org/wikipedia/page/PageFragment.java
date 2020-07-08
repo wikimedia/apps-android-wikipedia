@@ -63,7 +63,7 @@ import org.wikipedia.dataclient.page.Protection;
 import org.wikipedia.descriptions.DescriptionEditActivity;
 import org.wikipedia.descriptions.DescriptionEditTutorialActivity;
 import org.wikipedia.edit.EditHandler;
-import org.wikipedia.edits.EditsSummary;
+import org.wikipedia.suggestededits.PageSummaryForEdit;
 import org.wikipedia.feed.announcement.Announcement;
 import org.wikipedia.gallery.GalleryActivity;
 import org.wikipedia.history.HistoryEntry;
@@ -1143,7 +1143,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             startActivityForResult(DescriptionEditTutorialActivity.newIntent(requireContext(), text),
                     Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT_TUTORIAL);
         } else {
-            EditsSummary sourceSummary = new EditsSummary(getTitle().getPrefixedText(), getTitle().getWikiSite().languageCode(), getTitle(),
+            PageSummaryForEdit sourceSummary = new PageSummaryForEdit(getTitle().getPrefixedText(), getTitle().getWikiSite().languageCode(), getTitle(),
                     getTitle().getDisplayText(), getTitle().getDescription(), getTitle().getThumbUrl());
             startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), getTitle(), text, sourceSummary, null, ADD_DESCRIPTION, PAGE_ACTIVITY),
                     Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT);

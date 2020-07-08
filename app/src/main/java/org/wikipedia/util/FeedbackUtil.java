@@ -23,7 +23,7 @@ import com.google.android.material.snackbar.Snackbar;
 
 import org.wikipedia.R;
 import org.wikipedia.analytics.SuggestedEditsFunnel;
-import org.wikipedia.edits.EditsCardsActivity;
+import org.wikipedia.suggestededits.SuggestionsActivity;
 import org.wikipedia.main.MainActivity;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.random.RandomActivity;
@@ -182,7 +182,7 @@ public final class FeedbackUtil {
             return activity.findViewById(R.id.random_coordinator_layout);
         } else if (activity instanceof ReadingListActivity) {
             return activity.findViewById(R.id.fragment_reading_list_coordinator);
-        } else if (activity instanceof EditsCardsActivity) {
+        } else if (activity instanceof SuggestionsActivity) {
             return activity.findViewById(R.id.suggestedEditsCardsCoordinator);
         } else {
             return activity.findViewById(android.R.id.content);

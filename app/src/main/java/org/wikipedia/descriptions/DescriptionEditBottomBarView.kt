@@ -5,7 +5,7 @@ import android.util.AttributeSet
 import androidx.constraintlayout.widget.ConstraintLayout
 import kotlinx.android.synthetic.main.view_description_edit_read_article_bar.view.*
 import org.wikipedia.R
-import org.wikipedia.edits.EditsSummary
+import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
 import org.wikipedia.util.StringUtil
 import org.wikipedia.views.ViewUtil
@@ -25,14 +25,14 @@ class DescriptionEditBottomBarView constructor(context: Context, attrs: Attribut
         visibility = GONE
     }
 
-    fun setSummary(summary: EditsSummary) {
-        setConditionalLayoutDirection(this, summary.lang)
-        viewArticleTitle!!.text = StringUtil.fromHtml(StringUtil.removeNamespace(summary.displayTitle!!))
-        if (summary.thumbnailUrl.isNullOrEmpty()) {
+    fun setSummary(summaryForEdit: PageSummaryForEdit) {
+        setConditionalLayoutDirection(this, summaryForEdit.lang)
+        viewArticleTitle!!.text = StringUtil.fromHtml(StringUtil.removeNamespace(summaryForEdit.displayTitle!!))
+        if (summaryForEdit.thumbnailUrl.isNullOrEmpty()) {
             viewImageThumbnail.visibility = GONE
         } else {
             viewImageThumbnail.visibility = VISIBLE
-            ViewUtil.loadImage(viewImageThumbnail, summary.thumbnailUrl)
+            ViewUtil.loadImage(viewImageThumbnail, summaryForEdit.thumbnailUrl)
         }
         show()
     }

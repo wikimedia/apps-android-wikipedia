@@ -1,4 +1,4 @@
-package org.wikipedia.edits
+package org.wikipedia.suggestededits
 
 import android.app.Dialog
 import android.content.ClipboardManager

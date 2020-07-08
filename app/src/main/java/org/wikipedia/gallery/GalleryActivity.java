@@ -40,7 +40,7 @@ import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.media.MediaHelper;
 import org.wikipedia.descriptions.DescriptionEditActivity;
-import org.wikipedia.edits.EditsSummary;
+import org.wikipedia.suggestededits.PageSummaryForEdit;
 import org.wikipedia.feed.image.FeaturedImage;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.json.GsonMarshaller;
@@ -344,7 +344,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         String currentCaption = item.getMediaInfo().getCaptions().get(sourceWiki.languageCode());
         title.setDescription(currentCaption);
 
-        EditsSummary summary = new EditsSummary(title.getPrefixedText(), sourceWiki.languageCode(), title,
+        PageSummaryForEdit summary = new PageSummaryForEdit(title.getPrefixedText(), sourceWiki.languageCode(), title,
                 title.getDisplayText(), StringUtils.defaultIfBlank(StringUtil.fromHtml(item.getMediaInfo().getMetadata().imageDescription()).toString(), null),
                 item.getMediaInfo().getThumbUrl());
 
@@ -369,10 +369,10 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
             currentCaption = StringUtil.fromHtml(item.getMediaInfo().getMetadata().imageDescription()).toString();
         }
 
-        EditsSummary sourceSummary = new EditsSummary(sourceTitle.getPrefixedText(), sourceTitle.getWikiSite().languageCode(), sourceTitle,
+        PageSummaryForEdit sourceSummary = new PageSummaryForEdit(sourceTitle.getPrefixedText(), sourceTitle.getWikiSite().languageCode(), sourceTitle,
                 sourceTitle.getDisplayText(), currentCaption, item.getMediaInfo().getThumbUrl());
 
-        EditsSummary targetSummary = new EditsSummary(targetTitle.getPrefixedText(), targetTitle.getWikiSite().languageCode(), targetTitle,
+        PageSummaryForEdit targetSummary = new PageSummaryForEdit(targetTitle.getPrefixedText(), targetTitle.getWikiSite().languageCode(), targetTitle,
                 targetTitle.getDisplayText(), null, item.getMediaInfo().getThumbUrl());
 
         startActivityForResult(DescriptionEditActivity.newIntent(this, targetTitle, null, sourceSummary, targetSummary,

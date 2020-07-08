@@ -1,4 +1,4 @@
-package org.wikipedia.edits
+package org.wikipedia.suggestededits
 
 import android.app.Activity.RESULT_OK
 import android.content.Intent
@@ -27,7 +27,7 @@ import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.mwapi.SiteMatrix
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
-import org.wikipedia.edits.EditsCardsActivity.Companion.EXTRA_SOURCE_ADDED_CONTRIBUTION
+import org.wikipedia.suggestededits.SuggestionsActivity.Companion.EXTRA_SOURCE_ADDED_CONTRIBUTION
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.FeedbackUtil
@@ -56,11 +56,11 @@ class EditsCardsFragment : Fragment(), EditsImageTagsFragment.Callback {
         get() {
             val f = topChild()
             return if (action == ADD_DESCRIPTION || action == ADD_CAPTION) {
-                f?.sourceSummary?.pageTitle?.description = f?.addedContribution
-                f?.sourceSummary?.pageTitle
+                f?.sourceSummaryForEdit?.pageTitle?.description = f?.addedContribution
+                f?.sourceSummaryForEdit?.pageTitle
             } else {
-                f?.targetSummary?.pageTitle?.description = f?.addedContribution
-                f?.targetSummary?.pageTitle
+                f?.targetSummaryForEdit?.pageTitle?.description = f?.addedContribution
+                f?.targetSummaryForEdit?.pageTitle
             }
         }
 
@@ -231,8 +231,8 @@ class EditsCardsFragment : Fragment(), EditsImageTagsFragment.Callback {
             FeedbackUtil.showMessage(this,
                     when (action) {
                         ADD_CAPTION -> getString(R.string.description_edit_success_saved_image_caption_snackbar)
-                        TRANSLATE_CAPTION -> getString(R.string.description_edit_success_saved_image_caption_in_lang_snackbar, app.language().getAppLanguageLocalizedName(topChild()!!.targetSummary!!.lang))
-                        TRANSLATE_DESCRIPTION -> getString(R.string.description_edit_success_saved_in_lang_snackbar, app.language().getAppLanguageLocalizedName(topChild()!!.targetSummary!!.lang))
+                        TRANSLATE_CAPTION -> getString(R.string.description_edit_success_saved_image_caption_in_lang_snackbar, app.language().getAppLanguageLocalizedName(topChild()!!.targetSummaryForEdit!!.lang))
+                        TRANSLATE_DESCRIPTION -> getString(R.string.description_edit_success_saved_in_lang_snackbar, app.language().getAppLanguageLocalizedName(topChild()!!.targetSummaryForEdit!!.lang))
                         else -> getString(R.string.description_edit_success_saved_snackbar)
                     }
             )
@@ -264,7 +264,7 @@ class EditsCardsFragment : Fragment(), EditsImageTagsFragment.Callback {
             topBaseChild()!!.publish()
             fetchUserInfoForNextInterstitialState()
         } else if (topTitle != null) {
-            startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), topTitle!!, null, topChild()!!.sourceSummary, topChild()!!.targetSummary,
+            startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), topTitle!!, null, topChild()!!.sourceSummaryForEdit, topChild()!!.targetSummaryForEdit,
                     action, InvokeSource.SUGGESTED_EDITS), ACTIVITY_REQUEST_DESCRIPTION_EDIT)
         }
     }

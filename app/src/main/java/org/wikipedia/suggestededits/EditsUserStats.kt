@@ -1,4 +1,4 @@
-package org.wikipedia.edits
+package org.wikipedia.suggestededits
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable

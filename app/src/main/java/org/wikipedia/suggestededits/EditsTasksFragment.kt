@@ -1,4 +1,4 @@
-package org.wikipedia.edits
+package org.wikipedia.suggestededits
 
 import android.app.Activity
 import android.content.Intent
@@ -35,6 +35,7 @@ import org.wikipedia.language.LanguageSettingsInvokeSource
 import org.wikipedia.main.MainActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
+import org.wikipedia.userprofile.ContributionsActivity
 import org.wikipedia.util.*
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DefaultRecyclerAdapter
@@ -44,11 +45,11 @@ import java.util.concurrent.TimeUnit
 import kotlin.collections.ArrayList
 
 class EditsTasksFragment : Fragment() {
-    private lateinit var addDescriptionsTask: EditsTask
-    private lateinit var addImageCaptionsTask: EditsTask
-    private lateinit var addImageTagsTask: EditsTask
+    private lateinit var addDescriptionsTask: SuggestedEditsTask
+    private lateinit var addImageCaptionsTask: SuggestedEditsTask
+    private lateinit var addImageTagsTask: SuggestedEditsTask
 
-    private val displayedTasks = ArrayList<EditsTask>()
+    private val displayedTasks = ArrayList<SuggestedEditsTask>()
     private val callback = TaskViewCallback()
 
     private val disposables = CompositeDisposable()
@@ -69,7 +70,7 @@ class EditsTasksFragment : Fragment() {
         setupTestingButtons()
 
         userStatsClickTarget.setOnClickListener {
-            startActivity(EditsContributionsActivity.newIntent(requireActivity()))
+            startActivity(ContributionsActivity.newIntent(requireActivity()))
         }
 
         learnMoreCard.setOnClickListener {
@@ -126,7 +127,7 @@ class EditsTasksFragment : Fragment() {
             tasksRecyclerView.adapter!!.notifyDataSetChanged()
         } else if (requestCode == ACTIVITY_REQUEST_IMAGE_TAGS_ONBOARDING && resultCode == Activity.RESULT_OK) {
             Prefs.setShowImageTagsOnboarding(false)
-            startActivity(EditsCardsActivity.newIntent(requireActivity(), ADD_IMAGE_TAGS))
+            startActivity(SuggestionsActivity.newIntent(requireActivity(), ADD_IMAGE_TAGS))
         }
     }
 
@@ -357,18 +358,18 @@ class EditsTasksFragment : Fragment() {
     private fun setUpTasks() {
         displayedTasks.clear()
 
-        addImageTagsTask = EditsTask()
+        addImageTagsTask = SuggestedEditsTask()
         addImageTagsTask.title = getString(R.string.suggested_edits_image_tags)
         addImageTagsTask.description = getString(R.string.suggested_edits_image_tags_task_detail)
         addImageTagsTask.imageDrawable = R.drawable.ic_image_tag
         addImageTagsTask.translatable = false
 
-        addImageCaptionsTask = EditsTask()
+        addImageCaptionsTask = SuggestedEditsTask()
         addImageCaptionsTask.title = getString(R.string.suggested_edits_image_captions)
         addImageCaptionsTask.description = getString(R.string.suggested_edits_image_captions_task_detail)
         addImageCaptionsTask.imageDrawable = R.drawable.ic_image_caption
 
-        addDescriptionsTask = EditsTask()
+        addDescriptionsTask = SuggestedEditsTask()
         addDescriptionsTask.title = getString(R.string.description_edit_tutorial_title_descriptions)
         addDescriptionsTask.description = getString(R.string.suggested_edits_add_descriptions_task_detail)
         addDescriptionsTask.imageDrawable = R.drawable.ic_article_description
@@ -379,20 +380,20 @@ class EditsTasksFragment : Fragment() {
     }
 
     private inner class TaskViewCallback : EditsTaskView.Callback {
-        override fun onViewClick(task: EditsTask, isTranslate: Boolean) {
+        override fun onViewClick(task: SuggestedEditsTask, isTranslate: Boolean) {
             if (WikipediaApp.getInstance().language().appLanguageCodes.size < Constants.MIN_LANGUAGES_TO_UNLOCK_TRANSLATION && isTranslate) {
                 showLanguagesActivity(LanguageSettingsInvokeSource.SUGGESTED_EDITS.text())
                 return
             }
             if (task == addDescriptionsTask) {
-                startActivity(EditsCardsActivity.newIntent(requireActivity(), if (isTranslate) TRANSLATE_DESCRIPTION else ADD_DESCRIPTION))
+                startActivity(SuggestionsActivity.newIntent(requireActivity(), if (isTranslate) TRANSLATE_DESCRIPTION else ADD_DESCRIPTION))
             } else if (task == addImageCaptionsTask) {
-                startActivity(EditsCardsActivity.newIntent(requireActivity(), if (isTranslate) TRANSLATE_CAPTION else ADD_CAPTION))
+                startActivity(SuggestionsActivity.newIntent(requireActivity(), if (isTranslate) TRANSLATE_CAPTION else ADD_CAPTION))
             } else if (task == addImageTagsTask) {
                 if (Prefs.shouldShowImageTagsOnboarding()) {
                     startActivityForResult(EditsImageTagsOnboardingActivity.newIntent(requireContext()), ACTIVITY_REQUEST_IMAGE_TAGS_ONBOARDING)
                 } else {
-                    startActivity(EditsCardsActivity.newIntent(requireActivity(), ADD_IMAGE_TAGS))
+                    startActivity(SuggestionsActivity.newIntent(requireActivity(), ADD_IMAGE_TAGS))
                 }
             }
         }
@@ -403,7 +404,7 @@ class EditsTasksFragment : Fragment() {
         startActivityForResult(intent, ACTIVITY_REQUEST_ADD_A_LANGUAGE)
     }
 
-    internal inner class RecyclerAdapter(tasks: List<EditsTask>) : DefaultRecyclerAdapter<EditsTask, EditsTaskView>(tasks) {
+    internal inner class RecyclerAdapter(tasks: List<SuggestedEditsTask>) : DefaultRecyclerAdapter<SuggestedEditsTask, EditsTaskView>(tasks) {
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DefaultViewHolder<EditsTaskView> {
             return DefaultViewHolder(EditsTaskView(parent.context))
         }

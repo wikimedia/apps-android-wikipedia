@@ -1,4 +1,4 @@
-package org.wikipedia.edits
+package org.wikipedia.suggestededits
 
 import android.content.Context
 import android.content.res.ColorStateList
@@ -30,7 +30,7 @@ internal class EditsTaskView constructor(context: Context, attrs: AttributeSet? 
         translateButton.setTextColor(color)
     }
 
-    fun setUpViews(task: EditsTask, callback: Callback?) {
+    fun setUpViews(task: SuggestedEditsTask, callback: Callback?) {
         updateTranslateActionUI()
         taskTitle.text = task.title
         taskDescription.text = task.description
@@ -56,6 +56,6 @@ internal class EditsTaskView constructor(context: Context, attrs: AttributeSet? 
     }
 
     interface Callback {
-        fun onViewClick(task: EditsTask, isTranslate: Boolean)
+        fun onViewClick(task: SuggestedEditsTask, isTranslate: Boolean)
     }
 }

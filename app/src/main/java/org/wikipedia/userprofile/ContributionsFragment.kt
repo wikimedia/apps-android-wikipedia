@@ -1,4 +1,4 @@
-package org.wikipedia.edits
+package org.wikipedia.userprofile
 
 import android.content.Context
 import android.icu.text.ListFormatter
@@ -30,12 +30,13 @@ import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
-import org.wikipedia.edits.Contribution.Companion.EDIT_TYPE_ARTICLE_DESCRIPTION
-import org.wikipedia.edits.Contribution.Companion.EDIT_TYPE_GENERIC
-import org.wikipedia.edits.Contribution.Companion.EDIT_TYPE_IMAGE_CAPTION
-import org.wikipedia.edits.Contribution.Companion.EDIT_TYPE_IMAGE_TAG
-import org.wikipedia.edits.EditsContributionsItemView.Callback
+import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_ARTICLE_DESCRIPTION
+import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_GENERIC
+import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_IMAGE_CAPTION
+import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_IMAGE_TAG
+import org.wikipedia.userprofile.ContributionsItemView.Callback
 import org.wikipedia.language.AppLanguageLookUpTable
+import org.wikipedia.suggestededits.EditsUserStats
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
@@ -47,7 +48,7 @@ import java.util.concurrent.TimeUnit
 import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
 
-class EditsContributionsFragment : Fragment(), EditsContributionsHeaderView.Callback {
+class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
     private val adapter: ContributionsEntryItemAdapter = ContributionsEntryItemAdapter()
 
     private var allContributions = ArrayList<Contribution>()
@@ -356,9 +357,9 @@ class EditsContributionsFragment : Fragment(), EditsContributionsHeaderView.Call
         errorView.visibility = VISIBLE
     }
 
-    private inner class HeaderViewHolder internal constructor(itemView: EditsContributionsHeaderView) : DefaultViewHolder<EditsContributionsHeaderView?>(itemView) {
+    private inner class HeaderViewHolder internal constructor(itemView: ContributionsHeaderView) : DefaultViewHolder<ContributionsHeaderView?>(itemView) {
         fun bindItem() {
-            view.callback = this@EditsContributionsFragment
+            view.callback = this@ContributionsFragment
             view.updateFilterViewUI(editFilterType, totalContributionCount)
             view.updateTotalPageViews(totalPageViews)
         }
@@ -376,7 +377,7 @@ class EditsContributionsFragment : Fragment(), EditsContributionsHeaderView.Call
         }
     }
 
-    private inner class ContributionItemHolder internal constructor(itemView: EditsContributionsItemView) : DefaultViewHolder<EditsContributionsItemView?>(itemView) {
+    private inner class ContributionItemHolder internal constructor(itemView: ContributionsItemView) : DefaultViewHolder<ContributionsItemView?>(itemView) {
         val disposables = CompositeDisposable()
         fun bindItem(contribution: Contribution) {
             view.contribution = contribution
@@ -398,7 +399,7 @@ class EditsContributionsFragment : Fragment(), EditsContributionsHeaderView.Call
             disposables.clear()
         }
 
-        private fun getContributionDetails(itemView: EditsContributionsItemView, contribution: Contribution) {
+        private fun getContributionDetails(itemView: ContributionsItemView, contribution: Contribution) {
             if (contribution.editType == EDIT_TYPE_ARTICLE_DESCRIPTION && contribution.title.isNotEmpty() && !contribution.title.matches(qNumberRegex)) {
                 disposables.add(ServiceFactory.getRest(contribution.wikiSite).getSummary(null, contribution.title)
                         .subscribeOn(Schedulers.io())
@@ -448,7 +449,7 @@ class EditsContributionsFragment : Fragment(), EditsContributionsHeaderView.Call
             }
         }
 
-        private fun getPageViews(view: EditsContributionsItemView, contribution: Contribution) {
+        private fun getPageViews(view: ContributionsItemView, contribution: Contribution) {
             if (contribution.editType != EDIT_TYPE_ARTICLE_DESCRIPTION || contribution.title.matches(qNumberRegex)) {
                 view.setPageViewCountText(0)
                 return
@@ -494,14 +495,14 @@ class EditsContributionsFragment : Fragment(), EditsContributionsHeaderView.Call
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DefaultViewHolder<*> {
             return when (viewType) {
                 VIEW_TYPE_HEADER -> {
-                    HeaderViewHolder(EditsContributionsHeaderView(parent.context))
+                    HeaderViewHolder(ContributionsHeaderView(parent.context))
                 }
                 VIEW_TYPE_DATE -> {
                     val view = LayoutInflater.from(parent.context).inflate(R.layout.view_section_header, parent, false)
                     DateViewHolder(view)
                 }
                 else -> {
-                    ContributionItemHolder(EditsContributionsItemView(parent.context))
+                    ContributionItemHolder(ContributionsItemView(parent.context))
                 }
             }
         }
@@ -548,7 +549,7 @@ class EditsContributionsFragment : Fragment(), EditsContributionsHeaderView.Call
                 EDIT_TYPE_IMAGE_TAG -> UserContributionFunnel.get().logViewTag()
                 else -> UserContributionFunnel.get().logViewMisc()
             }
-            context.startActivity(EditsContributionDetailsActivity.newIntent(context, contribution))
+            context.startActivity(ContributionDetailsActivity.newIntent(context, contribution))
         }
     }
 
@@ -559,8 +560,8 @@ class EditsContributionsFragment : Fragment(), EditsContributionsHeaderView.Call
 
         private const val DEPICTS_META_STR = "add-depicts:"
 
-        fun newInstance(): EditsContributionsFragment {
-            return EditsContributionsFragment()
+        fun newInstance(): ContributionsFragment {
+            return ContributionsFragment()
         }
     }
 }

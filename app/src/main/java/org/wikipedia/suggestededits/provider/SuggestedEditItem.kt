@@ -1,10 +1,10 @@
-package org.wikipedia.edits.provider
+package org.wikipedia.suggestededits.provider
 
 import com.google.gson.annotations.SerializedName
 import org.wikipedia.dataclient.wikidata.Entities
 import org.wikipedia.gallery.GalleryItem
 
-class EditItem {
+class SuggestedEditItem {
     private val pageid: Int = 0
     private val ns: Int = 0
     private val title: String? = null

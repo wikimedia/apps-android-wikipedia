@@ -1,4 +1,4 @@
-package org.wikipedia.edits.provider
+package org.wikipedia.suggestededits.provider
 
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.functions.BiFunction

@@ -1,4 +1,4 @@
-package org.wikipedia.edits
+package org.wikipedia.suggestededits
 
 import android.content.Context
 import android.content.Intent
@@ -9,10 +9,10 @@ import org.wikipedia.R
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.descriptions.DescriptionEditActivity.Action
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
-import org.wikipedia.edits.EditsCardsFragment.Companion.newInstance
+import org.wikipedia.suggestededits.EditsCardsFragment.Companion.newInstance
 import org.wikipedia.views.ImageZoomHelper
 
-class EditsCardsActivity : SingleFragmentActivity<EditsCardsFragment>() {
+class SuggestionsActivity : SingleFragmentActivity<EditsCardsFragment>() {
 
     private lateinit var imageZoomHelper: ImageZoomHelper
 
@@ -57,7 +57,7 @@ class EditsCardsActivity : SingleFragmentActivity<EditsCardsFragment>() {
         const val EXTRA_SOURCE_ADDED_CONTRIBUTION = "addedContribution"
 
         fun newIntent(context: Context, action: Action): Intent {
-            return Intent(context, EditsCardsActivity::class.java).putExtra(INTENT_EXTRA_ACTION, action)
+            return Intent(context, SuggestionsActivity::class.java).putExtra(INTENT_EXTRA_ACTION, action)
         }
     }
 }

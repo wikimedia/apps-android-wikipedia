@@ -7,7 +7,7 @@ import org.wikipedia.history.HistoryFragment
 import org.wikipedia.model.EnumCode
 import org.wikipedia.model.EnumCodeMap
 import org.wikipedia.readinglist.ReadingListsFragment
-import org.wikipedia.edits.EditsTasksFragment
+import org.wikipedia.suggestededits.EditsTasksFragment
 
 enum class NavTab constructor(private val text: Int, private val icon: Int) : EnumCode {
     EXPLORE(R.string.nav_item_feed, R.drawable.ic_globe) {

@@ -20,7 +20,7 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.richtext.RichTextUtil
-import org.wikipedia.edits.EditsSummary
+import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
@@ -37,7 +37,7 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
         layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
     }
 
-    fun setup(summary: EditsSummary,
+    fun setup(summaryForEdit: PageSummaryForEdit,
               imageTags: Map<String, List<String>>,
               containerWidth: Int,
               thumbWidth: Int,
@@ -47,36 +47,36 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
               showEditButton: Boolean,
               action: DescriptionEditActivity.Action? = null) {
 
-        loadImage(summary, containerWidth, thumbWidth, thumbHeight)
+        loadImage(summaryForEdit, containerWidth, thumbWidth, thumbHeight)
 
         if (showFilename) {
             filenameView.visibility = View.VISIBLE
             filenameView.titleText.text = context.getString(R.string.suggested_edits_image_preview_dialog_file)
             filenameView.titleText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16f)
-            filenameView.contentText.text = StringUtil.removeNamespace(summary.displayTitle!!)
+            filenameView.contentText.text = StringUtil.removeNamespace(summaryForEdit.displayTitle!!)
             filenameView.contentText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 24f)
             filenameView.divider.visibility = View.GONE
         }
 
         detailsContainer.removeAllViews()
-        if ((action == DescriptionEditActivity.Action.ADD_CAPTION || action == null) && summary.pageTitle.description.isNullOrEmpty()) {
+        if ((action == DescriptionEditActivity.Action.ADD_CAPTION || action == null) && summaryForEdit.pageTitle.description.isNullOrEmpty()) {
             // Show the image description when a structured caption does not exist.
-            addDetail(context.getString(R.string.suggested_edits_image_preview_dialog_description_in_language_title, getProperLanguageLocalizedName(summary, imageFromCommons)),
-                    summary.description, if (showEditButton) editButtonOnClickListener(summary) else null)
+            addDetail(context.getString(R.string.suggested_edits_image_preview_dialog_description_in_language_title, getProperLanguageLocalizedName(summaryForEdit, imageFromCommons)),
+                    summaryForEdit.description, if (showEditButton) editButtonOnClickListener(summaryForEdit) else null)
         } else {
-            addDetail(context.getString(R.string.suggested_edits_image_preview_dialog_caption_in_language_title, getProperLanguageLocalizedName(summary, imageFromCommons)),
-                    if (summary.pageTitle.description.isNullOrEmpty()) summary.description
-                    else summary.pageTitle.description, if (showEditButton) editButtonOnClickListener(summary) else null)
+            addDetail(context.getString(R.string.suggested_edits_image_preview_dialog_caption_in_language_title, getProperLanguageLocalizedName(summaryForEdit, imageFromCommons)),
+                    if (summaryForEdit.pageTitle.description.isNullOrEmpty()) summaryForEdit.description
+                    else summaryForEdit.pageTitle.description, if (showEditButton) editButtonOnClickListener(summaryForEdit) else null)
         }
-        addDetail(context.getString(R.string.suggested_edits_image_preview_dialog_artist), summary.metadata!!.artist())
-        addDetail(context.getString(R.string.suggested_edits_image_preview_dialog_tags), getImageTags(imageTags, summary.lang))
-        addDetail(context.getString(R.string.suggested_edits_image_preview_dialog_date), summary.metadata!!.dateTime())
-        addDetail(context.getString(R.string.suggested_edits_image_preview_dialog_source), summary.metadata!!.credit())
-        addDetail(true, context.getString(R.string.suggested_edits_image_preview_dialog_licensing), summary.metadata!!.licenseShortName(), summary.metadata!!.licenseUrl())
+        addDetail(context.getString(R.string.suggested_edits_image_preview_dialog_artist), summaryForEdit.metadata!!.artist())
+        addDetail(context.getString(R.string.suggested_edits_image_preview_dialog_tags), getImageTags(imageTags, summaryForEdit.lang))
+        addDetail(context.getString(R.string.suggested_edits_image_preview_dialog_date), summaryForEdit.metadata!!.dateTime())
+        addDetail(context.getString(R.string.suggested_edits_image_preview_dialog_source), summaryForEdit.metadata!!.credit())
+        addDetail(true, context.getString(R.string.suggested_edits_image_preview_dialog_licensing), summaryForEdit.metadata!!.licenseShortName(), summaryForEdit.metadata!!.licenseUrl())
         if (imageFromCommons) {
-            addDetail(false, context.getString(R.string.suggested_edits_image_preview_dialog_more_info), context.getString(R.string.suggested_edits_image_preview_dialog_file_page_link_text), context.getString(R.string.suggested_edits_image_file_page_commons_link, summary.title))
+            addDetail(false, context.getString(R.string.suggested_edits_image_preview_dialog_more_info), context.getString(R.string.suggested_edits_image_preview_dialog_file_page_link_text), context.getString(R.string.suggested_edits_image_file_page_commons_link, summaryForEdit.title))
         } else {
-            addDetail(false, context.getString(R.string.suggested_edits_image_preview_dialog_more_info), context.getString(R.string.suggested_edits_image_preview_dialog_file_page_wikipedia_link_text), summary.pageTitle.uri)
+            addDetail(false, context.getString(R.string.suggested_edits_image_preview_dialog_more_info), context.getString(R.string.suggested_edits_image_preview_dialog_file_page_wikipedia_link_text), summaryForEdit.pageTitle.uri)
         }
         requestLayout()
     }
@@ -89,25 +89,25 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
         }
     }
 
-    private fun getProperLanguageLocalizedName(summary: EditsSummary, imageFromCommons: Boolean): String? {
-        var appLanguageLocalizedName = WikipediaApp.getInstance().language().getAppLanguageLocalizedName(summary.lang)
-        if (!imageFromCommons || summary.lang == "commons") {
+    private fun getProperLanguageLocalizedName(summaryForEdit: PageSummaryForEdit, imageFromCommons: Boolean): String? {
+        var appLanguageLocalizedName = WikipediaApp.getInstance().language().getAppLanguageLocalizedName(summaryForEdit.lang)
+        if (!imageFromCommons || summaryForEdit.lang == "commons") {
             // the getAppLanguageLocalizedName() will return "null" when it receiving "commons"
             appLanguageLocalizedName = WikipediaApp.getInstance().language().getAppLanguageLocalizedName(WikipediaApp.getInstance().language().appLanguageCode)
         }
         return appLanguageLocalizedName
     }
 
-    private fun loadImage(summary: EditsSummary, containerWidth: Int, thumbWidth: Int, thumbHeight: Int) {
+    private fun loadImage(summaryForEdit: PageSummaryForEdit, containerWidth: Int, thumbWidth: Int, thumbHeight: Int) {
         ImageZoomHelper.setViewZoomable(imageView)
-        ViewUtil.loadImage(imageView, ImageUrlUtil.getUrlForPreferredSize(summary.thumbnailUrl!!, Constants.PREFERRED_GALLERY_IMAGE_SIZE))
+        ViewUtil.loadImage(imageView, ImageUrlUtil.getUrlForPreferredSize(summaryForEdit.thumbnailUrl!!, Constants.PREFERRED_GALLERY_IMAGE_SIZE))
         imageViewPlaceholder.layoutParams = LayoutParams(containerWidth, adjustImagePlaceholderHeight(containerWidth.toFloat(), thumbWidth.toFloat(), thumbHeight.toFloat()))
     }
 
-    private fun editButtonOnClickListener(summary: EditsSummary): OnClickListener {
+    private fun editButtonOnClickListener(summaryForEdit: PageSummaryForEdit): OnClickListener {
         return OnClickListener {
             startActivity(context, DescriptionEditActivity.newIntent(context,
-                    summary.pageTitle, null, summary, null,
+                    summaryForEdit.pageTitle, null, summaryForEdit, null,
                     DescriptionEditActivity.Action.ADD_CAPTION, InvokeSource.FILE_PAGE_ACTIVITY
             ), null)
         }

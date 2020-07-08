@@ -1,4 +1,4 @@
-package org.wikipedia.edits
+package org.wikipedia.userprofile
 
 import android.os.Bundle
 import android.view.Gravity
@@ -14,10 +14,10 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.UserContributionFunnel
 import org.wikipedia.commons.FilePageActivity
-import org.wikipedia.edits.Contribution.Companion.EDIT_TYPE_ARTICLE_DESCRIPTION
-import org.wikipedia.edits.Contribution.Companion.EDIT_TYPE_IMAGE_CAPTION
-import org.wikipedia.edits.Contribution.Companion.EDIT_TYPE_IMAGE_TAG
-import org.wikipedia.edits.EditsContributionDetailsActivity.Companion.EXTRA_SOURCE_CONTRIBUTION
+import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_ARTICLE_DESCRIPTION
+import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_IMAGE_CAPTION
+import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_IMAGE_TAG
+import org.wikipedia.userprofile.ContributionDetailsActivity.Companion.EXTRA_SOURCE_CONTRIBUTION
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.json.GsonUnmarshaller
 import org.wikipedia.page.PageActivity
@@ -29,7 +29,7 @@ import org.wikipedia.util.StringUtil
 import org.wikipedia.views.ViewUtil
 import kotlin.math.abs
 
-class EditsContributionDetailsFragment : Fragment() {
+class ContributionDetailsFragment : Fragment() {
     private lateinit var contribution: Contribution
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -60,7 +60,7 @@ class EditsContributionDetailsFragment : Fragment() {
         topView.background = GradientUtil.getPowerGradientInt(headerColor, Gravity.TOP)
         contributionDiffIndicatorLine.setBackgroundColor(color)
         contributionDiffText.setTextColor(color)
-        (requireActivity() as EditsContributionDetailsActivity).updateStatusBarColor(headerColor)
+        (requireActivity() as ContributionDetailsActivity).updateStatusBarColor(headerColor)
     }
 
     private fun setUpContributionDetails() {
@@ -127,8 +127,8 @@ class EditsContributionDetailsFragment : Fragment() {
     }
 
     companion object {
-        fun newInstance(): EditsContributionDetailsFragment {
-            return EditsContributionDetailsFragment()
+        fun newInstance(): ContributionDetailsFragment {
+            return ContributionDetailsFragment()
         }
     }
 }

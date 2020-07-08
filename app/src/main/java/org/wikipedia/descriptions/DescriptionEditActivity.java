@@ -10,7 +10,7 @@ import androidx.annotation.Nullable;
 import org.wikipedia.R;
 import org.wikipedia.activity.SingleFragmentActivity;
 import org.wikipedia.analytics.SuggestedEditsFunnel;
-import org.wikipedia.edits.EditsSummary;
+import org.wikipedia.suggestededits.PageSummaryForEdit;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.json.GsonMarshaller;
 import org.wikipedia.json.GsonUnmarshaller;
@@ -55,8 +55,8 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
     public static Intent newIntent(@NonNull Context context,
                                    @NonNull PageTitle title,
                                    @Nullable String highlightText,
-                                   @Nullable EditsSummary sourceSummary,
-                                   @Nullable EditsSummary targetSummary,
+                                   @Nullable PageSummaryForEdit sourceSummary,
+                                   @Nullable PageSummaryForEdit targetSummary,
                                    @NonNull Action action,
                                    @NonNull InvokeSource invokeSource) {
         return new Intent(context, DescriptionEditActivity.class)
@@ -76,12 +76,12 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
 
     @Override
     public void onBottomBarContainerClicked(@NonNull Action action) {
-        EditsSummary summary;
+        PageSummaryForEdit summary;
 
         if (action == TRANSLATE_DESCRIPTION) {
-            summary = GsonUnmarshaller.unmarshal(EditsSummary.class, getIntent().getStringExtra(EXTRA_TARGET_SUMMARY));
+            summary = GsonUnmarshaller.unmarshal(PageSummaryForEdit.class, getIntent().getStringExtra(EXTRA_TARGET_SUMMARY));
         } else {
-            summary = GsonUnmarshaller.unmarshal(EditsSummary.class, getIntent().getStringExtra(EXTRA_SOURCE_SUMMARY));
+            summary = GsonUnmarshaller.unmarshal(PageSummaryForEdit.class, getIntent().getStringExtra(EXTRA_SOURCE_SUMMARY));
         }
 
         if (action == ADD_CAPTION || action == TRANSLATE_CAPTION) {

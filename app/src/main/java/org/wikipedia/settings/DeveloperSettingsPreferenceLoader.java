@@ -13,7 +13,7 @@ import androidx.preference.TwoStatePreference;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.edits.provider.MissingDescriptionProvider;
+import org.wikipedia.suggestededits.provider.MissingDescriptionProvider;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver;
 import org.wikipedia.page.PageActivity;

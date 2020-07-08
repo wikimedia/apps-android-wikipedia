@@ -150,22 +150,22 @@
                 </LinearLayout>
             </LinearLayout>
 
-            <org.wikipedia.edits.EditsDiffDetailView
+            <org.wikipedia.suggestededits.EditsDiffDetailView
                 android:id="@+id/pageViewsDetailView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
-            <org.wikipedia.edits.EditsDiffDetailView
+            <org.wikipedia.suggestededits.EditsDiffDetailView
                 android:id="@+id/typeDetailView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
-            <org.wikipedia.edits.EditsDiffDetailView
+            <org.wikipedia.suggestededits.EditsDiffDetailView
                 android:id="@+id/dateTimeDetailView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
-            <org.wikipedia.edits.EditsDiffDetailView
+            <org.wikipedia.suggestededits.EditsDiffDetailView
                 android:id="@+id/languageDetailView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />

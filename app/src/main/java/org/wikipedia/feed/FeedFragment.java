@@ -29,8 +29,8 @@ import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.FeedFunnel;
 import org.wikipedia.analytics.SuggestedEditsFunnel;
 import org.wikipedia.descriptions.DescriptionEditActivity;
-import org.wikipedia.edits.EditsImageTagsOnboardingActivity;
-import org.wikipedia.edits.SuggestedEditsFeedCardImageTagActivity;
+import org.wikipedia.suggestededits.EditsImageTagsOnboardingActivity;
+import org.wikipedia.suggestededits.SuggestedEditsFeedCardImageTagActivity;
 import org.wikipedia.feed.configure.ConfigureActivity;
 import org.wikipedia.feed.configure.ConfigureItemLanguageDialogView;
 import org.wikipedia.feed.configure.LanguageItemAdapter;
@@ -266,10 +266,10 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
             return;
         }
         PageTitle pageTitle = (action == TRANSLATE_DESCRIPTION || action == TRANSLATE_CAPTION)
-                ? suggestedEditsCardView.getCard().getTargetSummary().getPageTitle()
-                : suggestedEditsCardView.getCard().getSourceSummary().getPageTitle();
+                ? suggestedEditsCardView.getCard().getTargetSummaryForEdit().getPageTitle()
+                : suggestedEditsCardView.getCard().getSourceSummaryForEdit().getPageTitle();
         startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), pageTitle, null,
-                suggestedEditsCardView.getCard().getSourceSummary(), suggestedEditsCardView.getCard().getTargetSummary(),
+                suggestedEditsCardView.getCard().getSourceSummaryForEdit(), suggestedEditsCardView.getCard().getTargetSummaryForEdit(),
                 action, FEED),
                 ACTIVITY_REQUEST_DESCRIPTION_EDIT);
     }

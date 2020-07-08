@@ -19,14 +19,14 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.dataclient.mwapi.media.MediaHelper.getImageCaptions
 import org.wikipedia.page.PageTitle
-import org.wikipedia.edits.EditsSummary
+import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 
 class FilePageFragment : Fragment() {
     private lateinit var pageTitle: PageTitle
-    private lateinit var editsSummary: EditsSummary
+    private lateinit var pageSummaryForEdit: PageSummaryForEdit
     private val disposables = CompositeDisposable()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -96,7 +96,7 @@ class FilePageFragment : Fragment() {
                 .flatMap {
                     val page = it.query()!!.pages()!![0]
                     val imageInfo = page.imageInfo()!!
-                    editsSummary =  EditsSummary(
+                    pageSummaryForEdit =  PageSummaryForEdit(
                             pageTitle.prefixedText,
                             pageTitle.wikiSite.languageCode(),
                             pageTitle,
@@ -110,7 +110,7 @@ class FilePageFragment : Fragment() {
                     )
                     thumbnailHeight = imageInfo.thumbHeight
                     thumbnailWidth = imageInfo.thumbWidth
-                    ImageTagsProvider.getImageTagsObservable(page.pageId(), editsSummary.lang)
+                    ImageTagsProvider.getImageTagsObservable(page.pageId(), pageSummaryForEdit.lang)
                 }
                 .flatMap {
                     imageTags = it
@@ -122,7 +122,7 @@ class FilePageFragment : Fragment() {
                     filePageView.visibility = View.VISIBLE
                     progressBar.visibility = View.GONE
                     filePageView.setup(
-                            editsSummary,
+                            pageSummaryForEdit,
                             imageTags,
                             container.width,
                             thumbnailWidth,

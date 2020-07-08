@@ -130,7 +130,7 @@
             android:theme="@style/AppTheme.ActionBar.LanguagesList"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
         <activity
-            android:name=".edits.EditsCardsActivity"
+            android:name=".suggestededits.SuggestionsActivity"
             android:launchMode="singleTask"
             android:windowSoftInputMode="adjustPan"
             android:theme="@style/AppTheme.ActionBar.NoElevation" />
@@ -237,20 +237,20 @@
             android:name=".page.tabs.TabActivity"
             android:theme="@style/AppTheme" />
 
-        <activity android:name=".edits.EditsImageTagsOnboardingActivity" />
+        <activity android:name=".suggestededits.EditsImageTagsOnboardingActivity" />
 
         <activity
-            android:name=".edits.SuggestedEditsFeedCardImageTagActivity"
+            android:name=".suggestededits.SuggestedEditsFeedCardImageTagActivity"
             android:theme="@style/AppTheme.ActionBar.NoElevation" />
 
         <activity
-            android:name=".edits.EditsContributionsActivity"
+            android:name=".userprofile.ContributionsActivity"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
             android:label=""
             android:theme="@style/AppTheme.ActionBar" />
 
         <activity
-            android:name=".edits.EditsContributionDetailsActivity"
+            android:name=".userprofile.ContributionDetailsActivity"
             android:theme="@style/AppTheme.Page" />
 
          <activity

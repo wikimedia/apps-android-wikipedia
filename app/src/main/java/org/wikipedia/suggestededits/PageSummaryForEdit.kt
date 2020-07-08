@@ -1,11 +1,11 @@
-package org.wikipedia.edits
+package org.wikipedia.suggestededits
 
 import org.wikipedia.Constants
 import org.wikipedia.gallery.ExtMetadata
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.ImageUrlUtil
 
-data class EditsSummary(
+data class PageSummaryForEdit(
         var title: String,
         var lang: String,
         var pageTitle: PageTitle,

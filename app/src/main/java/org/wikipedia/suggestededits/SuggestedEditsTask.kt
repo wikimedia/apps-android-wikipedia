@@ -1,8 +1,8 @@
-package org.wikipedia.edits
+package org.wikipedia.suggestededits
 
 import androidx.annotation.DrawableRes
 
-class EditsTask {
+class SuggestedEditsTask {
     var title: String? = null
     var description: String? = null
     var disabled: Boolean = false
