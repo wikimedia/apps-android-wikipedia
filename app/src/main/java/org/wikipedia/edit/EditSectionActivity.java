@@ -376,11 +376,10 @@ public class EditSectionActivity extends BaseActivity {
         showProgressBar(false);
         if (caught instanceof MwException) {
             handleEditingException((MwException) caught);
-            L.e(caught);
         } else {
             showRetryDialog(caught);
-            L.e(caught);
         }
+        L.e(caught);
     }
 
     private void showRetryDialog(@NonNull Throwable t) {
