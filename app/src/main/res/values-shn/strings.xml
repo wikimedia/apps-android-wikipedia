@@ -417,7 +417,6 @@
   <string name="split_reading_list_message">တီႈသဵၼ်ႈမၢႆလူၼိုင်ႈဢၼ်ၼႆ့ မီးဝႆႉ လွင်ႈမၵ်းၶၢၼ်း ပွင်ႈၵႂၢမ်း %d။ လွင်ႈမၵ်းၶၢၼ်း တီႈ သဵၼ်ႈမၢႆယၢမ်းလဵဝ်ၼႆႉ ထုၵ်ႇၸႅၵ်ႇပဵၼ် သဵၼ်ႈမၢႆလၢႆဢၼ်ဝႆႉယဝ်ႉ။</string>
   <string name="reading_list_article_limit_message">ဢမ်ႇၸၢင်ႈဢဝ် ထႅမ်သႂ်ႇၸူး သဵၼ်ႈမၢႆဢၼ်ၼႆႉ။ ၸဝ်ႈၵဝ်ႇႁွတ်ႈထိုင် လွင်ႈမၵ်းၶၢၼ်ႈ သဵၼ်ႈမၢႆပွင်ႈၵႂၢမ်း %2$d တွၼ်ႈတႃႇ \"%1$s\"။</string>
   <string name="reading_lists_limit_message">ဢမ်ႇၸၢင်ႈၵေႃႇသၢင်ႈ သဵၼ်ႈမၢႆတၢင်ႇဢၼ်။ ၸဝ်ႈၵဝ်ႇႁွတ်ႈၽႅဝ်ဝႆႉ လွင်ႈမၵ်းၶၢၼ်း သဵၼ်ႈမၢႆလူ ၼႂ်းၵႃႈ 100 တွၼ်ႈတႃႇ ဢၶွင်ႉၼိုင်ႈဢၼ်ၼၼ်ႉယဝ်ႉ။</string>
-  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;ၶူၼ်းၽဵင်ႇ သဵၼ်ႈမၢႆလူ&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;သဵၼ်ႈမၢႆလူ ၸၢင်ႈၶူၼ်းၽဵင်ႇ ၼႂ်းၵႄႈၶိူင်ႈၸႂ်ႉလၢႆႇဢၼ်ယဝ်ႉ။ ၶဝ်ႈလွၵ်ႉဢိၼ်ႇၸူး ဢၶွင်ႉ ဝီႇၶီႇၽီးတီးယႃးၸဝ်ႈၵဝ်ႇသေ ၶႂၢင်းပၼ်တွၼ်ႈတႃႇ သိမ်းပၼ်သဵၼ်ႈမၢႆၸဝ်ႈၵဝ်ႇလႄႈ။</string>
   <string name="reading_lists_menu_create_list">ၵေႃႇသၢင်ႈ သဵၼ်ႈမၢႆမႂ်ႇ</string>
   <string name="reading_lists_menu_sort_by">ၶပ်ႉၼင်ႇ</string>
   <string name="reading_lists_refresh_sync_option">ၽႅတ်းၶိုၼ်း ၶူၼ်းၽင်ႇ</string>

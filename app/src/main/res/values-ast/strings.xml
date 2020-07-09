@@ -438,7 +438,6 @@
   <string name="split_reading_list_message">Hai una llende de %d artículos per llista de llectura. Les llistes que superaben esta llende xebráronse en delles llistes.</string>
   <string name="reading_list_article_limit_message">Nun pueden añadise elementos a esta llista. Algamóse la llende de %2$d artículos per llista pa «%1$s».</string>
   <string name="reading_lists_limit_message">Nun puedes crear otra llista. Algamasti la llende de 100 llistes de llectura per cuenta.</string>
-  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Sincronizar llistes de llectura&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Les llistes de llectura agora pueden sincronizase ente preseos. Anicia sesión cola to cuenta de Wikipedia y permite guardar les llistes.</string>
   <string name="reading_lists_menu_create_list">Crear una llista nueva</string>
   <string name="reading_lists_menu_sort_by">Ordenar por</string>
   <string name="reading_lists_refresh_sync_option">Anovar sincronización</string>

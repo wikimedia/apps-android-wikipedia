@@ -441,7 +441,6 @@
   <string name="split_reading_list_message">Има ограничение от %d статии на списък за четене. Съществуващите списъци с повече от това ограничение бяха разделени на няколко списъка.</string>
   <string name="reading_list_article_limit_message">Не може да бъде добавено към този списък. Достигнали сте ограничението от %2$d статии на списък за „%1$s“.</string>
   <string name="reading_lists_limit_message">Не може да бъде създаден друг списък. Достигнали сте ограничението от 100 списъка за четене на сметка.</string>
-  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Синхронизиране на списъци за четене&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt; Списъците за четене вече могат да се синхронизират между устройства. Влезте в сметката си в Уикипедия, за да позволите съхранението на списъците си.</string>
   <string name="reading_lists_menu_create_list">Създаване на нов списък</string>
   <string name="reading_lists_menu_sort_by">Подреждане по</string>
   <string name="reading_lists_refresh_sync_option">Обновяване на синхронизацията</string>

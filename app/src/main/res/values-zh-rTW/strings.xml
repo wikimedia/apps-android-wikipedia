@@ -465,7 +465,6 @@
   <string name="reading_list_move_article_limit_message">無法添加至此清單。您已達到在「%1$s」方面各清單的最多 %2$d 個條目上限。</string>
   <string name="reading_list_article_limit_message">無法添加至此清單。您已達到在「%1$s」方面各清單的最多 %2$d 個條目上限。</string>
   <string name="reading_lists_limit_message">無法建立其它清單。您已達到各使用者的最多 100 個閱讀清單上限。</string>
-  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;同步閱讀清單&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;閱讀清單現已具有跨裝置同步的功能。登入您的維基百科帳號，來允許儲存您的清單。</string>
   <string name="reading_lists_menu_create_list">建立新清單</string>
   <string name="reading_lists_menu_sort_by">排序依</string>
   <string name="reading_lists_refresh_sync_option">重整同步</string>

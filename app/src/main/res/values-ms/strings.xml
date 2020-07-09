@@ -451,7 +451,6 @@
   <string name="reading_list_move_article_limit_message">Tidak dapat memindah ke senarai ini. Anda telah mencapai had %2$d rencana per senarai bagi %1$s.</string>
   <string name="reading_list_article_limit_message">Tidak dapat menambah ke senarai ini. Anda telah mencapai had %2$d rencanabagi setiap senarai untuk senarai \"%1$s\".</string>
   <string name="reading_lists_limit_message">Tidak dapat membuat senarai lain. Anda telah mencapai had 100 senarai bacaan setiap akaun.</string>
-  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Segerakkan senarai bacaan&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Senarai bacaan kini boleh disegerakkan merentas peranti. Masuk ke akaun Wikipedia anda dan izinkan senarai anda disimpan.</string>
   <string name="reading_lists_menu_create_list">Cipta senarai baru</string>
   <string name="reading_lists_menu_sort_by">Isih mengikut</string>
   <string name="reading_lists_refresh_sync_option">Segarkan semula penyegerakan</string>
