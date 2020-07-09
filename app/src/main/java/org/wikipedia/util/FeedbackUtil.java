@@ -16,10 +16,16 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.LifecycleOwner;
 
 import com.getkeepsafe.taptargetview.TapTarget;
 import com.getkeepsafe.taptargetview.TapTargetView;
 import com.google.android.material.snackbar.Snackbar;
+import com.skydoves.balloon.ArrowConstraints;
+import com.skydoves.balloon.ArrowOrientation;
+import com.skydoves.balloon.Balloon;
+import com.skydoves.balloon.BalloonAnimation;
+import com.skydoves.balloon.OnBalloonClickListener;
 
 import org.wikipedia.R;
 import org.wikipedia.analytics.SuggestedEditsFunnel;
@@ -171,6 +177,28 @@ public final class FeedbackUtil {
         toast.setGravity(Gravity.TOP | Gravity.START, location[0], location[1]);
         toast.show();
         return toast;
+    }
+
+    @SuppressWarnings("checkstyle:magicnumber")
+    public static Balloon showTooltipBubble(Context context, CharSequence text, OnBalloonClickListener onBalloonClickListener, Activity lifecycleOwner) {
+        return new Balloon.Builder(context)
+                .setArrowSize(10)
+                .setArrowOrientation(ArrowOrientation.TOP)
+                .setArrowConstraints(ArrowConstraints.ALIGN_ANCHOR)
+                .setArrowPosition(0.5f)
+                .setArrowVisible(true)
+                .setWidthRatio(0.5f)
+                .setHeight(65)
+                .setTextSize(15f)
+                .setCornerRadius(4f)
+                .setAlpha(0.9f)
+                .setText(text)
+                .setTextColor(ResourceUtil.getThemedColor(context, R.attr.material_theme_primary_color))
+                .setTextIsHtml(true)
+                .setBackgroundColor(ResourceUtil.getThemedColor(context, R.attr.paper_color))
+                .setBalloonAnimation(BalloonAnimation.FADE)
+                .setLifecycleOwner((LifecycleOwner) lifecycleOwner)
+                .build();
     }
 
     private static View findBestView(Activity activity) {

@@ -9,6 +9,7 @@ import android.view.View.VISIBLE
 import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.skydoves.balloon.showAlignTop
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -100,6 +101,11 @@ class SuggestedEditsTasksFragment : Fragment() {
         tasksRecyclerView.adapter = RecyclerAdapter(displayedTasks)
 
         clearContents()
+        setUpTooltips()
+    }
+
+    private fun setUpTooltips() {
+        editQualityStatsView.showAlignTop(FeedbackUtil.showTooltipBubble(context,"Edit quality",null,activity))
     }
 
     override fun onPause() {
