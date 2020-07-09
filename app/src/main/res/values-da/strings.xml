@@ -430,7 +430,6 @@
   <string name="split_reading_list_message">Der er en begrænsning på %d artikler per læseliste. Eksisterende lister med mere end denne begrænsning er blevet delt i flere lister.</string>
   <string name="reading_list_article_limit_message">Kan ikke tilføje til denne liste. Du har nået begrænsningen på %2$d artikler per liste for »%1$s«.</string>
   <string name="reading_lists_limit_message">Kan ikke oprette en anden liste. Du har nået begrænsningen på 100 læselister per konto.</string>
-  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Synkroniser læselister&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Læselister kan nu synkroniseres på tværs af enheder. Log ind på din Wikipediakonto og tillad at dine lister gemmes.</string>
   <string name="reading_lists_menu_create_list">Opret ny liste</string>
   <string name="reading_lists_menu_sort_by">Sorter efter</string>
   <string name="reading_lists_refresh_sync_option">Opdater synkronisering</string>
