@@ -215,21 +215,21 @@ public interface Service {
     @FormUrlEncoded
     @POST(MW_API_PREFIX + "action=parse&prop=text&sectionpreview=&pst=&mobileformat=")
     @NonNull Observable<EditPreview> postEditPreview(@NonNull @Field("title") String title,
-                                               @NonNull @Field("text") String text);
+                                                     @NonNull @Field("text") String text);
 
     @FormUrlEncoded
     @Headers("Cache-Control: no-cache")
     @POST(MW_API_PREFIX + "action=edit&nocreate=")
     @SuppressWarnings("checkstyle:parameternumber")
-    @NonNull Call<Edit> postEditSubmit(@NonNull @Field("title") String title,
-                                       @Field("section") int section,
-                                       @NonNull @Field("summary") String summary,
-                                       @Nullable @Field("assert") String user,
-                                       @NonNull @Field("text") String text,
-                                       @Nullable @Field("basetimestamp") String baseTimeStamp,
-                                       @NonNull @Field("token") String token,
-                                       @Nullable @Field("captchaid") String captchaId,
-                                       @Nullable @Field("captchaword") String captchaWord);
+    @NonNull Observable<Edit> postEditSubmit(@NonNull @Field("title") String title,
+                                             @Field("section") int section,
+                                             @NonNull @Field("summary") String summary,
+                                             @Nullable @Field("assert") String user,
+                                             @NonNull @Field("text") String text,
+                                             @Nullable @Field("basetimestamp") String baseTimeStamp,
+                                             @NonNull @Field("token") String token,
+                                             @Nullable @Field("captchaid") String captchaId,
+                                             @Nullable @Field("captchaword") String captchaWord);
 
     @GET(MW_API_PREFIX + "action=query&list=usercontribs&ucprop=ids|title|timestamp|comment|size|flags|sizediff|tags&meta=userinfo&uiprop=groups|blockinfo|editcount|latestcontrib")
     @NonNull Observable<MwQueryResponse> getUserContributions(@NonNull @Query("ucuser") String username, @Query("uclimit") int maxCount, @Query("uccontinue") String uccontinue);
