@@ -13,21 +13,19 @@ import android.media.FaceDetector;
 import android.net.Uri;
 import android.util.AttributeSet;
 
-import androidx.annotation.ColorInt;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatImageView;
-import androidx.core.content.ContextCompat;
-import androidx.palette.graphics.Palette;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.RequestBuilder;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.bumptech.glide.load.resource.bitmap.BitmapTransformation;
 import com.bumptech.glide.load.resource.bitmap.DownsampleStrategy;
 import com.bumptech.glide.load.resource.bitmap.TransformationUtils;
 
-import org.wikipedia.R;
+import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.MathUtil;
@@ -69,17 +67,29 @@ public class FaceAndColorDetectImageView extends AppCompatImageView {
             setImageDrawable(placeholder);
             return;
         }
-        Glide.with(this)
+        RequestBuilder<Drawable> builder = Glide.with(this)
                 .load(uri)
                 .placeholder(placeholder)
                 .error(placeholder)
-                .downsample(DownsampleStrategy.CENTER_INSIDE)
-                .transform(FACE_DETECT_TRANSFORM)
-                .into(this);
+                .downsample(DownsampleStrategy.CENTER_INSIDE);
+
+        if (shouldDetectFace(uri)) {
+            builder = builder.transform(FACE_DETECT_TRANSFORM);
+        } else {
+            builder = builder.centerCrop();
+        }
+
+        builder.into(this);
     }
 
     public void loadImage(@DrawableRes int id) {
         this.setImageResource(id);
+    }
+
+    private static boolean shouldDetectFace(@NonNull Uri uri) {
+        // TODO: not perfect; should ideally detect based on MIME type.
+        String path = StringUtils.defaultString(uri.getPath()).toLowerCase();
+        return path.endsWith(".jpg") || path.endsWith(".jpeg");
     }
 
     private static class CenterCropWithFace extends BitmapTransformation {
@@ -108,18 +118,15 @@ public class FaceAndColorDetectImageView extends AppCompatImageView {
             }
 
             PointF facePos = null;
-            @ColorInt int mainColor = ContextCompat.getColor(WikipediaApp.getInstance(), R.color.base30);
 
             if (isBitmapEligibleForImageProcessing(inBitmap)) {
                 Bitmap testBmp = new565ScaledBitmap(pool, inBitmap);
-                Palette colorPalette = Palette.from(testBmp).generate();
                 try {
                     facePos = detectFace(testBmp);
                 } catch (OutOfMemoryError e) {
                     L.logRemoteErrorIfProd(e);
                 }
                 pool.put(testBmp);
-                mainColor = extractMainColor(colorPalette, mainColor);
             }
 
             float scale;
@@ -211,16 +218,6 @@ public class FaceAndColorDetectImageView extends AppCompatImageView {
         paint.setColor(Color.BLACK);
         canvas.drawBitmap(src, srcRect, destRect, paint);
         return copy;
-    }
-
-    @ColorInt private static int extractMainColor(@NonNull Palette colorPalette, @ColorInt int defaultColor) {
-        int mainColor = defaultColor;
-        if (colorPalette.getDarkMutedSwatch() != null) {
-            mainColor = colorPalette.getDarkMutedSwatch().getRgb();
-        } else if (colorPalette.getDarkVibrantSwatch() != null) {
-            mainColor = colorPalette.getDarkVibrantSwatch().getRgb();
-        }
-        return mainColor;
     }
 
     private static boolean isBitmapEligibleForImageProcessing(@NonNull Bitmap bitmap) {
