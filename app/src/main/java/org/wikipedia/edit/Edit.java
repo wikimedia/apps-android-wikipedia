@@ -7,15 +7,15 @@ import org.wikipedia.dataclient.mwapi.MwPostResponse;
 public class Edit extends MwPostResponse {
     @SuppressWarnings("unused,") @Nullable private Result edit;
 
-    @Nullable Result edit() {
+    @Nullable public Result edit() {
         return edit;
     }
 
-    boolean hasEditResult() {
+    public boolean hasEditResult() {
         return edit != null;
     }
 
-    class Result {
+    public static class Result {
         @SuppressWarnings("unused") @Nullable private String result;
         @SuppressWarnings("unused") private long newrevid;
         @SuppressWarnings("unused") @Nullable private Captcha captcha;
@@ -24,47 +24,47 @@ public class Edit extends MwPostResponse {
         @SuppressWarnings("unused") @Nullable private String warning;
         @SuppressWarnings("unused") @Nullable private String spamblacklist;
 
-        @Nullable String status() {
+        @Nullable public String status() {
             return result;
         }
 
-        long newRevId() {
+        public long newRevId() {
             return newrevid;
         }
 
-        boolean editSucceeded() {
+        public boolean editSucceeded() {
             return "Success".equals(result);
         }
 
-        @Nullable String captchaId() {
+        @Nullable public String captchaId() {
             return captcha == null ? null : captcha.id();
         }
 
-        boolean hasEditErrorCode() {
+        public boolean hasEditErrorCode() {
             return code != null;
         }
 
-        boolean hasCaptchaResponse() {
+        public boolean hasCaptchaResponse() {
             return captcha != null;
         }
 
-        @Nullable String code() {
+        @Nullable public String code() {
             return code;
         }
 
-        @Nullable String info() {
+        @Nullable public String info() {
             return info;
         }
 
-        @Nullable String warning() {
+        @Nullable public String warning() {
             return warning;
         }
 
-        @Nullable String spamblacklist() {
+        @Nullable public String spamblacklist() {
             return spamblacklist;
         }
 
-        boolean hasSpamBlacklistResponse() {
+        public boolean hasSpamBlacklistResponse() {
             return spamblacklist != null;
         }
     }
@@ -72,7 +72,7 @@ public class Edit extends MwPostResponse {
     private static class Captcha {
         @SuppressWarnings("unused") @Nullable private String id;
 
-        @Nullable String id() {
+        @Nullable public String id() {
             return id;
         }
     }

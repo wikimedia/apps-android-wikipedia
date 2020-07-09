@@ -5,7 +5,7 @@ import android.os.Parcelable;
 
 import androidx.annotation.Nullable;
 
-class EditAbuseFilterResult extends EditResult {
+public class EditAbuseFilterResult extends EditResult {
     static final int TYPE_WARNING = 1;
     static final int TYPE_ERROR = 2;
 
@@ -13,7 +13,7 @@ class EditAbuseFilterResult extends EditResult {
     @Nullable private final String info;
     @Nullable private final String warning;
 
-    EditAbuseFilterResult(@Nullable String code, @Nullable String info, @Nullable String warning) {
+    public EditAbuseFilterResult(@Nullable String code, @Nullable String info, @Nullable String warning) {
         super("Failure");
         this.code = code;
         this.info = info;
