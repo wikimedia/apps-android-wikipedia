@@ -458,7 +458,6 @@
   <string name="reading_list_move_article_limit_message">אי־אפשר להעביר לרשימה הזאת. הגעת למגבלה של %2$d ערכים ברשימה \"%1$s\".</string>
   <string name="reading_list_article_limit_message">אי־אפשר להוסיף לרשימה הזאת. הגעת למגבלה של %2$d ערכים ברשימה \"%1$s\".</string>
   <string name="reading_lists_limit_message">לא ניתן ליצור עוד רשימה. הגעת למגבלה של 100 רשימות קריאה לחשבון.</string>
-  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;סנכרון רשימות קריאה&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;עכשיו אפשר לסנכרן רשימות קריאה במכשירים שונים. נא להיכנס לחשבון הוויקיפדיה שלך ולאפשר לשמור את הרשימות שלך.</string>
   <string name="reading_lists_menu_create_list">יצירת רשימה חדשה</string>
   <string name="reading_lists_menu_sort_by">מיון לפי</string>
   <string name="reading_lists_refresh_sync_option">רענון סנכרון</string>

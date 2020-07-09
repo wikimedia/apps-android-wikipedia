@@ -472,7 +472,6 @@
   <string name="reading_list_move_article_limit_message">Message shown to the users when the limit for maximum number of articles in a list is reached, denoted by the \"%2$d\" symbol, informing them that they will not be able to move the article to that list, named \"%1$s\".</string>
   <string name="reading_list_article_limit_message">Message shown to the users when the limit for maximum number of articles in a list is reached, denoted by the \"%2$d\" symbol, informing them that they will not be able to add anymore to that list, named \"%1$s\".</string>
   <string name="reading_lists_limit_message">Message shown to the users when the limit for maimum number of reading lists is reached, informing them that they will not be able to create anymore lists</string>
-  <string name="feed_reading_lists_sync_onboarding_text">User education message suggesting the users to log in to reap the benefits of synced reading lists</string>
   <string name="reading_lists_menu_create_list">Menu option offering user an option to create a new reading list.</string>
   <string name="reading_lists_menu_sort_by">Heading for a list of suggested sort options.\n{{Identical|Sort by}}</string>
   <string name="reading_lists_refresh_sync_option">Menu option suggesting that the user can manually sync using this option.</string>

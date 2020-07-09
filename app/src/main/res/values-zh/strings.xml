@@ -483,7 +483,6 @@
   <string name="reading_list_move_article_limit_message">不能移动到此列表。您已达到用于“%1$s”的每个列表%2$d个条目的限制。</string>
   <string name="reading_list_article_limit_message">不能添加到此列表。您已达到用于“%1$s”的每个列表%2$d个条目的限制。</string>
   <string name="reading_lists_limit_message">不能创建作者列表。您已达到每个账户100个阅读列表的限制。</string>
-  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;同步阅读列表&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;阅读列表现在可以跨设备同步。登录您的维基百科账户并允许保存您的列表吧。</string>
   <string name="reading_lists_menu_create_list">创建新的列表</string>
   <string name="reading_lists_menu_sort_by">排序方式</string>
   <string name="reading_lists_refresh_sync_option">刷新同步</string>

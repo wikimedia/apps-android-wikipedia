@@ -474,7 +474,6 @@
   <string name="reading_list_move_article_limit_message">リストに追加できません。「%1$s」はリスト項目の上限%2$d件に達しました</string>
   <string name="reading_list_article_limit_message">リストに追加できません。「%1$s」はリスト項目の上限%2$d件に達しました。</string>
   <string name="reading_lists_limit_message">これ以上リストを作成できません。は1アカウント当たりのあとで読むリストの上限100件に達しました。</string>
-  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;あとで読むリストを同期&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;あとで読むリストをデバイス間で同期できるようになりました。ウィキペディアのアカウントにログインし、リストの保存を有効にしてみましょう。</string>
   <string name="reading_lists_menu_create_list">リストを新規作成</string>
   <string name="reading_lists_menu_sort_by">並び順:</string>
   <string name="reading_lists_refresh_sync_option">同期を更新</string>
