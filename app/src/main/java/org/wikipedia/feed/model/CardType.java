@@ -100,11 +100,6 @@ public enum CardType implements EnumCode {
             return new AnnouncementCardView(ctx);
         }
     },
-    ONBOARDING_READING_LIST_SYNC(20) {
-        @NonNull @Override public FeedCardView<?> newView(@NonNull Context ctx) {
-            return new AnnouncementCardView(ctx);
-        }
-    },
     SUGGESTED_EDITS(21, FeedContentType.SUGGESTED_EDITS) {
         @NonNull @Override public FeedCardView<?> newView(@NonNull Context ctx) {
             return new SuggestedEditsCardView(ctx);

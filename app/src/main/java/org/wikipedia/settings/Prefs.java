@@ -941,5 +941,13 @@ public final class Prefs {
         return getInt(R.string.preference_key_reading_lists_visit_count, 0);
     }
 
+    public static void incrementExploreFeedVisitCount() {
+        setInt(R.string.preference_key_explore_feed_visit_count, getExploreFeedVisitCount() + 1);
+    }
+
+    public static int getExploreFeedVisitCount() {
+        return getInt(R.string.preference_key_explore_feed_visit_count, 0);
+    }
+
     private Prefs() { }
 }
