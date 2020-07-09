@@ -139,7 +139,7 @@ public class RandomItemFragment extends Fragment {
 
     @Nullable public PageTitle getTitle() {
         return summary == null ? null
-                : new PageTitle(summary.getApiTitle(), WikipediaApp.getInstance().getWikiSite());
+                : summary.getPageTitle(WikipediaApp.getInstance().getWikiSite());
     }
 
     private RandomFragment parent() {

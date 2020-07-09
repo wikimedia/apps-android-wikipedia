@@ -27,7 +27,7 @@ public class LinkPreviewContents {
     }
 
     LinkPreviewContents(@NonNull PageSummary pageSummary, @NonNull WikiSite wiki) {
-        title = new PageTitle(pageSummary.getApiTitle(), wiki);
+        title = pageSummary.getPageTitle(wiki);
         disambiguation = pageSummary.getType().equals(PageSummary.TYPE_DISAMBIGUATION);
         String extractStr;
         extractStr = pageSummary.getExtractHtml();
@@ -35,6 +35,5 @@ public class LinkPreviewContents {
             extractStr = "<p>" + L10nUtil.getStringForArticleLanguage(title, R.string.link_preview_disambiguation_description) + "</p>" + extractStr;
         }
         extract = StringUtil.fromHtml(extractStr);
-        title.setThumbUrl(pageSummary.getThumbnailUrl());
     }
 }
