@@ -430,7 +430,6 @@
   <string name="split_reading_list_message">Estas maksimumo de po %d artikoloj en legolisto. Jam ekzistintaj listoj kun pli ol ĉi tiu maksimumo disdividiĝis en plurajn listojn.</string>
   <string name="reading_list_article_limit_message">Ne povas aldoni al ĉi tiu listo. Atingiĝis, por listo \"%1$s\", la maksimumo de po %2$d artikoloj en listo.</string>
   <string name="reading_lists_limit_message">Ne povas krei novan liston. Atingiĝis la maksimumo de po 100 legolistoj por konto.</string>
-  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Sinkronigado de legolistoj&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Legolistoj nun povas esti sinkronigataj inter aparatoj. Ensalutu en vian Vikipedian konton kaj permesu la konservadon de viaj listoj.</string>
   <string name="reading_lists_menu_create_list">Krei novan liston</string>
   <string name="reading_lists_menu_sort_by">Ordigi laŭ</string>
   <string name="reading_lists_refresh_sync_option">Resinkronigi</string>

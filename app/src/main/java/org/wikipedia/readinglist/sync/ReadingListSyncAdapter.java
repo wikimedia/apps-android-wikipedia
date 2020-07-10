@@ -8,12 +8,10 @@ import android.content.Context;
 import android.content.SyncResult;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
 import org.wikipedia.BuildConfig;
-import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.csrf.CsrfTokenClient;
@@ -535,10 +533,6 @@ public class ReadingListSyncAdapter extends AbstractThreadedSyncAdapter {
 
             if (shouldSendSyncEvent) {
                 SavedPageSyncService.sendSyncEvent();
-                if (!Prefs.isSuggestedEditsHighestPriorityEnabled()) {
-                    WikipediaApp.getInstance().getMainThreadHandler().post(()
-                            -> Toast.makeText(WikipediaApp.getInstance(), R.string.reading_list_toast_last_sync, Toast.LENGTH_SHORT).show());
-                }
             }
             if ((shouldRetry || shouldRetryWithForce) && !extras.containsKey(SYNC_EXTRAS_RETRYING)) {
                 Bundle b = new Bundle();

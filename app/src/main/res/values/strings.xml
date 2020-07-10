@@ -469,7 +469,6 @@
     <string name="reading_list_move_article_limit_message">Can\'t move to this list. You\'ve reached the limit of %2$d articles per list for \"%1$s\".</string>
     <string name="reading_list_article_limit_message">Can\'t add to this list. You\'ve reached the limit of %2$d articles per list for \"%1$s\".</string>
     <string name="reading_lists_limit_message">Can\'t create another list. You\'ve reached the limit of 100 reading lists per account.</string>
-    <string name="feed_reading_lists_sync_onboarding_text"><![CDATA[<strong>Sync reading lists</strong><br /><br />Reading lists can now be synced across devices. Log in to your Wikipedia account and allow your lists to be saved.]]></string>
     <string name="reading_lists_menu_create_list">Create new list</string>
     <string name="reading_lists_menu_sort_by">Sort by</string>
     <string name="reading_lists_refresh_sync_option">Refresh sync</string>
