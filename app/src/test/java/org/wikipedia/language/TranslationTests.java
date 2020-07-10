@@ -189,7 +189,7 @@ public class TranslationTests {
         return false;
     }
 
-    private List<String> findStringItemInXML(@NonNull File xmlPath, String ...strings) throws Throwable {
+    private List<String> findStringItemInXML(@NonNull File xmlPath, @NonNull String ...strings) throws Throwable {
         List<String> list = new ArrayList<>();
         Document document = Jsoup.parse(xmlPath, "UTF-8");
 
