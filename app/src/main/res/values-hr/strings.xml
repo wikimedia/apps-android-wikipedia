@@ -406,6 +406,8 @@
   <string name="reading_lists_sync_reminder_action">Omogući sinkronizaciju</string>
   <string name="reading_list_login_reminder_title">Sinkroniziranje popisa za čitanje</string>
   <string name="reading_lists_login_reminder_text">Popisi za čitanje sada se mogu sinkronizirati na više uređaja. Prijavite se s Vašim računom na Wikipediji i dopustite spremanje Vaših popisa.</string>
+  <string name="reading_lists_login_button">Prijavi se / stvori račun na Wikipediji</string>
+  <string name="reading_lists_ignore_button">Trenutačno ne</string>
   <string name="reading_lists_confirm_remote_delete_yes">Da</string>
   <string name="reading_lists_confirm_remote_delete_no">Ne</string>
   <string name="reading_list_article_save_in_progress">Članak se preuzima i nakon dovršetka bit će dostupan izvan mreže.</string>
@@ -671,6 +673,7 @@
   <string name="suggested_edits_quality_sufficient_text">Dovoljno</string>
   <string name="suggested_edits_quality_poor_text">Slabo</string>
   <string name="suggested_edits_quality_bad_text">Loše</string>
+  <string name="suggested_edits_label">Predložena uređivanja</string>
   <plurals name="suggested_edits_contribution" fuzzy="true">
     <item quantity="one">Doprinos</item>
     <item quantity="other">Doprinosi</item>
