@@ -39,6 +39,7 @@ public class TranslationTests {
     private static final String[] BAD_NAMES = new String[]{"ldrtl", "sw360dp", "sw600dp", "sw720dp", "v19", "v21", "v23", "land"};
 
     private static File BASE_FILE;
+    private static File QQ_FILE;
     private static File[] ALL_FILES;
 
     @Test
@@ -73,16 +74,39 @@ public class TranslationTests {
     }
 
     @Test
+    public void testTranslateWikiQQ() throws Throwable {
+
+        StringBuilder mismatches = new StringBuilder();
+
+        // Step 1: collect all items in en/strings.xml
+        List<String> baseList = findStringItemInXML(getBaseFile(), "string", "plurals");
+
+        // Step 2: collect all items in qq/strings.xml
+        List<String> qqList = findStringItemInXML(getQQFile(), "string", "plurals");
+
+        // Step 3: check if item exists in qq/strings.xml
+        for (String item : baseList) {
+            if (!qqList.contains(item)) {
+                mismatches.append("Missing item in qq/strings.xml ")
+                        .append(item).append(" \n");
+            }
+        }
+
+        // Step 4: check the result
+        assertThat("\n" + mismatches.toString(), mismatches.length(), is(0));
+    }
+
+    @Test
     public void testPluralsDeclaration() throws Throwable {
 
         StringBuilder mismatches = new StringBuilder();
 
-        List<String> baseList = findPluralsItemInXML(getBaseFile());
+        List<String> baseList = findStringItemInXML(getBaseFile(), "plural");
 
         for (File dir : getAllFiles()) {
             String lang = dir.getName().contains("-") ? dir.getName().substring(dir.getName().indexOf("-") + 1) : "en";
             File targetStringsXml = new File(dir, STRINGS_XML_NAME);
-            List<String> targetList = findPluralsItemInXML(targetStringsXml);
+            List<String> targetList = findStringItemInXML(targetStringsXml, "plural");
 
             targetList.forEach(targetKey -> {
                 if (!baseList.contains(targetKey)) {
@@ -139,10 +163,19 @@ public class TranslationTests {
         return BASE_FILE;
     }
 
+    private File getQQFile() {
+        if (QQ_FILE == null) {
+            QQ_FILE = new File(RES_BASE + "/" + STRINGS_DIRECTORY + "-qq", STRINGS_XML_NAME);
+        }
+        return QQ_FILE;
+    }
+
     private File[] getAllFiles() {
         if (ALL_FILES == null) {
             ALL_FILES = RES_BASE.listFiles((File pathname) -> pathname.isDirectory() && pathname.getName().startsWith(STRINGS_DIRECTORY) && !hasBadName(pathname));
-            Arrays.sort(ALL_FILES);
+            if (ALL_FILES != null) {
+                Arrays.sort(ALL_FILES);
+            }
         }
         return ALL_FILES;
     }
@@ -156,16 +189,18 @@ public class TranslationTests {
         return false;
     }
 
-    private List<String> findPluralsItemInXML(@NonNull File xmlPath) throws Throwable {
+    private List<String> findStringItemInXML(@NonNull File xmlPath, String ...strings) throws Throwable {
         List<String> list = new ArrayList<>();
         Document document = Jsoup.parse(xmlPath, "UTF-8");
 
-        Elements pluralsElements = document.select("plurals");
-        for (Element element : pluralsElements) {
-            String name = element.attr("name");
-            list.add(name);
-        }
+        for (String string : strings) {
+            Elements elements = document.select(string);
+            for (Element element : elements) {
+                String name = element.attr("name");
+                list.add(name);
+            }
 
+        }
         return list;
     }
 
