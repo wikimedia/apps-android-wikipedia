@@ -449,6 +449,8 @@
   <string name="reading_lists_sync_reminder_action">Senkronizasyonu etkinleştir</string>
   <string name="reading_list_login_reminder_title">Okuma listelerini senkronize et</string>
   <string name="reading_lists_login_reminder_text">Okuma listeleri artık cihazlar arasında senkronize edilebilir. Vikipedi hesabınıza giriş yapın ve listelerinizin kaydedilmesine izin verin.</string>
+  <string name="reading_lists_login_button">Vikipedi\'ye oturum açın / katılın</string>
+  <string name="reading_lists_ignore_button">Şimdi değil</string>
   <string name="reading_lists_confirm_remote_delete_yes">Evet</string>
   <string name="reading_lists_confirm_remote_delete_no">Hayır</string>
   <string name="reading_list_article_save_in_progress">Madde indiriliyor; işlem tamamlandığında çevrimdışı olarak erişilebilir olacak.</string>
@@ -766,6 +768,7 @@
   <string name="suggested_edits_quality_sufficient_text">Yeterli</string>
   <string name="suggested_edits_quality_poor_text">Zayıf</string>
   <string name="suggested_edits_quality_bad_text">Kötü</string>
+  <string name="suggested_edits_label">Önerilen düzenlemeler</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">Katkı</item>
     <item quantity="other">Katkı</item>
@@ -907,7 +910,7 @@
   <string name="wikitext_reference">Kaynak</string>
   <string name="wikitext_preview_link">Önizleme bağlantısı</string>
   <string name="main_drawer_help">Yardım</string>
-  <string name="main_drawer_login">Vikipedi\'ye giriş yapın / kaydolun</string>
+  <string name="main_drawer_login">Vikipedi\'ye oturum açın / katılın</string>
   <string name="main_tooltip_text">Merhaba %s, herkesin Vikipedi\'yi düzenleyebileceğini biliyor muydun?</string>
   <string name="main_tooltip_text_v2">Herkesin Vikipedi\'yi düzenleyebileceğini biliyor muydunuz?</string>
   <string name="main_tooltip_action_button">Kullanmaya başla</string>

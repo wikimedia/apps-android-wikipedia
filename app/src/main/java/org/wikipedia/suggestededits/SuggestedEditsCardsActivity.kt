@@ -10,7 +10,6 @@ import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.descriptions.DescriptionEditActivity.Action
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
 import org.wikipedia.suggestededits.SuggestedEditsCardsFragment.Companion.newInstance
-import org.wikipedia.util.ResourceUtil
 import org.wikipedia.views.ImageZoomHelper
 import java.lang.Exception
 
