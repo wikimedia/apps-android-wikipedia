@@ -37,7 +37,7 @@
   <string name="search_hint_search_languages">搜尋語言</string>
   <string name="search_hint_search_my_lists_and_articles">搜尋我的清單與條目</string>
   <string name="nav_item_history">歷史</string>
-  <string name="nav_item_suggested_edits" fuzzy="true">建議編輯</string>
+  <string name="nav_item_suggested_edits">編輯</string>
   <string name="nav_item_more">更多</string>
   <string name="error_network_error">無法連上網際網路。</string>
   <string name="page_error_retry">重試</string>
@@ -437,6 +437,8 @@
   <string name="reading_lists_sync_reminder_action">啟用同步</string>
   <string name="reading_list_login_reminder_title">同步閱讀清單</string>
   <string name="reading_lists_login_reminder_text">閱讀清單現已具有跨裝置同步的功能。登入您的維基百科帳號，來允許儲存您的清單。</string>
+  <string name="reading_lists_login_button">登入/加入維基百科</string>
+  <string name="reading_lists_ignore_button">現在不要</string>
   <string name="reading_lists_confirm_remote_delete_yes">是</string>
   <string name="reading_lists_confirm_remote_delete_no">否</string>
   <string name="reading_list_article_save_in_progress">條目下載進行中，完成之後可用於離線狀態下。</string>
@@ -532,7 +534,7 @@
   </plurals>
   <string name="notifications_poll_enable_title">啟用通知</string>
   <string name="notifications_poll_enable_positive">啟用</string>
-  <string name="notifications_poll_enable_negative">不要現在</string>
+  <string name="notifications_poll_enable_negative">現在不要</string>
   <string name="notifications_empty_message">您尚未有新通知！</string>
   <string name="notifications_view_archived_button_text">檢視存檔通知</string>
   <string name="notification_preferences_title">通知偏好設定</string>
@@ -754,6 +756,7 @@
   <string name="suggested_edits_quality_sufficient_text">尚可</string>
   <string name="suggested_edits_quality_poor_text">粗劣</string>
   <string name="suggested_edits_quality_bad_text">糟糕</string>
+  <string name="suggested_edits_label">建議編輯</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">貢獻</item>
     <item quantity="other">貢獻</item>

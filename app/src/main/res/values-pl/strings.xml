@@ -22,6 +22,7 @@
 * Railfail536
 * Rainbow P
 * Rzuwig
+* SHaran (WMF)
 * Stojex
 * Strebski
 * Tar Lócesilion
@@ -49,7 +50,7 @@
   <string name="search_hint_search_languages">Szukaj języka</string>
   <string name="search_hint_search_my_lists_and_articles">Przeszukaj moje listy i artykuły</string>
   <string name="nav_item_history">Historia</string>
-  <string name="nav_item_suggested_edits" fuzzy="true">Sugerowane edycje</string>
+  <string name="nav_item_suggested_edits">Edycje</string>
   <string name="nav_item_more">Więcej</string>
   <string name="error_network_error">Nie można połączyć z internetem.</string>
   <string name="page_error_retry">Ponów próbę</string>
@@ -448,6 +449,8 @@
   <string name="reading_lists_sync_reminder_action">Włącz synchronizację</string>
   <string name="reading_list_login_reminder_title">Zsynchronizuj swoje listy czytania</string>
   <string name="reading_lists_login_reminder_text">Listy może być teraz synchronizowane pomiędzy urządzeniami. Zaloguj się na swoje konto w Wikipedii i pozwól na zapisywanie list.</string>
+  <string name="reading_lists_login_button">Zaloguj się / dołącz do Wikipedii</string>
+  <string name="reading_lists_ignore_button">Nie teraz</string>
   <string name="reading_lists_confirm_remote_delete_yes">Tak</string>
   <string name="reading_lists_confirm_remote_delete_no">Nie</string>
   <string name="reading_list_article_save_in_progress">Artykuł jest w trakcie pobierania i będzie dostępny w trybie offline, gdy pobieranie się zakończy.</string>
@@ -741,6 +744,7 @@
   <string name="suggested_edits_add_descriptions_task_detail" fuzzy="true">Opisy tytułów podsumowują artykuł, aby pomóc czytelnikom w zrozumieniu tematu na pierwszy rzut oka.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip" fuzzy="true">W oparciu o ilość wycofanych edycji twojego autorstwa. Wycofane edycje: %d.</string>
   <string name="suggested_edits_ip_blocked_message" fuzzy="true">Adres IP, którego używasz jest aktualnie zablokowany i nie możesz z niego wykonywać edycji na Wikipedii. Dowiedz się więcej o blokadach wchodząc w link poniżej.</string>
+  <string name="suggested_edits_views_label_text">Odsłony</string>
   <string name="suggested_edits_quality_label_text">Edycja jakości</string>
   <string name="suggested_edits_quality_perfect_text">Idealna</string>
   <string name="suggested_edits_quality_excellent_text">Wyśmienita</string>
@@ -750,6 +754,7 @@
   <string name="suggested_edits_quality_sufficient_text">Wystarczająca</string>
   <string name="suggested_edits_quality_poor_text">Słaba</string>
   <string name="suggested_edits_quality_bad_text">Zła</string>
+  <string name="suggested_edits_label">Sugerowane edycje</string>
   <string name="suggested_edits_what_is_title">Czym są sugerowane edycje?</string>
   <string name="suggested_edits_learn_more">Dowiedz się więcej</string>
   <string name="suggested_edits_paused_title">Wstrzymane</string>

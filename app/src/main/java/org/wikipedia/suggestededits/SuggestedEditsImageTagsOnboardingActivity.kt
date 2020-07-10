@@ -6,7 +6,6 @@ import android.content.Intent
 import android.os.Bundle
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
-import org.wikipedia.util.ResourceUtil
 import kotlinx.android.synthetic.main.activity_suggested_edits_tags_onboarding.*
 
 class SuggestedEditsImageTagsOnboardingActivity : BaseActivity() {

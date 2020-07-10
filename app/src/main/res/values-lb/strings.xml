@@ -18,7 +18,7 @@
   <string name="search_hint_search_history">Am Historique sichen</string>
   <string name="search_hint_search_languages">No enger Sprooch sichen</string>
   <string name="nav_item_history">Versiounen</string>
-  <string name="nav_item_suggested_edits" fuzzy="true">Proposéiert Ännerungen</string>
+  <string name="nav_item_suggested_edits">Ännerungen</string>
   <string name="nav_item_more">Méi</string>
   <string name="error_network_error">Kann net mam Internet verbannen.</string>
   <string name="page_error_retry">Nach eng Kéier probéieren</string>
@@ -99,7 +99,7 @@
   <string name="reading_lists_sync_login">Aloggen</string>
   <string name="create_account_login">Aloggen</string>
   <string name="menu_login">Aloggen</string>
-  <string name="login_activity_title" fuzzy="true">Op Wikipedia aloggen</string>
+  <string name="login_activity_title">Aloggen</string>
   <string name="login_in_progress_dialog_message">Dir gitt ageloggt…</string>
   <string name="login_success_toast">Ageloggt!</string>
   <string name="reset_password_title">Leet Äert Passwuert fest</string>
@@ -360,6 +360,7 @@
   <string name="reading_list_confirm_remove_article_from_offline_message">%s ass fir keng Lieslëscht méi offline disponibel:</string>
   <string name="reading_lists_sync_reminder_action">Synchronisatioun aktivéieren</string>
   <string name="reading_list_login_reminder_title">Lieslëschte synchroniséieren</string>
+  <string name="reading_lists_ignore_button">Net elo</string>
   <string name="reading_lists_confirm_remote_delete_yes">Jo</string>
   <string name="reading_lists_confirm_remote_delete_no">Neen</string>
   <string name="reading_list_articles_added_to_named">%1$d Artikel op %2$s dobäigesat</string>
@@ -560,6 +561,7 @@
   <string name="suggested_edits_image_tags_onboarding_title">D\'Markéiere vu Biller mécht et méi einfach fir se erëmzefannen.</string>
   <string name="suggested_edits_image_tags_add_tag">Markéierung derbäisetzen</string>
   <string name="suggested_edits_quality_perfect_text">Perfekt</string>
+  <string name="suggested_edits_what_is_title">Wat si proposéiert Ännerungen?</string>
   <string name="suggested_edits_learn_more">Fir méi ze wëssen</string>
   <string name="suggested_edits_paused_title">Ënnerbrach</string>
   <string name="suggested_edits_disabled_title">Desaktivéiert</string>
@@ -573,6 +575,7 @@
   <string name="suggested_edits_contribution_article_label">Artikel</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Gëschter</string>
   <string name="suggested_edits_rewards_continue_button">Virufueren</string>
+  <string name="suggested_edits_encourage_account_creation_title">Wousst Dir datt jidderee Wikipedia ännere kann?</string>
   <string name="suggested_edits_contribution_current_revision_text">Är Ännerung ass elo live op Wikipedia</string>
   <string name="description_edit_revert_subtitle">Merci fir d\'Änneren op Wikipedia!</string>
   <string name="description_edit_revert_reason2">Är Kontributioun gesäit aus wéi en Experiment oder Vandalismus.</string>
