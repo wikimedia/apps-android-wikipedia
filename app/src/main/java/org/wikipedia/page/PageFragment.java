@@ -137,7 +137,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         void onPageInitWebView(@NonNull ObservableWebView v);
         void onPageShowLinkPreview(@NonNull HistoryEntry entry);
         void onPageLoadMainPageInForegroundTab();
-        void onPageUpdateProgressBar(boolean visible, boolean indeterminate, int value);
+        void onPageUpdateProgressBar(boolean visible);
         void onPageShowThemeChooser();
         void onPageStartSupportActionMode(@NonNull ActionMode.Callback callback);
         void onPageHideSoftKeyboard();
@@ -513,6 +513,8 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         // handler), since the page metadata might have altered the lead image display state.
         bridge.execute(JavaScriptActionHandler.setTopMargin(leadImagesHandler.getTopMargin()));
         bridge.execute(JavaScriptActionHandler.setFooter(model));
+
+        updateProgressBar(false);
     }
 
     private void onPageSetupEvent() {
@@ -520,7 +522,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             return;
         }
 
-        updateProgressBar(false, true, 0);
         webView.setVisibility(View.VISIBLE);
         app.getSessionFunnel().leadSectionFetchEnd();
 
@@ -766,7 +767,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
 
         tabLayout.enableAllTabs();
 
-        updateProgressBar(true, true, 0);
+        updateProgressBar(true);
 
         this.pageRefreshed = isRefresh;
         references = null;
@@ -928,7 +929,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         if (!isAdded()) {
             return;
         }
-        updateProgressBar(false, true, 0);
+        updateProgressBar(false);
         refreshView.setRefreshing(false);
 
         if (pageRefreshed) {
@@ -1085,10 +1086,10 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                 avCallback = new AvCallback();
             }
             if (!avPlayer.isPlaying() && messagePayload.has("url")) {
-                updateProgressBar(true, true, 0);
+                updateProgressBar(true);
                 avPlayer.play(UriUtil.resolveProtocolRelativeUrl(messagePayload.get("url").getAsString()), avCallback, avCallback);
             } else {
-                updateProgressBar(false, true, 0);
+                updateProgressBar(false);
                 avPlayer.stop();
             }
         });
@@ -1249,10 +1250,10 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         }
     }
 
-    private void updateProgressBar(boolean visible, boolean indeterminate, int value) {
+    private void updateProgressBar(boolean visible) {
         Callback callback = callback();
         if (callback != null) {
-            callback.onPageUpdateProgressBar(visible, indeterminate, value);
+            callback.onPageUpdateProgressBar(visible);
         }
     }
 
@@ -1351,14 +1352,14 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         public void onSuccess() {
             if (avPlayer != null) {
                 avPlayer.stop();
-                updateProgressBar(false, true, 0);
+                updateProgressBar(false);
             }
         }
         @Override
         public void onError() {
             if (avPlayer != null) {
                 avPlayer.stop();
-                updateProgressBar(false, true, 0);
+                updateProgressBar(false);
             }
         }
     }
