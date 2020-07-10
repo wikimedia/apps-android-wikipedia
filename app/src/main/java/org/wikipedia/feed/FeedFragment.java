@@ -181,7 +181,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         }
 
         ReadingListSyncAdapter.manualSync();
-
+        Prefs.incrementExploreFeedVisitCount();
         return view;
     }
 
@@ -509,6 +509,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
                 startActivityForResult(SettingsActivity.newIntent(requireContext()), ACTIVITY_REQUEST_SETTINGS);
             } else if (uri.toString().equals(UriUtil.LOCAL_URL_CUSTOMIZE_FEED)) {
                 showConfigureActivity(card.type().code());
+                onRequestDismissCard(card);
             } else if (uri.toString().equals(UriUtil.LOCAL_URL_LANGUAGES)) {
                 showLanguagesActivity(LanguageSettingsInvokeSource.ANNOUNCEMENT.text());
             } else {
