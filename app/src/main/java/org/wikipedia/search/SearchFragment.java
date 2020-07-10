@@ -84,9 +84,9 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
     private InvokeSource invokeSource;
     private String searchLanguageCode;
     private String tempLangCodeHolder;
+    private int selectedLanguageTabPosition = 0;
     private boolean langBtnClicked = false;
     public static final int RESULT_LANG_CHANGED = 1;
-    public static final int RESULT_LANG_CONSISTENT = 2;
     public static final int LANG_BUTTON_TEXT_SIZE_LARGER = 12;
     public static final int LANG_BUTTON_TEXT_SIZE_SMALLER = 8;
     /**
@@ -182,7 +182,7 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
     @Override
     public void onStart() {
         super.onStart();
-        setUpLanguageScroll(0);
+        setUpLanguageScroll(selectedLanguageTabPosition);
         startSearch(query, false);
         searchView.setCloseButtonVisibility(query);
 
@@ -195,15 +195,12 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == ACTIVITY_REQUEST_ADD_A_LANGUAGE_FROM_SEARCH) {
-            int position = 0;
             requireActivity().setResult(RESULT_LANG_CHANGED);
             if (data != null && data.hasExtra(ACTIVITY_RESULT_LANG_POSITION_DATA)) {
-                position = data.getIntExtra(ACTIVITY_RESULT_LANG_POSITION_DATA, 0);
+                selectedLanguageTabPosition = data.getIntExtra(ACTIVITY_RESULT_LANG_POSITION_DATA, 0);
             } else if (app.language().getAppLanguageCodes().contains(searchLanguageCode)) {
-                position = app.language().getAppLanguageCodes().indexOf(searchLanguageCode);
+                selectedLanguageTabPosition = app.language().getAppLanguageCodes().indexOf(searchLanguageCode);
             }
-            setUpLanguageScroll(position);
-            startSearch(query, true);
         }
     }
 
@@ -225,10 +222,10 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
 
     private void setUpLanguageScroll(int position) {
         searchLanguageCode = app.language().getAppLanguageCode();
-
+        selectedLanguageTabPosition = position;
         if (app.language().getAppLanguageCodes().size() > 1) {
             languageScrollContainer.setVisibility(View.VISIBLE);
-            languageScrollView.setUpLanguageScrollTabData(app.language().getAppLanguageCodes(), this, position);
+            languageScrollView.setUpLanguageScrollTabData(app.language().getAppLanguageCodes(), position, this);
             langButtonContainer.setVisibility(View.GONE);
         } else {
             showMultiLingualOnboarding();
@@ -237,7 +234,6 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
             initLangButton();
         }
     }
-
 
     private void showMultiLingualOnboarding() {
         if (Prefs.isMultilingualSearchTutorialEnabled()) {
@@ -455,7 +451,7 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
     }
 
     @Override
-    public void onLanguageTabSelected(String selectedLanguageCode) {
+    public void onLanguageTabSelected(@NonNull String selectedLanguageCode, int position) {
         if (langBtnClicked) {
             //We need to skip an event when we return back from 'add languages' screen,
             // because it triggers two events while re-drawing the UI
@@ -467,6 +463,7 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
             tempLangCodeHolder = null;
         }
         searchLanguageCode = selectedLanguageCode;
+        selectedLanguageTabPosition = position;
         searchResultsFragment.setLayoutDirection(searchLanguageCode);
         startSearch(query, true);
     }
