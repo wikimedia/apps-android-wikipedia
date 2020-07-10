@@ -428,6 +428,8 @@
   <string name="reading_lists_sync_reminder_action">Sync လုပ်ခြင်းကို ဖွင့်ရန်</string>
   <string name="reading_list_login_reminder_title">စာဖတ်စာရင်းများအား sync လုပ်ရန်</string>
   <string name="reading_lists_login_reminder_text">စာဖတ်စာရင်းများကို စက်ပစ္စည်းများသို့ sync လုပ်နိုင်ပါပြီ။ သင်၏ စာရင်းများကို သိမ်းဆည်းရန် ဝီကီပီးဒီးယားအကောင့်သို့ လော့အင်ဝင်ရောက်ပါ။</string>
+  <string name="reading_lists_login_button">ဝီကီပီးဒီးယားသို့ လော့ဂ်အင် / ပါဝင်ရန်</string>
+  <string name="reading_lists_ignore_button">အခု မဟုတ်ပါ</string>
   <string name="reading_lists_confirm_remote_delete_yes">လုပ်မည်။</string>
   <string name="reading_lists_confirm_remote_delete_no">မလုပ်ပါ။</string>
   <string name="reading_list_article_save_in_progress">ဆောင်းပါကို ဒေါင်းလုတ်ဆွဲနေသည်၊ ယင်းသည် ပြီးဆုံးပါက အော့ဖ်လိုင်းအနေဖြင့် ရရှိနိုင်မည်ဖြစ်သည်။</string>
@@ -716,6 +718,7 @@
   <string name="suggested_edits_quality_sufficient_text">လုံလောက်</string>
   <string name="suggested_edits_quality_poor_text">ညံ့ဖျင်း</string>
   <string name="suggested_edits_quality_bad_text">ဆိုးဝါး</string>
+  <string name="suggested_edits_label">အကြံပြုထားသော ပြင်ဆင်မှုများ</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">1 ပံ့ပိုးမှု</item>
     <item quantity="other">ပံ့ပိုးမှုများ</item>
