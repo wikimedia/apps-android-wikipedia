@@ -101,12 +101,12 @@ public class TranslationTests {
 
         StringBuilder mismatches = new StringBuilder();
 
-        List<String> baseList = findStringItemInXML(getBaseFile(), "plural");
+        List<String> baseList = findStringItemInXML(getBaseFile(), "plurals");
 
         for (File dir : getAllFiles()) {
             String lang = dir.getName().contains("-") ? dir.getName().substring(dir.getName().indexOf("-") + 1) : "en";
             File targetStringsXml = new File(dir, STRINGS_XML_NAME);
-            List<String> targetList = findStringItemInXML(targetStringsXml, "plural");
+            List<String> targetList = findStringItemInXML(targetStringsXml, "plurals");
 
             targetList.forEach(targetKey -> {
                 if (!baseList.contains(targetKey)) {
