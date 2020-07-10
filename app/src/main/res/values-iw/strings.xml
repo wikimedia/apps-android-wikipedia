@@ -33,7 +33,7 @@
   <string name="search_hint_search_languages">חיפוש שפה</string>
   <string name="search_hint_search_my_lists_and_articles">חיפוש ברשימות ובערכים</string>
   <string name="nav_item_history">היסטוריה</string>
-  <string name="nav_item_suggested_edits" fuzzy="true">עריכות מוצעות</string>
+  <string name="nav_item_suggested_edits">עריכות</string>
   <string name="nav_item_more">עוד</string>
   <string name="error_network_error">לא ניתן להתחבר לאינטרנט.</string>
   <string name="page_error_retry">ניסיון נוסף</string>
@@ -430,6 +430,8 @@
   <string name="reading_lists_sync_reminder_action">הפעלת סנכרון</string>
   <string name="reading_list_login_reminder_title">סנכרן רשימות קריאה</string>
   <string name="reading_lists_login_reminder_text">עכשיו אפשר לסנכרן רשימות קריאה במכשירים שונים. נא להיכנס לחשבון הוויקיפדיה שלך ולאפשר את שמירת רשימות הקריאה שלך.</string>
+  <string name="reading_lists_login_button">כניסה / הצטרפות לוויקיפדיה</string>
+  <string name="reading_lists_ignore_button">לא כעת</string>
   <string name="reading_lists_confirm_remote_delete_yes">כן</string>
   <string name="reading_lists_confirm_remote_delete_no">לא</string>
   <string name="reading_list_article_save_in_progress">הורדת הערך מתבצעת, והוא יהיה זמין ללא חיבור לרשת כשהיא תושלם.</string>
@@ -769,6 +771,7 @@
   <string name="suggested_edits_quality_sufficient_text">ככה ככה</string>
   <string name="suggested_edits_quality_poor_text">ירודה</string>
   <string name="suggested_edits_quality_bad_text">גרועה</string>
+  <string name="suggested_edits_label">עריכות מוצעות</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">תרומה</item>
     <item quantity="two">תרומות</item>
@@ -782,6 +785,8 @@
     <item quantity="other">%d ימים</item>
   </plurals>
   <string name="suggested_edits_what_is_title">מה זה ’עריכות מוצעות?’</string>
+  <string name="suggested_edits_learn_more">מידע נוסף</string>
+  <string name="suggested_edits_paused_title">מושהה</string>
   <string name="suggested_edits_disabled_title">מבוטל</string>
   <string name="suggested_edits_last_edited">עריכה אחרונה</string>
   <string name="suggested_edits_last_edited_never">לעולם לא</string>
