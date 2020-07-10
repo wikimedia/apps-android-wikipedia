@@ -470,7 +470,6 @@
   <string name="reading_list_move_article_limit_message">U kunt deze lijst niet verplaatsen. U hebt de limiet van %2$d artikelen per lijst voor \"%1$s\" bereikt.</string>
   <string name="reading_list_article_limit_message">Toevoegen aan deze lijst niet mogelijk. U heeft de limiet van %2$d artikelen per lijst bereikt voor \"%1$s\".</string>
   <string name="reading_lists_limit_message">Kan geen nieuwe lijst aanmaken. U heeft de limiet van 100 leeslijsten per account bereikt.</string>
-  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Synchroniseer leeslijsten&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Leeslijsten kunnen nu op verschillende apparaten worden gesynchroniseerd. Log in op uw Wikipedia-account en laat uw lijsten opslaan.</string>
   <string name="reading_lists_menu_create_list">Nieuwe lijst aanmaken</string>
   <string name="reading_lists_menu_sort_by">Sorteren op</string>
   <string name="reading_lists_refresh_sync_option">Vernieuw synchronisatie</string>

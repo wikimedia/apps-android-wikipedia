@@ -435,7 +435,6 @@
   <string name="split_reading_list_message">Mỗi danh sách đọc có hạn chế %d bài. Các danh sách đã tồn tại vượt quá hạn chế này đã được chia thành nhiều danh sách.</string>
   <string name="reading_list_article_limit_message">Không thể thêm vào danh sách này. Bạn đã đạt giới hạn %2$d bài viết của danh sách \"%1$s\".</string>
   <string name="reading_lists_limit_message">Không thể tạo thêm danh sách đọc. Bạn đã đạt giới hạn 100 danh sách tối đa trong một tài khoản.</string>
-  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Đồng bộ hóa danh sách đọc&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Hiện có thể đồng bộ hóa các danh sách đọc qua nhiều thiết bị. Đăng nhập vào tài khoản Wikipedia của bạn và quyết định cho phép lưu các danh sách của bạn.</string>
   <string name="reading_lists_menu_create_list">Tạo danh sách mới</string>
   <string name="reading_lists_menu_sort_by">Sắp xếp theo</string>
   <string name="reading_lists_refresh_sync_option">Làm mới đồng bộ hóa</string>

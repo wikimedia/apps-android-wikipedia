@@ -445,7 +445,6 @@
   <string name="reading_list_move_article_limit_message">စုတ် ပ္ဍဲ စရင်ဏအ် ဟွံဂွံ၊၊ မၞး စိုပ်အာ လၟိဟ်အပိုင်အခြာ %2$d လိက်ပရေင် မွဲစရင် သွက် %1$s</string>
   <string name="reading_list_article_limit_message">စုတ် ပ္ဍဲ စရင်ဏအ် ဟွံဂွံ၊၊ မၞး စိုပ်အာ လၟိဟ်အပိုင်အခြာ %2$d လိက်ပရေင် မွဲစရင် သွက် %1$s</string>
   <string name="reading_lists_limit_message">ခၞံကၠောန် စရင် တၞဟ် ဟွံဂွံရ၊၊ မၞး စိုပ်အာ လၟိဟ်အပိုင်အခြာ ၁၀၀ စရင်သွက်ဂွံဗှ် သွက် မွဲ အကံက်၊၊</string>
-  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;ကချဳဓရာင် စရင်လိက်သွက်ဂွံဗှ်&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;စရင်လိက်သွက်ဂွံဗှ်ဂှ် လၟုဟ် ပချဳဓရာင် ပ္ဍဲ devices ဂွံရ၊၊ လုပ်လံက်အေန် ပ္ဍဲ အကံက်ဝဳကဳပဳဒဳယာ တုဲ ကဵုအခေါင် စရင် မၞး ဂွံလုပ်ဂိုင်သိပ်၊၊</string>
   <string name="reading_lists_menu_create_list">ခၞံကၠောန် စရင် တၟိ</string>
   <string name="reading_lists_menu_sort_by">ဖျေဟ်ဒၞာဲ နကဵု</string>
   <string name="reading_lists_refresh_sync_option">ကလေင်မ္ၚုဟ် ကချဳဓရာင်</string>

@@ -463,7 +463,6 @@
   <string name="split_reading_list_message">Existuje limit %d článků pro seznamy k přečtení. Existující seznamy, které mají více než tento počet článků, byly rozděleny do více seznamů.</string>
   <string name="reading_list_article_limit_message">Nebylo možno přidat do tohoto seznamu. Překročili jste limit %2$d článků do seznamu pro „%1$s“.</string>
   <string name="reading_lists_limit_message">Nelze vytvořit další seznam. Dosáhli jste limitu 100 seznamů k přečtení pro účet.</string>
-  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Synchronizace seznamů k přečtení&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Seznamy k přečtení mohou být nyní synchronizovány napříč zařízeními. Přihlaste se na svůj účet na Wikipedii a povolte ukládání svých vlastních seznamů.</string>
   <string name="reading_lists_menu_create_list">Vytvořit nový seznam</string>
   <string name="reading_lists_menu_sort_by">Seřadit podle</string>
   <string name="reading_lists_refresh_sync_option">Synchronizovat</string>

@@ -4,6 +4,7 @@
 * Abijeet Patro
 * Bxalber
 * Chronist
+* DVrandecic (WMF)
 * Dbrant
 * DraconicDark
 * Druesenfieber
@@ -450,7 +451,6 @@
   <string name="split_reading_list_message">Es gibt eine Begrenzung auf %d Artikel pro Leseliste. Vorhandene Listen mit mehr als dieser Anzahl wurden in mehrere Listen aufgeteilt.</string>
   <string name="reading_list_article_limit_message">Der Artikel konnte nicht zu dieser Liste hinzugefügt werden. Du hast für „%1$s“ die maximale Anzahl von %2$d Artikeln pro Liste erreicht.</string>
   <string name="reading_lists_limit_message">Es können keine weiteren Listen erstellt werden. Du hast die maximale Anzahl von 100 Leselisten pro Benutzerkonto erreicht.</string>
-  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Leselisten synchronisieren&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Leselisten können jetzt zwischen Geräten synchronisiert werden. Melde dich bei deinem Wikipedia-Benutzerkonto an und erlaube die Speicherung deiner Listen.</string>
   <string name="reading_lists_menu_create_list">Neue Liste erstellen</string>
   <string name="reading_lists_menu_sort_by">Sortieren nach</string>
   <string name="reading_lists_refresh_sync_option">Erneut synchronisieren</string>
@@ -722,7 +722,7 @@
   <string name="suggested_edits_editing_tips_link_text">Tipps und Tricks beim Bearbeiten</string>
   <string name="suggested_edits_help_page_link_text">Hilfeseite für Vorgeschlagene Bearbeitungen</string>
   <string name="suggested_edits_edit_streak_label_text">Aufeinanderfolgende Edits</string>
-  <string name="suggested_edits_views_label_text" fuzzy="true">Seitenaufrufe</string>
+  <string name="suggested_edits_views_label_text">Aufrufe</string>
   <string name="suggested_edits_quality_label_text">Bearbeitungsqualität</string>
   <string name="suggested_edits_quality_perfect_text">Perfekt</string>
   <string name="suggested_edits_quality_excellent_text">Exzellent</string>

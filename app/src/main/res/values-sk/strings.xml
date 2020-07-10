@@ -456,7 +456,6 @@
   <string name="reading_list_move_article_limit_message">Do tohoto zoznamu už nemôžete presunúť články. Dosiahli ste limit %2$d článkov pre zoznam „%1$s“.</string>
   <string name="reading_list_article_limit_message">Do tohoto zoznamu už nemôžete pridávať články. Dosiahli ste limit %2$d článkov pre zoznam „%1$s“.</string>
   <string name="reading_lists_limit_message">Nemôžete vytvoriť ďalší zoznam. Dosiahli ste limit 100 zoznamov na prečítanie pre 1 účet.</string>
-  <string name="feed_reading_lists_sync_onboarding_text">&lt;Strong&gt;Synchronizácia zoznamov na prečítanie&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Zoznamy na prečítanie môžu byť teraz synchronizované naprieč zariadeními. Prihláste sa na svoj účet na Wikipédii a povoľte ukladanie svojich vlastných zoznamov.</string>
   <string name="reading_lists_menu_create_list">Vytvoriť nový zoznam</string>
   <string name="reading_lists_menu_sort_by">Zoradiť podľa</string>
   <string name="reading_lists_refresh_sync_option">Obnoviť synchronizáciu</string>
