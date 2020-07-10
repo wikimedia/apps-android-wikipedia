@@ -277,6 +277,7 @@ public class ReadingListDbHelper {
             }
             markPagesForDeletion(sourceList, Collections.singletonList(sourceReadingListPage));
             ReadingListSyncAdapter.manualSync();
+            SavedPageSyncService.sendSyncEvent();
         }
     }
 
