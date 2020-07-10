@@ -97,6 +97,7 @@ public class LanguageScrollView extends ConstraintLayout {
         }
     }
 
+    @SuppressWarnings("checkstyle:magicnumber")
     public void setUpLanguageScrollTabData(@NonNull List<String> languageCodes, int position, @Nullable Callback callback) {
         if (this.callback != null) {
             this.callback = null;
