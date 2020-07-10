@@ -51,7 +51,7 @@
   <string name="search_hint_search_languages">Cerca una lingua</string>
   <string name="search_hint_search_my_lists_and_articles">Cerca nei miei elenchi e voci</string>
   <string name="nav_item_history">Cronologia</string>
-  <string name="nav_item_suggested_edits" fuzzy="true">Modifiche suggerite</string>
+  <string name="nav_item_suggested_edits">Modifiche</string>
   <string name="nav_item_more">Altro</string>
   <string name="error_network_error">Non è possibile connettersi ad Internet.</string>
   <string name="page_error_retry">Riprova</string>
@@ -450,6 +450,8 @@
   <string name="reading_lists_sync_reminder_action">Attiva sincronizzazione</string>
   <string name="reading_list_login_reminder_title">Sincronizza elenco di lettura</string>
   <string name="reading_lists_login_reminder_text">Gli elenchi di lettura possono ora essere sincronizzati su tutti i dispositivi. Accedi alla tua utenza di Wikipedia e consenti ai tuoi elenchi di essere salvati.</string>
+  <string name="reading_lists_login_button">Entra / unisciti a Wikipedia</string>
+  <string name="reading_lists_ignore_button">Non ora</string>
   <string name="reading_lists_confirm_remote_delete_yes">Sì</string>
   <string name="reading_lists_confirm_remote_delete_no">No</string>
   <string name="reading_list_article_save_in_progress">La voce è in fase di scaricamento e sarà disponibile offline al termine.</string>
@@ -478,7 +480,6 @@
   <string name="reading_list_move_article_limit_message">Impossibile aggiungere a questo elenco. Hai raggiunto il limite di %2$d voci per elenco per \"%1$s\".</string>
   <string name="reading_list_article_limit_message">Impossibile aggiungere a questo elenco. Hai raggiunto il limite di %2$d voci per elenco per \"%1$s\".</string>
   <string name="reading_lists_limit_message">Impossibile creare un altro elenco. Hai raggiunto il limite di 100 elenchi di lettura per utenza.</string>
-  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Sincronizza gli elenchi di lettura&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Gli elenchi di lettura ora possono essere sincronizzati su tutti i dispositivi. Accedi con la tua utenza di Wikipedia e consenti di salvare i tuoi elenchi.</string>
   <string name="reading_lists_menu_create_list">Crea nuovo elenco</string>
   <string name="reading_lists_menu_sort_by">Ordina per</string>
   <string name="reading_lists_refresh_sync_option">Aggiorna la sincronizzazione</string>
@@ -768,6 +769,7 @@
   <string name="suggested_edits_quality_sufficient_text">Sufficiente</string>
   <string name="suggested_edits_quality_poor_text">Povero</string>
   <string name="suggested_edits_quality_bad_text">Male</string>
+  <string name="suggested_edits_label">Modifiche suggerite</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">Contributo</item>
     <item quantity="other">Contributi</item>

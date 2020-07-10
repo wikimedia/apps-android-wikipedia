@@ -485,7 +485,6 @@
   <string name="split_reading_list_message">Максимально допустимое число статей в списке для чтения: %d. Существующие списки, превышающие этот лимит, были разделены на несколько списков.</string>
   <string name="reading_list_article_limit_message">Невозможно добавить в текущий список. Вы исчерпали лимит %2$d статей для \"%1$s\".</string>
   <string name="reading_lists_limit_message">Невозможно создать новый список. Вы достигли лимита в 100 списков для одной учётной записи.</string>
-  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Списки чтения с синхронизацией&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Списки чтения теперь могут быть синхронизированы между устройствами. Войдите в свою учётную запись в Википедии и разрешите сохранять списки.</string>
   <string name="reading_lists_menu_create_list">Создать новый список</string>
   <string name="reading_lists_menu_sort_by">Сортировать по</string>
   <string name="reading_lists_refresh_sync_option">Перезапустить синхронизацию</string>
