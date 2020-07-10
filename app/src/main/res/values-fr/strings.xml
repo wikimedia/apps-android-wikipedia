@@ -458,6 +458,8 @@
   <string name="reading_lists_sync_reminder_action">Activer la synchronisation</string>
   <string name="reading_list_login_reminder_title">Synchroniser les listes de lecture</string>
   <string name="reading_lists_login_reminder_text">Les listes de lecture peuvent maintenant être synchronisées entre appareils. Connectez-vous à votre compte Wikipédia et permettez à vos listes d’être enregistrées.</string>
+  <string name="reading_lists_login_button">Connexion / rejoindre Wikipédia</string>
+  <string name="reading_lists_ignore_button">Pas maintenant</string>
   <string name="reading_lists_confirm_remote_delete_yes">Oui</string>
   <string name="reading_lists_confirm_remote_delete_no">Non</string>
   <string name="reading_list_article_save_in_progress">L’article est en cours de téléchargement, et il sera disponible hors connexion quand ce sera terminé.</string>
@@ -752,6 +754,7 @@
   <string name="suggested_edits_image_tags_add_tag">Ajouter une balise</string>
   <string name="suggested_edits_image_zoom_tooltip">Pincer pour zoomer sur cette image.</string>
   <string name="suggested_edits_encouragement_message">%s, merci pour vos modifications. Ci-dessous, vous pourrez trouver d’autres moyens de contribuer à Wikipédia.</string>
+  <string name="suggested_edits_onboarding_message">&lt;b&gt;Bonjour %s&lt;/b&gt;, ci-dessous, vous trouverez des manières rapides et faciles pour aider à améliorer Wikipédia. Vous verrrez la différence aussitôt que vous commencerez. Bonnes mises à jour !</string>
   <string name="suggested_edits_image_captions_task_detail">Décrire une image pour aider les lecteurs à comprendre sa signification et son contexte.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Résumer un article, pour aider les lecteurs à comprendre le sujet d’un coup d’œil.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Votre nombre total de contributions avec Modifications suggérées.</string>
@@ -774,6 +777,7 @@
   <string name="suggested_edits_quality_sufficient_text">Suffisant</string>
   <string name="suggested_edits_quality_poor_text">Faible</string>
   <string name="suggested_edits_quality_bad_text">Mauvais</string>
+  <string name="suggested_edits_label">Modifications suggérées</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">Contribution</item>
     <item quantity="other">Contributions</item>
@@ -814,11 +818,11 @@
   <string name="suggested_edits_rewards_pageviews">Vos modifications ont été vues par %d personnes dans les 30 derniers jours. Merci, et continuez !</string>
   <string name="suggested_edits_rewards_edit_quality">Vos modifications jusqu’à présent sont %s. Continuez ! Nous attendons vos contributions.</string>
   <string name="suggested_edits_rewards_continue_button">Poursuivre</string>
-  <string name="suggested_edits_encourage_account_creation_title">Savez-vous que tout le monde peut modifier Wikipédia ?</string>
+  <string name="suggested_edits_encourage_account_creation_title">Savez-vous que chacun peut modifier Wikipédia ?</string>
   <string name="suggested_edits_encourage_account_creation_message">Modifications suggérées est une nouvelle façon de modifier Wikipédia sur Android. Il aide à faire de petites contributions vitales à Wikipédia. Notre but est de rendre les modifications plus faciles et plus accessibles à tout le monde ! Connectez-vous ou rejoignez Wikipédia pour démarrer.</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Se connecter / rejoindre Wikiipédia</string>
   <string name="suggested_edits_contribution_type_image_tag">Balise d’image</string>
-  <string name="suggested_edits_contribution_current_revision_text">Votre édition est actuelle sur Wikipédia</string>
+  <string name="suggested_edits_contribution_current_revision_text">Votre édition est actuellement visible sur Wikipédia</string>
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="one">%1$s balise</item>
     <item quantity="other">%1$s balises</item>

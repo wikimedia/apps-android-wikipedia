@@ -2,7 +2,6 @@ package org.wikipedia.suggestededits
 
 import android.content.Context
 import android.content.Intent
-import android.os.Bundle
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.analytics.SuggestedEditsFunnel
 

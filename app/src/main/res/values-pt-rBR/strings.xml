@@ -47,7 +47,7 @@
   <string name="search_hint_search_languages">Procurar um idioma</string>
   <string name="search_hint_search_my_lists_and_articles">Pesquisar minhas listas e artigos</string>
   <string name="nav_item_history">Histórico</string>
-  <string name="nav_item_suggested_edits" fuzzy="true">Edições sugeridas</string>
+  <string name="nav_item_suggested_edits">Edições</string>
   <string name="nav_item_more">Mais</string>
   <string name="error_network_error">Não foi possível conectar-se à Internet.</string>
   <string name="page_error_retry">Atualizar</string>
@@ -447,6 +447,8 @@
   <string name="reading_lists_sync_reminder_action">Ativar sincronização</string>
   <string name="reading_list_login_reminder_title">Sincronizar listas de leitura</string>
   <string name="reading_lists_login_reminder_text">As listas de leitura agora podem ser sincronizadas entre dispositivos. Faça login na sua conta de Wikipedia e permita que suas listas sejam salvas.</string>
+  <string name="reading_lists_login_button">Entrar / Juntar na Wikipédia</string>
+  <string name="reading_lists_ignore_button">Agora não</string>
   <string name="reading_lists_confirm_remote_delete_yes">Sim</string>
   <string name="reading_lists_confirm_remote_delete_no">Não</string>
   <string name="reading_list_article_save_in_progress">O artigo está sendo baixado, e estará disponível offline quando completo.</string>
@@ -764,6 +766,7 @@
   <string name="suggested_edits_quality_sufficient_text">Suficiente</string>
   <string name="suggested_edits_quality_poor_text">Péssima</string>
   <string name="suggested_edits_quality_bad_text">Ruim</string>
+  <string name="suggested_edits_label">Edições sugeridas</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">Contribuição</item>
     <item quantity="other">Contribuições</item>

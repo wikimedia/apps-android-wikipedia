@@ -760,6 +760,7 @@
     <item quantity="one">%d يوم</item>
     <item quantity="other">%d أيام</item>
   </plurals>
+  <string name="suggested_edits_what_is_title">ما هي التعديلات المقترحة؟</string>
   <string name="suggested_edits_learn_more">معرفة المزيد</string>
   <string name="suggested_edits_paused_title">إيقاف مؤقت</string>
   <string name="suggested_edits_last_edited">آخر تعديل</string>
