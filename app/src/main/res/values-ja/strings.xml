@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* 129femtoseconds
 * Abijeet Patro
 * Aefgh39622
 * Afaz
@@ -446,6 +447,8 @@
   <string name="reading_lists_sync_reminder_action">同期を有効にする</string>
   <string name="reading_list_login_reminder_title">あとで読むリストを同期する</string>
   <string name="reading_lists_login_reminder_text">あとで読むリストはデバイス間で同期できるようになりました。ウィキペディアのアカウントにログインして、リストの保存を許可してください。</string>
+  <string name="reading_lists_login_button">ログイン / ウィキペディアに参加する</string>
+  <string name="reading_lists_ignore_button">今はしない</string>
   <string name="reading_lists_confirm_remote_delete_yes">はい</string>
   <string name="reading_lists_confirm_remote_delete_no">いいえ</string>
   <string name="reading_list_article_save_in_progress">記事がダウンロードされ、完了したら記事をオフラインで利用できるようになります。</string>

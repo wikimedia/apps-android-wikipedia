@@ -761,6 +761,7 @@
   <string name="suggested_edits_quality_sufficient_text">Suggested edits label text indicating that the edit quality of the user is sufficient</string>
   <string name="suggested_edits_quality_poor_text">Suggested edits label text indicating that the edit quality of the user is poor</string>
   <string name="suggested_edits_quality_bad_text">Suggested edits label text indicating that the edit quality of the user is bad</string>
+  <string name="suggested_edits_label">Label text for suggested edits.</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">Label text for indicating how many contributions a user has made. For One contribution.</item>
     <item quantity="other">Label text for indicating how many contributions a user has made. For many contributions.</item>
@@ -913,5 +914,4 @@
   <string name="text_input_dialog_ok_button_text">Positive action button text in pop-up dialog for text input.\n{{Identical|OK}}</string>
   <string name="text_input_dialog_cancel_button_text">Negative action button text in pop-up dialog for text input.\n{{Identical|Cancel}}</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Negative action button text in date picker pop-up dialog.\n{{Identical|Cancel}}</string>
-  <string name="suggested_edits_label">Label text for suggested edits.</string>
 </resources>

@@ -25,6 +25,7 @@
   <string name="search_hint_search_my_lists_and_articles">Търсене в моите списъци и статии</string>
   <string name="nav_item_history">История</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Предложени редакции</string>
+  <string name="nav_item_more">Още</string>
   <string name="error_network_error">Няма връзка с интернет.</string>
   <string name="page_error_retry">Опитайте отново</string>
   <string name="card_offline_error_retry">Повторен опит</string>
@@ -108,7 +109,7 @@
   <string name="reading_lists_sync_login">Влизане</string>
   <string name="create_account_login">Влизане</string>
   <string name="menu_login">Влизане</string>
-  <string name="login_activity_title" fuzzy="true">Влизане в Уикипедия</string>
+  <string name="login_activity_title">Влизане</string>
   <string name="login_in_progress_dialog_message">Влизане...</string>
   <string name="login_success_toast">Успешно влизане!</string>
   <string name="reset_password_title">Въведете паролата си</string>
@@ -707,13 +708,18 @@
   <string name="suggested_edits_task_new">ново</string>
   <string name="suggested_edits_cc0_notice">Публикувайки, Вие се съгласявате с &lt;a href=\"%1$s\"&gt;условията за ползване&lt;/a&gt; и безвъзвратно публикувате приносите си под &lt;a href=\"%2$s\"&gt;CC0 лиценз&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Предложения за редактиране</string>
+  <string name="suggested_edits_contributions_screen_title">Приносите на %s</string>
   <string name="suggested_edits_contribution_language_label">Език</string>
   <string name="suggested_edits_contribution_date_time_label">Дата / Час</string>
   <string name="suggested_edits_contribution_type_label">Вид принос</string>
   <string name="suggested_edits_contribution_image_label" fuzzy="true">Файл</string>
   <string name="suggested_edits_contribution_article_label">Статия</string>
+  <string name="suggested_edits_contribution_views">%s прочита</string>
+  <string name="suggested_edits_contribution_seen_text">Видяно %s пъти през последните 30 дни.</string>
+  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Вчера</string>
   <string name="suggested_edits_rewards_continue_button">Продължаване</string>
+  <string name="suggested_edits_encourage_account_creation_login_button">Влизане в / присъединяване към Уикипедия</string>
   <string name="suggested_edits_added_contribution_label" fuzzy="true">Добавили сте %d символа</string>
   <string name="file_page_activity_title">Страница на файла</string>
   <string name="description_edit_revert_subtitle">Благодарим за редактирането на Уикипедия!</string>
@@ -799,6 +805,7 @@
   <string name="main_drawer_help">Помощ</string>
   <string name="main_drawer_login">Влизане в / присъединяване към Уикипедия</string>
   <string name="main_tooltip_text" fuzzy="true">%s, знаехте ли, че всеки може да редактира Уикипедия?</string>
+  <string name="main_tooltip_text_v2">Знаете ли, че всеки може да редактира Уикипедия?</string>
   <string name="main_tooltip_action_button">Започване</string>
   <string name="custom_date_picker_dialog_ok_button_text">Добре</string>
   <string name="text_input_dialog_ok_button_text">Добре</string>
