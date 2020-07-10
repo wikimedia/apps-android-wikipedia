@@ -15,7 +15,6 @@ import org.wikipedia.database.contract.ReadingListPageContract;
 import org.wikipedia.events.ArticleSavedOrDeletedEvent;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter;
-import org.wikipedia.readinglist.sync.ReadingListSyncEvent;
 import org.wikipedia.savedpages.SavedPageSyncService;
 import org.wikipedia.util.log.L;
 
@@ -277,7 +276,7 @@ public class ReadingListDbHelper {
                 addPageToList(db, destList, title);
             }
             markPagesForDeletion(sourceList, Collections.singletonList(sourceReadingListPage));
-            WikipediaApp.getInstance().getBus().post(new ReadingListSyncEvent());
+            ReadingListSyncAdapter.manualSync();
         }
     }
 

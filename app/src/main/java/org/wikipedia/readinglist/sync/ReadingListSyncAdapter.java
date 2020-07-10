@@ -532,7 +532,7 @@ public class ReadingListSyncAdapter extends AbstractThreadedSyncAdapter {
             readingListSyncNotification.cancelNotification(getContext());
 
             if (shouldSendSyncEvent) {
-                SavedPageSyncService.sendSyncEvent();
+                SavedPageSyncService.sendSyncEvent(extras.containsKey(SYNC_EXTRAS_REFRESHING));
             }
             if ((shouldRetry || shouldRetryWithForce) && !extras.containsKey(SYNC_EXTRAS_RETRYING)) {
                 Bundle b = new Bundle();
