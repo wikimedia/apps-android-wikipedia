@@ -152,7 +152,7 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
                                             .setTitle(StringUtil.fromHtml(summary.getDisplayTitle()))
                                             .setMessage(StringUtil.fromHtml(summary.getExtract()))
                                             .setPositiveButton("Go", (dialog, which) -> {
-                                                PageTitle title = new PageTitle(summary.getApiTitle(), WikipediaApp.getInstance().getWikiSite());
+                                                PageTitle title = summary.getPageTitle(WikipediaApp.getInstance().getWikiSite());
                                                 getActivity().startActivity(PageActivity.newIntentForNewTab(getActivity(), new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK), title));
                                             })
                                             .setNegativeButton(R.string.cancel, null)
@@ -174,7 +174,7 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
                                             .setTitle(StringUtil.fromHtml(pair.getSecond().getDisplayTitle()))
                                             .setMessage(StringUtil.fromHtml(pair.getSecond().getDescription()))
                                             .setPositiveButton("Go", (dialog, which) -> {
-                                                PageTitle title = new PageTitle(pair.getSecond().getApiTitle(), WikiSite.forLanguageCode(WikipediaApp.getInstance().language().getAppLanguageCodes().get(1)));
+                                                PageTitle title = pair.getSecond().getPageTitle(WikiSite.forLanguageCode(WikipediaApp.getInstance().language().getAppLanguageCodes().get(1)));
                                                 getActivity().startActivity(PageActivity.newIntentForNewTab(getActivity(), new HistoryEntry(title, HistoryEntry.SOURCE_INTERNAL_LINK), title));
                                             })
                                             .setNegativeButton(R.string.cancel, null)

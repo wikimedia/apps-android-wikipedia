@@ -429,7 +429,6 @@
   <string name="split_reading_list_message">Irakurketa zerrenda bakoitzeko %d artikuluen muga dago. Muga gainditu dituzten jada existitzen diren zerrendak beste zerrendatan banatu dira.</string>
   <string name="reading_list_article_limit_message">Ezin da zerrenda honetara gehitu. %2$d artikulu zerrenda bakoitzeko %1$s gatik mugara iritsi zara.</string>
   <string name="reading_lists_limit_message">Ezin duzu beste zerrenda sortu. 100 irakurketa zerrenden muga kontu bakoitzeko jada asetu duzu.</string>
-  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Irakurketa zerrendak sinkronizatu&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Irakurketa zerrendak gailu guztietan sinkroniza daitezke. Hasi saioa zure Wikipedia kontuan, zerrendak gorde ahal izateko.</string>
   <string name="reading_lists_menu_create_list">Zerrenda berria sortu</string>
   <string name="reading_lists_menu_sort_by">Honen arabera sailkatu</string>
   <string name="reading_lists_refresh_sync_option">Sinkronizatzea freskatu</string>

@@ -456,7 +456,6 @@
   <string name="reading_list_move_article_limit_message">Nu pot trece la această listă. Ați atins limita de articole %2$d pe listă pentru „\"%1$s\"”.</string>
   <string name="reading_list_article_limit_message">Nu se poate adăuga la această listă. Ați atins limita de articole %2$d pe listă pentru „%1$s”.</string>
   <string name="reading_lists_limit_message">Nu pot crea o altă listă. Ați atins limita de 100 de liste de citire pe cont.</string>
-  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Sincronizați listele de citire&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Listele de citire pot fi sincronizate pe dispozitive. Conectați-vă la contul dvs. Wikipedia și permiteți salvarea listelor dvs.</string>
   <string name="reading_lists_menu_create_list">Creați o listă nouă</string>
   <string name="reading_lists_menu_sort_by">Sortare după</string>
   <string name="reading_lists_refresh_sync_option">Reîncarcă sincronizarea</string>
