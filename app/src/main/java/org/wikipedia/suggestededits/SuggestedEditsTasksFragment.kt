@@ -3,13 +3,14 @@ package org.wikipedia.suggestededits
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.view.*
+import android.view.LayoutInflater
+import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
+import android.view.ViewGroup
 import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.skydoves.balloon.showAlignTop
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -82,11 +83,14 @@ class SuggestedEditsTasksFragment : Fragment() {
 
         editStreakStatsView.setDescription(resources.getString(R.string.suggested_edits_edit_streak_label_text))
         editStreakStatsView.setImageDrawable(R.drawable.ic_timer_black_24dp)
+        editStreakStatsView.isTooltipPlaceLeft = false
 
         pageViewStatsView.setDescription(getString(R.string.suggested_edits_views_label_text))
         pageViewStatsView.setImageDrawable(R.drawable.ic_trending_up_black_24dp)
 
         editQualityStatsView.setDescription(getString(R.string.suggested_edits_quality_label_text))
+        editQualityStatsView.tooltipText = getString(R.string.suggested_edits_edit_quality_stat_tooltip, SuggestedEditsUserStats.totalReverts)
+        editQualityStatsView.isTooltipPlaceLeft = false
 
         swipeRefreshLayout.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent))
         swipeRefreshLayout.setOnRefreshListener { refreshContents() }
@@ -101,11 +105,6 @@ class SuggestedEditsTasksFragment : Fragment() {
         tasksRecyclerView.adapter = RecyclerAdapter(displayedTasks)
 
         clearContents()
-        setUpTooltips()
-    }
-
-    private fun setUpTooltips() {
-        editQualityStatsView.showAlignTop(FeedbackUtil.showTooltipBubble(context,"Edit quality",null,activity))
     }
 
     override fun onPause() {
@@ -178,7 +177,7 @@ class SuggestedEditsTasksFragment : Fragment() {
                     val contributions = ArrayList<UserContribution>()
                     contributions.addAll(wikidataResponse.query()!!.userContributions())
                     contributions.addAll(commonsResponse.query()!!.userContributions())
-                    contributions.sortWith(Comparator { o2, o1 -> ( o1.date().compareTo(o2.date())) })
+                    contributions.sortWith(Comparator { o2, o1 -> (o1.date().compareTo(o2.date())) })
 
                     latestEditStreak = getEditStreak(contributions)
 

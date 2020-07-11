@@ -119,4 +119,8 @@
         <attr name="title" format="string" />
         <attr name="detail" format="string" />
     </declare-styleable>
+
+    <declare-styleable name="ImageTitleDescriptionView">
+        <attr name="tooltipText" format="string" />
+    </declare-styleable>
 </resources>
