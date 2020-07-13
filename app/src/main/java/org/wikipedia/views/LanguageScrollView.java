@@ -118,7 +118,12 @@ public class LanguageScrollView extends ConstraintLayout {
         }
 
         if (horizontalLanguageScroll != null && horizontalLanguageScroll.getTabAt(position) != null) {
-            horizontalLanguageScroll.postDelayed(() -> horizontalLanguageScroll.getTabAt(position).select(), 100);
+            horizontalLanguageScroll.postDelayed(() -> {
+                if (!isAttachedToWindow()) {
+                    return;
+                }
+                horizontalLanguageScroll.getTabAt(position).select();
+            }, 100);
         }
     }
 
@@ -155,6 +160,10 @@ public class LanguageScrollView extends ConstraintLayout {
         if (backgroundColorTint != null) {
             languageCodeTextView.getBackground().setColorFilter(backgroundColorTint, PorterDuff.Mode.SRC_IN);
         }
+    }
+
+    public int getSelectedPosition() {
+        return horizontalLanguageScroll.getSelectedTabPosition();
     }
 
     @OnClick(R.id.more_languages)
