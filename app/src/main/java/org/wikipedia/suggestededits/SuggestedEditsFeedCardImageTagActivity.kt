@@ -19,10 +19,10 @@ import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.views.ImageZoomHelper
 
-class SuggestedEditsFeedCardImageTagActivity : BaseActivity(), EditsImageTagsFragment.Callback {
+class SuggestedEditsFeedCardImageTagActivity : BaseActivity(), SuggestedEditsImageTagsFragment.Callback {
 
     private lateinit var imageZoomHelper: ImageZoomHelper
-    private var editsImageTagsFragment: EditsImageTagsFragment? = null
+    private var suggestedEditsImageTagsFragment: SuggestedEditsImageTagsFragment? = null
     var action: DescriptionEditActivity.Action = DescriptionEditActivity.Action.ADD_IMAGE_TAGS
     var page: MwQueryPage? = null
 
@@ -33,9 +33,9 @@ class SuggestedEditsFeedCardImageTagActivity : BaseActivity(), EditsImageTagsFra
         supportActionBar!!.title = getString(R.string.suggested_edits_tag_images)
         imageZoomHelper = ImageZoomHelper(this)
         setContentView(R.layout.activity_suggested_edits_feed_card_image_tags)
-        editsImageTagsFragment = supportFragmentManager.findFragmentById(R.id.imageTagFragment) as EditsImageTagsFragment?
-        addContributionButton.setOnClickListener { editsImageTagsFragment!!.publish() }
-        addContributionLandscapeImage.setOnClickListener { editsImageTagsFragment!!.publish() }
+        suggestedEditsImageTagsFragment = supportFragmentManager.findFragmentById(R.id.imageTagFragment) as SuggestedEditsImageTagsFragment?
+        addContributionButton.setOnClickListener { suggestedEditsImageTagsFragment!!.publish() }
+        addContributionLandscapeImage.setOnClickListener { suggestedEditsImageTagsFragment!!.publish() }
     }
 
     override fun getLangCode(): String {
@@ -47,12 +47,12 @@ class SuggestedEditsFeedCardImageTagActivity : BaseActivity(), EditsImageTagsFra
     }
 
     override fun updateActionButton() {
-        if (editsImageTagsFragment != null) {
+        if (suggestedEditsImageTagsFragment != null) {
             addContributionLandscapeImage.setBackgroundColor(ResourceUtil.getThemedColor(this, R.attr.colorAccent))
-            addContributionButton.isEnabled = editsImageTagsFragment!!.publishEnabled()
-            addContributionLandscapeImage.isEnabled = editsImageTagsFragment!!.publishEnabled()
-            addContributionButton.alpha = if (editsImageTagsFragment!!.publishEnabled()) 1f else 0.5f
-            addContributionLandscapeImage.alpha = if (editsImageTagsFragment!!.publishEnabled()) 1f else 0.5f
+            addContributionButton.isEnabled = suggestedEditsImageTagsFragment!!.publishEnabled()
+            addContributionLandscapeImage.isEnabled = suggestedEditsImageTagsFragment!!.publishEnabled()
+            addContributionButton.alpha = if (suggestedEditsImageTagsFragment!!.publishEnabled()) 1f else 0.5f
+            addContributionLandscapeImage.alpha = if (suggestedEditsImageTagsFragment!!.publishEnabled()) 1f else 0.5f
         }
 
         if (DimenUtil.isLandscape(this)) {

@@ -8,7 +8,7 @@ import kotlinx.android.synthetic.main.activity_suggested_edits_tags_onboarding.*
 import org.wikipedia.R
 import org.wikipedia.activity.BaseActivity
 
-class EditsImageTagsOnboardingActivity : BaseActivity() {
+class SuggestedEditsImageTagsOnboardingActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,7 +21,7 @@ class EditsImageTagsOnboardingActivity : BaseActivity() {
 
     companion object {
         fun newIntent(context: Context): Intent {
-            return Intent(context, EditsImageTagsOnboardingActivity::class.java)
+            return Intent(context, SuggestedEditsImageTagsOnboardingActivity::class.java)
         }
     }
 }

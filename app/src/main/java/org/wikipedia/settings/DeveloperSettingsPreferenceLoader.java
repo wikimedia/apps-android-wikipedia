@@ -20,7 +20,7 @@ import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.database.ReadingList;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.readinglist.database.ReadingListPage;
-import org.wikipedia.suggestededits.provider.MissingDescriptionProvider;
+import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider;
 import org.wikipedia.util.StringUtil;
 
 import java.util.ArrayList;
@@ -145,7 +145,7 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
 
         findPreference(context.getString(R.string.preference_key_missing_description_test))
                 .setOnPreferenceClickListener(preference -> {
-                    MissingDescriptionProvider.INSTANCE.getNextArticleWithMissingDescription(WikipediaApp.getInstance().getWikiSite())
+                    EditingSuggestionsProvider.INSTANCE.getNextArticleWithMissingDescription(WikipediaApp.getInstance().getWikiSite())
                             .subscribeOn(Schedulers.io())
                             .observeOn(AndroidSchedulers.mainThread())
                             .subscribe(summary -> new AlertDialog.Builder(getActivity())
@@ -166,7 +166,7 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
 
         findPreference(context.getString(R.string.preference_key_missing_description_test2))
                 .setOnPreferenceClickListener(preference -> {
-                    MissingDescriptionProvider.INSTANCE.getNextArticleWithMissingDescription(WikipediaApp.getInstance().getWikiSite(),
+                    EditingSuggestionsProvider.INSTANCE.getNextArticleWithMissingDescription(WikipediaApp.getInstance().getWikiSite(),
                             WikipediaApp.getInstance().language().getAppLanguageCodes().get(1), true)
                             .subscribeOn(Schedulers.io())
                             .observeOn(AndroidSchedulers.mainThread())

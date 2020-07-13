@@ -36,7 +36,7 @@ import org.wikipedia.util.log.L
 import java.util.*
 import kotlin.collections.ArrayList
 
-class EditsImageTagDialog : DialogFragment() {
+class SuggestedEditsImageTagDialog : DialogFragment() {
     interface Callback {
         fun onSearchSelect(item: MwQueryPage.ImageLabel)
         fun onSearchDismiss(searchTerm: String)
@@ -213,8 +213,8 @@ class EditsImageTagDialog : DialogFragment() {
     }
 
     companion object {
-        fun newInstance(useClipboardText: Boolean, lastText: String): EditsImageTagDialog {
-            val dialog = EditsImageTagDialog()
+        fun newInstance(useClipboardText: Boolean, lastText: String): SuggestedEditsImageTagDialog {
+            val dialog = SuggestedEditsImageTagDialog()
             val args = Bundle()
             args.putBoolean("useClipboardText", useClipboardText)
             args.putString("lastText", lastText)

@@ -16,7 +16,7 @@ import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
-import org.wikipedia.suggestededits.provider.MissingDescriptionProvider
+import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
@@ -27,7 +27,7 @@ import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.ImageZoomHelper
 
-class EditsCardsItemFragment : EditsItemFragment() {
+class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
     var sourceSummaryForEdit: PageSummaryForEdit? = null
     var targetSummaryForEdit: PageSummaryForEdit? = null
     var addedContribution: String = ""
@@ -70,7 +70,7 @@ class EditsCardsItemFragment : EditsItemFragment() {
     private fun getArticleWithMissingDescription() {
         when (parent().action) {
             TRANSLATE_DESCRIPTION -> {
-                disposables.add(MissingDescriptionProvider.getNextArticleWithMissingDescription(WikiSite.forLanguageCode(parent().langFromCode), parent().langToCode, true)
+                disposables.add(EditingSuggestionsProvider.getNextArticleWithMissingDescription(WikiSite.forLanguageCode(parent().langFromCode), parent().langToCode, true)
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe({ pair ->
@@ -101,7 +101,7 @@ class EditsCardsItemFragment : EditsItemFragment() {
             }
 
             ADD_CAPTION -> {
-                disposables.add(MissingDescriptionProvider.getNextImageWithMissingCaption(parent().langFromCode)
+                disposables.add(EditingSuggestionsProvider.getNextImageWithMissingCaption(parent().langFromCode)
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .flatMap { title ->
@@ -140,7 +140,7 @@ class EditsCardsItemFragment : EditsItemFragment() {
 
             TRANSLATE_CAPTION -> {
                 var fileCaption: String? = null
-                disposables.add(MissingDescriptionProvider.getNextImageWithMissingCaption(parent().langFromCode, parent().langToCode)
+                disposables.add(EditingSuggestionsProvider.getNextImageWithMissingCaption(parent().langFromCode, parent().langToCode)
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .flatMap { pair ->
@@ -191,7 +191,7 @@ class EditsCardsItemFragment : EditsItemFragment() {
             }
 
             else -> {
-                disposables.add(MissingDescriptionProvider.getNextArticleWithMissingDescription(WikiSite.forLanguageCode(parent().langFromCode))
+                disposables.add(EditingSuggestionsProvider.getNextArticleWithMissingDescription(WikiSite.forLanguageCode(parent().langFromCode))
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe({ pageSummary ->
@@ -293,8 +293,8 @@ class EditsCardsItemFragment : EditsItemFragment() {
     }
 
     companion object {
-        fun newInstance(): EditsItemFragment {
-            return EditsCardsItemFragment()
+        fun newInstance(): SuggestedEditsItemFragment {
+            return SuggestedEditsCardsItemFragment()
         }
     }
 }

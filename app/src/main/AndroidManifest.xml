@@ -237,7 +237,7 @@
             android:name=".page.tabs.TabActivity"
             android:theme="@style/AppTheme" />
 
-        <activity android:name=".suggestededits.EditsImageTagsOnboardingActivity" />
+        <activity android:name=".suggestededits.SuggestedEditsImageTagsOnboardingActivity" />
 
         <activity
             android:name=".suggestededits.SuggestedEditsFeedCardImageTagActivity"

@@ -45,7 +45,7 @@ import java.util.*
 import java.util.concurrent.TimeUnit
 import kotlin.collections.ArrayList
 
-class EditsTasksFragment : Fragment() {
+class SuggestedEditsTasksFragment : Fragment() {
     private lateinit var addDescriptionsTask: SuggestedEditsTask
     private lateinit var addImageCaptionsTask: SuggestedEditsTask
     private lateinit var addImageTagsTask: SuggestedEditsTask
@@ -380,7 +380,7 @@ class EditsTasksFragment : Fragment() {
         displayedTasks.add(addImageCaptionsTask)
     }
 
-    private inner class TaskViewCallback : EditsTaskView.Callback {
+    private inner class TaskViewCallback : SuggestedEditsTaskView.Callback {
         override fun onViewClick(task: SuggestedEditsTask, isTranslate: Boolean) {
             if (WikipediaApp.getInstance().language().appLanguageCodes.size < Constants.MIN_LANGUAGES_TO_UNLOCK_TRANSLATION && isTranslate) {
                 showLanguagesActivity(LanguageSettingsInvokeSource.SUGGESTED_EDITS.text())
@@ -392,7 +392,7 @@ class EditsTasksFragment : Fragment() {
                 startActivity(SuggestionsActivity.newIntent(requireActivity(), if (isTranslate) TRANSLATE_CAPTION else ADD_CAPTION))
             } else if (task == addImageTagsTask) {
                 if (Prefs.shouldShowImageTagsOnboarding()) {
-                    startActivityForResult(EditsImageTagsOnboardingActivity.newIntent(requireContext()), ACTIVITY_REQUEST_IMAGE_TAGS_ONBOARDING)
+                    startActivityForResult(SuggestedEditsImageTagsOnboardingActivity.newIntent(requireContext()), ACTIVITY_REQUEST_IMAGE_TAGS_ONBOARDING)
                 } else {
                     startActivity(SuggestionsActivity.newIntent(requireActivity(), ADD_IMAGE_TAGS))
                 }
@@ -405,19 +405,19 @@ class EditsTasksFragment : Fragment() {
         startActivityForResult(intent, ACTIVITY_REQUEST_ADD_A_LANGUAGE)
     }
 
-    internal inner class RecyclerAdapter(tasks: List<SuggestedEditsTask>) : DefaultRecyclerAdapter<SuggestedEditsTask, EditsTaskView>(tasks) {
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DefaultViewHolder<EditsTaskView> {
-            return DefaultViewHolder(EditsTaskView(parent.context))
+    internal inner class RecyclerAdapter(tasks: List<SuggestedEditsTask>) : DefaultRecyclerAdapter<SuggestedEditsTask, SuggestedEditsTaskView>(tasks) {
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DefaultViewHolder<SuggestedEditsTaskView> {
+            return DefaultViewHolder(SuggestedEditsTaskView(parent.context))
         }
 
-        override fun onBindViewHolder(holder: DefaultViewHolder<EditsTaskView>, i: Int) {
+        override fun onBindViewHolder(holder: DefaultViewHolder<SuggestedEditsTaskView>, i: Int) {
             holder.view.setUpViews(items()[i], callback)
         }
     }
 
     companion object {
-        fun newInstance(): EditsTasksFragment {
-            return EditsTasksFragment()
+        fun newInstance(): SuggestedEditsTasksFragment {
+            return SuggestedEditsTasksFragment()
         }
     }
 }

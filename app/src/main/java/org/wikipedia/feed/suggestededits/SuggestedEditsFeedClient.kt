@@ -18,7 +18,7 @@ import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
 import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.userprofile.UserContributionsStats
-import org.wikipedia.suggestededits.provider.MissingDescriptionProvider
+import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.util.StringUtil
 import java.util.*
 
@@ -70,7 +70,7 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
     }
 
     private fun getImageToAddTags(cb: FeedClient.Callback?, callback: Callback?) {
-        disposables.add(MissingDescriptionProvider
+        disposables.add(EditingSuggestionsProvider
                 .getNextImageWithMissingTags(langFromCode)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -85,7 +85,7 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
     }
 
     private fun getArticleToAddDescription(cb: FeedClient.Callback?, callback: Callback?) {
-        disposables.add(MissingDescriptionProvider
+        disposables.add(EditingSuggestionsProvider
                 .getNextArticleWithMissingDescription(WikiSite.forLanguageCode(langFromCode))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -116,7 +116,7 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
             }
             return
         }
-        disposables.add(MissingDescriptionProvider
+        disposables.add(EditingSuggestionsProvider
                 .getNextArticleWithMissingDescription(WikiSite.forLanguageCode(langFromCode), langToCode, true)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -154,7 +154,7 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
     }
 
     private fun getImageToAddCaption(cb: FeedClient.Callback?, callback: Callback?) {
-        disposables.add(MissingDescriptionProvider.getNextImageWithMissingCaption(langFromCode)
+        disposables.add(EditingSuggestionsProvider.getNextImageWithMissingCaption(langFromCode)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .flatMap { title ->
@@ -203,7 +203,7 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
             return
         }
         var fileCaption: String? = null
-        disposables.add(MissingDescriptionProvider.getNextImageWithMissingCaption(langFromCode, langToCode)
+        disposables.add(EditingSuggestionsProvider.getNextImageWithMissingCaption(langFromCode, langToCode)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .flatMap { pair ->

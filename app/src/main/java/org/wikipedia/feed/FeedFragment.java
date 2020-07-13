@@ -53,7 +53,7 @@ import org.wikipedia.readinglist.sync.ReadingListSyncAdapter;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity;
-import org.wikipedia.suggestededits.EditsImageTagsOnboardingActivity;
+import org.wikipedia.suggestededits.SuggestedEditsImageTagsOnboardingActivity;
 import org.wikipedia.suggestededits.SuggestedEditsFeedCardImageTagActivity;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
@@ -552,7 +552,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
             suggestedEditsCardView = view;
             if (view.getCard().getAction() == ADD_IMAGE_TAGS && Prefs.shouldShowImageTagsOnboarding()) {
                 Prefs.setShowImageTagsOnboarding(false);
-                startActivityForResult(EditsImageTagsOnboardingActivity.Companion.newIntent(requireContext()),
+                startActivityForResult(SuggestedEditsImageTagsOnboardingActivity.Companion.newIntent(requireContext()),
                         ACTIVITY_REQUEST_SUGGESTED_EDITS_ONBOARDING);
             } else {
                 startDescriptionEditScreen();

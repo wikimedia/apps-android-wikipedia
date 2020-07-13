@@ -35,7 +35,7 @@ import org.wikipedia.json.GsonUnmarshaller;
 import org.wikipedia.login.LoginClient.LoginFailedException;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.settings.Prefs;
-import org.wikipedia.suggestededits.EditsSurvey;
+import org.wikipedia.suggestededits.SuggestedEditsSurvey;
 import org.wikipedia.suggestededits.PageSummaryForEdit;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.StringUtil;
@@ -104,7 +104,7 @@ public class DescriptionEditFragment extends Fragment {
             }
 
             if (invokeSource == SUGGESTED_EDITS) {
-                EditsSurvey.onEditSuccess();
+                SuggestedEditsSurvey.onEditSuccess();
             }
 
             Prefs.setLastDescriptionEditTime(new Date().getTime());

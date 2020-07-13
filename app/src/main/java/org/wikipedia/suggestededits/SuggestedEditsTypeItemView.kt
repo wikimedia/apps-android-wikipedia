@@ -13,7 +13,7 @@ import org.wikipedia.R
 import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_GENERIC
 import org.wikipedia.util.ResourceUtil
 
-class EditsTypeItemView constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
+class SuggestedEditsTypeItemView constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
     private var editType: Int = EDIT_TYPE_GENERIC
     private var callback: Callback? = null
 

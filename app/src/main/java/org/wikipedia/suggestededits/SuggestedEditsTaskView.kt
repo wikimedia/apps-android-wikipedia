@@ -12,7 +12,7 @@ import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.views.WikiCardView
 
-internal class EditsTaskView constructor(context: Context, attrs: AttributeSet? = null) : WikiCardView(context, attrs) {
+internal class SuggestedEditsTaskView constructor(context: Context, attrs: AttributeSet? = null) : WikiCardView(context, attrs) {
 
     init {
         View.inflate(context, R.layout.view_suggested_edits_task_item, this)

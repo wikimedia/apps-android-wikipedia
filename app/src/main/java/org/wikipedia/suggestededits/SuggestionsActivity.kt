@@ -9,10 +9,10 @@ import org.wikipedia.R
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.descriptions.DescriptionEditActivity.Action
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
-import org.wikipedia.suggestededits.EditsCardsFragment.Companion.newInstance
+import org.wikipedia.suggestededits.SuggestedEditsCardsFragment.Companion.newInstance
 import org.wikipedia.views.ImageZoomHelper
 
-class SuggestionsActivity : SingleFragmentActivity<EditsCardsFragment>() {
+class SuggestionsActivity : SingleFragmentActivity<SuggestedEditsCardsFragment>() {
 
     private lateinit var imageZoomHelper: ImageZoomHelper
 
@@ -23,7 +23,7 @@ class SuggestionsActivity : SingleFragmentActivity<EditsCardsFragment>() {
         imageZoomHelper = ImageZoomHelper(this)
     }
 
-    override fun createFragment(): EditsCardsFragment {
+    override fun createFragment(): SuggestedEditsCardsFragment {
         return newInstance(intent.getSerializableExtra(INTENT_EXTRA_ACTION) as Action)
     }
 

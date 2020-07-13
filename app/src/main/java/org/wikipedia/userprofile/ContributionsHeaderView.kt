@@ -9,11 +9,11 @@ import kotlinx.android.synthetic.main.view_contributions_header.view.*
 import org.wikipedia.R
 import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_IMAGE_CAPTION
 import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_IMAGE_TAG
-import org.wikipedia.suggestededits.EditsTypeItemView
+import org.wikipedia.suggestededits.SuggestedEditsTypeItemView
 
-class ContributionsHeaderView constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs), EditsTypeItemView.Callback {
+class ContributionsHeaderView constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs), SuggestedEditsTypeItemView.Callback {
 
-    private var filterViews = ArrayList<EditsTypeItemView>()
+    private var filterViews = ArrayList<SuggestedEditsTypeItemView>()
     var callback: Callback? = null
 
     init {
@@ -37,7 +37,7 @@ class ContributionsHeaderView constructor(context: Context, attrs: AttributeSet?
     }
 
     fun updateFilterViewUI(editType: Int, totalContributions: Int) {
-        val view: EditsTypeItemView
+        val view: SuggestedEditsTypeItemView
         val count: Int
         when (editType) {
             Contribution.EDIT_TYPE_ARTICLE_DESCRIPTION -> {

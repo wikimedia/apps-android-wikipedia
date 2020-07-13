@@ -37,7 +37,7 @@ import org.wikipedia.util.log.L
 import org.wikipedia.views.PositionAwareFragmentStateAdapter
 import java.util.concurrent.TimeUnit
 
-class EditsCardsFragment : Fragment(), EditsImageTagsFragment.Callback {
+class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.Callback {
     private val viewPagerListener = ViewPagerListener()
     private val disposables = CompositeDisposable()
     private val app = WikipediaApp.getInstance()
@@ -65,12 +65,12 @@ class EditsCardsFragment : Fragment(), EditsImageTagsFragment.Callback {
             }
         }
 
-    private fun topBaseChild(): EditsItemFragment? {
-        return (cardsViewPager.adapter as ViewPagerAdapter?)?.getFragmentAt(cardsViewPager.currentItem) as EditsItemFragment?
+    private fun topBaseChild(): SuggestedEditsItemFragment? {
+        return (cardsViewPager.adapter as ViewPagerAdapter?)?.getFragmentAt(cardsViewPager.currentItem) as SuggestedEditsItemFragment?
     }
 
-    private fun topChild(): EditsCardsItemFragment? {
-        return (cardsViewPager.adapter as ViewPagerAdapter?)?.getFragmentAt(cardsViewPager.currentItem) as EditsCardsItemFragment?
+    private fun topChild(): SuggestedEditsCardsItemFragment? {
+        return (cardsViewPager.adapter as ViewPagerAdapter?)?.getFragmentAt(cardsViewPager.currentItem) as SuggestedEditsCardsItemFragment?
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -148,7 +148,7 @@ class EditsCardsFragment : Fragment(), EditsImageTagsFragment.Callback {
     private fun maybeShowOnboarding() {
         if (action == ADD_IMAGE_TAGS && Prefs.shouldShowImageTagsOnboarding()) {
             Prefs.setShowImageTagsOnboarding(false)
-            startActivity(EditsImageTagsOnboardingActivity.newIntent(requireContext()))
+            startActivity(SuggestedEditsImageTagsOnboardingActivity.newIntent(requireContext()))
         }
     }
 
@@ -176,7 +176,7 @@ class EditsCardsFragment : Fragment(), EditsImageTagsFragment.Callback {
         val child = topBaseChild()
         var isAddedContributionEmpty = true
         if (child != null) {
-            if (child is EditsCardsItemFragment) {
+            if (child is SuggestedEditsCardsItemFragment) {
                 isAddedContributionEmpty = child.addedContribution.isEmpty()
                 if (!isAddedContributionEmpty) child.showAddedContributionView(child.addedContribution)
             }
@@ -185,7 +185,7 @@ class EditsCardsFragment : Fragment(), EditsImageTagsFragment.Callback {
             addContributionButton.alpha = if (child.publishEnabled()) 1f else 0.5f
         }
 
-        if (child != null && child is EditsRewardsItemFragment) {
+        if (child != null && child is SuggestedEditsRewardsItemFragment) {
             addContributionButton.text = getString(R.string.suggested_edits_rewards_continue_button)
             addContributionButton.icon = null
         } else if (action == ADD_IMAGE_TAGS) {
@@ -259,7 +259,7 @@ class EditsCardsFragment : Fragment(), EditsImageTagsFragment.Callback {
     }
 
     fun onSelectPage() {
-        if (topBaseChild() is EditsRewardsItemFragment) {
+        if (topBaseChild() is SuggestedEditsRewardsItemFragment) {
             nextPage(null)
         } else if (action == ADD_IMAGE_TAGS && topBaseChild() != null) {
             topBaseChild()!!.publish()
@@ -356,7 +356,7 @@ class EditsCardsFragment : Fragment(), EditsImageTagsFragment.Callback {
                             rewardInterstitialText = getString(R.string.suggested_edits_rewards_edit_streak, editorTaskCounts.editStreak, AccountUtil.getUserName())
                         } else if ((Prefs.getLastSuggestedEditsRewardInterstitialEditQualityShown().toInt() == 0
                                         || daysOfLastEditQualityShown == Prefs.getSuggestedEditsRewardInterstitialEditQualityOnDay())
-                                && UserContributionsStats.getRevertSeverity() <= EditsRewardsItemFragment.EDIT_STREAK_MAX_REVERT_SEVERITY) {
+                                && UserContributionsStats.getRevertSeverity() <= SuggestedEditsRewardsItemFragment.EDIT_STREAK_MAX_REVERT_SEVERITY) {
                             when (UserContributionsStats.getRevertSeverity()) {
                                 0 -> {
                                     rewardInterstitialImage = R.attr.reward_interstitial_quality_perfect_drawable
@@ -449,16 +449,16 @@ class EditsCardsFragment : Fragment(), EditsImageTagsFragment.Callback {
                     setUpRewardInterstitialsForQA()
                 }
                 if (funnel.shouldSeeInterstitial()) {
-                    return EditsRewardsItemFragment
+                    return SuggestedEditsRewardsItemFragment
                             .newInstance(ResourceUtil.getThemedAttributeId(requireContext(), rewardInterstitialImage), rewardInterstitialText)
                 }
             }
             return when (action) {
                 ADD_IMAGE_TAGS -> {
-                    EditsImageTagsFragment.newInstance()
+                    SuggestedEditsImageTagsFragment.newInstance()
                 }
                 else -> {
-                    EditsCardsItemFragment.newInstance()
+                    SuggestedEditsCardsItemFragment.newInstance()
                 }
             }
         }
@@ -527,8 +527,8 @@ class EditsCardsFragment : Fragment(), EditsImageTagsFragment.Callback {
     }
 
     companion object {
-        fun newInstance(action: DescriptionEditActivity.Action): EditsCardsFragment {
-            val addTitleDescriptionsFragment = EditsCardsFragment()
+        fun newInstance(action: DescriptionEditActivity.Action): SuggestedEditsCardsFragment {
+            val addTitleDescriptionsFragment = SuggestedEditsCardsFragment()
             val args = Bundle()
             args.putSerializable(INTENT_EXTRA_ACTION, action)
             addTitleDescriptionsFragment.arguments = args

@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 
-abstract class EditsItemFragment : Fragment() {
+abstract class SuggestedEditsItemFragment : Fragment() {
     val disposables = CompositeDisposable()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,8 +17,8 @@ abstract class EditsItemFragment : Fragment() {
         disposables.clear()
     }
 
-    fun parent(): EditsCardsFragment {
-        return requireActivity().supportFragmentManager.fragments[0] as EditsCardsFragment
+    fun parent(): SuggestedEditsCardsFragment {
+        return requireActivity().supportFragmentManager.fragments[0] as SuggestedEditsCardsFragment
     }
 
     open fun publishEnabled(): Boolean {

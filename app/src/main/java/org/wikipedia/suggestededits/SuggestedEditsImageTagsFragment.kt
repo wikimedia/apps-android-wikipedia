@@ -29,7 +29,7 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.mwapi.media.MediaHelper
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_IMAGE_TAGS
-import org.wikipedia.suggestededits.provider.MissingDescriptionProvider
+import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.login.LoginClient.LoginFailedException
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.PageTitle
@@ -42,7 +42,7 @@ import org.wikipedia.views.ViewUtil
 import java.util.*
 import kotlin.collections.ArrayList
 
-class EditsImageTagsFragment : EditsItemFragment(), CompoundButton.OnCheckedChangeListener, OnClickListener, EditsImageTagDialog.Callback {
+class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundButton.OnCheckedChangeListener, OnClickListener, SuggestedEditsImageTagDialog.Callback {
     interface Callback {
         fun getLangCode(): String
         fun getSinglePage(): MwQueryPage?
@@ -122,7 +122,7 @@ class EditsImageTagsFragment : EditsItemFragment(), CompoundButton.OnCheckedChan
         if (page != null) {
             return
         }
-        disposables.add(MissingDescriptionProvider.getNextImageWithMissingTags(callback().getLangCode())
+        disposables.add(EditingSuggestionsProvider.getNextImageWithMissingTags(callback().getLangCode())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ page ->
@@ -239,8 +239,8 @@ class EditsImageTagsFragment : EditsItemFragment(), CompoundButton.OnCheckedChan
     }
 
     companion object {
-        fun newInstance(): EditsItemFragment {
-            return EditsImageTagsFragment()
+        fun newInstance(): SuggestedEditsItemFragment {
+            return SuggestedEditsImageTagsFragment()
         }
     }
 
@@ -250,7 +250,7 @@ class EditsImageTagsFragment : EditsItemFragment(), CompoundButton.OnCheckedChan
             // they clicked the chip to add a new tag, so cancel out the check changing...
             chip.isChecked = !chip.isChecked
             // and launch the selection dialog for the custom tag.
-            EditsImageTagDialog.newInstance(wasCaptionLongClicked, lastSearchTerm).show(childFragmentManager, null)
+            SuggestedEditsImageTagDialog.newInstance(wasCaptionLongClicked, lastSearchTerm).show(childFragmentManager, null)
         }
     }
 

@@ -11,7 +11,7 @@ import org.wikipedia.page.PageTitle
 import java.util.*
 import java.util.concurrent.Semaphore
 
-object MissingDescriptionProvider {
+object EditingSuggestionsProvider {
     private val mutex: Semaphore = Semaphore(1)
 
     private val articlesWithMissingDescriptionCache: Stack<String> = Stack()
