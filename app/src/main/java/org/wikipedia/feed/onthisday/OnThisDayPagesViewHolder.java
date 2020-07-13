@@ -75,7 +75,7 @@ public class OnThisDayPagesViewHolder extends RecyclerView.ViewHolder {
     }
 
     @OnClick(R.id.parent) void onBaseViewClicked() {
-        PageTitle pageTitle = new PageTitle(selectedPage.getApiTitle(), wiki);
+        PageTitle pageTitle = selectedPage.getPageTitle(wiki);
         HistoryEntry entry = new HistoryEntry(pageTitle,
                 isSingleCard ? HistoryEntry.SOURCE_ON_THIS_DAY_CARD : HistoryEntry.SOURCE_ON_THIS_DAY_ACTIVITY);
 
@@ -83,7 +83,7 @@ public class OnThisDayPagesViewHolder extends RecyclerView.ViewHolder {
     }
 
     @OnLongClick(R.id.parent) boolean showOverflowMenu(View anchorView) {
-        PageTitle pageTitle = new PageTitle(selectedPage.getApiTitle(), wiki);
+        PageTitle pageTitle = selectedPage.getPageTitle(wiki);
         HistoryEntry entry = new HistoryEntry(pageTitle,
                 isSingleCard ? HistoryEntry.SOURCE_ON_THIS_DAY_CARD : HistoryEntry.SOURCE_ON_THIS_DAY_ACTIVITY);
 
