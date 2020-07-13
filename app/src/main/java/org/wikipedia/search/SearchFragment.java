@@ -230,6 +230,7 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
     private void setUpLanguageScroll(int position) {
         searchLanguageCode = app.language().getAppLanguageCode();
         if (app.language().getAppLanguageCodes().size() > 1) {
+            position = app.language().getAppLanguageCodes().size() > position ? position : 0;
             languageScrollContainer.setVisibility(View.VISIBLE);
             languageScrollView.setUpLanguageScrollTabData(app.language().getAppLanguageCodes(), position, this);
             langButtonContainer.setVisibility(View.GONE);
