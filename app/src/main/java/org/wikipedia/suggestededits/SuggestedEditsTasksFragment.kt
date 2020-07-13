@@ -83,14 +83,12 @@ class SuggestedEditsTasksFragment : Fragment() {
 
         editStreakStatsView.setDescription(resources.getString(R.string.suggested_edits_edit_streak_label_text))
         editStreakStatsView.setImageDrawable(R.drawable.ic_timer_black_24dp)
-        editStreakStatsView.isTooltipPlaceLeft = false
 
         pageViewStatsView.setDescription(getString(R.string.suggested_edits_views_label_text))
         pageViewStatsView.setImageDrawable(R.drawable.ic_trending_up_black_24dp)
 
         editQualityStatsView.setDescription(getString(R.string.suggested_edits_quality_label_text))
         editQualityStatsView.tooltipText = getString(R.string.suggested_edits_edit_quality_stat_tooltip, SuggestedEditsUserStats.totalReverts)
-        editQualityStatsView.isTooltipPlaceLeft = false
 
         swipeRefreshLayout.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent))
         swipeRefreshLayout.setOnRefreshListener { refreshContents() }

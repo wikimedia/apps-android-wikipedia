@@ -18,7 +18,7 @@ object SuggestedEditsUserStats {
     private const val PAUSE_DURATION_DAYS = 7
 
     private var totalEdits: Int = 0
-    private var totalReverts: Int = 0
+    var totalReverts: Int = 0
     var totalDescriptionEdits: Int = 0
     var totalImageCaptionEdits: Int = 0
     var totalImageTagEdits: Int = 0

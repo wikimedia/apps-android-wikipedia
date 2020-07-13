@@ -22,11 +22,11 @@
             android:layout_width="@dimen/suggested_edits_icon_background_size"
             android:layout_height="@dimen/suggested_edits_icon_background_size"
             android:layout_gravity="center"
+            android:contentDescription="@null"
             android:paddingStart="0.05dp"
             android:paddingTop="0.05dp"
-            android:contentDescription="@null"
             android:src="@drawable/shape_circle"
-            android:visibility="gone"/>
+            android:visibility="gone" />
 
         <ImageView
             android:id="@+id/image"
@@ -41,27 +41,26 @@
 
     <LinearLayout
         android:id="@+id/titleDescriptionLayout"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/suggested_edits_title_margin_start"
-        android:layout_weight="1"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/title"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="2dp"
-            android:textSize="@dimen/suggested_edits_icon_title_text_size"
             android:textColor="?attr/material_theme_primary_color"
+            android:textSize="@dimen/suggested_edits_icon_title_text_size"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/description"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/suggested_edits_message_textview_text_size"
-            android:textColor="?attr/material_theme_secondary_color"/>
+            android:textColor="?attr/material_theme_secondary_color"
+            android:textSize="@dimen/suggested_edits_message_textview_text_size" />
 
     </LinearLayout>
 

@@ -18,7 +18,6 @@ import org.wikipedia.util.FeedbackUtil
 
 internal class ImageTitleDescriptionView constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
     var tooltipText: String = ""
-    var isTooltipPlaceLeft: Boolean = true
 
     init {
         View.inflate(context, R.layout.view_image_title_description, this)
@@ -27,7 +26,7 @@ internal class ImageTitleDescriptionView constructor(context: Context, attrs: At
             val array = context.obtainStyledAttributes(attrs, R.styleable.ImageTitleDescriptionView)
             tooltipText = array.getString(R.styleable.ImageTitleDescriptionView_tooltipText).toString()
             setOnLongClickListener {
-                image.showAlignBottom(FeedbackUtil.showTooltipBubble(context, tooltipText, if (isTooltipPlaceLeft) 0.2f else 0.7f), 0, 16)
+                description.showAlignBottom(FeedbackUtil.showTooltipBubble(context, tooltipText), 0, 16)
                 true
             }
         }

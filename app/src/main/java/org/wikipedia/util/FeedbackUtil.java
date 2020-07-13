@@ -177,13 +177,11 @@ public final class FeedbackUtil {
     }
 
     @SuppressWarnings("checkstyle:magicnumber")
-    public static Balloon showTooltipBubble(Context context, CharSequence text, Float arrowPosition) {
+    public static Balloon showTooltipBubble(Context context, CharSequence text) {
         return new Balloon.Builder(context)
                 .setText(text)
-                .setArrowConstraints(ArrowConstraints.ALIGN_BALLOON)
+                .setArrowConstraints(ArrowConstraints.ALIGN_ANCHOR)
                 .setArrowOrientation(ArrowOrientation.TOP)
-                .setArrowPosition(arrowPosition)
-                .setElevation(8)
                 .setPadding(16)
                 .setTextSize(14f)
                 .setTextColorResource(ResourceUtil.getThemedAttributeId(context, R.attr.material_theme_secondary_color))
