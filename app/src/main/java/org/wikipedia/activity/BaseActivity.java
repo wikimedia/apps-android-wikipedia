@@ -313,7 +313,7 @@ public abstract class BaseActivity extends AppCompatActivity {
             } else if (event instanceof LoggedOutInBackgroundEvent) {
                 maybeShowLoggedOutInBackgroundDialog();
             } else if (event instanceof ReadingListSyncEvent) {
-                if (!Prefs.isSuggestedEditsHighestPriorityEnabled()) {
+                if (((ReadingListSyncEvent)event).showMessage() && !Prefs.isSuggestedEditsHighestPriorityEnabled()) {
                     FeedbackUtil.makeSnackbar(BaseActivity.this,
                             getString(R.string.reading_list_toast_last_sync), FeedbackUtil.LENGTH_DEFAULT).show();
                 }
