@@ -100,6 +100,7 @@ public class ReadingListSyncAdapter extends AbstractThreadedSyncAdapter {
     }
 
     public static void manualSyncWithRefresh() {
+        Prefs.setSuggestedEditsHighestPriorityEnabled(false);
         Bundle extras = new Bundle();
         extras.putBoolean(SYNC_EXTRAS_REFRESHING, true);
         manualSync(extras);

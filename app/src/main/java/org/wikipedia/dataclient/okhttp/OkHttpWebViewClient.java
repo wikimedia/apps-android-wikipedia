@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.dataclient.RestService;
 import org.wikipedia.page.LinkHandler;
 import org.wikipedia.page.PageViewModel;
 import org.wikipedia.util.UriUtil;
@@ -111,10 +112,10 @@ public abstract class OkHttpWebViewClient extends WebViewClient {
             }
             builder.header(header, request.getRequestHeaders().get(header));
         }
-        return OkHttpConnectionFactory.getClient().newCall(addHeaders(builder).build()).execute();
+        return OkHttpConnectionFactory.getClient().newCall(addHeaders(request, builder).build()).execute();
     }
 
-    private Request.Builder addHeaders(@NonNull Request.Builder builder) {
+    private Request.Builder addHeaders(@NonNull WebResourceRequest request, @NonNull Request.Builder builder) {
         // TODO: Find a common way to set this header between here and RetrofitFactory.
         builder.header("Accept-Language", WikipediaApp.getInstance().getAcceptLanguage(getModel().getTitle().getWikiSite()));
         if (getModel().shouldSaveOffline()) {
@@ -124,6 +125,9 @@ public abstract class OkHttpWebViewClient extends WebViewClient {
         builder.header(OfflineCacheInterceptor.TITLE_HEADER, UriUtil.encodeURL(getModel().getTitle().getPrefixedText()));
         if (getModel().getCurEntry() != null && !TextUtils.isEmpty(getModel().getCurEntry().getReferrer())) {
             builder.header("Referer", getModel().getCurEntry().getReferrer());
+        }
+        if (request.getUrl().getPath() != null && request.getUrl().getPath().contains(RestService.PAGE_HTML_ENDPOINT)) {
+            builder.header("X-Analytics", "pageview=1");
         }
         return builder;
     }
