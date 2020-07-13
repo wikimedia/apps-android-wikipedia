@@ -37,7 +37,9 @@ public class RelatedPagesSearchClientTest extends MockRetrofitTest {
                 .assertValue(result -> result.size() == 3
                         && result.get(0).getThumbnailUrl().equals("https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/European_grey_wolf_in_Prague_zoo.jpg/291px-European_grey_wolf_in_Prague_zoo.jpg")
                         && result.get(0).getDisplayTitle().equals("Wolf")
-                        && result.get(0).getDescription().equals("species of mammal"));
+                        && result.get(0).getDescription().equals("species of mammal")
+                        && result.get(1).getDisplayTitle().equals("Dingo")
+                        && result.get(1).getDescription() == null);
     }
 
     @Test public void testRequestResponseApiError() throws Throwable {

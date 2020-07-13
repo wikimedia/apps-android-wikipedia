@@ -28,6 +28,7 @@
   "tid": "f6d6f80c-2ed3-11e8-a436-b2755950c3e1",
   "timestamp": "2018-03-23T19:54:06Z",
   "description": "theorem in number theory",
+  "description_source": "local",
   "extract": "In number theory, Fermat's Last Theorem states that no three positive integers a, b, and c satisfy the equation an + bn = cn for any integer value of n greater than 2. The cases n = 1 and n = 2 have been known to have infinitely many solutions since antiquity.",
   "extract_html": "<p>In number theory, <b>Fermat's Last Theorem</b> states that no three positive integers <span class=\"texhtml \"><i>a</i></span>, <span class=\"texhtml \"><i>b</i></span>, and <span class=\"texhtml \"><i>c</i></span> satisfy the equation <span class=\"texhtml \"><i>a</i><sup><i>n</i></sup> + <i>b</i><sup><i>n</i></sup> = <i>c</i><sup><i>n</i></sup></span> for any integer value of <span class=\"texhtml \"><i>n</i></span> greater than 2. The cases <span class=\"texhtml \"><i>n</i> = 1</span> and <span class=\"texhtml \"><i>n</i> = 2</span> have been known to have infinitely many solutions since antiquity.</p>",
   "content_urls": {
