@@ -716,7 +716,6 @@
   <string name="suggested_edits_image_tags_onboarding_title">Etiquetar les imatges facilita que es puguin trobar.</string>
   <string name="suggested_edits_image_tags_onboarding_text">En afegir etiquetes d\'imatge ajudareu a facilitar la cerca d\'imatges a Commons (el repositori d\'imatges lliures que la Viquipèdia utilitza per a les imatges de llurs articles).</string>
   <string name="suggested_edits_image_tags_onboarding_note">S\'afegiran a les imatges només les etiquetes que trieu.</string>
-  <string name="suggested_edits_image_tags_snackbar">Afegeix etiquetes d\'imatge per a facilitar que altres les trobin.</string>
   <string name="suggested_edits_image_tags_task_detail">Afegiu etiquetes personalitzades a una imatge per a fer-la més fàcil de trobar.</string>
   <string name="suggested_edits_image_tags_choose">Afegeix o tria les etiquetes que coincideixen</string>
   <string name="suggested_edits_image_tags_published_list">Etiquetes publicades</string>

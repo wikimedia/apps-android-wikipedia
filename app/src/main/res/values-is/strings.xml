@@ -692,7 +692,6 @@
   <string name="suggested_edits_image_tags_onboarding_title">Að merkja myndir gerir mun auðveldara að finna þær.</string>
   <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">Með því að bæta við merkjum á myndir gerir mun auðveldara að finna þær á Commons, myndasafninu með frjálsum notkunarleyfum sem Wikipedia notar fyrir myndir í greinum sínum.\n\nSjálfvirkt er stungið upp á nokkrum merkjum en þú getur líka bætt við þínum eigin merkjum.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Einungis merki sem þú velur verður bætt á myndir.</string>
-  <string name="suggested_edits_image_tags_snackbar">Að bæta við merkjum á myndir gerir öðrum mun auðveldara að finna þær.</string>
   <string name="suggested_edits_image_tags_task_detail" fuzzy="true">Að merkja myndir gerir mun auðveldara að finna þær. Veldu úr tillögum að merkjum eða bættu við þínum eigin merkjum.</string>
   <string name="suggested_edits_image_tags_choose">Bættu við eða veldu samsvarandi merki</string>
   <string name="suggested_edits_image_tags_published_list">Birt merki</string>

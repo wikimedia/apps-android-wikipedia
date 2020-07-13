@@ -735,7 +735,6 @@
   <string name="suggested_edits_image_tags_onboarding_title">Görüntüleri etiketlemek onları bulmayı kolaylaştırır.</string>
   <string name="suggested_edits_image_tags_onboarding_text">Resim etiketleri ekleyerek, Vikipedi\'nin maddelerde ki resimler için kullandığı ücretsiz lisans resim deposu Commons\'ta resimlerin aranmasını kolaylaştırmaya yardımcı olacaksınız.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Yalnızca seçtiğiniz etiketler görüntülere eklenir.</string>
-  <string name="suggested_edits_image_tags_snackbar">Başkalarının bulmasını kolaylaştırmak için resim etiketleri ekleyin.</string>
   <string name="suggested_edits_image_tags_task_detail">Bulmayı kolaylaştırmak için görüntüye özel etiketler ekleyin.</string>
   <string name="suggested_edits_image_tags_choose">Eşleşen etiketler ekleyin veya seçin</string>
   <string name="suggested_edits_image_tags_published_list">Yayınlanan etiketler</string>

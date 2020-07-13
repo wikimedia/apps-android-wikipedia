@@ -710,7 +710,6 @@
   <string name="suggested_edits_image_tags_onboarding_title">Označenie obrázkov uľahčuje ich nájsť.</string>
   <string name="suggested_edits_image_tags_onboarding_text">Pridaním značiek obrázkov pomôžete, aby boli obrázky ľahšie nájditeľné na Commons, úložisku obrázkov so slobodnou licenciou, ktoré Wikipédia používa pre obrázky vo svojich článkoch.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Iba značky, ktoré vyberiete, budú pridané k obrázkom.</string>
-  <string name="suggested_edits_image_tags_snackbar">Pridajte značky obrázkom, aby ich mohli ostatní ľahšie nájsť</string>
   <string name="suggested_edits_image_tags_task_detail">Pridajte vlastné značky, aby bol obrázok ľahšie nájditeľný.</string>
   <string name="suggested_edits_image_tags_choose">Pridajte alebo vyberte vhodné značky</string>
   <string name="suggested_edits_image_tags_published_list">Publikované značky</string>
