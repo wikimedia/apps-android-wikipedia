@@ -20,6 +20,9 @@ import java.util.Map;
  */
 @SuppressWarnings("unused")
 public class MwQueryPage extends BaseModel {
+    public static final String DESCRIPTION_SOURCE_LOCAL = "local";
+    public static final String DESCRIPTION_SOURCE_WIKIDATA = "central";
+
     private int pageid;
     private int ns;
     private int index;
@@ -103,9 +106,8 @@ public class MwQueryPage extends BaseModel {
         return description;
     }
 
-    @Nullable
-    public String descriptionSource() {
-        return descriptionSource;
+    public boolean isDescriptionLocal() {
+        return DESCRIPTION_SOURCE_LOCAL.equals(descriptionSource);
     }
 
     @Nullable public ImageInfo imageInfo() {

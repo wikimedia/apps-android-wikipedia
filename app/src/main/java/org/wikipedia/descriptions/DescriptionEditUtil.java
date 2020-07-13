@@ -4,6 +4,8 @@ import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
 
+import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageProperties;
 
@@ -17,6 +19,14 @@ public final class DescriptionEditUtil {
         PageProperties props = page.getPageProperties();
         return !TextUtils.isEmpty(props.getWikiBaseItem())
                 && !DESCRIPTION_SOURCE_LOCAL.equals(props.getDescriptionSource());
+    }
+
+    public static boolean usesLocalDescriptions(@NonNull WikiSite wiki) {
+        return wiki.languageCode().equals("en");
+    }
+
+    public static boolean usesLocalDescriptions(@NonNull PageSummary summary) {
+        return summary.getLang().equals("en");
     }
 
     private DescriptionEditUtil() {

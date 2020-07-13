@@ -9,6 +9,7 @@ import androidx.annotation.Nullable;
 
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwQueryPage;
+import org.wikipedia.descriptions.DescriptionEditUtil;
 import org.wikipedia.model.BaseModel;
 import org.wikipedia.page.PageTitle;
 
@@ -17,11 +18,9 @@ public class SearchResult extends BaseModel implements Parcelable {
     private final String redirectFrom;
 
     public SearchResult(@NonNull MwQueryPage page, @NonNull WikiSite wiki) {
-        this(new PageTitle(page.title(), wiki, page.thumbUrl(), page.description(), page.displayTitle(wiki.languageCode())), page.redirectFrom());
-    }
-
-    public SearchResult(@NonNull PageTitle pageTitle) {
-        this(pageTitle, null);
+        this(new PageTitle(page.title(), wiki, page.thumbUrl(),
+                DescriptionEditUtil.usesLocalDescriptions(wiki) ? (page.isDescriptionLocal() ? page.description() : null) : page.description(),
+                page.displayTitle(wiki.languageCode())), page.redirectFrom());
     }
 
     public SearchResult(@NonNull PageTitle pageTitle, @Nullable String redirectFrom) {

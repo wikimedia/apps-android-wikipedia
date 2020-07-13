@@ -11,6 +11,8 @@ import com.google.gson.annotations.SerializedName;
 
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.dataclient.mwapi.MwQueryPage;
+import org.wikipedia.descriptions.DescriptionEditUtil;
 import org.wikipedia.page.GeoTypeAdapter;
 import org.wikipedia.page.Namespace;
 import org.wikipedia.page.Page;
@@ -94,6 +96,9 @@ public class PageSummary {
 
     @Nullable
     public String getDescription() {
+        if (DescriptionEditUtil.usesLocalDescriptions(this)) {
+            return MwQueryPage.DESCRIPTION_SOURCE_LOCAL.equals(descriptionSource) ? description : null;
+        }
         return description;
     }
 
