@@ -513,8 +513,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         // handler), since the page metadata might have altered the lead image display state.
         bridge.execute(JavaScriptActionHandler.setTopMargin(leadImagesHandler.getTopMargin()));
         bridge.execute(JavaScriptActionHandler.setFooter(model));
-
-        updateProgressBar(false);
     }
 
     private void onPageSetupEvent() {
@@ -522,6 +520,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             return;
         }
 
+        updateProgressBar(false);
         webView.setVisibility(View.VISIBLE);
         app.getSessionFunnel().leadSectionFetchEnd();
 
