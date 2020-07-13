@@ -402,7 +402,6 @@
   <string name="reading_list_saved_list_rename">%1$s (cruthaíodh úsáideoir)</string>
   <string name="reading_list_article_limit_message">Ní féidir alt eile a chur ar an liosta seo. Tá an uasteorainn sroichte agat, .i. %2$d alt in aghaidh an liosta do \"%1$s\".</string>
   <string name="reading_lists_limit_message">Ní féidir liosta eile a chruthú. Tá an uasteorainn sroichte agat, .i. 100 liosta léitheoireachta in aghaidh an chuntais.</string>
-  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Sioncronaigh liostaí léitheoireachta&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Anois is féidir liostaí léitheoireachta a shioncrónú thar gléasanna. Logáil isteach chuig do chuntas Vicipéide agus ceadaigh é go sábhálfar do chuid liostaí.</string>
   <string name="reading_lists_menu_create_list">Cruthaigh liosta nua</string>
   <string name="reading_lists_menu_sort_by">Sórtáil de réir</string>
   <string name="reading_lists_refresh_sync_option">Athnuaigh sioncronú</string>

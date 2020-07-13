@@ -431,7 +431,6 @@
   <string name="split_reading_list_message">Ааҥыы испииһэгэр муҥутаан %d ыстатыйа киирэр. Онтон уһун испииһэктэр хайытыллыбыттара.</string>
   <string name="reading_list_article_limit_message">Бу испииһэккэ эбэр табыллыбыта. Манна \"%1$s\" муҥутаан %2$d ыстатыйа угуллуон сөп.</string>
   <string name="reading_lists_limit_message">Саҥа испииһэги оҥорор кыаллыбата. Биир бэлиэ-аакка испииһэк ахсаана сүүстэн тахсыа суохтаах.</string>
-  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Ааҕыы тэҥнэнэр испииһэгэ&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Ааҕыы испииһэктэрэ билигин тэриллэр ыккардыларыгар тэҥнэнэр кыахтаннылар. Бикипиэдьийэҕэ бэйэҥ ааккынан киир уонна испииһэги харайары көҥүллээ.</string>
   <string name="reading_lists_menu_create_list">Саҥа испииһэги оҥоруу</string>
   <string name="reading_lists_menu_sort_by">Маннык наардаа...</string>
   <string name="reading_lists_refresh_sync_option">Хос ыыт</string>

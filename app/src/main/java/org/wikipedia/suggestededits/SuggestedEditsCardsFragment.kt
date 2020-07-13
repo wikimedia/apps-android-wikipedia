@@ -46,12 +46,12 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
     private var swappingLanguageSpinners: Boolean = false
     private var resettingViewPager: Boolean = false
     private var sessionEditCount = 0
+    private var rewardInterstitialQACount = 0
     var langFromCode: String = app.language().appLanguageCode
     var langToCode: String = if (app.language().appLanguageCodes.size == 1) "" else app.language().appLanguageCodes[1]
     var action: DescriptionEditActivity.Action = ADD_DESCRIPTION
     var rewardInterstitialImage = -1
     var rewardInterstitialText = ""
-    var rewardInterstitialQACount = 0
 
     private val topTitle: PageTitle?
         get() {

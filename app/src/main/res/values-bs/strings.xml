@@ -14,6 +14,7 @@
   <string name="search_hint_search_languages">Pronađi jezik</string>
   <string name="nav_item_history">Historija</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Predložene izmjene</string>
+  <string name="nav_item_more">Više</string>
   <string name="error_network_error">Ne mogu se povezati na internet.</string>
   <string name="page_error_retry">Pokušaj ponovo</string>
   <string name="card_offline_error_retry">Pokušaj ponovo</string>
@@ -351,7 +352,6 @@
   <string name="default_reading_list_description">Standardni spisak za Vaše sačuvane članke</string>
   <string name="no_user_lists_title">Organizirajte članke sa spiskovima</string>
   <string name="no_user_lists_msg">Napravite spiskove za mjesta koja želite posjetiti, Vaše omiljene teme i još mnogo toga</string>
-  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Sinhronizacija spiskova za čitanje&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Spiskovi za čitanje sada se mogu sinhronizirati među raznim uređajima. Prijavite se na račun na Wikipediji i dozvolite čuvanje spiskova.</string>
   <string name="reading_lists_menu_sort_by">Sortiraj po</string>
   <plurals name="reading_list_article_offline_message" fuzzy="true">
     <item quantity="one">Članak će sada biti dostupan van mreže.</item>

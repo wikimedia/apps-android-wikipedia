@@ -17,11 +17,11 @@ object UserContributionsStats {
     private const val REVERT_SEVERITY_DISABLE_THRESHOLD = 7
     private const val PAUSE_DURATION_DAYS = 7
 
-    var totalEdits: Int = 0
+    private var totalEdits: Int = 0
+    private var totalReverts: Int = 0
     var totalDescriptionEdits: Int = 0
     var totalImageCaptionEdits: Int = 0
     var totalImageTagEdits: Int = 0
-    var totalReverts: Int = 0
 
     fun getEditCountsObservable(): Observable<MwQueryResponse> {
         return ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).editorTaskCounts

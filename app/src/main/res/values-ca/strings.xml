@@ -460,7 +460,6 @@
   <string name="reading_list_move_article_limit_message">No es pot moure a la llista. Heu arribat al límit de %2$d per llista per a «%1$s».</string>
   <string name="reading_list_article_limit_message">No podeu afegir elements a aquesta llista. Heu assolit el límit de %2$d articles per llista per a «%1$s».</string>
   <string name="reading_lists_limit_message">No es pot crear una altra llista. Heu assolit el límit de 100 llistes de lectura per compte.</string>
-  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Sincronitza les llistes de lectura&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Les llistes de lectures ara ja poden sincronitzar-se entre dispositius. Inicieu una sessió al vostre compte de Viquipèdia i permeteu que les llistes es puguin desar.</string>
   <string name="reading_lists_menu_create_list">Crea una llista nova</string>
   <string name="reading_lists_menu_sort_by">Ordena per</string>
   <string name="reading_lists_refresh_sync_option">Refresca la sincronització</string>

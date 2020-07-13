@@ -444,7 +444,6 @@
   <string name="split_reading_list_message">Свака листа за читање прима највише %d чланака. Постојеће листе са више чланака су раздвојене на неколико њих.</string>
   <string name="reading_list_article_limit_message">Додавање на ову листу није могуће. Достигли сте ограничење од %2$d чланака по листи за „%1$s”.</string>
   <string name="reading_lists_limit_message">Није могуће направити другу листу. Достигли сте ограничење од 100 листе за читање по налогу.</string>
-  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Синхронизација листа за читање&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Листе за читање се сада могу синхронизовати међу уређајима. Пријавите се са налогом на Википедији и дозволите чување листа.</string>
   <string name="reading_lists_menu_create_list">Направи нову листу</string>
   <string name="reading_lists_menu_sort_by">Сортирај по</string>
   <string name="reading_lists_refresh_sync_option">Освежи синхронизацију</string>
@@ -710,6 +709,7 @@
   <string name="suggested_edits_quality_sufficient_text">Довољно</string>
   <string name="suggested_edits_quality_poor_text">Слабо</string>
   <string name="suggested_edits_quality_bad_text">Лоше</string>
+  <string name="suggested_edits_label">Предложене измене</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">Допринос</item>
     <item quantity="other">Доприноси</item>

@@ -46,11 +46,10 @@ class ContributionDetailsFragment : Fragment() {
     }
 
     private fun updateTopGradient() {
-        val color: Int
-        if (contribution.sizeDiff < 0) {
-            color = ResourceUtil.getThemedColor(requireContext(), R.attr.colorError)
+        val color: Int = if (contribution.sizeDiff < 0) {
+            ResourceUtil.getThemedColor(requireContext(), R.attr.colorError)
         } else {
-            color = ResourceUtil.getThemedColor(requireContext(), R.attr.action_mode_green_background)
+            ResourceUtil.getThemedColor(requireContext(), R.attr.action_mode_green_background)
         }
         // To create the final color value for our gradient, we take the base color (red or green)
         // and give it a certain amount of transparency, but it needs to be a different transparency
