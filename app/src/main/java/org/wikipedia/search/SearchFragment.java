@@ -200,8 +200,8 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == ACTIVITY_REQUEST_ADD_A_LANGUAGE_FROM_SEARCH) {
-            requireActivity().setResult(RESULT_LANG_CHANGED);
             int position = 0;
+            requireActivity().setResult(RESULT_LANG_CHANGED);
             if (data != null && data.hasExtra(ACTIVITY_RESULT_LANG_POSITION_DATA)) {
                 position = data.getIntExtra(ACTIVITY_RESULT_LANG_POSITION_DATA, 0);
             } else if (app.language().getAppLanguageCodes().contains(searchLanguageCode)) {
@@ -457,7 +457,7 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
     }
 
     @Override
-    public void onLanguageTabSelected(@NonNull String selectedLanguageCode, int position) {
+    public void onLanguageTabSelected(@NonNull String selectedLanguageCode) {
         if (langBtnClicked) {
             //We need to skip an event when we return back from 'add languages' screen,
             // because it triggers two events while re-drawing the UI

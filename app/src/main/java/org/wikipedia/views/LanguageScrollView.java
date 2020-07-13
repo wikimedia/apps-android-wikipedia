@@ -31,7 +31,7 @@ import static org.wikipedia.util.ResourceUtil.getThemedColor;
 
 public class LanguageScrollView extends ConstraintLayout {
     public interface Callback {
-        void onLanguageTabSelected(@NonNull String selectedLanguageCode, int position);
+        void onLanguageTabSelected(@NonNull String selectedLanguageCode);
         void onLanguageButtonClicked();
     }
 
@@ -86,7 +86,7 @@ public class LanguageScrollView extends ConstraintLayout {
                 updateTabLanguageLabel(view, null, color);
             }
             if (callback != null) {
-                callback.onLanguageTabSelected(languageCodes.get(tab.getPosition()), tab.getPosition());
+                callback.onLanguageTabSelected(languageCodes.get(tab.getPosition()));
             }
         } else {
             if (view != null) {
