@@ -170,7 +170,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
         disposables.add(app.getBus().subscribe(new EventBusConsumer()));
 
-        updateProgressBar(false, true, 0);
+        updateProgressBar(false);
 
         pageFragment = (PageFragment) getSupportFragmentManager().findFragmentById(R.id.page_fragment);
 
@@ -392,18 +392,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         }
     }
 
-    /**
-     * Update the state of the main progress bar that is shown inside the ActionBar of the activity.
-     * @param visible Whether the progress bar is visible.
-     * @param indeterminate Whether the progress bar is indeterminate.
-     * @param value Value of the progress bar (may be between 0 and 10000). Ignored if the
-     *              progress bar is indeterminate.
-     */
-    public void updateProgressBar(boolean visible, boolean indeterminate, int value) {
-        progressBar.setIndeterminate(indeterminate);
-        if (!indeterminate) {
-            progressBar.setProgress(value);
-        }
+    public void updateProgressBar(boolean visible) {
         progressBar.setVisibility(visible ? View.VISIBLE : View.GONE);
     }
 
@@ -527,8 +516,8 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     }
 
     @Override
-    public void onPageUpdateProgressBar(boolean visible, boolean indeterminate, int value) {
-        updateProgressBar(visible, indeterminate, value);
+    public void onPageUpdateProgressBar(boolean visible) {
+        updateProgressBar(visible);
     }
 
     @Override
