@@ -122,39 +122,39 @@
         <activity
             android:name=".language.LangLinksActivity"
             android:label="@string/langlinks_activity_title"
-            android:theme="@style/AppTheme.ActionBar.LanguagesList"
+            android:theme="@style/AppTheme.ActionBar"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
         <activity
             android:name=".language.LanguagesListActivity"
             android:label="@string/languages_list_activity_title"
-            android:theme="@style/AppTheme.ActionBar.LanguagesList"
+            android:theme="@style/AppTheme.ActionBar"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
         <activity
             android:name=".suggestededits.SuggestedEditsCardsActivity"
             android:launchMode="singleTask"
             android:windowSoftInputMode="adjustPan"
-            android:theme="@style/AppTheme.ActionBar.NoElevation" />
+            android:theme="@style/AppTheme.ActionBar" />
         <activity
             android:name=".edit.EditSectionActivity"
-            android:theme="@style/AppTheme.ActionBar.Page"
+            android:theme="@style/AppTheme.ActionBar"
             android:windowSoftInputMode="adjustResize|stateVisible"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
         <activity
             android:name=".login.LoginActivity"
             android:label="@string/login_activity_title"
-            android:theme="@style/AppTheme.ActionBar.LargeTextToolbar"
+            android:theme="@style/AppTheme.ActionBar"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
         <activity
             android:name=".createaccount.CreateAccountActivity"
-            android:theme="@style/AppTheme.ActionBar.LargeTextToolbar"
+            android:theme="@style/AppTheme.ActionBar"
             android:label="@string/create_account_activity_title"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
         <activity
             android:name=".login.ResetPasswordActivity"
             android:label="@string/reset_password_title"
-            android:theme="@style/AppTheme.ActionBar.LargeTextToolbar"
+            android:theme="@style/AppTheme.ActionBar"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
         <activity
@@ -241,7 +241,7 @@
 
         <activity
             android:name=".suggestededits.SuggestedEditsFeedCardImageTagActivity"
-            android:theme="@style/AppTheme.ActionBar.NoElevation" />
+            android:theme="@style/AppTheme.ActionBar" />
 
         <activity
             android:name=".suggestededits.SuggestedEditsContributionsActivity"
@@ -256,7 +256,7 @@
          <activity
             android:name=".commons.FilePageActivity"
             android:label=""
-            android:theme="@style/AppTheme.ActionBar.NoElevation"/>
+            android:theme="@style/AppTheme.ActionBar"/>
 
         <provider
             android:authorities="${applicationId}"
