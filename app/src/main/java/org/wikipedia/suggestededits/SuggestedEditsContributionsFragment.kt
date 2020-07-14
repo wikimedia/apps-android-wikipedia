@@ -204,7 +204,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
                                 Observable.just(wikidataContributions)
                             }
                 },
-                if (allContributions.isNotEmpty() && imageContributionsContinuation.isNullOrEmpty()) Observable.just(Collections.emptyList<Contribution()) else
+                if (allContributions.isNotEmpty() && imageContributionsContinuation.isNullOrEmpty()) Observable.just(Collections.emptyList<Contribution>()) else
                     ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getUserContributions(AccountUtil.getUserName()!!, 200, imageContributionsContinuation)
                             .subscribeOn(Schedulers.io())
                             .flatMap { response ->
