@@ -46,13 +46,15 @@
 
                 <org.wikipedia.views.AppTextView
                     android:id="@+id/primaryTextView"
+                    style="@style/TextViewCentered"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="6dp"
                     android:fontFamily="sans-serif-medium"
+                    android:lineSpacingExtra="8sp"
                     android:textColor="?attr/material_theme_primary_color"
-                    android:textSize="24sp"
-                    style="@style/TextViewCentered"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
                     tools:text="Lorem ipsum" />
 
                 <org.wikipedia.views.AppTextView
