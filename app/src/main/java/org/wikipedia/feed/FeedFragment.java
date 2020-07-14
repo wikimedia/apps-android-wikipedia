@@ -231,13 +231,15 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == ACTIVITY_REQUEST_FEED_CONFIGURE
-                && resultCode == ConfigureActivity.CONFIGURATION_CHANGED_RESULT) {
-            coordinator.updateHiddenCards();
-            refresh();
-        } else if ((requestCode == ACTIVITY_REQUEST_SETTINGS
-                && resultCode == SettingsActivity.ACTIVITY_RESULT_LANGUAGE_CHANGED)
+                || requestCode == ACTIVITY_REQUEST_SETTINGS
                 || requestCode == ACTIVITY_REQUEST_ADD_A_LANGUAGE) {
-            refresh();
+            if (resultCode == SettingsActivity.ACTIVITY_RESULT_FEED_CONFIGURATION_CHANGED) {
+                updateHiddenCards();
+            }
+            if (resultCode == SettingsActivity.ACTIVITY_RESULT_LANGUAGE_CHANGED
+                    || resultCode == SettingsActivity.ACTIVITY_RESULT_FEED_CONFIGURATION_CHANGED) {
+                refresh();
+            }
         } else if (requestCode == ACTIVITY_REQUEST_DESCRIPTION_EDIT) {
             SuggestedEditsFunnel.get().log();
             SuggestedEditsFunnel.reset();
@@ -350,6 +352,10 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         coordinator.reset();
         feedAdapter.notifyDataSetChanged();
         coordinator.more(app.getWikiSite());
+    }
+
+    public void updateHiddenCards() {
+        coordinator.updateHiddenCards();
     }
 
     @Nullable private Callback getCallback() {
