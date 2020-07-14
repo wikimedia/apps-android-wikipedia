@@ -231,15 +231,12 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == ACTIVITY_REQUEST_FEED_CONFIGURE
-                || requestCode == ACTIVITY_REQUEST_SETTINGS
-                || requestCode == ACTIVITY_REQUEST_ADD_A_LANGUAGE) {
-            if (resultCode == SettingsActivity.ACTIVITY_RESULT_FEED_CONFIGURATION_CHANGED) {
-                updateHiddenCards();
-            }
-            if (resultCode == SettingsActivity.ACTIVITY_RESULT_LANGUAGE_CHANGED
-                    || resultCode == SettingsActivity.ACTIVITY_RESULT_FEED_CONFIGURATION_CHANGED) {
-                refresh();
-            }
+                && resultCode == SettingsActivity.ACTIVITY_RESULT_FEED_CONFIGURATION_CHANGED) {
+            coordinator.updateHiddenCards();
+            refresh();
+        } else if ((requestCode == ACTIVITY_REQUEST_SETTINGS && resultCode == SettingsActivity.ACTIVITY_RESULT_LANGUAGE_CHANGED)
+                || (requestCode == ACTIVITY_REQUEST_ADD_A_LANGUAGE && resultCode == SettingsActivity.ACTIVITY_RESULT_LANGUAGE_CHANGED)) {
+            refresh();
         } else if (requestCode == ACTIVITY_REQUEST_DESCRIPTION_EDIT) {
             SuggestedEditsFunnel.get().log();
             SuggestedEditsFunnel.reset();
