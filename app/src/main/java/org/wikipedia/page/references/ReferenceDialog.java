@@ -70,7 +70,6 @@ public class ReferenceDialog extends ExtendedBottomSheetDialogFragment {
         super.onStart();
         if (callback().getReferencesGroup().size() == 1) {
             pageIndicatorView.setVisibility(View.GONE);
-            ((ViewGroup) pageIndicatorView.getParent()).removeView(pageIndicatorView);
             pageIndicatorDivider.setVisibility(View.GONE);
         } else {
             BottomSheetBehavior<View> behavior = BottomSheetBehavior.from((View) getView().getParent());
