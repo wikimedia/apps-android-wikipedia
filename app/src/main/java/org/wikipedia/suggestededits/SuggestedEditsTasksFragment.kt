@@ -221,7 +221,6 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     fun refreshContents() {
         requireActivity().invalidateOptionsMenu()
-        clearContents()
         fetchUserContributions()
     }
 

@@ -177,7 +177,7 @@ public class PageFragmentLoadState {
         }
         fragment.requireActivity().invalidateOptionsMenu();
         if (fragment.callback() != null) {
-            fragment.callback().onPageUpdateProgressBar(true, true, 0);
+            fragment.callback().onPageUpdateProgressBar(true);
         }
 
         app.getSessionFunnel().leadSectionFetchStart();
