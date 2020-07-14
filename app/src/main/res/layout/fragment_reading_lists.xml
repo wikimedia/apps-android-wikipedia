@@ -61,7 +61,7 @@
                     style="@style/MaterialLargePrimaryTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="16dp"
+                    android:layout_marginBottom="12dp"
                     android:text="@string/saved_list_empty_title" />
 
                 <TextView
@@ -69,7 +69,6 @@
                     style="@style/MaterialMediumSecondaryCaption"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
                     android:text="@string/reading_lists_empty_message" />
             </LinearLayout>
         </ScrollView>

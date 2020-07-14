@@ -12,16 +12,6 @@
         android:gravity="center"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/history_empty_title"
-            style="@style/MaterialLargePrimaryTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="20dp"
-            android:gravity="center"
-            android:text="@string/history_empty_title" />
-
         <ImageView
             android:id="@+id/history_empty_image"
             android:layout_width="168dp"
@@ -31,12 +21,22 @@
             app:srcCompat="@drawable/no_history" />
 
         <TextView
+            android:id="@+id/history_empty_title"
+            style="@style/MaterialLargePrimaryTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="12dp"
+            android:gravity="center"
+            android:text="@string/history_empty_title" />
+
+        <TextView
             android:id="@+id/history_empty_message"
             style="@style/MaterialMediumSecondaryCaption"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="32dp"
             android:gravity="center"
             android:text="@string/history_empty_message" />
     </LinearLayout>
