@@ -7,11 +7,8 @@ import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import org.wikipedia.R
-
-import org.wikipedia.auth.AccountUtil
 
 class NavTabLayout constructor(context: Context, attrs: AttributeSet) : BottomNavigationView(context, attrs) {
     init {

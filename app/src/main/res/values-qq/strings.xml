@@ -887,7 +887,7 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Affirmative answer to open the Wikipedia languages page to manage the existing languages that have been set up.</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Negative answer to keep the existing app languages settings.</string>
   <string name="remove_language_dialog_cancel_button_text">Negative action button text in pop-up dialog for removing a language from app languages list.\n{{Identical|Cancel}}</string>
-  <string name="remove_language_dialog_ok_button_text">Positive action button text in pop-up dialog for removing a language from app languages list.\n{{Identical|Ok}}</string>
+  <string name="remove_language_dialog_ok_button_text">Positive action button text in pop-up dialog for removing a language from app languages list.</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">Acknowledgement button text in warning pop-up dialog when user tries to delete all languages from app languages list.\n{{Identical|OK}}</string>
   <string name="protected_page_warning_dialog_ok_button_text">Acknowledgement button text in warning pop-up dialog for protected editing of a page.\n{{Identical|OK}}</string>
   <string name="account_editing_blocked_dialog_ok_button_text">Acknowledgement button text in warning pop-up dialog for accounts for which editing is blocked.\n{{Identical|OK}}</string>

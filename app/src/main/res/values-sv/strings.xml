@@ -13,6 +13,7 @@
 * Lokal Profil
 * Mjälten
 * Pyscowicz
+* Sabelöga
 * Skalman
 * Sturban
 * Technic2
@@ -816,7 +817,7 @@
   <string name="file_page_activity_title">Filsida</string>
   <string name="description_edit_revert_subtitle">Tack för att du redigerar på Wikipedia!</string>
   <string name="description_edit_revert_intro">Vi vet att du försökte ditt bästa men en av korrekturläsarna hade en invändning. Möjliga anledningar till att din redigering gjordes om inkluderar:</string>
-  <string name="description_edit_revert_reason1">ditt bidrag följde inte ett av &lt;a href=\"%1$s\"&gt;riktlinjerna&lt;/a&gt;.</string>
+  <string name="description_edit_revert_reason1">ditt bidrag följde inte en av &lt;a href=\"%1$s\"&gt;riktlinjerna&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">ditt bidrag såg ut som ett experiment eller vandalism</string>
   <string name="description_edit_revert_history">Om du är intresserad kan du se &lt;a href=\"%1$s\"&gt;redigeringshistoriken&lt;/a&gt;.</string>
   <string name="description_edit_login_cancel_button_text">Avbryt</string>
