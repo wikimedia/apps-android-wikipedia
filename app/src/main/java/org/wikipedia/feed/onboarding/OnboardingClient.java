@@ -50,7 +50,8 @@ public class OnboardingClient implements FeedClient {
                 "https://upload.wikimedia.org/wikipedia/commons/3/3b/Announcement_header_for_Explore_Feed_customization.png",
                 new Announcement.Action(context.getString(R.string.feed_configure_onboarding_action), UriUtil.LOCAL_URL_CUSTOMIZE_FEED),
                 context.getString(R.string.onboarding_got_it)));
-        if (card.shouldShow() && Prefs.getExploreFeedVisitCount() < SHOW_CUSTOMIZE_ONBOARDING_CARD_COUNT) {
+
+        if (card.shouldShow() && Prefs.getExploreFeedVisitCount() <= SHOW_CUSTOMIZE_ONBOARDING_CARD_COUNT) {
             cards.add(card);
         }
 
