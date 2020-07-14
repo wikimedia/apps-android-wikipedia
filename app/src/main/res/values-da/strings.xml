@@ -32,6 +32,7 @@
   <string name="search_hint_search_my_lists_and_articles">Søg i mine lister og artikler</string>
   <string name="nav_item_history">Historik</string>
   <string name="nav_item_suggested_edits">Redigeringer</string>
+  <string name="nav_item_more">Mere</string>
   <string name="error_network_error">Kan ikke oprette forbindelse til internettet.</string>
   <string name="page_error_retry">Prøv igen</string>
   <string name="card_offline_error_retry">Prøv igen</string>

@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:paddingStart="-2dp"
-            android:theme="@style/PageToolbarTheme"
+            android:theme="@style/ToolbarTheme"
             app:navigationIcon="@drawable/ic_arrow_back_themed_24dp">
 
             <LinearLayout
