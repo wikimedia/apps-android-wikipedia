@@ -211,8 +211,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
             }
         } else if ((requestCode == Constants.ACTIVITY_REQUEST_OPEN_SEARCH_ACTIVITY && resultCode == SearchFragment.RESULT_LANG_CHANGED)
                 || (requestCode == Constants.ACTIVITY_REQUEST_SETTINGS
-                && (resultCode == SettingsActivity.ACTIVITY_RESULT_LANGUAGE_CHANGED
-                || resultCode == SettingsActivity.ACTIVITY_RESULT_FEED_CONFIGURATION_CHANGED))) {
+                && (resultCode == SettingsActivity.ACTIVITY_RESULT_LANGUAGE_CHANGED || resultCode == SettingsActivity.ACTIVITY_RESULT_FEED_CONFIGURATION_CHANGED))) {
             refreshContents();
             if (resultCode == SettingsActivity.ACTIVITY_RESULT_FEED_CONFIGURATION_CHANGED) {
                 updateFeedHiddenCards();
