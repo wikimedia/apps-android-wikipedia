@@ -6,8 +6,6 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.ColorInt;
@@ -33,7 +31,7 @@ import static org.wikipedia.util.ResourceUtil.getThemedColor;
 
 public class LanguageScrollView extends ConstraintLayout {
     public interface Callback {
-        void onLanguageTabSelected(String selectedLanguageCode);
+        void onLanguageTabSelected(@NonNull String selectedLanguageCode);
         void onLanguageButtonClicked();
     }
 
@@ -59,7 +57,6 @@ public class LanguageScrollView extends ConstraintLayout {
     private void init(Context context) {
         inflate(context, R.layout.view_language_scroll, this);
         ButterKnife.bind(this);
-        setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
         horizontalLanguageScroll.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
@@ -79,8 +76,8 @@ public class LanguageScrollView extends ConstraintLayout {
     }
 
     private void updateTabView(boolean selected, TabLayout.Tab tab) {
+        View view = tab.getCustomView();
         if (selected) {
-            View view = tab.getCustomView();
             if (view != null) {
                 @ColorInt int color = getThemedColor(getContext(), R.attr.colorAccent);
                 @ColorInt int paperColor = getThemedColor(getContext(), R.attr.paper_color);
@@ -92,7 +89,6 @@ public class LanguageScrollView extends ConstraintLayout {
                 callback.onLanguageTabSelected(languageCodes.get(tab.getPosition()));
             }
         } else {
-            View view = tab.getCustomView();
             if (view != null) {
                 @ColorInt int color = getThemedColor(getContext(), R.attr.material_theme_de_emphasised_color);
                 updateTabLanguageLabel(view, null, color);
@@ -101,27 +97,39 @@ public class LanguageScrollView extends ConstraintLayout {
         }
     }
 
-    public void setUpLanguageScrollTabData(List<String> languageCodes, Callback callback, int position) {
+    @SuppressWarnings("checkstyle:magicnumber")
+    public void setUpLanguageScrollTabData(@NonNull List<String> languageCodes, int position, @Nullable Callback callback) {
         if (this.callback != null) {
             this.callback = null;
         }
+
+        this.callback = callback;
+        this.languageCodes = languageCodes;
+
         if (horizontalLanguageScroll.getChildCount() > 0) {
             horizontalLanguageScroll.removeAllTabs();
         }
-        this.callback = callback;
-        this.languageCodes = languageCodes;
+
         for (int i = 0; i < languageCodes.size(); i++) {
             TabLayout.Tab tab = horizontalLanguageScroll.newTab();
             tab.setCustomView(createLanguageTab(languageCodes.get(i)));
             horizontalLanguageScroll.addTab(tab);
             updateTabView(false, tab);
         }
-        selectLanguageTab(position);
+
+        if (horizontalLanguageScroll != null && horizontalLanguageScroll.getTabAt(position) != null) {
+            horizontalLanguageScroll.post(() -> {
+                if (!isAttachedToWindow()) {
+                    return;
+                }
+                horizontalLanguageScroll.getTabAt(position).select();
+            });
+        }
     }
 
     @NonNull
     private View createLanguageTab(@NonNull String languageCode) {
-        LinearLayout tab = (LinearLayout) LayoutInflater.from(this.getContext()).inflate(R.layout.view_custom_language_tab, null);
+        View tab = LayoutInflater.from(getContext()).inflate(R.layout.view_custom_language_tab, this, false);
         updateTabLanguageCode(tab, languageCode, null, null, null);
         updateTabLanguageLabel(tab, languageCode, null);
         return tab;
@@ -154,16 +162,14 @@ public class LanguageScrollView extends ConstraintLayout {
         }
     }
 
+    public int getSelectedPosition() {
+        return horizontalLanguageScroll.getSelectedTabPosition();
+    }
+
     @OnClick(R.id.more_languages)
     void onLangButtonClick() {
         if (callback != null) {
             callback.onLanguageButtonClicked();
-        }
-    }
-
-    public void selectLanguageTab(int position) {
-        if (horizontalLanguageScroll != null && horizontalLanguageScroll.getTabAt(position) != null) {
-            horizontalLanguageScroll.getTabAt(position).select();
         }
     }
 }
