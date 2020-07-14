@@ -148,7 +148,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
             })
         }
 
-        disposables.add(Observable.zip(if (allContributions.isNotEmpty() && articleContributionsContinuation.isNullOrEmpty()) Observable.just(Collections.emptyList<Contribution>())
+        disposables.add(Observable.zip(if (allContributions.isNotEmpty() && articleContributionsContinuation.isNullOrEmpty()) Observable.just(Collections.emptyList())
         else ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getUserContributions(AccountUtil.getUserName()!!, 50, articleContributionsContinuation)
                 .subscribeOn(Schedulers.io())
                 .flatMap { response ->
@@ -204,7 +204,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
                                 Observable.just(wikidataContributions)
                             }
                 },
-                if (allContributions.isNotEmpty() && imageContributionsContinuation.isNullOrEmpty()) Observable.just(Collections.emptyList<Contribution>()) else
+                if (allContributions.isNotEmpty() && imageContributionsContinuation.isNullOrEmpty()) Observable.just(Collections.emptyList()) else
                     ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getUserContributions(AccountUtil.getUserName()!!, 200, imageContributionsContinuation)
                             .subscribeOn(Schedulers.io())
                             .flatMap { response ->
@@ -426,7 +426,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
                                             }
                                             Observable.just(label)
                                         }),
-                        BiFunction<MwQueryResponse, String, Contribution> { commonsResponse, qLabel ->
+                        BiFunction { commonsResponse, qLabel ->
                             val page = commonsResponse.query()!!.pages()!![0]
                             if (page.imageInfo() != null) {
                                 val imageInfo = page.imageInfo()!!
