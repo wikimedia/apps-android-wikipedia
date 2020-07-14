@@ -118,12 +118,12 @@ public class LanguageScrollView extends ConstraintLayout {
         }
 
         if (horizontalLanguageScroll != null && horizontalLanguageScroll.getTabAt(position) != null) {
-            horizontalLanguageScroll.postDelayed(() -> {
+            horizontalLanguageScroll.post(() -> {
                 if (!isAttachedToWindow()) {
                     return;
                 }
                 horizontalLanguageScroll.getTabAt(position).select();
-            }, 100);
+            });
         }
     }
 
