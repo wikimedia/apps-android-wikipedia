@@ -47,16 +47,6 @@ public class ExclusiveBottomSheetPresenter {
         dialog.show(manager, BOTTOM_SHEET_FRAGMENT_TAG);
     }
 
-    public void show(@NonNull FragmentManager manager, @NonNull Dialog dialog) {
-        if (manager.isStateSaved() || manager.isDestroyed()) {
-            return;
-        }
-        dismiss(manager);
-        currentDialog = dialog;
-        currentDialog.setOnDismissListener((dialogInterface) -> currentDialog = null);
-        currentDialog.show();
-    }
-
     public void dismiss(@NonNull FragmentManager manager) {
         if (manager.isStateSaved() || manager.isDestroyed()) {
             return;
