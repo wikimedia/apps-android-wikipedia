@@ -426,7 +426,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
                                             }
                                             Observable.just(label)
                                         }),
-                        BiFunction { commonsResponse, qLabel ->
+                        BiFunction<MwQueryResponse, String, Contribution> { commonsResponse, qLabel ->
                             val page = commonsResponse.query()!!.pages()!![0]
                             if (page.imageInfo() != null) {
                                 val imageInfo = page.imageInfo()!!
