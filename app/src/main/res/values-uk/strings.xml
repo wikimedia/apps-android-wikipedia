@@ -726,7 +726,6 @@
   <string name="suggested_edits_image_tags_onboarding_title">Додавання тегів до зображень полегшує їх пошук.</string>
   <string name="suggested_edits_image_tags_onboarding_text">Додаючи теги до зображень, ви полегшите їх пошук у Вікісховищі, де зберігаються зображення під вільними ліцензіями, і які, в свою чергу, використовуються у Вікіпедії для ілюстрації статей.</string>
   <string name="suggested_edits_image_tags_onboarding_note">До зображень буде додано лише ті теги, які ви затвердите.</string>
-  <string name="suggested_edits_image_tags_snackbar">Додавайте теги до зображень, щоб полегшити їх пошук для інших користувачів.</string>
   <string name="suggested_edits_image_tags_task_detail">Додавайте теги до зображення, щоб його було легше знайти.</string>
   <string name="suggested_edits_image_tags_choose">Додайте чи виберіть відповідні теги</string>
   <string name="suggested_edits_image_tags_published_list">Опубліковані теги</string>

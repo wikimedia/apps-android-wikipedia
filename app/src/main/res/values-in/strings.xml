@@ -721,7 +721,6 @@
   <string name="suggested_edits_image_tags_onboarding_title">Beri tag pada gambar untuk membuatnya lebih mudah ditemukan orang lain</string>
   <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">Dengan menambahkan tag yang disarankan, Anda dapat membantu membuat gambar lebih mudah untuk dicari.\n\nKami menyarankan secara otomatis beberapa tag, Anda juga dapat menambahkan tag oleh Anda sendiri.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Hanya tag yang Anda pilih yang akan ditambahkan ke gambar.</string>
-  <string name="suggested_edits_image_tags_snackbar">Tambahkan tag gambar untuk membuatnya lebih mudah ditemukan orang lain.</string>
   <string name="suggested_edits_image_tags_task_detail" fuzzy="true">Beri tag pada gambar untuk membuatnya lebih mudah ditemukan orang lain. Tag disarankan secara otomatis atau tambahkan milik Anda.</string>
   <string name="suggested_edits_image_tags_choose">Pilih tag yang cocok</string>
   <string name="suggested_edits_image_tags_published_list">Tag yang telah diterbitkan</string>

@@ -745,7 +745,6 @@
     <string name="suggested_edits_image_tags_onboarding_title">Tagging images makes them easier to find.</string>
     <string name="suggested_edits_image_tags_onboarding_text">By adding image tags, you will help make images easier to search for on Commons, the free license image repository that Wikipedia uses for images in its articles.</string>
     <string name="suggested_edits_image_tags_onboarding_note">Only tags that you choose will be added to images.</string>
-    <string name="suggested_edits_image_tags_snackbar">Add image tags to make them easier for others to find.</string>
     <string name="suggested_edits_image_tags_task_detail">Add custom tags to an image to make it easier to find.</string>
     <string name="suggested_edits_image_tags_choose">Add or choose matching tags</string>
     <string name="suggested_edits_image_tags_published_list">Published tags</string>
