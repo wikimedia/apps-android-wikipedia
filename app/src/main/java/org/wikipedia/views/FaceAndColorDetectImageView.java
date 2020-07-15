@@ -8,6 +8,7 @@ import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.PointF;
 import android.graphics.Rect;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.media.FaceDetector;
 import android.net.Uri;
@@ -17,13 +18,18 @@ import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatImageView;
+import androidx.palette.graphics.Palette;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestBuilder;
+import com.bumptech.glide.load.DataSource;
+import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.bumptech.glide.load.resource.bitmap.BitmapTransformation;
 import com.bumptech.glide.load.resource.bitmap.DownsampleStrategy;
 import com.bumptech.glide.load.resource.bitmap.TransformationUtils;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.target.Target;
 
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.WikipediaApp;
@@ -49,6 +55,11 @@ public class FaceAndColorDetectImageView extends AppCompatImageView {
         PAINT_DARK_OVERLAY.setColor(Color.argb(blackAlpha, 0, 0, 0));
     }
 
+    public interface OnImageLoadListener {
+        void onImageLoaded(@NonNull Palette palette);
+        void onImageFailed();
+    }
+
     public FaceAndColorDetectImageView(Context context) {
         super(context);
     }
@@ -62,6 +73,10 @@ public class FaceAndColorDetectImageView extends AppCompatImageView {
     }
 
     public void loadImage(@Nullable Uri uri) {
+        loadImage(uri, null);
+    }
+
+    public void loadImage(@Nullable Uri uri, @Nullable OnImageLoadListener listener) {
         Drawable placeholder = ViewUtil.getPlaceholderDrawable(getContext());
         if (!isImageDownloadEnabled() || uri == null) {
             setImageDrawable(placeholder);
@@ -72,6 +87,25 @@ public class FaceAndColorDetectImageView extends AppCompatImageView {
                 .placeholder(placeholder)
                 .error(placeholder)
                 .downsample(DownsampleStrategy.CENTER_INSIDE);
+
+        if (listener != null) {
+            builder = builder.listener(new RequestListener<Drawable>() {
+                @Override
+                public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
+                    listener.onImageFailed();
+                    return false;
+                }
+
+                @Override
+                public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
+                    if (resource != null) {
+                        Bitmap bitmap = ((BitmapDrawable) resource).getBitmap();
+                        listener.onImageLoaded(Palette.from(bitmap).generate());
+                    }
+                    return false;
+                }
+            });
+        }
 
         if (shouldDetectFace(uri)) {
             builder = builder.transform(FACE_DETECT_TRANSFORM);
