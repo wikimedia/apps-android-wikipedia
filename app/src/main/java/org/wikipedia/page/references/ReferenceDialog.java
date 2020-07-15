@@ -1,12 +1,14 @@
 package org.wikipedia.page.references;
 
-import android.content.Context;
+import android.app.Dialog;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
 
@@ -16,6 +18,8 @@ import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
 import org.wikipedia.R;
+import org.wikipedia.activity.FragmentUtil;
+import org.wikipedia.page.ExtendedBottomSheetDialogFragment;
 import org.wikipedia.page.LinkHandler;
 import org.wikipedia.page.LinkMovementMethodExt;
 import org.wikipedia.util.DimenUtil;
@@ -26,42 +30,57 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
 import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
 
 /**
  * A dialog that displays the currently clicked reference.
  */
-public class ReferenceDialog extends BottomSheetDialog {
+public class ReferenceDialog extends ExtendedBottomSheetDialogFragment {
+    public interface Callback {
+        LinkHandler getLinkHandler();
+        List<PageReferences.Reference> getReferencesGroup();
+        int getSelectedReferenceIndex();
+    }
+
     @BindView(R.id.reference_pager) ViewPager2 referencesViewPager;
     @BindView(R.id.page_indicator_view) TabLayout pageIndicatorView;
     @BindView(R.id.indicator_divider) View pageIndicatorDivider;
     @BindView(R.id.reference_title_text) TextView titleTextView;
-    private LinkHandler referenceLinkHandler;
+    private Unbinder unbinder;
 
-    public ReferenceDialog(@NonNull Context context, int selectedIndex, List<PageReferences.Reference> adjacentReferences, LinkHandler referenceLinkHandler) {
-        super(context);
-        View rootView = LayoutInflater.from(context).inflate(R.layout.fragment_references_pager, null);
-        setContentView(rootView);
-        ButterKnife.bind(this);
-        this.referenceLinkHandler = referenceLinkHandler;
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.fragment_references_pager, null);
+        unbinder = ButterKnife.bind(this, rootView);
 
-        if (adjacentReferences.size() == 1) {
+        titleTextView.setText(requireContext().getString(R.string.reference_title, ""));
+        referencesViewPager.setOffscreenPageLimit(2);
+        referencesViewPager.setAdapter(new ReferencesAdapter(callback().getReferencesGroup()));
+        new TabLayoutMediator(pageIndicatorView, referencesViewPager, (tab, position) -> { }).attach();
+        referencesViewPager.setCurrentItem(callback().getSelectedReferenceIndex(), true);
+
+        setConditionalLayoutDirection(rootView, callback().getLinkHandler().getWikiSite().languageCode());
+        return rootView;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        if (callback().getReferencesGroup().size() == 1) {
             pageIndicatorView.setVisibility(View.GONE);
-            ((ViewGroup) pageIndicatorView.getParent()).removeView(pageIndicatorView);
             pageIndicatorDivider.setVisibility(View.GONE);
         } else {
-            BottomSheetBehavior behavior = BottomSheetBehavior.from((View) rootView.getParent());
+            BottomSheetBehavior<View> behavior = BottomSheetBehavior.from((View) getView().getParent());
             behavior.setPeekHeight(DimenUtil.getDisplayHeightPx() / 2);
         }
-        titleTextView.setText(getContext().getString(R.string.reference_title, ""));
+    }
 
-        referencesViewPager.setOffscreenPageLimit(2);
-        referencesViewPager.setAdapter(new ReferencesAdapter(adjacentReferences));
-        new TabLayoutMediator(pageIndicatorView, referencesViewPager, (tab, position) -> { }).attach();
-        referencesViewPager.setCurrentItem(selectedIndex, true);
-
-        setConditionalLayoutDirection(rootView, referenceLinkHandler.getWikiSite().languageCode());
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unbinder.unbind();
     }
 
     @NonNull
@@ -76,13 +95,19 @@ public class ReferenceDialog extends BottomSheetDialog {
         return linkText.replace("[", "").replace("]", "") + ".";
     }
 
+    @NonNull
     @Override
-    public void onBackPressed() {
-        if (referencesViewPager.getCurrentItem() > 0) {
-            referencesViewPager.setCurrentItem(referencesViewPager.getCurrentItem() - 1, true);
-        } else {
-            super.onBackPressed();
-        }
+    public Dialog onCreateDialog(Bundle savedInstanceState) {
+        return new BottomSheetDialog(requireActivity(), getTheme()){
+            @Override
+            public void onBackPressed() {
+                if (referencesViewPager.getCurrentItem() > 0) {
+                    referencesViewPager.setCurrentItem(referencesViewPager.getCurrentItem() - 1, true);
+                } else {
+                    super.onBackPressed();
+                }
+            }
+        };
     }
 
     private class ViewHolder extends RecyclerView.ViewHolder {
@@ -92,7 +117,7 @@ public class ReferenceDialog extends BottomSheetDialog {
         ViewHolder(View itemView) {
             super(itemView);
             pagerReferenceText = itemView.findViewById(R.id.reference_text);
-            pagerReferenceText.setMovementMethod(new LinkMovementMethodExt(referenceLinkHandler));
+            pagerReferenceText.setMovementMethod(new LinkMovementMethodExt(callback().getLinkHandler()));
             pagerIdText = itemView.findViewById(R.id.reference_id);
         }
 
@@ -127,5 +152,10 @@ public class ReferenceDialog extends BottomSheetDialog {
             ((ViewHolder) holder).bindItem(processLinkTextWithAlphaReferences(references.get(position).getText()),
                     StringUtil.fromHtml(StringUtil.removeCiteMarkup(StringUtil.removeStyleTags(references.get(position).getContent()))));
         }
+    }
+
+    @Nullable
+    public Callback callback() {
+        return FragmentUtil.getCallback(this, Callback.class);
     }
 }

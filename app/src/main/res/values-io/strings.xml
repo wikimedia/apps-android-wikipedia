@@ -316,6 +316,8 @@
   <string name="reading_lists_confirm_remote_delete_no">No</string>
   <string name="reading_lists_menu_sort_by">Ordinar segun</string>
   <string name="notification_syncing_cancel_button">Nuligar</string>
+  <string name="notifications_poll_enable_title">Permisar avizi</string>
+  <string name="preference_summary_notification_poll">Permisar l\'informatikoprogramo (\'\'app\'\') serchar nova avizi, an la dopa areo.</string>
   <string name="view_featured_image_card_download">Deskargar</string>
   <string name="menu_feed_overflow_label">Plusa selekti</string>
   <string name="view_continue_reading_card_subtitle_today">cadie</string>

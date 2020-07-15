@@ -42,6 +42,7 @@ import butterknife.Unbinder;
 import static android.app.Activity.RESULT_OK;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE;
 import static org.wikipedia.language.LanguagesListActivity.LANGUAGE_SEARCHED;
+import static org.wikipedia.settings.SettingsActivity.ACTIVITY_RESULT_LANGUAGE_CHANGED;
 import static org.wikipedia.settings.languages.WikipediaLanguagesActivity.INVOKE_SOURCE_EXTRA;
 
 public class WikipediaLanguagesFragment extends Fragment implements WikipediaLanguagesItemView.Callback {
@@ -433,6 +434,7 @@ public class WikipediaLanguagesFragment extends Fragment implements WikipediaLan
                         .setPositiveButton(R.string.remove_language_dialog_ok_button_text, (dialog, i) -> {
                             deleteSelectedLanguages();
                             finishActionMode();
+                            requireActivity().setResult(ACTIVITY_RESULT_LANGUAGE_CHANGED);
                         })
                         .setNegativeButton(R.string.remove_language_dialog_cancel_button_text, null);
             } else {

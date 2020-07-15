@@ -64,7 +64,7 @@
   <string name="search_hint_search_languages">Buscar un idioma</string>
   <string name="search_hint_search_my_lists_and_articles">Buscar en mis listas y artículos</string>
   <string name="nav_item_history">Historial</string>
-  <string name="nav_item_suggested_edits" fuzzy="true">Ediciones sugeridas</string>
+  <string name="nav_item_suggested_edits">Ediciones</string>
   <string name="nav_item_more">Más</string>
   <string name="error_network_error">No se pudo conectar a Internet.</string>
   <string name="page_error_retry">Reintentar</string>
@@ -463,6 +463,7 @@
   <string name="reading_lists_sync_reminder_action">Activar sincronización</string>
   <string name="reading_list_login_reminder_title">Sincronizar listas de lectura</string>
   <string name="reading_lists_login_reminder_text">Ahora es posible sincronizar las listas de lectura entre varios dispositivos. Accede a tu cuenta de Wikipedia y permite que se guarden tus listas.</string>
+  <string name="reading_lists_ignore_button">Ahora no</string>
   <string name="reading_lists_confirm_remote_delete_yes">Sí</string>
   <string name="reading_lists_confirm_remote_delete_no">No</string>
   <string name="reading_list_article_save_in_progress">El artículo está descargándose y estará disponible sin conexión cuando finalice el proceso.</string>
@@ -747,7 +748,6 @@
   <string name="suggested_edits_image_tags_onboarding_title">Etiquetar las imágenes facilita poderlas encontrar.</string>
   <string name="suggested_edits_image_tags_onboarding_text">Al agregar etiquetas de imagen, ayudará a facilitar la búsqueda de imágenes en Commons, el repositorio de imágenes de licencia gratuita que Wikipedia utiliza para las imágenes en sus artículos.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Solo las etiquetas que elijas se añadirán a las imágenes.</string>
-  <string name="suggested_edits_image_tags_snackbar">Etiqueta las imágenes para facilitar su búsqueda.</string>
   <string name="suggested_edits_image_tags_task_detail">Añade etiquetas personalizadas a imágenes para que sean más fáciles de encontrar.</string>
   <string name="suggested_edits_image_tags_choose">Añadir o elegir etiquetas correspondientes</string>
   <string name="suggested_edits_image_tags_published_list">Etiquetas publicadas</string>
@@ -780,6 +780,7 @@
   <string name="suggested_edits_quality_sufficient_text">Suficiente</string>
   <string name="suggested_edits_quality_poor_text">Deficiente</string>
   <string name="suggested_edits_quality_bad_text">Mala</string>
+  <string name="suggested_edits_label">Ediciones sugeridas</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">Contribución</item>
     <item quantity="other">Contribuciones</item>
@@ -805,7 +806,7 @@
   <string name="suggested_edits_contribution_language_label">Idioma</string>
   <string name="suggested_edits_contribution_date_time_label">Fecha y hora</string>
   <string name="suggested_edits_contribution_type_label">Tipo de contribución</string>
-  <string name="suggested_edits_contribution_image_label" fuzzy="true">Archivo</string>
+  <string name="suggested_edits_contribution_image_label">Imagen</string>
   <string name="suggested_edits_contribution_article_label">Artículo</string>
   <string name="suggested_edits_contribution_views">%s vistas</string>
   <string name="suggested_edits_contribution_seen_text">Hubo %s visitas en los últimos 30 días.</string>
