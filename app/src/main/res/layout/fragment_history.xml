@@ -29,7 +29,8 @@
             android:layout_marginTop="16dp"
             android:layout_marginBottom="12dp"
             android:gravity="center"
-            android:text="@string/history_empty_title" />
+            android:text="@string/history_empty_title"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/history_empty_message"
@@ -38,8 +39,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:gravity="center"
-            android:text="@string/history_empty_message"
-            android:textStyle="bold" />
+            android:text="@string/history_empty_message" />
     </LinearLayout>
 
     <org.wikipedia.views.SearchEmptyView
