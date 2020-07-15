@@ -941,5 +941,13 @@ public final class Prefs {
         return getInt(R.string.preference_key_explore_feed_visit_count, 0);
     }
 
+    public static int getSelectedLanguagePositionInSearch() {
+        return getInt(R.string.preference_key_selected_language_position_in_search, 0);
+    }
+
+    public static void setSelectedLanguagePositionInSearch(int position) {
+        setInt(R.string.preference_key_selected_language_position_in_search, position);
+    }
+
     private Prefs() { }
 }
