@@ -744,7 +744,6 @@
   <string name="suggested_edits_image_tags_onboarding_title">Marquer les images permet de les retrouver plus facilement.</string>
   <string name="suggested_edits_image_tags_onboarding_text">En ajoutant des balises d’image, vous faciliterez la recherche d’images sur Commons, le répertoire d’images sous licence libre utilisé par Wikipédia dans ses articles.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Seules les balises que vous choisissez seront ajoutées aux images.</string>
-  <string name="suggested_edits_image_tags_snackbar">Ajouter des balises à l’image pour les rendre plus faciles à trouver par les autres.</string>
   <string name="suggested_edits_image_tags_task_detail">Ajouter des balises personnalisées à une image pour la retrouver plus facilement.</string>
   <string name="suggested_edits_image_tags_choose">Ajouter ou choisir les balises qui correspondent</string>
   <string name="suggested_edits_image_tags_published_list">Balises publiées</string>

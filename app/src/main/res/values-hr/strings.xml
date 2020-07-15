@@ -654,7 +654,6 @@
   <string name="suggested_edits_image_tags_onboarding_title">Dodavanjem oznaka slikama one se lakše mogu pronaći.</string>
   <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">Dodavanjem oznaka slikama pomoći ćete ostalim osobama u traženju slika na Zajedničkom poslužitelju, skladištu datoteka slobodne licencije kojim se Wikipedija služi za postavljanje slika u članke.\n\nAutomatski smo predložili neke oznake, a možete dodati i vlastite.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Slikama će biti dodane samo one oznake koje izaberete.</string>
-  <string name="suggested_edits_image_tags_snackbar">Slikama dodajte oznake kako bi ih ostali lakše mogli naći.</string>
   <string name="suggested_edits_image_tags_task_detail" fuzzy="true">Slikama dodajte oznake kako bi ih se lakše moglo naći. Izaberite neke od predloženih oznaka ili dodajte vlastite.</string>
   <string name="suggested_edits_image_tags_select_title">Niste odabrali nijednu oznaku za ovu sliku</string>
   <string name="suggested_edits_image_tags_select_text">Samo će oznake koje izaberete biti dodane slikama. Oznake koje ne izaberete bit će odbačene. Jeste li sigurni da želite odbaciti sve oznake?</string>

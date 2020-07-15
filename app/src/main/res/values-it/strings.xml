@@ -736,7 +736,6 @@
   <string name="suggested_edits_image_tags_onboarding_title">Etichettare le immagini facilita la ricerca da parte di altri utenti.</string>
   <string name="suggested_edits_image_tags_onboarding_text">Aggiungendo le etichette alle immagini, puoi semplificare la ricerca delle immagini su Commons, il database multimediale che Wikipedia utilizza per le immagini nelle sue voci.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Solo le etichette scelte verranno aggiunte alle immagini.</string>
-  <string name="suggested_edits_image_tags_snackbar">Aggiungi delle etichette all\'immagine per facilitarne la ricerca da parte di altri utenti.</string>
   <string name="suggested_edits_image_tags_task_detail">Aggiungi etichette personalizzate ad un\'immagine per facilitarne la ricerca.</string>
   <string name="suggested_edits_image_tags_choose">Aggiungi o scegli le etichette corrispondenti</string>
   <string name="suggested_edits_image_tags_published_list">Etichette pubblicate</string>

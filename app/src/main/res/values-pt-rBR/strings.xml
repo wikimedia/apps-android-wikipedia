@@ -733,7 +733,6 @@
   <string name="suggested_edits_image_tags_onboarding_title">A marcação de imagens facilita a localização.</string>
   <string name="suggested_edits_image_tags_onboarding_text">Ao adicionar marcações de imagem, você ajudará a facilitar a pesquisa de imagens no Commons, o repositório gratuito de imagens de licença que a Wikipedia usa para imagens em seus artigos.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Somente as marcações que você escolher serão adicionadas às imagens.</string>
-  <string name="suggested_edits_image_tags_snackbar">Adicione marcação de imagem para facilitar a localização de outras pessoas.</string>
   <string name="suggested_edits_image_tags_task_detail">Adicione etiquetas personalizadas a uma imagem para facilitar a localização.</string>
   <string name="suggested_edits_image_tags_choose">Adicionar ou escolher marcações correspondentes</string>
   <string name="suggested_edits_image_tags_published_list">Marcações publicadas</string>
