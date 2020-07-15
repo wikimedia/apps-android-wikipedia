@@ -38,7 +38,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:gravity="center"
-            android:text="@string/history_empty_message" />
+            android:text="@string/history_empty_message"
+            android:textStyle="bold" />
     </LinearLayout>
 
     <org.wikipedia.views.SearchEmptyView
