@@ -751,7 +751,6 @@
   <string name="suggested_edits_image_tags_published">Опубликовано</string>
   <string name="suggested_edits_image_tags_onboarding_title">Тегирование изображений позволяет их легче найти.</string>
   <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">Добавляя теги к изображению, вы поможете находить изображения в Commons, репозитории свободных к распространению изображений, который Википедия использует для изображений в своих статьях.\n\nМы автоматически предложили несколько тегов. Вы также можете добавить свои теги.</string>
-  <string name="suggested_edits_image_tags_snackbar">Добавьте теги изображений, чтобы улучшить поиск таких изображений.</string>
   <string name="suggested_edits_image_tags_task_detail" fuzzy="true">Помечайте изображения, чтобы их было легче найти. Выберите из предложенных тегов или добавьте свой собственный.</string>
   <string name="suggested_edits_image_tags_choose">Добавить или выбрать подходящие теги</string>
   <string name="suggested_edits_image_tags_search">Искать метки</string>

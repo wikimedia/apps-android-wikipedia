@@ -728,7 +728,6 @@
   <string name="suggested_edits_image_tags_onboarding_title">Title shown on the onboarding screen for adding tags to images.</string>
   <string name="suggested_edits_image_tags_onboarding_text">Body text of the onboarding screen for adding tags to images.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Footnote shown on the onboarding screen for adding tags to images.</string>
-  <string name="suggested_edits_image_tags_snackbar">One-time message shown to users to encourage them to start tagging images.</string>
   <string name="suggested_edits_image_tags_task_detail">Explanation for the task of adding tags to images.</string>
   <string name="suggested_edits_image_tags_choose">Short text asking the user to choose the tags that match the image.</string>
   <string name="suggested_edits_image_tags_published_list">Title for list of tags that have been published.</string>
