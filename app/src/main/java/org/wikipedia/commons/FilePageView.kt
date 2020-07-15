@@ -61,15 +61,17 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
         detailsContainer.removeAllViews()
         if ((action == DescriptionEditActivity.Action.ADD_CAPTION || action == null) && summary.pageTitle.description.isNullOrEmpty()) {
             // Show the image description when a structured caption does not exist.
-            addDetail(context.getString(R.string.suggested_edits_image_preview_dialog_description_in_language_title, getProperLanguageLocalizedName(summary, imageFromCommons)),
+            addDetail(context.getString(R.string.suggested_edits_image_preview_dialog_description_in_language_title,
+                    WikipediaApp.getInstance().language().getAppLanguageLocalizedName(getProperLanguageCode(summary, imageFromCommons))),
                     summary.description, if (showEditButton) editButtonOnClickListener(summary) else null)
         } else {
-            addDetail(context.getString(R.string.suggested_edits_image_preview_dialog_caption_in_language_title, getProperLanguageLocalizedName(summary, imageFromCommons)),
+            addDetail(context.getString(R.string.suggested_edits_image_preview_dialog_caption_in_language_title,
+                    WikipediaApp.getInstance().language().getAppLanguageLocalizedName(getProperLanguageCode(summary, imageFromCommons))),
                     if (summary.pageTitle.description.isNullOrEmpty()) summary.description
                     else summary.pageTitle.description, if (showEditButton) editButtonOnClickListener(summary) else null)
         }
         addDetail(context.getString(R.string.suggested_edits_image_preview_dialog_artist), summary.metadata!!.artist())
-        addDetail(context.getString(R.string.suggested_edits_image_preview_dialog_tags), getImageTags(imageTags, summary.lang))
+        addDetail(context.getString(R.string.suggested_edits_image_preview_dialog_tags), getImageTags(imageTags, getProperLanguageCode(summary, imageFromCommons)))
         addDetail(context.getString(R.string.suggested_edits_image_preview_dialog_date), summary.metadata!!.dateTime())
         addDetail(context.getString(R.string.suggested_edits_image_preview_dialog_source), summary.metadata!!.credit())
         addDetail(true, context.getString(R.string.suggested_edits_image_preview_dialog_licensing), summary.metadata!!.licenseShortName(), summary.metadata!!.licenseUrl())
@@ -89,13 +91,12 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
         }
     }
 
-    private fun getProperLanguageLocalizedName(summary: SuggestedEditsSummary, imageFromCommons: Boolean): String? {
-        var appLanguageLocalizedName = WikipediaApp.getInstance().language().getAppLanguageLocalizedName(summary.lang)
-        if (!imageFromCommons || summary.lang == "commons") {
-            // the getAppLanguageLocalizedName() will return "null" when it receiving "commons"
-            appLanguageLocalizedName = WikipediaApp.getInstance().language().getAppLanguageLocalizedName(WikipediaApp.getInstance().language().appLanguageCode)
+    private fun getProperLanguageCode(summary: SuggestedEditsSummary, imageFromCommons: Boolean): String {
+        return if (!imageFromCommons || summary.lang == "commons") {
+            WikipediaApp.getInstance().language().appLanguageCode
+        } else {
+            summary.lang
         }
-        return appLanguageLocalizedName
     }
 
     private fun loadImage(summary: SuggestedEditsSummary, containerWidth: Int, thumbWidth: Int, thumbHeight: Int) {

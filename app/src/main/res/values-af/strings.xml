@@ -330,7 +330,6 @@
   <string name="suggested_edits_image_tags_onboarding_title" fuzzy="true">Merk prente om dit makliker te maak vir ander om dit te vind</string>
   <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">Deur voorgestelde merkers te bevestig, kan u help om prente makliker te soek.\n\nMerkers word op rekenaar voorgestel, maar moet deur mense bekragtig word om akkuraatheid te verseker.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Slegs merkers wat u kies, sal by prente gevoeg word.</string>
-  <string name="suggested_edits_image_tags_snackbar">Voeg prentetikette by om dit makliker te maak vir ander om dit te vind.</string>
   <string name="suggested_edits_image_tags_task_detail" fuzzy="true">Merk prente om dit makliker te maak vir ander om dit te vind. Merkers word outomaties voorgestel, maar dit moet deur u bevestig word.</string>
   <string name="suggested_edits_image_tags_choose" fuzzy="true">Kies bypassende etikette</string>
   <string name="suggested_edits_image_tags_select_title">U het geen merkers vir hierdie prent gekies nie</string>
