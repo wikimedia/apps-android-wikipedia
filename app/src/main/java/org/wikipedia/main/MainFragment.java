@@ -212,8 +212,12 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
                 startActivity(PageActivity.newIntent(requireContext()));
             }
         } else if ((requestCode == Constants.ACTIVITY_REQUEST_OPEN_SEARCH_ACTIVITY && resultCode == SearchFragment.RESULT_LANG_CHANGED)
-                || (requestCode == Constants.ACTIVITY_REQUEST_SETTINGS && resultCode == SettingsActivity.ACTIVITY_RESULT_LANGUAGE_CHANGED)) {
+                || (requestCode == Constants.ACTIVITY_REQUEST_SETTINGS
+                && (resultCode == SettingsActivity.ACTIVITY_RESULT_LANGUAGE_CHANGED || resultCode == SettingsActivity.ACTIVITY_RESULT_FEED_CONFIGURATION_CHANGED))) {
             refreshContents();
+            if (resultCode == SettingsActivity.ACTIVITY_RESULT_FEED_CONFIGURATION_CHANGED) {
+                updateFeedHiddenCards();
+            }
         } else {
             super.onActivityResult(requestCode, resultCode, data);
         }
@@ -475,6 +479,13 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
             ((SuggestedEditsTasksFragment) fragment).refreshContents();
         }
         resetNavTabLayouts();
+    }
+
+    private void updateFeedHiddenCards() {
+        Fragment fragment = getCurrentFragment();
+        if (fragment instanceof FeedFragment) {
+            ((FeedFragment) fragment).updateHiddenCards();
+        }
     }
 
     private void resetNavTabLayouts() {
