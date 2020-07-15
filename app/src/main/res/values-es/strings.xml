@@ -748,7 +748,6 @@
   <string name="suggested_edits_image_tags_onboarding_title">Etiquetar las imágenes facilita poderlas encontrar.</string>
   <string name="suggested_edits_image_tags_onboarding_text">Al agregar etiquetas de imagen, ayudará a facilitar la búsqueda de imágenes en Commons, el repositorio de imágenes de licencia gratuita que Wikipedia utiliza para las imágenes en sus artículos.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Solo las etiquetas que elijas se añadirán a las imágenes.</string>
-  <string name="suggested_edits_image_tags_snackbar">Etiqueta las imágenes para facilitar su búsqueda.</string>
   <string name="suggested_edits_image_tags_task_detail">Añade etiquetas personalizadas a imágenes para que sean más fáciles de encontrar.</string>
   <string name="suggested_edits_image_tags_choose">Añadir o elegir etiquetas correspondientes</string>
   <string name="suggested_edits_image_tags_published_list">Etiquetas publicadas</string>
