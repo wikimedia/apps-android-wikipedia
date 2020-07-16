@@ -743,7 +743,6 @@
   <string name="suggested_edits_image_tags_onboarding_title">给图片打上标签，使其更容易找到。</string>
   <string name="suggested_edits_image_tags_onboarding_text">通过添加图片标签，您将有助于使图片更容易在维基共享资源上搜索到，维基共享资源是维基百科在其文章中使用的免费授权图片库。</string>
   <string name="suggested_edits_image_tags_onboarding_note">只有您选择的标签才会被添加到图片中。</string>
-  <string name="suggested_edits_image_tags_snackbar">添加图片标签，使其更容易被他人发现。</string>
   <string name="suggested_edits_image_tags_task_detail">为图片添加自定义标签，使其更容易被找到。</string>
   <string name="suggested_edits_image_tags_choose">添加或选择匹配的标签</string>
   <string name="suggested_edits_image_tags_published_list">发布标签</string>

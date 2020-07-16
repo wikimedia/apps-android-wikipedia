@@ -723,7 +723,6 @@
   <string name="suggested_edits_image_tags_onboarding_title">標記圖片來讓它們能更容易被找到。</string>
   <string name="suggested_edits_image_tags_onboarding_text">透過確認標籤，您可以協助圖片在維基共享資源上能更容易被搜尋到，維基共享資源是讓維基百科能使用圖片在條目裡的自由許可圖片儲存庫。</string>
   <string name="suggested_edits_image_tags_onboarding_note">僅添加您挑選的標籤到圖片上。</string>
-  <string name="suggested_edits_image_tags_snackbar">添加圖片標籤來讓它們能更容易被其他人找到</string>
   <string name="suggested_edits_image_tags_task_detail">添加自定義的標籤到圖片，來讓它能更容易被找到。</string>
   <string name="suggested_edits_image_tags_choose">新增或挑選符合的標籤</string>
   <string name="suggested_edits_image_tags_published_list">已發布標籤</string>
