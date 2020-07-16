@@ -165,10 +165,6 @@ class SuggestedEditsTasksFragment : Fragment() {
                         latestEditDate = commonsResponse.query()!!.userInfo()!!.latestContrib
                     }
 
-                    if (maybeSetPausedOrDisabled()) {
-                        isPausedOrDisabled = true
-                    }
-
                     val contributions = ArrayList<UserContribution>()
                     contributions.addAll(wikidataResponse.query()!!.userContributions())
                     contributions.addAll(commonsResponse.query()!!.userContributions())
@@ -189,6 +185,10 @@ class SuggestedEditsTasksFragment : Fragment() {
                     }
                 }
                 .subscribe({
+                    if (maybeSetPausedOrDisabled()) {
+                        isPausedOrDisabled = true
+                    }
+
                     if (!isPausedOrDisabled && !isIpBlocked) {
                         pageViewStatsView.setTitle(it.toString())
                         setFinalUIState()
