@@ -264,7 +264,6 @@
   <string name="view_card_news_title">V novicah</string>
   <string name="view_continue_reading_card_subtitle_today">danes</string>
   <string name="view_announcement_card_negative_action">Ne, hvala</string>
-  <string name="onboarding_negative_action">Ne, hvala</string>
   <string name="view_featured_article_card_title">Izbrani članki</string>
   <string name="view_featured_article_footer_save_button_label">Shrani</string>
   <string name="view_static_card_save_button_label">Shrani</string>

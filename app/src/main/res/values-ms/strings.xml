@@ -567,7 +567,6 @@
   <string name="view_continue_reading_card_subtitle_today">hari ini</string>
   <string name="view_continue_reading_card_subtitle_read_date">Dibaca %s</string>
   <string name="view_announcement_card_negative_action">Tak apalah</string>
-  <string name="onboarding_negative_action">Tak apalah</string>
   <string name="view_offline_card_text">Kandungan tidak boleh dimuatkan semasa di luar talian.</string>
   <string name="view_featured_article_card_title">Rencana pilihan</string>
   <string name="view_featured_article_footer_save_button_label">Simpan</string>

@@ -574,7 +574,6 @@
   <string name="view_continue_reading_card_subtitle_today">امروز</string>
   <string name="view_continue_reading_card_subtitle_read_date">%s را بخوانید</string>
   <string name="view_announcement_card_negative_action">نه ممنون</string>
-  <string name="onboarding_negative_action">نه ممنون</string>
   <string name="view_offline_card_text">محتوی در زمان آفلاین در دسترس نیست.</string>
   <string name="view_featured_article_card_title">مقاله برگزیده</string>
   <string name="view_featured_article_footer_save_button_label">ذخیره</string>
