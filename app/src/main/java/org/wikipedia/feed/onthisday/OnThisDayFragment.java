@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -21,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
+import com.google.android.material.button.MaterialButton;
 
 import org.wikipedia.Constants.InvokeSource;
 import org.wikipedia.R;
@@ -33,6 +33,7 @@ import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.DimenUtil;
+import org.wikipedia.util.L10nUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.log.L;
@@ -59,8 +60,8 @@ import static org.wikipedia.Constants.InvokeSource.ON_THIS_DAY_ACTIVITY;
 import static org.wikipedia.feed.onthisday.OnThisDayActivity.AGE;
 import static org.wikipedia.feed.onthisday.OnThisDayActivity.WIKISITE;
 
-public class OnThisDayFragment extends Fragment implements CustomDatePicker.Callback, OnThisDayActionsDialog.Callback{
-    @BindView(R.id.day) TextView dayText;
+public class OnThisDayFragment extends Fragment implements CustomDatePicker.Callback, OnThisDayActionsDialog.Callback {
+    @BindView(R.id.on_this_day_container) ViewGroup container;
     @BindView(R.id.collapsing_toolbar_layout) CollapsingToolbarLayout collapsingToolbarLayout;
     @BindView(R.id.day_info_text_view) TextView dayInfoTextView;
     @BindView(R.id.events_recycler) RecyclerView eventsRecycler;
@@ -70,8 +71,8 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
     @BindView(R.id.on_this_day_error_view) WikiErrorView errorView;
     @BindView(R.id.indicator_date) TextView indicatorDate;
     @BindView(R.id.indicator_layout) FrameLayout indicatorLayout;
-    @BindView(R.id.toolbar_day) TextView toolbarDay;
-    @BindView(R.id.drop_down_toolbar) ImageView toolbarDropDown;
+    @BindView(R.id.toolbar_day_button) MaterialButton toolbarDayButton;
+    @BindView(R.id.day_button) MaterialButton dayButton;
 
     @Nullable private OnThisDay onThisDay;
     private Calendar date;
@@ -113,32 +114,36 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
         if (requireActivity().getWindow().getSharedElementEnterTransition() != null
                 && savedInstanceState == null) {
             final int animDelay = 500;
-            dayText.postDelayed(() -> {
-                if (!isAdded() || dayText == null) {
+            dayButton.postDelayed(() -> {
+                if (!isAdded() || dayButton == null) {
                     return;
                 }
+                setDayButtonIconVisibility(dayButton, true);
                 updateContents(age);
-                ValueAnimator colorAnimation = ValueAnimator.ofObject(new ArgbEvaluator(), dayText.getCurrentTextColor(),
+                ValueAnimator colorAnimation = ValueAnimator.ofObject(new ArgbEvaluator(), dayButton.getCurrentTextColor(),
                         ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_primary_color));
                 colorAnimation.addUpdateListener(animator -> {
-                    if (dayText != null) {
-                        dayText.setTextColor((Integer) animator.getAnimatedValue());
+                    if (dayButton != null) {
+                        dayButton.setTextColor((Integer) animator.getAnimatedValue());
                     }
                 });
                 colorAnimation.start();
             }, animDelay);
         } else {
-            dayText.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_primary_color));
+            dayButton.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_primary_color));
             updateContents(age);
         }
 
         eventsRecycler.setVisibility(View.GONE);
         errorView.setVisibility(View.GONE);
+        L10nUtil.setConditionalLayoutDirection(container, wiki.languageCode());
         return view;
     }
 
     public void onBackPressed() {
-        dayText.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.primary_text_color));
+        dayButton.setTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.primary_text_color));
+        setDayButtonIconVisibility(dayButton, false);
+        setDayButtonIconVisibility(toolbarDayButton, false);
     }
 
     private void updateContents(int age) {
@@ -178,21 +183,29 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
         getAppCompatActivity().getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getAppCompatActivity().getSupportActionBar().setTitle("");
         collapsingToolbarLayout.setCollapsedTitleTextColor(ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_primary_color));
-        dayText.setText(DateUtil.getMonthOnlyDateString(date.getTime()));
+        dayButton.setText(DateUtil.getMonthOnlyDateString(date.getTime()));
         indicatorLayout.setAlpha((date.get(Calendar.MONTH) == Calendar.getInstance().get(Calendar.MONTH) && date.get(Calendar.DATE) == Calendar.getInstance().get(Calendar.DATE)) ? HALF_ALPHA : 1.0f);
         indicatorDate.setText(String.format(Locale.getDefault(), "%d", Calendar.getInstance().get(Calendar.DATE)));
         appBarLayout.addOnOffsetChangedListener((appBarLayout, verticalOffset) -> {
             if (verticalOffset > -appBarLayout.getTotalScrollRange()) {
-                toolbarDropDown.setVisibility(View.GONE);
+                setDayButtonIconVisibility(toolbarDayButton, false);
             } else if (verticalOffset <= -appBarLayout.getTotalScrollRange()) {
-                toolbarDropDown.setVisibility(View.VISIBLE);
+                setDayButtonIconVisibility(toolbarDayButton, true);
             }
             final String newText = verticalOffset <= -appBarLayout.getTotalScrollRange()
                     ? DateUtil.getMonthOnlyDateString(date.getTime()) : "";
-            if (!newText.equals(toolbarDay.getText().toString())) {
-                appBarLayout.post(() -> toolbarDay.setText(newText));
+            if (!newText.equals(toolbarDayButton.getText().toString())) {
+                appBarLayout.post(() -> toolbarDayButton.setText(newText));
             }
         });
+    }
+
+    private void setDayButtonIconVisibility(@NonNull MaterialButton button, boolean enabled) {
+        if (enabled) {
+            button.setIconResource(R.drawable.ic_arrow_drop_down_black_24dp);
+        } else {
+            button.setIcon(null);
+        }
     }
 
     private AppCompatActivity getAppCompatActivity() {
@@ -235,17 +248,17 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
             indicatorLayout.setClickable(false);
         }
         date.set(CustomDatePicker.LEAP_YEAR, month, day, 0, 0);
-        dayText.setText(DateUtil.getMonthOnlyDateString(date.getTime()));
+        dayButton.setText(DateUtil.getMonthOnlyDateString(date.getTime()));
         appBarLayout.setExpanded(true);
         requestEvents(month, day);
     }
 
-    @OnClick({R.id.day_container, R.id.toolbar_day_container})
+    @OnClick({R.id.day_button, R.id.toolbar_day_button})
     public void onCalendarClicked() {
         CustomDatePicker newFragment = new CustomDatePicker();
         newFragment.setSelectedDay(date.get(Calendar.MONTH), date.get(Calendar.DATE));
         newFragment.setCallback(OnThisDayFragment.this);
-        newFragment.show(requireFragmentManager(), "date picker");
+        newFragment.show(getChildFragmentManager(), "date picker");
     }
 
     @OnClick(R.id.indicator_layout)
