@@ -15,6 +15,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import com.getkeepsafe.taptargetview.TapTarget;
@@ -184,8 +185,8 @@ public final class FeedbackUtil {
                 .setArrowOrientation(ArrowOrientation.TOP)
                 .setPadding(16)
                 .setTextSize(14f)
-                .setTextColorResource(ResourceUtil.getThemedAttributeId(context, R.attr.material_theme_secondary_color))
-                .setBackgroundColorResource(ResourceUtil.getThemedAttributeId(context, R.attr.paper_color))
+                .setTextColorResource(ResourceUtil.getThemedAttributeId(context, R.attr.paper_color))
+                .setBackgroundColorResource(ResourceUtil.getThemedAttributeId(context, R.attr.colorAccent))
                 .build();
     }
 
