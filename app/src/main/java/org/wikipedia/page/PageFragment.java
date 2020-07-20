@@ -831,13 +831,13 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         } else if (requestCode == Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT
                 && resultCode == RESULT_OK) {
             refreshPage();
-            ABTestSuggestedEditsSnackbarFunnel funnel = new ABTestSuggestedEditsSnackbarFunnel();
+            ABTestSuggestedEditsSnackbarFunnel abTestFunnel = new ABTestSuggestedEditsSnackbarFunnel();
             Snackbar snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.description_edit_success_saved_snackbar), FeedbackUtil.LENGTH_DEFAULT);
-            if (funnel.shouldSeeSnackbarAction()) {
+            if (abTestFunnel.shouldSeeSnackbarAction()) {
                 snackbar.setAction(R.string.nav_item_more, view -> startSuggestedEditsCardsActivity(ADD_DESCRIPTION));
             }
             snackbar.show();
-            funnel.logSnackbarShown();
+            abTestFunnel.logSnackbarShown();
         }
     }
 

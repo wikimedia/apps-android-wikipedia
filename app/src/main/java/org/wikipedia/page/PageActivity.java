@@ -676,18 +676,18 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             pageFragment.refreshPage();
             String editLanguage = StringUtils.defaultString(pageFragment.getLeadImageEditLang(), app.language().getAppLanguageCode());
             DescriptionEditActivity.Action action = (DescriptionEditActivity.Action) data.getSerializableExtra(INTENT_EXTRA_ACTION);
-            ABTestSuggestedEditsSnackbarFunnel funnel = new ABTestSuggestedEditsSnackbarFunnel();
+            ABTestSuggestedEditsSnackbarFunnel abTestFunnel = new ABTestSuggestedEditsSnackbarFunnel();
             FeedbackUtil.makeSnackbar(this, action == ADD_CAPTION
                     ? getString(R.string.description_edit_success_saved_image_caption_snackbar)
                     : getString(R.string.description_edit_success_saved_image_caption_in_lang_snackbar, app.language().getAppLanguageLocalizedName(editLanguage)), FeedbackUtil.LENGTH_DEFAULT)
-                    .setAction(funnel.shouldSeeSnackbarAction() ? R.string.nav_item_more : R.string.suggested_edits_article_cta_snackbar_action, v -> {
-                        if (funnel.shouldSeeSnackbarAction()) {
+                    .setAction(abTestFunnel.shouldSeeSnackbarAction() ? R.string.nav_item_more : R.string.suggested_edits_article_cta_snackbar_action, v -> {
+                        if (abTestFunnel.shouldSeeSnackbarAction()) {
                             pageFragment.startSuggestedEditsCardsActivity(action);
                         } else {
                             pageFragment.openImageInGallery(editLanguage);
                         }
                     }).show();
-            funnel.logSnackbarShown();
+            abTestFunnel.logSnackbarShown();
         } else {
             super.onActivityResult(requestCode, resultCode, data);
         }
