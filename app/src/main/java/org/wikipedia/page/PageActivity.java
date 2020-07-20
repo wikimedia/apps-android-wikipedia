@@ -30,9 +30,6 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.FixedDrawerLayout;
 import androidx.preference.PreferenceManager;
 
-import com.google.android.material.bottomsheet.BottomSheetDialog;
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
-
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.Constants;
 import org.wikipedia.Constants.InvokeSource;
@@ -56,7 +53,6 @@ import org.wikipedia.page.tabs.TabActivity;
 import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.search.SearchActivity;
 import org.wikipedia.settings.Prefs;
-import org.wikipedia.theme.ThemeChooserDialog;
 import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.DimenUtil;
@@ -70,7 +66,6 @@ import org.wikipedia.views.PageActionOverflowView;
 import org.wikipedia.views.TabCountsView;
 import org.wikipedia.views.ViewUtil;
 import org.wikipedia.widgets.WidgetProviderFeaturedPage;
-import org.wikipedia.wiktionary.WiktionaryDialog;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -93,8 +88,7 @@ import static org.wikipedia.settings.SettingsActivity.ACTIVITY_RESULT_LANGUAGE_C
 import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
 
 public class PageActivity extends BaseActivity implements PageFragment.Callback,
-        LinkPreviewDialog.Callback, ThemeChooserDialog.Callback, WiktionaryDialog.Callback,
-        FrameLayoutNavMenuTriggerer.Callback {
+        LinkPreviewDialog.Callback, FrameLayoutNavMenuTriggerer.Callback {
     public static final String ACTION_LOAD_IN_NEW_TAB = "org.wikipedia.load_in_new_tab";
     public static final String ACTION_LOAD_IN_CURRENT_TAB = "org.wikipedia.load_in_current_tab";
     public static final String ACTION_LOAD_IN_CURRENT_TAB_SQUASH = "org.wikipedia.load_in_current_tab_squash";
@@ -480,16 +474,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     }
 
     @Override
-    public void onPageShowBottomSheet(@NonNull BottomSheetDialog dialog) {
-        bottomSheetPresenter.show(getSupportFragmentManager(), dialog);
-    }
-
-    @Override
-    public void onPageShowBottomSheet(@NonNull BottomSheetDialogFragment dialog) {
-        bottomSheetPresenter.show(getSupportFragmentManager(), dialog);
-    }
-
-    @Override
     public void onPageDismissBottomSheet() {
         bottomSheetPresenter.dismiss(getSupportFragmentManager());
     }
@@ -518,11 +502,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     @Override
     public void onPageUpdateProgressBar(boolean visible) {
         updateProgressBar(visible);
-    }
-
-    @Override
-    public void onPageShowThemeChooser() {
-        bottomSheetPresenter.show(getSupportFragmentManager(), new ThemeChooserDialog());
     }
 
     @Override
@@ -609,19 +588,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     public void onLinkPreviewShareLink(@NonNull PageTitle title) {
         ShareUtil.shareText(this, title);
     }
-
-    @Override
-    public void wiktionaryShowDialogForTerm(@NonNull String term) {
-        pageFragment.getShareHandler().showWiktionaryDefinition(term);
-    }
-
-    @Override
-    public void onToggleDimImages() {
-        recreate();
-    }
-
-    @Override
-    public void onCancel() { }
 
     private void copyLink(@NonNull String url) {
         ClipboardUtil.setPlainText(this, null, url);

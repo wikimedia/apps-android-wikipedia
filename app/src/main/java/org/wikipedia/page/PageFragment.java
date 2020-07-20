@@ -31,7 +31,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.JsonArray;
@@ -85,6 +84,7 @@ import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.suggestededits.SuggestedEditsSummary;
+import org.wikipedia.theme.ThemeChooserDialog;
 import org.wikipedia.util.ActiveTimer;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
@@ -96,6 +96,7 @@ import org.wikipedia.util.log.L;
 import org.wikipedia.views.ObservableWebView;
 import org.wikipedia.views.SwipeRefreshLayoutWithScroll;
 import org.wikipedia.views.WikiErrorView;
+import org.wikipedia.wiktionary.WiktionaryDialog;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -128,17 +129,15 @@ import static org.wikipedia.util.ThrowableUtil.isOffline;
 import static org.wikipedia.util.UriUtil.decodeURL;
 import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
 
-public class PageFragment extends Fragment implements BackPressedHandler, CommunicationBridgeListener {
+public class PageFragment extends Fragment implements BackPressedHandler, CommunicationBridgeListener,
+        ThemeChooserDialog.Callback, ReferenceDialog.Callback, WiktionaryDialog.Callback {
     public interface Callback {
-        void onPageShowBottomSheet(@NonNull BottomSheetDialog dialog);
-        void onPageShowBottomSheet(@NonNull BottomSheetDialogFragment dialog);
         void onPageDismissBottomSheet();
         void onPageLoadPage(@NonNull PageTitle title, @NonNull HistoryEntry entry);
         void onPageInitWebView(@NonNull ObservableWebView v);
         void onPageShowLinkPreview(@NonNull HistoryEntry entry);
         void onPageLoadMainPageInForegroundTab();
         void onPageUpdateProgressBar(boolean visible);
-        void onPageShowThemeChooser();
         void onPageStartSupportActionMode(@NonNull ActionMode.Callback callback);
         void onPageHideSoftKeyboard();
         void onPageAddToReadingList(@NonNull PageTitle title, @NonNull InvokeSource source);
@@ -172,6 +171,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     private PageActionTabLayout tabLayout;
     private ToCHandler tocHandler;
     private WebViewScrollTriggerListener scrollTriggerListener = new WebViewScrollTriggerListener();
+    private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
 
     private CommunicationBridge bridge;
     private LinkHandler linkHandler;
@@ -240,7 +240,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
 
         @Override
         public void onFontAndThemeTabSelected() {
-            showThemeChooser();
+            showBottomSheet(new ThemeChooserDialog());
         }
 
         @Override
@@ -447,6 +447,9 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
 
             public void onPageFinished(WebView view, String url) {
                 bridge.evaluateImmediate("(function() { return (typeof pcs !== 'undefined'); })();", pcsExists -> {
+                    if (!isAdded()) {
+                        return;
+                    }
                     // TODO: This is a bit of a hack: If PCS does not exist in the current page, then
                     // it's implied that this page was loaded via Mobile Web (e.g. the Main Page) and
                     // doesn't support PCS, meaning that we will never receive the `setup` event that
@@ -1047,7 +1050,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             references = GsonUtil.getDefaultGson().fromJson(messagePayload, PageReferences.class);
 
             if (!references.getReferencesGroup().isEmpty()) {
-                showBottomSheet(new ReferenceDialog(requireActivity(), references.getSelectedIndex(), references.getReferencesGroup(), linkHandler));
+                showBottomSheet(new ReferenceDialog());
             }
         });
         bridge.addListener("back_link", (String messageType, JsonObject payload) -> {
@@ -1214,25 +1217,45 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         pageScrollFunnel = null;
     }
 
-    public void showBottomSheet(@NonNull BottomSheetDialog dialog) {
-        Callback callback = callback();
-        if (callback != null) {
-            callback.onPageShowBottomSheet(dialog);
-        }
-    }
-
     public void showBottomSheet(@NonNull BottomSheetDialogFragment dialog) {
-        Callback callback = callback();
-        if (callback != null) {
-            callback.onPageShowBottomSheet(dialog);
-        }
+        bottomSheetPresenter.show(getChildFragmentManager(), dialog);
     }
 
     private void dismissBottomSheet() {
+        bottomSheetPresenter.dismiss(getChildFragmentManager());
         Callback callback = callback();
         if (callback != null) {
             callback.onPageDismissBottomSheet();
         }
+    }
+
+    @Override
+    public LinkHandler getLinkHandler() {
+        return linkHandler;
+    }
+
+    @Override
+    public List<PageReferences.Reference> getReferencesGroup() {
+        return references.getReferencesGroup();
+    }
+
+    @Override
+    public int getSelectedReferenceIndex() {
+        return references.getSelectedIndex();
+    }
+
+    @Override
+    public void onToggleDimImages() {
+        requireActivity().recreate();
+    }
+
+    @Override
+    public void onCancel() {
+    }
+
+    @Override
+    public void wiktionaryShowDialogForTerm(@NonNull String term) {
+        shareHandler.showWiktionaryDefinition(term);
     }
 
     public void loadPage(@NonNull PageTitle title, @NonNull HistoryEntry entry) {
@@ -1253,13 +1276,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         Callback callback = callback();
         if (callback != null) {
             callback.onPageUpdateProgressBar(visible);
-        }
-    }
-
-    private void showThemeChooser() {
-        Callback callback = callback();
-        if (callback != null) {
-            callback.onPageShowThemeChooser();
         }
     }
 

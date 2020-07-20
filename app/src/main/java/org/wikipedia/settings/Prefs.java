@@ -732,14 +732,6 @@ public final class Prefs {
         setBoolean(R.string.preference_key_show_suggested_edits_survey, showSurvey);
     }
 
-    public static boolean shouldShowImageTagsTooltip() {
-        return getBoolean(R.string.preference_key_show_image_tags_tooltip, true);
-    }
-
-    public static void setShouldShowImageTagsTooltip(boolean enabled) {
-        setBoolean(R.string.preference_key_show_image_tags_tooltip, enabled);
-    }
-
     public static boolean shouldShowSuggestedEditsTooltip() {
         return getBoolean(R.string.preference_key_show_suggested_edits_tooltip, true);
     }
@@ -933,20 +925,20 @@ public final class Prefs {
         setBoolean(R.string.preference_key_suggested_edits_highest_priority_enabled, enabled);
     }
 
-    public static void incrementReadingListsVisitCount() {
-        setInt(R.string.preference_key_reading_lists_visit_count, getReadingListsVisitCount() + 1);
-    }
-
-    public static int getReadingListsVisitCount() {
-        return getInt(R.string.preference_key_reading_lists_visit_count, 0);
-    }
-
     public static void incrementExploreFeedVisitCount() {
         setInt(R.string.preference_key_explore_feed_visit_count, getExploreFeedVisitCount() + 1);
     }
 
     public static int getExploreFeedVisitCount() {
         return getInt(R.string.preference_key_explore_feed_visit_count, 0);
+    }
+
+    public static int getSelectedLanguagePositionInSearch() {
+        return getInt(R.string.preference_key_selected_language_position_in_search, 0);
+    }
+
+    public static void setSelectedLanguagePositionInSearch(int position) {
+        setInt(R.string.preference_key_selected_language_position_in_search, position);
     }
 
     private Prefs() { }

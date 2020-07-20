@@ -42,6 +42,7 @@ import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
 import static org.wikipedia.Constants.INTENT_EXTRA_INVOKE_SOURCE;
+import static org.wikipedia.settings.SettingsActivity.ACTIVITY_RESULT_FEED_CONFIGURATION_CHANGED;
 
 public class ConfigureFragment extends Fragment implements ConfigureItemView.Callback {
     @BindView(R.id.content_types_recycler) RecyclerView recyclerView;
@@ -229,7 +230,7 @@ public class ConfigureFragment extends Fragment implements ConfigureItemView.Cal
     }
 
     private void touch() {
-        requireActivity().setResult(ConfigureActivity.CONFIGURATION_CHANGED_RESULT);
+        requireActivity().setResult(ACTIVITY_RESULT_FEED_CONFIGURATION_CHANGED);
     }
 
     private class ConfigureItemHolder extends DefaultViewHolder<ConfigureItemView> {
