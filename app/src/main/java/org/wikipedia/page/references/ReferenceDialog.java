@@ -54,6 +54,10 @@ public class ReferenceDialog extends ExtendedBottomSheetDialogFragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_references_pager, null);
         unbinder = ButterKnife.bind(this, rootView);
+        if (callback() == null || callback().getReferencesGroup() == null) {
+            dismiss();
+            return rootView;
+        }
 
         titleTextView.setText(requireContext().getString(R.string.reference_title, ""));
         referencesViewPager.setOffscreenPageLimit(2);
@@ -68,7 +72,7 @@ public class ReferenceDialog extends ExtendedBottomSheetDialogFragment {
     @Override
     public void onStart() {
         super.onStart();
-        if (callback().getReferencesGroup().size() == 1) {
+        if (callback() != null && callback().getReferencesGroup() != null && callback().getReferencesGroup().size() == 1) {
             pageIndicatorView.setVisibility(View.GONE);
             pageIndicatorDivider.setVisibility(View.GONE);
         } else {
