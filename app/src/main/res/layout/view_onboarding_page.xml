@@ -37,15 +37,10 @@
 
                 <org.wikipedia.views.AppTextView
                     android:id="@+id/primaryTextView"
-                    style="@style/TextViewCentered"
+                    style="@style/MaterialLargePrimaryTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="12dp"
-                    android:fontFamily="sans-serif-medium"
-                    android:textColor="?attr/material_theme_primary_color"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:lineSpacingExtra="8sp"
                     android:focusableInTouchMode="true"
                     tools:text="Lorem ipsum" />
 

@@ -62,8 +62,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="12dp"
-                    android:text="@string/saved_list_empty_title"
-                    android:textStyle="bold" />
+                    android:text="@string/saved_list_empty_title"/>
 
                 <TextView
                     android:id="@+id/empty_message"
