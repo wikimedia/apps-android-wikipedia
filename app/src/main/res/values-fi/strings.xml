@@ -37,7 +37,7 @@
   <string name="search_hint_search_languages">Etsi kieltä</string>
   <string name="search_hint_search_my_lists_and_articles">Hae omia listoja ja artikkeleita</string>
   <string name="nav_item_history">Historia</string>
-  <string name="nav_item_suggested_edits" fuzzy="true">Ehdotetut muokkaukset</string>
+  <string name="nav_item_suggested_edits">Muokkaukset</string>
   <string name="nav_item_more">Lisää</string>
   <string name="error_network_error">Internet-yhteyden muodostaminen epäonnistui.</string>
   <string name="page_error_retry">Yritä uudelleen</string>
@@ -419,6 +419,7 @@
   <string name="reading_list_article_make_offline">Tee tämä artikkeli käytettäväksi offline-tilassa</string>
   <string name="reading_list_add_to_other_list">Lisää toiseen lukulistaan</string>
   <string name="reading_list_move_to_other_list">Siirrä toiseen lukulistaan</string>
+  <string name="reading_list_move_from_to_other_list">Siirrä lukulistasta %s toiseen lukulistaan</string>
   <string name="reading_list_remove_from_list">Poista lukulistasta %s</string>
   <string name="reading_list_remove_from_lists">Poista lukulistoista</string>
   <string name="reading_list_select_item">Valitse</string>
@@ -431,6 +432,8 @@
   <string name="reading_lists_sync_reminder_action">Ota synkronointi käyttöön</string>
   <string name="reading_list_login_reminder_title">Synkronoi lukulistat</string>
   <string name="reading_lists_login_reminder_text">Lukulistoja voidaan nyt synkronoida laitteiden välillä. Kirjaudu Wikipedia-tunnuksellesi ja salli listojesi tallentua.</string>
+  <string name="reading_lists_login_button">Kirjaudu sisään / liity Wikipediaan</string>
+  <string name="reading_lists_ignore_button">Ei nyt</string>
   <string name="reading_lists_confirm_remote_delete_yes">Kyllä</string>
   <string name="reading_lists_confirm_remote_delete_no">Ei</string>
   <string name="reading_list_article_save_in_progress">Artikkelia ladataan ja se tulee käytettäväksi offline-tilassa kun lataus on valmis.</string>
@@ -458,7 +461,6 @@
   <string name="split_reading_list_message">On olemassa %d artikkelin raja lukulistaa kohden. Nykyiset tämän rajan ylittävät listat on jaettu moniin listoihin.</string>
   <string name="reading_list_article_limit_message">Ei voida lisätä tähän listaan. Olet saavuttanut %2$d artikkelin rajan per lista listalle \"%1$s\".</string>
   <string name="reading_lists_limit_message">Uuden listan luominen epäonnistui. Sinulla voi olla enintään 100 lukulistaa.</string>
-  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Synkronoi lukulistat&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Lukulistoja voi nyt synkronoida laitteiden välillä. Kirjaudu Wikipedia-tunnuksellesi ja salli listojesi tallentua.</string>
   <string name="reading_lists_menu_create_list">Luo uusi lista</string>
   <string name="reading_lists_menu_sort_by">Lajitteluperuste</string>
   <string name="reading_lists_refresh_sync_option">Päivitä synkronointi</string>
@@ -573,7 +575,6 @@
   <string name="view_continue_reading_card_subtitle_today">tänään</string>
   <string name="view_continue_reading_card_subtitle_read_date">Luettu %s</string>
   <string name="view_announcement_card_negative_action">Ei kiitos</string>
-  <string name="onboarding_negative_action">Ei kiitos</string>
   <string name="view_offline_card_text">Sisältöä ei voida ladata offline-tilassa</string>
   <string name="view_featured_article_card_title">Suositeltu artikkeli</string>
   <string name="view_featured_article_footer_save_button_label">Tallenna</string>
@@ -714,7 +715,7 @@
   <string name="suggested_edits_image_tags_select_title">Et ole valinnut tälle kuvalle merkintöjä</string>
   <string name="suggested_edits_image_tags_add_tag">Lisää merkintä</string>
   <string name="suggested_edits_encouragement_message">%s, kiitos muokkauksistasi. Alempaa löydät lisää tapoja parantaa Wikipediaa.</string>
-  <string name="suggested_edits_onboarding_message" fuzzy="true">&lt;b&gt;Hei %s&lt;/b&gt;, tiesitkö, että kuka tahansa voi muokata Wikipediaa? Alempaa löydät hauskoja tapoja parantaa Wikipediaa. Hyviä muokkaushetkiä!</string>
+  <string name="suggested_edits_onboarding_message">&lt;b&gt;Hei %s&lt;/b&gt;, alempaa löydät nopeita ja helppoja tapoja parantaa Wikipediaa? Näet tekemäsi eron heti, kun aloitat. Hyviä muokkaushetkiä!</string>
   <string name="suggested_edits_image_captions_task_detail">Kuvaile kuvan sisältöä auttaaksesi lukijoita ymmärtämään sen merkitys ja asiayhteys.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Tiivistä artikkeli auttaaksesi lukijoita ymmärtämään aihe nopeasti.</string>
   <string name="suggested_edits_editing_tips_link_text">Muokkausvinkkejä</string>
@@ -741,11 +742,13 @@
   <string name="suggested_edits_last_edited_never">Ei koskaan</string>
   <string name="suggested_edits_task_new">uusi</string>
   <string name="suggested_edits_cc0_notice">Julkaisemalla hyväksyt &lt;a href=\"%1$s\"&gt;käyttöehdot&lt;/a&gt; ja peruuttamattomasti julkaiset muokkauksesi &lt;a href=\"%2$s\"&gt;CC0&lt;/a&gt;-lisenssin ehtojen mukaisesti.</string>
+  <string name="suggested_edits_contributions_screen_title">Käyttäjän %s muokkaukset</string>
   <string name="suggested_edits_contribution_language_label">Kieli</string>
   <string name="suggested_edits_contribution_date_time_label">Päiväys / Aika</string>
   <string name="suggested_edits_contribution_type_label">Muokkaustyyppi</string>
   <string name="suggested_edits_contribution_image_label">Kuva</string>
   <string name="suggested_edits_contribution_article_label">Artikkeli</string>
+  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Eilen</string>
   <string name="suggested_edits_rewards_continue_button">Jatka</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Kirjaudu sisään / liity Wikipediaan</string>
@@ -836,6 +839,7 @@
   <string name="main_drawer_help">Ohje</string>
   <string name="main_drawer_login">Kirjaudu sisään / liity Wikipediaan</string>
   <string name="main_tooltip_text">Hei %s, tiesitkö että kaikki voivat muokata Wikipediaa?</string>
+  <string name="main_tooltip_text_v2">Tiesitkö että kaikki voivat muokata Wikipediaa?</string>
   <string name="main_tooltip_action_button">Aloittaminen</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_ok_button_text">OK</string>

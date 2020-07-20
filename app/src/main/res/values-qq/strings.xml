@@ -472,7 +472,6 @@
   <string name="reading_list_move_article_limit_message">Message shown to the users when the limit for maximum number of articles in a list is reached, denoted by the \"%2$d\" symbol, informing them that they will not be able to move the article to that list, named \"%1$s\".</string>
   <string name="reading_list_article_limit_message">Message shown to the users when the limit for maximum number of articles in a list is reached, denoted by the \"%2$d\" symbol, informing them that they will not be able to add anymore to that list, named \"%1$s\".</string>
   <string name="reading_lists_limit_message">Message shown to the users when the limit for maimum number of reading lists is reached, informing them that they will not be able to create anymore lists</string>
-  <string name="feed_reading_lists_sync_onboarding_text">User education message suggesting the users to log in to reap the benefits of synced reading lists</string>
   <string name="reading_lists_menu_create_list">Menu option offering user an option to create a new reading list.</string>
   <string name="reading_lists_menu_sort_by">Heading for a list of suggested sort options.\n{{Identical|Sort by}}</string>
   <string name="reading_lists_refresh_sync_option">Menu option suggesting that the user can manually sync using this option.</string>
@@ -588,7 +587,6 @@
   <string name="view_continue_reading_card_subtitle_today">Shown on cards in the feed when the card has today\'s date. The word should be in lowercase if appropriate for the language.\n{{Identical|Today}}</string>
   <string name="view_continue_reading_card_subtitle_read_date">Subtitle for number of days passed since the article was last seen and shown on cards in the feed. Use the %s parameter to insert the number of days passed since the content (an article) was last seen.\n\nThe word \"read\" is either past tense, as in \"(you have) read (this) 4 days ago\", or a participle as in \"(this was) read (by you) 4 days ago\".</string>
   <string name="view_announcement_card_negative_action">Button label that allows the user to decline the action that this card is requesting.\n{{Identical|No thanks}}</string>
-  <string name="onboarding_negative_action">Text on negative action button on onboarding screen.\n{{Identical|No Thanks}}</string>
   <string name="view_offline_card_text">Message in the feed informing the user that additional content cannot be loaded while offline.</string>
   <string name="view_featured_article_card_title">Title shown in the Featured Article card in the Explore feed\n{{Identical|Featured article}}</string>
   <string name="view_featured_article_footer_save_button_label">Button label for saving the current featured article to a reading list, if it is not already saved.\n{{Identical|Save}}</string>
@@ -729,7 +727,6 @@
   <string name="suggested_edits_image_tags_onboarding_title">Title shown on the onboarding screen for adding tags to images.</string>
   <string name="suggested_edits_image_tags_onboarding_text">Body text of the onboarding screen for adding tags to images.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Footnote shown on the onboarding screen for adding tags to images.</string>
-  <string name="suggested_edits_image_tags_snackbar">One-time message shown to users to encourage them to start tagging images.</string>
   <string name="suggested_edits_image_tags_task_detail">Explanation for the task of adding tags to images.</string>
   <string name="suggested_edits_image_tags_choose">Short text asking the user to choose the tags that match the image.</string>
   <string name="suggested_edits_image_tags_published_list">Title for list of tags that have been published.</string>
@@ -762,6 +759,7 @@
   <string name="suggested_edits_quality_sufficient_text">Suggested edits label text indicating that the edit quality of the user is sufficient</string>
   <string name="suggested_edits_quality_poor_text">Suggested edits label text indicating that the edit quality of the user is poor</string>
   <string name="suggested_edits_quality_bad_text">Suggested edits label text indicating that the edit quality of the user is bad</string>
+  <string name="suggested_edits_label">Label text for suggested edits.</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">Label text for indicating how many contributions a user has made. For One contribution.</item>
     <item quantity="other">Label text for indicating how many contributions a user has made. For many contributions.</item>
@@ -888,7 +886,7 @@
   <string name="dialog_of_remove_chinese_variants_from_app_lang_edit">Affirmative answer to open the Wikipedia languages page to manage the existing languages that have been set up.</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_no">Negative answer to keep the existing app languages settings.</string>
   <string name="remove_language_dialog_cancel_button_text">Negative action button text in pop-up dialog for removing a language from app languages list.\n{{Identical|Cancel}}</string>
-  <string name="remove_language_dialog_ok_button_text">Positive action button text in pop-up dialog for removing a language from app languages list.\n{{Identical|Ok}}</string>
+  <string name="remove_language_dialog_ok_button_text">Positive action button text in pop-up dialog for removing a language from app languages list.</string>
   <string name="remove_all_language_warning_dialog_ok_button_text">Acknowledgement button text in warning pop-up dialog when user tries to delete all languages from app languages list.\n{{Identical|OK}}</string>
   <string name="protected_page_warning_dialog_ok_button_text">Acknowledgement button text in warning pop-up dialog for protected editing of a page.\n{{Identical|OK}}</string>
   <string name="account_editing_blocked_dialog_ok_button_text">Acknowledgement button text in warning pop-up dialog for accounts for which editing is blocked.\n{{Identical|OK}}</string>
@@ -914,5 +912,4 @@
   <string name="text_input_dialog_ok_button_text">Positive action button text in pop-up dialog for text input.\n{{Identical|OK}}</string>
   <string name="text_input_dialog_cancel_button_text">Negative action button text in pop-up dialog for text input.\n{{Identical|Cancel}}</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Negative action button text in date picker pop-up dialog.\n{{Identical|Cancel}}</string>
-  <string name="suggested_edits_label">Label text for suggested edits.</string>
 </resources>

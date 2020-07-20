@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* 129femtoseconds
 * Abijeet Patro
 * Aefgh39622
 * Afaz
@@ -446,6 +447,8 @@
   <string name="reading_lists_sync_reminder_action">同期を有効にする</string>
   <string name="reading_list_login_reminder_title">あとで読むリストを同期する</string>
   <string name="reading_lists_login_reminder_text">あとで読むリストはデバイス間で同期できるようになりました。ウィキペディアのアカウントにログインして、リストの保存を許可してください。</string>
+  <string name="reading_lists_login_button">ログイン / ウィキペディアに参加する</string>
+  <string name="reading_lists_ignore_button">今はしない</string>
   <string name="reading_lists_confirm_remote_delete_yes">はい</string>
   <string name="reading_lists_confirm_remote_delete_no">いいえ</string>
   <string name="reading_list_article_save_in_progress">記事がダウンロードされ、完了したら記事をオフラインで利用できるようになります。</string>
@@ -474,7 +477,6 @@
   <string name="reading_list_move_article_limit_message">リストに追加できません。「%1$s」はリスト項目の上限%2$d件に達しました</string>
   <string name="reading_list_article_limit_message">リストに追加できません。「%1$s」はリスト項目の上限%2$d件に達しました。</string>
   <string name="reading_lists_limit_message">これ以上リストを作成できません。は1アカウント当たりのあとで読むリストの上限100件に達しました。</string>
-  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;あとで読むリストを同期&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;あとで読むリストをデバイス間で同期できるようになりました。ウィキペディアのアカウントにログインし、リストの保存を有効にしてみましょう。</string>
   <string name="reading_lists_menu_create_list">リストを新規作成</string>
   <string name="reading_lists_menu_sort_by">並び順:</string>
   <string name="reading_lists_refresh_sync_option">同期を更新</string>
@@ -590,7 +592,6 @@
   <string name="view_continue_reading_card_subtitle_today">今日</string>
   <string name="view_continue_reading_card_subtitle_read_date">%s閲覧</string>
   <string name="view_announcement_card_negative_action">いいえ</string>
-  <string name="onboarding_negative_action">不要です</string>
   <string name="view_offline_card_text">オフラインではコンテンツが読み込めません。</string>
   <string name="view_featured_article_card_title">秀逸な記事</string>
   <string name="view_featured_article_footer_save_button_label">保存</string>
@@ -728,7 +729,6 @@
   <string name="suggested_edits_image_tags_published">公開されました</string>
   <string name="suggested_edits_image_tags_onboarding_text">画像にタグを追加すると、画像がコモンズで検索にヒットしやすくなります。コモンズは、ウィキペディアが記事に使用する画像をまとめたフリーライセンスの画像保存庫です。</string>
   <string name="suggested_edits_image_tags_onboarding_note">あなたが確認したタグのみ画像に追加されます。</string>
-  <string name="suggested_edits_image_tags_snackbar">画像タグを追加して、他の利用者が探しやすくなります。</string>
   <string name="suggested_edits_image_tags_task_detail">画像がもっと見つかりやすくなるよう、固有のタグを追加してください。</string>
   <string name="suggested_edits_image_tags_search">タグを検索</string>
   <string name="suggested_edits_image_tags_select_title">この画像のタグを選択していません</string>

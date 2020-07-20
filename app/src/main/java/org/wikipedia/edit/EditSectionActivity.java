@@ -59,6 +59,7 @@ import org.wikipedia.views.ViewUtil;
 import org.wikipedia.views.WikiErrorView;
 import org.wikipedia.views.WikiTextKeyboardView;
 
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import butterknife.BindView;
@@ -66,7 +67,6 @@ import butterknife.ButterKnife;
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
-import retrofit2.Call;
 
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 import static org.wikipedia.util.L10nUtil.setConditionalTextDirection;
@@ -121,8 +121,6 @@ public class EditSectionActivity extends BaseActivity {
 
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
     private ActionMode actionMode;
-    private EditClient editClient = new EditClient();
-    private EditCallback editCallback = new EditCallback();
     private CompositeDisposable disposables = new CompositeDisposable();
 
     private Runnable successRunnable = new Runnable() {
@@ -226,15 +224,7 @@ public class EditSectionActivity extends BaseActivity {
     }
 
     @Override
-    public void onStop() {
-        showProgressBar(false);
-        editClient.cancel();
-        super.onStop();
-    }
-
-    @Override
     public void onDestroy() {
-        disposables.clear();
         captchaHandler.dispose();
         cancelCalls();
         sectionText.removeTextChangedListener(textWatcher);
@@ -281,6 +271,7 @@ public class EditSectionActivity extends BaseActivity {
             csrfClient.cancel();
             csrfClient = null;
         }
+        disposables.clear();
     }
 
     private void getEditTokenThenSave(boolean forceLogin) {
@@ -319,70 +310,76 @@ public class EditSectionActivity extends BaseActivity {
             showProgressBar(true);
         }
 
-        editClient.request(title.getWikiSite(), title, sectionID,
-                sectionText.getText().toString(), token, summaryText, baseTimeStamp, AccountUtil.isLoggedIn(),
-                captchaHandler.isActive() ? captchaHandler.captchaId() : "null",
-                captchaHandler.isActive() ? captchaHandler.captchaWord() : "null", editCallback);
+        disposables.add(ServiceFactory.get(title.getWikiSite()).postEditSubmit(title.getPrefixedText(), sectionID, summaryText, AccountUtil.isLoggedIn() ? "user" : null,
+                sectionText.getText().toString(), baseTimeStamp, token, captchaHandler.isActive() ? captchaHandler.captchaId() : "null",
+                captchaHandler.isActive() ? captchaHandler.captchaWord() : "null")
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(result -> {
+                    if (result.hasEditResult() && result.edit() != null) {
+                        if (result.edit().editSucceeded()) {
+                            onEditSuccess(new EditSuccessResult(result.edit().newRevId()));
+                        } else if (result.edit().hasEditErrorCode()) {
+                            onEditSuccess(new EditAbuseFilterResult(result.edit().code(), result.edit().info(), result.edit().warning()));
+                        } else if (result.edit().hasSpamBlacklistResponse()) {
+                            onEditSuccess(new EditSpamBlacklistResult(result.edit().spamblacklist()));
+                        } else if (result.edit().hasCaptchaResponse()) {
+                            onEditSuccess(new CaptchaResult(result.edit().captchaId()));
+                        } else {
+                            onEditFailure(new IOException("Received unrecognized edit response"));
+                        }
+                    } else {
+                        onEditFailure(new IOException("An unknown error occurred."));
+                    }
+                }, this::onEditFailure)
+        );
     }
 
-    private class EditCallback implements EditClient.Callback {
-        @Override
-        public void success(@NonNull Call<Edit> call, @NonNull EditResult result) {
-            if (isFinishing()) {
-                // no longer attached to activity!
-                return;
-            }
-            if (result instanceof EditSuccessResult) {
-                funnel.logSaved(((EditSuccessResult) result).getRevID());
-                // TODO: remove the artificial delay and use the new revision
-                // ID returned to request the updated version of the page once
-                // revision support for mobile-sections is added to RESTBase
-                // See https://github.com/wikimedia/restbase/pull/729
-                new Handler().postDelayed(successRunnable, TimeUnit.SECONDS.toMillis(2));
-                return;
-            }
-            showProgressBar(false);
+    public void onEditSuccess(@NonNull EditResult result) {
+        if (result instanceof EditSuccessResult) {
+            funnel.logSaved(((EditSuccessResult) result).getRevID());
+            // TODO: remove the artificial delay and use the new revision
+            // ID returned to request the updated version of the page once
+            // revision support for mobile-sections is added to RESTBase
+            // See https://github.com/wikimedia/restbase/pull/729
+            new Handler().postDelayed(successRunnable, TimeUnit.SECONDS.toMillis(2));
+            return;
+        }
+        showProgressBar(false);
 
-            if (result instanceof CaptchaResult) {
-                if (captchaHandler.isActive()) {
-                    // Captcha entry failed!
-                    funnel.logCaptchaFailure();
-                }
-                captchaContainer.setVisibility(View.VISIBLE);
-                captchaHandler.handleCaptcha(null, (CaptchaResult) result);
-                funnel.logCaptchaShown();
-            } else if (result instanceof EditAbuseFilterResult) {
-                abusefilterEditResult = (EditAbuseFilterResult) result;
-                handleAbuseFilter();
-                if (abusefilterEditResult.getType() == EditAbuseFilterResult.TYPE_ERROR) {
-                    editPreviewFragment.hide();
-                }
-            } else if (result instanceof EditSpamBlacklistResult) {
-                FeedbackUtil.showMessage(EditSectionActivity.this,
-                        R.string.editing_error_spamblacklist);
+        if (result instanceof CaptchaResult) {
+            if (captchaHandler.isActive()) {
+                // Captcha entry failed!
+                funnel.logCaptchaFailure();
+            }
+            captchaContainer.setVisibility(View.VISIBLE);
+            captchaHandler.handleCaptcha(null, (CaptchaResult) result);
+            funnel.logCaptchaShown();
+        } else if (result instanceof EditAbuseFilterResult) {
+            abusefilterEditResult = (EditAbuseFilterResult) result;
+            handleAbuseFilter();
+            if (abusefilterEditResult.getType() == EditAbuseFilterResult.TYPE_ERROR) {
                 editPreviewFragment.hide();
-            } else {
-                funnel.logError(result.getResult());
-                // Expand to do everything.
-                failure(call, new Throwable());
             }
+        } else if (result instanceof EditSpamBlacklistResult) {
+            FeedbackUtil.showMessage(EditSectionActivity.this,
+                    R.string.editing_error_spamblacklist);
+            editPreviewFragment.hide();
+        } else {
+            funnel.logError(result.getResult());
+            // Expand to do everything.
+            onEditFailure(new Throwable());
         }
+    }
 
-        @Override
-        public void failure(@NonNull Call<Edit> call, @NonNull Throwable caught) {
-            if (isFinishing()) {
-                // no longer attached to activity!
-                return;
-            }
-            showProgressBar(false);
-            if (caught instanceof MwException) {
-                handleEditingException((MwException) caught);
-                L.e(caught);
-            } else {
-                showRetryDialog(caught);
-                L.e(caught);
-            }
+    public void onEditFailure(@NonNull Throwable caught) {
+        showProgressBar(false);
+        if (caught instanceof MwException) {
+            handleEditingException((MwException) caught);
+        } else {
+            showRetryDialog(caught);
         }
+        L.e(caught);
     }
 
     private void showRetryDialog(@NonNull Throwable t) {

@@ -460,7 +460,6 @@
   <string name="split_reading_list_message">محدودیت %d مقاله برای هر فهرست وجود دارد. فهرستی که بیش از مقاله داشته باشد به چند فهرست تقسیم می‌شود.</string>
   <string name="reading_list_article_limit_message">امکان افزودن به این فهرست نیست. به محدودیت %2$d مقاله برای فهرست  «%1$s» رسیدید.</string>
   <string name="reading_lists_limit_message">امکان ایجاد فهرست دیگر نیست. شما به محدودیت ایجاد ۱۰۰ فهرست خواندن برای هر حساب کاربری رسیدید.</string>
-  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;همگام‌سازی لیست خواندان‌ها&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt; فهرست خواندن‌ها همکنون می تواند در تمامی ابزار‌ها یکسان شود. به حساب کاربری خود وارد شوید و اجازه ذخیره به فهرست را بدهید.</string>
   <string name="reading_lists_menu_create_list">ساخت فهرست جدید</string>
   <string name="reading_lists_menu_sort_by">مرتب‌سازی بر اساس</string>
   <string name="reading_lists_refresh_sync_option">همگام‌سازی</string>
@@ -575,7 +574,6 @@
   <string name="view_continue_reading_card_subtitle_today">امروز</string>
   <string name="view_continue_reading_card_subtitle_read_date">%s را بخوانید</string>
   <string name="view_announcement_card_negative_action">نه ممنون</string>
-  <string name="onboarding_negative_action">نه ممنون</string>
   <string name="view_offline_card_text">محتوی در زمان آفلاین در دسترس نیست.</string>
   <string name="view_featured_article_card_title">مقاله برگزیده</string>
   <string name="view_featured_article_footer_save_button_label">ذخیره</string>

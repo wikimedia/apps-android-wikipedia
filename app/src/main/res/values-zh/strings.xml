@@ -21,6 +21,7 @@
 * Phenolla
 * Qiyue2001
 * Shizhao
+* Shuiwater
 * SinonJZH
 * SomeyaMako
 * TianyinLee
@@ -57,7 +58,7 @@
   <string name="search_hint_search_languages">搜索一种语言</string>
   <string name="search_hint_search_my_lists_and_articles">搜索我的列表及条目</string>
   <string name="nav_item_history">历史记录</string>
-  <string name="nav_item_suggested_edits" fuzzy="true">建议编辑</string>
+  <string name="nav_item_suggested_edits">编辑</string>
   <string name="nav_item_more">更多</string>
   <string name="error_network_error">无法连接至互联网。</string>
   <string name="page_error_retry">重试</string>
@@ -344,6 +345,7 @@
   <string name="page_offline_notice_last_date">您正在阅读该条目的离线版本，其保存于%s。</string>
   <string name="button_get_directions">路线导航</string>
   <string name="error_no_maps_app">找不到任何提供导航的应用程序。</string>
+  <string name="preference_title_customize_explore_feed">探索订阅</string>
   <string name="preference_title_show_link_previews">显示链接预览</string>
   <string name="preference_summary_show_link_previews">当点按链接时，显示条目的快速预览。</string>
   <string name="preference_title_collapse_tables">大纲</string>
@@ -455,6 +457,8 @@
   <string name="reading_lists_sync_reminder_action">启用同步</string>
   <string name="reading_list_login_reminder_title">同步阅读列表</string>
   <string name="reading_lists_login_reminder_text">阅读列表现在可以跨设备同步。登录您的维基百科账户并允许保存您的列表吧。</string>
+  <string name="reading_lists_login_button">登录/加入维基百科</string>
+  <string name="reading_lists_ignore_button">不是现在</string>
   <string name="reading_lists_confirm_remote_delete_yes">确定</string>
   <string name="reading_lists_confirm_remote_delete_no">取消</string>
   <string name="reading_list_article_save_in_progress">条目已开始下载，并将在完成时离线可用。</string>
@@ -483,7 +487,6 @@
   <string name="reading_list_move_article_limit_message">不能移动到此列表。您已达到用于“%1$s”的每个列表%2$d个条目的限制。</string>
   <string name="reading_list_article_limit_message">不能添加到此列表。您已达到用于“%1$s”的每个列表%2$d个条目的限制。</string>
   <string name="reading_lists_limit_message">不能创建作者列表。您已达到每个账户100个阅读列表的限制。</string>
-  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;同步阅读列表&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;阅读列表现在可以跨设备同步。登录您的维基百科账户并允许保存您的列表吧。</string>
   <string name="reading_lists_menu_create_list">创建新的列表</string>
   <string name="reading_lists_menu_sort_by">排序方式</string>
   <string name="reading_lists_refresh_sync_option">刷新同步</string>
@@ -599,7 +602,6 @@
   <string name="view_continue_reading_card_subtitle_today">今天</string>
   <string name="view_continue_reading_card_subtitle_read_date">阅读%s</string>
   <string name="view_announcement_card_negative_action">不用了，谢谢</string>
-  <string name="onboarding_negative_action">不用了，谢谢</string>
   <string name="view_offline_card_text">内容不能在离线时加载。</string>
   <string name="view_featured_article_card_title">典范条目</string>
   <string name="view_featured_article_footer_save_button_label">保存</string>
@@ -740,7 +742,6 @@
   <string name="suggested_edits_image_tags_onboarding_title">给图片打上标签，使其更容易找到。</string>
   <string name="suggested_edits_image_tags_onboarding_text">通过添加图片标签，您将有助于使图片更容易在维基共享资源上搜索到，维基共享资源是维基百科在其文章中使用的免费授权图片库。</string>
   <string name="suggested_edits_image_tags_onboarding_note">只有您选择的标签才会被添加到图片中。</string>
-  <string name="suggested_edits_image_tags_snackbar">添加图片标签，使其更容易被他人发现。</string>
   <string name="suggested_edits_image_tags_task_detail">为图片添加自定义标签，使其更容易被找到。</string>
   <string name="suggested_edits_image_tags_choose">添加或选择匹配的标签</string>
   <string name="suggested_edits_image_tags_published_list">发布标签</string>
@@ -773,6 +774,7 @@
   <string name="suggested_edits_quality_sufficient_text">尚可</string>
   <string name="suggested_edits_quality_poor_text">较差</string>
   <string name="suggested_edits_quality_bad_text">糟糕</string>
+  <string name="suggested_edits_label">编辑建议</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">贡献</item>
     <item quantity="other">贡献</item>
@@ -800,6 +802,7 @@
   <string name="suggested_edits_contribution_article_label">条目</string>
   <string name="suggested_edits_contribution_date_yesterday_text">昨天</string>
   <string name="suggested_edits_rewards_continue_button">继续</string>
+  <string name="suggested_edits_encourage_account_creation_title">你知道所有人都可以编辑Wikipedia吗？</string>
   <string name="suggested_edits_encourage_account_creation_login_button">登录/加入维基百科</string>
   <string name="suggested_edits_contribution_type_image_tag">图片标签</string>
   <string name="suggested_edits_contribution_current_revision_text">你的编辑现已在维基百科</string>

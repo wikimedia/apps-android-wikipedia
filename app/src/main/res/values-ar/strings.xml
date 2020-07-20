@@ -467,7 +467,6 @@
   <string name="split_reading_list_message">يوجد حد %d مقالات لكل قائمة قراءة، تم تقسيم القوائم الحالية التي تتضمن أكثر من هذا الحد إلى قوائم متعددة.</string>
   <string name="reading_list_article_limit_message">لا يمكنك الإضافة إلى هذه القائمة; لقد وصلت إلى حد %2$d مقالات لكل قائمة لـ \"%1$s\".</string>
   <string name="reading_lists_limit_message">لا يمكن إنشاء قائمة أخرى; لقد وصلت إلى حد 100 قائمة قراءة لكل حساب.</string>
-  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;مزامنة قوائم القراءة&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt; يمكن الآن مزامنة قوائم القراءة عبر الأجهزة، سجل الدخول إلى حسابك في ويكيبيديا واسمح بحفظ قوائمك.</string>
   <string name="reading_lists_menu_create_list">أنشئ قائمة جديدة</string>
   <string name="reading_lists_menu_sort_by">الترتيب حسب</string>
   <string name="reading_lists_refresh_sync_option">تحديث المزامنة</string>
@@ -580,7 +579,6 @@
   <string name="view_continue_reading_card_subtitle_today">اليوم</string>
   <string name="view_continue_reading_card_subtitle_read_date">قرأت %s</string>
   <string name="view_announcement_card_negative_action">لا شكرًا</string>
-  <string name="onboarding_negative_action">لا شكرا</string>
   <string name="view_offline_card_text">لا يمكن تحميل المحتوى في وضع عدم الاتصال.</string>
   <string name="view_featured_article_card_title">مقالة مختارة</string>
   <string name="view_featured_article_footer_save_button_label">حفظ</string>
@@ -720,7 +718,6 @@
   <string name="suggested_edits_image_tags_onboarding_title">يسهل وسم الصور العثور عليها.</string>
   <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">لقد اقترحنا تلقائيًا بعض الأوسمة، ويمكنك أيضًا إضافة الأوسمة الخاصة بك.</string>
   <string name="suggested_edits_image_tags_onboarding_note">ستتم إضافة الأوسمة التي توافق عليها فقط إلى الصور.</string>
-  <string name="suggested_edits_image_tags_snackbar">أضف أوسمة على الصور لتُسهل على الآخرين العثور عليها.</string>
   <string name="suggested_edits_image_tags_task_detail" fuzzy="true">ضع وسمًا على الصور لتسهيل العثور عليها. اختر من الأوسمة المقترحة أو أضف الأوسمة الخاصة بك.</string>
   <string name="suggested_edits_image_tags_choose">أضف أو اختر الأوسمة المطابقة</string>
   <string name="suggested_edits_image_tags_published_list">وسوم منشورة</string>
@@ -761,6 +758,7 @@
     <item quantity="one">%d يوم</item>
     <item quantity="other">%d أيام</item>
   </plurals>
+  <string name="suggested_edits_what_is_title">ما هي التعديلات المقترحة؟</string>
   <string name="suggested_edits_learn_more">معرفة المزيد</string>
   <string name="suggested_edits_paused_title">إيقاف مؤقت</string>
   <string name="suggested_edits_last_edited">آخر تعديل</string>

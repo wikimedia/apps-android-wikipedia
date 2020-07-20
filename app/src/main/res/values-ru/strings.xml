@@ -485,7 +485,6 @@
   <string name="split_reading_list_message">Максимально допустимое число статей в списке для чтения: %d. Существующие списки, превышающие этот лимит, были разделены на несколько списков.</string>
   <string name="reading_list_article_limit_message">Невозможно добавить в текущий список. Вы исчерпали лимит %2$d статей для \"%1$s\".</string>
   <string name="reading_lists_limit_message">Невозможно создать новый список. Вы достигли лимита в 100 списков для одной учётной записи.</string>
-  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Списки чтения с синхронизацией&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Списки чтения теперь могут быть синхронизированы между устройствами. Войдите в свою учётную запись в Википедии и разрешите сохранять списки.</string>
   <string name="reading_lists_menu_create_list">Создать новый список</string>
   <string name="reading_lists_menu_sort_by">Сортировать по</string>
   <string name="reading_lists_refresh_sync_option">Перезапустить синхронизацию</string>
@@ -610,7 +609,6 @@
   <string name="view_continue_reading_card_subtitle_today">сегодня</string>
   <string name="view_continue_reading_card_subtitle_read_date">Прочитано %s</string>
   <string name="view_announcement_card_negative_action">Нет, спасибо</string>
-  <string name="onboarding_negative_action">Нет, спасибо</string>
   <string name="view_offline_card_text">Содержимое не может быть загружено в автономном режиме.</string>
   <string name="view_featured_article_card_title">Избранная статья</string>
   <string name="view_featured_article_footer_save_button_label">Сохранить</string>
@@ -752,7 +750,6 @@
   <string name="suggested_edits_image_tags_published">Опубликовано</string>
   <string name="suggested_edits_image_tags_onboarding_title">Тегирование изображений позволяет их легче найти.</string>
   <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">Добавляя теги к изображению, вы поможете находить изображения в Commons, репозитории свободных к распространению изображений, который Википедия использует для изображений в своих статьях.\n\nМы автоматически предложили несколько тегов. Вы также можете добавить свои теги.</string>
-  <string name="suggested_edits_image_tags_snackbar">Добавьте теги изображений, чтобы улучшить поиск таких изображений.</string>
   <string name="suggested_edits_image_tags_task_detail" fuzzy="true">Помечайте изображения, чтобы их было легче найти. Выберите из предложенных тегов или добавьте свой собственный.</string>
   <string name="suggested_edits_image_tags_choose">Добавить или выбрать подходящие теги</string>
   <string name="suggested_edits_image_tags_search">Искать метки</string>

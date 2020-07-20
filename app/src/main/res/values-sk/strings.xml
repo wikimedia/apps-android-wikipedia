@@ -456,7 +456,6 @@
   <string name="reading_list_move_article_limit_message">Do tohoto zoznamu už nemôžete presunúť články. Dosiahli ste limit %2$d článkov pre zoznam „%1$s“.</string>
   <string name="reading_list_article_limit_message">Do tohoto zoznamu už nemôžete pridávať články. Dosiahli ste limit %2$d článkov pre zoznam „%1$s“.</string>
   <string name="reading_lists_limit_message">Nemôžete vytvoriť ďalší zoznam. Dosiahli ste limit 100 zoznamov na prečítanie pre 1 účet.</string>
-  <string name="feed_reading_lists_sync_onboarding_text">&lt;Strong&gt;Synchronizácia zoznamov na prečítanie&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Zoznamy na prečítanie môžu byť teraz synchronizované naprieč zariadeními. Prihláste sa na svoj účet na Wikipédii a povoľte ukladanie svojich vlastných zoznamov.</string>
   <string name="reading_lists_menu_create_list">Vytvoriť nový zoznam</string>
   <string name="reading_lists_menu_sort_by">Zoradiť podľa</string>
   <string name="reading_lists_refresh_sync_option">Obnoviť synchronizáciu</string>
@@ -570,7 +569,6 @@
   <string name="view_continue_reading_card_subtitle_today">dnes</string>
   <string name="view_continue_reading_card_subtitle_read_date">Prečítané %s</string>
   <string name="view_announcement_card_negative_action">Nie, ďakujem</string>
-  <string name="onboarding_negative_action">Nie, vďaka</string>
   <string name="view_offline_card_text">Obsah nemôže byť načítaný bez pripojenia na internet.</string>
   <string name="view_featured_article_card_title">Odporúčaný článok</string>
   <string name="view_featured_article_footer_save_button_label">Uložiť</string>
@@ -711,7 +709,6 @@
   <string name="suggested_edits_image_tags_onboarding_title">Označenie obrázkov uľahčuje ich nájsť.</string>
   <string name="suggested_edits_image_tags_onboarding_text">Pridaním značiek obrázkov pomôžete, aby boli obrázky ľahšie nájditeľné na Commons, úložisku obrázkov so slobodnou licenciou, ktoré Wikipédia používa pre obrázky vo svojich článkoch.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Iba značky, ktoré vyberiete, budú pridané k obrázkom.</string>
-  <string name="suggested_edits_image_tags_snackbar">Pridajte značky obrázkom, aby ich mohli ostatní ľahšie nájsť</string>
   <string name="suggested_edits_image_tags_task_detail">Pridajte vlastné značky, aby bol obrázok ľahšie nájditeľný.</string>
   <string name="suggested_edits_image_tags_choose">Pridajte alebo vyberte vhodné značky</string>
   <string name="suggested_edits_image_tags_published_list">Publikované značky</string>

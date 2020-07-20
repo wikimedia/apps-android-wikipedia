@@ -452,7 +452,6 @@
   <string name="split_reading_list_message">Egy olvasólista legfeljebb %d szócikket tartalmazhat. Az ennél nagyobb listák több listára lettek bontva.</string>
   <string name="reading_list_article_limit_message">Nem tudsz hozzáadni szócikket ehhez a listához. Elérted a listánkénti %2$d szócikkes határt a(z) „%1$s” listánál.</string>
   <string name="reading_lists_limit_message">Nem tudsz készíteni új olvasólistát. Elérted a fiókonkénti 100 listás határt.</string>
-  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Szinkronizáld az olvasólistáidat&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Az olvasólisták mostantól szinkronizálhatók a különböző eszközeid között. Jelentkezz be a Wikipédia-fiókodba és engedélyezd a listáid mentését.</string>
   <string name="reading_lists_menu_create_list">Új lista készítése</string>
   <string name="reading_lists_menu_sort_by">Rendezés</string>
   <string name="reading_lists_refresh_sync_option">Szinkronizálás frissítése</string>
@@ -568,7 +567,6 @@
   <string name="view_continue_reading_card_subtitle_today">ma</string>
   <string name="view_continue_reading_card_subtitle_read_date">Elolvasva %s</string>
   <string name="view_announcement_card_negative_action">Köszönöm, nem</string>
-  <string name="onboarding_negative_action">Köszönöm, nem</string>
   <string name="view_offline_card_text">A tartalom nem tölthető be kapcsolat nélkül.</string>
   <string name="view_featured_article_card_title">Kiemelt szócikk</string>
   <string name="view_featured_article_footer_save_button_label">Mentés</string>
@@ -706,7 +704,6 @@
   <string name="suggested_edits_image_tags_onboarding_title">A képek címkézése könnyebben megtalálhatóvá teszi őket.</string>
   <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">A képcímkék hozzáadásával segít könnyebben kereshetővé tenni a képeket a Commonsban, a szabad licencű képtárban, amit a Wikipédia a képekhez használ a cikkeiben.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Csak a kiválasztott címkék lesznek hozzáadva a képekhez.</string>
-  <string name="suggested_edits_image_tags_snackbar">Adj hozzá képcímkéket, hogy mások könnyebben megtalálják.</string>
   <string name="suggested_edits_image_tags_task_detail" fuzzy="true">Címkézd meg a képeket, hogy könnyebb legyen megtalálni őket. Válaszd ki a javasolt címkéket, vagy add hozzá a sajátjaidat.</string>
   <string name="suggested_edits_image_tags_choose">Passzoló címkék kiválasztása vagy hozzáadása</string>
   <string name="suggested_edits_image_tags_published_list">Közzétett címkék</string>

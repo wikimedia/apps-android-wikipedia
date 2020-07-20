@@ -7,6 +7,7 @@
 * Athena in Wonderland
 * Canaan9801
 * Codynguyen1116
+* Cooltey
 * Csbotero
 * David.novella
 * Dgstranz
@@ -63,7 +64,7 @@
   <string name="search_hint_search_languages">Buscar un idioma</string>
   <string name="search_hint_search_my_lists_and_articles">Buscar en mis listas y artículos</string>
   <string name="nav_item_history">Historial</string>
-  <string name="nav_item_suggested_edits" fuzzy="true">Ediciones sugeridas</string>
+  <string name="nav_item_suggested_edits">Ediciones</string>
   <string name="nav_item_more">Más</string>
   <string name="error_network_error">No se pudo conectar a Internet.</string>
   <string name="page_error_retry">Reintentar</string>
@@ -140,13 +141,13 @@
   <string name="nav_item_login">Acceder a Wikipedia</string>
   <string name="login_username_hint">Nombre de usuario</string>
   <string name="login_password_hint">Contraseña</string>
-  <string name="account_creation_password_hint">\nContraseña</string>
+  <string name="account_creation_password_hint">Contraseña</string>
   <string name="login_2fa_hint">Código de autenticación de dos factores</string>
   <string name="login_2fa_other_workflow_error_msg">¡Se requiere autenticación de dos factores! Regresa a la actividad principal e inicia sesión con tu clave de autenticación de dos factores. Luego vuelve a intentarlo.</string>
-  <string name="onboarding_card_login">\nAcceder</string>
-  <string name="page_editing_login">\nAcceder</string>
-  <string name="reading_lists_sync_login">\nAcceder</string>
-  <string name="create_account_login">\nAcceder</string>
+  <string name="onboarding_card_login">Acceder</string>
+  <string name="page_editing_login">Acceder</string>
+  <string name="reading_lists_sync_login">Acceder</string>
+  <string name="create_account_login">Acceder</string>
   <string name="menu_login">Acceder</string>
   <string name="login_activity_title">Acceder</string>
   <string name="login_in_progress_dialog_message">Accediendo…</string>
@@ -462,6 +463,7 @@
   <string name="reading_lists_sync_reminder_action">Activar sincronización</string>
   <string name="reading_list_login_reminder_title">Sincronizar listas de lectura</string>
   <string name="reading_lists_login_reminder_text">Ahora es posible sincronizar las listas de lectura entre varios dispositivos. Accede a tu cuenta de Wikipedia y permite que se guarden tus listas.</string>
+  <string name="reading_lists_ignore_button">Ahora no</string>
   <string name="reading_lists_confirm_remote_delete_yes">Sí</string>
   <string name="reading_lists_confirm_remote_delete_no">No</string>
   <string name="reading_list_article_save_in_progress">El artículo está descargándose y estará disponible sin conexión cuando finalice el proceso.</string>
@@ -490,7 +492,6 @@
   <string name="reading_list_move_article_limit_message">No se puede mover a esta lista.  Has alcanzado el límite de %2$d artículos por lista para «%1$s».</string>
   <string name="reading_list_article_limit_message">No se pueden añadir elementos a esta lista. Se alcanzó el límite de %2$d artículos por lista para «%1$s».</string>
   <string name="reading_lists_limit_message">No se puede crear otra lista. Se alcanzó el límite de 100 listas de lectura por cuenta.</string>
-  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Sincronizar listas de lectura&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Las listas de lectura ahora pueden ser sincronizadas entre dispositivos. Inicia sesión en tu cuenta de Wikipedia y permita guardar tus listas.</string>
   <string name="reading_lists_menu_create_list">Crear lista nueva</string>
   <string name="reading_lists_menu_sort_by">Ordenar por</string>
   <string name="reading_lists_refresh_sync_option">Recargar sincronización</string>
@@ -606,7 +607,6 @@
   <string name="view_continue_reading_card_subtitle_today">hoy</string>
   <string name="view_continue_reading_card_subtitle_read_date">Leer %s</string>
   <string name="view_announcement_card_negative_action">No, gracias</string>
-  <string name="onboarding_negative_action">\nNo, gracias</string>
   <string name="view_offline_card_text">No se puede cargar contenido cuando no hay conexión</string>
   <string name="view_featured_article_card_title">Artículo destacado</string>
   <string name="view_featured_article_footer_save_button_label">Guardar</string>
@@ -747,7 +747,6 @@
   <string name="suggested_edits_image_tags_onboarding_title">Etiquetar las imágenes facilita poderlas encontrar.</string>
   <string name="suggested_edits_image_tags_onboarding_text">Al agregar etiquetas de imagen, ayudará a facilitar la búsqueda de imágenes en Commons, el repositorio de imágenes de licencia gratuita que Wikipedia utiliza para las imágenes en sus artículos.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Solo las etiquetas que elijas se añadirán a las imágenes.</string>
-  <string name="suggested_edits_image_tags_snackbar">Etiqueta las imágenes para facilitar su búsqueda.</string>
   <string name="suggested_edits_image_tags_task_detail">Añade etiquetas personalizadas a imágenes para que sean más fáciles de encontrar.</string>
   <string name="suggested_edits_image_tags_choose">Añadir o elegir etiquetas correspondientes</string>
   <string name="suggested_edits_image_tags_published_list">Etiquetas publicadas</string>
@@ -780,6 +779,7 @@
   <string name="suggested_edits_quality_sufficient_text">Suficiente</string>
   <string name="suggested_edits_quality_poor_text">Deficiente</string>
   <string name="suggested_edits_quality_bad_text">Mala</string>
+  <string name="suggested_edits_label">Ediciones sugeridas</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">Contribución</item>
     <item quantity="other">Contribuciones</item>
@@ -805,7 +805,7 @@
   <string name="suggested_edits_contribution_language_label">Idioma</string>
   <string name="suggested_edits_contribution_date_time_label">Fecha y hora</string>
   <string name="suggested_edits_contribution_type_label">Tipo de contribución</string>
-  <string name="suggested_edits_contribution_image_label" fuzzy="true">Archivo</string>
+  <string name="suggested_edits_contribution_image_label">Imagen</string>
   <string name="suggested_edits_contribution_article_label">Artículo</string>
   <string name="suggested_edits_contribution_views">%s vistas</string>
   <string name="suggested_edits_contribution_seen_text">Hubo %s visitas en los últimos 30 días.</string>

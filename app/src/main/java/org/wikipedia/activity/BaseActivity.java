@@ -42,6 +42,7 @@ import org.wikipedia.login.LoginActivity;
 import org.wikipedia.notifications.NotificationPollBroadcastReceiver;
 import org.wikipedia.readinglist.ReadingListSyncBehaviorDialogs;
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter;
+import org.wikipedia.readinglist.sync.ReadingListSyncEvent;
 import org.wikipedia.recurring.RecurringTasksExecutor;
 import org.wikipedia.savedpages.SavedPageSyncService;
 import org.wikipedia.settings.Prefs;
@@ -311,6 +312,11 @@ public abstract class BaseActivity extends AppCompatActivity {
                 ReadingListSyncBehaviorDialogs.promptEnableSyncDialog(BaseActivity.this);
             } else if (event instanceof LoggedOutInBackgroundEvent) {
                 maybeShowLoggedOutInBackgroundDialog();
+            } else if (event instanceof ReadingListSyncEvent) {
+                if (((ReadingListSyncEvent)event).showMessage() && !Prefs.isSuggestedEditsHighestPriorityEnabled()) {
+                    FeedbackUtil.makeSnackbar(BaseActivity.this,
+                            getString(R.string.reading_list_toast_last_sync), FeedbackUtil.LENGTH_DEFAULT).show();
+                }
             }
         }
     }

@@ -451,7 +451,6 @@
   <string name="split_reading_list_message">Максимальна кількість статей в одному списку читання — %d. Наявні списки, де кількість статей перевищувала ліміт, було розділено на декілька списків.</string>
   <string name="reading_list_article_limit_message">Неможливо додати до цього списку. Список «%1$s» досяг ліміту статей, а саме %2$d.</string>
   <string name="reading_lists_limit_message">Неможливо створити інший список. Ви досягли ліміту — 100 списків читання в одному обліковому записі.</string>
-  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Синхронізуйте списки читання&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Списки читання тепер можна синхронізувати на різних пристроях. Увійдіть у свій обліковий запис Вікіпедії і дозвольте зберігати свої списки.</string>
   <string name="reading_lists_menu_create_list">Створити новий список</string>
   <string name="reading_lists_menu_sort_by">Сортувати за</string>
   <string name="reading_lists_refresh_sync_option">Оновити синхронізацію</string>
@@ -587,7 +586,6 @@
   <string name="view_continue_reading_card_subtitle_today">сьогодні</string>
   <string name="view_continue_reading_card_subtitle_read_date">Прочитано %s</string>
   <string name="view_announcement_card_negative_action">Ні, дякую</string>
-  <string name="onboarding_negative_action">Ні, дякую</string>
   <string name="view_offline_card_text">Вміст не може бути завантажено в автономному режимі.</string>
   <string name="view_featured_article_card_title">Вибрана стаття</string>
   <string name="view_featured_article_footer_save_button_label">Зберегти</string>
@@ -727,7 +725,6 @@
   <string name="suggested_edits_image_tags_onboarding_title">Додавання тегів до зображень полегшує їх пошук.</string>
   <string name="suggested_edits_image_tags_onboarding_text">Додаючи теги до зображень, ви полегшите їх пошук у Вікісховищі, де зберігаються зображення під вільними ліцензіями, і які, в свою чергу, використовуються у Вікіпедії для ілюстрації статей.</string>
   <string name="suggested_edits_image_tags_onboarding_note">До зображень буде додано лише ті теги, які ви затвердите.</string>
-  <string name="suggested_edits_image_tags_snackbar">Додавайте теги до зображень, щоб полегшити їх пошук для інших користувачів.</string>
   <string name="suggested_edits_image_tags_task_detail">Додавайте теги до зображення, щоб його було легше знайти.</string>
   <string name="suggested_edits_image_tags_choose">Додайте чи виберіть відповідні теги</string>
   <string name="suggested_edits_image_tags_published_list">Опубліковані теги</string>

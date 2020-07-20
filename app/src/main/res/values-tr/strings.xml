@@ -449,6 +449,8 @@
   <string name="reading_lists_sync_reminder_action">Senkronizasyonu etkinleştir</string>
   <string name="reading_list_login_reminder_title">Okuma listelerini senkronize et</string>
   <string name="reading_lists_login_reminder_text">Okuma listeleri artık cihazlar arasında senkronize edilebilir. Vikipedi hesabınıza giriş yapın ve listelerinizin kaydedilmesine izin verin.</string>
+  <string name="reading_lists_login_button">Vikipedi\'ye oturum açın / katılın</string>
+  <string name="reading_lists_ignore_button">Şimdi değil</string>
   <string name="reading_lists_confirm_remote_delete_yes">Evet</string>
   <string name="reading_lists_confirm_remote_delete_no">Hayır</string>
   <string name="reading_list_article_save_in_progress">Madde indiriliyor; işlem tamamlandığında çevrimdışı olarak erişilebilir olacak.</string>
@@ -477,7 +479,6 @@
   <string name="reading_list_move_article_limit_message">Bu listeye taşınamıyor. \"%1$s\" için liste başına %2$d madde sınırına ulaştınız.</string>
   <string name="reading_list_article_limit_message">Bu listeye eklenemedi. \"%1$s\" için liste başına %2$d madde sınırına ulaştınız.</string>
   <string name="reading_lists_limit_message">Başka bir liste oluşturamazsınız. Hesap başına 100 okuma listesi sınırına ulaştınız.</string>
-  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Okuma listelerini senkronize et&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Okuma listeleri artık cihazlar arasında senkronize edilebilir. Vikipedi hesabınıza giriş yapın ve listelerinizin kaydedilmesine izin verin.</string>
   <string name="reading_lists_menu_create_list">Yeni bir liste oluştur</string>
   <string name="reading_lists_menu_sort_by">Sıralama ölçütü:</string>
   <string name="reading_lists_refresh_sync_option">Senkronizasyonu yenile</string>
@@ -593,7 +594,6 @@
   <string name="view_continue_reading_card_subtitle_today">bugün</string>
   <string name="view_continue_reading_card_subtitle_read_date">Sayfanın son görünümü %s</string>
   <string name="view_announcement_card_negative_action">Hayır, teşekkürler</string>
-  <string name="onboarding_negative_action">Hayır, teşekkürler</string>
   <string name="view_offline_card_text">İçerik çevrimdışı iken yüklenemez.</string>
   <string name="view_featured_article_card_title">Seçkin madde</string>
   <string name="view_featured_article_footer_save_button_label">Kaydet</string>
@@ -734,7 +734,6 @@
   <string name="suggested_edits_image_tags_onboarding_title">Görüntüleri etiketlemek onları bulmayı kolaylaştırır.</string>
   <string name="suggested_edits_image_tags_onboarding_text">Resim etiketleri ekleyerek, Vikipedi\'nin maddelerde ki resimler için kullandığı ücretsiz lisans resim deposu Commons\'ta resimlerin aranmasını kolaylaştırmaya yardımcı olacaksınız.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Yalnızca seçtiğiniz etiketler görüntülere eklenir.</string>
-  <string name="suggested_edits_image_tags_snackbar">Başkalarının bulmasını kolaylaştırmak için resim etiketleri ekleyin.</string>
   <string name="suggested_edits_image_tags_task_detail">Bulmayı kolaylaştırmak için görüntüye özel etiketler ekleyin.</string>
   <string name="suggested_edits_image_tags_choose">Eşleşen etiketler ekleyin veya seçin</string>
   <string name="suggested_edits_image_tags_published_list">Yayınlanan etiketler</string>
@@ -767,6 +766,7 @@
   <string name="suggested_edits_quality_sufficient_text">Yeterli</string>
   <string name="suggested_edits_quality_poor_text">Zayıf</string>
   <string name="suggested_edits_quality_bad_text">Kötü</string>
+  <string name="suggested_edits_label">Önerilen düzenlemeler</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">Katkı</item>
     <item quantity="other">Katkı</item>
@@ -883,7 +883,7 @@
   <string name="wikipedia_languages_remove_dialog_content">Kalan Vikipedi dilleri için yalnızca İçeriği Keşfet ve hızlı arama filtrelerinde içerik görürsünüz.</string>
   <string name="wikipedia_languages_remove_warning_dialog_title">Tüm diller kaldırılamadı</string>
   <string name="wikipedia_languages_remove_warning_dialog_content">İçeriği okumak ve içerikte arama yapmak için en az bir Vikipedi dili bırakın</string>
-  <string name="more_language_options">daha fazlası</string>
+  <string name="more_language_options">daha fazla</string>
   <string name="add_wikipedia_languages_text">Vikipedi dilleri ekleyin</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_title">Uygulama dillerinden bir Çin varyasyonunu kaldırılsın mı?</string>
   <string name="dialog_of_remove_chinese_variants_from_app_lang_text">Uygulama dillerinde hem geleneksel hem de basit Çince varyasyonları seçili. Uygulama dilleri ayarlarını güncellemek istiyor musunuz?</string>
@@ -908,7 +908,7 @@
   <string name="wikitext_reference">Kaynak</string>
   <string name="wikitext_preview_link">Önizleme bağlantısı</string>
   <string name="main_drawer_help">Yardım</string>
-  <string name="main_drawer_login">Vikipedi\'ye giriş yapın / kaydolun</string>
+  <string name="main_drawer_login">Vikipedi\'ye oturum açın / katılın</string>
   <string name="main_tooltip_text">Merhaba %s, herkesin Vikipedi\'yi düzenleyebileceğini biliyor muydun?</string>
   <string name="main_tooltip_text_v2">Herkesin Vikipedi\'yi düzenleyebileceğini biliyor muydunuz?</string>
   <string name="main_tooltip_action_button">Kullanmaya başla</string>

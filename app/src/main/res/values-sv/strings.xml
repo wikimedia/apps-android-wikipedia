@@ -13,6 +13,7 @@
 * Lokal Profil
 * Mjälten
 * Pyscowicz
+* Sabelöga
 * Skalman
 * Sturban
 * Technic2
@@ -33,7 +34,7 @@
   <string name="search_hint_search_languages">Sök efter ett språk</string>
   <string name="search_hint_search_my_lists_and_articles">Sök i mina listor och artiklar</string>
   <string name="nav_item_history">Historik</string>
-  <string name="nav_item_suggested_edits" fuzzy="true">Redigeringsförslag</string>
+  <string name="nav_item_suggested_edits">Redigeringar</string>
   <string name="nav_item_more">Fler</string>
   <string name="error_network_error">Kan inte ansluta till Internet.</string>
   <string name="page_error_retry">Försök igen</string>
@@ -433,6 +434,8 @@
   <string name="reading_lists_sync_reminder_action">Aktivera synkronisering</string>
   <string name="reading_list_login_reminder_title">Synkronisera läslistor</string>
   <string name="reading_lists_login_reminder_text">Läslistor kan nu synkroniseras över enheter. Logga in med ditt Wikipedia-konto och tillåt dina listor att sparas.</string>
+  <string name="reading_lists_login_button">Logga in / skapa konto på Wikipedia</string>
+  <string name="reading_lists_ignore_button">Inte nu</string>
   <string name="reading_lists_confirm_remote_delete_yes">Ja</string>
   <string name="reading_lists_confirm_remote_delete_no">Nej</string>
   <string name="reading_list_article_save_in_progress">Artikeln laddas ned och kommer att vara tillgänglig offline när den är färdig.</string>
@@ -461,7 +464,6 @@
   <string name="reading_list_move_article_limit_message">Kan inte flytta till denna lista. Du har nått gränsen på %2$d artiklar per lista för \"%1$s\".</string>
   <string name="reading_list_article_limit_message">Kan inte lägga till i denna lista. Du har nått gränsen på %2$d artiklar per lista för \"%1$s\".</string>
   <string name="reading_lists_limit_message">Kan inte skapa en till lista. Du har nått gränsen på 100 läslistor per konto.</string>
-  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Synkronisera läslistor&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Läslistor kan nu synkroniseras över enheter. Logga in till ditt Wikipedia-konto och tillåt dina listor att sparas.</string>
   <string name="reading_lists_menu_create_list">Skapa ny lista</string>
   <string name="reading_lists_menu_sort_by">Sortera efter</string>
   <string name="reading_lists_refresh_sync_option">Uppdatera synkronisering</string>
@@ -577,7 +579,6 @@
   <string name="view_continue_reading_card_subtitle_today">idag</string>
   <string name="view_continue_reading_card_subtitle_read_date">Läst %s</string>
   <string name="view_announcement_card_negative_action">Nej tack</string>
-  <string name="onboarding_negative_action">Nej, tack</string>
   <string name="view_offline_card_text">Innehåll kan inte läsas in offline.</string>
   <string name="view_featured_article_card_title">Utmärkt artikel</string>
   <string name="view_featured_article_footer_save_button_label">Spara</string>
@@ -718,7 +719,6 @@
   <string name="suggested_edits_image_tags_onboarding_title">Bildtaggar gör dem lättare att hitta.</string>
   <string name="suggested_edits_image_tags_onboarding_text">Genom att lägga till bildtaggar hjälper du till att göra det lättare att söka efter dem på Commons, det frilicenserade bildarkivet som Wikipedia använder för bilder i sina artiklar.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Endast taggar som du väljer kommer att läggas till i bilder.</string>
-  <string name="suggested_edits_image_tags_snackbar">Lägg till bildtaggar för att göra det lättare för andra att hitta bilderna.</string>
   <string name="suggested_edits_image_tags_task_detail">Lägg till anpassade taggar på en bild för att göra den enklare att hitta.</string>
   <string name="suggested_edits_image_tags_choose">Lägg till eller välj lämpliga taggar</string>
   <string name="suggested_edits_image_tags_published_list">Publicerade taggar</string>
@@ -751,6 +751,7 @@
   <string name="suggested_edits_quality_sufficient_text">Acceptabel</string>
   <string name="suggested_edits_quality_poor_text">Usel</string>
   <string name="suggested_edits_quality_bad_text">Dålig</string>
+  <string name="suggested_edits_label">Förslag på redigeringar</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">Bidrag</item>
     <item quantity="other">Bidrag</item>
@@ -815,7 +816,7 @@
   <string name="file_page_activity_title">Filsida</string>
   <string name="description_edit_revert_subtitle">Tack för att du redigerar på Wikipedia!</string>
   <string name="description_edit_revert_intro">Vi vet att du försökte ditt bästa men en av korrekturläsarna hade en invändning. Möjliga anledningar till att din redigering gjordes om inkluderar:</string>
-  <string name="description_edit_revert_reason1">ditt bidrag följde inte ett av &lt;a href=\"%1$s\"&gt;riktlinjerna&lt;/a&gt;.</string>
+  <string name="description_edit_revert_reason1">ditt bidrag följde inte en av &lt;a href=\"%1$s\"&gt;riktlinjerna&lt;/a&gt;.</string>
   <string name="description_edit_revert_reason2">ditt bidrag såg ut som ett experiment eller vandalism</string>
   <string name="description_edit_revert_history">Om du är intresserad kan du se &lt;a href=\"%1$s\"&gt;redigeringshistoriken&lt;/a&gt;.</string>
   <string name="description_edit_login_cancel_button_text">Avbryt</string>

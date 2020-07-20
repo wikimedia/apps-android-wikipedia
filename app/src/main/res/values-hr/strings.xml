@@ -406,6 +406,8 @@
   <string name="reading_lists_sync_reminder_action">Omogući sinkronizaciju</string>
   <string name="reading_list_login_reminder_title">Sinkroniziranje popisa za čitanje</string>
   <string name="reading_lists_login_reminder_text">Popisi za čitanje sada se mogu sinkronizirati na više uređaja. Prijavite se s Vašim računom na Wikipediji i dopustite spremanje Vaših popisa.</string>
+  <string name="reading_lists_login_button">Prijavi se / stvori račun na Wikipediji</string>
+  <string name="reading_lists_ignore_button">Trenutačno ne</string>
   <string name="reading_lists_confirm_remote_delete_yes">Da</string>
   <string name="reading_lists_confirm_remote_delete_no">Ne</string>
   <string name="reading_list_article_save_in_progress">Članak se preuzima i nakon dovršetka bit će dostupan izvan mreže.</string>
@@ -519,7 +521,6 @@
   <string name="view_continue_reading_card_subtitle_today">danas</string>
   <string name="view_continue_reading_card_subtitle_read_date">Čitano %s</string>
   <string name="view_announcement_card_negative_action">Ne, hvala</string>
-  <string name="onboarding_negative_action">Ne, hvala</string>
   <string name="view_offline_card_text">Sadržaj nije moguće učitati izvan mreže.</string>
   <string name="view_featured_article_card_title">Izabrani članak</string>
   <string name="view_featured_article_footer_save_button_label">Spremi</string>
@@ -652,7 +653,6 @@
   <string name="suggested_edits_image_tags_onboarding_title">Dodavanjem oznaka slikama one se lakše mogu pronaći.</string>
   <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">Dodavanjem oznaka slikama pomoći ćete ostalim osobama u traženju slika na Zajedničkom poslužitelju, skladištu datoteka slobodne licencije kojim se Wikipedija služi za postavljanje slika u članke.\n\nAutomatski smo predložili neke oznake, a možete dodati i vlastite.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Slikama će biti dodane samo one oznake koje izaberete.</string>
-  <string name="suggested_edits_image_tags_snackbar">Slikama dodajte oznake kako bi ih ostali lakše mogli naći.</string>
   <string name="suggested_edits_image_tags_task_detail" fuzzy="true">Slikama dodajte oznake kako bi ih se lakše moglo naći. Izaberite neke od predloženih oznaka ili dodajte vlastite.</string>
   <string name="suggested_edits_image_tags_select_title">Niste odabrali nijednu oznaku za ovu sliku</string>
   <string name="suggested_edits_image_tags_select_text">Samo će oznake koje izaberete biti dodane slikama. Oznake koje ne izaberete bit će odbačene. Jeste li sigurni da želite odbaciti sve oznake?</string>
@@ -671,6 +671,7 @@
   <string name="suggested_edits_quality_sufficient_text">Dovoljno</string>
   <string name="suggested_edits_quality_poor_text">Slabo</string>
   <string name="suggested_edits_quality_bad_text">Loše</string>
+  <string name="suggested_edits_label">Predložena uređivanja</string>
   <plurals name="suggested_edits_contribution" fuzzy="true">
     <item quantity="one">Doprinos</item>
     <item quantity="other">Doprinosi</item>

@@ -445,7 +445,6 @@
   <string name="reading_list_move_article_limit_message">စုတ် ပ္ဍဲ စရင်ဏအ် ဟွံဂွံ၊၊ မၞး စိုပ်အာ လၟိဟ်အပိုင်အခြာ %2$d လိက်ပရေင် မွဲစရင် သွက် %1$s</string>
   <string name="reading_list_article_limit_message">စုတ် ပ္ဍဲ စရင်ဏအ် ဟွံဂွံ၊၊ မၞး စိုပ်အာ လၟိဟ်အပိုင်အခြာ %2$d လိက်ပရေင် မွဲစရင် သွက် %1$s</string>
   <string name="reading_lists_limit_message">ခၞံကၠောန် စရင် တၞဟ် ဟွံဂွံရ၊၊ မၞး စိုပ်အာ လၟိဟ်အပိုင်အခြာ ၁၀၀ စရင်သွက်ဂွံဗှ် သွက် မွဲ အကံက်၊၊</string>
-  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;ကချဳဓရာင် စရင်လိက်သွက်ဂွံဗှ်&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;စရင်လိက်သွက်ဂွံဗှ်ဂှ် လၟုဟ် ပချဳဓရာင် ပ္ဍဲ devices ဂွံရ၊၊ လုပ်လံက်အေန် ပ္ဍဲ အကံက်ဝဳကဳပဳဒဳယာ တုဲ ကဵုအခေါင် စရင် မၞး ဂွံလုပ်ဂိုင်သိပ်၊၊</string>
   <string name="reading_lists_menu_create_list">ခၞံကၠောန် စရင် တၟိ</string>
   <string name="reading_lists_menu_sort_by">ဖျေဟ်ဒၞာဲ နကဵု</string>
   <string name="reading_lists_refresh_sync_option">ကလေင်မ္ၚုဟ် ကချဳဓရာင်</string>
@@ -561,7 +560,6 @@
   <string name="view_continue_reading_card_subtitle_today">တ္ၚဲဏအ်</string>
   <string name="view_continue_reading_card_subtitle_read_date">ဗှ် %s</string>
   <string name="view_announcement_card_negative_action">ဟအှ်ေ တင်ဂုန်ရ</string>
-  <string name="onboarding_negative_action">ဟအှ်ေ တင်ဂုန်ရ၊၊</string>
   <string name="view_offline_card_text">လိက်ဂှ် လုပ်ပၠောပ် ဟွံဂွံ ပ္ဍဲအခိင် မ္ၚးလာင်</string>
   <string name="view_featured_article_card_title">လိက်ပရေင် မုက်ဂတ</string>
   <string name="view_featured_article_footer_save_button_label">ဂိုင်သိပ်</string>
@@ -701,7 +699,6 @@
   <string name="suggested_edits_image_tags_onboarding_title">စာမ်စွံလဝ် ဗီုရုပ် ဗွဲကြဴ ဂွံကလေင်ဂၠာဲလောဲ။</string>
   <string name="suggested_edits_image_tags_onboarding_text">နမစုတ် စာမ် ပ္ဍဲဗီုတအ်ဂှ် မၞးပကဵု ညံင်ဗီုတအ် ညးတၞဟ်ဂွံဂၠာဲလောဲ ပ္ဍဲကဵု ကောမ်မောန်၊ ဗီုရုပ် လာင်ဇြေန်စမၠး ဂှ် ဂွံစုတ် ပ္ဍဲလိက်ပရေင် ဝဳကဳပဳဒဳယာဂမၠိုင်ရ။\nပိုယ် ကဵုလညာတ် နကဵုနဲအလဵုအလဵု၊ ဆဂး မၞိဟ်စုတ် အတိုင်လညာတ်မၞးလေဝ်ဂွံရ။</string>
   <string name="suggested_edits_image_tags_onboarding_note">စာမ် မၞးမစုတ်လဝ်ဂှ်ဟေင် ရုဲစှ်တုဲ ပၠုပ်လဝ် ပ္ဍဲဗီုတအ်ရ။</string>
-  <string name="suggested_edits_image_tags_snackbar">စုတ် စာမ် ဗီု သွက်ဂွံပကဵု ညံင်ညးတၞဟ် ဂွံဂၠာဲဍေဟ် လောဲသွာ။</string>
   <string name="suggested_edits_image_tags_task_detail">စာမ် ဗီုရုပ်တအ်ဂှ် ပကဵုညံင် သဂွံ ဂၠာဲဍေဟ်တအ် လောဲသွာ။ ရုဲစှ်ကေတ် နူကဵု အစာမ် မကဵုလညာတ်ဂှ်တုဲ စုတ်ပ္ဍဲ ဒၞာဲမၞးအပိုင်။</string>
   <string name="suggested_edits_image_tags_choose">စုတ် ဟွံသေင်မ္ဂး ရုဲစှ် အစာမ် မကိတ်ညဳ</string>
   <string name="suggested_edits_image_tags_published_list">တြးပတိတ် အစာမ်</string>

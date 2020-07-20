@@ -21,7 +21,7 @@
   <string name="search_hint_search_languages">Пребарување јазик</string>
   <string name="search_hint_search_my_lists_and_articles">Пребарај по мои списоци и статии</string>
   <string name="nav_item_history">Историја</string>
-  <string name="nav_item_suggested_edits" fuzzy="true">Предложени уредувања</string>
+  <string name="nav_item_suggested_edits">Уредувања</string>
   <string name="nav_item_more">Повеќе</string>
   <string name="error_network_error">Не можам да се поврзам со семрежјето.</string>
   <string name="page_error_retry">Повтори</string>
@@ -421,6 +421,8 @@
   <string name="reading_lists_sync_reminder_action">Овозможи усогласување</string>
   <string name="reading_list_login_reminder_title">Усогласи списоци за читање</string>
   <string name="reading_lists_login_reminder_text">Сега списоците за читање можат да се усогласат низ разни уреди. Најавете се на сметката на Википедија и дозволете да ви се зачуваат списоците.</string>
+  <string name="reading_lists_login_button">Најава / придружување на Википедија</string>
+  <string name="reading_lists_ignore_button">Не сега</string>
   <string name="reading_lists_confirm_remote_delete_yes">Да</string>
   <string name="reading_lists_confirm_remote_delete_no">Не</string>
   <string name="reading_list_article_save_in_progress">Преземањето на статијата е во тек. Ќе биде достапна вонмрежно кога ќе заврши.</string>
@@ -449,7 +451,6 @@
   <string name="reading_list_move_article_limit_message">Не можам да го преместам списоков. Ја достигнавте границата од %2$d статии по список за „%1$s“.</string>
   <string name="reading_list_article_limit_message">Не можам да го дополнам списоков. Ја достигнавте границата од %2$d статии по список за „%1$s“.</string>
   <string name="reading_lists_limit_message">Не можете да направите друг список. Ја достигнавте границата од 100 списоци по сметка.</string>
-  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Усогласување на списоци за читање&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Списоците за читање можат да се усогласат низ сите уреди. Најавете се со сметката на Википедија и дозволете зачувување на списоците.</string>
   <string name="reading_lists_menu_create_list">Создај нов список</string>
   <string name="reading_lists_menu_sort_by">Подреди по</string>
   <string name="reading_lists_refresh_sync_option">Превчитај усогласување</string>
@@ -565,7 +566,6 @@
   <string name="view_continue_reading_card_subtitle_today">денес</string>
   <string name="view_continue_reading_card_subtitle_read_date">Прочитано %s</string>
   <string name="view_announcement_card_negative_action">Не, благодарам</string>
-  <string name="onboarding_negative_action">Не, благодарам</string>
   <string name="view_offline_card_text">Содржината не може да се вчита додека не сте на линија.</string>
   <string name="view_featured_article_card_title">Избрана статија</string>
   <string name="view_featured_article_footer_save_button_label">Зачувај</string>
@@ -706,7 +706,6 @@
   <string name="suggested_edits_image_tags_onboarding_title">Означувањето на сликите ги прави полесни за наоѓање.</string>
   <string name="suggested_edits_image_tags_onboarding_text">Потврдувајќи ги предложените ознаки, им помагате на другите полесно да ги најдат сликите во пребарување на Ризницата, складот на слободно лиценцирани слики кој го користи Википедија за нејзините сликовни содржини.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Кон сликите ќе се додадат само ознаки кои сте ги избрале вие.</string>
-  <string name="suggested_edits_image_tags_snackbar">Означете ги сликите за да можат полесно да се пронаоѓаат.</string>
   <string name="suggested_edits_image_tags_task_detail">Ставете ѝ ваши ознаки на сликата за да може полесно да се пронаоѓа.</string>
   <string name="suggested_edits_image_tags_choose">Додајте или изберете соодветни ознаки</string>
   <string name="suggested_edits_image_tags_published_list">Објавени ознаки</string>
@@ -716,7 +715,7 @@
   <string name="suggested_edits_image_tags_add_tag">Додај ознака</string>
   <string name="suggested_edits_image_zoom_tooltip">Штипнете за да ја приближите сликата.</string>
   <string name="suggested_edits_encouragement_message">%s, ви благодариме за уредувањата. Подолу ќе најдете други начини да учествувате на Википедија.</string>
-  <string name="suggested_edits_onboarding_message" fuzzy="true">&lt;b&gt;Здраво %s&lt;/b&gt;. Дали сте знаеле дека секој може да ја уредува Википедија? Подолу ќе најдете интересни начини да помогнете во нејзиното подобрување. Пријатно уредување!</string>
+  <string name="suggested_edits_onboarding_message">&lt;b&gt;Здраво, %s&lt;/b&gt;. Подолу погледајте како брзо и лесно начини да помогнете на Википедија. Штом започнете, ќе забележите каква разлика правите. Среќно уредување!</string>
   <string name="suggested_edits_image_captions_task_detail">Дајте ѝ опис на сликата за да му помогнете на читателот да разбере за што се работи и добие контекст.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Ставете караток опис на статија, давајќи им претстава на читателите за што се работи.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Вкупно ваши придонеси со „Предложени уредувања“.</string>
@@ -729,7 +728,7 @@
   <string name="suggested_edits_editing_tips_link_text">Совети за уредување</string>
   <string name="suggested_edits_help_page_link_text">Помошна страница за предложени уредувања</string>
   <string name="suggested_edits_edit_streak_label_text">Последователни уредувања</string>
-  <string name="suggested_edits_views_label_text" fuzzy="true">Посети</string>
+  <string name="suggested_edits_views_label_text">Посети</string>
   <string name="suggested_edits_quality_label_text">Квалитет на уредувањата</string>
   <string name="suggested_edits_quality_perfect_text">Совршен</string>
   <string name="suggested_edits_quality_excellent_text">Одличен</string>
@@ -739,6 +738,7 @@
   <string name="suggested_edits_quality_sufficient_text">Доволен</string>
   <string name="suggested_edits_quality_poor_text">Слаб</string>
   <string name="suggested_edits_quality_bad_text">Лош</string>
+  <string name="suggested_edits_label">Предложени уредувања</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">Придонес</item>
     <item quantity="other">Придонеси</item>
@@ -764,7 +764,7 @@
   <string name="suggested_edits_contribution_language_label">Јазик</string>
   <string name="suggested_edits_contribution_date_time_label">Датум/време</string>
   <string name="suggested_edits_contribution_type_label">Вид придонес</string>
-  <string name="suggested_edits_contribution_image_label" fuzzy="true">Податотека</string>
+  <string name="suggested_edits_contribution_image_label">Слика</string>
   <string name="suggested_edits_contribution_article_label">Статија</string>
   <string name="suggested_edits_contribution_views">%s посети</string>
   <string name="suggested_edits_contribution_seen_text">Посетена %s пати во изминатите 30 дена.</string>
@@ -783,7 +783,7 @@
   <string name="suggested_edits_encourage_account_creation_message">Предложените уредувања се нов начин на уредување на Википедија со Андроид. Ви помагаат да правите мали, но суштински придонеси кон Википедија.\nНаша цел е да го олесниме уредувањето и да го направиме подостапно за секого! Најавете се или придружете се на Википедија за да почнете.</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Најава / придружување на Википедија</string>
   <string name="suggested_edits_contribution_type_image_tag">Ознака за слики</string>
-  <string name="suggested_edits_contribution_current_revision_text" fuzzy="true">Тековна верзија</string>
+  <string name="suggested_edits_contribution_current_revision_text">Вашето уредување сега е видливо на Википедија</string>
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="one">%1$s ознака</item>
     <item quantity="other">%1$s ознаки</item>

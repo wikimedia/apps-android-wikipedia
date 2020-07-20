@@ -463,7 +463,6 @@
   <string name="split_reading_list_message">Existuje limit %d článků pro seznamy k přečtení. Existující seznamy, které mají více než tento počet článků, byly rozděleny do více seznamů.</string>
   <string name="reading_list_article_limit_message">Nebylo možno přidat do tohoto seznamu. Překročili jste limit %2$d článků do seznamu pro „%1$s“.</string>
   <string name="reading_lists_limit_message">Nelze vytvořit další seznam. Dosáhli jste limitu 100 seznamů k přečtení pro účet.</string>
-  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Synchronizace seznamů k přečtení&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Seznamy k přečtení mohou být nyní synchronizovány napříč zařízeními. Přihlaste se na svůj účet na Wikipedii a povolte ukládání svých vlastních seznamů.</string>
   <string name="reading_lists_menu_create_list">Vytvořit nový seznam</string>
   <string name="reading_lists_menu_sort_by">Seřadit podle</string>
   <string name="reading_lists_refresh_sync_option">Synchronizovat</string>
@@ -584,7 +583,6 @@
   <string name="view_continue_reading_card_subtitle_today">dnes</string>
   <string name="view_continue_reading_card_subtitle_read_date">Přečteno %s</string>
   <string name="view_announcement_card_negative_action">Ne, děkuji</string>
-  <string name="onboarding_negative_action">Ne, děkuji</string>
   <string name="view_offline_card_text">Obsah nemůže být načten offline.</string>
   <string name="view_featured_article_card_title">Doporučený článek</string>
   <string name="view_featured_article_footer_save_button_label">Uložit</string>
@@ -725,7 +723,6 @@
   <string name="suggested_edits_image_tags_onboarding_title">Označte obrázky, aby je ostatní mohli snáze najít.</string>
   <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">Potvrzením navrhovaných značek můžete pomoci, aby byly obrázky snáze vyhledatelné.\n\nZnačky jsou navrhované počítačem, ale musí být ověřeny člověkem pro zajištění přesnosti.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Pouze značky, které vyberete, budou přidány k obrázkům.</string>
-  <string name="suggested_edits_image_tags_snackbar">Přidejte značky obrázkům, aby je ostatní mohli snáze najít.</string>
   <string name="suggested_edits_image_tags_task_detail">Označte obrázky, aby je ostatní mohli snáze najít. Vyberte z navrhovaných značek nebo přidejte vlastní.\nPřidejte vlastní značky, aby bylo možné obrázek snáze najít.</string>
   <string name="suggested_edits_image_tags_choose">Vyberte nebo přidejte shodující se značky</string>
   <string name="suggested_edits_image_tags_published_list">Zveřejněné značky</string>

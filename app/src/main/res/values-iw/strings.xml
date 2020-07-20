@@ -33,7 +33,7 @@
   <string name="search_hint_search_languages">חיפוש שפה</string>
   <string name="search_hint_search_my_lists_and_articles">חיפוש ברשימות ובערכים</string>
   <string name="nav_item_history">היסטוריה</string>
-  <string name="nav_item_suggested_edits" fuzzy="true">עריכות מוצעות</string>
+  <string name="nav_item_suggested_edits">עריכות</string>
   <string name="nav_item_more">עוד</string>
   <string name="error_network_error">לא ניתן להתחבר לאינטרנט.</string>
   <string name="page_error_retry">ניסיון נוסף</string>
@@ -430,6 +430,8 @@
   <string name="reading_lists_sync_reminder_action">הפעלת סנכרון</string>
   <string name="reading_list_login_reminder_title">סנכרן רשימות קריאה</string>
   <string name="reading_lists_login_reminder_text">עכשיו אפשר לסנכרן רשימות קריאה במכשירים שונים. נא להיכנס לחשבון הוויקיפדיה שלך ולאפשר את שמירת רשימות הקריאה שלך.</string>
+  <string name="reading_lists_login_button">כניסה / הצטרפות לוויקיפדיה</string>
+  <string name="reading_lists_ignore_button">לא כעת</string>
   <string name="reading_lists_confirm_remote_delete_yes">כן</string>
   <string name="reading_lists_confirm_remote_delete_no">לא</string>
   <string name="reading_list_article_save_in_progress">הורדת הערך מתבצעת, והוא יהיה זמין ללא חיבור לרשת כשהיא תושלם.</string>
@@ -458,7 +460,6 @@
   <string name="reading_list_move_article_limit_message">אי־אפשר להעביר לרשימה הזאת. הגעת למגבלה של %2$d ערכים ברשימה \"%1$s\".</string>
   <string name="reading_list_article_limit_message">אי־אפשר להוסיף לרשימה הזאת. הגעת למגבלה של %2$d ערכים ברשימה \"%1$s\".</string>
   <string name="reading_lists_limit_message">לא ניתן ליצור עוד רשימה. הגעת למגבלה של 100 רשימות קריאה לחשבון.</string>
-  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;סנכרון רשימות קריאה&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;עכשיו אפשר לסנכרן רשימות קריאה במכשירים שונים. נא להיכנס לחשבון הוויקיפדיה שלך ולאפשר לשמור את הרשימות שלך.</string>
   <string name="reading_lists_menu_create_list">יצירת רשימה חדשה</string>
   <string name="reading_lists_menu_sort_by">מיון לפי</string>
   <string name="reading_lists_refresh_sync_option">רענון סנכרון</string>
@@ -594,7 +595,6 @@
   <string name="view_continue_reading_card_subtitle_today">היום</string>
   <string name="view_continue_reading_card_subtitle_read_date">נקרא %s</string>
   <string name="view_announcement_card_negative_action">לא, תודה</string>
-  <string name="onboarding_negative_action">לא תודה</string>
   <string name="view_offline_card_text">לא ניתן לטעון את התוכן ללא חיבור לרשת.</string>
   <string name="view_featured_article_card_title">ערך מומלץ</string>
   <string name="view_featured_article_footer_save_button_label">שמירה</string>
@@ -737,7 +737,6 @@
   <string name="suggested_edits_image_tags_onboarding_title">תיוג תמונות עוזר לאחרים למצוא אותן.</string>
   <string name="suggested_edits_image_tags_onboarding_text">אימות התגים יעזור לאחרים למצוא אותן בוויקישיתוף, מאגר התמונות החופשיות שוויקיפדיה משתמשת בו לתמונות בערכים שלה.</string>
   <string name="suggested_edits_image_tags_onboarding_note">רק תגים שאישרת יוּספו לתמונות.</string>
-  <string name="suggested_edits_image_tags_snackbar">תייגו תמונות כדי שלאחרים יהיה קל יותר למצוא אותן</string>
   <string name="suggested_edits_image_tags_task_detail">הוספת תגויות שונות לתמונות כדי שלאחרים יהיה קל יותר למצוא אותן.</string>
   <string name="suggested_edits_image_tags_choose">נא לבחור או להוסיף תגים תואמים</string>
   <string name="suggested_edits_image_tags_published_list">תגים שפורסמו</string>
@@ -770,6 +769,7 @@
   <string name="suggested_edits_quality_sufficient_text">ככה ככה</string>
   <string name="suggested_edits_quality_poor_text">ירודה</string>
   <string name="suggested_edits_quality_bad_text">גרועה</string>
+  <string name="suggested_edits_label">עריכות מוצעות</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">תרומה</item>
     <item quantity="two">תרומות</item>
@@ -783,6 +783,8 @@
     <item quantity="other">%d ימים</item>
   </plurals>
   <string name="suggested_edits_what_is_title">מה זה ’עריכות מוצעות?’</string>
+  <string name="suggested_edits_learn_more">מידע נוסף</string>
+  <string name="suggested_edits_paused_title">מושהה</string>
   <string name="suggested_edits_disabled_title">מבוטל</string>
   <string name="suggested_edits_last_edited">עריכה אחרונה</string>
   <string name="suggested_edits_last_edited_never">לעולם לא</string>

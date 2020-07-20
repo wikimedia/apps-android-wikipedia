@@ -424,7 +424,6 @@
   <string name="split_reading_list_message">Svaka lista za čitanje prima najviše %d članaka. Postojeće liste sa više članaka su razdvojene na nekoliko njih.</string>
   <string name="reading_list_article_limit_message">Dodavanje na ovu listu nije moguće. Dostigli ste ograničenje od %2$d članaka po listi za „%1$s”.</string>
   <string name="reading_lists_limit_message">Nije moguće napraviti drugu listu. Dostigli ste ograničenje od 100 liste za čitanje po nalogu.</string>
-  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Sinhronizacija lista za čitanje&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Liste za čitanje se sada mogu sinhronizovati među uređajima. Prijavite se sa nalogom na Vikipediji i dozvolite čuvanje lista.</string>
   <string name="reading_lists_menu_create_list">Napravi novu listu</string>
   <string name="reading_lists_menu_sort_by">Sortiraj po</string>
   <string name="reading_lists_refresh_sync_option">Osveži sinhronizaciju</string>
@@ -539,7 +538,6 @@
   <string name="view_continue_reading_card_subtitle_today">danas</string>
   <string name="view_continue_reading_card_subtitle_read_date">Pročitano %s</string>
   <string name="view_announcement_card_negative_action">Ne, hvala</string>
-  <string name="onboarding_negative_action">Ne, hvala</string>
   <string name="view_offline_card_text">Sadržaj se ne može učitati kada ste oflajn.</string>
   <string name="view_featured_article_card_title">Sjajan članak</string>
   <string name="view_featured_article_footer_save_button_label">Sačuvaj</string>

@@ -194,16 +194,12 @@
 
         <org.wikipedia.settings.IntPreference
             style="@style/IntPreference"
-            android:key="@string/preference_key_reading_lists_visit_count"
-            android:title="@string/preference_key_reading_lists_visit_count" />
+            android:key="@string/preference_key_explore_feed_visit_count"
+            android:title="@string/preference_key_explore_feed_visit_count" />
 
         <SwitchPreferenceCompat
             android:key="@string/preference_key_feed_customize_onboarding_card_enabled"
             android:title="@string/preference_key_feed_customize_onboarding_card_enabled" />
-
-        <SwitchPreferenceCompat
-            android:key="@string/preference_key_feed_readinglists_sync_onboarding_card_enabled"
-            android:title="@string/preference_key_feed_readinglists_sync_onboarding_card_enabled" />
 
         <org.wikipedia.settings.EditTextAutoSummarizePreference
             style="@style/DataStringPreference"
@@ -281,10 +277,6 @@
         <SwitchPreferenceCompat
             android:key="@string/preference_key_show_suggested_edits_tooltip"
             android:title="@string/preference_key_show_suggested_edits_tooltip" />
-
-        <SwitchPreferenceCompat
-            android:key="@string/preference_key_show_image_tags_tooltip"
-            android:title="@string/preference_key_show_image_tags_tooltip" />
 
         <SwitchPreferenceCompat
             android:key="@string/preference_key_show_edit_tasks_onboarding"

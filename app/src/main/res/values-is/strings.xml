@@ -439,7 +439,6 @@
   <string name="split_reading_list_message">Leslistar eru takmarkaðir við %d greinar. Fyrirliggjandi listum sem hafa fleiri greinar en þau mörk, hefur verið skipt upp í fleiri lista.</string>
   <string name="reading_list_article_limit_message">Get ekki bætt á þennan lista. Þú hefur náð %2$d greina takmörkum á hvern lista fyrir \"%1$s\".</string>
   <string name="reading_lists_limit_message">Get ekki búið til annan lista. Þú hefur náð 100 leslista takmörkum á hvern notandaaðgang.</string>
-  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Samstilling leslista&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Nú er hægt að samstilla leslista á milli tækja. Skráðu þig inn á Wikipedia-aðganginn þinn og leyfðu vistun á leslistunum þínum.</string>
   <string name="reading_lists_menu_create_list">Búa til nýjan lista</string>
   <string name="reading_lists_menu_sort_by">Raða eftir</string>
   <string name="reading_lists_refresh_sync_option">Uppfæra samstillingu</string>
@@ -555,7 +554,6 @@
   <string name="view_continue_reading_card_subtitle_today">í dag</string>
   <string name="view_continue_reading_card_subtitle_read_date">Lesa %s</string>
   <string name="view_announcement_card_negative_action">Nei, takk</string>
-  <string name="onboarding_negative_action">Nei, takk</string>
   <string name="view_offline_card_text">Efni er ekki hægt að hlaða inn án nettengingar.</string>
   <string name="view_featured_article_card_title">Forsíðugrein</string>
   <string name="view_featured_article_footer_save_button_label">Vista</string>
@@ -693,7 +691,6 @@
   <string name="suggested_edits_image_tags_onboarding_title">Að merkja myndir gerir mun auðveldara að finna þær.</string>
   <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">Með því að bæta við merkjum á myndir gerir mun auðveldara að finna þær á Commons, myndasafninu með frjálsum notkunarleyfum sem Wikipedia notar fyrir myndir í greinum sínum.\n\nSjálfvirkt er stungið upp á nokkrum merkjum en þú getur líka bætt við þínum eigin merkjum.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Einungis merki sem þú velur verður bætt á myndir.</string>
-  <string name="suggested_edits_image_tags_snackbar">Að bæta við merkjum á myndir gerir öðrum mun auðveldara að finna þær.</string>
   <string name="suggested_edits_image_tags_task_detail" fuzzy="true">Að merkja myndir gerir mun auðveldara að finna þær. Veldu úr tillögum að merkjum eða bættu við þínum eigin merkjum.</string>
   <string name="suggested_edits_image_tags_choose">Bættu við eða veldu samsvarandi merki</string>
   <string name="suggested_edits_image_tags_published_list">Birt merki</string>

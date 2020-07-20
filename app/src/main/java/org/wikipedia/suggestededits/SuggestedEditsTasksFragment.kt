@@ -3,9 +3,11 @@ package org.wikipedia.suggestededits
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.view.*
+import android.view.LayoutInflater
+import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
+import android.view.ViewGroup
 import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -16,8 +18,7 @@ import io.reactivex.rxjava3.functions.Function3
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_suggested_edits_tasks.*
 import org.wikipedia.Constants
-import org.wikipedia.Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE
-import org.wikipedia.Constants.ACTIVITY_REQUEST_IMAGE_TAGS_ONBOARDING
+import org.wikipedia.Constants.*
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.SuggestedEditsFunnel
@@ -30,6 +31,7 @@ import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.dataclient.mwapi.UserContribution
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
 import org.wikipedia.language.LanguageSettingsInvokeSource
+import org.wikipedia.login.LoginActivity
 import org.wikipedia.main.MainActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
@@ -125,6 +127,8 @@ class SuggestedEditsTasksFragment : Fragment() {
         } else if (requestCode == ACTIVITY_REQUEST_IMAGE_TAGS_ONBOARDING && resultCode == Activity.RESULT_OK) {
             Prefs.setShowImageTagsOnboarding(false)
             startActivity(SuggestedEditsCardsActivity.newIntent(requireActivity(), ADD_IMAGE_TAGS))
+        } else if (requestCode == ACTIVITY_REQUEST_LOGIN && resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
+            clearContents()
         }
     }
 
@@ -165,10 +169,6 @@ class SuggestedEditsTasksFragment : Fragment() {
                         latestEditDate = commonsResponse.query()!!.userInfo()!!.latestContrib
                     }
 
-                    if (maybeSetPausedOrDisabled()) {
-                        isPausedOrDisabled = true
-                    }
-
                     val contributions = ArrayList<UserContribution>()
                     contributions.addAll(wikidataResponse.query()!!.userContributions())
                     contributions.addAll(commonsResponse.query()!!.userContributions())
@@ -189,6 +189,10 @@ class SuggestedEditsTasksFragment : Fragment() {
                     }
                 }
                 .subscribe({
+                    if (maybeSetPausedOrDisabled()) {
+                        isPausedOrDisabled = true
+                    }
+
                     if (!isPausedOrDisabled && !isIpBlocked) {
                         pageViewStatsView.setTitle(it.toString())
                         setFinalUIState()
@@ -217,7 +221,6 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     fun refreshContents() {
         requireActivity().invalidateOptionsMenu()
-        clearContents()
         fetchUserContributions()
     }
 
@@ -292,7 +295,7 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     private fun setRequiredLoginStatus() {
         clearContents()
-        disabledStatesView.setRequiredLogin()
+        disabledStatesView.setRequiredLogin(this)
         disabledStatesView.visibility = VISIBLE
     }
 

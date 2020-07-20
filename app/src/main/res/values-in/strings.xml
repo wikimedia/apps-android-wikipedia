@@ -465,7 +465,6 @@
   <string name="split_reading_list_message">Ada batas %d artikel per daftar bacaan. Daftar yang ada dengan lebih dari batas ini telah dipecah menjadi beberapa daftar.</string>
   <string name="reading_list_article_limit_message">Tidak dapat menambahkan ke daftar ini. Anda telah mencapai batas %2$d artikel per daftar untuk daftar \"%1$s\".</string>
   <string name="reading_lists_limit_message">Tidak bisa membuat daftar lain. Anda telah mencapai batas 100 daftar bacaan per akun.</string>
-  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Sinkronkan daftar bacaan&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Daftar bacaan sekarang dapat disinkronkan di seluruh perangkat. Masuk log ke akun Wikipedia Anda dan biarkan daftar Anda disimpan.</string>
   <string name="reading_lists_menu_create_list">Buat daftar baru</string>
   <string name="reading_lists_menu_sort_by">Urut berdasarkan</string>
   <string name="reading_lists_refresh_sync_option">Segarkan sinkronisasi</string>
@@ -581,7 +580,6 @@
   <string name="view_continue_reading_card_subtitle_today">hari ini</string>
   <string name="view_continue_reading_card_subtitle_read_date">Dibaca %s</string>
   <string name="view_announcement_card_negative_action">Tidak, terima kasih</string>
-  <string name="onboarding_negative_action">Tidak, terima kasih</string>
   <string name="view_offline_card_text">Konten tidak dapat dimuat saat luring.</string>
   <string name="view_featured_article_card_title">Artikel pilihan</string>
   <string name="view_featured_article_footer_save_button_label">Simpan</string>
@@ -722,7 +720,6 @@
   <string name="suggested_edits_image_tags_onboarding_title">Beri tag pada gambar untuk membuatnya lebih mudah ditemukan orang lain</string>
   <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">Dengan menambahkan tag yang disarankan, Anda dapat membantu membuat gambar lebih mudah untuk dicari.\n\nKami menyarankan secara otomatis beberapa tag, Anda juga dapat menambahkan tag oleh Anda sendiri.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Hanya tag yang Anda pilih yang akan ditambahkan ke gambar.</string>
-  <string name="suggested_edits_image_tags_snackbar">Tambahkan tag gambar untuk membuatnya lebih mudah ditemukan orang lain.</string>
   <string name="suggested_edits_image_tags_task_detail" fuzzy="true">Beri tag pada gambar untuk membuatnya lebih mudah ditemukan orang lain. Tag disarankan secara otomatis atau tambahkan milik Anda.</string>
   <string name="suggested_edits_image_tags_choose">Pilih tag yang cocok</string>
   <string name="suggested_edits_image_tags_published_list">Tag yang telah diterbitkan</string>

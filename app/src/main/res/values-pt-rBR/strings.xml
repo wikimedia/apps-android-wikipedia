@@ -47,7 +47,7 @@
   <string name="search_hint_search_languages">Procurar um idioma</string>
   <string name="search_hint_search_my_lists_and_articles">Pesquisar minhas listas e artigos</string>
   <string name="nav_item_history">Histórico</string>
-  <string name="nav_item_suggested_edits" fuzzy="true">Edições sugeridas</string>
+  <string name="nav_item_suggested_edits">Edições</string>
   <string name="nav_item_more">Mais</string>
   <string name="error_network_error">Não foi possível conectar-se à Internet.</string>
   <string name="page_error_retry">Atualizar</string>
@@ -447,6 +447,8 @@
   <string name="reading_lists_sync_reminder_action">Ativar sincronização</string>
   <string name="reading_list_login_reminder_title">Sincronizar listas de leitura</string>
   <string name="reading_lists_login_reminder_text">As listas de leitura agora podem ser sincronizadas entre dispositivos. Faça login na sua conta de Wikipedia e permita que suas listas sejam salvas.</string>
+  <string name="reading_lists_login_button">Entrar / Juntar na Wikipédia</string>
+  <string name="reading_lists_ignore_button">Agora não</string>
   <string name="reading_lists_confirm_remote_delete_yes">Sim</string>
   <string name="reading_lists_confirm_remote_delete_no">Não</string>
   <string name="reading_list_article_save_in_progress">O artigo está sendo baixado, e estará disponível offline quando completo.</string>
@@ -475,7 +477,6 @@
   <string name="reading_list_move_article_limit_message">Não é possível mover para esta lista. Você atingiu o limite de %2$d artigos por lista para \"%1$s\".</string>
   <string name="reading_list_article_limit_message">Não foi possível acrescentar a esta lista. Atingiu o limite máximo de %2$d artigos por lista para \"%1$s\".</string>
   <string name="reading_lists_limit_message">Não foi possível criar outra lista. Atingiu o limite máximo de 100 listas de leitura por conta.</string>
-  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Sincronização das listas de leitura&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;As listas de leitura podem agora ser sincronizadas em todos os dispositivos. Entre com a sua conta da Wikipédia e clique em permitir para que as suas listas sejam guardadas.</string>
   <string name="reading_lists_menu_create_list">Criar nova lista</string>
   <string name="reading_lists_menu_sort_by">Ordenar por</string>
   <string name="reading_lists_refresh_sync_option">Atualizar sincronização</string>
@@ -591,7 +592,6 @@
   <string name="view_continue_reading_card_subtitle_today">hoje</string>
   <string name="view_continue_reading_card_subtitle_read_date">Ler %s</string>
   <string name="view_announcement_card_negative_action">Não, obrigado</string>
-  <string name="onboarding_negative_action">Não, obrigado</string>
   <string name="view_offline_card_text">O conteúdo não pode ser carregado quando offline.</string>
   <string name="view_featured_article_card_title">Artigo destacado</string>
   <string name="view_featured_article_footer_save_button_label">Salvar</string>
@@ -732,7 +732,6 @@
   <string name="suggested_edits_image_tags_onboarding_title">A marcação de imagens facilita a localização.</string>
   <string name="suggested_edits_image_tags_onboarding_text">Ao adicionar marcações de imagem, você ajudará a facilitar a pesquisa de imagens no Commons, o repositório gratuito de imagens de licença que a Wikipedia usa para imagens em seus artigos.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Somente as marcações que você escolher serão adicionadas às imagens.</string>
-  <string name="suggested_edits_image_tags_snackbar">Adicione marcação de imagem para facilitar a localização de outras pessoas.</string>
   <string name="suggested_edits_image_tags_task_detail">Adicione etiquetas personalizadas a uma imagem para facilitar a localização.</string>
   <string name="suggested_edits_image_tags_choose">Adicionar ou escolher marcações correspondentes</string>
   <string name="suggested_edits_image_tags_published_list">Marcações publicadas</string>
@@ -765,6 +764,7 @@
   <string name="suggested_edits_quality_sufficient_text">Suficiente</string>
   <string name="suggested_edits_quality_poor_text">Péssima</string>
   <string name="suggested_edits_quality_bad_text">Ruim</string>
+  <string name="suggested_edits_label">Edições sugeridas</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">Contribuição</item>
     <item quantity="other">Contribuições</item>

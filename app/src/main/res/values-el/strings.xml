@@ -450,7 +450,6 @@
   <string name="reading_list_move_article_limit_message">Δεν είναι δυνατή η μετακίνηση σε αυτή τη λίστα. Έχετε φτάσει το όριο του %2$d άρθρων ανά λίστα για \"%1$s\".</string>
   <string name="reading_list_article_limit_message">Δεν είναι δυνατή η προσθήκη σε αυτή τη λίστα. Έχετε φτάσει το όριο του %2$d άρθρων ανά λίστα για \"%1$s\".</string>
   <string name="reading_lists_limit_message">Δεν μπορείτε να δημιουργήσετε άλλη λίστα. Έχετε φτάσει το όριο των 100 λιστών ανάγνωσης ανά λογαριασμό.</string>
-  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Συγχρονισμός λιστών ανάγνωσης&lt;/strong&gt;&lt;br/&gt;&lt;br/&gt;Οι λίστες ανάγνωσης μπορούν πλέον να συγχρονιστούν μεταξύ συσκευών. Συνδεθείτε στον λογαριασμό σας στη Βικιπαίδεια και επιτρέψτε την αποθήκευση των λιστών σας.</string>
   <string name="reading_lists_menu_create_list">Δημιουργία νέας λίστας</string>
   <string name="reading_lists_menu_sort_by">Ταξινόμηση κατά</string>
   <string name="reading_lists_refresh_sync_option">Ανανέωση συγχρονισμού</string>
@@ -559,7 +558,6 @@
   <string name="view_continue_reading_card_subtitle_today">σήμερα</string>
   <string name="view_continue_reading_card_subtitle_read_date">Διαβάστε %s</string>
   <string name="view_announcement_card_negative_action">Όχι, ευχαριστώ</string>
-  <string name="onboarding_negative_action">Όχι ευχαριστώ</string>
   <string name="view_offline_card_text">Το περιεχόμενο δεν μπορεί να φορτωθεί όταν είστε εκτός σύνδεσης.</string>
   <string name="view_featured_article_card_title">Προβεβλημένο λήμμα</string>
   <string name="view_featured_article_footer_save_button_label">Αποθήκευση</string>
@@ -685,7 +683,6 @@
   <string name="suggested_edits_image_tags_published">Δημοσιεύθηκε</string>
   <string name="suggested_edits_image_tags_onboarding_title">Η προσθήκη ετικετών σε εικόνες καθιστά ευκολότερη την εύρεση.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Μόνο οι ετικέτες που επιλέγετε θα προστεθούν στις εικόνες.</string>
-  <string name="suggested_edits_image_tags_snackbar">Προσθέστε ετικέτες εικόνας για να διευκολύνετε άλλους στην εύρεση.</string>
   <string name="suggested_edits_image_tags_task_detail">Προσθέστε προσαρμοσμένες ετικέτες σε μια εικόνα για να διευκολύνετε την εύρεση.</string>
   <string name="suggested_edits_image_tags_published_list">Δημοσιευμένες ετικέτες</string>
   <string name="suggested_edits_image_tags_search">Αναζήτηση ετικετών</string>

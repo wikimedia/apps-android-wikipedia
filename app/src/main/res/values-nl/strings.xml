@@ -2,6 +2,7 @@
 <!-- Authors:
 * Abijeet Patro
 * Dbrant
+* Dutchy45
 * Elroy
 * Encycloon
 * Envlh
@@ -47,7 +48,7 @@
   <string name="search_hint_search_languages">Zoeken naar een taal</string>
   <string name="search_hint_search_my_lists_and_articles">Doorzoek mijn lijsten en artikelen</string>
   <string name="nav_item_history">Geschiedenis</string>
-  <string name="nav_item_suggested_edits" fuzzy="true">Voorgestelde bewerkingen</string>
+  <string name="nav_item_suggested_edits">Bewerkingen</string>
   <string name="nav_item_more">Meer</string>
   <string name="error_network_error">Er is geen verbinding met het internet.</string>
   <string name="page_error_retry">Opnieuw proberen</string>
@@ -442,6 +443,7 @@
   <string name="reading_lists_sync_reminder_action">Synchronisatie inschakelen</string>
   <string name="reading_list_login_reminder_title">Leeslijsten synchroniseren</string>
   <string name="reading_lists_login_reminder_text">Leeslijsten kunnen nu gesynchroniseerd worden met verschillende apparaten. Meld u aan met uw Wikipedia-account en sta toe dat uw lijsten opgeslagen worden.</string>
+  <string name="reading_lists_ignore_button">Nu niet</string>
   <string name="reading_lists_confirm_remote_delete_yes">Ja</string>
   <string name="reading_lists_confirm_remote_delete_no">Nee</string>
   <string name="reading_list_article_save_in_progress">Deze pagina wordt gedownload en zal offline beschikbaar zijn na afloop.</string>
@@ -470,7 +472,6 @@
   <string name="reading_list_move_article_limit_message">U kunt deze lijst niet verplaatsen. U hebt de limiet van %2$d artikelen per lijst voor \"%1$s\" bereikt.</string>
   <string name="reading_list_article_limit_message">Toevoegen aan deze lijst niet mogelijk. U heeft de limiet van %2$d artikelen per lijst bereikt voor \"%1$s\".</string>
   <string name="reading_lists_limit_message">Kan geen nieuwe lijst aanmaken. U heeft de limiet van 100 leeslijsten per account bereikt.</string>
-  <string name="feed_reading_lists_sync_onboarding_text">&lt;strong&gt;Synchroniseer leeslijsten&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Leeslijsten kunnen nu op verschillende apparaten worden gesynchroniseerd. Log in op uw Wikipedia-account en laat uw lijsten opslaan.</string>
   <string name="reading_lists_menu_create_list">Nieuwe lijst aanmaken</string>
   <string name="reading_lists_menu_sort_by">Sorteren op</string>
   <string name="reading_lists_refresh_sync_option">Vernieuw synchronisatie</string>
@@ -586,7 +587,6 @@
   <string name="view_continue_reading_card_subtitle_today">vandaag</string>
   <string name="view_continue_reading_card_subtitle_read_date">%s gelezen</string>
   <string name="view_announcement_card_negative_action">Nee, bedankt</string>
-  <string name="onboarding_negative_action">Nee, bedankt</string>
   <string name="view_offline_card_text">De inhoud kan niet offline geladen worden.</string>
   <string name="view_featured_article_card_title">Uitgelichte pagina</string>
   <string name="view_featured_article_footer_save_button_label">Opslaan</string>
@@ -722,7 +722,7 @@
   <string name="suggested_edits_image_tags_onboarding_title" fuzzy="true">Voeg aan afbeeldingen tags toe om ze gemakkelijker vindbaar te maken voor anderen</string>
   <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">Door voorgestelde tags te bevestigen, kunt u helpen om eenvoudiger te zoeken naar afbeeldingen.\n\nTags worden door de computer voorgesteld, maar moeten door mensen worden gevalideerd om nauwkeurigheid te garanderen.</string>
   <string name="suggested_edits_image_tags_add_tag">Label toevoegen</string>
-  <string name="suggested_edits_ip_blocked_message" fuzzy="true">Het lijkt erop dat uw IP-adres (of bereik van IP-adressen) momenteel geblokkeerd is van het bewerken van Wikipedia. U kunt meer te weten komen over wat dit betekent door de link hieronder te volgen.</string>
+  <string name="suggested_edits_ip_blocked_message">Het lijkt erop dat uw IP-adres (of assortiment van IP-adressen) momenteel geblokkeerd is van het bewerken van Wikipedia.</string>
   <string name="suggested_edits_help_page_link_text">Hulppagina voorgestelde bewerkingen</string>
   <string name="suggested_edits_views_label_text">Weergaven</string>
   <string name="suggested_edits_quality_label_text">Bewerkingskwaliteit</string>
@@ -734,6 +734,7 @@
   <string name="suggested_edits_quality_sufficient_text">Voldoende</string>
   <string name="suggested_edits_quality_poor_text">Teleurstellend</string>
   <string name="suggested_edits_quality_bad_text">Slecht</string>
+  <string name="suggested_edits_label">Voorgestelde bewerkingen</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">Bijdrage</item>
     <item quantity="other">Bijdragen</item>
@@ -742,9 +743,11 @@
     <item quantity="one">%d dag</item>
     <item quantity="other">%d dagen</item>
   </plurals>
+  <string name="suggested_edits_what_is_title">Wat zijn Voorgestelde bewerkingen?</string>
   <string name="suggested_edits_learn_more">Meer lezen</string>
   <string name="suggested_edits_paused_title">Gepauzeerd</string>
   <string name="suggested_edits_disabled_title">Uitgeschakeld</string>
+  <string name="suggested_edits_ip_blocked_title">IP geblokkeerd</string>
   <string name="suggested_edits_last_edited">Laatste bewerking:</string>
   <string name="suggested_edits_last_edited_never">Nooit</string>
   <string name="suggested_edits_task_new">nieuw</string>
@@ -758,6 +761,7 @@
   </plurals>
   <string name="suggested_edits_contribution_date_yesterday_text">Gisteren</string>
   <string name="suggested_edits_rewards_continue_button">Doorgaan</string>
+  <string name="suggested_edits_encourage_account_creation_title">Wist u dat iedereen Wikipedia kan bewerken?</string>
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="one">%1$s label</item>
     <item quantity="other">%1$s labels</item>

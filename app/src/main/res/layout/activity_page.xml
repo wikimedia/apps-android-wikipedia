@@ -30,9 +30,7 @@
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/page_toolbar"
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:theme="@style/PageToolbarTheme"
-                app:titleTextColor="?attr/toolbar_icon_color">
+                android:layout_height="?attr/actionBarSize">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -80,7 +78,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="top"
                 android:layout_marginTop="-7dp"
-                android:max="10000" />
+                android:indeterminate="true" />
 
         </FrameLayout>
 
