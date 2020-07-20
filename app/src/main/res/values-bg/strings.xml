@@ -24,7 +24,7 @@
   <string name="search_hint_search_languages">Търсене на език</string>
   <string name="search_hint_search_my_lists_and_articles">Търсене в моите списъци и статии</string>
   <string name="nav_item_history">История</string>
-  <string name="nav_item_suggested_edits" fuzzy="true">Предложени редакции</string>
+  <string name="nav_item_suggested_edits">Редакции</string>
   <string name="nav_item_more">Още</string>
   <string name="error_network_error">Няма връзка с интернет.</string>
   <string name="page_error_retry">Опитайте отново</string>
@@ -415,6 +415,8 @@
   <string name="reading_lists_sync_reminder_action">Включване на синхронизиране</string>
   <string name="reading_list_login_reminder_title">Синхронизация на списъците за четене</string>
   <string name="reading_lists_login_reminder_text">Списъците за четене вече могат да се синхронизират между устройства. Влезте в сметката си в Уикипедия, за да позволите съхранението на списъците си.</string>
+  <string name="reading_lists_login_button">Влизане в / присъединяване към Уикипедия</string>
+  <string name="reading_lists_ignore_button">Не сега</string>
   <string name="reading_lists_confirm_remote_delete_yes">Да</string>
   <string name="reading_lists_confirm_remote_delete_no">Не</string>
   <string name="reading_list_article_save_in_progress">Статията се изтегля и ще бъде налична офлайн, когато е готова.</string>
@@ -711,7 +713,7 @@
   <string name="suggested_edits_contribution_language_label">Език</string>
   <string name="suggested_edits_contribution_date_time_label">Дата / Час</string>
   <string name="suggested_edits_contribution_type_label">Вид принос</string>
-  <string name="suggested_edits_contribution_image_label" fuzzy="true">Файл</string>
+  <string name="suggested_edits_contribution_image_label">Изображение</string>
   <string name="suggested_edits_contribution_article_label">Статия</string>
   <string name="suggested_edits_contribution_views">%s прочита</string>
   <string name="suggested_edits_contribution_seen_text">Видяно %s пъти през последните 30 дни.</string>

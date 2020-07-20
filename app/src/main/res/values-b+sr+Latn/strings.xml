@@ -2,6 +2,7 @@
 <!-- Authors:
 * Abijeet Patro
 * Patriccck
+* Srđan
 -->
 <resources>
   <string name="app_name_prod">Vikipedija</string>
@@ -10,7 +11,7 @@
   <string name="wikimedia">Vikimedija</string>
   <string name="nav_item_back">Nazad</string>
   <string name="page_tabs_back">Nazad</string>
-  <string name="nav_item_forward">Prosledi</string>
+  <string name="nav_item_forward">Napred</string>
   <string name="search_hint">Pretražite Vikipediju</string>
   <string name="search_hint_voice_search">Pretraživanje pomoću glasovnog unosa</string>
   <string name="search_hint_search_history">Istorija pretrage</string>
