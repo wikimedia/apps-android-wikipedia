@@ -36,9 +36,11 @@ import org.wikipedia.Constants.InvokeSource;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.BaseActivity;
+import org.wikipedia.analytics.ABTestSuggestedEditsSnackbarFunnel;
 import org.wikipedia.analytics.IntentFunnel;
 import org.wikipedia.analytics.LinkPreviewFunnel;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.descriptions.DescriptionEditActivity;
 import org.wikipedia.descriptions.DescriptionEditRevertHelpView;
 import org.wikipedia.events.ArticleSavedOrDeletedEvent;
 import org.wikipedia.events.ChangeTextSizeEvent;
@@ -673,10 +675,19 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
                 && resultCode == RESULT_OK) {
             pageFragment.refreshPage();
             String editLanguage = StringUtils.defaultString(pageFragment.getLeadImageEditLang(), app.language().getAppLanguageCode());
-            FeedbackUtil.makeSnackbar(this, data.getSerializableExtra(INTENT_EXTRA_ACTION) == ADD_CAPTION
+            DescriptionEditActivity.Action action = (DescriptionEditActivity.Action) data.getSerializableExtra(INTENT_EXTRA_ACTION);
+            ABTestSuggestedEditsSnackbarFunnel funnel = new ABTestSuggestedEditsSnackbarFunnel();
+            FeedbackUtil.makeSnackbar(this, action == ADD_CAPTION
                     ? getString(R.string.description_edit_success_saved_image_caption_snackbar)
                     : getString(R.string.description_edit_success_saved_image_caption_in_lang_snackbar, app.language().getAppLanguageLocalizedName(editLanguage)), FeedbackUtil.LENGTH_DEFAULT)
-                    .setAction(R.string.suggested_edits_article_cta_snackbar_action, v -> pageFragment.openImageInGallery(editLanguage)).show();
+                    .setAction(funnel.shouldSeeSnackbarAction() ? R.string.nav_item_more : R.string.suggested_edits_article_cta_snackbar_action, v -> {
+                        if (funnel.shouldSeeSnackbarAction()) {
+                            pageFragment.startSuggestedEditsCardsActivity(action);
+                        } else {
+                            pageFragment.openImageInGallery(editLanguage);
+                        }
+                    }).show();
+            funnel.logSnackbarShown();
         } else {
             super.onActivityResult(requestCode, resultCode, data);
         }

@@ -29,10 +29,13 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager2.widget.ViewPager2;
 
+import com.google.android.material.snackbar.Snackbar;
+
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.BaseActivity;
+import org.wikipedia.analytics.ABTestSuggestedEditsSnackbarFunnel;
 import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.dataclient.Service;
@@ -49,6 +52,7 @@ import org.wikipedia.page.LinkMovementMethodExt;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.linkpreview.LinkPreviewDialog;
+import org.wikipedia.suggestededits.SuggestedEditsCardsActivity;
 import org.wikipedia.suggestededits.SuggestedEditsSummary;
 import org.wikipedia.theme.Theme;
 import org.wikipedia.util.ClipboardUtil;
@@ -315,9 +319,17 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     public void onActivityResult(int requestCode, int resultCode, final Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == ACTIVITY_REQUEST_DESCRIPTION_EDIT && resultCode == RESULT_OK) {
-            FeedbackUtil.showMessage(this, data.getSerializableExtra(INTENT_EXTRA_ACTION) == ADD_CAPTION
+            ABTestSuggestedEditsSnackbarFunnel funnel = new ABTestSuggestedEditsSnackbarFunnel();
+            DescriptionEditActivity.Action action = (DescriptionEditActivity.Action) data.getSerializableExtra(INTENT_EXTRA_ACTION);
+            Snackbar snackbar = FeedbackUtil.makeSnackbar(this, action == ADD_CAPTION
                     ? getString(R.string.description_edit_success_saved_image_caption_snackbar)
-                    : getString(R.string.description_edit_success_saved_image_caption_in_lang_snackbar, app.language().getAppLanguageLocalizedName(targetLanguageCode)));
+                    : getString(R.string.description_edit_success_saved_image_caption_in_lang_snackbar, app.language().getAppLanguageLocalizedName(targetLanguageCode)),
+                    FeedbackUtil.LENGTH_DEFAULT);
+            if (funnel.shouldSeeSnackbarAction() && action != null) {
+                snackbar.setAction(R.string.nav_item_more, view -> startActivity(SuggestedEditsCardsActivity.Companion.newIntent(this, action)));
+            }
+            snackbar.show();
+            funnel.logSnackbarShown();
             layOutGalleryDescription();
             setResult(ACTIVITY_RESULT_IMAGE_CAPTION_ADDED);
         }

@@ -44,6 +44,7 @@ import org.wikipedia.LongPressHandler;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
+import org.wikipedia.analytics.ABTestSuggestedEditsSnackbarFunnel;
 import org.wikipedia.analytics.FindInPageFunnel;
 import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.analytics.LoginFunnel;
@@ -83,6 +84,7 @@ import org.wikipedia.readinglist.ReadingListBookmarkMenu;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.settings.Prefs;
+import org.wikipedia.suggestededits.SuggestedEditsCardsActivity;
 import org.wikipedia.suggestededits.SuggestedEditsSummary;
 import org.wikipedia.theme.ThemeChooserDialog;
 import org.wikipedia.util.ActiveTimer;
@@ -829,7 +831,13 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         } else if (requestCode == Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT
                 && resultCode == RESULT_OK) {
             refreshPage();
-            FeedbackUtil.showMessage(requireActivity(), R.string.description_edit_success_saved_snackbar);
+            ABTestSuggestedEditsSnackbarFunnel funnel = new ABTestSuggestedEditsSnackbarFunnel();
+            Snackbar snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.description_edit_success_saved_snackbar), FeedbackUtil.LENGTH_DEFAULT);
+            if (funnel.shouldSeeSnackbarAction()) {
+                snackbar.setAction(R.string.nav_item_more, view -> startSuggestedEditsCardsActivity(ADD_DESCRIPTION));
+            }
+            snackbar.show();
+            funnel.logSnackbarShown();
         }
     }
 
@@ -1163,6 +1171,10 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             snackbar.setAction(R.string.gallery_not_available_offline_snackbar_dismiss, view -> snackbar.dismiss());
             snackbar.show();
         }
+    }
+
+    public void startSuggestedEditsCardsActivity(@NonNull DescriptionEditActivity.Action action) {
+        startActivity(SuggestedEditsCardsActivity.Companion.newIntent(requireActivity(), action));
     }
 
     /**
