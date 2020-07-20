@@ -339,7 +339,7 @@
         <item name="android:textAlignment">center</item>
         <item name="android:textSize">20sp</item>
         <item name="android:lineSpacingExtra">8sp</item>
-        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textStyle">bold</item>
         <item name="android:textColor">?attr/material_theme_primary_color</item>
     </style>
 
