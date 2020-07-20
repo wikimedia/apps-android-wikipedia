@@ -447,6 +447,9 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
 
             public void onPageFinished(WebView view, String url) {
                 bridge.evaluateImmediate("(function() { return (typeof pcs !== 'undefined'); })();", pcsExists -> {
+                    if (!isAdded()) {
+                        return;
+                    }
                     // TODO: This is a bit of a hack: If PCS does not exist in the current page, then
                     // it's implied that this page was loaded via Mobile Web (e.g. the Main Page) and
                     // doesn't support PCS, meaning that we will never receive the `setup` event that
