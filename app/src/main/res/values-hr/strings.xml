@@ -26,7 +26,7 @@
   <string name="search_hint_search_languages">Pretraga jezika</string>
   <string name="search_hint_search_my_lists_and_articles">Pretraga mojih popisa i članaka</string>
   <string name="nav_item_history">Povijest</string>
-  <string name="nav_item_suggested_edits" fuzzy="true">Predložena uređivanja</string>
+  <string name="nav_item_suggested_edits">Uređivanjā</string>
   <string name="nav_item_more">Više</string>
   <string name="error_network_error">Nije moguće spojiti se na internet.</string>
   <string name="page_error_retry">Pokušaj ponovo</string>
