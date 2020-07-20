@@ -187,7 +187,6 @@
   <string name="preference_title_notification_revert">Кире кайтару</string>
   <string name="view_continue_reading_card_subtitle_today">бүген</string>
   <string name="view_announcement_card_negative_action">Юк, рәхмәт</string>
-  <string name="onboarding_negative_action">Юк, рәхмәт</string>
   <string name="view_featured_article_footer_save_button_label">Саклау</string>
   <string name="view_static_card_save_button_label">Саклау</string>
   <string name="view_featured_article_footer_saved_button_label">Сакланган</string>
