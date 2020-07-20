@@ -11,6 +11,7 @@
 * Rasal Lia
 * Sandipan
 * Sayma Jahan
+* Sibabrata Banerjee
 * Sourav Halder
 * Tahmid02016
 * Tauhid16
@@ -33,7 +34,7 @@
   <string name="search_hint_search_languages">একটি ভাষার জন্য অনুসন্ধান করুন</string>
   <string name="search_hint_search_my_lists_and_articles">আমার তালিকা এবং নিবন্ধে সন্ধান করুন</string>
   <string name="nav_item_history">ইতিহাস</string>
-  <string name="nav_item_suggested_edits" fuzzy="true">পরামর্শকৃত সম্পাদনা</string>
+  <string name="nav_item_suggested_edits">সম্পাদনা</string>
   <string name="nav_item_more">আরও</string>
   <string name="error_network_error">ইন্টারনেটের সাথে সংযোগ করা যাবে না।</string>
   <string name="page_error_retry">পুনঃচেষ্টা করুন</string>
@@ -395,6 +396,8 @@
   <string name="reading_list_confirm_remove_article_from_offline">অফলাইন থেকে সরান</string>
   <string name="reading_list_confirm_remove_article_from_offline_title">একাধিক তালিকাতে নিবন্ধটি আছে</string>
   <string name="reading_list_confirm_remove_article_from_offline_message">এই সব পড়ার তালিকার জন্য %s আর অফলাইনে উপলব্ধ হবে না:</string>
+  <string name="reading_lists_login_button">উইকিপিডিয়াতে প্রবেশ করুন/যোগ দিন</string>
+  <string name="reading_lists_ignore_button">এখন নয়</string>
   <string name="reading_lists_confirm_remote_delete_yes">হ্যাঁ</string>
   <string name="reading_lists_confirm_remote_delete_no">না</string>
   <string name="reading_list_articles_added_to_named">%2$s-এ %1$dটি নিবন্ধ যোগ হয়েছে</string>
@@ -549,8 +552,17 @@
   <string name="suggested_edits_snackbar_survey_text">আপনার সম্পাদনার অভিজ্ঞতা কেমন ছিল? অ্যাপ্লিকেশন সম্পাদনা সম্পর্কে এই জরিপে দয়া করে অংশ নিন।</string>
   <string name="suggested_edits_snackbar_survey_action_text">জরিপে অংশ নিন</string>
   <string name="suggested_edits_task_action_text_translate">অনুবাদ করুন</string>
+  <string name="suggested_edits_onboarding_message">&lt;b&gt;প্রিয় %s&lt;/b&gt;, নীচে উইকিপিডিয়াকে সমৃদ্ধ করার জন্য তাড়াতাড়ি করা যায় এমন কিছু সহজ উপায় দেওয়া আছে। শুরু করার পরে আপনি জানতে পারবেন যে এখানে আপনার অবদান কতটা অমূল্য। সম্পাদনা শুভ হোক!</string>
+  <string name="suggested_edits_paused_message">পরামর্শকৃত সম্পাদনা %1$s অবধি বিরত রাখা হয়েছে। দুঃখিত %2$s, আপনার সাম্প্রতিক সম্পাদনাগুলির কয়েকটি প্রত্যাবর্তন করা হয়েছে।</string>
+  <string name="suggested_edits_disabled_message">পরামর্শকৃত সম্পাদনা নিষ্ক্রিয় করা হয়েছে। দুঃখিত %s, আপনার সাম্প্রতিক সম্পাদনাগুলির অনেকগুলো প্রত্যাবর্তন করা হয়েছে।</string>
+  <string name="suggested_edits_ip_blocked_message">মনে হচ্ছে যে আপনার আইপি ঠিকানা (অথবা আইপি ঠিকানার রেঞ্জটি) কে উইকিপিডিয়াতে সম্পাদনা করা থেকে বাধাদান করা হয়েছে।</string>
   <string name="suggested_edits_views_label_text">টি পরিদর্শন</string>
+  <string name="suggested_edits_label">পরামর্শকৃত সম্পাদনা</string>
+  <string name="suggested_edits_what_is_title">পরামর্শকৃত সম্পাদনা কী?</string>
+  <string name="suggested_edits_what_is_text">পরামর্শকৃত সম্পাদনা উইকিপিডিয়াতে ছোট কিন্তু গুরুত্বপূর্ণ অবদান রাখার সুযোগ দেয়।</string>
   <string name="suggested_edits_learn_more">আরও জানুন</string>
+  <string name="suggested_edits_paused_title">থামানো হয়েছে</string>
+  <string name="suggested_edits_disabled_title">নিস্ক্রিয় করা হয়েছে</string>
   <string name="suggested_edits_ip_blocked_title">আইপি বাধাপ্রাপ্ত</string>
   <string name="suggested_edits_last_edited_never">কখনো না</string>
   <string name="suggested_edits_task_new">নতুন</string>
@@ -559,6 +571,7 @@
   <string name="suggested_edits_contribution_date_time_label">তারিখ / সময়</string>
   <string name="suggested_edits_contribution_image_label">চিত্র</string>
   <string name="suggested_edits_contribution_article_label">নিবন্ধ</string>
+  <string name="suggested_edits_encourage_account_creation_message">পরামর্শকৃত সম্পাদনা হল অ্যান্ড্রয়েডে উইকিপিডিয়া সম্পাদনা করার একটি নতুন উপায়। এটি আপনাকে উইকিপিডিয়ায় একটি ছোট কিন্তু গুরুত্বপূর্ণ অবদান রাখতে সাহায্য করে।\nআমাদের লক্ষ্য হল উইকিপিডিয়াতে সম্পাদনা সবার জন্য সহজ ও সুলভ করা! শুরু করার জন্য উইকিপিডিয়াতে প্রবেশ অথবা যোগদান করুন।</string>
   <string name="suggested_edits_encourage_account_creation_login_button">উইকিপিডিয়াতে প্রবেশ করুন / যোগ দিন</string>
   <plurals name="suggested_edits_contribution_diff_count_text">
     <item quantity="one">%1$sটি অক্ষর</item>
@@ -629,6 +642,7 @@
   <string name="wikitext_template">টেমপ্লেট</string>
   <string name="main_drawer_help">সাহায্য</string>
   <string name="main_drawer_login">উইকিপিডিয়াতে প্রবেশ করুন/যোগ দিন</string>
+  <string name="main_tooltip_text_v2">আপনি কি জানেন যে যে-কেউ উইকিপিডিয়া সম্পাদনা করতে পারে?</string>
   <string name="custom_date_picker_dialog_ok_button_text">ঠিক আছে</string>
   <string name="text_input_dialog_ok_button_text">ঠিক আছে</string>
   <string name="text_input_dialog_cancel_button_text">বাতিল</string>

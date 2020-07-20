@@ -817,7 +817,7 @@
   <string name="suggested_edits_rewards_edit_quality">Vos modifications jusqu’à présent sont %s. Continuez ! Nous attendons vos contributions.</string>
   <string name="suggested_edits_rewards_continue_button">Poursuivre</string>
   <string name="suggested_edits_encourage_account_creation_title">Savez-vous que chacun peut modifier Wikipédia ?</string>
-  <string name="suggested_edits_encourage_account_creation_message">Modifications suggérées est une nouvelle façon de modifier Wikipédia sur Android. Il aide à faire de petites contributions vitales à Wikipédia. Notre but est de rendre les modifications plus faciles et plus accessibles à tout le monde ! Connectez-vous ou rejoignez Wikipédia pour démarrer.</string>
+  <string name="suggested_edits_encourage_account_creation_message">Les modifications suggérées sont une nouvelle façon de modifier Wikipédia sur Android. Elles vous aident à faire des contributions petites mais vitales pour Wikipédia. \nNotre but est de rendre les modifications plus faciles et plus accessibles à chacun ! Connectez-vous ou rejoignez Wikipédia pour commencer.</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Se connecter / rejoindre Wikiipédia</string>
   <string name="suggested_edits_contribution_type_image_tag">Balise d’image</string>
   <string name="suggested_edits_contribution_current_revision_text">Votre édition est actuellement visible sur Wikipédia</string>
