@@ -609,7 +609,6 @@
   <string name="view_continue_reading_card_subtitle_today">сегодня</string>
   <string name="view_continue_reading_card_subtitle_read_date">Прочитано %s</string>
   <string name="view_announcement_card_negative_action">Нет, спасибо</string>
-  <string name="onboarding_negative_action">Нет, спасибо</string>
   <string name="view_offline_card_text">Содержимое не может быть загружено в автономном режиме.</string>
   <string name="view_featured_article_card_title">Избранная статья</string>
   <string name="view_featured_article_footer_save_button_label">Сохранить</string>

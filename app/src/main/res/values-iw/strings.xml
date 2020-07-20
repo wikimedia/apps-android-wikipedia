@@ -595,7 +595,6 @@
   <string name="view_continue_reading_card_subtitle_today">היום</string>
   <string name="view_continue_reading_card_subtitle_read_date">נקרא %s</string>
   <string name="view_announcement_card_negative_action">לא, תודה</string>
-  <string name="onboarding_negative_action">לא תודה</string>
   <string name="view_offline_card_text">לא ניתן לטעון את התוכן ללא חיבור לרשת.</string>
   <string name="view_featured_article_card_title">ערך מומלץ</string>
   <string name="view_featured_article_footer_save_button_label">שמירה</string>
