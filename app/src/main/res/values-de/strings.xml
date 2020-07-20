@@ -566,7 +566,6 @@
   <string name="view_continue_reading_card_subtitle_today">Heute</string>
   <string name="view_continue_reading_card_subtitle_read_date">%s gelesen</string>
   <string name="view_announcement_card_negative_action">Nein, danke</string>
-  <string name="onboarding_negative_action">Nein, danke</string>
   <string name="view_offline_card_text">Der Inhalt kann nicht geladen werden, während du offline bist.</string>
   <string name="view_featured_article_card_title">Vorgestellter Artikel</string>
   <string name="view_featured_article_footer_save_button_label">Speichern</string>
@@ -701,7 +700,6 @@
   <string name="suggested_edits_image_tags_onboarding_title" fuzzy="true">Taggen Sie Bilder, um sie für andere leichter auffindbar zu machen</string>
   <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">Durch Bestätigen von vorgeschlagenen Tags können Sie die Suche nach Bildern vereinfachen.\n\nTags werden vom Computer vorgeschlagen, müssen jedoch von Menschen validiert werden, um die Genauigkeit sicherzustellen.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Nur die von Ihnen ausgewählten Tags werden zu den Bildern hinzugefügt.</string>
-  <string name="suggested_edits_image_tags_snackbar">Taggen Sie Bilder, um sie für andere leichter auffindbar zu machen</string>
   <string name="suggested_edits_image_tags_task_detail" fuzzy="true">Taggen Sie Bilder, um sie für andere leichter auffindbar zu machen. Um die Genauigkeit sicherzustellen, müssen Menschen die vom Computer vorgeschlagenen Tags validieren.</string>
   <string name="suggested_edits_image_tags_choose" fuzzy="true">Wählen Sie übereinstimmende Tags aus</string>
   <string name="suggested_edits_image_tags_search">Tags durchsuchen</string>

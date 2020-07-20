@@ -4,6 +4,7 @@
 * Abijeet Patro
 * Aefgh39622
 * Afaz
+* Bonfire12
 * Buntschann
 * Dbrant
 * GAMEZONE628
@@ -47,7 +48,7 @@
   <string name="search_hint_search_languages">言語を検索</string>
   <string name="search_hint_search_my_lists_and_articles">あとで読むリストと記事を検索</string>
   <string name="nav_item_history">履歴</string>
-  <string name="nav_item_suggested_edits" fuzzy="true">提案された編集</string>
+  <string name="nav_item_suggested_edits">編集</string>
   <string name="nav_item_more">もっと見る</string>
   <string name="error_network_error">インターネットに接続できません。</string>
   <string name="page_error_retry">再試行</string>
@@ -592,7 +593,6 @@
   <string name="view_continue_reading_card_subtitle_today">今日</string>
   <string name="view_continue_reading_card_subtitle_read_date">%s閲覧</string>
   <string name="view_announcement_card_negative_action">いいえ</string>
-  <string name="onboarding_negative_action">不要です</string>
   <string name="view_offline_card_text">オフラインではコンテンツが読み込めません。</string>
   <string name="view_featured_article_card_title">秀逸な記事</string>
   <string name="view_featured_article_footer_save_button_label">保存</string>
@@ -730,7 +730,6 @@
   <string name="suggested_edits_image_tags_published">公開されました</string>
   <string name="suggested_edits_image_tags_onboarding_text">画像にタグを追加すると、画像がコモンズで検索にヒットしやすくなります。コモンズは、ウィキペディアが記事に使用する画像をまとめたフリーライセンスの画像保存庫です。</string>
   <string name="suggested_edits_image_tags_onboarding_note">あなたが確認したタグのみ画像に追加されます。</string>
-  <string name="suggested_edits_image_tags_snackbar">画像タグを追加して、他の利用者が探しやすくなります。</string>
   <string name="suggested_edits_image_tags_task_detail">画像がもっと見つかりやすくなるよう、固有のタグを追加してください。</string>
   <string name="suggested_edits_image_tags_search">タグを検索</string>
   <string name="suggested_edits_image_tags_select_title">この画像のタグを選択していません</string>
@@ -755,6 +754,7 @@
   <string name="suggested_edits_quality_sufficient_text">最低限</string>
   <string name="suggested_edits_quality_poor_text">よくない</string>
   <string name="suggested_edits_quality_bad_text">悪い</string>
+  <string name="suggested_edits_label">編集提案</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">貢献</item>
     <item quantity="other">貢献</item>
@@ -772,6 +772,7 @@
   <string name="suggested_edits_reactivation_notification_title">提案された編集</string>
   <string name="suggested_edits_contribution_language_label">言語</string>
   <string name="suggested_edits_contribution_date_time_label">日付 / 時刻</string>
+  <string name="suggested_edits_contribution_image_label">画像</string>
   <string name="description_edit_revert_subtitle">ウィキペディアを編集していただきありがとうございます！</string>
   <string name="description_edit_revert_intro">あなたがベストを尽くそうとしたのはよく分かりますが、レビュアーは懸念を持ったようです。あなたの編集が差し戻された理由としては、以下のような可能性があります。</string>
   <string name="description_edit_revert_reason1">あなたの投稿が&lt;a href=\"%1$s\"&gt;ガイドライン&lt;/a&gt;に沿っていなかった。</string>

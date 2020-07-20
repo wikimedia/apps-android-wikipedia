@@ -552,7 +552,6 @@
   <string name="view_continue_reading_card_subtitle_today">hoxe</string>
   <string name="view_continue_reading_card_subtitle_read_date">Lido %s</string>
   <string name="view_announcement_card_negative_action">Non, grazas</string>
-  <string name="onboarding_negative_action">Non, grazas</string>
   <string name="view_offline_card_text">Non se pode cargar contido cando non hai conexión.</string>
   <string name="view_featured_article_card_title">Artigo destacado</string>
   <string name="view_featured_article_footer_save_button_label">Gardar</string>

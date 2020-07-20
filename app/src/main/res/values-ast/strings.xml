@@ -553,7 +553,6 @@
   <string name="view_continue_reading_card_subtitle_today">güei</string>
   <string name="view_continue_reading_card_subtitle_read_date">Lleíu %s</string>
   <string name="view_announcement_card_negative_action">Non, gracies</string>
-  <string name="onboarding_negative_action">Non, gracies</string>
   <string name="view_offline_card_text">Nun puede cargase conteníu cuando nun hai conexón</string>
   <string name="view_featured_article_card_title">Artículu destacáu</string>
   <string name="view_featured_article_footer_save_button_label">Guardar</string>
@@ -691,7 +690,6 @@
   <string name="suggested_edits_image_tags_onboarding_title">Etiquetar les imáxenes failes más fáciles d\'alcontrar.</string>
   <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">Al amestar etiquetes d\'imaxe, ayudes a que sía más fácil buscales en Commons, el depósitu d\'imáxenes de llicencia llibre que Wikipedia usa pa les imáxenes de los artículos.\n\nSuxerimos automáticamente delles etiquetes, y tamién pues amestar les tuyes propies.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Solo les etiquetes qu\'escueyas van añadise a les imáxenes.</string>
-  <string name="suggested_edits_image_tags_snackbar">Etiqueta les imáxenes pa facilitar la so busca.</string>
   <string name="suggested_edits_image_tags_task_detail" fuzzy="true">Etiqueta les imáxenes pa facilitar que les alcuentren. Seleiciona dende les etiquetes suxeríes o amiesta les tuyes propies.</string>
   <string name="suggested_edits_image_tags_choose">Añadir o escoyer etiquetes que casen</string>
   <string name="suggested_edits_image_tags_published_list">Etiquetes publicaes</string>

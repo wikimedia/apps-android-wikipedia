@@ -497,7 +497,6 @@
   <string name="view_continue_reading_card_subtitle_today">اڄ</string>
   <string name="view_continue_reading_card_subtitle_read_date">%s پڙھو</string>
   <string name="view_announcement_card_negative_action">نہ مھرباني</string>
-  <string name="onboarding_negative_action">نہ مھرباني</string>
   <string name="view_offline_card_text">آفلائين ھجڻ مھل مواد نٿو لاھي سگھجي.</string>
   <string name="view_featured_article_card_title">چونڊ مضمون</string>
   <string name="view_featured_article_footer_save_button_label">سانڍيو</string>

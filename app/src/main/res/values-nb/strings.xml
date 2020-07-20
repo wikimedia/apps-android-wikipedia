@@ -562,7 +562,6 @@
   <string name="view_continue_reading_card_subtitle_today">i dag</string>
   <string name="view_continue_reading_card_subtitle_read_date">Lest %s</string>
   <string name="view_announcement_card_negative_action">Nei takk</string>
-  <string name="onboarding_negative_action">Nei takk</string>
   <string name="view_offline_card_text">Innholdet kan ikke lastes når du er offline.</string>
   <string name="view_featured_article_card_title">Utvalgt artikkel</string>
   <string name="view_featured_article_footer_save_button_label">Lagre</string>
@@ -677,7 +676,7 @@
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Bildetekst (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Beskrivelse av bildet (%s)</string>
   <string name="suggested_edits_image_preview_dialog_file">Fil</string>
-  <string name="suggested_edits_image_preview_dialog_artist">Kunstner</string>
+  <string name="suggested_edits_image_preview_dialog_artist">Skaper/frembringer</string>
   <string name="suggested_edits_image_preview_dialog_date">Dato</string>
   <string name="suggested_edits_image_preview_dialog_source">Kilde/fotograf</string>
   <string name="suggested_edits_image_preview_dialog_licensing">Lisensiering</string>

@@ -566,7 +566,6 @@
   <string name="view_continue_reading_card_subtitle_today">денес</string>
   <string name="view_continue_reading_card_subtitle_read_date">Прочитано %s</string>
   <string name="view_announcement_card_negative_action">Не, благодарам</string>
-  <string name="onboarding_negative_action">Не, благодарам</string>
   <string name="view_offline_card_text">Содржината не може да се вчита додека не сте на линија.</string>
   <string name="view_featured_article_card_title">Избрана статија</string>
   <string name="view_featured_article_footer_save_button_label">Зачувај</string>
@@ -707,7 +706,6 @@
   <string name="suggested_edits_image_tags_onboarding_title">Означувањето на сликите ги прави полесни за наоѓање.</string>
   <string name="suggested_edits_image_tags_onboarding_text">Потврдувајќи ги предложените ознаки, им помагате на другите полесно да ги најдат сликите во пребарување на Ризницата, складот на слободно лиценцирани слики кој го користи Википедија за нејзините сликовни содржини.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Кон сликите ќе се додадат само ознаки кои сте ги избрале вие.</string>
-  <string name="suggested_edits_image_tags_snackbar">Означете ги сликите за да можат полесно да се пронаоѓаат.</string>
   <string name="suggested_edits_image_tags_task_detail">Ставете ѝ ваши ознаки на сликата за да може полесно да се пронаоѓа.</string>
   <string name="suggested_edits_image_tags_choose">Додајте или изберете соодветни ознаки</string>
   <string name="suggested_edits_image_tags_published_list">Објавени ознаки</string>

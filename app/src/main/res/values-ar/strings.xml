@@ -579,7 +579,6 @@
   <string name="view_continue_reading_card_subtitle_today">اليوم</string>
   <string name="view_continue_reading_card_subtitle_read_date">قرأت %s</string>
   <string name="view_announcement_card_negative_action">لا شكرًا</string>
-  <string name="onboarding_negative_action">لا شكرا</string>
   <string name="view_offline_card_text">لا يمكن تحميل المحتوى في وضع عدم الاتصال.</string>
   <string name="view_featured_article_card_title">مقالة مختارة</string>
   <string name="view_featured_article_footer_save_button_label">حفظ</string>
@@ -719,7 +718,6 @@
   <string name="suggested_edits_image_tags_onboarding_title">يسهل وسم الصور العثور عليها.</string>
   <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">لقد اقترحنا تلقائيًا بعض الأوسمة، ويمكنك أيضًا إضافة الأوسمة الخاصة بك.</string>
   <string name="suggested_edits_image_tags_onboarding_note">ستتم إضافة الأوسمة التي توافق عليها فقط إلى الصور.</string>
-  <string name="suggested_edits_image_tags_snackbar">أضف أوسمة على الصور لتُسهل على الآخرين العثور عليها.</string>
   <string name="suggested_edits_image_tags_task_detail" fuzzy="true">ضع وسمًا على الصور لتسهيل العثور عليها. اختر من الأوسمة المقترحة أو أضف الأوسمة الخاصة بك.</string>
   <string name="suggested_edits_image_tags_choose">أضف أو اختر الأوسمة المطابقة</string>
   <string name="suggested_edits_image_tags_published_list">وسوم منشورة</string>

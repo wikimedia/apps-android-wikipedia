@@ -13,6 +13,7 @@
 * Prevodim
 * Rancher
 * Srdjan m
+* Srđan
 * Zoranzoki21
 * Милан Јелисавчић
 * Сербијана
@@ -24,7 +25,7 @@
   <string name="wikimedia">Викимедија</string>
   <string name="nav_item_back">Назад</string>
   <string name="page_tabs_back">Назад</string>
-  <string name="nav_item_forward">Проследи</string>
+  <string name="nav_item_forward">Напред</string>
   <string name="search_hint">Претражите Википедију</string>
   <string name="search_hint_voice_search">Претрага гласом</string>
   <string name="search_hint_search_history">Историја претраге</string>
@@ -572,7 +573,6 @@
   <string name="view_continue_reading_card_subtitle_today">данас</string>
   <string name="view_continue_reading_card_subtitle_read_date">Прочитано %s</string>
   <string name="view_announcement_card_negative_action">Не, хвала</string>
-  <string name="onboarding_negative_action">Не, хвала</string>
   <string name="view_offline_card_text">Садржај се не може учитати када сте офлајн.</string>
   <string name="view_featured_article_card_title">Сјајан чланак</string>
   <string name="view_featured_article_footer_save_button_label">Сачувај</string>

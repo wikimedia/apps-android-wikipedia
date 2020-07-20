@@ -581,7 +581,6 @@
   <string name="view_continue_reading_card_subtitle_today">astăzi</string>
   <string name="view_continue_reading_card_subtitle_read_date">Citește %s</string>
   <string name="view_announcement_card_negative_action">Nu mulţumesc</string>
-  <string name="onboarding_negative_action">Nu mulţumesc</string>
   <string name="view_offline_card_text">Conținutul nu poate fi incărcat in modul offline.</string>
   <string name="view_featured_article_card_title">Articol de calitate</string>
   <string name="view_featured_article_footer_save_button_label">Salvează</string>
@@ -722,7 +721,6 @@
   <string name="suggested_edits_image_tags_onboarding_title">Etichetarea imaginilor le face mai ușor de găsit.</string>
   <string name="suggested_edits_image_tags_onboarding_text">Prin adăugarea de etichete de imagine, veți ajuta să faceți mai ușor căutarea imaginilor pe Commons, depozitul gratuit de imagini pe licență pe care Wikipedia îl folosește pentru imaginile din articolele sale.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Doar etichetele pe care le alegeți vor fi adăugate la imagini.</string>
-  <string name="suggested_edits_image_tags_snackbar">Adăugați etichete imagine pentru a le găsi mai ușor pentru alții.</string>
   <string name="suggested_edits_image_tags_task_detail">Adăugați etichete personalizate la o imagine pentru a fi mai ușor de găsit.</string>
   <string name="suggested_edits_image_tags_choose">Adăugați sau alegeți etichete potrivite</string>
   <string name="suggested_edits_image_tags_published_list">Etichete publicate</string>

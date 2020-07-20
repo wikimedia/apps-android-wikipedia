@@ -579,7 +579,6 @@
   <string name="view_continue_reading_card_subtitle_today">오늘</string>
   <string name="view_continue_reading_card_subtitle_read_date">%s 읽음</string>
   <string name="view_announcement_card_negative_action">괜찮습니다</string>
-  <string name="onboarding_negative_action">괜찮습니다</string>
   <string name="view_offline_card_text">오프라인 상태에서는 내용을 불러올 수 없습니다.</string>
   <string name="view_featured_article_card_title">알찬 글</string>
   <string name="view_featured_article_footer_save_button_label">저장</string>
@@ -720,7 +719,6 @@
   <string name="suggested_edits_image_tags_onboarding_title">태그를 지정하면 이미지를 더 쉽게 찾을 수 있습니다.</string>
   <string name="suggested_edits_image_tags_onboarding_text">이미지 태그를 추가함으로써 위키백과가 문서의 이미지에 사용하는 자유 라이선스 파일 저장소인 위키미디어 공용 에서 이미지를 더 쉽게 검색할 수 있도록 도울 것입니다.</string>
   <string name="suggested_edits_image_tags_onboarding_note">선택한 태그만 이미지에 추가됩니다.</string>
-  <string name="suggested_edits_image_tags_snackbar">다른 사람이 더 쉽게 찾을 수 있도록 이미지 태그를 추가합니다.</string>
   <string name="suggested_edits_image_tags_task_detail">이미지를 더 쉽게 찾을 수 있도록 사용자 지정 태그를 추가합니다.</string>
   <string name="suggested_edits_image_tags_choose">일치하는 태그 추가 또는 선택</string>
   <string name="suggested_edits_image_tags_published_list">게시된 태그</string>

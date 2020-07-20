@@ -587,7 +587,6 @@
   <string name="view_continue_reading_card_subtitle_today">Shown on cards in the feed when the card has today\'s date. The word should be in lowercase if appropriate for the language.\n{{Identical|Today}}</string>
   <string name="view_continue_reading_card_subtitle_read_date">Subtitle for number of days passed since the article was last seen and shown on cards in the feed. Use the %s parameter to insert the number of days passed since the content (an article) was last seen.\n\nThe word \"read\" is either past tense, as in \"(you have) read (this) 4 days ago\", or a participle as in \"(this was) read (by you) 4 days ago\".</string>
   <string name="view_announcement_card_negative_action">Button label that allows the user to decline the action that this card is requesting.\n{{Identical|No thanks}}</string>
-  <string name="onboarding_negative_action">Text on negative action button on onboarding screen.\n{{Identical|No Thanks}}</string>
   <string name="view_offline_card_text">Message in the feed informing the user that additional content cannot be loaded while offline.</string>
   <string name="view_featured_article_card_title">Title shown in the Featured Article card in the Explore feed\n{{Identical|Featured article}}</string>
   <string name="view_featured_article_footer_save_button_label">Button label for saving the current featured article to a reading list, if it is not already saved.\n{{Identical|Save}}</string>
@@ -728,7 +727,6 @@
   <string name="suggested_edits_image_tags_onboarding_title">Title shown on the onboarding screen for adding tags to images.</string>
   <string name="suggested_edits_image_tags_onboarding_text">Body text of the onboarding screen for adding tags to images.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Footnote shown on the onboarding screen for adding tags to images.</string>
-  <string name="suggested_edits_image_tags_snackbar">One-time message shown to users to encourage them to start tagging images.</string>
   <string name="suggested_edits_image_tags_task_detail">Explanation for the task of adding tags to images.</string>
   <string name="suggested_edits_image_tags_choose">Short text asking the user to choose the tags that match the image.</string>
   <string name="suggested_edits_image_tags_published_list">Title for list of tags that have been published.</string>

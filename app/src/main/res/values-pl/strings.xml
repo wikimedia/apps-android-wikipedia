@@ -593,7 +593,6 @@
   <string name="view_continue_reading_card_subtitle_today">dzisiaj</string>
   <string name="view_continue_reading_card_subtitle_read_date">Czytany %s</string>
   <string name="view_announcement_card_negative_action">Nie, dziękuję</string>
-  <string name="onboarding_negative_action">Nie, dziękuję</string>
   <string name="view_offline_card_text">Treści nie można załadować w trybie offline.</string>
   <string name="view_featured_article_card_title">Wyróżniony artykuł</string>
   <string name="view_featured_article_footer_save_button_label">Zapisz</string>
@@ -743,7 +742,8 @@
   <string name="suggested_edits_image_captions_task_detail" fuzzy="true">Opisy obrazów pomagają czytelnikom w zrozumieniu ich znaczenia i kontekstu.</string>
   <string name="suggested_edits_add_descriptions_task_detail" fuzzy="true">Opisy tytułów podsumowują artykuł, aby pomóc czytelnikom w zrozumieniu tematu na pierwszy rzut oka.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip" fuzzy="true">W oparciu o ilość wycofanych edycji twojego autorstwa. Wycofane edycje: %d.</string>
-  <string name="suggested_edits_ip_blocked_message" fuzzy="true">Adres IP, którego używasz jest aktualnie zablokowany i nie możesz z niego wykonywać edycji na Wikipedii. Dowiedz się więcej o blokadach wchodząc w link poniżej.</string>
+  <string name="suggested_edits_ip_blocked_message">Wygląda na to, że twój adres IP (lub zakres adresów) jest obecnie zablokowany na Wikipedii.</string>
+  <string name="suggested_edits_editing_tips_link_text">Porady i wskazówki dotyczące edytowania</string>
   <string name="suggested_edits_views_label_text">Odsłony</string>
   <string name="suggested_edits_quality_label_text">Edycja jakości</string>
   <string name="suggested_edits_quality_perfect_text">Idealna</string>
@@ -853,6 +853,7 @@
   <string name="edit_conflict_dialog_ok_button_text">OK</string>
   <string name="reverted_edit_dialog_ok_button_text">OK</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">Anuluj</string>
+  <string name="edit_type_all">Wszystkie edycje</string>
   <string name="content_description_for_page_indicator">Strona %1$d z %2$d</string>
   <string name="wikitext_bold">Pogrubienie</string>
   <string name="wikitext_italic">Kursywa</string>
@@ -865,6 +866,7 @@
   <string name="main_drawer_help">Pomoc</string>
   <string name="main_drawer_login">Zaloguj się / dołącz do Wikipedii</string>
   <string name="main_tooltip_text">Cześć %s, czy wiesz, że każdy może edytować Wikipedię?</string>
+  <string name="main_tooltip_text_v2">Czy wiesz, że każdy może edytować Wikipedię?</string>
   <string name="main_tooltip_action_button">Rozpocznij</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_ok_button_text">OK</string>

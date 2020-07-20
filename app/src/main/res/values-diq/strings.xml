@@ -406,7 +406,6 @@
   <string name="view_continue_reading_card_subtitle_today">ewro</string>
   <string name="view_continue_reading_card_subtitle_read_date">Asayışê peyênê pela %s</string>
   <string name="view_announcement_card_negative_action">Nê, teşekur</string>
-  <string name="onboarding_negative_action">Nê, teşekur</string>
   <string name="view_featured_article_card_title">Meqaleyo weçinaye</string>
   <string name="view_featured_article_footer_save_button_label">Qeyd ke</string>
   <string name="view_static_card_save_button_label">Qeyd ke</string>

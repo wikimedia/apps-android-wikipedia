@@ -199,7 +199,7 @@
   <string name="privacy_policy_description">Integritetspolicy</string>
   <string name="terms_of_use_description">Användarvillkor</string>
   <string name="about_wikipedia_url">https://sv.wikipedia.org/wiki/Wikipedia:Om</string>
-  <string name="privacy_policy_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Privacy_policy</string>
+  <string name="privacy_policy_url">https://meta.m.wikimedia.org/wiki/Privacy_policy/sv</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/sv#Läsa_offline_och_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/sv</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
@@ -579,7 +579,6 @@
   <string name="view_continue_reading_card_subtitle_today">idag</string>
   <string name="view_continue_reading_card_subtitle_read_date">Läst %s</string>
   <string name="view_announcement_card_negative_action">Nej tack</string>
-  <string name="onboarding_negative_action">Nej, tack</string>
   <string name="view_offline_card_text">Innehåll kan inte läsas in offline.</string>
   <string name="view_featured_article_card_title">Utmärkt artikel</string>
   <string name="view_featured_article_footer_save_button_label">Spara</string>
@@ -720,7 +719,6 @@
   <string name="suggested_edits_image_tags_onboarding_title">Bildtaggar gör dem lättare att hitta.</string>
   <string name="suggested_edits_image_tags_onboarding_text">Genom att lägga till bildtaggar hjälper du till att göra det lättare att söka efter dem på Commons, det frilicenserade bildarkivet som Wikipedia använder för bilder i sina artiklar.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Endast taggar som du väljer kommer att läggas till i bilder.</string>
-  <string name="suggested_edits_image_tags_snackbar">Lägg till bildtaggar för att göra det lättare för andra att hitta bilderna.</string>
   <string name="suggested_edits_image_tags_task_detail">Lägg till anpassade taggar på en bild för att göra den enklare att hitta.</string>
   <string name="suggested_edits_image_tags_choose">Lägg till eller välj lämpliga taggar</string>
   <string name="suggested_edits_image_tags_published_list">Publicerade taggar</string>

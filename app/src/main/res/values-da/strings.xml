@@ -3,6 +3,7 @@
 * Abijeet Patro
 * Anders Feder
 * Christian List
+* Dargelf
 * Dipsacus fullonum
 * Fitoschido
 * Gorbi
@@ -117,15 +118,17 @@
   <string name="menu_login">Log på</string>
   <string name="login_activity_title">Log ind</string>
   <string name="login_in_progress_dialog_message">Logger dig på…</string>
-  <string name="login_success_toast" fuzzy="true">Du er nu logget på!</string>
+  <string name="login_success_toast">Du er nu logget ind!</string>
   <string name="reset_password_title">Sæt din adgangskode</string>
   <string name="reset_password_description">Du loggede på med en midlertidig kode. For at afslutte indlogning, angiv venligst din nye adgangskode her.</string>
   <string name="reset_password_hint">Ny adgangskode</string>
   <string name="reset_password_button">Gem og logind</string>
   <string name="preference_title_logout">Log af</string>
   <string name="toast_logout_complete">Logget af</string>
+  <string name="logout_prompt">Du vil blive logget ud fra alle enheder du er logget ind på. Vil du fortsætte?</string>
   <string name="logout_dialog_cancel_button_text">Annullér</string>
   <string name="logged_out_in_background_title">Logget af</string>
+  <string name="logged_out_in_background_dialog">Du har blevet logget ud af Wikipedia. Vil du logge ind igen?</string>
   <string name="logged_out_in_background_login">Log på</string>
   <string name="logged_out_in_background_cancel">Annullér</string>
   <string name="history_empty_title">Ingen nyligt læste artikler.</string>
@@ -538,7 +541,6 @@
   <string name="view_continue_reading_card_subtitle_today">i dag</string>
   <string name="view_continue_reading_card_subtitle_read_date">Læs %s</string>
   <string name="view_announcement_card_negative_action">Nej tak</string>
-  <string name="onboarding_negative_action">Nej tak</string>
   <string name="view_offline_card_text">Indhold kan ikke indlæses offline.</string>
   <string name="view_featured_article_card_title">Anbefalet artikel</string>
   <string name="view_featured_article_footer_save_button_label">Gem</string>

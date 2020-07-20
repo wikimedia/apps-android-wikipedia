@@ -347,6 +347,7 @@
   <string name="error_no_maps_app">找不到任何提供导航的应用程序。</string>
   <string name="preference_title_customize_explore_feed">探索订阅</string>
   <string name="preference_title_show_link_previews">显示链接预览</string>
+  <string name="preference_summary_customize_explore_feed">自定义探索订阅源</string>
   <string name="preference_summary_show_link_previews">当点按链接时，显示条目的快速预览。</string>
   <string name="preference_title_collapse_tables">大纲</string>
   <string name="preference_summary_collapse_tables">自动折叠条目中的表格，如信息框、引用和注释。</string>
@@ -602,7 +603,6 @@
   <string name="view_continue_reading_card_subtitle_today">今天</string>
   <string name="view_continue_reading_card_subtitle_read_date">阅读%s</string>
   <string name="view_announcement_card_negative_action">不用了，谢谢</string>
-  <string name="onboarding_negative_action">不用了，谢谢</string>
   <string name="view_offline_card_text">内容不能在离线时加载。</string>
   <string name="view_featured_article_card_title">典范条目</string>
   <string name="view_featured_article_footer_save_button_label">保存</string>
@@ -743,7 +743,6 @@
   <string name="suggested_edits_image_tags_onboarding_title">给图片打上标签，使其更容易找到。</string>
   <string name="suggested_edits_image_tags_onboarding_text">通过添加图片标签，您将有助于使图片更容易在维基共享资源上搜索到，维基共享资源是维基百科在其文章中使用的免费授权图片库。</string>
   <string name="suggested_edits_image_tags_onboarding_note">只有您选择的标签才会被添加到图片中。</string>
-  <string name="suggested_edits_image_tags_snackbar">添加图片标签，使其更容易被他人发现。</string>
   <string name="suggested_edits_image_tags_task_detail">为图片添加自定义标签，使其更容易被找到。</string>
   <string name="suggested_edits_image_tags_choose">添加或选择匹配的标签</string>
   <string name="suggested_edits_image_tags_published_list">发布标签</string>

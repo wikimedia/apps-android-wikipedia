@@ -595,7 +595,6 @@
   <string name="view_continue_reading_card_subtitle_today">oggi</string>
   <string name="view_continue_reading_card_subtitle_read_date">Letto %s</string>
   <string name="view_announcement_card_negative_action">No, grazie</string>
-  <string name="onboarding_negative_action">No, grazie</string>
   <string name="view_offline_card_text">Il contenuto non può essere caricato offline.</string>
   <string name="view_featured_article_card_title">Voce in vetrina</string>
   <string name="view_featured_article_footer_save_button_label">Salva</string>
@@ -736,7 +735,6 @@
   <string name="suggested_edits_image_tags_onboarding_title">Etichettare le immagini facilita la ricerca da parte di altri utenti.</string>
   <string name="suggested_edits_image_tags_onboarding_text">Aggiungendo le etichette alle immagini, puoi semplificare la ricerca delle immagini su Commons, il database multimediale che Wikipedia utilizza per le immagini nelle sue voci.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Solo le etichette scelte verranno aggiunte alle immagini.</string>
-  <string name="suggested_edits_image_tags_snackbar">Aggiungi delle etichette all\'immagine per facilitarne la ricerca da parte di altri utenti.</string>
   <string name="suggested_edits_image_tags_task_detail">Aggiungi etichette personalizzate ad un\'immagine per facilitarne la ricerca.</string>
   <string name="suggested_edits_image_tags_choose">Aggiungi o scegli le etichette corrispondenti</string>
   <string name="suggested_edits_image_tags_published_list">Etichette pubblicate</string>

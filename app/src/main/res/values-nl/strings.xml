@@ -587,7 +587,6 @@
   <string name="view_continue_reading_card_subtitle_today">vandaag</string>
   <string name="view_continue_reading_card_subtitle_read_date">%s gelezen</string>
   <string name="view_announcement_card_negative_action">Nee, bedankt</string>
-  <string name="onboarding_negative_action">Nee, bedankt</string>
   <string name="view_offline_card_text">De inhoud kan niet offline geladen worden.</string>
   <string name="view_featured_article_card_title">Uitgelichte pagina</string>
   <string name="view_featured_article_footer_save_button_label">Opslaan</string>
@@ -763,6 +762,7 @@
   <string name="suggested_edits_contribution_date_yesterday_text">Gisteren</string>
   <string name="suggested_edits_rewards_continue_button">Doorgaan</string>
   <string name="suggested_edits_encourage_account_creation_title">Wist u dat iedereen Wikipedia kan bewerken?</string>
+  <string name="suggested_edits_contribution_current_revision_text">Uw bewerking is momenteel live op Wikpedia</string>
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="one">%1$s label</item>
     <item quantity="other">%1$s labels</item>

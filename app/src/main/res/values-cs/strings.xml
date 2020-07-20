@@ -122,7 +122,7 @@
   <string name="reading_lists_sync_login">Přihlásit se</string>
   <string name="create_account_login">Přihlásit se</string>
   <string name="menu_login">Přihlásit se</string>
-  <string name="login_activity_title" fuzzy="true">Přihlášení do Wikipedie</string>
+  <string name="login_activity_title">Přihlášení</string>
   <string name="login_in_progress_dialog_message">Přihlašování…</string>
   <string name="login_success_toast">Přihlášeno!</string>
   <string name="reset_password_title">Nastavte si své heslo</string>
@@ -496,7 +496,7 @@
     <item quantity="one">Stahování článku</item>
     <item quantity="few">Stahování článků</item>
     <item quantity="many">Stahování článků</item>
-    <item quantity="other"/>
+    <item quantity="other">Stahování článků</item>
   </plurals>
   <plurals name="notification_syncing_title" fuzzy="true">
     <item quantity="one">Stahování %1$d článku…</item>
@@ -583,7 +583,6 @@
   <string name="view_continue_reading_card_subtitle_today">dnes</string>
   <string name="view_continue_reading_card_subtitle_read_date">Přečteno %s</string>
   <string name="view_announcement_card_negative_action">Ne, děkuji</string>
-  <string name="onboarding_negative_action">Ne, děkuji</string>
   <string name="view_offline_card_text">Obsah nemůže být načten offline.</string>
   <string name="view_featured_article_card_title">Doporučený článek</string>
   <string name="view_featured_article_footer_save_button_label">Uložit</string>
@@ -724,7 +723,6 @@
   <string name="suggested_edits_image_tags_onboarding_title">Označte obrázky, aby je ostatní mohli snáze najít.</string>
   <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">Potvrzením navrhovaných značek můžete pomoci, aby byly obrázky snáze vyhledatelné.\n\nZnačky jsou navrhované počítačem, ale musí být ověřeny člověkem pro zajištění přesnosti.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Pouze značky, které vyberete, budou přidány k obrázkům.</string>
-  <string name="suggested_edits_image_tags_snackbar">Přidejte značky obrázkům, aby je ostatní mohli snáze najít.</string>
   <string name="suggested_edits_image_tags_task_detail">Označte obrázky, aby je ostatní mohli snáze najít. Vyberte z navrhovaných značek nebo přidejte vlastní.\nPřidejte vlastní značky, aby bylo možné obrázek snáze najít.</string>
   <string name="suggested_edits_image_tags_choose">Vyberte nebo přidejte shodující se značky</string>
   <string name="suggested_edits_image_tags_published_list">Zveřejněné značky</string>
@@ -734,20 +732,20 @@
   <string name="suggested_edits_image_tags_add_tag">Přidat značku</string>
   <string name="suggested_edits_image_zoom_tooltip">Roztáhnutím dvou prstů zvětšíte obrázek.</string>
   <string name="suggested_edits_encouragement_message">Uživateli %s, děkujeme za vaše úpravy. Níže naleznete další způsoby, jak přispívat na Wikipedii.</string>
-  <string name="suggested_edits_onboarding_message" fuzzy="true">&lt;b&gt;Dobrý den, uživateli %s&lt;/b&gt;, věděli jste, že editovat Wikipedii může každý? Níže naleznete zábavné způsoby, jak pomoci vylepšit Wikipedii. Přejeme šťastné editování!</string>
+  <string name="suggested_edits_onboarding_message">&lt;b&gt;Dobrý den, uživateli %s&lt;/b&gt;, níže naleznete tipy na rychlé a snadné způsoby, jak vylepšit Wikipedii. Rozdíl svých změn uvidíte hned, jak začnete. Přejeme šťastné editování!</string>
   <string name="suggested_edits_image_captions_task_detail">Popište obrázek, abyste čtenářům pomohli pochopit jeho význam a kontext.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Shrňte článek a pomozte čtenářům snáze pochopit téma článku.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Váš celkový počet příspěvků s Navrhováním editací.</string>
   <string name="suggested_edits_edit_streak_stat_tooltip">Kolik dní bez přestávky jste přispívali přes Navrhování editací. Pokud jste nějakou dobu nepřispívali, zobrazuje datum vašeho posledního příspěvku.</string>
   <string name="suggested_edits_page_views_stat_tooltip">Celkový počet zobrazení položek, k nimž jste za posledních 30 dní přispěli pomocí Navrhování editací.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Na základě toho, kolikrát byly vaše příspěvky zrušeny jinými uživateli. Vrácené editace: %d.</string>
-  <string name="suggested_edits_paused_message" fuzzy="true">&lt;b&gt;Navrhování editací je pozastaveno do %1$s.&lt;/b&gt; Litujeme, uživateli %2$s, některé vaše nedávné příspěvky byly zrušeny.\n\nNa níže uvedeném odkazu se dozvíte, jak zlepšit své editační schopnosti na Wikipedii.</string>
-  <string name="suggested_edits_disabled_message" fuzzy="true">&lt;b&gt;Navrhování editací je vypnuto.&lt;/b&gt; Litujeme, uživateli %s, velké množství vašich nedávných příspěvků bylo zrušeno.\n\nPřečtěte si, co to znamená, pomocí odkazu níže.</string>
-  <string name="suggested_edits_ip_blocked_message" fuzzy="true">IP adrese (nebo rozsahu IP adres), kterou používáte, je blokována editace Wikipedie. Další informace o tom, co to znamená, naleznete na níže uvedeném odkazu.</string>
+  <string name="suggested_edits_paused_message">Navrhování editací je pozastaveno do %1$s. Litujeme, uživateli %2$s, některé vaše nedávné příspěvky byly zrušeny.</string>
+  <string name="suggested_edits_disabled_message">Navrhování editací je vypnuto. Litujeme, uživateli %s, velké množství vašich nedávných příspěvků bylo zrušeno.</string>
+  <string name="suggested_edits_ip_blocked_message">IP adrese (nebo rozsahu IP adres), kterou používáte, je blokována editace Wikipedie.</string>
   <string name="suggested_edits_editing_tips_link_text">Editační tipy a triky</string>
   <string name="suggested_edits_help_page_link_text">Nápověda Navrhování editací</string>
   <string name="suggested_edits_edit_streak_label_text">Editací v řadě</string>
-  <string name="suggested_edits_views_label_text" fuzzy="true">Návštěvnost stránek</string>
+  <string name="suggested_edits_views_label_text">Návštěvnost</string>
   <string name="suggested_edits_quality_label_text">Kvalita editací</string>
   <string name="suggested_edits_quality_perfect_text">Perfektní</string>
   <string name="suggested_edits_quality_excellent_text">Vynikající</string>
@@ -767,7 +765,7 @@
     <item quantity="other">%d dní</item>
   </plurals>
   <string name="suggested_edits_what_is_title">Co je to Navrhování editací?</string>
-  <string name="suggested_edits_what_is_text">Navrhování editací umožňují příležitosti pro malé, ale zásadní příspěvky na Wikipedii.</string>
+  <string name="suggested_edits_what_is_text">Navrhování editací je příležitostí pro malé, ale potřebné příspěvky do Wikipedie.</string>
   <string name="suggested_edits_paused_title">Pozastaveno</string>
   <string name="suggested_edits_disabled_title">Vypnuto</string>
   <string name="suggested_edits_ip_blocked_title">Zablokovaná IP</string>
@@ -776,6 +774,12 @@
   <string name="suggested_edits_task_new">nové</string>
   <string name="suggested_edits_cc0_notice">Zveřejněním souhlasíte s &lt;a href=\"%1$s\"&gt;podmínkami použití&lt;/a&gt; a neodvolatelně také souhlasíte se zveřejněním tohoto příspěvku pod &lt;a href=\"%2$s\"&gt;licencí CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Navrhování editací</string>
+  <plurals name="suggested_edits_contribution_diff_count_text">
+    <item quantity="one">%1$s znak</item>
+    <item quantity="few">%1$s znaky</item>
+    <item quantity="many">%1$s znaků</item>
+    <item quantity="other">%1$s znaků</item>
+  </plurals>
   <string name="description_edit_revert_subtitle">Děkujeme za editaci Wikipedie!</string>
   <string name="description_edit_revert_intro">Víme, že jste se snažili o to nejlepší, ale jeden z wikipedistů měl obavy. Možné důvody vrácení vaší editace jsou:</string>
   <string name="description_edit_revert_reason1">váš příspěvek nedodržel některé z &lt;a href=\"%1$s\"&gt;pravidel&lt;/a&gt;.</string>
@@ -815,10 +819,10 @@
   <string name="on_this_day_dialog_previous_month">Minulý měsíc</string>
   <string name="on_this_day_open_date_picker">Otevřít výběr data</string>
   <plurals name="diff_years">
-    <item quantity="one">Poslední rok</item>
-    <item quantity="few">před %d lety</item>
-    <item quantity="many">před %d lety</item>
-    <item quantity="other">před %d lety</item>
+    <item quantity="one">Minulý rok</item>
+    <item quantity="few">Před %d lety</item>
+    <item quantity="many">Před %d lety</item>
+    <item quantity="other">Před %d lety</item>
   </plurals>
   <string name="languages_list_activity_title">Přidat jazyk</string>
   <string name="languages_list_suggested_text">Doporučeno</string>

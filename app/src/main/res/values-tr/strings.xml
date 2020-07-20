@@ -30,6 +30,7 @@
 * ToprakM
 * Trockya
 * Tsiligkir
+* Uncitoyen
 * Uğurkent
 * Velg
 * Vito Genovese
@@ -594,7 +595,6 @@
   <string name="view_continue_reading_card_subtitle_today">bugün</string>
   <string name="view_continue_reading_card_subtitle_read_date">Sayfanın son görünümü %s</string>
   <string name="view_announcement_card_negative_action">Hayır, teşekkürler</string>
-  <string name="onboarding_negative_action">Hayır, teşekkürler</string>
   <string name="view_offline_card_text">İçerik çevrimdışı iken yüklenemez.</string>
   <string name="view_featured_article_card_title">Seçkin madde</string>
   <string name="view_featured_article_footer_save_button_label">Kaydet</string>
@@ -735,7 +735,6 @@
   <string name="suggested_edits_image_tags_onboarding_title">Görüntüleri etiketlemek onları bulmayı kolaylaştırır.</string>
   <string name="suggested_edits_image_tags_onboarding_text">Resim etiketleri ekleyerek, Vikipedi\'nin maddelerde ki resimler için kullandığı ücretsiz lisans resim deposu Commons\'ta resimlerin aranmasını kolaylaştırmaya yardımcı olacaksınız.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Yalnızca seçtiğiniz etiketler görüntülere eklenir.</string>
-  <string name="suggested_edits_image_tags_snackbar">Başkalarının bulmasını kolaylaştırmak için resim etiketleri ekleyin.</string>
   <string name="suggested_edits_image_tags_task_detail">Bulmayı kolaylaştırmak için görüntüye özel etiketler ekleyin.</string>
   <string name="suggested_edits_image_tags_choose">Eşleşen etiketler ekleyin veya seçin</string>
   <string name="suggested_edits_image_tags_published_list">Yayınlanan etiketler</string>
