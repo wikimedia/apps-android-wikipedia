@@ -1174,7 +1174,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     }
 
     public void startSuggestedEditsCardsActivity(@NonNull DescriptionEditActivity.Action action) {
-        startActivity(SuggestedEditsCardsActivity.Companion.newIntent(requireActivity(), action));
+        startActivity(SuggestedEditsCardsActivity.newIntent(requireActivity(), action));
     }
 
     /**

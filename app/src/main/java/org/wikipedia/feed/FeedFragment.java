@@ -254,7 +254,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
                             FeedbackUtil.LENGTH_DEFAULT);
                     if (funnel.shouldSeeSnackbarAction()) {
                         snackbar.setAction(R.string.nav_item_more, view ->
-                                startActivity(SuggestedEditsCardsActivity.Companion.newIntent(requireActivity(), suggestedEditsCardView.getCard().getAction())));
+                                startActivity(SuggestedEditsCardsActivity.newIntent(requireActivity(), suggestedEditsCardView.getCard().getAction())));
                     }
                     snackbar.show();
                     funnel.logSnackbarShown();
