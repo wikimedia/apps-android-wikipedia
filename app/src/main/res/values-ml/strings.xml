@@ -378,7 +378,6 @@
   <string name="view_continue_reading_card_subtitle_today">ഇന്ന്</string>
   <string name="view_continue_reading_card_subtitle_read_date">%s വായിക്കുക</string>
   <string name="view_announcement_card_negative_action">വേണ്ട, നന്ദി</string>
-  <string name="onboarding_negative_action">വേണ്ട, നന്ദി</string>
   <string name="view_featured_article_card_title">തിരഞ്ഞെടുത്ത ലേഖനം</string>
   <string name="view_featured_article_footer_save_button_label">സേവ് ചെയ്യുക</string>
   <string name="view_static_card_save_button_label">സേവ് ചെയ്യുക</string>

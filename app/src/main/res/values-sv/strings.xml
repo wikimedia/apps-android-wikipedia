@@ -579,7 +579,6 @@
   <string name="view_continue_reading_card_subtitle_today">idag</string>
   <string name="view_continue_reading_card_subtitle_read_date">Läst %s</string>
   <string name="view_announcement_card_negative_action">Nej tack</string>
-  <string name="onboarding_negative_action">Nej, tack</string>
   <string name="view_offline_card_text">Innehåll kan inte läsas in offline.</string>
   <string name="view_featured_article_card_title">Utmärkt artikel</string>
   <string name="view_featured_article_footer_save_button_label">Spara</string>

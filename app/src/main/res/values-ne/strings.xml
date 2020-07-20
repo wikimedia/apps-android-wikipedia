@@ -437,7 +437,6 @@
   <string name="view_continue_reading_card_subtitle_today">आज</string>
   <string name="view_continue_reading_card_subtitle_read_date">%s पढ्नुहोस्</string>
   <string name="view_announcement_card_negative_action">पर्दैन धन्यवाद</string>
-  <string name="onboarding_negative_action">पर्दैन धन्यवाद</string>
   <string name="view_offline_card_text">अफलाइन हुँदा सामग्री खुल्न सक्दैन।</string>
   <string name="view_featured_article_card_title">विशेष लेख</string>
   <string name="view_featured_article_footer_save_button_label">संग्रह गर्नुहोस्</string>
