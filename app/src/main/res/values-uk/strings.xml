@@ -837,10 +837,10 @@
     <item quantity="other">%1$s символів</item>
   </plurals>
   <plurals name="suggested_edits_removed_contribution_label" fuzzy="true">
-    <item quantity="one">Ви вилучили %1$s символ</item>
-    <item quantity="few">Ви вилучили %1$s символи</item>
-    <item quantity="many">Ви вилучили %1$s символів</item>
-    <item quantity="other">Ви вилучили %1$s символів</item>
+    <item quantity="one">Ви вилучили %d символ</item>
+    <item quantity="few">Ви вилучили %d символи</item>
+    <item quantity="many">Ви вилучили %d символів</item>
+    <item quantity="other">Ви вилучили %d символів</item>
   </plurals>
   <plurals name="suggested_edits_added_contribution_label">
     <item quantity="one">Ви додали %d символ</item>
