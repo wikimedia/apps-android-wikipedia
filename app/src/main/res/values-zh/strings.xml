@@ -602,7 +602,6 @@
   <string name="view_continue_reading_card_subtitle_today">今天</string>
   <string name="view_continue_reading_card_subtitle_read_date">阅读%s</string>
   <string name="view_announcement_card_negative_action">不用了，谢谢</string>
-  <string name="onboarding_negative_action">不用了，谢谢</string>
   <string name="view_offline_card_text">内容不能在离线时加载。</string>
   <string name="view_featured_article_card_title">典范条目</string>
   <string name="view_featured_article_footer_save_button_label">保存</string>

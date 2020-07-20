@@ -481,7 +481,6 @@
   <string name="view_continue_reading_card_subtitle_today">haut</string>
   <string name="view_continue_reading_card_subtitle_read_date">%s gelies</string>
   <string name="view_announcement_card_negative_action">Nee, merci</string>
-  <string name="onboarding_negative_action">Nee, merci</string>
   <string name="view_offline_card_text">Et ka keen Inhalt geluede gi wann Dir offline sidd.</string>
   <string name="view_featured_article_card_title">Exzellenten Artikel</string>
   <string name="view_featured_article_footer_save_button_label">Späicheren</string>

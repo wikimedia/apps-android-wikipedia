@@ -573,7 +573,6 @@
   <string name="view_continue_reading_card_subtitle_today">ယနေ့</string>
   <string name="view_continue_reading_card_subtitle_read_date">%s ဖတ်ရှုခဲ့</string>
   <string name="view_announcement_card_negative_action">မလိုပါ၊ ကျေးဇူးတင်ပါသည်။</string>
-  <string name="onboarding_negative_action">မလိုပါ၊ ကျေးဇူးတင်ပါသည်။</string>
   <string name="view_offline_card_text">အော့ဖ်လိုင်းဖြစ်ချိန် အကြာင်းအရာကို ဝန်မဆွဲတင်နိုင်ပါ။</string>
   <string name="view_featured_article_card_title">အထူးဆောင်းပါး</string>
   <string name="view_featured_article_footer_save_button_label">သိမ်းရန်</string>

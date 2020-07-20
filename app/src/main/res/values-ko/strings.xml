@@ -579,7 +579,6 @@
   <string name="view_continue_reading_card_subtitle_today">오늘</string>
   <string name="view_continue_reading_card_subtitle_read_date">%s 읽음</string>
   <string name="view_announcement_card_negative_action">괜찮습니다</string>
-  <string name="onboarding_negative_action">괜찮습니다</string>
   <string name="view_offline_card_text">오프라인 상태에서는 내용을 불러올 수 없습니다.</string>
   <string name="view_featured_article_card_title">알찬 글</string>
   <string name="view_featured_article_footer_save_button_label">저장</string>
