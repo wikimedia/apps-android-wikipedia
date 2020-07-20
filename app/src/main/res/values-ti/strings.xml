@@ -231,7 +231,6 @@
   <string name="view_continue_reading_card_subtitle_today">ሎሚ</string>
   <string name="view_continue_reading_card_subtitle_read_date">%s ኣንብብ</string>
   <string name="view_announcement_card_negative_action">ኣይፋል፣ የቐንየለይ</string>
-  <string name="onboarding_negative_action">ኣይፋል፣ የቐንየለይ</string>
   <string name="view_featured_article_footer_save_button_label">ኣቐምጥ</string>
   <string name="view_static_card_save_button_label">ኣቐምጥ</string>
   <string name="view_featured_article_footer_saved_button_label">ዝትቐመጠ</string>

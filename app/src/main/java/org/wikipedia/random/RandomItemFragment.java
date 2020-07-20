@@ -19,6 +19,7 @@ import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.page.PageSummary;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.ImageUrlUtil;
+import org.wikipedia.util.L10nUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.FaceAndColorDetectImageView;
@@ -75,6 +76,7 @@ public class RandomItemFragment extends Fragment {
         if (summary == null) {
             getRandomPage();
         }
+        L10nUtil.setConditionalLayoutDirection(view, WikipediaApp.getInstance().language().getAppLanguageCode());
         return view;
     }
 

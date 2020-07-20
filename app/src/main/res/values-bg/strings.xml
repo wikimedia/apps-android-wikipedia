@@ -557,7 +557,6 @@
   <string name="view_continue_reading_card_subtitle_today">днес</string>
   <string name="view_continue_reading_card_subtitle_read_date">Прочетена %s</string>
   <string name="view_announcement_card_negative_action">Не, благодаря</string>
-  <string name="onboarding_negative_action">Не, благодаря</string>
   <string name="view_offline_card_text">Съдържанието не може да бъде заредено без интернет.</string>
   <string name="view_featured_article_card_title">Избрана статия</string>
   <string name="view_featured_article_footer_save_button_label">Съхраняване</string>

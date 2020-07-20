@@ -558,7 +558,6 @@
   <string name="view_continue_reading_card_subtitle_today">σήμερα</string>
   <string name="view_continue_reading_card_subtitle_read_date">Διαβάστε %s</string>
   <string name="view_announcement_card_negative_action">Όχι, ευχαριστώ</string>
-  <string name="onboarding_negative_action">Όχι ευχαριστώ</string>
   <string name="view_offline_card_text">Το περιεχόμενο δεν μπορεί να φορτωθεί όταν είστε εκτός σύνδεσης.</string>
   <string name="view_featured_article_card_title">Προβεβλημένο λήμμα</string>
   <string name="view_featured_article_footer_save_button_label">Αποθήκευση</string>

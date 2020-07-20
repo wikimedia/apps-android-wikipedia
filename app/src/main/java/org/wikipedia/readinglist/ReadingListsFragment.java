@@ -135,7 +135,6 @@ public class ReadingListsFragment extends Fragment implements
         }
         enableLayoutTransition(true);
         ViewUtil.setActionBarElevation(readingListView, (MainActivity) requireActivity());
-        Prefs.incrementReadingListsVisitCount();
         return view;
     }
 
@@ -755,7 +754,7 @@ public class ReadingListsFragment extends Fragment implements
                 && !ReadingListSyncAdapter.isDisabledByRemoteConfig()) {
             onboardingView.setMessageTitle(getString((R.string.reading_list_login_reminder_title)));
             onboardingView.setMessageText(getString(R.string.reading_lists_login_reminder_text));
-            onboardingView.setImageResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.sync_reading_list_prompt_drawable), Prefs.getReadingListsVisitCount() == 1);
+            onboardingView.setImageResource(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.sync_reading_list_prompt_drawable), true);
             onboardingView.setPositiveButton(R.string.reading_lists_login_button,
                     view -> {
                         if (getParentFragment() instanceof FeedFragment.Callback) {
