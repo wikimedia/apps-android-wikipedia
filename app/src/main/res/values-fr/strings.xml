@@ -603,7 +603,6 @@
   <string name="view_continue_reading_card_subtitle_today">aujourd’hui</string>
   <string name="view_continue_reading_card_subtitle_read_date">Lire %s</string>
   <string name="view_announcement_card_negative_action">Non merci</string>
-  <string name="onboarding_negative_action">Non merci</string>
   <string name="view_offline_card_text">Le contenu ne peut être chargé hors connexion.</string>
   <string name="view_featured_article_card_title">Article vedette</string>
   <string name="view_featured_article_footer_save_button_label">Enregistrer</string>

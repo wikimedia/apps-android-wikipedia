@@ -575,7 +575,6 @@
   <string name="view_continue_reading_card_subtitle_today">tänään</string>
   <string name="view_continue_reading_card_subtitle_read_date">Luettu %s</string>
   <string name="view_announcement_card_negative_action">Ei kiitos</string>
-  <string name="onboarding_negative_action">Ei kiitos</string>
   <string name="view_offline_card_text">Sisältöä ei voida ladata offline-tilassa</string>
   <string name="view_featured_article_card_title">Suositeltu artikkeli</string>
   <string name="view_featured_article_footer_save_button_label">Tallenna</string>

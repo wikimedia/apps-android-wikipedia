@@ -538,7 +538,6 @@
   <string name="view_continue_reading_card_subtitle_today">i dag</string>
   <string name="view_continue_reading_card_subtitle_read_date">Læs %s</string>
   <string name="view_announcement_card_negative_action">Nej tak</string>
-  <string name="onboarding_negative_action">Nej tak</string>
   <string name="view_offline_card_text">Indhold kan ikke indlæses offline.</string>
   <string name="view_featured_article_card_title">Anbefalet artikel</string>
   <string name="view_featured_article_footer_save_button_label">Gem</string>

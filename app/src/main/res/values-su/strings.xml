@@ -449,7 +449,6 @@
   <string name="view_continue_reading_card_subtitle_today">poé ieu</string>
   <string name="view_continue_reading_card_subtitle_read_date">Dibaca %s</string>
   <string name="view_announcement_card_negative_action">Teu kudu, nuhun</string>
-  <string name="onboarding_negative_action">Teu nuhun</string>
   <string name="view_offline_card_text">Kontén teu bisa dipuat nalika oflén.</string>
   <string name="view_featured_article_card_title">Artikel petingan</string>
   <string name="view_featured_article_footer_save_button_label">Simpen</string>
