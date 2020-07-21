@@ -88,9 +88,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         android:layout_weight="1"
-        android:fillViewport="true"
         android:orientation="vertical">
 
         <org.wikipedia.descriptions.DescriptionEditReviewView
@@ -99,18 +98,17 @@
             android:layout_height="match_parent"
             android:visibility="gone" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:id="@+id/view_description_edit_container"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <ScrollView
                 android:id="@+id/view_description_edit_scrollview"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                app:layout_constraintBottom_toTopOf="@+id/view_description_edit_read_article_bar_container"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_weight="1">
+                android:layout_weight="1">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -206,6 +204,7 @@
                             app:tint="?attr/material_theme_de_emphasised_color" />
 
                     </FrameLayout>
+
                 </LinearLayout>
             </ScrollView>
 
@@ -215,11 +214,9 @@
                 android:layout_height="wrap_content"
                 android:background="?android:attr/selectableItemBackground"
                 android:clickable="true"
-                android:focusable="true"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/view_description_edit_scrollview" />
+                android:focusable="true" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
 
     </LinearLayout>
 

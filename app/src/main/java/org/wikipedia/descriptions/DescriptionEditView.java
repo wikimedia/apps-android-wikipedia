@@ -14,10 +14,12 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.core.widget.ImageViewCompat;
 
 import com.google.android.material.textfield.TextInputLayout;
@@ -41,7 +43,6 @@ import butterknife.OnEditorAction;
 import butterknife.OnTextChanged;
 
 import static org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_CAPTION;
-import static org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_DESCRIPTION;
 import static org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_CAPTION;
 import static org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION;
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
@@ -62,6 +63,8 @@ public class DescriptionEditView extends LinearLayout {
     @BindView(R.id.view_description_edit_review_container) DescriptionEditReviewView pageReviewContainer;
     @BindView(R.id.view_description_edit_page_summary_label) TextView pageSummaryLabel;
     @BindView(R.id.view_description_edit_read_article_bar_container) DescriptionEditBottomBarView bottomBarContainer;
+    @BindView(R.id.view_description_edit_voice_input) View voiceInputButton;
+    @BindView(R.id.view_description_edit_scrollview) ScrollView scrollView;
 
     @Nullable private String originalDescription;
     @Nullable private Callback callback;
@@ -102,7 +105,6 @@ public class DescriptionEditView extends LinearLayout {
         this.pageTitle = pageTitle;
         originalDescription = pageTitle.getDescription();
         setHintText();
-        setHelperText();
         setDescription(originalDescription);
         setReviewHeaderText(false);
     }
@@ -110,12 +112,6 @@ public class DescriptionEditView extends LinearLayout {
     private void setHintText() {
         pageDescriptionLayout.setHintTextAppearance(R.style.DescriptionEditViewHintTextStyle);
         pageDescriptionLayout.setHint(getHintText(pageTitle.getWikiSite().languageCode()));
-    }
-
-    private void setHelperText() {
-        if (action == ADD_DESCRIPTION || action == TRANSLATE_DESCRIPTION) {
-            pageDescriptionLayout.setHelperText(getContext().getString(R.string.description_edit_helper_text_lowercase_warning));
-        }
     }
 
     private int getHeaderTextRes(boolean inReview) {
@@ -249,7 +245,31 @@ public class DescriptionEditView extends LinearLayout {
     }
 
     public void setError(@Nullable CharSequence text) {
+        pageDescriptionLayout.setErrorIconDrawable(R.drawable.ic_error_black_24dp);
+        pageDescriptionLayout.setErrorIconTintList(ColorStateList.valueOf(ResourceUtil.getThemedColor(getContext(), R.attr.colorError)));
+        pageDescriptionLayout.setErrorTextColor(ColorStateList.valueOf(ResourceUtil.getThemedColor(getContext(), R.attr.colorError)));
+        layoutErrorState(text);
+    }
+
+    private void setWarning(@Nullable CharSequence text) {
+        pageDescriptionLayout.setErrorIconDrawable(R.drawable.ic_warning_24);
+        pageDescriptionLayout.setErrorIconTintList(ColorStateList.valueOf(ContextCompat.getColor(getContext(), R.color.yellow30)));
+        pageDescriptionLayout.setErrorTextColor(ColorStateList.valueOf(ContextCompat.getColor(getContext(), R.color.yellow30)));
+        layoutErrorState(text);
+    }
+
+    private void layoutErrorState(@Nullable CharSequence text) {
         pageDescriptionLayout.setError(text);
+        if (TextUtils.isEmpty(text)) {
+            voiceInputButton.setVisibility(VISIBLE);
+        } else {
+            voiceInputButton.setVisibility(GONE);
+            post(() -> {
+                if (isAttachedToWindow()) {
+                    scrollView.fullScroll(View.FOCUS_DOWN);
+                }
+            });
+        }
     }
 
     @OnClick(R.id.view_description_edit_save_button) void onSaveClick() {
@@ -289,8 +309,23 @@ public class DescriptionEditView extends LinearLayout {
     @OnTextChanged(value = R.id.view_description_edit_text,
             callback = OnTextChanged.Callback.AFTER_TEXT_CHANGED)
     void pageDescriptionTextChanged() {
+        String text = pageDescriptionText.getText().toString().toLowerCase();
+
+        if (text.length() == 0) {
+            setError(null);
+        } else if (text.length() < 2) {
+            setError("The description is too short, son");
+        } else if (pageTitle.getWikiSite().languageCode().equals("en") && StringUtils.endsWithAny(text, ".", ",", "!", "?")) {
+            setError("Descriptions should not end with punctuation");
+        } else if (pageTitle.getWikiSite().languageCode().equals("en") && StringUtils.startsWithAny(text, "a ", "an ", "the ")) {
+            setWarning("Descriptions should not start with an article");
+        } else if (pageTitle.getWikiSite().languageCode().equals("en") && Character.isUpperCase(pageDescriptionText.getText().toString().charAt(0))) {
+            setWarning("Start with a lowercase letter unless the first word is a proper noun");
+        } else {
+            setError(null);
+        }
+
         updateSaveButtonEnabled();
-        setError(null);
     }
 
     @OnEditorAction(R.id.view_description_edit_text)
