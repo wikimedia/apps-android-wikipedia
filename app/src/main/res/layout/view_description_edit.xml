@@ -171,6 +171,10 @@
                             android:gravity="start"
                             android:textAlignment="viewStart"
                             android:hint="@string/description_edit_text_hint"
+                            app:endIconDrawable="@drawable/ic_mic_black_24dp"
+                            app:endIconTint="?attr/material_theme_de_emphasised_color"
+                            app:endIconContentDescription="@string/description_edit_voice_input_description"
+                            app:endIconMode="clear_text"
                             app:counterEnabled="true"
                             app:counterMaxLength="@integer/description_max_chars"
                             app:counterOverflowTextAppearance="@style/CounterOverflowTextAppearance">
@@ -189,22 +193,6 @@
                                 <requestFocus />
                             </org.wikipedia.views.PlainPasteEditText>
                         </com.google.android.material.textfield.TextInputLayout>
-
-                        <ImageView
-                            android:id="@+id/view_description_edit_voice_input"
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
-                            android:layout_gravity="end"
-                            android:layout_marginTop="16dp"
-                            android:layout_marginEnd="16dp"
-                            android:background="?attr/selectableItemBackgroundBorderless"
-                            android:clickable="true"
-                            android:contentDescription="@string/description_edit_help_title"
-                            android:focusable="true"
-                            android:padding="12dp"
-                            app:srcCompat="@drawable/ic_mic_black_24dp"
-                            app:tint="?attr/material_theme_de_emphasised_color" />
-
                     </FrameLayout>
                 </LinearLayout>
             </ScrollView>
