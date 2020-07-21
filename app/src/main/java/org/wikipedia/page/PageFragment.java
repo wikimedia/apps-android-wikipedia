@@ -834,7 +834,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             ABTestSuggestedEditsSnackbarFunnel abTestFunnel = new ABTestSuggestedEditsSnackbarFunnel();
             Snackbar snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.description_edit_success_saved_snackbar), FeedbackUtil.LENGTH_DEFAULT);
             if (abTestFunnel.shouldSeeSnackbarAction()) {
-                snackbar.setAction(R.string.nav_item_more, view -> startSuggestedEditsCardsActivity(ADD_DESCRIPTION));
+                snackbar.setAction(R.string.suggested_edits_tasks_onboarding_get_started, view -> startSuggestedEditsCardsActivity(ADD_DESCRIPTION));
             }
             snackbar.show();
             abTestFunnel.logSnackbarShown();

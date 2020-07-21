@@ -680,7 +680,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             FeedbackUtil.makeSnackbar(this, action == ADD_CAPTION
                     ? getString(R.string.description_edit_success_saved_image_caption_snackbar)
                     : getString(R.string.description_edit_success_saved_image_caption_in_lang_snackbar, app.language().getAppLanguageLocalizedName(editLanguage)), FeedbackUtil.LENGTH_DEFAULT)
-                    .setAction(abTestFunnel.shouldSeeSnackbarAction() ? R.string.nav_item_more : R.string.suggested_edits_article_cta_snackbar_action, v -> {
+                    .setAction(abTestFunnel.shouldSeeSnackbarAction() ? R.string.suggested_edits_tasks_onboarding_get_started : R.string.suggested_edits_article_cta_snackbar_action, v -> {
                         if (abTestFunnel.shouldSeeSnackbarAction()) {
                             pageFragment.startSuggestedEditsCardsActivity(action);
                         } else {

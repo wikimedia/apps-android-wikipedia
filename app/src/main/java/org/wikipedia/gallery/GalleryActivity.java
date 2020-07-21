@@ -326,7 +326,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
                     : getString(R.string.description_edit_success_saved_image_caption_in_lang_snackbar, app.language().getAppLanguageLocalizedName(targetLanguageCode)),
                     FeedbackUtil.LENGTH_DEFAULT);
             if (abTestFunnel.shouldSeeSnackbarAction() && action != null) {
-                snackbar.setAction(R.string.nav_item_more, view -> startActivity(SuggestedEditsCardsActivity.newIntent(this, action)));
+                snackbar.setAction(R.string.suggested_edits_tasks_onboarding_get_started, view -> startActivity(SuggestedEditsCardsActivity.newIntent(this, action)));
             }
             snackbar.show();
             abTestFunnel.logSnackbarShown();
