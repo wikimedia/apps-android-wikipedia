@@ -5,7 +5,6 @@
     android:id="@+id/edit_summary_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/paper_color"
     android:orientation="vertical"
     android:padding="8dp"
     android:visibility="gone"
