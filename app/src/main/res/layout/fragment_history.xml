@@ -29,8 +29,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginBottom="12dp"
             android:gravity="center"
-            android:text="@string/history_empty_title"
-            android:textStyle="bold" />
+            android:text="@string/history_empty_title" />
 
         <TextView
             android:id="@+id/history_empty_message"

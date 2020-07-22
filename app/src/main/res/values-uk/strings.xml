@@ -33,7 +33,8 @@
   <string name="search_hint_search_languages">Пошук мови</string>
   <string name="search_hint_search_my_lists_and_articles">Пошук у читальних списках</string>
   <string name="nav_item_history">Історія</string>
-  <string name="nav_item_suggested_edits" fuzzy="true">Пропоновані редагування</string>
+  <string name="nav_item_suggested_edits">Редагування</string>
+  <string name="nav_item_more">Більше</string>
   <string name="error_network_error">Не вдається підключитися до інтернету.</string>
   <string name="page_error_retry">Повторити</string>
   <string name="card_offline_error_retry">Повторити</string>
@@ -117,7 +118,7 @@
   <string name="reading_lists_sync_login">Увійти до системи</string>
   <string name="create_account_login">Увійти до системи</string>
   <string name="menu_login">Увійти</string>
-  <string name="login_activity_title" fuzzy="true">Вхід у Вікіпедію</string>
+  <string name="login_activity_title">Вхід</string>
   <string name="login_in_progress_dialog_message">Входимо до системи…</string>
   <string name="login_success_toast">Ви ввійшли!</string>
   <string name="reset_password_title">Встановіть пароль</string>
@@ -319,7 +320,9 @@
   <string name="page_offline_notice_last_date">Ви читаєте автономну версію цієї статті, збережену %s.</string>
   <string name="button_get_directions">Прокласти маршрут</string>
   <string name="error_no_maps_app">Не вдалося знайти жодної програми, яка прокладала б маршрут.</string>
+  <string name="preference_title_customize_explore_feed">Стрічка</string>
   <string name="preference_title_show_link_previews">Показувати попередній перегляд посилань</string>
+  <string name="preference_summary_customize_explore_feed">Налаштувати стрічку</string>
   <string name="preference_summary_show_link_previews">Показувати попередній перегляд статей при натисненні на посилання.</string>
   <string name="preference_title_collapse_tables">Згорнути таблиці</string>
   <string name="preference_summary_collapse_tables">Автоматично згортати табличні блоки (інфобокси, примітки, коментарі тощо).</string>
@@ -368,9 +371,11 @@
   <string name="text_size_percent_default">%s (стандартно)</string>
   <string name="nav_item_reading_lists">Мої списки</string>
   <string name="reading_list_save_to">Зберегти до списку для читання</string>
+  <string name="reading_list_move_to">Перенести до читального списку</string>
   <string name="reading_list_create_new">Створити новий</string>
   <string name="reading_list_title_exists">Читальний список «%s» вже існує.</string>
   <string name="reading_list_article_added_to_named">Додано %1$s до %2$s.</string>
+  <string name="reading_list_article_moved_to_named">Перенесено %1$s до %2$s.</string>
   <string name="reading_list_article_already_exists_message">Усе добре! %1$s вже містить %2$s.</string>
   <string name="reading_list_articles_already_exist_message">Усе добре! %s уже містить всі статті.</string>
   <string name="reading_list_added_view_button">Перегляд списку</string>
@@ -393,6 +398,7 @@
   <string name="reading_list_action_menu_remove_all_from_offline">Вилучити всі з офлайн-режиму</string>
   <string name="reading_list_action_menu_save_all_for_offline">Зберегти всі для офлайн-режиму</string>
   <string name="reading_list_action_menu_add_to_another_list">Додати до іншого списку</string>
+  <string name="reading_list_action_menu_move_to_another_list">Перенести до іншого списку</string>
   <string name="reading_list_name_sample">Мій читальний список</string>
   <string name="reading_list_name_hint">Назва цього списку</string>
   <string name="reading_list_description_hint">Опис (за бажанням)</string>
@@ -413,6 +419,8 @@
   <string name="reading_list_article_offline">Доступна автономно</string>
   <string name="reading_list_article_make_offline">Зробити цю статтю доступною офлайн</string>
   <string name="reading_list_add_to_other_list">Додати до іншого читального списку</string>
+  <string name="reading_list_move_to_other_list">Перенести до іншого читального списку</string>
+  <string name="reading_list_move_from_to_other_list">Перенести з %s до іншого читального списку</string>
   <string name="reading_list_remove_from_list">Вилучити з %s</string>
   <string name="reading_list_remove_from_lists">Вилучити із читальних списків</string>
   <string name="reading_list_select_item">Обрати</string>
@@ -425,10 +433,13 @@
   <string name="reading_lists_sync_reminder_action">Увімкнути синхронізацію</string>
   <string name="reading_list_login_reminder_title">Синхронізувати читальні списки</string>
   <string name="reading_lists_login_reminder_text">Читальні списки тепер можна синхронізувати між різними пристроями. Увійдіть у свій обліковий запис у Вікіпедії і дозвольте зберігати такі списки.</string>
+  <string name="reading_lists_login_button">Увійти / приєднатися до Вікіпедії</string>
+  <string name="reading_lists_ignore_button">Не зараз</string>
   <string name="reading_lists_confirm_remote_delete_yes">Так</string>
   <string name="reading_lists_confirm_remote_delete_no">Ні</string>
   <string name="reading_list_article_save_in_progress">Стаття завантажується, вона буде доступна в автономному режимі по завершенню.</string>
   <string name="reading_list_articles_added_to_named">Додано статті (%1$d) до %2$s</string>
+  <string name="reading_list_articles_moved_to_named">Перенесено статті (%1$d) до %2$s</string>
   <string name="reading_list_delete_confirm">Ви дійсно хочете вилучити %s?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Увійдіть, щоб увімкнути синхронізацію</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Увійдіть, щоб дозволити зберігати Ваші списки для читання у Вашому обліковому записі.</string>
@@ -449,6 +460,7 @@
   <string name="no_user_lists_msg">Створюйте списки зі статей про місця подорожей, улюблені теми, тощо</string>
   <string name="reading_list_saved_list_rename">%1$s (створено користувачем)</string>
   <string name="split_reading_list_message">Максимальна кількість статей в одному списку читання — %d. Наявні списки, де кількість статей перевищувала ліміт, було розділено на декілька списків.</string>
+  <string name="reading_list_move_article_limit_message">Неможливо перенести до цього списку. Список «%1$s» досяг ліміту статей, а саме %2$d.</string>
   <string name="reading_list_article_limit_message">Неможливо додати до цього списку. Список «%1$s» досяг ліміту статей, а саме %2$d.</string>
   <string name="reading_lists_limit_message">Неможливо створити інший список. Ви досягли ліміту — 100 списків читання в одному обліковому записі.</string>
   <string name="reading_lists_menu_create_list">Створити новий список</string>
@@ -702,12 +714,15 @@
   <string name="suggested_edits_tasks_onboarding_get_started">Розпочати</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Підпис зображення (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Опис зображення (%s)</string>
+  <string name="suggested_edits_image_preview_dialog_file">Файл</string>
   <string name="suggested_edits_image_preview_dialog_artist">Автор</string>
+  <string name="suggested_edits_image_preview_dialog_tags">Теги</string>
   <string name="suggested_edits_image_preview_dialog_date">Дата</string>
   <string name="suggested_edits_image_preview_dialog_source">Джерело/Фотограф</string>
   <string name="suggested_edits_image_preview_dialog_licensing">Ліцензування</string>
   <string name="suggested_edits_image_preview_dialog_more_info">Більше інформації</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Сторінка файлу на Вікісховищі</string>
+  <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">Сторінка файлу у Вікіпедії</string>
   <string name="suggested_edits_article_cta_image_caption">Додати підпис зображення</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Додати підпис зображення (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Перегляд</string>
@@ -734,20 +749,20 @@
   <string name="suggested_edits_image_tags_add_tag">Додати тег</string>
   <string name="suggested_edits_image_zoom_tooltip">Розтягніть, щоб збільшити зображення.</string>
   <string name="suggested_edits_encouragement_message">%s, дякуємо за ваші правки! Нижче ви можете знайти більше шляхів зробити внесок у Вікіпедію.</string>
-  <string name="suggested_edits_onboarding_message" fuzzy="true">&lt;b&gt;Вітаємо %s&lt;/b&gt;! Чи знаєте ви, що будь-хто може редагувати Вікіпедію? Нижче ви знайдете цікаві способи її покращення. Приємного редагування!</string>
+  <string name="suggested_edits_onboarding_message">&lt;b&gt;Вітаємо, %s&lt;/b&gt;, нижче ви можете знайти деякі швидкі і прості способи покращити Вікіпедію. Ви одразу побачите свій вплив, щойно почнете. Приємного редагування!</string>
   <string name="suggested_edits_image_captions_task_detail">Опишіть зображення, щоб допомогти читачам зрозуміти його значення та контекст.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Підсумуйте вміст статті, щоб допомогти читачам зрозуміти предмет статті з першого погляду.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Кількість ваших редагувань з Пропонованих.</string>
   <string name="suggested_edits_edit_streak_stat_tooltip">Скільки днів поспіль ви робили внесок через список пропонованих редагувань. Якщо ви довго не робили внесок, то показується дата останнього внеску.</string>
   <string name="suggested_edits_page_views_stat_tooltip">Кількість переглядів сторінок, які ви редагували з \"Пропонованих\" останні 30 днів.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Засновано на тому, скільки разів ваші редагування було скасовано (іншим редактором). Кількість таких редагувань: %d.</string>
-  <string name="suggested_edits_paused_message" fuzzy="true">&lt;b&gt;Пропоновані редагування було тимчасово відключено до %1$s.&lt;/b&gt; Перепрошуємо %2$s, але деякі з ваших останніх редагувань було скасовано.\n\nДізнайтесь, як покращити якість ваших редагувань у Вікіпедії, за посиланням нижче.</string>
-  <string name="suggested_edits_disabled_message" fuzzy="true">&lt;b&gt;Пропоновані редагування було відключено.&lt;/b&gt; Перепрошуємо %s, але забагато з ваших останніх редагувань було скасовано.\n\nДізнайтесь, що це означає, за посиланням нижче.</string>
-  <string name="suggested_edits_ip_blocked_message" fuzzy="true">Схоже, що IP-адреса, якою ви користуєтесь (або діапазон IP-адрес), наразі заблокована для редагування у Вікіпедії. Що це означає, ви може дізнатися з посилання нижче.</string>
+  <string name="suggested_edits_paused_message">Пропоновані редагування було тимчасово відключено до %1$s. Перепрошуємо, %2$s, але деякі з ваших останніх редагувань було скасовано.</string>
+  <string name="suggested_edits_disabled_message">Пропоновані редагування було відключено. Перепрошуємо, %s, але забагато з ваших останніх редагувань було скасовано.</string>
+  <string name="suggested_edits_ip_blocked_message">Схоже, що IP-адреса, якою ви користуєтесь (або діапазон IP-адрес), наразі заблокована для редагування у Вікіпедії.</string>
   <string name="suggested_edits_editing_tips_link_text">Редагування порад</string>
   <string name="suggested_edits_help_page_link_text">Довідка з \"Пропонованих редагуваннь\"</string>
   <string name="suggested_edits_edit_streak_label_text">Страйк редагувань</string>
-  <string name="suggested_edits_views_label_text" fuzzy="true">Переглядів сторінок</string>
+  <string name="suggested_edits_views_label_text">Перегляди</string>
   <string name="suggested_edits_quality_label_text">Якість редагувань</string>
   <string name="suggested_edits_quality_perfect_text">Ідеально</string>
   <string name="suggested_edits_quality_excellent_text">Відмінно</string>
@@ -757,6 +772,7 @@
   <string name="suggested_edits_quality_sufficient_text">Достатньо</string>
   <string name="suggested_edits_quality_poor_text">Не дуже</string>
   <string name="suggested_edits_quality_bad_text">Погано</string>
+  <string name="suggested_edits_label">Пропоновані редагування</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">Редагування</item>
     <item quantity="few">Редагування</item>
@@ -769,6 +785,12 @@
     <item quantity="many">%d днів</item>
     <item quantity="other">%d днів</item>
   </plurals>
+  <string name="suggested_edits_what_is_title">Що таке Пропоновані редагування?</string>
+  <string name="suggested_edits_what_is_text">Пропоновані редагування — це можливість зробили невеликий, але життєво важливий внесок у Вікіпедію.</string>
+  <string name="suggested_edits_learn_more">Дізнатися більше</string>
+  <string name="suggested_edits_paused_title">Призупинено</string>
+  <string name="suggested_edits_disabled_title">Вимкнено</string>
+  <string name="suggested_edits_ip_blocked_title">IP заблоковано</string>
   <string name="suggested_edits_last_edited">Останнє редагування</string>
   <string name="suggested_edits_last_edited_never">Ніколи</string>
   <string name="suggested_edits_task_new">нове</string>
@@ -776,6 +798,57 @@
   <string name="suggested_edits_reactivation_notification_title">Пропоновані редагування</string>
   <string name="suggested_edits_reactivation_notification_stage_one">Дякуємо за редагування Вікіпедії! Продовжимо з того моменту, як вийшли?</string>
   <string name="suggested_edits_reactivation_notification_stage_two">Маєте хвилинку, щоб поліпшити вікіпедію? Тут є декілька правок до перегляду...</string>
+  <string name="suggested_edits_contributions_screen_title">Внесок %s</string>
+  <string name="suggested_edits_contribution_language_label">Мова</string>
+  <string name="suggested_edits_contribution_date_time_label">Дата / час</string>
+  <string name="suggested_edits_contribution_type_label">Тип внеску</string>
+  <string name="suggested_edits_contribution_image_label">Зображення</string>
+  <string name="suggested_edits_contribution_article_label">Стаття</string>
+  <string name="suggested_edits_contribution_views">%s: перегляди</string>
+  <string name="suggested_edits_contribution_seen_text">Бачено %s разів за минулі 30 днів.</string>
+  <plurals name="suggested_edits_image_tag_contribution_label">
+    <item quantity="one">Ви додали %d тег</item>
+    <item quantity="few">Ви додали %d теги</item>
+    <item quantity="many">Ви додали %d тегів</item>
+    <item quantity="other">Ви додали %d тегів</item>
+  </plurals>
+  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
+  <string name="suggested_edits_contribution_date_yesterday_text">Вчора</string>
+  <string name="suggested_edits_rewards_contribution">Ви зробили внесок у Вікіпедію %d разів з допомогою Пропонованих редагувань. Дякуємо!</string>
+  <string name="suggested_edits_rewards_edit_streak">Ви редагували щодня упродовж %1$d днів. Тримайтеся цієї лінії, %2$s!</string>
+  <string name="suggested_edits_rewards_pageviews">Ваші редагування побачили %d людей за минулі 30 днів. Дякуємо, продовжуйте!</string>
+  <string name="suggested_edits_rewards_edit_quality">Наразі ваші редагування %s. Продовжуйте! Ми чекаємо на ваш внесок.</string>
+  <string name="suggested_edits_rewards_continue_button">Продовжити</string>
+  <string name="suggested_edits_encourage_account_creation_title">Чи знаєте ви, що будь-хто може редагувати Вікіпедію?</string>
+  <string name="suggested_edits_encourage_account_creation_message">Пропоновані редагування — це новий спосіб редагувати Вікіпедію з Android. Він допомагає робити невеликі, але життєво важливі внески у Вікіпедію.\nНаша мета — зробити редагування простішим і доступнішим на всіх! Увійдіть або зареєструйтеся у Вікіпедії, щоб розпочати.</string>
+  <string name="suggested_edits_encourage_account_creation_login_button">Увійти / приєднатися до Вікіпедії</string>
+  <string name="suggested_edits_contribution_type_image_tag">Тег зображення</string>
+  <string name="suggested_edits_contribution_current_revision_text">Ваше редагування зараз доступне у Вікіпедії</string>
+  <plurals name="suggested_edits_tags_diff_count_text">
+    <item quantity="one">%1$s тег</item>
+    <item quantity="few">%1$s теги</item>
+    <item quantity="many">%1$s тегів</item>
+    <item quantity="other">%1$s тегів</item>
+  </plurals>
+  <plurals name="suggested_edits_contribution_diff_count_text">
+    <item quantity="one">%1$s символ</item>
+    <item quantity="few">%1$s символи</item>
+    <item quantity="many">%1$s символів</item>
+    <item quantity="other">%1$s символів</item>
+  </plurals>
+  <plurals name="suggested_edits_removed_contribution_label" fuzzy="true">
+    <item quantity="one">Ви вилучили %d символ</item>
+    <item quantity="few">Ви вилучили %d символи</item>
+    <item quantity="many">Ви вилучили %d символів</item>
+    <item quantity="other">Ви вилучили %d символів</item>
+  </plurals>
+  <plurals name="suggested_edits_added_contribution_label">
+    <item quantity="one">Ви додали %d символ</item>
+    <item quantity="few">Ви додали %d символи</item>
+    <item quantity="many">Ви додали %d символів</item>
+    <item quantity="other">Ви додали %d символів</item>
+  </plurals>
+  <string name="file_page_activity_title">Сторінка файлу</string>
   <string name="description_edit_revert_subtitle">Дякуємо за редагування Вікіпедії!</string>
   <string name="description_edit_revert_intro">Ми знаємо, що Ви старались як могли, але в одного з перевіряльників виникли сумніви. Ймовірні причини скасування Вашого редагування:</string>
   <string name="description_edit_revert_reason1">Ваше редагування не відповідало одній з &lt;a href=\"%1$s\"&gt;настанов&lt;/a&gt;.</string>
@@ -851,6 +924,7 @@
   <string name="edit_conflict_dialog_ok_button_text">Гаразд</string>
   <string name="reverted_edit_dialog_ok_button_text">Гаразд</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">Скасувати</string>
+  <string name="edit_type_all">Увесь внесок</string>
   <string name="content_description_for_page_indicator">Крок %1$d з %2$d</string>
   <string name="wikitext_bold">Жирний</string>
   <string name="wikitext_italic">Курсив</string>
@@ -862,7 +936,8 @@
   <string name="wikitext_preview_link">Попередній перегляд посилання</string>
   <string name="main_drawer_help">Допомога</string>
   <string name="main_drawer_login">Увійти до Вікіпедії</string>
-  <string name="main_tooltip_text" fuzzy="true">%s, чи знаєте ви, що будь-хто може редагувати Вікіпедію?</string>
+  <string name="main_tooltip_text">Привіт, %s, чи знаєте ви, що будь-хто може редагувати Вікіпедію?</string>
+  <string name="main_tooltip_text_v2">Чи знаєте ви, що будь-хто може редагувати Вікіпедію?</string>
   <string name="main_tooltip_action_button">Розпочати</string>
   <string name="custom_date_picker_dialog_ok_button_text">Гаразд</string>
   <string name="text_input_dialog_ok_button_text">Гаразд</string>
