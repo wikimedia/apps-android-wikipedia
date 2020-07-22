@@ -6,6 +6,7 @@ import android.app.DownloadManager;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
@@ -17,6 +18,7 @@ import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityOptionsCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.widget.ViewPager2;
 
@@ -144,11 +146,24 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
             viewPager.setCurrentItem(item.getOrder(), false);
             return true;
         });
+        setBottomNavBackground();
 
         if (savedInstanceState == null) {
             handleIntent(requireActivity().getIntent());
         }
         return view;
+    }
+
+    private void setBottomNavBackground() {
+        boolean isDarkTheme = WikipediaApp.getInstance().getCurrentTheme().isDark();
+        if (isDarkTheme) {
+            int[] attrs = {R.attr.nav_tab_background_color};
+            TypedArray ta = requireContext().obtainStyledAttributes(attrs);
+            int transparent = ContextCompat.getColor(requireContext(), android.R.color.transparent);
+            int taColor = ta.getColor(0, transparent);
+            tabLayout.setBackgroundColor(taColor);
+            ta.recycle();
+        }
     }
 
     @Override

@@ -193,10 +193,11 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     protected void setNavigationBarColor(@ColorInt int color) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            getWindow().setNavigationBarColor(color);
             boolean isDarkThemeOrDarkBackground = WikipediaApp.getInstance().getCurrentTheme().isDark()
                     || color == ContextCompat.getColor(this, android.R.color.black);
-            getWindow().setNavigationBarColor(color);
-            getWindow().getDecorView().setSystemUiVisibility(isDarkThemeOrDarkBackground ? 0 : View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR | getWindow().getDecorView().getSystemUiVisibility());
+            int systemUiVisibilityFlag = View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR | getWindow().getDecorView().getSystemUiVisibility();
+            getWindow().getDecorView().setSystemUiVisibility(isDarkThemeOrDarkBackground ? 0 : systemUiVisibilityFlag);
         }
     }
 

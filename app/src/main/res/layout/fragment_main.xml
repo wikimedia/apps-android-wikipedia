@@ -25,8 +25,7 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:baselineAligned="false"
-        android:orientation="horizontal"
-        android:background="?attr/nav_tab_background_color">
+        android:orientation="horizontal">
 
         <FrameLayout
             android:layout_width="0dp"
@@ -38,7 +37,6 @@
                 android:id="@+id/fragment_main_nav_tab_layout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="?attr/nav_tab_background_color"
                 app:itemIconTint="?attr/nav_tab_item_color_state"
                 app:itemTextAppearanceActive="@style/BottomNavigationTextAppearanceActive"
                 app:itemTextAppearanceInactive="@style/BottomNavigationTextAppearanceInactive"
@@ -61,7 +59,7 @@
             android:layout_weight="0.2"
             android:layout_height="match_parent"
             android:contentDescription="@string/nav_item_more"
-            android:background="?attr/selectableItemBackground"
+            android:background="?attr/nav_tab_background_color"
             android:gravity="center_horizontal"
             android:orientation="vertical">
 
