@@ -949,5 +949,13 @@ public final class Prefs {
         setBoolean(R.string.preference_key_show_sequential_user_stats_tooltip, show);
     }
 
+    public static boolean isPulsatingIconEventSent() {
+        return getBoolean(R.string.preference_key_pulsating_icon_event_sent, false);
+    }
+
+    public static void setPulsatingIconEventSent(boolean sent) {
+        setBoolean(R.string.preference_key_pulsating_icon_event_sent, sent);
+    }
+
     private Prefs() { }
 }

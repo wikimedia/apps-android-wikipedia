@@ -3,7 +3,6 @@
     android:id="@+id/random_coordinator_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/paper_color"
     android:orientation="vertical"
     android:transitionName="@string/transition_random_activity">
 

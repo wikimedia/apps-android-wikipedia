@@ -12,6 +12,7 @@ import org.wikipedia.descriptions.DescriptionEditLicenseView.Companion.ARG_NOTIC
 import org.wikipedia.suggestededits.SuggestedEditsSummary
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.StringUtil
+import org.wikipedia.views.ViewUtil
 
 class DescriptionEditReviewView constructor(context: Context, attrs: AttributeSet? = null) : ConstraintLayout(context, attrs) {
 
@@ -66,7 +67,8 @@ class DescriptionEditReviewView constructor(context: Context, attrs: AttributeSe
             galleryImage.visibility = GONE
         } else {
             galleryImage.visibility = VISIBLE
-            galleryImage.loadImage(Uri.parse(summary.getPreferredSizeThumbnailUrl()))
+            ViewUtil.loadImageWithWhiteBackground(galleryImage, summary.getPreferredSizeThumbnailUrl())
+
         }
         licenseView.darkLicenseView()
     }

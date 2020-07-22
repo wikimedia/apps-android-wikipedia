@@ -1,7 +1,6 @@
 package org.wikipedia.views;
 
 import android.content.Context;
-import android.os.Build;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
@@ -198,12 +197,8 @@ public class PageItemView<T> extends ConstraintLayout {
         setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         final int topBottomPadding = 16;
         setPadding(0, DimenUtil.roundedDpToPx(topBottomPadding), 0, DimenUtil.roundedDpToPx(topBottomPadding));
-        setBackgroundColor(ResourceUtil.getThemedColor(getContext(), R.attr.paper_color));
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            setForeground(AppCompatResources.getDrawable(getContext(), ResourceUtil.getThemedAttributeId(getContext(), R.attr.selectableItemBackground)));
-        }
+        setBackground(AppCompatResources.getDrawable(getContext(), ResourceUtil.getThemedAttributeId(getContext(), R.attr.selectableItemBackground)));
         setFocusable(true);
-
         FeedbackUtil.setToolbarButtonLongPressToast(secondaryActionView);
     }
 
@@ -216,7 +211,7 @@ public class PageItemView<T> extends ConstraintLayout {
             imageView.setVisibility(TextUtils.isEmpty(imageUrl) ? GONE : VISIBLE);
             ViewUtil.loadImageWithRoundedCorners(imageView, imageUrl);
             imageSelectedView.setVisibility(GONE);
-            setBackgroundColor(getThemedColor(getContext(), R.attr.paper_color));
+            setBackground(AppCompatResources.getDrawable(getContext(), ResourceUtil.getThemedAttributeId(getContext(), R.attr.selectableItemBackground)));
         }
     }
 

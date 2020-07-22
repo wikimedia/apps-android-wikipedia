@@ -347,6 +347,7 @@
   <string name="error_no_maps_app">找不到任何提供导航的应用程序。</string>
   <string name="preference_title_customize_explore_feed">探索订阅</string>
   <string name="preference_title_show_link_previews">显示链接预览</string>
+  <string name="preference_summary_customize_explore_feed">自定义探索订阅源</string>
   <string name="preference_summary_show_link_previews">当点按链接时，显示条目的快速预览。</string>
   <string name="preference_title_collapse_tables">大纲</string>
   <string name="preference_summary_collapse_tables">自动折叠条目中的表格，如信息框、引用和注释。</string>
