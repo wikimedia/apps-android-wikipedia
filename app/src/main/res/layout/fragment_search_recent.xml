@@ -51,7 +51,6 @@
         android:id="@+id/recent_searches"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/paper_color"
         android:orientation="vertical">
 
         <FrameLayout

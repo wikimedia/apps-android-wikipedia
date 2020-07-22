@@ -27,6 +27,7 @@ import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
+import org.wikipedia.analytics.ABTestSuggestedEditsOnboardingIconFunnel;
 import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.auth.AccountUtil;
@@ -105,6 +106,10 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     private PageChangeCallback pageChangeCallback = new PageChangeCallback();
     private CompositeDisposable disposables = new CompositeDisposable();
     private boolean navTabAutoSelect;
+
+    private boolean editsAccessedWhilePulsating;
+    private ABTestSuggestedEditsOnboardingIconFunnel pulsatingIconFunnel = new ABTestSuggestedEditsOnboardingIconFunnel();
+
     // Actually shows on the 3rd time of using the app. The Pref.incrementExploreFeedVisitCount() gets call after MainFragment.onResume()
     private static final int SHOW_EDITS_SNACKBAR_COUNT = 2;
 
@@ -175,6 +180,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
 
     @Override public void onDestroyView() {
         Prefs.setSuggestedEditsHighestPriorityEnabled(false);
+        pulsatingIconFunnel.logWasIconClicked(editsAccessedWhilePulsating);
         viewPager.setAdapter(null);
         viewPager.unregisterOnPageChangeCallback(pageChangeCallback);
         unbinder.unbind();
@@ -479,6 +485,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         goToTab(NavTab.of(viewPager.getCurrentItem()));
         if (Prefs.shouldShowSuggestedEditsTooltip() && Prefs.getExploreFeedVisitCount() == SHOW_EDITS_SNACKBAR_COUNT) {
             Prefs.setShouldShowSuggestedEditsTooltip(false);
+            pulsatingIconFunnel.setIconShown(true);
             tabOverlayLayout.pick(NavTab.EDITS);
             suggestedEditsNavTabSnackbar = FeedbackUtil.makeSnackbar(requireActivity(), AccountUtil.isLoggedIn()
                     ? getString(R.string.main_tooltip_text, AccountUtil.getUserName())
@@ -490,6 +497,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
 
     void hideNavTabOverlayLayout() {
         tabOverlayLayout.hide();
+        editsAccessedWhilePulsating = true;
         if (suggestedEditsNavTabSnackbar != null) {
             suggestedEditsNavTabSnackbar.dismiss();
         }
