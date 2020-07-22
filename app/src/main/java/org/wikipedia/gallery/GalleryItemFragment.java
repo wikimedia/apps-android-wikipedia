@@ -23,6 +23,7 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.commons.FilePageActivity;
+import org.wikipedia.commons.ImageTagsProvider;
 import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
@@ -39,6 +40,9 @@ import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.ViewUtil;
 
+import java.util.List;
+import java.util.Map;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -54,6 +58,10 @@ import static org.wikipedia.util.PermissionUtil.requestWriteStorageRuntimePermis
 public class GalleryItemFragment extends Fragment {
     private static final String ARG_PAGETITLE = "pageTitle";
     private static final String ARG_GALLERY_ITEM = "galleryItem";
+
+    public Map<String, List<String>> getImageTags() {
+        return imageTags;
+    }
 
     public interface Callback {
         void onDownload(@NonNull GalleryItemFragment item);
@@ -83,6 +91,8 @@ public class GalleryItemFragment extends Fragment {
     @Nullable ImageInfo getMediaInfo() {
         return mediaInfo;
     }
+    private Map<String, List<String>> imageTags;
+
 
     public static GalleryItemFragment newInstance(@Nullable PageTitle pageTitle, @NonNull MediaListItem item) {
         GalleryItemFragment f = new GalleryItemFragment();
@@ -215,8 +225,12 @@ public class GalleryItemFragment extends Fragment {
                     requireActivity().invalidateOptionsMenu();
                     ((GalleryActivity) requireActivity()).layOutGalleryDescription();
                 })
-                .subscribe(response -> {
+                .flatMap(response -> {
                     mediaInfo = response.query().firstPage().imageInfo();
+                    return ImageTagsProvider.getImageTagsObservable(response.query().firstPage().pageId(), WikipediaApp.getInstance().getAppOrSystemLanguageCode());
+                })
+                .subscribe(response -> {
+                   imageTags = response;
                     if (FileUtil.isVideo(mediaListItem.getType())) {
                         loadVideo();
                     } else {

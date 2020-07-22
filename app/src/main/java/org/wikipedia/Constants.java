@@ -103,5 +103,21 @@ public final class Constants {
         }
     }
 
+    public enum ImageEditType {
+        ADD_CAPTION("addCaption"),
+        ADD_CAPTION_TRANSLATION("addCaptionTranslation"),
+        ADD_TAGS("addTags");
+
+        private String name;
+
+        ImageEditType(String name) {
+            this.name = name;
+        }
+
+        public String getName() {
+            return name;
+        }
+    }
+
     private Constants() { }
 }
