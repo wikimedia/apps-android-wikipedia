@@ -59,7 +59,9 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
         }
 
         detailsContainer.removeAllViews()
-        if ((action == DescriptionEditActivity.Action.ADD_CAPTION || action == null) && summary.pageTitle.description.isNullOrEmpty()) {
+        if (summary.pageTitle.description.isNullOrEmpty() && summary.description.isNullOrEmpty()) {
+
+        } else if ((action == DescriptionEditActivity.Action.ADD_CAPTION || action == null) && summary.pageTitle.description.isNullOrEmpty()) {
             // Show the image description when a structured caption does not exist.
             addDetail(context.getString(R.string.suggested_edits_image_preview_dialog_description_in_language_title,
                     WikipediaApp.getInstance().language().getAppLanguageLocalizedName(getProperLanguageCode(summary, imageFromCommons))),
@@ -70,10 +72,10 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
                     if (summary.pageTitle.description.isNullOrEmpty()) summary.description
                     else summary.pageTitle.description, if (showEditButton) editButtonOnClickListener(summary) else null)
         }
-        addDetail(context.getString(R.string.suggested_edits_image_preview_dialog_artist), summary.metadata!!.artist())
-        addDetail(context.getString(R.string.suggested_edits_image_preview_dialog_tags), getImageTags(imageTags, getProperLanguageCode(summary, imageFromCommons)))
+        addDetail(context.getString(R.string.suggested_edits_image_tags), getImageTags(imageTags, getProperLanguageCode(summary, imageFromCommons)))
+        addDetail(context.getString(R.string.suggested_edits_image_caption_summary_title_author), summary.metadata!!.artist())
         addDetail(context.getString(R.string.suggested_edits_image_preview_dialog_date), summary.metadata!!.dateTime())
-        addDetail(context.getString(R.string.suggested_edits_image_preview_dialog_source), summary.metadata!!.credit())
+        addDetail(context.getString(R.string.suggested_edits_image_caption_summary_title_source), summary.metadata!!.credit())
         addDetail(true, context.getString(R.string.suggested_edits_image_preview_dialog_licensing), summary.metadata!!.licenseShortName(), summary.metadata!!.licenseUrl())
         if (imageFromCommons) {
             addDetail(false, context.getString(R.string.suggested_edits_image_preview_dialog_more_info), context.getString(R.string.suggested_edits_image_preview_dialog_file_page_link_text), context.getString(R.string.suggested_edits_image_file_page_commons_link, summary.title))

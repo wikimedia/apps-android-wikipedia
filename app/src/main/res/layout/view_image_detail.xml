@@ -76,6 +76,14 @@
             tools:visibility="visible"/>
     </LinearLayout>
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/actionButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:icon="@drawable/ic_add_gray_white_24dp"
+        app:iconSize="14dp"
+        app:iconTint="?attr/colorAccent"/>
     <View
         android:id="@+id/divider"
         android:layout_width="match_parent"
