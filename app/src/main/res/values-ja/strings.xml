@@ -4,6 +4,7 @@
 * Abijeet Patro
 * Aefgh39622
 * Afaz
+* Bonfire12
 * Buntschann
 * Dbrant
 * GAMEZONE628
@@ -47,7 +48,7 @@
   <string name="search_hint_search_languages">言語を検索</string>
   <string name="search_hint_search_my_lists_and_articles">あとで読むリストと記事を検索</string>
   <string name="nav_item_history">履歴</string>
-  <string name="nav_item_suggested_edits" fuzzy="true">提案された編集</string>
+  <string name="nav_item_suggested_edits">編集</string>
   <string name="nav_item_more">もっと見る</string>
   <string name="error_network_error">インターネットに接続できません。</string>
   <string name="page_error_retry">再試行</string>
@@ -753,6 +754,7 @@
   <string name="suggested_edits_quality_sufficient_text">最低限</string>
   <string name="suggested_edits_quality_poor_text">よくない</string>
   <string name="suggested_edits_quality_bad_text">悪い</string>
+  <string name="suggested_edits_label">編集提案</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">貢献</item>
     <item quantity="other">貢献</item>
@@ -770,6 +772,7 @@
   <string name="suggested_edits_reactivation_notification_title">提案された編集</string>
   <string name="suggested_edits_contribution_language_label">言語</string>
   <string name="suggested_edits_contribution_date_time_label">日付 / 時刻</string>
+  <string name="suggested_edits_contribution_image_label">画像</string>
   <string name="description_edit_revert_subtitle">ウィキペディアを編集していただきありがとうございます！</string>
   <string name="description_edit_revert_intro">あなたがベストを尽くそうとしたのはよく分かりますが、レビュアーは懸念を持ったようです。あなたの編集が差し戻された理由としては、以下のような可能性があります。</string>
   <string name="description_edit_revert_reason1">あなたの投稿が&lt;a href=\"%1$s\"&gt;ガイドライン&lt;/a&gt;に沿っていなかった。</string>

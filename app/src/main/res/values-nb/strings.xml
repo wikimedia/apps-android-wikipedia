@@ -676,7 +676,7 @@
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Bildetekst (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Beskrivelse av bildet (%s)</string>
   <string name="suggested_edits_image_preview_dialog_file">Fil</string>
-  <string name="suggested_edits_image_preview_dialog_artist">Kunstner</string>
+  <string name="suggested_edits_image_preview_dialog_artist">Skaper/frembringer</string>
   <string name="suggested_edits_image_preview_dialog_date">Dato</string>
   <string name="suggested_edits_image_preview_dialog_source">Kilde/fotograf</string>
   <string name="suggested_edits_image_preview_dialog_licensing">Lisensiering</string>

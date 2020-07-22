@@ -6,7 +6,7 @@
         <!-- Overrides of base Android color definitions -->
 
         <!-- Default background for all activities -->
-        <item name="android:windowBackground">@color/base80</item>
+        <item name="android:windowBackground">?attr/paper_color</item>
 
         <!-- Background for popup menus, text areas -->
         <item name="android:colorBackground">@color/base90</item>

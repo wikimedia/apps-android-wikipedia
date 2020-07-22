@@ -1,7 +1,6 @@
 package org.wikipedia.readinglist;
 
 import android.content.Context;
-import android.os.Build;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.Gravity;
@@ -152,10 +151,7 @@ public class ReadingListItemView extends ConstraintLayout {
         setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         final int topBottomPadding = 16;
         setPadding(0, DimenUtil.roundedDpToPx(topBottomPadding), 0, DimenUtil.roundedDpToPx(topBottomPadding));
-        setBackgroundColor(ResourceUtil.getThemedColor(getContext(), R.attr.paper_color));
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            setForeground(AppCompatResources.getDrawable(getContext(), ResourceUtil.getThemedAttributeId(getContext(), R.attr.selectableItemBackground)));
-        }
+        setBackground(AppCompatResources.getDrawable(getContext(), ResourceUtil.getThemedAttributeId(getContext(), R.attr.selectableItemBackground)));
         setClickable(true);
         setFocusable(true);
         clearThumbnails();
