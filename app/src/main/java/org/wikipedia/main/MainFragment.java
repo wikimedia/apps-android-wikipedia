@@ -154,14 +154,17 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         return view;
     }
 
+    /**
+     * Minimize GPU over draw for Bottom Navigation Bar
+     */
     private void setBottomNavBackground() {
         int[] attrs = {R.attr.nav_tab_background_color};
         TypedArray ta = requireContext().obtainStyledAttributes(attrs);
         int transparent = ContextCompat.getColor(requireContext(), android.R.color.transparent);
         int taColor = ta.getColor(0, transparent);
-        tabLayout.setBackgroundColor(transparent);
         ta.recycle();
         navTabContainer.setBackgroundColor(taColor);
+        tabLayout.setBackgroundColor(transparent);
         // Make system navigation bar background colour matches our Bottom Nav
         requireActivity().getWindow().setNavigationBarColor(taColor);
     }
