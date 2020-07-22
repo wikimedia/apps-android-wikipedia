@@ -155,15 +155,15 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     }
 
     private void setBottomNavBackground() {
-        boolean isDarkTheme = WikipediaApp.getInstance().getCurrentTheme().isDark();
-        if (isDarkTheme) {
-            int[] attrs = {R.attr.nav_tab_background_color};
-            TypedArray ta = requireContext().obtainStyledAttributes(attrs);
-            int transparent = ContextCompat.getColor(requireContext(), android.R.color.transparent);
-            int taColor = ta.getColor(0, transparent);
-            tabLayout.setBackgroundColor(taColor);
-            ta.recycle();
-        }
+        int[] attrs = {R.attr.nav_tab_background_color};
+        TypedArray ta = requireContext().obtainStyledAttributes(attrs);
+        int transparent = ContextCompat.getColor(requireContext(), android.R.color.transparent);
+        int taColor = ta.getColor(0, transparent);
+        tabLayout.setBackgroundColor(transparent);
+        ta.recycle();
+        navTabContainer.setBackgroundColor(taColor);
+        // Make system navigation bar background colour matches our Bottom Nav
+        requireActivity().getWindow().setNavigationBarColor(taColor);
     }
 
     @Override
