@@ -253,7 +253,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
                             : getString(suggestedEditsCardView.getCard().getAction() == ADD_DESCRIPTION ? R.string.description_edit_success_saved_snackbar : (suggestedEditsCardView.getCard().getAction() == ADD_IMAGE_TAGS) ? R.string.description_edit_success_saved_image_tags_snackbar : R.string.description_edit_success_saved_image_caption_snackbar),
                             FeedbackUtil.LENGTH_DEFAULT);
                     if (abTestFunnel.shouldSeeSnackbarAction()) {
-                        snackbar.setAction(R.string.nav_item_more, view ->
+                        snackbar.setAction(R.string.suggested_edits_tasks_onboarding_get_started, view ->
                                 startActivity(SuggestedEditsCardsActivity.newIntent(requireActivity(), suggestedEditsCardView.getCard().getAction())));
                     }
                     snackbar.show();
