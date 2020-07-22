@@ -693,8 +693,8 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
                                 FeedbackUtil.makeSnackbar(PageActivity.this, getString(R.string.description_edit_success_se_image_caption_feed_link_snackbar), FeedbackUtil.LENGTH_DEFAULT)
                                         .setAction(R.string.suggested_edits_tasks_onboarding_get_started, v -> pageFragment.startSuggestedEditsCardsActivity(action))
                                         .show();
-                                abTestFunnel.logSnackbarShown();
                             }
+                            abTestFunnel.logSnackbarShown();
                         }
                     })
                     .show();
