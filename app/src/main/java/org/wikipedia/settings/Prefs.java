@@ -941,5 +941,13 @@ public final class Prefs {
         setInt(R.string.preference_key_selected_language_position_in_search, position);
     }
 
+    public static boolean shouldShowOneTimeSequentialUserStatsTooltip() {
+        return getBoolean(R.string.preference_key_show_sequential_user_stats_tooltip, true);
+    }
+
+    public static void shouldShowOneTimeSequentialUserStatsTooltip(boolean show) {
+        setBoolean(R.string.preference_key_show_sequential_user_stats_tooltip, show);
+    }
+
     private Prefs() { }
 }

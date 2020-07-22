@@ -11,12 +11,14 @@ import android.view.ViewGroup
 import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.skydoves.balloon.showAlignBottom
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.functions.Function3
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_suggested_edits_tasks.*
+import kotlinx.android.synthetic.main.view_image_title_description.view.*
 import org.wikipedia.Constants
 import org.wikipedia.Constants.*
 import org.wikipedia.R
@@ -281,10 +283,22 @@ class SuggestedEditsTasksFragment : Fragment() {
             onboardingTextView.visibility = GONE
             contributionsStatsView.setTitle(totalContributions.toString())
             contributionsStatsView.setDescription(resources.getQuantityString(R.plurals.suggested_edits_contribution, totalContributions))
+            if (Prefs.shouldShowOneTimeSequentialUserStatsTooltip()) {
+                showOneTimeSequentialUserStatsTooltips()
+            }
         }
 
         swipeRefreshLayout.setBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
         tasksContainer.visibility = VISIBLE
+    }
+
+    private fun showOneTimeSequentialUserStatsTooltips() {
+        val balloon = FeedbackUtil.showTooltipBubble(context, contributionsStatsView.tooltipText)
+        contributionsStatsView.description.showAlignBottom(balloon)
+        balloon.relayShowAlignBottom(FeedbackUtil.showTooltipBubble(context, editStreakStatsView.tooltipText), editStreakStatsView.description)
+                .relayShowAlignBottom(FeedbackUtil.showTooltipBubble(context, pageViewStatsView.tooltipText), pageViewStatsView.description)
+                .relayShowAlignBottom(FeedbackUtil.showTooltipBubble(context, editQualityStatsView.tooltipText), editQualityStatsView.description)
+        Prefs.shouldShowOneTimeSequentialUserStatsTooltip(false)
     }
 
     private fun setIPBlockedStatus() {
