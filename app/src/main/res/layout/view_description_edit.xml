@@ -179,7 +179,6 @@
                                 android:layout_height="wrap_content"
                                 android:imeOptions="flagNoExtractUi|actionDone"
                                 android:inputType="textMultiLine"
-                                android:drawableEnd="@drawable/ic_spacer_24dp"
                                 android:lineSpacingExtra="6sp"
                                 android:maxLength="@integer/description_max_chars"
                                 android:textSize="16sp">

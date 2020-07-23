@@ -49,6 +49,8 @@ import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
 
 public class DescriptionEditView extends LinearLayout {
+    private static final int TEXT_VALIDATE_DELAY_MILLIS = 500;
+
     @BindView(R.id.view_description_edit_toolbar_container) FrameLayout toolbarContainer;
     @BindView(R.id.view_description_edit_header) TextView headerText;
     @BindView(R.id.view_description_edit_save_button) ImageView saveButton;
@@ -73,6 +75,9 @@ public class DescriptionEditView extends LinearLayout {
     private SuggestedEditsSummary suggestedEditsSummary;
     private Action action;
     private boolean isTranslationEdit;
+    private boolean isTextValid;
+
+    private Runnable textValidateRunnable = this::validateText;
 
     public interface Callback {
         void onSaveClick();
@@ -273,6 +278,10 @@ public class DescriptionEditView extends LinearLayout {
     }
 
     @OnClick(R.id.view_description_edit_save_button) void onSaveClick() {
+        validateText();
+        if (!saveButton.isEnabled()) {
+            return;
+        }
         if (callback != null) {
             callback.onSaveClick();
         }
@@ -309,18 +318,27 @@ public class DescriptionEditView extends LinearLayout {
     @OnTextChanged(value = R.id.view_description_edit_text,
             callback = OnTextChanged.Callback.AFTER_TEXT_CHANGED)
     void pageDescriptionTextChanged() {
+        removeCallbacks(textValidateRunnable);
+        postDelayed(textValidateRunnable, TEXT_VALIDATE_DELAY_MILLIS);
+    }
+
+    private void validateText() {
+        isTextValid = true;
         String text = pageDescriptionText.getText().toString().toLowerCase();
 
         if (text.length() == 0) {
+            isTextValid = false;
             setError(null);
         } else if (text.length() < 2) {
-            setError("The description is too short, son");
+            isTextValid = false;
+            setError(getContext().getString(R.string.description_too_short));
         } else if (pageTitle.getWikiSite().languageCode().equals("en") && StringUtils.endsWithAny(text, ".", ",", "!", "?")) {
-            setError("Descriptions should not end with punctuation");
+            isTextValid = false;
+            setError(getContext().getString(R.string.description_ends_with_punctuation));
         } else if (pageTitle.getWikiSite().languageCode().equals("en") && StringUtils.startsWithAny(text, "a ", "an ", "the ")) {
-            setWarning("Descriptions should not start with an article");
+            setWarning(getContext().getString(R.string.description_starts_with_article));
         } else if (pageTitle.getWikiSite().languageCode().equals("en") && Character.isUpperCase(pageDescriptionText.getText().toString().charAt(0))) {
-            setWarning("Start with a lowercase letter unless the first word is a proper noun");
+            setWarning(getContext().getString(R.string.description_starts_with_uppercase));
         } else {
             setError(null);
         }
@@ -359,7 +377,8 @@ public class DescriptionEditView extends LinearLayout {
 
     private void updateSaveButtonEnabled() {
         if (!TextUtils.isEmpty(pageDescriptionText.getText())
-                && !StringUtils.equals(originalDescription, pageDescriptionText.getText())) {
+                && !StringUtils.equals(originalDescription, pageDescriptionText.getText())
+                && isTextValid) {
             enableSaveButton(true, false);
         } else {
             enableSaveButton(false, false);
