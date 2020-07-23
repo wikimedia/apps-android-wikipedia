@@ -3,8 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/swipeRefreshLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="?attr/paper_color">
+    android:layout_height="match_parent">
 
     <FrameLayout
         android:layout_width="match_parent"

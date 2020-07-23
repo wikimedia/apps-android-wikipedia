@@ -17,8 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="64dp"
-            android:layout_marginBottom="64dp"
-            android:background="?attr/paper_color" />
+            android:layout_marginBottom="64dp" />
 
 
         <org.wikipedia.views.WikiErrorView
@@ -28,7 +27,6 @@
             android:layout_gravity="center"
             android:layout_marginTop="48dp"
             android:layout_marginBottom="48dp"
-            android:background="?attr/paper_color"
             android:visibility="gone" />
 
         <LinearLayout
