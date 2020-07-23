@@ -82,15 +82,18 @@ class SuggestedEditsTasksFragment : Fragment() {
         }
 
         contributionsStatsView.setImageDrawable(R.drawable.ic_mode_edit_white_24dp)
+        contributionsStatsView.setUpTooltip(getString(R.string.suggested_edits_contributions_stat_tooltip))
 
         editStreakStatsView.setDescription(resources.getString(R.string.suggested_edits_edit_streak_label_text))
         editStreakStatsView.setImageDrawable(R.drawable.ic_timer_black_24dp)
+        editStreakStatsView.setUpTooltip(getString(R.string.suggested_edits_edit_streak_stat_tooltip))
 
         pageViewStatsView.setDescription(getString(R.string.suggested_edits_views_label_text))
         pageViewStatsView.setImageDrawable(R.drawable.ic_trending_up_black_24dp)
+        pageViewStatsView.setUpTooltip(getString(R.string.suggested_edits_page_views_stat_tooltip))
 
         editQualityStatsView.setDescription(getString(R.string.suggested_edits_quality_label_text))
-        editQualityStatsView.tooltipText = getString(R.string.suggested_edits_edit_quality_stat_tooltip, SuggestedEditsUserStats.totalReverts)
+        editQualityStatsView.setUpTooltip(getString(R.string.suggested_edits_edit_quality_stat_tooltip, SuggestedEditsUserStats.totalReverts))
 
         swipeRefreshLayout.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent))
         swipeRefreshLayout.setOnRefreshListener { refreshContents() }
@@ -293,11 +296,11 @@ class SuggestedEditsTasksFragment : Fragment() {
     }
 
     private fun showOneTimeSequentialUserStatsTooltips() {
-        val balloon = FeedbackUtil.showTooltipBubble(context, contributionsStatsView.tooltipText)
+        val balloon = FeedbackUtil.showTooltipBubble(requireContext(), contributionsStatsView.tooltipText)
         contributionsStatsView.description.showAlignBottom(balloon)
-        balloon.relayShowAlignBottom(FeedbackUtil.showTooltipBubble(context, editStreakStatsView.tooltipText), editStreakStatsView.description)
-                .relayShowAlignBottom(FeedbackUtil.showTooltipBubble(context, pageViewStatsView.tooltipText), pageViewStatsView.description)
-                .relayShowAlignBottom(FeedbackUtil.showTooltipBubble(context, editQualityStatsView.tooltipText), editQualityStatsView.description)
+        balloon.relayShowAlignBottom(FeedbackUtil.showTooltipBubble(requireContext(), editStreakStatsView.tooltipText), editStreakStatsView.description)
+                .relayShowAlignBottom(FeedbackUtil.showTooltipBubble(requireContext(), pageViewStatsView.tooltipText), pageViewStatsView.description)
+                .relayShowAlignBottom(FeedbackUtil.showTooltipBubble(requireContext(), editQualityStatsView.tooltipText), editQualityStatsView.description)
         Prefs.shouldShowOneTimeSequentialUserStatsTooltip(false)
     }
 

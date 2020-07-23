@@ -104,8 +104,7 @@
                                 android:layout_marginTop="16dp"
                                 app:layout_constraintEnd_toStartOf="@id/guideLineMiddle"
                                 app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toBottomOf="@id/userNameView"
-                                app:tooltipText="@string/suggested_edits_contributions_stat_tooltip" />
+                                app:layout_constraintTop_toBottomOf="@id/userNameView"/>
 
                             <org.wikipedia.views.ImageTitleDescriptionView
                                 android:id="@+id/editStreakStatsView"
@@ -113,8 +112,7 @@
                                 android:layout_height="wrap_content"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toEndOf="@id/guideLineMiddle"
-                                app:layout_constraintTop_toTopOf="@id/contributionsStatsView"
-                                app:tooltipText="@string/suggested_edits_edit_streak_stat_tooltip" />
+                                app:layout_constraintTop_toTopOf="@id/contributionsStatsView"/>
 
                             <org.wikipedia.views.ImageTitleDescriptionView
                                 android:id="@+id/pageViewStatsView"
@@ -123,8 +121,7 @@
                                 android:layout_marginTop="20dp"
                                 app:layout_constraintEnd_toEndOf="@id/guideLineMiddle"
                                 app:layout_constraintStart_toStartOf="@id/contributionsStatsView"
-                                app:layout_constraintTop_toBottomOf="@id/contributionsStatsView"
-                                app:tooltipText="@string/suggested_edits_page_views_stat_tooltip" />
+                                app:layout_constraintTop_toBottomOf="@id/contributionsStatsView"/>
 
                             <org.wikipedia.views.ImageTitleDescriptionView
                                 android:id="@+id/editQualityStatsView"
@@ -132,8 +129,7 @@
                                 android:layout_height="wrap_content"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toEndOf="@id/guideLineMiddle"
-                                app:layout_constraintTop_toTopOf="@id/pageViewStatsView"
-                                app:tooltipText="@string/suggested_edits_edit_quality_stat_tooltip" />
+                                app:layout_constraintTop_toTopOf="@id/pageViewStatsView"/>
 
                             <ImageView
                                 android:id="@+id/onboardingImageView"
