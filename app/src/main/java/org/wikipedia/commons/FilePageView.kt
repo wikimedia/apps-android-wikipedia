@@ -14,17 +14,21 @@ import androidx.core.content.ContextCompat.startActivity
 import kotlinx.android.synthetic.main.view_file_page.view.*
 import kotlinx.android.synthetic.main.view_image_detail.view.*
 import org.wikipedia.Constants
+import org.wikipedia.Constants.ACTIVITY_REQUEST_SUGGESTED_EDITS_ONBOARDING
 import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.richtext.RichTextUtil
+import org.wikipedia.suggestededits.SuggestedEditsImageTagsFragment
+import org.wikipedia.suggestededits.SuggestedEditsImageTagsOnboardingActivity
 import org.wikipedia.suggestededits.SuggestedEditsSummary
 import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
+import org.wikipedia.util.log.L
 import org.wikipedia.views.ImageDetailView
 import org.wikipedia.views.ImageZoomHelper
 import org.wikipedia.views.ViewUtil
@@ -59,20 +63,27 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
         }
 
         detailsContainer.removeAllViews()
-        if (summary.pageTitle.description.isNullOrEmpty() && summary.description.isNullOrEmpty()) {
 
+        if (summary.pageTitle.description.isNullOrEmpty() && summary.description.isNullOrEmpty()) {
+            addActionButton(context.getString(R.string.file_page_add_image_caption_button), imageCaptionOnClickListener(summary))
         } else if ((action == DescriptionEditActivity.Action.ADD_CAPTION || action == null) && summary.pageTitle.description.isNullOrEmpty()) {
             // Show the image description when a structured caption does not exist.
             addDetail(context.getString(R.string.suggested_edits_image_preview_dialog_description_in_language_title,
                     WikipediaApp.getInstance().language().getAppLanguageLocalizedName(getProperLanguageCode(summary, imageFromCommons))),
-                    summary.description, if (showEditButton) editButtonOnClickListener(summary) else null)
+                    summary.description, if (showEditButton) imageCaptionOnClickListener(summary) else null)
         } else {
             addDetail(context.getString(R.string.suggested_edits_image_preview_dialog_caption_in_language_title,
                     WikipediaApp.getInstance().language().getAppLanguageLocalizedName(getProperLanguageCode(summary, imageFromCommons))),
                     if (summary.pageTitle.description.isNullOrEmpty()) summary.description
-                    else summary.pageTitle.description, if (showEditButton) editButtonOnClickListener(summary) else null)
+                    else summary.pageTitle.description, if (showEditButton) imageCaptionOnClickListener(summary) else null)
         }
-        addDetail(context.getString(R.string.suggested_edits_image_tags), getImageTags(imageTags, getProperLanguageCode(summary, imageFromCommons)))
+
+        if (imageTags.isNullOrEmpty()) {
+            addActionButton(context.getString(R.string.file_page_add_image_tags_button), imageTagsOnClickListener(summary))
+        } else {
+            addDetail(context.getString(R.string.suggested_edits_image_tags), getImageTags(imageTags, getProperLanguageCode(summary, imageFromCommons)))
+        }
+
         addDetail(context.getString(R.string.suggested_edits_image_caption_summary_title_author), summary.metadata!!.artist())
         addDetail(context.getString(R.string.suggested_edits_image_preview_dialog_date), summary.metadata!!.dateTime())
         addDetail(context.getString(R.string.suggested_edits_image_caption_summary_title_source), summary.metadata!!.credit())
@@ -107,12 +118,18 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
         imageViewPlaceholder.layoutParams = LayoutParams(containerWidth, adjustImagePlaceholderHeight(containerWidth.toFloat(), thumbWidth.toFloat(), thumbHeight.toFloat()))
     }
 
-    private fun editButtonOnClickListener(summary: SuggestedEditsSummary): OnClickListener {
+    private fun imageCaptionOnClickListener(summary: SuggestedEditsSummary): OnClickListener {
         return OnClickListener {
             startActivity(context, DescriptionEditActivity.newIntent(context,
                     summary.pageTitle, null, summary, null,
                     DescriptionEditActivity.Action.ADD_CAPTION, InvokeSource.FILE_PAGE_ACTIVITY
             ), null)
+        }
+    }
+
+    private fun imageTagsOnClickListener(summary: SuggestedEditsSummary): OnClickListener {
+        return OnClickListener {
+            // TODO: add image tags add tag fragment
         }
     }
 
@@ -157,6 +174,16 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
             }
             detailsContainer.addView(view)
         }
+    }
+
+    private fun addActionButton(buttonText: String, listener: OnClickListener) {
+        val view = ImageDetailView(context)
+        view.titleContainer.visibility = View.GONE
+        view.contentContainer.visibility = View.GONE
+        view.actionButton.visibility = View.VISIBLE
+        view.actionButton.text = buttonText
+        view.actionButton.setOnClickListener(listener)
+        detailsContainer.addView(view)
     }
 
     private val movementMethod = LinkMovementMethodExt { url: String ->
