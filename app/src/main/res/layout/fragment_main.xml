@@ -59,6 +59,7 @@
             android:layout_weight="0.2"
             android:layout_height="match_parent"
             android:contentDescription="@string/nav_item_more"
+            android:background="?attr/selectableItemBackground"
             android:gravity="center_horizontal"
             android:orientation="vertical">
 

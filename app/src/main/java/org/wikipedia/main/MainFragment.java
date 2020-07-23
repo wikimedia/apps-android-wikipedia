@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.view.LayoutInflater;
@@ -160,11 +161,10 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     private void setBottomNavBackground() {
         int[] attrs = {R.attr.nav_tab_background_color};
         TypedArray ta = requireContext().obtainStyledAttributes(attrs);
-        int transparent = ContextCompat.getColor(requireContext(), android.R.color.transparent);
-        int taColor = ta.getColor(0, transparent);
+        int taColor = ta.getColor(0, Color.TRANSPARENT);
         ta.recycle();
         navTabContainer.setBackgroundColor(taColor);
-        tabLayout.setBackgroundColor(transparent);
+        tabLayout.setBackgroundColor(Color.TRANSPARENT);
         // Make system navigation bar background colour matches our Bottom Nav
         requireActivity().getWindow().setNavigationBarColor(taColor);
     }
