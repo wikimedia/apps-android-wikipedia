@@ -89,7 +89,7 @@
                                 android:background="@drawable/shape_circle"
                                 android:backgroundTint="?attr/color_group_22"
                                 android:contentDescription="@null"/>
-
+                            
                             <androidx.constraintlayout.widget.Guideline
                                 android:id="@+id/guideLineMiddle"
                                 android:layout_width="wrap_content"
