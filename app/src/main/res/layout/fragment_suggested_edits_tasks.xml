@@ -75,7 +75,7 @@
                                 android:textColor="?attr/material_theme_primary_color"
                                 android:textSize="20sp"
                                 android:textStyle="bold"/>
-
+                            
                             <ImageView
                                 android:id="@+id/userStatsArrow"
                                 android:layout_width="32dp"
