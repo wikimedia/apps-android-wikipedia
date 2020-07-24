@@ -13,7 +13,6 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.dataclient.mwapi.MwQueryPage
-import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.json.GsonMarshaller
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
@@ -24,7 +23,6 @@ class SuggestedEditsImageTagEditActivity : BaseActivity(), SuggestedEditsImageTa
 
     private lateinit var imageZoomHelper: ImageZoomHelper
     private var suggestedEditsImageTagsFragment: SuggestedEditsImageTagsFragment? = null
-    var action: DescriptionEditActivity.Action = DescriptionEditActivity.Action.ADD_IMAGE_TAGS
     var page: MwQueryPage? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -81,7 +79,7 @@ class SuggestedEditsImageTagEditActivity : BaseActivity(), SuggestedEditsImageTa
     }
 
     private fun maybeShowOnboarding() {
-        if (action == DescriptionEditActivity.Action.ADD_IMAGE_TAGS && Prefs.shouldShowImageTagsOnboarding()) {
+        if (Prefs.shouldShowImageTagsOnboarding()) {
             Prefs.setShowImageTagsOnboarding(false)
             startActivity(SuggestedEditsImageTagsOnboardingActivity.newIntent(this))
         }
