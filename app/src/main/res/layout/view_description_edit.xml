@@ -174,7 +174,7 @@
                             app:endIconDrawable="@drawable/ic_mic_black_24dp"
                             app:endIconTint="?attr/material_theme_de_emphasised_color"
                             app:endIconContentDescription="@string/description_edit_voice_input_description"
-                            app:endIconMode="clear_text"
+                            app:endIconMode="custom"
                             app:counterEnabled="true"
                             app:counterMaxLength="@integer/description_max_chars"
                             app:counterOverflowTextAppearance="@style/CounterOverflowTextAppearance">
