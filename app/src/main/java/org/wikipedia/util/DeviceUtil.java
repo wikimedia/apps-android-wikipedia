@@ -111,7 +111,7 @@ public final class DeviceUtil {
         }
     }
 
-    public static void setRightClickEvent(@NonNull View view) {
+    public static void setContextClickAsLongClick(@NonNull View view) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             view.setOnContextClickListener(View::performLongClick);
         }

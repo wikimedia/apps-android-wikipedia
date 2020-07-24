@@ -449,7 +449,7 @@ public class NotificationActivity extends BaseActivity implements NotificationIt
             imageBackgroundView = view.findViewById(R.id.notification_item_image_background);
             imageSelectedView = view.findViewById(R.id.notification_item_selected_image);
             imageView = view.findViewById(R.id.notification_item_image);
-            DeviceUtil.setRightClickEvent(itemView);
+            DeviceUtil.setContextClickAsLongClick(itemView);
         }
 
         protected NotificationListItemContainer getContainer() {

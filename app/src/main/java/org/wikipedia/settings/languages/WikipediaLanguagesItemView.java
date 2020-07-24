@@ -104,7 +104,7 @@ public class WikipediaLanguagesItemView extends LinearLayout {
             setForeground(AppCompatResources.getDrawable(getContext(),
                     ResourceUtil.getThemedAttributeId(getContext(), R.attr.selectableItemBackground)));
         }
-        DeviceUtil.setRightClickEvent(this);
+        DeviceUtil.setContextClickAsLongClick(this);
     }
 
     private void updateBackgroundColor() {

@@ -155,7 +155,7 @@ public class ReadingListItemView extends ConstraintLayout {
         setClickable(true);
         setFocusable(true);
         clearThumbnails();
-        DeviceUtil.setRightClickEvent(this);
+        DeviceUtil.setContextClickAsLongClick(this);
     }
 
     public void setOverflowViewVisibility(int visibility) {

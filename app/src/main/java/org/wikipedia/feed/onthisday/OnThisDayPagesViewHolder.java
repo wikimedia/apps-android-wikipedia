@@ -50,7 +50,7 @@ public class OnThisDayPagesViewHolder extends RecyclerView.ViewHolder {
         this.wiki = wiki;
         this.isSingleCard = isSingleCard;
         this.activity = activity;
-        DeviceUtil.setRightClickEvent(parent);
+        DeviceUtil.setContextClickAsLongClick(parent);
     }
 
     public void setFields(@NonNull PageSummary page) {

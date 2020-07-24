@@ -200,7 +200,7 @@ public class PageItemView<T> extends ConstraintLayout {
         setPadding(0, DimenUtil.roundedDpToPx(topBottomPadding), 0, DimenUtil.roundedDpToPx(topBottomPadding));
         setBackground(AppCompatResources.getDrawable(getContext(), ResourceUtil.getThemedAttributeId(getContext(), R.attr.selectableItemBackground)));
         setFocusable(true);
-        DeviceUtil.setRightClickEvent(this);
+        DeviceUtil.setContextClickAsLongClick(this);
         FeedbackUtil.setToolbarButtonLongPressToast(secondaryActionView);
     }
 

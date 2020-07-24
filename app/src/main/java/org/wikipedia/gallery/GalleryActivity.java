@@ -710,7 +710,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         licenseIcon.setContentDescription(StringUtils.defaultIfBlank(item.getMediaInfo().getMetadata().licenseShortName(), getString(R.string.gallery_fair_use_license)));
         // Give the license URL to the icon, to be received by the click handler (may be null).
         licenseIcon.setTag(item.getMediaInfo().getMetadata().licenseUrl());
-        DeviceUtil.setRightClickEvent(licenseContainer);
+        DeviceUtil.setContextClickAsLongClick(licenseContainer);
 
         String creditStr = !TextUtils.isEmpty(item.getMediaInfo().getMetadata().artist()) ? item.getMediaInfo().getMetadata().artist() : item.getMediaInfo().getMetadata().credit();
 
