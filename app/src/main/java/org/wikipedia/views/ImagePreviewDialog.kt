@@ -18,6 +18,7 @@ import org.wikipedia.commons.ImageTagsProvider
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.descriptions.DescriptionEditActivity.Action
 import org.wikipedia.json.GsonMarshaller
 import org.wikipedia.json.GsonUnmarshaller
@@ -73,6 +74,7 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
 
     private fun loadImageInfo() {
         lateinit var imageTags: Map<String, List<String>>
+        lateinit var page: MwQueryPage
         var isFromCommons = false
         var thumbnailWidth = 0
         var thumbnailHeight = 0
@@ -90,7 +92,7 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
                     }
                 }
                 .flatMap { response ->
-                    val page = response.query()!!.pages()!![0]
+                    page = response.query()!!.pages()!![0]
                     if (page.imageInfo() != null) {
                         val imageInfo = page.imageInfo()!!
                         suggestedEditsSummary.timestamp = imageInfo.timestamp
@@ -108,6 +110,7 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
                     filePageView.setup(
                             suggestedEditsSummary,
                             imageTags,
+                            page,
                             dialogDetailContainer.width,
                             thumbnailWidth, thumbnailHeight,
                             imageFromCommons = isFromCommons,

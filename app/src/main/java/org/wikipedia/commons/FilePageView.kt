@@ -14,13 +14,14 @@ import androidx.core.content.ContextCompat.startActivity
 import kotlinx.android.synthetic.main.view_file_page.view.*
 import kotlinx.android.synthetic.main.view_image_detail.view.*
 import org.wikipedia.Constants
-import org.wikipedia.Constants.ACTIVITY_REQUEST_SUGGESTED_EDITS_ONBOARDING
-import org.wikipedia.Constants.InvokeSource
+import org.wikipedia.Constants.*
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
+import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.richtext.RichTextUtil
+import org.wikipedia.suggestededits.SuggestedEditsImageTagEditActivity
 import org.wikipedia.suggestededits.SuggestedEditsImageTagsFragment
 import org.wikipedia.suggestededits.SuggestedEditsImageTagsOnboardingActivity
 import org.wikipedia.suggestededits.SuggestedEditsSummary
@@ -43,6 +44,7 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
 
     fun setup(summary: SuggestedEditsSummary,
               imageTags: Map<String, List<String>>,
+              page: MwQueryPage,
               containerWidth: Int,
               thumbWidth: Int,
               thumbHeight: Int,
@@ -79,7 +81,7 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
         }
 
         if (imageTags.isNullOrEmpty()) {
-            addActionButton(context.getString(R.string.file_page_add_image_tags_button), imageTagsOnClickListener(summary))
+            addActionButton(context.getString(R.string.file_page_add_image_tags_button), imageTagsOnClickListener(page))
         } else {
             addDetail(context.getString(R.string.suggested_edits_image_tags), getImageTags(imageTags, getProperLanguageCode(summary, imageFromCommons)))
         }
@@ -127,9 +129,9 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
         }
     }
 
-    private fun imageTagsOnClickListener(summary: SuggestedEditsSummary): OnClickListener {
+    private fun imageTagsOnClickListener(page: MwQueryPage): OnClickListener {
         return OnClickListener {
-            // TODO: add image tags add tag fragment
+            startActivity(context, SuggestedEditsImageTagEditActivity.newIntent(context, page), null)
         }
     }
 

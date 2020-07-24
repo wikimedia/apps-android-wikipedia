@@ -16,6 +16,7 @@ import org.wikipedia.R
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.dataclient.mwapi.media.MediaHelper.getImageCaptions
 import org.wikipedia.page.PageTitle
@@ -64,6 +65,7 @@ class FilePageFragment : Fragment() {
 
     private fun loadImageInfo() {
         lateinit var imageTags: Map<String, List<String>>
+        lateinit var page: MwQueryPage
         var isFromCommons = false
         var isEditProtected = false
         var thumbnailWidth = 0
@@ -94,7 +96,7 @@ class FilePageFragment : Fragment() {
                 }
                 .subscribeOn(Schedulers.io())
                 .flatMap {
-                    val page = it.query()!!.pages()!![0]
+                    page = it.query()!!.pages()!![0]
                     val imageInfo = page.imageInfo()!!
                     suggestedEditsSummary =  SuggestedEditsSummary(
                             pageTitle.prefixedText,
@@ -124,6 +126,7 @@ class FilePageFragment : Fragment() {
                     filePageView.setup(
                             suggestedEditsSummary,
                             imageTags,
+                            page,
                             container.width,
                             thumbnailWidth,
                             thumbnailHeight,
