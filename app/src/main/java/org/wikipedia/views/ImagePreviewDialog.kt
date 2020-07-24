@@ -108,6 +108,7 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
                     filePageView.visibility = VISIBLE
                     progressBar.visibility = GONE
                     filePageView.setup(
+                            this,
                             suggestedEditsSummary,
                             imageTags,
                             page,

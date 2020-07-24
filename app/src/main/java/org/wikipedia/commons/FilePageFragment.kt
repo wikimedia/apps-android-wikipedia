@@ -1,5 +1,7 @@
 package org.wikipedia.commons
 
+import android.app.Activity.RESULT_OK
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -21,6 +23,7 @@ import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.dataclient.mwapi.media.MediaHelper.getImageCaptions
 import org.wikipedia.page.PageTitle
 import org.wikipedia.suggestededits.SuggestedEditsSummary
+import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
@@ -54,6 +57,18 @@ class FilePageFragment : Fragment() {
     override fun onDestroyView() {
         disposables.clear()
         super.onDestroyView()
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if ((requestCode == ACTIVITY_REQUEST_ADD_IMAGE_CAPTION || requestCode == ACTIVITY_REQUEST_ADD_IMAGE_TAGS) && resultCode == RESULT_OK) {
+            FeedbackUtil.showMessage(this,
+                    if (requestCode == ACTIVITY_REQUEST_ADD_IMAGE_CAPTION)
+                        getString(R.string.description_edit_success_saved_image_caption_snackbar)
+                    else
+                        getString(R.string.description_edit_success_saved_image_tags_snackbar))
+            loadImageInfo()
+        }
     }
 
     private fun showError(caught: Throwable?) {
@@ -124,6 +139,7 @@ class FilePageFragment : Fragment() {
                     filePageView.visibility = View.VISIBLE
                     progressBar.visibility = View.GONE
                     filePageView.setup(
+                            this,
                             suggestedEditsSummary,
                             imageTags,
                             page,
@@ -145,6 +161,9 @@ class FilePageFragment : Fragment() {
 
     companion object {
         private const val ARG_PAGE_TITLE = "pageTitle"
+        const val ACTIVITY_REQUEST_ADD_IMAGE_CAPTION = 1
+        const val ACTIVITY_REQUEST_ADD_IMAGE_TAGS = 2
+
         fun newInstance(pageTitle: PageTitle): FilePageFragment {
             val fragment = FilePageFragment()
             val args = Bundle()
