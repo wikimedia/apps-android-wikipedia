@@ -65,7 +65,6 @@ public class DescriptionEditView extends LinearLayout {
     @BindView(R.id.view_description_edit_review_container) DescriptionEditReviewView pageReviewContainer;
     @BindView(R.id.view_description_edit_page_summary_label) TextView pageSummaryLabel;
     @BindView(R.id.view_description_edit_read_article_bar_container) DescriptionEditBottomBarView bottomBarContainer;
-    @BindView(R.id.view_description_edit_voice_input) View voiceInputButton;
     @BindView(R.id.view_description_edit_scrollview) ScrollView scrollView;
 
     @Nullable private String originalDescription;
@@ -274,10 +273,7 @@ public class DescriptionEditView extends LinearLayout {
 
     private void layoutErrorState(@Nullable CharSequence text) {
         pageDescriptionLayout.setError(text);
-        if (TextUtils.isEmpty(text)) {
-            voiceInputButton.setVisibility(VISIBLE);
-        } else {
-            voiceInputButton.setVisibility(GONE);
+        if (!TextUtils.isEmpty(text)) {
             post(() -> {
                 if (isAttachedToWindow()) {
                     scrollView.fullScroll(View.FOCUS_DOWN);
