@@ -27,6 +27,7 @@ import com.google.android.material.textfield.TextInputLayout;
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
+import org.wikipedia.analytics.ABTestDescriptionEditChecksFunnel;
 import org.wikipedia.descriptions.DescriptionEditActivity.Action;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.suggestededits.SuggestedEditsSummary;
@@ -77,6 +78,7 @@ public class DescriptionEditView extends LinearLayout {
     private boolean isTextValid;
 
     private Runnable textValidateRunnable = this::validateText;
+    private ABTestDescriptionEditChecksFunnel funnel = new ABTestDescriptionEditChecksFunnel();
 
     public interface Callback {
         void onSaveClick();
@@ -317,8 +319,14 @@ public class DescriptionEditView extends LinearLayout {
     @OnTextChanged(value = R.id.view_description_edit_text,
             callback = OnTextChanged.Callback.AFTER_TEXT_CHANGED)
     void pageDescriptionTextChanged() {
-        removeCallbacks(textValidateRunnable);
-        postDelayed(textValidateRunnable, TEXT_VALIDATE_DELAY_MILLIS);
+        if (funnel.shouldSeeChecks()) {
+            removeCallbacks(textValidateRunnable);
+            postDelayed(textValidateRunnable, TEXT_VALIDATE_DELAY_MILLIS);
+        } else {
+            isTextValid = true;
+            updateSaveButtonEnabled();
+            setError(null);
+        }
     }
 
     private void validateText() {
