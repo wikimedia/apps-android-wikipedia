@@ -7,6 +7,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.core.net.ConnectivityManagerCompat;
 
 import org.wikipedia.WikipediaApp;
@@ -47,6 +48,6 @@ public class NetworkConnectivityReceiver extends BroadcastReceiver {
     }
 
     @Nullable private ConnectivityManager getConnectivityManager(Context context) {
-        return (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        return ContextCompat.getSystemService(context, ConnectivityManager.class);
     }
 }

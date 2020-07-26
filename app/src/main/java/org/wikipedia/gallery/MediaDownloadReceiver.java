@@ -13,6 +13,7 @@ import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -69,7 +70,7 @@ public class MediaDownloadReceiver extends BroadcastReceiver {
         // creates the directory if it doesn't exist else it's harmless
         targetFolder.mkdir();
 
-        DownloadManager downloadManager = (DownloadManager) context.getSystemService(Context.DOWNLOAD_SERVICE);
+        DownloadManager downloadManager = ContextCompat.getSystemService(context, DownloadManager.class);
         DownloadManager.Request request = new DownloadManager.Request(uri);
         request.setDestinationUri(Uri.fromFile(targetFile));
         request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
@@ -87,7 +88,7 @@ public class MediaDownloadReceiver extends BroadcastReceiver {
             long downloadId = intent.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, 0);
             DownloadManager.Query query = new DownloadManager.Query();
             query.setFilterById(downloadId);
-            DownloadManager downloadManager = (DownloadManager) context.getSystemService(Context.DOWNLOAD_SERVICE);
+            DownloadManager downloadManager = ContextCompat.getSystemService(context, DownloadManager.class);
             try (Cursor c = downloadManager.query(query)) {
                 if (c.moveToFirst()) {
                     int statusIndex = c.getColumnIndexOrThrow(DownloadManager.COLUMN_STATUS);

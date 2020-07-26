@@ -11,6 +11,7 @@ import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
+import androidx.core.content.ContextCompat;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -75,7 +76,7 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
     }
 
     public static void startPollTask(@NonNull Context context) {
-        AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+        AlarmManager alarmManager = ContextCompat.getSystemService(context, AlarmManager.class);
         try {
             alarmManager.setInexactRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP,
                     SystemClock.elapsedRealtime(),
@@ -91,7 +92,7 @@ public class NotificationPollBroadcastReceiver extends BroadcastReceiver {
     }
 
     public static void stopPollTask(@NonNull Context context) {
-        AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+        AlarmManager alarmManager = ContextCompat.getSystemService(context, AlarmManager.class);
         alarmManager.cancel(getAlarmPendingIntent(context));
     }
 

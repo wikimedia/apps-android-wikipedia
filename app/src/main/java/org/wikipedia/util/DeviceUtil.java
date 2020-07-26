@@ -20,14 +20,13 @@ import android.view.inputmethod.InputMethodManager;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.util.log.L;
 
 import java.util.List;
-
-import static android.content.Context.ACCESSIBILITY_SERVICE;
 
 public final class DeviceUtil {
 
@@ -55,7 +54,7 @@ public final class DeviceUtil {
      * @param view The currently focused view that will receive the keyboard input
      */
     public static void showSoftKeyboard(View view) {
-        InputMethodManager keyboard = (InputMethodManager)view.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+        InputMethodManager keyboard = ContextCompat.getSystemService(view.getContext(), InputMethodManager.class);
         keyboard.toggleSoftInput(0, 0);
     }
 
@@ -72,7 +71,7 @@ public final class DeviceUtil {
     }
 
     public static void hideSoftKeyboard(View view) {
-        InputMethodManager keyboard = (InputMethodManager)view.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+        InputMethodManager keyboard = ContextCompat.getSystemService(view.getContext(), InputMethodManager.class);
         // Not using getCurrentFocus as that sometimes is null, but the keyboard is still up.
         keyboard.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
@@ -128,7 +127,7 @@ public final class DeviceUtil {
     }
 
     private static ConnectivityManager getConnectivityManager() {
-        return (ConnectivityManager) WikipediaApp.getInstance().getSystemService(Context.CONNECTIVITY_SERVICE);
+        return ContextCompat.getSystemService(WikipediaApp.getInstance(), ConnectivityManager.class);
     }
 
     public static boolean isOnWiFi() {
@@ -137,7 +136,7 @@ public final class DeviceUtil {
     }
 
     public static boolean isAccessibilityEnabled() {
-        AccessibilityManager am = (AccessibilityManager) WikipediaApp.getInstance().getSystemService(ACCESSIBILITY_SERVICE);
+        AccessibilityManager am = ContextCompat.getSystemService(WikipediaApp.getInstance(), AccessibilityManager.class);
         // TODO: add more logic if other accessibility tools have different settings.
         return am != null && am.isEnabled() && am.isTouchExplorationEnabled();
     }

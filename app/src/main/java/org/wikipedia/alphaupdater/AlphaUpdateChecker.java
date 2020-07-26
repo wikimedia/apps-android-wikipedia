@@ -10,6 +10,7 @@ import android.os.Build;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
+import androidx.core.content.ContextCompat;
 
 import org.wikipedia.R;
 import org.wikipedia.dataclient.okhttp.OkHttpConnectionFactory;
@@ -67,12 +68,12 @@ public class AlphaUpdateChecker extends RecurringTask {
     private void showNotification() {
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(ALPHA_BUILD_APK_URL));
         PendingIntent pintent = PendingIntent.getActivity(context, 0, intent, 0);
+        NotificationManager notificationManager = ContextCompat.getSystemService(context, NotificationManager.class);
 
         // Notification channel ( >= API 26 )
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel mChannel = new NotificationChannel(CHANNEL_ID, "Alpha updates", NotificationManager.IMPORTANCE_LOW);
-            ((NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE))
-                    .createNotificationChannel(mChannel);
+            notificationManager.createNotificationChannel(mChannel);
         }
 
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(context, CHANNEL_ID)
@@ -83,8 +84,7 @@ public class AlphaUpdateChecker extends RecurringTask {
 
         notificationBuilder.setSmallIcon(R.drawable.ic_w_transparent);
 
-        NotificationManager manager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-        manager.notify(1, notificationBuilder.build());
+        notificationManager.notify(1, notificationBuilder.build());
     }
 
     @Override

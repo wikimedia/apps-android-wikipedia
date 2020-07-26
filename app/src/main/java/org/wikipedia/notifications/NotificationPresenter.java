@@ -85,7 +85,7 @@ public final class NotificationPresenter {
     }
 
     public static NotificationCompat.Builder getDefaultBuilder(@NonNull Context context) {
-        NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        NotificationManager notificationManager = ContextCompat.getSystemService(context, NotificationManager.class);
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
             NotificationChannel notificationChannel = notificationManager.getNotificationChannel(CHANNEL_ID);
             if (notificationChannel == null) {
@@ -115,7 +115,7 @@ public final class NotificationPresenter {
                 .setContentText(text)
                 .setStyle(new NotificationCompat.BigTextStyle().bigText(longText));
 
-        NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        NotificationManager notificationManager = ContextCompat.getSystemService(context, NotificationManager.class);
         notificationManager.notify(id, builder.build());
     }
 
