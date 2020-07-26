@@ -12,6 +12,7 @@ import android.view.inputmethod.InputConnection;
 import androidx.annotation.MenuRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -97,7 +98,7 @@ public class PlainPasteEditText extends TextInputEditText {
         // Do not allow pasting of formatted text!
         // We do this by intercepting the clipboard and temporarily replacing its
         // contents with plain text.
-        ClipboardManager clipboard = (ClipboardManager) getContext().getSystemService(Context.CLIPBOARD_SERVICE);
+        ClipboardManager clipboard = ContextCompat.getSystemService(getContext(), ClipboardManager.class);
         if (clipboard != null && clipboard.hasPrimaryClip() && clipboard.getPrimaryClip() != null) {
             ClipData oldClipData = clipboard.getPrimaryClip();
             String lastClipText = oldClipData.getItemAt(oldClipData.getItemCount() - 1).coerceToText(getContext()).toString();

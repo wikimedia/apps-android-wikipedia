@@ -12,6 +12,7 @@ import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
 import androidx.core.app.NotificationCompat;
+import androidx.core.content.ContextCompat;
 
 import org.wikipedia.Constants;
 import org.wikipedia.R;
@@ -62,7 +63,7 @@ public class NotificationWithProgressBar {
             NotificationChannel mChannel = new NotificationChannel(getChannelId(), name, importance);
             mChannel.setDescription(description);
             mChannel.setSound(null, null);
-            ((NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE))
+            ContextCompat.getSystemService(context, NotificationManager.class)
                     .createNotificationChannel(mChannel);
         }
 
@@ -108,13 +109,12 @@ public class NotificationWithProgressBar {
     }
 
     public void cancelNotification(@NonNull Context context) {
-        ((NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE))
-                .cancel(getNotificationId());
+        ContextCompat.getSystemService(context, NotificationManager.class).cancel(getNotificationId());
     }
 
     private void showNotification(@NonNull Context context, @NonNull NotificationCompat.Builder builder) {
         if (!isCanceled()) {
-            ((NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE))
+            ContextCompat.getSystemService(context, NotificationManager.class)
                     .notify(getNotificationId(), builder.build());
         }
     }

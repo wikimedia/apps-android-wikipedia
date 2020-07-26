@@ -1,6 +1,5 @@
 package org.wikipedia.language;
 
-import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
 import android.view.inputmethod.InputMethodInfo;
@@ -9,6 +8,7 @@ import android.view.inputmethod.InputMethodSubtype;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.core.os.LocaleListCompat;
 
 import org.apache.commons.lang3.StringUtils;
@@ -49,7 +49,7 @@ public final class LanguageUtil {
         }
 
         // Query the installed keyboard languages, and add them to the list, if they don't exist.
-        InputMethodManager imm = (InputMethodManager) WikipediaApp.getInstance().getSystemService(Context.INPUT_METHOD_SERVICE);
+        InputMethodManager imm = ContextCompat.getSystemService(WikipediaApp.getInstance(), InputMethodManager.class);
         if (imm != null) {
             List<InputMethodInfo> ims = imm.getEnabledInputMethodList();
             if (ims == null) {
