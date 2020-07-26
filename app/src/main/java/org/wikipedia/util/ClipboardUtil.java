@@ -5,17 +5,14 @@ import android.content.ClipboardManager;
 import android.content.Context;
 
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 
 public final class ClipboardUtil {
     public static void setPlainText(@Nullable Context context,
                                     @Nullable CharSequence label,
                                     @Nullable CharSequence text) {
         ClipData clip = ClipData.newPlainText(label, text);
-        getManager(context).setPrimaryClip(clip);
-    }
-
-    private static ClipboardManager getManager(Context context) {
-        return (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+        ContextCompat.getSystemService(context, ClipboardManager.class).setPrimaryClip(clip);
     }
 
     private ClipboardUtil() { }
