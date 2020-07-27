@@ -655,6 +655,7 @@
   <string name="description_edit_anon_limit">感谢您对继续编辑条目描述感兴趣！要做出额外编辑，请登录您的维基百科账户。</string>
   <string name="description_edit_license_notice">通过更改条目描述，表明我同意&lt;a href=\"%1$s\"&gt;使用条款&lt;/a&gt;，并采用&lt;a href=\"%2$s\"&gt;知识共享CC0&lt;/a&gt;许可协议不可撤销地发表我的贡献。</string>
   <string name="description_edit_helper_text_lowercase_warning">通常以小字母作为开头</string>
+  <string name="description_edit_voice_input_description">语音输入</string>
   <string name="description_edit_success_saved">描述已发布！</string>
   <string name="description_edit_success_saved_snackbar">描述已发布！</string>
   <string name="description_edit_success_saved_in_lang_snackbar">描述已发布！（%s）</string>
