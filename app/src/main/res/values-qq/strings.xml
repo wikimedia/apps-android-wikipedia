@@ -657,6 +657,10 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Instructions for the description the user creates to be one line only and between two to twelve words.</string>
   <string name="description_edit_tutorial_button_label_start_editing">Label for a button the user can push when ready to start editing.</string>
   <string name="description_edit_tutorial_promise">A statement that the user promises not to misuse the feature.</string>
+  <string name="description_too_short">Error text shown when a description is too short.</string>
+  <string name="description_ends_with_punctuation">Error text shown when a description ends with punctuation.</string>
+  <string name="description_starts_with_article">Warning text shown when a description starts with a definite or indefinite article.</string>
+  <string name="description_starts_with_uppercase">Warning text shown when a description starts with an uppercase character.</string>
   <string name="suggested_edits_add_descriptions">Title of screen where the user chooses articles that are missing article descriptions to be added.</string>
   <string name="suggested_edits_translate_descriptions">Title of screen where the user chooses articles that are missing article descriptions to be translated.</string>
   <string name="suggested_edits_add_image_captions">Title of screen where the user chooses images that are missing captions to be added.</string>

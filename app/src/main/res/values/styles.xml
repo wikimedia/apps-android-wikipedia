@@ -335,6 +335,10 @@
         <item name="android:textColor">@color/red50</item>
     </style>
 
+    <style name="TextInputLayoutErrorTextAppearance">
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
     <style name="MaterialLargePrimaryTitle">
         <item name="android:textAlignment">center</item>
         <item name="android:textSize">20sp</item>
@@ -395,6 +399,7 @@
         <item name="hintTextColor">?attr/colorAccent</item>
         <item name="helperTextTextColor">?attr/material_theme_de_emphasised_color</item>
         <item name="counterTextColor">?attr/material_theme_de_emphasised_color</item>
+        <item name="errorTextAppearance">@style/TextInputLayoutErrorTextAppearance</item>
     </style>
 
     <style name="PagePopupMenu" parent="@style/Widget.AppCompat.PopupMenu.Overflow">
