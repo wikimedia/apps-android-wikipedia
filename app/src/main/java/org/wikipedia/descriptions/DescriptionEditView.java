@@ -256,7 +256,7 @@ public class DescriptionEditView extends LinearLayout {
     }
 
     @NonNull public String getDescription() {
-        return pageDescriptionText.getText().toString();
+        return pageDescriptionText.getText().toString().trim();
     }
 
     public void setError(@Nullable CharSequence text) {
@@ -334,7 +334,7 @@ public class DescriptionEditView extends LinearLayout {
             return;
         }
         isTextValid = true;
-        String text = pageDescriptionText.getText().toString().toLowerCase();
+        String text = pageDescriptionText.getText().toString().toLowerCase().trim();
 
         if (text.length() == 0) {
             isTextValid = false;
