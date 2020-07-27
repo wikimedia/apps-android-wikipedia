@@ -941,5 +941,13 @@ public final class Prefs {
         setInt(R.string.preference_key_selected_language_position_in_search, position);
     }
 
+    public static boolean isPulsatingIconEventSent() {
+        return getBoolean(R.string.preference_key_pulsating_icon_event_sent, false);
+    }
+
+    public static void setPulsatingIconEventSent(boolean sent) {
+        setBoolean(R.string.preference_key_pulsating_icon_event_sent, sent);
+    }
+
     private Prefs() { }
 }

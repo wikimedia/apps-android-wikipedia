@@ -101,10 +101,19 @@ public class DescriptionEditView extends LinearLayout {
     public void setPageTitle(@NonNull PageTitle pageTitle) {
         this.pageTitle = pageTitle;
         originalDescription = pageTitle.getDescription();
+        setVoiceInput();
         setHintText();
         setHelperText();
         setDescription(originalDescription);
         setReviewHeaderText(false);
+    }
+
+    private void setVoiceInput() {
+        pageDescriptionLayout.setEndIconOnClickListener(view -> {
+            if (callback != null) {
+                callback.onVoiceInputClick();
+            }
+        });
     }
 
     private void setHintText() {
@@ -272,12 +281,6 @@ public class DescriptionEditView extends LinearLayout {
 
     @OnClick(R.id.view_description_edit_page_summary_container) void onReadArticleClick() {
         performReadArticleClick();
-    }
-
-    @OnClick(R.id.view_description_edit_voice_input) void onVoiceInputClick() {
-        if (callback != null) {
-            callback.onVoiceInputClick();
-        }
     }
 
     private void performReadArticleClick() {
