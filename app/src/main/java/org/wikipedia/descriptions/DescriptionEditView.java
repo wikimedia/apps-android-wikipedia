@@ -329,7 +329,10 @@ public class DescriptionEditView extends LinearLayout {
         }
     }
 
-    private void validateText() {
+    void validateText() {
+        if (!funnel.shouldSeeChecks()) {
+            return;
+        }
         isTextValid = true;
         String text = pageDescriptionText.getText().toString().toLowerCase();
 
