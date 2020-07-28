@@ -15,6 +15,7 @@ import android.widget.ScrollView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
+import androidx.core.os.ConfigurationCompat;
 import androidx.fragment.app.Fragment;
 
 import com.google.gson.JsonObject;
@@ -39,7 +40,6 @@ import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.PageViewModel;
 import org.wikipedia.page.references.PageReferences;
 import org.wikipedia.page.references.ReferenceDialog;
-import org.wikipedia.util.ConfigurationCompat;
 import org.wikipedia.util.L10nUtil;
 import org.wikipedia.util.UriUtil;
 import org.wikipedia.views.ObservableWebView;
@@ -98,7 +98,7 @@ public class EditPreviewFragment extends Fragment implements CommunicationBridge
         Resources oldResources = getResources();
         AssetManager assets = oldResources.getAssets();
         DisplayMetrics metrics = oldResources.getDisplayMetrics();
-        Locale oldLocale = ConfigurationCompat.getLocale(oldResources.getConfiguration());
+        Locale oldLocale = ConfigurationCompat.getLocales(oldResources.getConfiguration()).get(0);
         Locale newLocale = new Locale(pageTitle.getWikiSite().languageCode());
         Configuration config = new Configuration(oldResources.getConfiguration());
         Resources tempResources = getResources();

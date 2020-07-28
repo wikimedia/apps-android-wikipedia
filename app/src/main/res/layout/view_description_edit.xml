@@ -88,9 +88,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         android:layout_weight="1"
-        android:fillViewport="true"
         android:orientation="vertical">
 
         <org.wikipedia.descriptions.DescriptionEditReviewView
@@ -99,18 +98,17 @@
             android:layout_height="match_parent"
             android:visibility="gone" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:id="@+id/view_description_edit_container"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <ScrollView
                 android:id="@+id/view_description_edit_scrollview"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                app:layout_constraintBottom_toTopOf="@+id/view_description_edit_read_article_bar_container"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_weight="1">
+                android:layout_weight="1">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -171,6 +169,7 @@
                             android:gravity="start"
                             android:textAlignment="viewStart"
                             android:hint="@string/description_edit_text_hint"
+                            app:errorTextAppearance="@style/TextInputLayoutErrorTextAppearance"
                             app:endIconDrawable="@drawable/ic_mic_black_24dp"
                             app:endIconTint="?attr/material_theme_de_emphasised_color"
                             app:endIconContentDescription="@string/description_edit_voice_input_description"
@@ -185,7 +184,6 @@
                                 android:layout_height="wrap_content"
                                 android:imeOptions="flagNoExtractUi|actionDone"
                                 android:inputType="textMultiLine"
-                                android:drawableEnd="@drawable/ic_spacer_24dp"
                                 android:lineSpacingExtra="6sp"
                                 android:maxLength="@integer/description_max_chars"
                                 android:textSize="16sp">
@@ -194,6 +192,7 @@
                             </org.wikipedia.views.PlainPasteEditText>
                         </com.google.android.material.textfield.TextInputLayout>
                     </FrameLayout>
+
                 </LinearLayout>
             </ScrollView>
 
@@ -203,11 +202,9 @@
                 android:layout_height="wrap_content"
                 android:background="?android:attr/selectableItemBackground"
                 android:clickable="true"
-                android:focusable="true"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/view_description_edit_scrollview" />
+                android:focusable="true" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
 
     </LinearLayout>
 

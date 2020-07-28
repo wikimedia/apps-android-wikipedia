@@ -8,6 +8,7 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
+import androidx.core.os.ConfigurationCompat;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -129,7 +130,7 @@ public final class L10nUtil {
     private static SparseArray<String> getStringsForLocale(@NonNull Locale targetLocale,
                                                            @StringRes int[] strings) {
         Configuration config = getCurrentConfiguration();
-        Locale systemLocale = ConfigurationCompat.getLocale(config);
+        Locale systemLocale = ConfigurationCompat.getLocales(config).get(0);
         if (systemLocale.getLanguage().equals(targetLocale.getLanguage())) {
             SparseArray<String> localizedStrings = new SparseArray<>();
             for (int stringRes : strings) {
