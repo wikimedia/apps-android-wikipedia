@@ -17,7 +17,6 @@ import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.functions.Function3
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_suggested_edits_tasks.*
-import org.wikipedia.Constants
 import org.wikipedia.Constants.*
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -383,7 +382,7 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     private inner class TaskViewCallback : SuggestedEditsTaskView.Callback {
         override fun onViewClick(task: SuggestedEditsTask, isTranslate: Boolean) {
-            if (WikipediaApp.getInstance().language().appLanguageCodes.size < Constants.MIN_LANGUAGES_TO_UNLOCK_TRANSLATION && isTranslate) {
+            if (WikipediaApp.getInstance().language().appLanguageCodes.size < MIN_LANGUAGES_TO_UNLOCK_TRANSLATION && isTranslate) {
                 showLanguagesActivity(LanguageSettingsInvokeSource.SUGGESTED_EDITS.text())
                 return
             }
