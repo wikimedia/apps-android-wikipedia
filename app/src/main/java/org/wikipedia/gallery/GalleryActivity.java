@@ -366,7 +366,8 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         }
         if (imageEditType != null) {
             switch (imageEditType) {
-                case ADD_TAGS:startTagsEdit(item);
+                case ADD_TAGS:
+                    startTagsEdit(item);
                 case ADD_CAPTION_TRANSLATION:
                     startCaptionTranslation(item);
                     break;
@@ -672,8 +673,10 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         }
         if (captionEditable) {
             decideImageEditType(item);
+            ctaContainer.setVisibility(View.VISIBLE);
+        } else {
+            ctaContainer.setVisibility(View.GONE);
         }
-        ctaContainer.setVisibility(AccountUtil.isLoggedIn() ? View.VISIBLE : View.GONE);
         setLicenseInfo(item);
     }
 

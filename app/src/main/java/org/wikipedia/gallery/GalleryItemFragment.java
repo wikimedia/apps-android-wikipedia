@@ -218,6 +218,10 @@ public class GalleryItemFragment extends Fragment {
         }
         updateProgressBar(true);
         disposables.add(getMediaInfoDisposable(mediaListItem.getTitle(), WikipediaApp.getInstance().getAppOrSystemLanguageCode())
+                .flatMap(response -> {
+                    mediaInfo = response.query().firstPage().imageInfo();
+                    return ImageTagsProvider.getImageTagsObservable(response.query().firstPage().pageId(), WikipediaApp.getInstance().getAppOrSystemLanguageCode());
+                })
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doAfterTerminate(() -> {
@@ -225,12 +229,8 @@ public class GalleryItemFragment extends Fragment {
                     requireActivity().invalidateOptionsMenu();
                     ((GalleryActivity) requireActivity()).layOutGalleryDescription();
                 })
-                .flatMap(response -> {
-                    mediaInfo = response.query().firstPage().imageInfo();
-                    return ImageTagsProvider.getImageTagsObservable(response.query().firstPage().pageId(), WikipediaApp.getInstance().getAppOrSystemLanguageCode());
-                })
                 .subscribe(response -> {
-                   imageTags = response;
+                    imageTags = response;
                     if (FileUtil.isVideo(mediaListItem.getType())) {
                         loadVideo();
                     } else {
