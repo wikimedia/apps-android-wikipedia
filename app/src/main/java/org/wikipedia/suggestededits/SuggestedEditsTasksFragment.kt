@@ -224,13 +224,15 @@ class SuggestedEditsTasksFragment : Fragment() {
         fetchUserContributions()
     }
 
-    private fun clearContents() {
+    private fun clearContents(shouldScrollToTop: Boolean = true) {
         swipeRefreshLayout.isRefreshing = false
         progressBar.visibility = GONE
         tasksContainer.visibility = GONE
         errorView.visibility = GONE
         disabledStatesView.visibility = GONE
-        suggestedEditsScrollView.scrollTo(0, 0)
+        if (shouldScrollToTop) {
+            suggestedEditsScrollView.scrollTo(0, 0)
+        }
         swipeRefreshLayout.setBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
     }
 
@@ -241,7 +243,7 @@ class SuggestedEditsTasksFragment : Fragment() {
     }
 
     private fun setFinalUIState() {
-        clearContents()
+        clearContents(false)
 
         addImageTagsTask.new = Prefs.isSuggestedEditsImageTagsNew()
         tasksRecyclerView.adapter!!.notifyDataSetChanged()
