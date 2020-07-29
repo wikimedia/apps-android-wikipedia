@@ -35,24 +35,26 @@ public class MoveToReadingListDialog extends AddToReadingListDialog {
     public static MoveToReadingListDialog newInstance(long sourceReadingListId,
                                                       @NonNull PageTitle title,
                                                       @NonNull Constants.InvokeSource source) {
-        return newInstance(sourceReadingListId, Collections.singletonList(title), source, null);
+        return newInstance(sourceReadingListId, Collections.singletonList(title), source, true, null);
     }
 
     public static MoveToReadingListDialog newInstance(long sourceReadingListId,
                                                       @NonNull List<PageTitle> titles,
                                                       @NonNull Constants.InvokeSource source) {
-        return newInstance(sourceReadingListId, titles, source, null);
+        return newInstance(sourceReadingListId, titles, source, true, null);
     }
 
     public static MoveToReadingListDialog newInstance(long sourceReadingListId,
                                                       @NonNull List<PageTitle> titles,
                                                       @NonNull Constants.InvokeSource source,
+                                                      boolean showDefaultList,
                                                       @Nullable DialogInterface.OnDismissListener listener) {
         MoveToReadingListDialog dialog = new MoveToReadingListDialog();
         Bundle args = new Bundle();
         args.putParcelableArrayList(PAGE_TITLE_LIST, new ArrayList<Parcelable>(titles));
         args.putSerializable(INTENT_EXTRA_INVOKE_SOURCE, source);
         args.putLong(SOURCE_READING_LIST_ID, sourceReadingListId);
+        args.putBoolean(SHOW_DEFAULT_LIST, showDefaultList);
         dialog.setArguments(args);
         dialog.setOnDismissListener(listener);
         return dialog;

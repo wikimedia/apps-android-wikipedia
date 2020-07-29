@@ -48,6 +48,7 @@ import org.wikipedia.analytics.FindInPageFunnel;
 import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.analytics.PageScrollFunnel;
+import org.wikipedia.analytics.ReadingListsFunnel;
 import org.wikipedia.analytics.TabFunnel;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.bridge.CommunicationBridge;
@@ -80,6 +81,7 @@ import org.wikipedia.page.references.ReferenceDialog;
 import org.wikipedia.page.shareafact.ShareHandler;
 import org.wikipedia.page.tabs.Tab;
 import org.wikipedia.readinglist.ReadingListBookmarkMenu;
+import org.wikipedia.readinglist.database.ReadingList;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.settings.Prefs;
@@ -100,6 +102,7 @@ import org.wikipedia.wiktionary.WiktionaryDialog;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -141,7 +144,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         void onPageStartSupportActionMode(@NonNull ActionMode.Callback callback);
         void onPageHideSoftKeyboard();
         void onPageAddToReadingList(@NonNull PageTitle title, @NonNull InvokeSource source);
-        void onPageMoveToReadingList(long sourceReadingListId, @NonNull PageTitle title, @NonNull InvokeSource source);
+        void onPageMoveToReadingList(long sourceReadingListId, @NonNull PageTitle title, @NonNull InvokeSource source, boolean showDefaultList);
         void onPageRemoveFromReadingLists(@NonNull PageTitle title);
         void onPageLoadError(@NonNull PageTitle title);
         void onPageLoadErrorBackPressed();
@@ -203,7 +206,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
 
                     @Override
                     public void onMoveRequest(@Nullable ReadingListPage page) {
-                        moveToReadingList(page.listId(), getTitle(), BOOKMARK_BUTTON);
+                        moveToReadingList(page.listId(), getTitle(), BOOKMARK_BUTTON, true);
                     }
 
                     @Override
@@ -219,7 +222,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                     }
                 }).show(getTitle());
             } else {
-                addToReadingList(getTitle(), BOOKMARK_BUTTON);
+                addToDefaultReadingList(getTitle());
             }
         }
 
@@ -1299,6 +1302,19 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         }
     }
 
+    private void addToDefaultReadingList(@NonNull PageTitle title) {
+        ReadingList defaultList = ReadingListDbHelper.instance().getDefaultList();
+        disposables.add(Observable.fromCallable(() -> ReadingListDbHelper.instance().addPagesToListIfNotExist(defaultList, Collections.singletonList(title)))
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(addedTitlesList -> {
+                    new ReadingListsFunnel().logAddToList(defaultList, 1, BOOKMARK_BUTTON);
+                    // TODO: need to check whether we'd like to use BOOKMARK_BUTTON source below.
+                    FeedbackUtil.makeSnackbar(getActivity(), getString(R.string.reading_list_article_added_to_default_list, title.getDisplayText()), FeedbackUtil.LENGTH_DEFAULT)
+                            .setAction(R.string.reading_list_add_to_list_button, v -> moveToReadingList(defaultList.id(), title, BOOKMARK_BUTTON, false)).show();
+                }, L::w));
+    }
+
     public void addToReadingList(@NonNull PageTitle title, @NonNull InvokeSource source) {
         Callback callback = callback();
         if (callback != null) {
@@ -1306,10 +1322,10 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         }
     }
 
-    public void moveToReadingList(long sourceReadingListId, @NonNull PageTitle title, @NonNull InvokeSource source) {
+    public void moveToReadingList(long sourceReadingListId, @NonNull PageTitle title, @NonNull InvokeSource source, boolean showDefaultList) {
         Callback callback = callback();
         if (callback != null) {
-            callback.onPageMoveToReadingList(sourceReadingListId, title, source);
+            callback.onPageMoveToReadingList(sourceReadingListId, title, source, showDefaultList);
         }
     }
 

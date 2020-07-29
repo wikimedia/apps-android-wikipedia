@@ -172,7 +172,7 @@ public class RandomFragment extends Fragment {
     public void onMovePageToList(long sourceReadingListId, @NonNull PageTitle title) {
         bottomSheetPresenter.show(getChildFragmentManager(),
                 MoveToReadingListDialog.newInstance(sourceReadingListId, Collections.singletonList(title),
-                        RANDOM_ACTIVITY, (DialogInterface dialogInterface) -> updateSaveShareButton(title)));
+                        RANDOM_ACTIVITY, true, (DialogInterface dialogInterface) -> updateSaveShareButton(title)));
     }
 
     @SuppressWarnings("magicnumber")

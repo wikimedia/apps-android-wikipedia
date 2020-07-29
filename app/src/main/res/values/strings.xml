@@ -378,10 +378,12 @@
     <string name="reading_list_create_new">Create new</string>
     <string name="reading_list_title_exists">Reading list \"%s\" already exists.</string>
     <string name="reading_list_article_added_to_named">Added %1$s to %2$s.</string>
+    <string name="reading_list_article_added_to_default_list">%s saved. Do you want to add it to a list?</string>
     <string name="reading_list_article_moved_to_named">Moved %1$s to %2$s.</string>
     <string name="reading_list_article_already_exists_message">All good! %1$s already contains %2$s.</string>
     <string name="reading_list_articles_already_exist_message">All good! %s already contains all articles.</string>
     <string name="reading_list_added_view_button">View list</string>
+    <string name="reading_list_add_to_list_button">Add to list</string>
     <string name="format_reading_list_statistical_summary_singular">1 article, %1$.2f MB</string>
     <string name="format_reading_list_statistical_summary_plural">%1$d articles, %2$.2f MB</string>
     <string name="format_reading_list_statistical_detail_singular">%1$d of 1 articles available offline, %2$.2f MB</string>
