@@ -263,7 +263,7 @@ public interface Service {
     @NonNull Observable<Entities> getWikidataLabels(@Query("ids") @NonNull String idList,
                                                     @Query("languages") @NonNull String langList);
 
-    @GET(MW_API_PREFIX + "action=wbgetclaims")
+    @GET(MW_API_PREFIX + "action=wbgetclaims&property=P180")
     @NonNull Observable<Claims> getClaims(@Query("entity") @NonNull String entity);
 
     @GET(MW_API_PREFIX + "action=wbgetentities&props=descriptions|labels|sitelinks")
