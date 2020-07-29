@@ -18,6 +18,7 @@
 * Nike
 * Omotecho
 * Patriccck
+* Ranveig
 * Robby
 * Sandipan
 * Shirayuki
@@ -264,7 +265,7 @@
   <string name="clear_recent_searches_confirm_no">Negative answer to clear the search history.\n{{Identical|No}}</string>
   <string name="error_browser_not_found">Toast message shown when we try to open an external browser but none seems to be installed.</string>
   <string name="table_infobox">Text shown on the panel which, when tapped, displays the full infobox to the user, therefore exposing a set of information usually composed of factual and short statements.</string>
-  <string name="table_other">{{Identical|More information}}</string>
+  <string name="table_other">{{Identical|Meir informasjon}}</string>
   <string name="table_close">{{Identical|Close}}</string>
   <string name="widget_name_featured_page">Name of the Widget (as seen in the Android widget picker) that displays today\'s featured page.</string>
   <string name="widget_title_featured_page">Text shown inside the widget that tells the user that the link below is today\'s featured page.</string>
@@ -639,6 +640,7 @@
   <string name="description_edit_anon_limit">Dialog message that informs the user that they must log in before making edits to additional descriptions.</string>
   <string name="description_edit_license_notice">Disclaimer that specifies the Terms of Use and CC license that applies to editing descriptions. Please preserve the %1$s and %2$s parameters, since these will be replaced with URLs.</string>
   <string name="description_edit_helper_text_lowercase_warning">Warning message shows the article description usually begin with a lowercase letter.</string>
+  <string name="description_edit_voice_input_description">Content description for the voice input icon in the input field</string>
   <string name="description_edit_success_saved">Message that the article description the user just added was saved.</string>
   <string name="description_edit_success_saved_snackbar">Message shown on a snackbar that the article description the user just added was saved.</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Message shown on a snackbar that the article description the user just added was saved. The %s symbol is replaced by the language that the caption was used.</string>
@@ -655,7 +657,10 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Instructions for the description the user creates to be one line only and between two to twelve words.</string>
   <string name="description_edit_tutorial_button_label_start_editing">Label for a button the user can push when ready to start editing.</string>
   <string name="description_edit_tutorial_promise">A statement that the user promises not to misuse the feature.</string>
-  <string name="description_edit_voice_input_description">Content description for the voice input icon in the input field</string>
+  <string name="description_too_short">Error text shown when a description is too short.</string>
+  <string name="description_ends_with_punctuation">Error text shown when a description ends with punctuation.</string>
+  <string name="description_starts_with_article">Warning text shown when a description starts with a definite or indefinite article.</string>
+  <string name="description_starts_with_uppercase">Warning text shown when a description starts with an uppercase character.</string>
   <string name="suggested_edits_add_descriptions">Title of screen where the user chooses articles that are missing article descriptions to be added.</string>
   <string name="suggested_edits_translate_descriptions">Title of screen where the user chooses articles that are missing article descriptions to be translated.</string>
   <string name="suggested_edits_add_image_captions">Title of screen where the user chooses images that are missing captions to be added.</string>

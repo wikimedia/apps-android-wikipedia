@@ -303,6 +303,7 @@
   <string name="description_edit_edit_description">Labot raksta aprakstu</string>
   <string name="description_edit_cancel_hint">Atcelt</string>
   <string name="description_edit_help_about_wikidata">Par Vikidatiem</string>
+  <string name="description_edit_voice_input_description">Balss ievade</string>
   <string name="description_edit_success_saved" fuzzy="true">Apraksts publicēts!</string>
   <string name="description_edit_success_encouragement">Tu tikko padarīji Vikipēdiju labāku visiem</string>
   <string name="description_edit_success_done">Gatavs</string>
