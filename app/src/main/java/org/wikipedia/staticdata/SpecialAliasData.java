@@ -13,10 +13,7 @@ public final class SpecialAliasData {
     @NonNull private static final Map<String, String> DATA_MAP = Collections.unmodifiableMap(newMap());
 
     @NonNull public static String valueFor(String key) {
-        if (DATA_MAP.containsKey(key)) {
-            return DATA_MAP.get(key);
-        }
-        return DATA_MAP.get("en");
+        return DATA_MAP.getOrDefault(key, "Special");
     }
 
     @SuppressWarnings({"checkstyle:methodlength", "SpellCheckingInspection"})
