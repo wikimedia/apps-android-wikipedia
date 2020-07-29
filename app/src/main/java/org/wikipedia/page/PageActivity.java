@@ -38,6 +38,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.BaseActivity;
 import org.wikipedia.analytics.IntentFunnel;
 import org.wikipedia.analytics.LinkPreviewFunnel;
+import org.wikipedia.commons.FilePageActivity;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.descriptions.DescriptionEditRevertHelpView;
 import org.wikipedia.events.ArticleSavedOrDeletedEvent;
@@ -405,6 +406,8 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             return;
         }
 
+        openFilePageIfNeeded(title);
+
         if (entry.getSource() != HistoryEntry.SOURCE_INTERNAL_LINK || !isLinkPreviewEnabled()) {
             new LinkPreviewFunnel(app, entry.getSource()).logNavigate();
         }
@@ -456,6 +459,13 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     public void showMoveToListDialog(long sourceReadingListId, @NonNull PageTitle title, @NonNull InvokeSource source) {
         bottomSheetPresenter.showMoveToListDialog(getSupportFragmentManager(), sourceReadingListId, title, source, listDialogDismissListener);
+    }
+
+    void openFilePageIfNeeded(@Nullable PageTitle title) {
+        if (title != null && title.isFilePage()) {
+            startActivity(FilePageActivity.newIntent(this, title));
+            finish();
+        }
     }
 
     // Note: back button first handled in {@link #onOptionsItemSelected()};
