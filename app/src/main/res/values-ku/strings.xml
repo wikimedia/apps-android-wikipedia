@@ -4,6 +4,7 @@
 * Cûndûllah el-Kurdî
 * George Animal
 * Ghybu
+* Guherto
 * Kur
 * Mirzali
 -->
@@ -18,7 +19,7 @@
   <string name="search_hint_search_history">Dîroka lêgerînê</string>
   <string name="search_hint_search_languages">Li zimanekî bigere</string>
   <string name="nav_item_history">Dîrok</string>
-  <string name="nav_item_suggested_edits">Guherandin</string>
+  <string name="nav_item_suggested_edits">Guhertin</string>
   <string name="error_network_error">Ji înternetê re nikara bê girêdan.</string>
   <string name="page_error_retry">Dîsa hewl bide</string>
   <string name="page_error_back_to_main">Vegere</string>

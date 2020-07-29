@@ -39,6 +39,10 @@ public class ABTestFunnel extends Funnel {
         return group % abTestGroupCount;
     }
 
+    protected boolean isEnrolled() {
+        return PrefsIoUtil.contains(AB_TEST_KEY_PREFIX + abTestName);
+    }
+
     @Override protected void preprocessSessionToken(@NonNull JSONObject eventData) { }
 
     void logGroupEvent(@NonNull String groupEventId) {

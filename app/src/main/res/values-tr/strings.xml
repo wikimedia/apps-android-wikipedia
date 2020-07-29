@@ -647,6 +647,7 @@
   <string name="description_edit_anon_limit">Madde tanımlarını düzenlemeye olan ilginiz için teşekkürler! Daha fazla değişiklik yapmak için lütfen Vikipedi hesabınıza giriş yapın.</string>
   <string name="description_edit_license_notice">Madde tanımını değiştirerek &lt;a href=\"%1$s\"&gt;Kullanım Şartları&lt;/a&gt;nı ve katkılarımı geri dönülemez şekilde &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; lisansıyla yayımlamayı kabul ediyorum.</string>
   <string name="description_edit_helper_text_lowercase_warning">genellikle küçük harfle başlar</string>
+  <string name="description_edit_voice_input_description">Ses girişi</string>
   <string name="description_edit_success_saved">Madde açıklaması yayımlandı!</string>
   <string name="description_edit_success_saved_snackbar">Madde açıklaması yayımlandı!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Madde açıklaması yayımlandı! (%s)</string>
@@ -670,9 +671,9 @@
   <string name="suggested_edits_tag_images">Etiket resimleri</string>
   <string name="suggested_edits_review_description">Madde açıklamasını incele</string>
   <string name="suggested_edits_add_description_button">Açıklama ekle</string>
-  <string name="suggested_edits_edit_description_button">Tanımı düzenle</string>
+  <string name="suggested_edits_edit_description_button">Açıklamayı düzenle</string>
   <string name="suggested_edits_add_translation_button">Çeviri ekle</string>
-  <string name="suggested_edits_edit_translation_button">Çeviri ekle</string>
+  <string name="suggested_edits_edit_translation_button">Çeviriyi düzenle</string>
   <string name="suggested_edits_add_caption_button">Altyazı ekle</string>
   <string name="suggested_edits_edit_caption_button">Altyazıyı düzenle</string>
   <string name="suggested_edits_review_image_caption">Resim altyazısını incele</string>

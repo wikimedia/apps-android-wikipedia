@@ -18,14 +18,13 @@ import com.google.gson.Gson;
 
 import org.json.JSONArray;
 
-import java.nio.charset.StandardCharsets;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.text.Collator;
 import java.text.Normalizer;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+
+import okio.ByteString;
 
 public final class StringUtil {
     private static final String CSV_DELIMITER = ",";
@@ -54,26 +53,7 @@ public final class StringUtil {
      * @return ASCII MD5 representation of the string passed in
      */
     @NonNull public static String md5string(@NonNull String s) {
-        StringBuilder hexStr = new StringBuilder();
-        try {
-            // Create MD5 Hash
-            MessageDigest digest = java.security.MessageDigest.getInstance("MD5");
-            digest.update(s.getBytes(StandardCharsets.UTF_8));
-            byte[] messageDigest = digest.digest();
-
-            final int maxByteVal = 0xFF;
-            String bstr;
-            for (byte b : messageDigest) {
-                bstr = Integer.toHexString(maxByteVal & b);
-                if (bstr.length() == 1) {
-                    hexStr.append("0");
-                }
-                hexStr.append(bstr);
-            }
-        } catch (NoSuchAlgorithmException e) {
-            throw new RuntimeException(e);
-        }
-        return hexStr.toString();
+        return ByteString.encodeUtf8(s).md5().hex();
     }
 
     /**
