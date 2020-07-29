@@ -16,6 +16,7 @@ import androidx.appcompat.content.res.AppCompatResources;
 
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.R;
+import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.views.ViewUtil;
 
@@ -103,6 +104,7 @@ public class WikipediaLanguagesItemView extends LinearLayout {
             setForeground(AppCompatResources.getDrawable(getContext(),
                     ResourceUtil.getThemedAttributeId(getContext(), R.attr.selectableItemBackground)));
         }
+        DeviceUtil.setContextClickAsLongClick(this);
     }
 
     private void updateBackgroundColor() {
