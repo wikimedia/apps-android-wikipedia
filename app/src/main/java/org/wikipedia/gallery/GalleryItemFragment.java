@@ -243,9 +243,9 @@ public class GalleryItemFragment extends Fragment {
 
     private Observable<MwQueryResponse> getMediaInfoDisposable(String title, String lang) {
         if (FileUtil.isVideo(mediaListItem.getType())) {
-            return ServiceFactory.get(pageTitle.getWikiSite()).getVideoInfo(title, lang);
+            return ServiceFactory.get(mediaListItem.isInCommons() ? new WikiSite(Service.COMMONS_URL) : pageTitle.getWikiSite()).getVideoInfo(title, lang);
         } else {
-            return ServiceFactory.get(pageTitle.getWikiSite()).getImageInfo(title, lang);
+            return ServiceFactory.get(mediaListItem.isInCommons() ? new WikiSite(Service.COMMONS_URL) : pageTitle.getWikiSite()).getImageInfo(title, lang);
         }
     }
 

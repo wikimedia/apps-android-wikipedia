@@ -1236,7 +1236,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
 
     @Override
     public List<PageReferences.Reference> getReferencesGroup() {
-        return references.getReferencesGroup();
+        return references != null ? references.getReferencesGroup() : null;
     }
 
     @Override
