@@ -9,6 +9,7 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.functions.BiFunction
+import io.reactivex.rxjava3.kotlin.subscribeBy
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_file_page.*
 import org.apache.commons.lang3.StringUtils
@@ -132,9 +133,9 @@ class FilePageFragment : Fragment() {
                             showEditButton = isFromCommons && !isEditProtected
                     )
                 }
-                .subscribe({
+                .subscribeBy(onNext = {
                     isEditProtected = it.query()!!.isEditProtected
-                }, { caught ->
+                }, onError = { caught ->
                     L.e(caught)
                     showError(caught)
                 }))

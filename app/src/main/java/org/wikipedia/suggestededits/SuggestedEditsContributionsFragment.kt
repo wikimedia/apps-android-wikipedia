@@ -18,6 +18,7 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.functions.BiFunction
+import io.reactivex.rxjava3.kotlin.subscribeBy
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_contributions_suggested_edits.*
 import org.apache.commons.lang3.StringUtils
@@ -269,10 +270,10 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
                     swipeRefreshLayout.isRefreshing = false
                     progressBar.visibility = GONE
                 }
-                .subscribe({
+                .subscribeBy(onNext = {
                     allContributions.addAll(it)
                     createConsolidatedList()
-                }, { caught ->
+                }, onError = { caught ->
                     L.e(caught)
                     showError(caught)
                 }))
@@ -404,12 +405,10 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
                         .subscribeOn(Schedulers.io())
                         .delaySubscription(250, TimeUnit.MILLISECONDS)
                         .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe({ summary ->
+                        .subscribeBy(onNext = { summary ->
                             contribution.imageUrl = summary.thumbnailUrl.toString()
                             itemView.setImageUrl(contribution.imageUrl)
-                        }, { t ->
-                            L.e(t)
-                        }))
+                        }, onError = { L.e(it) }))
             } else if (contribution.editType == EDIT_TYPE_IMAGE_CAPTION || contribution.editType == EDIT_TYPE_IMAGE_TAG) {
                 disposables.add(Observable.zip(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo(contribution.title, contribution.wikiSite.languageCode()).subscribeOn(Schedulers.io()),
                         if (contribution.qNumber.isEmpty()) Observable.just(contribution.qNumber) else (
@@ -457,7 +456,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
                     .subscribeOn(Schedulers.io())
                     .delaySubscription(250, TimeUnit.MILLISECONDS)
                     .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe({ response ->
+                    .subscribeBy(onNext = { response ->
                         if (response is MwQueryResponse) {
                             var pageviews = 0L
                             for (page in response.query()!!.pages()!!) {
@@ -468,7 +467,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
                             contribution.pageViews = pageviews
                             view.setPageViewCountText(contribution.pageViews)
                         }
-                    }) { t: Throwable? -> L.e(t) })
+                    }, onError = { L.e(it) }))
         }
     }
 

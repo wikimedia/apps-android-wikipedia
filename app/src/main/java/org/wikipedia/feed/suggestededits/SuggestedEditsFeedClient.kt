@@ -3,6 +3,7 @@ package org.wikipedia.feed.suggestededits
 import android.content.Context
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
+import io.reactivex.rxjava3.kotlin.subscribeBy
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.WikipediaApp
 import org.wikipedia.dataclient.Service
@@ -74,14 +75,17 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
                 .getNextImageWithMissingTags(langFromCode)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ page ->
-                    val card: SuggestedEditsCard = toSuggestedEditsCard(WikiSite.forLanguageCode(langFromCode), null, null, page)
+                .subscribeBy(
+                        onNext = { page ->
+                            val card: SuggestedEditsCard = toSuggestedEditsCard(WikiSite.forLanguageCode(langFromCode), null, null, page)
 
-                    callback?.updateCardContent(card)
-                    if (cb != null) {
-                        FeedCoordinator.postCardsToCallback(cb, if (page == null) emptyList<Card>() else listOf(card))
-                    }
-                }, { cb?.error(it) }))
+                            callback?.updateCardContent(card)
+                            if (cb != null) {
+                                FeedCoordinator.postCardsToCallback(cb, if (page == null) emptyList<Card>() else listOf(card))
+                            }
+                        },
+                        onError = { cb?.error(it) }
+                ))
     }
 
     private fun getArticleToAddDescription(cb: FeedClient.Callback?, callback: Callback?) {
@@ -89,24 +93,27 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
                 .getNextArticleWithMissingDescription(WikiSite.forLanguageCode(langFromCode))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ pageSummary ->
-                    val sourceSummary = SuggestedEditsSummary(
-                            pageSummary.apiTitle,
-                            langFromCode,
-                            pageSummary.getPageTitle(WikiSite.forLanguageCode(langFromCode)),
-                            pageSummary.displayTitle,
-                            pageSummary.description,
-                            pageSummary.thumbnailUrl,
-                            pageSummary.extractHtml
-                    )
+                .subscribeBy(
+                        onNext = { pageSummary ->
+                            val sourceSummary = SuggestedEditsSummary(
+                                    pageSummary.apiTitle,
+                                    langFromCode,
+                                    pageSummary.getPageTitle(WikiSite.forLanguageCode(langFromCode)),
+                                    pageSummary.displayTitle,
+                                    pageSummary.description,
+                                    pageSummary.thumbnailUrl,
+                                    pageSummary.extractHtml
+                            )
 
-                    val card: SuggestedEditsCard = toSuggestedEditsCard(WikiSite.forLanguageCode(langFromCode), sourceSummary, null, null)
+                            val card: SuggestedEditsCard = toSuggestedEditsCard(WikiSite.forLanguageCode(langFromCode), sourceSummary, null, null)
 
-                    callback?.updateCardContent(card)
-                    if (cb != null) {
-                        FeedCoordinator.postCardsToCallback(cb, listOf(card))
-                    }
-                }, { cb?.error(it) }))
+                            callback?.updateCardContent(card)
+                            if (cb != null) {
+                                FeedCoordinator.postCardsToCallback(cb, listOf(card))
+                            }
+                        },
+                        onError = { cb?.error(it) }
+                ))
     }
 
     private fun getArticleToTranslateDescription(cb: FeedClient.Callback?, callback: Callback?) {
@@ -120,37 +127,40 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
                 .getNextArticleWithMissingDescription(WikiSite.forLanguageCode(langFromCode), langToCode, true)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ pair ->
-                    val source = pair.second
-                    val target = pair.first
+                .subscribeBy(
+                        onNext = { pair ->
+                            val source = pair.second
+                            val target = pair.first
 
-                    val sourceSummary = SuggestedEditsSummary(
-                            source.apiTitle,
-                            langFromCode,
-                            source.getPageTitle(WikiSite.forLanguageCode(langFromCode)),
-                            source.displayTitle,
-                            source.description,
-                            source.thumbnailUrl,
-                            source.extractHtml
-                    )
+                            val sourceSummary = SuggestedEditsSummary(
+                                    source.apiTitle,
+                                    langFromCode,
+                                    source.getPageTitle(WikiSite.forLanguageCode(langFromCode)),
+                                    source.displayTitle,
+                                    source.description,
+                                    source.thumbnailUrl,
+                                    source.extractHtml
+                            )
 
-                    val targetSummary = SuggestedEditsSummary(
-                            target.apiTitle,
-                            langToCode,
-                            target.getPageTitle(WikiSite.forLanguageCode(langToCode)),
-                            target.displayTitle,
-                            target.description,
-                            target.thumbnailUrl,
-                            target.extractHtml
-                    )
+                            val targetSummary = SuggestedEditsSummary(
+                                    target.apiTitle,
+                                    langToCode,
+                                    target.getPageTitle(WikiSite.forLanguageCode(langToCode)),
+                                    target.displayTitle,
+                                    target.description,
+                                    target.thumbnailUrl,
+                                    target.extractHtml
+                            )
 
-                    val card: SuggestedEditsCard = toSuggestedEditsCard(WikiSite.forLanguageCode(langFromCode), sourceSummary, targetSummary, null)
+                            val card: SuggestedEditsCard = toSuggestedEditsCard(WikiSite.forLanguageCode(langFromCode), sourceSummary, targetSummary, null)
 
-                    callback?.updateCardContent(card)
-                    if (cb != null) {
-                        FeedCoordinator.postCardsToCallback(cb, if (pair == null) emptyList<Card>() else listOf(card))
-                    }
-                }, { cb?.error(it) }))
+                            callback?.updateCardContent(card)
+                            if (cb != null) {
+                                FeedCoordinator.postCardsToCallback(cb, if (pair == null) emptyList<Card>() else listOf(card))
+                            }
+                        },
+                        onError = { cb?.error(it) }
+                ))
     }
 
     private fun getImageToAddCaption(cb: FeedClient.Callback?, callback: Callback?) {
@@ -162,37 +172,40 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
                             .subscribeOn(Schedulers.io())
                             .observeOn(AndroidSchedulers.mainThread())
                 }
-                .subscribe({ response ->
-                    val page = response.query()!!.pages()!![0]
-                    if (page.imageInfo() != null) {
-                        val title = page.title()
-                        val imageInfo = page.imageInfo()!!
+                .subscribeBy(
+                        onNext = { response ->
+                            val page = response.query()!!.pages()!![0]
+                            if (page.imageInfo() != null) {
+                                val title = page.title()
+                                val imageInfo = page.imageInfo()!!
 
-                        val sourceSummary = SuggestedEditsSummary(
-                                title,
-                                langFromCode,
-                                PageTitle(
-                                        Namespace.FILE.name,
-                                        StringUtil.removeNamespace(title),
-                                        null,
+                                val sourceSummary = SuggestedEditsSummary(
+                                        title,
+                                        langFromCode,
+                                        PageTitle(
+                                                Namespace.FILE.name,
+                                                StringUtil.removeNamespace(title),
+                                                null,
+                                                imageInfo.thumbUrl,
+                                                WikiSite.forLanguageCode(langFromCode)
+                                        ),
+                                        StringUtil.removeHTMLTags(title),
+                                        imageInfo.metadata!!.imageDescription(),
                                         imageInfo.thumbUrl,
-                                        WikiSite.forLanguageCode(langFromCode)
-                                ),
-                                StringUtil.removeHTMLTags(title),
-                                imageInfo.metadata!!.imageDescription(),
-                                imageInfo.thumbUrl,
-                                null,
-                                imageInfo.timestamp,
-                                imageInfo.user,
-                                imageInfo.metadata
-                        )
-                        val card: SuggestedEditsCard = toSuggestedEditsCard(WikiSite.forLanguageCode(langFromCode), sourceSummary, null, null)
-                        callback?.updateCardContent(card)
-                        if (cb != null) {
-                            FeedCoordinator.postCardsToCallback(cb, listOf(card))
-                        }
-                    }
-                }, { cb?.error(it) }))
+                                        null,
+                                        imageInfo.timestamp,
+                                        imageInfo.user,
+                                        imageInfo.metadata
+                                )
+                                val card: SuggestedEditsCard = toSuggestedEditsCard(WikiSite.forLanguageCode(langFromCode), sourceSummary, null, null)
+                                callback?.updateCardContent(card)
+                                if (cb != null) {
+                                    FeedCoordinator.postCardsToCallback(cb, listOf(card))
+                                }
+                            }
+                        },
+                        onError = { cb?.error(it) }
+                ))
     }
 
     private fun getImageToTranslateCaption(cb: FeedClient.Callback?, callback: Callback?) {
@@ -212,50 +225,52 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
                             .subscribeOn(Schedulers.io())
                             .observeOn(AndroidSchedulers.mainThread())
                 }
-                .subscribe({ response ->
-                    val page = response.query()!!.pages()!![0]
-                    if (page.imageInfo() != null) {
-                        val title = page.title()
-                        val imageInfo = page.imageInfo()!!
+                .subscribeBy(
+                        onNext = { response ->
+                            val page = response.query()!!.pages()!![0]
+                            if (page.imageInfo() != null) {
+                                val title = page.title()
+                                val imageInfo = page.imageInfo()!!
 
-                        val sourceSummary = SuggestedEditsSummary(
-                                title,
-                                langFromCode,
-                                PageTitle(
-                                        Namespace.FILE.name,
-                                        StringUtil.removeNamespace(title),
-                                        null,
+                                val sourceSummary = SuggestedEditsSummary(
+                                        title,
+                                        langFromCode,
+                                        PageTitle(
+                                                Namespace.FILE.name,
+                                                StringUtil.removeNamespace(title),
+                                                null,
+                                                imageInfo.thumbUrl,
+                                                WikiSite.forLanguageCode(langFromCode)
+                                        ),
+                                        StringUtil.removeHTMLTags(title),
+                                        fileCaption,
                                         imageInfo.thumbUrl,
-                                        WikiSite.forLanguageCode(langFromCode)
-                                ),
-                                StringUtil.removeHTMLTags(title),
-                                fileCaption,
-                                imageInfo.thumbUrl,
-                                null,
-                                imageInfo.timestamp,
-                                imageInfo.user,
-                                imageInfo.metadata
-                        )
-
-                        val targetSummary = sourceSummary.copy(
-                                description = null,
-                                lang = langToCode,
-                                pageTitle = PageTitle(
-                                        Namespace.FILE.name,
-                                        StringUtil.removeNamespace(title),
                                         null,
-                                        imageInfo.thumbUrl,
-                                        WikiSite.forLanguageCode(langToCode)
+                                        imageInfo.timestamp,
+                                        imageInfo.user,
+                                        imageInfo.metadata
                                 )
-                        )
 
-                        val card: SuggestedEditsCard = toSuggestedEditsCard(WikiSite.forLanguageCode(langToCode), sourceSummary, targetSummary, null)
-                        callback?.updateCardContent(card)
-                        if (cb != null) {
-                            FeedCoordinator.postCardsToCallback(cb, listOf(card))
-                        }
-                    }
-                }, { cb?.error(it) }))
+                                val targetSummary = sourceSummary.copy(
+                                        description = null,
+                                        lang = langToCode,
+                                        pageTitle = PageTitle(
+                                                Namespace.FILE.name,
+                                                StringUtil.removeNamespace(title),
+                                                null,
+                                                imageInfo.thumbUrl,
+                                                WikiSite.forLanguageCode(langToCode)
+                                        )
+                                )
+
+                                val card: SuggestedEditsCard = toSuggestedEditsCard(WikiSite.forLanguageCode(langToCode), sourceSummary, targetSummary, null)
+                                callback?.updateCardContent(card)
+                                if (cb != null) {
+                                    FeedCoordinator.postCardsToCallback(cb, listOf(card))
+                                }
+                            }
+                        },
+                        onError = { cb?.error(it) }
+                ))
     }
-
 }

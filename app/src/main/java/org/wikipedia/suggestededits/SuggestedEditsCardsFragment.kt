@@ -14,6 +14,7 @@ import androidx.viewpager2.widget.ViewPager2
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
+import io.reactivex.rxjava3.kotlin.subscribeBy
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_suggested_edits_cards.*
 import org.wikipedia.Constants.*
@@ -275,11 +276,11 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
                 .observeOn(AndroidSchedulers.mainThread())
                 .map { siteMatrix = it; }
                 .doAfterTerminate { initLanguageSpinners() }
-                .subscribe({
+                .subscribeBy(onNext = {
                     app.language().appLanguageCodes.forEach {
                         languageList.add(getLanguageLocalName(it))
                     }
-                }, { L.e(it) }))
+                }, onError = { L.e(it) }))
     }
 
     private fun getLanguageLocalName(code: String): String {
@@ -388,15 +389,13 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
                             Observable.just(-1L)
                         }
                     }
-                    .subscribe({
+                    .subscribeBy(onNext = {
                         if (it >= 0) {
                             rewardInterstitialImage = R.attr.reward_interstitial_view_drawable
                             rewardInterstitialText = getString(R.string.suggested_edits_rewards_pageviews, it)
                             Prefs.setLastSuggestedEditsRewardInterstitialPageviewsShown(System.currentTimeMillis())
                         }
-                    }, { t ->
-                        L.e(t)
-                    }))
+                    }, onError = { L.e(it) }))
         }
     }
 

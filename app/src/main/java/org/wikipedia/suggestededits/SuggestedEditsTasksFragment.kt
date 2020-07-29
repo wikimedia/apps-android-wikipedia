@@ -15,6 +15,7 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.functions.Function3
+import io.reactivex.rxjava3.kotlin.subscribeBy
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_suggested_edits_tasks.*
 import org.wikipedia.Constants
@@ -188,7 +189,7 @@ class SuggestedEditsTasksFragment : Fragment() {
                         setIPBlockedStatus()
                     }
                 }
-                .subscribe({
+                .subscribeBy(onNext = {
                     if (maybeSetPausedOrDisabled()) {
                         isPausedOrDisabled = true
                     }
@@ -197,9 +198,9 @@ class SuggestedEditsTasksFragment : Fragment() {
                         pageViewStatsView.setTitle(it.toString())
                         setFinalUIState()
                     }
-                }, { t ->
-                    L.e(t)
-                    showError(t)
+                }, onError = {
+                    L.e(it)
+                    showError(it)
                 }))
     }
 
@@ -207,15 +208,15 @@ class SuggestedEditsTasksFragment : Fragment() {
         disposables.add(ServiceFactory.get(WikipediaApp.getInstance().wikiSite).userInfo
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ response ->
+                .subscribeBy(onNext = { response ->
                     if (response.query()!!.userInfo()!!.isBlocked) {
                         setIPBlockedStatus()
                     } else {
                         setRequiredLoginStatus()
                     }
-                }, { t ->
-                    L.e(t)
-                    showError(t)
+                }, onError = {
+                    L.e(it)
+                    showError(it)
                 }))
     }
 

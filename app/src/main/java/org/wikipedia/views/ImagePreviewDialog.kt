@@ -11,6 +11,7 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
+import io.reactivex.rxjava3.kotlin.subscribeBy
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.dialog_image_preview.*
 import org.wikipedia.R
@@ -116,7 +117,7 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
                             action = action
                     )
                 }
-                .subscribe({ imageTags = it }, { caught ->
+                .subscribeBy(onNext = { imageTags = it }, onError = { caught ->
                     L.e(caught)
                     showError(caught)
                 }))

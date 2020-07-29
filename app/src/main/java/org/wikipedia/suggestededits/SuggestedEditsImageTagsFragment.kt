@@ -14,6 +14,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.android.material.chip.Chip
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.kotlin.subscribeBy
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_suggested_edits_image_tags_item.*
 import org.wikipedia.Constants
@@ -125,11 +126,11 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         disposables.add(MissingDescriptionProvider.getNextImageWithMissingTags(callback().getLangCode())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ page ->
+                .subscribeBy(onNext = { page ->
                     this.page = page
                     updateContents()
                     updateTagChips()
-                }, { this.setErrorState(it) })!!)
+                }, onError = { this.setErrorState(it) }))
     }
 
     private fun setErrorState(t: Throwable) {
@@ -360,18 +361,14 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                 disposables.add(ServiceFactory.get(commonsSite).postEditEntity(mId, token, claimStr, commentStr, null)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .doAfterTerminate {
-                        publishing = false
-                    }
-                    .subscribe({
+                    .doAfterTerminate { publishing = false }
+                    .subscribeBy(onNext = {
                         if (it.pageInfo != null) {
                             funnel?.logSaved(it.pageInfo!!.lastRevId, commentStr)
                         }
                         publishSuccess = true
                         onSuccess()
-                    }, { caught ->
-                        onError(caught)
-                    })
+                    }, onError = { onError(it) })
                 )
             }
 

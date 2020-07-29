@@ -20,6 +20,7 @@ import com.google.android.material.shape.MaterialShapeDrawable
 import com.google.android.material.shape.ShapeAppearanceModel
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
+import io.reactivex.rxjava3.kotlin.subscribeBy
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.dialog_image_tag_select.*
 import org.wikipedia.R
@@ -136,16 +137,14 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
         disposables.add(ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).searchEntities(searchTerm, WikipediaApp.getInstance().appOrSystemLanguageCode, WikipediaApp.getInstance().appOrSystemLanguageCode)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ search: Search ->
+                .subscribeBy(onNext = { search: Search ->
                     val labelList = ArrayList<MwQueryPage.ImageLabel>()
                     for (result in search.results()) {
                         val label = MwQueryPage.ImageLabel(result.id, result.label, result.description)
                         labelList.add(label)
                     }
                     applyResults(labelList)
-                }) { t: Throwable? ->
-                    L.d(t)
-                })
+                }, onError = { L.d(it) }))
     }
 
     private fun applyResults(results: List<MwQueryPage.ImageLabel>) {

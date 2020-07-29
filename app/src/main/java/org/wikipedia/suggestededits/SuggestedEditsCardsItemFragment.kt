@@ -8,6 +8,7 @@ import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.kotlin.subscribeBy
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_suggested_edits_cards_item.*
 import kotlinx.android.synthetic.main.view_image_detail_horizontal.view.*
@@ -73,7 +74,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
                 disposables.add(MissingDescriptionProvider.getNextArticleWithMissingDescription(WikiSite.forLanguageCode(parent().langFromCode), parent().langToCode, true)
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe({ pair ->
+                        .subscribeBy(onNext = { pair ->
                             val source = pair.second
                             val target = pair.first
 
@@ -97,7 +98,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
                                     target.extractHtml
                             )
                             updateContents()
-                        }, { this.setErrorState(it) })!!)
+                        }, onError = { this.setErrorState(it) }))
             }
 
             ADD_CAPTION -> {
@@ -109,7 +110,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
                                     .subscribeOn(Schedulers.io())
                                     .observeOn(AndroidSchedulers.mainThread())
                         }
-                        .subscribe({ response ->
+                        .subscribeBy(onNext = { response ->
                             val page = response.query()!!.pages()!![0]
                             if (page.imageInfo() != null) {
                                 val imageInfo = page.imageInfo()!!
@@ -135,7 +136,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
                                 )
                             }
                             updateContents()
-                        }, { this.setErrorState(it) })!!)
+                        }, onError = { this.setErrorState(it) }))
             }
 
             TRANSLATE_CAPTION -> {
@@ -149,7 +150,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
                                     .subscribeOn(Schedulers.io())
                                     .observeOn(AndroidSchedulers.mainThread())
                         }
-                        .subscribe({ response ->
+                        .subscribeBy(onNext = { response ->
                             val page = response.query()!!.pages()!![0]
                             if (page.imageInfo() != null) {
                                 val imageInfo = page.imageInfo()!!
@@ -187,14 +188,14 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
                                 )
                             }
                             updateContents()
-                        }, { this.setErrorState(it) })!!)
+                        }, onError = { this.setErrorState(it) }))
             }
 
             else -> {
                 disposables.add(MissingDescriptionProvider.getNextArticleWithMissingDescription(WikiSite.forLanguageCode(parent().langFromCode))
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe({ pageSummary ->
+                        .subscribeBy(onNext = { pageSummary ->
                             sourceSummary = SuggestedEditsSummary(
                                     pageSummary.apiTitle,
                                     parent().langFromCode,
@@ -205,7 +206,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
                                     pageSummary.extractHtml
                             )
                             updateContents()
-                        }, { this.setErrorState(it) }))
+                        }, onError = { this.setErrorState(it) }))
             }
         }
     }
