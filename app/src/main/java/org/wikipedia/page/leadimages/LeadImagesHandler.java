@@ -3,6 +3,7 @@ package org.wikipedia.page.leadimages;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.text.TextUtils;
+import android.util.Pair;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,7 +21,6 @@ import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.dataclient.mwapi.MwQueryPage;
-import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.mwapi.media.MediaHelper;
 import org.wikipedia.descriptions.DescriptionEditActivity;
 import org.wikipedia.gallery.GalleryActivity;
@@ -32,16 +32,13 @@ import org.wikipedia.suggestededits.SuggestedEditsFeedCardImageTagActivity;
 import org.wikipedia.suggestededits.SuggestedEditsSummary;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.StringUtil;
-import org.wikipedia.util.log.L;
 import org.wikipedia.views.ObservableWebView;
 
-import java.util.List;
 import java.util.Map;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
-import io.reactivex.rxjava3.functions.Function3;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT;
@@ -150,41 +147,36 @@ public class LeadImagesHandler {
                 .subscribeOn(Schedulers.io())
                 .map(response -> response.query().isEditProtected())
                 .flatMap(isProtected -> isProtected ? Observable.empty() : Observable.zip(MediaHelper.INSTANCE.getImageCaptions(imageTitle),
-                        ServiceFactory.get(getTitle().getWikiSite()).getImageInfo(imageTitle, WikipediaApp.getInstance().getAppOrSystemLanguageCode()),
-                        ImageTagsProvider.getImageTagsObservable(getPage().getPageProperties().getPageId(), getTitle().getWikiSite().languageCode()),
-                        new Function3<Map<String, String>, MwQueryResponse, Map<String, List<String>>, Object>() {
-                            @Override
-                            public Object apply(Map<String, String> imageCaptionsResponse, MwQueryResponse imageInfoResponse, Map<String, List<String>> imageTags) throws Throwable {
-                                captionSourcePageTitle = new PageTitle(imageTitle, new WikiSite(Service.COMMONS_URL, getTitle().getWikiSite().languageCode()));
-                                imageCaptions = imageCaptionsResponse;
-                                imageInfo = imageInfoResponse.query().firstPage().imageInfo();
-                                imagePage = imageInfoResponse.query().firstPage();
-                                if (!imageCaptions.containsKey(getTitle().getWikiSite().languageCode())) {
-                                    imageEditType = ImageEditType.ADD_CAPTION;
-                                    return imageEditType;
-                                }
-                                if (imageTags.size() == 0) {
-                                    imageEditType = ImageEditType.ADD_TAGS;
-                                    return imageEditType;
-                                }
-
-                                if (app.language().getAppLanguageCodes().size() >= MIN_LANGUAGES_TO_UNLOCK_TRANSLATION) {
-                                    for (String lang : app.language().getAppLanguageCodes()) {
-                                        if (!imageCaptions.containsKey(lang)) {
-                                            imageEditType = ImageEditType.ADD_CAPTION_TRANSLATION;
-                                            captionTargetPageTitle = new PageTitle(imageTitle, new WikiSite(Service.COMMONS_URL, lang));
-                                            break;
-                                        }
+                        ServiceFactory.get(new WikiSite(Service.COMMONS_URL)).getImageInfo(imageTitle, WikipediaApp.getInstance().getAppOrSystemLanguageCode()), Pair::new))
+                .flatMap(pair -> {
+                            captionSourcePageTitle = new PageTitle(imageTitle, new WikiSite(Service.COMMONS_URL, getTitle().getWikiSite().languageCode()));
+                            imageCaptions = pair.first;
+                            imageInfo = pair.second.query().firstPage().imageInfo();
+                            imagePage = pair.second.query().firstPage();
+                            if (!imageCaptions.containsKey(getTitle().getWikiSite().languageCode())) {
+                                imageEditType = ImageEditType.ADD_CAPTION;
+                                return ImageTagsProvider.getImageTagsObservable(pair.second.query().firstPage().pageId(), getTitle().getWikiSite().languageCode());
+                            }
+                            if (app.language().getAppLanguageCodes().size() >= MIN_LANGUAGES_TO_UNLOCK_TRANSLATION) {
+                                for (String lang : app.language().getAppLanguageCodes()) {
+                                    if (!imageCaptions.containsKey(lang)) {
+                                        imageEditType = ImageEditType.ADD_CAPTION_TRANSLATION;
+                                        captionTargetPageTitle = new PageTitle(imageTitle, new WikiSite(Service.COMMONS_URL, lang));
+                                        break;
                                     }
                                 }
-                                return imageEditType;
                             }
-                        }))
-                .subscribeOn(Schedulers.io())
+                            return ImageTagsProvider.getImageTagsObservable(pair.second.query().firstPage().pageId(), getTitle().getWikiSite().languageCode());
+                        }
+                )
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(result -> {
+                .subscribe(imageTagsResult -> {
+                    if (imageEditType != ImageEditType.ADD_CAPTION && imageTagsResult != null && imageTagsResult.size() == 0) {
+                        imageEditType = ImageEditType.ADD_TAGS;
+                    }
                     updateCta();
-                }, L::e));
+                })
+        );
     }
 
     private void updateCta() {
@@ -265,7 +257,7 @@ public class LeadImagesHandler {
                 String filename = "File:" + imageName;
                 WikiSite wiki = language == null ? getTitle().getWikiSite() : WikiSite.forLanguageCode(language);
                 getActivity().startActivityForResult(GalleryActivity.newIntent(getActivity(),
-                        parentFragment.getTitleOriginal(), filename, wiki, parentFragment.getRevision(),
+                        parentFragment.getTitleOriginal(), getLeadImageUrl().contains(Service.URL_FRAGMENT_FROM_COMMONS), filename, wiki, parentFragment.getRevision(),
                         GalleryFunnel.SOURCE_LEAD_IMAGE),
                         Constants.ACTIVITY_REQUEST_GALLERY);
             }

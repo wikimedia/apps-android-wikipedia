@@ -27,6 +27,7 @@ import org.wikipedia.commons.ImageTagsProvider;
 import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.dataclient.mwapi.MwQueryPage;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.page.Namespace;
 import org.wikipedia.page.PageTitle;
@@ -59,10 +60,6 @@ public class GalleryItemFragment extends Fragment {
     private static final String ARG_PAGETITLE = "pageTitle";
     private static final String ARG_GALLERY_ITEM = "galleryItem";
 
-    public Map<String, List<String>> getImageTags() {
-        return imageTags;
-    }
-
     public interface Callback {
         void onDownload(@NonNull GalleryItemFragment item);
         void onShare(@NonNull GalleryItemFragment item, @Nullable Bitmap bitmap, @NonNull String subject, @NonNull PageTitle title);
@@ -92,6 +89,7 @@ public class GalleryItemFragment extends Fragment {
         return mediaInfo;
     }
     private Map<String, List<String>> imageTags;
+    private MwQueryPage mediaPage;
 
 
     public static GalleryItemFragment newInstance(@Nullable PageTitle pageTitle, @NonNull MediaListItem item) {
@@ -220,6 +218,7 @@ public class GalleryItemFragment extends Fragment {
         disposables.add(getMediaInfoDisposable(mediaListItem.getTitle(), WikipediaApp.getInstance().getAppOrSystemLanguageCode())
                 .flatMap(response -> {
                     mediaInfo = response.query().firstPage().imageInfo();
+                    mediaPage = response.query().firstPage();
                     return ImageTagsProvider.getImageTagsObservable(response.query().firstPage().pageId(), WikipediaApp.getInstance().getAppOrSystemLanguageCode());
                 })
                 .subscribeOn(Schedulers.io())
@@ -246,7 +245,7 @@ public class GalleryItemFragment extends Fragment {
         if (FileUtil.isVideo(mediaListItem.getType())) {
             return ServiceFactory.get(pageTitle.getWikiSite()).getVideoInfo(title, lang);
         } else {
-            return ServiceFactory.get(pageTitle.getWikiSite()).getImageInfo(title, lang);
+            return ServiceFactory.get(((GalleryActivity) requireActivity()).isCommonsFile() ? new WikiSite(Service.COMMONS_URL) : pageTitle.getWikiSite()).getImageInfo(title, lang);
         }
     }
 
@@ -362,5 +361,13 @@ public class GalleryItemFragment extends Fragment {
 
     @Nullable private Callback callback() {
         return FragmentUtil.getCallback(this, Callback.class);
+    }
+
+    public Map<String, List<String>> getImageTags() {
+        return imageTags;
+    }
+
+    public MwQueryPage getMediaPage() {
+        return mediaPage;
     }
 }

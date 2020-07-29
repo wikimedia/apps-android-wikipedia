@@ -50,7 +50,7 @@ import org.wikipedia.page.LinkMovementMethodExt;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.linkpreview.LinkPreviewDialog;
-import org.wikipedia.suggestededits.SuggestedEditsImageTagsOnboardingActivity;
+import org.wikipedia.suggestededits.SuggestedEditsFeedCardImageTagActivity;
 import org.wikipedia.suggestededits.SuggestedEditsSummary;
 import org.wikipedia.theme.Theme;
 import org.wikipedia.util.ClipboardUtil;
@@ -80,7 +80,6 @@ import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.disposables.Disposable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
-import static org.wikipedia.Constants.ACTIVITY_REQUEST_SUGGESTED_EDITS_ONBOARDING;
 import static org.wikipedia.Constants.INTENT_EXTRA_ACTION;
 import static org.wikipedia.Constants.InvokeSource.GALLERY_ACTIVITY;
 import static org.wikipedia.Constants.InvokeSource.LINK_PREVIEW_MENU;
@@ -104,6 +103,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     public static final String EXTRA_SOURCE = "source";
     public static final String EXTRA_FEATURED_IMAGE = "featuredImage";
     public static final String EXTRA_FEATURED_IMAGE_AGE = "featuredImageAge";
+    public static final String EXTRA_IS_COMMONS = "isCommons";
 
     @NonNull private WikipediaApp app = WikipediaApp.getInstance();
     @NonNull private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
@@ -153,22 +153,24 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     private MediaDownloadReceiver downloadReceiver = new MediaDownloadReceiver();
     private MediaDownloadReceiverCallback downloadReceiverCallback = new MediaDownloadReceiverCallback();
     @Nullable private String targetLanguageCode;
+     private boolean isCommonsFile;
 
     @NonNull
     public static Intent newIntent(@NonNull Context context, int age, @NonNull String filename,
                                    @NonNull FeaturedImage image, @NonNull WikiSite wiki, int source) {
-        return newIntent(context, null, filename, wiki, 0, source)
+        return newIntent(context, null, true, filename, wiki, 0, source)
                 .putExtra(EXTRA_FEATURED_IMAGE, GsonMarshaller.marshal(image))
                 .putExtra(EXTRA_FEATURED_IMAGE_AGE, age);
     }
 
     @NonNull
     public static Intent newIntent(@NonNull Context context, @Nullable PageTitle pageTitle,
-                                   @NonNull String filename, @NonNull WikiSite wiki, long revision, int source) {
+                                   boolean isCommonsFile, @NonNull String filename, @NonNull WikiSite wiki, long revision, int source) {
         Intent intent = new Intent()
                 .setClass(context, GalleryActivity.class)
                 .putExtra(EXTRA_FILENAME, filename)
                 .putExtra(EXTRA_WIKI, wiki)
+                .putExtra(EXTRA_IS_COMMONS, isCommonsFile)
                 .putExtra(EXTRA_REVISION, revision)
                 .putExtra(EXTRA_SOURCE, source);
         if (pageTitle != null) {
@@ -208,6 +210,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         if (getIntent().hasExtra(EXTRA_PAGETITLE)) {
             pageTitle = getIntent().getParcelableExtra(EXTRA_PAGETITLE);
         }
+        isCommonsFile = getIntent().getBooleanExtra(EXTRA_IS_COMMONS, false);
         initialFilename = getIntent().getStringExtra(EXTRA_FILENAME);
         revision = getIntent().getLongExtra(EXTRA_REVISION, 0);
         sourceWiki = getIntent().getParcelableExtra(EXTRA_WIKI);
@@ -368,6 +371,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
             switch (imageEditType) {
                 case ADD_TAGS:
                     startTagsEdit(item);
+                    break;
                 case ADD_CAPTION_TRANSLATION:
                     startCaptionTranslation(item);
                     break;
@@ -378,8 +382,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     }
 
     private void startTagsEdit(GalleryItemFragment item) {
-        startActivityForResult(SuggestedEditsImageTagsOnboardingActivity.Companion.newIntent(item.requireContext()),
-                ACTIVITY_REQUEST_SUGGESTED_EDITS_ONBOARDING);
+        startActivityForResult(SuggestedEditsFeedCardImageTagActivity.Companion.newIntent(this, item.getMediaPage()), ACTIVITY_REQUEST_DESCRIPTION_EDIT);
     }
 
     private void startCaptionTranslation(GalleryItemFragment item) {
@@ -420,6 +423,10 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         if (imageCaptionDisposable != null && !imageCaptionDisposable.isDisposed()) {
             imageCaptionDisposable.dispose();
         }
+    }
+
+    public boolean isCommonsFile() {
+        return isCommonsFile;
     }
 
     private class GalleryPageChangeListener extends ViewPager2.OnPageChangeCallback {
@@ -688,7 +695,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
             return;
         }
 
-        if (!(item.getImageTags().size() > 0)) {
+        if (item.getImageTags().size() == 0) {
             imageEditType = ImageEditType.ADD_TAGS;
             ctaButtonText.setText(getString(R.string.suggested_edits_feed_card_add_image_tags));
             return;
