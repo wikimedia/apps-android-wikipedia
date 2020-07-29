@@ -328,7 +328,7 @@ public class LinkPreviewDialog extends ExtendedBottomSheetDialogFragment
             = new GalleryThumbnailScrollView.GalleryViewListener() {
         @Override
         public void onGalleryItemClicked(String imageName) {
-            startActivityForResult(GalleryActivity.newIntent(requireContext(), pageTitle, false, imageName,
+            startActivityForResult(GalleryActivity.newIntent(requireContext(), pageTitle, imageName,
                     pageTitle.getWikiSite(), revision, GalleryFunnel.SOURCE_LINK_PREVIEW),
                     Constants.ACTIVITY_REQUEST_GALLERY);
         }

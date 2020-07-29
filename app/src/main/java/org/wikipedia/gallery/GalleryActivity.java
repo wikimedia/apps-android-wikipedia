@@ -153,24 +153,22 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     private MediaDownloadReceiver downloadReceiver = new MediaDownloadReceiver();
     private MediaDownloadReceiverCallback downloadReceiverCallback = new MediaDownloadReceiverCallback();
     @Nullable private String targetLanguageCode;
-     private boolean isCommonsFile;
 
     @NonNull
     public static Intent newIntent(@NonNull Context context, int age, @NonNull String filename,
                                    @NonNull FeaturedImage image, @NonNull WikiSite wiki, int source) {
-        return newIntent(context, null, true, filename, wiki, 0, source)
+        return newIntent(context, null, filename, wiki, 0, source)
                 .putExtra(EXTRA_FEATURED_IMAGE, GsonMarshaller.marshal(image))
                 .putExtra(EXTRA_FEATURED_IMAGE_AGE, age);
     }
 
     @NonNull
     public static Intent newIntent(@NonNull Context context, @Nullable PageTitle pageTitle,
-                                   boolean isCommonsFile, @NonNull String filename, @NonNull WikiSite wiki, long revision, int source) {
+                                   @NonNull String filename, @NonNull WikiSite wiki, long revision, int source) {
         Intent intent = new Intent()
                 .setClass(context, GalleryActivity.class)
                 .putExtra(EXTRA_FILENAME, filename)
                 .putExtra(EXTRA_WIKI, wiki)
-                .putExtra(EXTRA_IS_COMMONS, isCommonsFile)
                 .putExtra(EXTRA_REVISION, revision)
                 .putExtra(EXTRA_SOURCE, source);
         if (pageTitle != null) {
@@ -210,7 +208,6 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         if (getIntent().hasExtra(EXTRA_PAGETITLE)) {
             pageTitle = getIntent().getParcelableExtra(EXTRA_PAGETITLE);
         }
-        isCommonsFile = getIntent().getBooleanExtra(EXTRA_IS_COMMONS, false);
         initialFilename = getIntent().getStringExtra(EXTRA_FILENAME);
         revision = getIntent().getLongExtra(EXTRA_REVISION, 0);
         sourceWiki = getIntent().getParcelableExtra(EXTRA_WIKI);
@@ -423,10 +420,6 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         if (imageCaptionDisposable != null && !imageCaptionDisposable.isDisposed()) {
             imageCaptionDisposable.dispose();
         }
-    }
-
-    public boolean isCommonsFile() {
-        return isCommonsFile;
     }
 
     private class GalleryPageChangeListener extends ViewPager2.OnPageChangeCallback {

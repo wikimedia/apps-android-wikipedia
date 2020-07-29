@@ -245,7 +245,7 @@ public class GalleryItemFragment extends Fragment {
         if (FileUtil.isVideo(mediaListItem.getType())) {
             return ServiceFactory.get(pageTitle.getWikiSite()).getVideoInfo(title, lang);
         } else {
-            return ServiceFactory.get(((GalleryActivity) requireActivity()).isCommonsFile() ? new WikiSite(Service.COMMONS_URL) : pageTitle.getWikiSite()).getImageInfo(title, lang);
+            return ServiceFactory.get(pageTitle.getWikiSite()).getImageInfo(title, lang);
         }
     }
 
