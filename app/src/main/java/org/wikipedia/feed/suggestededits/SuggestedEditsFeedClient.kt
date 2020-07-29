@@ -3,6 +3,7 @@ package org.wikipedia.feed.suggestededits
 import android.content.Context
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
+import io.reactivex.rxjava3.kotlin.plusAssign
 import io.reactivex.rxjava3.kotlin.subscribeBy
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.WikipediaApp
@@ -71,7 +72,7 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
     }
 
     private fun getImageToAddTags(cb: FeedClient.Callback?, callback: Callback?) {
-        disposables.add(MissingDescriptionProvider
+        disposables += MissingDescriptionProvider
                 .getNextImageWithMissingTags(langFromCode)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -85,11 +86,11 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
                             }
                         },
                         onError = { cb?.error(it) }
-                ))
+                )
     }
 
     private fun getArticleToAddDescription(cb: FeedClient.Callback?, callback: Callback?) {
-        disposables.add(MissingDescriptionProvider
+        disposables += MissingDescriptionProvider
                 .getNextArticleWithMissingDescription(WikiSite.forLanguageCode(langFromCode))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -113,7 +114,7 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
                             }
                         },
                         onError = { cb?.error(it) }
-                ))
+                )
     }
 
     private fun getArticleToTranslateDescription(cb: FeedClient.Callback?, callback: Callback?) {
@@ -123,7 +124,7 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
             }
             return
         }
-        disposables.add(MissingDescriptionProvider
+        disposables += MissingDescriptionProvider
                 .getNextArticleWithMissingDescription(WikiSite.forLanguageCode(langFromCode), langToCode, true)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -160,11 +161,11 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
                             }
                         },
                         onError = { cb?.error(it) }
-                ))
+                )
     }
 
     private fun getImageToAddCaption(cb: FeedClient.Callback?, callback: Callback?) {
-        disposables.add(MissingDescriptionProvider.getNextImageWithMissingCaption(langFromCode)
+        disposables += MissingDescriptionProvider.getNextImageWithMissingCaption(langFromCode)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .flatMap { title ->
@@ -205,7 +206,7 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
                             }
                         },
                         onError = { cb?.error(it) }
-                ))
+                )
     }
 
     private fun getImageToTranslateCaption(cb: FeedClient.Callback?, callback: Callback?) {
@@ -216,7 +217,7 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
             return
         }
         var fileCaption: String? = null
-        disposables.add(MissingDescriptionProvider.getNextImageWithMissingCaption(langFromCode, langToCode)
+        disposables += MissingDescriptionProvider.getNextImageWithMissingCaption(langFromCode, langToCode)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .flatMap { pair ->
@@ -271,6 +272,6 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
                             }
                         },
                         onError = { cb?.error(it) }
-                ))
+                )
     }
 }

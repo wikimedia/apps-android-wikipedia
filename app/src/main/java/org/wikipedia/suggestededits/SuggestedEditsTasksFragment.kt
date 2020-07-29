@@ -15,6 +15,7 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.functions.Function3
+import io.reactivex.rxjava3.kotlin.plusAssign
 import io.reactivex.rxjava3.kotlin.subscribeBy
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_suggested_edits_tasks.*
@@ -154,7 +155,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         revertSeverity = 0
         progressBar.visibility = VISIBLE
 
-        disposables.add(Observable.zip(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getUserContributions(AccountUtil.getUserName()!!, 10, null).subscribeOn(Schedulers.io()),
+        disposables += Observable.zip(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getUserContributions(AccountUtil.getUserName()!!, 10, null).subscribeOn(Schedulers.io()),
                 ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getUserContributions(AccountUtil.getUserName()!!, 10, null).subscribeOn(Schedulers.io()),
                 SuggestedEditsUserStats.getEditCountsObservable(),
                 Function3<MwQueryResponse, MwQueryResponse, MwQueryResponse, MwQueryResponse> { commonsResponse, wikidataResponse, _ ->
@@ -201,11 +202,11 @@ class SuggestedEditsTasksFragment : Fragment() {
                 }, onError = {
                     L.e(it)
                     showError(it)
-                }))
+                })
     }
 
     private fun showAccountCreationOrIPBlocked() {
-        disposables.add(ServiceFactory.get(WikipediaApp.getInstance().wikiSite).userInfo
+        disposables += ServiceFactory.get(WikipediaApp.getInstance().wikiSite).userInfo
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeBy(onNext = { response ->
@@ -217,7 +218,7 @@ class SuggestedEditsTasksFragment : Fragment() {
                 }, onError = {
                     L.e(it)
                     showError(it)
-                }))
+                })
     }
 
     fun refreshContents() {

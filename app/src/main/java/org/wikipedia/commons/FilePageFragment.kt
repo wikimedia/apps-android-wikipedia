@@ -9,6 +9,7 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.functions.BiFunction
+import io.reactivex.rxjava3.kotlin.plusAssign
 import io.reactivex.rxjava3.kotlin.subscribeBy
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_file_page.*
@@ -74,7 +75,7 @@ class FilePageFragment : Fragment() {
         filePageView.visibility = View.GONE
         progressBar.visibility = View.VISIBLE
 
-        disposables.add(Observable.zip(getImageCaptions(pageTitle.prefixedText),
+        disposables += Observable.zip(getImageCaptions(pageTitle.prefixedText),
                 ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo(pageTitle.prefixedText, pageTitle.wikiSite.languageCode()),
                 BiFunction {
                     caption: Map<String, String>, response: MwQueryResponse ->
@@ -138,7 +139,7 @@ class FilePageFragment : Fragment() {
                 }, onError = { caught ->
                     L.e(caught)
                     showError(caught)
-                }))
+                })
     }
 
     companion object {

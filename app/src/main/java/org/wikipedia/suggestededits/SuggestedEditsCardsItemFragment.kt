@@ -8,6 +8,7 @@ import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.kotlin.plusAssign
 import io.reactivex.rxjava3.kotlin.subscribeBy
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_suggested_edits_cards_item.*
@@ -71,7 +72,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
     private fun getArticleWithMissingDescription() {
         when (parent().action) {
             TRANSLATE_DESCRIPTION -> {
-                disposables.add(MissingDescriptionProvider.getNextArticleWithMissingDescription(WikiSite.forLanguageCode(parent().langFromCode), parent().langToCode, true)
+                disposables += MissingDescriptionProvider.getNextArticleWithMissingDescription(WikiSite.forLanguageCode(parent().langFromCode), parent().langToCode, true)
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribeBy(onNext = { pair ->
@@ -98,11 +99,11 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
                                     target.extractHtml
                             )
                             updateContents()
-                        }, onError = { this.setErrorState(it) }))
+                        }, onError = { this.setErrorState(it) })
             }
 
             ADD_CAPTION -> {
-                disposables.add(MissingDescriptionProvider.getNextImageWithMissingCaption(parent().langFromCode)
+                disposables += MissingDescriptionProvider.getNextImageWithMissingCaption(parent().langFromCode)
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .flatMap { title ->
@@ -136,12 +137,12 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
                                 )
                             }
                             updateContents()
-                        }, onError = { this.setErrorState(it) }))
+                        }, onError = { this.setErrorState(it) })
             }
 
             TRANSLATE_CAPTION -> {
                 var fileCaption: String? = null
-                disposables.add(MissingDescriptionProvider.getNextImageWithMissingCaption(parent().langFromCode, parent().langToCode)
+                disposables += MissingDescriptionProvider.getNextImageWithMissingCaption(parent().langFromCode, parent().langToCode)
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .flatMap { pair ->
@@ -188,11 +189,11 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
                                 )
                             }
                             updateContents()
-                        }, onError = { this.setErrorState(it) }))
+                        }, onError = { this.setErrorState(it) })
             }
 
             else -> {
-                disposables.add(MissingDescriptionProvider.getNextArticleWithMissingDescription(WikiSite.forLanguageCode(parent().langFromCode))
+                disposables += MissingDescriptionProvider.getNextArticleWithMissingDescription(WikiSite.forLanguageCode(parent().langFromCode))
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribeBy(onNext = { pageSummary ->
@@ -206,7 +207,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
                                     pageSummary.extractHtml
                             )
                             updateContents()
-                        }, onError = { this.setErrorState(it) }))
+                        }, onError = { this.setErrorState(it) })
             }
         }
     }

@@ -14,6 +14,7 @@ import androidx.viewpager2.widget.ViewPager2
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
+import io.reactivex.rxjava3.kotlin.plusAssign
 import io.reactivex.rxjava3.kotlin.subscribeBy
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_suggested_edits_cards.*
@@ -271,7 +272,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
     }
 
     private fun requestLanguagesAndBuildSpinner() {
-        disposables.add(ServiceFactory.get(app.wikiSite).siteMatrix
+        disposables += ServiceFactory.get(app.wikiSite).siteMatrix
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .map { siteMatrix = it; }
@@ -280,7 +281,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
                     app.language().appLanguageCodes.forEach {
                         languageList.add(getLanguageLocalName(it))
                     }
-                }, onError = { L.e(it) }))
+                }, onError = { L.e(it) })
     }
 
     private fun getLanguageLocalName(code: String): String {
@@ -341,7 +342,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
         sessionEditCount++
         if (rewardInterstitialImage == -1 && rewardInterstitialText.isEmpty()) {
             // Need to preload the user contribution in case we miss the latest data
-            disposables.add(SuggestedEditsUserStats.getEditCountsObservable()
+            disposables += SuggestedEditsUserStats.getEditCountsObservable()
                     .map { response ->
                         val editorTaskCounts = response.query()!!.editorTaskCounts()!!
                         val daysOfLastEditQualityShown = TimeUnit.MILLISECONDS.toDays(System.currentTimeMillis() - Prefs.getLastSuggestedEditsRewardInterstitialEditQualityShown()).toInt()
@@ -395,7 +396,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
                             rewardInterstitialText = getString(R.string.suggested_edits_rewards_pageviews, it)
                             Prefs.setLastSuggestedEditsRewardInterstitialPageviewsShown(System.currentTimeMillis())
                         }
-                    }, onError = { L.e(it) }))
+                    }, onError = { L.e(it) })
         }
     }
 

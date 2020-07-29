@@ -14,6 +14,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.android.material.chip.Chip
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.kotlin.plusAssign
 import io.reactivex.rxjava3.kotlin.subscribeBy
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_suggested_edits_image_tags_item.*
@@ -123,14 +124,14 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         if (page != null) {
             return
         }
-        disposables.add(MissingDescriptionProvider.getNextImageWithMissingTags(callback().getLangCode())
+        disposables += MissingDescriptionProvider.getNextImageWithMissingTags(callback().getLangCode())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeBy(onNext = { page ->
                     this.page = page
                     updateContents()
                     updateTagChips()
-                }, onError = { this.setErrorState(it) }))
+                }, onError = { this.setErrorState(it) })
     }
 
     private fun setErrorState(t: Throwable) {
@@ -157,7 +158,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
 
         ViewUtil.loadImage(imageView, ImageUrlUtil.getUrlForPreferredSize(page!!.imageInfo()!!.thumbUrl, Constants.PREFERRED_CARD_THUMBNAIL_SIZE))
 
-        disposables.add(MediaHelper.getImageCaptions(page!!.title())
+        disposables += MediaHelper.getImageCaptions(page!!.title())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe { captions ->
@@ -172,7 +173,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                             imageCaption.visibility = GONE
                         }
                     }
-                })
+                }
 
         updateLicenseTextShown()
         callback().updateActionButton()
@@ -358,7 +359,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                 claimStr += "]}"
                 commentStr += " */"
 
-                disposables.add(ServiceFactory.get(commonsSite).postEditEntity(mId, token, claimStr, commentStr, null)
+                disposables += ServiceFactory.get(commonsSite).postEditEntity(mId, token, claimStr, commentStr, null)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .doAfterTerminate { publishing = false }
@@ -368,7 +369,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                         }
                         publishSuccess = true
                         onSuccess()
-                    }, onError = { onError(it) })
+                    }, onError = { onError(it) }
                 )
             }
 

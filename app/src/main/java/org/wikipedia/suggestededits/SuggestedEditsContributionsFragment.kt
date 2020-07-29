@@ -18,6 +18,7 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.functions.BiFunction
+import io.reactivex.rxjava3.kotlin.plusAssign
 import io.reactivex.rxjava3.kotlin.subscribeBy
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_contributions_suggested_edits.*
@@ -143,13 +144,13 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
         disposables.clear()
 
         if (allContributions.isEmpty()) {
-            disposables.add(SuggestedEditsUserStats.getPageViewsObservable().subscribe {
+            disposables += SuggestedEditsUserStats.getPageViewsObservable().subscribe {
                 totalPageViews = it
                 adapter.notifyDataSetChanged()
-            })
+            }
         }
 
-        disposables.add(Observable.zip(if (allContributions.isNotEmpty() && articleContributionsContinuation.isNullOrEmpty()) Observable.just(Collections.emptyList<Contribution>())
+        disposables += Observable.zip(if (allContributions.isNotEmpty() && articleContributionsContinuation.isNullOrEmpty()) Observable.just(Collections.emptyList<Contribution>())
         else ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getUserContributions(AccountUtil.getUserName()!!, 50, articleContributionsContinuation)
                 .subscribeOn(Schedulers.io())
                 .flatMap { response ->
@@ -276,7 +277,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
                 }, onError = { caught ->
                     L.e(caught)
                     showError(caught)
-                }))
+                })
     }
 
     private fun createConsolidatedList() {
@@ -401,16 +402,16 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
 
         private fun getContributionDetails(itemView: SuggestedEditsContributionsItemView, contribution: Contribution) {
             if (contribution.editType == EDIT_TYPE_ARTICLE_DESCRIPTION && contribution.title.isNotEmpty() && !contribution.title.matches(qNumberRegex)) {
-                disposables.add(ServiceFactory.getRest(contribution.wikiSite).getSummary(null, contribution.title)
+                disposables += ServiceFactory.getRest(contribution.wikiSite).getSummary(null, contribution.title)
                         .subscribeOn(Schedulers.io())
                         .delaySubscription(250, TimeUnit.MILLISECONDS)
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribeBy(onNext = { summary ->
                             contribution.imageUrl = summary.thumbnailUrl.toString()
                             itemView.setImageUrl(contribution.imageUrl)
-                        }, onError = { L.e(it) }))
+                        }, onError = { L.e(it) })
             } else if (contribution.editType == EDIT_TYPE_IMAGE_CAPTION || contribution.editType == EDIT_TYPE_IMAGE_TAG) {
-                disposables.add(Observable.zip(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo(contribution.title, contribution.wikiSite.languageCode()).subscribeOn(Schedulers.io()),
+                disposables += Observable.zip(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo(contribution.title, contribution.wikiSite.languageCode()).subscribeOn(Schedulers.io()),
                         if (contribution.qNumber.isEmpty()) Observable.just(contribution.qNumber) else (
                                 ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getWikidataLabels(contribution.qNumber, contribution.wikiSite.languageCode())
                                         .subscribeOn(Schedulers.io())
@@ -443,7 +444,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
                         .subscribe {
                             itemView.setTitle(contribution.description)
                             itemView.setImageUrl(contribution.imageUrl)
-                        })
+                        }
             }
         }
 
@@ -452,7 +453,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
                 view.setPageViewCountText(0)
                 return
             }
-            disposables.add(ServiceFactory.get(contribution.wikiSite).getPageViewsForTitles(contribution.title)
+            disposables += ServiceFactory.get(contribution.wikiSite).getPageViewsForTitles(contribution.title)
                     .subscribeOn(Schedulers.io())
                     .delaySubscription(250, TimeUnit.MILLISECONDS)
                     .observeOn(AndroidSchedulers.mainThread())
@@ -467,7 +468,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
                             contribution.pageViews = pageviews
                             view.setPageViewCountText(contribution.pageViews)
                         }
-                    }, onError = { L.e(it) }))
+                    }, onError = { L.e(it) })
         }
     }
 
