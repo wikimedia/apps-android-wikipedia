@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 
+import org.apache.commons.lang3.math.NumberUtils;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.dataclient.ServiceFactory;
@@ -122,16 +123,6 @@ public class AnnouncementClient implements FeedClient {
     private static boolean matchesVersionCodes(@Nullable String minVersion, @Nullable String maxVersion) {
         int versionCode = (Prefs.announcementsVersionCode() > 0)
                 ? Prefs.announcementsVersionCode() : WikipediaApp.getInstance().getVersionCode();
-        try {
-            if (!TextUtils.isEmpty(minVersion) && Integer.parseInt(minVersion) > versionCode) {
-                return false;
-            }
-            if (!TextUtils.isEmpty(maxVersion) && Integer.parseInt(maxVersion) < versionCode) {
-                return false;
-            }
-        } catch (NumberFormatException e) {
-            // ignore
-        }
-        return true;
+        return NumberUtils.toInt(minVersion) <= versionCode || NumberUtils.toInt(maxVersion) >= versionCode;
     }
 }

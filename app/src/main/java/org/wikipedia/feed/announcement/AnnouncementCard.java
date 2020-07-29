@@ -5,6 +5,7 @@ import android.net.Uri;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import org.apache.commons.lang3.math.NumberUtils;
 import org.wikipedia.feed.model.Card;
 import org.wikipedia.feed.model.CardType;
 
@@ -60,11 +61,7 @@ public class AnnouncementCard extends Card {
     }
 
     public int imageHeight() {
-        try {
-            return Integer.parseInt(announcement.imageHeight());
-        } catch (NumberFormatException e) {
-            return 0;
-        }
+        return NumberUtils.toInt(announcement.imageHeight());
     }
 
     @NonNull @Override public CardType type() {
