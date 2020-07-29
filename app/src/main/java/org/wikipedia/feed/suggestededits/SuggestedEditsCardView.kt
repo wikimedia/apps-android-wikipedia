@@ -1,8 +1,8 @@
 package org.wikipedia.feed.suggestededits
 
 import android.content.Context
-import android.net.Uri
 import android.view.View
+import androidx.core.net.toUri
 import kotlinx.android.synthetic.main.view_suggested_edit_card.view.*
 import org.wikipedia.Constants
 import org.wikipedia.R
@@ -68,7 +68,7 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
         viewArticleImage.visibility = View.VISIBLE
         viewArticleExtract.visibility = View.GONE
         divider.visibility = View.GONE
-        viewArticleImage.loadImage(Uri.parse(ImageUrlUtil.getUrlForPreferredSize(card!!.page!!.imageInfo()!!.thumbUrl, Constants.PREFERRED_CARD_THUMBNAIL_SIZE)))
+        viewArticleImage.loadImage(ImageUrlUtil.getUrlForPreferredSize(card!!.page!!.imageInfo()!!.thumbUrl, Constants.PREFERRED_CARD_THUMBNAIL_SIZE).toUri())
         viewArticleTitle.visibility = View.GONE
         callToActionText.text = context.getString(R.string.suggested_edits_feed_card_add_image_tags)
     }
@@ -93,7 +93,7 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
         viewArticleImage.visibility = View.VISIBLE
         viewArticleExtract.visibility = View.GONE
         divider.visibility = View.GONE
-        viewArticleImage.loadImage(Uri.parse(card!!.sourceSummary!!.thumbnailUrl))
+        viewArticleImage.loadImage(card!!.sourceSummary!!.thumbnailUrl!!.toUri())
         viewArticleTitle.text = StringUtil.removeNamespace(card!!.sourceSummary!!.displayTitle!!)
         callToActionText.text = if (card!!.action == TRANSLATE_CAPTION) context.getString(R.string.suggested_edits_feed_card_translate_image_caption, app.language().getAppLanguageCanonicalName(card!!.targetSummary!!.lang)) else context.getString(R.string.suggested_edits_feed_card_add_image_caption)
     }
@@ -117,7 +117,7 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
             viewArticleImage.visibility = View.VISIBLE
             viewArticleExtract.visibility = View.GONE
             divider.visibility = View.GONE
-            viewArticleImage.loadImage(Uri.parse(card!!.sourceSummary!!.thumbnailUrl))
+            viewArticleImage.loadImage(card!!.sourceSummary!!.thumbnailUrl!!.toUri())
         }
     }
 

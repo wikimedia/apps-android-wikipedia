@@ -1,6 +1,7 @@
 package org.wikipedia.util
 
 import android.net.Uri
+import androidx.core.net.toUri
 
 object ImageUrlUtil {
 
@@ -8,7 +9,7 @@ object ImageUrlUtil {
 
     @JvmStatic
     fun getUrlForSize(uri: Uri, size: Int): Uri {
-        return Uri.parse(getUrlForSize(uri.toString(), size))
+        return getUrlForSize(uri.toString(), size).toUri()
     }
 
     @JvmStatic

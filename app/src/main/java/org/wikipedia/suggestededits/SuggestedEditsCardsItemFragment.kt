@@ -1,12 +1,12 @@
 package org.wikipedia.suggestededits
 
-import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
+import androidx.core.net.toUri
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_suggested_edits_cards_item.*
@@ -113,7 +113,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
                             val page = response.query()!!.pages()!![0]
                             if (page.imageInfo() != null) {
                                 val imageInfo = page.imageInfo()!!
-                                val title = if (imageInfo.commonsUrl.isEmpty()) page.title() else WikiSite(Service.COMMONS_URL).titleForUri(Uri.parse(imageInfo.commonsUrl)).prefixedText
+                                val title = if (imageInfo.commonsUrl.isEmpty()) page.title() else WikiSite(Service.COMMONS_URL).titleForUri(imageInfo.commonsUrl.toUri()).prefixedText
 
                                 sourceSummary = SuggestedEditsSummary(
                                         title,
@@ -153,7 +153,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
                             val page = response.query()!!.pages()!![0]
                             if (page.imageInfo() != null) {
                                 val imageInfo = page.imageInfo()!!
-                                val title = if (imageInfo.commonsUrl.isEmpty()) page.title() else WikiSite(Service.COMMONS_URL).titleForUri(Uri.parse(imageInfo.commonsUrl)).prefixedText
+                                val title = if (imageInfo.commonsUrl.isEmpty()) page.title() else WikiSite(Service.COMMONS_URL).titleForUri(imageInfo.commonsUrl.toUri()).prefixedText
 
                                 sourceSummary = SuggestedEditsSummary(
                                         title,
@@ -260,7 +260,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
             viewArticleImagePlaceholder.visibility = GONE
         } else {
             viewArticleImagePlaceholder.visibility = VISIBLE
-            viewArticleImage.loadImage(Uri.parse(sourceSummary!!.getPreferredSizeThumbnailUrl()))
+            viewArticleImage.loadImage(sourceSummary!!.getPreferredSizeThumbnailUrl().toUri())
         }
     }
 
@@ -288,7 +288,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
         viewImageSource.setDetailText(sourceSummary!!.metadata!!.credit())
         viewImageLicense.setDetailText(sourceSummary!!.metadata!!.licenseShortName())
 
-        viewArticleImage.loadImage(Uri.parse(sourceSummary!!.getPreferredSizeThumbnailUrl()))
+        viewArticleImage.loadImage(sourceSummary!!.getPreferredSizeThumbnailUrl().toUri())
         viewArticleExtract.visibility = GONE
     }
 

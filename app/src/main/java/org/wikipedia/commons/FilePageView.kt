@@ -11,6 +11,7 @@ import android.view.View.OnClickListener
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.core.content.ContextCompat.startActivity
+import androidx.core.net.toUri
 import kotlinx.android.synthetic.main.view_file_page.view.*
 import kotlinx.android.synthetic.main.view_image_detail.view.*
 import org.wikipedia.Constants
@@ -141,7 +142,7 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
                 view.contentText.setTextIsSelectable(false)
                 view.externalLink.visibility = View.VISIBLE
                 view.contentContainer.setOnClickListener {
-                    UriUtil.visitInExternalBrowser(context, Uri.parse(externalLink))
+                    UriUtil.visitInExternalBrowser(context, externalLink.toUri())
                 }
             } else {
                 view.contentText.movementMethod = movementMethod
@@ -158,6 +159,6 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
     }
 
     private val movementMethod = LinkMovementMethodExt { url: String ->
-        UriUtil.handleExternalLink(context, Uri.parse(UriUtil.resolveProtocolRelativeUrl(url)))
+        UriUtil.handleExternalLink(context, UriUtil.resolveProtocolRelativeUrl(url).toUri())
     }
 }
