@@ -525,6 +525,7 @@
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/bn</string>
   <string name="description_edit_anon_limit">নিবন্ধের বিবরণ সম্পাদনায় আপনার আগ্রহের জন্য ধন্যবাদ! অতিরিক্ত সম্পাদনা করার জন্য, আপনার উইকিপিডিয়ার অ্যাকাউন্টে প্রবেশ করুন।</string>
   <string name="description_edit_license_notice">নিবন্ধের বিবরণ পরিবর্তন করার দ্বারা, আমি &lt;a href=\"%1$s\"&gt;ব্যবহারের শর্তাবলীর&lt;/a&gt; সাথে সম্মত ও আমি আমার অবদান &lt;a href=\"%2$s\"&gt;ক্রিয়েটিভ কমন্স সিসি০&lt;/a&gt; লাইসেন্সের অধীনে প্রকাশ করছি।</string>
+  <string name="description_edit_voice_input_description">কণ্ঠ ইনপুট</string>
   <string name="description_edit_success_saved" fuzzy="true">বিবরণ প্রকাশিত হয়েছে!</string>
   <string name="description_edit_success_encouragement">আপনি এইমাত্র সবার জন্য উইকিপিডিয়াকে আরো উত্তম করলেন</string>
   <string name="description_edit_success_done">সম্পন্ন</string>
