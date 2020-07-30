@@ -641,6 +641,10 @@
   <string name="description_edit_license_notice">Disclaimer that specifies the Terms of Use and CC license that applies to editing descriptions. Please preserve the %1$s and %2$s parameters, since these will be replaced with URLs.</string>
   <string name="description_edit_helper_text_lowercase_warning">Warning message shows the article description usually begin with a lowercase letter.</string>
   <string name="description_edit_voice_input_description">Content description for the voice input icon in the input field</string>
+  <string name="description_too_short">Error text shown when a description is too short.</string>
+  <string name="description_ends_with_punctuation">Error text shown when a description ends with punctuation.</string>
+  <string name="description_starts_with_article">Warning text shown when a description starts with a definite or indefinite article.</string>
+  <string name="description_starts_with_uppercase">Warning text shown when a description starts with an uppercase character.</string>
   <string name="description_edit_success_saved">Message that the article description the user just added was saved.</string>
   <string name="description_edit_success_saved_snackbar">Message shown on a snackbar that the article description the user just added was saved.</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Message shown on a snackbar that the article description the user just added was saved. The %s symbol is replaced by the language that the caption was used.</string>

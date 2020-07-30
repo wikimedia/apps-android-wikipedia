@@ -646,6 +646,10 @@
   <string name="description_edit_license_notice">Zmieniając opis artykułu, wyrażam zgodę na &lt;a href=\"%1$s\"&gt; Warunki korzystania &lt;/a&gt; i nieodwołalnie udostępniam moje artykuły na podstawie licencji &lt;a href=\"%2$s\"&gt; Creative Commons CC0 &lt;/a&gt;.</string>
   <string name="description_edit_helper_text_lowercase_warning">zwykle zaczynają się od małej litery</string>
   <string name="description_edit_voice_input_description">Wprowadzanie głosowe</string>
+  <string name="description_too_short">Tekst jest zbyt krótki.</string>
+  <string name="description_ends_with_punctuation">Tekst nie może kończyć się znakiem interpunkcyjnym.</string>
+  <string name="description_starts_with_article">Nie rozpoczynaj artykułów od „a” bądź „the” (ang).</string>
+  <string name="description_starts_with_uppercase">Zaczynaj tekst używając małej litery, chyba że pierwszy wyraz to nazwa własna.</string>
   <string name="description_edit_success_saved">Opis artykułu opublikowany!</string>
   <string name="description_edit_success_saved_snackbar">Opis artykułu opublikowany!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Opis artykułu opublikowany! (%s)</string>
