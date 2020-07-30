@@ -45,7 +45,7 @@
   <string name="search_hint_search_languages">بحث عن لغة</string>
   <string name="search_hint_search_my_lists_and_articles">البحث في قوائمي ومقالاتي</string>
   <string name="nav_item_history">التاريخ</string>
-  <string name="nav_item_suggested_edits" fuzzy="true">التعديلات المقترحة</string>
+  <string name="nav_item_suggested_edits">التعديلات</string>
   <string name="nav_item_more">المزيد</string>
   <string name="error_network_error">لا يوجد اتصال بالإنترنت.</string>
   <string name="page_error_retry">إعادة المحاولة</string>
@@ -130,7 +130,7 @@
   <string name="reading_lists_sync_login">تسجيل الدخول</string>
   <string name="create_account_login">تسجيل الدخول</string>
   <string name="menu_login">تسجيل الدخول</string>
-  <string name="login_activity_title" fuzzy="true">تسجيل الدخول إلى ويكيبيديا</string>
+  <string name="login_activity_title">تسجيل الدخول</string>
   <string name="login_in_progress_dialog_message">جارٍ تسجيل دخولك…</string>
   <string name="login_success_toast">تم تسجيل الدخول!</string>
   <string name="reset_password_title">تعيين كلمة مرورك</string>
@@ -631,6 +631,8 @@
   <string name="description_edit_anon_limit">شكرا لاهتمامك المستمر بتحرير أوصاف المقالات! لإجراء تعديلات إضافية؛ يُرجَى تسجيل الدخول إلى حساب ويكيبيديا الخاص بك.</string>
   <string name="description_edit_license_notice">من خلال تغيير وصف المقالة، أوافق على &lt;a href=\"%1$s\"&gt;شروط الاستخدام&lt;/a&gt; وإطلاق مساهماتي بشكل لا رجعة فيه بموجب ترخيص &lt;a href=\"%2$s\"&gt;المشاع الإبداعي CC0&lt;/a&gt;.</string>
   <string name="description_edit_helper_text_lowercase_warning">عادةً ما يبدأ بحرف صغير</string>
+  <string name="description_edit_voice_input_description">مدخل صوتي</string>
+  <string name="description_too_short">النص قصير للغاية.</string>
   <string name="description_edit_success_saved">تم نشر وصف المقالة!</string>
   <string name="description_edit_success_saved_snackbar">تم نشر وصف المقالة!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">تم نشر وصف المقالة! (%s)</string>
@@ -750,6 +752,7 @@
   <string name="suggested_edits_quality_sufficient_text">كافٍ</string>
   <string name="suggested_edits_quality_poor_text">فقير</string>
   <string name="suggested_edits_quality_bad_text">سيء</string>
+  <string name="suggested_edits_label">تعديلات مقترحة</string>
   <plurals name="suggested_edits_contribution" fuzzy="true">
     <item quantity="one">مساهمة</item>
     <item quantity="other">مساهمات</item>

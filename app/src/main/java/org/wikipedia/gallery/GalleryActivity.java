@@ -49,9 +49,10 @@ import org.wikipedia.page.LinkMovementMethodExt;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.linkpreview.LinkPreviewDialog;
-import org.wikipedia.suggestededits.SuggestedEditsSummary;
+import org.wikipedia.suggestededits.PageSummaryForEdit;
 import org.wikipedia.theme.Theme;
 import org.wikipedia.util.ClipboardUtil;
+import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.GradientUtil;
 import org.wikipedia.util.ImageUrlUtil;
@@ -114,6 +115,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     @BindView(R.id.gallery_progressbar) ProgressBar progressBar;
     @BindView(R.id.gallery_description_container) View galleryDescriptionContainer;
     @BindView(R.id.gallery_description_text) TextView descriptionText;
+    @BindView(R.id.gallery_license_container) View licenseContainer;
     @BindView(R.id.gallery_license_icon) ImageView licenseIcon;
     @BindView(R.id.gallery_license_icon_by) ImageView byIcon;
     @BindView(R.id.gallery_license_icon_sa) ImageView saIcon;
@@ -344,7 +346,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         String currentCaption = item.getMediaInfo().getCaptions().get(sourceWiki.languageCode());
         title.setDescription(currentCaption);
 
-        SuggestedEditsSummary summary = new SuggestedEditsSummary(title.getPrefixedText(), sourceWiki.languageCode(), title,
+        PageSummaryForEdit summary = new PageSummaryForEdit(title.getPrefixedText(), sourceWiki.languageCode(), title,
                 title.getDisplayText(), StringUtils.defaultIfBlank(StringUtil.fromHtml(item.getMediaInfo().getMetadata().imageDescription()).toString(), null),
                 item.getMediaInfo().getThumbUrl());
 
@@ -369,10 +371,10 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
             currentCaption = StringUtil.fromHtml(item.getMediaInfo().getMetadata().imageDescription()).toString();
         }
 
-        SuggestedEditsSummary sourceSummary = new SuggestedEditsSummary(sourceTitle.getPrefixedText(), sourceTitle.getWikiSite().languageCode(), sourceTitle,
+        PageSummaryForEdit sourceSummary = new PageSummaryForEdit(sourceTitle.getPrefixedText(), sourceTitle.getWikiSite().languageCode(), sourceTitle,
                 sourceTitle.getDisplayText(), currentCaption, item.getMediaInfo().getThumbUrl());
 
-        SuggestedEditsSummary targetSummary = new SuggestedEditsSummary(targetTitle.getPrefixedText(), targetTitle.getWikiSite().languageCode(), targetTitle,
+        PageSummaryForEdit targetSummary = new PageSummaryForEdit(targetTitle.getPrefixedText(), targetTitle.getWikiSite().languageCode(), targetTitle,
                 targetTitle.getDisplayText(), null, item.getMediaInfo().getThumbUrl());
 
         startActivityForResult(DescriptionEditActivity.newIntent(this, targetTitle, null, sourceSummary, targetSummary,
@@ -708,6 +710,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         licenseIcon.setContentDescription(StringUtils.defaultIfBlank(item.getMediaInfo().getMetadata().licenseShortName(), getString(R.string.gallery_fair_use_license)));
         // Give the license URL to the icon, to be received by the click handler (may be null).
         licenseIcon.setTag(item.getMediaInfo().getMetadata().licenseUrl());
+        DeviceUtil.setContextClickAsLongClick(licenseContainer);
 
         String creditStr = !TextUtils.isEmpty(item.getMediaInfo().getMetadata().artist()) ? item.getMediaInfo().getMetadata().artist() : item.getMediaInfo().getMetadata().credit();
 

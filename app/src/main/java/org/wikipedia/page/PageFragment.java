@@ -83,7 +83,7 @@ import org.wikipedia.readinglist.ReadingListBookmarkMenu;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.settings.Prefs;
-import org.wikipedia.suggestededits.SuggestedEditsSummary;
+import org.wikipedia.suggestededits.PageSummaryForEdit;
 import org.wikipedia.theme.ThemeChooserDialog;
 import org.wikipedia.util.ActiveTimer;
 import org.wikipedia.util.DimenUtil;
@@ -1146,7 +1146,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             startActivityForResult(DescriptionEditTutorialActivity.newIntent(requireContext(), text),
                     Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT_TUTORIAL);
         } else {
-            SuggestedEditsSummary sourceSummary = new SuggestedEditsSummary(getTitle().getPrefixedText(), getTitle().getWikiSite().languageCode(), getTitle(),
+            PageSummaryForEdit sourceSummary = new PageSummaryForEdit(getTitle().getPrefixedText(), getTitle().getWikiSite().languageCode(), getTitle(),
                     getTitle().getDisplayText(), getTitle().getDescription(), getTitle().getThumbUrl());
             startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), getTitle(), text, sourceSummary, null, ADD_DESCRIPTION, PAGE_ACTIVITY),
                     Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT);
@@ -1236,7 +1236,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
 
     @Override
     public List<PageReferences.Reference> getReferencesGroup() {
-        return references.getReferencesGroup();
+        return references != null ? references.getReferencesGroup() : null;
     }
 
     @Override

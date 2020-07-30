@@ -21,7 +21,7 @@ public final class MainPageNameData {
 
     @SuppressWarnings({"checkstyle:methodlength", "SpellCheckingInspection"})
     private static Map<String, String> newMap() {
-        final int size = 302;
+        final int size = 305;
         Map<String, String> map = new HashMap<>(size);
         map.put("ab", "Ихадоу адаҟьа");
         map.put("ace", "Ôn Keue");
@@ -34,11 +34,14 @@ public final class MainPageNameData {
         map.put("ang", "Hēafodtramet");
         map.put("ar", "الصفحة الرئيسية");
         map.put("arc", "ܦܐܬܐ ܪܝܫܝܬܐ");
+        map.put("ary", "الصفحة اللّولا");
         map.put("arz", "الصفحه الرئيسيه");
         map.put("as", "বেটুপাত");
         map.put("ast", "Portada");
         map.put("atj", "Otitikowin");
         map.put("av", "БетӀераб гьумер");
+        map.put("avk", "Emudexo");
+        map.put("awa", "प्रधान पन्ना");
         map.put("ay", "Nayriri uñstawi");
         map.put("az", "Ana Səhifə");
         map.put("azb", "آنا صفحه");
@@ -92,7 +95,7 @@ public final class MainPageNameData {
         map.put("en", "Main Page");
         map.put("eo", "Vikipedio:Ĉefpaĝo");
         map.put("es", "Wikipedia:Portada");
-        map.put("et", "Esileht");
+        map.put("et", "Vikipeedia:Esileht");
         map.put("eu", "Azala");
         map.put("ext", "Página prencipal");
         map.put("fa", "صفحهٔ اصلی");

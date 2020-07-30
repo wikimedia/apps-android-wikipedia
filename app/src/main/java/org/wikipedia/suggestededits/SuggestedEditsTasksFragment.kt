@@ -17,7 +17,6 @@ import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.functions.Function3
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_suggested_edits_tasks.*
-import org.wikipedia.Constants
 import org.wikipedia.Constants.*
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -35,6 +34,8 @@ import org.wikipedia.login.LoginActivity
 import org.wikipedia.main.MainActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
+import org.wikipedia.userprofile.ContributionsActivity
+import org.wikipedia.userprofile.UserContributionsStats
 import org.wikipedia.util.*
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DefaultRecyclerAdapter
@@ -70,7 +71,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         setupTestingButtons()
 
         userStatsClickTarget.setOnClickListener {
-            startActivity(SuggestedEditsContributionsActivity.newIntent(requireActivity()))
+            startActivity(ContributionsActivity.newIntent(requireActivity()))
         }
 
         learnMoreCard.setOnClickListener {
@@ -124,7 +125,7 @@ class SuggestedEditsTasksFragment : Fragment() {
             tasksRecyclerView.adapter!!.notifyDataSetChanged()
         } else if (requestCode == ACTIVITY_REQUEST_IMAGE_TAGS_ONBOARDING && resultCode == Activity.RESULT_OK) {
             Prefs.setShowImageTagsOnboarding(false)
-            startActivity(SuggestedEditsCardsActivity.newIntent(requireActivity(), ADD_IMAGE_TAGS))
+            startActivity(SuggestionsActivity.newIntent(requireActivity(), ADD_IMAGE_TAGS))
         } else if (requestCode == ACTIVITY_REQUEST_LOGIN && resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
             clearContents()
         }
@@ -153,7 +154,7 @@ class SuggestedEditsTasksFragment : Fragment() {
 
         disposables.add(Observable.zip(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getUserContributions(AccountUtil.getUserName()!!, 10, null).subscribeOn(Schedulers.io()),
                 ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getUserContributions(AccountUtil.getUserName()!!, 10, null).subscribeOn(Schedulers.io()),
-                SuggestedEditsUserStats.getEditCountsObservable(),
+                UserContributionsStats.getEditCountsObservable(),
                 Function3<MwQueryResponse, MwQueryResponse, MwQueryResponse, MwQueryResponse> { commonsResponse, wikidataResponse, _ ->
                     if (wikidataResponse.query()!!.userInfo()!!.isBlocked || commonsResponse.query()!!.userInfo()!!.isBlocked) {
                         isIpBlocked = true
@@ -170,15 +171,15 @@ class SuggestedEditsTasksFragment : Fragment() {
                     val contributions = ArrayList<UserContribution>()
                     contributions.addAll(wikidataResponse.query()!!.userContributions())
                     contributions.addAll(commonsResponse.query()!!.userContributions())
-                    contributions.sortWith(Comparator { o2, o1 -> ( o1.date().compareTo(o2.date())) })
+                    contributions.sortWith(Comparator { o2, o1 -> (o1.date().compareTo(o2.date())) })
 
                     latestEditStreak = getEditStreak(contributions)
 
-                    revertSeverity = SuggestedEditsUserStats.getRevertSeverity()
+                    revertSeverity = UserContributionsStats.getRevertSeverity()
                     wikidataResponse
                 })
                 .flatMap { response ->
-                    SuggestedEditsUserStats.getPageViewsObservable(response)
+                    UserContributionsStats.getPageViewsObservable(response)
                 }
                 .observeOn(AndroidSchedulers.mainThread())
                 .doAfterTerminate {
@@ -222,13 +223,15 @@ class SuggestedEditsTasksFragment : Fragment() {
         fetchUserContributions()
     }
 
-    private fun clearContents() {
+    private fun clearContents(shouldScrollToTop: Boolean = true) {
         swipeRefreshLayout.isRefreshing = false
         progressBar.visibility = GONE
         tasksContainer.visibility = GONE
         errorView.visibility = GONE
         disabledStatesView.visibility = GONE
-        suggestedEditsScrollView.scrollTo(0, 0)
+        if (shouldScrollToTop) {
+            suggestedEditsScrollView.scrollTo(0, 0)
+        }
         swipeRefreshLayout.setBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
     }
 
@@ -239,7 +242,7 @@ class SuggestedEditsTasksFragment : Fragment() {
     }
 
     private fun setFinalUIState() {
-        clearContents()
+        clearContents(false)
 
         addImageTagsTask.new = Prefs.isSuggestedEditsImageTagsNew()
         tasksRecyclerView.adapter!!.notifyDataSetChanged()
@@ -298,9 +301,9 @@ class SuggestedEditsTasksFragment : Fragment() {
     }
 
     private fun maybeSetPausedOrDisabled(): Boolean {
-        val pauseEndDate = SuggestedEditsUserStats.maybePauseAndGetEndDate()
+        val pauseEndDate = UserContributionsStats.maybePauseAndGetEndDate()
 
-        if (SuggestedEditsUserStats.isDisabled()) {
+        if (UserContributionsStats.isDisabled()) {
             // Disable the whole feature.
             clearContents()
             disabledStatesView.setDisabled(getString(R.string.suggested_edits_disabled_message, AccountUtil.getUserName()))
@@ -379,19 +382,19 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     private inner class TaskViewCallback : SuggestedEditsTaskView.Callback {
         override fun onViewClick(task: SuggestedEditsTask, isTranslate: Boolean) {
-            if (WikipediaApp.getInstance().language().appLanguageCodes.size < Constants.MIN_LANGUAGES_TO_UNLOCK_TRANSLATION && isTranslate) {
+            if (WikipediaApp.getInstance().language().appLanguageCodes.size < MIN_LANGUAGES_TO_UNLOCK_TRANSLATION && isTranslate) {
                 showLanguagesActivity(LanguageSettingsInvokeSource.SUGGESTED_EDITS.text())
                 return
             }
             if (task == addDescriptionsTask) {
-                startActivity(SuggestedEditsCardsActivity.newIntent(requireActivity(), if (isTranslate) TRANSLATE_DESCRIPTION else ADD_DESCRIPTION))
+                startActivity(SuggestionsActivity.newIntent(requireActivity(), if (isTranslate) TRANSLATE_DESCRIPTION else ADD_DESCRIPTION))
             } else if (task == addImageCaptionsTask) {
-                startActivity(SuggestedEditsCardsActivity.newIntent(requireActivity(), if (isTranslate) TRANSLATE_CAPTION else ADD_CAPTION))
+                startActivity(SuggestionsActivity.newIntent(requireActivity(), if (isTranslate) TRANSLATE_CAPTION else ADD_CAPTION))
             } else if (task == addImageTagsTask) {
                 if (Prefs.shouldShowImageTagsOnboarding()) {
                     startActivityForResult(SuggestedEditsImageTagsOnboardingActivity.newIntent(requireContext()), ACTIVITY_REQUEST_IMAGE_TAGS_ONBOARDING)
                 } else {
-                    startActivity(SuggestedEditsCardsActivity.newIntent(requireActivity(), ADD_IMAGE_TAGS))
+                    startActivity(SuggestionsActivity.newIntent(requireActivity(), ADD_IMAGE_TAGS))
                 }
             }
         }

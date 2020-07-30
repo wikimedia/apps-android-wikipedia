@@ -21,7 +21,7 @@ public final class SpecialAliasData {
 
     @SuppressWarnings({"checkstyle:methodlength", "SpellCheckingInspection"})
     private static Map<String, String> newMap() {
-        final int size = 302;
+        final int size = 305;
         Map<String, String> map = new HashMap<>(size);
         map.put("ab", "Цастәи");
         map.put("ace", "Kusuih");
@@ -34,11 +34,14 @@ public final class SpecialAliasData {
         map.put("ang", "Syndrig");
         map.put("ar", "خاص");
         map.put("arc", "ܕܝܠܢܝܐ");
+        map.put("ary", "خاص");
         map.put("arz", "خاص");
         map.put("as", "বিশেষ");
         map.put("ast", "Especial");
         map.put("atj", "Kotakahi");
         map.put("av", "Служебная");
+        map.put("avk", "Aptaca");
+        map.put("awa", "खास");
         map.put("ay", "Especial");
         map.put("az", "Xüsusi");
         map.put("azb", "اؤزل");
@@ -282,7 +285,7 @@ public final class SpecialAliasData {
         map.put("tet", "Espesiál");
         map.put("tg", "Вижа");
         map.put("th", "พิเศษ");
-        map.put("ti", "Special");
+        map.put("ti", "ፍሉይ");
         map.put("tk", "Ýörite");
         map.put("tl", "Natatangi");
         map.put("tn", "Special");
