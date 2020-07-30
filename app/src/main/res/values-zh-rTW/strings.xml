@@ -635,6 +635,10 @@
   <string name="description_edit_license_notice">透過更改條目描述，我同意&lt;a href=\"%1$s\"&gt;使用條款&lt;/a&gt;，且依據&lt;a href=\"%2$s\"&gt;創用CC0&lt;/a&gt;許可協議不撤回我所釋出的個人貢獻。</string>
   <string name="description_edit_helper_text_lowercase_warning">若用英語通常以小寫字母作開頭</string>
   <string name="description_edit_voice_input_description">語音輸入</string>
+  <string name="description_too_short">文字太短。</string>
+  <string name="description_ends_with_punctuation">文字不能以標點符號結束。</string>
+  <string name="description_starts_with_article">條目不能以「a」或是「the」定冠詞為開頭。</string>
+  <string name="description_starts_with_uppercase">除非第一個單字是專有名詞，否則請以小寫字母開頭。</string>
   <string name="description_edit_success_saved">已發布條目描述！</string>
   <string name="description_edit_success_saved_snackbar">已發佈條目描述！</string>
   <string name="description_edit_success_saved_in_lang_snackbar">條目描述已發布！（%s）</string>

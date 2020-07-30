@@ -16,9 +16,9 @@ import org.wikipedia.feed.dataclient.FeedClient
 import org.wikipedia.feed.model.Card
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
-import org.wikipedia.suggestededits.SuggestedEditsSummary
-import org.wikipedia.suggestededits.SuggestedEditsUserStats
-import org.wikipedia.suggestededits.provider.MissingDescriptionProvider
+import org.wikipedia.suggestededits.PageSummaryForEdit
+import org.wikipedia.userprofile.UserContributionsStats
+import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.util.StringUtil
 import java.util.*
 
@@ -40,10 +40,10 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
         if (age == 0) {
             // In the background, fetch the user's latest contribution stats, so that we can update whether the
             // Suggested Edits feature is paused or disabled, the next time the feed is refreshed.
-            SuggestedEditsUserStats.updateStatsInBackground()
+            UserContributionsStats.updateStatsInBackground()
         }
 
-        if (SuggestedEditsUserStats.isDisabled() || SuggestedEditsUserStats.maybePauseAndGetEndDate() != null) {
+        if (UserContributionsStats.isDisabled() || UserContributionsStats.maybePauseAndGetEndDate() != null) {
             FeedCoordinator.postCardsToCallback(cb, Collections.emptyList())
             return
         }
@@ -55,8 +55,8 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
         disposables.clear()
     }
 
-    private fun toSuggestedEditsCard(wiki: WikiSite, sourceSummary: SuggestedEditsSummary?, targetSummary: SuggestedEditsSummary?, page: MwQueryPage?): SuggestedEditsCard {
-        return SuggestedEditsCard(wiki, action, sourceSummary, targetSummary, page, age)
+    private fun toSuggestedEditsCard(wiki: WikiSite, sourceSummaryForEdit: PageSummaryForEdit?, targetSummaryForEdit: PageSummaryForEdit?, page: MwQueryPage?): SuggestedEditsCard {
+        return SuggestedEditsCard(wiki, action, sourceSummaryForEdit, targetSummaryForEdit, page, age)
     }
 
     fun fetchSuggestedEditForType(cb: FeedClient.Callback?, callback: Callback?) {
@@ -70,7 +70,7 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
     }
 
     private fun getImageToAddTags(cb: FeedClient.Callback?, callback: Callback?) {
-        disposables.add(MissingDescriptionProvider
+        disposables.add(EditingSuggestionsProvider
                 .getNextImageWithMissingTags(langFromCode)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -85,12 +85,12 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
     }
 
     private fun getArticleToAddDescription(cb: FeedClient.Callback?, callback: Callback?) {
-        disposables.add(MissingDescriptionProvider
+        disposables.add(EditingSuggestionsProvider
                 .getNextArticleWithMissingDescription(WikiSite.forLanguageCode(langFromCode))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ pageSummary ->
-                    val sourceSummary = SuggestedEditsSummary(
+                    val sourceSummary = PageSummaryForEdit(
                             pageSummary.apiTitle,
                             langFromCode,
                             pageSummary.getPageTitle(WikiSite.forLanguageCode(langFromCode)),
@@ -116,7 +116,7 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
             }
             return
         }
-        disposables.add(MissingDescriptionProvider
+        disposables.add(EditingSuggestionsProvider
                 .getNextArticleWithMissingDescription(WikiSite.forLanguageCode(langFromCode), langToCode, true)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -124,7 +124,7 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
                     val source = pair.second
                     val target = pair.first
 
-                    val sourceSummary = SuggestedEditsSummary(
+                    val sourceSummary = PageSummaryForEdit(
                             source.apiTitle,
                             langFromCode,
                             source.getPageTitle(WikiSite.forLanguageCode(langFromCode)),
@@ -134,7 +134,7 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
                             source.extractHtml
                     )
 
-                    val targetSummary = SuggestedEditsSummary(
+                    val targetSummary = PageSummaryForEdit(
                             target.apiTitle,
                             langToCode,
                             target.getPageTitle(WikiSite.forLanguageCode(langToCode)),
@@ -154,7 +154,7 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
     }
 
     private fun getImageToAddCaption(cb: FeedClient.Callback?, callback: Callback?) {
-        disposables.add(MissingDescriptionProvider.getNextImageWithMissingCaption(langFromCode)
+        disposables.add(EditingSuggestionsProvider.getNextImageWithMissingCaption(langFromCode)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .flatMap { title ->
@@ -168,7 +168,7 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
                         val title = page.title()
                         val imageInfo = page.imageInfo()!!
 
-                        val sourceSummary = SuggestedEditsSummary(
+                        val sourceSummary = PageSummaryForEdit(
                                 title,
                                 langFromCode,
                                 PageTitle(
@@ -203,7 +203,7 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
             return
         }
         var fileCaption: String? = null
-        disposables.add(MissingDescriptionProvider.getNextImageWithMissingCaption(langFromCode, langToCode)
+        disposables.add(EditingSuggestionsProvider.getNextImageWithMissingCaption(langFromCode, langToCode)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .flatMap { pair ->
@@ -218,7 +218,7 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
                         val title = page.title()
                         val imageInfo = page.imageInfo()!!
 
-                        val sourceSummary = SuggestedEditsSummary(
+                        val sourceSummary = PageSummaryForEdit(
                                 title,
                                 langFromCode,
                                 PageTitle(

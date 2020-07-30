@@ -27,9 +27,10 @@ import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.mwapi.SiteMatrix
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
+import org.wikipedia.suggestededits.SuggestionsActivity.Companion.EXTRA_SOURCE_ADDED_CONTRIBUTION
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
-import org.wikipedia.suggestededits.SuggestedEditsCardsActivity.Companion.EXTRA_SOURCE_ADDED_CONTRIBUTION
+import org.wikipedia.userprofile.UserContributionsStats
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.log.L
@@ -56,17 +57,17 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
         get() {
             val f = topChild()
             return if (action == ADD_DESCRIPTION || action == ADD_CAPTION) {
-                f?.sourceSummary?.pageTitle?.description = f?.addedContribution
-                f?.sourceSummary?.pageTitle
+                f?.sourceSummaryForEdit?.pageTitle?.description = f?.addedContribution
+                f?.sourceSummaryForEdit?.pageTitle
             } else {
-                f?.targetSummary?.pageTitle?.description = f?.addedContribution
-                f?.targetSummary?.pageTitle
+                f?.targetSummaryForEdit?.pageTitle?.description = f?.addedContribution
+                f?.targetSummaryForEdit?.pageTitle
             }
         }
 
     private fun topBaseChild(): SuggestedEditsItemFragment? {
-            return (cardsViewPager.adapter as ViewPagerAdapter?)?.getFragmentAt(cardsViewPager.currentItem) as SuggestedEditsItemFragment?
-        }
+        return (cardsViewPager.adapter as ViewPagerAdapter?)?.getFragmentAt(cardsViewPager.currentItem) as SuggestedEditsItemFragment?
+    }
 
     private fun topChild(): SuggestedEditsCardsItemFragment? {
         return (cardsViewPager.adapter as ViewPagerAdapter?)?.getFragmentAt(cardsViewPager.currentItem) as SuggestedEditsCardsItemFragment?
@@ -231,8 +232,8 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
             FeedbackUtil.showMessage(this,
                     when (action) {
                         ADD_CAPTION -> getString(R.string.description_edit_success_saved_image_caption_snackbar)
-                        TRANSLATE_CAPTION -> getString(R.string.description_edit_success_saved_image_caption_in_lang_snackbar, app.language().getAppLanguageLocalizedName(topChild()!!.targetSummary!!.lang))
-                        TRANSLATE_DESCRIPTION -> getString(R.string.description_edit_success_saved_in_lang_snackbar, app.language().getAppLanguageLocalizedName(topChild()!!.targetSummary!!.lang))
+                        TRANSLATE_CAPTION -> getString(R.string.description_edit_success_saved_image_caption_in_lang_snackbar, app.language().getAppLanguageLocalizedName(topChild()!!.targetSummaryForEdit!!.lang))
+                        TRANSLATE_DESCRIPTION -> getString(R.string.description_edit_success_saved_in_lang_snackbar, app.language().getAppLanguageLocalizedName(topChild()!!.targetSummaryForEdit!!.lang))
                         else -> getString(R.string.description_edit_success_saved_snackbar)
                     }
             )
@@ -264,7 +265,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
             topBaseChild()!!.publish()
             fetchUserInfoForNextInterstitialState()
         } else if (topTitle != null) {
-            startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), topTitle!!, null, topChild()!!.sourceSummary, topChild()!!.targetSummary,
+            startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), topTitle!!, null, topChild()!!.sourceSummaryForEdit, topChild()!!.targetSummaryForEdit,
                     action, InvokeSource.SUGGESTED_EDITS), ACTIVITY_REQUEST_DESCRIPTION_EDIT)
         }
     }
@@ -340,7 +341,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
         sessionEditCount++
         if (rewardInterstitialImage == -1 && rewardInterstitialText.isEmpty()) {
             // Need to preload the user contribution in case we miss the latest data
-            disposables.add(SuggestedEditsUserStats.getEditCountsObservable()
+            disposables.add(UserContributionsStats.getEditCountsObservable()
                     .map { response ->
                         val editorTaskCounts = response.query()!!.editorTaskCounts()!!
                         val daysOfLastEditQualityShown = TimeUnit.MILLISECONDS.toDays(System.currentTimeMillis() - Prefs.getLastSuggestedEditsRewardInterstitialEditQualityShown()).toInt()
@@ -355,8 +356,8 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
                             rewardInterstitialText = getString(R.string.suggested_edits_rewards_edit_streak, editorTaskCounts.editStreak, AccountUtil.getUserName())
                         } else if ((Prefs.getLastSuggestedEditsRewardInterstitialEditQualityShown().toInt() == 0
                                         || daysOfLastEditQualityShown == Prefs.getSuggestedEditsRewardInterstitialEditQualityOnDay())
-                                && SuggestedEditsUserStats.getRevertSeverity() <= SuggestedEditsRewardsItemFragment.EDIT_STREAK_MAX_REVERT_SEVERITY) {
-                            when (SuggestedEditsUserStats.getRevertSeverity()) {
+                                && UserContributionsStats.getRevertSeverity() <= SuggestedEditsRewardsItemFragment.EDIT_STREAK_MAX_REVERT_SEVERITY) {
+                            when (UserContributionsStats.getRevertSeverity()) {
                                 0 -> {
                                     rewardInterstitialImage = R.attr.reward_interstitial_quality_perfect_drawable
                                     rewardInterstitialText = getString(R.string.suggested_edits_rewards_edit_quality, getString(R.string.suggested_edits_quality_perfect_text))
@@ -383,7 +384,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
                     }
                     .flatMap {
                         if (it) {
-                            SuggestedEditsUserStats.getPageViewsObservable()
+                            UserContributionsStats.getPageViewsObservable()
                         } else {
                             Observable.just(-1L)
                         }
@@ -429,11 +430,12 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
                 updateBackButton(0)
             }
         }
+
         override fun onNothingSelected(parent: AdapterView<*>) {
         }
     }
 
-    private inner class ViewPagerAdapter constructor(fragment: Fragment): PositionAwareFragmentStateAdapter(fragment) {
+    private inner class ViewPagerAdapter constructor(fragment: Fragment) : PositionAwareFragmentStateAdapter(fragment) {
         override fun getItemCount(): Int {
             return Integer.MAX_VALUE
         }
