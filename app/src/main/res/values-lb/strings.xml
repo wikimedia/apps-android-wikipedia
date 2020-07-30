@@ -514,6 +514,9 @@
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/de#Richtlinien</string>
   <string name="description_edit_anon_limit">Merci fir Ären Interessi fir Beschreiwungen z\'änneren! Fir méi Ännerungen ze maache loggt Iech wgl. mat Ärem Wikipedia-Benotzerkont an.</string>
   <string name="description_edit_voice_input_description">Sprooch Input</string>
+  <string name="description_too_short">Den Text ass ze kuerz.</string>
+  <string name="description_ends_with_punctuation">Den Text däerf net mat engem Sazzeechen ophalen.</string>
+  <string name="description_starts_with_uppercase">Fänkt mat engem klenge Buschtaf ob ausser wann dat éischt Wuert e Substantiv oder een Numm ass.</string>
   <string name="description_edit_success_saved">Beschreiwung vum Artikel verëffentlecht!</string>
   <string name="description_edit_success_saved_snackbar">Beschreiwung vum Artikel verëffentlecht!</string>
   <string name="description_edit_success_encouragement">Dir hutt elo grad Wikipedia fir jidderee verbessert</string>
