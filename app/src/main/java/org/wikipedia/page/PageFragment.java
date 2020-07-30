@@ -1258,6 +1258,10 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         shareHandler.showWiktionaryDefinition(term);
     }
 
+    public int getToolbarMargin() {
+        return ((PageActivity) requireActivity()).toolbarContainerView.getHeight();
+    }
+
     public void loadPage(@NonNull PageTitle title, @NonNull HistoryEntry entry) {
         Callback callback = callback();
         if (callback != null) {
