@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -27,6 +28,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
+import androidx.core.view.ViewCompat;
 import androidx.drawerlayout.widget.FixedDrawerLayout;
 import androidx.preference.PreferenceManager;
 
@@ -184,6 +187,13 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         drawerLayout.setScrimColor(Color.TRANSPARENT);
         containerWithNavTrigger.setCallback(this);
 
+        getWindow().getDecorView().setSystemUiVisibility(getWindow().getDecorView().getSystemUiVisibility() | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
+        getWindow().setStatusBarColor(ContextCompat.getColor(pageFragment.requireContext(), R.color.black12));
+        ViewCompat.setOnApplyWindowInsetsListener(drawerLayout, (v, insets) -> {
+            toolbarContainerView.setPadding(0, insets.getSystemWindowInsetTop(), 0, 0);
+            return insets;
+        });
+
         boolean languageChanged = false;
         if (savedInstanceState != null) {
             if (savedInstanceState.getBoolean("isSearching")) {
@@ -203,6 +213,18 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             // then we must have been launched with an Intent, so... handle it!
             handleIntent(getIntent());
         }
+    }
+
+    public void requestLightStatusBar(boolean light) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+            return;
+        }
+        if (app.getCurrentTheme().isDark()) {
+            return;
+        }
+        getWindow().getDecorView().setSystemUiVisibility(light
+                ? getWindow().getDecorView().getSystemUiVisibility() | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+                : getWindow().getDecorView().getSystemUiVisibility() & ~View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
     }
 
     @OnClick(R.id.page_toolbar_button_search)
