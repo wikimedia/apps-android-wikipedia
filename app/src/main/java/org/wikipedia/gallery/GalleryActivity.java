@@ -655,7 +655,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         disposeImageCaptionDisposable();
         imageCaptionDisposable = Observable.zip(MediaHelper.INSTANCE.getImageCaptions(item.getImageTitle().getPrefixedText()),
                 ServiceFactory.get(new WikiSite(Service.COMMONS_URL)).getProtectionInfo(item.getImageTitle().getPrefixedText()),
-                ImageTagsProvider.getImageTagsObservable(getCurrentItem().getMediaPage().pageId(), WikipediaApp.getInstance().getAppOrSystemLanguageCode()), new Function3 <Map<String, String>, MwQueryResponse, Map<String, List<String>>, Boolean>() {
+                ImageTagsProvider.getImageTagsObservable(getCurrentItem().getMediaPage().pageId(), WikipediaApp.getInstance().getAppOrSystemLanguageCode()), new Function3<Map<String, String>, MwQueryResponse, Map<String, List<String>>, Boolean>() {
                     @Override
                     public Boolean apply(Map<String, String> captions, MwQueryResponse protectionInfoRsp, Map<String, List<String>> imageTags) throws Throwable {
                         item.getMediaInfo().setCaptions(captions);

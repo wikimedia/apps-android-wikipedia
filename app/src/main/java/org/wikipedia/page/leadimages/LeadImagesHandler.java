@@ -41,7 +41,6 @@ import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
-import static org.wikipedia.Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_IMAGE_CAPTION_EDIT;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_IMAGE_TAGS_EDIT;
 import static org.wikipedia.Constants.InvokeSource.LEAD_IMAGE;
