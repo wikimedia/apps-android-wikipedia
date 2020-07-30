@@ -241,7 +241,7 @@
         <activity android:name=".suggestededits.SuggestedEditsImageTagsOnboardingActivity" />
 
         <activity
-            android:name=".suggestededits.SuggestedEditsFeedCardImageTagActivity"
+            android:name=".suggestededits.SuggestedEditsImageTagEditActivity"
             android:theme="@style/AppTheme.ActionBar" />
 
         <activity
