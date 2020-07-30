@@ -30,7 +30,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.ABTestDescriptionEditChecksFunnel;
 import org.wikipedia.descriptions.DescriptionEditActivity.Action;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.suggestededits.SuggestedEditsSummary;
+import org.wikipedia.suggestededits.PageSummaryForEdit;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
@@ -72,7 +72,7 @@ public class DescriptionEditView extends LinearLayout {
     @Nullable private Callback callback;
     private Activity activity;
     private PageTitle pageTitle;
-    private SuggestedEditsSummary suggestedEditsSummary;
+    private PageSummaryForEdit pageSummaryForEdit;
     private Action action;
     private boolean isTranslationEdit;
     private boolean isTextValid;
@@ -202,10 +202,10 @@ public class DescriptionEditView extends LinearLayout {
         }
     }
 
-    public void setSummaries(@NonNull Activity activity, @NonNull SuggestedEditsSummary sourceSummary, SuggestedEditsSummary targetSummary) {
+    public void setSummaries(@NonNull Activity activity, @NonNull PageSummaryForEdit sourceSummary, PageSummaryForEdit targetSummary) {
         this.activity = activity;
         // the summary data that will bring to the review screen
-        suggestedEditsSummary = isTranslationEdit ? targetSummary : sourceSummary;
+        pageSummaryForEdit = isTranslationEdit ? targetSummary : sourceSummary;
 
         pageSummaryContainer.setVisibility(View.VISIBLE);
         pageSummaryLabel.setText(getLabelText(sourceSummary.getLang()));
@@ -220,7 +220,7 @@ public class DescriptionEditView extends LinearLayout {
     }
 
     private void setUpBottomBar() {
-        bottomBarContainer.setSummary(suggestedEditsSummary);
+        bottomBarContainer.setSummary(pageSummaryForEdit);
         bottomBarContainer.setOnClickListener(view -> performReadArticleClick());
     }
 
@@ -235,7 +235,7 @@ public class DescriptionEditView extends LinearLayout {
 
     public void loadReviewContent(boolean enabled) {
         if (enabled) {
-            pageReviewContainer.setSummary(suggestedEditsSummary, getDescription(), action == ADD_CAPTION || action == TRANSLATE_CAPTION);
+            pageReviewContainer.setSummary(pageSummaryForEdit, getDescription(), action == ADD_CAPTION || action == TRANSLATE_CAPTION);
             pageReviewContainer.show();
             bottomBarContainer.hide();
             descriptionEditContainer.setVisibility(GONE);
@@ -311,7 +311,7 @@ public class DescriptionEditView extends LinearLayout {
     }
 
     private void performReadArticleClick() {
-        if (callback != null && suggestedEditsSummary != null) {
+        if (callback != null && pageSummaryForEdit != null) {
             callback.onBottomBarClick();
         }
     }
