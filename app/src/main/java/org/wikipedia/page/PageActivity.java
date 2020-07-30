@@ -369,7 +369,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             loadPage(title, historyEntry, TabPosition.EXISTING_TAB);
         } else if (ACTION_RESUME_READING.equals(intent.getAction())
                 || intent.hasExtra(Constants.INTENT_APP_SHORTCUT_CONTINUE_READING)) {
-            // do nothing, since this will be handled indirectly by PageFragment.
+            loadFilePageFromBackStackIfNeeded();
         } else if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
             String query = intent.getStringExtra(SearchManager.QUERY);
             PageTitle title = new PageTitle(query, app.getWikiSite());
@@ -406,7 +406,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             return;
         }
 
-        openFilePageIfNeeded(title);
+        loadFilePageIfNeeded(title);
 
         if (entry.getSource() != HistoryEntry.SOURCE_INTERNAL_LINK || !isLinkPreviewEnabled()) {
             new LinkPreviewFunnel(app, entry.getSource()).logNavigate();
@@ -449,6 +449,20 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         loadPage(title, historyEntry, position);
     }
 
+    private void loadFilePageFromBackStackIfNeeded() {
+        if (!pageFragment.getCurrentTab().getBackStack().isEmpty()) {
+            PageBackStackItem item = pageFragment.getCurrentTab().getBackStack().get(pageFragment.getCurrentTab().getBackStackPosition());
+            loadFilePageIfNeeded(item.getTitle());
+        }
+    }
+
+    private void loadFilePageIfNeeded(@Nullable PageTitle title) {
+        if (title != null && title.isFilePage()) {
+            startActivity(FilePageActivity.newIntent(this, title));
+            finish();
+        }
+    }
+
     private void hideLinkPreview() {
         bottomSheetPresenter.dismiss(getSupportFragmentManager());
     }
@@ -459,13 +473,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     public void showMoveToListDialog(long sourceReadingListId, @NonNull PageTitle title, @NonNull InvokeSource source) {
         bottomSheetPresenter.showMoveToListDialog(getSupportFragmentManager(), sourceReadingListId, title, source, listDialogDismissListener);
-    }
-
-    void openFilePageIfNeeded(@Nullable PageTitle title) {
-        if (title != null && title.isFilePage()) {
-            startActivity(FilePageActivity.newIntent(this, title));
-            finish();
-        }
     }
 
     // Note: back button first handled in {@link #onOptionsItemSelected()};
