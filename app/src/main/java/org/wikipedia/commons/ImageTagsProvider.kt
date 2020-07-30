@@ -19,7 +19,7 @@ object ImageTagsProvider {
                     val depicts = claims.claims()["P180"]
                     val ids = mutableListOf<String?>()
                     depicts?.forEach {
-                        ids.add(it.mainSnak?.dataValue?.value?.id)
+                        ids.add(it.mainSnak?.dataValue?.value)
                     }
                     if (ids.isEmpty()) {
                         Observable.just(Entities())
