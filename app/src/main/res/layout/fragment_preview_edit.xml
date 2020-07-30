@@ -29,12 +29,14 @@
                 android:text="@string/edit_how_page_improved"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
-            <org.wikipedia.views.FlowLayout
+            <com.google.android.flexbox.FlexboxLayout
                 android:id="@+id/edit_summary_tags_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:layout_marginBottom="32dp" />
+                android:layout_marginBottom="32dp"
+                app:flexWrap="wrap"
+                app:justifyContent="flex_start" />
 
         </LinearLayout>
 
