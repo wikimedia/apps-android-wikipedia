@@ -19,7 +19,6 @@ import io.reactivex.rxjava3.functions.Function3
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_suggested_edits_tasks.*
 import kotlinx.android.synthetic.main.view_image_title_description.view.*
-import org.wikipedia.Constants
 import org.wikipedia.Constants.*
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -95,7 +94,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         pageViewStatsView.setUpTooltip(getString(R.string.suggested_edits_page_views_stat_tooltip))
 
         editQualityStatsView.setDescription(getString(R.string.suggested_edits_quality_label_text))
-        editQualityStatsView.setUpTooltip(getString(R.string.suggested_edits_edit_quality_stat_tooltip, SuggestedEditsUserStats.totalReverts))
+        editQualityStatsView.setUpTooltip(getString(R.string.suggested_edits_edit_quality_stat_tooltip, UserContributionsStats.totalReverts))
 
         swipeRefreshLayout.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent))
         swipeRefreshLayout.setOnRefreshListener { refreshContents() }
