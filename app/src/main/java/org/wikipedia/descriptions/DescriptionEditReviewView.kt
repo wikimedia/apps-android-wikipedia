@@ -9,7 +9,7 @@ import org.wikipedia.R
 import org.wikipedia.descriptions.DescriptionEditLicenseView.Companion.ARG_NOTICE_ARTICLE_DESCRIPTION
 import org.wikipedia.descriptions.DescriptionEditLicenseView.Companion.ARG_NOTICE_DEFAULT
 import org.wikipedia.descriptions.DescriptionEditLicenseView.Companion.ARG_NOTICE_IMAGE_CAPTION
-import org.wikipedia.suggestededits.SuggestedEditsSummary
+import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.views.ViewUtil
@@ -32,43 +32,42 @@ class DescriptionEditReviewView constructor(context: Context, attrs: AttributeSe
         visibility = GONE
     }
 
-    fun setSummary(summary: SuggestedEditsSummary, description: String, captionReview: Boolean) {
-        L10nUtil.setConditionalLayoutDirection(this, summary.lang)
+    fun setSummary(summaryForEdit: PageSummaryForEdit, description: String, captionReview: Boolean) {
+        L10nUtil.setConditionalLayoutDirection(this, summaryForEdit.lang)
         if (captionReview) {
-            setGalleryReviewView(summary, description)
+            setGalleryReviewView(summaryForEdit, description)
             licenseView.buildLicenseNotice(ARG_NOTICE_IMAGE_CAPTION)
         } else {
-            setDescriptionReviewView(summary, description)
-            licenseView.buildLicenseNotice(if (summary.description.isNullOrEmpty()) ARG_NOTICE_ARTICLE_DESCRIPTION else ARG_NOTICE_DEFAULT)
+            setDescriptionReviewView(summaryForEdit, description)
+            licenseView.buildLicenseNotice(if (summaryForEdit.description.isNullOrEmpty()) ARG_NOTICE_ARTICLE_DESCRIPTION else ARG_NOTICE_DEFAULT)
         }
     }
 
-    private fun setDescriptionReviewView(summary: SuggestedEditsSummary, description: String) {
+    private fun setDescriptionReviewView(summaryForEdit: PageSummaryForEdit, description: String) {
         galleryContainer.visibility = GONE
-        articleTitle!!.text = StringUtil.fromHtml(summary.displayTitle)
+        articleTitle!!.text = StringUtil.fromHtml(summaryForEdit.displayTitle)
         articleSubtitle!!.text = description
-        articleExtract!!.text = StringUtil.fromHtml(summary.extractHtml)
+        articleExtract!!.text = StringUtil.fromHtml(summaryForEdit.extractHtml)
 
-        if (summary.thumbnailUrl.isNullOrBlank()) {
+        if (summaryForEdit.thumbnailUrl.isNullOrBlank()) {
             articleImage.visibility = GONE
             articleExtract.maxLines = ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE
         } else {
             articleImage.visibility = VISIBLE
-            articleImage.loadImage(Uri.parse(summary.getPreferredSizeThumbnailUrl()))
+            articleImage.loadImage(Uri.parse(summaryForEdit.getPreferredSizeThumbnailUrl()))
             articleExtract.maxLines = ARTICLE_EXTRACT_MAX_LINE_WITH_IMAGE
         }
     }
 
-    private fun setGalleryReviewView(summary: SuggestedEditsSummary, description: String) {
+    private fun setGalleryReviewView(summaryForEdit: PageSummaryForEdit, description: String) {
         articleContainer.visibility = GONE
         indicatorDivider.visibility = GONE
         galleryDescriptionText.text = StringUtil.fromHtml(description)
-        if (summary.thumbnailUrl.isNullOrBlank()) {
+        if (summaryForEdit.thumbnailUrl.isNullOrBlank()) {
             galleryImage.visibility = GONE
         } else {
             galleryImage.visibility = VISIBLE
-            ViewUtil.loadImageWithWhiteBackground(galleryImage, summary.getPreferredSizeThumbnailUrl())
-
+            ViewUtil.loadImageWithWhiteBackground(galleryImage, summaryForEdit.getPreferredSizeThumbnailUrl())
         }
         licenseView.darkLicenseView()
     }

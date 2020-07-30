@@ -29,7 +29,7 @@ import org.wikipedia.page.Page;
 import org.wikipedia.page.PageFragment;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.suggestededits.SuggestedEditsImageTagEditActivity;
-import org.wikipedia.suggestededits.SuggestedEditsSummary;
+import org.wikipedia.suggestededits.PageSummaryForEdit;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.ObservableWebView;
@@ -64,8 +64,8 @@ public class LeadImagesHandler {
 
     private int displayHeightDp;
 
-    @Nullable private SuggestedEditsSummary callToActionSourceSummary;
-    @Nullable private SuggestedEditsSummary callToActionTargetSummary;
+    @Nullable private PageSummaryForEdit callToActionSourceSummary;
+    @Nullable private PageSummaryForEdit callToActionTargetSummary;
     private boolean callToActionIsTranslation;
     private ImageEditType imageEditType;
     private PageTitle captionSourcePageTitle;
