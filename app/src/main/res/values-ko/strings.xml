@@ -631,6 +631,7 @@
   <string name="description_edit_anon_limit">문서 설명 편집에 지속적인 관심을 주셔서 감사합니다! 추가 편집을 하려면 위키백과 계정에 로그인해 주십시오.</string>
   <string name="description_edit_license_notice">문서 설명을 변경함으로써, &lt;a href=\"%1$s\"&gt;이용 약관&lt;/a&gt;에 동의하며 내 기여를 &lt;a href=\"%2$s\"&gt;크리에이티브 커먼즈 CC0&lt;/a&gt; 라이선스로 배포하는 것을 동의합니다.</string>
   <string name="description_edit_helper_text_lowercase_warning">보통 소문자로 시작합니다</string>
+  <string name="description_edit_voice_input_description">음성 입력</string>
   <string name="description_edit_success_saved">문서 설명을 게시했습니다!</string>
   <string name="description_edit_success_saved_snackbar">문서 설명을 게시했습니다!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">문서 설명을 게시했습니다! (%s)</string>
