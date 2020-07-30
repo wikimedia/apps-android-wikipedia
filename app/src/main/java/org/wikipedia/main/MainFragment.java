@@ -482,7 +482,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
             ((ReadingListsFragment) fragment).updateLists();
         } else if (fragment instanceof HistoryFragment) {
             ((HistoryFragment) fragment).refresh();
-        } else if (fragment instanceof  SuggestedEditsTasksFragment) {
+        } else if (fragment instanceof SuggestedEditsTasksFragment) {
             ((SuggestedEditsTasksFragment) fragment).refreshContents();
         }
         resetNavTabLayouts();

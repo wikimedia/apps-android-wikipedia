@@ -29,11 +29,11 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.mwapi.media.MediaHelper
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_IMAGE_TAGS
+import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.login.LoginClient.LoginFailedException
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
-import org.wikipedia.suggestededits.provider.MissingDescriptionProvider
 import org.wikipedia.util.*
 import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
 import org.wikipedia.util.log.L
@@ -122,7 +122,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         if (page != null) {
             return
         }
-        disposables.add(MissingDescriptionProvider.getNextImageWithMissingTags(callback().getLangCode())
+        disposables.add(EditingSuggestionsProvider.getNextImageWithMissingTags(callback().getLangCode())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ page ->
@@ -223,6 +223,8 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         chip.setCheckedIconResource(R.drawable.ic_chip_check_24px)
         chip.setOnCheckedChangeListener(this)
         chip.setOnClickListener(this)
+        chip.setEnsureMinTouchTargetSize(true)
+        chip.ensureAccessibleTouchTarget(DimenUtil.dpToPx(48f).toInt())
         chip.tag = label
         if (label != null) {
             chip.isChecked = label.isSelected
@@ -356,20 +358,20 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                 commentStr += " */"
 
                 disposables.add(ServiceFactory.get(commonsSite).postEditEntity(mId, token, claimStr, commentStr, null)
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .doAfterTerminate {
-                        publishing = false
-                    }
-                    .subscribe({
-                        if (it.pageInfo != null) {
-                            funnel?.logSaved(it.pageInfo!!.lastRevId, commentStr)
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .doAfterTerminate {
+                            publishing = false
                         }
-                        publishSuccess = true
-                        onSuccess()
-                    }, { caught ->
-                        onError(caught)
-                    })
+                        .subscribe({
+                            if (it.pageInfo != null) {
+                                funnel?.logSaved(it.pageInfo!!.lastRevId, commentStr)
+                            }
+                            publishSuccess = true
+                            onSuccess()
+                        }, { caught ->
+                            onError(caught)
+                        })
                 )
             }
 

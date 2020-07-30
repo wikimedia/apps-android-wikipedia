@@ -5,7 +5,7 @@ import org.wikipedia.gallery.ExtMetadata
 import org.wikipedia.page.PageTitle
 import org.wikipedia.util.ImageUrlUtil
 
-data class SuggestedEditsSummary(
+data class PageSummaryForEdit(
         var title: String,
         var lang: String,
         var pageTitle: PageTitle,
@@ -23,7 +23,7 @@ data class SuggestedEditsSummary(
                 displayTitle: String?,
                 description: String?,
                 thumbnailUrl: String?
-    ): this(title, lang, pageTitle, displayTitle, description, thumbnailUrl, null)
+    ) : this(title, lang, pageTitle, displayTitle, description, thumbnailUrl, null)
 
     fun getPreferredSizeThumbnailUrl(): String = ImageUrlUtil.getUrlForPreferredSize(thumbnailUrl!!, Constants.PREFERRED_CARD_THUMBNAIL_SIZE)
 }

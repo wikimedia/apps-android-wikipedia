@@ -54,9 +54,8 @@ import org.wikipedia.readinglist.sync.ReadingListSyncAdapter;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity;
-import org.wikipedia.suggestededits.SuggestedEditsCardsActivity;
-import org.wikipedia.suggestededits.SuggestedEditsFeedCardImageTagActivity;
-import org.wikipedia.suggestededits.SuggestedEditsImageTagsOnboardingActivity;
+import org.wikipedia.suggestededits.SuggestedEditsImageTagEditActivity;
+import org.wikipedia.suggestededits.SuggestionsActivity;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.ThrowableUtil;
@@ -75,7 +74,6 @@ import static org.wikipedia.Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_FEED_CONFIGURE;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_SETTINGS;
-import static org.wikipedia.Constants.ACTIVITY_REQUEST_SUGGESTED_EDITS_ONBOARDING;
 import static org.wikipedia.Constants.InvokeSource.FEED;
 import static org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_DESCRIPTION;
 import static org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_IMAGE_TAGS;
@@ -254,14 +252,12 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
                             FeedbackUtil.LENGTH_DEFAULT);
                     if (abTestFunnel.shouldSeeSnackbarAction()) {
                         snackbar.setAction(R.string.suggested_edits_tasks_onboarding_get_started, view ->
-                                startActivity(SuggestedEditsCardsActivity.newIntent(requireActivity(), suggestedEditsCardView.getCard().getAction())));
+                                startActivity(SuggestionsActivity.newIntent(requireActivity(), suggestedEditsCardView.getCard().getAction())));
                     }
                     snackbar.show();
                     abTestFunnel.logSnackbarShown();
                 }
             }
-        } else if (requestCode == ACTIVITY_REQUEST_SUGGESTED_EDITS_ONBOARDING && resultCode == RESULT_OK) {
-            startDescriptionEditScreen();
         }
     }
 
@@ -271,14 +267,14 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         }
         DescriptionEditActivity.Action action = suggestedEditsCardView.getCard().getAction();
         if (action == ADD_IMAGE_TAGS) {
-            startActivityForResult(SuggestedEditsFeedCardImageTagActivity.Companion.newIntent(requireActivity(), suggestedEditsCardView.getCard().getPage()), ACTIVITY_REQUEST_DESCRIPTION_EDIT);
+            startActivityForResult(SuggestedEditsImageTagEditActivity.newIntent(requireActivity(), suggestedEditsCardView.getCard().getPage()), ACTIVITY_REQUEST_DESCRIPTION_EDIT);
             return;
         }
         PageTitle pageTitle = (action == TRANSLATE_DESCRIPTION || action == TRANSLATE_CAPTION)
-                ? suggestedEditsCardView.getCard().getTargetSummary().getPageTitle()
-                : suggestedEditsCardView.getCard().getSourceSummary().getPageTitle();
+                ? suggestedEditsCardView.getCard().getTargetSummaryForEdit().getPageTitle()
+                : suggestedEditsCardView.getCard().getSourceSummaryForEdit().getPageTitle();
         startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), pageTitle, null,
-                suggestedEditsCardView.getCard().getSourceSummary(), suggestedEditsCardView.getCard().getTargetSummary(),
+                suggestedEditsCardView.getCard().getSourceSummaryForEdit(), suggestedEditsCardView.getCard().getTargetSummaryForEdit(),
                 action, FEED),
                 ACTIVITY_REQUEST_DESCRIPTION_EDIT);
     }
@@ -564,13 +560,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         public void onSuggestedEditsCardClick(@NonNull SuggestedEditsCardView view) {
             funnel.cardClicked(view.getCard().type(), getCardLanguageCode(view.getCard()));
             suggestedEditsCardView = view;
-            if (view.getCard().getAction() == ADD_IMAGE_TAGS && Prefs.shouldShowImageTagsOnboarding()) {
-                Prefs.setShowImageTagsOnboarding(false);
-                startActivityForResult(SuggestedEditsImageTagsOnboardingActivity.Companion.newIntent(requireContext()),
-                        ACTIVITY_REQUEST_SUGGESTED_EDITS_ONBOARDING);
-            } else {
-                startDescriptionEditScreen();
-            }
+            startDescriptionEditScreen();
         }
     }
 
