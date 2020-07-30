@@ -11,7 +11,7 @@ import java.util.*
 
 object ImageTagsProvider {
     fun getImageTagsObservable(pageId: Int, langCode: String): Observable<Map<String, List<String>>> {
-        return ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getClaims("M$pageId")
+        return ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getClaims("M$pageId", null)
                 .subscribeOn(Schedulers.io())
                 .onErrorReturnItem(Claims())
                 .flatMap { claims ->
