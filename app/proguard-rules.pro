@@ -56,6 +56,13 @@
 -keep class * implements com.google.gson.JsonDeserializer
 # --- /Gson ---
 
+# --- LeakCanary plumber ---
+-keepclassmembers enum * {
+public static **[] values();
+public static ** valueOf(java.lang.String);
+}
+# --- /LeakCanary plumber ---
+
 # --- Wikipedia ---
 -keep class org.wikipedia.** { <init>(...); *; }
 -keep enum org.wikipedia.** { <init>(...); *; }

@@ -205,6 +205,8 @@ dependencies {
     debugImplementation "com.squareup.leakcanary:leakcanary-android:$leakCanaryVersion"
     // For release builds, this provides a nearly no-op AppWatcher.
     implementation "com.squareup.leakcanary:leakcanary-object-watcher-android:$leakCanaryVersion"
+    // TODO: uncomment this when plumber-android is no longer experimental:
+    // implementation "com.squareup.leakcanary:plumber-android:$leakCanaryVersion"
 
     testImplementation 'junit:junit:4.13'
     testImplementation mockitoCore
