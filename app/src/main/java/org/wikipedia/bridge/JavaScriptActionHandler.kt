@@ -70,9 +70,9 @@ object JavaScriptActionHandler {
     }
 
     @JvmStatic
-    fun setUp(context: Context, title: PageTitle, isPreview: Boolean): String {
+    fun setUp(context: Context, title: PageTitle, isPreview: Boolean, toolbarMargin: Int): String {
         val app: WikipediaApp = WikipediaApp.getInstance()
-        val topActionBarHeight = if (isPreview) 0 else (app.resources.getDimensionPixelSize(R.dimen.lead_no_image_top_offset_dp) / getDensityScalar()).roundToInt()
+        val topActionBarHeight = if (isPreview) 0 else DimenUtil.roundedPxToDp(toolbarMargin.toFloat())
         val res = L10nUtil.getStringsForArticleLanguage(title, intArrayOf(R.string.description_edit_add_description,
                 R.string.table_infobox, R.string.table_other, R.string.table_close))
         val leadImageHeight = if (isPreview) 0 else
