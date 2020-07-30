@@ -16,10 +16,10 @@ import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
+import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
-import org.wikipedia.suggestededits.provider.MissingDescriptionProvider
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
@@ -28,8 +28,8 @@ import org.wikipedia.util.log.L
 import org.wikipedia.views.ImageZoomHelper
 
 class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
-    var sourceSummary: SuggestedEditsSummary? = null
-    var targetSummary: SuggestedEditsSummary? = null
+    var sourceSummaryForEdit: PageSummaryForEdit? = null
+    var targetSummaryForEdit: PageSummaryForEdit? = null
     var addedContribution: String = ""
         internal set
 
@@ -55,12 +55,12 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
             getArticleWithMissingDescription()
         }
         updateContents()
-        if (sourceSummary == null) {
+        if (sourceSummaryForEdit == null) {
             getArticleWithMissingDescription()
         }
 
         viewArticleContainer.setOnClickListener {
-            if (sourceSummary != null) {
+            if (sourceSummaryForEdit != null) {
                 parent().onSelectPage()
             }
         }
@@ -70,14 +70,14 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
     private fun getArticleWithMissingDescription() {
         when (parent().action) {
             TRANSLATE_DESCRIPTION -> {
-                disposables.add(MissingDescriptionProvider.getNextArticleWithMissingDescription(WikiSite.forLanguageCode(parent().langFromCode), parent().langToCode, true)
+                disposables.add(EditingSuggestionsProvider.getNextArticleWithMissingDescription(WikiSite.forLanguageCode(parent().langFromCode), parent().langToCode, true)
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe({ pair ->
                             val source = pair.second
                             val target = pair.first
 
-                            sourceSummary = SuggestedEditsSummary(
+                            sourceSummaryForEdit = PageSummaryForEdit(
                                     source.apiTitle,
                                     source.lang,
                                     source.getPageTitle(WikiSite.forLanguageCode(parent().langFromCode)),
@@ -87,7 +87,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
                                     source.extractHtml
                             )
 
-                            targetSummary = SuggestedEditsSummary(
+                            targetSummaryForEdit = PageSummaryForEdit(
                                     target.apiTitle,
                                     target.lang,
                                     target.getPageTitle(WikiSite.forLanguageCode(parent().langToCode)),
@@ -101,7 +101,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
             }
 
             ADD_CAPTION -> {
-                disposables.add(MissingDescriptionProvider.getNextImageWithMissingCaption(parent().langFromCode)
+                disposables.add(EditingSuggestionsProvider.getNextImageWithMissingCaption(parent().langFromCode)
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .flatMap { title ->
@@ -115,7 +115,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
                                 val imageInfo = page.imageInfo()!!
                                 val title = if (imageInfo.commonsUrl.isEmpty()) page.title() else WikiSite(Service.COMMONS_URL).titleForUri(Uri.parse(imageInfo.commonsUrl)).prefixedText
 
-                                sourceSummary = SuggestedEditsSummary(
+                                sourceSummaryForEdit = PageSummaryForEdit(
                                         title,
                                         parent().langFromCode,
                                         PageTitle(
@@ -140,7 +140,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
 
             TRANSLATE_CAPTION -> {
                 var fileCaption: String? = null
-                disposables.add(MissingDescriptionProvider.getNextImageWithMissingCaption(parent().langFromCode, parent().langToCode)
+                disposables.add(EditingSuggestionsProvider.getNextImageWithMissingCaption(parent().langFromCode, parent().langToCode)
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .flatMap { pair ->
@@ -155,7 +155,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
                                 val imageInfo = page.imageInfo()!!
                                 val title = if (imageInfo.commonsUrl.isEmpty()) page.title() else WikiSite(Service.COMMONS_URL).titleForUri(Uri.parse(imageInfo.commonsUrl)).prefixedText
 
-                                sourceSummary = SuggestedEditsSummary(
+                                sourceSummaryForEdit = PageSummaryForEdit(
                                         title,
                                         parent().langFromCode,
                                         PageTitle(
@@ -174,7 +174,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
                                         imageInfo.metadata
                                 )
 
-                                targetSummary = sourceSummary!!.copy(
+                                targetSummaryForEdit = sourceSummaryForEdit!!.copy(
                                         description = null,
                                         lang = parent().langToCode,
                                         pageTitle = PageTitle(
@@ -191,11 +191,11 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
             }
 
             else -> {
-                disposables.add(MissingDescriptionProvider.getNextArticleWithMissingDescription(WikiSite.forLanguageCode(parent().langFromCode))
+                disposables.add(EditingSuggestionsProvider.getNextArticleWithMissingDescription(WikiSite.forLanguageCode(parent().langFromCode))
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe({ pageSummary ->
-                            sourceSummary = SuggestedEditsSummary(
+                            sourceSummaryForEdit = PageSummaryForEdit(
                                     pageSummary.apiTitle,
                                     parent().langFromCode,
                                     pageSummary.getPageTitle(WikiSite.forLanguageCode(parent().langFromCode)),
@@ -227,7 +227,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
     }
 
     private fun updateContents() {
-        val sourceAvailable = sourceSummary != null
+        val sourceAvailable = sourceSummaryForEdit != null
         cardItemErrorView.visibility = GONE
         cardItemContainer.visibility = if (sourceAvailable) VISIBLE else GONE
         cardItemProgressBar.visibility = if (sourceAvailable) GONE else VISIBLE
@@ -245,22 +245,22 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
     }
 
     private fun updateDescriptionContents() {
-        viewArticleTitle.text = StringUtil.fromHtml(sourceSummary!!.displayTitle)
+        viewArticleTitle.text = StringUtil.fromHtml(sourceSummaryForEdit!!.displayTitle)
         viewArticleTitle.visibility = VISIBLE
 
         if (parent().action == TRANSLATE_DESCRIPTION) {
             viewArticleSubtitleContainer.visibility = VISIBLE
-            viewArticleSubtitle.text = if (addedContribution.isNotEmpty()) addedContribution else sourceSummary!!.description
+            viewArticleSubtitle.text = if (addedContribution.isNotEmpty()) addedContribution else sourceSummaryForEdit!!.description
         }
 
         viewImageSummaryContainer.visibility = GONE
 
-        viewArticleExtract.text = StringUtil.removeHTMLTags(sourceSummary!!.extractHtml!!)
-        if (sourceSummary!!.thumbnailUrl.isNullOrBlank()) {
+        viewArticleExtract.text = StringUtil.removeHTMLTags(sourceSummaryForEdit!!.extractHtml!!)
+        if (sourceSummaryForEdit!!.thumbnailUrl.isNullOrBlank()) {
             viewArticleImagePlaceholder.visibility = GONE
         } else {
             viewArticleImagePlaceholder.visibility = VISIBLE
-            viewArticleImage.loadImage(Uri.parse(sourceSummary!!.getPreferredSizeThumbnailUrl()))
+            viewArticleImage.loadImage(Uri.parse(sourceSummaryForEdit!!.getPreferredSizeThumbnailUrl()))
         }
     }
 
@@ -270,25 +270,25 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
 
         val descriptionText = when {
             addedContribution.isNotEmpty() -> addedContribution
-            sourceSummary!!.description!!.isNotEmpty() -> sourceSummary!!.description!!
+            sourceSummaryForEdit!!.description!!.isNotEmpty() -> sourceSummaryForEdit!!.description!!
             else -> getString(R.string.suggested_edits_no_description)
         }
 
         viewArticleSubtitle.text = StringUtil.strip(StringUtil.removeHTMLTags(descriptionText))
-        viewImageFileName.setDetailText(StringUtil.removeNamespace(sourceSummary!!.displayTitle!!))
+        viewImageFileName.setDetailText(StringUtil.removeNamespace(sourceSummaryForEdit!!.displayTitle!!))
 
-        if (!sourceSummary!!.user.isNullOrEmpty()) {
+        if (!sourceSummaryForEdit!!.user.isNullOrEmpty()) {
             viewImageArtist.titleText.text = getString(R.string.suggested_edits_image_caption_summary_title_author)
-            viewImageArtist.setDetailText(sourceSummary!!.user)
+            viewImageArtist.setDetailText(sourceSummaryForEdit!!.user)
         } else {
-            viewImageArtist.titleText.text = StringUtil.removeHTMLTags(sourceSummary!!.metadata!!.artist())
+            viewImageArtist.titleText.text = StringUtil.removeHTMLTags(sourceSummaryForEdit!!.metadata!!.artist())
         }
 
-        viewImageDate.setDetailText(DateUtil.getReadingListsLastSyncDateString(sourceSummary!!.timestamp!!))
-        viewImageSource.setDetailText(sourceSummary!!.metadata!!.credit())
-        viewImageLicense.setDetailText(sourceSummary!!.metadata!!.licenseShortName())
+        viewImageDate.setDetailText(DateUtil.getReadingListsLastSyncDateString(sourceSummaryForEdit!!.timestamp!!))
+        viewImageSource.setDetailText(sourceSummaryForEdit!!.metadata!!.credit())
+        viewImageLicense.setDetailText(sourceSummaryForEdit!!.metadata!!.licenseShortName())
 
-        viewArticleImage.loadImage(Uri.parse(sourceSummary!!.getPreferredSizeThumbnailUrl()))
+        viewArticleImage.loadImage(Uri.parse(sourceSummaryForEdit!!.getPreferredSizeThumbnailUrl()))
         viewArticleExtract.visibility = GONE
     }
 
