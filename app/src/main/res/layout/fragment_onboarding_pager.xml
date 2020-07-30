@@ -4,7 +4,6 @@
     android:id="@+id/fragment_onboarding_pager_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/paper_color"
     android:orientation="vertical">
 
     <androidx.viewpager2.widget.ViewPager2

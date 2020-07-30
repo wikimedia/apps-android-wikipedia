@@ -591,7 +591,6 @@
     <string name="view_continue_reading_card_subtitle_today">today</string>
     <string name="view_continue_reading_card_subtitle_read_date">Read %s</string>
     <string name="view_announcement_card_negative_action">No thanks</string>
-    <string name="onboarding_negative_action">No thanks</string>
     <string name="view_offline_card_text">Content cannot be loaded when offline.</string>
     <string name="view_featured_article_card_title">Featured article</string>
     <string name="view_featured_article_footer_save_button_label">Save</string>
@@ -647,7 +646,12 @@
     <string name="description_edit_anon_limit">Thanks for your continued interest in editing article descriptions! To make additional edits, please log in to your Wikipedia account.</string>
     <string name="description_edit_license_notice"><![CDATA[By changing the article description, I agree to the <a href="%1$s">Terms of Use</a> and to irrevocably release my contributions under the <a href="%2$s">Creative Commons CC0</a> license.]]></string>
     <string name="description_edit_helper_text_lowercase_warning">usually begin with a lowercase letter</string>
+    <string name="description_edit_voice_input_description">Voice input</string>
 
+    <string name="description_too_short">The text is too short.</string>
+    <string name="description_ends_with_punctuation">The text must not end with punctuation.</string>
+    <string name="description_starts_with_article">Do not start with articles like \"a\" or \"the\".</string>
+    <string name="description_starts_with_uppercase">Start with a lowercase letter unless the first word is a proper noun.</string>
     <!-- /Description editing -->
 
     <!-- Description editing success -->

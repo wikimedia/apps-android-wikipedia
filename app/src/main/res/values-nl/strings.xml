@@ -443,6 +443,7 @@
   <string name="reading_lists_sync_reminder_action">Synchronisatie inschakelen</string>
   <string name="reading_list_login_reminder_title">Leeslijsten synchroniseren</string>
   <string name="reading_lists_login_reminder_text">Leeslijsten kunnen nu gesynchroniseerd worden met verschillende apparaten. Meld u aan met uw Wikipedia-account en sta toe dat uw lijsten opgeslagen worden.</string>
+  <string name="reading_lists_login_button">Log in / aanmelden bij Wikipedia</string>
   <string name="reading_lists_ignore_button">Nu niet</string>
   <string name="reading_lists_confirm_remote_delete_yes">Ja</string>
   <string name="reading_lists_confirm_remote_delete_no">Nee</string>
@@ -587,7 +588,6 @@
   <string name="view_continue_reading_card_subtitle_today">vandaag</string>
   <string name="view_continue_reading_card_subtitle_read_date">%s gelezen</string>
   <string name="view_announcement_card_negative_action">Nee, bedankt</string>
-  <string name="onboarding_negative_action">Nee, bedankt</string>
   <string name="view_offline_card_text">De inhoud kan niet offline geladen worden.</string>
   <string name="view_featured_article_card_title">Uitgelichte pagina</string>
   <string name="view_featured_article_footer_save_button_label">Opslaan</string>
@@ -755,7 +755,11 @@
   <string name="suggested_edits_cc0_notice">Door te publiceren gaat u akkoord met de &lt;a href=\"%1$s\"&gt;gebruiksvoorwaarden&lt;/a&gt; en het onherroepelijk vrijgeven van deze bijdrage onder de &lt;a href=\"%2$s\"&gt;CC0 licentie&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Voorgestelde bewerkingen</string>
   <string name="suggested_edits_contribution_language_label">Taal</string>
+  <string name="suggested_edits_contribution_date_time_label">Datum/tijd</string>
   <string name="suggested_edits_contribution_image_label">Afbeelding</string>
+  <string name="suggested_edits_contribution_article_label">Artikel</string>
+  <string name="suggested_edits_contribution_views">%s weergaven</string>
+  <string name="suggested_edits_contribution_seen_text">%s keer bekeken in de laatste 30 dagen.</string>
   <plurals name="suggested_edits_image_tag_contribution_label">
     <item quantity="one">U heb %d label toegevoegd</item>
     <item quantity="other">U hebt %d labels toegevoegd</item>
@@ -763,6 +767,8 @@
   <string name="suggested_edits_contribution_date_yesterday_text">Gisteren</string>
   <string name="suggested_edits_rewards_continue_button">Doorgaan</string>
   <string name="suggested_edits_encourage_account_creation_title">Wist u dat iedereen Wikipedia kan bewerken?</string>
+  <string name="suggested_edits_encourage_account_creation_login_button">Log in / aanmelden bij Wikipedia</string>
+  <string name="suggested_edits_contribution_current_revision_text">Uw bewerking is momenteel live op Wikpedia</string>
   <plurals name="suggested_edits_tags_diff_count_text">
     <item quantity="one">%1$s label</item>
     <item quantity="other">%1$s labels</item>

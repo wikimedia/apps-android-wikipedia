@@ -123,7 +123,7 @@
     <string name="preference_key_suggested_edits_reward_interstitial_pageviews_on_day">SERewardInterstitialPageviewsOnDay</string>
     <string name="preference_key_suggested_edits_reward_interstitial_qa_override">SERewardInterstitialQAOverride</string>
     <string name="preference_key_suggested_edits_highest_priority_enabled">SEHighestPriorityEnabled</string>
-    <string name="preference_key_reading_lists_visit_count">readingListsVisitCount</string>
     <string name="preference_key_explore_feed_visit_count">exploreFeedVisitCount</string>
     <string name="preference_key_selected_language_position_in_search">selectedLanguagePositionInSearch</string>
+    <string name="preference_key_pulsating_icon_event_sent">pulsatingIconEventSent</string>
 </resources>

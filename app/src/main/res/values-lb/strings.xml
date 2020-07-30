@@ -481,7 +481,6 @@
   <string name="view_continue_reading_card_subtitle_today">haut</string>
   <string name="view_continue_reading_card_subtitle_read_date">%s gelies</string>
   <string name="view_announcement_card_negative_action">Nee, merci</string>
-  <string name="onboarding_negative_action">Nee, merci</string>
   <string name="view_offline_card_text">Et ka keen Inhalt geluede gi wann Dir offline sidd.</string>
   <string name="view_featured_article_card_title">Exzellenten Artikel</string>
   <string name="view_featured_article_footer_save_button_label">Späicheren</string>
@@ -514,6 +513,7 @@
   <string name="description_edit_help_wikidata_guide">Wikipedia-Guide fir d\'Schreiwe vu Beschreiwungen</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description/de#Richtlinien</string>
   <string name="description_edit_anon_limit">Merci fir Ären Interessi fir Beschreiwungen z\'änneren! Fir méi Ännerungen ze maache loggt Iech wgl. mat Ärem Wikipedia-Benotzerkont an.</string>
+  <string name="description_edit_voice_input_description">Sprooch Input</string>
   <string name="description_edit_success_saved">Beschreiwung vum Artikel verëffentlecht!</string>
   <string name="description_edit_success_saved_snackbar">Beschreiwung vum Artikel verëffentlecht!</string>
   <string name="description_edit_success_encouragement">Dir hutt elo grad Wikipedia fir jidderee verbessert</string>
@@ -561,6 +561,7 @@
   <string name="suggested_edits_image_tags_onboarding_title">D\'Markéiere vu Biller mécht et méi einfach fir se erëmzefannen.</string>
   <string name="suggested_edits_image_tags_add_tag">Markéierung derbäisetzen</string>
   <string name="suggested_edits_quality_perfect_text">Perfekt</string>
+  <string name="suggested_edits_label">Proposéiert Ännerungen</string>
   <string name="suggested_edits_what_is_title">Wat si proposéiert Ännerungen?</string>
   <string name="suggested_edits_learn_more">Fir méi ze wëssen</string>
   <string name="suggested_edits_paused_title">Ënnerbrach</string>

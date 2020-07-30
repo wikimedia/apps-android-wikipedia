@@ -284,7 +284,6 @@
   </plurals>
   <string name="view_continue_reading_card_subtitle_today">šodien</string>
   <string name="view_announcement_card_negative_action">Nē, paldies</string>
-  <string name="onboarding_negative_action">Nē, paldies</string>
   <string name="view_featured_article_footer_save_button_label">Saglabāt</string>
   <string name="view_static_card_save_button_label">Saglabāt</string>
   <string name="view_featured_article_footer_saved_button_label">Saglabāts</string>
@@ -304,6 +303,7 @@
   <string name="description_edit_edit_description">Labot raksta aprakstu</string>
   <string name="description_edit_cancel_hint">Atcelt</string>
   <string name="description_edit_help_about_wikidata">Par Vikidatiem</string>
+  <string name="description_edit_voice_input_description">Balss ievade</string>
   <string name="description_edit_success_saved" fuzzy="true">Apraksts publicēts!</string>
   <string name="description_edit_success_encouragement">Tu tikko padarīji Vikipēdiju labāku visiem</string>
   <string name="description_edit_success_done">Gatavs</string>

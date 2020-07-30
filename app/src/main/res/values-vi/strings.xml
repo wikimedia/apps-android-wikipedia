@@ -550,7 +550,6 @@
   <string name="view_continue_reading_card_subtitle_today">hôm nay</string>
   <string name="view_continue_reading_card_subtitle_read_date">Đã đọc %s</string>
   <string name="view_announcement_card_negative_action">Thôi</string>
-  <string name="onboarding_negative_action">Không, cảm ơn</string>
   <string name="view_offline_card_text">Không thể tải nội dung khi ngoại tuyến.</string>
   <string name="view_featured_article_card_title">Bài viết chọn lọc</string>
   <string name="view_featured_article_footer_save_button_label">Lưu</string>

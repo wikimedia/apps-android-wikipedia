@@ -14,7 +14,7 @@
 -->
 <resources>
   <string name="app_name_prod">ویکیپیدیا</string>
-  <string name="app_name_beta">ویکیپیدیا بێتا</string>
+  <string name="app_name_beta">بیتای ویکیپیدیا</string>
   <string name="app_name_alpha">ویکیپیدیا ئەلفا</string>
   <string name="wikimedia">ویکیمیدیا</string>
   <string name="nav_item_back">گەڕانەوە</string>
@@ -26,7 +26,7 @@
   <string name="search_hint_search_languages">گەڕان بەدوای زمانێکدا</string>
   <string name="search_hint_search_my_lists_and_articles">گەڕان لەنێو وتار و پێڕستەکانم</string>
   <string name="nav_item_history">مێژوو</string>
-  <string name="nav_item_suggested_edits" fuzzy="true">دەستکاری پێشنیارکراوەکان</string>
+  <string name="nav_item_suggested_edits">دەستکارییەکان</string>
   <string name="nav_item_more">زیاتر</string>
   <string name="error_network_error">ناتوانرێت ئینتەرنێت بھێندرێت.</string>
   <string name="page_error_retry">ھەوڵداناوە</string>
@@ -489,7 +489,6 @@
   <string name="view_continue_reading_card_subtitle_today">ئەمڕۆ</string>
   <string name="view_continue_reading_card_subtitle_read_date">%s خوێندنەوە</string>
   <string name="view_announcement_card_negative_action">نا سپاس</string>
-  <string name="onboarding_negative_action">نا سپاس</string>
   <string name="view_offline_card_text">ناوەڕۆکەکە ناتواندرێت بھێندرێت بەبێ ئینتەرنێت</string>
   <string name="view_featured_article_card_title">وتاری ھەڵبژێردراو</string>
   <string name="view_featured_article_footer_save_button_label">پاشەکەوت</string>

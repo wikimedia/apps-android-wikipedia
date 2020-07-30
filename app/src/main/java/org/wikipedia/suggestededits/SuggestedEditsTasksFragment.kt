@@ -17,9 +17,7 @@ import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.functions.Function3
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_suggested_edits_tasks.*
-import org.wikipedia.Constants
-import org.wikipedia.Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE
-import org.wikipedia.Constants.ACTIVITY_REQUEST_IMAGE_TAGS_ONBOARDING
+import org.wikipedia.Constants.*
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.SuggestedEditsFunnel
@@ -32,6 +30,7 @@ import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.dataclient.mwapi.UserContribution
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
 import org.wikipedia.language.LanguageSettingsInvokeSource
+import org.wikipedia.login.LoginActivity
 import org.wikipedia.main.MainActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
@@ -129,6 +128,8 @@ class SuggestedEditsTasksFragment : Fragment() {
         } else if (requestCode == ACTIVITY_REQUEST_IMAGE_TAGS_ONBOARDING && resultCode == Activity.RESULT_OK) {
             Prefs.setShowImageTagsOnboarding(false)
             startActivity(SuggestionsActivity.newIntent(requireActivity(), ADD_IMAGE_TAGS))
+        } else if (requestCode == ACTIVITY_REQUEST_LOGIN && resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
+            clearContents()
         }
     }
 
@@ -224,13 +225,15 @@ class SuggestedEditsTasksFragment : Fragment() {
         fetchUserContributions()
     }
 
-    private fun clearContents() {
+    private fun clearContents(shouldScrollToTop: Boolean = true) {
         swipeRefreshLayout.isRefreshing = false
         progressBar.visibility = GONE
         tasksContainer.visibility = GONE
         errorView.visibility = GONE
         disabledStatesView.visibility = GONE
-        suggestedEditsScrollView.scrollTo(0, 0)
+        if (shouldScrollToTop) {
+            suggestedEditsScrollView.scrollTo(0, 0)
+        }
         swipeRefreshLayout.setBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
     }
 
@@ -241,7 +244,7 @@ class SuggestedEditsTasksFragment : Fragment() {
     }
 
     private fun setFinalUIState() {
-        clearContents()
+        clearContents(false)
 
         addImageTagsTask.new = Prefs.isSuggestedEditsImageTagsNew()
         tasksRecyclerView.adapter!!.notifyDataSetChanged()
@@ -295,7 +298,7 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     private fun setRequiredLoginStatus() {
         clearContents()
-        disabledStatesView.setRequiredLogin()
+        disabledStatesView.setRequiredLogin(this)
         disabledStatesView.visibility = VISIBLE
     }
 
@@ -381,7 +384,7 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     private inner class TaskViewCallback : SuggestedEditsTaskView.Callback {
         override fun onViewClick(task: SuggestedEditsTask, isTranslate: Boolean) {
-            if (WikipediaApp.getInstance().language().appLanguageCodes.size < Constants.MIN_LANGUAGES_TO_UNLOCK_TRANSLATION && isTranslate) {
+            if (WikipediaApp.getInstance().language().appLanguageCodes.size < MIN_LANGUAGES_TO_UNLOCK_TRANSLATION && isTranslate) {
                 showLanguagesActivity(LanguageSettingsInvokeSource.SUGGESTED_EDITS.text())
                 return
             }

@@ -34,7 +34,8 @@
   <string name="search_hint_search_languages">Nyelv keresése</string>
   <string name="search_hint_search_my_lists_and_articles">Listáim és szócikkeim keresése</string>
   <string name="nav_item_history">Előzmények</string>
-  <string name="nav_item_suggested_edits" fuzzy="true">Ajánlott szerkesztések</string>
+  <string name="nav_item_suggested_edits">Szerkesztések</string>
+  <string name="nav_item_more">Több</string>
   <string name="error_network_error">Nem sikerült csatlakozni az internethez.</string>
   <string name="page_error_retry">Újra</string>
   <string name="card_offline_error_retry">Újra</string>
@@ -118,7 +119,7 @@
   <string name="reading_lists_sync_login">Bejelentkezés</string>
   <string name="create_account_login">Bejelentkezés</string>
   <string name="menu_login">Bejelentkezés</string>
-  <string name="login_activity_title" fuzzy="true">Bejelentkezés a Wikipédiába</string>
+  <string name="login_activity_title">Bejelentkezés</string>
   <string name="login_in_progress_dialog_message">Bejelentkezés…</string>
   <string name="login_success_toast">Bejelentkezve!</string>
   <string name="reset_password_title">Jelszó beállítása</string>
@@ -320,7 +321,9 @@
   <string name="page_offline_notice_last_date">A szócikk offline verzióját olvasod, mentve: %s</string>
   <string name="button_get_directions">Útvonalterv</string>
   <string name="error_no_maps_app">Nem található útvonaltervező alkalmazás.</string>
+  <string name="preference_title_customize_explore_feed">Felfedezés hírcsatorna</string>
   <string name="preference_title_show_link_previews">Linkek előnézetének megjelenítése</string>
+  <string name="preference_summary_customize_explore_feed">A Felfedezés hírcsatorna testreszabása</string>
   <string name="preference_summary_show_link_previews">A szócikk rövid előnézetének megjelenítése linkek megérintésekor.</string>
   <string name="preference_title_collapse_tables">Táblázatok összecsukása</string>
   <string name="preference_summary_collapse_tables">Automatikusan összecsukja a szócikkek táblázatait, mint például az infoboxokat, jegyzeteket és megjegyzéseket.</string>
@@ -567,7 +570,6 @@
   <string name="view_continue_reading_card_subtitle_today">ma</string>
   <string name="view_continue_reading_card_subtitle_read_date">Elolvasva %s</string>
   <string name="view_announcement_card_negative_action">Köszönöm, nem</string>
-  <string name="onboarding_negative_action">Köszönöm, nem</string>
   <string name="view_offline_card_text">A tartalom nem tölthető be kapcsolat nélkül.</string>
   <string name="view_featured_article_card_title">Kiemelt szócikk</string>
   <string name="view_featured_article_footer_save_button_label">Mentés</string>

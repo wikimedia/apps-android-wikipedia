@@ -223,6 +223,8 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         chip.setCheckedIconResource(R.drawable.ic_chip_check_24px)
         chip.setOnCheckedChangeListener(this)
         chip.setOnClickListener(this)
+        chip.setEnsureMinTouchTargetSize(true)
+        chip.ensureAccessibleTouchTarget(DimenUtil.dpToPx(48f).toInt())
         chip.tag = label
         if (label != null) {
             chip.isChecked = label.isSelected

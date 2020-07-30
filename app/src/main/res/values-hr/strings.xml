@@ -26,7 +26,7 @@
   <string name="search_hint_search_languages">Pretraga jezika</string>
   <string name="search_hint_search_my_lists_and_articles">Pretraga mojih popisa i članaka</string>
   <string name="nav_item_history">Povijest</string>
-  <string name="nav_item_suggested_edits" fuzzy="true">Predložena uređivanja</string>
+  <string name="nav_item_suggested_edits">Uređivanjā</string>
   <string name="nav_item_more">Više</string>
   <string name="error_network_error">Nije moguće spojiti se na internet.</string>
   <string name="page_error_retry">Pokušaj ponovo</string>
@@ -521,7 +521,6 @@
   <string name="view_continue_reading_card_subtitle_today">danas</string>
   <string name="view_continue_reading_card_subtitle_read_date">Čitano %s</string>
   <string name="view_announcement_card_negative_action">Ne, hvala</string>
-  <string name="onboarding_negative_action">Ne, hvala</string>
   <string name="view_offline_card_text">Sadržaj nije moguće učitati izvan mreže.</string>
   <string name="view_featured_article_card_title">Izabrani članak</string>
   <string name="view_featured_article_footer_save_button_label">Spremi</string>

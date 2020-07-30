@@ -177,6 +177,7 @@
 
         <activity
             android:name=".descriptions.DescriptionEditActivity"
+            android:configChanges="orientation|screenSize"
             android:windowSoftInputMode="adjustResize" />
 
         <activity
@@ -240,7 +241,7 @@
         <activity android:name=".suggestededits.SuggestedEditsImageTagsOnboardingActivity" />
 
         <activity
-            android:name=".suggestededits.SuggestedEditsFeedCardImageTagActivity"
+            android:name=".suggestededits.SuggestedEditsImageTagEditActivity"
             android:theme="@style/AppTheme.ActionBar" />
 
         <activity

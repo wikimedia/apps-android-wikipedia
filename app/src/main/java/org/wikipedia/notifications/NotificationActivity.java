@@ -38,6 +38,7 @@ import org.wikipedia.page.PageTitle;
 import org.wikipedia.settings.NotificationSettingsActivity;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DateUtil;
+import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.StringUtil;
@@ -448,6 +449,7 @@ public class NotificationActivity extends BaseActivity implements NotificationIt
             imageBackgroundView = view.findViewById(R.id.notification_item_image_background);
             imageSelectedView = view.findViewById(R.id.notification_item_selected_image);
             imageView = view.findViewById(R.id.notification_item_image);
+            DeviceUtil.setContextClickAsLongClick(itemView);
         }
 
         protected NotificationListItemContainer getContainer() {

@@ -347,6 +347,7 @@
   <string name="error_no_maps_app">找不到任何提供导航的应用程序。</string>
   <string name="preference_title_customize_explore_feed">探索订阅</string>
   <string name="preference_title_show_link_previews">显示链接预览</string>
+  <string name="preference_summary_customize_explore_feed">自定义探索订阅源</string>
   <string name="preference_summary_show_link_previews">当点按链接时，显示条目的快速预览。</string>
   <string name="preference_title_collapse_tables">大纲</string>
   <string name="preference_summary_collapse_tables">自动折叠条目中的表格，如信息框、引用和注释。</string>
@@ -602,7 +603,6 @@
   <string name="view_continue_reading_card_subtitle_today">今天</string>
   <string name="view_continue_reading_card_subtitle_read_date">阅读%s</string>
   <string name="view_announcement_card_negative_action">不用了，谢谢</string>
-  <string name="onboarding_negative_action">不用了，谢谢</string>
   <string name="view_offline_card_text">内容不能在离线时加载。</string>
   <string name="view_featured_article_card_title">典范条目</string>
   <string name="view_featured_article_footer_save_button_label">保存</string>
@@ -655,6 +655,7 @@
   <string name="description_edit_anon_limit">感谢您对继续编辑条目描述感兴趣！要做出额外编辑，请登录您的维基百科账户。</string>
   <string name="description_edit_license_notice">通过更改条目描述，表明我同意&lt;a href=\"%1$s\"&gt;使用条款&lt;/a&gt;，并采用&lt;a href=\"%2$s\"&gt;知识共享CC0&lt;/a&gt;许可协议不可撤销地发表我的贡献。</string>
   <string name="description_edit_helper_text_lowercase_warning">通常以小字母作为开头</string>
+  <string name="description_edit_voice_input_description">语音输入</string>
   <string name="description_edit_success_saved">描述已发布！</string>
   <string name="description_edit_success_saved_snackbar">描述已发布！</string>
   <string name="description_edit_success_saved_in_lang_snackbar">描述已发布！（%s）</string>

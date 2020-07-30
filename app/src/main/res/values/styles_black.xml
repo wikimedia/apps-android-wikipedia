@@ -3,9 +3,6 @@
 
     <style name="ThemeBlack" parent="ThemeDark">
 
-        <!-- Default background for all activities -->
-        <item name="android:windowBackground">@color/base4</item>
-
         <!-- Overrides of our own custom color attributes -->
         <item name="themed_icon_color">@android:color/white</item>
         <item name="nav_tab_background_color">@color/base14</item>

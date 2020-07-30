@@ -13,6 +13,7 @@
 * Prevodim
 * Rancher
 * Srdjan m
+* Srđan
 * Zoranzoki21
 * Милан Јелисавчић
 * Сербијана
@@ -24,7 +25,7 @@
   <string name="wikimedia">Викимедија</string>
   <string name="nav_item_back">Назад</string>
   <string name="page_tabs_back">Назад</string>
-  <string name="nav_item_forward">Проследи</string>
+  <string name="nav_item_forward">Напред</string>
   <string name="search_hint">Претражите Википедију</string>
   <string name="search_hint_voice_search">Претрага гласом</string>
   <string name="search_hint_search_history">Историја претраге</string>
@@ -572,7 +573,6 @@
   <string name="view_continue_reading_card_subtitle_today">данас</string>
   <string name="view_continue_reading_card_subtitle_read_date">Прочитано %s</string>
   <string name="view_announcement_card_negative_action">Не, хвала</string>
-  <string name="onboarding_negative_action">Не, хвала</string>
   <string name="view_offline_card_text">Садржај се не може учитати када сте офлајн.</string>
   <string name="view_featured_article_card_title">Сјајан чланак</string>
   <string name="view_featured_article_footer_save_button_label">Сачувај</string>
@@ -625,6 +625,7 @@
   <string name="description_edit_anon_limit">Хвала вам на непрестаном интересу за уређивање описа чланака. Да бисте направили још измена, пријавите се на свој налог на Википедији.</string>
   <string name="description_edit_license_notice">Променом описа чланка, слажете се са &lt;a href=\"%1$s\"&gt;условима коришћења&lt;/a&gt; и прихватате неопозиво објављивање својих доприноса под лиценцом &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_helper_text_lowercase_warning">уобичајено почиње са малим словом</string>
+  <string name="description_edit_voice_input_description">Гласовни унос</string>
   <string name="description_edit_success_saved">Опис чланка је објављен!</string>
   <string name="description_edit_success_saved_snackbar">Опис чланка је објављен!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Опис чланка је објављен! (%s)</string>

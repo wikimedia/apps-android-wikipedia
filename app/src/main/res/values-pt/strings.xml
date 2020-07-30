@@ -580,7 +580,6 @@
   <string name="view_continue_reading_card_subtitle_today">hoje</string>
   <string name="view_continue_reading_card_subtitle_read_date">Ler %s</string>
   <string name="view_announcement_card_negative_action">Não, obrigado</string>
-  <string name="onboarding_negative_action">Não, obrigado</string>
   <string name="view_offline_card_text">O conteúdo não pode ser carregado sem acesso à Internet.</string>
   <string name="view_featured_article_card_title">Artigo destacado</string>
   <string name="view_featured_article_footer_save_button_label">Guardar</string>

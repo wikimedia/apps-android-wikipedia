@@ -15,6 +15,7 @@ import android.widget.ScrollView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
+import androidx.core.os.ConfigurationCompat;
 import androidx.fragment.app.Fragment;
 
 import com.google.gson.JsonObject;
@@ -31,11 +32,14 @@ import org.wikipedia.dataclient.okhttp.OkHttpWebViewClient;
 import org.wikipedia.edit.EditSectionActivity;
 import org.wikipedia.edit.summaries.EditSummaryTag;
 import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.json.GsonUtil;
+import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.page.LinkHandler;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.PageViewModel;
-import org.wikipedia.util.ConfigurationCompat;
+import org.wikipedia.page.references.PageReferences;
+import org.wikipedia.page.references.ReferenceDialog;
 import org.wikipedia.util.L10nUtil;
 import org.wikipedia.util.UriUtil;
 import org.wikipedia.views.ObservableWebView;
@@ -51,12 +55,13 @@ import static org.wikipedia.dataclient.RestService.PAGE_HTML_PREVIEW_ENDPOINT;
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 import static org.wikipedia.util.UriUtil.handleExternalLink;
 
-public class EditPreviewFragment extends Fragment implements CommunicationBridgeListener {
+public class EditPreviewFragment extends Fragment implements CommunicationBridgeListener, ReferenceDialog.Callback {
     private ObservableWebView webview;
     private ScrollView previewContainer;
 
     private PageViewModel model = new PageViewModel();
     private CommunicationBridge bridge;
+    private PageReferences references;
     private EditLinkHandler linkHandler;
 
     private List<EditSummaryTag> summaryTags;
@@ -64,6 +69,7 @@ public class EditPreviewFragment extends Fragment implements CommunicationBridge
 
     private EditFunnel funnel;
     private CompositeDisposable disposables = new CompositeDisposable();
+    private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -92,7 +98,7 @@ public class EditPreviewFragment extends Fragment implements CommunicationBridge
         Resources oldResources = getResources();
         AssetManager assets = oldResources.getAssets();
         DisplayMetrics metrics = oldResources.getDisplayMetrics();
-        Locale oldLocale = ConfigurationCompat.getLocale(oldResources.getConfiguration());
+        Locale oldLocale = ConfigurationCompat.getLocales(oldResources.getConfiguration()).get(0);
         Locale newLocale = new Locale(pageTitle.getWikiSite().languageCode());
         Configuration config = new Configuration(oldResources.getConfiguration());
         Resources tempResources = getResources();
@@ -214,7 +220,10 @@ public class EditPreviewFragment extends Fragment implements CommunicationBridge
             // TODO: do something when a video is clicked in Preview.
         });
         bridge.addListener("reference", (messageType, messagePayload) -> {
-            // TODO: do something when a reference is clicked in Preview.
+            references = GsonUtil.getDefaultGson().fromJson(messagePayload, PageReferences.class);
+            if (!references.getReferencesGroup().isEmpty()) {
+                bottomSheetPresenter.show(getChildFragmentManager(), new ReferenceDialog());
+            }
         });
     }
 
@@ -301,6 +310,21 @@ public class EditPreviewFragment extends Fragment implements CommunicationBridge
     @Override
     public boolean isPreview() {
         return true;
+    }
+
+    @Override
+    public LinkHandler getLinkHandler() {
+        return linkHandler;
+    }
+
+    @Override
+    public List<PageReferences.Reference> getReferencesGroup() {
+        return references.getReferencesGroup();
+    }
+
+    @Override
+    public int getSelectedReferenceIndex() {
+        return references.getSelectedIndex();
     }
 
     private class EditLinkHandler extends LinkHandler {
