@@ -52,7 +52,7 @@ import org.wikipedia.page.LinkMovementMethodExt;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.linkpreview.LinkPreviewDialog;
-import org.wikipedia.suggestededits.SuggestedEditsFeedCardImageTagActivity;
+import org.wikipedia.suggestededits.SuggestedEditsImageTagEditActivity;
 import org.wikipedia.suggestededits.SuggestedEditsSummary;
 import org.wikipedia.theme.Theme;
 import org.wikipedia.util.ClipboardUtil;
@@ -392,7 +392,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     }
 
     private void startTagsEdit(GalleryItemFragment item) {
-        startActivityForResult(SuggestedEditsFeedCardImageTagActivity.Companion.newIntent(this, item.getMediaPage()), ACTIVITY_REQUEST_ADD_IMAGE_TAGS);
+        startActivityForResult(SuggestedEditsImageTagEditActivity.Companion.newIntent(this, item.getMediaPage()), ACTIVITY_REQUEST_ADD_IMAGE_TAGS);
     }
 
     private void startCaptionTranslation(GalleryItemFragment item) {

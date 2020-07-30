@@ -28,7 +28,7 @@ import org.wikipedia.gallery.ImageInfo;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageFragment;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.suggestededits.SuggestedEditsFeedCardImageTagActivity;
+import org.wikipedia.suggestededits.SuggestedEditsImageTagEditActivity;
 import org.wikipedia.suggestededits.SuggestedEditsSummary;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.StringUtil;
@@ -238,7 +238,7 @@ public class LeadImagesHandler {
             @Override
             public void onCallToActionClicked() {
                 if (imageEditType == ImageEditType.ADD_TAGS) {
-                    getActivity().startActivityForResult(SuggestedEditsFeedCardImageTagActivity.Companion.newIntent(getActivity(), imagePage), ACTIVITY_REQUEST_IMAGE_TAGS_EDIT);
+                    getActivity().startActivityForResult(SuggestedEditsImageTagEditActivity.Companion.newIntent(getActivity(), imagePage), ACTIVITY_REQUEST_IMAGE_TAGS_EDIT);
                 }
                 if (imageEditType == ImageEditType.ADD_CAPTION_TRANSLATION ? (callToActionTargetSummary != null && callToActionSourceSummary != null) : callToActionSourceSummary != null) {
                     getActivity().startActivityForResult(DescriptionEditActivity.newIntent(getActivity(),
