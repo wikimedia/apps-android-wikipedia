@@ -1,4 +1,4 @@
-package org.wikipedia.suggestededits
+package org.wikipedia.userprofile
 
 import android.content.Context
 import android.util.AttributeSet
@@ -8,8 +8,8 @@ import android.widget.LinearLayout
 import androidx.core.view.ViewCompat
 import kotlinx.android.synthetic.main.item_suggested_edits_contributions.view.*
 import org.wikipedia.R
-import org.wikipedia.suggestededits.Contribution.Companion.EDIT_TYPE_IMAGE_CAPTION
-import org.wikipedia.suggestededits.Contribution.Companion.EDIT_TYPE_IMAGE_TAG
+import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_IMAGE_CAPTION
+import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_IMAGE_TAG
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
@@ -17,7 +17,7 @@ import org.wikipedia.views.ViewUtil
 import java.text.DecimalFormat
 import kotlin.math.abs
 
-class SuggestedEditsContributionsItemView constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
+class ContributionsItemView constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
 
     private var numFormat: DecimalFormat = DecimalFormat("+0;-#")
     var callback: Callback? = null

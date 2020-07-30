@@ -626,6 +626,9 @@
   <string name="description_edit_license_notice">Променом описа чланка, слажете се са &lt;a href=\"%1$s\"&gt;условима коришћења&lt;/a&gt; и прихватате неопозиво објављивање својих доприноса под лиценцом &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_helper_text_lowercase_warning">уобичајено почиње са малим словом</string>
   <string name="description_edit_voice_input_description">Гласовни унос</string>
+  <string name="description_too_short">Текст је прекратак.</string>
+  <string name="description_ends_with_punctuation">Текст не сме да се завршава знаком интерпункције.</string>
+  <string name="description_starts_with_uppercase">Почните малим словом, осим ако прва реч није властита именица.</string>
   <string name="description_edit_success_saved">Опис чланка је објављен!</string>
   <string name="description_edit_success_saved_snackbar">Опис чланка је објављен!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Опис чланка је објављен! (%s)</string>

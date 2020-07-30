@@ -37,6 +37,8 @@ import org.wikipedia.login.LoginActivity
 import org.wikipedia.main.MainActivity
 import org.wikipedia.settings.Prefs
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
+import org.wikipedia.userprofile.ContributionsActivity
+import org.wikipedia.userprofile.UserContributionsStats
 import org.wikipedia.util.*
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DefaultRecyclerAdapter
@@ -71,7 +73,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         setupTestingButtons()
 
         userStatsClickTarget.setOnClickListener {
-            startActivity(SuggestedEditsContributionsActivity.newIntent(requireActivity()))
+            startActivity(ContributionsActivity.newIntent(requireActivity()))
         }
 
         learnMoreCard.setOnClickListener {
@@ -132,7 +134,7 @@ class SuggestedEditsTasksFragment : Fragment() {
             tasksRecyclerView.adapter!!.notifyDataSetChanged()
         } else if (requestCode == ACTIVITY_REQUEST_IMAGE_TAGS_ONBOARDING && resultCode == Activity.RESULT_OK) {
             Prefs.setShowImageTagsOnboarding(false)
-            startActivity(SuggestedEditsCardsActivity.newIntent(requireActivity(), ADD_IMAGE_TAGS))
+            startActivity(SuggestionsActivity.newIntent(requireActivity(), ADD_IMAGE_TAGS))
         } else if (requestCode == ACTIVITY_REQUEST_LOGIN && resultCode == LoginActivity.RESULT_LOGIN_SUCCESS) {
             clearContents()
         }
@@ -161,7 +163,7 @@ class SuggestedEditsTasksFragment : Fragment() {
 
         disposables.add(Observable.zip(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getUserContributions(AccountUtil.getUserName()!!, 10, null).subscribeOn(Schedulers.io()),
                 ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getUserContributions(AccountUtil.getUserName()!!, 10, null).subscribeOn(Schedulers.io()),
-                SuggestedEditsUserStats.getEditCountsObservable(),
+                UserContributionsStats.getEditCountsObservable(),
                 Function3<MwQueryResponse, MwQueryResponse, MwQueryResponse, MwQueryResponse> { commonsResponse, wikidataResponse, _ ->
                     if (wikidataResponse.query()!!.userInfo()!!.isBlocked || commonsResponse.query()!!.userInfo()!!.isBlocked) {
                         isIpBlocked = true
@@ -182,11 +184,11 @@ class SuggestedEditsTasksFragment : Fragment() {
 
                     latestEditStreak = getEditStreak(contributions)
 
-                    revertSeverity = SuggestedEditsUserStats.getRevertSeverity()
+                    revertSeverity = UserContributionsStats.getRevertSeverity()
                     wikidataResponse
                 })
                 .flatMap { response ->
-                    SuggestedEditsUserStats.getPageViewsObservable(response)
+                    UserContributionsStats.getPageViewsObservable(response)
                 }
                 .observeOn(AndroidSchedulers.mainThread())
                 .doAfterTerminate {
@@ -320,9 +322,9 @@ class SuggestedEditsTasksFragment : Fragment() {
     }
 
     private fun maybeSetPausedOrDisabled(): Boolean {
-        val pauseEndDate = SuggestedEditsUserStats.maybePauseAndGetEndDate()
+        val pauseEndDate = UserContributionsStats.maybePauseAndGetEndDate()
 
-        if (SuggestedEditsUserStats.isDisabled()) {
+        if (UserContributionsStats.isDisabled()) {
             // Disable the whole feature.
             clearContents()
             disabledStatesView.setDisabled(getString(R.string.suggested_edits_disabled_message, AccountUtil.getUserName()))
@@ -406,14 +408,14 @@ class SuggestedEditsTasksFragment : Fragment() {
                 return
             }
             if (task == addDescriptionsTask) {
-                startActivity(SuggestedEditsCardsActivity.newIntent(requireActivity(), if (isTranslate) TRANSLATE_DESCRIPTION else ADD_DESCRIPTION))
+                startActivity(SuggestionsActivity.newIntent(requireActivity(), if (isTranslate) TRANSLATE_DESCRIPTION else ADD_DESCRIPTION))
             } else if (task == addImageCaptionsTask) {
-                startActivity(SuggestedEditsCardsActivity.newIntent(requireActivity(), if (isTranslate) TRANSLATE_CAPTION else ADD_CAPTION))
+                startActivity(SuggestionsActivity.newIntent(requireActivity(), if (isTranslate) TRANSLATE_CAPTION else ADD_CAPTION))
             } else if (task == addImageTagsTask) {
                 if (Prefs.shouldShowImageTagsOnboarding()) {
                     startActivityForResult(SuggestedEditsImageTagsOnboardingActivity.newIntent(requireContext()), ACTIVITY_REQUEST_IMAGE_TAGS_ONBOARDING)
                 } else {
-                    startActivity(SuggestedEditsCardsActivity.newIntent(requireActivity(), ADD_IMAGE_TAGS))
+                    startActivity(SuggestionsActivity.newIntent(requireActivity(), ADD_IMAGE_TAGS))
                 }
             }
         }

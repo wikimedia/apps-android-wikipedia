@@ -21,6 +21,7 @@
 * McAang
 * Mirzali
 * MrSchipunov
+* MuratTheTurkish
 * Okkerem
 * Rapsar
 * Sayginer
@@ -648,6 +649,10 @@
   <string name="description_edit_license_notice">Madde tanımını değiştirerek &lt;a href=\"%1$s\"&gt;Kullanım Şartları&lt;/a&gt;nı ve katkılarımı geri dönülemez şekilde &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; lisansıyla yayımlamayı kabul ediyorum.</string>
   <string name="description_edit_helper_text_lowercase_warning">genellikle küçük harfle başlar</string>
   <string name="description_edit_voice_input_description">Ses girişi</string>
+  <string name="description_too_short">Metin çok kısa.</string>
+  <string name="description_ends_with_punctuation">Metin noktalama işaretleri ile bitmemelidir.</string>
+  <string name="description_starts_with_article">\"A\" veya \"the\" gibi maddelerle başlamayın.</string>
+  <string name="description_starts_with_uppercase">İlk kelime uygun bir isim değilse, küçük harfle başlayın.</string>
   <string name="description_edit_success_saved">Madde açıklaması yayımlandı!</string>
   <string name="description_edit_success_saved_snackbar">Madde açıklaması yayımlandı!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Madde açıklaması yayımlandı! (%s)</string>
