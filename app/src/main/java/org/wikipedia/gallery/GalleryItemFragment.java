@@ -88,7 +88,6 @@ public class GalleryItemFragment extends Fragment {
     @Nullable ImageInfo getMediaInfo() {
         return mediaInfo;
     }
-    private Map<String, List<String>> imageTags;
     private MwQueryPage mediaPage;
 
 
@@ -216,11 +215,6 @@ public class GalleryItemFragment extends Fragment {
         }
         updateProgressBar(true);
         disposables.add(getMediaInfoDisposable(mediaListItem.getTitle(), WikipediaApp.getInstance().getAppOrSystemLanguageCode())
-                .flatMap(response -> {
-                    mediaInfo = response.query().firstPage().imageInfo();
-                    mediaPage = response.query().firstPage();
-                    return ImageTagsProvider.getImageTagsObservable(response.query().firstPage().pageId(), WikipediaApp.getInstance().getAppOrSystemLanguageCode());
-                })
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doAfterTerminate(() -> {
@@ -229,7 +223,8 @@ public class GalleryItemFragment extends Fragment {
                     ((GalleryActivity) requireActivity()).layOutGalleryDescription();
                 })
                 .subscribe(response -> {
-                    imageTags = response;
+                    mediaInfo = response.query().firstPage().imageInfo();
+                    mediaPage = response.query().firstPage();
                     if (FileUtil.isVideo(mediaListItem.getType())) {
                         loadVideo();
                     } else {
@@ -361,10 +356,6 @@ public class GalleryItemFragment extends Fragment {
 
     @Nullable private Callback callback() {
         return FragmentUtil.getCallback(this, Callback.class);
-    }
-
-    public Map<String, List<String>> getImageTags() {
-        return imageTags;
     }
 
     public MwQueryPage getMediaPage() {

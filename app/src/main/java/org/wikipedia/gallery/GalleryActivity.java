@@ -36,9 +36,11 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.BaseActivity;
 import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.auth.AccountUtil;
+import org.wikipedia.commons.ImageTagsProvider;
 import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.mwapi.media.MediaHelper;
 import org.wikipedia.descriptions.DescriptionEditActivity;
 import org.wikipedia.feed.image.FeaturedImage;
@@ -69,6 +71,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -79,6 +82,7 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.disposables.Disposable;
+import io.reactivex.rxjava3.functions.Function3;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
 import static org.wikipedia.Constants.INTENT_EXTRA_ACTION;
@@ -95,6 +99,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         GalleryItemFragment.Callback {
     public static final int ACTIVITY_RESULT_PAGE_SELECTED = 1;
     private static final int ACTIVITY_REQUEST_DESCRIPTION_EDIT = 2;
+    private static final int ACTIVITY_REQUEST_ADD_IMAGE_TAGS = 4;
     public static final int ACTIVITY_RESULT_IMAGE_CAPTION_ADDED = 3;
 
     public static final String EXTRA_PAGETITLE = "pageTitle";
@@ -137,6 +142,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
 
     private boolean controlsShowing = true;
     private GalleryPageChangeListener pageChangeListener = new GalleryPageChangeListener();
+    int imageTagsCount;
 
     @Nullable private GalleryFunnel funnel;
 
@@ -327,6 +333,11 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
             layOutGalleryDescription();
             setResult(ACTIVITY_RESULT_IMAGE_CAPTION_ADDED);
         }
+        if (requestCode == ACTIVITY_REQUEST_ADD_IMAGE_TAGS && resultCode == RESULT_OK) {
+            FeedbackUtil.showMessage(this, getString(R.string.description_edit_success_saved_image_tags_snackbar));
+            layOutGalleryDescription();
+            setResult(ACTIVITY_RESULT_IMAGE_CAPTION_ADDED);
+        }
     }
 
     @OnClick(R.id.gallery_caption_edit_button) void onEditClick(View v) {
@@ -381,7 +392,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     }
 
     private void startTagsEdit(GalleryItemFragment item) {
-        startActivityForResult(SuggestedEditsFeedCardImageTagActivity.Companion.newIntent(this, item.getMediaPage()), ACTIVITY_REQUEST_DESCRIPTION_EDIT);
+        startActivityForResult(SuggestedEditsFeedCardImageTagActivity.Companion.newIntent(this, item.getMediaPage()), ACTIVITY_REQUEST_ADD_IMAGE_TAGS);
     }
 
     private void startCaptionTranslation(GalleryItemFragment item) {
@@ -643,9 +654,14 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         updateProgressBar(true);
         disposeImageCaptionDisposable();
         imageCaptionDisposable = Observable.zip(MediaHelper.INSTANCE.getImageCaptions(item.getImageTitle().getPrefixedText()),
-                ServiceFactory.get(new WikiSite(Service.COMMONS_URL)).getProtectionInfo(item.getImageTitle().getPrefixedText()), (captions, protectionInfoRsp) -> {
-                    item.getMediaInfo().setCaptions(captions);
-                    return protectionInfoRsp.query().isEditProtected();
+                ServiceFactory.get(new WikiSite(Service.COMMONS_URL)).getProtectionInfo(item.getImageTitle().getPrefixedText()),
+                ImageTagsProvider.getImageTagsObservable(getCurrentItem().getMediaPage().pageId(), WikipediaApp.getInstance().getAppOrSystemLanguageCode()), new Function3 <Map<String, String>, MwQueryResponse, Map<String, List<String>>, Boolean>() {
+                    @Override
+                    public Boolean apply(Map<String, String> captions, MwQueryResponse protectionInfoRsp, Map<String, List<String>> imageTags) throws Throwable {
+                        item.getMediaInfo().setCaptions(captions);
+                        imageTagsCount = imageTags.size();
+                        return protectionInfoRsp.query().isEditProtected();
+                    }
                 })
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -690,7 +706,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
             return;
         }
 
-        if (item.getImageTags().size() == 0) {
+        if (imageTagsCount == 0) {
             imageEditType = ImageEditType.ADD_TAGS;
             ctaButtonText.setText(getString(R.string.suggested_edits_feed_card_add_image_tags));
             return;

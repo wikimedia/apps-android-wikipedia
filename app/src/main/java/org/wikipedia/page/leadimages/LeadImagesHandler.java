@@ -43,6 +43,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
 
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_IMAGE_CAPTION_EDIT;
+import static org.wikipedia.Constants.ACTIVITY_REQUEST_IMAGE_TAGS_EDIT;
 import static org.wikipedia.Constants.InvokeSource.LEAD_IMAGE;
 import static org.wikipedia.Constants.MIN_LANGUAGES_TO_UNLOCK_TRANSLATION;
 import static org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_CAPTION;
@@ -238,7 +239,7 @@ public class LeadImagesHandler {
             @Override
             public void onCallToActionClicked() {
                 if (imageEditType == ImageEditType.ADD_TAGS) {
-                    getActivity().startActivityForResult(SuggestedEditsFeedCardImageTagActivity.Companion.newIntent(getActivity(), imagePage), ACTIVITY_REQUEST_DESCRIPTION_EDIT);
+                    getActivity().startActivityForResult(SuggestedEditsFeedCardImageTagActivity.Companion.newIntent(getActivity(), imagePage), ACTIVITY_REQUEST_IMAGE_TAGS_EDIT);
                 }
                 if (imageEditType == ImageEditType.ADD_CAPTION_TRANSLATION ? (callToActionTargetSummary != null && callToActionSourceSummary != null) : callToActionSourceSummary != null) {
                     getActivity().startActivityForResult(DescriptionEditActivity.newIntent(getActivity(),
