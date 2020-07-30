@@ -76,7 +76,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
         contributionsRecyclerView.layoutManager = LinearLayoutManager(context)
         contributionsRecyclerView.adapter = adapter
 
-        ViewUtil.setActionBarElevation(contributionsRecyclerView, activity as SuggestedEditsContributionsActivity)
+        ViewUtil.setActionBarElevation(contributionsRecyclerView, activity as ContributionsActivity)
 
         swipeRefreshLayout.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent))
         swipeRefreshLayout.setOnRefreshListener {
