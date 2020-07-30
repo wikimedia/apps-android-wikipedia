@@ -11,14 +11,14 @@ import java.util.*
 
 object ImageTagsProvider {
     fun getImageTagsObservable(pageId: Int, langCode: String): Observable<Map<String, List<String>>> {
-        return ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getClaims("M$pageId")
+        return ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getClaims("M$pageId", "P180")
                 .subscribeOn(Schedulers.io())
                 .onErrorReturnItem(Claims())
                 .flatMap { claims ->
                     val depicts = claims.claims()["P180"]
                     val ids = mutableListOf<String?>()
                     depicts?.forEach {
-                        ids.add(it.mainSnak?.dataValue?.value?.id)
+                        ids.add(it.mainSnak?.dataValue?.value)
                     }
                     if (ids.isEmpty()) {
                         Observable.just(Entities())
