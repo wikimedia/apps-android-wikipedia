@@ -261,10 +261,10 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
             return;
         }
         PageTitle pageTitle = (action == TRANSLATE_DESCRIPTION || action == TRANSLATE_CAPTION)
-                ? suggestedEditsCardView.getCard().getTargetSummary().getPageTitle()
-                : suggestedEditsCardView.getCard().getSourceSummary().getPageTitle();
+                ? suggestedEditsCardView.getCard().getTargetSummaryForEdit().getPageTitle()
+                : suggestedEditsCardView.getCard().getSourceSummaryForEdit().getPageTitle();
         startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), pageTitle, null,
-                suggestedEditsCardView.getCard().getSourceSummary(), suggestedEditsCardView.getCard().getTargetSummary(),
+                suggestedEditsCardView.getCard().getSourceSummaryForEdit(), suggestedEditsCardView.getCard().getTargetSummaryForEdit(),
                 action, FEED),
                 ACTIVITY_REQUEST_DESCRIPTION_EDIT);
     }

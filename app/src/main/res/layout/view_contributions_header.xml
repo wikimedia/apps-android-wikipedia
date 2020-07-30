@@ -51,7 +51,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <org.wikipedia.suggestededits.SuggestedEditsTypeItem
+        <org.wikipedia.suggestededits.SuggestedEditsTypeItemView
             android:id="@+id/allTypesView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -60,7 +60,7 @@
             android:layout_marginBottom="12dp"
             android:layout_weight="0.5" />
 
-        <org.wikipedia.suggestededits.SuggestedEditsTypeItem
+        <org.wikipedia.suggestededits.SuggestedEditsTypeItemView
             android:id="@+id/articleDescriptionView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -75,7 +75,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <org.wikipedia.suggestededits.SuggestedEditsTypeItem
+        <org.wikipedia.suggestededits.SuggestedEditsTypeItemView
             android:id="@+id/imageCaptionsView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -83,7 +83,7 @@
             android:layout_marginBottom="12dp"
             android:layout_weight="0.5" />
 
-        <org.wikipedia.suggestededits.SuggestedEditsTypeItem
+        <org.wikipedia.suggestededits.SuggestedEditsTypeItemView
             android:id="@+id/imageTagsView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
