@@ -8,5 +8,6 @@ class SuggestedEditsTask {
     var disabled: Boolean = false
     var new: Boolean = false
     var translatable: Boolean = true
-    @DrawableRes var imageDrawable: Int = 0
+    @DrawableRes
+    var imageDrawable: Int = 0
 }

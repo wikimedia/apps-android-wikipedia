@@ -1,4 +1,4 @@
-package org.wikipedia.suggestededits
+package org.wikipedia.userprofile
 
 import android.content.Context
 import android.util.AttributeSet
@@ -7,12 +7,13 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import kotlinx.android.synthetic.main.view_contributions_header.view.*
 import org.wikipedia.R
-import org.wikipedia.suggestededits.Contribution.Companion.EDIT_TYPE_IMAGE_CAPTION
-import org.wikipedia.suggestededits.Contribution.Companion.EDIT_TYPE_IMAGE_TAG
+import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_IMAGE_CAPTION
+import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_IMAGE_TAG
+import org.wikipedia.suggestededits.SuggestedEditsTypeItemView
 
-class SuggestedEditsContributionsHeaderView constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs), SuggestedEditsTypeItem.Callback {
+class ContributionsHeaderView constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs), SuggestedEditsTypeItemView.Callback {
 
-    private var filterViews = ArrayList<SuggestedEditsTypeItem>()
+    private var filterViews = ArrayList<SuggestedEditsTypeItemView>()
     var callback: Callback? = null
 
     init {
@@ -36,20 +37,20 @@ class SuggestedEditsContributionsHeaderView constructor(context: Context, attrs:
     }
 
     fun updateFilterViewUI(editType: Int, totalContributions: Int) {
-        val view: SuggestedEditsTypeItem
+        val view: SuggestedEditsTypeItemView
         val count: Int
         when (editType) {
             Contribution.EDIT_TYPE_ARTICLE_DESCRIPTION -> {
                 view = articleDescriptionView
-                count = SuggestedEditsUserStats.totalDescriptionEdits
+                count = UserContributionsStats.totalDescriptionEdits
             }
             EDIT_TYPE_IMAGE_CAPTION -> {
                 view = imageCaptionsView
-                count = SuggestedEditsUserStats.totalImageCaptionEdits
+                count = UserContributionsStats.totalImageCaptionEdits
             }
             EDIT_TYPE_IMAGE_TAG -> {
                 view = imageTagsView
-                count = SuggestedEditsUserStats.totalImageTagEdits
+                count = UserContributionsStats.totalImageTagEdits
             }
             else -> {
                 view = allTypesView

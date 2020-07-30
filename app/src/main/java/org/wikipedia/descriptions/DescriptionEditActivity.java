@@ -18,7 +18,7 @@ import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.linkpreview.LinkPreviewDialog;
 import org.wikipedia.readinglist.AddToReadingListDialog;
-import org.wikipedia.suggestededits.SuggestedEditsSummary;
+import org.wikipedia.suggestededits.PageSummaryForEdit;
 import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ShareUtil;
@@ -55,8 +55,8 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
     public static Intent newIntent(@NonNull Context context,
                                    @NonNull PageTitle title,
                                    @Nullable String highlightText,
-                                   @Nullable SuggestedEditsSummary sourceSummary,
-                                   @Nullable SuggestedEditsSummary targetSummary,
+                                   @Nullable PageSummaryForEdit sourceSummary,
+                                   @Nullable PageSummaryForEdit targetSummary,
                                    @NonNull Action action,
                                    @NonNull InvokeSource invokeSource) {
         return new Intent(context, DescriptionEditActivity.class)
@@ -76,12 +76,12 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
 
     @Override
     public void onBottomBarContainerClicked(@NonNull Action action) {
-        SuggestedEditsSummary summary;
+        PageSummaryForEdit summary;
 
         if (action == TRANSLATE_DESCRIPTION) {
-            summary = GsonUnmarshaller.unmarshal(SuggestedEditsSummary.class, getIntent().getStringExtra(EXTRA_TARGET_SUMMARY));
+            summary = GsonUnmarshaller.unmarshal(PageSummaryForEdit.class, getIntent().getStringExtra(EXTRA_TARGET_SUMMARY));
         } else {
-            summary = GsonUnmarshaller.unmarshal(SuggestedEditsSummary.class, getIntent().getStringExtra(EXTRA_SOURCE_SUMMARY));
+            summary = GsonUnmarshaller.unmarshal(PageSummaryForEdit.class, getIntent().getStringExtra(EXTRA_SOURCE_SUMMARY));
         }
 
         if (action == ADD_CAPTION || action == TRANSLATE_CAPTION) {
