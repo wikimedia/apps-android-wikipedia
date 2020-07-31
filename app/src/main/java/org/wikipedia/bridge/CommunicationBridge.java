@@ -54,6 +54,7 @@ public class CommunicationBridge {
         WebView getWebView();
         PageViewModel getModel();
         boolean isPreview();
+        int getToolbarMargin();
     }
 
     @SuppressLint({"AddJavascriptInterface", "SetJavaScriptEnabled"})
@@ -200,7 +201,8 @@ public class CommunicationBridge {
         @JavascriptInterface
         public synchronized String getSetupSettings() {
             return JavaScriptActionHandler.setUp(communicationBridgeListener.getWebView().getContext(),
-                    communicationBridgeListener.getModel().getTitle(), communicationBridgeListener.isPreview());
+                    communicationBridgeListener.getModel().getTitle(), communicationBridgeListener.isPreview(),
+                    communicationBridgeListener.getToolbarMargin());
         }
     }
 

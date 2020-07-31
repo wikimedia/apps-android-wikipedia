@@ -313,6 +313,11 @@ public class EditPreviewFragment extends Fragment implements CommunicationBridge
     }
 
     @Override
+    public int getToolbarMargin() {
+        return 0;
+    }
+
+    @Override
     public LinkHandler getLinkHandler() {
         return linkHandler;
     }
