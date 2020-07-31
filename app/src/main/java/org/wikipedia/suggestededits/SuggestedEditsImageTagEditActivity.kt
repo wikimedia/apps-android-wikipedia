@@ -13,17 +13,16 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.dataclient.mwapi.MwQueryPage
-import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.json.GsonMarshaller
+import org.wikipedia.settings.Prefs
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.views.ImageZoomHelper
 
-class SuggestedEditsFeedCardImageTagActivity : BaseActivity(), SuggestedEditsImageTagsFragment.Callback {
+class SuggestedEditsImageTagEditActivity : BaseActivity(), SuggestedEditsImageTagsFragment.Callback {
 
     private lateinit var imageZoomHelper: ImageZoomHelper
     private var suggestedEditsImageTagsFragment: SuggestedEditsImageTagsFragment? = null
-    var action: DescriptionEditActivity.Action = DescriptionEditActivity.Action.ADD_IMAGE_TAGS
     var page: MwQueryPage? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,6 +35,7 @@ class SuggestedEditsFeedCardImageTagActivity : BaseActivity(), SuggestedEditsIma
         suggestedEditsImageTagsFragment = supportFragmentManager.findFragmentById(R.id.imageTagFragment) as SuggestedEditsImageTagsFragment?
         addContributionButton.setOnClickListener { suggestedEditsImageTagsFragment!!.publish() }
         addContributionLandscapeImage.setOnClickListener { suggestedEditsImageTagsFragment!!.publish() }
+        maybeShowOnboarding()
     }
 
     override fun getLangCode(): String {
@@ -78,11 +78,19 @@ class SuggestedEditsFeedCardImageTagActivity : BaseActivity(), SuggestedEditsIma
         return false
     }
 
+    private fun maybeShowOnboarding() {
+        if (Prefs.shouldShowImageTagsOnboarding()) {
+            Prefs.setShowImageTagsOnboarding(false)
+            startActivity(SuggestedEditsImageTagsOnboardingActivity.newIntent(this))
+        }
+    }
+
     companion object {
         private const val ARG_PAGE = "imageTagPage"
 
+        @JvmStatic
         fun newIntent(context: Context, page: MwQueryPage): Intent {
-            return Intent(context, SuggestedEditsFeedCardImageTagActivity::class.java).putExtra(ARG_PAGE, GsonMarshaller.marshal(page))
+            return Intent(context, SuggestedEditsImageTagEditActivity::class.java).putExtra(ARG_PAGE, GsonMarshaller.marshal(page))
         }
     }
 }

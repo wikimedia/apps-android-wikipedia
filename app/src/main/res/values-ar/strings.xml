@@ -632,6 +632,7 @@
   <string name="description_edit_license_notice">من خلال تغيير وصف المقالة، أوافق على &lt;a href=\"%1$s\"&gt;شروط الاستخدام&lt;/a&gt; وإطلاق مساهماتي بشكل لا رجعة فيه بموجب ترخيص &lt;a href=\"%2$s\"&gt;المشاع الإبداعي CC0&lt;/a&gt;.</string>
   <string name="description_edit_helper_text_lowercase_warning">عادةً ما يبدأ بحرف صغير</string>
   <string name="description_edit_voice_input_description">مدخل صوتي</string>
+  <string name="description_too_short">النص قصير للغاية.</string>
   <string name="description_edit_success_saved">تم نشر وصف المقالة!</string>
   <string name="description_edit_success_saved_snackbar">تم نشر وصف المقالة!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">تم نشر وصف المقالة! (%s)</string>

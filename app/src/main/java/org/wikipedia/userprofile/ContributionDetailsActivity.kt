@@ -1,13 +1,13 @@
-package org.wikipedia.suggestededits
+package org.wikipedia.userprofile
 
 import android.content.Context
 import android.content.Intent
 import org.wikipedia.activity.SingleFragmentActivity
 import org.wikipedia.json.GsonMarshaller
 
-class SuggestedEditsContributionDetailsActivity : SingleFragmentActivity<SuggestedEditsContributionDetailsFragment>() {
-    override fun createFragment(): SuggestedEditsContributionDetailsFragment {
-        return SuggestedEditsContributionDetailsFragment.newInstance()
+class ContributionDetailsActivity : SingleFragmentActivity<ContributionDetailsFragment>() {
+    override fun createFragment(): ContributionDetailsFragment {
+        return ContributionDetailsFragment.newInstance()
     }
 
     fun updateStatusBarColor(color: Int) {
@@ -18,7 +18,7 @@ class SuggestedEditsContributionDetailsActivity : SingleFragmentActivity<Suggest
         const val EXTRA_SOURCE_CONTRIBUTION = "contribution"
 
         fun newIntent(context: Context, contribution: Contribution): Intent {
-            return Intent(context, SuggestedEditsContributionDetailsActivity::class.java)
+            return Intent(context, ContributionDetailsActivity::class.java)
                     .putExtra(EXTRA_SOURCE_CONTRIBUTION, GsonMarshaller.marshal(contribution))
         }
     }
