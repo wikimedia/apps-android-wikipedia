@@ -8,9 +8,9 @@ public final class ABTestDescriptionEditChecksFunnel extends ABTestFunnel {
     }
 
     public boolean shouldSeeChecks() {
-        if (ReleaseUtil.isPreBetaRelease()) {
-            // TODO: expose A/B tests as developer preferences.
-            return true;
+        // TODO: remove when ready.
+        if (!ReleaseUtil.isPreBetaRelease()) {
+            return false;
         }
         boolean enrolled = isEnrolled();
         boolean showChecks = getABTestGroup() == ABTestFunnel.GROUP_1;
