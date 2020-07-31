@@ -110,8 +110,8 @@ public class LeadImagesHandler {
     }
 
     public int getTopMargin() {
-        return isLeadImageEnabled() ? Math.round(leadImageHeightForDevice(parentFragment.requireContext()) / DimenUtil.getDensityScalar())
-                : Math.round(parentFragment.requireActivity().getResources().getDimensionPixelSize(R.dimen.lead_no_image_top_offset_dp) / DimenUtil.getDensityScalar());
+        return DimenUtil.roundedPxToDp(isLeadImageEnabled() ? leadImageHeightForDevice(parentFragment.requireContext())
+                : parentFragment.getToolbarMargin());
     }
 
     /**
