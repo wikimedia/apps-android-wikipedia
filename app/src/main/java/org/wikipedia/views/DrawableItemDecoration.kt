@@ -13,9 +13,8 @@ import org.wikipedia.util.ResourceUtil
 
 // todo: replace with DividerItemDecoration once it supports headers and footers
 class DrawableItemDecoration @JvmOverloads constructor(context: Context, @AttrRes id: Int,
-                                                       private val drawStart: Boolean = true,
-                                                       private val drawEnd: Boolean = true,
-                                                       private val horizontalPadding: Int = -1) : ItemDecoration() {
+                                                       private val drawStart: Boolean = false,
+                                                       private val drawEnd: Boolean = true) : ItemDecoration() {
 
     private val drawable: Drawable = AppCompatResources.getDrawable(context, ResourceUtil.getThemedAttributeId(context, id))!!
 
@@ -47,8 +46,8 @@ class DrawableItemDecoration @JvmOverloads constructor(context: Context, @AttrRe
     private fun bounds(parent: RecyclerView, child: View, top: Boolean): Rect {
         val layoutManager = parent.layoutManager
         val bounds = Rect()
-        bounds.right = parent.width - if (horizontalPadding != -1) horizontalPadding else parent.paddingRight
-        bounds.left = if (horizontalPadding != -1) horizontalPadding else parent.paddingLeft
+        bounds.right = parent.width - parent.paddingRight
+        bounds.left = parent.paddingLeft
         val height = drawable.intrinsicHeight
         bounds.top = if (top) layoutManager!!.getDecoratedTop(child) else layoutManager!!.getDecoratedBottom(child) - height
         bounds.bottom = bounds.top + height
