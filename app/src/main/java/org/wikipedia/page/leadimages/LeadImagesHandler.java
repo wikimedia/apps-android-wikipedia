@@ -28,8 +28,8 @@ import org.wikipedia.gallery.ImageInfo;
 import org.wikipedia.page.Page;
 import org.wikipedia.page.PageFragment;
 import org.wikipedia.page.PageTitle;
-import org.wikipedia.suggestededits.SuggestedEditsImageTagEditActivity;
 import org.wikipedia.suggestededits.PageSummaryForEdit;
+import org.wikipedia.suggestededits.SuggestedEditsImageTagEditActivity;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.ObservableWebView;
@@ -188,16 +188,16 @@ public class LeadImagesHandler {
                 callToActionIsTranslation = true;
                 String currentCaption = imageCaptions.get(getTitle().getWikiSite().languageCode());
                 captionSourcePageTitle.setDescription(currentCaption);
-                callToActionSourceSummary = new SuggestedEditsSummary(captionSourcePageTitle.getPrefixedText(), captionSourcePageTitle.getWikiSite().languageCode(), captionSourcePageTitle,
+                callToActionSourceSummary = new PageSummaryForEdit(captionSourcePageTitle.getPrefixedText(), captionSourcePageTitle.getWikiSite().languageCode(), captionSourcePageTitle,
                         captionSourcePageTitle.getDisplayText(), currentCaption, getLeadImageUrl());
 
-                callToActionTargetSummary = new SuggestedEditsSummary(captionTargetPageTitle.getPrefixedText(), captionTargetPageTitle.getWikiSite().languageCode(), captionTargetPageTitle,
+                callToActionTargetSummary = new PageSummaryForEdit(captionTargetPageTitle.getPrefixedText(), captionTargetPageTitle.getWikiSite().languageCode(), captionTargetPageTitle,
                         captionTargetPageTitle.getDisplayText(), null, getLeadImageUrl());
                 pageHeaderView.setUpCallToAction(app.getResources().getString(R.string.suggested_edits_article_cta_image_caption_in_language, app.language().getAppLanguageLocalizedName(captionTargetPageTitle.getWikiSite().languageCode())));
                 break;
             default:
                 pageHeaderView.setUpCallToAction(app.getResources().getString(R.string.suggested_edits_article_cta_image_caption));
-                callToActionSourceSummary = new SuggestedEditsSummary(captionSourcePageTitle.getPrefixedText(), getTitle().getWikiSite().languageCode(), captionSourcePageTitle,
+                callToActionSourceSummary = new PageSummaryForEdit(captionSourcePageTitle.getPrefixedText(), getTitle().getWikiSite().languageCode(), captionSourcePageTitle,
                         captionSourcePageTitle.getDisplayText(), StringUtils.defaultIfBlank(StringUtil.fromHtml(imageInfo.getMetadata().imageDescription()).toString(), null),
                         imageInfo.getThumbUrl());
         }
