@@ -13,6 +13,7 @@ import androidx.annotation.Nullable;
 
 import org.wikipedia.Constants;
 import org.wikipedia.R;
+import org.wikipedia.analytics.ReadingListsFunnel;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.database.ReadingList;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
@@ -72,7 +73,15 @@ public class MoveToReadingListDialog extends AddToReadingListDialog {
         if (sourceReadingList == null) {
             dismiss();
         }
+
         return parentView;
+    }
+
+    @Override
+    void logClick(@Nullable Bundle savedInstanceState) {
+        if (savedInstanceState == null) {
+            new ReadingListsFunnel().logMoveClick(invokeSource);
+        }
     }
 
     @Override
@@ -81,7 +90,7 @@ public class MoveToReadingListDialog extends AddToReadingListDialog {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(movedTitlesList -> {
-                    // TODO: add funnel?
+                    new ReadingListsFunnel().logMoveToList(readingList, readingLists.size(), invokeSource);
                     showViewListSnackBar(readingList, (movedTitlesList.size() == 1)
                             ? getString(R.string.reading_list_article_moved_to_named, movedTitlesList.get(0), readingList.title())
                             : getString(R.string.reading_list_articles_moved_to_named, movedTitlesList.size(), readingList.title()));

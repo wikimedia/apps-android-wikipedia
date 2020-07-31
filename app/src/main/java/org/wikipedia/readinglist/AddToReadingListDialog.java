@@ -46,9 +46,9 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
     private View onboardingContainer;
     private View onboardingButton;
     private CreateButtonClickListener createClickListener = new CreateButtonClickListener();
-    private List<ReadingList> readingLists = new ArrayList<>();
-    private InvokeSource invokeSource;
     private boolean showDefaultList;
+    List<ReadingList> readingLists = new ArrayList<>();
+    InvokeSource invokeSource;
     CompositeDisposable disposables = new CompositeDisposable();
 
     static final String PAGE_TITLE_LIST = "pageTitleList";
@@ -111,10 +111,8 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
         View createButton = rootView.findViewById(R.id.create_button);
         createButton.setOnClickListener(createClickListener);
 
-        if (savedInstanceState == null) {
-            // Log a click event, but only the first time the dialog is shown.
-            new ReadingListsFunnel().logAddClick(invokeSource);
-        }
+        // Log a click event, but only the first time the dialog is shown.
+        logClick(savedInstanceState);
 
         onboardingContainer.setVisibility(View.GONE);
         listsContainer.setVisibility(View.GONE);
@@ -219,6 +217,12 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
             return;
         }
         commitChanges(readingList, titles);
+    }
+
+    void logClick(@Nullable Bundle savedInstanceState) {
+        if (savedInstanceState == null) {
+            new ReadingListsFunnel().logAddClick(invokeSource);
+        }
     }
 
     void commitChanges(final ReadingList readingList, final List<PageTitle> titles) {

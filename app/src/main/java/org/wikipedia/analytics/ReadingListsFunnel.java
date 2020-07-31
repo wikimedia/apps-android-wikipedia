@@ -38,6 +38,23 @@ public class ReadingListsFunnel extends Funnel {
         );
     }
 
+    public void logMoveClick(InvokeSource source) {
+        log(
+                "action", "moveclick",
+                "addsource", source.ordinal()
+        );
+    }
+
+    public void logMoveToList(ReadingList list, int listCount,
+                              InvokeSource source) {
+        log(
+                "action", list.pages().isEmpty() ? "movetonew" : "movetoexisting",
+                "addsource", source.ordinal(),
+                "itemcount", list.pages().size(),
+                "listcount", listCount
+        );
+    }
+
     public void logModifyList(ReadingList list, int listCount) {
         log(
                 "action", "modifylist",

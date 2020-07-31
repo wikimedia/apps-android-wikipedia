@@ -116,6 +116,7 @@ import static android.app.Activity.RESULT_OK;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_GALLERY;
 import static org.wikipedia.Constants.InvokeSource.BOOKMARK_BUTTON;
 import static org.wikipedia.Constants.InvokeSource.PAGE_ACTIVITY;
+import static org.wikipedia.Constants.InvokeSource.SNACKBAR_ACTION;
 import static org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_DESCRIPTION;
 import static org.wikipedia.descriptions.DescriptionEditTutorialActivity.DESCRIPTION_SELECTED_TEXT;
 import static org.wikipedia.feed.announcement.Announcement.PLACEMENT_ARTICLE;
@@ -1313,9 +1314,8 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(addedTitlesList -> {
                     new ReadingListsFunnel().logAddToList(defaultList, 1, BOOKMARK_BUTTON);
-                    // TODO: need to check whether we'd like to use BOOKMARK_BUTTON source below.
                     FeedbackUtil.makeSnackbar(getActivity(), getString(R.string.reading_list_article_added_to_default_list, title.getDisplayText()), FeedbackUtil.LENGTH_DEFAULT)
-                            .setAction(R.string.reading_list_add_to_list_button, v -> moveToReadingList(defaultList.id(), title, BOOKMARK_BUTTON, false)).show();
+                            .setAction(R.string.reading_list_add_to_list_button, v -> moveToReadingList(defaultList.id(), title, SNACKBAR_ACTION, false)).show();
                 }, L::w));
     }
 
