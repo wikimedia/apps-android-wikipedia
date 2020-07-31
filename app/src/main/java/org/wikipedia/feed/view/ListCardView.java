@@ -68,7 +68,7 @@ public abstract class ListCardView<T extends Card> extends DefaultFeedCardView<T
         directly. */
     protected void initRecycler(@NonNull RecyclerView recyclerView) {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerView.addItemDecoration(new DrawableItemDecoration(getContext(), R.attr.list_separator_drawable));
+        recyclerView.addItemDecoration(new DrawableItemDecoration(getContext(), R.attr.list_separator_drawable, true));
         recyclerView.setNestedScrollingEnabled(false);
     }
 
