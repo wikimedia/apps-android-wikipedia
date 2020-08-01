@@ -771,8 +771,9 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
 
         updateProgressBar(true);
 
-        this.pageRefreshed = isRefresh;
+        pageRefreshed = isRefresh;
         references = null;
+        revision = 0;
 
         closePageScrollFunnel();
         pageFragmentLoadState.load(pushBackStack);
@@ -1256,6 +1257,10 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     @Override
     public void wiktionaryShowDialogForTerm(@NonNull String term) {
         shareHandler.showWiktionaryDefinition(term);
+    }
+
+    public int getToolbarMargin() {
+        return ((PageActivity) requireActivity()).toolbarContainerView.getHeight();
     }
 
     public void loadPage(@NonNull PageTitle title, @NonNull HistoryEntry entry) {
