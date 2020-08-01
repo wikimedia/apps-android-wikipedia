@@ -40,7 +40,6 @@ import org.wikipedia.commons.ImageTagsProvider;
 import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.dataclient.mwapi.media.MediaHelper;
 import org.wikipedia.descriptions.DescriptionEditActivity;
 import org.wikipedia.feed.image.FeaturedImage;
@@ -71,7 +70,6 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -82,7 +80,6 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.disposables.Disposable;
-import io.reactivex.rxjava3.functions.Function3;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
 import static org.wikipedia.Constants.INTENT_EXTRA_ACTION;
@@ -336,7 +333,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         if (requestCode == ACTIVITY_REQUEST_ADD_IMAGE_TAGS && resultCode == RESULT_OK) {
             FeedbackUtil.showMessage(this, getString(R.string.description_edit_success_saved_image_tags_snackbar));
             layOutGalleryDescription();
-            setResult(ACTIVITY_RESULT_IMAGE_CAPTION_ADDED);
+            setResult(ACTIVITY_REQUEST_ADD_IMAGE_TAGS);
         }
     }
 
@@ -655,13 +652,10 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         disposeImageCaptionDisposable();
         imageCaptionDisposable = Observable.zip(MediaHelper.INSTANCE.getImageCaptions(item.getImageTitle().getPrefixedText()),
                 ServiceFactory.get(new WikiSite(Service.COMMONS_URL)).getProtectionInfo(item.getImageTitle().getPrefixedText()),
-                ImageTagsProvider.getImageTagsObservable(getCurrentItem().getMediaPage().pageId(), WikipediaApp.getInstance().getAppOrSystemLanguageCode()), new Function3<Map<String, String>, MwQueryResponse, Map<String, List<String>>, Boolean>() {
-                    @Override
-                    public Boolean apply(Map<String, String> captions, MwQueryResponse protectionInfoRsp, Map<String, List<String>> imageTags) throws Throwable {
-                        item.getMediaInfo().setCaptions(captions);
-                        imageTagsCount = imageTags.size();
-                        return protectionInfoRsp.query().isEditProtected();
-                    }
+                ImageTagsProvider.getImageTagsObservable(getCurrentItem().getMediaPage().pageId(), WikipediaApp.getInstance().getAppOrSystemLanguageCode()), (captions, protectionInfoRsp, imageTags) -> {
+                    item.getMediaInfo().setCaptions(captions);
+                    imageTagsCount = imageTags.size();
+                    return protectionInfoRsp.query().isEditProtected();
                 })
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -698,7 +692,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         setLicenseInfo(item);
     }
 
-    private void decideImageEditType(GalleryItemFragment item) {
+    private void decideImageEditType(@NonNull GalleryItemFragment item) {
         if (!item.getMediaInfo().getCaptions().containsKey(sourceWiki.languageCode())) {
             imageEditType = ImageEditType.ADD_CAPTION;
             targetLanguageCode = sourceWiki.languageCode();
@@ -726,7 +720,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         }
     }
 
-    private void displayApplicableDescription(GalleryItemFragment item) {
+    private void displayApplicableDescription(@NonNull  GalleryItemFragment item) {
         // If we have a structured caption in our current language, then display that instead
         // of the unstructured description, and make it editable.
         CharSequence descriptionStr;
@@ -743,7 +737,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         }
     }
 
-    private void setLicenseInfo(GalleryItemFragment item) {
+    private void setLicenseInfo(@NonNull GalleryItemFragment item) {
         ImageLicense license = new ImageLicense(item.getMediaInfo().getMetadata().license(), item.getMediaInfo().getMetadata().licenseShortName(), item.getMediaInfo().getMetadata().licenseUrl());
 
         // determine which icon to display...

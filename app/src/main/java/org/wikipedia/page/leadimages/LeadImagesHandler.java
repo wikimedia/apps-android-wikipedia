@@ -174,12 +174,12 @@ public class LeadImagesHandler {
                     if (imageEditType != ImageEditType.ADD_CAPTION && imageTagsResult != null && imageTagsResult.size() == 0) {
                         imageEditType = ImageEditType.ADD_TAGS;
                     }
-                    updateCta();
+                    finalizeCallToAction();
                 })
         );
     }
 
-    private void updateCta() {
+    private void finalizeCallToAction() {
         switch (imageEditType) {
             case ADD_TAGS:
                 pageHeaderView.setUpCallToAction(app.getResources().getString(R.string.suggested_edits_article_cta_image_tags));
@@ -196,10 +196,10 @@ public class LeadImagesHandler {
                 pageHeaderView.setUpCallToAction(app.getResources().getString(R.string.suggested_edits_article_cta_image_caption_in_language, app.language().getAppLanguageLocalizedName(captionTargetPageTitle.getWikiSite().languageCode())));
                 break;
             default:
-                pageHeaderView.setUpCallToAction(app.getResources().getString(R.string.suggested_edits_article_cta_image_caption));
                 callToActionSourceSummary = new PageSummaryForEdit(captionSourcePageTitle.getPrefixedText(), getTitle().getWikiSite().languageCode(), captionSourcePageTitle,
                         captionSourcePageTitle.getDisplayText(), StringUtils.defaultIfBlank(StringUtil.fromHtml(imageInfo.getMetadata().imageDescription()).toString(), null),
                         imageInfo.getThumbUrl());
+                pageHeaderView.setUpCallToAction(app.getResources().getString(R.string.suggested_edits_article_cta_image_caption));
         }
     }
 
@@ -239,6 +239,7 @@ public class LeadImagesHandler {
             public void onCallToActionClicked() {
                 if (imageEditType == ImageEditType.ADD_TAGS) {
                     getActivity().startActivityForResult(SuggestedEditsImageTagEditActivity.Companion.newIntent(getActivity(), imagePage), ACTIVITY_REQUEST_IMAGE_TAGS_EDIT);
+                    return;
                 }
                 if (imageEditType == ImageEditType.ADD_CAPTION_TRANSLATION ? (callToActionTargetSummary != null && callToActionSourceSummary != null) : callToActionSourceSummary != null) {
                     getActivity().startActivityForResult(DescriptionEditActivity.newIntent(getActivity(),
