@@ -773,8 +773,9 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
 
         updateProgressBar(true);
 
-        this.pageRefreshed = isRefresh;
+        pageRefreshed = isRefresh;
         references = null;
+        revision = 0;
 
         closePageScrollFunnel();
         pageFragmentLoadState.load(pushBackStack);

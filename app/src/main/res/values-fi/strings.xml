@@ -377,6 +377,8 @@
   <string name="reading_list_title_exists">Lukulukuluettelo ”%s” on jo olemassa.</string>
   <string name="reading_list_article_added_to_named">Lisättiin %1$s kohteeseen %2$s.</string>
   <string name="reading_list_article_moved_to_named">Siirrettiin %1$s kohteeseen %2$s.</string>
+  <string name="reading_list_article_already_exists_message">Kaikki hyvin! %1$s sisältää jo artikkelin %2$s.</string>
+  <string name="reading_list_articles_already_exist_message">Kaikki hyvin! %s sisältää jo kaikki artikkelit.</string>
   <string name="reading_list_added_view_button">Näytä lista</string>
   <string name="format_reading_list_statistical_summary_singular">1 artikkeli, %1$.2f Mt</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d artikkelia, %2$.2f Mt</string>
