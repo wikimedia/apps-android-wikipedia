@@ -59,7 +59,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:background="?attr/paper_color">
 
             <org.wikipedia.views.AppTextView
                 android:id="@+id/view_news_fullscreen_story_text"
