@@ -582,6 +582,7 @@
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_edit_anon_limit" fuzzy="true">Tak for din fortsatte interesse i at redigere beskrivelser! Log venligst ind på din Wikipedia-konto for at foretage yderligere redigeringer.</string>
   <string name="description_edit_license_notice" fuzzy="true">Ved at ændre titelbeskrivelsen accepterer jeg &lt;a href=\"%1$s\"&gt;brugsbetingelserne&lt;/a&gt; samt at uigenkaldeligt frigive mine bidrag under &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;-licensen.</string>
+  <string name="description_too_short">Teksten er for kort.</string>
   <string name="description_edit_success_saved" fuzzy="true">Beskrivelsen blev offentliggjort!</string>
   <string name="description_edit_success_encouragement">Du har lige gjort Wikipedia bedre for alle</string>
   <string name="description_edit_success_done">Færdig</string>
