@@ -1073,7 +1073,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             webView.setScrollY(webView.getScrollY() + diffY - webView.getHeight() / offsetFraction);
         });
         bridge.addListener("image", (String messageType, JsonObject messagePayload) -> {
-            L.d("Image clicked " + messagePayload);
             linkHandler.onUrlClick(decodeURL(messagePayload.get("href").getAsString()),
                     messagePayload.has("title") ? messagePayload.get("title").getAsString() : null, "");
         });
