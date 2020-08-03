@@ -4,7 +4,10 @@
     android:id="@+id/containerClickArea"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="16dp"
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp"
+    android:paddingTop="16dp"
+    android:paddingBottom="8dp"
     android:clickable="true"
     android:focusable="true"
     android:background="?attr/selectableItemBackground"
@@ -46,14 +49,12 @@
             android:id="@+id/positiveButton"
             style="@style/FlatButton.Small"
             android:layout_marginEnd="8dp"
-            android:layout_marginTop="6dp"
             app:iconSize="20dp"
             app:iconTint="?attr/colorAccent"/>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/negativeButton"
             style="@style/FlatButton.Small.Transparent"
-            android:layout_marginTop="6dp"
             android:visibility="gone"/>
 
     </com.google.android.flexbox.FlexboxLayout>
