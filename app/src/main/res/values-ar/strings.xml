@@ -441,6 +441,7 @@
   <string name="reading_lists_sync_reminder_action">تمكين المزامنة</string>
   <string name="reading_list_login_reminder_title">مزامنة قوائم القراءة</string>
   <string name="reading_lists_login_reminder_text">يمكن الآن مزامنة قوائم القراءة عبر الأجهزة، سجل الدخول إلى حسابك في ويكيبيديا واسمح بحفظ قوائمك.</string>
+  <string name="reading_lists_ignore_button">ليس الآن</string>
   <string name="reading_lists_confirm_remote_delete_yes">نعم</string>
   <string name="reading_lists_confirm_remote_delete_no">لا</string>
   <string name="reading_list_article_save_in_progress">جارٍ تنزيل المقالة، وستكون متاحةً في وضع عدم الاتصال عن الاكتمال.</string>
