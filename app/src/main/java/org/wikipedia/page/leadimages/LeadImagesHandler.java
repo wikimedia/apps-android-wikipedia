@@ -258,7 +258,7 @@ public class LeadImagesHandler {
                 String filename = "File:" + imageName;
                 WikiSite wiki = language == null ? getTitle().getWikiSite() : WikiSite.forLanguageCode(language);
                 getActivity().startActivityForResult(GalleryActivity.newIntent(getActivity(),
-                        parentFragment.getTitleOriginal(), filename, wiki, parentFragment.getRevision(),
+                        parentFragment.getTitle(), filename, wiki, parentFragment.getRevision(),
                         GalleryFunnel.SOURCE_LEAD_IMAGE),
                         Constants.ACTIVITY_REQUEST_GALLERY);
             }

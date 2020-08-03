@@ -630,6 +630,10 @@
   <string name="description_edit_license_notice">En canviar la descripció de l\'article, estic d\'acord amb els &lt;a href=\"%1$s\"&gt;termes d\'ús&lt;/a&gt; i allibero irrevocablement les meves contribucions sota la llicència &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_helper_text_lowercase_warning">normalment comença amb una lletra en minúscula</string>
   <string name="description_edit_voice_input_description">Entrada de veu</string>
+  <string name="description_too_short">El text és massa curt.</string>
+  <string name="description_ends_with_punctuation">El text no ha d\'acabar amb puntuació.</string>
+  <string name="description_starts_with_article">No comenceu amb articles com ara «un» o «el».</string>
+  <string name="description_starts_with_uppercase">Comenceu amb minúscula a menys que la primera paraula sigui un nom propi.</string>
   <string name="description_edit_success_saved">S\'ha publicat la descripció d\'article!</string>
   <string name="description_edit_success_saved_snackbar">S’ha publicat la descripció d\'article.</string>
   <string name="description_edit_success_saved_in_lang_snackbar">S\'ha publicat la descripció de l\'article (%s)</string>
