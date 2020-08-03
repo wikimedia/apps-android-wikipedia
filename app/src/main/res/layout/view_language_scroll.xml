@@ -14,6 +14,7 @@
         android:clipToPadding="false"
         android:requiresFadingEdge="horizontal"
         android:fadingEdgeLength="24dp"
+        android:background="?attr/paper_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/more_languages"
         app:layout_constraintStart_toStartOf="parent"

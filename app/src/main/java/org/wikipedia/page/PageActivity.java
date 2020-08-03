@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -27,6 +28,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
+import androidx.core.view.ViewCompat;
 import androidx.drawerlayout.widget.FixedDrawerLayout;
 import androidx.preference.PreferenceManager;
 
@@ -38,6 +41,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.BaseActivity;
 import org.wikipedia.analytics.IntentFunnel;
 import org.wikipedia.analytics.LinkPreviewFunnel;
+import org.wikipedia.commons.FilePageActivity;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.descriptions.DescriptionEditRevertHelpView;
 import org.wikipedia.events.ArticleSavedOrDeletedEvent;
@@ -179,6 +183,13 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         drawerLayout.setScrimColor(Color.TRANSPARENT);
         containerWithNavTrigger.setCallback(this);
 
+        getWindow().getDecorView().setSystemUiVisibility(getWindow().getDecorView().getSystemUiVisibility() | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
+        getWindow().setStatusBarColor(ContextCompat.getColor(pageFragment.requireContext(), R.color.black12));
+        ViewCompat.setOnApplyWindowInsetsListener(drawerLayout, (v, insets) -> {
+            toolbarContainerView.setPadding(0, insets.getSystemWindowInsetTop(), 0, 0);
+            return insets;
+        });
+
         boolean languageChanged = false;
         if (savedInstanceState != null) {
             if (savedInstanceState.getBoolean("isSearching")) {
@@ -198,6 +209,18 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             // then we must have been launched with an Intent, so... handle it!
             handleIntent(getIntent());
         }
+    }
+
+    public void requestLightStatusBar(boolean light) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+            return;
+        }
+        if (app.getCurrentTheme().isDark()) {
+            return;
+        }
+        getWindow().getDecorView().setSystemUiVisibility(light
+                ? getWindow().getDecorView().getSystemUiVisibility() | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+                : getWindow().getDecorView().getSystemUiVisibility() & ~View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
     }
 
     @OnClick(R.id.page_toolbar_button_search)
@@ -339,7 +362,12 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
                 // This can be a Uri or a String, so let's extract it safely as an Object.
                 historyEntry.setReferrer(intent.getExtras().get(Intent.EXTRA_REFERRER).toString());
             }
-            if (title.isSpecial()) {
+            // Special cases:
+            // If the app was launched from an external deeplink to a "Special:" page, or if the
+            // link is to a page in the "donate." domain (e.g. a "thank you" page after having
+            // donated), then bounce it out to an external browser, since we don't have the same
+            // cookie state as the browser does.
+            if (title.isSpecial() || wiki.languageCode().toLowerCase().equals("donate")) {
                 visitInExternalBrowser(this, uri);
                 finish();
                 return;
@@ -368,7 +396,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             loadPage(title, historyEntry, TabPosition.EXISTING_TAB);
         } else if (ACTION_RESUME_READING.equals(intent.getAction())
                 || intent.hasExtra(Constants.INTENT_APP_SHORTCUT_CONTINUE_READING)) {
-            // do nothing, since this will be handled indirectly by PageFragment.
+            loadFilePageFromBackStackIfNeeded();
         } else if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
             String query = intent.getStringExtra(SearchManager.QUERY);
             PageTitle title = new PageTitle(query, app.getWikiSite());
@@ -404,6 +432,8 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         if (isDestroyed()) {
             return;
         }
+
+        loadFilePageIfNeeded(title);
 
         if (entry.getSource() != HistoryEntry.SOURCE_INTERNAL_LINK || !isLinkPreviewEnabled()) {
             new LinkPreviewFunnel(app, entry.getSource()).logNavigate();
@@ -444,6 +474,20 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         PageTitle title = MainPageClient.getMainPageTitle();
         HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_MAIN_PAGE);
         loadPage(title, historyEntry, position);
+    }
+
+    private void loadFilePageFromBackStackIfNeeded() {
+        if (!pageFragment.getCurrentTab().getBackStack().isEmpty()) {
+            PageBackStackItem item = pageFragment.getCurrentTab().getBackStack().get(pageFragment.getCurrentTab().getBackStackPosition());
+            loadFilePageIfNeeded(item.getTitle());
+        }
+    }
+
+    private void loadFilePageIfNeeded(@Nullable PageTitle title) {
+        if (title != null && title.isFilePage()) {
+            startActivity(FilePageActivity.newIntent(this, title));
+            finish();
+        }
     }
 
     private void hideLinkPreview() {
