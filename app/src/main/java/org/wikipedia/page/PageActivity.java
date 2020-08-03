@@ -41,6 +41,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.BaseActivity;
 import org.wikipedia.analytics.IntentFunnel;
 import org.wikipedia.analytics.LinkPreviewFunnel;
+import org.wikipedia.commons.FilePageActivity;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.descriptions.DescriptionEditRevertHelpView;
 import org.wikipedia.events.ArticleSavedOrDeletedEvent;
@@ -395,7 +396,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             loadPage(title, historyEntry, TabPosition.EXISTING_TAB);
         } else if (ACTION_RESUME_READING.equals(intent.getAction())
                 || intent.hasExtra(Constants.INTENT_APP_SHORTCUT_CONTINUE_READING)) {
-            // do nothing, since this will be handled indirectly by PageFragment.
+            loadFilePageFromBackStackIfNeeded();
         } else if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
             String query = intent.getStringExtra(SearchManager.QUERY);
             PageTitle title = new PageTitle(query, app.getWikiSite());
@@ -431,6 +432,8 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         if (isDestroyed()) {
             return;
         }
+
+        loadFilePageIfNeeded(title);
 
         if (entry.getSource() != HistoryEntry.SOURCE_INTERNAL_LINK || !isLinkPreviewEnabled()) {
             new LinkPreviewFunnel(app, entry.getSource()).logNavigate();
@@ -471,6 +474,20 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         PageTitle title = MainPageClient.getMainPageTitle();
         HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_MAIN_PAGE);
         loadPage(title, historyEntry, position);
+    }
+
+    private void loadFilePageFromBackStackIfNeeded() {
+        if (!pageFragment.getCurrentTab().getBackStack().isEmpty()) {
+            PageBackStackItem item = pageFragment.getCurrentTab().getBackStack().get(pageFragment.getCurrentTab().getBackStackPosition());
+            loadFilePageIfNeeded(item.getTitle());
+        }
+    }
+
+    private void loadFilePageIfNeeded(@Nullable PageTitle title) {
+        if (title != null && title.isFilePage()) {
+            startActivity(FilePageActivity.newIntent(this, title));
+            finish();
+        }
     }
 
     private void hideLinkPreview() {

@@ -3,6 +3,7 @@
 * Abijeet Patro
 * Dibya Dutta
 * Gitartha.bordoloi
+* Mohsin Ali
 * Onubadok
 * Paradox
 * Sagsag
@@ -17,10 +18,13 @@
   <string name="page_tabs_back">পিছলৈ যাওক</string>
   <string name="nav_item_forward">আগলৈ যাওক</string>
   <string name="search_hint">ৱিকিপিডিয়াত সন্ধান কৰক</string>
+  <string name="search_hint_voice_search">ভইচ ইনপুট সন্ধান</string>
   <string name="search_hint_search_history">ইতিহাস সন্ধান কৰক</string>
   <string name="search_hint_search_languages">ভাষাৰ সন্ধান কৰক</string>
   <string name="search_hint_search_my_lists_and_articles">মোৰ তালিকা আৰু প্ৰবন্ধবোৰত সন্ধান কৰক</string>
   <string name="nav_item_history">ইতিহাস</string>
+  <string name="nav_item_suggested_edits">সম্পাদনা</string>
+  <string name="nav_item_more">অধিক</string>
   <string name="error_network_error">ইণ্টাৰনেটৰ লগত সংযোগ কৰিব পৰা নাই।</string>
   <string name="page_error_retry">পুনৰ চেষ্টা কৰক</string>
   <string name="card_offline_error_retry">পুনৰ চেষ্টা কৰক</string>
@@ -66,6 +70,7 @@
   <string name="map_view_link_text">এখন মানচিত্ৰত চাওক</string>
   <string name="other_languages_indication_text">আন এটা ভাষাত পঢ়ক</string>
   <string name="language_count_link_text">আন %d ভাষাত উপলব্ধ</string>
+  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in">প্ৰকাশ কৰি আপুনি &lt;a href=\"%1$s\"&gt;ব্যৱহাৰৰ চৰ্তাৱলী&lt;/a&gt;ত সন্মতি প্ৰকাশ কৰিছে, আৰু অপৰিৱৰ্তনীয়ভাৱে আপোনাৰ বৰঙণি &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; অনুজ্ঞাপত্ৰৰ আধাৰত মুকলি কৰিছে।</string>
   <string name="edit_save_action_license_anon">সাঁচি থওঁতে আপুনি &lt;a href=\"%1$s\"&gt;ব্যৱহাৰৰ চৰ্তাৱলী&lt;/a&gt;ত সন্মতি প্ৰকাশ কৰিছে, আৰু অপৰিৱৰ্তনীয়ভাৱে আপোনাৰ বৰঙণি &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; অনুজ্ঞাপত্ৰৰ আধাৰত মুকলি কৰিছে। সম্পাদনাসমূহ আপোনাৰ সঁজুলিৰ আই পি ঠিকনাৰ লগত যুক্ত কৰা হ\'ব। আপুনি &lt;a href=\"https://#login\"&gt;লগ্‌ ইন&lt;/a&gt; কৰিলে অধিক গোপনীয়তা লাভ কৰিব।</string>
   <string name="preference_title_language">ৱিকিপিডিয়াৰ ভাষাসমূহ</string>
@@ -103,9 +108,9 @@
   <string name="reading_lists_sync_login">প্ৰৱেশ কৰক</string>
   <string name="create_account_login">প্ৰৱেশ কৰক</string>
   <string name="menu_login">প্ৰৱেশ</string>
-  <string name="login_activity_title" fuzzy="true">ৱিকিপিডিয়াত প্ৰৱেশ কৰক</string>
+  <string name="login_activity_title">লগ ইন কৰক</string>
   <string name="login_in_progress_dialog_message">আপুনি প্ৰৱেশ কৰিছে…</string>
-  <string name="login_success_toast" fuzzy="true">প্ৰৱেশ সফল হ\'ল!</string>
+  <string name="login_success_toast">লগ ইন কৰিলে!</string>
   <string name="reset_password_title">আপোনাৰ গুপ্তশব্দ লিখক</string>
   <string name="reset_password_description">আপুনি এটা অস্থায়ী গুপ্তশব্দৰে প্ৰৱেশ কৰিছে। প্ৰৱেশ সম্পূৰ্ণ কৰিবলৈ আপুনি ইয়াত এটা নতুন গুপ্তশব্দ নিৰ্ধাৰণ কৰিব লাগিব।</string>
   <string name="reset_password_hint">নতুন গুপ্তশব্দ</string>
@@ -372,6 +377,8 @@
   <string name="reading_list_turned_sync_off_dialog_settings">ছেটিংছ</string>
   <string name="reading_list_article_offline_message" fuzzy="true">এই প্ৰবন্ধটো এতিয়া অফলাইন উপলব্ধ হ\'ব।</string>
   <string name="reading_list_article_not_offline_message" fuzzy="true">এই প্ৰবন্ধটো এতিয়া অফলাইন উপলব্ধ নহ\'ব।</string>
+  <string name="reading_list_remove_list_dialog_ok_button_text">বাৰু</string>
+  <string name="reading_list_delete_dialog_ok_button_text">ঠিক</string>
   <string name="reading_list_remove_from_list_dialog_cancel_button_text">বাতিল কৰক</string>
   <string name="reading_list_delete_dialog_cancel_button_text">বাতিল কৰক</string>
   <string name="reading_list_remove_from_offline_cancel_button_text">বাতিল কৰক</string>
@@ -381,6 +388,7 @@
   <string name="notification_reverted_title">প্ৰত্যাৱৰ্তিত সম্পাদনা</string>
   <string name="notification_channel_description">ডাউনল\'ডৰ অগ্ৰগতি</string>
   <string name="notification_syncing_pause_button">বিৰতি</string>
+  <string name="notification_syncing_resume_button">পুনৰাৰম্ভ কৰক</string>
   <string name="notification_syncing_cancel_button">বাতিল কৰক</string>
   <string name="notification_echo_channel_description">ৱিকিপিডিয়াৰ জাননী</string>
   <string name="notifications_activity_title">জাননীসমূহ</string>
@@ -388,23 +396,40 @@
   <string name="notifications_search">জাননীসমূহ সন্ধান কৰক</string>
   <string name="notifications_poll_enable_negative">এতিয়া নহয়</string>
   <string name="preference_title_notification_thanks">ধন্যবাদ</string>
+  <string name="preference_title_notification_login_fail">লগিন</string>
+  <string name="preference_summary_notification_login_fail">আপোনাৰ লগ ইন কাৰ্যকলাপ</string>
+  <string name="preference_title_notification_mention">উল্লেখ</string>
+  <string name="preference_summary_notification_mention">কোনোবাই পৃষ্ঠা এখনত আপোনাক উল্লেখ কৰে</string>
+  <string name="preference_title_notification_user_talk">আলোচনা পৃষ্ঠা</string>
+  <string name="preference_summary_notification_user_talk">আলোচনা পৃষ্ঠাৰ বাৰ্তাসমূহ</string>
   <string name="view_because_you_read_card_title">কাৰণ আপুনি পঢ়িছে</string>
   <string name="view_random_card_title">যাদৃচ্ছিক</string>
   <string name="view_random_card_subtitle" fuzzy="true">ৱিকিপিডিয়াৰ যিকোনো এটা প্ৰবন্ধ পঢ়ক</string>
   <string name="view_main_page_card_title">ৱিকিপিডিয়াত আজি</string>
   <string name="view_main_page_card_subtitle">%s তাৰিখত মূল পৃষ্ঠা</string>
+  <string name="view_main_page_card_action">মুখ্য পৃষ্ঠা চাওক</string>
   <string name="view_featured_image_card_title">অজিৰ নিৰ্বাচিত ছবি</string>
   <string name="view_featured_image_card_download">ডাউনল’ড কৰক</string>
   <string name="menu_feed_card_dismiss">এই কাৰ্ড লুকুৱাওক</string>
   <string name="menu_feed_card_dismissed">কাৰ্ড লুকুওৱা হ\'ল।</string>
+  <string name="menu_feed_card_edit_card_languages">কাৰ্ডৰ ভাষা সম্পাদনা কৰক</string>
   <string name="menu_feed_overflow_label">অধিক বিকল্প</string>
   <string name="feed_featured_image_share_subject">ৱিকিমিডিয়া কমন্সৰ পৰা নিৰ্বাচিত ছবি</string>
   <string name="feed">অন্বেষণ</string>
   <string name="most_read_list_card_title">ট্ৰেণ্ডিং</string>
+  <string name="view_static_card_icon_content_description">কাৰ্ডৰ আইকন</string>
   <string name="view_card_news_title">খবৰৰ শীৰ্ষত</string>
+  <plurals name="view_continue_reading_card_subtitle">
+    <item quantity="one">কালি</item>
+    <item quantity="other">%d দিন আগতে</item>
+  </plurals>
   <string name="view_continue_reading_card_subtitle_today">আজি</string>
   <string name="view_continue_reading_card_subtitle_read_date">পঢ়া %s</string>
   <string name="view_announcement_card_negative_action">নালাগে। ধন্যবাদ</string>
+  <string name="view_featured_article_footer_save_button_label">সাঁচি থওক</string>
+  <string name="view_static_card_save_button_label">সাঁচি থওক</string>
+  <string name="view_featured_article_footer_saved_button_label">সাঁচি থোৱা হ\'ল</string>
+  <string name="feed_configure_activity_title">ফীড কাষ্টমাইজ কৰক</string>
   <string name="feed_configure_menu_select_all">সকলোবোৰ দেখুৱাওক</string>
   <string name="feed_configure_menu_deselect_all">সকলোবোৰ লুকুৱাওক</string>
   <string name="description_edit_text_hint" fuzzy="true">শিৰোনামৰ বিৱৰণ</string>
