@@ -187,6 +187,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         getWindow().setStatusBarColor(ContextCompat.getColor(pageFragment.requireContext(), R.color.black12));
         ViewCompat.setOnApplyWindowInsetsListener(drawerLayout, (v, insets) -> {
             toolbarContainerView.setPadding(0, insets.getSystemWindowInsetTop(), 0, 0);
+            pageFragment.updateInsets(insets);
             return insets;
         });
 
