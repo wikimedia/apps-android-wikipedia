@@ -9,6 +9,7 @@ import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -526,11 +527,9 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
 
     companion object {
         fun newInstance(action: DescriptionEditActivity.Action): SuggestedEditsCardsFragment {
-            val addTitleDescriptionsFragment = SuggestedEditsCardsFragment()
-            val args = Bundle()
-            args.putSerializable(INTENT_EXTRA_ACTION, action)
-            addTitleDescriptionsFragment.arguments = args
-            return addTitleDescriptionsFragment
+            return SuggestedEditsCardsFragment().apply {
+                arguments = bundleOf(INTENT_EXTRA_ACTION to action)
+            }
         }
     }
 }
