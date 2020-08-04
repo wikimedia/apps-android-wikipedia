@@ -1,6 +1,7 @@
 package org.wikipedia.model
 
 import android.util.SparseArray
+import androidx.core.util.set
 
 class EnumCodeMap<T>(enumeration: Class<T>) where T : Enum<T>, T : EnumCode {
     private val map: SparseArray<T>
@@ -16,7 +17,7 @@ class EnumCodeMap<T>(enumeration: Class<T>) where T : Enum<T>, T : EnumCode {
     private fun codeToEnumMap(enumeration: Class<T>): SparseArray<T> {
         val ret = SparseArray<T>()
         for (value in enumeration.enumConstants!!) {
-            ret.put(value.code(), value)
+            ret[value.code()] = value
         }
         return ret
     }
