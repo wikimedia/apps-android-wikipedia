@@ -1157,7 +1157,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     private void startGalleryActivity(@NonNull String fileName) {
         if (app.isOnline()) {
             requireActivity().startActivityForResult(GalleryActivity.newIntent(requireActivity(),
-                    model.getTitleOriginal(), fileName,
+                    model.getTitle(), fileName,
                     model.getTitle().getWikiSite(), getRevision(), GalleryFunnel.SOURCE_NON_LEAD_IMAGE), ACTIVITY_REQUEST_GALLERY);
         } else {
             Snackbar snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.gallery_not_available_offline_snackbar), FeedbackUtil.LENGTH_DEFAULT);
