@@ -1,15 +1,14 @@
 package org.wikipedia.util
 
 import android.net.Uri
+import androidx.core.net.toUri
 
 object ImageUrlUtil {
 
     private val WIDTH_IN_IMAGE_URL_REGEX = """/(\d+)px-""".toPattern()
 
     @JvmStatic
-    fun getUrlForSize(uri: Uri, size: Int): Uri {
-        return Uri.parse(getUrlForSize(uri.toString(), size))
-    }
+    fun getUrlForSize(uri: Uri, size: Int) = getUrlForSize(uri.toString(), size).toUri()
 
     @JvmStatic
     fun getUrlForSize(original: String, size: Int): String {

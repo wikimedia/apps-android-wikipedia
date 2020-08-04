@@ -1,11 +1,11 @@
 package org.wikipedia.views
 
 import android.content.Context
-import android.net.Uri
 import android.util.AttributeSet
 import android.view.View
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
+import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.view_message_card.view.*
 import org.wikipedia.Constants
@@ -74,8 +74,8 @@ internal class MessageCardView constructor(context: Context, attrs: AttributeSet
         imageView.visibility = GONE
         messageTitleView.text = context.getString(R.string.suggested_edits_ip_blocked_title)
         messageTextView.text = context.getString(R.string.suggested_edits_ip_blocked_message)
-        positiveButton.setOnClickListener { UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(R.string.create_account_ip_block_help_url))) }
-        setOnClickListener { UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(R.string.create_account_ip_block_help_url))) }
+        positiveButton.setOnClickListener { UriUtil.visitInExternalBrowser(context, context.getString(R.string.create_account_ip_block_help_url).toUri()) }
+        setOnClickListener { UriUtil.visitInExternalBrowser(context, context.getString(R.string.create_account_ip_block_help_url).toUri()) }
     }
 
     fun setRequiredLogin(fragment: Fragment) {
@@ -92,7 +92,7 @@ internal class MessageCardView constructor(context: Context, attrs: AttributeSet
         imageView.visibility = View.VISIBLE
         positiveButton.text = context.getString(R.string.suggested_edits_learn_more)
         positiveButton.setIconResource(R.drawable.ic_open_in_new_black_24px)
-        positiveButton.setOnClickListener { UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(R.string.android_app_edit_help_url))) }
-        containerClickArea.setOnClickListener { UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(R.string.android_app_edit_help_url))) }
+        positiveButton.setOnClickListener { UriUtil.visitInExternalBrowser(context, context.getString(R.string.android_app_edit_help_url).toUri()) }
+        containerClickArea.setOnClickListener { UriUtil.visitInExternalBrowser(context, context.getString(R.string.android_app_edit_help_url).toUri()) }
     }
 }

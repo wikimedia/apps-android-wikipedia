@@ -1,9 +1,9 @@
 package org.wikipedia.descriptions
 
 import android.content.Context
-import android.net.Uri
 import android.util.AttributeSet
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.net.toUri
 import kotlinx.android.synthetic.main.view_description_edit_review.view.*
 import org.wikipedia.R
 import org.wikipedia.descriptions.DescriptionEditLicenseView.Companion.ARG_NOTICE_ARTICLE_DESCRIPTION
@@ -54,7 +54,7 @@ class DescriptionEditReviewView constructor(context: Context, attrs: AttributeSe
             articleExtract.maxLines = ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE
         } else {
             articleImage.visibility = VISIBLE
-            articleImage.loadImage(Uri.parse(summaryForEdit.getPreferredSizeThumbnailUrl()))
+            articleImage.loadImage(summaryForEdit.getPreferredSizeThumbnailUrl().toUri())
             articleExtract.maxLines = ARTICLE_EXTRACT_MAX_LINE_WITH_IMAGE
         }
     }

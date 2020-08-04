@@ -1,12 +1,12 @@
 package org.wikipedia.suggestededits
 
-import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
+import androidx.core.net.toUri
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_suggested_edits_cards_item.*
@@ -16,10 +16,10 @@ import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
-import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.page.Namespace
 import org.wikipedia.page.PageTitle
 import org.wikipedia.settings.Prefs
+import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.L10nUtil.setConditionalLayoutDirection
@@ -113,7 +113,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
                             val page = response.query()!!.pages()!![0]
                             if (page.imageInfo() != null) {
                                 val imageInfo = page.imageInfo()!!
-                                val title = if (imageInfo.commonsUrl.isEmpty()) page.title() else WikiSite(Service.COMMONS_URL).titleForUri(Uri.parse(imageInfo.commonsUrl)).prefixedText
+                                val title = if (imageInfo.commonsUrl.isEmpty()) page.title() else WikiSite(Service.COMMONS_URL).titleForUri(imageInfo.commonsUrl.toUri()).prefixedText
 
                                 sourceSummaryForEdit = PageSummaryForEdit(
                                         title,
@@ -153,7 +153,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
                             val page = response.query()!!.pages()!![0]
                             if (page.imageInfo() != null) {
                                 val imageInfo = page.imageInfo()!!
-                                val title = if (imageInfo.commonsUrl.isEmpty()) page.title() else WikiSite(Service.COMMONS_URL).titleForUri(Uri.parse(imageInfo.commonsUrl)).prefixedText
+                                val title = if (imageInfo.commonsUrl.isEmpty()) page.title() else WikiSite(Service.COMMONS_URL).titleForUri(imageInfo.commonsUrl.toUri()).prefixedText
 
                                 sourceSummaryForEdit = PageSummaryForEdit(
                                         title,
@@ -260,7 +260,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
             viewArticleImagePlaceholder.visibility = GONE
         } else {
             viewArticleImagePlaceholder.visibility = VISIBLE
-            viewArticleImage.loadImage(Uri.parse(sourceSummaryForEdit!!.getPreferredSizeThumbnailUrl()))
+            viewArticleImage.loadImage(sourceSummaryForEdit!!.getPreferredSizeThumbnailUrl().toUri())
         }
     }
 
@@ -288,7 +288,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
         viewImageSource.setDetailText(sourceSummaryForEdit!!.metadata!!.credit())
         viewImageLicense.setDetailText(sourceSummaryForEdit!!.metadata!!.licenseShortName())
 
-        viewArticleImage.loadImage(Uri.parse(sourceSummaryForEdit!!.getPreferredSizeThumbnailUrl()))
+        viewArticleImage.loadImage(sourceSummaryForEdit!!.getPreferredSizeThumbnailUrl().toUri())
         viewArticleExtract.visibility = GONE
     }
 
