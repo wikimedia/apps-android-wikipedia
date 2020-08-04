@@ -87,14 +87,13 @@ public final class DateUtil {
     }
 
     private static SimpleDateFormat getCachedDateFormat(String pattern, Locale locale, boolean utc) {
-        if (!DATE_FORMATS.containsKey(pattern)) {
-            SimpleDateFormat df = new SimpleDateFormat(pattern, locale);
+        return DATE_FORMATS.computeIfAbsent(pattern, key -> {
+            SimpleDateFormat df = new SimpleDateFormat(key, locale);
             if (utc) {
                 df.setTimeZone(TimeZone.getTimeZone("UTC"));
             }
-            DATE_FORMATS.put(pattern, df);
-        }
-        return DATE_FORMATS.get(pattern);
+            return df;
+        });
     }
 
     public static String getShortDateString(@NonNull Date date) {
