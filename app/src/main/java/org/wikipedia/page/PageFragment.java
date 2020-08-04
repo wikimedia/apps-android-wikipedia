@@ -27,6 +27,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -155,7 +156,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     private boolean pageRefreshed;
     private boolean errorState = false;
 
-    private static final int REFRESH_SPINNER_ADDITIONAL_OFFSET = (int) (40 * getDensityScalar());
+    private static final int REFRESH_SPINNER_ADDITIONAL_OFFSET = (int) (16 * getDensityScalar());
 
     private PageFragmentLoadState pageFragmentLoadState;
     private PageViewModel model;
@@ -318,8 +319,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
 
         containerView = rootView.findViewById(R.id.page_contents_container);
         refreshView = rootView.findViewById(R.id.page_refresh_container);
-        int swipeOffset = getContentTopOffsetPx(requireActivity()) + REFRESH_SPINNER_ADDITIONAL_OFFSET;
-        refreshView.setProgressViewOffset(false, -swipeOffset, swipeOffset);
         refreshView.setColorSchemeResources(getThemedAttributeId(requireContext(), R.attr.colorAccent));
         refreshView.setScrollableChild(webView);
         refreshView.setOnRefreshListener(pageRefreshListener);
@@ -415,6 +414,11 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         if (callback() != null) {
             callback().onPageSetToolbarFadeEnabled(enabled);
         }
+    }
+
+    void updateInsets(@NonNull WindowInsetsCompat insets) {
+        int swipeOffset = getContentTopOffsetPx(requireActivity()) + insets.getSystemWindowInsetTop() + REFRESH_SPINNER_ADDITIONAL_OFFSET;
+        refreshView.setProgressViewOffset(false, -swipeOffset, swipeOffset);
     }
 
     private boolean shouldLoadFromBackstack(@NonNull Activity activity) {
