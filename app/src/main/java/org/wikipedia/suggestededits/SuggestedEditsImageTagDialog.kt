@@ -7,7 +7,6 @@ import android.content.res.ColorStateList
 import android.graphics.drawable.InsetDrawable
 import android.os.Build
 import android.os.Bundle
-import android.text.Editable
 import android.text.TextWatcher
 import android.view.*
 import android.widget.TextView
@@ -15,6 +14,7 @@ import androidx.core.content.getSystemService
 import androidx.core.os.bundleOf
 import androidx.core.view.ViewCompat
 import androidx.core.view.isVisible
+import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.DialogFragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -45,7 +45,7 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
     }
 
     private var currentSearchTerm: String = ""
-    private val textWatcher = SearchTextWatcher()
+    private lateinit var textWatcher: TextWatcher
     private val adapter = ResultListAdapter(Collections.emptyList())
     private val disposables = CompositeDisposable()
 
@@ -62,7 +62,11 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         imageTagsRecycler.layoutManager = LinearLayoutManager(activity)
         imageTagsRecycler.adapter = adapter
-        imageTagsSearchText.addTextChangedListener(textWatcher)
+        textWatcher = imageTagsSearchText.doOnTextChanged { text, _, _, _ ->
+            currentSearchTerm = text.toString()
+            imageTagsSearchText.removeCallbacks(searchRunnable)
+            imageTagsSearchText.postDelayed(searchRunnable, 500)
+        }
         applyResults(Collections.emptyList())
     }
 
@@ -116,18 +120,6 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
         imageTagsSearchText.removeTextChangedListener(textWatcher)
         imageTagsSearchText.removeCallbacks(searchRunnable)
         disposables.clear()
-    }
-
-    private inner class SearchTextWatcher : TextWatcher {
-        override fun beforeTextChanged(text: CharSequence, i: Int, i1: Int, i2: Int) {}
-
-        override fun onTextChanged(text: CharSequence, i: Int, i1: Int, i2: Int) {
-            currentSearchTerm = text.toString()
-            imageTagsSearchText.removeCallbacks(searchRunnable)
-            imageTagsSearchText.postDelayed(searchRunnable, 500)
-        }
-
-        override fun afterTextChanged(editable: Editable) {}
     }
 
     private fun requestResults(searchTerm: String) {
