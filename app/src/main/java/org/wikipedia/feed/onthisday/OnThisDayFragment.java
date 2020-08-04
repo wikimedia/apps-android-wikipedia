@@ -28,13 +28,10 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.OnThisDayFunnel;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.ExclusiveBottomSheetPresenter;
-import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.ResourceUtil;
-import org.wikipedia.util.ShareUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.CustomDatePicker;
 import org.wikipedia.views.DontInterceptTouchListener;
@@ -55,11 +52,10 @@ import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
 import static org.wikipedia.Constants.INTENT_EXTRA_INVOKE_SOURCE;
-import static org.wikipedia.Constants.InvokeSource.ON_THIS_DAY_ACTIVITY;
 import static org.wikipedia.feed.onthisday.OnThisDayActivity.AGE;
 import static org.wikipedia.feed.onthisday.OnThisDayActivity.WIKISITE;
 
-public class OnThisDayFragment extends Fragment implements CustomDatePicker.Callback, OnThisDayActionsDialog.Callback{
+public class OnThisDayFragment extends Fragment implements CustomDatePicker.Callback {
     @BindView(R.id.day) TextView dayText;
     @BindView(R.id.collapsing_toolbar_layout) CollapsingToolbarLayout collapsingToolbarLayout;
     @BindView(R.id.day_info_text_view) TextView dayInfoTextView;
@@ -79,7 +75,6 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
     @Nullable private OnThisDayFunnel funnel;
     public static final int PADDING1 = 21, PADDING2 = 38, PADDING3 = 21;
     public static final float HALF_ALPHA = 0.5f;
-    private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
     private WikiSite wiki;
     private CompositeDisposable disposables = new CompositeDisposable();
 
@@ -255,17 +250,6 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
         indicatorLayout.setClickable(false);
     }
 
-    @Override
-    public void onAddPageToList(@NonNull HistoryEntry entry) {
-        bottomSheetPresenter.show(getChildFragmentManager(),
-                AddToReadingListDialog.newInstance(entry.getTitle(), ON_THIS_DAY_ACTIVITY));
-    }
-
-    @Override
-    public void onSharePage(@NonNull HistoryEntry entry) {
-        ShareUtil.shareText(getActivity(), entry.getTitle());
-    }
-
     private class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         private static final int VIEW_TYPE_ITEM = 0;
         private static final int VIEW_TYPE_FOOTER = 1;
@@ -368,8 +352,7 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
 
         private void setPagesRecycler(OnThisDay.Event event) {
             if (event.pages() != null) {
-                OnThisDayCardView.RecyclerAdapter recyclerAdapter = new OnThisDayCardView.RecyclerAdapter(event.pages(), wiki, false);
-                recyclerAdapter.setCallback(new ItemCallback());
+                OnThisDayCardView.RecyclerAdapter recyclerAdapter = new OnThisDayCardView.RecyclerAdapter(getChildFragmentManager(), event.pages(), wiki, false);
                 pagesRecycler.setAdapter(recyclerAdapter);
             } else {
                 pagesRecycler.setVisibility(View.GONE);
@@ -385,14 +368,6 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
                 appBarLayout.setExpanded(true);
                 eventsRecycler.scrollToPosition(0);
             });
-        }
-    }
-
-    class ItemCallback implements OnThisDayPagesViewHolder.ItemCallBack {
-        @Override
-        public void onActionLongClick(@NonNull HistoryEntry entry) {
-            bottomSheetPresenter.show(getChildFragmentManager(),
-                    OnThisDayActionsDialog.newInstance(entry));
         }
     }
 }
