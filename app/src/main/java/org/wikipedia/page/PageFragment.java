@@ -48,7 +48,6 @@ import org.wikipedia.analytics.FindInPageFunnel;
 import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.analytics.PageScrollFunnel;
-import org.wikipedia.analytics.ReadingListsFunnel;
 import org.wikipedia.analytics.TabFunnel;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.bridge.CommunicationBridge;
@@ -80,8 +79,8 @@ import org.wikipedia.page.references.PageReferences;
 import org.wikipedia.page.references.ReferenceDialog;
 import org.wikipedia.page.shareafact.ShareHandler;
 import org.wikipedia.page.tabs.Tab;
+import org.wikipedia.readinglist.ReadingListBehaviorsUtil;
 import org.wikipedia.readinglist.ReadingListBookmarkMenu;
-import org.wikipedia.readinglist.database.ReadingList;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.settings.Prefs;
@@ -102,7 +101,6 @@ import org.wikipedia.wiktionary.WiktionaryDialog;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -116,7 +114,6 @@ import static android.app.Activity.RESULT_OK;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_GALLERY;
 import static org.wikipedia.Constants.InvokeSource.BOOKMARK_BUTTON;
 import static org.wikipedia.Constants.InvokeSource.PAGE_ACTIVITY;
-import static org.wikipedia.Constants.InvokeSource.SNACKBAR_ACTION;
 import static org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_DESCRIPTION;
 import static org.wikipedia.descriptions.DescriptionEditTutorialActivity.DESCRIPTION_SELECTED_TEXT;
 import static org.wikipedia.feed.announcement.Announcement.PLACEMENT_ARTICLE;
@@ -201,8 +198,8 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             if (model.isInReadingList()) {
                 new ReadingListBookmarkMenu(tabLayout, new ReadingListBookmarkMenu.Callback() {
                     @Override
-                    public void onAddRequest(@Nullable ReadingListPage page) {
-                        addToReadingList(getTitle(), BOOKMARK_BUTTON);
+                    public void onAddRequest(boolean addToDefault) {
+                        addToReadingList(getTitle(), BOOKMARK_BUTTON, addToDefault);
                     }
 
                     @Override
@@ -222,8 +219,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                         // ignore
                     }
                 }).show(getTitle());
-            } else {
-                addToDefaultReadingList(getTitle());
             }
         }
 
@@ -1308,22 +1303,15 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         }
     }
 
-    private void addToDefaultReadingList(@NonNull PageTitle title) {
-        ReadingList defaultList = ReadingListDbHelper.instance().getDefaultList();
-        disposables.add(Observable.fromCallable(() -> ReadingListDbHelper.instance().addPagesToListIfNotExist(defaultList, Collections.singletonList(title)))
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(addedTitlesList -> {
-                    new ReadingListsFunnel().logAddToList(defaultList, 1, BOOKMARK_BUTTON);
-                    FeedbackUtil.makeSnackbar(getActivity(), getString(R.string.reading_list_article_added_to_default_list, title.getDisplayText()), FeedbackUtil.LENGTH_DEFAULT)
-                            .setAction(R.string.reading_list_add_to_list_button, v -> moveToReadingList(defaultList.id(), title, SNACKBAR_ACTION, false)).show();
-                }, L::w));
-    }
-
-    public void addToReadingList(@NonNull PageTitle title, @NonNull InvokeSource source) {
+    public void addToReadingList(@NonNull PageTitle title, @NonNull InvokeSource source, boolean addToDefault) {
         Callback callback = callback();
         if (callback != null) {
-            callback.onPageAddToReadingList(title, source);
+            if (addToDefault) {
+                ReadingListBehaviorsUtil.INSTANCE.addToDefaultList(requireActivity(), title, source,
+                        readingListId -> moveToReadingList(readingListId, title, source, false));
+            } else {
+                callback.onPageAddToReadingList(title, source);
+            }
         }
     }
 

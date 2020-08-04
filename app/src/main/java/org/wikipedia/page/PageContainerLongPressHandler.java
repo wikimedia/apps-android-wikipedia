@@ -44,7 +44,7 @@ public class PageContainerLongPressHandler implements LongPressHandler.OverflowM
 
     @Override
     public void onAddToList(PageTitle title, InvokeSource source) {
-        fragment.addToReadingList(title, source);
+        fragment.addToReadingList(title, source, false);
     }
 
     @Override

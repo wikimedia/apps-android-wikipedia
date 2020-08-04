@@ -2,7 +2,7 @@
 
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/menu_feed_card_item_save"
-        android:title="@string/feed_card_add_to_list"/>
+        android:title="@string/feed_card_add_to_default_list"/>
     <item android:id="@+id/menu_add_to_other_list"
         android:title="@string/reading_list_add_to_other_list"/>
     <item android:id="@+id/menu_remove_from_lists"
