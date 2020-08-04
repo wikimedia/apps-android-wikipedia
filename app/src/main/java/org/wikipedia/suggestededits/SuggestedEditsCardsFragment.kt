@@ -5,11 +5,10 @@ import android.content.Intent
 import android.graphics.drawable.Animatable
 import android.os.Bundle
 import android.view.*
-import android.view.View.GONE
-import android.view.View.VISIBLE
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.core.os.bundleOf
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -95,7 +94,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
         cardsViewPager.registerOnPageChangeCallback(viewPagerListener)//   addOnPageChangeListener(viewPagerListener)
         resetViewPagerItemAdapter()
 
-        if (wikiLanguageDropdownContainer.visibility == VISIBLE) {
+        if (wikiLanguageDropdownContainer.isVisible) {
             if (languageList.isEmpty()) {
                 // Fragment is created for the first time.
                 requestLanguagesAndBuildSpinner()
@@ -314,8 +313,8 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
     }
 
     private fun setInitialUiState() {
-        wikiLanguageDropdownContainer.visibility = if (app.language().appLanguageCodes.size > 1
-                && (action == TRANSLATE_DESCRIPTION || action == TRANSLATE_CAPTION)) VISIBLE else GONE
+        wikiLanguageDropdownContainer.isVisible = app.language().appLanguageCodes.size > 1
+                && (action == TRANSLATE_DESCRIPTION || action == TRANSLATE_CAPTION)
     }
 
     private fun swapLanguageSpinnerSelection(isFromLang: Boolean) {

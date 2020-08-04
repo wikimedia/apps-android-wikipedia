@@ -6,11 +6,10 @@ import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.GONE
-import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -124,7 +123,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
     private fun resetAndFetch() {
         allContributions.clear()
         displayedContributions.clear()
-        errorView.visibility = GONE
+        errorView.isVisible = false
         articleContributionsContinuation = null
         imageContributionsContinuation = null
         adapter.notifyDataSetChanged()
@@ -137,7 +136,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
             return
         }
 
-        progressBar.visibility = VISIBLE
+        progressBar.isVisible = true
         totalContributionCount = 0
         disposables.clear()
 
@@ -267,7 +266,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
                 .observeOn(AndroidSchedulers.mainThread())
                 .doAfterTerminate {
                     swipeRefreshLayout.isRefreshing = false
-                    progressBar.visibility = GONE
+                    progressBar.isVisible = false
                 }
                 .subscribe({
                     allContributions.addAll(it)
@@ -311,7 +310,7 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
             }
         }
         adapter.notifyDataSetChanged()
-        contributionsRecyclerView.visibility = VISIBLE
+        contributionsRecyclerView.isVisible = true
     }
 
     private fun getCorrectDateString(date: Date): String {
@@ -351,9 +350,9 @@ class SuggestedEditsContributionsFragment : Fragment(), SuggestedEditsContributi
 
     private fun showError(t: Throwable) {
         swipeRefreshLayout.isRefreshing = false
-        contributionsRecyclerView.visibility = GONE
+        contributionsRecyclerView.isVisible = false
         errorView.setError(t)
-        errorView.visibility = VISIBLE
+        errorView.isVisible = true
     }
 
     private inner class HeaderViewHolder internal constructor(itemView: SuggestedEditsContributionsHeaderView) : DefaultViewHolder<SuggestedEditsContributionsHeaderView?>(itemView) {

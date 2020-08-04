@@ -5,9 +5,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.GONE
-import android.view.View.VISIBLE
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -151,7 +150,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         totalContributions = 0
         latestEditStreak = 0
         revertSeverity = 0
-        progressBar.visibility = VISIBLE
+        progressBar.isVisible = true
 
         disposables.add(Observable.zip(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getUserContributions(AccountUtil.getUserName()!!, 10, null).subscribeOn(Schedulers.io()),
                 ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getUserContributions(AccountUtil.getUserName()!!, 10, null).subscribeOn(Schedulers.io()),
@@ -226,10 +225,10 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     private fun clearContents() {
         swipeRefreshLayout.isRefreshing = false
-        progressBar.visibility = GONE
-        tasksContainer.visibility = GONE
-        errorView.visibility = GONE
-        disabledStatesView.visibility = GONE
+        progressBar.isVisible = false
+        tasksContainer.isVisible = false
+        errorView.isVisible = false
+        disabledStatesView.isVisible = false
         suggestedEditsScrollView.scrollTo(0, 0)
         swipeRefreshLayout.setBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
     }
@@ -237,7 +236,7 @@ class SuggestedEditsTasksFragment : Fragment() {
     private fun showError(t: Throwable) {
         clearContents()
         errorView.setError(t)
-        errorView.visibility = VISIBLE
+        errorView.isVisible = true
     }
 
     private fun setFinalUIState() {
@@ -258,45 +257,45 @@ class SuggestedEditsTasksFragment : Fragment() {
 
         if (totalContributions == 0) {
             userStatsClickTarget.isEnabled = false
-            userNameView.visibility = GONE
-            contributionsStatsView.visibility = GONE
-            editQualityStatsView.visibility = GONE
-            editStreakStatsView.visibility = GONE
-            pageViewStatsView.visibility = GONE
-            userStatsArrow.visibility = GONE
-            onboardingImageView.visibility = VISIBLE
-            onboardingTextView.visibility = VISIBLE
+            userNameView.isVisible = false
+            contributionsStatsView.isVisible = false
+            editQualityStatsView.isVisible = false
+            editStreakStatsView.isVisible = false
+            pageViewStatsView.isVisible = false
+            userStatsArrow.isVisible = false
+            onboardingImageView.isVisible = true
+            onboardingTextView.isVisible = true
             onboardingTextView.text = StringUtil.fromHtml(getString(R.string.suggested_edits_onboarding_message, AccountUtil.getUserName()))
         } else {
             userStatsClickTarget.isEnabled = true
             userNameView.text = AccountUtil.getUserName()
-            userNameView.visibility = VISIBLE
-            userStatsArrow.visibility = VISIBLE
-            contributionsStatsView.visibility = VISIBLE
-            editQualityStatsView.visibility = VISIBLE
-            editStreakStatsView.visibility = VISIBLE
-            pageViewStatsView.visibility = VISIBLE
-            onboardingImageView.visibility = GONE
-            onboardingTextView.visibility = GONE
+            userNameView.isVisible = true
+            userStatsArrow.isVisible = true
+            contributionsStatsView.isVisible = true
+            editQualityStatsView.isVisible = true
+            editStreakStatsView.isVisible = true
+            pageViewStatsView.isVisible = true
+            onboardingImageView.isVisible = false
+            onboardingTextView.isVisible = false
             contributionsStatsView.setTitle(totalContributions.toString())
             contributionsStatsView.setDescription(resources.getQuantityString(R.plurals.suggested_edits_contribution, totalContributions))
         }
 
         swipeRefreshLayout.setBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
-        tasksContainer.visibility = VISIBLE
+        tasksContainer.isVisible = true
     }
 
     private fun setIPBlockedStatus() {
         clearContents()
         disabledStatesView.setIPBlocked()
-        disabledStatesView.visibility = VISIBLE
+        disabledStatesView.isVisible = true
         UserContributionFunnel.get().logIpBlock()
     }
 
     private fun setRequiredLoginStatus() {
         clearContents()
         disabledStatesView.setRequiredLogin(this)
-        disabledStatesView.visibility = VISIBLE
+        disabledStatesView.isVisible = true
     }
 
     private fun maybeSetPausedOrDisabled(): Boolean {
@@ -306,18 +305,18 @@ class SuggestedEditsTasksFragment : Fragment() {
             // Disable the whole feature.
             clearContents()
             disabledStatesView.setDisabled(getString(R.string.suggested_edits_disabled_message, AccountUtil.getUserName()))
-            disabledStatesView.visibility = VISIBLE
+            disabledStatesView.isVisible = true
             UserContributionFunnel.get().logDisabled()
             return true
         } else if (pauseEndDate != null) {
             clearContents()
             disabledStatesView.setPaused(getString(R.string.suggested_edits_paused_message, DateUtil.getShortDateString(pauseEndDate), AccountUtil.getUserName()))
-            disabledStatesView.visibility = VISIBLE
+            disabledStatesView.isVisible = true
             UserContributionFunnel.get().logPaused()
             return true
         }
 
-        disabledStatesView.visibility = GONE
+        disabledStatesView.isVisible = false
         return false
     }
 
@@ -348,8 +347,8 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     private fun setupTestingButtons() {
         if (!ReleaseUtil.isPreBetaRelease()) {
-            showIPBlockedMessage.visibility = GONE
-            showOnboardingMessage.visibility = GONE
+            showIPBlockedMessage.isVisible = false
+            showOnboardingMessage.isVisible = false
         }
         showIPBlockedMessage.setOnClickListener { setIPBlockedStatus() }
         showOnboardingMessage.setOnClickListener { totalContributions = 0; setFinalUIState() }

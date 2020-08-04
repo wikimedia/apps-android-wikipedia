@@ -9,6 +9,7 @@ import android.widget.LinearLayout
 import androidx.annotation.DrawableRes
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import androidx.core.widget.ImageViewCompat
 import kotlinx.android.synthetic.main.view_image_title_description.view.*
 import org.wikipedia.R
@@ -53,10 +54,10 @@ internal class ImageTitleDescriptionView constructor(context: Context, attrs: At
         circularProgressBar.setCurrentProgress(circleProgress)
         circularProgressBar.progressBackgroundColor = ContextCompat.getColor(context, backgroundTint)
         circularProgressBar.progressColor = ContextCompat.getColor(context, iconTint)
-        circularProgressBar.visibility = View.VISIBLE
+        circularProgressBar.isVisible = true
 
         ImageViewCompat.setImageTintList(circularProgressBarOverlay, ColorStateList.valueOf(ContextCompat.getColor(context, backgroundTint)))
-        circularProgressBarOverlay.visibility = View.VISIBLE
+        circularProgressBarOverlay.isVisible = true
 
         title.text = context.getString(textRes)
 

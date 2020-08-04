@@ -4,10 +4,9 @@ import android.os.Bundle
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.GONE
-import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.core.graphics.ColorUtils
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_contribution_diff_detail.*
 import org.wikipedia.R
@@ -65,10 +64,13 @@ class SuggestedEditsContributionDetailsFragment : Fragment() {
     private fun setUpContributionDetails() {
         updateTopGradient()
         contributionContainer.setOnClickListener { startTypeSpecificActivity() }
-        revisionLayout.visibility = if (contribution.top) VISIBLE else GONE
+        revisionLayout.isVisible = contribution.top
         contributionTitle.text = StringUtil.removeNamespace(contribution.title)
         contributionDiffDetailText.text = contribution.description
-        if (contribution.imageUrl.isNullOrEmpty() || contribution.imageUrl == "null") contributionImage.visibility = GONE else ViewUtil.loadImageWithRoundedCorners(contributionImage, contribution.imageUrl)
+        if (contribution.imageUrl.isNullOrEmpty() || contribution.imageUrl == "null")
+            contributionImage.isVisible = false
+        else
+            ViewUtil.loadImageWithRoundedCorners(contributionImage, contribution.imageUrl)
         dateTimeDetailView.setLabelAndDetail(getString(R.string.suggested_edits_contribution_date_time_label), DateUtil.getFeedCardDateString(contribution.date) + " / " + DateUtil.get24HrFormatTimeOnlyString(contribution.date), -1)
         setTypeSpecificData()
     }

@@ -14,6 +14,7 @@ import android.widget.TextView
 import androidx.core.content.getSystemService
 import androidx.core.os.bundleOf
 import androidx.core.view.ViewCompat
+import androidx.core.view.isVisible
 import androidx.fragment.app.DialogFragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -153,18 +154,13 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
         adapter.setResults(results)
         adapter.notifyDataSetChanged()
         if (currentSearchTerm.isEmpty()) {
-            noResultsText.visibility = View.GONE
-            imageTagsRecycler.visibility = View.GONE
+            noResultsText.isVisible = false
+            imageTagsRecycler.isVisible = false
             imageTagsDivider.visibility = View.INVISIBLE
         } else {
-            imageTagsDivider.visibility = View.VISIBLE
-            if (results.isEmpty()) {
-                noResultsText.visibility = View.VISIBLE
-                imageTagsRecycler.visibility = View.GONE
-            } else {
-                noResultsText.visibility = View.GONE
-                imageTagsRecycler.visibility = View.VISIBLE
-            }
+            imageTagsDivider.isVisible = true
+            noResultsText.isVisible = results.isEmpty()
+            imageTagsRecycler.isVisible = results.isNotEmpty()
         }
     }
 

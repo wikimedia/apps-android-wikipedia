@@ -4,8 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.MotionEvent
-import android.view.View.GONE
-import android.view.View.VISIBLE
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_suggested_edits_feed_card_image_tags.*
@@ -55,12 +54,10 @@ class SuggestedEditsFeedCardImageTagActivity : BaseActivity(), SuggestedEditsIma
             addContributionLandscapeImage.alpha = if (suggestedEditsImageTagsFragment!!.publishEnabled()) 1f else 0.5f
         }
 
-        if (DimenUtil.isLandscape(this)) {
-            addContributionButton.visibility = GONE
-            addContributionLandscapeImage.visibility = VISIBLE
-        } else {
-            addContributionButton.visibility = VISIBLE
-            addContributionLandscapeImage.visibility = GONE
+        val isLandscape = DimenUtil.isLandscape(this)
+        addContributionButton.isVisible = !isLandscape
+        addContributionLandscapeImage.isVisible = isLandscape
+        if (!isLandscape) {
             addContributionText?.text = getString(R.string.description_edit_save)
         }
     }

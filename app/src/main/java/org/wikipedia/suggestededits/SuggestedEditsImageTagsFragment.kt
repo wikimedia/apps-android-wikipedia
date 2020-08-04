@@ -11,6 +11,7 @@ import android.view.View.*
 import android.view.ViewGroup
 import android.widget.CompoundButton
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.google.android.material.chip.Chip
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -69,8 +70,8 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         setConditionalLayoutDirection(contentContainer, callback().getLangCode())
         cardItemErrorView.setBackClickListener { requireActivity().finish() }
         cardItemErrorView.setRetryClickListener {
-            cardItemProgressBar.visibility = VISIBLE
-            cardItemErrorView.visibility = GONE
+            cardItemProgressBar.isVisible = true
+            cardItemErrorView.isVisible = false
             getNextItem()
         }
 
@@ -79,7 +80,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         imageCaption.setBackgroundColor(transparency.toInt() or (ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color) and 0xffffff))
 
         publishOverlayContainer.setBackgroundColor(transparency.toInt() or (ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color) and 0xffffff))
-        publishOverlayContainer.visibility = GONE
+        publishOverlayContainer.isVisible = false
 
         val colorStateList = ColorStateList(arrayOf(intArrayOf()),
                 intArrayOf(if (WikipediaApp.getInstance().currentTheme.isDark) Color.WHITE else ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent)))
@@ -135,23 +136,23 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
     private fun setErrorState(t: Throwable) {
         L.e(t)
         cardItemErrorView.setError(t)
-        cardItemErrorView.visibility = VISIBLE
-        cardItemProgressBar.visibility = GONE
-        contentContainer.visibility = GONE
+        cardItemErrorView.isVisible = true
+        cardItemProgressBar.isVisible = false
+        contentContainer.isVisible = false
     }
 
     private fun updateContents() {
-        cardItemErrorView.visibility = GONE
-        contentContainer.visibility = if (page != null) VISIBLE else GONE
-        cardItemProgressBar.visibility = if (page != null) GONE else VISIBLE
+        cardItemErrorView.isVisible = false
+        contentContainer.isVisible = page != null
+        cardItemProgressBar.isVisible = page == null
         if (page == null) {
             return
         }
 
         funnel = EditFunnel(WikipediaApp.getInstance(), PageTitle(page!!.title(), WikiSite(Service.COMMONS_URL)))
 
-        tagsLicenseText.visibility = GONE
-        tagsHintText.visibility = VISIBLE
+        tagsLicenseText.isVisible = false
+        tagsHintText.isVisible = true
         ImageZoomHelper.setViewZoomable(imageView)
 
         ViewUtil.loadImage(imageView, ImageUrlUtil.getUrlForPreferredSize(page!!.imageInfo()!!.thumbUrl, Constants.PREFERRED_CARD_THUMBNAIL_SIZE))
@@ -162,13 +163,12 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                 .subscribe { captions ->
                     if (captions.containsKey(callback().getLangCode())) {
                         imageCaption.text = captions[callback().getLangCode()]
-                        imageCaption.visibility = VISIBLE
+                        imageCaption.isVisible = true
                     } else {
-                        if (page!!.imageInfo() != null && page!!.imageInfo()!!.metadata != null) {
-                            imageCaption.text = StringUtil.fromHtml(page!!.imageInfo()!!.metadata!!.imageDescription()).toString().trim()
-                            imageCaption.visibility = VISIBLE
-                        } else {
-                            imageCaption.visibility = GONE
+                        val metadata = page?.imageInfo()?.metadata
+                        imageCaption.isVisible = metadata != null
+                        if (metadata != null) {
+                            imageCaption.text = StringUtil.fromHtml(metadata.imageDescription()).toString().trim()
                         }
                     }
                 })
@@ -322,10 +322,10 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         funnel?.logSaveAttempt()
 
         publishProgressText.setText(R.string.suggested_edits_image_tags_publishing)
-        publishProgressCheck.visibility = GONE
-        publishOverlayContainer.visibility = VISIBLE
-        publishProgressBarComplete.visibility = GONE
-        publishProgressBar.visibility = VISIBLE
+        publishProgressCheck.isVisible = false
+        publishOverlayContainer.isVisible = true
+        publishProgressBarComplete.isVisible = false
+        publishProgressBar.isVisible = true
 
         val commonsSite = WikiSite(Service.COMMONS_URL)
 
@@ -396,7 +396,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                 .duration = duration / 2
 
         publishProgressBarComplete.alpha = 0f
-        publishProgressBarComplete.visibility = VISIBLE
+        publishProgressBarComplete.isVisible = true
         publishProgressBarComplete.animate()
                 .alpha(1f)
                 .withEndAction {
@@ -406,7 +406,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                 .duration = duration / 2
 
         publishProgressCheck.alpha = 0f
-        publishProgressCheck.visibility = VISIBLE
+        publishProgressCheck.isVisible = true
         publishProgressCheck.animate()
                 .alpha(1f)
                 .duration = duration
@@ -414,7 +414,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         publishProgressBar.postDelayed({
             if (isAdded) {
                 updateLicenseTextShown()
-                publishOverlayContainer.visibility = GONE
+                publishOverlayContainer.isVisible = false
                 callback().nextPage(this)
                 updateTagChips()
             }
@@ -425,7 +425,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         // TODO: expand this a bit.
         SuggestedEditsFunnel.get().failure(ADD_IMAGE_TAGS)
         funnel?.logError(caught.localizedMessage)
-        publishOverlayContainer.visibility = GONE
+        publishOverlayContainer.isVisible = false
         FeedbackUtil.showError(requireActivity(), caught)
     }
 
@@ -436,17 +436,17 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
     private fun updateLicenseTextShown() {
         when {
             publishSuccess -> {
-                tagsLicenseText.visibility = GONE
+                tagsLicenseText.isVisible = false
                 tagsHintText.setText(R.string.suggested_edits_image_tags_published_list)
-                tagsHintText.visibility = VISIBLE
+                tagsHintText.isVisible = true
             }
             atLeastOneTagChecked() -> {
-                tagsLicenseText.visibility = VISIBLE
-                tagsHintText.visibility = GONE
+                tagsLicenseText.isVisible = true
+                tagsHintText.isVisible = false
             }
             else -> {
-                tagsLicenseText.visibility = GONE
-                tagsHintText.visibility = GONE
+                tagsLicenseText.isVisible = false
+                tagsHintText.isVisible = false
             }
         }
     }

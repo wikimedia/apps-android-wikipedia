@@ -4,6 +4,7 @@ import android.content.Context
 import android.util.AttributeSet
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.net.toUri
+import androidx.core.view.isVisible
 import kotlinx.android.synthetic.main.view_description_edit_review.view.*
 import org.wikipedia.R
 import org.wikipedia.descriptions.DescriptionEditLicenseView.Companion.ARG_NOTICE_ARTICLE_DESCRIPTION
@@ -21,15 +22,14 @@ class DescriptionEditReviewView constructor(context: Context, attrs: AttributeSe
     }
 
     val isShowing: Boolean
-        get() = visibility == VISIBLE
-
+        get() = isVisible
 
     fun show() {
-        visibility = VISIBLE
+        isVisible = true
     }
 
     fun hide() {
-        visibility = GONE
+        isVisible = false
     }
 
     fun setSummary(summary: SuggestedEditsSummary, description: String, captionReview: Boolean) {
@@ -44,31 +44,29 @@ class DescriptionEditReviewView constructor(context: Context, attrs: AttributeSe
     }
 
     private fun setDescriptionReviewView(summary: SuggestedEditsSummary, description: String) {
-        galleryContainer.visibility = GONE
+        galleryContainer.isVisible = false
         articleTitle!!.text = StringUtil.fromHtml(summary.displayTitle)
         articleSubtitle!!.text = description
         articleExtract!!.text = StringUtil.fromHtml(summary.extractHtml)
 
-        if (summary.thumbnailUrl.isNullOrBlank()) {
-            articleImage.visibility = GONE
+        val isThumbnailAbsent = summary.thumbnailUrl.isNullOrBlank()
+        articleImage.isVisible = !isThumbnailAbsent
+        if (isThumbnailAbsent) {
             articleExtract.maxLines = ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE
         } else {
-            articleImage.visibility = VISIBLE
             articleImage.loadImage(summary.getPreferredSizeThumbnailUrl().toUri())
             articleExtract.maxLines = ARTICLE_EXTRACT_MAX_LINE_WITH_IMAGE
         }
     }
 
     private fun setGalleryReviewView(summary: SuggestedEditsSummary, description: String) {
-        articleContainer.visibility = GONE
-        indicatorDivider.visibility = GONE
+        articleContainer.isVisible = false
+        indicatorDivider.isVisible = false
         galleryDescriptionText.text = StringUtil.fromHtml(description)
-        if (summary.thumbnailUrl.isNullOrBlank()) {
-            galleryImage.visibility = GONE
-        } else {
-            galleryImage.visibility = VISIBLE
+        val isThumbnailAbsent = summary.thumbnailUrl.isNullOrBlank()
+        galleryImage.isVisible = !isThumbnailAbsent
+        if (!isThumbnailAbsent) {
             ViewUtil.loadImageWithWhiteBackground(galleryImage, summary.getPreferredSizeThumbnailUrl())
-
         }
         licenseView.darkLicenseView()
     }
@@ -77,5 +75,4 @@ class DescriptionEditReviewView constructor(context: Context, attrs: AttributeSe
         const val ARTICLE_EXTRACT_MAX_LINE_WITH_IMAGE = 9
         const val ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE = 15
     }
-
 }

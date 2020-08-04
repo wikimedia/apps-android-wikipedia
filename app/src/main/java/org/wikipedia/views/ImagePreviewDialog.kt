@@ -4,10 +4,9 @@ import android.content.DialogInterface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.GONE
-import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
+import androidx.core.view.isVisible
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
@@ -51,7 +50,7 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        progressBar!!.visibility = VISIBLE
+        progressBar!!.isVisible = true
         toolbarView.setOnClickListener { dismiss() }
         titleText!!.text = StringUtil.removeHTMLTags(StringUtil.removeNamespace(suggestedEditsSummary.displayTitle!!))
         loadImageInfo()
@@ -66,9 +65,9 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
     private fun showError(caught: Throwable?) {
         dialogDetailContainer.layoutTransition = null
         dialogDetailContainer.minimumHeight = 0
-        progressBar.visibility = GONE
-        filePageView.visibility = GONE
-        errorView.visibility = VISIBLE
+        progressBar.isVisible = false
+        filePageView.isVisible = false
+        errorView.isVisible = true
         errorView.setError(caught)
     }
 
@@ -104,8 +103,8 @@ class ImagePreviewDialog : ExtendedBottomSheetDialogFragment(), DialogInterface.
                 }
                 .observeOn(AndroidSchedulers.mainThread())
                 .doAfterTerminate {
-                    filePageView.visibility = VISIBLE
-                    progressBar.visibility = GONE
+                    filePageView.isVisible = true
+                    progressBar.isVisible = false
                     filePageView.setup(
                             suggestedEditsSummary,
                             imageTags,
