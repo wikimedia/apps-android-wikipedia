@@ -6,6 +6,7 @@ import android.view.View
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.core.net.toUri
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.view_message_card.view.*
 import org.wikipedia.Constants
@@ -30,11 +31,9 @@ internal class MessageCardView constructor(context: Context, attrs: AttributeSet
     }
 
     fun setImageResource(@DrawableRes imageResource: Int, visible: Boolean) {
+        imageView.isVisible = visible
         if (visible) {
-            imageView.visibility = View.VISIBLE
             imageView.setImageResource(imageResource)
-        } else {
-            imageView.visibility = View.GONE
         }
     }
 
@@ -49,7 +48,7 @@ internal class MessageCardView constructor(context: Context, attrs: AttributeSet
     fun setNegativeButton(@StringRes stringRes: Int, listener: OnClickListener, applyListenerToContainer: Boolean) {
         negativeButton.text = context.getString(stringRes)
         negativeButton.setOnClickListener(listener)
-        negativeButton.visibility = View.VISIBLE
+        negativeButton.isVisible = true
         if (applyListenerToContainer) {
             containerClickArea.setOnClickListener(listener)
         }
@@ -71,7 +70,7 @@ internal class MessageCardView constructor(context: Context, attrs: AttributeSet
 
     fun setIPBlocked() {
         setDefaultState()
-        imageView.visibility = GONE
+        imageView.isVisible = false
         messageTitleView.text = context.getString(R.string.suggested_edits_ip_blocked_title)
         messageTextView.text = context.getString(R.string.suggested_edits_ip_blocked_message)
         positiveButton.setOnClickListener { UriUtil.visitInExternalBrowser(context, context.getString(R.string.create_account_ip_block_help_url).toUri()) }
@@ -79,7 +78,7 @@ internal class MessageCardView constructor(context: Context, attrs: AttributeSet
     }
 
     fun setRequiredLogin(fragment: Fragment) {
-        imageView.visibility = View.VISIBLE
+        imageView.isVisible = true
         messageTitleView.text = context.getString(R.string.suggested_edits_encourage_account_creation_title)
         messageTextView.text = context.getString(R.string.suggested_edits_encourage_account_creation_message)
         imageView.setImageResource(R.drawable.ic_require_login_header)
@@ -89,7 +88,7 @@ internal class MessageCardView constructor(context: Context, attrs: AttributeSet
     }
 
     private fun setDefaultState() {
-        imageView.visibility = View.VISIBLE
+        imageView.isVisible = true
         positiveButton.text = context.getString(R.string.suggested_edits_learn_more)
         positiveButton.setIconResource(R.drawable.ic_open_in_new_black_24px)
         positiveButton.setOnClickListener { UriUtil.visitInExternalBrowser(context, context.getString(R.string.android_app_edit_help_url).toUri()) }

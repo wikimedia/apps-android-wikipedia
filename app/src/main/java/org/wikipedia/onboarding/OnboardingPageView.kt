@@ -1,7 +1,6 @@
 package org.wikipedia.onboarding
 
 import android.content.Context
-import android.text.TextUtils
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +9,7 @@ import android.widget.TextView
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.ViewCompat
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.view_onboarding_language_list.view.*
@@ -64,7 +64,7 @@ class OnboardingPageView constructor(context: Context, attrs: AttributeSet? = nu
             primaryTextView.text = primaryText
             secondaryTextView.text = StringUtil.fromHtml(secondaryText)
             tertiaryTextView.text = tertiaryText
-            switchContainer.visibility = if (TextUtils.isEmpty(switchText)) View.GONE else View.VISIBLE
+            switchContainer.isVisible = !switchText.isNullOrEmpty()
             switchView.text = switchText
             setUpLanguageListContainer(showListView, listDataType)
             secondaryTextView.movementMethod = LinkMovementMethodExt { url: String ->
@@ -94,8 +94,8 @@ class OnboardingPageView constructor(context: Context, attrs: AttributeSet? = nu
         if (!showListView) {
             return
         }
-        tertiaryTextView.visibility = View.GONE
-        languageListContainer.visibility = View.VISIBLE
+        tertiaryTextView.isVisible = false
+        languageListContainer.isVisible = true
         languagesList.layoutManager = LinearLayoutManager(context)
         languagesList.adapter = LanguageListAdapter(getListData(dataType))
     }

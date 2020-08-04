@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
@@ -70,9 +71,9 @@ class FilePageFragment : Fragment() {
     }
 
     private fun showError(caught: Throwable?) {
-        progressBar.visibility = View.GONE
-        filePageView.visibility = View.GONE
-        errorView.visibility = View.VISIBLE
+        progressBar.isVisible = false
+        filePageView.isVisible = false
+        errorView.isVisible = true
         errorView.setError(caught)
     }
 
@@ -84,9 +85,9 @@ class FilePageFragment : Fragment() {
         var thumbnailWidth = 0
         var thumbnailHeight = 0
 
-        errorView.visibility = View.GONE
-        filePageView.visibility = View.GONE
-        progressBar.visibility = View.VISIBLE
+        errorView.isVisible = false
+        filePageView.isVisible = false
+        progressBar.isVisible = true
 
         disposables.add(Observable.zip(getImageCaptions(pageTitle.prefixedText),
                 ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo(pageTitle.prefixedText, pageTitle.wikiSite.languageCode()), {
@@ -133,8 +134,8 @@ class FilePageFragment : Fragment() {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doAfterTerminate {
-                    filePageView.visibility = View.VISIBLE
-                    progressBar.visibility = View.GONE
+                    filePageView.isVisible = true
+                    progressBar.isVisible = false
                     filePageView.setup(
                             this,
                             pageSummaryForEdit,

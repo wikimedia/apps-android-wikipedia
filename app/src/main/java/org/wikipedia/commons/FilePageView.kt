@@ -9,12 +9,13 @@ import android.view.View
 import android.view.View.OnClickListener
 import android.view.ViewGroup
 import android.widget.LinearLayout
-import androidx.core.content.ContextCompat.startActivity
 import androidx.core.net.toUri
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.view_file_page.view.*
 import kotlinx.android.synthetic.main.view_image_detail.view.*
-import org.wikipedia.Constants.*
+import org.wikipedia.Constants.InvokeSource
+import org.wikipedia.Constants.PREFERRED_GALLERY_IMAGE_SIZE
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.commons.FilePageFragment.Companion.ACTIVITY_REQUEST_ADD_IMAGE_CAPTION
@@ -23,8 +24,8 @@ import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.page.LinkMovementMethodExt
 import org.wikipedia.richtext.RichTextUtil
-import org.wikipedia.suggestededits.SuggestedEditsImageTagEditActivity
 import org.wikipedia.suggestededits.PageSummaryForEdit
+import org.wikipedia.suggestededits.SuggestedEditsImageTagEditActivity
 import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
@@ -56,12 +57,12 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
         loadImage(summaryForEdit, containerWidth, thumbWidth, thumbHeight)
 
         if (showFilename) {
-            filenameView.visibility = View.VISIBLE
+            filenameView.isVisible = true
             filenameView.titleText.text = context.getString(R.string.suggested_edits_image_preview_dialog_image)
             filenameView.titleText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16f)
             filenameView.contentText.text = StringUtil.removeNamespace(summaryForEdit.displayTitle!!)
             filenameView.contentText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 24f)
-            filenameView.divider.visibility = View.GONE
+            filenameView.divider.isVisible = false
         }
 
         detailsContainer.removeAllViews()
@@ -166,7 +167,7 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
             if (!externalLink.isNullOrEmpty()) {
                 view.contentText.setTextColor(ResourceUtil.getThemedColor(context, R.attr.colorAccent))
                 view.contentText.setTextIsSelectable(false)
-                view.externalLink.visibility = View.VISIBLE
+                view.externalLink.isVisible = true
                 view.contentContainer.setOnClickListener {
                     UriUtil.visitInExternalBrowser(context, externalLink.toUri())
                 }
@@ -174,10 +175,10 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
                 view.contentText.movementMethod = movementMethod
             }
             if (!showDivider) {
-                view.divider.visibility = View.GONE
+                view.divider.isVisible = false
             }
             if (listener != null) {
-                view.editButton.visibility = View.VISIBLE
+                view.editButton.isVisible = true
                 view.editButton.setOnClickListener(listener)
             }
             detailsContainer.addView(view)
@@ -186,9 +187,9 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
 
     private fun addActionButton(buttonText: String, listener: OnClickListener) {
         val view = ImageDetailView(context)
-        view.titleContainer.visibility = View.GONE
-        view.contentContainer.visibility = View.GONE
-        view.actionButton.visibility = View.VISIBLE
+        view.titleContainer.isVisible = false
+        view.contentContainer.isVisible = false
+        view.actionButton.isVisible = true
         view.actionButton.text = buttonText
         view.actionButton.setOnClickListener(listener)
         detailsContainer.addView(view)

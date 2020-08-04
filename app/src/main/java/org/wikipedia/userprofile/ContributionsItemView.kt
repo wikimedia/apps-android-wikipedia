@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
+import androidx.core.view.isVisible
 import kotlinx.android.synthetic.main.item_suggested_edits_contributions.view.*
 import org.wikipedia.R
 import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_IMAGE_CAPTION
@@ -45,12 +46,10 @@ class ContributionsItemView constructor(context: Context, attrs: AttributeSet? =
     }
 
     fun setPageViewCountText(pageViewCount: Long) {
-        if (pageViewCount == 0L) {
-            pageViewImage.visibility = GONE
-            pageviewCountText.visibility = GONE
-        } else {
-            pageViewImage.visibility = VISIBLE
-            pageviewCountText.visibility = VISIBLE
+        val pagesPresent = pageViewCount != 0L
+        pageViewImage.isVisible = pagesPresent
+        pageviewCountText.isVisible = pagesPresent
+        if (pagesPresent) {
             pageviewCountText.text = context.getString(R.string.suggested_edits_contribution_views, pageViewCount.toString())
         }
     }
@@ -73,18 +72,18 @@ class ContributionsItemView constructor(context: Context, attrs: AttributeSet? =
         if (url.isNullOrEmpty() || url == "null") {
             image.setImageDrawable(null)
         } else {
-            image.visibility = VISIBLE
+            image.isVisible = true
             ViewUtil.loadImageWithRoundedCorners(image, url)
         }
     }
 
     fun setDiffCountText(contribution: Contribution) {
         if (contribution.editType == EDIT_TYPE_IMAGE_TAG) {
-            contributionDiffCountText.visibility = VISIBLE
+            contributionDiffCountText.isVisible = true
             contributionDiffCountText.text = resources.getQuantityString(R.plurals.suggested_edits_tags_diff_count_text, abs(contribution.tagCount), numFormat.format(contribution.tagCount))
             contributionDiffCountText.setTextColor(ResourceUtil.getThemedColor(context, R.attr.action_mode_green_background))
         } else {
-            contributionDiffCountText.visibility = VISIBLE
+            contributionDiffCountText.isVisible = true
             contributionDiffCountText.text = resources.getQuantityString(R.plurals.suggested_edits_contribution_diff_count_text, abs(contribution.sizeDiff), numFormat.format(contribution.sizeDiff))
             contributionDiffCountText.setTextColor(if (contribution.sizeDiff < 0) ResourceUtil.getThemedColor(context, R.attr.colorError)
             else ResourceUtil.getThemedColor(context, R.attr.action_mode_green_background))

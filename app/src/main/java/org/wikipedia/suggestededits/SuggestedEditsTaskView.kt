@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.res.ColorStateList
 import android.util.AttributeSet
 import android.view.View
+import androidx.core.view.isVisible
 import kotlinx.android.synthetic.main.view_suggested_edits_task_item.view.*
 import org.wikipedia.Constants.MIN_LANGUAGES_TO_UNLOCK_TRANSLATION
 import org.wikipedia.R
@@ -35,7 +36,7 @@ internal class SuggestedEditsTaskView constructor(context: Context, attrs: Attri
         taskTitle.text = task.title
         taskDescription.text = task.description
         taskIcon.setImageResource(task.imageDrawable)
-        taskTitleNewLabel.visibility = if (task.new) View.VISIBLE else GONE
+        taskTitleNewLabel.isVisible = task.new
 
         clickContainer.setOnClickListener {
             if (!task.disabled) {
@@ -52,7 +53,7 @@ internal class SuggestedEditsTaskView constructor(context: Context, attrs: Attri
                 callback?.onViewClick(task, true)
             }
         }
-        translateButton.visibility = if (task.translatable) View.VISIBLE else GONE
+        translateButton.isVisible = task.translatable
     }
 
     interface Callback {

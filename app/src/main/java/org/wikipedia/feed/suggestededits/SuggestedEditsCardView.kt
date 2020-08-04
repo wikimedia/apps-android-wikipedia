@@ -1,8 +1,8 @@
 package org.wikipedia.feed.suggestededits
 
 import android.content.Context
-import android.view.View
 import androidx.core.net.toUri
+import androidx.core.view.isVisible
 import kotlinx.android.synthetic.main.view_suggested_edit_card.view.*
 import org.wikipedia.Constants
 import org.wikipedia.R
@@ -50,7 +50,7 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
     }
 
     private fun updateContents() {
-        viewArticleSubtitle.visibility = View.GONE
+        viewArticleSubtitle.isVisible = false
         when (card!!.action) {
             TRANSLATE_DESCRIPTION -> showTranslateDescriptionUI()
             ADD_CAPTION -> showAddImageCaptionUI()
@@ -61,58 +61,58 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
     }
 
     private fun showImageTagsUI() {
-        viewArticleImage.visibility = View.VISIBLE
-        viewArticleExtract.visibility = View.GONE
-        divider.visibility = View.GONE
+        viewArticleImage.isVisible = true
+        viewArticleExtract.isVisible = false
+        divider.isVisible = false
         viewArticleImage.loadImage(ImageUrlUtil.getUrlForPreferredSize(card!!.page!!.imageInfo()!!.thumbUrl, Constants.PREFERRED_CARD_THUMBNAIL_SIZE).toUri())
-        viewArticleTitle.visibility = View.GONE
+        viewArticleTitle.isVisible = false
         callToActionText.text = context.getString(R.string.suggested_edits_feed_card_add_image_tags)
     }
 
     private fun showAddDescriptionUI() {
-        viewArticleTitle.visibility = View.VISIBLE
+        viewArticleTitle.isVisible = true
         viewArticleTitle.text = StringUtil.fromHtml(card!!.sourceSummaryForEdit!!.displayTitle!!)
         callToActionText.text = if (card!!.action == TRANSLATE_DESCRIPTION) context.getString(R.string.suggested_edits_feed_card_add_translation_in_language_button, app.language().getAppLanguageCanonicalName(card!!.targetSummaryForEdit!!.lang)) else context.getString(R.string.suggested_edits_feed_card_add_description_button)
         showImageOrExtract()
     }
 
     private fun showTranslateDescriptionUI() {
-        viewArticleTitle.visibility = View.VISIBLE
+        viewArticleTitle.isVisible = true
         sourceDescription = card!!.sourceSummaryForEdit!!.description!!
-        viewArticleSubtitle.visibility = View.VISIBLE
+        viewArticleSubtitle.isVisible = true
         viewArticleSubtitle.text = sourceDescription
         showAddDescriptionUI()
     }
 
     private fun showAddImageCaptionUI() {
-        viewArticleTitle.visibility = View.VISIBLE
-        viewArticleImage.visibility = View.VISIBLE
-        viewArticleExtract.visibility = View.GONE
-        divider.visibility = View.GONE
+        viewArticleTitle.isVisible = true
+        viewArticleImage.isVisible = true
+        viewArticleExtract.isVisible = false
+        divider.isVisible = false
         viewArticleImage.loadImage(card!!.sourceSummaryForEdit!!.thumbnailUrl?.toUri())
         viewArticleTitle.text = StringUtil.removeNamespace(card!!.sourceSummaryForEdit!!.displayTitle!!)
         callToActionText.text = if (card!!.action == TRANSLATE_CAPTION) context.getString(R.string.suggested_edits_feed_card_translate_image_caption, app.language().getAppLanguageCanonicalName(card!!.targetSummaryForEdit!!.lang)) else context.getString(R.string.suggested_edits_feed_card_add_image_caption)
     }
 
     private fun showTranslateImageCaptionUI() {
-        viewArticleTitle.visibility = View.VISIBLE
+        viewArticleTitle.isVisible = true
         sourceDescription = card!!.sourceSummaryForEdit!!.description!!
-        viewArticleSubtitle.visibility = View.VISIBLE
+        viewArticleSubtitle.isVisible = true
         viewArticleSubtitle.text = sourceDescription
         showAddImageCaptionUI()
     }
 
     private fun showImageOrExtract() {
         if (card!!.sourceSummaryForEdit!!.thumbnailUrl.isNullOrBlank()) {
-            viewArticleImage.visibility = View.GONE
-            viewArticleExtract.visibility = View.VISIBLE
-            divider.visibility = View.VISIBLE
+            viewArticleImage.isVisible = false
+            viewArticleExtract.isVisible = true
+            divider.isVisible = true
             viewArticleExtract.text = StringUtil.fromHtml(card!!.sourceSummaryForEdit!!.extractHtml)
             viewArticleExtract.maxLines = ARTICLE_EXTRACT_MAX_LINE_WITHOUT_IMAGE
         } else {
-            viewArticleImage.visibility = View.VISIBLE
-            viewArticleExtract.visibility = View.GONE
-            divider.visibility = View.GONE
+            viewArticleImage.isVisible = true
+            viewArticleExtract.isVisible = false
+            divider.isVisible = false
             viewArticleImage.loadImage(card!!.sourceSummaryForEdit!!.thumbnailUrl?.toUri())
         }
     }

@@ -4,24 +4,23 @@ import android.os.Bundle
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.GONE
-import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.core.graphics.ColorUtils
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_contribution_diff_detail.*
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.UserContributionFunnel
 import org.wikipedia.commons.FilePageActivity
-import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_ARTICLE_DESCRIPTION
-import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_IMAGE_CAPTION
-import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_IMAGE_TAG
-import org.wikipedia.userprofile.ContributionDetailsActivity.Companion.EXTRA_SOURCE_CONTRIBUTION
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.json.GsonUnmarshaller
 import org.wikipedia.page.PageActivity
 import org.wikipedia.page.PageTitle
+import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_ARTICLE_DESCRIPTION
+import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_IMAGE_CAPTION
+import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_IMAGE_TAG
+import org.wikipedia.userprofile.ContributionDetailsActivity.Companion.EXTRA_SOURCE_CONTRIBUTION
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.GradientUtil
 import org.wikipedia.util.ResourceUtil
@@ -65,10 +64,13 @@ class ContributionDetailsFragment : Fragment() {
     private fun setUpContributionDetails() {
         updateTopGradient()
         contributionContainer.setOnClickListener { startTypeSpecificActivity() }
-        revisionLayout.visibility = if (contribution.top) VISIBLE else GONE
+        revisionLayout.isVisible = contribution.top
         contributionTitle.text = StringUtil.removeNamespace(contribution.displayTitle)
         contributionDiffDetailText.text = contribution.description
-        if (contribution.imageUrl.isNullOrEmpty() || contribution.imageUrl == "null") contributionImage.visibility = GONE else ViewUtil.loadImageWithRoundedCorners(contributionImage, contribution.imageUrl)
+        if (contribution.imageUrl.isNullOrEmpty() || contribution.imageUrl == "null")
+            contributionImage.isVisible = false
+        else
+            ViewUtil.loadImageWithRoundedCorners(contributionImage, contribution.imageUrl)
         dateTimeDetailView.setLabelAndDetail(getString(R.string.suggested_edits_contribution_date_time_label), DateUtil.getFeedCardDateString(contribution.date) + " / " + DateUtil.get24HrFormatTimeOnlyString(contribution.date), -1)
         setTypeSpecificData()
     }

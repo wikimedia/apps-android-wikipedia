@@ -3,10 +3,9 @@ package org.wikipedia.suggestededits
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.GONE
-import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.core.net.toUri
+import androidx.core.view.isVisible
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_suggested_edits_cards_item.*
@@ -51,7 +50,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
 
         cardItemErrorView.setBackClickListener { requireActivity().finish() }
         cardItemErrorView.setRetryClickListener {
-            cardItemProgressBar.visibility = VISIBLE
+            cardItemProgressBar.isVisible = true
             getArticleWithMissingDescription()
         }
         updateContents()
@@ -212,7 +211,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
 
     fun showAddedContributionView(addedContribution: String?) {
         if (!addedContribution.isNullOrEmpty()) {
-            viewArticleSubtitleContainer.visibility = VISIBLE
+            viewArticleSubtitleContainer.isVisible = true
             viewArticleSubtitle.text = addedContribution
             this.addedContribution = addedContribution
         }
@@ -221,16 +220,16 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
     private fun setErrorState(t: Throwable) {
         L.e(t)
         cardItemErrorView.setError(t)
-        cardItemErrorView.visibility = VISIBLE
-        cardItemProgressBar.visibility = GONE
-        cardItemContainer.visibility = GONE
+        cardItemErrorView.isVisible = true
+        cardItemProgressBar.isVisible = false
+        cardItemContainer.isVisible = false
     }
 
     private fun updateContents() {
         val sourceAvailable = sourceSummaryForEdit != null
-        cardItemErrorView.visibility = GONE
-        cardItemContainer.visibility = if (sourceAvailable) VISIBLE else GONE
-        cardItemProgressBar.visibility = if (sourceAvailable) GONE else VISIBLE
+        cardItemErrorView.isVisible = false
+        cardItemContainer.isVisible = sourceAvailable
+        cardItemProgressBar.isVisible = !sourceAvailable
         if (!sourceAvailable) {
             return
         }
@@ -246,27 +245,27 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
 
     private fun updateDescriptionContents() {
         viewArticleTitle.text = StringUtil.fromHtml(sourceSummaryForEdit!!.displayTitle)
-        viewArticleTitle.visibility = VISIBLE
+        viewArticleTitle.isVisible = true
 
         if (parent().action == TRANSLATE_DESCRIPTION) {
-            viewArticleSubtitleContainer.visibility = VISIBLE
+            viewArticleSubtitleContainer.isVisible = true
             viewArticleSubtitle.text = if (addedContribution.isNotEmpty()) addedContribution else sourceSummaryForEdit!!.description
         }
 
-        viewImageSummaryContainer.visibility = GONE
+        viewImageSummaryContainer.isVisible = false
 
         viewArticleExtract.text = StringUtil.removeHTMLTags(sourceSummaryForEdit!!.extractHtml!!)
         if (sourceSummaryForEdit!!.thumbnailUrl.isNullOrBlank()) {
-            viewArticleImagePlaceholder.visibility = GONE
+            viewArticleImagePlaceholder.isVisible = false
         } else {
-            viewArticleImagePlaceholder.visibility = VISIBLE
+            viewArticleImagePlaceholder.isVisible = true
             viewArticleImage.loadImage(sourceSummaryForEdit!!.getPreferredSizeThumbnailUrl().toUri())
         }
     }
 
     private fun updateCaptionContents() {
-        viewArticleTitle.visibility = GONE
-        viewArticleSubtitleContainer.visibility = VISIBLE
+        viewArticleTitle.isVisible = false
+        viewArticleSubtitleContainer.isVisible = true
 
         val descriptionText = when {
             addedContribution.isNotEmpty() -> addedContribution
@@ -289,7 +288,7 @@ class SuggestedEditsCardsItemFragment : SuggestedEditsItemFragment() {
         viewImageLicense.setDetailText(sourceSummaryForEdit!!.metadata!!.licenseShortName())
 
         viewArticleImage.loadImage(sourceSummaryForEdit!!.getPreferredSizeThumbnailUrl().toUri())
-        viewArticleExtract.visibility = GONE
+        viewArticleExtract.isVisible = false
     }
 
     companion object {

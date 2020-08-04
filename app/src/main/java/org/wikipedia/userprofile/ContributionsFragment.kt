@@ -6,11 +6,10 @@ import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.GONE
-import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -29,12 +28,12 @@ import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
+import org.wikipedia.language.AppLanguageLookUpTable
 import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_ARTICLE_DESCRIPTION
 import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_GENERIC
 import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_IMAGE_CAPTION
 import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_IMAGE_TAG
 import org.wikipedia.userprofile.ContributionsItemView.Callback
-import org.wikipedia.language.AppLanguageLookUpTable
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
@@ -123,7 +122,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
     private fun resetAndFetch() {
         allContributions.clear()
         displayedContributions.clear()
-        errorView.visibility = GONE
+        errorView.isVisible = false
         articleContributionsContinuation = null
         imageContributionsContinuation = null
         adapter.notifyDataSetChanged()
@@ -136,7 +135,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
             return
         }
 
-        progressBar.visibility = VISIBLE
+        progressBar.isVisible = false
         totalContributionCount = 0
         disposables.clear()
 
@@ -265,7 +264,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                 .observeOn(AndroidSchedulers.mainThread())
                 .doAfterTerminate {
                     swipeRefreshLayout.isRefreshing = false
-                    progressBar.visibility = GONE
+                    progressBar.isVisible = false
                 }
                 .subscribe({
                     allContributions.addAll(it)
@@ -309,7 +308,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
             }
         }
         adapter.notifyDataSetChanged()
-        contributionsRecyclerView.visibility = VISIBLE
+        contributionsRecyclerView.isVisible = false
     }
 
     private fun getCorrectDateString(date: Date): String {
@@ -350,9 +349,9 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
 
     private fun showError(t: Throwable) {
         swipeRefreshLayout.isRefreshing = false
-        contributionsRecyclerView.visibility = GONE
+        contributionsRecyclerView.isVisible = false
         errorView.setError(t)
-        errorView.visibility = VISIBLE
+        errorView.isVisible = true
     }
 
     private inner class HeaderViewHolder constructor(itemView: ContributionsHeaderView) : DefaultViewHolder<ContributionsHeaderView?>(itemView) {
