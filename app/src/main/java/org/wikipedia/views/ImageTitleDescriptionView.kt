@@ -23,14 +23,16 @@ internal class ImageTitleDescriptionView constructor(context: Context, attrs: At
     init {
         View.inflate(context, R.layout.view_image_title_description, this)
         layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-    }
-
-    fun setUpTooltip(@NonNull tooltip: String) {
-        tooltipText = tooltip
         setOnLongClickListener {
-            description.showAlignBottom(FeedbackUtil.showTooltipBubble(context, tooltipText), 0, 16)
+            if (!tooltipText.isEmpty()) {
+                description.showAlignBottom(FeedbackUtil.showTooltip(context, tooltipText), 0, 16)
+            }
             true
         }
+    }
+
+    fun setUpTooltipText(@NonNull tooltip: String) {
+        tooltipText = tooltip
     }
 
     fun setTitle(titleText: String) {
