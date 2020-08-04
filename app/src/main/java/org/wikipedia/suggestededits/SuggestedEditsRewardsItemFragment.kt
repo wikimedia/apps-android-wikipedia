@@ -6,6 +6,7 @@ import android.view.HapticFeedbackConstants
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import kotlinx.android.synthetic.main.fragment_suggested_edits_rewards_item.*
 import org.wikipedia.R
 
@@ -48,10 +49,7 @@ class SuggestedEditsRewardsItemFragment : SuggestedEditsItemFragment() {
 
         fun newInstance(imageResource: Int, text: String): SuggestedEditsItemFragment {
             val fragment = SuggestedEditsRewardsItemFragment()
-            val arguments = Bundle()
-            arguments.putInt(ARG_IMAGE_RESOURCE, imageResource)
-            arguments.putString(ARG_TEXT, text)
-            fragment.arguments = arguments
+            fragment.arguments = bundleOf(ARG_IMAGE_RESOURCE to imageResource, ARG_TEXT to text)
             return fragment
         }
     }

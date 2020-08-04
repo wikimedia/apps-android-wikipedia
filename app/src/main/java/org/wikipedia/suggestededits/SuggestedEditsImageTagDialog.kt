@@ -12,6 +12,7 @@ import android.text.TextWatcher
 import android.view.*
 import android.widget.TextView
 import androidx.core.content.getSystemService
+import androidx.core.os.bundleOf
 import androidx.core.view.ViewCompat
 import androidx.fragment.app.DialogFragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -215,10 +216,7 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
     companion object {
         fun newInstance(useClipboardText: Boolean, lastText: String): SuggestedEditsImageTagDialog {
             val dialog = SuggestedEditsImageTagDialog()
-            val args = Bundle()
-            args.putBoolean("useClipboardText", useClipboardText)
-            args.putString("lastText", lastText)
-            dialog.arguments = args
+            dialog.arguments = bundleOf("useClipboardText" to useClipboardText, "lastText" to lastText)
             return dialog
         }
     }
