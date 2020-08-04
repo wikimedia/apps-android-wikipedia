@@ -45,7 +45,7 @@
         android:id="@+id/contentContainer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingBottom="16dp"
+        android:layout_marginBottom="16dp"
         android:background="?android:selectableItemBackground"
         android:orientation="horizontal">
 
