@@ -703,7 +703,7 @@ public class ReadingListsFragment extends Fragment implements
 
         @Override
         protected String getSearchHintString() {
-            return requireContext().getResources().getString(R.string.search_hint_search_my_lists_and_articles);
+            return requireContext().getResources().getString(R.string.filter_hint_filter_my_lists_and_articles);
         }
 
         @Override
