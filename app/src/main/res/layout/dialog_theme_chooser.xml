@@ -97,6 +97,62 @@
 
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/dark_mode_text_normal_choice"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center_vertical"
+                android:background="?attr/color_group_53"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_horizontal|bottom"
+                android:paddingBottom="4dp"
+                android:text="T"
+                android:textColor="@color/base90"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/dark_mode_text_medium_choice"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center_vertical"
+                android:background="?attr/color_group_53"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_horizontal|bottom"
+                android:paddingBottom="4dp"
+                android:text="T"
+                android:textColor="@color/base70"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/dark_mode_text_dark_choice"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center_vertical"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_horizontal|bottom"
+                android:background="?attr/color_group_53"
+                android:paddingBottom="4dp"
+                android:text="T"
+                android:textColor="@color/base50"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText" />
+
+        </LinearLayout>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="0.5dp"

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="ThemeDarkTextDark" parent="ThemeDark">
+        <item name="android:textColorPrimary">@color/base70</item>
+        <item name="android:textColorSecondary">@color/base50</item>
+        <item name="android:textColorTertiary">@color/base30</item>
+        <item name="android:textColorHint">@color/base20</item>
+
+        <item name="primary_text_color">@color/base70</item>
+        <item name="secondary_text_color">@color/base30</item>
+
+        <item name="tab_placeholder_text_color">@color/base10</item>
+        <item name="chip_text_color">@color/base50</item>
+    </style>
+
+</resources>

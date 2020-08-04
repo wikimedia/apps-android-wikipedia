@@ -7,6 +7,10 @@ import androidx.annotation.StyleRes;
 
 import org.wikipedia.R;
 import org.wikipedia.model.EnumCode;
+import org.wikipedia.settings.Prefs;
+
+import static org.wikipedia.Constants.DARK_MODES_TEXT_DARK;
+import static org.wikipedia.Constants.DARK_MODES_TEXT_MEDIUM;
 
 public enum Theme implements EnumCode {
     LIGHT(0, "light", R.style.ThemeLight, R.string.color_theme_light),
@@ -46,8 +50,19 @@ public enum Theme implements EnumCode {
         return funnelName;
     }
 
+    @SuppressWarnings("magicnumber")
     @StyleRes public int getResourceId() {
-        return resourceId;
+        if (marshallingId == 0 || marshallingId == 3) {
+            return resourceId;
+        }
+        switch (Prefs.getDarkModesTextColorLevelSelection()) {
+            case DARK_MODES_TEXT_MEDIUM:
+                return R.style.ThemeDarkTextMedium;
+            case DARK_MODES_TEXT_DARK:
+                return R.style.ThemeDarkTextDark;
+            default:
+                return (marshallingId == 1) ? R.style.ThemeDark : R.style.ThemeBlack;
+        }
     }
 
     @StringRes public int getNameId() {

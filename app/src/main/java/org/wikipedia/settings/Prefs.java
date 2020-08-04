@@ -32,6 +32,7 @@ import java.util.Set;
 import okhttp3.logging.HttpLoggingInterceptor.Level;
 
 import static org.apache.commons.lang3.StringUtils.defaultIfBlank;
+import static org.wikipedia.Constants.DARK_MODES_TEXT_STANDARD;
 import static org.wikipedia.settings.PrefsIoUtil.contains;
 import static org.wikipedia.settings.PrefsIoUtil.getBoolean;
 import static org.wikipedia.settings.PrefsIoUtil.getInt;
@@ -947,6 +948,14 @@ public final class Prefs {
 
     public static void setPulsatingIconEventSent(boolean sent) {
         setBoolean(R.string.preference_key_pulsating_icon_event_sent, sent);
+    }
+
+    public static int getDarkModesTextColorLevelSelection() {
+        return getInt(R.string.preference_key_dark_modes_text_color_level_selection, DARK_MODES_TEXT_STANDARD);
+    }
+
+    public static void setDarkModesTextColorLevelSelection(int selection) {
+        setInt(R.string.preference_key_dark_modes_text_color_level_selection, selection);
     }
 
     private Prefs() { }

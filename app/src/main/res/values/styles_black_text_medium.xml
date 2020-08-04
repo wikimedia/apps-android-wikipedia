@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="ThemeBlackTextMedium" parent="ThemeDark">
+        <item name="android:textColorPrimary">@color/green30</item>
+        <item name="android:textColorSecondary">@color/base80</item>
+        <item name="android:textColorTertiary">@color/base70</item>
+        <item name="android:textColorHint">@color/base50</item>
+    </style>
+
+</resources>

@@ -59,6 +59,9 @@ public final class Constants {
     public static final int MAX_READING_LISTS_LIMIT = 100;
 
     public static final int MIN_LANGUAGES_TO_UNLOCK_TRANSLATION = 2;
+    public static final int DARK_MODES_TEXT_STANDARD = 0;
+    public static final int DARK_MODES_TEXT_MEDIUM = 1;
+    public static final int DARK_MODES_TEXT_DARK = 2;
 
     public enum InvokeSource {
         CONTEXT_MENU("contextMenu"),

@@ -38,6 +38,10 @@ import butterknife.Unbinder;
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.functions.Consumer;
 
+import static org.wikipedia.Constants.DARK_MODES_TEXT_DARK;
+import static org.wikipedia.Constants.DARK_MODES_TEXT_MEDIUM;
+import static org.wikipedia.Constants.DARK_MODES_TEXT_STANDARD;
+
 public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
     @BindView(R.id.buttonDecreaseTextSize) TextView buttonDecreaseTextSize;
     @BindView(R.id.buttonIncreaseTextSize) TextView buttonIncreaseTextSize;
@@ -54,6 +58,9 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
     @BindView(R.id.theme_chooser_dark_mode_dim_images_switch) SwitchCompat dimImagesSwitch;
     @BindView(R.id.theme_chooser_match_system_theme_switch) SwitchCompat matchSystemThemeSwitch;
     @BindView(R.id.font_change_progress_bar) ProgressBar fontChangeProgressBar;
+    @BindView(R.id.dark_mode_text_normal_choice) TextView darkModeTextNormalChoice;
+    @BindView(R.id.dark_mode_text_medium_choice) TextView darkModeTextMediumChoice;
+    @BindView(R.id.dark_mode_text_dark_choice) TextView darkModeTextDarkChoice;
 
     public interface Callback {
         void onToggleDimImages();
@@ -80,6 +87,9 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
         buttonThemeDark.setOnClickListener(new ThemeButtonListener(Theme.DARK));
         buttonThemeBlack.setOnClickListener(new ThemeButtonListener(Theme.BLACK));
         buttonThemeSepia.setOnClickListener(new ThemeButtonListener(Theme.SEPIA));
+        darkModeTextNormalChoice.setOnClickListener(new TextColorChooserListener(DARK_MODES_TEXT_STANDARD));
+        darkModeTextMediumChoice.setOnClickListener(new TextColorChooserListener(DARK_MODES_TEXT_MEDIUM));
+        darkModeTextDarkChoice.setOnClickListener(new TextColorChooserListener(DARK_MODES_TEXT_DARK));
 
         textSizeSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -269,6 +279,19 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
                 funnel.logThemeChange(app.getCurrentTheme(), theme);
                 app.setCurrentTheme(theme);
             }
+        }
+    }
+
+    private final class TextColorChooserListener implements View.OnClickListener {
+        private int choice;
+
+        private TextColorChooserListener(int choice) {
+            this.choice = choice;
+        }
+
+        @Override
+        public void onClick(View v) {
+            Prefs.setDarkModesTextColorLevelSelection(choice);
         }
     }
 
