@@ -681,14 +681,13 @@ public class ReadingListsFragment extends Fragment implements
             // searching delay will let the animation cannot catch the update of list items, and will cause crashes
             enableLayoutTransition(false);
             onboardingView.setVisibility(View.GONE);
+            ((MainFragment) getParentFragment()).setBottomNavVisible(false);
             return super.onCreateActionMode(mode, menu);
         }
 
         @Override
         protected void onQueryChange(String s) {
             String searchString = s.trim();
-            ((MainFragment) getParentFragment())
-                    .setBottomNavVisible(searchString.length() == 0);
             updateLists(searchString, false);
         }
 
@@ -698,12 +697,13 @@ public class ReadingListsFragment extends Fragment implements
             enableLayoutTransition(true);
             actionMode = null;
             currentSearchQuery = null;
+            ((MainFragment) getParentFragment()).setBottomNavVisible(true);
             updateLists();
         }
 
         @Override
         protected String getSearchHintString() {
-            return requireContext().getResources().getString(R.string.search_hint_search_my_lists_and_articles);
+            return requireContext().getResources().getString(R.string.filter_hint_filter_my_lists_and_articles);
         }
 
         @Override

@@ -82,20 +82,6 @@ class SuggestedEditsTasksFragment : Fragment() {
             FeedbackUtil.showAndroidAppEditingFAQ(requireContext())
         }
 
-        contributionsStatsView.setImageDrawable(R.drawable.ic_mode_edit_white_24dp)
-        contributionsStatsView.tooltipText = getString(R.string.suggested_edits_contributions_stat_tooltip)
-
-        editStreakStatsView.setDescription(resources.getString(R.string.suggested_edits_edit_streak_label_text))
-        editStreakStatsView.setImageDrawable(R.drawable.ic_timer_black_24dp)
-        editStreakStatsView.tooltipText = getString(R.string.suggested_edits_edit_streak_stat_tooltip)
-
-        pageViewStatsView.setDescription(getString(R.string.suggested_edits_views_label_text))
-        pageViewStatsView.setImageDrawable(R.drawable.ic_trending_up_black_24dp)
-        pageViewStatsView.tooltipText = getString(R.string.suggested_edits_page_views_stat_tooltip)
-
-        editQualityStatsView.setDescription(getString(R.string.suggested_edits_quality_label_text))
-        editQualityStatsView.tooltipText = getString(R.string.suggested_edits_edit_quality_stat_tooltip, UserContributionsStats.totalReverts)
-
         swipeRefreshLayout.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent))
         swipeRefreshLayout.setOnRefreshListener { refreshContents() }
 
@@ -254,7 +240,8 @@ class SuggestedEditsTasksFragment : Fragment() {
 
         addImageTagsTask.new = Prefs.isSuggestedEditsImageTagsNew()
         tasksRecyclerView.adapter!!.notifyDataSetChanged()
-        editQualityStatsView.setGoodnessState(revertSeverity)
+
+        setUserStatsTooltips()
 
         if (latestEditStreak < 2) {
             editStreakStatsView.setTitle(if (latestEditDate.time > 0) DateUtil.getMDYDateString(latestEditDate) else resources.getString(R.string.suggested_edits_last_edited_never))
@@ -296,6 +283,23 @@ class SuggestedEditsTasksFragment : Fragment() {
 
         swipeRefreshLayout.setBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
         tasksContainer.visibility = VISIBLE
+    }
+
+    private fun setUserStatsTooltips() {
+        contributionsStatsView.setImageDrawable(R.drawable.ic_mode_edit_white_24dp)
+        contributionsStatsView.tooltipText = getString(R.string.suggested_edits_contributions_stat_tooltip)
+
+        editStreakStatsView.setDescription(resources.getString(R.string.suggested_edits_edit_streak_label_text))
+        editStreakStatsView.setImageDrawable(R.drawable.ic_timer_black_24dp)
+        editStreakStatsView.tooltipText = getString(R.string.suggested_edits_edit_streak_stat_tooltip)
+
+        pageViewStatsView.setDescription(getString(R.string.suggested_edits_views_label_text))
+        pageViewStatsView.setImageDrawable(R.drawable.ic_trending_up_black_24dp)
+        pageViewStatsView.tooltipText = getString(R.string.suggested_edits_page_views_stat_tooltip)
+
+        editQualityStatsView.setGoodnessState(revertSeverity)
+        editQualityStatsView.setDescription(getString(R.string.suggested_edits_quality_label_text))
+        editQualityStatsView.tooltipText = getString(R.string.suggested_edits_edit_quality_stat_tooltip, UserContributionsStats.totalReverts)
     }
 
     private fun showOneTimeSequentialUserStatsTooltips() {
