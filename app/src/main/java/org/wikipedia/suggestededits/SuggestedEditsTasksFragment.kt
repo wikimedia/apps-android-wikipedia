@@ -11,12 +11,14 @@ import android.view.ViewGroup
 import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.skydoves.balloon.showAlignBottom
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.functions.Function3
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_suggested_edits_tasks.*
+import kotlinx.android.synthetic.main.view_image_title_description.view.*
 import org.wikipedia.Constants.*
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -81,14 +83,18 @@ class SuggestedEditsTasksFragment : Fragment() {
         }
 
         contributionsStatsView.setImageDrawable(R.drawable.ic_mode_edit_white_24dp)
+        contributionsStatsView.tooltipText = getString(R.string.suggested_edits_contributions_stat_tooltip)
 
         editStreakStatsView.setDescription(resources.getString(R.string.suggested_edits_edit_streak_label_text))
         editStreakStatsView.setImageDrawable(R.drawable.ic_timer_black_24dp)
+        editStreakStatsView.tooltipText = getString(R.string.suggested_edits_edit_streak_stat_tooltip)
 
         pageViewStatsView.setDescription(getString(R.string.suggested_edits_views_label_text))
         pageViewStatsView.setImageDrawable(R.drawable.ic_trending_up_black_24dp)
+        pageViewStatsView.tooltipText = getString(R.string.suggested_edits_page_views_stat_tooltip)
 
         editQualityStatsView.setDescription(getString(R.string.suggested_edits_quality_label_text))
+        editQualityStatsView.tooltipText = getString(R.string.suggested_edits_edit_quality_stat_tooltip, UserContributionsStats.totalReverts)
 
         swipeRefreshLayout.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent))
         swipeRefreshLayout.setOnRefreshListener { refreshContents() }
@@ -283,10 +289,22 @@ class SuggestedEditsTasksFragment : Fragment() {
             onboardingTextView.visibility = GONE
             contributionsStatsView.setTitle(totalContributions.toString())
             contributionsStatsView.setDescription(resources.getQuantityString(R.plurals.suggested_edits_contribution, totalContributions))
+            if (Prefs.shouldShowOneTimeSequentialUserStatsTooltip()) {
+                showOneTimeSequentialUserStatsTooltips()
+            }
         }
 
         swipeRefreshLayout.setBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
         tasksContainer.visibility = VISIBLE
+    }
+
+    private fun showOneTimeSequentialUserStatsTooltips() {
+        val balloon = FeedbackUtil.showTooltip(requireContext(), contributionsStatsView.tooltipText)
+        contributionsStatsView.description.showAlignBottom(balloon)
+        balloon.relayShowAlignBottom(FeedbackUtil.showTooltip(requireContext(), editStreakStatsView.tooltipText), editStreakStatsView.description)
+                .relayShowAlignBottom(FeedbackUtil.showTooltip(requireContext(), pageViewStatsView.tooltipText), pageViewStatsView.description)
+                .relayShowAlignBottom(FeedbackUtil.showTooltip(requireContext(), editQualityStatsView.tooltipText), editQualityStatsView.description)
+        Prefs.shouldShowOneTimeSequentialUserStatsTooltip(false)
     }
 
     private fun setIPBlockedStatus() {

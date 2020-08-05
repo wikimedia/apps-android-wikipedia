@@ -10,15 +10,24 @@ import androidx.annotation.DrawableRes
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
 import androidx.core.widget.ImageViewCompat
+import com.skydoves.balloon.showAlignBottom
 import kotlinx.android.synthetic.main.view_image_title_description.view.*
 import org.wikipedia.R
 import org.wikipedia.util.DimenUtil
+import org.wikipedia.util.FeedbackUtil
 
 internal class ImageTitleDescriptionView constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
+    var tooltipText: String = ""
 
     init {
         View.inflate(context, R.layout.view_image_title_description, this)
         layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        setOnLongClickListener {
+            if (tooltipText.isNotEmpty()) {
+                description.showAlignBottom(FeedbackUtil.showTooltip(context, tooltipText), 0, 16)
+            }
+            true
+        }
     }
 
     fun setTitle(titleText: String) {
