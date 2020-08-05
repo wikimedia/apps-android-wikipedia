@@ -399,7 +399,7 @@ public class ReadingListsFragment extends Fragment implements
     }
 
     private void maybeShowListLimitMessage() {
-        if (displayedLists.size() >= Constants.MAX_READING_LISTS_LIMIT) {
+        if (actionMode == null && displayedLists.size() >= Constants.MAX_READING_LISTS_LIMIT) {
             String message = getString(R.string.reading_lists_limit_message);
             FeedbackUtil.makeSnackbar(getActivity(), message, FeedbackUtil.LENGTH_DEFAULT).show();
         }
