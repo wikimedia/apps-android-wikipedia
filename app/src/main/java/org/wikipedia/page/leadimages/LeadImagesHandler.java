@@ -150,6 +150,7 @@ public class LeadImagesHandler {
                             captionSourcePageTitle.setDescription(pair.first.get(getTitle().getWikiSite().languageCode()));
                             imageInfo = pair.second.query().firstPage().imageInfo();
                             imagePage = pair.second.query().firstPage();
+                            imageEditType = null; // Need to clear value from precious call
                             if (!pair.first.containsKey(getTitle().getWikiSite().languageCode())) {
                                 imageEditType = ImageEditType.ADD_CAPTION;
                                 return ImageTagsProvider.getImageTagsObservable(pair.second.query().firstPage().pageId(), getTitle().getWikiSite().languageCode());

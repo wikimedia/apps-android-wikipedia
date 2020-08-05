@@ -97,7 +97,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     public static final int ACTIVITY_RESULT_PAGE_SELECTED = 1;
     private static final int ACTIVITY_REQUEST_DESCRIPTION_EDIT = 2;
     public static final int ACTIVITY_RESULT_IMAGE_CAPTION_ADDED = 3;
-    private static final int ACTIVITY_REQUEST_ADD_IMAGE_TAGS = 4;
+    public static final int ACTIVITY_REQUEST_ADD_IMAGE_TAGS = 4;
 
     public static final String EXTRA_PAGETITLE = "pageTitle";
     public static final String EXTRA_FILENAME = "filename";
@@ -684,8 +684,8 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
             captionEditable = false;
         }
         if (captionEditable) {
-            decideImageEditType(item);
             ctaContainer.setVisibility(View.VISIBLE);
+            decideImageEditType(item);
         } else {
             ctaContainer.setVisibility(View.GONE);
         }
@@ -693,6 +693,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     }
 
     private void decideImageEditType(@NonNull GalleryItemFragment item) {
+        imageEditType = null;
         if (!item.getMediaInfo().getCaptions().containsKey(sourceWiki.languageCode())) {
             imageEditType = ImageEditType.ADD_CAPTION;
             targetLanguageCode = sourceWiki.languageCode();
@@ -718,6 +719,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
                     }
                 }
         }
+        ctaContainer.setVisibility(imageEditType == null ? View.GONE : View.VISIBLE);
     }
 
     private void displayApplicableDescription(@NonNull  GalleryItemFragment item) {

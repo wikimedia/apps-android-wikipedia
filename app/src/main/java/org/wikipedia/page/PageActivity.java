@@ -700,7 +700,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             handleSettingsActivityResult(resultCode);
         } else if (newArticleLanguageSelected(requestCode, resultCode) || galleryPageSelected(requestCode, resultCode)) {
             toolbarContainerView.post(() -> handleIntent(data));
-        } else if (galleryImageCaptionAdded(requestCode, resultCode)) {
+        } else if (galleryImageEdited(requestCode, resultCode)) {
             pageFragment.refreshPage();
         } else if (requestCode == Constants.ACTIVITY_REQUEST_BROWSE_TABS) {
             if (app.getTabCount() == 0 && resultCode != TabActivity.RESULT_NEW_TAB) {
@@ -807,8 +807,9 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         return requestCode == Constants.ACTIVITY_REQUEST_GALLERY && resultCode == GalleryActivity.ACTIVITY_RESULT_PAGE_SELECTED;
     }
 
-    private boolean galleryImageCaptionAdded(int requestCode, int resultCode) {
-        return requestCode == Constants.ACTIVITY_REQUEST_GALLERY && resultCode == GalleryActivity.ACTIVITY_RESULT_IMAGE_CAPTION_ADDED;
+    private boolean galleryImageEdited(int requestCode, int resultCode) {
+        return requestCode == Constants.ACTIVITY_REQUEST_GALLERY && (resultCode == GalleryActivity.ACTIVITY_RESULT_IMAGE_CAPTION_ADDED
+                || resultCode == GalleryActivity.ACTIVITY_REQUEST_ADD_IMAGE_TAGS);
     }
 
     private void showDescriptionEditRevertDialog(@NonNull String qNumber) {
