@@ -34,8 +34,6 @@ import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.ObservableWebView;
 
-import java.util.Map;
-
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
@@ -71,7 +69,6 @@ public class LeadImagesHandler {
     private PageTitle captionSourcePageTitle;
     private PageTitle captionTargetPageTitle;
     private ImageInfo imageInfo;
-    private Map<String, String> imageCaptions;
     private MwQueryPage imagePage;
     private CompositeDisposable disposables = new CompositeDisposable();
     private WikipediaApp app = WikipediaApp.getInstance();
@@ -150,16 +147,16 @@ public class LeadImagesHandler {
                         ServiceFactory.get(new WikiSite(Service.COMMONS_URL)).getImageInfo(imageTitle, WikipediaApp.getInstance().getAppOrSystemLanguageCode()), Pair::new))
                 .flatMap(pair -> {
                             captionSourcePageTitle = new PageTitle(imageTitle, new WikiSite(Service.COMMONS_URL, getTitle().getWikiSite().languageCode()));
-                            imageCaptions = pair.first;
+                            captionSourcePageTitle.setDescription(pair.first.get(getTitle().getWikiSite().languageCode()));
                             imageInfo = pair.second.query().firstPage().imageInfo();
                             imagePage = pair.second.query().firstPage();
-                            if (!imageCaptions.containsKey(getTitle().getWikiSite().languageCode())) {
+                            if (!pair.first.containsKey(getTitle().getWikiSite().languageCode())) {
                                 imageEditType = ImageEditType.ADD_CAPTION;
                                 return ImageTagsProvider.getImageTagsObservable(pair.second.query().firstPage().pageId(), getTitle().getWikiSite().languageCode());
                             }
                             if (app.language().getAppLanguageCodes().size() >= MIN_LANGUAGES_TO_UNLOCK_TRANSLATION) {
                                 for (String lang : app.language().getAppLanguageCodes()) {
-                                    if (!imageCaptions.containsKey(lang)) {
+                                    if (!pair.first.containsKey(lang)) {
                                         imageEditType = ImageEditType.ADD_CAPTION_TRANSLATION;
                                         captionTargetPageTitle = new PageTitle(imageTitle, new WikiSite(Service.COMMONS_URL, lang));
                                         break;
@@ -186,10 +183,8 @@ public class LeadImagesHandler {
                 break;
             case ADD_CAPTION_TRANSLATION:
                 callToActionIsTranslation = true;
-                String currentCaption = imageCaptions.get(getTitle().getWikiSite().languageCode());
-                captionSourcePageTitle.setDescription(currentCaption);
                 callToActionSourceSummary = new PageSummaryForEdit(captionSourcePageTitle.getPrefixedText(), captionSourcePageTitle.getWikiSite().languageCode(), captionSourcePageTitle,
-                        captionSourcePageTitle.getDisplayText(), currentCaption, getLeadImageUrl());
+                        captionSourcePageTitle.getDisplayText(), captionSourcePageTitle.getDescription(), getLeadImageUrl());
 
                 callToActionTargetSummary = new PageSummaryForEdit(captionTargetPageTitle.getPrefixedText(), captionTargetPageTitle.getWikiSite().languageCode(), captionTargetPageTitle,
                         captionTargetPageTitle.getDisplayText(), null, getLeadImageUrl());

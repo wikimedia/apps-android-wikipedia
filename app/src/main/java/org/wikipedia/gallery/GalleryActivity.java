@@ -96,8 +96,8 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         GalleryItemFragment.Callback {
     public static final int ACTIVITY_RESULT_PAGE_SELECTED = 1;
     private static final int ACTIVITY_REQUEST_DESCRIPTION_EDIT = 2;
-    private static final int ACTIVITY_REQUEST_ADD_IMAGE_TAGS = 4;
     public static final int ACTIVITY_RESULT_IMAGE_CAPTION_ADDED = 3;
+    private static final int ACTIVITY_REQUEST_ADD_IMAGE_TAGS = 4;
 
     public static final String EXTRA_PAGETITLE = "pageTitle";
     public static final String EXTRA_FILENAME = "filename";
@@ -389,7 +389,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     }
 
     private void startTagsEdit(GalleryItemFragment item) {
-        startActivityForResult(SuggestedEditsImageTagEditActivity.Companion.newIntent(this, item.getMediaPage()), ACTIVITY_REQUEST_ADD_IMAGE_TAGS);
+        startActivityForResult(SuggestedEditsImageTagEditActivity.newIntent(this, item.getMediaPage()), ACTIVITY_REQUEST_ADD_IMAGE_TAGS);
     }
 
     private void startCaptionTranslation(GalleryItemFragment item) {
