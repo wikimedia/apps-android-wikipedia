@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.annotation.DrawableRes
-import androidx.annotation.NonNull
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
 import androidx.core.widget.ImageViewCompat
@@ -24,15 +23,11 @@ internal class ImageTitleDescriptionView constructor(context: Context, attrs: At
         View.inflate(context, R.layout.view_image_title_description, this)
         layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         setOnLongClickListener {
-            if (!tooltipText.isEmpty()) {
+            if (tooltipText.isNotEmpty()) {
                 description.showAlignBottom(FeedbackUtil.showTooltip(context, tooltipText), 0, 16)
             }
             true
         }
-    }
-
-    fun setUpTooltipText(@NonNull tooltip: String) {
-        tooltipText = tooltip
     }
 
     fun setTitle(titleText: String) {

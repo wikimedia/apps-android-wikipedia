@@ -83,18 +83,18 @@ class SuggestedEditsTasksFragment : Fragment() {
         }
 
         contributionsStatsView.setImageDrawable(R.drawable.ic_mode_edit_white_24dp)
-        contributionsStatsView.setUpTooltipText(getString(R.string.suggested_edits_contributions_stat_tooltip))
+        contributionsStatsView.tooltipText = getString(R.string.suggested_edits_contributions_stat_tooltip)
 
         editStreakStatsView.setDescription(resources.getString(R.string.suggested_edits_edit_streak_label_text))
         editStreakStatsView.setImageDrawable(R.drawable.ic_timer_black_24dp)
-        editStreakStatsView.setUpTooltipText(getString(R.string.suggested_edits_edit_streak_stat_tooltip))
+        editStreakStatsView.tooltipText = getString(R.string.suggested_edits_edit_streak_stat_tooltip)
 
         pageViewStatsView.setDescription(getString(R.string.suggested_edits_views_label_text))
         pageViewStatsView.setImageDrawable(R.drawable.ic_trending_up_black_24dp)
-        pageViewStatsView.setUpTooltipText(getString(R.string.suggested_edits_page_views_stat_tooltip))
+        pageViewStatsView.tooltipText = getString(R.string.suggested_edits_page_views_stat_tooltip)
 
         editQualityStatsView.setDescription(getString(R.string.suggested_edits_quality_label_text))
-        editQualityStatsView.setUpTooltipText(getString(R.string.suggested_edits_edit_quality_stat_tooltip, UserContributionsStats.totalReverts))
+        editQualityStatsView.tooltipText = getString(R.string.suggested_edits_edit_quality_stat_tooltip, UserContributionsStats.totalReverts)
 
         swipeRefreshLayout.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent))
         swipeRefreshLayout.setOnRefreshListener { refreshContents() }
