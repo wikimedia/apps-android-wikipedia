@@ -20,6 +20,9 @@ import androidx.fragment.app.Fragment;
 import com.getkeepsafe.taptargetview.TapTarget;
 import com.getkeepsafe.taptargetview.TapTargetView;
 import com.google.android.material.snackbar.Snackbar;
+import com.skydoves.balloon.ArrowConstraints;
+import com.skydoves.balloon.ArrowOrientation;
+import com.skydoves.balloon.Balloon;
 
 import org.wikipedia.R;
 import org.wikipedia.analytics.SuggestedEditsFunnel;
@@ -171,6 +174,19 @@ public final class FeedbackUtil {
         toast.setGravity(Gravity.TOP | Gravity.START, location[0], location[1]);
         toast.show();
         return toast;
+    }
+
+    @SuppressWarnings("checkstyle:magicnumber")
+    public static Balloon showTooltip(@NonNull Context context, @NonNull CharSequence text) {
+        return new Balloon.Builder(context)
+                .setText(text)
+                .setArrowConstraints(ArrowConstraints.ALIGN_ANCHOR)
+                .setArrowOrientation(ArrowOrientation.TOP)
+                .setPadding(16)
+                .setTextSize(14f)
+                .setTextColorResource(ResourceUtil.getThemedAttributeId(context, R.attr.paper_color))
+                .setBackgroundColorResource(ResourceUtil.getThemedAttributeId(context, R.attr.colorAccent))
+                .build();
     }
 
     private static View findBestView(Activity activity) {
