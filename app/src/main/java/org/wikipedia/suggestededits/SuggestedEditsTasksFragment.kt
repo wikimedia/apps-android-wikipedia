@@ -241,7 +241,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         addImageTagsTask.new = Prefs.isSuggestedEditsImageTagsNew()
         tasksRecyclerView.adapter!!.notifyDataSetChanged()
 
-        setUserStatsTooltips()
+        setUserStatsViewsAndTooltips()
 
         if (latestEditStreak < 2) {
             editStreakStatsView.setTitle(if (latestEditDate.time > 0) DateUtil.getMDYDateString(latestEditDate) else resources.getString(R.string.suggested_edits_last_edited_never))
@@ -285,7 +285,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         tasksContainer.visibility = VISIBLE
     }
 
-    private fun setUserStatsTooltips() {
+    private fun setUserStatsViewsAndTooltips() {
         contributionsStatsView.setImageDrawable(R.drawable.ic_mode_edit_white_24dp)
         contributionsStatsView.tooltipText = getString(R.string.suggested_edits_contributions_stat_tooltip)
 
