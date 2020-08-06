@@ -26,6 +26,7 @@ import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
+import org.wikipedia.analytics.ABTestSuggestedEditsSnackbarFunnel;
 import org.wikipedia.analytics.FeedFunnel;
 import org.wikipedia.analytics.SuggestedEditsFunnel;
 import org.wikipedia.descriptions.DescriptionEditActivity;
@@ -54,6 +55,7 @@ import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity;
 import org.wikipedia.suggestededits.SuggestedEditsImageTagEditActivity;
+import org.wikipedia.suggestededits.SuggestionsActivity;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.ThrowableUtil;
@@ -243,9 +245,17 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
                 if (suggestedEditsCardView != null && suggestedEditsCardView.getCard() != null) {
                     suggestedEditsCardView.refreshCardContent();
                     isTranslation = suggestedEditsCardView.isTranslation();
-                    FeedbackUtil.showMessage(this, isTranslation && app.language().getAppLanguageCodes().size() > 1
+                    ABTestSuggestedEditsSnackbarFunnel abTestFunnel = new ABTestSuggestedEditsSnackbarFunnel();
+                    Snackbar snackbar = FeedbackUtil.makeSnackbar(requireActivity(), isTranslation && app.language().getAppLanguageCodes().size() > 1
                             ? getString(suggestedEditsCardView.getCard().getAction() == TRANSLATE_DESCRIPTION ? R.string.description_edit_success_saved_in_lang_snackbar : R.string.description_edit_success_saved_image_caption_in_lang_snackbar, app.language().getAppLanguageLocalizedName(app.language().getAppLanguageCodes().get(1)))
-                            : getString(suggestedEditsCardView.getCard().getAction() == ADD_DESCRIPTION ? R.string.description_edit_success_saved_snackbar : (suggestedEditsCardView.getCard().getAction() == ADD_IMAGE_TAGS) ? R.string.description_edit_success_saved_image_tags_snackbar : R.string.description_edit_success_saved_image_caption_snackbar));
+                            : getString(suggestedEditsCardView.getCard().getAction() == ADD_DESCRIPTION ? R.string.description_edit_success_saved_snackbar : (suggestedEditsCardView.getCard().getAction() == ADD_IMAGE_TAGS) ? R.string.description_edit_success_saved_image_tags_snackbar : R.string.description_edit_success_saved_image_caption_snackbar),
+                            FeedbackUtil.LENGTH_DEFAULT);
+                    if (abTestFunnel.shouldSeeSnackbarAction()) {
+                        snackbar.setAction(R.string.suggested_edits_tasks_onboarding_get_started, view ->
+                                startActivity(SuggestionsActivity.newIntent(requireActivity(), suggestedEditsCardView.getCard().getAction())));
+                    }
+                    snackbar.show();
+                    abTestFunnel.logSnackbarShown();
                 }
             }
         }
