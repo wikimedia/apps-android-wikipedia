@@ -91,6 +91,8 @@ import static org.wikipedia.Constants.INTENT_EXTRA_ACTION;
 import static org.wikipedia.Constants.InvokeSource.LINK_PREVIEW_MENU;
 import static org.wikipedia.Constants.InvokeSource.TOOLBAR;
 import static org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_CAPTION;
+import static org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_IMAGE_TAGS;
+import static org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_CAPTION;
 import static org.wikipedia.settings.Prefs.isLinkPreviewEnabled;
 import static org.wikipedia.settings.SettingsActivity.ACTIVITY_RESULT_LANGUAGE_CHANGED;
 import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
@@ -719,16 +721,18 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             } else if (resultCode == TabActivity.RESULT_LOAD_FROM_BACKSTACK) {
                 pageFragment.reloadFromBackstack();
             }
-        } else if (requestCode == Constants.ACTIVITY_REQUEST_IMAGE_CAPTION_EDIT
+        } else if ((requestCode == Constants.ACTIVITY_REQUEST_IMAGE_CAPTION_EDIT || requestCode == Constants.ACTIVITY_REQUEST_IMAGE_TAGS_EDIT)
                 && resultCode == RESULT_OK) {
             pageFragment.refreshPage();
             String editLanguage = StringUtils.defaultString(pageFragment.getLeadImageEditLang(), app.language().getAppLanguageCode());
-            DescriptionEditActivity.Action action = (DescriptionEditActivity.Action) data.getSerializableExtra(INTENT_EXTRA_ACTION);
+            DescriptionEditActivity.Action action = (data != null && data.hasExtra(INTENT_EXTRA_ACTION)) ? (DescriptionEditActivity.Action) data.getSerializableExtra(INTENT_EXTRA_ACTION)
+                    : (requestCode == Constants.ACTIVITY_REQUEST_IMAGE_TAGS_EDIT) ? ADD_IMAGE_TAGS : null;
             ABTestSuggestedEditsSnackbarFunnel abTestFunnel = new ABTestSuggestedEditsSnackbarFunnel();
             boolean shouldSeeSEFeedLinkSnackbar = abTestFunnel.shouldSeeSnackbarAction() && Prefs.getSEFeedLinkSnackbarShownCount() < SE_FEED_LINK_SNACKBAR_SHOW_LIMIT;
             FeedbackUtil.makeSnackbar(this, action == ADD_CAPTION
                     ? getString(R.string.description_edit_success_saved_image_caption_snackbar)
-                    : getString(R.string.description_edit_success_saved_image_caption_in_lang_snackbar, app.language().getAppLanguageLocalizedName(editLanguage)), FeedbackUtil.LENGTH_DEFAULT)
+                    : action == TRANSLATE_CAPTION ? getString(R.string.description_edit_success_saved_image_caption_in_lang_snackbar, app.language().getAppLanguageLocalizedName(editLanguage))
+                    : getString(R.string.description_edit_success_saved_image_tags_snackbar), FeedbackUtil.LENGTH_DEFAULT)
                     .setAction(R.string.suggested_edits_article_cta_snackbar_action, v -> pageFragment.openImageInGallery(editLanguage))
                     .addCallback(new Snackbar.Callback() {
                         @Override

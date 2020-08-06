@@ -91,6 +91,7 @@ import static org.wikipedia.Constants.InvokeSource.GALLERY_ACTIVITY;
 import static org.wikipedia.Constants.InvokeSource.LINK_PREVIEW_MENU;
 import static org.wikipedia.Constants.PREFERRED_GALLERY_IMAGE_SIZE;
 import static org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_CAPTION;
+import static org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_IMAGE_TAGS;
 import static org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_CAPTION;
 import static org.wikipedia.util.StringUtil.strip;
 import static org.wikipedia.util.UriUtil.handleExternalLink;
@@ -326,12 +327,14 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     @Override
     public void onActivityResult(int requestCode, int resultCode, final Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == ACTIVITY_REQUEST_DESCRIPTION_EDIT && resultCode == RESULT_OK) {
+        if ((requestCode == ACTIVITY_REQUEST_DESCRIPTION_EDIT || requestCode == ACTIVITY_REQUEST_ADD_IMAGE_TAGS) && resultCode == RESULT_OK) {
             ABTestSuggestedEditsSnackbarFunnel abTestFunnel = new ABTestSuggestedEditsSnackbarFunnel();
-            DescriptionEditActivity.Action action = (DescriptionEditActivity.Action) data.getSerializableExtra(INTENT_EXTRA_ACTION);
+            DescriptionEditActivity.Action action = (data != null && data.hasExtra(INTENT_EXTRA_ACTION)) ? (DescriptionEditActivity.Action) data.getSerializableExtra(INTENT_EXTRA_ACTION)
+                    : (requestCode == ACTIVITY_REQUEST_ADD_IMAGE_TAGS) ? ADD_IMAGE_TAGS : null;
             Snackbar snackbar = FeedbackUtil.makeSnackbar(this, action == ADD_CAPTION
-                    ? getString(R.string.description_edit_success_saved_image_caption_snackbar)
-                    : getString(R.string.description_edit_success_saved_image_caption_in_lang_snackbar, app.language().getAppLanguageLocalizedName(targetLanguageCode)),
+                            ? getString(R.string.description_edit_success_saved_image_caption_snackbar)
+                            : (action == TRANSLATE_CAPTION) ? getString(R.string.description_edit_success_saved_image_caption_in_lang_snackbar, app.language().getAppLanguageLocalizedName(targetLanguageCode))
+                            : getString(R.string.description_edit_success_saved_image_tags_snackbar),
                     FeedbackUtil.LENGTH_DEFAULT);
             if (abTestFunnel.shouldSeeSnackbarAction() && action != null) {
                 snackbar.setAction(R.string.suggested_edits_tasks_onboarding_get_started, view -> startActivity(SuggestionsActivity.newIntent(this, action)));
@@ -339,12 +342,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
             snackbar.show();
             abTestFunnel.logSnackbarShown();
             layOutGalleryDescription();
-            setResult(ACTIVITY_RESULT_IMAGE_CAPTION_ADDED);
-        }
-        if (requestCode == ACTIVITY_REQUEST_ADD_IMAGE_TAGS && resultCode == RESULT_OK) {
-            FeedbackUtil.showMessage(this, getString(R.string.description_edit_success_saved_image_tags_snackbar));
-            layOutGalleryDescription();
-            setResult(ACTIVITY_REQUEST_ADD_IMAGE_TAGS);
+            setResult((requestCode == ACTIVITY_REQUEST_DESCRIPTION_EDIT) ? ACTIVITY_RESULT_IMAGE_CAPTION_ADDED : ACTIVITY_REQUEST_ADD_IMAGE_TAGS);
         }
     }
 
