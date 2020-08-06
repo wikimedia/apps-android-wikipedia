@@ -200,7 +200,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                 new ReadingListBookmarkMenu(tabLayout, new ReadingListBookmarkMenu.Callback() {
                     @Override
                     public void onAddRequest(boolean addToDefault) {
-                        addToReadingList(getTitle(), BOOKMARK_BUTTON, addToDefault);
+                        addToReadingList(getTitle(), BOOKMARK_BUTTON);
                     }
 
                     @Override
@@ -220,6 +220,9 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                         // ignore
                     }
                 }).show(getTitle());
+            } else {
+                ReadingListBehaviorsUtil.INSTANCE.addToDefaultList(requireActivity(), getTitle(), BOOKMARK_BUTTON,
+                        readingListId -> moveToReadingList(readingListId, getTitle(), BOOKMARK_BUTTON, false));
             }
         }
 
@@ -1307,15 +1310,10 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         }
     }
 
-    public void addToReadingList(@NonNull PageTitle title, @NonNull InvokeSource source, boolean addToDefault) {
+    public void addToReadingList(@NonNull PageTitle title, @NonNull InvokeSource source) {
         Callback callback = callback();
         if (callback != null) {
-            if (addToDefault) {
-                ReadingListBehaviorsUtil.INSTANCE.addToDefaultList(requireActivity(), title, source,
-                        readingListId -> moveToReadingList(readingListId, title, source, false));
-            } else {
-                callback.onPageAddToReadingList(title, source);
-            }
+            callback.onPageAddToReadingList(title, source);
         }
     }
 
