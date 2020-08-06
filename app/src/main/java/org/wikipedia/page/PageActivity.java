@@ -33,16 +33,20 @@ import androidx.core.view.ViewCompat;
 import androidx.drawerlayout.widget.FixedDrawerLayout;
 import androidx.preference.PreferenceManager;
 
+import com.google.android.material.snackbar.Snackbar;
+
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.Constants;
 import org.wikipedia.Constants.InvokeSource;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.BaseActivity;
+import org.wikipedia.analytics.ABTestSuggestedEditsSnackbarFunnel;
 import org.wikipedia.analytics.IntentFunnel;
 import org.wikipedia.analytics.LinkPreviewFunnel;
 import org.wikipedia.commons.FilePageActivity;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.descriptions.DescriptionEditActivity;
 import org.wikipedia.descriptions.DescriptionEditRevertHelpView;
 import org.wikipedia.events.ArticleSavedOrDeletedEvent;
 import org.wikipedia.events.ChangeTextSizeEvent;
@@ -103,6 +107,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     public static final String EXTRA_HISTORYENTRY  = "org.wikipedia.history.historyentry";
 
     private static final String LANGUAGE_CODE_BUNDLE_KEY = "language";
+    private static final int SE_FEED_LINK_SNACKBAR_SHOW_LIMIT = 2;
 
     public enum TabPosition {
         CURRENT_TAB,
@@ -718,16 +723,26 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
                 && resultCode == RESULT_OK) {
             pageFragment.refreshPage();
             String editLanguage = StringUtils.defaultString(pageFragment.getLeadImageEditLang(), app.language().getAppLanguageCode());
-            FeedbackUtil.makeSnackbar(this, data.getSerializableExtra(INTENT_EXTRA_ACTION) == ADD_CAPTION
+            DescriptionEditActivity.Action action = (DescriptionEditActivity.Action) data.getSerializableExtra(INTENT_EXTRA_ACTION);
+            ABTestSuggestedEditsSnackbarFunnel abTestFunnel = new ABTestSuggestedEditsSnackbarFunnel();
+            boolean shouldSeeSEFeedLinkSnackbar = abTestFunnel.shouldSeeSnackbarAction() && Prefs.getSEFeedLinkSnackbarShownCount() < SE_FEED_LINK_SNACKBAR_SHOW_LIMIT;
+            FeedbackUtil.makeSnackbar(this, action == ADD_CAPTION
                     ? getString(R.string.description_edit_success_saved_image_caption_snackbar)
                     : getString(R.string.description_edit_success_saved_image_caption_in_lang_snackbar, app.language().getAppLanguageLocalizedName(editLanguage)), FeedbackUtil.LENGTH_DEFAULT)
-                    .setAction(R.string.suggested_edits_article_cta_snackbar_action, v -> pageFragment.openImageInGallery(editLanguage)).show();
-        } else if (requestCode == Constants.ACTIVITY_REQUEST_IMAGE_TAGS_EDIT
-                && resultCode == RESULT_OK) {
-            pageFragment.refreshPage();
-            FeedbackUtil.makeSnackbar(this,
-                    getString(R.string.description_edit_success_saved_image_tags_snackbar), FeedbackUtil.LENGTH_DEFAULT)
-                    .setAction(R.string.suggested_edits_article_cta_snackbar_action, v -> pageFragment.openImageInGallery(app.language().getAppLanguageCode())).show();
+                    .setAction(R.string.suggested_edits_article_cta_snackbar_action, v -> pageFragment.openImageInGallery(editLanguage))
+                    .addCallback(new Snackbar.Callback() {
+                        @Override
+                        public void onDismissed(Snackbar transientBottomBar, @DismissEvent int event) {
+                            if (shouldSeeSEFeedLinkSnackbar && action != null) {
+                                Prefs.setSEFeedLinkSnackbarShownCount(Prefs.getSEFeedLinkSnackbarShownCount() + 1);
+                                FeedbackUtil.makeSnackbar(PageActivity.this, getString(R.string.description_edit_success_se_image_caption_feed_link_snackbar), FeedbackUtil.LENGTH_DEFAULT)
+                                        .setAction(R.string.suggested_edits_tasks_onboarding_get_started, v -> pageFragment.startSuggestionsActivity(action))
+                                        .show();
+                            }
+                            abTestFunnel.logSnackbarShown();
+                        }
+                    })
+                    .show();
         } else {
             super.onActivityResult(requestCode, resultCode, data);
         }

@@ -127,4 +127,5 @@
     <string name="preference_key_selected_language_position_in_search">selectedLanguagePositionInSearch</string>
     <string name="preference_key_show_sequential_user_stats_tooltip">showSequentialUserStatsTooltip</string>
     <string name="preference_key_pulsating_icon_event_sent">pulsatingIconEventSent</string>
+    <string name="preference_key_suggested_edits_feed_link_snackbar_shown_count">SEFeedLinkSnackbarShownCount</string>
 </resources>
