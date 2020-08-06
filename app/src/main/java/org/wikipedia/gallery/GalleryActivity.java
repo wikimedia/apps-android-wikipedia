@@ -106,7 +106,6 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     public static final String EXTRA_SOURCE = "source";
     public static final String EXTRA_FEATURED_IMAGE = "featuredImage";
     public static final String EXTRA_FEATURED_IMAGE_AGE = "featuredImageAge";
-    public static final String EXTRA_IS_COMMONS = "isCommons";
 
     @NonNull private WikipediaApp app = WikipediaApp.getInstance();
     @NonNull private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
@@ -371,20 +370,18 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
 
     @OnClick(R.id.gallery_cta_button) void onTranslateClick(View v) {
         GalleryItemFragment item = getCurrentItem();
-        if (item == null || item.getImageTitle() == null || item.getMediaInfo() == null || item.getMediaInfo().getMetadata() == null) {
+        if (item == null || item.getImageTitle() == null || item.getMediaInfo() == null || item.getMediaInfo().getMetadata() == null || imageEditType == null) {
             return;
         }
-        if (imageEditType != null) {
-            switch (imageEditType) {
-                case ADD_TAGS:
-                    startTagsEdit(item);
-                    break;
-                case ADD_CAPTION_TRANSLATION:
-                    startCaptionTranslation(item);
-                    break;
-                default:
-                    startCaptionEdit(item);
-            }
+        switch (imageEditType) {
+            case ADD_TAGS:
+                startTagsEdit(item);
+                break;
+            case ADD_CAPTION_TRANSLATION:
+                startCaptionTranslation(item);
+                break;
+            default:
+                startCaptionEdit(item);
         }
     }
 
@@ -722,7 +719,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         ctaContainer.setVisibility(imageEditType == null ? View.GONE : View.VISIBLE);
     }
 
-    private void displayApplicableDescription(@NonNull  GalleryItemFragment item) {
+    private void displayApplicableDescription(@NonNull GalleryItemFragment item) {
         // If we have a structured caption in our current language, then display that instead
         // of the unstructured description, and make it editable.
         CharSequence descriptionStr;
