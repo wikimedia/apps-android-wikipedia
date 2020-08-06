@@ -14,16 +14,20 @@ import io.reactivex.rxjava3.functions.BiFunction
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_file_page.*
 import org.apache.commons.lang3.StringUtils
+import org.wikipedia.Constants
 import org.wikipedia.R
+import org.wikipedia.analytics.ABTestSuggestedEditsSnackbarFunnel
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.dataclient.mwapi.media.MediaHelper.getImageCaptions
+import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.page.PageTitle
-import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.suggestededits.PageSummaryForEdit
+import org.wikipedia.suggestededits.SuggestionsActivity.Companion.newIntent
+import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
@@ -62,11 +66,21 @@ class FilePageFragment : Fragment() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if ((requestCode == ACTIVITY_REQUEST_ADD_IMAGE_CAPTION || requestCode == ACTIVITY_REQUEST_ADD_IMAGE_TAGS) && resultCode == RESULT_OK) {
-            FeedbackUtil.showMessage(this,
+            val abTestFunnel = ABTestSuggestedEditsSnackbarFunnel()
+            val snackbar = FeedbackUtil.makeSnackbar(activity,
                     if (requestCode == ACTIVITY_REQUEST_ADD_IMAGE_CAPTION)
                         getString(R.string.description_edit_success_saved_image_caption_snackbar)
                     else
-                        getString(R.string.description_edit_success_saved_image_tags_snackbar))
+                        getString(R.string.description_edit_success_saved_image_tags_snackbar), FeedbackUtil.LENGTH_DEFAULT)
+            if (abTestFunnel.shouldSeeSnackbarAction()) {
+                snackbar.setAction(R.string.suggested_edits_tasks_onboarding_get_started) {
+                    startActivity(newIntent(requireActivity(),
+                            if (requestCode == ACTIVITY_REQUEST_ADD_IMAGE_CAPTION) DescriptionEditActivity.Action.ADD_CAPTION
+                            else DescriptionEditActivity.Action.ADD_IMAGE_TAGS))
+                }
+            }
+            snackbar.show()
+            abTestFunnel.logSnackbarShown()
             loadImageInfo()
         }
     }
