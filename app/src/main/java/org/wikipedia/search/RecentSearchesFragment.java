@@ -63,7 +63,7 @@ public class RecentSearchesFragment extends Fragment implements LoaderManager.Lo
                                 Completable.fromAction(() -> WikipediaApp.getInstance().getDatabaseClient(RecentSearch.class).deleteAll()).subscribeOn(Schedulers.io()).subscribe())
                         .setNegativeButton(getString(R.string.clear_recent_searches_confirm_no), null)
                         .create().show());
-        FeedbackUtil.setToolbarButtonLongPressToast(deleteButton);
+        FeedbackUtil.setButtonLongPressToast(deleteButton);
 
         return rootView;
     }
