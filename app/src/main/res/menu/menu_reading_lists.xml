@@ -4,8 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/menu_search_lists"
-        android:icon="@drawable/ic_search_main_themed_24dp"
-        android:title="@string/search_hint_search_my_lists_and_articles"
+        android:icon="@drawable/ic_baseline_filter_list_24"
+        android:title="@string/filter_hint_filter_my_lists_and_articles"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/menu_overflow_button"
