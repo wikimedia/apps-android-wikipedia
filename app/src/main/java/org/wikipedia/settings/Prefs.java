@@ -957,5 +957,13 @@ public final class Prefs {
         setBoolean(R.string.preference_key_pulsating_icon_event_sent, sent);
     }
 
+    public static void setSEFeedLinkSnackbarShownCount(int count) {
+        setInt(R.string.preference_key_suggested_edits_feed_link_snackbar_shown_count, count);
+    }
+
+    public static int getSEFeedLinkSnackbarShownCount() {
+        return getInt(R.string.preference_key_suggested_edits_feed_link_snackbar_shown_count, 0);
+    }
+
     private Prefs() { }
 }

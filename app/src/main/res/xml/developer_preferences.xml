@@ -282,6 +282,11 @@
             android:key="@string/preference_key_show_edit_tasks_onboarding"
             android:title="@string/preference_key_show_edit_tasks_onboarding" />
 
+        <org.wikipedia.settings.IntPreference
+            style="@style/IntPreference"
+            android:key="@string/preference_key_suggested_edits_feed_link_snackbar_shown_count"
+            android:title="@string/preference_key_suggested_edits_feed_link_snackbar_shown_count" />
+
         <org.wikipedia.settings.EditTextAutoSummarizePreference
             style="@style/DataStringPreference"
             android:key="@string/preference_key_suggested_edits_pause_date"
