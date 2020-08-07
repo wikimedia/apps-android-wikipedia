@@ -48,7 +48,7 @@ public class CabSearchView extends SearchView {
         searchCloseBtn = findViewById(R.id.search_close_btn);
         searchCloseBtn.setVisibility(GONE);
         searchCloseBtn.setColorFilter(themedIconColor);
-        FeedbackUtil.setToolbarButtonLongPressToast(searchCloseBtn);
+        FeedbackUtil.setButtonLongPressToast(searchCloseBtn);
         addFilter(searchSrcTextView, new PlainTextInputFilter());
     }
 

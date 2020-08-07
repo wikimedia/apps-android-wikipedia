@@ -440,7 +440,7 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
     private void initLangButton() {
         langButton.setText(app.language().getAppLanguageCode().toUpperCase(Locale.ENGLISH));
         ViewUtil.formatLangButton(langButton, app.language().getAppLanguageCode().toUpperCase(Locale.ENGLISH), LANG_BUTTON_TEXT_SIZE_SMALLER, LANG_BUTTON_TEXT_SIZE_LARGER);
-        FeedbackUtil.setToolbarButtonLongPressToast(langButtonContainer);
+        FeedbackUtil.setButtonLongPressToast(langButtonContainer);
     }
 
     private boolean isValidQuery(String queryText) {
