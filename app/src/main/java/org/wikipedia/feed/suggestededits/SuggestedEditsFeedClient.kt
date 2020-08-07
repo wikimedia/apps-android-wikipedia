@@ -20,7 +20,6 @@ import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.userprofile.UserContributionsStats
 import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider
 import org.wikipedia.util.StringUtil
-import org.wikipedia.util.log.L
 import java.util.*
 
 class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Action) : FeedClient {
@@ -84,7 +83,7 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
                     }
                 }, {
                     if (it is EditingSuggestionsProvider.ListEmptyException) {
-                        emptyContentCard(cb)
+                        postEmptyListToFeedCoordinator(cb)
                     } else {
                         cb?.error(it)
                     }
@@ -115,7 +114,7 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
                     }
                 }, {
                     if (it is EditingSuggestionsProvider.ListEmptyException) {
-                        emptyContentCard(cb)
+                        postEmptyListToFeedCoordinator(cb)
                     } else {
                         cb?.error(it)
                     }
@@ -124,7 +123,7 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
 
     private fun getArticleToTranslateDescription(cb: FeedClient.Callback?, callback: Callback?) {
         if (langToCode.isEmpty()) {
-            emptyContentCard(cb)
+            postEmptyListToFeedCoordinator(cb)
             return
         }
         disposables.add(EditingSuggestionsProvider
@@ -163,7 +162,7 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
                     }
                 }, {
                     if (it is EditingSuggestionsProvider.ListEmptyException) {
-                        emptyContentCard(cb)
+                        postEmptyListToFeedCoordinator(cb)
                     } else {
                         cb?.error(it)
                     }
@@ -211,7 +210,7 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
                     }
                 }, {
                     if (it is EditingSuggestionsProvider.ListEmptyException) {
-                        emptyContentCard(cb)
+                        postEmptyListToFeedCoordinator(cb)
                     } else {
                         cb?.error(it)
                     }
@@ -220,7 +219,7 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
 
     private fun getImageToTranslateCaption(cb: FeedClient.Callback?, callback: Callback?) {
         if (langToCode.isEmpty()) {
-            emptyContentCard(cb)
+            postEmptyListToFeedCoordinator(cb)
             return
         }
         var fileCaption: String? = null
@@ -278,14 +277,14 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
                     }
                 }, {
                     if (it is EditingSuggestionsProvider.ListEmptyException) {
-                        emptyContentCard(cb)
+                        postEmptyListToFeedCoordinator(cb)
                     } else {
                         cb?.error(it)
                     }
                 }))
     }
 
-    private fun emptyContentCard(cb: FeedClient.Callback?) {
+    private fun postEmptyListToFeedCoordinator(cb: FeedClient.Callback?) {
         if (cb != null) {
             FeedCoordinator.postCardsToCallback(cb, emptyList<Card>())
         }
