@@ -20,6 +20,11 @@ enum class NavTab constructor(private val text: Int, private val icon: Int) : En
             return ReadingListsFragment.newInstance()
         }
     },
+    SEARCH(R.string.nav_item_search, R.drawable.ic_search_themed_24dp) {
+        override fun newInstance(): Fragment {
+            return HistoryFragment.newInstance()
+        }
+    },
     HISTORY(R.string.nav_item_history, R.drawable.ic_restore_black_24dp) {
         override fun newInstance(): Fragment {
             return HistoryFragment.newInstance()
