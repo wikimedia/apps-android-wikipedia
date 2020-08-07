@@ -183,7 +183,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         clearActionBarTitle();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        FeedbackUtil.setToolbarButtonLongPressToast(searchButton, tabsButton, overflowButton);
+        FeedbackUtil.setButtonLongPressToast(searchButton, tabsButton, overflowButton);
 
         toolbarHideHandler = new PageToolbarHideHandler(pageFragment, toolbarContainerView, toolbar, tabsButton);
 

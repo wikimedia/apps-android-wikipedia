@@ -201,7 +201,7 @@ public class PageItemView<T> extends ConstraintLayout {
         setBackground(AppCompatResources.getDrawable(getContext(), ResourceUtil.getThemedAttributeId(getContext(), R.attr.selectableItemBackground)));
         setFocusable(true);
         DeviceUtil.setContextClickAsLongClick(this);
-        FeedbackUtil.setToolbarButtonLongPressToast(secondaryActionView);
+        FeedbackUtil.setButtonLongPressToast(secondaryActionView);
     }
 
     private void updateSelectedState() {

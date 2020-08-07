@@ -128,7 +128,7 @@ public final class FeedbackUtil {
         showMessage(activity, message);
     }
 
-    public static void setToolbarButtonLongPressToast(View... views) {
+    public static void setButtonLongPressToast(View... views) {
         for (View v : views) {
             v.setOnLongClickListener(TOOLBAR_LONG_CLICK_LISTENER);
         }
