@@ -32,7 +32,6 @@
   <string name="search_hint_voice_search">Hangalapú keresés</string>
   <string name="search_hint_search_history">Keresés az előzményekben</string>
   <string name="search_hint_search_languages">Nyelv keresése</string>
-  <string name="search_hint_search_my_lists_and_articles">Listáim és szócikkeim keresése</string>
   <string name="nav_item_history">Előzmények</string>
   <string name="nav_item_suggested_edits">Szerkesztések</string>
   <string name="nav_item_more">Több</string>
@@ -185,7 +184,6 @@
   <string name="preference_title_auto_upload_crash_reports">Hibajelentés küldése</string>
   <string name="preference_summary_auto_upload_crash_reports">Az alkalmazás automatikusan küldhet hibajelentéseket egy harmadik fél szolgáltatónak, hogy elemezhessük az összeomlást, így gyorsabban és könnyebben kijavíthatjuk a hibát.</string>
   <string name="editing_error_spamblacklist">Tiltott webhelyre (%s) mutató linkeket helyeztél el. Távolítsd el őket, majd próbáld újra.</string>
-  <string name="history_search_list_hint">Keresés az előzményekben</string>
   <string name="error_can_not_process_link">Nem lehet megjeleníteni ezt a hivatkozást</string>
   <string name="page_protected_autoconfirmed">Ez a lap félig védett.</string>
   <string name="page_protected_sysop">Ez a lap teljesen védett.</string>

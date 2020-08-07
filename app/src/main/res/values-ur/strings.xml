@@ -26,7 +26,6 @@
   <string name="search_hint_voice_search">بذریعہ آواز تلاش</string>
   <string name="search_hint_search_history">تاریخچہ میں تلاش کریں</string>
   <string name="search_hint_search_languages">زبان تلاش کریں</string>
-  <string name="search_hint_search_my_lists_and_articles">میری فہرستوں اور مضامین میں تلاش کریں</string>
   <string name="nav_item_history">تاریخچہ</string>
   <string name="nav_item_suggested_edits" fuzzy="true">ترمیم کے لیے تجاویز</string>
   <string name="error_network_error">انٹرنیٹ سے رابطہ نہیں ہو سکا۔</string>
@@ -173,7 +172,6 @@
   <string name="preference_title_auto_upload_crash_reports">نقائص کی اطلاع بھیجیں</string>
   <string name="preference_summary_auto_upload_crash_reports">اس ایپ کو از خود تھرڈ پارٹی سروس کی خدمت میں نقائص اور خامیوں کی اطلاع بھیجنے کی اجازت دیں تاکہ ہم جلد از جلد اور بآسانی ان خامیوں کو درست کر سکیں۔</string>
   <string name="editing_error_spamblacklist">ممنوعہ برقی پتوں (%s) کو پرکھا گیا ہے۔ براہ کرم انہیں ہٹاکر پھر کوشش کریں۔</string>
-  <string name="history_search_list_hint">تاریخ تلاش کریں۔</string>
   <string name="error_can_not_process_link">اس ربط کو دکھایا نہیں جاسکا۔</string>
   <string name="page_protected_autoconfirmed">یہ صفحہ نیم محفوظ رہا ہے۔</string>
   <string name="page_protected_sysop">یہ صفحہ مکمل طور پر محفوظ رہا ہے۔</string>

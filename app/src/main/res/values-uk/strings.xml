@@ -32,7 +32,6 @@
   <string name="search_hint_voice_search">Голосовий пошук</string>
   <string name="search_hint_search_history">Історія пошуку</string>
   <string name="search_hint_search_languages">Пошук мови</string>
-  <string name="search_hint_search_my_lists_and_articles">Пошук у читальних списках</string>
   <string name="nav_item_history">Історія</string>
   <string name="nav_item_suggested_edits">Редагування</string>
   <string name="nav_item_more">Більше</string>
@@ -185,7 +184,6 @@
   <string name="preference_title_auto_upload_crash_reports">Надсилати звіти про аварійне завершення роботи</string>
   <string name="preference_summary_auto_upload_crash_reports">Дозволити додатку відправляти автоматичні звіти про збої сторонньому сервіс-провайдеру, щоб ми могли розглянути ваш збій і виправити помилки швидше і легше.</string>
   <string name="editing_error_spamblacklist">Виявлено посилання на заблоковані домени (%s). Будь ласка, вилучіть їх і спробуйте знову.</string>
-  <string name="history_search_list_hint">Історія пошуку</string>
   <string name="error_can_not_process_link">Не вдалося відобразити це посилання</string>
   <string name="page_protected_autoconfirmed">Ця сторінка частково захищена.</string>
   <string name="page_protected_sysop">Ця сторінка повністю захищена.</string>

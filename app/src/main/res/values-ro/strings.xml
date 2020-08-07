@@ -29,7 +29,6 @@
   <string name="search_hint_voice_search">Căutare de intrare vocală</string>
   <string name="search_hint_search_history">Istoricul căutării</string>
   <string name="search_hint_search_languages">Caută o limbă</string>
-  <string name="search_hint_search_my_lists_and_articles">Căutați listele și articolele mele</string>
   <string name="nav_item_history">Istoric</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Modificări sugerate</string>
   <string name="error_network_error">Imposibil de conectat la internet.</string>
@@ -181,7 +180,6 @@
   <string name="preference_title_auto_upload_crash_reports">Trimite rapoarte de erori</string>
   <string name="preference_summary_auto_upload_crash_reports">Permiteți aplicației să trimită automat rapoarte de avarie unui furnizor de servicii terțe, astfel încât să putem revizui crash-ul și să remediem erorile mai rapid și mai ușor.</string>
   <string name="editing_error_spamblacklist">Au fost detectate legături către domenii blocate (%s). Înlăturați-le și încercați din nou.</string>
-  <string name="history_search_list_hint">Căutare în istoric</string>
   <string name="error_can_not_process_link">Nu se poate afișa această legătură</string>
   <string name="page_protected_autoconfirmed">Această pagină a fost semiprotejată.</string>
   <string name="page_protected_sysop">Această pagină a fost protejată.</string>
