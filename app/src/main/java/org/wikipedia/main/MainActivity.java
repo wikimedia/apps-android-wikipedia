@@ -123,6 +123,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment> implement
 
     @Override
     public void onTabChanged(@NonNull NavTab tab) {
+        getFragment().maybeShowOneTimeTooltip(tab);
         if (tab.equals(NavTab.EXPLORE)) {
             wordMark.setVisibility(VISIBLE);
             toolbar.setTitle("");

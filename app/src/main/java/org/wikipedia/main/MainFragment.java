@@ -21,6 +21,7 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.snackbar.Snackbar;
+import com.skydoves.balloon.Balloon;
 
 import org.wikipedia.BackPressedHandler;
 import org.wikipedia.Constants;
@@ -588,6 +589,18 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         @Override
         public void aboutClick() {
             startActivity(new Intent(requireActivity(), AboutActivity.class));
+        }
+    }
+
+    @SuppressWarnings("checkstyle:magicnumber")
+    void maybeShowOneTimeTooltip(NavTab tab) {
+        if (tab == NavTab.SEARCH) {
+            View tabView = tabLayout.getViewAt(tab.code());
+            if (Prefs.shouldShowSearchTabTooltip() && tabView != null) {
+                Balloon balloon = FeedbackUtil.showTooltip(requireContext(), getString(R.string.search_tab_tooltip));
+                balloon.showAlignTop(tabView, 0, 16);
+                Prefs.setShowSearchTabTooltip(false);
+            }
         }
     }
 

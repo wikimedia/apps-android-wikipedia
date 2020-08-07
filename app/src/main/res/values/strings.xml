@@ -31,6 +31,7 @@
     <string name="history_item_delete_undo">Undo</string>
     <string name="notification_archive_undo">Undo</string>
     <string name="app_settings">App settings</string>
+    <string name="search_tab_tooltip">Tap the icon again to directly start typing a search term.</string>
 
     <!-- Saved pages -->
     <string name="dialog_title_clear_history">Clear browsing history</string>

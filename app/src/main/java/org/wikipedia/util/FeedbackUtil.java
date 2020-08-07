@@ -181,7 +181,7 @@ public final class FeedbackUtil {
         return new Balloon.Builder(context)
                 .setText(text)
                 .setArrowConstraints(ArrowConstraints.ALIGN_ANCHOR)
-                .setArrowOrientation(ArrowOrientation.TOP)
+                .setArrowOrientation(ArrowOrientation.BOTTOM)
                 .setPadding(16)
                 .setTextSize(14f)
                 .setTextColorResource(ResourceUtil.getThemedAttributeId(context, R.attr.paper_color))

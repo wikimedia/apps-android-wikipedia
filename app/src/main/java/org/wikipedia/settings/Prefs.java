@@ -965,5 +965,12 @@ public final class Prefs {
         return getInt(R.string.preference_key_suggested_edits_feed_link_snackbar_shown_count, 0);
     }
 
+    public static boolean shouldShowSearchTabTooltip() {
+        return getBoolean(R.string.preference_key_pulsating_icon_event_sent, true);
+    }
+
+    public static void setShowSearchTabTooltip(boolean show) {
+        setBoolean(R.string.preference_key_pulsating_icon_event_sent, show);
+    }
     private Prefs() { }
 }

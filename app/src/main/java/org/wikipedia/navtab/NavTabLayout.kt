@@ -42,4 +42,15 @@ class NavTabLayout constructor(context: Context, attrs: AttributeSet) : BottomNa
             }
         }
     }
+
+    fun getViewAt(position: Int): View? {
+        var view: View? = null
+        if (childCount > 0) {
+            val menuView = getChildAt(0)
+            if ((menuView as ViewGroup).childCount > position + 1) {
+                view = menuView.getChildAt(position)
+            }
+        }
+        return view
+    }
 }
