@@ -54,7 +54,7 @@
             android:layout_width="wrap_content"
             android:layout_height="48dp"
             android:layout_gravity="center"
-            android:background="@android:color/transparent"
+            android:background="?paper_color"
             app:tabIndicator="@null"
             app:tabPaddingStart="8dp"
             app:tabPaddingEnd="8dp"
