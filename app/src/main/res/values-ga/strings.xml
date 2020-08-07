@@ -17,7 +17,6 @@
   <string name="search_hint">Cuardaigh Vicipéid</string>
   <string name="search_hint_search_history">Stair chuardaigh</string>
   <string name="search_hint_search_languages">Cuardaigh ar thóir teanga</string>
-  <string name="search_hint_search_my_lists_and_articles">Cuardaigh mo chuid liostaí agus mo chuid alt</string>
   <string name="nav_item_history">Stair</string>
   <string name="error_network_error">Ní féidir nasc leis an Idirlíon.</string>
   <string name="page_error_retry">Atriail</string>
@@ -163,7 +162,6 @@
   <string name="preference_summary_eventlogging_opt_in">Ceadaigh do Wikimedia eolas a bhailiú ar conas mar a úsáideann tú an aip chun an aip a fheabhsú</string>
   <string name="preference_title_auto_upload_crash_reports">Seol tuairiscí ar tuairteanna</string>
   <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Ceadaigh don aip tuairiscí ar thuairteanna a sheoladh go huathoibríoch chuig HockeyApp / soláthraí seirbhíse tríú páirtí chun go bhféadfaimid do thuairt a athbhreithniú agus an fabht a réitiú níos tapúla agus níos éasca.</string>
-  <string name="history_search_list_hint">Stair chuardaigh</string>
   <string name="error_can_not_process_link">Níorbh fhéidir an nasc seo a thaispeáint</string>
   <string name="page_protected_autoconfirmed">Tá an leathanach seo leath-chosanta.</string>
   <string name="page_protected_sysop">Tá an leathanach seo cosanta go hiomlán.</string>

@@ -20,7 +20,6 @@
   <string name="search_hint">Vikipediyada axtar</string>
   <string name="search_hint_search_history">Tarixçədə axtarış</string>
   <string name="search_hint_search_languages">Dili axtar</string>
-  <string name="search_hint_search_my_lists_and_articles">Mənim siyahılarımı və məqalələrimi axtar</string>
   <string name="nav_item_history">Tarixçə</string>
   <string name="error_network_error">İnternetə qoşulmaq mümkün deyil.</string>
   <string name="page_error_retry">Yenidən cəhd edin</string>
@@ -170,7 +169,6 @@
   <string name="preference_title_auto_upload_crash_reports">Çökmə hesabatları göndərin</string>
   <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Proqram sizin çökmə hesabatını nəzərdən keçirə bilər. Səhvləri daha tez və asanlıqla düzəldə bilərik: Bunun üçün HockeyApp /üçüncü tərəf xidmət provayderi üçün çökmə hesabatları göndərməsinə icazə verin.</string>
   <string name="editing_error_spamblacklist">Bloklanmış domenlərə aid linklər (%s) aşkarlandı. Lütfən onları çıxarın və yenidən cəhd edin.</string>
-  <string name="history_search_list_hint">Tarixçədə axtar</string>
   <string name="error_can_not_process_link">Bu linki göstərilə bilmədi</string>
   <string name="page_protected_autoconfirmed">Bu səhifə yarı-mühafizə edilir.</string>
   <string name="page_protected_sysop">Bu səhifə tam mühafizə edilir.</string>

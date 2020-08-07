@@ -36,7 +36,6 @@
   <string name="search_hint_voice_search">Sprachsuche</string>
   <string name="search_hint_search_history">Suchverlauf</string>
   <string name="search_hint_search_languages">Nach einer Sprache suchen</string>
-  <string name="search_hint_search_my_lists_and_articles">Meine Listen und Artikel durchsuchen</string>
   <string name="nav_item_history">Verlauf</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Vorgeschlagene Bearbeitungen</string>
   <string name="error_network_error">Kann nicht mit dem Internet verbinden.</string>
@@ -188,7 +187,6 @@
   <string name="preference_title_auto_upload_crash_reports">Absturzberichte senden</string>
   <string name="preference_summary_auto_upload_crash_reports">Der App erlauben, automatisch Absturzberichte an einen ausgelagerten Dienstleistungsanbieter zu senden, so dass wir deinen Absturz überprüfen und den Fehler schneller und einfacher beheben können.</string>
   <string name="editing_error_spamblacklist">Es wurden Links zu gesperrten Domains (%s) entdeckt. Bitte entferne sie und versuche es erneut.</string>
-  <string name="history_search_list_hint">Verlauf durchsuchen</string>
   <string name="error_can_not_process_link">Dieser Link konnte nicht angezeigt werden</string>
   <string name="page_protected_autoconfirmed">Diese Seite wurde halbgesperrt.</string>
   <string name="page_protected_sysop">Diese Seite wurde vollgesperrt.</string>

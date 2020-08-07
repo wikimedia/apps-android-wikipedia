@@ -27,7 +27,6 @@
   <string name="search_hint_voice_search">ค้นหาโดยใช้เสียง</string>
   <string name="search_hint_search_history">ค้นหาประวัติ</string>
   <string name="search_hint_search_languages">ค้นหาภาษา</string>
-  <string name="search_hint_search_my_lists_and_articles">ค้นหารายการและบทความที่บันทึกใว้</string>
   <string name="nav_item_history">ประวัติ</string>
   <string name="nav_item_suggested_edits">การแก้ไขที่แนะนำ</string>
   <string name="nav_item_more">เพิ่มเติม</string>
@@ -180,7 +179,6 @@
   <string name="preference_title_auto_upload_crash_reports">ส่งรายงานข้อขัดข้อง</string>
   <string name="preference_summary_auto_upload_crash_reports">อนุญาตให้แอปส่งรายงานข้อขัดข้องไปยังบริการของบุคคลที่สามโดยอัตโนมัติ เพื่อเราจะได้ตรวจสอบและแก้ไขปัญหาได้รวดเร็วและง่ายดายยิ่งขึ้น</string>
   <string name="editing_error_spamblacklist">ตรวจพบลิงก์ไปยังโดเมนที่ถูกระงับ (%s) กรุณาลบและลองอีกครั้ง</string>
-  <string name="history_search_list_hint">ค้นหาประวัติ</string>
   <string name="error_can_not_process_link">ไม่สามารถแสดงลิงก์นี้ได้</string>
   <string name="page_protected_autoconfirmed">หน้านี้ถูกกึ่งป้องกัน</string>
   <string name="page_protected_sysop">หน้านี้ถูกป้องกันสมบูรณ์</string>
