@@ -13,7 +13,7 @@
         android:layout_gravity="center_vertical"
         android:layout_marginStart="-16dp"
         android:layout_weight="1"
-        android:hint="@string/search_hint_search_my_lists_and_articles"
+        android:hint="@string/filter_hint_filter_my_lists_and_articles"
         android:imeOptions="actionSearch|flagNoExtractUi"
         android:inputType="text"
         android:maxLines="1"

@@ -106,7 +106,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment> implement
             tabCountsView.setContentDescription(getString(R.string.menu_page_show_tabs));
             tabsItem.setActionView(tabCountsView);
             tabsItem.expandActionView();
-            FeedbackUtil.setToolbarButtonLongPressToast(tabCountsView);
+            FeedbackUtil.setButtonLongPressToast(tabCountsView);
         }
         return true;
     }

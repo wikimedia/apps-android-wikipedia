@@ -13,7 +13,7 @@
     <string name="search_hint_voice_search">Voice input search</string>
     <string name="search_hint_search_history">Search history</string>
     <string name="search_hint_search_languages">Search for a language</string>
-    <string name="search_hint_search_my_lists_and_articles">Search my lists and articles</string>
+    <string name="filter_hint_filter_my_lists_and_articles">Filter my lists</string>
     <string name="nav_item_history">History</string>
     <string name="nav_item_suggested_edits">Edits</string>
     <string name="nav_item_more">More</string>
@@ -175,7 +175,7 @@
     <string name="preference_title_auto_upload_crash_reports">Send crash reports</string>
     <string name="preference_summary_auto_upload_crash_reports">Allow the app to send crash reports to a third-party service provider automatically so that we can review your crash and fix the bug faster and more easily.</string>
     <string name="editing_error_spamblacklist">Links to blocked domains (%s) detected. Please remove them and try again.</string>
-    <string name="history_search_list_hint">Search history</string>
+    <string name="history_filter_list_hint">Filter history</string>
     <string name="error_can_not_process_link">Could not display this link</string>
     <string name="page_protected_autoconfirmed">This page has been semi-protected.</string>
     <string name="page_protected_sysop">This page has been fully protected.</string>
@@ -661,6 +661,7 @@
     <string name="description_edit_success_saved_image_caption_snackbar">Image caption published!</string>
     <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Image caption published! (%s)</string>
     <string name="description_edit_success_saved_image_tags_snackbar">Image tag(s) published!</string>
+    <string name="description_edit_success_se_image_caption_feed_link_snackbar">Enjoyed that? Help us add missing captions to other images.</string>
     <string name="description_edit_success_encouragement">You just made Wikipedia better for everyone</string>
     <string name="description_edit_success_done">Done</string>
     <string name="description_edit_success_did_you_know">Did you know?</string>

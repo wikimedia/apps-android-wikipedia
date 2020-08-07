@@ -15,6 +15,8 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static org.wikipedia.dataclient.Service.URL_FRAGMENT_FROM_COMMONS;
+
 @SuppressWarnings("unused")
 public class MediaListItem implements Serializable {
     @Nullable private String title;
@@ -88,6 +90,10 @@ public class MediaListItem implements Serializable {
         L.d("getImageUrl scale " + lastScale);
         L.d("getImageUrl url " + imageUrl);
         return UriUtil.resolveProtocolRelativeUrl(imageUrl);
+    }
+
+    public boolean isInCommons() {
+        return !getSrcSets().isEmpty() && getSrcSets().get(0).src.contains(URL_FRAGMENT_FROM_COMMONS);
     }
 
     public class ImageSrcSet implements Serializable {
