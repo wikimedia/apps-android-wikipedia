@@ -56,7 +56,7 @@
   <string name="search_hint_voice_search">Rechercher vocalement</string>
   <string name="search_hint_search_history">Rechercher dans l’historique</string>
   <string name="search_hint_search_languages">Rechercher une langue</string>
-  <string name="search_hint_search_my_lists_and_articles">Rechercher dans mes listes et articles</string>
+  <string name="filter_hint_filter_my_lists_and_articles">Filtrer mes listes</string>
   <string name="nav_item_history">Historique</string>
   <string name="nav_item_suggested_edits">Modifications</string>
   <string name="nav_item_more">Plus</string>
@@ -209,7 +209,7 @@
   <string name="preference_title_auto_upload_crash_reports">Envoyer des rapports d’incident</string>
   <string name="preference_summary_auto_upload_crash_reports">Permettre à l’application d’envoyer automatiquement les rapports d’incident à un fournisseur de services tiers, afin que nous puissions les examiner et corriger le problème plus vite et plus facilement.</string>
   <string name="editing_error_spamblacklist">Détection de liens vers des domaines bloqués (%s) . Veuillez les supprimer et réessayer.</string>
-  <string name="history_search_list_hint">Rechercher dans l’historique</string>
+  <string name="history_filter_list_hint">Filtrer l’historique</string>
   <string name="error_can_not_process_link">Impossible d’afficher ce lien</string>
   <string name="page_protected_autoconfirmed">Cette page a été semi-protégée.</string>
   <string name="page_protected_sysop">Cette page a été entièrement protégée.</string>
@@ -666,6 +666,7 @@
   <string name="description_edit_success_saved_image_caption_snackbar">Légende de l’image publiée !</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Légende de l\'image publiée ! (%s)</string>
   <string name="description_edit_success_saved_image_tags_snackbar">Balise(s) de l’image publiée(s) !</string>
+  <string name="description_edit_success_se_image_caption_feed_link_snackbar">Cela vous a plu ? Aidez-nous à ajouter les légendes manquantes à d’autres images.</string>
   <string name="description_edit_success_encouragement">Vous venez juste de rendre Wikipédia meilleure pour tout le monde</string>
   <string name="description_edit_success_done">Fermer</string>
   <string name="description_edit_success_did_you_know">Le saviez-vous ?</string>

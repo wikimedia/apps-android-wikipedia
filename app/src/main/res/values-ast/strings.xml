@@ -18,7 +18,6 @@
   <string name="search_hint_voice_search">Busca con entrada por voz</string>
   <string name="search_hint_search_history">Guetar nel historial</string>
   <string name="search_hint_search_languages">Buscar una llingua</string>
-  <string name="search_hint_search_my_lists_and_articles">Buscar nes mios llistes y artículos</string>
   <string name="nav_item_history">Historial</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Ediciones suxeríes</string>
   <string name="error_network_error">Nun pudo conectase a Internet.</string>
@@ -170,7 +169,6 @@
   <string name="preference_title_auto_upload_crash_reports">Unviar informes de cuelgues</string>
   <string name="preference_summary_auto_upload_crash_reports">Permitir a la app qu\'unvie informes de cuelgues automáticamente a un fornidor de serviciu d\'un terceru pa que podamos revisar el cuelgue ya iguar el fallu más rápida y fácilmente.</string>
   <string name="editing_error_spamblacklist">Detectáronse enllaces a dominios bloquiaos (%s). Desanícialos y vuelve a intentalo.</string>
-  <string name="history_search_list_hint">Guetar nel historial</string>
   <string name="error_can_not_process_link">Nun se pudo amosar esti enllaz</string>
   <string name="page_protected_autoconfirmed">Esta páxina ta semiprotexida.</string>
   <string name="page_protected_sysop">Esta páxina ta protexida dafechu.</string>

@@ -35,7 +35,6 @@
   <string name="search_hint_voice_search">Vyhledávání hlasem</string>
   <string name="search_hint_search_history">Hledat v historii</string>
   <string name="search_hint_search_languages">Hledat jazyk</string>
-  <string name="search_hint_search_my_lists_and_articles">Vyhledávat v mých seznamech a článcích</string>
   <string name="nav_item_history">Historie</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Navrhování editací</string>
   <string name="nav_item_more">Více</string>
@@ -188,7 +187,6 @@
   <string name="preference_title_auto_upload_crash_reports">Posílat zprávy o chybách</string>
   <string name="preference_summary_auto_upload_crash_reports">Umožuje aplikaci automaticky odesílat hlášení o chybách třetím stranám, abychom mohli chybu přezkoumat a opravit chybu rychleji a jednodušeji.</string>
   <string name="editing_error_spamblacklist">Detekovány odkazy na zablokované domény (%s). Odstraňte je prosím a zkuste to znovu.</string>
-  <string name="history_search_list_hint">Hledání v historii</string>
   <string name="error_can_not_process_link">Tento odkaz nelze zobrazit</string>
   <string name="page_protected_autoconfirmed">Tato stránka je polozamčena.</string>
   <string name="page_protected_sysop">Tato stránka je zamčena.</string>

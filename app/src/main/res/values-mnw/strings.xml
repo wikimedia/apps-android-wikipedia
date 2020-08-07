@@ -17,7 +17,6 @@
   <string name="search_hint_voice_search">စုတ်ရမ္သာင်ဂၠာဲ</string>
   <string name="search_hint_search_history">ဂၠာဲ ပ္ဍဲ ဒၞာဲမဗှ်လဝ်တုဲ</string>
   <string name="search_hint_search_languages">ဂၠာဲ သွက် အရေဝ်ဘာသာ မွဲ</string>
-  <string name="search_hint_search_my_lists_and_articles">ဂၠာဲ စရင်အဲ ကေုာံ လိက်ပရေင်ဂမၠိုင်</string>
   <string name="nav_item_history">အရာမဗှ်လဝ်တုဲ</string>
   <string name="nav_item_suggested_edits" fuzzy="true">အရာပလေဝ်ဒါန် မအာတ်မိက်</string>
   <string name="nav_item_more">ဆက်ဗှ်</string>
@@ -170,7 +169,6 @@
   <string name="preference_title_auto_upload_crash_reports">ပလံင် လိက်စဳရေင် ကိစ္စဟွံစှ်ေကဵုသၞောဝ်</string>
   <string name="preference_summary_auto_upload_crash_reports">ကဵုအခေါင် ကု အာပ် သွက်ဂွံပလံင် လိက်ဒုင်စဳရေင် ကုHockeyApp / a third-party service provider အဝ်တဝ်မတေတ် တုဲမ္ဂး ပိုယ်ဂွံ သ္ၚေဝ်ဂၠေပ် အရာမလီုလာ် တုဲ ဂွံပလေဝ် ပခိုဟ်ပတိုန်၊၊</string>
   <string name="editing_error_spamblacklist">လေန် %s ဝေပ်သာ်ဂှ် ဒှ်ဝေပ်သာ် မစဵုဒၞာလဝ်ရောင်ဂှ် မဂွံတီကေတ်၊၊ ဟိုတ်ဂှ်ရ ပဂုန်တုဲ ပတိတ်ထောအ် လေန်ဂှ်တုဲ ကလေင် ကၠောန်ပၠန်၊၊</string>
-  <string name="history_search_list_hint">ဂၠာဲ ပ္ဍဲ အရာမဗှ်လဝ်တုဲ</string>
   <string name="error_can_not_process_link">လေန်ဏအ်ဂှ် ဗမံက်ထ္ၜး ဟွံဂွံ</string>
   <string name="page_protected_autoconfirmed">မုက်လိက်ဏအ် ဒးဒုင်ကၟာတ်လဒဵုလဝ် ၜိုတ်ကဝက်၊၊</string>
   <string name="page_protected_sysop">မုက်လိက်ဏအ် ဒးဒုင်ကၟာတ်လဒဵုလဝ် ပေင်င်၊၊</string>

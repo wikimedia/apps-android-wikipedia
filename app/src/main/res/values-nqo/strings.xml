@@ -18,7 +18,6 @@
   <string name="search_hint_voice_search">ߡߍ߲ߞߊ߲ߠߊ߫ ߢߌߣߌ߲ߠߌ߲</string>
   <string name="search_hint_search_history">ߕߊ߬ߡߌ߲߬ߣߍ߲ ߘߏ߫ ߢߌߣߌ߲߫</string>
   <string name="search_hint_search_languages">ߞߊ߲ ߘߏ߫ ߢߌߣߌ߲߫</string>
-  <string name="search_hint_search_my_lists_and_articles">ߒ ߠߊ߫ ߛߙߍߘߍ ߣߌ߫ ߞߎߡߘߊ ߟߎ߬ ߢߌߣߌ߲߫</string>
   <string name="nav_item_history">ߘߐ߬ߝߐ</string>
   <string name="nav_item_more">ߡߊߞߊ߬ߝߏ߬ ߜߘߍ ߟߎ߬</string>
   <string name="error_network_error">ߊ߬ ߕߴߛߋ߫ ߜߊ߲߬ߞߎ߲߬ ߠߊ߫ ߓߟߐߟߐ ߟߊ߫</string>
@@ -159,7 +158,6 @@
   <string name="preference_title_eventlogging_opt_in">ߟߊ߬ߓߊ߰ߙߊ߬ߟߌ ߘߊ߲߬ߕߍ߰ߟߌ ߗߋ߫</string>
   <string name="preference_title_auto_upload_crash_reports">ߗߌߙߏ߲ߠߌ߲ ߘߊ߲߬ߕߍ߰ߟߌ ߗߋ߫</string>
   <string name="editing_error_spamblacklist">ߛߘߌ߬ߜߋ߲ ߞߊ߬ ߡߊ߬ߘߎ߮ ߘߏ߫ ߓߊ߬ߟߊ߲߬ (%s) ߓߘߊ߫ ߟߊߞߏߟߐ߲߫.ߊ߬ߟߎ߫ ߛߋ߲߬ߓߐ߫ ߖߊ߰ߣߌ߲߬ ߞߵߊ߬ ߡߊߝߍߣߍ߲߫ ߕߎ߲߯.</string>
-  <string name="history_search_list_hint">ߢߌߣߌ߲ߣߌ߲ ߞߘߐ߬ߡߊ߲ ߠߎ߬</string>
   <string name="error_can_not_process_link">ߊ߬ ߕߍ߫ ߣߊ߬ ߛߋ߫ ߟߊ߫ ߛߘߌ߬ߜߋ߲ ߣߌ߲߬ ߠߊߓߊ߯ߙߊ߫ ߟߊ߫</string>
   <string name="page_protected_autoconfirmed">ߞߐߜߍ ߣߌ߲߬ ߦߋ߫ ߟߊ߬ߞߊ߲߬ߘߊ߬ߟߌ߬ ߕߟߊߒߕߍ ߟߋ߬ ߘߌ߫.</string>
   <string name="page_protected_sysop">ߞߐߜߍ ߣߌ߲߬ ߓߘߊ߫ ߟߊߞߊ߲ߘߊ߫ ߞߏߟߌߞߏߟߌ߫.</string>

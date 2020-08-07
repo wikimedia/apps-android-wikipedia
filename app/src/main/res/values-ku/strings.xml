@@ -131,7 +131,6 @@
   <string name="wikipedia_app_faq">Sepana Wîkîpediyayê PPP</string>
   <string name="create_account_account_created_toast">Hesab hate çêkirin!</string>
   <string name="preferences_heading_data_usage">Bikaranîna daneyê</string>
-  <string name="history_search_list_hint">Dîroka lêgerînê</string>
   <string name="error_can_not_process_link">Nikare vê lînkê nîşan bide</string>
   <string name="page_protected_autoconfirmed">Ev rûpel nîv-parastî ye</string>
   <string name="page_protected_sysop">Ev rûpel bi temamî parastî ye.</string>

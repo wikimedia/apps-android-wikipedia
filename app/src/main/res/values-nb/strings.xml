@@ -29,7 +29,6 @@
   <string name="search_hint">Søk i Wikipedia</string>
   <string name="search_hint_search_history">Søkehistorikk</string>
   <string name="search_hint_search_languages">Søk etter språk</string>
-  <string name="search_hint_search_my_lists_and_articles">Søk i listene og artiklene mine</string>
   <string name="nav_item_history">Logg</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Redigeringsforslag</string>
   <string name="error_network_error">Kan ikke koble til internett.</string>
@@ -181,7 +180,6 @@
   <string name="preference_title_auto_upload_crash_reports">Send rapporter om krasj</string>
   <string name="preference_summary_auto_upload_crash_reports">Tillat at appen automatisk sender krasjrapporter til en tredjepartstjeneste, slik at vi kan gjennomgå disse og fikse feil raskere.</string>
   <string name="editing_error_spamblacklist">Lenker til blokkerte domener (%s) ble funnet. Vennligst fjern dem og prøv igjen.</string>
-  <string name="history_search_list_hint">Søkehistorikk</string>
   <string name="error_can_not_process_link">Kunne ikke vise denne lenken</string>
   <string name="page_protected_autoconfirmed">Denne siden er delvis beskyttet.</string>
   <string name="page_protected_sysop">Denne siden er beskyttet.</string>

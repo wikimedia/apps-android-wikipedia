@@ -47,7 +47,6 @@
   <string name="search_hint_voice_search">音声入力で検索</string>
   <string name="search_hint_search_history">検索履歴</string>
   <string name="search_hint_search_languages">言語を検索</string>
-  <string name="search_hint_search_my_lists_and_articles">あとで読むリストと記事を検索</string>
   <string name="nav_item_history">履歴</string>
   <string name="nav_item_suggested_edits">編集</string>
   <string name="nav_item_more">もっと見る</string>
@@ -200,7 +199,6 @@
   <string name="preference_title_auto_upload_crash_reports">クラッシュレポートを送信</string>
   <string name="preference_summary_auto_upload_crash_reports">アプリがクラッシュした際に、自動的にサードパーティーのサービスプロバイダーに対してクラッシュレポートを送信することを許可します。これによって、クラッシュ内容を確認して、バグの修正をより迅速かつ簡単に行えるようになります。</string>
   <string name="editing_error_spamblacklist">ブロックされているドメイン (%s) へのリンクを検出しました。除去してからやり直してください。</string>
-  <string name="history_search_list_hint">検索履歴</string>
   <string name="error_can_not_process_link">このリンクを表示できませんでした</string>
   <string name="page_protected_autoconfirmed">このページは半保護されています。</string>
   <string name="page_protected_sysop">このページは全保護されています。</string>
