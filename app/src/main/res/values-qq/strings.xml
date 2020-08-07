@@ -41,7 +41,6 @@
   <string name="search_hint_voice_search">Hint text for the voice input search button</string>
   <string name="search_hint_search_history">Hint text for the search box when searching browsing history</string>
   <string name="search_hint_search_languages">Hint text for the search box.</string>
-  <string name="nav_item_history">Text in navigation sidebar that when tapped leads to the History screen.\n{{Identical|History}}</string>
   <string name="nav_item_suggested_edits">Navigation menu item label for suggested edits.\n\n{{Identical|Suggested edits}}</string>
   <string name="nav_item_more">Navigation menu item label for accessing menu items.\n{{identical|More}}</string>
   <string name="error_network_error">Error message shown when network cannot be reached when loading a page</string>

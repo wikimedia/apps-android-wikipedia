@@ -14,7 +14,6 @@
     <string name="search_hint_search_history">Search history</string>
     <string name="search_hint_search_languages">Search for a language</string>
     <string name="filter_hint_filter_my_lists_and_articles">Filter my lists</string>
-    <string name="nav_item_history">History</string>
     <string name="nav_item_suggested_edits">Edits</string>
     <string name="nav_item_more">More</string>
     <string name="nav_item_search">Search</string>

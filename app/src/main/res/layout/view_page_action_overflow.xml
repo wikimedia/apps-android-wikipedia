@@ -60,9 +60,9 @@
                 android:text="@string/nav_item_reading_lists" />
 
             <TextView
-                android:id="@+id/page_action_overflow_history"
+                android:id="@+id/page_action_overflow_search"
                 style="@style/OverflowMenuItem"
-                android:text="@string/nav_item_history" />
+                android:text="@string/nav_item_search" />
 
         </LinearLayout>
 
