@@ -128,7 +128,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment> implement
             toolbar.setTitle("");
             controlNavTabInFragment = false;
         } else {
-            if (tab.equals(NavTab.HISTORY) && getFragment().getCurrentFragment() != null) {
+            if (tab.equals(NavTab.SEARCH) && getFragment().getCurrentFragment() != null) {
                 ((HistoryFragment) getFragment().getCurrentFragment()).refresh();
             }
 

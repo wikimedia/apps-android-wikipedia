@@ -673,7 +673,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
         @Override
         public void historyClick() {
-            goToMainTab(NavTab.HISTORY);
+            goToMainTab(NavTab.SEARCH);
         }
     }
 

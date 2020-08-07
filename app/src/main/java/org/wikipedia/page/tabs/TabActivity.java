@@ -276,7 +276,7 @@ public class TabActivity extends BaseActivity {
                 goToMainTab(NavTab.READING_LISTS);
                 return true;
             case R.id.menu_search:
-                goToMainTab(NavTab.HISTORY);
+                goToMainTab(NavTab.SEARCH);
                 return true;
             default:
                 break;
