@@ -49,7 +49,6 @@
   <string name="search_hint_voice_search">Ricerca vocale</string>
   <string name="search_hint_search_history">Cerca nella cronologia</string>
   <string name="search_hint_search_languages">Cerca una lingua</string>
-  <string name="search_hint_search_my_lists_and_articles">Cerca nei miei elenchi e voci</string>
   <string name="nav_item_history">Cronologia</string>
   <string name="nav_item_suggested_edits">Modifiche</string>
   <string name="nav_item_more">Altro</string>
@@ -202,7 +201,6 @@
   <string name="preference_title_auto_upload_crash_reports">Invia segnalazioni di errori</string>
   <string name="preference_summary_auto_upload_crash_reports">Consenti all\'applicazione di inviare automaticamente i rapporti sugli arresti anomali a un fornitore di servizi di terze parti, in modo da poter rivedere il tuo arresto anomalo e correggere l\'errore più velocemente e più facilmente.</string>
   <string name="editing_error_spamblacklist">È stato rilevato un collegamento ad un dominio bloccato (%s). Rimuovilo e prova ancora.</string>
-  <string name="history_search_list_hint">Cerca nella cronologia</string>
   <string name="error_can_not_process_link">Impossibile visualizzare questo collegamento</string>
   <string name="page_protected_autoconfirmed">Questa pagina è stata semi-protetta.</string>
   <string name="page_protected_sysop">Questa pagina è stata protetta.</string>

@@ -15,7 +15,6 @@
   <string name="search_hint">Пошук па Вікіпэдыі</string>
   <string name="search_hint_search_history">Шукаць у гісторыі</string>
   <string name="search_hint_search_languages">Пошук мовы</string>
-  <string name="search_hint_search_my_lists_and_articles">Пошук у сьпісах і артыкулах</string>
   <string name="nav_item_history">Гісторыя</string>
   <string name="nav_item_suggested_edits">Рэдагаваньні</string>
   <string name="nav_item_more">Болей</string>
@@ -145,7 +144,6 @@
   <string name="preference_title_auto_upload_crash_reports">Дасылаць справаздачы пра памылкі</string>
   <string name="preference_summary_auto_upload_crash_reports">Дазволіць аўтаматычна дасылаць паведамленьні пра памылкі ў пабочны сэрвіс-правайдэр, каб мы маглі праглядаць зьвесткі пра памылку, што дазволіць нам хутчэй выправіць яе.</string>
   <string name="editing_error_spamblacklist">Выяўленыя спасылкі на заблякаваныя дамэны (%s). Калі ласка, выдаліце іх і праспрабуйце зноў.</string>
-  <string name="history_search_list_hint">Гісторыя пошуку</string>
   <string name="error_can_not_process_link">Не атрымалася адлюстраваць гэтую спасылку</string>
   <string name="page_protected_autoconfirmed">Гэтая старонка была часткова абароненая.</string>
   <string name="page_protected_sysop">Гэтая старонка была поўнасьцю абароненая.</string>

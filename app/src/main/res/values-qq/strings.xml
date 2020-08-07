@@ -41,6 +41,8 @@
   <string name="search_hint_voice_search">Hint text for the voice input search button</string>
   <string name="search_hint_search_history">Hint text for the search box when searching browsing history</string>
   <string name="search_hint_search_languages">Hint text for the search box.</string>
+  <string name="filter_hint_filter_my_lists_and_articles">Hint text for filtering the set of reading lists or pages in a single reading list</string>
+  <string name="nav_item_history">Text in navigation sidebar that when tapped leads to the History screen.\n{{Identical|History}}</string>
   <string name="nav_item_suggested_edits">Navigation menu item label for suggested edits.\n\n{{Identical|Suggested edits}}</string>
   <string name="nav_item_more">Navigation menu item label for accessing menu items.\n{{identical|More}}</string>
   <string name="error_network_error">Error message shown when network cannot be reached when loading a page</string>
@@ -192,6 +194,7 @@
   <string name="preference_title_auto_upload_crash_reports">Title of preference that when checked enables automatic upload of crash reports.</string>
   <string name="preference_summary_auto_upload_crash_reports">Description of preference that when checked checked enables automatic upload of crash reports.</string>
   <string name="editing_error_spamblacklist">An error message, which appears after trying to save a page with blacklisted links. The single string parameter %s for this message gets substituted with the blocked domain.</string>
+  <string name="history_filter_list_hint">Hint for textbox that searches list of items in browsing history as user types.</string>
   <string name="error_can_not_process_link">Message shown in a toast when the app encounters a link it can not process.</string>
   <string name="page_protected_autoconfirmed">Message shown to users when editing a semi-protected page</string>
   <string name="page_protected_sysop">Message shown to users when editing a fully protected page</string>
@@ -916,7 +919,5 @@
   <string name="text_input_dialog_ok_button_text">Positive action button text in pop-up dialog for text input.\n{{Identical|OK}}</string>
   <string name="text_input_dialog_cancel_button_text">Negative action button text in pop-up dialog for text input.\n{{Identical|Cancel}}</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Negative action button text in date picker pop-up dialog.\n{{Identical|Cancel}}</string>
-  <string name="filter_hint_filter_my_lists_and_articles">Hint text for filtering the set of reading lists or pages in a single reading list</string>
-  <string name="history_filter_list_hint">Hint for textbox that searches list of items in browsing history as user types.</string>
   <string name="nav_item_search">Navigation menu item label for search.</string>
 </resources>

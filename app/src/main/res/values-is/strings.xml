@@ -19,7 +19,6 @@
   <string name="search_hint_voice_search">Leit með raddskipunum</string>
   <string name="search_hint_search_history">Leitarferill</string>
   <string name="search_hint_search_languages">Leita eftir tungumáli</string>
-  <string name="search_hint_search_my_lists_and_articles">Leita í listunum mínum og greinum</string>
   <string name="nav_item_history">Ferilskrá</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Tillögur að breytingum</string>
   <string name="error_network_error">Næ ekki að tengjast netinu</string>
@@ -171,7 +170,6 @@
   <string name="preference_title_auto_upload_crash_reports">Senda hrunskýrslur</string>
   <string name="preference_summary_auto_upload_crash_reports">Leyfa forritinu að senda tilkynningar um hrun sjálfkrafa til utanaðkomandi þjónustu þannig að við getum skoðað hvað fór úrskeiðis og lagað villur fljótt og vel.</string>
   <string name="editing_error_spamblacklist">Fann tengla á útilokuð lén (%s). Fjarlægðu þá og reyndu aftur.</string>
-  <string name="history_search_list_hint">Leitarferill</string>
   <string name="error_can_not_process_link">Gat ekki birt þennan tengil</string>
   <string name="page_protected_autoconfirmed">Þessi síða er varin að hluta til.</string>
   <string name="page_protected_sysop">Þessi síða er varin í heild.</string>

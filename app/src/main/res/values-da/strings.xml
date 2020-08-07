@@ -30,7 +30,6 @@
   <string name="search_hint">Søg i Wikipedia</string>
   <string name="search_hint_search_history">Søgehistorik</string>
   <string name="search_hint_search_languages">Søg efter et sprog</string>
-  <string name="search_hint_search_my_lists_and_articles">Søg i mine lister og artikler</string>
   <string name="nav_item_history">Historik</string>
   <string name="nav_item_suggested_edits">Redigeringer</string>
   <string name="nav_item_more">Mere</string>
@@ -182,7 +181,6 @@
   <string name="preference_title_auto_upload_crash_reports">Send rapporter om nedbrud</string>
   <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Tillad appen at sende rapporter om nedbrud til HockeyApp / en tredjeparts-serviceudbyder automatisk, så vi kan gennemgå nedbruddet og rette fejlen hurtigere og nemmere.</string>
   <string name="editing_error_spamblacklist">Links til blokerede domæner (%s) fundet. Fjern dem, og prøv igen.</string>
-  <string name="history_search_list_hint">Søg i historik</string>
   <string name="error_can_not_process_link">Kunne ikke vise dette link</string>
   <string name="page_protected_autoconfirmed">Denne side er delvis beskyttet.</string>
   <string name="page_protected_sysop">Denne side er beskyttet.</string>

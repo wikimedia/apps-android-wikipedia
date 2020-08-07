@@ -182,7 +182,6 @@
   <string name="preference_title_auto_upload_crash_reports">முறிவு அறிக்கை அனுப்பு</string>
   <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">செயலிழப்பு அறிக்கைகளை HockeyApp என்ற மூன்றாம் தரப்பு சேவை வழங்குநருக்கு தானாக அனுப்ப இசசெயலிக்கு அனுமதி அளிக்கிறேன் ஏனெனில், செயலிழந்ததன் காரணத்தை கண்டறியவும் பழுதுபார்க்கவும் எங்களுக்கு எளிதாக இருக்கும்.</string>
   <string name="editing_error_spamblacklist">தடைசெய்யப்பட்ட இணையதளங்களின் இணைப்புகள் (%s) கண்டறியப்பட்டுள்ளது. தயவுசெய்து அவற்றை நீக்கியபின் மறுமுயற்சி செய்யவும்.</string>
-  <string name="history_search_list_hint">வரலாற்றைத் தேடுக</string>
   <string name="error_can_not_process_link">இந்த இணைப்பைக் காட்ட முடியவில்லை</string>
   <string name="page_protected_autoconfirmed">இந்த பக்கம் அரைப் பாதுகாக்கபட்டுள்ளது.</string>
   <string name="page_protected_sysop">இந்த பக்கம் முழுமையாகப் பாதுகாக்கப்பட்டுள்ளது.</string>

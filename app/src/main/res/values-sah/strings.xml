@@ -21,7 +21,6 @@
   <string name="search_hint_voice_search">Саҥа көмөтүнэн көрдөөһүн</string>
   <string name="search_hint_search_history">Көрдөөһүн сурунаала</string>
   <string name="search_hint_search_languages">Тылы көрдөөһүн</string>
-  <string name="search_hint_search_my_lists_and_articles">Ааҕыы испииһэгэр көрдөөһүн</string>
   <string name="nav_item_history">Устуоруйата</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Уларытар туһунан этиилэр</string>
   <string name="error_network_error">Интэриниэти кытта ситим суох.</string>
@@ -173,7 +172,6 @@
   <string name="preference_title_auto_upload_crash_reports">Охтуу отчуоттарын ыытар буол</string>
   <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Охтуу отчуоттарын аптамаатынан HockeyApp тэрилтэҕэ (туора өҥө оҥорооччу) ыыттараҕын дуо? Оччоҕо биһиги саахал туһунан тута билиэ этибит уонна алҕаһы түргэнник көннөрүө этибит.</string>
   <string name="editing_error_spamblacklist">Хааччахтаммыт дэмиэннэргэ сигэммиккин (%s). Бука диэн ону сотон баран хатылаан көр.</string>
-  <string name="history_search_list_hint">Көрдөөһүн сурунаала</string>
   <string name="error_can_not_process_link">Бу сигэни көрдөрөр табыллыбата</string>
   <string name="page_protected_autoconfirmed">Бу сирэй сорҕото хатанна.</string>
   <string name="page_protected_sysop">Бу сирэй толору хатанна</string>

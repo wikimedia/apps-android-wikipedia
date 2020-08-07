@@ -21,7 +21,6 @@
   <string name="search_hint_voice_search">ভইচ ইনপুট সন্ধান</string>
   <string name="search_hint_search_history">ইতিহাস সন্ধান কৰক</string>
   <string name="search_hint_search_languages">ভাষাৰ সন্ধান কৰক</string>
-  <string name="search_hint_search_my_lists_and_articles">মোৰ তালিকা আৰু প্ৰবন্ধবোৰত সন্ধান কৰক</string>
   <string name="nav_item_history">ইতিহাস</string>
   <string name="nav_item_suggested_edits">সম্পাদনা</string>
   <string name="nav_item_more">অধিক</string>
@@ -173,7 +172,6 @@
   <string name="preference_title_auto_upload_crash_reports">ক্ৰেশ্ব প্ৰতিবেদন পঠিয়াওক</string>
   <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">এপ্‌টোক স্বয়ংক্ৰিয়ভাৱে তৃতীয় পক্ষৰ সেৱা প্ৰদানকাৰী HockeyAppলৈ ত্ৰুটি প্ৰতিবেদন পঠিয়াবলৈ অনুমতি দিয়ক যাতে আমি সোনকালে আপোনাৰ ত্ৰুটি পৰীক্ষা কৰি বাগ্‌ ঠিক কৰিব পাৰোঁ।</string>
   <string name="editing_error_spamblacklist">অৱৰুদ্ধ ডমেইনৰ সংযোগ (%s) চিনাক্ত কৰা হৈছে। অনুগ্ৰহ কৰি সেইবোৰ আঁতৰাওক আৰু পুনৰ চেষ্টা কৰক।</string>
-  <string name="history_search_list_hint">ইতিহাস সন্ধান কৰক</string>
   <string name="error_can_not_process_link">এই সংযোগ দেখুৱাব পৰা নগ\'ল</string>
   <string name="page_protected_autoconfirmed">এই পৃষ্ঠাটো অৰ্ধ-সুৰক্ষিত কৰা হৈছে।</string>
   <string name="page_protected_sysop">এই পৃষ্ঠাটো সম্পূৰ্ণ সুৰক্ষিত কৰা হৈছে।</string>
