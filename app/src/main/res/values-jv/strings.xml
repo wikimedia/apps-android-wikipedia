@@ -20,7 +20,6 @@
   <string name="search_hint_voice_search">Golèk sarana swara</string>
   <string name="search_hint_search_history">Golèk ing sajarah</string>
   <string name="search_hint_search_languages">Golèk basa</string>
-  <string name="search_hint_search_my_lists_and_articles">Golèk pratélan lan artikelku</string>
   <string name="nav_item_history">Sajarah</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Besutan kang kaprayogakaké</string>
   <string name="error_network_error">Ora nggayut Internèt.</string>
@@ -170,7 +169,6 @@
   <string name="preference_title_auto_upload_crash_reports">Kirim lapuran rusak</string>
   <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Allow the app to send crash reports to HockeyApp / a third-party service provider automatically so that we can review your crash and fix the bug faster and more easily.</string>
   <string name="editing_error_spamblacklist">Links to blocked domains (%s) detected. Please remove them and try again.</string>
-  <string name="history_search_list_hint">Sajarah golèkan</string>
   <string name="error_can_not_process_link">Ora bisa nuduhaké pranala iki</string>
   <string name="page_protected_autoconfirmed">Kaca iki wis semu-kareksa.</string>
   <string name="page_protected_sysop">Kaca iki wis kareksa wutuh.</string>

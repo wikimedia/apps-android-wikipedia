@@ -30,7 +30,6 @@
   <string name="search_hint_voice_search">Претрага гласом</string>
   <string name="search_hint_search_history">Историја претраге</string>
   <string name="search_hint_search_languages">Претражите језике</string>
-  <string name="search_hint_search_my_lists_and_articles">Претражите спискове и чланке</string>
   <string name="nav_item_history">Историја</string>
   <string name="nav_item_suggested_edits">Измене</string>
   <string name="nav_item_more">Више</string>
@@ -183,7 +182,6 @@
   <string name="preference_title_auto_upload_crash_reports">Шаљи извештаје о отказивањима</string>
   <string name="preference_summary_auto_upload_crash_reports">Дозволите апликацији да аутоматски шаље извештаје о отказивањима независној услузи како бисмо испитали ваш случај и исправили грешку брже и лакше.</string>
   <string name="editing_error_spamblacklist">Откривени су линкови до блокираних домена (%s). Уклоните их па покушајте поново.</string>
-  <string name="history_search_list_hint">Историја претраге</string>
   <string name="error_can_not_process_link">Није могуће приказати овај линк</string>
   <string name="page_protected_autoconfirmed">Ова страница је полузаштићена.</string>
   <string name="page_protected_sysop">Ова страница је потпуно заштићена.</string>

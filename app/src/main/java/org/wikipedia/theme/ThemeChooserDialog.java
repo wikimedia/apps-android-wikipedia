@@ -75,7 +75,7 @@ public class ThemeChooserDialog extends ExtendedBottomSheetDialogFragment {
         unbinder = ButterKnife.bind(this, rootView);
         buttonDecreaseTextSize.setOnClickListener(new FontSizeButtonListener(FontSizeAction.DECREASE));
         buttonIncreaseTextSize.setOnClickListener(new FontSizeButtonListener(FontSizeAction.INCREASE));
-        FeedbackUtil.setToolbarButtonLongPressToast(buttonDecreaseTextSize, buttonIncreaseTextSize);
+        FeedbackUtil.setButtonLongPressToast(buttonDecreaseTextSize, buttonIncreaseTextSize);
         buttonThemeLight.setOnClickListener(new ThemeButtonListener(Theme.LIGHT));
         buttonThemeDark.setOnClickListener(new ThemeButtonListener(Theme.DARK));
         buttonThemeBlack.setOnClickListener(new ThemeButtonListener(Theme.BLACK));

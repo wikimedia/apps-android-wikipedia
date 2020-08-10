@@ -72,7 +72,7 @@ public class RandomFragment extends Fragment {
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_random, container, false);
         unbinder = ButterKnife.bind(this, view);
-        FeedbackUtil.setToolbarButtonLongPressToast(nextButton, saveButton);
+        FeedbackUtil.setButtonLongPressToast(nextButton, saveButton);
 
         randomPager.setOffscreenPageLimit(2);
         randomPager.setAdapter(new RandomItemAdapter(this));

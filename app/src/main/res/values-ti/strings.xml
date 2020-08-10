@@ -14,7 +14,6 @@
   <string name="search_hint_voice_search">ብደሃይ ምድላይ</string>
   <string name="search_hint_search_history">ታሪኽ ውሽጢ ምድላይ</string>
   <string name="search_hint_search_languages">ቋንቋ ድለይ</string>
-  <string name="search_hint_search_my_lists_and_articles">ኣብ ዝርዝራተይን ጽሑፋትን ውሽጢ ድለይ</string>
   <string name="nav_item_history">ታሪኽ</string>
   <string name="page_error_retry">እንደገና ፈትን</string>
   <string name="card_offline_error_retry">እንደገና ፈትን</string>
@@ -103,7 +102,6 @@
   <string name="preferences_heading_data_usage">ኣጠቓቕማ ዳታ</string>
   <string name="preferences_heading_experimental">ምኮራዊ</string>
   <string name="preferences_privacy_settings_heading">ስትረት</string>
-  <string name="history_search_list_hint">ታሪኽ ምድላይ</string>
   <string name="page_protected_can_not_edit_title">እዚ ገጽ ዝተሓለወ እዩ</string>
   <string name="settings_item_preferences">ኣቀማምጣታት</string>
   <string name="settings_activity_title">ኣቀማምጣታት</string>

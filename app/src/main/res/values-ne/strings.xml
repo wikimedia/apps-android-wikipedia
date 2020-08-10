@@ -23,7 +23,6 @@
   <string name="search_hint_voice_search">आवाज आगत खोज</string>
   <string name="search_hint_search_history">इतिहास खोज्नुहोस्</string>
   <string name="search_hint_search_languages">कुनै भाषाको लागि खोजी गर्नुहोस्</string>
-  <string name="search_hint_search_my_lists_and_articles">मेरा सूचीहरू र लेखहरू खोज्नुहोस्</string>
   <string name="nav_item_history">इतिहास</string>
   <string name="nav_item_suggested_edits" fuzzy="true">सुझाइएका सम्पादनहरू</string>
   <string name="nav_item_more">थप</string>
@@ -175,7 +174,6 @@
   <string name="preference_title_auto_upload_crash_reports">खरावी सम्बन्धी प्रतिवेदनहरू पठाउनुहोस्</string>
   <string name="preference_summary_auto_upload_crash_reports">क्र्यास प्रतिवेदनहरू HockeyApp नामक एक तेस्रो-पक्षीय सेवा प्रदायकलाई स्वतः पठाउन अनुप्रयोगलाई अनुमति दिनुहोस् जसले गर्दा हामी अझ छिटो र सरल तरिकाले तपाईंको क्र्यासको समीक्षा गरी उक्त समस्याको समाधान गर्न सक्छौं।</string>
   <string name="editing_error_spamblacklist">रोक लगाइएका डोमेनहरू (%s) को लिङ्क पत्ता लाग्यो। तिनीहरूलाई हटाएर फेरि प्रयास गर्नुहोस्।</string>
-  <string name="history_search_list_hint">खोज इतिहास</string>
   <string name="error_can_not_process_link">यो सूत्र प्रदर्शन गर्न सकिएन</string>
   <string name="page_protected_autoconfirmed">यो पृष्ठ अर्ध-संरक्षित गरिएको छ।</string>
   <string name="page_protected_sysop">यो पृष्ठ पूर्ण संरक्षित गरिएको छ।</string>

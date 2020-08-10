@@ -41,7 +41,7 @@
   <string name="search_hint_voice_search">Hint text for the voice input search button</string>
   <string name="search_hint_search_history">Hint text for the search box when searching browsing history</string>
   <string name="search_hint_search_languages">Hint text for the search box.</string>
-  <string name="search_hint_search_my_lists_and_articles">Hint text for the search box when searching the set of reading lists or pages in a single reading list</string>
+  <string name="filter_hint_filter_my_lists_and_articles">Hint text for filtering the set of reading lists or pages in a single reading list</string>
   <string name="nav_item_history">Text in navigation sidebar that when tapped leads to the History screen.\n{{Identical|History}}</string>
   <string name="nav_item_suggested_edits">Navigation menu item label for suggested edits.\n\n{{Identical|Suggested edits}}</string>
   <string name="nav_item_more">Navigation menu item label for accessing menu items.\n{{identical|More}}</string>
@@ -196,7 +196,7 @@
   <string name="preference_title_auto_upload_crash_reports">Title of preference that when checked enables automatic upload of crash reports.</string>
   <string name="preference_summary_auto_upload_crash_reports">Description of preference that when checked checked enables automatic upload of crash reports.</string>
   <string name="editing_error_spamblacklist">An error message, which appears after trying to save a page with blacklisted links. The single string parameter %s for this message gets substituted with the blocked domain.</string>
-  <string name="history_search_list_hint">Hint for textbox that searches list of items in browsing history as user types.</string>
+  <string name="history_filter_list_hint">Hint for textbox that searches list of items in browsing history as user types.</string>
   <string name="error_can_not_process_link">Message shown in a toast when the app encounters a link it can not process.</string>
   <string name="page_protected_autoconfirmed">Message shown to users when editing a semi-protected page</string>
   <string name="page_protected_sysop">Message shown to users when editing a fully protected page</string>
@@ -655,6 +655,7 @@
   <string name="description_edit_success_saved_image_caption_snackbar">Message shown on a snackbar that the image caption the user just added was saved.</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Message shown on a snackbar that the image caption the user just added was saved. The %s symbol is replaced by the language that the caption was used.</string>
   <string name="description_edit_success_saved_image_tags_snackbar">Message shown on a snackbar that the image tags the user just added were saved.</string>
+  <string name="description_edit_success_se_image_caption_feed_link_snackbar">Message shown on a snackbar that leads the user to the Suggested edits image captions feed.</string>
   <string name="description_edit_success_encouragement">Message that the user made Wikipedia better for everyone</string>
   <string name="description_edit_success_done">Button text to dismiss the description editing success screen\n{{Identical|Done}}</string>
   <string name="description_edit_success_did_you_know">Heading for a tip about editing articles in the app\n{{Identical|Did you know}}</string>

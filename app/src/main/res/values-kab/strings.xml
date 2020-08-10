@@ -19,7 +19,6 @@
   <string name="search_hint_voice_search">Anadi n yinekcam s taɣect</string>
   <string name="search_hint_search_history">Nadi amazray</string>
   <string name="search_hint_search_languages">Nadi γef akk tutlayin</string>
-  <string name="search_hint_search_my_lists_and_articles">Nadi deg tibdarin-iw d yimagraden-iw</string>
   <string name="nav_item_history">Amazray</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Asnirem yettwasumren</string>
   <string name="error_network_error">Ur izmir ara ad yeqqen ar Internet.</string>
@@ -170,7 +169,6 @@
   <string name="preference_title_auto_upload_crash_reports">Azen ineqqisen n uɣelluy</string>
   <string name="preference_summary_auto_upload_crash_reports">Sireg asnas ad yazen ineqqisen n wuguren ar HockeyApp, asaǧǧaw n yimeẓla-nniḍen, s wudem awurman, akken ad nizmir ad nesleḍ sakin ad nesseɣti ugur s tɣawla, s wudem fessusen.</string>
   <string name="editing_error_spamblacklist">Tuṭṭfa n iseɣwan ar tɣula iweḥlen (%s). Ma ulac aɣilif, kkes-iten sakin ɛreḍ tikelt-nniḍen.</string>
-  <string name="history_search_list_hint">Nadi amazray</string>
   <string name="error_can_not_process_link">Ur izmir ara ad d-yesken aseɣwen-agi</string>
   <string name="page_protected_autoconfirmed">Asebter-agi yettumesten s uzgen.</string>
   <string name="page_protected_sysop">Asebter-agi yettummesten meṛṛa.</string>
