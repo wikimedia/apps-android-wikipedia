@@ -651,10 +651,15 @@
   <string name="description_starts_with_uppercase">Warning text shown when a description starts with an uppercase character.</string>
   <string name="description_edit_success_saved">Message that the article description the user just added was saved.</string>
   <string name="description_edit_success_saved_snackbar">Message shown on a snackbar that the article description the user just added was saved.</string>
+  <string name="description_edit_success_saved_snackbar_se_promotion">Message shown on a snackbar that the article description the user just added was saved and also with a message that promotes the suggested edits feature.</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Message shown on a snackbar that the article description the user just added was saved. The %s symbol is replaced by the language that the caption was used.</string>
+  <string name="description_edit_success_saved_in_lang_snackbar_se_promotion">Message shown on a snackbar that the article description the user just added was saved and also with a message that promotes the suggested edits feature. The %s symbol is replaced by the language that the caption was used.</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Message shown on a snackbar that the image caption the user just added was saved.</string>
+  <string name="description_edit_success_saved_image_caption_snackbar_se_promotion">Message shown on a snackbar that the image caption the user just added was saved and also with a message that promotes the suggested edits feature..</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Message shown on a snackbar that the image caption the user just added was saved. The %s symbol is replaced by the language that the caption was used.</string>
+  <string name="description_edit_success_saved_image_caption_in_lang_snackbar_se_promotion">Message shown on a snackbar that the image caption the user just added was saved and also with a message that promotes the suggested edits feature.. The %s symbol is replaced by the language that the caption was used.</string>
   <string name="description_edit_success_saved_image_tags_snackbar">Message shown on a snackbar that the image tags the user just added were saved.</string>
+  <string name="description_edit_success_saved_image_tags_snackbar_se_promotion">Message shown on a snackbar that the image tags the user just added were saved and also with a message that promotes the suggested edits feature..</string>
   <string name="description_edit_success_se_image_caption_feed_link_snackbar">Message shown on a snackbar that leads the user to the Suggested edits image captions feed.</string>
   <string name="description_edit_success_encouragement">Message that the user made Wikipedia better for everyone</string>
   <string name="description_edit_success_done">Button text to dismiss the description editing success screen\n{{Identical|Done}}</string>
