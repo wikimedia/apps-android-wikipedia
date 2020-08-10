@@ -191,7 +191,7 @@ dependencies {
     // use http://gradleplease.appspot.com/ or http://search.maven.org/.
     // Debug with ./gradlew -q app:dependencies --configuration compile
 
-    String okHttpVersion = '3.12.1'
+    String okHttpVersion = '3.12.12'
     String supportVersion = '28.0.0'
     String retrofitVersion = '2.5.0'
     String espressoVersion = '3.0.1'
@@ -200,6 +200,8 @@ dependencies {
     String testingSupportVersion = '1.0.0'
     String mockitoCore = 'org.mockito:mockito-core:1.9.5'
     String leakCanaryVersion = '1.5.4'
+
+    implementation "com.google.android.gms:play-services-base:16.1.0"
 
     implementation "com.android.support:support-compat:$supportVersion"
     implementation "com.android.support:support-core-utils:$supportVersion"
