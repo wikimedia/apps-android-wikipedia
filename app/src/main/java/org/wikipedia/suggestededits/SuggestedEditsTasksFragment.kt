@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.skydoves.balloon.ArrowOrientation
 import com.skydoves.balloon.showAlignBottom
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
@@ -303,11 +304,11 @@ class SuggestedEditsTasksFragment : Fragment() {
     }
 
     private fun showOneTimeSequentialUserStatsTooltips() {
-        val balloon = FeedbackUtil.showTooltip(requireContext(), contributionsStatsView.tooltipText)
+        val balloon = FeedbackUtil.showTooltip(requireContext(), contributionsStatsView.tooltipText, ArrowOrientation.BOTTOM)
         contributionsStatsView.description.showAlignBottom(balloon)
-        balloon.relayShowAlignBottom(FeedbackUtil.showTooltip(requireContext(), editStreakStatsView.tooltipText), editStreakStatsView.description)
-                .relayShowAlignBottom(FeedbackUtil.showTooltip(requireContext(), pageViewStatsView.tooltipText), pageViewStatsView.description)
-                .relayShowAlignBottom(FeedbackUtil.showTooltip(requireContext(), editQualityStatsView.tooltipText), editQualityStatsView.description)
+        balloon.relayShowAlignBottom(FeedbackUtil.showTooltip(requireContext(), editStreakStatsView.tooltipText, ArrowOrientation.BOTTOM), editStreakStatsView.description)
+                .relayShowAlignBottom(FeedbackUtil.showTooltip(requireContext(), pageViewStatsView.tooltipText, ArrowOrientation.BOTTOM), pageViewStatsView.description)
+                .relayShowAlignBottom(FeedbackUtil.showTooltip(requireContext(), editQualityStatsView.tooltipText, ArrowOrientation.BOTTOM), editQualityStatsView.description)
         Prefs.shouldShowOneTimeSequentialUserStatsTooltip(false)
     }
 

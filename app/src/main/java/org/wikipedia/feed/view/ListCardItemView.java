@@ -34,7 +34,7 @@ public class ListCardItemView extends ConstraintLayout {
 
     public interface Callback {
         void onSelectPage(@NonNull Card card, @NonNull HistoryEntry entry);
-        void onAddPageToList(@NonNull HistoryEntry entry);
+        void onAddPageToList(@NonNull HistoryEntry entry, boolean addToDefault);
         void onMovePageToList(long sourceReadingListId, @NonNull HistoryEntry entry);
         void onRemovePageFromList(@NonNull HistoryEntry entry);
         void onSharePage(@NonNull HistoryEntry entry);
@@ -89,9 +89,9 @@ public class ListCardItemView extends ConstraintLayout {
     @OnLongClick boolean onLongClick(View view) {
         new ReadingListBookmarkMenu(view, true, new ReadingListBookmarkMenu.Callback() {
             @Override
-            public void onAddRequest(@Nullable ReadingListPage page) {
+            public void onAddRequest(boolean addToDefault) {
                 if (getCallback() != null && entry != null) {
-                    getCallback().onAddPageToList(entry);
+                    getCallback().onAddPageToList(entry, addToDefault);
                 }
             }
 
