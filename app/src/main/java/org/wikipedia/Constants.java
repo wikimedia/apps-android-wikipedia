@@ -90,7 +90,8 @@ public final class Constants {
         ON_THIS_DAY_CARD_FOOTER("onThisDayCardFooter"),
         LEAD_IMAGE("leadImage"),
         TABS_ACTIVITY("tabsActivity"),
-        FILE_PAGE_ACTIVITY("filePage");
+        FILE_PAGE_ACTIVITY("filePage"),
+        SNACKBAR_ACTION("snackbar");
 
         private String name;
 
