@@ -21,6 +21,7 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.snackbar.Snackbar;
+import com.skydoves.balloon.ArrowOrientation;
 import com.skydoves.balloon.Balloon;
 
 import org.wikipedia.BackPressedHandler;
@@ -602,7 +603,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         if (tab == NavTab.SEARCH) {
             View tabView = tabLayout.getViewAt(tab.code());
             if (Prefs.shouldShowSearchTabTooltip() && tabView != null) {
-                Balloon balloon = FeedbackUtil.showTooltip(requireContext(), getString(R.string.search_tab_tooltip));
+                Balloon balloon = FeedbackUtil.showTooltip(requireContext(), getString(R.string.search_tab_tooltip), ArrowOrientation.TOP);
                 balloon.showAlignTop(tabView, 0, 16);
                 Prefs.setShowSearchTabTooltip(false);
             }
