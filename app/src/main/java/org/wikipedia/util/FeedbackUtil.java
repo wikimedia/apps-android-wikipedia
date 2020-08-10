@@ -177,11 +177,11 @@ public final class FeedbackUtil {
     }
 
     @SuppressWarnings("checkstyle:magicnumber")
-    public static Balloon showTooltip(@NonNull Context context, @NonNull CharSequence text) {
+    public static Balloon showTooltip(@NonNull Context context, @NonNull CharSequence text, @NonNull ArrowOrientation arrowOrientation) {
         return new Balloon.Builder(context)
                 .setText(text)
                 .setArrowConstraints(ArrowConstraints.ALIGN_ANCHOR)
-                .setArrowOrientation(ArrowOrientation.BOTTOM)
+                .setArrowOrientation(arrowOrientation)
                 .setPadding(16)
                 .setTextSize(14f)
                 .setTextColorResource(ResourceUtil.getThemedAttributeId(context, R.attr.paper_color))

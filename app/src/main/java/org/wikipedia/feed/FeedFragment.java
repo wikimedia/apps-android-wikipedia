@@ -101,7 +101,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         void onFeedVoiceSearchRequested();
         void onFeedSelectPage(HistoryEntry entry);
         void onFeedSelectPageFromExistingTab(HistoryEntry entry);
-        void onFeedAddPageToList(HistoryEntry entry);
+        void onFeedAddPageToList(HistoryEntry entry, boolean addToDefault);
         void onFeedMovePageToList(long sourceReadingList, HistoryEntry entry);
         void onFeedRemovePageFromList(HistoryEntry entry);
         void onFeedSharePage(HistoryEntry entry);
@@ -415,9 +415,9 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
         }
 
         @Override
-        public void onAddPageToList(@NonNull HistoryEntry entry) {
+        public void onAddPageToList(@NonNull HistoryEntry entry, boolean addToDefault) {
             if (getCallback() != null) {
-                getCallback().onFeedAddPageToList(entry);
+                getCallback().onFeedAddPageToList(entry, addToDefault);
             }
         }
 
