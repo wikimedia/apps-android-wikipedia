@@ -41,7 +41,6 @@ public class PageActionOverflowView extends FrameLayout {
         super(context);
         inflate(getContext(), R.layout.view_page_action_overflow, this);
         ButterKnife.bind(this);
-        FeedbackUtil.setButtonLongPressToast(forwardButton);
     }
 
     public void show(@NonNull View anchorView, @Nullable Callback callback, @NonNull Tab currentTab) {
