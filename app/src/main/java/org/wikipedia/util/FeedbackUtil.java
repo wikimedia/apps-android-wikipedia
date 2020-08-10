@@ -177,7 +177,7 @@ public final class FeedbackUtil {
     }
 
     @SuppressWarnings("checkstyle:magicnumber")
-    public static Balloon showTooltip(@NonNull Context context, @NonNull CharSequence text, ArrowOrientation arrowOrientation) {
+    public static Balloon showTooltip(@NonNull Context context, @NonNull CharSequence text, @NonNull ArrowOrientation arrowOrientation) {
         return new Balloon.Builder(context)
                 .setText(text)
                 .setArrowConstraints(ArrowConstraints.ALIGN_ANCHOR)
