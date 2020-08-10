@@ -16,7 +16,6 @@
   <string name="search_hint_voice_search">आवाज इनपुट से खोज करीं</string>
   <string name="search_hint_search_history">खोज इतिहास</string>
   <string name="search_hint_search_languages">भाषा खोजल जाय</string>
-  <string name="search_hint_search_my_lists_and_articles">हमार लिस्ट आ लेख में खोजीं</string>
   <string name="nav_item_history">इतिहास</string>
   <string name="nav_item_suggested_edits" fuzzy="true">सुझावित संपादन</string>
   <string name="error_network_error">इंटरनेट से कनेक्शन नइखे हो पावत।</string>
@@ -167,7 +166,6 @@
   <string name="preference_title_auto_upload_crash_reports">क्रैश रपट भेजीं</string>
   <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">क्रैश रपट सभ के ऑटोमेटिक रूप से HockeyApp / एगो तीसरहा पार्टी के सर्विस प्रदाता, के भेजे के अनुमती देईं जवना से हमनी के राउर क्रैश के समीक्षा क सकीं जा आ बग के जल्दी से आ सहजता से फिक्स कइल जा सके।</string>
   <string name="editing_error_spamblacklist">ब्लॉक डोमेन (%s) से जुड़ल कड़ी मिलल बा। इनहन के हटाईं आ दोबारा कोसिस करीं।</string>
-  <string name="history_search_list_hint">खोज इतिहास</string>
   <string name="error_can_not_process_link">ई कड़ी ना देखावल जा सकल</string>
   <string name="page_protected_autoconfirmed">ई पन्ना अर्ध-सुरक्षित बा।</string>
   <string name="page_protected_sysop">ई पन्ना पूरा तरीका से सुरक्षित बा।</string>

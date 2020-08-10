@@ -67,7 +67,6 @@
   <string name="search_hint_voice_search">Голосовой поиск</string>
   <string name="search_hint_search_history">История поиска</string>
   <string name="search_hint_search_languages">Поиск языка</string>
-  <string name="search_hint_search_my_lists_and_articles">Поиск в списках для чтения</string>
   <string name="nav_item_history">История</string>
   <string name="nav_item_suggested_edits">Правки</string>
   <string name="nav_item_more">Ещё</string>
@@ -220,7 +219,6 @@
   <string name="preference_title_auto_upload_crash_reports">Отправлять отчёты о сбоях</string>
   <string name="preference_summary_auto_upload_crash_reports">Разрешить автоматически отправлять отчёты об авариях приложения внешнему сервису, чтобы мы могли проверить проблему, вызвавшую аварию, и исправить ошибку быстрее и проще.</string>
   <string name="editing_error_spamblacklist">Обнаружены ссылки на заблокированные домены (%s). Пожалуйста, удалите их и попробуйте ещё раз.</string>
-  <string name="history_search_list_hint">Поиск в истории</string>
   <string name="error_can_not_process_link">Не удалось отобразить эту ссылку</string>
   <string name="page_protected_autoconfirmed">Эта страница была частично защищена.</string>
   <string name="page_protected_sysop">Эта страница была полностью защищена.</string>

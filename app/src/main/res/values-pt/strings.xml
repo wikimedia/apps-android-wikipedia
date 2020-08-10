@@ -33,7 +33,6 @@
   <string name="search_hint_voice_search">Pesquisa com entrada por voz</string>
   <string name="search_hint_search_history">Histórico de pesquisas</string>
   <string name="search_hint_search_languages">Pesquisar uma língua</string>
-  <string name="search_hint_search_my_lists_and_articles">Pesquisar as minhas listas e artigos</string>
   <string name="nav_item_history">Histórico</string>
   <string name="nav_item_suggested_edits">Edições</string>
   <string name="nav_item_more">Mais</string>
@@ -186,7 +185,6 @@
   <string name="preference_title_auto_upload_crash_reports">Enviar relatórios de falhas</string>
   <string name="preference_summary_auto_upload_crash_reports">Permite que a aplicação envie automaticamente relatórios de falhas fatais para um fornecedor de serviços terceiro, para podermos analisar a sua falha e corrigir o defeito mais rapidamente e mais facilmente.</string>
   <string name="editing_error_spamblacklist">Foram detetadas hiperligações para domínios bloqueados (%s). Remova-as e tente novamente, por favor.</string>
-  <string name="history_search_list_hint">Pesquisar no histórico</string>
   <string name="error_can_not_process_link">Não foi possível apresentar esta hiperligação</string>
   <string name="page_protected_autoconfirmed">Esta página foi semiprotegida.</string>
   <string name="page_protected_sysop">Esta página foi totalmente protegida.</string>

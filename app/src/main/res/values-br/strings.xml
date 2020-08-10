@@ -20,7 +20,6 @@
   <string name="search_hint">Klask e Wikipedia</string>
   <string name="search_hint_search_history">Klask er roll istor</string>
   <string name="search_hint_search_languages">Klask ur yezh</string>
-  <string name="search_hint_search_my_lists_and_articles">Klask em rolloù ha pennadoù</string>
   <string name="nav_item_history">Istor</string>
   <string name="error_network_error">N\'eus ket bet gallet kevreañ ouzh ar rouedad.</string>
   <string name="page_error_retry">Klask en-dro</string>
@@ -164,7 +163,6 @@
   <string name="preference_title_auto_upload_crash_reports">Kas danevelloù implij</string>
   <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Reiñ tro d\'an arload da gas danevelloù implij da HockeyApp - ur pourchaser servijoù tredeour - en un doare emgefreek, abalamour ma c\'hallimp kompren warno ha reizhañ ar c\'hudennoù buanoc\'h hag aesoc\'h.</string>
   <string name="editing_error_spamblacklist">Liammoù war-zu an domanioù stanket (%s). Lamit anezho ha klaskit en-dro, mar plij.</string>
-  <string name="history_search_list_hint">Klask er roll-istor</string>
   <string name="error_can_not_process_link">N\'eus ket bet gallet diskwel al liamm-mañ</string>
   <string name="page_protected_autoconfirmed">Damwarezet eo bet ar bajenn-mañ.</string>
   <string name="page_protected_sysop">Gwarezet penn-da-benn eo bet ar bajenn-mañ.</string>

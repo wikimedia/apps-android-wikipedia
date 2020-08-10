@@ -141,7 +141,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         viewPager.setUserInputEnabled(false);
         viewPager.setAdapter(new NavTabFragmentPagerAdapter(this));
         viewPager.registerOnPageChangeCallback(pageChangeCallback);
-        FeedbackUtil.setToolbarButtonLongPressToast(moreContainer);
+        FeedbackUtil.setButtonLongPressToast(moreContainer);
 
         tabLayout.setOnNavigationItemSelectedListener(item -> {
             if (!navTabAutoSelect && getCurrentFragment() instanceof FeedFragment && item.getOrder() == 0) {
@@ -173,6 +173,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         requireContext().registerReceiver(downloadReceiver,
                 new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
         downloadReceiver.setCallback(downloadReceiverCallback);
+        Prefs.setSEFeedLinkSnackbarShownCount(0);
         // reset the last-page-viewed timer
         Prefs.pageLastShown(0);
         navTabAutoSelect = true;

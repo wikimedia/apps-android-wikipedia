@@ -26,7 +26,6 @@
   <string name="search_hint_voice_search">Carian input suara</string>
   <string name="search_hint_search_history">Cari dalam sejarah</string>
   <string name="search_hint_search_languages">Cari bahasa</string>
-  <string name="search_hint_search_my_lists_and_articles">Cari senarai dan rencana saya</string>
   <string name="nav_item_history">Sejarah</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Penyuntingan yang disarankan</string>
   <string name="error_network_error">Tidak dapat bersambung dengan Internet.</string>
@@ -178,7 +177,6 @@
   <string name="preference_title_auto_upload_crash_reports">Hantar laporan keruntuhan</string>
   <string name="preference_summary_auto_upload_crash_reports">Benarkan aplikasi untuk menghantar laporan kerosakan kepada pembekal perkhidmatan pihak ketiga secara automatik supaya kami dapat meninjau kerosakan anda dan membaiki kerosakan dengan lebih cepat dan lebih mudah.</string>
   <string name="editing_error_spamblacklist">Pautan dari domain disekat (%s) dikesan. Sila gugurkan pautan itu dan cuba lagi.</string>
-  <string name="history_search_list_hint">Cari dalam sejarah</string>
   <string name="error_can_not_process_link">Pautan ini tidak dapat dipaparkan</string>
   <string name="page_protected_autoconfirmed">Laman ini telah diberi perlindungan separa.</string>
   <string name="page_protected_sysop">Laman ini telah diberi perlindungan sepenuhnya.</string>

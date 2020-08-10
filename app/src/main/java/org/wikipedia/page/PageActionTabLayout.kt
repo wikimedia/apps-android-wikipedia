@@ -25,7 +25,7 @@ class PageActionTabLayout constructor(context: Context, attrs: AttributeSet? = n
                     }
                 }
             }
-            FeedbackUtil.setToolbarButtonLongPressToast(tab)
+            FeedbackUtil.setButtonLongPressToast(tab)
         }
     }
 }

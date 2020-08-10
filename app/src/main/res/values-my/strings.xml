@@ -27,7 +27,6 @@
   <string name="search_hint_voice_search">အသံထည့်သွင်းရှာဖွေရေး</string>
   <string name="search_hint_search_history">ရှာဖွေမှု သမိုင်း</string>
   <string name="search_hint_search_languages">ဘာသာစကားတစ်ခုအတွက် ရှာဖွေရန်</string>
-  <string name="search_hint_search_my_lists_and_articles">မိမိ၏စာရင်းနှင့်ဆောင်းပါးများကို ရှာဖွေရန်</string>
   <string name="nav_item_history">မှတ်တမ်း</string>
   <string name="nav_item_suggested_edits" fuzzy="true">အကြံပြုထားသော ပြင်ဆင်မှုများ</string>
   <string name="nav_item_more">ပို၍</string>
@@ -179,7 +178,6 @@
   <string name="preference_title_auto_upload_crash_reports">ပျက်မှု အစီရင်ခံချက်များအား ပို့ရန်</string>
   <string name="preference_summary_auto_upload_crash_reports">တတိယဝန်ဆောင်မှုလုပ်ငန်းသို့ အက်ပ်မှ ပျက်မှု အစီရင်ခံချက်များအား အလိုအလျောက် ပေးပို့စေခြင်းဖြင့် သင့်အစီရင်ခံချက်ကို လွယ်ကူလျှင်မြန်စွာ ကြည့်ရှုပြင်ဆင်နိုင်စေရန် ခွင့်ပြုပါ။</string>
   <string name="editing_error_spamblacklist">ပိတ်ပင်ထားသော ဒိုမိန်းများ (%s) သို့ ချိတ်ဆက်ထားမှု ရှိနေသည်။ ကျေးဇူးပြု၍ ယင်းတို့ကို ဖယ်ရှားပြီး ထပ်မံကြိုးစားပါ။</string>
-  <string name="history_search_list_hint">မှတ်တမ်းများ ရှာဖွေရန်</string>
   <string name="error_can_not_process_link">ဤလင့်ခ်အား ပြသနိုင်ခြင်း မရှိပါ</string>
   <string name="page_protected_autoconfirmed">ဤစာမျက်နှာအား တစ်စိတ်တစ်ပိုင်း ကာကွယ်ထားသည်။</string>
   <string name="page_protected_sysop">ဤစာမျက်နှာအား အပြည့်အဝ ကာကွယ်ထားသည်။</string>

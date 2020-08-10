@@ -74,7 +74,7 @@ public class WikitextKeyboardButtonView extends FrameLayout {
 
             if (!TextUtils.isEmpty(buttonHint)) {
                 setContentDescription(buttonHint);
-                FeedbackUtil.setToolbarButtonLongPressToast(this);
+                FeedbackUtil.setButtonLongPressToast(this);
             }
             array.recycle();
         }

@@ -24,7 +24,6 @@
   <string name="search_hint_voice_search">Pretraživanje glasom</string>
   <string name="search_hint_search_history">Pretraživanje povijesti</string>
   <string name="search_hint_search_languages">Pretraga jezika</string>
-  <string name="search_hint_search_my_lists_and_articles">Pretraga mojih popisa i članaka</string>
   <string name="nav_item_history">Povijest</string>
   <string name="nav_item_suggested_edits">Uređivanjā</string>
   <string name="nav_item_more">Više</string>
@@ -176,7 +175,6 @@
   <string name="preference_title_auto_upload_crash_reports">Slanje izvješća o padu programa</string>
   <string name="preference_summary_auto_upload_crash_reports">Dopusti automatsko slanje izvješća o pogreškama servisu treće strane, kako bismo mogli vidjeti informacije o pogrešci i brže i lakše ispraviti ju.</string>
   <string name="editing_error_spamblacklist">Pronađeni su linkovi na popis blokiranih domena (%s). Molimo, uklonite ih i pokušajte ponovno.</string>
-  <string name="history_search_list_hint">Pretraživanje povijesti</string>
   <string name="error_can_not_process_link">Nije moguće prikazati ovu poveznicu</string>
   <string name="page_protected_autoconfirmed">Ova je stranica djelomično zaštićena.</string>
   <string name="page_protected_sysop">Ova je stranica u potpunosti zaštićena.</string>

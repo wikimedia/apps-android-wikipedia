@@ -20,7 +20,6 @@
   <string name="search_hint_voice_search">ხმოვანი ძიება</string>
   <string name="search_hint_search_history">ისტორიის ძებნა</string>
   <string name="search_hint_search_languages">ენის ძებნა</string>
-  <string name="search_hint_search_my_lists_and_articles">ჩემი სიისა და სტატიების ძიება</string>
   <string name="nav_item_history">ისტორია</string>
   <string name="nav_item_suggested_edits" fuzzy="true">შემოთავაზებული რედაქტირებები</string>
   <string name="error_network_error">ინტერნეტთან დაკავშირება ვერ ხერხდება.</string>
@@ -163,7 +162,6 @@
   <string name="preference_summary_eventlogging_opt_in">ნება მიეცი ვიკიმედიას მოაგროვოს ინფორმაცია თუ როგორ იყენებ ამ აპლიკაციას, რათა ის უკეთესი გახადოს</string>
   <string name="preference_title_auto_upload_crash_reports">პრობლემის ანგარიშის გაგზავნა</string>
   <string name="editing_error_spamblacklist">შემჩნეულია ბმულები დაბლოკილ დომეიზე (%s). გთხოვთ წაშალოთ და სცადოთ თავიდან.</string>
-  <string name="history_search_list_hint">ძიების ისტორია</string>
   <string name="error_can_not_process_link">ბმულის ჩვენება ვერ მოხერხდა</string>
   <string name="page_protected_autoconfirmed">ეს გვერდი ნახევრად დაცულია.</string>
   <string name="page_protected_sysop">ეს გვერდი სრულად დაცულია.</string>

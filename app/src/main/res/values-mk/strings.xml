@@ -19,7 +19,6 @@
   <string name="search_hint_voice_search">Гласовно пребарување</string>
   <string name="search_hint_search_history">Историја на пребарување</string>
   <string name="search_hint_search_languages">Пребарување јазик</string>
-  <string name="search_hint_search_my_lists_and_articles">Пребарај по мои списоци и статии</string>
   <string name="nav_item_history">Историја</string>
   <string name="nav_item_suggested_edits">Уредувања</string>
   <string name="nav_item_more">Повеќе</string>
@@ -172,7 +171,6 @@
   <string name="preference_title_auto_upload_crash_reports">Испраќај извештаи за уривање</string>
   <string name="preference_summary_auto_upload_crash_reports">Прилогот да испраќа извештаи за уривање на надворешен услужник за да може уривањата да се разгледуваат и поправаат полесно и побрзо.</string>
   <string name="editing_error_spamblacklist">Пронајдени се врски до блокирани домени (%s). Отстранете ги и обидете се повторно.</string>
-  <string name="history_search_list_hint">Историја на пребарувањето</string>
   <string name="error_can_not_process_link">Не можам да ја прикажам оваа врска</string>
   <string name="page_protected_autoconfirmed">Оваа страница е полузаштитена.</string>
   <string name="page_protected_sysop">Оваа страница е наполно заштитена.</string>

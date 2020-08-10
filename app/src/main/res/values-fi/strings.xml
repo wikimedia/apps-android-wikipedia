@@ -35,7 +35,6 @@
   <string name="search_hint_voice_search">Hae äänitulon perusteella</string>
   <string name="search_hint_search_history">Hae historiasta</string>
   <string name="search_hint_search_languages">Etsi kieltä</string>
-  <string name="search_hint_search_my_lists_and_articles">Hae omia listoja ja artikkeleita</string>
   <string name="nav_item_history">Historia</string>
   <string name="nav_item_suggested_edits">Muokkaukset</string>
   <string name="nav_item_more">Lisää</string>
@@ -188,7 +187,6 @@
   <string name="preference_title_auto_upload_crash_reports">Lähetä kaatumisilmoituksia</string>
   <string name="preference_summary_auto_upload_crash_reports">Salli sovelluksen lähettää automaattisesti kaatumisilmoituksia kolmannen osapuolen palveluntarjoajalle, jotta voimme käydä läpi sovelluksesi kaatumisen ja korjata ongelmat nopeammin sekä helpommin.</string>
   <string name="editing_error_spamblacklist">Havaittu linkkejä estettyihin verkko-osoitteisiin (%s). Poista ne ja yritä uudelleen.</string>
-  <string name="history_search_list_hint">Hae historiasta</string>
   <string name="error_can_not_process_link">Tätä linkkiä ei voitu näyttää</string>
   <string name="page_protected_autoconfirmed">Tämä sivu on osittain suojattu.</string>
   <string name="page_protected_sysop">Tämä sivu on kokonaan suojattu.</string>
@@ -461,6 +459,7 @@
   <string name="no_user_lists_msg">Luo listoja matkakohteista, suosikkiaiheista ja paljon muuta</string>
   <string name="reading_list_saved_list_rename">%1$s (käyttäjän luoma)</string>
   <string name="split_reading_list_message">On olemassa %d artikkelin raja lukulistaa kohden. Nykyiset tämän rajan ylittävät listat on jaettu moniin listoihin.</string>
+  <string name="reading_list_move_article_limit_message">Ei voida siirtää tähän listaan. Olet saavuttanut %2$d artikkelin rajan per lista listalle \"%1$s\".</string>
   <string name="reading_list_article_limit_message">Ei voida lisätä tähän listaan. Olet saavuttanut %2$d artikkelin rajan per lista listalle \"%1$s\".</string>
   <string name="reading_lists_limit_message">Uuden listan luominen epäonnistui. Sinulla voi olla enintään 100 lukulistaa.</string>
   <string name="reading_lists_menu_create_list">Luo uusi lista</string>
@@ -627,6 +626,8 @@
   <string name="description_edit_anon_limit">Kiitos jatkuvasta mielenkiinnostasi artikkelin kuvausten muokkaamiseen! Tehdäksesi lisämuokkauksia, kirjaudu sisään Wikipedia-tunnuksellesi.</string>
   <string name="description_edit_license_notice">Muuttamalla artikkelin kuvauksen, hyväksyn &lt;a href=\"%1$s\"&gt;käyttöehdot&lt;/a&gt; ja peruuttamattomasti julkaisen muokkaukseni &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; -lisenssillä.</string>
   <string name="description_edit_helper_text_lowercase_warning">alkaa yleensä pienellä kirjaimella</string>
+  <string name="description_too_short">Teksti on liian lyhyt.</string>
+  <string name="description_ends_with_punctuation">Teksti ei saa päättyä välimerkkeihin.</string>
   <string name="description_edit_success_saved">Artikkelin kuvaus julkaistu!</string>
   <string name="description_edit_success_saved_snackbar">Artikkelin kuvaus julkaistu!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Artikkelin kuvaus julkaistu! (%s)</string>
@@ -731,6 +732,7 @@
   <string name="suggested_edits_quality_sufficient_text">Riittävä</string>
   <string name="suggested_edits_quality_poor_text">Heikko</string>
   <string name="suggested_edits_quality_bad_text">Huono</string>
+  <string name="suggested_edits_label">Ehdotetut muokkaukset</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">Muokkaus</item>
     <item quantity="other">Muokkausta</item>
@@ -739,24 +741,30 @@
     <item quantity="one">%d päivä</item>
     <item quantity="other">%d päivää</item>
   </plurals>
+  <string name="suggested_edits_what_is_title">Mitä ovat ehdotetut muokkaukset?</string>
   <string name="suggested_edits_learn_more">Lue lisää</string>
+  <string name="suggested_edits_disabled_title">Poistettu käytöstä</string>
+  <string name="suggested_edits_ip_blocked_title">IP-osoite estetty</string>
   <string name="suggested_edits_last_edited">Muokattu viimeksi</string>
   <string name="suggested_edits_last_edited_never">Ei koskaan</string>
   <string name="suggested_edits_task_new">uusi</string>
   <string name="suggested_edits_cc0_notice">Julkaisemalla hyväksyt &lt;a href=\"%1$s\"&gt;käyttöehdot&lt;/a&gt; ja peruuttamattomasti julkaiset muokkauksesi &lt;a href=\"%2$s\"&gt;CC0&lt;/a&gt;-lisenssin ehtojen mukaisesti.</string>
+  <string name="suggested_edits_reactivation_notification_title">Ehdotetut muokkaukset</string>
+  <string name="suggested_edits_reactivation_notification_stage_one">Kiitos Wikipedian muokkaamisesta! Miksi et jatkaisi siitä mihin jäit?</string>
   <string name="suggested_edits_contributions_screen_title">Käyttäjän %s muokkaukset</string>
   <string name="suggested_edits_contribution_language_label">Kieli</string>
   <string name="suggested_edits_contribution_date_time_label">Päiväys / Aika</string>
   <string name="suggested_edits_contribution_type_label">Muokkaustyyppi</string>
   <string name="suggested_edits_contribution_image_label">Kuva</string>
   <string name="suggested_edits_contribution_article_label">Artikkeli</string>
+  <string name="suggested_edits_contribution_seen_text">Nähty %s kertaa viimeisen 30 päivän aikana.</string>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Eilen</string>
   <string name="suggested_edits_rewards_continue_button">Jatka</string>
   <string name="suggested_edits_encourage_account_creation_title">Tiesitkö että kaikki voivat muokata Wikipediaa?</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Kirjaudu sisään / liity Wikipediaan</string>
   <string name="suggested_edits_contribution_type_image_tag">Kuvamerkintä</string>
-  <string name="suggested_edits_contribution_current_revision_text" fuzzy="true">Nykyinen versio</string>
+  <string name="suggested_edits_contribution_current_revision_text">Muokkauksesi on nyt saatavana Wikipediassa</string>
   <string name="file_page_activity_title">Tiedostosivu</string>
   <string name="description_edit_revert_subtitle">Kiitos Wikipedian muokkaamisesta!</string>
   <string name="description_edit_revert_intro">Tiedämme sinun yrittäneen parhaasi, mutta eräällä arvioijalla oli huolenaihe. Mahdolliset syyt muokkauksesi palauttamiselle ovat:</string>

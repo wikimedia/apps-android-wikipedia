@@ -22,7 +22,6 @@
   <string name="search_hint_voice_search">Dekewtışê vengi cıgeyrayış</string>
   <string name="search_hint_search_history">Tarixê cıgeyrayışi</string>
   <string name="search_hint_search_languages">Nê zıwani de cı geyre</string>
-  <string name="search_hint_search_my_lists_and_articles">Meqaleyan û listanê mı cı geyre</string>
   <string name="nav_item_history">Tarix</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Vurnayışê wesıbnayey</string>
   <string name="error_network_error">Şıma nêvawyayê internet.</string>
@@ -157,7 +156,6 @@
   <string name="preferences_privacy_settings_heading">Nımıtış</string>
   <string name="preference_title_eventlogging_opt_in">Raporanê karıtışi bırış</string>
   <string name="preference_title_auto_upload_crash_reports">Raporê progunayışi bırışê</string>
-  <string name="history_search_list_hint">Tarixê cıgeyrayışi</string>
   <string name="error_can_not_process_link">No gıre nêmocneya</string>
   <string name="page_protected_autoconfirmed">Ena pela nim şevekneyaya</string>
   <string name="page_protected_sysop">Ena pela tam şevekneyaya</string>

@@ -144,7 +144,6 @@
   <string name="preference_title_auto_upload_crash_reports">Šalji izvještaje o rušenju aplikacije</string>
   <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Dozvolite aplikaciji da automatski šalje izvještaje o rušenju aplikacije HockeyAppu / nezavisnom pružaocu usluga da bismo ih mogli pregledati i brže i lakše popraviti programsku grešku.</string>
   <string name="editing_error_spamblacklist">Otkriven link ka blokiranim domenama (%s). Uklonite ih i pokušajte ponovo.</string>
-  <string name="history_search_list_hint">Pretraži historiju</string>
   <string name="error_can_not_process_link">Ne mogu prikazati link</string>
   <string name="page_protected_autoconfirmed">Ova stranica je poluzaštićena.</string>
   <string name="page_protected_sysop">Ova stranica je potpuno zaštićena.</string>

@@ -155,7 +155,6 @@
   <string name="preference_title_auto_upload_crash_reports">Crash-Rapporte schécken</string>
   <string name="preference_summary_auto_upload_crash_reports">Erlaabt der App automatesch Rapporten iwwer Crashe  engem drëtte Service-Provider ze schécken esou datt mir Äre Crash nokucke kënnen an de Feeler méi séier a méi einfach flécke kënnen.</string>
   <string name="editing_error_spamblacklist">Linken op gespaart Domainen (%s) entdeckt. Huelt se wgl. ewech a probéiert nach eng Kéier.</string>
-  <string name="history_search_list_hint">Am Historique sichen</string>
   <string name="error_can_not_process_link">Dëse Link konnt net gewise ginn</string>
   <string name="page_protected_autoconfirmed">Dës Säit ass hallef gespaart.</string>
   <string name="page_protected_sysop">Dës Säit ass komplett gespaart.</string>

@@ -381,7 +381,7 @@ public class DescriptionEditView extends LinearLayout {
     private void init() {
         inflate(getContext(), R.layout.view_description_edit, this);
         ButterKnife.bind(this);
-        FeedbackUtil.setToolbarButtonLongPressToast(saveButton, cancelButton, helpButton);
+        FeedbackUtil.setButtonLongPressToast(saveButton, cancelButton, helpButton);
         setOrientation(VERTICAL);
     }
 

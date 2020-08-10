@@ -48,7 +48,7 @@
   <string name="search_hint_voice_search">Wyszukiwanie za pomocą głosu</string>
   <string name="search_hint_search_history">Historia wyszukiwania</string>
   <string name="search_hint_search_languages">Szukaj języka</string>
-  <string name="search_hint_search_my_lists_and_articles">Przeszukaj moje listy i artykuły</string>
+  <string name="filter_hint_filter_my_lists_and_articles">Filtruj moją listę</string>
   <string name="nav_item_history">Historia</string>
   <string name="nav_item_suggested_edits">Edycje</string>
   <string name="nav_item_more">Więcej</string>
@@ -201,7 +201,7 @@
   <string name="preference_title_auto_upload_crash_reports">Wysyłaj raporty o awariach</string>
   <string name="preference_summary_auto_upload_crash_reports">Pozwól automatycznie wysyłać raporty o błędach do platformy HockeyApp / zewnętrznego usługodawcy, abyśmy mogli szybciej i łatwiej analizować informacje o zgłoszonych awariach oraz naprawiać błędy.</string>
   <string name="editing_error_spamblacklist">Wykryto linki do zablokowanych domen (%s). Usuń je i spróbuj ponownie.</string>
-  <string name="history_search_list_hint">Historia wyszukiwania</string>
+  <string name="history_filter_list_hint">Filtruj historię</string>
   <string name="error_can_not_process_link">Nie można wyświetlić linku</string>
   <string name="page_protected_autoconfirmed">Ta strona jest częściowo zabezpieczona.</string>
   <string name="page_protected_sysop">Ta strona jest całkowicie zabezpieczona.</string>
