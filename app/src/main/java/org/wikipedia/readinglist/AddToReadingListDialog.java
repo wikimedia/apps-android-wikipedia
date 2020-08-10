@@ -46,11 +46,13 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
     private View onboardingContainer;
     private View onboardingButton;
     private CreateButtonClickListener createClickListener = new CreateButtonClickListener();
-    private List<ReadingList> readingLists = new ArrayList<>();
-    private InvokeSource invokeSource;
+    private boolean showDefaultList;
+    List<ReadingList> readingLists = new ArrayList<>();
+    InvokeSource invokeSource;
     CompositeDisposable disposables = new CompositeDisposable();
 
     static final String PAGE_TITLE_LIST = "pageTitleList";
+    static final String SHOW_DEFAULT_LIST = "showDefaultList";
 
     @Nullable private DialogInterface.OnDismissListener dismissListener;
     private ReadingListItemCallback listItemCallback = new ReadingListItemCallback();
@@ -78,6 +80,7 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
         Bundle args = new Bundle();
         args.putParcelableArrayList(PAGE_TITLE_LIST, new ArrayList<Parcelable>(titles));
         args.putSerializable(INTENT_EXTRA_INVOKE_SOURCE, source);
+        args.putBoolean(SHOW_DEFAULT_LIST, true);
         dialog.setArguments(args);
         dialog.setOnDismissListener(listener);
         return dialog;
@@ -88,6 +91,7 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
         super.onCreate(savedInstanceState);
         titles = getArguments().getParcelableArrayList(PAGE_TITLE_LIST);
         invokeSource = (InvokeSource) getArguments().getSerializable(INTENT_EXTRA_INVOKE_SOURCE);
+        showDefaultList = getArguments().getBoolean(SHOW_DEFAULT_LIST);
         adapter = new ReadingListAdapter();
     }
 
@@ -107,10 +111,8 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
         View createButton = rootView.findViewById(R.id.create_button);
         createButton.setOnClickListener(createClickListener);
 
-        if (savedInstanceState == null) {
-            // Log a click event, but only the first time the dialog is shown.
-            new ReadingListsFunnel().logAddClick(invokeSource);
-        }
+        // Log a click event, but only the first time the dialog is shown.
+        logClick(savedInstanceState);
 
         onboardingContainer.setVisibility(View.GONE);
         listsContainer.setVisibility(View.GONE);
@@ -173,6 +175,9 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(lists -> {
                     readingLists = lists;
+                    if (!showDefaultList && !readingLists.isEmpty()) {
+                        readingLists.remove(0);
+                    }
                     ReadingList.sort(readingLists, Prefs.getReadingListSortMode(ReadingList.SORT_BY_NAME_ASC));
                     adapter.notifyDataSetChanged();
                     checkAndShowOnboarding();
@@ -212,6 +217,12 @@ public class AddToReadingListDialog extends ExtendedBottomSheetDialogFragment {
             return;
         }
         commitChanges(readingList, titles);
+    }
+
+    void logClick(@Nullable Bundle savedInstanceState) {
+        if (savedInstanceState == null) {
+            new ReadingListsFunnel().logAddClick(invokeSource);
+        }
     }
 
     void commitChanges(final ReadingList readingList, final List<PageTitle> titles) {
