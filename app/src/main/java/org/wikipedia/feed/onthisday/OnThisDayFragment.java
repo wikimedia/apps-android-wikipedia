@@ -28,7 +28,6 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.OnThisDayFunnel;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
-import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.ResourceUtil;
