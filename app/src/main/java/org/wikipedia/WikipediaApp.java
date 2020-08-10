@@ -16,6 +16,7 @@ import android.webkit.WebView;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.imagepipeline.core.ImagePipelineConfig;
+import com.google.android.gms.security.ProviderInstaller;
 import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
 
@@ -147,6 +148,12 @@ public class WikipediaApp extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+
+        try {
+            ProviderInstaller.installIfNeeded(this);
+        } catch (Exception e) {
+            L.e(e);
+        }
 
         WikiSite.setDefaultBaseUrl(Prefs.getMediaWikiBaseUrl());
 

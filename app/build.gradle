@@ -193,7 +193,7 @@ dependencies {
     // use http://gradleplease.appspot.com/ or http://search.maven.org/.
     // Debug with ./gradlew -q app:dependencies --configuration compile
 
-    String okHttpVersion = '3.12.1'
+    String okHttpVersion = '3.12.8'
     String supportVersion = '28.0.0'
     String retrofitVersion = '2.5.0'
     String espressoVersion = '3.0.1'
@@ -203,6 +203,7 @@ dependencies {
     String mockitoCore = 'org.mockito:mockito-core:1.9.5'
     String leakCanaryVersion = '1.6.2'
 
+    implementation "com.google.android.gms:play-services-base:16.1.0"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
     implementation "com.android.support:support-compat:$supportVersion"
@@ -225,7 +226,7 @@ dependencies {
     implementation "com.facebook.fresco:animated-gif:$frescoVersion"
     implementation "com.facebook.fresco:fresco:$frescoVersion"
     implementation "com.facebook.fresco:imagepipeline-okhttp3:$frescoVersion"
-    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation 'com.google.code.gson:gson:2.8.6'
     implementation 'com.romandanylyk:pageindicatorview:1.0.2'
     implementation "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
@@ -238,8 +239,8 @@ dependencies {
     implementation "com.mapbox.mapboxsdk:mapbox-android-sdk:7.0.1"
     implementation 'com.mapbox.mapboxsdk:mapbox-android-plugin-annotation-v7:0.4.0'
     implementation 'net.hockeyapp.android:HockeySDK:5.1.1'
-    implementation 'org.apache.commons:commons-lang3:3.8.1'
-    implementation 'org.jsoup:jsoup:1.11.3'
+    implementation 'org.apache.commons:commons-lang3:3.9'
+    implementation 'org.jsoup:jsoup:1.12.1'
 
     annotationProcessor "com.jakewharton:butterknife-compiler:$butterKnifeVersion"
 
