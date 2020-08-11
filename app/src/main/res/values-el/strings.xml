@@ -27,7 +27,6 @@
   <string name="search_hint_voice_search">Εισαγωγή φωνητικής αναζήτησης</string>
   <string name="search_hint_search_history">Ερευνήστε το ιστορικό</string>
   <string name="search_hint_search_languages">Αναζήτηση για γλώσσα</string>
-  <string name="search_hint_search_my_lists_and_articles">Αναζήτηση στις λίστες και τα άρθρα μου</string>
   <string name="nav_item_history">Ιστορικό</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Προτεινόμενες τροποποιήσεις</string>
   <string name="nav_item_more">Περισσότερα</string>
@@ -180,7 +179,6 @@
   <string name="preference_title_auto_upload_crash_reports">Αποστολή αναφορών κατάρρευσης</string>
   <string name="preference_summary_auto_upload_crash_reports">Επιτρέψτε στην εφαρμογή να στέλνει αναφορές κρασαρίσματος σε μια υπηρεσία τρίτου μέρους αυτόματα, ώστε να μπορούμε να επιθεωρήσουμε το κρασάρισμα και να διορθώσουμε το σφάλμα γρηγορότερα και ευκολότερα.</string>
   <string name="editing_error_spamblacklist">Ανιχνεύθηκαν σύνδεσμοι σε αποκλεισμένους ιστότοπους (%s). Παρακαλούμε αφαιρέστε τους και προσπαθήστε ξανά.</string>
-  <string name="history_search_list_hint">Ιστορικό αναζήτησης</string>
   <string name="error_can_not_process_link">Αυτός ο σύνδεσμος δεν στάθηκε δυνατό να εμφανιστεί</string>
   <string name="page_protected_autoconfirmed">Αυτή η σελίδα είναι ημιπροστατευμένη</string>
   <string name="page_protected_sysop">Αυτή η σελίδα είναι πλήρως προσταστατευμένη.</string>

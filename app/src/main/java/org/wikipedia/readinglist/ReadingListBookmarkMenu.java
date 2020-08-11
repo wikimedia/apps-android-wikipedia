@@ -26,7 +26,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
 
 public class ReadingListBookmarkMenu {
     public interface Callback {
-        void onAddRequest(@Nullable ReadingListPage page);
+        void onAddRequest(boolean addToDefault);
         void onMoveRequest(@Nullable ReadingListPage page);
         void onDeleted(@Nullable ReadingListPage page);
         void onShare();
@@ -124,7 +124,7 @@ public class ReadingListBookmarkMenu {
             switch (item.getItemId()) {
                 case R.id.menu_feed_card_item_save:
                     if (callback != null) {
-                        callback.onAddRequest(null);
+                        callback.onAddRequest(true);
                     }
                     return true;
 
@@ -136,7 +136,7 @@ public class ReadingListBookmarkMenu {
 
                 case R.id.menu_add_to_other_list:
                     if (callback != null && !isListsContainingPageEmpty()) {
-                        callback.onAddRequest(listsContainingPage.get(0).pages().get(0));
+                        callback.onAddRequest(false);
                     }
                     return true;
 

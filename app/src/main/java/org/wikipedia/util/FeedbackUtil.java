@@ -128,7 +128,7 @@ public final class FeedbackUtil {
         showMessage(activity, message);
     }
 
-    public static void setToolbarButtonLongPressToast(View... views) {
+    public static void setButtonLongPressToast(View... views) {
         for (View v : views) {
             v.setOnLongClickListener(TOOLBAR_LONG_CLICK_LISTENER);
         }
@@ -177,11 +177,11 @@ public final class FeedbackUtil {
     }
 
     @SuppressWarnings("checkstyle:magicnumber")
-    public static Balloon showTooltip(@NonNull Context context, @NonNull CharSequence text) {
+    public static Balloon showTooltip(@NonNull Context context, @NonNull CharSequence text, @NonNull ArrowOrientation arrowOrientation) {
         return new Balloon.Builder(context)
                 .setText(text)
                 .setArrowConstraints(ArrowConstraints.ALIGN_ANCHOR)
-                .setArrowOrientation(ArrowOrientation.TOP)
+                .setArrowOrientation(arrowOrientation)
                 .setPadding(16)
                 .setTextSize(14f)
                 .setTextColorResource(ResourceUtil.getThemedAttributeId(context, R.attr.paper_color))

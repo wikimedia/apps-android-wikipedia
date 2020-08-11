@@ -15,7 +15,6 @@
   <string name="search_hint">Википедияда излемек</string>
   <string name="search_hint_search_history">Излев тарихи</string>
   <string name="search_hint_search_languages">Тилни излемек</string>
-  <string name="search_hint_search_my_lists_and_articles">Охув тизмелерде излемек</string>
   <string name="nav_item_history">Тарих</string>
   <string name="error_network_error">Интернетге ялгъанмай.</string>
   <string name="page_error_retry">Такрар</string>
@@ -97,7 +96,6 @@
   <string name="preferences_general_heading">Ортакъ</string>
   <string name="create_account_account_created_toast">Гьисап яратылгъан!</string>
   <string name="preferences_privacy_settings_heading">Энчилик</string>
-  <string name="history_search_list_hint">Излев тарихи</string>
   <string name="settings_item_preferences">Кюйлевлер</string>
   <string name="settings_activity_title">Кюйлевлер</string>
   <string name="privacy_policy_description">Энчилилик ёругъу</string>

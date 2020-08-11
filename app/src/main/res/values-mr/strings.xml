@@ -122,7 +122,6 @@
   <string name="preference_summary_eventlogging_opt_in">विकिपीडियास आपण हे अॅप कसे वापरता याबद्दल माहिती घेण्यास परवानगी द्या जेणेकरुन ते अॅप अधिक चांगले करता येईल.</string>
   <string name="preference_title_auto_upload_crash_reports">कोसळल्याचा(क्रॅश) अहवाल पाठवा</string>
   <string name="editing_error_spamblacklist">प्रतिबंधित अधिक्षेत्रांचे दुवे(%s) सापडले आहेत.कृपया त्यांना हटवा व पुन्हा प्रयत्न करा.</string>
-  <string name="history_search_list_hint">शोध इतिहास</string>
   <string name="error_can_not_process_link">हा दुवा दाखवु शकत नाही</string>
   <string name="page_protected_autoconfirmed">हे पान अर्ध-सुरक्षित आहे.</string>
   <string name="page_protected_sysop">हे पान पूर्णत: सुरक्षित आहे.</string>

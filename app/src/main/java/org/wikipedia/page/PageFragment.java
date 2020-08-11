@@ -81,6 +81,7 @@ import org.wikipedia.page.references.PageReferences;
 import org.wikipedia.page.references.ReferenceDialog;
 import org.wikipedia.page.shareafact.ShareHandler;
 import org.wikipedia.page.tabs.Tab;
+import org.wikipedia.readinglist.ReadingListBehaviorsUtil;
 import org.wikipedia.readinglist.ReadingListBookmarkMenu;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.readinglist.database.ReadingListPage;
@@ -144,7 +145,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         void onPageStartSupportActionMode(@NonNull ActionMode.Callback callback);
         void onPageHideSoftKeyboard();
         void onPageAddToReadingList(@NonNull PageTitle title, @NonNull InvokeSource source);
-        void onPageMoveToReadingList(long sourceReadingListId, @NonNull PageTitle title, @NonNull InvokeSource source);
+        void onPageMoveToReadingList(long sourceReadingListId, @NonNull PageTitle title, @NonNull InvokeSource source, boolean showDefaultList);
         void onPageRemoveFromReadingLists(@NonNull PageTitle title);
         void onPageLoadError(@NonNull PageTitle title);
         void onPageLoadErrorBackPressed();
@@ -200,13 +201,13 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             if (model.isInReadingList()) {
                 new ReadingListBookmarkMenu(tabLayout, new ReadingListBookmarkMenu.Callback() {
                     @Override
-                    public void onAddRequest(@Nullable ReadingListPage page) {
+                    public void onAddRequest(boolean addToDefault) {
                         addToReadingList(getTitle(), BOOKMARK_BUTTON);
                     }
 
                     @Override
                     public void onMoveRequest(@Nullable ReadingListPage page) {
-                        moveToReadingList(page.listId(), getTitle(), BOOKMARK_BUTTON);
+                        moveToReadingList(page.listId(), getTitle(), BOOKMARK_BUTTON, true);
                     }
 
                     @Override
@@ -222,7 +223,8 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                     }
                 }).show(getTitle());
             } else {
-                addToReadingList(getTitle(), BOOKMARK_BUTTON);
+                ReadingListBehaviorsUtil.INSTANCE.addToDefaultList(requireActivity(), getTitle(), BOOKMARK_BUTTON,
+                        readingListId -> moveToReadingList(readingListId, getTitle(), BOOKMARK_BUTTON, false));
             }
         }
 
@@ -1327,10 +1329,10 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         }
     }
 
-    public void moveToReadingList(long sourceReadingListId, @NonNull PageTitle title, @NonNull InvokeSource source) {
+    public void moveToReadingList(long sourceReadingListId, @NonNull PageTitle title, @NonNull InvokeSource source, boolean showDefaultList) {
         Callback callback = callback();
         if (callback != null) {
-            callback.onPageMoveToReadingList(sourceReadingListId, title, source);
+            callback.onPageMoveToReadingList(sourceReadingListId, title, source, showDefaultList);
         }
     }
 

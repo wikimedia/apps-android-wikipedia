@@ -62,7 +62,6 @@
   <string name="search_hint_voice_search">Búsqueda por voz</string>
   <string name="search_hint_search_history">Buscar en el historial</string>
   <string name="search_hint_search_languages">Buscar un idioma</string>
-  <string name="search_hint_search_my_lists_and_articles">Buscar en mis listas y artículos</string>
   <string name="nav_item_history">Historial</string>
   <string name="nav_item_suggested_edits">Ediciones</string>
   <string name="nav_item_more">Más</string>
@@ -215,7 +214,6 @@
   <string name="preference_title_auto_upload_crash_reports">Enviar informes de fallos</string>
   <string name="preference_summary_auto_upload_crash_reports">Permitir a la aplicación enviar automáticamente informes de cierres súbitos a un proveedor de servicios externo para que podamos revisarlos y corregirlos con mayor rapidez y facilidad.</string>
   <string name="editing_error_spamblacklist">Se detectaron enlaces a dominios bloqueados (%s). Elimínalos y vuelve a intentarlo.</string>
-  <string name="history_search_list_hint">Buscar en el historial</string>
   <string name="error_can_not_process_link">No se puede mostrar este enlace</string>
   <string name="page_protected_autoconfirmed">Esta página está semiprotegida.</string>
   <string name="page_protected_sysop">Esta página está totalmente protegida.</string>

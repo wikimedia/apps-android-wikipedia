@@ -16,7 +16,6 @@
   <string name="search_hint">ၶူၼ်ႉႁႃ ဝီႇၶီႇၽီးတီးယႃး</string>
   <string name="search_hint_search_history">ၶူၼ်ႉႁႃ ပိုၼ်းလင်</string>
   <string name="search_hint_search_languages">ၶူၼ်ႉႁႃ တႃႇၽႃႇသႃႇၵႂၢမ်း</string>
-  <string name="search_hint_search_my_lists_and_articles">သွၵ်ႈႁႃ ပွင်ႈၵႂၢမ်း လႄႈ သဵၼ်ႈမၢႆၵဝ်ၶႃႈ</string>
   <string name="nav_item_history">ပိုၼ်း</string>
   <string name="error_network_error">ဢမ်ႇၸၢင်ႈ ၵွင်ႉသိုပ်ႇၸူး ဢိၼ်ႇထႃႇၼႅတ်ႉ</string>
   <string name="page_error_retry">ၶိုၼ်းၶတ်းၸႂ်တူၺ်း</string>
@@ -166,7 +165,6 @@
   <string name="preference_title_auto_upload_crash_reports">သူင်ႇ ၶေႃႈတၢင်ႇလၢတ်ႈ လွင်ႈၶွင်ႉၶမ်</string>
   <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">ပၼ်ႇသုၼ်ႇဢႅမ်ႉ တႃႇသူင်ႇ ၶေႃႈတၢင်ႇလၢတ်ႈ လွင်ႈၶွင်ႉၶမ် ၸူး ဢႅပ်ႉႁွၵ်ႉၶီး ဢမ်ႇၼၼ် ၽူႈၵမ်ႉထႅမ်ၵေႃႉသၢမ် ၵႂႃႇ ႁင်းမၼ်းလႄႈ၊ ပေႃးၼၼ် ၸဝ်ႈၵဝ်ႇ တေၸၢင်ႈၶိုၼ်း​တူၺ်း လွင်ႈၶွင်ႉၶမ်ၸဝ်ႈၵဝ်ႇလႄႈ ၸၢင်ႈမႄးၶိုၼ်း လွင်ႈယူပ်ႈယွမ်းလႆႈ ငၢႆႈငၢႆႈဝႆးဝႆးယူႇ။</string>
   <string name="editing_error_spamblacklist">တုမ်ႉႁၼ်ၺႃး %s ႁဵင်းၵွင်ႉ ဢၼ်ထုၵ်ႇႁႄႉတတ်းဝႆႉ။ ၶႅၼ်းတေႃႈ ထွၼ်ပႅတ်ႈ ၶဝ်ၸိူဝ်းၼၼ်ႉသေ ၶိုၼ်းႁဵတ်းတူၺ်းထႅင်ႈၶႃႈလႄႈ။</string>
-  <string name="history_search_list_hint">ၶူၼ်ႉႁႃ ပိုၼ်းလင်</string>
   <string name="error_can_not_process_link">ဢမ်ႇၸၢင်ႈဢွၵ်ႇၼႄ ႁဵင်းၵွင်ႉဢၼ်ၼႆႉ</string>
   <string name="page_protected_autoconfirmed">ၼႃႈလိၵ်ႈဢၼ်ၼႆႉ ထုၵ်ႇ ႁႄႉၵင်ႈဝႆႉ ၵမ်ႈၽွင်ႈ</string>
   <string name="page_protected_sysop">ၼႃႈလိၵ်ႈၼႆႉ ထုၵ်ႇႁႄႉၵင်ႈဝႆႉ တင်းမူတ်း။</string>

@@ -23,11 +23,13 @@
     <!-- Long press menu -->
     <string name="menu_long_press_share_page">@string/menu_page_share</string>
     <string name="menu_long_press_add_to_list">@string/menu_page_add_to_list</string>
+    <string name="menu_long_press_add_to_default_list">@string/menu_page_add_to_default_list</string>
 
     <!-- Link preview menu -->
     <string name="menu_link_preview_copy_link">@string/menu_long_press_copy_page</string>
     <string name="menu_link_preview_share_page">@string/menu_page_share</string>
     <string name="menu_link_preview_add_to_list">@string/menu_page_add_to_list</string>
+    <string name="menu_link_preview_add_to_default_list">@string/menu_page_add_to_default_list</string>
 
     <!-- The Feed -->
     <string name="nav_item_feed">@string/feed</string>

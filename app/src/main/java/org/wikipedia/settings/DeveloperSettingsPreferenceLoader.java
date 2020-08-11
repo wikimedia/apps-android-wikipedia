@@ -145,7 +145,7 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
 
         findPreference(context.getString(R.string.preference_key_missing_description_test))
                 .setOnPreferenceClickListener(preference -> {
-                    EditingSuggestionsProvider.INSTANCE.getNextArticleWithMissingDescription(WikipediaApp.getInstance().getWikiSite())
+                    EditingSuggestionsProvider.INSTANCE.getNextArticleWithMissingDescription(WikipediaApp.getInstance().getWikiSite(), 10)
                             .subscribeOn(Schedulers.io())
                             .observeOn(AndroidSchedulers.mainThread())
                             .subscribe(summary -> new AlertDialog.Builder(getActivity())
@@ -167,7 +167,7 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
         findPreference(context.getString(R.string.preference_key_missing_description_test2))
                 .setOnPreferenceClickListener(preference -> {
                     EditingSuggestionsProvider.INSTANCE.getNextArticleWithMissingDescription(WikipediaApp.getInstance().getWikiSite(),
-                            WikipediaApp.getInstance().language().getAppLanguageCodes().get(1), true)
+                            WikipediaApp.getInstance().language().getAppLanguageCodes().get(1), true, 10)
                             .subscribeOn(Schedulers.io())
                             .observeOn(AndroidSchedulers.mainThread())
                             .subscribe(pair -> new AlertDialog.Builder(getActivity())

@@ -109,7 +109,6 @@
   <string name="preference_title_eventlogging_opt_in">వాడుక నివేదికని పంపండి</string>
   <string name="preference_summary_eventlogging_opt_in">ఈ అనువర్తనం మెరుగుపరచుటకు, మీరు ఈ అనువర్తనం ఎలా వాడుతున్నారో అన్న సమాచారం సేకరించటానికి వికీపీడియాకి అనుమతి ఇవ్వండి</string>
   <string name="editing_error_spamblacklist">ఆమోదంకాని డోమైన్లకి (%s) లింక్లు కొనుగోనబడ్డాయి. దయచేసి వాటిని తొలగించి మళ్ళి ప్రయత్నించండి.</string>
-  <string name="history_search_list_hint">శోధన చరిత్ర</string>
   <string name="error_can_not_process_link">ఈ లింకుని చూపించలేకపోతున్నాము</string>
   <string name="page_protected_autoconfirmed">ఈ పేజి సగం-రక్షించబడింది.</string>
   <string name="page_protected_sysop">ఈ పేజి పూర్తిగా రక్షించబడింది.</string>

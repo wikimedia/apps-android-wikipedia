@@ -35,8 +35,9 @@ public class ExclusiveBottomSheetPresenter {
                                      long sourceReadingListId,
                                      @NonNull PageTitle title,
                                      @NonNull InvokeSource source,
+                                     boolean showDefaultList,
                                      @Nullable DialogInterface.OnDismissListener listener) {
-        show(fm, MoveToReadingListDialog.newInstance(sourceReadingListId, Collections.singletonList(title), source, listener));
+        show(fm, MoveToReadingListDialog.newInstance(sourceReadingListId, Collections.singletonList(title), source, showDefaultList, listener));
     }
 
     public void show(@NonNull FragmentManager manager, @NonNull DialogFragment dialog) {

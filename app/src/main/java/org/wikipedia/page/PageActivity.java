@@ -181,7 +181,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         clearActionBarTitle();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        FeedbackUtil.setToolbarButtonLongPressToast(searchButton, tabsButton, overflowButton);
+        FeedbackUtil.setButtonLongPressToast(searchButton, tabsButton, overflowButton);
 
         toolbarHideHandler = new PageToolbarHideHandler(pageFragment, toolbarContainerView, toolbar, tabsButton);
 
@@ -504,8 +504,8 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         bottomSheetPresenter.showAddToListDialog(getSupportFragmentManager(), title, source, listDialogDismissListener);
     }
 
-    public void showMoveToListDialog(long sourceReadingListId, @NonNull PageTitle title, @NonNull InvokeSource source) {
-        bottomSheetPresenter.showMoveToListDialog(getSupportFragmentManager(), sourceReadingListId, title, source, listDialogDismissListener);
+    public void showMoveToListDialog(long sourceReadingListId, @NonNull PageTitle title, @NonNull InvokeSource source, boolean showDefaultList) {
+        bottomSheetPresenter.showMoveToListDialog(getSupportFragmentManager(), sourceReadingListId, title, source, showDefaultList, listDialogDismissListener);
     }
 
     // Note: back button first handled in {@link #onOptionsItemSelected()};
@@ -570,8 +570,8 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     }
 
     @Override
-    public void onPageMoveToReadingList(long sourceReadingListId, @NonNull PageTitle title, @NonNull InvokeSource source) {
-        showMoveToListDialog(sourceReadingListId, title, source);
+    public void onPageMoveToReadingList(long sourceReadingListId, @NonNull PageTitle title, @NonNull InvokeSource source, boolean showDefaultList) {
+        showMoveToListDialog(sourceReadingListId, title, source, showDefaultList);
     }
 
     @Override

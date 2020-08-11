@@ -27,7 +27,6 @@
   <string name="search_hint_voice_search">Tìm kiếm nhập giọng nói</string>
   <string name="search_hint_search_history">Tìm trong lịch sử</string>
   <string name="search_hint_search_languages">Tìm một ngôn ngữ</string>
-  <string name="search_hint_search_my_lists_and_articles">Tìm kiếm danh sách và bài viết của tôi</string>
   <string name="nav_item_history">Lịch sử</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Sửa đổi gợi ý</string>
   <string name="error_network_error">Không thể kết nối với Internet.</string>
@@ -179,7 +178,6 @@
   <string name="preference_title_auto_upload_crash_reports">Gửi báo cáo sự cố</string>
   <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Cho phép ứng dụng tự động gửi báo cáo đến HockeyApp / một nhà cung cấp dịch vụ bên thứ ba, để chúng tôi có thể xem xét sự cố và sửa lỗi nhanh và dễ dàng hơn.</string>
   <string name="editing_error_spamblacklist">Đã tìm thấy các liên kết đến tên miền bị cấm (%s). Xin vui lòng xóa các liên kết này và thử lại.</string>
-  <string name="history_search_list_hint">Lịch sử tìm kiếm</string>
   <string name="error_can_not_process_link">Không thể hiển thị liên kết này</string>
   <string name="page_protected_autoconfirmed">Trang này đã bị bán khóa.</string>
   <string name="page_protected_sysop">Trang này đã bị khóa hẳn.</string>

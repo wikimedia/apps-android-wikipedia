@@ -135,7 +135,7 @@ public class TabActivity extends BaseActivity {
         tabCountsView.updateTabCount();
         launchedFromPageActivity = getIntent().hasExtra(LAUNCHED_FROM_PAGE_ACTIVITY);
 
-        FeedbackUtil.setToolbarButtonLongPressToast(tabCountsView);
+        FeedbackUtil.setButtonLongPressToast(tabCountsView);
 
         setStatusBarColor(ResourceUtil.getThemedColor(this, android.R.attr.colorBackground));
         setNavigationBarColor(ResourceUtil.getThemedColor(this, android.R.attr.colorBackground));
