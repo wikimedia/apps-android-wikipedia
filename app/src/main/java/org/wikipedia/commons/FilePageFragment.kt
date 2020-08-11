@@ -69,9 +69,15 @@ class FilePageFragment : Fragment() {
             val abTestFunnel = ABTestSuggestedEditsSnackbarFunnel()
             val snackbar = FeedbackUtil.makeSnackbar(activity,
                     if (requestCode == ACTIVITY_REQUEST_ADD_IMAGE_CAPTION)
-                        getString(R.string.description_edit_success_saved_image_caption_snackbar)
+                        getString(
+                                if (abTestFunnel.shouldSeeSnackbarAction()) R.string.description_edit_success_saved_image_caption_snackbar_se_promotion
+                                else R.string.description_edit_success_saved_image_caption_snackbar
+                        )
                     else
-                        getString(R.string.description_edit_success_saved_image_tags_snackbar), FeedbackUtil.LENGTH_DEFAULT)
+                        getString(
+                                if (abTestFunnel.shouldSeeSnackbarAction()) R.string.description_edit_success_saved_image_tags_snackbar_se_promotion
+                                else R.string.description_edit_success_saved_image_tags_snackbar
+                        ), FeedbackUtil.LENGTH_DEFAULT)
             if (abTestFunnel.shouldSeeSnackbarAction()) {
                 snackbar.setAction(R.string.suggested_edits_tasks_onboarding_get_started) {
                     startActivity(newIntent(requireActivity(),
