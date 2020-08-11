@@ -304,11 +304,11 @@ class SuggestedEditsTasksFragment : Fragment() {
     }
 
     private fun showOneTimeSequentialUserStatsTooltips() {
-        val balloon = FeedbackUtil.showTooltip(requireContext(), contributionsStatsView.tooltipText, ArrowOrientation.BOTTOM)
+        val balloon = FeedbackUtil.showTooltip(requireContext(), contributionsStatsView.tooltipText, ArrowOrientation.TOP)
         contributionsStatsView.description.showAlignBottom(balloon)
-        balloon.relayShowAlignBottom(FeedbackUtil.showTooltip(requireContext(), editStreakStatsView.tooltipText, ArrowOrientation.BOTTOM), editStreakStatsView.description)
-                .relayShowAlignBottom(FeedbackUtil.showTooltip(requireContext(), pageViewStatsView.tooltipText, ArrowOrientation.BOTTOM), pageViewStatsView.description)
-                .relayShowAlignBottom(FeedbackUtil.showTooltip(requireContext(), editQualityStatsView.tooltipText, ArrowOrientation.BOTTOM), editQualityStatsView.description)
+        balloon.relayShowAlignBottom(FeedbackUtil.showTooltip(requireContext(), editStreakStatsView.tooltipText, ArrowOrientation.TOP), editStreakStatsView.description)
+                .relayShowAlignBottom(FeedbackUtil.showTooltip(requireContext(), pageViewStatsView.tooltipText, ArrowOrientation.TOP), pageViewStatsView.description)
+                .relayShowAlignBottom(FeedbackUtil.showTooltip(requireContext(), editQualityStatsView.tooltipText, ArrowOrientation.TOP), editQualityStatsView.description)
         Prefs.shouldShowOneTimeSequentialUserStatsTooltip(false)
     }
 
