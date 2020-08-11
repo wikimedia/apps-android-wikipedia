@@ -29,6 +29,7 @@ import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
+import org.wikipedia.util.log.L
 import org.wikipedia.views.ImageDetailView
 import org.wikipedia.views.ImageZoomHelper
 import org.wikipedia.views.ViewUtil
@@ -99,6 +100,10 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
     }
 
     private fun getImageTags(imageTags: Map<String, List<String>>, languageCode: String) : String? {
+        if (!imageTags.containsKey(languageCode)) {
+            return null
+        }
+
         return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && imageTags.isNotEmpty()) {
             ListFormatter.getInstance(Locale(languageCode)).format(imageTags[languageCode])
         } else {
