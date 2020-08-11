@@ -284,7 +284,6 @@
   <string name="dialog_title_download_only_over_wifi_allow">Positive option of the dialog that shows the confirmation of downloading articles using mobile data.\n{{Identical|Allow}}</string>
   <string name="read_more_section">Title of the Read More section at the bottom of each page.\n\nThis section shows other automatically-selected articles, similarly to how it works with \"Related Articles\" ({{msg-mw|Relatedarticles-read-more-heading}}).\n\n{{Identical|Read more}}</string>
   <string name="about_article_section">Title of section that contains information specific to the current article.</string>
-  <string name="menu_gallery_visit_page">Menu label for navigating to the File page for the current image being shown in the gallery.</string>
   <string name="gallery_error_draw_failed">Error message shown when the current image could not be displayed.</string>
   <string name="license_title">Title for activity displaying the license text for a library that we use. The \"%s\" symbol is replaced with the name of the library for which the license is being shown.</string>
   <string name="gallery_menu_share">Label for menu item to share the current image.\n{{Identical|Share}}</string>
@@ -924,5 +923,6 @@
   <string name="text_input_dialog_cancel_button_text">Negative action button text in pop-up dialog for text input.\n{{Identical|Cancel}}</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Negative action button text in date picker pop-up dialog.\n{{Identical|Cancel}}</string>
   <string name="suggested_edits_image_preview_dialog_image">Label for image file name on image details screen.</string>
-  <string name="suggested_edits_image_caption_summary_title_image">Label to show the artifact type shown in suggested edit card.\n{{Identical|File}}</string>
+  <string name="suggested_edits_image_caption_summary_title_image">Label to show the artifact type shown in suggested edit card</string>
+  <string name="menu_gallery_visit_image_page">Menu label for navigating to the image page for the current image being shown in the gallery.</string>
 </resources>
