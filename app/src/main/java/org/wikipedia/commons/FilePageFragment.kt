@@ -1,5 +1,7 @@
 package org.wikipedia.commons
 
+import android.app.Activity.RESULT_OK
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,14 +14,20 @@ import io.reactivex.rxjava3.functions.BiFunction
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_file_page.*
 import org.apache.commons.lang3.StringUtils
+import org.wikipedia.Constants
 import org.wikipedia.R
+import org.wikipedia.analytics.ABTestSuggestedEditsSnackbarFunnel
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.dataclient.mwapi.media.MediaHelper.getImageCaptions
+import org.wikipedia.descriptions.DescriptionEditActivity
 import org.wikipedia.page.PageTitle
 import org.wikipedia.suggestededits.PageSummaryForEdit
+import org.wikipedia.suggestededits.SuggestionsActivity.Companion.newIntent
+import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
@@ -55,6 +63,28 @@ class FilePageFragment : Fragment() {
         super.onDestroyView()
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if ((requestCode == ACTIVITY_REQUEST_ADD_IMAGE_CAPTION || requestCode == ACTIVITY_REQUEST_ADD_IMAGE_TAGS) && resultCode == RESULT_OK) {
+            val abTestFunnel = ABTestSuggestedEditsSnackbarFunnel()
+            val snackbar = FeedbackUtil.makeSnackbar(activity,
+                    if (requestCode == ACTIVITY_REQUEST_ADD_IMAGE_CAPTION)
+                        getString(R.string.description_edit_success_saved_image_caption_snackbar)
+                    else
+                        getString(R.string.description_edit_success_saved_image_tags_snackbar), FeedbackUtil.LENGTH_DEFAULT)
+            if (abTestFunnel.shouldSeeSnackbarAction()) {
+                snackbar.setAction(R.string.suggested_edits_tasks_onboarding_get_started) {
+                    startActivity(newIntent(requireActivity(),
+                            if (requestCode == ACTIVITY_REQUEST_ADD_IMAGE_CAPTION) DescriptionEditActivity.Action.ADD_CAPTION
+                            else DescriptionEditActivity.Action.ADD_IMAGE_TAGS))
+                }
+            }
+            snackbar.show()
+            abTestFunnel.logSnackbarShown()
+            loadImageInfo()
+        }
+    }
+
     private fun showError(caught: Throwable?) {
         progressBar.visibility = View.GONE
         filePageView.visibility = View.GONE
@@ -64,6 +94,7 @@ class FilePageFragment : Fragment() {
 
     private fun loadImageInfo() {
         lateinit var imageTags: Map<String, List<String>>
+        lateinit var page: MwQueryPage
         var isFromCommons = false
         var isEditProtected = false
         var thumbnailWidth = 0
@@ -94,7 +125,7 @@ class FilePageFragment : Fragment() {
                 }
                 .subscribeOn(Schedulers.io())
                 .flatMap {
-                    val page = it.query()!!.pages()!![0]
+                    page = it.query()!!.pages()!![0]
                     val imageInfo = page.imageInfo()!!
                     pageSummaryForEdit =  PageSummaryForEdit(
                             pageTitle.prefixedText,
@@ -122,8 +153,10 @@ class FilePageFragment : Fragment() {
                     filePageView.visibility = View.VISIBLE
                     progressBar.visibility = View.GONE
                     filePageView.setup(
+                            this,
                             pageSummaryForEdit,
                             imageTags,
+                            page,
                             container.width,
                             thumbnailWidth,
                             thumbnailHeight,
@@ -142,6 +175,9 @@ class FilePageFragment : Fragment() {
 
     companion object {
         private const val ARG_PAGE_TITLE = "pageTitle"
+        const val ACTIVITY_REQUEST_ADD_IMAGE_CAPTION = 1
+        const val ACTIVITY_REQUEST_ADD_IMAGE_TAGS = 2
+
         fun newInstance(pageTitle: PageTitle): FilePageFragment {
             val fragment = FilePageFragment()
             val args = Bundle()
