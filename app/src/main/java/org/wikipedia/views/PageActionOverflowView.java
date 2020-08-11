@@ -17,7 +17,6 @@ import com.google.android.material.textview.MaterialTextView;
 
 import org.wikipedia.R;
 import org.wikipedia.page.tabs.Tab;
-import org.wikipedia.util.FeedbackUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
