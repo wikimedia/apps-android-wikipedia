@@ -696,7 +696,6 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text">Hint message to users about why the translation tasks are locked and how they can be unlocked by making valid edits. %d is the number of edits.</string>
   <string name="suggested_edits_task_multilingual_negative">Negative action button text for editing tasks.</string>
   <string name="suggested_edits_task_multilingual_positive">Positive action button text for editing tasks.</string>
-  <string name="suggested_edits_image_caption_summary_title_file">Label for the file name field shown in suggested edit card.\n{{Identical|File}}</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Artist title text of the file summary shown in suggested edit card.</string>
   <string name="suggested_edits_image_caption_summary_title_author">Author title text of the file summary shown in suggested edit card.\n{{Identical|Author}}</string>
   <string name="suggested_edits_image_caption_summary_title_source">Source title text of the file summary shown in suggested edit card.</string>
@@ -712,7 +711,6 @@
   <string name="suggested_edits_tasks_onboarding_get_started">Text on button to start tasks from edit action feed.\n{{Identical|Get started}}</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Label for image caption detail on image details screen. The %s is replaced by the language that the caption is used.</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Label for image description detail on image details screen. The %s is replaced by the language that the description is used.</string>
-  <string name="suggested_edits_image_preview_dialog_file">Label for image file name on image details screen.</string>
   <string name="suggested_edits_image_preview_dialog_artist">Label for image artist detail on image details screen.</string>
   <string name="suggested_edits_image_preview_dialog_tags">Label for image tags detail on image details screen.</string>
   <string name="suggested_edits_image_preview_dialog_date">Label for image date detail on image details screen.</string>
@@ -925,4 +923,6 @@
   <string name="text_input_dialog_ok_button_text">Positive action button text in pop-up dialog for text input.\n{{Identical|OK}}</string>
   <string name="text_input_dialog_cancel_button_text">Negative action button text in pop-up dialog for text input.\n{{Identical|Cancel}}</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Negative action button text in date picker pop-up dialog.\n{{Identical|Cancel}}</string>
+  <string name="suggested_edits_image_preview_dialog_image">Label for image file name on image details screen.</string>
+  <string name="suggested_edits_image_caption_summary_title_image">Label to show the artifact type shown in suggested edit card.\n{{Identical|File}}</string>
 </resources>

@@ -712,7 +712,7 @@
     <string name="suggested_edits_task_translate_description_edit_disable_text">Locked until you’ve edited %d article descriptions (verified)</string>
     <string name="suggested_edits_task_multilingual_negative">Not for me</string>
     <string name="suggested_edits_task_multilingual_positive">Add languages</string>
-    <string name="suggested_edits_image_caption_summary_title_file">File</string>
+    <string name="suggested_edits_image_caption_summary_title_image">Image</string>
     <string name="suggested_edits_image_caption_summary_title_artist">Artist</string>
     <string name="suggested_edits_image_caption_summary_title_author">Author</string>
     <string name="suggested_edits_image_caption_summary_title_source">Source</string>
@@ -728,7 +728,7 @@
     <string name="suggested_edits_tasks_onboarding_get_started">Get started</string>
     <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Image caption (%s)</string>
     <string name="suggested_edits_image_preview_dialog_description_in_language_title">Image description (%s)</string>
-    <string name="suggested_edits_image_preview_dialog_file">File</string>
+    <string name="suggested_edits_image_preview_dialog_image">Image</string>
     <string name="suggested_edits_image_preview_dialog_artist">Artist</string>
     <string name="suggested_edits_image_preview_dialog_tags">Tags</string>
     <string name="suggested_edits_image_preview_dialog_date">Date</string>
