@@ -97,7 +97,6 @@
   <string name="preferences_privacy_settings_heading">Confidencialitat</string>
   <string name="preference_title_eventlogging_opt_in">Mandar los rapòrts d’utilizacion</string>
   <string name="preference_title_auto_upload_crash_reports">Mandar de rapòrts d’incident</string>
-  <string name="history_search_list_hint">Recercar dins l\'istoric</string>
   <string name="error_can_not_process_link">Impossible d’afichar aqueste ligam</string>
   <string name="page_protected_autoconfirmed">Aquesta pagina es estada semiprotegida.</string>
   <string name="page_protected_sysop">Aquesta pagina es estada entièrament protegida.</string>

@@ -10,6 +10,7 @@ import androidx.annotation.DrawableRes
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
 import androidx.core.widget.ImageViewCompat
+import com.skydoves.balloon.ArrowOrientation
 import com.skydoves.balloon.showAlignBottom
 import kotlinx.android.synthetic.main.view_image_title_description.view.*
 import org.wikipedia.R
@@ -24,7 +25,7 @@ internal class ImageTitleDescriptionView constructor(context: Context, attrs: At
         layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         setOnLongClickListener {
             if (tooltipText.isNotEmpty()) {
-                description.showAlignBottom(FeedbackUtil.showTooltip(context, tooltipText), 0, 16)
+                description.showAlignBottom(FeedbackUtil.showTooltip(context, tooltipText, ArrowOrientation.BOTTOM), 0, 16)
             }
             true
         }

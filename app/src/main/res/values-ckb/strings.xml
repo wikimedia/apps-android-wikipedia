@@ -24,7 +24,6 @@
   <string name="search_hint_voice_search">دەنگ لەناو گەڕان</string>
   <string name="search_hint_search_history">گەڕان بە مێژوو</string>
   <string name="search_hint_search_languages">گەڕان بەدوای زمانێکدا</string>
-  <string name="search_hint_search_my_lists_and_articles">گەڕان لەنێو وتار و پێڕستەکانم</string>
   <string name="nav_item_history">مێژوو</string>
   <string name="nav_item_suggested_edits">دەستکارییەکان</string>
   <string name="nav_item_more">زیاتر</string>
@@ -172,7 +171,6 @@
   <string name="preference_title_auto_upload_crash_reports">ناردنی ڕاپۆرتەکانی تێکشکان</string>
   <string name="preference_summary_auto_upload_crash_reports">ڕێگە بە نەرمەواڵەکە بدە کە ڕاپۆرتی کردنەدەرەوە بنێرێت بۆ کەسی سێیەم بە شێوەیەکی خۆگەڕ بۆ ئەوەی بتوانین کێشەی نەرمەواڵەکە خێراتر بدۆزینەوە و چاکی بکەین.</string>
   <string name="editing_error_spamblacklist">تێبینی بەستەر کراوە بۆ دۆمەینە بەستراوەکان (%s). تکایە بیان سڕەوە و ھەوڵبدەوە.</string>
-  <string name="history_search_list_hint">گەڕان لە مێژوو</string>
   <string name="error_can_not_process_link">ناتوانرێت ئەم بەستەرە نیشان بدرێت</string>
   <string name="page_protected_autoconfirmed">ئەم پەڕەیە نیمچە-پارێزراوە.</string>
   <string name="page_protected_sysop">ئەم پەڕەیە بە تەواوی پارێزراوە.</string>

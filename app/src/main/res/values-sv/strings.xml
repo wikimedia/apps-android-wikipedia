@@ -32,7 +32,6 @@
   <string name="search_hint_voice_search">Sök med röstinmatning</string>
   <string name="search_hint_search_history">Sök i historik</string>
   <string name="search_hint_search_languages">Sök efter ett språk</string>
-  <string name="search_hint_search_my_lists_and_articles">Sök i mina listor och artiklar</string>
   <string name="nav_item_history">Historik</string>
   <string name="nav_item_suggested_edits">Redigeringar</string>
   <string name="nav_item_more">Fler</string>
@@ -185,7 +184,6 @@
   <string name="preference_title_auto_upload_crash_reports">Skicka kraschrapporter</string>
   <string name="preference_summary_auto_upload_crash_reports">Låter appen automatiskt skicka kraschrapporter till en tredjepartstjänst så att vi kan granska din krasch och åtgärda felet snabbare och lättare.</string>
   <string name="editing_error_spamblacklist">Länkar till blockerade domäner (%s) har upptäckts. Vänligen ta bort dessa och försök igen.</string>
-  <string name="history_search_list_hint">Sök historik</string>
   <string name="error_can_not_process_link">Denna länk kan inte visas</string>
   <string name="page_protected_autoconfirmed">Denna sida är halvskyddad.</string>
   <string name="page_protected_sysop">Denna sida är skrivskyddad.</string>

@@ -49,7 +49,7 @@
   <string name="search_hint_voice_search">Ses girişi arama</string>
   <string name="search_hint_search_history">Arama geçmişi</string>
   <string name="search_hint_search_languages">Bir dil arayın</string>
-  <string name="search_hint_search_my_lists_and_articles">Listelerimde ve makalelerimde ara</string>
+  <string name="filter_hint_filter_my_lists_and_articles">Liste süzgeci</string>
   <string name="nav_item_history">Geçmiş</string>
   <string name="nav_item_suggested_edits">Düzenlemeler</string>
   <string name="nav_item_more">Daha fazla</string>
@@ -202,7 +202,7 @@
   <string name="preference_title_auto_upload_crash_reports">Çökme raporlarını gönder</string>
   <string name="preference_summary_auto_upload_crash_reports">Uygulamanın kilitlenme raporlarını otomatik olarak üçüncü taraf bir servis sağlayıcıya göndermesine izin verin.</string>
   <string name="editing_error_spamblacklist">Engellenmiş alan adlarına (%s) bağlantılar tespit edildi. Lütfen bunların kaldırıp tekrar deneyin.</string>
-  <string name="history_search_list_hint">Arama geçmişi</string>
+  <string name="history_filter_list_hint">Süzgeç geçmişi</string>
   <string name="error_can_not_process_link">Bu bağlantı görüntülenemedi</string>
   <string name="page_protected_autoconfirmed">Bu sayfa yarı korumalıdır.</string>
   <string name="page_protected_sysop">Bu sayfa tam korumalıdır.</string>

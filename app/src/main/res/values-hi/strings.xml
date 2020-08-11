@@ -153,7 +153,6 @@
   <string name="preference_title_auto_upload_crash_reports">क्रैश रिपोर्ट भेजें</string>
   <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">एप को क्रैश रिपोर्ट हॉकीएप/एक थर्ड-पार्टी सर्विस को अपने आप भेजने की अनुमति दें ताकि हम तेज़ी से व आसानी से आपके क्रैश को देख कर उसे फिक्स कर सकें।</string>
   <string name="editing_error_spamblacklist">प्रतिबंधित डोमेन (%s) के लिंक पाये गए हैं। कृपया इन्हें हटायें और पुनः प्रयास करें।</string>
-  <string name="history_search_list_hint">इतिहास खोजें</string>
   <string name="error_can_not_process_link">यह लिंक दिखाया नहीं जा सका</string>
   <string name="page_protected_autoconfirmed">यह पृष्ठ अर्ध-सुरक्षित है।</string>
   <string name="page_protected_sysop">यह पृष्ठ पूर्ण सुरक्षित है।</string>
