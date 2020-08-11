@@ -71,7 +71,7 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
 
     private fun getImageToAddTags(cb: FeedClient.Callback?, callback: Callback?) {
         disposables.add(EditingSuggestionsProvider
-                .getNextImageWithMissingTags(langFromCode)
+                .getNextImageWithMissingTags(langFromCode, MAX_RETRY_LIMIT)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ page ->
@@ -81,12 +81,18 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
                     if (cb != null) {
                         FeedCoordinator.postCardsToCallback(cb, if (page == null) emptyList<Card>() else listOf(card))
                     }
-                }, { cb?.error(it) }))
+                }, {
+                    if (it is EditingSuggestionsProvider.ListEmptyException) {
+                        postEmptyListToFeedCoordinator(cb)
+                    } else {
+                        cb?.error(it)
+                    }
+                }))
     }
 
     private fun getArticleToAddDescription(cb: FeedClient.Callback?, callback: Callback?) {
         disposables.add(EditingSuggestionsProvider
-                .getNextArticleWithMissingDescription(WikiSite.forLanguageCode(langFromCode))
+                .getNextArticleWithMissingDescription(WikiSite.forLanguageCode(langFromCode), MAX_RETRY_LIMIT)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ pageSummary ->
@@ -106,18 +112,22 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
                     if (cb != null) {
                         FeedCoordinator.postCardsToCallback(cb, listOf(card))
                     }
-                }, { cb?.error(it) }))
+                }, {
+                    if (it is EditingSuggestionsProvider.ListEmptyException) {
+                        postEmptyListToFeedCoordinator(cb)
+                    } else {
+                        cb?.error(it)
+                    }
+                }))
     }
 
     private fun getArticleToTranslateDescription(cb: FeedClient.Callback?, callback: Callback?) {
         if (langToCode.isEmpty()) {
-            if (cb != null) {
-                FeedCoordinator.postCardsToCallback(cb, emptyList<Card>())
-            }
+            postEmptyListToFeedCoordinator(cb)
             return
         }
         disposables.add(EditingSuggestionsProvider
-                .getNextArticleWithMissingDescription(WikiSite.forLanguageCode(langFromCode), langToCode, true)
+                .getNextArticleWithMissingDescription(WikiSite.forLanguageCode(langFromCode), langToCode, true, MAX_RETRY_LIMIT)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ pair ->
@@ -150,11 +160,17 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
                     if (cb != null) {
                         FeedCoordinator.postCardsToCallback(cb, if (pair == null) emptyList<Card>() else listOf(card))
                     }
-                }, { cb?.error(it) }))
+                }, {
+                    if (it is EditingSuggestionsProvider.ListEmptyException) {
+                        postEmptyListToFeedCoordinator(cb)
+                    } else {
+                        cb?.error(it)
+                    }
+                }))
     }
 
     private fun getImageToAddCaption(cb: FeedClient.Callback?, callback: Callback?) {
-        disposables.add(EditingSuggestionsProvider.getNextImageWithMissingCaption(langFromCode)
+        disposables.add(EditingSuggestionsProvider.getNextImageWithMissingCaption(langFromCode, MAX_RETRY_LIMIT)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .flatMap { title ->
@@ -192,18 +208,22 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
                             FeedCoordinator.postCardsToCallback(cb, listOf(card))
                         }
                     }
-                }, { cb?.error(it) }))
+                }, {
+                    if (it is EditingSuggestionsProvider.ListEmptyException) {
+                        postEmptyListToFeedCoordinator(cb)
+                    } else {
+                        cb?.error(it)
+                    }
+                }))
     }
 
     private fun getImageToTranslateCaption(cb: FeedClient.Callback?, callback: Callback?) {
         if (langToCode.isEmpty()) {
-            if (cb != null) {
-                FeedCoordinator.postCardsToCallback(cb, emptyList<Card>())
-            }
+            postEmptyListToFeedCoordinator(cb)
             return
         }
         var fileCaption: String? = null
-        disposables.add(EditingSuggestionsProvider.getNextImageWithMissingCaption(langFromCode, langToCode)
+        disposables.add(EditingSuggestionsProvider.getNextImageWithMissingCaption(langFromCode, langToCode, MAX_RETRY_LIMIT)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .flatMap { pair ->
@@ -255,7 +275,23 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
                             FeedCoordinator.postCardsToCallback(cb, listOf(card))
                         }
                     }
-                }, { cb?.error(it) }))
+                }, {
+                    if (it is EditingSuggestionsProvider.ListEmptyException) {
+                        postEmptyListToFeedCoordinator(cb)
+                    } else {
+                        cb?.error(it)
+                    }
+                }))
+    }
+
+    private fun postEmptyListToFeedCoordinator(cb: FeedClient.Callback?) {
+        if (cb != null) {
+            FeedCoordinator.postCardsToCallback(cb, emptyList<Card>())
+        }
+    }
+
+    companion object {
+        const val MAX_RETRY_LIMIT: Long = 5
     }
 
 }
