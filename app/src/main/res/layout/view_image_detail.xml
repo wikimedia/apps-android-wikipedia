@@ -4,15 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="16dp"
     android:layout_marginStart="16dp"
     android:layout_marginEnd="16dp"
     android:orientation="vertical">
 
     <LinearLayout
+        android:id="@+id/titleContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:layout_marginTop="16dp"
         android:layout_marginBottom="2dp">
         <TextView
             android:id="@+id/titleText"
@@ -45,7 +46,7 @@
         android:id="@+id/contentContainer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingBottom="16dp"
+        android:layout_marginBottom="16dp"
         android:background="?android:selectableItemBackground"
         android:orientation="horizontal">
 
@@ -76,6 +77,23 @@
             tools:visibility="visible"/>
     </LinearLayout>
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/actionButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:textSize="14sp"
+        android:fontFamily="sans-serif"
+        android:textStyle="bold"
+        android:textColor="?attr/colorAccent"
+        android:letterSpacing="0.04"
+        android:lineSpacingExtra="6sp"
+        android:textAlignment="textStart"
+        android:layout_marginStart="-12dp"
+        app:icon="@drawable/ic_add_gray_white_24dp"
+        app:iconSize="24dp"
+        app:iconPadding="8dp"
+        app:iconTint="?attr/colorAccent"/>
     <View
         android:id="@+id/divider"
         android:layout_width="match_parent"

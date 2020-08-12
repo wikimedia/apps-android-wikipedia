@@ -154,7 +154,6 @@
   <string name="preference_title_eventlogging_opt_in">Sendez informi pri l\'uzado</string>
   <string name="preference_summary_eventlogging_opt_in">Permisar Wikipedio kolektar informi pri vua uzo dil \'app\' por perfektigar ol</string>
   <string name="preference_title_auto_upload_crash_reports">Sendez informi pri problemi</string>
-  <string name="history_search_list_hint">Serchar en historio</string>
   <string name="error_can_not_process_link">Ne povis montrar ta ligilo</string>
   <string name="page_protected_autoconfirmed">Ta pagino esas miprotektata.</string>
   <string name="page_protected_sysop">Ta pagino esas tote protektata.</string>

@@ -49,7 +49,7 @@
 
         <TextView
             android:id="@+id/title"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="2dp"
             android:textSize="@dimen/suggested_edits_icon_title_text_size"
@@ -58,7 +58,7 @@
 
         <TextView
             android:id="@+id/description"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="@dimen/suggested_edits_message_textview_text_size"
             android:textColor="?attr/material_theme_secondary_color"/>

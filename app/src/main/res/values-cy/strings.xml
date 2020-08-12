@@ -17,7 +17,6 @@
   <string name="search_hint_voice_search">Chwilio gyda llais</string>
   <string name="search_hint_search_history">Chwilio\'r hanes</string>
   <string name="search_hint_search_languages">Chwilio am iaith</string>
-  <string name="search_hint_search_my_lists_and_articles">Chwiliwch fy rhestrau ac erthyglau</string>
   <string name="nav_item_history">Hanes</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Golygiadau a awgrymir</string>
   <string name="error_network_error">Ni ellir cysylltu â\'r rhyngrwyd.</string>
@@ -154,7 +153,6 @@
   <string name="preference_title_eventlogging_opt_in">Danfon adroddiad am y defnydd</string>
   <string name="preference_summary_eventlogging_opt_in">Caniatau i Wicipedia gasglu gwybodaeth am sut rydych yn defnyddio\'r ap, er mwyn ei wella</string>
   <string name="preference_title_auto_upload_crash_reports">Danfon adroddiad am y gwall</string>
-  <string name="history_search_list_hint">Chwilio\'r hanes</string>
   <string name="error_can_not_process_link">methwyd ag arddangos y ddolen</string>
   <string name="page_protected_autoconfirmed">Mae\'r ddalen wedi\'i lled-warchod.</string>
   <string name="page_protected_sysop">Mae\'r ddalen wedi\'i gwarchod yn llwyr.</string>

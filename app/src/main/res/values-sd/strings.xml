@@ -19,7 +19,6 @@
   <string name="search_hint_voice_search">زباني ٻڌايل ڳولا</string>
   <string name="search_hint_search_history">سوانح ۾ ڳوليو</string>
   <string name="search_hint_search_languages">ڪنھن ٻوليءَ لاءِ ڳوليو</string>
-  <string name="search_hint_search_my_lists_and_articles">منھنجون فھرستون ۽ مضمون ڳوليو</string>
   <string name="nav_item_history">سوانح</string>
   <string name="nav_item_suggested_edits">سنوارون</string>
   <string name="nav_item_more">وڌيڪ</string>
@@ -162,7 +161,6 @@
   <string name="preference_summary_eventlogging_opt_in">وڪيميڊيا ايپ کي اجازت ڏيو ته توهان هن ايپ ڪيئن استعمال ڪريو ٿا جي معلومات جمع ڪري ته جيئن هن ايپ کي وڌيڪ بهتر بڻائي سگھجي</string>
   <string name="preference_title_auto_upload_crash_reports">ڊهي پوڻ جي رپورٽ اماڻيو</string>
   <string name="editing_error_spamblacklist">بندشيل ڊومينس جا ڳنڍڻا (%s) مليا آھن. مھرباني ڪري انھن کي ھٽايو ۽ ٻيھر ڪوشش ڪريو.</string>
-  <string name="history_search_list_hint">سوانح ۾ ڳوليو</string>
   <string name="error_can_not_process_link">اهو ڳنڍڻو ڏيکاري نہ ٿو سگھجي.</string>
   <string name="page_protected_autoconfirmed">هيءُ صفحو نيم تحفظيل آهي.</string>
   <string name="page_protected_sysop">هيءُ صفحو پوريءَ ريت تحفظيل آهي.</string>

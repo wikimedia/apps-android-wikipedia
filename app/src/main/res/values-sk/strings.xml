@@ -29,7 +29,6 @@
   <string name="search_hint_voice_search">Hlasové vyhľadávanie</string>
   <string name="search_hint_search_history">Hľadať</string>
   <string name="search_hint_search_languages">Hľadať jazyk</string>
-  <string name="search_hint_search_my_lists_and_articles">Vyhľadávať v mojich zoznamoch a článkoch</string>
   <string name="nav_item_history">História</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Navrhované úpravy</string>
   <string name="error_network_error">Nie ste pripojení na internet.</string>
@@ -181,7 +180,6 @@
   <string name="preference_title_auto_upload_crash_reports">Odosielať správu o zlyhaní</string>
   <string name="preference_summary_auto_upload_crash_reports">Umožňuje aplikácii automaticky odosielať hlásenia o chybách tretím stranám, aby sme mohli chybu preskúmať a opraviť ju rýchlejšie a jednoduchšie.</string>
   <string name="editing_error_spamblacklist">Boli zistené odkazy na blokované domény (%s). Prosím odstráňte ich a skúste to znova.</string>
-  <string name="history_search_list_hint">História vyhľadávania</string>
   <string name="error_can_not_process_link">Nie je možné zobraziť tento odkaz</string>
   <string name="page_protected_autoconfirmed">Táto stránka je polozamknutá.</string>
   <string name="page_protected_sysop">Táto stránka je zamknutá.</string>

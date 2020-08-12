@@ -537,14 +537,13 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
         @Override
         public boolean onCreateActionMode(ActionMode mode, Menu menu) {
             actionMode = mode;
+            ((MainFragment) getParentFragment()).setBottomNavVisible(false);
             return super.onCreateActionMode(mode, menu);
         }
 
         @Override
         protected void onQueryChange(String s) {
             currentSearchQuery = s.trim();
-            ((MainFragment) getParentFragment())
-                    .setBottomNavVisible(currentSearchQuery.length() == 0);
             restartLoader();
         }
 
@@ -556,6 +555,7 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
                 restartLoader();
             }
             actionMode = null;
+            ((MainFragment) getParentFragment()).setBottomNavVisible(true);
         }
 
         @Override

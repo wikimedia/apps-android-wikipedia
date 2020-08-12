@@ -31,6 +31,7 @@ import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.page.PageActivity;
 import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.readinglist.MoveToReadingListDialog;
+import org.wikipedia.readinglist.ReadingListBehaviorsUtil;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.GradientUtil;
@@ -164,9 +165,14 @@ public class NewsFragment extends Fragment {
         }
 
         @Override
-        public void onAddPageToList(@NonNull HistoryEntry entry) {
-            bottomSheetPresenter.show(getChildFragmentManager(),
-                    AddToReadingListDialog.newInstance(entry.getTitle(), NEWS_ACTIVITY));
+        public void onAddPageToList(@NonNull HistoryEntry entry, boolean addToDefault) {
+            if (addToDefault) {
+                ReadingListBehaviorsUtil.INSTANCE.addToDefaultList(requireActivity(), entry.getTitle(), NEWS_ACTIVITY,
+                        readingListId -> onMovePageToList(readingListId, entry));
+            } else {
+                bottomSheetPresenter.show(getChildFragmentManager(),
+                        AddToReadingListDialog.newInstance(entry.getTitle(), NEWS_ACTIVITY));
+            }
         }
 
         @Override

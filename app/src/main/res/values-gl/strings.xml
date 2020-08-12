@@ -26,7 +26,6 @@
   <string name="search_hint_voice_search">Procura con entrada por voz</string>
   <string name="search_hint_search_history">Procurar no historial</string>
   <string name="search_hint_search_languages">Procurar unha lingua</string>
-  <string name="search_hint_search_my_lists_and_articles">Procurar as miñas listas e artigos</string>
   <string name="nav_item_history">Historial</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Edicións suxeridas</string>
   <string name="error_network_error">Non se puido conectar a Internet.</string>
@@ -178,7 +177,6 @@
   <string name="preference_title_auto_upload_crash_reports">Enviar informes de fallos</string>
   <string name="preference_summary_auto_upload_crash_reports">Permitir á aplicación enviar automaticamente informes de fallos a un provedor de servizos de terceiros para que poidamos revisar o seu fallo e corrixir o erro máis rápido e de forma máis doada.</string>
   <string name="editing_error_spamblacklist">Detectáronse ligazóns a dominios bloqueados (%s). Elimíneas e inténteo de novo.</string>
-  <string name="history_search_list_hint">Historial de procuras</string>
   <string name="error_can_not_process_link">Non foi posible amosar esta ligazón</string>
   <string name="page_protected_autoconfirmed">Esta páxina está semiprotexida.</string>
   <string name="page_protected_sysop">Esta páxina está totalmente protexida.</string>

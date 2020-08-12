@@ -32,7 +32,6 @@
   <string name="search_hint_voice_search">חיפוש לפי קלט קולי</string>
   <string name="search_hint_search_history">היסטוריית חיפוש</string>
   <string name="search_hint_search_languages">חיפוש שפה</string>
-  <string name="search_hint_search_my_lists_and_articles">חיפוש ברשימות ובערכים</string>
   <string name="nav_item_history">היסטוריה</string>
   <string name="nav_item_suggested_edits">עריכות</string>
   <string name="nav_item_more">עוד</string>
@@ -185,7 +184,6 @@
   <string name="preference_title_auto_upload_crash_reports">לשלוח דיווחי קריסה</string>
   <string name="preference_summary_auto_upload_crash_reports">לאפשר ליישום לשלוח דיווחי קריסה לספק שירות צד־שלישי באופן אוטומטי כדי שנוכל לסקור את הקריסה שלך ולתקן את הבאג יותר במהירות ובקלות.</string>
   <string name="editing_error_spamblacklist">יש כאן קישורים למתחמים חסומים (%s). נא להסיר אותם ולנסות שוב.</string>
-  <string name="history_search_list_hint">חיפוש בהיסטוריה</string>
   <string name="error_can_not_process_link">לא היה אפשר להציג את הקישור הזה</string>
   <string name="page_protected_autoconfirmed">הדף הזה מוגן באופן חלקי.</string>
   <string name="page_protected_sysop">הדף הזה מוגן באופן מלא.</string>

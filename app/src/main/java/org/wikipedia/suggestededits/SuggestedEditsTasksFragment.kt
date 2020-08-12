@@ -8,15 +8,19 @@ import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
+import androidx.constraintlayout.widget.Group
 import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.skydoves.balloon.ArrowOrientation
+import com.skydoves.balloon.showAlignBottom
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.functions.Function3
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_suggested_edits_tasks.*
+import kotlinx.android.synthetic.main.view_image_title_description.view.*
 import org.wikipedia.Constants.*
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -70,9 +74,9 @@ class SuggestedEditsTasksFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setupTestingButtons()
 
-        userStatsClickTarget.setOnClickListener {
+        userStatsViewsGroup.addOnClickListener(View.OnClickListener {
             startActivity(ContributionsActivity.newIntent(requireActivity()))
-        }
+        })
 
         learnMoreCard.setOnClickListener {
             FeedbackUtil.showAndroidAppEditingFAQ(requireContext())
@@ -80,16 +84,6 @@ class SuggestedEditsTasksFragment : Fragment() {
         learnMoreButton.setOnClickListener {
             FeedbackUtil.showAndroidAppEditingFAQ(requireContext())
         }
-
-        contributionsStatsView.setImageDrawable(R.drawable.ic_mode_edit_white_24dp)
-
-        editStreakStatsView.setDescription(resources.getString(R.string.suggested_edits_edit_streak_label_text))
-        editStreakStatsView.setImageDrawable(R.drawable.ic_timer_black_24dp)
-
-        pageViewStatsView.setDescription(getString(R.string.suggested_edits_views_label_text))
-        pageViewStatsView.setImageDrawable(R.drawable.ic_trending_up_black_24dp)
-
-        editQualityStatsView.setDescription(getString(R.string.suggested_edits_quality_label_text))
 
         swipeRefreshLayout.setColorSchemeResources(ResourceUtil.getThemedAttributeId(requireContext(), R.attr.colorAccent))
         swipeRefreshLayout.setOnRefreshListener { refreshContents() }
@@ -101,6 +95,12 @@ class SuggestedEditsTasksFragment : Fragment() {
         tasksRecyclerView.adapter = RecyclerAdapter(displayedTasks)
 
         clearContents()
+    }
+
+    private fun Group.addOnClickListener(listener: View.OnClickListener) {
+        referencedIds.forEach { id ->
+            userStatsClickTarget.findViewById<View>(id).setOnClickListener(listener)
+        }
     }
 
     override fun onPause() {
@@ -244,9 +244,9 @@ class SuggestedEditsTasksFragment : Fragment() {
     private fun setFinalUIState() {
         clearContents(false)
 
-        addImageTagsTask.new = Prefs.isSuggestedEditsImageTagsNew()
         tasksRecyclerView.adapter!!.notifyDataSetChanged()
-        editQualityStatsView.setGoodnessState(revertSeverity)
+
+        setUserStatsViewsAndTooltips()
 
         if (latestEditStreak < 2) {
             editStreakStatsView.setTitle(if (latestEditDate.time > 0) DateUtil.getMDYDateString(latestEditDate) else resources.getString(R.string.suggested_edits_last_edited_never))
@@ -281,10 +281,39 @@ class SuggestedEditsTasksFragment : Fragment() {
             onboardingTextView.visibility = GONE
             contributionsStatsView.setTitle(totalContributions.toString())
             contributionsStatsView.setDescription(resources.getQuantityString(R.plurals.suggested_edits_contribution, totalContributions))
+            if (Prefs.shouldShowOneTimeSequentialUserStatsTooltip()) {
+                showOneTimeSequentialUserStatsTooltips()
+            }
         }
 
         swipeRefreshLayout.setBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.paper_color))
         tasksContainer.visibility = VISIBLE
+    }
+
+    private fun setUserStatsViewsAndTooltips() {
+        contributionsStatsView.setImageDrawable(R.drawable.ic_mode_edit_white_24dp)
+        contributionsStatsView.tooltipText = getString(R.string.suggested_edits_contributions_stat_tooltip)
+
+        editStreakStatsView.setDescription(resources.getString(R.string.suggested_edits_edit_streak_label_text))
+        editStreakStatsView.setImageDrawable(R.drawable.ic_timer_black_24dp)
+        editStreakStatsView.tooltipText = getString(R.string.suggested_edits_edit_streak_stat_tooltip)
+
+        pageViewStatsView.setDescription(getString(R.string.suggested_edits_views_label_text))
+        pageViewStatsView.setImageDrawable(R.drawable.ic_trending_up_black_24dp)
+        pageViewStatsView.tooltipText = getString(R.string.suggested_edits_page_views_stat_tooltip)
+
+        editQualityStatsView.setGoodnessState(revertSeverity)
+        editQualityStatsView.setDescription(getString(R.string.suggested_edits_quality_label_text))
+        editQualityStatsView.tooltipText = getString(R.string.suggested_edits_edit_quality_stat_tooltip, UserContributionsStats.totalReverts)
+    }
+
+    private fun showOneTimeSequentialUserStatsTooltips() {
+        val balloon = FeedbackUtil.showTooltip(requireContext(), contributionsStatsView.tooltipText, ArrowOrientation.TOP)
+        contributionsStatsView.description.showAlignBottom(balloon)
+        balloon.relayShowAlignBottom(FeedbackUtil.showTooltip(requireContext(), editStreakStatsView.tooltipText, ArrowOrientation.TOP), editStreakStatsView.description)
+                .relayShowAlignBottom(FeedbackUtil.showTooltip(requireContext(), pageViewStatsView.tooltipText, ArrowOrientation.TOP), pageViewStatsView.description)
+                .relayShowAlignBottom(FeedbackUtil.showTooltip(requireContext(), editQualityStatsView.tooltipText, ArrowOrientation.TOP), editQualityStatsView.description)
+        Prefs.shouldShowOneTimeSequentialUserStatsTooltip(false)
     }
 
     private fun setIPBlockedStatus() {
@@ -375,9 +404,9 @@ class SuggestedEditsTasksFragment : Fragment() {
         addDescriptionsTask.description = getString(R.string.suggested_edits_add_descriptions_task_detail)
         addDescriptionsTask.imageDrawable = R.drawable.ic_article_description
 
-        displayedTasks.add(addImageTagsTask)
         displayedTasks.add(addDescriptionsTask)
         displayedTasks.add(addImageCaptionsTask)
+        displayedTasks.add(addImageTagsTask)
     }
 
     private inner class TaskViewCallback : SuggestedEditsTaskView.Callback {

@@ -26,6 +26,7 @@ import org.wikipedia.page.PageActivity;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.readinglist.MoveToReadingListDialog;
+import org.wikipedia.readinglist.ReadingListBehaviorsUtil;
 import org.wikipedia.readinglist.ReadingListBookmarkMenu;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.readinglist.database.ReadingListPage;
@@ -71,7 +72,7 @@ public class RandomFragment extends Fragment {
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_random, container, false);
         unbinder = ButterKnife.bind(this, view);
-        FeedbackUtil.setToolbarButtonLongPressToast(nextButton, saveButton);
+        FeedbackUtil.setButtonLongPressToast(nextButton, saveButton);
 
         randomPager.setOffscreenPageLimit(2);
         randomPager.setAdapter(new RandomItemAdapter(this));
@@ -132,8 +133,8 @@ public class RandomFragment extends Fragment {
         if (saveButtonState) {
             new ReadingListBookmarkMenu(saveButton, new ReadingListBookmarkMenu.Callback() {
                 @Override
-                public void onAddRequest(@Nullable ReadingListPage page) {
-                    onAddPageToList(title);
+                public void onAddRequest(boolean addToDefault) {
+                    onAddPageToList(title, addToDefault);
                 }
 
                 @Override
@@ -154,7 +155,7 @@ public class RandomFragment extends Fragment {
                 }
             }).show(title);
         } else {
-            onAddPageToList(title);
+            onAddPageToList(title, true);
         }
     }
 
@@ -163,16 +164,20 @@ public class RandomFragment extends Fragment {
                 new HistoryEntry(title, HistoryEntry.SOURCE_RANDOM), title));
     }
 
-    public void onAddPageToList(@NonNull PageTitle title) {
-        bottomSheetPresenter.show(getChildFragmentManager(),
-                AddToReadingListDialog.newInstance(title,
-                        RANDOM_ACTIVITY, (DialogInterface dialogInterface) -> updateSaveShareButton(title)));
+    public void onAddPageToList(@NonNull PageTitle title, boolean addToDefault) {
+        if (addToDefault) {
+            ReadingListBehaviorsUtil.INSTANCE.addToDefaultList(requireActivity(), title, RANDOM_ACTIVITY, readingListId -> onMovePageToList(readingListId, title));
+        } else {
+            bottomSheetPresenter.show(getChildFragmentManager(),
+                    AddToReadingListDialog.newInstance(title,
+                            RANDOM_ACTIVITY, (DialogInterface dialogInterface) -> updateSaveShareButton(title)));
+        }
     }
 
     public void onMovePageToList(long sourceReadingListId, @NonNull PageTitle title) {
         bottomSheetPresenter.show(getChildFragmentManager(),
                 MoveToReadingListDialog.newInstance(sourceReadingListId, Collections.singletonList(title),
-                        RANDOM_ACTIVITY, (DialogInterface dialogInterface) -> updateSaveShareButton(title)));
+                        RANDOM_ACTIVITY, true, (DialogInterface dialogInterface) -> updateSaveShareButton(title)));
     }
 
     @SuppressWarnings("magicnumber")

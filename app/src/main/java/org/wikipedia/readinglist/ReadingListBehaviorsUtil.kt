@@ -6,7 +6,10 @@ import android.text.Spanned
 import androidx.appcompat.app.AlertDialog
 import kotlinx.coroutines.*
 import org.apache.commons.lang3.StringUtils
+import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
+import org.wikipedia.analytics.ReadingListsFunnel
+import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.database.ReadingListDbHelper
 import org.wikipedia.readinglist.database.ReadingListPage
@@ -27,6 +30,10 @@ object ReadingListBehaviorsUtil {
 
     interface SnackbarCallback {
         fun onUndoDeleteClicked()
+    }
+
+    interface AddToDefaultListCallback {
+        fun onMoveClicked(readingListId: Long)
     }
 
     interface Callback {
@@ -225,6 +232,19 @@ object ReadingListBehaviorsUtil {
         } else {
             toggleOffline(activity, page, !Prefs.isDownloadingReadingListArticlesEnabled())
             callback.onCompleted()
+        }
+    }
+
+    fun addToDefaultList(activity: Activity, title: PageTitle, invokeSource: InvokeSource, callback: AddToDefaultListCallback) {
+        val defaultList = ReadingListDbHelper.instance().defaultList
+        scope.launch(exceptionHandler) {
+            val addedTitles = withContext(dispatcher) { ReadingListDbHelper.instance().addPagesToListIfNotExist(defaultList, listOf(title)) }
+            if (addedTitles.isNotEmpty()) {
+                ReadingListsFunnel().logAddToList(defaultList, 1, invokeSource)
+                FeedbackUtil.makeSnackbar(activity, activity.getString(R.string.reading_list_article_added_to_default_list, title.displayText), FeedbackUtil.LENGTH_DEFAULT)
+                        .setAction(R.string.reading_list_add_to_list_button) { callback.onMoveClicked(defaultList.id()) }.show()
+            }
+
         }
     }
 

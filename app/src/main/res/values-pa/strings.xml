@@ -21,7 +21,6 @@
   <string name="search_hint_voice_search">ਅਵਾਜ਼ ਰਾਹੀਂ ਖੋਜ</string>
   <string name="search_hint_search_history">ਖੋਜ ਦਾ ਇਤਿਹਾਸ</string>
   <string name="search_hint_search_languages">ਭਾਸ਼ਾ ਖੋਜੋ</string>
-  <string name="search_hint_search_my_lists_and_articles">ਮੇਰੀਆਂ ਸੂਚੀਆਂ ਅਤੇ ਲੇਖ ਖੋਜੋ</string>
   <string name="nav_item_history">ਅਤੀਤ</string>
   <string name="nav_item_suggested_edits" fuzzy="true">ਸੁਝਾਈਆਂ ਸੋਧਾਂ</string>
   <string name="error_network_error">ਨੈੱਟਵਰਕ ਮੌਜੂਦ ਨਹੀਂ ਹੈ।</string>
@@ -150,7 +149,6 @@
   <string name="preference_title_eventlogging_opt_in">ਵਰਤੋਂ ਦੀਆਂ ਇਤਲਾਹਾਂ ਘੱਲੋ</string>
   <string name="preference_summary_eventlogging_opt_in">ਇਸ ਐਪ ਨੂੰ ਚੰਗੇਰੀ ਬਣਾਉਣ ਵਾਸਤੇ ਵਿਕੀਮੀਡੀਆ ਨੂੰ ਤੁਹਾਡੇ ਇਸ ਐਪ ਨੂੰ ਵਰਤਣ ਦੇ ਤਰੀਕੇ ਬਾਬਤ ਜਾਣਕਾਰੀ ਇਕੱਠੀ ਕਰਨ ਦੀ ਇਜਾਜ਼ਤ ਦਿਉ।</string>
   <string name="preference_title_auto_upload_crash_reports">ਕਰੈਸ਼ ਰਿਪੋਰਟ ਭੇਜੋ</string>
-  <string name="history_search_list_hint">ਅਤੀਤ ਖੋਜੋ</string>
   <string name="error_can_not_process_link">ਇਹ ਕੜੀ ਵਿਖਾਈ ਨਾ ਜਾ ਸਕੀ</string>
   <string name="page_protected_autoconfirmed">ਇਹ ਸਫ਼ਾ ਨੀਮ-ਸੁਰੱਖਿਅਤ ਕਰ ਦਿੱਤਾ ਗਿਆ ਹੈ।</string>
   <string name="page_protected_sysop">ਇਹ ਸਫ਼ਾ ਪੂਰਾ ਸੁਰੱਖਿਅਤ ਕਰ ਦਿੱਤਾ ਗਿਆ ਹੈ।</string>
