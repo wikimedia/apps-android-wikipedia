@@ -24,7 +24,7 @@ enum class NavTab constructor(private val text: Int, private val icon: Int) : En
     },
     SEARCH(R.string.nav_item_search, R.drawable.ic_search_themed_24dp) {
         override fun newInstance(): Fragment {
-            return SearchFragment.newInstance(Constants.InvokeSource.FEED,"")
+            return SearchFragment.newInstance(Constants.InvokeSource.NAV_MENU,"")
         }
     },
     EDITS(R.string.nav_item_suggested_edits, R.drawable.ic_mode_edit_themed_24dp) {

@@ -68,6 +68,7 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
     }
 
     private Unbinder unbinder;
+    @BindView(R.id.history_container) View historyContainer;
     @BindView(R.id.history_list) RecyclerView historyList;
     @BindView(R.id.history_empty_container) View historyEmptyView;
     @BindView(R.id.search_empty_view) SearchEmptyView searchEmptyView;
@@ -604,5 +605,13 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
 
     @Nullable private Callback callback() {
         return FragmentUtil.getCallback(this, Callback.class);
+    }
+
+    public void show() {
+        historyContainer.setVisibility(View.VISIBLE);
+    }
+
+    public void hide() {
+        historyContainer.setVisibility(View.GONE);
     }
 }

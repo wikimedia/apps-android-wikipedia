@@ -67,10 +67,8 @@
         android:layout_height="24dp"
         android:layout_marginEnd="16dp"
         android:contentDescription="@null"
-        android:foregroundGravity="center_vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/page_list_item_image"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBaseline_toBaselineOf="@+id/page_list_item_image"
         app:srcCompat="@drawable/ic_bookmark_gray_24dp" />
 
     <ImageView

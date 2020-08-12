@@ -126,5 +126,12 @@
             android:layout_height="match_parent"
             tools:layout="@layout/fragment_search_recent" />
 
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/search_panel_history"
+            android:name="org.wikipedia.history.HistoryFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:layout="@layout/fragment_history" />
+
     </FrameLayout>
 </LinearLayout>

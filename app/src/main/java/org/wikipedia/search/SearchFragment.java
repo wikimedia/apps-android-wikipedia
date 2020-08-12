@@ -26,6 +26,7 @@ import org.wikipedia.analytics.IntentFunnel;
 import org.wikipedia.analytics.SearchFunnel;
 import org.wikipedia.database.contract.SearchHistoryContract;
 import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.history.HistoryFragment;
 import org.wikipedia.language.LanguageSettingsInvokeSource;
 import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.page.PageActivity;
@@ -58,6 +59,7 @@ import static org.wikipedia.Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE_FROM_SEARC
 import static org.wikipedia.Constants.INTENT_EXTRA_INVOKE_SOURCE;
 import static org.wikipedia.Constants.InvokeSource.INTENT_PROCESS_TEXT;
 import static org.wikipedia.Constants.InvokeSource.INTENT_SHARE;
+import static org.wikipedia.Constants.InvokeSource.NAV_MENU;
 import static org.wikipedia.settings.languages.WikipediaLanguagesFragment.ACTIVITY_RESULT_LANG_POSITION_DATA;
 import static org.wikipedia.util.ResourceUtil.getThemedColor;
 
@@ -102,6 +104,7 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
     private RecentSearchesFragment recentSearchesFragment;
     private SearchResultsFragment searchResultsFragment;
+    private HistoryFragment historyFragment;
 
     private final SearchView.OnCloseListener searchCloseListener = new SearchView.OnCloseListener() {
         @Override
@@ -169,6 +172,8 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
         recentSearchesFragment = (RecentSearchesFragment)childFragmentManager.findFragmentById(
                 R.id.search_panel_recent);
         recentSearchesFragment.setCallback(this);
+        historyFragment = (HistoryFragment) childFragmentManager.findFragmentById(
+                R.id.search_panel_history);
         searchResultsFragment = (SearchResultsFragment)childFragmentManager.findFragmentById(
                 R.id.fragment_search_results);
 
@@ -406,16 +411,28 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
         switch (panel) {
             case PANEL_RECENT_SEARCHES:
                 searchResultsFragment.hide();
-                recentSearchesFragment.show();
+                showFragmentPerInvokeSource();
                 break;
             case PANEL_SEARCH_RESULTS:
                 recentSearchesFragment.hide();
+                historyFragment.hide();
                 searchResultsFragment.show();
                 break;
             default:
                 break;
         }
     }
+
+    private void showFragmentPerInvokeSource() {
+        if ((invokeSource == NAV_MENU)) {
+            recentSearchesFragment.hide();
+            historyFragment.show();
+        } else {
+            recentSearchesFragment.show();
+            historyFragment.hide();
+        }
+    }
+
 
     private int getActivePanel() {
         if (searchResultsFragment.isShowing()) {
