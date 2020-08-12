@@ -73,9 +73,9 @@ class SuggestedEditsTasksFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setupTestingButtons()
 
-        userStatsViewsGroup.addOnClickListener { v ->
+        userStatsViewsGroup.addOnClickListener(View.OnClickListener {
             startActivity(ContributionsActivity.newIntent(requireActivity()))
-        }
+        })
 
         learnMoreCard.setOnClickListener {
             FeedbackUtil.showAndroidAppEditingFAQ(requireContext())
@@ -99,9 +99,9 @@ class SuggestedEditsTasksFragment : Fragment() {
         clearContents()
     }
 
-    private fun Group.addOnClickListener(listener: (view: View) -> Unit) {
+    private fun Group.addOnClickListener(listener: View.OnClickListener) {
         referencedIds.forEach { id ->
-            rootView.findViewById<View>(id).setOnClickListener(listener)
+            userStatsClickTarget.findViewById<View>(id).setOnClickListener(listener)
         }
     }
 
