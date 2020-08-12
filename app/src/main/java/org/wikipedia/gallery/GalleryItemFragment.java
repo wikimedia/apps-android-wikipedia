@@ -26,6 +26,7 @@ import org.wikipedia.commons.FilePageActivity;
 import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.dataclient.mwapi.MwQueryPage;
 import org.wikipedia.dataclient.mwapi.MwQueryResponse;
 import org.wikipedia.page.Namespace;
 import org.wikipedia.page.PageTitle;
@@ -83,6 +84,8 @@ public class GalleryItemFragment extends Fragment {
     @Nullable ImageInfo getMediaInfo() {
         return mediaInfo;
     }
+    private MwQueryPage mediaPage;
+
 
     public static GalleryItemFragment newInstance(@Nullable PageTitle pageTitle, @NonNull MediaListItem item) {
         GalleryItemFragment f = new GalleryItemFragment();
@@ -217,6 +220,7 @@ public class GalleryItemFragment extends Fragment {
                 })
                 .subscribe(response -> {
                     mediaInfo = response.query().firstPage().imageInfo();
+                    mediaPage = response.query().firstPage();
                     if (FileUtil.isVideo(mediaListItem.getType())) {
                         loadVideo();
                     } else {
@@ -348,5 +352,9 @@ public class GalleryItemFragment extends Fragment {
 
     @Nullable private Callback callback() {
         return FragmentUtil.getCallback(this, Callback.class);
+    }
+
+    public MwQueryPage getMediaPage() {
+        return mediaPage;
     }
 }
