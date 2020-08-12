@@ -603,7 +603,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         if (tab == NavTab.SEARCH) {
             View tabView = tabLayout.getViewAt(tab.code());
             if (Prefs.shouldShowSearchTabTooltip() && tabView != null) {
-                Balloon balloon = FeedbackUtil.showTooltip(requireContext(), getString(R.string.search_tab_tooltip), ArrowOrientation.TOP);
+                Balloon balloon = FeedbackUtil.showTooltip(requireContext(), getString(R.string.search_tab_tooltip), ArrowOrientation.BOTTOM);
                 balloon.showAlignTop(tabView, 0, 16);
                 Prefs.setShowSearchTabTooltip(false);
             }

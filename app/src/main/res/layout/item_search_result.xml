@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         app:layout_constraintBottom_toTopOf="@+id/page_list_item_redirect"
-        app:layout_constraintEnd_toStartOf="@id/page_list_item_image"
+        app:layout_constraintEnd_toStartOf="@id/page_list_icon"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Lorem ipsum" />
@@ -62,11 +62,22 @@
         tools:text="Lorem ipsum" />
 
     <ImageView
+        android:id="@+id/page_list_icon"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="16dp"
+        android:contentDescription="@null"
+        android:foregroundGravity="center_vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/page_list_item_image"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_bookmark_gray_24dp" />
+
+    <ImageView
         android:id="@+id/page_list_item_image"
         android:layout_width="@dimen/view_list_card_item_image"
         android:layout_height="@dimen/view_list_card_item_image"
+        android:contentDescription="@null"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/page_list_item_title"
-        app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@null"/>
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
