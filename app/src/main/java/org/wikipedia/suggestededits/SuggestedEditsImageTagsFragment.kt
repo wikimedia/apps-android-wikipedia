@@ -386,7 +386,6 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
     }
 
     private fun onSuccess() {
-        Prefs.setSuggestedEditsImageTagsNew(false)
         SuggestedEditsFunnel.get().success(ADD_IMAGE_TAGS)
 
         val duration = 500L
