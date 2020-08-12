@@ -654,7 +654,7 @@
 
     <string name="description_too_short">The text is too short.</string>
     <string name="description_ends_with_punctuation">The text must not end with punctuation.</string>
-    <string name="description_starts_with_article">Do not start with articles like \"a\" or \"the\".</string>
+    <string name="description_starts_with_article">Avoid starting with articles like “a” or “the”.</string>
     <string name="description_starts_with_uppercase">Start with a lowercase letter unless the first word is a proper noun.</string>
     <!-- /Description editing -->
 
@@ -737,6 +737,7 @@
     <string name="suggested_edits_image_preview_dialog_more_info">More Info</string>
     <string name="suggested_edits_image_preview_dialog_file_page_link_text">File page on Wikimedia Commons</string>
     <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">File page on Wikipedia</string>
+    <string name="suggested_edits_article_cta_image_tags">Add image tags</string>
     <string name="suggested_edits_article_cta_image_caption">Add image caption</string>
     <string name="suggested_edits_article_cta_image_caption_in_language">Add image caption (%s)</string>
     <string name="suggested_edits_article_cta_snackbar_action">View</string>
