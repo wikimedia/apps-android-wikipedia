@@ -8,6 +8,7 @@ import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
+import androidx.constraintlayout.widget.Group
 import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -72,7 +73,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setupTestingButtons()
 
-        userStatsClickTarget.setOnClickListener {
+        userStatsViewsGroup.addOnClickListener { v ->
             startActivity(ContributionsActivity.newIntent(requireActivity()))
         }
 
@@ -96,6 +97,12 @@ class SuggestedEditsTasksFragment : Fragment() {
         tasksRecyclerView.adapter = RecyclerAdapter(displayedTasks)
 
         clearContents()
+    }
+
+    private fun Group.addOnClickListener(listener: (view: View) -> Unit) {
+        referencedIds.forEach { id ->
+            rootView.findViewById<View>(id).setOnClickListener(listener)
+        }
     }
 
     override fun onPause() {
