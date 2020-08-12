@@ -154,5 +154,13 @@ public final class LanguageUtil {
         return StringUtils.defaultString(firstSelectedChineseLangCode, AppLanguageLookUpTable.TRADITIONAL_CHINESE_LANGUAGE_CODE);
     }
 
+    public static boolean startsWithArticle(@NonNull String text, @NonNull String language) {
+        String first = text.split(" ")[0].toLowerCase().trim();
+        return ((language.equals("en") && StringUtils.equalsAny(first, "a", "an", "the"))
+                || (language.equals("de") && StringUtils.equalsAny(first, "der", "den", "dem", "des", "das", "die", "den", "ein", "eine", "einer", "einen", "einem", "eines", "keine", "keinen", "keiner"))
+                || (language.equals("es") && StringUtils.equalsAny(first, "el", "los", "la", "las", "un", "unos", "una", "unas"))
+                || (language.equals("fr") && (StringUtils.equalsAny(first, "le", "la", "les", "un", "une", "des") || first.startsWith("l'"))));
+    }
+
     private LanguageUtil() { }
 }
