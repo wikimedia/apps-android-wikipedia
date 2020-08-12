@@ -119,7 +119,6 @@ object JavaScriptActionHandler {
         return "pcs.c1.Footer.add({" +
                 "   platform: \"android\"," +
                 "   clientVersion: \"${BuildConfig.VERSION_NAME}\"," +
-                "   title: \"${model.title!!.prefixedText}\"," +
                 "   menu: {" +
                 "       items: [" +
                                 "pcs.c1.Footer.MenuItemType.lastEdited, " +

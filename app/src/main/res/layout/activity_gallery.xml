@@ -96,7 +96,7 @@
         </LinearLayout>
 
         <FrameLayout
-            android:id="@+id/gallery_caption_translate_container"
+            android:id="@+id/gallery_cta_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingStart="@dimen/activity_horizontal_margin"
@@ -106,7 +106,7 @@
             tools:visibility="visible">
 
             <LinearLayout
-                android:id="@+id/gallery_caption_translate_button"
+                android:id="@+id/gallery_cta_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingTop="12dp"
@@ -121,7 +121,7 @@
                     app:srcCompat="@drawable/ic_add_gray_white_24dp" />
 
                 <TextView
-                    android:id="@+id/gallery_caption_translate_button_text"
+                    android:id="@+id/gallery_cta_button_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"

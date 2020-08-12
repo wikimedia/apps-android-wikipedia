@@ -239,7 +239,6 @@ class SuggestedEditsTasksFragment : Fragment() {
     private fun setFinalUIState() {
         clearContents(false)
 
-        addImageTagsTask.new = Prefs.isSuggestedEditsImageTagsNew()
         tasksRecyclerView.adapter!!.notifyDataSetChanged()
 
         setUserStatsViewsAndTooltips()
@@ -304,11 +303,11 @@ class SuggestedEditsTasksFragment : Fragment() {
     }
 
     private fun showOneTimeSequentialUserStatsTooltips() {
-        val balloon = FeedbackUtil.showTooltip(requireContext(), contributionsStatsView.tooltipText, ArrowOrientation.BOTTOM)
+        val balloon = FeedbackUtil.showTooltip(requireContext(), contributionsStatsView.tooltipText, ArrowOrientation.TOP)
         contributionsStatsView.description.showAlignBottom(balloon)
-        balloon.relayShowAlignBottom(FeedbackUtil.showTooltip(requireContext(), editStreakStatsView.tooltipText, ArrowOrientation.BOTTOM), editStreakStatsView.description)
-                .relayShowAlignBottom(FeedbackUtil.showTooltip(requireContext(), pageViewStatsView.tooltipText, ArrowOrientation.BOTTOM), pageViewStatsView.description)
-                .relayShowAlignBottom(FeedbackUtil.showTooltip(requireContext(), editQualityStatsView.tooltipText, ArrowOrientation.BOTTOM), editQualityStatsView.description)
+        balloon.relayShowAlignBottom(FeedbackUtil.showTooltip(requireContext(), editStreakStatsView.tooltipText, ArrowOrientation.TOP), editStreakStatsView.description)
+                .relayShowAlignBottom(FeedbackUtil.showTooltip(requireContext(), pageViewStatsView.tooltipText, ArrowOrientation.TOP), pageViewStatsView.description)
+                .relayShowAlignBottom(FeedbackUtil.showTooltip(requireContext(), editQualityStatsView.tooltipText, ArrowOrientation.TOP), editQualityStatsView.description)
         Prefs.shouldShowOneTimeSequentialUserStatsTooltip(false)
     }
 
@@ -400,9 +399,9 @@ class SuggestedEditsTasksFragment : Fragment() {
         addDescriptionsTask.description = getString(R.string.suggested_edits_add_descriptions_task_detail)
         addDescriptionsTask.imageDrawable = R.drawable.ic_article_description
 
-        displayedTasks.add(addImageTagsTask)
         displayedTasks.add(addDescriptionsTask)
         displayedTasks.add(addImageCaptionsTask)
+        displayedTasks.add(addImageTagsTask)
     }
 
     private inner class TaskViewCallback : SuggestedEditsTaskView.Callback {

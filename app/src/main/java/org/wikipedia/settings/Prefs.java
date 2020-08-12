@@ -841,14 +841,6 @@ public final class Prefs {
         setBoolean(R.string.preference_key_image_zoom_tooltip_shown, show);
     }
 
-    public static boolean isSuggestedEditsImageTagsNew() {
-        return getBoolean(R.string.preference_key_suggested_edits_image_tags_new, true);
-    }
-
-    public static void setSuggestedEditsImageTagsNew(boolean enabled) {
-        setBoolean(R.string.preference_key_suggested_edits_image_tags_new, enabled);
-    }
-
     public static boolean isSuggestedEditsReactivationPassStageOne() {
         return getBoolean(R.string.preference_key_suggested_edits_reactivation_pass_stage_one, true);
     }
