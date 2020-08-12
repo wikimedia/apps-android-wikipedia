@@ -654,7 +654,7 @@
 
     <string name="description_too_short">The text is too short.</string>
     <string name="description_ends_with_punctuation">The text must not end with punctuation.</string>
-    <string name="description_starts_with_article">Do not start with articles like \"a\" or \"the\".</string>
+    <string name="description_starts_with_article">Avoid starting with articles like “a” or “the”.</string>
     <string name="description_starts_with_uppercase">Start with a lowercase letter unless the first word is a proper noun.</string>
     <!-- /Description editing -->
 
