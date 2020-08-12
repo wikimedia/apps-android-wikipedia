@@ -246,7 +246,6 @@ class SuggestedEditsTasksFragment : Fragment() {
     private fun setFinalUIState() {
         clearContents(false)
 
-        addImageTagsTask.new = Prefs.isSuggestedEditsImageTagsNew()
         tasksRecyclerView.adapter!!.notifyDataSetChanged()
 
         setUserStatsViewsAndTooltips()
@@ -407,9 +406,9 @@ class SuggestedEditsTasksFragment : Fragment() {
         addDescriptionsTask.description = getString(R.string.suggested_edits_add_descriptions_task_detail)
         addDescriptionsTask.imageDrawable = R.drawable.ic_article_description
 
-        displayedTasks.add(addImageTagsTask)
         displayedTasks.add(addDescriptionsTask)
         displayedTasks.add(addImageCaptionsTask)
+        displayedTasks.add(addImageTagsTask)
     }
 
     private inner class TaskViewCallback : SuggestedEditsTaskView.Callback {
