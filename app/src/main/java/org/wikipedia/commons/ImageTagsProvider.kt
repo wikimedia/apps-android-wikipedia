@@ -10,6 +10,7 @@ import org.wikipedia.dataclient.wikidata.Entities
 import java.util.*
 
 object ImageTagsProvider {
+    @JvmStatic
     fun getImageTagsObservable(pageId: Int, langCode: String): Observable<Map<String, List<String>>> {
         return ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getClaims("M$pageId", "P180")
                 .subscribeOn(Schedulers.io())

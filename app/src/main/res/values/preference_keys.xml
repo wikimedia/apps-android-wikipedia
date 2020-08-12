@@ -102,7 +102,6 @@
     <string name="preference_key_visited_article_page">hasVisitedArticlePage</string>
     <string name="preference_key_match_system_theme">matchSystemTheme</string>
     <string name="preference_key_image_zoom_tooltip_shown">imageZoomTooltipShown</string>
-    <string name="preference_key_suggested_edits_image_tags_new">suggestedEditsImageTagsNew</string>
     <string name="preference_key_suggested_edits_pause_date">suggestedEditsPauseDate</string>
     <string name="preference_key_suggested_edits_pause_reverts">suggestedEditsPauseReverts</string>
     <string name="preference_key_suggested_edits_override_counts">suggestedEditsOverrideCounts</string>
