@@ -10,8 +10,8 @@
     <item android:id="@+id/menu_gallery_save"
         android:title="@string/view_featured_image_card_download"
         app:showAsAction="never"/>
-    <item android:id="@+id/menu_gallery_visit_page"
-        android:title="@string/menu_gallery_visit_page"
+    <item android:id="@+id/menu_gallery_visit_image_page"
+        android:title="@string/menu_gallery_visit_image_page"
         app:showAsAction="never"/>
 
 </menu>
