@@ -284,7 +284,6 @@
   <string name="dialog_title_download_only_over_wifi_allow">Positive option of the dialog that shows the confirmation of downloading articles using mobile data.\n{{Identical|Allow}}</string>
   <string name="read_more_section">Title of the Read More section at the bottom of each page.\n\nThis section shows other automatically-selected articles, similarly to how it works with \"Related Articles\" ({{msg-mw|Relatedarticles-read-more-heading}}).\n\n{{Identical|Read more}}</string>
   <string name="about_article_section">Title of section that contains information specific to the current article.</string>
-  <string name="menu_gallery_visit_page">Menu label for navigating to the File page for the current image being shown in the gallery.</string>
   <string name="gallery_error_draw_failed">Error message shown when the current image could not be displayed.</string>
   <string name="license_title">Title for activity displaying the license text for a library that we use. The \"%s\" symbol is replaced with the name of the library for which the license is being shown.</string>
   <string name="gallery_menu_share">Label for menu item to share the current image.\n{{Identical|Share}}</string>
@@ -699,7 +698,6 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text">Hint message to users about why the translation tasks are locked and how they can be unlocked by making valid edits. %d is the number of edits.</string>
   <string name="suggested_edits_task_multilingual_negative">Negative action button text for editing tasks.</string>
   <string name="suggested_edits_task_multilingual_positive">Positive action button text for editing tasks.</string>
-  <string name="suggested_edits_image_caption_summary_title_file">Label for the file name field shown in suggested edit card.\n{{Identical|File}}</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Artist title text of the file summary shown in suggested edit card.</string>
   <string name="suggested_edits_image_caption_summary_title_author">Author title text of the file summary shown in suggested edit card.\n{{Identical|Author}}</string>
   <string name="suggested_edits_image_caption_summary_title_source">Source title text of the file summary shown in suggested edit card.</string>
@@ -715,7 +713,6 @@
   <string name="suggested_edits_tasks_onboarding_get_started">Text on button to start tasks from edit action feed.\n{{Identical|Get started}}</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Label for image caption detail on image details screen. The %s is replaced by the language that the caption is used.</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Label for image description detail on image details screen. The %s is replaced by the language that the description is used.</string>
-  <string name="suggested_edits_image_preview_dialog_file">Label for image file name on image details screen.</string>
   <string name="suggested_edits_image_preview_dialog_artist">Label for image artist detail on image details screen.</string>
   <string name="suggested_edits_image_preview_dialog_tags">Label for image tags detail on image details screen.</string>
   <string name="suggested_edits_image_preview_dialog_date">Label for image date detail on image details screen.</string>
@@ -929,4 +926,7 @@
   <string name="text_input_dialog_cancel_button_text">Negative action button text in pop-up dialog for text input.\n{{Identical|Cancel}}</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Negative action button text in date picker pop-up dialog.\n{{Identical|Cancel}}</string>
   <string name="suggested_edits_article_cta_image_tags">Text for call to action button on article lead image, prompting the user to add tags to the lead image.</string>
+  <string name="suggested_edits_image_preview_dialog_image">Label for image file name on image details screen.</string>
+  <string name="suggested_edits_image_caption_summary_title_image">Label to show the artifact type shown in suggested edit card</string>
+  <string name="menu_gallery_visit_image_page">Menu label for navigating to the image page for the current image being shown in the gallery.</string>
 </resources>
