@@ -668,9 +668,8 @@
     <string name="description_edit_success_saved_image_caption_snackbar_se_promotion"> Image caption published. Enjoyed that? Help us add more.</string>
     <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Image caption published! (%s)</string>
     <string name="description_edit_success_saved_image_caption_in_lang_snackbar_se_promotion">Image caption published. (%s) Enjoyed that? Help us add more.</string>
-    <string name="description_edit_success_saved_image_tags_snackbar">Image tag(s) published!</string>
-    <string name="description_edit_success_saved_image_tags_snackbar_se_promotion"> Image tags published. Enjoyed that? Help us add more.</string>
     <string name="description_edit_success_se_image_caption_feed_link_snackbar">Enjoyed that? Help us add missing captions to other images.</string>
+    <string name="description_edit_success_se_image_tags_feed_link_snackbar">Enjoyed that? Help us add missing tags to other images.</string>
     <string name="description_edit_success_encouragement">You just made Wikipedia better for everyone</string>
     <string name="description_edit_success_done">Done</string>
     <string name="description_edit_success_did_you_know">Did you know?</string>

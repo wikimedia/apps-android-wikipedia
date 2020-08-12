@@ -729,24 +729,31 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
                     : (requestCode == Constants.ACTIVITY_REQUEST_IMAGE_TAGS_EDIT) ? ADD_IMAGE_TAGS : null;
             ABTestSuggestedEditsSnackbarFunnel abTestFunnel = new ABTestSuggestedEditsSnackbarFunnel();
             boolean shouldSeeSEFeedLinkSnackbar = abTestFunnel.shouldSeeSnackbarAction() && Prefs.getSEFeedLinkSnackbarShownCount() < SE_FEED_LINK_SNACKBAR_SHOW_LIMIT;
-            FeedbackUtil.makeSnackbar(this, action == ADD_CAPTION
+            Snackbar snackbar = FeedbackUtil.makeSnackbar(this, action == ADD_CAPTION
                     ? getString(R.string.description_edit_success_saved_image_caption_snackbar)
                     : action == TRANSLATE_CAPTION ? getString(R.string.description_edit_success_saved_image_caption_in_lang_snackbar, app.language().getAppLanguageLocalizedName(editLanguage))
-                    : getString(R.string.description_edit_success_saved_image_tags_snackbar), FeedbackUtil.LENGTH_DEFAULT)
-                    .setAction(R.string.suggested_edits_article_cta_snackbar_action, v -> pageFragment.openImageInGallery(editLanguage))
-                    .addCallback(new Snackbar.Callback() {
-                        @Override
-                        public void onDismissed(Snackbar transientBottomBar, @DismissEvent int event) {
-                            if (shouldSeeSEFeedLinkSnackbar && action != null) {
-                                Prefs.setSEFeedLinkSnackbarShownCount(Prefs.getSEFeedLinkSnackbarShownCount() + 1);
-                                FeedbackUtil.makeSnackbar(PageActivity.this, getString(R.string.description_edit_success_se_image_caption_feed_link_snackbar), FeedbackUtil.LENGTH_DEFAULT)
-                                        .setAction(R.string.suggested_edits_tasks_onboarding_get_started, v -> pageFragment.startSuggestionsActivity(action))
-                                        .show();
+                    : getString(R.string.description_edit_success_se_image_tags_feed_link_snackbar), FeedbackUtil.LENGTH_DEFAULT);
+
+            if (action != ADD_IMAGE_TAGS) {
+                snackbar.setAction(R.string.suggested_edits_article_cta_snackbar_action, v -> pageFragment.openImageInGallery(editLanguage))
+                        .addCallback(new Snackbar.Callback() {
+                            @Override
+                            public void onDismissed(Snackbar transientBottomBar, @DismissEvent int event) {
+                                if (shouldSeeSEFeedLinkSnackbar && action != null) {
+                                    Prefs.setSEFeedLinkSnackbarShownCount(Prefs.getSEFeedLinkSnackbarShownCount() + 1);
+                                    FeedbackUtil.makeSnackbar(PageActivity.this, getString(R.string.description_edit_success_se_image_caption_feed_link_snackbar), FeedbackUtil.LENGTH_DEFAULT)
+                                            .setAction(R.string.suggested_edits_tasks_onboarding_get_started, v -> pageFragment.startSuggestionsActivity(action))
+                                            .show();
+                                }
                             }
-                            abTestFunnel.logSnackbarShown();
-                        }
-                    })
-                    .show();
+                        });
+            } else if (shouldSeeSEFeedLinkSnackbar) {
+                snackbar.setAction(R.string.suggested_edits_tasks_onboarding_get_started, v -> pageFragment.startSuggestionsActivity(action));
+            }
+
+            snackbar.show();
+            abTestFunnel.logSnackbarShown();
+
         } else {
             super.onActivityResult(requestCode, resultCode, data);
         }
