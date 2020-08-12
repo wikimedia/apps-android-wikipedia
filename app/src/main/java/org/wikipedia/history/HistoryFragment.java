@@ -1,5 +1,6 @@
 package org.wikipedia.history;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
@@ -7,18 +8,15 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.view.ActionMode;
 import androidx.fragment.app.Fragment;
 import androidx.loader.app.LoaderManager;
@@ -44,7 +42,6 @@ import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.views.DefaultViewHolder;
-import org.wikipedia.views.MultiSelectActionModeCallback;
 import org.wikipedia.views.PageItemView;
 import org.wikipedia.views.SearchEmptyView;
 import org.wikipedia.views.SwipeableItemTouchHelperCallback;
@@ -57,6 +54,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.Unbinder;
 
 import static org.wikipedia.Constants.HISTORY_FRAGMENT_LOADER_ID;
@@ -72,6 +70,7 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
     @BindView(R.id.history_list) RecyclerView historyList;
     @BindView(R.id.history_empty_container) View historyEmptyView;
     @BindView(R.id.search_empty_view) SearchEmptyView searchEmptyView;
+    @BindView(R.id.history_delete) ImageView deleteHistoryItems;
 
     private WikipediaApp app;
 
@@ -82,7 +81,6 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
     private ItemCallback itemCallback = new ItemCallback();
     private ActionMode actionMode;
     private SearchActionModeCallback searchActionModeCallback = new HistorySearchCallback();
-    private MultiSelectCallback multiSelectCallback = new MultiSelectCallback();
     private HashSet<HistoryEntry> selectedEntries = new HashSet<>();
     @NonNull public static HistoryFragment newInstance() {
         return new HistoryFragment();
@@ -114,6 +112,19 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
         setUpScrollListener();
         return view;
     }
+
+    @OnClick(R.id.history_delete) void onMoreClicked(View v) {
+        if (selectedEntries.size() == 0) {
+            new AlertDialog.Builder(requireContext())
+                    .setTitle(R.string.dialog_title_clear_history)
+                    .setMessage(R.string.dialog_message_clear_history)
+                    .setPositiveButton(R.string.dialog_message_clear_history_yes, (dialog, which) -> onClearHistoryClick())
+                    .setNegativeButton(R.string.dialog_message_clear_history_no, null).create().show();
+        } else {
+            deleteSelectedPages();
+        }
+    }
+
 
     private void setUpScrollListener() {
         historyList.addOnScrollListener(new RecyclerView.OnScrollListener() {
@@ -174,6 +185,7 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
             setEmptyContainerVisibility(false);
         }
         historyList.setVisibility(adapter.isEmpty() ? View.GONE : View.VISIBLE);
+        deleteHistoryItems.setVisibility(adapter.isEmpty() ? View.GONE : View.VISIBLE);
     }
 
     private void setEmptyContainerVisibility(boolean visible) {
@@ -183,45 +195,6 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
         } else {
             historyEmptyView.setVisibility(View.GONE);
             DeviceUtil.setWindowSoftInputModeResizable(requireActivity());
-        }
-    }
-
-    @Override
-    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
-        if (((MainActivity) requireActivity()).isCurrentFragmentSelected(this)) {
-            inflater.inflate(R.menu.menu_history, menu);
-        }
-    }
-
-    @Override
-    public void onPrepareOptionsMenu(@NonNull Menu menu) {
-        if (((MainActivity) requireActivity()).isCurrentFragmentSelected(this)) {
-            super.onPrepareOptionsMenu(menu);
-            boolean isHistoryAvailable = !adapter.isEmpty();
-            menu.findItem(R.id.menu_clear_all_history)
-                    .setVisible(isHistoryAvailable)
-                    .setEnabled(isHistoryAvailable);
-        }
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.menu_clear_all_history:
-                new AlertDialog.Builder(requireContext())
-                        .setTitle(R.string.dialog_title_clear_history)
-                        .setMessage(R.string.dialog_message_clear_history)
-                        .setPositiveButton(R.string.dialog_message_clear_history_yes, (dialog, which) -> onClearHistoryClick())
-                        .setNegativeButton(R.string.dialog_message_clear_history_no, null).create().show();
-                return true;
-            case R.id.menu_search_history:
-                if (actionMode == null) {
-                    actionMode = ((AppCompatActivity) requireActivity())
-                            .startSupportActionMode(searchActionModeCallback);
-                }
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
         }
     }
 
@@ -249,9 +222,6 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
     private void beginMultiSelect() {
         if (HistorySearchCallback.is(actionMode)) {
             finishActionMode();
-        }
-        if (!MultiSelectCallback.is(actionMode)) {
-            ((AppCompatActivity) requireActivity()).startSupportActionMode(multiSelectCallback);
         }
     }
 
@@ -512,7 +482,7 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
     private class ItemCallback implements PageItemView.Callback<IndexedHistoryEntry> {
         @Override
         public void onClick(@Nullable IndexedHistoryEntry indexedEntry) {
-            if (MultiSelectCallback.is(actionMode)) {
+            if (selectedEntries != null && selectedEntries.size() > 0) {
                 toggleSelectPage(indexedEntry);
             } else if (indexedEntry != null) {
                 onPageClick(new HistoryEntry(indexedEntry.getEntry().getTitle(), HistoryEntry.SOURCE_HISTORY));
@@ -576,30 +546,6 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
         @Override
         protected Context getParentContext() {
             return requireContext();
-        }
-    }
-
-    private class MultiSelectCallback extends MultiSelectActionModeCallback {
-        @Override
-        public boolean onCreateActionMode(ActionMode mode, Menu menu) {
-            super.onCreateActionMode(mode, menu);
-            mode.getMenuInflater().inflate(R.menu.menu_action_mode_history, menu);
-            actionMode = mode;
-            selectedEntries.clear();
-            return super.onCreateActionMode(mode, menu);
-        }
-
-        @Override
-        protected void onDeleteSelected() {
-            deleteSelectedPages();
-            finishActionMode();
-        }
-
-        @Override
-        public void onDestroyActionMode(ActionMode mode) {
-            unselectAllPages();
-            actionMode = null;
-            super.onDestroyActionMode(mode);
         }
     }
 

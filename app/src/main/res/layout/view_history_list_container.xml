@@ -24,7 +24,7 @@
             android:textStyle="bold" />
 
         <ImageView
-            android:id="@+id/history_delete_button"
+            android:id="@+id/history_delete"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_gravity="end|center_vertical"
