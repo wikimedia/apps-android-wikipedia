@@ -112,7 +112,7 @@
                 android:paddingTop="12dp"
                 android:paddingBottom="16dp"
                 android:gravity="center_vertical"
-                android:foreground="?attr/selectableItemBackgroundBorderless">
+                android:background="?attr/selectableItemBackgroundBorderless">
 
                 <ImageView
                     android:layout_width="@dimen/app_shortcut_icon_size"
