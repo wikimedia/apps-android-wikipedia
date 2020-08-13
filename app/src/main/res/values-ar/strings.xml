@@ -282,7 +282,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">السماح</string>
   <string name="read_more_section">اقرأ المزيد</string>
   <string name="about_article_section">حول هذه المقالة</string>
-  <string name="menu_gallery_visit_page">الذهاب إلى صفحة الملف</string>
+  <string name="menu_gallery_visit_image_page">الذهاب إلى صفحة الملف</string>
   <string name="gallery_error_draw_failed">خطأ في إظهار الصورة.</string>
   <string name="license_title">ترخيص %s</string>
   <string name="gallery_menu_share">مشاركة</string>
@@ -386,6 +386,7 @@
   <string name="reading_list_article_already_exists_message">كل شيء على ما يرام! %1$s يحتوي مسبقا على %2$s.</string>
   <string name="reading_list_articles_already_exist_message">كل شيء جيد! %s تحتوي بالفعل على كل المقالات.</string>
   <string name="reading_list_added_view_button">عرض القائمة</string>
+  <string name="reading_list_add_to_list_button">أضف إلى قائمة</string>
   <string name="format_reading_list_statistical_summary_singular">مقالة واحدة، %1$.2f ميجا بايت</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d مقالة/مقالات، %2$.2f ميجا بايت</string>
   <string name="format_reading_list_statistical_detail_singular">%1$d من أصل المقالة متاحة بدون اتصال، %2$.2f ميجا بايت</string>
@@ -678,7 +679,7 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text">تم الإغلاق حتى قمت بتحرير أوصاف %d مقالات (تم التحقق)</string>
   <string name="suggested_edits_task_multilingual_negative">ليس لي</string>
   <string name="suggested_edits_task_multilingual_positive">أضف لغات</string>
-  <string name="suggested_edits_image_caption_summary_title_file">الملف</string>
+  <string name="suggested_edits_image_caption_summary_title_image">الملف</string>
   <string name="suggested_edits_image_caption_summary_title_artist">الفنان</string>
   <string name="suggested_edits_image_caption_summary_title_author">المؤلف</string>
   <string name="suggested_edits_image_caption_summary_title_source">المصدر</string>
@@ -694,7 +695,7 @@
   <string name="suggested_edits_tasks_onboarding_get_started">ابدأ</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">شرح الصورة (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">وصف الصورة (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_file">الملف</string>
+  <string name="suggested_edits_image_preview_dialog_image">الملف</string>
   <string name="suggested_edits_image_preview_dialog_artist">الفنان</string>
   <string name="suggested_edits_image_preview_dialog_tags">الوسوم</string>
   <string name="suggested_edits_image_preview_dialog_date">التاريخ</string>

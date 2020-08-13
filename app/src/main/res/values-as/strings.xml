@@ -254,7 +254,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">অনুমতি দিয়ক</string>
   <string name="read_more_section">আৰু পঢ়ক</string>
   <string name="about_article_section">এই প্ৰবন্ধ সম্পৰ্কে</string>
-  <string name="menu_gallery_visit_page">ফাইল পৃষ্ঠালৈ যাওক</string>
+  <string name="menu_gallery_visit_image_page">ফাইল পৃষ্ঠালৈ যাওক</string>
   <string name="gallery_error_draw_failed">ছবিখন আঁকিব পৰা নহ\'ল।</string>
   <string name="license_title">%sৰ বাবে অনুজ্ঞাপত্ৰ</string>
   <string name="gallery_menu_share">শ্বেয়াৰ কৰক</string>

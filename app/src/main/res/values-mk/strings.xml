@@ -19,6 +19,7 @@
   <string name="search_hint_voice_search">Гласовно пребарување</string>
   <string name="search_hint_search_history">Историја на пребарување</string>
   <string name="search_hint_search_languages">Пребарување јазик</string>
+  <string name="filter_hint_filter_my_lists_and_articles">Филтрирање на моите списоци</string>
   <string name="nav_item_history">Историја</string>
   <string name="nav_item_suggested_edits">Уредувања</string>
   <string name="nav_item_more">Повеќе</string>
@@ -49,7 +50,9 @@
   <string name="edit_section_find_in_page">Најди на страницата</string>
   <string name="menu_page_font_and_theme">Смени фонт и изглед</string>
   <string name="menu_page_add_to_list">Додај во список за читање</string>
+  <string name="menu_page_add_to_default_list">Зачувај</string>
   <string name="feed_card_add_to_list">Додај во список за читање</string>
+  <string name="feed_card_add_to_default_list">Зачувај</string>
   <string name="menu_page_share">Сподели врска</string>
   <string name="menu_page_open_a_new_tab">Отвори ново јазиче</string>
   <string name="menu_page_reading_lists">Списоци за читање</string>
@@ -171,6 +174,7 @@
   <string name="preference_title_auto_upload_crash_reports">Испраќај извештаи за уривање</string>
   <string name="preference_summary_auto_upload_crash_reports">Прилогот да испраќа извештаи за уривање на надворешен услужник за да може уривањата да се разгледуваат и поправаат полесно и побрзо.</string>
   <string name="editing_error_spamblacklist">Пронајдени се врски до блокирани домени (%s). Отстранете ги и обидете се повторно.</string>
+  <string name="history_filter_list_hint">Филтрирај историја</string>
   <string name="error_can_not_process_link">Не можам да ја прикажам оваа врска</string>
   <string name="page_protected_autoconfirmed">Оваа страница е полузаштитена.</string>
   <string name="page_protected_sysop">Оваа страница е наполно заштитена.</string>
@@ -258,7 +262,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">Дозволи</string>
   <string name="read_more_section">Прочитајте повеќе</string>
   <string name="about_article_section">За статијава</string>
-  <string name="menu_gallery_visit_page">Оди на податотечната страница</string>
+  <string name="menu_gallery_visit_image_page">Оди на податотечната страница</string>
   <string name="gallery_error_draw_failed">Не можев да ја исцртам сликата.</string>
   <string name="license_title">Лиценца за %s</string>
   <string name="gallery_menu_share">Сподели</string>
@@ -361,10 +365,12 @@
   <string name="reading_list_create_new">Создај нов</string>
   <string name="reading_list_title_exists">Списокот за читање „%s“ веќе постои.</string>
   <string name="reading_list_article_added_to_named">Додаден %1$s во %2$s.</string>
+  <string name="reading_list_article_added_to_default_list">Зачувана %s. Дали сакате да ја додадете во список?</string>
   <string name="reading_list_article_moved_to_named">Преместена %1$s во %2$s.</string>
   <string name="reading_list_article_already_exists_message">Сè е во ред! %1$s веќе ја содржи %2$s.</string>
   <string name="reading_list_articles_already_exist_message">Сè е во ред! %s веќе ги содржи сите статии.</string>
   <string name="reading_list_added_view_button">Погл. списокот</string>
+  <string name="reading_list_add_to_list_button">Додај во список</string>
   <string name="format_reading_list_statistical_summary_singular">1 статија, %1$.2f МБ</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d статии, %2$.2f МБ</string>
   <string name="format_reading_list_statistical_detail_singular">Вонмрежно достапна %1$d од 1 статија, %2$.2f МБ</string>
@@ -619,7 +625,7 @@
   <string name="description_edit_voice_input_description">Гласовен внос</string>
   <string name="description_too_short">Текстот е прекраток.</string>
   <string name="description_ends_with_punctuation">Текстот не смее да завршува со интерпункциски знак.</string>
-  <string name="description_starts_with_article">Не започнувајте со членовите „a“ и „the“ кога пишувате на англиски.</string>
+  <string name="description_starts_with_article">Избегнувајте да започнувате со членовите „a“ и „the“ кога пишувате на англиски.</string>
   <string name="description_starts_with_uppercase">Почнете со мала буква освен ако зборот е лична именка.</string>
   <string name="description_edit_success_saved">Описот на статијата е објавен!</string>
   <string name="description_edit_success_saved_snackbar">Описот на статијата е објавен!</string>
@@ -627,6 +633,7 @@
   <string name="description_edit_success_saved_image_caption_snackbar">Описот на сликата објавен!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Описот на сликата е објавен! (%s)</string>
   <string name="description_edit_success_saved_image_tags_snackbar">Ознаките на сликите се објавени!</string>
+  <string name="description_edit_success_se_image_caption_feed_link_snackbar">Ви се допадна? Помогнете ни, додавајќи отсутни описи на други слики.</string>
   <string name="description_edit_success_encouragement">Штотуку ја подобривте Википедија за сите</string>
   <string name="description_edit_success_done">Готово</string>
   <string name="description_edit_success_did_you_know">Дали сте знаеле?</string>
@@ -667,7 +674,7 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text">Заклучено додека не уредите %d описи на статии (проверени)</string>
   <string name="suggested_edits_task_multilingual_negative">Не е за мене</string>
   <string name="suggested_edits_task_multilingual_positive">Додај јазици</string>
-  <string name="suggested_edits_image_caption_summary_title_file">Податотека</string>
+  <string name="suggested_edits_image_caption_summary_title_image">Податотека</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Уметник</string>
   <string name="suggested_edits_image_caption_summary_title_author">Автор</string>
   <string name="suggested_edits_image_caption_summary_title_source">Извор</string>
@@ -683,7 +690,7 @@
   <string name="suggested_edits_tasks_onboarding_get_started">Започни</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Опис на сликата (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Опис на сликата (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_file">Податотека</string>
+  <string name="suggested_edits_image_preview_dialog_image">Податотека</string>
   <string name="suggested_edits_image_preview_dialog_artist">Уметник</string>
   <string name="suggested_edits_image_preview_dialog_tags">Ознаки</string>
   <string name="suggested_edits_image_preview_dialog_date">Датум</string>
@@ -692,6 +699,7 @@
   <string name="suggested_edits_image_preview_dialog_more_info">Повеќе инфо</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Податотечна страница на Ризницата</string>
   <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">Податотечна страница на Википедија</string>
+  <string name="suggested_edits_article_cta_image_tags">Додај ознаки на сликата</string>
   <string name="suggested_edits_article_cta_image_caption">Додај опис на сликата</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Додај опис на сликата (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Преглед</string>
@@ -804,6 +812,8 @@
     <item quantity="other">Додадовте %d знаци</item>
   </plurals>
   <string name="file_page_activity_title">Податотечна страница</string>
+  <string name="file_page_add_image_caption_button">Додај опис на сликата</string>
+  <string name="file_page_add_image_tags_button">Додај ознаки на сликата</string>
   <string name="description_edit_revert_subtitle">Ви благодариме што ја уредувате Википедија!</string>
   <string name="description_edit_revert_intro">Знаеме дека се трудите да напишете што подобро, но еден од прегледувачите има примедба за уреденото. Веројатни причини за отповиканото уредување се:</string>
   <string name="description_edit_revert_reason1">вашиот придонес крши едно од &lt;a href=\"%1$s\"&gt;напатствијата&lt;/a&gt;.</string>

@@ -267,7 +267,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">Povoliť</string>
   <string name="read_more_section">Prečítajte si viac</string>
   <string name="about_article_section">O tomto článku</string>
-  <string name="menu_gallery_visit_page">Prejdite na stránku súboru</string>
+  <string name="menu_gallery_visit_image_page">Prejdite na stránku súboru</string>
   <string name="gallery_error_draw_failed">Obrázok nebolo možné nakresliť.</string>
   <string name="license_title">Licencia pre %s</string>
   <string name="gallery_menu_share">Zdieľať</string>
@@ -665,7 +665,7 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text">Zamknuté, kým neupravíte %d overených popisov článkov</string>
   <string name="suggested_edits_task_multilingual_negative">Nie je pre mňa</string>
   <string name="suggested_edits_task_multilingual_positive">Pridať jazyky</string>
-  <string name="suggested_edits_image_caption_summary_title_file">Súbor</string>
+  <string name="suggested_edits_image_caption_summary_title_image">Súbor</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Umelec</string>
   <string name="suggested_edits_image_caption_summary_title_author">Autor</string>
   <string name="suggested_edits_image_caption_summary_title_source">Zdroj</string>
@@ -681,7 +681,7 @@
   <string name="suggested_edits_tasks_onboarding_get_started">Začíname</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Titulok obrázku v jazyku %s</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Popis obrázku v jazyku %s</string>
-  <string name="suggested_edits_image_preview_dialog_file">Súbor</string>
+  <string name="suggested_edits_image_preview_dialog_image">Súbor</string>
   <string name="suggested_edits_image_preview_dialog_artist">Umelec</string>
   <string name="suggested_edits_image_preview_dialog_tags">Značky</string>
   <string name="suggested_edits_image_preview_dialog_date">Dátum</string>

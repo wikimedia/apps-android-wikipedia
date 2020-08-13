@@ -265,7 +265,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">ခွင့်ပြုရန်</string>
   <string name="read_more_section">ဆက်လက်ဖတ်ရှု</string>
   <string name="about_article_section">ဤဆောင်းပါးအကြောင်း</string>
-  <string name="menu_gallery_visit_page">ဖိုင်စာမျက်နှာသို့ သွားရန်</string>
+  <string name="menu_gallery_visit_image_page">ဖိုင်စာမျက်နှာသို့ သွားရန်</string>
   <string name="gallery_error_draw_failed">ပုံဆွဲ၍ မရနိုင်ပါ။</string>
   <string name="license_title">%s အတွက် လိုင်စင်</string>
   <string name="gallery_menu_share">မျှဝေ</string>
@@ -663,7 +663,7 @@
   <string name="suggested_edits_task_multilingual_description">သင်သည် ဘာသာစကားတစ်ခုထက် ဖတ်ရှု၊ ရေးသားသူဆိုပါက ဘာသာပြန်လုပ်ငန်းများကို ရရှိနိုင်ပါသည်။</string>
   <string name="suggested_edits_task_multilingual_negative">မိမိအတွက် မဟုတ်ပါ</string>
   <string name="suggested_edits_task_multilingual_positive">ဘာသာစကားများ ထည့်သွင်းရန်</string>
-  <string name="suggested_edits_image_caption_summary_title_file">ဖိုင်</string>
+  <string name="suggested_edits_image_caption_summary_title_image">ဖိုင်</string>
   <string name="suggested_edits_image_caption_summary_title_artist">အနုပညာရှင်</string>
   <string name="suggested_edits_image_caption_summary_title_author">စာရေးသူ</string>
   <string name="suggested_edits_image_caption_summary_title_source">ရင်းမြစ်</string>
@@ -679,7 +679,7 @@
   <string name="suggested_edits_tasks_onboarding_get_started">စတင်ပါ</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">ရုပ်ပုံ ပုံစာ (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">ရုပ်ပုံဖော်ပြချက် (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_file">ဖိုင်</string>
+  <string name="suggested_edits_image_preview_dialog_image">ဖိုင်</string>
   <string name="suggested_edits_image_preview_dialog_artist">အနုပညာရှင်</string>
   <string name="suggested_edits_image_preview_dialog_date">နေ့စွဲ</string>
   <string name="suggested_edits_image_preview_dialog_source">ရင်းမြစ်/ဓါတ်ပုံဆရာ</string>

@@ -27,6 +27,7 @@
   <string name="search_hint_voice_search">Εισαγωγή φωνητικής αναζήτησης</string>
   <string name="search_hint_search_history">Ερευνήστε το ιστορικό</string>
   <string name="search_hint_search_languages">Αναζήτηση για γλώσσα</string>
+  <string name="filter_hint_filter_my_lists_and_articles">Φιλτράρισμα των λιστών μου</string>
   <string name="nav_item_history">Ιστορικό</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Προτεινόμενες τροποποιήσεις</string>
   <string name="nav_item_more">Περισσότερα</string>
@@ -266,7 +267,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">Επιτρέψτε</string>
   <string name="read_more_section">Διαβάστε περισσότερα</string>
   <string name="about_article_section">Σχετικά με αυτό το λήμμα</string>
-  <string name="menu_gallery_visit_page">Μεταβείτε στη σελίδα αρχείου</string>
+  <string name="menu_gallery_visit_image_page">Μεταβείτε στη σελίδα αρχείου</string>
   <string name="gallery_error_draw_failed">Δεν θα μπορούσε να αντλήσει από την εικόνα.</string>
   <string name="license_title">Άδεια χρήσης για το %s</string>
   <string name="gallery_menu_share">Κοινοποίηση</string>
@@ -647,7 +648,7 @@
   <string name="suggested_edits_task_multilingual_description">Οι εργασίες μετάφρασης είναι διαθέσιμες εάν διαβάζετε και γράφετε σε περισσότερες από μία γλώσσες Βικιπαίδειας.</string>
   <string name="suggested_edits_task_image_caption_edit_disable_text">Κλειδωμένο έως ότου επεξεργαστείτε το %d λεζάντων της εικόνας</string>
   <string name="suggested_edits_task_multilingual_positive">Προσθέστε γλώσσες</string>
-  <string name="suggested_edits_image_caption_summary_title_file">Αρχείο</string>
+  <string name="suggested_edits_image_caption_summary_title_image">Αρχείο</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Καλλιτέχνης</string>
   <string name="suggested_edits_image_caption_summary_title_author">Συντάκτης</string>
   <string name="suggested_edits_image_caption_summary_title_source">Πηγή</string>
@@ -659,7 +660,7 @@
   <string name="suggested_edits_tasks_onboarding_get_started">Ξεκινήστε</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Λεζάντα εικόνας (στα %s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Περιγραφή εικόνας (στα %s)</string>
-  <string name="suggested_edits_image_preview_dialog_file">Αρχείο</string>
+  <string name="suggested_edits_image_preview_dialog_image">Αρχείο</string>
   <string name="suggested_edits_image_preview_dialog_artist">Καλλιτέχνης</string>
   <string name="suggested_edits_image_preview_dialog_tags">Ετικέτες</string>
   <string name="suggested_edits_image_preview_dialog_date">Ημερομηνία</string>

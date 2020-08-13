@@ -226,7 +226,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">Permisar</string>
   <string name="read_more_section">Lektez pluse</string>
   <string name="about_article_section">Pri ta artiklo</string>
-  <string name="menu_gallery_visit_page">Irar a la pagino dil arkivo</string>
+  <string name="menu_gallery_visit_image_page">Irar a la pagino dil arkivo</string>
   <string name="gallery_error_draw_failed">Ne povis montrar l\'imajo.</string>
   <string name="license_title">Licenco por %s</string>
   <string name="gallery_menu_share">Partigez l\'arkivo</string>
@@ -340,7 +340,7 @@
   <string name="suggested_edits_image_caption_summary_title_license">Licenco</string>
   <string name="suggested_edits_feed_card_add_description_button">Adjuntez deskripto dil artiklo</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Por komencar</string>
-  <string name="suggested_edits_image_preview_dialog_file">Arkivo</string>
+  <string name="suggested_edits_image_preview_dialog_image">Arkivo</string>
   <string name="suggested_edits_image_preview_dialog_artist">Artisto</string>
   <string name="suggested_edits_image_preview_dialog_date">Dato</string>
   <string name="suggested_edits_image_preview_dialog_source">Fonto/Fotografisto</string>

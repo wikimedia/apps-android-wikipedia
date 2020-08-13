@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
 * Artsiom91
 * Da voli
 * Envlh
@@ -177,7 +178,7 @@
   <string name="preference_title_show_images">Паказаць выявы</string>
   <string name="preference_summary_show_images">Уключыць або адключыць загрузку выяваў на старонках. Здыміце гэты сцяжок, калі ў вас павольнае інтэрнэт-падлучэнне ці трафік на вашым тарыфным плане абмежаваны.</string>
   <string name="read_more_section">Даведацца больш</string>
-  <string name="menu_gallery_visit_page">Перайсці да старонкі файла</string>
+  <string name="menu_gallery_visit_image_page">Перайсці да старонкі файла</string>
   <string name="gallery_error_draw_failed">Не атрымалася вывесці выяву.</string>
   <string name="license_title">Ліцэнзія для %s</string>
   <string name="gallery_menu_share">Падзяліцца</string>
@@ -251,7 +252,7 @@
   <string name="description_edit_save">Апублікаваць</string>
   <string name="description_edit_add_description" fuzzy="true">Дадаць апісанне</string>
   <string name="description_edit_success_done">Гатова</string>
-  <string name="suggested_edits_image_preview_dialog_file" fuzzy="true">Назва файла</string>
+  <string name="suggested_edits_image_preview_dialog_image">Назва файла</string>
   <string name="suggested_edits_image_preview_dialog_tags">Тэгі</string>
   <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">Назва файла ў Вікіпедыі</string>
 </resources>

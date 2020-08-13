@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
 * Srdjan m
 * Srđan
 -->
@@ -222,7 +223,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">Dozvoli</string>
   <string name="read_more_section">Također pogledajte</string>
   <string name="about_article_section">O članku</string>
-  <string name="menu_gallery_visit_page">Idi na stranicu datoteke</string>
+  <string name="menu_gallery_visit_image_page">Idi na stranicu datoteke</string>
   <string name="gallery_error_draw_failed">Ne mogu iscrtati sliku.</string>
   <string name="license_title">Licenca za %s</string>
   <string name="gallery_menu_share">Podijeli</string>
@@ -486,14 +487,14 @@
   <string name="description_edit_tutorial_promise">Počevši obećavam da neću zloupotrijebiti ovu mogućnost.</string>
   <string name="suggested_edits_my_contributions">Moji doprinosi</string>
   <string name="suggested_edits_no_description">Datoteka nema opis</string>
-  <string name="suggested_edits_image_caption_summary_title_file">Datoteka</string>
+  <string name="suggested_edits_image_caption_summary_title_image">Datoteka</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Umjetnik</string>
   <string name="suggested_edits_image_caption_summary_title_author">Autor</string>
   <string name="suggested_edits_image_caption_summary_title_source">Izvor</string>
   <string name="suggested_edits_image_caption_summary_title_license">Licenca</string>
   <string name="suggested_edits_image_caption_summary_title_date">Datum</string>
   <string name="suggested_edits_feed_card_title">Predložene izmjene</string>
-  <string name="suggested_edits_image_preview_dialog_file">Datoteka</string>
+  <string name="suggested_edits_image_preview_dialog_image">Datoteka</string>
   <string name="suggested_edits_image_preview_dialog_artist">Umjetnik</string>
   <string name="suggested_edits_image_preview_dialog_tags">Oznake</string>
   <string name="suggested_edits_image_preview_dialog_date">Datum</string>

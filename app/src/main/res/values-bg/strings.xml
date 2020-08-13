@@ -260,7 +260,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">Разрешаване</string>
   <string name="read_more_section">Прочетете повече</string>
   <string name="about_article_section">Относно тази статия</string>
-  <string name="menu_gallery_visit_page">Към страницата на файла</string>
+  <string name="menu_gallery_visit_image_page">Към страницата на файла</string>
   <string name="gallery_error_draw_failed">Изображението не може да бъде показано.</string>
   <string name="license_title">Лиценз за %s</string>
   <string name="gallery_menu_share">Споделяне</string>
@@ -652,7 +652,7 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text">Заключено, докато не редактирате %d описания на статии (проверени)</string>
   <string name="suggested_edits_task_multilingual_negative">Не е за мен</string>
   <string name="suggested_edits_task_multilingual_positive">Добавяне на езици</string>
-  <string name="suggested_edits_image_caption_summary_title_file">Файл</string>
+  <string name="suggested_edits_image_caption_summary_title_image">Файл</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Създател</string>
   <string name="suggested_edits_image_caption_summary_title_author">Автор</string>
   <string name="suggested_edits_image_caption_summary_title_source">Източник</string>
@@ -667,7 +667,7 @@
   <string name="suggested_edits_feed_card_add_translation_in_language_button">Добавяне на описание на статията (%s)</string>
   <string name="suggested_edits_tasks_onboarding_get_started">Започване</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Описание на изображението (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_file">Файл</string>
+  <string name="suggested_edits_image_preview_dialog_image">Файл</string>
   <string name="suggested_edits_image_preview_dialog_artist">Създател</string>
   <string name="suggested_edits_image_preview_dialog_tags">Етикети</string>
   <string name="suggested_edits_image_preview_dialog_date">Дата</string>
