@@ -5,8 +5,8 @@ dist: xenial
 android:
   components:
   - tools
-  - android-29
-  - build-tools-29.0.3
+  - android-30
+  - build-tools-30.0.2
 before_install:
   - yes | sdkmanager "tools"
   - yes | sdkmanager --licenses
