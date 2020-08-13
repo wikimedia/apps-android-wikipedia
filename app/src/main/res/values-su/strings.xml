@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
 * Dipusparaga
 * Kandar
 * Uchup19
@@ -240,7 +241,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">Idinan</string>
   <string name="read_more_section">Baca leuwih jero</string>
   <string name="about_article_section">Ngeunaan ieu artikel</string>
-  <string name="menu_gallery_visit_page">Miang ka kaca berkas</string>
+  <string name="menu_gallery_visit_image_page">Miang ka kaca berkas</string>
   <string name="gallery_error_draw_failed">Teu bisa ngagambar gambar</string>
   <string name="license_title">Lisénsi pikeun %s</string>
   <string name="gallery_menu_share">Bagikeun</string>

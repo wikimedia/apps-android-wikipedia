@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
 * Nepaboy
 * SatyamMishra
 * Sfic
@@ -244,7 +245,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">एलाऊ करीं</string>
   <string name="read_more_section">अउरी पढ़ीं</string>
   <string name="about_article_section">एह लेख के बारे में</string>
-  <string name="menu_gallery_visit_page">फाइल पन्ना पर जाईं</string>
+  <string name="menu_gallery_visit_image_page">फाइल पन्ना पर जाईं</string>
   <string name="gallery_error_draw_failed">चित्र ना देखावल जा सकल।</string>
   <string name="license_title">%s खातिर लाइसेंस</string>
   <string name="gallery_menu_share">साझा करीं</string>

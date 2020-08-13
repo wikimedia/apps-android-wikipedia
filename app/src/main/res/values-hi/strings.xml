@@ -233,7 +233,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">अनुमति दें</string>
   <string name="read_more_section">और पढ़ें</string>
   <string name="about_article_section">इस लेख के बारे में</string>
-  <string name="menu_gallery_visit_page">फ़ाइल पेज पर जाएँ</string>
+  <string name="menu_gallery_visit_image_page">फ़ाइल पेज पर जाएँ</string>
   <string name="gallery_error_draw_failed">चित्र को प्रदर्शित नहीं किया जा सका।</string>
   <string name="license_title">%s के लिए लाइसेंस</string>
   <string name="gallery_menu_share">साझा करें</string>

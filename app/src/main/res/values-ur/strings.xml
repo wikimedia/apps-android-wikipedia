@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * Abdulq
+* Abijeet Patro
 * BukhariSaeed
 * Hindustanilanguage
 * Meno25
@@ -253,7 +254,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">اجازت دیں</string>
   <string name="read_more_section">مزید پڑھیں</string>
   <string name="about_article_section">اس مضمون کے متعلق</string>
-  <string name="menu_gallery_visit_page">ملف کے صفحے پر جائیں</string>
+  <string name="menu_gallery_visit_image_page">ملف کے صفحے پر جائیں</string>
   <string name="gallery_error_draw_failed">تصویر کو اتارا نہیں جاسکا۔</string>
   <string name="license_title">%s کا اجازت نامہ</string>
   <string name="gallery_menu_share">دوسروں کو بھیجیں</string>
