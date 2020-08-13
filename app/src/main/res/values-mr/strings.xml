@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
 * Archana
 * BPositive
 * NehalDaveND
@@ -193,7 +194,7 @@
   <string name="preference_summary_show_images">पानांत चित्रे भारण करणे सक्षम वा अक्षम करा.जर आपला आंतरजाल अनुबंध हळू चालत असेल, किंवा जर आपला डाटा प्लॅन मर्यादित असेल तर या मांडणीला अनचेक करा.</string>
   <string name="read_more_section">अधिक वाचा</string>
   <string name="about_article_section">या लेखाबद्दल</string>
-  <string name="menu_gallery_visit_page">संचिका पानावर जा</string>
+  <string name="menu_gallery_visit_image_page">संचिका पानावर जा</string>
   <string name="gallery_error_draw_failed">चित्र काढता आले नाही.</string>
   <string name="license_title">%s साठी परवाना</string>
   <string name="gallery_menu_share">सहभाग करा</string>

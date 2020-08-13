@@ -244,13 +244,13 @@
   <string name="suggested_edits_edit_translation_button">Խմբագրել թարգմանություն</string>
   <string name="suggested_edits_my_contributions">Իմ ներդրումներ</string>
   <string name="suggested_edits_task_multilingual_positive">Ավելացնել լեզուներ</string>
-  <string name="suggested_edits_image_caption_summary_title_file">Նիշք</string>
+  <string name="suggested_edits_image_caption_summary_title_image">Նիշք</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Նկարիչ</string>
   <string name="suggested_edits_image_caption_summary_title_author">Հեղինակ</string>
   <string name="suggested_edits_image_caption_summary_title_source">Աղբյուր</string>
   <string name="suggested_edits_image_caption_summary_title_license">Արտոնագիր</string>
   <string name="suggested_edits_image_caption_summary_title_date">Ամսաթիվ</string>
-  <string name="suggested_edits_image_preview_dialog_file">Նիշք</string>
+  <string name="suggested_edits_image_preview_dialog_image">Նիշք</string>
   <string name="suggested_edits_image_preview_dialog_artist">Նկարիչ</string>
   <string name="suggested_edits_image_preview_dialog_date">Ամսաթիվ</string>
   <string name="suggested_edits_article_cta_snackbar_action">Դիտել</string>

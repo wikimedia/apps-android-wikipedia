@@ -266,7 +266,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">Tillat</string>
   <string name="read_more_section">Les mer</string>
   <string name="about_article_section">Om denne artikkelen</string>
-  <string name="menu_gallery_visit_page">Gå til filsiden</string>
+  <string name="menu_gallery_visit_image_page">Gå til filsiden</string>
   <string name="gallery_error_draw_failed">Visning av bildet feilet.</string>
   <string name="license_title">Lisens for %s</string>
   <string name="gallery_menu_share">Del</string>
@@ -657,7 +657,7 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text">Ikke tilgjengelig før du har lagt til %d artikkelbeskrivelser (godkjente)</string>
   <string name="suggested_edits_task_multilingual_negative">Passer ikke for meg</string>
   <string name="suggested_edits_task_multilingual_positive">Legg til språk</string>
-  <string name="suggested_edits_image_caption_summary_title_file">Fil</string>
+  <string name="suggested_edits_image_caption_summary_title_image">Fil</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Skaper/frembringer</string>
   <string name="suggested_edits_image_caption_summary_title_author">Opphavsperson</string>
   <string name="suggested_edits_image_caption_summary_title_source">Kilde</string>
@@ -673,7 +673,7 @@
   <string name="suggested_edits_tasks_onboarding_get_started">Kom i gang</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Bildetekst (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Beskrivelse av bildet (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_file">Fil</string>
+  <string name="suggested_edits_image_preview_dialog_image">Fil</string>
   <string name="suggested_edits_image_preview_dialog_artist">Skaper/frembringer</string>
   <string name="suggested_edits_image_preview_dialog_date">Dato</string>
   <string name="suggested_edits_image_preview_dialog_source">Kilde/fotograf</string>

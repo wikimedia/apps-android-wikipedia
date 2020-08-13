@@ -79,7 +79,9 @@
   <string name="edit_section_find_in_page">Znajdź na stronie</string>
   <string name="menu_page_font_and_theme">Zmień czcionkę i skórkę</string>
   <string name="menu_page_add_to_list">Dodaj do listy czytanych</string>
+  <string name="menu_page_add_to_default_list">Zapisz</string>
   <string name="feed_card_add_to_list">Dodaj do listy czytanych</string>
+  <string name="feed_card_add_to_default_list">Zapisz</string>
   <string name="menu_page_share">Udostępnij łącze</string>
   <string name="menu_page_open_a_new_tab">Otwórz nową kartę</string>
   <string name="menu_page_reading_lists">Listy do przeczytania</string>
@@ -289,7 +291,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">Zezwól</string>
   <string name="read_more_section">Czytaj więcej</string>
   <string name="about_article_section">O tym artykule</string>
-  <string name="menu_gallery_visit_page">Przejdź do strony pliku</string>
+  <string name="menu_gallery_visit_image_page">Przejdź do strony pliku</string>
   <string name="gallery_error_draw_failed">Nie udało się wyświetlić obrazu.</string>
   <string name="license_title">Licencja dla %s</string>
   <string name="gallery_menu_share">Udostępnij</string>
@@ -392,10 +394,12 @@
   <string name="reading_list_create_new">Utwórz nową</string>
   <string name="reading_list_title_exists">Lista \"%s\" już istnieje.</string>
   <string name="reading_list_article_added_to_named">Dodano %1$s do %2$s.</string>
+  <string name="reading_list_article_added_to_default_list">Zapisano %s. Czy chcesz dodać tę stronę do listy?</string>
   <string name="reading_list_article_moved_to_named">Przeniesiono  %1$s do %2$s.</string>
   <string name="reading_list_article_already_exists_message">Wszystko dobrze! %1$s zawiera teraz %2$s.</string>
   <string name="reading_list_articles_already_exist_message">Wszystko dobrze! %s zawiera teraz wszystkie artykuły.</string>
   <string name="reading_list_added_view_button">Zobacz listę</string>
+  <string name="reading_list_add_to_list_button">Dodaj do listy</string>
   <string name="format_reading_list_statistical_summary_singular">1 artykuł, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d artykułów, %2$.2f MB</string>
   <string name="format_reading_list_statistical_detail_singular">%1$d z 1 artykułów dostępnych offline, %2$.2f MB</string>
@@ -648,7 +652,7 @@
   <string name="description_edit_voice_input_description">Wprowadzanie głosowe</string>
   <string name="description_too_short">Tekst jest zbyt krótki.</string>
   <string name="description_ends_with_punctuation">Tekst nie może kończyć się znakiem interpunkcyjnym.</string>
-  <string name="description_starts_with_article">Nie rozpoczynaj artykułów od „a” bądź „the” (ang).</string>
+  <string name="description_starts_with_article">Unikaj rozpoczynania artykułów od „a” bądź „the” (ang).</string>
   <string name="description_starts_with_uppercase">Zaczynaj tekst używając małej litery, chyba że pierwszy wyraz to nazwa własna.</string>
   <string name="description_edit_success_saved">Opis artykułu opublikowany!</string>
   <string name="description_edit_success_saved_snackbar">Opis artykułu opublikowany!</string>
@@ -656,6 +660,7 @@
   <string name="description_edit_success_saved_image_caption_snackbar">Podpis pod zdjęciem opublikowany!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Podpis pod zdjęciem opublikowany! (%s)</string>
   <string name="description_edit_success_saved_image_tags_snackbar">Opublikowano znacznik(i) obrazu!</string>
+  <string name="description_edit_success_se_image_caption_feed_link_snackbar">Spodobało ci się? Pomóż nam w dodawaniu brakujących podpisów do innych obrazów.</string>
   <string name="description_edit_success_encouragement">Właśnie sprawiłeś, że Wikipedia jest lepsza dla wszystkich</string>
   <string name="description_edit_success_done">Gotowe</string>
   <string name="description_edit_success_did_you_know">Czy wiesz, że?</string>
@@ -696,7 +701,7 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text">Zablokowane, dopóki nie edytujesz %d opisów artykułów (zweryfikowane)</string>
   <string name="suggested_edits_task_multilingual_negative">Nie dla mnie</string>
   <string name="suggested_edits_task_multilingual_positive">Dodaj języki</string>
-  <string name="suggested_edits_image_caption_summary_title_file">Plik</string>
+  <string name="suggested_edits_image_caption_summary_title_image">Plik</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Artysta</string>
   <string name="suggested_edits_image_caption_summary_title_author">Autor</string>
   <string name="suggested_edits_image_caption_summary_title_source">Źródło</string>
@@ -714,7 +719,7 @@
   <string name="suggested_edits_tasks_onboarding_get_started">Rozpocznij</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Podpis obrazka (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Podpis obrazka (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_file">Plik</string>
+  <string name="suggested_edits_image_preview_dialog_image">Plik</string>
   <string name="suggested_edits_image_preview_dialog_artist">Artysta</string>
   <string name="suggested_edits_image_preview_dialog_tags">Znaczniki</string>
   <string name="suggested_edits_image_preview_dialog_date">Data</string>
@@ -787,6 +792,8 @@
   <string name="suggested_edits_contribution_type_image_tag">Znacznik obrazu</string>
   <string name="suggested_edits_added_contribution_label" fuzzy="true">Dodałeś/aś %d znaków</string>
   <string name="file_page_activity_title">Strona pliku</string>
+  <string name="file_page_add_image_caption_button">Dodaj podpis obrazu</string>
+  <string name="file_page_add_image_tags_button">Dodaj tagi obrazu</string>
   <string name="description_edit_revert_subtitle">Dziękujemy za edytowanie Wikipedii!</string>
   <string name="description_edit_revert_intro">Wiemy, że starałeś się jak najlepiej, ale jeden z recenzentów miał obawy. Możliwe przyczyny cofnięcia edycji obejmują:</string>
   <string name="description_edit_revert_reason1">Twój wkład nie był zgodny z jedną z &lt;a href=\"%1$s\"&gt; wytycznych &lt;/a&gt;.</string>

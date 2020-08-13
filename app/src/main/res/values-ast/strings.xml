@@ -256,7 +256,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">Permitir</string>
   <string name="read_more_section">Lleer más</string>
   <string name="about_article_section">Tocante a esti artículu</string>
-  <string name="menu_gallery_visit_page">Dir a la páxina del ficheru</string>
+  <string name="menu_gallery_visit_image_page">Dir a la páxina del ficheru</string>
   <string name="gallery_error_draw_failed">Nun pudo dibuxase la imaxe.</string>
   <string name="license_title">Llicencia pa %s</string>
   <string name="gallery_menu_share">Compartir</string>
@@ -649,7 +649,7 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text">Bloquiao hasta que tengas editaes %d descripciones d\'artículos (comprobaes)</string>
   <string name="suggested_edits_task_multilingual_negative">Nun ye pa min</string>
   <string name="suggested_edits_task_multilingual_positive">Amestar llingües</string>
-  <string name="suggested_edits_image_caption_summary_title_file">Ficheru</string>
+  <string name="suggested_edits_image_caption_summary_title_image">Ficheru</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Artista</string>
   <string name="suggested_edits_image_caption_summary_title_author">Autor</string>
   <string name="suggested_edits_image_caption_summary_title_source">Orixe</string>

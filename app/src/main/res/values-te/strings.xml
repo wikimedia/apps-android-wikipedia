@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
 * Bsitzmann
 * Chaduvari
 * Chsasank
@@ -174,7 +175,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">అనుమతించు</string>
   <string name="read_more_section">మరింత చదువు</string>
   <string name="about_article_section">ఈ వ్యాసం గురించి</string>
-  <string name="menu_gallery_visit_page">దస్త్ర పేజీకి వెళ్ళు</string>
+  <string name="menu_gallery_visit_image_page">దస్త్ర పేజీకి వెళ్ళు</string>
   <string name="gallery_error_draw_failed">బొమ్మను పొందలేకపోతున్నాము.</string>
   <string name="license_title" fuzzy="true">%s లైబ్రరీకి లైసెన్స్ వచనం</string>
   <string name="gallery_menu_share">పంచుకోండి</string>

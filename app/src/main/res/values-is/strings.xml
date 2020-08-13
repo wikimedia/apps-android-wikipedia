@@ -257,7 +257,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">Leyfa</string>
   <string name="read_more_section">Lesa meira</string>
   <string name="about_article_section">Um þessa grein</string>
-  <string name="menu_gallery_visit_page">Fara á síðu skráarinnar</string>
+  <string name="menu_gallery_visit_image_page">Fara á síðu skráarinnar</string>
   <string name="gallery_error_draw_failed">Gat ekki dregið upp myndina.</string>
   <string name="license_title">Notkunarleyfi fyrir %s</string>
   <string name="gallery_menu_share">Deila</string>
@@ -650,7 +650,7 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text">Læst þangað til þú hefur gert %d breytingar á lýsingum greina (yfirfarnar)</string>
   <string name="suggested_edits_task_multilingual_negative">Ekkert fyrir mig</string>
   <string name="suggested_edits_task_multilingual_positive">Bæta við tungumálum</string>
-  <string name="suggested_edits_image_caption_summary_title_file">Skrá</string>
+  <string name="suggested_edits_image_caption_summary_title_image">Skrá</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Listamaður</string>
   <string name="suggested_edits_image_caption_summary_title_author">Höfundur</string>
   <string name="suggested_edits_image_caption_summary_title_source">Uppruni</string>

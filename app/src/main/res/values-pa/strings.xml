@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
 * Babanwalia
 * Jimidar
 * Satdeep gill
@@ -221,7 +222,7 @@
   <string name="dialog_close_description">ਬੰਦ ਕਰੋ</string>
   <string name="preference_title_show_images">ਤਸਵੀਰਾਂ ਵੇਖੋ</string>
   <string name="read_more_section">ਹੋਰ ਪੜ੍ਹੋ</string>
-  <string name="menu_gallery_visit_page">ਫ਼ਾੲੀਲ ਦੇ ਸਫ਼ੇ \'ਤੇ ਜਾਓ</string>
+  <string name="menu_gallery_visit_image_page">ਫ਼ਾੲੀਲ ਦੇ ਸਫ਼ੇ \'ਤੇ ਜਾਓ</string>
   <string name="gallery_error_draw_failed">ਤਸਵੀਰ ਬਣਾ ਨਹੀਂ ਸਕੇ।</string>
   <string name="license_title">%s ਲਈ ਲਸੰਸ</string>
   <string name="gallery_menu_share">ਸਾਂਝਾ ਕਰੋ</string>

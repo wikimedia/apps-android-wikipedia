@@ -129,7 +129,7 @@
   <string name="preference_title_show_images">Суратланы гёрсетмек</string>
   <string name="dialog_title_download_only_over_wifi_allow">Изну бермек</string>
   <string name="about_article_section">Макъаланы гьакъында</string>
-  <string name="menu_gallery_visit_page">Сапламны сагьифасына гечмек</string>
+  <string name="menu_gallery_visit_image_page">Сапламны сагьифасына гечмек</string>
   <string name="gallery_error_draw_failed">Суратны чыгъарма бажарылмады.</string>
   <string name="gallery_menu_share">Пайлашмакъ</string>
   <string name="gallery_save_progress">Саплам эндирив…</string>

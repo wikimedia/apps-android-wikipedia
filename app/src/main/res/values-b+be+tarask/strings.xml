@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
 * Jim-by
 * Red Winged Duck
 * Renessaince
@@ -202,7 +203,7 @@
   <string name="preference_title_show_images">Паказаць выявы</string>
   <string name="preference_summary_show_images">Уключэньне ці выключэньне загрузкі выяваў на старонках. Выключыце гэтую магчымасьць, калі Вашае інтэрнэт-злучэньне павольнае ці калі ў Вас абмежаваны тарыфны плян.</string>
   <string name="read_more_section">Даведацца болей</string>
-  <string name="menu_gallery_visit_page">Перайсьці на старонку файла</string>
+  <string name="menu_gallery_visit_image_page">Перайсьці на старонку файла</string>
   <string name="gallery_error_draw_failed">Не атрымалася вывесьці выяву.</string>
   <string name="license_title">Ліцэнзія для %s</string>
   <string name="gallery_menu_share">Падзяліцца</string>

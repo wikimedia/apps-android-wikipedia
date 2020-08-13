@@ -283,7 +283,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">پذیرفتن</string>
   <string name="read_more_section">بیشتر بخوانید</string>
   <string name="about_article_section">دربارهٔ این مقاله</string>
-  <string name="menu_gallery_visit_page">رفتن به صفحه پرونده</string>
+  <string name="menu_gallery_visit_image_page">رفتن به صفحه پرونده</string>
   <string name="gallery_error_draw_failed">امکان ترسیم تصویر نیست.</string>
   <string name="license_title">مجوز برای %s</string>
   <string name="gallery_menu_share">به‌اشتراک‌گذاشتن</string>
@@ -669,7 +669,7 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text" fuzzy="true">تا زمانی که %d  ویرایش تائید شده‌داشته باشید، قفل‌شده‌است</string>
   <string name="suggested_edits_task_multilingual_negative">برای شما نیست</string>
   <string name="suggested_edits_task_multilingual_positive">افزودن زبان</string>
-  <string name="suggested_edits_image_caption_summary_title_file">پرونده</string>
+  <string name="suggested_edits_image_caption_summary_title_image">پرونده</string>
   <string name="suggested_edits_image_caption_summary_title_artist">نام هنرمند</string>
   <string name="suggested_edits_image_caption_summary_title_author">پدیدآورنده</string>
   <string name="suggested_edits_image_caption_summary_title_source">منبع</string>

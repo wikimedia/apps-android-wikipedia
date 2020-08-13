@@ -32,6 +32,7 @@
   <string name="search_hint_voice_search">Sök med röstinmatning</string>
   <string name="search_hint_search_history">Sök i historik</string>
   <string name="search_hint_search_languages">Sök efter ett språk</string>
+  <string name="filter_hint_filter_my_lists_and_articles">Filtrera mina listor</string>
   <string name="nav_item_history">Historik</string>
   <string name="nav_item_suggested_edits">Redigeringar</string>
   <string name="nav_item_more">Fler</string>
@@ -62,7 +63,9 @@
   <string name="edit_section_find_in_page">Hitta på sidan</string>
   <string name="menu_page_font_and_theme">Teckensnitt och tema</string>
   <string name="menu_page_add_to_list">Lägg till i läslista</string>
+  <string name="menu_page_add_to_default_list">Spara</string>
   <string name="feed_card_add_to_list">\nLägg till i läslista</string>
+  <string name="feed_card_add_to_default_list">Spara</string>
   <string name="menu_page_share">Dela länk</string>
   <string name="menu_page_open_a_new_tab">Öppna en ny flik</string>
   <string name="menu_page_reading_lists">Läslistor</string>
@@ -184,6 +187,7 @@
   <string name="preference_title_auto_upload_crash_reports">Skicka kraschrapporter</string>
   <string name="preference_summary_auto_upload_crash_reports">Låter appen automatiskt skicka kraschrapporter till en tredjepartstjänst så att vi kan granska din krasch och åtgärda felet snabbare och lättare.</string>
   <string name="editing_error_spamblacklist">Länkar till blockerade domäner (%s) har upptäckts. Vänligen ta bort dessa och försök igen.</string>
+  <string name="history_filter_list_hint">Filtrera historik</string>
   <string name="error_can_not_process_link">Denna länk kan inte visas</string>
   <string name="page_protected_autoconfirmed">Denna sida är halvskyddad.</string>
   <string name="page_protected_sysop">Denna sida är skrivskyddad.</string>
@@ -271,7 +275,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">Tillåt</string>
   <string name="read_more_section">Läs mer</string>
   <string name="about_article_section">Om denna artikel</string>
-  <string name="menu_gallery_visit_page">Gå till filsida</string>
+  <string name="menu_gallery_visit_image_page">Gå till filsida</string>
   <string name="gallery_error_draw_failed">Kunde inte rita bilden.</string>
   <string name="license_title">Licens för %s</string>
   <string name="gallery_menu_share">Dela</string>
@@ -374,10 +378,12 @@
   <string name="reading_list_create_new">Skapa ny</string>
   <string name="reading_list_title_exists">Läslistan \"%s\" finns redan.</string>
   <string name="reading_list_article_added_to_named">Lade till %1$s i %2$s.</string>
+  <string name="reading_list_article_added_to_default_list">Sparade %s. Vill du lägga till den i en lista?</string>
   <string name="reading_list_article_moved_to_named">Flyttade %1$s till %2$s.</string>
   <string name="reading_list_article_already_exists_message">%1$s innehåller redan %2$s.</string>
   <string name="reading_list_articles_already_exist_message">%s innehåller redan alla artiklar.</string>
   <string name="reading_list_added_view_button">Visa lista</string>
+  <string name="reading_list_add_to_list_button">Lägg till i lista</string>
   <string name="format_reading_list_statistical_summary_singular">1 artikel • %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d artiklar • %2$.2f MB</string>
   <string name="format_reading_list_statistical_detail_singular">%1$d av 1 artikel tillgänglig offline, %2$.2f MB</string>
@@ -632,7 +638,7 @@
   <string name="description_edit_voice_input_description">Röstinmatning</string>
   <string name="description_too_short">Texten är för kort.</string>
   <string name="description_ends_with_punctuation">Texten får inte sluta med ett skiljetecken.</string>
-  <string name="description_starts_with_article">Inled inte artiklar med \"Ett\" eller \"En\".</string>
+  <string name="description_starts_with_article">Undvik att inleda med artiklar som \"ett\" eller \"en\".</string>
   <string name="description_starts_with_uppercase">Börja med liten bokstav om det första ordet inte är ett egennamn.</string>
   <string name="description_edit_success_saved">Artikelbeskrivningen har publicerats!</string>
   <string name="description_edit_success_saved_snackbar">Artikelbeskrivningen har publicerats!</string>
@@ -640,6 +646,7 @@
   <string name="description_edit_success_saved_image_caption_snackbar">Bildtext skapades!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Bildtext skapades! (%s)</string>
   <string name="description_edit_success_saved_image_tags_snackbar">Bildtagg(ar) publicerades!</string>
+  <string name="description_edit_success_se_image_caption_feed_link_snackbar">Tyckte du om det? Hjälp till att lägga till bildtexter till andra bilder.</string>
   <string name="description_edit_success_encouragement">Du gjorde precis Wikipedia bättre för alla</string>
   <string name="description_edit_success_done">Klar</string>
   <string name="description_edit_success_did_you_know">Visste du att?</string>
@@ -680,7 +687,7 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text">Låst tills du har redigerat %d artikelbeskrivningar (verifierade)</string>
   <string name="suggested_edits_task_multilingual_negative">Ingenting för mig</string>
   <string name="suggested_edits_task_multilingual_positive">Lägg till språk</string>
-  <string name="suggested_edits_image_caption_summary_title_file">Fil</string>
+  <string name="suggested_edits_image_caption_summary_title_image">Fil</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Konstnär</string>
   <string name="suggested_edits_image_caption_summary_title_author">Författare</string>
   <string name="suggested_edits_image_caption_summary_title_source">Källa</string>
@@ -696,7 +703,7 @@
   <string name="suggested_edits_tasks_onboarding_get_started">Kom igång</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Bildtexter (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Bildbeskrivning (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_file">Fil</string>
+  <string name="suggested_edits_image_preview_dialog_image">Fil</string>
   <string name="suggested_edits_image_preview_dialog_artist">Konstnär</string>
   <string name="suggested_edits_image_preview_dialog_tags">Taggar</string>
   <string name="suggested_edits_image_preview_dialog_date">Datum</string>
@@ -705,6 +712,7 @@
   <string name="suggested_edits_image_preview_dialog_more_info">Mer info</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Filsida på Wikimedia Commons</string>
   <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">Filsida på Wikipedia</string>
+  <string name="suggested_edits_article_cta_image_tags">Lägg till bildtaggar</string>
   <string name="suggested_edits_article_cta_image_caption">Lägg till bildtext</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Lägg till bildtext (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Visa</string>
@@ -817,6 +825,8 @@
     <item quantity="other">Du lade till %d tecken</item>
   </plurals>
   <string name="file_page_activity_title">Filsida</string>
+  <string name="file_page_add_image_caption_button">Lägg till bildtext</string>
+  <string name="file_page_add_image_tags_button">Lägg till bildtaggar</string>
   <string name="description_edit_revert_subtitle">Tack för att du redigerar på Wikipedia!</string>
   <string name="description_edit_revert_intro">Vi vet att du försökte ditt bästa men en av korrekturläsarna hade en invändning. Möjliga anledningar till att din redigering gjordes om inkluderar:</string>
   <string name="description_edit_revert_reason1">ditt bidrag följde inte en av &lt;a href=\"%1$s\"&gt;riktlinjerna&lt;/a&gt;.</string>
