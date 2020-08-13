@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.view.ActionMode;
 import androidx.fragment.app.Fragment;
 import androidx.loader.app.LoaderManager;
@@ -29,6 +30,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.snackbar.Snackbar;
 
 import org.wikipedia.BackPressedHandler;
+import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
@@ -40,10 +42,12 @@ import org.wikipedia.readinglist.database.ReadingList;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.views.DefaultViewHolder;
 import org.wikipedia.views.PageItemView;
 import org.wikipedia.views.SearchEmptyView;
 import org.wikipedia.views.SwipeableItemTouchHelperCallback;
+import org.wikipedia.views.WikiCardView;
 
 import java.text.DateFormat;
 import java.util.ArrayList;
@@ -70,6 +74,8 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
     @BindView(R.id.history_empty_container) View historyEmptyView;
     @BindView(R.id.search_empty_view) SearchEmptyView searchEmptyView;
     @BindView(R.id.history_delete) ImageView deleteHistoryItems;
+    @BindView(R.id.history_filter) ImageView filterHistoryItems;
+    @BindView(R.id.wiki_card_for_search) WikiCardView searchWikiCardView;
 
     private WikipediaApp app;
 
@@ -106,13 +112,14 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
 
         historyList.setLayoutManager(new LinearLayoutManager(getContext()));
         historyList.setAdapter(adapter);
+        searchWikiCardView.setCardBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.color_group_22));
 
         LoaderManager.getInstance(requireActivity()).initLoader(HISTORY_FRAGMENT_LOADER_ID, null, loaderCallback);
         setUpScrollListener();
         return view;
     }
 
-    @OnClick(R.id.history_delete) void onMoreClicked(View v) {
+    @OnClick(R.id.history_delete) void onDeleteEntriesClicked(View v) {
         if (selectedEntries.size() == 0) {
             new AlertDialog.Builder(requireContext())
                     .setTitle(R.string.dialog_title_clear_history)
@@ -122,6 +129,17 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
         } else {
             deleteSelectedPages();
         }
+    }
+
+    @OnClick(R.id.history_filter) void onFilterEntriesClicked(View v) {
+        if (actionMode == null) {
+            actionMode = ((AppCompatActivity) requireActivity())
+                    .startSupportActionMode(searchActionModeCallback);
+        }
+    }
+
+    @OnClick(R.id.search_card) void onSearchCardClicked(View v) {
+        ((MainFragment) getParentFragment()).openSearchActivity(Constants.InvokeSource.NAV_MENU, null);
     }
 
 
@@ -539,7 +557,7 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
 
         @Override
         protected String getSearchHintString() {
-            return requireContext().getResources().getString(R.string.search_hint_search_history);
+            return requireContext().getResources().getString(R.string.history_filter_list_hint);
         }
 
         @Override

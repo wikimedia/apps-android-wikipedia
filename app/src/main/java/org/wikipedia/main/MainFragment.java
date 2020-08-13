@@ -476,7 +476,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
                 Constants.ACTIVITY_REQUEST_WRITE_EXTERNAL_STORAGE_PERMISSION);
     }
 
-    private void openSearchActivity(@NonNull Constants.InvokeSource source, @Nullable String query) {
+    public void openSearchActivity(@NonNull Constants.InvokeSource source, @Nullable String query) {
         Intent intent = SearchActivity.newIntent(requireActivity(), source, query);
         startActivityForResult(intent, ACTIVITY_REQUEST_OPEN_SEARCH_ACTIVITY);
     }
