@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:contentDescription="@null"
-            android:tint="?attr/secondary_text_color"
+            app:tint="?attr/secondary_text_color"
             app:srcCompat="@drawable/ic_bookmark_border_black_24dp" />
 
         <TextView
@@ -52,7 +52,7 @@
         android:paddingEnd="16dp"
         android:paddingBottom="12dp"
         android:scaleType="center"
-        android:tint="?attr/secondary_text_color"
+        app:tint="?attr/secondary_text_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/ic_share_black_24dp" />
 
