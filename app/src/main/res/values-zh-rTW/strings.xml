@@ -66,7 +66,9 @@
   <string name="edit_section_find_in_page">於頁面中尋找</string>
   <string name="menu_page_font_and_theme">字型與主題</string>
   <string name="menu_page_add_to_list">新增至閱讀清單</string>
+  <string name="menu_page_add_to_default_list">儲存</string>
   <string name="feed_card_add_to_list">新增至閱讀清單</string>
+  <string name="feed_card_add_to_default_list">儲存</string>
   <string name="menu_page_share">分享連結</string>
   <string name="menu_page_open_a_new_tab">開啟新分頁</string>
   <string name="menu_page_reading_lists">閱讀清單</string>
@@ -276,7 +278,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">允許</string>
   <string name="read_more_section">延伸閱讀</string>
   <string name="about_article_section">關於此條目</string>
-  <string name="menu_gallery_visit_page">前往檔案頁面</string>
+  <string name="menu_gallery_visit_image_page">前往檔案頁面</string>
   <string name="gallery_error_draw_failed">無法產生圖片。</string>
   <string name="license_title">%s 的授權條款</string>
   <string name="gallery_menu_share">分享</string>
@@ -285,7 +287,7 @@
   <string name="gallery_save_success">已儲存檔案。</string>
   <string name="gallery_error_video_failed">無法播放影片</string>
   <string name="gallery_save_image_write_permission_rationale">需要寫入您的裝置儲存庫的權限方能儲存圖片。</string>
-  <string name="gallery_add_image_caption_button">新增語言說明</string>
+  <string name="gallery_add_image_caption_button">新增圖片說明</string>
   <string name="gallery_add_image_caption_in_language_button">新增圖片說明（%s）</string>
   <string name="err_cannot_save_file">無法儲存檔案</string>
   <string name="expand_refs">輕觸展開</string>
@@ -379,10 +381,12 @@
   <string name="reading_list_create_new">建立新的</string>
   <string name="reading_list_title_exists">已有名為「%s」的閱讀清單。</string>
   <string name="reading_list_article_added_to_named">已新增%1$s到%2$s。</string>
+  <string name="reading_list_article_added_to_default_list">已儲存%s。您要添加到清單裡嗎？</string>
   <string name="reading_list_article_moved_to_named">已移動%1$s到%2$s。</string>
   <string name="reading_list_article_already_exists_message">一切完成！%1$s已包含%2$s。</string>
   <string name="reading_list_articles_already_exist_message">一切完成！%s已包含所有條目。</string>
   <string name="reading_list_added_view_button">檢視清單</string>
+  <string name="reading_list_add_to_list_button">添加至清單</string>
   <string name="format_reading_list_statistical_summary_singular">1 個條目，%1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d 個條目，%2$.2f MB</string>
   <string name="format_reading_list_statistical_detail_singular">1 個條目中有 %1$d 個可供離線閱讀，共 %2$.2f MB</string>
@@ -623,7 +627,7 @@
   <string name="description_edit_add_description">新增條目描述</string>
   <string name="description_edit_translate_description">翻譯條目描述</string>
   <string name="description_edit_edit_description">編輯條目描述</string>
-  <string name="description_edit_add_image_caption">新增語言說明</string>
+  <string name="description_edit_add_image_caption">新增圖片說明</string>
   <string name="description_edit_edit_image_caption">編輯語言說明</string>
   <string name="description_edit_translate_image_caption">翻譯圖片說明</string>
   <string name="description_edit_cancel_hint">取消</string>
@@ -637,7 +641,7 @@
   <string name="description_edit_voice_input_description">語音輸入</string>
   <string name="description_too_short">文字太短。</string>
   <string name="description_ends_with_punctuation">文字不能以標點符號結束。</string>
-  <string name="description_starts_with_article">條目不能以「a」或是「the」定冠詞為開頭。</string>
+  <string name="description_starts_with_article">避免以「a」或是「the」定冠詞作為條目開頭。</string>
   <string name="description_starts_with_uppercase">除非第一個單字是專有名詞，否則請以小寫字母開頭。</string>
   <string name="description_edit_success_saved">已發布條目描述！</string>
   <string name="description_edit_success_saved_snackbar">已發佈條目描述！</string>
@@ -658,7 +662,7 @@
   <string name="description_edit_tutorial_promise">首先，我保證不會濫用此功能。</string>
   <string name="suggested_edits_add_descriptions">新增條目描述</string>
   <string name="suggested_edits_translate_descriptions">翻譯條目描述</string>
-  <string name="suggested_edits_add_image_captions">新增語言說明</string>
+  <string name="suggested_edits_add_image_captions">新增圖片說明</string>
   <string name="suggested_edits_translate_image_captions">翻譯圖片說明</string>
   <string name="suggested_edits_tag_images">標記圖片</string>
   <string name="suggested_edits_review_description">檢閱條目描述</string>
@@ -676,7 +680,7 @@
   <string name="suggested_edits_menu_info">資訊</string>
   <string name="suggested_edits_task_add_description_title">新增條目描述</string>
   <string name="suggested_edits_task_add_description_description">不帶描述來貢獻條目</string>
-  <string name="suggested_edits_task_image_caption_title">新增語言說明</string>
+  <string name="suggested_edits_task_image_caption_title">新增圖片說明</string>
   <string name="suggested_edits_task_image_caption_description">為圖片新增缺少的簡短說明</string>
   <string name="suggested_edits_task_translate_caption_title">翻譯圖片說明</string>
   <string name="suggested_edits_task_translate_caption_description">翻譯說明成其它語言</string>
@@ -686,7 +690,7 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text">直到您編輯 %d 個條目描述才會解開（需經驗證）</string>
   <string name="suggested_edits_task_multilingual_negative">不適合我</string>
   <string name="suggested_edits_task_multilingual_positive">新增語言</string>
-  <string name="suggested_edits_image_caption_summary_title_file">檔案</string>
+  <string name="suggested_edits_image_caption_summary_title_image">檔案</string>
   <string name="suggested_edits_image_caption_summary_title_artist">藝術家</string>
   <string name="suggested_edits_image_caption_summary_title_author">作者</string>
   <string name="suggested_edits_image_caption_summary_title_source">來源</string>
@@ -702,7 +706,7 @@
   <string name="suggested_edits_tasks_onboarding_get_started">入門</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">圖片說明（%s）</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">圖片描述（%s）</string>
-  <string name="suggested_edits_image_preview_dialog_file">檔案</string>
+  <string name="suggested_edits_image_preview_dialog_image">檔案</string>
   <string name="suggested_edits_image_preview_dialog_artist">藝術家</string>
   <string name="suggested_edits_image_preview_dialog_tags">標籤</string>
   <string name="suggested_edits_image_preview_dialog_date">日期</string>
@@ -711,6 +715,7 @@
   <string name="suggested_edits_image_preview_dialog_more_info">更多資訊</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">在維基共享資源上的檔案頁面</string>
   <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">在維基百科的檔案頁面</string>
+  <string name="suggested_edits_article_cta_image_tags">新增圖片標籤</string>
   <string name="suggested_edits_article_cta_image_caption">新增圖片說明</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">新增圖片說明（%s）</string>
   <string name="suggested_edits_article_cta_snackbar_action">檢視</string>
@@ -820,6 +825,8 @@
     <item quantity="other">您已添加 %d 個字元</item>
   </plurals>
   <string name="file_page_activity_title">檔案頁面</string>
+  <string name="file_page_add_image_caption_button">新增圖片說明</string>
+  <string name="file_page_add_image_tags_button">新增圖片標籤</string>
   <string name="description_edit_revert_subtitle">感謝編輯維基百科！</string>
   <string name="description_edit_revert_intro">我們知道您已盡力了，但有編者檢閱內容有所疑慮而做出還原。您的編輯被回退的原因可能是：</string>
   <string name="description_edit_revert_reason1">您的貢獻並未遵循&lt;a href=\"%1$s\"&gt;指引&lt;/a&gt;之一。</string>

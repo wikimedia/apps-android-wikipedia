@@ -244,7 +244,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">Aotren</string>
   <string name="read_more_section">Lenn muioc\'h</string>
   <string name="about_article_section">Diwar-benn ar pennad-mañ</string>
-  <string name="menu_gallery_visit_page">Mont da bajenn ar restr</string>
+  <string name="menu_gallery_visit_image_page">Mont da bajenn ar restr</string>
   <string name="gallery_error_draw_failed">Ne c\'haller ket tresañ ar skeudenn.</string>
   <string name="license_title">Aotre-imoplijout evit %s</string>
   <string name="gallery_menu_share">Rannañ</string>

@@ -219,7 +219,7 @@
   <string name="android_app_request_an_account_url">//ja.wikipedia.org/wiki/Help:ログイン#アカウントの作成</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.ja</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ja</string>
-  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Special:MyLanguage/Wikimedia_Apps/Suggested_edits</string>
+  <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/ja</string>
   <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">使用しているライブラリ</string>
   <string name="about_contributors_heading">貢献者</string>
@@ -286,7 +286,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">許可</string>
   <string name="read_more_section">さらに詳しく</string>
   <string name="about_article_section">この記事について</string>
-  <string name="menu_gallery_visit_page">ファイルのページに移動</string>
+  <string name="menu_gallery_visit_image_page">ファイルのページに移動</string>
   <string name="gallery_error_draw_failed">画像を表示できませんでした</string>
   <string name="license_title">%sのライセンス</string>
   <string name="gallery_menu_share">共有</string>
@@ -610,7 +610,7 @@
   <string name="feed_item_type_featured_image">ウィキメディア・コモンズより、今日の秀逸な画像</string>
   <string name="feed_item_type_main_page">ウィキペディアのメインページ。今日の選り抜き記事や画像を表示</string>
   <string name="feed_item_type_randomizer">記事をおまかせ表示する</string>
-  <string name="feed_item_type_suggested_edits">ウィキペディアの内容追加のご提案</string>
+  <string name="feed_item_type_suggested_edits">ウィキペディアへの内容追加のご提案</string>
   <string name="feed_empty_message">あなたの探索するフィードには何もありません。</string>
   <string name="feed_configure_onboarding_action">カスタマイズ</string>
   <string name="customize_lang_selection_dialog_ok_button_text">OK</string>
@@ -642,7 +642,7 @@
   <string name="description_edit_help_wikidata_guide">説明文についてのガイドライン</string>
   <string name="description_edit_anon_limit">記事の説明を編集していただきありがとうございます。追加で編集を行うには、ウィキペディアアカウントにログインしてください。</string>
   <string name="description_edit_license_notice">この記事の説明を変更すると、&lt;a href=\"%1$s\"&gt;利用規約&lt;/a&gt;に同意し、&lt;a href=\"%2$s\"&gt;CC0&lt;/a&gt;ライセンスのもとで公開することになります。これは取り消せません。</string>
-  <string name="description_edit_helper_text_lowercase_warning">&lt;!--通常は小文字で書き始めます--&gt;</string>
+  <string name="description_edit_helper_text_lowercase_warning">小文字で書き始めてください(日本語以外)</string>
   <string name="description_edit_voice_input_description">音声入力</string>
   <string name="description_edit_success_saved">記事の説明が公開されました！</string>
   <string name="description_edit_success_saved_snackbar">記事の説明が公開されました！</string>
@@ -690,15 +690,15 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text">最低%d件の (有効な) 編集をするまでロックされています</string>
   <string name="suggested_edits_task_multilingual_negative">私向けではありません</string>
   <string name="suggested_edits_task_multilingual_positive">言語を追加</string>
-  <string name="suggested_edits_image_caption_summary_title_file">ファイル</string>
+  <string name="suggested_edits_image_caption_summary_title_image">ファイル</string>
   <string name="suggested_edits_image_caption_summary_title_artist">アーティスト</string>
   <string name="suggested_edits_image_caption_summary_title_author">著者</string>
   <string name="suggested_edits_image_caption_summary_title_source">情報源</string>
   <string name="suggested_edits_image_caption_summary_title_license">ライセンス</string>
   <string name="suggested_edits_image_caption_summary_title_date">日付</string>
   <plurals name="suggested_edits_contribution_count">
-    <item quantity="one">1 件の貢献</item>
-    <item quantity="other">%d 件の貢献</item>
+    <item quantity="one">1 件の投稿</item>
+    <item quantity="other">%d 件の投稿</item>
   </plurals>
   <string name="suggested_edits_feed_card_title">編集提案</string>
   <string name="suggested_edits_feed_card_add_description_button">記事の説明を追加</string>
@@ -706,7 +706,7 @@
   <string name="suggested_edits_tasks_onboarding_get_started">始める</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">画像キャプション (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">画像の説明 (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_file">ファイル</string>
+  <string name="suggested_edits_image_preview_dialog_image">ファイル</string>
   <string name="suggested_edits_image_preview_dialog_artist">作者</string>
   <string name="suggested_edits_image_preview_dialog_tags">タグ</string>
   <string name="suggested_edits_image_preview_dialog_date">日付</string>
@@ -735,13 +735,13 @@
   <string name="suggested_edits_image_tags_select_title">この画像のタグを選択していません</string>
   <string name="suggested_edits_image_tags_select_text">あなたが確認したタグのみ画像に追加されます。選択されていないタグは拒否としてマークされます。すべてのタグを拒否としてマークしますか?</string>
   <string name="suggested_edits_image_tags_add_tag">タグを追加</string>
-  <string name="suggested_edits_encouragement_message">%sさん、編集ありがとうございます。ウィキペディアに貢献できるいろんなやり方を以下でご紹介します。</string>
+  <string name="suggested_edits_encouragement_message">%sさん、編集ありがとうございます。ウィキペディアへのもっと様々な貢献方法を以下に紹介します。</string>
   <string name="suggested_edits_onboarding_message">&lt;b&gt;%sさん&lt;/b&gt;、ウィキペディアをより良くするための素早く簡単な方法を以下にご紹介します。始めてすぐ、あなたは自分が編集した内容が反映されるのを見ることができます。良い編集を！</string>
   <string name="suggested_edits_image_captions_task_detail">読者が意味と文脈を理解できるように、画像について説明してください。</string>
   <string name="suggested_edits_add_descriptions_task_detail">読者が一目でその主題を理解できるように要約してください。</string>
   <string name="suggested_edits_contributions_stat_tooltip">編集提案の投稿回数</string>
   <string name="suggested_edits_edit_streak_stat_tooltip">編集提案からの投稿を何日間休みなしで続けたかです。しばらく投稿していない場合には最後の投稿日が表示されます。</string>
-  <string name="suggested_edits_disabled_message" fuzzy="true">&lt;b&gt;編集提案は無効にされました。&lt;/ b&gt;申し訳ありませんが、%sさんの最近の投稿で巻き戻されたものが多すぎました。\n\n以下のリンクでどういう意味か理解しましょう。</string>
+  <string name="suggested_edits_disabled_message">編集提案は無効にされました。申し訳ありませんが、%sさんの最近の投稿で巻き戻されたものが多すぎました。</string>
   <string name="suggested_edits_editing_tips_link_text">編集のヒントとコツ</string>
   <string name="suggested_edits_help_page_link_text">編集提案のヘルプページ</string>
   <string name="suggested_edits_views_label_text">閲覧回数</string>
@@ -756,8 +756,8 @@
   <string name="suggested_edits_quality_bad_text">悪い</string>
   <string name="suggested_edits_label">編集提案</string>
   <plurals name="suggested_edits_contribution">
-    <item quantity="one">貢献</item>
-    <item quantity="other">貢献</item>
+    <item quantity="one">投稿</item>
+    <item quantity="other">投稿</item>
   </plurals>
   <plurals name="suggested_edits_edit_streak_detail_text">
     <item quantity="one">%d 日</item>
@@ -769,7 +769,7 @@
   <string name="suggested_edits_last_edited_never">なし</string>
   <string name="suggested_edits_task_new">新規</string>
   <string name="suggested_edits_cc0_notice">公開すると、&lt;a href=\"%1$s\"&gt;利用規約&lt;/a&gt;に同意し、&lt;a href=\"%2$s\"&gt;CC0ライセンス&lt;/a&gt;の下でコンテンツ再利用を許諾することになります。これは撤回できません。</string>
-  <string name="suggested_edits_reactivation_notification_title">提案された編集</string>
+  <string name="suggested_edits_reactivation_notification_title">編集提案</string>
   <string name="suggested_edits_contribution_language_label">言語</string>
   <string name="suggested_edits_contribution_date_time_label">日付 / 時刻</string>
   <string name="suggested_edits_contribution_image_label">画像</string>
@@ -854,7 +854,7 @@
   <string name="wikitext_preview_link">リンクをプレビュー</string>
   <string name="main_drawer_help">ヘルプ</string>
   <string name="main_drawer_login">ログイン / ウィキペディアに参加する</string>
-  <string name="main_tooltip_text" fuzzy="true">%sさん、ウィキペディアは誰もが編集できることをご存知ですか？</string>
+  <string name="main_tooltip_text">%sさん、ウィキペディアは誰もが編集できることをご存知ですか？</string>
   <string name="main_tooltip_action_button">始める</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_ok_button_text">OK</string>

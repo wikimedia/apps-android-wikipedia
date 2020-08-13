@@ -251,7 +251,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">Dozvoli</string>
   <string name="read_more_section">Pročitajte više</string>
   <string name="about_article_section">O ovom članku</string>
-  <string name="menu_gallery_visit_page">Idi na stranicu datoteke</string>
+  <string name="menu_gallery_visit_image_page">Idi na stranicu datoteke</string>
   <string name="gallery_error_draw_failed">Nije moguće prikazati sliku.</string>
   <string name="license_title">Licenca za %s</string>
   <string name="gallery_menu_share">Deli</string>

@@ -295,7 +295,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">允许</string>
   <string name="read_more_section">阅读更多</string>
   <string name="about_article_section">关于此条目</string>
-  <string name="menu_gallery_visit_page">前往文件页面</string>
+  <string name="menu_gallery_visit_image_page">前往文件页面</string>
   <string name="gallery_error_draw_failed">无法显示图像。</string>
   <string name="license_title">%s的许可协议</string>
   <string name="gallery_menu_share">分享</string>
@@ -700,7 +700,7 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text">完成%d次（有效的）条目描述后方可解锁</string>
   <string name="suggested_edits_task_multilingual_negative">还是算了</string>
   <string name="suggested_edits_task_multilingual_positive">添加语言</string>
-  <string name="suggested_edits_image_caption_summary_title_file">文件</string>
+  <string name="suggested_edits_image_caption_summary_title_image">文件</string>
   <string name="suggested_edits_image_caption_summary_title_artist">艺术家</string>
   <string name="suggested_edits_image_caption_summary_title_author">作者</string>
   <string name="suggested_edits_image_caption_summary_title_source">来源</string>
@@ -716,7 +716,7 @@
   <string name="suggested_edits_tasks_onboarding_get_started">入门</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">图片说明（%s）</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">图片描述（%s）</string>
-  <string name="suggested_edits_image_preview_dialog_file">文件</string>
+  <string name="suggested_edits_image_preview_dialog_image">文件</string>
   <string name="suggested_edits_image_preview_dialog_artist">艺术家</string>
   <string name="suggested_edits_image_preview_dialog_tags">标签</string>
   <string name="suggested_edits_image_preview_dialog_date">日期</string>

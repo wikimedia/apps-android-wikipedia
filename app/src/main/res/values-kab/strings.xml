@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
 * Belkacem77
 * Envlh
 * K Messaoudi
@@ -252,7 +253,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">Sireg</string>
   <string name="read_more_section">Ɣeṛ ugar</string>
   <string name="about_article_section">Ɣef umagrad-agi</string>
-  <string name="menu_gallery_visit_page">Ddu ar usebter n ufaylu</string>
+  <string name="menu_gallery_visit_image_page">Ddu ar usebter n ufaylu</string>
   <string name="gallery_error_draw_failed">Ur izmir ara ad isunneɣ tugna.</string>
   <string name="license_title">Turagt i %s</string>
   <string name="gallery_menu_share">Bḍu</string>
