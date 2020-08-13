@@ -2,6 +2,7 @@
 <!-- Authors:
 * Abijeet Patro
 * Ahdan
+* Akmaie Ajam
 * Arifin.wijaya
 * ArlandGa
 * BaconSenpai
@@ -38,6 +39,7 @@
   <string name="search_hint_voice_search">Pencarian input suara</string>
   <string name="search_hint_search_history">Cari riwayat</string>
   <string name="search_hint_search_languages">Cari bahasa</string>
+  <string name="filter_hint_filter_my_lists_and_articles">Pilih daftar saya</string>
   <string name="nav_item_history">Riwayat</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Penyuntingan yang disarankan</string>
   <string name="nav_item_more">Selebihnya</string>
@@ -190,6 +192,7 @@
   <string name="preference_title_auto_upload_crash_reports">Kirim laporan kerusakan</string>
   <string name="preference_summary_auto_upload_crash_reports">Izinkan aplikasi untuk mengirimkan laporan kerusakan ke penyedia layanan pihak ketiga secara otomatis sehingga kami dapat meninjau kerusakan Anda dan memperbaiki kesalahan lebih cepat dan lebih gampang.</string>
   <string name="editing_error_spamblacklist">Pranala ke domain yang diblokir (%s) terdeteksi. Harap menghapusnya dan coba lagi.</string>
+  <string name="history_filter_list_hint">Pilih riwayat</string>
   <string name="error_can_not_process_link">Tidak dapat menampilkan pranala ini</string>
   <string name="page_protected_autoconfirmed">Halaman ini telah dilindungi sebagian.</string>
   <string name="page_protected_sysop">Halaman ini telah sepenuhnya dilindungi.</string>
@@ -277,7 +280,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">Izinkan</string>
   <string name="read_more_section">Baca lebih lanjut</string>
   <string name="about_article_section">Mengenai artikel ini</string>
-  <string name="menu_gallery_visit_page">Pergi ke halaman berkas</string>
+  <string name="menu_gallery_visit_image_page">Pergi ke halaman berkas</string>
   <string name="gallery_error_draw_failed">Tidak bisa menggambar gambar</string>
   <string name="license_title">Lisensi untuk %s</string>
   <string name="gallery_menu_share">Bagikan</string>
@@ -636,6 +639,7 @@
   <string name="description_edit_success_saved_image_caption_snackbar">Takarir diterbitkan!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Takarir diterbitkan! (%s)</string>
   <string name="description_edit_success_saved_image_tags_snackbar">Takarir telah diterbitkan!</string>
+  <string name="description_edit_success_se_image_caption_feed_link_snackbar">Anda menikmati itu? Bantu kita menambahkan teks ke gambar yang lain.</string>
   <string name="description_edit_success_encouragement">Anda baru saja membuat Wikipedia lebih baik untuk semua orang</string>
   <string name="description_edit_success_done">Selesai</string>
   <string name="description_edit_success_did_you_know">Tahukah Anda?</string>
@@ -676,7 +680,7 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text">Terkunci hingga Anda telah menyunting %d deskripsi artikel (diverifikasi)</string>
   <string name="suggested_edits_task_multilingual_negative">Bukan untuk saya</string>
   <string name="suggested_edits_task_multilingual_positive">Tambah bahasa</string>
-  <string name="suggested_edits_image_caption_summary_title_file">Berkas</string>
+  <string name="suggested_edits_image_caption_summary_title_image">Berkas</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Seniman/Pembuat</string>
   <string name="suggested_edits_image_caption_summary_title_author">Penulis</string>
   <string name="suggested_edits_image_caption_summary_title_source">Sumber</string>
@@ -692,7 +696,7 @@
   <string name="suggested_edits_tasks_onboarding_get_started">Memulai</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Takarir gambar (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Deskripsi gambar (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_file">Berkas</string>
+  <string name="suggested_edits_image_preview_dialog_image">Berkas</string>
   <string name="suggested_edits_image_preview_dialog_artist">Seniman/Pembuat</string>
   <string name="suggested_edits_image_preview_dialog_tags">Tag</string>
   <string name="suggested_edits_image_preview_dialog_date">Tanggal</string>

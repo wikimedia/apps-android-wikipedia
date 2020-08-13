@@ -287,7 +287,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">Consenti</string>
   <string name="read_more_section">Per saperne di più</string>
   <string name="about_article_section">Su questa voce</string>
-  <string name="menu_gallery_visit_page">Vai alla pagina del file</string>
+  <string name="menu_gallery_visit_image_page">Vai alla pagina del file</string>
   <string name="gallery_error_draw_failed">Impossibile rendere l\'immagine.</string>
   <string name="license_title">Licenza per %s</string>
   <string name="gallery_menu_share">Condividi</string>
@@ -647,7 +647,7 @@
   <string name="description_edit_helper_text_lowercase_warning">generalmente inizia con una lettera minuscola</string>
   <string name="description_too_short">Il testo è troppo breve.</string>
   <string name="description_ends_with_punctuation">Il testo non deve terminare con il punto.</string>
-  <string name="description_starts_with_article">Non iniziare con articoli come \"un\" o \"il\".</string>
+  <string name="description_starts_with_article" fuzzy="true">Non iniziare con articoli come \"un\" o \"il\".</string>
   <string name="description_starts_with_uppercase">Inizia con una lettera minuscola a meno che la prima parola non sia un sostantivo proprio.</string>
   <string name="description_edit_success_saved">Descrizione della voce pubblicata!</string>
   <string name="description_edit_success_saved_snackbar">Descrizione della voce pubblicata!</string>
@@ -695,7 +695,7 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text">Bloccato fino a quando non avrai modificato %d descrizioni di voci (verificate)</string>
   <string name="suggested_edits_task_multilingual_negative">Non per me</string>
   <string name="suggested_edits_task_multilingual_positive">Aggiungi lingue</string>
-  <string name="suggested_edits_image_caption_summary_title_file">File</string>
+  <string name="suggested_edits_image_caption_summary_title_image">File</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Artista</string>
   <string name="suggested_edits_image_caption_summary_title_author">Autore</string>
   <string name="suggested_edits_image_caption_summary_title_source">Fonte</string>
@@ -711,7 +711,7 @@
   <string name="suggested_edits_tasks_onboarding_get_started">Inizia</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Didascalia immagine (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Descrizione immagine (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_file">File</string>
+  <string name="suggested_edits_image_preview_dialog_image">File</string>
   <string name="suggested_edits_image_preview_dialog_artist">Artista</string>
   <string name="suggested_edits_image_preview_dialog_tags">Etichette</string>
   <string name="suggested_edits_image_preview_dialog_date">Data</string>

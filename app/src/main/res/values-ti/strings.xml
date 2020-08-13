@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
 * Joanmp17
 -->
 <resources>
@@ -136,7 +137,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">ፍቀደ</string>
   <string name="read_more_section">ተወሳኺ ኣንብብ</string>
   <string name="about_article_section">ብዛዕባዚ ጽሑፍ</string>
-  <string name="menu_gallery_visit_page">ናብ ፋይል ገጽ ኪድ</string>
+  <string name="menu_gallery_visit_image_page">ናብ ፋይል ገጽ ኪድ</string>
   <string name="license_title">ን%s ፍቓድ</string>
   <string name="gallery_menu_share">ኣካፍል</string>
   <string name="gallery_save_progress">ፋይል ይውርድ ኣሎ...</string>
@@ -212,7 +213,7 @@
   <string name="preference_title_notification_system">ስርዓት</string>
   <string name="preference_title_notification_login_fail">ብመንነት እተው</string>
   <string name="preference_title_notification_user_talk">ምይይጥ ገጽ</string>
-  <string name="view_random_card_title">ዘፈቀዳዊ</string>
+  <string name="view_random_card_title">ሃውራዊ</string>
   <string name="view_random_card_action">ዳዶ ወርወረ</string>
   <string name="view_main_page_card_title">ሎሚ ኣብ ዊኪፔዲያ</string>
   <string name="view_main_page_card_subtitle">ኣብ %s መበገሲ ገጽ</string>
@@ -237,7 +238,7 @@
   <string name="customize_lang_selection_dialog_cancel_button_text">ኣትርፍ</string>
   <string name="feed_lang_selection_dialog_ok_button_text">ሕራይ</string>
   <string name="feed_lang_selection_dialog_cancel_button_text">ኣትርፍ</string>
-  <string name="feed_accessibility_card_load_more_button">ተወሳኺ ጸዓነ</string>
+  <string name="feed_accessibility_card_load_more_button">ተወሳኺ ጸዓን</string>
   <string name="description_edit_text_hint">ናይ ጽሑፍ መግለጺ</string>
   <string name="description_edit_article_description_label">ጽሑፍ</string>
   <string name="description_edit_translate_article_description_label_per_language">ናይ ጽሑፍ መግለጺ (%s)</string>
@@ -283,7 +284,7 @@
   <string name="suggested_edits_task_translate_caption_description">መግለጺ ጽሑፋት ናብ ካልኦት ቋንቋታት ተርጎመ</string>
   <string name="suggested_edits_task_multilingual_negative">ንኣነ ኣይኮነን</string>
   <string name="suggested_edits_task_multilingual_positive">ቋንቋታት ወስኽ</string>
-  <string name="suggested_edits_image_caption_summary_title_file">ፋይል</string>
+  <string name="suggested_edits_image_caption_summary_title_image">ፋይል</string>
   <string name="suggested_edits_image_caption_summary_title_artist">ኢደ-ጥበበኛ</string>
   <string name="suggested_edits_image_caption_summary_title_author">ደራሲ</string>
   <string name="suggested_edits_image_caption_summary_title_source">ምንጪ</string>
@@ -337,7 +338,7 @@
   <string name="onboarding_got_it">ተረዲኡኒ</string>
   <string name="onboarding_multilingual_add_language_text">ቋንቋታት ወስኽ ወይ ኣተዓራረየ</string>
   <string name="onboarding_welcome_title_v2">ናጻዊ መዝገበ ፍልጠት\n...ካብ 300 ልዕሊ ቋንቋታት</string>
-  <string name="app_shortcuts_random">ዘፈቀዳዊ</string>
+  <string name="app_shortcuts_random">ሃውራዊ</string>
   <string name="app_shortcuts_continue_reading">ምንባብ ቀጸለ</string>
   <string name="app_shortcuts_search">ምድላይ</string>
   <string name="more_trending_text">ናይዚ ተወሳኺ</string>

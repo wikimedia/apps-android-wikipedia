@@ -254,7 +254,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">ကဵုအခေါင်</string>
   <string name="read_more_section">ဆက် ဗှ်</string>
   <string name="about_article_section">ပရူ လိက်ပရေင် ဏအ်</string>
-  <string name="menu_gallery_visit_page">အာ ဇရေင် မုက်လိက် ဝှာင်</string>
+  <string name="menu_gallery_visit_image_page">အာ ဇရေင် မုက်လိက် ဝှာင်</string>
   <string name="gallery_error_draw_failed">ဗီုရုပ်ဏအ် ဓဇက် ဟွံဂွံ၊၊</string>
   <string name="license_title">လာင်ဇြေန် သွက် %s</string>
   <string name="gallery_menu_share">ပါ်ပရအ်</string>
@@ -655,7 +655,7 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text">ကၟာတ်လဝ် စဵုကဵု မၞးပလေဝ် တင်ဗမံက်ထ္ၜး လိက်ပရေင် %d တုဲဒှ်</string>
   <string name="suggested_edits_task_multilingual_negative">သွက်အဲ ဟွံသေင်</string>
   <string name="suggested_edits_task_multilingual_positive">စုတ် အရေဝ်ဘာသာဂမၠိုင်</string>
-  <string name="suggested_edits_image_caption_summary_title_file">ဝှာင်</string>
+  <string name="suggested_edits_image_caption_summary_title_image">ဝှာင်</string>
   <string name="suggested_edits_image_caption_summary_title_artist">သၟာပါန်ကွတ်</string>
   <string name="suggested_edits_image_caption_summary_title_author">ကဝိ</string>
   <string name="suggested_edits_image_caption_summary_title_source">တမ်ရိုဟ်</string>
@@ -671,7 +671,7 @@
   <string name="suggested_edits_tasks_onboarding_get_started">စကၠောန်ရ</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">ပရူပရာ ဗီု (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">ပရူပရာ ဗီု (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_file">ဝှာင်</string>
+  <string name="suggested_edits_image_preview_dialog_image">ဝှာင်</string>
   <string name="suggested_edits_image_preview_dialog_artist">သၟာပါန်ကွတ်</string>
   <string name="suggested_edits_image_preview_dialog_tags">ပခံက်ဂမၠိုၚ်</string>
   <string name="suggested_edits_image_preview_dialog_date">စၟတ်တ္ၚဲ</string>

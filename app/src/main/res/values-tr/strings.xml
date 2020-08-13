@@ -80,7 +80,9 @@
   <string name="edit_section_find_in_page">Sayfada bul</string>
   <string name="menu_page_font_and_theme">Yazı tipi ve tema</string>
   <string name="menu_page_add_to_list">Okuma listesine ekle</string>
+  <string name="menu_page_add_to_default_list">Kaydet</string>
   <string name="feed_card_add_to_list">Okuma listesine ekle</string>
+  <string name="feed_card_add_to_default_list">Kaydet</string>
   <string name="menu_page_share">Bağlantıyı paylaş</string>
   <string name="menu_page_open_a_new_tab">Yeni sekme aç</string>
   <string name="menu_page_reading_lists">Okuma listeleri</string>
@@ -290,7 +292,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">İzin ver</string>
   <string name="read_more_section">Daha fazla bilgi</string>
   <string name="about_article_section">Bu madde hakkında</string>
-  <string name="menu_gallery_visit_page">Dosya sayfasına git</string>
+  <string name="menu_gallery_visit_image_page">Dosya sayfasına git</string>
   <string name="gallery_error_draw_failed">Resim gösterilemedi.</string>
   <string name="license_title">%s için lisans</string>
   <string name="gallery_menu_share">Paylaş</string>
@@ -393,10 +395,12 @@
   <string name="reading_list_create_new">Yeni oluştur</string>
   <string name="reading_list_title_exists">\"%s\" adlı okuma listesi zaten mevcut.</string>
   <string name="reading_list_article_added_to_named">%1$s ile %2$s eklendi.</string>
+  <string name="reading_list_article_added_to_default_list">%s kaydedildi. Bunu bir listeye eklemek ister misiniz?</string>
   <string name="reading_list_article_moved_to_named">%1$s ile %2$s taşındı.</string>
   <string name="reading_list_article_already_exists_message">Hepsi iyi! %1$s zaten %2$s içeriyor.</string>
   <string name="reading_list_articles_already_exist_message">Hepsi iyi! %s zaten tüm maddeleri içeriyor.</string>
   <string name="reading_list_added_view_button">Listeyi görüntüle</string>
+  <string name="reading_list_add_to_list_button">Listeye ekle</string>
   <string name="format_reading_list_statistical_summary_singular">1 madde, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d madde, %2$.2f MB</string>
   <string name="format_reading_list_statistical_detail_singular">1 maddenin %1$d tanesine çevrimdışı erişilebilir, %2$.2f MB</string>
@@ -651,7 +655,7 @@
   <string name="description_edit_voice_input_description">Ses girişi</string>
   <string name="description_too_short">Metin çok kısa.</string>
   <string name="description_ends_with_punctuation">Metin noktalama işaretleri ile bitmemelidir.</string>
-  <string name="description_starts_with_article">\"A\" veya \"the\" gibi maddelerle başlamayın.</string>
+  <string name="description_starts_with_article" fuzzy="true">\"A\" veya \"the\" gibi maddelerle başlamayın.</string>
   <string name="description_starts_with_uppercase">İlk kelime uygun bir isim değilse, küçük harfle başlayın.</string>
   <string name="description_edit_success_saved">Madde açıklaması yayımlandı!</string>
   <string name="description_edit_success_saved_snackbar">Madde açıklaması yayımlandı!</string>
@@ -659,6 +663,7 @@
   <string name="description_edit_success_saved_image_caption_snackbar">Resim yazısı yayımlandı!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Resim yazısı yayımlandı! (%s)</string>
   <string name="description_edit_success_saved_image_tags_snackbar">Resim etiketi yayınlandı!</string>
+  <string name="description_edit_success_se_image_caption_feed_link_snackbar">Bunu beğendiniz mi? Diğer resimlere eksik altyazı eklememize yardımcı olun.</string>
   <string name="description_edit_success_encouragement">Vikipedi\'yi herkes için daha iyi hâle getirdin</string>
   <string name="description_edit_success_done">Yapıldı</string>
   <string name="description_edit_success_did_you_know">Biliyor musunuz?</string>
@@ -699,7 +704,7 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text">%d madde açıklamalarını düzenleyene kadar kilitlendi (doğrulandı)</string>
   <string name="suggested_edits_task_multilingual_negative">Bana göre değil</string>
   <string name="suggested_edits_task_multilingual_positive">Dil ekle</string>
-  <string name="suggested_edits_image_caption_summary_title_file">Dosya</string>
+  <string name="suggested_edits_image_caption_summary_title_image">Dosya</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Sanatçı</string>
   <string name="suggested_edits_image_caption_summary_title_author">Yazar</string>
   <string name="suggested_edits_image_caption_summary_title_source">Kaynak</string>
@@ -715,7 +720,7 @@
   <string name="suggested_edits_tasks_onboarding_get_started">Başla</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Resim yazısı (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Resim açıklaması (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_file">Dosya</string>
+  <string name="suggested_edits_image_preview_dialog_image">Dosya</string>
   <string name="suggested_edits_image_preview_dialog_artist">Sanatçı</string>
   <string name="suggested_edits_image_preview_dialog_tags">Etiketler</string>
   <string name="suggested_edits_image_preview_dialog_date">Tarih</string>
@@ -833,6 +838,8 @@
     <item quantity="other">%d karakter eklediniz</item>
   </plurals>
   <string name="file_page_activity_title">Dosya sayfası</string>
+  <string name="file_page_add_image_caption_button">Resim yazısı ekle</string>
+  <string name="file_page_add_image_tags_button">Resim etiketlerini ekle</string>
   <string name="description_edit_revert_subtitle">Vikipedi\'yi düzenlediğiniz için teşekkürler!</string>
   <string name="description_edit_revert_intro">Elinizden geleni yaptığınızı biliyoruz ama inceleyenlerden biri, bir sıkıntı gördü. Değişikliğiniz geri alınmasının muhtemel sebepleri şunlar olabilir:</string>
   <string name="description_edit_revert_reason1">katkınız &lt;a href=\"%1$s\"&gt;kurallardan&lt;/a&gt; birine uymuyordu.</string>

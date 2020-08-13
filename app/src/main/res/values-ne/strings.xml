@@ -249,7 +249,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">अनुमति दिनुहोस्</string>
   <string name="read_more_section">थप पढ्नुहोस्</string>
   <string name="about_article_section">यस लेखको बारेमा।</string>
-  <string name="menu_gallery_visit_page">फाइल पृष्ठमा जानुहोस्</string>
+  <string name="menu_gallery_visit_image_page">फाइल पृष्ठमा जानुहोस्</string>
   <string name="gallery_error_draw_failed">चित्र प्रदर्शन गर्न सकिएन।</string>
   <string name="license_title">%s को इजाजतपत्र</string>
   <string name="gallery_menu_share">आदान-प्रदान गर्नुहोस्</string>
@@ -485,7 +485,7 @@
   <string name="suggested_edits_menu_info">जानकारी</string>
   <string name="suggested_edits_task_add_description_title">शीर्षकमा विवरण थप्नुहोस्</string>
   <string name="suggested_edits_task_multilingual_positive">भाषाहरू थप गर्नुहोस्</string>
-  <string name="suggested_edits_image_caption_summary_title_file">फाइल</string>
+  <string name="suggested_edits_image_caption_summary_title_image">फाइल</string>
   <string name="suggested_edits_image_caption_summary_title_artist">कलाकार</string>
   <string name="suggested_edits_image_caption_summary_title_author">लेखक</string>
   <string name="suggested_edits_image_caption_summary_title_source">स्रोत</string>

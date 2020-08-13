@@ -272,7 +272,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">Permitir</string>
   <string name="read_more_section">Ler mais</string>
   <string name="about_article_section">Sobre este artigo</string>
-  <string name="menu_gallery_visit_page">Ir para a página do ficheiro</string>
+  <string name="menu_gallery_visit_image_page">Ir para a página do ficheiro</string>
   <string name="gallery_error_draw_failed">Não foi possível desenhar a imagem.</string>
   <string name="license_title">Licença para %s</string>
   <string name="gallery_menu_share">Partilhar</string>
@@ -676,7 +676,7 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text">Trancada até ter editado %d descrições de artigos (verificadas)</string>
   <string name="suggested_edits_task_multilingual_negative">Não é para mim</string>
   <string name="suggested_edits_task_multilingual_positive">Adicionar línguas</string>
-  <string name="suggested_edits_image_caption_summary_title_file">Ficheiro</string>
+  <string name="suggested_edits_image_caption_summary_title_image">Ficheiro</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Artista</string>
   <string name="suggested_edits_image_caption_summary_title_author">Autor</string>
   <string name="suggested_edits_image_caption_summary_title_source">Fonte</string>
@@ -692,7 +692,7 @@
   <string name="suggested_edits_tasks_onboarding_get_started">Começar</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Legenda da imagem (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Descrição da imagem (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_file">Ficheiro</string>
+  <string name="suggested_edits_image_preview_dialog_image">Ficheiro</string>
   <string name="suggested_edits_image_preview_dialog_artist">Artista</string>
   <string name="suggested_edits_image_preview_dialog_tags">Etiquetas</string>
   <string name="suggested_edits_image_preview_dialog_date">Data</string>

@@ -274,7 +274,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">Povolit</string>
   <string name="read_more_section">Číst dál</string>
   <string name="about_article_section">O tomto článku</string>
-  <string name="menu_gallery_visit_page">Přejít na stránku souboru</string>
+  <string name="menu_gallery_visit_image_page">Přejít na stránku souboru</string>
   <string name="gallery_error_draw_failed">Nepodařilo se vykreslit obrázek.</string>
   <string name="license_title">Licence pro %s</string>
   <string name="gallery_menu_share">Sdílet</string>
@@ -678,7 +678,7 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text">Zamčeno, dokud nevytvoříte %d ověřené popisy článků</string>
   <string name="suggested_edits_task_multilingual_negative">Ne, děkuji</string>
   <string name="suggested_edits_task_multilingual_positive">Přidat jazyky</string>
-  <string name="suggested_edits_image_caption_summary_title_file">Soubor</string>
+  <string name="suggested_edits_image_caption_summary_title_image">Soubor</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Umělec</string>
   <string name="suggested_edits_image_caption_summary_title_author">Autor</string>
   <string name="suggested_edits_image_caption_summary_title_source">Zdroj</string>
@@ -695,7 +695,7 @@
   <string name="suggested_edits_tasks_onboarding_get_started">Začít</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Titulek obrázku (v jazyce %s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Popis obrázku (v jazyce %s)</string>
-  <string name="suggested_edits_image_preview_dialog_file">Soubor</string>
+  <string name="suggested_edits_image_preview_dialog_image">Soubor</string>
   <string name="suggested_edits_image_preview_dialog_artist">Umělec</string>
   <string name="suggested_edits_image_preview_dialog_tags">Značky</string>
   <string name="suggested_edits_image_preview_dialog_date">Datum</string>

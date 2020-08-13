@@ -306,7 +306,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">Разрешить</string>
   <string name="read_more_section">Связанные статьи</string>
   <string name="about_article_section">Об этой статье</string>
-  <string name="menu_gallery_visit_page">Перейти к странице файла</string>
+  <string name="menu_gallery_visit_image_page">Перейти к странице файла</string>
   <string name="gallery_error_draw_failed">Не удалось вывести изображение.</string>
   <string name="license_title">Лицензия для %s</string>
   <string name="gallery_menu_share">Поделиться</string>
@@ -706,7 +706,7 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text">Этот функционал будет открыт тогда, когда вы отредактируете %d описаний статей и они будут проверены</string>
   <string name="suggested_edits_task_multilingual_negative">Не для меня</string>
   <string name="suggested_edits_task_multilingual_positive">Добавить языки</string>
-  <string name="suggested_edits_image_caption_summary_title_file">Файл</string>
+  <string name="suggested_edits_image_caption_summary_title_image">Файл</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Автор</string>
   <string name="suggested_edits_image_caption_summary_title_author">Автор</string>
   <string name="suggested_edits_image_caption_summary_title_source">Источник</string>
@@ -724,7 +724,7 @@
   <string name="suggested_edits_tasks_onboarding_get_started">Начать</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Описание изображения (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Описание изображения (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_file">Файл</string>
+  <string name="suggested_edits_image_preview_dialog_image">Файл</string>
   <string name="suggested_edits_image_preview_dialog_artist">Автор</string>
   <string name="suggested_edits_image_preview_dialog_tags">Теги</string>
   <string name="suggested_edits_image_preview_dialog_date">Дата</string>

@@ -161,7 +161,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">Atļaut</string>
   <string name="read_more_section">Lasīt vairāk</string>
   <string name="about_article_section">Par šo rakstu</string>
-  <string name="menu_gallery_visit_page">Doties uz faila lapu</string>
+  <string name="menu_gallery_visit_image_page">Doties uz faila lapu</string>
   <string name="license_title">Licence %s</string>
   <string name="gallery_menu_share">Dalīties</string>
   <string name="gallery_save_progress">Lejuplādē failu...</string>
@@ -314,7 +314,7 @@
   <string name="suggested_edits_my_contributions">Mans devums</string>
   <string name="suggested_edits_task_add_description_title" fuzzy="true">Pievienot aprakstus</string>
   <string name="suggested_edits_task_multilingual_positive">Pievienot valodas</string>
-  <string name="suggested_edits_image_caption_summary_title_file">Fails</string>
+  <string name="suggested_edits_image_caption_summary_title_image">Fails</string>
   <string name="suggested_edits_image_caption_summary_title_author">Autors</string>
   <string name="suggested_edits_image_caption_summary_title_source">Avots</string>
   <string name="suggested_edits_image_caption_summary_title_license">Licence</string>
