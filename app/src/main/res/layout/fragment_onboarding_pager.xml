@@ -63,7 +63,7 @@
                     android:focusable="true"
                     android:contentDescription="@string/onboarding_continue"
                     android:scaleType="center"
-                    android:tint="?attr/colorAccent"
+                    app:tint="?attr/colorAccent"
                     app:srcCompat="@drawable/ic_chevron_forward_white_24dp" />
 
                 <Button

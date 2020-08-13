@@ -34,7 +34,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:contentDescription="@null"
-                android:tint="?attr/chart_shade5"
+                app:tint="?attr/chart_shade5"
                 app:srcCompat="@drawable/drawable_12dp_rounded_corner_base70" />
 
             <ImageView
@@ -43,7 +43,7 @@
                 android:layout_height="match_parent"
                 android:contentDescription="@string/back_to_top"
                 android:padding="3dp"
-                android:tint="?attr/material_theme_secondary_color"
+                app:tint="?attr/material_theme_secondary_color"
                 app:srcCompat="@drawable/ic_arrow_upward_black_24dp" />
 
         </FrameLayout>
