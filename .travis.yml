@@ -5,7 +5,7 @@ dist: xenial
 android:
   components:
   - tools
-  - android-29
+  - android-30
   - build-tools-29.0.3
 before_install:
   - yes | sdkmanager "tools"
