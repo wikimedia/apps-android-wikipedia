@@ -236,7 +236,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">ߟߊ߬ߘߌ߬ߢߍ߬ߟߌ</string>
   <string name="read_more_section">ߘߏ߫ ߜߘߍ߫ ߟߎ߫ ߘߐߞߊ߬ߙߊ߲߬</string>
   <string name="about_article_section">ߞߊ߬ ߓߍ߲߬ ߦߌߟߡߊ ߣߌ߲߬ ߡߊ߬</string>
-  <string name="menu_gallery_visit_page">ߕߊ߯ ߞߐߕߐ߮ ߞߐߜߍ ߞߊ߲߬</string>
+  <string name="menu_gallery_visit_image_page">ߕߊ߯ ߞߐߕߐ߮ ߞߐߜߍ ߞߊ߲߬</string>
   <string name="gallery_error_draw_failed">ߊ߬ ߕߴߛߋ߫ ߖߌ߬ߦߊ߬ߓߍ ߡߊߕߍ߰ ߟߊ߫</string>
   <string name="license_title">%s ߕߌ߰ߦߊ</string>
   <string name="gallery_menu_share">ߊ߬ ߟߊߖߍ߲ߛߍ߲߫</string>
@@ -569,7 +569,7 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text">ߊ߬ ߣߍ߰ߣߍ߲ ߠߋ߬ ߝߏ߫ ߌ ߣߊ߬ ߞߎߡߘߊ %d ߟߎ߫ ߞߊ߲߬ߛߓߍߟߌ ߡߊߦߟߍ߬ߡߊ߲߫ (ߝߛߍ߬ߝߛߍ߬)</string>
   <string name="suggested_edits_task_multilingual_negative">ߒߠߋ ߕߊ߫ ߕߍ߫</string>
   <string name="suggested_edits_task_multilingual_positive">ߞߊ߲ ߠߎ߬ ߟߊߘߏ߲߬</string>
-  <string name="suggested_edits_image_caption_summary_title_file">ߞߐߕߐ߮</string>
+  <string name="suggested_edits_image_caption_summary_title_image">ߞߐߕߐ߮</string>
   <string name="suggested_edits_image_caption_summary_title_artist">ߞߎ߬ߛߊ߲߬ߧߊ</string>
   <string name="suggested_edits_image_caption_summary_title_author">ߛߓߍߦߟߊ</string>
   <string name="suggested_edits_image_caption_summary_title_source">ߛߎ߲</string>
@@ -585,7 +585,7 @@
   <string name="suggested_edits_tasks_onboarding_get_started">ߟߊ߬ߝߟߐ߬ߟߌ ߘߊߡߌ߬ߣߊ߬</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">ߖߌ߬ߦߊ߬ߓߍ ߝߍ߬ߛߓߍߟߌ (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">ߖߌ߬ߦߊ߬ߓߍ ߞߊ߲߬ߛߓߍߟߌ (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_file">ߞߐߕߐ߮</string>
+  <string name="suggested_edits_image_preview_dialog_image">ߞߐߕߐ߮</string>
   <string name="suggested_edits_image_preview_dialog_artist">ߞߎ߬ߛߊ߲߬ߧߊ</string>
   <string name="suggested_edits_image_preview_dialog_tags">ߘߎ߲ߛߓߍ ߟߎ߬</string>
   <string name="suggested_edits_image_preview_dialog_date">ߕߎ߬ߡߊ߬ߘߊ</string>

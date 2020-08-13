@@ -223,7 +223,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">അനുവദിക്കുക</string>
   <string name="read_more_section">കൂടുതൽ വായിക്കുക</string>
   <string name="about_article_section">ഈ ലേഖനത്തെക്കുറിച്ച്</string>
-  <string name="menu_gallery_visit_page">പ്രമാണത്തിന്റെ താളിലേക്ക് പോകുക</string>
+  <string name="menu_gallery_visit_image_page">പ്രമാണത്തിന്റെ താളിലേക്ക് പോകുക</string>
   <string name="gallery_error_draw_failed">ചിത്രം വരയ്ക്കാൻ കഴിഞ്ഞില്ല</string>
   <string name="license_title">%s എന്നതിന്റെ അനുമതിപത്രം</string>
   <string name="gallery_menu_share">പങ്കുവയ്ക്കുക</string>

@@ -284,7 +284,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">Toestaan</string>
   <string name="read_more_section">Meer lezen</string>
   <string name="about_article_section">Over deze pagina</string>
-  <string name="menu_gallery_visit_page">Naar bestandspagina gaan</string>
+  <string name="menu_gallery_visit_image_page">Naar bestandspagina gaan</string>
   <string name="gallery_error_draw_failed">De afbeelding kon niet weergegeven worden.</string>
   <string name="license_title">Licentie voor %s</string>
   <string name="gallery_menu_share">Delen</string>
@@ -680,7 +680,7 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text" fuzzy="true">Vergrendeld todat u %d geverifieerde bewerkingen hebt gemaakt</string>
   <string name="suggested_edits_task_multilingual_negative">Niet voor mij</string>
   <string name="suggested_edits_task_multilingual_positive">Talen toevoegen</string>
-  <string name="suggested_edits_image_caption_summary_title_file">Bestand</string>
+  <string name="suggested_edits_image_caption_summary_title_image">Bestand</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Artiest</string>
   <string name="suggested_edits_image_caption_summary_title_author">Auteur</string>
   <string name="suggested_edits_image_caption_summary_title_source">Bron</string>
@@ -696,7 +696,7 @@
   <string name="suggested_edits_tasks_onboarding_get_started">Aan de slag</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Afbeeldingsbijschrift (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Afbeeldingsbeschrijving (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_file">Bestand</string>
+  <string name="suggested_edits_image_preview_dialog_image">Bestand</string>
   <string name="suggested_edits_image_preview_dialog_artist">Artiest</string>
   <string name="suggested_edits_image_preview_dialog_tags">Label</string>
   <string name="suggested_edits_image_preview_dialog_date">Datum</string>

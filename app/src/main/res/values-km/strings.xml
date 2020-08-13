@@ -192,7 +192,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">អនុញ្ញាត</string>
   <string name="read_more_section">អានបន្ថែម</string>
   <string name="about_article_section">អំពីអត្ថបទនេះ</string>
-  <string name="menu_gallery_visit_page">ទៅទំព័រឯកសារ</string>
+  <string name="menu_gallery_visit_image_page">ទៅទំព័រឯកសារ</string>
   <string name="gallery_error_draw_failed">មិនអាចបង្ហាញរូបភាព។</string>
   <string name="license_title">អាជ្ញាបណ្ណសម្រាប់ %s</string>
   <string name="gallery_menu_share">ចែកចាយ</string>

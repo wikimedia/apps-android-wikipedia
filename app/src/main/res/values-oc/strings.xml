@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
 * COMISSIONTOPOC
 * Cedric31
 * Envlh
@@ -152,7 +153,7 @@
   <string name="dialog_close_description">Tampar</string>
   <string name="preference_title_show_images">Veire los imatges</string>
   <string name="read_more_section">Ne saber mai</string>
-  <string name="menu_gallery_visit_page">Anar a la pagina del fichièr</string>
+  <string name="menu_gallery_visit_image_page">Anar a la pagina del fichièr</string>
   <string name="gallery_error_draw_failed">Impossible de dessenhar l’imatge.</string>
   <string name="license_title">Licéncia per la bibliotèca %s</string>
   <string name="gallery_menu_share">Partejar</string>
@@ -253,7 +254,7 @@
   <string name="description_edit_help_wikidata_guide">Guida Wikidata per escriure de descripcions</string>
   <string name="wikidata_description_guide_url">https://www.wikidata.org/wiki/Help:Description#Guidelines_for_descriptions_in_English</string>
   <string name="description_too_short">Lo tèxt es tròp cort.</string>
-  <string name="description_starts_with_article">Comencetz pas los articles amb « a » o « lo ».</string>
+  <string name="description_starts_with_article" fuzzy="true">Comencetz pas los articles amb « a » o « lo ».</string>
   <string name="description_edit_success_saved" fuzzy="true">Descripcion publicada !</string>
   <string name="description_edit_success_done">Fait</string>
   <string name="description_edit_success_did_you_know">O sabiatz ?</string>

@@ -41,6 +41,7 @@
   <string name="search_hint_voice_search">음성 입력 검색</string>
   <string name="search_hint_search_history">역사 검색</string>
   <string name="search_hint_search_languages">언어 검색</string>
+  <string name="filter_hint_filter_my_lists_and_articles">내 목록 필터링</string>
   <string name="nav_item_history">방문 기록</string>
   <string name="nav_item_suggested_edits">편집</string>
   <string name="nav_item_more">더 보기</string>
@@ -71,7 +72,9 @@
   <string name="edit_section_find_in_page">문서에서 찾기</string>
   <string name="menu_page_font_and_theme">글자와 테마</string>
   <string name="menu_page_add_to_list">읽기 목록에 추가</string>
+  <string name="menu_page_add_to_default_list">저장</string>
   <string name="feed_card_add_to_list">읽기 목록에 추가</string>
+  <string name="feed_card_add_to_default_list">저장</string>
   <string name="menu_page_share">링크 공유</string>
   <string name="menu_page_open_a_new_tab">새 탭 열기</string>
   <string name="menu_page_reading_lists">읽기 목록</string>
@@ -193,6 +196,7 @@
   <string name="preference_title_auto_upload_crash_reports">충돌 보고서 보내기</string>
   <string name="preference_summary_auto_upload_crash_reports">더 빠르고 쉽게 충돌을 검토하고 수정할 수 있도록 앱이 제 3의 서비스 제공자에게 자동으로 충돌 보고를 송신하도록 허용합니다.</string>
   <string name="editing_error_spamblacklist">차단된 도메인 (%s)으로의 링크가 감지되었습니다. 그들을 제거하고 나서 다시 시도하세요.</string>
+  <string name="history_filter_list_hint">필터 역사</string>
   <string name="error_can_not_process_link">이 링크를 표시할 수 없습니다</string>
   <string name="page_protected_autoconfirmed">이 문서는 준보호되어 있습니다.</string>
   <string name="page_protected_sysop">이 문서는 완전히 보호되어 있습니다.</string>
@@ -278,7 +282,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">허용</string>
   <string name="read_more_section">더 읽어보기</string>
   <string name="about_article_section">이 문서의 정보</string>
-  <string name="menu_gallery_visit_page">파일 문서로 가기</string>
+  <string name="menu_gallery_visit_image_page">파일 문서로 가기</string>
   <string name="gallery_error_draw_failed">그림을 그릴 수 없습니다.</string>
   <string name="license_title">%s의 라이선스</string>
   <string name="gallery_menu_share">공유</string>
@@ -385,6 +389,7 @@
   <string name="reading_list_article_already_exists_message">좋습니다! %1$s은(는) 이미 %2$s 문서를 포함하고 있습니다.</string>
   <string name="reading_list_articles_already_exist_message">좋습니다! %s은(는) 이미 모든 문서를 포함하고 있습니다.</string>
   <string name="reading_list_added_view_button">목록 보기</string>
+  <string name="reading_list_add_to_list_button">목록에 추가</string>
   <string name="format_reading_list_statistical_summary_singular">1개의 문서, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d개의 문서, %2$.2f MB</string>
   <string name="format_reading_list_statistical_detail_singular">1개의 문서 중 %1$d개를 오프라인에서 읽을 수 있음, %2$.2f MB</string>
@@ -678,7 +683,7 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text">%d건의 문서 설명을 편집하기 전까지는 잠겨있습니다 (검증됨)</string>
   <string name="suggested_edits_task_multilingual_negative">제게는 해당되지 않습니다</string>
   <string name="suggested_edits_task_multilingual_positive">언어 추가</string>
-  <string name="suggested_edits_image_caption_summary_title_file">파일</string>
+  <string name="suggested_edits_image_caption_summary_title_image">파일</string>
   <string name="suggested_edits_image_caption_summary_title_artist">아티스트</string>
   <string name="suggested_edits_image_caption_summary_title_author">만든이</string>
   <string name="suggested_edits_image_caption_summary_title_source">출처</string>
@@ -694,7 +699,7 @@
   <string name="suggested_edits_tasks_onboarding_get_started">시작하기</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">이미지 캡션 (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">이미지 설명 (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_file">파일</string>
+  <string name="suggested_edits_image_preview_dialog_image">파일</string>
   <string name="suggested_edits_image_preview_dialog_artist">아티스트</string>
   <string name="suggested_edits_image_preview_dialog_tags">태그</string>
   <string name="suggested_edits_image_preview_dialog_date">날짜</string>

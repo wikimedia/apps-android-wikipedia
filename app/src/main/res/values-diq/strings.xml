@@ -220,7 +220,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">Mısade bıdê</string>
   <string name="read_more_section">Tayêna bıwane</string>
   <string name="about_article_section">Heqê nê meqaley</string>
-  <string name="menu_gallery_visit_page">Ravêrê pela dosya</string>
+  <string name="menu_gallery_visit_image_page">Ravêrê pela dosya</string>
   <string name="gallery_error_draw_failed">Resim nêmocneya</string>
   <string name="license_title">Seba %s lisans</string>
   <string name="gallery_menu_share">Vıla ke</string>
@@ -462,7 +462,7 @@
   <string name="suggested_edits_task_image_caption_title">Bınnuştey resimi cı kerê</string>
   <string name="suggested_edits_task_multilingual_negative">Seba mı nê</string>
   <string name="suggested_edits_task_multilingual_positive">Zıwanan cı ke</string>
-  <string name="suggested_edits_image_caption_summary_title_file">Dosya</string>
+  <string name="suggested_edits_image_caption_summary_title_image">Dosya</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Senetkar</string>
   <string name="suggested_edits_image_caption_summary_title_author">Nuştekar</string>
   <string name="suggested_edits_image_caption_summary_title_source">Çıme</string>
