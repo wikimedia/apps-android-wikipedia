@@ -10,6 +10,7 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Pair;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.View;
@@ -143,7 +144,6 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
 
     private boolean controlsShowing = true;
     private GalleryPageChangeListener pageChangeListener = new GalleryPageChangeListener();
-    int imageTagsCount;
 
     @Nullable private GalleryFunnel funnel;
 
@@ -661,15 +661,14 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
                 ServiceFactory.get(new WikiSite(Service.COMMONS_URL)).getProtectionInfo(item.getImageTitle().getPrefixedText()),
                 ImageTagsProvider.getImageTagsObservable(getCurrentItem().getMediaPage().pageId(), WikipediaApp.getInstance().getAppOrSystemLanguageCode()), (captions, protectionInfoRsp, imageTags) -> {
                     item.getMediaInfo().setCaptions(captions);
-                    imageTagsCount = imageTags.size();
-                    return protectionInfoRsp.query().isEditProtected();
+                    return new Pair<>(protectionInfoRsp.query().isEditProtected(), imageTags.size());
                 })
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(this::updateGalleryDescription, L::e);
+                .subscribe(pair -> updateGalleryDescription(pair.first, pair.second), L::e);
     }
 
-    public void updateGalleryDescription(boolean isProtected) {
+    public void updateGalleryDescription(boolean isProtected, int tagsCount) {
         updateProgressBar(false);
 
         GalleryItemFragment item = getCurrentItem();
@@ -692,14 +691,14 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
         }
         if (captionEditable) {
             ctaContainer.setVisibility(View.VISIBLE);
-            decideImageEditType(item);
+            decideImageEditType(item, tagsCount);
         } else {
             ctaContainer.setVisibility(View.GONE);
         }
         setLicenseInfo(item);
     }
 
-    private void decideImageEditType(@NonNull GalleryItemFragment item) {
+    private void decideImageEditType(@NonNull GalleryItemFragment item, int tagsCount) {
         imageEditType = null;
         if (!item.getMediaInfo().getCaptions().containsKey(sourceWiki.languageCode())) {
             imageEditType = ImageEditType.ADD_CAPTION;
@@ -708,7 +707,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
             return;
         }
 
-        if (imageTagsCount == 0) {
+        if (tagsCount == 0) {
             imageEditType = ImageEditType.ADD_TAGS;
             ctaButtonText.setText(getString(R.string.suggested_edits_feed_card_add_image_tags));
             return;
