@@ -11,13 +11,16 @@ import androidx.fragment.app.FragmentActivity;
 
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.Constants;
+import org.wikipedia.Constants.ImageEditType;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.auth.AccountUtil;
+import org.wikipedia.commons.ImageTagsProvider;
 import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.dataclient.mwapi.MwQueryPage;
 import org.wikipedia.dataclient.mwapi.media.MediaHelper;
 import org.wikipedia.descriptions.DescriptionEditActivity;
 import org.wikipedia.gallery.GalleryActivity;
@@ -26,9 +29,9 @@ import org.wikipedia.page.Page;
 import org.wikipedia.page.PageFragment;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.suggestededits.PageSummaryForEdit;
+import org.wikipedia.suggestededits.SuggestedEditsImageTagEditActivity;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.StringUtil;
-import org.wikipedia.util.log.L;
 import org.wikipedia.views.ObservableWebView;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
@@ -37,6 +40,7 @@ import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_IMAGE_CAPTION_EDIT;
+import static org.wikipedia.Constants.ACTIVITY_REQUEST_IMAGE_TAGS_EDIT;
 import static org.wikipedia.Constants.InvokeSource.LEAD_IMAGE;
 import static org.wikipedia.Constants.MIN_LANGUAGES_TO_UNLOCK_TRANSLATION;
 import static org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_CAPTION;
@@ -61,7 +65,13 @@ public class LeadImagesHandler {
     @Nullable private PageSummaryForEdit callToActionSourceSummary;
     @Nullable private PageSummaryForEdit callToActionTargetSummary;
     private boolean callToActionIsTranslation;
+    private ImageEditType imageEditType;
+    private PageTitle captionSourcePageTitle;
+    private PageTitle captionTargetPageTitle;
+    private ImageInfo imageInfo;
+    private MwQueryPage imagePage;
     private CompositeDisposable disposables = new CompositeDisposable();
+    private WikipediaApp app = WikipediaApp.getInstance();
 
     public LeadImagesHandler(@NonNull final PageFragment parentFragment,
                              @NonNull ObservableWebView webView,
@@ -134,40 +144,59 @@ public class LeadImagesHandler {
                 .subscribeOn(Schedulers.io())
                 .map(response -> response.query().isEditProtected())
                 .flatMap(isProtected -> isProtected ? Observable.empty() : Observable.zip(MediaHelper.INSTANCE.getImageCaptions(imageTitle),
-                        ServiceFactory.get(getTitle().getWikiSite()).getImageInfo(imageTitle, WikipediaApp.getInstance().getAppOrSystemLanguageCode()), Pair::new))
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(pair -> {
-                    WikipediaApp app = WikipediaApp.getInstance();
-                    PageTitle captionSourcePageTitle = new PageTitle(imageTitle, new WikiSite(Service.COMMONS_URL, getTitle().getWikiSite().languageCode()));
-                    ImageInfo imageInfo = pair.second.query().firstPage().imageInfo();
-
-                    if (!pair.first.containsKey(getTitle().getWikiSite().languageCode())) {
-                        pageHeaderView.setUpCallToAction(app.getResources().getString(R.string.suggested_edits_article_cta_image_caption));
-                        callToActionSourceSummary = new PageSummaryForEdit(captionSourcePageTitle.getPrefixedText(), getTitle().getWikiSite().languageCode(), captionSourcePageTitle,
-                                captionSourcePageTitle.getDisplayText(), StringUtils.defaultIfBlank(StringUtil.fromHtml(imageInfo.getMetadata().imageDescription()).toString(), null),
-                                imageInfo.getThumbUrl());
-
-                        return;
-                    }
-                    if (app.language().getAppLanguageCodes().size() >= MIN_LANGUAGES_TO_UNLOCK_TRANSLATION) {
-                        for (String lang : app.language().getAppLanguageCodes()) {
-                            if (!pair.first.containsKey(lang)) {
-                                callToActionIsTranslation = true;
-                                PageTitle captionTargetPageTitle = new PageTitle(imageTitle, new WikiSite(Service.COMMONS_URL, lang));
-                                String currentCaption = pair.first.get(getTitle().getWikiSite().languageCode());
-                                captionSourcePageTitle.setDescription(currentCaption);
-                                callToActionSourceSummary = new PageSummaryForEdit(captionSourcePageTitle.getPrefixedText(), captionSourcePageTitle.getWikiSite().languageCode(), captionSourcePageTitle,
-                                        captionSourcePageTitle.getDisplayText(), currentCaption, getLeadImageUrl());
-
-                                callToActionTargetSummary = new PageSummaryForEdit(captionTargetPageTitle.getPrefixedText(), captionTargetPageTitle.getWikiSite().languageCode(), captionTargetPageTitle,
-                                        captionTargetPageTitle.getDisplayText(), null, getLeadImageUrl());
-                                pageHeaderView.setUpCallToAction(app.getResources().getString(R.string.suggested_edits_article_cta_image_caption_in_language, app.language().getAppLanguageLocalizedName(lang)));
-                                break;
+                        ServiceFactory.get(new WikiSite(Service.COMMONS_URL)).getImageInfo(imageTitle, WikipediaApp.getInstance().getAppOrSystemLanguageCode()), Pair::new))
+                .flatMap(pair -> {
+                            captionSourcePageTitle = new PageTitle(imageTitle, new WikiSite(Service.COMMONS_URL, getTitle().getWikiSite().languageCode()));
+                            captionSourcePageTitle.setDescription(pair.first.get(getTitle().getWikiSite().languageCode()));
+                            imageInfo = pair.second.query().firstPage().imageInfo();
+                            imagePage = pair.second.query().firstPage();
+                            imageEditType = null; // Need to clear value from precious call
+                            if (!pair.first.containsKey(getTitle().getWikiSite().languageCode())) {
+                                imageEditType = ImageEditType.ADD_CAPTION;
+                                return ImageTagsProvider.getImageTagsObservable(pair.second.query().firstPage().pageId(), getTitle().getWikiSite().languageCode());
                             }
+                            if (app.language().getAppLanguageCodes().size() >= MIN_LANGUAGES_TO_UNLOCK_TRANSLATION) {
+                                for (String lang : app.language().getAppLanguageCodes()) {
+                                    if (!pair.first.containsKey(lang)) {
+                                        imageEditType = ImageEditType.ADD_CAPTION_TRANSLATION;
+                                        captionTargetPageTitle = new PageTitle(imageTitle, new WikiSite(Service.COMMONS_URL, lang));
+                                        break;
+                                    }
+                                }
+                            }
+                            return ImageTagsProvider.getImageTagsObservable(pair.second.query().firstPage().pageId(), getTitle().getWikiSite().languageCode());
                         }
+                )
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(imageTagsResult -> {
+                    if (imageEditType != ImageEditType.ADD_CAPTION && imageTagsResult != null && imageTagsResult.size() == 0) {
+                        imageEditType = ImageEditType.ADD_TAGS;
                     }
-                }, L::e));
+                    finalizeCallToAction();
+                })
+        );
+    }
+
+    private void finalizeCallToAction() {
+        switch (imageEditType) {
+            case ADD_TAGS:
+                pageHeaderView.setUpCallToAction(app.getResources().getString(R.string.suggested_edits_article_cta_image_tags));
+                break;
+            case ADD_CAPTION_TRANSLATION:
+                callToActionIsTranslation = true;
+                callToActionSourceSummary = new PageSummaryForEdit(captionSourcePageTitle.getPrefixedText(), captionSourcePageTitle.getWikiSite().languageCode(), captionSourcePageTitle,
+                        captionSourcePageTitle.getDisplayText(), captionSourcePageTitle.getDescription(), getLeadImageUrl());
+
+                callToActionTargetSummary = new PageSummaryForEdit(captionTargetPageTitle.getPrefixedText(), captionTargetPageTitle.getWikiSite().languageCode(), captionTargetPageTitle,
+                        captionTargetPageTitle.getDisplayText(), null, getLeadImageUrl());
+                pageHeaderView.setUpCallToAction(app.getResources().getString(R.string.suggested_edits_article_cta_image_caption_in_language, app.language().getAppLanguageLocalizedName(captionTargetPageTitle.getWikiSite().languageCode())));
+                break;
+            default:
+                callToActionSourceSummary = new PageSummaryForEdit(captionSourcePageTitle.getPrefixedText(), getTitle().getWikiSite().languageCode(), captionSourcePageTitle,
+                        captionSourcePageTitle.getDisplayText(), StringUtils.defaultIfBlank(StringUtil.fromHtml(imageInfo.getMetadata().imageDescription()).toString(), null),
+                        imageInfo.getThumbUrl());
+                pageHeaderView.setUpCallToAction(app.getResources().getString(R.string.suggested_edits_article_cta_image_caption));
+        }
     }
 
     @Nullable private String getLeadImageUrl() {
@@ -204,7 +233,11 @@ public class LeadImagesHandler {
 
             @Override
             public void onCallToActionClicked() {
-                if (callToActionIsTranslation ? (callToActionTargetSummary != null && callToActionSourceSummary != null) : callToActionSourceSummary != null) {
+                if (imageEditType == ImageEditType.ADD_TAGS) {
+                    getActivity().startActivityForResult(SuggestedEditsImageTagEditActivity.Companion.newIntent(getActivity(), imagePage), ACTIVITY_REQUEST_IMAGE_TAGS_EDIT);
+                    return;
+                }
+                if (imageEditType == ImageEditType.ADD_CAPTION_TRANSLATION ? (callToActionTargetSummary != null && callToActionSourceSummary != null) : callToActionSourceSummary != null) {
                     getActivity().startActivityForResult(DescriptionEditActivity.newIntent(getActivity(),
                             callToActionIsTranslation ? callToActionTargetSummary.getPageTitle() : callToActionSourceSummary.getPageTitle(), null,
                             callToActionSourceSummary, callToActionTargetSummary, callToActionIsTranslation ? TRANSLATE_CAPTION : ADD_CAPTION, LEAD_IMAGE),

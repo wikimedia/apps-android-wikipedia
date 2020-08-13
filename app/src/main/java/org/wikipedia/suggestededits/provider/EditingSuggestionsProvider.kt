@@ -28,9 +28,9 @@ object EditingSuggestionsProvider {
 
     private val imagesWithMissingTagsCache: Stack<MwQueryPage> = Stack()
 
-    // TODO: add a maximum-retry limit -- it's currently infinite, or until disposed.
+    private const val MAX_RETRY_LIMIT: Long = 50
 
-    fun getNextArticleWithMissingDescription(wiki: WikiSite): Observable<PageSummary> {
+    fun getNextArticleWithMissingDescription(wiki: WikiSite, retryLimit: Long = MAX_RETRY_LIMIT): Observable<PageSummary> {
         return Observable.fromCallable { mutex.acquire() }.flatMap {
             var cachedTitle = ""
             if (articlesWithMissingDescriptionCacheLang != wiki.languageCode()) {
@@ -59,13 +59,13 @@ object EditingSuggestionsProvider {
                             }
                             title
                         }
-                        .retry { t: Throwable -> t is ListEmptyException }
+                        .retry(retryLimit) { t: Throwable -> t is ListEmptyException }
             }
         }.flatMap { title -> ServiceFactory.getRest(wiki).getSummary(null, title) }
                 .doFinally { mutex.release() }
     }
 
-    fun getNextArticleWithMissingDescription(sourceWiki: WikiSite, targetLang: String, sourceLangMustExist: Boolean): Observable<Pair<PageSummary, PageSummary>> {
+    fun getNextArticleWithMissingDescription(sourceWiki: WikiSite, targetLang: String, sourceLangMustExist: Boolean, retryLimit: Long = MAX_RETRY_LIMIT): Observable<Pair<PageSummary, PageSummary>> {
         return Observable.fromCallable { mutex.acquire() }.flatMap {
             val targetWiki = WikiSite.forLanguageCode(targetLang)
             var cachedPair: Pair<PageTitle, PageTitle>? = null
@@ -106,7 +106,9 @@ object EditingSuggestionsProvider {
                             }
                             sourceAndTargetPageTitles
                         }
-                        .retry { t: Throwable -> t is ListEmptyException }
+                        .retry(retryLimit) { t: Throwable ->
+                            t is ListEmptyException
+                        }
             }
         }.flatMap { sourceAndTargetPageTitles: Pair<PageTitle, PageTitle> -> getSummary(sourceAndTargetPageTitles) }
                 .doFinally { mutex.release() }
@@ -118,7 +120,7 @@ object EditingSuggestionsProvider {
                 BiFunction<PageSummary, PageSummary, Pair<PageSummary, PageSummary>> { source, target -> Pair(source, target) })
     }
 
-    fun getNextImageWithMissingCaption(lang: String): Observable<String> {
+    fun getNextImageWithMissingCaption(lang: String, retryLimit: Long = MAX_RETRY_LIMIT): Observable<String> {
         return Observable.fromCallable { mutex.acquire() }.flatMap {
             var cachedTitle: String? = null
             if (imagesWithMissingCaptionsCacheLang != lang) {
@@ -147,12 +149,12 @@ object EditingSuggestionsProvider {
                             }
                             item
                         }
-                        .retry { t: Throwable -> t is ListEmptyException }
+                        .retry(retryLimit) { t: Throwable -> t is ListEmptyException }
             }
         }.doFinally { mutex.release() }
     }
 
-    fun getNextImageWithMissingCaption(sourceLang: String, targetLang: String): Observable<Pair<String, String>> {
+    fun getNextImageWithMissingCaption(sourceLang: String, targetLang: String, retryLimit: Long = MAX_RETRY_LIMIT): Observable<Pair<String, String>> {
         return Observable.fromCallable { mutex.acquire() }.flatMap {
             var cachedPair: Pair<String, String>? = null
             if (imagesWithTranslatableCaptionCacheFromLang != sourceLang
@@ -187,12 +189,12 @@ object EditingSuggestionsProvider {
                             }
                             item
                         }
-                        .retry { t: Throwable -> t is ListEmptyException }
+                        .retry(retryLimit) { t: Throwable -> t is ListEmptyException }
             }
         }.doFinally { mutex.release() }
     }
 
-    fun getNextImageWithMissingTags(lang: String): Observable<MwQueryPage> {
+    fun getNextImageWithMissingTags(lang: String, retryLimit: Long = MAX_RETRY_LIMIT): Observable<MwQueryPage> {
         return Observable.fromCallable { mutex.acquire() }.flatMap {
             var cachedItem: MwQueryPage? = null
             if (!imagesWithMissingTagsCache.empty()) {
@@ -228,10 +230,10 @@ object EditingSuggestionsProvider {
                             }
                             item
                         }
-                        .retry { t: Throwable -> t is ListEmptyException }
+                        .retry(retryLimit) { t: Throwable -> t is ListEmptyException }
             }
         }.doFinally { mutex.release() }
     }
 
-    private class ListEmptyException : RuntimeException()
+    class ListEmptyException : RuntimeException()
 }

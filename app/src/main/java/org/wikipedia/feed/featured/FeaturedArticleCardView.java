@@ -167,7 +167,7 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
         @Override
         public void onClick(View v) {
             if (getCallback() != null && getCard() != null) {
-                getCallback().onAddPageToList(getEntry());
+                getCallback().onAddPageToList(getEntry(), true);
             }
         }
     }
@@ -178,9 +178,9 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
             if (getCallback() != null && getCard() != null) {
                 new ReadingListBookmarkMenu(footerView, new ReadingListBookmarkMenu.Callback() {
                     @Override
-                    public void onAddRequest(@Nullable ReadingListPage page) {
+                    public void onAddRequest(boolean addToDefault) {
                         if (getCallback() != null && getCard() != null) {
-                            getCallback().onAddPageToList(getCard().historyEntry(HistoryEntry.SOURCE_FEED_FEATURED));
+                            getCallback().onAddPageToList(getCard().historyEntry(HistoryEntry.SOURCE_FEED_FEATURED), addToDefault);
                         }
                     }
 

@@ -29,6 +29,7 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.ABTestDescriptionEditChecksFunnel;
 import org.wikipedia.descriptions.DescriptionEditActivity.Action;
+import org.wikipedia.language.LanguageUtil;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.suggestededits.PageSummaryForEdit;
 import org.wikipedia.util.DeviceUtil;
@@ -44,6 +45,7 @@ import butterknife.OnEditorAction;
 import butterknife.OnTextChanged;
 
 import static org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_CAPTION;
+import static org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_DESCRIPTION;
 import static org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_CAPTION;
 import static org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION;
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
@@ -342,12 +344,15 @@ public class DescriptionEditView extends LinearLayout {
         } else if (text.length() < 2) {
             isTextValid = false;
             setError(getContext().getString(R.string.description_too_short));
-        } else if (pageTitle.getWikiSite().languageCode().equals("en") && StringUtils.endsWithAny(text, ".", ",", "!", "?")) {
+        } else if ((action == ADD_DESCRIPTION || action == TRANSLATE_DESCRIPTION)
+                && StringUtils.endsWithAny(text, ".", ",", "!", "?")) {
             isTextValid = false;
             setError(getContext().getString(R.string.description_ends_with_punctuation));
-        } else if (pageTitle.getWikiSite().languageCode().equals("en") && StringUtils.startsWithAny(text, "a ", "an ", "the ")) {
+        } else if ((action == ADD_DESCRIPTION || action == TRANSLATE_DESCRIPTION)
+                && LanguageUtil.startsWithArticle(text, pageTitle.getWikiSite().languageCode())) {
             setWarning(getContext().getString(R.string.description_starts_with_article));
-        } else if (pageTitle.getWikiSite().languageCode().equals("en") && Character.isUpperCase(pageDescriptionText.getText().toString().charAt(0))) {
+        } else if ((action == ADD_DESCRIPTION || action == TRANSLATE_DESCRIPTION)
+                && pageTitle.getWikiSite().languageCode().equals("en") && Character.isUpperCase(pageDescriptionText.getText().toString().charAt(0))) {
             setWarning(getContext().getString(R.string.description_starts_with_uppercase));
         } else {
             setError(null);

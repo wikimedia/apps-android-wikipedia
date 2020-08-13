@@ -8,9 +8,11 @@ import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
+import androidx.constraintlayout.widget.Group
 import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.skydoves.balloon.ArrowOrientation
 import com.skydoves.balloon.showAlignBottom
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
@@ -71,9 +73,9 @@ class SuggestedEditsTasksFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setupTestingButtons()
 
-        userStatsClickTarget.setOnClickListener {
+        userStatsViewsGroup.addOnClickListener(View.OnClickListener {
             startActivity(ContributionsActivity.newIntent(requireActivity()))
-        }
+        })
 
         learnMoreCard.setOnClickListener {
             FeedbackUtil.showAndroidAppEditingFAQ(requireContext())
@@ -95,6 +97,12 @@ class SuggestedEditsTasksFragment : Fragment() {
         tasksRecyclerView.adapter = RecyclerAdapter(displayedTasks)
 
         clearContents()
+    }
+
+    private fun Group.addOnClickListener(listener: View.OnClickListener) {
+        referencedIds.forEach { id ->
+            userStatsClickTarget.findViewById<View>(id).setOnClickListener(listener)
+        }
     }
 
     override fun onPause() {
@@ -238,7 +246,6 @@ class SuggestedEditsTasksFragment : Fragment() {
     private fun setFinalUIState() {
         clearContents(false)
 
-        addImageTagsTask.new = Prefs.isSuggestedEditsImageTagsNew()
         tasksRecyclerView.adapter!!.notifyDataSetChanged()
 
         setUserStatsViewsAndTooltips()
@@ -303,11 +310,11 @@ class SuggestedEditsTasksFragment : Fragment() {
     }
 
     private fun showOneTimeSequentialUserStatsTooltips() {
-        val balloon = FeedbackUtil.showTooltip(requireContext(), contributionsStatsView.tooltipText)
+        val balloon = FeedbackUtil.showTooltip(requireContext(), contributionsStatsView.tooltipText, ArrowOrientation.TOP)
         contributionsStatsView.description.showAlignBottom(balloon)
-        balloon.relayShowAlignBottom(FeedbackUtil.showTooltip(requireContext(), editStreakStatsView.tooltipText), editStreakStatsView.description)
-                .relayShowAlignBottom(FeedbackUtil.showTooltip(requireContext(), pageViewStatsView.tooltipText), pageViewStatsView.description)
-                .relayShowAlignBottom(FeedbackUtil.showTooltip(requireContext(), editQualityStatsView.tooltipText), editQualityStatsView.description)
+        balloon.relayShowAlignBottom(FeedbackUtil.showTooltip(requireContext(), editStreakStatsView.tooltipText, ArrowOrientation.TOP), editStreakStatsView.description)
+                .relayShowAlignBottom(FeedbackUtil.showTooltip(requireContext(), pageViewStatsView.tooltipText, ArrowOrientation.TOP), pageViewStatsView.description)
+                .relayShowAlignBottom(FeedbackUtil.showTooltip(requireContext(), editQualityStatsView.tooltipText, ArrowOrientation.TOP), editQualityStatsView.description)
         Prefs.shouldShowOneTimeSequentialUserStatsTooltip(false)
     }
 
@@ -399,9 +406,9 @@ class SuggestedEditsTasksFragment : Fragment() {
         addDescriptionsTask.description = getString(R.string.suggested_edits_add_descriptions_task_detail)
         addDescriptionsTask.imageDrawable = R.drawable.ic_article_description
 
-        displayedTasks.add(addImageTagsTask)
         displayedTasks.add(addDescriptionsTask)
         displayedTasks.add(addImageCaptionsTask)
+        displayedTasks.add(addImageTagsTask)
     }
 
     private inner class TaskViewCallback : SuggestedEditsTaskView.Callback {

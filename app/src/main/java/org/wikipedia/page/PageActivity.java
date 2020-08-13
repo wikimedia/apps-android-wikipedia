@@ -91,6 +91,8 @@ import static org.wikipedia.Constants.INTENT_EXTRA_ACTION;
 import static org.wikipedia.Constants.InvokeSource.LINK_PREVIEW_MENU;
 import static org.wikipedia.Constants.InvokeSource.TOOLBAR;
 import static org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_CAPTION;
+import static org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_IMAGE_TAGS;
+import static org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_CAPTION;
 import static org.wikipedia.settings.Prefs.isLinkPreviewEnabled;
 import static org.wikipedia.settings.SettingsActivity.ACTIVITY_RESULT_LANGUAGE_CHANGED;
 import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
@@ -504,8 +506,8 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         bottomSheetPresenter.showAddToListDialog(getSupportFragmentManager(), title, source, listDialogDismissListener);
     }
 
-    public void showMoveToListDialog(long sourceReadingListId, @NonNull PageTitle title, @NonNull InvokeSource source) {
-        bottomSheetPresenter.showMoveToListDialog(getSupportFragmentManager(), sourceReadingListId, title, source, listDialogDismissListener);
+    public void showMoveToListDialog(long sourceReadingListId, @NonNull PageTitle title, @NonNull InvokeSource source, boolean showDefaultList) {
+        bottomSheetPresenter.showMoveToListDialog(getSupportFragmentManager(), sourceReadingListId, title, source, showDefaultList, listDialogDismissListener);
     }
 
     // Note: back button first handled in {@link #onOptionsItemSelected()};
@@ -570,8 +572,8 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     }
 
     @Override
-    public void onPageMoveToReadingList(long sourceReadingListId, @NonNull PageTitle title, @NonNull InvokeSource source) {
-        showMoveToListDialog(sourceReadingListId, title, source);
+    public void onPageMoveToReadingList(long sourceReadingListId, @NonNull PageTitle title, @NonNull InvokeSource source, boolean showDefaultList) {
+        showMoveToListDialog(sourceReadingListId, title, source, showDefaultList);
     }
 
     @Override
@@ -659,21 +661,23 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         }
 
         @Override
+        public void findInPageClick() {
+            pageFragment.showFindInPage();
+        }
+
+        @Override
+        public void shareClick() {
+            pageFragment.sharePageLink();
+        }
+
+        @Override
+        public void newTabClick() {
+            startActivity(newIntentForNewTab(PageActivity.this));
+        }
+
+        @Override
         public void feedClick() {
             goToMainTab(NavTab.EXPLORE);
-        }
-
-        @Override
-        public void readingListsClick() {
-            if (Prefs.getOverflowReadingListsOptionClickCount() < 2) {
-                Prefs.setOverflowReadingListsOptionClickCount(Prefs.getOverflowReadingListsOptionClickCount() + 1);
-            }
-            goToMainTab(NavTab.READING_LISTS);
-        }
-
-        @Override
-        public void historyClick() {
-            goToMainTab(NavTab.HISTORY);
         }
     }
 
@@ -705,7 +709,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             handleSettingsActivityResult(resultCode);
         } else if (newArticleLanguageSelected(requestCode, resultCode) || galleryPageSelected(requestCode, resultCode)) {
             toolbarContainerView.post(() -> handleIntent(data));
-        } else if (galleryImageCaptionAdded(requestCode, resultCode)) {
+        } else if (galleryImageEdited(requestCode, resultCode)) {
             pageFragment.refreshPage();
         } else if (requestCode == Constants.ACTIVITY_REQUEST_BROWSE_TABS) {
             if (app.getTabCount() == 0 && resultCode != TabActivity.RESULT_NEW_TAB) {
@@ -719,16 +723,18 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             } else if (resultCode == TabActivity.RESULT_LOAD_FROM_BACKSTACK) {
                 pageFragment.reloadFromBackstack();
             }
-        } else if (requestCode == Constants.ACTIVITY_REQUEST_IMAGE_CAPTION_EDIT
+        } else if ((requestCode == Constants.ACTIVITY_REQUEST_IMAGE_CAPTION_EDIT || requestCode == Constants.ACTIVITY_REQUEST_IMAGE_TAGS_EDIT)
                 && resultCode == RESULT_OK) {
             pageFragment.refreshPage();
             String editLanguage = StringUtils.defaultString(pageFragment.getLeadImageEditLang(), app.language().getAppLanguageCode());
-            DescriptionEditActivity.Action action = (DescriptionEditActivity.Action) data.getSerializableExtra(INTENT_EXTRA_ACTION);
+            DescriptionEditActivity.Action action = (data != null && data.hasExtra(INTENT_EXTRA_ACTION)) ? (DescriptionEditActivity.Action) data.getSerializableExtra(INTENT_EXTRA_ACTION)
+                    : (requestCode == Constants.ACTIVITY_REQUEST_IMAGE_TAGS_EDIT) ? ADD_IMAGE_TAGS : null;
             ABTestSuggestedEditsSnackbarFunnel abTestFunnel = new ABTestSuggestedEditsSnackbarFunnel();
             boolean shouldSeeSEFeedLinkSnackbar = abTestFunnel.shouldSeeSnackbarAction() && Prefs.getSEFeedLinkSnackbarShownCount() < SE_FEED_LINK_SNACKBAR_SHOW_LIMIT;
             FeedbackUtil.makeSnackbar(this, action == ADD_CAPTION
                     ? getString(R.string.description_edit_success_saved_image_caption_snackbar)
-                    : getString(R.string.description_edit_success_saved_image_caption_in_lang_snackbar, app.language().getAppLanguageLocalizedName(editLanguage)), FeedbackUtil.LENGTH_DEFAULT)
+                    : action == TRANSLATE_CAPTION ? getString(R.string.description_edit_success_saved_image_caption_in_lang_snackbar, app.language().getAppLanguageLocalizedName(editLanguage))
+                    : getString(R.string.description_edit_success_saved_image_tags_snackbar), FeedbackUtil.LENGTH_DEFAULT)
                     .setAction(R.string.suggested_edits_article_cta_snackbar_action, v -> pageFragment.openImageInGallery(editLanguage))
                     .addCallback(new Snackbar.Callback() {
                         @Override
@@ -822,8 +828,9 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         return requestCode == Constants.ACTIVITY_REQUEST_GALLERY && resultCode == GalleryActivity.ACTIVITY_RESULT_PAGE_SELECTED;
     }
 
-    private boolean galleryImageCaptionAdded(int requestCode, int resultCode) {
-        return requestCode == Constants.ACTIVITY_REQUEST_GALLERY && resultCode == GalleryActivity.ACTIVITY_RESULT_IMAGE_CAPTION_ADDED;
+    private boolean galleryImageEdited(int requestCode, int resultCode) {
+        return requestCode == Constants.ACTIVITY_REQUEST_GALLERY && (resultCode == GalleryActivity.ACTIVITY_RESULT_IMAGE_CAPTION_ADDED
+                || resultCode == GalleryActivity.ACTIVITY_REQUEST_ADD_IMAGE_TAGS);
     }
 
     private void showDescriptionEditRevertDialog(@NonNull String qNumber) {
