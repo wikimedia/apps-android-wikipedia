@@ -92,6 +92,7 @@ import static org.wikipedia.Constants.InvokeSource.APP_SHORTCUTS;
 import static org.wikipedia.Constants.InvokeSource.FEED;
 import static org.wikipedia.Constants.InvokeSource.FEED_BAR;
 import static org.wikipedia.Constants.InvokeSource.LINK_PREVIEW_MENU;
+import static org.wikipedia.Constants.InvokeSource.NAV_MENU;
 import static org.wikipedia.Constants.InvokeSource.VOICE;
 
 public class MainFragment extends Fragment implements BackPressedHandler, FeedFragment.Callback,
@@ -148,6 +149,9 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         tabLayout.setOnNavigationItemSelectedListener(item -> {
             if (!navTabAutoSelect && getCurrentFragment() instanceof FeedFragment && item.getOrder() == 0) {
                 ((FeedFragment) getCurrentFragment()).scrollToTop();
+            }
+            if (!navTabAutoSelect && getCurrentFragment() instanceof HistoryFragment && item.getOrder() == NavTab.SEARCH.code()) {
+                openSearchActivity(NAV_MENU, null);
             }
             viewPager.setCurrentItem(item.getOrder(), false);
             return true;
@@ -600,13 +604,11 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
 
     @SuppressWarnings("checkstyle:magicnumber")
     void maybeShowOneTimeTooltip(NavTab tab) {
-        if (tab == NavTab.SEARCH) {
-            View tabView = tabLayout.getViewAt(tab.code());
-            if (Prefs.shouldShowSearchTabTooltip() && tabView != null) {
-                Balloon balloon = FeedbackUtil.showTooltip(requireContext(), getString(R.string.search_tab_tooltip), ArrowOrientation.BOTTOM);
-                balloon.showAlignTop(tabView, 0, 16);
-                Prefs.setShowSearchTabTooltip(false);
-            }
+        View tabView = tabLayout.getViewAt(tab.code());
+        if (tabView != null) {
+            Balloon balloon = FeedbackUtil.showTooltip(requireContext(), getString(R.string.search_tab_tooltip), ArrowOrientation.BOTTOM);
+            balloon.showAlignTop(tabView, 0, 16);
+            Prefs.setShowSearchTabTooltip(false);
         }
     }
 

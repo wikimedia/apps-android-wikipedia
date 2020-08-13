@@ -34,7 +34,6 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.database.DatabaseClient;
 import org.wikipedia.database.contract.PageHistoryContract;
-import org.wikipedia.main.MainActivity;
 import org.wikipedia.main.MainFragment;
 import org.wikipedia.page.PageAvailableOfflineHandler;
 import org.wikipedia.readinglist.database.ReadingList;
@@ -131,7 +130,7 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
             @Override
             public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
-                ((MainActivity) requireActivity()).updateToolbarElevation(historyList.computeVerticalScrollOffset() != 0);
+//                ((MainActivity) requireActivity()).updateToolbarElevation(historyList.computeVerticalScrollOffset() != 0);
             }
         });
     }

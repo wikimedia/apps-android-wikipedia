@@ -1,14 +1,12 @@
 package org.wikipedia.navtab
 
 import androidx.fragment.app.Fragment
-import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.feed.FeedFragment
 import org.wikipedia.history.HistoryFragment
 import org.wikipedia.model.EnumCode
 import org.wikipedia.model.EnumCodeMap
 import org.wikipedia.readinglist.ReadingListsFragment
-import org.wikipedia.search.SearchFragment
 import org.wikipedia.suggestededits.SuggestedEditsTasksFragment
 
 enum class NavTab constructor(private val text: Int, private val icon: Int) : EnumCode {
@@ -24,7 +22,7 @@ enum class NavTab constructor(private val text: Int, private val icon: Int) : En
     },
     SEARCH(R.string.nav_item_search, R.drawable.ic_search_themed_24dp) {
         override fun newInstance(): Fragment {
-            return SearchFragment.newInstance(Constants.InvokeSource.NAV_MENU,"")
+            return HistoryFragment.newInstance()
         }
     },
     EDITS(R.string.nav_item_suggested_edits, R.drawable.ic_mode_edit_themed_24dp) {
