@@ -25,7 +25,7 @@ internal class ImageTitleDescriptionView constructor(context: Context, attrs: At
         layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         setOnLongClickListener {
             if (tooltipText.isNotEmpty()) {
-                description.showAlignBottom(FeedbackUtil.showTooltip(context, tooltipText, ArrowOrientation.TOP), 0, 0)
+                description.showAlignBottom(FeedbackUtil.showTooltip(context, tooltipText, ArrowOrientation.TOP))
             }
             true
         }
