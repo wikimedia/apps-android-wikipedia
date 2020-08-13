@@ -281,6 +281,15 @@
                 android:resource="@xml/file_paths" />
         </provider>
 
+        <provider android:name=".slices.SlicesProvider"
+            android:authorities="${applicationId}.slices"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.app.slice.category.SLICE" />
+            </intent-filter>
+        </provider>
+
         <receiver
             android:icon="@mipmap/launcher"
             android:label="@string/widget_name_search"
