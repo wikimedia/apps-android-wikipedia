@@ -165,7 +165,7 @@ public class GalleryItemFragment extends Fragment {
         if (!isAdded()) {
             return;
         }
-        menu.findItem(R.id.menu_gallery_visit_page).setEnabled(getMediaInfo() != null);
+        menu.findItem(R.id.menu_gallery_visit_image_page).setEnabled(getMediaInfo() != null);
         menu.findItem(R.id.menu_gallery_share).setEnabled(getMediaInfo() != null
                 && !TextUtils.isEmpty(getMediaInfo().getThumbUrl()) && imageView.getDrawable() != null);
         menu.findItem(R.id.menu_gallery_save).setEnabled(getMediaInfo() != null
@@ -175,7 +175,7 @@ public class GalleryItemFragment extends Fragment {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.menu_gallery_visit_page:
+            case R.id.menu_gallery_visit_image_page:
                 if (getMediaInfo() != null && imageTitle != null) {
                     startActivity(FilePageActivity.newIntent(requireContext(), imageTitle));
                 }
