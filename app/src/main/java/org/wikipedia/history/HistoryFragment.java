@@ -19,6 +19,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.view.ActionMode;
+import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
 import androidx.loader.app.LoaderManager;
 import androidx.loader.content.CursorLoader;
@@ -36,6 +37,7 @@ import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.database.DatabaseClient;
 import org.wikipedia.database.contract.PageHistoryContract;
+import org.wikipedia.main.MainActivity;
 import org.wikipedia.main.MainFragment;
 import org.wikipedia.page.PageAvailableOfflineHandler;
 import org.wikipedia.readinglist.database.ReadingList;
@@ -69,6 +71,7 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
     }
 
     private Unbinder unbinder;
+    @BindView(R.id.history_scroll_view) NestedScrollView historyNestedScrollView;
     @BindView(R.id.history_container) View historyContainer;
     @BindView(R.id.history_list) RecyclerView historyList;
     @BindView(R.id.history_empty_container) View historyEmptyView;
@@ -144,12 +147,8 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
 
 
     private void setUpScrollListener() {
-        historyList.addOnScrollListener(new RecyclerView.OnScrollListener() {
-            @Override
-            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
-                super.onScrolled(recyclerView, dx, dy);
-//                ((MainActivity) requireActivity()).updateToolbarElevation(historyList.computeVerticalScrollOffset() != 0);
-            }
+        historyNestedScrollView.setOnScrollChangeListener((NestedScrollView.OnScrollChangeListener) (v, scrollX, scrollY, oldScrollX, oldScrollY) -> {
+            ((MainActivity) requireActivity()).updateToolbarElevation(scrollY != 0);
         });
     }
 
