@@ -11,12 +11,12 @@ import android.widget.PopupWindow;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.widget.AppCompatImageView;
 import androidx.core.widget.PopupWindowCompat;
+
+import com.google.android.material.textview.MaterialTextView;
 
 import org.wikipedia.R;
 import org.wikipedia.page.tabs.Tab;
-import org.wikipedia.util.FeedbackUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -26,18 +26,20 @@ public class PageActionOverflowView extends FrameLayout {
 
     public interface Callback {
         void forwardClick();
+        void findInPageClick();
+        void shareClick();
+        void newTabClick();
         void feedClick();
-        void readingListsClick();
-        void historyClick();
     }
 
     @Nullable private Callback callback;
     @Nullable private PopupWindow popupWindowHost;
-    @BindView(R.id.page_action_overflow_forward) AppCompatImageView forwardButton;
+    @BindView(R.id.overflow_forward) MaterialTextView forwardButton;
 
     public PageActionOverflowView(Context context) {
         super(context);
-        init();
+        inflate(getContext(), R.layout.view_page_action_overflow, this);
+        ButterKnife.bind(this);
     }
 
     public void show(@NonNull View anchorView, @Nullable Callback callback, @NonNull Tab currentTab) {
@@ -53,8 +55,7 @@ public class PageActionOverflowView extends FrameLayout {
         forwardButton.setAlpha(forwardButton.isEnabled() ? 1.0f : disabledAlpha);
     }
 
-    @OnClick({R.id.page_action_overflow_forward, R.id.page_action_overflow_feed,
-            R.id.page_action_overflow_search, R.id.page_action_overflow_reading_lists})
+    @OnClick({R.id.overflow_forward, R.id.overflow_find_in_page, R.id.overflow_new_tab, R.id.overflow_share, R.id.overflow_feed})
     void onItemClick(View view) {
         if (popupWindowHost != null) {
             popupWindowHost.dismiss();
@@ -64,26 +65,23 @@ public class PageActionOverflowView extends FrameLayout {
             return;
         }
         switch (view.getId()) {
-            case R.id.page_action_overflow_forward:
+            case R.id.overflow_forward:
                 callback.forwardClick();
                 break;
-            case R.id.page_action_overflow_feed:
+            case R.id.overflow_find_in_page:
+                callback.findInPageClick();
+                break;
+            case R.id.overflow_new_tab:
+                callback.newTabClick();
+                break;
+            case R.id.overflow_share:
+                callback.shareClick();
+                break;
+            case R.id.overflow_feed:
                 callback.feedClick();
-                break;
-            case R.id.page_action_overflow_search:
-                callback.historyClick();
-                break;
-            case R.id.page_action_overflow_reading_lists:
-                callback.readingListsClick();
                 break;
             default:
                 break;
         }
-    }
-
-    private void init() {
-        inflate(getContext(), R.layout.view_page_action_overflow, this);
-        ButterKnife.bind(this);
-        FeedbackUtil.setButtonLongPressToast(forwardButton);
     }
 }

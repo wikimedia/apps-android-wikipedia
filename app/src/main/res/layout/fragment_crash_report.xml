@@ -21,7 +21,7 @@
         android:layout_height="128dp"
         android:alpha="@dimen/crash_report_icon_alpha"
         android:contentDescription="@null"
-        android:tint="?attr/primary_text_color"
+        app:tint="?attr/primary_text_color"
         app:srcCompat="@drawable/ic_error_black_24dp" />
 
     <include layout="@layout/include_crash_report" />

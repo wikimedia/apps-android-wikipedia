@@ -29,6 +29,7 @@ import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
+import org.wikipedia.util.log.L
 import org.wikipedia.views.ImageDetailView
 import org.wikipedia.views.ImageZoomHelper
 import org.wikipedia.views.ViewUtil
@@ -57,7 +58,7 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
 
         if (showFilename) {
             filenameView.visibility = View.VISIBLE
-            filenameView.titleText.text = context.getString(R.string.suggested_edits_image_preview_dialog_file)
+            filenameView.titleText.text = context.getString(R.string.suggested_edits_image_preview_dialog_image)
             filenameView.titleText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16f)
             filenameView.contentText.text = StringUtil.removeNamespace(summaryForEdit.displayTitle!!)
             filenameView.contentText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 24f)
@@ -99,6 +100,10 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
     }
 
     private fun getImageTags(imageTags: Map<String, List<String>>, languageCode: String) : String? {
+        if (!imageTags.containsKey(languageCode)) {
+            return null
+        }
+
         return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && imageTags.isNotEmpty()) {
             ListFormatter.getInstance(Locale(languageCode)).format(imageTags[languageCode])
         } else {

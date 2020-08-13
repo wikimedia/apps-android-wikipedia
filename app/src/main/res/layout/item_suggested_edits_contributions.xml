@@ -81,7 +81,7 @@
                 android:layout_width="16dp"
                 android:layout_height="16dp"
                 android:contentDescription="@null"
-                android:tint="?attr/colorAccent"
+                app:tint="?attr/colorAccent"
                 app:srcCompat="@drawable/ic_trending_up_black_24dp" />
 
             <TextView

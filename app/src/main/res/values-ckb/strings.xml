@@ -256,7 +256,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">ڕێگەدان</string>
   <string name="read_more_section">زیاتر بخوێنەوە</string>
   <string name="about_article_section">دەربارەی ئەم وتارە</string>
-  <string name="menu_gallery_visit_page">چوون بۆ پەڕەی پەڕگە</string>
+  <string name="menu_gallery_visit_image_page">چوون بۆ پەڕەی پەڕگە</string>
   <string name="gallery_error_draw_failed">نەتوانرا وێنەکە بکێشرێت.</string>
   <string name="license_title">مۆڵەتەکان بۆ %s</string>
   <string name="gallery_menu_share">هاوبەشکردن</string>
@@ -567,7 +567,7 @@
   <string name="suggested_edits_task_translate_caption_description">وەرگێڕانی شرۆڤەکان بۆ ناو زمانەکانی دیکە</string>
   <string name="suggested_edits_task_multilingual_negative">بۆ من نا</string>
   <string name="suggested_edits_task_multilingual_positive">زمان زیاد بکە</string>
-  <string name="suggested_edits_image_caption_summary_title_file">پەڕگە</string>
+  <string name="suggested_edits_image_caption_summary_title_image">پەڕگە</string>
   <string name="suggested_edits_image_caption_summary_title_artist">ھونەرمەند</string>
   <string name="suggested_edits_image_caption_summary_title_author">نووسەر</string>
   <string name="suggested_edits_image_caption_summary_title_source">سەرچاوە</string>

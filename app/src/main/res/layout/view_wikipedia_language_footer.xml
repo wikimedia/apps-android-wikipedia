@@ -14,9 +14,8 @@
         android:layout_marginStart="18dp"
         android:layout_marginEnd="12dp"
         android:contentDescription="@null"
-        android:tint="?colorPrimary"
-        app:srcCompat="@drawable/ic_add_gray_white_24dp"
-        app:tint="@color/base30" />
+        app:tint="?colorPrimary"
+        app:srcCompat="@drawable/ic_add_gray_white_24dp" />
 
     <TextView
         android:id="@+id/wiki_language_title"

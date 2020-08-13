@@ -661,21 +661,23 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         }
 
         @Override
+        public void findInPageClick() {
+            pageFragment.showFindInPage();
+        }
+
+        @Override
+        public void shareClick() {
+            pageFragment.sharePageLink();
+        }
+
+        @Override
+        public void newTabClick() {
+            startActivity(newIntentForNewTab(PageActivity.this));
+        }
+
+        @Override
         public void feedClick() {
             goToMainTab(NavTab.EXPLORE);
-        }
-
-        @Override
-        public void readingListsClick() {
-            if (Prefs.getOverflowReadingListsOptionClickCount() < 2) {
-                Prefs.setOverflowReadingListsOptionClickCount(Prefs.getOverflowReadingListsOptionClickCount() + 1);
-            }
-            goToMainTab(NavTab.READING_LISTS);
-        }
-
-        @Override
-        public void historyClick() {
-            goToMainTab(NavTab.SEARCH);
         }
     }
 

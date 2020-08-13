@@ -253,7 +253,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">Idinaké</string>
   <string name="read_more_section">Waca candhaké</string>
   <string name="about_article_section">Bab artikel iki</string>
-  <string name="menu_gallery_visit_page">Menyang kaca barkas</string>
+  <string name="menu_gallery_visit_image_page">Menyang kaca barkas</string>
   <string name="gallery_error_draw_failed">Ora bisa majang gambar.</string>
   <string name="license_title">Lisènsi kanggo %s</string>
   <string name="gallery_menu_share">Dum</string>

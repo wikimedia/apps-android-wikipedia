@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
 * Arnobarnard
 * Biggs ZA
 * Envlh
@@ -199,7 +200,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">Laat toe</string>
   <string name="read_more_section">Lees meer</string>
   <string name="about_article_section">Oor dié artikel</string>
-  <string name="menu_gallery_visit_page">Gaan na lêer blad</string>
+  <string name="menu_gallery_visit_image_page">Gaan na lêer blad</string>
   <string name="gallery_error_draw_failed">Kon nie die beeld teken nie.</string>
   <string name="license_title">Lisensie vir %s</string>
   <string name="gallery_menu_share">Deel</string>

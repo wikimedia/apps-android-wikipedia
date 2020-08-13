@@ -80,11 +80,14 @@ public class GalleryItemFragment extends Fragment {
         return imageTitle;
     }
 
-    @Nullable private ImageInfo mediaInfo;
     @Nullable ImageInfo getMediaInfo() {
-        return mediaInfo;
+        return mediaPage != null ? mediaPage.imageInfo() : null;
     }
-    private MwQueryPage mediaPage;
+
+    @Nullable private MwQueryPage mediaPage;
+    @Nullable public MwQueryPage getMediaPage() {
+        return mediaPage;
+    }
 
 
     public static GalleryItemFragment newInstance(@Nullable PageTitle pageTitle, @NonNull MediaListItem item) {
@@ -162,18 +165,18 @@ public class GalleryItemFragment extends Fragment {
         if (!isAdded()) {
             return;
         }
-        menu.findItem(R.id.menu_gallery_visit_page).setEnabled(mediaInfo != null);
-        menu.findItem(R.id.menu_gallery_share).setEnabled(mediaInfo != null
-                && !TextUtils.isEmpty(mediaInfo.getThumbUrl()) && imageView.getDrawable() != null);
-        menu.findItem(R.id.menu_gallery_save).setEnabled(mediaInfo != null
-                && !TextUtils.isEmpty(mediaInfo.getThumbUrl()) && imageView.getDrawable() != null);
+        menu.findItem(R.id.menu_gallery_visit_image_page).setEnabled(getMediaInfo() != null);
+        menu.findItem(R.id.menu_gallery_share).setEnabled(getMediaInfo() != null
+                && !TextUtils.isEmpty(getMediaInfo().getThumbUrl()) && imageView.getDrawable() != null);
+        menu.findItem(R.id.menu_gallery_save).setEnabled(getMediaInfo() != null
+                && !TextUtils.isEmpty(getMediaInfo().getThumbUrl()) && imageView.getDrawable() != null);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.menu_gallery_visit_page:
-                if (mediaInfo != null && imageTitle != null) {
+            case R.id.menu_gallery_visit_image_page:
+                if (getMediaInfo() != null && imageTitle != null) {
                     startActivity(FilePageActivity.newIntent(requireContext(), imageTitle));
                 }
                 return true;
@@ -219,12 +222,11 @@ public class GalleryItemFragment extends Fragment {
                     ((GalleryActivity) requireActivity()).layOutGalleryDescription();
                 })
                 .subscribe(response -> {
-                    mediaInfo = response.query().firstPage().imageInfo();
                     mediaPage = response.query().firstPage();
                     if (FileUtil.isVideo(mediaListItem.getType())) {
                         loadVideo();
                     } else {
-                        loadImage(ImageUrlUtil.getUrlForPreferredSize(mediaInfo.getThumbUrl(), PREFERRED_GALLERY_IMAGE_SIZE));
+                        loadImage(ImageUrlUtil.getUrlForPreferredSize(getMediaInfo().getThumbUrl(), PREFERRED_GALLERY_IMAGE_SIZE));
                     }
                 }, throwable -> {
                     FeedbackUtil.showMessage(getActivity(), R.string.gallery_error_draw_failed);
@@ -245,11 +247,11 @@ public class GalleryItemFragment extends Fragment {
 
         @Override
         public void onClick(View v) {
-            if (loading || mediaInfo == null || mediaInfo.getBestDerivative() == null) {
+            if (loading || getMediaInfo() == null || getMediaInfo().getBestDerivative() == null) {
                 return;
             }
             loading = true;
-            L.d("Loading video from url: " + mediaInfo.getBestDerivative().getSrc());
+            L.d("Loading video from url: " + getMediaInfo().getBestDerivative().getSrc());
             videoView.setVisibility(View.VISIBLE);
             mediaController = new MediaController(requireActivity());
             if (!DeviceUtil.isNavigationBarShowing()) {
@@ -278,7 +280,7 @@ public class GalleryItemFragment extends Fragment {
                 loading = false;
                 return true;
             });
-            videoView.setVideoURI(Uri.parse(mediaInfo.getBestDerivative().getSrc()));
+            videoView.setVideoURI(Uri.parse(getMediaInfo().getBestDerivative().getSrc()));
         }
     };
 
@@ -286,12 +288,12 @@ public class GalleryItemFragment extends Fragment {
         videoContainer.setVisibility(View.VISIBLE);
         videoPlayButton.setVisibility(View.VISIBLE);
         videoView.setVisibility(View.GONE);
-        if (mediaInfo == null || TextUtils.isEmpty(mediaInfo.getThumbUrl())) {
+        if (getMediaInfo() == null || TextUtils.isEmpty(getMediaInfo().getThumbUrl())) {
             videoThumbnail.setVisibility(View.GONE);
         } else {
             // show the video thumbnail while the video loads...
             videoThumbnail.setVisibility(View.VISIBLE);
-            ViewUtil.loadImage(videoThumbnail, mediaInfo.getThumbUrl());
+            ViewUtil.loadImage(videoThumbnail, getMediaInfo().getThumbUrl());
         }
         videoThumbnail.setOnClickListener(videoThumbnailClickListener);
     }
@@ -306,10 +308,10 @@ public class GalleryItemFragment extends Fragment {
     }
 
     private void shareImage() {
-        if (mediaInfo == null) {
+        if (getMediaInfo() == null) {
             return;
         }
-        new ImagePipelineBitmapGetter(ImageUrlUtil.getUrlForPreferredSize(mediaInfo.getThumbUrl(), PREFERRED_GALLERY_IMAGE_SIZE)){
+        new ImagePipelineBitmapGetter(ImageUrlUtil.getUrlForPreferredSize(getMediaInfo().getThumbUrl(), PREFERRED_GALLERY_IMAGE_SIZE)){
             @Override
             public void onSuccess(@Nullable Bitmap bitmap) {
                 if (!isAdded()) {
@@ -345,16 +347,12 @@ public class GalleryItemFragment extends Fragment {
     }
 
     private void saveImage() {
-        if (mediaInfo != null && callback() != null) {
+        if (getMediaInfo() != null && callback() != null) {
             callback().onDownload(this);
         }
     }
 
     @Nullable private Callback callback() {
         return FragmentUtil.getCallback(this, Callback.class);
-    }
-
-    public MwQueryPage getMediaPage() {
-        return mediaPage;
     }
 }

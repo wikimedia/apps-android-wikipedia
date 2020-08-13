@@ -271,7 +271,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">לאפשר</string>
   <string name="read_more_section">לקרוא עוד</string>
   <string name="about_article_section">מידע על הערך הזה</string>
-  <string name="menu_gallery_visit_page">ללכת לדף הקובץ</string>
+  <string name="menu_gallery_visit_image_page">ללכת לדף הקובץ</string>
   <string name="gallery_error_draw_failed">לא היה אפשר לצייר את התמונה.</string>
   <string name="license_title">רישיון עבור %s</string>
   <string name="gallery_menu_share">שיתוף</string>
@@ -693,7 +693,7 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text">נעול עד לעריכת %d תיאורי ערכים (לאחר אימות)</string>
   <string name="suggested_edits_task_multilingual_negative">לא בשבילי</string>
   <string name="suggested_edits_task_multilingual_positive">הוספת שפות</string>
-  <string name="suggested_edits_image_caption_summary_title_file">קובץ</string>
+  <string name="suggested_edits_image_caption_summary_title_image">קובץ</string>
   <string name="suggested_edits_image_caption_summary_title_artist">יוצר</string>
   <string name="suggested_edits_image_caption_summary_title_author">מחבר</string>
   <string name="suggested_edits_image_caption_summary_title_source">מקור</string>
@@ -711,7 +711,7 @@
   <string name="suggested_edits_tasks_onboarding_get_started">מדריך למתחילים</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">כיתוב התמונה (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">תיאור התמונה (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_file">קובץ</string>
+  <string name="suggested_edits_image_preview_dialog_image">קובץ</string>
   <string name="suggested_edits_image_preview_dialog_artist">יוצר</string>
   <string name="suggested_edits_image_preview_dialog_tags">תגיות</string>
   <string name="suggested_edits_image_preview_dialog_date">תאריך</string>

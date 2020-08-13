@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
 * Dbrant
 * J budissin
 * Michawiki
@@ -243,7 +244,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">Dowolić</string>
   <string name="read_more_section">Wjace čitać</string>
   <string name="about_article_section">Wo tutym zapisku</string>
-  <string name="menu_gallery_visit_page">Dźi k datajowej stronje</string>
+  <string name="menu_gallery_visit_image_page">Dźi k datajowej stronje</string>
   <string name="gallery_error_draw_failed">Wobraz njeda so pokazać.</string>
   <string name="license_title">Licenca za %s</string>
   <string name="gallery_menu_share">Dźělić</string>
