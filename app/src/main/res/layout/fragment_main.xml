@@ -71,7 +71,7 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@null"
                 android:layout_marginTop="9.5dp"
-                android:tint="?attr/material_theme_secondary_color"
+                app:tint="?attr/material_theme_secondary_color"
                 app:srcCompat="@drawable/ic_menu_themed_24dp" />
 
             <TextView
