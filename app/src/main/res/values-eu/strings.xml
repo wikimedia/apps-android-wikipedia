@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
 * Amaia
 * An13sa
 * Asierog
@@ -262,7 +263,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">Baimendu</string>
   <string name="read_more_section">Irakurri gehiago</string>
   <string name="about_article_section">Artikulu honi buruz</string>
-  <string name="menu_gallery_visit_page">Joan fitxategiaren orrira</string>
+  <string name="menu_gallery_visit_image_page">Joan fitxategiaren orrira</string>
   <string name="gallery_error_draw_failed">Ezin da irudia marraztu.</string>
   <string name="license_title">%s-entzako lizentzia</string>
   <string name="gallery_menu_share">Partekatu</string>
@@ -581,7 +582,7 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text">Blokeatua dago %d artikulu deskribapen aldatu dituzun arte</string>
   <string name="suggested_edits_task_multilingual_negative">Ez da niretzat</string>
   <string name="suggested_edits_task_multilingual_positive">Hizkuntzak gehitu</string>
-  <string name="suggested_edits_image_caption_summary_title_file">Fitxategia</string>
+  <string name="suggested_edits_image_caption_summary_title_image">Fitxategia</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Artista</string>
   <string name="suggested_edits_image_caption_summary_title_author">Egilea</string>
   <string name="suggested_edits_image_caption_summary_title_source">Jatorria</string>

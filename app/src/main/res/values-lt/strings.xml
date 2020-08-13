@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
 * Agne1992
 * Eitvys200
 * Gediminas
@@ -221,7 +222,7 @@
   <string name="preference_title_show_images">Rodyti paveikslėlius</string>
   <string name="read_more_section">Skaityti daugiau</string>
   <string name="about_article_section">Apie šį straipsnį</string>
-  <string name="menu_gallery_visit_page">Eikite į failo puslapį</string>
+  <string name="menu_gallery_visit_image_page">Eikite į failo puslapį</string>
   <string name="gallery_error_draw_failed">Negalima pavaizduoti paveikslėlio</string>
   <string name="license_title">%s licencija</string>
   <string name="gallery_menu_share">Dalintis</string>

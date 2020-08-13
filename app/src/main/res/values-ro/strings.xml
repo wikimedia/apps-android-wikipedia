@@ -267,7 +267,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">Permite</string>
   <string name="read_more_section">Citiți mai multe</string>
   <string name="about_article_section">Despre acest articol</string>
-  <string name="menu_gallery_visit_page">Du-te la pagina fișierului</string>
+  <string name="menu_gallery_visit_image_page">Du-te la pagina fișierului</string>
   <string name="gallery_error_draw_failed">Imposibil de afișat imaginea.</string>
   <string name="license_title">Licența pentru %s</string>
   <string name="gallery_menu_share">Distribuie</string>
@@ -676,7 +676,7 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text">Blocat până când ați modificat %d descrieri ale articolului (verificat)</string>
   <string name="suggested_edits_task_multilingual_negative">Nu pentru mine</string>
   <string name="suggested_edits_task_multilingual_positive">Adaugă limbă</string>
-  <string name="suggested_edits_image_caption_summary_title_file">Fișier</string>
+  <string name="suggested_edits_image_caption_summary_title_image">Fișier</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Artist</string>
   <string name="suggested_edits_image_caption_summary_title_author">Autor</string>
   <string name="suggested_edits_image_caption_summary_title_source">Sursă</string>
@@ -693,7 +693,7 @@
   <string name="suggested_edits_tasks_onboarding_get_started">Începe</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Descrierea imaginii (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Descrierea imaginii (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_file">Fișier</string>
+  <string name="suggested_edits_image_preview_dialog_image">Fișier</string>
   <string name="suggested_edits_image_preview_dialog_artist">Artist</string>
   <string name="suggested_edits_image_preview_dialog_tags">Etichete</string>
   <string name="suggested_edits_image_preview_dialog_date">Data</string>

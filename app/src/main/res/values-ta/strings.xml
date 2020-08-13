@@ -264,7 +264,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">அனுமதிக்கவும்</string>
   <string name="read_more_section">மேலும் அறிக</string>
   <string name="about_article_section">இந்தக் கட்டுரையைப் பற்றி</string>
-  <string name="menu_gallery_visit_page">கோப்பின் பக்கத்திற்கு செல்க</string>
+  <string name="menu_gallery_visit_image_page">கோப்பின் பக்கத்திற்கு செல்க</string>
   <string name="gallery_error_draw_failed">படிமத்தை வரைய முடியவில்லை</string>
   <string name="license_title">%s காப்புரிமை</string>
   <string name="gallery_menu_share">பகிர்</string>

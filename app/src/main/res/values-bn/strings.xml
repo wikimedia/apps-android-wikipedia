@@ -16,6 +16,7 @@
 * Tahmid02016
 * Tauhid16
 * Wikisagnik
+* YahyA
 * আজিজ
 * আফতাবুজ্জামান
 * ফাহাদ কাজমী
@@ -184,6 +185,7 @@
   <string name="preference_title_auto_upload_crash_reports">ক্র্যাশ প্রতিবেদন পাঠান</string>
   <string name="preference_summary_auto_upload_crash_reports">অ্যাপকে স্বয়ংক্রিয়ভাবে একটি তৃতীয় পক্ষের পরিষেবা প্রদানকারী HockeyApp-এর কাছে ত্রুটি প্রতিবেদন পাঠাতে অনুমতি দিন তাহলে আমরা আপনার ত্রুটি পর্যালোচনা করতে পারবো এবং আরো সহজে ও দ্রুত বাগ ঠিক করতে পারবো।</string>
   <string name="editing_error_spamblacklist">অবরুদ্ধ ডোমেইনের (%s) লিংক সনাক্ত হয়েছে। দয়া করে তাদের সরিয়ে নিন ও আবার চেষ্টা করুন।</string>
+  <string name="history_filter_list_hint">ইতিহাস ছাঁকনি</string>
   <string name="error_can_not_process_link">কোনো সংযোগ প্রদর্শিত হয়নি।</string>
   <string name="page_protected_autoconfirmed">এই পাতাটি অর্ধ সুরক্ষিত।</string>
   <string name="page_protected_sysop">এই পাতটি সম্পূর্ণ সুরক্ষিত।</string>
@@ -266,7 +268,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">মঞ্জুর</string>
   <string name="read_more_section">আরও জানুন</string>
   <string name="about_article_section">এই নিবন্ধ সম্পর্কে</string>
-  <string name="menu_gallery_visit_page">ফাইলের পৃষ্ঠাতে যান</string>
+  <string name="menu_gallery_visit_image_page">ফাইলের পৃষ্ঠাতে যান</string>
   <string name="gallery_error_draw_failed">ছবিটি আঁকা যায়নি।</string>
   <string name="license_title">%s-এর জন্য লাইসেন্স</string>
   <string name="gallery_menu_share">শেয়ার</string>
@@ -546,7 +548,7 @@
   <string name="suggested_edits_task_multilingual_positive">ভাষা যোগ করুন</string>
   <string name="suggested_edits_image_caption_summary_title_source">উৎস</string>
   <string name="suggested_edits_image_caption_summary_title_date">তারিখ</string>
-  <string name="suggested_edits_image_preview_dialog_file">ফাইল</string>
+  <string name="suggested_edits_image_preview_dialog_image">ফাইল</string>
   <string name="suggested_edits_image_preview_dialog_date">তারিখ</string>
   <string name="suggested_edits_snackbar_survey_text">আপনার সম্পাদনার অভিজ্ঞতা কেমন ছিল? অ্যাপ্লিকেশন সম্পাদনা সম্পর্কে এই জরিপে দয়া করে অংশ নিন।</string>
   <string name="suggested_edits_snackbar_survey_action_text">জরিপে অংশ নিন</string>

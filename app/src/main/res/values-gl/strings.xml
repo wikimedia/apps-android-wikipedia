@@ -262,7 +262,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">Permitir</string>
   <string name="read_more_section">Ler máis</string>
   <string name="about_article_section">Acerca deste artigo</string>
-  <string name="menu_gallery_visit_page">Ir á páxina do ficheiro</string>
+  <string name="menu_gallery_visit_image_page">Ir á páxina do ficheiro</string>
   <string name="gallery_error_draw_failed">Non se pode amosar a imaxe.</string>
   <string name="license_title">Licenza para %s</string>
   <string name="gallery_menu_share">Compartir</string>
@@ -646,7 +646,7 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text">Bloqueado ata que teña editado %d descricións de artigos (verificadas)</string>
   <string name="suggested_edits_task_multilingual_negative">Non é para min</string>
   <string name="suggested_edits_task_multilingual_positive">Engadir linguas</string>
-  <string name="suggested_edits_image_caption_summary_title_file">Ficheiro</string>
+  <string name="suggested_edits_image_caption_summary_title_image">Ficheiro</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Artista</string>
   <string name="suggested_edits_image_caption_summary_title_author">Autor</string>
   <string name="suggested_edits_image_caption_summary_title_source">Orixe</string>

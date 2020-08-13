@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
 * Arabuli
 * BRUTE
 * David1010
@@ -223,7 +224,7 @@
   <string name="preference_title_show_images">სურათების ჩვენება</string>
   <string name="preference_summary_show_images">შეგიძლიათ ჩართოთ ან გამორთოთ სურათების ატვირთვა გვერდებში. ჩახსენით ეს პარამეტრი, თუ თქვენი ინტერნეტ-სიჩქარე ნელია, ან დრო შეზღუდული გაქვთ.</string>
   <string name="read_more_section">წაიკითხე მეტი</string>
-  <string name="menu_gallery_visit_page">გადადით ფაილის გვერდზე</string>
+  <string name="menu_gallery_visit_image_page">გადადით ფაილის გვერდზე</string>
   <string name="gallery_error_draw_failed">სურათის ჩასმა შეუძლებელია.</string>
   <string name="license_title">ლიცენზია %s-თვის</string>
   <string name="gallery_menu_share">გაზიარება</string>
