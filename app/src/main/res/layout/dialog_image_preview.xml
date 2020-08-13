@@ -37,7 +37,7 @@
                     android:contentDescription="@null"
                     android:padding="12dp"
                     android:scaleY="-1"
-                    android:tint="?attr/toolbar_icon_color"
+                    app:tint="?attr/toolbar_icon_color"
                     app:srcCompat="@drawable/ic_keyboard_arrow_up_black_24dp" />
 
                 <TextView

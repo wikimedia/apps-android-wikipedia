@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:clipChildren="false"
     android:clipToPadding="false"
     android:paddingBottom="16dp">
@@ -11,7 +11,7 @@
         android:layout_width="36dp"
         android:layout_height="36dp"
         android:src="@drawable/shape_circle"
-        android:tint="?attr/color_group_52"
+        app:tint="?attr/color_group_52"
         android:alpha="0.15"
         android:contentDescription="@null"
         android:layout_gravity="center" />
@@ -20,7 +20,7 @@
         android:layout_width="28dp"
         android:layout_height="28dp"
         android:src="@drawable/shape_circle"
-        android:tint="?attr/color_group_52"
+        app:tint="?attr/color_group_52"
         android:alpha="0.5"
         android:contentDescription="@null"
         android:layout_gravity="center" />
@@ -28,7 +28,7 @@
         android:id="@+id/pulsingBaseIcon"
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:tint="?attr/material_theme_primary_color"
+        app:tint="?attr/material_theme_primary_color"
         android:contentDescription="@null"
         android:layout_gravity="center" />
 </FrameLayout>
