@@ -23,8 +23,8 @@ public class SearchResult extends BaseModel implements Parcelable {
         this.searchResultTypeWithPriority = searchResultTypeWithPriority;
     }
 
-    public SearchResultTypeWithPriority getSearchResultTypeWithPriority() {
-        return searchResultTypeWithPriority;
+    public int getPriority() {
+        return searchResultTypeWithPriority.getPriority();
     }
 
     public enum SearchResultTypeWithPriority {

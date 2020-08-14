@@ -297,7 +297,7 @@ object ReadingListBehaviorsUtil {
         }
     }
 
-    private fun applySearchQuery(searchQuery: String?, lists: List<ReadingList>): MutableList<Any> {
+     fun applySearchQuery(searchQuery: String?, lists: List<ReadingList>): MutableList<Any> {
         val result = mutableListOf<Any>()
 
         if (searchQuery.isNullOrEmpty()) {

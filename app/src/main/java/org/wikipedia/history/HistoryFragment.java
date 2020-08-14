@@ -370,16 +370,16 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
         }
     }
 
-    private static class IndexedHistoryEntry {
+    public static class IndexedHistoryEntry {
         @NonNull private final HistoryEntry entry;
         @Nullable private final String imageUrl;
 
-        IndexedHistoryEntry(@NonNull Cursor cursor) {
+        public IndexedHistoryEntry(@NonNull Cursor cursor) {
             this.entry = HistoryEntry.DATABASE_TABLE.fromCursor(cursor);
             this.imageUrl = PageHistoryContract.PageWithImage.IMAGE_NAME.val(cursor);
         }
 
-        @Nullable String getImageUrl() {
+        @Nullable public String getImageUrl() {
             return imageUrl;
         }
 

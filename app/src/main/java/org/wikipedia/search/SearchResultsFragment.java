@@ -1,5 +1,7 @@
 package org.wikipedia.search;
 
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -17,6 +19,9 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.collection.LruCache;
 import androidx.fragment.app.Fragment;
+import androidx.loader.app.LoaderManager;
+import androidx.loader.content.CursorLoader;
+import androidx.loader.content.Loader;
 
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.Constants.InvokeSource;
@@ -25,10 +30,16 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.SearchFunnel;
+import org.wikipedia.database.contract.PageHistoryContract;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.history.HistoryFragment;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.page.tabs.Tab;
+import org.wikipedia.readinglist.ReadingListBehaviorsUtil;
+import org.wikipedia.readinglist.database.ReadingListDbHelper;
+import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.GoneIfEmptyTextView;
 import org.wikipedia.views.TabCountsView;
@@ -50,6 +61,9 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
 import static org.apache.commons.lang3.StringUtils.isBlank;
+import static org.wikipedia.Constants.SEARCH_FRAGMENT_HISTORY_LOADER_ID;
+import static org.wikipedia.search.SearchResult.SearchResultTypeWithPriority.HIRTORY_SEARCH_RESULT;
+import static org.wikipedia.search.SearchResult.SearchResultTypeWithPriority.READING_LIST_SEARCH_RESULT;
 import static org.wikipedia.search.SearchResult.SearchResultTypeWithPriority.SEARCH_RESULT;
 import static org.wikipedia.search.SearchResult.SearchResultTypeWithPriority.TAB_LIST_SEARCH_RESULT;
 import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
@@ -88,6 +102,7 @@ public class SearchResultsFragment extends Fragment {
     @Nullable private SearchResults lastFullTextResults;
     @NonNull private final List<SearchResult> totalResults = new ArrayList<>();
     private CompositeDisposable disposables = new CompositeDisposable();
+    private LoaderCallback loaderCallback = new LoaderCallback();
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -179,6 +194,7 @@ public class SearchResultsFragment extends Fragment {
         if (cacheResult != null && !cacheResult.isEmpty()) {
             clearResults();
             displayResults(cacheResult);
+            gatherSearchResultsFromAppSources();
             return;
         }
 
@@ -252,6 +268,7 @@ public class SearchResultsFragment extends Fragment {
         if (!resultList.isEmpty()) {
             clearResults();
             displayResults(resultList);
+            gatherSearchResultsFromAppSources();
             log(resultList, startTime);
         }
 
@@ -336,6 +353,7 @@ public class SearchResultsFragment extends Fragment {
                     // full text special:
                     SearchResultsFragment.this.lastFullTextResults = results;
                     displayResults(resultList);
+                    gatherSearchResultsFromAppSources();
                 }, throwable -> {
                     // If there's an error, just log it and let the existing prefix search results be.
                     logError(true, startTime);
@@ -389,11 +407,11 @@ public class SearchResultsFragment extends Fragment {
     private void displayResults(List<SearchResult> results) {
         for (SearchResult newResult : results) {
             boolean contains = false;
-            int newResultPriority = newResult.getSearchResultTypeWithPriority().getPriority();
+            int newResultPriority = newResult.getPriority();
             for (SearchResult result : totalResults) {
                 if (newResult.getPageTitle().equals(result.getPageTitle())) {
                     contains = true;
-                    if (newResultPriority > result.getSearchResultTypeWithPriority().getPriority()) {
+                    if (newResultPriority > result.getPriority()) {
                         totalResults.remove(result);
                         totalResults.add(getCorrectIndexFor(newResult), newResult);
                     }
@@ -422,12 +440,12 @@ public class SearchResultsFragment extends Fragment {
 
     private int getCorrectIndexFor(SearchResult newResult) {
         if (totalResults.size() > 0) {
-            if (totalResults.get(0).getSearchResultTypeWithPriority().getPriority() == SEARCH_RESULT.getPriority()) {
+            if (totalResults.get(0).getPriority() == SEARCH_RESULT.getPriority()) {
                 return 0;
             } else {
-                if (totalResults.get(0).getSearchResultTypeWithPriority().getPriority() < newResult.getSearchResultTypeWithPriority().getPriority()) {
+                if (totalResults.get(0).getPriority() < newResult.getPriority()) {
                     return 0;
-                } else if (totalResults.size() > 1 && totalResults.get(1).getSearchResultTypeWithPriority().getPriority() < newResult.getSearchResultTypeWithPriority().getPriority()) {
+                } else if (totalResults.size() > 1 && totalResults.get(1).getPriority() < newResult.getPriority()) {
                     return 1;
                 } else {
                     return 2;
@@ -520,7 +538,7 @@ public class SearchResultsFragment extends Fragment {
             }
             TextView pageTitleText = convertView.findViewById(R.id.page_list_item_title);
             SearchResult result = (SearchResult) getItem(position);
-            int resultPriority = result.getSearchResultTypeWithPriority().getPriority();
+            int resultPriority = result.getPriority();
 
             ImageView searchResultItemImage = convertView.findViewById(R.id.page_list_item_image);
             ImageView searchResultIcon = convertView.findViewById(R.id.page_list_icon);
@@ -622,6 +640,85 @@ public class SearchResultsFragment extends Fragment {
 
     private String getSearchLanguageCode() {
         return ((SearchFragment) getParentFragment()).getSearchLanguageCode();
+    }
+
+    private void gatherSearchResultsFromAppSources() {
+        getSearchResultsFromReadingLists();
+        getSearchResultsFromOpenTabs();
+        getSearchResultsFromHistoryEntries();
+    }
+
+    private void getSearchResultsFromHistoryEntries() {
+        LoaderManager.getInstance(requireActivity()).initLoader(SEARCH_FRAGMENT_HISTORY_LOADER_ID, null, loaderCallback);
+    }
+
+    private void getSearchResultsFromReadingLists() {
+        List<SearchResult> searchResultsFromAppSources = new ArrayList<>();
+        List<Object> list = ReadingListBehaviorsUtil.INSTANCE.applySearchQuery(currentSearchTerm, ReadingListDbHelper.instance().getAllLists());
+        for (Object o : list) {
+            if (o instanceof ReadingListPage) {
+                ReadingListPage page = (ReadingListPage) o;
+                PageTitle pageTitle = new PageTitle(page.title(), page.wiki(), page.thumbUrl());
+                SearchResult searchResult = new SearchResult(pageTitle);
+                searchResult.setSearchResultTypeWithPriority(READING_LIST_SEARCH_RESULT);
+                searchResultsFromAppSources.add(searchResult);
+                displayResults(searchResultsFromAppSources);
+                break;
+            }
+        }
+    }
+
+    private void getSearchResultsFromOpenTabs() {
+        List<SearchResult> searchResultsFromAppSources = new ArrayList<>();
+        List<Tab> tabList = WikipediaApp.getInstance().getTabList();
+        for (Tab tab : tabList) {
+            if (tab.getBackStackPositionTitle() != null && tab.getBackStackPositionTitle().getDisplayText().toLowerCase().contains(currentSearchTerm.toLowerCase())) {
+                SearchResult searchResult = new SearchResult(tab.getBackStackPositionTitle());
+                searchResult.setSearchResultTypeWithPriority(TAB_LIST_SEARCH_RESULT);
+                searchResultsFromAppSources.add(searchResult);
+                displayResults(searchResultsFromAppSources);
+                return;
+            }
+        }
+    }
+
+    private class LoaderCallback implements LoaderManager.LoaderCallbacks<Cursor> {
+        @NonNull @Override
+        public Loader<Cursor> onCreateLoader(int id, Bundle args) {
+            String titleCol = PageHistoryContract.PageWithImage.API_TITLE.qualifiedName();
+            String selection = null;
+            String[] selectionArgs = null;
+            String searchStr = currentSearchTerm;
+            if (!TextUtils.isEmpty(searchStr)) {
+                searchStr = searchStr.replace("\\", "\\\\").replace("%", "\\%").replace("_", "\\_");
+                selection = "UPPER(" + titleCol + ") LIKE UPPER(?) ESCAPE '\\'";
+                selectionArgs = new String[]{"%" + searchStr + "%"};
+            }
+            Uri uri = PageHistoryContract.PageWithImage.URI;
+            String order = PageHistoryContract.PageWithImage.ORDER_MRU;
+            return new CursorLoader(requireContext().getApplicationContext(), uri, null, selection, selectionArgs, order);
+        }
+
+        @Override
+        public void onLoadFinished(@NonNull Loader<Cursor> cursorLoader, Cursor cursor) {
+            HistoryFragment.IndexedHistoryEntry indexedEntry = null;
+            if (cursor.getCount() > 1) {
+                cursor.moveToFirst();
+                indexedEntry = new HistoryFragment.IndexedHistoryEntry(cursor);
+                List<SearchResult> searchResults = new ArrayList<>();
+                PageTitle pageTitle = indexedEntry.getEntry().getTitle();
+                pageTitle.setThumbUrl(indexedEntry.getImageUrl());
+                SearchResult searchResult = new SearchResult(pageTitle);
+                searchResult.setSearchResultTypeWithPriority(HIRTORY_SEARCH_RESULT);
+                searchResults.add(searchResult);
+                displayResults(searchResults);
+            }
+        }
+
+        @Override
+        public void onLoaderReset(@NonNull Loader<Cursor> loader) {
+            loader.cancelLoad();
+        }
     }
 }
 
