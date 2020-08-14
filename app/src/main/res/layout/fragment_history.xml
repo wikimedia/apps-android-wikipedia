@@ -12,9 +12,10 @@
 
         <LinearLayout
             android:id="@+id/history_empty_container"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_marginTop="200dp"
+            android:layout_gravity="center_horizontal"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -47,18 +48,19 @@
                 android:text="@string/history_empty_message" />
         </LinearLayout>
 
-        <org.wikipedia.views.SearchEmptyView
-            android:id="@+id/search_empty_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:visibility="gone" />
-
         <include
             android:id="@+id/history_list_container"
             layout="@layout/view_history_list_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:visibility="gone" />
+
+        <org.wikipedia.views.SearchEmptyView
+            android:id="@+id/search_empty_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="200dp"
             android:visibility="gone" />
     </FrameLayout>
 </androidx.core.widget.NestedScrollView>

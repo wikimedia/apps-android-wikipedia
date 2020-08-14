@@ -189,6 +189,10 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
             actionMode.finish();
             return true;
         }
+        if (selectedEntries.size() > 0) {
+            unselectAllPages();
+            return true;
+        }
         return false;
     }
 
@@ -202,6 +206,7 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
         }
         historyList.setVisibility(adapter.isEmpty() ? View.GONE : View.VISIBLE);
         deleteHistoryItems.setVisibility(adapter.isEmpty() ? View.GONE : View.VISIBLE);
+        filterHistoryItems.setVisibility(adapter.isEmpty() ? View.GONE : View.VISIBLE);
     }
 
     private void setEmptyContainerVisibility(boolean visible) {
@@ -532,6 +537,7 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
     private class HistorySearchCallback extends SearchActionModeCallback {
         @Override
         public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+            searchWikiCardView.setVisibility(View.GONE);
             actionMode = mode;
             ((MainFragment) getParentFragment()).setBottomNavVisible(false);
             return super.onCreateActionMode(mode, menu);
@@ -551,6 +557,7 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
                 restartLoader();
             }
             actionMode = null;
+            searchWikiCardView.setVisibility(View.VISIBLE);
             ((MainFragment) getParentFragment()).setBottomNavVisible(true);
         }
 

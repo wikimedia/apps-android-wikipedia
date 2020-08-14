@@ -643,16 +643,16 @@ public class SearchResultsFragment extends Fragment {
     }
 
     private void gatherSearchResultsFromAppSources() {
-        getSearchResultsFromReadingLists();
-        getSearchResultsFromOpenTabs();
-        getSearchResultsFromHistoryEntries();
+        addSearchResultFromReadingLists();
+        addSearchResultFromOpenTabs();
+        addSearchResultFromHistoryEntries();
     }
 
-    private void getSearchResultsFromHistoryEntries() {
+    private void addSearchResultFromHistoryEntries() {
         LoaderManager.getInstance(requireActivity()).initLoader(SEARCH_FRAGMENT_HISTORY_LOADER_ID, null, loaderCallback);
     }
 
-    private void getSearchResultsFromReadingLists() {
+    private void addSearchResultFromReadingLists() {
         List<SearchResult> searchResultsFromAppSources = new ArrayList<>();
         List<Object> list = ReadingListBehaviorsUtil.INSTANCE.applySearchQuery(currentSearchTerm, ReadingListDbHelper.instance().getAllLists());
         for (Object o : list) {
@@ -668,7 +668,7 @@ public class SearchResultsFragment extends Fragment {
         }
     }
 
-    private void getSearchResultsFromOpenTabs() {
+    private void addSearchResultFromOpenTabs() {
         List<SearchResult> searchResultsFromAppSources = new ArrayList<>();
         List<Tab> tabList = WikipediaApp.getInstance().getTabList();
         for (Tab tab : tabList) {
