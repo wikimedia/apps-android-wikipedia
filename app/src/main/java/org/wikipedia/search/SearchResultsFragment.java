@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.content.res.AppCompatResources;
 import androidx.collection.LruCache;
 import androidx.fragment.app.Fragment;
 
@@ -30,6 +31,7 @@ import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.GoneIfEmptyTextView;
+import org.wikipedia.views.TabCountsView;
 import org.wikipedia.views.ViewUtil;
 import org.wikipedia.views.WikiErrorView;
 
@@ -45,7 +47,11 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
+import static android.view.View.GONE;
+import static android.view.View.VISIBLE;
 import static org.apache.commons.lang3.StringUtils.isBlank;
+import static org.wikipedia.search.SearchResult.SearchResultTypeWithPriority.SEARCH_RESULT;
+import static org.wikipedia.search.SearchResult.SearchResultTypeWithPriority.TAB_LIST_SEARCH_RESULT;
 import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
 
 public class SearchResultsFragment extends Fragment {
@@ -93,7 +99,7 @@ public class SearchResultsFragment extends Fragment {
 
         searchErrorView.setBackClickListener((v) -> requireActivity().finish());
         searchErrorView.setRetryClickListener((v) -> {
-            searchErrorView.setVisibility(View.GONE);
+            searchErrorView.setVisibility(GONE);
             startSearch(currentSearchTerm, true);
         });
 
@@ -134,15 +140,15 @@ public class SearchResultsFragment extends Fragment {
     }
 
     public void show() {
-        searchResultsDisplay.setVisibility(View.VISIBLE);
+        searchResultsDisplay.setVisibility(VISIBLE);
     }
 
     public void hide() {
-        searchResultsDisplay.setVisibility(View.GONE);
+        searchResultsDisplay.setVisibility(GONE);
     }
 
     public boolean isShowing() {
-        return searchResultsDisplay.getVisibility() == View.VISIBLE;
+        return searchResultsDisplay.getVisibility() == VISIBLE;
     }
 
     public void setLayoutDirection(@NonNull String langCode) {
@@ -228,13 +234,13 @@ public class SearchResultsFragment extends Fragment {
                 })
                 .doAfterTerminate(() -> updateProgressBar(false))
                 .subscribe(results -> {
-                    searchErrorView.setVisibility(View.GONE);
+                    searchErrorView.setVisibility(GONE);
                     handleResults(results, searchTerm, startTime);
                 }, caught -> {
-                    searchEmptyView.setVisibility(View.GONE);
-                    searchErrorView.setVisibility(View.VISIBLE);
+                    searchEmptyView.setVisibility(GONE);
+                    searchErrorView.setVisibility(VISIBLE);
                     searchErrorView.setError(caught);
-                    searchResultsContainer.setVisibility(View.GONE);
+                    searchResultsContainer.setVisibility(GONE);
                     logError(false, startTime);
                 }));
     }
@@ -275,9 +281,9 @@ public class SearchResultsFragment extends Fragment {
                     + getString(R.string.search_did_you_mean, suggestion)
                     + "</u>"));
             searchSuggestion.setTag(suggestion);
-            searchSuggestion.setVisibility(View.VISIBLE);
+            searchSuggestion.setVisibility(VISIBLE);
         } else {
-            searchSuggestion.setVisibility(View.GONE);
+            searchSuggestion.setVisibility(GONE);
         }
     }
 
@@ -325,7 +331,7 @@ public class SearchResultsFragment extends Fragment {
                     if (clearOnSuccess) {
                         clearResults(false);
                     }
-                    searchErrorView.setVisibility(View.GONE);
+                    searchErrorView.setVisibility(GONE);
 
                     // full text special:
                     SearchResultsFragment.this.lastFullTextResults = results;
@@ -357,11 +363,11 @@ public class SearchResultsFragment extends Fragment {
     }
 
     private void clearResults(boolean clearSuggestion) {
-        searchResultsContainer.setVisibility(View.GONE);
-        searchEmptyView.setVisibility(View.GONE);
-        searchErrorView.setVisibility(View.GONE);
+        searchResultsContainer.setVisibility(GONE);
+        searchEmptyView.setVisibility(GONE);
+        searchErrorView.setVisibility(GONE);
         if (clearSuggestion) {
-            searchSuggestion.setVisibility(View.GONE);
+            searchSuggestion.setVisibility(GONE);
         }
 
         lastFullTextResults = null;
@@ -383,26 +389,52 @@ public class SearchResultsFragment extends Fragment {
     private void displayResults(List<SearchResult> results) {
         for (SearchResult newResult : results) {
             boolean contains = false;
+            int newResultPriority = newResult.getSearchResultTypeWithPriority().getPriority();
             for (SearchResult result : totalResults) {
                 if (newResult.getPageTitle().equals(result.getPageTitle())) {
                     contains = true;
+                    if (newResultPriority > result.getSearchResultTypeWithPriority().getPriority()) {
+                        totalResults.remove(result);
+                        totalResults.add(getCorrectIndexFor(newResult), newResult);
+                    }
                     break;
                 }
             }
             if (!contains) {
-                totalResults.add(newResult);
+                if (newResultPriority == SEARCH_RESULT.getPriority()) {
+                    totalResults.add(newResult);
+                } else {
+                    totalResults.add(getCorrectIndexFor(newResult), newResult);
+                }
             }
         }
 
         if (totalResults.isEmpty()) {
-            searchEmptyView.setVisibility(View.VISIBLE);
-            searchResultsContainer.setVisibility(View.GONE);
+            searchEmptyView.setVisibility(VISIBLE);
+            searchResultsContainer.setVisibility(GONE);
         } else {
-            searchEmptyView.setVisibility(View.GONE);
-            searchResultsContainer.setVisibility(View.VISIBLE);
+            searchEmptyView.setVisibility(GONE);
+            searchResultsContainer.setVisibility(VISIBLE);
         }
 
         getAdapter().notifyDataSetChanged();
+    }
+
+    private int getCorrectIndexFor(SearchResult newResult) {
+        if (totalResults.size() > 0) {
+            if (totalResults.get(0).getSearchResultTypeWithPriority().getPriority() == SEARCH_RESULT.getPriority()) {
+                return 0;
+            } else {
+                if (totalResults.get(0).getSearchResultTypeWithPriority().getPriority() < newResult.getSearchResultTypeWithPriority().getPriority()) {
+                    return 0;
+                } else if (totalResults.size() > 1 && totalResults.get(1).getSearchResultTypeWithPriority().getPriority() < newResult.getSearchResultTypeWithPriority().getPriority()) {
+                    return 1;
+                } else {
+                    return 2;
+                }
+            }
+        }
+        return 0;
     }
 
     private class SearchResultsFragmentLongPressHandler
@@ -488,26 +520,39 @@ public class SearchResultsFragment extends Fragment {
             }
             TextView pageTitleText = convertView.findViewById(R.id.page_list_item_title);
             SearchResult result = (SearchResult) getItem(position);
+            int resultPriority = result.getSearchResultTypeWithPriority().getPriority();
 
             ImageView searchResultItemImage = convertView.findViewById(R.id.page_list_item_image);
+            ImageView searchResultIcon = convertView.findViewById(R.id.page_list_icon);
+            TabCountsView searchResultTabCountsView = convertView.findViewById(R.id.page_list_button_tabs);
+            searchResultTabCountsView.updateTabCount();
             GoneIfEmptyTextView descriptionText = convertView.findViewById(R.id.page_list_item_description);
             TextView redirectText = convertView.findViewById(R.id.page_list_item_redirect);
             View redirectArrow = convertView.findViewById(R.id.page_list_item_redirect_arrow);
             if (TextUtils.isEmpty(result.getRedirectFrom())) {
-                redirectText.setVisibility(View.GONE);
-                redirectArrow.setVisibility(View.GONE);
+                redirectText.setVisibility(GONE);
+                redirectArrow.setVisibility(GONE);
                 descriptionText.setText(result.getPageTitle().getDescription());
             } else {
-                redirectText.setVisibility(View.VISIBLE);
-                redirectArrow.setVisibility(View.VISIBLE);
+                redirectText.setVisibility(VISIBLE);
+                redirectArrow.setVisibility(VISIBLE);
                 redirectText.setText(getString(R.string.search_redirect_from, result.getRedirectFrom()));
-                descriptionText.setVisibility(View.GONE);
+                descriptionText.setVisibility(GONE);
+            }
+            if (resultPriority == 0) {
+                searchResultIcon.setVisibility(GONE);
+                searchResultTabCountsView.setVisibility(GONE);
+            } else {
+                searchResultTabCountsView.setVisibility(resultPriority == TAB_LIST_SEARCH_RESULT.getPriority() ? VISIBLE : GONE);
+                searchResultIcon.setVisibility(resultPriority == TAB_LIST_SEARCH_RESULT.getPriority() ? GONE : VISIBLE);
+                searchResultIcon.setImageDrawable(AppCompatResources.getDrawable(requireContext(),
+                        resultPriority == 1 ? R.drawable.ic_baseline_history_24 : R.drawable.ic_bookmark_border_white_24dp));
             }
 
             // highlight search term within the text
             StringUtil.boldenKeywordText(pageTitleText, result.getPageTitle().getDisplayText(), currentSearchTerm);
 
-            searchResultItemImage.setVisibility((result.getPageTitle().getThumbUrl() == null) ? View.GONE : View.VISIBLE);
+            searchResultItemImage.setVisibility((result.getPageTitle().getThumbUrl() == null) ? GONE : VISIBLE);
             ViewUtil.loadImageWithRoundedCorners(searchResultItemImage, result.getPageTitle().getThumbUrl());
 
             // ...and lastly, if we've scrolled to the last item in the list, then
