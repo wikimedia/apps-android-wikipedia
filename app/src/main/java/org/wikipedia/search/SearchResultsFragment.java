@@ -135,6 +135,7 @@ public class SearchResultsFragment extends Fragment {
 
     @Override
     public void onDestroyView() {
+        LoaderManager.getInstance(requireActivity()).destroyLoader(HISTORY_FRAGMENT_LOADER_ID);
         searchErrorView.setRetryClickListener(null);
         unbinder.unbind();
         unbinder = null;
