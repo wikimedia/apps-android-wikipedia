@@ -64,7 +64,7 @@ import butterknife.Unbinder;
 
 import static org.wikipedia.Constants.HISTORY_FRAGMENT_LOADER_ID;
 
-public class HistoryFragment extends Fragment implements BackPressedHandler {
+public class SearchWithHistoryFragment extends Fragment implements BackPressedHandler {
     public interface Callback {
         void onLoadPage(@NonNull HistoryEntry entry);
         void onClearHistory();
@@ -90,8 +90,8 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
     private ActionMode actionMode;
     private SearchActionModeCallback searchActionModeCallback = new HistorySearchCallback();
     private HashSet<HistoryEntry> selectedEntries = new HashSet<>();
-    @NonNull public static HistoryFragment newInstance() {
-        return new HistoryFragment();
+    @NonNull public static SearchWithHistoryFragment newInstance() {
+        return new SearchWithHistoryFragment();
     }
 
     @Override

@@ -34,7 +34,7 @@ import org.wikipedia.database.contract.PageHistoryContract;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.history.HistoryFragment;
+import org.wikipedia.history.SearchWithHistoryFragment;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.tabs.Tab;
 import org.wikipedia.readinglist.ReadingListBehaviorsUtil;
@@ -714,10 +714,10 @@ public class SearchResultsFragment extends Fragment {
 
         @Override
         public void onLoadFinished(@NonNull Loader<Cursor> cursorLoader, Cursor cursor) {
-            HistoryFragment.IndexedHistoryEntry indexedEntry = null;
+            SearchWithHistoryFragment.IndexedHistoryEntry indexedEntry = null;
             if (cursor.getCount() > 1) {
                 cursor.moveToFirst();
-                indexedEntry = new HistoryFragment.IndexedHistoryEntry(cursor);
+                indexedEntry = new SearchWithHistoryFragment.IndexedHistoryEntry(cursor);
                 List<SearchResult> searchResults = new ArrayList<>();
                 PageTitle pageTitle = indexedEntry.getEntry().getTitle();
                 pageTitle.setThumbUrl(indexedEntry.getImageUrl());

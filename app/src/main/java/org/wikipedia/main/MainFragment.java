@@ -45,7 +45,7 @@ import org.wikipedia.gallery.GalleryActivity;
 import org.wikipedia.gallery.ImagePipelineBitmapGetter;
 import org.wikipedia.gallery.MediaDownloadReceiver;
 import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.history.HistoryFragment;
+import org.wikipedia.history.SearchWithHistoryFragment;
 import org.wikipedia.login.LoginActivity;
 import org.wikipedia.navtab.MenuNavTabDialog;
 import org.wikipedia.navtab.NavTab;
@@ -96,7 +96,7 @@ import static org.wikipedia.Constants.InvokeSource.NAV_MENU;
 import static org.wikipedia.Constants.InvokeSource.VOICE;
 
 public class MainFragment extends Fragment implements BackPressedHandler, FeedFragment.Callback,
-        HistoryFragment.Callback, LinkPreviewDialog.Callback {
+        SearchWithHistoryFragment.Callback, LinkPreviewDialog.Callback {
     @BindView(R.id.fragment_main_view_pager) ViewPager2 viewPager;
     @BindView(R.id.fragment_main_nav_tab_container) LinearLayout navTabContainer;
     @BindView(R.id.fragment_main_nav_tab_layout) NavTabLayout tabLayout;
@@ -150,7 +150,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
             if (!navTabAutoSelect && getCurrentFragment() instanceof FeedFragment && item.getOrder() == 0) {
                 ((FeedFragment) getCurrentFragment()).scrollToTop();
             }
-            if (!navTabAutoSelect && getCurrentFragment() instanceof HistoryFragment && item.getOrder() == NavTab.SEARCH.code()) {
+            if (!navTabAutoSelect && getCurrentFragment() instanceof SearchWithHistoryFragment && item.getOrder() == NavTab.SEARCH.code()) {
                 openSearchActivity(NAV_MENU, null);
             }
             viewPager.setCurrentItem(item.getOrder(), false);
@@ -438,8 +438,8 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         Fragment fragment = getCurrentFragment();
         if (fragment instanceof FeedFragment) {
             ((FeedFragment) fragment).onGoOffline();
-        } else if (fragment instanceof HistoryFragment) {
-            ((HistoryFragment) fragment).refresh();
+        } else if (fragment instanceof SearchWithHistoryFragment) {
+            ((SearchWithHistoryFragment) fragment).refresh();
         }
     }
 
@@ -447,8 +447,8 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         Fragment fragment = getCurrentFragment();
         if (fragment instanceof FeedFragment) {
             ((FeedFragment) fragment).onGoOnline();
-        } else if (fragment instanceof HistoryFragment) {
-            ((HistoryFragment) fragment).refresh();
+        } else if (fragment instanceof SearchWithHistoryFragment) {
+            ((SearchWithHistoryFragment) fragment).refresh();
         }
     }
 
@@ -491,8 +491,8 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
             ((FeedFragment) fragment).refresh();
         } else if (fragment instanceof ReadingListsFragment) {
             ((ReadingListsFragment) fragment).updateLists();
-        } else if (fragment instanceof HistoryFragment) {
-            ((HistoryFragment) fragment).refresh();
+        } else if (fragment instanceof SearchWithHistoryFragment) {
+            ((SearchWithHistoryFragment) fragment).refresh();
         } else if (fragment instanceof SuggestedEditsTasksFragment) {
             ((SuggestedEditsTasksFragment) fragment).refreshContents();
         }
