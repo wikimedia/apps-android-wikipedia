@@ -62,6 +62,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
 import static org.apache.commons.lang3.StringUtils.isBlank;
+import static org.wikipedia.Constants.HISTORY_FRAGMENT_LOADER_ID;
 import static org.wikipedia.Constants.SEARCH_FRAGMENT_HISTORY_LOADER_ID;
 import static org.wikipedia.search.SearchResult.SearchResultTypeWithPriority.HIRTORY_SEARCH_RESULT;
 import static org.wikipedia.search.SearchResult.SearchResultTypeWithPriority.READING_LIST_SEARCH_RESULT;
@@ -441,25 +442,25 @@ public class SearchResultsFragment extends Fragment {
         getAdapter().notifyDataSetChanged();
     }
 
-    private void insertSearchResultInCorrectPosition(@NonNull SearchResult newRes) {
+    private void insertSearchResultInCorrectPosition(@NonNull SearchResult newResult) {
         final int numOfResultsFromAppSources = 3;
 
         for (ListIterator<SearchResult> iterator = totalResults.listIterator(); totalResults.size() >= iterator.nextIndex() && iterator.nextIndex() < numOfResultsFromAppSources;) {
             int currentPos = iterator.nextIndex();
             SearchResult resultInPosition = iterator.next();
-            if (resultInPosition.getPriority() == newRes.getPriority() && !resultInPosition.getPageTitle().getText().equals(newRes.getPageTitle().getText())) {
+            if (resultInPosition.getPriority() == newResult.getPriority() && !resultInPosition.getPageTitle().getText().equals(newResult.getPageTitle().getText())) {
                 //replace search result
                 iterator.remove();
-                iterator.add(newRes);
+                iterator.add(newResult);
                 return;
             }
-            if (resultInPosition.getPriority() < newRes.getPriority()) {
-                totalResults.add(currentPos, newRes);
+            if (resultInPosition.getPriority() < newResult.getPriority()) {
+                totalResults.add(currentPos, newResult);
                 return;
             }
         }
-        //Results list was shorter than 3 so add to the end
-        totalResults.add(newRes);
+        //Results list was shorter than 3, so add to the end
+        totalResults.add(newResult);
     }
 
     private class SearchResultsFragmentLongPressHandler
@@ -564,14 +565,14 @@ public class SearchResultsFragment extends Fragment {
                 redirectText.setText(getString(R.string.search_redirect_from, result.getRedirectFrom()));
                 descriptionText.setVisibility(GONE);
             }
-            if (resultPriority == 0) {
+            if (resultPriority == SEARCH_RESULT.getPriority()) {
                 searchResultIcon.setVisibility(GONE);
                 searchResultTabCountsView.setVisibility(GONE);
             } else {
                 searchResultTabCountsView.setVisibility(resultPriority == TAB_LIST_SEARCH_RESULT.getPriority() ? VISIBLE : GONE);
                 searchResultIcon.setVisibility(resultPriority == TAB_LIST_SEARCH_RESULT.getPriority() ? GONE : VISIBLE);
                 searchResultIcon.setImageDrawable(AppCompatResources.getDrawable(requireContext(),
-                        resultPriority == 1 ? R.drawable.ic_baseline_history_24 : R.drawable.ic_bookmark_border_white_24dp));
+                        resultPriority == HIRTORY_SEARCH_RESULT.getPriority() ? R.drawable.ic_baseline_history_24 : R.drawable.ic_bookmark_border_white_24dp));
             }
 
             // highlight search term within the text

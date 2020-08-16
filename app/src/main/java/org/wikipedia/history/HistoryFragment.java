@@ -122,7 +122,7 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
         return view;
     }
 
-    @OnClick(R.id.history_delete) void onDeleteEntriesClicked(View v) {
+    @OnClick(R.id.history_delete) void onDeleteHistoryEntriesClicked(View v) {
         if (selectedEntries.size() == 0) {
             new AlertDialog.Builder(requireContext())
                     .setTitle(R.string.dialog_title_clear_history)
@@ -144,7 +144,6 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
     @OnClick(R.id.search_card) void onSearchCardClicked(View v) {
         ((MainFragment) getParentFragment()).openSearchActivity(Constants.InvokeSource.NAV_MENU, null);
     }
-
 
     private void setUpScrollListener() {
         historyNestedScrollView.setOnScrollChangeListener((NestedScrollView.OnScrollChangeListener) (v, scrollX, scrollY, oldScrollX, oldScrollY) -> {
@@ -503,7 +502,7 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
     private class ItemCallback implements PageItemView.Callback<IndexedHistoryEntry> {
         @Override
         public void onClick(@Nullable IndexedHistoryEntry indexedEntry) {
-            if (selectedEntries != null && selectedEntries.size() > 0) {
+            if (selectedEntries != null && !selectedEntries.isEmpty()) {
                 toggleSelectPage(indexedEntry);
             } else if (indexedEntry != null) {
                 onPageClick(new HistoryEntry(indexedEntry.getEntry().getTitle(), HistoryEntry.SOURCE_HISTORY));
