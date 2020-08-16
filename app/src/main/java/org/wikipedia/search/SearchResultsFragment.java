@@ -48,6 +48,7 @@ import org.wikipedia.views.WikiErrorView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ListIterator;
 import java.util.Map;
 
 import butterknife.BindView;
@@ -95,6 +96,7 @@ public class SearchResultsFragment extends Fragment {
     @BindView(R.id.search_empty_view) View searchEmptyView;
     @BindView(R.id.search_suggestion) TextView searchSuggestion;
     private Unbinder unbinder;
+    private Loader<Cursor> loaderManager;
 
     private final LruCache<String, List<SearchResult>> searchResultsCache = new LruCache<>(MAX_CACHE_SIZE_SEARCH_RESULTS);
     private Handler searchHandler;
@@ -407,22 +409,23 @@ public class SearchResultsFragment extends Fragment {
     private void displayResults(List<SearchResult> results) {
         for (SearchResult newResult : results) {
             boolean contains = false;
-            int newResultPriority = newResult.getPriority();
             for (SearchResult result : totalResults) {
                 if (newResult.getPageTitle().equals(result.getPageTitle())) {
                     contains = true;
-                    if (newResultPriority > result.getPriority()) {
-                        totalResults.remove(result);
-                        totalResults.add(getCorrectIndexFor(newResult), newResult);
+                    if (newResult.getPriority() == SEARCH_RESULT.getPriority()
+                            || newResult.getPriority() <= result.getPriority()) {
+                        break;
                     }
+                    totalResults.remove(result);
+                    insertSearchResultInCorrectPosition(newResult);
                     break;
                 }
             }
             if (!contains) {
-                if (newResultPriority == SEARCH_RESULT.getPriority()) {
+                if (newResult.getPriority() == SEARCH_RESULT.getPriority() || totalResults.isEmpty()) {
                     totalResults.add(newResult);
                 } else {
-                    totalResults.add(getCorrectIndexFor(newResult), newResult);
+                    insertSearchResultInCorrectPosition(newResult);
                 }
             }
         }
@@ -438,21 +441,25 @@ public class SearchResultsFragment extends Fragment {
         getAdapter().notifyDataSetChanged();
     }
 
-    private int getCorrectIndexFor(SearchResult newResult) {
-        if (totalResults.size() > 0) {
-            if (totalResults.get(0).getPriority() == SEARCH_RESULT.getPriority()) {
-                return 0;
-            } else {
-                if (totalResults.get(0).getPriority() < newResult.getPriority()) {
-                    return 0;
-                } else if (totalResults.size() > 1 && totalResults.get(1).getPriority() < newResult.getPriority()) {
-                    return 1;
-                } else {
-                    return 2;
-                }
+    private void insertSearchResultInCorrectPosition(@NonNull SearchResult newRes) {
+        final int numOfResultsFromAppSources = 3;
+
+        for (ListIterator<SearchResult> iterator = totalResults.listIterator(); totalResults.size() >= iterator.nextIndex() && iterator.nextIndex() < numOfResultsFromAppSources; ) {
+            int currentPos = iterator.nextIndex();
+            SearchResult resultInPosition = iterator.next();
+            if (resultInPosition.getPriority() == newRes.getPriority() && !resultInPosition.getPageTitle().getText().equals(newRes.getPageTitle().getText())) {
+                //replace search result
+                iterator.remove();
+                iterator.add(newRes);
+                return;
+            }
+            if (resultInPosition.getPriority() < newRes.getPriority()) {
+                totalResults.add(currentPos, newRes);
+                return;
             }
         }
-        return 0;
+        //Results list was shorter than 3 so add to the end
+        totalResults.add(newRes);
     }
 
     private class SearchResultsFragmentLongPressHandler
@@ -649,7 +656,11 @@ public class SearchResultsFragment extends Fragment {
     }
 
     private void addSearchResultFromHistoryEntries() {
-        LoaderManager.getInstance(requireActivity()).initLoader(SEARCH_FRAGMENT_HISTORY_LOADER_ID, null, loaderCallback);
+        if (loaderManager == null) {
+            loaderManager = LoaderManager.getInstance(requireActivity()).initLoader(SEARCH_FRAGMENT_HISTORY_LOADER_ID, null, loaderCallback);
+        } else {
+            LoaderManager.getInstance(requireActivity()).restartLoader(SEARCH_FRAGMENT_HISTORY_LOADER_ID, null, loaderCallback);
+        }
     }
 
     private void addSearchResultFromReadingLists() {
