@@ -444,7 +444,7 @@ public class SearchResultsFragment extends Fragment {
     private void insertSearchResultInCorrectPosition(@NonNull SearchResult newRes) {
         final int numOfResultsFromAppSources = 3;
 
-        for (ListIterator<SearchResult> iterator = totalResults.listIterator(); totalResults.size() >= iterator.nextIndex() && iterator.nextIndex() < numOfResultsFromAppSources; ) {
+        for (ListIterator<SearchResult> iterator = totalResults.listIterator(); totalResults.size() >= iterator.nextIndex() && iterator.nextIndex() < numOfResultsFromAppSources;) {
             int currentPos = iterator.nextIndex();
             SearchResult resultInPosition = iterator.next();
             if (resultInPosition.getPriority() == newRes.getPriority() && !resultInPosition.getPageTitle().getText().equals(newRes.getPageTitle().getText())) {
