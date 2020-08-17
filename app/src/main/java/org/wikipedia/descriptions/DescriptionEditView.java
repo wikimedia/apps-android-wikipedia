@@ -263,19 +263,25 @@ public class DescriptionEditView extends LinearLayout {
 
     public void setError(@Nullable CharSequence text) {
         pageDescriptionLayout.setErrorIconDrawable(R.drawable.ic_error_black_24dp);
-        pageDescriptionLayout.setErrorIconTintList(ColorStateList.valueOf(ResourceUtil.getThemedColor(getContext(), R.attr.colorError)));
-        pageDescriptionLayout.setErrorTextColor(ColorStateList.valueOf(ResourceUtil.getThemedColor(getContext(), R.attr.colorError)));
+        ColorStateList colorStateList = ColorStateList.valueOf(ResourceUtil.getThemedColor(getContext(), R.attr.colorError));
+        pageDescriptionLayout.setErrorIconTintList(colorStateList);
+        pageDescriptionLayout.setErrorTextColor(colorStateList);
+        pageDescriptionLayout.setBoxStrokeErrorColor(colorStateList);
         layoutErrorState(text);
     }
 
     private void setWarning(@Nullable CharSequence text) {
         pageDescriptionLayout.setErrorIconDrawable(R.drawable.ic_warning_24);
-        pageDescriptionLayout.setErrorIconTintList(ColorStateList.valueOf(ContextCompat.getColor(getContext(), R.color.yellow30)));
-        pageDescriptionLayout.setErrorTextColor(ColorStateList.valueOf(ContextCompat.getColor(getContext(), R.color.yellow30)));
+        ColorStateList colorStateList = ColorStateList.valueOf(ContextCompat.getColor(getContext(), R.color.yellow30));
+        pageDescriptionLayout.setErrorIconTintList(colorStateList);
+        pageDescriptionLayout.setErrorTextColor(colorStateList);
+        pageDescriptionLayout.setBoxStrokeErrorColor(colorStateList);
         layoutErrorState(text);
     }
 
     private void layoutErrorState(@Nullable CharSequence text) {
+        // explicitly set the error to null, to prevent a glitch in the Material library.
+        pageDescriptionLayout.setError(null);
         pageDescriptionLayout.setError(text);
         if (!TextUtils.isEmpty(text)) {
             post(() -> {

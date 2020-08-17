@@ -327,6 +327,10 @@
     <string name="location_permissions_enable_prompt">Enable location permissions to see places near you.</string>
     <string name="location_permissions_enable_action">Turn on</string>
     <string name="error_webview_updating">The Android System WebView is currently being updated. Please try again in a moment.</string>
+    <plurals name="multi_items_selected">
+        <item quantity="one">%d selected</item>
+        <item quantity="other">%d selected</item>
+    </plurals>
     <string name="multi_select_items_selected">%d selected</string>
     <string name="error_message_generic">An error occurred</string>
     <string name="view_link_preview_error_button_dismiss">Dismiss</string>
@@ -389,6 +393,14 @@
     <string name="reading_list_articles_already_exist_message">All good! %s already contains all articles.</string>
     <string name="reading_list_added_view_button">View list</string>
     <string name="reading_list_add_to_list_button">Add to list</string>
+    <plurals name="format_reading_list_statistical_summary">
+        <item quantity="one">1 article, %2$.2f MB</item>
+        <item quantity="other">%1$d articles, %2$.2f MB</item>
+    </plurals>
+    <plurals name="format_reading_list_statistical_detail">
+        <item quantity="one">%1$d of 1 article available offline, %3$.2f MB</item>
+        <item quantity="other">%1$d of %2$d articles available offline, %3$.2f MB</item>
+    </plurals>
     <string name="format_reading_list_statistical_summary_singular">1 article, %1$.2f MB</string>
     <string name="format_reading_list_statistical_summary_plural">%1$d articles, %2$.2f MB</string>
     <string name="format_reading_list_statistical_detail_singular">%1$d of 1 articles available offline, %2$.2f MB</string>
@@ -413,6 +425,10 @@
     <string name="reading_list_name_hint">Name of this list</string>
     <string name="reading_list_description_hint">Description (optional)</string>
     <string name="reading_list_item_deleted">%s removed from list</string>
+    <plurals name="reading_list_articles_deleted">
+        <item quantity="one">%d article removed from list</item>
+        <item quantity="other">%d articles removed from list</item>
+    </plurals>
     <string name="reading_list_items_deleted">%d articles removed from list</string>
     <string name="reading_lists_item_deleted">%s removed from lists</string>
     <string name="reading_list_item_delete_undo">Undo</string>
@@ -819,6 +835,10 @@
     <string name="suggested_edits_contribution_image_label">Image</string>
     <string name="suggested_edits_contribution_article_label">Article</string>
     <string name="suggested_edits_contribution_views">%s views</string>
+    <plurals name="suggested_edits_contribution_seen_times">
+        <item quantity="one">Seen once in the past 30 days.</item>
+        <item quantity="other">Seen %s times in the past 30 days.</item>
+    </plurals>
     <string name="suggested_edits_contribution_seen_text">Seen %s times in the past 30 days.</string>
     <plurals name="suggested_edits_image_tag_contribution_label">
         <item quantity="one">You added %d tag</item>
@@ -826,6 +846,18 @@
     </plurals>
     <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
     <string name="suggested_edits_contribution_date_yesterday_text">Yesterday</string>
+    <plurals name="suggested_edits_rewards_contributions">
+        <item quantity="one">You\'ve made one contribution to Wikipedia using Suggested Edits. Thank you!</item>
+        <item quantity="other">You\'ve made %d contributions to Wikipedia using Suggested Edits. Thank you!</item>
+    </plurals>
+    <plurals name="suggested_edits_rewards_edit_streaks">
+        <item quantity="one">You\'ve been editing for one whole day. Keep the streak going, %2$s!</item>
+        <item quantity="other">You\'ve edited every day for %1$d days so far. Keep the streak going, %2$s!</item>
+    </plurals>
+    <plurals name="suggested_edits_rewards_page_views">
+        <item quantity="one">Your edits have been seen by one person in the last 30 days. Thanks, and keep going!</item>
+        <item quantity="other">Your edits have been seen by %d people in the last 30 days. Thanks, and keep going!</item>
+    </plurals>
     <string name="suggested_edits_rewards_contribution">You\'ve made %d contributions to Wikipedia using Suggested edits. Thank you!</string>
     <string name="suggested_edits_rewards_edit_streak">You\'ve edited every day for %1$d days so far. Keep the streak going, %2$s!</string>
     <string name="suggested_edits_rewards_pageviews">Your edits have been seen by %d people in the last 30 days. Thanks, and keep going!</string>
