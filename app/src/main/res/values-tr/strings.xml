@@ -9,6 +9,7 @@
 * Envlh
 * Fitoschido
 * Gambollar
+* Gokalpselamet
 * Grkn gll
 * HakanIST
 * Hedda
@@ -655,7 +656,7 @@
   <string name="description_edit_voice_input_description">Ses girişi</string>
   <string name="description_too_short">Metin çok kısa.</string>
   <string name="description_ends_with_punctuation">Metin noktalama işaretleri ile bitmemelidir.</string>
-  <string name="description_starts_with_article" fuzzy="true">\"A\" veya \"the\" gibi maddelerle başlamayın.</string>
+  <string name="description_starts_with_article">\"A\" veya \"the\" gibi maddelerle başlamaktan kaçının.</string>
   <string name="description_starts_with_uppercase">İlk kelime uygun bir isim değilse, küçük harfle başlayın.</string>
   <string name="description_edit_success_saved">Madde açıklaması yayımlandı!</string>
   <string name="description_edit_success_saved_snackbar">Madde açıklaması yayımlandı!</string>
@@ -729,6 +730,7 @@
   <string name="suggested_edits_image_preview_dialog_more_info">Daha Fazla Bilgi</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Wikimedia Commons\'taki dosya sayfası</string>
   <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">Vikipedi\'deki dosya sayfası</string>
+  <string name="suggested_edits_article_cta_image_tags">Resim etiketleri ekle</string>
   <string name="suggested_edits_article_cta_image_caption">Resim yazısı ekle</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Resim yazısı ekle (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Görüntüle</string>
