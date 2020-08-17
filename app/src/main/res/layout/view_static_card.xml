@@ -60,7 +60,7 @@
                 android:layout_height="48dp"
                 android:layout_gravity="center"
                 android:contentDescription="@string/view_static_card_icon_content_description"
-                android:tint="@android:color/white"
+                app:tint="@android:color/white"
                 tools:src="@drawable/ic_casino_accent50_24dp" />
 
             <ProgressBar
@@ -91,7 +91,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:contentDescription="@null"
-            android:tint="?attr/secondary_text_color"
+            app:tint="?attr/secondary_text_color"
             tools:src="@drawable/ic_casino_accent50_24dp" />
 
         <TextView
@@ -116,7 +116,7 @@
         android:contentDescription="@string/abc_action_menu_overflow_description"
         android:focusable="true"
         android:padding="8dp"
-        android:tint="?attr/secondary_text_color"
+        app:tint="?attr/secondary_text_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/view_static_card_container"
         app:srcCompat="@drawable/ic_more_vert_white_24dp" />

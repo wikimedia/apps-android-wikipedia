@@ -28,7 +28,7 @@
             android:background="@drawable/button_shape_add_reading_list"
             android:contentDescription="@null"
             android:padding="4dp"
-            android:tint="@color/base100"
+            app:tint="@color/base100"
             android:visibility="gone"
             app:srcCompat="@drawable/ic_check_black_24dp" />
     </LinearLayout>

@@ -41,9 +41,8 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:contentDescription="@null"
-            android:tint="?attr/colorAccent"
-            app:srcCompat="@drawable/ic_add_gray_white_24dp"
-            app:tint="@color/base30" />
+            app:tint="?attr/colorAccent"
+            app:srcCompat="@drawable/ic_add_gray_white_24dp" />
 
         <TextView
             android:layout_width="wrap_content"
