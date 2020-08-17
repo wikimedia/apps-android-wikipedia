@@ -400,7 +400,7 @@ public class ReadingListFragment extends Fragment implements ReadingListItemActi
         if (selectedCount == 0) {
             finishActionMode();
         } else if (actionMode != null) {
-            actionMode.setTitle(getString(R.string.multi_select_items_selected, selectedCount));
+            actionMode.setTitle(getResources().getQuantityString(R.plurals.multi_items_selected, selectedCount, selectedCount));
         }
         adapter.notifyDataSetChanged();
     }

@@ -163,10 +163,8 @@ object ReadingListBehaviorsUtil {
             return
         }
         FeedbackUtil
-                .makeSnackbar(activity,
-                        activity.getString(
-                                if (pages.size == 1) R.string.reading_list_item_deleted else R.string.reading_list_items_deleted,
-                                if (pages.size == 1) pages[0].title() else pages.size),
+                .makeSnackbar(activity, if (pages.size == 1) activity.getString(R.string.reading_list_item_deleted, pages[0].title())
+                                else activity.resources.getQuantityString(R.plurals.reading_list_articles_deleted, pages.size, pages.size),
                         FeedbackUtil.LENGTH_DEFAULT)
                 .setAction(R.string.reading_list_item_delete_undo) {
                     val newPages = ArrayList<ReadingListPage>()
