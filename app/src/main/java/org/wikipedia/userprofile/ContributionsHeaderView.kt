@@ -69,7 +69,7 @@ class ContributionsHeaderView constructor(context: Context, attrs: AttributeSet?
 
     fun updateTotalPageViews(pageViews: Long) {
         if (pageViews > 0) {
-            contributionsSeenText.text = context.getString(R.string.suggested_edits_contribution_seen_text, pageViews.toString())
+            contributionsSeenText.text = context.resources.getQuantityString(R.plurals.suggested_edits_contribution_seen_times, pageViews.toInt(), pageViews)
         }
     }
 
