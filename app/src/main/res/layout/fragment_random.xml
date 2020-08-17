@@ -35,7 +35,7 @@
                 android:contentDescription="@null"
                 android:focusable="true"
                 android:padding="4dp"
-                android:tint="?attr/themed_icon_color"
+                app:tint="?attr/themed_icon_color"
                 app:srcCompat="@drawable/ic_replay_black_24dp" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -62,7 +62,7 @@
                 android:contentDescription="@string/button_add_to_reading_list"
                 android:focusable="true"
                 android:padding="4dp"
-                android:tint="?attr/themed_icon_color"
+                app:tint="?attr/themed_icon_color"
                 app:srcCompat="@drawable/ic_bookmark_border_white_24dp" />
 
         </LinearLayout>

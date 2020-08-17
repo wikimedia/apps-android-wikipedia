@@ -85,7 +85,7 @@
                     android:layout_height="@dimen/app_shortcut_icon_size"
                     android:contentDescription="@null"
                     app:srcCompat="@drawable/ic_add_gray_white_24dp"
-                    android:tint="?attr/colorAccent" />
+                    app:tint="?attr/colorAccent" />
 
                 <TextView
                     android:id="@+id/callToActionText"
