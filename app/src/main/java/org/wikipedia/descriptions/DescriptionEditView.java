@@ -52,7 +52,7 @@ import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
 
 public class DescriptionEditView extends LinearLayout {
-    private static final int TEXT_VALIDATE_DELAY_MILLIS = 500;
+    private static final int TEXT_VALIDATE_DELAY_MILLIS = 1000;
 
     @BindView(R.id.view_description_edit_toolbar_container) FrameLayout toolbarContainer;
     @BindView(R.id.view_description_edit_header) TextView headerText;
@@ -279,9 +279,13 @@ public class DescriptionEditView extends LinearLayout {
         layoutErrorState(text);
     }
 
-    private void layoutErrorState(@Nullable CharSequence text) {
-        // explicitly set the error to null, to prevent a glitch in the Material library.
+    private void clearError() {
         pageDescriptionLayout.setError(null);
+    }
+
+    private void layoutErrorState(@Nullable CharSequence text) {
+        // explicitly clear the error, to prevent a glitch in the Material library.
+        clearError();
         pageDescriptionLayout.setError(text);
         if (!TextUtils.isEmpty(text)) {
             post(() -> {
@@ -346,7 +350,7 @@ public class DescriptionEditView extends LinearLayout {
 
         if (text.length() == 0) {
             isTextValid = false;
-            setError(null);
+            clearError();
         } else if (text.length() < 2) {
             isTextValid = false;
             setError(getContext().getString(R.string.description_too_short));
@@ -361,7 +365,7 @@ public class DescriptionEditView extends LinearLayout {
                 && pageTitle.getWikiSite().languageCode().equals("en") && Character.isUpperCase(pageDescriptionText.getText().toString().charAt(0))) {
             setWarning(getContext().getString(R.string.description_starts_with_uppercase));
         } else {
-            setError(null);
+            clearError();
         }
 
         updateSaveButtonEnabled();
