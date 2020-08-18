@@ -481,7 +481,6 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         } else if (fragment instanceof SuggestedEditsTasksFragment) {
             ((SuggestedEditsTasksFragment) fragment).refreshContents();
         }
-//        resetNavTabLayouts();
     }
 
     private void updateFeedHiddenCards() {
