@@ -123,7 +123,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     @BindView(R.id.page_progress_bar) ProgressBar progressBar;
     @BindView(R.id.page_toolbar_container) View toolbarContainerView;
     @BindView(R.id.page_toolbar) Toolbar toolbar;
-    @BindView(R.id.page_toolbar_button_search) ImageView searchButton;
     @BindView(R.id.page_toolbar_button_tabs) TabCountsView tabsButton;
     @BindView(R.id.page_toolbar_button_show_overflow_menu) ImageView overflowButton;
     @Nullable private Unbinder unbinder;
@@ -182,7 +181,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         clearActionBarTitle();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        FeedbackUtil.setButtonLongPressToast(searchButton, tabsButton, overflowButton);
+        FeedbackUtil.setButtonLongPressToast(tabsButton, overflowButton);
 
         toolbarHideHandler = new PageToolbarHideHandler(pageFragment, toolbarContainerView, toolbar, tabsButton);
 
@@ -228,11 +227,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         getWindow().getDecorView().setSystemUiVisibility(light
                 ? getWindow().getDecorView().getSystemUiVisibility() | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
                 : getWindow().getDecorView().getSystemUiVisibility() & ~View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
-    }
-
-    @OnClick(R.id.page_toolbar_button_search)
-    public void onSearchButtonClicked() {
-        pageFragment.openSearchActivity(TOOLBAR);
     }
 
     @OnClick(R.id.page_toolbar_button_tabs)
