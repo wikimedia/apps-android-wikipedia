@@ -827,7 +827,7 @@
     <item quantity="one">Text summarizing the user\'s image tag contribution. %d represents the number of tags contributed.</item>
     <item quantity="other">Text summarizing the user\'s image tag contribution. %d represents the number of tags contributed.</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">Contributions filter dropdown item text. %1$d represents the count of the edit type. %2$s is the type of the edit.</string>
+  <string name="suggested_edits_contribution_type_title">Dropdown selection for filtering different types of edits made by the user. %1$d represents the number of edits of a certain type, and %2$s represents the type of edit, which can include Descriptions, Captions, or general Contributions.</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Text for contributions date to indicate it was contributed yesterday</string>
   <plurals name="suggested_edits_rewards_contributions">
     <item quantity="one">Message shown about the number of contributions the user has made.</item>
@@ -844,7 +844,7 @@
   <string name="suggested_edits_rewards_contribution">Message shown to a user about the number of contributions the user has made. The %d represents the number of contrubutions.</string>
   <string name="suggested_edits_rewards_edit_streak">Message shown to a user about the length of edit streak the user has made. The %1$d represents the length of edit streak and the %2$s represents the user name.</string>
   <string name="suggested_edits_rewards_pageviews">Message shown to a user about the pageviews the user has earned in a period of time. The %d represents the number of pageviews.</string>
-  <string name="suggested_edits_rewards_edit_quality">Message shown to a user about the edit quality status. The %s represents the quality of edits.</string>
+  <string name="suggested_edits_rewards_edit_quality">Message shown to the user about the quality of their edits so far. The %s represents the quality, such as Excellent, Good, Okay, Bad, etc.</string>
   <string name="suggested_edits_rewards_continue_button">Button label to move to the next card of suggested edits.</string>
   <string name="suggested_edits_encourage_account_creation_title">Title text of the encourage account creation card.</string>
   <string name="suggested_edits_encourage_account_creation_message">Content text of the encourage account creation card.</string>
