@@ -12,10 +12,6 @@ import org.wikipedia.R
 
 class NavTabLayout constructor(context: Context, attrs: AttributeSet) : BottomNavigationView(context, attrs) {
     init {
-        setTabViews()
-    }
-
-    fun setTabViews() {
         menu.clear()
         for (i in 0 until NavTab.size()) {
             val navTab = NavTab.of(i)
