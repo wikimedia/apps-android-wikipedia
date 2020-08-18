@@ -215,20 +215,12 @@ public class ReadingListItemView extends ConstraintLayout {
 
     @NonNull private String buildStatisticalSummaryText(@NonNull ReadingList readingList) {
         float listSize = statsTextListSize(readingList);
-        return readingList.pages().size() == 1
-                ? getString(R.string.format_reading_list_statistical_summary_singular,
-                    listSize)
-                : getString(R.string.format_reading_list_statistical_summary_plural,
-                    readingList.pages().size(), listSize);
+        return getResources().getQuantityString(R.plurals.format_reading_list_statistical_summary, readingList.pages().size(), readingList.pages().size(), listSize);
     }
 
     @NonNull private String buildStatisticalDetailText(@NonNull ReadingList readingList) {
         float listSize = statsTextListSize(readingList);
-        return readingList.pages().size() == 1
-                ? getString(R.string.format_reading_list_statistical_detail_singular,
-                    readingList.numPagesOffline(), listSize)
-                : getString(R.string.format_reading_list_statistical_detail_plural,
-                    readingList.numPagesOffline(), readingList.pages().size(), listSize);
+        return getResources().getQuantityString(R.plurals.format_reading_list_statistical_detail, readingList.pages().size(), readingList.numPagesOffline(), readingList.pages().size(), listSize);
     }
 
     private float statsTextListSize(@NonNull ReadingList readingList) {

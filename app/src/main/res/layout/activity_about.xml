@@ -36,7 +36,7 @@
                 android:layout_marginTop="4dp"
                 android:contentDescription="@null"
                 android:src="@drawable/wp_wordmark"
-                android:tint="?attr/chart_shade1" />
+                app:tint="?attr/chart_shade1" />
 
             <TextView
                 android:id="@+id/about_version_text"
@@ -151,7 +151,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="24dp"
             android:contentDescription="@null"
-            android:tint="?attr/secondary_text_color"
+            app:tint="?attr/secondary_text_color"
             app:srcCompat="@drawable/ic_wmf_logo" />
 
         <org.wikipedia.views.AppTextView

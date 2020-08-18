@@ -71,7 +71,7 @@
             android:layout_marginTop="1dp"
             android:layout_gravity="center_vertical"
             android:contentDescription="@null"
-            android:tint="?attr/colorAccent"
+            app:tint="?attr/colorAccent"
             android:visibility="gone"
             app:srcCompat="@drawable/ic_open_in_new_black_24px"
             tools:visibility="visible"/>

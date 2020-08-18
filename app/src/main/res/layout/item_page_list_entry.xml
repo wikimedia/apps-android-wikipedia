@@ -92,7 +92,7 @@
             android:background="@drawable/button_shape_gray"
             android:contentDescription="@null"
             android:padding="8dp"
-            android:tint="@android:color/white"
+            app:tint="@android:color/white"
             android:visibility="gone"
             app:backgroundTint="@color/accent50"
             app:srcCompat="@drawable/ic_check_black_24dp"
