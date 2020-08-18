@@ -16,6 +16,7 @@ import androidx.core.widget.PopupWindowCompat;
 import com.google.android.material.textview.MaterialTextView;
 
 import org.wikipedia.R;
+import org.wikipedia.analytics.ABTestExploreVsHomeFunnel;
 import org.wikipedia.page.tabs.Tab;
 
 import butterknife.BindView;
@@ -35,11 +36,18 @@ public class PageActionOverflowView extends FrameLayout {
     @Nullable private Callback callback;
     @Nullable private PopupWindow popupWindowHost;
     @BindView(R.id.overflow_forward) MaterialTextView forwardButton;
+    @BindView(R.id.overflow_feed) MaterialTextView exploreButton;
 
     public PageActionOverflowView(Context context) {
         super(context);
         inflate(getContext(), R.layout.view_page_action_overflow, this);
         ButterKnife.bind(this);
+
+        ABTestExploreVsHomeFunnel funnel = new ABTestExploreVsHomeFunnel();
+        if (funnel.shouldSeeHome()) {
+            exploreButton.setText(R.string.home);
+            exploreButton.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_baseline_home_24, 0, 0, 0);
+        }
     }
 
     public void show(@NonNull View anchorView, @Nullable Callback callback, @NonNull Tab currentTab) {
