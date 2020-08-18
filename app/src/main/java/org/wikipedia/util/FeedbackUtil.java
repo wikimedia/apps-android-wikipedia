@@ -180,7 +180,7 @@ public final class FeedbackUtil {
     public static Balloon showTooltip(@NonNull Context context, @NonNull CharSequence text, @NonNull ArrowOrientation arrowOrientation) {
         return new Balloon.Builder(context)
                 .setText(text)
-                .setArrowDrawableResource(arrowOrientation == ArrowOrientation.BOTTOM ? R.drawable.ic_tooltip_arrow_down : R.drawable.ic_tooltip_arrow_up)
+                .setArrowDrawableResource(R.drawable.ic_tooltip_arrow_up)
                 .setArrowConstraints(ArrowConstraints.ALIGN_ANCHOR)
                 .setArrowOrientation(arrowOrientation)
                 .setArrowSize(24)
