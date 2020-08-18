@@ -369,8 +369,11 @@
   <string name="crash_report_relaunch_or_quit">Message shown to user when the app crashes allowing them to relaunch or quit the app.</string>
   <string name="crash_report_relaunch">Title of button user presses to relaunch the app after it crashes.</string>
   <string name="crash_report_quit">Title of button user presses to quit the app after it crashes.\n{{Identical|Quit}}</string>
-  <string name="article_menu_bar_bookmark">Describes the action performed when pressing the bookmark button in the page toolbar underneath the leading image.</string>
-  <string name="article_menu_bar_share">Describes the action performed when pressing the share button in the page toolbar underneath the leading image.</string>
+  <string name="article_menu_bar_save_button">Button label for saving article to a reading list.</string>
+  <string name="article_menu_bar_language_button">Button label for changing the article language.</string>
+  <string name="article_menu_bar_search_button">Button label for searching an article.</string>
+  <string name="article_menu_bar_theme_button">Button label for changing app theme.</string>
+  <string name="article_menu_bar_contents_button">Button label for opening the table of content of the article.</string>
   <string name="article_header_edit_hint">Button hint for editing either the lead section or the description of the article.\n{{Identical|Edit}}</string>
   <string name="article_header_edit_description">Menu label for editing the description of the article.</string>
   <string name="article_header_edit_lead_section">Menu label for editing the first section of the article.</string>
