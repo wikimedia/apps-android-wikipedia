@@ -633,6 +633,7 @@
   <string name="description_edit_anon_limit">Děkujeme za váš trvalý zájem o editaci popisů článků! Chcete-li provést další úpravy, přihlaste se prosím k účtu Wikipedie.</string>
   <string name="description_edit_license_notice">Změnou popisu článku souhlasím s &lt;a href=\"%1$s\"&gt;Podmínkami užití&lt;/a&gt; a neodvolatelně souhlasím s podmínkami licence &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_helper_text_lowercase_warning">většinou začíná malým písmenem</string>
+  <string name="description_starts_with_article">Na začátku nepoužívejte členy (v angličtině \"a\" nebo \"the\").</string>
   <string name="description_edit_success_saved">Popis článku byl zveřejněn!</string>
   <string name="description_edit_success_saved_snackbar">Popis článku byl zveřejněn!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Popis článku (v jazyce %s) byl zveřejněn!</string>
@@ -772,6 +773,7 @@
   <string name="suggested_edits_task_new">nové</string>
   <string name="suggested_edits_cc0_notice">Zveřejněním souhlasíte s &lt;a href=\"%1$s\"&gt;podmínkami použití&lt;/a&gt; a neodvolatelně také souhlasíte se zveřejněním tohoto příspěvku pod &lt;a href=\"%2$s\"&gt;licencí CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Navrhování editací</string>
+  <string name="suggested_edits_encourage_account_creation_title">Věděli jste, že editovat Wikipedii může každý?</string>
   <plurals name="suggested_edits_contribution_diff_count_text">
     <item quantity="one">%1$s znak</item>
     <item quantity="few">%1$s znaky</item>
@@ -863,6 +865,7 @@
   <string name="main_drawer_help">Nápověda</string>
   <string name="main_drawer_login">Přihlásit/zaregistrovat se do Wikipedie</string>
   <string name="main_tooltip_text">Dobrý den %s, věděli jste, že každý může editovat Wikipedii?</string>
+  <string name="main_tooltip_text_v2">Věděli jste, že editovat Wikipedii může každý?</string>
   <string name="main_tooltip_action_button">Začít</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_ok_button_text">OK</string>

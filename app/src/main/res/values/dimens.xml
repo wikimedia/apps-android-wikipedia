@@ -91,9 +91,7 @@
     <dimen name="dialog_line_spacing_extra">5sp</dimen>
 
     <!-- Article bottom toolbar -->
-    <dimen name="bottom_toolbar_height">48dp</dimen>
-    <dimen name="bottom_toolbar_icon_size">48dp</dimen>
-    <dimen name="bottom_toolbar_item_padding">12dp</dimen>
+    <dimen name="bottom_toolbar_height">56dp</dimen>
 
     <!-- Randomizer -->
     <dimen name="randomizer_card_view_bottom_padding">0dp</dimen>

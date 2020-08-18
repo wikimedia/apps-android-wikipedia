@@ -59,7 +59,6 @@ import org.wikipedia.navtab.NavTab;
 import org.wikipedia.page.linkpreview.LinkPreviewDialog;
 import org.wikipedia.page.tabs.TabActivity;
 import org.wikipedia.readinglist.database.ReadingListPage;
-import org.wikipedia.search.SearchActivity;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.DeviceUtil;
@@ -201,7 +200,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         boolean languageChanged = false;
         if (savedInstanceState != null) {
             if (savedInstanceState.getBoolean("isSearching")) {
-                openSearchActivity();
+                pageFragment.openSearchActivity(TOOLBAR);
             }
             String language = savedInstanceState.getString(LANGUAGE_CODE_BUNDLE_KEY);
             languageChanged = !app.getAppOrSystemLanguageCode().equals(language);
@@ -233,7 +232,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
 
     @OnClick(R.id.page_toolbar_button_search)
     public void onSearchButtonClicked() {
-        openSearchActivity();
+        pageFragment.openSearchActivity(TOOLBAR);
     }
 
     @OnClick(R.id.page_toolbar_button_tabs)
@@ -847,11 +846,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
                 .setPositiveButton(R.string.reverted_edit_dialog_ok_button_text, null)
                 .create()
                 .show();
-    }
-
-    private void openSearchActivity() {
-        Intent intent = SearchActivity.newIntent(this, TOOLBAR, null);
-        startActivity(intent);
     }
 
     private class EventBusConsumer implements Consumer<Object> {

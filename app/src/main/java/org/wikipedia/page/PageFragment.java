@@ -19,13 +19,13 @@ import android.view.ViewGroup;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebResourceResponse;
 import android.webkit.WebView;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.content.res.AppCompatResources;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
@@ -34,6 +34,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.textview.MaterialTextView;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
@@ -85,6 +86,7 @@ import org.wikipedia.readinglist.ReadingListBehaviorsUtil;
 import org.wikipedia.readinglist.ReadingListBookmarkMenu;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.readinglist.database.ReadingListPage;
+import org.wikipedia.search.SearchActivity;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.suggestededits.PageSummaryForEdit;
 import org.wikipedia.suggestededits.SuggestionsActivity;
@@ -116,6 +118,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
 import static android.app.Activity.RESULT_OK;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_GALLERY;
 import static org.wikipedia.Constants.InvokeSource.BOOKMARK_BUTTON;
+import static org.wikipedia.Constants.InvokeSource.PAGE_ACTION_TAB;
 import static org.wikipedia.Constants.InvokeSource.PAGE_ACTIVITY;
 import static org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_DESCRIPTION;
 import static org.wikipedia.descriptions.DescriptionEditSuccessActivity.RESULT_OK_FROM_EDIT_SUCCESS;
@@ -230,18 +233,13 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         }
 
         @Override
-        public void onSharePageTabSelected() {
-            sharePageLink();
+        public void onSearchTabSelected() {
+            openSearchActivity(PAGE_ACTION_TAB);
         }
 
         @Override
         public void onChooseLangTabSelected() {
             startLangLinksActivity();
-        }
-
-        @Override
-        public void onFindInPageTabSelected() {
-            showFindInPage();
         }
 
         @Override
@@ -1008,8 +1006,10 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     private void setBookmarkIconForPageSavedState(boolean pageSaved) {
         View bookmarkTab = tabLayout.getChildAt(PageActionTab.ADD_TO_READING_LIST.code());
         if (bookmarkTab != null) {
-            ((ImageView) bookmarkTab).setImageResource(pageSaved ? R.drawable.ic_bookmark_white_24dp
-                    : R.drawable.ic_bookmark_border_white_24dp);
+            ((MaterialTextView) bookmarkTab).setCompoundDrawablesWithIntrinsicBounds(null,
+                    AppCompatResources.getDrawable(requireContext(), pageSaved
+                            ? R.drawable.ic_bookmark_white_24dp
+                            : R.drawable.ic_bookmark_border_white_24dp), null, null);
             bookmarkTab.setEnabled(!model.shouldLoadAsMobileWeb());
         }
     }
@@ -1343,12 +1343,17 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         }
     }
 
-    public void startLangLinksActivity() {
+    private void startLangLinksActivity() {
         Intent langIntent = new Intent();
         langIntent.setClass(requireActivity(), LangLinksActivity.class);
         langIntent.setAction(LangLinksActivity.ACTION_LANGLINKS_FOR_TITLE);
         langIntent.putExtra(LangLinksActivity.EXTRA_PAGETITLE, model.getTitle());
         requireActivity().startActivityForResult(langIntent, Constants.ACTIVITY_REQUEST_LANGLINKS);
+    }
+
+    public void openSearchActivity(@NonNull InvokeSource source) {
+        Intent intent = SearchActivity.newIntent(requireContext(), source, null);
+        requireActivity().startActivity(intent);
     }
 
     public long getRevision() {

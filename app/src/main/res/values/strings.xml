@@ -355,8 +355,11 @@
     <!-- /Crash reporter -->
 
     <!-- Article menu bar -->
-    <string name="article_menu_bar_bookmark">Add this article to a reading list</string>
-    <string name="article_menu_bar_share">Share the article link</string>
+    <string name="article_menu_bar_save_button">Save</string>
+    <string name="article_menu_bar_language_button">Language</string>
+    <string name="article_menu_bar_search_button">Search</string>
+    <string name="article_menu_bar_theme_button">Theme</string>
+    <string name="article_menu_bar_contents_button">Contents</string>
     <string name="article_header_edit_hint">Edit…</string>
     <string name="article_header_edit_description">Edit article description</string>
     <string name="article_header_edit_lead_section">Edit introduction</string>
@@ -702,10 +705,8 @@
     <!-- /Description editing tutorial -->
 
     <!-- Suggested edits -->
-    <string name="suggested_edits_add_descriptions">Add article descriptions</string>
-    <string name="suggested_edits_translate_descriptions">Translate article descriptions</string>
-    <string name="suggested_edits_add_image_captions">Add image captions</string>
-    <string name="suggested_edits_translate_image_captions">Translate image captions</string>
+    <string name="suggested_edits_describe_articles">Describe articles</string>
+    <string name="suggested_edits_caption_images">Caption images</string>
     <string name="suggested_edits_tag_images">Tag images</string>
     <string name="suggested_edits_review_description">Review article description</string>
     <string name="suggested_edits_add_description_button">Add description</string>
