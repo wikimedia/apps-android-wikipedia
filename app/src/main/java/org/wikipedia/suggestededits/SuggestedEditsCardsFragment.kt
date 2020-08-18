@@ -123,12 +123,14 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        setHasOptionsMenu(true)
+        setHasOptionsMenu(action == ADD_IMAGE_TAGS)
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.menu_suggested_edits, menu)
-        ResourceUtil.setMenuItemTint(requireContext(), menu.findItem(R.id.menu_help), R.attr.colorAccent)
+        if (action == ADD_IMAGE_TAGS) {
+            inflater.inflate(R.menu.menu_suggested_edits, menu)
+            ResourceUtil.setMenuItemTint(requireContext(), menu.findItem(R.id.menu_help), R.attr.colorAccent)
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

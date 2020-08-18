@@ -612,6 +612,7 @@
   <string name="suggested_edits_task_multilingual_description">Oversættelsesopgaver er tilgængelige, hvis du læser og skriver på mere end et Wikipedia-sprog.</string>
   <string name="suggested_edits_task_multilingual_negative">Ikke noget for mig</string>
   <string name="suggested_edits_task_multilingual_positive">Tilføj sprog</string>
+  <string name="suggested_edits_image_caption_summary_title_image">Billede</string>
   <string name="suggested_edits_image_caption_summary_title_source">Kilde</string>
   <string name="suggested_edits_image_caption_summary_title_license">Licens</string>
   <string name="suggested_edits_image_caption_summary_title_date">Dato</string>

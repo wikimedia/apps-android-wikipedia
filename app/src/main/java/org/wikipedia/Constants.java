@@ -92,7 +92,8 @@ public final class Constants {
         LEAD_IMAGE("leadImage"),
         TABS_ACTIVITY("tabsActivity"),
         FILE_PAGE_ACTIVITY("filePage"),
-        SNACKBAR_ACTION("snackbar");
+        SNACKBAR_ACTION("snackbar"),
+        PAGE_ACTION_TAB("pageActionTab");
 
         private String name;
 

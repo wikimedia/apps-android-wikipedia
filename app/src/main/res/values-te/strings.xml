@@ -36,6 +36,8 @@
   <string name="menu_page_other_languages">భాషను మార్చు</string>
   <string name="menu_page_find_in_page">పుటలో వెతకండి</string>
   <string name="menu_page_font_and_theme">ఖతి, అలంకారం</string>
+  <string name="menu_page_add_to_default_list">భద్రపరుచు</string>
+  <string name="feed_card_add_to_default_list">భద్రపరుచు</string>
   <string name="menu_page_share">లంకెను పంచుకోండి</string>
   <string name="menu_page_recently_viewed">ఇటీవల చూసినవి</string>
   <string name="menu_long_press_open_page">తెరువు</string>
