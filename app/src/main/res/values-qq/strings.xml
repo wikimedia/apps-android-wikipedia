@@ -5,6 +5,7 @@
 * Anders Feder
 * BaRaN6161 TURK
 * Bencemac
+* Hamilton Abreu
 * Joao Xavier
 * Kaganer
 * KuboF
@@ -391,7 +392,7 @@
   <string name="reading_list_create_new">Dialog title for creating a new reading list.</string>
   <string name="reading_list_title_exists">Error text shown when a user attempts to create a new list with the same title as an existing list. The \"%s\" symbol is replaced with the title of the existing list.</string>
   <string name="reading_list_article_added_to_named">Message shown to user when an article gets suffessfully added to a readingList.\n\nThe %1$s symbol is replaced with the name of the article and the second %2$s symbol is replaced with the name of the reading list.</string>
-  <string name="reading_list_article_added_to_default_list">Message shown to user when an article gets suffessfully added to a default readingList.\n\nThe %s symbol is replaced with the name of the article.</string>
+  <string name="reading_list_article_added_to_default_list">Message shown to user when an article gets successfully added to a default readingList.\n\nThe %s symbol is replaced with the name of the article.</string>
   <string name="reading_list_article_moved_to_named">Message shown to user when an article gets suffessfully moved to a readingList.\n\nThe %1$s symbol is replaced with the name of the article and the second %2$s symbol is replaced with the name of the reading list.</string>
   <string name="reading_list_article_already_exists_message">Message shown to users when they try to add an already existing article to a reading list.The first %1$s symbol is replaced with the name of the reading list and the second %2$s symbol is replaced with the name of the article.</string>
   <string name="reading_list_articles_already_exist_message">Message shown to users when they try to add already existing articles to a reading list. The \"%s\" symbol is replaced with the name of the reading list.</string>
@@ -847,18 +848,12 @@
   <string name="suggested_edits_encourage_account_creation_login_button">Button text of the encourage account creation card log in button.</string>
   <string name="suggested_edits_contribution_type_image_tag">Text indicating that the user edit was an Image tag edit</string>
   <string name="suggested_edits_contribution_current_revision_text">Text indicating that the user\'s edit was the most recent one on a given image or article</string>
-  <plurals name="suggested_edits_tags_diff_count_text">
-    <item quantity="one">Label text indicating the number of tags added or removed by a user contribution. %1$s represents the number.</item>
-    <item quantity="other">Label text indicating the number of tags added or removed by a user contribution. %1$s represents the number.</item>
-  </plurals>
+  <string name="suggested_edits_tags_diff_count_text">Label text indicating the number of tags added or removed by a user contribution. %1$s represents the number.</string>
   <plurals name="suggested_edits_contribution_diff_count_text">
     <item quantity="one">Label text indicating the number of characters added or removed by a user contribution. %1$s represents the number.</item>
     <item quantity="other">Label text indicating the number of characters added or removed by a user contribution. %1$s represents the number.</item>
   </plurals>
-  <plurals name="suggested_edits_removed_contribution_label">
-    <item quantity="one">Text summarizing the user\'s contribution to the article or image. %d represents the number when only one character is removed by the contribution.</item>
-    <item quantity="other">Text summarizing the user\'s contribution to the article or image. %d represents the number when many characters are removed by the contribution.</item>
-  </plurals>
+  <string name="suggested_edits_removed_contribution_label">Text summarizing the user\'s contribution to the article or image. %d represents the number when many characters are removed by the contribution.</string>
   <plurals name="suggested_edits_added_contribution_label">
     <item quantity="one">Text summarizing the user\'s contribution to the article or image. %d represents the number when only one character is added.</item>
     <item quantity="other">Text summarizing the user\'s contribution to the article or image. %d represents the number when many characters are added.</item>

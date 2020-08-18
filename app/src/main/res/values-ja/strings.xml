@@ -77,7 +77,9 @@
   <string name="edit_section_find_in_page">ページ内検索</string>
   <string name="menu_page_font_and_theme">フォントとテーマ</string>
   <string name="menu_page_add_to_list">あとで読むリストに追加</string>
+  <string name="menu_page_add_to_default_list">保存</string>
   <string name="feed_card_add_to_list">あとで読むリストに追加</string>
+  <string name="feed_card_add_to_default_list">保存</string>
   <string name="menu_page_share">リンクを共有</string>
   <string name="menu_page_open_a_new_tab">新しいタブを開く</string>
   <string name="menu_page_reading_lists">あとで読むリスト</string>
@@ -393,6 +395,7 @@
   <string name="reading_list_article_already_exists_message">完了。%1$sは%2$sに含まれています。</string>
   <string name="reading_list_articles_already_exist_message">完了しました！ 指定した記事はすべて%sに収納されています。</string>
   <string name="reading_list_added_view_button">リストを表示</string>
+  <string name="reading_list_add_to_list_button">リストに追加</string>
   <string name="format_reading_list_statistical_summary_singular">1件の記事、%1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d記事、%2$.2f MB</string>
   <string name="format_reading_list_statistical_detail_singular">1つの記事のうちの%1$dをオフラインで利用できます。%2$.2f MB</string>
@@ -763,7 +766,11 @@
     <item quantity="one">%d 日</item>
     <item quantity="other">%d 日</item>
   </plurals>
+  <string name="suggested_edits_what_is_title">編集提案とは？</string>
+  <string name="suggested_edits_what_is_text">ウィキペディアへの小さいけれど重要な編集を提案する機能です。</string>
   <string name="suggested_edits_learn_more">詳細</string>
+  <string name="suggested_edits_paused_title">一時停止</string>
+  <string name="suggested_edits_disabled_title">無効</string>
   <string name="suggested_edits_ip_blocked_title">IPブロック済み</string>
   <string name="suggested_edits_last_edited">最終編集:</string>
   <string name="suggested_edits_last_edited_never">なし</string>
@@ -773,6 +780,9 @@
   <string name="suggested_edits_contribution_language_label">言語</string>
   <string name="suggested_edits_contribution_date_time_label">日付 / 時刻</string>
   <string name="suggested_edits_contribution_image_label">画像</string>
+  <string name="suggested_edits_contribution_article_label">記事</string>
+  <string name="suggested_edits_contribution_date_yesterday_text">昨日</string>
+  <string name="suggested_edits_contribution_type_image_tag">画像タグ</string>
   <string name="description_edit_revert_subtitle">ウィキペディアを編集していただきありがとうございます！</string>
   <string name="description_edit_revert_intro">あなたがベストを尽くそうとしたのはよく分かりますが、レビュアーは懸念を持ったようです。あなたの編集が差し戻された理由としては、以下のような可能性があります。</string>
   <string name="description_edit_revert_reason1">あなたの投稿が&lt;a href=\"%1$s\"&gt;ガイドライン&lt;/a&gt;に沿っていなかった。</string>
@@ -843,6 +853,7 @@
   <string name="edit_conflict_dialog_ok_button_text">OK</string>
   <string name="reverted_edit_dialog_ok_button_text">OK</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">キャンセル</string>
+  <string name="edit_type_all">全ての投稿記録</string>
   <string name="content_description_for_page_indicator">全%2$dページの%1$dページ目</string>
   <string name="wikitext_bold">太字</string>
   <string name="wikitext_italic">斜体</string>
