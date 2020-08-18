@@ -604,6 +604,7 @@
 
     <string name="feed_featured_image_share_subject">Featured image from Wikimedia Commons</string>
     <string name="feed">Explore</string>
+    <string name="home">Home</string>
     <string name="most_read_list_card_title">Trending</string>
     <string name="view_static_card_icon_content_description">Card icon</string>
     <string name="view_card_news_title">In the news</string>
