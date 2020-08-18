@@ -602,6 +602,7 @@
   <string name="menu_feed_overflow_label">Label for toolbar menu item that shows the user more options, such as logging in and accessing the app settings.</string>
   <string name="feed_featured_image_share_subject">Text included as the subject when a user shares an image from the Today\'s Featured Image feed card.</string>
   <string name="feed">Menu item label for exploring Wikipedia content through Feed cards.\n{{Identical|Explore}}</string>
+  <string name="home">Menu item label for going to the home screen in the app.</string>
   <string name="most_read_list_card_title">Feed card title for recently popular articles.\n{{Identical|Trending}}</string>
   <string name="view_static_card_icon_content_description">Feed card icon description for use when the icon cannot be seen and acessibility.</string>
   <string name="view_card_news_title">Feed card title for news articles.</string>
