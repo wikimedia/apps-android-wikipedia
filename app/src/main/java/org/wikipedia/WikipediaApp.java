@@ -380,6 +380,7 @@ public class WikipediaApp extends Application {
             crashListener = new AppCenterCrashesListener();
             Crashes.setListener(crashListener);
             AppCenter.start(this, getString(R.string.appcenter_id), Crashes.class);
+            AppCenter.setEnabled(Prefs.isCrashReportAutoUploadEnabled());
             Crashes.setEnabled(Prefs.isCrashReportAutoUploadEnabled());
         }
     }
