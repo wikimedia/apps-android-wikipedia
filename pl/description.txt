@@ -4,7 +4,7 @@ Cechy:
 
 Kanał odkrywaj - oferuje bezustannie uaktualnianą polecaną zawartość Wikipedii na ekranie głównym, włączając artykuły zyskujące na popularności, aktualności, polecane i więcej.
 
-Wyszukiwanie głosowe - z łatwością znajdź to co chcesz z wyrazistą wyszukiwarką w górnej belce aplikacji, ze wsparciem dla wyszukiwania głosowego na Twoim urządzeniu.
+Wyszukiwanie głosowe — łatwo znajdziesz to, czego szukasz, dzięki widocznemu paskowi wyszukiwania u góry aplikacji, ze wsparciem dla wyszukiwania głosowego na Twoim urządzeniu.
 
 W pobliżu - dowiedz się więcej o tym co znajduje się w Twojej okolicy klikając punkty na interaktywnej mapie, aby wyświetlić artykuły związane z Twoją lokalizacją.
 
