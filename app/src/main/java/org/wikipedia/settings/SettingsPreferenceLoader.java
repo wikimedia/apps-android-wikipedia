@@ -9,6 +9,8 @@ import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.SwitchPreferenceCompat;
 
+import com.microsoft.appcenter.AppCenter;
+
 import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -77,6 +79,12 @@ class SettingsPreferenceLoader extends BasePreferenceLoader {
         findPreference(R.string.preference_key_about_wikipedia_app)
                 .setOnPreferenceClickListener((preference) -> {
                     getActivity().startActivity(new Intent(getActivity(), AboutActivity.class));
+                    return true;
+                });
+
+        findPreference(R.string.preference_key_auto_upload_crash_reports)
+                .setOnPreferenceChangeListener((preference, newValue) -> {
+                    AppCenter.setEnabled((Boolean) newValue);
                     return true;
                 });
     }
