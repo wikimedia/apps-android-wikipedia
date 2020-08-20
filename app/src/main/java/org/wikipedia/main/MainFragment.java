@@ -20,8 +20,6 @@ import androidx.core.app.ActivityOptionsCompat;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.widget.ViewPager2;
 
-import com.skydoves.balloon.ArrowOrientation;
-
 import org.wikipedia.BackPressedHandler;
 import org.wikipedia.Constants;
 import org.wikipedia.R;
@@ -66,7 +64,6 @@ import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.suggestededits.SuggestedEditsTasksFragment;
 import org.wikipedia.util.ClipboardUtil;
-import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.PermissionUtil;
 import org.wikipedia.util.ShareUtil;
@@ -492,12 +489,11 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
 
     @SuppressWarnings("checkstyle:magicnumber")
     private void maybeShowEditsTooltip() {
-        if (Prefs.shouldShowSuggestedEditsTooltip() && Prefs.getExploreFeedVisitCount() == SHOW_EDITS_SNACKBAR_COUNT) {
+        if (true) {
             Prefs.setShouldShowSuggestedEditsTooltip(false);
-            FeedbackUtil.showTooltip(requireContext(), AccountUtil.isLoggedIn()
+            FeedbackUtil.showTooltip(tabLayout.findViewById(NavTab.EDITS.id()), AccountUtil.isLoggedIn()
                             ? getString(R.string.main_tooltip_text, AccountUtil.getUserName())
-                            : getString(R.string.main_tooltip_text_v2), ArrowOrientation.BOTTOM)
-                    .showAlignTop(tabLayout.findViewById(NavTab.EDITS.id()), 0, DimenUtil.roundedDpToPx(8f));
+                            : getString(R.string.main_tooltip_text_v2), true, false);
         }
     }
 
