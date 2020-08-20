@@ -12,14 +12,10 @@ import org.wikipedia.R
 
 class NavTabLayout constructor(context: Context, attrs: AttributeSet) : BottomNavigationView(context, attrs) {
     init {
-        setTabViews()
-    }
-
-    fun setTabViews() {
         menu.clear()
         for (i in 0 until NavTab.size()) {
             val navTab = NavTab.of(i)
-            menu.add(Menu.NONE, View.generateViewId(), i, navTab.text()).setIcon(navTab.icon())
+            menu.add(Menu.NONE, navTab.id(), i, navTab.text()).setIcon(navTab.icon())
         }
         fixTextStyle()
     }

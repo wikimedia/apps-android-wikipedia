@@ -132,10 +132,6 @@ public class MainActivity extends SingleFragmentActivity<MainFragment> implement
                 ((HistoryFragment) getFragment().getCurrentFragment()).refresh();
             }
 
-            if (tab.equals(NavTab.EDITS)) {
-                getFragment().hideNavTabOverlayLayout();
-            }
-
             wordMark.setVisibility(GONE);
             toolbar.setTitle(tab.text());
             controlNavTabInFragment = true;
