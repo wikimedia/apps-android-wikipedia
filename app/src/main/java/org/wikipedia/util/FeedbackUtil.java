@@ -177,17 +177,32 @@ public final class FeedbackUtil {
     }
 
     @SuppressWarnings("checkstyle:magicnumber")
-    public static Balloon showTooltip(@NonNull Context context, @NonNull CharSequence text, @NonNull ArrowOrientation arrowOrientation) {
+    public static Balloon showTooltip(@NonNull View anchor, @NonNull CharSequence text, boolean aboveOrBelow, boolean autoDismiss) {
+        Balloon balloon = getTooltip(anchor.getContext(), text, aboveOrBelow, autoDismiss);
+        if (aboveOrBelow) {
+            balloon.showAlignTop(anchor, 0, DimenUtil.roundedDpToPx(8f));
+        } else {
+            balloon.showAlignBottom(anchor, 0, -DimenUtil.roundedDpToPx(8f));
+        }
+        if (!autoDismiss && anchor.getContext() instanceof MainActivity) {
+            ((MainActivity) anchor.getContext()).setCurrentTooltip(balloon);
+        }
+        return balloon;
+    }
+
+    @SuppressWarnings("checkstyle:magicnumber")
+    public static Balloon getTooltip(@NonNull Context context, @NonNull CharSequence text, boolean aboveOrBelow, boolean autoDismiss) {
         return new Balloon.Builder(context)
                 .setText(text)
-                .setArrowDrawableResource(arrowOrientation == ArrowOrientation.BOTTOM ? R.drawable.ic_tooltip_arrow_down : R.drawable.ic_tooltip_arrow_up)
+                .setArrowDrawableResource(R.drawable.ic_tooltip_arrow_up)
                 .setArrowConstraints(ArrowConstraints.ALIGN_ANCHOR)
-                .setArrowOrientation(arrowOrientation)
+                .setArrowOrientation(aboveOrBelow ? ArrowOrientation.BOTTOM : ArrowOrientation.TOP)
                 .setArrowSize(24)
                 .setPadding(16)
                 .setTextSize(14f)
                 .setTextColorResource(ResourceUtil.getThemedAttributeId(context, R.attr.paper_color))
                 .setBackgroundColorResource(ResourceUtil.getThemedAttributeId(context, R.attr.colorAccent))
+                .setDismissWhenTouchOutside(autoDismiss)
                 .build();
     }
 
