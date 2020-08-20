@@ -52,7 +52,7 @@ import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
 
 public class DescriptionEditView extends LinearLayout {
-    private static final int TEXT_VALIDATE_DELAY_MILLIS = 500;
+    private static final int TEXT_VALIDATE_DELAY_MILLIS = 1000;
 
     @BindView(R.id.view_description_edit_toolbar_container) FrameLayout toolbarContainer;
     @BindView(R.id.view_description_edit_header) TextView headerText;
@@ -263,19 +263,29 @@ public class DescriptionEditView extends LinearLayout {
 
     public void setError(@Nullable CharSequence text) {
         pageDescriptionLayout.setErrorIconDrawable(R.drawable.ic_error_black_24dp);
-        pageDescriptionLayout.setErrorIconTintList(ColorStateList.valueOf(ResourceUtil.getThemedColor(getContext(), R.attr.colorError)));
-        pageDescriptionLayout.setErrorTextColor(ColorStateList.valueOf(ResourceUtil.getThemedColor(getContext(), R.attr.colorError)));
+        ColorStateList colorStateList = ColorStateList.valueOf(ResourceUtil.getThemedColor(getContext(), R.attr.colorError));
+        pageDescriptionLayout.setErrorIconTintList(colorStateList);
+        pageDescriptionLayout.setErrorTextColor(colorStateList);
+        pageDescriptionLayout.setBoxStrokeErrorColor(colorStateList);
         layoutErrorState(text);
     }
 
     private void setWarning(@Nullable CharSequence text) {
         pageDescriptionLayout.setErrorIconDrawable(R.drawable.ic_warning_24);
-        pageDescriptionLayout.setErrorIconTintList(ColorStateList.valueOf(ContextCompat.getColor(getContext(), R.color.yellow30)));
-        pageDescriptionLayout.setErrorTextColor(ColorStateList.valueOf(ContextCompat.getColor(getContext(), R.color.yellow30)));
+        ColorStateList colorStateList = ColorStateList.valueOf(ContextCompat.getColor(getContext(), R.color.yellow30));
+        pageDescriptionLayout.setErrorIconTintList(colorStateList);
+        pageDescriptionLayout.setErrorTextColor(colorStateList);
+        pageDescriptionLayout.setBoxStrokeErrorColor(colorStateList);
         layoutErrorState(text);
     }
 
+    private void clearError() {
+        pageDescriptionLayout.setError(null);
+    }
+
     private void layoutErrorState(@Nullable CharSequence text) {
+        // explicitly clear the error, to prevent a glitch in the Material library.
+        clearError();
         pageDescriptionLayout.setError(text);
         if (!TextUtils.isEmpty(text)) {
             post(() -> {
@@ -340,7 +350,7 @@ public class DescriptionEditView extends LinearLayout {
 
         if (text.length() == 0) {
             isTextValid = false;
-            setError(null);
+            clearError();
         } else if (text.length() < 2) {
             isTextValid = false;
             setError(getContext().getString(R.string.description_too_short));
@@ -355,7 +365,7 @@ public class DescriptionEditView extends LinearLayout {
                 && pageTitle.getWikiSite().languageCode().equals("en") && Character.isUpperCase(pageDescriptionText.getText().toString().charAt(0))) {
             setWarning(getContext().getString(R.string.description_starts_with_uppercase));
         } else {
-            setError(null);
+            clearError();
         }
 
         updateSaveButtonEnabled();

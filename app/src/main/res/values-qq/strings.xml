@@ -5,6 +5,7 @@
 * Anders Feder
 * BaRaN6161 TURK
 * Bencemac
+* Hamilton Abreu
 * Joao Xavier
 * Kaganer
 * KuboF
@@ -345,6 +346,10 @@
   <string name="location_permissions_enable_prompt">Message shown informing the user that if they enable the Location permission, they will be able to see places nearby.</string>
   <string name="location_permissions_enable_action">Button label for requesting to turn on location permissions.</string>
   <string name="error_webview_updating">Error informing the user that the System WebView is being updated, meaning that the app cannot be launched right now, and that the user should try again in a moment.</string>
+  <plurals name="multi_items_selected">
+    <item quantity="one">Toolbar title shown when the user is selecting multiple items in a list, and one item is currently selected.</item>
+    <item quantity="other">Toolbar title shown when the user is selecting multiple items in a list. The \"%d\" symbol is replaced with the number of items currently selected.</item>
+  </plurals>
   <string name="multi_select_items_selected">Toolbar title shown when the user is selecting multiple items in a list. The \"%d\" symbol is replaced with the number of items currently selected.</string>
   <string name="error_message_generic">Generic message informing the user that an error occurred</string>
   <string name="view_link_preview_error_button_dismiss">Button label for a button to dismiss a link preview\n{{Identical|Dismiss}}</string>
@@ -364,8 +369,11 @@
   <string name="crash_report_relaunch_or_quit">Message shown to user when the app crashes allowing them to relaunch or quit the app.</string>
   <string name="crash_report_relaunch">Title of button user presses to relaunch the app after it crashes.</string>
   <string name="crash_report_quit">Title of button user presses to quit the app after it crashes.\n{{Identical|Quit}}</string>
-  <string name="article_menu_bar_bookmark">Describes the action performed when pressing the bookmark button in the page toolbar underneath the leading image.</string>
-  <string name="article_menu_bar_share">Describes the action performed when pressing the share button in the page toolbar underneath the leading image.</string>
+  <string name="article_menu_bar_save_button">Button label for saving article to a reading list.</string>
+  <string name="article_menu_bar_language_button">Button label for changing the article language.</string>
+  <string name="article_menu_bar_search_button">Button label for searching an article.</string>
+  <string name="article_menu_bar_theme_button">Button label for changing app theme.</string>
+  <string name="article_menu_bar_contents_button">Button label for opening the table of content of the article.</string>
   <string name="article_header_edit_hint">Button hint for editing either the lead section or the description of the article.\n{{Identical|Edit}}</string>
   <string name="article_header_edit_description">Menu label for editing the description of the article.</string>
   <string name="article_header_edit_lead_section">Menu label for editing the first section of the article.</string>
@@ -387,12 +395,20 @@
   <string name="reading_list_create_new">Dialog title for creating a new reading list.</string>
   <string name="reading_list_title_exists">Error text shown when a user attempts to create a new list with the same title as an existing list. The \"%s\" symbol is replaced with the title of the existing list.</string>
   <string name="reading_list_article_added_to_named">Message shown to user when an article gets suffessfully added to a readingList.\n\nThe %1$s symbol is replaced with the name of the article and the second %2$s symbol is replaced with the name of the reading list.</string>
-  <string name="reading_list_article_added_to_default_list">Message shown to user when an article gets suffessfully added to a default readingList.\n\nThe %s symbol is replaced with the name of the article.</string>
+  <string name="reading_list_article_added_to_default_list">Message shown to user when an article gets successfully added to a default readingList.\n\nThe %s symbol is replaced with the name of the article.</string>
   <string name="reading_list_article_moved_to_named">Message shown to user when an article gets suffessfully moved to a readingList.\n\nThe %1$s symbol is replaced with the name of the article and the second %2$s symbol is replaced with the name of the reading list.</string>
   <string name="reading_list_article_already_exists_message">Message shown to users when they try to add an already existing article to a reading list.The first %1$s symbol is replaced with the name of the reading list and the second %2$s symbol is replaced with the name of the article.</string>
   <string name="reading_list_articles_already_exist_message">Message shown to users when they try to add already existing articles to a reading list. The \"%s\" symbol is replaced with the name of the reading list.</string>
   <string name="reading_list_added_view_button">Button label to view the reading list to which the article was just added.</string>
   <string name="reading_list_add_to_list_button">Button label to add the article to a reading list.</string>
+  <plurals name="format_reading_list_statistical_summary">
+    <item quantity="one">Summary shown for a reading list that contains one article. The %2$.2f parameter is replaced with the cache size of the article.</item>
+    <item quantity="other">Summary shown for a reading list that contains multiple articles; The %1$d parameter is the number of pages in the list, and  the %2$.2f parameter is the total number of megabytes saved to disk for offline page reading.</item>
+  </plurals>
+  <plurals name="format_reading_list_statistical_detail">
+    <item quantity="one">Detailed description shown for a reading list that contains one article; The %1$d parameter is the number pages saved to disk for offline reading (zero or one), and the %3$.2f parameter is the number of megabytes saved to disk for this list.</item>
+    <item quantity="other">Detailed description shown for a reading list that contains multiple articles; The %1$d parameter is the number of pages saved to disk for offline reading, the %2$d parameter is the number of total pages in the list, and the %3$.2f parameter is the total number of megabytes saved to disk for this list.</item>
+  </plurals>
   <string name="format_reading_list_statistical_summary_singular">Summary shown for a reading list that contains one article (singular); this string is formatted with a parameter containing the number of megabytes saved to disk for offline page reading. The %1$.2f symbol is replaced with the cache size of the article.</string>
   <string name="format_reading_list_statistical_summary_plural">Summary shown for a reading list that contains zero or multiple articles (plural); this string is formatted with two arguments: 1)(%1$d) the number of pages in the list, 2)(%2$.2f) a parameter containing the total number of megabytes saved to disk for offline page reading.</string>
   <string name="format_reading_list_statistical_detail_singular">Detailed description shown for a reading list that contains one article (singular); this string is formatted with two arguments: 1)(%1$d) the number, zero or one, of pages saved to disk for offline reading, 2)(%2$.2f) a parameter containing the number of megabytes saved to disk for offline page reading.</string>
@@ -417,6 +433,10 @@
   <string name="reading_list_name_hint">Text input hint for entering the name of this reading list.</string>
   <string name="reading_list_description_hint">Text input hint for entering a description of this reading list. Mention that the description is optional.</string>
   <string name="reading_list_item_deleted">Message shown when an article is removed from a reading list. The \"%s\" symbol is replaced with the name of the article.</string>
+  <plurals name="reading_list_articles_deleted">
+    <item quantity="one">Message shown when one article is removed from a reading list.</item>
+    <item quantity="other">Message shown when multiple articles are removed from a reading list. The \"%d\" symbol is replaced with the number of articles removed.</item>
+  </plurals>
   <string name="reading_list_items_deleted">Message shown when multiple articles are removed from a reading list. The \"%d\" symbol is replaced with the number of articles removed.</string>
   <string name="reading_lists_item_deleted">Menu item to remove an article from selected reading lists. The %s symbol is replaced with the name of the article.</string>
   <string name="reading_list_item_delete_undo">Button label to undo the operation of deleting an item from a list.\n{{Identical|Undo}}</string>
@@ -582,6 +602,7 @@
   <string name="menu_feed_overflow_label">Label for toolbar menu item that shows the user more options, such as logging in and accessing the app settings.</string>
   <string name="feed_featured_image_share_subject">Text included as the subject when a user shares an image from the Today\'s Featured Image feed card.</string>
   <string name="feed">Menu item label for exploring Wikipedia content through Feed cards.\n{{Identical|Explore}}</string>
+  <string name="home">Menu item label for going to the home screen in the app.</string>
   <string name="most_read_list_card_title">Feed card title for recently popular articles.\n{{Identical|Trending}}</string>
   <string name="view_static_card_icon_content_description">Feed card icon description for use when the icon cannot be seen and acessibility.</string>
   <string name="view_card_news_title">Feed card title for news articles.</string>
@@ -647,7 +668,7 @@
   <string name="description_edit_voice_input_description">Content description for the voice input icon in the input field</string>
   <string name="description_too_short">Error text shown when a description is too short.</string>
   <string name="description_ends_with_punctuation">Error text shown when a description ends with punctuation.</string>
-  <string name="description_starts_with_article">Warning text shown when a description starts with a definite or indefinite article.</string>
+  <string name="description_starts_with_article">{{Optional}}\n\nWarning text shown when a description starts with a definite or indefinite article. Currently implemented in English, German, Spanish, and French. Doesn\'t need translation to other languages. When translating, use the articles in the language and don\'t copy the English ones.</string>
   <string name="description_starts_with_uppercase">Warning text shown when a description starts with an uppercase character.</string>
   <string name="description_edit_success_saved">Message that the article description the user just added was saved.</string>
   <string name="description_edit_success_saved_snackbar">Message shown on a snackbar that the article description the user just added was saved.</string>
@@ -666,10 +687,8 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Instructions for the description the user creates to be one line only and between two to twelve words.</string>
   <string name="description_edit_tutorial_button_label_start_editing">Label for a button the user can push when ready to start editing.</string>
   <string name="description_edit_tutorial_promise">A statement that the user promises not to misuse the feature.</string>
-  <string name="suggested_edits_add_descriptions">Title of screen where the user chooses articles that are missing article descriptions to be added.</string>
-  <string name="suggested_edits_translate_descriptions">Title of screen where the user chooses articles that are missing article descriptions to be translated.</string>
-  <string name="suggested_edits_add_image_captions">Title of screen where the user chooses images that are missing captions to be added.</string>
-  <string name="suggested_edits_translate_image_captions">Title of screen where the user chooses images that are missing captions to be translated.</string>
+  <string name="suggested_edits_describe_articles">Title of screen where the user chooses articles that are missing article descriptions to be described.</string>
+  <string name="suggested_edits_caption_images">Title of screen where the user chooses images that are missing captions to be captioned.</string>
   <string name="suggested_edits_tag_images">Title of screen where the user chooses tags that represent an image.</string>
   <string name="suggested_edits_review_description">Title of the review article description page.</string>
   <string name="suggested_edits_add_description_button">A button text for adding article description. Appears next to {{msg-wm|Wikipedia-android-strings-onboarding skip}}. (See also [https://phabricator.wikimedia.org/T214786 bug T214786].)</string>
@@ -800,35 +819,45 @@
   <string name="suggested_edits_contribution_image_label">Text label that indicates that the contribution is to an image file.\n{{identical|File}}</string>
   <string name="suggested_edits_contribution_article_label">Text label that indicates that the contribution is to an article.\n{{identical|Article}}</string>
   <string name="suggested_edits_contribution_views">Text label indicating that the associated data indicates the number of views that the contribution has. %s represents the type of contribution.</string>
+  <plurals name="suggested_edits_contribution_seen_times">
+    <item quantity="one">Indicates that the contributions have been seen once in the past 30 days.</item>
+    <item quantity="other">Indicates how many times the contributions have been viewed in the past 30 days. The %s parameter is replaced by the number of views.</item>
+  </plurals>
   <string name="suggested_edits_contribution_seen_text">Contribution detail text about the pageviews. %s represented the times the contribution has been viewed in the past 30 days.</string>
   <plurals name="suggested_edits_image_tag_contribution_label">
     <item quantity="one">Text summarizing the user\'s image tag contribution. %d represents the number of tags contributed.</item>
     <item quantity="other">Text summarizing the user\'s image tag contribution. %d represents the number of tags contributed.</item>
   </plurals>
-  <string name="suggested_edits_contribution_type_title">Contributions filter dropdown item text. %1$d represents the count of the edit type. %2$s is the type of the edit.</string>
+  <string name="suggested_edits_contribution_type_title">Dropdown selection for filtering different types of edits made by the user. %1$d represents the number of edits of a certain type, and %2$s represents the type of edit, which can include Descriptions, Captions, or general Contributions.</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Text for contributions date to indicate it was contributed yesterday</string>
+  <plurals name="suggested_edits_rewards_contributions">
+    <item quantity="one">Message shown about the number of contributions the user has made.</item>
+    <item quantity="other">Message shown about the number of contributions the user has made. The %d parameter represents the number of contrubutions.</item>
+  </plurals>
+  <plurals name="suggested_edits_rewards_edit_streaks">
+    <item quantity="one">Message shown about the length of edit streak the user has made. The %2$s parameter represents the user name.</item>
+    <item quantity="other">Message shown about the length of edit streak the user has made. The %1$d parameter represents the length of edit streak and the %2$s parameter represents the user name.</item>
+  </plurals>
+  <plurals name="suggested_edits_rewards_page_views">
+    <item quantity="one">Message shown about the pageviews the user has earned in a period of time. The %d represents the number of pageviews.</item>
+    <item quantity="other">Message shown about the pageviews the user has earned in a period of time. The %d represents the number of pageviews.</item>
+  </plurals>
   <string name="suggested_edits_rewards_contribution">Message shown to a user about the number of contributions the user has made. The %d represents the number of contrubutions.</string>
   <string name="suggested_edits_rewards_edit_streak">Message shown to a user about the length of edit streak the user has made. The %1$d represents the length of edit streak and the %2$s represents the user name.</string>
   <string name="suggested_edits_rewards_pageviews">Message shown to a user about the pageviews the user has earned in a period of time. The %d represents the number of pageviews.</string>
-  <string name="suggested_edits_rewards_edit_quality">Message shown to a user about the edit quality status. The %s represents the quality of edits.</string>
+  <string name="suggested_edits_rewards_edit_quality">Message shown to the user about the quality of their edits so far. The %s represents the quality, such as Excellent, Good, Okay, Bad, etc.</string>
   <string name="suggested_edits_rewards_continue_button">Button label to move to the next card of suggested edits.</string>
   <string name="suggested_edits_encourage_account_creation_title">Title text of the encourage account creation card.</string>
   <string name="suggested_edits_encourage_account_creation_message">Content text of the encourage account creation card.</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Button text of the encourage account creation card log in button.</string>
   <string name="suggested_edits_contribution_type_image_tag">Text indicating that the user edit was an Image tag edit</string>
   <string name="suggested_edits_contribution_current_revision_text">Text indicating that the user\'s edit was the most recent one on a given image or article</string>
-  <plurals name="suggested_edits_tags_diff_count_text">
-    <item quantity="one">Label text indicating the number of tags added or removed by a user contribution. %1$s represents the number.</item>
-    <item quantity="other">Label text indicating the number of tags added or removed by a user contribution. %1$s represents the number.</item>
-  </plurals>
+  <string name="suggested_edits_tags_diff_count_text">Label text indicating the number of tags added or removed by a user contribution. %1$s represents the number.</string>
   <plurals name="suggested_edits_contribution_diff_count_text">
     <item quantity="one">Label text indicating the number of characters added or removed by a user contribution. %1$s represents the number.</item>
     <item quantity="other">Label text indicating the number of characters added or removed by a user contribution. %1$s represents the number.</item>
   </plurals>
-  <plurals name="suggested_edits_removed_contribution_label">
-    <item quantity="one">Text summarizing the user\'s contribution to the article or image. %d represents the number when only one character is removed by the contribution.</item>
-    <item quantity="other">Text summarizing the user\'s contribution to the article or image. %d represents the number when many characters are removed by the contribution.</item>
-  </plurals>
+  <string name="suggested_edits_removed_contribution_label">Text summarizing the user\'s contribution to the article or image. %d represents the number when many characters are removed by the contribution.</string>
   <plurals name="suggested_edits_added_contribution_label">
     <item quantity="one">Text summarizing the user\'s contribution to the article or image. %d represents the number when only one character is added.</item>
     <item quantity="other">Text summarizing the user\'s contribution to the article or image. %d represents the number when many characters are added.</item>

@@ -277,10 +277,12 @@
   <string name="suggested_edits_add_caption_button">عنوان شامل کرو</string>
   <string name="suggested_edits_edit_caption_button">عنوان وچ تبدیلی کرو</string>
   <string name="suggested_edits_menu_info">معلومات</string>
+  <string name="suggested_edits_image_caption_summary_title_image">تصویر</string>
   <string name="suggested_edits_image_caption_summary_title_author">مصنف</string>
   <string name="suggested_edits_image_caption_summary_title_source">ماخذ</string>
   <string name="suggested_edits_image_caption_summary_title_license">لائیسنس</string>
   <string name="suggested_edits_image_caption_summary_title_date">تریخ</string>
+  <string name="suggested_edits_image_preview_dialog_image">تصویر</string>
   <string name="suggested_edits_image_preview_dialog_date">تریخ</string>
   <string name="suggested_edits_article_cta_snackbar_action">ݙکھالا</string>
   <string name="suggested_edits_feed_card_add_image_tags">تصویر ٹیگ شامل کرو</string>

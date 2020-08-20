@@ -546,6 +546,7 @@
   <string name="suggested_edits_menu_info">তথ্য</string>
   <string name="suggested_edits_task_multilingual_negative">আমার জন্য নয়</string>
   <string name="suggested_edits_task_multilingual_positive">ভাষা যোগ করুন</string>
+  <string name="suggested_edits_image_caption_summary_title_image">ছবি</string>
   <string name="suggested_edits_image_caption_summary_title_source">উৎস</string>
   <string name="suggested_edits_image_caption_summary_title_date">তারিখ</string>
   <string name="suggested_edits_image_preview_dialog_image">ফাইল</string>
