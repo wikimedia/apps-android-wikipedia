@@ -50,7 +50,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment> implement
     @BindView(R.id.single_fragment_toolbar) Toolbar toolbar;
     @BindView(R.id.single_fragment_toolbar_wordmark) ImageView wordMark;
     private ImageZoomHelper imageZoomHelper;
-    private Balloon currentTooltip;
+    @Nullable private Balloon currentTooltip;
 
     private boolean controlNavTabInFragment;
 
@@ -227,7 +227,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment> implement
         currentTooltip = null;
     }
 
-    public void setCurrentTooltip(Balloon tooltip) {
+    public void setCurrentTooltip(@NonNull Balloon tooltip) {
         dismissCurrentTooltip();
         currentTooltip = tooltip;
     }
