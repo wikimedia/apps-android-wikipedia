@@ -34,6 +34,7 @@
             android:layout_gravity="bottom"
             android:layout_weight="0.8"
             app:elevation="0dp"
+            app:backgroundTint="@android:color/transparent"
             app:itemIconTint="?attr/nav_tab_item_color_state"
             app:itemTextAppearanceActive="@style/BottomNavigationTextAppearanceActive"
             app:itemTextAppearanceInactive="@style/BottomNavigationTextAppearanceInactive"
