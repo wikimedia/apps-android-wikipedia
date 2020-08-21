@@ -14,6 +14,8 @@ public class DescriptionEditSuccessActivity
         extends SingleFragmentActivityTransparent<DescriptionEditSuccessFragment>
         implements DescriptionEditSuccessFragment.Callback {
 
+    public static final int RESULT_OK_FROM_EDIT_SUCCESS = 1;
+
     static Intent newIntent(@NonNull Context context, @NonNull Constants.InvokeSource invokeSource) {
         return new Intent(context, DescriptionEditSuccessActivity.class)
                 .putExtra(INTENT_EXTRA_INVOKE_SOURCE, invokeSource);
@@ -25,7 +27,7 @@ public class DescriptionEditSuccessActivity
 
     @Override
     public void onDismissClick() {
-        setResult(RESULT_OK, getIntent());
+        setResult(RESULT_OK_FROM_EDIT_SUCCESS, getIntent());
         finish();
     }
 }

@@ -332,9 +332,12 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
             DescriptionEditActivity.Action action = (data != null && data.hasExtra(INTENT_EXTRA_ACTION)) ? (DescriptionEditActivity.Action) data.getSerializableExtra(INTENT_EXTRA_ACTION)
                     : (requestCode == ACTIVITY_REQUEST_ADD_IMAGE_TAGS) ? ADD_IMAGE_TAGS : null;
             Snackbar snackbar = FeedbackUtil.makeSnackbar(this, action == ADD_CAPTION
-                            ? getString(R.string.description_edit_success_saved_image_caption_snackbar)
-                            : (action == TRANSLATE_CAPTION) ? getString(R.string.description_edit_success_saved_image_caption_in_lang_snackbar, app.language().getAppLanguageLocalizedName(targetLanguageCode))
-                            : getString(R.string.description_edit_success_saved_image_tags_snackbar),
+                    ? getString(abTestFunnel.shouldSeeSnackbarAction()
+                            ? R.string.description_edit_success_saved_image_caption_snackbar_se_promotion
+                            : R.string.description_edit_success_saved_image_caption_snackbar)
+                    : getString(abTestFunnel.shouldSeeSnackbarAction()
+                            ? R.string.description_edit_success_saved_image_caption_in_lang_snackbar_se_promotion
+                            : R.string.description_edit_success_saved_image_caption_in_lang_snackbar, app.language().getAppLanguageLocalizedName(targetLanguageCode)),
                     FeedbackUtil.LENGTH_DEFAULT);
             if (abTestFunnel.shouldSeeSnackbarAction() && action != null) {
                 snackbar.setAction(R.string.suggested_edits_tasks_onboarding_get_started, view -> startActivity(SuggestionsActivity.newIntent(this, action)));

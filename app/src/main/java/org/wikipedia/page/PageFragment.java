@@ -121,6 +121,7 @@ import static org.wikipedia.Constants.InvokeSource.BOOKMARK_BUTTON;
 import static org.wikipedia.Constants.InvokeSource.PAGE_ACTION_TAB;
 import static org.wikipedia.Constants.InvokeSource.PAGE_ACTIVITY;
 import static org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_DESCRIPTION;
+import static org.wikipedia.descriptions.DescriptionEditSuccessActivity.RESULT_OK_FROM_EDIT_SUCCESS;
 import static org.wikipedia.descriptions.DescriptionEditTutorialActivity.DESCRIPTION_SELECTED_TEXT;
 import static org.wikipedia.feed.announcement.Announcement.PLACEMENT_ARTICLE;
 import static org.wikipedia.feed.announcement.AnnouncementClient.shouldShow;
@@ -837,12 +838,18 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                 && resultCode == RESULT_OK) {
             refreshPage();
             ABTestSuggestedEditsSnackbarFunnel abTestFunnel = new ABTestSuggestedEditsSnackbarFunnel();
-            Snackbar snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.description_edit_success_saved_snackbar), FeedbackUtil.LENGTH_DEFAULT);
+            Snackbar snackbar = FeedbackUtil.makeSnackbar(requireActivity(),
+                    getString(abTestFunnel.shouldSeeSnackbarAction()
+                            ? R.string.description_edit_success_saved_snackbar_se_promotion
+                            : R.string.description_edit_success_saved_snackbar), FeedbackUtil.LENGTH_DEFAULT);
             if (abTestFunnel.shouldSeeSnackbarAction()) {
                 snackbar.setAction(R.string.suggested_edits_tasks_onboarding_get_started, view -> startSuggestionsActivity(ADD_DESCRIPTION));
             }
             snackbar.show();
             abTestFunnel.logSnackbarShown();
+        } else if (requestCode == Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT
+                && resultCode == RESULT_OK_FROM_EDIT_SUCCESS) {
+            refreshPage();
         }
     }
 
