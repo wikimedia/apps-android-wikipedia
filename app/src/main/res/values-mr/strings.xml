@@ -250,8 +250,6 @@
   <string name="crash_report_relaunch_or_quit">माफ करा, विकिपीडिया अॅपमध्ये दोष निर्माण झाला आहे म्हणून ते बंद केले गेले.\n\nआपणास ते पुन्हा सुरु करावयाचे आहे कि माघार घ्यायची आहे?</string>
   <string name="crash_report_relaunch">पुन्हा सुरु करा</string>
   <string name="crash_report_quit">बाहेर पडा</string>
-  <string name="article_menu_bar_bookmark">हा लेख वाचनयादीत जोडा</string>
-  <string name="article_menu_bar_share">लेखदुवा वाटा</string>
   <string name="article_header_edit_hint">संपादन...</string>
   <string name="article_header_edit_description" fuzzy="true">शीर्षकाचे वर्णन संपादित करा</string>
   <string name="article_header_edit_lead_section">प्रास्ताविक संपादित करा</string>

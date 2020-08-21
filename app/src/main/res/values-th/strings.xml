@@ -273,8 +273,6 @@
   <string name="enable_location_service">เปิดใช้งาน</string>
   <string name="crash_report_activity_title">แอพพลิเคชันเกิดข้อผิดพลาด</string>
   <string name="crash_report_quit">ออก</string>
-  <string name="article_menu_bar_bookmark">เพิ่มบทความนี้ลงไปยังรายการอ่าน</string>
-  <string name="article_menu_bar_share">แบ่งปันลิงก์บทความ</string>
   <string name="color_theme_light">สว่าง</string>
   <string name="color_theme_dark">มืด</string>
   <string name="nav_item_reading_lists">รายการของฉัน</string>
@@ -316,7 +314,6 @@
   <string name="description_edit_translate_description" fuzzy="true">แปลคำอธิบายชื่อเรื่อง</string>
   <string name="description_edit_add_image_caption">เติมคำบรรยายภาพ</string>
   <string name="description_edit_success_saved_image_caption_snackbar" fuzzy="true">คำบรรยายภาพถูกพิมแล้ว</string>
-  <string name="suggested_edits_translate_image_captions">แปลคำบรรยายภาพ</string>
   <string name="suggested_edits_task_translate_caption_title">แปลคำบรรยายภาพ</string>
   <string name="suggested_edits_task_translate_caption_description">แปลคำบรรยายเป็นภาษาอื่น</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text" fuzzy="true">ล็อกไว้จนกว่าคุณจะได้แก้ไข %d คำอธิบายหัวข้อ</string>

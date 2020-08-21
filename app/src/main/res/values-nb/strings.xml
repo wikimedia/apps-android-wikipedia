@@ -343,8 +343,6 @@
   <string name="crash_report_relaunch_or_quit">Wikipedia-appen avsluttet på grunn av en feil.\n\nVil du prøve å starte den på nytt eller avslutte?</string>
   <string name="crash_report_relaunch">Start på nytt</string>
   <string name="crash_report_quit">Avslutt</string>
-  <string name="article_menu_bar_bookmark">Legg til denne artikkelen i en leseliste</string>
-  <string name="article_menu_bar_share">Del lenke til artikkelen</string>
   <string name="article_header_edit_hint">Rediger…</string>
   <string name="article_header_edit_description">Rediger artikkelbeskrivelsen</string>
   <string name="article_header_edit_lead_section">Rediger innledning</string>
@@ -617,7 +615,6 @@
   <string name="description_edit_success_saved_in_lang_snackbar">Artikkelbeskrivelse publisert! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Bildetekst publisert!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Bildetekst publisert! (%s)</string>
-  <string name="description_edit_success_saved_image_tags_snackbar">Bildetagg(er) publisert!</string>
   <string name="description_edit_success_encouragement">Du har akkurat bidratt til å gjøre Wikipedia litt bedre for alle</string>
   <string name="description_edit_success_done">Ferdig</string>
   <string name="description_edit_success_did_you_know">Visste du at?</string>
@@ -628,10 +625,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Ideelt éi linje, mellom to og tolv ord</string>
   <string name="description_edit_tutorial_button_label_start_editing">Begynn å redigere</string>
   <string name="description_edit_tutorial_promise">Ved å begynne lover jeg å ikke misbruke denne funksjonen.</string>
-  <string name="suggested_edits_add_descriptions">Om artikkelbeskrivelser</string>
-  <string name="suggested_edits_translate_descriptions">Oversett artikkelbeskrivelser</string>
-  <string name="suggested_edits_add_image_captions">Legg til bildetekster</string>
-  <string name="suggested_edits_translate_image_captions">Oversett bildetekster</string>
   <string name="suggested_edits_review_description">Se over artikkelbeskrivelsen</string>
   <string name="suggested_edits_add_description_button">Legg til beskrivelse</string>
   <string name="suggested_edits_edit_description_button">Rediger beskrivelse</string>

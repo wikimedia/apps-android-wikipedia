@@ -343,8 +343,6 @@
   <string name="crash_report_relaunch_or_quit">Λυπούμαστε, η εφαρμογή Βικιπαίδεια αντιμετώπισε σφάλμα και τερματίστηκε.\n\nΘέλετε να ξεκινήσετε ξανά ή να σταματήσετε;</string>
   <string name="crash_report_relaunch">Ξεκινήσετε από την αρχή</string>
   <string name="crash_report_quit">Έξοδος</string>
-  <string name="article_menu_bar_bookmark">Προσθέστε αυτό το λήμμα  σε λίστα ανάγνωσης</string>
-  <string name="article_menu_bar_share">Κοινοποιήστε τον σύνδεσμο του λήμματος</string>
   <string name="article_header_edit_hint">Επεξεργασία...</string>
   <string name="article_header_edit_description">Επεξεργασία περιγραφής άρθρου</string>
   <string name="article_header_edit_lead_section">Εισαγωγή επεξεργασίας</string>
@@ -621,10 +619,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Ιδανικά μια γραμμή, μεταξύ δύο και δώδεκα λέξεων</string>
   <string name="description_edit_tutorial_button_label_start_editing">Ξεκινήστε την επεξεργασία</string>
   <string name="description_edit_tutorial_promise">Ξεκινώντας, υπόσχομαι να μην καταχραστώ τη λειτουργία.</string>
-  <string name="suggested_edits_add_descriptions">Προσθήκη περιγραφών άρθρου</string>
-  <string name="suggested_edits_translate_descriptions">Μετάφραση περιγραφών άρθρου</string>
-  <string name="suggested_edits_add_image_captions">Προσθήκη λεζαντών εικόνας</string>
-  <string name="suggested_edits_translate_image_captions">Μετάφραση λεζαντών εικόνας</string>
   <string name="suggested_edits_tag_images">Προσθέστε ετικέτες σε εικόνες</string>
   <string name="suggested_edits_review_description">Προβολή περιγραφής άρθρου</string>
   <string name="suggested_edits_add_description_button">Προσθήκη περιγραφής</string>

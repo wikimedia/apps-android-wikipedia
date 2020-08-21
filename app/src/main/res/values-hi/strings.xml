@@ -290,8 +290,6 @@
   <string name="crash_report_relaunch_or_quit">हमें खेद है कि किसी त्रुटि को अनुभव करने के कारणवश विकिपीडिया एप को बंद कर दिया गया। \n\nक्या आप फिर से शुरू या बंद करना चाहते हैं?</string>
   <string name="crash_report_relaunch">फिर से शुरू करें</string>
   <string name="crash_report_quit">बंद करें</string>
-  <string name="article_menu_bar_bookmark">इस लेख को पढ़ने वाली सूची में जोड़ें</string>
-  <string name="article_menu_bar_share">लेख कङी को साझा करें</string>
   <string name="article_header_edit_hint">सम्पादित करें</string>
   <string name="article_header_edit_description" fuzzy="true">शीर्षक वर्णन को सम्पादित करें</string>
   <string name="article_header_edit_lead_section">परिचय सम्पादित करें</string>

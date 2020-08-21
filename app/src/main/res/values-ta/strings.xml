@@ -316,8 +316,6 @@
   <string name="crash_report_activity_title">செயலி பிழை</string>
   <string name="crash_report_relaunch">மீண்டும் தொடங்கவும்</string>
   <string name="crash_report_quit">முடித்துக்கொள்</string>
-  <string name="article_menu_bar_bookmark">இக்கட்டுரையை படிப்பு பட்டியலில் சேர்க்கவும்</string>
-  <string name="article_menu_bar_share">கட்டுரை இணைப்பை பகிர்</string>
   <string name="article_header_edit_hint">தொகுக்கவும்...</string>
   <string name="article_header_edit_description" fuzzy="true">தலைப்பு விவரத்தை தொகுக்கவும்</string>
   <string name="article_header_edit_lead_section">அறிமுகத்தைத் தொகுக்கவும்</string>

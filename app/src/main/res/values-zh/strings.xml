@@ -375,8 +375,6 @@
   <string name="crash_report_relaunch_or_quit">我们很抱歉，维基百科应用程序发生了一个错误，并已终止。\n\n您要重启还是退出？</string>
   <string name="crash_report_relaunch">重新开始</string>
   <string name="crash_report_quit">退出</string>
-  <string name="article_menu_bar_bookmark">添加此条目至阅读列表</string>
-  <string name="article_menu_bar_share">分享条目链接</string>
   <string name="article_header_edit_hint">编辑…</string>
   <string name="article_header_edit_description">编辑条目描述</string>
   <string name="article_header_edit_lead_section">编辑介绍</string>
@@ -659,7 +657,6 @@
   <string name="description_edit_success_saved_in_lang_snackbar">描述已发布！（%s）</string>
   <string name="description_edit_success_saved_image_caption_snackbar">图片说明已发布！</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">图片说明已发布！（%s）</string>
-  <string name="description_edit_success_saved_image_tags_snackbar">图片标签已发布！</string>
   <string name="description_edit_success_encouragement">您只是让维基百科更好地服务大家</string>
   <string name="description_edit_success_done">完成</string>
   <string name="description_edit_success_did_you_know">您知道吗？</string>
@@ -670,10 +667,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">一般应为一行，2~12个字之间</string>
   <string name="description_edit_tutorial_button_label_start_editing">开始编辑</string>
   <string name="description_edit_tutorial_promise">我保证在编辑时不滥用此功能</string>
-  <string name="suggested_edits_add_descriptions">添加条目描述</string>
-  <string name="suggested_edits_translate_descriptions">翻译条目描述</string>
-  <string name="suggested_edits_add_image_captions">添加说明文字</string>
-  <string name="suggested_edits_translate_image_captions">翻译图片描述</string>
   <string name="suggested_edits_tag_images">标记图片</string>
   <string name="suggested_edits_review_description">巡查条目描述</string>
   <string name="suggested_edits_add_description_button">添加描述</string>

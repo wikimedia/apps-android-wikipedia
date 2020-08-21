@@ -335,8 +335,6 @@
   <string name="crash_report_relaunch_or_quit">За съжаление, приложението на Уикипедия претърпя срив и бе спряно.\n\nБихте ли желали да започнете отначало или да излезете?</string>
   <string name="crash_report_relaunch">Започване отначало</string>
   <string name="crash_report_quit">Излизане</string>
-  <string name="article_menu_bar_bookmark">Добавяне на статията в списъка за четене</string>
-  <string name="article_menu_bar_share">Споделяне на връзка към статията</string>
   <string name="article_header_edit_hint">Редактиране...</string>
   <string name="article_header_edit_description">Редактиране на описанието на статията</string>
   <string name="article_header_edit_lead_section">Редактиране на увода</string>
@@ -625,10 +623,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">По възможност един ред, от две до дванадесет думи</string>
   <string name="description_edit_tutorial_button_label_start_editing">Започнете да редактирате</string>
   <string name="description_edit_tutorial_promise">Започвайки, обещавам да не злоупотребявам с тази функция.</string>
-  <string name="suggested_edits_add_descriptions">Добавяне описания на статии</string>
-  <string name="suggested_edits_translate_descriptions">Превод на описания на статии</string>
-  <string name="suggested_edits_add_image_captions">Добавяне описания на изображения</string>
-  <string name="suggested_edits_translate_image_captions">Превод описания на изображения</string>
   <string name="suggested_edits_review_description">Преглед на описание на статия</string>
   <string name="suggested_edits_add_description_button">Добавяне на описание</string>
   <string name="suggested_edits_edit_description_button">Редактиране на описанието</string>

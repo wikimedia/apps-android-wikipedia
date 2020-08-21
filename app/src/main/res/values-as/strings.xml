@@ -309,8 +309,6 @@
   <string name="crash_report_relaunch_or_quit">আপুনি পুণৰাম্ভ অথবা ত্যাগ কৰিব বিচাৰিছে নেকি?</string>
   <string name="crash_report_relaunch">পুনৰাম্ভ কৰক</string>
   <string name="crash_report_quit">ত্যাগ কৰক</string>
-  <string name="article_menu_bar_bookmark">এই প্ৰবন্ধটো পঢ়া তালিকাত যোগ দিয়ক</string>
-  <string name="article_menu_bar_share">প্ৰবন্ধৰ লিংক শ্বেয়াৰ কৰক</string>
   <string name="article_header_edit_hint">সম্পাদনা...</string>
   <string name="article_header_edit_description">প্ৰবন্ধৰ বিৱৰণ সম্পাদনা কৰক</string>
   <string name="article_header_edit_lead_section">ভূমিকা সম্পাদনা কৰক</string>
