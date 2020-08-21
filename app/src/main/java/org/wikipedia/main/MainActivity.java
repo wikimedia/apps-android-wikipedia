@@ -32,6 +32,7 @@ import org.wikipedia.settings.Prefs;
 import org.wikipedia.suggestededits.SuggestedEditsTasksFragment;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.FeedbackUtil;
+import org.wikipedia.util.PermissionUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.views.ImageZoomHelper;
 import org.wikipedia.views.LinearLayoutTouchIntercept;
@@ -64,6 +65,7 @@ public class MainActivity extends SingleFragmentActivity<MainFragment> implement
         super.onCreate(savedInstanceState);
         ButterKnife.bind(this);
         AppShortcuts.setShortcuts(this);
+        PermissionUtil.requestSlicesPermission(this);
         imageZoomHelper = new ImageZoomHelper(this);
 
         mainContainer.setOnInterceptTouchListener((view, motionEvent) -> {
