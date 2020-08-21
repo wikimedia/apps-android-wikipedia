@@ -189,8 +189,6 @@
   <string name="crash_report_activity_title">Error de l\'aplicacion</string>
   <string name="crash_report_relaunch">Reaviar</string>
   <string name="crash_report_quit">Quitar</string>
-  <string name="article_menu_bar_bookmark">Apondre aqueste article a una lista de lectura</string>
-  <string name="article_menu_bar_share">Partejar lo ligam cap a la pagina</string>
   <string name="article_header_edit_hint">Modificar...</string>
   <string name="article_header_edit_description" fuzzy="true">Modificar la descripcion del títol</string>
   <string name="article_header_edit_lead_section">Modificar l\'introduccion</string>

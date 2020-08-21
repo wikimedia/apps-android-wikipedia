@@ -358,8 +358,6 @@
   <string name="crash_report_relaunch_or_quit">با عرض پوزش نرم‌افزار با خطا خارج شد آیا قصد استفادهٔ مجدد دارید؟</string>
   <string name="crash_report_relaunch">شروع دوباره</string>
   <string name="crash_report_quit">خروج</string>
-  <string name="article_menu_bar_bookmark">افزودن این مقاله به فهرست مطالعه</string>
-  <string name="article_menu_bar_share">اشتراک‌گذاری پیوند مقاله</string>
   <string name="article_header_edit_hint">ویرایش...</string>
   <string name="article_header_edit_description">ویرایش توضیحات مقاله</string>
   <string name="article_header_edit_lead_section">ویرایش مقدمه</string>
@@ -628,7 +626,6 @@
   <string name="description_edit_success_saved_in_lang_snackbar">توضیحات مقاله منتشر شد! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">عنوان تصویر منتشر شد!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">توضیحات تصویر منتشر شد!(%s)</string>
-  <string name="description_edit_success_saved_image_tags_snackbar">برچسب تصویر منتشر شد!</string>
   <string name="description_edit_success_encouragement">شما ویکی‌پدیا را برای همه بهتر کردید</string>
   <string name="description_edit_success_done">انجام شد</string>
   <string name="description_edit_success_did_you_know">آیا می‌دانستید که؟</string>
@@ -639,10 +636,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">به طور ایده‌آل یک خط، بین دو تا دوازده کلمه</string>
   <string name="description_edit_tutorial_button_label_start_editing">آغاز ویرایش کردن</string>
   <string name="description_edit_tutorial_promise">پیش از استفاده، قول می‌دهم از این ویژگی سو‌ءاستفاده نکنم.</string>
-  <string name="suggested_edits_add_descriptions">افزودن توضیحات مقاله</string>
-  <string name="suggested_edits_translate_descriptions">ترجمه توضیحات مقاله</string>
-  <string name="suggested_edits_add_image_captions">افزودن عنوان تصویر</string>
-  <string name="suggested_edits_translate_image_captions">ترجمه عنوان تصویر</string>
   <string name="suggested_edits_tag_images">برچسب‌گذاری تصویرها</string>
   <string name="suggested_edits_review_description">مرور توضیحات مقاله</string>
   <string name="suggested_edits_add_description_button">افزدون توضیحات</string>

@@ -351,8 +351,6 @@
   <string name="crash_report_relaunch_or_quit">Sajnáljuk, a Wikipédia alkalmazás hibát észlelt és leállt.\n\nSzeretnéd újrakezdeni, vagy kilépnél?</string>
   <string name="crash_report_relaunch">Újrakezdés</string>
   <string name="crash_report_quit">Kilépés</string>
-  <string name="article_menu_bar_bookmark">Cikk hozzáadása egy olvasólistához</string>
-  <string name="article_menu_bar_share">A cikk linkjének megosztása</string>
   <string name="article_header_edit_hint">Szerkesztés…</string>
   <string name="article_header_edit_description">Szócikkleírás szerkesztése</string>
   <string name="article_header_edit_lead_section">Bevezető szerkesztése</string>
@@ -625,7 +623,6 @@
   <string name="description_edit_success_saved_in_lang_snackbar">Szócikkleírás (%s) közzétéve!</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Képaláírás közzétéve!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Képaláírás közzétéve! (%s)</string>
-  <string name="description_edit_success_saved_image_tags_snackbar">Képcímkék közzétéve!</string>
   <string name="description_edit_success_encouragement">Éppen mindenkinek jobbá tetted a Wikipédiát</string>
   <string name="description_edit_success_done">Kész</string>
   <string name="description_edit_success_did_you_know">Tudtad?</string>
@@ -636,10 +633,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Ideális esetben egy sor, két-tizenkét szó között.</string>
   <string name="description_edit_tutorial_button_label_start_editing">Szerkesztés elkezdése</string>
   <string name="description_edit_tutorial_promise">A kezdéskor megígérem, hogy nem élek vissza ezzel a funkcióval.</string>
-  <string name="suggested_edits_add_descriptions">Szócikkleírások hozzáadása</string>
-  <string name="suggested_edits_translate_descriptions">Szócikkleírások fordítása</string>
-  <string name="suggested_edits_add_image_captions">Képaláírások hozzáadása</string>
-  <string name="suggested_edits_translate_image_captions">Képaláírások fordítása</string>
   <string name="suggested_edits_tag_images">Képek címkézése</string>
   <string name="suggested_edits_review_description">Szócikkleírás ellenőrzése</string>
   <string name="suggested_edits_add_description_button">Leírás hozzáadása</string>

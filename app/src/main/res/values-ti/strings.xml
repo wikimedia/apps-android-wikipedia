@@ -195,7 +195,7 @@
   <string name="reading_list_prompt_turned_sync_on_dialog_no_thanks">ኣይፋል፣ የቐንየለይ</string>
   <string name="default_reading_list_name">ዝትቐመጠ</string>
   <string name="reading_list_saved_list_rename">%1$s (ብተጠቃሚ ዝተፈጠረ)</string>
-  <string name="reading_lists_menu_create_list">ሓድሽ ዝርዝር ፈጠረ</string>
+  <string name="reading_lists_menu_create_list">ሓድሽ ዝርዝር ፍጠር</string>
   <string name="reading_lists_menu_sort_by">ጎጅል ብ</string>
   <string name="reading_list_remove_list_dialog_ok_button_text">ሕራይ</string>
   <string name="reading_list_delete_dialog_ok_button_text">ሕራይ</string>
@@ -272,10 +272,6 @@
   <string name="description_edit_success_done">ተወዲኡ</string>
   <string name="description_edit_success_did_you_know">ትፈልጡ ዶ?</string>
   <string name="description_edit_tutorial_title_descriptions">ናይ ጽሑፍ መግለጺታት</string>
-  <string name="suggested_edits_add_descriptions">ናይ ጽሑፍ መግለጺታት ወስኽ</string>
-  <string name="suggested_edits_translate_descriptions">ናይ ጽሑፍ መግለጺታት ተርጎመ</string>
-  <string name="suggested_edits_add_image_captions">ናይ ምስሊ መግለጺ ጽሑፋት ወስኽ</string>
-  <string name="suggested_edits_translate_image_captions">ናይ ምስሊ መግለጺ ጽሑፋት ተርጎመ</string>
   <string name="suggested_edits_review_description">ናይ ጽሑፍ መግለጺ ገምገመ</string>
   <string name="suggested_edits_add_description_button">መግለጺ ወስኽ</string>
   <string name="suggested_edits_edit_description_button">መግለጺ ኣመዓራርይ</string>

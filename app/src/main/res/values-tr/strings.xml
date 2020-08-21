@@ -373,8 +373,6 @@
   <string name="crash_report_relaunch_or_quit">Üzgünüz, Vikipedi uygulaması bir sorunla karşılaştı ve kapatıldı.\n\nBaştan başlamak mı yoksa çıkmak mı istiyorsunuz?</string>
   <string name="crash_report_relaunch">Baştan başla</string>
   <string name="crash_report_quit">Çıkış</string>
-  <string name="article_menu_bar_bookmark">Bu makaleyi bir okuma listesine ekle</string>
-  <string name="article_menu_bar_share">Madde bağlantısını paylaş</string>
   <string name="article_header_edit_hint">Düzenle...</string>
   <string name="article_header_edit_description">Madde açıklamasını düzenle</string>
   <string name="article_header_edit_lead_section">Tanıtımı düzenle</string>
@@ -663,7 +661,6 @@
   <string name="description_edit_success_saved_in_lang_snackbar">Madde açıklaması yayımlandı! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Resim yazısı yayımlandı!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Resim yazısı yayımlandı! (%s)</string>
-  <string name="description_edit_success_saved_image_tags_snackbar">Resim etiketi yayınlandı!</string>
   <string name="description_edit_success_se_image_caption_feed_link_snackbar">Bunu beğendiniz mi? Diğer resimlere eksik altyazı eklememize yardımcı olun.</string>
   <string name="description_edit_success_encouragement">Vikipedi\'yi herkes için daha iyi hâle getirdin</string>
   <string name="description_edit_success_done">Yapıldı</string>
@@ -675,10 +672,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">İdeal olarak iki ila on iki kelimelik bir cümle</string>
   <string name="description_edit_tutorial_button_label_start_editing">Düzenlemeye başla</string>
   <string name="description_edit_tutorial_promise">Başlarken bu özelliği kötüye kullanmayacağıma söz veriyorum.</string>
-  <string name="suggested_edits_add_descriptions">Madde açıklaması ekle</string>
-  <string name="suggested_edits_translate_descriptions">Madde açıklamasını çevir</string>
-  <string name="suggested_edits_add_image_captions">Resim yazısı ekle</string>
-  <string name="suggested_edits_translate_image_captions">Resim başlıklarını çevir</string>
   <string name="suggested_edits_tag_images">Etiket resimleri</string>
   <string name="suggested_edits_review_description">Madde açıklamasını incele</string>
   <string name="suggested_edits_add_description_button">Açıklama ekle</string>

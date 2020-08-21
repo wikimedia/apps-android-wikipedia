@@ -300,8 +300,6 @@
   <string name="crash_report_activity_title">ߞߍߟߌ ߝߎ߬ߕߎ߲߬ߕߌ</string>
   <string name="crash_report_relaunch">ߊ߬ ߘߊߡߌ߬ߣߊ߬ ߕߎ߲߯</string>
   <string name="crash_report_quit">ߓߐ߫</string>
-  <string name="article_menu_bar_bookmark">ߦߌߟߡߊ ߣߌ߲߬ ߠߊߘߏ߲߬ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߘߐ߫</string>
-  <string name="article_menu_bar_share">ߦߌߟߡߊ ߛߘߌ߬ߜߋ߲ ߠߊߖߍ߲ߛߍ߲߫</string>
   <string name="article_header_edit_hint">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲</string>
   <string name="article_header_edit_description">ߦߌߟߡߊ ߞߊ߲߬ߛߓߍߟߌ ߡߊߦߟߍ߬ߡߊ߲߫</string>
   <string name="article_header_edit_lead_section">ߟߊߘߏ߲߬ߠߌ߲ ߡߊߦߟߍ߬ߡߊ߲߫</string>
@@ -541,10 +539,6 @@
   <string name="description_edit_tutorial_title_descriptions">ߦߌߟߡߊ ߞߊ߲߬ߛߓߍߟߌ</string>
   <string name="description_edit_tutorial_keep_it_short">ߊ߬ ߕߏ߫ ߛߎ߬ߘߎ߲߬ߧߊ ߘߐ߫</string>
   <string name="description_edit_tutorial_button_label_start_editing">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߘߊߡߌ߬ߣߊ߬</string>
-  <string name="suggested_edits_add_descriptions">ߦߌߟߡߊ ߞߊ߲߬ߛߓߍߟߌ ߟߊߘߏ߲߬</string>
-  <string name="suggested_edits_translate_descriptions">ߦߌߟߡߊ ߞߊ߲߬ߛߓߍߟߌ ߘߟߊߡߌ߬ߘߊ߬</string>
-  <string name="suggested_edits_add_image_captions">ߖߌ߬ߦߊ߬ߓߍ ߝߍ߬ߛߓߍߟߌ ߟߊߘߏ߲߬</string>
-  <string name="suggested_edits_translate_image_captions">ߖߌ߬ߦߊ߬ߓߍ ߝߍ߬ߛߓߍߟߌ ߘߟߊߡߌ߬ߘߊ߬</string>
   <string name="suggested_edits_review_description">ߦߌߟߡߊ ߞߊ߲߬ߛߓߍߟߌ ߦߋ߫ ߕߎ߲߯</string>
   <string name="suggested_edits_add_description_button">ߞߊ߲߬ߛߓߍߟߌ ߟߊߘߏ߲߬</string>
   <string name="suggested_edits_edit_description_button">ߞߊ߲߬ߛߓߍߟߌ ߡߊߦߟߍ߬ߡߊ߲߫</string>

@@ -327,8 +327,6 @@
   <string name="crash_report_relaunch_or_quit">دەتەوێت سەرلەنوێ دەست پێبکەیتەوە یان وازدەھێنیت؟</string>
   <string name="crash_report_relaunch">دەستپێکردنەوە</string>
   <string name="crash_report_quit">داخستن</string>
-  <string name="article_menu_bar_bookmark">زیادکردنی ئەم وتارە بۆ پێڕستێکی خوێندنەوە</string>
-  <string name="article_menu_bar_share">ھاوبەشکردنی بەستەری وتارەکە</string>
   <string name="article_header_edit_hint">دەستکاری...</string>
   <string name="article_header_edit_description">دەستکاریی وەسفی وتار</string>
   <string name="article_header_edit_lead_section">دەستکاریی پێشەکی</string>
@@ -545,10 +543,6 @@
   <string name="description_edit_tutorial_keep_it_short">با کورت بێت</string>
   <string name="description_edit_tutorial_button_label_start_editing">دەستکردن بە دەستکاری</string>
   <string name="description_edit_tutorial_promise">بە دەستپێکردن، من پەیمان دەدەم کە بە خراپی ئەم ئامرازە بەکارنەھێنم.</string>
-  <string name="suggested_edits_add_descriptions">زیادکردنی وەسفی وتار</string>
-  <string name="suggested_edits_translate_descriptions">وەرگێڕانی وەسفی وتار</string>
-  <string name="suggested_edits_add_image_captions">زیادکردنی شرۆڤەکانی وێنە</string>
-  <string name="suggested_edits_translate_image_captions">وەرگێڕانی شرۆڤەکانی وێنە</string>
   <string name="suggested_edits_tag_images">ناگی وێنەکان</string>
   <string name="suggested_edits_review_description">پێداچوونەوەی وەسفی وتارەکان</string>
   <string name="suggested_edits_add_description_button">زیادکردنی وەسف</string>

@@ -283,8 +283,6 @@
   <string name="crash_report_relaunch_or_quit">Žao nam je. Došlo je do greške u aplikaciji Wikipedia i prekinula je s radom.\n\nŽelite li je ponovo pokrenuti ili je zatvoriti?</string>
   <string name="crash_report_relaunch">Ponovo pokreni</string>
   <string name="crash_report_quit">Zatvori</string>
-  <string name="article_menu_bar_bookmark">Dodaj ovaj članak na spisak za čitanje</string>
-  <string name="article_menu_bar_share">Podijeli link ovog članka</string>
   <string name="article_header_edit_hint">Uredi...</string>
   <string name="article_header_edit_description">Uredi opis članka</string>
   <string name="article_header_edit_lead_section">Uredi uvod</string>

@@ -263,8 +263,6 @@
   <string name="crash_report_activity_title">ਆਦੇਸ਼ਕਾਰੀ ਦੀ ਗਲਤੀ</string>
   <string name="crash_report_relaunch">ਸ਼ੁਰੂ \'ਤੋਂ</string>
   <string name="crash_report_quit">ਛੱਡੋ</string>
-  <string name="article_menu_bar_bookmark">ਇਸ ਲੇਖ ਨੂੰ ਪੜ੍ਹਤ ਸੂਚੀ ਵਿੱਚ ਜੋੜੋ</string>
-  <string name="article_menu_bar_share">ਲੇਖ ਦੀ ਕੜੀ ਸਾਂਝੀ ਕਰੋ</string>
   <string name="article_header_edit_hint">ਸੋਧੋ…</string>
   <string name="color_theme_select">ਵਿਸ਼ਾ-ਵਸਤੂ</string>
   <string name="color_theme_light">ਹਲਕੀ</string>

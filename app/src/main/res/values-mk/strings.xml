@@ -262,7 +262,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">Дозволи</string>
   <string name="read_more_section">Прочитајте повеќе</string>
   <string name="about_article_section">За статијава</string>
-  <string name="menu_gallery_visit_image_page">Оди на податотечната страница</string>
+  <string name="menu_gallery_visit_image_page">Оди на страницата за сликата</string>
   <string name="gallery_error_draw_failed">Не можев да ја исцртам сликата.</string>
   <string name="license_title">Лиценца за %s</string>
   <string name="gallery_menu_share">Сподели</string>
@@ -323,6 +323,10 @@
   <string name="location_permissions_enable_prompt">Вклучете дозволи за местоположба, за да ги гледате местата околу вас.</string>
   <string name="location_permissions_enable_action">Вклучи</string>
   <string name="error_webview_updating">WebView за Андроид во моментов се подновува. Обидете се повторно набргу.</string>
+  <plurals name="multi_items_selected">
+    <item quantity="one">Избрана %d</item>
+    <item quantity="other">Избрани %d</item>
+  </plurals>
   <string name="multi_select_items_selected">%d избрани</string>
   <string name="error_message_generic">Се појави грешка</string>
   <string name="view_link_preview_error_button_dismiss">Тргни</string>
@@ -342,8 +346,6 @@
   <string name="crash_report_relaunch_or_quit">За жал, прилогот наиде на грешка и беше запрен.\n\nДали би сакале да почнете одново или да напуштите?</string>
   <string name="crash_report_relaunch">Почни одново</string>
   <string name="crash_report_quit">Излези</string>
-  <string name="article_menu_bar_bookmark">Додај ја статијава во списокот за читање</string>
-  <string name="article_menu_bar_share">Сподели врска за статијата</string>
   <string name="article_header_edit_hint">Уреди...</string>
   <string name="article_header_edit_description">Уреди опис на статијата</string>
   <string name="article_header_edit_lead_section">Уреди вовед</string>
@@ -371,6 +373,14 @@
   <string name="reading_list_articles_already_exist_message">Сè е во ред! %s веќе ги содржи сите статии.</string>
   <string name="reading_list_added_view_button">Погл. списокот</string>
   <string name="reading_list_add_to_list_button">Додај во список</string>
+  <plurals name="format_reading_list_statistical_summary">
+    <item quantity="one">Една статија, %2$.2f МБ</item>
+    <item quantity="other">%1$d статии, %2$.2f МБ</item>
+  </plurals>
+  <plurals name="format_reading_list_statistical_detail">
+    <item quantity="one">%1$d од една вонмрежно достапна статија, %3$.2f МБ</item>
+    <item quantity="other">%1$d од %2$d вонмрежно достапни статии, %3$.2f МБ</item>
+  </plurals>
   <string name="format_reading_list_statistical_summary_singular">1 статија, %1$.2f МБ</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d статии, %2$.2f МБ</string>
   <string name="format_reading_list_statistical_detail_singular">Вонмрежно достапна %1$d од 1 статија, %2$.2f МБ</string>
@@ -395,6 +405,10 @@
   <string name="reading_list_name_hint">Назив на овој список</string>
   <string name="reading_list_description_hint">Опис (незадолжително)</string>
   <string name="reading_list_item_deleted">%s е отстранета од списокот</string>
+  <plurals name="reading_list_articles_deleted">
+    <item quantity="one">Отстранета %d статија од списокот</item>
+    <item quantity="other">Отстранети %d статии од списокот</item>
+  </plurals>
   <string name="reading_list_items_deleted">%d статии се отстранети од списокот</string>
   <string name="reading_lists_item_deleted">%s е отстранета од списоците</string>
   <string name="reading_list_item_delete_undo">Откажи</string>
@@ -632,7 +646,6 @@
   <string name="description_edit_success_saved_in_lang_snackbar">Описот на статијата е објавен! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Описот на сликата објавен!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Описот на сликата е објавен! (%s)</string>
-  <string name="description_edit_success_saved_image_tags_snackbar">Ознаките на сликите се објавени!</string>
   <string name="description_edit_success_se_image_caption_feed_link_snackbar">Ви се допадна? Помогнете ни, додавајќи отсутни описи на други слики.</string>
   <string name="description_edit_success_encouragement">Штотуку ја подобривте Википедија за сите</string>
   <string name="description_edit_success_done">Готово</string>
@@ -644,10 +657,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">По можност еден ред, од два до дванаесет збора</string>
   <string name="description_edit_tutorial_button_label_start_editing">Почнете со уредување</string>
   <string name="description_edit_tutorial_promise">Почнувајќи, ветувам дека нема да ја злоупотребувам функцијава.</string>
-  <string name="suggested_edits_add_descriptions">Додај описи на статиите</string>
-  <string name="suggested_edits_translate_descriptions">Преведи описи на статиите</string>
-  <string name="suggested_edits_add_image_captions">Додај описи на слики</string>
-  <string name="suggested_edits_translate_image_captions">Преведи описи на слики</string>
   <string name="suggested_edits_tag_images">Означување на слики</string>
   <string name="suggested_edits_review_description">Преглед на описот на статијата</string>
   <string name="suggested_edits_add_description_button">Додај опис</string>
@@ -674,7 +683,7 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text">Заклучено додека не уредите %d описи на статии (проверени)</string>
   <string name="suggested_edits_task_multilingual_negative">Не е за мене</string>
   <string name="suggested_edits_task_multilingual_positive">Додај јазици</string>
-  <string name="suggested_edits_image_caption_summary_title_image">Податотека</string>
+  <string name="suggested_edits_image_caption_summary_title_image">Слика</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Уметник</string>
   <string name="suggested_edits_image_caption_summary_title_author">Автор</string>
   <string name="suggested_edits_image_caption_summary_title_source">Извор</string>
@@ -690,7 +699,7 @@
   <string name="suggested_edits_tasks_onboarding_get_started">Започни</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Опис на сликата (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Опис на сликата (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_image">Податотека</string>
+  <string name="suggested_edits_image_preview_dialog_image">Слика</string>
   <string name="suggested_edits_image_preview_dialog_artist">Уметник</string>
   <string name="suggested_edits_image_preview_dialog_tags">Ознаки</string>
   <string name="suggested_edits_image_preview_dialog_date">Датум</string>
@@ -778,6 +787,10 @@
   <string name="suggested_edits_contribution_image_label">Слика</string>
   <string name="suggested_edits_contribution_article_label">Статија</string>
   <string name="suggested_edits_contribution_views">%s посети</string>
+  <plurals name="suggested_edits_contribution_seen_times">
+    <item quantity="one">Посетена еднаш во последниве 30 дена.</item>
+    <item quantity="other">Посетена %s пати во последниве 30 дена.</item>
+  </plurals>
   <string name="suggested_edits_contribution_seen_text">Посетена %s пати во изминатите 30 дена.</string>
   <plurals name="suggested_edits_image_tag_contribution_label">
     <item quantity="one">Додадовте %d ознака</item>
@@ -785,6 +798,18 @@
   </plurals>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Вчера</string>
+  <plurals name="suggested_edits_rewards_contributions">
+    <item quantity="one">Имате направено дадено еден придонес на Википедија користејќи „Предложени уредувања“. Ви благодариме!</item>
+    <item quantity="other">Имате дадено %d придонеси на Википедија користејќи „Предложени уредувања“. Ви благодариме!</item>
+  </plurals>
+  <plurals name="suggested_edits_rewards_edit_streaks">
+    <item quantity="one">Уредувавте цел еден ден. Само напред, %2$s!</item>
+    <item quantity="other">Уредувавте секој ден последниве %1$d дена. Само напред, %2$s!</item>
+  </plurals>
+  <plurals name="suggested_edits_rewards_page_views">
+    <item quantity="one">Вашите уредувања се видени од едно лице во последниве 30 дена. Ви благодариме и само напред!</item>
+    <item quantity="other">Вашите уредувања се видени од %d лица во последниве 30 дена. Ви благодариме и само напред!</item>
+  </plurals>
   <string name="suggested_edits_rewards_contribution">Имате %d придонеси на Википедија користејќи „Предложени уредувања“. Ви благодариме!</string>
   <string name="suggested_edits_rewards_edit_streak">Досега уредувате %1$d последователни денови. Само така, %2$s!</string>
   <string name="suggested_edits_rewards_pageviews">Вашите уредувања се видени од %d луѓе во последниве 30 дена. Ви благодариме, и само напред!</string>

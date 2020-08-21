@@ -324,8 +324,6 @@
   <string name="crash_report_relaunch_or_quit">Aplikacija Vikipedija je naišla na grešku i obustavljena je.\n\nŽelite li ponovo da je pokrenete ili da izađete?</string>
   <string name="crash_report_relaunch">Pokreni ponovo</string>
   <string name="crash_report_quit">Izađi</string>
-  <string name="article_menu_bar_bookmark">Dodaj ovaj članak na listu za čitanje</string>
-  <string name="article_menu_bar_share">Deli link članka</string>
   <string name="article_header_edit_hint">Uredi…</string>
   <string name="article_header_edit_description">Uredi opis članka</string>
   <string name="article_header_edit_lead_section">Uredi uvod</string>
@@ -604,10 +602,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Po mogućstvu jedan red, od dve do dvanaest reči</string>
   <string name="description_edit_tutorial_button_label_start_editing">Započni uređivanje</string>
   <string name="description_edit_tutorial_promise">Kada počnem, obećavam da neću zloupotrebiti ovu funkciju.</string>
-  <string name="suggested_edits_add_descriptions">Dodavanje opisa članka</string>
-  <string name="suggested_edits_translate_descriptions">Prevedi opise članaka</string>
-  <string name="suggested_edits_add_image_captions">Dodaj natpise slika</string>
-  <string name="suggested_edits_translate_image_captions">Prevedi natpise slika</string>
   <string name="suggested_edits_review_description">Pregled opisa članka</string>
   <string name="suggested_edits_add_description_button">Dodaj opis</string>
   <string name="suggested_edits_edit_description_button">Uredi opis</string>

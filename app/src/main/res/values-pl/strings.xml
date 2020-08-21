@@ -371,8 +371,11 @@
   <string name="crash_report_relaunch_or_quit">Niestety, w aplikacji Wikipedii wystąpił błąd, w wyniku czego została ona zamknięta.\n\nChcesz ponownie ją uruchomić czy zamknąć?</string>
   <string name="crash_report_relaunch">Zacznij od początku</string>
   <string name="crash_report_quit">Wyjście</string>
-  <string name="article_menu_bar_bookmark">Dodaj ten artykuł do listy do przeczytania</string>
-  <string name="article_menu_bar_share">Podziel się linkiem do artykułu</string>
+  <string name="article_menu_bar_save_button">Zapisz</string>
+  <string name="article_menu_bar_language_button">Język</string>
+  <string name="article_menu_bar_search_button">Szukaj</string>
+  <string name="article_menu_bar_theme_button">Motyw</string>
+  <string name="article_menu_bar_contents_button">Spis treści</string>
   <string name="article_header_edit_hint">Edytuj...</string>
   <string name="article_header_edit_description">Edytuj opis artykułu</string>
   <string name="article_header_edit_lead_section">Edytuj wprowadzenie</string>
@@ -587,6 +590,7 @@
   <string name="menu_feed_overflow_label">Więcej opcji</string>
   <string name="feed_featured_image_share_subject">Najlepsze zdjęcia z Wikimedia Commons</string>
   <string name="feed">Odkrywaj</string>
+  <string name="home">Strona główna</string>
   <string name="most_read_list_card_title">Ostatnio popularne</string>
   <string name="view_static_card_icon_content_description">Ikona karty</string>
   <string name="view_card_news_title">W aktualnościach</string>
@@ -659,7 +663,6 @@
   <string name="description_edit_success_saved_in_lang_snackbar">Opis artykułu opublikowany! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Podpis pod zdjęciem opublikowany!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Podpis pod zdjęciem opublikowany! (%s)</string>
-  <string name="description_edit_success_saved_image_tags_snackbar">Opublikowano znacznik(i) obrazu!</string>
   <string name="description_edit_success_se_image_caption_feed_link_snackbar">Spodobało ci się? Pomóż nam w dodawaniu brakujących podpisów do innych obrazów.</string>
   <string name="description_edit_success_encouragement">Właśnie sprawiłeś, że Wikipedia jest lepsza dla wszystkich</string>
   <string name="description_edit_success_done">Gotowe</string>
@@ -671,10 +674,8 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Najlepiej jedna linia, od dwóch do dwunastu wyrazów.</string>
   <string name="description_edit_tutorial_button_label_start_editing">Rozpocznij edycję</string>
   <string name="description_edit_tutorial_promise">Rozpoczynając, obiecuję nie nadużywać tej funkcji.</string>
-  <string name="suggested_edits_add_descriptions">Dodaj opisy artykułów</string>
-  <string name="suggested_edits_translate_descriptions">Przetłumacz opisy artykułów</string>
-  <string name="suggested_edits_add_image_captions">Dodaj podpisy obrazu</string>
-  <string name="suggested_edits_translate_image_captions">Przetłumacz podpisy do obrazu</string>
+  <string name="suggested_edits_describe_articles">Opisz artykuły</string>
+  <string name="suggested_edits_caption_images">Podpisz obrazy</string>
   <string name="suggested_edits_tag_images">Dodaj znaczniki do obrazów</string>
   <string name="suggested_edits_review_description">Sprawdź opis artykułu</string>
   <string name="suggested_edits_add_description_button">Dodaj opis</string>

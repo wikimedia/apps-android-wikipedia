@@ -42,6 +42,7 @@
 * Remux
 * Rodm23
 * Ryo567
+* SRuizR
 * Sporeunai
 * Suecarmol
 * Sukanya121
@@ -63,7 +64,7 @@
   <string name="search_hint_voice_search">Búsqueda por voz</string>
   <string name="search_hint_search_history">Buscar en el historial</string>
   <string name="search_hint_search_languages">Buscar un idioma</string>
-  <string name="filter_hint_filter_my_lists_and_articles">Filtro mis listas</string>
+  <string name="filter_hint_filter_my_lists_and_articles">Filtrar mis listas</string>
   <string name="nav_item_history">Historial</string>
   <string name="nav_item_suggested_edits">Ediciones</string>
   <string name="nav_item_more">Más</string>
@@ -386,8 +387,11 @@
   <string name="crash_report_relaunch_or_quit">La aplicación de Wikipedia ha experimentado un error y se cerró.\n\n¿Te gustaría volver a empezar o salir?</string>
   <string name="crash_report_relaunch">Iniciar de nuevo</string>
   <string name="crash_report_quit">Salir</string>
-  <string name="article_menu_bar_bookmark">Añadir este artículo a una lista de lectura</string>
-  <string name="article_menu_bar_share">Compartir el enlace del artículo</string>
+  <string name="article_menu_bar_save_button">Guardar</string>
+  <string name="article_menu_bar_language_button">Idioma</string>
+  <string name="article_menu_bar_search_button">Buscar</string>
+  <string name="article_menu_bar_theme_button">Tema</string>
+  <string name="article_menu_bar_contents_button">Contenidos</string>
   <string name="article_header_edit_hint">Editar...</string>
   <string name="article_header_edit_description">Editar descripción de artículo</string>
   <string name="article_header_edit_lead_section">Editar introducción</string>
@@ -675,7 +679,6 @@
   <string name="description_edit_success_saved_in_lang_snackbar">¡Descripción de artículo publicada! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Se publicó la leyenda de la imagen.</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Se publicó el pie de foto (%s)</string>
-  <string name="description_edit_success_saved_image_tags_snackbar">¡Etiquetas de imagen(es) publicadas!</string>
   <string name="description_edit_success_se_image_caption_feed_link_snackbar">Disfrutado que? Nos ayudo añadir perdiendo captions a otras imágenes.</string>
   <string name="description_edit_success_encouragement">Acabas de mejorar Wikipedia para todos</string>
   <string name="description_edit_success_done">Hecho</string>
@@ -687,10 +690,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealmente una línea, entre dos y doce palabras</string>
   <string name="description_edit_tutorial_button_label_start_editing">Empezar a editar</string>
   <string name="description_edit_tutorial_promise">Al empezar, me comprometo a no hacer mal uso de esta funcionalidad.</string>
-  <string name="suggested_edits_add_descriptions">Añadir descripciones de artículos</string>
-  <string name="suggested_edits_translate_descriptions">Traducir descripciones de artículos</string>
-  <string name="suggested_edits_add_image_captions">Añadir leyendas de imagen</string>
-  <string name="suggested_edits_translate_image_captions">Traducir leyendas de imágenes</string>
   <string name="suggested_edits_tag_images">Etiqueta de imágenes</string>
   <string name="suggested_edits_review_description">Revisar descripción de artículo</string>
   <string name="suggested_edits_add_description_button">Añadir descripción</string>

@@ -236,8 +236,6 @@
   <string name="crash_report_relaunch_or_quit">На жаль, у прыкладаньні Вікіпэдыі адбылася памылка, і яно было закрытае.\n\nХочаце пачаць ізноў ці выйсьці?</string>
   <string name="crash_report_relaunch">Перазапусьціць</string>
   <string name="crash_report_quit">Выйсьці</string>
-  <string name="article_menu_bar_bookmark">Дадаць гэты артыкул да сьпісу чытаньня</string>
-  <string name="article_menu_bar_share">Падзяліцца спасылкай на артыкул</string>
   <string name="color_theme_select">Афармленьне</string>
   <string name="color_theme_light">Сьветлае</string>
   <string name="color_theme_dark">Цёмнае</string>

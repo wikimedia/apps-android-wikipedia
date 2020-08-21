@@ -314,8 +314,6 @@
   <string name="crash_report_relaunch_or_quit">Bohužel je zmylk w app wustupił.\n\nChceš app znowa wočinić abo skónčić?</string>
   <string name="crash_report_relaunch">Znowa wočinić</string>
   <string name="crash_report_quit">Skónčić</string>
-  <string name="article_menu_bar_bookmark">Tutón nastawk k čitanskej lisćinje dodać</string>
-  <string name="article_menu_bar_share">Wotkaz nastawka dale dać</string>
   <string name="article_header_edit_hint">Wobdźěłać...</string>
   <string name="article_header_edit_description">Wopis nastawka wobdźěłać</string>
   <string name="article_header_edit_lead_section">Zawod wobdźěłać</string>

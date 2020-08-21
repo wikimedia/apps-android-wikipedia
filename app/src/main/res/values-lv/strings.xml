@@ -199,7 +199,6 @@
   <string name="crash_report_activity_title">Lietotnes kļūda</string>
   <string name="crash_report_relaunch">Sākt no jauna</string>
   <string name="crash_report_quit">Iziet</string>
-  <string name="article_menu_bar_share">Dalīties ar raksta saiti</string>
   <string name="article_header_edit_hint">Labot...</string>
   <string name="article_header_edit_description">Labot raksta aprakstu</string>
   <string name="article_header_edit_lead_section">Labot ievadu</string>
@@ -308,7 +307,6 @@
   <string name="description_edit_success_done">Gatavs</string>
   <string name="description_edit_success_did_you_know">Vai tu zināji?</string>
   <string name="description_edit_tutorial_button_label_start_editing">Sākt labošanu</string>
-  <string name="suggested_edits_translate_descriptions" fuzzy="true">Tulkot aprakstus</string>
   <string name="suggested_edits_add_translation_button" fuzzy="true">Pievienot tulkojumu</string>
   <string name="suggested_edits_edit_translation_button" fuzzy="true">Labot tulkojumu</string>
   <string name="suggested_edits_my_contributions">Mans devums</string>

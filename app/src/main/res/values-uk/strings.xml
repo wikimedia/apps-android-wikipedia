@@ -355,8 +355,6 @@
   <string name="crash_report_relaunch_or_quit">Перепрошуємо, у додатку Вікіпедії сталася помилка і його було закрито.\n\nХочете почати спочатку чи вийти?</string>
   <string name="crash_report_relaunch">Почати спочатку</string>
   <string name="crash_report_quit">Вийти</string>
-  <string name="article_menu_bar_bookmark">Додати цю статтю до читального списку</string>
-  <string name="article_menu_bar_share">Поділитися посиланням на статтю</string>
   <string name="article_header_edit_hint">Редагувати...</string>
   <string name="article_header_edit_description">Редагувати опис статті</string>
   <string name="article_header_edit_lead_section">Редагувати вступ</string>
@@ -665,7 +663,6 @@
   <string name="description_edit_success_saved_in_lang_snackbar">Опис статті збережено! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Підпис зображення збережено!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Підпис зображення збережено! (%s)</string>
-  <string name="description_edit_success_saved_image_tags_snackbar">Теги до зображення опубліковано!</string>
   <string name="description_edit_success_se_image_caption_feed_link_snackbar">Сподобалося? Допоможіть нам додати відсутні підписи до інших зображень.</string>
   <string name="description_edit_success_encouragement">Ви тільки що зробили Вікіпедію краще для кожного!</string>
   <string name="description_edit_success_done">Готово</string>
@@ -677,10 +674,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">В ідеалі — один рядок, від двох до дванадцяти слів</string>
   <string name="description_edit_tutorial_button_label_start_editing">Почати редагування</string>
   <string name="description_edit_tutorial_promise">Починаючи, я обіцяю не зловживати цією функцією.</string>
-  <string name="suggested_edits_add_descriptions">Додавання описів статей</string>
-  <string name="suggested_edits_translate_descriptions">Перекласти описи статей</string>
-  <string name="suggested_edits_add_image_captions">Додати підписи зображень</string>
-  <string name="suggested_edits_translate_image_captions">Перекласти підписи зображень</string>
   <string name="suggested_edits_tag_images">Теги до зображень</string>
   <string name="suggested_edits_review_description">Перевірити опис статті</string>
   <string name="suggested_edits_add_description_button">Додати опис</string>

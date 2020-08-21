@@ -12,6 +12,7 @@
 * Juandev
 * KuboF
 * Kusavica
+* Luklos
 * Marek Pavlica
 * Martin Urbanec
 * Matěj Suchánek
@@ -35,8 +36,9 @@
   <string name="search_hint_voice_search">Vyhledávání hlasem</string>
   <string name="search_hint_search_history">Hledat v historii</string>
   <string name="search_hint_search_languages">Hledat jazyk</string>
+  <string name="filter_hint_filter_my_lists_and_articles">Filtrovat mé seznamy</string>
   <string name="nav_item_history">Historie</string>
-  <string name="nav_item_suggested_edits" fuzzy="true">Navrhování editací</string>
+  <string name="nav_item_suggested_edits">Editace</string>
   <string name="nav_item_more">Více</string>
   <string name="error_network_error">Nejste připojeni k internetu.</string>
   <string name="page_error_retry">Znovu</string>
@@ -65,7 +67,9 @@
   <string name="edit_section_find_in_page">Najít na stránce</string>
   <string name="menu_page_font_and_theme">Písmo a vzhled</string>
   <string name="menu_page_add_to_list">Přidat do seznamu k přečtení</string>
+  <string name="menu_page_add_to_default_list">Uložit</string>
   <string name="feed_card_add_to_list">Přidat do seznamu k přečtení</string>
+  <string name="feed_card_add_to_default_list">Uložit</string>
   <string name="menu_page_share">Sdílet odkaz</string>
   <string name="menu_page_open_a_new_tab">Otevřít v nové záložce</string>
   <string name="menu_page_reading_lists">Seznamy k přečtení</string>
@@ -187,6 +191,7 @@
   <string name="preference_title_auto_upload_crash_reports">Posílat zprávy o chybách</string>
   <string name="preference_summary_auto_upload_crash_reports">Umožuje aplikaci automaticky odesílat hlášení o chybách třetím stranám, abychom mohli chybu přezkoumat a opravit chybu rychleji a jednodušeji.</string>
   <string name="editing_error_spamblacklist">Detekovány odkazy na zablokované domény (%s). Odstraňte je prosím a zkuste to znovu.</string>
+  <string name="history_filter_list_hint">Filtrovat historii</string>
   <string name="error_can_not_process_link">Tento odkaz nelze zobrazit</string>
   <string name="page_protected_autoconfirmed">Tato stránka je polozamčena.</string>
   <string name="page_protected_sysop">Tato stránka je zamčena.</string>
@@ -354,8 +359,11 @@
   <string name="crash_report_relaunch_or_quit">Omlouváme se, v aplikaci Wikipedie došlo k chybě a byla ukončena.\n\nChcete aplikaci otevřít znovu nebo ji ukončit?</string>
   <string name="crash_report_relaunch">Otevřít znovu</string>
   <string name="crash_report_quit">Ukončit</string>
-  <string name="article_menu_bar_bookmark">Přidat tento článek do seznamu k přečtení</string>
-  <string name="article_menu_bar_share">Sdílet odkaz na článek</string>
+  <string name="article_menu_bar_save_button">Uložit</string>
+  <string name="article_menu_bar_language_button">Jazyk</string>
+  <string name="article_menu_bar_search_button">Vyhledat</string>
+  <string name="article_menu_bar_theme_button">Téma</string>
+  <string name="article_menu_bar_contents_button">Obsah</string>
   <string name="article_header_edit_hint">Editovat…</string>
   <string name="article_header_edit_description">Editovat popis článku</string>
   <string name="article_header_edit_lead_section">Editovat úvod</string>
@@ -377,10 +385,12 @@
   <string name="reading_list_create_new">Vytvořit nový</string>
   <string name="reading_list_title_exists">Seznam k přečtení „%s“ už existuje.</string>
   <string name="reading_list_article_added_to_named">Článek %1$s byl přidán do seznamu %2$s.</string>
+  <string name="reading_list_article_added_to_default_list">Uloženo %s. Chcete jej přidat do seznamu?</string>
   <string name="reading_list_article_moved_to_named">Článek %1$s byl přesunut do seznamu %2$s.</string>
   <string name="reading_list_article_already_exists_message">Všechno je v pořádku! Seznam %1$s již obsahuje článek %2$s.</string>
   <string name="reading_list_articles_already_exist_message">Vše je v pořádku! Seznam %s obsahuje všechny články.</string>
   <string name="reading_list_added_view_button">Zobrazit seznam</string>
+  <string name="reading_list_add_to_list_button">Přidejte do seznamu</string>
   <string name="format_reading_list_statistical_summary_singular">1 článek, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d článků, %2$.2f MB</string>
   <string name="format_reading_list_statistical_detail_singular">%1$d z 1 článků je dostupný offline, %2$.2f MB</string>
@@ -435,10 +445,13 @@
   <string name="reading_lists_sync_reminder_action">Povolit synchronizaci</string>
   <string name="reading_list_login_reminder_title">Synchronizovat seznamy k přečtení</string>
   <string name="reading_lists_login_reminder_text">Seznamy k přečtení mohou být nyní synchronizovány napříč zařízeními. Přihlaste se do svého účtu na Wikipedii a povolte ukládání vašich seznamů.</string>
+  <string name="reading_lists_login_button">Přihlásit / zaregistrovat se na Wikipedii</string>
+  <string name="reading_lists_ignore_button">Teď ne</string>
   <string name="reading_lists_confirm_remote_delete_yes">Ano</string>
   <string name="reading_lists_confirm_remote_delete_no">Ne</string>
   <string name="reading_list_article_save_in_progress">Článek se stahuje. Až se stahování dokončí, bude článek dostupný i bez připojení k internetu (offline).</string>
   <string name="reading_list_articles_added_to_named">%1$d článků přidáno do %2$s</string>
+  <string name="reading_list_articles_moved_to_named">%1$d článků přesunuto do %2$s</string>
   <string name="reading_list_delete_confirm">Opravdu chcete odstranit seznam „%s“?</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_title">Přihlaste se pro povolení synchronizace</string>
   <string name="reading_list_preference_login_to_enable_sync_dialog_text">Přihlaste se, abyste povolili ukládání seznamů k přečtení na váš účet.</string>
@@ -459,12 +472,13 @@
   <string name="no_user_lists_msg">Vytvořte seznamy míst pro cestování, oblíbená témata a mnoho dalšího</string>
   <string name="reading_list_saved_list_rename">%1$s (uživatel vytvořen)</string>
   <string name="split_reading_list_message">Existuje limit %d článků pro seznamy k přečtení. Existující seznamy, které mají více než tento počet článků, byly rozděleny do více seznamů.</string>
+  <string name="reading_list_move_article_limit_message">Nemůžete přidat do tohoto seznamu. Překročili jste limit %2$d článků na seznam \"%1$s\".</string>
   <string name="reading_list_article_limit_message">Nebylo možno přidat do tohoto seznamu. Překročili jste limit %2$d článků do seznamu pro „%1$s“.</string>
   <string name="reading_lists_limit_message">Nelze vytvořit další seznam. Dosáhli jste limitu 100 seznamů k přečtení pro účet.</string>
   <string name="reading_lists_menu_create_list">Vytvořit nový seznam</string>
   <string name="reading_lists_menu_sort_by">Seřadit podle</string>
   <string name="reading_lists_refresh_sync_option">Synchronizovat</string>
-  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Přihlášení / Registrace</string>
+  <string name="reading_list_preference_login_or_signup_to_enable_sync_dialog_login">Přihlášení/registrace</string>
   <plurals name="reading_list_article_offline_message" fuzzy="true">
     <item quantity="one">Tento článek bude dostupný bez připojení k internetu.</item>
     <item quantity="other">Tyto články budou dostupné bez připojení k internetu.</item>
@@ -571,6 +585,7 @@
   <string name="menu_feed_overflow_label">Více možností</string>
   <string name="feed_featured_image_share_subject">Doporučený obrázek z Wikimedia Commons</string>
   <string name="feed">Objevit</string>
+  <string name="home">Domů</string>
   <string name="most_read_list_card_title">Populární</string>
   <string name="view_static_card_icon_content_description">Ikona záložky</string>
   <string name="view_card_news_title">Aktuality</string>
@@ -633,12 +648,17 @@
   <string name="description_edit_anon_limit">Děkujeme za váš trvalý zájem o editaci popisů článků! Chcete-li provést další úpravy, přihlaste se prosím k účtu Wikipedie.</string>
   <string name="description_edit_license_notice">Změnou popisu článku souhlasím s &lt;a href=\"%1$s\"&gt;Podmínkami užití&lt;/a&gt; a neodvolatelně souhlasím s podmínkami licence &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_helper_text_lowercase_warning">většinou začíná malým písmenem</string>
+  <string name="description_edit_voice_input_description">Hlasový vstup</string>
+  <string name="description_too_short">Text je příliš krátký</string>
+  <string name="description_ends_with_punctuation">Text nesmí končit interpunkcí</string>
   <string name="description_starts_with_article">Na začátku nepoužívejte členy (v angličtině \"a\" nebo \"the\").</string>
+  <string name="description_starts_with_uppercase">Začněte s malým písmem, jestliže první slovo není vlastní jméno.</string>
   <string name="description_edit_success_saved">Popis článku byl zveřejněn!</string>
   <string name="description_edit_success_saved_snackbar">Popis článku byl zveřejněn!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Popis článku (v jazyce %s) byl zveřejněn!</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Titulek obrázku byl zveřejněn!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Popis obrázku (v jazyce %s) byl zveřejněn!</string>
+  <string name="description_edit_success_se_image_caption_feed_link_snackbar">Líbilo se vám to?  Pomozte nám přidat chybějící titulky k jiným obrázkům.</string>
   <string name="description_edit_success_encouragement">Wikipedie je díky vám lepší než předtím, děkujeme ☺</string>
   <string name="description_edit_success_done">Hotovo</string>
   <string name="description_edit_success_did_you_know">Věděli jste, že?</string>
@@ -649,10 +669,8 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">V ideálním případě jeden řádek o dvou až dvanácti slovech</string>
   <string name="description_edit_tutorial_button_label_start_editing">Začít editovat</string>
   <string name="description_edit_tutorial_promise">Tímto slibuji, že této funkce nezneužiji.</string>
-  <string name="suggested_edits_add_descriptions">Přidat popisy článků</string>
-  <string name="suggested_edits_translate_descriptions">Přeložit popisy článků</string>
-  <string name="suggested_edits_add_image_captions">Přidat titulky obrázků</string>
-  <string name="suggested_edits_translate_image_captions">Přeložit titulky obrázků</string>
+  <string name="suggested_edits_describe_articles">Popiš články</string>
+  <string name="suggested_edits_caption_images">Otitulkuj obrázky</string>
   <string name="suggested_edits_tag_images">Označit obrázky</string>
   <string name="suggested_edits_review_description">Náhled popisu článku</string>
   <string name="suggested_edits_add_description_button">Přidat popis</string>
@@ -705,6 +723,7 @@
   <string name="suggested_edits_image_preview_dialog_more_info">Více informací</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Stránka souboru na Wikimedia Commons</string>
   <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">Stránka souboru na Wikipedii</string>
+  <string name="suggested_edits_article_cta_image_tags">Přidejte značky obrázků</string>
   <string name="suggested_edits_article_cta_image_caption">Přidat titulek obrázku</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Přidat titulek obrázku (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Zobrazit</string>
@@ -720,7 +739,7 @@
   <string name="suggested_edits_image_tags_publishing">Zveřejňuje se</string>
   <string name="suggested_edits_image_tags_published">Zveřejněno</string>
   <string name="suggested_edits_image_tags_onboarding_title">Označte obrázky, aby je ostatní mohli snáze najít.</string>
-  <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">Potvrzením navrhovaných značek můžete pomoci, aby byly obrázky snáze vyhledatelné.\n\nZnačky jsou navrhované počítačem, ale musí být ověřeny člověkem pro zajištění přesnosti.</string>
+  <string name="suggested_edits_image_tags_onboarding_text">Přidáním značek obrázků pomůžete usnadnit vyhledávání obrázků na Commons, úložišti obrázků se svobodnu licencí, které Wikipedie používá pro obrázky ve svých článcích.</string>
   <string name="suggested_edits_image_tags_onboarding_note">Pouze značky, které vyberete, budou přidány k obrázkům.</string>
   <string name="suggested_edits_image_tags_task_detail">Označte obrázky, aby je ostatní mohli snáze najít. Vyberte z navrhovaných značek nebo přidejte vlastní.\nPřidejte vlastní značky, aby bylo možné obrázek snáze najít.</string>
   <string name="suggested_edits_image_tags_choose">Vyberte nebo přidejte shodující se značky</string>
@@ -735,8 +754,8 @@
   <string name="suggested_edits_image_captions_task_detail">Popište obrázek, abyste čtenářům pomohli pochopit jeho význam a kontext.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Shrňte článek a pomozte čtenářům snáze pochopit téma článku.</string>
   <string name="suggested_edits_contributions_stat_tooltip">Váš celkový počet příspěvků s Navrhováním editací.</string>
-  <string name="suggested_edits_edit_streak_stat_tooltip">Kolik dní bez přestávky jste přispívali přes Navrhování editací. Pokud jste nějakou dobu nepřispívali, zobrazuje datum vašeho posledního příspěvku.</string>
-  <string name="suggested_edits_page_views_stat_tooltip">Celkový počet zobrazení položek, k nimž jste za posledních 30 dní přispěli pomocí Navrhování editací.</string>
+  <string name="suggested_edits_edit_streak_stat_tooltip">Kolik dní bez přestávky jste přispívali přes Navrhování editací. Pokud jste nějakou dobu nepřispívali, zobrazuje se datum vašeho posledního příspěvku.</string>
+  <string name="suggested_edits_page_views_stat_tooltip">Celkový počet návštěvnosti položek, k nimž jste za posledních 30 dní přispěli pomocí Navrhování editací.</string>
   <string name="suggested_edits_edit_quality_stat_tooltip">Na základě toho, kolikrát byly vaše příspěvky zrušeny jinými uživateli. Vrácené editace: %d.</string>
   <string name="suggested_edits_paused_message">Navrhování editací je pozastaveno do %1$s. Litujeme, uživateli %2$s, některé vaše nedávné příspěvky byly zrušeny.</string>
   <string name="suggested_edits_disabled_message">Navrhování editací je vypnuto. Litujeme, uživateli %s, velké množství vašich nedávných příspěvků bylo zrušeno.</string>
@@ -754,6 +773,7 @@
   <string name="suggested_edits_quality_sufficient_text">Dostatečný</string>
   <string name="suggested_edits_quality_poor_text">Špatný</string>
   <string name="suggested_edits_quality_bad_text">Mizerný</string>
+  <string name="suggested_edits_label">Navrhované úpravy</string>
   <plurals name="suggested_edits_contribution" fuzzy="true">
     <item quantity="one">Příspěvek</item>
     <item quantity="other">Příspěvky</item>
@@ -764,7 +784,8 @@
     <item quantity="other">%d dní</item>
   </plurals>
   <string name="suggested_edits_what_is_title">Co je to Navrhování editací?</string>
-  <string name="suggested_edits_what_is_text">Navrhování editací je příležitostí pro malé, ale potřebné příspěvky do Wikipedie.</string>
+  <string name="suggested_edits_what_is_text">Navrhování editací je příležitostí pro malé, ale žádané příspěvky do Wikipedie.</string>
+  <string name="suggested_edits_learn_more">Více informací</string>
   <string name="suggested_edits_paused_title">Pozastaveno</string>
   <string name="suggested_edits_disabled_title">Vypnuto</string>
   <string name="suggested_edits_ip_blocked_title">Zablokovaná IP</string>
@@ -773,13 +794,37 @@
   <string name="suggested_edits_task_new">nové</string>
   <string name="suggested_edits_cc0_notice">Zveřejněním souhlasíte s &lt;a href=\"%1$s\"&gt;podmínkami použití&lt;/a&gt; a neodvolatelně také souhlasíte se zveřejněním tohoto příspěvku pod &lt;a href=\"%2$s\"&gt;licencí CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_reactivation_notification_title">Navrhování editací</string>
+  <string name="suggested_edits_reactivation_notification_stage_one">Děkujeme, že editujete Wikipedii! Proč nepokračovat tam, kde jste skončili?</string>
+  <string name="suggested_edits_reactivation_notification_stage_two">Máte minutku na pokračování ve zlepšování Wikipedie? Podívejte se na tyto editační návrhy.</string>
+  <string name="suggested_edits_contributions_screen_title">Příspěvky uživatele %s</string>
+  <string name="suggested_edits_contribution_language_label">Jazyk</string>
+  <string name="suggested_edits_contribution_date_time_label">Datum/Čas</string>
+  <string name="suggested_edits_contribution_type_label">Typ příspěvku</string>
+  <string name="suggested_edits_contribution_image_label">Obrázek</string>
+  <string name="suggested_edits_contribution_article_label">Článek</string>
+  <string name="suggested_edits_contribution_views">%s zobrazení</string>
+  <string name="suggested_edits_contribution_seen_text">Zobrazené %skrát za posledních 30 dní.</string>
+  <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
+  <string name="suggested_edits_contribution_date_yesterday_text">Včera</string>
+  <string name="suggested_edits_rewards_contribution">Provedli jste %d příspěvků na Wikipedii pomocí Navrhovaných editací. Děkujeme!</string>
+  <string name="suggested_edits_rewards_edit_streak">Zatím jste editovali každý den v řadě již %1$d dní. Jen tak dále, %2$s!</string>
+  <string name="suggested_edits_rewards_pageviews">Vaše editace vidělo %d lidí za posledních 30 dní. Děkujeme a jen tak dále!</string>
+  <string name="suggested_edits_rewards_edit_quality">Vaše úpravy jsou aktuálně %s. Jen tak dále! Těšíme se na vaše příspěvky.</string>
+  <string name="suggested_edits_rewards_continue_button">Pokračovat</string>
   <string name="suggested_edits_encourage_account_creation_title">Věděli jste, že editovat Wikipedii může každý?</string>
+  <string name="suggested_edits_encourage_account_creation_message">Navrhování editací je nový způsob editace Wikipedie na Androidu. Pomáhá vám přispívat na Wikipedii malými, ale pro chod Wikipedie důležitými příspěvky.\nNaším cílem je zjednodušit a zpřístupnit editování všem! Přihlaste se nebo se zaregistrujte na Wikipedii, abyste mohli začít.</string>
+  <string name="suggested_edits_encourage_account_creation_login_button">Přihlásit / zaregistrovat se na Wikipedii</string>
+  <string name="suggested_edits_contribution_type_image_tag">Značka obrázku</string>
+  <string name="suggested_edits_contribution_current_revision_text">Vaše úprava je aktuálně viditelná na Wikipedii</string>
   <plurals name="suggested_edits_contribution_diff_count_text">
     <item quantity="one">%1$s znak</item>
     <item quantity="few">%1$s znaky</item>
     <item quantity="many">%1$s znaků</item>
     <item quantity="other">%1$s znaků</item>
   </plurals>
+  <string name="file_page_activity_title">Stránka souboru</string>
+  <string name="file_page_add_image_caption_button">Přidat titulek obrázku</string>
+  <string name="file_page_add_image_tags_button">Přidejte značky obrázků</string>
   <string name="description_edit_revert_subtitle">Děkujeme za editaci Wikipedie!</string>
   <string name="description_edit_revert_intro">Víme, že jste se snažili o to nejlepší, ale jeden z wikipedistů měl obavy. Možné důvody vrácení vaší editace jsou:</string>
   <string name="description_edit_revert_reason1">váš příspěvek nedodržel některé z &lt;a href=\"%1$s\"&gt;pravidel&lt;/a&gt;.</string>
@@ -853,6 +898,7 @@
   <string name="edit_conflict_dialog_ok_button_text">OK</string>
   <string name="reverted_edit_dialog_ok_button_text">OK</string>
   <string name="account_editing_blocked_dialog_cancel_button_text">Zrušit</string>
+  <string name="edit_type_all">Všechny přípěvky</string>
   <string name="content_description_for_page_indicator">Článek %1$d z %2$d</string>
   <string name="wikitext_bold">Tučné</string>
   <string name="wikitext_italic">Kurzíva</string>
@@ -863,7 +909,7 @@
   <string name="wikitext_reference">Reference</string>
   <string name="wikitext_preview_link">Náhled odkazu</string>
   <string name="main_drawer_help">Nápověda</string>
-  <string name="main_drawer_login">Přihlásit/zaregistrovat se do Wikipedie</string>
+  <string name="main_drawer_login">Přihlásit / zaregistrovat se na Wikipedii</string>
   <string name="main_tooltip_text">Dobrý den %s, věděli jste, že každý může editovat Wikipedii?</string>
   <string name="main_tooltip_text_v2">Věděli jste, že editovat Wikipedii může každý?</string>
   <string name="main_tooltip_action_button">Začít</string>

@@ -353,8 +353,10 @@
   <string name="crash_report_relaunch_or_quit">Pahoittelumme. Wikipedia-sovellus kohtasi virheen ja kaatui.\n\nHaluaisitko käynnistää sovelluksen uudelleen vai poistua sovelluksesta?</string>
   <string name="crash_report_relaunch">Käynnistä uudelleen</string>
   <string name="crash_report_quit">Poistu</string>
-  <string name="article_menu_bar_bookmark">Tallenna artikkeli lukulukuluetteloon</string>
-  <string name="article_menu_bar_share">Jaa linkki artikkeliin</string>
+  <string name="article_menu_bar_save_button">Tallenna</string>
+  <string name="article_menu_bar_language_button">Kieli</string>
+  <string name="article_menu_bar_theme_button">Teema</string>
+  <string name="article_menu_bar_contents_button">Sisältö</string>
   <string name="article_header_edit_hint">Muokkaa…</string>
   <string name="article_header_edit_description">Muokkaa artikkelin kuvausta</string>
   <string name="article_header_edit_lead_section">Muokkaa johdantoa</string>
@@ -569,6 +571,7 @@
   <string name="menu_feed_overflow_label">Lisää vaihtoehtoja</string>
   <string name="feed_featured_image_share_subject">Suositeltu kuva Wikimedia Commonsista</string>
   <string name="feed">Tutki</string>
+  <string name="home">Koti</string>
   <string name="most_read_list_card_title">Nousussa</string>
   <string name="view_static_card_icon_content_description">Korttikuvake</string>
   <string name="view_card_news_title">Uutisissa</string>
@@ -637,7 +640,6 @@
   <string name="description_edit_success_saved_in_lang_snackbar">Artikkelin kuvaus julkaistu! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Kuvateksti julkaistu!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Kuvateksti julkaistu! (%s)</string>
-  <string name="description_edit_success_saved_image_tags_snackbar">Kuvamerkintä/-merkinnät julkaistu!</string>
   <string name="description_edit_success_encouragement">Teit juuri Wikipediasta kaikille paremman</string>
   <string name="description_edit_success_done">Valmis</string>
   <string name="description_edit_success_did_you_know">Tiesitkö?</string>
@@ -648,10 +650,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Ihanteellisesti yksi rivi, kahdesta kahteentoista sanaa</string>
   <string name="description_edit_tutorial_button_label_start_editing">Aloita muokkaaminen</string>
   <string name="description_edit_tutorial_promise">Aloittamalla lupaan olla väärinkäyttämättä tätä ominaisuutta.</string>
-  <string name="suggested_edits_add_descriptions">Lisää artikkelin kuvaukset</string>
-  <string name="suggested_edits_translate_descriptions">Käännä artikkelin kuvaukset</string>
-  <string name="suggested_edits_add_image_captions">Lisää kuvatekstit</string>
-  <string name="suggested_edits_translate_image_captions">Käännä kuvatekstit</string>
   <string name="suggested_edits_tag_images">Merkitse kuvia</string>
   <string name="suggested_edits_review_description">Esikatsele artikkelin kuvausta</string>
   <string name="suggested_edits_add_description_button">Lisää kuvaus</string>
