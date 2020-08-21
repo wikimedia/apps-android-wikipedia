@@ -67,19 +67,25 @@ class FilePageFragment : Fragment() {
         super.onActivityResult(requestCode, resultCode, data)
         if ((requestCode == ACTIVITY_REQUEST_ADD_IMAGE_CAPTION || requestCode == ACTIVITY_REQUEST_ADD_IMAGE_TAGS) && resultCode == RESULT_OK) {
             val abTestFunnel = ABTestSuggestedEditsSnackbarFunnel()
-            val snackbar = FeedbackUtil.makeSnackbar(activity,
-                    if (requestCode == ACTIVITY_REQUEST_ADD_IMAGE_CAPTION)
-                        getString(R.string.description_edit_success_saved_image_caption_snackbar)
-                    else
-                        getString(R.string.description_edit_success_saved_image_tags_snackbar), FeedbackUtil.LENGTH_DEFAULT)
-            if (abTestFunnel.shouldSeeSnackbarAction()) {
-                snackbar.setAction(R.string.suggested_edits_tasks_onboarding_get_started) {
-                    startActivity(newIntent(requireActivity(),
-                            if (requestCode == ACTIVITY_REQUEST_ADD_IMAGE_CAPTION) DescriptionEditActivity.Action.ADD_CAPTION
-                            else DescriptionEditActivity.Action.ADD_IMAGE_TAGS))
+
+            if (!(requestCode == ACTIVITY_REQUEST_ADD_IMAGE_TAGS && !abTestFunnel.shouldSeeSnackbarAction())) {
+                val snackbar = FeedbackUtil.makeSnackbar(activity,
+                        if (requestCode == ACTIVITY_REQUEST_ADD_IMAGE_CAPTION)
+                            getString(
+                                    if (abTestFunnel.shouldSeeSnackbarAction()) R.string.description_edit_success_saved_image_caption_snackbar_se_promotion
+                                    else R.string.description_edit_success_saved_image_caption_snackbar
+                            )
+                        else getString(R.string.description_edit_success_se_image_tags_feed_link_snackbar), FeedbackUtil.LENGTH_DEFAULT)
+                if (abTestFunnel.shouldSeeSnackbarAction()) {
+                    snackbar.setAction(R.string.suggested_edits_tasks_onboarding_get_started) {
+                        startActivity(newIntent(requireActivity(),
+                                if (requestCode == ACTIVITY_REQUEST_ADD_IMAGE_CAPTION) DescriptionEditActivity.Action.ADD_CAPTION
+                                else DescriptionEditActivity.Action.ADD_IMAGE_TAGS))
+                    }
                 }
+                snackbar.show()
             }
-            snackbar.show()
+
             abTestFunnel.logSnackbarShown()
             loadImageInfo()
         }

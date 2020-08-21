@@ -246,15 +246,31 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
                     suggestedEditsCardView.refreshCardContent();
                     isTranslation = suggestedEditsCardView.isTranslation();
                     ABTestSuggestedEditsSnackbarFunnel abTestFunnel = new ABTestSuggestedEditsSnackbarFunnel();
-                    Snackbar snackbar = FeedbackUtil.makeSnackbar(requireActivity(), isTranslation && app.language().getAppLanguageCodes().size() > 1
-                            ? getString(suggestedEditsCardView.getCard().getAction() == TRANSLATE_DESCRIPTION ? R.string.description_edit_success_saved_in_lang_snackbar : R.string.description_edit_success_saved_image_caption_in_lang_snackbar, app.language().getAppLanguageLocalizedName(app.language().getAppLanguageCodes().get(1)))
-                            : getString(suggestedEditsCardView.getCard().getAction() == ADD_DESCRIPTION ? R.string.description_edit_success_saved_snackbar : (suggestedEditsCardView.getCard().getAction() == ADD_IMAGE_TAGS) ? R.string.description_edit_success_saved_image_tags_snackbar : R.string.description_edit_success_saved_image_caption_snackbar),
-                            FeedbackUtil.LENGTH_DEFAULT);
-                    if (abTestFunnel.shouldSeeSnackbarAction()) {
-                        snackbar.setAction(R.string.suggested_edits_tasks_onboarding_get_started, view ->
-                                startActivity(SuggestionsActivity.newIntent(requireActivity(), suggestedEditsCardView.getCard().getAction())));
+                    if (!(suggestedEditsCardView.getCard().getAction() == ADD_IMAGE_TAGS && !abTestFunnel.shouldSeeSnackbarAction())) {
+                        Snackbar snackbar = FeedbackUtil.makeSnackbar(requireActivity(), isTranslation && app.language().getAppLanguageCodes().size() > 1
+                                        ? getString(suggestedEditsCardView.getCard().getAction() == TRANSLATE_DESCRIPTION
+                                            ? abTestFunnel.shouldSeeSnackbarAction()
+                                                ? R.string.description_edit_success_saved_in_lang_snackbar_se_promotion
+                                                : R.string.description_edit_success_saved_in_lang_snackbar
+                                            : abTestFunnel.shouldSeeSnackbarAction()
+                                                ? R.string.description_edit_success_saved_image_caption_in_lang_snackbar_se_promotion
+                                                : R.string.description_edit_success_saved_image_caption_in_lang_snackbar, app.language().getAppLanguageLocalizedName(app.language().getAppLanguageCodes().get(1)))
+                                        : getString(suggestedEditsCardView.getCard().getAction() == ADD_DESCRIPTION
+                                            ? abTestFunnel.shouldSeeSnackbarAction()
+                                                ? R.string.description_edit_success_saved_snackbar_se_promotion
+                                                : R.string.description_edit_success_saved_snackbar
+                                            : (suggestedEditsCardView.getCard().getAction() == ADD_IMAGE_TAGS)
+                                                ? R.string.description_edit_success_se_image_tags_feed_link_snackbar
+                                                : abTestFunnel.shouldSeeSnackbarAction()
+                                                    ? R.string.description_edit_success_saved_image_caption_snackbar_se_promotion
+                                                    : R.string.description_edit_success_saved_image_caption_snackbar),
+                                FeedbackUtil.LENGTH_DEFAULT);
+                        if (abTestFunnel.shouldSeeSnackbarAction()) {
+                            snackbar.setAction(R.string.suggested_edits_tasks_onboarding_get_started, view ->
+                                    startActivity(SuggestionsActivity.newIntent(requireActivity(), suggestedEditsCardView.getCard().getAction())));
+                        }
+                        snackbar.show();
                     }
-                    snackbar.show();
                     abTestFunnel.logSnackbarShown();
                 }
             }

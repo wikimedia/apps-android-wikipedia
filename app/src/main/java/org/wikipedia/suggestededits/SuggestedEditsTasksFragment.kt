@@ -12,8 +12,6 @@ import androidx.constraintlayout.widget.Group
 import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.skydoves.balloon.ArrowOrientation
-import com.skydoves.balloon.showAlignBottom
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -310,11 +308,11 @@ class SuggestedEditsTasksFragment : Fragment() {
     }
 
     private fun showOneTimeSequentialUserStatsTooltips() {
-        val balloon = FeedbackUtil.showTooltip(requireContext(), contributionsStatsView.tooltipText, ArrowOrientation.TOP)
-        contributionsStatsView.description.showAlignBottom(balloon)
-        balloon.relayShowAlignBottom(FeedbackUtil.showTooltip(requireContext(), editStreakStatsView.tooltipText, ArrowOrientation.TOP), editStreakStatsView.description)
-                .relayShowAlignBottom(FeedbackUtil.showTooltip(requireContext(), pageViewStatsView.tooltipText, ArrowOrientation.TOP), pageViewStatsView.description)
-                .relayShowAlignBottom(FeedbackUtil.showTooltip(requireContext(), editQualityStatsView.tooltipText, ArrowOrientation.TOP), editQualityStatsView.description)
+        val balloon = FeedbackUtil.getTooltip(requireContext(), contributionsStatsView.tooltipText, false, true)
+        balloon.showAlignBottom(contributionsStatsView.description)
+        balloon.relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), editStreakStatsView.tooltipText, false, true), editStreakStatsView.description)
+                .relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), pageViewStatsView.tooltipText, false, true), pageViewStatsView.description)
+                .relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), editQualityStatsView.tooltipText, false, true), editQualityStatsView.description)
         Prefs.shouldShowOneTimeSequentialUserStatsTooltip(false)
     }
 

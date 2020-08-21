@@ -59,7 +59,6 @@ import org.wikipedia.navtab.NavTab;
 import org.wikipedia.page.linkpreview.LinkPreviewDialog;
 import org.wikipedia.page.tabs.TabActivity;
 import org.wikipedia.readinglist.database.ReadingListPage;
-import org.wikipedia.search.SearchActivity;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.DeviceUtil;
@@ -124,7 +123,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     @BindView(R.id.page_progress_bar) ProgressBar progressBar;
     @BindView(R.id.page_toolbar_container) View toolbarContainerView;
     @BindView(R.id.page_toolbar) Toolbar toolbar;
-    @BindView(R.id.page_toolbar_button_search) ImageView searchButton;
     @BindView(R.id.page_toolbar_button_tabs) TabCountsView tabsButton;
     @BindView(R.id.page_toolbar_button_show_overflow_menu) ImageView overflowButton;
     @Nullable private Unbinder unbinder;
@@ -183,7 +181,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         clearActionBarTitle();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        FeedbackUtil.setButtonLongPressToast(searchButton, tabsButton, overflowButton);
+        FeedbackUtil.setButtonLongPressToast(tabsButton, overflowButton);
 
         toolbarHideHandler = new PageToolbarHideHandler(pageFragment, toolbarContainerView, toolbar, tabsButton);
 
@@ -201,7 +199,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         boolean languageChanged = false;
         if (savedInstanceState != null) {
             if (savedInstanceState.getBoolean("isSearching")) {
-                openSearchActivity();
+                pageFragment.openSearchActivity(TOOLBAR);
             }
             String language = savedInstanceState.getString(LANGUAGE_CODE_BUNDLE_KEY);
             languageChanged = !app.getAppOrSystemLanguageCode().equals(language);
@@ -229,11 +227,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         getWindow().getDecorView().setSystemUiVisibility(light
                 ? getWindow().getDecorView().getSystemUiVisibility() | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
                 : getWindow().getDecorView().getSystemUiVisibility() & ~View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
-    }
-
-    @OnClick(R.id.page_toolbar_button_search)
-    public void onSearchButtonClicked() {
-        openSearchActivity();
     }
 
     @OnClick(R.id.page_toolbar_button_tabs)
@@ -731,24 +724,31 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
                     : (requestCode == Constants.ACTIVITY_REQUEST_IMAGE_TAGS_EDIT) ? ADD_IMAGE_TAGS : null;
             ABTestSuggestedEditsSnackbarFunnel abTestFunnel = new ABTestSuggestedEditsSnackbarFunnel();
             boolean shouldSeeSEFeedLinkSnackbar = abTestFunnel.shouldSeeSnackbarAction() && Prefs.getSEFeedLinkSnackbarShownCount() < SE_FEED_LINK_SNACKBAR_SHOW_LIMIT;
-            FeedbackUtil.makeSnackbar(this, action == ADD_CAPTION
+            Snackbar snackbar = FeedbackUtil.makeSnackbar(this, action == ADD_CAPTION
                     ? getString(R.string.description_edit_success_saved_image_caption_snackbar)
                     : action == TRANSLATE_CAPTION ? getString(R.string.description_edit_success_saved_image_caption_in_lang_snackbar, app.language().getAppLanguageLocalizedName(editLanguage))
-                    : getString(R.string.description_edit_success_saved_image_tags_snackbar), FeedbackUtil.LENGTH_DEFAULT)
-                    .setAction(R.string.suggested_edits_article_cta_snackbar_action, v -> pageFragment.openImageInGallery(editLanguage))
-                    .addCallback(new Snackbar.Callback() {
-                        @Override
-                        public void onDismissed(Snackbar transientBottomBar, @DismissEvent int event) {
-                            if (shouldSeeSEFeedLinkSnackbar && action != null) {
-                                Prefs.setSEFeedLinkSnackbarShownCount(Prefs.getSEFeedLinkSnackbarShownCount() + 1);
-                                FeedbackUtil.makeSnackbar(PageActivity.this, getString(R.string.description_edit_success_se_image_caption_feed_link_snackbar), FeedbackUtil.LENGTH_DEFAULT)
-                                        .setAction(R.string.suggested_edits_tasks_onboarding_get_started, v -> pageFragment.startSuggestionsActivity(action))
-                                        .show();
+                    : getString(R.string.description_edit_success_se_image_tags_feed_link_snackbar), FeedbackUtil.LENGTH_DEFAULT);
+
+            if (action != ADD_IMAGE_TAGS) {
+                snackbar.setAction(R.string.suggested_edits_article_cta_snackbar_action, v -> pageFragment.openImageInGallery(editLanguage))
+                        .addCallback(new Snackbar.Callback() {
+                            @Override
+                            public void onDismissed(Snackbar transientBottomBar, @DismissEvent int event) {
+                                if (shouldSeeSEFeedLinkSnackbar && action != null) {
+                                    Prefs.setSEFeedLinkSnackbarShownCount(Prefs.getSEFeedLinkSnackbarShownCount() + 1);
+                                    FeedbackUtil.makeSnackbar(PageActivity.this, getString(R.string.description_edit_success_se_image_caption_feed_link_snackbar), FeedbackUtil.LENGTH_DEFAULT)
+                                            .setAction(R.string.suggested_edits_tasks_onboarding_get_started, v -> pageFragment.startSuggestionsActivity(action))
+                                            .show();
+                                }
                             }
-                            abTestFunnel.logSnackbarShown();
-                        }
-                    })
-                    .show();
+                        });
+            } else if (shouldSeeSEFeedLinkSnackbar) {
+                snackbar.setAction(R.string.suggested_edits_tasks_onboarding_get_started, v -> pageFragment.startSuggestionsActivity(action));
+            }
+
+            snackbar.show();
+            abTestFunnel.logSnackbarShown();
+
         } else {
             super.onActivityResult(requestCode, resultCode, data);
         }
@@ -840,11 +840,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
                 .setPositiveButton(R.string.reverted_edit_dialog_ok_button_text, null)
                 .create()
                 .show();
-    }
-
-    private void openSearchActivity() {
-        Intent intent = SearchActivity.newIntent(this, TOOLBAR, null);
-        startActivity(intent);
     }
 
     private class EventBusConsumer implements Consumer<Object> {

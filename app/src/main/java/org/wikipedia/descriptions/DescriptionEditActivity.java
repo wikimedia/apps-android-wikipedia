@@ -32,6 +32,7 @@ import static org.wikipedia.Constants.InvokeSource.PAGE_ACTIVITY;
 import static org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_CAPTION;
 import static org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_CAPTION;
 import static org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_DESCRIPTION;
+import static org.wikipedia.descriptions.DescriptionEditSuccessActivity.RESULT_OK_FROM_EDIT_SUCCESS;
 import static org.wikipedia.util.DeviceUtil.hideSoftKeyboard;
 
 public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionEditFragment>
@@ -70,7 +71,7 @@ public class DescriptionEditActivity extends SingleFragmentActivity<DescriptionE
 
     @Override
     public void onDescriptionEditSuccess() {
-        setResult(RESULT_OK);
+        setResult(RESULT_OK_FROM_EDIT_SUCCESS);
         finish();
     }
 

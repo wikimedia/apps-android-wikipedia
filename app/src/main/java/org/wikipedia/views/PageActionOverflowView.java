@@ -16,6 +16,7 @@ import androidx.core.widget.PopupWindowCompat;
 import com.google.android.material.textview.MaterialTextView;
 
 import org.wikipedia.R;
+import org.wikipedia.analytics.ABTestExploreVsHomeFunnel;
 import org.wikipedia.page.tabs.Tab;
 
 import butterknife.BindView;
@@ -35,11 +36,18 @@ public class PageActionOverflowView extends FrameLayout {
     @Nullable private Callback callback;
     @Nullable private PopupWindow popupWindowHost;
     @BindView(R.id.overflow_forward) MaterialTextView forwardButton;
+    @BindView(R.id.overflow_feed) MaterialTextView exploreButton;
 
     public PageActionOverflowView(Context context) {
         super(context);
         inflate(getContext(), R.layout.view_page_action_overflow, this);
         ButterKnife.bind(this);
+
+        ABTestExploreVsHomeFunnel funnel = new ABTestExploreVsHomeFunnel();
+        if (funnel.shouldSeeHome()) {
+            exploreButton.setText(R.string.home);
+            exploreButton.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_baseline_home_24, 0, 0, 0);
+        }
     }
 
     public void show(@NonNull View anchorView, @Nullable Callback callback, @NonNull Tab currentTab) {
@@ -50,9 +58,7 @@ public class PageActionOverflowView extends FrameLayout {
         PopupWindowCompat.setOverlapAnchor(popupWindowHost, true);
         PopupWindowCompat.showAsDropDown(popupWindowHost, anchorView, 0, 0, Gravity.END);
 
-        final float disabledAlpha = 0.5f;
-        forwardButton.setEnabled(currentTab.canGoForward());
-        forwardButton.setAlpha(forwardButton.isEnabled() ? 1.0f : disabledAlpha);
+        forwardButton.setVisibility(currentTab.canGoForward() ? VISIBLE : GONE);
     }
 
     @OnClick({R.id.overflow_forward, R.id.overflow_find_in_page, R.id.overflow_new_tab, R.id.overflow_share, R.id.overflow_feed})
