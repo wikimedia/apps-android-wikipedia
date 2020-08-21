@@ -102,6 +102,7 @@
 
     <!-- Snackbar -->
     <dimen name="snackbar_action_inline_max_dimen">128dp</dimen>
+    <dimen name="design_snackbar_padding_vertical_2lines" tools:override="true">14dp</dimen>
 
     <!-- Suggested Edits -->
     <dimen name="suggested_edits_icon_size">28dp</dimen>
