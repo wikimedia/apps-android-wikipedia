@@ -996,6 +996,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         return bridge.isLoading();
     }
 
+    @SuppressWarnings("checkstyle:magicnumber")
     private void setBookmarkIconForPageSavedState(boolean pageSaved) {
         View bookmarkTab = tabLayout.getChildAt(PageActionTab.ADD_TO_READING_LIST.code());
         if (bookmarkTab != null) {
@@ -1004,6 +1005,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                             ? R.drawable.ic_bookmark_white_24dp
                             : R.drawable.ic_bookmark_border_white_24dp), null, null);
             bookmarkTab.setEnabled(!model.shouldLoadAsMobileWeb());
+            bookmarkTab.setAlpha(model.shouldLoadAsMobileWeb() ? 0.5f : 1f);
         }
     }
 
