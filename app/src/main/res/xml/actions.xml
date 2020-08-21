@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<actions>
+    <action intentName="actions.intent.OPEN_APP_FEATURE">
+        <fulfillment
+            fulfillmentMode="actions.fulfillment.SLICE"
+            urlTemplate="content://${applicationId}.slices/{?searchQuery}">
+            <parameter-mapping
+                urlParameter="searchQuery"
+                intentParameter="feature"
+                required="true"/>
+        </fulfillment>
+<!--        <fulfillment urlTemplate="https://www.bank.example/account/balance" />-->
+    </action>
+</actions>

@@ -62,6 +62,8 @@
         -->
         <meta-data android:name="@string/preference_key_app_channel" android:value="@string/channel" />
 
+        <meta-data android:name="com.google.android.actions" android:resource="@xml/actions" />
+
         <activity
             android:name=".main.MainActivity"
             android:windowSoftInputMode="adjustResize"
