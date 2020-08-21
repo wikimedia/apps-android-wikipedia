@@ -9,6 +9,5 @@
                 intentParameter="feature"
                 required="true"/>
         </fulfillment>
-<!--        <fulfillment urlTemplate="https://www.bank.example/account/balance" />-->
     </action>
 </actions>
