@@ -3,6 +3,7 @@ package org.wikipedia.navtab
 import android.view.View
 import androidx.fragment.app.Fragment
 import org.wikipedia.R
+import org.wikipedia.analytics.ABTestExploreVsHomeFunnel
 import org.wikipedia.feed.FeedFragment
 import org.wikipedia.history.HistoryFragment
 import org.wikipedia.model.EnumCode
@@ -11,7 +12,9 @@ import org.wikipedia.readinglist.ReadingListsFragment
 import org.wikipedia.suggestededits.SuggestedEditsTasksFragment
 
 enum class NavTab constructor(private val text: Int, private val id: Int, private val icon: Int) : EnumCode {
-    EXPLORE(R.string.nav_item_feed, View.generateViewId(), R.drawable.ic_globe) {
+    EXPLORE(if (ABTestExploreVsHomeFunnel().shouldSeeHome()) R.string.home else R.string.nav_item_feed,
+            View.generateViewId(),
+            if (ABTestExploreVsHomeFunnel().shouldSeeHome()) R.drawable.ic_baseline_home_24 else R.drawable.ic_globe) {
         override fun newInstance(): Fragment {
             return FeedFragment.newInstance()
         }

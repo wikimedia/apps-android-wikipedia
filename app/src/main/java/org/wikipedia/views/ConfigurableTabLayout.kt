@@ -38,5 +38,5 @@ open class ConfigurableTabLayout constructor(context: Context, attrs: AttributeS
         tab.tag = if (enabled) null else DisabledTag()
     }
 
-    private inner class DisabledTag
+    private class DisabledTag
 }

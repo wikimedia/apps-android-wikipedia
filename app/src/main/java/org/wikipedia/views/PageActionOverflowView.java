@@ -58,9 +58,7 @@ public class PageActionOverflowView extends FrameLayout {
         PopupWindowCompat.setOverlapAnchor(popupWindowHost, true);
         PopupWindowCompat.showAsDropDown(popupWindowHost, anchorView, 0, 0, Gravity.END);
 
-        final float disabledAlpha = 0.5f;
-        forwardButton.setEnabled(currentTab.canGoForward());
-        forwardButton.setAlpha(forwardButton.isEnabled() ? 1.0f : disabledAlpha);
+        forwardButton.setVisibility(currentTab.canGoForward() ? VISIBLE : GONE);
     }
 
     @OnClick({R.id.overflow_forward, R.id.overflow_find_in_page, R.id.overflow_new_tab, R.id.overflow_share, R.id.overflow_feed})
