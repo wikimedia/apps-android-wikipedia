@@ -256,8 +256,6 @@
   <string name="crash_report_relaunch_or_quit">Cafwyd nam. Ymddiheurwn am hyn.\n\nCychwyn eto neu roi\'r gorau iddi?</string>
   <string name="crash_report_relaunch">Cychwyn eto</string>
   <string name="crash_report_quit">Rhoi\'r ffidil yn y to!</string>
-  <string name="article_menu_bar_bookmark">Ychwanegwch yr erthygl hon i\'ch rhestr ddarllen</string>
-  <string name="article_menu_bar_share">Rhannwch ddolen yr erthygl hon</string>
   <string name="article_header_edit_hint">Golygu...</string>
   <string name="article_header_edit_description">Golygu disgrifiad o\'r erthygl</string>
   <string name="article_header_edit_lead_section">Golygu\'r rhan gyntaf</string>

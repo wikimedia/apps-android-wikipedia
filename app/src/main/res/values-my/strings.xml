@@ -345,8 +345,6 @@
   <string name="crash_report_relaunch_or_quit">ကျွန်ုပ်တို့ စိတ်မကောင်းပါ၊ ဝီကီပီးဒီးယားအက်ပ်သည် အမှားတစ်ခု တွေ့ကြုံရပြီး ပိတ်သွားပါသည်။\n\nပြန်စမည်လော ထွက်မည်လော?</string>
   <string name="crash_report_relaunch">ပြန်စရန်</string>
   <string name="crash_report_quit">ထွက်</string>
-  <string name="article_menu_bar_bookmark">ဤဆောင်းပါးအား စာဖတ်စာရင်းသို့ ပေါင်းထည့်ရန်</string>
-  <string name="article_menu_bar_share">ဆောင်းပါးလင့်ခ်အား မျှဝေရန်</string>
   <string name="article_header_edit_hint">ပြင်ဆင်...</string>
   <string name="article_header_edit_description">ဆောင်းပါးဖော်ပြချက်ကို တည်းဖြတ်ရန်</string>
   <string name="article_header_edit_lead_section">မိတ်ဆက် တည်းဖြတ်ရန်</string>
@@ -636,10 +634,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">စာတစ်ကြောင်းထဲ၊ စာလုံး နှစ်လုံးမှ တစ်ဆယ့်နှစ်လုံးအကြား</string>
   <string name="description_edit_tutorial_button_label_start_editing">စတင်တည်းဖြတ်</string>
   <string name="description_edit_tutorial_promise">စတင်ခြင်းဖြင့် ဤအင်္ဂရပ်ကို တလွဲအသုံးမပြုပါဟု ကတိပြုပါသည်။</string>
-  <string name="suggested_edits_add_descriptions">ဆောင်းပါးဖော်ပြချက်များ ထည့်ပေါင်းရန်</string>
-  <string name="suggested_edits_translate_descriptions">ဆောင်းပါးဖော်ပြချက်များကို ဘာသာပြန်ရန်</string>
-  <string name="suggested_edits_add_image_captions">ရုပ်ပုံ ပုံစာများ ပေါင်းထည့်ရန်</string>
-  <string name="suggested_edits_translate_image_captions">ရုပ်ပုံ ပုံစာများကို ဘာသာပြန်ရန်</string>
   <string name="suggested_edits_review_description">ဆောင်းပါးဖော်ပြချက် ပြန်လည်ဆန်းစစ်ရန်</string>
   <string name="suggested_edits_add_description_button">ဖော်ပြချက်ထည့်သွင်းပါ</string>
   <string name="suggested_edits_edit_description_button">ဖော်ပြချက် တည်းဖြတ်ရန်</string>

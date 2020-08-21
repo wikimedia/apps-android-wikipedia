@@ -351,8 +351,6 @@
   <string name="crash_report_relaunch_or_quit">Апликација Википедија је наишла на грешку и обустављена је.\n\nЖелите ли поново да је покренете или да изађете?</string>
   <string name="crash_report_relaunch">Покрени поново</string>
   <string name="crash_report_quit">Изађи</string>
-  <string name="article_menu_bar_bookmark">Додај овај чланак на листу за читање</string>
-  <string name="article_menu_bar_share">Дели линк чланка</string>
   <string name="article_header_edit_hint">Уреди…</string>
   <string name="article_header_edit_description">Уреди опис чланка</string>
   <string name="article_header_edit_lead_section">Уреди увод</string>
@@ -645,10 +643,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">По могућству један ред, од две до дванаест речи</string>
   <string name="description_edit_tutorial_button_label_start_editing">Започни уређивање</string>
   <string name="description_edit_tutorial_promise">Када почнем, обећавам да нећу злоупотребити ову функцију.</string>
-  <string name="suggested_edits_add_descriptions">Додавање описа чланка</string>
-  <string name="suggested_edits_translate_descriptions">Преведи описе чланака</string>
-  <string name="suggested_edits_add_image_captions">Додај натписе слика</string>
-  <string name="suggested_edits_translate_image_captions">Преведи натписе слика</string>
   <string name="suggested_edits_tag_images">Означавање слика</string>
   <string name="suggested_edits_review_description">Преглед описа чланка</string>
   <string name="suggested_edits_add_description_button">Додај опис</string>

@@ -334,8 +334,6 @@
   <string name="crash_report_relaunch_or_quit">Sentímoslo, la app de Wikipedia esperimentó un error y terminóse.\n\n¿Quies volver a arrancar o colar?</string>
   <string name="crash_report_relaunch">Volver a arrancar</string>
   <string name="crash_report_quit">Colar</string>
-  <string name="article_menu_bar_bookmark">Amestar esti artículu a una llista de llectura</string>
-  <string name="article_menu_bar_share">Compartir l\'enllaz del artículu</string>
   <string name="article_header_edit_hint">Editar...</string>
   <string name="article_header_edit_description">Editar la descripción del artículu</string>
   <string name="article_header_edit_lead_section">Editar l\'entamu</string>
@@ -608,7 +606,6 @@
   <string name="description_edit_success_saved_in_lang_snackbar">Espublizóse la descripción d\'artículu (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Espublizóse\'l pie d\'imaxe</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Espublizóse\'l pie d\'imaxe (%s)</string>
-  <string name="description_edit_success_saved_image_tags_snackbar">Espublizaes les etiquetes d\'imaxe</string>
   <string name="description_edit_success_encouragement">Acabes d\'ameyorar Wikipedia pa toos</string>
   <string name="description_edit_success_done">Fecho</string>
   <string name="description_edit_success_did_you_know">¿Sabíeslo?</string>
@@ -619,10 +616,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealmente, una llinia; ente dos y doce palabres</string>
   <string name="description_edit_tutorial_button_label_start_editing">Principiar a editar</string>
   <string name="description_edit_tutorial_promise">Al empezar, prometo a nun faer mal usu d\'esta carauterística.</string>
-  <string name="suggested_edits_add_descriptions">Amestar descripciones d\'artículos</string>
-  <string name="suggested_edits_translate_descriptions">Traducir descripciones d\'artículos</string>
-  <string name="suggested_edits_add_image_captions">Añadir pies d\'imaxe</string>
-  <string name="suggested_edits_translate_image_captions">Traducir pies d\'imaxe</string>
   <string name="suggested_edits_tag_images">Etiquetar imáxenes</string>
   <string name="suggested_edits_review_description">Revisar descripción del artículu</string>
   <string name="suggested_edits_add_description_button">Amestar descripción</string>

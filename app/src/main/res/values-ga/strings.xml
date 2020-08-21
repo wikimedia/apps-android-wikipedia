@@ -305,8 +305,6 @@
   <string name="crash_report_relaunch_or_quit">Tá brón orainn, tharla earráid agus críochnaíodh aip na Vicipéide.\n\nAr mhaith leat atosú nó scor?</string>
   <string name="crash_report_relaunch">Atosaigh</string>
   <string name="crash_report_quit">Scoir</string>
-  <string name="article_menu_bar_bookmark">Cuir an t-alt seo ar liosta léitheoireachta</string>
-  <string name="article_menu_bar_share">Comhroinn nasc don alt</string>
   <string name="article_header_edit_hint">Cuir in Eagar...</string>
   <string name="article_header_edit_description" fuzzy="true">Cuir sainchuntas teidil in eagar</string>
   <string name="article_header_edit_lead_section">Cuir réamhrá in eagar</string>
@@ -548,7 +546,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Líne amháin dá bhféadfaí é, idir aon fhocal amháin agus dhá fhocal déag</string>
   <string name="description_edit_tutorial_button_label_start_editing">Cuir in eagar</string>
   <string name="description_edit_tutorial_promise">Agus mé ag tosú, geallaim nach mbainfidh mé mí-úsáid as an ngné seo.</string>
-  <string name="suggested_edits_add_descriptions" fuzzy="true">Cuir sainchuntais theideal leis</string>
   <string name="suggested_edits_review_description" fuzzy="true">Athbhreithnigh sainchuntas teidil</string>
   <string name="suggested_edits_add_description_button">Cuir sainchuntas leis</string>
   <string name="suggested_edits_task_add_description_title" fuzzy="true">Cuir sainchuntais theideal leis</string>

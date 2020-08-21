@@ -11,6 +11,7 @@
 * Levietduong
 * Minh Nguyen
 * Nguyên Lê
+* Nguyễn Mạnh An
 * Nhatminh01
 * Phjtieudoc
 * Quenhitran
@@ -350,8 +351,11 @@
   <string name="crash_report_relaunch_or_quit">Bạn muốn bắt đầu lại hay thoát?</string>
   <string name="crash_report_relaunch">Bắt đầu lại</string>
   <string name="crash_report_quit">Thoát</string>
-  <string name="article_menu_bar_bookmark">Thêm bài này vào một danh sách đọc</string>
-  <string name="article_menu_bar_share">Chia sẻ liên kết đến bài</string>
+  <string name="article_menu_bar_save_button">Lưu</string>
+  <string name="article_menu_bar_language_button">Ngôn ngữ</string>
+  <string name="article_menu_bar_search_button">Tìm kiếm</string>
+  <string name="article_menu_bar_theme_button">Giao diện</string>
+  <string name="article_menu_bar_contents_button">Nội dung</string>
   <string name="article_header_edit_hint">Sửa đổi…</string>
   <string name="article_header_edit_description">Sửa miêu tả bài viết</string>
   <string name="article_header_edit_lead_section">Sửa lời đầu</string>
@@ -566,6 +570,7 @@
   <string name="menu_feed_overflow_label">Thêm tùy chọn</string>
   <string name="feed_featured_image_share_subject">Hình ảnh chọn lọc từ Wikimedia Commons</string>
   <string name="feed">Thám hiểm</string>
+  <string name="home">Trang nhà</string>
   <string name="most_read_list_card_title">Xu hướng</string>
   <string name="view_static_card_icon_content_description">Hình tượng thẻ</string>
   <string name="view_card_news_title">Tin tức</string>
@@ -631,14 +636,13 @@
   <string name="description_edit_voice_input_description">Dữ liệu giọng nói đầu vào.</string>
   <string name="description_too_short">Văn bản quá ngắn.</string>
   <string name="description_ends_with_punctuation">Văn bản không được kết thúc bằng dấu chấm câu.</string>
-  <string name="description_starts_with_article" fuzzy="true">Không bắt đầu với các bài viết bằng \"a\" hoặc \"the\".</string>
+  <string name="description_starts_with_article">Không bắt đầu với các bài viết bằng \"a\" hoặc \"the\".</string>
   <string name="description_starts_with_uppercase">Bắt đầu bằng một chữ cái thường trừ khi từ đầu tiên là danh từ riêng.</string>
   <string name="description_edit_success_saved">Đã đăng miêu tả bài viết!</string>
   <string name="description_edit_success_saved_snackbar">Đã đăng mô tả bài viết!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Đã đăng mô tả bài viết! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Đã đăng chú thích hình ảnh!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Đã đăng chú thích hình ảnh! (%s)</string>
-  <string name="description_edit_success_saved_image_tags_snackbar">Đã đăng chú thích hình ảnh!</string>
   <string name="description_edit_success_se_image_caption_feed_link_snackbar">Thích hình ảnh đó?  Giúp chúng tôi thêm chú thích còn thiếu vào các hình ảnh khác.</string>
   <string name="description_edit_success_encouragement">Bạn vừa cải thiện Wikipedia cho mọi người</string>
   <string name="description_edit_success_done">Xong</string>
@@ -650,10 +654,8 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Cố gắng viết một dòng có 2–12 từ mà thôi</string>
   <string name="description_edit_tutorial_button_label_start_editing">Bắt đầu sửa đổi</string>
   <string name="description_edit_tutorial_promise">Với việc bắt đầu sửa đổi, tôi hứa không lạm dụng tính năng này.</string>
-  <string name="suggested_edits_add_descriptions">Thêm mô tả bài viết</string>
-  <string name="suggested_edits_translate_descriptions">Dịch mô tả bài viết</string>
-  <string name="suggested_edits_add_image_captions">Thêm chú thích hình ảnh</string>
-  <string name="suggested_edits_translate_image_captions">Dịch chú thích hình ảnh</string>
+  <string name="suggested_edits_describe_articles">Mô tả các bài viết</string>
+  <string name="suggested_edits_caption_images">Chú thích hình ảnh</string>
   <string name="suggested_edits_tag_images">Thể loại hình ảnh.</string>
   <string name="suggested_edits_review_description">Xem lại mô tả bài viết.</string>
   <string name="suggested_edits_add_description_button">Thêm mô tả.</string>

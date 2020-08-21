@@ -335,8 +335,6 @@
   <string name="crash_report_relaunch_or_quit">Því miður, Wikipedia-appið varð fyrir villu og vað þessvegna lokað.\n\nViltu byrja aftur eða hætta alveg?</string>
   <string name="crash_report_relaunch">Byrja aftur</string>
   <string name="crash_report_quit">Hætta</string>
-  <string name="article_menu_bar_bookmark">Bæta þessari grein á leslista</string>
-  <string name="article_menu_bar_share">Deila tengli á greinina</string>
   <string name="article_header_edit_hint">Breyta…</string>
   <string name="article_header_edit_description">Breyta lýsingu á grein</string>
   <string name="article_header_edit_lead_section">Breyta inngangi</string>
@@ -609,7 +607,6 @@
   <string name="description_edit_success_saved_in_lang_snackbar">Lýsing geinar birt! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Myndatexti birtur!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Myndatexti birtur! (%s)</string>
-  <string name="description_edit_success_saved_image_tags_snackbar">Myndamerki birt!</string>
   <string name="description_edit_success_encouragement">Þú varst að gera Wikipedia betri fyrir alla</string>
   <string name="description_edit_success_done">Lokið</string>
   <string name="description_edit_success_did_you_know">Vissir þú það?</string>
@@ -620,10 +617,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Helst ein lína, frá tveimur til tólf orða langt</string>
   <string name="description_edit_tutorial_button_label_start_editing">Hefja breytingar</string>
   <string name="description_edit_tutorial_promise">Ef ég byrja, lofa ég að misnota ekki þennan eiginleika.</string>
-  <string name="suggested_edits_add_descriptions">Bæta við lýsingum á greinar</string>
-  <string name="suggested_edits_translate_descriptions">Þýða lýsingar á greinar</string>
-  <string name="suggested_edits_add_image_captions">Bæta við myndatextum</string>
-  <string name="suggested_edits_translate_image_captions">Þýða myndatexta</string>
   <string name="suggested_edits_tag_images">Merkja myndir</string>
   <string name="suggested_edits_review_description">Yfirfara lýsingu á grein</string>
   <string name="suggested_edits_add_description_button">Bæta við lýsingu</string>

@@ -274,8 +274,6 @@
   <string name="crash_report_relaunch_or_quit">ഞങ്ങളോട് ക്ഷമിക്കൂ, വിക്കിപീഡിയ ആപ്പ് ഒരു പിഴവ് അഭിമുഖീകരിച്ചതിനാൽ നിർത്തേണ്ടി വന്നു.\n\nപുതിയതായി തുടങ്ങാൻ താങ്കൾ ആഗ്രഹിക്കുന്നുണ്ടോ, അതോ നിർത്തുകയാണോ?</string>
   <string name="crash_report_relaunch">വീണ്ടും തുടങ്ങുക</string>
   <string name="crash_report_quit">അടയ്ക്കുക</string>
-  <string name="article_menu_bar_bookmark">ഈ ലേഖനം വായന പട്ടികയിലേക്ക് ചേർക്കുക</string>
-  <string name="article_menu_bar_share">ലേഖനത്തിന്റെ കണ്ണി പങ്കുവയ്ക്കുക</string>
   <string name="article_header_edit_hint">തിരുത്തുക...</string>
   <string name="article_header_edit_description">ലേഖനത്തിന്റെ വിവരണം തിരുത്തുക</string>
   <string name="article_header_edit_lead_section">ആമുഖം തിരുത്തുക</string>
@@ -413,10 +411,6 @@
   <string name="description_edit_tutorial_title_descriptions">ലേഖനനത്തിന്റെ വിവരണങ്ങൾ</string>
   <string name="description_edit_tutorial_keep_it_short">ചെറുതാക്കി വെക്കുക</string>
   <string name="description_edit_tutorial_button_label_start_editing">തിരുത്തി തുടങ്ങുക</string>
-  <string name="suggested_edits_add_descriptions">ലേഖനത്തിന് വിവരണങ്ങൾ ചേർക്കുക</string>
-  <string name="suggested_edits_translate_descriptions">ലേഖനത്തിന്റെ വിവരണങ്ങൾ തർജ്ജമ ചെയ്യുക</string>
-  <string name="suggested_edits_add_image_captions">ചിത്രത്തിന് തലവാചകം ചേർക്കുക</string>
-  <string name="suggested_edits_translate_image_captions">ചിത്രത്തിന്റെ തലവാചകം തർജ്ജമ ചെയ്യുക</string>
   <string name="suggested_edits_review_description">ലേഖനത്തിന്റെ വിവരണം അവലോകനം ചെയ്യുക</string>
   <string name="suggested_edits_add_description_button">വിവരണം ചേർക്കുക</string>
   <string name="suggested_edits_edit_description_button">വിവരണം തിരുത്തുക</string>

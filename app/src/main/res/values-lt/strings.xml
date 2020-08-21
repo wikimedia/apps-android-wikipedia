@@ -272,8 +272,6 @@
   <string name="crash_report_relaunch_or_quit">Atsiprašome, Vikipedijos programėlę patyrė klaidą ir buvo nutraukta.\n\nNorėtumėte pradėti iš naujo ar baigti?</string>
   <string name="crash_report_relaunch">Pradėti iš naujo</string>
   <string name="crash_report_quit">Išeiti</string>
-  <string name="article_menu_bar_bookmark">Įtraukti šį straipsnį į skaitymo sąrašą</string>
-  <string name="article_menu_bar_share">Dalintis straipsnio nuoroda</string>
   <string name="article_header_edit_hint">Redaguoti...</string>
   <string name="article_header_edit_description">Redaguoti straipsnio aprašymą</string>
   <string name="article_header_edit_lead_section">Redaguoti įžangą</string>

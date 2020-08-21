@@ -268,8 +268,6 @@
   <string name="reference_title">Refero %s</string>
   <string name="crash_report_relaunch">Rikomencar</string>
   <string name="crash_report_quit">Ekirar</string>
-  <string name="article_menu_bar_bookmark">Adjuntez ica artiklo a lektebla listo</string>
-  <string name="article_menu_bar_share">Sendar la ligilo dil artiklo</string>
   <string name="article_header_edit_hint">Redaktar</string>
   <string name="article_header_edit_description" fuzzy="true">Redaktar la deskripto dil titulo</string>
   <string name="article_header_edit_lead_section">Redaktar la prefaco dil artiklo</string>
@@ -333,7 +331,6 @@
   <string name="description_edit_help_about_wikidata">Pri Wikidonaji</string>
   <string name="description_edit_success_did_you_know">Ka tu savis?</string>
   <string name="description_edit_tutorial_button_label_start_editing">Komencar redaktar</string>
-  <string name="suggested_edits_add_image_captions">Adjuntez informi pri l\'imaji</string>
   <string name="suggested_edits_image_caption_license_notice">Se vu kliktos \"save\" (salvar), vu tacite aceptos la &lt;a href=\"%1$s\"&gt;termi pri uzado&lt;/a&gt;, e nerevokeble liberigos vua kontributadi sub la permiso &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_image_caption_summary_title_author">Autoro</string>
   <string name="suggested_edits_image_caption_summary_title_source">Fonto</string>
