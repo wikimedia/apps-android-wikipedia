@@ -33,6 +33,7 @@
             android:layout_height="match_parent"
             android:layout_gravity="bottom"
             android:layout_weight="0.8"
+            android:background="@android:color/transparent"
             app:elevation="0dp"
             app:itemIconTint="?attr/nav_tab_item_color_state"
             app:itemTextAppearanceActive="@style/BottomNavigationTextAppearanceActive"
