@@ -326,8 +326,6 @@
   <string name="crash_report_relaunch_or_quit">Tebɣiḍ ad talseḍ asenker neɣ ad teffɣeḍ?</string>
   <string name="crash_report_relaunch">Ales tanekra</string>
   <string name="crash_report_quit">Ffeɣ</string>
-  <string name="article_menu_bar_bookmark">Rnu amagrad-agi a tebdart n tɣuri</string>
-  <string name="article_menu_bar_share">Bdu aseɣwen n umagrad</string>
   <string name="article_header_edit_hint">Ẓreg...</string>
   <string name="article_header_edit_description">Ẓreg aglam n uzwel</string>
   <string name="article_header_edit_lead_section">Ẓreg tazwart</string>
@@ -559,10 +557,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Ma twalaḍ axiṛ, yiwen n izirig, gar sin ar mraw sin n wawalen</string>
   <string name="description_edit_tutorial_button_label_start_editing">Bdu taẓrigt</string>
   <string name="description_edit_tutorial_promise">S beddu, adweɛdeɣ ur sṭuqquteɣ ara yir aseqdec n tmahilt-agi.</string>
-  <string name="suggested_edits_add_descriptions">Iglamen n yimagraden</string>
-  <string name="suggested_edits_translate_descriptions">Suqqel iglamen n yimagraden</string>
-  <string name="suggested_edits_add_image_captions">Rnu tineffusin n tugniwin</string>
-  <string name="suggested_edits_translate_image_captions">Suqqel tineffusin n tugniwin</string>
   <string name="suggested_edits_tag_images">Creḍ tugniwin</string>
   <string name="suggested_edits_add_description_button">Rnu aglam</string>
   <string name="suggested_edits_edit_description_button">Ẓreg aglam</string>

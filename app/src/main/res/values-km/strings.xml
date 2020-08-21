@@ -227,8 +227,6 @@
   <string name="crash_report_activity_title">បញ្ហាកម្មវិធី</string>
   <string name="crash_report_relaunch">បើកឡើងវិញ</string>
   <string name="crash_report_quit">ចាកចេញ</string>
-  <string name="article_menu_bar_bookmark">បន្ថែមអត្ថបទនេះទៅបញ្ជីអំណាន</string>
-  <string name="article_menu_bar_share">ចែកចាយតំណភ្ជាប់អត្ថបទ</string>
   <string name="article_header_edit_hint">កែប្រែ…</string>
   <string name="article_header_edit_description" fuzzy="true">កែប្រែពណ៌នាចំណងជើង</string>
   <string name="article_header_edit_lead_section">កែប្រែសេចក្ដីផ្ដើម</string>

@@ -76,7 +76,9 @@
   <string name="edit_section_find_in_page">Op pagina zoeken</string>
   <string name="menu_page_font_and_theme">Lettertype en thema</string>
   <string name="menu_page_add_to_list">Aan leeslijst toevoegen</string>
+  <string name="menu_page_add_to_default_list">Opslaan</string>
   <string name="feed_card_add_to_list">Aan leeslijst toevoegen</string>
+  <string name="feed_card_add_to_default_list">Opslaan</string>
   <string name="menu_page_share">Koppeling delen</string>
   <string name="menu_page_open_a_new_tab">Een nieuw tabblad openen</string>
   <string name="menu_page_reading_lists">Leeslijsten</string>
@@ -343,6 +345,10 @@
   <string name="location_permissions_enable_prompt">Activeer locatietoestemming om plaatsen nabij u te zien.</string>
   <string name="location_permissions_enable_action">Inschakelen</string>
   <string name="error_webview_updating">Het Android WebView Systeem is momenteel aan het updaten. Gelieve later nog eens te proberen.</string>
+  <plurals name="multi_items_selected">
+    <item quantity="one">%d geselecteerd</item>
+    <item quantity="other">%d geselecteerd</item>
+  </plurals>
   <string name="multi_select_items_selected">%d geselecteerd</string>
   <string name="error_message_generic">Er is een fout opgetreden</string>
   <string name="view_link_preview_error_button_dismiss">Afwijzen</string>
@@ -361,8 +367,6 @@
   <string name="crash_report_relaunch_or_quit">Er is helaas een fout opgetreden in de Wikipedia-app en de app is beëindigd.\n\nWilt u overnieuw beginnen of sluiten?</string>
   <string name="crash_report_relaunch">Opnieuw beginnen</string>
   <string name="crash_report_quit">Afsluiten</string>
-  <string name="article_menu_bar_bookmark">Deze pagina aan een leeslijst toevoegen</string>
-  <string name="article_menu_bar_share">Koppeling naar pagina delen</string>
   <string name="article_header_edit_hint">Bewerken...</string>
   <string name="article_header_edit_description">Artikelbeschrijving bewerken</string>
   <string name="article_header_edit_lead_section">Inleiding bewerken</string>
@@ -388,6 +392,10 @@
   <string name="reading_list_article_already_exists_message">Perfect! %1$s bevat al %2$s.</string>
   <string name="reading_list_articles_already_exist_message">Perfect! %s bevat al alle artikels.</string>
   <string name="reading_list_added_view_button">Lijst bekijken</string>
+  <plurals name="format_reading_list_statistical_summary">
+    <item quantity="one">1 artikel, %2$.2f MB</item>
+    <item quantity="other">%1$d artikelen, %2$.2f MB</item>
+  </plurals>
   <string name="format_reading_list_statistical_summary_singular">1 pagina, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d pagina\'s, %2$.2f MB</string>
   <string name="format_reading_list_statistical_detail_singular">%1$d van de 1 pagina\'s offline beschikbaar, %2$.2f MB</string>
@@ -652,10 +660,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealiter één regel, tussen twee en twaalf woorden</string>
   <string name="description_edit_tutorial_button_label_start_editing">Begin met bewerken</string>
   <string name="description_edit_tutorial_promise">Door te beginnen, beloof ik geen misbruik te maken van deze functie.</string>
-  <string name="suggested_edits_add_descriptions">Artikelbeschrijvingen toevoegen</string>
-  <string name="suggested_edits_translate_descriptions">Artikelbeschrijvingen vertalen</string>
-  <string name="suggested_edits_add_image_captions">Afbeeldingsbijschriften toevoegen</string>
-  <string name="suggested_edits_translate_image_captions">Afbeeldingsbijschriften vertalen</string>
   <string name="suggested_edits_tag_images">Afbeeldingen labelen</string>
   <string name="suggested_edits_review_description">Review Artikelbeschrijving</string>
   <string name="suggested_edits_add_description_button">Beschrijving toevoegen</string>
@@ -720,6 +724,7 @@
   <string name="suggested_edits_image_tags_published">Gepubliceerd</string>
   <string name="suggested_edits_image_tags_onboarding_title" fuzzy="true">Voeg aan afbeeldingen tags toe om ze gemakkelijker vindbaar te maken voor anderen</string>
   <string name="suggested_edits_image_tags_onboarding_text" fuzzy="true">Door voorgestelde tags te bevestigen, kunt u helpen om eenvoudiger te zoeken naar afbeeldingen.\n\nTags worden door de computer voorgesteld, maar moeten door mensen worden gevalideerd om nauwkeurigheid te garanderen.</string>
+  <string name="suggested_edits_image_tags_search">Labels zoeken</string>
   <string name="suggested_edits_image_tags_add_tag">Label toevoegen</string>
   <string name="suggested_edits_ip_blocked_message">Het lijkt erop dat uw IP-adres (of assortiment van IP-adressen) momenteel geblokkeerd is van het bewerken van Wikipedia.</string>
   <string name="suggested_edits_help_page_link_text">Hulppagina voorgestelde bewerkingen</string>
@@ -757,6 +762,10 @@
   <string name="suggested_edits_contribution_image_label">Afbeelding</string>
   <string name="suggested_edits_contribution_article_label">Artikel</string>
   <string name="suggested_edits_contribution_views">%s weergaven</string>
+  <plurals name="suggested_edits_contribution_seen_times">
+    <item quantity="one">Één keer bekeken in de afgelopen 30 dagen.</item>
+    <item quantity="other">%s keer bekeken in de afgelopen 30 dagen</item>
+  </plurals>
   <string name="suggested_edits_contribution_seen_text">%s keer bekeken in de laatste 30 dagen.</string>
   <plurals name="suggested_edits_image_tag_contribution_label">
     <item quantity="one">U heb %d label toegevoegd</item>

@@ -329,8 +329,6 @@
   <string name="crash_report_relaunch_or_quit">Domaĝe, eraro okazis kaj la aplikaĵo Vikipedio fiaskis.\n\nĈu restarti aŭ ĉesi?</string>
   <string name="crash_report_relaunch">Rekomenci</string>
   <string name="crash_report_quit">Ĉesigi</string>
-  <string name="article_menu_bar_bookmark">Aldoni ĉi tiun artikolon al legolisto</string>
-  <string name="article_menu_bar_share">Konigi la artikolan ligilon</string>
   <string name="article_header_edit_hint">Redakti…</string>
   <string name="article_header_edit_description">Redakti priskribon de artikolo</string>
   <string name="article_header_edit_lead_section">Redakti enkondukon</string>
@@ -592,10 +590,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Ideale unu linio, inter du kaj dek du vortoj</string>
   <string name="description_edit_tutorial_button_label_start_editing">Ekredakti</string>
   <string name="description_edit_tutorial_promise">Ekante, mi promesas ne misuzi ĉi tiun eblon</string>
-  <string name="suggested_edits_add_descriptions">Aldoni priskribojn al artikoloj</string>
-  <string name="suggested_edits_translate_descriptions">Traduki priskribojn de artikoloj</string>
-  <string name="suggested_edits_add_image_captions">Aldoni titolojn al bildoj</string>
-  <string name="suggested_edits_translate_image_captions">Traduki titolojn de bildoj</string>
   <string name="suggested_edits_review_description">Revizii priskribon de artikolo</string>
   <string name="suggested_edits_add_description_button">Aldoni priskribon</string>
   <string name="suggested_edits_edit_description_button">Redakti priskribon</string>

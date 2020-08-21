@@ -311,8 +311,6 @@
   <string name="crash_report_relaunch_or_quit">Hon digarezit, ur fazi zo degouezhet gant an arolad Wikimedia ha chomet eo a-sav.\n\nHa c\'hoant ho peus da adloc\'hañ pe da guitaat ?</string>
   <string name="crash_report_relaunch">Adloc\'hañ</string>
   <string name="crash_report_quit">Kuitaat</string>
-  <string name="article_menu_bar_bookmark">Ouzhpennañ ar pennad-se d\'ul listenn lenn</string>
-  <string name="article_menu_bar_share">Rannañ al liamm war-zu ar bajenn</string>
   <string name="article_header_edit_hint">Kemmañ...</string>
   <string name="article_header_edit_description" fuzzy="true">Kemmañ titl an deskrivadur</string>
   <string name="article_header_edit_lead_section">Kemmañ ar raklavar</string>

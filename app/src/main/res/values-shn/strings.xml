@@ -316,8 +316,6 @@
   <string name="crash_report_relaunch_or_quit">ႁဝ်းၶႃႈ ၵဵင်ၸႂ်ယူႇ၊ ဢႅပ်ႉဝီႇၶီႇမီႇတီႇယႃႇ လႆႈမီး လွင်ႈၽိတ်းပိူင်ႈလႄႈ ထုၵ်ႇၵိုတ်းၵႂႃႇ ၸိူင်ႉၼႆႉ။\nၸဝ်ႈၵဝ်ႇတေၶႂ်ႈတႄႇၶိုၼ်းၼႄႇ ဢမ်ႇၼၼ် တေဢိုတ်းပႅတ်ႈ?</string>
   <string name="crash_report_relaunch">တႄႇၶိုၼ်း</string>
   <string name="crash_report_quit">ဢိုတ်း</string>
-  <string name="article_menu_bar_bookmark">ဢဝ်ပွင်ႈလိၵ်ႈၼႆႉ ထႅမ်သႂ်ႇၸူး သဵၼ်ႈမၢႆလူ</string>
-  <string name="article_menu_bar_share">ၽႄႈတိုၼ်း ႁဵင်းၵွင်ႉပွင်ႈလိၵ်ႈ</string>
   <string name="article_header_edit_hint">မႄးထတ်း...</string>
   <string name="article_header_edit_description">မႄးထတ်း ၶေႃႈသပ်းလႅင်း ႁူဝ်ၶေႃႈ</string>
   <string name="article_header_edit_lead_section">မႄးထတ်း ၶေႃႈတႄႇငဝ်ႈ</string>
@@ -577,10 +575,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">ၼိုင်ႈထႅဝ်ၼႆႉ ၶႅမ်ႉလိူဝ်၊ ၶေႃႈၵႂၢမ်းသွင်ၶေႃႈတေႃႇ သိပ်းသွင်ၶေႃႈ</string>
   <string name="description_edit_tutorial_button_label_start_editing">တႄႇလွင်ႈမႄးထတ်း</string>
   <string name="description_edit_tutorial_promise">ပေႃးတႄႇ၊ ၵဝ်ၶႃႈပၼ်ၶေႃႈမၼ်ႈဝႃႈ တေဢမ်ႇၸႂ်ႉၽိတ်း ႁၢင်ႈၽၢင်ဢၼ်ၼႆႉ။</string>
-  <string name="suggested_edits_add_descriptions">ထႅမ်သႂ်ႇ ၶေႃႈသပ်းလႅင်း ပွင်ႈၵႂၢမ်း</string>
-  <string name="suggested_edits_translate_descriptions">ပိၼ်ႇၽႃႇသႃႇ ၶေႃႈသပ်းလႅင်း ပွင်ႈၵႂၢမ်း</string>
-  <string name="suggested_edits_add_image_captions">ထႅမ်သႂ်ႇ ႁူဝ်ၶေႃႈၶႅပ်းႁၢင်ႈ</string>
-  <string name="suggested_edits_translate_image_captions">ပိၼ်ႇၽႃႇသႃႇ ႁူဝ်ၶေႃႈၶႅပ်းႁၢင်ႈ</string>
   <string name="suggested_edits_review_description">ထတ်းသၢင် ၶေႃႈသပ်းလႅင်း ပွင်ႈၵႂၢမ်း</string>
   <string name="suggested_edits_add_description_button">ထႅမ်သႂ်ႇ ၶေႃႈသပ်းလႅင်း</string>
   <string name="suggested_edits_edit_description_button">မႄးထတ်း ၶေႃႈသပ်းလႅင်း</string>

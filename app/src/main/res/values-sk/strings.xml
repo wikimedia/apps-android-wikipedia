@@ -345,8 +345,6 @@
   <string name="crash_report_relaunch_or_quit">Ospravedlňujeme sa, aplikácia Wikipédia narazila na chybu a bola ukončená.\n\nChceli by ste začať odznova alebo aplikáciu ukončiť?</string>
   <string name="crash_report_relaunch">Začať odznova</string>
   <string name="crash_report_quit">Ukončiť</string>
-  <string name="article_menu_bar_bookmark">Pridať tento článok do zoznamu na prečítanie</string>
-  <string name="article_menu_bar_share">Zdieľať odkaz na článok</string>
   <string name="article_header_edit_hint">Upraviť...</string>
   <string name="article_header_edit_description">Upraviť popis článku</string>
   <string name="article_header_edit_lead_section">Upraviť úvod</string>
@@ -624,7 +622,6 @@
   <string name="description_edit_success_saved_in_lang_snackbar">Popis článku v jazyku %s bol uverejnený!</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Titulok obrázku bol uverejnený!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Titulok obrázku v jazyku %s bol uverejnený!</string>
-  <string name="description_edit_success_saved_image_tags_snackbar">Značka obrázku bola uverejnená!</string>
   <string name="description_edit_success_encouragement">Práve ste zlepšili Wikipédiu pre všetkých</string>
   <string name="description_edit_success_done">Hotovo</string>
   <string name="description_edit_success_did_you_know">Vedeli ste, že...</string>
@@ -635,10 +632,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">V ideálnom prípade jeden riadok s dvoma až dvanástimi slovami</string>
   <string name="description_edit_tutorial_button_label_start_editing">Začať s úpravami</string>
   <string name="description_edit_tutorial_promise">Sľubujem, že nezneužijem túto funkciu.</string>
-  <string name="suggested_edits_add_descriptions">Pridať popis článku</string>
-  <string name="suggested_edits_translate_descriptions">Preložiť popis článku</string>
-  <string name="suggested_edits_add_image_captions">Pridať titulok článku</string>
-  <string name="suggested_edits_translate_image_captions">Preložiť titulok článku</string>
   <string name="suggested_edits_tag_images">Označiť obrázky</string>
   <string name="suggested_edits_review_description">Náhľad popisu článku</string>
   <string name="suggested_edits_add_description_button">Pridať popis</string>

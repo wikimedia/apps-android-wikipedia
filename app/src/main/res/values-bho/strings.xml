@@ -293,8 +293,6 @@
   <string name="view_wiki_error_message_offline">इंटरनेट से कनेक्शन नइखे हो पावत।</string>
   <string name="crash_report_activity_title">एप्लीकेशन खराबी</string>
   <string name="crash_report_quit">छोड़ के हटीं</string>
-  <string name="article_menu_bar_bookmark">एह लेख के पढ़ाई सूची में जोड़ीं</string>
-  <string name="article_menu_bar_share">लेख के लिंक शेयर करीं</string>
   <string name="article_header_edit_hint">संपादन...</string>
   <string name="article_header_edit_description">लेख के बिबरन संपादित करीं</string>
   <string name="article_header_edit_lead_section">भूमिका संपादित करीं</string>

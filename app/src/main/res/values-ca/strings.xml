@@ -356,8 +356,6 @@
   <string name="crash_report_relaunch_or_quit">Ens sap greu, l\'aplicació de Viquipèdia ha experimentat un error i s\'ha tancat.\n\nVoleu començar de nou o sortir?</string>
   <string name="crash_report_relaunch">Comença de nou</string>
   <string name="crash_report_quit">Surt</string>
-  <string name="article_menu_bar_bookmark">Afegeix l\'article a la llista de lectura</string>
-  <string name="article_menu_bar_share">Comparteix l\'enllaç a l\'article</string>
   <string name="article_header_edit_hint">Modifica…</string>
   <string name="article_header_edit_description">Modifica la descripció de l\'article</string>
   <string name="article_header_edit_lead_section">Modifica la introducció</string>
@@ -646,7 +644,6 @@
   <string name="description_edit_success_saved_in_lang_snackbar">S\'ha publicat la descripció de l\'article (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">S\'ha publicat la llegenda de la imatge!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">S\'ha publicat la llegenda de la imatge! (%s)</string>
-  <string name="description_edit_success_saved_image_tags_snackbar">S\'han publicat les etiquetes d\'imatge!</string>
   <string name="description_edit_success_se_image_caption_feed_link_snackbar">Us ha agradat?  Ajuda\'ns a afegir els peus de foto que falten a altres imatges.</string>
   <string name="description_edit_success_encouragement">Acabeu de millorar la Viquipèdia per a tothom</string>
   <string name="description_edit_success_done">Fet</string>
@@ -658,10 +655,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealment una línia, entre dos o dotze mots</string>
   <string name="description_edit_tutorial_button_label_start_editing">Comença a editar</string>
   <string name="description_edit_tutorial_promise">En començar, prometeu que no fareu mal ús d\'aquesta funcionalitat.</string>
-  <string name="suggested_edits_add_descriptions">Afegeix descripcions d\'article</string>
-  <string name="suggested_edits_translate_descriptions">Tradueix descripcions d\'article</string>
-  <string name="suggested_edits_add_image_captions">Afegeix llegendes a les imatges</string>
-  <string name="suggested_edits_translate_image_captions">Tradueix les llegendes de les imatges</string>
   <string name="suggested_edits_tag_images">Etiqueta les imatges</string>
   <string name="suggested_edits_review_description">Revisa la descripció d\'article</string>
   <string name="suggested_edits_add_description_button">Afegeix una descripció</string>

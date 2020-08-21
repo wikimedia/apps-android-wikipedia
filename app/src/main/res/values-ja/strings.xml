@@ -368,8 +368,10 @@
   <string name="crash_report_relaunch_or_quit">申し訳ありません。ウィキペディアアプリはエラーによって終了しました。\n\nアプリを再起動しますか?　終了しますか?</string>
   <string name="crash_report_relaunch">再起動</string>
   <string name="crash_report_quit">終了</string>
-  <string name="article_menu_bar_bookmark">この記事をあとで読むリストに追加</string>
-  <string name="article_menu_bar_share">記事のリンクを共有します</string>
+  <string name="article_menu_bar_save_button">保存</string>
+  <string name="article_menu_bar_language_button">言語</string>
+  <string name="article_menu_bar_search_button">検索</string>
+  <string name="article_menu_bar_theme_button">テーマ</string>
   <string name="article_header_edit_hint">編集...</string>
   <string name="article_header_edit_description">記事の説明を編集</string>
   <string name="article_header_edit_lead_section">導入部を編集</string>
@@ -585,6 +587,7 @@
   <string name="menu_feed_overflow_label">その他の操作</string>
   <string name="feed_featured_image_share_subject">ウィキメディア・コモンズの注目の画像</string>
   <string name="feed">探索する</string>
+  <string name="home">ホーム</string>
   <string name="most_read_list_card_title">トレンド</string>
   <string name="view_static_card_icon_content_description">カードアイコン</string>
   <string name="view_card_news_title">新着情報</string>
@@ -647,12 +650,14 @@
   <string name="description_edit_license_notice">この記事の説明を変更すると、&lt;a href=\"%1$s\"&gt;利用規約&lt;/a&gt;に同意し、&lt;a href=\"%2$s\"&gt;CC0&lt;/a&gt;ライセンスのもとで公開することになります。これは取り消せません。</string>
   <string name="description_edit_helper_text_lowercase_warning">小文字で書き始めてください(日本語以外)</string>
   <string name="description_edit_voice_input_description">音声入力</string>
+  <string name="description_too_short">文章が短すぎます。</string>
+  <string name="description_ends_with_punctuation">文章の終わりに句点はつけません。</string>
+  <string name="description_starts_with_uppercase">文章は、最初の語が固有名詞の場合を除いて、小文字で始めます。</string>
   <string name="description_edit_success_saved">記事の説明が公開されました！</string>
   <string name="description_edit_success_saved_snackbar">記事の説明が公開されました！</string>
   <string name="description_edit_success_saved_in_lang_snackbar">記事の説明が公開されました！ (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">画像キャプションが公開されました！</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">画像キャプションが公開されました！ (%s)</string>
-  <string name="description_edit_success_saved_image_tags_snackbar">画像タグが公開されました！</string>
   <string name="description_edit_success_encouragement">みんなのためにウィキペディアを改善しました。やったね！</string>
   <string name="description_edit_success_done">完了</string>
   <string name="description_edit_success_did_you_know">ご存じでしたか?</string>
@@ -663,10 +668,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">説明は1行のみで、30文字程度で書いてください</string>
   <string name="description_edit_tutorial_button_label_start_editing">編集を開始</string>
   <string name="description_edit_tutorial_promise">この機能を悪用しないことを約束して、スタートする。</string>
-  <string name="suggested_edits_add_descriptions">記事の説明を追加</string>
-  <string name="suggested_edits_translate_descriptions">記事の説明を翻訳</string>
-  <string name="suggested_edits_add_image_captions">画像キャプションを追加する</string>
-  <string name="suggested_edits_translate_image_captions">画像キャプションを翻訳</string>
   <string name="suggested_edits_tag_images">画像にタグを付ける</string>
   <string name="suggested_edits_review_description">記事の説明を確認</string>
   <string name="suggested_edits_add_description_button">説明を追加</string>
@@ -747,6 +748,7 @@
   <string name="suggested_edits_disabled_message">編集提案は無効にされました。申し訳ありませんが、%sさんの最近の投稿で巻き戻されたものが多すぎました。</string>
   <string name="suggested_edits_editing_tips_link_text">編集のヒントとコツ</string>
   <string name="suggested_edits_help_page_link_text">編集提案のヘルプページ</string>
+  <string name="suggested_edits_edit_streak_label_text">連続編集</string>
   <string name="suggested_edits_views_label_text">閲覧回数</string>
   <string name="suggested_edits_quality_label_text">編集の品質</string>
   <string name="suggested_edits_quality_perfect_text">完璧</string>
@@ -777,10 +779,13 @@
   <string name="suggested_edits_task_new">新規</string>
   <string name="suggested_edits_cc0_notice">公開すると、&lt;a href=\"%1$s\"&gt;利用規約&lt;/a&gt;に同意し、&lt;a href=\"%2$s\"&gt;CC0ライセンス&lt;/a&gt;の下でコンテンツ再利用を許諾することになります。これは撤回できません。</string>
   <string name="suggested_edits_reactivation_notification_title">編集提案</string>
+  <string name="suggested_edits_contributions_screen_title">%sさんの投稿記録</string>
   <string name="suggested_edits_contribution_language_label">言語</string>
   <string name="suggested_edits_contribution_date_time_label">日付 / 時刻</string>
+  <string name="suggested_edits_contribution_type_label">投稿の種類</string>
   <string name="suggested_edits_contribution_image_label">画像</string>
   <string name="suggested_edits_contribution_article_label">記事</string>
+  <string name="suggested_edits_contribution_seen_text">過去30日間で%s回の閲覧がありました。</string>
   <string name="suggested_edits_contribution_date_yesterday_text">昨日</string>
   <string name="suggested_edits_contribution_type_image_tag">画像タグ</string>
   <string name="description_edit_revert_subtitle">ウィキペディアを編集していただきありがとうございます！</string>
