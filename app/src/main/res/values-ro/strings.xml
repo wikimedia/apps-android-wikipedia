@@ -29,7 +29,6 @@
   <string name="search_hint_voice_search">Căutare de intrare vocală</string>
   <string name="search_hint_search_history">Istoricul căutării</string>
   <string name="search_hint_search_languages">Caută o limbă</string>
-  <string name="search_hint_search_my_lists_and_articles">Căutați listele și articolele mele</string>
   <string name="nav_item_history">Istoric</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Modificări sugerate</string>
   <string name="error_network_error">Imposibil de conectat la internet.</string>
@@ -181,7 +180,6 @@
   <string name="preference_title_auto_upload_crash_reports">Trimite rapoarte de erori</string>
   <string name="preference_summary_auto_upload_crash_reports">Permiteți aplicației să trimită automat rapoarte de avarie unui furnizor de servicii terțe, astfel încât să putem revizui crash-ul și să remediem erorile mai rapid și mai ușor.</string>
   <string name="editing_error_spamblacklist">Au fost detectate legături către domenii blocate (%s). Înlăturați-le și încercați din nou.</string>
-  <string name="history_search_list_hint">Căutare în istoric</string>
   <string name="error_can_not_process_link">Nu se poate afișa această legătură</string>
   <string name="page_protected_autoconfirmed">Această pagină a fost semiprotejată.</string>
   <string name="page_protected_sysop">Această pagină a fost protejată.</string>
@@ -269,7 +267,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">Permite</string>
   <string name="read_more_section">Citiți mai multe</string>
   <string name="about_article_section">Despre acest articol</string>
-  <string name="menu_gallery_visit_page">Du-te la pagina fișierului</string>
+  <string name="menu_gallery_visit_image_page">Du-te la pagina fișierului</string>
   <string name="gallery_error_draw_failed">Imposibil de afișat imaginea.</string>
   <string name="license_title">Licența pentru %s</string>
   <string name="gallery_menu_share">Distribuie</string>
@@ -347,8 +345,6 @@
   <string name="crash_report_relaunch_or_quit">Ne pare rău, aplicația Wikipedia a întâmpinat o eroare și nu mai funcționează.\n\nDoriți să o reporniți sau să o închideți?</string>
   <string name="crash_report_relaunch">Repornește</string>
   <string name="crash_report_quit">Închide</string>
-  <string name="article_menu_bar_bookmark">Adaugă acest articol într-o listă de lecturi</string>
-  <string name="article_menu_bar_share">Distribuie legătura către articol</string>
   <string name="article_header_edit_hint">Modifică...</string>
   <string name="article_header_edit_description">Modifică descrierea articolului</string>
   <string name="article_header_edit_lead_section">Modifică introducerea</string>
@@ -637,7 +633,6 @@
   <string name="description_edit_success_saved_in_lang_snackbar">Descrierea articolului publicată! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Subtitrare imagine publicată!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Subtitrare imagine publicată! (%s)</string>
-  <string name="description_edit_success_saved_image_tags_snackbar">Etichete de imagine publicate!</string>
   <string name="description_edit_success_encouragement">Tocmai ai făcut Wikipedia mai bună pentru toată lumea</string>
   <string name="description_edit_success_done">Realizat</string>
   <string name="description_edit_success_did_you_know">Știați că?</string>
@@ -648,10 +643,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">În mod ideal, o linie, între două până la douăsprezece cuvinte</string>
   <string name="description_edit_tutorial_button_label_start_editing">Începeți modificarea</string>
   <string name="description_edit_tutorial_promise">Începând, promit să nu folosesc greșit această caracteristică.</string>
-  <string name="suggested_edits_add_descriptions">Adăugați descrieri de articole</string>
-  <string name="suggested_edits_translate_descriptions">Traduceți descrieri de articole</string>
-  <string name="suggested_edits_add_image_captions">Adaugă descrieri de imagine</string>
-  <string name="suggested_edits_translate_image_captions">Traduceți legenda imaginilor</string>
   <string name="suggested_edits_tag_images">Etichetați imaginile</string>
   <string name="suggested_edits_review_description">Examinați descrierea articolului</string>
   <string name="suggested_edits_add_description_button">Adauga descriere</string>
@@ -678,7 +669,7 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text">Blocat până când ați modificat %d descrieri ale articolului (verificat)</string>
   <string name="suggested_edits_task_multilingual_negative">Nu pentru mine</string>
   <string name="suggested_edits_task_multilingual_positive">Adaugă limbă</string>
-  <string name="suggested_edits_image_caption_summary_title_file">Fișier</string>
+  <string name="suggested_edits_image_caption_summary_title_image">Fișier</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Artist</string>
   <string name="suggested_edits_image_caption_summary_title_author">Autor</string>
   <string name="suggested_edits_image_caption_summary_title_source">Sursă</string>
@@ -695,7 +686,7 @@
   <string name="suggested_edits_tasks_onboarding_get_started">Începe</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Descrierea imaginii (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Descrierea imaginii (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_file">Fișier</string>
+  <string name="suggested_edits_image_preview_dialog_image">Fișier</string>
   <string name="suggested_edits_image_preview_dialog_artist">Artist</string>
   <string name="suggested_edits_image_preview_dialog_tags">Etichete</string>
   <string name="suggested_edits_image_preview_dialog_date">Data</string>

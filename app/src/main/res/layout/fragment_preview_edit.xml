@@ -50,7 +50,7 @@
                 android:layout_height="20dp"
                 android:layout_gravity="center_vertical"
                 android:contentDescription="@string/cc_logo"
-                android:tint="@color/base30"
+                app:tint="@color/base30"
                 app:srcCompat="@drawable/ic_license_cc" />
 
             <TextView

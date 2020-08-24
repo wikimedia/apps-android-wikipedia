@@ -42,6 +42,7 @@
                 android:layout_gravity="center"
                 android:background="@android:color/transparent"
                 app:tabIndicator="@null"
+                app:tabRippleColor="?attr/color_group_59"
                 app:tabPaddingStart="8dp"
                 app:tabPaddingEnd="8dp"
                 app:tabBackground="@drawable/shape_tab_dot"
@@ -62,7 +63,7 @@
                     android:focusable="true"
                     android:contentDescription="@string/onboarding_continue"
                     android:scaleType="center"
-                    android:tint="?attr/colorAccent"
+                    app:tint="?attr/colorAccent"
                     app:srcCompat="@drawable/ic_chevron_forward_white_24dp" />
 
                 <Button

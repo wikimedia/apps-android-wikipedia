@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
 * Jim-by
 * Red Winged Duck
 * Renessaince
@@ -15,7 +16,6 @@
   <string name="search_hint">Пошук па Вікіпэдыі</string>
   <string name="search_hint_search_history">Шукаць у гісторыі</string>
   <string name="search_hint_search_languages">Пошук мовы</string>
-  <string name="search_hint_search_my_lists_and_articles">Пошук у сьпісах і артыкулах</string>
   <string name="nav_item_history">Гісторыя</string>
   <string name="nav_item_suggested_edits">Рэдагаваньні</string>
   <string name="nav_item_more">Болей</string>
@@ -145,7 +145,6 @@
   <string name="preference_title_auto_upload_crash_reports">Дасылаць справаздачы пра памылкі</string>
   <string name="preference_summary_auto_upload_crash_reports">Дазволіць аўтаматычна дасылаць паведамленьні пра памылкі ў пабочны сэрвіс-правайдэр, каб мы маглі праглядаць зьвесткі пра памылку, што дазволіць нам хутчэй выправіць яе.</string>
   <string name="editing_error_spamblacklist">Выяўленыя спасылкі на заблякаваныя дамэны (%s). Калі ласка, выдаліце іх і праспрабуйце зноў.</string>
-  <string name="history_search_list_hint">Гісторыя пошуку</string>
   <string name="error_can_not_process_link">Не атрымалася адлюстраваць гэтую спасылку</string>
   <string name="page_protected_autoconfirmed">Гэтая старонка была часткова абароненая.</string>
   <string name="page_protected_sysop">Гэтая старонка была поўнасьцю абароненая.</string>
@@ -204,7 +203,7 @@
   <string name="preference_title_show_images">Паказаць выявы</string>
   <string name="preference_summary_show_images">Уключэньне ці выключэньне загрузкі выяваў на старонках. Выключыце гэтую магчымасьць, калі Вашае інтэрнэт-злучэньне павольнае ці калі ў Вас абмежаваны тарыфны плян.</string>
   <string name="read_more_section">Даведацца болей</string>
-  <string name="menu_gallery_visit_page">Перайсьці на старонку файла</string>
+  <string name="menu_gallery_visit_image_page">Перайсьці на старонку файла</string>
   <string name="gallery_error_draw_failed">Не атрымалася вывесьці выяву.</string>
   <string name="license_title">Ліцэнзія для %s</string>
   <string name="gallery_menu_share">Падзяліцца</string>
@@ -237,8 +236,6 @@
   <string name="crash_report_relaunch_or_quit">На жаль, у прыкладаньні Вікіпэдыі адбылася памылка, і яно было закрытае.\n\nХочаце пачаць ізноў ці выйсьці?</string>
   <string name="crash_report_relaunch">Перазапусьціць</string>
   <string name="crash_report_quit">Выйсьці</string>
-  <string name="article_menu_bar_bookmark">Дадаць гэты артыкул да сьпісу чытаньня</string>
-  <string name="article_menu_bar_share">Падзяліцца спасылкай на артыкул</string>
   <string name="color_theme_select">Афармленьне</string>
   <string name="color_theme_light">Сьветлае</string>
   <string name="color_theme_dark">Цёмнае</string>

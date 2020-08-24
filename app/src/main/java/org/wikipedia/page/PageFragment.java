@@ -19,20 +19,22 @@ import android.view.ViewGroup;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebResourceResponse;
 import android.webkit.WebView;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.content.res.AppCompatResources;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.textview.MaterialTextView;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
@@ -44,6 +46,7 @@ import org.wikipedia.LongPressHandler;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
+import org.wikipedia.analytics.ABTestSuggestedEditsSnackbarFunnel;
 import org.wikipedia.analytics.FindInPageFunnel;
 import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.analytics.LoginFunnel;
@@ -79,11 +82,14 @@ import org.wikipedia.page.references.PageReferences;
 import org.wikipedia.page.references.ReferenceDialog;
 import org.wikipedia.page.shareafact.ShareHandler;
 import org.wikipedia.page.tabs.Tab;
+import org.wikipedia.readinglist.ReadingListBehaviorsUtil;
 import org.wikipedia.readinglist.ReadingListBookmarkMenu;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.readinglist.database.ReadingListPage;
+import org.wikipedia.search.SearchActivity;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.suggestededits.PageSummaryForEdit;
+import org.wikipedia.suggestededits.SuggestionsActivity;
 import org.wikipedia.theme.ThemeChooserDialog;
 import org.wikipedia.util.ActiveTimer;
 import org.wikipedia.util.DimenUtil;
@@ -112,8 +118,10 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
 import static android.app.Activity.RESULT_OK;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_GALLERY;
 import static org.wikipedia.Constants.InvokeSource.BOOKMARK_BUTTON;
+import static org.wikipedia.Constants.InvokeSource.PAGE_ACTION_TAB;
 import static org.wikipedia.Constants.InvokeSource.PAGE_ACTIVITY;
 import static org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_DESCRIPTION;
+import static org.wikipedia.descriptions.DescriptionEditSuccessActivity.RESULT_OK_FROM_EDIT_SUCCESS;
 import static org.wikipedia.descriptions.DescriptionEditTutorialActivity.DESCRIPTION_SELECTED_TEXT;
 import static org.wikipedia.feed.announcement.Announcement.PLACEMENT_ARTICLE;
 import static org.wikipedia.feed.announcement.AnnouncementClient.shouldShow;
@@ -141,7 +149,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         void onPageStartSupportActionMode(@NonNull ActionMode.Callback callback);
         void onPageHideSoftKeyboard();
         void onPageAddToReadingList(@NonNull PageTitle title, @NonNull InvokeSource source);
-        void onPageMoveToReadingList(long sourceReadingListId, @NonNull PageTitle title, @NonNull InvokeSource source);
+        void onPageMoveToReadingList(long sourceReadingListId, @NonNull PageTitle title, @NonNull InvokeSource source, boolean showDefaultList);
         void onPageRemoveFromReadingLists(@NonNull PageTitle title);
         void onPageLoadError(@NonNull PageTitle title);
         void onPageLoadErrorBackPressed();
@@ -197,13 +205,13 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             if (model.isInReadingList()) {
                 new ReadingListBookmarkMenu(tabLayout, new ReadingListBookmarkMenu.Callback() {
                     @Override
-                    public void onAddRequest(@Nullable ReadingListPage page) {
+                    public void onAddRequest(boolean addToDefault) {
                         addToReadingList(getTitle(), BOOKMARK_BUTTON);
                     }
 
                     @Override
                     public void onMoveRequest(@Nullable ReadingListPage page) {
-                        moveToReadingList(page.listId(), getTitle(), BOOKMARK_BUTTON);
+                        moveToReadingList(page.listId(), getTitle(), BOOKMARK_BUTTON, true);
                     }
 
                     @Override
@@ -219,23 +227,19 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                     }
                 }).show(getTitle());
             } else {
-                addToReadingList(getTitle(), BOOKMARK_BUTTON);
+                ReadingListBehaviorsUtil.INSTANCE.addToDefaultList(requireActivity(), getTitle(), BOOKMARK_BUTTON,
+                        readingListId -> moveToReadingList(readingListId, getTitle(), BOOKMARK_BUTTON, false));
             }
         }
 
         @Override
-        public void onSharePageTabSelected() {
-            sharePageLink();
+        public void onSearchTabSelected() {
+            openSearchActivity(PAGE_ACTION_TAB);
         }
 
         @Override
         public void onChooseLangTabSelected() {
             startLangLinksActivity();
-        }
-
-        @Override
-        public void onFindInPageTabSelected() {
-            showFindInPage();
         }
 
         @Override
@@ -319,8 +323,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
 
         containerView = rootView.findViewById(R.id.page_contents_container);
         refreshView = rootView.findViewById(R.id.page_refresh_container);
-        int swipeOffset = getContentTopOffsetPx(requireActivity()) + REFRESH_SPINNER_ADDITIONAL_OFFSET;
-        refreshView.setProgressViewOffset(false, -swipeOffset, swipeOffset);
         refreshView.setColorSchemeResources(getThemedAttributeId(requireContext(), R.attr.colorAccent));
         refreshView.setScrollableChild(webView);
         refreshView.setOnRefreshListener(pageRefreshListener);
@@ -416,6 +418,11 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         if (callback() != null) {
             callback().onPageSetToolbarFadeEnabled(enabled);
         }
+    }
+
+    void updateInsets(@NonNull WindowInsetsCompat insets) {
+        int swipeOffset = getContentTopOffsetPx(requireActivity()) + insets.getSystemWindowInsetTop() + REFRESH_SPINNER_ADDITIONAL_OFFSET;
+        refreshView.setProgressViewOffset(false, -swipeOffset, swipeOffset);
     }
 
     private boolean shouldLoadFromBackstack(@NonNull Activity activity) {
@@ -830,7 +837,19 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         } else if (requestCode == Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT
                 && resultCode == RESULT_OK) {
             refreshPage();
-            FeedbackUtil.showMessage(requireActivity(), R.string.description_edit_success_saved_snackbar);
+            ABTestSuggestedEditsSnackbarFunnel abTestFunnel = new ABTestSuggestedEditsSnackbarFunnel();
+            Snackbar snackbar = FeedbackUtil.makeSnackbar(requireActivity(),
+                    getString(abTestFunnel.shouldSeeSnackbarAction()
+                            ? R.string.description_edit_success_saved_snackbar_se_promotion
+                            : R.string.description_edit_success_saved_snackbar), FeedbackUtil.LENGTH_DEFAULT);
+            if (abTestFunnel.shouldSeeSnackbarAction()) {
+                snackbar.setAction(R.string.suggested_edits_tasks_onboarding_get_started, view -> startSuggestionsActivity(ADD_DESCRIPTION));
+            }
+            snackbar.show();
+            abTestFunnel.logSnackbarShown();
+        } else if (requestCode == Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT
+                && resultCode == RESULT_OK_FROM_EDIT_SUCCESS) {
+            refreshPage();
         }
     }
 
@@ -984,12 +1003,16 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         return bridge.isLoading();
     }
 
+    @SuppressWarnings("checkstyle:magicnumber")
     private void setBookmarkIconForPageSavedState(boolean pageSaved) {
         View bookmarkTab = tabLayout.getChildAt(PageActionTab.ADD_TO_READING_LIST.code());
         if (bookmarkTab != null) {
-            ((ImageView) bookmarkTab).setImageResource(pageSaved ? R.drawable.ic_bookmark_white_24dp
-                    : R.drawable.ic_bookmark_border_white_24dp);
+            ((MaterialTextView) bookmarkTab).setCompoundDrawablesWithIntrinsicBounds(null,
+                    AppCompatResources.getDrawable(requireContext(), pageSaved
+                            ? R.drawable.ic_bookmark_white_24dp
+                            : R.drawable.ic_bookmark_border_white_24dp), null, null);
             bookmarkTab.setEnabled(!model.shouldLoadAsMobileWeb());
+            bookmarkTab.setAlpha(model.shouldLoadAsMobileWeb() ? 0.5f : 1f);
         }
     }
 
@@ -1157,13 +1180,17 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
     private void startGalleryActivity(@NonNull String fileName) {
         if (app.isOnline()) {
             requireActivity().startActivityForResult(GalleryActivity.newIntent(requireActivity(),
-                    model.getTitleOriginal(), fileName,
+                    model.getTitle(), fileName,
                     model.getTitle().getWikiSite(), getRevision(), GalleryFunnel.SOURCE_NON_LEAD_IMAGE), ACTIVITY_REQUEST_GALLERY);
         } else {
             Snackbar snackbar = FeedbackUtil.makeSnackbar(requireActivity(), getString(R.string.gallery_not_available_offline_snackbar), FeedbackUtil.LENGTH_DEFAULT);
             snackbar.setAction(R.string.gallery_not_available_offline_snackbar_dismiss, view -> snackbar.dismiss());
             snackbar.show();
         }
+    }
+
+    public void startSuggestionsActivity(@NonNull DescriptionEditActivity.Action action) {
+        startActivity(SuggestionsActivity.newIntent(requireActivity(), action));
     }
 
     /**
@@ -1311,19 +1338,24 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         }
     }
 
-    public void moveToReadingList(long sourceReadingListId, @NonNull PageTitle title, @NonNull InvokeSource source) {
+    public void moveToReadingList(long sourceReadingListId, @NonNull PageTitle title, @NonNull InvokeSource source, boolean showDefaultList) {
         Callback callback = callback();
         if (callback != null) {
-            callback.onPageMoveToReadingList(sourceReadingListId, title, source);
+            callback.onPageMoveToReadingList(sourceReadingListId, title, source, showDefaultList);
         }
     }
 
-    public void startLangLinksActivity() {
+    private void startLangLinksActivity() {
         Intent langIntent = new Intent();
         langIntent.setClass(requireActivity(), LangLinksActivity.class);
         langIntent.setAction(LangLinksActivity.ACTION_LANGLINKS_FOR_TITLE);
         langIntent.putExtra(LangLinksActivity.EXTRA_PAGETITLE, model.getTitle());
         requireActivity().startActivityForResult(langIntent, Constants.ACTIVITY_REQUEST_LANGLINKS);
+    }
+
+    public void openSearchActivity(@NonNull InvokeSource source) {
+        Intent intent = SearchActivity.newIntent(requireContext(), source, null);
+        requireActivity().startActivity(intent);
     }
 
     public long getRevision() {

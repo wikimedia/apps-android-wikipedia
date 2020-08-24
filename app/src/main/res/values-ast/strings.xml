@@ -18,7 +18,6 @@
   <string name="search_hint_voice_search">Busca con entrada por voz</string>
   <string name="search_hint_search_history">Guetar nel historial</string>
   <string name="search_hint_search_languages">Buscar una llingua</string>
-  <string name="search_hint_search_my_lists_and_articles">Buscar nes mios llistes y artículos</string>
   <string name="nav_item_history">Historial</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Ediciones suxeríes</string>
   <string name="error_network_error">Nun pudo conectase a Internet.</string>
@@ -170,7 +169,6 @@
   <string name="preference_title_auto_upload_crash_reports">Unviar informes de cuelgues</string>
   <string name="preference_summary_auto_upload_crash_reports">Permitir a la app qu\'unvie informes de cuelgues automáticamente a un fornidor de serviciu d\'un terceru pa que podamos revisar el cuelgue ya iguar el fallu más rápida y fácilmente.</string>
   <string name="editing_error_spamblacklist">Detectáronse enllaces a dominios bloquiaos (%s). Desanícialos y vuelve a intentalo.</string>
-  <string name="history_search_list_hint">Guetar nel historial</string>
   <string name="error_can_not_process_link">Nun se pudo amosar esti enllaz</string>
   <string name="page_protected_autoconfirmed">Esta páxina ta semiprotexida.</string>
   <string name="page_protected_sysop">Esta páxina ta protexida dafechu.</string>
@@ -258,7 +256,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">Permitir</string>
   <string name="read_more_section">Lleer más</string>
   <string name="about_article_section">Tocante a esti artículu</string>
-  <string name="menu_gallery_visit_page">Dir a la páxina del ficheru</string>
+  <string name="menu_gallery_visit_image_page">Dir a la páxina del ficheru</string>
   <string name="gallery_error_draw_failed">Nun pudo dibuxase la imaxe.</string>
   <string name="license_title">Llicencia pa %s</string>
   <string name="gallery_menu_share">Compartir</string>
@@ -336,8 +334,6 @@
   <string name="crash_report_relaunch_or_quit">Sentímoslo, la app de Wikipedia esperimentó un error y terminóse.\n\n¿Quies volver a arrancar o colar?</string>
   <string name="crash_report_relaunch">Volver a arrancar</string>
   <string name="crash_report_quit">Colar</string>
-  <string name="article_menu_bar_bookmark">Amestar esti artículu a una llista de llectura</string>
-  <string name="article_menu_bar_share">Compartir l\'enllaz del artículu</string>
   <string name="article_header_edit_hint">Editar...</string>
   <string name="article_header_edit_description">Editar la descripción del artículu</string>
   <string name="article_header_edit_lead_section">Editar l\'entamu</string>
@@ -610,7 +606,6 @@
   <string name="description_edit_success_saved_in_lang_snackbar">Espublizóse la descripción d\'artículu (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Espublizóse\'l pie d\'imaxe</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Espublizóse\'l pie d\'imaxe (%s)</string>
-  <string name="description_edit_success_saved_image_tags_snackbar">Espublizaes les etiquetes d\'imaxe</string>
   <string name="description_edit_success_encouragement">Acabes d\'ameyorar Wikipedia pa toos</string>
   <string name="description_edit_success_done">Fecho</string>
   <string name="description_edit_success_did_you_know">¿Sabíeslo?</string>
@@ -621,10 +616,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealmente, una llinia; ente dos y doce palabres</string>
   <string name="description_edit_tutorial_button_label_start_editing">Principiar a editar</string>
   <string name="description_edit_tutorial_promise">Al empezar, prometo a nun faer mal usu d\'esta carauterística.</string>
-  <string name="suggested_edits_add_descriptions">Amestar descripciones d\'artículos</string>
-  <string name="suggested_edits_translate_descriptions">Traducir descripciones d\'artículos</string>
-  <string name="suggested_edits_add_image_captions">Añadir pies d\'imaxe</string>
-  <string name="suggested_edits_translate_image_captions">Traducir pies d\'imaxe</string>
   <string name="suggested_edits_tag_images">Etiquetar imáxenes</string>
   <string name="suggested_edits_review_description">Revisar descripción del artículu</string>
   <string name="suggested_edits_add_description_button">Amestar descripción</string>
@@ -651,7 +642,7 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text">Bloquiao hasta que tengas editaes %d descripciones d\'artículos (comprobaes)</string>
   <string name="suggested_edits_task_multilingual_negative">Nun ye pa min</string>
   <string name="suggested_edits_task_multilingual_positive">Amestar llingües</string>
-  <string name="suggested_edits_image_caption_summary_title_file">Ficheru</string>
+  <string name="suggested_edits_image_caption_summary_title_image">Ficheru</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Artista</string>
   <string name="suggested_edits_image_caption_summary_title_author">Autor</string>
   <string name="suggested_edits_image_caption_summary_title_source">Orixe</string>

@@ -14,6 +14,7 @@
   <string name="app_name_alpha">Wîkîpediya Alfa</string>
   <string name="wikimedia">Wîkîmediya</string>
   <string name="nav_item_back">Vegere</string>
+  <string name="page_tabs_back">Vegere</string>
   <string name="nav_item_forward">Pêşve</string>
   <string name="search_hint">Li Wîkîpediyayê bigere</string>
   <string name="search_hint_search_history">Dîroka lêgerînê</string>
@@ -131,7 +132,6 @@
   <string name="wikipedia_app_faq">Sepana Wîkîpediyayê PPP</string>
   <string name="create_account_account_created_toast">Hesab hate çêkirin!</string>
   <string name="preferences_heading_data_usage">Bikaranîna daneyê</string>
-  <string name="history_search_list_hint">Dîroka lêgerînê</string>
   <string name="error_can_not_process_link">Nikare vê lînkê nîşan bide</string>
   <string name="page_protected_autoconfirmed">Ev rûpel nîv-parastî ye</string>
   <string name="page_protected_sysop">Ev rûpel bi temamî parastî ye.</string>
@@ -187,7 +187,6 @@
   <string name="crash_report_activity_title">Çewtiya sepanê</string>
   <string name="crash_report_relaunch">Cardin dest pê bike</string>
   <string name="crash_report_quit">Derkeve</string>
-  <string name="article_menu_bar_share">Girêdana gotarê parve bike</string>
   <string name="color_theme_dark">Tarî</string>
   <string name="color_theme_black">Reş</string>
   <string name="nav_item_reading_lists">Lîsteyên min</string>

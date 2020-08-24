@@ -153,7 +153,6 @@
   <string name="preference_title_auto_upload_crash_reports">क्रैश रिपोर्ट भेजें</string>
   <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">एप को क्रैश रिपोर्ट हॉकीएप/एक थर्ड-पार्टी सर्विस को अपने आप भेजने की अनुमति दें ताकि हम तेज़ी से व आसानी से आपके क्रैश को देख कर उसे फिक्स कर सकें।</string>
   <string name="editing_error_spamblacklist">प्रतिबंधित डोमेन (%s) के लिंक पाये गए हैं। कृपया इन्हें हटायें और पुनः प्रयास करें।</string>
-  <string name="history_search_list_hint">इतिहास खोजें</string>
   <string name="error_can_not_process_link">यह लिंक दिखाया नहीं जा सका</string>
   <string name="page_protected_autoconfirmed">यह पृष्ठ अर्ध-सुरक्षित है।</string>
   <string name="page_protected_sysop">यह पृष्ठ पूर्ण सुरक्षित है।</string>
@@ -234,7 +233,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">अनुमति दें</string>
   <string name="read_more_section">और पढ़ें</string>
   <string name="about_article_section">इस लेख के बारे में</string>
-  <string name="menu_gallery_visit_page">फ़ाइल पेज पर जाएँ</string>
+  <string name="menu_gallery_visit_image_page">फ़ाइल पेज पर जाएँ</string>
   <string name="gallery_error_draw_failed">चित्र को प्रदर्शित नहीं किया जा सका।</string>
   <string name="license_title">%s के लिए लाइसेंस</string>
   <string name="gallery_menu_share">साझा करें</string>
@@ -291,8 +290,6 @@
   <string name="crash_report_relaunch_or_quit">हमें खेद है कि किसी त्रुटि को अनुभव करने के कारणवश विकिपीडिया एप को बंद कर दिया गया। \n\nक्या आप फिर से शुरू या बंद करना चाहते हैं?</string>
   <string name="crash_report_relaunch">फिर से शुरू करें</string>
   <string name="crash_report_quit">बंद करें</string>
-  <string name="article_menu_bar_bookmark">इस लेख को पढ़ने वाली सूची में जोड़ें</string>
-  <string name="article_menu_bar_share">लेख कङी को साझा करें</string>
   <string name="article_header_edit_hint">सम्पादित करें</string>
   <string name="article_header_edit_description" fuzzy="true">शीर्षक वर्णन को सम्पादित करें</string>
   <string name="article_header_edit_lead_section">परिचय सम्पादित करें</string>

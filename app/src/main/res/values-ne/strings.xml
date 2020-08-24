@@ -23,7 +23,6 @@
   <string name="search_hint_voice_search">आवाज आगत खोज</string>
   <string name="search_hint_search_history">इतिहास खोज्नुहोस्</string>
   <string name="search_hint_search_languages">कुनै भाषाको लागि खोजी गर्नुहोस्</string>
-  <string name="search_hint_search_my_lists_and_articles">मेरा सूचीहरू र लेखहरू खोज्नुहोस्</string>
   <string name="nav_item_history">इतिहास</string>
   <string name="nav_item_suggested_edits" fuzzy="true">सुझाइएका सम्पादनहरू</string>
   <string name="nav_item_more">थप</string>
@@ -175,7 +174,6 @@
   <string name="preference_title_auto_upload_crash_reports">खरावी सम्बन्धी प्रतिवेदनहरू पठाउनुहोस्</string>
   <string name="preference_summary_auto_upload_crash_reports">क्र्यास प्रतिवेदनहरू HockeyApp नामक एक तेस्रो-पक्षीय सेवा प्रदायकलाई स्वतः पठाउन अनुप्रयोगलाई अनुमति दिनुहोस् जसले गर्दा हामी अझ छिटो र सरल तरिकाले तपाईंको क्र्यासको समीक्षा गरी उक्त समस्याको समाधान गर्न सक्छौं।</string>
   <string name="editing_error_spamblacklist">रोक लगाइएका डोमेनहरू (%s) को लिङ्क पत्ता लाग्यो। तिनीहरूलाई हटाएर फेरि प्रयास गर्नुहोस्।</string>
-  <string name="history_search_list_hint">खोज इतिहास</string>
   <string name="error_can_not_process_link">यो सूत्र प्रदर्शन गर्न सकिएन</string>
   <string name="page_protected_autoconfirmed">यो पृष्ठ अर्ध-संरक्षित गरिएको छ।</string>
   <string name="page_protected_sysop">यो पृष्ठ पूर्ण संरक्षित गरिएको छ।</string>
@@ -251,7 +249,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">अनुमति दिनुहोस्</string>
   <string name="read_more_section">थप पढ्नुहोस्</string>
   <string name="about_article_section">यस लेखको बारेमा।</string>
-  <string name="menu_gallery_visit_page">फाइल पृष्ठमा जानुहोस्</string>
+  <string name="menu_gallery_visit_image_page">फाइल पृष्ठमा जानुहोस्</string>
   <string name="gallery_error_draw_failed">चित्र प्रदर्शन गर्न सकिएन।</string>
   <string name="license_title">%s को इजाजतपत्र</string>
   <string name="gallery_menu_share">आदान-प्रदान गर्नुहोस्</string>
@@ -308,8 +306,6 @@
   <string name="crash_report_relaunch_or_quit">के तपाई पुन: सुरु गर्न वा बन्द गर्न चाहानुहुन्छ?</string>
   <string name="crash_report_relaunch">फेरि सुरु गर्नुहोस्</string>
   <string name="crash_report_quit">बाहिरिनुहोस्</string>
-  <string name="article_menu_bar_bookmark">यो लेखलार्इ कुनै अध्ययन सूचीमा थप्नुहोस्</string>
-  <string name="article_menu_bar_share">लेखको लिङ्क आदान-प्रदान गर्नुहोस्</string>
   <string name="article_header_edit_hint">सम्पादन गर्नुहोस्…</string>
   <string name="article_header_edit_description">लेख वर्णन सम्पादन गर्नुहोस्</string>
   <string name="article_header_edit_lead_section">परिचय सम्पादन गर्नुहोस्</string>
@@ -477,8 +473,6 @@
   <string name="description_edit_tutorial_title_descriptions">लेख विवरणहरू</string>
   <string name="description_edit_tutorial_keep_it_short">यसलाई छोटो राख्नुहोस्</string>
   <string name="description_edit_tutorial_button_label_start_editing">सम्पादन सुरु गर्नुहोस्</string>
-  <string name="suggested_edits_add_descriptions">लेखमा विवरण थप्नुहोस्</string>
-  <string name="suggested_edits_translate_descriptions">लेखकाे विवरण अनुवाद गर्नुहोस्</string>
   <string name="suggested_edits_add_description_button">विवरण थप्नुहोस्</string>
   <string name="suggested_edits_edit_description_button">विवरण सम्पादन गर्नुहोस्</string>
   <string name="suggested_edits_add_translation_button">अनुवाद थप्नुहोस्</string>
@@ -487,7 +481,7 @@
   <string name="suggested_edits_menu_info">जानकारी</string>
   <string name="suggested_edits_task_add_description_title">शीर्षकमा विवरण थप्नुहोस्</string>
   <string name="suggested_edits_task_multilingual_positive">भाषाहरू थप गर्नुहोस्</string>
-  <string name="suggested_edits_image_caption_summary_title_file">फाइल</string>
+  <string name="suggested_edits_image_caption_summary_title_image">फाइल</string>
   <string name="suggested_edits_image_caption_summary_title_artist">कलाकार</string>
   <string name="suggested_edits_image_caption_summary_title_author">लेखक</string>
   <string name="suggested_edits_image_caption_summary_title_source">स्रोत</string>

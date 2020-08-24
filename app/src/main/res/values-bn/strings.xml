@@ -16,6 +16,7 @@
 * Tahmid02016
 * Tauhid16
 * Wikisagnik
+* YahyA
 * আজিজ
 * আফতাবুজ্জামান
 * ফাহাদ কাজমী
@@ -32,7 +33,6 @@
   <string name="search_hint_voice_search">কণ্ঠ দ্বারা অনুসন্ধান</string>
   <string name="search_hint_search_history">ইতিহাস অনুসন্ধান করুন</string>
   <string name="search_hint_search_languages">একটি ভাষার জন্য অনুসন্ধান করুন</string>
-  <string name="search_hint_search_my_lists_and_articles">আমার তালিকা এবং নিবন্ধে সন্ধান করুন</string>
   <string name="nav_item_history">ইতিহাস</string>
   <string name="nav_item_suggested_edits">সম্পাদনা</string>
   <string name="nav_item_more">আরও</string>
@@ -185,7 +185,7 @@
   <string name="preference_title_auto_upload_crash_reports">ক্র্যাশ প্রতিবেদন পাঠান</string>
   <string name="preference_summary_auto_upload_crash_reports">অ্যাপকে স্বয়ংক্রিয়ভাবে একটি তৃতীয় পক্ষের পরিষেবা প্রদানকারী HockeyApp-এর কাছে ত্রুটি প্রতিবেদন পাঠাতে অনুমতি দিন তাহলে আমরা আপনার ত্রুটি পর্যালোচনা করতে পারবো এবং আরো সহজে ও দ্রুত বাগ ঠিক করতে পারবো।</string>
   <string name="editing_error_spamblacklist">অবরুদ্ধ ডোমেইনের (%s) লিংক সনাক্ত হয়েছে। দয়া করে তাদের সরিয়ে নিন ও আবার চেষ্টা করুন।</string>
-  <string name="history_search_list_hint">ইতিহাস অনুসন্ধান</string>
+  <string name="history_filter_list_hint">ইতিহাস ছাঁকনি</string>
   <string name="error_can_not_process_link">কোনো সংযোগ প্রদর্শিত হয়নি।</string>
   <string name="page_protected_autoconfirmed">এই পাতাটি অর্ধ সুরক্ষিত।</string>
   <string name="page_protected_sysop">এই পাতটি সম্পূর্ণ সুরক্ষিত।</string>
@@ -268,7 +268,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">মঞ্জুর</string>
   <string name="read_more_section">আরও জানুন</string>
   <string name="about_article_section">এই নিবন্ধ সম্পর্কে</string>
-  <string name="menu_gallery_visit_page">ফাইলের পৃষ্ঠাতে যান</string>
+  <string name="menu_gallery_visit_image_page">ফাইলের পৃষ্ঠাতে যান</string>
   <string name="gallery_error_draw_failed">ছবিটি আঁকা যায়নি।</string>
   <string name="license_title">%s-এর জন্য লাইসেন্স</string>
   <string name="gallery_menu_share">শেয়ার</string>
@@ -329,8 +329,8 @@
   <string name="crash_report_relaunch_or_quit">আমরা দুঃখিত, উইকিপিডিয়া অ্যাপ্লিকেশন একটি ত্রুটির সম্মুখীন হয়েছে এবং বন্ধ হয়ে গেছে।\n\nআপনি কি পুনরারম্ভ বা প্রস্থান করতে চান?</string>
   <string name="crash_report_relaunch">পুনরারম্ভ করুন</string>
   <string name="crash_report_quit">প্রস্থান</string>
-  <string name="article_menu_bar_bookmark">একটি পড়ার তালিকা এই নিবন্ধটি যোগ করে</string>
-  <string name="article_menu_bar_share">নিবন্ধের লিঙ্ক ভাগ করুন</string>
+  <string name="article_menu_bar_language_button">ভাষা</string>
+  <string name="article_menu_bar_search_button">অনুসন্ধান</string>
   <string name="article_header_edit_hint">সম্পাদনা…</string>
   <string name="article_header_edit_description" fuzzy="true">শিরোনামের বিবরণ সম্পাদনা করুন</string>
   <string name="article_header_edit_lead_section">ভূমিকা সম্পাদনা করুন</string>
@@ -351,6 +351,10 @@
   <string name="reading_list_title_exists">পড়ার তালিকা \"%s\" ইতিমধ্যে বিদ্যমান।</string>
   <string name="reading_list_articles_already_exist_message">সব ভাল! %s এ সমস্ত নিবন্ধ রয়েছে।</string>
   <string name="reading_list_added_view_button">তালিকা দেখুন</string>
+  <plurals name="format_reading_list_statistical_summary">
+    <item quantity="one">১টি নিবন্ধ, %2$.2f এমবি</item>
+    <item quantity="other">%1$dটি নিবন্ধ, %2$.2f এমবি</item>
+  </plurals>
   <string name="format_reading_list_statistical_summary_singular">১টি নিবন্ধ, %1$.2f মেগাবাইট</string>
   <string name="format_reading_list_statistical_summary_plural">%1$dটি নিবন্ধ, %2$.2f মেগাবাইট</string>
   <string name="format_reading_list_statistical_detail_singular">১টি নিবন্ধের %1$dটি অফলাইনে উপলব্ধ, %2$.2f মেগাবাইট</string>
@@ -478,6 +482,7 @@
   <string name="menu_feed_overflow_label">আরো বিকল্প</string>
   <string name="feed_featured_image_share_subject">উইকিমিডিয়া কমন্স থেকে নির্বাচিত চিত্র</string>
   <string name="feed">অন্বেষণ</string>
+  <string name="home">নীড়</string>
   <string name="most_read_list_card_title">প্রবণতা</string>
   <string name="view_static_card_icon_content_description">কার্ড আইকন</string>
   <string name="view_card_news_title">সংবাদে</string>
@@ -537,7 +542,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">এক লাইনে, দুই থেকে বারো পর্যন্ত শব্দ রাখা যাবে</string>
   <string name="description_edit_tutorial_button_label_start_editing">সম্পাদনা শুরু করুন</string>
   <string name="description_edit_tutorial_promise">শুরু করার দ্বারা, আমি প্রতিজ্ঞা করছি এই বৈশিষ্ট্যের অপব্যবহার করব না।</string>
-  <string name="suggested_edits_add_descriptions" fuzzy="true">বিবরণ যোগ করুন</string>
   <string name="suggested_edits_review_description">নিবন্ধের বিবরণ পর্যালোচনা করুন</string>
   <string name="suggested_edits_add_description_button">বিবরণ যোগ করুন</string>
   <string name="suggested_edits_add_translation_button">অনুবাদ করুন</string>
@@ -546,9 +550,10 @@
   <string name="suggested_edits_menu_info">তথ্য</string>
   <string name="suggested_edits_task_multilingual_negative">আমার জন্য নয়</string>
   <string name="suggested_edits_task_multilingual_positive">ভাষা যোগ করুন</string>
+  <string name="suggested_edits_image_caption_summary_title_image">ছবি</string>
   <string name="suggested_edits_image_caption_summary_title_source">উৎস</string>
   <string name="suggested_edits_image_caption_summary_title_date">তারিখ</string>
-  <string name="suggested_edits_image_preview_dialog_file">ফাইল</string>
+  <string name="suggested_edits_image_preview_dialog_image">ফাইল</string>
   <string name="suggested_edits_image_preview_dialog_date">তারিখ</string>
   <string name="suggested_edits_snackbar_survey_text">আপনার সম্পাদনার অভিজ্ঞতা কেমন ছিল? অ্যাপ্লিকেশন সম্পাদনা সম্পর্কে এই জরিপে দয়া করে অংশ নিন।</string>
   <string name="suggested_edits_snackbar_survey_action_text">জরিপে অংশ নিন</string>

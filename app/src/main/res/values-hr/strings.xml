@@ -24,7 +24,7 @@
   <string name="search_hint_voice_search">Pretraživanje glasom</string>
   <string name="search_hint_search_history">Pretraživanje povijesti</string>
   <string name="search_hint_search_languages">Pretraga jezika</string>
-  <string name="search_hint_search_my_lists_and_articles">Pretraga mojih popisa i članaka</string>
+  <string name="filter_hint_filter_my_lists_and_articles">Filtriraj moje popise</string>
   <string name="nav_item_history">Povijest</string>
   <string name="nav_item_suggested_edits">Uređivanjā</string>
   <string name="nav_item_more">Više</string>
@@ -176,7 +176,7 @@
   <string name="preference_title_auto_upload_crash_reports">Slanje izvješća o padu programa</string>
   <string name="preference_summary_auto_upload_crash_reports">Dopusti automatsko slanje izvješća o pogreškama servisu treće strane, kako bismo mogli vidjeti informacije o pogrešci i brže i lakše ispraviti ju.</string>
   <string name="editing_error_spamblacklist">Pronađeni su linkovi na popis blokiranih domena (%s). Molimo, uklonite ih i pokušajte ponovno.</string>
-  <string name="history_search_list_hint">Pretraživanje povijesti</string>
+  <string name="history_filter_list_hint">Pregled povijesti</string>
   <string name="error_can_not_process_link">Nije moguće prikazati ovu poveznicu</string>
   <string name="page_protected_autoconfirmed">Ova je stranica djelomično zaštićena.</string>
   <string name="page_protected_sysop">Ova je stranica u potpunosti zaštićena.</string>
@@ -261,7 +261,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">Dopusti</string>
   <string name="read_more_section">Pročitajte više</string>
   <string name="about_article_section">O ovom članku</string>
-  <string name="menu_gallery_visit_page">Idi na stranicu datoteke</string>
+  <string name="menu_gallery_visit_image_page">Idi na stranicu datoteke</string>
   <string name="gallery_error_draw_failed">Nije uspio prikaz slike.</string>
   <string name="license_title">Licencija za %s</string>
   <string name="gallery_menu_share">Podijeli</string>
@@ -338,8 +338,6 @@
   <string name="crash_report_relaunch_or_quit">Žao nam je, ali aplikacija Wikipedija je prekinuta.\n\nŽelite li početi ponovno ili prekinuti?</string>
   <string name="crash_report_relaunch">Počni ponovno</string>
   <string name="crash_report_quit">Prekini</string>
-  <string name="article_menu_bar_bookmark">Spremi članak na popis za čitanje</string>
-  <string name="article_menu_bar_share">Podijelite poveznicu na članak</string>
   <string name="article_header_edit_hint">Uredi...</string>
   <string name="article_header_edit_description">Uredi opis članka</string>
   <string name="article_header_edit_lead_section">Uredi uvod</string>
@@ -573,6 +571,7 @@
   <string name="description_edit_success_saved_in_lang_snackbar">Objavljen opis članka! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Objavljen opis slike!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Objavljen opis slike! (%s)</string>
+  <string name="description_edit_success_se_image_caption_feed_link_snackbar">Jeste li uživali? Pomozite nam dodati nedostajuće opise slika na ostalim mjestima.</string>
   <string name="description_edit_success_encouragement">Upravo ste učinili Wikipediju boljom za svakoga</string>
   <string name="description_edit_success_done">Gotovo</string>
   <string name="description_edit_success_did_you_know">Jeste li znali?</string>
@@ -583,10 +582,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealno jedan redak, od dvije do dvanaest riječi</string>
   <string name="description_edit_tutorial_button_label_start_editing">Počnite uređivati</string>
   <string name="description_edit_tutorial_promise">Kada počnem, obećavam da neću zloupotrijebiti ovu mogućnost.</string>
-  <string name="suggested_edits_add_descriptions">Dodaj opise članaka</string>
-  <string name="suggested_edits_translate_descriptions">Prevedi opise članaka</string>
-  <string name="suggested_edits_add_image_captions">Dodaj opise slika</string>
-  <string name="suggested_edits_translate_image_captions">Prevedi opise slika</string>
   <string name="suggested_edits_tag_images">Označavanje slika</string>
   <string name="suggested_edits_review_description">Pregledaj opis članka</string>
   <string name="suggested_edits_add_description_button">Dodaj opis</string>
@@ -610,7 +605,7 @@
   <string name="suggested_edits_task_image_caption_edit_disable_text">Zaključano dok ne uredite %d natpisa slika</string>
   <string name="suggested_edits_task_multilingual_negative">Nije za mene</string>
   <string name="suggested_edits_task_multilingual_positive">Dodaj jezike</string>
-  <string name="suggested_edits_image_caption_summary_title_file">Datoteka</string>
+  <string name="suggested_edits_image_caption_summary_title_image">Datoteka</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Umjetnik</string>
   <string name="suggested_edits_image_caption_summary_title_author">Autor</string>
   <string name="suggested_edits_image_caption_summary_title_source">Izvor</string>
@@ -627,7 +622,7 @@
   <string name="suggested_edits_tasks_onboarding_get_started">Krenimo</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Natpis slike (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Opis slike (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_file">Datoteka</string>
+  <string name="suggested_edits_image_preview_dialog_image">Datoteka</string>
   <string name="suggested_edits_image_preview_dialog_artist">Umjetnik</string>
   <string name="suggested_edits_image_preview_dialog_tags">Oznake</string>
   <string name="suggested_edits_image_preview_dialog_date">Datum</string>

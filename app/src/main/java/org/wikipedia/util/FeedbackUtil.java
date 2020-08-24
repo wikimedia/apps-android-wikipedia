@@ -2,6 +2,7 @@ package org.wikipedia.util;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
 import android.net.Uri;
 import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
@@ -20,6 +21,9 @@ import androidx.fragment.app.Fragment;
 import com.getkeepsafe.taptargetview.TapTarget;
 import com.getkeepsafe.taptargetview.TapTargetView;
 import com.google.android.material.snackbar.Snackbar;
+import com.skydoves.balloon.ArrowConstraints;
+import com.skydoves.balloon.ArrowOrientation;
+import com.skydoves.balloon.Balloon;
 
 import org.wikipedia.R;
 import org.wikipedia.analytics.SuggestedEditsFunnel;
@@ -125,7 +129,7 @@ public final class FeedbackUtil {
         showMessage(activity, message);
     }
 
-    public static void setToolbarButtonLongPressToast(View... views) {
+    public static void setButtonLongPressToast(View... views) {
         for (View v : views) {
             v.setOnLongClickListener(TOOLBAR_LONG_CLICK_LISTENER);
         }
@@ -171,6 +175,36 @@ public final class FeedbackUtil {
         toast.setGravity(Gravity.TOP | Gravity.START, location[0], location[1]);
         toast.show();
         return toast;
+    }
+
+    @SuppressWarnings("checkstyle:magicnumber")
+    public static Balloon showTooltip(@NonNull View anchor, @NonNull CharSequence text, boolean aboveOrBelow, boolean autoDismiss) {
+        Balloon balloon = getTooltip(anchor.getContext(), text, aboveOrBelow, autoDismiss);
+        if (aboveOrBelow) {
+            balloon.showAlignTop(anchor, 0, DimenUtil.roundedDpToPx(8f));
+        } else {
+            balloon.showAlignBottom(anchor, 0, -DimenUtil.roundedDpToPx(8f));
+        }
+        if (!autoDismiss && anchor.getContext() instanceof MainActivity) {
+            ((MainActivity) anchor.getContext()).setCurrentTooltip(balloon);
+        }
+        return balloon;
+    }
+
+    @SuppressWarnings("checkstyle:magicnumber")
+    public static Balloon getTooltip(@NonNull Context context, @NonNull CharSequence text, boolean aboveOrBelow, boolean autoDismiss) {
+        return new Balloon.Builder(context)
+                .setText(text)
+                .setArrowDrawableResource(R.drawable.ic_tooltip_arrow_up)
+                .setArrowConstraints(ArrowConstraints.ALIGN_ANCHOR)
+                .setArrowOrientation(aboveOrBelow ? ArrowOrientation.BOTTOM : ArrowOrientation.TOP)
+                .setArrowSize(24)
+                .setPadding(16)
+                .setTextSize(14f)
+                .setTextColor(Color.WHITE)
+                .setBackgroundColorResource(ResourceUtil.getThemedAttributeId(context, R.attr.colorAccent))
+                .setDismissWhenTouchOutside(autoDismiss)
+                .build();
     }
 
     private static View findBestView(Activity activity) {

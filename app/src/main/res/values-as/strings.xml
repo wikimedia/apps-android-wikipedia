@@ -21,7 +21,6 @@
   <string name="search_hint_voice_search">ভইচ ইনপুট সন্ধান</string>
   <string name="search_hint_search_history">ইতিহাস সন্ধান কৰক</string>
   <string name="search_hint_search_languages">ভাষাৰ সন্ধান কৰক</string>
-  <string name="search_hint_search_my_lists_and_articles">মোৰ তালিকা আৰু প্ৰবন্ধবোৰত সন্ধান কৰক</string>
   <string name="nav_item_history">ইতিহাস</string>
   <string name="nav_item_suggested_edits">সম্পাদনা</string>
   <string name="nav_item_more">অধিক</string>
@@ -173,7 +172,6 @@
   <string name="preference_title_auto_upload_crash_reports">ক্ৰেশ্ব প্ৰতিবেদন পঠিয়াওক</string>
   <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">এপ্‌টোক স্বয়ংক্ৰিয়ভাৱে তৃতীয় পক্ষৰ সেৱা প্ৰদানকাৰী HockeyAppলৈ ত্ৰুটি প্ৰতিবেদন পঠিয়াবলৈ অনুমতি দিয়ক যাতে আমি সোনকালে আপোনাৰ ত্ৰুটি পৰীক্ষা কৰি বাগ্‌ ঠিক কৰিব পাৰোঁ।</string>
   <string name="editing_error_spamblacklist">অৱৰুদ্ধ ডমেইনৰ সংযোগ (%s) চিনাক্ত কৰা হৈছে। অনুগ্ৰহ কৰি সেইবোৰ আঁতৰাওক আৰু পুনৰ চেষ্টা কৰক।</string>
-  <string name="history_search_list_hint">ইতিহাস সন্ধান কৰক</string>
   <string name="error_can_not_process_link">এই সংযোগ দেখুৱাব পৰা নগ\'ল</string>
   <string name="page_protected_autoconfirmed">এই পৃষ্ঠাটো অৰ্ধ-সুৰক্ষিত কৰা হৈছে।</string>
   <string name="page_protected_sysop">এই পৃষ্ঠাটো সম্পূৰ্ণ সুৰক্ষিত কৰা হৈছে।</string>
@@ -256,7 +254,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">অনুমতি দিয়ক</string>
   <string name="read_more_section">আৰু পঢ়ক</string>
   <string name="about_article_section">এই প্ৰবন্ধ সম্পৰ্কে</string>
-  <string name="menu_gallery_visit_page">ফাইল পৃষ্ঠালৈ যাওক</string>
+  <string name="menu_gallery_visit_image_page">ফাইল পৃষ্ঠালৈ যাওক</string>
   <string name="gallery_error_draw_failed">ছবিখন আঁকিব পৰা নহ\'ল।</string>
   <string name="license_title">%sৰ বাবে অনুজ্ঞাপত্ৰ</string>
   <string name="gallery_menu_share">শ্বেয়াৰ কৰক</string>
@@ -311,8 +309,6 @@
   <string name="crash_report_relaunch_or_quit">আপুনি পুণৰাম্ভ অথবা ত্যাগ কৰিব বিচাৰিছে নেকি?</string>
   <string name="crash_report_relaunch">পুনৰাম্ভ কৰক</string>
   <string name="crash_report_quit">ত্যাগ কৰক</string>
-  <string name="article_menu_bar_bookmark">এই প্ৰবন্ধটো পঢ়া তালিকাত যোগ দিয়ক</string>
-  <string name="article_menu_bar_share">প্ৰবন্ধৰ লিংক শ্বেয়াৰ কৰক</string>
   <string name="article_header_edit_hint">সম্পাদনা...</string>
   <string name="article_header_edit_description">প্ৰবন্ধৰ বিৱৰণ সম্পাদনা কৰক</string>
   <string name="article_header_edit_lead_section">ভূমিকা সম্পাদনা কৰক</string>

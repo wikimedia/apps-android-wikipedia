@@ -56,7 +56,6 @@
   <string name="search_hint_voice_search">语音输入搜索</string>
   <string name="search_hint_search_history">搜索历史</string>
   <string name="search_hint_search_languages">搜索一种语言</string>
-  <string name="search_hint_search_my_lists_and_articles">搜索我的列表及条目</string>
   <string name="nav_item_history">历史记录</string>
   <string name="nav_item_suggested_edits">编辑</string>
   <string name="nav_item_more">更多</string>
@@ -209,7 +208,6 @@
   <string name="preference_title_auto_upload_crash_reports">发送崩溃报告</string>
   <string name="preference_summary_auto_upload_crash_reports">允许应用程序自动发送崩溃报告至第三方服务提供方，这样我们可以更快，更容易地浏览您的崩溃报告，并修复漏洞。</string>
   <string name="editing_error_spamblacklist">检测到受封禁域名（%s）的链接。请移除它们并重试。</string>
-  <string name="history_search_list_hint">搜索历史</string>
   <string name="error_can_not_process_link">无法显示该链接</string>
   <string name="page_protected_autoconfirmed">该页面受到半保护。</string>
   <string name="page_protected_sysop">该页面受到全保护。</string>
@@ -297,7 +295,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">允许</string>
   <string name="read_more_section">阅读更多</string>
   <string name="about_article_section">关于此条目</string>
-  <string name="menu_gallery_visit_page">前往文件页面</string>
+  <string name="menu_gallery_visit_image_page">前往文件页面</string>
   <string name="gallery_error_draw_failed">无法显示图像。</string>
   <string name="license_title">%s的许可协议</string>
   <string name="gallery_menu_share">分享</string>
@@ -377,8 +375,6 @@
   <string name="crash_report_relaunch_or_quit">我们很抱歉，维基百科应用程序发生了一个错误，并已终止。\n\n您要重启还是退出？</string>
   <string name="crash_report_relaunch">重新开始</string>
   <string name="crash_report_quit">退出</string>
-  <string name="article_menu_bar_bookmark">添加此条目至阅读列表</string>
-  <string name="article_menu_bar_share">分享条目链接</string>
   <string name="article_header_edit_hint">编辑…</string>
   <string name="article_header_edit_description">编辑条目描述</string>
   <string name="article_header_edit_lead_section">编辑介绍</string>
@@ -661,7 +657,6 @@
   <string name="description_edit_success_saved_in_lang_snackbar">描述已发布！（%s）</string>
   <string name="description_edit_success_saved_image_caption_snackbar">图片说明已发布！</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">图片说明已发布！（%s）</string>
-  <string name="description_edit_success_saved_image_tags_snackbar">图片标签已发布！</string>
   <string name="description_edit_success_encouragement">您只是让维基百科更好地服务大家</string>
   <string name="description_edit_success_done">完成</string>
   <string name="description_edit_success_did_you_know">您知道吗？</string>
@@ -672,10 +667,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">一般应为一行，2~12个字之间</string>
   <string name="description_edit_tutorial_button_label_start_editing">开始编辑</string>
   <string name="description_edit_tutorial_promise">我保证在编辑时不滥用此功能</string>
-  <string name="suggested_edits_add_descriptions">添加条目描述</string>
-  <string name="suggested_edits_translate_descriptions">翻译条目描述</string>
-  <string name="suggested_edits_add_image_captions">添加说明文字</string>
-  <string name="suggested_edits_translate_image_captions">翻译图片描述</string>
   <string name="suggested_edits_tag_images">标记图片</string>
   <string name="suggested_edits_review_description">巡查条目描述</string>
   <string name="suggested_edits_add_description_button">添加描述</string>
@@ -702,7 +693,7 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text">完成%d次（有效的）条目描述后方可解锁</string>
   <string name="suggested_edits_task_multilingual_negative">还是算了</string>
   <string name="suggested_edits_task_multilingual_positive">添加语言</string>
-  <string name="suggested_edits_image_caption_summary_title_file">文件</string>
+  <string name="suggested_edits_image_caption_summary_title_image">文件</string>
   <string name="suggested_edits_image_caption_summary_title_artist">艺术家</string>
   <string name="suggested_edits_image_caption_summary_title_author">作者</string>
   <string name="suggested_edits_image_caption_summary_title_source">来源</string>
@@ -718,7 +709,7 @@
   <string name="suggested_edits_tasks_onboarding_get_started">入门</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">图片说明（%s）</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">图片描述（%s）</string>
-  <string name="suggested_edits_image_preview_dialog_file">文件</string>
+  <string name="suggested_edits_image_preview_dialog_image">文件</string>
   <string name="suggested_edits_image_preview_dialog_artist">艺术家</string>
   <string name="suggested_edits_image_preview_dialog_tags">标签</string>
   <string name="suggested_edits_image_preview_dialog_date">日期</string>

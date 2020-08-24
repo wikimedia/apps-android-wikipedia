@@ -24,7 +24,6 @@
   <string name="search_hint_voice_search">دەنگ لەناو گەڕان</string>
   <string name="search_hint_search_history">گەڕان بە مێژوو</string>
   <string name="search_hint_search_languages">گەڕان بەدوای زمانێکدا</string>
-  <string name="search_hint_search_my_lists_and_articles">گەڕان لەنێو وتار و پێڕستەکانم</string>
   <string name="nav_item_history">مێژوو</string>
   <string name="nav_item_suggested_edits">دەستکارییەکان</string>
   <string name="nav_item_more">زیاتر</string>
@@ -172,7 +171,6 @@
   <string name="preference_title_auto_upload_crash_reports">ناردنی ڕاپۆرتەکانی تێکشکان</string>
   <string name="preference_summary_auto_upload_crash_reports">ڕێگە بە نەرمەواڵەکە بدە کە ڕاپۆرتی کردنەدەرەوە بنێرێت بۆ کەسی سێیەم بە شێوەیەکی خۆگەڕ بۆ ئەوەی بتوانین کێشەی نەرمەواڵەکە خێراتر بدۆزینەوە و چاکی بکەین.</string>
   <string name="editing_error_spamblacklist">تێبینی بەستەر کراوە بۆ دۆمەینە بەستراوەکان (%s). تکایە بیان سڕەوە و ھەوڵبدەوە.</string>
-  <string name="history_search_list_hint">گەڕان لە مێژوو</string>
   <string name="error_can_not_process_link">ناتوانرێت ئەم بەستەرە نیشان بدرێت</string>
   <string name="page_protected_autoconfirmed">ئەم پەڕەیە نیمچە-پارێزراوە.</string>
   <string name="page_protected_sysop">ئەم پەڕەیە بە تەواوی پارێزراوە.</string>
@@ -258,7 +256,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">ڕێگەدان</string>
   <string name="read_more_section">زیاتر بخوێنەوە</string>
   <string name="about_article_section">دەربارەی ئەم وتارە</string>
-  <string name="menu_gallery_visit_page">چوون بۆ پەڕەی پەڕگە</string>
+  <string name="menu_gallery_visit_image_page">چوون بۆ پەڕەی پەڕگە</string>
   <string name="gallery_error_draw_failed">نەتوانرا وێنەکە بکێشرێت.</string>
   <string name="license_title">مۆڵەتەکان بۆ %s</string>
   <string name="gallery_menu_share">هاوبەشکردن</string>
@@ -329,8 +327,6 @@
   <string name="crash_report_relaunch_or_quit">دەتەوێت سەرلەنوێ دەست پێبکەیتەوە یان وازدەھێنیت؟</string>
   <string name="crash_report_relaunch">دەستپێکردنەوە</string>
   <string name="crash_report_quit">داخستن</string>
-  <string name="article_menu_bar_bookmark">زیادکردنی ئەم وتارە بۆ پێڕستێکی خوێندنەوە</string>
-  <string name="article_menu_bar_share">ھاوبەشکردنی بەستەری وتارەکە</string>
   <string name="article_header_edit_hint">دەستکاری...</string>
   <string name="article_header_edit_description">دەستکاریی وەسفی وتار</string>
   <string name="article_header_edit_lead_section">دەستکاریی پێشەکی</string>
@@ -547,10 +543,6 @@
   <string name="description_edit_tutorial_keep_it_short">با کورت بێت</string>
   <string name="description_edit_tutorial_button_label_start_editing">دەستکردن بە دەستکاری</string>
   <string name="description_edit_tutorial_promise">بە دەستپێکردن، من پەیمان دەدەم کە بە خراپی ئەم ئامرازە بەکارنەھێنم.</string>
-  <string name="suggested_edits_add_descriptions">زیادکردنی وەسفی وتار</string>
-  <string name="suggested_edits_translate_descriptions">وەرگێڕانی وەسفی وتار</string>
-  <string name="suggested_edits_add_image_captions">زیادکردنی شرۆڤەکانی وێنە</string>
-  <string name="suggested_edits_translate_image_captions">وەرگێڕانی شرۆڤەکانی وێنە</string>
   <string name="suggested_edits_tag_images">ناگی وێنەکان</string>
   <string name="suggested_edits_review_description">پێداچوونەوەی وەسفی وتارەکان</string>
   <string name="suggested_edits_add_description_button">زیادکردنی وەسف</string>
@@ -569,7 +561,7 @@
   <string name="suggested_edits_task_translate_caption_description">وەرگێڕانی شرۆڤەکان بۆ ناو زمانەکانی دیکە</string>
   <string name="suggested_edits_task_multilingual_negative">بۆ من نا</string>
   <string name="suggested_edits_task_multilingual_positive">زمان زیاد بکە</string>
-  <string name="suggested_edits_image_caption_summary_title_file">پەڕگە</string>
+  <string name="suggested_edits_image_caption_summary_title_image">پەڕگە</string>
   <string name="suggested_edits_image_caption_summary_title_artist">ھونەرمەند</string>
   <string name="suggested_edits_image_caption_summary_title_author">نووسەر</string>
   <string name="suggested_edits_image_caption_summary_title_source">سەرچاوە</string>

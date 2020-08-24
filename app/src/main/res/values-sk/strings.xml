@@ -29,7 +29,6 @@
   <string name="search_hint_voice_search">Hlasové vyhľadávanie</string>
   <string name="search_hint_search_history">Hľadať</string>
   <string name="search_hint_search_languages">Hľadať jazyk</string>
-  <string name="search_hint_search_my_lists_and_articles">Vyhľadávať v mojich zoznamoch a článkoch</string>
   <string name="nav_item_history">História</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Navrhované úpravy</string>
   <string name="error_network_error">Nie ste pripojení na internet.</string>
@@ -181,7 +180,6 @@
   <string name="preference_title_auto_upload_crash_reports">Odosielať správu o zlyhaní</string>
   <string name="preference_summary_auto_upload_crash_reports">Umožňuje aplikácii automaticky odosielať hlásenia o chybách tretím stranám, aby sme mohli chybu preskúmať a opraviť ju rýchlejšie a jednoduchšie.</string>
   <string name="editing_error_spamblacklist">Boli zistené odkazy na blokované domény (%s). Prosím odstráňte ich a skúste to znova.</string>
-  <string name="history_search_list_hint">História vyhľadávania</string>
   <string name="error_can_not_process_link">Nie je možné zobraziť tento odkaz</string>
   <string name="page_protected_autoconfirmed">Táto stránka je polozamknutá.</string>
   <string name="page_protected_sysop">Táto stránka je zamknutá.</string>
@@ -269,7 +267,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">Povoliť</string>
   <string name="read_more_section">Prečítajte si viac</string>
   <string name="about_article_section">O tomto článku</string>
-  <string name="menu_gallery_visit_page">Prejdite na stránku súboru</string>
+  <string name="menu_gallery_visit_image_page">Prejdite na stránku súboru</string>
   <string name="gallery_error_draw_failed">Obrázok nebolo možné nakresliť.</string>
   <string name="license_title">Licencia pre %s</string>
   <string name="gallery_menu_share">Zdieľať</string>
@@ -347,8 +345,6 @@
   <string name="crash_report_relaunch_or_quit">Ospravedlňujeme sa, aplikácia Wikipédia narazila na chybu a bola ukončená.\n\nChceli by ste začať odznova alebo aplikáciu ukončiť?</string>
   <string name="crash_report_relaunch">Začať odznova</string>
   <string name="crash_report_quit">Ukončiť</string>
-  <string name="article_menu_bar_bookmark">Pridať tento článok do zoznamu na prečítanie</string>
-  <string name="article_menu_bar_share">Zdieľať odkaz na článok</string>
   <string name="article_header_edit_hint">Upraviť...</string>
   <string name="article_header_edit_description">Upraviť popis článku</string>
   <string name="article_header_edit_lead_section">Upraviť úvod</string>
@@ -626,7 +622,6 @@
   <string name="description_edit_success_saved_in_lang_snackbar">Popis článku v jazyku %s bol uverejnený!</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Titulok obrázku bol uverejnený!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Titulok obrázku v jazyku %s bol uverejnený!</string>
-  <string name="description_edit_success_saved_image_tags_snackbar">Značka obrázku bola uverejnená!</string>
   <string name="description_edit_success_encouragement">Práve ste zlepšili Wikipédiu pre všetkých</string>
   <string name="description_edit_success_done">Hotovo</string>
   <string name="description_edit_success_did_you_know">Vedeli ste, že...</string>
@@ -637,10 +632,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">V ideálnom prípade jeden riadok s dvoma až dvanástimi slovami</string>
   <string name="description_edit_tutorial_button_label_start_editing">Začať s úpravami</string>
   <string name="description_edit_tutorial_promise">Sľubujem, že nezneužijem túto funkciu.</string>
-  <string name="suggested_edits_add_descriptions">Pridať popis článku</string>
-  <string name="suggested_edits_translate_descriptions">Preložiť popis článku</string>
-  <string name="suggested_edits_add_image_captions">Pridať titulok článku</string>
-  <string name="suggested_edits_translate_image_captions">Preložiť titulok článku</string>
   <string name="suggested_edits_tag_images">Označiť obrázky</string>
   <string name="suggested_edits_review_description">Náhľad popisu článku</string>
   <string name="suggested_edits_add_description_button">Pridať popis</string>
@@ -667,7 +658,7 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text">Zamknuté, kým neupravíte %d overených popisov článkov</string>
   <string name="suggested_edits_task_multilingual_negative">Nie je pre mňa</string>
   <string name="suggested_edits_task_multilingual_positive">Pridať jazyky</string>
-  <string name="suggested_edits_image_caption_summary_title_file">Súbor</string>
+  <string name="suggested_edits_image_caption_summary_title_image">Súbor</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Umelec</string>
   <string name="suggested_edits_image_caption_summary_title_author">Autor</string>
   <string name="suggested_edits_image_caption_summary_title_source">Zdroj</string>
@@ -683,7 +674,7 @@
   <string name="suggested_edits_tasks_onboarding_get_started">Začíname</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Titulok obrázku v jazyku %s</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Popis obrázku v jazyku %s</string>
-  <string name="suggested_edits_image_preview_dialog_file">Súbor</string>
+  <string name="suggested_edits_image_preview_dialog_image">Súbor</string>
   <string name="suggested_edits_image_preview_dialog_artist">Umelec</string>
   <string name="suggested_edits_image_preview_dialog_tags">Značky</string>
   <string name="suggested_edits_image_preview_dialog_date">Dátum</string>

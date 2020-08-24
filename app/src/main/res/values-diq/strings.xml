@@ -22,7 +22,6 @@
   <string name="search_hint_voice_search">Dekewtışê vengi cıgeyrayış</string>
   <string name="search_hint_search_history">Tarixê cıgeyrayışi</string>
   <string name="search_hint_search_languages">Nê zıwani de cı geyre</string>
-  <string name="search_hint_search_my_lists_and_articles">Meqaleyan û listanê mı cı geyre</string>
   <string name="nav_item_history">Tarix</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Vurnayışê wesıbnayey</string>
   <string name="error_network_error">Şıma nêvawyayê internet.</string>
@@ -157,7 +156,6 @@
   <string name="preferences_privacy_settings_heading">Nımıtış</string>
   <string name="preference_title_eventlogging_opt_in">Raporanê karıtışi bırış</string>
   <string name="preference_title_auto_upload_crash_reports">Raporê progunayışi bırışê</string>
-  <string name="history_search_list_hint">Tarixê cıgeyrayışi</string>
   <string name="error_can_not_process_link">No gıre nêmocneya</string>
   <string name="page_protected_autoconfirmed">Ena pela nim şevekneyaya</string>
   <string name="page_protected_sysop">Ena pela tam şevekneyaya</string>
@@ -222,7 +220,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">Mısade bıdê</string>
   <string name="read_more_section">Tayêna bıwane</string>
   <string name="about_article_section">Heqê nê meqaley</string>
-  <string name="menu_gallery_visit_page">Ravêrê pela dosya</string>
+  <string name="menu_gallery_visit_image_page">Ravêrê pela dosya</string>
   <string name="gallery_error_draw_failed">Resim nêmocneya</string>
   <string name="license_title">Seba %s lisans</string>
   <string name="gallery_menu_share">Vıla ke</string>
@@ -275,8 +273,6 @@
   <string name="crash_report_activity_title">Xetay dezgehi</string>
   <string name="crash_report_relaunch">Fına sere kı</string>
   <string name="crash_report_quit">Veciyayış</string>
-  <string name="article_menu_bar_bookmark">Ena meqaley tewrê yew lista wendışi kerê</string>
-  <string name="article_menu_bar_share">Gırey meqaley vıla kerê</string>
   <string name="article_header_edit_hint">Bıvurne...</string>
   <string name="article_header_edit_description">Şınasnayışê pela  bımocne</string>
   <string name="article_header_edit_lead_section">Şınasnayışi bıvurnê</string>
@@ -444,9 +440,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">İdealê cı yew satır, mabênê dı u dıwês çekuya</string>
   <string name="description_edit_tutorial_button_label_start_editing">Vurnayışi ser kewê</string>
   <string name="description_edit_tutorial_promise">Sıfte kerdış de, na xısusiyet hetê ariya edo nêkarna, sond wanena.</string>
-  <string name="suggested_edits_add_descriptions">Şınasnayışê meqaleyi cı kerê</string>
-  <string name="suggested_edits_translate_descriptions">Şınastiya meqaley açarnê</string>
-  <string name="suggested_edits_add_image_captions">Bınnuştey resimi cı kerê</string>
   <string name="suggested_edits_tag_images">Etiketê resiman</string>
   <string name="suggested_edits_review_description">Şınastiya meqaley tetkik kerê</string>
   <string name="suggested_edits_add_description_button">Arezekerdış cı ke</string>
@@ -464,7 +457,7 @@
   <string name="suggested_edits_task_image_caption_title">Bınnuştey resimi cı kerê</string>
   <string name="suggested_edits_task_multilingual_negative">Seba mı nê</string>
   <string name="suggested_edits_task_multilingual_positive">Zıwanan cı ke</string>
-  <string name="suggested_edits_image_caption_summary_title_file">Dosya</string>
+  <string name="suggested_edits_image_caption_summary_title_image">Dosya</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Senetkar</string>
   <string name="suggested_edits_image_caption_summary_title_author">Nuştekar</string>
   <string name="suggested_edits_image_caption_summary_title_source">Çıme</string>

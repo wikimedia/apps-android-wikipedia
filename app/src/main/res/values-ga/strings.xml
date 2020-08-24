@@ -17,7 +17,6 @@
   <string name="search_hint">Cuardaigh Vicipéid</string>
   <string name="search_hint_search_history">Stair chuardaigh</string>
   <string name="search_hint_search_languages">Cuardaigh ar thóir teanga</string>
-  <string name="search_hint_search_my_lists_and_articles">Cuardaigh mo chuid liostaí agus mo chuid alt</string>
   <string name="nav_item_history">Stair</string>
   <string name="error_network_error">Ní féidir nasc leis an Idirlíon.</string>
   <string name="page_error_retry">Atriail</string>
@@ -163,7 +162,6 @@
   <string name="preference_summary_eventlogging_opt_in">Ceadaigh do Wikimedia eolas a bhailiú ar conas mar a úsáideann tú an aip chun an aip a fheabhsú</string>
   <string name="preference_title_auto_upload_crash_reports">Seol tuairiscí ar tuairteanna</string>
   <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Ceadaigh don aip tuairiscí ar thuairteanna a sheoladh go huathoibríoch chuig HockeyApp / soláthraí seirbhíse tríú páirtí chun go bhféadfaimid do thuairt a athbhreithniú agus an fabht a réitiú níos tapúla agus níos éasca.</string>
-  <string name="history_search_list_hint">Stair chuardaigh</string>
   <string name="error_can_not_process_link">Níorbh fhéidir an nasc seo a thaispeáint</string>
   <string name="page_protected_autoconfirmed">Tá an leathanach seo leath-chosanta.</string>
   <string name="page_protected_sysop">Tá an leathanach seo cosanta go hiomlán.</string>
@@ -240,7 +238,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">Ceadaigh</string>
   <string name="read_more_section">Léigh tuilleadh</string>
   <string name="about_article_section">Maidir leis an alt seo</string>
-  <string name="menu_gallery_visit_page">Gabh chuig leathanach comhaid</string>
+  <string name="menu_gallery_visit_image_page">Gabh chuig leathanach comhaid</string>
   <string name="gallery_error_draw_failed">Níorbh fhéidir an íomhá a tharraingt.</string>
   <string name="license_title">Ceadúnas do %s</string>
   <string name="gallery_menu_share">Comhroinn</string>
@@ -307,8 +305,6 @@
   <string name="crash_report_relaunch_or_quit">Tá brón orainn, tharla earráid agus críochnaíodh aip na Vicipéide.\n\nAr mhaith leat atosú nó scor?</string>
   <string name="crash_report_relaunch">Atosaigh</string>
   <string name="crash_report_quit">Scoir</string>
-  <string name="article_menu_bar_bookmark">Cuir an t-alt seo ar liosta léitheoireachta</string>
-  <string name="article_menu_bar_share">Comhroinn nasc don alt</string>
   <string name="article_header_edit_hint">Cuir in Eagar...</string>
   <string name="article_header_edit_description" fuzzy="true">Cuir sainchuntas teidil in eagar</string>
   <string name="article_header_edit_lead_section">Cuir réamhrá in eagar</string>
@@ -550,7 +546,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Líne amháin dá bhféadfaí é, idir aon fhocal amháin agus dhá fhocal déag</string>
   <string name="description_edit_tutorial_button_label_start_editing">Cuir in eagar</string>
   <string name="description_edit_tutorial_promise">Agus mé ag tosú, geallaim nach mbainfidh mé mí-úsáid as an ngné seo.</string>
-  <string name="suggested_edits_add_descriptions" fuzzy="true">Cuir sainchuntais theideal leis</string>
   <string name="suggested_edits_review_description" fuzzy="true">Athbhreithnigh sainchuntas teidil</string>
   <string name="suggested_edits_add_description_button">Cuir sainchuntas leis</string>
   <string name="suggested_edits_task_add_description_title" fuzzy="true">Cuir sainchuntais theideal leis</string>

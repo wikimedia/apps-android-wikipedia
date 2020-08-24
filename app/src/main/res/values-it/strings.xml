@@ -49,7 +49,6 @@
   <string name="search_hint_voice_search">Ricerca vocale</string>
   <string name="search_hint_search_history">Cerca nella cronologia</string>
   <string name="search_hint_search_languages">Cerca una lingua</string>
-  <string name="search_hint_search_my_lists_and_articles">Cerca nei miei elenchi e voci</string>
   <string name="nav_item_history">Cronologia</string>
   <string name="nav_item_suggested_edits">Modifiche</string>
   <string name="nav_item_more">Altro</string>
@@ -202,7 +201,6 @@
   <string name="preference_title_auto_upload_crash_reports">Invia segnalazioni di errori</string>
   <string name="preference_summary_auto_upload_crash_reports">Consenti all\'applicazione di inviare automaticamente i rapporti sugli arresti anomali a un fornitore di servizi di terze parti, in modo da poter rivedere il tuo arresto anomalo e correggere l\'errore più velocemente e più facilmente.</string>
   <string name="editing_error_spamblacklist">È stato rilevato un collegamento ad un dominio bloccato (%s). Rimuovilo e prova ancora.</string>
-  <string name="history_search_list_hint">Cerca nella cronologia</string>
   <string name="error_can_not_process_link">Impossibile visualizzare questo collegamento</string>
   <string name="page_protected_autoconfirmed">Questa pagina è stata semi-protetta.</string>
   <string name="page_protected_sysop">Questa pagina è stata protetta.</string>
@@ -289,7 +287,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">Consenti</string>
   <string name="read_more_section">Per saperne di più</string>
   <string name="about_article_section">Su questa voce</string>
-  <string name="menu_gallery_visit_page">Vai alla pagina del file</string>
+  <string name="menu_gallery_visit_image_page">Vai alla pagina del file</string>
   <string name="gallery_error_draw_failed">Impossibile rendere l\'immagine.</string>
   <string name="license_title">Licenza per %s</string>
   <string name="gallery_menu_share">Condividi</string>
@@ -350,6 +348,10 @@
   <string name="location_permissions_enable_prompt">Consenti la localizzazione per vedere i luoghi vicini a te.</string>
   <string name="location_permissions_enable_action">Attiva</string>
   <string name="error_webview_updating">Il Sistema Web Android è attualmente in fase di aggiornamento. Si prega di riprovare tra qualche istante.</string>
+  <plurals name="multi_items_selected">
+    <item quantity="one">%d selezionato</item>
+    <item quantity="other">%d selezionati</item>
+  </plurals>
   <string name="multi_select_items_selected">%d selezionati</string>
   <string name="error_message_generic">Si è verificato un errore</string>
   <string name="view_link_preview_error_button_dismiss">Nascondi</string>
@@ -369,8 +371,11 @@
   <string name="crash_report_relaunch_or_quit">Spiacenti, si è verificato un errore nell\'applicazione Wikipedia ed è stata terminata.\n\nVuoi riavviarla o uscire?</string>
   <string name="crash_report_relaunch">Avvia di nuovo</string>
   <string name="crash_report_quit">Esci</string>
-  <string name="article_menu_bar_bookmark">Aggiungi questa voce ad un elenco lettura</string>
-  <string name="article_menu_bar_share">Condividi il collegamento alla voce</string>
+  <string name="article_menu_bar_save_button">Salva</string>
+  <string name="article_menu_bar_language_button">Lingua</string>
+  <string name="article_menu_bar_search_button">Cerca</string>
+  <string name="article_menu_bar_theme_button">Tema</string>
+  <string name="article_menu_bar_contents_button">Contenuti</string>
   <string name="article_header_edit_hint">Modifica…</string>
   <string name="article_header_edit_description">Modifica la descrizione della voce</string>
   <string name="article_header_edit_lead_section">Modifica introduzione</string>
@@ -396,6 +401,10 @@
   <string name="reading_list_article_already_exists_message">Tutto bene! %1$s contiene già %2$s.</string>
   <string name="reading_list_articles_already_exist_message">Tutto bene! %s contiene già tutte le voci.</string>
   <string name="reading_list_added_view_button">Visualizza elenco</string>
+  <plurals name="format_reading_list_statistical_summary">
+    <item quantity="one">1 voce, %2$.2f MB</item>
+    <item quantity="other">%1$d voci, %2$.2f MB</item>
+  </plurals>
   <string name="format_reading_list_statistical_summary_singular">1 voce, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d voci, %2$.2f MB</string>
   <string name="format_reading_list_statistical_detail_singular">%1$d di 1 voce disponibile offline, %2$.2f MB</string>
@@ -649,14 +658,13 @@
   <string name="description_edit_helper_text_lowercase_warning">generalmente inizia con una lettera minuscola</string>
   <string name="description_too_short">Il testo è troppo breve.</string>
   <string name="description_ends_with_punctuation">Il testo non deve terminare con il punto.</string>
-  <string name="description_starts_with_article">Non iniziare con articoli come \"un\" o \"il\".</string>
+  <string name="description_starts_with_article">Evita di iniziare con articoli come \"un\" o \"il\".</string>
   <string name="description_starts_with_uppercase">Inizia con una lettera minuscola a meno che la prima parola non sia un sostantivo proprio.</string>
   <string name="description_edit_success_saved">Descrizione della voce pubblicata!</string>
   <string name="description_edit_success_saved_snackbar">Descrizione della voce pubblicata!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Descrizione della voce pubblicata! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Didascalia dell\'immagine pubblicata!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Didascalia dell\'immagine pubblicata! (%s)</string>
-  <string name="description_edit_success_saved_image_tags_snackbar">Etichetta/e immagine pubblicata!</string>
   <string name="description_edit_success_encouragement">Hai appena reso Wikipedia migliore per tutti</string>
   <string name="description_edit_success_done">Fatto</string>
   <string name="description_edit_success_did_you_know">Lo sapevi?</string>
@@ -667,10 +675,7 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealmente una riga, da due a dodici parole</string>
   <string name="description_edit_tutorial_button_label_start_editing">Inizia a modificare</string>
   <string name="description_edit_tutorial_promise">Per iniziare, prometto di non abusare di questa funzione.</string>
-  <string name="suggested_edits_add_descriptions">Aggiungi descrizioni della voce</string>
-  <string name="suggested_edits_translate_descriptions">Traduci descrizioni della voce</string>
-  <string name="suggested_edits_add_image_captions">Aggiungi didascalie immagini</string>
-  <string name="suggested_edits_translate_image_captions">Traduci didascalie immagini</string>
+  <string name="suggested_edits_describe_articles">Descrivi voce</string>
   <string name="suggested_edits_tag_images">Etichetta le immagini</string>
   <string name="suggested_edits_review_description">Revisiona descrizione della voce</string>
   <string name="suggested_edits_add_description_button">Aggiungi descrizione</string>
@@ -697,7 +702,7 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text">Bloccato fino a quando non avrai modificato %d descrizioni di voci (verificate)</string>
   <string name="suggested_edits_task_multilingual_negative">Non per me</string>
   <string name="suggested_edits_task_multilingual_positive">Aggiungi lingue</string>
-  <string name="suggested_edits_image_caption_summary_title_file">File</string>
+  <string name="suggested_edits_image_caption_summary_title_image">File</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Artista</string>
   <string name="suggested_edits_image_caption_summary_title_author">Autore</string>
   <string name="suggested_edits_image_caption_summary_title_source">Fonte</string>
@@ -713,7 +718,7 @@
   <string name="suggested_edits_tasks_onboarding_get_started">Inizia</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Didascalia immagine (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Descrizione immagine (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_file">File</string>
+  <string name="suggested_edits_image_preview_dialog_image">File</string>
   <string name="suggested_edits_image_preview_dialog_artist">Artista</string>
   <string name="suggested_edits_image_preview_dialog_tags">Etichette</string>
   <string name="suggested_edits_image_preview_dialog_date">Data</string>

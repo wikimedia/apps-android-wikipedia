@@ -15,6 +15,7 @@
 * Kippelboy
 * Lluis tgn
 * Macofe
+* Mguix
 * Ssola
 * Toniher
 * Unapersona
@@ -32,7 +33,7 @@
   <string name="search_hint_voice_search">Cerca d\'entrada de veu</string>
   <string name="search_hint_search_history">Historial de cerca</string>
   <string name="search_hint_search_languages">Cerca una llengua</string>
-  <string name="search_hint_search_my_lists_and_articles">Cerca les meves llistes i articles</string>
+  <string name="filter_hint_filter_my_lists_and_articles">Filtrar les meves llistes</string>
   <string name="nav_item_history">Historial</string>
   <string name="nav_item_suggested_edits">Edicions</string>
   <string name="nav_item_more">Més</string>
@@ -63,7 +64,9 @@
   <string name="edit_section_find_in_page">Cerca a la pàgina</string>
   <string name="menu_page_font_and_theme">Tipus de lletra i tema</string>
   <string name="menu_page_add_to_list">Afegeix a la llista de lectura</string>
+  <string name="menu_page_add_to_default_list">Desar</string>
   <string name="feed_card_add_to_list">Afegeix a la llista de lectura</string>
+  <string name="feed_card_add_to_default_list">Desar</string>
   <string name="menu_page_share">Comparteix l\'enllaç</string>
   <string name="menu_page_open_a_new_tab">Obre una pestanya nova</string>
   <string name="menu_page_reading_lists">Llistes de lectura</string>
@@ -185,7 +188,7 @@
   <string name="preference_title_auto_upload_crash_reports">Envia informes d\'error</string>
   <string name="preference_summary_auto_upload_crash_reports">Permet que l’aplicació enviï informes de fallades de forma automàtica a un proveïdor de serveis extern, de manera que puguem revisar-los i corregir-los d’una manera més fàcil i ràpida.</string>
   <string name="editing_error_spamblacklist">Enllaços a dominis blocats (%s) detectats. Esborreu-los i torneu-ho a provar.</string>
-  <string name="history_search_list_hint">Cerca a l\'historial</string>
+  <string name="history_filter_list_hint">Historial del filtre</string>
   <string name="error_can_not_process_link">No s\'ha pogut mostrar l\'enllaç</string>
   <string name="page_protected_autoconfirmed">La pàgina està semiprotegida.</string>
   <string name="page_protected_sysop">La pàgina està completament protegida.</string>
@@ -203,9 +206,11 @@
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ/ca</string>
   <string name="terms_of_use_url" fuzzy="true">https://foundation.m.wikimedia.org/wiki/Terms_of_Use</string>
+  <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/deed.ca</string>
   <string name="cc_0_url">https://creativecommons.org/publicdomain/zero/1.0/deed.ca</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits/ca</string>
+  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">Biblioteques utilitzades</string>
   <string name="about_contributors_heading">Col·laboradors</string>
   <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Pàgina de l\'equip&lt;/a&gt;</string>
@@ -271,7 +276,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">Permet</string>
   <string name="read_more_section">Llegir més</string>
   <string name="about_article_section">Sobre aquest article</string>
-  <string name="menu_gallery_visit_page">Vés a la pàgina del fitxer</string>
+  <string name="menu_gallery_visit_image_page">Vés a la pàgina del fitxer</string>
   <string name="gallery_error_draw_failed">No s\'ha pogut carregar la imatge.</string>
   <string name="license_title">Llicència de %s</string>
   <string name="gallery_menu_share">Comparteix</string>
@@ -351,8 +356,6 @@
   <string name="crash_report_relaunch_or_quit">Ens sap greu, l\'aplicació de Viquipèdia ha experimentat un error i s\'ha tancat.\n\nVoleu començar de nou o sortir?</string>
   <string name="crash_report_relaunch">Comença de nou</string>
   <string name="crash_report_quit">Surt</string>
-  <string name="article_menu_bar_bookmark">Afegeix l\'article a la llista de lectura</string>
-  <string name="article_menu_bar_share">Comparteix l\'enllaç a l\'article</string>
   <string name="article_header_edit_hint">Modifica…</string>
   <string name="article_header_edit_description">Modifica la descripció de l\'article</string>
   <string name="article_header_edit_lead_section">Modifica la introducció</string>
@@ -374,10 +377,12 @@
   <string name="reading_list_create_new">Crea’n una nova</string>
   <string name="reading_list_title_exists">La llista de lectura «%s» ja existeix.</string>
   <string name="reading_list_article_added_to_named">Afegit %1$s a %2$s.</string>
+  <string name="reading_list_article_added_to_default_list">%s s\'ha desat Voleu afegir-lo a una llista?</string>
   <string name="reading_list_article_moved_to_named">S\'ha mogut %1$s a %2$s.</string>
   <string name="reading_list_article_already_exists_message">Tot correcte! %1$s ja conté %2$s.</string>
   <string name="reading_list_articles_already_exist_message">Tot correcte! %s ja conté tots els articles.</string>
   <string name="reading_list_added_view_button">Mostra la llista</string>
+  <string name="reading_list_add_to_list_button">Afegir a la llista</string>
   <string name="format_reading_list_statistical_summary_singular">1 article, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d articles, %2$.2f MB</string>
   <string name="format_reading_list_statistical_detail_singular">%1$d d\'1 article disponible fora de línia, %2$.2f MB</string>
@@ -632,14 +637,14 @@
   <string name="description_edit_voice_input_description">Entrada de veu</string>
   <string name="description_too_short">El text és massa curt.</string>
   <string name="description_ends_with_punctuation">El text no ha d\'acabar amb puntuació.</string>
-  <string name="description_starts_with_article">No comenceu amb articles com ara «un» o «el».</string>
+  <string name="description_starts_with_article">Eviteu començar amb articles com \"un\" o \"el\"...</string>
   <string name="description_starts_with_uppercase">Comenceu amb minúscula a menys que la primera paraula sigui un nom propi.</string>
   <string name="description_edit_success_saved">S\'ha publicat la descripció d\'article!</string>
   <string name="description_edit_success_saved_snackbar">S’ha publicat la descripció d\'article.</string>
   <string name="description_edit_success_saved_in_lang_snackbar">S\'ha publicat la descripció de l\'article (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">S\'ha publicat la llegenda de la imatge!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">S\'ha publicat la llegenda de la imatge! (%s)</string>
-  <string name="description_edit_success_saved_image_tags_snackbar">S\'han publicat les etiquetes d\'imatge!</string>
+  <string name="description_edit_success_se_image_caption_feed_link_snackbar">Us ha agradat?  Ajuda\'ns a afegir els peus de foto que falten a altres imatges.</string>
   <string name="description_edit_success_encouragement">Acabeu de millorar la Viquipèdia per a tothom</string>
   <string name="description_edit_success_done">Fet</string>
   <string name="description_edit_success_did_you_know">Ho sabíeu?</string>
@@ -650,10 +655,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealment una línia, entre dos o dotze mots</string>
   <string name="description_edit_tutorial_button_label_start_editing">Comença a editar</string>
   <string name="description_edit_tutorial_promise">En començar, prometeu que no fareu mal ús d\'aquesta funcionalitat.</string>
-  <string name="suggested_edits_add_descriptions">Afegeix descripcions d\'article</string>
-  <string name="suggested_edits_translate_descriptions">Tradueix descripcions d\'article</string>
-  <string name="suggested_edits_add_image_captions">Afegeix llegendes a les imatges</string>
-  <string name="suggested_edits_translate_image_captions">Tradueix les llegendes de les imatges</string>
   <string name="suggested_edits_tag_images">Etiqueta les imatges</string>
   <string name="suggested_edits_review_description">Revisa la descripció d\'article</string>
   <string name="suggested_edits_add_description_button">Afegeix una descripció</string>
@@ -680,7 +681,7 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text">Bloquejat fins que no hàgiu editat %d descripcions d\'article (verificat)</string>
   <string name="suggested_edits_task_multilingual_negative">No per a mi</string>
   <string name="suggested_edits_task_multilingual_positive">Afegeix llengües</string>
-  <string name="suggested_edits_image_caption_summary_title_file">Fitxer</string>
+  <string name="suggested_edits_image_caption_summary_title_image">Fitxer</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Artista</string>
   <string name="suggested_edits_image_caption_summary_title_author">Autor</string>
   <string name="suggested_edits_image_caption_summary_title_source">Font</string>
@@ -696,7 +697,7 @@
   <string name="suggested_edits_tasks_onboarding_get_started">Primers passos</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Llegenda de la imatge (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Descripció de la imatge (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_file">Fitxer</string>
+  <string name="suggested_edits_image_preview_dialog_image">Fitxer</string>
   <string name="suggested_edits_image_preview_dialog_artist">Artista</string>
   <string name="suggested_edits_image_preview_dialog_tags">Etiquetes</string>
   <string name="suggested_edits_image_preview_dialog_date">Data</string>
@@ -817,6 +818,8 @@
     <item quantity="other">heu afegit %d caràcters</item>
   </plurals>
   <string name="file_page_activity_title">Pàgina de fitxer</string>
+  <string name="file_page_add_image_caption_button">Afegir una llegenda a la imatge</string>
+  <string name="file_page_add_image_tags_button">Afegir una etiqueta a la imatge</string>
   <string name="description_edit_revert_subtitle">Gràcies per editar a la Viquipèdia!</string>
   <string name="description_edit_revert_intro">Sabem que heu fet el millor possible, però un dels revisors tenia una precaució. Els motius possibles de la reversió de la modificació poden ser:</string>
   <string name="description_edit_revert_reason1">la vostra contribució no seguia una de les &lt;a href=\"%1$s\"&gt;directrius&lt;/a&gt;.</string>

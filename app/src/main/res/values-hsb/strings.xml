@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
 * Dbrant
 * J budissin
 * Michawiki
@@ -15,7 +16,6 @@
   <string name="search_hint">Wikipediju přepytać</string>
   <string name="search_hint_search_history">Pytanska historija</string>
   <string name="search_hint_search_languages">Za rěču pytać</string>
-  <string name="search_hint_search_my_lists_and_articles">Moje lisćiny a nastawki přepytać</string>
   <string name="nav_item_history">Historija</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Namjetowane změny</string>
   <string name="error_network_error">Njemóžu so z internetom zwjazać.</string>
@@ -162,7 +162,6 @@
   <string name="preference_summary_eventlogging_opt_in">Wikimediji dowolić zběranje informacije wo wužiwanju app, zo móhli ju polěpšeć.</string>
   <string name="preference_title_auto_upload_crash_reports">Rozprawy wo spadnjenju pósłać</string>
   <string name="editing_error_spamblacklist">Wotkazy na zablokowane domeny (%s) buchu namakane. Prošu wotstroń je a spytaj znowa.</string>
-  <string name="history_search_list_hint">Historiju přepytać</string>
   <string name="error_can_not_process_link">Tutón wotkaz njeda so pokazać</string>
   <string name="page_protected_autoconfirmed">Tuta strona je poł škitana.</string>
   <string name="page_protected_sysop">Tuta strona je dospołnje škitana.</string>
@@ -245,7 +244,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">Dowolić</string>
   <string name="read_more_section">Wjace čitać</string>
   <string name="about_article_section">Wo tutym zapisku</string>
-  <string name="menu_gallery_visit_page">Dźi k datajowej stronje</string>
+  <string name="menu_gallery_visit_image_page">Dźi k datajowej stronje</string>
   <string name="gallery_error_draw_failed">Wobraz njeda so pokazać.</string>
   <string name="license_title">Licenca za %s</string>
   <string name="gallery_menu_share">Dźělić</string>
@@ -315,8 +314,6 @@
   <string name="crash_report_relaunch_or_quit">Bohužel je zmylk w app wustupił.\n\nChceš app znowa wočinić abo skónčić?</string>
   <string name="crash_report_relaunch">Znowa wočinić</string>
   <string name="crash_report_quit">Skónčić</string>
-  <string name="article_menu_bar_bookmark">Tutón nastawk k čitanskej lisćinje dodać</string>
-  <string name="article_menu_bar_share">Wotkaz nastawka dale dać</string>
   <string name="article_header_edit_hint">Wobdźěłać...</string>
   <string name="article_header_edit_description">Wopis nastawka wobdźěłać</string>
   <string name="article_header_edit_lead_section">Zawod wobdźěłać</string>

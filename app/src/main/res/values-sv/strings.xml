@@ -32,7 +32,7 @@
   <string name="search_hint_voice_search">Sök med röstinmatning</string>
   <string name="search_hint_search_history">Sök i historik</string>
   <string name="search_hint_search_languages">Sök efter ett språk</string>
-  <string name="search_hint_search_my_lists_and_articles">Sök i mina listor och artiklar</string>
+  <string name="filter_hint_filter_my_lists_and_articles">Filtrera mina listor</string>
   <string name="nav_item_history">Historik</string>
   <string name="nav_item_suggested_edits">Redigeringar</string>
   <string name="nav_item_more">Fler</string>
@@ -63,7 +63,9 @@
   <string name="edit_section_find_in_page">Hitta på sidan</string>
   <string name="menu_page_font_and_theme">Teckensnitt och tema</string>
   <string name="menu_page_add_to_list">Lägg till i läslista</string>
-  <string name="feed_card_add_to_list">\nLägg till i läslista</string>
+  <string name="menu_page_add_to_default_list">Spara</string>
+  <string name="feed_card_add_to_list">Lägg till i läslista</string>
+  <string name="feed_card_add_to_default_list">Spara</string>
   <string name="menu_page_share">Dela länk</string>
   <string name="menu_page_open_a_new_tab">Öppna en ny flik</string>
   <string name="menu_page_reading_lists">Läslistor</string>
@@ -71,13 +73,13 @@
   <string name="menu_long_press_open_page">Öppna</string>
   <string name="menu_long_press_open_in_new_tab">Öppna i ny flik</string>
   <string name="menu_long_press_copy_page">Kopiera länkadress</string>
-  <string name="menu_text_select_define">\nDefinera</string>
+  <string name="menu_text_select_define">Definera</string>
   <string name="on_this_day_page_share">Dela</string>
   <string name="reading_list_page_share">Dela</string>
   <string name="menu_text_select_edit_here">Redigera här</string>
-  <string name="last_updated_text">\nSenast uppdaterad %s</string>
-  <string name="talk_page_link_text">\nVisa diskussionssida</string>
-  <string name="edit_history_link_text">\nVisa redigeringshistorik</string>
+  <string name="last_updated_text">Senast uppdaterad %s</string>
+  <string name="talk_page_link_text">Visa diskussionssida</string>
+  <string name="edit_history_link_text">Visa redigeringshistorik</string>
   <string name="map_view_link_text">Visa på en karta</string>
   <string name="other_languages_indication_text">Läs på ett annat språk</string>
   <string name="language_count_link_text">Tillgänglig på %d andra språk</string>
@@ -185,7 +187,7 @@
   <string name="preference_title_auto_upload_crash_reports">Skicka kraschrapporter</string>
   <string name="preference_summary_auto_upload_crash_reports">Låter appen automatiskt skicka kraschrapporter till en tredjepartstjänst så att vi kan granska din krasch och åtgärda felet snabbare och lättare.</string>
   <string name="editing_error_spamblacklist">Länkar till blockerade domäner (%s) har upptäckts. Vänligen ta bort dessa och försök igen.</string>
-  <string name="history_search_list_hint">Sök historik</string>
+  <string name="history_filter_list_hint">Filtrera historik</string>
   <string name="error_can_not_process_link">Denna länk kan inte visas</string>
   <string name="page_protected_autoconfirmed">Denna sida är halvskyddad.</string>
   <string name="page_protected_sysop">Denna sida är skrivskyddad.</string>
@@ -273,7 +275,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">Tillåt</string>
   <string name="read_more_section">Läs mer</string>
   <string name="about_article_section">Om denna artikel</string>
-  <string name="menu_gallery_visit_page">Gå till filsida</string>
+  <string name="menu_gallery_visit_image_page">Gå till filsida</string>
   <string name="gallery_error_draw_failed">Kunde inte rita bilden.</string>
   <string name="license_title">Licens för %s</string>
   <string name="gallery_menu_share">Dela</string>
@@ -334,6 +336,10 @@
   <string name="location_permissions_enable_prompt">Aktivera platsbehörigheter för att se platser nära dig.</string>
   <string name="location_permissions_enable_action">Slå på</string>
   <string name="error_webview_updating">Androidsystemets WebView uppdateras för tillfället. Försök igen om en stund.</string>
+  <plurals name="multi_items_selected">
+    <item quantity="one">%d vald</item>
+    <item quantity="other">%d valda</item>
+  </plurals>
   <string name="multi_select_items_selected">%d markerade</string>
   <string name="error_message_generic">Ett fel inträffade</string>
   <string name="view_link_preview_error_button_dismiss">Stäng</string>
@@ -353,8 +359,11 @@
   <string name="crash_report_relaunch_or_quit">Tyvärr stötte Wikipedia-appen på ett fel och avslutades.\n\nVill du starta om eller avsluta?</string>
   <string name="crash_report_relaunch">Starta om</string>
   <string name="crash_report_quit">Avsluta</string>
-  <string name="article_menu_bar_bookmark">Lägg till denna artikel i en läslista</string>
-  <string name="article_menu_bar_share">Dela länk till artikeln</string>
+  <string name="article_menu_bar_save_button">Spara</string>
+  <string name="article_menu_bar_language_button">Språk</string>
+  <string name="article_menu_bar_search_button">Sök</string>
+  <string name="article_menu_bar_theme_button">Tema</string>
+  <string name="article_menu_bar_contents_button">Innehåll</string>
   <string name="article_header_edit_hint">Redigera...</string>
   <string name="article_header_edit_description">Redigera titelns beskrivning</string>
   <string name="article_header_edit_lead_section">Redigera inledningen</string>
@@ -376,14 +385,24 @@
   <string name="reading_list_create_new">Skapa ny</string>
   <string name="reading_list_title_exists">Läslistan \"%s\" finns redan.</string>
   <string name="reading_list_article_added_to_named">Lade till %1$s i %2$s.</string>
+  <string name="reading_list_article_added_to_default_list">Sparade %s. Vill du lägga till den i en lista?</string>
   <string name="reading_list_article_moved_to_named">Flyttade %1$s till %2$s.</string>
   <string name="reading_list_article_already_exists_message">%1$s innehåller redan %2$s.</string>
   <string name="reading_list_articles_already_exist_message">%s innehåller redan alla artiklar.</string>
   <string name="reading_list_added_view_button">Visa lista</string>
+  <string name="reading_list_add_to_list_button">Lägg till i lista</string>
+  <plurals name="format_reading_list_statistical_summary">
+    <item quantity="one">1 artikel • %2$.2f MB</item>
+    <item quantity="other">%1$d artiklar • %2$.2f MB</item>
+  </plurals>
+  <plurals name="format_reading_list_statistical_detail">
+    <item quantity="one">%1$d av artikel är tillgänglig offline • %3$.2f MB</item>
+    <item quantity="other">%1$d av %2$d artiklar är tillgängliga offline • %3$.2f MB</item>
+  </plurals>
   <string name="format_reading_list_statistical_summary_singular">1 artikel • %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d artiklar • %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_singular">%1$d av 1 artikel tillgänglig offline, %2$.2f MB</string>
-  <string name="format_reading_list_statistical_detail_plural">%1$d av %2$d artiklar tillgängliga offline, %3$.2f MB</string>
+  <string name="format_reading_list_statistical_detail_singular">%1$d av 1 artikel tillgänglig offline • %2$.2f MB</string>
+  <string name="format_reading_list_statistical_detail_plural">%1$d av %2$d artiklar tillgängliga offline • %3$.2f MB</string>
   <string name="reading_list_sort">Sortera</string>
   <string name="reading_list_sort_ellipsis">Sortera efter...</string>
   <string name="reading_list_sort_by_name">Sortera efter namn</string>
@@ -404,6 +423,10 @@
   <string name="reading_list_name_hint">Namn på denna lista</string>
   <string name="reading_list_description_hint">Beskrivning (valfri)</string>
   <string name="reading_list_item_deleted">%s togs bort från listan</string>
+  <plurals name="reading_list_articles_deleted">
+    <item quantity="one">%d artikel togs bort från listan</item>
+    <item quantity="other">%d artiklar togs bort från listan</item>
+  </plurals>
   <string name="reading_list_items_deleted">%d artiklar togs bort från listan</string>
   <string name="reading_lists_item_deleted">%s togs bort från listan</string>
   <string name="reading_list_item_delete_undo">Ångra</string>
@@ -569,6 +592,7 @@
   <string name="menu_feed_overflow_label">Fler alternativ</string>
   <string name="feed_featured_image_share_subject">Utmärkt bild från Wikimedia Commons</string>
   <string name="feed">Utforska</string>
+  <string name="home">Hem</string>
   <string name="most_read_list_card_title">Populärt</string>
   <string name="view_static_card_icon_content_description">Kortikon</string>
   <string name="view_card_news_title">Aktuella händelser</string>
@@ -634,14 +658,14 @@
   <string name="description_edit_voice_input_description">Röstinmatning</string>
   <string name="description_too_short">Texten är för kort.</string>
   <string name="description_ends_with_punctuation">Texten får inte sluta med ett skiljetecken.</string>
-  <string name="description_starts_with_article">Inled inte artiklar med \"Ett\" eller \"En\".</string>
+  <string name="description_starts_with_article">Undvik att inleda med artiklar som \"ett\" eller \"en\".</string>
   <string name="description_starts_with_uppercase">Börja med liten bokstav om det första ordet inte är ett egennamn.</string>
   <string name="description_edit_success_saved">Artikelbeskrivningen har publicerats!</string>
   <string name="description_edit_success_saved_snackbar">Artikelbeskrivningen har publicerats!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Artikelbeskrivningen har publicerats! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Bildtext skapades!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Bildtext skapades! (%s)</string>
-  <string name="description_edit_success_saved_image_tags_snackbar">Bildtagg(ar) publicerades!</string>
+  <string name="description_edit_success_se_image_caption_feed_link_snackbar">Tyckte du om det? Hjälp till att lägga till bildtexter till andra bilder.</string>
   <string name="description_edit_success_encouragement">Du gjorde precis Wikipedia bättre för alla</string>
   <string name="description_edit_success_done">Klar</string>
   <string name="description_edit_success_did_you_know">Visste du att?</string>
@@ -652,10 +676,8 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Helst en rad, mellan två till tolv ord</string>
   <string name="description_edit_tutorial_button_label_start_editing">Börja redigera</string>
   <string name="description_edit_tutorial_promise">Genom att börja, lovar jag att inte missbruka denna funktion.</string>
-  <string name="suggested_edits_add_descriptions">Lägg till beskrivningar</string>
-  <string name="suggested_edits_translate_descriptions">Översätt beskrivningar</string>
-  <string name="suggested_edits_add_image_captions">Lägg till bildtexter</string>
-  <string name="suggested_edits_translate_image_captions">Översätt bildtexter</string>
+  <string name="suggested_edits_describe_articles">Beskriv artiklar</string>
+  <string name="suggested_edits_caption_images">Skriv bildtexter</string>
   <string name="suggested_edits_tag_images">Tagga bilder</string>
   <string name="suggested_edits_review_description">Granska beskrivning</string>
   <string name="suggested_edits_add_description_button">Lägg till beskrivning</string>
@@ -682,7 +704,7 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text">Låst tills du har redigerat %d artikelbeskrivningar (verifierade)</string>
   <string name="suggested_edits_task_multilingual_negative">Ingenting för mig</string>
   <string name="suggested_edits_task_multilingual_positive">Lägg till språk</string>
-  <string name="suggested_edits_image_caption_summary_title_file">Fil</string>
+  <string name="suggested_edits_image_caption_summary_title_image">Fil</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Konstnär</string>
   <string name="suggested_edits_image_caption_summary_title_author">Författare</string>
   <string name="suggested_edits_image_caption_summary_title_source">Källa</string>
@@ -698,7 +720,7 @@
   <string name="suggested_edits_tasks_onboarding_get_started">Kom igång</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Bildtexter (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Bildbeskrivning (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_file">Fil</string>
+  <string name="suggested_edits_image_preview_dialog_image">Fil</string>
   <string name="suggested_edits_image_preview_dialog_artist">Konstnär</string>
   <string name="suggested_edits_image_preview_dialog_tags">Taggar</string>
   <string name="suggested_edits_image_preview_dialog_date">Datum</string>
@@ -707,6 +729,7 @@
   <string name="suggested_edits_image_preview_dialog_more_info">Mer info</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Filsida på Wikimedia Commons</string>
   <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">Filsida på Wikipedia</string>
+  <string name="suggested_edits_article_cta_image_tags">Lägg till bildtaggar</string>
   <string name="suggested_edits_article_cta_image_caption">Lägg till bildtext</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Lägg till bildtext (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Visa</string>
@@ -785,6 +808,10 @@
   <string name="suggested_edits_contribution_image_label">Bild</string>
   <string name="suggested_edits_contribution_article_label">Artikel</string>
   <string name="suggested_edits_contribution_views">%s visningar</string>
+  <plurals name="suggested_edits_contribution_seen_times">
+    <item quantity="one">Sedd en gång under de senaste 30 dagarna.</item>
+    <item quantity="other">Sedd %s gånger under de senaste 30 dagar.</item>
+  </plurals>
   <string name="suggested_edits_contribution_seen_text">Har setts %s gånger under de senaste 30 dagarna.</string>
   <plurals name="suggested_edits_image_tag_contribution_label">
     <item quantity="one">Du lade till %d tagg</item>
@@ -792,6 +819,18 @@
   </plurals>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Igår</string>
+  <plurals name="suggested_edits_rewards_contributions">
+    <item quantity="one">Du har gjort ett bidrag på Wikipedia med redigeringsförslag. Tack!</item>
+    <item quantity="other">Du har gjort %d bidrag på Wikipedia med redigeringsförslag. Tack!</item>
+  </plurals>
+  <plurals name="suggested_edits_rewards_edit_streaks">
+    <item quantity="one">Du har redigerat en hel dag i rad. Fortsätt med det, %2$s!</item>
+    <item quantity="other">Du har redigerat %1$d dagar i rad. Fortsätt med det, %2$s!</item>
+  </plurals>
+  <plurals name="suggested_edits_rewards_page_views">
+    <item quantity="one">En person har sett dina redigeringar under de senaste 30 dagarna. Tack och fortsätt med det!</item>
+    <item quantity="other">%d personer har sett dina redigeringar under de senaste 30 dagar. Tack och fortsätt med det!</item>
+  </plurals>
   <string name="suggested_edits_rewards_contribution">Du har gjort %d bidrag på Wikipedia med redigeringsförslag. Tack!</string>
   <string name="suggested_edits_rewards_edit_streak">Du har redigerat varje dag %1$d dagar i rad. Fortsätt med det, %2$s!</string>
   <string name="suggested_edits_rewards_pageviews">Dina redigeringar har setts av %d personer under de senaste 30 dagarna. Tack och fortsätt med det!</string>
@@ -819,6 +858,8 @@
     <item quantity="other">Du lade till %d tecken</item>
   </plurals>
   <string name="file_page_activity_title">Filsida</string>
+  <string name="file_page_add_image_caption_button">Lägg till bildtext</string>
+  <string name="file_page_add_image_tags_button">Lägg till bildtaggar</string>
   <string name="description_edit_revert_subtitle">Tack för att du redigerar på Wikipedia!</string>
   <string name="description_edit_revert_intro">Vi vet att du försökte ditt bästa men en av korrekturläsarna hade en invändning. Möjliga anledningar till att din redigering gjordes om inkluderar:</string>
   <string name="description_edit_revert_reason1">ditt bidrag följde inte en av &lt;a href=\"%1$s\"&gt;riktlinjerna&lt;/a&gt;.</string>

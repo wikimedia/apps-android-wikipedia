@@ -132,7 +132,6 @@
   <string name="preference_title_eventlogging_opt_in">ផ្ញើរបាយការណ៍ពីបម្រើបម្រាស់</string>
   <string name="preference_summary_eventlogging_opt_in">អនុញ្ញាតអោយវិគីមេឌាប្រមូលព័ត៌មានអំពីរបៀបប្រើប្រាស់កម្មវិធីរបស់អ្នក ដើម្បីជួយកែច្នៃកម្មវិធីនេះអោយកាន់តែប្រសើរ</string>
   <string name="preference_title_auto_upload_crash_reports">ផ្ញើរបាយការណ៍ពីការគាំង</string>
-  <string name="history_search_list_hint">ស្វែងរកប្រវត្តិ</string>
   <string name="error_can_not_process_link">មិនអាចបង្ហាញតំណភ្ជាប់នេះទេ</string>
   <string name="page_protected_autoconfirmed">ទំព័រនេះត្រូវបានការពារពាក់កណ្ដាល។</string>
   <string name="page_protected_sysop">ទំព័រនេះត្រូវបានការពារពេញលេញ។</string>
@@ -193,7 +192,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">អនុញ្ញាត</string>
   <string name="read_more_section">អានបន្ថែម</string>
   <string name="about_article_section">អំពីអត្ថបទនេះ</string>
-  <string name="menu_gallery_visit_page">ទៅទំព័រឯកសារ</string>
+  <string name="menu_gallery_visit_image_page">ទៅទំព័រឯកសារ</string>
   <string name="gallery_error_draw_failed">មិនអាចបង្ហាញរូបភាព។</string>
   <string name="license_title">អាជ្ញាបណ្ណសម្រាប់ %s</string>
   <string name="gallery_menu_share">ចែកចាយ</string>
@@ -228,8 +227,6 @@
   <string name="crash_report_activity_title">បញ្ហាកម្មវិធី</string>
   <string name="crash_report_relaunch">បើកឡើងវិញ</string>
   <string name="crash_report_quit">ចាកចេញ</string>
-  <string name="article_menu_bar_bookmark">បន្ថែមអត្ថបទនេះទៅបញ្ជីអំណាន</string>
-  <string name="article_menu_bar_share">ចែកចាយតំណភ្ជាប់អត្ថបទ</string>
   <string name="article_header_edit_hint">កែប្រែ…</string>
   <string name="article_header_edit_description" fuzzy="true">កែប្រែពណ៌នាចំណងជើង</string>
   <string name="article_header_edit_lead_section">កែប្រែសេចក្ដីផ្ដើម</string>

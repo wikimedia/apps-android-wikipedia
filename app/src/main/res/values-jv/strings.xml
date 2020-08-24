@@ -20,7 +20,6 @@
   <string name="search_hint_voice_search">Golèk sarana swara</string>
   <string name="search_hint_search_history">Golèk ing sajarah</string>
   <string name="search_hint_search_languages">Golèk basa</string>
-  <string name="search_hint_search_my_lists_and_articles">Golèk pratélan lan artikelku</string>
   <string name="nav_item_history">Sajarah</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Besutan kang kaprayogakaké</string>
   <string name="error_network_error">Ora nggayut Internèt.</string>
@@ -170,7 +169,6 @@
   <string name="preference_title_auto_upload_crash_reports">Kirim lapuran rusak</string>
   <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Allow the app to send crash reports to HockeyApp / a third-party service provider automatically so that we can review your crash and fix the bug faster and more easily.</string>
   <string name="editing_error_spamblacklist">Links to blocked domains (%s) detected. Please remove them and try again.</string>
-  <string name="history_search_list_hint">Sajarah golèkan</string>
   <string name="error_can_not_process_link">Ora bisa nuduhaké pranala iki</string>
   <string name="page_protected_autoconfirmed">Kaca iki wis semu-kareksa.</string>
   <string name="page_protected_sysop">Kaca iki wis kareksa wutuh.</string>
@@ -255,7 +253,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">Idinaké</string>
   <string name="read_more_section">Waca candhaké</string>
   <string name="about_article_section">Bab artikel iki</string>
-  <string name="menu_gallery_visit_page">Menyang kaca barkas</string>
+  <string name="menu_gallery_visit_image_page">Menyang kaca barkas</string>
   <string name="gallery_error_draw_failed">Ora bisa majang gambar.</string>
   <string name="license_title">Lisènsi kanggo %s</string>
   <string name="gallery_menu_share">Dum</string>
@@ -315,8 +313,6 @@
   <string name="crash_report_relaunch_or_quit">Awak dhéwé nyuwun pangapura, aplikasi Wikipédia ngalami masalah mula dipatèni.\n\nApa kowé gelem mbalèni utawa metu waé?</string>
   <string name="crash_report_relaunch">Balèni kawit pisanan</string>
   <string name="crash_report_quit">Metu</string>
-  <string name="article_menu_bar_bookmark">Tambah artikel iki nyang pratélan wacan</string>
-  <string name="article_menu_bar_share">Dum pranalané artikel</string>
   <string name="article_header_edit_hint">Mbesut...</string>
   <string name="article_header_edit_description">Besut wedharaning artikel</string>
   <string name="article_header_edit_lead_section">Besut bebuka</string>
@@ -577,10 +573,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Prayogané salarik, tembungé cacahé antarané loro tekan rolas</string>
   <string name="description_edit_tutorial_button_label_start_editing">Wiwit mbesut</string>
   <string name="description_edit_tutorial_promise">Kanthi miwiti, kula jangji ora nyalahi panganggoné fitur iki.</string>
-  <string name="suggested_edits_add_descriptions">Wuwuh wedharaning artikel</string>
-  <string name="suggested_edits_translate_descriptions">Pertal wedharaning artikel</string>
-  <string name="suggested_edits_add_image_captions">Wuwuh kateranganing gambar</string>
-  <string name="suggested_edits_translate_image_captions">Pertal kateranganing gambar</string>
   <string name="suggested_edits_review_description">Priksa wedharaning artikel</string>
   <string name="suggested_edits_add_description_button">Wuwuh wedharan</string>
   <string name="suggested_edits_edit_description_button">Besut wedharan</string>

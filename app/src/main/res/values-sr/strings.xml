@@ -30,7 +30,6 @@
   <string name="search_hint_voice_search">Претрага гласом</string>
   <string name="search_hint_search_history">Историја претраге</string>
   <string name="search_hint_search_languages">Претражите језике</string>
-  <string name="search_hint_search_my_lists_and_articles">Претражите спискове и чланке</string>
   <string name="nav_item_history">Историја</string>
   <string name="nav_item_suggested_edits">Измене</string>
   <string name="nav_item_more">Више</string>
@@ -61,7 +60,9 @@
   <string name="edit_section_find_in_page">Пронађи на страници</string>
   <string name="menu_page_font_and_theme">Фонт и тема</string>
   <string name="menu_page_add_to_list">Додај на листу за читање</string>
+  <string name="menu_page_add_to_default_list">Сачувај</string>
   <string name="feed_card_add_to_list">Додај на листу за читање</string>
+  <string name="feed_card_add_to_default_list">Сачувај</string>
   <string name="menu_page_share">Дели линк</string>
   <string name="menu_page_open_a_new_tab">Отвори нову картицу</string>
   <string name="menu_page_reading_lists">Листе за читање</string>
@@ -183,7 +184,6 @@
   <string name="preference_title_auto_upload_crash_reports">Шаљи извештаје о отказивањима</string>
   <string name="preference_summary_auto_upload_crash_reports">Дозволите апликацији да аутоматски шаље извештаје о отказивањима независној услузи како бисмо испитали ваш случај и исправили грешку брже и лакше.</string>
   <string name="editing_error_spamblacklist">Откривени су линкови до блокираних домена (%s). Уклоните их па покушајте поново.</string>
-  <string name="history_search_list_hint">Историја претраге</string>
   <string name="error_can_not_process_link">Није могуће приказати овај линк</string>
   <string name="page_protected_autoconfirmed">Ова страница је полузаштићена.</string>
   <string name="page_protected_sysop">Ова страница је потпуно заштићена.</string>
@@ -271,7 +271,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">Дозволи</string>
   <string name="read_more_section">Прочитајте више</string>
   <string name="about_article_section">О овом чланку</string>
-  <string name="menu_gallery_visit_page">Иди на страницу датотеке</string>
+  <string name="menu_gallery_visit_image_page">Иди на страницу датотеке</string>
   <string name="gallery_error_draw_failed">Није могуће приказати слику.</string>
   <string name="license_title">Лиценца за %s</string>
   <string name="gallery_menu_share">Дели</string>
@@ -351,8 +351,6 @@
   <string name="crash_report_relaunch_or_quit">Апликација Википедија је наишла на грешку и обустављена је.\n\nЖелите ли поново да је покренете или да изађете?</string>
   <string name="crash_report_relaunch">Покрени поново</string>
   <string name="crash_report_quit">Изађи</string>
-  <string name="article_menu_bar_bookmark">Додај овај чланак на листу за читање</string>
-  <string name="article_menu_bar_share">Дели линк чланка</string>
   <string name="article_header_edit_hint">Уреди…</string>
   <string name="article_header_edit_description">Уреди опис чланка</string>
   <string name="article_header_edit_lead_section">Уреди увод</string>
@@ -376,6 +374,7 @@
   <string name="reading_list_article_added_to_named">%1$s је додат на %2$s</string>
   <string name="reading_list_article_moved_to_named">Чланак „%1$s” је премештен на листу „%2$s”</string>
   <string name="reading_list_added_view_button">Прикажи листу</string>
+  <string name="reading_list_add_to_list_button">Додај на листу</string>
   <string name="format_reading_list_statistical_summary_singular">1 чланак, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d чланака, %2$.2f MB</string>
   <string name="format_reading_list_statistical_detail_singular">Офлајн је доступно %1$d од 1 чланак, %2$.2f MB</string>
@@ -644,10 +643,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">По могућству један ред, од две до дванаест речи</string>
   <string name="description_edit_tutorial_button_label_start_editing">Започни уређивање</string>
   <string name="description_edit_tutorial_promise">Када почнем, обећавам да нећу злоупотребити ову функцију.</string>
-  <string name="suggested_edits_add_descriptions">Додавање описа чланка</string>
-  <string name="suggested_edits_translate_descriptions">Преведи описе чланака</string>
-  <string name="suggested_edits_add_image_captions">Додај натписе слика</string>
-  <string name="suggested_edits_translate_image_captions">Преведи натписе слика</string>
   <string name="suggested_edits_tag_images">Означавање слика</string>
   <string name="suggested_edits_review_description">Преглед описа чланка</string>
   <string name="suggested_edits_add_description_button">Додај опис</string>
@@ -674,7 +669,7 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text">Закључано док не уредизте (%d) описа чланака (верификовано)</string>
   <string name="suggested_edits_task_multilingual_negative">Није за мене</string>
   <string name="suggested_edits_task_multilingual_positive">Додај језике</string>
-  <string name="suggested_edits_image_caption_summary_title_file">Датотека</string>
+  <string name="suggested_edits_image_caption_summary_title_image">Датотека</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Уметник</string>
   <string name="suggested_edits_image_caption_summary_title_author">Аутор</string>
   <string name="suggested_edits_image_caption_summary_title_source">Извор</string>
@@ -690,7 +685,7 @@
   <string name="suggested_edits_tasks_onboarding_get_started">Почнимо</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Натпис слике (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Опис слике (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_file">Датотека</string>
+  <string name="suggested_edits_image_preview_dialog_image">Датотека</string>
   <string name="suggested_edits_image_preview_dialog_artist">Уметник</string>
   <string name="suggested_edits_image_preview_dialog_tags">Ознаке</string>
   <string name="suggested_edits_image_preview_dialog_date">Датум</string>

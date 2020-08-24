@@ -84,7 +84,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:contentDescription="@null"
-            android:tint="?attr/chart_shade5"
+            app:tint="?attr/chart_shade5"
             app:layout_constraintBottom_toBottomOf="@+id/next_event_years"
             app:layout_constraintEnd_toEndOf="@+id/next_event_years"
             app:layout_constraintStart_toStartOf="@+id/next_event_years"
@@ -135,7 +135,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:contentDescription="@null"
-            android:tint="?attr/secondary_text_color"
+            app:tint="?attr/secondary_text_color"
             app:srcCompat="@drawable/ic_arrow_forward_black_24dp" />
 
         <TextView

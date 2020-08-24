@@ -19,7 +19,6 @@
   <string name="search_hint_voice_search">زباني ٻڌايل ڳولا</string>
   <string name="search_hint_search_history">سوانح ۾ ڳوليو</string>
   <string name="search_hint_search_languages">ڪنھن ٻوليءَ لاءِ ڳوليو</string>
-  <string name="search_hint_search_my_lists_and_articles">منھنجون فھرستون ۽ مضمون ڳوليو</string>
   <string name="nav_item_history">سوانح</string>
   <string name="nav_item_suggested_edits">سنوارون</string>
   <string name="nav_item_more">وڌيڪ</string>
@@ -162,7 +161,6 @@
   <string name="preference_summary_eventlogging_opt_in">وڪيميڊيا ايپ کي اجازت ڏيو ته توهان هن ايپ ڪيئن استعمال ڪريو ٿا جي معلومات جمع ڪري ته جيئن هن ايپ کي وڌيڪ بهتر بڻائي سگھجي</string>
   <string name="preference_title_auto_upload_crash_reports">ڊهي پوڻ جي رپورٽ اماڻيو</string>
   <string name="editing_error_spamblacklist">بندشيل ڊومينس جا ڳنڍڻا (%s) مليا آھن. مھرباني ڪري انھن کي ھٽايو ۽ ٻيھر ڪوشش ڪريو.</string>
-  <string name="history_search_list_hint">سوانح ۾ ڳوليو</string>
   <string name="error_can_not_process_link">اهو ڳنڍڻو ڏيکاري نہ ٿو سگھجي.</string>
   <string name="page_protected_autoconfirmed">هيءُ صفحو نيم تحفظيل آهي.</string>
   <string name="page_protected_sysop">هيءُ صفحو پوريءَ ريت تحفظيل آهي.</string>
@@ -247,7 +245,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">اجازت آهي</string>
   <string name="read_more_section">وڌيڪ پڙهو</string>
   <string name="about_article_section">هن مضمون بابت</string>
-  <string name="menu_gallery_visit_page">فائيل جي صفحي ڏانھن وڃو</string>
+  <string name="menu_gallery_visit_image_page">فائيل جي صفحي ڏانھن وڃو</string>
   <string name="gallery_error_draw_failed">عڪس چِٽجي نہ سگھيو.</string>
   <string name="license_title">%s لاءِ اجازتنامو</string>
   <string name="gallery_menu_share">ونڊيو</string>
@@ -324,8 +322,6 @@
   <string name="crash_report_relaunch_or_quit">اسان معذرتخواھ آهيون، وڪيپيڊيا ايپ هڪ خرابي کي منھن ڏنو ۽ بند ٿي وئي.\n\nڇا توهان ٻيهر شروع ڪرڻ پسند ڪندئو يا بس؟</string>
   <string name="crash_report_relaunch">شروع ڪريو</string>
   <string name="crash_report_quit">نڪرو</string>
-  <string name="article_menu_bar_bookmark">ھن مضمون کي پڙهائي واري فھرست ۾ وجھو</string>
-  <string name="article_menu_bar_share">مضمون جو ڳنڍڻو ونڊيو</string>
   <string name="article_header_edit_hint">سنواريو...</string>
   <string name="article_header_edit_description">مضمون جي تشريح سنواريو</string>
   <string name="article_header_edit_lead_section">تعارف سنواريو</string>
@@ -570,7 +566,6 @@
   <string name="description_edit_success_saved_in_lang_snackbar">مضمون جي تشريح ڇپجي وئي (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">عڪس جو عنوان ڇپجي ويو!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">عڪس جو عنوان ڇپجي ويو! (%s)</string>
-  <string name="description_edit_success_saved_image_tags_snackbar">عڪس جو/جا ٽيگ ڇپجي ويو/ويا!</string>
   <string name="description_edit_success_encouragement">توھان وڪيپيڊيا کي ھر ڪنھن لاءِ بھتر بڻايو</string>
   <string name="description_edit_success_done">ٿي ويو</string>
   <string name="description_edit_success_did_you_know">ڇا توهان کي ڄاڻ هئي؟</string>
@@ -581,10 +576,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">خيالي ھڪ سٽ، ٻن کان ٻارھن اکرن جي وچ ۾</string>
   <string name="description_edit_tutorial_button_label_start_editing">سنوارڻ شروع ڪريو</string>
   <string name="description_edit_tutorial_promise">شرپع ڪرڻ سان، مان واعدو ٿو ڪريان مان ھن خوبي جو غلط استعمال نہ ڪندس.</string>
-  <string name="suggested_edits_add_descriptions">مضمون جو تشريحون وجھو</string>
-  <string name="suggested_edits_translate_descriptions">مضمون جون تشريحون ترجمايو</string>
-  <string name="suggested_edits_add_image_captions">عڪس جا عنوان وجھو</string>
-  <string name="suggested_edits_translate_image_captions">عڪس جا عنوان ترجمايو</string>
   <string name="suggested_edits_review_description">مضمون جي تشريح جو جائزو وٺو</string>
   <string name="suggested_edits_add_description_button">تشريح وجھو</string>
   <string name="suggested_edits_edit_description_button">تشريح سنواريو</string>
@@ -610,7 +601,7 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text">تيسيتائين تالو لڳل آھي جيسيتائي %d مضمونن جو تشريحون نٿا سنواري وٺو (پڪ ڪيل)</string>
   <string name="suggested_edits_task_multilingual_negative">منھنجي لاءِ نہ</string>
   <string name="suggested_edits_task_multilingual_positive">ٻوليون وجھو</string>
-  <string name="suggested_edits_image_caption_summary_title_file">فائيل</string>
+  <string name="suggested_edits_image_caption_summary_title_image">فائيل</string>
   <string name="suggested_edits_image_caption_summary_title_artist">فنڪار</string>
   <string name="suggested_edits_image_caption_summary_title_author">مصنف</string>
   <string name="suggested_edits_image_caption_summary_title_source">ذريعو</string>
@@ -626,7 +617,7 @@
   <string name="suggested_edits_tasks_onboarding_get_started">شروع ڪريو</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">عڪس جو عنوان (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">عڪس جي تشريح (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_file">فائيل</string>
+  <string name="suggested_edits_image_preview_dialog_image">فائيل</string>
   <string name="suggested_edits_image_preview_dialog_artist">فنڪار</string>
   <string name="suggested_edits_image_preview_dialog_tags">ٽيگَ</string>
   <string name="suggested_edits_image_preview_dialog_date">تاريخ</string>

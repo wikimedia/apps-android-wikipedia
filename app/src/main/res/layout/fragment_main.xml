@@ -27,33 +27,21 @@
         android:baselineAligned="false"
         android:orientation="horizontal">
 
-        <FrameLayout
+        <org.wikipedia.navtab.NavTabLayout
+            android:id="@+id/fragment_main_nav_tab_layout"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_gravity="bottom"
-            android:layout_weight="0.8">
-
-            <org.wikipedia.navtab.NavTabLayout
-                android:id="@+id/fragment_main_nav_tab_layout"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@android:color/transparent"
-                app:elevation="0dp"
-                app:itemIconTint="?attr/nav_tab_item_color_state"
-                app:itemTextAppearanceActive="@style/BottomNavigationTextAppearanceActive"
-                app:itemTextAppearanceInactive="@style/BottomNavigationTextAppearanceInactive"
-                app:itemTextColor="?attr/nav_tab_item_color_state"
-                app:labelVisibilityMode="labeled"
-                app:tabGravity="fill"
-                app:tabIndicatorColor="@android:color/transparent" />
-
-            <org.wikipedia.navtab.NavTabOverlayLayout
-                android:id="@+id/fragment_main_nav_tab_overlay_layout"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:elevation="8dp"/>
-
-        </FrameLayout>
+            android:layout_weight="0.8"
+            android:background="@android:color/transparent"
+            app:elevation="0dp"
+            app:itemIconTint="?attr/nav_tab_item_color_state"
+            app:itemTextAppearanceActive="@style/BottomNavigationTextAppearanceActive"
+            app:itemTextAppearanceInactive="@style/BottomNavigationTextAppearanceInactive"
+            app:itemTextColor="?attr/nav_tab_item_color_state"
+            app:labelVisibilityMode="labeled"
+            app:tabGravity="fill"
+            app:tabIndicatorColor="@android:color/transparent" />
 
         <LinearLayout
             android:id="@+id/nav_more_container"
@@ -71,7 +59,7 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@null"
                 android:layout_marginTop="9.5dp"
-                android:tint="?attr/material_theme_secondary_color"
+                app:tint="?attr/material_theme_secondary_color"
                 app:srcCompat="@drawable/ic_menu_themed_24dp" />
 
             <TextView
