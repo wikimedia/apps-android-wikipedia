@@ -354,6 +354,10 @@
   <string name="location_permissions_enable_prompt">Yakınınızdaki yerleri görmek için konum izinlerini etkinleştirin.</string>
   <string name="location_permissions_enable_action">Aç</string>
   <string name="error_webview_updating">Android Sistem Web Görünümü şu an güncelleniyor. Lütfen birazdan tekrar deneyin.</string>
+  <plurals name="multi_items_selected">
+    <item quantity="one">%d seçildi</item>
+    <item quantity="other">%d seçildi</item>
+  </plurals>
   <string name="multi_select_items_selected">%d seçili</string>
   <string name="error_message_generic">Bir hata meydana geldi</string>
   <string name="view_link_preview_error_button_dismiss">Kapat</string>
@@ -373,6 +377,11 @@
   <string name="crash_report_relaunch_or_quit">Üzgünüz, Vikipedi uygulaması bir sorunla karşılaştı ve kapatıldı.\n\nBaştan başlamak mı yoksa çıkmak mı istiyorsunuz?</string>
   <string name="crash_report_relaunch">Baştan başla</string>
   <string name="crash_report_quit">Çıkış</string>
+  <string name="article_menu_bar_save_button">Kaydet</string>
+  <string name="article_menu_bar_language_button">Dil</string>
+  <string name="article_menu_bar_search_button">Ara</string>
+  <string name="article_menu_bar_theme_button">Tema</string>
+  <string name="article_menu_bar_contents_button">İçindekiler</string>
   <string name="article_header_edit_hint">Düzenle...</string>
   <string name="article_header_edit_description">Madde açıklamasını düzenle</string>
   <string name="article_header_edit_lead_section">Tanıtımı düzenle</string>
@@ -400,6 +409,10 @@
   <string name="reading_list_articles_already_exist_message">Hepsi iyi! %s zaten tüm maddeleri içeriyor.</string>
   <string name="reading_list_added_view_button">Listeyi görüntüle</string>
   <string name="reading_list_add_to_list_button">Listeye ekle</string>
+  <plurals name="format_reading_list_statistical_summary">
+    <item quantity="one">1 madde, %2$.2f MB</item>
+    <item quantity="other">%1$d madde, %2$.2f MB</item>
+  </plurals>
   <string name="format_reading_list_statistical_summary_singular">1 madde, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d madde, %2$.2f MB</string>
   <string name="format_reading_list_statistical_detail_singular">1 maddenin %1$d tanesine çevrimdışı erişilebilir, %2$.2f MB</string>
