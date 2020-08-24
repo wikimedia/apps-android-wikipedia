@@ -399,7 +399,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     }
 
     private void startTagsEdit(GalleryItemFragment item) {
-        startActivityForResult(SuggestedEditsImageTagEditActivity.newIntent(this, item.getMediaPage()), ACTIVITY_REQUEST_ADD_IMAGE_TAGS);
+        startActivityForResult(SuggestedEditsImageTagEditActivity.newIntent(this, item.getMediaPage(), GALLERY_ACTIVITY), ACTIVITY_REQUEST_ADD_IMAGE_TAGS);
     }
 
     private void startCaptionTranslation(GalleryItemFragment item) {

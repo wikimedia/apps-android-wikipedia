@@ -137,7 +137,7 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
 
     private fun imageTagsOnClickListener(fragment: Fragment, page: MwQueryPage): OnClickListener {
         return OnClickListener {
-            fragment.startActivityForResult(SuggestedEditsImageTagEditActivity.newIntent(context, page),
+            fragment.startActivityForResult(SuggestedEditsImageTagEditActivity.newIntent(context, page, InvokeSource.FILE_PAGE_ACTIVITY),
                     ACTIVITY_REQUEST_ADD_IMAGE_TAGS)
         }
     }
