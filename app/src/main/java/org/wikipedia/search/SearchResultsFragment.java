@@ -516,7 +516,7 @@ public class SearchResultsFragment extends Fragment {
                 if (lastFullTextResults == null) {
                     // the first full text search
                     doFullTextSearch(currentSearchTerm, null, false);
-                } else if (lastFullTextResults.getContinuation() != null) {
+                } else if (lastFullTextResults.getContinuation() != null && !lastFullTextResults.getContinuation().isEmpty()) {
                     // subsequent full text searches
                     doFullTextSearch(currentSearchTerm, lastFullTextResults.getContinuation(), false);
                 }
