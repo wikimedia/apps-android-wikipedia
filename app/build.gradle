@@ -154,7 +154,7 @@ dependencies {
     // use http://gradleplease.appspot.com/ or http://search.maven.org/.
     // Debug with ./gradlew -q app:dependencies --configuration compile
 
-    String okHttpVersion = '4.7.2'
+    String okHttpVersion = '4.8.1'
     String retrofitVersion = '2.9.0'
     String glideVersion = '4.11.0'
     String butterknifeVersion = '10.2.0'
