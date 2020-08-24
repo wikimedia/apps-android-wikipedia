@@ -663,10 +663,15 @@
   <string name="description_starts_with_uppercase">Comece por letra minúscula, a menos que a primeira palavra seja um substantivo próprio.</string>
   <string name="description_edit_success_saved">Descrição do artigo publicada!</string>
   <string name="description_edit_success_saved_snackbar">Descrição do artigo publicada!</string>
+  <string name="description_edit_success_saved_snackbar_se_promotion">Descrição do artigo publicada! Gostou? Ajude-nos a acrescentar mais.</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Descrição do artigo publicada! (%s)</string>
+  <string name="description_edit_success_saved_in_lang_snackbar_se_promotion">Descrição do artigo publicada. (%s) Gostou? Ajude-nos a acrescentar mais.</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Legenda da imagem publicada!</string>
+  <string name="description_edit_success_saved_image_caption_snackbar_se_promotion">Legenda da imagem publicada! Gostou? Ajude-nos a acrescentar mais.</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Legenda da imagem publicada! (%s)</string>
+  <string name="description_edit_success_saved_image_caption_in_lang_snackbar_se_promotion">Legenda da imagem publicada! (%s) Gostou? Ajude-nos a acrescentar mais.</string>
   <string name="description_edit_success_se_image_caption_feed_link_snackbar">Gostou? Ajude-nos a adicionar legendas em falta a outras imagens.</string>
+  <string name="description_edit_success_se_image_tags_feed_link_snackbar">Gostou? Ajude-nos a acrescentar etiquetas em falta a outras imagens.</string>
   <string name="description_edit_success_encouragement">Acabou de melhorar a Wikipédia para bem de todos</string>
   <string name="description_edit_success_done">Concluído</string>
   <string name="description_edit_success_did_you_know">Sabia que...</string>

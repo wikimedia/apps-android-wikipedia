@@ -271,7 +271,7 @@
   <string name="gallery_save_success">Податотеката е зачувана.</string>
   <string name="gallery_error_video_failed">Не можам да го пуштам видеото.</string>
   <string name="gallery_save_image_write_permission_rationale">Се бара дозвола за зачувување слики на вашиот уред.</string>
-  <string name="gallery_add_image_caption_button">Додај опис на сликата</string>
+  <string name="gallery_add_image_caption_button">Додај толкување на сликата</string>
   <string name="gallery_add_image_caption_in_language_button">Додај опис на сликата (%s)</string>
   <string name="err_cannot_save_file">Не можам да ја зачувам податотеката</string>
   <string name="expand_refs">Допрете за да проширите</string>
@@ -346,6 +346,11 @@
   <string name="crash_report_relaunch_or_quit">За жал, прилогот наиде на грешка и беше запрен.\n\nДали би сакале да почнете одново или да напуштите?</string>
   <string name="crash_report_relaunch">Почни одново</string>
   <string name="crash_report_quit">Излези</string>
+  <string name="article_menu_bar_save_button">Зачувај</string>
+  <string name="article_menu_bar_language_button">Јазик</string>
+  <string name="article_menu_bar_search_button">Пребарај</string>
+  <string name="article_menu_bar_theme_button">Изглед</string>
+  <string name="article_menu_bar_contents_button">Содржина</string>
   <string name="article_header_edit_hint">Уреди...</string>
   <string name="article_header_edit_description">Уреди опис на статијата</string>
   <string name="article_header_edit_lead_section">Уреди вовед</string>
@@ -574,6 +579,7 @@
   <string name="menu_feed_overflow_label">Повеќе можности</string>
   <string name="feed_featured_image_share_subject">Избрана слика од Ризницата</string>
   <string name="feed">Истражете</string>
+  <string name="home">Почетна</string>
   <string name="most_read_list_card_title">Најчитани</string>
   <string name="view_static_card_icon_content_description">Икона за картичка</string>
   <string name="view_card_news_title">Вести</string>
@@ -643,10 +649,15 @@
   <string name="description_starts_with_uppercase">Почнете со мала буква освен ако зборот е лична именка.</string>
   <string name="description_edit_success_saved">Описот на статијата е објавен!</string>
   <string name="description_edit_success_saved_snackbar">Описот на статијата е објавен!</string>
+  <string name="description_edit_success_saved_snackbar_se_promotion">Описот на статијата е објавен. Ви се допадна? Помогнете ни да додадеме уште.</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Описот на статијата е објавен! (%s)</string>
+  <string name="description_edit_success_saved_in_lang_snackbar_se_promotion">Описот на статијата е објавен. (%s) Ви се допадна? Помогнете ни да додадеме уште.</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Описот на сликата објавен!</string>
+  <string name="description_edit_success_saved_image_caption_snackbar_se_promotion">Толкувањто на сликата е објавено. Ви се допадна? Помогнете ни да додадеме уште.</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Описот на сликата е објавен! (%s)</string>
+  <string name="description_edit_success_saved_image_caption_in_lang_snackbar_se_promotion">Толкувањто на сликата е објавено. (%s) Ви се допадна? Помогнете ни да додадеме уште.</string>
   <string name="description_edit_success_se_image_caption_feed_link_snackbar">Ви се допадна? Помогнете ни, додавајќи отсутни описи на други слики.</string>
+  <string name="description_edit_success_se_image_tags_feed_link_snackbar">Ви се допадна? Помогнете ни, додавајќи отсутни ознаки на други слики.</string>
   <string name="description_edit_success_encouragement">Штотуку ја подобривте Википедија за сите</string>
   <string name="description_edit_success_done">Готово</string>
   <string name="description_edit_success_did_you_know">Дали сте знаеле?</string>
@@ -657,6 +668,8 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">По можност еден ред, од два до дванаесет збора</string>
   <string name="description_edit_tutorial_button_label_start_editing">Почнете со уредување</string>
   <string name="description_edit_tutorial_promise">Почнувајќи, ветувам дека нема да ја злоупотребувам функцијава.</string>
+  <string name="suggested_edits_describe_articles">Опишување на статии</string>
+  <string name="suggested_edits_caption_images">Толкување на слики</string>
   <string name="suggested_edits_tag_images">Означување на слики</string>
   <string name="suggested_edits_review_description">Преглед на описот на статијата</string>
   <string name="suggested_edits_add_description_button">Додај опис</string>
