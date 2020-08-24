@@ -2,12 +2,9 @@ package org.wikipedia.dataclient.mwapi;
 
 import androidx.annotation.Nullable;
 
-import org.wikipedia.dataclient.wikidata.Entities;
-
 @SuppressWarnings("unused")
 public class MwPostResponse extends MwResponse {
     @Nullable private MwQueryPage pageinfo;
-    @Nullable private Entities.Entity entity;
     @Nullable private String options;
     private int success;
 
@@ -25,10 +22,6 @@ public class MwPostResponse extends MwResponse {
 
     @Nullable public MwQueryPage getPageInfo() {
         return pageinfo;
-    }
-
-    @Nullable public Entities.Entity getEntity() {
-        return entity;
     }
 }
 
