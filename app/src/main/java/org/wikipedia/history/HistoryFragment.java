@@ -145,6 +145,10 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
         ((MainFragment) getParentFragment()).openSearchActivity(Constants.InvokeSource.NAV_MENU, null);
     }
 
+    @OnClick(R.id.voice_search_button) void onVoiceSearchClicked(View v) {
+        ((MainFragment) getParentFragment()).onFeedVoiceSearchRequested();
+    }
+
     private void setUpScrollListener() {
         historyNestedScrollView.setOnScrollChangeListener((NestedScrollView.OnScrollChangeListener) (v, scrollX, scrollY, oldScrollX, oldScrollY) -> {
             ((MainActivity) requireActivity()).updateToolbarElevation(scrollY != 0);
