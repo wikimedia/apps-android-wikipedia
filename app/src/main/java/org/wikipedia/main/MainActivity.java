@@ -142,7 +142,6 @@ public class MainActivity extends SingleFragmentActivity<MainFragment> implement
             if (tab.equals(NavTab.SEARCH) && Prefs.shouldShowSearchTabTooltip()) {
                 getFragment().maybeShowOneTimeTooltip(tab);
             }
-
             wordMark.setVisibility(GONE);
             toolbar.setTitle(tab.text());
             controlNavTabInFragment = true;

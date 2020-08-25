@@ -574,12 +574,4 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
     @Nullable private Callback callback() {
         return FragmentUtil.getCallback(this, Callback.class);
     }
-
-    public void show() {
-        historyContainer.setVisibility(View.VISIBLE);
-    }
-
-    public void hide() {
-        historyContainer.setVisibility(View.GONE);
-    }
 }

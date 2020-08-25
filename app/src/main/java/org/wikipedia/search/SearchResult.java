@@ -19,7 +19,7 @@ public class SearchResult extends BaseModel implements Parcelable {
     private final String redirectFrom;
     private SearchResultTypeWithPriority searchResultTypeWithPriority = SEARCH_RESULT;
 
-    public void setSearchResultTypeWithPriority(SearchResultTypeWithPriority searchResultTypeWithPriority) {
+    public void setSearchResultTypeWithPriority(@NonNull SearchResultTypeWithPriority searchResultTypeWithPriority) {
         this.searchResultTypeWithPriority = searchResultTypeWithPriority;
     }
 
@@ -29,7 +29,7 @@ public class SearchResult extends BaseModel implements Parcelable {
 
     public enum SearchResultTypeWithPriority {
         SEARCH_RESULT(0),
-        HIRTORY_SEARCH_RESULT(1),
+        HISTORY_SEARCH_RESULT(1),
         READING_LIST_SEARCH_RESULT(2),
         TAB_LIST_SEARCH_RESULT(3);
 

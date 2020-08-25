@@ -64,7 +64,7 @@ import static android.view.View.VISIBLE;
 import static org.apache.commons.lang3.StringUtils.isBlank;
 import static org.wikipedia.Constants.HISTORY_FRAGMENT_LOADER_ID;
 import static org.wikipedia.Constants.SEARCH_FRAGMENT_HISTORY_LOADER_ID;
-import static org.wikipedia.search.SearchResult.SearchResultTypeWithPriority.HIRTORY_SEARCH_RESULT;
+import static org.wikipedia.search.SearchResult.SearchResultTypeWithPriority.HISTORY_SEARCH_RESULT;
 import static org.wikipedia.search.SearchResult.SearchResultTypeWithPriority.READING_LIST_SEARCH_RESULT;
 import static org.wikipedia.search.SearchResult.SearchResultTypeWithPriority.SEARCH_RESULT;
 import static org.wikipedia.search.SearchResult.SearchResultTypeWithPriority.TAB_LIST_SEARCH_RESULT;
@@ -573,7 +573,7 @@ public class SearchResultsFragment extends Fragment {
                 searchResultTabCountsView.setVisibility(resultPriority == TAB_LIST_SEARCH_RESULT.getPriority() ? VISIBLE : GONE);
                 searchResultIcon.setVisibility(resultPriority == TAB_LIST_SEARCH_RESULT.getPriority() ? GONE : VISIBLE);
                 searchResultIcon.setImageDrawable(AppCompatResources.getDrawable(requireContext(),
-                        resultPriority == HIRTORY_SEARCH_RESULT.getPriority() ? R.drawable.ic_baseline_history_24 : R.drawable.ic_bookmark_border_white_24dp));
+                        resultPriority == HISTORY_SEARCH_RESULT.getPriority() ? R.drawable.ic_baseline_history_24 : R.drawable.ic_bookmark_border_white_24dp));
             }
 
             // highlight search term within the text
@@ -722,7 +722,7 @@ public class SearchResultsFragment extends Fragment {
                 PageTitle pageTitle = indexedEntry.getEntry().getTitle();
                 pageTitle.setThumbUrl(indexedEntry.getImageUrl());
                 SearchResult searchResult = new SearchResult(pageTitle);
-                searchResult.setSearchResultTypeWithPriority(HIRTORY_SEARCH_RESULT);
+                searchResult.setSearchResultTypeWithPriority(HISTORY_SEARCH_RESULT);
                 searchResults.add(searchResult);
                 displayResults(searchResults);
             }
