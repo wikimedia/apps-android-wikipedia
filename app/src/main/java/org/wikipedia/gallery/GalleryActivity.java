@@ -329,7 +329,7 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
 
             DescriptionEditActivity.Action action = (data != null && data.hasExtra(INTENT_EXTRA_ACTION)) ? (DescriptionEditActivity.Action) data.getSerializableExtra(INTENT_EXTRA_ACTION)
                     : (requestCode == ACTIVITY_REQUEST_ADD_IMAGE_TAGS) ? ADD_IMAGE_TAGS : null;
-            SuggestedEditsSnackbars.show(this, action, targetLanguageCode, action == ADD_IMAGE_TAGS, () -> {
+            SuggestedEditsSnackbars.show(this, action, true, targetLanguageCode, action == ADD_IMAGE_TAGS, () -> {
                 if (action == ADD_IMAGE_TAGS && getCurrentItem() != null && getCurrentItem().getImageTitle() != null) {
                     startActivity(FilePageActivity.newIntent(GalleryActivity.this, getCurrentItem().getImageTitle()));
                 }

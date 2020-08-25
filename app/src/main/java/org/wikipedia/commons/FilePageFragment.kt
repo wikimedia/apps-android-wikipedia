@@ -14,21 +14,17 @@ import io.reactivex.rxjava3.functions.BiFunction
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_file_page.*
 import org.apache.commons.lang3.StringUtils
-import org.wikipedia.Constants
 import org.wikipedia.R
-import org.wikipedia.analytics.ABTestSuggestedEditsSnackbarFunnel
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.mwapi.MwQueryPage
 import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.dataclient.mwapi.media.MediaHelper.getImageCaptions
-import org.wikipedia.descriptions.DescriptionEditActivity
+import org.wikipedia.descriptions.DescriptionEditActivity.Action
 import org.wikipedia.page.PageTitle
 import org.wikipedia.suggestededits.PageSummaryForEdit
 import org.wikipedia.suggestededits.SuggestedEditsSnackbars
-import org.wikipedia.suggestededits.SuggestionsActivity.Companion.newIntent
-import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
@@ -68,7 +64,7 @@ class FilePageFragment : Fragment() {
         super.onActivityResult(requestCode, resultCode, data)
         if ((requestCode == ACTIVITY_REQUEST_ADD_IMAGE_CAPTION || requestCode == ACTIVITY_REQUEST_ADD_IMAGE_TAGS) && resultCode == RESULT_OK) {
             SuggestedEditsSnackbars.show(requireActivity(), if (requestCode == ACTIVITY_REQUEST_ADD_IMAGE_CAPTION)
-                        DescriptionEditActivity.Action.ADD_CAPTION else DescriptionEditActivity.Action.ADD_IMAGE_TAGS)
+                Action.ADD_CAPTION else Action.ADD_IMAGE_TAGS, requestCode == ACTIVITY_REQUEST_ADD_IMAGE_CAPTION)
             loadImageInfo()
         }
     }
