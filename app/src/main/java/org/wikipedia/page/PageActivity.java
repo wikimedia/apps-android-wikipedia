@@ -730,7 +730,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             DescriptionEditActivity.Action action = (data != null && data.hasExtra(INTENT_EXTRA_ACTION)) ? (DescriptionEditActivity.Action) data.getSerializableExtra(INTENT_EXTRA_ACTION)
                     : (requestCode == Constants.ACTIVITY_REQUEST_IMAGE_TAGS_EDIT) ? ADD_IMAGE_TAGS : null;
 
-            SuggestedEditsSnackbars.show(this, action, resultCode != RESULT_OK_FROM_EDIT_SUCCESS, editLanguage, true, () -> {
+            SuggestedEditsSnackbars.show(this, action, resultCode != RESULT_OK_FROM_EDIT_SUCCESS, editLanguage, requestCode != Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT, () -> {
                 if (action == ADD_IMAGE_TAGS) {
                     startActivity(FilePageActivity.newIntent(this, pageFragment.getTitle()));
                 } else if (action == ADD_CAPTION || action == TRANSLATE_CAPTION) {

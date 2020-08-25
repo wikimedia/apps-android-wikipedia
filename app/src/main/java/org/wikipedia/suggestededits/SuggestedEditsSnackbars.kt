@@ -8,12 +8,15 @@ import org.wikipedia.analytics.ABTestSuggestedEditsSnackbarFunnel
 import org.wikipedia.descriptions.DescriptionEditActivity.Action
 import org.wikipedia.settings.Prefs
 import org.wikipedia.util.FeedbackUtil
+import org.wikipedia.util.log.L
 
 object SuggestedEditsSnackbars {
 
     interface OpenPageListener {
         fun open()
     }
+    private const val MAX_SHOW_PER_SESSION = 2
+    private val snackbarSessionMap = mutableMapOf<String, Int>()
 
     @JvmStatic
     fun show(activity: Activity, action: Action?, sequentialSnackbar: Boolean = true, targetLanguageCode: String? = null,
@@ -57,10 +60,23 @@ object SuggestedEditsSnackbars {
     }
 
     private fun showFeedLinkSnackbar(activity: Activity, abTestFunnel: ABTestSuggestedEditsSnackbarFunnel, action: Action?) {
-        if (abTestFunnel.shouldSeeSnackbarAction() && action != null) {
+        if (abTestFunnel.shouldSeeSnackbarAction() && action != null && getSessionCount(activity, action) < MAX_SHOW_PER_SESSION) {
             FeedbackUtil.makeSnackbar(activity, activity.getString(R.string.description_edit_success_se_general_feed_link_snackbar), FeedbackUtil.LENGTH_DEFAULT)
                     .setAction(R.string.suggested_edits_tasks_onboarding_get_started) { activity.startActivity(SuggestionsActivity.newIntent(activity, action)) }
                     .show()
+            incrementSessionMap(activity, action)
         }
+    }
+
+    private fun incrementSessionMap(activity: Activity, action: Action) {
+        snackbarSessionMap[getMapKey(activity, action)] = getSessionCount(activity, action) + 1
+    }
+
+    private fun getSessionCount(activity: Activity, action: Action): Int {
+        return snackbarSessionMap.getOrPut(getMapKey(activity, action), { 0 })
+    }
+
+    private fun getMapKey(activity: Activity, action: Action): String {
+        return activity.componentName.className + "." + action.name
     }
 }
