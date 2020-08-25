@@ -33,15 +33,13 @@ import androidx.core.view.ViewCompat;
 import androidx.drawerlayout.widget.FixedDrawerLayout;
 import androidx.preference.PreferenceManager;
 
-import com.google.android.material.snackbar.Snackbar;
-
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.Constants;
 import org.wikipedia.Constants.InvokeSource;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.BaseActivity;
-import org.wikipedia.analytics.ABTestSuggestedEditsSnackbarFunnel;
+import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.analytics.IntentFunnel;
 import org.wikipedia.analytics.LinkPreviewFunnel;
 import org.wikipedia.commons.FilePageActivity;
@@ -60,6 +58,7 @@ import org.wikipedia.page.linkpreview.LinkPreviewDialog;
 import org.wikipedia.page.tabs.TabActivity;
 import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.settings.Prefs;
+import org.wikipedia.suggestededits.SuggestedEditsSnackbars;
 import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.DimenUtil;
@@ -92,6 +91,8 @@ import static org.wikipedia.Constants.InvokeSource.TOOLBAR;
 import static org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_CAPTION;
 import static org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_IMAGE_TAGS;
 import static org.wikipedia.descriptions.DescriptionEditActivity.Action.TRANSLATE_CAPTION;
+import static org.wikipedia.descriptions.DescriptionEditSuccessActivity.RESULT_OK_FROM_EDIT_SUCCESS;
+import static org.wikipedia.descriptions.DescriptionEditTutorialActivity.DESCRIPTION_SELECTED_TEXT;
 import static org.wikipedia.settings.Prefs.isLinkPreviewEnabled;
 import static org.wikipedia.settings.SettingsActivity.ACTIVITY_RESULT_LANGUAGE_CHANGED;
 import static org.wikipedia.util.UriUtil.visitInExternalBrowser;
@@ -716,39 +717,27 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             } else if (resultCode == TabActivity.RESULT_LOAD_FROM_BACKSTACK) {
                 pageFragment.reloadFromBackstack();
             }
-        } else if ((requestCode == Constants.ACTIVITY_REQUEST_IMAGE_CAPTION_EDIT || requestCode == Constants.ACTIVITY_REQUEST_IMAGE_TAGS_EDIT)
+        } else if (requestCode == Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT_TUTORIAL
                 && resultCode == RESULT_OK) {
+            Prefs.setDescriptionEditTutorialEnabled(false);
+            pageFragment.startDescriptionEditActivity(data.getStringExtra(DESCRIPTION_SELECTED_TEXT));
+        } else if ((requestCode == Constants.ACTIVITY_REQUEST_IMAGE_CAPTION_EDIT
+                || requestCode == Constants.ACTIVITY_REQUEST_IMAGE_TAGS_EDIT
+                || requestCode == Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT)
+                && (resultCode == RESULT_OK || resultCode == RESULT_OK_FROM_EDIT_SUCCESS)) {
             pageFragment.refreshPage();
             String editLanguage = StringUtils.defaultString(pageFragment.getLeadImageEditLang(), app.language().getAppLanguageCode());
             DescriptionEditActivity.Action action = (data != null && data.hasExtra(INTENT_EXTRA_ACTION)) ? (DescriptionEditActivity.Action) data.getSerializableExtra(INTENT_EXTRA_ACTION)
                     : (requestCode == Constants.ACTIVITY_REQUEST_IMAGE_TAGS_EDIT) ? ADD_IMAGE_TAGS : null;
-            ABTestSuggestedEditsSnackbarFunnel abTestFunnel = new ABTestSuggestedEditsSnackbarFunnel();
-            boolean shouldSeeSEFeedLinkSnackbar = abTestFunnel.shouldSeeSnackbarAction() && Prefs.getSEFeedLinkSnackbarShownCount() < SE_FEED_LINK_SNACKBAR_SHOW_LIMIT;
-            Snackbar snackbar = FeedbackUtil.makeSnackbar(this, action == ADD_CAPTION
-                    ? getString(R.string.description_edit_success_saved_image_caption_snackbar)
-                    : action == TRANSLATE_CAPTION ? getString(R.string.description_edit_success_saved_image_caption_in_lang_snackbar, app.language().getAppLanguageLocalizedName(editLanguage))
-                    : getString(R.string.description_edit_success_se_image_tags_feed_link_snackbar), FeedbackUtil.LENGTH_DEFAULT);
 
-            if (action != ADD_IMAGE_TAGS) {
-                snackbar.setAction(R.string.suggested_edits_article_cta_snackbar_action, v -> pageFragment.openImageInGallery(editLanguage))
-                        .addCallback(new Snackbar.Callback() {
-                            @Override
-                            public void onDismissed(Snackbar transientBottomBar, @DismissEvent int event) {
-                                if (shouldSeeSEFeedLinkSnackbar && action != null) {
-                                    Prefs.setSEFeedLinkSnackbarShownCount(Prefs.getSEFeedLinkSnackbarShownCount() + 1);
-                                    FeedbackUtil.makeSnackbar(PageActivity.this, getString(R.string.description_edit_success_se_image_caption_feed_link_snackbar), FeedbackUtil.LENGTH_DEFAULT)
-                                            .setAction(R.string.suggested_edits_tasks_onboarding_get_started, v -> pageFragment.startSuggestionsActivity(action))
-                                            .show();
-                                }
-                            }
-                        });
-            } else if (shouldSeeSEFeedLinkSnackbar) {
-                snackbar.setAction(R.string.suggested_edits_tasks_onboarding_get_started, v -> pageFragment.startSuggestionsActivity(action));
-            }
-
-            snackbar.show();
-            abTestFunnel.logSnackbarShown();
-
+            SuggestedEditsSnackbars.show(this, action, resultCode != RESULT_OK_FROM_EDIT_SUCCESS, editLanguage, true, () -> {
+                if (action == ADD_IMAGE_TAGS) {
+                    startActivity(FilePageActivity.newIntent(this, pageFragment.getTitle()));
+                } else if (action == ADD_CAPTION || action == TRANSLATE_CAPTION) {
+                    startActivity(GalleryActivity.newIntent(this,
+                            pageFragment.getTitle(), pageFragment.getTitle().getPrefixedText(), pageFragment.getTitle().getWikiSite(), 0, GalleryFunnel.SOURCE_NON_LEAD_IMAGE));
+                }
+            });
         } else {
             super.onActivityResult(requestCode, resultCode, data);
         }

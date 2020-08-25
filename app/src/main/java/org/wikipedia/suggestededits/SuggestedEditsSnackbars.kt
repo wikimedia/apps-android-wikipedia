@@ -58,7 +58,6 @@ object SuggestedEditsSnackbars {
 
     private fun showFeedLinkSnackbar(activity: Activity, abTestFunnel: ABTestSuggestedEditsSnackbarFunnel, action: Action?) {
         if (abTestFunnel.shouldSeeSnackbarAction() && action != null) {
-            Prefs.setSEFeedLinkSnackbarShownCount(Prefs.getSEFeedLinkSnackbarShownCount() + 1)
             FeedbackUtil.makeSnackbar(activity, activity.getString(R.string.description_edit_success_se_general_feed_link_snackbar), FeedbackUtil.LENGTH_DEFAULT)
                     .setAction(R.string.suggested_edits_tasks_onboarding_get_started) { activity.startActivity(SuggestionsActivity.newIntent(activity, action)) }
                     .show()
