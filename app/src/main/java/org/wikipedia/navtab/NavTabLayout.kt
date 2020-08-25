@@ -4,7 +4,6 @@ import android.content.Context
 import android.text.TextUtils
 import android.util.AttributeSet
 import android.view.Menu
-import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -37,16 +36,5 @@ class NavTabLayout constructor(context: Context, attrs: AttributeSet) : BottomNa
                 }
             }
         }
-    }
-
-    fun getViewAt(position: Int): View? {
-        var view: View? = null
-        if (childCount > 0) {
-            val menuView = getChildAt(0)
-            if ((menuView as ViewGroup).childCount > position + 1) {
-                view = menuView.getChildAt(position)
-            }
-        }
-        return view
     }
 }
