@@ -15,6 +15,7 @@ object SuggestedEditsSnackbars {
     interface OpenPageListener {
         fun open()
     }
+    
     private const val MAX_SHOW_PER_SESSION = 2
     private val snackbarSessionMap = mutableMapOf<String, Int>()
 
