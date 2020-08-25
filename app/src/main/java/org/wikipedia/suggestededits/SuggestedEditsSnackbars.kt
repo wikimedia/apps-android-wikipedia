@@ -6,16 +6,14 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.analytics.ABTestSuggestedEditsSnackbarFunnel
 import org.wikipedia.descriptions.DescriptionEditActivity.Action
-import org.wikipedia.settings.Prefs
 import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.util.log.L
 
 object SuggestedEditsSnackbars {
 
     interface OpenPageListener {
         fun open()
     }
-    
+
     private const val MAX_SHOW_PER_SESSION = 2
     private val snackbarSessionMap = mutableMapOf<String, Int>()
 
