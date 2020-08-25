@@ -27,7 +27,6 @@ import com.skydoves.balloon.ArrowOrientation;
 import com.skydoves.balloon.Balloon;
 
 import org.wikipedia.R;
-import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.SuggestedEditsFunnel;
 import org.wikipedia.main.MainActivity;
 import org.wikipedia.page.PageActivity;
