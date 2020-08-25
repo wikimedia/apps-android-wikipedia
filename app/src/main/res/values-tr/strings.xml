@@ -9,6 +9,7 @@
 * Envlh
 * Fitoschido
 * Gambollar
+* Gokalpselamet
 * Grkn gll
 * HakanIST
 * Hedda
@@ -353,6 +354,10 @@
   <string name="location_permissions_enable_prompt">Yakınınızdaki yerleri görmek için konum izinlerini etkinleştirin.</string>
   <string name="location_permissions_enable_action">Aç</string>
   <string name="error_webview_updating">Android Sistem Web Görünümü şu an güncelleniyor. Lütfen birazdan tekrar deneyin.</string>
+  <plurals name="multi_items_selected">
+    <item quantity="one">%d seçildi</item>
+    <item quantity="other">%d seçildi</item>
+  </plurals>
   <string name="multi_select_items_selected">%d seçili</string>
   <string name="error_message_generic">Bir hata meydana geldi</string>
   <string name="view_link_preview_error_button_dismiss">Kapat</string>
@@ -372,8 +377,11 @@
   <string name="crash_report_relaunch_or_quit">Üzgünüz, Vikipedi uygulaması bir sorunla karşılaştı ve kapatıldı.\n\nBaştan başlamak mı yoksa çıkmak mı istiyorsunuz?</string>
   <string name="crash_report_relaunch">Baştan başla</string>
   <string name="crash_report_quit">Çıkış</string>
-  <string name="article_menu_bar_bookmark">Bu makaleyi bir okuma listesine ekle</string>
-  <string name="article_menu_bar_share">Madde bağlantısını paylaş</string>
+  <string name="article_menu_bar_save_button">Kaydet</string>
+  <string name="article_menu_bar_language_button">Dil</string>
+  <string name="article_menu_bar_search_button">Ara</string>
+  <string name="article_menu_bar_theme_button">Tema</string>
+  <string name="article_menu_bar_contents_button">İçindekiler</string>
   <string name="article_header_edit_hint">Düzenle...</string>
   <string name="article_header_edit_description">Madde açıklamasını düzenle</string>
   <string name="article_header_edit_lead_section">Tanıtımı düzenle</string>
@@ -401,6 +409,10 @@
   <string name="reading_list_articles_already_exist_message">Hepsi iyi! %s zaten tüm maddeleri içeriyor.</string>
   <string name="reading_list_added_view_button">Listeyi görüntüle</string>
   <string name="reading_list_add_to_list_button">Listeye ekle</string>
+  <plurals name="format_reading_list_statistical_summary">
+    <item quantity="one">1 madde, %2$.2f MB</item>
+    <item quantity="other">%1$d madde, %2$.2f MB</item>
+  </plurals>
   <string name="format_reading_list_statistical_summary_singular">1 madde, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d madde, %2$.2f MB</string>
   <string name="format_reading_list_statistical_detail_singular">1 maddenin %1$d tanesine çevrimdışı erişilebilir, %2$.2f MB</string>
@@ -655,14 +667,13 @@
   <string name="description_edit_voice_input_description">Ses girişi</string>
   <string name="description_too_short">Metin çok kısa.</string>
   <string name="description_ends_with_punctuation">Metin noktalama işaretleri ile bitmemelidir.</string>
-  <string name="description_starts_with_article" fuzzy="true">\"A\" veya \"the\" gibi maddelerle başlamayın.</string>
+  <string name="description_starts_with_article">\"A\" veya \"the\" gibi maddelerle başlamaktan kaçının.</string>
   <string name="description_starts_with_uppercase">İlk kelime uygun bir isim değilse, küçük harfle başlayın.</string>
   <string name="description_edit_success_saved">Madde açıklaması yayımlandı!</string>
   <string name="description_edit_success_saved_snackbar">Madde açıklaması yayımlandı!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Madde açıklaması yayımlandı! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Resim yazısı yayımlandı!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Resim yazısı yayımlandı! (%s)</string>
-  <string name="description_edit_success_saved_image_tags_snackbar">Resim etiketi yayınlandı!</string>
   <string name="description_edit_success_se_image_caption_feed_link_snackbar">Bunu beğendiniz mi? Diğer resimlere eksik altyazı eklememize yardımcı olun.</string>
   <string name="description_edit_success_encouragement">Vikipedi\'yi herkes için daha iyi hâle getirdin</string>
   <string name="description_edit_success_done">Yapıldı</string>
@@ -674,10 +685,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">İdeal olarak iki ila on iki kelimelik bir cümle</string>
   <string name="description_edit_tutorial_button_label_start_editing">Düzenlemeye başla</string>
   <string name="description_edit_tutorial_promise">Başlarken bu özelliği kötüye kullanmayacağıma söz veriyorum.</string>
-  <string name="suggested_edits_add_descriptions">Madde açıklaması ekle</string>
-  <string name="suggested_edits_translate_descriptions">Madde açıklamasını çevir</string>
-  <string name="suggested_edits_add_image_captions">Resim yazısı ekle</string>
-  <string name="suggested_edits_translate_image_captions">Resim başlıklarını çevir</string>
   <string name="suggested_edits_tag_images">Etiket resimleri</string>
   <string name="suggested_edits_review_description">Madde açıklamasını incele</string>
   <string name="suggested_edits_add_description_button">Açıklama ekle</string>
@@ -729,6 +736,7 @@
   <string name="suggested_edits_image_preview_dialog_more_info">Daha Fazla Bilgi</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Wikimedia Commons\'taki dosya sayfası</string>
   <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">Vikipedi\'deki dosya sayfası</string>
+  <string name="suggested_edits_article_cta_image_tags">Resim etiketleri ekle</string>
   <string name="suggested_edits_article_cta_image_caption">Resim yazısı ekle</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Resim yazısı ekle (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Görüntüle</string>

@@ -337,8 +337,6 @@
   <string name="crash_report_relaunch_or_quit">Sentímolo, a aplicación de Wikipedia tivo un erro e pechouse.\n\nGustaríalle volver a comezar ou saír?</string>
   <string name="crash_report_relaunch">Comezar de novo</string>
   <string name="crash_report_quit">Saír</string>
-  <string name="article_menu_bar_bookmark">Engadir este artigo a unha lista de lectura</string>
-  <string name="article_menu_bar_share">Compartir a ligazón do artigo</string>
   <string name="article_header_edit_hint">Editar...</string>
   <string name="article_header_edit_description">Editar a descrición do artigo</string>
   <string name="article_header_edit_lead_section">Editar introdución</string>
@@ -617,10 +615,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealmente unha liña, entre dúas e unha ducia de palabras</string>
   <string name="description_edit_tutorial_button_label_start_editing">Comezar a editar</string>
   <string name="description_edit_tutorial_promise">Ó comezar, comprométome a non abusar desta funcionalidade.</string>
-  <string name="suggested_edits_add_descriptions">Engadir descricións de artigos</string>
-  <string name="suggested_edits_translate_descriptions">Traducir descricións de artigos</string>
-  <string name="suggested_edits_add_image_captions">Engadir lendas de imaxe</string>
-  <string name="suggested_edits_translate_image_captions">Traducir lendas de imaxes</string>
   <string name="suggested_edits_review_description">Revisar descrición de artigo</string>
   <string name="suggested_edits_add_description_button">Engadir descrición</string>
   <string name="suggested_edits_edit_description_button">Editar descrición</string>

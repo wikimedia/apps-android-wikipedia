@@ -246,8 +246,6 @@
   <string name="crash_report_activity_title">Toepassingfout</string>
   <string name="crash_report_relaunch">Begin voor</string>
   <string name="crash_report_quit">Sluit Af</string>
-  <string name="article_menu_bar_bookmark">Voeg hierdie artikel toe tot leeslys</string>
-  <string name="article_menu_bar_share">Deel die artikelskakel</string>
   <string name="article_header_edit_hint">Wysig…</string>
   <string name="article_header_edit_description" fuzzy="true">Wysig titelbeskrywing</string>
   <string name="article_header_edit_lead_section">Wysig inleiding</string>

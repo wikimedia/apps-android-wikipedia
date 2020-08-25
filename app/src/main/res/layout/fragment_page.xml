@@ -38,23 +38,13 @@
             android:layout_gravity="bottom"
             android:layout_marginBottom="@dimen/bottom_toolbar_height" />
 
-        <LinearLayout
+        <org.wikipedia.page.PageActionTabLayout
+            android:id="@+id/page_actions_tab_layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/bottom_toolbar_height"
+            android:background="?attr/paper_color"
             android:layout_gravity="bottom"
-            android:orientation="vertical">
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="?attr/chip_background_color" />
-
-            <org.wikipedia.page.PageActionTabLayout
-                android:id="@+id/page_actions_tab_layout"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/bottom_toolbar_height"
-                android:background="?attr/paper_color" />
-        </LinearLayout>
+            android:elevation="8dp"/>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

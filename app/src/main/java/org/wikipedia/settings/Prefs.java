@@ -941,14 +941,6 @@ public final class Prefs {
         setBoolean(R.string.preference_key_show_sequential_user_stats_tooltip, show);
     }
 
-    public static boolean isPulsatingIconEventSent() {
-        return getBoolean(R.string.preference_key_pulsating_icon_event_sent, false);
-    }
-
-    public static void setPulsatingIconEventSent(boolean sent) {
-        setBoolean(R.string.preference_key_pulsating_icon_event_sent, sent);
-    }
-
     public static void setSEFeedLinkSnackbarShownCount(int count) {
         setInt(R.string.preference_key_suggested_edits_feed_link_snackbar_shown_count, count);
     }
@@ -958,11 +950,11 @@ public final class Prefs {
     }
 
     public static boolean shouldShowSearchTabTooltip() {
-        return getBoolean(R.string.preference_key_pulsating_icon_event_sent, true);
+        return getBoolean(R.string.preference_key_show_search_tab_tooltip, true);
     }
 
     public static void setShowSearchTabTooltip(boolean show) {
-        setBoolean(R.string.preference_key_pulsating_icon_event_sent, show);
+        setBoolean(R.string.preference_key_show_search_tab_tooltip, show);
     }
     private Prefs() { }
 }

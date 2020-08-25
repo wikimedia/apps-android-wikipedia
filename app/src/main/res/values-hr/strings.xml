@@ -338,8 +338,6 @@
   <string name="crash_report_relaunch_or_quit">Žao nam je, ali aplikacija Wikipedija je prekinuta.\n\nŽelite li početi ponovno ili prekinuti?</string>
   <string name="crash_report_relaunch">Počni ponovno</string>
   <string name="crash_report_quit">Prekini</string>
-  <string name="article_menu_bar_bookmark">Spremi članak na popis za čitanje</string>
-  <string name="article_menu_bar_share">Podijelite poveznicu na članak</string>
   <string name="article_header_edit_hint">Uredi...</string>
   <string name="article_header_edit_description">Uredi opis članka</string>
   <string name="article_header_edit_lead_section">Uredi uvod</string>
@@ -573,6 +571,7 @@
   <string name="description_edit_success_saved_in_lang_snackbar">Objavljen opis članka! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Objavljen opis slike!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Objavljen opis slike! (%s)</string>
+  <string name="description_edit_success_saved_image_caption_in_lang_snackbar_se_promotion">Opis/potpis slike je objavljen. (%s) Jeste li uživali u tome? Pomozite nam dodati ih još više.</string>
   <string name="description_edit_success_se_image_caption_feed_link_snackbar">Jeste li uživali? Pomozite nam dodati nedostajuće opise slika na ostalim mjestima.</string>
   <string name="description_edit_success_encouragement">Upravo ste učinili Wikipediju boljom za svakoga</string>
   <string name="description_edit_success_done">Gotovo</string>
@@ -584,10 +583,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealno jedan redak, od dvije do dvanaest riječi</string>
   <string name="description_edit_tutorial_button_label_start_editing">Počnite uređivati</string>
   <string name="description_edit_tutorial_promise">Kada počnem, obećavam da neću zloupotrijebiti ovu mogućnost.</string>
-  <string name="suggested_edits_add_descriptions">Dodaj opise članaka</string>
-  <string name="suggested_edits_translate_descriptions">Prevedi opise članaka</string>
-  <string name="suggested_edits_add_image_captions">Dodaj opise slika</string>
-  <string name="suggested_edits_translate_image_captions">Prevedi opise slika</string>
   <string name="suggested_edits_tag_images">Označavanje slika</string>
   <string name="suggested_edits_review_description">Pregledaj opis članka</string>
   <string name="suggested_edits_add_description_button">Dodaj opis</string>

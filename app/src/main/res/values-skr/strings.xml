@@ -197,6 +197,11 @@
   <string name="preference_title_prefer_offline_content">آف لائن مواد کوں ترجیح ݙیوو</string>
   <string name="crash_report_relaunch">ول شروع کرو</string>
   <string name="crash_report_quit">نکلو</string>
+  <string name="article_menu_bar_save_button">بچاؤ</string>
+  <string name="article_menu_bar_language_button">زبان</string>
+  <string name="article_menu_bar_search_button">ڳولو</string>
+  <string name="article_menu_bar_theme_button">تھیم</string>
+  <string name="article_menu_bar_contents_button">شامل حصے</string>
   <string name="article_header_edit_hint">لکھو۔۔۔</string>
   <string name="color_theme_select">مرکزی خیال</string>
   <string name="color_theme_light">پھِکّا</string>
@@ -277,10 +282,12 @@
   <string name="suggested_edits_add_caption_button">عنوان شامل کرو</string>
   <string name="suggested_edits_edit_caption_button">عنوان وچ تبدیلی کرو</string>
   <string name="suggested_edits_menu_info">معلومات</string>
+  <string name="suggested_edits_image_caption_summary_title_image">تصویر</string>
   <string name="suggested_edits_image_caption_summary_title_author">مصنف</string>
   <string name="suggested_edits_image_caption_summary_title_source">ماخذ</string>
   <string name="suggested_edits_image_caption_summary_title_license">لائیسنس</string>
   <string name="suggested_edits_image_caption_summary_title_date">تریخ</string>
+  <string name="suggested_edits_image_preview_dialog_image">تصویر</string>
   <string name="suggested_edits_image_preview_dialog_date">تریخ</string>
   <string name="suggested_edits_article_cta_snackbar_action">ݙکھالا</string>
   <string name="suggested_edits_feed_card_add_image_tags">تصویر ٹیگ شامل کرو</string>

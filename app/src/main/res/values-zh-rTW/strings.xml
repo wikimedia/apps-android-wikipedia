@@ -339,6 +339,10 @@
   <string name="location_permissions_enable_prompt">啟用位置許可權限來查看靠近您所在的地點。</string>
   <string name="location_permissions_enable_action">啟動</string>
   <string name="error_webview_updating">Android系統的WebView正在更新。請稍候再試。</string>
+  <plurals name="multi_items_selected">
+    <item quantity="one">已選 %d 個</item>
+    <item quantity="other">已選 %d 個</item>
+  </plurals>
   <string name="multi_select_items_selected">%d個已選擇</string>
   <string name="error_message_generic">發生錯誤</string>
   <string name="view_link_preview_error_button_dismiss">關閉</string>
@@ -358,8 +362,11 @@
   <string name="crash_report_relaunch_or_quit">很抱歉，維基百科應用程式發生錯誤並且已終止運行。\n\n要重新啟動，還是結束程式？</string>
   <string name="crash_report_relaunch">重新啟動</string>
   <string name="crash_report_quit">結束</string>
-  <string name="article_menu_bar_bookmark">新增此條目至閱讀清單</string>
-  <string name="article_menu_bar_share">分享條目連結</string>
+  <string name="article_menu_bar_save_button">儲存</string>
+  <string name="article_menu_bar_language_button">語言</string>
+  <string name="article_menu_bar_search_button">搜尋</string>
+  <string name="article_menu_bar_theme_button">主題</string>
+  <string name="article_menu_bar_contents_button">目錄</string>
   <string name="article_header_edit_hint">編輯…</string>
   <string name="article_header_edit_description">編輯條目描述</string>
   <string name="article_header_edit_lead_section">編輯簡介</string>
@@ -387,6 +394,14 @@
   <string name="reading_list_articles_already_exist_message">一切完成！%s已包含所有條目。</string>
   <string name="reading_list_added_view_button">檢視清單</string>
   <string name="reading_list_add_to_list_button">添加至清單</string>
+  <plurals name="format_reading_list_statistical_summary">
+    <item quantity="one">1 個條目，%2$.2f MB</item>
+    <item quantity="other">%1$d 個條目，%2$.2f MB</item>
+  </plurals>
+  <plurals name="format_reading_list_statistical_detail">
+    <item quantity="one">%1$d 個裡有 1 個條目可離線使用，%3$.2f MB</item>
+    <item quantity="other">%1$d 個裡有 %2$d 個條目可離線使用，%3$.2f MB</item>
+  </plurals>
   <string name="format_reading_list_statistical_summary_singular">1 個條目，%1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d 個條目，%2$.2f MB</string>
   <string name="format_reading_list_statistical_detail_singular">1 個條目中有 %1$d 個可供離線閱讀，共 %2$.2f MB</string>
@@ -411,6 +426,10 @@
   <string name="reading_list_name_hint">此清單的名稱</string>
   <string name="reading_list_description_hint">描述（可選）</string>
   <string name="reading_list_item_deleted">%s已從清單之中移除</string>
+  <plurals name="reading_list_articles_deleted">
+    <item quantity="one">從清單移除 %d 個條目</item>
+    <item quantity="other">從清單移除 %d 個條目</item>
+  </plurals>
   <string name="reading_list_items_deleted">從清單移除%d個條目</string>
   <string name="reading_lists_item_deleted">%s已從清單之中移除</string>
   <string name="reading_list_item_delete_undo">還原</string>
@@ -576,6 +595,7 @@
   <string name="menu_feed_overflow_label">更多選項</string>
   <string name="feed_featured_image_share_subject">來自維基共享資源的特色圖片</string>
   <string name="feed">探索</string>
+  <string name="home">首頁</string>
   <string name="most_read_list_card_title">趨勢</string>
   <string name="view_static_card_icon_content_description">卡片圖示</string>
   <string name="view_card_news_title">新聞動態</string>
@@ -645,11 +665,15 @@
   <string name="description_starts_with_uppercase">除非第一個單字是專有名詞，否則請以小寫字母開頭。</string>
   <string name="description_edit_success_saved">已發布條目描述！</string>
   <string name="description_edit_success_saved_snackbar">已發佈條目描述！</string>
+  <string name="description_edit_success_saved_snackbar_se_promotion">條目描述已發布。不夠過癮？請協助我們添加更多。</string>
   <string name="description_edit_success_saved_in_lang_snackbar">條目描述已發布！（%s）</string>
+  <string name="description_edit_success_saved_in_lang_snackbar_se_promotion">條目描述已發布。（%s）不夠過癮？請協助我們添加更多。</string>
   <string name="description_edit_success_saved_image_caption_snackbar">圖片說明已發佈！</string>
+  <string name="description_edit_success_saved_image_caption_snackbar_se_promotion">圖片說明已發布。不夠過癮？請協助我們添加更多。</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">圖片說明已發布！（%s）</string>
-  <string name="description_edit_success_saved_image_tags_snackbar">圖片標籤已發布！</string>
-  <string name="description_edit_success_se_image_caption_feed_link_snackbar">有喜歡嗎？請協助我們替其它圖片添加缺少的說明。</string>
+  <string name="description_edit_success_saved_image_caption_in_lang_snackbar_se_promotion">圖片說明已發布。（%s）不夠過癮？請協助我們添加更多。</string>
+  <string name="description_edit_success_se_image_caption_feed_link_snackbar">不夠過癮？請協助我們替其它圖片添加缺少的說明。</string>
+  <string name="description_edit_success_se_image_tags_feed_link_snackbar">不夠過癮？請協助我們替其它圖片添加缺少的標籤。</string>
   <string name="description_edit_success_encouragement">謝謝您！您剛剛已令維基百科變得更完善，所有人都會受惠</string>
   <string name="description_edit_success_done">完成</string>
   <string name="description_edit_success_did_you_know">您知道嗎？</string>
@@ -660,10 +684,8 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">原則上為一行，介於 2 至 12 個字之間</string>
   <string name="description_edit_tutorial_button_label_start_editing">開始編輯</string>
   <string name="description_edit_tutorial_promise">首先，我保證不會濫用此功能。</string>
-  <string name="suggested_edits_add_descriptions">新增條目描述</string>
-  <string name="suggested_edits_translate_descriptions">翻譯條目描述</string>
-  <string name="suggested_edits_add_image_captions">新增圖片說明</string>
-  <string name="suggested_edits_translate_image_captions">翻譯圖片說明</string>
+  <string name="suggested_edits_describe_articles">描述條目</string>
+  <string name="suggested_edits_caption_images">說明圖片</string>
   <string name="suggested_edits_tag_images">標記圖片</string>
   <string name="suggested_edits_review_description">檢閱條目描述</string>
   <string name="suggested_edits_add_description_button">添加描述</string>
@@ -794,6 +816,10 @@
   <string name="suggested_edits_contribution_image_label">圖片</string>
   <string name="suggested_edits_contribution_article_label">條目</string>
   <string name="suggested_edits_contribution_views">%s檢視數</string>
+  <plurals name="suggested_edits_contribution_seen_times">
+    <item quantity="one">在過去 30 天被看過 1 次。</item>
+    <item quantity="other">在過去 30 天被看過 %s 次。</item>
+  </plurals>
   <string name="suggested_edits_contribution_seen_text">過去 30 天內被觀看過 %s 次。</string>
   <plurals name="suggested_edits_image_tag_contribution_label">
     <item quantity="one">您已添加 %d 個標籤</item>
@@ -801,6 +827,18 @@
   </plurals>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">昨天</string>
+  <plurals name="suggested_edits_rewards_contributions">
+    <item quantity="one">您已使用「建議編輯」為維基百科做出了 1 次貢獻。感謝您！</item>
+    <item quantity="other">您已使用「建議編輯」為維基百科做出了 %d 次貢獻。感謝您！</item>
+  </plurals>
+  <plurals name="suggested_edits_rewards_edit_streaks">
+    <item quantity="one">您今天有做出編輯，請繼續加油，%2$s！</item>
+    <item quantity="other">您在 %1$d 天裡每天都有做出編輯，請挑戰讓紀錄繼續延續下去，%2$s！</item>
+  </plurals>
+  <plurals name="suggested_edits_rewards_page_views">
+    <item quantity="one">您的編輯在過去 30 天裡有被 1 個人看到。感謝您，請繼續加油！</item>
+    <item quantity="other">您的編輯在過去 30 天裡有被 %d 個人看到。感謝您，請繼續加油！</item>
+  </plurals>
   <string name="suggested_edits_rewards_contribution">您在維基百科上使用建議編輯做出了 %d 次貢獻。感謝您！</string>
   <string name="suggested_edits_rewards_edit_streak">到目前為止，您有連續 %1$d 天每日做出編輯的紀錄。請挑戰讓紀錄繼續延續下去，%2$s！</string>
   <string name="suggested_edits_rewards_pageviews">您的編輯內容在過去 30 天裡已被 %d 個人觀看過。感謝您，並請繼續加油！</string>

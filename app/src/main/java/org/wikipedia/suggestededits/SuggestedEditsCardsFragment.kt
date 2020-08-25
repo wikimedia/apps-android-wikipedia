@@ -123,12 +123,14 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        setHasOptionsMenu(true)
+        setHasOptionsMenu(action == ADD_IMAGE_TAGS)
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.menu_suggested_edits, menu)
-        ResourceUtil.setMenuItemTint(requireContext(), menu.findItem(R.id.menu_help), R.attr.colorAccent)
+        if (action == ADD_IMAGE_TAGS) {
+            inflater.inflate(R.menu.menu_suggested_edits, menu)
+            ResourceUtil.setMenuItemTint(requireContext(), menu.findItem(R.id.menu_help), R.attr.colorAccent)
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -350,10 +352,10 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
                         if (editorTaskCounts.totalEdits == Prefs.getSuggestedEditsRewardInterstitialContributionOnInitialCount()
                                 || editorTaskCounts.totalEdits % Prefs.getSuggestedEditsRewardInterstitialContributionOnCount() == 0) {
                             rewardInterstitialImage = R.attr.reward_interstitial_heart_drawable
-                            rewardInterstitialText = getString(R.string.suggested_edits_rewards_contribution, editorTaskCounts.totalEdits)
+                            rewardInterstitialText = resources.getQuantityString(R.plurals.suggested_edits_rewards_contributions, editorTaskCounts.totalEdits, editorTaskCounts.totalEdits)
                         } else if (editorTaskCounts.editStreak % Prefs.getSuggestedEditsRewardInterstitialEditStreakOnCount() == 0) {
                             rewardInterstitialImage = R.attr.reward_interstitial_calendar_drawable
-                            rewardInterstitialText = getString(R.string.suggested_edits_rewards_edit_streak, editorTaskCounts.editStreak, AccountUtil.getUserName())
+                            rewardInterstitialText = resources.getQuantityString(R.plurals.suggested_edits_rewards_edit_streaks, editorTaskCounts.editStreak, editorTaskCounts.editStreak, AccountUtil.getUserName())
                         } else if ((Prefs.getLastSuggestedEditsRewardInterstitialEditQualityShown().toInt() == 0
                                         || daysOfLastEditQualityShown == Prefs.getSuggestedEditsRewardInterstitialEditQualityOnDay())
                                 && UserContributionsStats.getRevertSeverity() <= SuggestedEditsRewardsItemFragment.EDIT_STREAK_MAX_REVERT_SEVERITY) {
@@ -392,7 +394,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
                     .subscribe({
                         if (it >= 0) {
                             rewardInterstitialImage = R.attr.reward_interstitial_view_drawable
-                            rewardInterstitialText = getString(R.string.suggested_edits_rewards_pageviews, it)
+                            rewardInterstitialText = resources.getQuantityString(R.plurals.suggested_edits_rewards_page_views, it.toInt(), it)
                             Prefs.setLastSuggestedEditsRewardInterstitialPageviewsShown(System.currentTimeMillis())
                         }
                     }, { t ->
@@ -491,11 +493,11 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
         when (rewardInterstitialQACount) {
             0 -> {
                 rewardInterstitialImage = R.attr.reward_interstitial_heart_drawable
-                rewardInterstitialText = getString(R.string.suggested_edits_rewards_contribution, 100)
+                rewardInterstitialText = resources.getQuantityString(R.plurals.suggested_edits_rewards_contributions, 100, 100)
             }
             1 -> {
                 rewardInterstitialImage = R.attr.reward_interstitial_calendar_drawable
-                rewardInterstitialText = getString(R.string.suggested_edits_rewards_edit_streak, 100, AccountUtil.getUserName())
+                rewardInterstitialText = resources.getQuantityString(R.plurals.suggested_edits_rewards_edit_streaks, 100, 100, AccountUtil.getUserName())
             }
             2 -> {
                 rewardInterstitialImage = R.attr.reward_interstitial_quality_perfect_drawable
@@ -515,7 +517,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
             }
             6 -> {
                 rewardInterstitialImage = R.attr.reward_interstitial_view_drawable
-                rewardInterstitialText = getString(R.string.suggested_edits_rewards_pageviews, 100)
+                rewardInterstitialText = resources.getQuantityString(R.plurals.suggested_edits_rewards_page_views, 100, 100)
             }
         }
 

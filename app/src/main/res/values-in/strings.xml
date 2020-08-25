@@ -360,8 +360,6 @@
   <string name="crash_report_relaunch_or_quit">Kami mohon maaf, aplikasi Wikipedia mengalami kesalahan dan dihentikan.\n\nApakah Anda ingin memulai kembali atau keluar?</string>
   <string name="crash_report_relaunch">Memulai kembali</string>
   <string name="crash_report_quit">Keluar</string>
-  <string name="article_menu_bar_bookmark">Tambahkan artikel ini ke dalam daftar bacaan</string>
-  <string name="article_menu_bar_share">Bagikan pranala artikel</string>
   <string name="article_header_edit_hint">Sunting...</string>
   <string name="article_header_edit_description">Sunting deskripsi judul</string>
   <string name="article_header_edit_lead_section">Sunting pengantar</string>
@@ -638,7 +636,6 @@
   <string name="description_edit_success_saved_in_lang_snackbar">Deksripsi artikel diterbitkan! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Takarir diterbitkan!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Takarir diterbitkan! (%s)</string>
-  <string name="description_edit_success_saved_image_tags_snackbar">Takarir telah diterbitkan!</string>
   <string name="description_edit_success_se_image_caption_feed_link_snackbar">Anda menikmati itu? Bantu kita menambahkan teks ke gambar yang lain.</string>
   <string name="description_edit_success_encouragement">Anda baru saja membuat Wikipedia lebih baik untuk semua orang</string>
   <string name="description_edit_success_done">Selesai</string>
@@ -650,10 +647,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealnya satu baris, antara 2-12 kata</string>
   <string name="description_edit_tutorial_button_label_start_editing">Mulai menyunting</string>
   <string name="description_edit_tutorial_promise">Dengan memulai, saya berjanji untuk tidak menyalahgunakan fitur ini.</string>
-  <string name="suggested_edits_add_descriptions">Tambahkan deskripsi artikel</string>
-  <string name="suggested_edits_translate_descriptions">Terjemahkan deskripsi artikel</string>
-  <string name="suggested_edits_add_image_captions">Tambahkan takarir gambar</string>
-  <string name="suggested_edits_translate_image_captions">Terjemahkan takarir gambar</string>
   <string name="suggested_edits_tag_images">Tandai gambar</string>
   <string name="suggested_edits_review_description">Tinjau deskripsi artikel</string>
   <string name="suggested_edits_add_description_button">Tambahkan deskripsi</string>

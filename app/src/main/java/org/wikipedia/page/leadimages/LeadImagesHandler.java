@@ -230,7 +230,7 @@ public class LeadImagesHandler {
             @Override
             public void onCallToActionClicked() {
                 if (imageEditType == ImageEditType.ADD_TAGS) {
-                    getActivity().startActivityForResult(SuggestedEditsImageTagEditActivity.Companion.newIntent(getActivity(), imagePage), ACTIVITY_REQUEST_IMAGE_TAGS_EDIT);
+                    getActivity().startActivityForResult(SuggestedEditsImageTagEditActivity.Companion.newIntent(getActivity(), imagePage, LEAD_IMAGE), ACTIVITY_REQUEST_IMAGE_TAGS_EDIT);
                     return;
                 }
                 if (imageEditType == ImageEditType.ADD_CAPTION_TRANSLATION ? (callToActionTargetSummary != null && callToActionSourceSummary != null) : callToActionSourceSummary != null) {

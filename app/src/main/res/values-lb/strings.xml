@@ -296,8 +296,10 @@
   <string name="crash_report_relaunch_or_quit">Et deet eis Leed, bei der Wikipedai-App ass e Feeler geschitt a se gouf gestoppt.\n\nWëllt Dir se nei starten oder erausgoen?</string>
   <string name="crash_report_relaunch">Nei starten</string>
   <string name="crash_report_quit">Erausgoen</string>
-  <string name="article_menu_bar_bookmark">Dësen Artikel op eng Lieslëscht derbäisetzen</string>
-  <string name="article_menu_bar_share">De Link vum Artikel deelen</string>
+  <string name="article_menu_bar_save_button">Späicheren</string>
+  <string name="article_menu_bar_language_button">Sprooch</string>
+  <string name="article_menu_bar_search_button">Sichen</string>
+  <string name="article_menu_bar_contents_button">Inhalter</string>
   <string name="article_header_edit_hint">Änneren...</string>
   <string name="article_header_edit_description">Beschreiwung vum Artikel änneren</string>
   <string name="article_header_edit_lead_section">Aféierung änneren</string>
@@ -317,6 +319,10 @@
   <string name="reading_list_title_exists">D\'Lieslëscht \"%s\" gëtt et schonn.</string>
   <string name="reading_list_article_moved_to_named">%1$s geréckelt op %2$s .</string>
   <string name="reading_list_added_view_button">Lëscht weisen</string>
+  <plurals name="format_reading_list_statistical_summary">
+    <item quantity="one">1 Artikel, %2$.2f MB</item>
+    <item quantity="other">%1$d Artikelen, %2$.2f MB</item>
+  </plurals>
   <string name="format_reading_list_statistical_summary_singular">Een Artikel, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d Artikelen, %2$.2f MB</string>
   <string name="format_reading_list_statistical_detail_singular">%1$d Säite vun engem Artikel offline disponibel, %2$.2f MB</string>
@@ -531,8 +537,8 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealerweis eng Linn, mat tëscht zwee an zwielef Wierder</string>
   <string name="description_edit_tutorial_button_label_start_editing">Ufänke mat Änneren</string>
   <string name="description_edit_tutorial_promise">Ech verspriechen dës Funktioun net ze mëssbrauchen.</string>
-  <string name="suggested_edits_add_descriptions">Artikel-Beschreiwungen derbäisetzen</string>
-  <string name="suggested_edits_translate_descriptions">Artikel-Beschreiwungen iwwersetzen</string>
+  <string name="suggested_edits_describe_articles">Artikele beschreiwen</string>
+  <string name="suggested_edits_caption_images">Ënnertitel fir Biller</string>
   <string name="suggested_edits_review_description">Artikel-Beschreiwung iwwerliesen</string>
   <string name="suggested_edits_add_description_button">Beschreiwung derbäisetzen</string>
   <string name="suggested_edits_add_translation_button">Iwwersetzung derbäisetzen</string>

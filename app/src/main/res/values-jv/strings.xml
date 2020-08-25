@@ -313,8 +313,6 @@
   <string name="crash_report_relaunch_or_quit">Awak dhéwé nyuwun pangapura, aplikasi Wikipédia ngalami masalah mula dipatèni.\n\nApa kowé gelem mbalèni utawa metu waé?</string>
   <string name="crash_report_relaunch">Balèni kawit pisanan</string>
   <string name="crash_report_quit">Metu</string>
-  <string name="article_menu_bar_bookmark">Tambah artikel iki nyang pratélan wacan</string>
-  <string name="article_menu_bar_share">Dum pranalané artikel</string>
   <string name="article_header_edit_hint">Mbesut...</string>
   <string name="article_header_edit_description">Besut wedharaning artikel</string>
   <string name="article_header_edit_lead_section">Besut bebuka</string>
@@ -575,10 +573,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Prayogané salarik, tembungé cacahé antarané loro tekan rolas</string>
   <string name="description_edit_tutorial_button_label_start_editing">Wiwit mbesut</string>
   <string name="description_edit_tutorial_promise">Kanthi miwiti, kula jangji ora nyalahi panganggoné fitur iki.</string>
-  <string name="suggested_edits_add_descriptions">Wuwuh wedharaning artikel</string>
-  <string name="suggested_edits_translate_descriptions">Pertal wedharaning artikel</string>
-  <string name="suggested_edits_add_image_captions">Wuwuh kateranganing gambar</string>
-  <string name="suggested_edits_translate_image_captions">Pertal kateranganing gambar</string>
   <string name="suggested_edits_review_description">Priksa wedharaning artikel</string>
   <string name="suggested_edits_add_description_button">Wuwuh wedharan</string>
   <string name="suggested_edits_edit_description_button">Besut wedharan</string>

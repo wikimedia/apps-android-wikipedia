@@ -341,8 +341,6 @@
   <string name="crash_report_relaunch_or_quit">Maaf, aplikasi Wikipedia telah mengalami ralat dan terpaksa ditutup</string>
   <string name="crash_report_relaunch">Mula balik</string>
   <string name="crash_report_quit">Keluar</string>
-  <string name="article_menu_bar_bookmark">Tambahkan rencana ini ke dalam senarai bacaan</string>
-  <string name="article_menu_bar_share">Kongsi pautan rencana</string>
   <string name="article_header_edit_hint">Sunting...</string>
   <string name="article_header_edit_description">Sunting huraian tajuk</string>
   <string name="article_header_edit_lead_section">Sunting pengenalan</string>
@@ -626,7 +624,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Sebaik-baiknya satu baris, antara dua hingga dua belas perkataan</string>
   <string name="description_edit_tutorial_button_label_start_editing">Mula menyunting</string>
   <string name="description_edit_tutorial_promise">Dengan bermula, saya berjanji tidak akan menyalahgunakan ciri ini.</string>
-  <string name="suggested_edits_add_descriptions" fuzzy="true">Tambah penerangan tajuk</string>
   <string name="suggested_edits_review_description" fuzzy="true">Kaji penerangan tajuk</string>
   <string name="suggested_edits_add_description_button">Tambah penerangan</string>
   <string name="suggested_edits_my_contributions">Sumbangan saya</string>

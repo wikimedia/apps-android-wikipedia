@@ -330,8 +330,6 @@
   <string name="crash_report_relaunch_or_quit">Sentitzen dugu, Wikipedia aplikazioak errorea jasan du eta eten egin da.\n\nBerriro hasi ala irten nahiko zenuke?</string>
   <string name="crash_report_relaunch">Berriro ere hasi</string>
   <string name="crash_report_quit">Irten</string>
-  <string name="article_menu_bar_bookmark">Artikulu hau gehitu irakurtze zerrendara</string>
-  <string name="article_menu_bar_share">Partekatu artikuluaren lotura</string>
   <string name="article_header_edit_hint">Aldatu...</string>
   <string name="article_header_edit_description">Artikuluaren deskribapena aldatu</string>
   <string name="article_header_edit_lead_section">Sarrera aldatu</string>

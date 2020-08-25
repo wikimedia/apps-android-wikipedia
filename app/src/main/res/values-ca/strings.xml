@@ -337,6 +337,10 @@
   <string name="location_permissions_enable_prompt">Activa els permisos d\'ubicació per a veure els llocs propers.</string>
   <string name="location_permissions_enable_action">Activa</string>
   <string name="error_webview_updating">El WebView del sistema Android s\'està actualizant. Torneu-ho a provar en un moment.</string>
+  <plurals name="multi_items_selected">
+    <item quantity="one">%d seleccionat</item>
+    <item quantity="other">%d seleccionats</item>
+  </plurals>
   <string name="multi_select_items_selected">%d seleccionats</string>
   <string name="error_message_generic">S\'ha produït un error</string>
   <string name="view_link_preview_error_button_dismiss">Descarta</string>
@@ -356,8 +360,11 @@
   <string name="crash_report_relaunch_or_quit">Ens sap greu, l\'aplicació de Viquipèdia ha experimentat un error i s\'ha tancat.\n\nVoleu començar de nou o sortir?</string>
   <string name="crash_report_relaunch">Comença de nou</string>
   <string name="crash_report_quit">Surt</string>
-  <string name="article_menu_bar_bookmark">Afegeix l\'article a la llista de lectura</string>
-  <string name="article_menu_bar_share">Comparteix l\'enllaç a l\'article</string>
+  <string name="article_menu_bar_save_button">Desa</string>
+  <string name="article_menu_bar_language_button">Llengua</string>
+  <string name="article_menu_bar_search_button">Cerca</string>
+  <string name="article_menu_bar_theme_button">Tema</string>
+  <string name="article_menu_bar_contents_button">Continguts</string>
   <string name="article_header_edit_hint">Modifica…</string>
   <string name="article_header_edit_description">Modifica la descripció de l\'article</string>
   <string name="article_header_edit_lead_section">Modifica la introducció</string>
@@ -385,6 +392,14 @@
   <string name="reading_list_articles_already_exist_message">Tot correcte! %s ja conté tots els articles.</string>
   <string name="reading_list_added_view_button">Mostra la llista</string>
   <string name="reading_list_add_to_list_button">Afegir a la llista</string>
+  <plurals name="format_reading_list_statistical_summary">
+    <item quantity="one">1 article, %2$.2f MB</item>
+    <item quantity="other">%1$d articles, %2$.2f MB</item>
+  </plurals>
+  <plurals name="format_reading_list_statistical_detail">
+    <item quantity="one">%1$d d\'1 article disponible fora de línia, %3$.2f MB</item>
+    <item quantity="other">%1$d de %2$d articles disponibles fora de línia, %3$.2f MB</item>
+  </plurals>
   <string name="format_reading_list_statistical_summary_singular">1 article, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d articles, %2$.2f MB</string>
   <string name="format_reading_list_statistical_detail_singular">%1$d d\'1 article disponible fora de línia, %2$.2f MB</string>
@@ -409,6 +424,10 @@
   <string name="reading_list_name_hint">Nom de la llista</string>
   <string name="reading_list_description_hint">Descripció (opcional)</string>
   <string name="reading_list_item_deleted">%s suprimit de la llista</string>
+  <plurals name="reading_list_articles_deleted">
+    <item quantity="one">%d article suprimit de la llista</item>
+    <item quantity="other">%d articles suprimits de la llista</item>
+  </plurals>
   <string name="reading_list_items_deleted">%d articles esborrats de la llista</string>
   <string name="reading_lists_item_deleted">%s suprimit de les llistes</string>
   <string name="reading_list_item_delete_undo">Desfés</string>
@@ -574,6 +593,7 @@
   <string name="menu_feed_overflow_label">Més opcions</string>
   <string name="feed_featured_image_share_subject">Imatge destacada de Wikimedia Commons</string>
   <string name="feed">Exploreu</string>
+  <string name="home">Inici</string>
   <string name="most_read_list_card_title">Tendències</string>
   <string name="view_static_card_icon_content_description">Icona de targeta</string>
   <string name="view_card_news_title">Actualitat</string>
@@ -643,11 +663,15 @@
   <string name="description_starts_with_uppercase">Comenceu amb minúscula a menys que la primera paraula sigui un nom propi.</string>
   <string name="description_edit_success_saved">S\'ha publicat la descripció d\'article!</string>
   <string name="description_edit_success_saved_snackbar">S’ha publicat la descripció d\'article.</string>
+  <string name="description_edit_success_saved_snackbar_se_promotion">S\'ha publicat la descripció de l\'article. Us ha agradat? Ajudeu-nos a afegir-ne més.</string>
   <string name="description_edit_success_saved_in_lang_snackbar">S\'ha publicat la descripció de l\'article (%s)</string>
+  <string name="description_edit_success_saved_in_lang_snackbar_se_promotion">S\'ha publicat la descripció de l\'article. (%s) Us ha agradat? Ajudeu-nos a afegir-ne més.</string>
   <string name="description_edit_success_saved_image_caption_snackbar">S\'ha publicat la llegenda de la imatge!</string>
+  <string name="description_edit_success_saved_image_caption_snackbar_se_promotion">S\'ha publicat la llegenda de la imatge. Us ha agradat? Ajudeu-nos a afegir-ne més.</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">S\'ha publicat la llegenda de la imatge! (%s)</string>
-  <string name="description_edit_success_saved_image_tags_snackbar">S\'han publicat les etiquetes d\'imatge!</string>
+  <string name="description_edit_success_saved_image_caption_in_lang_snackbar_se_promotion">S\'ha publicat la llegenda de la imatge. (%s) Us ha agradat? Ajudeu-nos a afegir-ne més.</string>
   <string name="description_edit_success_se_image_caption_feed_link_snackbar">Us ha agradat?  Ajuda\'ns a afegir els peus de foto que falten a altres imatges.</string>
+  <string name="description_edit_success_se_image_tags_feed_link_snackbar">Us ha agradat? Ajudeu-nos a afegir les etiquetes que hi manquen a les altres imatges.</string>
   <string name="description_edit_success_encouragement">Acabeu de millorar la Viquipèdia per a tothom</string>
   <string name="description_edit_success_done">Fet</string>
   <string name="description_edit_success_did_you_know">Ho sabíeu?</string>
@@ -658,10 +682,8 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealment una línia, entre dos o dotze mots</string>
   <string name="description_edit_tutorial_button_label_start_editing">Comença a editar</string>
   <string name="description_edit_tutorial_promise">En començar, prometeu que no fareu mal ús d\'aquesta funcionalitat.</string>
-  <string name="suggested_edits_add_descriptions">Afegeix descripcions d\'article</string>
-  <string name="suggested_edits_translate_descriptions">Tradueix descripcions d\'article</string>
-  <string name="suggested_edits_add_image_captions">Afegeix llegendes a les imatges</string>
-  <string name="suggested_edits_translate_image_captions">Tradueix les llegendes de les imatges</string>
+  <string name="suggested_edits_describe_articles">Descriu articles</string>
+  <string name="suggested_edits_caption_images">Posa llegendes a les imatges</string>
   <string name="suggested_edits_tag_images">Etiqueta les imatges</string>
   <string name="suggested_edits_review_description">Revisa la descripció d\'article</string>
   <string name="suggested_edits_add_description_button">Afegeix una descripció</string>
@@ -713,6 +735,7 @@
   <string name="suggested_edits_image_preview_dialog_more_info">Més informació</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">Pàgina del fitxer a Wikimedia Commons</string>
   <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">Pàgina de fitxer a la Viquipèdia</string>
+  <string name="suggested_edits_article_cta_image_tags">Afegeix etiquetes d\'imatge</string>
   <string name="suggested_edits_article_cta_image_caption">Afegeix una llegenda d\'imatge</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">Afegeix una llegenda d\'imatge (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">Mostra</string>
@@ -791,6 +814,10 @@
   <string name="suggested_edits_contribution_image_label">Imatge</string>
   <string name="suggested_edits_contribution_article_label">Article</string>
   <string name="suggested_edits_contribution_views">%s visualitzacions</string>
+  <plurals name="suggested_edits_contribution_seen_times">
+    <item quantity="one">Vista una vegada en els darrers 30 dies.</item>
+    <item quantity="other">Vist %s vegades en els darrers 30 dies.</item>
+  </plurals>
   <string name="suggested_edits_contribution_seen_text">Vist %s vegades els darrers 30 dies.</string>
   <plurals name="suggested_edits_image_tag_contribution_label">
     <item quantity="one">Heu afegit %d etiqueta</item>
@@ -798,6 +825,10 @@
   </plurals>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Ahir</string>
+  <plurals name="suggested_edits_rewards_contributions">
+    <item quantity="one">Heu fet una contribució a la Viquipèdia fent servir Edicions suggerides. Gràcies!</item>
+    <item quantity="other">Heu fet %d contribucions a la Viquipèdia fent servir Edicions suggerides. Gràcies!</item>
+  </plurals>
   <string name="suggested_edits_rewards_contribution">Heu fet %d contribucions a la Viquipèdia a partir d\'edicions suggerides. Gràcies!</string>
   <string name="suggested_edits_rewards_edit_streak">Heu editat cada dia durant %1$d dies fins ara. Bon ritme, %2$s!</string>
   <string name="suggested_edits_rewards_pageviews">%d persones han vist les vostres edicions els darrers 30 dies. Gràcies i endavant!</string>

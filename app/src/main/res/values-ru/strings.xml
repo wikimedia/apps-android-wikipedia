@@ -384,8 +384,6 @@
   <string name="crash_report_relaunch_or_quit">Сожалеем, но в приложении Википедии случилась ошибка, в результате чего оно было закрыто.\n\nВы хотите перезапустить его или выйти?</string>
   <string name="crash_report_relaunch">Перезапустить</string>
   <string name="crash_report_quit">Выйти</string>
-  <string name="article_menu_bar_bookmark">Добавить эту статью в список для чтения</string>
-  <string name="article_menu_bar_share">Поделиться ссылкой на статью</string>
   <string name="article_header_edit_hint">Править…</string>
   <string name="article_header_edit_description">Изменить описание статьи</string>
   <string name="article_header_edit_lead_section">Редактировать введение</string>
@@ -665,7 +663,6 @@
   <string name="description_edit_success_saved_in_lang_snackbar">Описание статьи сохранено! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Описание изображения опубликовано!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Опубликовано описание изображения (%s)!</string>
-  <string name="description_edit_success_saved_image_tags_snackbar">Тег(и) изображени(й) опубликовано!</string>
   <string name="description_edit_success_encouragement">Вы только что сделали Википедию лучше для всех</string>
   <string name="description_edit_success_done">Готово</string>
   <string name="description_edit_success_did_you_know">Знаете ли вы?</string>
@@ -676,10 +673,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">В идеале одна строка, от двух до двенадцати слов</string>
   <string name="description_edit_tutorial_button_label_start_editing">Начать редактирование</string>
   <string name="description_edit_tutorial_promise">Начав, я обещаю не злоупотреблять этой функцией.</string>
-  <string name="suggested_edits_add_descriptions">Добавление описаний статей</string>
-  <string name="suggested_edits_translate_descriptions">Перевод описаний статей</string>
-  <string name="suggested_edits_add_image_captions">Добавить описания изображений</string>
-  <string name="suggested_edits_translate_image_captions">Перевести описания изображений</string>
   <string name="suggested_edits_tag_images">Тегирование изображений</string>
   <string name="suggested_edits_review_description">Предпросмотр описания</string>
   <string name="suggested_edits_add_description_button">Добавить описание</string>

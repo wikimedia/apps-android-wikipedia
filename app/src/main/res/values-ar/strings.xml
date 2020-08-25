@@ -360,8 +360,8 @@
   <string name="crash_report_relaunch_or_quit">نحن آسفون، وقع خطأ في تطبيق ويكيبيديا أدى إلى توقفه.\n\nتريد أن تبدأ من جديد أو إنهاء؟</string>
   <string name="crash_report_relaunch">ابدأ من جديد</string>
   <string name="crash_report_quit">خروج</string>
-  <string name="article_menu_bar_bookmark">أضف هذه المقالة لقائمة قراءة</string>
-  <string name="article_menu_bar_share">شارك وصلة المقالة</string>
+  <string name="article_menu_bar_language_button">اللغة</string>
+  <string name="article_menu_bar_contents_button">المحتويات</string>
   <string name="article_header_edit_hint">تحرير...</string>
   <string name="article_header_edit_description">تحرير وصف المقالة</string>
   <string name="article_header_edit_lead_section">عدّل المقدمة</string>
@@ -569,6 +569,7 @@
   <string name="menu_feed_overflow_label">خيارات أخرى</string>
   <string name="feed_featured_image_share_subject">صورة مختارة من ويكيميديا كومنز</string>
   <string name="feed">استكشف</string>
+  <string name="home">الرئيسية</string>
   <string name="most_read_list_card_title">الأكثر زيارة</string>
   <string name="view_static_card_icon_content_description">أيقونة بطاقة</string>
   <string name="view_card_news_title">في الأخبار</string>
@@ -638,7 +639,6 @@
   <string name="description_edit_success_saved_in_lang_snackbar">تم نشر وصف المقالة! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">تم نشر تعليق الصورة!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">تم نشر تعليق الصورة! (%s)</string>
-  <string name="description_edit_success_saved_image_tags_snackbar">وسم(وسوم) الصورة تم نشرها!</string>
   <string name="description_edit_success_encouragement">لقد جعلت ويكيبيديا أفضل للجميع</string>
   <string name="description_edit_success_done">تم</string>
   <string name="description_edit_success_did_you_know">هل تعلم؟</string>
@@ -649,10 +649,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">بشكلٍ مثالي سطر واحد يكفي، ما بين كلمتين إلى اثنتا عشرة كلمة</string>
   <string name="description_edit_tutorial_button_label_start_editing">ابدأ التعديل</string>
   <string name="description_edit_tutorial_promise">ببدئي، أنا أعد بعدم إساءة استخدام هذه الميزة.</string>
-  <string name="suggested_edits_add_descriptions">إضافة وصف المقالة</string>
-  <string name="suggested_edits_translate_descriptions">ترجمة أوصاف المقالات</string>
-  <string name="suggested_edits_add_image_captions">إضافة تعليقات الصور</string>
-  <string name="suggested_edits_translate_image_captions">ترجمة تعليقات الصور</string>
   <string name="suggested_edits_tag_images">ضع وسمًا على الصور</string>
   <string name="suggested_edits_review_description">مراجعة وصف المقالة</string>
   <string name="suggested_edits_add_description_button">أضف وصفا</string>

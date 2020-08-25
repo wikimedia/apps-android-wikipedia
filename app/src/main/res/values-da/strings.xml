@@ -335,8 +335,10 @@
   <string name="crash_report_relaunch_or_quit">Vi beklager, Wikipedia-appen er stødt på en fejl, og blev afsluttet.\n\nVil du starte forfra eller afslutte?</string>
   <string name="crash_report_relaunch">Start forfra</string>
   <string name="crash_report_quit">Afslut</string>
-  <string name="article_menu_bar_bookmark">Tilføj denne artikel til en læseliste</string>
-  <string name="article_menu_bar_share">Del link til artiklen</string>
+  <string name="article_menu_bar_save_button">Gem</string>
+  <string name="article_menu_bar_language_button">Sprog</string>
+  <string name="article_menu_bar_theme_button">Tema</string>
+  <string name="article_menu_bar_contents_button">Indhold</string>
   <string name="article_header_edit_hint">Rediger…</string>
   <string name="article_header_edit_description">Rediger artikelbeskrivelsen</string>
   <string name="article_header_edit_lead_section">Rediger introduktion</string>
@@ -532,6 +534,7 @@
   <string name="menu_feed_overflow_label">Flere indstillinger</string>
   <string name="feed_featured_image_share_subject">Fremhævet billede fra Wikimedia Commons</string>
   <string name="feed">Udforsk</string>
+  <string name="home">Hjem</string>
   <string name="most_read_list_card_title">Populært</string>
   <string name="view_static_card_icon_content_description">Kortikon</string>
   <string name="view_card_news_title">I nyhederne</string>
@@ -595,8 +598,7 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Helst én linje, mellem to og tolv ord</string>
   <string name="description_edit_tutorial_button_label_start_editing">Begynd at redigere</string>
   <string name="description_edit_tutorial_promise">Ved at begynde lover jeg ikke at misbruge denne funktion.</string>
-  <string name="suggested_edits_add_descriptions">Tilføj artikelbeskrivelser</string>
-  <string name="suggested_edits_translate_descriptions">Oversæt artikelbeskrivelser</string>
+  <string name="suggested_edits_describe_articles">Beskriv artikler</string>
   <string name="suggested_edits_review_description" fuzzy="true">Korrekturlæs beskrivelse</string>
   <string name="suggested_edits_add_description_button">Tilføj beskrivelse</string>
   <string name="suggested_edits_edit_description_button">Rediger beskrivelse</string>
@@ -612,6 +614,7 @@
   <string name="suggested_edits_task_multilingual_description">Oversættelsesopgaver er tilgængelige, hvis du læser og skriver på mere end et Wikipedia-sprog.</string>
   <string name="suggested_edits_task_multilingual_negative">Ikke noget for mig</string>
   <string name="suggested_edits_task_multilingual_positive">Tilføj sprog</string>
+  <string name="suggested_edits_image_caption_summary_title_image">Billede</string>
   <string name="suggested_edits_image_caption_summary_title_source">Kilde</string>
   <string name="suggested_edits_image_caption_summary_title_license">Licens</string>
   <string name="suggested_edits_image_caption_summary_title_date">Dato</string>

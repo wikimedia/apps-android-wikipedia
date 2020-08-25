@@ -353,8 +353,10 @@
   <string name="crash_report_relaunch_or_quit">Pahoittelumme. Wikipedia-sovellus kohtasi virheen ja kaatui.\n\nHaluaisitko käynnistää sovelluksen uudelleen vai poistua sovelluksesta?</string>
   <string name="crash_report_relaunch">Käynnistä uudelleen</string>
   <string name="crash_report_quit">Poistu</string>
-  <string name="article_menu_bar_bookmark">Tallenna artikkeli lukulukuluetteloon</string>
-  <string name="article_menu_bar_share">Jaa linkki artikkeliin</string>
+  <string name="article_menu_bar_save_button">Tallenna</string>
+  <string name="article_menu_bar_language_button">Kieli</string>
+  <string name="article_menu_bar_theme_button">Teema</string>
+  <string name="article_menu_bar_contents_button">Sisältö</string>
   <string name="article_header_edit_hint">Muokkaa…</string>
   <string name="article_header_edit_description">Muokkaa artikkelin kuvausta</string>
   <string name="article_header_edit_lead_section">Muokkaa johdantoa</string>
@@ -380,6 +382,7 @@
   <string name="reading_list_article_already_exists_message">Kaikki hyvin! %1$s sisältää jo artikkelin %2$s.</string>
   <string name="reading_list_articles_already_exist_message">Kaikki hyvin! %s sisältää jo kaikki artikkelit.</string>
   <string name="reading_list_added_view_button">Näytä lista</string>
+  <string name="reading_list_add_to_list_button">Lisää listaan</string>
   <string name="format_reading_list_statistical_summary_singular">1 artikkeli, %1$.2f Mt</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d artikkelia, %2$.2f Mt</string>
   <string name="format_reading_list_statistical_detail_singular">%1$d yhdestä artikkelista on saatavilla offline-tilassa vieden %2$.2f Mt tilaa</string>
@@ -568,6 +571,7 @@
   <string name="menu_feed_overflow_label">Lisää vaihtoehtoja</string>
   <string name="feed_featured_image_share_subject">Suositeltu kuva Wikimedia Commonsista</string>
   <string name="feed">Tutki</string>
+  <string name="home">Koti</string>
   <string name="most_read_list_card_title">Nousussa</string>
   <string name="view_static_card_icon_content_description">Korttikuvake</string>
   <string name="view_card_news_title">Uutisissa</string>
@@ -628,6 +632,7 @@
   <string name="description_edit_anon_limit">Kiitos jatkuvasta mielenkiinnostasi artikkelin kuvausten muokkaamiseen! Tehdäksesi lisämuokkauksia, kirjaudu sisään Wikipedia-tunnuksellesi.</string>
   <string name="description_edit_license_notice">Muuttamalla artikkelin kuvauksen, hyväksyn &lt;a href=\"%1$s\"&gt;käyttöehdot&lt;/a&gt; ja peruuttamattomasti julkaisen muokkaukseni &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt; -lisenssillä.</string>
   <string name="description_edit_helper_text_lowercase_warning">alkaa yleensä pienellä kirjaimella</string>
+  <string name="description_edit_voice_input_description">Äänisyöte</string>
   <string name="description_too_short">Teksti on liian lyhyt.</string>
   <string name="description_ends_with_punctuation">Teksti ei saa päättyä välimerkkeihin.</string>
   <string name="description_edit_success_saved">Artikkelin kuvaus julkaistu!</string>
@@ -635,7 +640,6 @@
   <string name="description_edit_success_saved_in_lang_snackbar">Artikkelin kuvaus julkaistu! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Kuvateksti julkaistu!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Kuvateksti julkaistu! (%s)</string>
-  <string name="description_edit_success_saved_image_tags_snackbar">Kuvamerkintä/-merkinnät julkaistu!</string>
   <string name="description_edit_success_encouragement">Teit juuri Wikipediasta kaikille paremman</string>
   <string name="description_edit_success_done">Valmis</string>
   <string name="description_edit_success_did_you_know">Tiesitkö?</string>
@@ -646,10 +650,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Ihanteellisesti yksi rivi, kahdesta kahteentoista sanaa</string>
   <string name="description_edit_tutorial_button_label_start_editing">Aloita muokkaaminen</string>
   <string name="description_edit_tutorial_promise">Aloittamalla lupaan olla väärinkäyttämättä tätä ominaisuutta.</string>
-  <string name="suggested_edits_add_descriptions">Lisää artikkelin kuvaukset</string>
-  <string name="suggested_edits_translate_descriptions">Käännä artikkelin kuvaukset</string>
-  <string name="suggested_edits_add_image_captions">Lisää kuvatekstit</string>
-  <string name="suggested_edits_translate_image_captions">Käännä kuvatekstit</string>
   <string name="suggested_edits_tag_images">Merkitse kuvia</string>
   <string name="suggested_edits_review_description">Esikatsele artikkelin kuvausta</string>
   <string name="suggested_edits_add_description_button">Lisää kuvaus</string>
@@ -723,7 +723,9 @@
   <string name="suggested_edits_onboarding_message">&lt;b&gt;Hei %s&lt;/b&gt;, alempaa löydät nopeita ja helppoja tapoja parantaa Wikipediaa? Näet tekemäsi eron heti, kun aloitat. Hyviä muokkaushetkiä!</string>
   <string name="suggested_edits_image_captions_task_detail">Kuvaile kuvan sisältöä auttaaksesi lukijoita ymmärtämään sen merkitys ja asiayhteys.</string>
   <string name="suggested_edits_add_descriptions_task_detail">Tiivistä artikkeli auttaaksesi lukijoita ymmärtämään aihe nopeasti.</string>
+  <string name="suggested_edits_ip_blocked_message">Näyttää siltä, että IP-osoitteesi (tai IP-osoitealueesi) on tällä hetkellä estetty muokkaamasta Wikipediaa.</string>
   <string name="suggested_edits_editing_tips_link_text">Muokkausvinkkejä</string>
+  <string name="suggested_edits_help_page_link_text">Ehdotettujen muokkausten ohjesivu</string>
   <string name="suggested_edits_views_label_text">Näyttökerrat</string>
   <string name="suggested_edits_quality_label_text">Muokkauksen laatu</string>
   <string name="suggested_edits_quality_perfect_text">Täydellinen</string>
@@ -768,6 +770,7 @@
   <string name="suggested_edits_contribution_type_image_tag">Kuvamerkintä</string>
   <string name="suggested_edits_contribution_current_revision_text">Muokkauksesi on nyt saatavana Wikipediassa</string>
   <string name="file_page_activity_title">Tiedostosivu</string>
+  <string name="file_page_add_image_caption_button">Lisää kuvateksti</string>
   <string name="description_edit_revert_subtitle">Kiitos Wikipedian muokkaamisesta!</string>
   <string name="description_edit_revert_intro">Tiedämme sinun yrittäneen parhaasi, mutta eräällä arvioijalla oli huolenaihe. Mahdolliset syyt muokkauksesi palauttamiselle ovat:</string>
   <string name="description_edit_revert_reason1">muokkauksesi ei noudattanut &lt;a href=\"%1$s\"&gt;käytäntöjä&lt;/a&gt;.</string>

@@ -20,16 +20,11 @@ import androidx.core.app.ActivityOptionsCompat;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.widget.ViewPager2;
 
-import com.google.android.material.snackbar.Snackbar;
-import com.skydoves.balloon.ArrowOrientation;
-import com.skydoves.balloon.Balloon;
-
 import org.wikipedia.BackPressedHandler;
 import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
-import org.wikipedia.analytics.ABTestSuggestedEditsOnboardingIconFunnel;
 import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.auth.AccountUtil;
@@ -51,7 +46,6 @@ import org.wikipedia.navtab.MenuNavTabDialog;
 import org.wikipedia.navtab.NavTab;
 import org.wikipedia.navtab.NavTabFragmentPagerAdapter;
 import org.wikipedia.navtab.NavTabLayout;
-import org.wikipedia.navtab.NavTabOverlayLayout;
 import org.wikipedia.notifications.NotificationActivity;
 import org.wikipedia.page.ExclusiveBottomSheetPresenter;
 import org.wikipedia.page.PageActivity;
@@ -100,19 +94,13 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     @BindView(R.id.fragment_main_view_pager) ViewPager2 viewPager;
     @BindView(R.id.fragment_main_nav_tab_container) LinearLayout navTabContainer;
     @BindView(R.id.fragment_main_nav_tab_layout) NavTabLayout tabLayout;
-    @BindView(R.id.fragment_main_nav_tab_overlay_layout) NavTabOverlayLayout tabOverlayLayout;
     @BindView(R.id.nav_more_container) View moreContainer;
     private Unbinder unbinder;
     private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
     private MediaDownloadReceiver downloadReceiver = new MediaDownloadReceiver();
     private MediaDownloadReceiverCallback downloadReceiverCallback = new MediaDownloadReceiverCallback();
-    private Snackbar suggestedEditsNavTabSnackbar;
     private PageChangeCallback pageChangeCallback = new PageChangeCallback();
     private CompositeDisposable disposables = new CompositeDisposable();
-    private boolean navTabAutoSelect;
-
-    private boolean editsAccessedWhilePulsating;
-    private ABTestSuggestedEditsOnboardingIconFunnel pulsatingIconFunnel = new ABTestSuggestedEditsOnboardingIconFunnel();
 
     // Actually shows on the 3rd time of using the app. The Pref.incrementExploreFeedVisitCount() gets call after MainFragment.onResume()
     private static final int SHOW_EDITS_SNACKBAR_COUNT = 2;
@@ -147,15 +135,17 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         FeedbackUtil.setButtonLongPressToast(moreContainer);
 
         tabLayout.setOnNavigationItemSelectedListener(item -> {
-            if (!navTabAutoSelect && getCurrentFragment() instanceof FeedFragment && item.getOrder() == 0) {
+            if (getCurrentFragment() instanceof FeedFragment && item.getOrder() == 0) {
                 ((FeedFragment) getCurrentFragment()).scrollToTop();
             }
-            if (!navTabAutoSelect && getCurrentFragment() instanceof HistoryFragment && item.getOrder() == NavTab.SEARCH.code()) {
+            if (getCurrentFragment() instanceof HistoryFragment && item.getOrder() == NavTab.SEARCH.code()) {
                 openSearchActivity(NAV_MENU, null);
             }
             viewPager.setCurrentItem(item.getOrder(), false);
             return true;
         });
+
+        maybeShowEditsTooltip();
 
         if (savedInstanceState == null) {
             handleIntent(requireActivity().getIntent());
@@ -182,14 +172,10 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         Prefs.setSEFeedLinkSnackbarShownCount(0);
         // reset the last-page-viewed timer
         Prefs.pageLastShown(0);
-        navTabAutoSelect = true;
-        resetNavTabLayouts();
-        navTabAutoSelect = false;
     }
 
     @Override public void onDestroyView() {
         Prefs.setSuggestedEditsHighestPriorityEnabled(false);
-        pulsatingIconFunnel.logWasIconClicked(editsAccessedWhilePulsating);
         viewPager.setAdapter(null);
         viewPager.unregisterOnPageChangeCallback(pageChangeCallback);
         unbinder.unbind();
@@ -496,7 +482,6 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         } else if (fragment instanceof SuggestedEditsTasksFragment) {
             ((SuggestedEditsTasksFragment) fragment).refreshContents();
         }
-        resetNavTabLayouts();
     }
 
     private void updateFeedHiddenCards() {
@@ -506,25 +491,13 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         }
     }
 
-    private void resetNavTabLayouts() {
-        goToTab(NavTab.of(viewPager.getCurrentItem()));
+    @SuppressWarnings("checkstyle:magicnumber")
+    private void maybeShowEditsTooltip() {
         if (Prefs.shouldShowSuggestedEditsTooltip() && Prefs.getExploreFeedVisitCount() == SHOW_EDITS_SNACKBAR_COUNT) {
             Prefs.setShouldShowSuggestedEditsTooltip(false);
-            pulsatingIconFunnel.setIconShown(true);
-            tabOverlayLayout.pick(NavTab.EDITS);
-            suggestedEditsNavTabSnackbar = FeedbackUtil.makeSnackbar(requireActivity(), AccountUtil.isLoggedIn()
-                    ? getString(R.string.main_tooltip_text, AccountUtil.getUserName())
-                    : getString(R.string.main_tooltip_text_v2), FeedbackUtil.LENGTH_LONG);
-            suggestedEditsNavTabSnackbar.setAction(R.string.main_tooltip_action_button, view -> goToTab(NavTab.EDITS));
-            suggestedEditsNavTabSnackbar.show();
-        }
-    }
-
-    void hideNavTabOverlayLayout() {
-        tabOverlayLayout.hide();
-        editsAccessedWhilePulsating = true;
-        if (suggestedEditsNavTabSnackbar != null) {
-            suggestedEditsNavTabSnackbar.dismiss();
+            FeedbackUtil.showTooltip(tabLayout.findViewById(NavTab.EDITS.id()), AccountUtil.isLoggedIn()
+                            ? getString(R.string.main_tooltip_text, AccountUtil.getUserName())
+                            : getString(R.string.main_tooltip_text_v2), true, false);
         }
     }
 
@@ -606,8 +579,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
     void maybeShowOneTimeTooltip(NavTab tab) {
         View tabView = tabLayout.getViewAt(tab.code());
         if (tabView != null) {
-            Balloon balloon = FeedbackUtil.showTooltip(requireContext(), getString(R.string.search_tab_tooltip), ArrowOrientation.BOTTOM);
-            balloon.showAlignTop(tabView, 0, 16);
+            FeedbackUtil.showTooltip(tabView, getString(R.string.search_tab_tooltip), true, true);
             Prefs.setShowSearchTabTooltip(false);
         }
     }

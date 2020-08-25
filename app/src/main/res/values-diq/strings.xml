@@ -273,8 +273,6 @@
   <string name="crash_report_activity_title">Xetay dezgehi</string>
   <string name="crash_report_relaunch">Fına sere kı</string>
   <string name="crash_report_quit">Veciyayış</string>
-  <string name="article_menu_bar_bookmark">Ena meqaley tewrê yew lista wendışi kerê</string>
-  <string name="article_menu_bar_share">Gırey meqaley vıla kerê</string>
   <string name="article_header_edit_hint">Bıvurne...</string>
   <string name="article_header_edit_description">Şınasnayışê pela  bımocne</string>
   <string name="article_header_edit_lead_section">Şınasnayışi bıvurnê</string>
@@ -442,9 +440,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">İdealê cı yew satır, mabênê dı u dıwês çekuya</string>
   <string name="description_edit_tutorial_button_label_start_editing">Vurnayışi ser kewê</string>
   <string name="description_edit_tutorial_promise">Sıfte kerdış de, na xısusiyet hetê ariya edo nêkarna, sond wanena.</string>
-  <string name="suggested_edits_add_descriptions">Şınasnayışê meqaleyi cı kerê</string>
-  <string name="suggested_edits_translate_descriptions">Şınastiya meqaley açarnê</string>
-  <string name="suggested_edits_add_image_captions">Bınnuştey resimi cı kerê</string>
   <string name="suggested_edits_tag_images">Etiketê resiman</string>
   <string name="suggested_edits_review_description">Şınastiya meqaley tetkik kerê</string>
   <string name="suggested_edits_add_description_button">Arezekerdış cı ke</string>
