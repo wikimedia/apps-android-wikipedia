@@ -3,6 +3,7 @@ package org.wikipedia.util;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
@@ -26,6 +27,7 @@ import com.skydoves.balloon.ArrowOrientation;
 import com.skydoves.balloon.Balloon;
 
 import org.wikipedia.R;
+import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.SuggestedEditsFunnel;
 import org.wikipedia.main.MainActivity;
 import org.wikipedia.page.PageActivity;
@@ -201,6 +203,7 @@ public final class FeedbackUtil {
                 .setArrowSize(24)
                 .setPadding(16)
                 .setTextSize(14f)
+                .setTextTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL))
                 .setTextColor(Color.WHITE)
                 .setBackgroundColorResource(ResourceUtil.getThemedAttributeId(context, R.attr.colorAccent))
                 .setDismissWhenTouchOutside(autoDismiss)
