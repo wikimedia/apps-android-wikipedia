@@ -170,7 +170,12 @@ public class SearchResultsFragment extends Fragment {
             return;
         }
 
-        searchResultsDisplay.postDelayed(() -> doTitlePrefixSearch(term), force ? 0 : DELAY_MILLIS);
+        searchResultsDisplay.postDelayed(() -> {
+            if (!isAdded()) {
+                return;
+            }
+            doTitlePrefixSearch(term);
+        }, force ? 0 : DELAY_MILLIS);
     }
 
     private void doTitlePrefixSearch(final String searchTerm) {
