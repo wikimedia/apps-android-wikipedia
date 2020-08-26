@@ -94,7 +94,7 @@ class AppTextViewWithImages constructor(context: Context, attrs: AttributeSet? =
      * but note that the problem this works around affects an ImageSpan on any line, not just the
      * last line as reported there.
      */
-    private class BaselineAlignedYTranslationImageSpan internal constructor(drawable: Drawable, private val lineSpacingMultiplier: Float) : ImageSpan(drawable, ALIGN_BASELINE) {
+    private class BaselineAlignedYTranslationImageSpan constructor(drawable: Drawable, private val lineSpacingMultiplier: Float) : ImageSpan(drawable, ALIGN_BASELINE) {
         override fun draw(canvas: Canvas, text: CharSequence, start: Int, end: Int, x: Float, top: Int,
                           y: Int, bottom: Int, paint: Paint) {
             val drawable = drawable

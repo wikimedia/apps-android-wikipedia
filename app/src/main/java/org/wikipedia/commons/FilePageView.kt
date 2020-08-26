@@ -1,6 +1,5 @@
 package org.wikipedia.commons
 
-import android.app.Activity
 import android.content.Context
 import android.icu.text.ListFormatter
 import android.net.Uri
@@ -29,7 +28,6 @@ import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
-import org.wikipedia.util.log.L
 import org.wikipedia.views.ImageDetailView
 import org.wikipedia.views.ImageZoomHelper
 import org.wikipedia.views.ViewUtil
