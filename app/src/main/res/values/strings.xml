@@ -1015,4 +1015,5 @@
     <string name="talk_new_topic">New topic</string>
     <string name="talk_page_empty">This talk page is empty.</string>
     <string name="talk_add_reply">Add reply</string>
+    <string name="talk_no_subject">(No subject)</string>
 </resources>

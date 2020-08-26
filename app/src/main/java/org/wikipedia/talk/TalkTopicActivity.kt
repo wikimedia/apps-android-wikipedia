@@ -15,28 +15,44 @@ import kotlinx.android.synthetic.main.activity_talk_topic.*
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
-import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.ServiceFactory
+import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.TalkPage
-import org.wikipedia.page.LinkMovementMethodExt
+import org.wikipedia.history.HistoryEntry
+import org.wikipedia.page.*
+import org.wikipedia.page.LinkMovementMethodExt.UrlHandler
+import org.wikipedia.page.linkpreview.LinkPreviewDialog
+import org.wikipedia.talk.TalkTopicsActivity.Companion.newIntent
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DrawableItemDecoration
+import org.wikipedia.views.FooterMarginItemDecoration
+import org.wikipedia.views.MarginItemDecoration
 
 class TalkTopicActivity : BaseActivity() {
     private val disposables = CompositeDisposable()
     private var topicId: Int = 0
+    private var userName: String = ""
     private var topic: TalkPage.Topic? = null
+    private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
+
+    private var linkHandler: TalkLinkHandler? = null
+    private val linkMovementMethod = LinkMovementMethodExt(UrlHandler { url: String ->
+        linkHandler?.onUrlClick(url, null, "")
+    })
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_talk_topic)
         title = ""
+        linkHandler = TalkLinkHandler(this)
 
+        userName = intent.getStringExtra(EXTRA_USER_NAME).orEmpty()
         topicId = intent.extras?.getInt(EXTRA_TOPIC, 0)!!
 
         talk_recycler_view.layoutManager = LinearLayoutManager(this)
-        talk_recycler_view.addItemDecoration(DrawableItemDecoration(this, R.attr.list_separator_drawable))
+        talk_recycler_view.addItemDecoration(FooterMarginItemDecoration(0, 80))
+        talk_recycler_view.addItemDecoration(DrawableItemDecoration(this, R.attr.list_separator_drawable, false, false))
         talk_recycler_view.adapter = TalkReplyItemAdapter()
 
         talk_reply_button.setOnClickListener {
@@ -61,7 +77,7 @@ class TalkTopicActivity : BaseActivity() {
         talk_progress_bar.visibility = View.VISIBLE
         talk_error_view.visibility = View.GONE
 
-        ServiceFactory.getRest(WikipediaApp.getInstance().wikiSite).getTalkPage(AccountUtil.getUserName())
+        ServiceFactory.getRest(WikipediaApp.getInstance().wikiSite).getTalkPage(userName)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ response ->
@@ -79,7 +95,8 @@ class TalkTopicActivity : BaseActivity() {
         talk_reply_button.visibility = View.VISIBLE
         talk_refresh_view.isRefreshing = false
 
-        title = StringUtil.fromHtml(topic?.html)
+        val titleStr = StringUtil.fromHtml(topic?.html).toString().trim()
+        title = if (titleStr.isNotEmpty()) titleStr else getString(R.string.talk_no_subject)
         talk_recycler_view.adapter?.notifyDataSetChanged()
     }
 
@@ -91,11 +108,20 @@ class TalkTopicActivity : BaseActivity() {
         talk_error_view.setError(t)
     }
 
-    private class TalkReplyHolder internal constructor(view: View) : RecyclerView.ViewHolder(view) {
+    private fun showLinkPreviewOrNavigate(title: PageTitle) {
+        if (title.namespace() == Namespace.USER_TALK) {
+            startActivity(newIntent(this, title.text))
+        } else {
+            bottomSheetPresenter.show(supportFragmentManager,
+                    LinkPreviewDialog.newInstance(HistoryEntry(title, HistoryEntry.SOURCE_TALK_TOPIC), null))
+        }
+    }
+
+    internal inner class TalkReplyHolder internal constructor(view: View) : RecyclerView.ViewHolder(view) {
         private val text: TextView = view.findViewById(R.id.reply_text)
         private val indentArrow: View = view.findViewById(R.id.reply_indent_arrow)
         fun bindItem(reply: TalkPage.TopicReply) {
-            text.movementMethod = LinkMovementMethodExt.getInstance()
+            text.movementMethod = linkMovementMethod
             text.text = StringUtil.fromHtml(reply.html)
             indentArrow.visibility = if (reply.depth > 0) View.VISIBLE else View.GONE
         }
@@ -115,12 +141,32 @@ class TalkTopicActivity : BaseActivity() {
         }
     }
 
+    internal inner class TalkLinkHandler internal constructor(context: Context) : LinkHandler(context) {
+        override fun getWikiSite(): WikiSite {
+            return WikipediaApp.getInstance().wikiSite
+        }
+
+        override fun onMediaLinkClicked(title: PageTitle) {
+            // TODO
+        }
+
+        override fun onPageLinkClicked(anchor: String, linkText: String) {
+            // TODO
+        }
+
+        override fun onInternalLinkClicked(title: PageTitle) {
+           showLinkPreviewOrNavigate(title)
+        }
+    }
+
     companion object {
+        const val EXTRA_USER_NAME = "userName"
         const val EXTRA_TOPIC = "topicId"
 
         @JvmStatic
-        fun newIntent(context: Context, topicId: Int): Intent {
+        fun newIntent(context: Context, userName: String?, topicId: Int): Intent {
             return Intent(context, TalkTopicActivity::class.java)
+                    .putExtra(EXTRA_USER_NAME, userName.orEmpty())
                     .putExtra(EXTRA_TOPIC, topicId)
         }
     }

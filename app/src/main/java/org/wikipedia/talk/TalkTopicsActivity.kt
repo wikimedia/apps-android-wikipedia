@@ -12,28 +12,36 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_talk_topics.*
+import kotlinx.android.synthetic.main.activity_talk_topics.talk_error_view
+import kotlinx.android.synthetic.main.activity_talk_topics.talk_progress_bar
+import kotlinx.android.synthetic.main.activity_talk_topics.talk_recycler_view
+import kotlinx.android.synthetic.main.activity_talk_topics.talk_refresh_view
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
-import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.page.TalkPage
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DrawableItemDecoration
+import org.wikipedia.views.FooterMarginItemDecoration
 import kotlin.collections.ArrayList
 
 class TalkTopicsActivity : BaseActivity() {
+    private var userName: String = ""
     private val disposables = CompositeDisposable()
     private val topics = ArrayList<TalkPage.Topic>()
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_talk_topics)
-        title = getString(R.string.talk_user_title, AccountUtil.getUserName().orEmpty())
+
+        userName = intent.getStringExtra(EXTRA_USER_NAME).orEmpty()
+        title = getString(R.string.talk_user_title, userName)
 
         talk_recycler_view.layoutManager = LinearLayoutManager(this)
-        talk_recycler_view.addItemDecoration(DrawableItemDecoration(this, R.attr.list_separator_drawable))
+        talk_recycler_view.addItemDecoration(FooterMarginItemDecoration(0, 80))
+        talk_recycler_view.addItemDecoration(DrawableItemDecoration(this, R.attr.list_separator_drawable, false, false))
         talk_recycler_view.adapter = TalkTopicItemAdapter()
 
         talk_new_topic_button.setOnClickListener {
@@ -59,7 +67,7 @@ class TalkTopicsActivity : BaseActivity() {
         talk_error_view.visibility = View.GONE
         talk_empty_container.visibility = View.GONE
 
-        ServiceFactory.getRest(WikipediaApp.getInstance().wikiSite).getTalkPage(AccountUtil.getUserName())
+        ServiceFactory.getRest(WikipediaApp.getInstance().wikiSite).getTalkPage(userName)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ response ->
@@ -94,13 +102,14 @@ class TalkTopicsActivity : BaseActivity() {
         private var id: Int = 0
 
         fun bindItem(topic: TalkPage.Topic) {
-            title.text = StringUtil.fromHtml(topic.html)
+            val titleStr = StringUtil.fromHtml(topic.html).toString().trim()
+            title.text = if (titleStr.isNotEmpty()) titleStr else getString(R.string.talk_no_subject)
             itemView.setOnClickListener(this)
             id = topic.id
         }
 
         override fun onClick(v: View?) {
-            startActivity(TalkTopicActivity.newIntent(this@TalkTopicsActivity, id))
+            startActivity(TalkTopicActivity.newIntent(this@TalkTopicsActivity, userName, id))
         }
     }
 
@@ -118,11 +127,13 @@ class TalkTopicsActivity : BaseActivity() {
         }
     }
 
-
     companion object {
+        const val EXTRA_USER_NAME = "userName"
+
         @JvmStatic
-        fun newIntent(context: Context): Intent {
+        fun newIntent(context: Context, userName: String?): Intent {
             return Intent(context, TalkTopicsActivity::class.java)
+                    .putExtra(EXTRA_USER_NAME, userName.orEmpty())
         }
     }
 }

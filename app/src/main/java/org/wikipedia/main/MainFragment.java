@@ -564,7 +564,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         @Override
         public void talkClick() {
             if (AccountUtil.isLoggedIn()) {
-                startActivity(TalkTopicsActivity.newIntent(requireActivity()));
+                startActivity(TalkTopicsActivity.newIntent(requireActivity(), AccountUtil.getUserName()));
             }
         }
 

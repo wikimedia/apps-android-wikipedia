@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="16dp">
+    android:paddingTop="16dp"
+    android:paddingBottom="16dp">
 
     <ImageView
         android:id="@+id/reply_indent_arrow"
@@ -19,6 +20,7 @@
         android:id="@+id/reply_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
         android:textColor="?attr/material_theme_primary_color"
         android:textSize="16sp"
         android:lineSpacingExtra="6sp"
