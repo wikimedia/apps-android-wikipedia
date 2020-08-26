@@ -172,7 +172,7 @@ class SuggestedEditsImageTagDialog : DialogFragment() {
         callback()?.onSearchDismiss(currentSearchTerm)
     }
 
-    private inner class ResultItemHolder internal constructor(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
+    private inner class ResultItemHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
         fun bindItem(item: MwQueryPage.ImageLabel) {
             itemView.findViewById<TextView>(R.id.labelName).text = item.label
             itemView.findViewById<TextView>(R.id.labelDescription).text = item.description
