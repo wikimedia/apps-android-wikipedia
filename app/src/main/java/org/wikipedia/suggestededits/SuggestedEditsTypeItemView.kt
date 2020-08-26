@@ -32,13 +32,13 @@ class SuggestedEditsTypeItemView constructor(context: Context, attrs: AttributeS
     fun setEnabledStateUI() {
         title.setTextColor(ResourceUtil.getThemedColor(context, R.attr.themed_icon_color))
         ImageViewCompat.setImageTintList(image, ColorStateList.valueOf(ContextCompat.getColor(context, ResourceUtil.getThemedAttributeId(context, R.attr.themed_icon_color))))
-        this.background = context.getDrawable(R.drawable.rounded_12dp_accent90_fill)
+        this.background = ContextCompat.getDrawable(context, R.drawable.rounded_12dp_accent90_fill)
     }
 
     fun setDisabledStateUI() {
         title.setTextColor(ResourceUtil.getThemedColor(context, R.attr.secondary_text_color))
         ImageViewCompat.setImageTintList(image, ColorStateList.valueOf(ContextCompat.getColor(context, ResourceUtil.getThemedAttributeId(context, R.attr.chart_shade4))))
-        this.background = context.getDrawable(R.drawable.rounded_12dp_corner_base90_fill)
+        this.background = ContextCompat.getDrawable(context, R.drawable.rounded_12dp_corner_base90_fill)
     }
 
     fun setAttributes(title: String, imageResource: Int, editType: Int, callback: Callback) {

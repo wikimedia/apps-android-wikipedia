@@ -14,7 +14,6 @@ import io.reactivex.rxjava3.functions.BiFunction
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_file_page.*
 import org.apache.commons.lang3.StringUtils
-import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.analytics.ABTestSuggestedEditsSnackbarFunnel
 import org.wikipedia.dataclient.Service
