@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 
 import org.wikipedia.dataclient.okhttp.OfflineCacheInterceptor;
 import org.wikipedia.dataclient.page.PageSummary;
+import org.wikipedia.dataclient.page.TalkPage;
 import org.wikipedia.dataclient.restbase.RbDefinition;
 import org.wikipedia.dataclient.restbase.RbRelatedPages;
 import org.wikipedia.feed.aggregated.AggregatedFeedContent;
@@ -199,5 +200,12 @@ public interface RestService {
     @NonNull
     Observable<List<SuggestedEditItem>> getArticlesWithTranslatableDescriptions(@NonNull @Path("fromLang") String fromLang,
                                                                                 @NonNull @Path("toLang") String toLang);
+
+    //  ------- Talk pages -------
+
+    @Headers("Cache-Control: no-cache")
+    @GET("page/talk/User_talk:{user}")
+    @NonNull
+    Observable<List<TalkPage>> getTalkPage(@NonNull @Path("user") String user);
 
 }
