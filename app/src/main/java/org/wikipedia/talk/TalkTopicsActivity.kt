@@ -99,13 +99,27 @@ class TalkTopicsActivity : BaseActivity() {
 
     internal inner class TalkTopicHolder internal constructor(view: View) : RecyclerView.ViewHolder(view), View.OnClickListener {
         private val title: TextView = view.findViewById(R.id.topic_title_text)
+        private val subtitle: TextView = view.findViewById(R.id.topic_subtitle_text)
+        private val readDot: View = view.findViewById(R.id.topic_read_dot)
         private var id: Int = 0
 
         fun bindItem(topic: TalkPage.Topic) {
-            val titleStr = StringUtil.fromHtml(topic.html).toString().trim()
-            title.text = if (titleStr.isNotEmpty()) titleStr else getString(R.string.talk_no_subject)
-            itemView.setOnClickListener(this)
             id = topic.id
+            val titleStr = StringUtil.fromHtml(topic.html).toString().trim()
+            if (id == 0 && titleStr.isEmpty() && topic.replies!!.isNotEmpty()) {
+                subtitle.text = StringUtil.fromHtml(topic.replies!![0].html)
+                title.visibility = View.GONE
+                subtitle.visibility = View.VISIBLE
+                readDot.visibility = View.GONE
+            } else {
+                title.text = if (titleStr.isNotEmpty()) titleStr else getString(R.string.talk_no_subject)
+                title.visibility = View.VISIBLE
+                subtitle.visibility = View.GONE
+
+                // TODO: implement read/unread topics
+                readDot.visibility = View.VISIBLE
+            }
+            itemView.setOnClickListener(this)
         }
 
         override fun onClick(v: View?) {

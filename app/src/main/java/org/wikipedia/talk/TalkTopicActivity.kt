@@ -27,7 +27,6 @@ import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DrawableItemDecoration
 import org.wikipedia.views.FooterMarginItemDecoration
-import org.wikipedia.views.MarginItemDecoration
 
 class TalkTopicActivity : BaseActivity() {
     private val disposables = CompositeDisposable()
