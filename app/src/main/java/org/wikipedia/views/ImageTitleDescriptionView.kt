@@ -10,8 +10,6 @@ import androidx.annotation.DrawableRes
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
 import androidx.core.widget.ImageViewCompat
-import com.skydoves.balloon.ArrowOrientation
-import com.skydoves.balloon.showAlignBottom
 import kotlinx.android.synthetic.main.view_image_title_description.view.*
 import org.wikipedia.R
 import org.wikipedia.util.DimenUtil

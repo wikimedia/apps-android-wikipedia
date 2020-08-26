@@ -19,7 +19,6 @@ import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.onboarding.OnboardingPageView.LanguageListAdapter.OptionsViewHolder
 import org.wikipedia.page.LinkMovementMethodExt
-import org.wikipedia.page.LinkMovementMethodExt.UrlHandler
 import org.wikipedia.util.StringUtil
 import java.util.*
 
@@ -68,12 +67,11 @@ class OnboardingPageView constructor(context: Context, attrs: AttributeSet? = nu
             switchContainer.visibility = if (TextUtils.isEmpty(switchText)) View.GONE else View.VISIBLE
             switchView.text = switchText
             setUpLanguageListContainer(showListView, listDataType)
-            secondaryTextView.movementMethod = LinkMovementMethodExt(
-                    UrlHandler { url: String ->
-                        if (callback != null) {
-                            callback!!.onLinkClick(this@OnboardingPageView, url)
-                        }
-                    })
+            secondaryTextView.movementMethod = LinkMovementMethodExt { url: String ->
+                if (callback != null) {
+                    callback!!.onLinkClick(this@OnboardingPageView, url)
+                }
+            }
             addLangContainer.setOnClickListener {
                 if (callback != null) {
                     callback!!.onListActionButtonClicked(this)
