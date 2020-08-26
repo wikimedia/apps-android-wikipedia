@@ -35,6 +35,7 @@ public class MenuNavTabDialog extends ExtendedBottomSheetDialogFragment {
     public interface Callback {
         void loginLogoutClick();
         void notificationsClick();
+        void talkClick();
         void settingsClick();
         void aboutClick();
     }
@@ -43,6 +44,7 @@ public class MenuNavTabDialog extends ExtendedBottomSheetDialogFragment {
     @BindView(R.id.main_drawer_login_button) Button loginLogoutButton;
     @BindView(R.id.main_drawer_account_avatar) ImageView accountAvatar;
     @BindView(R.id.main_drawer_notifications_container) ViewGroup notificationsContainer;
+    @BindView(R.id.main_drawer_talk_container) ViewGroup talkContainer;
     @Nullable Callback callback;
 
     public static MenuNavTabDialog newInstance(Callback drawerViewCallback) {
@@ -99,6 +101,13 @@ public class MenuNavTabDialog extends ExtendedBottomSheetDialogFragment {
     @OnClick(R.id.main_drawer_notifications_container) void onNotificationsClick() {
         if (callback != null) {
             callback.notificationsClick();
+            dismiss();
+        }
+    }
+
+    @OnClick(R.id.main_drawer_talk_container) void onTalkClick() {
+        if (callback != null) {
+            callback.talkClick();
             dismiss();
         }
     }

@@ -63,6 +63,7 @@ import org.wikipedia.settings.AboutActivity;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.suggestededits.SuggestedEditsTasksFragment;
+import org.wikipedia.talk.TalkTopicsActivity;
 import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.PermissionUtil;
@@ -557,6 +558,13 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         public void notificationsClick() {
             if (AccountUtil.isLoggedIn()) {
                 startActivity(NotificationActivity.newIntent(requireActivity()));
+            }
+        }
+
+        @Override
+        public void talkClick() {
+            if (AccountUtil.isLoggedIn()) {
+                startActivity(TalkTopicsActivity.newIntent(requireActivity()));
             }
         }
 
