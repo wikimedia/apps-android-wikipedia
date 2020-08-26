@@ -356,7 +356,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
         errorView.visibility = VISIBLE
     }
 
-    private inner class HeaderViewHolder internal constructor(itemView: ContributionsHeaderView) : DefaultViewHolder<ContributionsHeaderView?>(itemView) {
+    private inner class HeaderViewHolder constructor(itemView: ContributionsHeaderView) : DefaultViewHolder<ContributionsHeaderView?>(itemView) {
         fun bindItem() {
             view.callback = this@ContributionsFragment
             view.updateFilterViewUI(editFilterType, totalContributionCount)
@@ -364,7 +364,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
         }
     }
 
-    private class DateViewHolder internal constructor(itemView: View) : DefaultViewHolder<View?>(itemView) {
+    private class DateViewHolder constructor(itemView: View) : DefaultViewHolder<View?>(itemView) {
         init {
             itemView.setPaddingRelative(itemView.paddingStart, 0, itemView.paddingEnd, 0)
             itemView.layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, DimenUtil.roundedDpToPx(32f))
@@ -376,7 +376,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
         }
     }
 
-    private inner class ContributionItemHolder internal constructor(itemView: ContributionsItemView) : DefaultViewHolder<ContributionsItemView?>(itemView) {
+    private inner class ContributionItemHolder constructor(itemView: ContributionsItemView) : DefaultViewHolder<ContributionsItemView?>(itemView) {
         val disposables = CompositeDisposable()
         fun bindItem(contribution: Contribution) {
             view.contribution = contribution
