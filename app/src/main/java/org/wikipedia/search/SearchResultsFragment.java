@@ -1,8 +1,6 @@
 package org.wikipedia.search;
 
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -61,7 +59,6 @@ public class SearchResultsFragment extends Fragment {
 
     private static final int BATCH_SIZE = 20;
     private static final int DELAY_MILLIS = 300;
-    private static final int MESSAGE_SEARCH = 1;
     private static final int MAX_CACHE_SIZE_SEARCH_RESULTS = 4;
     /**
      * Constant to ease in the conversion of timestamps from nanoseconds to milliseconds.
@@ -77,7 +74,6 @@ public class SearchResultsFragment extends Fragment {
     private Unbinder unbinder;
 
     private final LruCache<String, List<SearchResult>> searchResultsCache = new LruCache<>(MAX_CACHE_SIZE_SEARCH_RESULTS);
-    private Handler searchHandler;
     private String currentSearchTerm = "";
     @Nullable private SearchResults lastFullTextResults;
     @NonNull private final List<SearchResult> totalResults = new ArrayList<>();
@@ -96,8 +92,6 @@ public class SearchResultsFragment extends Fragment {
             searchErrorView.setVisibility(View.GONE);
             startSearch(currentSearchTerm, true);
         });
-
-        searchHandler = new Handler(new SearchHandlerCallback());
 
         return view;
     }
@@ -176,27 +170,7 @@ public class SearchResultsFragment extends Fragment {
             return;
         }
 
-        Message searchMessage = Message.obtain();
-        searchMessage.what = MESSAGE_SEARCH;
-        searchMessage.obj = term;
-
-        if (force) {
-            searchHandler.sendMessage(searchMessage);
-        } else {
-            searchHandler.sendMessageDelayed(searchMessage, DELAY_MILLIS);
-        }
-    }
-
-    private class SearchHandlerCallback implements Handler.Callback {
-        @Override
-        public boolean handleMessage(Message msg) {
-            if (!isAdded()) {
-                return true;
-            }
-            final String mySearchTerm = (String) msg.obj;
-            doTitlePrefixSearch(mySearchTerm);
-            return true;
-        }
+        searchResultsDisplay.postDelayed(() -> doTitlePrefixSearch(term), force ? 0 : DELAY_MILLIS);
     }
 
     private void doTitlePrefixSearch(final String searchTerm) {
@@ -283,7 +257,6 @@ public class SearchResultsFragment extends Fragment {
 
     private void cancelSearchTask() {
         updateProgressBar(false);
-        searchHandler.removeMessages(MESSAGE_SEARCH);
         disposables.clear();
     }
 
@@ -334,15 +307,6 @@ public class SearchResultsFragment extends Fragment {
                     // If there's an error, just log it and let the existing prefix search results be.
                     logError(true, startTime);
                 }));
-    }
-
-    @Nullable
-    public PageTitle getFirstResult() {
-        if (!totalResults.isEmpty()) {
-            return totalResults.get(0).getPageTitle();
-        } else {
-            return null;
-        }
     }
 
     private void clearResults() {
