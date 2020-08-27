@@ -415,11 +415,20 @@ public class SearchResultsFragment extends Fragment {
         }
     }
 
-    private final class SearchResultAdapter extends RecyclerView.Adapter<SearchResultItemViewHolder> {
+    private final class SearchResultAdapter extends RecyclerView.Adapter<DefaultViewHolder<View>> {
+
+        private static final int VIEW_TYPE_ITEM = 0;
+        private static final int VIEW_TYPE_NO_RESULTS = 1;
 
         @NonNull
         public SearchResult getItem(int position) {
             return totalResults.get(position);
+        }
+
+        @Override
+        public int getItemViewType(int position) {
+            // TODO: add logic
+            return VIEW_TYPE_ITEM;
         }
 
         @Override
@@ -428,24 +437,27 @@ public class SearchResultsFragment extends Fragment {
         }
 
         @Override
-        public SearchResultItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        public DefaultViewHolder<View> onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             return new SearchResultItemViewHolder(LayoutInflater.from(getContext())
                     .inflate(R.layout.item_search_result, parent, false));
         }
 
         @Override
-        public void onBindViewHolder(@NonNull SearchResultItemViewHolder holder, int pos) {
-            holder.bindItem(pos);
-            holder.getView().setOnClickListener(view -> {
-                Callback callback = callback();
-                int position = (int) view.getTag();
-                if (callback != null && position < totalResults.size()) {
-                    callback.navigateToTitle(totalResults.get(position).getPageTitle(), false, position);
-                }
-            });
-            holder.getView().setLongClickable(true);
-            holder.getView().setOnCreateContextMenuListener(new LongPressHandler(holder.getView(),
-                    getItem(pos).getPageTitle(), HistoryEntry.SOURCE_SEARCH, new SearchResultsFragmentLongPressHandler(pos)));
+        public void onBindViewHolder(@NonNull DefaultViewHolder<View> holder, int pos) {
+            if (holder instanceof SearchResultItemViewHolder) {
+                SearchResultItemViewHolder viewHolder = (SearchResultItemViewHolder) holder;
+                viewHolder.bindItem(pos);
+                viewHolder.getView().setOnClickListener(view -> {
+                    Callback callback = callback();
+                    int position = (int) view.getTag();
+                    if (callback != null && position < totalResults.size()) {
+                        callback.navigateToTitle(totalResults.get(position).getPageTitle(), false, position);
+                    }
+                });
+                viewHolder.getView().setLongClickable(true);
+                viewHolder.getView().setOnCreateContextMenuListener(new LongPressHandler(holder.getView(),
+                        getItem(pos).getPageTitle(), HistoryEntry.SOURCE_SEARCH, new SearchResultsFragmentLongPressHandler(pos)));
+            }
         }
     }
 
