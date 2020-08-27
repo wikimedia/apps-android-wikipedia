@@ -30,16 +30,14 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager2.widget.ViewPager2;
 
-import com.google.android.material.snackbar.Snackbar;
-
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.Constants.ImageEditType;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.BaseActivity;
-import org.wikipedia.analytics.ABTestSuggestedEditsSnackbarFunnel;
 import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.auth.AccountUtil;
+import org.wikipedia.commons.FilePageActivity;
 import org.wikipedia.commons.ImageTagsProvider;
 import org.wikipedia.dataclient.Service;
 import org.wikipedia.dataclient.ServiceFactory;
@@ -57,7 +55,7 @@ import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.linkpreview.LinkPreviewDialog;
 import org.wikipedia.suggestededits.PageSummaryForEdit;
 import org.wikipedia.suggestededits.SuggestedEditsImageTagEditActivity;
-import org.wikipedia.suggestededits.SuggestionsActivity;
+import org.wikipedia.suggestededits.SuggestedEditsSnackbars;
 import org.wikipedia.theme.Theme;
 import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.DeviceUtil;
@@ -328,22 +326,14 @@ public class GalleryActivity extends BaseActivity implements LinkPreviewDialog.C
     public void onActivityResult(int requestCode, int resultCode, final Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if ((requestCode == ACTIVITY_REQUEST_DESCRIPTION_EDIT || requestCode == ACTIVITY_REQUEST_ADD_IMAGE_TAGS) && resultCode == RESULT_OK) {
-            ABTestSuggestedEditsSnackbarFunnel abTestFunnel = new ABTestSuggestedEditsSnackbarFunnel();
+
             DescriptionEditActivity.Action action = (data != null && data.hasExtra(INTENT_EXTRA_ACTION)) ? (DescriptionEditActivity.Action) data.getSerializableExtra(INTENT_EXTRA_ACTION)
                     : (requestCode == ACTIVITY_REQUEST_ADD_IMAGE_TAGS) ? ADD_IMAGE_TAGS : null;
-            Snackbar snackbar = FeedbackUtil.makeSnackbar(this, action == ADD_CAPTION
-                    ? getString(abTestFunnel.shouldSeeSnackbarAction()
-                            ? R.string.description_edit_success_saved_image_caption_snackbar_se_promotion
-                            : R.string.description_edit_success_saved_image_caption_snackbar)
-                    : getString(abTestFunnel.shouldSeeSnackbarAction()
-                            ? R.string.description_edit_success_saved_image_caption_in_lang_snackbar_se_promotion
-                            : R.string.description_edit_success_saved_image_caption_in_lang_snackbar, app.language().getAppLanguageLocalizedName(targetLanguageCode)),
-                    FeedbackUtil.LENGTH_DEFAULT);
-            if (abTestFunnel.shouldSeeSnackbarAction() && action != null) {
-                snackbar.setAction(R.string.suggested_edits_tasks_onboarding_get_started, view -> startActivity(SuggestionsActivity.newIntent(this, action)));
-            }
-            snackbar.show();
-            abTestFunnel.logSnackbarShown();
+            SuggestedEditsSnackbars.show(this, action, true, targetLanguageCode, action == ADD_IMAGE_TAGS, () -> {
+                if (action == ADD_IMAGE_TAGS && getCurrentItem() != null && getCurrentItem().getImageTitle() != null) {
+                    startActivity(FilePageActivity.newIntent(GalleryActivity.this, getCurrentItem().getImageTitle()));
+                }
+            });
             layOutGalleryDescription();
             setResult((requestCode == ACTIVITY_REQUEST_DESCRIPTION_EDIT) ? ACTIVITY_RESULT_IMAGE_CAPTION_ADDED : ACTIVITY_REQUEST_ADD_IMAGE_TAGS);
         }

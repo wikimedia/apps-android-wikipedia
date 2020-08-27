@@ -166,7 +166,6 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         requireContext().registerReceiver(downloadReceiver,
                 new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
         downloadReceiver.setCallback(downloadReceiverCallback);
-        Prefs.setSEFeedLinkSnackbarShownCount(0);
         // reset the last-page-viewed timer
         Prefs.pageLastShown(0);
     }
