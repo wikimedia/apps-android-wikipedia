@@ -3,11 +3,8 @@ package org.wikipedia.page
 import android.content.Context
 import android.util.AttributeSet
 import android.view.View
-import android.widget.LinearLayout
-import de.mrapp.android.util.DisplayUtil
 import org.wikipedia.R
 import org.wikipedia.page.action.PageActionTab
-import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.views.ConfigurableTabLayout
 
 class PageActionTabLayout constructor(context: Context, attrs: AttributeSet? = null) : ConfigurableTabLayout(context, attrs) {
