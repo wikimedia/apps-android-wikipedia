@@ -60,7 +60,7 @@ public class SearchResultsFragment extends Fragment {
     }
 
     private static final int BATCH_SIZE = 20;
-    private static final int DELAY_MILLIS = 500;
+    private static final int DELAY_MILLIS = 300;
     private static final int MAX_CACHE_SIZE_SEARCH_RESULTS = 4;
     /**
      * Constant to ease in the conversion of timestamps from nanoseconds to milliseconds.
