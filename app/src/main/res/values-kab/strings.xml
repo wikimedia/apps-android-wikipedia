@@ -18,7 +18,6 @@
   <string name="nav_item_forward">Welleh</string>
   <string name="search_hint">Nadi di Wikipedia</string>
   <string name="search_hint_voice_search">Anadi n yinekcam s taɣect</string>
-  <string name="search_hint_search_history">Nadi amazray</string>
   <string name="search_hint_search_languages">Nadi γef akk tutlayin</string>
   <string name="nav_item_history">Amazray</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Asnirem yettwasumren</string>

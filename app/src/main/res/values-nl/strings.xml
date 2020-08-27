@@ -44,7 +44,6 @@
   <string name="nav_item_forward">Volgende</string>
   <string name="search_hint">In Wikipedia zoeken</string>
   <string name="search_hint_voice_search">Zoeken met steminvoer</string>
-  <string name="search_hint_search_history">Zoekgeschiedenis</string>
   <string name="search_hint_search_languages">Zoeken naar een taal</string>
   <string name="nav_item_history">Geschiedenis</string>
   <string name="nav_item_suggested_edits">Bewerkingen</string>

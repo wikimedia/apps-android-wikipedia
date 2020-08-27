@@ -15,7 +15,6 @@
   <string name="page_tabs_back">Atpakaļ</string>
   <string name="nav_item_forward">Uz priekšu</string>
   <string name="search_hint">Meklēt Vikipēdijā</string>
-  <string name="search_hint_search_history">Meklēšanas vēsture</string>
   <string name="search_hint_search_languages">Meklēt valodu</string>
   <string name="nav_item_history">Vēsture</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Ieteiktie labojumi</string>

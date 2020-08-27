@@ -17,7 +17,6 @@
   <string name="app_name_alpha">Вікіпедыя Альфа</string>
   <string name="wikimedia">Вікімедыя</string>
   <string name="search_hint">Пошук у Вікіпедыі</string>
-  <string name="search_hint_search_history">Гісторыя пошуку</string>
   <string name="search_hint_search_languages">Пошук мовы</string>
   <string name="nav_item_history">Гісторыя</string>
   <string name="error_network_error">Не атрымліваецца падключыцца да Інтэрнэту.</string>

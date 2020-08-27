@@ -16,7 +16,6 @@
   <string name="nav_item_forward">Ymlaen</string>
   <string name="search_hint">Chwilio Wicipedia</string>
   <string name="search_hint_voice_search">Chwilio gyda llais</string>
-  <string name="search_hint_search_history">Chwilio\'r hanes</string>
   <string name="search_hint_search_languages">Chwilio am iaith</string>
   <string name="nav_item_history">Hanes</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Golygiadau a awgrymir</string>

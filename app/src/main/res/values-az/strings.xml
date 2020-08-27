@@ -18,7 +18,6 @@
   <string name="page_tabs_back">Geri</string>
   <string name="nav_item_forward">Növbəti</string>
   <string name="search_hint">Vikipediyada axtar</string>
-  <string name="search_hint_search_history">Tarixçədə axtarış</string>
   <string name="search_hint_search_languages">Dili axtar</string>
   <string name="nav_item_history">Tarixçə</string>
   <string name="error_network_error">İnternetə qoşulmaq mümkün deyil.</string>
