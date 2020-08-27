@@ -7,15 +7,15 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.collection.LruCache;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.Constants.InvokeSource;
@@ -29,6 +29,7 @@ import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.StringUtil;
+import org.wikipedia.views.DefaultViewHolder;
 import org.wikipedia.views.GoneIfEmptyTextView;
 import org.wikipedia.views.ViewUtil;
 import org.wikipedia.views.WikiErrorView;
@@ -70,7 +71,7 @@ public class SearchResultsFragment extends Fragment {
 
     @BindView(R.id.search_results_display) View searchResultsDisplay;
     @BindView(R.id.search_results_container) View searchResultsContainer;
-    @BindView(R.id.search_results_list) ListView searchResultsList;
+    @BindView(R.id.search_results_list) RecyclerView searchResultsList;
     @BindView(R.id.search_error_view) WikiErrorView searchErrorView;
     @BindView(R.id.search_empty_view) View searchEmptyView;
     @BindView(R.id.search_suggestion) TextView searchSuggestion;
@@ -88,8 +89,8 @@ public class SearchResultsFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_search_results, container, false);
         unbinder = ButterKnife.bind(this, view);
 
-        SearchResultAdapter adapter = new SearchResultAdapter(inflater);
-        searchResultsList.setAdapter(adapter);
+        searchResultsList.setLayoutManager(new LinearLayoutManager(getActivity()));
+        searchResultsList.setAdapter(new SearchResultAdapter());
 
         searchErrorView.setBackClickListener((v) -> requireActivity().finish());
         searchErrorView.setRetryClickListener((v) -> {
@@ -260,7 +261,7 @@ public class SearchResultsFragment extends Fragment {
             if (!isAdded()) {
                 return;
             }
-            searchResultsList.setSelectionAfterHeaderView();
+            searchResultsList.scrollToPosition(0);
         });
 
         if (resultList.isEmpty()) {
@@ -371,8 +372,8 @@ public class SearchResultsFragment extends Fragment {
         getAdapter().notifyDataSetChanged();
     }
 
-    private BaseAdapter getAdapter() {
-        return (BaseAdapter) searchResultsList.getAdapter();
+    private SearchResultAdapter getAdapter() {
+        return (SearchResultAdapter) searchResultsList.getAdapter();
     }
 
     /**
@@ -456,43 +457,51 @@ public class SearchResultsFragment extends Fragment {
         }
     }
 
-    private final class SearchResultAdapter extends BaseAdapter implements View.OnClickListener, View.OnLongClickListener {
-        private final LayoutInflater inflater;
+    private final class SearchResultAdapter extends RecyclerView.Adapter<SearchResultItemViewHolder> {
 
-        SearchResultAdapter(LayoutInflater inflater) {
-            this.inflater = inflater;
-        }
-
-        @Override
-        public int getCount() {
-            return totalResults.size();
-        }
-
-        @Override
-        public Object getItem(int position) {
+        @NonNull
+        public SearchResult getItem(int position) {
             return totalResults.get(position);
         }
 
         @Override
-        public long getItemId(int position) {
-            return position;
+        public int getItemCount() {
+            return totalResults.size();
         }
 
         @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            if (convertView == null) {
-                convertView = inflater.inflate(R.layout.item_search_result, parent, false);
-                convertView.setFocusable(true);
-                convertView.setOnClickListener(this);
-                convertView.setOnLongClickListener(this);
-            }
-            TextView pageTitleText = convertView.findViewById(R.id.page_list_item_title);
-            SearchResult result = (SearchResult) getItem(position);
+        public SearchResultItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            return new SearchResultItemViewHolder(LayoutInflater.from(getContext())
+                    .inflate(R.layout.item_search_result, parent, false));
+        }
 
-            ImageView searchResultItemImage = convertView.findViewById(R.id.page_list_item_image);
-            GoneIfEmptyTextView descriptionText = convertView.findViewById(R.id.page_list_item_description);
-            TextView redirectText = convertView.findViewById(R.id.page_list_item_redirect);
-            View redirectArrow = convertView.findViewById(R.id.page_list_item_redirect_arrow);
+        @Override
+        public void onBindViewHolder(@NonNull SearchResultItemViewHolder holder, int pos) {
+            holder.bindItem(pos);
+            holder.getView().setOnClickListener(view -> {
+                Callback callback = callback();
+                int position = (int) view.getTag();
+                if (callback != null && position < totalResults.size()) {
+                    callback.navigateToTitle(totalResults.get(position).getPageTitle(), false, position);
+                }
+            });
+            holder.getView().setOnLongClickListener(view -> false);
+        }
+    }
+
+    private class SearchResultItemViewHolder extends DefaultViewHolder<View> {
+        SearchResultItemViewHolder(@NonNull View itemView) {
+            super(itemView);
+        }
+
+        void bindItem(int position) {
+            TextView pageTitleText = getView().findViewById(R.id.page_list_item_title);
+            SearchResult result = (SearchResult) totalResults.get(position);
+
+            ImageView searchResultItemImage = getView().findViewById(R.id.page_list_item_image);
+            GoneIfEmptyTextView descriptionText = getView().findViewById(R.id.page_list_item_description);
+            TextView redirectText = getView().findViewById(R.id.page_list_item_redirect);
+            View redirectArrow = getView().findViewById(R.id.page_list_item_redirect_arrow);
             if (TextUtils.isEmpty(result.getRedirectFrom())) {
                 redirectText.setVisibility(View.GONE);
                 redirectArrow.setVisibility(View.GONE);
@@ -522,22 +531,7 @@ public class SearchResultsFragment extends Fragment {
                 }
             }
 
-            convertView.setTag(position);
-            return convertView;
-        }
-
-        @Override
-        public void onClick(View v) {
-            Callback callback = callback();
-            int position = (int) v.getTag();
-            if (callback != null && position < totalResults.size()) {
-                callback.navigateToTitle(totalResults.get(position).getPageTitle(), false, position);
-            }
-        }
-
-        @Override
-        public boolean onLongClick(View v) {
-            return false;
+            getView().setTag(position);
         }
     }
 

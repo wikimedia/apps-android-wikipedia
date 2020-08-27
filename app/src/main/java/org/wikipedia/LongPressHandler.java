@@ -65,6 +65,8 @@ public class LongPressHandler implements View.OnCreateContextMenuListener,
             AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) menuInfo;
             title = ((ListViewOverflowMenuListener) overflowMenuListener).getTitleForListPosition(info.position);
             showPopupMenu(view, info);
+        } else {
+            showPopupMenu(view, null);
         }
     }
 
