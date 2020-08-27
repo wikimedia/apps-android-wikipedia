@@ -27,7 +27,6 @@
   <string name="page_tabs_back">Tilbake</string>
   <string name="nav_item_forward">Fremover</string>
   <string name="search_hint">Søk i Wikipedia</string>
-  <string name="search_hint_search_history">Søkehistorikk</string>
   <string name="search_hint_search_languages">Søk etter språk</string>
   <string name="nav_item_history">Logg</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Redigeringsforslag</string>

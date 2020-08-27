@@ -31,7 +31,6 @@
   <string name="nav_item_forward">Endavant</string>
   <string name="search_hint">Cerca a la Viquipèdia</string>
   <string name="search_hint_voice_search">Cerca d\'entrada de veu</string>
-  <string name="search_hint_search_history">Historial de cerca</string>
   <string name="search_hint_search_languages">Cerca una llengua</string>
   <string name="filter_hint_filter_my_lists_and_articles">Filtrar les meves llistes</string>
   <string name="nav_item_history">Historial</string>
@@ -828,6 +827,14 @@
   <plurals name="suggested_edits_rewards_contributions">
     <item quantity="one">Heu fet una contribució a la Viquipèdia fent servir Edicions suggerides. Gràcies!</item>
     <item quantity="other">Heu fet %d contribucions a la Viquipèdia fent servir Edicions suggerides. Gràcies!</item>
+  </plurals>
+  <plurals name="suggested_edits_rewards_edit_streaks">
+    <item quantity="one">Heu editat un dia sencer. Seguiu, %2$s!</item>
+    <item quantity="other">Fins ara heu canviat cada dia durant %1$d Continueu, %2$s!</item>
+  </plurals>
+  <plurals name="suggested_edits_rewards_page_views">
+    <item quantity="one">Una persona ha vist les vostres modificacions durant els darrers 30 dies. Gràcies i segueix endavant!</item>
+    <item quantity="other"> %d persones han vist les vostres modificacions durant els darrers 30 dies. Gràcies i segueix endavant!</item>
   </plurals>
   <string name="suggested_edits_rewards_contribution">Heu fet %d contribucions a la Viquipèdia a partir d\'edicions suggerides. Gràcies!</string>
   <string name="suggested_edits_rewards_edit_streak">Heu editat cada dia durant %1$d dies fins ara. Bon ritme, %2$s!</string>

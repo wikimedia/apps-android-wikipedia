@@ -48,7 +48,6 @@
   <string name="nav_item_forward">İleri</string>
   <string name="search_hint">Vikipedi\'de ara</string>
   <string name="search_hint_voice_search">Ses girişi arama</string>
-  <string name="search_hint_search_history">Arama geçmişi</string>
   <string name="search_hint_search_languages">Bir dil arayın</string>
   <string name="filter_hint_filter_my_lists_and_articles">Liste süzgeci</string>
   <string name="nav_item_history">Geçmiş</string>
@@ -672,9 +671,13 @@
   <string name="description_edit_success_saved">Madde açıklaması yayımlandı!</string>
   <string name="description_edit_success_saved_snackbar">Madde açıklaması yayımlandı!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Madde açıklaması yayımlandı! (%s)</string>
+  <string name="description_edit_success_saved_in_lang_snackbar_se_promotion">Madde açıklaması yayımlandı. (%s) Beğendiniz mi?  Daha fazlasını eklememize yardımcı olun.</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Resim yazısı yayımlandı!</string>
+  <string name="description_edit_success_saved_image_caption_snackbar_se_promotion">Resim altyazısı yayımlandı. Beğendiniz mi? Daha fazlasını eklememize yardımcı olun.</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Resim yazısı yayımlandı! (%s)</string>
+  <string name="description_edit_success_saved_image_caption_in_lang_snackbar_se_promotion">Resim altyazısı yayımlandı. (%s) Beğendiniz mi?  Daha fazlasını eklememize yardımcı olun.</string>
   <string name="description_edit_success_se_image_caption_feed_link_snackbar">Bunu beğendiniz mi? Diğer resimlere eksik altyazı eklememize yardımcı olun.</string>
+  <string name="description_edit_success_se_image_tags_feed_link_snackbar">Beğendiniz mi? Eksik etiketleri diğer resimlere eklememize yardımcı olun.</string>
   <string name="description_edit_success_encouragement">Vikipedi\'yi herkes için daha iyi hâle getirdin</string>
   <string name="description_edit_success_done">Yapıldı</string>
   <string name="description_edit_success_did_you_know">Biliyor musunuz?</string>

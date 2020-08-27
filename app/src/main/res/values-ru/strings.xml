@@ -65,7 +65,6 @@
   <string name="nav_item_forward">Вперёд</string>
   <string name="search_hint">Поиск по Википедии</string>
   <string name="search_hint_voice_search">Голосовой поиск</string>
-  <string name="search_hint_search_history">История поиска</string>
   <string name="search_hint_search_languages">Поиск языка</string>
   <string name="nav_item_history">История</string>
   <string name="nav_item_suggested_edits">Правки</string>
