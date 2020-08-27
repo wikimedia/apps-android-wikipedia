@@ -34,12 +34,14 @@ import org.wikipedia.views.WikiErrorView;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
@@ -170,41 +172,37 @@ public class SearchResultsFragment extends Fragment {
             return;
         }
 
-        searchResultsDisplay.postDelayed(() -> {
-            if (!isAdded()) {
-                return;
-            }
-            doTitlePrefixSearch(term);
-        }, force ? 0 : DELAY_MILLIS);
+        doTitlePrefixSearch(term, force);
     }
 
-    private void doTitlePrefixSearch(final String searchTerm) {
+    private void doTitlePrefixSearch(final String searchTerm, boolean force) {
         cancelSearchTask();
         final long startTime = System.nanoTime();
         updateProgressBar(true);
 
-        disposables.add(ServiceFactory.get(WikiSite.forLanguageCode(getSearchLanguageCode())).prefixSearch(searchTerm, BATCH_SIZE, searchTerm)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .map(response -> {
-                    if (response != null && response.query() != null && response.query().pages() != null) {
-                        // noinspection ConstantConditions
-                        return new SearchResults(response.query().pages(),
-                                WikiSite.forLanguageCode(getSearchLanguageCode()), response.continuation(),
-                                response.suggestion());
-                    }
-                    // A prefix search query with no results will return the following:
-                    //
-                    // {
-                    //   "batchcomplete": true,
-                    //   "query": {
-                    //      "search": []
-                    //   }
-                    // }
-                    //
-                    // Just return an empty SearchResults() in this case.
-                    return new SearchResults();
-                })
+        disposables.add(Observable.timer(force ? 0 : DELAY_MILLIS, TimeUnit.MILLISECONDS).flatMap(timer ->
+                ServiceFactory.get(WikiSite.forLanguageCode(getSearchLanguageCode())).prefixSearch(searchTerm, BATCH_SIZE, searchTerm)
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .map(response -> {
+                            if (response != null && response.query() != null && response.query().pages() != null) {
+                                // noinspection ConstantConditions
+                                return new SearchResults(response.query().pages(),
+                                        WikiSite.forLanguageCode(getSearchLanguageCode()), response.continuation(),
+                                        response.suggestion());
+                            }
+                            // A prefix search query with no results will return the following:
+                            //
+                            // {
+                            //   "batchcomplete": true,
+                            //   "query": {
+                            //      "search": []
+                            //   }
+                            // }
+                            //
+                            // Just return an empty SearchResults() in this case.
+                            return new SearchResults();
+                        }))
                 .doAfterTerminate(() -> updateProgressBar(false))
                 .subscribe(results -> {
                     searchErrorView.setVisibility(View.GONE);
