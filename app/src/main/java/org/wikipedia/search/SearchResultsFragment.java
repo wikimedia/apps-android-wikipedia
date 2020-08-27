@@ -100,13 +100,6 @@ public class SearchResultsFragment extends Fragment {
     }
 
     @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        new LongPressHandler(searchResultsList, HistoryEntry.SOURCE_SEARCH,
-                new SearchResultsFragmentLongPressHandler());
-    }
-
-    @Override
     public void onDestroyView() {
         searchErrorView.setRetryClickListener(null);
         unbinder.unbind();
@@ -374,13 +367,11 @@ public class SearchResultsFragment extends Fragment {
     }
 
     private class SearchResultsFragmentLongPressHandler
-            implements org.wikipedia.LongPressHandler.ListViewOverflowMenuListener {
+            implements org.wikipedia.LongPressHandler.OverflowMenuListener {
         private int lastPositionRequested;
 
-        @Override
-        public PageTitle getTitleForListPosition(int position) {
+        public SearchResultsFragmentLongPressHandler(int position) {
             lastPositionRequested = position;
-            return ((SearchResult) getAdapter().getItem(position)).getPageTitle();
         }
 
         @Override
@@ -452,7 +443,9 @@ public class SearchResultsFragment extends Fragment {
                     callback.navigateToTitle(totalResults.get(position).getPageTitle(), false, position);
                 }
             });
-            holder.getView().setOnLongClickListener(view -> false);
+            holder.getView().setLongClickable(true);
+            holder.getView().setOnCreateContextMenuListener(new LongPressHandler(holder.getView(),
+                    getItem(pos).getPageTitle(), HistoryEntry.SOURCE_SEARCH, new SearchResultsFragmentLongPressHandler(pos)));
         }
     }
 
