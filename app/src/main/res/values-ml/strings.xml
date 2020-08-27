@@ -17,7 +17,6 @@
   <string name="page_tabs_back">പുറകോട്ട്</string>
   <string name="nav_item_forward">മുന്നോട്ട്</string>
   <string name="search_hint">വിക്കിപീഡിയയിൽ തിരയുക</string>
-  <string name="search_hint_search_history">തിരച്ചിൽ ചരിത്രം</string>
   <string name="search_hint_search_languages">ഒരു ഭാഷക്കായി തിരയുക</string>
   <string name="nav_item_history">നാൾവഴി</string>
   <string name="error_network_error">ഇന്റർനെറ്റുമായി ബന്ധപ്പെടാൻ കഴിയുന്നില്ല.</string>

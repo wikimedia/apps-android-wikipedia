@@ -27,10 +27,6 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
         inflate(getContext(), R.layout.view_suggested_edit_card, this)
     }
 
-    fun isTranslation(): Boolean {
-        return card!!.action == TRANSLATE_DESCRIPTION || card!!.action == TRANSLATE_CAPTION
-    }
-
     override fun setCard(card: SuggestedEditsCard) {
         super.setCard(card)
         this.card = card

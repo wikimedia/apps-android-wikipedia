@@ -15,7 +15,6 @@
   <string name="nav_item_forward">आगे</string>
   <string name="search_hint">विकिपीडिया में खोजीं</string>
   <string name="search_hint_voice_search">आवाज इनपुट से खोज करीं</string>
-  <string name="search_hint_search_history">खोज इतिहास</string>
   <string name="search_hint_search_languages">भाषा खोजल जाय</string>
   <string name="nav_item_history">इतिहास</string>
   <string name="nav_item_suggested_edits" fuzzy="true">सुझावित संपादन</string>

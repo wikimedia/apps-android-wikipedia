@@ -19,7 +19,6 @@
   <string name="nav_item_forward">წინ</string>
   <string name="search_hint">ძიება ვიკიპედიაზე</string>
   <string name="search_hint_voice_search">ხმოვანი ძიება</string>
-  <string name="search_hint_search_history">ისტორიის ძებნა</string>
   <string name="search_hint_search_languages">ენის ძებნა</string>
   <string name="nav_item_history">ისტორია</string>
   <string name="nav_item_suggested_edits" fuzzy="true">შემოთავაზებული რედაქტირებები</string>

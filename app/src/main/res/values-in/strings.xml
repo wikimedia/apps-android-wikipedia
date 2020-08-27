@@ -37,7 +37,6 @@
   <string name="nav_item_forward">Teruskan</string>
   <string name="search_hint">Telusuri Wikipedia</string>
   <string name="search_hint_voice_search">Pencarian input suara</string>
-  <string name="search_hint_search_history">Cari riwayat</string>
   <string name="search_hint_search_languages">Cari bahasa</string>
   <string name="filter_hint_filter_my_lists_and_articles">Pilih daftar saya</string>
   <string name="nav_item_history">Riwayat</string>
