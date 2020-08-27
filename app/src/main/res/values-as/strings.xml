@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
 * Abijeet Patro
+* Dbrant
 * Dibya Dutta
 * Gitartha.bordoloi
 * Mohsin Ali
@@ -19,7 +20,6 @@
   <string name="nav_item_forward">আগলৈ যাওক</string>
   <string name="search_hint">ৱিকিপিডিয়াত সন্ধান কৰক</string>
   <string name="search_hint_voice_search">ভইচ ইনপুট সন্ধান</string>
-  <string name="search_hint_search_history">ইতিহাস সন্ধান কৰক</string>
   <string name="search_hint_search_languages">ভাষাৰ সন্ধান কৰক</string>
   <string name="filter_hint_filter_my_lists_and_articles">মোৰ তালিকা ফিল্টাৰ কৰক</string>
   <string name="nav_item_history">ইতিহাস</string>

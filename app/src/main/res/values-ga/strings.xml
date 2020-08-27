@@ -15,7 +15,6 @@
   <string name="page_tabs_back">Siar</string>
   <string name="nav_item_forward">Anonn</string>
   <string name="search_hint">Cuardaigh Vicipéid</string>
-  <string name="search_hint_search_history">Stair chuardaigh</string>
   <string name="search_hint_search_languages">Cuardaigh ar thóir teanga</string>
   <string name="nav_item_history">Stair</string>
   <string name="error_network_error">Ní féidir nasc leis an Idirlíon.</string>

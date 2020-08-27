@@ -39,7 +39,6 @@
   <string name="nav_item_forward">앞으로</string>
   <string name="search_hint">위키백과 검색</string>
   <string name="search_hint_voice_search">음성 입력 검색</string>
-  <string name="search_hint_search_history">역사 검색</string>
   <string name="search_hint_search_languages">언어 검색</string>
   <string name="filter_hint_filter_my_lists_and_articles">내 목록 필터링</string>
   <string name="nav_item_history">방문 기록</string>

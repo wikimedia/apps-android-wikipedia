@@ -16,7 +16,6 @@
   <string name="page_tabs_back">Nazaj</string>
   <string name="nav_item_forward">Naprej</string>
   <string name="search_hint">Išči po Wikipediji</string>
-  <string name="search_hint_search_history">Zgodovina iskanja</string>
   <string name="search_hint_search_languages">Poiščite jezik</string>
   <string name="nav_item_history">Zgodovina</string>
   <string name="error_network_error">Ni povezave z internetom.</string>

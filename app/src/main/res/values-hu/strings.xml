@@ -30,7 +30,6 @@
   <string name="nav_item_forward">Előre</string>
   <string name="search_hint">Keresés a Wikipédiában</string>
   <string name="search_hint_voice_search">Hangalapú keresés</string>
-  <string name="search_hint_search_history">Keresés az előzményekben</string>
   <string name="search_hint_search_languages">Nyelv keresése</string>
   <string name="nav_item_history">Előzmények</string>
   <string name="nav_item_suggested_edits">Szerkesztések</string>

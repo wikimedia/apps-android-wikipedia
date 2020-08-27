@@ -15,7 +15,6 @@
   <string name="nav_item_forward">ဂတ</string>
   <string name="search_hint">ဂၠာဲ ပ္ဍဲ ဝဳကဳပဳဒဳယာ</string>
   <string name="search_hint_voice_search">စုတ်ရမ္သာင်ဂၠာဲ</string>
-  <string name="search_hint_search_history">ဂၠာဲ ပ္ဍဲ ဒၞာဲမဗှ်လဝ်တုဲ</string>
   <string name="search_hint_search_languages">ဂၠာဲ သွက် အရေဝ်ဘာသာ မွဲ</string>
   <string name="nav_item_history">အရာမဗှ်လဝ်တုဲ</string>
   <string name="nav_item_suggested_edits" fuzzy="true">အရာပလေဝ်ဒါန် မအာတ်မိက်</string>

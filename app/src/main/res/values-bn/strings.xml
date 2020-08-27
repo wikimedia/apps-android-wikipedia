@@ -31,7 +31,6 @@
   <string name="nav_item_forward">সামনে যান</string>
   <string name="search_hint">উইকিপিডিয়া অনুসন্ধান</string>
   <string name="search_hint_voice_search">কণ্ঠ দ্বারা অনুসন্ধান</string>
-  <string name="search_hint_search_history">ইতিহাস অনুসন্ধান করুন</string>
   <string name="search_hint_search_languages">একটি ভাষার জন্য অনুসন্ধান করুন</string>
   <string name="nav_item_history">ইতিহাস</string>
   <string name="nav_item_suggested_edits">সম্পাদনা</string>
@@ -221,7 +220,7 @@
   <string name="edit_abandon_confirm_no">না</string>
   <string name="user_blocked_from_editing_title">অবরুদ্ধ</string>
   <string name="user_logged_in_blocked_from_editing">আপনার ব্যবহারকারী অ্যাকাউন্টটিকে এই উইকিতে সম্পাদনা করা থেকে বাধা দেয়া হয়েছে।</string>
-  <string name="user_anon_blocked_from_editing">আপনার আইপি ঠিকানাকে সম্পাদনা করা থেকে বাধা দেয়া হয়েছে।</string>
+  <string name="user_anon_blocked_from_editing">আপনার আইপি ঠিকানাটিকে সম্পাদনা করা থেকে বাধা প্রদান করা হয়েছে।</string>
   <string name="edit_how_page_improved">কীভাবে আপনি পাতাটি উন্নত করেছেন?</string>
   <string name="edit_next">পরবর্তী</string>
   <string name="edit_done">প্রকাশ করুন</string>

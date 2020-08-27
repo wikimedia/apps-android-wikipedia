@@ -30,7 +30,6 @@
   <string name="nav_item_forward">התקדמות</string>
   <string name="search_hint">חיפוש בוויקיפדיה</string>
   <string name="search_hint_voice_search">חיפוש לפי קלט קולי</string>
-  <string name="search_hint_search_history">היסטוריית חיפוש</string>
   <string name="search_hint_search_languages">חיפוש שפה</string>
   <string name="filter_hint_filter_my_lists_and_articles">לסנן את הרשימות שלי</string>
   <string name="nav_item_history">היסטוריה</string>

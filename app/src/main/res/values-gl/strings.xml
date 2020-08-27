@@ -24,7 +24,6 @@
   <string name="nav_item_forward">Seguinte</string>
   <string name="search_hint">Procurar na Wikipedia</string>
   <string name="search_hint_voice_search">Procura con entrada por voz</string>
-  <string name="search_hint_search_history">Procurar no historial</string>
   <string name="search_hint_search_languages">Procurar unha lingua</string>
   <string name="nav_item_history">Historial</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Edicións suxeridas</string>

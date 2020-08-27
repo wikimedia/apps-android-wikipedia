@@ -41,7 +41,6 @@
   <string name="nav_item_forward">إلى الأمام</string>
   <string name="search_hint">ابحث في ويكيبيديا</string>
   <string name="search_hint_voice_search">البحث عن المدخلات الصوتية</string>
-  <string name="search_hint_search_history">البحث في التاريخ</string>
   <string name="search_hint_search_languages">بحث عن لغة</string>
   <string name="nav_item_history">التاريخ</string>
   <string name="nav_item_suggested_edits">التعديلات</string>

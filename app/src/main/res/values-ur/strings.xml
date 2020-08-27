@@ -25,7 +25,6 @@
   <string name="nav_item_forward">آگے</string>
   <string name="search_hint">ویکیپیڈیا میں تلاش کریں</string>
   <string name="search_hint_voice_search">بذریعہ آواز تلاش</string>
-  <string name="search_hint_search_history">تاریخچہ میں تلاش کریں</string>
   <string name="search_hint_search_languages">زبان تلاش کریں</string>
   <string name="filter_hint_filter_my_lists_and_articles">میری فہرست کو فلٹر کریں</string>
   <string name="nav_item_history">تاریخچہ</string>
