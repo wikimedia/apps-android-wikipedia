@@ -470,7 +470,7 @@ class SuggestedEditsCardsFragment : Fragment(), SuggestedEditsImageTagsFragment.
         private var prevPosition: Int = 0
         private var nextPageSelectedAutomatic: Boolean = false
 
-        internal fun setNextPageSelectedAutomatic() {
+        fun setNextPageSelectedAutomatic() {
             nextPageSelectedAutomatic = true
         }
 
