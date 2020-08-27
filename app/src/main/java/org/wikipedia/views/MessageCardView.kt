@@ -1,6 +1,5 @@
 package org.wikipedia.views
 
-import android.app.Activity
 import android.content.Context
 import android.net.Uri
 import android.util.AttributeSet

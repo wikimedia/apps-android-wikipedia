@@ -5,6 +5,7 @@ import android.util.AttributeSet
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import kotlinx.android.synthetic.main.item_suggested_edits_contributions.view.*
 import org.wikipedia.R
@@ -27,7 +28,7 @@ class ContributionsItemView constructor(context: Context, attrs: AttributeSet? =
         View.inflate(context, R.layout.item_suggested_edits_contributions, this)
         layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         ViewCompat.setPaddingRelative(this, DimenUtil.roundedDpToPx(16f), 0, 0, 0)
-        background = getContext().getDrawable(ResourceUtil.getThemedAttributeId(getContext(), R.attr.selectableItemBackground))
+        background = ContextCompat.getDrawable(getContext(), ResourceUtil.getThemedAttributeId(getContext(), R.attr.selectableItemBackground))
         setOnClickListener {
             if (callback != null && title.text.isNotEmpty()) {
                 callback?.onClick(context, contribution!!)
