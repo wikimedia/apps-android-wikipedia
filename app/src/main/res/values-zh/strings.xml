@@ -55,7 +55,6 @@
   <string name="nav_item_forward">前进</string>
   <string name="search_hint">搜索维基百科</string>
   <string name="search_hint_voice_search">语音输入搜索</string>
-  <string name="search_hint_search_history">搜索历史</string>
   <string name="search_hint_search_languages">搜索一种语言</string>
   <string name="filter_hint_filter_my_lists_and_articles">过滤我的列表</string>
   <string name="nav_item_history">历史记录</string>

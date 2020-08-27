@@ -25,7 +25,6 @@
   <string name="nav_item_forward">Προώθηση</string>
   <string name="search_hint">Αναζήτηση στη Βικιπαίδεια</string>
   <string name="search_hint_voice_search">Εισαγωγή φωνητικής αναζήτησης</string>
-  <string name="search_hint_search_history">Ερευνήστε το ιστορικό</string>
   <string name="search_hint_search_languages">Αναζήτηση για γλώσσα</string>
   <string name="filter_hint_filter_my_lists_and_articles">Φιλτράρισμα των λιστών μου</string>
   <string name="nav_item_history">Ιστορικό</string>

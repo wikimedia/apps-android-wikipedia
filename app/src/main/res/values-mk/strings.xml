@@ -17,7 +17,6 @@
   <string name="nav_item_forward">Напред</string>
   <string name="search_hint">Пребарај ја Википедија</string>
   <string name="search_hint_voice_search">Гласовно пребарување</string>
-  <string name="search_hint_search_history">Историја на пребарување</string>
   <string name="search_hint_search_languages">Пребарување јазик</string>
   <string name="filter_hint_filter_my_lists_and_articles">Филтрирање на моите списоци</string>
   <string name="nav_item_history">Историја</string>

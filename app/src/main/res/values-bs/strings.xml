@@ -13,7 +13,6 @@
   <string name="page_tabs_back">Nazad</string>
   <string name="nav_item_forward">Naprijed</string>
   <string name="search_hint">Pretraži Wikipediju</string>
-  <string name="search_hint_search_history">Pretraži historiju</string>
   <string name="search_hint_search_languages">Pronađi jezik</string>
   <string name="nav_item_history">Historija</string>
   <string name="nav_item_suggested_edits">Izmjene</string>
@@ -44,8 +43,12 @@
   <string name="edit_section_find_in_page">Pronađi na stranici</string>
   <string name="menu_page_font_and_theme">Font i tema</string>
   <string name="menu_page_add_to_list">Dodaj na spisak za čitanje</string>
+  <string name="menu_page_add_to_default_list">Sačuvaj</string>
+  <string name="feed_card_add_to_list">Dodaj na spisak za čitanje</string>
+  <string name="feed_card_add_to_default_list">Sačuvaj</string>
   <string name="menu_page_share">Podijeli link</string>
   <string name="menu_page_open_a_new_tab">Otvori novu karticu</string>
+  <string name="menu_page_reading_lists">Spiskovi za čitanje</string>
   <string name="menu_long_press_open_page">Otvori</string>
   <string name="menu_long_press_open_in_new_tab">Otvori u novoj kartici</string>
   <string name="menu_long_press_copy_page">Kopiraj adresu linka</string>

@@ -27,7 +27,6 @@
   <string name="nav_item_forward">Înainte</string>
   <string name="search_hint">Căutare în Wikipedia</string>
   <string name="search_hint_voice_search">Căutare de intrare vocală</string>
-  <string name="search_hint_search_history">Istoricul căutării</string>
   <string name="search_hint_search_languages">Caută o limbă</string>
   <string name="nav_item_history">Istoric</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Modificări sugerate</string>
