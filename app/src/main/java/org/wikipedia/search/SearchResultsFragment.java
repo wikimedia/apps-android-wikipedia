@@ -370,7 +370,7 @@ public class SearchResultsFragment extends Fragment {
             implements org.wikipedia.LongPressHandler.OverflowMenuListener {
         private int lastPositionRequested;
 
-        public SearchResultsFragmentLongPressHandler(int position) {
+        SearchResultsFragmentLongPressHandler(int position) {
             lastPositionRequested = position;
         }
 
