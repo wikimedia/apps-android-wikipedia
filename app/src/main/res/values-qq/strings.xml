@@ -262,6 +262,11 @@
   <string name="page_similar_titles">Button label for showing a list of similar titles (disambiguation) for the current page</string>
   <string name="search_did_you_mean">Label that gives the user a suggestion for a better search term, instead of the one that the user gave. The \"%s\" symbol is replaced with the suggestion.</string>
   <string name="search_recent_header">Label at the top of the list of recent searches that the user performed.</string>
+  <string name="search_results_count_zero">Text shown on the list that displays zero counts of the result from the search.</string>
+  <plurals name="search_results_count">
+    <item quantity="one">Text shown on the list that displays one count of the result from the search.</item>
+    <item quantity="other">Text shown on the list that displays numbers of counts of the result from the search. The \"%d\" symbol is replaced with the amount of the counts.</item>
+  </plurals>
   <string name="button_clear_all_recent_searches">Button hint for clearing search history;  visible when in search mode.</string>
   <string name="clear_recent_searches_confirm">Dialog message that asks if the user really wants to clear the search history.</string>
   <string name="clear_recent_searches_confirm_yes">Affirmative answer to clear the search history.\n{{Identical|Yes}}</string>

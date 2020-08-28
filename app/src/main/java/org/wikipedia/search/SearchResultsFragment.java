@@ -495,8 +495,8 @@ public class SearchResultsFragment extends Fragment {
             int resultsCount = resultsCountList.get(position);
             TextView resultsText = getView().findViewById(R.id.results_text);
             TextView languageCodeText = getView().findViewById(R.id.language_code);
-            // TODO: add string resources
-            resultsText.setText(resultsCount == 0 ? "No results" : resultsCount + " results");
+            resultsText.setText(resultsCount == 0 ? getString(R.string.search_results_count_zero)
+                    : getResources().getQuantityString(R.plurals.search_results_count, resultsCount));
             languageCodeText.setText(langCode);
             ViewUtil.formatLangButton(languageCodeText, langCode,
                     LANG_BUTTON_TEXT_SIZE_SMALLER, LANG_BUTTON_TEXT_SIZE_LARGER);
@@ -510,7 +510,7 @@ public class SearchResultsFragment extends Fragment {
 
         void bindItem(int position) {
             TextView pageTitleText = getView().findViewById(R.id.page_list_item_title);
-            SearchResult result = (SearchResult) totalResults.get(position);
+            SearchResult result = totalResults.get(position);
 
             ImageView searchResultItemImage = getView().findViewById(R.id.page_list_item_image);
             GoneIfEmptyTextView descriptionText = getView().findViewById(R.id.page_list_item_description);
