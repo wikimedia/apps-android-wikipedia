@@ -79,13 +79,13 @@ public class LongPressHandler implements View.OnCreateContextMenuListener,
         return false;
     }
 
-    private void showPopupMenu(@NonNull View view, boolean isWebView) {
+    private void showPopupMenu(@NonNull View view, boolean createAnchorView) {
         if (title != null && !title.isSpecial() && view.isAttachedToWindow()) {
             hideSoftKeyboard(view);
             entry = new HistoryEntry(title, historySource);
             entry.setReferrer(referrer);
             PopupMenu popupMenu;
-            if (isWebView) {
+            if (createAnchorView) {
                 View tempView = new View(view.getContext());
                 tempView.setX(clickPositionX);
                 tempView.setY(clickPositionY);
