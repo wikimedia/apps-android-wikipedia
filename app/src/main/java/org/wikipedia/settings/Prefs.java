@@ -948,6 +948,6 @@ public final class Prefs {
     public static void setShowSearchTabTooltip(boolean show) {
         setBoolean(R.string.preference_key_show_search_tab_tooltip, show);
     }
-  
+
     private Prefs() { }
 }
