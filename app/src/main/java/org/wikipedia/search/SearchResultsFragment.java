@@ -29,7 +29,6 @@ import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.StringUtil;
-import org.wikipedia.util.log.L;
 import org.wikipedia.views.DefaultViewHolder;
 import org.wikipedia.views.GoneIfEmptyTextView;
 import org.wikipedia.views.ViewUtil;
@@ -293,7 +292,7 @@ public class SearchResultsFragment extends Fragment {
                     return new SearchResults();
                 })
                 .doAfterTerminate(() -> updateProgressBar(false))
-                .subscribe(results -> {
+                .flatMap(results -> {
                     List<SearchResult> resultList = results.getResults();
                     cache(resultList, searchTerm);
                     log(resultList, startTime);
@@ -304,26 +303,24 @@ public class SearchResultsFragment extends Fragment {
 
                     // full text special:
                     SearchResultsFragment.this.lastFullTextResults = results;
-                    displayResults(resultList);
-                }, throwable -> {
+                    if (!resultList.isEmpty()) {
+                        displayResults(resultList);
+                    }
+                    return resultList.isEmpty() ? doFullTextSearchResultsCountObservable(searchTerm) : Observable.empty();
+                })
+                .toList()
+                .subscribe(this::displayResultsCount, throwable -> {
                     // If there's an error, just log it and let the existing prefix search results be.
                     logError(true, startTime);
                 }));
     }
 
-    private void doFullTextSearchCountForMultipleLanguages(final String searchTerm) {
-        updateProgressBar(true);
-        disposables.add(Observable.fromIterable(WikipediaApp.getInstance().language().getAppLanguageCodes())
+    private Observable<Integer> doFullTextSearchResultsCountObservable(final String searchTerm) {
+        return Observable.fromIterable(WikipediaApp.getInstance().language().getAppLanguageCodes())
                 .flatMap(langCode -> ServiceFactory.get(WikiSite.forLanguageCode(langCode)).fullTextSearch(searchTerm, LARGE_BATCH_SIZE, null, null))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .map(response -> response.query() != null ? response.query().pages().size() : 0)
-                .toList()
-                .doAfterTerminate(() -> updateProgressBar(false))
-                .subscribe(list -> {
-                    resultsCountList.addAll(list);
-                    getAdapter().notifyDataSetChanged();
-                }, L::d));
+                .map(response -> response.query() != null ? response.query().pages().size() : 0);
     }
 
     private void clearResults() {
@@ -374,11 +371,13 @@ public class SearchResultsFragment extends Fragment {
                 totalResults.add(newResult);
             }
         }
+        searchResultsContainer.setVisibility(View.VISIBLE);
+        getAdapter().notifyDataSetChanged();
+    }
 
-        if (totalResults.isEmpty()) {
-            doFullTextSearchCountForMultipleLanguages(currentSearchTerm);
-        }
-
+    private void displayResultsCount(@NonNull List<Integer> list) {
+        resultsCountList.clear();
+        resultsCountList.addAll(list);
         searchResultsContainer.setVisibility(View.VISIBLE);
         getAdapter().notifyDataSetChanged();
     }
@@ -505,7 +504,7 @@ public class SearchResultsFragment extends Fragment {
             TextView resultsText = getView().findViewById(R.id.results_text);
             TextView languageCodeText = getView().findViewById(R.id.language_code);
             resultsText.setText(resultsCount == 0 ? getString(R.string.search_results_count_zero)
-                    : getResources().getQuantityString(R.plurals.search_results_count, resultsCount));
+                    : getResources().getQuantityString(R.plurals.search_results_count, resultsCount, resultsCount));
             resultsText.setTextColor(resultsCount == 0 ? secondaryColorStateList : accentColorStateList);
             languageCodeText.setText(langCode);
             languageCodeText.setTextColor(resultsCount == 0 ? secondaryColorStateList : accentColorStateList);
@@ -513,12 +512,14 @@ public class SearchResultsFragment extends Fragment {
             ViewUtil.formatLangButton(languageCodeText, langCode,
                     LANG_BUTTON_TEXT_SIZE_SMALLER, LANG_BUTTON_TEXT_SIZE_LARGER);
 
-            if (resultsCount > 0 ) {
+            if (resultsCount > 0) {
                 getView().setOnClickListener(view -> {
                     if (getParentFragment() != null) {
                         ((SearchFragment) getParentFragment()).setUpLanguageScroll(position);
                     }
                 });
+            } else {
+                getView().setOnClickListener(null);
             }
         }
     }
