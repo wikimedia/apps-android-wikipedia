@@ -1,5 +1,6 @@
 package org.wikipedia.search;
 
+import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -26,6 +27,7 @@ import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.util.log.L;
 import org.wikipedia.views.DefaultViewHolder;
@@ -452,7 +454,6 @@ public class SearchResultsFragment extends Fragment {
 
         @Override
         public DefaultViewHolder<View> onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            L.d("SearchResultAdapter viewType " + viewType);
             if (viewType == VIEW_TYPE_ITEM) {
                 return new SearchResultItemViewHolder(LayoutInflater.from(getContext())
                         .inflate(R.layout.item_search_result, parent, false));
@@ -478,9 +479,7 @@ public class SearchResultsFragment extends Fragment {
                 viewHolder.getView().setOnCreateContextMenuListener(new LongPressHandler(holder.getView(),
                         getItem(pos).getPageTitle(), HistoryEntry.SOURCE_SEARCH, new SearchResultsFragmentLongPressHandler(pos)));
             } else if (holder instanceof NoSearchResultItemViewHolder) {
-                NoSearchResultItemViewHolder viewHolder = (NoSearchResultItemViewHolder) holder;
-                viewHolder.bindItem(pos);
-                // TODO: add onclick action
+                ((NoSearchResultItemViewHolder) holder).bindItem(pos);
             }
         }
     }
@@ -490,6 +489,16 @@ public class SearchResultsFragment extends Fragment {
             super(itemView);
         }
 
+        private ColorStateList accentColorStateList = new ColorStateList(
+                new int[][]{new int[]{}},
+                new int[]{ResourceUtil.getThemedColor(requireContext(), R.attr.colorAccent)}
+        );
+
+        private ColorStateList secondaryColorStateList = new ColorStateList(
+                new int[][]{new int[]{}},
+                new int[]{ResourceUtil.getThemedColor(requireContext(), R.attr.material_theme_secondary_color)}
+        );
+
         void bindItem(int position) {
             String langCode = WikipediaApp.getInstance().language().getAppLanguageCodes().get(position);
             int resultsCount = resultsCountList.get(position);
@@ -497,9 +506,20 @@ public class SearchResultsFragment extends Fragment {
             TextView languageCodeText = getView().findViewById(R.id.language_code);
             resultsText.setText(resultsCount == 0 ? getString(R.string.search_results_count_zero)
                     : getResources().getQuantityString(R.plurals.search_results_count, resultsCount));
+            resultsText.setTextColor(resultsCount == 0 ? secondaryColorStateList : accentColorStateList);
             languageCodeText.setText(langCode);
+            languageCodeText.setTextColor(resultsCount == 0 ? secondaryColorStateList : accentColorStateList);
+            languageCodeText.setBackgroundTintList(resultsCount == 0 ? secondaryColorStateList : accentColorStateList);
             ViewUtil.formatLangButton(languageCodeText, langCode,
                     LANG_BUTTON_TEXT_SIZE_SMALLER, LANG_BUTTON_TEXT_SIZE_LARGER);
+
+            if (resultsCount > 0 ) {
+                getView().setOnClickListener(view -> {
+                    if (getParentFragment() != null) {
+                        ((SearchFragment) getParentFragment()).setUpLanguageScroll(position);
+                    }
+                });
+            }
         }
     }
 
