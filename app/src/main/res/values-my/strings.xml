@@ -25,7 +25,6 @@
   <string name="nav_item_forward">ရှေ့ပြန်သွားရန်</string>
   <string name="search_hint">ဝီကီပီးဒီးယားထဲတွင် ရှာဖွေပါ</string>
   <string name="search_hint_voice_search">အသံထည့်သွင်းရှာဖွေရေး</string>
-  <string name="search_hint_search_history">ရှာဖွေမှု သမိုင်း</string>
   <string name="search_hint_search_languages">ဘာသာစကားတစ်ခုအတွက် ရှာဖွေရန်</string>
   <string name="nav_item_history">မှတ်တမ်း</string>
   <string name="nav_item_suggested_edits" fuzzy="true">အကြံပြုထားသော ပြင်ဆင်မှုများ</string>

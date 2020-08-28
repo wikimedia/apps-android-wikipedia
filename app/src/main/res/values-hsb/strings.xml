@@ -14,7 +14,6 @@
   <string name="page_tabs_back">Wróćo</string>
   <string name="nav_item_forward">Dale</string>
   <string name="search_hint">Wikipediju přepytać</string>
-  <string name="search_hint_search_history">Pytanska historija</string>
   <string name="search_hint_search_languages">Za rěču pytać</string>
   <string name="nav_item_history">Historija</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Namjetowane změny</string>

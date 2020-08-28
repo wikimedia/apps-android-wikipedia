@@ -30,7 +30,6 @@
   <string name="nav_item_forward">Уперед</string>
   <string name="search_hint">Пошук по Вікіпедії</string>
   <string name="search_hint_voice_search">Голосовий пошук</string>
-  <string name="search_hint_search_history">Історія пошуку</string>
   <string name="search_hint_search_languages">Пошук мови</string>
   <string name="filter_hint_filter_my_lists_and_articles">Фільтрувати мої списки</string>
   <string name="nav_item_history">Історія</string>

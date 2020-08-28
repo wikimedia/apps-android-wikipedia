@@ -24,7 +24,6 @@
   <string name="nav_item_forward">Maju</string>
   <string name="search_hint">Cari dalam Wikipedia</string>
   <string name="search_hint_voice_search">Carian input suara</string>
-  <string name="search_hint_search_history">Cari dalam sejarah</string>
   <string name="search_hint_search_languages">Cari bahasa</string>
   <string name="nav_item_history">Sejarah</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Penyuntingan yang disarankan</string>
