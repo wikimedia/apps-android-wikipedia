@@ -19,7 +19,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.view.ActionMode;
-import androidx.core.widget.NestedScrollView;
+import androidx.appcompat.widget.AppCompatImageView;
 import androidx.fragment.app.Fragment;
 import androidx.loader.app.LoaderManager;
 import androidx.loader.content.CursorLoader;
@@ -59,7 +59,6 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 import butterknife.Unbinder;
 
 import static org.wikipedia.Constants.HISTORY_FRAGMENT_LOADER_ID;
@@ -71,15 +70,9 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
     }
 
     private Unbinder unbinder;
-    @BindView(R.id.history_scroll_view) NestedScrollView historyNestedScrollView;
-    @BindView(R.id.history_container) View historyContainer;
     @BindView(R.id.history_list) RecyclerView historyList;
     @BindView(R.id.history_empty_container) View historyEmptyView;
     @BindView(R.id.search_empty_view) SearchEmptyView searchEmptyView;
-    @BindView(R.id.history_delete) ImageView deleteHistoryItems;
-    @BindView(R.id.history_filter) ImageView filterHistoryItems;
-    @BindView(R.id.wiki_card_for_search) WikiCardView searchWikiCardView;
-
     private WikipediaApp app;
 
     private String currentSearchQuery;
@@ -115,43 +108,19 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
 
         historyList.setLayoutManager(new LinearLayoutManager(getContext()));
         historyList.setAdapter(adapter);
-        searchWikiCardView.setCardBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.color_group_22));
 
         LoaderManager.getInstance(requireActivity()).initLoader(HISTORY_FRAGMENT_LOADER_ID, null, loaderCallback);
         setUpScrollListener();
         return view;
     }
 
-    @OnClick(R.id.history_delete) void onDeleteHistoryEntriesClicked(View v) {
-        if (selectedEntries.size() == 0) {
-            new AlertDialog.Builder(requireContext())
-                    .setTitle(R.string.dialog_title_clear_history)
-                    .setMessage(R.string.dialog_message_clear_history)
-                    .setPositiveButton(R.string.dialog_message_clear_history_yes, (dialog, which) -> onClearHistoryClick())
-                    .setNegativeButton(R.string.dialog_message_clear_history_no, null).create().show();
-        } else {
-            deleteSelectedPages();
-        }
-    }
-
-    @OnClick(R.id.history_filter) void onFilterEntriesClicked(View v) {
-        if (actionMode == null) {
-            actionMode = ((AppCompatActivity) requireActivity())
-                    .startSupportActionMode(searchActionModeCallback);
-        }
-    }
-
-    @OnClick(R.id.search_card) void onSearchCardClicked(View v) {
-        ((MainFragment) getParentFragment()).openSearchActivity(Constants.InvokeSource.NAV_MENU, null);
-    }
-
-    @OnClick(R.id.voice_search_button) void onVoiceSearchClicked(View v) {
-        ((MainFragment) getParentFragment()).onFeedVoiceSearchRequested();
-    }
-
     private void setUpScrollListener() {
-        historyNestedScrollView.setOnScrollChangeListener((NestedScrollView.OnScrollChangeListener) (v, scrollX, scrollY, oldScrollX, oldScrollY) -> {
-            ((MainActivity) requireActivity()).updateToolbarElevation(scrollY != 0);
+        historyList.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                ((MainActivity) requireActivity()).updateToolbarElevation(historyList.computeVerticalScrollOffset() != 0);
+            }
         });
     }
 
@@ -207,9 +176,6 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
             searchEmptyView.setVisibility(adapter.isEmpty() ? View.VISIBLE : View.GONE);
             setEmptyContainerVisibility(false);
         }
-        historyList.setVisibility(adapter.isEmpty() ? View.GONE : View.VISIBLE);
-        deleteHistoryItems.setVisibility(adapter.isEmpty() ? View.GONE : View.VISIBLE);
-        filterHistoryItems.setVisibility(adapter.isEmpty() ? View.GONE : View.VISIBLE);
     }
 
     private void setEmptyContainerVisibility(boolean visible) {
@@ -337,6 +303,7 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
         @Override
         public void onLoadFinished(@NonNull Loader<Cursor> cursorLoader, Cursor cursor) {
             List<Object> list = new ArrayList<>();
+            list.add(new Search());
             while (cursor.moveToNext()) {
                 IndexedHistoryEntry indexedEntry = new IndexedHistoryEntry(cursor);
                 // Check the previous item, see if the times differ enough
@@ -408,6 +375,78 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
         }
     }
 
+    private interface SearchHeaderCallback {
+        void onSearchCardClicked();
+
+        void onVoiceSearchClicked();
+
+        void onFilterHistoryClicked();
+
+        void onClearHistoryClicked();
+    }
+
+    private class SearchHeaderItemCallback implements SearchHeaderCallback {
+        @Override
+        public void onSearchCardClicked() {
+            ((MainFragment) getParentFragment()).openSearchActivity(Constants.InvokeSource.NAV_MENU, null);
+        }
+
+        @Override
+        public void onVoiceSearchClicked() {
+            ((MainFragment) getParentFragment()).onFeedVoiceSearchRequested();
+        }
+
+        @Override
+        public void onFilterHistoryClicked() {
+            if (actionMode == null) {
+                actionMode = ((AppCompatActivity) requireActivity())
+                        .startSupportActionMode(searchActionModeCallback);
+            }
+        }
+
+        @Override
+        public void onClearHistoryClicked() {
+            if (selectedEntries.size() == 0) {
+                new AlertDialog.Builder(requireContext())
+                        .setTitle(R.string.dialog_title_clear_history)
+                        .setMessage(R.string.dialog_message_clear_history)
+                        .setPositiveButton(R.string.dialog_message_clear_history_yes, (dialog, which) -> onClearHistoryClick())
+                        .setNegativeButton(R.string.dialog_message_clear_history_no, null).create().show();
+            } else {
+                deleteSelectedPages();
+            }
+        }
+    }
+
+    private class SearchCardViewHolder extends DefaultViewHolder<View> {
+        WikiCardView searchWikiCardView;
+        View searchCardView;
+        AppCompatImageView voiceSearchButton;
+        ImageView historyFilterButton;
+        ImageView clearHistoryButton;
+        SearchHeaderCallback searchHeaderCallback;
+
+        SearchCardViewHolder(View itemView, @NonNull SearchHeaderCallback searchHeaderCallback) {
+            super(itemView);
+            this.searchHeaderCallback = searchHeaderCallback;
+            searchWikiCardView = itemView.findViewById(R.id.wiki_card_for_search);
+            searchCardView = itemView.findViewById(R.id.search_card);
+            voiceSearchButton = itemView.findViewById(R.id.voice_search_button);
+            historyFilterButton = itemView.findViewById(R.id.history_filter);
+            clearHistoryButton = itemView.findViewById(R.id.history_delete);
+            searchCardView.setOnClickListener(view -> searchHeaderCallback.onSearchCardClicked());
+            voiceSearchButton.setOnClickListener(view -> searchHeaderCallback.onVoiceSearchClicked());
+            historyFilterButton.setOnClickListener(view -> searchHeaderCallback.onFilterHistoryClicked());
+            clearHistoryButton.setOnClickListener(view -> searchHeaderCallback.onClearHistoryClicked());
+            searchWikiCardView.setCardBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.color_group_22));
+        }
+
+        public void bindItem() {
+            clearHistoryButton.setVisibility(adapter.isEmpty() ? View.GONE : View.VISIBLE);
+            historyFilterButton.setVisibility(adapter.isEmpty() ? View.GONE : View.VISIBLE);
+        }
+    }
+
     private class HistoryEntryItemHolder extends DefaultViewHolder<PageItemView<IndexedHistoryEntry>>
             implements SwipeableItemTouchHelperCallback.Callback {
         private HistoryEntry entry;
@@ -436,8 +475,9 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
 
     private final class HistoryEntryItemAdapter extends RecyclerView.Adapter<DefaultViewHolder> {
 
-        private static final int VIEW_TYPE_HEADER = 0;
-        private static final int VIEW_TYPE_ITEM = 1;
+        private static final int VIEW_TYPE_SEARCH_CARD = 0;
+        private static final int VIEW_TYPE_HEADER = 1;
+        private static final int VIEW_TYPE_ITEM = 2;
 
         @NonNull
         private List<Object> historyEntries = new ArrayList<>();
@@ -448,12 +488,14 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
         }
 
         public boolean isEmpty() {
-            return getItemCount() == 0;
+            return getItemCount() == 1;
         }
 
         @Override
         public int getItemViewType(int position) {
-            if (historyEntries.get(position) instanceof String) {
+            if (historyEntries.get(position) instanceof Search) {
+                return VIEW_TYPE_SEARCH_CARD;
+            } else if (historyEntries.get(position) instanceof String) {
                 return VIEW_TYPE_HEADER;
             } else {
                 return VIEW_TYPE_ITEM;
@@ -471,7 +513,10 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
 
         @Override
         public DefaultViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            if (viewType == VIEW_TYPE_HEADER) {
+            if (viewType == VIEW_TYPE_SEARCH_CARD) {
+                View view = LayoutInflater.from(requireContext()).inflate(R.layout.view_history_header_with_search, parent, false);
+                return new SearchCardViewHolder(view, new SearchHeaderItemCallback());
+            } else if (viewType == VIEW_TYPE_HEADER) {
                 View view = LayoutInflater.from(requireContext()).inflate(R.layout.view_section_header, parent, false);
                 return new HeaderViewHolder(view);
             } else {
@@ -481,7 +526,9 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
 
         @Override
         public void onBindViewHolder(@NonNull DefaultViewHolder holder, int pos) {
-            if (holder instanceof HistoryEntryItemHolder) {
+            if (holder instanceof SearchCardViewHolder) {
+                ((SearchCardViewHolder) holder).bindItem();
+            } else if (holder instanceof HistoryEntryItemHolder) {
                 ((HistoryEntryItemHolder) holder).bindItem((IndexedHistoryEntry) historyEntries.get(pos));
             } else {
                 ((HeaderViewHolder) holder).bindItem((String) historyEntries.get(pos));
@@ -540,7 +587,6 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
     private class HistorySearchCallback extends SearchActionModeCallback {
         @Override
         public boolean onCreateActionMode(ActionMode mode, Menu menu) {
-            searchWikiCardView.setVisibility(View.GONE);
             actionMode = mode;
             ((MainFragment) getParentFragment()).setBottomNavVisible(false);
             return super.onCreateActionMode(mode, menu);
@@ -560,7 +606,6 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
                 restartLoader();
             }
             actionMode = null;
-            searchWikiCardView.setVisibility(View.VISIBLE);
             ((MainFragment) getParentFragment()).setBottomNavVisible(true);
         }
 
@@ -578,4 +623,6 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
     @Nullable private Callback callback() {
         return FragmentUtil.getCallback(this, Callback.class);
     }
+
+    private static class Search{ }
 }

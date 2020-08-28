@@ -1,66 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/history_scroll_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <FrameLayout
-        android:id="@+id/history_container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <LinearLayout
+        android:id="@+id/history_empty_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="200dp"
+        android:gravity="center"
+        android:orientation="vertical">
 
-        <LinearLayout
-            android:id="@+id/history_empty_container"
+        <ImageView
+            android:id="@+id/history_empty_image"
+            android:layout_width="168dp"
+            android:layout_height="168dp"
+            android:layout_gravity="center_horizontal"
+            android:contentDescription="@null"
+            app:srcCompat="@drawable/no_history" />
+
+        <TextView
+            android:id="@+id/history_empty_title"
+            style="@style/MaterialLargePrimaryTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="200dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="12dp"
+            android:gravity="center"
+            android:text="@string/history_empty_title" />
+
+        <TextView
+            android:id="@+id/history_empty_message"
+            style="@style/MaterialMediumSecondaryCaption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:gravity="center"
-            android:orientation="vertical">
+            android:text="@string/history_empty_message" />
+    </LinearLayout>
 
-            <ImageView
-                android:id="@+id/history_empty_image"
-                android:layout_width="168dp"
-                android:layout_height="168dp"
-                android:layout_gravity="center_horizontal"
-                android:contentDescription="@null"
-                app:srcCompat="@drawable/no_history" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/history_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
 
-            <TextView
-                android:id="@+id/history_empty_title"
-                style="@style/MaterialLargePrimaryTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="12dp"
-                android:gravity="center"
-                android:text="@string/history_empty_title" />
+        android:scrollbars="vertical" />
 
-            <TextView
-                android:id="@+id/history_empty_message"
-                style="@style/MaterialMediumSecondaryCaption"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:gravity="center"
-                android:text="@string/history_empty_message" />
-        </LinearLayout>
-
-        <include
-            android:id="@+id/history_list_container"
-            layout="@layout/view_history_list_container"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="gone" />
-
-        <org.wikipedia.views.SearchEmptyView
-            android:id="@+id/search_empty_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="200dp"
-            android:visibility="gone" />
-    </FrameLayout>
-</androidx.core.widget.NestedScrollView>
+    <org.wikipedia.views.SearchEmptyView
+        android:id="@+id/search_empty_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone" />
+</FrameLayout>
