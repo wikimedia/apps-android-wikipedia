@@ -451,11 +451,6 @@ public class SearchResultsFragment extends Fragment {
         private static final int VIEW_TYPE_ITEM = 0;
         private static final int VIEW_TYPE_NO_RESULTS = 1;
 
-        @NonNull
-        public SearchResult getItem(int position) {
-            return totalResults.get(position);
-        }
-
         @Override
         public int getItemViewType(int position) {
             return totalResults.isEmpty() ? VIEW_TYPE_NO_RESULTS : VIEW_TYPE_ITEM;
@@ -480,18 +475,7 @@ public class SearchResultsFragment extends Fragment {
         @Override
         public void onBindViewHolder(@NonNull DefaultViewHolder<View> holder, int pos) {
             if (holder instanceof SearchResultItemViewHolder) {
-                SearchResultItemViewHolder viewHolder = (SearchResultItemViewHolder) holder;
-                viewHolder.bindItem(pos);
-                viewHolder.getView().setOnClickListener(view -> {
-                    Callback callback = callback();
-                    int position = (int) view.getTag();
-                    if (callback != null && position < totalResults.size()) {
-                        callback.navigateToTitle(totalResults.get(position).getPageTitle(), false, position);
-                    }
-                });
-                viewHolder.getView().setLongClickable(true);
-                viewHolder.getView().setOnCreateContextMenuListener(new LongPressHandler(holder.getView(),
-                        getItem(pos).getPageTitle(), HistoryEntry.SOURCE_SEARCH, new SearchResultsFragmentLongPressHandler(pos)));
+                ((SearchResultItemViewHolder) holder).bindItem(pos);
             } else if (holder instanceof NoSearchResultItemViewHolder) {
                 ((NoSearchResultItemViewHolder) holder).bindItem(pos);
             }
@@ -578,7 +562,15 @@ public class SearchResultsFragment extends Fragment {
                 }
             }
 
-            getView().setTag(position);
+            getView().setLongClickable(true);
+            getView().setOnClickListener(view -> {
+                Callback callback = callback();
+                if (callback != null) {
+                    callback.navigateToTitle(totalResults.get(position).getPageTitle(), false, position);
+                }
+            });
+            getView().setOnCreateContextMenuListener(new LongPressHandler(getView(),
+                    result.getPageTitle(), HistoryEntry.SOURCE_SEARCH, new SearchResultsFragmentLongPressHandler(position)));
         }
     }
 
