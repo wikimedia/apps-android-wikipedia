@@ -101,6 +101,7 @@ class SuggestedEditsTasksFragment : Fragment() {
         referencedIds.forEach { id ->
             userStatsClickTarget.findViewById<View>(id).setOnClickListener(listener)
         }
+        userStatsClickTarget.setOnClickListener(listener)
     }
 
     override fun onPause() {
@@ -259,26 +260,16 @@ class SuggestedEditsTasksFragment : Fragment() {
 
         if (totalContributions == 0) {
             userStatsClickTarget.isEnabled = false
-            userNameView.visibility = GONE
-            contributionsStatsView.visibility = GONE
-            editQualityStatsView.visibility = GONE
-            editStreakStatsView.visibility = GONE
-            pageViewStatsView.visibility = GONE
-            userStatsArrow.visibility = GONE
+            userStatsViewsGroup.visibility = GONE
             onboardingImageView.visibility = VISIBLE
             onboardingTextView.visibility = VISIBLE
             onboardingTextView.text = StringUtil.fromHtml(getString(R.string.suggested_edits_onboarding_message, AccountUtil.getUserName()))
         } else {
-            userStatsClickTarget.isEnabled = true
-            userNameView.text = AccountUtil.getUserName()
-            userNameView.visibility = VISIBLE
-            userStatsArrow.visibility = VISIBLE
-            contributionsStatsView.visibility = VISIBLE
-            editQualityStatsView.visibility = VISIBLE
-            editStreakStatsView.visibility = VISIBLE
-            pageViewStatsView.visibility = VISIBLE
+            userStatsViewsGroup.visibility = VISIBLE
             onboardingImageView.visibility = GONE
             onboardingTextView.visibility = GONE
+            userStatsClickTarget.isEnabled = true
+            userNameView.text = AccountUtil.getUserName()
             contributionsStatsView.setTitle(totalContributions.toString())
             contributionsStatsView.setDescription(resources.getQuantityString(R.plurals.suggested_edits_contribution, totalContributions))
             if (Prefs.shouldShowOneTimeSequentialUserStatsTooltip()) {

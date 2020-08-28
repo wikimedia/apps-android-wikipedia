@@ -141,7 +141,9 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
             return true;
         });
 
-        maybeShowEditsTooltip();
+        if (!(getCurrentFragment() instanceof SuggestedEditsTasksFragment)) {
+            maybeShowEditsTooltip();
+        }
 
         if (savedInstanceState == null) {
             handleIntent(requireActivity().getIntent());
