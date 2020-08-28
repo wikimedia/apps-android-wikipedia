@@ -46,7 +46,6 @@
   <string name="nav_item_forward">Dalej</string>
   <string name="search_hint">Szukaj w Wikipedii</string>
   <string name="search_hint_voice_search">Wyszukiwanie za pomocą głosu</string>
-  <string name="search_hint_search_history">Historia wyszukiwania</string>
   <string name="search_hint_search_languages">Szukaj języka</string>
   <string name="filter_hint_filter_my_lists_and_articles">Filtruj moją listę</string>
   <string name="nav_item_history">Historia</string>

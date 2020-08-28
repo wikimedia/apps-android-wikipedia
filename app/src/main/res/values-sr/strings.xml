@@ -28,7 +28,6 @@
   <string name="nav_item_forward">Напред</string>
   <string name="search_hint">Претражите Википедију</string>
   <string name="search_hint_voice_search">Претрага гласом</string>
-  <string name="search_hint_search_history">Историја претраге</string>
   <string name="search_hint_search_languages">Претражите језике</string>
   <string name="nav_item_history">Историја</string>
   <string name="nav_item_suggested_edits">Измене</string>

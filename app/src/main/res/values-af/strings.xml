@@ -15,7 +15,6 @@
   <string name="app_name_alpha">Wikipedia Alfa</string>
   <string name="wikimedia">Wikimedia</string>
   <string name="search_hint">Soek in Wikipedia</string>
-  <string name="search_hint_search_history">Soekgeskiedenis</string>
   <string name="search_hint_search_languages">Soek na ’n taal</string>
   <string name="nav_item_history">Geskiedenis</string>
   <string name="error_network_error">Kan nie aan die internet koppel nie.</string>

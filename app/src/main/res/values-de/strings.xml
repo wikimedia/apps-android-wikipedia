@@ -36,7 +36,6 @@
   <string name="nav_item_forward">Vorwärts</string>
   <string name="search_hint">Wikipedia durchsuchen</string>
   <string name="search_hint_voice_search">Sprachsuche</string>
-  <string name="search_hint_search_history">Suchverlauf</string>
   <string name="search_hint_search_languages">Nach einer Sprache suchen</string>
   <string name="nav_item_history">Verlauf</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Vorgeschlagene Bearbeitungen</string>

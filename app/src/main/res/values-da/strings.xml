@@ -28,7 +28,6 @@
   <string name="page_tabs_back">Tilbage</string>
   <string name="nav_item_forward">Frem</string>
   <string name="search_hint">Søg i Wikipedia</string>
-  <string name="search_hint_search_history">Søgehistorik</string>
   <string name="search_hint_search_languages">Søg efter et sprog</string>
   <string name="nav_item_history">Historik</string>
   <string name="nav_item_suggested_edits">Redigeringer</string>

@@ -29,7 +29,6 @@
   <string name="nav_item_forward">Chuyển tiếp</string>
   <string name="search_hint">Tìm trong Wikipedia</string>
   <string name="search_hint_voice_search">Tìm kiếm nhập giọng nói</string>
-  <string name="search_hint_search_history">Tìm trong lịch sử</string>
   <string name="search_hint_search_languages">Tìm một ngôn ngữ</string>
   <string name="filter_hint_filter_my_lists_and_articles">Lọc các danh sách của tôi.</string>
   <string name="nav_item_history">Lịch sử</string>

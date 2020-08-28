@@ -17,7 +17,6 @@
   <string name="nav_item_forward">Առաջ</string>
   <string name="search_hint">Որոնել Վիքիպեդիայում</string>
   <string name="search_hint_voice_search">Ձայնային որոնում</string>
-  <string name="search_hint_search_history">Որոնումների պատմություն</string>
   <string name="search_hint_search_languages">Լեզվի որոնում</string>
   <string name="nav_item_history">Պատմություն</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Առաջարկվող խմբագրումներ</string>

@@ -3,8 +3,6 @@ package org.wikipedia.search;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -50,12 +48,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
@@ -83,7 +83,6 @@ public class SearchResultsFragment extends Fragment {
 
     private static final int BATCH_SIZE = 20;
     private static final int DELAY_MILLIS = 300;
-    private static final int MESSAGE_SEARCH = 1;
     private static final int MAX_CACHE_SIZE_SEARCH_RESULTS = 4;
     /**
      * Constant to ease in the conversion of timestamps from nanoseconds to milliseconds.
@@ -100,7 +99,6 @@ public class SearchResultsFragment extends Fragment {
     private Loader<Cursor> loaderManager;
 
     private final LruCache<String, List<SearchResult>> searchResultsCache = new LruCache<>(MAX_CACHE_SIZE_SEARCH_RESULTS);
-    private Handler searchHandler;
     private String currentSearchTerm = "";
     @Nullable private SearchResults lastFullTextResults;
     @NonNull private final List<SearchResult> totalResults = new ArrayList<>();
@@ -120,8 +118,6 @@ public class SearchResultsFragment extends Fragment {
             searchErrorView.setVisibility(GONE);
             startSearch(currentSearchTerm, true);
         });
-
-        searchHandler = new Handler(new SearchHandlerCallback());
 
         return view;
     }
@@ -202,56 +198,37 @@ public class SearchResultsFragment extends Fragment {
             return;
         }
 
-        Message searchMessage = Message.obtain();
-        searchMessage.what = MESSAGE_SEARCH;
-        searchMessage.obj = term;
-
-        if (force) {
-            searchHandler.sendMessage(searchMessage);
-        } else {
-            searchHandler.sendMessageDelayed(searchMessage, DELAY_MILLIS);
-        }
+        doTitlePrefixSearch(term, force);
     }
 
-    private class SearchHandlerCallback implements Handler.Callback {
-        @Override
-        public boolean handleMessage(Message msg) {
-            if (!isAdded()) {
-                return true;
-            }
-            final String mySearchTerm = (String) msg.obj;
-            doTitlePrefixSearch(mySearchTerm);
-            return true;
-        }
-    }
-
-    private void doTitlePrefixSearch(final String searchTerm) {
+    private void doTitlePrefixSearch(final String searchTerm, boolean force) {
         cancelSearchTask();
         final long startTime = System.nanoTime();
         updateProgressBar(true);
 
-        disposables.add(ServiceFactory.get(WikiSite.forLanguageCode(getSearchLanguageCode())).prefixSearch(searchTerm, BATCH_SIZE, searchTerm)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .map(response -> {
-                    if (response != null && response.query() != null && response.query().pages() != null) {
-                        // noinspection ConstantConditions
-                        return new SearchResults(response.query().pages(),
-                                WikiSite.forLanguageCode(getSearchLanguageCode()), response.continuation(),
-                                response.suggestion());
-                    }
-                    // A prefix search query with no results will return the following:
-                    //
-                    // {
-                    //   "batchcomplete": true,
-                    //   "query": {
-                    //      "search": []
-                    //   }
-                    // }
-                    //
-                    // Just return an empty SearchResults() in this case.
-                    return new SearchResults();
-                })
+        disposables.add(Observable.timer(force ? 0 : DELAY_MILLIS, TimeUnit.MILLISECONDS).flatMap(timer ->
+                ServiceFactory.get(WikiSite.forLanguageCode(getSearchLanguageCode())).prefixSearch(searchTerm, BATCH_SIZE, searchTerm)
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .map(response -> {
+                            if (response != null && response.query() != null && response.query().pages() != null) {
+                                // noinspection ConstantConditions
+                                return new SearchResults(response.query().pages(),
+                                        WikiSite.forLanguageCode(getSearchLanguageCode()), response.continuation(),
+                                        response.suggestion());
+                            }
+                            // A prefix search query with no results will return the following:
+                            //
+                            // {
+                            //   "batchcomplete": true,
+                            //   "query": {
+                            //      "search": []
+                            //   }
+                            // }
+                            //
+                            // Just return an empty SearchResults() in this case.
+                            return new SearchResults();
+                        }))
                 .doAfterTerminate(() -> updateProgressBar(false))
                 .subscribe(results -> {
                     searchErrorView.setVisibility(GONE);
@@ -310,7 +287,6 @@ public class SearchResultsFragment extends Fragment {
 
     private void cancelSearchTask() {
         updateProgressBar(false);
-        searchHandler.removeMessages(MESSAGE_SEARCH);
         disposables.clear();
     }
 
@@ -362,15 +338,6 @@ public class SearchResultsFragment extends Fragment {
                     // If there's an error, just log it and let the existing prefix search results be.
                     logError(true, startTime);
                 }));
-    }
-
-    @Nullable
-    public PageTitle getFirstResult() {
-        if (!totalResults.isEmpty()) {
-            return totalResults.get(0).getPageTitle();
-        } else {
-            return null;
-        }
     }
 
     private void clearResults() {
