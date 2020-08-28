@@ -416,12 +416,6 @@ public class SearchResultsFragment extends Fragment {
     }
 
     private final class SearchResultAdapter extends RecyclerView.Adapter<SearchResultItemViewHolder> {
-
-        @NonNull
-        public SearchResult getItem(int position) {
-            return totalResults.get(position);
-        }
-
         @Override
         public int getItemCount() {
             return totalResults.size();
@@ -436,16 +430,6 @@ public class SearchResultsFragment extends Fragment {
         @Override
         public void onBindViewHolder(@NonNull SearchResultItemViewHolder holder, int pos) {
             holder.bindItem(pos);
-            holder.getView().setOnClickListener(view -> {
-                Callback callback = callback();
-                int position = (int) view.getTag();
-                if (callback != null && position < totalResults.size()) {
-                    callback.navigateToTitle(totalResults.get(position).getPageTitle(), false, position);
-                }
-            });
-            holder.getView().setLongClickable(true);
-            holder.getView().setOnCreateContextMenuListener(new LongPressHandler(holder.getView(),
-                    getItem(pos).getPageTitle(), HistoryEntry.SOURCE_SEARCH, new SearchResultsFragmentLongPressHandler(pos)));
         }
     }
 
@@ -456,7 +440,7 @@ public class SearchResultsFragment extends Fragment {
 
         void bindItem(int position) {
             TextView pageTitleText = getView().findViewById(R.id.page_list_item_title);
-            SearchResult result = (SearchResult) totalResults.get(position);
+            SearchResult result = totalResults.get(position);
 
             ImageView searchResultItemImage = getView().findViewById(R.id.page_list_item_image);
             GoneIfEmptyTextView descriptionText = getView().findViewById(R.id.page_list_item_description);
@@ -491,7 +475,15 @@ public class SearchResultsFragment extends Fragment {
                 }
             }
 
-            getView().setTag(position);
+            getView().setLongClickable(true);
+            getView().setOnClickListener(view -> {
+                Callback callback = callback();
+                if (callback != null) {
+                    callback.navigateToTitle(totalResults.get(position).getPageTitle(), false, position);
+                }
+            });
+            getView().setOnCreateContextMenuListener(new LongPressHandler(getView(),
+                    result.getPageTitle(), HistoryEntry.SOURCE_SEARCH, new SearchResultsFragmentLongPressHandler(position)));
         }
     }
 
