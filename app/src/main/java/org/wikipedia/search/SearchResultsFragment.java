@@ -212,7 +212,6 @@ public class SearchResultsFragment extends Fragment {
                             // Just return an empty SearchResults() in this case.
                             return new SearchResults();
                         }))
-//                .doAfterTerminate(() -> updateProgressBar(false))
                 .subscribe(results -> {
                     searchErrorView.setVisibility(View.GONE);
                     handleResults(results, searchTerm, startTime);
@@ -318,12 +317,12 @@ public class SearchResultsFragment extends Fragment {
                     return resultList.isEmpty() ? doFullTextSearchResultsCountObservable(searchTerm) : Observable.empty();
                 })
                 .toList()
-                .doAfterTerminate(() -> {
-                    updateProgressBar(false);
-                })
+                .doAfterTerminate(() -> updateProgressBar(false))
                 .subscribe(list -> {
-                    searchResultsCountCache.put(getSearchLanguageCode() + "-" + searchTerm, list);
-                    displayResultsCount(list);
+                    if (!list.isEmpty()) {
+                        searchResultsCountCache.put(getSearchLanguageCode() + "-" + searchTerm, list);
+                        displayResultsCount(list);
+                    }
                 }, throwable -> {
                     // If there's an error, just log it and let the existing prefix search results be.
                     logError(true, startTime);
