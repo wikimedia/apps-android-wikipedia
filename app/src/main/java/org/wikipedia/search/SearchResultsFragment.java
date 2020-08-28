@@ -81,6 +81,7 @@ public class SearchResultsFragment extends Fragment {
     private Unbinder unbinder;
 
     private final LruCache<String, List<SearchResult>> searchResultsCache = new LruCache<>(MAX_CACHE_SIZE_SEARCH_RESULTS);
+    private final LruCache<String, List<Integer>> searchResultsCountCache = new LruCache<>(MAX_CACHE_SIZE_SEARCH_RESULTS);
     private String currentSearchTerm = "";
     @Nullable private SearchResults lastFullTextResults;
     @NonNull private final List<SearchResult> totalResults = new ArrayList<>();
@@ -165,13 +166,22 @@ public class SearchResultsFragment extends Fragment {
         }
 
         List<SearchResult> cacheResult = searchResultsCache.get(getSearchLanguageCode() + "-" + term);
+        List<Integer> cacheResultsCount = searchResultsCountCache.get(getSearchLanguageCode() + "-" + term);
         if (cacheResult != null && !cacheResult.isEmpty()) {
             clearResults();
             displayResults(cacheResult);
             return;
+        } else if (cacheResultsCount != null && !cacheResultsCount.isEmpty()) {
+            clearResults();
+            displayResultsCount(cacheResultsCount);
+            return;
         }
 
         doTitlePrefixSearch(term, force);
+    }
+
+    public void clearSearchResultsCountCache() {
+        searchResultsCountCache.evictAll();
     }
 
     private void doTitlePrefixSearch(final String searchTerm, boolean force) {
@@ -311,7 +321,10 @@ public class SearchResultsFragment extends Fragment {
                 .doAfterTerminate(() -> {
                     updateProgressBar(false);
                 })
-                .subscribe(this::displayResultsCount, throwable -> {
+                .subscribe(list -> {
+                    searchResultsCountCache.put(getSearchLanguageCode() + "-" + searchTerm, list);
+                    displayResultsCount(list);
+                }, throwable -> {
                     // If there's an error, just log it and let the existing prefix search results be.
                     logError(true, startTime);
                 }));
@@ -513,16 +526,12 @@ public class SearchResultsFragment extends Fragment {
             languageCodeText.setBackgroundTintList(resultsCount == 0 ? secondaryColorStateList : accentColorStateList);
             ViewUtil.formatLangButton(languageCodeText, langCode,
                     LANG_BUTTON_TEXT_SIZE_SMALLER, LANG_BUTTON_TEXT_SIZE_LARGER);
-
-            if (resultsCount > 0) {
-                getView().setOnClickListener(view -> {
-                    if (getParentFragment() != null) {
-                        ((SearchFragment) getParentFragment()).setUpLanguageScroll(position);
-                    }
-                });
-            } else {
-                getView().setOnClickListener(null);
-            }
+            getView().setEnabled(resultsCount > 0);
+            getView().setOnClickListener(view -> {
+                if (getParentFragment() != null) {
+                    ((SearchFragment) getParentFragment()).setUpLanguageScroll(position);
+                }
+            });
         }
     }
 

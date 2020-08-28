@@ -207,6 +207,7 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
             } else if (app.language().getAppLanguageCodes().contains(searchLanguageCode)) {
                 position = app.language().getAppLanguageCodes().indexOf(searchLanguageCode);
             }
+            searchResultsFragment.clearSearchResultsCountCache();
             Prefs.setSelectedLanguagePositionInSearch(position);
         }
     }
