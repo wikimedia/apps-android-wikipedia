@@ -202,7 +202,7 @@ public class SearchResultsFragment extends Fragment {
                             // Just return an empty SearchResults() in this case.
                             return new SearchResults();
                         }))
-                .doAfterTerminate(() -> updateProgressBar(false))
+//                .doAfterTerminate(() -> updateProgressBar(false))
                 .subscribe(results -> {
                     searchErrorView.setVisibility(View.GONE);
                     handleResults(results, searchTerm, startTime);
@@ -291,7 +291,6 @@ public class SearchResultsFragment extends Fragment {
                     // Just return an empty SearchResults() in this case.
                     return new SearchResults();
                 })
-                .doAfterTerminate(() -> updateProgressBar(false))
                 .flatMap(results -> {
                     List<SearchResult> resultList = results.getResults();
                     cache(resultList, searchTerm);
@@ -309,6 +308,9 @@ public class SearchResultsFragment extends Fragment {
                     return resultList.isEmpty() ? doFullTextSearchResultsCountObservable(searchTerm) : Observable.empty();
                 })
                 .toList()
+                .doAfterTerminate(() -> {
+                    updateProgressBar(false);
+                })
                 .subscribe(this::displayResultsCount, throwable -> {
                     // If there's an error, just log it and let the existing prefix search results be.
                     logError(true, startTime);
@@ -317,7 +319,7 @@ public class SearchResultsFragment extends Fragment {
 
     private Observable<Integer> doFullTextSearchResultsCountObservable(final String searchTerm) {
         return Observable.fromIterable(WikipediaApp.getInstance().language().getAppLanguageCodes())
-                .flatMap(langCode -> ServiceFactory.get(WikiSite.forLanguageCode(langCode)).fullTextSearch(searchTerm, LARGE_BATCH_SIZE, null, null))
+                .concatMap(langCode -> ServiceFactory.get(WikiSite.forLanguageCode(langCode)).fullTextSearch(searchTerm, LARGE_BATCH_SIZE, null, null))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .map(response -> response.query() != null ? response.query().pages().size() : 0);
