@@ -25,21 +25,18 @@
         app:layout_constraintEnd_toStartOf="@id/language_code"
         />
 
-    <com.google.android.material.button.MaterialButton
+    <TextView
         android:id="@+id/language_code"
-        android:layout_width="21dp"
-        android:layout_height="21dp"
-        android:textColor="?attr/material_theme_secondary_color"
+        style="@style/TextViewCentered"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_gravity="center_vertical"
+        android:background="@drawable/lang_button_shape_border"
+        android:fontFamily="sans-serif-medium"
         android:textAllCaps="true"
-        android:textStyle="bold"
-        android:textAlignment="center"
-        android:fontFamily="monospace"
-        android:gravity="center"
-        android:clickable="false"
-        app:strokeWidth="4dp"
-        app:strokeColor="?attr/material_theme_secondary_color"
+        android:textColor="?attr/material_theme_secondary_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

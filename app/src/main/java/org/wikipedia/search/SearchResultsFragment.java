@@ -27,6 +27,7 @@ import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.util.StringUtil;
+import org.wikipedia.util.log.L;
 import org.wikipedia.views.DefaultViewHolder;
 import org.wikipedia.views.GoneIfEmptyTextView;
 import org.wikipedia.views.ViewUtil;
@@ -47,6 +48,8 @@ import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
 import static org.apache.commons.lang3.StringUtils.isBlank;
+import static org.wikipedia.search.SearchFragment.LANG_BUTTON_TEXT_SIZE_LARGER;
+import static org.wikipedia.search.SearchFragment.LANG_BUTTON_TEXT_SIZE_SMALLER;
 import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
 
 public class SearchResultsFragment extends Fragment {
@@ -61,6 +64,7 @@ public class SearchResultsFragment extends Fragment {
     }
 
     private static final int BATCH_SIZE = 20;
+    private static final int LARGE_BATCH_SIZE = 100;
     private static final int DELAY_MILLIS = 300;
     private static final int MAX_CACHE_SIZE_SEARCH_RESULTS = 4;
     /**
@@ -72,7 +76,6 @@ public class SearchResultsFragment extends Fragment {
     @BindView(R.id.search_results_container) View searchResultsContainer;
     @BindView(R.id.search_results_list) RecyclerView searchResultsList;
     @BindView(R.id.search_error_view) WikiErrorView searchErrorView;
-    @BindView(R.id.search_empty_view) View searchEmptyView;
     @BindView(R.id.search_suggestion) TextView searchSuggestion;
     private Unbinder unbinder;
 
@@ -80,6 +83,7 @@ public class SearchResultsFragment extends Fragment {
     private String currentSearchTerm = "";
     @Nullable private SearchResults lastFullTextResults;
     @NonNull private final List<SearchResult> totalResults = new ArrayList<>();
+    @NonNull private final List<Integer> resultsCountList = new ArrayList<>();
     private CompositeDisposable disposables = new CompositeDisposable();
 
     @Override
@@ -202,7 +206,6 @@ public class SearchResultsFragment extends Fragment {
                     searchErrorView.setVisibility(View.GONE);
                     handleResults(results, searchTerm, startTime);
                 }, caught -> {
-                    searchEmptyView.setVisibility(View.GONE);
                     searchErrorView.setVisibility(View.VISIBLE);
                     searchErrorView.setError(caught);
                     searchResultsContainer.setVisibility(View.GONE);
@@ -306,6 +309,21 @@ public class SearchResultsFragment extends Fragment {
                 }));
     }
 
+    private void doFullTextSearchCountForMultipleLanguages(final String searchTerm) {
+        updateProgressBar(true);
+        disposables.add(Observable.fromIterable(WikipediaApp.getInstance().language().getAppLanguageCodes())
+                .flatMap(langCode -> ServiceFactory.get(WikiSite.forLanguageCode(langCode)).fullTextSearch(searchTerm, LARGE_BATCH_SIZE, null, null))
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .map(response -> response.query() != null ? response.query().pages().size() : 0)
+                .toList()
+                .doAfterTerminate(() -> updateProgressBar(false))
+                .subscribe(list -> {
+                    resultsCountList.addAll(list);
+                    getAdapter().notifyDataSetChanged();
+                }, L::d));
+    }
+
     private void clearResults() {
         clearResults(true);
     }
@@ -319,7 +337,6 @@ public class SearchResultsFragment extends Fragment {
 
     private void clearResults(boolean clearSuggestion) {
         searchResultsContainer.setVisibility(View.GONE);
-        searchEmptyView.setVisibility(View.GONE);
         searchErrorView.setVisibility(View.GONE);
         if (clearSuggestion) {
             searchSuggestion.setVisibility(View.GONE);
@@ -328,6 +345,7 @@ public class SearchResultsFragment extends Fragment {
         lastFullTextResults = null;
 
         totalResults.clear();
+        resultsCountList.clear();
 
         getAdapter().notifyDataSetChanged();
     }
@@ -356,13 +374,10 @@ public class SearchResultsFragment extends Fragment {
         }
 
         if (totalResults.isEmpty()) {
-            searchEmptyView.setVisibility(View.VISIBLE);
-            searchResultsContainer.setVisibility(View.GONE);
-        } else {
-            searchEmptyView.setVisibility(View.GONE);
-            searchResultsContainer.setVisibility(View.VISIBLE);
+            doFullTextSearchCountForMultipleLanguages(currentSearchTerm);
         }
 
+        searchResultsContainer.setVisibility(View.VISIBLE);
         getAdapter().notifyDataSetChanged();
     }
 
@@ -427,19 +442,24 @@ public class SearchResultsFragment extends Fragment {
 
         @Override
         public int getItemViewType(int position) {
-            // TODO: add logic
-            return VIEW_TYPE_ITEM;
+            return totalResults.isEmpty() ? VIEW_TYPE_NO_RESULTS : VIEW_TYPE_ITEM;
         }
 
         @Override
         public int getItemCount() {
-            return totalResults.size();
+            return totalResults.isEmpty() ? resultsCountList.size() : totalResults.size();
         }
 
         @Override
         public DefaultViewHolder<View> onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            return new SearchResultItemViewHolder(LayoutInflater.from(getContext())
-                    .inflate(R.layout.item_search_result, parent, false));
+            L.d("SearchResultAdapter viewType " + viewType);
+            if (viewType == VIEW_TYPE_ITEM) {
+                return new SearchResultItemViewHolder(LayoutInflater.from(getContext())
+                        .inflate(R.layout.item_search_result, parent, false));
+            } else {
+                return new NoSearchResultItemViewHolder(LayoutInflater.from(getContext())
+                        .inflate(R.layout.item_search_no_results, parent, false));
+            }
         }
 
         @Override
@@ -457,7 +477,29 @@ public class SearchResultsFragment extends Fragment {
                 viewHolder.getView().setLongClickable(true);
                 viewHolder.getView().setOnCreateContextMenuListener(new LongPressHandler(holder.getView(),
                         getItem(pos).getPageTitle(), HistoryEntry.SOURCE_SEARCH, new SearchResultsFragmentLongPressHandler(pos)));
+            } else if (holder instanceof NoSearchResultItemViewHolder) {
+                NoSearchResultItemViewHolder viewHolder = (NoSearchResultItemViewHolder) holder;
+                viewHolder.bindItem(pos);
+                // TODO: add onclick action
             }
+        }
+    }
+
+    private class NoSearchResultItemViewHolder extends DefaultViewHolder<View> {
+        NoSearchResultItemViewHolder(@NonNull View itemView) {
+            super(itemView);
+        }
+
+        void bindItem(int position) {
+            String langCode = WikipediaApp.getInstance().language().getAppLanguageCodes().get(position);
+            int resultsCount = resultsCountList.get(position);
+            TextView resultsText = getView().findViewById(R.id.results_text);
+            TextView languageCodeText = getView().findViewById(R.id.language_code);
+            // TODO: add string resources
+            resultsText.setText(resultsCount == 0 ? "No results" : resultsCount + " results");
+            languageCodeText.setText(langCode);
+            ViewUtil.formatLangButton(languageCodeText, langCode,
+                    LANG_BUTTON_TEXT_SIZE_SMALLER, LANG_BUTTON_TEXT_SIZE_LARGER);
         }
     }
 
