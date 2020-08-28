@@ -521,6 +521,7 @@ public class SearchResultsFragment extends Fragment {
             resultsText.setText(resultsCount == 0 ? getString(R.string.search_results_count_zero)
                     : getResources().getQuantityString(R.plurals.search_results_count, resultsCount, resultsCount));
             resultsText.setTextColor(resultsCount == 0 ? secondaryColorStateList : accentColorStateList);
+            languageCodeText.setVisibility(WikipediaApp.getInstance().language().getAppLanguageCodes().size() == 1 ? View.GONE : View.VISIBLE);
             languageCodeText.setText(langCode);
             languageCodeText.setTextColor(resultsCount == 0 ? secondaryColorStateList : accentColorStateList);
             languageCodeText.setBackgroundTintList(resultsCount == 0 ? secondaryColorStateList : accentColorStateList);
