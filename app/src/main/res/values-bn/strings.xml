@@ -15,6 +15,7 @@
 * Sourav Halder
 * Tahmid02016
 * Tauhid16
+* Titodutta
 * Wikisagnik
 * YahyA
 * আজিজ
@@ -330,6 +331,7 @@
   <string name="crash_report_quit">প্রস্থান</string>
   <string name="article_menu_bar_language_button">ভাষা</string>
   <string name="article_menu_bar_search_button">অনুসন্ধান</string>
+  <string name="article_menu_bar_theme_button">থিম</string>
   <string name="article_header_edit_hint">সম্পাদনা…</string>
   <string name="article_header_edit_description" fuzzy="true">শিরোনামের বিবরণ সম্পাদনা করুন</string>
   <string name="article_header_edit_lead_section">ভূমিকা সম্পাদনা করুন</string>

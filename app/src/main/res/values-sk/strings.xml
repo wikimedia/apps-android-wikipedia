@@ -621,6 +621,7 @@
   <string name="description_edit_success_saved_in_lang_snackbar">Popis článku v jazyku %s bol uverejnený!</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Titulok obrázku bol uverejnený!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Titulok obrázku v jazyku %s bol uverejnený!</string>
+  <string name="description_edit_success_saved_image_tags_snackbar" fuzzy="true">Značka obrázku bola uverejnená!</string>
   <string name="description_edit_success_encouragement">Práve ste zlepšili Wikipédiu pre všetkých</string>
   <string name="description_edit_success_done">Hotovo</string>
   <string name="description_edit_success_did_you_know">Vedeli ste, že...</string>

@@ -678,7 +678,7 @@
   <string name="description_edit_success_saved_in_lang_snackbar">¡Descripción de artículo publicada! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Se publicó la leyenda de la imagen.</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Se publicó el pie de foto (%s)</string>
-  <string name="description_edit_success_se_image_caption_feed_link_snackbar">¿Lo disfrutaste? Ayúdanos a añadir las leyendas que faltan a otras imágenes.</string>
+  <string name="description_edit_success_saved_image_tags_snackbar" fuzzy="true">¡Etiquetas de imagen(es) publicadas!</string>
   <string name="description_edit_success_encouragement">Acabas de mejorar Wikipedia para todos</string>
   <string name="description_edit_success_done">Hecho</string>
   <string name="description_edit_success_did_you_know">¿Sabías?</string>

@@ -342,6 +342,11 @@
   <string name="crash_report_relaunch_or_quit">Λυπούμαστε, η εφαρμογή Βικιπαίδεια αντιμετώπισε σφάλμα και τερματίστηκε.\n\nΘέλετε να ξεκινήσετε ξανά ή να σταματήσετε;</string>
   <string name="crash_report_relaunch">Ξεκινήσετε από την αρχή</string>
   <string name="crash_report_quit">Έξοδος</string>
+  <string name="article_menu_bar_save_button">Αποθήκευση</string>
+  <string name="article_menu_bar_language_button">Γλώσσα</string>
+  <string name="article_menu_bar_search_button">Αναζήτηση</string>
+  <string name="article_menu_bar_theme_button">Θέμα</string>
+  <string name="article_menu_bar_contents_button">Περιεχόμενα</string>
   <string name="article_header_edit_hint">Επεξεργασία...</string>
   <string name="article_header_edit_description">Επεξεργασία περιγραφής άρθρου</string>
   <string name="article_header_edit_lead_section">Εισαγωγή επεξεργασίας</string>
@@ -618,6 +623,7 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Ιδανικά μια γραμμή, μεταξύ δύο και δώδεκα λέξεων</string>
   <string name="description_edit_tutorial_button_label_start_editing">Ξεκινήστε την επεξεργασία</string>
   <string name="description_edit_tutorial_promise">Ξεκινώντας, υπόσχομαι να μην καταχραστώ τη λειτουργία.</string>
+  <string name="suggested_edits_describe_articles">Περιγραφή άρθρων</string>
   <string name="suggested_edits_tag_images">Προσθέστε ετικέτες σε εικόνες</string>
   <string name="suggested_edits_review_description">Προβολή περιγραφής άρθρου</string>
   <string name="suggested_edits_add_description_button">Προσθήκη περιγραφής</string>

@@ -638,6 +638,7 @@
   <string name="description_edit_success_saved_in_lang_snackbar">تم نشر وصف المقالة! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">تم نشر تعليق الصورة!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">تم نشر تعليق الصورة! (%s)</string>
+  <string name="description_edit_success_saved_image_tags_snackbar" fuzzy="true">وسم(وسوم) الصورة تم نشرها!</string>
   <string name="description_edit_success_encouragement">لقد جعلت ويكيبيديا أفضل للجميع</string>
   <string name="description_edit_success_done">تم</string>
   <string name="description_edit_success_did_you_know">هل تعلم؟</string>

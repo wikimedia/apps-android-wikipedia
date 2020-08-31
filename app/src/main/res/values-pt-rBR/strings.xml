@@ -674,15 +674,11 @@
   <string name="description_starts_with_uppercase">Comece com uma letra minúscula, a menos que a primeira palavra seja um nome próprio.</string>
   <string name="description_edit_success_saved">Descrição do artigo publicada!</string>
   <string name="description_edit_success_saved_snackbar">Descrição do artigo publicada!</string>
-  <string name="description_edit_success_saved_snackbar_se_promotion">Descrição do artigo publicada. Gostou disso? Ajude-nos a adicionar mais.</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Descrição do artigo publicada! (%s)</string>
-  <string name="description_edit_success_saved_in_lang_snackbar_se_promotion">Descrição do artigo publicada. (%s) Gostou disso? Ajude-nos a adicionar mais.</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Legenda da imagem publicada!</string>
-  <string name="description_edit_success_saved_image_caption_snackbar_se_promotion">Legenda da imagem publicada. Gostou disso? Ajude-nos a adicionar mais.</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Legenda da imagem publicada! (%s)</string>
-  <string name="description_edit_success_saved_image_caption_in_lang_snackbar_se_promotion">Legenda da imagem publicada (%s) Gostou disso? Ajude-nos a adicionar mais.</string>
-  <string name="description_edit_success_se_image_caption_feed_link_snackbar">Gostou disso? Ajude-nos a adicionar legendas ausentes a outras imagens.</string>
-  <string name="description_edit_success_se_image_tags_feed_link_snackbar">Gostou disso? Ajude-nos a adicionar tags ausentes a outras imagens.</string>
+  <string name="description_edit_success_saved_image_tags_snackbar" fuzzy="true">Marcações de imagem publicadas!</string>
+  <string name="description_edit_success_se_general_feed_link_snackbar">Gostou? Ajude-nos a adicionar mais.</string>
   <string name="description_edit_success_encouragement">Você acabou de tornar a Wikipedia melhor para todos</string>
   <string name="description_edit_success_done">Concluído</string>
   <string name="description_edit_success_did_you_know">Você sabia?</string>
