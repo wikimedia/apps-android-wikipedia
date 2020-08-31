@@ -635,7 +635,7 @@
   <string name="description_edit_success_saved_in_lang_snackbar">Deksripsi artikel diterbitkan! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Takarir diterbitkan!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Takarir diterbitkan! (%s)</string>
-  <string name="description_edit_success_se_image_caption_feed_link_snackbar">Anda menikmati itu? Bantu kita menambahkan teks ke gambar yang lain.</string>
+  <string name="description_edit_success_saved_image_tags_snackbar" fuzzy="true">Takarir telah diterbitkan!</string>
   <string name="description_edit_success_encouragement">Anda baru saja membuat Wikipedia lebih baik untuk semua orang</string>
   <string name="description_edit_success_done">Selesai</string>
   <string name="description_edit_success_did_you_know">Tahukah Anda?</string>

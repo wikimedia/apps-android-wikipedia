@@ -662,15 +662,10 @@
   <string name="description_starts_with_uppercase">Comenceu amb minúscula a menys que la primera paraula sigui un nom propi.</string>
   <string name="description_edit_success_saved">S\'ha publicat la descripció d\'article!</string>
   <string name="description_edit_success_saved_snackbar">S’ha publicat la descripció d\'article.</string>
-  <string name="description_edit_success_saved_snackbar_se_promotion">S\'ha publicat la descripció de l\'article. Us ha agradat? Ajudeu-nos a afegir-ne més.</string>
   <string name="description_edit_success_saved_in_lang_snackbar">S\'ha publicat la descripció de l\'article (%s)</string>
-  <string name="description_edit_success_saved_in_lang_snackbar_se_promotion">S\'ha publicat la descripció de l\'article. (%s) Us ha agradat? Ajudeu-nos a afegir-ne més.</string>
   <string name="description_edit_success_saved_image_caption_snackbar">S\'ha publicat la llegenda de la imatge!</string>
-  <string name="description_edit_success_saved_image_caption_snackbar_se_promotion">S\'ha publicat la llegenda de la imatge. Us ha agradat? Ajudeu-nos a afegir-ne més.</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">S\'ha publicat la llegenda de la imatge! (%s)</string>
-  <string name="description_edit_success_saved_image_caption_in_lang_snackbar_se_promotion">S\'ha publicat la llegenda de la imatge. (%s) Us ha agradat? Ajudeu-nos a afegir-ne més.</string>
-  <string name="description_edit_success_se_image_caption_feed_link_snackbar">Us ha agradat?  Ajuda\'ns a afegir els peus de foto que falten a altres imatges.</string>
-  <string name="description_edit_success_se_image_tags_feed_link_snackbar">Us ha agradat? Ajudeu-nos a afegir les etiquetes que hi manquen a les altres imatges.</string>
+  <string name="description_edit_success_saved_image_tags_snackbar" fuzzy="true">S\'han publicat les etiquetes d\'imatge!</string>
   <string name="description_edit_success_encouragement">Acabeu de millorar la Viquipèdia per a tothom</string>
   <string name="description_edit_success_done">Fet</string>
   <string name="description_edit_success_did_you_know">Ho sabíeu?</string>
