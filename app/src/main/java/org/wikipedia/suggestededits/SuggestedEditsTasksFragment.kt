@@ -299,7 +299,7 @@ class SuggestedEditsTasksFragment : Fragment() {
     }
 
     private fun showOneTimeSequentialUserStatsTooltips() {
-        suggestedEditsScrollView.fullScroll(View.FOCUS_UP)
+        suggestedEditsScrollView.post(Runnable { suggestedEditsScrollView.fullScroll(View.FOCUS_UP) })
         val balloon = FeedbackUtil.getTooltip(requireContext(), contributionsStatsView.tooltipText, false, true)
         balloon.showAlignBottom(contributionsStatsView.description)
         balloon.relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), editStreakStatsView.tooltipText, false, true), editStreakStatsView.description)
