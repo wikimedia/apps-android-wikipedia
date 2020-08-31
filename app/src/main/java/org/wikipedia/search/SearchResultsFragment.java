@@ -1,7 +1,6 @@
 package org.wikipedia.search;
 
 import android.database.Cursor;
-import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -18,7 +17,6 @@ import androidx.appcompat.content.res.AppCompatResources;
 import androidx.collection.LruCache;
 import androidx.fragment.app.Fragment;
 import androidx.loader.app.LoaderManager;
-import androidx.loader.content.CursorLoader;
 import androidx.loader.content.Loader;
 
 import org.apache.commons.lang3.StringUtils;
@@ -28,16 +26,13 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.SearchFunnel;
-import org.wikipedia.database.contract.PageHistoryContract;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.history.HistoryDbHelper;
 import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.history.HistoryFragment;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.page.tabs.Tab;
-import org.wikipedia.readinglist.ReadingListBehaviorsUtil;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
-import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.GoneIfEmptyTextView;
 import org.wikipedia.views.TabCountsView;
@@ -63,9 +58,7 @@ import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
 import static org.apache.commons.lang3.StringUtils.isBlank;
 import static org.wikipedia.Constants.HISTORY_FRAGMENT_LOADER_ID;
-import static org.wikipedia.Constants.SEARCH_FRAGMENT_HISTORY_LOADER_ID;
 import static org.wikipedia.search.SearchResult.SearchResultTypeWithPriority.HISTORY_SEARCH_RESULT;
-import static org.wikipedia.search.SearchResult.SearchResultTypeWithPriority.READING_LIST_SEARCH_RESULT;
 import static org.wikipedia.search.SearchResult.SearchResultTypeWithPriority.SEARCH_RESULT;
 import static org.wikipedia.search.SearchResult.SearchResultTypeWithPriority.TAB_LIST_SEARCH_RESULT;
 import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
@@ -103,7 +96,6 @@ public class SearchResultsFragment extends Fragment {
     @Nullable private SearchResults lastFullTextResults;
     @NonNull private final List<SearchResult> totalResults = new ArrayList<>();
     private CompositeDisposable disposables = new CompositeDisposable();
-    private LoaderCallback loaderCallback = new LoaderCallback();
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -194,7 +186,6 @@ public class SearchResultsFragment extends Fragment {
         if (cacheResult != null && !cacheResult.isEmpty()) {
             clearResults();
             displayResults(cacheResult);
-            gatherSearchResultsFromAppSources();
             return;
         }
 
@@ -207,28 +198,38 @@ public class SearchResultsFragment extends Fragment {
         updateProgressBar(true);
 
         disposables.add(Observable.timer(force ? 0 : DELAY_MILLIS, TimeUnit.MILLISECONDS).flatMap(timer ->
-                ServiceFactory.get(WikiSite.forLanguageCode(getSearchLanguageCode())).prefixSearch(searchTerm, BATCH_SIZE, searchTerm)
-                        .subscribeOn(Schedulers.io())
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .map(response -> {
-                            if (response != null && response.query() != null && response.query().pages() != null) {
+                Observable.zip(ServiceFactory.get(WikiSite.forLanguageCode(getSearchLanguageCode())).prefixSearch(searchTerm, BATCH_SIZE, searchTerm),
+                        Observable.fromCallable(() -> ReadingListDbHelper.instance().findPageForSearchQueryInAnyList(currentSearchTerm)),
+                        Observable.fromCallable(() -> HistoryDbHelper.INSTANCE.findHistoryItem(currentSearchTerm)), (searchResponse, readingListSearchResults, historySearchResults) -> {
+
+                            SearchResults searchResults;
+                            if (searchResponse != null && searchResponse.query() != null && searchResponse.query().pages() != null) {
                                 // noinspection ConstantConditions
-                                return new SearchResults(response.query().pages(),
-                                        WikiSite.forLanguageCode(getSearchLanguageCode()), response.continuation(),
-                                        response.suggestion());
+                                searchResults = new SearchResults(searchResponse.query().pages(),
+                                        WikiSite.forLanguageCode(getSearchLanguageCode()), searchResponse.continuation(),
+                                        searchResponse.suggestion());
+                            } else {
+                                // A prefix search query with no results will return the following:
+                                //
+                                // {
+                                //   "batchcomplete": true,
+                                //   "query": {
+                                //      "search": []
+                                //   }
+                                // }
+                                //
+                                // Just return an empty SearchResults() in this case.
+                                searchResults = new SearchResults();
                             }
-                            // A prefix search query with no results will return the following:
-                            //
-                            // {
-                            //   "batchcomplete": true,
-                            //   "query": {
-                            //      "search": []
-                            //   }
-                            // }
-                            //
-                            // Just return an empty SearchResults() in this case.
-                            return new SearchResults();
+                            handleSuggestion(searchResults.getSuggestion());
+                            List<SearchResult> resultList = new ArrayList<>(searchResults.getResults());
+                            resultList.addAll(readingListSearchResults.getResults());
+                            resultList.addAll(historySearchResults.getResults());
+                            addSearchResultsFromTabs(resultList);
+                            return resultList;
                         }))
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
                 .doAfterTerminate(() -> updateProgressBar(false))
                 .subscribe(results -> {
                     searchErrorView.setVisibility(GONE);
@@ -242,18 +243,26 @@ public class SearchResultsFragment extends Fragment {
                 }));
     }
 
-    private void handleResults(@NonNull SearchResults results, @NonNull String searchTerm, long startTime) {
-        List<SearchResult> resultList = results.getResults();
+    private void addSearchResultsFromTabs(List<SearchResult> resultList) {
+        List<Tab> tabList = WikipediaApp.getInstance().getTabList();
+        for (Tab tab : tabList) {
+            if (tab.getBackStackPositionTitle() != null && tab.getBackStackPositionTitle().getDisplayText().toLowerCase().contains(currentSearchTerm.toLowerCase())) {
+                SearchResult searchResult = new SearchResult(tab.getBackStackPositionTitle());
+                searchResult.setSearchResultTypeWithPriority(TAB_LIST_SEARCH_RESULT);
+                resultList.add(searchResult);
+                return;
+            }
+        }
+    }
+
+    private void handleResults(@NonNull List<SearchResult> resultList, @NonNull String searchTerm, long startTime) {
         // To ease data analysis and better make the funnel track with user behaviour,
         // only transmit search results events if there are a nonzero number of results
         if (!resultList.isEmpty()) {
             clearResults();
             displayResults(resultList);
-            gatherSearchResultsFromAppSources();
             log(resultList, startTime);
         }
-
-        handleSuggestion(results.getSuggestion());
 
         // add titles to cache...
         searchResultsCache.put(getSearchLanguageCode() + "-" + searchTerm, resultList);
@@ -296,44 +305,49 @@ public class SearchResultsFragment extends Fragment {
         final long startTime = System.nanoTime();
         updateProgressBar(true);
 
-        disposables.add(ServiceFactory.get(WikiSite.forLanguageCode(getSearchLanguageCode())).fullTextSearch(searchTerm, BATCH_SIZE,
-                continueOffset != null ? continueOffset.get("continue") : null, continueOffset != null ? continueOffset.get("gsroffset") : null)
+        disposables.add(Observable.zip(ServiceFactory.get(WikiSite.forLanguageCode(getSearchLanguageCode())).fullTextSearch(searchTerm, BATCH_SIZE,
+                continueOffset != null ? continueOffset.get("continue") : null, continueOffset != null ? continueOffset.get("gsroffset") : null),
+                Observable.fromCallable(() -> ReadingListDbHelper.instance().findPageForSearchQueryInAnyList(currentSearchTerm)),
+                Observable.fromCallable(() -> HistoryDbHelper.INSTANCE.findHistoryItem(currentSearchTerm)), (searchResponse, readingListSearchResults, historySearchResults) -> {
+                    SearchResults searchResults;
+                    if (searchResponse.query() != null) {
+                        // noinspection ConstantConditions
+                        searchResults = new SearchResults(searchResponse.query().pages(), WikiSite.forLanguageCode(getSearchLanguageCode()),
+                                searchResponse.continuation(), null);
+                    } else {
+                        // A 'morelike' search query with no results will just return an API warning:
+                        //
+                        // {
+                        //   "batchcomplete": true,
+                        //   "warnings": {
+                        //      "search": {
+                        //        "warnings": "No valid titles provided to 'morelike'."
+                        //      }
+                        //   }
+                        // }
+                        //
+                        // Just return an empty SearchResults() in this case.
+                        searchResults = new SearchResults();
+                    }
+                    // full text special:
+                    SearchResultsFragment.this.lastFullTextResults = searchResults;
+                    List<SearchResult> resultList = new ArrayList<>(searchResults.getResults());
+                    resultList.addAll(readingListSearchResults.getResults());
+                    resultList.addAll(historySearchResults.getResults());
+                    addSearchResultsFromTabs(resultList);
+                    return resultList;
+                })
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .map(response -> {
-                    if (response.query() != null) {
-                        // noinspection ConstantConditions
-                        return new SearchResults(response.query().pages(), WikiSite.forLanguageCode(getSearchLanguageCode()),
-                                response.continuation(), null);
-                    }
-                    // A 'morelike' search query with no results will just return an API warning:
-                    //
-                    // {
-                    //   "batchcomplete": true,
-                    //   "warnings": {
-                    //      "search": {
-                    //        "warnings": "No valid titles provided to 'morelike'."
-                    //      }
-                    //   }
-                    // }
-                    //
-                    // Just return an empty SearchResults() in this case.
-                    return new SearchResults();
-                })
                 .doAfterTerminate(() -> updateProgressBar(false))
-                .subscribe(results -> {
-                    List<SearchResult> resultList = results.getResults();
+                .subscribe(resultList -> {
                     cache(resultList, searchTerm);
                     log(resultList, startTime);
                     if (clearOnSuccess) {
                         clearResults(false);
                     }
                     searchErrorView.setVisibility(GONE);
-
-                    // full text special:
-                    SearchResultsFragment.this.lastFullTextResults = results;
                     displayResults(resultList);
-                    gatherSearchResultsFromAppSources();
                 }, throwable -> {
                     // If there's an error, just log it and let the existing prefix search results be.
                     logError(true, startTime);
@@ -616,89 +630,6 @@ public class SearchResultsFragment extends Fragment {
 
     private String getSearchLanguageCode() {
         return ((SearchFragment) getParentFragment()).getSearchLanguageCode();
-    }
-
-    private void gatherSearchResultsFromAppSources() {
-        addSearchResultFromReadingLists();
-        addSearchResultFromOpenTabs();
-        addSearchResultFromHistoryEntries();
-    }
-
-    private void addSearchResultFromHistoryEntries() {
-        if (loaderManager == null) {
-            loaderManager = LoaderManager.getInstance(requireActivity()).initLoader(SEARCH_FRAGMENT_HISTORY_LOADER_ID, null, loaderCallback);
-        } else {
-            LoaderManager.getInstance(requireActivity()).restartLoader(SEARCH_FRAGMENT_HISTORY_LOADER_ID, null, loaderCallback);
-        }
-    }
-
-    private void addSearchResultFromReadingLists() {
-        List<SearchResult> searchResultsFromAppSources = new ArrayList<>();
-        List<Object> list = ReadingListBehaviorsUtil.INSTANCE.applySearchQuery(currentSearchTerm, ReadingListDbHelper.instance().getAllLists());
-        for (Object o : list) {
-            if (o instanceof ReadingListPage) {
-                ReadingListPage page = (ReadingListPage) o;
-                PageTitle pageTitle = new PageTitle(page.title(), page.wiki(), page.thumbUrl());
-                SearchResult searchResult = new SearchResult(pageTitle);
-                searchResult.setSearchResultTypeWithPriority(READING_LIST_SEARCH_RESULT);
-                searchResultsFromAppSources.add(searchResult);
-                displayResults(searchResultsFromAppSources);
-                break;
-            }
-        }
-    }
-
-    private void addSearchResultFromOpenTabs() {
-        List<SearchResult> searchResultsFromAppSources = new ArrayList<>();
-        List<Tab> tabList = WikipediaApp.getInstance().getTabList();
-        for (Tab tab : tabList) {
-            if (tab.getBackStackPositionTitle() != null && tab.getBackStackPositionTitle().getDisplayText().toLowerCase().contains(currentSearchTerm.toLowerCase())) {
-                SearchResult searchResult = new SearchResult(tab.getBackStackPositionTitle());
-                searchResult.setSearchResultTypeWithPriority(TAB_LIST_SEARCH_RESULT);
-                searchResultsFromAppSources.add(searchResult);
-                displayResults(searchResultsFromAppSources);
-                return;
-            }
-        }
-    }
-
-    private class LoaderCallback implements LoaderManager.LoaderCallbacks<Cursor> {
-        @NonNull @Override
-        public Loader<Cursor> onCreateLoader(int id, Bundle args) {
-            String titleCol = PageHistoryContract.PageWithImage.API_TITLE.qualifiedName();
-            String selection = null;
-            String[] selectionArgs = null;
-            String searchStr = currentSearchTerm;
-            if (!TextUtils.isEmpty(searchStr)) {
-                searchStr = searchStr.replace("\\", "\\\\").replace("%", "\\%").replace("_", "\\_");
-                selection = "UPPER(" + titleCol + ") LIKE UPPER(?) ESCAPE '\\'";
-                selectionArgs = new String[]{"%" + searchStr + "%"};
-            }
-            Uri uri = PageHistoryContract.PageWithImage.URI;
-            String order = PageHistoryContract.PageWithImage.ORDER_MRU;
-            return new CursorLoader(requireContext().getApplicationContext(), uri, null, selection, selectionArgs, order);
-        }
-
-        @Override
-        public void onLoadFinished(@NonNull Loader<Cursor> cursorLoader, Cursor cursor) {
-            HistoryFragment.IndexedHistoryEntry indexedEntry = null;
-            if (cursor.getCount() > 1) {
-                cursor.moveToFirst();
-                indexedEntry = new HistoryFragment.IndexedHistoryEntry(cursor);
-                List<SearchResult> searchResults = new ArrayList<>();
-                PageTitle pageTitle = indexedEntry.getEntry().getTitle();
-                pageTitle.setThumbUrl(indexedEntry.getImageUrl());
-                SearchResult searchResult = new SearchResult(pageTitle);
-                searchResult.setSearchResultTypeWithPriority(HISTORY_SEARCH_RESULT);
-                searchResults.add(searchResult);
-                displayResults(searchResults);
-            }
-        }
-
-        @Override
-        public void onLoaderReset(@NonNull Loader<Cursor> loader) {
-            loader.cancelLoad();
-        }
     }
 }
 
