@@ -141,9 +141,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
             return true;
         });
 
-        if (!(getCurrentFragment() instanceof SuggestedEditsTasksFragment)) {
-            maybeShowEditsTooltip();
-        }
+        maybeShowEditsTooltip();
 
         if (savedInstanceState == null) {
             handleIntent(requireActivity().getIntent());
@@ -490,11 +488,12 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
 
     @SuppressWarnings("checkstyle:magicnumber")
     private void maybeShowEditsTooltip() {
-        if (Prefs.shouldShowSuggestedEditsTooltip() && Prefs.getExploreFeedVisitCount() == SHOW_EDITS_SNACKBAR_COUNT) {
+        if (!(getCurrentFragment() instanceof SuggestedEditsTasksFragment) && Prefs.shouldShowSuggestedEditsTooltip()
+                && Prefs.getExploreFeedVisitCount() == SHOW_EDITS_SNACKBAR_COUNT) {
             Prefs.setShouldShowSuggestedEditsTooltip(false);
             FeedbackUtil.showTooltip(tabLayout.findViewById(NavTab.EDITS.id()), AccountUtil.isLoggedIn()
-                            ? getString(R.string.main_tooltip_text, AccountUtil.getUserName())
-                            : getString(R.string.main_tooltip_text_v2), true, false);
+                    ? getString(R.string.main_tooltip_text, AccountUtil.getUserName())
+                    : getString(R.string.main_tooltip_text_v2), true, false);
         }
     }
 
