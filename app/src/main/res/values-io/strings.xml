@@ -17,7 +17,6 @@
   <string name="page_tabs_back">Retroirar</string>
   <string name="nav_item_forward">Adavane</string>
   <string name="search_hint">Serchar en Wikipedio</string>
-  <string name="search_hint_search_history">Serchar en historio</string>
   <string name="search_hint_search_languages">Serchar ula linguo</string>
   <string name="nav_item_history">Historio</string>
   <string name="error_network_error">Ne povas konektar kun la Internet</string>

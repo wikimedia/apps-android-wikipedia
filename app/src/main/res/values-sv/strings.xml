@@ -30,7 +30,6 @@
   <string name="nav_item_forward">Framåt</string>
   <string name="search_hint">Sök på Wikipedia</string>
   <string name="search_hint_voice_search">Sök med röstinmatning</string>
-  <string name="search_hint_search_history">Sök i historik</string>
   <string name="search_hint_search_languages">Sök efter ett språk</string>
   <string name="filter_hint_filter_my_lists_and_articles">Filtrera mina listor</string>
   <string name="nav_item_history">Historik</string>

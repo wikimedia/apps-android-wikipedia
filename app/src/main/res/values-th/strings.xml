@@ -25,7 +25,6 @@
   <string name="nav_item_forward">ถัดไป</string>
   <string name="search_hint">ค้นหาในวิกิพีเดีย</string>
   <string name="search_hint_voice_search">ค้นหาโดยใช้เสียง</string>
-  <string name="search_hint_search_history">ค้นหาประวัติ</string>
   <string name="search_hint_search_languages">ค้นหาภาษา</string>
   <string name="nav_item_history">ประวัติ</string>
   <string name="nav_item_suggested_edits">การแก้ไขที่แนะนำ</string>

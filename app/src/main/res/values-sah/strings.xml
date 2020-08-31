@@ -19,7 +19,6 @@
   <string name="nav_item_forward">Инники</string>
   <string name="search_hint">Бикипиэдьийэттэн булуу</string>
   <string name="search_hint_voice_search">Саҥа көмөтүнэн көрдөөһүн</string>
-  <string name="search_hint_search_history">Көрдөөһүн сурунаала</string>
   <string name="search_hint_search_languages">Тылы көрдөөһүн</string>
   <string name="nav_item_history">Устуоруйата</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Уларытар туһунан этиилэр</string>
