@@ -461,7 +461,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
                     if (!"true".equals(pcsExists)) {
                         onPageSetupEvent();
                         bridge.onPcsReady();
-                        bridge.execute(JavaScriptActionHandler.mobileWebChromeShim());
+                        bridge.execute(JavaScriptActionHandler.mobileWebChromeShim(getModel().getTitle() != null && getModel().getTitle().isMainPage()));
                     }
                 });
             }

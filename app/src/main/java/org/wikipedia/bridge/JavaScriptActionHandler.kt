@@ -138,10 +138,14 @@ object JavaScriptActionHandler {
     }
 
     @JvmStatic
-    fun mobileWebChromeShim(): String {
+    fun mobileWebChromeShim(isMainPage: Boolean): String {
+        var extraHeaderCSS = ""
+        if (isMainPage) {
+            extraHeaderCSS = " margin-top: 80px; height: 0px; "
+        }
         return "(function() {" +
                 "let style = document.createElement('style');" +
-                "style.innerHTML = '.header-chrome { visibility: hidden; } #page-secondary-actions { display: none; } .mw-footer { margin-bottom: 48px; }';" +
+                "style.innerHTML = '.header-chrome { visibility: hidden; $extraHeaderCSS} #page-secondary-actions { display: none; } .mw-footer { margin-bottom: 48px; }';" +
                 "document.head.appendChild(style);" +
                 "})();"
     }
