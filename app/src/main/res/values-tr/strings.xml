@@ -412,6 +412,10 @@
     <item quantity="one">1 madde, %2$.2f MB</item>
     <item quantity="other">%1$d madde, %2$.2f MB</item>
   </plurals>
+  <plurals name="format_reading_list_statistical_detail">
+    <item quantity="one">%1$d - 1 madde çevrimdışı mevcut, %3$.2f MB</item>
+    <item quantity="other">%1$d - %2$d madde çevrimdışı mevcut, %3$.2f MB</item>
+  </plurals>
   <string name="format_reading_list_statistical_summary_singular">1 madde, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d madde, %2$.2f MB</string>
   <string name="format_reading_list_statistical_detail_singular">1 maddenin %1$d tanesine çevrimdışı erişilebilir, %2$.2f MB</string>
@@ -436,6 +440,10 @@
   <string name="reading_list_name_hint">Bu listenin adı</string>
   <string name="reading_list_description_hint">Açıklama (isteğe bağlı)</string>
   <string name="reading_list_item_deleted">%s listeden çıkarıldı</string>
+  <plurals name="reading_list_articles_deleted">
+    <item quantity="one">%d madde listeden kaldırıldı</item>
+    <item quantity="other">%d madde listeden kaldırıldı</item>
+  </plurals>
   <string name="reading_list_items_deleted">%d maddesi listeden silindi</string>
   <string name="reading_lists_item_deleted">%s, listelerden çıkarıldı</string>
   <string name="reading_list_item_delete_undo">Geri al</string>
@@ -601,6 +609,7 @@
   <string name="menu_feed_overflow_label">Daha çok seçenek</string>
   <string name="feed_featured_image_share_subject">Wikimedia Commons\'tan seçkin resim</string>
   <string name="feed">Keşfet</string>
+  <string name="home">Anasayfa</string>
   <string name="most_read_list_card_title">Gündemdekiler</string>
   <string name="view_static_card_icon_content_description">Kart simgesi</string>
   <string name="view_card_news_title">Haberlerde</string>
@@ -671,13 +680,10 @@
   <string name="description_edit_success_saved">Madde açıklaması yayımlandı!</string>
   <string name="description_edit_success_saved_snackbar">Madde açıklaması yayımlandı!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Madde açıklaması yayımlandı! (%s)</string>
-  <string name="description_edit_success_saved_in_lang_snackbar_se_promotion">Madde açıklaması yayımlandı. (%s) Beğendiniz mi?  Daha fazlasını eklememize yardımcı olun.</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Resim yazısı yayımlandı!</string>
-  <string name="description_edit_success_saved_image_caption_snackbar_se_promotion">Resim altyazısı yayımlandı. Beğendiniz mi? Daha fazlasını eklememize yardımcı olun.</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Resim yazısı yayımlandı! (%s)</string>
-  <string name="description_edit_success_saved_image_caption_in_lang_snackbar_se_promotion">Resim altyazısı yayımlandı. (%s) Beğendiniz mi?  Daha fazlasını eklememize yardımcı olun.</string>
-  <string name="description_edit_success_se_image_caption_feed_link_snackbar">Bunu beğendiniz mi? Diğer resimlere eksik altyazı eklememize yardımcı olun.</string>
-  <string name="description_edit_success_se_image_tags_feed_link_snackbar">Beğendiniz mi? Eksik etiketleri diğer resimlere eklememize yardımcı olun.</string>
+  <string name="description_edit_success_saved_image_tags_snackbar">Resim etiket(ler)i yayımlandı!</string>
+  <string name="description_edit_success_se_general_feed_link_snackbar">Beğendiniz mi? Daha fazla eklememize yardım edin.</string>
   <string name="description_edit_success_encouragement">Vikipedi\'yi herkes için daha iyi hâle getirdin</string>
   <string name="description_edit_success_done">Yapıldı</string>
   <string name="description_edit_success_did_you_know">Biliyor musunuz?</string>
@@ -688,6 +694,8 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">İdeal olarak iki ila on iki kelimelik bir cümle</string>
   <string name="description_edit_tutorial_button_label_start_editing">Düzenlemeye başla</string>
   <string name="description_edit_tutorial_promise">Başlarken bu özelliği kötüye kullanmayacağıma söz veriyorum.</string>
+  <string name="suggested_edits_describe_articles">Maddeleri tarif et</string>
+  <string name="suggested_edits_caption_images">Başlık resimleri</string>
   <string name="suggested_edits_tag_images">Etiket resimleri</string>
   <string name="suggested_edits_review_description">Madde açıklamasını incele</string>
   <string name="suggested_edits_add_description_button">Açıklama ekle</string>
@@ -818,10 +826,26 @@
   <string name="suggested_edits_contribution_image_label">Resim</string>
   <string name="suggested_edits_contribution_article_label">Madde</string>
   <string name="suggested_edits_contribution_views">%s görüntüleme</string>
+  <plurals name="suggested_edits_contribution_seen_times">
+    <item quantity="one">Son 30 günde bir kez görüldü.</item>
+    <item quantity="other">Son 30 gün içinde %s kez görüldü.</item>
+  </plurals>
   <string name="suggested_edits_contribution_seen_text">Son 30 gün içinde %s kez görüldü.</string>
   <string name="suggested_edits_image_tag_contribution_label">%d etiket eklediniz</string>
   <string name="suggested_edits_contribution_type_title">%1$d %2$s</string>
   <string name="suggested_edits_contribution_date_yesterday_text">Dün</string>
+  <plurals name="suggested_edits_rewards_contributions">
+    <item quantity="one">Önerilen Düzenlemeleri kullanarak Vikipedi\'ye bir katkı yaptınız. Teşekkür ederiz!</item>
+    <item quantity="other">Önerilen Düzenlemeleri kullanarak Vikipedi\'ye %d katkı yaptınız. Teşekkür ederiz!</item>
+  </plurals>
+  <plurals name="suggested_edits_rewards_edit_streaks">
+    <item quantity="one">Bir gündür düzenleme yapıyorsunuz. Seriyi devam edin, %2$s!</item>
+    <item quantity="other">%1$d gündür düzenleme yapıyorsunuz. Seriyi devam etdin, %2$s!</item>
+  </plurals>
+  <plurals name="suggested_edits_rewards_page_views">
+    <item quantity="one">Yaptığınız düzenlemeler, son 30 gün içinde bir kişi tarafından görüldü. Teşekkürler ve devam edin!</item>
+    <item quantity="other">Düzenlemeleriniz son 30 gün içinde %d kişi tarafından görüldü. Teşekkürler ve devam edin!</item>
+  </plurals>
   <string name="suggested_edits_rewards_contribution">Önerilen düzenlemeleri kullanarak Vikipedi\'ye %d katkı yaptınız. Teşekkürler!</string>
   <string name="suggested_edits_rewards_edit_streak">Her gün %1$d gün boyunca düzenlediniz. Art ardaya devam et, %2$s!</string>
   <string name="suggested_edits_rewards_pageviews">Düzenlemeleriniz son 30 gün içinde %d kişi tarafından görüldü. Teşekkürler ve devam et!</string>
