@@ -681,15 +681,10 @@
   <string name="description_starts_with_uppercase">若首个单词不是专有名词，请以小写字母开头。</string>
   <string name="description_edit_success_saved">描述已发布！</string>
   <string name="description_edit_success_saved_snackbar">描述已发布！</string>
-  <string name="description_edit_success_saved_snackbar_se_promotion">已发布文章描述。不够过瘾？请继续帮助我们添加描述。</string>
   <string name="description_edit_success_saved_in_lang_snackbar">描述已发布！（%s）</string>
-  <string name="description_edit_success_saved_in_lang_snackbar_se_promotion">已发布文章描述。（%s）不够过瘾？请继续帮助我们添加描述。</string>
   <string name="description_edit_success_saved_image_caption_snackbar">图片说明已发布！</string>
-  <string name="description_edit_success_saved_image_caption_snackbar_se_promotion">已发布图片说明。不够过瘾？请继续帮助我们添加更多说明。</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">图片说明已发布！（%s）</string>
-  <string name="description_edit_success_saved_image_caption_in_lang_snackbar_se_promotion">已发布图片说明。（%s）不够过瘾？请继续帮助我们添加更多说明。</string>
-  <string name="description_edit_success_se_image_caption_feed_link_snackbar">不够过瘾？请帮我们为其他图片添加缺失的说明。</string>
-  <string name="description_edit_success_se_image_tags_feed_link_snackbar">不够过瘾？请帮我们为其他图片添加缺失的标签。</string>
+  <string name="description_edit_success_saved_image_tags_snackbar" fuzzy="true">图片标签已发布！</string>
   <string name="description_edit_success_encouragement">您只是让维基百科更好地服务大家</string>
   <string name="description_edit_success_done">完成</string>
   <string name="description_edit_success_did_you_know">您知道吗？</string>
