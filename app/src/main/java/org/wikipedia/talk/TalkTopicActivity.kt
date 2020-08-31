@@ -79,8 +79,13 @@ class TalkTopicActivity : BaseActivity() {
         ServiceFactory.getRest(WikipediaApp.getInstance().wikiSite).getTalkPage(userName)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ response ->
-                    topic = response.topics?.find { t -> t.id == topicId }
+                .map { response ->
+                    val talkTopic = response.topics?.find { t -> t.id == topicId }!!
+                    TalkPageSeenDatabaseTable.setTalkTopicSeen(talkTopic)
+                    talkTopic
+                }
+                .subscribe({ talkTopic ->
+                    topic = talkTopic
                     updateOnSuccess()
                 }, { t ->
                     L.e(t)
