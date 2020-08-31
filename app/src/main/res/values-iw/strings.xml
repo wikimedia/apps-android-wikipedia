@@ -664,15 +664,10 @@
   <string name="description_starts_with_uppercase">יש להתחיל באות קטנה, אלא אם המילה הראשונה היא שם פרטי.</string>
   <string name="description_edit_success_saved">תיאור הערך פורסם!</string>
   <string name="description_edit_success_saved_snackbar">תיאור הערך פורסם!</string>
-  <string name="description_edit_success_saved_snackbar_se_promotion">תיאור הערך פורסם. אהבת את זה? עזור לנו להוסיף עוד.</string>
   <string name="description_edit_success_saved_in_lang_snackbar">תיאור הערך פורסם! (%s)</string>
-  <string name="description_edit_success_saved_in_lang_snackbar_se_promotion">תיאור הערך פורסם. (%s) אהבת את זה? עזור לנו להוסיף עוד.</string>
   <string name="description_edit_success_saved_image_caption_snackbar">כיתוב התמונה פורסם!</string>
-  <string name="description_edit_success_saved_image_caption_snackbar_se_promotion">כיתוב התמונה פורסם. אהבת את זה? עזור לנו להוסיף עוד.</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">כיתוב התמונה פורסם! (%s)</string>
-  <string name="description_edit_success_saved_image_caption_in_lang_snackbar_se_promotion">כיתוב התמונה פורסם. (%s) אהבת את זה? עזור לנו להוסיף עוד.</string>
-  <string name="description_edit_success_se_image_caption_feed_link_snackbar">היה כיף? עזור לנו להוסיף כיתובים חסרים לתמונות אחרות.</string>
-  <string name="description_edit_success_se_image_tags_feed_link_snackbar">אהבת את זה? עזור לנו להוסיף תגים חסרים לתמונות אחרות.</string>
+  <string name="description_edit_success_saved_image_tags_snackbar" fuzzy="true">תגיות התמונה פורסמו!</string>
   <string name="description_edit_success_encouragement">שיפרת עכשיו את ויקיפדיה עבור כולם</string>
   <string name="description_edit_success_done">בוצע</string>
   <string name="description_edit_success_did_you_know">הידעת?</string>

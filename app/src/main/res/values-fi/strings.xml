@@ -639,6 +639,7 @@
   <string name="description_edit_success_saved_in_lang_snackbar">Artikkelin kuvaus julkaistu! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Kuvateksti julkaistu!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Kuvateksti julkaistu! (%s)</string>
+  <string name="description_edit_success_saved_image_tags_snackbar" fuzzy="true">Kuvamerkintä/-merkinnät julkaistu!</string>
   <string name="description_edit_success_encouragement">Teit juuri Wikipediasta kaikille paremman</string>
   <string name="description_edit_success_done">Valmis</string>
   <string name="description_edit_success_did_you_know">Tiesitkö?</string>
