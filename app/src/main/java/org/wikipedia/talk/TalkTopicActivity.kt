@@ -20,25 +20,24 @@ import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.TalkPage
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.*
-import org.wikipedia.page.LinkMovementMethodExt.UrlHandler
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.talk.TalkTopicsActivity.Companion.newIntent
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DrawableItemDecoration
-import org.wikipedia.views.FooterMarginItemDecoration
 
 class TalkTopicActivity : BaseActivity() {
     private val disposables = CompositeDisposable()
     private var topicId: Int = 0
     private var userName: String = ""
     private var topic: TalkPage.Topic? = null
+    private var replyActive = false
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
 
     private var linkHandler: TalkLinkHandler? = null
-    private val linkMovementMethod = LinkMovementMethodExt(UrlHandler { url: String ->
+    private val linkMovementMethod = LinkMovementMethodExt { url: String ->
         linkHandler?.onUrlClick(url, null, "")
-    })
+    }
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,7 +49,6 @@ class TalkTopicActivity : BaseActivity() {
         topicId = intent.extras?.getInt(EXTRA_TOPIC, 0)!!
 
         talk_recycler_view.layoutManager = LinearLayoutManager(this)
-        talk_recycler_view.addItemDecoration(FooterMarginItemDecoration(0, 80))
         talk_recycler_view.addItemDecoration(DrawableItemDecoration(this, R.attr.list_separator_drawable, false, false))
         talk_recycler_view.adapter = TalkReplyItemAdapter()
 
@@ -119,10 +117,12 @@ class TalkTopicActivity : BaseActivity() {
     internal inner class TalkReplyHolder internal constructor(view: View) : RecyclerView.ViewHolder(view) {
         private val text: TextView = view.findViewById(R.id.reply_text)
         private val indentArrow: View = view.findViewById(R.id.reply_indent_arrow)
-        fun bindItem(reply: TalkPage.TopicReply) {
+        private val bottomSpace: View = view.findViewById(R.id.reply_bottom_space)
+        fun bindItem(reply: TalkPage.TopicReply, isLast: Boolean) {
             text.movementMethod = linkMovementMethod
             text.text = StringUtil.fromHtml(reply.html)
             indentArrow.visibility = if (reply.depth > 0) View.VISIBLE else View.GONE
+            bottomSpace.visibility = if (!isLast || replyActive) View.GONE else View.VISIBLE
         }
     }
 
@@ -136,7 +136,7 @@ class TalkTopicActivity : BaseActivity() {
         }
 
         override fun onBindViewHolder(holder: RecyclerView.ViewHolder, pos: Int) {
-            (holder as TalkReplyHolder).bindItem(topic?.replies!![pos])
+            (holder as TalkReplyHolder).bindItem(topic?.replies!![pos], pos == itemCount - 1)
         }
     }
 

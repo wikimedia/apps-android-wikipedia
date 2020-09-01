@@ -37,7 +37,7 @@ class TalkTopicsActivity : BaseActivity() {
         setContentView(R.layout.activity_talk_topics)
 
         userName = intent.getStringExtra(EXTRA_USER_NAME).orEmpty()
-        title = getString(R.string.talk_user_title, userName)
+        title = getString(R.string.talk_user_title, StringUtil.removeUnderscores(userName))
 
         talk_recycler_view.layoutManager = LinearLayoutManager(this)
         talk_recycler_view.addItemDecoration(FooterMarginItemDecoration(0, 80))
