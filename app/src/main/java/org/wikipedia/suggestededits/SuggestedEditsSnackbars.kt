@@ -47,6 +47,9 @@ object SuggestedEditsSnackbars {
 
             snackbar.addCallback(object : Snackbar.Callback() {
                         override fun onDismissed(transientBottomBar: Snackbar, @DismissEvent event: Int) {
+                            if (activity.isDestroyed) {
+                                return
+                            }
                             showFeedLinkSnackbar(activity, abTestFunnel, action)
                         }
                     })
