@@ -3,8 +3,7 @@ package org.wikipedia.talk
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -16,11 +15,13 @@ import kotlinx.android.synthetic.main.activity_talk_topics.talk_error_view
 import kotlinx.android.synthetic.main.activity_talk_topics.talk_progress_bar
 import kotlinx.android.synthetic.main.activity_talk_topics.talk_recycler_view
 import kotlinx.android.synthetic.main.activity_talk_topics.talk_refresh_view
+import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.page.TalkPage
+import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DrawableItemDecoration
@@ -44,6 +45,10 @@ class TalkTopicsActivity : BaseActivity() {
         talk_recycler_view.addItemDecoration(DrawableItemDecoration(this, R.attr.list_separator_drawable, false, false))
         talk_recycler_view.adapter = TalkTopicItemAdapter()
 
+        talk_error_view.setBackClickListener {
+            finish()
+        }
+
         talk_new_topic_button.setOnClickListener {
             // TODO
         }
@@ -59,6 +64,24 @@ class TalkTopicsActivity : BaseActivity() {
     public override fun onDestroy() {
         disposables.clear()
         super.onDestroy()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        loadTopics()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_talk, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.menu_change_language) {
+            startActivity(WikipediaLanguagesActivity.newIntent(this, Constants.InvokeSource.TALK_ACTIVITY.name))
+            return true
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun loadTopics() {
@@ -85,11 +108,12 @@ class TalkTopicsActivity : BaseActivity() {
         talk_error_view.visibility = View.GONE
         talk_new_topic_button.visibility = View.VISIBLE
         talk_refresh_view.isRefreshing = false
-
+        talk_recycler_view.visibility - View.VISIBLE
         talk_recycler_view.adapter?.notifyDataSetChanged()
     }
 
     private fun updateOnError(t: Throwable) {
+        talk_recycler_view.visibility - View.GONE
         talk_new_topic_button.visibility = View.GONE
         talk_progress_bar.visibility = View.GONE
         talk_refresh_view.isRefreshing = false
