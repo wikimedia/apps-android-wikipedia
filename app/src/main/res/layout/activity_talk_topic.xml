@@ -27,10 +27,12 @@
 
         <ProgressBar
             android:id="@+id/talk_progress_bar"
-            android:layout_width="wrap_content"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
-            android:layout_margin="16dp" />
+            android:layout_gravity="top"
+            android:layout_marginTop="-7dp"
+            android:indeterminate="true" />
 
         <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
             android:id="@+id/talk_reply_button"
