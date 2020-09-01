@@ -299,7 +299,7 @@ class TalkTopicActivity : BaseActivity() {
                     }
                     response
                 }
-                .retry(10) { t -> t is IllegalStateException }
+                .retry(20) { t -> t is IllegalStateException }
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
                     onSaveSuccess()
