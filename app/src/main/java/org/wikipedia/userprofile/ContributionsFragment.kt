@@ -196,7 +196,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                                     val entity = entities.entities()[entityKey]!!
                                     for (contribution in wikidataContributions) {
                                         var languageCode = contribution.wikiSite.languageCode()
-                                        if (languageCode.startsWith(AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE)) {
+                                        if (languageCode.startsWith(AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE) && !entity.labels().containsKey(languageCode)) {
                                             // TODO: show the article title in the correct language variant. Now it is showing its original article title.
                                             languageCode = AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE
                                         }
