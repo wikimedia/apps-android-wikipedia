@@ -27,7 +27,7 @@
             tools:text="Sample search suggestion"
             tools:visibility="visible" />
 
-        <ListView
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/search_results_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
