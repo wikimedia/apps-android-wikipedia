@@ -13,7 +13,8 @@
         <androidx.core.widget.NestedScrollView
             android:id="@+id/talk_scroll_container"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="?attr/actionBarSize">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -72,6 +73,27 @@
             </LinearLayout>
 
         </androidx.core.widget.NestedScrollView>
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/reply_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            style="@style/ToolbarStyle">
+
+            <ImageView
+                android:id="@+id/reply_save_button"
+                android:layout_width="48dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="end"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:contentDescription="@string/description_edit_save"
+                android:focusable="true"
+                android:padding="12dp"
+                app:srcCompat="@drawable/ic_check_circle_black_24dp"
+                app:tint="?attr/themed_icon_color"/>
+
+        </androidx.appcompat.widget.Toolbar>
 
         <org.wikipedia.views.WikiErrorView
             android:id="@+id/talk_error_view"

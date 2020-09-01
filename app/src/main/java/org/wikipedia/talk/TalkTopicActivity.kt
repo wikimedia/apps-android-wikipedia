@@ -3,6 +3,8 @@ package org.wikipedia.talk
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
@@ -33,6 +35,7 @@ class TalkTopicActivity : BaseActivity() {
     private var userName: String = ""
     private var topic: TalkPage.Topic? = null
     private var replyActive = false
+    private val textWatcher = ReplyTextWatcher()
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
 
     private var linkHandler: TalkLinkHandler? = null
@@ -43,6 +46,8 @@ class TalkTopicActivity : BaseActivity() {
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_talk_topic)
+        setSupportActionBar(reply_toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
         title = ""
         linkHandler = TalkLinkHandler(this)
 
@@ -54,11 +59,20 @@ class TalkTopicActivity : BaseActivity() {
         talk_recycler_view.adapter = TalkReplyItemAdapter()
 
         talk_reply_button.setOnClickListener {
+            replyActive = true
+            talk_recycler_view.adapter?.notifyDataSetChanged()
             talk_scroll_container.fullScroll(View.FOCUS_DOWN)
+            reply_save_button.visibility = View.VISIBLE
             reply_text_layout.visibility = View.VISIBLE
             reply_text_layout.requestFocus()
             DeviceUtil.showSoftKeyboard(reply_edit_text)
             talk_reply_button.hide()
+        }
+
+        reply_subject_text.addTextChangedListener(textWatcher)
+        reply_edit_text.addTextChangedListener(textWatcher)
+        reply_save_button.setOnClickListener {
+            onSaveClicked()
         }
 
         talk_refresh_view.isEnabled = !isNewTopic()
@@ -69,15 +83,18 @@ class TalkTopicActivity : BaseActivity() {
         talk_reply_button.visibility = View.GONE
 
         if (isNewTopic()) {
+            replyActive = true
             title = getString(R.string.talk_new_topic)
             talk_progress_bar.visibility = View.GONE
             talk_error_view.visibility = View.GONE
+            reply_save_button.visibility = View.VISIBLE
             reply_subject_layout.visibility = View.VISIBLE
             reply_text_layout.hint = getString(R.string.talk_message_hint)
             reply_text_layout.visibility = View.VISIBLE
             reply_subject_layout.requestFocus()
             DeviceUtil.showSoftKeyboard(reply_subject_layout)
         } else {
+            reply_save_button.visibility = View.GONE
             reply_subject_layout.visibility = View.GONE
             reply_text_layout.visibility = View.GONE
             reply_text_layout.hint = getString(R.string.talk_reply_hint)
@@ -87,6 +104,8 @@ class TalkTopicActivity : BaseActivity() {
 
     public override fun onDestroy() {
         disposables.clear()
+        reply_subject_text.removeTextChangedListener(textWatcher)
+        reply_edit_text.removeTextChangedListener(textWatcher)
         super.onDestroy()
     }
 
@@ -183,6 +202,34 @@ class TalkTopicActivity : BaseActivity() {
 
         override fun onInternalLinkClicked(title: PageTitle) {
            showLinkPreviewOrNavigate(title)
+        }
+    }
+
+    inner internal class ReplyTextWatcher: TextWatcher {
+        override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+        }
+
+        override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            reply_subject_layout.error = null
+            reply_text_layout.error = null
+        }
+
+        override fun afterTextChanged(p0: Editable?) {
+        }
+    }
+
+    private fun onSaveClicked() {
+        val subject = reply_subject_text.text.toString().trim()
+        val body = reply_edit_text.text.toString().trim()
+
+        if (isNewTopic() && subject.isEmpty()) {
+            reply_subject_layout.error = getString(R.string.talk_subject_empty)
+            reply_subject_layout.requestFocus()
+            return
+        } else if (body.isEmpty()) {
+            reply_text_layout.error = getString(R.string.talk_message_empty)
+            reply_text_layout.requestFocus()
+            return
         }
     }
 
