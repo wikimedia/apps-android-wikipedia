@@ -299,13 +299,15 @@ class SuggestedEditsTasksFragment : Fragment() {
     }
 
     private fun showOneTimeSequentialUserStatsTooltips() {
-        suggestedEditsScrollView.post(Runnable { suggestedEditsScrollView.fullScroll(View.FOCUS_UP) })
-        val balloon = FeedbackUtil.getTooltip(requireContext(), contributionsStatsView.tooltipText, false, true)
-        balloon.showAlignBottom(contributionsStatsView.description)
-        balloon.relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), editStreakStatsView.tooltipText, false, true), editStreakStatsView.description)
-                .relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), pageViewStatsView.tooltipText, false, true), pageViewStatsView.description)
-                .relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), editQualityStatsView.tooltipText, false, true), editQualityStatsView.description)
-        Prefs.shouldShowOneTimeSequentialUserStatsTooltip(false)
+        suggestedEditsScrollView.fullScroll(View.FOCUS_UP)
+        this.view?.postDelayed({
+            val balloon = FeedbackUtil.getTooltip(requireContext(), contributionsStatsView.tooltipText, false, true)
+            balloon.showAlignBottom(contributionsStatsView.description)
+            balloon.relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), editStreakStatsView.tooltipText, false, true), editStreakStatsView.description)
+                    .relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), pageViewStatsView.tooltipText, false, true), pageViewStatsView.description)
+                    .relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), editQualityStatsView.tooltipText, false, true), editQualityStatsView.description)
+            Prefs.shouldShowOneTimeSequentialUserStatsTooltip(false)
+        }, 500)
     }
 
     private fun setIPBlockedStatus() {
