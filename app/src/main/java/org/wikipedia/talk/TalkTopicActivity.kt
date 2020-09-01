@@ -17,17 +17,22 @@ import kotlinx.android.synthetic.main.activity_talk_topic.*
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
+import org.wikipedia.auth.AccountUtil
+import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.TalkPage
 import org.wikipedia.history.HistoryEntry
+import org.wikipedia.login.LoginClient.LoginFailedException
 import org.wikipedia.page.*
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.talk.TalkTopicsActivity.Companion.newIntent
 import org.wikipedia.util.DeviceUtil
+import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DrawableItemDecoration
+import java.util.concurrent.TimeUnit
 
 class TalkTopicActivity : BaseActivity() {
     private val disposables = CompositeDisposable()
@@ -37,6 +42,8 @@ class TalkTopicActivity : BaseActivity() {
     private var replyActive = false
     private val textWatcher = ReplyTextWatcher()
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
+    private var csrfClient: CsrfTokenClient? = null
+    private var currentRevision: Long = 0
 
     private var linkHandler: TalkLinkHandler? = null
     private val linkMovementMethod = LinkMovementMethodExt { url: String ->
@@ -55,7 +62,7 @@ class TalkTopicActivity : BaseActivity() {
         topicId = intent.extras?.getInt(EXTRA_TOPIC, -1)!!
 
         talk_recycler_view.layoutManager = LinearLayoutManager(this)
-        talk_recycler_view.addItemDecoration(DrawableItemDecoration(this, R.attr.list_separator_drawable, false, false))
+        talk_recycler_view.addItemDecoration(DrawableItemDecoration(this, R.attr.list_separator_drawable, drawStart = false, drawEnd = false))
         talk_recycler_view.adapter = TalkReplyItemAdapter()
 
         talk_reply_button.setOnClickListener {
@@ -82,6 +89,17 @@ class TalkTopicActivity : BaseActivity() {
 
         talk_reply_button.visibility = View.GONE
 
+        onInitialLoad()
+    }
+
+    public override fun onDestroy() {
+        disposables.clear()
+        reply_subject_text.removeTextChangedListener(textWatcher)
+        reply_edit_text.removeTextChangedListener(textWatcher)
+        super.onDestroy()
+    }
+
+    private fun onInitialLoad() {
         if (isNewTopic()) {
             replyActive = true
             title = getString(R.string.talk_new_topic)
@@ -94,19 +112,14 @@ class TalkTopicActivity : BaseActivity() {
             reply_subject_layout.requestFocus()
             DeviceUtil.showSoftKeyboard(reply_subject_layout)
         } else {
+            replyActive = false
+            reply_edit_text.setText("")
             reply_save_button.visibility = View.GONE
             reply_subject_layout.visibility = View.GONE
             reply_text_layout.visibility = View.GONE
             reply_text_layout.hint = getString(R.string.talk_reply_hint)
             loadTopic()
         }
-    }
-
-    public override fun onDestroy() {
-        disposables.clear()
-        reply_subject_text.removeTextChangedListener(textWatcher)
-        reply_edit_text.removeTextChangedListener(textWatcher)
-        super.onDestroy()
     }
 
     private fun loadTopic() {
@@ -117,16 +130,17 @@ class TalkTopicActivity : BaseActivity() {
         talk_progress_bar.visibility = View.VISIBLE
         talk_error_view.visibility = View.GONE
 
-        ServiceFactory.getRest(WikipediaApp.getInstance().wikiSite).getTalkPage(userName)
+        disposables.add(ServiceFactory.getRest(WikipediaApp.getInstance().wikiSite).getTalkPage(userName)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ response ->
                     topic = response.topics?.find { t -> t.id == topicId }
+                    currentRevision = response.revision
                     updateOnSuccess()
                 }, { t ->
                     L.e(t)
                     updateOnError(t)
-                })
+                }))
     }
 
     private fun updateOnSuccess() {
@@ -220,7 +234,7 @@ class TalkTopicActivity : BaseActivity() {
 
     private fun onSaveClicked() {
         val subject = reply_subject_text.text.toString().trim()
-        val body = reply_edit_text.text.toString().trim()
+        var body = reply_edit_text.text.toString().trim()
 
         if (isNewTopic() && subject.isEmpty()) {
             reply_subject_layout.error = getString(R.string.talk_subject_empty)
@@ -231,11 +245,90 @@ class TalkTopicActivity : BaseActivity() {
             reply_text_layout.requestFocus()
             return
         }
+
+        // if the message is not signed, then sign it explicitly
+        if (!body.endsWith("~~~~")) {
+            body += " ~~~~"
+        }
+        // add two explicit newlines at the beginning, to delineate this message as a new paragraph.
+        body = "\n\n" + body
+
+        talk_progress_bar.visibility = View.VISIBLE
+        reply_save_button.isEnabled = false
+
+        csrfClient = CsrfTokenClient(WikipediaApp.getInstance().wikiSite, WikipediaApp.getInstance().wikiSite)
+        csrfClient?.request(false, object : CsrfTokenClient.Callback {
+            override fun success(token: String) {
+                doSave(token, subject, body)
+            }
+
+            override fun failure(caught: Throwable) {
+                onSaveError(caught)
+            }
+
+            override fun twoFactorPrompt() {
+                onSaveError(LoginFailedException(resources.getString(R.string.login_2fa_other_workflow_error_msg)))
+            }
+        })
+    }
+
+    private fun doSave(token: String, subject: String, body: String) {
+        disposables.add(ServiceFactory.get(WikipediaApp.getInstance().wikiSite).postEditSubmit("User_talk:$userName",
+                if (isNewTopic()) "new" else topicId.toString(),
+                if (isNewTopic()) subject else null,
+                "", if (AccountUtil.isLoggedIn()) "user" else null,
+                if (isNewTopic()) body else null, if (isNewTopic()) null else body,
+                currentRevision, token, null, null)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({
+                    waitForUpdatedRevision(it.edit()!!.newRevId())
+                }, {
+                    onSaveError(it)
+                }))
+    }
+
+    private fun waitForUpdatedRevision(newRevision: Long) {
+        disposables.add(ServiceFactory.getRest(WikipediaApp.getInstance().wikiSite).getTalkPage(userName)
+                .delay(2, TimeUnit.SECONDS)
+                .subscribeOn(Schedulers.io())
+
+                .map { response ->
+                    if (response.revision < newRevision) {
+                        throw IllegalStateException()
+                    }
+                    response
+                }
+                .retry(10) { t -> t is IllegalStateException }
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({
+                    onSaveSuccess()
+                }, { t ->
+                    L.e(t)
+                    onSaveError(t)
+                }))
+    }
+
+    private fun onSaveSuccess() {
+        talk_progress_bar.visibility = View.GONE
+
+        if (isNewTopic()) {
+            setResult(RESULT_EDIT_SUCCESS)
+            finish()
+        } else {
+            onInitialLoad()
+        }
+    }
+
+    private fun onSaveError(t: Throwable) {
+        talk_progress_bar.visibility = View.GONE
+        FeedbackUtil.showError(this, t)
     }
 
     companion object {
         const val EXTRA_USER_NAME = "userName"
         const val EXTRA_TOPIC = "topicId"
+        const val RESULT_EDIT_SUCCESS = 1
 
         @JvmStatic
         fun newIntent(context: Context, userName: String?, topicId: Int): Intent {

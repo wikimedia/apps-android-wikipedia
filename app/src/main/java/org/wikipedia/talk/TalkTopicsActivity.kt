@@ -61,13 +61,18 @@ class TalkTopicsActivity : BaseActivity() {
         super.onDestroy()
     }
 
+    public override fun onResume() {
+        super.onResume()
+        loadTopics()
+    }
+
     private fun loadTopics() {
         disposables.clear()
         talk_progress_bar.visibility = View.VISIBLE
         talk_error_view.visibility = View.GONE
         talk_empty_container.visibility = View.GONE
 
-        ServiceFactory.getRest(WikipediaApp.getInstance().wikiSite).getTalkPage(userName)
+        disposables.add(ServiceFactory.getRest(WikipediaApp.getInstance().wikiSite).getTalkPage(userName)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ response ->
@@ -77,7 +82,7 @@ class TalkTopicsActivity : BaseActivity() {
                 }, { t ->
                     L.e(t)
                     updateOnError(t)
-                })
+                }))
     }
 
     private fun updateOnSuccess() {
