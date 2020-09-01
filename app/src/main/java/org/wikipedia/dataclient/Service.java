@@ -268,7 +268,7 @@ public interface Service {
                                  @Query("property") @Nullable String property);
 
     @GET(MW_API_PREFIX + "action=wbgetentities&props=descriptions|labels|sitelinks")
-    @NonNull Observable<Entities> getWikidataLabelsAndDescriptions(@Query(value = "ids", encoded = true) @NonNull String idList);
+    @NonNull Observable<Entities> getWikidataLabelsAndDescriptions(@Query("ids") @NonNull String idList);
 
     @Headers("Cache-Control: no-cache")
     @POST(MW_API_PREFIX + "action=wbsetclaim&errorlang=uselang")
