@@ -664,6 +664,7 @@
   <string name="description_edit_success_saved_in_lang_snackbar">記事の説明が公開されました！ (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">画像キャプションが公開されました！</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">画像キャプションが公開されました！ (%s)</string>
+  <string name="description_edit_success_saved_image_tags_snackbar" fuzzy="true">画像タグが公開されました！</string>
   <string name="description_edit_success_encouragement">みんなのためにウィキペディアを改善しました。やったね！</string>
   <string name="description_edit_success_done">完了</string>
   <string name="description_edit_success_did_you_know">ご存じでしたか?</string>

@@ -664,6 +664,7 @@
   <string name="description_edit_success_saved_in_lang_snackbar">Descrizione della voce pubblicata! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Didascalia dell\'immagine pubblicata!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Didascalia dell\'immagine pubblicata! (%s)</string>
+  <string name="description_edit_success_saved_image_tags_snackbar" fuzzy="true">Etichetta/e immagine pubblicata!</string>
   <string name="description_edit_success_encouragement">Hai appena reso Wikipedia migliore per tutti</string>
   <string name="description_edit_success_done">Fatto</string>
   <string name="description_edit_success_did_you_know">Lo sapevi?</string>

@@ -662,6 +662,7 @@
   <string name="description_edit_success_saved_in_lang_snackbar">Описание статьи сохранено! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Описание изображения опубликовано!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Опубликовано описание изображения (%s)!</string>
+  <string name="description_edit_success_saved_image_tags_snackbar" fuzzy="true">Тег(и) изображени(й) опубликовано!</string>
   <string name="description_edit_success_encouragement">Вы только что сделали Википедию лучше для всех</string>
   <string name="description_edit_success_done">Готово</string>
   <string name="description_edit_success_did_you_know">Знаете ли вы?</string>

@@ -648,15 +648,11 @@
   <string name="description_starts_with_uppercase">Почнете со мала буква освен ако зборот е лична именка.</string>
   <string name="description_edit_success_saved">Описот на статијата е објавен!</string>
   <string name="description_edit_success_saved_snackbar">Описот на статијата е објавен!</string>
-  <string name="description_edit_success_saved_snackbar_se_promotion">Описот на статијата е објавен. Ви се допадна? Помогнете ни да додадеме уште.</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Описот на статијата е објавен! (%s)</string>
-  <string name="description_edit_success_saved_in_lang_snackbar_se_promotion">Описот на статијата е објавен. (%s) Ви се допадна? Помогнете ни да додадеме уште.</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Описот на сликата објавен!</string>
-  <string name="description_edit_success_saved_image_caption_snackbar_se_promotion">Толкувањто на сликата е објавено. Ви се допадна? Помогнете ни да додадеме уште.</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Описот на сликата е објавен! (%s)</string>
-  <string name="description_edit_success_saved_image_caption_in_lang_snackbar_se_promotion">Толкувањто на сликата е објавено. (%s) Ви се допадна? Помогнете ни да додадеме уште.</string>
-  <string name="description_edit_success_se_image_caption_feed_link_snackbar">Ви се допадна? Помогнете ни, додавајќи отсутни описи на други слики.</string>
-  <string name="description_edit_success_se_image_tags_feed_link_snackbar">Ви се допадна? Помогнете ни, додавајќи отсутни ознаки на други слики.</string>
+  <string name="description_edit_success_saved_image_tags_snackbar">Ознаките на сликите се објавени!</string>
+  <string name="description_edit_success_se_general_feed_link_snackbar">Ви се допадна? Помогнете ни да додадеме уште.</string>
   <string name="description_edit_success_encouragement">Штотуку ја подобривте Википедија за сите</string>
   <string name="description_edit_success_done">Готово</string>
   <string name="description_edit_success_did_you_know">Дали сте знаеле?</string>

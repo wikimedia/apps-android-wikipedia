@@ -685,15 +685,11 @@
   <string name="description_starts_with_uppercase">Commencer avec une lettre minuscule, sauf si le premier mot est un nom propre.</string>
   <string name="description_edit_success_saved">Description de l’article publiée !</string>
   <string name="description_edit_success_saved_snackbar">Description d’article publiée !</string>
-  <string name="description_edit_success_saved_snackbar_se_promotion">Description de l’article publiée. Cela vous a plu ? Aidez-nous à en ajouter davantage.</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Description de l’article publiée ! (%s)</string>
-  <string name="description_edit_success_saved_in_lang_snackbar_se_promotion">Description de l’article publiée. (%s) Cela vous a plu ? Aidez-nous à en ajouter davantage.</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Légende de l’image publiée !</string>
-  <string name="description_edit_success_saved_image_caption_snackbar_se_promotion">Légende de l’image publiée. Cela vous a plu ? Aidez-nous à en ajouter davantage.</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Légende de l\'image publiée ! (%s)</string>
-  <string name="description_edit_success_saved_image_caption_in_lang_snackbar_se_promotion">Légende de l’image publiée. (%s) Cela vous a plu ? Aidez-nous à en ajouter davantage.</string>
-  <string name="description_edit_success_se_image_caption_feed_link_snackbar">Cela vous a plu ? Aidez-nous à ajouter les légendes manquantes à d’autres images.</string>
-  <string name="description_edit_success_se_image_tags_feed_link_snackbar">Cela vous a plus ? Aidez-nous à ajouter les balises manquantes à d’autres images.</string>
+  <string name="description_edit_success_saved_image_tags_snackbar">Balise(s) de l’image publiée(s) !</string>
+  <string name="description_edit_success_se_general_feed_link_snackbar">Cela vous a plu ? Aidez-nous à en ajouter davantage.</string>
   <string name="description_edit_success_encouragement">Vous venez juste de rendre Wikipédia meilleure pour tout le monde</string>
   <string name="description_edit_success_done">Fermer</string>
   <string name="description_edit_success_did_you_know">Le saviez-vous ?</string>

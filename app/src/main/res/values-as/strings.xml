@@ -540,7 +540,6 @@
   <string name="description_edit_voice_input_description">মাত ইনপুট</string>
   <string name="description_too_short">পাঠখিনি খুবেই সৰু।</string>
   <string name="description_edit_success_saved">প্ৰবন্ধৰ বৰ্ণনা প্ৰকাশিত হ\'ল!</string>
-  <string name="description_edit_success_saved_image_caption_in_lang_snackbar_se_promotion">ছবিৰ কেপশ্যন প্ৰকাশিত হ\'ল। (%s) উপভোগ কৰিছে? আমাক আৰু যোগ কৰাত সহায় কৰক।</string>
   <string name="description_edit_success_encouragement">আপুনি সকলোৰে বাবে ৱিকিপিডিয়া উন্নত কৰি তুলিছে</string>
   <string name="description_edit_success_done">কৰা হ’ল</string>
   <string name="description_edit_success_did_you_know">আপুনি জানেনে?</string>
