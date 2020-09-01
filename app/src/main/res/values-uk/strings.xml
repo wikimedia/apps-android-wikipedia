@@ -662,7 +662,7 @@
   <string name="description_edit_success_saved_in_lang_snackbar">Опис статті збережено! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Підпис зображення збережено!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Підпис зображення збережено! (%s)</string>
-  <string name="description_edit_success_se_image_caption_feed_link_snackbar">Сподобалося? Допоможіть нам додати відсутні підписи до інших зображень.</string>
+  <string name="description_edit_success_saved_image_tags_snackbar" fuzzy="true">Теги до зображення опубліковано!</string>
   <string name="description_edit_success_encouragement">Ви тільки що зробили Вікіпедію краще для кожного!</string>
   <string name="description_edit_success_done">Готово</string>
   <string name="description_edit_success_did_you_know">Чи знаєте ви?</string>

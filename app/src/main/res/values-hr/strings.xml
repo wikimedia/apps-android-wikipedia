@@ -570,8 +570,6 @@
   <string name="description_edit_success_saved_in_lang_snackbar">Objavljen opis članka! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Objavljen opis slike!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Objavljen opis slike! (%s)</string>
-  <string name="description_edit_success_saved_image_caption_in_lang_snackbar_se_promotion">Opis/potpis slike je objavljen. (%s) Jeste li uživali u tome? Pomozite nam dodati ih još više.</string>
-  <string name="description_edit_success_se_image_caption_feed_link_snackbar">Jeste li uživali? Pomozite nam dodati nedostajuće opise slika na ostalim mjestima.</string>
   <string name="description_edit_success_encouragement">Upravo ste učinili Wikipediju boljom za svakoga</string>
   <string name="description_edit_success_done">Gotovo</string>
   <string name="description_edit_success_did_you_know">Jeste li znali?</string>
