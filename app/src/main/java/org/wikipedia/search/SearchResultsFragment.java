@@ -58,9 +58,9 @@ import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
 import static org.apache.commons.lang3.StringUtils.isBlank;
 import static org.wikipedia.Constants.HISTORY_FRAGMENT_LOADER_ID;
-import static org.wikipedia.search.SearchResult.SearchResultTypeWithPriority.HISTORY_SEARCH_RESULT;
-import static org.wikipedia.search.SearchResult.SearchResultTypeWithPriority.SEARCH_RESULT;
-import static org.wikipedia.search.SearchResult.SearchResultTypeWithPriority.TAB_LIST_SEARCH_RESULT;
+import static org.wikipedia.search.SearchResult.SearchResultType.HISTORY_SEARCH_RESULT;
+import static org.wikipedia.search.SearchResult.SearchResultType.SEARCH_RESULT;
+import static org.wikipedia.search.SearchResult.SearchResultType.TAB_LIST_SEARCH_RESULT;
 import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
 
 public class SearchResultsFragment extends Fragment {
@@ -248,7 +248,7 @@ public class SearchResultsFragment extends Fragment {
         for (Tab tab : tabList) {
             if (tab.getBackStackPositionTitle() != null && tab.getBackStackPositionTitle().getDisplayText().toLowerCase().contains(currentSearchTerm.toLowerCase())) {
                 SearchResult searchResult = new SearchResult(tab.getBackStackPositionTitle());
-                searchResult.setSearchResultTypeWithPriority(TAB_LIST_SEARCH_RESULT);
+                searchResult.setSearchResultType(TAB_LIST_SEARCH_RESULT);
                 resultList.add(searchResult);
                 return;
             }

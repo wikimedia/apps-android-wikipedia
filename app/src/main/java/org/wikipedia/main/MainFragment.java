@@ -573,14 +573,4 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
             startActivity(new Intent(requireActivity(), AboutActivity.class));
         }
     }
-
-    @SuppressWarnings("checkstyle:magicnumber")
-    void maybeShowOneTimeTooltip(NavTab tab) {
-       /* View tabView = tabLayout.getViewAt(tab.code());
-        if (tabView != null) {
-            FeedbackUtil.showTooltip(tabView, getString(R.string.search_tab_tooltip), true, true);
-            Prefs.setShowSearchTabTooltip(false);
-        }*/
-    }
-
 }

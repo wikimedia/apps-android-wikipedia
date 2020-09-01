@@ -12,22 +12,22 @@ import org.wikipedia.dataclient.mwapi.MwQueryPage;
 import org.wikipedia.model.BaseModel;
 import org.wikipedia.page.PageTitle;
 
-import static org.wikipedia.search.SearchResult.SearchResultTypeWithPriority.SEARCH_RESULT;
+import static org.wikipedia.search.SearchResult.SearchResultType.SEARCH_RESULT;
 
 public class SearchResult extends BaseModel implements Parcelable {
     private PageTitle pageTitle;
     private final String redirectFrom;
-    private SearchResultTypeWithPriority searchResultTypeWithPriority = SEARCH_RESULT;
+    private SearchResultType searchResultType = SEARCH_RESULT;
 
-    public void setSearchResultTypeWithPriority(@NonNull SearchResultTypeWithPriority searchResultTypeWithPriority) {
-        this.searchResultTypeWithPriority = searchResultTypeWithPriority;
+    public void setSearchResultType(@NonNull SearchResultType searchResultType) {
+        this.searchResultType = searchResultType;
     }
 
     public int getPriority() {
-        return searchResultTypeWithPriority.getPriority();
+        return searchResultType.getPriority();
     }
 
-    public enum SearchResultTypeWithPriority {
+    public enum SearchResultType {
         SEARCH_RESULT(0),
         HISTORY_SEARCH_RESULT(1),
         READING_LIST_SEARCH_RESULT(2),
@@ -35,7 +35,7 @@ public class SearchResult extends BaseModel implements Parcelable {
 
         private int priority;
 
-        SearchResultTypeWithPriority(int priority) {
+        SearchResultType(int priority) {
             this.priority = priority;
         }
 

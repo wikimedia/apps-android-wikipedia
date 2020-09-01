@@ -7,7 +7,7 @@ import org.wikipedia.database.contract.PageHistoryContract
 import org.wikipedia.history.HistoryFragment.IndexedHistoryEntry
 import org.wikipedia.page.PageTitle
 import org.wikipedia.search.SearchResult
-import org.wikipedia.search.SearchResult.SearchResultTypeWithPriority
+import org.wikipedia.search.SearchResult.SearchResultType
 import org.wikipedia.search.SearchResults
 
 object HistoryDbHelper {
@@ -28,12 +28,12 @@ object HistoryDbHelper {
                 selectionArgs,
                 null, null, null).use { cursor ->
             if (cursor.moveToFirst()) {
-                val searchResults = ArrayList<SearchResult>();
-                val indexedEntry = IndexedHistoryEntry(cursor);
-                val pageTitle: PageTitle = indexedEntry.entry.getTitle()
+                val searchResults = ArrayList<SearchResult>()
+                val indexedEntry = IndexedHistoryEntry(cursor)
+                val pageTitle: PageTitle = indexedEntry.entry.title
                 pageTitle.thumbUrl = indexedEntry.imageUrl
                 val searchResult = SearchResult(pageTitle)
-                searchResult.setSearchResultTypeWithPriority(SearchResultTypeWithPriority.HISTORY_SEARCH_RESULT)
+                searchResult.setSearchResultType(SearchResultType.HISTORY_SEARCH_RESULT)
                 searchResults.add(searchResult)
                 return SearchResults(searchResults)
             }

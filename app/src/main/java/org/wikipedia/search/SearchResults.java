@@ -31,7 +31,7 @@ public class SearchResults {
      * For search results created from sources
      * other than search response
      */
-    public SearchResults(List<SearchResult> results) {
+    public SearchResults(@NonNull List<SearchResult> results) {
         this.results = results;
         continuation = null;
     }

@@ -27,7 +27,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Random;
 
-import static org.wikipedia.search.SearchResult.SearchResultTypeWithPriority.READING_LIST_SEARCH_RESULT;
+import static org.wikipedia.search.SearchResult.SearchResultType.READING_LIST_SEARCH_RESULT;
 
 public class ReadingListDbHelper {
     private static ReadingListDbHelper INSTANCE;
@@ -512,8 +512,8 @@ public class ReadingListDbHelper {
                 null, null, null)) {
             if (cursor.moveToFirst()) {
                 ReadingListPage readingListPage = ReadingListPage.DATABASE_TABLE.fromCursor(cursor);
-                SearchResult searchResult = new SearchResult(new PageTitle(((ReadingListPage) readingListPage).title(), ((ReadingListPage) readingListPage).wiki(), ((ReadingListPage) readingListPage).thumbUrl()));
-                searchResult.setSearchResultTypeWithPriority(READING_LIST_SEARCH_RESULT);
+                SearchResult searchResult = new SearchResult(new PageTitle(readingListPage.title(), readingListPage.wiki(), readingListPage.thumbUrl()));
+                searchResult.setSearchResultType(READING_LIST_SEARCH_RESULT);
                 searchResults.add(searchResult);
                 return new SearchResults(searchResults);
             }
