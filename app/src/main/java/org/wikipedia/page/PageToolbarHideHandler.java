@@ -63,6 +63,7 @@ public class PageToolbarHideHandler extends ViewHideHandler {
             prevToolbarLight = isToolbarLight;
             ((PageActivity) pageFragment.requireActivity()).requestLightStatusBar(prevToolbarLight);
         }
+        pageFragment.setToolbarElevationEnabled(scrollY != 0);
     }
 
     private void updateChildIconTint(@NonNull ViewGroup viewGroup, float opacity) {
