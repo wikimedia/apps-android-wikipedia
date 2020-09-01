@@ -8,15 +8,92 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/talk_recycler_view"
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/talk_scroll_container"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:scrollbars="vertical" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="?attr/actionBarSize">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/talk_recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:scrollbars="vertical" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/reply_subject_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:hint="@string/talk_reply_subject"
+                    app:errorTextAppearance="@style/TextInputLayoutErrorTextAppearance">
+
+                    <org.wikipedia.views.PlainPasteEditText
+                        android:id="@+id/reply_subject_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:imeOptions="flagNoExtractUi|actionNext"
+                        android:inputType="textEmailSubject"
+                        android:lineSpacingExtra="6sp"
+                        android:textSize="16sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/reply_text_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:hint="@string/talk_reply_hint"
+                    app:errorTextAppearance="@style/TextInputLayoutErrorTextAppearance">
+
+                    <org.wikipedia.views.PlainPasteEditText
+                        android:id="@+id/reply_edit_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:imeOptions="flagNoExtractUi|actionNone"
+                        android:inputType="textMultiLine"
+                        android:lineSpacingExtra="6sp"
+                        android:textSize="16sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/reply_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            style="@style/ToolbarStyle">
+
+            <ImageView
+                android:id="@+id/reply_save_button"
+                android:layout_width="48dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="end"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:contentDescription="@string/description_edit_save"
+                android:focusable="true"
+                android:padding="12dp"
+                app:srcCompat="@drawable/ic_check_circle_black_24dp"
+                app:tint="?attr/themed_icon_color"/>
+
+        </androidx.appcompat.widget.Toolbar>
 
         <org.wikipedia.views.WikiErrorView
             android:id="@+id/talk_error_view"

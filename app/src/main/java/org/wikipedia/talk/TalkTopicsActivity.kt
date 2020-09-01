@@ -45,7 +45,7 @@ class TalkTopicsActivity : BaseActivity() {
         talk_recycler_view.adapter = TalkTopicItemAdapter()
 
         talk_new_topic_button.setOnClickListener {
-            // TODO
+            startActivity(TalkTopicActivity.newIntent(this@TalkTopicsActivity, userName, -1))
         }
 
         talk_refresh_view.setOnRefreshListener {
@@ -63,7 +63,7 @@ class TalkTopicsActivity : BaseActivity() {
 
     public override fun onResume() {
         super.onResume()
-        talk_recycler_view.adapter?.notifyDataSetChanged()
+        loadTopics()
     }
 
     private fun loadTopics() {
@@ -72,7 +72,7 @@ class TalkTopicsActivity : BaseActivity() {
         talk_error_view.visibility = View.GONE
         talk_empty_container.visibility = View.GONE
 
-        ServiceFactory.getRest(WikipediaApp.getInstance().wikiSite).getTalkPage(userName)
+        disposables.add(ServiceFactory.getRest(WikipediaApp.getInstance().wikiSite).getTalkPage(userName)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ response ->
@@ -82,7 +82,7 @@ class TalkTopicsActivity : BaseActivity() {
                 }, { t ->
                     L.e(t)
                     updateOnError(t)
-                })
+                }))
     }
 
     private fun updateOnSuccess() {

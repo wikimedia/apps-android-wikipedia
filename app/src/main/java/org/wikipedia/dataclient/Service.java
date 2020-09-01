@@ -209,7 +209,7 @@ public interface Service {
 
     // ------- Editing -------
 
-    @GET(MW_API_PREFIX + "action=query&prop=revisions&rvprop=content|timestamp&rvlimit=1&converttitles=")
+    @GET(MW_API_PREFIX + "action=query&prop=revisions&rvprop=content|timestamp|ids&rvlimit=1&converttitles=")
     @NonNull Observable<MwQueryResponse> getWikiTextForSection(@NonNull @Query("titles") String title, @Query("rvsection") int section);
 
     @FormUrlEncoded
@@ -222,11 +222,13 @@ public interface Service {
     @POST(MW_API_PREFIX + "action=edit&nocreate=")
     @SuppressWarnings("checkstyle:parameternumber")
     @NonNull Observable<Edit> postEditSubmit(@NonNull @Field("title") String title,
-                                             @Field("section") int section,
+                                             @NonNull @Field("section") String section,
+                                             @Nullable @Field("sectiontitle") String newSectionTitle,
                                              @NonNull @Field("summary") String summary,
                                              @Nullable @Field("assert") String user,
-                                             @NonNull @Field("text") String text,
-                                             @Nullable @Field("basetimestamp") String baseTimeStamp,
+                                             @Nullable @Field("text") String text,
+                                             @Nullable @Field("appendtext") String appendText,
+                                             @Field("baserevid") long baseRevId,
                                              @NonNull @Field("token") String token,
                                              @Nullable @Field("captchaid") String captchaId,
                                              @Nullable @Field("captchaword") String captchaWord);
