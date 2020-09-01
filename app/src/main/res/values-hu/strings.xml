@@ -622,6 +622,7 @@
   <string name="description_edit_success_saved_in_lang_snackbar">Szócikkleírás (%s) közzétéve!</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Képaláírás közzétéve!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Képaláírás közzétéve! (%s)</string>
+  <string name="description_edit_success_saved_image_tags_snackbar" fuzzy="true">Képcímkék közzétéve!</string>
   <string name="description_edit_success_encouragement">Éppen mindenkinek jobbá tetted a Wikipédiát</string>
   <string name="description_edit_success_done">Kész</string>
   <string name="description_edit_success_did_you_know">Tudtad?</string>
