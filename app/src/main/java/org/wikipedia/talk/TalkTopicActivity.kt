@@ -23,6 +23,7 @@ import org.wikipedia.page.*
 import org.wikipedia.page.LinkMovementMethodExt.UrlHandler
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.talk.TalkTopicsActivity.Companion.newIntent
+import org.wikipedia.util.DeviceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DrawableItemDecoration
@@ -30,7 +31,7 @@ import org.wikipedia.views.FooterMarginItemDecoration
 
 class TalkTopicActivity : BaseActivity() {
     private val disposables = CompositeDisposable()
-    private var topicId: Int = 0
+    private var topicId: Int = -1
     private var userName: String = ""
     private var topic: TalkPage.Topic? = null
     private val bottomSheetPresenter = ExclusiveBottomSheetPresenter()
@@ -47,7 +48,7 @@ class TalkTopicActivity : BaseActivity() {
         linkHandler = TalkLinkHandler(this)
 
         userName = intent.getStringExtra(EXTRA_USER_NAME).orEmpty()
-        topicId = intent.extras?.getInt(EXTRA_TOPIC, 0)!!
+        topicId = intent.extras?.getInt(EXTRA_TOPIC, -1)!!
 
         talk_recycler_view.layoutManager = LinearLayoutManager(this)
         talk_recycler_view.addItemDecoration(FooterMarginItemDecoration(0, 80))
@@ -55,15 +56,35 @@ class TalkTopicActivity : BaseActivity() {
         talk_recycler_view.adapter = TalkReplyItemAdapter()
 
         talk_reply_button.setOnClickListener {
-            // TODO
+            talk_scroll_container.fullScroll(View.FOCUS_DOWN)
+            reply_text_layout.visibility = View.VISIBLE
+            reply_text_layout.requestFocus()
+            DeviceUtil.showSoftKeyboard(reply_edit_text)
+            talk_reply_button.hide()
         }
 
+        talk_refresh_view.isEnabled = !isNewTopic()
         talk_refresh_view.setOnRefreshListener {
             loadTopic()
         }
 
         talk_reply_button.visibility = View.GONE
-        loadTopic()
+
+        if (isNewTopic()) {
+            title = getString(R.string.talk_new_topic)
+            talk_progress_bar.visibility = View.GONE
+            talk_error_view.visibility = View.GONE
+            reply_subject_layout.visibility = View.VISIBLE
+            reply_text_layout.hint = getString(R.string.talk_message_hint)
+            reply_text_layout.visibility = View.VISIBLE
+            reply_subject_layout.requestFocus()
+            DeviceUtil.showSoftKeyboard(reply_subject_layout)
+        } else {
+            reply_subject_layout.visibility = View.GONE
+            reply_text_layout.visibility = View.GONE
+            reply_text_layout.hint = getString(R.string.talk_reply_hint)
+            loadTopic()
+        }
     }
 
     public override fun onDestroy() {
@@ -72,6 +93,9 @@ class TalkTopicActivity : BaseActivity() {
     }
 
     private fun loadTopic() {
+        if (isNewTopic()) {
+            return
+        }
         disposables.clear()
         talk_progress_bar.visibility = View.VISIBLE
         talk_error_view.visibility = View.GONE
@@ -91,7 +115,7 @@ class TalkTopicActivity : BaseActivity() {
     private fun updateOnSuccess() {
         talk_progress_bar.visibility = View.GONE
         talk_error_view.visibility = View.GONE
-        talk_reply_button.visibility = View.VISIBLE
+        talk_reply_button.show()
         talk_refresh_view.isRefreshing = false
 
         val titleStr = StringUtil.fromHtml(topic?.html).toString().trim()
@@ -102,7 +126,7 @@ class TalkTopicActivity : BaseActivity() {
     private fun updateOnError(t: Throwable) {
         talk_progress_bar.visibility = View.GONE
         talk_refresh_view.isRefreshing = false
-        talk_reply_button.visibility = View.GONE
+        talk_reply_button.hide()
         talk_error_view.visibility = View.VISIBLE
         talk_error_view.setError(t)
     }
@@ -114,6 +138,10 @@ class TalkTopicActivity : BaseActivity() {
             bottomSheetPresenter.show(supportFragmentManager,
                     LinkPreviewDialog.newInstance(HistoryEntry(title, HistoryEntry.SOURCE_TALK_TOPIC), null))
         }
+    }
+
+    private fun isNewTopic(): Boolean {
+        return topicId == -1
     }
 
     internal inner class TalkReplyHolder internal constructor(view: View) : RecyclerView.ViewHolder(view) {

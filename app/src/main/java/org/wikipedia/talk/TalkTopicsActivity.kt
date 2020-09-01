@@ -45,7 +45,7 @@ class TalkTopicsActivity : BaseActivity() {
         talk_recycler_view.adapter = TalkTopicItemAdapter()
 
         talk_new_topic_button.setOnClickListener {
-            // TODO
+            startActivity(TalkTopicActivity.newIntent(this@TalkTopicsActivity, userName, -1))
         }
 
         talk_refresh_view.setOnRefreshListener {
