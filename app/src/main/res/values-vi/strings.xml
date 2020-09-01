@@ -642,7 +642,7 @@
   <string name="description_edit_success_saved_in_lang_snackbar">Đã đăng mô tả bài viết! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Đã đăng chú thích hình ảnh!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Đã đăng chú thích hình ảnh! (%s)</string>
-  <string name="description_edit_success_se_image_caption_feed_link_snackbar">Thích hình ảnh đó?  Giúp chúng tôi thêm chú thích còn thiếu vào các hình ảnh khác.</string>
+  <string name="description_edit_success_saved_image_tags_snackbar" fuzzy="true">Đã đăng chú thích hình ảnh!</string>
   <string name="description_edit_success_encouragement">Bạn vừa cải thiện Wikipedia cho mọi người</string>
   <string name="description_edit_success_done">Xong</string>
   <string name="description_edit_success_did_you_know">Bạn có biết?</string>

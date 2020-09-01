@@ -661,15 +661,11 @@
   <string name="description_starts_with_uppercase">Börja med liten bokstav om det första ordet inte är ett egennamn.</string>
   <string name="description_edit_success_saved">Artikelbeskrivningen har publicerats!</string>
   <string name="description_edit_success_saved_snackbar">Artikelbeskrivningen har publicerats!</string>
-  <string name="description_edit_success_saved_snackbar_se_promotion">Artikelbeskrivningen publicerades. Var det kul? Hjälp oss lägga till fler.</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Artikelbeskrivningen har publicerats! (%s)</string>
-  <string name="description_edit_success_saved_in_lang_snackbar_se_promotion">Artikelbeskrivning publicerades. (%s) Var det kul? Hjälp oss lägga till fler.</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Bildtext skapades!</string>
-  <string name="description_edit_success_saved_image_caption_snackbar_se_promotion">Bildtexten publicerades. Var det kul? Hjälp oss lägga till fler.</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Bildtext skapades! (%s)</string>
-  <string name="description_edit_success_saved_image_caption_in_lang_snackbar_se_promotion">Bildtexten publicerades. (%s) Var det kul? Hjälp oss lägga till fler.</string>
-  <string name="description_edit_success_se_image_caption_feed_link_snackbar">Tyckte du om det? Hjälp till att lägga till bildtexter till andra bilder.</string>
-  <string name="description_edit_success_se_image_tags_feed_link_snackbar">Var det kul? Hjälp oss lägga till taggar som fattas på andra bilder.</string>
+  <string name="description_edit_success_saved_image_tags_snackbar">Bildtagg(ar) publicerades!</string>
+  <string name="description_edit_success_se_general_feed_link_snackbar">Tyckte du om det? Hjälp oss lägga till fler.</string>
   <string name="description_edit_success_encouragement">Du gjorde precis Wikipedia bättre för alla</string>
   <string name="description_edit_success_done">Klar</string>
   <string name="description_edit_success_did_you_know">Visste du att?</string>
