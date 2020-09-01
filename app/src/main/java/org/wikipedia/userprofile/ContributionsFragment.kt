@@ -197,7 +197,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                                     for (contribution in wikidataContributions) {
                                         var languageCode = contribution.wikiSite.languageCode()
                                         if (languageCode.startsWith(AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE) && !entity.labels().containsKey(languageCode)) {
-                                            // TODO: show the article title in the correct language variant. Now it is showing its original article title.
+                                            // TODO: more proper solution - calling page/summary endpoint to get correct page title
                                             languageCode = AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE
                                         }
                                         if (contribution.qNumber == entityKey && entity.labels().containsKey(languageCode)) {
