@@ -36,6 +36,7 @@ import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_IMAGE_CAPTION
 import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_IMAGE_TAG
 import org.wikipedia.userprofile.ContributionsItemView.Callback
 import org.wikipedia.language.AppLanguageLookUpTable
+import org.wikipedia.language.LanguageUtil
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
@@ -194,8 +195,13 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                                 for (entityKey in entities.entities().keys) {
                                     val entity = entities.entities()[entityKey]!!
                                     for (contribution in wikidataContributions) {
-                                        if (contribution.qNumber == entityKey && entity.labels().containsKey(contribution.wikiSite.languageCode())) {
-                                            contribution.title = entity.labels()[contribution.wikiSite.languageCode()]!!.value()
+                                        var languageCode = contribution.wikiSite.languageCode()
+                                        if (languageCode.startsWith(AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE) && !entity.labels().containsKey(languageCode)) {
+                                            // TODO: more proper solution - calling page/summary endpoint to get correct page title
+                                            languageCode = AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE
+                                        }
+                                        if (contribution.qNumber == entityKey && entity.labels().containsKey(languageCode)) {
+                                            contribution.title = entity.labels()[languageCode]!!.value()
                                             // if we need the current description of the item:
                                             //contribution.description = entity.descriptions()[contribution.wikiSite.languageCode()]!!.value()
                                         }
