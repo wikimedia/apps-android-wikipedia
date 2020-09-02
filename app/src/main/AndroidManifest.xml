@@ -77,7 +77,6 @@
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan"
             android:configChanges="orientation|screenSize"
             android:theme="@style/AppTheme.Page"
-            android:launchMode="singleTask"
             android:parentActivityName=".main.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
