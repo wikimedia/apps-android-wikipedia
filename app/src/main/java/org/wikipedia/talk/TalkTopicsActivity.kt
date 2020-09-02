@@ -3,7 +3,10 @@ package org.wikipedia.talk
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.view.*
+import android.view.Menu
+import android.view.MenuItem
+import android.view.View
+import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -19,11 +22,11 @@ import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
 import org.wikipedia.dataclient.page.TalkPage
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
+import org.wikipedia.settings.languages.WikipediaLanguagesFragment
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DrawableItemDecoration
 import org.wikipedia.views.FooterMarginItemDecoration
-import kotlin.collections.ArrayList
 
 class TalkTopicsActivity : BaseActivity() {
     private var wikiSite: WikiSite = WikipediaApp.getInstance().wikiSite
@@ -72,6 +75,19 @@ class TalkTopicsActivity : BaseActivity() {
         loadTopics()
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE && resultCode == RESULT_OK) {
+            if (data != null && data.hasExtra(WikipediaLanguagesFragment.ACTIVITY_RESULT_LANG_POSITION_DATA)) {
+                val pos = data.getIntExtra(WikipediaLanguagesFragment.ACTIVITY_RESULT_LANG_POSITION_DATA, 0)
+                if (pos < WikipediaApp.getInstance().language().appLanguageCodes.size) {
+                    wikiSite = WikiSite.forLanguageCode(WikipediaApp.getInstance().language().appLanguageCodes[pos])
+                    loadTopics()
+                }
+            }
+        }
+    }
+
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_talk, menu)
         return super.onCreateOptionsMenu(menu)
@@ -79,7 +95,8 @@ class TalkTopicsActivity : BaseActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.menu_change_language) {
-            startActivity(WikipediaLanguagesActivity.newIntent(this, Constants.InvokeSource.TALK_ACTIVITY.name))
+            startActivityForResult(WikipediaLanguagesActivity.newIntent(this, Constants.InvokeSource.TALK_ACTIVITY.getName()),
+                    Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE)
             return true
         }
         return super.onOptionsItemSelected(item)
