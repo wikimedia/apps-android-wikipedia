@@ -140,11 +140,11 @@ class TalkTopicActivity : BaseActivity() {
                 .map { response ->
                     val talkTopic = response.topics?.find { t -> t.id == topicId }!!
                     TalkPageSeenDatabaseTable.setTalkTopicSeen(talkTopic)
+                    currentRevision = response.revision
                     talkTopic
                 }
-                .subscribe({ talkTopic ->
-                    topic = talkTopic
-                    currentRevision = response.revision
+                .subscribe({
+                    topic = it
                     updateOnSuccess()
                 }, { t ->
                     L.e(t)
