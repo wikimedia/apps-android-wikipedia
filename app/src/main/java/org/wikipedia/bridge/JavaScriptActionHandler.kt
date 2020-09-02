@@ -141,7 +141,7 @@ object JavaScriptActionHandler {
     fun mobileWebChromeShim(): String {
         return "(function() {" +
                 "let style = document.createElement('style');" +
-                "style.innerHTML = '.header-chrome { visibility: hidden; } #page-secondary-actions { display: none; } .mw-footer { margin-bottom: 48px; }';" +
+                "style.innerHTML = '.header-chrome { visibility: hidden; margin-top: 80px; height: 0px; } #page-secondary-actions { display: none; } .mw-footer { margin-bottom: 48px; }';" +
                 "document.head.appendChild(style);" +
                 "})();"
     }
