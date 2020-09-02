@@ -70,18 +70,28 @@
             app:layout_constraintTop_toBottomOf="@id/view_featured_article_card_article_title"
             tools:text="Lorem ipsum" />
 
+        <View
+            android:layout_width="@dimen/divider_width_for_article"
+            android:layout_height="1dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="8dp"
+            android:background="?attr/material_theme_border_color"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view_featured_article_card_article_subtitle"
+            app:layout_constraintBottom_toTopOf="@id/view_featured_article_card_extract"/>
+
         <TextView
             android:id="@+id/view_featured_article_card_extract"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:lineSpacingMultiplier="1.4"
-            android:maxLines="4"
+            android:maxLines="8"
             android:paddingTop="8dp"
             android:paddingBottom="16dp"
             android:textColor="?attr/primary_text_color"
             android:textSize="14sp"
-            app:layout_constraintTop_toBottomOf="@id/view_featured_article_card_article_subtitle"
+            app:layout_constraintBottom_toBottomOf="parent"
             tools:text="Lorem ipsum" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
