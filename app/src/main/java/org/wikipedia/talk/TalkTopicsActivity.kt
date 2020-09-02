@@ -11,12 +11,9 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_talk_topics.*
-import kotlinx.android.synthetic.main.activity_talk_topics.talk_error_view
-import kotlinx.android.synthetic.main.activity_talk_topics.talk_progress_bar
-import kotlinx.android.synthetic.main.activity_talk_topics.talk_recycler_view
-import kotlinx.android.synthetic.main.activity_talk_topics.talk_refresh_view
 import org.wikipedia.Constants
 import org.wikipedia.R
+import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -29,7 +26,7 @@ import org.wikipedia.views.FooterMarginItemDecoration
 import kotlin.collections.ArrayList
 
 class TalkTopicsActivity : BaseActivity() {
-    private var language: String = ""
+    private var wikiSite: WikiSite = WikipediaApp.getInstance().wikiSite
     private var userName: String = ""
     private val disposables = CompositeDisposable()
     private val topics = ArrayList<TalkPage.Topic>()
@@ -38,7 +35,9 @@ class TalkTopicsActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_talk_topics)
 
-        language = intent.getStringExtra(EXTRA_LANGUAGE).orEmpty()
+        if (intent.hasExtra(EXTRA_LANGUAGE)) {
+            wikiSite = WikiSite.forLanguageCode(intent.getStringExtra(EXTRA_LANGUAGE).orEmpty())
+        }
         userName = intent.getStringExtra(EXTRA_USER_NAME).orEmpty()
         title = getString(R.string.talk_user_title, StringUtil.removeUnderscores(userName))
 
@@ -92,7 +91,7 @@ class TalkTopicsActivity : BaseActivity() {
         talk_error_view.visibility = View.GONE
         talk_empty_container.visibility = View.GONE
 
-        disposables.add(ServiceFactory.getRest(WikiSite.forLanguageCode(language)).getTalkPage(userName)
+        disposables.add(ServiceFactory.getRest(wikiSite).getTalkPage(userName)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ response ->
@@ -149,7 +148,7 @@ class TalkTopicsActivity : BaseActivity() {
         }
 
         override fun onClick(v: View?) {
-            startActivity(TalkTopicActivity.newIntent(this@TalkTopicsActivity, language, userName, id))
+            startActivity(TalkTopicActivity.newIntent(this@TalkTopicsActivity, wikiSite.languageCode(), userName, id))
         }
     }
 
@@ -168,8 +167,8 @@ class TalkTopicsActivity : BaseActivity() {
     }
 
     companion object {
-        const val EXTRA_LANGUAGE = "language"
-        const val EXTRA_USER_NAME = "userName"
+        private const val EXTRA_LANGUAGE = "language"
+        private const val EXTRA_USER_NAME = "userName"
 
         @JvmStatic
         fun newIntent(context: Context, language: String?, userName: String?): Intent {

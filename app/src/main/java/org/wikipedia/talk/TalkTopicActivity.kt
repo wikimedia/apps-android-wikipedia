@@ -13,6 +13,7 @@ import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_talk_topic.*
 import org.wikipedia.R
+import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -28,7 +29,7 @@ import org.wikipedia.views.DrawableItemDecoration
 class TalkTopicActivity : BaseActivity() {
     private val disposables = CompositeDisposable()
     private var topicId: Int = 0
-    private var language: String = ""
+    private var wikiSite: WikiSite = WikipediaApp.getInstance().wikiSite
     private var userName: String = ""
     private var topic: TalkPage.Topic? = null
     private var replyActive = false
@@ -45,12 +46,14 @@ class TalkTopicActivity : BaseActivity() {
         title = ""
         linkHandler = TalkLinkHandler(this)
 
-        language = intent.getStringExtra(EXTRA_LANGUAGE).orEmpty()
+        if (intent.hasExtra(EXTRA_LANGUAGE)) {
+            wikiSite = WikiSite.forLanguageCode(intent.getStringExtra(EXTRA_LANGUAGE).orEmpty())
+        }
         userName = intent.getStringExtra(EXTRA_USER_NAME).orEmpty()
         topicId = intent.extras?.getInt(EXTRA_TOPIC, 0)!!
 
         talk_recycler_view.layoutManager = LinearLayoutManager(this)
-        talk_recycler_view.addItemDecoration(DrawableItemDecoration(this, R.attr.list_separator_drawable, false, false))
+        talk_recycler_view.addItemDecoration(DrawableItemDecoration(this, R.attr.list_separator_drawable, drawStart = false, drawEnd = false))
         talk_recycler_view.adapter = TalkReplyItemAdapter()
 
         talk_reply_button.setOnClickListener {
@@ -75,7 +78,7 @@ class TalkTopicActivity : BaseActivity() {
         talk_progress_bar.visibility = View.VISIBLE
         talk_error_view.visibility = View.GONE
 
-        disposables.add(ServiceFactory.getRest(WikiSite.forLanguageCode(language)).getTalkPage(userName)
+        disposables.add(ServiceFactory.getRest(wikiSite).getTalkPage(userName)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ response ->
@@ -143,7 +146,7 @@ class TalkTopicActivity : BaseActivity() {
 
     internal inner class TalkLinkHandler internal constructor(context: Context) : LinkHandler(context) {
         override fun getWikiSite(): WikiSite {
-            return WikiSite.forLanguageCode(language)
+            return this@TalkTopicActivity.wikiSite
         }
 
         override fun onMediaLinkClicked(title: PageTitle) {
@@ -160,9 +163,9 @@ class TalkTopicActivity : BaseActivity() {
     }
 
     companion object {
-        const val EXTRA_LANGUAGE = "language"
-        const val EXTRA_USER_NAME = "userName"
-        const val EXTRA_TOPIC = "topicId"
+        private const val EXTRA_LANGUAGE = "language"
+        private const val EXTRA_USER_NAME = "userName"
+        private const val EXTRA_TOPIC = "topicId"
 
         @JvmStatic
         fun newIntent(context: Context, language: String?, userName: String?, topicId: Int): Intent {
