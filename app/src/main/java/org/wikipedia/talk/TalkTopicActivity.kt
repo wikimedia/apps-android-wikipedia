@@ -254,8 +254,10 @@ class TalkTopicActivity : BaseActivity() {
         if (!body.endsWith("~~~~")) {
             body += " ~~~~"
         }
-        // add two explicit newlines at the beginning, to delineate this message as a new paragraph.
-        body = "\n\n" + body
+        if (isNewTopic()) {
+            // add two explicit newlines at the beginning, to delineate this message as a new paragraph.
+            body = "\n\n" + body
+        }
 
         talk_progress_bar.visibility = View.VISIBLE
         reply_save_button.isEnabled = false
