@@ -58,6 +58,7 @@ import static org.wikipedia.Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE_FROM_SEARC
 import static org.wikipedia.Constants.INTENT_EXTRA_INVOKE_SOURCE;
 import static org.wikipedia.Constants.InvokeSource.INTENT_PROCESS_TEXT;
 import static org.wikipedia.Constants.InvokeSource.INTENT_SHARE;
+import static org.wikipedia.Constants.InvokeSource.PAGE_ACTION_TAB;
 import static org.wikipedia.settings.languages.WikipediaLanguagesFragment.ACTIVITY_RESULT_LANG_POSITION_DATA;
 import static org.wikipedia.util.ResourceUtil.getThemedColor;
 
@@ -301,6 +302,7 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
         funnel.searchClick(position, searchLanguageCode);
         HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_SEARCH);
         startActivity(inNewTab ? PageActivity.newIntentForNewTab(requireContext(), historyEntry, historyEntry.getTitle())
+                : invokeSource == PAGE_ACTION_TAB ? PageActivity.newIntentForCurrentTab(requireContext(), historyEntry, historyEntry.getTitle(), false)
                 : PageActivity.newIntentForExistingTab(requireContext(), historyEntry, historyEntry.getTitle()));
         closeSearch();
     }
