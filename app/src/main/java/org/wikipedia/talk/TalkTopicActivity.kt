@@ -75,7 +75,7 @@ class TalkTopicActivity : BaseActivity() {
         talk_progress_bar.visibility = View.VISIBLE
         talk_error_view.visibility = View.GONE
 
-        ServiceFactory.getRest(WikiSite.forLanguageCode(language)).getTalkPage(userName)
+        disposables.add(ServiceFactory.getRest(WikiSite.forLanguageCode(language)).getTalkPage(userName)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ response ->
@@ -84,7 +84,7 @@ class TalkTopicActivity : BaseActivity() {
                 }, { t ->
                     L.e(t)
                     updateOnError(t)
-                })
+                }))
     }
 
     private fun updateOnSuccess() {
