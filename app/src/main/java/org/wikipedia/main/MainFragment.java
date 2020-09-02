@@ -140,6 +140,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
             }
             if (getCurrentFragment() instanceof HistoryFragment && item.getOrder() == NavTab.SEARCH.code()) {
                 openSearchActivity(NAV_MENU, null);
+                return true;
             }
             viewPager.setCurrentItem(item.getOrder(), false);
             return true;

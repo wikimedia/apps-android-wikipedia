@@ -8,6 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import androidx.annotation.ColorInt
+import androidx.annotation.IdRes
+import androidx.annotation.Nullable
 import kotlinx.android.synthetic.main.view_tabs_count.view.*
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp

@@ -419,31 +419,47 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
     }
 
     private class SearchCardViewHolder extends DefaultViewHolder<View> {
-        WikiCardView searchWikiCardView;
-        View searchCardView;
-        AppCompatImageView voiceSearchButton;
-        ImageView historyFilterButton;
-        ImageView clearHistoryButton;
-        SearchHeaderCallback searchHeaderCallback;
+        private ImageView historyFilterButton;
+        private ImageView clearHistoryButton;
+        private SearchHeaderCallback searchHeaderCallback;
 
-        SearchCardViewHolder(View itemView, @NonNull SearchHeaderCallback searchHeaderCallback) {
+        SearchCardViewHolder(View itemView) {
             super(itemView);
-            this.searchHeaderCallback = searchHeaderCallback;
-            searchWikiCardView = itemView.findViewById(R.id.wiki_card_for_search);
-            searchCardView = itemView.findViewById(R.id.search_card);
-            voiceSearchButton = itemView.findViewById(R.id.voice_search_button);
+            WikiCardView searchWikiCardView = itemView.findViewById(R.id.wiki_card_for_search);
+            View searchCardView = itemView.findViewById(R.id.search_card);
+            AppCompatImageView voiceSearchButton = itemView.findViewById(R.id.voice_search_button);
             historyFilterButton = itemView.findViewById(R.id.history_filter);
             clearHistoryButton = itemView.findViewById(R.id.history_delete);
-            searchCardView.setOnClickListener(view -> searchHeaderCallback.onSearchCardClicked());
-            voiceSearchButton.setOnClickListener(view -> searchHeaderCallback.onVoiceSearchClicked());
-            historyFilterButton.setOnClickListener(view -> searchHeaderCallback.onFilterHistoryClicked());
-            clearHistoryButton.setOnClickListener(view -> searchHeaderCallback.onClearHistoryClicked());
+            searchCardView.setOnClickListener(view -> {
+                if (searchHeaderCallback != null) {
+                    searchHeaderCallback.onSearchCardClicked();
+                }
+            });
+            voiceSearchButton.setOnClickListener(view -> {
+                if (searchHeaderCallback != null) {
+                    searchHeaderCallback.onVoiceSearchClicked();
+                }
+            });
+            historyFilterButton.setOnClickListener(view -> {
+                if (searchHeaderCallback != null) {
+                    searchHeaderCallback.onFilterHistoryClicked();
+                }
+            });
+            clearHistoryButton.setOnClickListener(view -> {
+                if (searchHeaderCallback != null) {
+                    searchHeaderCallback.onClearHistoryClicked();
+                }
+            });
             searchWikiCardView.setCardBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.color_group_22));
         }
 
         public void bindItem() {
             clearHistoryButton.setVisibility(adapter.isEmpty() ? View.GONE : View.VISIBLE);
             historyFilterButton.setVisibility(adapter.isEmpty() ? View.GONE : View.VISIBLE);
+        }
+
+        public void setCallback(@Nullable SearchHeaderCallback searchHeaderCallback) {
+            this.searchHeaderCallback = searchHeaderCallback;
         }
     }
 
@@ -515,7 +531,7 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
         public DefaultViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             if (viewType == VIEW_TYPE_SEARCH_CARD) {
                 View view = LayoutInflater.from(requireContext()).inflate(R.layout.view_history_header_with_search, parent, false);
-                return new SearchCardViewHolder(view, new SearchHeaderItemCallback());
+                return new SearchCardViewHolder(view);
             } else if (viewType == VIEW_TYPE_HEADER) {
                 View view = LayoutInflater.from(requireContext()).inflate(R.layout.view_section_header, parent, false);
                 return new HeaderViewHolder(view);
@@ -540,11 +556,17 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
             if (holder instanceof HistoryEntryItemHolder) {
                 ((HistoryEntryItemHolder) holder).getView().setCallback(itemCallback);
             }
+            if (holder instanceof SearchCardViewHolder) {
+                ((SearchCardViewHolder) holder).setCallback(new SearchHeaderItemCallback());
+            }
         }
 
         @Override public void onViewDetachedFromWindow(@NonNull DefaultViewHolder holder) {
             if (holder instanceof HistoryEntryItemHolder) {
                 ((HistoryEntryItemHolder) holder).getView().setCallback(null);
+            }
+            if (holder instanceof SearchCardViewHolder) {
+                ((SearchCardViewHolder) holder).setCallback(null);
             }
             super.onViewDetachedFromWindow(holder);
         }

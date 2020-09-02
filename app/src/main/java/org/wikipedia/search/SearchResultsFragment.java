@@ -520,6 +520,7 @@ public class SearchResultsFragment extends Fragment {
             ImageView searchResultIcon = getView().findViewById(R.id.page_list_icon);
             TabCountsView searchResultTabCountsView = getView().findViewById(R.id.page_list_button_tabs);
             searchResultTabCountsView.updateTabCount();
+            searchResultTabCountsView.setBackgroundResource(0);
             GoneIfEmptyTextView descriptionText = getView().findViewById(R.id.page_list_item_description);
             TextView redirectText = getView().findViewById(R.id.page_list_item_redirect);
             View redirectArrow = getView().findViewById(R.id.page_list_item_redirect_arrow);
