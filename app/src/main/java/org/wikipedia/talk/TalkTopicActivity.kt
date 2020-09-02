@@ -13,7 +13,6 @@ import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_talk_topic.*
 import org.wikipedia.R
-import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -29,6 +28,7 @@ import org.wikipedia.views.DrawableItemDecoration
 class TalkTopicActivity : BaseActivity() {
     private val disposables = CompositeDisposable()
     private var topicId: Int = 0
+    private var language: String = ""
     private var userName: String = ""
     private var topic: TalkPage.Topic? = null
     private var replyActive = false
@@ -45,6 +45,7 @@ class TalkTopicActivity : BaseActivity() {
         title = ""
         linkHandler = TalkLinkHandler(this)
 
+        language = intent.getStringExtra(EXTRA_LANGUAGE).orEmpty()
         userName = intent.getStringExtra(EXTRA_USER_NAME).orEmpty()
         topicId = intent.extras?.getInt(EXTRA_TOPIC, 0)!!
 
@@ -74,7 +75,7 @@ class TalkTopicActivity : BaseActivity() {
         talk_progress_bar.visibility = View.VISIBLE
         talk_error_view.visibility = View.GONE
 
-        ServiceFactory.getRest(WikipediaApp.getInstance().wikiSite).getTalkPage(userName)
+        ServiceFactory.getRest(WikiSite.forLanguageCode(language)).getTalkPage(userName)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ response ->
@@ -107,7 +108,7 @@ class TalkTopicActivity : BaseActivity() {
 
     private fun showLinkPreviewOrNavigate(title: PageTitle) {
         if (title.namespace() == Namespace.USER_TALK) {
-            startActivity(newIntent(this, title.text))
+            startActivity(newIntent(this, title.wikiSite.languageCode(), title.text))
         } else {
             bottomSheetPresenter.show(supportFragmentManager,
                     LinkPreviewDialog.newInstance(HistoryEntry(title, HistoryEntry.SOURCE_TALK_TOPIC), null))
@@ -142,7 +143,7 @@ class TalkTopicActivity : BaseActivity() {
 
     internal inner class TalkLinkHandler internal constructor(context: Context) : LinkHandler(context) {
         override fun getWikiSite(): WikiSite {
-            return WikipediaApp.getInstance().wikiSite
+            return WikiSite.forLanguageCode(language)
         }
 
         override fun onMediaLinkClicked(title: PageTitle) {
@@ -159,12 +160,14 @@ class TalkTopicActivity : BaseActivity() {
     }
 
     companion object {
+        const val EXTRA_LANGUAGE = "language"
         const val EXTRA_USER_NAME = "userName"
         const val EXTRA_TOPIC = "topicId"
 
         @JvmStatic
-        fun newIntent(context: Context, userName: String?, topicId: Int): Intent {
+        fun newIntent(context: Context, language: String?, userName: String?, topicId: Int): Intent {
             return Intent(context, TalkTopicActivity::class.java)
+                    .putExtra(EXTRA_LANGUAGE, language.orEmpty())
                     .putExtra(EXTRA_USER_NAME, userName.orEmpty())
                     .putExtra(EXTRA_TOPIC, topicId)
         }
