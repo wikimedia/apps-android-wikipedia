@@ -9,7 +9,6 @@ import org.wikipedia.R;
 import org.wikipedia.feed.view.FeedAdapter;
 import org.wikipedia.feed.view.HorizontalScrollingListCardItemView;
 import org.wikipedia.feed.view.HorizontalScrollingListCardView;
-import org.wikipedia.util.DateUtil;
 import org.wikipedia.views.DefaultViewHolder;
 
 import java.util.List;
@@ -32,9 +31,6 @@ public class NewsListCardView extends HorizontalScrollingListCardView<NewsListCa
 
     private void header(@NonNull NewsListCard card) {
         headerView().setTitle(card.title())
-                .setSubtitle(DateUtil.getFeedCardDateString(card.date().baseCalendar()))
-                .setImage(R.drawable.icon_in_the_news)
-                .setImageCircleColor(R.color.base50)
                 .setLangCode(card.wikiSite().languageCode())
                 .setCard(card)
                 .setCallback(getCallback());
