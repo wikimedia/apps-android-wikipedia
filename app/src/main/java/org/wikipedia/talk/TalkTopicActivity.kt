@@ -254,7 +254,7 @@ class TalkTopicActivity : BaseActivity() {
         if (!body.endsWith("~~~~")) {
             body += " ~~~~"
         }
-        if (isNewTopic()) {
+        if (!isNewTopic()) {
             // add two explicit newlines at the beginning, to delineate this message as a new paragraph.
             body = "\n\n" + body
         }
