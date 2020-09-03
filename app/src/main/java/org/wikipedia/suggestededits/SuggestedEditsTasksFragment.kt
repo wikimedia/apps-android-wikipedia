@@ -62,6 +62,17 @@ class SuggestedEditsTasksFragment : Fragment() {
     private var latestEditStreak = 0
     private var revertSeverity = 0
 
+    private val sequentialTooltipRunnable = Runnable {
+        if (isAdded) {
+            val balloon = FeedbackUtil.getTooltip(requireContext(), contributionsStatsView.tooltipText, false, true)
+            balloon.showAlignBottom(contributionsStatsView.description)
+            balloon.relayShowAlignBottom(org.wikipedia.util.FeedbackUtil.getTooltip(requireContext(), editStreakStatsView.tooltipText, false, true), editStreakStatsView.description)
+                    .relayShowAlignBottom(org.wikipedia.util.FeedbackUtil.getTooltip(requireContext(), pageViewStatsView.tooltipText, false, true), pageViewStatsView.description)
+                    .relayShowAlignBottom(org.wikipedia.util.FeedbackUtil.getTooltip(requireContext(), editQualityStatsView.tooltipText, false, true), editQualityStatsView.description)
+            Prefs.shouldShowOneTimeSequentialUserStatsTooltip(false)
+        }
+    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
         return inflater.inflate(R.layout.fragment_suggested_edits_tasks, container, false)
@@ -135,6 +146,7 @@ class SuggestedEditsTasksFragment : Fragment() {
     override fun onDestroyView() {
         tasksRecyclerView.adapter = null
         disposables.clear()
+        suggestedEditsScrollView.removeCallbacks(sequentialTooltipRunnable)
         SuggestedEditsFunnel.get().log()
         SuggestedEditsFunnel.reset()
         super.onDestroyView()
@@ -300,14 +312,8 @@ class SuggestedEditsTasksFragment : Fragment() {
 
     private fun showOneTimeSequentialUserStatsTooltips() {
         suggestedEditsScrollView.fullScroll(View.FOCUS_UP)
-        this.view?.postDelayed({
-            val balloon = FeedbackUtil.getTooltip(requireContext(), contributionsStatsView.tooltipText, false, true)
-            balloon.showAlignBottom(contributionsStatsView.description)
-            balloon.relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), editStreakStatsView.tooltipText, false, true), editStreakStatsView.description)
-                    .relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), pageViewStatsView.tooltipText, false, true), pageViewStatsView.description)
-                    .relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), editQualityStatsView.tooltipText, false, true), editQualityStatsView.description)
-            Prefs.shouldShowOneTimeSequentialUserStatsTooltip(false)
-        }, 500)
+        suggestedEditsScrollView.removeCallbacks(sequentialTooltipRunnable)
+        suggestedEditsScrollView.postDelayed(sequentialTooltipRunnable, 500)
     }
 
     private fun setIPBlockedStatus() {
