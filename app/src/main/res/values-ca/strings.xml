@@ -665,7 +665,8 @@
   <string name="description_edit_success_saved_in_lang_snackbar">S\'ha publicat la descripció de l\'article (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">S\'ha publicat la llegenda de la imatge!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">S\'ha publicat la llegenda de la imatge! (%s)</string>
-  <string name="description_edit_success_saved_image_tags_snackbar" fuzzy="true">S\'han publicat les etiquetes d\'imatge!</string>
+  <string name="description_edit_success_saved_image_tags_snackbar">S\'ha(n) publicat la(es) etiqueta(es) d\'imatge!</string>
+  <string name="description_edit_success_se_general_feed_link_snackbar">Ho ha gaudit?  Ajudeu-nos a afegir més.</string>
   <string name="description_edit_success_encouragement">Acabeu de millorar la Viquipèdia per a tothom</string>
   <string name="description_edit_success_done">Fet</string>
   <string name="description_edit_success_did_you_know">Ho sabíeu?</string>
