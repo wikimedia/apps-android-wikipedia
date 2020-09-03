@@ -677,7 +677,7 @@
   <string name="description_edit_success_saved_in_lang_snackbar">Descrição do artigo publicada! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Legenda da imagem publicada!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Legenda da imagem publicada! (%s)</string>
-  <string name="description_edit_success_saved_image_tags_snackbar" fuzzy="true">Marcações de imagem publicadas!</string>
+  <string name="description_edit_success_saved_image_tags_snackbar">Marcações de imagem publicadas!</string>
   <string name="description_edit_success_se_general_feed_link_snackbar">Gostou? Ajude-nos a adicionar mais.</string>
   <string name="description_edit_success_encouragement">Você acabou de tornar a Wikipedia melhor para todos</string>
   <string name="description_edit_success_done">Concluído</string>
