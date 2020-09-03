@@ -301,7 +301,7 @@ public class SearchFragment extends Fragment implements SearchResultsFragment.Ca
         funnel.searchClick(position, searchLanguageCode);
         HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_SEARCH);
         startActivity(inNewTab ? PageActivity.newIntentForNewTab(requireContext(), historyEntry, historyEntry.getTitle())
-                : PageActivity.newIntentForExistingTab(requireContext(), historyEntry, historyEntry.getTitle()));
+                : PageActivity.newIntentForCurrentTab(requireContext(), historyEntry, historyEntry.getTitle(), false));
         closeSearch();
     }
 
