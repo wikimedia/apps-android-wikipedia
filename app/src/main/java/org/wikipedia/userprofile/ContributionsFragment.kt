@@ -17,7 +17,6 @@ import androidx.recyclerview.widget.RecyclerView
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
-import io.reactivex.rxjava3.functions.BiFunction
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_contributions_suggested_edits.*
 import org.apache.commons.lang3.StringUtils
@@ -36,7 +35,6 @@ import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_IMAGE_CAPTION
 import org.wikipedia.userprofile.Contribution.Companion.EDIT_TYPE_IMAGE_TAG
 import org.wikipedia.userprofile.ContributionsItemView.Callback
 import org.wikipedia.language.AppLanguageLookUpTable
-import org.wikipedia.language.LanguageUtil
 import org.wikipedia.util.DateUtil
 import org.wikipedia.util.DimenUtil
 import org.wikipedia.util.ResourceUtil
@@ -149,7 +147,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
             })
         }
 
-        disposables.add(Observable.zip(if (allContributions.isNotEmpty() && articleContributionsContinuation.isNullOrEmpty()) Observable.just(Collections.emptyList<Contribution>())
+        disposables.add(Observable.zip(if (allContributions.isNotEmpty() && articleContributionsContinuation.isNullOrEmpty()) Observable.just(Collections.emptyList())
         else ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getUserContributions(AccountUtil.getUserName()!!, 50, articleContributionsContinuation)
                 .subscribeOn(Schedulers.io())
                 .flatMap { response ->
@@ -210,7 +208,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                                 Observable.just(wikidataContributions)
                             }
                 },
-                if (allContributions.isNotEmpty() && imageContributionsContinuation.isNullOrEmpty()) Observable.just(Collections.emptyList<Contribution>()) else
+                if (allContributions.isNotEmpty() && imageContributionsContinuation.isNullOrEmpty()) Observable.just(Collections.emptyList()) else
                     ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getUserContributions(AccountUtil.getUserName()!!, 200, imageContributionsContinuation)
                             .subscribeOn(Schedulers.io())
                             .flatMap { response ->
@@ -262,8 +260,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                                             WikiSite.forLanguageCode(contributionLanguage), 0, contribution.sizediff, contribution.top, tagCount))
                                 }
                                 Observable.just(contributions)
-                            },
-                BiFunction<List<Contribution>, List<Contribution>, List<Contribution>> { wikidataContributions, commonsContributions ->
+                            }, { wikidataContributions, commonsContributions ->
                     val contributions = ArrayList<Contribution>()
                     contributions.addAll(wikidataContributions)
                     contributions.addAll(commonsContributions)
@@ -301,7 +298,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                 sortedContributions.addAll(allContributions)
             }
         }
-        sortedContributions.sortWith(Comparator { o2, o1 -> (o1.date.compareTo(o2.date)) })
+        sortedContributions.sortWith{ o2, o1 -> (o1.date.compareTo(o2.date)) }
 
         if (!sortedContributions.isNullOrEmpty()) {
             var currentDate = sortedContributions[0].date
@@ -333,7 +330,8 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
     private fun deCommentString(str: String): String {
         return if (str.length < 4) str else str.substring(2, str.length - 2).trim()
     }
-
+    
+    @Suppress("SameParameterValue")
     private fun extractDescriptionFromComment(editComment: String, metaComment: String): String {
         var outStr = editComment.replace(metaComment, "")
         val hashtagPos = outStr.indexOf(", #suggestededit")
@@ -431,8 +429,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                                                 }
                                             }
                                             Observable.just(label)
-                                        }),
-                        BiFunction<MwQueryResponse, String, Contribution> { commonsResponse, qLabel ->
+                                        }), { commonsResponse, qLabel ->
                             val page = commonsResponse.query()!!.pages()!![0]
                             if (page.imageInfo() != null) {
                                 val imageInfo = page.imageInfo()!!

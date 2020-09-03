@@ -15,7 +15,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
-import io.reactivex.rxjava3.functions.Function3
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_suggested_edits_tasks.*
 import kotlinx.android.synthetic.main.view_image_title_description.view.*
@@ -28,7 +27,6 @@ import org.wikipedia.auth.AccountUtil
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
-import org.wikipedia.dataclient.mwapi.MwQueryResponse
 import org.wikipedia.dataclient.mwapi.UserContribution
 import org.wikipedia.descriptions.DescriptionEditActivity.Action.*
 import org.wikipedia.language.LanguageSettingsInvokeSource
@@ -82,9 +80,9 @@ class SuggestedEditsTasksFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setupTestingButtons()
 
-        userStatsViewsGroup.addOnClickListener(View.OnClickListener {
+        userStatsViewsGroup.addOnClickListener {
             startActivity(ContributionsActivity.newIntent(requireActivity()))
-        })
+        }
 
         learnMoreCard.setOnClickListener {
             FeedbackUtil.showAndroidAppEditingFAQ(requireContext())
@@ -167,8 +165,7 @@ class SuggestedEditsTasksFragment : Fragment() {
 
         disposables.add(Observable.zip(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getUserContributions(AccountUtil.getUserName()!!, 10, null).subscribeOn(Schedulers.io()),
                 ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getUserContributions(AccountUtil.getUserName()!!, 10, null).subscribeOn(Schedulers.io()),
-                UserContributionsStats.getEditCountsObservable(),
-                Function3<MwQueryResponse, MwQueryResponse, MwQueryResponse, MwQueryResponse> { commonsResponse, wikidataResponse, _ ->
+                UserContributionsStats.getEditCountsObservable(), { commonsResponse, wikidataResponse, _ ->
                     if (wikidataResponse.query()!!.userInfo()!!.isBlocked || commonsResponse.query()!!.userInfo()!!.isBlocked) {
                         isIpBlocked = true
                     }
@@ -184,10 +181,8 @@ class SuggestedEditsTasksFragment : Fragment() {
                     val contributions = ArrayList<UserContribution>()
                     contributions.addAll(wikidataResponse.query()!!.userContributions())
                     contributions.addAll(commonsResponse.query()!!.userContributions())
-                    contributions.sortWith(Comparator { o2, o1 -> (o1.date().compareTo(o2.date())) })
-
+                    contributions.sortWith { o2, o1 -> (o1.date().compareTo(o2.date())) }
                     latestEditStreak = getEditStreak(contributions)
-
                     revertSeverity = UserContributionsStats.getRevertSeverity()
                     wikidataResponse
                 })
