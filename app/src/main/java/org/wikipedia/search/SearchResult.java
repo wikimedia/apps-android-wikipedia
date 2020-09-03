@@ -19,14 +19,6 @@ public class SearchResult extends BaseModel implements Parcelable {
     private final String redirectFrom;
     private SearchResultType searchResultType = SEARCH_RESULT;
 
-    public void setSearchResultType(@NonNull SearchResultType searchResultType) {
-        this.searchResultType = searchResultType;
-    }
-
-    public int getPriority() {
-        return searchResultType.getPriority();
-    }
-
     public enum SearchResultType {
         SEARCH_RESULT(0),
         HISTORY_SEARCH_RESULT(1),
@@ -48,13 +40,18 @@ public class SearchResult extends BaseModel implements Parcelable {
         this(new PageTitle(page.title(), wiki, page.thumbUrl(), page.description(), page.displayTitle(wiki.languageCode())), page.redirectFrom());
     }
 
-    public SearchResult(@NonNull PageTitle pageTitle) {
+    public SearchResult(@NonNull SearchResultType searchResultType, @NonNull PageTitle pageTitle) {
         this(pageTitle, null);
+        this.searchResultType = searchResultType;
     }
 
     public SearchResult(@NonNull PageTitle pageTitle, @Nullable String redirectFrom) {
         this.pageTitle = pageTitle;
         this.redirectFrom = redirectFrom;
+    }
+
+    public int getPriority() {
+        return searchResultType.getPriority();
     }
 
     @NonNull

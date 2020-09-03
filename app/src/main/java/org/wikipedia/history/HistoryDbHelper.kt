@@ -32,8 +32,7 @@ object HistoryDbHelper {
                 val indexedEntry = IndexedHistoryEntry(cursor)
                 val pageTitle: PageTitle = indexedEntry.entry.title
                 pageTitle.thumbUrl = indexedEntry.imageUrl
-                val searchResult = SearchResult(pageTitle)
-                searchResult.setSearchResultType(SearchResultType.HISTORY_SEARCH_RESULT)
+                val searchResult = SearchResult(SearchResultType.HISTORY_SEARCH_RESULT, pageTitle)
                 searchResults.add(searchResult)
                 return SearchResults(searchResults)
             }

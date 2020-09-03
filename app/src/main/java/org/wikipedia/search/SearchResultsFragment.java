@@ -235,8 +235,7 @@ public class SearchResultsFragment extends Fragment {
         List<Tab> tabList = WikipediaApp.getInstance().getTabList();
         for (Tab tab : tabList) {
             if (tab.getBackStackPositionTitle() != null && tab.getBackStackPositionTitle().getDisplayText().toLowerCase().contains(currentSearchTerm.toLowerCase())) {
-                SearchResult searchResult = new SearchResult(tab.getBackStackPositionTitle());
-                searchResult.setSearchResultType(TAB_LIST_SEARCH_RESULT);
+                SearchResult searchResult = new SearchResult(TAB_LIST_SEARCH_RESULT, tab.getBackStackPositionTitle());
                 resultList.add(searchResult);
                 return;
             }
