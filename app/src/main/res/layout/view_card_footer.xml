@@ -8,15 +8,19 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/footerActionButton"
-        style="@style/TransparentButton"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         android:textAllCaps="false"
         android:textColor="?attr/colorAccent"
         android:textSize="20sp"
         android:textStyle="bold"
+        android:textAlignment="textStart"
+        android:paddingStart="0dp"
         app:icon="@drawable/ic_baseline_arrow_right_alt_24px"
         app:iconGravity="textEnd"
+        app:iconPadding="-80dp"
         app:iconSize="24dp"
         app:iconTint="?attr/colorAccent" />
 </merge>
