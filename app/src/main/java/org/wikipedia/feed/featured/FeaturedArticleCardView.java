@@ -25,6 +25,7 @@ import org.wikipedia.views.ImageZoomHelper;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.OnLongClick;
 
 public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticleCard> {
 
@@ -68,6 +69,42 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
             getCallback().onSelectPage(getCard(),
                     getCard().historyEntry(HistoryEntry.SOURCE_FEED_FEATURED));
         }
+    }
+
+    @OnLongClick(R.id.view_featured_article_card_content_container)
+    boolean onLongClick(View view) {
+        if (getCallback() != null && getCard() != null) {
+            new ReadingListBookmarkMenu(view, true, new ReadingListBookmarkMenu.Callback() {
+                @Override
+                public void onAddRequest(boolean addToDefault) {
+                    if (getCallback() != null && getCard() != null) {
+                        getCallback().onAddPageToList(getCard().historyEntry(HistoryEntry.SOURCE_FEED_FEATURED), addToDefault);
+                    }
+                }
+
+                @Override
+                public void onMoveRequest(@Nullable ReadingListPage page) {
+                    if (getCallback() != null && getCard() != null) {
+                        getCallback().onMovePageToList(page.listId(), getCard().historyEntry(HistoryEntry.SOURCE_FEED_FEATURED));
+                    }
+                }
+
+                @Override
+                public void onDeleted(@Nullable ReadingListPage page) {
+                    if (getCallback() != null && getCard() != null) {
+                        getCallback().onRemovePageFromList(getEntry());
+                    }
+                }
+
+                @Override
+                public void onShare() {
+                    if (getCallback() != null && getCard() != null) {
+                        getCallback().onSharePage(getEntry());
+                    }
+                }
+            }).show(getEntry().getTitle());
+        }
+        return false;
     }
 
     @Override public void setCallback(@Nullable FeedAdapter.Callback callback) {
@@ -118,59 +155,6 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
             getCallback().onSelectPage(getCard(),
                     new HistoryEntry(MainPageClient.getMainPageTitle(),
                             HistoryEntry.SOURCE_FEED_MAIN_PAGE));
-        }
-    }
-
-    private class CardAddToListListener implements OnClickListener {
-        @Override
-        public void onClick(View v) {
-            if (getCallback() != null && getCard() != null) {
-                getCallback().onAddPageToList(getEntry(), true);
-            }
-        }
-    }
-
-    private class CardBookmarkMenuListener implements OnClickListener {
-        @Override
-        public void onClick(View v) {
-            if (getCallback() != null && getCard() != null) {
-                new ReadingListBookmarkMenu(footerView, new ReadingListBookmarkMenu.Callback() {
-                    @Override
-                    public void onAddRequest(boolean addToDefault) {
-                        if (getCallback() != null && getCard() != null) {
-                            getCallback().onAddPageToList(getCard().historyEntry(HistoryEntry.SOURCE_FEED_FEATURED), addToDefault);
-                        }
-                    }
-
-                    @Override
-                    public void onMoveRequest(@Nullable ReadingListPage page) {
-                        if (getCallback() != null && getCard() != null) {
-                            getCallback().onMovePageToList(page.listId(), getCard().historyEntry(HistoryEntry.SOURCE_FEED_FEATURED));
-                        }
-                    }
-
-                    @Override
-                    public void onDeleted(@Nullable ReadingListPage page) {
-                        if (getCallback() != null && getCard() != null) {
-                            getCallback().onRemovePageFromList(getEntry());
-                        }
-                    }
-
-                    @Override
-                    public void onShare() {
-                        // ignore
-                    }
-                }).show(getEntry().getTitle());
-            }
-        }
-    }
-
-    private class CardShareListener implements OnClickListener {
-        @Override
-        public void onClick(View v) {
-            if (getCallback() != null && getCard() != null) {
-                getCallback().onSharePage(getEntry());
-            }
         }
     }
 }
