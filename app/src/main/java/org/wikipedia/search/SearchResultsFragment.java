@@ -1,6 +1,5 @@
 package org.wikipedia.search;
 
-import android.database.Cursor;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -14,8 +13,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.collection.LruCache;
 import androidx.fragment.app.Fragment;
-import androidx.loader.app.LoaderManager;
-import androidx.loader.content.Loader;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -58,7 +55,6 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
 import static org.apache.commons.lang3.StringUtils.isBlank;
-import static org.wikipedia.Constants.HISTORY_FRAGMENT_LOADER_ID;
 import static org.wikipedia.search.SearchResult.SearchResultType.HISTORY_SEARCH_RESULT;
 import static org.wikipedia.search.SearchResult.SearchResultType.SEARCH_RESULT;
 import static org.wikipedia.search.SearchResult.SearchResultType.TAB_LIST_SEARCH_RESULT;
@@ -90,7 +86,6 @@ public class SearchResultsFragment extends Fragment {
     @BindView(R.id.search_empty_view) View searchEmptyView;
     @BindView(R.id.search_suggestion) TextView searchSuggestion;
     private Unbinder unbinder;
-    private Loader<Cursor> loaderManager;
 
     private final LruCache<String, List<SearchResult>> searchResultsCache = new LruCache<>(MAX_CACHE_SIZE_SEARCH_RESULTS);
     private String currentSearchTerm = "";
@@ -117,7 +112,6 @@ public class SearchResultsFragment extends Fragment {
 
     @Override
     public void onDestroyView() {
-        LoaderManager.getInstance(requireActivity()).destroyLoader(HISTORY_FRAGMENT_LOADER_ID);
         searchErrorView.setRetryClickListener(null);
         unbinder.unbind();
         unbinder = null;
@@ -299,48 +293,42 @@ public class SearchResultsFragment extends Fragment {
         final long startTime = System.nanoTime();
         updateProgressBar(true);
 
-        disposables.add(Observable.zip(ServiceFactory.get(WikiSite.forLanguageCode(getSearchLanguageCode())).fullTextSearch(searchTerm, BATCH_SIZE,
-                continueOffset != null ? continueOffset.get("continue") : null, continueOffset != null ? continueOffset.get("gsroffset") : null),
-                Observable.fromCallable(() -> ReadingListDbHelper.instance().findPageForSearchQueryInAnyList(currentSearchTerm)),
-                Observable.fromCallable(() -> HistoryDbHelper.INSTANCE.findHistoryItem(currentSearchTerm)), (searchResponse, readingListSearchResults, historySearchResults) -> {
-                    SearchResults searchResults;
-                    if (searchResponse.query() != null) {
-                        // noinspection ConstantConditions
-                        searchResults = new SearchResults(searchResponse.query().pages(), WikiSite.forLanguageCode(getSearchLanguageCode()),
-                                searchResponse.continuation(), null);
-                    } else {
-                        // A 'morelike' search query with no results will just return an API warning:
-                        //
-                        // {
-                        //   "batchcomplete": true,
-                        //   "warnings": {
-                        //      "search": {
-                        //        "warnings": "No valid titles provided to 'morelike'."
-                        //      }
-                        //   }
-                        // }
-                        //
-                        // Just return an empty SearchResults() in this case.
-                        searchResults = new SearchResults();
-                    }
-                    // full text special:
-                    SearchResultsFragment.this.lastFullTextResults = searchResults;
-                    List<SearchResult> resultList = new ArrayList<>(searchResults.getResults());
-                    resultList.addAll(readingListSearchResults.getResults());
-                    resultList.addAll(historySearchResults.getResults());
-                    addSearchResultsFromTabs(resultList);
-                    return resultList;
-                })
+        disposables.add(ServiceFactory.get(WikiSite.forLanguageCode(getSearchLanguageCode())).fullTextSearch(searchTerm, BATCH_SIZE,
+                continueOffset != null ? continueOffset.get("continue") : null, continueOffset != null ? continueOffset.get("gsroffset") : null)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
+                .map(response -> {
+                    if (response.query() != null) {
+                        // noinspection ConstantConditions
+                        return new SearchResults(response.query().pages(), WikiSite.forLanguageCode(getSearchLanguageCode()),
+                                response.continuation(), null);
+                    }
+                    // A 'morelike' search query with no results will just return an API warning:
+                    //
+                    // {
+                    //   "batchcomplete": true,
+                    //   "warnings": {
+                    //      "search": {
+                    //        "warnings": "No valid titles provided to 'morelike'."
+                    //      }
+                    //   }
+                    // }
+                    //
+                    // Just return an empty SearchResults() in this case.
+                    return new SearchResults();
+                })
                 .doAfterTerminate(() -> updateProgressBar(false))
-                .subscribe(resultList -> {
+                .subscribe(results -> {
+                    List<SearchResult> resultList = results.getResults();
                     cache(resultList, searchTerm);
                     log(resultList, startTime);
                     if (clearOnSuccess) {
                         clearResults(false);
                     }
-                    searchErrorView.setVisibility(GONE);
+                    searchErrorView.setVisibility(View.GONE);
+
+                    // full text special:
+                    SearchResultsFragment.this.lastFullTextResults = results;
                     displayResults(resultList);
                 }, throwable -> {
                     // If there's an error, just log it and let the existing prefix search results be.
@@ -541,7 +529,7 @@ public class SearchResultsFragment extends Fragment {
                 searchResultTabCountsView.setVisibility(resultPriority == TAB_LIST_SEARCH_RESULT.getPriority() ? VISIBLE : GONE);
                 searchResultIcon.setVisibility(resultPriority == TAB_LIST_SEARCH_RESULT.getPriority() ? GONE : VISIBLE);
                 searchResultIcon.setImageDrawable(AppCompatResources.getDrawable(requireContext(),
-                        resultPriority == HISTORY_SEARCH_RESULT.getPriority() ? R.drawable.ic_baseline_history_24 : R.drawable.ic_bookmark_border_white_24dp));
+                        resultPriority == HISTORY_SEARCH_RESULT.getPriority() ? R.drawable.ic_restore_black_24dp : R.drawable.ic_bookmark_border_white_24dp));
             }
 
             // highlight search term within the text

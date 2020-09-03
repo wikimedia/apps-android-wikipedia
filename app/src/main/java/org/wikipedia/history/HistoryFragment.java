@@ -375,53 +375,9 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
         }
     }
 
-    private interface SearchHeaderCallback {
-        void onSearchCardClicked();
-
-        void onVoiceSearchClicked();
-
-        void onFilterHistoryClicked();
-
-        void onClearHistoryClicked();
-    }
-
-    private class SearchHeaderItemCallback implements SearchHeaderCallback {
-        @Override
-        public void onSearchCardClicked() {
-            ((MainFragment) getParentFragment()).openSearchActivity(Constants.InvokeSource.NAV_MENU, null);
-        }
-
-        @Override
-        public void onVoiceSearchClicked() {
-            ((MainFragment) getParentFragment()).onFeedVoiceSearchRequested();
-        }
-
-        @Override
-        public void onFilterHistoryClicked() {
-            if (actionMode == null) {
-                actionMode = ((AppCompatActivity) requireActivity())
-                        .startSupportActionMode(searchActionModeCallback);
-            }
-        }
-
-        @Override
-        public void onClearHistoryClicked() {
-            if (selectedEntries.size() == 0) {
-                new AlertDialog.Builder(requireContext())
-                        .setTitle(R.string.dialog_title_clear_history)
-                        .setMessage(R.string.dialog_message_clear_history)
-                        .setPositiveButton(R.string.dialog_message_clear_history_yes, (dialog, which) -> onClearHistoryClick())
-                        .setNegativeButton(R.string.dialog_message_clear_history_no, null).create().show();
-            } else {
-                deleteSelectedPages();
-            }
-        }
-    }
-
     private class SearchCardViewHolder extends DefaultViewHolder<View> {
         private ImageView historyFilterButton;
         private ImageView clearHistoryButton;
-        private SearchHeaderCallback searchHeaderCallback;
 
         SearchCardViewHolder(View itemView) {
             super(itemView);
@@ -430,24 +386,23 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
             AppCompatImageView voiceSearchButton = itemView.findViewById(R.id.voice_search_button);
             historyFilterButton = itemView.findViewById(R.id.history_filter);
             clearHistoryButton = itemView.findViewById(R.id.history_delete);
-            searchCardView.setOnClickListener(view -> {
-                if (searchHeaderCallback != null) {
-                    searchHeaderCallback.onSearchCardClicked();
-                }
-            });
-            voiceSearchButton.setOnClickListener(view -> {
-                if (searchHeaderCallback != null) {
-                    searchHeaderCallback.onVoiceSearchClicked();
-                }
-            });
+            searchCardView.setOnClickListener(view -> ((MainFragment) getParentFragment()).openSearchActivity(Constants.InvokeSource.NAV_MENU, null));
+            voiceSearchButton.setOnClickListener(view -> ((MainFragment) getParentFragment()).onFeedVoiceSearchRequested());
             historyFilterButton.setOnClickListener(view -> {
-                if (searchHeaderCallback != null) {
-                    searchHeaderCallback.onFilterHistoryClicked();
+                if (actionMode == null) {
+                    actionMode = ((AppCompatActivity) requireActivity())
+                            .startSupportActionMode(searchActionModeCallback);
                 }
             });
             clearHistoryButton.setOnClickListener(view -> {
-                if (searchHeaderCallback != null) {
-                    searchHeaderCallback.onClearHistoryClicked();
+                if (selectedEntries.size() == 0) {
+                    new AlertDialog.Builder(requireContext())
+                            .setTitle(R.string.dialog_title_clear_history)
+                            .setMessage(R.string.dialog_message_clear_history)
+                            .setPositiveButton(R.string.dialog_message_clear_history_yes, (dialog, which) -> onClearHistoryClick())
+                            .setNegativeButton(R.string.dialog_message_clear_history_no, null).create().show();
+                } else {
+                    deleteSelectedPages();
                 }
             });
             searchWikiCardView.setCardBackgroundColor(ResourceUtil.getThemedColor(requireContext(), R.attr.color_group_22));
@@ -456,10 +411,6 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
         public void bindItem() {
             clearHistoryButton.setVisibility(adapter.isEmpty() ? View.GONE : View.VISIBLE);
             historyFilterButton.setVisibility(adapter.isEmpty() ? View.GONE : View.VISIBLE);
-        }
-
-        public void setCallback(@Nullable SearchHeaderCallback searchHeaderCallback) {
-            this.searchHeaderCallback = searchHeaderCallback;
         }
     }
 
@@ -556,17 +507,11 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
             if (holder instanceof HistoryEntryItemHolder) {
                 ((HistoryEntryItemHolder) holder).getView().setCallback(itemCallback);
             }
-            if (holder instanceof SearchCardViewHolder) {
-                ((SearchCardViewHolder) holder).setCallback(new SearchHeaderItemCallback());
-            }
         }
 
         @Override public void onViewDetachedFromWindow(@NonNull DefaultViewHolder holder) {
             if (holder instanceof HistoryEntryItemHolder) {
                 ((HistoryEntryItemHolder) holder).getView().setCallback(null);
-            }
-            if (holder instanceof SearchCardViewHolder) {
-                ((SearchCardViewHolder) holder).setCallback(null);
             }
             super.onViewDetachedFromWindow(holder);
         }
