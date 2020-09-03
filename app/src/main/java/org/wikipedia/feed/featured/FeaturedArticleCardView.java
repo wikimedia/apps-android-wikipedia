@@ -9,14 +9,17 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import org.wikipedia.R;
-import org.wikipedia.feed.mainpage.MainPageClient;
+import org.wikipedia.WikipediaApp;
+import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.feed.view.CardFooterView;
 import org.wikipedia.feed.view.CardHeaderView;
 import org.wikipedia.feed.view.DefaultFeedCardView;
 import org.wikipedia.feed.view.FeedAdapter;
 import org.wikipedia.history.HistoryEntry;
+import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.ReadingListBookmarkMenu;
 import org.wikipedia.readinglist.database.ReadingListPage;
+import org.wikipedia.settings.SiteInfoClient;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.FaceAndColorDetectImageView;
 import org.wikipedia.views.GoneIfEmptyTextView;
@@ -60,7 +63,7 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
         image(imageUri);
 
         header(card);
-        footer();
+        footer(card);
     }
 
     @OnClick({R.id.view_featured_article_card_image, R.id.view_featured_article_card_content_container})
@@ -131,8 +134,8 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
                 .setCallback(getCallback());
     }
 
-    private void footer() {
-        footerView.setCallback(this::goToMainPage);
+    private void footer(@NonNull FeaturedArticleCard card) {
+        footerView.setCallback(() -> goToMainPage(card.wikiSite()));
         footerView.setFooterActionText(getContext().getString(R.string.view_main_page_card_title));
     }
 
@@ -150,11 +153,19 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
         return getCard().historyEntry(HistoryEntry.SOURCE_FEED_FEATURED);
     }
 
-    private void goToMainPage() {
+    private void goToMainPage(@NonNull WikiSite wiki) {
         if (getCallback() != null && getCard() != null) {
             getCallback().onSelectPage(getCard(),
-                    new HistoryEntry(MainPageClient.getMainPageTitle(),
-                            HistoryEntry.SOURCE_FEED_MAIN_PAGE));
+                    new HistoryEntry(getMainPageTitle(wiki.languageCode(), wiki), HistoryEntry.SOURCE_FEED_MAIN_PAGE));
         }
+    }
+
+    private static PageTitle getMainPageTitle(@NonNull String languageCode, @NonNull WikiSite wiki) {
+        return new PageTitle(SiteInfoClient.getMainPageForLang(languageCode), wiki);
+    }
+
+    public static PageTitle getMainPageTitle() {
+        WikipediaApp app = WikipediaApp.getInstance();
+        return getMainPageTitle(app.getAppOrSystemLanguageCode(), app.getWikiSite());
     }
 }
