@@ -124,7 +124,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         if (page != null) {
             return
         }
-        disposables.add(EditingSuggestionsProvider.getNextImageWithMissingTags(callback().getLangCode())
+        disposables.add(EditingSuggestionsProvider.getNextImageWithMissingTags()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ page ->
