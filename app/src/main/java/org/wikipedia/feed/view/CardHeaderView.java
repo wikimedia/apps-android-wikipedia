@@ -1,7 +1,6 @@
 package org.wikipedia.feed.view;
 
 import android.content.Context;
-import android.content.res.ColorStateList;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.Gravity;
@@ -9,17 +8,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
-import androidx.annotation.ColorRes;
-import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.annotation.VisibleForTesting;
-import androidx.appcompat.widget.AppCompatImageView;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.content.ContextCompat;
-import androidx.core.view.ViewCompat;
 
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
@@ -36,9 +30,7 @@ public class CardHeaderView extends ConstraintLayout {
         void onRequestCustomize(@NonNull Card card);
     }
 
-    @BindView(R.id.view_card_header_image) AppCompatImageView imageView;
     @BindView(R.id.view_card_header_title) TextView titleView;
-    @BindView(R.id.view_card_header_subtitle) TextView subtitleView;
     @BindView(R.id.view_list_card_header_lang_background) View langCodeBackground;
     @BindView(R.id.view_list_card_header_lang_code) TextView langCodeView;
     @Nullable private Card card;
@@ -74,20 +66,6 @@ public class CardHeaderView extends ConstraintLayout {
         return this;
     }
 
-    @NonNull public CardHeaderView setImage(@DrawableRes int resId) {
-        imageView.setImageResource(resId);
-        return this;
-    }
-
-    @NonNull public CardHeaderView setImageCircleColor(@ColorRes int color) {
-        ColorStateList colorStateList = new ColorStateList(
-                new int[][]{new int[]{}},
-                new int[]{ContextCompat.getColor(getContext(), color)}
-        );
-        ViewCompat.setBackgroundTintList(imageView, colorStateList);
-        return this;
-    }
-
     @NonNull public CardHeaderView setTitle(@Nullable CharSequence title) {
         titleView.setText(title);
         return this;
@@ -95,11 +73,6 @@ public class CardHeaderView extends ConstraintLayout {
 
     @NonNull public CardHeaderView setTitle(@StringRes int id) {
         titleView.setText(id);
-        return this;
-    }
-
-    @NonNull public CardHeaderView setSubtitle(@Nullable CharSequence subtitle) {
-        subtitleView.setText(subtitle);
         return this;
     }
 
