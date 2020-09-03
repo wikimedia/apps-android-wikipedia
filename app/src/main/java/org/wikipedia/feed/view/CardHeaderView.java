@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
+import androidx.annotation.VisibleForTesting;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
@@ -85,6 +86,10 @@ public class CardHeaderView extends ConstraintLayout {
             langCodeView.setText(langCode);
         }
         return this;
+    }
+
+    @VisibleForTesting @Nullable Card getCard() {
+        return card;
     }
 
     @OnClick(R.id.view_list_card_header_menu) void onMenuClick(View v) {

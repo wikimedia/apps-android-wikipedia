@@ -1,7 +1,6 @@
 package org.wikipedia.feed.searchbar;
 
 import android.content.Context;
-import android.view.View;
 
 import org.wikipedia.R;
 import org.wikipedia.feed.view.DefaultFeedCardView;
@@ -9,6 +8,7 @@ import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.views.WikiCardView;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -18,12 +18,13 @@ public class SearchCardView extends DefaultFeedCardView<SearchCard> {
         void onVoiceSearchRequested();
     }
 
+    @BindView(R.id.search_container) WikiCardView wikiCardView;
+
     public SearchCardView(Context context) {
         super(context);
-        View view = inflate(getContext(), R.layout.view_search_bar, this);
-        WikiCardView wikiCardView = view.findViewById(R.id.search_container);
-        wikiCardView.setCardBackgroundColor(ResourceUtil.getThemedColor(context, R.attr.color_group_22));
+        inflate(getContext(), R.layout.view_search_bar, this);
         ButterKnife.bind(this);
+        wikiCardView.setCardBackgroundColor(ResourceUtil.getThemedColor(context, R.attr.color_group_22));
         FeedbackUtil.setButtonLongPressToast(findViewById(R.id.voice_search_button));
     }
 

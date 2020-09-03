@@ -9,11 +9,11 @@ import kotlinx.android.synthetic.main.view_card_footer.view.*
 import org.wikipedia.R
 
 internal class CardFooterView constructor(context: Context, attrs: AttributeSet? = null) : ConstraintLayout(context, attrs) {
-    var callback: Callback? = null
-
     interface Callback {
         fun onFooterClicked()
     }
+
+    var callback: Callback? = null
 
     init {
         View.inflate(context, R.layout.view_card_footer, this)
