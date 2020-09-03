@@ -303,7 +303,7 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
         @Override
         public void onLoadFinished(@NonNull Loader<Cursor> cursorLoader, Cursor cursor) {
             List<Object> list = new ArrayList<>();
-            list.add(new Search());
+            list.add(new SearchBar());
             while (cursor.moveToNext()) {
                 IndexedHistoryEntry indexedEntry = new IndexedHistoryEntry(cursor);
                 // Check the previous item, see if the times differ enough
@@ -509,7 +509,7 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
 
         @Override
         public int getItemViewType(int position) {
-            if (historyEntries.get(position) instanceof Search) {
+            if (historyEntries.get(position) instanceof SearchBar) {
                 return VIEW_TYPE_SEARCH_CARD;
             } else if (historyEntries.get(position) instanceof String) {
                 return VIEW_TYPE_HEADER;
@@ -646,5 +646,5 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
         return FragmentUtil.getCallback(this, Callback.class);
     }
 
-    private static class Search{ }
+    private static class SearchBar { }
 }
