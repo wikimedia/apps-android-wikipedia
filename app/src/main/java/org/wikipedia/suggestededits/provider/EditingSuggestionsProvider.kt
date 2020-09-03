@@ -1,7 +1,6 @@
 package org.wikipedia.suggestededits.provider
 
 import io.reactivex.rxjava3.core.Observable
-import io.reactivex.rxjava3.functions.BiFunction
 import org.wikipedia.dataclient.Service
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
@@ -116,8 +115,7 @@ object EditingSuggestionsProvider {
 
     private fun getSummary(titles: Pair<PageTitle, PageTitle>): Observable<Pair<PageSummary, PageSummary>> {
         return Observable.zip(ServiceFactory.getRest(titles.first.wikiSite).getSummary(null, titles.first.prefixedText),
-                ServiceFactory.getRest(titles.second.wikiSite).getSummary(null, titles.second.prefixedText),
-                BiFunction<PageSummary, PageSummary, Pair<PageSummary, PageSummary>> { source, target -> Pair(source, target) })
+                ServiceFactory.getRest(titles.second.wikiSite).getSummary(null, titles.second.prefixedText), { source, target -> Pair(source, target) })
     }
 
     fun getNextImageWithMissingCaption(lang: String, retryLimit: Long = MAX_RETRY_LIMIT): Observable<String> {
@@ -179,7 +177,7 @@ object EditingSuggestionsProvider {
                                 if (!page.captions.containsKey(sourceLang) || page.captions.containsKey(targetLang)) {
                                     continue
                                 }
-                                imagesWithTranslatableCaptionCache.push(Pair(page.captions[sourceLang]!!, page.title()))
+                                imagesWithTranslatableCaptionCache.push(Pair(page.captions[sourceLang] ?: error(""), page.title()))
                             }
                             if (!imagesWithTranslatableCaptionCache.empty()) {
                                 item = imagesWithTranslatableCaptionCache.pop()
@@ -194,7 +192,7 @@ object EditingSuggestionsProvider {
         }.doFinally { mutex.release() }
     }
 
-    fun getNextImageWithMissingTags(lang: String, retryLimit: Long = MAX_RETRY_LIMIT): Observable<MwQueryPage> {
+    fun getNextImageWithMissingTags(retryLimit: Long = MAX_RETRY_LIMIT): Observable<MwQueryPage> {
         return Observable.fromCallable { mutex.acquire() }.flatMap {
             var cachedItem: MwQueryPage? = null
             if (!imagesWithMissingTagsCache.empty()) {

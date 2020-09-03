@@ -349,8 +349,10 @@
   <string name="color_theme_light">পাতল</string>
   <string name="color_theme_dark">ডাঠ</string>
   <string name="color_theme_black">কলা</string>
+  <string name="color_theme_sepia">ছেপিয়া</string>
   <string name="color_theme_test_title">নিদৰ্শন পাঠ্য</string>
   <string name="preference_title_app_theme">এপ থীম</string>
+  <string name="preference_summary_color_theme">এপৰ আন্ধাৰ ৰঙৰ থীম ব্যৱহাৰ কৰালৈ সলনি কৰক</string>
   <string name="text_size_increase">আখৰৰ আকাৰ বৃদ্ধি কৰক</string>
   <string name="text_size_decrease">আখৰৰ আকাৰ হ্ৰাস কৰক</string>
   <string name="text_size_percent_default">%s পূৰ্বনিৰ্ধাৰিত</string>
@@ -420,6 +422,7 @@
   <string name="reading_lists_sync_reminder_title">পঢ়া সূচী ছিংক কৰাটো চালু কৰিবনে?</string>
   <string name="reading_lists_sync_reminder_action">ছিংক কৰাটো সক্ৰিয় কৰক</string>
   <string name="reading_list_login_reminder_title">পঢ়া সূচী ছিংক কৰক</string>
+  <string name="reading_lists_login_button">ৱিকিপিডিয়াত লগিন / যোগদান কৰক</string>
   <string name="reading_lists_ignore_button">এতিয়া নহয়</string>
   <string name="reading_lists_confirm_remote_delete_yes">হয়</string>
   <string name="reading_lists_confirm_remote_delete_no">নহয়</string>
@@ -466,6 +469,9 @@
   <string name="notifications_poll_enable_positive">সক্ৰিয় কৰক</string>
   <string name="notifications_poll_enable_negative">এতিয়া নহয়</string>
   <string name="notifications_empty_message">আপুনি সকলো জাননী চাই ল\'লে!</string>
+  <string name="notification_preferences_title">জাননীৰ পছন্দসমূহ</string>
+  <string name="notifications_mark_unread">নপঢ়া বুলি চিন দিয়ক</string>
+  <string name="preference_title_notification_poll">মতদানৰ জাননীসমূহ</string>
   <string name="preference_title_notification_system">ছিষ্টেম</string>
   <string name="preference_summary_notification_system">ছিষ্টেমৰ তৰফৰ পৰা বাৰ্তা</string>
   <string name="preference_title_notification_thanks">ধন্যবাদ</string>
@@ -547,6 +553,11 @@
   <string name="description_edit_tutorial_title_descriptions">প্ৰবন্ধৰ বৰ্ণনা</string>
   <string name="description_edit_tutorial_keep_it_short">সংক্ষিপ্ত ৰাখক</string>
   <string name="description_edit_tutorial_button_label_start_editing">সম্পাদনা আৰম্ভ কৰক</string>
+  <string name="description_edit_tutorial_promise">আৰম্ভ কৰি মই এই সুবিধা অপব্যৱহাৰ নকৰাৰ শপত খাইছোঁ।</string>
+  <string name="suggested_edits_describe_articles">প্ৰবন্ধৰ বৰ্ণনা কৰক</string>
+  <string name="suggested_edits_caption_images">ছবিৰ কেপশ্যন লিখক</string>
+  <string name="suggested_edits_tag_images">ছবি টেগ কৰক</string>
+  <string name="suggested_edits_review_description">প্ৰবন্ধৰ বৰ্ণনা সমীক্ষা কৰক</string>
   <string name="suggested_edits_my_contributions">মোৰ বৰঙণিসমূহ</string>
   <string name="suggested_edits_task_multilingual_negative">মোৰ বাবে নহয়</string>
   <string name="suggested_edits_task_multilingual_positive">ভাষা সংযোগ কৰক</string>
