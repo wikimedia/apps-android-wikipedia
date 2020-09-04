@@ -12,10 +12,6 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_talk_topic.*
-import kotlinx.android.synthetic.main.activity_talk_topic.talkErrorView
-import kotlinx.android.synthetic.main.activity_talk_topic.talkProgressBar
-import kotlinx.android.synthetic.main.activity_talk_topic.talkRecyclerView
-import kotlinx.android.synthetic.main.activity_talk_topic.talkRefreshView
 import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
@@ -190,16 +186,16 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     }
 
     override fun onLinkPreviewCopyLink(title: PageTitle) {
-        ClipboardUtil.setPlainText(this, null, title.uri.toString());
-        FeedbackUtil.showMessage(this, R.string.address_copied);
+        ClipboardUtil.setPlainText(this, null, title.uri.toString())
+        FeedbackUtil.showMessage(this, R.string.address_copied)
     }
 
     override fun onLinkPreviewAddToList(title: PageTitle) {
         bottomSheetPresenter.show(supportFragmentManager,
-                AddToReadingListDialog.newInstance(title, Constants.InvokeSource.TALK_ACTIVITY));
+                AddToReadingListDialog.newInstance(title, Constants.InvokeSource.TALK_ACTIVITY))
     }
 
     override fun onLinkPreviewShareLink(title: PageTitle) {
-        ShareUtil.shareText(this, title);
+        ShareUtil.shareText(this, title)
     }
 }
