@@ -143,7 +143,7 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
         footerView.setCallback(getFooterCallback());
         footerView.setFooterActionText(getCard().footerActionText());
     }
-    
+
     private void image(@Nullable Uri uri) {
         if (uri == null) {
             imageContainerView.setVisibility(GONE);
@@ -167,7 +167,7 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
             if (getCallback() != null && getCard() != null) {
                 getCallback().onSelectPage(getCard(),
                         new HistoryEntry(getMainPageTitle(getCard().wikiSite().languageCode(),
-                                getCard().wikiSite()),getCard().historyEntry().getSource()));
+                                getCard().wikiSite()), getCard().historyEntry().getSource()));
             }
         };
     }
