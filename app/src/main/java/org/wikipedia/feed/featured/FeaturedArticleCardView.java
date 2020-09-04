@@ -136,11 +136,11 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
                 .setCallback(getCallback());
     }
 
-    public void footer() {
+    private void footer() {
         if (getCard() == null) {
             return;
         }
-        footerView.setCallback(() -> goToMainPage(getCard().wikiSite()));
+        footerView.setCallback(footerCallback);
         footerView.setFooterActionText(getCard().footerActionText());
     }
     
@@ -168,4 +168,6 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
         WikipediaApp app = WikipediaApp.getInstance();
         return getMainPageTitle(app.getAppOrSystemLanguageCode(), app.getWikiSite());
     }
+
+    public CardFooterView.Callback footerCallback = () -> goToMainPage(getCard().wikiSite());
 }
