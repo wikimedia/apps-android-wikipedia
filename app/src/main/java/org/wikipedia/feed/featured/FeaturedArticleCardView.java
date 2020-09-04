@@ -140,7 +140,7 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
         if (getCard() == null) {
             return;
         }
-        footerView.setCallback(footerCallback);
+        footerView.setCallback(getFooterCallback());
         footerView.setFooterActionText(getCard().footerActionText());
     }
     
@@ -153,13 +153,6 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
         }
     }
 
-    private void goToMainPage(@NonNull WikiSite wiki) {
-        if (getCallback() != null && getCard() != null) {
-            getCallback().onSelectPage(getCard(),
-                    new HistoryEntry(getMainPageTitle(wiki.languageCode(), wiki), getCard().historyEntry().getSource()));
-        }
-    }
-
     private static PageTitle getMainPageTitle(@NonNull String languageCode, @NonNull WikiSite wiki) {
         return new PageTitle(SiteInfoClient.getMainPageForLang(languageCode), wiki);
     }
@@ -169,5 +162,13 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
         return getMainPageTitle(app.getAppOrSystemLanguageCode(), app.getWikiSite());
     }
 
-    public CardFooterView.Callback footerCallback = () -> goToMainPage(getCard().wikiSite());
+    public CardFooterView.Callback getFooterCallback() {
+        return () -> {
+            if (getCallback() != null && getCard() != null) {
+                getCallback().onSelectPage(getCard(),
+                        new HistoryEntry(getMainPageTitle(getCard().wikiSite().languageCode(),
+                                getCard().wikiSite()),getCard().historyEntry().getSource()));
+            }
+        };
+    }
 }
