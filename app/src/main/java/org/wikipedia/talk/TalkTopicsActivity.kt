@@ -20,9 +20,11 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.dataclient.page.TalkPage
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.settings.languages.WikipediaLanguagesFragment
+import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DrawableItemDecoration
@@ -44,24 +46,24 @@ class TalkTopicsActivity : BaseActivity() {
         userName = intent.getStringExtra(EXTRA_USER_NAME).orEmpty()
         title = getString(R.string.talk_user_title, StringUtil.removeUnderscores(userName))
 
-        talk_recycler_view.layoutManager = LinearLayoutManager(this)
-        talk_recycler_view.addItemDecoration(FooterMarginItemDecoration(0, 80))
-        talk_recycler_view.addItemDecoration(DrawableItemDecoration(this, R.attr.list_separator_drawable, drawStart = false, drawEnd = false))
-        talk_recycler_view.adapter = TalkTopicItemAdapter()
+        talkRecyclerView.layoutManager = LinearLayoutManager(this)
+        talkRecyclerView.addItemDecoration(FooterMarginItemDecoration(0, 80))
+        talkRecyclerView.addItemDecoration(DrawableItemDecoration(this, R.attr.list_separator_drawable, drawStart = false, drawEnd = false))
+        talkRecyclerView.adapter = TalkTopicItemAdapter()
 
-        talk_error_view.setBackClickListener {
+        talkErrorView.setBackClickListener {
             finish()
         }
 
-        talk_new_topic_button.setOnClickListener {
+        talkNewTopicButton.setOnClickListener {
             startActivity(TalkTopicActivity.newIntent(this@TalkTopicsActivity, wikiSite.languageCode(), userName, -1))
         }
 
-        talk_refresh_view.setOnRefreshListener {
+        talkRefreshView.setOnRefreshListener {
             loadTopics()
         }
 
-        talk_new_topic_button.visibility = View.GONE
+        talkNewTopicButton.visibility = View.GONE
         loadTopics()
     }
 
@@ -103,14 +105,20 @@ class TalkTopicsActivity : BaseActivity() {
     }
 
     private fun loadTopics() {
+        L10nUtil.setConditionalLayoutDirection(talkRefreshView, wikiSite.languageCode())
+
         disposables.clear()
-        talk_progress_bar.visibility = View.VISIBLE
-        talk_error_view.visibility = View.GONE
-        talk_empty_container.visibility = View.GONE
+        talkProgressBar.visibility = View.VISIBLE
+        talkErrorView.visibility = View.GONE
+        talkEmptyContainer.visibility = View.GONE
 
         disposables.add(ServiceFactory.getRest(wikiSite).getTalkPage(userName)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
+                .doAfterTerminate {
+                    talkProgressBar.visibility = View.GONE
+                    talkRefreshView.isRefreshing = false
+                }
                 .subscribe({ response ->
                     topics.clear()
                     topics.addAll(response.topics!!)
@@ -122,27 +130,33 @@ class TalkTopicsActivity : BaseActivity() {
     }
 
     private fun updateOnSuccess() {
-        talk_progress_bar.visibility = View.GONE
-        talk_error_view.visibility = View.GONE
-        talk_new_topic_button.visibility = View.VISIBLE
-        talk_refresh_view.isRefreshing = false
-        talk_recycler_view.visibility - View.VISIBLE
-        talk_recycler_view.adapter?.notifyDataSetChanged()
+        talkErrorView.visibility = View.GONE
+        talkNewTopicButton.show()
+        talkRecyclerView.visibility - View.VISIBLE
+        talkRecyclerView.adapter?.notifyDataSetChanged()
     }
 
     private fun updateOnError(t: Throwable) {
-        talk_recycler_view.visibility - View.GONE
-        talk_new_topic_button.visibility = View.GONE
-        talk_progress_bar.visibility = View.GONE
-        talk_refresh_view.isRefreshing = false
-        talk_error_view.visibility = View.VISIBLE
-        talk_error_view.setError(t)
+        topics.clear()
+        talkRecyclerView.adapter?.notifyDataSetChanged()
+        talkRecyclerView.visibility - View.GONE
+
+        // In the case of 404, it just means that the talk page hasn't been created yet.
+        if (t is HttpStatusException && t.code() == 404) {
+            talkEmptyContainer.visibility = View.VISIBLE
+            // Allow them to create a new topic anyway
+            talkNewTopicButton.show()
+        } else {
+            talkNewTopicButton.hide()
+            talkErrorView.visibility = View.VISIBLE
+            talkErrorView.setError(t)
+        }
     }
 
     internal inner class TalkTopicHolder internal constructor(view: View) : RecyclerView.ViewHolder(view), View.OnClickListener {
-        private val title: TextView = view.findViewById(R.id.topic_title_text)
-        private val subtitle: TextView = view.findViewById(R.id.topic_subtitle_text)
-        private val readDot: View = view.findViewById(R.id.topic_read_dot)
+        private val title: TextView = view.findViewById(R.id.topicTitleText)
+        private val subtitle: TextView = view.findViewById(R.id.topicSubtitleText)
+        private val readDot: View = view.findViewById(R.id.topicReadDot)
         private var id: Int = 0
 
         fun bindItem(topic: TalkPage.Topic) {

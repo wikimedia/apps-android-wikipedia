@@ -10,7 +10,6 @@ import androidx.fragment.app.Fragment
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
-import io.reactivex.rxjava3.functions.BiFunction
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_file_page.*
 import org.apache.commons.lang3.StringUtils
@@ -89,8 +88,7 @@ class FilePageFragment : Fragment() {
         progressBar.visibility = View.VISIBLE
 
         disposables.add(Observable.zip(getImageCaptions(pageTitle.prefixedText),
-                ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo(pageTitle.prefixedText, pageTitle.wikiSite.languageCode()),
-                BiFunction {
+                ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo(pageTitle.prefixedText, pageTitle.wikiSite.languageCode()), {
                     caption: Map<String, String>, response: MwQueryResponse ->
                     // set image caption to pageTitle description
                     pageTitle.description = caption[pageTitle.wikiSite.languageCode()]

@@ -217,7 +217,7 @@ public class DescriptionEditView extends LinearLayout {
                 && !TextUtils.isEmpty(sourceSummary.getPageTitle().getDescription())) {
             pageSummaryContainer.setVisibility(GONE);
         }
-        setConditionalLayoutDirection(pageSummaryContainer, isTranslationEdit ? sourceSummary.getLang() : pageTitle.getWikiSite().languageCode());
+        setConditionalLayoutDirection(this, isTranslationEdit ? sourceSummary.getLang() : pageTitle.getWikiSite().languageCode());
         setUpBottomBar();
     }
 

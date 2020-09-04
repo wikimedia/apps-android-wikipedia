@@ -10,7 +10,7 @@
     android:background="?attr/selectableItemBackground">
 
     <ImageView
-        android:id="@+id/topic_read_dot"
+        android:id="@+id/topicReadDot"
         android:layout_width="8dp"
         android:layout_height="8dp"
         android:layout_marginEnd="12dp"
@@ -23,12 +23,12 @@
         android:contentDescription="@null"/>
 
     <TextView
-        android:id="@+id/topic_title_text"
+        android:id="@+id/topicTitleText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@id/topic_read_dot"
+        app:layout_constraintStart_toEndOf="@id/topicReadDot"
         app:layout_constraintEnd_toEndOf="parent"
         android:textColor="?attr/material_theme_primary_color"
         android:textSize="16sp"
@@ -37,13 +37,13 @@
         tools:text="Lorem ipsum" />
 
     <TextView
-        android:id="@+id/topic_subtitle_text"
+        android:id="@+id/topicSubtitleText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@id/topic_read_dot"
+        app:layout_constraintStart_toEndOf="@id/topicReadDot"
         app:layout_constraintEnd_toEndOf="parent"
         android:textColor="?attr/material_theme_primary_color"
         android:lineSpacingExtra="6sp"

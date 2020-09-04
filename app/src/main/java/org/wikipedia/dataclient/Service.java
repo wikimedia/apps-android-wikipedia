@@ -219,7 +219,7 @@ public interface Service {
 
     @FormUrlEncoded
     @Headers("Cache-Control: no-cache")
-    @POST(MW_API_PREFIX + "action=edit&nocreate=")
+    @POST(MW_API_PREFIX + "action=edit")
     @SuppressWarnings("checkstyle:parameternumber")
     @NonNull Observable<Edit> postEditSubmit(@NonNull @Field("title") String title,
                                              @NonNull @Field("section") String section,

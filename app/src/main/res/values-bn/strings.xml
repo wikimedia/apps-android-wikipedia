@@ -329,6 +329,7 @@
   <string name="crash_report_relaunch_or_quit">আমরা দুঃখিত, উইকিপিডিয়া অ্যাপ্লিকেশন একটি ত্রুটির সম্মুখীন হয়েছে এবং বন্ধ হয়ে গেছে।\n\nআপনি কি পুনরারম্ভ বা প্রস্থান করতে চান?</string>
   <string name="crash_report_relaunch">পুনরারম্ভ করুন</string>
   <string name="crash_report_quit">প্রস্থান</string>
+  <string name="article_menu_bar_save_button">সংরক্ষণ</string>
   <string name="article_menu_bar_language_button">ভাষা</string>
   <string name="article_menu_bar_search_button">অনুসন্ধান</string>
   <string name="article_menu_bar_theme_button">থিম</string>
