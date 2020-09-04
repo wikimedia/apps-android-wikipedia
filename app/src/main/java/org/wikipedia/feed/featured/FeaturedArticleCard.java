@@ -15,7 +15,7 @@ import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.util.DateUtil;
 
 public class FeaturedArticleCard extends WikiSiteCard {
-    @NonNull PageSummary page;
+    public @NonNull PageSummary page;
     int age;
 
     public FeaturedArticleCard(@NonNull PageSummary page, int age, @NonNull WikiSite wiki) {
