@@ -2,7 +2,7 @@
 <androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/talk_refresh_view"
+    android:id="@+id/talkRefreshView"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -11,7 +11,7 @@
         android:layout_height="wrap_content">
 
         <androidx.core.widget.NestedScrollView
-            android:id="@+id/talk_scroll_container"
+            android:id="@+id/talkScrollContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="?attr/actionBarSize">
@@ -22,7 +22,7 @@
                 android:orientation="vertical">
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/talk_recycler_view"
+                    android:id="@+id/talkRecyclerView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -30,7 +30,7 @@
                     android:scrollbars="vertical" />
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/reply_subject_layout"
+                    android:id="@+id/replySubjectLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -40,7 +40,7 @@
                     app:errorTextAppearance="@style/TextInputLayoutErrorTextAppearance">
 
                     <org.wikipedia.views.PlainPasteEditText
-                        android:id="@+id/reply_subject_text"
+                        android:id="@+id/replySubjectText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:imeOptions="flagNoExtractUi|actionNext"
@@ -50,7 +50,7 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/reply_text_layout"
+                    android:id="@+id/replyTextLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -61,7 +61,7 @@
                     app:errorTextAppearance="@style/TextInputLayoutErrorTextAppearance">
 
                     <org.wikipedia.views.PlainPasteEditText
-                        android:id="@+id/reply_edit_text"
+                        android:id="@+id/replyEditText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:imeOptions="flagNoExtractUi|actionNone"
@@ -75,13 +75,13 @@
         </androidx.core.widget.NestedScrollView>
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/reply_toolbar"
+            android:id="@+id/replyToolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             style="@style/ToolbarStyle">
 
             <ImageView
-                android:id="@+id/reply_save_button"
+                android:id="@+id/replySaveButton"
                 android:layout_width="48dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="end"
@@ -96,14 +96,14 @@
         </androidx.appcompat.widget.Toolbar>
 
         <org.wikipedia.views.WikiErrorView
-            android:id="@+id/talk_error_view"
+            android:id="@+id/talkErrorView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:orientation="vertical" />
 
         <ProgressBar
-            android:id="@+id/talk_progress_bar"
+            android:id="@+id/talkProgressBar"
             style="@style/Widget.AppCompat.ProgressBar.Horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -112,7 +112,7 @@
             android:indeterminate="true" />
 
         <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-            android:id="@+id/talk_reply_button"
+            android:id="@+id/talkReplyButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end|bottom"

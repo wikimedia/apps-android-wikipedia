@@ -14,6 +14,7 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_talk_topic.*
+import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
@@ -26,15 +27,14 @@ import org.wikipedia.history.HistoryEntry
 import org.wikipedia.login.LoginClient.LoginFailedException
 import org.wikipedia.page.*
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
+import org.wikipedia.readinglist.AddToReadingListDialog
 import org.wikipedia.talk.TalkTopicsActivity.Companion.newIntent
-import org.wikipedia.util.DeviceUtil
-import org.wikipedia.util.FeedbackUtil
-import org.wikipedia.util.StringUtil
+import org.wikipedia.util.*
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DrawableItemDecoration
 import java.util.concurrent.TimeUnit
 
-class TalkTopicActivity : BaseActivity() {
+class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     private val disposables = CompositeDisposable()
     private var topicId: Int = -1
     private var wikiSite: WikiSite = WikipediaApp.getInstance().wikiSite
@@ -54,7 +54,7 @@ class TalkTopicActivity : BaseActivity() {
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_talk_topic)
-        setSupportActionBar(reply_toolbar)
+        setSupportActionBar(replyToolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         title = ""
         linkHandler = TalkLinkHandler(this)
@@ -65,41 +65,43 @@ class TalkTopicActivity : BaseActivity() {
         userName = intent.getStringExtra(EXTRA_USER_NAME).orEmpty()
         topicId = intent.extras?.getInt(EXTRA_TOPIC, -1)!!
 
-        talk_recycler_view.layoutManager = LinearLayoutManager(this)
-        talk_recycler_view.addItemDecoration(DrawableItemDecoration(this, R.attr.list_separator_drawable, drawStart = false, drawEnd = false))
-        talk_recycler_view.adapter = TalkReplyItemAdapter()
+        L10nUtil.setConditionalLayoutDirection(talkRefreshView, wikiSite.languageCode())
 
-        talk_reply_button.setOnClickListener {
+        talkRecyclerView.layoutManager = LinearLayoutManager(this)
+        talkRecyclerView.addItemDecoration(DrawableItemDecoration(this, R.attr.list_separator_drawable, drawStart = false, drawEnd = false))
+        talkRecyclerView.adapter = TalkReplyItemAdapter()
+
+        talkReplyButton.setOnClickListener {
             replyActive = true
-            talk_recycler_view.adapter?.notifyDataSetChanged()
-            talk_scroll_container.fullScroll(View.FOCUS_DOWN)
-            reply_save_button.visibility = View.VISIBLE
-            reply_text_layout.visibility = View.VISIBLE
-            reply_text_layout.requestFocus()
-            DeviceUtil.showSoftKeyboard(reply_edit_text)
-            talk_reply_button.hide()
+            talkRecyclerView.adapter?.notifyDataSetChanged()
+            talkScrollContainer.fullScroll(View.FOCUS_DOWN)
+            replySaveButton.visibility = View.VISIBLE
+            replyTextLayout.visibility = View.VISIBLE
+            replyTextLayout.requestFocus()
+            DeviceUtil.showSoftKeyboard(replyEditText)
+            talkReplyButton.hide()
         }
 
-        reply_subject_text.addTextChangedListener(textWatcher)
-        reply_edit_text.addTextChangedListener(textWatcher)
-        reply_save_button.setOnClickListener {
+        replySubjectText.addTextChangedListener(textWatcher)
+        replyEditText.addTextChangedListener(textWatcher)
+        replySaveButton.setOnClickListener {
             onSaveClicked()
         }
 
-        talk_refresh_view.isEnabled = !isNewTopic()
-        talk_refresh_view.setOnRefreshListener {
+        talkRefreshView.isEnabled = !isNewTopic()
+        talkRefreshView.setOnRefreshListener {
             loadTopic()
         }
 
-        talk_reply_button.visibility = View.GONE
+        talkReplyButton.visibility = View.GONE
 
         onInitialLoad()
     }
 
     public override fun onDestroy() {
         disposables.clear()
-        reply_subject_text.removeTextChangedListener(textWatcher)
-        reply_edit_text.removeTextChangedListener(textWatcher)
+        replySubjectText.removeTextChangedListener(textWatcher)
+        replyEditText.removeTextChangedListener(textWatcher)
         super.onDestroy()
     }
 
@@ -107,21 +109,21 @@ class TalkTopicActivity : BaseActivity() {
         if (isNewTopic()) {
             replyActive = true
             title = getString(R.string.talk_new_topic)
-            talk_progress_bar.visibility = View.GONE
-            talk_error_view.visibility = View.GONE
-            reply_save_button.visibility = View.VISIBLE
-            reply_subject_layout.visibility = View.VISIBLE
-            reply_text_layout.hint = getString(R.string.talk_message_hint)
-            reply_text_layout.visibility = View.VISIBLE
-            reply_subject_layout.requestFocus()
-            DeviceUtil.showSoftKeyboard(reply_subject_layout)
+            talkProgressBar.visibility = View.GONE
+            talkErrorView.visibility = View.GONE
+            replySaveButton.visibility = View.VISIBLE
+            replySubjectLayout.visibility = View.VISIBLE
+            replyTextLayout.hint = getString(R.string.talk_message_hint)
+            replyTextLayout.visibility = View.VISIBLE
+            replySubjectLayout.requestFocus()
+            DeviceUtil.showSoftKeyboard(replySubjectLayout)
         } else {
             replyActive = false
-            reply_edit_text.setText("")
-            reply_save_button.visibility = View.GONE
-            reply_subject_layout.visibility = View.GONE
-            reply_text_layout.visibility = View.GONE
-            reply_text_layout.hint = getString(R.string.talk_reply_hint)
+            replyEditText.setText("")
+            replySaveButton.visibility = View.GONE
+            replySubjectLayout.visibility = View.GONE
+            replyTextLayout.visibility = View.GONE
+            replyTextLayout.hint = getString(R.string.talk_reply_hint)
             loadTopic()
         }
     }
@@ -131,8 +133,8 @@ class TalkTopicActivity : BaseActivity() {
             return
         }
         disposables.clear()
-        talk_progress_bar.visibility = View.VISIBLE
-        talk_error_view.visibility = View.GONE
+        talkProgressBar.visibility = View.VISIBLE
+        talkErrorView.visibility = View.GONE
 
         disposables.add(ServiceFactory.getRest(wikiSite).getTalkPage(userName)
                 .subscribeOn(Schedulers.io())
@@ -148,22 +150,22 @@ class TalkTopicActivity : BaseActivity() {
     }
 
     private fun updateOnSuccess() {
-        talk_progress_bar.visibility = View.GONE
-        talk_error_view.visibility = View.GONE
-        talk_reply_button.show()
-        talk_refresh_view.isRefreshing = false
+        talkProgressBar.visibility = View.GONE
+        talkErrorView.visibility = View.GONE
+        talkReplyButton.show()
+        talkRefreshView.isRefreshing = false
 
         val titleStr = StringUtil.fromHtml(topic?.html).toString().trim()
         title = if (titleStr.isNotEmpty()) titleStr else getString(R.string.talk_no_subject)
-        talk_recycler_view.adapter?.notifyDataSetChanged()
+        talkRecyclerView.adapter?.notifyDataSetChanged()
     }
 
     private fun updateOnError(t: Throwable) {
-        talk_progress_bar.visibility = View.GONE
-        talk_refresh_view.isRefreshing = false
-        talk_reply_button.hide()
-        talk_error_view.visibility = View.VISIBLE
-        talk_error_view.setError(t)
+        talkProgressBar.visibility = View.GONE
+        talkRefreshView.isRefreshing = false
+        talkReplyButton.hide()
+        talkErrorView.visibility = View.VISIBLE
+        talkErrorView.setError(t)
     }
 
     private fun showLinkPreviewOrNavigate(title: PageTitle) {
@@ -180,9 +182,9 @@ class TalkTopicActivity : BaseActivity() {
     }
 
     internal inner class TalkReplyHolder internal constructor(view: View) : RecyclerView.ViewHolder(view) {
-        private val text: TextView = view.findViewById(R.id.reply_text)
-        private val indentArrow: View = view.findViewById(R.id.reply_indent_arrow)
-        private val bottomSpace: View = view.findViewById(R.id.reply_bottom_space)
+        private val text: TextView = view.findViewById(R.id.replyText)
+        private val indentArrow: View = view.findViewById(R.id.replyIndentArrow)
+        private val bottomSpace: View = view.findViewById(R.id.replyBottomSpace)
         fun bindItem(reply: TalkPage.TopicReply, isLast: Boolean) {
             text.movementMethod = linkMovementMethod
             text.text = StringUtil.fromHtml(reply.html)
@@ -228,8 +230,8 @@ class TalkTopicActivity : BaseActivity() {
         }
 
         override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-            reply_subject_layout.error = null
-            reply_text_layout.error = null
+            replySubjectLayout.error = null
+            replyTextLayout.error = null
         }
 
         override fun afterTextChanged(p0: Editable?) {
@@ -237,16 +239,16 @@ class TalkTopicActivity : BaseActivity() {
     }
 
     private fun onSaveClicked() {
-        val subject = reply_subject_text.text.toString().trim()
-        var body = reply_edit_text.text.toString().trim()
+        val subject = replySubjectText.text.toString().trim()
+        var body = replyEditText.text.toString().trim()
 
         if (isNewTopic() && subject.isEmpty()) {
-            reply_subject_layout.error = getString(R.string.talk_subject_empty)
-            reply_subject_layout.requestFocus()
+            replySubjectLayout.error = getString(R.string.talk_subject_empty)
+            replySubjectLayout.requestFocus()
             return
         } else if (body.isEmpty()) {
-            reply_text_layout.error = getString(R.string.talk_message_empty)
-            reply_text_layout.requestFocus()
+            replyTextLayout.error = getString(R.string.talk_message_empty)
+            replyTextLayout.requestFocus()
             return
         }
 
@@ -259,8 +261,8 @@ class TalkTopicActivity : BaseActivity() {
             body = "\n\n" + body
         }
 
-        talk_progress_bar.visibility = View.VISIBLE
-        reply_save_button.isEnabled = false
+        talkProgressBar.visibility = View.VISIBLE
+        replySaveButton.isEnabled = false
 
         csrfClient = CsrfTokenClient(WikipediaApp.getInstance().wikiSite, WikipediaApp.getInstance().wikiSite)
         csrfClient?.request(false, object : CsrfTokenClient.Callback {
@@ -316,7 +318,7 @@ class TalkTopicActivity : BaseActivity() {
     }
 
     private fun onSaveSuccess() {
-        talk_progress_bar.visibility = View.GONE
+        talkProgressBar.visibility = View.GONE
 
         if (isNewTopic()) {
             setResult(RESULT_EDIT_SUCCESS)
@@ -327,7 +329,7 @@ class TalkTopicActivity : BaseActivity() {
     }
 
     private fun onSaveError(t: Throwable) {
-        talk_progress_bar.visibility = View.GONE
+        talkProgressBar.visibility = View.GONE
         FeedbackUtil.showError(this, t)
     }
 
@@ -344,5 +346,24 @@ class TalkTopicActivity : BaseActivity() {
                     .putExtra(EXTRA_USER_NAME, userName.orEmpty())
                     .putExtra(EXTRA_TOPIC, topicId)
         }
+    }
+
+    override fun onLinkPreviewLoadPage(title: PageTitle, entry: HistoryEntry, inNewTab: Boolean) {
+        startActivity(if (inNewTab) PageActivity.newIntentForNewTab(this, entry, title) else
+            PageActivity.newIntentForCurrentTab(this, entry, title, false))
+    }
+
+    override fun onLinkPreviewCopyLink(title: PageTitle) {
+        ClipboardUtil.setPlainText(this, null, title.uri.toString());
+        FeedbackUtil.showMessage(this, R.string.address_copied);
+    }
+
+    override fun onLinkPreviewAddToList(title: PageTitle) {
+        bottomSheetPresenter.show(supportFragmentManager,
+                AddToReadingListDialog.newInstance(title, Constants.InvokeSource.TALK_ACTIVITY));
+    }
+
+    override fun onLinkPreviewShareLink(title: PageTitle) {
+        ShareUtil.shareText(this, title);
     }
 }
