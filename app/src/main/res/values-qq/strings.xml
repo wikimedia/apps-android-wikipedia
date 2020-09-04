@@ -588,8 +588,8 @@
   <string name="preference_summary_notification_user_talk">Short summary explaining what User talk notifications are.</string>
   <string name="view_because_you_read_card_title">Label for card in the feed that gives the user reading suggestions based on an article from their browsing history.</string>
   <string name="view_random_card_title">Title of a card that the user can click to view a randomly selected Wikipedia article</string>
-  <string name="view_random_card_subtitle">Message inviting the user to view a randomly selected Wikipedia article.</string>
-  <string name="view_random_card_action">Buttol label for navigating to the screen where random articles are shown.</string>
+  <string name="view_random_article_card_title">Title of a card that the user can click to view a randomly selected Wikipedia article</string>
+  <string name="view_random_article_card_action">Label of a action button that leads the user to the Randomizer page.</string>
   <string name="view_next_random_article">Button hint for loading another random article.</string>
   <string name="view_main_page_card_title">Title of a card that the user can click to view the main page of the Wikipedia project for the current app language.</string>
   <string name="view_featured_image_card_title">Title of a card showing the Picture of the Day from Wikimedia Commons.</string>
