@@ -7,22 +7,22 @@
     android:paddingBottom="16dp">
 
     <ImageView
-        android:id="@+id/reply_indent_arrow"
+        android:id="@+id/replyIndentArrow"
         android:layout_width="24dp"
         android:layout_height="24dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/reply_text"
+        app:layout_constraintEnd_toStartOf="@id/replyText"
         android:layout_marginEnd="16dp"
         app:srcCompat="@drawable/ic_subdirectory_arrow_right_black_24dp"
         app:tint="?attr/material_theme_secondary_color"
         android:contentDescription="@null"/>
 
     <TextView
-        android:id="@+id/reply_text"
+        android:id="@+id/replyText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@id/reply_indent_arrow"
+        app:layout_constraintStart_toEndOf="@id/replyIndentArrow"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:textColor="?attr/material_theme_primary_color"
@@ -32,10 +32,10 @@
         tools:text="Lorem ipsum" />
 
     <Space
-        android:id="@+id/reply_bottom_space"
+        android:id="@+id/replyBottomSpace"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/reply_text"/>
+        app:layout_constraintTop_toBottomOf="@id/replyText"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

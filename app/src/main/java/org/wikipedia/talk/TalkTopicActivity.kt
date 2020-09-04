@@ -12,6 +12,11 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_talk_topic.*
+import kotlinx.android.synthetic.main.activity_talk_topic.talkErrorView
+import kotlinx.android.synthetic.main.activity_talk_topic.talkProgressBar
+import kotlinx.android.synthetic.main.activity_talk_topic.talkRecyclerView
+import kotlinx.android.synthetic.main.activity_talk_topic.talkRefreshView
+import kotlinx.android.synthetic.main.activity_talk_topics.*
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
@@ -22,6 +27,7 @@ import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.*
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
 import org.wikipedia.talk.TalkTopicsActivity.Companion.newIntent
+import org.wikipedia.util.L10nUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DrawableItemDecoration
@@ -52,19 +58,21 @@ class TalkTopicActivity : BaseActivity() {
         userName = intent.getStringExtra(EXTRA_USER_NAME).orEmpty()
         topicId = intent.extras?.getInt(EXTRA_TOPIC, 0)!!
 
-        talk_recycler_view.layoutManager = LinearLayoutManager(this)
-        talk_recycler_view.addItemDecoration(DrawableItemDecoration(this, R.attr.list_separator_drawable, drawStart = false, drawEnd = false))
-        talk_recycler_view.adapter = TalkReplyItemAdapter()
+        talkRecyclerView.layoutManager = LinearLayoutManager(this)
+        talkRecyclerView.addItemDecoration(DrawableItemDecoration(this, R.attr.list_separator_drawable, drawStart = false, drawEnd = false))
+        talkRecyclerView.adapter = TalkReplyItemAdapter()
 
-        talk_reply_button.setOnClickListener {
+        L10nUtil.setConditionalLayoutDirection(talkRefreshView, wikiSite.languageCode())
+
+        talkReplyButton.setOnClickListener {
             // TODO
         }
 
-        talk_refresh_view.setOnRefreshListener {
+        talkRefreshView.setOnRefreshListener {
             loadTopic()
         }
 
-        talk_reply_button.visibility = View.GONE
+        talkReplyButton.visibility = View.GONE
         loadTopic()
     }
 
@@ -75,8 +83,8 @@ class TalkTopicActivity : BaseActivity() {
 
     private fun loadTopic() {
         disposables.clear()
-        talk_progress_bar.visibility = View.VISIBLE
-        talk_error_view.visibility = View.GONE
+        talkProgressBar.visibility = View.VISIBLE
+        talkErrorView.visibility = View.GONE
 
         disposables.add(ServiceFactory.getRest(wikiSite).getTalkPage(userName)
                 .subscribeOn(Schedulers.io())
@@ -91,22 +99,22 @@ class TalkTopicActivity : BaseActivity() {
     }
 
     private fun updateOnSuccess() {
-        talk_progress_bar.visibility = View.GONE
-        talk_error_view.visibility = View.GONE
-        talk_reply_button.visibility = View.VISIBLE
-        talk_refresh_view.isRefreshing = false
+        talkProgressBar.visibility = View.GONE
+        talkErrorView.visibility = View.GONE
+        talkReplyButton.visibility = View.VISIBLE
+        talkRefreshView.isRefreshing = false
 
         val titleStr = StringUtil.fromHtml(topic?.html).toString().trim()
         title = if (titleStr.isNotEmpty()) titleStr else getString(R.string.talk_no_subject)
-        talk_recycler_view.adapter?.notifyDataSetChanged()
+        talkRecyclerView.adapter?.notifyDataSetChanged()
     }
 
     private fun updateOnError(t: Throwable) {
-        talk_progress_bar.visibility = View.GONE
-        talk_refresh_view.isRefreshing = false
-        talk_reply_button.visibility = View.GONE
-        talk_error_view.visibility = View.VISIBLE
-        talk_error_view.setError(t)
+        talkProgressBar.visibility = View.GONE
+        talkRefreshView.isRefreshing = false
+        talkReplyButton.visibility = View.GONE
+        talkErrorView.visibility = View.VISIBLE
+        talkErrorView.setError(t)
     }
 
     private fun showLinkPreviewOrNavigate(title: PageTitle) {
@@ -119,9 +127,9 @@ class TalkTopicActivity : BaseActivity() {
     }
 
     internal inner class TalkReplyHolder internal constructor(view: View) : RecyclerView.ViewHolder(view) {
-        private val text: TextView = view.findViewById(R.id.reply_text)
-        private val indentArrow: View = view.findViewById(R.id.reply_indent_arrow)
-        private val bottomSpace: View = view.findViewById(R.id.reply_bottom_space)
+        private val text: TextView = view.findViewById(R.id.replyText)
+        private val indentArrow: View = view.findViewById(R.id.replyIndentArrow)
+        private val bottomSpace: View = view.findViewById(R.id.replyBottomSpace)
         fun bindItem(reply: TalkPage.TopicReply, isLast: Boolean) {
             text.movementMethod = linkMovementMethod
             text.text = StringUtil.fromHtml(reply.html)
