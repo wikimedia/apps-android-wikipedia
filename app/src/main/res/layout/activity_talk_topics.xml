@@ -33,7 +33,7 @@
                 android:layout_height="120dp"
                 android:contentDescription="@null"
                 app:srcCompat="@drawable/ic_user_talk"
-                app:tint="?attr/secondary_text_color"/>
+                app:tint="?attr/material_theme_de_emphasised_color"/>
 
             <TextView
                 style="@style/MaterialMediumSecondaryCaption"

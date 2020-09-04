@@ -20,6 +20,8 @@ import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.mwapi.MwException
+import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.dataclient.page.TalkPage
 import org.wikipedia.settings.languages.WikipediaLanguagesActivity
 import org.wikipedia.settings.languages.WikipediaLanguagesFragment
@@ -140,8 +142,15 @@ class TalkTopicsActivity : BaseActivity() {
         talkRecyclerView.adapter?.notifyDataSetChanged()
         talkRecyclerView.visibility - View.GONE
         talkNewTopicButton.visibility = View.GONE
-        talkErrorView.visibility = View.VISIBLE
-        talkErrorView.setError(t)
+
+        // In the case of 404, it just means that the talk page hasn't been created yet.
+        if (t is HttpStatusException && t.code() == 404) {
+            talkEmptyContainer.visibility = View.VISIBLE
+        } else {
+
+            talkErrorView.visibility = View.VISIBLE
+            talkErrorView.setError(t)
+        }
     }
 
     internal inner class TalkTopicHolder internal constructor(view: View) : RecyclerView.ViewHolder(view), View.OnClickListener {
