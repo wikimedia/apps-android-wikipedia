@@ -15,8 +15,8 @@ import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.util.DateUtil;
 
 public class FeaturedArticleCard extends WikiSiteCard {
-    @NonNull private PageSummary page;
-    private int age;
+    @NonNull PageSummary page;
+    int age;
 
     public FeaturedArticleCard(@NonNull PageSummary page, int age, @NonNull WikiSite wiki) {
         super(wiki);
@@ -44,6 +44,11 @@ public class FeaturedArticleCard extends WikiSiteCard {
     @Nullable
     String articleSubtitle() {
         return page.getDescription();
+    }
+
+    @NonNull
+    String footerActionText() {
+        return WikipediaApp.getInstance().getString(R.string.view_main_page_card_title);
     }
 
     @Override
