@@ -22,6 +22,7 @@ import org.wikipedia.auth.AccountUtil
 import org.wikipedia.csrf.CsrfTokenClient
 import org.wikipedia.dataclient.ServiceFactory
 import org.wikipedia.dataclient.WikiSite
+import org.wikipedia.dataclient.okhttp.HttpStatusException
 import org.wikipedia.dataclient.page.TalkPage
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.login.LoginClient.LoginFailedException
@@ -264,7 +265,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         talkProgressBar.visibility = View.VISIBLE
         replySaveButton.isEnabled = false
 
-        csrfClient = CsrfTokenClient(WikipediaApp.getInstance().wikiSite, WikipediaApp.getInstance().wikiSite)
+        csrfClient = CsrfTokenClient(wikiSite, wikiSite)
         csrfClient?.request(false, object : CsrfTokenClient.Callback {
             override fun success(token: String) {
                 doSave(token, subject, body)
@@ -281,7 +282,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     }
 
     private fun doSave(token: String, subject: String, body: String) {
-        disposables.add(ServiceFactory.get(WikipediaApp.getInstance().wikiSite).postEditSubmit("User_talk:$userName",
+        disposables.add(ServiceFactory.get(wikiSite).postEditSubmit("User_talk:$userName",
                 if (isNewTopic()) "new" else topicId.toString(),
                 if (isNewTopic()) subject else null,
                 "", if (AccountUtil.isLoggedIn()) "user" else null,
@@ -297,17 +298,19 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     }
 
     private fun waitForUpdatedRevision(newRevision: Long) {
-        disposables.add(ServiceFactory.getRest(WikipediaApp.getInstance().wikiSite).getTalkPage(userName)
+        disposables.add(ServiceFactory.getRest(wikiSite).getTalkPage(userName)
                 .delay(2, TimeUnit.SECONDS)
                 .subscribeOn(Schedulers.io())
-
                 .map { response ->
                     if (response.revision < newRevision) {
                         throw IllegalStateException()
                     }
                     response
                 }
-                .retry(20) { t -> t is IllegalStateException }
+                .retry(20) { t ->
+                    (t is IllegalStateException)
+                            || (isNewTopic() && t is HttpStatusException && t.code() == 404)
+                }
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
                     onSaveSuccess()
