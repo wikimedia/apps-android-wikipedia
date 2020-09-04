@@ -61,14 +61,15 @@ class SuggestedEditsTasksFragment : Fragment() {
     private var revertSeverity = 0
 
     private val sequentialTooltipRunnable = Runnable {
-        if (isAdded) {
-            val balloon = FeedbackUtil.getTooltip(requireContext(), contributionsStatsView.tooltipText, false, true)
-            balloon.showAlignBottom(contributionsStatsView.description)
-            balloon.relayShowAlignBottom(org.wikipedia.util.FeedbackUtil.getTooltip(requireContext(), editStreakStatsView.tooltipText, false, true), editStreakStatsView.description)
-                    .relayShowAlignBottom(org.wikipedia.util.FeedbackUtil.getTooltip(requireContext(), pageViewStatsView.tooltipText, false, true), pageViewStatsView.description)
-                    .relayShowAlignBottom(org.wikipedia.util.FeedbackUtil.getTooltip(requireContext(), editQualityStatsView.tooltipText, false, true), editQualityStatsView.description)
-            Prefs.shouldShowOneTimeSequentialUserStatsTooltip(false)
+        if (!isAdded) {
+            return@Runnable
         }
+        val balloon = FeedbackUtil.getTooltip(requireContext(), contributionsStatsView.tooltipText, false, true)
+        balloon.showAlignBottom(contributionsStatsView.description)
+        balloon.relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), editStreakStatsView.tooltipText, false, true), editStreakStatsView.description)
+                .relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), pageViewStatsView.tooltipText, false, true), pageViewStatsView.description)
+                .relayShowAlignBottom(FeedbackUtil.getTooltip(requireContext(), editQualityStatsView.tooltipText, false, true), editQualityStatsView.description)
+        Prefs.shouldShowOneTimeSequentialUserStatsTooltip(false)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
