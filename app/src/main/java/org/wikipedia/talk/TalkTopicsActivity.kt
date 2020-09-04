@@ -132,7 +132,7 @@ class TalkTopicsActivity : BaseActivity() {
 
     private fun updateOnSuccess() {
         talkErrorView.visibility = View.GONE
-        talkNewTopicButton.visibility = View.VISIBLE
+        talkNewTopicButton.show()
         talkRecyclerView.visibility - View.VISIBLE
         talkRecyclerView.adapter?.notifyDataSetChanged()
     }
@@ -141,13 +141,14 @@ class TalkTopicsActivity : BaseActivity() {
         topics.clear()
         talkRecyclerView.adapter?.notifyDataSetChanged()
         talkRecyclerView.visibility - View.GONE
-        talkNewTopicButton.visibility = View.GONE
 
         // In the case of 404, it just means that the talk page hasn't been created yet.
         if (t is HttpStatusException && t.code() == 404) {
             talkEmptyContainer.visibility = View.VISIBLE
+            // Allow them to create a new topic anyway
+            talkNewTopicButton.show()
         } else {
-
+            talkNewTopicButton.hide()
             talkErrorView.visibility = View.VISIBLE
             talkErrorView.setError(t)
         }

@@ -101,7 +101,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     private fun updateOnSuccess() {
         talkProgressBar.visibility = View.GONE
         talkErrorView.visibility = View.GONE
-        talkReplyButton.visibility = View.VISIBLE
+        talkReplyButton.show()
         talkRefreshView.isRefreshing = false
 
         val titleStr = StringUtil.fromHtml(topic?.html).toString().trim()
@@ -112,7 +112,7 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     private fun updateOnError(t: Throwable) {
         talkProgressBar.visibility = View.GONE
         talkRefreshView.isRefreshing = false
-        talkReplyButton.visibility = View.GONE
+        talkReplyButton.hide()
         talkErrorView.visibility = View.VISIBLE
         talkErrorView.setError(t)
     }
