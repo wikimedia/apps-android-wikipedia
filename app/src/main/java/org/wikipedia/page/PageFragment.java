@@ -531,7 +531,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         app.getSessionFunnel().leadSectionFetchEnd();
 
         bridge.evaluate(JavaScriptActionHandler.getRevision(), revision -> {
-            if (!isAdded()) {
+            if (!isAdded() || revision == null || revision.equals("null")) {
                 return;
             }
             try {

@@ -119,9 +119,6 @@ class SuggestedEditsCardView(context: Context) : DefaultFeedCardView<SuggestedEd
 
     private fun header(card: SuggestedEditsCard) {
         headerView!!.setTitle(card.title())
-                .setSubtitle(card.subtitle())
-                .setImage(R.drawable.ic_mode_edit_white_24dp)
-                .setImageCircleColor(R.color.base30)
                 .setLangCode(if (card.action == TRANSLATE_CAPTION || card.action == TRANSLATE_DESCRIPTION) card.targetSummaryForEdit!!.lang else "")
                 .setCard(card)
                 .setCallback(callback)
