@@ -133,7 +133,7 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
                 .setCallback(getCallback());
     }
 
-    private void footer(@NonNull FeaturedArticleCard card) {
+    public void footer(@NonNull FeaturedArticleCard card) {
         footerView.setCallback(() -> goToMainPage(card.wikiSite()));
         footerView.setFooterActionText(card.footerActionText());
     }

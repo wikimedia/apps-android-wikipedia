@@ -22,13 +22,20 @@ public class RandomCard extends FeaturedArticleCard {
         return WikipediaApp.getInstance().getString(R.string.view_random_article_card_title);
     }
 
-    @NonNull @Override public CardType type() {
+    @Override
+    @NonNull
+    public String footerActionText() {
+        return WikipediaApp.getInstance().getString(R.string.view_random_article_card_action);
+    }
+
+    @NonNull
+    @Override public CardType type() {
         return CardType.RANDOM;
     }
 
     @Override
     @NonNull
     public HistoryEntry historyEntry() {
-        return new HistoryEntry(page.getPageTitle(wikiSite()), HistoryEntry.SOURCE_FEED_FEATURED);
+        return new HistoryEntry(page.getPageTitle(wikiSite()), HistoryEntry.SOURCE_FEED_RANDOM);
     }
 }
