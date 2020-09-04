@@ -143,8 +143,7 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
         footerView.setCallback(() -> goToMainPage(getCard().wikiSite()));
         footerView.setFooterActionText(getCard().footerActionText());
     }
-
-
+    
     private void image(@Nullable Uri uri) {
         if (uri == null) {
             imageContainerView.setVisibility(GONE);
