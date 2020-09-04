@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.activity_talk_topic.talkErrorView
 import kotlinx.android.synthetic.main.activity_talk_topic.talkProgressBar
 import kotlinx.android.synthetic.main.activity_talk_topic.talkRecyclerView
 import kotlinx.android.synthetic.main.activity_talk_topic.talkRefreshView
-import kotlinx.android.synthetic.main.activity_talk_topics.*
+import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.BaseActivity
@@ -26,13 +26,13 @@ import org.wikipedia.dataclient.page.TalkPage
 import org.wikipedia.history.HistoryEntry
 import org.wikipedia.page.*
 import org.wikipedia.page.linkpreview.LinkPreviewDialog
+import org.wikipedia.readinglist.AddToReadingListDialog
 import org.wikipedia.talk.TalkTopicsActivity.Companion.newIntent
-import org.wikipedia.util.L10nUtil
-import org.wikipedia.util.StringUtil
+import org.wikipedia.util.*
 import org.wikipedia.util.log.L
 import org.wikipedia.views.DrawableItemDecoration
 
-class TalkTopicActivity : BaseActivity() {
+class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
     private val disposables = CompositeDisposable()
     private var topicId: Int = 0
     private var wikiSite: WikiSite = WikipediaApp.getInstance().wikiSite
@@ -182,5 +182,24 @@ class TalkTopicActivity : BaseActivity() {
                     .putExtra(EXTRA_USER_NAME, userName.orEmpty())
                     .putExtra(EXTRA_TOPIC, topicId)
         }
+    }
+
+    override fun onLinkPreviewLoadPage(title: PageTitle, entry: HistoryEntry, inNewTab: Boolean) {
+        startActivity(if (inNewTab) PageActivity.newIntentForNewTab(this, entry, title) else
+            PageActivity.newIntentForCurrentTab(this, entry, title, false))
+    }
+
+    override fun onLinkPreviewCopyLink(title: PageTitle) {
+        ClipboardUtil.setPlainText(this, null, title.uri.toString());
+        FeedbackUtil.showMessage(this, R.string.address_copied);
+    }
+
+    override fun onLinkPreviewAddToList(title: PageTitle) {
+        bottomSheetPresenter.show(supportFragmentManager,
+                AddToReadingListDialog.newInstance(title, Constants.InvokeSource.TALK_ACTIVITY));
+    }
+
+    override fun onLinkPreviewShareLink(title: PageTitle) {
+        ShareUtil.shareText(this, title);
     }
 }
