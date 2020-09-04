@@ -70,7 +70,7 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
     void onCardClick() {
         if (getCallback() != null && getCard() != null) {
             getCallback().onSelectPage(getCard(),
-                    getCard().historyEntry(HistoryEntry.SOURCE_FEED_FEATURED));
+                    getCard().historyEntry(getCard().historyEntrySource()));
         }
     }
 
@@ -81,14 +81,14 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
                 @Override
                 public void onAddRequest(boolean addToDefault) {
                     if (getCallback() != null && getCard() != null) {
-                        getCallback().onAddPageToList(getCard().historyEntry(HistoryEntry.SOURCE_FEED_FEATURED), addToDefault);
+                        getCallback().onAddPageToList(getCard().historyEntry(getCard().historyEntrySource()), addToDefault);
                     }
                 }
 
                 @Override
                 public void onMoveRequest(@Nullable ReadingListPage page) {
                     if (getCallback() != null && getCard() != null) {
-                        getCallback().onMovePageToList(page.listId(), getCard().historyEntry(HistoryEntry.SOURCE_FEED_FEATURED));
+                        getCallback().onMovePageToList(page.listId(), getCard().historyEntry(getCard().historyEntrySource()));
                     }
                 }
 
@@ -136,7 +136,7 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
 
     private void footer(@NonNull FeaturedArticleCard card) {
         footerView.setCallback(() -> goToMainPage(card.wikiSite()));
-        footerView.setFooterActionText(getContext().getString(R.string.view_main_page_card_title));
+        footerView.setFooterActionText(card.footerActionText());
     }
 
 
@@ -150,13 +150,13 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
     }
 
     @NonNull private HistoryEntry getEntry() {
-        return getCard().historyEntry(HistoryEntry.SOURCE_FEED_FEATURED);
+        return getCard().historyEntry(getCard().historyEntrySource());
     }
 
     private void goToMainPage(@NonNull WikiSite wiki) {
         if (getCallback() != null && getCard() != null) {
             getCallback().onSelectPage(getCard(),
-                    new HistoryEntry(getMainPageTitle(wiki.languageCode(), wiki), HistoryEntry.SOURCE_FEED_MAIN_PAGE));
+                    new HistoryEntry(getMainPageTitle(wiki.languageCode(), wiki), getCard().historyEntrySource()));
         }
     }
 

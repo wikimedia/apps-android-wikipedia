@@ -46,6 +46,11 @@ public class FeaturedArticleCard extends WikiSiteCard {
         return page.getDescription();
     }
 
+    @NonNull
+    String footerActionText() {
+        return WikipediaApp.getInstance().getString(R.string.view_main_page_card_title);
+    }
+
     @Override
     @Nullable
     public Uri image() {
@@ -61,6 +66,10 @@ public class FeaturedArticleCard extends WikiSiteCard {
 
     @NonNull @Override public CardType type() {
         return CardType.FEATURED_ARTICLE;
+    }
+
+    public int historyEntrySource() {
+        return HistoryEntry.SOURCE_FEED_FEATURED;
     }
 
     @NonNull
