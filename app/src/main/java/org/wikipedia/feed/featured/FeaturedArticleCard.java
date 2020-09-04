@@ -69,8 +69,8 @@ public class FeaturedArticleCard extends WikiSiteCard {
     }
 
     @NonNull
-    public HistoryEntry historyEntry(int source) {
-        return new HistoryEntry(page.getPageTitle(wikiSite()), source);
+    public HistoryEntry historyEntry() {
+        return new HistoryEntry(page.getPageTitle(wikiSite()), HistoryEntry.SOURCE_FEED_FEATURED);
     }
 
     @Override

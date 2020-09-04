@@ -69,8 +69,7 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
     @OnClick({R.id.view_featured_article_card_image, R.id.view_featured_article_card_content_container})
     void onCardClick() {
         if (getCallback() != null && getCard() != null) {
-            getCallback().onSelectPage(getCard(),
-                    getCard().historyEntry(HistoryEntry.SOURCE_FEED_FEATURED));
+            getCallback().onSelectPage(getCard(), getCard().historyEntry());
         }
     }
 
@@ -81,31 +80,31 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
                 @Override
                 public void onAddRequest(boolean addToDefault) {
                     if (getCallback() != null && getCard() != null) {
-                        getCallback().onAddPageToList(getCard().historyEntry(HistoryEntry.SOURCE_FEED_FEATURED), addToDefault);
+                        getCallback().onAddPageToList(getCard().historyEntry(), addToDefault);
                     }
                 }
 
                 @Override
                 public void onMoveRequest(@Nullable ReadingListPage page) {
                     if (getCallback() != null && getCard() != null) {
-                        getCallback().onMovePageToList(page.listId(), getCard().historyEntry(HistoryEntry.SOURCE_FEED_FEATURED));
+                        getCallback().onMovePageToList(page.listId(), getCard().historyEntry());
                     }
                 }
 
                 @Override
                 public void onDeleted(@Nullable ReadingListPage page) {
                     if (getCallback() != null && getCard() != null) {
-                        getCallback().onRemovePageFromList(getEntry());
+                        getCallback().onRemovePageFromList(getCard().historyEntry());
                     }
                 }
 
                 @Override
                 public void onShare() {
                     if (getCallback() != null && getCard() != null) {
-                        getCallback().onSharePage(getEntry());
+                        getCallback().onSharePage(getCard().historyEntry());
                     }
                 }
-            }).show(getEntry().getTitle());
+            }).show(getCard().historyEntry().getTitle());
         }
         return false;
     }
@@ -136,7 +135,7 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
 
     private void footer(@NonNull FeaturedArticleCard card) {
         footerView.setCallback(() -> goToMainPage(card.wikiSite()));
-        footerView.setFooterActionText(getContext().getString(R.string.view_main_page_card_title));
+        footerView.setFooterActionText(card.footerActionText());
     }
 
 
@@ -149,14 +148,10 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
         }
     }
 
-    @NonNull private HistoryEntry getEntry() {
-        return getCard().historyEntry(HistoryEntry.SOURCE_FEED_FEATURED);
-    }
-
     private void goToMainPage(@NonNull WikiSite wiki) {
         if (getCallback() != null && getCard() != null) {
             getCallback().onSelectPage(getCard(),
-                    new HistoryEntry(getMainPageTitle(wiki.languageCode(), wiki), HistoryEntry.SOURCE_FEED_MAIN_PAGE));
+                    new HistoryEntry(getMainPageTitle(wiki.languageCode(), wiki), getCard().historyEntry().getSource()));
         }
     }
 
