@@ -13,8 +13,6 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
-import androidx.core.app.ActivityOptionsCompat;
-import androidx.core.view.ViewCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -61,7 +59,6 @@ import org.wikipedia.suggestededits.SuggestedEditsImageTagEditActivity;
 import org.wikipedia.suggestededits.SuggestedEditsSnackbars;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.ResourceUtil;
-import org.wikipedia.util.ThrowableUtil;
 import org.wikipedia.util.UriUtil;
 
 import java.util.ArrayList;
@@ -535,22 +532,7 @@ public class FeedFragment extends Fragment implements BackPressedHandler {
 
         @Override
         public void onRandomClick(@NonNull RandomCardView view) {
-            if (!app.isOnline()) {
-                view.getRandomPage();
-            } else {
-                ActivityOptionsCompat options = ActivityOptionsCompat.
-                        makeSceneTransitionAnimation(requireActivity(), view, ViewCompat.getTransitionName(view));
-                startActivity(RandomActivity.newIntent(requireActivity(), FEED), options.toBundle());
-            }
-        }
-
-        @Override
-        public void onGetRandomError(@NonNull Throwable t, @NonNull final RandomCardView view) {
-            Snackbar snackbar = FeedbackUtil.makeSnackbar(requireActivity(), ThrowableUtil.isOffline(t)
-                    ? getString(R.string.view_wiki_error_message_offline) : t.getMessage(),
-                    FeedbackUtil.LENGTH_DEFAULT);
-            snackbar.setAction(R.string.page_error_retry, (v) -> view.getRandomPage());
-            snackbar.show();
+            startActivity(RandomActivity.newIntent(requireActivity(), FEED));
         }
 
         @Override
