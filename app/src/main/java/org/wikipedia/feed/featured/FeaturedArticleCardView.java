@@ -62,8 +62,8 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
         extract(extract);
         image(imageUri);
 
-        header(card);
-        footer(card);
+        header();
+        footer();
     }
 
     @OnClick({R.id.view_featured_article_card_image, R.id.view_featured_article_card_content_container})
@@ -126,16 +126,22 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
         extractView.setText(StringUtil.fromHtml(extract));
     }
 
-    private void header(@NonNull FeaturedArticleCard card) {
-        headerView.setTitle(card.title())
-                .setLangCode(card.wikiSite().languageCode())
-                .setCard(card)
+    private void header() {
+        if (getCard() == null) {
+            return;
+        }
+        headerView.setTitle(getCard().title())
+                .setLangCode(getCard().wikiSite().languageCode())
+                .setCard(getCard())
                 .setCallback(getCallback());
     }
 
-    public void footer(@NonNull FeaturedArticleCard card) {
-        footerView.setCallback(() -> goToMainPage(card.wikiSite()));
-        footerView.setFooterActionText(card.footerActionText());
+    public void footer() {
+        if (getCard() == null) {
+            return;
+        }
+        footerView.setCallback(() -> goToMainPage(getCard().wikiSite()));
+        footerView.setFooterActionText(getCard().footerActionText());
     }
 
 
