@@ -17,6 +17,7 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_suggested_edits_image_tags_item.*
 import org.wikipedia.Constants
+import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
 import org.wikipedia.WikipediaApp
 import org.wikipedia.activity.FragmentUtil
@@ -57,6 +58,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
     private val tagList: MutableList<MwQueryPage.ImageLabel> = ArrayList()
     private var wasCaptionLongClicked: Boolean = false
     private var lastSearchTerm: String = ""
+    var invokeSource: InvokeSource = InvokeSource.SUGGESTED_EDITS
     private var funnel: EditFunnel? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -122,7 +124,7 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
         if (page != null) {
             return
         }
-        disposables.add(EditingSuggestionsProvider.getNextImageWithMissingTags(callback().getLangCode())
+        disposables.add(EditingSuggestionsProvider.getNextImageWithMissingTags()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ page ->
@@ -364,8 +366,8 @@ class SuggestedEditsImageTagsFragment : SuggestedEditsItemFragment(), CompoundBu
                             publishing = false
                         }
                         .subscribe({
-                            if (it.pageInfo != null) {
-                                funnel?.logSaved(it.pageInfo!!.lastRevId, commentStr)
+                            if (it.entity != null) {
+                                funnel?.logSaved(it.entity!!.lastRevId, invokeSource.getName())
                             }
                             publishSuccess = true
                             onSuccess()

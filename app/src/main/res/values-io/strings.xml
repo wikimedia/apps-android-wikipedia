@@ -17,7 +17,6 @@
   <string name="page_tabs_back">Retroirar</string>
   <string name="nav_item_forward">Adavane</string>
   <string name="search_hint">Serchar en Wikipedio</string>
-  <string name="search_hint_search_history">Serchar en historio</string>
   <string name="search_hint_search_languages">Serchar ula linguo</string>
   <string name="nav_item_history">Historio</string>
   <string name="error_network_error">Ne povas konektar kun la Internet</string>
@@ -331,6 +330,7 @@
   <string name="description_edit_help_about_wikidata">Pri Wikidonaji</string>
   <string name="description_edit_success_did_you_know">Ka tu savis?</string>
   <string name="description_edit_tutorial_button_label_start_editing">Komencar redaktar</string>
+  <string name="suggested_edits_edit_translation_button">Modifikar tradukuro</string>
   <string name="suggested_edits_image_caption_license_notice">Se vu kliktos \"save\" (salvar), vu tacite aceptos la &lt;a href=\"%1$s\"&gt;termi pri uzado&lt;/a&gt;, e nerevokeble liberigos vua kontributadi sub la permiso &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="suggested_edits_image_caption_summary_title_author">Autoro</string>
   <string name="suggested_edits_image_caption_summary_title_source">Fonto</string>

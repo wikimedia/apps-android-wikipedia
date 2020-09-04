@@ -20,6 +20,7 @@
 * Mormegil
 * MrJaroslavik
 * Patriccck
+* Robins7
 * Tereza
 * Vojtěch Dostál
 * Walter Klosse
@@ -34,7 +35,6 @@
   <string name="nav_item_forward">Dále</string>
   <string name="search_hint">Hledání ve Wikipedii</string>
   <string name="search_hint_voice_search">Vyhledávání hlasem</string>
-  <string name="search_hint_search_history">Hledat v historii</string>
   <string name="search_hint_search_languages">Hledat jazyk</string>
   <string name="filter_hint_filter_my_lists_and_articles">Filtrovat mé seznamy</string>
   <string name="nav_item_history">Historie</string>
@@ -658,7 +658,7 @@
   <string name="description_edit_success_saved_in_lang_snackbar">Popis článku (v jazyce %s) byl zveřejněn!</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Titulek obrázku byl zveřejněn!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Popis obrázku (v jazyce %s) byl zveřejněn!</string>
-  <string name="description_edit_success_se_image_caption_feed_link_snackbar">Líbilo se vám to?  Pomozte nám přidat chybějící titulky k jiným obrázkům.</string>
+  <string name="description_edit_success_saved_image_tags_snackbar" fuzzy="true">Značka/y obrázků byla/y publikována/y!</string>
   <string name="description_edit_success_encouragement">Wikipedie je díky vám lepší než předtím, děkujeme ☺</string>
   <string name="description_edit_success_done">Hotovo</string>
   <string name="description_edit_success_did_you_know">Věděli jste, že?</string>
@@ -811,7 +811,7 @@
   <string name="suggested_edits_rewards_pageviews">Vaše editace vidělo %d lidí za posledních 30 dní. Děkujeme a jen tak dále!</string>
   <string name="suggested_edits_rewards_edit_quality">Vaše úpravy jsou aktuálně %s. Jen tak dále! Těšíme se na vaše příspěvky.</string>
   <string name="suggested_edits_rewards_continue_button">Pokračovat</string>
-  <string name="suggested_edits_encourage_account_creation_title">Věděli jste, že editovat Wikipedii může každý?</string>
+  <string name="suggested_edits_encourage_account_creation_title">Věděli jste, že Wikipedii může editovat každý?</string>
   <string name="suggested_edits_encourage_account_creation_message">Navrhování editací je nový způsob editace Wikipedie na Androidu. Pomáhá vám přispívat na Wikipedii malými, ale pro chod Wikipedie důležitými příspěvky.\nNaším cílem je zjednodušit a zpřístupnit editování všem! Přihlaste se nebo se zaregistrujte na Wikipedii, abyste mohli začít.</string>
   <string name="suggested_edits_encourage_account_creation_login_button">Přihlásit / zaregistrovat se na Wikipedii</string>
   <string name="suggested_edits_contribution_type_image_tag">Značka obrázku</string>
@@ -911,7 +911,7 @@
   <string name="main_drawer_help">Nápověda</string>
   <string name="main_drawer_login">Přihlásit / zaregistrovat se na Wikipedii</string>
   <string name="main_tooltip_text">Dobrý den %s, věděli jste, že každý může editovat Wikipedii?</string>
-  <string name="main_tooltip_text_v2">Věděli jste, že editovat Wikipedii může každý?</string>
+  <string name="main_tooltip_text_v2">Věděli jste, že Wikipedii může editovat každý?</string>
   <string name="main_tooltip_action_button">Začít</string>
   <string name="custom_date_picker_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_ok_button_text">OK</string>

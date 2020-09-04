@@ -17,7 +17,6 @@ import androidx.recyclerview.widget.RecyclerView
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.CompositeDisposable
-import io.reactivex.rxjava3.functions.BiFunction
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_contributions_suggested_edits.*
 import org.apache.commons.lang3.StringUtils
@@ -148,7 +147,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
             })
         }
 
-        disposables.add(Observable.zip(if (allContributions.isNotEmpty() && articleContributionsContinuation.isNullOrEmpty()) Observable.just(Collections.emptyList<Contribution>())
+        disposables.add(Observable.zip(if (allContributions.isNotEmpty() && articleContributionsContinuation.isNullOrEmpty()) Observable.just(Collections.emptyList())
         else ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getUserContributions(AccountUtil.getUserName()!!, 50, articleContributionsContinuation)
                 .subscribeOn(Schedulers.io())
                 .flatMap { response ->
@@ -194,8 +193,13 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                                 for (entityKey in entities.entities().keys) {
                                     val entity = entities.entities()[entityKey]!!
                                     for (contribution in wikidataContributions) {
-                                        if (contribution.qNumber == entityKey && entity.labels().containsKey(contribution.wikiSite.languageCode())) {
-                                            contribution.title = entity.labels()[contribution.wikiSite.languageCode()]!!.value()
+                                        var languageCode = contribution.wikiSite.languageCode()
+                                        if (languageCode.startsWith(AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE) && !entity.labels().containsKey(languageCode)) {
+                                            // TODO: more proper solution - calling page/summary endpoint to get correct page title
+                                            languageCode = AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE
+                                        }
+                                        if (contribution.qNumber == entityKey && entity.labels().containsKey(languageCode)) {
+                                            contribution.title = entity.labels()[languageCode]!!.value()
                                             // if we need the current description of the item:
                                             //contribution.description = entity.descriptions()[contribution.wikiSite.languageCode()]!!.value()
                                         }
@@ -204,7 +208,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                                 Observable.just(wikidataContributions)
                             }
                 },
-                if (allContributions.isNotEmpty() && imageContributionsContinuation.isNullOrEmpty()) Observable.just(Collections.emptyList<Contribution>()) else
+                if (allContributions.isNotEmpty() && imageContributionsContinuation.isNullOrEmpty()) Observable.just(Collections.emptyList()) else
                     ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getUserContributions(AccountUtil.getUserName()!!, 200, imageContributionsContinuation)
                             .subscribeOn(Schedulers.io())
                             .flatMap { response ->
@@ -256,8 +260,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                                             WikiSite.forLanguageCode(contributionLanguage), 0, contribution.sizediff, contribution.top, tagCount))
                                 }
                                 Observable.just(contributions)
-                            },
-                BiFunction<List<Contribution>, List<Contribution>, List<Contribution>> { wikidataContributions, commonsContributions ->
+                            }, { wikidataContributions, commonsContributions ->
                     val contributions = ArrayList<Contribution>()
                     contributions.addAll(wikidataContributions)
                     contributions.addAll(commonsContributions)
@@ -295,7 +298,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                 sortedContributions.addAll(allContributions)
             }
         }
-        sortedContributions.sortWith(Comparator { o2, o1 -> (o1.date.compareTo(o2.date)) })
+        sortedContributions.sortWith{ o2, o1 -> (o1.date.compareTo(o2.date)) }
 
         if (!sortedContributions.isNullOrEmpty()) {
             var currentDate = sortedContributions[0].date
@@ -327,7 +330,8 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
     private fun deCommentString(str: String): String {
         return if (str.length < 4) str else str.substring(2, str.length - 2).trim()
     }
-
+    
+    @Suppress("SameParameterValue")
     private fun extractDescriptionFromComment(editComment: String, metaComment: String): String {
         var outStr = editComment.replace(metaComment, "")
         val hashtagPos = outStr.indexOf(", #suggestededit")
@@ -356,7 +360,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
         errorView.visibility = VISIBLE
     }
 
-    private inner class HeaderViewHolder internal constructor(itemView: ContributionsHeaderView) : DefaultViewHolder<ContributionsHeaderView?>(itemView) {
+    private inner class HeaderViewHolder constructor(itemView: ContributionsHeaderView) : DefaultViewHolder<ContributionsHeaderView?>(itemView) {
         fun bindItem() {
             view.callback = this@ContributionsFragment
             view.updateFilterViewUI(editFilterType, totalContributionCount)
@@ -364,7 +368,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
         }
     }
 
-    private class DateViewHolder internal constructor(itemView: View) : DefaultViewHolder<View?>(itemView) {
+    private class DateViewHolder constructor(itemView: View) : DefaultViewHolder<View?>(itemView) {
         init {
             itemView.setPaddingRelative(itemView.paddingStart, 0, itemView.paddingEnd, 0)
             itemView.layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, DimenUtil.roundedDpToPx(32f))
@@ -376,7 +380,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
         }
     }
 
-    private inner class ContributionItemHolder internal constructor(itemView: ContributionsItemView) : DefaultViewHolder<ContributionsItemView?>(itemView) {
+    private inner class ContributionItemHolder constructor(itemView: ContributionsItemView) : DefaultViewHolder<ContributionsItemView?>(itemView) {
         val disposables = CompositeDisposable()
         fun bindItem(contribution: Contribution) {
             view.contribution = contribution
@@ -425,8 +429,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                                                 }
                                             }
                                             Observable.just(label)
-                                        }),
-                        BiFunction<MwQueryResponse, String, Contribution> { commonsResponse, qLabel ->
+                                        }), { commonsResponse, qLabel ->
                             val page = commonsResponse.query()!!.pages()!![0]
                             if (page.imageInfo() != null) {
                                 val imageInfo = page.imageInfo()!!

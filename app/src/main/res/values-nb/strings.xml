@@ -27,7 +27,6 @@
   <string name="page_tabs_back">Tilbake</string>
   <string name="nav_item_forward">Fremover</string>
   <string name="search_hint">Søk i Wikipedia</string>
-  <string name="search_hint_search_history">Søkehistorikk</string>
   <string name="search_hint_search_languages">Søk etter språk</string>
   <string name="nav_item_history">Logg</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Redigeringsforslag</string>
@@ -615,6 +614,7 @@
   <string name="description_edit_success_saved_in_lang_snackbar">Artikkelbeskrivelse publisert! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Bildetekst publisert!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Bildetekst publisert! (%s)</string>
+  <string name="description_edit_success_saved_image_tags_snackbar" fuzzy="true">Bildetagg(er) publisert!</string>
   <string name="description_edit_success_encouragement">Du har akkurat bidratt til å gjøre Wikipedia litt bedre for alle</string>
   <string name="description_edit_success_done">Ferdig</string>
   <string name="description_edit_success_did_you_know">Visste du at?</string>

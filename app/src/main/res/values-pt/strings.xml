@@ -31,7 +31,6 @@
   <string name="nav_item_forward">Avançar</string>
   <string name="search_hint">Pesquisar na Wikipédia</string>
   <string name="search_hint_voice_search">Pesquisa com entrada por voz</string>
-  <string name="search_hint_search_history">Histórico de pesquisas</string>
   <string name="search_hint_search_languages">Pesquisar uma língua</string>
   <string name="filter_hint_filter_my_lists_and_articles">Filtrar as minhas listas</string>
   <string name="nav_item_history">Histórico</string>
@@ -666,7 +665,8 @@
   <string name="description_edit_success_saved_in_lang_snackbar">Descrição do artigo publicada! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Legenda da imagem publicada!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Legenda da imagem publicada! (%s)</string>
-  <string name="description_edit_success_se_image_caption_feed_link_snackbar">Gostou? Ajude-nos a adicionar legendas em falta a outras imagens.</string>
+  <string name="description_edit_success_saved_image_tags_snackbar">Etiquetas da imagem publicadas!</string>
+  <string name="description_edit_success_se_general_feed_link_snackbar">Gostou? Ajude-nos a adicionar mais.</string>
   <string name="description_edit_success_encouragement">Acabou de melhorar a Wikipédia para bem de todos</string>
   <string name="description_edit_success_done">Concluído</string>
   <string name="description_edit_success_did_you_know">Sabia que...</string>

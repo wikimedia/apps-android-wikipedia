@@ -1,6 +1,5 @@
 package org.wikipedia.commons
 
-import android.app.Activity
 import android.content.Context
 import android.icu.text.ListFormatter
 import android.net.Uri
@@ -29,7 +28,6 @@ import org.wikipedia.util.ImageUrlUtil
 import org.wikipedia.util.ResourceUtil
 import org.wikipedia.util.StringUtil
 import org.wikipedia.util.UriUtil
-import org.wikipedia.util.log.L
 import org.wikipedia.views.ImageDetailView
 import org.wikipedia.views.ImageZoomHelper
 import org.wikipedia.views.ViewUtil
@@ -137,7 +135,7 @@ class FilePageView constructor(context: Context, attrs: AttributeSet? = null) : 
 
     private fun imageTagsOnClickListener(fragment: Fragment, page: MwQueryPage): OnClickListener {
         return OnClickListener {
-            fragment.startActivityForResult(SuggestedEditsImageTagEditActivity.newIntent(context, page),
+            fragment.startActivityForResult(SuggestedEditsImageTagEditActivity.newIntent(context, page, InvokeSource.FILE_PAGE_ACTIVITY),
                     ACTIVITY_REQUEST_ADD_IMAGE_TAGS)
         }
     }

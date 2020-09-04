@@ -44,7 +44,6 @@
   <string name="nav_item_forward">Volgende</string>
   <string name="search_hint">In Wikipedia zoeken</string>
   <string name="search_hint_voice_search">Zoeken met steminvoer</string>
-  <string name="search_hint_search_history">Zoekgeschiedenis</string>
   <string name="search_hint_search_languages">Zoeken naar een taal</string>
   <string name="nav_item_history">Geschiedenis</string>
   <string name="nav_item_suggested_edits">Bewerkingen</string>
@@ -367,6 +366,11 @@
   <string name="crash_report_relaunch_or_quit">Er is helaas een fout opgetreden in de Wikipedia-app en de app is beëindigd.\n\nWilt u overnieuw beginnen of sluiten?</string>
   <string name="crash_report_relaunch">Opnieuw beginnen</string>
   <string name="crash_report_quit">Afsluiten</string>
+  <string name="article_menu_bar_save_button">Opslaan</string>
+  <string name="article_menu_bar_language_button">Taal</string>
+  <string name="article_menu_bar_search_button">Zoeken</string>
+  <string name="article_menu_bar_theme_button">Thema</string>
+  <string name="article_menu_bar_contents_button">Inhoud</string>
   <string name="article_header_edit_hint">Bewerken...</string>
   <string name="article_header_edit_description">Artikelbeschrijving bewerken</string>
   <string name="article_header_edit_lead_section">Inleiding bewerken</string>
@@ -392,6 +396,7 @@
   <string name="reading_list_article_already_exists_message">Perfect! %1$s bevat al %2$s.</string>
   <string name="reading_list_articles_already_exist_message">Perfect! %s bevat al alle artikels.</string>
   <string name="reading_list_added_view_button">Lijst bekijken</string>
+  <string name="reading_list_add_to_list_button">Aan lijst toevoegen</string>
   <plurals name="format_reading_list_statistical_summary">
     <item quantity="one">1 artikel, %2$.2f MB</item>
     <item quantity="other">%1$d artikelen, %2$.2f MB</item>

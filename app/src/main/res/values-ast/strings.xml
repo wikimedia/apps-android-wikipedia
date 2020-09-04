@@ -16,7 +16,6 @@
   <string name="nav_item_forward">Siguiente</string>
   <string name="search_hint">Guetar na Wikipedia</string>
   <string name="search_hint_voice_search">Busca con entrada por voz</string>
-  <string name="search_hint_search_history">Guetar nel historial</string>
   <string name="search_hint_search_languages">Buscar una llingua</string>
   <string name="nav_item_history">Historial</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Ediciones suxeríes</string>
@@ -606,6 +605,7 @@
   <string name="description_edit_success_saved_in_lang_snackbar">Espublizóse la descripción d\'artículu (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Espublizóse\'l pie d\'imaxe</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Espublizóse\'l pie d\'imaxe (%s)</string>
+  <string name="description_edit_success_saved_image_tags_snackbar" fuzzy="true">Espublizaes les etiquetes d\'imaxe</string>
   <string name="description_edit_success_encouragement">Acabes d\'ameyorar Wikipedia pa toos</string>
   <string name="description_edit_success_done">Fecho</string>
   <string name="description_edit_success_did_you_know">¿Sabíeslo?</string>

@@ -17,7 +17,6 @@
   <string name="nav_item_forward">Áfram</string>
   <string name="search_hint">Leita á Wikipedia</string>
   <string name="search_hint_voice_search">Leit með raddskipunum</string>
-  <string name="search_hint_search_history">Leitarferill</string>
   <string name="search_hint_search_languages">Leita eftir tungumáli</string>
   <string name="nav_item_history">Ferilskrá</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Tillögur að breytingum</string>
@@ -607,6 +606,7 @@
   <string name="description_edit_success_saved_in_lang_snackbar">Lýsing geinar birt! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Myndatexti birtur!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Myndatexti birtur! (%s)</string>
+  <string name="description_edit_success_saved_image_tags_snackbar" fuzzy="true">Myndamerki birt!</string>
   <string name="description_edit_success_encouragement">Þú varst að gera Wikipedia betri fyrir alla</string>
   <string name="description_edit_success_done">Lokið</string>
   <string name="description_edit_success_did_you_know">Vissir þú það?</string>

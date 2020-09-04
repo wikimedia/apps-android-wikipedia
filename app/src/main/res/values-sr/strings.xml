@@ -28,7 +28,6 @@
   <string name="nav_item_forward">Напред</string>
   <string name="search_hint">Претражите Википедију</string>
   <string name="search_hint_voice_search">Претрага гласом</string>
-  <string name="search_hint_search_history">Историја претраге</string>
   <string name="search_hint_search_languages">Претражите језике</string>
   <string name="nav_item_history">Историја</string>
   <string name="nav_item_suggested_edits">Измене</string>
@@ -351,6 +350,8 @@
   <string name="crash_report_relaunch_or_quit">Апликација Википедија је наишла на грешку и обустављена је.\n\nЖелите ли поново да је покренете или да изађете?</string>
   <string name="crash_report_relaunch">Покрени поново</string>
   <string name="crash_report_quit">Изађи</string>
+  <string name="article_menu_bar_language_button">Језик</string>
+  <string name="article_menu_bar_search_button">Претражи</string>
   <string name="article_header_edit_hint">Уреди…</string>
   <string name="article_header_edit_description">Уреди опис чланка</string>
   <string name="article_header_edit_lead_section">Уреди увод</string>

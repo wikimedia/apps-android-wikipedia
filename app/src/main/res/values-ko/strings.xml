@@ -39,7 +39,6 @@
   <string name="nav_item_forward">앞으로</string>
   <string name="search_hint">위키백과 검색</string>
   <string name="search_hint_voice_search">음성 입력 검색</string>
-  <string name="search_hint_search_history">역사 검색</string>
   <string name="search_hint_search_languages">언어 검색</string>
   <string name="filter_hint_filter_my_lists_and_articles">내 목록 필터링</string>
   <string name="nav_item_history">방문 기록</string>
@@ -362,6 +361,10 @@
   <string name="crash_report_relaunch_or_quit">죄송합니다,  위키백과 앱이 오류가 발생하여 종료되었습니다.\n\n다시 시작하거나 나가시겠습니까?</string>
   <string name="crash_report_relaunch">다시 시작</string>
   <string name="crash_report_quit">종료</string>
+  <string name="article_menu_bar_save_button">저장</string>
+  <string name="article_menu_bar_language_button">언어</string>
+  <string name="article_menu_bar_search_button">검색</string>
+  <string name="article_menu_bar_theme_button">테마</string>
   <string name="article_header_edit_hint">편집...</string>
   <string name="article_header_edit_description">문서 설명 편집</string>
   <string name="article_header_edit_lead_section">도입부 편집</string>
@@ -383,6 +386,7 @@
   <string name="reading_list_create_new">새로 만들기</string>
   <string name="reading_list_title_exists">\"%s\" 읽기 목록이 이미 존재합니다.</string>
   <string name="reading_list_article_added_to_named">%1$s 문서를 %2$s에 추가했습니다.</string>
+  <string name="reading_list_article_added_to_default_list">%s 문서를 저장했습니다. 해당 항목을 목록에 추가하시겠습니까?</string>
   <string name="reading_list_article_moved_to_named">%1$s 문서를 %2$s(으)로 이동했습니다.</string>
   <string name="reading_list_article_already_exists_message">좋습니다! %1$s은(는) 이미 %2$s 문서를 포함하고 있습니다.</string>
   <string name="reading_list_articles_already_exist_message">좋습니다! %s은(는) 이미 모든 문서를 포함하고 있습니다.</string>
@@ -570,6 +574,7 @@
   <string name="menu_feed_overflow_label">옵션 더 보기</string>
   <string name="feed_featured_image_share_subject">위키미디어 공용의 알찬 그림</string>
   <string name="feed">탐색</string>
+  <string name="home">홈</string>
   <string name="most_read_list_card_title">유행</string>
   <string name="view_static_card_icon_content_description">카드 아이콘</string>
   <string name="view_card_news_title">새로 들어온 소식</string>
@@ -640,6 +645,7 @@
   <string name="description_edit_success_saved_in_lang_snackbar">문서 설명을 게시했습니다! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">이미지 설명이 게시되었습니다!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">이미지 설명이 게시되었습니다! (%s)</string>
+  <string name="description_edit_success_saved_image_tags_snackbar" fuzzy="true">이미지 태그가 저장되었습니다!</string>
   <string name="description_edit_success_encouragement">방금 모두를 위해 위키백과를 개선해주셨습니다</string>
   <string name="description_edit_success_done">완료</string>
   <string name="description_edit_success_did_you_know">알고 계십니까?</string>
@@ -701,6 +707,7 @@
   <string name="suggested_edits_image_preview_dialog_more_info">자세한 정보</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">위키미디어 공용의 파일 문서</string>
   <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">위키백과의 파일 문서</string>
+  <string name="suggested_edits_article_cta_image_tags">이미지 태그 추가</string>
   <string name="suggested_edits_article_cta_image_caption">이미지 캡션 추가</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">이미지 캡션 추가 (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">보기</string>
@@ -802,6 +809,8 @@
   </plurals>
   <string name="suggested_edits_added_contribution_label">글자 %d자를 추가하셨습니다</string>
   <string name="file_page_activity_title">파일 문서</string>
+  <string name="file_page_add_image_caption_button">이미지 캡션 추가</string>
+  <string name="file_page_add_image_tags_button">이미지 태그 추가</string>
   <string name="description_edit_revert_subtitle">위키백과를 편집해 주셔서 감사합니다!</string>
   <string name="description_edit_revert_intro">저희는 당신이 최선의 노력을 다해주신 것을 알고 있습니다만, 검토자들 중 한 명이 걱정하는 부분이 있습니다. 당신의 편집이 되돌려진 잠재적 이유는 다음과 같습니다:</string>
   <string name="description_edit_revert_reason1">당신의 기여는 &lt;a href=\"%1$s\"&gt;지침들&lt;/a&gt; 가운데 하나를 준수하지 않았습니다.</string>

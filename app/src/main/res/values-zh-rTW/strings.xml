@@ -33,7 +33,6 @@
   <string name="nav_item_forward">下一頁</string>
   <string name="search_hint">搜尋維基百科</string>
   <string name="search_hint_voice_search">語音輸入搜尋</string>
-  <string name="search_hint_search_history">搜尋歷史</string>
   <string name="search_hint_search_languages">搜尋語言</string>
   <string name="filter_hint_filter_my_lists_and_articles">篩選我的清單</string>
   <string name="nav_item_history">歷史</string>
@@ -668,7 +667,8 @@
   <string name="description_edit_success_saved_in_lang_snackbar">條目描述已發布！（%s）</string>
   <string name="description_edit_success_saved_image_caption_snackbar">圖片說明已發佈！</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">圖片說明已發布！（%s）</string>
-  <string name="description_edit_success_se_image_caption_feed_link_snackbar">有喜歡嗎？請協助我們替其它圖片添加缺少的說明。</string>
+  <string name="description_edit_success_saved_image_tags_snackbar">圖片標籤已發布！</string>
+  <string name="description_edit_success_se_general_feed_link_snackbar">不夠過癮？協助我們添加更多。</string>
   <string name="description_edit_success_encouragement">謝謝您！您剛剛已令維基百科變得更完善，所有人都會受惠</string>
   <string name="description_edit_success_done">完成</string>
   <string name="description_edit_success_did_you_know">您知道嗎？</string>

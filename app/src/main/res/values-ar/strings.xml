@@ -41,7 +41,6 @@
   <string name="nav_item_forward">إلى الأمام</string>
   <string name="search_hint">ابحث في ويكيبيديا</string>
   <string name="search_hint_voice_search">البحث عن المدخلات الصوتية</string>
-  <string name="search_hint_search_history">البحث في التاريخ</string>
   <string name="search_hint_search_languages">بحث عن لغة</string>
   <string name="nav_item_history">التاريخ</string>
   <string name="nav_item_suggested_edits">التعديلات</string>
@@ -361,6 +360,7 @@
   <string name="crash_report_relaunch">ابدأ من جديد</string>
   <string name="crash_report_quit">خروج</string>
   <string name="article_menu_bar_language_button">اللغة</string>
+  <string name="article_menu_bar_contents_button">المحتويات</string>
   <string name="article_header_edit_hint">تحرير...</string>
   <string name="article_header_edit_description">تحرير وصف المقالة</string>
   <string name="article_header_edit_lead_section">عدّل المقدمة</string>
@@ -638,6 +638,7 @@
   <string name="description_edit_success_saved_in_lang_snackbar">تم نشر وصف المقالة! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">تم نشر تعليق الصورة!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">تم نشر تعليق الصورة! (%s)</string>
+  <string name="description_edit_success_saved_image_tags_snackbar" fuzzy="true">وسم(وسوم) الصورة تم نشرها!</string>
   <string name="description_edit_success_encouragement">لقد جعلت ويكيبيديا أفضل للجميع</string>
   <string name="description_edit_success_done">تم</string>
   <string name="description_edit_success_did_you_know">هل تعلم؟</string>

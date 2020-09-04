@@ -45,7 +45,6 @@
   <string name="page_tabs_back">بازگشت</string>
   <string name="nav_item_forward">جلو</string>
   <string name="search_hint">جستجو در ویکی‌پدیا</string>
-  <string name="search_hint_search_history">تاریخچهٔ جستجو</string>
   <string name="search_hint_search_languages">جستجوی یک زبان</string>
   <string name="nav_item_history">تاریخچه</string>
   <string name="nav_item_suggested_edits" fuzzy="true">ویرایش‌های پیشنهادی</string>
@@ -358,6 +357,11 @@
   <string name="crash_report_relaunch_or_quit">با عرض پوزش نرم‌افزار با خطا خارج شد آیا قصد استفادهٔ مجدد دارید؟</string>
   <string name="crash_report_relaunch">شروع دوباره</string>
   <string name="crash_report_quit">خروج</string>
+  <string name="article_menu_bar_save_button">ذخیره</string>
+  <string name="article_menu_bar_language_button">زبان</string>
+  <string name="article_menu_bar_search_button">جستجو</string>
+  <string name="article_menu_bar_theme_button">پوسته</string>
+  <string name="article_menu_bar_contents_button">محتویات</string>
   <string name="article_header_edit_hint">ویرایش...</string>
   <string name="article_header_edit_description">ویرایش توضیحات مقاله</string>
   <string name="article_header_edit_lead_section">ویرایش مقدمه</string>
@@ -560,6 +564,7 @@
   <string name="menu_feed_overflow_label">گزینه‌های بیشتر</string>
   <string name="feed_featured_image_share_subject">تصویر برگزیده ویکی‌انبار</string>
   <string name="feed">مرور</string>
+  <string name="home">خانه</string>
   <string name="most_read_list_card_title">گریش‌ها</string>
   <string name="view_static_card_icon_content_description">آیکون کارت</string>
   <string name="view_card_news_title">در اخبار</string>
@@ -626,6 +631,7 @@
   <string name="description_edit_success_saved_in_lang_snackbar">توضیحات مقاله منتشر شد! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">عنوان تصویر منتشر شد!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">توضیحات تصویر منتشر شد!(%s)</string>
+  <string name="description_edit_success_saved_image_tags_snackbar" fuzzy="true">برچسب تصویر منتشر شد!</string>
   <string name="description_edit_success_encouragement">شما ویکی‌پدیا را برای همه بهتر کردید</string>
   <string name="description_edit_success_done">انجام شد</string>
   <string name="description_edit_success_did_you_know">آیا می‌دانستید که؟</string>

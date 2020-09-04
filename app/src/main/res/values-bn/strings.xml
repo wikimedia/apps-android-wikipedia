@@ -15,6 +15,7 @@
 * Sourav Halder
 * Tahmid02016
 * Tauhid16
+* Titodutta
 * Wikisagnik
 * YahyA
 * আজিজ
@@ -31,7 +32,6 @@
   <string name="nav_item_forward">সামনে যান</string>
   <string name="search_hint">উইকিপিডিয়া অনুসন্ধান</string>
   <string name="search_hint_voice_search">কণ্ঠ দ্বারা অনুসন্ধান</string>
-  <string name="search_hint_search_history">ইতিহাস অনুসন্ধান করুন</string>
   <string name="search_hint_search_languages">একটি ভাষার জন্য অনুসন্ধান করুন</string>
   <string name="nav_item_history">ইতিহাস</string>
   <string name="nav_item_suggested_edits">সম্পাদনা</string>
@@ -221,7 +221,7 @@
   <string name="edit_abandon_confirm_no">না</string>
   <string name="user_blocked_from_editing_title">অবরুদ্ধ</string>
   <string name="user_logged_in_blocked_from_editing">আপনার ব্যবহারকারী অ্যাকাউন্টটিকে এই উইকিতে সম্পাদনা করা থেকে বাধা দেয়া হয়েছে।</string>
-  <string name="user_anon_blocked_from_editing">আপনার আইপি ঠিকানাকে সম্পাদনা করা থেকে বাধা দেয়া হয়েছে।</string>
+  <string name="user_anon_blocked_from_editing">আপনার আইপি ঠিকানাটিকে সম্পাদনা করা থেকে বাধা প্রদান করা হয়েছে।</string>
   <string name="edit_how_page_improved">কীভাবে আপনি পাতাটি উন্নত করেছেন?</string>
   <string name="edit_next">পরবর্তী</string>
   <string name="edit_done">প্রকাশ করুন</string>
@@ -329,8 +329,10 @@
   <string name="crash_report_relaunch_or_quit">আমরা দুঃখিত, উইকিপিডিয়া অ্যাপ্লিকেশন একটি ত্রুটির সম্মুখীন হয়েছে এবং বন্ধ হয়ে গেছে।\n\nআপনি কি পুনরারম্ভ বা প্রস্থান করতে চান?</string>
   <string name="crash_report_relaunch">পুনরারম্ভ করুন</string>
   <string name="crash_report_quit">প্রস্থান</string>
+  <string name="article_menu_bar_save_button">সংরক্ষণ</string>
   <string name="article_menu_bar_language_button">ভাষা</string>
   <string name="article_menu_bar_search_button">অনুসন্ধান</string>
+  <string name="article_menu_bar_theme_button">থিম</string>
   <string name="article_header_edit_hint">সম্পাদনা…</string>
   <string name="article_header_edit_description" fuzzy="true">শিরোনামের বিবরণ সম্পাদনা করুন</string>
   <string name="article_header_edit_lead_section">ভূমিকা সম্পাদনা করুন</string>

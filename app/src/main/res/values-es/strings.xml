@@ -62,7 +62,6 @@
   <string name="nav_item_forward">Siguiente</string>
   <string name="search_hint">Buscar en Wikipedia</string>
   <string name="search_hint_voice_search">Búsqueda por voz</string>
-  <string name="search_hint_search_history">Buscar en el historial</string>
   <string name="search_hint_search_languages">Buscar un idioma</string>
   <string name="filter_hint_filter_my_lists_and_articles">Filtrar mis listas</string>
   <string name="nav_item_history">Historial</string>
@@ -679,7 +678,7 @@
   <string name="description_edit_success_saved_in_lang_snackbar">¡Descripción de artículo publicada! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Se publicó la leyenda de la imagen.</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Se publicó el pie de foto (%s)</string>
-  <string name="description_edit_success_se_image_caption_feed_link_snackbar">Disfrutado que? Nos ayudo añadir perdiendo captions a otras imágenes.</string>
+  <string name="description_edit_success_saved_image_tags_snackbar" fuzzy="true">¡Etiquetas de imagen(es) publicadas!</string>
   <string name="description_edit_success_encouragement">Acabas de mejorar Wikipedia para todos</string>
   <string name="description_edit_success_done">Hecho</string>
   <string name="description_edit_success_did_you_know">¿Sabías?</string>

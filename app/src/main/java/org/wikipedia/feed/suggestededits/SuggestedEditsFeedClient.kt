@@ -71,7 +71,7 @@ class SuggestedEditsFeedClient(private var action: DescriptionEditActivity.Actio
 
     private fun getImageToAddTags(cb: FeedClient.Callback?, callback: Callback?) {
         disposables.add(EditingSuggestionsProvider
-                .getNextImageWithMissingTags(langFromCode, MAX_RETRY_LIMIT)
+                .getNextImageWithMissingTags(MAX_RETRY_LIMIT)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ page ->

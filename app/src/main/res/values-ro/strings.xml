@@ -27,7 +27,6 @@
   <string name="nav_item_forward">Înainte</string>
   <string name="search_hint">Căutare în Wikipedia</string>
   <string name="search_hint_voice_search">Căutare de intrare vocală</string>
-  <string name="search_hint_search_history">Istoricul căutării</string>
   <string name="search_hint_search_languages">Caută o limbă</string>
   <string name="nav_item_history">Istoric</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Modificări sugerate</string>
@@ -633,6 +632,7 @@
   <string name="description_edit_success_saved_in_lang_snackbar">Descrierea articolului publicată! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Subtitrare imagine publicată!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Subtitrare imagine publicată! (%s)</string>
+  <string name="description_edit_success_saved_image_tags_snackbar" fuzzy="true">Etichete de imagine publicate!</string>
   <string name="description_edit_success_encouragement">Tocmai ai făcut Wikipedia mai bună pentru toată lumea</string>
   <string name="description_edit_success_done">Realizat</string>
   <string name="description_edit_success_did_you_know">Știați că?</string>

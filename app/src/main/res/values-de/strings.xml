@@ -8,6 +8,7 @@
 * Dbrant
 * DraconicDark
 * Druesenfieber
+* Elliot
 * Envlh
 * FF11
 * Gnom
@@ -36,7 +37,6 @@
   <string name="nav_item_forward">Vorwärts</string>
   <string name="search_hint">Wikipedia durchsuchen</string>
   <string name="search_hint_voice_search">Sprachsuche</string>
-  <string name="search_hint_search_history">Suchverlauf</string>
   <string name="search_hint_search_languages">Nach einer Sprache suchen</string>
   <string name="nav_item_history">Verlauf</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Vorgeschlagene Bearbeitungen</string>
@@ -352,6 +352,8 @@
   <string name="crash_report_relaunch_or_quit">Leider ist in der Wikipedia-App ein Fehler aufgetreten.\n\nMöchtest du die App neu starten oder beenden?</string>
   <string name="crash_report_relaunch">Neu starten</string>
   <string name="crash_report_quit">Beenden</string>
+  <string name="article_menu_bar_language_button">Sprache</string>
+  <string name="article_menu_bar_theme_button">Thema</string>
   <string name="article_header_edit_hint">Bearbeiten …</string>
   <string name="article_header_edit_description">Artikelbeschreibung bearbeiten</string>
   <string name="article_header_edit_lead_section">Einführung bearbeiten</string>
@@ -554,6 +556,7 @@
   <string name="menu_feed_overflow_label">Weitere Optionen</string>
   <string name="feed_featured_image_share_subject">Vorgestelltes Bild von Wikimedia Commons</string>
   <string name="feed">Entdecken</string>
+  <string name="home">Startseite</string>
   <string name="most_read_list_card_title">Beliebt</string>
   <string name="view_static_card_icon_content_description">Kartensymbol</string>
   <string name="view_card_news_title">In den Nachrichten</string>
@@ -632,6 +635,7 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Idealerweise eine Zeile, zwischen zwei und zwölf Wörtern</string>
   <string name="description_edit_tutorial_button_label_start_editing">Mit dem Bearbeiten anfangen</string>
   <string name="description_edit_tutorial_promise">Ich verspreche, dass ich diese Funktion nicht missbrauchen werde.</string>
+  <string name="suggested_edits_caption_images">Bilder betiteln</string>
   <string name="suggested_edits_tag_images">Bilder taggen</string>
   <string name="suggested_edits_review_description">Artikelbeschreibung überprüfen</string>
   <string name="suggested_edits_add_description_button">Beschreibung hinzufügen</string>
@@ -674,6 +678,7 @@
   <string name="suggested_edits_tasks_onboarding_get_started">Anfangen</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Bildunterschrift (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Bildbeschreibung (%s)</string>
+  <string name="suggested_edits_image_preview_dialog_image">Bild</string>
   <string name="suggested_edits_image_preview_dialog_artist">Künstler</string>
   <string name="suggested_edits_image_preview_dialog_date">Datum</string>
   <string name="suggested_edits_image_preview_dialog_source">Quelle/Fotograf</string>

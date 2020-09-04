@@ -17,7 +17,6 @@
   <string name="nav_item_forward">اڳتي</string>
   <string name="search_hint">وڪيپيڊيا ۾ ڳوليو</string>
   <string name="search_hint_voice_search">زباني ٻڌايل ڳولا</string>
-  <string name="search_hint_search_history">سوانح ۾ ڳوليو</string>
   <string name="search_hint_search_languages">ڪنھن ٻوليءَ لاءِ ڳوليو</string>
   <string name="nav_item_history">سوانح</string>
   <string name="nav_item_suggested_edits">سنوارون</string>
@@ -566,6 +565,7 @@
   <string name="description_edit_success_saved_in_lang_snackbar">مضمون جي تشريح ڇپجي وئي (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">عڪس جو عنوان ڇپجي ويو!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">عڪس جو عنوان ڇپجي ويو! (%s)</string>
+  <string name="description_edit_success_saved_image_tags_snackbar" fuzzy="true">عڪس جو/جا ٽيگ ڇپجي ويو/ويا!</string>
   <string name="description_edit_success_encouragement">توھان وڪيپيڊيا کي ھر ڪنھن لاءِ بھتر بڻايو</string>
   <string name="description_edit_success_done">ٿي ويو</string>
   <string name="description_edit_success_did_you_know">ڇا توهان کي ڄاڻ هئي؟</string>

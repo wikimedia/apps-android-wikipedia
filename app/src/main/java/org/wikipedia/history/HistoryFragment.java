@@ -569,7 +569,7 @@ public class HistoryFragment extends Fragment implements BackPressedHandler {
 
         @Override
         protected String getSearchHintString() {
-            return requireContext().getResources().getString(R.string.search_hint_search_history);
+            return requireContext().getResources().getString(R.string.history_filter_list_hint);
         }
 
         @Override

@@ -46,7 +46,6 @@ import org.wikipedia.LongPressHandler;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.FragmentUtil;
-import org.wikipedia.analytics.ABTestSuggestedEditsSnackbarFunnel;
 import org.wikipedia.analytics.FindInPageFunnel;
 import org.wikipedia.analytics.GalleryFunnel;
 import org.wikipedia.analytics.LoginFunnel;
@@ -115,14 +114,11 @@ import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
-import static android.app.Activity.RESULT_OK;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_GALLERY;
 import static org.wikipedia.Constants.InvokeSource.BOOKMARK_BUTTON;
 import static org.wikipedia.Constants.InvokeSource.PAGE_ACTION_TAB;
 import static org.wikipedia.Constants.InvokeSource.PAGE_ACTIVITY;
 import static org.wikipedia.descriptions.DescriptionEditActivity.Action.ADD_DESCRIPTION;
-import static org.wikipedia.descriptions.DescriptionEditSuccessActivity.RESULT_OK_FROM_EDIT_SUCCESS;
-import static org.wikipedia.descriptions.DescriptionEditTutorialActivity.DESCRIPTION_SELECTED_TEXT;
 import static org.wikipedia.feed.announcement.Announcement.PLACEMENT_ARTICLE;
 import static org.wikipedia.feed.announcement.AnnouncementClient.shouldShow;
 import static org.wikipedia.page.PageActivity.ACTION_RESUME_READING;
@@ -535,7 +531,7 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         app.getSessionFunnel().leadSectionFetchEnd();
 
         bridge.evaluate(JavaScriptActionHandler.getRevision(), revision -> {
-            if (!isAdded()) {
+            if (!isAdded() || revision == null || revision.equals("null")) {
                 return;
             }
             try {
@@ -830,26 +826,6 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
             FeedbackUtil.showMessage(requireActivity(), R.string.edit_saved_successfully);
             // and reload the page...
             loadPage(model.getTitleOriginal(), model.getCurEntry(), false, false);
-        } else if (requestCode == Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT_TUTORIAL
-                && resultCode == RESULT_OK) {
-            Prefs.setDescriptionEditTutorialEnabled(false);
-            startDescriptionEditActivity(data.getStringExtra(DESCRIPTION_SELECTED_TEXT));
-        } else if (requestCode == Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT
-                && resultCode == RESULT_OK) {
-            refreshPage();
-            ABTestSuggestedEditsSnackbarFunnel abTestFunnel = new ABTestSuggestedEditsSnackbarFunnel();
-            Snackbar snackbar = FeedbackUtil.makeSnackbar(requireActivity(),
-                    getString(abTestFunnel.shouldSeeSnackbarAction()
-                            ? R.string.description_edit_success_saved_snackbar_se_promotion
-                            : R.string.description_edit_success_saved_snackbar), FeedbackUtil.LENGTH_DEFAULT);
-            if (abTestFunnel.shouldSeeSnackbarAction()) {
-                snackbar.setAction(R.string.suggested_edits_tasks_onboarding_get_started, view -> startSuggestionsActivity(ADD_DESCRIPTION));
-            }
-            snackbar.show();
-            abTestFunnel.logSnackbarShown();
-        } else if (requestCode == Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT
-                && resultCode == RESULT_OK_FROM_EDIT_SUCCESS) {
-            refreshPage();
         }
     }
 
@@ -1165,14 +1141,14 @@ public class PageFragment extends Fragment implements BackPressedHandler, Commun
         }
     }
 
-    private void startDescriptionEditActivity(@Nullable String text) {
+    public void startDescriptionEditActivity(@Nullable String text) {
         if (isDescriptionEditTutorialEnabled()) {
-            startActivityForResult(DescriptionEditTutorialActivity.newIntent(requireContext(), text),
+            requireActivity().startActivityForResult(DescriptionEditTutorialActivity.newIntent(requireContext(), text),
                     Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT_TUTORIAL);
         } else {
             PageSummaryForEdit sourceSummary = new PageSummaryForEdit(getTitle().getPrefixedText(), getTitle().getWikiSite().languageCode(), getTitle(),
                     getTitle().getDisplayText(), getTitle().getDescription(), getTitle().getThumbUrl());
-            startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), getTitle(), text, sourceSummary, null, ADD_DESCRIPTION, PAGE_ACTIVITY),
+            requireActivity().startActivityForResult(DescriptionEditActivity.newIntent(requireContext(), getTitle(), text, sourceSummary, null, ADD_DESCRIPTION, PAGE_ACTIVITY),
                     Constants.ACTIVITY_REQUEST_DESCRIPTION_EDIT);
         }
     }

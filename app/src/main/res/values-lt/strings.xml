@@ -22,7 +22,6 @@
   <string name="nav_item_forward">Pirmyn</string>
   <string name="search_hint">Paieška Vikipedijoje</string>
   <string name="search_hint_voice_search">Paieškos įvestis balsu</string>
-  <string name="search_hint_search_history">Paieškos istorija</string>
   <string name="search_hint_search_languages">Ieškoti kalbos</string>
   <string name="nav_item_history">Istorija</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Siūlomi keitimai</string>

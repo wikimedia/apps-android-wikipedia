@@ -9,8 +9,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
-import android.widget.AdapterView;
-import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -42,10 +40,15 @@ public class LongPressHandler implements View.OnCreateContextMenuListener,
         view.setOnTouchListener(this);
     }
 
+    public LongPressHandler(@NonNull View view, @NonNull PageTitle pageTitle, int historySource, @NonNull OverflowMenuListener listener) {
+        this(view, historySource, listener);
+        this.title = pageTitle;
+    }
+
     @Override
     public void onCreateContextMenu(ContextMenu menu, View view, ContextMenu.ContextMenuInfo menuInfo) {
-        title = null;
         if (view instanceof WebView) {
+            title = null;
             WebView.HitTestResult result = ((WebView) view).getHitTestResult();
             if (result.getType() == WebView.HitTestResult.SRC_ANCHOR_TYPE) {
                 Uri uri = Uri.parse(result.getExtra());
@@ -58,13 +61,11 @@ public class LongPressHandler implements View.OnCreateContextMenuListener,
                     }
                     title = wikiSite.titleForInternalLink(uri.getPath());
                     referrer = ((WebViewOverflowMenuListener) overflowMenuListener).getReferrer();
-                    showPopupMenu(view, null);
+                    showPopupMenu(view, true);
                 }
             }
-        } else if (view instanceof ListView) {
-            AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) menuInfo;
-            title = ((ListViewOverflowMenuListener) overflowMenuListener).getTitleForListPosition(info.position);
-            showPopupMenu(view, info);
+        } else {
+            showPopupMenu(view, false);
         }
     }
 
@@ -78,13 +79,13 @@ public class LongPressHandler implements View.OnCreateContextMenuListener,
         return false;
     }
 
-    private void showPopupMenu(@NonNull View view, @Nullable AdapterView.AdapterContextMenuInfo info) {
+    private void showPopupMenu(@NonNull View view, boolean createAnchorView) {
         if (title != null && !title.isSpecial() && view.isAttachedToWindow()) {
             hideSoftKeyboard(view);
             entry = new HistoryEntry(title, historySource);
             entry.setReferrer(referrer);
             PopupMenu popupMenu;
-            if (info == null) {
+            if (createAnchorView) {
                 View tempView = new View(view.getContext());
                 tempView.setX(clickPositionX);
                 tempView.setY(clickPositionY);
@@ -92,7 +93,7 @@ public class LongPressHandler implements View.OnCreateContextMenuListener,
                 popupMenu = new PopupMenu(view.getContext(), tempView, 0);
                 popupMenu.setOnDismissListener(menu1 -> ((ViewGroup) view.getRootView()).removeView(tempView));
             } else {
-                popupMenu = new PopupMenu(view.getContext(), info.targetView, Gravity.END);
+                popupMenu = new PopupMenu(view.getContext(), view, Gravity.END);
             }
             popupMenu.getMenuInflater().inflate(R.menu.menu_page_long_press, popupMenu.getMenu());
             popupMenu.setOnMenuItemClickListener(this);
@@ -129,10 +130,6 @@ public class LongPressHandler implements View.OnCreateContextMenuListener,
         void onCopyLink(PageTitle title);
         void onShareLink(PageTitle title);
         void onAddToList(PageTitle title, InvokeSource source);
-    }
-
-    public interface ListViewOverflowMenuListener extends OverflowMenuListener {
-        PageTitle getTitleForListPosition(int position);
     }
 
     public interface WebViewOverflowMenuListener extends OverflowMenuListener {

@@ -22,7 +22,6 @@
   <string name="nav_item_forward">Naprijed</string>
   <string name="search_hint">Pretraži Wikipediju</string>
   <string name="search_hint_voice_search">Pretraživanje glasom</string>
-  <string name="search_hint_search_history">Pretraživanje povijesti</string>
   <string name="search_hint_search_languages">Pretraga jezika</string>
   <string name="filter_hint_filter_my_lists_and_articles">Filtriraj moje popise</string>
   <string name="nav_item_history">Povijest</string>
@@ -571,7 +570,6 @@
   <string name="description_edit_success_saved_in_lang_snackbar">Objavljen opis članka! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Objavljen opis slike!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Objavljen opis slike! (%s)</string>
-  <string name="description_edit_success_se_image_caption_feed_link_snackbar">Jeste li uživali? Pomozite nam dodati nedostajuće opise slika na ostalim mjestima.</string>
   <string name="description_edit_success_encouragement">Upravo ste učinili Wikipediju boljom za svakoga</string>
   <string name="description_edit_success_done">Gotovo</string>
   <string name="description_edit_success_did_you_know">Jeste li znali?</string>

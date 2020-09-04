@@ -30,7 +30,6 @@
   <string name="nav_item_forward">התקדמות</string>
   <string name="search_hint">חיפוש בוויקיפדיה</string>
   <string name="search_hint_voice_search">חיפוש לפי קלט קולי</string>
-  <string name="search_hint_search_history">היסטוריית חיפוש</string>
   <string name="search_hint_search_languages">חיפוש שפה</string>
   <string name="filter_hint_filter_my_lists_and_articles">לסנן את הרשימות שלי</string>
   <string name="nav_item_history">היסטוריה</string>
@@ -355,6 +354,11 @@
   <string name="crash_report_relaunch_or_quit">אנחנו מצטערים, ביישום ויקיפדיה אירעה שגיאה והוא נעצר.\n\nהאם להתחיל מהתחלה או לצאת?</string>
   <string name="crash_report_relaunch">להתחיל מהתחלה</string>
   <string name="crash_report_quit">לצאת</string>
+  <string name="article_menu_bar_save_button">שמירה</string>
+  <string name="article_menu_bar_language_button">שפה</string>
+  <string name="article_menu_bar_search_button">חיפוש</string>
+  <string name="article_menu_bar_theme_button">ערכת נושא</string>
+  <string name="article_menu_bar_contents_button">תוכן עניינים</string>
   <string name="article_header_edit_hint">עריכה...</string>
   <string name="article_header_edit_description">עריכת תיאור הערך</string>
   <string name="article_header_edit_lead_section">עריכת ההקדמה</string>
@@ -589,6 +593,7 @@
   <string name="menu_feed_overflow_label">אפשרויות נוספות</string>
   <string name="feed_featured_image_share_subject">תמונה מומלצת מוויקישיתוף</string>
   <string name="feed">לחקור</string>
+  <string name="home">דף הבית</string>
   <string name="most_read_list_card_title">נושאים חמים</string>
   <string name="view_static_card_icon_content_description">סמל כרטיס</string>
   <string name="view_card_news_title">בחדשות</string>
@@ -662,7 +667,7 @@
   <string name="description_edit_success_saved_in_lang_snackbar">תיאור הערך פורסם! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">כיתוב התמונה פורסם!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">כיתוב התמונה פורסם! (%s)</string>
-  <string name="description_edit_success_se_image_caption_feed_link_snackbar">היה כיף? עזור לנו להוסיף כיתובים חסרים לתמונות אחרות.</string>
+  <string name="description_edit_success_saved_image_tags_snackbar" fuzzy="true">תגיות התמונה פורסמו!</string>
   <string name="description_edit_success_encouragement">שיפרת עכשיו את ויקיפדיה עבור כולם</string>
   <string name="description_edit_success_done">בוצע</string>
   <string name="description_edit_success_did_you_know">הידעת?</string>
@@ -673,6 +678,8 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">יהיה מושלם אם זאת תהיה שורה אחת, בין שתיים לשתים־עשרה מילים</string>
   <string name="description_edit_tutorial_button_label_start_editing">להתחיל לערוך</string>
   <string name="description_edit_tutorial_promise">תחילת העריכה היא התחייבות שלי לא להשתמש באפשרות הזאת לרעה.</string>
+  <string name="suggested_edits_describe_articles">הוספת תיאור לערכים</string>
+  <string name="suggested_edits_caption_images">הוספת כיתוב לתמונות</string>
   <string name="suggested_edits_tag_images">לתייג תמונות</string>
   <string name="suggested_edits_review_description">סקירת תיאור ערך</string>
   <string name="suggested_edits_add_description_button">להוסיף תיאור</string>

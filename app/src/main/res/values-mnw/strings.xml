@@ -15,7 +15,6 @@
   <string name="nav_item_forward">ဂတ</string>
   <string name="search_hint">ဂၠာဲ ပ္ဍဲ ဝဳကဳပဳဒဳယာ</string>
   <string name="search_hint_voice_search">စုတ်ရမ္သာင်ဂၠာဲ</string>
-  <string name="search_hint_search_history">ဂၠာဲ ပ္ဍဲ ဒၞာဲမဗှ်လဝ်တုဲ</string>
   <string name="search_hint_search_languages">ဂၠာဲ သွက် အရေဝ်ဘာသာ မွဲ</string>
   <string name="nav_item_history">အရာမဗှ်လဝ်တုဲ</string>
   <string name="nav_item_suggested_edits" fuzzy="true">အရာပလေဝ်ဒါန် မအာတ်မိက်</string>
@@ -612,6 +611,7 @@
   <string name="description_edit_success_saved_in_lang_snackbar">ပရူပရာဂှ် တြးပတိတ်တုဲ ဗွဲမအံင်ဇၞး (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">ပရူပရာ ဗီုရုပ်ဂှ် တြးပတိတ်တုဲ ဗွဲမအံင်ဇၞး!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">ပရူပရာ ဗီုရုပ်ဂှ် တြးပတိတ်တုဲ ဗွဲမအံင်ဇၞး (%s)</string>
+  <string name="description_edit_success_saved_image_tags_snackbar" fuzzy="true">ဗီုရုပ် မစင်လဝ်ဂှ် တြးပတိတ်တုဲ!</string>
   <string name="description_edit_success_encouragement">မၞး လၟုဟ်ရ ဖန်ပခိုဟ်ပတိုန် ဝဳကဳပဳဒဳယာ သွက် ဇၟာပ်ညးအဲ</string>
   <string name="description_edit_success_done">တုဲဒှ်</string>
   <string name="description_edit_success_did_you_know">မၞး တီ ဟာ？</string>
