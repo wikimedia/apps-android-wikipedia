@@ -177,6 +177,11 @@ public enum Namespace implements EnumCode {
             return Namespace.SPECIAL;
         }
 
+        // TODO: include User_talk namespace mappings in static language data.
+        if (name != null && name.contains("User talk")) {
+            return Namespace.USER_TALK;
+        }
+
         // This works for the links provided by the app itself since they always have the English
         // version of the namespace.
         // TODO: It would be nice to add a mapping table, as is done for File and Special,
