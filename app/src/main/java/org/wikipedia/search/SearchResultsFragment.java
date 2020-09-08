@@ -39,7 +39,6 @@ import org.wikipedia.views.WikiErrorView;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.ListIterator;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
@@ -55,9 +54,6 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
 import static org.apache.commons.lang3.StringUtils.isBlank;
-import static org.wikipedia.search.SearchResult.SearchResultType.HISTORY_SEARCH_RESULT;
-import static org.wikipedia.search.SearchResult.SearchResultType.SEARCH_RESULT;
-import static org.wikipedia.search.SearchResult.SearchResultType.TAB_LIST_SEARCH_RESULT;
 import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
 
 public class SearchResultsFragment extends Fragment {
@@ -210,10 +206,10 @@ public class SearchResultsFragment extends Fragment {
                                 searchResults = new SearchResults();
                             }
                             handleSuggestion(searchResults.getSuggestion());
-                            List<SearchResult> resultList = new ArrayList<>(searchResults.getResults());
-                            resultList.addAll(readingListSearchResults.getResults());
+                            List<SearchResult> resultList = new ArrayList<>(readingListSearchResults.getResults());
                             resultList.addAll(historySearchResults.getResults());
                             addSearchResultsFromTabs(resultList);
+                            resultList.addAll(searchResults.getResults());
                             return resultList;
                         }))
                 .subscribeOn(Schedulers.io())
@@ -235,7 +231,7 @@ public class SearchResultsFragment extends Fragment {
         List<Tab> tabList = WikipediaApp.getInstance().getTabList();
         for (Tab tab : tabList) {
             if (tab.getBackStackPositionTitle() != null && tab.getBackStackPositionTitle().getDisplayText().toLowerCase().contains(currentSearchTerm.toLowerCase())) {
-                SearchResult searchResult = new SearchResult(TAB_LIST_SEARCH_RESULT, tab.getBackStackPositionTitle());
+                SearchResult searchResult = new SearchResult(tab.getBackStackPositionTitle(), SearchResult.SearchResultType.TAB_LIST);
                 resultList.add(searchResult);
                 return;
             }
@@ -376,21 +372,11 @@ public class SearchResultsFragment extends Fragment {
             for (SearchResult result : totalResults) {
                 if (newResult.getPageTitle().equals(result.getPageTitle())) {
                     contains = true;
-                    if (newResult.getPriority() == SEARCH_RESULT.getPriority()
-                            || newResult.getPriority() <= result.getPriority()) {
-                        break;
-                    }
-                    totalResults.remove(result);
-                    insertSearchResultInCorrectPosition(newResult);
                     break;
                 }
             }
             if (!contains) {
-                if (newResult.getPriority() == SEARCH_RESULT.getPriority() || totalResults.isEmpty()) {
-                    totalResults.add(newResult);
-                } else {
-                    insertSearchResultInCorrectPosition(newResult);
-                }
+                totalResults.add(newResult);
             }
         }
 
@@ -403,27 +389,6 @@ public class SearchResultsFragment extends Fragment {
         }
 
         getAdapter().notifyDataSetChanged();
-    }
-
-    private void insertSearchResultInCorrectPosition(@NonNull SearchResult newResult) {
-        final int numOfResultsFromAppSources = 3;
-
-        for (ListIterator<SearchResult> iterator = totalResults.listIterator(); totalResults.size() >= iterator.nextIndex() && iterator.nextIndex() < numOfResultsFromAppSources;) {
-            int currentPos = iterator.nextIndex();
-            SearchResult resultInPosition = iterator.next();
-            if (resultInPosition.getPriority() == newResult.getPriority() && !resultInPosition.getPageTitle().getText().equals(newResult.getPageTitle().getText())) {
-                //replace search result
-                iterator.remove();
-                iterator.add(newResult);
-                return;
-            }
-            if (resultInPosition.getPriority() < newResult.getPriority()) {
-                totalResults.add(currentPos, newResult);
-                return;
-            }
-        }
-        //Results list was shorter than 3, so add to the end
-        totalResults.add(newResult);
     }
 
     private class SearchResultsFragmentLongPressHandler
@@ -501,7 +466,6 @@ public class SearchResultsFragment extends Fragment {
         void bindItem(int position) {
             TextView pageTitleText = getView().findViewById(R.id.page_list_item_title);
             SearchResult result = totalResults.get(position);
-            int resultPriority = result.getPriority();
 
             ImageView searchResultItemImage = getView().findViewById(R.id.page_list_item_image);
             ImageView searchResultIcon = getView().findViewById(R.id.page_list_icon);
@@ -521,14 +485,14 @@ public class SearchResultsFragment extends Fragment {
                 redirectText.setText(getString(R.string.search_redirect_from, result.getRedirectFrom()));
                 descriptionText.setVisibility(GONE);
             }
-            if (resultPriority == SEARCH_RESULT.getPriority()) {
+            if (result.getType() == SearchResult.SearchResultType.SEARCH) {
                 searchResultIcon.setVisibility(GONE);
                 searchResultTabCountsView.setVisibility(GONE);
             } else {
-                searchResultTabCountsView.setVisibility(resultPriority == TAB_LIST_SEARCH_RESULT.getPriority() ? VISIBLE : GONE);
-                searchResultIcon.setVisibility(resultPriority == TAB_LIST_SEARCH_RESULT.getPriority() ? GONE : VISIBLE);
+                searchResultTabCountsView.setVisibility(result.getType() == SearchResult.SearchResultType.TAB_LIST ? VISIBLE : GONE);
+                searchResultIcon.setVisibility(result.getType() == SearchResult.SearchResultType.TAB_LIST ? GONE : VISIBLE);
                 searchResultIcon.setImageDrawable(AppCompatResources.getDrawable(requireContext(),
-                        resultPriority == HISTORY_SEARCH_RESULT.getPriority() ? R.drawable.ic_restore_black_24dp : R.drawable.ic_bookmark_border_white_24dp));
+                        result.getType() == SearchResult.SearchResultType.HISTORY ? R.drawable.ic_restore_black_24dp : R.drawable.ic_bookmark_border_white_24dp));
             }
 
             // highlight search term within the text

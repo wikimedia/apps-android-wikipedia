@@ -68,25 +68,22 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:contentDescription="@null"
-        android:foregroundGravity="center_vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/page_list_item_image"
         app:layout_constraintEnd_toStartOf="@+id/page_list_item_image"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/page_list_item_image"
         app:tint="?attr/material_theme_de_emphasised_color"
         app:srcCompat="@drawable/ic_bookmark_border_white_24dp" />
 
     <org.wikipedia.views.TabCountsView
         android:id="@+id/page_list_button_tabs"
-        android:layout_width="16dp"
-        android:layout_height="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:clickable="false"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:contentDescription="@null"
-        android:foregroundGravity="center_vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:scaleX="0.75"
+        android:scaleY="0.75"
+        app:layout_constraintBottom_toBottomOf="@+id/page_list_item_image"
         app:layout_constraintEnd_toStartOf="@+id/page_list_item_image"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/page_list_item_image" />
 
     <ImageView
         android:id="@+id/page_list_item_image"

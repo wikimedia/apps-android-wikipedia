@@ -27,8 +27,6 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Random;
 
-import static org.wikipedia.search.SearchResult.SearchResultType.READING_LIST_SEARCH_RESULT;
-
 public class ReadingListDbHelper {
     private static ReadingListDbHelper INSTANCE;
 
@@ -496,7 +494,6 @@ public class ReadingListDbHelper {
     @Nullable
     public SearchResults findPageForSearchQueryInAnyList(@NonNull String searchQuery) {
         SQLiteDatabase db = getReadableDatabase();
-        List<SearchResult> searchResults = new ArrayList<>();
         String normalizedQuery = StringUtils.stripAccents(searchQuery).toLowerCase(Locale.getDefault());
         String titleCol = ReadingListPageContract.Col.DISPLAY_TITLE.getName();
         String selection = null;
@@ -512,9 +509,8 @@ public class ReadingListDbHelper {
                 null, null, null)) {
             if (cursor.moveToFirst()) {
                 ReadingListPage readingListPage = ReadingListPage.DATABASE_TABLE.fromCursor(cursor);
-                SearchResult searchResult = new SearchResult(READING_LIST_SEARCH_RESULT, new PageTitle(readingListPage.title(), readingListPage.wiki(), readingListPage.thumbUrl()));
-                searchResults.add(searchResult);
-                return new SearchResults(searchResults);
+                return new SearchResults(Collections.singletonList(new SearchResult(new PageTitle(readingListPage.title(), readingListPage.wiki(), readingListPage.thumbUrl()),
+                        SearchResult.SearchResultType.READING_LIST)));
             }
         }
         return new SearchResults();
