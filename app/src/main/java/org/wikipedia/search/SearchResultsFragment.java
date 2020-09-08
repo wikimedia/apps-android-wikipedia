@@ -234,7 +234,6 @@ public class SearchResultsFragment extends Fragment {
                         }))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .doAfterTerminate(() -> updateProgressBar(false))
                 .subscribe(results -> {
                     searchErrorView.setVisibility(GONE);
                     handleResults(results, searchTerm, startTime);
