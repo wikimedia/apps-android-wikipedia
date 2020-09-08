@@ -31,7 +31,7 @@
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_gravity="center_vertical"
-        android:background="@drawable/lang_button_shape_thick_border"
+        android:background="@drawable/lang_button_shape_border"
         android:fontFamily="sans-serif-medium"
         android:textAllCaps="true"
         android:textColor="?attr/material_theme_secondary_color"
