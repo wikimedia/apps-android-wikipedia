@@ -941,5 +941,13 @@ public final class Prefs {
         setBoolean(R.string.preference_key_show_sequential_user_stats_tooltip, show);
     }
 
+    public static boolean shouldShowSearchTabTooltip() {
+        return getBoolean(R.string.preference_key_show_search_tab_tooltip, true);
+    }
+
+    public static void setShowSearchTabTooltip(boolean show) {
+        setBoolean(R.string.preference_key_show_search_tab_tooltip, show);
+    }
+
     private Prefs() { }
 }
