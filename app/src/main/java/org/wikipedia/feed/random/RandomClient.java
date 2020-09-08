@@ -3,10 +3,12 @@ package org.wikipedia.feed.random;
 import android.content.Context;
 
 import androidx.annotation.NonNull;
+import androidx.core.util.Pair;
 
-import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.dataclient.page.PageSummary;
+import org.wikipedia.feed.FeedContentType;
 import org.wikipedia.feed.FeedCoordinator;
 import org.wikipedia.feed.dataclient.FeedClient;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
@@ -27,22 +29,34 @@ public class RandomClient implements FeedClient {
     @Override
     public void request(@NonNull Context context, @NonNull WikiSite wiki, int age, @NonNull Callback cb) {
         cancel();
-        disposables.add(ServiceFactory.getRest(WikipediaApp.getInstance().getWikiSite()).getRandomSummary()
-                .subscribeOn(Schedulers.io())
+        disposables.add(Observable.fromIterable(FeedContentType.getAggregatedLanguages())
+                .flatMap(this::getRandomSummaryObservable, Pair::new)
                 .observeOn(AndroidSchedulers.mainThread())
-                .onErrorResumeNext(throwable -> Observable.fromCallable(() -> {
-                            ReadingListPage page = ReadingListDbHelper.instance().getRandomPage();
-                            if (page == null) {
-                                throw (Exception) throwable;
-                            }
-                            return ReadingListPage.toPageSummary(page);
+                .toList()
+                .subscribe(pairs -> {
+                    for (Pair<String, PageSummary> pair : pairs) {
+                        if (pair.first != null && pair.second != null) {
+                            FeedCoordinator.postCardsToCallback(cb, Collections.singletonList(new RandomCard(pair.second, age, WikiSite.forLanguageCode(pair.first))));
                         }
-                ))
-                .subscribe(pageSummary -> FeedCoordinator.postCardsToCallback(cb, Collections.singletonList(new RandomCard(pageSummary, age, wiki))), t -> {
+                    }
+                }, t -> {
                     L.v(t);
                     cb.error(t);
                 }));
 
+    }
+
+    private Observable<PageSummary> getRandomSummaryObservable(@NonNull String lang) {
+        return ServiceFactory.getRest(WikiSite.forLanguageCode(lang))
+                .getRandomSummary()
+                .subscribeOn(Schedulers.io())
+                .onErrorResumeNext(throwable -> Observable.fromCallable(() -> {
+                    ReadingListPage page = ReadingListDbHelper.instance().getRandomPage();
+                    if (page == null) {
+                        throw (Exception) throwable;
+                    }
+                    return ReadingListPage.toPageSummary(page);
+                }));
     }
 
     @Override
