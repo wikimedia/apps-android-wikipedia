@@ -126,6 +126,7 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
             updateContents(age);
         }
 
+        progressBar.setVisibility(View.GONE);
         eventsRecycler.setVisibility(View.GONE);
         errorView.setVisibility(View.GONE);
         return view;
@@ -220,7 +221,6 @@ public class OnThisDayFragment extends Fragment implements CustomDatePicker.Call
     @Override
     public void onDatePicked(int month, int day) {
         eventsRecycler.setVisibility(View.GONE);
-        progressBar.setVisibility(View.VISIBLE);
         if (Calendar.getInstance().get(Calendar.MONTH) != month || Calendar.getInstance().get(Calendar.DATE) != day) {
             indicatorLayout.setAlpha(1.0f);
             indicatorLayout.setClickable(true);

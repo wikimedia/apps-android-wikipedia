@@ -86,6 +86,7 @@ import static org.wikipedia.Constants.InvokeSource.APP_SHORTCUTS;
 import static org.wikipedia.Constants.InvokeSource.FEED;
 import static org.wikipedia.Constants.InvokeSource.FEED_BAR;
 import static org.wikipedia.Constants.InvokeSource.LINK_PREVIEW_MENU;
+import static org.wikipedia.Constants.InvokeSource.NAV_MENU;
 import static org.wikipedia.Constants.InvokeSource.VOICE;
 
 public class MainFragment extends Fragment implements BackPressedHandler, FeedFragment.Callback,
@@ -136,6 +137,10 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         tabLayout.setOnNavigationItemSelectedListener(item -> {
             if (getCurrentFragment() instanceof FeedFragment && item.getOrder() == 0) {
                 ((FeedFragment) getCurrentFragment()).scrollToTop();
+            }
+            if (getCurrentFragment() instanceof HistoryFragment && item.getOrder() == NavTab.SEARCH.code()) {
+                openSearchActivity(NAV_MENU, null);
+                return true;
             }
             viewPager.setCurrentItem(item.getOrder(), false);
             return true;
@@ -457,7 +462,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
                 Constants.ACTIVITY_REQUEST_WRITE_EXTERNAL_STORAGE_PERMISSION);
     }
 
-    private void openSearchActivity(@NonNull Constants.InvokeSource source, @Nullable String query) {
+    public void openSearchActivity(@NonNull Constants.InvokeSource source, @Nullable String query) {
         Intent intent = SearchActivity.newIntent(requireActivity(), source, query);
         startActivityForResult(intent, ACTIVITY_REQUEST_OPEN_SEARCH_ACTIVITY);
     }
@@ -569,5 +574,4 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
             startActivity(new Intent(requireActivity(), AboutActivity.class));
         }
     }
-
 }
