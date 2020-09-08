@@ -182,7 +182,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                             qLangMap[qNumber] = HashSet()
                         }
 
-                        wikidataContributions.add(Contribution(qNumber, contribution.title, contributionDescription, editType, null, contribution.date(),
+                        wikidataContributions.add(Contribution(qNumber, contribution.title, contribution.title, contributionDescription, editType, null, contribution.date(),
                                 WikiSite.forLanguageCode(contributionLanguage), 0, contribution.sizediff, contribution.top, 0))
 
                         qLangMap[qNumber]?.add(contributionLanguage)
@@ -193,15 +193,9 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                                 for (entityKey in entities.entities().keys) {
                                     val entity = entities.entities()[entityKey]!!
                                     for (contribution in wikidataContributions) {
-                                        var languageCode = contribution.wikiSite.languageCode()
-                                        if (languageCode.startsWith(AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE) && !entity.labels().containsKey(languageCode)) {
-                                            // TODO: more proper solution - calling page/summary endpoint to get correct page title
-                                            languageCode = AppLanguageLookUpTable.CHINESE_LANGUAGE_CODE
-                                        }
-                                        if (contribution.qNumber == entityKey && entity.labels().containsKey(languageCode)) {
-                                            contribution.title = entity.labels()[languageCode]!!.value()
-                                            // if we need the current description of the item:
-                                            //contribution.description = entity.descriptions()[contribution.wikiSite.languageCode()]!!.value()
+                                        val dbName = WikiSite.forLanguageCode(contribution.wikiSite.languageCode()).dbName()
+                                        if (contribution.qNumber == entityKey && entity.sitelinks().containsKey(dbName)) {
+                                            contribution.apiTitle = entity.sitelinks()[dbName]!!.title
                                         }
                                     }
                                 }
@@ -256,7 +250,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                                         }
                                     }
 
-                                    contributions.add(Contribution(qNumber, contribution.title, contributionDescription, editType, null, contribution.date(),
+                                    contributions.add(Contribution(qNumber, contribution.title, contribution.title, contributionDescription, editType, null, contribution.date(),
                                             WikiSite.forLanguageCode(contributionLanguage), 0, contribution.sizediff, contribution.top, tagCount))
                                 }
                                 Observable.just(contributions)
@@ -386,7 +380,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
             view.contribution = contribution
             view.setTitle(contribution.description)
             view.setDiffCountText(contribution)
-            view.setDescription(StringUtil.removeNamespace(contribution.title))
+            view.setDescription(StringUtil.removeNamespace(contribution.displayTitle))
             view.setIcon(contribution.editType)
             view.setImageUrl(contribution.imageUrl)
             view.setPageViewCountText(contribution.pageViews)
@@ -403,19 +397,22 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
         }
 
         private fun getContributionDetails(itemView: ContributionsItemView, contribution: Contribution) {
-            if (contribution.editType == EDIT_TYPE_ARTICLE_DESCRIPTION && contribution.title.isNotEmpty() && !contribution.title.matches(qNumberRegex)) {
-                disposables.add(ServiceFactory.getRest(contribution.wikiSite).getSummary(null, contribution.title)
+            if (contribution.editType == EDIT_TYPE_ARTICLE_DESCRIPTION && contribution.apiTitle.isNotEmpty() && !contribution.apiTitle.matches(qNumberRegex)) {
+                disposables.add(ServiceFactory.getRest(contribution.wikiSite).getSummary(null, contribution.apiTitle)
                         .subscribeOn(Schedulers.io())
                         .delaySubscription(250, TimeUnit.MILLISECONDS)
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe({ summary ->
+                            contribution.displayTitle = summary.displayTitle
+                            contribution.apiTitle = summary.apiTitle
                             contribution.imageUrl = summary.thumbnailUrl.toString()
                             itemView.setImageUrl(contribution.imageUrl)
+                            itemView.setDescription(StringUtil.removeNamespace(contribution.displayTitle))
                         }, { t ->
                             L.e(t)
                         }))
             } else if (contribution.editType == EDIT_TYPE_IMAGE_CAPTION || contribution.editType == EDIT_TYPE_IMAGE_TAG) {
-                disposables.add(Observable.zip(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo(contribution.title, contribution.wikiSite.languageCode()).subscribeOn(Schedulers.io()),
+                disposables.add(Observable.zip(ServiceFactory.get(WikiSite(Service.COMMONS_URL)).getImageInfo(contribution.apiTitle, contribution.wikiSite.languageCode()).subscribeOn(Schedulers.io()),
                         if (contribution.qNumber.isEmpty()) Observable.just(contribution.qNumber) else (
                                 ServiceFactory.get(WikiSite(Service.WIKIDATA_URL)).getWikidataLabels(contribution.qNumber, contribution.wikiSite.languageCode())
                                         .subscribeOn(Schedulers.io())
@@ -452,11 +449,11 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
         }
 
         private fun getPageViews(view: ContributionsItemView, contribution: Contribution) {
-            if (contribution.editType != EDIT_TYPE_ARTICLE_DESCRIPTION || contribution.title.matches(qNumberRegex)) {
+            if (contribution.editType != EDIT_TYPE_ARTICLE_DESCRIPTION || contribution.apiTitle.matches(qNumberRegex)) {
                 view.setPageViewCountText(0)
                 return
             }
-            disposables.add(ServiceFactory.get(contribution.wikiSite).getPageViewsForTitles(contribution.title)
+            disposables.add(ServiceFactory.get(contribution.wikiSite).getPageViewsForTitles(contribution.apiTitle)
                     .subscribeOn(Schedulers.io())
                     .delaySubscription(250, TimeUnit.MILLISECONDS)
                     .observeOn(AndroidSchedulers.mainThread())
