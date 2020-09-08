@@ -54,6 +54,9 @@ class TalkTopicsActivity : BaseActivity() {
         talkErrorView.setBackClickListener {
             finish()
         }
+        talkErrorView.setRetryClickListener {
+            loadTopics()
+        }
 
         talkNewTopicButton.setOnClickListener {
             // TODO

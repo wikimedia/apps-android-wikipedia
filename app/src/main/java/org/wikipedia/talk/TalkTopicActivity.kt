@@ -60,6 +60,13 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
 
         L10nUtil.setConditionalLayoutDirection(talkRefreshView, wikiSite.languageCode())
 
+        talkErrorView.setBackClickListener {
+            finish()
+        }
+        talkErrorView.setRetryClickListener {
+            loadTopic()
+        }
+
         talkReplyButton.setOnClickListener {
             // TODO
         }
