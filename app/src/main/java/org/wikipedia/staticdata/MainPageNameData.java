@@ -21,7 +21,7 @@ public final class MainPageNameData {
 
     @SuppressWarnings({"checkstyle:methodlength", "SpellCheckingInspection"})
     private static Map<String, String> newMap() {
-        final int size = 305;
+        final int size = 306;
         Map<String, String> map = new HashMap<>(size);
         map.put("ab", "Ихадоу адаҟьа");
         map.put("ace", "Ôn Keue");
@@ -40,7 +40,7 @@ public final class MainPageNameData {
         map.put("ast", "Portada");
         map.put("atj", "Otitikowin");
         map.put("av", "БетӀераб гьумер");
-        map.put("avk", "Emudexo");
+        map.put("avk", "Xadola");
         map.put("awa", "प्रधान पन्ना");
         map.put("ay", "Nayriri uñstawi");
         map.put("az", "Ana Səhifə");
@@ -178,6 +178,7 @@ public final class MainPageNameData {
         map.put("lg", "Olupapula Olusooka");
         map.put("li", "Veurblaad");
         map.put("lij", "Pagina prinçipâ");
+        map.put("lld", "Plata prinzipala");
         map.put("lmo", "Pagina principala");
         map.put("ln", "Lokásá ya libosó");
         map.put("lo", "ໜ້າຫຼັກ");

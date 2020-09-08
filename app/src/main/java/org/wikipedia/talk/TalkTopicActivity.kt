@@ -71,6 +71,15 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         talkRecyclerView.layoutManager = LinearLayoutManager(this)
         talkRecyclerView.addItemDecoration(DrawableItemDecoration(this, R.attr.list_separator_drawable, drawStart = false, drawEnd = false))
         talkRecyclerView.adapter = TalkReplyItemAdapter()
+        
+        L10nUtil.setConditionalLayoutDirection(talkRefreshView, wikiSite.languageCode())
+
+        talkErrorView.setBackClickListener {
+            finish()
+        }
+        talkErrorView.setRetryClickListener {
+            loadTopic()
+        }
 
         talkReplyButton.setOnClickListener {
             replyActive = true

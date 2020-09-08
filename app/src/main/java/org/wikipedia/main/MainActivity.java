@@ -23,7 +23,6 @@ import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.activity.SingleFragmentActivity;
 import org.wikipedia.appshortcuts.AppShortcuts;
-import org.wikipedia.history.HistoryFragment;
 import org.wikipedia.navtab.NavTab;
 import org.wikipedia.onboarding.InitialOnboardingActivity;
 import org.wikipedia.page.PageActivity;
@@ -140,10 +139,10 @@ public class MainActivity extends SingleFragmentActivity<MainFragment> implement
             toolbar.setTitle("");
             controlNavTabInFragment = false;
         } else {
-            if (tab.equals(NavTab.HISTORY) && getFragment().getCurrentFragment() != null) {
-                ((HistoryFragment) getFragment().getCurrentFragment()).refresh();
+            if (tab.equals(NavTab.SEARCH) && Prefs.shouldShowSearchTabTooltip()) {
+                FeedbackUtil.showTooltip(getFragment().tabLayout.findViewById(NavTab.SEARCH.id()), getString(R.string.search_tab_tooltip), true, true);
+                Prefs.setShowSearchTabTooltip(false);
             }
-
             wordMark.setVisibility(GONE);
             toolbar.setTitle(tab.text());
             controlNavTabInFragment = true;

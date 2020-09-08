@@ -54,6 +54,9 @@ class TalkTopicsActivity : BaseActivity() {
         talkErrorView.setBackClickListener {
             finish()
         }
+        talkErrorView.setRetryClickListener {
+            loadTopics()
+        }
 
         talkNewTopicButton.setOnClickListener {
             startActivity(TalkTopicActivity.newIntent(this@TalkTopicsActivity, wikiSite.languageCode(), userName, -1))
