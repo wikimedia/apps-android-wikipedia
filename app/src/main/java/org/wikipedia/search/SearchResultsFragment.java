@@ -33,7 +33,6 @@ import org.wikipedia.page.tabs.Tab;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.StringUtil;
-import org.wikipedia.util.log.L;
 import org.wikipedia.views.DefaultViewHolder;
 import org.wikipedia.views.GoneIfEmptyTextView;
 import org.wikipedia.views.TabCountsView;
@@ -350,7 +349,6 @@ public class SearchResultsFragment extends Fragment {
                 .toList()
                 .doAfterTerminate(() -> updateProgressBar(false))
                 .subscribe(list -> {
-                    L.d("doFullTextSearchResultsCountObservable list " + list);
                     if (!list.isEmpty()) {
                         searchResultsCountCache.put(getSearchLanguageCode() + "-" + searchTerm, list);
                         displayResultsCount(list);
@@ -362,7 +360,6 @@ public class SearchResultsFragment extends Fragment {
     }
 
     private Observable<Integer> doFullTextSearchResultsCountObservable(final String searchTerm) {
-        L.d("doFullTextSearchResultsCountObservable");
         return Observable.fromIterable(WikipediaApp.getInstance().language().getAppLanguageCodes())
                 .concatMap(langCode -> ServiceFactory.get(WikiSite.forLanguageCode(langCode)).fullTextSearch(searchTerm, LARGE_BATCH_SIZE, null, null))
                 .subscribeOn(Schedulers.io())
