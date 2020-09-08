@@ -196,6 +196,7 @@ class ContributionsFragment : Fragment(), ContributionsHeaderView.Callback {
                                         val dbName = WikiSite.forLanguageCode(contribution.wikiSite.languageCode()).dbName()
                                         if (contribution.qNumber == entityKey && entity.sitelinks().containsKey(dbName)) {
                                             contribution.apiTitle = entity.sitelinks()[dbName]!!.title
+                                            contribution.displayTitle = entity.sitelinks()[dbName]!!.title
                                         }
                                     }
                                 }
