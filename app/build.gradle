@@ -204,7 +204,6 @@ dependencies {
     annotationProcessor "com.jakewharton:butterknife-compiler:$butterknifeVersion"
 
     debugImplementation "com.squareup.leakcanary:leakcanary-android:$leakCanaryVersion"
-    // TODO: uncomment when Plumber is ready for prime time.
     implementation "com.squareup.leakcanary:plumber-android:$leakCanaryVersion"
 
     testImplementation 'junit:junit:4.13'
