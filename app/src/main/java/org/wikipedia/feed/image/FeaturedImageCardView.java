@@ -38,6 +38,7 @@ public class FeaturedImageCardView extends DefaultFeedCardView<FeaturedImageCard
     @BindView(R.id.view_featured_image_card_image_description) TextView descriptionView;
     @BindView(R.id.view_featured_image_card_download_button) MaterialButton downloadButton;
     @BindView(R.id.view_featured_image_card_share_button) MaterialButton shareButton;
+    boolean imageHasLoaded;
 
     public FeaturedImageCardView(Context context) {
         super(context);
@@ -47,6 +48,7 @@ public class FeaturedImageCardView extends DefaultFeedCardView<FeaturedImageCard
 
     @Override public void setCard(@NonNull FeaturedImageCard card) {
         super.setCard(card);
+        imageHasLoaded = false;
         image(card.baseImage());
         description(defaultString(card.description()));  //Can check language before doing this if we want
         header(card);
@@ -58,12 +60,24 @@ public class FeaturedImageCardView extends DefaultFeedCardView<FeaturedImageCard
         headerView.setCallback(callback);
     }
 
-    // TODO: re-calculate width when rotating device
     private void image(@NonNull FeaturedImage image) {
-        ImageZoomHelper.setViewZoomable(imageView);
-        ViewUtil.loadImage(imageView, image.getThumbnailUrl());
-        imageViewPlaceholder.setLayoutParams(new LayoutParams(containerView.getWidth(),
-                ViewUtil.adjustImagePlaceholderHeight((float) containerView.getWidth(), (float) image.getThumbnail().getWidth(), (float) image.getThumbnail().getHeight())));
+        if (containerView.getWidth() == 0) {
+            // The getWidth() from containerView will return zero in the most beginning one or two cards.
+            // The imageHasLoaded is to avoid keeping setting up the image.
+            containerView.getViewTreeObserver().addOnGlobalLayoutListener(() -> loadImage(image));
+        } else {
+            loadImage(image);
+        }
+    }
+
+    private void loadImage(@NonNull FeaturedImage image) {
+        if (!imageHasLoaded) {
+            ImageZoomHelper.setViewZoomable(imageView);
+            ViewUtil.loadImage(imageView, image.getThumbnailUrl());
+            imageViewPlaceholder.setLayoutParams(new LayoutParams(containerView.getWidth(),
+                    ViewUtil.adjustImagePlaceholderHeight((float) containerView.getWidth(), (float) image.getThumbnail().getWidth(), (float) image.getThumbnail().getHeight())));
+            imageHasLoaded = true;
+        }
     }
 
     private void description(@NonNull String text) {
@@ -71,7 +85,7 @@ public class FeaturedImageCardView extends DefaultFeedCardView<FeaturedImageCard
     }
 
     private void setClickListeners() {
-        imageView.setOnClickListener(new CardClickListener());
+        containerView.setOnClickListener(new CardClickListener());
         downloadButton.setOnClickListener(new CardDownloadListener());
         shareButton.setOnClickListener(new CardShareListener());
     }
