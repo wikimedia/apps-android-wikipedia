@@ -12,46 +12,34 @@ import org.wikipedia.dataclient.mwapi.MwQueryPage;
 import org.wikipedia.model.BaseModel;
 import org.wikipedia.page.PageTitle;
 
-import static org.wikipedia.search.SearchResult.SearchResultType.SEARCH_RESULT;
-
 public class SearchResult extends BaseModel implements Parcelable {
-    private PageTitle pageTitle;
+    private final PageTitle pageTitle;
     private final String redirectFrom;
-    private SearchResultType searchResultType = SEARCH_RESULT;
+    private final SearchResultType searchResultType;
 
     public enum SearchResultType {
-        SEARCH_RESULT(0),
-        HISTORY_SEARCH_RESULT(1),
-        READING_LIST_SEARCH_RESULT(2),
-        TAB_LIST_SEARCH_RESULT(3);
-
-        private int priority;
-
-        SearchResultType(int priority) {
-            this.priority = priority;
-        }
-
-        public int getPriority() {
-            return priority;
-        }
+        SEARCH,
+        HISTORY,
+        READING_LIST,
+        TAB_LIST
     }
 
     public SearchResult(@NonNull MwQueryPage page, @NonNull WikiSite wiki) {
-        this(new PageTitle(page.title(), wiki, page.thumbUrl(), page.description(), page.displayTitle(wiki.languageCode())), page.redirectFrom());
+        this(new PageTitle(page.title(), wiki, page.thumbUrl(), page.description(), page.displayTitle(wiki.languageCode())), page.redirectFrom(), SearchResultType.SEARCH);
     }
 
-    public SearchResult(@NonNull SearchResultType searchResultType, @NonNull PageTitle pageTitle) {
-        this(pageTitle, null);
+    public SearchResult(@NonNull PageTitle pageTitle, @NonNull SearchResultType searchResultType) {
+        this(pageTitle, null, searchResultType);
+    }
+
+    public SearchResult(@NonNull PageTitle pageTitle, @Nullable String redirectFrom, @NonNull SearchResultType searchResultType) {
+        this.pageTitle = pageTitle;
+        this.redirectFrom = redirectFrom;
         this.searchResultType = searchResultType;
     }
 
-    public SearchResult(@NonNull PageTitle pageTitle, @Nullable String redirectFrom) {
-        this.pageTitle = pageTitle;
-        this.redirectFrom = redirectFrom;
-    }
-
-    public int getPriority() {
-        return searchResultType.getPriority();
+    public SearchResultType getType() {
+        return searchResultType;
     }
 
     @NonNull
@@ -91,6 +79,7 @@ public class SearchResult extends BaseModel implements Parcelable {
     public void writeToParcel(Parcel parcel, int flags) {
         parcel.writeParcelable(pageTitle, flags);
         parcel.writeString(redirectFrom);
+        parcel.writeSerializable(searchResultType);
     }
 
     @Override
@@ -112,6 +101,7 @@ public class SearchResult extends BaseModel implements Parcelable {
     private SearchResult(Parcel in) {
         pageTitle = in.readParcelable(PageTitle.class.getClassLoader());
         redirectFrom = in.readString();
+        searchResultType = (SearchResultType) in.readSerializable();
     }
 }
 
