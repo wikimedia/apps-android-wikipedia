@@ -59,7 +59,7 @@ class TalkTopicsActivity : BaseActivity() {
         }
 
         talkNewTopicButton.setOnClickListener {
-            // TODO
+            startActivity(TalkTopicActivity.newIntent(this@TalkTopicsActivity, wikiSite.languageCode(), userName, -1))
         }
 
         talkRefreshView.setOnRefreshListener {
@@ -75,7 +75,7 @@ class TalkTopicsActivity : BaseActivity() {
         super.onDestroy()
     }
 
-    override fun onResume() {
+    public override fun onResume() {
         super.onResume()
         loadTopics()
     }
@@ -164,6 +164,7 @@ class TalkTopicsActivity : BaseActivity() {
 
         fun bindItem(topic: TalkPage.Topic) {
             id = topic.id
+            val seen = TalkPageSeenDatabaseTable.isTalkTopicSeen(topic)
             val titleStr = StringUtil.fromHtml(topic.html).toString().trim()
             if (id == 0 && titleStr.isEmpty() && topic.replies!!.isNotEmpty()) {
                 subtitle.text = StringUtil.fromHtml(topic.replies!![0].html)
@@ -174,9 +175,7 @@ class TalkTopicsActivity : BaseActivity() {
                 title.text = if (titleStr.isNotEmpty()) titleStr else getString(R.string.talk_no_subject)
                 title.visibility = View.VISIBLE
                 subtitle.visibility = View.GONE
-
-                // TODO: implement read/unread topics
-                readDot.visibility = View.VISIBLE
+                readDot.visibility = if (seen) View.GONE else View.VISIBLE
             }
             itemView.setOnClickListener(this)
         }
