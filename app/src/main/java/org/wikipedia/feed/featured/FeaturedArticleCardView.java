@@ -9,8 +9,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import org.wikipedia.R;
-import org.wikipedia.WikipediaApp;
-import org.wikipedia.dataclient.WikiSite;
 import org.wikipedia.feed.view.CardFooterView;
 import org.wikipedia.feed.view.CardHeaderView;
 import org.wikipedia.feed.view.DefaultFeedCardView;
@@ -153,20 +151,11 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
         }
     }
 
-    private static PageTitle getMainPageTitle(@NonNull String languageCode, @NonNull WikiSite wiki) {
-        return new PageTitle(SiteInfoClient.getMainPageForLang(languageCode), wiki);
-    }
-
-    public static PageTitle getMainPageTitle() {
-        WikipediaApp app = WikipediaApp.getInstance();
-        return getMainPageTitle(app.getAppOrSystemLanguageCode(), app.getWikiSite());
-    }
-
     public CardFooterView.Callback getFooterCallback() {
         return () -> {
             if (getCallback() != null && getCard() != null) {
-                getCallback().onSelectPage(getCard(),
-                        new HistoryEntry(getMainPageTitle(getCard().wikiSite().languageCode(),
+                getCallback().onSelectPage(getCard(), new HistoryEntry(
+                        new PageTitle(SiteInfoClient.getMainPageForLang(getCard().wikiSite().languageCode()),
                                 getCard().wikiSite()), getCard().historyEntry().getSource()));
             }
         };
