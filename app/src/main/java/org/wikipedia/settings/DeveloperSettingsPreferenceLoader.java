@@ -22,6 +22,7 @@ import org.wikipedia.readinglist.database.ReadingList;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider;
+import org.wikipedia.talk.TalkPageSeenDatabaseTable;
 import org.wikipedia.util.StringUtil;
 
 import java.util.ArrayList;
@@ -211,6 +212,12 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
         findPreference(context.getString(R.string.preferences_developer_suggested_edits_reactivation_notification_stage_two))
                 .setOnPreferenceClickListener(preference -> {
                     NotificationPollBroadcastReceiver.showSuggestedEditsLocalNotification(getActivity(), R.string.suggested_edits_reactivation_notification_stage_two);
+                    return true;
+                });
+
+        findPreference(context.getString(R.string.preference_developer_clear_all_talk_topics))
+                .setOnPreferenceClickListener(preference -> {
+                    TalkPageSeenDatabaseTable.INSTANCE.resetAllUnseen();
                     return true;
                 });
 

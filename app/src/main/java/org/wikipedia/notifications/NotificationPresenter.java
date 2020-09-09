@@ -20,6 +20,9 @@ import androidx.core.content.ContextCompat;
 
 import org.wikipedia.Constants;
 import org.wikipedia.R;
+import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.page.PageTitle;
+import org.wikipedia.talk.TalkTopicsActivity;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.StringUtil;
@@ -40,7 +43,11 @@ public final class NotificationPresenter {
 
         if (n.getContents() != null && n.getContents().getLinks() != null
                 && n.getContents().getLinks().getPrimary() != null) {
-            addAction(context, builder, n.getContents().getLinks().getPrimary(), REQUEST_CODE_ACTION);
+            if (Notification.CATEGORY_EDIT_USER_TALK.equals(n.category())) {
+                addActionForTalkPage(context, builder, n.getContents().getLinks().getPrimary(), REQUEST_CODE_ACTION);
+            } else {
+                addAction(context, builder, n.getContents().getLinks().getPrimary(), REQUEST_CODE_ACTION);
+            }
         }
         if (n.getContents() != null && n.getContents().getLinks() != null
                 && n.getContents().getLinks().getSecondary() != null && n.getContents().getLinks().getSecondary().size() > 0) {
@@ -130,6 +137,15 @@ public final class NotificationPresenter {
             labelStr = StringUtil.fromHtml(link.getLabel()).toString();
         }
         builder.addAction(0, labelStr, pendingIntent);
+    }
+
+    private static void addActionForTalkPage(Context context, NotificationCompat.Builder builder, Notification.Link link, int requestCode) {
+        WikiSite wiki = new WikiSite(link.getUrl());
+        PageTitle title = wiki.titleForUri(Uri.parse(link.getUrl()));
+        PendingIntent pendingIntent = PendingIntent.getActivity(context, requestCode,
+                TalkTopicsActivity.newIntent(context, wiki.languageCode(), title.getText()),
+                PendingIntent.FLAG_UPDATE_CURRENT);
+        builder.addAction(0, StringUtil.fromHtml(link.getLabel()).toString(), pendingIntent);
     }
 
     private static Bitmap drawNotificationBitmap(@NonNull Context context, @ColorRes int color, @DrawableRes int icon, boolean drawIconCircle) {
