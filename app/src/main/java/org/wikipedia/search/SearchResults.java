@@ -28,6 +28,15 @@ public class SearchResults {
     }
 
     /**
+     * For search results created from sources
+     * other than search response
+     */
+    public SearchResults(@NonNull List<SearchResult> results) {
+        this.results = results;
+        continuation = null;
+    }
+
+    /**
      * Constructor for a list of MwQueryPage search query results.
      * @param pages the result pages
      * @param wiki the wiki searched

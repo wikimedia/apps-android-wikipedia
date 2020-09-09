@@ -93,7 +93,8 @@ public final class Constants {
         TABS_ACTIVITY("tabsActivity"),
         FILE_PAGE_ACTIVITY("filePage"),
         SNACKBAR_ACTION("snackbar"),
-        PAGE_ACTION_TAB("pageActionTab");
+        PAGE_ACTION_TAB("pageActionTab"),
+        TALK_ACTIVITY("talkActivity");
 
         private String name;
 
