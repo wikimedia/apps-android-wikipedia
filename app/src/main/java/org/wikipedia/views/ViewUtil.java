@@ -21,6 +21,7 @@ import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.bumptech.glide.load.resource.bitmap.DownsampleStrategy;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 
+import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.ResourceUtil;
@@ -97,6 +98,10 @@ public final class ViewUtil {
             return;
         }
         langButton.setTextSize(langButtonTextSizeLarger);
+    }
+
+    public static int adjustImagePlaceholderHeight(Float containerWidth, Float thumbWidth, Float thumbHeight) {
+        return (int) ((float) Constants.PREFERRED_GALLERY_IMAGE_SIZE / thumbWidth * thumbHeight * containerWidth / (float) Constants.PREFERRED_GALLERY_IMAGE_SIZE);
     }
 
     private ViewUtil() {

@@ -596,6 +596,7 @@
     <string name="view_main_page_card_title">Today on Wikipedia</string>
     <string name="view_featured_image_card_title">Picture of the day</string>
     <string name="view_featured_image_card_download">Download</string>
+    <string name="view_featured_image_card_share">Share</string>
     <string name="menu_feed_card_dismiss">Hide this card</string>
     <string name="menu_feed_card_dismissed">Card hidden.</string>
     <string name="menu_feed_card_edit_card_languages">Edit card languages</string>

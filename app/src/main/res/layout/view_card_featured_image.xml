@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <org.wikipedia.feed.view.CardHeaderView
@@ -10,37 +10,76 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/view_card_header_height" />
 
-    <FrameLayout
+    <org.wikipedia.views.WikiCardView
+        android:id="@+id/view_featured_image_card_content_container"
         android:layout_width="match_parent"
-        android:layout_height="260dp">
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp">
 
-        <org.wikipedia.views.FaceAndColorDetectImageView
-            android:id="@+id/view_featured_image_card_image"
-            style="@style/ImageViewDefault"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="centerCrop" />
-
-        <TextView
-            android:id="@+id/featured_image_description_Text"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:background="#4c000000"
-            android:ellipsize="end"
-            android:maxLines="1"
-            android:paddingStart="16dp"
-            android:paddingTop="10dp"
-            android:paddingEnd="16dp"
-            android:paddingBottom="10dp"
-            android:textColor="@android:color/white"
-            tools:text="Description of featured image here" />
+            android:orientation="vertical">
 
-    </FrameLayout>
+            <FrameLayout
+                android:id="@+id/view_featured_image_card_image_placeholder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/view_featured_image_card_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@null"
+                    android:scaleType="fitCenter"/>
+            </FrameLayout>
 
-    <org.wikipedia.feed.view.ActionFooterView
-        android:id="@+id/view_featured_image_card_footer"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/view_card_footer_height" />
+            <TextView
+                android:id="@+id/view_featured_image_card_image_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="4"
+                android:textSize="16sp"
+                android:paddingStart="16dp"
+                android:paddingTop="12dp"
+                android:paddingEnd="16dp"
+                android:fontFamily="sans-serif"
+                android:textColor="?attr/primary_text_color"
+                android:lineSpacingExtra="8sp" />
 
+            <com.google.android.flexbox.FlexboxLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="16dp"
+                android:paddingTop="8dp"
+                android:paddingEnd="16dp"
+                android:paddingBottom="16dp"
+                app:flexWrap="wrap"
+                app:justifyContent="flex_start">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/view_featured_image_card_download_button"
+                    style="@style/FlatButton.Small"
+                    android:layout_marginEnd="16dp"
+                    android:text="@string/view_featured_image_card_download"
+                    app:icon="@drawable/ic_file_download"
+                    app:iconPadding="10dp"
+                    app:iconTint="?attr/colorAccent"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/view_featured_image_card_share_button"
+                    style="@style/FlatButton.Small"
+                    android:text="@string/view_featured_image_card_share"
+                    app:icon="@drawable/ic_share_white_24dp"
+                    app:iconSize="20dp"
+                    app:iconPadding="10dp"
+                    app:iconTint="?attr/colorAccent"/>
+
+            </com.google.android.flexbox.FlexboxLayout>
+        </LinearLayout>
+    </org.wikipedia.views.WikiCardView>
 </LinearLayout>

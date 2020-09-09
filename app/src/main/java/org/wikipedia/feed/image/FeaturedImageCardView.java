@@ -1,21 +1,23 @@
 package org.wikipedia.feed.image;
 
 import android.content.Context;
-import android.net.Uri;
 import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.google.android.material.button.MaterialButton;
+
 import org.wikipedia.R;
-import org.wikipedia.feed.view.ActionFooterView;
 import org.wikipedia.feed.view.CardHeaderView;
 import org.wikipedia.feed.view.DefaultFeedCardView;
 import org.wikipedia.feed.view.FeedAdapter;
 import org.wikipedia.richtext.RichTextUtil;
-import org.wikipedia.views.FaceAndColorDetectImageView;
 import org.wikipedia.views.ImageZoomHelper;
+import org.wikipedia.views.ViewUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -29,26 +31,26 @@ public class FeaturedImageCardView extends DefaultFeedCardView<FeaturedImageCard
         void onFeaturedImageSelected(@NonNull FeaturedImageCard card);
     }
 
+    @BindView(R.id.view_featured_image_card_content_container) View containerView;
     @BindView(R.id.view_featured_image_card_header) CardHeaderView headerView;
-    @BindView(R.id.view_featured_image_card_footer) ActionFooterView footerView;
-    @BindView(R.id.view_featured_image_card_image) FaceAndColorDetectImageView imageView;
-    @BindView(R.id.featured_image_description_Text) TextView descriptionView;
+    @BindView(R.id.view_featured_image_card_image_placeholder) FrameLayout imageViewPlaceholder;
+    @BindView(R.id.view_featured_image_card_image) ImageView imageView;
+    @BindView(R.id.view_featured_image_card_image_description) TextView descriptionView;
+    @BindView(R.id.view_featured_image_card_download_button) MaterialButton downloadButton;
+    @BindView(R.id.view_featured_image_card_share_button) MaterialButton shareButton;
 
     public FeaturedImageCardView(Context context) {
         super(context);
         inflate(getContext(), R.layout.view_card_featured_image, this);
         ButterKnife.bind(this);
-        ImageZoomHelper.setViewZoomable(imageView);
     }
 
     @Override public void setCard(@NonNull FeaturedImageCard card) {
         super.setCard(card);
-        // TODO: superimpose text onto image thumb
-        image(card.image());
+        image(card.baseImage());
         description(defaultString(card.description()));  //Can check language before doing this if we want
         header(card);
-        footer();
-        onClickListener(new CardClickListener());
+        setClickListeners();
     }
 
     @Override public void setCallback(@Nullable FeedAdapter.Callback callback) {
@@ -56,16 +58,22 @@ public class FeaturedImageCardView extends DefaultFeedCardView<FeaturedImageCard
         headerView.setCallback(callback);
     }
 
-    private void image(@NonNull Uri uri) {
-        imageView.loadImage(uri);
+    // TODO: re-calculate width when rotating device
+    private void image(@NonNull FeaturedImage image) {
+        ImageZoomHelper.setViewZoomable(imageView);
+        ViewUtil.loadImage(imageView, image.getThumbnailUrl());
+        imageViewPlaceholder.setLayoutParams(new LayoutParams(containerView.getWidth(),
+                ViewUtil.adjustImagePlaceholderHeight((float) containerView.getWidth(), (float) image.getThumbnail().getWidth(), (float) image.getThumbnail().getHeight())));
     }
 
     private void description(@NonNull String text) {
         descriptionView.setText(RichTextUtil.stripHtml(text));
     }
 
-    private void onClickListener(@NonNull OnClickListener listener) {
-        imageView.setOnClickListener(listener);
+    private void setClickListeners() {
+        imageView.setOnClickListener(new CardClickListener());
+        downloadButton.setOnClickListener(new CardDownloadListener());
+        shareButton.setOnClickListener(new CardShareListener());
     }
 
     private void header(@NonNull FeaturedImageCard card) {
@@ -73,13 +81,6 @@ public class FeaturedImageCardView extends DefaultFeedCardView<FeaturedImageCard
                 .setLangCode(null)
                 .setCard(card)
                 .setCallback(getCallback());
-    }
-
-    private void footer() {
-        footerView.actionIcon(R.drawable.ic_file_download)
-                .actionText(R.string.view_featured_image_card_download)
-                .onActionListener(new CardDownloadListener())
-                .onShareListener(new CardShareListener());
     }
 
     private class CardClickListener implements OnClickListener {
