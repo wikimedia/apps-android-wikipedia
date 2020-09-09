@@ -606,6 +606,7 @@
   <string name="menu_feed_overflow_label">Más opciones</string>
   <string name="feed_featured_image_share_subject">Imagen destacada de Wikimedia Commons</string>
   <string name="feed">Explorar</string>
+  <string name="home">Inicio</string>
   <string name="most_read_list_card_title">Tendencias</string>
   <string name="view_static_card_icon_content_description">Icono de tarjeta</string>
   <string name="view_card_news_title">En las noticias</string>

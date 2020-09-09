@@ -342,6 +342,10 @@
   <string name="location_permissions_enable_prompt">주변 장소를 보려면 위치 권한을 허용해주세요.</string>
   <string name="location_permissions_enable_action">켜기</string>
   <string name="error_webview_updating">Android System WebView가 현재 업데이트되고 있습니다. 잠시 후 다시 시도해 주십시오.</string>
+  <plurals name="multi_items_selected">
+    <item quantity="one">%d개 선택됨</item>
+    <item quantity="other">%d개 선택됨</item>
+  </plurals>
   <string name="multi_select_items_selected">%d개 선택됨</string>
   <string name="error_message_generic">오류가 발생했습니다</string>
   <string name="view_link_preview_error_button_dismiss">숨기기</string>
@@ -365,6 +369,7 @@
   <string name="article_menu_bar_language_button">언어</string>
   <string name="article_menu_bar_search_button">검색</string>
   <string name="article_menu_bar_theme_button">테마</string>
+  <string name="article_menu_bar_contents_button">목차</string>
   <string name="article_header_edit_hint">편집...</string>
   <string name="article_header_edit_description">문서 설명 편집</string>
   <string name="article_header_edit_lead_section">도입부 편집</string>
@@ -392,6 +397,14 @@
   <string name="reading_list_articles_already_exist_message">좋습니다! %s은(는) 이미 모든 문서를 포함하고 있습니다.</string>
   <string name="reading_list_added_view_button">목록 보기</string>
   <string name="reading_list_add_to_list_button">목록에 추가</string>
+  <plurals name="format_reading_list_statistical_summary">
+    <item quantity="one">글 1개, %2$.2f MB</item>
+    <item quantity="other">글 %1$d개, %2$.2f MB</item>
+  </plurals>
+  <plurals name="format_reading_list_statistical_detail">
+    <item quantity="one">읽을 수 있는 오프라인 글 1개 중 %1$d개, %3$.2f MB</item>
+    <item quantity="other">읽을 수 있는 오프라인 글 %2$d개 중 %1$d개, %3$.2f MB</item>
+  </plurals>
   <string name="format_reading_list_statistical_summary_singular">1개의 문서, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d개의 문서, %2$.2f MB</string>
   <string name="format_reading_list_statistical_detail_singular">1개의 문서 중 %1$d개를 오프라인에서 읽을 수 있음, %2$.2f MB</string>
@@ -416,6 +429,10 @@
   <string name="reading_list_name_hint">이 목록의 이름</string>
   <string name="reading_list_description_hint">설명 (선택 사항)</string>
   <string name="reading_list_item_deleted">%s개의 문서가 목록에서 제거되었습니다</string>
+  <plurals name="reading_list_articles_deleted">
+    <item quantity="one">목록에서 제거된 문서 %d개</item>
+    <item quantity="other">목록에서 제거된 문서 %d개</item>
+  </plurals>
   <string name="reading_list_items_deleted">%d개의 문서가 목록에서 제거됨</string>
   <string name="reading_lists_item_deleted">%s개의 문서가 목록에서 제거되었습니다</string>
   <string name="reading_list_item_delete_undo">실행 취소</string>
@@ -640,12 +657,13 @@
   <string name="description_edit_voice_input_description">음성 입력</string>
   <string name="description_too_short">텍스트가 너무 짧습니다.</string>
   <string name="description_ends_with_punctuation">텍스트는 구두점으로 끝나서는 안 됩니다.</string>
+  <string name="description_starts_with_uppercase">처음 오는 단어가 고유 명사가 아니면 소문자로 시작하십시오.</string>
   <string name="description_edit_success_saved">문서 설명을 게시했습니다!</string>
   <string name="description_edit_success_saved_snackbar">문서 설명을 게시했습니다!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">문서 설명을 게시했습니다! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">이미지 설명이 게시되었습니다!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">이미지 설명이 게시되었습니다! (%s)</string>
-  <string name="description_edit_success_saved_image_tags_snackbar" fuzzy="true">이미지 태그가 저장되었습니다!</string>
+  <string name="description_edit_success_saved_image_tags_snackbar">이미지 태그가 게시되었습니다!</string>
   <string name="description_edit_success_encouragement">방금 모두를 위해 위키백과를 개선해주셨습니다</string>
   <string name="description_edit_success_done">완료</string>
   <string name="description_edit_success_did_you_know">알고 계십니까?</string>

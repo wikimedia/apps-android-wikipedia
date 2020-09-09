@@ -12,21 +12,46 @@ import org.wikipedia.dataclient.mwapi.MwQueryPage;
 import org.wikipedia.model.BaseModel;
 import org.wikipedia.page.PageTitle;
 
+import static org.wikipedia.search.SearchResult.SearchResultType.SEARCH_RESULT;
+
 public class SearchResult extends BaseModel implements Parcelable {
     private PageTitle pageTitle;
     private final String redirectFrom;
+    private SearchResultType searchResultType = SEARCH_RESULT;
+
+    public enum SearchResultType {
+        SEARCH_RESULT(0),
+        HISTORY_SEARCH_RESULT(1),
+        READING_LIST_SEARCH_RESULT(2),
+        TAB_LIST_SEARCH_RESULT(3);
+
+        private int priority;
+
+        SearchResultType(int priority) {
+            this.priority = priority;
+        }
+
+        public int getPriority() {
+            return priority;
+        }
+    }
 
     public SearchResult(@NonNull MwQueryPage page, @NonNull WikiSite wiki) {
         this(new PageTitle(page.title(), wiki, page.thumbUrl(), page.description(), page.displayTitle(wiki.languageCode())), page.redirectFrom());
     }
 
-    public SearchResult(@NonNull PageTitle pageTitle) {
+    public SearchResult(@NonNull SearchResultType searchResultType, @NonNull PageTitle pageTitle) {
         this(pageTitle, null);
+        this.searchResultType = searchResultType;
     }
 
     public SearchResult(@NonNull PageTitle pageTitle, @Nullable String redirectFrom) {
         this.pageTitle = pageTitle;
         this.redirectFrom = redirectFrom;
+    }
+
+    public int getPriority() {
+        return searchResultType.getPriority();
     }
 
     @NonNull
