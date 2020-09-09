@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/topic_title_text"
+        app:layout_constraintEnd_toStartOf="@id/topicTitleText"
         app:srcCompat="@drawable/shape_circle"
         app:tint="?attr/colorAccent"
         android:contentDescription="@null"/>
