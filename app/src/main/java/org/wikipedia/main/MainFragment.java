@@ -63,6 +63,7 @@ import org.wikipedia.settings.AboutActivity;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SettingsActivity;
 import org.wikipedia.suggestededits.SuggestedEditsTasksFragment;
+import org.wikipedia.talk.TalkTopicsActivity;
 import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.PermissionUtil;
@@ -493,11 +494,12 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
 
     @SuppressWarnings("checkstyle:magicnumber")
     private void maybeShowEditsTooltip() {
-        if (Prefs.shouldShowSuggestedEditsTooltip() && Prefs.getExploreFeedVisitCount() == SHOW_EDITS_SNACKBAR_COUNT) {
+        if (!(getCurrentFragment() instanceof SuggestedEditsTasksFragment) && Prefs.shouldShowSuggestedEditsTooltip()
+                && Prefs.getExploreFeedVisitCount() == SHOW_EDITS_SNACKBAR_COUNT) {
             Prefs.setShouldShowSuggestedEditsTooltip(false);
             FeedbackUtil.showTooltip(tabLayout.findViewById(NavTab.EDITS.id()), AccountUtil.isLoggedIn()
-                            ? getString(R.string.main_tooltip_text, AccountUtil.getUserName())
-                            : getString(R.string.main_tooltip_text_v2), true, false);
+                    ? getString(R.string.main_tooltip_text, AccountUtil.getUserName())
+                    : getString(R.string.main_tooltip_text_v2), true, false);
         }
     }
 
@@ -561,6 +563,13 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         public void notificationsClick() {
             if (AccountUtil.isLoggedIn()) {
                 startActivity(NotificationActivity.newIntent(requireActivity()));
+            }
+        }
+
+        @Override
+        public void talkClick() {
+            if (AccountUtil.isLoggedIn()) {
+                startActivity(TalkTopicsActivity.newIntent(requireActivity(), WikipediaApp.getInstance().getAppOrSystemLanguageCode(), AccountUtil.getUserName()));
             }
         }
 
