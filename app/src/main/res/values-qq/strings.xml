@@ -961,6 +961,11 @@
   <string name="talk_page_empty">Label stating that this talk page is currently empty.</string>
   <string name="talk_add_reply">Button label for adding a reply to a talk page topic.</string>
   <string name="talk_no_subject">Label for talk page topic that does not have a title.</string>
+  <string name="talk_reply_subject">Hint for text field for entering a new talk page topic.</string>
+  <string name="talk_reply_hint">Hint for text field for composing a reply to the current talk page topic.</string>
+  <string name="talk_message_hint">Hint for text field for composing a new talk page topic.</string>
+  <string name="talk_message_empty">Error message shown when the talk page message is empty.</string>
+  <string name="talk_subject_empty">Error message shown when the talk page subject is empty.</string>
   <string name="nav_item_search">Navigation menu item label for search.</string>
   <string name="search_tab_tooltip">Tooltip text shown when users see the new search tab in the main botton navigation for the first time.</string>
   <string name="history_list_title">Label text for history items list.</string>

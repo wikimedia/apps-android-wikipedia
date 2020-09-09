@@ -264,8 +264,7 @@
             android:theme="@style/AppTheme.ActionBar" />
 
         <activity
-            android:name=".talk.TalkTopicActivity"
-            android:theme="@style/AppTheme.ActionBar" />
+            android:name=".talk.TalkTopicActivity" />
 
         <provider
             android:authorities="${applicationId}"

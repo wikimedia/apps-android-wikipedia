@@ -59,7 +59,7 @@ class TalkTopicsActivity : BaseActivity() {
         }
 
         talkNewTopicButton.setOnClickListener {
-            // TODO
+            startActivity(TalkTopicActivity.newIntent(this@TalkTopicsActivity, wikiSite.languageCode(), userName, -1))
         }
 
         talkRefreshView.setOnRefreshListener {
@@ -75,7 +75,7 @@ class TalkTopicsActivity : BaseActivity() {
         super.onDestroy()
     }
 
-    override fun onResume() {
+    public override fun onResume() {
         super.onResume()
         loadTopics()
     }
