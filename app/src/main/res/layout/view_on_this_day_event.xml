@@ -77,7 +77,7 @@
                 android:layout_width="8dp"
                 android:layout_height="8dp"
                 android:contentDescription="@null"
-                app:tint="?attr/chart_shade5"
+                app:tint="?attr/colorAccent"
                 app:srcCompat="@drawable/otd_radio" />
         </FrameLayout>
 
@@ -88,7 +88,7 @@
             android:layout_marginStart="16dp"
             android:fontFamily="serif"
             android:gravity="center_vertical"
-            android:textColor="?attr/material_theme_primary_color"
+            android:textColor="?attr/colorAccent"
             android:textSize="24sp"
             android:typeface="serif"
             tools:text="1894" />
