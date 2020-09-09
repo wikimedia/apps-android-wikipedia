@@ -13,6 +13,10 @@ class TalkPage {
         val shas: TopicShas? = null
         val replies: List<TopicReply>? = null
             get() = field ?: emptyList()
+
+        fun getIndicatorSha(): String {
+            return shas?.indicator.orEmpty()
+        }
     }
 
     class TopicShas {
