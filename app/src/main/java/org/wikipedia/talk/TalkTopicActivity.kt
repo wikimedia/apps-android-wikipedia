@@ -149,9 +149,14 @@ class TalkTopicActivity : BaseActivity(), LinkPreviewDialog.Callback {
         disposables.add(ServiceFactory.getRest(wikiSite).getTalkPage(userName)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ response ->
-                    topic = response.topics?.find { t -> t.id == topicId }
+                .map { response ->
+                    val talkTopic = response.topics?.find { t -> t.id == topicId }!!
+                    TalkPageSeenDatabaseTable.setTalkTopicSeen(talkTopic)
                     currentRevision = response.revision
+                    talkTopic
+                }
+                .subscribe({
+                    topic = it
                     updateOnSuccess()
                 }, { t ->
                     L.e(t)
