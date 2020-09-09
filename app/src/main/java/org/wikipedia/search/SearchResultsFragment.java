@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.content.res.AppCompatResources;
 import androidx.collection.LruCache;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -33,7 +32,6 @@ import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.util.StringUtil;
 import org.wikipedia.views.DefaultViewHolder;
 import org.wikipedia.views.GoneIfEmptyTextView;
-import org.wikipedia.views.TabCountsView;
 import org.wikipedia.views.ViewUtil;
 import org.wikipedia.views.WikiErrorView;
 
@@ -469,9 +467,6 @@ public class SearchResultsFragment extends Fragment {
 
             ImageView searchResultItemImage = getView().findViewById(R.id.page_list_item_image);
             ImageView searchResultIcon = getView().findViewById(R.id.page_list_icon);
-            TabCountsView searchResultTabCountsView = getView().findViewById(R.id.page_list_button_tabs);
-            searchResultTabCountsView.updateTabCount();
-            searchResultTabCountsView.setBackgroundResource(0);
             GoneIfEmptyTextView descriptionText = getView().findViewById(R.id.page_list_item_description);
             TextView redirectText = getView().findViewById(R.id.page_list_item_redirect);
             View redirectArrow = getView().findViewById(R.id.page_list_item_redirect_arrow);
@@ -487,12 +482,12 @@ public class SearchResultsFragment extends Fragment {
             }
             if (result.getType() == SearchResult.SearchResultType.SEARCH) {
                 searchResultIcon.setVisibility(GONE);
-                searchResultTabCountsView.setVisibility(GONE);
             } else {
-                searchResultTabCountsView.setVisibility(result.getType() == SearchResult.SearchResultType.TAB_LIST ? VISIBLE : GONE);
-                searchResultIcon.setVisibility(result.getType() == SearchResult.SearchResultType.TAB_LIST ? GONE : VISIBLE);
-                searchResultIcon.setImageDrawable(AppCompatResources.getDrawable(requireContext(),
-                        result.getType() == SearchResult.SearchResultType.HISTORY ? R.drawable.ic_restore_black_24dp : R.drawable.ic_bookmark_border_white_24dp));
+
+                searchResultIcon.setVisibility(VISIBLE);
+                searchResultIcon.setImageResource(result.getType() == SearchResult.SearchResultType.HISTORY
+                        ? R.drawable.ic_restore_black_24dp : result.getType() == SearchResult.SearchResultType.TAB_LIST
+                        ? R.drawable.ic_tab_single_24px : R.drawable.ic_bookmark_border_white_24dp);
             }
 
             // highlight search term within the text

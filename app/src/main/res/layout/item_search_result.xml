@@ -74,17 +74,6 @@
         app:tint="?attr/material_theme_de_emphasised_color"
         app:srcCompat="@drawable/ic_bookmark_border_white_24dp" />
 
-    <org.wikipedia.views.TabCountsView
-        android:id="@+id/page_list_button_tabs"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:contentDescription="@null"
-        android:scaleX="0.75"
-        android:scaleY="0.75"
-        app:layout_constraintBottom_toBottomOf="@id/page_list_image_guide"
-        app:layout_constraintEnd_toStartOf="@id/page_list_item_image"
-        app:layout_constraintTop_toTopOf="@id/page_list_image_guide" />
-
     <ImageView
         android:id="@+id/page_list_item_image"
         android:layout_width="@dimen/view_list_card_item_image"
