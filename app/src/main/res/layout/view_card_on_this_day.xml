@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:clipChildren="false"
@@ -19,27 +18,17 @@
         android:layout_height="wrap_content"
         android:clipChildren="false">
 
-        <View
-            android:id="@+id/gradient_layout"
-            android:layout_width="1dp"
-            android:layout_height="26dp"
-            android:layout_marginStart="27dp"
-            android:background="?attr/chart_shade5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <LinearLayout
             android:id="@+id/view_on_this_day_text_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="27dp"
+            android:layout_marginStart="24dp"
             android:layout_marginEnd="12dp"
-            android:layout_marginBottom="16dp"
             android:background="?attr/chart_shade5"
             android:clipChildren="false"
             android:clipToPadding="false"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/gradient_layout">
+            app:layout_constraintTop_toTopOf="parent">
 
             <FrameLayout
                 android:id="@+id/view_on_this_day_click_container"
@@ -51,8 +40,7 @@
                 android:clipChildren="false"
                 android:clipToPadding="false"
                 android:focusable="true"
-                android:foreground="?attr/selectableItemBackgroundBorderless"
-                android:paddingBottom="16dp">
+                android:foreground="?attr/selectableItemBackgroundBorderless">
 
                 <include
                     android:id="@+id/year_layout"

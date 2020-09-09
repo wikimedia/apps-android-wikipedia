@@ -2,7 +2,6 @@ package org.wikipedia.feed.onthisday;
 
 import android.app.Activity;
 import android.content.Context;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,8 +29,6 @@ import org.wikipedia.feed.view.CardHeaderView;
 import org.wikipedia.feed.view.DefaultFeedCardView;
 import org.wikipedia.feed.view.FeedAdapter;
 import org.wikipedia.util.DateUtil;
-import org.wikipedia.util.GradientUtil;
-import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.views.DontInterceptTouchListener;
 import org.wikipedia.views.MarginItemDecoration;
 
@@ -52,7 +49,6 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
     @BindView(R.id.years_text) TextView yearsInfoTextView;
     @BindView(R.id.year_layout) LinearLayout yearLayout;
     @BindView(R.id.pages_recycler) RecyclerView pagesRecycler;
-    @BindView(R.id.gradient_layout) View gradientLayout;
     @BindView(R.id.radio_image_view) View radio;
     @BindView(R.id.view_on_this_day_rtl_container) View rtlContainer;
     @BindView(R.id.card_footer_view) CardFooterView cardFooterView;
@@ -85,7 +81,6 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
     private void setGradientAndTextColor() {
         yearsInfoBackground.setVisibility(GONE);
         yearsInfoTextView.setVisibility(GONE);
-        gradientLayout.setBackground(GradientUtil.getPowerGradient(ResourceUtil.getThemedAttributeId(getContext(), R.attr.chart_shade5), Gravity.BOTTOM));
     }
 
     private void initRecycler() {
