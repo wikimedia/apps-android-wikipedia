@@ -50,9 +50,8 @@
             android:clickable="true"
             android:contentDescription="@string/history_filter_list_hint"
             android:focusable="true"
-            android:foreground="?attr/actionBarItemBackground"
+            android:background="?attr/actionBarItemBackground"
             android:longClickable="true"
-            android:padding="12dp"
             android:scaleType="centerInside"
             app:srcCompat="@drawable/ic_baseline_filter_list_24"
             app:tint="@color/base30" />
@@ -65,9 +64,8 @@
             android:clickable="true"
             android:contentDescription="@string/button_clear_all_recent_searches"
             android:focusable="true"
-            android:foreground="?attr/actionBarItemBackground"
+            android:background="?attr/actionBarItemBackground"
             android:longClickable="true"
-            android:padding="12dp"
             android:scaleType="centerInside"
             app:srcCompat="@drawable/ic_delete_white_24dp"
             app:tint="@color/base30" />
