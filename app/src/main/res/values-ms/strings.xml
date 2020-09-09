@@ -340,6 +340,10 @@
   <string name="crash_report_relaunch_or_quit">Maaf, aplikasi Wikipedia telah mengalami ralat dan terpaksa ditutup</string>
   <string name="crash_report_relaunch">Mula balik</string>
   <string name="crash_report_quit">Keluar</string>
+  <string name="article_menu_bar_save_button">Simpan</string>
+  <string name="article_menu_bar_language_button">Bahasa</string>
+  <string name="article_menu_bar_theme_button">Tema</string>
+  <string name="article_menu_bar_contents_button">Kandungan</string>
   <string name="article_header_edit_hint">Sunting...</string>
   <string name="article_header_edit_description">Sunting huraian tajuk</string>
   <string name="article_header_edit_lead_section">Sunting pengenalan</string>

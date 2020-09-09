@@ -66,7 +66,7 @@ class ContributionDetailsFragment : Fragment() {
         updateTopGradient()
         contributionContainer.setOnClickListener { startTypeSpecificActivity() }
         revisionLayout.visibility = if (contribution.top) VISIBLE else GONE
-        contributionTitle.text = StringUtil.removeNamespace(contribution.title)
+        contributionTitle.text = StringUtil.removeNamespace(contribution.displayTitle)
         contributionDiffDetailText.text = contribution.description
         if (contribution.imageUrl.isNullOrEmpty() || contribution.imageUrl == "null") contributionImage.visibility = GONE else ViewUtil.loadImageWithRoundedCorners(contributionImage, contribution.imageUrl)
         dateTimeDetailView.setLabelAndDetail(getString(R.string.suggested_edits_contribution_date_time_label), DateUtil.getFeedCardDateString(contribution.date) + " / " + DateUtil.get24HrFormatTimeOnlyString(contribution.date), -1)
@@ -80,11 +80,11 @@ class ContributionDetailsFragment : Fragment() {
             EDIT_TYPE_IMAGE_TAG -> UserContributionFunnel.get().logNavigateTag()
             else -> UserContributionFunnel.get().logNavigateMisc()
         }
+        val pageTitle = PageTitle(contribution.apiTitle, contribution.wikiSite, contribution.imageUrl, contribution.description, contribution.displayTitle)
         if (contribution.editType == EDIT_TYPE_ARTICLE_DESCRIPTION) {
-            startActivity(PageActivity.newIntentForNewTab(requireActivity(), HistoryEntry(PageTitle(contribution.title, contribution.wikiSite), HistoryEntry.SOURCE_SUGGESTED_EDITS),
-                    PageTitle(contribution.title, contribution.wikiSite)))
+            startActivity(PageActivity.newIntentForNewTab(requireActivity(), HistoryEntry(pageTitle, HistoryEntry.SOURCE_SUGGESTED_EDITS), pageTitle))
         } else {
-            startActivity(FilePageActivity.newIntent(requireContext(), PageTitle(contribution.title, contribution.wikiSite)))
+            startActivity(FilePageActivity.newIntent(requireContext(), pageTitle))
         }
     }
 

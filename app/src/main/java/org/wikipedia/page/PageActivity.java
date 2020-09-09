@@ -48,7 +48,6 @@ import org.wikipedia.descriptions.DescriptionEditActivity;
 import org.wikipedia.descriptions.DescriptionEditRevertHelpView;
 import org.wikipedia.events.ArticleSavedOrDeletedEvent;
 import org.wikipedia.events.ChangeTextSizeEvent;
-import org.wikipedia.feed.featured.FeaturedArticleCardView;
 import org.wikipedia.gallery.GalleryActivity;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.language.LangLinksActivity;
@@ -58,7 +57,9 @@ import org.wikipedia.page.linkpreview.LinkPreviewDialog;
 import org.wikipedia.page.tabs.TabActivity;
 import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.settings.Prefs;
+import org.wikipedia.settings.SiteInfoClient;
 import org.wikipedia.suggestededits.SuggestedEditsSnackbars;
+import org.wikipedia.talk.TalkTopicsActivity;
 import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.DimenUtil;
@@ -435,8 +436,6 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
             return;
         }
 
-        loadFilePageIfNeeded(title);
-
         if (entry.getSource() != HistoryEntry.SOURCE_INTERNAL_LINK || !isLinkPreviewEnabled()) {
             new LinkPreviewFunnel(app, entry.getSource()).logNavigate();
         }
@@ -444,8 +443,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
         app.putCrashReportProperty("api", title.getWikiSite().authority());
         app.putCrashReportProperty("title", title.toString());
 
-        if (title.isSpecial()) {
-            visitInExternalBrowser(this, Uri.parse(title.getUri()));
+        if (loadNonArticlePageIfNeeded(title)) {
             return;
         }
 
@@ -473,7 +471,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     }
 
     public void loadMainPage(TabPosition position) {
-        PageTitle title = FeaturedArticleCardView.getMainPageTitle();
+        PageTitle title = new PageTitle(SiteInfoClient.getMainPageForLang(app.getAppOrSystemLanguageCode()), app.getWikiSite());
         HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_MAIN_PAGE);
         loadPage(title, historyEntry, position);
     }
@@ -481,15 +479,27 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     private void loadFilePageFromBackStackIfNeeded() {
         if (!pageFragment.getCurrentTab().getBackStack().isEmpty()) {
             PageBackStackItem item = pageFragment.getCurrentTab().getBackStack().get(pageFragment.getCurrentTab().getBackStackPosition());
-            loadFilePageIfNeeded(item.getTitle());
+            loadNonArticlePageIfNeeded(item.getTitle());
         }
     }
 
-    private void loadFilePageIfNeeded(@Nullable PageTitle title) {
-        if (title != null && title.isFilePage()) {
-            startActivity(FilePageActivity.newIntent(this, title));
-            finish();
+    private boolean loadNonArticlePageIfNeeded(@Nullable PageTitle title) {
+        if (title != null) {
+            if (title.isSpecial()) {
+                visitInExternalBrowser(this, Uri.parse(title.getUri()));
+                finish();
+                return true;
+            } else if (title.isFilePage()) {
+                startActivity(FilePageActivity.newIntent(this, title));
+                finish();
+                return true;
+            } else if (title.namespace() == Namespace.USER_TALK) {
+                startActivity(TalkTopicsActivity.newIntent(this, title.getWikiSite().languageCode(), title.getText()));
+                finish();
+                return true;
+            }
         }
+        return false;
     }
 
     private void hideLinkPreview() {

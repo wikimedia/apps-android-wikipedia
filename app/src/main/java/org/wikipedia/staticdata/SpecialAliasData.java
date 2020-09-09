@@ -21,7 +21,7 @@ public final class SpecialAliasData {
 
     @SuppressWarnings({"checkstyle:methodlength", "SpellCheckingInspection"})
     private static Map<String, String> newMap() {
-        final int size = 305;
+        final int size = 306;
         Map<String, String> map = new HashMap<>(size);
         map.put("ab", "Цастәи");
         map.put("ace", "Kusuih");
@@ -178,6 +178,7 @@ public final class SpecialAliasData {
         map.put("lg", "Special");
         map.put("li", "Speciaal");
         map.put("lij", "Speçiale");
+        map.put("lld", "Speciale");
         map.put("lmo", "Special");
         map.put("ln", "Spécial");
         map.put("lo", "ພິເສດ");

@@ -30,7 +30,6 @@ import org.wikipedia.analytics.LoginFunnel;
 import org.wikipedia.auth.AccountUtil;
 import org.wikipedia.events.LoggedOutInBackgroundEvent;
 import org.wikipedia.feed.FeedFragment;
-import org.wikipedia.feed.featured.FeaturedArticleCardView;
 import org.wikipedia.feed.image.FeaturedImage;
 import org.wikipedia.feed.image.FeaturedImageCard;
 import org.wikipedia.feed.news.NewsActivity;
@@ -62,7 +61,9 @@ import org.wikipedia.search.SearchFragment;
 import org.wikipedia.settings.AboutActivity;
 import org.wikipedia.settings.Prefs;
 import org.wikipedia.settings.SettingsActivity;
+import org.wikipedia.settings.SiteInfoClient;
 import org.wikipedia.suggestededits.SuggestedEditsTasksFragment;
+import org.wikipedia.talk.TalkTopicsActivity;
 import org.wikipedia.util.ClipboardUtil;
 import org.wikipedia.util.FeedbackUtil;
 import org.wikipedia.util.PermissionUtil;
@@ -86,6 +87,7 @@ import static org.wikipedia.Constants.InvokeSource.APP_SHORTCUTS;
 import static org.wikipedia.Constants.InvokeSource.FEED;
 import static org.wikipedia.Constants.InvokeSource.FEED_BAR;
 import static org.wikipedia.Constants.InvokeSource.LINK_PREVIEW_MENU;
+import static org.wikipedia.Constants.InvokeSource.NAV_MENU;
 import static org.wikipedia.Constants.InvokeSource.VOICE;
 
 public class MainFragment extends Fragment implements BackPressedHandler, FeedFragment.Callback,
@@ -136,6 +138,10 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         tabLayout.setOnNavigationItemSelectedListener(item -> {
             if (getCurrentFragment() instanceof FeedFragment && item.getOrder() == 0) {
                 ((FeedFragment) getCurrentFragment()).scrollToTop();
+            }
+            if (getCurrentFragment() instanceof HistoryFragment && item.getOrder() == NavTab.SEARCH.code()) {
+                openSearchActivity(NAV_MENU, null);
+                return true;
             }
             viewPager.setCurrentItem(item.getOrder(), false);
             return true;
@@ -201,7 +207,8 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
                 return;
             }
             if (resultCode == TabActivity.RESULT_NEW_TAB) {
-                HistoryEntry entry = new HistoryEntry(FeaturedArticleCardView.getMainPageTitle(), HistoryEntry.SOURCE_MAIN_PAGE);
+                HistoryEntry entry = new HistoryEntry(new PageTitle(SiteInfoClient.getMainPageForLang(WikipediaApp.getInstance().getAppOrSystemLanguageCode()),
+                        WikipediaApp.getInstance().getWikiSite()), HistoryEntry.SOURCE_MAIN_PAGE);
                 startActivity(PageActivity.newIntentForNewTab(requireContext(), entry, entry.getTitle()));
             } else if (resultCode == TabActivity.RESULT_LOAD_FROM_BACKSTACK) {
                 startActivity(PageActivity.newIntent(requireContext()));
@@ -457,7 +464,7 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
                 Constants.ACTIVITY_REQUEST_WRITE_EXTERNAL_STORAGE_PERMISSION);
     }
 
-    private void openSearchActivity(@NonNull Constants.InvokeSource source, @Nullable String query) {
+    public void openSearchActivity(@NonNull Constants.InvokeSource source, @Nullable String query) {
         Intent intent = SearchActivity.newIntent(requireActivity(), source, query);
         startActivityForResult(intent, ACTIVITY_REQUEST_OPEN_SEARCH_ACTIVITY);
     }
@@ -488,11 +495,12 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
 
     @SuppressWarnings("checkstyle:magicnumber")
     private void maybeShowEditsTooltip() {
-        if (Prefs.shouldShowSuggestedEditsTooltip() && Prefs.getExploreFeedVisitCount() == SHOW_EDITS_SNACKBAR_COUNT) {
+        if (!(getCurrentFragment() instanceof SuggestedEditsTasksFragment) && Prefs.shouldShowSuggestedEditsTooltip()
+                && Prefs.getExploreFeedVisitCount() == SHOW_EDITS_SNACKBAR_COUNT) {
             Prefs.setShouldShowSuggestedEditsTooltip(false);
             FeedbackUtil.showTooltip(tabLayout.findViewById(NavTab.EDITS.id()), AccountUtil.isLoggedIn()
-                            ? getString(R.string.main_tooltip_text, AccountUtil.getUserName())
-                            : getString(R.string.main_tooltip_text_v2), true, false);
+                    ? getString(R.string.main_tooltip_text, AccountUtil.getUserName())
+                    : getString(R.string.main_tooltip_text_v2), true, false);
         }
     }
 
@@ -560,6 +568,13 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
         }
 
         @Override
+        public void talkClick() {
+            if (AccountUtil.isLoggedIn()) {
+                startActivity(TalkTopicsActivity.newIntent(requireActivity(), WikipediaApp.getInstance().getAppOrSystemLanguageCode(), AccountUtil.getUserName()));
+            }
+        }
+
+        @Override
         public void settingsClick() {
             startActivityForResult(SettingsActivity.newIntent(requireActivity()), Constants.ACTIVITY_REQUEST_SETTINGS);
         }
@@ -569,5 +584,4 @@ public class MainFragment extends Fragment implements BackPressedHandler, FeedFr
             startActivity(new Intent(requireActivity(), AboutActivity.class));
         }
     }
-
 }

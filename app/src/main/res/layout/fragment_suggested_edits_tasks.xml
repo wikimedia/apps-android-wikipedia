@@ -68,7 +68,7 @@
                                 android:id="@+id/userStatsViewsGroup"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                app:constraint_referenced_ids="userStatsClickTarget,userNameView,userStatsArrow,
+                                app:constraint_referenced_ids="userNameView,userStatsArrow,
                                 guideLineMiddle,contributionsStatsView,editStreakStatsView,pageViewStatsView,editQualityStatsView" />
 
                             <TextView

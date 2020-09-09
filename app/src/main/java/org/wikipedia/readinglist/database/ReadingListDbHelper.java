@@ -8,6 +8,7 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.database.contract.ReadingListContract;
@@ -16,11 +17,14 @@ import org.wikipedia.events.ArticleSavedOrDeletedEvent;
 import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.sync.ReadingListSyncAdapter;
 import org.wikipedia.savedpages.SavedPageSyncService;
+import org.wikipedia.search.SearchResult;
+import org.wikipedia.search.SearchResults;
 import org.wikipedia.util.log.L;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Locale;
 import java.util.Random;
 
 public class ReadingListDbHelper {
@@ -485,6 +489,31 @@ public class ReadingListDbHelper {
             }
         }
         return null;
+    }
+
+    @Nullable
+    public SearchResults findPageForSearchQueryInAnyList(@NonNull String searchQuery) {
+        SQLiteDatabase db = getReadableDatabase();
+        String normalizedQuery = StringUtils.stripAccents(searchQuery).toLowerCase(Locale.getDefault());
+        String titleCol = ReadingListPageContract.Col.DISPLAY_TITLE.getName();
+        String selection = null;
+        String[] selectionArgs = null;
+        if (!TextUtils.isEmpty(normalizedQuery)) {
+            normalizedQuery = normalizedQuery.replace("\\", "\\\\").replace("%", "\\%").replace("_", "\\_");
+            selection = "UPPER(" + titleCol + ") LIKE UPPER(?) ESCAPE '\\'";
+            selectionArgs = new String[]{"%" + normalizedQuery + "%"};
+        }
+        try (Cursor cursor = db.query(ReadingListPageContract.TABLE, null,
+                selection,
+                selectionArgs,
+                null, null, null)) {
+            if (cursor.moveToFirst()) {
+                ReadingListPage readingListPage = ReadingListPage.DATABASE_TABLE.fromCursor(cursor);
+                return new SearchResults(Collections.singletonList(new SearchResult(new PageTitle(readingListPage.title(), readingListPage.wiki(), readingListPage.thumbUrl()),
+                        SearchResult.SearchResultType.READING_LIST)));
+            }
+        }
+        return new SearchResults();
     }
 
     public boolean pageExistsInList(@NonNull ReadingList list, @NonNull PageTitle title) {
