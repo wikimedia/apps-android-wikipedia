@@ -133,7 +133,7 @@ public class PageSummary {
     private static class Thumbnail {
         private String source;
 
-        public Thumbnail(@Nullable String source) {
+        Thumbnail(@Nullable String source) {
             this.source = source;
         }
 
@@ -155,7 +155,7 @@ public class PageSummary {
         @Nullable private String canonical;
         @Nullable private String display;
 
-        public Titles(@Nullable String canonical, @Nullable String display) {
+        Titles(@Nullable String canonical, @Nullable String display) {
             this.canonical = canonical;
             this.display = display;
         }
