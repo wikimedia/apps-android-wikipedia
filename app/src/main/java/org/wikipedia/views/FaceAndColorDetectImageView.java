@@ -20,14 +20,18 @@ import androidx.appcompat.widget.AppCompatImageView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestBuilder;
+import com.bumptech.glide.load.MultiTransformation;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.bumptech.glide.load.resource.bitmap.BitmapTransformation;
+import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.bumptech.glide.load.resource.bitmap.DownsampleStrategy;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.load.resource.bitmap.TransformationUtils;
 
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.settings.Prefs;
+import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.MathUtil;
 import org.wikipedia.util.log.L;
 
@@ -40,6 +44,7 @@ public class FaceAndColorDetectImageView extends AppCompatImageView {
     private static final Paint DEFAULT_PAINT = new Paint(PAINT_FLAGS);
     private static final int BITMAP_COPY_WIDTH = 200;
     private static final CenterCropWithFace FACE_DETECT_TRANSFORM = new CenterCropWithFace();
+    private static final RoundedCorners ROUNDED_CORNERS = new RoundedCorners(DimenUtil.roundedDpToPx(15));
     private static final Paint PAINT_WHITE = new Paint();
     private static final Paint PAINT_DARK_OVERLAY = new Paint();
 
@@ -62,6 +67,10 @@ public class FaceAndColorDetectImageView extends AppCompatImageView {
     }
 
     public void loadImage(@Nullable Uri uri) {
+        loadImage(uri, false);
+    }
+
+    public void loadImage(@Nullable Uri uri, boolean roundedCorners) {
         Drawable placeholder = ViewUtil.getPlaceholderDrawable(getContext());
         if (!isImageDownloadEnabled() || uri == null) {
             setImageDrawable(placeholder);
@@ -74,9 +83,9 @@ public class FaceAndColorDetectImageView extends AppCompatImageView {
                 .downsample(DownsampleStrategy.CENTER_INSIDE);
 
         if (shouldDetectFace(uri)) {
-            builder = builder.transform(FACE_DETECT_TRANSFORM);
+            builder = builder.transform(roundedCorners ? new MultiTransformation<>(FACE_DETECT_TRANSFORM, ROUNDED_CORNERS) : FACE_DETECT_TRANSFORM);
         } else {
-            builder = builder.centerCrop();
+            builder = builder.transform(roundedCorners ? new MultiTransformation<>(new CenterCrop(), ROUNDED_CORNERS) : new CenterCrop());
         }
 
         builder.into(this);

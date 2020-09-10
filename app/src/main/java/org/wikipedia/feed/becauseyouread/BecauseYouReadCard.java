@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.feed.model.CardType;
@@ -14,7 +15,6 @@ import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageTitle;
 
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 public class BecauseYouReadCard extends ListCard<BecauseYouReadItemCard> {
     @NonNull private HistoryEntry entry;
@@ -37,6 +37,13 @@ public class BecauseYouReadCard extends ListCard<BecauseYouReadItemCard> {
         return TextUtils.isEmpty(entry.getTitle().getThumbUrl()) ? null : Uri.parse(entry.getTitle().getThumbUrl());
     }
 
+    @Override
+    @NonNull
+    public String extract() {
+        // TODO: having correct extract
+        return StringUtils.defaultString(entry.getTitle().getDescription());
+    }
+
     @NonNull @Override public CardType type() {
         return CardType.BECAUSE_YOU_READ_LIST;
     }
@@ -47,13 +54,6 @@ public class BecauseYouReadCard extends ListCard<BecauseYouReadItemCard> {
 
     @NonNull public PageTitle getPageTitle() {
         return entry.getTitle();
-    }
-
-    /** @return The last visit age in days. */
-    public long daysOld() {
-        long now = System.currentTimeMillis();
-        long lastVisited = entry.getTimestamp().getTime();
-        return TimeUnit.MILLISECONDS.toDays(now - lastVisited);
     }
 
     @Override

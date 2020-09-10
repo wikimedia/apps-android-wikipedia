@@ -55,7 +55,7 @@ public class CardLargeHeaderView extends ConstraintLayout {
     @NonNull
     public CardLargeHeaderView setImage(@Nullable Uri uri) {
         imageView.setVisibility(uri == null ? GONE : VISIBLE);
-        imageView.loadImage(uri);
+        imageView.loadImage(uri, true);
         return this;
     }
 
@@ -68,12 +68,6 @@ public class CardLargeHeaderView extends ConstraintLayout {
     @NonNull
     public CardLargeHeaderView setSubtitle(@Nullable CharSequence subtitle) {
         subtitleView.setText(getResources().getString(R.string.view_continue_reading_card_subtitle_read_date, subtitle));
-        return this;
-    }
-
-    @NonNull
-    public CardLargeHeaderView onClickListener(@Nullable OnClickListener listener) {
-        backgroundView.setOnClickListener(listener);
         return this;
     }
 

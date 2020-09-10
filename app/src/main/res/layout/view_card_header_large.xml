@@ -12,14 +12,6 @@
         android:background="?attr/selectableItemBackground"
         android:focusable="true" />
 
-    <org.wikipedia.views.FaceAndColorDetectImageView
-        android:id="@+id/view_card_header_large_image"
-        style="@style/ImageViewDefault"
-        android:layout_width="96dp"
-        android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        app:layout_constraintEnd_toEndOf="parent" />
-
     <TextView
         android:id="@+id/view_card_header_large_title"
         android:layout_width="0dp"
@@ -50,4 +42,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view_card_header_large_title"
         tools:text="Lorem ipsum" />
+
+    <org.wikipedia.views.FaceAndColorDetectImageView
+        android:id="@+id/view_card_header_large_image"
+        style="@style/ImageViewDefault"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:scaleType="centerCrop"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
 </merge>
