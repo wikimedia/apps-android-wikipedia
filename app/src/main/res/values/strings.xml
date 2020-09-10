@@ -1011,4 +1011,9 @@
     <string name="talk_page_empty">This talk page is empty.</string>
     <string name="talk_add_reply">Reply</string>
     <string name="talk_no_subject">(No subject)</string>
+    <string name="talk_reply_subject">Subject</string>
+    <string name="talk_reply_hint">Compose response</string>
+    <string name="talk_message_hint">Compose message</string>
+    <string name="talk_message_empty">The message cannot be empty.</string>
+    <string name="talk_subject_empty">The subject cannot be empty.</string>
 </resources>

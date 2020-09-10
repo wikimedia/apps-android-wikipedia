@@ -60,7 +60,7 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
         extract(extract);
         image(imageUri);
 
-        header();
+        header(card);
         footer();
     }
 
@@ -124,13 +124,10 @@ public class FeaturedArticleCardView extends DefaultFeedCardView<FeaturedArticle
         extractView.setText(StringUtil.fromHtml(extract));
     }
 
-    private void header() {
-        if (getCard() == null) {
-            return;
-        }
-        headerView.setTitle(getCard().title())
-                .setLangCode(getCard().wikiSite().languageCode())
-                .setCard(getCard())
+    private void header(@NonNull FeaturedArticleCard card) {
+        headerView.setTitle(card.title())
+                .setLangCode(card.wikiSite().languageCode())
+                .setCard(card)
                 .setCallback(getCallback());
     }
 

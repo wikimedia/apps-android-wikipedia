@@ -107,9 +107,8 @@ public class EditSectionActivity extends BaseActivity {
     private boolean sectionTextModified = false;
     private boolean sectionTextFirstLoad = true;
 
-    // Timestamp received from server to track the time of the last revision, then passed
-    // back to the server to detect possible edit conflicts.
-    private String baseTimeStamp;
+    // Current revision of the article, to be passed back to the server to detect possible edit conflicts.
+    private long currentRevision;
 
     private EditAbuseFilterResult abusefilterEditResult;
     private CaptchaHandler captchaHandler;
@@ -310,8 +309,8 @@ public class EditSectionActivity extends BaseActivity {
             showProgressBar(true);
         }
 
-        disposables.add(ServiceFactory.get(title.getWikiSite()).postEditSubmit(title.getPrefixedText(), sectionID, summaryText, AccountUtil.isLoggedIn() ? "user" : null,
-                sectionText.getText().toString(), baseTimeStamp, token, captchaHandler.isActive() ? captchaHandler.captchaId() : "null",
+        disposables.add(ServiceFactory.get(title.getWikiSite()).postEditSubmit(title.getPrefixedText(), Integer.toString(sectionID), null, summaryText, AccountUtil.isLoggedIn() ? "user" : null,
+                sectionText.getText().toString(), null, currentRevision, token, captchaHandler.isActive() ? captchaHandler.captchaId() : "null",
                 captchaHandler.isActive() ? captchaHandler.captchaWord() : "null")
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -641,7 +640,7 @@ public class EditSectionActivity extends BaseActivity {
                         MwQueryPage.Revision rev = response.query().firstPage().revisions().get(0);
                         title = new PageTitle(response.query().firstPage().title(), title.getWikiSite());
                         sectionWikitext = rev.content();
-                        baseTimeStamp = rev.timeStamp();
+                        currentRevision = rev.getRevId();
                         displaySectionText();
                     }, throwable -> {
                         showProgressBar(false);
