@@ -32,9 +32,9 @@
   <string name="search_hint_voice_search">Sök med röstinmatning</string>
   <string name="search_hint_search_languages">Sök efter ett språk</string>
   <string name="filter_hint_filter_my_lists_and_articles">Filtrera mina listor</string>
-  <string name="nav_item_history">Historik</string>
   <string name="nav_item_suggested_edits">Redigeringar</string>
   <string name="nav_item_more">Fler</string>
+  <string name="nav_item_search">Sök</string>
   <string name="error_network_error">Kan inte ansluta till Internet.</string>
   <string name="page_error_retry">Försök igen</string>
   <string name="card_offline_error_retry">Försök igen</string>
@@ -581,8 +581,6 @@
   <string name="view_random_card_action">Kasta tärningen</string>
   <string name="view_next_random_article">Läs in en annan slumpartikel</string>
   <string name="view_main_page_card_title">Idag på Wikipedia</string>
-  <string name="view_main_page_card_subtitle">Huvudsidan på %s</string>
-  <string name="view_main_page_card_action">Visa huvudsidan</string>
   <string name="view_featured_image_card_title">Dagens bild</string>
   <string name="view_featured_image_card_download">Ladda ned</string>
   <string name="menu_feed_card_dismiss">Dölj detta kort</string>
@@ -618,7 +616,6 @@
   <string name="feed_item_type_featured_article">Dagens utmärkta artikel på Wikipedia</string>
   <string name="feed_item_type_trending">Dagens mest lästa artiklar</string>
   <string name="feed_item_type_featured_image">Dagens utmärkta bild från Wikimedia Commons</string>
-  <string name="feed_item_type_main_page">Wikipedias huvudsida med dagens utmärkta innehåll</string>
   <string name="feed_item_type_randomizer">Generera slumpartiklar att läsa</string>
   <string name="feed_item_type_suggested_edits">Förslag på innehåll att lägga till i Wikipedia</string>
   <string name="feed_empty_message">Det finns ingenting i ditt utforskarflöde.</string>
@@ -950,4 +947,10 @@
   <string name="text_input_dialog_ok_button_text">OK</string>
   <string name="text_input_dialog_cancel_button_text">Avbryt</string>
   <string name="custom_date_picker_dialog_cancel_button_text">Avbryt</string>
+  <string name="talk_title">Diskussion</string>
+  <string name="talk_user_title">Diskussion: %s</string>
+  <string name="talk_new_topic">Nytt ämne</string>
+  <string name="talk_page_empty">Den här diskussionssidan är tom.</string>
+  <string name="talk_add_reply">Svara</string>
+  <string name="talk_no_subject">(Inget ämne)</string>
 </resources>

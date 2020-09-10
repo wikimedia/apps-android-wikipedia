@@ -17,7 +17,8 @@
   <string name="search_hint">ߢߌߣߌ߲ߠߌ߲ ߞߍ߫ ߥߞߌߔߘߋߞߎ ߘߐ߫</string>
   <string name="search_hint_voice_search">ߡߍ߲ߞߊ߲ߠߊ߫ ߢߌߣߌ߲ߠߌ߲</string>
   <string name="search_hint_search_languages">ߞߊ߲ ߘߏ߫ ߢߌߣߌ߲߫</string>
-  <string name="nav_item_history">ߘߐ߬ߝߐ</string>
+  <string name="filter_hint_filter_my_lists_and_articles">ߒ ߠߊ߫ ߛߙߍߘߍ ߟߎ߬ ߛߍ߲ߛߍ߲߫</string>
+  <string name="nav_item_suggested_edits">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲</string>
   <string name="nav_item_more">ߡߊߞߊ߬ߝߏ߬ ߜߘߍ ߟߎ߬</string>
   <string name="error_network_error">ߊ߬ ߕߴߛߋ߫ ߜߊ߲߬ߞߎ߲߬ ߠߊ߫ ߓߟߐߟߐ ߟߊ߫</string>
   <string name="page_error_retry">ߌ ߡߊߝߍߣߍ߲߫ ߞߎߘߊߞߍ߫</string>
@@ -45,7 +46,9 @@
   <string name="menu_page_find_in_page">ߊ߬ ߢߌߣߌ߲߫ ߞߐߜߍ ߘߐ߫</string>
   <string name="edit_section_find_in_page">ߊ߬ ߢߌߣߌ߲߫ ߞߐߜߍ ߘߐ߫</string>
   <string name="menu_page_add_to_list">ߊ߬ ߟߊߘߏ߲߬ ߌ ߟߊ߫ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߘߐ߫</string>
+  <string name="menu_page_add_to_default_list">ߊ߬ ߟߊ߬߬ߞߎ߲߬ߘߎ</string>
   <string name="feed_card_add_to_list">ߊ߬ ߟߊߘߏ߲߬ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߘߐ߫</string>
+  <string name="feed_card_add_to_default_list">ߊ߬ ߟߊ߬߬ߞߎ߲߬ߘߎ</string>
   <string name="menu_page_share">ߛߘߌ߬ߜߋ߲ ߠߊߖߍ߲ߛߍ߲߫</string>
   <string name="menu_page_open_a_new_tab">ߘߎ߲ߛߓߍ߫ ߞߎߘߊ߫ ߟߊߞߊ߬</string>
   <string name="menu_page_reading_lists">ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ</string>
@@ -63,6 +66,7 @@
   <string name="map_view_link_text">ߊ߬ ߦߋ߫ ߔߊ߬ߔߘߊ ߞߊ߲߬</string>
   <string name="other_languages_indication_text">ߊ߬ ߞߊ߬ߙߊ߲߬ ߞߊ߲߫ ߜߘߍ߫ ߘߐ߫</string>
   <string name="language_count_link_text">ߊ߬ ߦߋ߫ %d ߞߊ߲߫ ߜߘߍ ߟߎ߬ ߘߐ߫</string>
+  <string name="content_license_cc_by_sa">CC BY-SA 3.0</string>
   <string name="edit_save_action_license_logged_in">ߣߴߌ ߘߴߊ߬ ߟߊߥߊ߲߬ߞߊ߫߸ ߌ ߘߌ߬ߢߍ߬ߣߍ߲߬ ߦߋ߫ &lt;a href=\"%1$s\"&gt;Terms of Use&lt;/a&gt;, and to irrevocably release your contributions under the &lt;a href=\"%2$s\"&gt;CC BY-SA 3.0&lt;/a&gt; license ߡߊ߬.</string>
   <string name="edit_save_action_license_anon">ߣߴߌ ߘߴߊ߬ ߟߊߥߊ߲߬ߞߊ߫߸ ߌ ߘߌ߬ߢߍ߬ߣߍ߲߬ ߦߋ߫ &lt;a href=\"%1$s\"&gt;ߟߊ߬ߓߊ߰ߙߊ߬ߟߌ ߛߙߊߕߌ ߡߊ߬&lt;/a&gt;߸ ߊ߬ ߣߴߌ ߓߘߴߌ ߟߊ߫ ߓߟߏߡߊߜߍ߲ ߟߊߓߌ߬ߟߊ߬ ߣߡߌߛߊ߫ ߓߊߟߌߦߊ߫ ߓߟߏ ߡߊ߬&lt;a href=\"%2$s/\"&gt;CC BY-SA 3.0&lt;/a&gt; ߟߊ߫ ߓߌ߬ߟߊ ߣߴߊ߬ ߕߌ߰ߦߊ ߟߊ߫. ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߘߌߣߊ߬ ߟߊߘߏ߲߬ ߌ ߟߊ߫ ߞߍߟߊ߲ IP ߛߊ߲߬ߓߊ߬ߕߐ߮ ߟߊ߫. ߣߴߌ ߞߊ߬  &lt;a href=\"https://#login\"&gt;ߜߊ߲߬ߞߎ߲߬ߠߌ߲&lt;/a&gt; ߞߍ߫߸ ߌ ߘߌ߫ ߜߎ߲߬ߘߎ߬ ߛߌߦߊߡߊ߲߫ ߛߐ߬ߘߐ߲߬.</string>
   <string name="preference_title_language">ߥߞߌ-ߔߘߋߞߎ ߞߊ߲ ߠߎ߬</string>
@@ -98,7 +102,7 @@
   <string name="reading_lists_sync_login">ߌ ߜߊ߲߬ߞߎ߲߫</string>
   <string name="create_account_login">ߌ ߜߊ߲߬ߞߎ߲߫</string>
   <string name="menu_login">ߌ ߜߊ߲߬ߞߎ߲߫</string>
-  <string name="login_activity_title" fuzzy="true">ߌ ߜߊ߲߬ߞߎ߲߬ ߥߞߌ-ߔߘߋߞߎ ߟߊ߫</string>
+  <string name="login_activity_title">ߌ ߜߊ߲߬ߞߎ߲߬</string>
   <string name="login_in_progress_dialog_message">ߌ ߜߊ߲߬ߞߎ߲߬ߠߌ߲ ߦߴߌ ߘߐ߫...</string>
   <string name="login_success_toast">ߌ ߓߘߴߌ ߜߊ߲߬ߞߎ߲߬߹</string>
   <string name="reset_password_title">ߌ ߟߊ߫ ߕߊ߬ߡߌ߲߬ߞߊ߲ ߠߊߘߏ߲߬</string>
@@ -169,15 +173,17 @@
   <string name="about_description">ߞߊ߬ ߓߍ߲߬ ߥߞߌ-ߔߘߋߞߎ ߟߥߊ߬ߟߌ߬ߟߊ߲ ߡߊ߬</string>
   <string name="privacy_policy_description">ߘߎ߲߬ߘߎ߬ߡߊ߬ ߤߊߞߍ</string>
   <string name="terms_of_use_description">ߟߊ߬ߓߊ߰ߙߊ߬ߟߌ ߛߙߊߕߌ</string>
-  <string name="about_wikipedia_url" fuzzy="true">ߞߊ߬ ߓߍ߲߬: ߥߞߌ-ߔߘߋߞߎ ߡߊ߬/https://en.m.wikipedia.org/wiki</string>
+  <string name="about_wikipedia_url">https://en.wikipedia.org/wiki/Wikipedia:About</string>
   <string name="offline_reading_and_data_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Android_FAQ#Offline_reading_and_data</string>
   <string name="android_app_faq_url">https://www.mediawiki.org/wiki/ߥߞߌߡߋߘߌߦߊ߫_ߟߥߊ߬ߟߌ߬ߟߊ߲/ߊ߲ߘߙߏߦߌߘ_ߢߡߢ</string>
   <string name="android_app_request_an_account_url">https://en.wikipedia.org/wiki/Wikipedia:Request_an_account</string>
   <string name="cc_by_sa_3_url">https://creativecommons.org/licenses/by-sa/3.0/</string>
   <string name="cc_0_url">https://creativecommons.org/ߝߘߏ߬ߓߊ߬ߡߊߘߎ/ߘߐ߬ߞߏߟߏ߲/߁.0/</string>
   <string name="android_app_edit_help_url">https://m.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits</string>
+  <string name="suggested_edits_image_tags_help_url">https://www.mediawiki.org/wiki/Wikimedia_Apps/Suggested_edits#Image_tags</string>
   <string name="about_libraries_heading">ߛߓߍߘߊ߮ ߟߊ߬ߓߊ߰ߙߊ߬ߟߌ</string>
   <string name="about_contributors_heading">ߓߟߏߓߌߟߊߢߐ߲߯ߞߊ߲ߠߊ ߟߎ߬</string>
+  <string name="about_contributors">&lt;a href=\"https://www.mediawiki.org/wiki/Wikimedia_Apps/Team/Android\"&gt;Team page&lt;/a&gt;</string>
   <string name="about_translators_heading">ߘߟߊߡߌߘߊߟߊ߲</string>
   <string name="about_translators_translatewiki">ߟߥߊ߬ߟߌ߬ߟߊ߲ ߣߌ߲߬ ߘߟߊߡߌ߬ߘߊ߬ߣߍ߲߫ ߦߋ߫ ߓߐߒߖߘߍߘߐ߫ ߘߟߊߡߌߘߟߊ ߟߎ߬ ߟߋ߬ ߓߟߏ߫ ߦߊ߲߬ &lt;a href=\"https://translatewiki.net\"&gt;translatewiki.net&lt;/a&gt;.</string>
   <string name="about_app_license_heading">ߕߌ߰ߦߊ</string>
@@ -203,6 +209,7 @@
   <string name="edit_summary_tag_other">ߘߏ߫ ߜߘߍ߫</string>
   <string name="edit_summary_tag_other_hint">ߌ ߣߊ߬ ߞߐߜߍ ߡߊߛߐ߫ ߟߊ߫ ߛߌߟߊ߫ ߜߘߍ ߡߍ߲ ߝߍ߬</string>
   <string name="edit_conflict_title">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߝߐߢߐ߲߯ߞߐ</string>
+  <string name="edit_conflict_message">ߞߐߜߍ ߓߘߊ߫ ߓߊ߲߫ ߡߊߦߟߍ߬ߡߊ߲߫ ߠߊ߫ ߟߊ߬ߓߊ߰ߙߊ߬ߟߊ߫ ߜߘߍ߫ ߓߟߏ߫߸ ߏ߬ ߘߏ߲߬ ߦߴߌ ߟߊ߫ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߝߐ߲ߞߐߢߐ߲߯ߦߊ߫ ߟߊ߫. ߌ ߟߊ߫ ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߓߊߓߌ߬ߟߊ߫ ߖߊ߰ߣߌ߲߫߸ ߞߵߌ ߞߐߛߊ߬ߦߌ߬ ߞߊ߬ ߞߐߜߍ ߟߊߛߎߡߊ߫߸ ߞߵߊ߬ ߡߊߝߍߣߍ߲߫ ߌߞߐߕߎ߲߯.</string>
   <string name="find_next">ߢߍߕߊ ߢߌߣߌ߲߫</string>
   <string name="find_previous">ߟߊ߬ߕߎ߲߰ߠߊ ߢߌߣߌ߲߫</string>
   <string name="find_first_occurence">ߓߐߢߟߊߟߌ߫ ߝߟߐ ߟߋ߬ ߦߋ߫ ߣߌ߲߬</string>
@@ -241,7 +248,7 @@
   <string name="gallery_menu_share">ߊ߬ ߟߊߖߍ߲ߛߍ߲߫</string>
   <string name="gallery_share_error">ߊ߬ ߕߴߛߋ߫ ߖߌ߬ߦߊ߬ߓߍ ߟߊߖߍ߲ߛߍ߲߫ ߠߊ߫: %s</string>
   <string name="gallery_save_progress">ߞߐߕߐ߮ ߟߊߖߌ߱ ߦߴߌ ߘߐ߫ ߌ ߞߎ߲߬...</string>
-  <string name="gallery_save_success" fuzzy="true">ߞߐߕߐ߮ ߟߊߞߎ߲߬ߘߎ߬ߟߌ ߓߘߊ߫ ߛߎߘߊ߲߫.</string>
+  <string name="gallery_save_success">ߞߐߕߐ߮ ߓߘߊ߫ ߟߊߞߎ߲߬ߘߎ߫.</string>
   <string name="gallery_error_video_failed">ߊ߬ ߕߴߛߋ߫ ߖߌ߬ߦߊ߬ߖߟߎ ߟߊߞߊ߬ߛߌ߬ ߟߊ߫.</string>
   <string name="gallery_save_image_write_permission_rationale">ߛߓߍߟߌ ߞߍߟߌ ߌ ߟߊ߫ ߞߍߟߊ߲ ߡߣߐ߬ߘߐ ߘߐ߫߸ ߏ߬ ߡߊߢߌ߬ߣߌ߲߬ߞߊ߬ ߣߍ߲߫ ߖߌ߬ߦߊ߬ߓߍ ߟߊߡߙߊ߬ ߞߏ ߘߐ߫.</string>
   <string name="gallery_add_image_caption_button">ߖߌ߬ߦߊ߬ߓߍ ߝߍ߬ߛߓߍߟߌ ߟߊߘߏ߲߬</string>
@@ -252,6 +259,7 @@
   <string name="captcha_image">ߢߏ߰ߛߏ߬ߢߊ߯ߛߊ ߖߌ߬ߦߊ߬ߓߍ</string>
   <string name="gallery_fair_use_license">ߟߊ߬ߓߊ߰ߙߊ߬ߟߌ߬ ߘߝߊߣߍ߲</string>
   <string name="gallery_uploader_unknown">ߟߊ߬ߦߟߍ߬ߟߊ߬ ߡߊߟߐ߲ߓߊߟߌ</string>
+  <string name="gallery_not_available_offline_snackbar">ߖߌ߬ߦߊ߬ߝߍ ߦߋߟߌ ߕߴߦߋ߲߬ ߜߊ߲߬ߞߎ߲߬ߓߊߟߌߦߊ ߘߐ߫.</string>
   <string name="gallery_not_available_offline_snackbar_dismiss">ߊ߬ ߟߊߕߊ߲߬ߞߌ߲</string>
   <string name="menu_new_tab">ߕߍߟߍ߲߫ ߞߎߘߊ߫</string>
   <string name="menu_close_all_tabs">ߕߍߟߍ߲ ߓߍ߯ ߘߊߕߎ߲߯</string>
@@ -464,8 +472,6 @@
   <string name="view_random_card_title">ߞߎ߲߬ߝߍ߬ߦߊ߬ߣߍ߲</string>
   <string name="view_next_random_article">ߞߎ߲߬ߝߍ߬ ߦߌߟߡߊ߫ ߜߘߍ߫ ߟߊߦߟߍ߬</string>
   <string name="view_main_page_card_title">ߓߌ߬ ߥߞߌߔߋߘߌߦߊ ߞߊ߲߬</string>
-  <string name="view_main_page_card_subtitle">ߓߏ߬ߟߏ߲߬ߘߊ ߞߐߜߍ %s ߡߊ߬</string>
-  <string name="view_main_page_card_action">ߓߏ߬ߟߏ߲߬ߘߊ ߞߐߜߍ ߦߋ߫</string>
   <string name="view_featured_image_card_title">ߟߏ߲ ߖߌ߬ߦߊ߬ߓߍ</string>
   <string name="view_featured_image_card_download">ߟߊ߬ߖߌ߰ߒ߬ߞߎ߲߬ߠߌ߲</string>
   <string name="menu_feed_card_dismiss">ߔߊ߬ߔߘߊ ߣߌ߲߬ ߢߡߊߘߏ߲߰</string>
@@ -498,7 +504,6 @@
   <string name="feed_item_type_featured_article">ߕߋ߬ߟߋ ߦߌߟߡߊ߫ ߡߊߦߋߙߋ߲ߣߍ߲ ߠߎ߬ ߥߞߌߔߋߘߌߦߊ ߞߊ߲߬</string>
   <string name="feed_item_type_trending">ߕߋ߬ߟߋ ߞߎߡߘߊ߫ ߘߐߜߍߣߍ߲߫ ߓߊ ߟߎ߬</string>
   <string name="feed_item_type_featured_image">ߕߋ߬ߟߋ ߖߌ߬ߦߊ߬ߓߍ߬ ߡߊߦߋߙߋ߲ߣߍ߲ ߠߎ߬ ߥߞߌߡߋߘߌߦߊ߫ ߞߐߡߐ߲ ߞߊ߲߬</string>
-  <string name="feed_item_type_main_page">ߥߞߌߔߋߘߌߦߊ ߕߋ߬ߟߋ ߞߣߐߘߐ߫ ߡߊߦߋߙߋ߲ߣߍ߲ ߠߎ߬ ߓߏ߬ߟߏ߲߬ߘߊ ߞߐߜߍ.</string>
   <string name="feed_item_type_randomizer">ߓߍ߲߬ߛߋ߲߬ߡߊ߬ ߦߌߟߡߊ ߘߐߞߊ߬ߙߊ߲߬ߕߊ ߟߎ߬ ߟߊߞߊ߬ߝߏ߬ߣߍ߲</string>
   <string name="customize_lang_selection_dialog_ok_button_text">ߏ߬ߞߍ߫</string>
   <string name="customize_lang_selection_dialog_cancel_button_text">ߘߐ߬ߛߊ߬ߟߌ</string>

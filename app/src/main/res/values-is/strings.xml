@@ -18,7 +18,6 @@
   <string name="search_hint">Leita á Wikipedia</string>
   <string name="search_hint_voice_search">Leit með raddskipunum</string>
   <string name="search_hint_search_languages">Leita eftir tungumáli</string>
-  <string name="nav_item_history">Ferilskrá</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Tillögur að breytingum</string>
   <string name="error_network_error">Næ ekki að tengjast netinu</string>
   <string name="page_error_retry">Reyna aftur</string>
@@ -529,8 +528,6 @@
   <string name="view_random_card_action">Kasta teningnum</string>
   <string name="view_next_random_article">Hlaða inn annari handahófsvalinni grein</string>
   <string name="view_main_page_card_title">Í dag á Wikipedia</string>
-  <string name="view_main_page_card_subtitle">Forsíða þann %s</string>
-  <string name="view_main_page_card_action">Skoða forsíðu</string>
   <string name="view_featured_image_card_title">Mynd dagsins</string>
   <string name="view_featured_image_card_download">Sækja</string>
   <string name="menu_feed_card_dismiss">Fela þetta spjald</string>
@@ -565,7 +562,6 @@
   <string name="feed_item_type_featured_article">Forsíðugrein dagsins á Wikipedia</string>
   <string name="feed_item_type_trending">Mest lesnu greinar dagsins</string>
   <string name="feed_item_type_featured_image">Forsíðumynd dagsins frá Wikimedia Commons</string>
-  <string name="feed_item_type_main_page">Aðalsíða Wikipedia með úrvalsefni dagsins</string>
   <string name="feed_item_type_randomizer">Útbúðu handahófsvaldar greinar til að lesa</string>
   <string name="feed_item_type_suggested_edits">Tillögur að efni til að bæta við Wikipedia</string>
   <string name="feed_empty_message">Það er ekkert á \'Uppgötva\'-streyminu þínu</string>

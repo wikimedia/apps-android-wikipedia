@@ -31,7 +31,6 @@
   <string name="search_hint">Keresés a Wikipédiában</string>
   <string name="search_hint_voice_search">Hangalapú keresés</string>
   <string name="search_hint_search_languages">Nyelv keresése</string>
-  <string name="nav_item_history">Előzmények</string>
   <string name="nav_item_suggested_edits">Szerkesztések</string>
   <string name="nav_item_more">Több</string>
   <string name="error_network_error">Nem sikerült csatlakozni az internethez.</string>
@@ -545,8 +544,6 @@
   <string name="view_random_card_action">Kockadobás</string>
   <string name="view_next_random_article">Másik cikk betöltése találomra</string>
   <string name="view_main_page_card_title">Ma a Wikipédián</string>
-  <string name="view_main_page_card_subtitle">Kezdőlap ma – %s</string>
-  <string name="view_main_page_card_action">Kezdőlap megtekintése</string>
   <string name="view_featured_image_card_title">A nap képe</string>
   <string name="view_featured_image_card_download">Letöltés</string>
   <string name="menu_feed_card_dismiss">Kártya elrejtése</string>
@@ -581,7 +578,6 @@
   <string name="feed_item_type_featured_article">A Wikipédia napi kiemelt cikke</string>
   <string name="feed_item_type_trending">A legolvasottabb szócikkek naponta</string>
   <string name="feed_item_type_featured_image">A nap kiemelt képe a Wikimédia Commonsról</string>
-  <string name="feed_item_type_main_page">A Wikipédia kezdőlapja napi kiemelt tartalommal</string>
   <string name="feed_item_type_randomizer">Véletlenszerűen kiválasztott szócikkek</string>
   <string name="feed_item_type_suggested_edits">Javaslatok a Wikipédia tartalmának fejlesztésére</string>
   <string name="feed_empty_message">Nincs semmi a Felfedezés hírfolyamodban</string>

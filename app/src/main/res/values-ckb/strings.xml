@@ -24,7 +24,6 @@
   <string name="search_hint_voice_search">دەنگ لەناو گەڕان</string>
   <string name="search_hint_search_languages">گەڕان بەدوای زمانێکدا</string>
   <string name="filter_hint_filter_my_lists_and_articles">فلتەرکردنی پێڕستەکەم</string>
-  <string name="nav_item_history">مێژوو</string>
   <string name="nav_item_suggested_edits">دەستکارییەکان</string>
   <string name="nav_item_more">زیاتر</string>
   <string name="error_network_error">ناتوانرێت ئینتەرنێت بھێندرێت.</string>
@@ -507,8 +506,6 @@
   <string name="view_random_card_title">وتارێک بە ھەڵکەوت</string>
   <string name="view_random_card_subtitle" fuzzy="true">خوێندنەوەی وتارێکی بەھەڵکەوت لە ویکیپیدیا</string>
   <string name="view_main_page_card_title">ئەمڕۆ لە ویکیپیدیا</string>
-  <string name="view_main_page_card_subtitle">پەڕەی سەرەکی لە %s</string>
-  <string name="view_main_page_card_action">پیشاندانی پەڕەی سەرەکی</string>
   <string name="view_featured_image_card_title">وێنەی ڕۆژ</string>
   <string name="view_featured_image_card_download">داگرتن</string>
   <string name="menu_feed_card_dismiss">شاردنەوەی ئەم کارتە</string>
@@ -540,7 +537,6 @@
   <string name="feed_item_type_featured_article">وتاری ھەڵبژێردراوی ڕۆژانە لە ویکیپیدیا</string>
   <string name="feed_item_type_trending">ڕۆژانە زۆرترین بینینی وتارەکان</string>
   <string name="feed_item_type_featured_image">ڕۆژانە وێنەی ھەڵبژێردراو لە ویکیمیدیا کۆمنز</string>
-  <string name="feed_item_type_main_page">پەڕەی سەرەکی ویکیپیدیا لەگەڵ ناوەڕۆکی ھەڵبژێردراوی ڕۆژانە</string>
   <string name="feed_item_type_randomizer">دروستکردنی وتارێک بە ھەڵکەوت بۆ خوێندنەوە</string>
   <string name="feed_item_type_suggested_edits">پێشنیارەکان بۆ زیادکردنی ناوەڕۆک لە ویکیپیدیا</string>
   <string name="customize_lang_selection_dialog_ok_button_text">باشە</string>

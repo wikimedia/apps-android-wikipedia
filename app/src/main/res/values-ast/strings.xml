@@ -17,7 +17,6 @@
   <string name="search_hint">Guetar na Wikipedia</string>
   <string name="search_hint_voice_search">Busca con entrada por voz</string>
   <string name="search_hint_search_languages">Buscar una llingua</string>
-  <string name="nav_item_history">Historial</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Ediciones suxeríes</string>
   <string name="error_network_error">Nun pudo conectase a Internet.</string>
   <string name="page_error_retry">Reintentar</string>
@@ -528,8 +527,6 @@
   <string name="view_random_card_action">Tirar los daos</string>
   <string name="view_next_random_article">Cargar otru artículu al debalu</string>
   <string name="view_main_page_card_title">Güei en Wikipedia</string>
-  <string name="view_main_page_card_subtitle">Páxina principal del %s</string>
-  <string name="view_main_page_card_action">Ver la portada</string>
   <string name="view_featured_image_card_title">Imaxen del día</string>
   <string name="view_featured_image_card_download">Descargar</string>
   <string name="menu_feed_card_dismiss">Despintar esta tarxeta</string>
@@ -564,7 +561,6 @@
   <string name="feed_item_type_featured_article">Artículu destacáu del día na Wikipedia</string>
   <string name="feed_item_type_trending">Artículos más vistos del día</string>
   <string name="feed_item_type_featured_image">Imaxe destacada del día en Wikimedia Commons</string>
-  <string name="feed_item_type_main_page">Páxina principal de Wikipedia col conteníu destacáu del día</string>
   <string name="feed_item_type_randomizer">Xenerar artículos al debalu pa lleer</string>
   <string name="feed_item_type_suggested_edits">Suxerencies p\'añadir conteníu a Wikipedia</string>
   <string name="feed_empty_message">Nun hai nada na canal Esplorar</string>

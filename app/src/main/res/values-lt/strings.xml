@@ -23,7 +23,6 @@
   <string name="search_hint">Paieška Vikipedijoje</string>
   <string name="search_hint_voice_search">Paieškos įvestis balsu</string>
   <string name="search_hint_search_languages">Ieškoti kalbos</string>
-  <string name="nav_item_history">Istorija</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Siūlomi keitimai</string>
   <string name="error_network_error">Negalite prisijungti prie Interneto.</string>
   <string name="page_error_retry">Bandykite dar kartą</string>
@@ -331,7 +330,6 @@
   <string name="view_random_card_title">Atsitiktinis</string>
   <string name="view_random_card_subtitle" fuzzy="true">Skaityti atsitiktinį straipsnį iš Vikipedijos</string>
   <string name="view_main_page_card_title">Šiandien Vikipedijoje</string>
-  <string name="view_main_page_card_subtitle">Pagrindinis puslapis %s</string>
   <string name="view_featured_image_card_title">Dienos nuotrauka</string>
   <string name="view_featured_image_card_download">Atsisiųsti</string>
   <string name="menu_feed_card_dismiss">Paslėpti šią kortelę</string>

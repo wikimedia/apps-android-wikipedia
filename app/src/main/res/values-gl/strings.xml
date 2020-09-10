@@ -25,7 +25,6 @@
   <string name="search_hint">Procurar na Wikipedia</string>
   <string name="search_hint_voice_search">Procura con entrada por voz</string>
   <string name="search_hint_search_languages">Procurar unha lingua</string>
-  <string name="nav_item_history">Historial</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Edicións suxeridas</string>
   <string name="error_network_error">Non se puido conectar a Internet.</string>
   <string name="page_error_retry">Reintentar</string>
@@ -527,8 +526,6 @@
   <string name="view_random_card_action">Lanzar o dado</string>
   <string name="view_next_random_article">Cargar outro artigo ó chou</string>
   <string name="view_main_page_card_title">Hoxe na Wikipedia</string>
-  <string name="view_main_page_card_subtitle">Páxina principal en %s</string>
-  <string name="view_main_page_card_action">Ver a páxina principal</string>
   <string name="view_featured_image_card_title">Imaxe do día</string>
   <string name="view_featured_image_card_download">Descargar</string>
   <string name="menu_feed_card_dismiss">Agochar esta tarxeta</string>
@@ -563,7 +560,6 @@
   <string name="feed_item_type_featured_article">Artigo destacado do día na Wikipedia</string>
   <string name="feed_item_type_trending">Artigos máis vistos do día</string>
   <string name="feed_item_type_featured_image">Imaxe destacada do día en Wikimedia Commons</string>
-  <string name="feed_item_type_main_page">Páxina principal de Wikipedia co contido destacado diario</string>
   <string name="feed_item_type_randomizer">Xerar artigos aleatorios para ler</string>
   <string name="feed_item_type_suggested_edits">Suxestións para engadir contido a Wikipedia</string>
   <string name="feed_empty_message">Non hai nada na súa canle Explorar</string>

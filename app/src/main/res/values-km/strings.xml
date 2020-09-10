@@ -16,7 +16,6 @@
   <string name="nav_item_forward">ទៅមុខ</string>
   <string name="search_hint">ស្វែងរកនៅក្នុងវិគីភីឌា</string>
   <string name="search_hint_search_languages">ស្វែងរកភាសា</string>
-  <string name="nav_item_history">ប្រវត្តិ</string>
   <string name="error_network_error">មិនអាចភ្ជាប់អ៊ីនធើណិតបានទេ។</string>
   <string name="page_error_retry">ព្យាយាមម្ដងទៀត</string>
   <string name="page_error_back_to_main">បកក្រោយ</string>
@@ -300,8 +299,6 @@
   <string name="view_random_card_action">បោះគ្រាប់ឡុកឡាក់</string>
   <string name="view_next_random_article">ផ្ទុកទំព័រចៃដន្យមួយទៀត</string>
   <string name="view_main_page_card_title">ថ្ងៃនេះនៅលើវិគីភីឌា</string>
-  <string name="view_main_page_card_subtitle">ទំព័រដើមនៅ %s</string>
-  <string name="view_main_page_card_action">មើលទំព័រដើម</string>
   <string name="view_featured_image_card_title">រូបភាពថ្ងៃនេះ</string>
   <string name="view_featured_image_card_download">ទាញ​យក</string>
   <string name="menu_feed_overflow_label">ជម្រើសបន្ថែម</string>

@@ -41,7 +41,6 @@
   <string name="search_hint_voice_search">음성 입력 검색</string>
   <string name="search_hint_search_languages">언어 검색</string>
   <string name="filter_hint_filter_my_lists_and_articles">내 목록 필터링</string>
-  <string name="nav_item_history">방문 기록</string>
   <string name="nav_item_suggested_edits">편집</string>
   <string name="nav_item_more">더 보기</string>
   <string name="error_network_error">인터넷에 연결할 수 없습니다.</string>
@@ -581,8 +580,6 @@
   <string name="view_random_card_action">주사위 던지기</string>
   <string name="view_next_random_article">무작위로 다른 문서 불러오기</string>
   <string name="view_main_page_card_title">오늘의 위키백과</string>
-  <string name="view_main_page_card_subtitle">%s의 대문</string>
-  <string name="view_main_page_card_action">대문 문서 보기</string>
   <string name="view_featured_image_card_title">오늘의 이미지</string>
   <string name="view_featured_image_card_download">다운로드</string>
   <string name="menu_feed_card_dismiss">이 카드 숨기기</string>
@@ -618,7 +615,6 @@
   <string name="feed_item_type_featured_article">위키백과의 일일 알찬글</string>
   <string name="feed_item_type_trending">하루 중 가장 많이 본 글</string>
   <string name="feed_item_type_featured_image">위키미디어 공용의 일일 알찬글</string>
-  <string name="feed_item_type_main_page">오늘의 알찬글을 보여주는 위키백과의 대문</string>
   <string name="feed_item_type_randomizer">읽어볼 임의 문서를 만듭니다</string>
   <string name="feed_item_type_suggested_edits">위키백과의 내용 추가 제안</string>
   <string name="feed_empty_message">탐색 피드에서 할 일이 없습니다</string>
