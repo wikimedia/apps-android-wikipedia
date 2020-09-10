@@ -331,14 +331,14 @@ public class DescriptionEditFragment extends Fragment {
                     .subscribeOn(Schedulers.io())
                     .flatMap(mwQueryResponse -> {
                         String text = mwQueryResponse.query().firstPage().revisions().get(0).content();
-                        String baseTimeStamp = mwQueryResponse.query().firstPage().revisions().get(0).timeStamp();
+                        long baseRevId = mwQueryResponse.query().firstPage().revisions().get(0).getRevId();
 
                         text = updateDescriptionInArticle(text, editView.getDescription());
 
                         return ServiceFactory.get(wikiSite).postEditSubmit(pageTitle.getPrefixedText(),
-                                0, action == ADD_DESCRIPTION ? SuggestedEditsFunnel.SUGGESTED_EDITS_ADD_COMMENT
+                                "0", null, action == ADD_DESCRIPTION ? SuggestedEditsFunnel.SUGGESTED_EDITS_ADD_COMMENT
                                         : action == TRANSLATE_DESCRIPTION ? SuggestedEditsFunnel.SUGGESTED_EDITS_TRANSLATE_COMMENT : "",
-                                AccountUtil.isLoggedIn() ? "user" : null, text, baseTimeStamp, editToken, null, null)
+                                AccountUtil.isLoggedIn() ? "user" : null, text, null, baseRevId, editToken, null, null)
                                 .subscribeOn(Schedulers.io());
                     })
                     .observeOn(AndroidSchedulers.mainThread())
