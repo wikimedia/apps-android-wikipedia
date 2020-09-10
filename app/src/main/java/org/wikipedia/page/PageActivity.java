@@ -48,6 +48,7 @@ import org.wikipedia.descriptions.DescriptionEditActivity;
 import org.wikipedia.descriptions.DescriptionEditRevertHelpView;
 import org.wikipedia.events.ArticleSavedOrDeletedEvent;
 import org.wikipedia.events.ChangeTextSizeEvent;
+import org.wikipedia.feed.mainpage.MainPageClient;
 import org.wikipedia.gallery.GalleryActivity;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.language.LangLinksActivity;
@@ -57,7 +58,6 @@ import org.wikipedia.page.linkpreview.LinkPreviewDialog;
 import org.wikipedia.page.tabs.TabActivity;
 import org.wikipedia.readinglist.database.ReadingListPage;
 import org.wikipedia.settings.Prefs;
-import org.wikipedia.settings.SiteInfoClient;
 import org.wikipedia.suggestededits.SuggestedEditsSnackbars;
 import org.wikipedia.talk.TalkTopicsActivity;
 import org.wikipedia.util.ClipboardUtil;
@@ -471,7 +471,7 @@ public class PageActivity extends BaseActivity implements PageFragment.Callback,
     }
 
     public void loadMainPage(TabPosition position) {
-        PageTitle title = new PageTitle(SiteInfoClient.getMainPageForLang(app.getAppOrSystemLanguageCode()), app.getWikiSite());
+        PageTitle title = MainPageClient.getMainPageTitle();
         HistoryEntry historyEntry = new HistoryEntry(title, HistoryEntry.SOURCE_MAIN_PAGE);
         loadPage(title, historyEntry, position);
     }

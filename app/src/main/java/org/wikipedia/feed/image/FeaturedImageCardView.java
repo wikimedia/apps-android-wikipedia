@@ -70,6 +70,9 @@ public class FeaturedImageCardView extends DefaultFeedCardView<FeaturedImageCard
 
     private void header(@NonNull FeaturedImageCard card) {
         headerView.setTitle(card.title())
+                .setSubtitle(card.subtitle())
+                .setImage(R.drawable.icon_potd_photo_camera)
+                .setImageCircleColor(R.color.base30)
                 .setLangCode(null)
                 .setCard(card)
                 .setCallback(getCallback());
