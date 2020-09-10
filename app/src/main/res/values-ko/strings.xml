@@ -39,9 +39,8 @@
   <string name="nav_item_forward">앞으로</string>
   <string name="search_hint">위키백과 검색</string>
   <string name="search_hint_voice_search">음성 입력 검색</string>
-  <string name="search_hint_search_history">역사 검색</string>
   <string name="search_hint_search_languages">언어 검색</string>
-  <string name="search_hint_search_my_lists_and_articles">내 목록 및 문서 검색</string>
+  <string name="filter_hint_filter_my_lists_and_articles">내 목록 필터링</string>
   <string name="nav_item_history">방문 기록</string>
   <string name="nav_item_suggested_edits">편집</string>
   <string name="nav_item_more">더 보기</string>
@@ -72,7 +71,9 @@
   <string name="edit_section_find_in_page">문서에서 찾기</string>
   <string name="menu_page_font_and_theme">글자와 테마</string>
   <string name="menu_page_add_to_list">읽기 목록에 추가</string>
+  <string name="menu_page_add_to_default_list">저장</string>
   <string name="feed_card_add_to_list">읽기 목록에 추가</string>
+  <string name="feed_card_add_to_default_list">저장</string>
   <string name="menu_page_share">링크 공유</string>
   <string name="menu_page_open_a_new_tab">새 탭 열기</string>
   <string name="menu_page_reading_lists">읽기 목록</string>
@@ -194,7 +195,7 @@
   <string name="preference_title_auto_upload_crash_reports">충돌 보고서 보내기</string>
   <string name="preference_summary_auto_upload_crash_reports">더 빠르고 쉽게 충돌을 검토하고 수정할 수 있도록 앱이 제 3의 서비스 제공자에게 자동으로 충돌 보고를 송신하도록 허용합니다.</string>
   <string name="editing_error_spamblacklist">차단된 도메인 (%s)으로의 링크가 감지되었습니다. 그들을 제거하고 나서 다시 시도하세요.</string>
-  <string name="history_search_list_hint">검색 기록</string>
+  <string name="history_filter_list_hint">필터 역사</string>
   <string name="error_can_not_process_link">이 링크를 표시할 수 없습니다</string>
   <string name="page_protected_autoconfirmed">이 문서는 준보호되어 있습니다.</string>
   <string name="page_protected_sysop">이 문서는 완전히 보호되어 있습니다.</string>
@@ -280,7 +281,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">허용</string>
   <string name="read_more_section">더 읽어보기</string>
   <string name="about_article_section">이 문서의 정보</string>
-  <string name="menu_gallery_visit_page">파일 문서로 가기</string>
+  <string name="menu_gallery_visit_image_page">파일 문서로 가기</string>
   <string name="gallery_error_draw_failed">그림을 그릴 수 없습니다.</string>
   <string name="license_title">%s의 라이선스</string>
   <string name="gallery_menu_share">공유</string>
@@ -341,6 +342,10 @@
   <string name="location_permissions_enable_prompt">주변 장소를 보려면 위치 권한을 허용해주세요.</string>
   <string name="location_permissions_enable_action">켜기</string>
   <string name="error_webview_updating">Android System WebView가 현재 업데이트되고 있습니다. 잠시 후 다시 시도해 주십시오.</string>
+  <plurals name="multi_items_selected">
+    <item quantity="one">%d개 선택됨</item>
+    <item quantity="other">%d개 선택됨</item>
+  </plurals>
   <string name="multi_select_items_selected">%d개 선택됨</string>
   <string name="error_message_generic">오류가 발생했습니다</string>
   <string name="view_link_preview_error_button_dismiss">숨기기</string>
@@ -360,8 +365,11 @@
   <string name="crash_report_relaunch_or_quit">죄송합니다,  위키백과 앱이 오류가 발생하여 종료되었습니다.\n\n다시 시작하거나 나가시겠습니까?</string>
   <string name="crash_report_relaunch">다시 시작</string>
   <string name="crash_report_quit">종료</string>
-  <string name="article_menu_bar_bookmark">이 문서를 읽기 목록에 추가하기</string>
-  <string name="article_menu_bar_share">문서 링크 공유</string>
+  <string name="article_menu_bar_save_button">저장</string>
+  <string name="article_menu_bar_language_button">언어</string>
+  <string name="article_menu_bar_search_button">검색</string>
+  <string name="article_menu_bar_theme_button">테마</string>
+  <string name="article_menu_bar_contents_button">목차</string>
   <string name="article_header_edit_hint">편집...</string>
   <string name="article_header_edit_description">문서 설명 편집</string>
   <string name="article_header_edit_lead_section">도입부 편집</string>
@@ -383,10 +391,20 @@
   <string name="reading_list_create_new">새로 만들기</string>
   <string name="reading_list_title_exists">\"%s\" 읽기 목록이 이미 존재합니다.</string>
   <string name="reading_list_article_added_to_named">%1$s 문서를 %2$s에 추가했습니다.</string>
+  <string name="reading_list_article_added_to_default_list">%s 문서를 저장했습니다. 해당 항목을 목록에 추가하시겠습니까?</string>
   <string name="reading_list_article_moved_to_named">%1$s 문서를 %2$s(으)로 이동했습니다.</string>
   <string name="reading_list_article_already_exists_message">좋습니다! %1$s은(는) 이미 %2$s 문서를 포함하고 있습니다.</string>
   <string name="reading_list_articles_already_exist_message">좋습니다! %s은(는) 이미 모든 문서를 포함하고 있습니다.</string>
   <string name="reading_list_added_view_button">목록 보기</string>
+  <string name="reading_list_add_to_list_button">목록에 추가</string>
+  <plurals name="format_reading_list_statistical_summary">
+    <item quantity="one">글 1개, %2$.2f MB</item>
+    <item quantity="other">글 %1$d개, %2$.2f MB</item>
+  </plurals>
+  <plurals name="format_reading_list_statistical_detail">
+    <item quantity="one">읽을 수 있는 오프라인 글 1개 중 %1$d개, %3$.2f MB</item>
+    <item quantity="other">읽을 수 있는 오프라인 글 %2$d개 중 %1$d개, %3$.2f MB</item>
+  </plurals>
   <string name="format_reading_list_statistical_summary_singular">1개의 문서, %1$.2f MB</string>
   <string name="format_reading_list_statistical_summary_plural">%1$d개의 문서, %2$.2f MB</string>
   <string name="format_reading_list_statistical_detail_singular">1개의 문서 중 %1$d개를 오프라인에서 읽을 수 있음, %2$.2f MB</string>
@@ -411,6 +429,10 @@
   <string name="reading_list_name_hint">이 목록의 이름</string>
   <string name="reading_list_description_hint">설명 (선택 사항)</string>
   <string name="reading_list_item_deleted">%s개의 문서가 목록에서 제거되었습니다</string>
+  <plurals name="reading_list_articles_deleted">
+    <item quantity="one">목록에서 제거된 문서 %d개</item>
+    <item quantity="other">목록에서 제거된 문서 %d개</item>
+  </plurals>
   <string name="reading_list_items_deleted">%d개의 문서가 목록에서 제거됨</string>
   <string name="reading_lists_item_deleted">%s개의 문서가 목록에서 제거되었습니다</string>
   <string name="reading_list_item_delete_undo">실행 취소</string>
@@ -569,6 +591,7 @@
   <string name="menu_feed_overflow_label">옵션 더 보기</string>
   <string name="feed_featured_image_share_subject">위키미디어 공용의 알찬 그림</string>
   <string name="feed">탐색</string>
+  <string name="home">홈</string>
   <string name="most_read_list_card_title">유행</string>
   <string name="view_static_card_icon_content_description">카드 아이콘</string>
   <string name="view_card_news_title">새로 들어온 소식</string>
@@ -579,7 +602,6 @@
   <string name="view_continue_reading_card_subtitle_today">오늘</string>
   <string name="view_continue_reading_card_subtitle_read_date">%s 읽음</string>
   <string name="view_announcement_card_negative_action">괜찮습니다</string>
-  <string name="onboarding_negative_action">괜찮습니다</string>
   <string name="view_offline_card_text">오프라인 상태에서는 내용을 불러올 수 없습니다.</string>
   <string name="view_featured_article_card_title">알찬 글</string>
   <string name="view_featured_article_footer_save_button_label">저장</string>
@@ -632,12 +654,16 @@
   <string name="description_edit_anon_limit">문서 설명 편집에 지속적인 관심을 주셔서 감사합니다! 추가 편집을 하려면 위키백과 계정에 로그인해 주십시오.</string>
   <string name="description_edit_license_notice">문서 설명을 변경함으로써, &lt;a href=\"%1$s\"&gt;이용 약관&lt;/a&gt;에 동의하며 내 기여를 &lt;a href=\"%2$s\"&gt;크리에이티브 커먼즈 CC0&lt;/a&gt; 라이선스로 배포하는 것을 동의합니다.</string>
   <string name="description_edit_helper_text_lowercase_warning">보통 소문자로 시작합니다</string>
+  <string name="description_edit_voice_input_description">음성 입력</string>
+  <string name="description_too_short">텍스트가 너무 짧습니다.</string>
+  <string name="description_ends_with_punctuation">텍스트는 구두점으로 끝나서는 안 됩니다.</string>
+  <string name="description_starts_with_uppercase">처음 오는 단어가 고유 명사가 아니면 소문자로 시작하십시오.</string>
   <string name="description_edit_success_saved">문서 설명을 게시했습니다!</string>
   <string name="description_edit_success_saved_snackbar">문서 설명을 게시했습니다!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">문서 설명을 게시했습니다! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">이미지 설명이 게시되었습니다!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">이미지 설명이 게시되었습니다! (%s)</string>
-  <string name="description_edit_success_saved_image_tags_snackbar">이미지 태그가 저장되었습니다!</string>
+  <string name="description_edit_success_saved_image_tags_snackbar">이미지 태그가 게시되었습니다!</string>
   <string name="description_edit_success_encouragement">방금 모두를 위해 위키백과를 개선해주셨습니다</string>
   <string name="description_edit_success_done">완료</string>
   <string name="description_edit_success_did_you_know">알고 계십니까?</string>
@@ -648,10 +674,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">2개부터 12개 사이의 단어에 한 줄이 적당합니다</string>
   <string name="description_edit_tutorial_button_label_start_editing">편집 시작</string>
   <string name="description_edit_tutorial_promise">시작함으로써 나는 이 기능을 악용하지 않을 것을 약속합니다.</string>
-  <string name="suggested_edits_add_descriptions">문서 설명 추가</string>
-  <string name="suggested_edits_translate_descriptions">문서 설명 번역하기</string>
-  <string name="suggested_edits_add_image_captions">이미지 설명 추가</string>
-  <string name="suggested_edits_translate_image_captions">이미지 설명 번역하기</string>
   <string name="suggested_edits_tag_images">이미지 태그하기</string>
   <string name="suggested_edits_review_description">문서 설명 검토</string>
   <string name="suggested_edits_add_description_button">설명 추가</string>
@@ -678,7 +700,7 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text">%d건의 문서 설명을 편집하기 전까지는 잠겨있습니다 (검증됨)</string>
   <string name="suggested_edits_task_multilingual_negative">제게는 해당되지 않습니다</string>
   <string name="suggested_edits_task_multilingual_positive">언어 추가</string>
-  <string name="suggested_edits_image_caption_summary_title_file">파일</string>
+  <string name="suggested_edits_image_caption_summary_title_image">파일</string>
   <string name="suggested_edits_image_caption_summary_title_artist">아티스트</string>
   <string name="suggested_edits_image_caption_summary_title_author">만든이</string>
   <string name="suggested_edits_image_caption_summary_title_source">출처</string>
@@ -694,7 +716,7 @@
   <string name="suggested_edits_tasks_onboarding_get_started">시작하기</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">이미지 캡션 (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">이미지 설명 (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_file">파일</string>
+  <string name="suggested_edits_image_preview_dialog_image">파일</string>
   <string name="suggested_edits_image_preview_dialog_artist">아티스트</string>
   <string name="suggested_edits_image_preview_dialog_tags">태그</string>
   <string name="suggested_edits_image_preview_dialog_date">날짜</string>
@@ -703,6 +725,7 @@
   <string name="suggested_edits_image_preview_dialog_more_info">자세한 정보</string>
   <string name="suggested_edits_image_preview_dialog_file_page_link_text">위키미디어 공용의 파일 문서</string>
   <string name="suggested_edits_image_preview_dialog_file_page_wikipedia_link_text">위키백과의 파일 문서</string>
+  <string name="suggested_edits_article_cta_image_tags">이미지 태그 추가</string>
   <string name="suggested_edits_article_cta_image_caption">이미지 캡션 추가</string>
   <string name="suggested_edits_article_cta_image_caption_in_language">이미지 캡션 추가 (%s)</string>
   <string name="suggested_edits_article_cta_snackbar_action">보기</string>
@@ -804,6 +827,8 @@
   </plurals>
   <string name="suggested_edits_added_contribution_label">글자 %d자를 추가하셨습니다</string>
   <string name="file_page_activity_title">파일 문서</string>
+  <string name="file_page_add_image_caption_button">이미지 캡션 추가</string>
+  <string name="file_page_add_image_tags_button">이미지 태그 추가</string>
   <string name="description_edit_revert_subtitle">위키백과를 편집해 주셔서 감사합니다!</string>
   <string name="description_edit_revert_intro">저희는 당신이 최선의 노력을 다해주신 것을 알고 있습니다만, 검토자들 중 한 명이 걱정하는 부분이 있습니다. 당신의 편집이 되돌려진 잠재적 이유는 다음과 같습니다:</string>
   <string name="description_edit_revert_reason1">당신의 기여는 &lt;a href=\"%1$s\"&gt;지침들&lt;/a&gt; 가운데 하나를 준수하지 않았습니다.</string>

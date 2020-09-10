@@ -16,9 +16,7 @@
   <string name="nav_item_forward">ߟߊߕߊ߯ߢߍ߫</string>
   <string name="search_hint">ߢߌߣߌ߲ߠߌ߲ ߞߍ߫ ߥߞߌߔߘߋߞߎ ߘߐ߫</string>
   <string name="search_hint_voice_search">ߡߍ߲ߞߊ߲ߠߊ߫ ߢߌߣߌ߲ߠߌ߲</string>
-  <string name="search_hint_search_history">ߕߊ߬ߡߌ߲߬ߣߍ߲ ߘߏ߫ ߢߌߣߌ߲߫</string>
   <string name="search_hint_search_languages">ߞߊ߲ ߘߏ߫ ߢߌߣߌ߲߫</string>
-  <string name="search_hint_search_my_lists_and_articles">ߒ ߠߊ߫ ߛߙߍߘߍ ߣߌ߫ ߞߎߡߘߊ ߟߎ߬ ߢߌߣߌ߲߫</string>
   <string name="nav_item_history">ߘߐ߬ߝߐ</string>
   <string name="nav_item_more">ߡߊߞߊ߬ߝߏ߬ ߜߘߍ ߟߎ߬</string>
   <string name="error_network_error">ߊ߬ ߕߴߛߋ߫ ߜߊ߲߬ߞߎ߲߬ ߠߊ߫ ߓߟߐߟߐ ߟߊ߫</string>
@@ -159,7 +157,6 @@
   <string name="preference_title_eventlogging_opt_in">ߟߊ߬ߓߊ߰ߙߊ߬ߟߌ ߘߊ߲߬ߕߍ߰ߟߌ ߗߋ߫</string>
   <string name="preference_title_auto_upload_crash_reports">ߗߌߙߏ߲ߠߌ߲ ߘߊ߲߬ߕߍ߰ߟߌ ߗߋ߫</string>
   <string name="editing_error_spamblacklist">ߛߘߌ߬ߜߋ߲ ߞߊ߬ ߡߊ߬ߘߎ߮ ߘߏ߫ ߓߊ߬ߟߊ߲߬ (%s) ߓߘߊ߫ ߟߊߞߏߟߐ߲߫.ߊ߬ߟߎ߫ ߛߋ߲߬ߓߐ߫ ߖߊ߰ߣߌ߲߬ ߞߵߊ߬ ߡߊߝߍߣߍ߲߫ ߕߎ߲߯.</string>
-  <string name="history_search_list_hint">ߢߌߣߌ߲ߣߌ߲ ߞߘߐ߬ߡߊ߲ ߠߎ߬</string>
   <string name="error_can_not_process_link">ߊ߬ ߕߍ߫ ߣߊ߬ ߛߋ߫ ߟߊ߫ ߛߘߌ߬ߜߋ߲ ߣߌ߲߬ ߠߊߓߊ߯ߙߊ߫ ߟߊ߫</string>
   <string name="page_protected_autoconfirmed">ߞߐߜߍ ߣߌ߲߬ ߦߋ߫ ߟߊ߬ߞߊ߲߬ߘߊ߬ߟߌ߬ ߕߟߊߒߕߍ ߟߋ߬ ߘߌ߫.</string>
   <string name="page_protected_sysop">ߞߐߜߍ ߣߌ߲߬ ߓߘߊ߫ ߟߊߞߊ߲ߘߊ߫ ߞߏߟߌߞߏߟߌ߫.</string>
@@ -238,7 +235,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">ߟߊ߬ߘߌ߬ߢߍ߬ߟߌ</string>
   <string name="read_more_section">ߘߏ߫ ߜߘߍ߫ ߟߎ߫ ߘߐߞߊ߬ߙߊ߲߬</string>
   <string name="about_article_section">ߞߊ߬ ߓߍ߲߬ ߦߌߟߡߊ ߣߌ߲߬ ߡߊ߬</string>
-  <string name="menu_gallery_visit_page">ߕߊ߯ ߞߐߕߐ߮ ߞߐߜߍ ߞߊ߲߬</string>
+  <string name="menu_gallery_visit_image_page">ߕߊ߯ ߞߐߕߐ߮ ߞߐߜߍ ߞߊ߲߬</string>
   <string name="gallery_error_draw_failed">ߊ߬ ߕߴߛߋ߫ ߖߌ߬ߦߊ߬ߓߍ ߡߊߕߍ߰ ߟߊ߫</string>
   <string name="license_title">%s ߕߌ߰ߦߊ</string>
   <string name="gallery_menu_share">ߊ߬ ߟߊߖߍ߲ߛߍ߲߫</string>
@@ -302,8 +299,6 @@
   <string name="crash_report_activity_title">ߞߍߟߌ ߝߎ߬ߕߎ߲߬ߕߌ</string>
   <string name="crash_report_relaunch">ߊ߬ ߘߊߡߌ߬ߣߊ߬ ߕߎ߲߯</string>
   <string name="crash_report_quit">ߓߐ߫</string>
-  <string name="article_menu_bar_bookmark">ߦߌߟߡߊ ߣߌ߲߬ ߠߊߘߏ߲߬ ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲߬ ߛߙߍߘߍ ߘߐ߫</string>
-  <string name="article_menu_bar_share">ߦߌߟߡߊ ߛߘߌ߬ߜߋ߲ ߠߊߖߍ߲ߛߍ߲߫</string>
   <string name="article_header_edit_hint">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲</string>
   <string name="article_header_edit_description">ߦߌߟߡߊ ߞߊ߲߬ߛߓߍߟߌ ߡߊߦߟߍ߬ߡߊ߲߫</string>
   <string name="article_header_edit_lead_section">ߟߊߘߏ߲߬ߠߌ߲ ߡߊߦߟߍ߬ߡߊ߲߫</string>
@@ -489,7 +484,6 @@
   <string name="view_continue_reading_card_subtitle_today">ߓߌ߬</string>
   <string name="view_continue_reading_card_subtitle_read_date">ߘߐ߬ߞߊ߬ߙߊ߲߬ߠߌ߲ %s</string>
   <string name="view_announcement_card_negative_action">ߒ߬ߒ߫ ߌ ߞߎߟߎ߲ߖߋ߫</string>
-  <string name="onboarding_negative_action">ߒ߬ߒ߫ ߌ ߞߎߟߎ߲ߖߋ߫</string>
   <string name="view_offline_card_text">ߞߣߐߘߐ ߕߍ߫ ߛߐ߲߬ ߟߊߦߟߍ߬ ߟߊ߫ ߞߵߌ ߜߊ߲߬ߞߎ߲߬ߓߊߟߌ ߕߏ߫.</string>
   <string name="view_featured_article_card_title">ߦߌߟߡߊ߫ ߡߊߦߋߙߋ߲ߣߍ߲ ߠߎ߬</string>
   <string name="view_featured_article_footer_save_button_label">ߊ߬ ߟߊߞߎ߲߬ߘߎ߬</string>
@@ -544,10 +538,6 @@
   <string name="description_edit_tutorial_title_descriptions">ߦߌߟߡߊ ߞߊ߲߬ߛߓߍߟߌ</string>
   <string name="description_edit_tutorial_keep_it_short">ߊ߬ ߕߏ߫ ߛߎ߬ߘߎ߲߬ߧߊ ߘߐ߫</string>
   <string name="description_edit_tutorial_button_label_start_editing">ߡߊ߬ߦߟߍ߬ߡߊ߲߬ߠߌ߲ ߘߊߡߌ߬ߣߊ߬</string>
-  <string name="suggested_edits_add_descriptions">ߦߌߟߡߊ ߞߊ߲߬ߛߓߍߟߌ ߟߊߘߏ߲߬</string>
-  <string name="suggested_edits_translate_descriptions">ߦߌߟߡߊ ߞߊ߲߬ߛߓߍߟߌ ߘߟߊߡߌ߬ߘߊ߬</string>
-  <string name="suggested_edits_add_image_captions">ߖߌ߬ߦߊ߬ߓߍ ߝߍ߬ߛߓߍߟߌ ߟߊߘߏ߲߬</string>
-  <string name="suggested_edits_translate_image_captions">ߖߌ߬ߦߊ߬ߓߍ ߝߍ߬ߛߓߍߟߌ ߘߟߊߡߌ߬ߘߊ߬</string>
   <string name="suggested_edits_review_description">ߦߌߟߡߊ ߞߊ߲߬ߛߓߍߟߌ ߦߋ߫ ߕߎ߲߯</string>
   <string name="suggested_edits_add_description_button">ߞߊ߲߬ߛߓߍߟߌ ߟߊߘߏ߲߬</string>
   <string name="suggested_edits_edit_description_button">ߞߊ߲߬ߛߓߍߟߌ ߡߊߦߟߍ߬ߡߊ߲߫</string>
@@ -572,7 +562,7 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text">ߊ߬ ߣߍ߰ߣߍ߲ ߠߋ߬ ߝߏ߫ ߌ ߣߊ߬ ߞߎߡߘߊ %d ߟߎ߫ ߞߊ߲߬ߛߓߍߟߌ ߡߊߦߟߍ߬ߡߊ߲߫ (ߝߛߍ߬ߝߛߍ߬)</string>
   <string name="suggested_edits_task_multilingual_negative">ߒߠߋ ߕߊ߫ ߕߍ߫</string>
   <string name="suggested_edits_task_multilingual_positive">ߞߊ߲ ߠߎ߬ ߟߊߘߏ߲߬</string>
-  <string name="suggested_edits_image_caption_summary_title_file">ߞߐߕߐ߮</string>
+  <string name="suggested_edits_image_caption_summary_title_image">ߞߐߕߐ߮</string>
   <string name="suggested_edits_image_caption_summary_title_artist">ߞߎ߬ߛߊ߲߬ߧߊ</string>
   <string name="suggested_edits_image_caption_summary_title_author">ߛߓߍߦߟߊ</string>
   <string name="suggested_edits_image_caption_summary_title_source">ߛߎ߲</string>
@@ -588,7 +578,7 @@
   <string name="suggested_edits_tasks_onboarding_get_started">ߟߊ߬ߝߟߐ߬ߟߌ ߘߊߡߌ߬ߣߊ߬</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">ߖߌ߬ߦߊ߬ߓߍ ߝߍ߬ߛߓߍߟߌ (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">ߖߌ߬ߦߊ߬ߓߍ ߞߊ߲߬ߛߓߍߟߌ (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_file">ߞߐߕߐ߮</string>
+  <string name="suggested_edits_image_preview_dialog_image">ߞߐߕߐ߮</string>
   <string name="suggested_edits_image_preview_dialog_artist">ߞߎ߬ߛߊ߲߬ߧߊ</string>
   <string name="suggested_edits_image_preview_dialog_tags">ߘߎ߲ߛߓߍ ߟߎ߬</string>
   <string name="suggested_edits_image_preview_dialog_date">ߕߎ߬ߡߊ߬ߘߊ</string>

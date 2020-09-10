@@ -15,7 +15,6 @@
   <string name="wikimedia">ವಿಕಿಪೀಡಿಯ</string>
   <string name="page_tabs_back">ಪಿರ</string>
   <string name="search_hint">ವಿಕಿಪೀಡಿಯಟ್ ನಾಡ್ಲೇ</string>
-  <string name="search_hint_search_history">ಇತಿಹಾಸನ್ ನಾಡ್ಲೆ</string>
   <string name="search_hint_search_languages">ಬಾಸೆಲೆನ್ ನಡ್ಲೆ</string>
   <string name="nav_item_history">ಇತಿಹಾಸೊ</string>
   <string name="error_network_error">ನೆಟ್ವರ್ಕ್ ಸರಿಕಟ್ಟ್ ತಿಕೊಂತಿಜ್ಜಿ.</string>
@@ -149,7 +148,6 @@
   <string name="preferences_privacy_settings_heading">ಸೊಂತೊ</string>
   <string name="preference_title_eventlogging_opt_in">ಬೊಡಪಿ ವರದಿನ್ ಕಡಪುಡ್ಲೆ</string>
   <string name="preference_title_auto_upload_crash_reports">ಬೊಡ್ಚಂತಿನ ವರದಿ ಕಡಪ‍್ಡುಕಾ</string>
-  <string name="history_search_list_hint">ಇತಿಹಾಸನ್ ನಾಡ್ಲೆ</string>
   <string name="error_can_not_process_link">ಈ ಕೊಂಡಿತಾ ಪುಟೋ ತೋಜೊಂತಿಜ್ಜಿ</string>
   <string name="page_protected_can_not_edit_title">ಈ ಪುಟನ್ ಜಾಗ್ರತೆಡ್ ಡಿತುಂಡು</string>
   <string name="settings_item_preferences">ಸಂಯೋಜನೆಲು</string>
@@ -286,7 +284,6 @@
   <string name="view_continue_reading_card_subtitle_today">ಇನಿ.</string>
   <string name="view_continue_reading_card_subtitle_read_date">ಓದುಲೆ %s.</string>
   <string name="view_announcement_card_negative_action">ಬೊಡ್ಚಿ ಸೊಲ್ಮೆಲೋ</string>
-  <string name="onboarding_negative_action">ಧನ್ಯವಾದೊಲು ಇಜ್ಜಿ</string>
   <string name="view_featured_article_footer_save_button_label">ಒರಿಪಾಲೆ</string>
   <string name="view_static_card_save_button_label">ಒರಿಪಾಲೆ</string>
   <string name="view_featured_article_footer_saved_button_label">ಒರಿಪಾಂಡ್</string>

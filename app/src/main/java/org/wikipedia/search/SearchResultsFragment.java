@@ -1,21 +1,19 @@
 package org.wikipedia.search;
 
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.collection.LruCache;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import org.apache.commons.lang3.StringUtils;
 import org.wikipedia.Constants.InvokeSource;
@@ -26,9 +24,13 @@ import org.wikipedia.activity.FragmentUtil;
 import org.wikipedia.analytics.SearchFunnel;
 import org.wikipedia.dataclient.ServiceFactory;
 import org.wikipedia.dataclient.WikiSite;
+import org.wikipedia.history.HistoryDbHelper;
 import org.wikipedia.history.HistoryEntry;
 import org.wikipedia.page.PageTitle;
+import org.wikipedia.page.tabs.Tab;
+import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.util.StringUtil;
+import org.wikipedia.views.DefaultViewHolder;
 import org.wikipedia.views.GoneIfEmptyTextView;
 import org.wikipedia.views.ViewUtil;
 import org.wikipedia.views.WikiErrorView;
@@ -36,15 +38,19 @@ import org.wikipedia.views.WikiErrorView;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
+import static android.view.View.GONE;
+import static android.view.View.VISIBLE;
 import static org.apache.commons.lang3.StringUtils.isBlank;
 import static org.wikipedia.util.L10nUtil.setConditionalLayoutDirection;
 
@@ -61,7 +67,6 @@ public class SearchResultsFragment extends Fragment {
 
     private static final int BATCH_SIZE = 20;
     private static final int DELAY_MILLIS = 300;
-    private static final int MESSAGE_SEARCH = 1;
     private static final int MAX_CACHE_SIZE_SEARCH_RESULTS = 4;
     /**
      * Constant to ease in the conversion of timestamps from nanoseconds to milliseconds.
@@ -70,14 +75,13 @@ public class SearchResultsFragment extends Fragment {
 
     @BindView(R.id.search_results_display) View searchResultsDisplay;
     @BindView(R.id.search_results_container) View searchResultsContainer;
-    @BindView(R.id.search_results_list) ListView searchResultsList;
+    @BindView(R.id.search_results_list) RecyclerView searchResultsList;
     @BindView(R.id.search_error_view) WikiErrorView searchErrorView;
     @BindView(R.id.search_empty_view) View searchEmptyView;
     @BindView(R.id.search_suggestion) TextView searchSuggestion;
     private Unbinder unbinder;
 
     private final LruCache<String, List<SearchResult>> searchResultsCache = new LruCache<>(MAX_CACHE_SIZE_SEARCH_RESULTS);
-    private Handler searchHandler;
     private String currentSearchTerm = "";
     @Nullable private SearchResults lastFullTextResults;
     @NonNull private final List<SearchResult> totalResults = new ArrayList<>();
@@ -88,25 +92,16 @@ public class SearchResultsFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_search_results, container, false);
         unbinder = ButterKnife.bind(this, view);
 
-        SearchResultAdapter adapter = new SearchResultAdapter(inflater);
-        searchResultsList.setAdapter(adapter);
+        searchResultsList.setLayoutManager(new LinearLayoutManager(getActivity()));
+        searchResultsList.setAdapter(new SearchResultAdapter());
 
         searchErrorView.setBackClickListener((v) -> requireActivity().finish());
         searchErrorView.setRetryClickListener((v) -> {
-            searchErrorView.setVisibility(View.GONE);
+            searchErrorView.setVisibility(GONE);
             startSearch(currentSearchTerm, true);
         });
 
-        searchHandler = new Handler(new SearchHandlerCallback());
-
         return view;
-    }
-
-    @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        new LongPressHandler(searchResultsList, HistoryEntry.SOURCE_SEARCH,
-                new SearchResultsFragmentLongPressHandler());
     }
 
     @Override
@@ -134,15 +129,15 @@ public class SearchResultsFragment extends Fragment {
     }
 
     public void show() {
-        searchResultsDisplay.setVisibility(View.VISIBLE);
+        searchResultsDisplay.setVisibility(VISIBLE);
     }
 
     public void hide() {
-        searchResultsDisplay.setVisibility(View.GONE);
+        searchResultsDisplay.setVisibility(GONE);
     }
 
     public boolean isShowing() {
-        return searchResultsDisplay.getVisibility() == View.VISIBLE;
+        return searchResultsDisplay.getVisibility() == VISIBLE;
     }
 
     public void setLayoutDirection(@NonNull String langCode) {
@@ -176,71 +171,72 @@ public class SearchResultsFragment extends Fragment {
             return;
         }
 
-        Message searchMessage = Message.obtain();
-        searchMessage.what = MESSAGE_SEARCH;
-        searchMessage.obj = term;
-
-        if (force) {
-            searchHandler.sendMessage(searchMessage);
-        } else {
-            searchHandler.sendMessageDelayed(searchMessage, DELAY_MILLIS);
-        }
+        doTitlePrefixSearch(term, force);
     }
 
-    private class SearchHandlerCallback implements Handler.Callback {
-        @Override
-        public boolean handleMessage(Message msg) {
-            if (!isAdded()) {
-                return true;
-            }
-            final String mySearchTerm = (String) msg.obj;
-            doTitlePrefixSearch(mySearchTerm);
-            return true;
-        }
-    }
-
-    private void doTitlePrefixSearch(final String searchTerm) {
+    private void doTitlePrefixSearch(final String searchTerm, boolean force) {
         cancelSearchTask();
         final long startTime = System.nanoTime();
         updateProgressBar(true);
 
-        disposables.add(ServiceFactory.get(WikiSite.forLanguageCode(getSearchLanguageCode())).prefixSearch(searchTerm, BATCH_SIZE, searchTerm)
+        disposables.add(Observable.timer(force ? 0 : DELAY_MILLIS, TimeUnit.MILLISECONDS).flatMap(timer ->
+                Observable.zip(ServiceFactory.get(WikiSite.forLanguageCode(getSearchLanguageCode())).prefixSearch(searchTerm, BATCH_SIZE, searchTerm),
+                        Observable.fromCallable(() -> ReadingListDbHelper.instance().findPageForSearchQueryInAnyList(currentSearchTerm)),
+                        Observable.fromCallable(() -> HistoryDbHelper.INSTANCE.findHistoryItem(currentSearchTerm)), (searchResponse, readingListSearchResults, historySearchResults) -> {
+
+                            SearchResults searchResults;
+                            if (searchResponse != null && searchResponse.query() != null && searchResponse.query().pages() != null) {
+                                // noinspection ConstantConditions
+                                searchResults = new SearchResults(searchResponse.query().pages(),
+                                        WikiSite.forLanguageCode(getSearchLanguageCode()), searchResponse.continuation(),
+                                        searchResponse.suggestion());
+                            } else {
+                                // A prefix search query with no results will return the following:
+                                //
+                                // {
+                                //   "batchcomplete": true,
+                                //   "query": {
+                                //      "search": []
+                                //   }
+                                // }
+                                //
+                                // Just return an empty SearchResults() in this case.
+                                searchResults = new SearchResults();
+                            }
+                            handleSuggestion(searchResults.getSuggestion());
+                            List<SearchResult> resultList = new ArrayList<>(readingListSearchResults.getResults());
+                            resultList.addAll(historySearchResults.getResults());
+                            addSearchResultsFromTabs(resultList);
+                            resultList.addAll(searchResults.getResults());
+                            return resultList;
+                        }))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .map(response -> {
-                    if (response != null && response.query() != null && response.query().pages() != null) {
-                        // noinspection ConstantConditions
-                        return new SearchResults(response.query().pages(),
-                                WikiSite.forLanguageCode(getSearchLanguageCode()), response.continuation(),
-                                response.suggestion());
-                    }
-                    // A prefix search query with no results will return the following:
-                    //
-                    // {
-                    //   "batchcomplete": true,
-                    //   "query": {
-                    //      "search": []
-                    //   }
-                    // }
-                    //
-                    // Just return an empty SearchResults() in this case.
-                    return new SearchResults();
-                })
                 .doAfterTerminate(() -> updateProgressBar(false))
                 .subscribe(results -> {
-                    searchErrorView.setVisibility(View.GONE);
+                    searchErrorView.setVisibility(GONE);
                     handleResults(results, searchTerm, startTime);
                 }, caught -> {
-                    searchEmptyView.setVisibility(View.GONE);
-                    searchErrorView.setVisibility(View.VISIBLE);
+                    searchEmptyView.setVisibility(GONE);
+                    searchErrorView.setVisibility(VISIBLE);
                     searchErrorView.setError(caught);
-                    searchResultsContainer.setVisibility(View.GONE);
+                    searchResultsContainer.setVisibility(GONE);
                     logError(false, startTime);
                 }));
     }
 
-    private void handleResults(@NonNull SearchResults results, @NonNull String searchTerm, long startTime) {
-        List<SearchResult> resultList = results.getResults();
+    private void addSearchResultsFromTabs(List<SearchResult> resultList) {
+        List<Tab> tabList = WikipediaApp.getInstance().getTabList();
+        for (Tab tab : tabList) {
+            if (tab.getBackStackPositionTitle() != null && tab.getBackStackPositionTitle().getDisplayText().toLowerCase().contains(currentSearchTerm.toLowerCase())) {
+                SearchResult searchResult = new SearchResult(tab.getBackStackPositionTitle(), SearchResult.SearchResultType.TAB_LIST);
+                resultList.add(searchResult);
+                return;
+            }
+        }
+    }
+
+    private void handleResults(@NonNull List<SearchResult> resultList, @NonNull String searchTerm, long startTime) {
         // To ease data analysis and better make the funnel track with user behaviour,
         // only transmit search results events if there are a nonzero number of results
         if (!resultList.isEmpty()) {
@@ -248,8 +244,6 @@ public class SearchResultsFragment extends Fragment {
             displayResults(resultList);
             log(resultList, startTime);
         }
-
-        handleSuggestion(results.getSuggestion());
 
         // add titles to cache...
         searchResultsCache.put(getSearchLanguageCode() + "-" + searchTerm, resultList);
@@ -260,7 +254,7 @@ public class SearchResultsFragment extends Fragment {
             if (!isAdded()) {
                 return;
             }
-            searchResultsList.setSelectionAfterHeaderView();
+            searchResultsList.scrollToPosition(0);
         });
 
         if (resultList.isEmpty()) {
@@ -275,15 +269,14 @@ public class SearchResultsFragment extends Fragment {
                     + getString(R.string.search_did_you_mean, suggestion)
                     + "</u>"));
             searchSuggestion.setTag(suggestion);
-            searchSuggestion.setVisibility(View.VISIBLE);
+            searchSuggestion.setVisibility(VISIBLE);
         } else {
-            searchSuggestion.setVisibility(View.GONE);
+            searchSuggestion.setVisibility(GONE);
         }
     }
 
     private void cancelSearchTask() {
         updateProgressBar(false);
-        searchHandler.removeMessages(MESSAGE_SEARCH);
         disposables.clear();
     }
 
@@ -336,15 +329,6 @@ public class SearchResultsFragment extends Fragment {
                 }));
     }
 
-    @Nullable
-    public PageTitle getFirstResult() {
-        if (!totalResults.isEmpty()) {
-            return totalResults.get(0).getPageTitle();
-        } else {
-            return null;
-        }
-    }
-
     private void clearResults() {
         clearResults(true);
     }
@@ -357,11 +341,11 @@ public class SearchResultsFragment extends Fragment {
     }
 
     private void clearResults(boolean clearSuggestion) {
-        searchResultsContainer.setVisibility(View.GONE);
-        searchEmptyView.setVisibility(View.GONE);
-        searchErrorView.setVisibility(View.GONE);
+        searchResultsContainer.setVisibility(GONE);
+        searchEmptyView.setVisibility(GONE);
+        searchErrorView.setVisibility(GONE);
         if (clearSuggestion) {
-            searchSuggestion.setVisibility(View.GONE);
+            searchSuggestion.setVisibility(GONE);
         }
 
         lastFullTextResults = null;
@@ -371,8 +355,8 @@ public class SearchResultsFragment extends Fragment {
         getAdapter().notifyDataSetChanged();
     }
 
-    private BaseAdapter getAdapter() {
-        return (BaseAdapter) searchResultsList.getAdapter();
+    private SearchResultAdapter getAdapter() {
+        return (SearchResultAdapter) searchResultsList.getAdapter();
     }
 
     /**
@@ -395,24 +379,22 @@ public class SearchResultsFragment extends Fragment {
         }
 
         if (totalResults.isEmpty()) {
-            searchEmptyView.setVisibility(View.VISIBLE);
-            searchResultsContainer.setVisibility(View.GONE);
+            searchEmptyView.setVisibility(VISIBLE);
+            searchResultsContainer.setVisibility(GONE);
         } else {
-            searchEmptyView.setVisibility(View.GONE);
-            searchResultsContainer.setVisibility(View.VISIBLE);
+            searchEmptyView.setVisibility(GONE);
+            searchResultsContainer.setVisibility(VISIBLE);
         }
 
         getAdapter().notifyDataSetChanged();
     }
 
     private class SearchResultsFragmentLongPressHandler
-            implements org.wikipedia.LongPressHandler.ListViewOverflowMenuListener {
+            implements org.wikipedia.LongPressHandler.OverflowMenuListener {
         private int lastPositionRequested;
 
-        @Override
-        public PageTitle getTitleForListPosition(int position) {
+        SearchResultsFragmentLongPressHandler(int position) {
             lastPositionRequested = position;
-            return ((SearchResult) getAdapter().getItem(position)).getPageTitle();
         }
 
         @Override
@@ -456,58 +438,62 @@ public class SearchResultsFragment extends Fragment {
         }
     }
 
-    private final class SearchResultAdapter extends BaseAdapter implements View.OnClickListener, View.OnLongClickListener {
-        private final LayoutInflater inflater;
-
-        SearchResultAdapter(LayoutInflater inflater) {
-            this.inflater = inflater;
-        }
-
+    private final class SearchResultAdapter extends RecyclerView.Adapter<SearchResultItemViewHolder> {
         @Override
-        public int getCount() {
+        public int getItemCount() {
             return totalResults.size();
         }
 
         @Override
-        public Object getItem(int position) {
-            return totalResults.get(position);
+        public SearchResultItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            return new SearchResultItemViewHolder(LayoutInflater.from(getContext())
+                    .inflate(R.layout.item_search_result, parent, false));
         }
 
         @Override
-        public long getItemId(int position) {
-            return position;
+        public void onBindViewHolder(@NonNull SearchResultItemViewHolder holder, int pos) {
+            holder.bindItem(pos);
+        }
+    }
+
+    private class SearchResultItemViewHolder extends DefaultViewHolder<View> {
+        SearchResultItemViewHolder(@NonNull View itemView) {
+            super(itemView);
         }
 
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            if (convertView == null) {
-                convertView = inflater.inflate(R.layout.item_search_result, parent, false);
-                convertView.setFocusable(true);
-                convertView.setOnClickListener(this);
-                convertView.setOnLongClickListener(this);
-            }
-            TextView pageTitleText = convertView.findViewById(R.id.page_list_item_title);
-            SearchResult result = (SearchResult) getItem(position);
+        void bindItem(int position) {
+            TextView pageTitleText = getView().findViewById(R.id.page_list_item_title);
+            SearchResult result = totalResults.get(position);
 
-            ImageView searchResultItemImage = convertView.findViewById(R.id.page_list_item_image);
-            GoneIfEmptyTextView descriptionText = convertView.findViewById(R.id.page_list_item_description);
-            TextView redirectText = convertView.findViewById(R.id.page_list_item_redirect);
-            View redirectArrow = convertView.findViewById(R.id.page_list_item_redirect_arrow);
+            ImageView searchResultItemImage = getView().findViewById(R.id.page_list_item_image);
+            ImageView searchResultIcon = getView().findViewById(R.id.page_list_icon);
+            GoneIfEmptyTextView descriptionText = getView().findViewById(R.id.page_list_item_description);
+            TextView redirectText = getView().findViewById(R.id.page_list_item_redirect);
+            View redirectArrow = getView().findViewById(R.id.page_list_item_redirect_arrow);
             if (TextUtils.isEmpty(result.getRedirectFrom())) {
-                redirectText.setVisibility(View.GONE);
-                redirectArrow.setVisibility(View.GONE);
+                redirectText.setVisibility(GONE);
+                redirectArrow.setVisibility(GONE);
                 descriptionText.setText(result.getPageTitle().getDescription());
             } else {
-                redirectText.setVisibility(View.VISIBLE);
-                redirectArrow.setVisibility(View.VISIBLE);
+                redirectText.setVisibility(VISIBLE);
+                redirectArrow.setVisibility(VISIBLE);
                 redirectText.setText(getString(R.string.search_redirect_from, result.getRedirectFrom()));
-                descriptionText.setVisibility(View.GONE);
+                descriptionText.setVisibility(GONE);
+            }
+            if (result.getType() == SearchResult.SearchResultType.SEARCH) {
+                searchResultIcon.setVisibility(GONE);
+            } else {
+
+                searchResultIcon.setVisibility(VISIBLE);
+                searchResultIcon.setImageResource(result.getType() == SearchResult.SearchResultType.HISTORY
+                        ? R.drawable.ic_restore_black_24dp : result.getType() == SearchResult.SearchResultType.TAB_LIST
+                        ? R.drawable.ic_tab_single_24px : R.drawable.ic_bookmark_border_white_24dp);
             }
 
             // highlight search term within the text
             StringUtil.boldenKeywordText(pageTitleText, result.getPageTitle().getDisplayText(), currentSearchTerm);
 
-            searchResultItemImage.setVisibility((result.getPageTitle().getThumbUrl() == null) ? View.GONE : View.VISIBLE);
+            searchResultItemImage.setVisibility((result.getPageTitle().getThumbUrl() == null) ? GONE : VISIBLE);
             ViewUtil.loadImageWithRoundedCorners(searchResultItemImage, result.getPageTitle().getThumbUrl());
 
             // ...and lastly, if we've scrolled to the last item in the list, then
@@ -516,28 +502,21 @@ public class SearchResultsFragment extends Fragment {
                 if (lastFullTextResults == null) {
                     // the first full text search
                     doFullTextSearch(currentSearchTerm, null, false);
-                } else if (lastFullTextResults.getContinuation() != null) {
+                } else if (lastFullTextResults.getContinuation() != null && !lastFullTextResults.getContinuation().isEmpty()) {
                     // subsequent full text searches
                     doFullTextSearch(currentSearchTerm, lastFullTextResults.getContinuation(), false);
                 }
             }
 
-            convertView.setTag(position);
-            return convertView;
-        }
-
-        @Override
-        public void onClick(View v) {
-            Callback callback = callback();
-            int position = (int) v.getTag();
-            if (callback != null && position < totalResults.size()) {
-                callback.navigateToTitle(totalResults.get(position).getPageTitle(), false, position);
-            }
-        }
-
-        @Override
-        public boolean onLongClick(View v) {
-            return false;
+            getView().setLongClickable(true);
+            getView().setOnClickListener(view -> {
+                Callback callback = callback();
+                if (callback != null) {
+                    callback.navigateToTitle(totalResults.get(position).getPageTitle(), false, position);
+                }
+            });
+            getView().setOnCreateContextMenuListener(new LongPressHandler(getView(),
+                    result.getPageTitle(), HistoryEntry.SOURCE_SEARCH, new SearchResultsFragmentLongPressHandler(position)));
         }
     }
 

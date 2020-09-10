@@ -111,6 +111,12 @@ public final class DeviceUtil {
         }
     }
 
+    public static void setContextClickAsLongClick(@NonNull View view) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            view.setOnContextClickListener(View::performLongClick);
+        }
+    }
+
     public static boolean isLocationServiceEnabled(@NonNull Context context) {
         int locationMode = Settings.Secure.LOCATION_MODE_OFF;
         try {

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
 * Arabuli
 * BRUTE
 * David1010
@@ -18,9 +19,7 @@
   <string name="nav_item_forward">წინ</string>
   <string name="search_hint">ძიება ვიკიპედიაზე</string>
   <string name="search_hint_voice_search">ხმოვანი ძიება</string>
-  <string name="search_hint_search_history">ისტორიის ძებნა</string>
   <string name="search_hint_search_languages">ენის ძებნა</string>
-  <string name="search_hint_search_my_lists_and_articles">ჩემი სიისა და სტატიების ძიება</string>
   <string name="nav_item_history">ისტორია</string>
   <string name="nav_item_suggested_edits" fuzzy="true">შემოთავაზებული რედაქტირებები</string>
   <string name="error_network_error">ინტერნეტთან დაკავშირება ვერ ხერხდება.</string>
@@ -163,7 +162,6 @@
   <string name="preference_summary_eventlogging_opt_in">ნება მიეცი ვიკიმედიას მოაგროვოს ინფორმაცია თუ როგორ იყენებ ამ აპლიკაციას, რათა ის უკეთესი გახადოს</string>
   <string name="preference_title_auto_upload_crash_reports">პრობლემის ანგარიშის გაგზავნა</string>
   <string name="editing_error_spamblacklist">შემჩნეულია ბმულები დაბლოკილ დომეიზე (%s). გთხოვთ წაშალოთ და სცადოთ თავიდან.</string>
-  <string name="history_search_list_hint">ძიების ისტორია</string>
   <string name="error_can_not_process_link">ბმულის ჩვენება ვერ მოხერხდა</string>
   <string name="page_protected_autoconfirmed">ეს გვერდი ნახევრად დაცულია.</string>
   <string name="page_protected_sysop">ეს გვერდი სრულად დაცულია.</string>
@@ -225,7 +223,7 @@
   <string name="preference_title_show_images">სურათების ჩვენება</string>
   <string name="preference_summary_show_images">შეგიძლიათ ჩართოთ ან გამორთოთ სურათების ატვირთვა გვერდებში. ჩახსენით ეს პარამეტრი, თუ თქვენი ინტერნეტ-სიჩქარე ნელია, ან დრო შეზღუდული გაქვთ.</string>
   <string name="read_more_section">წაიკითხე მეტი</string>
-  <string name="menu_gallery_visit_page">გადადით ფაილის გვერდზე</string>
+  <string name="menu_gallery_visit_image_page">გადადით ფაილის გვერდზე</string>
   <string name="gallery_error_draw_failed">სურათის ჩასმა შეუძლებელია.</string>
   <string name="license_title">ლიცენზია %s-თვის</string>
   <string name="gallery_menu_share">გაზიარება</string>
@@ -273,8 +271,6 @@
   <string name="crash_report_relaunch_or_quit">გსურთ დაწყება ან გასვლა?</string>
   <string name="crash_report_relaunch">თავიდან დაწყება</string>
   <string name="crash_report_quit">გამოსვლა</string>
-  <string name="article_menu_bar_bookmark">ამ სტატიის საკითხავ სიაში დამატება</string>
-  <string name="article_menu_bar_share">სტატიის ბმულის გაზიარება</string>
   <string name="article_header_edit_hint">რედაქტირება</string>
   <string name="article_header_edit_description">სტატიის აღწერის რედაქტირება</string>
   <string name="article_header_edit_lead_section">შესავლის რედაქტირება</string>

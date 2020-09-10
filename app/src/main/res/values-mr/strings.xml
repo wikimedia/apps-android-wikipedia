@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
 * Archana
 * BPositive
 * NehalDaveND
@@ -17,7 +18,6 @@
   <string name="app_name_alpha">विकिपीडिया अल्फा</string>
   <string name="wikimedia">विकिमिडिया</string>
   <string name="search_hint">विकिपीडिया मध्ये शोधा</string>
-  <string name="search_hint_search_history">इतिहास शोधा</string>
   <string name="nav_item_history">इतिहास</string>
   <string name="error_network_error">आंतरजालाशी जुळू शकत नाही.</string>
   <string name="page_error_retry">पुन्हा प्रयत्न करा</string>
@@ -122,7 +122,6 @@
   <string name="preference_summary_eventlogging_opt_in">विकिपीडियास आपण हे अॅप कसे वापरता याबद्दल माहिती घेण्यास परवानगी द्या जेणेकरुन ते अॅप अधिक चांगले करता येईल.</string>
   <string name="preference_title_auto_upload_crash_reports">कोसळल्याचा(क्रॅश) अहवाल पाठवा</string>
   <string name="editing_error_spamblacklist">प्रतिबंधित अधिक्षेत्रांचे दुवे(%s) सापडले आहेत.कृपया त्यांना हटवा व पुन्हा प्रयत्न करा.</string>
-  <string name="history_search_list_hint">शोध इतिहास</string>
   <string name="error_can_not_process_link">हा दुवा दाखवु शकत नाही</string>
   <string name="page_protected_autoconfirmed">हे पान अर्ध-सुरक्षित आहे.</string>
   <string name="page_protected_sysop">हे पान पूर्णत: सुरक्षित आहे.</string>
@@ -194,7 +193,7 @@
   <string name="preference_summary_show_images">पानांत चित्रे भारण करणे सक्षम वा अक्षम करा.जर आपला आंतरजाल अनुबंध हळू चालत असेल, किंवा जर आपला डाटा प्लॅन मर्यादित असेल तर या मांडणीला अनचेक करा.</string>
   <string name="read_more_section">अधिक वाचा</string>
   <string name="about_article_section">या लेखाबद्दल</string>
-  <string name="menu_gallery_visit_page">संचिका पानावर जा</string>
+  <string name="menu_gallery_visit_image_page">संचिका पानावर जा</string>
   <string name="gallery_error_draw_failed">चित्र काढता आले नाही.</string>
   <string name="license_title">%s साठी परवाना</string>
   <string name="gallery_menu_share">सहभाग करा</string>
@@ -250,8 +249,6 @@
   <string name="crash_report_relaunch_or_quit">माफ करा, विकिपीडिया अॅपमध्ये दोष निर्माण झाला आहे म्हणून ते बंद केले गेले.\n\nआपणास ते पुन्हा सुरु करावयाचे आहे कि माघार घ्यायची आहे?</string>
   <string name="crash_report_relaunch">पुन्हा सुरु करा</string>
   <string name="crash_report_quit">बाहेर पडा</string>
-  <string name="article_menu_bar_bookmark">हा लेख वाचनयादीत जोडा</string>
-  <string name="article_menu_bar_share">लेखदुवा वाटा</string>
   <string name="article_header_edit_hint">संपादन...</string>
   <string name="article_header_edit_description" fuzzy="true">शीर्षकाचे वर्णन संपादित करा</string>
   <string name="article_header_edit_lead_section">प्रास्ताविक संपादित करा</string>

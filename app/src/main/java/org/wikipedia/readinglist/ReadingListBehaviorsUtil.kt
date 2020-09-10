@@ -6,7 +6,10 @@ import android.text.Spanned
 import androidx.appcompat.app.AlertDialog
 import kotlinx.coroutines.*
 import org.apache.commons.lang3.StringUtils
+import org.wikipedia.Constants.InvokeSource
 import org.wikipedia.R
+import org.wikipedia.analytics.ReadingListsFunnel
+import org.wikipedia.page.PageTitle
 import org.wikipedia.readinglist.database.ReadingList
 import org.wikipedia.readinglist.database.ReadingListDbHelper
 import org.wikipedia.readinglist.database.ReadingListPage
@@ -29,6 +32,10 @@ object ReadingListBehaviorsUtil {
         fun onUndoDeleteClicked()
     }
 
+    interface AddToDefaultListCallback {
+        fun onMoveClicked(readingListId: Long)
+    }
+
     interface Callback {
         fun onCompleted()
     }
@@ -41,14 +48,14 @@ object ReadingListBehaviorsUtil {
     private val exceptionHandler = CoroutineExceptionHandler { _, exception -> L.w(exception) }
 
     fun getListsContainPage(readingListPage: ReadingListPage) =
-            allReadingLists.filter { list -> list.pages().asSequence().any { it.title() == readingListPage.title() } }
+            allReadingLists.filter { list -> list.pages().any { it.title() == readingListPage.title() } }
 
     fun savePagesForOffline(activity: Activity, selectedPages: List<ReadingListPage>, callback: Callback) {
         if (Prefs.isDownloadOnlyOverWiFiEnabled() && !DeviceUtil.isOnWiFi()) {
-            showMobileDataWarningDialog(activity, DialogInterface.OnClickListener { _, _ ->
+            showMobileDataWarningDialog(activity) { _, _ ->
                 savePagesForOffline(activity, selectedPages, true)
                 callback.onCompleted()
-            })
+            }
         } else {
             savePagesForOffline(activity, selectedPages, !Prefs.isDownloadingReadingListArticlesEnabled())
             callback.onCompleted()
@@ -156,10 +163,8 @@ object ReadingListBehaviorsUtil {
             return
         }
         FeedbackUtil
-                .makeSnackbar(activity,
-                        activity.getString(
-                                if (pages.size == 1) R.string.reading_list_item_deleted else R.string.reading_list_items_deleted,
-                                if (pages.size == 1) pages[0].title() else pages.size),
+                .makeSnackbar(activity, if (pages.size == 1) activity.getString(R.string.reading_list_item_deleted, pages[0].title())
+                                else activity.resources.getQuantityString(R.plurals.reading_list_articles_deleted, pages.size, pages.size),
                         FeedbackUtil.LENGTH_DEFAULT)
                 .setAction(R.string.reading_list_item_delete_undo) {
                     val newPages = ArrayList<ReadingListPage>()
@@ -218,13 +223,26 @@ object ReadingListBehaviorsUtil {
     fun toggleOffline(activity: Activity, page: ReadingListPage, callback: Callback) {
         resetPageProgress(page)
         if (Prefs.isDownloadOnlyOverWiFiEnabled() && !DeviceUtil.isOnWiFi()) {
-            showMobileDataWarningDialog(activity, DialogInterface.OnClickListener { _, _ ->
+            showMobileDataWarningDialog(activity) { _, _ ->
                 toggleOffline(activity, page, true)
                 callback.onCompleted()
-            })
+            }
         } else {
             toggleOffline(activity, page, !Prefs.isDownloadingReadingListArticlesEnabled())
             callback.onCompleted()
+        }
+    }
+
+    fun addToDefaultList(activity: Activity, title: PageTitle, invokeSource: InvokeSource, callback: AddToDefaultListCallback) {
+        val defaultList = ReadingListDbHelper.instance().defaultList
+        scope.launch(exceptionHandler) {
+            val addedTitles = withContext(dispatcher) { ReadingListDbHelper.instance().addPagesToListIfNotExist(defaultList, listOf(title)) }
+            if (addedTitles.isNotEmpty()) {
+                ReadingListsFunnel().logAddToList(defaultList, 1, invokeSource)
+                FeedbackUtil.makeSnackbar(activity, activity.getString(R.string.reading_list_article_added_to_default_list, title.displayText), FeedbackUtil.LENGTH_DEFAULT)
+                        .setAction(R.string.reading_list_add_to_list_button) { callback.onMoveClicked(defaultList.id()) }.show()
+            }
+
         }
     }
 

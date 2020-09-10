@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/paper_color"
     android:orientation="vertical">
 
     <LinearLayout
@@ -29,7 +28,7 @@
             android:background="@drawable/button_shape_add_reading_list"
             android:contentDescription="@null"
             android:padding="4dp"
-            android:tint="@color/base100"
+            app:tint="@color/base100"
             android:visibility="gone"
             app:srcCompat="@drawable/ic_check_black_24dp" />
     </LinearLayout>

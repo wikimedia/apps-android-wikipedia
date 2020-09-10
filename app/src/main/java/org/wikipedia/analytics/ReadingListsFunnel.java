@@ -11,7 +11,7 @@ import org.wikipedia.settings.Prefs;
 
 public class ReadingListsFunnel extends Funnel {
     private static final String SCHEMA_NAME = "MobileWikiAppReadingLists";
-    private static final int REV_ID = 18118739;
+    private static final int REV_ID = 20339451;
 
     public ReadingListsFunnel() {
         super(WikipediaApp.getInstance(), SCHEMA_NAME, REV_ID);
@@ -32,6 +32,23 @@ public class ReadingListsFunnel extends Funnel {
                              InvokeSource source) {
         log(
                 "action", list.pages().isEmpty() ? "addtonew" : "addtoexisting",
+                "addsource", source.ordinal(),
+                "itemcount", list.pages().size(),
+                "listcount", listCount
+        );
+    }
+
+    public void logMoveClick(InvokeSource source) {
+        log(
+                "action", "moveclick",
+                "addsource", source.ordinal()
+        );
+    }
+
+    public void logMoveToList(ReadingList list, int listCount,
+                              InvokeSource source) {
+        log(
+                "action", list.pages().isEmpty() ? "movetonew" : "movetoexisting",
                 "addsource", source.ordinal(),
                 "itemcount", list.pages().size(),
                 "listcount", listCount

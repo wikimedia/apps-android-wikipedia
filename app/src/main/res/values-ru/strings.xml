@@ -65,11 +65,9 @@
   <string name="nav_item_forward">Вперёд</string>
   <string name="search_hint">Поиск по Википедии</string>
   <string name="search_hint_voice_search">Голосовой поиск</string>
-  <string name="search_hint_search_history">История поиска</string>
   <string name="search_hint_search_languages">Поиск языка</string>
-  <string name="search_hint_search_my_lists_and_articles">Поиск в списках для чтения</string>
   <string name="nav_item_history">История</string>
-  <string name="nav_item_suggested_edits" fuzzy="true">Предложенные правки</string>
+  <string name="nav_item_suggested_edits">Правки</string>
   <string name="nav_item_more">Ещё</string>
   <string name="error_network_error">Не удаётся подключиться к интернету.</string>
   <string name="page_error_retry">Повторить</string>
@@ -220,7 +218,6 @@
   <string name="preference_title_auto_upload_crash_reports">Отправлять отчёты о сбоях</string>
   <string name="preference_summary_auto_upload_crash_reports">Разрешить автоматически отправлять отчёты об авариях приложения внешнему сервису, чтобы мы могли проверить проблему, вызвавшую аварию, и исправить ошибку быстрее и проще.</string>
   <string name="editing_error_spamblacklist">Обнаружены ссылки на заблокированные домены (%s). Пожалуйста, удалите их и попробуйте ещё раз.</string>
-  <string name="history_search_list_hint">Поиск в истории</string>
   <string name="error_can_not_process_link">Не удалось отобразить эту ссылку</string>
   <string name="page_protected_autoconfirmed">Эта страница была частично защищена.</string>
   <string name="page_protected_sysop">Эта страница была полностью защищена.</string>
@@ -308,7 +305,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">Разрешить</string>
   <string name="read_more_section">Связанные статьи</string>
   <string name="about_article_section">Об этой статье</string>
-  <string name="menu_gallery_visit_page">Перейти к странице файла</string>
+  <string name="menu_gallery_visit_image_page">Перейти к странице файла</string>
   <string name="gallery_error_draw_failed">Не удалось вывести изображение.</string>
   <string name="license_title">Лицензия для %s</string>
   <string name="gallery_menu_share">Поделиться</string>
@@ -386,8 +383,6 @@
   <string name="crash_report_relaunch_or_quit">Сожалеем, но в приложении Википедии случилась ошибка, в результате чего оно было закрыто.\n\nВы хотите перезапустить его или выйти?</string>
   <string name="crash_report_relaunch">Перезапустить</string>
   <string name="crash_report_quit">Выйти</string>
-  <string name="article_menu_bar_bookmark">Добавить эту статью в список для чтения</string>
-  <string name="article_menu_bar_share">Поделиться ссылкой на статью</string>
   <string name="article_header_edit_hint">Править…</string>
   <string name="article_header_edit_description">Изменить описание статьи</string>
   <string name="article_header_edit_lead_section">Редактировать введение</string>
@@ -609,7 +604,6 @@
   <string name="view_continue_reading_card_subtitle_today">сегодня</string>
   <string name="view_continue_reading_card_subtitle_read_date">Прочитано %s</string>
   <string name="view_announcement_card_negative_action">Нет, спасибо</string>
-  <string name="onboarding_negative_action">Нет, спасибо</string>
   <string name="view_offline_card_text">Содержимое не может быть загружено в автономном режиме.</string>
   <string name="view_featured_article_card_title">Избранная статья</string>
   <string name="view_featured_article_footer_save_button_label">Сохранить</string>
@@ -662,12 +656,13 @@
   <string name="description_edit_anon_limit">Спасибо за ваш интерес к редактированию описаний статей! Для того, чтобы продолжить вносить изменения, вам необходимо войти в Википедию под своей учётной записью.</string>
   <string name="description_edit_license_notice">Изменяя описание статьи, вы соглашаетесь с &lt;a href=\"%1$s\"&gt;Условиями использования&lt;/a&gt;, а также соглашаетесь на безотзывную публикацию по лицензии &lt;a href=\"%2$s\"&gt;Creative Commons CC0&lt;/a&gt;.</string>
   <string name="description_edit_helper_text_lowercase_warning">обычно начинается с маленькой буквы</string>
+  <string name="description_edit_voice_input_description">Голосовой ввод</string>
   <string name="description_edit_success_saved">Описание статьи сохранено!</string>
   <string name="description_edit_success_saved_snackbar">Описание статьи сохранено!</string>
   <string name="description_edit_success_saved_in_lang_snackbar">Описание статьи сохранено! (%s)</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Описание изображения опубликовано!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Опубликовано описание изображения (%s)!</string>
-  <string name="description_edit_success_saved_image_tags_snackbar">Тег(и) изображени(й) опубликовано!</string>
+  <string name="description_edit_success_saved_image_tags_snackbar" fuzzy="true">Тег(и) изображени(й) опубликовано!</string>
   <string name="description_edit_success_encouragement">Вы только что сделали Википедию лучше для всех</string>
   <string name="description_edit_success_done">Готово</string>
   <string name="description_edit_success_did_you_know">Знаете ли вы?</string>
@@ -678,10 +673,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">В идеале одна строка, от двух до двенадцати слов</string>
   <string name="description_edit_tutorial_button_label_start_editing">Начать редактирование</string>
   <string name="description_edit_tutorial_promise">Начав, я обещаю не злоупотреблять этой функцией.</string>
-  <string name="suggested_edits_add_descriptions">Добавление описаний статей</string>
-  <string name="suggested_edits_translate_descriptions">Перевод описаний статей</string>
-  <string name="suggested_edits_add_image_captions">Добавить описания изображений</string>
-  <string name="suggested_edits_translate_image_captions">Перевести описания изображений</string>
   <string name="suggested_edits_tag_images">Тегирование изображений</string>
   <string name="suggested_edits_review_description">Предпросмотр описания</string>
   <string name="suggested_edits_add_description_button">Добавить описание</string>
@@ -708,7 +699,7 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text">Этот функционал будет открыт тогда, когда вы отредактируете %d описаний статей и они будут проверены</string>
   <string name="suggested_edits_task_multilingual_negative">Не для меня</string>
   <string name="suggested_edits_task_multilingual_positive">Добавить языки</string>
-  <string name="suggested_edits_image_caption_summary_title_file">Файл</string>
+  <string name="suggested_edits_image_caption_summary_title_image">Файл</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Автор</string>
   <string name="suggested_edits_image_caption_summary_title_author">Автор</string>
   <string name="suggested_edits_image_caption_summary_title_source">Источник</string>
@@ -726,7 +717,7 @@
   <string name="suggested_edits_tasks_onboarding_get_started">Начать</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">Описание изображения (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">Описание изображения (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_file">Файл</string>
+  <string name="suggested_edits_image_preview_dialog_image">Файл</string>
   <string name="suggested_edits_image_preview_dialog_artist">Автор</string>
   <string name="suggested_edits_image_preview_dialog_tags">Теги</string>
   <string name="suggested_edits_image_preview_dialog_date">Дата</string>
@@ -771,6 +762,7 @@
   <string name="suggested_edits_quality_sufficient_text">Удовлетворительная</string>
   <string name="suggested_edits_quality_poor_text">Плохая</string>
   <string name="suggested_edits_quality_bad_text">Плохо</string>
+  <string name="suggested_edits_label">Предложенные правки</string>
   <plurals name="suggested_edits_contribution">
     <item quantity="one">Вклад</item>
     <item quantity="few">Вклад</item>

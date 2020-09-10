@@ -1,7 +1,6 @@
 package org.wikipedia.readinglist;
 
 import android.content.Context;
-import android.os.Build;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.Gravity;
@@ -23,6 +22,7 @@ import androidx.core.widget.TextViewCompat;
 import org.wikipedia.R;
 import org.wikipedia.readinglist.database.ReadingList;
 import org.wikipedia.readinglist.database.ReadingListPage;
+import org.wikipedia.util.DeviceUtil;
 import org.wikipedia.util.DimenUtil;
 import org.wikipedia.util.ResourceUtil;
 import org.wikipedia.util.StringUtil;
@@ -151,13 +151,11 @@ public class ReadingListItemView extends ConstraintLayout {
         setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         final int topBottomPadding = 16;
         setPadding(0, DimenUtil.roundedDpToPx(topBottomPadding), 0, DimenUtil.roundedDpToPx(topBottomPadding));
-        setBackgroundColor(ResourceUtil.getThemedColor(getContext(), R.attr.paper_color));
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            setForeground(AppCompatResources.getDrawable(getContext(), ResourceUtil.getThemedAttributeId(getContext(), R.attr.selectableItemBackground)));
-        }
+        setBackground(AppCompatResources.getDrawable(getContext(), ResourceUtil.getThemedAttributeId(getContext(), R.attr.selectableItemBackground)));
         setClickable(true);
         setFocusable(true);
         clearThumbnails();
+        DeviceUtil.setContextClickAsLongClick(this);
     }
 
     public void setOverflowViewVisibility(int visibility) {
@@ -217,20 +215,12 @@ public class ReadingListItemView extends ConstraintLayout {
 
     @NonNull private String buildStatisticalSummaryText(@NonNull ReadingList readingList) {
         float listSize = statsTextListSize(readingList);
-        return readingList.pages().size() == 1
-                ? getString(R.string.format_reading_list_statistical_summary_singular,
-                    listSize)
-                : getString(R.string.format_reading_list_statistical_summary_plural,
-                    readingList.pages().size(), listSize);
+        return getResources().getQuantityString(R.plurals.format_reading_list_statistical_summary, readingList.pages().size(), readingList.pages().size(), listSize);
     }
 
     @NonNull private String buildStatisticalDetailText(@NonNull ReadingList readingList) {
         float listSize = statsTextListSize(readingList);
-        return readingList.pages().size() == 1
-                ? getString(R.string.format_reading_list_statistical_detail_singular,
-                    readingList.numPagesOffline(), listSize)
-                : getString(R.string.format_reading_list_statistical_detail_plural,
-                    readingList.numPagesOffline(), readingList.pages().size(), listSize);
+        return getResources().getQuantityString(R.plurals.format_reading_list_statistical_detail, readingList.pages().size(), readingList.numPagesOffline(), readingList.pages().size(), listSize);
     }
 
     private float statsTextListSize(@NonNull ReadingList readingList) {

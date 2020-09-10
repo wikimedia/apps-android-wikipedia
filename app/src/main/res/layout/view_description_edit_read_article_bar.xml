@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:background="@android:color/white"
     tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
 
     <View
@@ -18,14 +17,14 @@
 
     <ImageView
         android:id="@+id/viewDownChevron"
-        android:layout_width="@dimen/bottom_toolbar_icon_size"
-        android:layout_height="@dimen/bottom_toolbar_icon_size"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
         android:layout_gravity="center_vertical"
         android:contentDescription="@null"
-        android:padding="@dimen/bottom_toolbar_item_padding"
+        android:padding="12dp"
         android:layout_marginTop="4dp"
         android:layout_marginBottom="4dp"
-        android:tint="?attr/toolbar_icon_color"
+        app:tint="?attr/toolbar_icon_color"
         app:layout_constraintTop_toBottomOf="@+id/viewDivider"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"

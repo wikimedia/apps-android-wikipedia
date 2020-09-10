@@ -21,6 +21,7 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import org.wikipedia.Constants;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.analytics.AppLanguageSettingsFunnel;
@@ -41,6 +42,7 @@ import butterknife.Unbinder;
 import static android.app.Activity.RESULT_OK;
 import static org.wikipedia.Constants.ACTIVITY_REQUEST_ADD_A_LANGUAGE;
 import static org.wikipedia.language.LanguagesListActivity.LANGUAGE_SEARCHED;
+import static org.wikipedia.settings.SettingsActivity.ACTIVITY_RESULT_LANGUAGE_CHANGED;
 import static org.wikipedia.settings.languages.WikipediaLanguagesActivity.INVOKE_SOURCE_EXTRA;
 
 public class WikipediaLanguagesFragment extends Fragment implements WikipediaLanguagesItemView.Callback {
@@ -222,7 +224,7 @@ public class WikipediaLanguagesFragment extends Fragment implements WikipediaLan
                     if (actionMode != null) {
                         toggleSelectedLanguage(wikipediaLanguages.get(pos - NUM_HEADERS));
                         adapter.notifyDataSetChanged();
-                    } else if (launchedFromSearch()) {
+                    } else if (wantResultFromItemClick()) {
                         Intent resultIntent = new Intent();
                         resultIntent.putExtra(ACTIVITY_RESULT_LANG_POSITION_DATA, pos - NUM_HEADERS);
                         requireActivity().setResult(RESULT_OK, resultIntent);
@@ -352,9 +354,10 @@ public class WikipediaLanguagesFragment extends Fragment implements WikipediaLan
         }
     }
 
-    private boolean launchedFromSearch() {
+    private boolean wantResultFromItemClick() {
         String source = requireActivity().getIntent().hasExtra(INVOKE_SOURCE_EXTRA) ? requireActivity().getIntent().getStringExtra(INVOKE_SOURCE_EXTRA) : "";
-        return source.equals(LanguageSettingsInvokeSource.SEARCH.text());
+        return source.equals(LanguageSettingsInvokeSource.SEARCH.text())
+                || source.equals(Constants.InvokeSource.TALK_ACTIVITY.getName());
     }
 
     private void setMultiSelectEnabled(boolean enabled) {
@@ -431,6 +434,7 @@ public class WikipediaLanguagesFragment extends Fragment implements WikipediaLan
                         .setPositiveButton(R.string.remove_language_dialog_ok_button_text, (dialog, i) -> {
                             deleteSelectedLanguages();
                             finishActionMode();
+                            requireActivity().setResult(ACTIVITY_RESULT_LANGUAGE_CHANGED);
                         })
                         .setNegativeButton(R.string.remove_language_dialog_cancel_button_text, null);
             } else {

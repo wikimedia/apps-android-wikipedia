@@ -13,9 +13,7 @@
   <string name="page_tabs_back">Артгъа</string>
   <string name="nav_item_forward">Алгъа</string>
   <string name="search_hint">Википедияда излемек</string>
-  <string name="search_hint_search_history">Излев тарихи</string>
   <string name="search_hint_search_languages">Тилни излемек</string>
-  <string name="search_hint_search_my_lists_and_articles">Охув тизмелерде излемек</string>
   <string name="nav_item_history">Тарих</string>
   <string name="error_network_error">Интернетге ялгъанмай.</string>
   <string name="page_error_retry">Такрар</string>
@@ -97,7 +95,6 @@
   <string name="preferences_general_heading">Ортакъ</string>
   <string name="create_account_account_created_toast">Гьисап яратылгъан!</string>
   <string name="preferences_privacy_settings_heading">Энчилик</string>
-  <string name="history_search_list_hint">Излев тарихи</string>
   <string name="settings_item_preferences">Кюйлевлер</string>
   <string name="settings_activity_title">Кюйлевлер</string>
   <string name="privacy_policy_description">Энчилилик ёругъу</string>
@@ -131,7 +128,7 @@
   <string name="preference_title_show_images">Суратланы гёрсетмек</string>
   <string name="dialog_title_download_only_over_wifi_allow">Изну бермек</string>
   <string name="about_article_section">Макъаланы гьакъында</string>
-  <string name="menu_gallery_visit_page">Сапламны сагьифасына гечмек</string>
+  <string name="menu_gallery_visit_image_page">Сапламны сагьифасына гечмек</string>
   <string name="gallery_error_draw_failed">Суратны чыгъарма бажарылмады.</string>
   <string name="gallery_menu_share">Пайлашмакъ</string>
   <string name="gallery_save_progress">Саплам эндирив…</string>
@@ -192,7 +189,6 @@
   <string name="view_card_news_title">Янгылыкъларда</string>
   <string name="view_continue_reading_card_subtitle_today">бугюн</string>
   <string name="view_announcement_card_negative_action">Ёкъ савбол</string>
-  <string name="onboarding_negative_action">Ёкъ савбол</string>
   <string name="view_featured_article_footer_save_button_label">Сакъламакъ</string>
   <string name="view_static_card_save_button_label">Сакъламакъ</string>
   <string name="view_featured_article_footer_saved_button_label">Сакълангъан</string>

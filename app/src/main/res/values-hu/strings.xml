@@ -30,11 +30,10 @@
   <string name="nav_item_forward">Előre</string>
   <string name="search_hint">Keresés a Wikipédiában</string>
   <string name="search_hint_voice_search">Hangalapú keresés</string>
-  <string name="search_hint_search_history">Keresés az előzményekben</string>
   <string name="search_hint_search_languages">Nyelv keresése</string>
-  <string name="search_hint_search_my_lists_and_articles">Listáim és szócikkeim keresése</string>
   <string name="nav_item_history">Előzmények</string>
-  <string name="nav_item_suggested_edits" fuzzy="true">Ajánlott szerkesztések</string>
+  <string name="nav_item_suggested_edits">Szerkesztések</string>
+  <string name="nav_item_more">Több</string>
   <string name="error_network_error">Nem sikerült csatlakozni az internethez.</string>
   <string name="page_error_retry">Újra</string>
   <string name="card_offline_error_retry">Újra</string>
@@ -118,7 +117,7 @@
   <string name="reading_lists_sync_login">Bejelentkezés</string>
   <string name="create_account_login">Bejelentkezés</string>
   <string name="menu_login">Bejelentkezés</string>
-  <string name="login_activity_title" fuzzy="true">Bejelentkezés a Wikipédiába</string>
+  <string name="login_activity_title">Bejelentkezés</string>
   <string name="login_in_progress_dialog_message">Bejelentkezés…</string>
   <string name="login_success_toast">Bejelentkezve!</string>
   <string name="reset_password_title">Jelszó beállítása</string>
@@ -184,7 +183,6 @@
   <string name="preference_title_auto_upload_crash_reports">Hibajelentés küldése</string>
   <string name="preference_summary_auto_upload_crash_reports">Az alkalmazás automatikusan küldhet hibajelentéseket egy harmadik fél szolgáltatónak, hogy elemezhessük az összeomlást, így gyorsabban és könnyebben kijavíthatjuk a hibát.</string>
   <string name="editing_error_spamblacklist">Tiltott webhelyre (%s) mutató linkeket helyeztél el. Távolítsd el őket, majd próbáld újra.</string>
-  <string name="history_search_list_hint">Keresés az előzményekben</string>
   <string name="error_can_not_process_link">Nem lehet megjeleníteni ezt a hivatkozást</string>
   <string name="page_protected_autoconfirmed">Ez a lap félig védett.</string>
   <string name="page_protected_sysop">Ez a lap teljesen védett.</string>
@@ -272,7 +270,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">Engedélyezés</string>
   <string name="read_more_section">További információ</string>
   <string name="about_article_section">Erről a szócikkről</string>
-  <string name="menu_gallery_visit_page">Fájl leírólapjának megnyitása</string>
+  <string name="menu_gallery_visit_image_page">Fájl leírólapjának megnyitása</string>
   <string name="gallery_error_draw_failed">Nem sikerült megrajzolni a képet.</string>
   <string name="license_title">A(z) %s licence</string>
   <string name="gallery_menu_share">Megosztás</string>
@@ -320,7 +318,9 @@
   <string name="page_offline_notice_last_date">A szócikk offline verzióját olvasod, mentve: %s</string>
   <string name="button_get_directions">Útvonalterv</string>
   <string name="error_no_maps_app">Nem található útvonaltervező alkalmazás.</string>
+  <string name="preference_title_customize_explore_feed">Felfedezés hírcsatorna</string>
   <string name="preference_title_show_link_previews">Linkek előnézetének megjelenítése</string>
+  <string name="preference_summary_customize_explore_feed">A Felfedezés hírcsatorna testreszabása</string>
   <string name="preference_summary_show_link_previews">A szócikk rövid előnézetének megjelenítése linkek megérintésekor.</string>
   <string name="preference_title_collapse_tables">Táblázatok összecsukása</string>
   <string name="preference_summary_collapse_tables">Automatikusan összecsukja a szócikkek táblázatait, mint például az infoboxokat, jegyzeteket és megjegyzéseket.</string>
@@ -350,8 +350,6 @@
   <string name="crash_report_relaunch_or_quit">Sajnáljuk, a Wikipédia alkalmazás hibát észlelt és leállt.\n\nSzeretnéd újrakezdeni, vagy kilépnél?</string>
   <string name="crash_report_relaunch">Újrakezdés</string>
   <string name="crash_report_quit">Kilépés</string>
-  <string name="article_menu_bar_bookmark">Cikk hozzáadása egy olvasólistához</string>
-  <string name="article_menu_bar_share">A cikk linkjének megosztása</string>
   <string name="article_header_edit_hint">Szerkesztés…</string>
   <string name="article_header_edit_description">Szócikkleírás szerkesztése</string>
   <string name="article_header_edit_lead_section">Bevezető szerkesztése</string>
@@ -567,7 +565,6 @@
   <string name="view_continue_reading_card_subtitle_today">ma</string>
   <string name="view_continue_reading_card_subtitle_read_date">Elolvasva %s</string>
   <string name="view_announcement_card_negative_action">Köszönöm, nem</string>
-  <string name="onboarding_negative_action">Köszönöm, nem</string>
   <string name="view_offline_card_text">A tartalom nem tölthető be kapcsolat nélkül.</string>
   <string name="view_featured_article_card_title">Kiemelt szócikk</string>
   <string name="view_featured_article_footer_save_button_label">Mentés</string>
@@ -625,7 +622,7 @@
   <string name="description_edit_success_saved_in_lang_snackbar">Szócikkleírás (%s) közzétéve!</string>
   <string name="description_edit_success_saved_image_caption_snackbar">Képaláírás közzétéve!</string>
   <string name="description_edit_success_saved_image_caption_in_lang_snackbar">Képaláírás közzétéve! (%s)</string>
-  <string name="description_edit_success_saved_image_tags_snackbar">Képcímkék közzétéve!</string>
+  <string name="description_edit_success_saved_image_tags_snackbar" fuzzy="true">Képcímkék közzétéve!</string>
   <string name="description_edit_success_encouragement">Éppen mindenkinek jobbá tetted a Wikipédiát</string>
   <string name="description_edit_success_done">Kész</string>
   <string name="description_edit_success_did_you_know">Tudtad?</string>
@@ -636,10 +633,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">Ideális esetben egy sor, két-tizenkét szó között.</string>
   <string name="description_edit_tutorial_button_label_start_editing">Szerkesztés elkezdése</string>
   <string name="description_edit_tutorial_promise">A kezdéskor megígérem, hogy nem élek vissza ezzel a funkcióval.</string>
-  <string name="suggested_edits_add_descriptions">Szócikkleírások hozzáadása</string>
-  <string name="suggested_edits_translate_descriptions">Szócikkleírások fordítása</string>
-  <string name="suggested_edits_add_image_captions">Képaláírások hozzáadása</string>
-  <string name="suggested_edits_translate_image_captions">Képaláírások fordítása</string>
   <string name="suggested_edits_tag_images">Képek címkézése</string>
   <string name="suggested_edits_review_description">Szócikkleírás ellenőrzése</string>
   <string name="suggested_edits_add_description_button">Leírás hozzáadása</string>
@@ -666,7 +659,7 @@
   <string name="suggested_edits_task_translate_description_edit_disable_text">Zárolva, míg el nem végzel az alkalmazáson belül %d ellenőrzött szócikkleírás szerkesztést</string>
   <string name="suggested_edits_task_multilingual_negative">Nem nekem való</string>
   <string name="suggested_edits_task_multilingual_positive">Nyelvek hozzáadása</string>
-  <string name="suggested_edits_image_caption_summary_title_file">Fájl</string>
+  <string name="suggested_edits_image_caption_summary_title_image">Fájl</string>
   <string name="suggested_edits_image_caption_summary_title_artist">Művész</string>
   <string name="suggested_edits_image_caption_summary_title_author">Szerző</string>
   <string name="suggested_edits_image_caption_summary_title_source">Forrás</string>

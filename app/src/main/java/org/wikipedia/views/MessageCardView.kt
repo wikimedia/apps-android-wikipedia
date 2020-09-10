@@ -6,7 +6,9 @@ import android.util.AttributeSet
 import android.view.View
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
+import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.view_message_card.view.*
+import org.wikipedia.Constants
 import org.wikipedia.R
 import org.wikipedia.analytics.LoginFunnel.SOURCE_SUGGESTED_EDITS
 import org.wikipedia.login.LoginActivity
@@ -76,14 +78,14 @@ internal class MessageCardView constructor(context: Context, attrs: AttributeSet
         setOnClickListener { UriUtil.visitInExternalBrowser(context, Uri.parse(context.getString(R.string.create_account_ip_block_help_url))) }
     }
 
-    fun setRequiredLogin() {
+    fun setRequiredLogin(fragment: Fragment) {
         imageView.visibility = View.VISIBLE
         messageTitleView.text = context.getString(R.string.suggested_edits_encourage_account_creation_title)
         messageTextView.text = context.getString(R.string.suggested_edits_encourage_account_creation_message)
         imageView.setImageResource(R.drawable.ic_require_login_header)
         positiveButton.text = context.getString(R.string.suggested_edits_encourage_account_creation_login_button)
-        positiveButton.setOnClickListener { context.startActivity(LoginActivity.newIntent(context, SOURCE_SUGGESTED_EDITS)) }
-        containerClickArea.setOnClickListener { context.startActivity(LoginActivity.newIntent(context, SOURCE_SUGGESTED_EDITS)) }
+        positiveButton.setOnClickListener { fragment.startActivityForResult(LoginActivity.newIntent(context, SOURCE_SUGGESTED_EDITS), Constants.ACTIVITY_REQUEST_LOGIN) }
+        containerClickArea.setOnClickListener { fragment.startActivityForResult(LoginActivity.newIntent(context, SOURCE_SUGGESTED_EDITS), Constants.ACTIVITY_REQUEST_LOGIN) }
     }
 
     private fun setDefaultState() {

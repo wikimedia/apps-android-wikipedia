@@ -15,6 +15,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityOptionsCompat;
 import androidx.core.graphics.drawable.DrawableCompat;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -29,13 +30,9 @@ import org.wikipedia.feed.model.CardType;
 import org.wikipedia.feed.view.CardHeaderView;
 import org.wikipedia.feed.view.DefaultFeedCardView;
 import org.wikipedia.feed.view.FeedAdapter;
-import org.wikipedia.history.HistoryEntry;
-import org.wikipedia.page.ExclusiveBottomSheetPresenter;
-import org.wikipedia.readinglist.AddToReadingListDialog;
 import org.wikipedia.util.DateUtil;
 import org.wikipedia.util.GradientUtil;
 import org.wikipedia.util.ResourceUtil;
-import org.wikipedia.util.ShareUtil;
 import org.wikipedia.views.DontInterceptTouchListener;
 import org.wikipedia.views.MarginItemDecoration;
 
@@ -45,11 +42,10 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-import static org.wikipedia.Constants.InvokeSource.ON_THIS_DAY_ACTIVITY;
 import static org.wikipedia.Constants.InvokeSource.ON_THIS_DAY_CARD_BODY;
 import static org.wikipedia.Constants.InvokeSource.ON_THIS_DAY_CARD_FOOTER;
 
-public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implements OnThisDayActionsDialog.Callback {
+public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> {
     @BindView(R.id.view_on_this_day_card_header) CardHeaderView headerView;
     @BindView(R.id.text) TextView descTextView;
     @BindView(R.id.next_event_years) TextView nextEventYearsTextView;
@@ -65,7 +61,6 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
     private FeedFunnel funnel = new FeedFunnel(WikipediaApp.getInstance());
 
     private int age;
-    private ExclusiveBottomSheetPresenter bottomSheetPresenter = new ExclusiveBottomSheetPresenter();
 
     public OnThisDayCardView(@NonNull Context context) {
         super(context);
@@ -92,32 +87,17 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
         pagesRecycler.setNestedScrollingEnabled(false);
     }
 
-    @Override
-    public void onAddPageToList(@NonNull HistoryEntry entry) {
-        bottomSheetPresenter.show(((AppCompatActivity) getContext()).getSupportFragmentManager(),
-                AddToReadingListDialog.newInstance(entry.getTitle(), ON_THIS_DAY_ACTIVITY));
-    }
-
-    @Override
-    public void onSharePage(@NonNull HistoryEntry entry) {
-        ShareUtil.shareText(getContext(), entry.getTitle());
-    }
-
     static class RecyclerAdapter extends RecyclerView.Adapter<OnThisDayPagesViewHolder> {
         private List<PageSummary> pages;
         private WikiSite wiki;
         private final boolean isSingleCard;
-        private OnThisDayPagesViewHolder.ItemCallBack itemCallback;
+        private FragmentManager fragmentManager;
 
-        RecyclerAdapter(@NonNull List<PageSummary> pages, @NonNull WikiSite wiki, boolean isSingleCard) {
+        RecyclerAdapter(@NonNull FragmentManager fragmentManager, @NonNull List<PageSummary> pages, @NonNull WikiSite wiki, boolean isSingleCard) {
             this.pages = pages;
             this.wiki = wiki;
             this.isSingleCard = isSingleCard;
-        }
-
-        public RecyclerAdapter setCallback(OnThisDayPagesViewHolder.ItemCallBack itemCallBack) {
-            this.itemCallback = itemCallBack;
-            return this;
+            this.fragmentManager = fragmentManager;
         }
 
         @NonNull @Override
@@ -125,16 +105,13 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
             View itemView = LayoutInflater.
                     from(viewGroup.getContext()).
                     inflate(R.layout.item_on_this_day_pages, viewGroup, false);
-            return new OnThisDayPagesViewHolder((Activity) viewGroup.getContext(), (MaterialCardView) itemView, wiki, isSingleCard);
+            return new OnThisDayPagesViewHolder((Activity) viewGroup.getContext(), fragmentManager, (MaterialCardView) itemView, wiki, isSingleCard);
         }
 
         @Override
         public void onBindViewHolder(@NonNull OnThisDayPagesViewHolder onThisDayPagesViewHolder, int i) {
-            if (itemCallback != null) {
-                onThisDayPagesViewHolder
-                        .setCallback(itemCallback)
-                        .setFields(pages.get(i));
-            }
+            onThisDayPagesViewHolder
+                    .setFields(pages.get(i));
         }
 
         @Override
@@ -151,9 +128,6 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
 
     private void header(@NonNull OnThisDayCard card) {
         headerView.setTitle(card.title())
-                .setSubtitle(card.subtitle())
-                .setImage(R.drawable.ic_otd_icon)
-                .setImageCircleColor(ResourceUtil.getThemedAttributeId(getContext(), R.attr.colorAccent))
                 .setLangCode(card.wikiSite().languageCode())
                 .setCard(card)
                 .setCallback(getCallback());
@@ -191,19 +165,10 @@ public class OnThisDayCardView extends DefaultFeedCardView<OnThisDayCard> implem
 
     private void setPagesRecycler(OnThisDayCard card) {
         if (card.pages() != null) {
-            RecyclerAdapter recyclerAdapter = new RecyclerAdapter(card.pages(), card.wikiSite(), true);
-            recyclerAdapter.setCallback(new ItemCallback());
+            RecyclerAdapter recyclerAdapter = new RecyclerAdapter(((AppCompatActivity) getContext()).getSupportFragmentManager(), card.pages(), card.wikiSite(), true);
             pagesRecycler.setAdapter(recyclerAdapter);
         } else {
             pagesRecycler.setVisibility(GONE);
-        }
-    }
-
-    class ItemCallback implements OnThisDayPagesViewHolder.ItemCallBack {
-        @Override
-        public void onActionLongClick(@NonNull HistoryEntry entry) {
-            bottomSheetPresenter.show(((AppCompatActivity)getContext()).getSupportFragmentManager(),
-                    OnThisDayActionsDialog.newInstance(entry));
         }
     }
 }

@@ -130,7 +130,7 @@
             android:theme="@style/AppTheme.ActionBar"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize" />
         <activity
-            android:name=".suggestededits.SuggestedEditsCardsActivity"
+            android:name=".suggestededits.SuggestionsActivity"
             android:launchMode="singleTask"
             android:windowSoftInputMode="adjustPan"
             android:theme="@style/AppTheme.ActionBar" />
@@ -177,6 +177,7 @@
 
         <activity
             android:name=".descriptions.DescriptionEditActivity"
+            android:configChanges="orientation|screenSize"
             android:windowSoftInputMode="adjustResize" />
 
         <activity
@@ -240,23 +241,30 @@
         <activity android:name=".suggestededits.SuggestedEditsImageTagsOnboardingActivity" />
 
         <activity
-            android:name=".suggestededits.SuggestedEditsFeedCardImageTagActivity"
+            android:name=".suggestededits.SuggestedEditsImageTagEditActivity"
             android:theme="@style/AppTheme.ActionBar" />
 
         <activity
-            android:name=".suggestededits.SuggestedEditsContributionsActivity"
+            android:name=".userprofile.ContributionsActivity"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
             android:label=""
             android:theme="@style/AppTheme.ActionBar" />
 
         <activity
-            android:name=".suggestededits.SuggestedEditsContributionDetailsActivity"
+            android:name=".userprofile.ContributionDetailsActivity"
             android:theme="@style/AppTheme.Page" />
 
-         <activity
+        <activity
             android:name=".commons.FilePageActivity"
             android:label=""
             android:theme="@style/AppTheme.ActionBar"/>
+
+        <activity
+            android:name=".talk.TalkTopicsActivity"
+            android:theme="@style/AppTheme.ActionBar" />
+
+        <activity
+            android:name=".talk.TalkTopicActivity" />
 
         <provider
             android:authorities="${applicationId}"

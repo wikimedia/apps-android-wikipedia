@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/paper_color"
     android:fitsSystemWindows="true">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -63,7 +62,7 @@
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_gravity="center_vertical"
-                            android:tint="?attr/toolbar_icon_color"
+                            app:tint="?attr/toolbar_icon_color"
                             android:contentDescription="@null"
                             app:srcCompat="@drawable/ic_arrow_drop_down_black_24dp" />
                     </LinearLayout>
@@ -96,7 +95,7 @@
                     android:layout_marginBottom="-36dp"
                     android:alpha="0.5"
                     android:contentDescription="@null"
-                    android:tint="?attr/toolbar_icon_color"
+                    app:tint="?attr/toolbar_icon_color"
                     app:srcCompat="@drawable/ic_event_black_24dp" />
             </FrameLayout>
 
@@ -134,7 +133,7 @@
                         android:id="@+id/drop_down_toolbar"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:tint="?attr/toolbar_icon_color"
+                        app:tint="?attr/toolbar_icon_color"
                         android:contentDescription="@null"
                         app:srcCompat="@drawable/ic_arrow_drop_down_black_24dp" />
                 </LinearLayout>
@@ -152,7 +151,7 @@
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:contentDescription="@null"
-                        android:tint="?attr/toolbar_icon_color"
+                        app:tint="?attr/toolbar_icon_color"
                         app:srcCompat="@drawable/ic_empty_event" />
 
                     <TextView

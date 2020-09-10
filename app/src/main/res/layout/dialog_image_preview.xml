@@ -31,13 +31,13 @@
 
                 <ImageView
                     android:id="@+id/downChevron"
-                    android:layout_width="@dimen/bottom_toolbar_icon_size"
-                    android:layout_height="@dimen/bottom_toolbar_icon_size"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
                     android:layout_gravity="center_vertical"
                     android:contentDescription="@null"
                     android:padding="12dp"
                     android:scaleY="-1"
-                    android:tint="?attr/toolbar_icon_color"
+                    app:tint="?attr/toolbar_icon_color"
                     app:srcCompat="@drawable/ic_keyboard_arrow_up_black_24dp" />
 
                 <TextView

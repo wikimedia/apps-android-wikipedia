@@ -253,9 +253,9 @@
 
     <style name="FlatButton.Small" parent="FlatButton">
         <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">32dp</item>
-        <item name="android:insetBottom">0dp</item>
-        <item name="android:insetTop">0dp</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:insetBottom">8dp</item>
+        <item name="android:insetTop">8dp</item>
         <item name="android:letterSpacing">0.05</item>
         <item name="iconPadding">4dp</item>
     </style>
@@ -335,11 +335,15 @@
         <item name="android:textColor">@color/red50</item>
     </style>
 
+    <style name="TextInputLayoutErrorTextAppearance">
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
     <style name="MaterialLargePrimaryTitle">
         <item name="android:textAlignment">center</item>
         <item name="android:textSize">20sp</item>
         <item name="android:lineSpacingExtra">8sp</item>
-        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textStyle">bold</item>
         <item name="android:textColor">?attr/material_theme_primary_color</item>
     </style>
 
@@ -395,6 +399,7 @@
         <item name="hintTextColor">?attr/colorAccent</item>
         <item name="helperTextTextColor">?attr/material_theme_de_emphasised_color</item>
         <item name="counterTextColor">?attr/material_theme_de_emphasised_color</item>
+        <item name="errorTextAppearance">@style/TextInputLayoutErrorTextAppearance</item>
     </style>
 
     <style name="PagePopupMenu" parent="@style/Widget.AppCompat.PopupMenu.Overflow">
@@ -423,6 +428,8 @@
         <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:textColor">?attr/chip_text_color</item>
         <item name="android:lineSpacingExtra">2sp</item>
+        <item name="ensureMinTouchTargetSize">true</item>
+        <item name="chipMinTouchTargetSize">48dp</item>
     </style>
 
     <style name="AlertDialogStyle" parent="ThemeOverlay.MaterialComponents.Dialog.Alert">
@@ -446,10 +453,16 @@
     </style>
 
     <style name="PageActionTabLayoutButtonStyle">
-        <item name="android:layout_width">@dimen/bottom_toolbar_icon_size</item>
-        <item name="android:layout_height">@dimen/bottom_toolbar_icon_size</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">match_parent</item>
         <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
-        <item name="android:padding">@dimen/bottom_toolbar_item_padding</item>
-        <item name="tint">?attr/material_theme_secondary_color</item>
+        <item name="android:textColor">?attr/material_theme_de_emphasised_color</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="drawableSize">24dp</item>
+        <item name="drawableTint">?attr/material_theme_de_emphasised_color</item>
     </style>
 </resources>

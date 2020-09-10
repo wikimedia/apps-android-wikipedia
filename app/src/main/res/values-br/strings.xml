@@ -18,9 +18,7 @@
   <string name="page_tabs_back">Distreiñ</string>
   <string name="nav_item_forward">Da-heul</string>
   <string name="search_hint">Klask e Wikipedia</string>
-  <string name="search_hint_search_history">Klask er roll istor</string>
   <string name="search_hint_search_languages">Klask ur yezh</string>
-  <string name="search_hint_search_my_lists_and_articles">Klask em rolloù ha pennadoù</string>
   <string name="nav_item_history">Istor</string>
   <string name="error_network_error">N\'eus ket bet gallet kevreañ ouzh ar rouedad.</string>
   <string name="page_error_retry">Klask en-dro</string>
@@ -164,7 +162,6 @@
   <string name="preference_title_auto_upload_crash_reports">Kas danevelloù implij</string>
   <string name="preference_summary_auto_upload_crash_reports" fuzzy="true">Reiñ tro d\'an arload da gas danevelloù implij da HockeyApp - ur pourchaser servijoù tredeour - en un doare emgefreek, abalamour ma c\'hallimp kompren warno ha reizhañ ar c\'hudennoù buanoc\'h hag aesoc\'h.</string>
   <string name="editing_error_spamblacklist">Liammoù war-zu an domanioù stanket (%s). Lamit anezho ha klaskit en-dro, mar plij.</string>
-  <string name="history_search_list_hint">Klask er roll-istor</string>
   <string name="error_can_not_process_link">N\'eus ket bet gallet diskwel al liamm-mañ</string>
   <string name="page_protected_autoconfirmed">Damwarezet eo bet ar bajenn-mañ.</string>
   <string name="page_protected_sysop">Gwarezet penn-da-benn eo bet ar bajenn-mañ.</string>
@@ -246,7 +243,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">Aotren</string>
   <string name="read_more_section">Lenn muioc\'h</string>
   <string name="about_article_section">Diwar-benn ar pennad-mañ</string>
-  <string name="menu_gallery_visit_page">Mont da bajenn ar restr</string>
+  <string name="menu_gallery_visit_image_page">Mont da bajenn ar restr</string>
   <string name="gallery_error_draw_failed">Ne c\'haller ket tresañ ar skeudenn.</string>
   <string name="license_title">Aotre-imoplijout evit %s</string>
   <string name="gallery_menu_share">Rannañ</string>
@@ -313,8 +310,6 @@
   <string name="crash_report_relaunch_or_quit">Hon digarezit, ur fazi zo degouezhet gant an arolad Wikimedia ha chomet eo a-sav.\n\nHa c\'hoant ho peus da adloc\'hañ pe da guitaat ?</string>
   <string name="crash_report_relaunch">Adloc\'hañ</string>
   <string name="crash_report_quit">Kuitaat</string>
-  <string name="article_menu_bar_bookmark">Ouzhpennañ ar pennad-se d\'ul listenn lenn</string>
-  <string name="article_menu_bar_share">Rannañ al liamm war-zu ar bajenn</string>
   <string name="article_header_edit_hint">Kemmañ...</string>
   <string name="article_header_edit_description" fuzzy="true">Kemmañ titl an deskrivadur</string>
   <string name="article_header_edit_lead_section">Kemmañ ar raklavar</string>
@@ -491,7 +486,6 @@
   <string name="view_continue_reading_card_subtitle_today">Hiziv</string>
   <string name="view_continue_reading_card_subtitle_read_date">Lenn %s</string>
   <string name="view_announcement_card_negative_action">Ne\'m bo ket, trugarez</string>
-  <string name="onboarding_negative_action">Nann, trugarez</string>
   <string name="view_offline_card_text">N\'haller ket kargañ danvez pa vezer ezlinenn.</string>
   <string name="view_featured_article_card_title">Pennpennad</string>
   <string name="view_featured_article_footer_save_button_label">Enrollañ</string>

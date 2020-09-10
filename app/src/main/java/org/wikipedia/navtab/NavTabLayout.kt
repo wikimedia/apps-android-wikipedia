@@ -4,7 +4,6 @@ import android.content.Context
 import android.text.TextUtils
 import android.util.AttributeSet
 import android.view.Menu
-import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -12,14 +11,10 @@ import org.wikipedia.R
 
 class NavTabLayout constructor(context: Context, attrs: AttributeSet) : BottomNavigationView(context, attrs) {
     init {
-        setTabViews()
-    }
-
-    fun setTabViews() {
         menu.clear()
         for (i in 0 until NavTab.size()) {
             val navTab = NavTab.of(i)
-            menu.add(Menu.NONE, View.generateViewId(), i, navTab.text()).setIcon(navTab.icon())
+            menu.add(Menu.NONE, navTab.id(), i, navTab.text()).setIcon(navTab.icon())
         }
         fixTextStyle()
     }

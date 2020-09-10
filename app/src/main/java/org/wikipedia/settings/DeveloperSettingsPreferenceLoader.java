@@ -10,6 +10,7 @@ import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.TwoStatePreference;
 
+import org.wikipedia.LeakCanaryStubKt;
 import org.wikipedia.R;
 import org.wikipedia.WikipediaApp;
 import org.wikipedia.dataclient.WikiSite;
@@ -20,7 +21,8 @@ import org.wikipedia.page.PageTitle;
 import org.wikipedia.readinglist.database.ReadingList;
 import org.wikipedia.readinglist.database.ReadingListDbHelper;
 import org.wikipedia.readinglist.database.ReadingListPage;
-import org.wikipedia.suggestededits.provider.MissingDescriptionProvider;
+import org.wikipedia.suggestededits.provider.EditingSuggestionsProvider;
+import org.wikipedia.talk.TalkPageSeenDatabaseTable;
 import org.wikipedia.util.StringUtil;
 
 import java.util.ArrayList;
@@ -145,7 +147,7 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
 
         findPreference(context.getString(R.string.preference_key_missing_description_test))
                 .setOnPreferenceClickListener(preference -> {
-                    MissingDescriptionProvider.INSTANCE.getNextArticleWithMissingDescription(WikipediaApp.getInstance().getWikiSite())
+                    EditingSuggestionsProvider.INSTANCE.getNextArticleWithMissingDescription(WikipediaApp.getInstance().getWikiSite(), 10)
                             .subscribeOn(Schedulers.io())
                             .observeOn(AndroidSchedulers.mainThread())
                             .subscribe(summary -> new AlertDialog.Builder(getActivity())
@@ -166,8 +168,8 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
 
         findPreference(context.getString(R.string.preference_key_missing_description_test2))
                 .setOnPreferenceClickListener(preference -> {
-                    MissingDescriptionProvider.INSTANCE.getNextArticleWithMissingDescription(WikipediaApp.getInstance().getWikiSite(),
-                            WikipediaApp.getInstance().language().getAppLanguageCodes().get(1), true)
+                    EditingSuggestionsProvider.INSTANCE.getNextArticleWithMissingDescription(WikipediaApp.getInstance().getWikiSite(),
+                            WikipediaApp.getInstance().language().getAppLanguageCodes().get(1), true, 10)
                             .subscribeOn(Schedulers.io())
                             .observeOn(AndroidSchedulers.mainThread())
                             .subscribe(pair -> new AlertDialog.Builder(getActivity())
@@ -210,6 +212,18 @@ class DeveloperSettingsPreferenceLoader extends BasePreferenceLoader {
         findPreference(context.getString(R.string.preferences_developer_suggested_edits_reactivation_notification_stage_two))
                 .setOnPreferenceClickListener(preference -> {
                     NotificationPollBroadcastReceiver.showSuggestedEditsLocalNotification(getActivity(), R.string.suggested_edits_reactivation_notification_stage_two);
+                    return true;
+                });
+
+        findPreference(context.getString(R.string.preference_developer_clear_all_talk_topics))
+                .setOnPreferenceClickListener(preference -> {
+                    TalkPageSeenDatabaseTable.INSTANCE.resetAllUnseen();
+                    return true;
+                });
+
+        findPreference(context.getString(R.string.preference_key_memory_leak_test))
+                .setOnPreferenceChangeListener((preference, newValue) -> {
+                    LeakCanaryStubKt.setupLeakCanary();
                     return true;
                 });
     }

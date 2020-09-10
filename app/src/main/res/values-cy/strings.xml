@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Authors:
+* Abijeet Patro
 * Cymrodor
 * Johnogwen123
 * Lloffiwr
@@ -15,9 +16,7 @@
   <string name="nav_item_forward">Ymlaen</string>
   <string name="search_hint">Chwilio Wicipedia</string>
   <string name="search_hint_voice_search">Chwilio gyda llais</string>
-  <string name="search_hint_search_history">Chwilio\'r hanes</string>
   <string name="search_hint_search_languages">Chwilio am iaith</string>
-  <string name="search_hint_search_my_lists_and_articles">Chwiliwch fy rhestrau ac erthyglau</string>
   <string name="nav_item_history">Hanes</string>
   <string name="nav_item_suggested_edits" fuzzy="true">Golygiadau a awgrymir</string>
   <string name="error_network_error">Ni ellir cysylltu â\'r rhyngrwyd.</string>
@@ -154,7 +153,6 @@
   <string name="preference_title_eventlogging_opt_in">Danfon adroddiad am y defnydd</string>
   <string name="preference_summary_eventlogging_opt_in">Caniatau i Wicipedia gasglu gwybodaeth am sut rydych yn defnyddio\'r ap, er mwyn ei wella</string>
   <string name="preference_title_auto_upload_crash_reports">Danfon adroddiad am y gwall</string>
-  <string name="history_search_list_hint">Chwilio\'r hanes</string>
   <string name="error_can_not_process_link">methwyd ag arddangos y ddolen</string>
   <string name="page_protected_autoconfirmed">Mae\'r ddalen wedi\'i lled-warchod.</string>
   <string name="page_protected_sysop">Mae\'r ddalen wedi\'i gwarchod yn llwyr.</string>
@@ -216,7 +214,7 @@
   <string name="dialog_close_description">Cau</string>
   <string name="preference_title_show_images">Dangos delweddau</string>
   <string name="read_more_section">Darllen mwy</string>
-  <string name="menu_gallery_visit_page">Ewch i ddalen y ffeil</string>
+  <string name="menu_gallery_visit_image_page">Ewch i ddalen y ffeil</string>
   <string name="gallery_error_draw_failed">Methwyd tynnu llun y ddelwedd.</string>
   <string name="license_title">Trwydded i %s</string>
   <string name="gallery_menu_share">Rhannu</string>
@@ -257,8 +255,6 @@
   <string name="crash_report_relaunch_or_quit">Cafwyd nam. Ymddiheurwn am hyn.\n\nCychwyn eto neu roi\'r gorau iddi?</string>
   <string name="crash_report_relaunch">Cychwyn eto</string>
   <string name="crash_report_quit">Rhoi\'r ffidil yn y to!</string>
-  <string name="article_menu_bar_bookmark">Ychwanegwch yr erthygl hon i\'ch rhestr ddarllen</string>
-  <string name="article_menu_bar_share">Rhannwch ddolen yr erthygl hon</string>
   <string name="article_header_edit_hint">Golygu...</string>
   <string name="article_header_edit_description">Golygu disgrifiad o\'r erthygl</string>
   <string name="article_header_edit_lead_section">Golygu\'r rhan gyntaf</string>

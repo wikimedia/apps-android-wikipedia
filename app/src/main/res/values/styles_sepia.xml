@@ -4,7 +4,7 @@
     <style name="ThemeSepia" parent="ThemeLight">
 
         <!-- Default background for all activities -->
-        <item name="android:windowBackground">@color/amate</item>
+        <item name="android:windowBackground">@color/parchment</item>
         <item name="android:colorBackground">@color/papyrus</item>
 
         <item name="colorError">@color/red30</item>

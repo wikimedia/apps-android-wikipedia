@@ -5,12 +5,12 @@ import android.util.AttributeSet
 import android.view.View
 import org.wikipedia.R
 import org.wikipedia.page.action.PageActionTab
-import org.wikipedia.util.FeedbackUtil
 import org.wikipedia.views.ConfigurableTabLayout
 
 class PageActionTabLayout constructor(context: Context, attrs: AttributeSet? = null) : ConfigurableTabLayout(context, attrs) {
     init {
         View.inflate(getContext(), R.layout.view_article_tab_layout, this)
+        orientation = HORIZONTAL
     }
 
     fun setPageActionTabsCallback(pageActionTabsCallback: PageActionTab.Callback) {
@@ -25,7 +25,6 @@ class PageActionTabLayout constructor(context: Context, attrs: AttributeSet? = n
                     }
                 }
             }
-            FeedbackUtil.setToolbarButtonLongPressToast(tab)
         }
     }
 }

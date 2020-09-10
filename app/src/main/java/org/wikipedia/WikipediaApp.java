@@ -60,7 +60,6 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.internal.functions.Functions;
 import io.reactivex.rxjava3.plugins.RxJavaPlugins;
 import io.reactivex.rxjava3.schedulers.Schedulers;
-import leakcanary.AppWatcher;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.wikipedia.settings.Prefs.getTextSizeMultiplier;
@@ -149,15 +148,7 @@ public class WikipediaApp extends Application {
 
         initExceptionHandling();
 
-        if (Prefs.isMemoryLeakTestEnabled()) {
-            AppWatcher.setConfig(new AppWatcher.Config.Builder(AppWatcher.getConfig())
-                    .enabled(true)
-                    .watchActivities(true)
-                    .watchFragments(true)
-                    .build());
-        } else {
-            AppWatcher.setConfig(new AppWatcher.Config.Builder(AppWatcher.getConfig()).enabled(false).build());
-        }
+        LeakCanaryStubKt.setupLeakCanary();
 
         // See Javadocs and http://developer.android.com/tools/support-library/index.html#rev23-4-0
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
@@ -380,6 +371,7 @@ public class WikipediaApp extends Application {
             crashListener = new AppCenterCrashesListener();
             Crashes.setListener(crashListener);
             AppCenter.start(this, getString(R.string.appcenter_id), Crashes.class);
+            AppCenter.setEnabled(Prefs.isCrashReportAutoUploadEnabled());
             Crashes.setEnabled(Prefs.isCrashReportAutoUploadEnabled());
         }
     }

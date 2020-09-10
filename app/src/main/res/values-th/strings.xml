@@ -25,9 +25,7 @@
   <string name="nav_item_forward">ถัดไป</string>
   <string name="search_hint">ค้นหาในวิกิพีเดีย</string>
   <string name="search_hint_voice_search">ค้นหาโดยใช้เสียง</string>
-  <string name="search_hint_search_history">ค้นหาประวัติ</string>
   <string name="search_hint_search_languages">ค้นหาภาษา</string>
-  <string name="search_hint_search_my_lists_and_articles">ค้นหารายการและบทความที่บันทึกใว้</string>
   <string name="nav_item_history">ประวัติ</string>
   <string name="nav_item_suggested_edits">การแก้ไขที่แนะนำ</string>
   <string name="nav_item_more">เพิ่มเติม</string>
@@ -180,7 +178,6 @@
   <string name="preference_title_auto_upload_crash_reports">ส่งรายงานข้อขัดข้อง</string>
   <string name="preference_summary_auto_upload_crash_reports">อนุญาตให้แอปส่งรายงานข้อขัดข้องไปยังบริการของบุคคลที่สามโดยอัตโนมัติ เพื่อเราจะได้ตรวจสอบและแก้ไขปัญหาได้รวดเร็วและง่ายดายยิ่งขึ้น</string>
   <string name="editing_error_spamblacklist">ตรวจพบลิงก์ไปยังโดเมนที่ถูกระงับ (%s) กรุณาลบและลองอีกครั้ง</string>
-  <string name="history_search_list_hint">ค้นหาประวัติ</string>
   <string name="error_can_not_process_link">ไม่สามารถแสดงลิงก์นี้ได้</string>
   <string name="page_protected_autoconfirmed">หน้านี้ถูกกึ่งป้องกัน</string>
   <string name="page_protected_sysop">หน้านี้ถูกป้องกันสมบูรณ์</string>
@@ -275,8 +272,6 @@
   <string name="enable_location_service">เปิดใช้งาน</string>
   <string name="crash_report_activity_title">แอพพลิเคชันเกิดข้อผิดพลาด</string>
   <string name="crash_report_quit">ออก</string>
-  <string name="article_menu_bar_bookmark">เพิ่มบทความนี้ลงไปยังรายการอ่าน</string>
-  <string name="article_menu_bar_share">แบ่งปันลิงก์บทความ</string>
   <string name="color_theme_light">สว่าง</string>
   <string name="color_theme_dark">มืด</string>
   <string name="nav_item_reading_lists">รายการของฉัน</string>
@@ -318,7 +313,6 @@
   <string name="description_edit_translate_description" fuzzy="true">แปลคำอธิบายชื่อเรื่อง</string>
   <string name="description_edit_add_image_caption">เติมคำบรรยายภาพ</string>
   <string name="description_edit_success_saved_image_caption_snackbar" fuzzy="true">คำบรรยายภาพถูกพิมแล้ว</string>
-  <string name="suggested_edits_translate_image_captions">แปลคำบรรยายภาพ</string>
   <string name="suggested_edits_task_translate_caption_title">แปลคำบรรยายภาพ</string>
   <string name="suggested_edits_task_translate_caption_description">แปลคำบรรยายเป็นภาษาอื่น</string>
   <string name="suggested_edits_task_translate_description_edit_disable_text" fuzzy="true">ล็อกไว้จนกว่าคุณจะได้แก้ไข %d คำอธิบายหัวข้อ</string>

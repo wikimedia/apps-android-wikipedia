@@ -2,15 +2,17 @@
     android:layout_width="match_parent"
     android:layout_height="40dp"
     android:layout_marginTop="8dp"
-    android:paddingStart="16dp"
-    android:paddingEnd="16dp">
+    android:paddingStart="8dp"
+    android:paddingEnd="8dp">
 
     <TextView
         android:id="@+id/day_header_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:textColor="?attr/material_theme_primary_color"
-        android:textSize="16sp" />
+        android:lineSpacingExtra="8sp"
+        android:textColor="?android:attr/textColorPrimary"
+        android:textSize="16sp"
+        android:textStyle="bold" />
 
 </FrameLayout>

@@ -25,9 +25,7 @@
   <string name="nav_item_forward">ရှေ့ပြန်သွားရန်</string>
   <string name="search_hint">ဝီကီပီးဒီးယားထဲတွင် ရှာဖွေပါ</string>
   <string name="search_hint_voice_search">အသံထည့်သွင်းရှာဖွေရေး</string>
-  <string name="search_hint_search_history">ရှာဖွေမှု သမိုင်း</string>
   <string name="search_hint_search_languages">ဘာသာစကားတစ်ခုအတွက် ရှာဖွေရန်</string>
-  <string name="search_hint_search_my_lists_and_articles">မိမိ၏စာရင်းနှင့်ဆောင်းပါးများကို ရှာဖွေရန်</string>
   <string name="nav_item_history">မှတ်တမ်း</string>
   <string name="nav_item_suggested_edits" fuzzy="true">အကြံပြုထားသော ပြင်ဆင်မှုများ</string>
   <string name="nav_item_more">ပို၍</string>
@@ -179,7 +177,6 @@
   <string name="preference_title_auto_upload_crash_reports">ပျက်မှု အစီရင်ခံချက်များအား ပို့ရန်</string>
   <string name="preference_summary_auto_upload_crash_reports">တတိယဝန်ဆောင်မှုလုပ်ငန်းသို့ အက်ပ်မှ ပျက်မှု အစီရင်ခံချက်များအား အလိုအလျောက် ပေးပို့စေခြင်းဖြင့် သင့်အစီရင်ခံချက်ကို လွယ်ကူလျှင်မြန်စွာ ကြည့်ရှုပြင်ဆင်နိုင်စေရန် ခွင့်ပြုပါ။</string>
   <string name="editing_error_spamblacklist">ပိတ်ပင်ထားသော ဒိုမိန်းများ (%s) သို့ ချိတ်ဆက်ထားမှု ရှိနေသည်။ ကျေးဇူးပြု၍ ယင်းတို့ကို ဖယ်ရှားပြီး ထပ်မံကြိုးစားပါ။</string>
-  <string name="history_search_list_hint">မှတ်တမ်းများ ရှာဖွေရန်</string>
   <string name="error_can_not_process_link">ဤလင့်ခ်အား ပြသနိုင်ခြင်း မရှိပါ</string>
   <string name="page_protected_autoconfirmed">ဤစာမျက်နှာအား တစ်စိတ်တစ်ပိုင်း ကာကွယ်ထားသည်။</string>
   <string name="page_protected_sysop">ဤစာမျက်နှာအား အပြည့်အဝ ကာကွယ်ထားသည်။</string>
@@ -267,7 +264,7 @@
   <string name="dialog_title_download_only_over_wifi_allow">ခွင့်ပြုရန်</string>
   <string name="read_more_section">ဆက်လက်ဖတ်ရှု</string>
   <string name="about_article_section">ဤဆောင်းပါးအကြောင်း</string>
-  <string name="menu_gallery_visit_page">ဖိုင်စာမျက်နှာသို့ သွားရန်</string>
+  <string name="menu_gallery_visit_image_page">ဖိုင်စာမျက်နှာသို့ သွားရန်</string>
   <string name="gallery_error_draw_failed">ပုံဆွဲ၍ မရနိုင်ပါ။</string>
   <string name="license_title">%s အတွက် လိုင်စင်</string>
   <string name="gallery_menu_share">မျှဝေ</string>
@@ -347,8 +344,6 @@
   <string name="crash_report_relaunch_or_quit">ကျွန်ုပ်တို့ စိတ်မကောင်းပါ၊ ဝီကီပီးဒီးယားအက်ပ်သည် အမှားတစ်ခု တွေ့ကြုံရပြီး ပိတ်သွားပါသည်။\n\nပြန်စမည်လော ထွက်မည်လော?</string>
   <string name="crash_report_relaunch">ပြန်စရန်</string>
   <string name="crash_report_quit">ထွက်</string>
-  <string name="article_menu_bar_bookmark">ဤဆောင်းပါးအား စာဖတ်စာရင်းသို့ ပေါင်းထည့်ရန်</string>
-  <string name="article_menu_bar_share">ဆောင်းပါးလင့်ခ်အား မျှဝေရန်</string>
   <string name="article_header_edit_hint">ပြင်ဆင်...</string>
   <string name="article_header_edit_description">ဆောင်းပါးဖော်ပြချက်ကို တည်းဖြတ်ရန်</string>
   <string name="article_header_edit_lead_section">မိတ်ဆက် တည်းဖြတ်ရန်</string>
@@ -573,7 +568,6 @@
   <string name="view_continue_reading_card_subtitle_today">ယနေ့</string>
   <string name="view_continue_reading_card_subtitle_read_date">%s ဖတ်ရှုခဲ့</string>
   <string name="view_announcement_card_negative_action">မလိုပါ၊ ကျေးဇူးတင်ပါသည်။</string>
-  <string name="onboarding_negative_action">မလိုပါ၊ ကျေးဇူးတင်ပါသည်။</string>
   <string name="view_offline_card_text">အော့ဖ်လိုင်းဖြစ်ချိန် အကြာင်းအရာကို ဝန်မဆွဲတင်နိုင်ပါ။</string>
   <string name="view_featured_article_card_title">အထူးဆောင်းပါး</string>
   <string name="view_featured_article_footer_save_button_label">သိမ်းရန်</string>
@@ -639,10 +633,6 @@
   <string name="description_edit_tutorial_keep_it_short_instructions">စာတစ်ကြောင်းထဲ၊ စာလုံး နှစ်လုံးမှ တစ်ဆယ့်နှစ်လုံးအကြား</string>
   <string name="description_edit_tutorial_button_label_start_editing">စတင်တည်းဖြတ်</string>
   <string name="description_edit_tutorial_promise">စတင်ခြင်းဖြင့် ဤအင်္ဂရပ်ကို တလွဲအသုံးမပြုပါဟု ကတိပြုပါသည်။</string>
-  <string name="suggested_edits_add_descriptions">ဆောင်းပါးဖော်ပြချက်များ ထည့်ပေါင်းရန်</string>
-  <string name="suggested_edits_translate_descriptions">ဆောင်းပါးဖော်ပြချက်များကို ဘာသာပြန်ရန်</string>
-  <string name="suggested_edits_add_image_captions">ရုပ်ပုံ ပုံစာများ ပေါင်းထည့်ရန်</string>
-  <string name="suggested_edits_translate_image_captions">ရုပ်ပုံ ပုံစာများကို ဘာသာပြန်ရန်</string>
   <string name="suggested_edits_review_description">ဆောင်းပါးဖော်ပြချက် ပြန်လည်ဆန်းစစ်ရန်</string>
   <string name="suggested_edits_add_description_button">ဖော်ပြချက်ထည့်သွင်းပါ</string>
   <string name="suggested_edits_edit_description_button">ဖော်ပြချက် တည်းဖြတ်ရန်</string>
@@ -666,7 +656,7 @@
   <string name="suggested_edits_task_multilingual_description">သင်သည် ဘာသာစကားတစ်ခုထက် ဖတ်ရှု၊ ရေးသားသူဆိုပါက ဘာသာပြန်လုပ်ငန်းများကို ရရှိနိုင်ပါသည်။</string>
   <string name="suggested_edits_task_multilingual_negative">မိမိအတွက် မဟုတ်ပါ</string>
   <string name="suggested_edits_task_multilingual_positive">ဘာသာစကားများ ထည့်သွင်းရန်</string>
-  <string name="suggested_edits_image_caption_summary_title_file">ဖိုင်</string>
+  <string name="suggested_edits_image_caption_summary_title_image">ဖိုင်</string>
   <string name="suggested_edits_image_caption_summary_title_artist">အနုပညာရှင်</string>
   <string name="suggested_edits_image_caption_summary_title_author">စာရေးသူ</string>
   <string name="suggested_edits_image_caption_summary_title_source">ရင်းမြစ်</string>
@@ -682,7 +672,7 @@
   <string name="suggested_edits_tasks_onboarding_get_started">စတင်ပါ</string>
   <string name="suggested_edits_image_preview_dialog_caption_in_language_title">ရုပ်ပုံ ပုံစာ (%s)</string>
   <string name="suggested_edits_image_preview_dialog_description_in_language_title">ရုပ်ပုံဖော်ပြချက် (%s)</string>
-  <string name="suggested_edits_image_preview_dialog_file">ဖိုင်</string>
+  <string name="suggested_edits_image_preview_dialog_image">ဖိုင်</string>
   <string name="suggested_edits_image_preview_dialog_artist">အနုပညာရှင်</string>
   <string name="suggested_edits_image_preview_dialog_date">နေ့စွဲ</string>
   <string name="suggested_edits_image_preview_dialog_source">ရင်းမြစ်/ဓါတ်ပုံဆရာ</string>
